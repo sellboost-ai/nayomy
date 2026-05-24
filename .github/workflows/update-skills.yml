@@ -1,0 +1,41 @@
+name: Update Skills
+
+on:
+  schedule:
+    # Her gece 03:00 UTC (Türkiye saatiyle 06:00)
+    - cron: "0 3 * * *"
+  workflow_dispatch: # Manuel tetiklenebilir
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run skill crawler
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-skills.js
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add skills.json
+          if git diff --staged --quiet; then
+            echo "✅ No changes — skills.json is up to date"
+          else
+            COUNT=$(grep -c '"name":' skills.json || true)
+            git commit -m "chore: auto-update skills.json ($(date +%Y-%m-%d))"
+            git push
+            echo "🚀 Pushed updated skills.json"
+          fi

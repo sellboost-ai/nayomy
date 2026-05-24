@@ -1,0 +1,13 @@
+{
+  "name": "nayomy",
+  "version": "1.0.0",
+  "description": "Agent Skills Directory — nayomy.com",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "fetch-skills": "node scripts/fetch-skills.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
