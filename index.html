@@ -10,189 +10,387 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nayomy.com">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a1814'/%3E%3Ctext x='50' y='68' font-family='Georgia' font-size='62' font-weight='900' fill='%23d94e1f' text-anchor='middle' font-style='italic'%3En%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' font-family='serif' font-size='62' font-weight='900' fill='%230040ff' text-anchor='middle' font-style='italic'%3En%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f4efe6; --bg-card: #fffdf8; --ink: #1a1814; --ink-soft: #5a5650;
-    --accent: #d94e1f; --accent-soft: #f5d5c5; --line: #1a1814;
-    --tag-bg: #1a1814; --tag-ink: #f4efe6; --shadow: 4px 4px 0 var(--ink);
-  }
-  [data-theme="dark"] {
-    --bg: #1a1814; --bg-card: #252220; --ink: #f4efe6; --ink-soft: #a8a39b;
-    --accent: #ff6b3d; --accent-soft: #3d2418; --line: #f4efe6;
-    --tag-bg: #f4efe6; --tag-ink: #1a1814; --shadow: 4px 4px 0 var(--ink);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: 'Fraunces', Georgia, serif;
-    font-feature-settings: "ss01", "ss02";
-    line-height: 1.5; min-height: 100vh;
-    background-image: radial-gradient(circle at 1px 1px, rgba(26,24,20,0.08) 1px, transparent 0);
-    background-size: 24px 24px;
-    transition: background 0.3s, color 0.3s;
-  }
-  [data-theme="dark"] body { background-image: radial-gradient(circle at 1px 1px, rgba(244,239,230,0.05) 1px, transparent 0); }
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg: #f0ede5;
+  --bg-card: #faf8f4;
+  --ink: #1c1917;
+  --ink-soft: #78716c;
+  --accent: #0040ff;
+  --accent-dim: rgba(0,64,255,0.08);
+  --line: rgba(28,25,23,0.14);
+  --line-hard: #1c1917;
+  --tag-bg: #1c1917;
+  --tag-ink: #f0ede5;
+  --fd: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Lora', Georgia, serif;
+  --fm: 'JetBrains Mono', 'Courier New', monospace;
+}
+[data-theme="dark"] {
+  --bg: #000;
+  --bg-card: #0d0d0d;
+  --ink: #f0ede5;
+  --ink-soft: #6b6560;
+  --accent: #39ff14;
+  --accent-dim: rgba(57,255,20,0.06);
+  --line: rgba(240,237,229,0.12);
+  --line-hard: rgba(240,237,229,0.7);
+  --tag-bg: #f0ede5;
+  --tag-ink: #000;
+}
 
-  nav { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--ink); }
-  .logo { font-size: 26px; font-weight: 900; letter-spacing: -0.04em; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
-  .logo-mark { width: 36px; height: 36px; background: var(--ink); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-style: italic; font-weight: 900; font-size: 24px; border: 2px solid var(--ink); }
-  .logo-mark span { color: var(--accent); }
-  .nav-right { display: flex; gap: 16px; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
-  .nav-link { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
-  .nav-link:hover { color: var(--accent); }
-  .theme-toggle { background: none; border: 2px solid var(--ink); color: var(--ink); padding: 6px 10px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
-  .theme-toggle:hover { background: var(--ink); color: var(--bg); }
-  .lang-switch { display: flex; border: 2px solid var(--ink); }
-  .lang-switch button { background: none; border: none; padding: 6px 10px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink); text-transform: uppercase; }
-  .lang-switch button.active { background: var(--ink); color: var(--bg); }
+/* ── RESET ───────────────────────────────────────────────── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-  header { padding: 64px 0 48px; border-bottom: 2px solid var(--line); position: relative; }
-  header::after { content: ""; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background: var(--line); }
-  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
-  .eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
-  h1 { font-size: clamp(48px, 8vw, 104px); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 24px; }
-  h1 .it { font-style: italic; font-weight: 400; color: var(--accent); }
-  .tagline { font-size: 20px; color: var(--ink-soft); max-width: 640px; margin-bottom: 40px; }
-  .stats { display: flex; gap: 48px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
-  .stat .num { display: block; font-family: 'Fraunces', serif; font-size: 36px; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 4px; }
-  .stat .label { color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; font-size: 10px; }
-  .last-updated { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); margin-top: 16px; opacity: 0.7; }
+/* ── BASE ────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--fb);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background .3s, color .3s;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+[data-theme="dark"] body {
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(57,255,20,.013) 3px, rgba(57,255,20,.013) 4px
+  );
+  background-size: auto;
+}
 
-  .controls { position: sticky; top: 0; background: var(--bg); padding: 24px 0; z-index: 10; border-bottom: 1px solid var(--ink); margin-bottom: 32px; }
-  .controls-inner { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-  .search-box { flex: 1; min-width: 280px; position: relative; }
-  .search-box input { width: 100%; padding: 14px 18px 14px 44px; border: 2px solid var(--ink); background: var(--bg-card); font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink); box-shadow: var(--shadow); transition: transform 0.15s; }
-  .search-box input:focus { outline: none; transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
-  .search-box::before { content: "⌕"; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--ink); }
-  .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
-  .filter-btn { padding: 10px 16px; border: 2px solid var(--ink); background: var(--bg-card); color: var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.1s; }
-  .filter-btn:hover { background: var(--accent-soft); }
-  .filter-btn.active { background: var(--ink); color: var(--bg); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; padding-bottom: 80px; }
-  .card { background: var(--bg-card); border: 2px solid var(--ink); padding: 24px; box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-  .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-  .card:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--ink); }
-  .card:hover::before { transform: scaleX(1); }
-  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-  .card-name { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; word-break: break-word; line-height: 1.1; }
-  .card-cat { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 8px; background: var(--tag-bg); color: var(--tag-ink); white-space: nowrap; flex-shrink: 0; }
-  .card-desc { color: var(--ink-soft); font-size: 15px; margin-bottom: 20px; flex-grow: 1; }
-  .card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px dashed var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 11px; gap: 8px; }
-  .card-repo { color: var(--ink-soft); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
-  .card-repo:hover { color: var(--accent); }
-  .card-stars { font-weight: 700; flex-shrink: 0; }
-  .card-link { color: var(--ink); text-decoration: none; font-weight: 700; border: 1px solid var(--ink); padding: 6px 10px; transition: all 0.1s; flex-shrink: 0; }
-  .card-link:hover { background: var(--ink); color: var(--bg); }
+/* ── NAV ─────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 20px;
+  border-bottom: 1px solid var(--line-hard);
+}
+.logo { display: flex; align-items: baseline; gap: 0; text-decoration: none; color: var(--ink); }
+.logo-prompt { font-family: var(--fm); font-size: 12px; color: var(--accent); margin-right: 7px; font-weight: 700; user-select: none; }
+.logo-name { font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.nav-right { display: flex; gap: 20px; align-items: center; }
+.nav-link { font-family: var(--fm); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-soft); text-decoration: none; transition: color .15s; }
+.nav-link:hover { color: var(--accent); }
+.lang-switch { display: flex; border: 1px solid var(--line-hard); }
+.lang-switch button { background: none; border: none; padding: 5px 9px; cursor: pointer; font-family: var(--fm); font-size: 10px; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: .08em; transition: all .15s; }
+.lang-switch button.active { background: var(--ink); color: var(--bg); }
+.theme-toggle { background: none; border: 1px solid var(--line-hard); color: var(--ink); width: 30px; height: 30px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all .15s; }
+.theme-toggle:hover { background: var(--ink); color: var(--bg); }
 
-  .empty { grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--ink-soft); font-size: 18px; font-style: italic; }
-  .results-count { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); margin-left: auto; text-transform: uppercase; letter-spacing: 0.1em; }
+/* ── HERO ────────────────────────────────────────────────── */
+header { padding: 80px 0 56px; }
+.hero-eyebrow {
+  font-family: var(--fm); font-size: 11px; letter-spacing: .14em;
+  color: var(--accent); margin-bottom: 36px;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-eyebrow::before { content: '$'; font-weight: 700; }
+h1 {
+  font-family: var(--fd);
+  font-size: clamp(64px, 10.5vw, 132px);
+  font-weight: 900; line-height: .9;
+  letter-spacing: -.03em; margin-bottom: 36px;
+}
+h1 .it { font-style: italic; font-weight: 400; }
+.cursor {
+  display: inline-block; color: var(--accent);
+  animation: blink 1s step-end infinite;
+  font-weight: 400; font-style: normal;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.tagline {
+  font-family: var(--fb); font-size: 17px; font-style: italic;
+  color: var(--ink-soft); max-width: 520px;
+  margin-bottom: 52px; line-height: 1.75;
+}
+.stats { display: flex; gap: 52px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 20px; }
+.stat .num {
+  display: block; font-family: var(--fd);
+  font-size: 60px; font-weight: 900; line-height: 1;
+  letter-spacing: -.04em; color: var(--ink); margin-bottom: 6px;
+}
+.stat .label { font-family: var(--fm); font-size: 9px; text-transform: uppercase; letter-spacing: .2em; color: var(--ink-soft); }
+.last-updated { font-family: var(--fm); font-size: 10px; color: var(--ink-soft); opacity: .55; letter-spacing: .04em; }
 
-  .loading { grid-column: 1/-1; text-align: center; padding: 100px 20px; font-family: 'JetBrains Mono', monospace; color: var(--ink-soft); }
-  .loading-dot { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin: 0 4px; animation: pulse 1.2s ease-in-out infinite; }
-  .loading-dot:nth-child(2) { animation-delay: 0.2s; }
-  .loading-dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
+/* ── TICKER ──────────────────────────────────────────────── */
+.ticker-wrap {
+  border-top: 1px solid var(--line-hard);
+  border-bottom: 1px solid var(--line-hard);
+  padding: 9px 0;
+  overflow: hidden;
+  position: relative;
+  margin: 0 -40px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.ticker-label {
+  font-family: var(--fm); font-size: 9px; text-transform: uppercase;
+  letter-spacing: .18em; color: var(--accent);
+  position: absolute; left: 40px; top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg); padding-right: 14px; z-index: 2;
+}
+.ticker-track {
+  display: inline-flex; white-space: nowrap;
+  animation: marquee 40s linear infinite;
+  padding-left: 80px;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-item { font-family: var(--fm); font-size: 11px; color: var(--ink-soft); padding: 0 18px; }
+.ticker-item strong { color: var(--accent); font-weight: 700; }
 
-  .install-section { padding: 60px 0; border-top: 2px solid var(--ink); margin-top: 40px; }
-  .install-title { font-size: 48px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 24px; }
-  .install-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
-  .install-step { border: 2px solid var(--ink); padding: 24px; background: var(--bg-card); box-shadow: var(--shadow); }
-  .install-step-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
-  .install-step h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-  .install-step p { color: var(--ink-soft); font-size: 14px; }
-  .install-step pre { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--ink); color: var(--bg); padding: 12px; overflow-x: auto; }
+/* ── CONTROLS ────────────────────────────────────────────── */
+.controls {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--bg);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-hard);
+  margin-bottom: 0;
+  transition: background .3s;
+}
+.controls-inner { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.search-box { flex: 1; min-width: 240px; position: relative; }
+.search-prompt {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  font-family: var(--fm); font-size: 11px; color: var(--accent);
+  font-weight: 700; pointer-events: none; z-index: 1; user-select: none;
+}
+.search-box input {
+  width: 100%; padding: 10px 14px 10px 36px;
+  border: 1px solid var(--line-hard);
+  background: var(--bg-card); font-family: var(--fm);
+  font-size: 12px; color: var(--ink); outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.search-box input::placeholder { color: var(--ink-soft); opacity: .5; }
+.search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-dim); }
+.filter-group { display: flex; gap: 5px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 7px 12px; border: 1px solid var(--line);
+  background: transparent; color: var(--ink-soft);
+  font-family: var(--fm); font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .07em;
+  cursor: pointer; transition: all .15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.results-count { font-family: var(--fm); font-size: 10px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .1em; margin-left: auto; white-space: nowrap; }
 
-  footer { border-top: 2px solid var(--ink); padding: 40px 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
-  .footer-brand { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
-  .footer-tagline { color: var(--ink-soft); font-size: 13px; font-family: 'Fraunces', serif; max-width: 320px; }
-  .footer-col h4 { color: var(--ink); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; }
-  .footer-col a { display: block; color: var(--ink-soft); text-decoration: none; padding: 4px 0; }
-  .footer-col a:hover { color: var(--accent); }
-  .footer-bottom { display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px dashed var(--ink); flex-wrap: wrap; gap: 12px; }
+/* ── GRID ────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 0; margin-bottom: 80px;
+}
+.card {
+  background: var(--bg-card); padding: 26px 22px;
+  display: flex; flex-direction: column;
+  border-left: 3px solid transparent;
+  transition: background .18s, border-color .18s;
+}
+.card:hover { background: var(--bg); border-left-color: var(--accent); }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.card-name { font-family: var(--fd); font-size: 21px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; word-break: break-word; }
+.card-cat {
+  font-family: var(--fm); font-size: 9px; letter-spacing: .1em;
+  text-transform: uppercase; padding: 3px 6px;
+  border: 1px solid var(--line); color: var(--ink-soft);
+  white-space: nowrap; flex-shrink: 0;
+}
+.card-desc { font-family: var(--fb); font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 14px; flex-grow: 1; }
+.card-install { font-family: var(--fm); font-size: 10.5px; color: var(--ink-soft); margin-bottom: 14px; }
+.card-install .p { color: var(--accent); font-weight: 700; }
+.card-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 12px; border-top: 1px solid var(--line);
+  font-family: var(--fm); font-size: 10px; gap: 8px;
+}
+.card-repo { color: var(--ink-soft); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; transition: color .15s; }
+.card-repo:hover { color: var(--accent); }
+.card-stars { flex-shrink: 0; color: var(--ink-soft); font-weight: 700; }
+.card-link {
+  font-family: var(--fm); font-size: 9px; font-weight: 700;
+  color: var(--accent); text-decoration: none; letter-spacing: .05em;
+  border: 1px solid var(--accent); padding: 4px 8px;
+  transition: all .15s; flex-shrink: 0; text-transform: uppercase;
+}
+.card-link:hover { background: var(--accent); color: var(--bg); }
 
-  @media (max-width: 640px) {
-    .container { padding: 0 20px; }
-    header { padding: 32px 0 24px; }
-    .stats { gap: 24px; }
-    .grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-    nav { flex-wrap: wrap; gap: 12px; }
-  }
+/* ── LOADING ─────────────────────────────────────────────── */
+.loading-terminal {
+  grid-column: 1/-1; padding: 60px 28px;
+  font-family: var(--fm); font-size: 12px;
+  line-height: 2; color: var(--ink-soft);
+}
+.term-line { margin-bottom: 2px; }
+.term-prompt { color: var(--accent); font-weight: 700; }
+.term-progress { margin-top: 14px; display: flex; align-items: center; gap: 14px; }
+.term-bar { color: var(--accent); letter-spacing: 1px; font-size: 13px; }
+.term-pct { color: var(--ink-soft); }
+
+/* ── EMPTY ───────────────────────────────────────────────── */
+.empty { grid-column: 1/-1; text-align: center; padding: 80px 20px; font-family: var(--fm); font-size: 12px; color: var(--ink-soft); }
+.empty::before { display: block; content: '> no results found'; color: var(--accent); margin-bottom: 10px; }
+
+/* ── INSTALL SECTION ─────────────────────────────────────── */
+.install-section { padding: 80px 0; border-top: 1px solid var(--line-hard); }
+.section-eyebrow {
+  font-family: var(--fm); font-size: 9px; text-transform: uppercase;
+  letter-spacing: .2em; color: var(--accent); margin-bottom: 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-eyebrow::before { content: '//'; opacity: .45; }
+.section-title { font-family: var(--fd); font-size: clamp(36px, 5vw, 68px); font-weight: 900; letter-spacing: -.03em; margin-bottom: 44px; line-height: .95; }
+.install-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.install-step { background: var(--bg-card); padding: 32px 26px; }
+.install-step-num { font-family: var(--fm); font-size: 9px; color: var(--accent); letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; }
+.install-step h3 { font-family: var(--fd); font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; }
+.install-step p { font-family: var(--fb); color: var(--ink-soft); font-size: 13.5px; line-height: 1.6; }
+.install-step pre { font-family: var(--fm); font-size: 11px; background: #1c1917; color: #f0ede5; padding: 14px 16px; overflow-x: auto; line-height: 1.9; margin-top: 10px; }
+[data-theme="dark"] .install-step pre { background: #0d0d0d; color: var(--accent); border: 1px solid var(--accent); }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer { border-top: 1px solid var(--line-hard); padding: 56px 0 36px; }
+.footer-ascii { overflow-x: auto; margin-bottom: 44px; }
+.footer-ascii pre {
+  font-family: var(--fm); font-size: 11px; line-height: 1.75;
+  color: var(--ink-soft); white-space: pre;
+}
+.footer-ascii .a-accent { color: var(--accent); }
+.footer-ascii .a-ink { color: var(--ink); font-weight: 700; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+.footer-brand { font-family: var(--fd); font-size: 22px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 8px; }
+.footer-tagline { font-family: var(--fb); font-size: 13px; color: var(--ink-soft); font-style: italic; max-width: 260px; line-height: 1.65; }
+.footer-col h4 { font-family: var(--fm); font-size: 9px; text-transform: uppercase; letter-spacing: .2em; color: var(--ink); margin-bottom: 14px; }
+.footer-col a { display: block; font-family: var(--fm); font-size: 11px; color: var(--ink-soft); text-decoration: none; padding: 3px 0; transition: color .15s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { display: flex; justify-content: space-between; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--fm); font-size: 10px; color: var(--ink-soft); flex-wrap: wrap; gap: 10px; }
+
+/* ── A11Y ────────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .ticker-wrap { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+  .ticker-label { left: 20px; }
+  nav { flex-wrap: wrap; gap: 12px; }
+  header { padding: 44px 0 36px; }
+  h1 { font-size: clamp(52px, 14vw, 80px); }
+  .stats { gap: 28px; }
+  .grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .nav-link { display: none; }
+  .controls-inner { flex-direction: column; align-items: stretch; }
+  .results-count { margin-left: 0; }
+}
 </style>
 </head>
 <body>
 <div class="container">
+
   <nav>
-    <a href="/" class="logo">
-      <span class="logo-mark">n<span>.</span></span>
-      <span>nayomy</span>
+    <a href="/" class="logo" aria-label="Nayomy home">
+      <span class="logo-prompt" aria-hidden="true">&gt;_</span>
+      <span class="logo-name">nayomy</span>
     </a>
     <div class="nav-right">
       <a href="#about" class="nav-link" data-i18n="nav-about">About</a>
       <a href="#install" class="nav-link" data-i18n="nav-install">Install</a>
-      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" class="nav-link">GitHub</a>
-      <div class="lang-switch">
-        <button data-lang="en" class="active">EN</button>
-        <button data-lang="tr">TR</button>
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button data-lang="tr" aria-pressed="false">TR</button>
       </div>
-      <button class="theme-toggle" id="themeToggle" title="Toggle theme">◐</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">◐</button>
     </div>
   </nav>
 
   <header>
-    <div class="eyebrow" data-i18n="eyebrow">Nayomy · Agent Skills Directory · 2026</div>
-    <h1 data-i18n-html="title">Skills that<br>make AI<br><span class="it">actually</span> useful.</h1>
+    <div class="hero-eyebrow" data-i18n="eyebrow-cmd">nayomy --mode catalog --year 2026</div>
+    <h1 data-i18n-html="title">The catalog<br>for <span class="it">agent</span><br>skills<span class="cursor">▮</span></h1>
     <p class="tagline" data-i18n="tagline">An auto-updating, searchable catalog of Claude and agent skills published on GitHub. Indexed daily.</p>
     <div class="stats">
-      <div class="stat"><span class="num" id="totalCount">…</span><span class="label" data-i18n="stat-skills">Total Skills</span></div>
-      <div class="stat"><span class="num" id="repoCount">…</span><span class="label" data-i18n="stat-repos">Source Repos</span></div>
-      <div class="stat"><span class="num" id="catCount">…</span><span class="label" data-i18n="stat-cats">Categories</span></div>
+      <div class="stat"><span class="num" id="totalCount">—</span><span class="label" data-i18n="stat-skills">Total Skills</span></div>
+      <div class="stat"><span class="num" id="repoCount">—</span><span class="label" data-i18n="stat-repos">Source Repos</span></div>
+      <div class="stat"><span class="num" id="catCount">—</span><span class="label" data-i18n="stat-cats">Categories</span></div>
     </div>
     <div class="last-updated" id="lastUpdated"></div>
   </header>
 
+</div>
+
+<div class="ticker-wrap" id="tickerWrap" aria-hidden="true">
+  <span class="ticker-label" data-i18n="ticker-label">LIVE</span>
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<div class="container">
+
   <div class="controls">
     <div class="controls-inner">
       <div class="search-box">
-        <input type="text" id="search" placeholder="Search skills... (pdf, slack, debug, design)">
+        <span class="search-prompt" aria-hidden="true">&gt;</span>
+        <label for="search" class="sr-only">Search skills</label>
+        <input type="text" id="search" placeholder="search skills...">
       </div>
-      <div class="filter-group" id="filters"></div>
-      <div class="results-count" id="resultsCount"></div>
+      <div class="filter-group" id="filters" role="group" aria-label="Filter by category"></div>
+      <div class="results-count" id="resultsCount" aria-live="polite"></div>
     </div>
   </div>
 
-  <div class="grid" id="grid">
-    <div class="loading">
-      <span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span>
-      <div style="margin-top: 16px;" data-i18n="loading">Loading skills from GitHub…</div>
+  <div class="grid" id="grid" role="list">
+    <div class="loading-terminal" id="loadingTerm" role="status" aria-label="Loading skills">
+      <div class="term-line"><span class="term-prompt">$</span> nayomy --fetch --source github</div>
+      <div class="term-line">&gt; init catalog crawler</div>
+      <div class="term-line">&gt; connecting to api.github.com...</div>
+      <div class="term-progress">
+        <span class="term-bar" id="termBar">░░░░░░░░░░░░░░░░░░░░</span>
+        <span class="term-pct" id="termPct">0%</span>
+      </div>
     </div>
   </div>
 
   <section id="install" class="install-section">
-    <div class="eyebrow" data-i18n="install-eye">How to use</div>
-    <h2 class="install-title" data-i18n="install-title">Install any skill in 10 seconds.</h2>
+    <div class="section-eyebrow" data-i18n="install-eye">How to use</div>
+    <h2 class="section-title" data-i18n-html="install-title">Install any skill<br>in 10 seconds.</h2>
     <div class="install-grid">
       <div class="install-step">
-        <div class="install-step-num">Step 1</div>
+        <div class="install-step-num">Step 01</div>
         <h3 data-i18n="step1-title">Pick a skill</h3>
         <p data-i18n="step1-desc">Browse the catalog. Open the SKILL.md link to see what it does.</p>
       </div>
       <div class="install-step">
-        <div class="install-step-num">Step 2</div>
+        <div class="install-step-num">Step 02</div>
         <h3 data-i18n="step2-title">Clone it</h3>
         <pre>cd ~/.claude/skills
 git clone &lt;repo-url&gt;</pre>
       </div>
       <div class="install-step">
-        <div class="install-step-num">Step 3</div>
+        <div class="install-step-num">Step 03</div>
         <h3 data-i18n="step3-title">Use it</h3>
         <p data-i18n="step3-desc">Restart Claude Code. The skill auto-loads when relevant.</p>
       </div>
@@ -200,6 +398,18 @@ git clone &lt;repo-url&gt;</pre>
   </section>
 
   <footer id="about">
+    <div class="footer-ascii">
+<pre>╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║  <span class="a-ink">nayomy</span>                                                       ║
+║  ──────────────────────────────────────────────────────────  ║
+║  <span class="a-accent">$</span> cat /about                                                 ║
+║  &gt; a curated index of agent skills for the AI-native era    ║
+║  &gt; indexed daily from public GitHub repositories            ║
+║  &gt; free · open source · no tracking                         ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝</pre>
+    </div>
     <div class="footer-grid">
       <div>
         <div class="footer-brand">nayomy</div>
@@ -207,58 +417,63 @@ git clone &lt;repo-url&gt;</pre>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer-explore">Explore</h4>
-        <a href="https://github.com/anthropics/skills" target="_blank">Anthropic Skills</a>
-        <a href="https://github.com/ComposioHQ/awesome-claude-skills" target="_blank">Composio Skills</a>
-        <a href="https://github.com/alirezarezvani/claude-skills" target="_blank">Community Skills</a>
+        <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">Anthropic Skills</a>
+        <a href="https://github.com/ComposioHQ/awesome-claude-skills" target="_blank" rel="noopener">Composio Skills</a>
+        <a href="https://github.com/alirezarezvani/claude-skills" target="_blank" rel="noopener">Community Skills</a>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer-learn">Learn</h4>
-        <a href="https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview" target="_blank">Skills Docs</a>
-        <a href="https://agentskills.io" target="_blank">SKILL.md Spec</a>
-        <a href="https://code.claude.com" target="_blank">Claude Code</a>
+        <a href="https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener">Skills Docs</a>
+        <a href="https://agentskills.io" target="_blank" rel="noopener">SKILL.md Spec</a>
+        <a href="https://code.claude.com" target="_blank" rel="noopener">Claude Code</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 nayomy.com · <span data-i18n="footer-updated">Data updated</span>: <span id="footerUpdated">—</span></div>
-      <div data-i18n="footer-made">Made for builders ✦</div>
+      <div data-i18n="footer-made">Made for builders</div>
     </div>
   </footer>
+
 </div>
 
 <script>
 const I18N = {
   en: {
     "nav-about": "About", "nav-install": "Install",
-    "eyebrow": "Nayomy · Agent Skills Directory · 2026",
-    "title": "Skills that<br>make AI<br><span class='it'>actually</span> useful.",
+    "eyebrow-cmd": "nayomy --mode catalog --year 2026",
+    "title": "The catalog<br>for <span class='it'>agent</span><br>skills<span class='cursor'>▮</span>",
     "tagline": "An auto-updating, searchable catalog of Claude and agent skills published on GitHub. Indexed daily.",
     "stat-skills": "Total Skills", "stat-repos": "Source Repos", "stat-cats": "Categories",
-    "search-placeholder": "Search skills... (pdf, slack, debug, design)",
-    "install-eye": "How to use", "install-title": "Install any skill in 10 seconds.",
+    "search-placeholder": "search skills...",
+    "ticker-label": "LIVE",
+    "install-eye": "How to use",
+    "install-title": "Install any skill<br>in 10 seconds.",
     "step1-title": "Pick a skill", "step1-desc": "Browse the catalog. Open the SKILL.md link to see what it does.",
     "step2-title": "Clone it",
     "step3-title": "Use it", "step3-desc": "Restart Claude Code. The skill auto-loads when relevant.",
     "footer-tagline": "A directory of agent skills for the AI-native era. Auto-updated daily from GitHub.",
-    "footer-explore": "Explore", "footer-learn": "Learn", "footer-updated": "Data updated", "footer-made": "Made for builders ✦",
-    "results": "results", "loading": "Loading skills from GitHub…",
-    "error": "Could not load skills. Try refreshing the page.",
+    "footer-explore": "Explore", "footer-learn": "Learn",
+    "footer-updated": "Data updated", "footer-made": "Made for builders",
+    "results": "results", "error": "Could not load skills. Try refreshing.",
     "empty": "No results. Try a different search.", "open": "Open"
   },
   tr: {
     "nav-about": "Hakkında", "nav-install": "Kurulum",
-    "eyebrow": "Nayomy · Agent Skill Kataloğu · 2026",
-    "title": "AI'ı <span class='it'>gerçekten</span><br>kullanışlı yapan<br>skill'ler.",
+    "eyebrow-cmd": "nayomy --mod katalog --yıl 2026",
+    "title": "AI'ı <span class='it'>gerçekten</span><br>kullanışlı yapan<br>skill'ler<span class='cursor'>▮</span>",
     "tagline": "GitHub'da yayınlanmış Claude ve agent skill'lerinin günlük güncellenen, aranabilir kataloğu.",
     "stat-skills": "Toplam Skill", "stat-repos": "Kaynak Repo", "stat-cats": "Kategori",
-    "search-placeholder": "Skill ara... (pdf, slack, debug, tasarım)",
-    "install-eye": "Nasıl kullanılır", "install-title": "Skill'i 10 saniyede kurun.",
+    "search-placeholder": "skill ara...",
+    "ticker-label": "CANLI",
+    "install-eye": "Nasıl kullanılır",
+    "install-title": "Skill'i 10 saniyede<br>kurun.",
     "step1-title": "Skill seç", "step1-desc": "Kataloğa göz at. Ne yaptığını görmek için SKILL.md linkini aç.",
     "step2-title": "Klonla",
     "step3-title": "Kullan", "step3-desc": "Claude Code'u yeniden başlat. Skill ilgili olduğunda otomatik yüklenir.",
     "footer-tagline": "AI çağı için agent skill kataloğu. GitHub'dan her gün otomatik güncellenir.",
-    "footer-explore": "Keşfet", "footer-learn": "Öğren", "footer-updated": "Veri güncel", "footer-made": "Yapımcılar için ✦",
-    "results": "sonuç", "loading": "GitHub'dan skill'ler yükleniyor…",
-    "error": "Skill'ler yüklenemedi. Sayfayı yenilemeyi dene.",
+    "footer-explore": "Keşfet", "footer-learn": "Öğren",
+    "footer-updated": "Veri güncel", "footer-made": "Yapımcılar için",
+    "results": "sonuç", "error": "Skill'ler yüklenemedi. Sayfayı yenile.",
     "empty": "Sonuç yok. Farklı bir arama dene.", "open": "Aç"
   }
 };
@@ -266,6 +481,7 @@ const I18N = {
 let currentLang = localStorage.getItem("nayomy-lang") || "en";
 let activeCategory = "All";
 let DATA = null;
+let loadInterval = null;
 
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
@@ -277,12 +493,15 @@ const catCount = document.getElementById("catCount");
 const lastUpdated = document.getElementById("lastUpdated");
 const footerUpdated = document.getElementById("footerUpdated");
 const themeToggle = document.getElementById("themeToggle");
+const tickerTrack = document.getElementById("tickerTrack");
 
+// ── Theme ─────────────────────────────────────────────────
 const savedTheme = localStorage.getItem("nayomy-theme") || "light";
 if (savedTheme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+
 themeToggle.addEventListener("click", () => {
-  const cur = document.documentElement.getAttribute("data-theme");
-  if (cur === "dark") {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  if (isDark) {
     document.documentElement.removeAttribute("data-theme");
     localStorage.setItem("nayomy-theme", "light");
   } else {
@@ -291,20 +510,65 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
+// ── Loading terminal animation ─────────────────────────────
+function startLoadingAnim() {
+  let p = 0;
+  loadInterval = setInterval(() => {
+    p += Math.random() * 6 + 1;
+    if (p >= 90) { p = 90; clearInterval(loadInterval); loadInterval = null; }
+    const filled = Math.floor(p / 5);
+    const bar = document.getElementById("termBar");
+    const pct = document.getElementById("termPct");
+    if (bar) bar.textContent = "█".repeat(filled) + "░".repeat(20 - filled);
+    if (pct) pct.textContent = Math.floor(p) + "%";
+  }, 90);
+}
+startLoadingAnim();
+
+// ── Counter animation ──────────────────────────────────────
+function animateCounter(el, target, duration) {
+  duration = duration || 1400;
+  const start = performance.now();
+  const update = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(eased * target);
+    if (t < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+// ── Ticker populate ────────────────────────────────────────
+function populateTicker(skills) {
+  if (!tickerTrack) return;
+  const items = skills.slice(0, 14);
+  const makeItems = (arr) => arr.map(s =>
+    `<span class="ticker-item"><strong>✦ ${escapeHtml(s.name)}</strong> <span style="opacity:.4">·</span> ${escapeHtml(s.category || "")}</span>`
+  ).join("");
+  const content = makeItems(items) + makeItems(items);
+  tickerTrack.innerHTML = content;
+  const totalItems = items.length * 2;
+  tickerTrack.style.animationDuration = Math.max(totalItems * 2.8, 25) + "s";
+}
+
+// ── i18n ───────────────────────────────────────────────────
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem("nayomy-lang", lang);
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const k = el.dataset.i18n;
-    if (I18N[lang][k]) el.textContent = I18N[lang][k];
+    if (I18N[lang][k] !== undefined) el.textContent = I18N[lang][k];
   });
   document.querySelectorAll("[data-i18n-html]").forEach(el => {
     const k = el.dataset.i18nHtml;
-    if (I18N[lang][k]) el.innerHTML = I18N[lang][k];
+    if (I18N[lang][k] !== undefined) el.innerHTML = I18N[lang][k];
   });
   search.placeholder = I18N[lang]["search-placeholder"];
-  document.querySelectorAll(".lang-switch button").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+  document.querySelectorAll(".lang-switch button").forEach(b => {
+    b.classList.toggle("active", b.dataset.lang === lang);
+    b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false");
+  });
   if (DATA) {
     const dateStr = formatDate(DATA.generated_at, currentLang);
     lastUpdated.textContent = (currentLang === "tr" ? "Son güncelleme: " : "Last updated: ") + dateStr;
@@ -312,23 +576,29 @@ function applyLang(lang) {
     render();
   }
 }
-document.querySelectorAll(".lang-switch button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+document.querySelectorAll(".lang-switch button").forEach(b =>
+  b.addEventListener("click", () => applyLang(b.dataset.lang))
+);
 
+// ── Utils ──────────────────────────────────────────────────
 function formatStars(n) {
   if (n >= 1000) return (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k";
-  return n.toString();
+  return String(n);
 }
-
 function formatDate(iso, lang) {
   if (!iso) return "—";
-  const d = new Date(iso);
-  return d.toLocaleDateString(lang === "tr" ? "tr-TR" : "en-US", { year: "numeric", month: "short", day: "numeric" });
+  return new Date(iso).toLocaleDateString(
+    lang === "tr" ? "tr-TR" : "en-US",
+    { year: "numeric", month: "short", day: "numeric" }
+  );
 }
-
 function escapeHtml(s) {
-  return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+  return String(s ?? "").replace(/[&<>"']/g, c =>
+    ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])
+  );
 }
 
+// ── Render ─────────────────────────────────────────────────
 function render() {
   if (!DATA) return;
   const q = search.value.trim().toLowerCase();
@@ -354,12 +624,13 @@ function render() {
   grid.innerHTML = filtered.map(s => {
     const desc = s[descKey] || s.description_en || "";
     return `
-    <article class="card">
+    <article class="card" role="listitem">
       <div class="card-head">
         <h3 class="card-name">${escapeHtml(s.name)}</h3>
         <span class="card-cat">${escapeHtml(s.category || "Other")}</span>
       </div>
       <p class="card-desc">${escapeHtml(desc)}</p>
+      <div class="card-install"><span class="p">$</span> install ${escapeHtml(s.name)}</div>
       <div class="card-foot">
         <a class="card-repo" href="https://github.com/${escapeHtml(s.repo)}" target="_blank" rel="noopener" title="${escapeHtml(s.repo)}">${escapeHtml(s.repo)}</a>
         <span class="card-stars">★ ${formatStars(s.stars || 0)}</span>
@@ -371,17 +642,24 @@ function render() {
 
 search.addEventListener("input", render);
 
+// ── Load skills ────────────────────────────────────────────
 async function loadSkills() {
   try {
     const res = await fetch("/skills.json?t=" + Date.now());
     if (!res.ok) throw new Error("HTTP " + res.status);
     DATA = await res.json();
 
-    totalCount.textContent = DATA.total || DATA.skills.length;
-    repoCount.textContent = DATA.repos || new Set(DATA.skills.map(s => s.repo)).size;
+    if (loadInterval) { clearInterval(loadInterval); loadInterval = null; }
+
+    const totalVal = DATA.total || DATA.skills.length;
+    const repoVal  = DATA.repos || new Set(DATA.skills.map(s => s.repo)).size;
     const categories = ["All", ...new Set(DATA.skills.map(s => s.category).filter(Boolean))]
       .sort((a, b) => a === "All" ? -1 : b === "All" ? 1 : a.localeCompare(b));
-    catCount.textContent = categories.length - 1;
+    const catVal = categories.length - 1;
+
+    animateCounter(totalCount, totalVal);
+    animateCounter(repoCount,  repoVal,  1200);
+    animateCounter(catCount,   catVal,   1000);
 
     filters.innerHTML = "";
     categories.forEach(cat => {
@@ -391,7 +669,9 @@ async function loadSkills() {
       btn.dataset.cat = cat;
       btn.onclick = () => {
         activeCategory = cat;
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === cat));
+        document.querySelectorAll(".filter-btn").forEach(b =>
+          b.classList.toggle("active", b.dataset.cat === cat)
+        );
         render();
       };
       filters.appendChild(btn);
@@ -401,10 +681,12 @@ async function loadSkills() {
     lastUpdated.textContent = (currentLang === "tr" ? "Son güncelleme: " : "Last updated: ") + dateStr;
     footerUpdated.textContent = dateStr;
 
+    populateTicker(DATA.skills);
     render();
   } catch (e) {
     console.error("Failed to load skills:", e);
-    grid.innerHTML = `<div class="empty">${I18N[currentLang]["error"]}<br><small style="opacity:.6">${e.message}</small></div>`;
+    if (loadInterval) { clearInterval(loadInterval); loadInterval = null; }
+    grid.innerHTML = `<div class="empty">${I18N[currentLang]["error"]}<br><small style="opacity:.5;font-size:10px">${escapeHtml(e.message)}</small></div>`;
   }
 }
 
