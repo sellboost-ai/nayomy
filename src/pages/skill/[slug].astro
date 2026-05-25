@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InstallBlock from '../../components/InstallBlock.astro';
@@ -18,7 +18,11 @@ export async function getStaticPaths() {
 
 type Props = { skill: CollectionEntry<'skills'> };
 const { skill } = Astro.props;
-const { name, description_en, category, repo, stars, url, path } = skill.data;
+const { name, description_en, category, repo, stars, url, path,
+        has_scripts, has_references, has_examples, related_files, body_length } = skill.data;
+
+const { Content } = await render(skill);
+const hasContent = (skill.body ?? '').trim().length > 0;
 ---
 
 <BaseLayout title={`${name} · Nayomy`} description={description_en} lang={lang}>
@@ -44,22 +48,63 @@ const { name, description_en, category, repo, stars, url, path } = skill.data;
 
       <InstallBlock lang={lang} name={name} repo={repo} path={path} />
 
-      <dl class="detail-info">
-        <div class="info-row">
-          <dt>{t('skill.category')}</dt>
-          <dd>{category}</dd>
-        </div>
-        <div class="info-row">
-          <dt>{t('skill.source')}</dt>
-          <dd>
-            <a href={url} target="_blank" rel="noopener noreferrer">{repo}</a>
-          </dd>
-        </div>
-        <div class="info-row">
-          <dt>{t('skill.stars')}</dt>
-          <dd>★ {stars.toLocaleString()}</dd>
-        </div>
-      </dl>
+      <!-- About this skill -->
+      <div class="about-section">
+        <h2 class="section-label">{t('skill.about')}</h2>
+        {hasContent ? (
+          <div class="prose">
+            <Content />
+          </div>
+        ) : (
+          <p class="body-pending">
+            {t('skill.body_pending')}
+            {' '}<a href={url} target="_blank" rel="noopener noreferrer">GitHub →</a>
+          </p>
+        )}
+      </div>
+
+      <!-- Meta + badges -->
+      <div class="detail-sidebar">
+        <dl class="detail-info">
+          <div class="info-row">
+            <dt>{t('skill.category')}</dt>
+            <dd>{category}</dd>
+          </div>
+          <div class="info-row">
+            <dt>{t('skill.source')}</dt>
+            <dd>
+              <a href={url} target="_blank" rel="noopener noreferrer">{repo}</a>
+            </dd>
+          </div>
+          <div class="info-row">
+            <dt>{t('skill.stars')}</dt>
+            <dd>★ {stars.toLocaleString()}</dd>
+          </div>
+          {body_length > 0 && (
+            <div class="info-row">
+              <dt>Content</dt>
+              <dd>{body_length.toLocaleString()} chars</dd>
+            </div>
+          )}
+        </dl>
+
+        {(has_scripts || has_references || has_examples) && (
+          <div class="badge-row">
+            {has_scripts    && <span class="feat-badge">scripts/</span>}
+            {has_references && <span class="feat-badge">references/</span>}
+            {has_examples   && <span class="feat-badge">examples/</span>}
+          </div>
+        )}
+
+        {related_files.length > 0 && (
+          <div class="related-files">
+            <div class="related-label">{t('skill.related_files')}</div>
+            <ul>
+              {related_files.map(f => <li><code>{f}</code></li>)}
+            </ul>
+          </div>
+        )}
+      </div>
 
     </div>
   </div>
@@ -67,77 +112,198 @@ const { name, description_en, category, repo, stars, url, path } = skill.data;
 
 <style>
   .detail-page {
-    max-width: 760px;
+    max-width: 800px;
     padding: 32px 0 80px;
   }
 
+  /* Breadcrumb */
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--ink-3);
-    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--ink-3); margin-bottom: 28px;
   }
   .breadcrumb a { color: var(--ink-3); text-decoration: none; }
   .breadcrumb a:hover { color: var(--ink); }
   .breadcrumb .sep { color: var(--ink-4); }
   .breadcrumb .crumb-current { color: var(--ink-2); }
 
+  /* Header */
   .detail-header { margin-bottom: 28px; }
-  .detail-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
+  .detail-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
   .cat-badge {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 600;
-    padding: 3px 8px;
-    background: var(--bg-subtle);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    color: var(--ink-3);
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    font-weight: 600; padding: 3px 8px; background: var(--bg-subtle);
+    border: 1px solid var(--line); border-radius: 4px; color: var(--ink-3);
   }
   .stars-count { font-size: 13px; color: var(--ink-3); font-weight: 500; }
   .detail-title {
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    margin-bottom: 12px;
+    font-size: clamp(26px, 4vw, 38px); font-weight: 700;
+    letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 12px;
   }
   .detail-desc {
-    font-size: 15.5px;
-    color: var(--ink-3);
-    line-height: 1.65;
-    max-width: 640px;
+    font-size: 15.5px; color: var(--ink-3); line-height: 1.65; max-width: 640px;
   }
 
+  /* About section */
+  .about-section { margin-bottom: 32px; }
+  .section-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--ink-3);
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .body-pending {
+    font-size: 14px; color: var(--ink-3); font-style: italic;
+  }
+  .body-pending a { color: var(--ink-2); }
+  .body-pending a:hover { color: var(--ink); }
+
+  /* Prose — markdown render alanı */
+  .prose {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ink-2);
+    max-width: 720px;
+  }
+  .prose :global(h1),
+  .prose :global(h2) {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 28px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .prose :global(h3) {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 22px 0 8px;
+  }
+  .prose :global(h4) {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-2);
+    margin: 18px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .prose :global(p) { margin: 0 0 14px; }
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 20px;
+    margin: 0 0 14px;
+  }
+  .prose :global(li) { margin-bottom: 4px; }
+  .prose :global(li > ul),
+  .prose :global(li > ol) { margin-top: 4px; margin-bottom: 0; }
+  .prose :global(a) {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 2px;
+  }
+  .prose :global(a:hover) { text-decoration-color: var(--ink); }
+  .prose :global(code) {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 12.5px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--ink);
+  }
+  .prose :global(pre) {
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    overflow-x: auto;
+    margin: 0 0 16px;
+  }
+  .prose :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--line-strong);
+    padding-left: 16px;
+    color: var(--ink-3);
+    margin: 0 0 14px;
+    font-style: italic;
+  }
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 24px 0;
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    border: 1px solid var(--line);
+    padding: 8px 12px;
+    text-align: left;
+  }
+  .prose :global(th) {
+    background: var(--bg-subtle);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .prose :global(strong) { color: var(--ink); font-weight: 600; }
+  .prose :global(em) { font-style: italic; }
+
+  /* Meta sidebar */
+  .detail-sidebar { margin-top: 32px; }
   .detail-info {
     border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
+    margin-bottom: 12px;
   }
   .info-row {
-    display: flex;
-    align-items: baseline;
-    padding: 11px 16px;
-    border-bottom: 1px solid var(--line);
-    font-size: 13.5px;
-    gap: 16px;
+    display: flex; align-items: baseline;
+    padding: 11px 16px; border-bottom: 1px solid var(--line);
+    font-size: 13.5px; gap: 16px;
   }
   .info-row:last-child { border-bottom: none; }
   .info-row dt { color: var(--ink-3); font-weight: 500; min-width: 90px; flex-shrink: 0; }
   .info-row dd { color: var(--ink-2); }
   .info-row dd a {
-    color: var(--ink-2);
-    text-decoration: none;
-    font-family: 'Geist Mono', monospace;
-    font-size: 12.5px;
+    color: var(--ink-2); text-decoration: none;
+    font-family: 'Geist Mono', monospace; font-size: 12.5px;
   }
   .info-row dd a:hover { color: var(--ink); text-decoration: underline; }
+
+  .badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .feat-badge {
+    font-size: 11px; font-family: 'Geist Mono', monospace;
+    padding: 3px 8px; background: var(--bg-subtle);
+    border: 1px solid var(--line); border-radius: 4px;
+    color: var(--ink-3);
+  }
+
+  .related-files { margin-top: 4px; }
+  .related-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--ink-3); margin-bottom: 8px;
+  }
+  .related-files ul { list-style: none; padding: 0; margin: 0; }
+  .related-files li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 12.5px;
+  }
+  .related-files li:last-child { border-bottom: none; }
+  .related-files code {
+    font-family: 'Geist Mono', monospace; color: var(--ink-2);
+    font-size: 12px;
+  }
 </style>

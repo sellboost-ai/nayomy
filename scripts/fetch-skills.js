@@ -139,18 +139,6 @@ async function getRepoStars(repo) {
   return data?.stargazers_count ?? 0;
 }
 
-async function getRepoTree(repo) {
-  // HEAD'in default branch'ini al
-  const repoData = await gh(`/repos/${repo}`);
-  if (!repoData) return [];
-  const defaultBranch = repoData.default_branch;
-  const tree = await gh(`/repos/${repo}/git/trees/${defaultBranch}?recursive=1`);
-  if (!tree?.tree) return [];
-  // Bir SKILL.md hem büyük hem küçük olabilir
-  return tree.tree.filter((f) =>
-    f.type === "blob" && /(^|\/)skill\.md$/i.test(f.path)
-  );
-}
 
 async function getSkillMd(repo, filePath) {
   const data = await gh(`/repos/${repo}/contents/${encodeURIComponent(filePath)}`);
@@ -162,12 +150,16 @@ function parseFrontmatter(text) {
   if (!text.startsWith("---")) return null;
   const end = text.indexOf("\n---", 3);
   if (end < 0) return null;
-  const body = text.slice(3, end).trim();
-  const result = {};
+  const fmYaml = text.slice(3, end).trim();
+
+  // Extract markdown body (everything after the closing "---")
+  const afterClose = text.slice(end + 4); // skip "\n---"
+  const markdownBody = afterClose.replace(/^\r?\n/, "").trim();
+
+  const result = { _body: markdownBody };
   let currentKey = null;
   let currentValue = "";
-  for (const line of body.split("\n")) {
-    // çok satırlı değer devam ediyor mu?
+  for (const line of fmYaml.split("\n")) {
     if (line.match(/^\s/) && currentKey) {
       currentValue += " " + line.trim();
       continue;
@@ -193,15 +185,29 @@ function parseFrontmatter(text) {
 // MAIN CRAWL
 // ============================================================================
 
+const BODY_LIMIT = 100_000;
+
 async function crawlRepo(repo) {
   console.log(`📦 ${repo}`);
-  const stars = await getRepoStars(repo);
-  const files = await getRepoTree(repo);
-  console.log(`   ${files.length} SKILL.md files found, ${stars} stars`);
+
+  // Fetch repo info + tree in parallel
+  const [repoData, treeResp] = await Promise.all([
+    gh(`/repos/${repo}`),
+    gh(`/repos/${repo}`).then(r =>
+      gh(`/repos/${repo}/git/trees/${r?.default_branch ?? "main"}?recursive=1`)
+    ),
+  ]);
+  if (!repoData) return [];
+  const stars = repoData.stargazers_count ?? 0;
+  const tree = treeResp?.tree ?? [];
+
+  const skillFiles = tree.filter(
+    (f) => f.type === "blob" && /(^|\/)skill\.md$/i.test(f.path)
+  );
+  console.log(`   ${skillFiles.length} SKILL.md files, ${stars} ★`);
 
   const skills = [];
-  // En fazla MAX_SKILLS_PER_REPO al
-  const limited = files.slice(0, MAX_SKILLS_PER_REPO);
+  const limited = skillFiles.slice(0, MAX_SKILLS_PER_REPO);
 
   for (const file of limited) {
     try {
@@ -211,23 +217,58 @@ async function crawlRepo(repo) {
       if (!fm?.name || !fm?.description) continue;
 
       const name = fm.name.trim();
-      // Çok uzun açıklamayı kes (300 char)
       const desc = fm.description.trim().slice(0, 400);
+
+      // Directory containing this SKILL.md
+      const dir = file.path.includes("/")
+        ? file.path.substring(0, file.path.lastIndexOf("/"))
+        : "";
+      const prefix = dir ? `${dir}/` : "";
+
+      // Check subdirectories in the skill's own folder
+      const has_scripts    = tree.some((f) => f.path.startsWith(`${prefix}scripts`));
+      const has_references = tree.some((f) => f.path.startsWith(`${prefix}references`));
+      const has_examples   = tree.some((f) => f.path.startsWith(`${prefix}examples`));
+
+      // Other notable files in the same directory
+      const related_files = tree
+        .filter(
+          (f) =>
+            f.type === "blob" &&
+            f.path !== file.path &&
+            f.path.startsWith(prefix) &&
+            !f.path.slice(prefix.length).includes("/") &&
+            /\.(md|py|js|ts|sh|json|yaml|yml)$/.test(f.path)
+        )
+        .map((f) => f.path.slice(prefix.length));
+
+      // Markdown body (truncate if massive)
+      let body = fm._body ?? "";
+      if (body.length > BODY_LIMIT) {
+        body =
+          body.slice(0, BODY_LIMIT) +
+          "\n\n[TRUNCATED — view full content on GitHub]";
+      }
 
       skills.push({
         name,
         category: guessCategory(name, desc),
         description_en: desc,
-        description_tr: "", // TR çevirisi ayrı bir aşamada doldurulabilir
+        description_tr: "",
         repo,
         stars,
         path: file.path,
         url: `https://github.com/${repo}/blob/HEAD/${file.path}`,
+        body,
+        body_length: fm._body?.length ?? 0,
+        has_scripts,
+        has_references,
+        has_examples,
+        related_files,
       });
     } catch (e) {
       console.warn(`   ⚠️  ${file.path}: ${e.message}`);
     }
-    // Rate-limit-friendly
     await sleep(150);
   }
 
@@ -247,6 +288,12 @@ async function main() {
       ...card,
       stars,
       url: `https://github.com/${card.repo}`,
+      body: "",
+      body_length: 0,
+      has_scripts: false,
+      has_references: false,
+      has_examples: false,
+      related_files: [],
     });
   }
 
@@ -283,8 +330,18 @@ async function main() {
   await fs.writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2));
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  const withBody = unique.filter((s) => s.body_length > 0);
+  const totalBodyChars = unique.reduce((acc, s) => acc + (s.body_length ?? 0), 0);
+  const longest = unique.reduce((best, s) =>
+    (s.body_length ?? 0) > (best.body_length ?? 0) ? s : best, unique[0]);
+  const fileSizeKB = Math.round(JSON.stringify(output).length / 1024);
+
   console.log(`\n✅ Done in ${elapsed}s`);
   console.log(`   ${output.total} skills from ${output.repos} repos`);
+  console.log(`   ${withBody.length} skills with body content`);
+  console.log(`   Total body: ${(totalBodyChars / 1000).toFixed(0)}k chars`);
+  console.log(`   Longest body: "${longest?.name}" — ${longest?.body_length ?? 0} chars`);
+  console.log(`   skills.json size: ~${fileSizeKB} KB`);
   console.log(`   Written to ${OUTPUT_PATH}`);
 }
 

@@ -34,6 +34,9 @@ export const ui = {
     'stats.daily':      'Daily',
     'home.topskills':   'Top Skills',
     'home.viewall':     'View all',
+    'skill.about':         'About this skill',
+    'skill.body_pending':  'No detailed content available yet. View the full skill on GitHub.',
+    'skill.related_files': 'Related files',
   },
   tr: {
     'nav.skills':       "Skill'ler",
@@ -68,5 +71,8 @@ export const ui = {
     'stats.daily':      'Günlük',
     'home.topskills':   "Popüler Skill'ler",
     'home.viewall':     'Tümünü gör',
+    'skill.about':         'Bu skill hakkında',
+    'skill.body_pending':  "Henüz detaylı içerik yok. Skill'i GitHub'da görüntüleyin.",
+    'skill.related_files': 'İlgili dosyalar',
   },
 } as const;

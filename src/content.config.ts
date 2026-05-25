@@ -14,6 +14,11 @@ const skills = defineCollection({
     url: z.string(),
     path: z.string(),
     is_collection: z.boolean().optional().default(false),
+    body_length: z.number().optional().default(0),
+    has_scripts: z.boolean().optional().default(false),
+    has_references: z.boolean().optional().default(false),
+    has_examples: z.boolean().optional().default(false),
+    related_files: z.array(z.string()).optional().default([]),
   }),
 });
 

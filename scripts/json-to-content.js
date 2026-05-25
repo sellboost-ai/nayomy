@@ -38,6 +38,12 @@ function ys(value) {
   return `"${escaped}"`;
 }
 
+// Serialize an array as a YAML flow sequence.
+function ya(arr) {
+  if (!arr || arr.length === 0) return '[]';
+  return '[' + arr.map(ys).join(', ') + ']';
+}
+
 // ── main ─────────────────────────────────────────────────────
 
 const { skills } = JSON.parse(readFileSync(INPUT, 'utf8'));
@@ -79,10 +85,15 @@ for (const skill of skills) {
     `url: ${ys(skill.url ?? '')}`,
     `path: ${ys(skill.path ?? '')}`,
     `is_collection: ${skill.is_collection === true}`,
+    `body_length: ${Number(skill.body_length ?? 0)}`,
+    `has_scripts: ${skill.has_scripts === true}`,
+    `has_references: ${skill.has_references === true}`,
+    `has_examples: ${skill.has_examples === true}`,
+    `related_files: ${ya(skill.related_files)}`,
     '---',
     '',
-    // Body: description_en as Markdown prose
-    (skill.description_en ?? '').trim(),
+    // Body: full SKILL.md markdown content (empty string if not fetched)
+    (skill.body ?? '').trim(),
     '',
   );
 
