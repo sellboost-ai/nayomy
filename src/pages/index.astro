@@ -11,6 +11,10 @@ const total  = skills.length;
 const repos  = new Set(skills.map(s => s.data.repo)).size;
 const cats   = new Set(skills.map(s => s.data.category)).size;
 
+const top12 = [...skills]
+  .sort((a, b) => b.data.stars - a.data.stars)
+  .slice(0, 12);
+
 let updatedAt: string | undefined;
 try {
   const skillsJson = (await import('../../skills.json', { with: { type: 'json' } })) as any;
@@ -55,4 +59,49 @@ try {
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t('home.topskills')}</h2>
+      <span class="section-count">{t('home.viewall')} {total}</span>
+    </div>
+    <div class="grid">
+      {top12.map(skill => (
+        <a class="card" href={`/skill/${skill.id}`}>
+          <div class="card-head">
+            <h3 class="card-name">{skill.data.name}</h3>
+            <span class="card-cat">{skill.data.category}</span>
+          </div>
+          <p class="card-desc">{skill.data.description_en}</p>
+          <div class="card-foot">
+            <span class="card-repo">{skill.data.repo}</span>
+            <div class="card-meta">
+              <span class="card-stars">★ {skill.data.stars.toLocaleString()}</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 32px 0 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-count {
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+</style>

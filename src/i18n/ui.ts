@@ -26,6 +26,8 @@ export const ui = {
     'stats.cats':       'Categories',
     'stats.updates':    'Updates',
     'stats.daily':      'Daily',
+    'home.topskills':   'Top Skills',
+    'home.viewall':     'View all',
   },
   tr: {
     'nav.skills':       "Skill'ler",
@@ -52,5 +54,7 @@ export const ui = {
     'stats.cats':       'Kategori',
     'stats.updates':    'Güncelleme',
     'stats.daily':      'Günlük',
+    'home.topskills':   "Popüler Skill'ler",
+    'home.viewall':     'Tümünü gör',
   },
 } as const;
