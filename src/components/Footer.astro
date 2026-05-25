@@ -1,0 +1,29 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  updatedAt?: string;
+}
+const { lang, updatedAt } = Astro.props;
+const t = useTranslations(lang);
+
+const dateStr = updatedAt
+  ? new Date(updatedAt).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', {
+      year: 'numeric', month: 'long', day: 'numeric',
+    })
+  : '2026';
+---
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 nayomy.com · {t('footer.updated')}: {dateStr}</div>
+    <div class="footer-links">
+      <a href="#">{t('footer.about')}</a>
+      <a href="#">{t('footer.docs')}</a>
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener">{t('footer.github')}</a>
+      <a href="#">RSS</a>
+    </div>
+  </div>
+</footer>

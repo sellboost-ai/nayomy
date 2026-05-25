@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayomy · Agent Skills Directory (Modern SaaS preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-elevated: #fafafa;
+    --bg-subtle: #f5f5f5;
+    --ink: #0a0a0a;
+    --ink-2: #404040;
+    --ink-3: #737373;
+    --ink-4: #a3a3a3;
+    --line: #e5e5e5;
+    --line-strong: #d4d4d4;
+    --accent: #0a0a0a;
+    --accent-soft: #f0f0f0;
+    --success: #16a34a;
+    --radius: 8px;
+    --radius-sm: 6px;
+  }
+  [data-theme="dark"] {
+    --bg: #0a0a0a;
+    --bg-elevated: #141414;
+    --bg-subtle: #1a1a1a;
+    --ink: #fafafa;
+    --ink-2: #d4d4d4;
+    --ink-3: #a3a3a3;
+    --ink-4: #737373;
+    --line: #262626;
+    --line-strong: #404040;
+    --accent: #fafafa;
+    --accent-soft: #1f1f1f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    line-height: 1.55;
+    font-feature-settings: "ss01", "ss02", "cv11";
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    transition: background 0.2s, color 0.2s;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace; }
+ 
+  /* NAV */
+  nav {
+    height: 56px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  [data-theme="dark"] nav { background: rgba(10,10,10,0.8); }
+  .nav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .logo-mark {
+    width: 22px;
+    height: 22px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-link {
+    color: var(--ink-3);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.12s;
+  }
+  .nav-link:hover { color: var(--ink); background: var(--bg-subtle); }
+  .nav-actions { display: flex; gap: 8px; align-items: center; }
+  .icon-btn {
+    width: 32px; height: 32px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink-2);
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.12s;
+  }
+  .icon-btn:hover { border-color: var(--line-strong); color: var(--ink); }
+  .lang-pill {
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .lang-pill button {
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .lang-pill button.active { background: var(--ink); color: var(--bg); }
+  .cta {
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: opacity 0.12s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cta:hover { opacity: 0.85; }
+  .cta-ghost {
+    background: transparent;
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .cta-ghost:hover { background: var(--bg-subtle); color: var(--ink); }
+ 
+  /* HERO — kompakt */
+  .hero {
+    padding: 64px 0 32px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--ink-2);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+    animation: livepulse 2s ease-in-out infinite;
+  }
+  @keyframes livepulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(120deg, var(--ink) 0%, var(--ink-3) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  [data-theme="dark"] .hero h1 .accent {
+    background: linear-gradient(120deg, var(--ink) 0%, var(--ink-3) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--ink-3);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.5;
+  }
+  .hero-stats {
+    display: inline-flex;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-elevated);
+    margin-top: 8px;
+  }
+  .hero-stat {
+    padding: 12px 24px;
+    border-right: 1px solid var(--line);
+    text-align: center;
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .hero-stat .label {
+    font-size: 11px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+ 
+  /* SEARCH BAR — büyük, merkezi, premium */
+  .search-section {
+    padding: 16px 0 32px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 56px;
+    background: var(--bg);
+    z-index: 40;
+  }
+  .search-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .search-box {
+    flex: 1;
+    position: relative;
+  }
+  .search-box input {
+    width: 100%;
+    height: 40px;
+    padding: 0 14px 0 40px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg-elevated);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.12s;
+  }
+  .search-box input:focus {
+    outline: none;
+    border-color: var(--ink-3);
+    background: var(--bg);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .search-box svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-3);
+  }
+  .search-shortcut {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: var(--ink-4);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Geist Mono', monospace;
+  }
+  .filter-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .filter-pill {
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    color: var(--ink-2);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.12s;
+  }
+  .filter-pill:hover { border-color: var(--line-strong); color: var(--ink); }
+  .filter-pill.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .filter-pill .count {
+    color: var(--ink-4);
+    margin-left: 4px;
+    font-size: 11px;
+  }
+  .filter-pill.active .count { color: var(--ink-4); }
+ 
+  /* GRID — daha sıkı, daha çok kart */
+  .results-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 16px;
+    color: var(--ink-3);
+    font-size: 13px;
+  }
+  .sort-select {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    padding-bottom: 80px;
+  }
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .card:hover {
+    border-color: var(--line-strong);
+    background: var(--bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  [data-theme="dark"] .card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .card-name {
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    word-break: break-word;
+    line-height: 1.3;
+  }
+  .card-cat {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 7px;
+    background: var(--bg-subtle);
+    color: var(--ink-3);
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+  .card-desc {
+    color: var(--ink-3);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+  .card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    gap: 8px;
+    font-size: 12px;
+  }
+  .card-repo {
+    color: var(--ink-4);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-3);
+    flex-shrink: 0;
+  }
+  .card-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-weight: 500;
+  }
+  .card-arrow {
+    color: var(--ink-4);
+    transition: transform 0.15s;
+  }
+  .card:hover .card-arrow {
+    color: var(--ink);
+    transform: translateX(2px);
+  }
+ 
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    color: var(--ink-3);
+    font-size: 12px;
+    background: var(--bg-elevated);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: var(--ink-3); text-decoration: none; }
+  .footer-links a:hover { color: var(--ink); }
+ 
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero { padding: 40px 0 24px; }
+    .grid { grid-template-columns: 1fr; }
+    .hero-stats { display: flex; }
+    .hero-stat { padding: 10px 16px; }
+  }
+</style>
+</head>
+<body>
+ 
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">n</span>
+      <span>nayomy</span>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="nav-link">Skills</a>
+      <a href="#" class="nav-link">MCP</a>
+      <a href="#" class="nav-link">Marketplaces</a>
+      <a href="#" class="nav-link">Docs</a>
+      <a href="#" class="nav-link">Changelog</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-pill">
+        <button class="active">EN</button>
+        <button>TR</button>
+      </div>
+      <button class="icon-btn" id="themeToggle" title="Toggle theme">◐</button>
+      <a href="https://github.com/sellboost-ai/nayomy" class="cta cta-ghost">GitHub</a>
+    </div>
+  </div>
+</nav>
+ 
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span>Updated daily · 177 skills indexed</span>
+    </div>
+    <h1>Every agent skill,<br><span class="accent">in one searchable place.</span></h1>
+    <p>The catalog for Claude and agent skills published on GitHub. Find, compare, and install in seconds.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">177</div>
+        <div class="label">Skills</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">8</div>
+        <div class="label">Repos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">6</div>
+        <div class="label">Categories</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">Daily</div>
+        <div class="label">Updates</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="search-section">
+  <div class="container">
+    <div class="search-row">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search 177 skills..." id="search">
+        <span class="search-shortcut">⌘K</span>
+      </div>
+    </div>
+    <div class="filter-pills">
+      <button class="filter-pill active">All <span class="count">177</span></button>
+      <button class="filter-pill">Document <span class="count">22</span></button>
+      <button class="filter-pill">Design <span class="count">58</span></button>
+      <button class="filter-pill">Development <span class="count">89</span></button>
+      <button class="filter-pill">Business <span class="count">4</span></button>
+      <button class="filter-pill">Integration <span class="count">1</span></button>
+      <button class="filter-pill">Collection <span class="count">3</span></button>
+    </div>
+  </div>
+</section>
+ 
+<div class="container">
+  <div class="results-bar">
+    <span>Showing <strong style="color: var(--ink);">177</strong> skills</span>
+    <select class="sort-select">
+      <option>Most popular</option>
+      <option>Recently updated</option>
+      <option>Alphabetical</option>
+    </select>
+  </div>
+ 
+  <div class="grid">
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">frontend-design</h3>
+        <span class="card-cat">Design</span>
+      </div>
+      <p class="card-desc">Production-grade frontend interfaces that avoid generic AI aesthetics. Creates polished code for components, landing pages, dashboards.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">pdf</h3>
+        <span class="card-cat">Document</span>
+      </div>
+      <p class="card-desc">Read, merge, split, rotate, watermark, fill forms, OCR, and encrypt PDFs. Extract data or create new PDFs from scratch.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">docx</h3>
+        <span class="card-cat">Document</span>
+      </div>
+      <p class="card-desc">Create and edit Word documents with tracked changes, comments, formatting, table of contents, letterheads.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">mcp-builder</h3>
+        <span class="card-cat">Development</span>
+      </div>
+      <p class="card-desc">Guide for creating Model Context Protocol (MCP) servers. For integration layers that connect Claude to external services.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">debug-that</h3>
+        <span class="card-cat">Development</span>
+      </div>
+      <p class="card-desc">AI-first debug CLI for Node, TypeScript, Bun, Python, C++ and Rust. Stack trace analysis, breakpoint management.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">theodo-group/debug-that</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 155</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">xlsx</h3>
+        <span class="card-cat">Document</span>
+      </div>
+      <p class="card-desc">Create and edit Excel/CSV/TSV files. Formulas, charts, data transformations, cleaning messy tabular data.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">canvas-design</h3>
+        <span class="card-cat">Design</span>
+      </div>
+      <p class="card-desc">Visual design outputs in PNG and PDF. Posters, social media graphics, cover designs. Typography and composition focused.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">worktree-manager</h3>
+        <span class="card-cat">Development</span>
+      </div>
+      <p class="card-desc">Create, manage, and clean up Git worktrees. For working with parallel feature branches on the same repo.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">Wirasm/worktree-manager-skill</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 131</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">claude-api</h3>
+        <span class="card-cat">Development</span>
+      </div>
+      <p class="card-desc">Build and debug apps with the Claude API and Anthropic SDK. Reference for tool use, batch processing, streaming.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">skill-creator</h3>
+        <span class="card-cat">Meta</span>
+      </div>
+      <p class="card-desc">Create new Claude skills, optimize existing skills, run performance evaluations (evals).</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">pptx</h3>
+        <span class="card-cat">Document</span>
+      </div>
+      <p class="card-desc">Create and edit PowerPoint presentations. Slide layouts, templates, speaker notes for pitch decks.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">anthropics/skills</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 140k</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+ 
+    <article class="card">
+      <div class="card-head">
+        <h3 class="card-name">slack-api</h3>
+        <span class="card-cat">Integration</span>
+      </div>
+      <p class="card-desc">Read and send Slack messages and threads directly via the Slack API, without MCP. Python-based, lightweight.</p>
+      <div class="card-foot">
+        <a class="card-repo" href="#">hienlh/claude-skill-slack-api</a>
+        <div class="card-meta">
+          <span class="card-stars">★ 0</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+ 
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 nayomy.com · Last updated May 24, 2026</div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Docs</a>
+      <a href="#">GitHub</a>
+      <a href="#">RSS</a>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    if (cur === 'dark') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', 'dark');
+  });
+</script>
+ 
+</body>
+</html>
+ 

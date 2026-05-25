@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'tr' as const;
+const t = useTranslations(lang);
+
+const skills = await getCollection('skills');
+const total  = skills.length;
+const repos  = new Set(skills.map(s => s.data.repo)).size;
+const cats   = new Set(skills.map(s => s.data.category)).size;
+
+let updatedAt: string | undefined;
+try {
+  const skillsJson = (await import('../../../skills.json', { with: { type: 'json' } })) as any;
+  updatedAt = skillsJson.default?.generated_at ?? skillsJson.generated_at;
+} catch (_) {}
+---
+
+<BaseLayout
+  title="Nayomy · Agent Skill Kataloğu"
+  description="GitHub'da yayınlanmış Claude ve agent skill'lerinin günlük güncellenen, aranabilir kataloğu."
+  lang={lang}
+  updatedAt={updatedAt}
+>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>{t('hero.badge')} · {total} skill indekslendi</span>
+      </div>
+      <h1>
+        {t('hero.h1.line1')}<br />
+        <span class="accent">{t('hero.h1.line2')}</span>
+      </h1>
+      <p>{t('hero.tagline')}</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">{total}</div>
+          <div class="label">{t('stats.skills')}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">{repos}</div>
+          <div class="label">{t('stats.repos')}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">{cats}</div>
+          <div class="label">{t('stats.cats')}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">{t('stats.daily')}</div>
+          <div class="label">{t('stats.updates')}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

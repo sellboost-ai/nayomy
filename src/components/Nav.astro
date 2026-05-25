@@ -1,0 +1,54 @@
+---
+import { useTranslations, getAlternateUrl } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const enUrl = getAlternateUrl(Astro.url, 'en');
+const trUrl = getAlternateUrl(Astro.url, 'tr');
+const homePath = lang === 'tr' ? '/tr' : '/';
+---
+
+<nav>
+  <div class="container nav-inner">
+    <a href={homePath} class="logo">
+      <span class="logo-mark">n</span>
+      <span>nayomy</span>
+    </a>
+
+    <div class="nav-links">
+      <a href={homePath} class="nav-link">{t('nav.skills')}</a>
+      <a href="#" class="nav-link">MCP</a>
+      <a href="#" class="nav-link">Marketplaces</a>
+      <a href="#" class="nav-link">Docs</a>
+      <a href="#" class="nav-link">Changelog</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-pill" role="group" aria-label="Language">
+        <a href={enUrl} class:list={['', { active: lang === 'en' }]}>EN</a>
+        <a href={trUrl} class:list={['', { active: lang === 'tr' }]}>TR</a>
+      </div>
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">◐</button>
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener" class="cta cta-ghost">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('themeToggle');
+  btn?.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('nayomy-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('nayomy-theme', 'dark');
+    }
+  });
+</script>
