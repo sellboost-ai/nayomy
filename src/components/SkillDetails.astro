@@ -1,0 +1,213 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  skill: CollectionEntry<'skills'>;
+}
+
+const { lang, skill } = Astro.props;
+const t = useTranslations(lang);
+const {
+  category, repo, stars, url, path,
+  body_length, has_scripts, has_references, has_examples, related_files,
+} = skill.data;
+
+const shortPath = path.length > 48 ? '…' + path.slice(-46) : path;
+---
+
+<aside class="skill-details">
+  <h3 class="details-heading">{t('skill.details')}</h3>
+
+  <dl class="details-list">
+    <div class="dl-row">
+      <dt>{t('skill.category')}</dt>
+      <dd><span class="cat-pill">{category}</span></dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('skill.source')}</dt>
+      <dd>
+        <a href={`https://github.com/${repo}`} target="_blank" rel="noopener noreferrer" class="mono-link">
+          {repo}
+        </a>
+      </dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('skill.stars')}</dt>
+      <dd>★ {stars.toLocaleString()}</dd>
+    </div>
+    {path && (
+      <div class="dl-row">
+        <dt>{t('skill.path')}</dt>
+        <dd><span class="mono-small" title={path}>{shortPath}</span></dd>
+      </div>
+    )}
+    {body_length > 0 && (
+      <div class="dl-row">
+        <dt>{t('skill.length')}</dt>
+        <dd>{body_length.toLocaleString()} chars</dd>
+      </div>
+    )}
+  </dl>
+
+  {(has_scripts || has_references || has_examples) && (
+    <div class="feat-badges">
+      {has_scripts    && <span class="feat-badge">scripts/</span>}
+      {has_references && <span class="feat-badge">references/</span>}
+      {has_examples   && <span class="feat-badge">examples/</span>}
+    </div>
+  )}
+
+  {related_files.length > 0 && (
+    <div class="related-block">
+      <div class="related-heading">{t('skill.related_files')}</div>
+      <ul class="related-list">
+        {related_files.map(f => (
+          <li><code>{f}</code></li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <a href={url} target="_blank" rel="noopener noreferrer" class="github-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+    {t('skill.open_github')}
+  </a>
+</aside>
+
+<style>
+  .skill-details {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    position: sticky;
+    top: 72px;
+  }
+
+  .details-heading {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .details-list { margin-bottom: 14px; }
+
+  .dl-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .dl-row:last-child { border-bottom: none; }
+  .dl-row dt {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-4);
+  }
+  .dl-row dd { color: var(--ink-2); }
+
+  .cat-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .mono-link {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-2);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .mono-link:hover { color: var(--ink); text-decoration: underline; }
+
+  .mono-small {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    word-break: break-all;
+  }
+
+  .feat-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .feat-badge {
+    font-size: 10.5px;
+    font-family: 'Geist Mono', monospace;
+    padding: 2px 7px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink-3);
+  }
+
+  .related-block { margin-bottom: 16px; }
+  .related-heading {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-4);
+    margin-bottom: 6px;
+  }
+  .related-list { list-style: none; padding: 0; margin: 0; }
+  .related-list li {
+    padding: 4px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+  }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list code {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-2);
+  }
+
+  .github-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--ink-2);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.12s;
+    margin-top: 4px;
+  }
+  .github-btn:hover {
+    border-color: var(--line-strong);
+    background: var(--bg-subtle);
+    color: var(--ink);
+  }
+</style>

@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  currentSlug: string;
+  currentCategory: string;
+}
+
+const { lang, currentSlug, currentCategory } = Astro.props;
+const t = useTranslations(lang);
+
+const all = await getCollection('skills');
+const similar = all
+  .filter(s => s.data.category === currentCategory && s.id !== currentSlug)
+  .sort((a, b) => b.data.stars - a.data.stars)
+  .slice(0, 6);
+
+if (similar.length === 0) return;
+
+const basePath = lang === 'tr' ? '/tr/skill/' : '/skill/';
+const desc = (s: typeof similar[0]) =>
+  lang === 'tr' ? (s.data.description_tr ?? s.data.description_en) : s.data.description_en;
+---
+
+<section class="similar-section">
+  <h2 class="similar-heading">{t('skill.similar')}</h2>
+  <div class="similar-grid">
+    {similar.map(s => (
+      <a class="sim-card" href={`${basePath}${s.id}`}>
+        <div class="sim-head">
+          <span class="sim-name">{s.data.name}</span>
+          <span class="sim-cat">{s.data.category}</span>
+        </div>
+        <p class="sim-desc">{desc(s)}</p>
+        <div class="sim-foot">
+          <span class="sim-repo">{s.data.repo}</span>
+          <span class="sim-stars">★ {s.data.stars.toLocaleString()}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .similar-section {
+    padding: 40px 0 0;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+  }
+  .similar-heading {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .similar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 900px) {
+    .similar-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .similar-grid { grid-template-columns: 1fr; }
+  }
+
+  .sim-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s;
+  }
+  .sim-card:hover {
+    border-color: var(--line-strong);
+    background: var(--bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  [data-theme="dark"] .sim-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .sim-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 7px;
+  }
+  .sim-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .sim-cat {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    background: var(--bg-subtle);
+    color: var(--ink-3);
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+  .sim-desc {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .sim-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+  }
+  .sim-repo {
+    color: var(--ink-4);
+    font-family: 'Geist Mono', monospace;
+    font-size: 10.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+  }
+  .sim-stars {
+    color: var(--ink-3);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+</style>

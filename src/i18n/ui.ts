@@ -37,6 +37,11 @@ export const ui = {
     'skill.about':         'About this skill',
     'skill.body_pending':  'No detailed content available yet. View the full skill on GitHub.',
     'skill.related_files': 'Related files',
+    'skill.details':       'Details',
+    'skill.length':        'Content length',
+    'skill.path':          'Path',
+    'skill.open_github':   'View on GitHub',
+    'skill.more_in':       'More in',
   },
   tr: {
     'nav.skills':       "Skill'ler",
@@ -74,5 +79,10 @@ export const ui = {
     'skill.about':         'Bu skill hakkında',
     'skill.body_pending':  "Henüz detaylı içerik yok. Skill'i GitHub'da görüntüleyin.",
     'skill.related_files': 'İlgili dosyalar',
+    'skill.details':       'Detaylar',
+    'skill.length':        'İçerik uzunluğu',
+    'skill.path':          'Yol',
+    'skill.open_github':   "GitHub'da görüntüle",
+    'skill.more_in':       'Daha fazla:',
   },
 } as const;
