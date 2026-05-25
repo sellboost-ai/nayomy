@@ -1,0 +1,166 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  name: string;
+  repo: string;
+  path: string;
+}
+
+const { lang, name, repo, path } = Astro.props;
+const t = useTranslations(lang);
+
+const repoFolder = repo.split('/')[1];
+
+const cloneCmd = `cd ~/.claude/skills\ngit clone https://github.com/${repo}.git ${repoFolder}`;
+const singleCmd = `mkdir -p ~/.claude/skills/${name}\ncurl -fsSL https://raw.githubusercontent.com/${repo}/HEAD/${path} \\\n  -o ~/.claude/skills/${name}/SKILL.md`;
+---
+
+<div class="install-wrap">
+  <div class="install-header">
+    <div class="tab-group">
+      <button class="tab-btn active" data-tab="repo">{t('install.tab_repo')}</button>
+      <button class="tab-btn" data-tab="single">{t('install.tab_single')}</button>
+    </div>
+    <button
+      class="copy-btn"
+      data-copy={t('skill.copy')}
+      data-copied={t('skill.copied')}
+      aria-label={t('skill.copy')}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+      </svg>
+      <span class="copy-label">{t('skill.copy')}</span>
+    </button>
+  </div>
+
+  <div class="tab-panel" data-panel="repo">
+    <pre class="install-pre"><code>{cloneCmd}</code></pre>
+  </div>
+  <div class="tab-panel" data-panel="single" hidden>
+    <pre class="install-pre"><code>{singleCmd}</code></pre>
+  </div>
+</div>
+
+<style>
+  .install-wrap {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 28px;
+    background: var(--bg-elevated);
+  }
+  .install-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    gap: 8px;
+  }
+  .tab-group { display: flex; gap: 4px; }
+  .tab-btn {
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: var(--bg-subtle);
+    color: var(--ink-3);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+    line-height: 1.4;
+  }
+  .tab-btn.active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .tab-btn:not(.active):hover {
+    border-color: var(--line-strong);
+    color: var(--ink-2);
+  }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-3);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .copy-btn:hover {
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
+  .tab-panel { display: block; }
+  .tab-panel[hidden] { display: none; }
+  .install-pre {
+    margin: 0;
+    padding: 14px 16px;
+    overflow-x: auto;
+    background: var(--bg-subtle);
+  }
+  .install-pre code {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink);
+    white-space: pre;
+    background: none;
+    display: block;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.install-wrap').forEach(wrap => {
+    const tabs = wrap.querySelectorAll<HTMLButtonElement>('.tab-btn');
+    const panels = wrap.querySelectorAll<HTMLElement>('.tab-panel');
+    const copyBtn = wrap.querySelector<HTMLButtonElement>('.copy-btn');
+    const copyLabel = wrap.querySelector<HTMLSpanElement>('.copy-label');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.tab;
+        panels.forEach(p => {
+          if (p.dataset.panel === target) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const activeTab = wrap.querySelector<HTMLButtonElement>('.tab-btn.active');
+      const activePanel = wrap.querySelector<HTMLElement>(
+        `.tab-panel[data-panel="${activeTab?.dataset.tab}"]`
+      );
+      const text = activePanel?.querySelector('code')?.textContent ?? '';
+      navigator.clipboard.writeText(text).then(() => {
+        if (!copyLabel || !copyBtn) return;
+        const original = copyBtn.dataset.copy ?? 'Copy';
+        const copied = copyBtn.dataset.copied ?? 'Copied!';
+        copyLabel.textContent = copied;
+        setTimeout(() => { copyLabel.textContent = original; }, 2000);
+      }).catch(() => {});
+    });
+  });
+</script>

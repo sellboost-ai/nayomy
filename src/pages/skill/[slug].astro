@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import InstallBlock from '../../components/InstallBlock.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en' as const;
@@ -17,8 +18,7 @@ export async function getStaticPaths() {
 
 type Props = { skill: CollectionEntry<'skills'> };
 const { skill } = Astro.props;
-const { name, description_en, category, repo, stars, url } = skill.data;
-const installCmd = `claude install ${url}`;
+const { name, description_en, category, repo, stars, url, path } = skill.data;
 ---
 
 <BaseLayout title={`${name} · Nayomy`} description={description_en} lang={lang}>
@@ -42,10 +42,7 @@ const installCmd = `claude install ${url}`;
         <p class="detail-desc">{description_en}</p>
       </div>
 
-      <div class="install-block">
-        <div class="install-label">{t('skill.install')}</div>
-        <pre class="install-pre"><code>{installCmd}</code></pre>
-      </div>
+      <InstallBlock lang={lang} name={name} repo={repo} path={path} />
 
       <dl class="detail-info">
         <div class="info-row">
@@ -82,16 +79,12 @@ const installCmd = `claude install ${url}`;
     color: var(--ink-3);
     margin-bottom: 28px;
   }
-  .breadcrumb a {
-    color: var(--ink-3);
-    text-decoration: none;
-  }
+  .breadcrumb a { color: var(--ink-3); text-decoration: none; }
   .breadcrumb a:hover { color: var(--ink); }
   .breadcrumb .sep { color: var(--ink-4); }
   .breadcrumb .crumb-current { color: var(--ink-2); }
 
   .detail-header { margin-bottom: 28px; }
-
   .detail-meta {
     display: flex;
     align-items: center;
@@ -109,11 +102,7 @@ const installCmd = `claude install ${url}`;
     border-radius: 4px;
     color: var(--ink-3);
   }
-  .stars-count {
-    font-size: 13px;
-    color: var(--ink-3);
-    font-weight: 500;
-  }
+  .stars-count { font-size: 13px; color: var(--ink-3); font-weight: 500; }
   .detail-title {
     font-size: clamp(26px, 4vw, 38px);
     font-weight: 700;
@@ -126,35 +115,6 @@ const installCmd = `claude install ${url}`;
     color: var(--ink-3);
     line-height: 1.65;
     max-width: 640px;
-  }
-
-  .install-block {
-    background: var(--bg-subtle);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 28px;
-  }
-  .install-label {
-    padding: 7px 14px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-3);
-    border-bottom: 1px solid var(--line);
-    background: var(--bg-elevated);
-  }
-  .install-pre {
-    padding: 14px 16px;
-    margin: 0;
-    overflow-x: auto;
-  }
-  .install-pre code {
-    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-    font-size: 13.5px;
-    color: var(--ink);
-    background: none;
   }
 
   .detail-info {
@@ -171,12 +131,7 @@ const installCmd = `claude install ${url}`;
     gap: 16px;
   }
   .info-row:last-child { border-bottom: none; }
-  .info-row dt {
-    color: var(--ink-3);
-    font-weight: 500;
-    min-width: 90px;
-    flex-shrink: 0;
-  }
+  .info-row dt { color: var(--ink-3); font-weight: 500; min-width: 90px; flex-shrink: 0; }
   .info-row dd { color: var(--ink-2); }
   .info-row dd a {
     color: var(--ink-2);
