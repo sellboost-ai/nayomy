@@ -17,6 +17,7 @@
     "build-mcp": "node scripts/mcp-json-to-content.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
     "@astrojs/mdx": "^5.0.6",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.3.7"
