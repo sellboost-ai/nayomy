@@ -3,48 +3,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const lang = 'tr' as const;
 const title = 'Hakkında — nayomy';
-const description = "nayomy, GitHub'da yayınlanmış Claude agent skill'lerinin ve MCP sunucularının günlük güncellenen, aranabilir kataloğudur.";
+const description = "Her yapay zeka aracının neler yapabildiğini keşfet — Claude ve ChatGPT'den etrafında büyüyen ekosistemlere kadar.";
 ---
 
 <BaseLayout title={title} description={description} lang={lang}>
   <article class="about">
-    <h1>nayomy Hakkında</h1>
+    <h1>nayomy hakkında</h1>
 
     <p class="lead">
-      nayomy, GitHub'da yayınlanmış <strong>Claude agent skill'lerinin</strong> ve
-      <strong>Model Context Protocol (MCP) sunucularının</strong> günlük güncellenen, aranabilir kataloğudur.
+      nayomy, yapay zeka için bir bilgi kütüphanesi — her aracın neler yapabildiğini, neyle ayrıştığını
+      ve ondan daha fazla nasıl yararlanılacağını tek bir yerde bulabileceğin yer.
     </p>
 
-    <h2>Ne kapsıyoruz</h2>
+    <p>
+      Öne çıkan yapay zeka ürünlerini derinlemesine ele alıyoruz: Claude, ChatGPT, Gemini, Cursor ve
+      insanların yapay zekayla nasıl üretim yaptığını, yazdığını, tasarladığını şekillendiren araçlar.
+      Her biri için tanıtım sayfalarının ötesine geçiyoruz — yeteneklere, sınırlara ve etrafında büyüyen
+      ekosistemlere.
+    </p>
+
+    <h2>Burada neler var</h2>
     <ul>
-      <li><strong>Agent Skill'leri</strong> — Claude'u domain bilgisi, workflow ve entegrasyonlarla genişleten markdown tanımlı davranışlar.</li>
-      <li><strong>MCP Sunucuları</strong> — Claude'u (ve diğer LLM'leri) veritabanları, API'lar, dosya sistemleri gibi dış sistemlere bağlayan protokol sunucuları.</li>
+      <li><strong>Yapay zeka ürünleri için referans</strong> — model aileleri, fiyatlandırma, gerçek kullanım senaryoları ve dürüst karşılaştırmalar.</li>
+      <li><strong>Eklentiler kütüphanesi</strong> — agent skill'leri, MCP sunucuları, editör kuralları, özel asistanlar ve bu araçları daha güçlü kılan diğer kaynaklar.</li>
+      <li><strong>Ekosistemle birlikte büyüyen kapsam</strong> — yeni araçlar, yeni diller, yapay zekayı keşfetmenin yeni yolları.</li>
     </ul>
-
-    <h2>Veri nasıl toplanıyor</h2>
-    <p>
-      Her giriş, GitHub'daki public repolardan otomatik olarak alınıyor. Gece çalışan bir job indeksi yeniden tarıyor,
-      güncel metadata'yı (yıldızlar, açıklamalar, dosya yapısı) çekiyor ve kataloğu yeniden inşa ediyor. Manuel başvuru
-      kabul etmiyoruz — eğer skill'iniz veya sunucunuz GitHub'da ve bizim crawler'ımız tarafından indekslendiyse, burada görünüyor.
-    </p>
-
-    <h2>Neden var</h2>
-    <p>
-      Agent ekosistemi hızlı hareket ediyor. Yüzlerce repoda her gün yeni skill ve MCP sunucusu yayınlanıyor,
-      ve keşfetme darboğaz haline geldi. nayomy, <em>neyin yapılmış olduğunu bulma</em> yeri —
-      aranabilir, kategorilenmiş ve güncel.
-    </p>
-
-    <h2>Açık kaynak</h2>
-    <p>
-      <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> ile geliştirildi.
-      Kaynak kodu, indeksleme script'leri ve crawl kuralları
-      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener">GitHub</a>'da public.
-    </p>
-
-    <p class="signoff">
-      Bağımsız geliştiriciler tarafından yapıldı. Anthropic ile bağlantılı değildir.
-    </p>
   </article>
 </BaseLayout>
 
