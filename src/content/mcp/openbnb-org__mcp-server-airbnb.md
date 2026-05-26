@@ -1,6 +1,7 @@
 ---
 name: "openbnb-org/mcp-server-airbnb"
 description: "Provides tools to search Airbnb and get listing details."
+description_tr: "Airbnb'de arama yapmak ve listing detaylarını almak için gerekli araçları sağlar."
 category: "Travel & Transportation"
 repo: "openbnb-org/mcp-server-airbnb"
 stars: 460

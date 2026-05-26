@@ -1,6 +1,7 @@
 ---
 name: "brand-guidelines"
 description_en: "When the user wants to apply, document, or enforce brand guidelines for any product or company. Also use when the user mentions 'brand guidelines,' 'brand colors,' 'typography,' 'logo usage,' 'brand voice,' 'visual identity,' 'tone of voice,' 'brand standards,' 'style guide,' 'brand consistency,' or 'company design standards.' Covers color systems, typography, logo rules, imagery guidelines, and t"
+description_tr: "Kullanıcı herhangi bir ürün veya şirket için brand guidelines'ı uygulamak, belgelemek veya zorlamak istediğinde kullanılır. Brand colors, typography, logo usage, brand voice, visual identity, tone of voice, brand standards, style guide, brand consistency veya company design standards gibi terimleri içerir. Renk sistemleri, tipografi, logo kuralları, görsel yönetim rehberleri ve daha fazlasını kapsar."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

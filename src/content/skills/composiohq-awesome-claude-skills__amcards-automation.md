@@ -1,6 +1,7 @@
 ---
 name: "amcards-automation"
 description_en: "Automate Amcards tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Amcards görevlerini otomatikleştirin. Tools içinde her zaman geçerli schemaları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

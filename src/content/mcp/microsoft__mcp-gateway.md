@@ -1,6 +1,7 @@
 ---
 name: "microsoft/mcp-gateway"
 description: "A reverse proxy and management layer for MCP servers, enabling scalable, session-aware routing and lifecycle management in Kubernetes environments."
+description_tr: "MCP sunucuları için bir reverse proxy ve yönetim katmanı, Kubernetes ortamlarında ölçeklenebilir, session-farkında yönlendirme ve lifecycle yönetimi sağlar."
 category: "Aggregators"
 repo: "microsoft/mcp-gateway"
 stars: 651

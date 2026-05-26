@@ -1,6 +1,7 @@
 ---
 name: "ferrislucas/iterm-mcp"
 description: "A Model Context Protocol server that provides access to iTerm. You can run commands and ask questions about what you see in the iTerm terminal."
+description_tr: "iTerm'e erişim sağlayan bir Model Context Protocol sunucusu. Terminal penceresinde komut çalıştırabilir ve gördüğünüz şeyler hakkında sorular sorabilirsiniz."
 category: "Command Line"
 repo: "ferrislucas/iterm-mcp"
 stars: 556

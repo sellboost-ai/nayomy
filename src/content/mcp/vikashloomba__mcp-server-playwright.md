@@ -1,6 +1,7 @@
 ---
 name: "VikashLoomba/MCP-Server-Playwright"
 description: "A Model Context Protocol server that provides browser automation capabilities using Playwright"
+description_tr: "Playwright kullanarak tarayıcı otomasyon yetenekleri sağlayan bir Model Context Protocol sunucusu"
 category: "Browser Automation"
 repo: "VikashLoomba/MCP-Server-Playwright"
 stars: 294

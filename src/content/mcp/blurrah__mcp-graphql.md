@@ -1,6 +1,7 @@
 ---
 name: "blurrah/mcp-graphql"
 description: "Allows the AI to query GraphQL servers"
+description_tr: "AI'nin GraphQL sunucularını sorgulamasını sağlar"
 category: "Other Tools and Integrations"
 repo: "blurrah/mcp-graphql"
 stars: 388

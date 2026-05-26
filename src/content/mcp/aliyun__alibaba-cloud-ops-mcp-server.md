@@ -1,6 +1,7 @@
 ---
 name: "aliyun/alibaba-cloud-ops-mcp-server"
 description: "A MCP server that enables AI assistants to operation resources on Alibaba Cloud, supporting ECS, Cloud Monitor, OOS and widely used cloud products."
+description_tr: "Alibaba Cloud kaynaklarında AI yardımcılarının çalışmasını sağlayan bir MCP sunucusu olup, ECS, Cloud Monitor, OOS ve yaygın olarak kullanılan bulut ürünlerini desteklemektedir."
 category: "Cloud Platforms"
 repo: "aliyun/alibaba-cloud-ops-mcp-server"
 stars: 116

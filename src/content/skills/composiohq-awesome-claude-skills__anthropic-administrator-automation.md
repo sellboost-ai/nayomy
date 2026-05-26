@@ -1,6 +1,7 @@
 ---
 name: "anthropic-administrator-automation"
 description_en: "Automate Anthropic Admin tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Anthropic Admin görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut schemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

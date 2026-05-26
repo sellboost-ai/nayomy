@@ -1,6 +1,7 @@
 ---
 name: "kontext-dev/browser-use-mcp-server"
 description: "browser-use packaged as an MCP server with SSE transport. includes a dockerfile to run chromium in docker + a vnc server."
+description_tr: "browser-use uygulamasını MCP server olarak paketlenmiş halinde sunuyoruz, SSE transport ile çalışır. Chromium'u Docker'da çalıştırmak için Dockerfile ve VNC sunucusu içerir."
 category: "Browser Automation"
 repo: "kontext-dev/browser-use-mcp-server"
 stars: 822

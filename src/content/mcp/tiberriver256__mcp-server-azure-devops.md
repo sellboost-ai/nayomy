@@ -1,6 +1,7 @@
 ---
 name: "Tiberriver256/mcp-server-azure-devops"
 description: "Azure DevOps integration for repository management, work items, and pipelines."
+description_tr: "Azure DevOps entegrasyonu ile repository yönetimi, work items ve pipeline'larınızı tek yerden kontrol edin."
 category: "Version Control"
 repo: "Tiberriver256/mcp-server-azure-devops"
 stars: 369

@@ -1,6 +1,7 @@
 ---
 name: "cdo-review"
 description_en: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring."
+description_tr: "/cs:cdo-review <plan> — Eğitim verisi, veri mimarisi, veri ürünleştirme veya veri ekibi işe alımı ile ilgili herhangi bir plana yönelik karar odaklı Chief Data Officer sorgusudur."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

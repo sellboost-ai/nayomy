@@ -1,6 +1,7 @@
 ---
 name: "alexei-led/aws-mcp-server"
 description: "A lightweight but powerful server that enables AI assistants to execute AWS CLI commands, use Unix pipes, and apply prompt templates for common AWS tasks in a safe Docker environment with multi-architecture support"
+description_tr: "Hafif ancak güçlü bir sunucu olup AI asistanlarının AWS CLI komutlarını çalıştırmasını, Unix pipes kullanmasını ve yaygın AWS görevleri için prompt şablonları uygulamasını güvenli Docker ortamında çok mimarilişli destek ile sağlar."
 category: "Cloud Platforms"
 repo: "alexei-led/aws-mcp-server"
 stars: 182

@@ -1,6 +1,7 @@
 ---
 name: "utensils/mcp-nixos"
 description: "MCP server providing accurate information about NixOS packages, system options, Home Manager configurations, and nix-darwin macOS settings to prevent AI hallucinations."
+description_tr: "NixOS paketleri, sistem seçenekleri, Home Manager konfigürasyonları ve nix-darwin macOS ayarları hakkında doğru bilgi sağlayan MCP server. AI halüsinasyonlarını önlemek için tasarlanmıştır."
 category: "Developer Tools"
 repo: "utensils/mcp-nixos"
 stars: 646

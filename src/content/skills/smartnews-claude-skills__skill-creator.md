@@ -1,6 +1,7 @@
 ---
 name: "skill-creator"
 description_en: "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations."
+description_tr: "Etkili beceriler oluşturmak için rehber. Bu beceri, kullanıcılar Claude'un yeteneklerini özel bilgi, iş akışları veya tool entegrasyonları ile genişletmek için yeni bir beceri oluşturmak (veya mevcut bir beceriyi güncellemek) istediğinde kullanılmalıdır."
 category: "Design"
 repo: "smartnews/claude-skills"
 stars: 2

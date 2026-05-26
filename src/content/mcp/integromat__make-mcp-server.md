@@ -1,6 +1,7 @@
 ---
 name: "integromat/make-mcp-server"
 description: "Turn your Make scenarios into callable tools for AI assistants."
+description_tr: "Make senaryolarınızı AI asistanları için çağrılabilir araçlara dönüştürün."
 category: "Other Tools and Integrations"
 repo: "integromat/make-mcp-server"
 stars: 158

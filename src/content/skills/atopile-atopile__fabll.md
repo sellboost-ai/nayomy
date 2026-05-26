@@ -1,6 +1,7 @@
 ---
 name: "fabll"
 description_en: "How FabLL (faebryk.core.node) maps Python node/trait declarations into the TypeGraph + instance graph, including field/trait invariants and instantiation patterns. Use when defining new components or traits, working with the Node API, or understanding type registration."
+description_tr: "FabLL (faebryk.core.node) Python node/trait deklarasyonlarını TypeGraph ve instance graph'a nasıl dönüştürdüğünü, field/trait invariantlarını ve instantiation pattern'lerini açıklar. Yeni componentler veya trait'ler tanımlarken, Node API ile çalışırken veya type registration'ı anlarken kullanın."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3370

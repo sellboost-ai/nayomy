@@ -1,6 +1,7 @@
 ---
 name: "atopile-skills"
 description_en: "How to write and maintain `.claude/skills/*/SKILL.md` files: source-of-truth-first process, verification steps, and conventions."
+description_tr: "`.claude/skills/*/SKILL.md` dosyalarını yazma ve güncelleme rehberi: kaynaktan-doğruluk-birinci yaklaşım, doğrulama adımları ve kurallar."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3370

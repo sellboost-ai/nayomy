@@ -1,6 +1,7 @@
 ---
 name: "public-ui/kolibri"
 description: "Streaming KoliBri MCP server (NPM: @public-ui/mcp) delivering 200+ guaranteed accessible web component samples, specs, docs, and scenarios via hosted HTTP endpoint or local kolibri-mcp CLI."
+description_tr: "Streaming KoliBri MCP sunucusu (NPM: @public-ui/mcp), 200+ erişilebilir web component örneğini, spesifikasyonlarını, dokümantasyonunu ve senaryolarını barındırılan HTTP endpoint veya yerel kolibri-mcp CLI aracılığıyla sunar."
 category: "Developer Tools"
 repo: "public-ui/kolibri"
 stars: 261

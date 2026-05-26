@@ -1,6 +1,7 @@
 ---
 name: "st3v3nmw/sourcerer-mcp"
 description: "MCP for semantic code search & navigation that reduces token waste"
+description_tr: "Semantic kod arama ve navigasyonu sağlayan, token tüketimini azaltan MCP"
 category: "Developer Tools"
 repo: "st3v3nmw/sourcerer-mcp"
 stars: 114

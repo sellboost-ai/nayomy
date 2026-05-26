@@ -1,6 +1,7 @@
 ---
 name: "BurtTheCoder/mcp-maigret"
 description: "MCP server for maigret, a powerful OSINT tool that collects user account information from various public sources. This server provides tools for searching usernames across social networks and analyzing URLs."
+description_tr: "Maigret için MCP sunucusu; çeşitli açık kaynaklar üzerinden kullanıcı hesap bilgilerini toplayan güçlü bir OSINT aracıdır. Sunucu, sosyal ağlar arasında kullanıcı adı araması ve URL analizi için araçlar sağlar."
 category: "Security"
 repo: "BurtTheCoder/mcp-maigret"
 stars: 241

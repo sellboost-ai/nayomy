@@ -1,6 +1,7 @@
 ---
 name: "zcaceres/gtasks-mcp"
 description: "An MCP server to Manage Google Tasks"
+description_tr: "Google Tasks'ı yönetmek için bir MCP sunucusu"
 category: "Communication"
 repo: "zcaceres/gtasks-mcp"
 stars: 135

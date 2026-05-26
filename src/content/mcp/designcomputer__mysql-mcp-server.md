@@ -1,6 +1,7 @@
 ---
 name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
+description_tr: "MySQL veritabanı entegrasyonu yapılandırılabilir erişim kontrolleri, schema inceleme ve kapsamlı güvenlik yönergeleri ile birlikte gelir."
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
 stars: 1263

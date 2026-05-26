@@ -1,6 +1,7 @@
 ---
 name: "g0t4/mcp-server-commands"
 description: "Run any command with run_command and run_script tools."
+description_tr: "run_command ve run_script araçlarıyla herhangi bir komutu çalıştırın."
 category: "Command Line"
 repo: "g0t4/mcp-server-commands"
 stars: 225

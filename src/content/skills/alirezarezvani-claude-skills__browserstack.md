@@ -1,6 +1,7 @@
 ---
 name: "browserstack"
 description_en: ">- Run tests on BrowserStack. Use when user mentions \"browserstack\", \"cross-browser\", \"cloud testing\", \"browser matrix\", \"test on safari\", \"test on firefox\", or \"browser compatibility\"."
+description_tr: "BrowserStack'te testler çalıştırın. Kullanıcı \"browserstack\", \"cross-browser\", \"bulut testleme\", \"browser matrix\", \"safari'de test et\", \"firefox'ta test et\" veya \"browser uyumluluğu\" gibi ifadeler kullandığında tercih edin."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

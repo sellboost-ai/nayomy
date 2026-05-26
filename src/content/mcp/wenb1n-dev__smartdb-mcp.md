@@ -1,6 +1,7 @@
 ---
 name: "wenb1n-dev/SmartDB_MCP"
 description: "A universal database MCP server supporting simultaneous connections to multiple databases. It provides tools for database operations, health analysis, SQL optimization, and more. Compatible with mainstream databases including MySQL, PostgreSQL, SQL Server, MariaDB, Dameng, and Oracle. Supports Streamable HTTP, SSE, and STDIO; integrates OAuth 2.0; and is designed for easy customization and extensi"
+description_tr: "Birden fazla veritabanına eşzamanlı bağlantı destekleyen evrensel bir veritabanı MCP sunucusu. Veritabanı işlemleri, sağlık analizi, SQL optimizasyonu ve daha fazlası için araçlar sağlar. MySQL, PostgreSQL, SQL Server, MariaDB, Dameng ve Oracle dahil ana veritabanlarıyla uyumlu. Streamable HTTP, SSE ve STDIO'yu destekler; OAuth 2.0 ile entegre olur; kolay özelleştirme ve genişletme için tasarlanmıştır."
 category: "Databases"
 repo: "wenb1n-dev/SmartDB_MCP"
 stars: 82

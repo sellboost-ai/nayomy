@@ -1,6 +1,7 @@
 ---
 name: "changelog"
 description_en: "Generate changelogs from git history and validate conventional commits. Usage: /changelog <generate|lint> [options]"
+description_tr: "Git geçmişinden changelog oluşturun ve conventional commits doğrulayın. Kullanım: /changelog <generate|lint> [options]"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

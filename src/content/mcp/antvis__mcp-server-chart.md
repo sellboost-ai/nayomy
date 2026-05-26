@@ -1,6 +1,7 @@
 ---
 name: "antvis/mcp-server-chart"
 description: "A Model Context Protocol server for generating visual charts using AntV."
+description_tr: "AntV kullanarak görsel grafikler oluşturmak için bir Model Context Protocol sunucusu."
 category: "Customer Data Platforms"
 repo: "antvis/mcp-server-chart"
 stars: 4102

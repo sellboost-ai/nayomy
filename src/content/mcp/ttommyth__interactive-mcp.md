@@ -1,6 +1,7 @@
 ---
 name: "ttommyth/interactive-mcp"
 description: "Enables interactive LLM workflows by adding local user prompts and chat capabilities directly into the MCP loop."
+description_tr: "MCP döngüsüne yerel kullanıcı istemlerini ve sohbet yeteneklerini ekleyerek etkileşimli LLM iş akışlarını etkinleştirir."
 category: "Other Tools and Integrations"
 repo: "ttommyth/interactive-mcp"
 stars: 345

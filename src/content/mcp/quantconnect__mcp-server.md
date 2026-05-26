@@ -1,6 +1,7 @@
 ---
 name: "QuantConnect/mcp-server"
 description: "A Dockerized Python MCP server that bridges your local AI (e.g., Claude Desktop, etc) with the QuantConnect API—empowering you to create projects, backtest strategies, manage collaborators, and deploy live-trading workflows directly via natural-language prompts."
+description_tr: "Yerel AI'nız (Claude Desktop vb.) ile QuantConnect API'sini bağlayan Dockerize edilmiş Python MCP sunucusu—doğal dil komutlarıyla projeleri oluşturabilir, stratejileri backtest edebilir, işbirlikçileri yönetebilir ve canlı ticaret iş akışlarını doğrudan deploy edebilirsiniz."
 category: "Finance & Fintech"
 repo: "QuantConnect/mcp-server"
 stars: 75

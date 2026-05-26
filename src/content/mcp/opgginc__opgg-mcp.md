@@ -1,6 +1,7 @@
 ---
 name: "opgginc/opgg-mcp"
 description: "Access real-time gaming data across popular titles like League of Legends, TFT, and Valorant, offering champion analytics, esports schedules, meta compositions, and character statistics."
+description_tr: "Popüler oyunlar olan League of Legends, TFT ve Valorant'tan gerçek zamanlı oyun verilerine erişin ve şampiyon analitiği, esports takvimi, meta bileşimleri ile karakter istatistiklerini kullanın."
 category: "Gaming"
 repo: "opgginc/opgg-mcp"
 stars: 90

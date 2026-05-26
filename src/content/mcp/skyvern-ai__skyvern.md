@@ -1,6 +1,7 @@
 ---
 name: "Skyvern-AI/skyvern"
 description: "Automates browser-based workflows using LLMs and computer vision — navigate pages, fill forms, extract data, handle authentication, and automate any website via natural language"
+description_tr: "LLM ve bilgisayar görüşü kullanarak tarayıcı tabanlı iş akışlarını otomatikleştirin — sayfaları gezin, formları doldurun, veri çıkarın, kimlik doğrulamayı yönetin ve herhangi bir web sitesini doğal dil ile otomatikleştirin."
 category: "Browser Automation"
 repo: "Skyvern-AI/skyvern"
 stars: 21734

@@ -1,6 +1,7 @@
 ---
 name: "chroma-core/chroma-mcp"
 description: "Chroma MCP server to access local and cloud Chroma instances for retrieval capabilities"
+description_tr: "Yerel ve bulut Chroma örneklerine erişim sağlayan Chroma MCP sunucusu, retrieval yetenekleri ile vektör verilerinizi yönetin."
 category: "Databases"
 repo: "chroma-core/chroma-mcp"
 stars: 550

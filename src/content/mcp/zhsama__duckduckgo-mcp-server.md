@@ -1,6 +1,7 @@
 ---
 name: "zhsama/duckduckgo-mcp-server"
 description: "This is a TypeScript-based MCP server that provides DuckDuckGo search functionality."
+description_tr: "TypeScript ile yazılmış, DuckDuckGo arama işlevselliği sunan bir MCP sunucusudur."
 category: "Search & Data Extraction"
 repo: "zhsama/duckduckgo-mcp-server"
 stars: 77

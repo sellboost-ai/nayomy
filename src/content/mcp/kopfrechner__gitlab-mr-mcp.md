@@ -1,6 +1,7 @@
 ---
 name: "kopfrechner/gitlab-mr-mcp"
 description: "Interact seamlessly with issues and merge requests of your GitLab projects."
+description_tr: "GitLab projelerinizin issue ve merge request'leriyle sorunsuz bir şekilde etkileşim kurun."
 category: "Version Control"
 repo: "kopfrechner/gitlab-mr-mcp"
 stars: 89

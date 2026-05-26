@@ -1,6 +1,7 @@
 ---
 name: "admica/FileScopeMCP"
 description: "Analyzes your codebase identifying important files based on dependency relationships. Generates diagrams and importance scores, helping AI assistants understand the codebase."
+description_tr: "Kod tabanınızı analiz ederek bağımlılık ilişkilerine göre önemli dosyaları belirler. Diyagramlar ve önem puanları oluşturarak AI asistanlarının kod tabanını daha iyi anlamasına yardımcı olur."
 category: "Developer Tools"
 repo: "admica/FileScopeMCP"
 stars: 293

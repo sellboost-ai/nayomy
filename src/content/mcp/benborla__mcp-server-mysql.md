@@ -1,6 +1,7 @@
 ---
 name: "benborla/mcp-server-mysql"
 description: "MySQL database integration in NodeJS with configurable access controls and schema inspection"
+description_tr: "NodeJS'te MySQL veritabanı entegrasyonu, yapılandırılabilir erişim kontrolleri ve schema inceleme özellikleriyle."
 category: "Databases"
 repo: "benborla/mcp-server-mysql"
 stars: 1719

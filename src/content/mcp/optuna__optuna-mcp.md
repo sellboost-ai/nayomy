@@ -1,6 +1,7 @@
 ---
 name: "optuna/optuna-mcp"
 description: "Official MCP server enabling seamless orchestration of hyperparameter search and other optimization tasks with Optuna."
+description_tr: "Optuna ile hiperparametre araması ve diğer optimizasyon görevlerinin sorunsuz bir şekilde yönetilmesini sağlayan resmi MCP sunucusu."
 category: "Data Science Tools"
 repo: "optuna/optuna-mcp"
 stars: 76

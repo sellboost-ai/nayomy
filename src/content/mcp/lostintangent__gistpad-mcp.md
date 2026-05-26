@@ -1,6 +1,7 @@
 ---
 name: "lostintangent/gistpad-mcp"
 description: "Use GitHub Gists to manage and access your personal knowledge, daily notes, and reusable prompts. This acts as a companion to https://gistpad.dev and the GistPad VS Code extension."
+description_tr: "GitHub Gists'i kişisel bilgilerinizi, günlük notlarınızı ve yeniden kullanılabilir promptlarınızı yönetmek ve erişmek için kullanın. Bu araç, https://gistpad.dev ve GistPad VS Code extension'ına eşlik eder."
 category: "Knowledge & Memory"
 repo: "lostintangent/gistpad-mcp"
 stars: 194

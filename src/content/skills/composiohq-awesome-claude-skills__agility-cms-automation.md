@@ -1,6 +1,7 @@
 ---
 name: "agility-cms-automation"
 description_en: "Automate Agility CMS tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Agility CMS görevlerini otomatikleştirin. Güncel şemalar için her zaman önce tools'u araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

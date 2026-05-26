@@ -1,6 +1,7 @@
 ---
 name: "web-artifacts-builder"
 description_en: "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts."
+description_tr: "Claude.ai üzerinde gelişmiş, çok bileşenli HTML artifact'ları oluşturmak için gerekli araç seti. React, Tailwind CSS ve shadcn/ui gibi modern frontend teknolojilerini kullanarak state management, routing veya shadcn/ui component'leri gerektiren karmaşık artifact'lar için idealdir - basit tek dosyalık HTML/JSX artifact'ları için değildir."
 category: "Design"
 repo: "anthropics/skills"
 stars: 140618

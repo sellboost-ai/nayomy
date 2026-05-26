@@ -1,6 +1,7 @@
 ---
 name: "translated/lara-mcp"
 description: "MCP Server for Lara Translate API, enabling powerful translation capabilities with support for language detection and context-aware translations."
+description_tr: "Lara Translate API için MCP Server, dil algılama ve bağlama duyarlı çeviriler ile güçlü çeviri yeteneklerini sunar."
 category: "Translation Services"
 repo: "translated/lara-mcp"
 stars: 87

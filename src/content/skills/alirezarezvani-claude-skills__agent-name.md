@@ -1,6 +1,7 @@
 ---
 name: "Agent Name"
 description_en: "One paragraph describing what this agent does, who it's for, and when to activate it."
+description_tr: "Geliştirici araçlarınızı otomatikleştiren ve API entegrasyonlarını yöneten bu agent, backend ekipleri için tasarlanmıştır. Kompleks workflow'ları başlatmanız veya hassas deployment işlemleri gerçekleştirmeniz gerektiğinde etkinleştirin."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "ConechoAI/openai-websearch-mcp"
 description: "This is a Python-based MCP server that provides OpenAI web_search build-in tool."
+description_tr: "Python tabanlı bir MCP sunucusu olup OpenAI web_search aracını kullanıma sunmaktadır."
 category: "Search & Data Extraction"
 repo: "ConechoAI/openai-websearch-mcp"
 stars: 89

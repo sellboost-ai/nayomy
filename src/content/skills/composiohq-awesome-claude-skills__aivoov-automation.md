@@ -1,6 +1,7 @@
 ---
 name: "aivoov-automation"
 description_en: "Automate Aivoov tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Aivoov görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman geçerli şemaları bulmak için önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

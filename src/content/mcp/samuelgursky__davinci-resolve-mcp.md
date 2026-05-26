@@ -1,6 +1,7 @@
 ---
 name: "samuelgursky/davinci-resolve-mcp"
 description: "MCP server integration for DaVinci Resolve providing powerful tools for video editing, color grading, media management, and project control"
+description_tr: "DaVinci Resolve için MCP server entegrasyonu, video editing, color grading, media management ve proje kontrolü için güçlü araçlar sunuyor."
 category: "Art & Culture"
 repo: "samuelgursky/davinci-resolve-mcp"
 stars: 1120

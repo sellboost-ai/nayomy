@@ -1,6 +1,7 @@
 ---
 name: "weaviate/mcp-server-weaviate"
 description: "An MCP Server to connect to your Weaviate collections as a knowledge base as well as using Weaviate as a chat memory store."
+description_tr: "Weaviate koleksiyonlarınızı bilgi tabanı olarak bağlamak ve sohbet belleği deposu olarak kullanmak için bir MCP Server."
 category: "Databases"
 repo: "weaviate/mcp-server-weaviate"
 stars: 161

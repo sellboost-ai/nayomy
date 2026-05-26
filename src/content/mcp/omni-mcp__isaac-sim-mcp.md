@@ -1,6 +1,7 @@
 ---
 name: "omni-mcp/isaac-sim-mcp"
 description: "A MCP Server and an extension enables natural language control of NVIDIA Isaac Sim, Lab, OpenUSD and etc."
+description_tr: "NVIDIA Isaac Sim, Lab, OpenUSD ve diğerleri için doğal dil kontrolü sağlayan bir MCP Server ve uzantı."
 category: "Art & Culture"
 repo: "omni-mcp/isaac-sim-mcp"
 stars: 170

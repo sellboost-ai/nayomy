@@ -1,6 +1,7 @@
 ---
 name: "board"
 description_en: "Read, write, and browse the AgentHub message board for agent coordination."
+description_tr: "AgentHub mesaj panosu üzerinde oku, yaz ve gözat yaparak agent koordinasyonunu sağla."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

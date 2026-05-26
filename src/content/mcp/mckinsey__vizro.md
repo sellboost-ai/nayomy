@@ -1,6 +1,7 @@
 ---
 name: "mckinsey/vizro"
 description: "Tools and templates to create validated and maintainable data charts and dashboards."
+description_tr: "Doğrulanmış ve bakımı kolay veri grafikleri ve dashboard'ları oluşturmak için araçlar ve şablonlar."
 category: "Data Science Tools"
 repo: "mckinsey/vizro"
 stars: 3695

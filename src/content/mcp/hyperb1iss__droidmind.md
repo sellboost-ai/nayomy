@@ -1,6 +1,7 @@
 ---
 name: "hyperb1iss/droidmind"
 description: "Control Android devices with AI through MCP, enabling device control, debugging, system analysis, and UI automation with a comprehensive security framework."
+description_tr: "MCP aracılığıyla yapay zeka ile Android cihazları kontrol edin; cihaz kontrolü, hata ayıklama, sistem analizi ve UI otomasyonunu kapsamlı bir güvenlik çerçevesiyle gerçekleştirin."
 category: "Developer Tools"
 repo: "hyperb1iss/droidmind"
 stars: 400

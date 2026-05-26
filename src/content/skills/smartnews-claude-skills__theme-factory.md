@@ -1,6 +1,7 @@
 ---
 name: "theme-factory"
 description_en: "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly."
+description_tr: "Artefaktları tema ile şekillendirmek için bir toolkit. Slaytlar, dokümanlar, raporlar, HTML landing page'ler gibi her türlü artefakta uygulanabilen 10 hazır tema mevcuttur. Mevcut artefaktlara hızlıca tema uygulayabilir ya da anında yeni tema oluşturabilirsiniz."
 category: "Document"
 repo: "smartnews/claude-skills"
 stars: 2

@@ -1,6 +1,7 @@
 ---
 name: "cyberchitta/llm-context.py"
 description: "Share code context with LLMs via MCP or clipboard"
+description_tr: "LLM'lerle kod bağlamını MCP veya panoya kopyalayarak paylaşın"
 category: "File Systems"
 repo: "cyberchitta/llm-context.py"
 stars: 301

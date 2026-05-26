@@ -1,6 +1,7 @@
 ---
 name: "ivo-toby/contentful-mcp"
 description: "Update, create, delete content, content-models and assets in your Contentful Space"
+description_tr: "Contentful Space'inizde içerik, içerik modelleri ve assets güncelleyin, oluşturun ve silin."
 category: "Other Tools and Integrations"
 repo: "ivo-toby/contentful-mcp"
 stars: 60

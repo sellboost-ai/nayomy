@@ -1,6 +1,7 @@
 ---
 name: "OctagonAI/octagon-mcp-server"
 description: "Octagon AI Agents to integrate private and public market data"
+description_tr: "Octagon AI Agents ile özel ve kamu pazar verilerini entegre edin"
 category: "Finance & Fintech"
 repo: "OctagonAI/octagon-mcp-server"
 stars: 128

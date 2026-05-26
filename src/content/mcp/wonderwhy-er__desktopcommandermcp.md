@@ -1,6 +1,7 @@
 ---
 name: "wonderwhy-er/DesktopCommanderMCP"
 description: "A swiss-army-knife that can manage/execute programs and read/write/search/edit code and text files."
+description_tr: "Programları yönetmek ve çalıştırmak, kod ve metin dosyalarını okumak, yazmak, aramak ve düzenlemek için hepsi bir arada bir araç."
 category: "Command Line"
 repo: "wonderwhy-er/DesktopCommanderMCP"
 stars: 6077

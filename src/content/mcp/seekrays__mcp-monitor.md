@@ -1,6 +1,7 @@
 ---
 name: "seekrays/mcp-monitor"
 description: "A system monitoring tool that exposes system metrics via the Model Context Protocol (MCP). This tool allows LLMs to retrieve real-time system information through an MCP-compatible interface.（support CPU、Memory、Disk、Network、Host、Process）"
+description_tr: "Sistem metriklerini Model Context Protocol (MCP) üzerinden sunan bir sistem izleme aracı. LLM'lerin MCP-uyumlu interface aracılığıyla CPU, Memory, Disk, Network, Host ve Process bilgilerine gerçek zamanlı erişim sağlar."
 category: "Monitoring"
 repo: "seekrays/mcp-monitor"
 stars: 82

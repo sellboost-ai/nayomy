@@ -1,6 +1,7 @@
 ---
 name: "IBM/mcp-cli"
 description: "Yet another CLI tool for testing MCP servers"
+description_tr: "MCP sunucularını test etmek için bir CLI aracı"
 category: "Other Tools and Integrations"
 repo: "IBM/mcp-cli"
 stars: 1976

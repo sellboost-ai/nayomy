@@ -1,6 +1,7 @@
 ---
 name: "code-review"
 description_en: "LLM-focused code review process for this repo: what to check, how to ground feedback in invariants/tests, and how to verify changes efficiently (including test-report.json)."
+description_tr: "Bu repo için LLM odaklı kod review süreci: neleri kontrol etmeli, feedback'i invariant ve testlere nasıl dayandırmalı ve değişiklikleri verimli şekilde nasıl doğrulamalı (test-report.json dahil)."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3370

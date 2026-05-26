@@ -1,6 +1,7 @@
 ---
 name: "nesquikm/mcp-rubber-duck"
 description: "An MCP server that bridges to multiple OpenAI-compatible LLMs - your AI rubber duck debugging panel for explaining problems to various AI \"ducks\" and getting different perspectives"
+description_tr: "Birden fazla OpenAI uyumlu LLM'ye bağlanan bir MCP sunucusu - farklı AI \"ördeklerine\" sorunlarınızı açıklayıp değişik bakış açıları alabildiğiniz yapay zeka goma ördek debug paneli"
 category: "Coding Agents"
 repo: "nesquikm/mcp-rubber-duck"
 stars: 165

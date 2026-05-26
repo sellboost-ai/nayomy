@@ -1,6 +1,7 @@
 ---
 name: "ihor-sokoliuk/mcp-searxng"
 description: "A Model Context Protocol Server for SearXNG"
+description_tr: "SearXNG için bir Model Context Protocol Server"
 category: "Search & Data Extraction"
 repo: "ihor-sokoliuk/mcp-searxng"
 stars: 814

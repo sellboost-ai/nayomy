@@ -1,6 +1,7 @@
 ---
 name: "eyalzh/browser-control-mcp"
 description: "An MCP server paired with a browser extension that enables LLM clients to control the user's browser (Firefox)."
+description_tr: "Firefox tarayıcısını kontrol etmek için LLM istemcilerine olanak sağlayan, bir tarayıcı eklentisiyle birlikte gelen MCP sunucusu."
 category: "Browser Automation"
 repo: "eyalzh/browser-control-mcp"
 stars: 286

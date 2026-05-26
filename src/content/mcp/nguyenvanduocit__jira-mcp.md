@@ -1,6 +1,7 @@
 ---
 name: "nguyenvanduocit/jira-mcp"
 description: "A Go-based MCP connector for Jira that enables AI assistants like Claude to interact with Atlassian Jira. This tool provides a seamless interface for AI models to perform common Jira operations including issue management, sprint planning, and workflow transitions."
+description_tr: "Go ile yazılmış bir MCP bağlayıcısı olup Claude gibi yapay zeka asistanlarının Atlassian Jira ile etkileşim kurmasını sağlar. Bu araç, yapay zeka modellerine issue yönetimi, sprint planlama ve workflow geçişleri dahil olmak üzere yaygın Jira işlemlerini gerçekleştirmesi için sorunsuz bir interface sunar."
 category: "Support & Service Management"
 repo: "nguyenvanduocit/jira-mcp"
 stars: 89

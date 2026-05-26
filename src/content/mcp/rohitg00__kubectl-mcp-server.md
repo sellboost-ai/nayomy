@@ -1,6 +1,7 @@
 ---
 name: "rohitg00/kubectl-mcp-server"
 description: "A Model Context Protocol (MCP) server for Kubernetes that enables AI assistants like Claude, Cursor, and others to interact with Kubernetes clusters through natural language."
+description_tr: "Kubernetes için bir Model Context Protocol (MCP) sunucusu. Claude, Cursor ve diğer AI asistanlarının doğal dil aracılığıyla Kubernetes kümelerine erişmesini ve yönetmesini sağlar."
 category: "Cloud Platforms"
 repo: "rohitg00/kubectl-mcp-server"
 stars: 897

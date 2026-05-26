@@ -1,6 +1,7 @@
 ---
 name: "domdomegg/airtable-mcp-server"
 description: "Airtable database integration with schema inspection, read and write capabilities"
+description_tr: "Airtable veritabanı entegrasyonu şema incelemesi, okuma ve yazma yetenekleri ile"
 category: "Databases"
 repo: "domdomegg/airtable-mcp-server"
 stars: 444

@@ -1,6 +1,7 @@
 ---
 name: "alexei-led/k8s-mcp-server"
 description: "A lightweight yet robust server that empowers AI assistants to securely execute Kubernetes CLI commands (kubectl, helm, istioctl, and argocd) using Unix pipes in a safe Docker environment with multi-architecture support."
+description_tr: "Kubernetes CLI komutlarını (kubectl, helm, istioctl, argocd) Unix pipes ile güvenli bir şekilde çalıştırmak için AI asistanlarını güçlendiren, Docker ortamında çok mimarileri destekleyen hafif fakat güçlü bir sunucu."
 category: "Cloud Platforms"
 repo: "alexei-led/k8s-mcp-server"
 stars: 210

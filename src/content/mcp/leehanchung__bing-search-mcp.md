@@ -1,6 +1,7 @@
 ---
 name: "leehanchung/bing-search-mcp"
 description: "Web search capabilities using Microsoft Bing Search API"
+description_tr: "Microsoft Bing Search API kullanarak web arama özellikleri"
 category: "Search & Data Extraction"
 repo: "leehanchung/bing-search-mcp"
 stars: 79

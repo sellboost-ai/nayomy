@@ -1,6 +1,7 @@
 ---
 name: "graph"
 description_en: "How the Zig-backed instance graph works (GraphView/NodeReference/EdgeReference), the real Python API surface, and the invariants around allocation, attributes, and cleanup. Use when working with low-level graph APIs, memory management, or building systems that traverse the instance graph."
+description_tr: "Zig ile desteklenen instance graph'ın nasıl çalıştığını (GraphView/NodeReference/EdgeReference), gerçek Python API surface'ini ve allocation, attributes ve cleanup etrafındaki invariantları açıklar. Low-level graph API'ler, memory management veya instance graph'ı traverse eden sistemler geliştirirken kullanın."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3370

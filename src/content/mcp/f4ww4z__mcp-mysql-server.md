@@ -1,6 +1,7 @@
 ---
 name: "f4ww4z/mcp-mysql-server"
 description: "Node.js-based MySQL database integration that provides secure MySQL database operations"
+description_tr: "Node.js tabanlı MySQL veritabanı entegrasyonu, güvenli MySQL veritabanı işlemleri sunmaktadır."
 category: "Databases"
 repo: "f4ww4z/mcp-mysql-server"
 stars: 160

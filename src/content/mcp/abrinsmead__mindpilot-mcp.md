@@ -1,6 +1,7 @@
 ---
 name: "abrinsmead/mindpilot-mcp"
 description: "Visualizes code, architecture and other concepts as mermaid diagrams in a locally hosted web app. Just ask your agent to \"show me this in a diagram\"."
+description_tr: "Kodunuzu, mimarinizi ve diğer konseptleri yerel olarak barındırılan bir web uygulamasında mermaid diyagramları olarak görselleştirir. Agenteye sadece \"bunu diyagramda göster\" diye söyleyin."
 category: "Developer Tools"
 repo: "abrinsmead/mindpilot-mcp"
 stars: 88

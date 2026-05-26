@@ -1,6 +1,7 @@
 ---
 name: "GLips/Figma-Context-MCP"
 description: "Provide coding agents direct access to Figma data to help them one-shot design implementation."
+description_tr: "Figma verilerine doğrudan erişim sağlayarak kodlama ajanlarının tasarımları tek adımda uygulamalarına yardımcı olun."
 category: "Developer Tools"
 repo: "GLips/Figma-Context-MCP"
 stars: 14881

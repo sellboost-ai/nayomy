@@ -1,6 +1,7 @@
 ---
 name: "YuChenSSR/multi-ai-advisor-mcp"
 description: "A Model Context Protocol (MCP) server that queries multiple Ollama models and combines their responses, providing diverse AI perspectives on a single question."
+description_tr: "Birden fazla Ollama modelini sorgulayan ve yanıtlarını birleştiren, tek bir soruya çeşitli yapay zeka perspektifleri sunayan bir Model Context Protocol (MCP) sunucusu."
 category: "Developer Tools"
 repo: "YuChenSSR/multi-ai-advisor-mcp"
 stars: 79

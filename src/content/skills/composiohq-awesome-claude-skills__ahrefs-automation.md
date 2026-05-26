@@ -1,6 +1,7 @@
 ---
 name: "Ahrefs Automation"
 description_en: "Automate SEO research with Ahrefs -- analyze backlink profiles, research keywords, track domain metrics history, audit organic rankings, and perform batch URL analysis through the Composio Ahrefs integration."
+description_tr: "Composio Ahrefs entegrasyonu ile SEO araştırmalarını otomatikleştirin -- backlink profillerini analiz edin, keyword araştırması yapın, domain metriklerinin geçmişini takip edin, organik sıralamalar için audit gerçekleştirin ve toplu URL analizi yapın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

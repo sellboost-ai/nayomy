@@ -1,6 +1,7 @@
 ---
 name: "datalayer/jupyter-mcp-server"
 description: "Model Context Protocol (MCP) Server for Jupyter."
+description_tr: "Jupyter için Model Context Protocol (MCP) Sunucusu."
 category: "Data Science Tools"
 repo: "datalayer/jupyter-mcp-server"
 stars: 1124

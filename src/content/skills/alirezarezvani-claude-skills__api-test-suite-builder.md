@@ -1,6 +1,7 @@
 ---
 name: "api-test-suite-builder"
 description_en: "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests."
+description_tr: "Kullanıcı API testleri oluşturmak, entegrasyon test süitleri kurmak, REST endpoint'lerini test etmek veya contract testler geliştirmek istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

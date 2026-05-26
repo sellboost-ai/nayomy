@@ -1,6 +1,7 @@
 ---
 name: "janwilmake/openapi-mcp-server"
 description: "Connect any HTTP/REST API server using an Open API spec (v3)"
+description_tr: "HTTP/REST API sunucularını Open API spec (v3) kullanarak bağlayın"
 category: "Developer Tools"
 repo: "janwilmake/openapi-mcp-server"
 stars: 894

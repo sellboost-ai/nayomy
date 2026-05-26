@@ -1,6 +1,7 @@
 ---
 name: "browser-automation"
 description_en: "Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screenshots, extract structured data from web pages, or build web automation workflows. NOT for testing — use playwright-pro for that."
+description_tr: "Tarayıcı görevlerini otomatikleştirmek, web sayfalarını kazımak, formları doldurmak, ekran görüntüsü almak, web sayfalarından yapılandırılmış veri çıkarmak veya web otomasyon workflow'ları oluşturmak için kullanın. Test için değil — bunun için playwright-pro kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

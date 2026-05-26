@@ -1,6 +1,7 @@
 ---
 name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
+description_tr: "GitHub ile depo yönetimi, pull request'ler, issue'lar ve daha fazlası için resmi entegrasyon sunucusu."
 category: "Version Control"
 repo: "github/github-mcp-server"
 stars: 30193

@@ -1,6 +1,7 @@
 ---
 name: "wso2/fhir-mcp-server"
 description: "Model Context Protocol server for Fast Healthcare Interoperability Resources (FHIR) APIs. Provides seamless integration with FHIR servers, enabling AI assistants to search, retrieve, create, update, and analyze clinical healthcare data with SMART-on-FHIR authentication support."
+description_tr: "FHIR API'leri için Model Context Protocol sunucusu. FHIR sunucularıyla sorunsuz entegrasyon sağlayarak, yapay zeka asistanlarının SMART-on-FHIR kimlik doğrulaması desteğiyle klinik sağlık verilerini arayabilmesini, alabilmesini, oluşturabilmesini, güncelleyebilmesini ve analiz edebilmesini mümkün kılar."
 category: "Biology Medicine and Bioinformatics"
 repo: "wso2/fhir-mcp-server"
 stars: 121

@@ -1,6 +1,7 @@
 ---
 name: "PipedreamHQ/pipedream"
 description: "Connect with 2,500 APIs with 8,000+ prebuilt tools, and manage servers for your users, in your own app."
+description_tr: "2.500'den fazla API'ye bağlanın, 8.000+ hazır araçtan yararlanın ve kendi uygulamanızda kullanıcılarınızın sunucularını yönetin."
 category: "Aggregators"
 repo: "PipedreamHQ/pipedream"
 stars: 11395

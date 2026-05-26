@@ -1,6 +1,7 @@
 ---
 name: "pab1it0/adx-mcp-server"
 description: "Query and analyze Azure Data Explorer databases"
+description_tr: "Azure Data Explorer veritabanlarını sorgulayın ve analiz edin"
 category: "Databases"
 repo: "pab1it0/adx-mcp-server"
 stars: 54

@@ -1,6 +1,7 @@
 ---
 name: "janreges/ai-distiller"
 description: "Extracts essential code structure from large codebases into AI-digestible format, helping AI agents write code that correctly uses existing APIs on the first attempt."
+description_tr: "Büyük kod tabanlarından temel yapıyı çıkararak AI'nin anlayabileceği formata dönüştürür ve AI ajanlarının mevcut API'leri ilk denemede doğru şekilde kullanan kod yazmasını sağlar."
 category: "Developer Tools"
 repo: "janreges/ai-distiller"
 stars: 157

@@ -1,6 +1,7 @@
 ---
 name: "ShenghaiWang/xcodebuild"
 description: "Build iOS Xcode workspace/project and feed back errors to llm."
+description_tr: "iOS Xcode workspace/project oluşturun ve hataları LLM'ye geri gönderin."
 category: "Developer Tools"
 repo: "ShenghaiWang/xcodebuild"
 stars: 84

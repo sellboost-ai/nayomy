@@ -1,6 +1,7 @@
 ---
 name: "apple-hig-expert"
 description_en: "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with 2026 Liquid Glass aesthetics and accessibility-first design."
+description_tr: "Apple Human Interface Guidelines (HIG) hakkında uzman rehberliği sunuyoruz. iOS, macOS ve visionOS'u kapsayan, 2026 Liquid Glass tasarımı ve erişilebilirlik-öncelikli yaklaşımla oluşturulmuştur."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

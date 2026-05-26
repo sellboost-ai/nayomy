@@ -1,6 +1,7 @@
 ---
 name: "mem0ai/mem0-mcp"
 description: "A Model Context Protocol server for Mem0 that helps manage coding preferences and patterns, providing tools for storing, retrieving and semantically handling code implementations, best practices and technical documentation in IDEs like Cursor and Windsurf"
+description_tr: "Mem0 için bir Model Context Protocol sunucusu olup, Cursor ve Windsurf gibi IDE'lerde kod implementasyonları, best practices ve teknik dokumentasyonları depolamak, sorgulamak ve semantik olarak yönetmek için araçlar sunarak kodlama tercihlerini ve desenlerini yönetmeye yardımcı olur."
 category: "Knowledge & Memory"
 repo: "mem0ai/mem0-mcp"
 stars: 653

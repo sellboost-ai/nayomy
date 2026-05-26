@@ -1,6 +1,7 @@
 ---
 name: "alexander-zuev/supabase-mcp-server"
 description: "Supabase MCP Server with support for SQL query execution and database exploration tools"
+description_tr: "Supabase MCP Server, SQL sorgusu yürütme ve veritabanı keşif araçlarıyla desteklenen bir çözüm"
 category: "Databases"
 repo: "alexander-zuev/supabase-mcp-server"
 stars: 822

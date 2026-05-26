@@ -1,6 +1,7 @@
 ---
 name: "tinybirdco/mcp-tinybird"
 description: "An MCP server to interact with a Tinybird Workspace from any MCP client."
+description_tr: "Tinybird Workspace ile herhangi bir MCP istemcisinden etkileşim kurmanızı sağlayan MCP sunucusu."
 category: "Customer Data Platforms"
 repo: "tinybirdco/mcp-tinybird"
 stars: 79

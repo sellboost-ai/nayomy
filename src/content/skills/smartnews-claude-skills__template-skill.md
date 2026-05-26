@@ -1,6 +1,7 @@
 ---
 name: "template-skill"
 description_en: "Replace with description of the skill and when Claude should use it."
+description_tr: "Claude'un bu yeteneği kullanması gereken durumları ve becerinin açıklaması ile değiştirin."
 category: "Development"
 repo: "smartnews/claude-skills"
 stars: 2

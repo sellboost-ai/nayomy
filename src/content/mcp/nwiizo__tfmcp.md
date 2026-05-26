@@ -1,6 +1,7 @@
 ---
 name: "nwiizo/tfmcp"
 description: "A Terraform MCP server allowing AI assistants to manage and operate Terraform environments, enabling reading configurations, analyzing plans, applying configurations, and managing Terraform state."
+description_tr: "Terraform MCP sunucusu, AI asistanlarının Terraform ortamlarını yönetmesine ve işletmesine olanak sağlayan, konfigürasyonları okuma, planları analiz etme, konfigürasyonları uygulama ve Terraform state yönetimini mümkün kılan bir araçtır."
 category: "Cloud Platforms"
 repo: "nwiizo/tfmcp"
 stars: 364

@@ -1,6 +1,7 @@
 ---
 name: "Apify Automation"
 description_en: "Automate web scraping and data extraction with Apify -- run Actors, manage datasets, create reusable tasks, and retrieve crawl results through the Composio Apify integration."
+description_tr: "Apify ile web scraping ve veri çıkarmayı otomatikleştirin -- Composio Apify entegrasyonu aracılığıyla Actor'ları çalıştırın, dataset'leri yönetin, yeniden kullanılabilir task'lar oluşturun ve crawl sonuçlarını alın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

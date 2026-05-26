@@ -1,6 +1,7 @@
 ---
 name: "runekaagaard/mcp-alchemy"
 description: "Universal SQLAlchemy-based database integration supporting PostgreSQL, MySQL, MariaDB, SQLite, Oracle, MS SQL Server and many more databases. Features schema and relationship inspection, and large dataset analysis capabilities."
+description_tr: "SQLAlchemy tabanlı evrensel veritabanı entegrasyonu; PostgreSQL, MySQL, MariaDB, SQLite, Oracle, MS SQL Server ve daha birçok veritabanını destekler. Schema ve relationship inceleme, büyük veri setleri analiz etme yetenekleri sunar."
 category: "Databases"
 repo: "runekaagaard/mcp-alchemy"
 stars: 404

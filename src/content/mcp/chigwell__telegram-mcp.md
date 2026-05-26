@@ -1,6 +1,7 @@
 ---
 name: "chigwell/telegram-mcp"
 description: "Telegram API integration for accessing user data, managing dialogs (chats, channels, groups), retrieving messages, sending messages and handling read status."
+description_tr: "Telegram API entegrasyonu ile kullanıcı verilerine erişim sağlayın, diyalogları (sohbetler, kanallar, gruplar) yönetin, mesajları alıp gönderin ve okunma durumunu takip edin."
 category: "Communication"
 repo: "chigwell/telegram-mcp"
 stars: 1133

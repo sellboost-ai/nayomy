@@ -1,6 +1,7 @@
 ---
 name: "sitbon/magg"
 description: "Magg: A meta-MCP server that acts as a universal hub, allowing LLMs to autonomously discover, install, and orchestrate multiple MCP servers - essentially giving AI assistants the power to extend their own capabilities on-demand."
+description_tr: "Magg: Birden fazla MCP sunucusunu otomatik olarak keşfetmeye, kurmaya ve yönetmeye imkan tanıyan evrensel bir hub görevi gören meta-MCP sunucusu - yapay zeka asistanlarına kendi yeteneklerini talep üzerine genişletme gücü veriyor."
 category: "Aggregators"
 repo: "sitbon/magg"
 stars: 134

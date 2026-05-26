@@ -1,6 +1,7 @@
 ---
 name: "screenpipe/screenpipe"
 description: "Local-first system capturing screen/audio with timestamped indexing, SQL/embedding storage, semantic search, LLM-powered history analysis, and event-triggered actions - enables building context-aware AI agents through a NextJS plugin ecosystem."
+description_tr: "Ekranı ve sesi zaman damgasıyla indeksleyen, local-first sistem; SQL ve embedding depolama, semantic search, LLM destekli analiz ve event tetiklemeli aksiyonlarla bağlam bilgisi olan AI ajanları NextJS plugin ekosistemi aracılığıyla oluşturmaya olanak tanır."
 category: "Other Tools and Integrations"
 repo: "screenpipe/screenpipe"
 stars: 18926

@@ -1,6 +1,7 @@
 ---
 name: "cco-review"
 description_en: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring."
+description_tr: "/cs:cco-review <plan> — Müşteri tutma konusunda obsesif olan Chief Customer Officer'ın müşteri tutma, segmentasyon, CS ekibi büyüklüğü veya CS ekibi işe alımına ilişkin herhangi bir planı sorgulaması."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

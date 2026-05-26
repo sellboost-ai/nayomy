@@ -1,6 +1,7 @@
 ---
 name: "dbt-labs/dbt-mcp"
 description: "Official MCP server for dbt (data build tool) providing integration with dbt Core/Cloud CLI, project metadata discovery, model information, and semantic layer querying capabilities."
+description_tr: "dbt (data build tool) için resmi MCP sunucusu; dbt Core/Cloud CLI ile entegrasyon, proje metadata keşfi, model bilgileri ve semantic layer sorgulama yetenekleri sağlar."
 category: "Data Platforms"
 repo: "dbt-labs/dbt-mcp"
 stars: 568

@@ -1,6 +1,7 @@
 ---
 name: "ceo-advisor"
 description_en: "Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy, preparing board presentations, managing investors, developing organizational culture, making executive decisions, fundraising, or when user mentions CEO, strategic planning, board meetings, investor updates, organizational leadership, or executive strateg"
+description_tr: "Stratejik karar alma, organizasyonel gelişim ve paydaş yönetimi için üst yönetim rehberliği. Strateji planlama, yönetim kurulu sunuları hazırlama, yatırımcı yönetimi, örgüt kültürü geliştirme, yönetici kararları alma, fon yaratma veya kullanıcı CEO, stratejik planlama, yönetim kurulu toplantıları, yatırımcı güncellemeleri, organizasyonel liderlik ya da yönetici stratejisi gibi konulardan bahsettiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

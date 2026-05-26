@@ -1,6 +1,7 @@
 ---
 name: "pyzig"
 description_en: "How the Zig↔Python binding layer works (pyzig), including build-on-import, wrapper generation patterns, ownership rules, and where to add new exported APIs. Use when adding Zig-Python bindings, modifying native extensions, or debugging C-API interactions."
+description_tr: "Zig↔Python binding katmanının (pyzig) nasıl çalıştığını, build-on-import mekanizmasını, wrapper generation desenlerini, ownership kurallarını ve yeni exported API'lerin nereye ekleneceğini açıklar. Zig-Python binding'leri eklerken, native extension'ları değiştirirken veya C-API etkileşimlerinde hata ayıklarken kullanın."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3370

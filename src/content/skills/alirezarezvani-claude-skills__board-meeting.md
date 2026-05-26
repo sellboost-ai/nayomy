@@ -1,6 +1,7 @@
 ---
 name: "board-meeting"
 description_en: "Multi-agent board meeting protocol for strategic decisions. Runs a structured 6-phase deliberation: context loading, independent C-suite contributions (isolated, no cross-pollination), critic analysis, synthesis, founder review, and decision extraction. Use when the user invokes /cs:board, calls a board meeting, or wants structured multi-perspective executive deliberation on a strategic question."
+description_tr: "Stratejik kararlar için multi-agent board meeting protokolü. Bağlamı yükleme, bağımsız C-suite katkıları (izole, çapraz etki yok), eleştirmen analizi, sentez, kurucu incelemesi ve karar çıkarma olmak üzere yapılandırılmış 6 aşamalı tartışma sürecini çalıştırır. Kullanıcı /cs:board komutunu çağırdığında, board toplantısı istediğinde veya stratejik bir soruyla ilgili yapılandırılmış çok perspektifli executive tartışma istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "CheMiguel23/MemoryMesh"
 description: "Enhanced graph-based memory with a focus on AI role-play and story generation"
+description_tr: "AI rol-play ve hikaye üretimi için optimize edilmiş, graf tabanlı geliştirilmiş bellek sistemi"
 category: "Knowledge & Memory"
 repo: "CheMiguel23/MemoryMesh"
 stars: 342

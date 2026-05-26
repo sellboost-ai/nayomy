@@ -1,6 +1,7 @@
 ---
 name: "api-sports-automation"
 description_en: "Automate API Sports tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "API Sports görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemalar için her zaman önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

@@ -1,6 +1,7 @@
 ---
 name: "caio-review"
 description_en: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring."
+description_tr: "/cs:caio-review <plan> — AI içeren herhangi bir plan için (model seçimi, risk sınıflandırması, maliyet ekonomisi veya AI işe alımı) Eval-demanding Chief AI Officer tarafından yapılan sorgulamayı çalıştırır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

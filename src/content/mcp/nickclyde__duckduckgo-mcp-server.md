@@ -1,6 +1,7 @@
 ---
 name: "nickclyde/duckduckgo-mcp-server"
 description: "Web search using DuckDuckGo"
+description_tr: "DuckDuckGo ile web arama"
 category: "Search & Data Extraction"
 repo: "nickclyde/duckduckgo-mcp-server"
 stars: 1186

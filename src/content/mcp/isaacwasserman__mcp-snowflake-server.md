@@ -1,6 +1,7 @@
 ---
 name: "isaacwasserman/mcp-snowflake-server"
 description: "Snowflake integration implementing read and (optional) write operations as well as insight tracking"
+description_tr: "Snowflake entegrasyonu, okuma ve (isteğe bağlı) yazma işlemlerinin yanı sıra insight takibini sağlar."
 category: "Databases"
 repo: "isaacwasserman/mcp-snowflake-server"
 stars: 183

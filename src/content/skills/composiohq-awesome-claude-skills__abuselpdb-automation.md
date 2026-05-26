@@ -1,6 +1,7 @@
 ---
 name: "abuselpdb-automation"
 description_en: "Automate Abuselpdb tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Abuselpdb görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları görmek için her zaman araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

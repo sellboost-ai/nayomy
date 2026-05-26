@@ -1,6 +1,7 @@
 ---
 name: "hannesrudolph/mcp-ragdocs"
 description: "An MCP server implementation that provides tools for retrieving and processing documentation through vector search, enabling AI assistants to augment their responses with relevant documentation context"
+description_tr: "Vektör arama yoluyla dokümantasyon alıp işlemeye yarayan araçlar sunan bir MCP server implementasyonu; AI asistanlarının yanıtlarını ilgili dokümantasyon bağlamıyla zenginleştirmesini sağlar."
 category: "Knowledge & Memory"
 repo: "hannesrudolph/mcp-ragdocs"
 stars: 264

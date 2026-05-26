@@ -1,6 +1,7 @@
 ---
 name: "agent-workflow-designer"
 description_en: "Design production-grade multi-agent workflows with clear pattern choice (sequential, parallel, hierarchical), handoff contracts, failure handling, and cost/context controls. Use when architecting a multi-step agent pipeline, choosing between single-agent vs multi-agent approaches, or refactoring an LLM workflow that suffers from context bloat or unreliable handoffs."
+description_tr: "Sıralı, paralel veya hiyerarşik desenler arasında seçim yaparak, handoff kontratları, hata yönetimi ve maliyet/context kontrolü ile production-grade multi-agent workflow'lar tasarlayın. Multi-step agent pipeline'ı mimarlandırırken, single-agent vs multi-agent yaklaşımları değerlendirirken veya context bloat'ı ya da güvenilmez handoff'larla karşılaşan LLM workflow'larını refactor ederken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "zcaceres/markdownify-mcp"
 description: "An MCP server to convert almost any file or web content into Markdown"
+description_tr: "MCP sunucusu ile neredeyse her dosya ve web içeriğini Markdown formatına dönüştürün."
 category: "Data Science Tools"
 repo: "zcaceres/markdownify-mcp"
 stars: 2697

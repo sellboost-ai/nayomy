@@ -28,6 +28,7 @@ const mcp = defineCollection({
   schema: z.object({
     name: z.string(),
     description: z.string(),
+    description_tr: z.string().optional(),
     category: z.string(),
     repo: z.string(),
     stars: z.number(),

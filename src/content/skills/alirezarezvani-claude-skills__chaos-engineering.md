@@ -1,6 +1,7 @@
 ---
 name: "chaos-engineering"
 description_en: "Use when planning, running, or learning from chaos engineering experiments. Triggers on \"chaos experiment\", \"fault injection\", \"gameday\", \"resilience test\", \"blast radius\", \"steady state\", \"abort criteria\", \"Chaos Toolkit\", \"Chaos Mesh\", \"Litmus\", \"Gremlin\", \"AWS FIS\", or any deliberate failure-injection question. Ships experiment designer, blast-radius calculator, and postmortem generator (all st"
+description_tr: "Kaos mühendisliği deneylerini planlamak, çalıştırmak veya bunlardan öğrenmek için kullanın. \"Chaos experiment\", \"fault injection\", \"gameday\", \"resilience test\", \"blast radius\", \"steady state\", \"abort criteria\", \"Chaos Toolkit\", \"Chaos Mesh\", \"Litmus\", \"Gremlin\", \"AWS FIS\" veya herhangi bir kasıtlı failure-injection sorusunda tetiklenir. Experiment designer, blast-radius calculator ve postmortem generator ile birlikte gelir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "PrefectHQ/fastmcp"
 description: "A high-level framework for building MCP servers in Python"
+description_tr: "Python'da MCP sunucuları oluşturmak için yüksek seviyeli bir framework."
 category: "Other Tools and Integrations"
 repo: "PrefectHQ/fastmcp"
 stars: 25331

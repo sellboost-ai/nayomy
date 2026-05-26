@@ -1,6 +1,7 @@
 ---
 name: "just-every/mcp-read-website-fast"
 description: "Fast, token-efficient web content extraction for AI agents - converts websites to clean Markdown while preserving links. Features Mozilla Readability, smart caching, polite crawling with robots.txt support, and concurrent fetching."
+description_tr: "AI ajanları için hızlı ve token-verimli web içeriği çıkarma - web sitelerini temiz Markdown formatına dönüştürür ve linkleri korur. Mozilla Readability, akıllı caching, robots.txt desteği ve eşzamanlı istekler gibi özellikleri içerir."
 category: "Search & Data Extraction"
 repo: "just-every/mcp-read-website-fast"
 stars: 149

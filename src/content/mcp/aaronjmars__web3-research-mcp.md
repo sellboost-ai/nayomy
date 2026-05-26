@@ -1,6 +1,7 @@
 ---
 name: "aaronjmars/web3-research-mcp"
 description: "Deep Research for crypto - free & fully local"
+description_tr: "Kripto için Derin Analiz - ücretsiz ve tamamen yerel"
 category: "Finance & Fintech"
 repo: "aaronjmars/web3-research-mcp"
 stars: 156

@@ -1,6 +1,7 @@
 ---
 name: "planetscale/cli"
 description: "The CLI for PlanetScale Database."
+description_tr: "PlanetScale Database için CLI aracı."
 category: "Databases"
 repo: "planetscale/cli"
 stars: 650

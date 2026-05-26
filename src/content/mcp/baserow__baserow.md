@@ -1,6 +1,7 @@
 ---
 name: "baserow/baserow"
 description: "Baserow database integration with table search, list, and row create, read, update, and delete capabilities."
+description_tr: "Baserow veritabanı entegrasyonu tablo arama, listeleme ve satır oluşturma, okuma, güncelleme ve silme işlemleriyle birlikte gelir."
 category: "Databases"
 repo: "baserow/baserow"
 stars: 4899

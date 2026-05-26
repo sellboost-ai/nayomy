@@ -1,6 +1,7 @@
 ---
 name: "brief"
 description_en: "/cs:brief <topic> — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline."
+description_tr: "/cs:brief <topic> — Office hours görüşmesinden tek sayfalık bir strateji özeti oluştur. Stratejik sprint pipeline'ının ilk adımı."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

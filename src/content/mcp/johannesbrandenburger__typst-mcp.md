@@ -1,6 +1,7 @@
 ---
 name: "johannesbrandenburger/typst-mcp"
 description: "MCP server for Typst, a markup-based typesetting system. It provides tools for converting between LaTeX and Typst, validating Typst syntax, and generating images from Typst code."
+description_tr: "Typst için MCP server. LaTeX ve Typst arasında dönüşüm yapma, Typst söz dizimini doğrulama ve Typst kodundan görüntü oluşturma araçlarını sağlar."
 category: "Other Tools and Integrations"
 repo: "johannesbrandenburger/typst-mcp"
 stars: 156

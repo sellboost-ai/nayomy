@@ -1,6 +1,7 @@
 ---
 name: "apex27-automation"
 description_en: "Automate Apex27 tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Apex27 görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

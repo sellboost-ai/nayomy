@@ -1,6 +1,7 @@
 ---
 name: "mcp-builder"
 description_en: "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK)."
+description_tr: "MCP (Model Context Protocol) sunucuları oluşturmak için kapsamlı rehber; LLM'lerin iyi tasarlanmış araçlar aracılığıyla harici hizmetlerle etkileşim kurmasını sağlar. Python (FastMCP) veya Node/TypeScript (MCP SDK) kullanarak MCP sunucuları geliştirirken ve harici API'ler entegre ederken kullanın."
 category: "Design"
 repo: "anthropics/skills"
 stars: 140618

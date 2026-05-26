@@ -1,6 +1,7 @@
 ---
 name: "andybrandt/mcp-simple-pubmed"
 description: "MCP to search and read medical / life sciences papers from PubMed."
+description_tr: "PubMed'den tıbbi ve yaşam bilimleri makaleleri aramak ve okumak için MCP."
 category: "Search & Data Extraction"
 repo: "andybrandt/mcp-simple-pubmed"
 stars: 167

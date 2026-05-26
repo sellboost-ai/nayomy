@@ -1,6 +1,7 @@
 ---
 name: "flytohub/flyto-core"
 description: "Deterministic execution engine for AI agents with 412 modules across 78 categories (browser, file, Docker, data, crypto, scheduling). Features execution trace, evidence snapshots, replay from any step, and supports both STDIO and Streamable HTTP transport."
+description_tr: "AI ajanları için deterministik çalıştırma motoru; 78 kategoride 412 modül (browser, file, Docker, data, crypto, scheduling) içerir. Execution trace, evidence snapshot, herhangi bir adımdan replay ve STDIO ile Streamable HTTP transport desteği sunar."
 category: "Developer Tools"
 repo: "flytohub/flyto-core"
 stars: 270

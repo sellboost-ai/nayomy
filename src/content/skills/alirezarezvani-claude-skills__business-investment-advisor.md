@@ -1,6 +1,7 @@
 ---
 name: "business-investment-advisor"
 description_en: "Business investment analysis and capital allocation advisor. Use when evaluating whether to invest in equipment, real estate, a new business, hiring, technology, or any capital expenditure. Also use for ROI calculations, IRR, NPV, payback period, build vs buy decisions, lease vs buy analysis, vendor evaluation, or deciding where to allocate limited budget for maximum return."
+description_tr: "İşletme yatırım analizi ve sermaye tahsisi danışmanı. Ekipman, gayrimenkul, yeni işletme, işe alım, teknoloji veya herhangi bir sermaye harcaması için yatırım kararlarını değerlendirirken kullanın. ROI hesaplamaları, IRR, NPV, geri ödeme süresi, kendi geliştirme vs satın alma kararları, kiralama vs satın alma analizi, satıcı değerlendirmesi veya sınırlı bütçeyi maksimum getiri için tahsis etme konularında da faydalıdır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

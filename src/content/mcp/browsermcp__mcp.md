@@ -1,6 +1,7 @@
 ---
 name: "BrowserMCP/mcp"
 description: "Automate your local Chrome browser"
+description_tr: "Chrome tarayıcınızı yerel olarak otomatikleştirin"
 category: "Browser Automation"
 repo: "BrowserMCP/mcp"
 stars: 6568

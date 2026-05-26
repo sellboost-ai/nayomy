@@ -1,6 +1,7 @@
 ---
 name: "netdata/netdata"
 description: "Discovery, exploration, reporting and root cause analysis using all observability data, including metrics, logs, systems, containers, processes, and network connections."
+description_tr: "Metrikler, loglar, sistemler, konteynerler, süreçler ve ağ bağlantıları dahil olmak üzere tüm observability verilerini kullanarak keşif, inceleme, raporlama ve kök neden analizi gerçekleştirin."
 category: "Monitoring"
 repo: "netdata/netdata"
 stars: 78943

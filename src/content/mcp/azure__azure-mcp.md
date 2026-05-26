@@ -1,6 +1,7 @@
 ---
 name: "Azure/azure-mcp"
 description: "Official Microsoft MCP server for Azure services including Storage, Cosmos DB, and Azure Monitor."
+description_tr: "Microsoft tarafından resmi olarak sunulan Azure Storage, Cosmos DB ve Azure Monitor gibi hizmetleri entegre eden MCP server'ı."
 category: "Other Tools and Integrations"
 repo: "Azure/azure-mcp"
 stars: 1214

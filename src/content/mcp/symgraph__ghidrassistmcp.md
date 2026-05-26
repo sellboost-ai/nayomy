@@ -1,6 +1,7 @@
 ---
 name: "symgraph/GhidrAssistMCP"
 description: "A native Model Context Protocol server for Ghidra. Includes GUI configuration and logging, 31 powerful tools and no external dependencies."
+description_tr: "Ghidra için native Model Context Protocol sunucusu. GUI konfigürasyon ve logging özelliği ile 31 güçlü tool içerir ve hiçbir harici bağımlılığa ihtiyaç duymaz."
 category: "Security"
 repo: "symgraph/GhidrAssistMCP"
 stars: 628

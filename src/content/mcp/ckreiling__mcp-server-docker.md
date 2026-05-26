@@ -1,6 +1,7 @@
 ---
 name: "ckreiling/mcp-server-docker"
 description: "Integrate with Docker to manage containers, images, volumes, and networks."
+description_tr: "Docker ile entegre olarak container, image, volume ve network yönetimi yapabilirsiniz."
 category: "Developer Tools"
 repo: "ckreiling/mcp-server-docker"
 stars: 719

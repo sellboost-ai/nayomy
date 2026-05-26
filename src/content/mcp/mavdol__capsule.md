@@ -1,6 +1,7 @@
 ---
 name: "mavdol/capsule"
 description: "Run untrusted Python/JavaScript code in WebAssembly sandboxes."
+description_tr: "Güvenilmeyen Python/JavaScript kodunu WebAssembly sandbox'larında çalıştırın."
 category: "Code Execution"
 repo: "mavdol/capsule"
 stars: 285

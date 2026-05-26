@@ -1,6 +1,7 @@
 ---
 name: "neondatabase/mcp-server-neon"
 description: "MCP server for interacting with Neon Management API and databases."
+description_tr: "Neon Management API ve veritabanları ile etkileşim kurmanız için MCP sunucusu."
 category: "Databases"
 repo: "neondatabase/mcp-server-neon"
 stars: 603

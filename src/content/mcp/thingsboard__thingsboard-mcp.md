@@ -1,6 +1,7 @@
 ---
 name: "thingsboard/thingsboard-mcp"
 description: "The ThingsBoard MCP Server provides a natural language interface for LLMs and AI agents to interact with your ThingsBoard IoT platform."
+description_tr: "ThingsBoard MCP Server, LLM'ler ve AI ajanlarının ThingsBoard IoT platformunuzla etkileşim kurması için doğal dil arayüzü sağlar."
 category: "Other Tools and Integrations"
 repo: "thingsboard/thingsboard-mcp"
 stars: 96

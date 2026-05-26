@@ -1,6 +1,7 @@
 ---
 name: "capture"
 description_en: "Captures and organizes chaotic brain dumps into a structured, actionable system with zero information loss. Use this skill whenever the user says 'capture this', 'brain dump', 'let me dump some ideas', 'I've got a bunch of thoughts', 'here's everything on my mind', 'idea dump', 'let me get this out of my head', 'I need to organize my thoughts', 'here's what I'm thinking', or any variation where so"
+description_tr: "Kaotik düşünceleri yapılandırılmış, harekete geçilebilir bir sisteme dönüştürür ve hiçbir bilgi kaybetmez. Kullanıcı 'bunu kaydet', 'beyin dökümü yap', 'fikirlerimi dökmek istiyorum', 'aklımda bir sürü şey var', 'işte aklımdan geçenler', 'fikir dökümü', 'bunu kafamdan çıkarmak istiyorum', 'düşüncelerimi organize etmek istiyorum', 'işte ne düşünüyorum' veya benzer ifadeler kullandığında aktif hale gelir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

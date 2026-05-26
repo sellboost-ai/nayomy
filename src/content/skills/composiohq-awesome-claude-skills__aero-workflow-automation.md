@@ -1,6 +1,7 @@
 ---
 name: "aero-workflow-automation"
 description_en: "Automate Aero Workflow tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Aero Workflow görevlerini otomatikleştirin. Her zaman güncel şemaları için önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

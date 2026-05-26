@@ -1,6 +1,7 @@
 ---
 name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
+description_tr: "Yerel kodu bir grafik veritabanına indeksleyen ve AI asistanlarına bağlam sağlarken insanlar için grafik kod görselleştirmesi sunan bir MCP server."
 category: "Coding Agents"
 repo: "CodeGraphContext/CodeGraphContext"
 stars: 3417

@@ -1,6 +1,7 @@
 ---
 name: "ferdousbhai/investor-agent"
 description: "Yahoo Finance integration to fetch stock market data including options recommendations"
+description_tr: "Yahoo Finance entegrasyonu ile hisse senedi piyasası verilerine ve opsiyon önerilerine erişin."
 category: "Finance & Fintech"
 repo: "ferdousbhai/investor-agent"
 stars: 329

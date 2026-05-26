@@ -1,6 +1,7 @@
 ---
 name: "slack-api"
 description_en: "Read Slack messages, threads, channels, download attachments via Python API. Use when you see Slack URLs (https://*.slack.com/archives/*/p*) or need to interact with Slack."
+description_tr: "Slack mesajlarını, konuşmaları ve kanalları okuyun, Python API üzerinden ekleri indirin. Slack URL'lerini (https://*.slack.com/archives/*/p*) gördüğünüzde veya Slack ile etkileşim kurmanız gerektiğinde kullanın."
 category: "Development"
 repo: "hienlh/claude-skill-slack-api"
 stars: 0

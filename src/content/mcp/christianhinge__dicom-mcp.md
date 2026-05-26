@@ -1,6 +1,7 @@
 ---
 name: "ChristianHinge/dicom-mcp"
 description: "DICOM integration to query, read, and move medical images and reports from PACS and other DICOM compliant systems."
+description_tr: "DICOM entegrasyonu ile PACS ve diğer DICOM uyumlu sistemlerden tıbbi görseller ve raporları sorgulamak, okumak ve taşımak."
 category: "Databases"
 repo: "ChristianHinge/dicom-mcp"
 stars: 95

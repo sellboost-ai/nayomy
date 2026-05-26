@@ -1,6 +1,7 @@
 ---
 name: "carterlasalle/mac_messages_mcp"
 description: "An MCP server that securely interfaces with your iMessage database via the Model Context Protocol (MCP), allowing LLMs to query and analyze iMessage conversations. It includes robust phone number validation, attachment processing, contact management, group chat handling, and full support for sending and receiving messages."
+description_tr: "iMessage veritabanınız ile Model Context Protocol (MCP) üzerinden güvenli şekilde bağlantı kuran bir MCP sunucusu. LLM'lerin iMessage sohbetlerini sorgulamasına ve analiz etmesine olanak tanır. Güçlü telefon numarası doğrulaması, ek işleme, kişi yönetimi, grup sohbeti desteği ve mesaj gönderme/alma işlevselliğini içerir."
 category: "Communication"
 repo: "carterlasalle/mac_messages_mcp"
 stars: 288

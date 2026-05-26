@@ -1,6 +1,7 @@
 ---
 name: "suekou/mcp-notion-server"
 description: "Interacting with Notion API"
+description_tr: "Notion API ile Etkileşim"
 category: "Other Tools and Integrations"
 repo: "suekou/mcp-notion-server"
 stars: 892

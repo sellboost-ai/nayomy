@@ -1,6 +1,7 @@
 ---
 name: "MarkusPfundstein/mcp-obsidian"
 description: "Interacting with Obsidian via REST API"
+description_tr: "Obsidian ile REST API üzerinden etkileşim kurun"
 category: "Other Tools and Integrations"
 repo: "MarkusPfundstein/mcp-obsidian"
 stars: 3778

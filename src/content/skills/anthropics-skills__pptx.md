@@ -1,6 +1,7 @@
 ---
 name: "pptx"
 description_en: "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working w"
+description_tr: "Bu skill'i .pptx dosyalarıyla çalışmanız gerektiğinde kullanın — input, output veya her ikisi için de. Buna şunlar dahildir: slayt destesi, pitch deck veya sunumlar oluşturmak; herhangi bir .pptx dosyasından metin okumak, parse etmek veya çıkarmak (çıkarılan içerik e-posta veya özet gibi başka yerlerde kullanılsa da); mevcut sunumları düzenlemek, değiştirmek veya güncellemek; slayt dosyalarını birleştirmek veya bölmek."
 category: "Document"
 repo: "anthropics/skills"
 stars: 140618

@@ -1,6 +1,7 @@
 ---
 name: "jagan-shanmugam/open-streetmap-mcp"
 description: "An OpenStreetMap MCP server with location-based services and geospatial data."
+description_tr: "OpenStreetMap tabanlı bir MCP sunucusu, konum tabanlı hizmetler ve jeofuzyal veri sağlayan araç."
 category: "Location Services"
 repo: "jagan-shanmugam/open-streetmap-mcp"
 stars: 193

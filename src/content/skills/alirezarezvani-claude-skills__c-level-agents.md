@@ -1,6 +1,7 @@
 ---
 name: "c-level-agents"
 description_en: "Founder-mode executive team. 8 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) and 17 /cs:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /cs:* commands, or when orchestrating multi-role decisions."
+description_tr: "Kurucu odaklı yönetici takımı. 8 cs-* C-suite ajanı (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) ve 17 /cs:* slash command ile zorlayıcı soru ofis saatleri, çok rollu yönetim kurulu görüşmeleri, stratejik sprint pipeline'ı ve meta routing'i destekler. Kurucu sanal bir yönetici takımına ihtiyaç duyduğunda, /cs:* command'lerini çağırdığında veya çok rollu kararları koordine ederken kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

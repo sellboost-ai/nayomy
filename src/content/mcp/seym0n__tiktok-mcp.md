@@ -1,6 +1,7 @@
 ---
 name: "Seym0n/tiktok-mcp"
 description: "Interact with TikTok videos"
+description_tr: "TikTok videoları ile etkileşim kurun"
 category: "Other Tools and Integrations"
 repo: "Seym0n/tiktok-mcp"
 stars: 158

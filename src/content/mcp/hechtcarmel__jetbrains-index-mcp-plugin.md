@@ -1,6 +1,7 @@
 ---
 name: "hechtcarmel/jetbrains-index-mcp-plugin"
 description: "A JetBrains IDE plugin that exposes an MCP server, enabling AI coding assistants to leverage the IDE's indexing and refactoring capabilities (rename, safe delete, find references, call hierarchy, type hierarchy, diagnostics and more)."
+description_tr: "JetBrains IDE eklentisi olarak çalışan MCP server'ı, AI kodlama asistanlarının IDE'nin indexleme ve refactoring yeteneklerini (rename, safe delete, find references, call hierarchy, type hierarchy, diagnostics vb.) kullanmasını sağlar."
 category: "Developer Tools"
 repo: "hechtcarmel/jetbrains-index-mcp-plugin"
 stars: 222

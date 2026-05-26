@@ -1,6 +1,7 @@
 ---
 name: "aws-solution-architect"
 description_en: "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
+description_tr: "AWS mimarileri tasarlamak için sunucusuz desenleri ve IaC şablonlarını kullanan başlangıç şirketleri için çözüm. Serverless mimari tasarımı, CloudFormation şablonu oluşturma, AWS maliyetlerini optimize etme, CI/CD pipeline kurulumu veya AWS'ye geçiş işlemleri gerektiğinde kullanılabilir. Lambda, API Gateway, DynamoDB, ECS, Aurora ve maliyet optimizasyonunu kapsamaktadır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

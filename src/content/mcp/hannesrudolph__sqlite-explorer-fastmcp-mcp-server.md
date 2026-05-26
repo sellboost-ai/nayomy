@@ -1,6 +1,7 @@
 ---
 name: "hannesrudolph/sqlite-explorer-fastmcp-mcp-server"
 description: "An MCP server that provides safe, read-only access to SQLite databases through Model Context Protocol (MCP). This server is built with the FastMCP framework, which enables LLMs to explore and query SQLite databases with built-in safety features and query validation."
+description_tr: "SQLite veritabanlarına Model Context Protocol (MCP) üzerinden güvenli, salt okunur erişim sağlayan bir MCP sunucusu. FastMCP framework ile geliştirilmiş olup, LLM'lerin SQLite veritabanlarını yerleşik güvenlik özellikleri ve query doğrulaması ile keşfedip sorgulamalarını sağlar."
 category: "Databases"
 repo: "hannesrudolph/sqlite-explorer-fastmcp-mcp-server"
 stars: 105

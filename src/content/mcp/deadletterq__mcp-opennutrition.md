@@ -1,6 +1,7 @@
 ---
 name: "deadletterq/mcp-opennutrition"
 description: "Local MCP server for searching 300,000+ foods, nutrition facts, and barcodes from the OpenNutrition database."
+description_tr: "OpenNutrition veritabanından 300.000+ gıda ürünü, beslenme bilgileri ve barkodları arayan yerel MCP sunucusu."
 category: "Search & Data Extraction"
 repo: "deadletterq/mcp-opennutrition"
 stars: 184

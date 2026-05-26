@@ -1,6 +1,7 @@
 ---
 name: "gannonh/firebase-mcp"
 description: "Firebase services including Auth, Firestore and Storage."
+description_tr: "Firebase servisleri (Auth, Firestore ve Storage) için entegrasyon desteği."
 category: "Databases"
 repo: "gannonh/firebase-mcp"
 stars: 243

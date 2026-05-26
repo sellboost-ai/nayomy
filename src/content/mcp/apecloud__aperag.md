@@ -1,6 +1,7 @@
 ---
 name: "apecloud/ApeRAG"
 description: "Production-ready RAG platform combining Graph RAG, vector search, and full-text search. Best choice for building your own Knowledge Graph and for Context Engineering"
+description_tr: "Grafik RAG, vektör arama ve tam metin aramasını birleştiren, üretime hazır RAG platformu. Kendi Knowledge Graph'ınızı oluşturmak ve Context Engineering için ideal seçim."
 category: "Knowledge & Memory"
 repo: "apecloud/ApeRAG"
 stars: 1176

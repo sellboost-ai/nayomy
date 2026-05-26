@@ -1,6 +1,7 @@
 ---
 name: "c-level-advisor"
 description_en: "10 C-level advisory agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor. Multi-role board meetings, strategy routing, structured recommendations. For founders needing executive-level decision support."
+description_tr: "Claude Code, Codex, Gemini CLI, Cursor ve OpenClaw için 10 adet C-level danışman becerisi ve plugin'i. CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO ve Executive Mentor rollerini içerir. Multi-role board toplantıları, strateji yönlendirmesi ve yapılandırılmış öneriler sunar. Yönetici düzeyinde karar desteğine ihtiyaç duyan kurucular için tasarlanmıştır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "yangkyeongmo/mcp-server-apache-airflow"
 description: "MCP server that connects to Apache Airflow using official client."
+description_tr: "Apache Airflow'a resmi client kullanarak bağlanan MCP sunucusu."
 category: "Developer Tools"
 repo: "yangkyeongmo/mcp-server-apache-airflow"
 stars: 165

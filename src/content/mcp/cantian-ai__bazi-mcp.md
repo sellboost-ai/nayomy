@@ -1,6 +1,7 @@
 ---
 name: "cantian-ai/bazi-mcp"
 description: "Provides comprehensive and accurate Bazi (Chinese Astrology) charting and analysis"
+description_tr: "Kapsamlı ve doğru Bazi (Çin Astrolojisi) harita oluşturma ve analiz imkanı sunur."
 category: "Art & Culture"
 repo: "cantian-ai/bazi-mcp"
 stars: 382

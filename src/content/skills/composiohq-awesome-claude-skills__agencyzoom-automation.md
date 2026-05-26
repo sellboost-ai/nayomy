@@ -1,6 +1,7 @@
 ---
 name: "agencyzoom-automation"
 description_en: "Automate Agencyzoom tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Agencyzoom görevlerini otomatikleştirin. Her zaman en güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

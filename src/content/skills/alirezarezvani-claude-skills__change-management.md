@@ -1,6 +1,7 @@
 ---
 name: "change-management"
 description_en: "Framework for rolling out organizational changes without chaos. Covers the ADKAR model adapted for startups, communication templates, resistance patterns, and change fatigue management. Handles process changes, org restructures, strategy pivots, and culture changes. Use when announcing a reorg, switching tools, pivoting strategy, killing a product, changing leadership, or when user mentions change"
+description_tr: "Organizasyonel değişiklikleri düzenli bir şekilde yönetmek için framework. ADKAR modelinin startup'lara uyarlanmış hali, iletişim şablonları, direnç desenleri ve değişim yorgunluğu yönetimini içerir. Süreç değişiklikleri, org yapılandırması, stratejik pivotlar ve kültür değişiklikleriyle başa çıkar. Reorganizasyon, tool değişimi, strateji pivotu, ürün sonlandırma, liderlik değişimi gibi durumlarda veya kullanıcı değişimden bahsederken kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

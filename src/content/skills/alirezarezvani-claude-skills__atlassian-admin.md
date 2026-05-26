@@ -1,6 +1,7 @@
 ---
 name: "atlassian-admin"
 description_en: "Atlassian Administrator for managing and organizing Atlassian products (Jira, Confluence, Bitbucket, Trello), users, permissions, security, integrations, system configuration, and org-wide governance. Use when asked to add users to Jira, change Confluence permissions, configure access control, update admin settings, manage Atlassian groups, set up SSO, install marketplace apps, review security pol"
+description_tr: "Atlassian ürünlerini (Jira, Confluence, Bitbucket, Trello) yönetmek, kullanıcıları organize etmek, izinleri kontrol etmek, güvenliği sağlamak, integrationları kurmak ve sistem konfigürasyonunu düzenlemek için tasarlanmış Atlassian Administrator aracı. Kullanıcı ekleme, izin yönetimi, erişim kontrolü, SSO kurulumu, marketplace uygulamaları yükleme ve güvenlik politikalarını gözden geçirme işlemleri için kullanılır."
 category: "Integration"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

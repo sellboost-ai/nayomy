@@ -1,6 +1,7 @@
 ---
 name: "aashari/mcp-server-atlassian-bitbucket"
 description: "Atlassian Bitbucket Cloud integration. Enables AI systems to interact with repositories, pull requests, workspaces, and code in real time."
+description_tr: "Atlassian Bitbucket Cloud entegrasyonu. AI sistemlerinin repository'ler, pull request'ler, workspace'ler ve kod ile gerçek zamanlı olarak etkileşim kurmasını sağlar."
 category: "Developer Tools"
 repo: "aashari/mcp-server-atlassian-bitbucket"
 stars: 149

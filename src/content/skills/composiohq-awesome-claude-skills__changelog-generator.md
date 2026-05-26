@@ -1,6 +1,7 @@
 ---
 name: "changelog-generator"
 description_en: "Automatically creates user-facing changelogs from git commits by analyzing commit history, categorizing changes, and transforming technical commits into clear, customer-friendly release notes. Turns hours of manual changelog writing into minutes of automated generation."
+description_tr: "Git commit geçmişini analiz ederek, değişiklikleri kategorize edip teknik commit mesajlarını müşteri dostu release notlarına dönüştürerek otomatik olarak changelog oluşturur. Saatlerce süren manuel changelog yazma işini dakikalara indirir."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

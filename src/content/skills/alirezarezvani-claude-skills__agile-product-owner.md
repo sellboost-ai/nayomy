@@ -1,6 +1,7 @@
 ---
 name: "agile-product-owner"
 description_en: "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
+description_tr: "Backlog yönetimi ve sprint çalıştırması için çevik ürün sahipliği. Kullanıcı hikayesi yazımı, kabul kriterleri, sprint planlaması ve velocity takibini kapsar. Kullanıcı hikayeleri yazma, kabul kriterleri oluşturma, sprintleri planlama, hikaye puanları tahmin etme, epikleri parçalama veya backlog önceliklendirme için kullanılır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

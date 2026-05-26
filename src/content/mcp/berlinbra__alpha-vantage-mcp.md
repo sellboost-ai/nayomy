@@ -1,6 +1,7 @@
 ---
 name: "berlinbra/alpha-vantage-mcp"
 description: "Alpha Vantage API integration to fetch both stock and crypto information"
+description_tr: "Alpha Vantage API entegrasyonu ile hisse senedi ve kripto para bilgilerini çekin"
 category: "Finance & Fintech"
 repo: "berlinbra/alpha-vantage-mcp"
 stars: 96

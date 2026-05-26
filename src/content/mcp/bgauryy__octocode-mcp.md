@@ -1,6 +1,7 @@
 ---
 name: "bgauryy/octocode-mcp"
 description: "AI-powered developer assistant that enables advanced research, analysis and discovery across GitHub and NPM realms in realtime."
+description_tr: "GitHub ve NPM üzerinde gerçek zamanlı olarak gelişmiş araştırma, analiz ve keşif yapmanızı sağlayan yapay zeka destekli geliştirici asistanı."
 category: "Developer Tools"
 repo: "bgauryy/octocode-mcp"
 stars: 847

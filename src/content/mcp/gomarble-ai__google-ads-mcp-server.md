@@ -1,6 +1,7 @@
 ---
 name: "gomarble-ai/google-ads-mcp-server"
 description: "MCP server acting as an interface to the Google Ads, enabling programmatic access to Google Ads data and management features."
+description_tr: "Google Ads'e arayüz görevi gören ve Google Ads verilerine programatik erişim sağlayan MCP server'ı."
 category: "Marketing"
 repo: "gomarble-ai/google-ads-mcp-server"
 stars: 128

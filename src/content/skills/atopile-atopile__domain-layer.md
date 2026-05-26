@@ -1,6 +1,7 @@
 ---
 name: "domain-layer"
 description_en: "Instructions for electronics-specific logic and build processes: netlists, PCBs, build steps, and exporters. Use when implementing or modifying build steps, exporters, PCB generation, or BOM/netlist output."
+description_tr: "Elektronik tasarıma özgü mantık ve derleme süreçleri için kılavuz: netlistler, PCB'ler, derleme adımları ve exporterlar. Derleme adımlarını, exporterları, PCB üretimini veya BOM/netlist çıktısını uygularken veya değiştirirken kullanın."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3370

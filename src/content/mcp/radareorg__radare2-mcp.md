@@ -1,6 +1,7 @@
 ---
 name: "radareorg/radare2-mcp"
 description: "MCP server for Radare2 disassembler. Provides AI with capability to disassemble and look into binaries for reverse engineering."
+description_tr: "Radare2 disassembler için MCP server. AI'ya binary'leri disassemble etme ve reverse engineering için analiz etme yeteneği sağlar."
 category: "Security"
 repo: "radareorg/radare2-mcp"
 stars: 237

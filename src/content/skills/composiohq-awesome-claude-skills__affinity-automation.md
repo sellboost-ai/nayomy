@@ -1,6 +1,7 @@
 ---
 name: "affinity-automation"
 description_en: "Automate Affinity tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Affinity görevlerini otomatikleştirin. Tool'ları kullanmadan önce her zaman mevcut şemaları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

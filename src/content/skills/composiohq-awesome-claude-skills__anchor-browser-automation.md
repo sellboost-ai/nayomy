@@ -1,6 +1,7 @@
 ---
 name: "anchor-browser-automation"
 description_en: "Automate Anchor Browser tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Anchor Browser görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları bulmak için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

@@ -1,6 +1,7 @@
 ---
 name: "serpapi/serpapi-mcp"
 description: "SerpApi MCP Server for Google and other search engine results. Provides multi-engine search across Google, Bing, Yahoo, DuckDuckGo, YouTube, eBay, and more with real-time weather data, stock market information, and flexible JSON response modes."
+description_tr: "SerpApi MCP Server ile Google ve diğer arama motorlarından sonuç alın. Google, Bing, Yahoo, DuckDuckGo, YouTube, eBay ve daha fazlasında multi-engine arama yapabilir, gerçek zamanlı hava durumu verisi ve borsa bilgilerine erişebilir, esnek JSON response modlarıyla çalışabilirsiniz."
 category: "Search & Data Extraction"
 repo: "serpapi/serpapi-mcp"
 stars: 140

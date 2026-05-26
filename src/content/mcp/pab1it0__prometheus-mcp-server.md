@@ -1,6 +1,7 @@
 ---
 name: "pab1it0/prometheus-mcp-server"
 description: "Query and analyze Prometheus, open-source monitoring system."
+description_tr: "Prometheus açık kaynak izleme sistemini sorgula ve analiz et."
 category: "Databases"
 repo: "pab1it0/prometheus-mcp-server"
 stars: 446

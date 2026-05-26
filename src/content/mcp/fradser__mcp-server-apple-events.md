@@ -1,6 +1,7 @@
 ---
 name: "FradSer/mcp-server-apple-events"
 description: "An MCP server for interacting with Apple Reminders on macOS"
+description_tr: "macOS'ta Apple Reminders ile etkileşim kurmak için bir MCP server'ı"
 category: "Browser Automation"
 repo: "FradSer/mcp-server-apple-events"
 stars: 122

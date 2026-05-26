@@ -1,6 +1,7 @@
 ---
 name: "horw/esp-mcp"
 description: "Workflow for fixing build issues in ESP32 series chips using ESP-IDF."
+description_tr: "ESP32 serisi çiplerde ESP-IDF kullanarak build sorunlarını gidermek için tasarlanan workflow."
 category: "Embedded System"
 repo: "horw/esp-mcp"
 stars: 148

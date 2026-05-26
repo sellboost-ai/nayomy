@@ -1,6 +1,7 @@
 ---
 name: "stack-chan/stack-chan"
 description: "A JavaScript-driven M5Stack-embedded super-kawaii robot with MCP server functionality for AI-controlled interactions and emotions."
+description_tr: "JavaScript ile çalışan, MCP server işlevselliğine sahip M5Stack tabanlı süper sevimli bir robot; yapay zeka tarafından kontrol edilen etkileşimler ve duygular için tasarlanmıştır."
 category: "Embedded System"
 repo: "stack-chan/stack-chan"
 stars: 1493

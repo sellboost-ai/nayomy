@@ -1,6 +1,7 @@
 ---
 name: "oraios/serena"
 description: "A fully-featured coding agent that relies on symbolic code operations by using language servers."
+description_tr: "Dil sunucularını kullanarak sembolik kod işlemleri gerçekleştiren, tam özelliklere sahip bir kodlama ajanı."
 category: "Coding Agents"
 repo: "oraios/serena"
 stars: 24642

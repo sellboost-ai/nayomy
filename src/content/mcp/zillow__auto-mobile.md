@@ -1,6 +1,7 @@
 ---
 name: "zillow/auto-mobile"
 description: "Tool suite built around an MCP server for Android automation for developer workflow and testing"
+description_tr: "Android otomasyonu için MCP server etrafında inşa edilmiş, geliştirici iş akışı ve testingi kolaylaştıran araç seti."
 category: "Developer Tools"
 repo: "zillow/auto-mobile"
 stars: 78

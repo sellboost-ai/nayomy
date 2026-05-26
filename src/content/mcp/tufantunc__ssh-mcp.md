@@ -1,6 +1,7 @@
 ---
 name: "tufantunc/ssh-mcp"
 description: "MCP server exposing SSH control for Linux and Windows servers via Model Context Protocol. Securely execute remote shell commands with password or SSH key authentication."
+description_tr: "Linux ve Windows sunucuları için SSH kontrolünü Model Context Protocol üzerinden sunan MCP server. Parola veya SSH key authentication ile remote shell komutlarını güvenli şekilde çalıştırın."
 category: "Command Line"
 repo: "tufantunc/ssh-mcp"
 stars: 470

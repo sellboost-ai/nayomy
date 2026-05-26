@@ -1,6 +1,7 @@
 ---
 name: "cr7258/elasticsearch-mcp-server"
 description: "MCP Server implementation that provides Elasticsearch interaction"
+description_tr: "Elasticsearch ile etkileşim sağlayan MCP Server uygulaması"
 category: "Databases"
 repo: "cr7258/elasticsearch-mcp-server"
 stars: 280

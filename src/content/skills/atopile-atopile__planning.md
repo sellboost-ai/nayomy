@@ -1,6 +1,7 @@
 ---
 name: "planning"
 description_en: "Spec-driven planning for complex design tasks: when to plan, how to write specs as .ato files, and how to verify against requirements."
+description_tr: "Karmaşık tasarım görevleri için spec odaklı planlama: ne zaman plan yapacağınız, .ato dosyaları olarak spec yazma yöntemleri ve gereksinimlere karşı doğrulama."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3370

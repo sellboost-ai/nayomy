@@ -1,6 +1,7 @@
 ---
 name: "fatwang2/search1api-mcp"
 description: "Search via search1api (requires paid API key)"
+description_tr: "search1api üzerinden arama yapın (ücretli API anahtarı gereklidir)"
 category: "Search & Data Extraction"
 repo: "fatwang2/search1api-mcp"
 stars: 172

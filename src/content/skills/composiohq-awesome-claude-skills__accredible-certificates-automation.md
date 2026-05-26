@@ -1,6 +1,7 @@
 ---
 name: "accredible-certificates-automation"
 description_en: "Automate Accredible Certificates tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Accredible Certificates görevlerini otomatikleştirin. Her zaman geçerli şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

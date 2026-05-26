@@ -1,6 +1,7 @@
 ---
 name: "ato-language"
 description_en: "Reference for the `.ato` declarative DSL: type system, connection semantics, constraint model, and standard library. Use when authoring or reviewing `.ato` code."
+description_tr: "`.ato` deklaratif DSL'i için referans: tip sistemi, bağlantı semantiği, kısıtlama modeli ve standart kütüphane. `.ato` kodu yazarken veya gözden geçirirken kullanın."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3370

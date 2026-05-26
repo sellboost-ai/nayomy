@@ -1,6 +1,7 @@
 ---
 name: "ivnvxd/mcp-server-odoo"
 description: "Connect AI assistants to Odoo ERP systems for business data access, record management, and workflow automation."
+description_tr: "Odoo ERP sistemlerinize AI asistanları bağlayarak iş verilerine erişim, kayıt yönetimi ve workflow otomasyonu sağlayın."
 category: "Other Tools and Integrations"
 repo: "ivnvxd/mcp-server-odoo"
 stars: 296

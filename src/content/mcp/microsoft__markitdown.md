@@ -1,6 +1,7 @@
 ---
 name: "microsoft/markitdown"
 description: "MCP tool access to MarkItDown -- a library that converts many file formats (local or remote) to Markdown for LLM consumption."
+description_tr: "MarkItDown kütüphanesine MCP aracı erişimi -- birçok dosya formatını (yerel veya uzak) LLM tüketimi için Markdown'a dönüştüren bir kütüphane."
 category: "File Systems"
 repo: "microsoft/markitdown"
 stars: 125260

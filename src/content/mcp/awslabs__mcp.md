@@ -1,6 +1,7 @@
 ---
 name: "awslabs/mcp"
 description: "AWS MCP servers for seamless integration with AWS services and resources."
+description_tr: "AWS MCP sunucuları, AWS hizmetleri ve kaynaklarıyla sorunsuz entegrasyon sağlar."
 category: "Cloud Platforms"
 repo: "awslabs/mcp"
 stars: 9131

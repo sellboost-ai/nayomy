@@ -1,6 +1,7 @@
 ---
 name: "tevonsb/homeassistant-mcp"
 description: "Access Home Assistant data and control devices (lights, switches, thermostats, etc)."
+description_tr: "Home Assistant verilerine erişin ve cihazları (ışıklar, anahtarlar, termostatlar vb.) kontrol edin."
 category: "Other Tools and Integrations"
 repo: "tevonsb/homeassistant-mcp"
 stars: 572

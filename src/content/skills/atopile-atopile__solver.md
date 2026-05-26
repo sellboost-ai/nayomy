@@ -1,6 +1,7 @@
 ---
 name: "solver"
 description_en: "How the Faebryk parameter solver works (Sets/Literals, Parameters, Expressions), the core invariants enforced during mutation, and practical workflows for debugging and extending the solver. Use when implementing or modifying constraint solving, parameter bounds, or debugging expression simplification."
+description_tr: "Faebryk parameter solver'ın nasıl çalıştığını (Sets/Literals, Parameters, Expressions), mutation sırasında uygulanan core invariantları ve solver'ı debug etme ile genişletme için pratik workflow'ları açıklar. Constraint solving, parameter bounds'lar veya expression simplification debug ederken kullanın."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3370

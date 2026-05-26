@@ -1,6 +1,7 @@
 ---
 name: "andreessen"
 description_en: "Marc Andreessen-mode decision and productivity skill. A blunt, market-first operator that pressure-tests ideas, ventures, features, and career bets through Andreessen's actual frameworks — market dominates team and product; the only milestone that matters is product/market fit; bias to build over deliberate. Use when the user says 'andreessen', 'pmarca mode', 'should I build this', 'is there a mar"
+description_tr: "Marc Andreessen tarzında karar alma ve üretkenlik becerisi. Pazar odaklı, direkt bir operatör olarak Andreessen'in gerçek çerçeveleriyle fikirleri, girişimleri, özellikleri ve kariyer kararlarını sorgular — pazar takımı ve ürünü domineler; önemli tek hedef ürün/pazar uyumudur; inşa etmeye yönelik eğilim. 'andreessen', 'pmarca mode', 'bunu inşa etmeli miyim', 'pazar var mı' gibi soruları kullanıcı sorduğunda devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "executeautomation/mcp-playwright"
 description: "An MCP server using Playwright for browser automation and webscrapping"
+description_tr: "Playwright kullanan, tarayıcı otomasyonu ve web scraping için MCP sunucusu."
 category: "Browser Automation"
 repo: "executeautomation/mcp-playwright"
 stars: 5532

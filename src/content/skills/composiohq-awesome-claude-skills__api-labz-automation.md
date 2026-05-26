@@ -1,6 +1,7 @@
 ---
 name: "api-labz-automation"
 description_en: "Automate API Labz tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "API Labz görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

@@ -1,6 +1,7 @@
 ---
 name: "stippi/code-assistant"
 description: "Coding agent with basic list, read, replace_in_file, write, execute_command and web search tools. Supports multiple projects concurrently."
+description_tr: "Temel list, read, replace_in_file, write, execute_command ve web search araçlarına sahip coding agent. Birden fazla projeyi aynı anda destekler."
 category: "Coding Agents"
 repo: "stippi/code-assistant"
 stars: 164

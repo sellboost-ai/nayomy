@@ -1,6 +1,7 @@
 ---
 name: "narumiruna/yfinance-mcp"
 description: "An MCP server that uses yfinance to obtain information from Yahoo Finance."
+description_tr: "Yahoo Finance'ten veri almak için yfinance kullanan bir MCP sunucusu."
 category: "Finance & Fintech"
 repo: "narumiruna/yfinance-mcp"
 stars: 144

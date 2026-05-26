@@ -1,6 +1,7 @@
 ---
 name: "ato"
 description_en: "Authoritative ato authoring and review skill: language reference, stdlib, design patterns, and end-to-end board design workflow."
+description_tr: "Yetkilendirme ve inceleme becerilerine yönelik kapsamlı araçlar: dil referansı, stdlib, tasarım desenleri ve uçtan uca board tasarım workflow'u."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3370

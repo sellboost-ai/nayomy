@@ -1,6 +1,7 @@
 ---
 name: "chief-ai-officer-advisor"
 description_en: "Chief AI Officer advisory for startups: model build-vs-buy decisions (API vs fine-tune vs in-house), AI risk classification under EU AI Act + US state patchwork, AI cost economics (API-to-self-hosted breakeven), and AI team org evolution. Use when deciding whether to call an API or fine-tune, classifying AI use cases for regulatory risk, calculating when self-hosting pays off, sequencing AI hires,"
+description_tr: "Startuplar için Chief AI Officer danışmanlığı: model insan/satın al kararları (API vs fine-tune vs in-house), EU AI Act + ABD eyalet mevzuatı altında AI risk sınıflandırması, AI maliyet ekonomisi (API-to-self-hosted başabaş noktası) ve AI ekip organizasyonu. API çağrısı mı yoksa fine-tune mi yapacağınıza karar verirken, AI use caselarını düzenleyici risk açısından sınıflandırırken, self-hosting'in ne zaman karlı hale geldiğini hesaplarken ve AI işe alımlarını planlarken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

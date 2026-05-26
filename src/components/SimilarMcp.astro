@@ -32,7 +32,7 @@ const basePath = lang === 'tr' ? '/tr/mcp/' : '/mcp/';
           <span class="sim-name">{s.data.name}</span>
           <span class="sim-cat">{s.data.category}</span>
         </div>
-        <p class="sim-desc">{s.data.description}</p>
+        <p class="sim-desc">{lang === 'tr' ? (s.data.description_tr ?? s.data.description) : s.data.description}</p>
         <div class="sim-foot">
           <span class="sim-repo">{s.data.repo}</span>
           <span class="sim-stars">★ {s.data.stars.toLocaleString()}</span>

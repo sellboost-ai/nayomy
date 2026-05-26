@@ -1,6 +1,7 @@
 ---
 name: "vasylenko/bear-notes-mcp"
 description: "Search, read, create, and update Bear Notes directly from Claude. Local-only with complete privacy."
+description_tr: "Bear Notes'teki notlarınızı Claude'dan doğrudan arayabilir, okuyabilir, oluşturabilir ve güncelleyebilirsiniz. Tamamen yerel ve gizlilik odaklı."
 category: "Workplace & Productivity"
 repo: "vasylenko/bear-notes-mcp"
 stars: 193

@@ -1,6 +1,7 @@
 ---
 name: "varun29ankuS/shodh-memory"
 description: "Cognitive memory for AI agents with Hebbian learning, 3-tier architecture, and knowledge graphs. Single ~15MB binary, runs offline on edge devices."
+description_tr: "AI ajanlar için Hebbian öğrenme, 3 seviyeli mimari ve bilgi grafikleriyle bilişsel bellek. Yaklaşık 15MB'lık tek bir binary dosyası, edge cihazlarda çevrimdışı çalışır."
 category: "Knowledge & Memory"
 repo: "varun29ankuS/shodh-memory"
 stars: 215

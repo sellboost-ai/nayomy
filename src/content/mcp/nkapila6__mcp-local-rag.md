@@ -1,6 +1,7 @@
 ---
 name: "nkapila6/mcp-local-rag"
 description: "primitive\" RAG-like web search model context protocol (MCP) server that runs locally. No APIs needed."
+description_tr: "Yerel olarak çalışan, API gerektirmeyen ilkel bir RAG benzeri web arama modeli context protocol (MCP) sunucusu."
 category: "Search & Data Extraction"
 repo: "nkapila6/mcp-local-rag"
 stars: 126

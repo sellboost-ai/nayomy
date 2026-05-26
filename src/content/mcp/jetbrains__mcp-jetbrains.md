@@ -1,6 +1,7 @@
 ---
 name: "JetBrains/mcp-jetbrains"
 description: "Connect to JetBrains IDE"
+description_tr: "JetBrains IDE'ye bağlanın"
 category: "Developer Tools"
 repo: "JetBrains/mcp-jetbrains"
 stars: 957

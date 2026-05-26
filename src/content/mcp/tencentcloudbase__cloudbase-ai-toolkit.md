@@ -1,6 +1,7 @@
 ---
 name: "TencentCloudBase/CloudBase-AI-ToolKit"
 description: "One-stop backend services for WeChat Mini-Programs and full-stack apps. Provides specialized MCP tools for serverless cloud functions, databases, and one-click deployment to production with China market access through WeChat ecosystem."
+description_tr: "WeChat Mini-Programs ve full-stack uygulamalar için hepsi-bir-arada backend hizmetleri. Serverless bulut fonksiyonları, veritabanları için özel MCP araçları sağlar ve WeChat ekosistemi üzerinden Çin pazarına erişimle bir-tık üretim dağıtımı sunar."
 category: "Cloud Platforms"
 repo: "TencentCloudBase/CloudBase-AI-ToolKit"
 stars: 1023

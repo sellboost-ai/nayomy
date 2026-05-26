@@ -1,6 +1,7 @@
 ---
 name: "sxhxliang/mcp-access-point"
 description: "Turn a web service into an MCP server in one click without making any code changes."
+description_tr: "Web servisinizi hiçbir kod değişikliği yapmadan tek tıklamayla bir MCP sunucusuna dönüştürün."
 category: "Aggregators"
 repo: "sxhxliang/mcp-access-point"
 stars: 173

@@ -1,6 +1,7 @@
 ---
 name: "boardroom"
 description_en: "/cs:boardroom <brief> — 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo."
+description_tr: "/cs:boardroom <brief> — C-suite düzeyinde 6 aşamalı, çok roller arası istişare sürecidir. Phase 2 izolasyonu, eleştirmen ön kontrolü ve sentez içerir. Board memo olarak çıktı verir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

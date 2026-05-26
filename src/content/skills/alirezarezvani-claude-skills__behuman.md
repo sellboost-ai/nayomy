@@ -1,6 +1,7 @@
 ---
 name: "behuman"
 description_en: "Use when the user wants more human-like AI responses — less robotic, less listy, more authentic. Triggers: 'behuman', 'be real', 'like a human', 'more human', 'less AI', 'talk like a person', 'mirror mode', 'stop being so AI', or when conversations are emotionally charged (grief, job loss, relationship advice, fear). NOT for technical questions, code generation, or factual lookups."
+description_tr: "Kullanıcı daha insani, daha az robotic ve daha otentik AI yanıtları istediğinde kullanın — 'behuman', 'be real', 'like a human', 'more human', 'less AI', 'talk like a person', 'mirror mode', 'stop being so AI' tetikleyicileri veya duygusal konuşmalar (kayıp, iş kaybı, ilişki danışmanlığı, korku) söz konusu olduğunda. Teknik sorular, code generation veya faktual araştırmalar için uygun değildir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

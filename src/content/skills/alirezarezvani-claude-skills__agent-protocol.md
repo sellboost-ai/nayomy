@@ -1,6 +1,7 @@
 ---
 name: "agent-protocol"
 description_en: "Inter-agent communication protocol for C-suite agent teams. Defines invocation syntax, loop prevention, isolation rules, and response formats. Use when C-suite agents need to query each other, coordinate cross-functional analysis, or run board meetings with multiple agent roles."
+description_tr: "C-suite agent takımları için agent arası iletişim protokolü. Invocation syntax, loop prevention, isolation rules ve response formatlarını tanımlar. C-suite agentlarının birbirini sorgulaması, fonksiyonlar arası analiz koordinasyonu veya çoklu agent rolleriyle board toplantıları yürütmesi gerektiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

@@ -1,6 +1,7 @@
 ---
 name: "apify/mcp-server-rag-web-browser"
 description: "An MCP server for Apify's open-source RAG Web Browser Actor to perform web searches, scrape URLs, and return content in Markdown."
+description_tr: "Apify'nin açık kaynaklı RAG Web Browser Actor'ı için bir MCP sunucusu olup, web araması yapma, URL'leri kazıma ve içeriği Markdown formatında döndürme işlemlerini gerçekleştiriyor."
 category: "Search & Data Extraction"
 repo: "apify/mcp-server-rag-web-browser"
 stars: 203

@@ -1,6 +1,7 @@
 ---
 name: "21st-dev/magic-mcp"
 description: "Create crafted UI components inspired by the best 21st.dev design engineers."
+description_tr: "21st.dev'in en iyi tasarım mühendislerinden ilham alınarak oluşturulmuş, profesyonel UI componentleri."
 category: "Developer Tools"
 repo: "21st-dev/magic-mcp"
 stars: 4923

@@ -1,6 +1,7 @@
 ---
 name: "Klavis-AI/klavis"
 description: "Extract and convert YouTube video information."
+description_tr: "YouTube video bilgilerini çıkart ve dönüştür."
 category: "Other Tools and Integrations"
 repo: "Klavis-AI/klavis"
 stars: 5746

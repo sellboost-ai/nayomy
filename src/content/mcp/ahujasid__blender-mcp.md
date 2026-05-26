@@ -1,6 +1,7 @@
 ---
 name: "ahujasid/blender-mcp"
 description: "MCP server for working with Blender"
+description_tr: "Blender ile çalışmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
 stars: 22034

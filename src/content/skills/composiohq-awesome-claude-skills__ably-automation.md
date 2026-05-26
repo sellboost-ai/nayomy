@@ -1,6 +1,7 @@
 ---
 name: "ably-automation"
 description_en: "Automate Ably tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Ably görevlerini otomatikleştirin. Her zaman güncel şemaları için tools'ları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

@@ -1,6 +1,7 @@
 ---
 name: "lharries/whatsapp-mcp"
 description: "An MCP server for searching your personal WhatsApp messages, contacts and sending messages to individuals or groups"
+description_tr: "WhatsApp mesajlarınızda arama yapmanızı, kişilerinizi görüntülemenizi ve bireysel veya grup sohbetlerine mesaj göndermenizi sağlayan bir MCP server."
 category: "Communication"
 repo: "lharries/whatsapp-mcp"
 stars: 5689

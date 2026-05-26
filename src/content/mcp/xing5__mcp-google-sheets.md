@@ -1,6 +1,7 @@
 ---
 name: "xing5/mcp-google-sheets"
 description: "A Model Context Protocol server for interacting with Google Sheets. This server provides tools to create, read, update, and manage spreadsheets through the Google Sheets API."
+description_tr: "Google Sheets ile etkileşim kurmak için bir Model Context Protocol sunucusu. Bu sunucu, Google Sheets API üzerinden spreadsheet'leri oluşturmak, okumak, güncellemek ve yönetmek için araçlar sağlar."
 category: "Databases"
 repo: "xing5/mcp-google-sheets"
 stars: 874

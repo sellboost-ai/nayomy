@@ -1,6 +1,7 @@
 ---
 name: "isaacwasserman/mcp-vegalite-server"
 description: "Generate visualizations from fetched data using the VegaLite format and renderer."
+description_tr: "Alınan verilerden VegaLite format ve renderer kullanarak görselleştirmeler oluşturun."
 category: "Other Tools and Integrations"
 repo: "isaacwasserman/mcp-vegalite-server"
 stars: 97

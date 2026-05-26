@@ -1,6 +1,7 @@
 ---
 name: "tuannvm/mcp-trino"
 description: "A Go implementation of a Model Context Protocol (MCP) server for Trino"
+description_tr: "Trino için Model Context Protocol (MCP) sunucusunun Go dilinde gerçekleştirilmesi."
 category: "Databases"
 repo: "tuannvm/mcp-trino"
 stars: 107

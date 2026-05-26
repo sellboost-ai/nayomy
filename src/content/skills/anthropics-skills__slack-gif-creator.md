@@ -1,6 +1,7 @@
 ---
 name: "slack-gif-creator"
 description_en: "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack."
+description_tr: "Slack için optimize edilmiş animasyonlu GIF'ler oluşturmak için bilgi ve araçlar sunar. Kısıtlamalar, doğrulama araçları ve animasyon konseptleri içerir. Kullanıcılar \"Slack için X'in Y yapmasını gösteren bir GIF yap\" gibi isteklerde bulunduğunda kullanılır."
 category: "Design"
 repo: "anthropics/skills"
 stars: 140618

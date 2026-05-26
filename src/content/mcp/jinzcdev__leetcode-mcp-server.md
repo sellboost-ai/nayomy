@@ -1,6 +1,7 @@
 ---
 name: "jinzcdev/leetcode-mcp-server"
 description: "MCP server enabling automated access to LeetCode's programming problems, solutions, submissions and public data with optional authentication for user-specific features (e.g., notes), supporting both leetcode.com (global) and leetcode.cn (China) sites."
+description_tr: "LeetCode'un programlama problemleri, çözümleri, submissions ve genel verilerine otomatik erişim sağlayan MCP server. İsteğe bağlı authentication ile kullanıcıya özel özellikleri (örn. notlar) destekler ve hem leetcode.com (global) hem de leetcode.cn (Çin) sitelerini kapsar."
 category: "Coding Agents"
 repo: "jinzcdev/leetcode-mcp-server"
 stars: 115

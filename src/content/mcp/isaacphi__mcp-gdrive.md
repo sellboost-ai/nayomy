@@ -1,6 +1,7 @@
 ---
 name: "isaacphi/mcp-gdrive"
 description: "Model Context Protocol (MCP) Server for reading from Google Drive and editing Google Sheets."
+description_tr: "Google Drive'dan okuma ve Google Sheets düzenleme işlemleri için Model Context Protocol (MCP) Server."
 category: "File Systems"
 repo: "isaacphi/mcp-gdrive"
 stars: 280

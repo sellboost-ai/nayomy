@@ -1,6 +1,7 @@
 ---
 name: "stape-io/google-tag-manager-mcp-server"
 description: "This server supports remote MCP connections, includes built-in Google OAuth, and provide an interface to the Google Tag Manager API."
+description_tr: "Bu sunucu uzak MCP bağlantılarını destekler, yerleşik Google OAuth içerir ve Google Tag Manager API'sine bir arayüz sağlar."
 category: "Marketing"
 repo: "stape-io/google-tag-manager-mcp-server"
 stars: 158

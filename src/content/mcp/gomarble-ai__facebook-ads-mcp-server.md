@@ -1,6 +1,7 @@
 ---
 name: "gomarble-ai/facebook-ads-mcp-server"
 description: "MCP server acting as an interface to the Facebook Ads, enabling programmatic access to Facebook Ads data and management features."
+description_tr: "Facebook Ads'e bağlanan MCP sunucusu, Facebook Ads verilerine programatik erişim sağlayarak reklam yönetimi özelliklerini entegre eder."
 category: "Marketing"
 repo: "gomarble-ai/facebook-ads-mcp-server"
 stars: 326

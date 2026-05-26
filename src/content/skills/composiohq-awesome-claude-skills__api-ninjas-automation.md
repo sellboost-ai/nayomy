@@ -1,6 +1,7 @@
 ---
 name: "api-ninjas-automation"
 description_en: "Automate API Ninjas tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "API Ninjas görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemalar için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

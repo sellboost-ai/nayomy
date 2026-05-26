@@ -1,6 +1,7 @@
 ---
 name: "apiflash-automation"
 description_en: "Automate Apiflash tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Apiflash görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

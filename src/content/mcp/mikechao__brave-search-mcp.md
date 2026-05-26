@@ -1,6 +1,7 @@
 ---
 name: "mikechao/brave-search-mcp"
 description: "Web, Image, News, Video, and Local Point of Interest search capabilities using Brave's Search API"
+description_tr: "Brave'in Search API'sini kullanarak Web, Image, News, Video ve Local Point of Interest arama yetenekleri"
 category: "Search & Data Extraction"
 repo: "mikechao/brave-search-mcp"
 stars: 117

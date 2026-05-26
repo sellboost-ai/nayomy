@@ -1,6 +1,7 @@
 ---
 name: "r-huijts/strava-mcp"
 description: "A Model Context Protocol (MCP) server that connects to Strava API, providing tools to access Strava data through LLMs"
+description_tr: "Strava API'ye bağlanan ve LLM'ler aracılığıyla Strava verilerine erişim sağlayan bir Model Context Protocol (MCP) sunucusu."
 category: "Sports"
 repo: "r-huijts/strava-mcp"
 stars: 417

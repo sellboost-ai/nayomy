@@ -1,6 +1,7 @@
 ---
 name: "vivekVells/mcp-pandoc"
 description: "MCP server for seamless document format conversion using Pandoc, supporting Markdown, HTML, PDF, DOCX (.docx), csv and more."
+description_tr: "Pandoc kullanarak belgeler arasında sorunsuz format dönüşümü sağlayan MCP server'ı. Markdown, HTML, PDF, DOCX, CSV ve daha birçok formatı destekler."
 category: "Developer Tools"
 repo: "vivekVells/mcp-pandoc"
 stars: 541

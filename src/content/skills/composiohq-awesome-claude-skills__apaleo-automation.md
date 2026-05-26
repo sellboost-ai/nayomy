@@ -1,6 +1,7 @@
 ---
 name: "apaleo-automation"
 description_en: "Automate Apaleo tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Apaleo görevlerini otomatikleştirin. Geçerli şemalar için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

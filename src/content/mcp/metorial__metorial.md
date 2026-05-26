@@ -1,6 +1,7 @@
 ---
 name: "metorial/metorial"
 description: "Connect AI agents to 600+ integrations with a single interface - OAuth, scaling, and monitoring included"
+description_tr: "AI ajanlarını 600'den fazla entegrasyon ile tek bir arayüz üzerinden bağlayın - OAuth, scaling ve monitoring dahil"
 category: "Other Tools and Integrations"
 repo: "metorial/metorial"
 stars: 3294

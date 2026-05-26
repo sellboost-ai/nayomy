@@ -1,6 +1,7 @@
 ---
 name: "safedep/vet"
 description: "vet-mcp checks open source packages—like those suggested by AI coding tools—for vulnerabilities and malicious code. It supports npm and PyPI, and runs locally via Docker or as a standalone binary for fast, automated vetting."
+description_tr: "vet-mcp, AI coding tools tarafından önerilen paketler gibi açık kaynak paketleri güvenlik açıkları ve zararlı kod açısından kontrol eder. npm ve PyPI'ı destekler, Docker üzerinden veya standalone binary olarak yerel ortamda çalışarak hızlı ve otomatik doğrulama sağlar."
 category: "Security"
 repo: "safedep/vet"
 stars: 1055

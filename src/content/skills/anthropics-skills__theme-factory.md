@@ -1,6 +1,7 @@
 ---
 name: "theme-factory"
 description_en: "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly."
+description_tr: "Artefaktları tema ile şekillendirmek için bir araç seti. Sunumlar, belgeler, raporlar, HTML landing page'ler gibi her türlü artefakta uygulanabilen 10 adet hazır tema ile renk ve font seçenekleri sunuyor veya anında yeni tema oluşturabiliyor."
 category: "Document"
 repo: "anthropics/skills"
 stars: 140618

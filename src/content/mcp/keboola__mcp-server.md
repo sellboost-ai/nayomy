@@ -1,6 +1,7 @@
 ---
 name: "keboola/mcp-server"
 description: "interact with Keboola Connection Data Platform. This server provides tools for listing and accessing data from Keboola Storage API."
+description_tr: "Keboola Connection Data Platform ile etkileşim kurun. Bu sunucu, Keboola Storage API'den verileri listeleme ve erişme için gerekli araçları sağlar."
 category: "Data Platforms"
 repo: "keboola/mcp-server"
 stars: 84

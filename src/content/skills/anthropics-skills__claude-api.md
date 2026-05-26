@@ -1,6 +1,7 @@
 ---
 name: "claude-api"
 description_en: "Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 → 4.6, 4.6 → 4.7, retired-model replacements). TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a C"
+description_tr: "Claude API ve Anthropic SDK uygulamalarını oluşturun, hata ayıklayın ve optimize edin. Bu skill ile geliştirilen uygulamalar prompt caching içermeli ve mevcut Claude API kodunu model sürümleri arasında (4.5 → 4.6, 4.6 → 4.7, kullanımdan kaldırılan model değişiklikleri) taşıyabilir. Kod `anthropic`/`@anthropic-ai/sdk` import ettiğinde, kullanıcı Claude API, Anthropic SDK veya Managed Agents istediğinde ya da bir prompt eklediğinde/değiştirdiğinde tetiklenir."
 category: "Design"
 repo: "anthropics/skills"
 stars: 140618

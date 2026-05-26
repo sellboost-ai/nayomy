@@ -1,6 +1,7 @@
 ---
 name: "mcpjungle/MCPJungle"
 description: "Self-hosted MCP Server registry for enterprise AI Agents"
+description_tr: "Kurumsal AI Ajanları için kendi sunucunuzda barındırılan MCP Server registry'si"
 category: "Aggregators"
 repo: "mcpjungle/MCPJungle"
 stars: 1065

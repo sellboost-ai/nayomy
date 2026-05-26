@@ -1,6 +1,7 @@
 ---
 name: "cobanov/teslamate-mcp"
 description: "A Model Context Protocol (MCP) server that provides access to your TeslaMate database, allowing AI assistants to query Tesla vehicle data and analytics."
+description_tr: "TeslaMate veritabanınıza erişim sağlayan bir Model Context Protocol (MCP) sunucusu. AI asistanlarının Tesla araç verilerini ve analitiğini sorgulamasına olanak tanır."
 category: "Travel & Transportation"
 repo: "cobanov/teslamate-mcp"
 stars: 127

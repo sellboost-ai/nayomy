@@ -1,6 +1,7 @@
 ---
 name: "campaign-analytics"
 description_en: "Analyzes campaign performance with multi-touch attribution, funnel conversion analysis, and ROI calculation for marketing optimization. Use when analyzing marketing campaigns, ad performance, attribution models, conversion rates, or calculating marketing ROI, ROAS, CPA, and campaign metrics across channels."
+description_tr: "Çok noktalı atıbüsyon, funnel dönüşüm analizi ve ROI hesaplaması ile kampanya performansını analiz eder ve pazarlama optimizasyonunu sağlar. Pazarlama kampanyaları, reklam performansı, atıbüsyon modelleri, dönüşüm oranları veya kanallar arasında pazarlama ROI, ROAS, CPA ve kampanya metriklerini hesaplarken kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

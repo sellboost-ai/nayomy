@@ -1,6 +1,7 @@
 ---
 name: "frontend-design"
 description_en: "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics."
+description_tr: "Yüksek tasarım kalitesiyle üretim seviyesinde, özgün frontend arayüzleri oluşturun. Kullanıcı web bileşenleri, sayfalar, posterler veya uygulamalar (web siteleri, landing page'ler, dashboardlar, React componentleri, HTML/CSS düzenlemeleri gibi) geliştirmeyi istediğinde veya herhangi bir web UI'ı stilize etmeyi/güzelleştirmeyi talep ettiğinde bu beceriyi kullanın. Jenerik yapay zeka estetiğinden kaçınan yaratıcı, parlak kod ve UI tasarımı üretir."
 category: "Design"
 repo: "anthropics/skills"
 stars: 140618

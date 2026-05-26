@@ -1,6 +1,7 @@
 ---
 name: "semgrep/mcp"
 description: "Allow AI agents to scan code for security vulnerabilites using Semgrep."
+description_tr: "Semgrep kullanarak AI ajanlarının kodda güvenlik açıklarını taramasına izin verin."
 category: "Security"
 repo: "semgrep/mcp"
 stars: 669

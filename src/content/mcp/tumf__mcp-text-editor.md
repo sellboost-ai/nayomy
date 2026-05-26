@@ -1,6 +1,7 @@
 ---
 name: "tumf/mcp-text-editor"
 description: "A line-oriented text file editor. Optimized for LLM tools with efficient partial file access to minimize token usage."
+description_tr: "Satır tabanlı metin dosyası editörü. LLM araçları için optimize edilmiş, token kullanımını azaltmak amacıyla dosyalara verimli kısmi erişim sağlar."
 category: "Developer Tools"
 repo: "tumf/mcp-text-editor"
 stars: 191

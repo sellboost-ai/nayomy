@@ -1,6 +1,7 @@
 ---
 name: "cswkim/discogs-mcp-server"
 description: "MCP server to interact with the Discogs API"
+description_tr: "Discogs API ile etkileşim kurmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "cswkim/discogs-mcp-server"
 stars: 102

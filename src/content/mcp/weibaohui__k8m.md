@@ -1,6 +1,7 @@
 ---
 name: "weibaohui/k8m"
 description: "Provides MCP multi-cluster Kubernetes management and operations, featuring a management interface, logging, and nearly 50 built-in tools covering common DevOps and development scenarios. Supports both standard and CRD resources."
+description_tr: "MCP ile çoklu Kubernetes kümesi yönetimi ve operasyonları sağlayan, yönetim arayüzü, logging ve DevOps ile geliştirme senaryolarını kapsayan yaklaşık 50 yerleşik araç içeren çözüm. Standart ve CRD kaynakları desteklemektedir."
 category: "Cloud Platforms"
 repo: "weibaohui/k8m"
 stars: 822

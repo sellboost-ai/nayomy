@@ -1,6 +1,7 @@
 ---
 name: "taylorwilsdon/google_workspace_mcp"
 description: "Comprehensive Google Workspace MCP server with full support for Google Calendar, Drive, Gmail, and Docs, Forms, Chats, Slides and Sheets over stdio, Streamable HTTP and SSE transports."
+description_tr: "Google Workspace için kapsamlı MCP sunucusu; Google Calendar, Drive, Gmail, Docs, Forms, Chats, Slides ve Sheets için tam destek sunarak stdio, Streamable HTTP ve SSE taşıyıcıları üzerinde çalışır."
 category: "Workplace & Productivity"
 repo: "taylorwilsdon/google_workspace_mcp"
 stars: 2483

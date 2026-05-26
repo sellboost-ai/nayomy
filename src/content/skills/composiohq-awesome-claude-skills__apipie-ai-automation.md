@@ -1,6 +1,7 @@
 ---
 name: "apipie-ai-automation"
 description_en: "Automate Apipie AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Apipie AI görevlerini otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

@@ -1,6 +1,7 @@
 ---
 name: "CoderGamester/mcp-unity"
 description: "MCP Server for Unity3d Game Engine integration for game development"
+description_tr: "Unity3d Oyun Motoru entegrasyonu için MCP Server, oyun geliştirme sürecini kolaylaştırır."
 category: "Gaming"
 repo: "CoderGamester/mcp-unity"
 stars: 1723

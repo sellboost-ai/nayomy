@@ -1,6 +1,7 @@
 ---
 name: "agenthub"
 description_en: "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. R"
+description_tr: "Aynı görev üzerinde N paralel alt-agent'i git worktree izolasyonu ile yarıştıran multi-agent işbirliği eklentisi. Agent'ler bağımsız çalışır, sonuçlar metrik veya LLM judge tarafından değerlendirilir ve en iyi branch merge edilir. Kullanım: Birden fazla yaklaşımı paralel olarak denemek istediğinizde — kod optimizasyonu, içerik varyasyonu, araştırma keşfi veya paralel rekabetten yararlanan herhangi bir görev için."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

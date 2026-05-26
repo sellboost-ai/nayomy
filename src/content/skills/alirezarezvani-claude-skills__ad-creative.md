@@ -1,6 +1,7 @@
 ---
 name: "ad-creative"
 description_en: "When the user needs to generate, iterate, or scale ad creative for paid advertising. Use when they say 'write ad copy,' 'generate headlines,' 'create ad variations,' 'bulk creative,' 'iterate on ads,' 'ad copy validation,' 'RSA headlines,' 'Meta ad copy,' 'LinkedIn ad,' or 'creative testing.' This is pure creative production — distinct from paid-ads (campaign strategy). Use ad-creative when you ne"
+description_tr: "Kullanıcı ücretli reklamcılık için reklam yaratıcı içerik üretmek, geliştirmek veya ölçeklendirmek istediğinde kullanın. \"Reklam metni yaz\", \"başlık oluştur\", \"reklam varyasyonları yarat\", \"toplu yaratıcı\", \"reklamları geliştir\", \"reklam metni doğrulaması\", \"RSA başlıkları\", \"Meta reklam metni\", \"LinkedIn reklamı\" veya \"yaratıcı test\" gibi talepleri gördüğünüzde devreye alın. Bu saf yaratıcı üretim işlemidir — kampanya stratejisinden (paid-ads) farklıdır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

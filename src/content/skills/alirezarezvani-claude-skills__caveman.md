@@ -1,6 +1,7 @@
 ---
 name: "caveman"
 description_en: "> Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use when user says \"caveman mode\", \"talk like caveman\", \"use caveman\", \"less tokens\", \"be brief\", or invokes /caveman."
+description_tr: "Ultra-sıkıştırılmış iletişim modu. Dolgu, makaleler ve nezaketleri çıkararak token kullanımını ~%75 oranında azaltır, teknik doğruluğu koruyor. \"caveman mode\", \"talk like caveman\", \"use caveman\", \"less tokens\", \"be brief\" komutları veya /caveman invoke edildiğinde aktif hale gelir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

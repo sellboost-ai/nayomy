@@ -1,6 +1,7 @@
 ---
 name: "XeroAPI/xero-mcp-server"
 description: "An MCP server that integrates with Xero's API, allowing for standardized access to Xero's accounting and business features."
+description_tr: "Xero'nun API'si ile entegre olan ve Xero'nun muhasebe ile işletme özelliklerine standartlaştırılmış erişim sağlayan bir MCP sunucusu."
 category: "Finance & Fintech"
 repo: "XeroAPI/xero-mcp-server"
 stars: 293

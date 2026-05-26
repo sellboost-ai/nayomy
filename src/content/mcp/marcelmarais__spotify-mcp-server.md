@@ -1,6 +1,7 @@
 ---
 name: "marcelmarais/spotify-mcp-server"
 description: "Control Spotify playback and manage playlists."
+description_tr: "Spotify oynatmayı kontrol edin ve playlistleri yönetin."
 category: "Other Tools and Integrations"
 repo: "marcelmarais/spotify-mcp-server"
 stars: 351

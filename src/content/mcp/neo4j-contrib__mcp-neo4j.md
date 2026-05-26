@@ -1,6 +1,7 @@
 ---
 name: "neo4j-contrib/mcp-neo4j"
 description: "Model Context Protocol with Neo4j (Run queries, Knowledge Graph Memory, Manaage Neo4j Aura Instances)"
+description_tr: "Neo4j ile Model Context Protocol (Sorguları çalıştırın, Bilgi Grafı Belleği, Neo4j Aura Örneklerini yönetin)"
 category: "Databases"
 repo: "neo4j-contrib/mcp-neo4j"
 stars: 949

@@ -1,6 +1,7 @@
 ---
 name: "biegehydra/BifrostMCP"
 description: "Connect to VSCode ide and use semantic tools like find_usages"
+description_tr: "VSCode IDE'ye bağlanın ve find_usages gibi semantic araçlarını kullanın."
 category: "Developer Tools"
 repo: "biegehydra/BifrostMCP"
 stars: 213

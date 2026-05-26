@@ -1,6 +1,7 @@
 ---
 name: "jparkerweb/mcp-sqlite"
 description: "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities."
+description_tr: "SQLite veritabanı ile etkileşim için kapsamlı yetenekler sunan Model Context Protocol (MCP) sunucusu."
 category: "Databases"
 repo: "jparkerweb/mcp-sqlite"
 stars: 107

@@ -1,6 +1,7 @@
 ---
 name: "zilliztech/mcp-server-milvus"
 description: "MCP Server for Milvus / Zilliz, making it possible to interact with your database."
+description_tr: "Milvus / Zilliz için MCP Server, veritabanınızla etkileşim kurmanızı sağlar."
 category: "Databases"
 repo: "zilliztech/mcp-server-milvus"
 stars: 231

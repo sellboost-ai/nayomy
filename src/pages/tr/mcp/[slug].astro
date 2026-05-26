@@ -21,7 +21,8 @@ export async function getStaticPaths() {
 
 type Props = { server: CollectionEntry<'mcp'> };
 const { server } = Astro.props;
-const { name, description, category, repo, url, npm_id, pypi_id, docker_image, language, body_tr } = server.data;
+const { name, description: descriptionEn, description_tr, category, repo, url, npm_id, pypi_id, docker_image, language, body_tr } = server.data;
+const description = description_tr ?? descriptionEn;
 
 const md = new MarkdownIt({ html: true, linkify: true });
 const bodyTrHtml = body_tr ? md.render(body_tr) : null;

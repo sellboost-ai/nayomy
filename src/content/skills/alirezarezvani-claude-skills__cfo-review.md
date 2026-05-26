@@ -1,6 +1,7 @@
 ---
 name: "cfo-review"
 description_en: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation."
+description_tr: "/cs:cfo-review <plan> — Herhangi bir finansal planı CFO gözüyle analiz eden araç. Unit economics, runway, dilution ve capital allocation gibi konuları derinlemesine inceleyerek paranın akışını sorgulamaya yardımcı olur."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

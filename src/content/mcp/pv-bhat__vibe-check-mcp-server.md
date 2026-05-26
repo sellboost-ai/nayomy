@@ -1,6 +1,7 @@
 ---
 name: "PV-Bhat/vibe-check-mcp-server"
 description: "An MCP server that prevents cascading errors and scope creep by calling a \"Vibe-check\" agent to ensure user alignment."
+description_tr: "Kullanıcı uyumunu sağlamak için bir \"Vibe-check\" ajanı çağırarak basamaklı hataları ve scope creep'i önleyen bir MCP server'ı."
 category: "Other Tools and Integrations"
 repo: "PV-Bhat/vibe-check-mcp-server"
 stars: 486

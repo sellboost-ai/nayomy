@@ -1,6 +1,7 @@
 ---
 name: "pi22by7/In-Memoria"
 description: "Persistent intelligence infrastructure for agentic development that gives AI coding assistants cumulative memory and pattern learning. Hybrid TypeScript/Rust implementation with local-first storage using SQLite + SurrealDB for semantic analysis and incremental codebase understanding."
+description_tr: "Agentic geliştirme için kalıcı zeka altyapısı, AI kodlama asistanlarına kümülatif hafıza ve desen öğrenmesi sağlar. TypeScript/Rust hibrit implementasyonu, SQLite + SurrealDB ile local-first depolama, semantik analiz ve artımlı kod tabanı anlayışı sunar."
 category: "Knowledge & Memory"
 repo: "pi22by7/In-Memoria"
 stars: 168

@@ -1,6 +1,7 @@
 ---
 name: "blazickjp/arxiv-mcp-server"
 description: "Search ArXiv research papers"
+description_tr: "ArXiv araştırma makaleleri içinde arama yapın"
 category: "Search & Data Extraction"
 repo: "blazickjp/arxiv-mcp-server"
 stars: 2777

@@ -1,6 +1,7 @@
 ---
 name: "awkoy/replicate-flux-mcp"
 description: "Provides the ability to generate images via Replicate's API."
+description_tr: "Replicate'in API'si üzerinden görüntü oluşturma imkanı sağlar."
 category: "Other Tools and Integrations"
 repo: "awkoy/replicate-flux-mcp"
 stars: 105

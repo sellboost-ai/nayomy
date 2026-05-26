@@ -1,6 +1,7 @@
 ---
 name: "browserbase/mcp-server-browserbase"
 description: "Automate browser interactions in the cloud (e.g. web navigation, data extraction, form filling, and more)"
+description_tr: "Bulutta tarayıcı etkileşimlerini otomatikleştirin (web navigasyonu, veri çıkarma, form doldurma ve daha fazlası)"
 category: "Browser Automation"
 repo: "browserbase/mcp-server-browserbase"
 stars: 3357

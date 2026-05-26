@@ -1,6 +1,7 @@
 ---
 name: "agent"
 description_en: "Core runtime behavior for the atopile sidebar agent: identity, persistence model, execution rules, and tool recipes."
+description_tr: "Atopile sidebar ajanı için temel runtime davranışı: kimlik, kalıcılık modeli, yürütme kuralları ve tool recipes."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3370

@@ -1,6 +1,7 @@
 ---
 name: "kadykov/mcp-openapi-schema-explorer"
 description: "Token-efficient access to OpenAPI/Swagger specs via MCP Resources."
+description_tr: "MCP Resources aracılığıyla OpenAPI/Swagger speclerine token-verimli erişim sağlayın."
 category: "Developer Tools"
 repo: "kadykov/mcp-openapi-schema-explorer"
 stars: 72

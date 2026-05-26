@@ -1,6 +1,7 @@
 ---
 name: "confluentinc/mcp-confluent"
 description: "Confluent integration to interact with Confluent Kafka and Confluent Cloud REST APIs."
+description_tr: "Confluent Kafka ve Confluent Cloud REST API'leriyle etkileşim kurmanıza olanak tanıyan Confluent entegrasyonu."
 category: "Databases"
 repo: "confluentinc/mcp-confluent"
 stars: 156

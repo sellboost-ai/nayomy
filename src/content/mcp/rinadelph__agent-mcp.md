@@ -1,6 +1,7 @@
 ---
 name: "rinadelph/Agent-MCP"
 description: "A framework for creating multi-agent systems using MCP for coordinated AI collaboration, featuring task management, shared context, and RAG capabilities."
+description_tr: "MCP kullanan çok aracılı sistemler oluşturmak için bir framework olup, koordine edilmiş AI işbirliği, görev yönetimi, paylaşılan context ve RAG yetenekleri sunmaktadır."
 category: "Coding Agents"
 repo: "rinadelph/Agent-MCP"
 stars: 1238

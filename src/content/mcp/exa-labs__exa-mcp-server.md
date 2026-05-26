@@ -1,6 +1,7 @@
 ---
 name: "exa-labs/exa-mcp-server"
 description: "A Model Context Protocol (MCP) server lets AI assistants like Claude use the Exa AI Search API for web searches. This setup allows AI models to get real-time web information in a safe and controlled way."
+description_tr: "MCP sunucusu, Claude gibi AI asistanlarının Exa AI Search API'sini kullanarak web araması yapmasını sağlar. Bu kurulum, AI modellerine güvenli ve kontrollü bir şekilde gerçek zamanlı web bilgisine erişim imkanı verir."
 category: "Search & Data Extraction"
 repo: "exa-labs/exa-mcp-server"
 stars: 4483

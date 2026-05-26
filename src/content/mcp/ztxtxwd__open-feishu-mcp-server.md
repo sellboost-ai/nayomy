@@ -1,6 +1,7 @@
 ---
 name: "ztxtxwd/open-feishu-mcp-server"
 description: "A Model Context Protocol (MCP) server with built-in Feishu OAuth authentication, supporting remote connections and providing comprehensive Feishu document management tools including block creation, content updates, and advanced features."
+description_tr: "Model Context Protocol (MCP) sunucusu, yerleşik Feishu OAuth kimlik doğrulaması ile uzak bağlantıları destekler ve blok oluşturma, içerik güncelleme gibi kapsamlı Feishu doküman yönetimi araçları sağlar."
 category: "Communication"
 repo: "ztxtxwd/open-feishu-mcp-server"
 stars: 86

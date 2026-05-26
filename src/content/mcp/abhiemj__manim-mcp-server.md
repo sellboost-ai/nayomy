@@ -1,6 +1,7 @@
 ---
 name: "abhiemj/manim-mcp-server"
 description: "A local MCP server that generates animations using Manim."
+description_tr: "Manim kullanarak animasyonlar oluşturan yerel bir MCP sunucusu."
 category: "Art & Culture"
 repo: "abhiemj/manim-mcp-server"
 stars: 594

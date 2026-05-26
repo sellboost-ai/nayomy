@@ -1,6 +1,7 @@
 ---
 name: "pyroprompts/any-chat-completions-mcp"
 description: "Chat with any other OpenAI SDK Compatible Chat Completions API, like Perplexity, Groq, xAI and more"
+description_tr: "Perplexity, Groq, xAI ve daha birçok OpenAI SDK Compatible Chat Completions API ile sohbet edin."
 category: "Other Tools and Integrations"
 repo: "pyroprompts/any-chat-completions-mcp"
 stars: 151

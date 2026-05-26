@@ -1,6 +1,7 @@
 ---
 name: "ambee-automation"
 description_en: "Automate Ambee tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Ambee görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemalar için her zaman önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

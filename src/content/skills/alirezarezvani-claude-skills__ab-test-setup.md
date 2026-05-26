@@ -1,6 +1,7 @@
 ---
 name: "ab-test-setup"
 description_en: "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"conversion experiment,\" \"statistical significance,\" or \"test this.\" For tracking implementation, see analytics-tracking."
+description_tr: "Kullanıcı A/B test, split test, experiment ya da hipotez test etmek istediğinde veya \"bu değişikliği test et\", \"variant copy\", \"multivariate test\", \"istatistiksel anlamlılık\" gibi terimler kullandığında kullanılır. İmplementasyon takibi için analytics-tracking bölümüne bakınız."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

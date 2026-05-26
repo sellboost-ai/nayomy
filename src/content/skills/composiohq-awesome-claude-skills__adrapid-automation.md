@@ -1,6 +1,7 @@
 ---
 name: "adrapid-automation"
 description_en: "Automate Adrapid tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Adrapid görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

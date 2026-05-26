@@ -1,6 +1,7 @@
 ---
 name: "diivi/aseprite-mcp"
 description: "MCP server using the Aseprite API to create pixel art"
+description_tr: "Aseprite API'sini kullanarak pixel art oluşturmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "diivi/aseprite-mcp"
 stars: 178

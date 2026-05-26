@@ -1,6 +1,7 @@
 ---
 name: "SecretiveShell/MCP-wolfram-alpha"
 description: "An MCP server for querying wolfram alpha API."
+description_tr: "Wolfram Alpha API'sini sorgulayabileceğiniz bir MCP sunucusu."
 category: "Other Tools and Integrations"
 repo: "SecretiveShell/MCP-wolfram-alpha"
 stars: 75

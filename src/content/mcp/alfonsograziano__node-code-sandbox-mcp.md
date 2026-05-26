@@ -1,6 +1,7 @@
 ---
 name: "alfonsograziano/node-code-sandbox-mcp"
 description: "A Node.js MCP server that spins up isolated Docker-based sandboxes for executing JavaScript snippets with on-the-fly npm dependency installation and clean teardown"
+description_tr: "Node.js tabanlı bir MCP sunucusu olup, JavaScript kod parçacıklarını çalıştırmak için izole Docker sandbox'ları oluşturur; anında npm bağımlılık kurulumu ve temiz kaldırma işlemlerini destekler."
 category: "Code Execution"
 repo: "alfonsograziano/node-code-sandbox-mcp"
 stars: 153

@@ -1,6 +1,7 @@
 ---
 name: "altoviz-automation"
 description_en: "Automate Altoviz tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Altoviz görevlerini otomatikleştirin. Tool'ları kullanmadan önce her zaman mevcut schema'ları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 61753

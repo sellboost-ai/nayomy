@@ -1,6 +1,7 @@
 ---
 name: "kiliczsh/mcp-mongo-server"
 description: "A Model Context Protocol Server for MongoDB"
+description_tr: "MongoDB için bir Model Context Protocol Server'ı"
 category: "Databases"
 repo: "kiliczsh/mcp-mongo-server"
 stars: 279

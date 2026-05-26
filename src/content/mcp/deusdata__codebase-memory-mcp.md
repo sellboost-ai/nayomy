@@ -1,6 +1,7 @@
 ---
 name: "DeusData/codebase-memory-mcp"
 description: "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 66 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies."
+description_tr: "Yüksek performanslı kod zekası MCP sunucusu. Codebase'leri kalıcı bir knowledge graph'e indeksler — ortalama repo milisaniye cinsinden. 66 dil, sub-ms sorgular, %99 daha az token. Tek static binary, sıfır bağımlılık."
 category: "Developer Tools"
 repo: "DeusData/codebase-memory-mcp"
 stars: 2730

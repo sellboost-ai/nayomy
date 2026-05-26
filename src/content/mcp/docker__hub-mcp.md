@@ -1,6 +1,7 @@
 ---
 name: "docker/hub-mcp"
 description: "Official MCP server to interact with Docker Hub, providing access to repositories, hub search and Docker Hardened Images"
+description_tr: "Docker Hub ile etkileşim kurmak için resmi MCP sunucusu. Repositorylere, hub aramasına ve Docker Hardened Images'a erişim sağlar."
 category: "Developer Tools"
 repo: "docker/hub-mcp"
 stars: 149

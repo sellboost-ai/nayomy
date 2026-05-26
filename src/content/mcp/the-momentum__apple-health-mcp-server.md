@@ -1,6 +1,7 @@
 ---
 name: "the-momentum/apple-health-mcp-server"
 description: "An MCP server that provides access to exported data from Apple Health. Data analytics included."
+description_tr: "Apple Health'ten dışa aktarılan verilere erişim sağlayan ve veri analitikleri içeren bir MCP sunucusu."
 category: "Biology Medicine and Bioinformatics"
 repo: "the-momentum/apple-health-mcp-server"
 stars: 194

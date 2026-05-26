@@ -1,6 +1,7 @@
 ---
 name: "agent-designer"
 description_en: "Use when the user asks to design multi-agent systems, create agent architectures, define agent communication patterns, or build autonomous agent workflows."
+description_tr: "Kullanıcı multi-agent sistemleri tasarlamak, agent mimarileri oluşturmak, agent iletişim desenlerini tanımlamak veya otonom agent iş akışları geliştirmek istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

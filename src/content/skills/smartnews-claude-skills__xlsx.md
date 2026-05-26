@@ -1,6 +1,7 @@
 ---
 name: "xlsx"
 description_en: "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, .tsv, etc) for: (1) Creating new spreadsheets with formulas and formatting, (2) Reading or analyzing data, (3) Modify existing spreadsheets while preserving formulas, (4) Data analysis and visualization i"
+description_tr: "Formüller, biçimlendirme, veri analizi ve görselleştirme desteği ile kapsamlı elektronik tablo oluşturma, düzenleme ve analiz. Claude'un spreadsheet dosyalarıyla (.xlsx, .xlsm, .csv, .tsv vb.) çalışmasına olanak tanır: yeni spreadsheet'ler oluşturma, veri okuma ve analiz, mevcut spreadsheet'leri formülleri koruyarak değiştirme ve veri analizi ile görselleştirme."
 category: "Document"
 repo: "smartnews/claude-skills"
 stars: 2

@@ -1,6 +1,7 @@
 ---
 name: "alchemyplatform/alchemy-mcp-server"
 description: "Allow AI agents to interact with Alchemy's blockchain APIs."
+description_tr: "AI ajanlarının Alchemy'nin blockchain API'leri ile etkileşim kurmasını sağlayın."
 category: "Finance & Fintech"
 repo: "alchemyplatform/alchemy-mcp-server"
 stars: 86

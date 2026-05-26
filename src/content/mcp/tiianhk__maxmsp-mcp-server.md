@@ -1,6 +1,7 @@
 ---
 name: "tiianhk/MaxMSP-MCP-Server"
 description: "A coding agent for Max (Max/MSP/Jitter), which is a visual programming language for music and multimedia."
+description_tr: "Max için kodlama ajanı olup, müzik ve multimedya için tasarlanmış görsel bir programlama dilidir."
 category: "Coding Agents"
 repo: "tiianhk/MaxMSP-MCP-Server"
 stars: 222

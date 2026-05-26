@@ -1,6 +1,7 @@
 ---
 name: "cjo4m06/mcp-shrimp-task-manager"
 description: "A programming-focused task management system that boosts coding agents like Cursor AI with advanced task memory, self-reflection, and dependency management. ShrimpTaskManager"
+description_tr: "Kodlama ajanlarını (Cursor AI gibi) geliştirilmiş task hafızası, self-reflection ve dependency management ile güçlendiren programlama odaklı bir task management sistemi. ShrimpTaskManager"
 category: "Developer Tools"
 repo: "cjo4m06/mcp-shrimp-task-manager"
 stars: 2103

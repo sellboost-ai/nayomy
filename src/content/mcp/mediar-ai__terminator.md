@@ -1,6 +1,7 @@
 ---
 name: "mediar-ai/terminator"
 description: "Desktop GUI automation using accessibility APIs. Control Windows, macOS, and Linux applications without vision models or screenshots. Supports workflow recording, structured data extraction, and browser DOM inspection."
+description_tr: "Erişilebilirlik API'leri kullanarak masaüstü GUI otomasyonu. Vision modelleri veya ekran görüntüleri olmadan Windows, macOS ve Linux uygulamalarını kontrol edin. İş akışı kaydı, yapılandırılmış veri çıkarma ve browser DOM incelemesini destekler."
 category: "Coding Agents"
 repo: "mediar-ai/terminator"
 stars: 1496

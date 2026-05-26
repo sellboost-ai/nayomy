@@ -1,6 +1,7 @@
 ---
 name: "changelog-generator"
 description_en: "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, or automating release notes in CI."
+description_tr: "Conventional Commits'ten tutarlı ve denetlenebilir sürüm notları üretin. Commit ayrıştırma, semantic-bump mantığı ve changelog oluşturmayı ayırarak otomatik sürümler için editöryal kontrol sağlar. Sürüm kesme, git geçmişinden CHANGELOG.md oluşturma veya CI'da sürüm notlarını otomatikleştirme işlemlerinde kullanılır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 16160

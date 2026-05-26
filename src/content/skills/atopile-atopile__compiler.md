@@ -1,6 +1,7 @@
 ---
 name: "compiler"
 description_en: "How the atopile compiler builds and links TypeGraphs from `.ato` (ANTLR front-end → AST → TypeGraph → Linker → DeferredExecutor), plus the key invariants and test entrypoints. Use when modifying the compiler pipeline, grammar, AST visitors, or type resolution."
+description_tr: "atopile derleyicisinin `.ato` dosyalarından TypeGraph'ları nasıl derlediği ve bağladığı (ANTLR front-end → AST → TypeGraph → Linker → DeferredExecutor), temel değişmezler ve test entrypoint'leri açıklar. Derleyici pipeline'ını, grammar'ı, AST visitor'larını veya type resolution'ı değiştirirken kullanın."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3370

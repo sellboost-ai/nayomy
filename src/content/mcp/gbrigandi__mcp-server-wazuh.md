@@ -1,6 +1,7 @@
 ---
 name: "gbrigandi/mcp-server-wazuh"
 description: "A Rust-based MCP server bridging Wazuh SIEM with AI assistants, providing real-time security alerts and event data for enhanced contextual understanding."
+description_tr: "Wazuh SIEM'i yapay zeka asistanlarıyla bağlayan Rust tabanlı bir MCP server'ı, gerçek zamanlı güvenlik uyarıları ve event verilerini sunarak geliştirilmiş bağlamsal anlama sağlar."
 category: "Security"
 repo: "gbrigandi/mcp-server-wazuh"
 stars: 209

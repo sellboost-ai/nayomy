@@ -1,6 +1,7 @@
 ---
 name: "MladenSU/cli-mcp-server"
 description: "Command line interface with secure execution and customizable security policies"
+description_tr: "Güvenli yürütme ve özelleştirilebilir güvenlik politikaları sunan komut satırı arayüzü"
 category: "Command Line"
 repo: "MladenSU/cli-mcp-server"
 stars: 170

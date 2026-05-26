@@ -1,6 +1,7 @@
 ---
 name: "tacticlaunch/mcp-linear"
 description: "Integrates with Linear project management system"
+description_tr: "Linear proje yönetim sistemi ile entegre çalışır"
 category: "Other Tools and Integrations"
 repo: "tacticlaunch/mcp-linear"
 stars: 134

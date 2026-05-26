@@ -1,6 +1,7 @@
 ---
 name: "r-huijts/xcode-mcp-server"
 description: "Xcode integration for project management, file operations, and build automation"
+description_tr: "Xcode entegrasyonu ile proje yönetimi, dosya işlemleri ve build otomasyonu"
 category: "Developer Tools"
 repo: "r-huijts/xcode-mcp-server"
 stars: 377

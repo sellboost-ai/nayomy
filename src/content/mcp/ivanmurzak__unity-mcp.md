@@ -1,6 +1,7 @@
 ---
 name: "IvanMurzak/Unity-MCP"
 description: "MCP Server for Unity Editor and for a game made with Unity"
+description_tr: "Unity Editor ve Unity ile yapılan oyunlar için MCP Server'ı"
 category: "Gaming"
 repo: "IvanMurzak/Unity-MCP"
 stars: 2893

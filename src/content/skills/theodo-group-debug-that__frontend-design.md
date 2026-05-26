@@ -1,6 +1,7 @@
 ---
 name: "frontend-design"
 description_en: "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics."
+description_tr: "Yüksek tasarım kalitesiyle üretim seviyesinde, kendine özgü frontend arayüzleri oluşturun. Web bileşenleri, sayfalar, posterler veya uygulamalar (web siteleri, landing page'ler, dashboard'lar, React component'leri, HTML/CSS düzenleri veya herhangi bir web UI'nin stillendirilmesi gibi) geliştirme talebinde bulunduğunda bu beceriyi kullanın. Genel AI estetiğinden kaçınan yaratıcı, parlak kod ve UI tasarımı üretir."
 category: "Design"
 repo: "theodo-group/debug-that"
 stars: 156
