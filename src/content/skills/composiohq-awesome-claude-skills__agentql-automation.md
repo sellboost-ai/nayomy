@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP üzerinden Agentql Otomasyonu
+
+  Composio'nun Agentql toolkit'i aracılığıyla Rube MCP üzerinden Agentql operasyonlarını otomatikleştirin.
+
+  **Toolkit dokümanları**: [composio.dev/toolkits/agentql](https://composio.dev/toolkits/agentql)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Agentql bağlantısı (toolkit `agentql`)
+  - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` öğesini `agentql` toolkit'iyle çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Keşfi
+
+  İş akışlarını çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Agentql operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Mevcut Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Agentql task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["agentql"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
+  - **Pagination**: Pagination token'ları için yanıtları kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Agentql'e özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `agentql` toolkit'i |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işlem | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan tool'lar için |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Agentql Automation via Rube MCP

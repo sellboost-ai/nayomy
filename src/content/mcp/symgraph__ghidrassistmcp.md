@@ -8,6 +8,577 @@ url: "https://github.com/symgraph/GhidrAssistMCP"
 body_length: 25206
 license: "MIT"
 language: "Java"
+body_tr: |-
+  # GhidrAssistMCP
+
+  Ghidra'nın ters mühendislik yeteneklerini standardlaştırılmış bir API aracılığıyla yapay zeka asistanları ve diğer araçlarla etkileşime izin veren, MCP (Model Context Protocol) sunucusu sağlayan güçlü bir Ghidra uzantısı.
+
+  ## Genel Bakış
+
+  GhidrAssistMCP, yapay zeka tarafından desteklenen analiz araçları ile Ghidra'nın kapsamlı ters mühendislik platformu arasındaki boşluğu kapatır. Model Context Protocol'u uygulayarak, bu uzantı harici yapay zeka asistanlarının, otomatik analiz araçlarının ve özel komut dosyalarının Ghidra'nın analiz yetenekleriyle sorunsuz bir şekilde etkileşim kurmasını sağlar.
+
+  ### Temel Özellikler
+
+  - **MCP Sunucu Entegrasyonu**: Resmi SDK kullanan tam Model Context Protocol sunucu uygulaması
+  - **Çift HTTP Taşıma**: Maksimum istemci uyumluluğu için SSE ve Streamable HTTP taşımalarını destekler
+  - **38 Yerleşik Araç**: Daha temiz API'ler için eylem tabanlı konsolidasyonlu kapsamlı analiz araç seti
+  - **6 MCP Kaynağı**: Program bilgisi, işlevler, dizeler, ithalatlar, ihraçlar ve segmentler için statik veri kaynakları
+  - **7 MCP İstemi**: Yaygın ters mühendislik görevleri için önceden oluşturulmuş analiz istekleri
+  - **Sonuç Önbelleği**: Tekrarlanan sorgular için performansı iyileştiren akıllı önbelleğe alma sistemi
+  - **Async Görev Desteği**: Uzun süren işlemler görev yönetimiyle asenkron olarak yürütülür
+  - **Multi-Program Desteği**: `program_name` parametresi kullanarak birden fazla açık program ile aynı anda çalışın
+  - **Multi-Window Desteği**: Akıllı odak takibi ile tüm CodeBrowser pencereleri arasında paylaşılan tek MCP sunucusu
+  - **Aktif Bağlam Farkındalığı**: Hangi ikili pencerenin odakta olduğunun otomatik algılanması, tüm araç yanıtlarında bağlam ipuçları
+  - **Yapılandırılabilir Kullanıcı Arayüzü**: Araçları yönetmek ve aktiviteyi izlemek için kullanımı kolay arayüz
+  - **Gerçek Zamanlı Günlükleme**: Tüm MCP isteklerini ve yanıtlarını detaylı günlükleme ile izleyin
+  - **Dinamik Araç Yönetimi**: Araçları kalıcı ayarlarla bireysel olarak etkinleştirin/devre dışı bırakın
+
+  ## İstemciler
+
+  Utanmaz öz-tanıtım: [GhidrAssist](https://github.com/jtang613/GhidrAssist) GhidrAssistMCP'yi kutusundan çıkar çıkmaz destekler.
+
+  ## Ekran Görüntüleri
+
+  ![Screenshot](https://github.com/jtang613/GhidrAssistMCP/blob/master/res/Screenshot1.png)
+  ![Screenshot](https://github.com/jtang613/GhidrAssistMCP/blob/master/res/Screenshot2.png)
+
+  ## Kurulum
+
+  ### Ön Koşullar
+
+  - **Ghidra 11.4+** (Ghidra 12.0 Public ile test edilmiştir)
+  - **Bir MCP İstemcisi (GhidrAssist gibi)**
+
+  ### İkili Sürüm (Önerilir)
+
+  1. **En son sürümü indirin**:
+     - [Sürümler sayfasına](https://github.com/jtang613/GhidrAssistMCP/releases) gidin
+     - En son `.zip` dosyasını indirin (örneğin, `GhidrAssistMCP-v1.0.0.zip`)
+
+  2. **Uzantıyı kurun**:
+     - Ghidra'da: **File → Install Extensions → Add Extension**
+     - İndirilen ZIP dosyasını seçin
+     - İstendiğinde Ghidra'yı yeniden başlatın
+
+  3. **Plugin'i etkinleştirin**:
+     - **File → Configure → Configure Plugins**
+     - "GhidrAssistMCP" için arama yapın
+     - Plugin'i etkinleştirmek için kutuyu işaretleyin
+
+  ### Kaynaktan Derleme
+
+  1. **Depoyu klonlayın**:
+
+     ```bash
+     git clone <repository-url>
+     cd GhidrAssistMCP
+     ```
+
+  2. **Gradle'ı Ghidra kurulumunuza işaret edin**:
+     - `GHIDRA_INSTALL_DIR`'i ayarlayın (ortam değişkeni) veya Gradle'ı çalıştırırken `-PGHIDRA_INSTALL_DIR=<path>` geçin.
+
+  3. **Derleme + kurulum**:
+
+     Ghidra'nın çalışmadığından emin olun ve şunu çalıştırın:
+
+     ```bash
+     gradle installExtension
+     ```
+
+     Bu, derlenmiş ZIP'i Ghidra kurulumunuza (`[GHIDRA_INSTALL_DIR]/Extensions/Ghidra`) kopyalar ve Ghidra **kullanıcı** Extensions klasörüne çıkarır (mevcut çıkarılmış kopyayı değiştirir).
+
+     Bu konumu geçersiz kılmanız gerekirse, `-PGHIDRA_USER_EXTENSIONS_DIR=<path>` geçin.
+
+  4. **Yeniden başlat / doğrula**:
+     - Ghidra'yı yeniden başlatın.
+     - Plugin görünmezse, **File → Configure → Configure Plugins** aracılığıyla etkinleştirin ("GhidrAssistMCP" araması yapın).
+
+  ## Yapılandırma
+
+  ### İlk Kurulum
+
+  1. **Kontrol Panelini açın**:
+     - Window → GhidrAssistMCP (veya araç çubuğu simgesini kullanın)
+
+  2. **Sunucu Ayarlarını yapılandırın**:
+     - **Host**: Varsayılan `localhost`
+     - **Port**: Varsayılan `8080`
+     - **Enable/Disable**: MCP sunucusunu aç/kapat
+
+  ### Araç Yönetimi
+
+  Yapılandırma sekmesi şunları yapmanızı sağlar:
+
+  - **Mevcut tüm araçları görüntüleyin** (toplam 38)
+  - **Checkboxları kullanarak bireysel araçları etkinleştirin/devre dışı bırakın**
+  - **Yapılandırmayı kaydedin** oturumlar arasında kalıcı hale getirmek için
+  - **Araç durumunu izleyin** gerçek zamanlı olarak
+
+  ## Headless Modu Hızlı Başlangıç
+
+  GhidrAssistMCP, Ghidra'nın `analyzeHeadless` başlatıcısından da başlatılabilir. Bu, CodeBrowser UI'sini açmadan headless Ghidra'da yüklü bir programa MCP erişimi istediğinizde kullanışlıdır.
+
+  Önce, Ghidra'nın derlenmiş sınıfları ve paketlenmiş bağımlılıkları yükleyebilmesi için uzantıyı derleyin ve kurun:
+
+  ```bash
+  cd /path/to/GhidrAssistMCP
+
+  export GHIDRA_INSTALL_DIR=/path/to/ghidra_12.0_PUBLIC
+  gradle installExtension
+  ```
+
+  Ghidra kurulumunuz ve çıkarılan kullanıcı uzantısı için yolları ayarlayın. Linux'ta, Ghidra kullanıcı uzantıları genellikle `~/.config/ghidra/<ghidra_profile>/Extensions` altında bulunur:
+
+  ```bash
+  export GHIDRA_INSTALL_DIR=/path/to/ghidra_12.0_PUBLIC
+  export GHIDRA_USER_EXTENSIONS_DIR="$HOME/.config/ghidra/ghidra_12.0_PUBLIC/Extensions"
+  export GHIDRASSISTMCP_EXT="$GHIDRA_USER_EXTENSIONS_DIR/GhidrAssistMCP"
+  ```
+
+  Bir ikiliyi import edin ve MCP sunucusunu headless ön-script olarak başlatın:
+
+  ```bash
+  "$GHIDRA_INSTALL_DIR/support/analyzeHeadless" /tmp/ghidra-projects McpHeadless \
+    -import /path/to/binary \
+    -scriptPath "$GHIDRASSISTMCP_EXT/ghidra_scripts" \
+    -preScript GAMCPStartServerScript.java "host=127.0.0.1" "port=8080"
+  ```
+
+  Projeye zaten import edilmiş bir ikili için `-process` yerine kullanın:
+
+  ```bash
+  "$GHIDRA_INSTALL_DIR/support/analyzeHeadless" /tmp/ghidra-projects McpHeadless \
+    -process binary_name \
+    -scriptPath "$GHIDRASSISTMCP_EXT/ghidra_scripts" \
+    -preScript GAMCPStartServerScript.java "host=127.0.0.1" "port=8080"
+  ```
+
+  MCP istemcileri şuraya bağlanabilir:
+
+  ```text
+  SSE:             http://127.0.0.1:8080/sse
+  SSE messages:    http://127.0.0.1:8080/message
+  Streamable HTTP: http://127.0.0.1:8080/mcp
+  ```
+
+  Headless MCP sunucusu `analyzeHeadless` JVM'si içinde çalışır ve yüklenen `currentProgram`'ı kullanır. İstemciler bağlandığı sürece bu işlemi canlı tutun; `analyzeHeadless` çıktığında MCP sunucusu da onunla çıkar.
+
+  ## Mevcut Araçlar
+
+  GhidrAssistMCP, kategorilere ayrılan 38 araç sağlar. Birkaç araç, tek bir aracın ilgili birden fazla işlem sağladığı eylem tabanlı API deseni kullanır.
+
+  ### İkili ve Program Yönetimi
+
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `get_binary_info` | Temel program bilgisini alın (ad, mimari, derleyici, vb.) |
+  | `list_binaries` | Tüm CodeBrowser pencereleri arasında açık tüm programları listeleyin |
+  | `assemble_code` | Bir adresteki yönerge metnini derleyin ve isteğe bağlı olarak program belleğine yamalayın |
+  | `patch_bytes` | Verilen bir adresteki program belleğine ham baytlar yamalayın |
+  | `export_program` | Mevcut programı diske dışa aktarın (`binary` veya `original_file`) *(varsayılan olarak devre dışı)* |
+
+  > **Güvenliğe duyarlı araçlar:** `import_file` ve `export_program` ana bilgisayar dosya sistemiolarak etkileşim kurduğundan varsayılan olarak devre dışıdır. Gerektiğinde bunları plugin yapılandırması UI'sinde açıkça etkinleştirin.
+
+  ### İşlev Bulma ve Analizi
+
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `get_functions` | İşlevleri isteğe bağlı desen filtreleme ve pagination ile listeleyin |
+  | `search_functions_by_name` | İşlevleri ad desenine göre bulun |
+  | `get_function_statistics` | Tüm işlevler için kapsamlı istatistikler |
+  | `analyze_function` | Ayrıntılı işlev bilgisini alın (imza, değişkenler, vb.) |
+  | `get_current_function` | Mevcut imleç konumundaki işlevi alın |
+  | `get_function_stack_layout` | Değişken ofsetleri ile stack frame düzenini alın |
+  | `get_basic_blocks` | Bir işlev için temel blok bilgisini alın |
+
+  ### İkili Bilgisi
+
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `get_imports` | İçe aktarılan işlevleri/sembolleri listeleyin |
+  | `get_exports` | Dışa aktarılan işlevleri/sembolleri listeleyin |
+  | `get_strings` | Dize başvurularını isteğe bağlı filtreleme ile listeleyin |
+  | `search_strings` | Dizeleri desene göre arayın |
+  | `get_segments` | Bellek segmentlerini listeleyin |
+  | `get_namespaces` | Programdaki ad alanlarını listeleyin |
+  | `get_relocations` | Yeniden konum girdilerini listeleyin |
+  | `get_entry_points` | Tüm ikili giriş noktalarını listeleyin |
+
+  ### Veri Analizi
+
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `get_data_vars` | Programdaki veri tanımlarını listeleyin |
+  | `get_data_at` | Belirli bir adresteki hexdump/veriyi alın |
+  | `create_data_var` | Adreslerde veri değişkenleri tanımlayın |
+  | `get_current_address` | Mevcut imleç adresini alın |
+
+  ### Konsolide Araçlar
+
+  Bu araçlar, ilgili işlemleri bir ayrıştırıcı parametrenin arkasında birleştirir (örneğin, `action`, `target`, `target_type` veya `format`).
+
+  #### `get_code` - Kod Alma Aracı
+
+  | Parametre | Değerler | Açıklama |
+  | --------- | ------ | ----------- |
+  | `format` | `decompiler`, `disassembly`, `pcode` | Çıktı formatı |
+  | `raw` | boolean | Yalnızca `format: "pcode"`'u etkiler (ham pcode işlemleri vs temel bloklar tarafından gruplandırılmış) |
+
+  #### `classes` - Sınıf İşlemleri Aracı
+
+  | İşlem | Açıklama |
+  | ------ | ----------- |
+  | `list` | Sınıfları isteğe bağlı desen filtreleme ve pagination ile listeleyin |
+  | `get_info` | Ayrıntılı sınıf bilgisini alın (yöntemler, alanlar, vtablolar, sanal işlevler) |
+
+  #### `xrefs` - Çapraz Başvuru Aracı
+
+  | Parametre | Açıklama |
+  | --------- | ----------- |
+  | `address` | Belirli bir adrese/adresinden tüm başvuruları bulun |
+  | `function` | Bir işlev için tüm çapraz başvuruları bulun |
+  | `include_calls` | Çağıranları/çağrılanları dahil edin (ayrı çağrı grafiği aracını değiştirir) |
+
+  #### `struct` - Yapı İşlemleri Aracı
+
+  | İşlem | Açıklama |
+  | ------ | ----------- |
+  | `create` | C tanımından veya boştan yeni bir yapı oluşturun |
+  | `modify` | Varolan bir yapıyı yeni C tanımı ile değiştirin |
+  | `merge` | C tanımından alanları varolan bir yapının üzerine birleştirin (overlay) - mevcut alanları silmezsin |
+  | `set_field` | Tam bir C yapısına ihtiyaç duymadan belirli bir ofset adresinde tek bir alan ayarlayın/ekleyin |
+  | `name_gap` | Bir ofset/uzunluk adresindeki tanımlanmamış baytları adlandırılmış `byte[]` benzeri bir alana dönüştürün ("boşlukları adlandırma" için yararlı) |
+  | `auto_create` | Değişken kullanım desenleri aracılığıyla yapıyı otomatik olarak oluşturun |
+  | `rename_field` | Bir yapı içindeki bir alanı yeniden adlandırın |
+  | `field_xrefs` | Belirli bir yapı alanına çapraz başvuruları bulun |
+
+  #### `rename_symbol` - Sembol Yeniden Adlandırma Aracı
+
+  | Parametre | Değerler | Açıklama |
+  | --------- | ------ | ----------- |
+  | `target_type` | `function`, `data`, `variable` | Ne tür sembolün yeniden adlandırılacağı |
+
+  #### `batch_rename` - Toplu Sembol Yeniden Adlandırma Aracı
+
+  Birden fazla sembolü tek işlemde yeniden adlandırın.
+
+  #### `comments` - Yorum Yönetimi Aracı
+
+  | İşlem | Açıklama |
+  | ------ | ----------- |
+  | `get` | Bir adreste yorumu alın |
+  | `set` | Bir adrese veya işleve yorum ayarlayın |
+  | `list` | Tüm yorumları listeleyin |
+  | `remove` | Yorumu kaldırın |
+
+  #### `variables` - Değişken Yönetimi Aracı
+
+  | İşlem | Açıklama |
+  | ------ | ----------- |
+  | `list` | Bir işlev için yerel değişkenleri listeleyin |
+  | `rename` | Yerel bir değişkeni veya `scope` kullanarak genel/veri sembolünü yeniden adlandırın |
+  | `set_type` | Yerel bir değişken için veri türü ayarlayın |
+  | `set_prototype` | İşlev imzası/prototipi ayarlayın |
+
+  #### `types` - Tür Yönetimi Aracı
+
+  | İşlem | Açıklama |
+  | ------ | ----------- |
+  | `list` | Tüm mevcut veri türlerini listeleyin |
+  | `get_info` | Ayrıntılı veri türü bilgisini ve yapı tanımlarını alın |
+  | `set` | Belirli bir adres adresinde veri türü ayarlayın |
+  | `delete` | Veri türünü ada göre silin (isteğe bağlı olarak `category` tarafından kapsamlandırılmış) |
+
+  #### `bookmarks` - Yer İşareti Yönetimi Aracı
+
+  | İşlem | Açıklama |
+  | ------ | ----------- |
+  | `list` | Tüm yer işaretlerini listeleyin |
+  | `set` | Yeni bir yer işareti ayarlayın |
+  | `remove` | Yer işaretini kaldırın |
+
+  ### Arama Araçları
+
+  | Araç | Açıklama |
+  | ----- | ----------- |
+  | `search_bytes` | Bellekte bayt desenleri arayın |
+
+  ### Async Görev Yönetimi
+
+  Uzun süren işlemler (decompilation, yapı analizi, alan xrefs) asenkron olarak yürütülür:
+
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `get_task_status` | Async görevlerin durumunu kontrol edin ve sonuçları alın |
+  | `cancel_task` | Çalışan bir async görevi iptal edin |
+  | `list_tasks` | Tüm beklemede/çalışan/tamamlanmış görevleri listeleyin |
+
+  ## MCP Kaynakları
+
+  GhidrAssistMCP, MCP istemcileri tarafından okunabilen 6 statik kaynak ortaya koyar:
+
+  | Kaynak URI | Açıklama |
+  | ------------ | ----------- |
+  | `ghidra://program/{name}/info` | Temel program bilgisi |
+  | `ghidra://program/{name}/functions` | Tüm işlevlerin listesi |
+  | `ghidra://program/{name}/strings` | Dize başvuruları |
+  | `ghidra://program/{name}/imports` | İçe aktarılan semboller |
+  | `ghidra://program/{name}/exports` | Dışa aktarılan semboller |
+  | `ghidra://program/{name}/segments` | Bellek segmentleri |
+
+  ## MCP İstekleri
+
+  Yaygın analiz görevleri için önceden oluşturulmuş istekler:
+
+  | İstem | Açıklama |
+  | ------ | ----------- |
+  | `analyze_function` | Kapsamlı işlev analizi istemi |
+  | `identify_vulnerability` | Güvenlik açığı tanımlaması |
+  | `document_function` | İşlev belgelendirmesi oluşturun |
+  | `trace_data_flow` | Veri akışı analizi istemi |
+  | `trace_network_data` | Protokol analizi ve ağ açığı tanımlaması için ağ gönder/alındı çağrı stack'lerini izleyin |
+  | `compare_functions` | Benzerlik analizi için iki işlevi diff edin |
+  | `reverse_engineer_struct` | Kullanım desenleri aracılığıyla yapı tanımlarını kurtarın |
+
+  ## Kullanım Örnekleri
+
+  ### Temel Program Bilgisi
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "get_binary_info"
+    }
+  }
+  ```
+
+  ### Desen Filtrelemesi ile İşlevleri Listeleyin
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "get_functions",
+      "arguments": {
+        "pattern": "init",
+        "case_sensitive": false,
+        "limit": 50
+      }
+    }
+  }
+  ```
+
+  ### İşlevi Decompile Edin (`get_code`)
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "get_code",
+      "arguments": {
+        "function": "main",
+        "format": "decompiler"
+      }
+    }
+  }
+  ```
+
+  ### Sınıf Bilgisini Alın (Eylem Tabanlı)
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "classes",
+      "arguments": {
+        "action": "get_info",
+        "class_name": "MyClass"
+      }
+    }
+  }
+  ```
+
+  ### Sınıfları Arayın (Eylem Tabanlı)
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "classes",
+      "arguments": {
+        "action": "list",
+        "pattern": "Socket",
+        "case_sensitive": false
+      }
+    }
+  }
+  ```
+
+  ### Yapıyı Otomatik Oluşturun (Eylem Tabanlı)
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "struct",
+      "arguments": {
+        "action": "auto_create",
+        "function_identifier": "0x00401000",
+        "variable_name": "ctx"
+      }
+    }
+  }
+  ```
+
+  ### Yapı Alanı Çapraz Başvurularını Bulun (Eylem Tabanlı)
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "struct",
+      "arguments": {
+        "action": "field_xrefs",
+        "structure_name": "Host",
+        "field_name": "port"
+      }
+    }
+  }
+  ```
+
+  ### Veri Türünü Silin
+
+  Birden fazla tür kategoriler arasında aynı ada sahipse, `category`'yi geçin (veya `/` ile başlayan `name` içinde tam bir yol geçin).
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "types",
+      "arguments": {
+        "action": "delete",
+        "name": "MyStruct",
+        "category": "/mytypes"
+      }
+    }
+  }
+  ```
+
+  ### İşlevi Yeniden Adlandırın (Eylem Tabanlı)
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "rename_symbol",
+      "arguments": {
+        "action": "function",
+        "address": "0x00401000",
+        "new_name": "decrypt_buffer"
+      }
+    }
+  }
+  ```
+
+  ### Multi-Program Desteği
+
+  Birden fazla açık program ile çalışırken, önce bunları listeleyin:
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "list_binaries"
+    }
+  }
+  ```
+
+  Sonra `program_name` kullanarak hangi programa hedef alacağınızı belirtin:
+
+  ```json
+  {
+    "method": "tools/call",
+    "params": {
+      "name": "get_functions",
+      "arguments": {
+        "program_name": "target_binary.exe",
+        "limit": 10
+      }
+    }
+  }
+  ```
+
+  ## Multi-Window Desteği ve Aktif Bağlam Farkındalığı
+
+  GhidrAssistMCP, birden fazla CodeBrowser penceresinde kesintisiz çalışmayı sağlayan tek bir mimari kullanır:
+
+  ### Nasıl Çalışır
+
+  1. **Tek Paylaşılan Sunucu**: Bir MCP sunucusu (port 8080) tüm CodeBrowser pencerelerini hizmet eder
+  2. **Odak Takibi**: Hangi CodeBrowser penceresinin şu anda etkin olduğunu otomatik olarak algılar
+  3. **Bağlam İpuçları**: Tüm araç yanıtları, yapay zekaya hangi ikili dosyanın odakta olduğunu anlamasına yardımcı olmak için bağlam bilgisini içerir
+
+  ### Yanıtlardaki Bağlam Bilgisi
+
+  Her araç yanıtı bir bağlam başlığı içerir:
+
+  ```plaintext
+  [Context] Operating on: malware.exe | Active window: malware.exe
+
+  <tool response content>
+  ```
+
+  veya farklı bir programa hedef alırken:
+
+  ```plaintext
+  [Context] Operating on: lib.so | Active window: main.exe | Total open programs: 3
+
+  <tool response content>
+  ```
+
+  ### Yapay Zeka Asistanları için Faydalar
+
+  - **Akıllı Varsayılanlar**: `program_name` belirtilmediğinde, araçlar otomatik olarak etkin penceredeki programı kullanır
+  - **Bağlam Farkındalığı**: Yapay zeka, kullanıcının şu anda hangi ikili dosyayı görüntülediğini bilir
+  - **Karmaşayı Engeller**: Etkin penceredekinden farklı bir ikili dosyada çalışırken açık gösterge
+  - **Multi-tasking**: Hangi birine hedef alacağınızı sürekli belirtmeden birden fazla ikili ile çalışın
+
+  ## Mimari
+
+  ### Temel Bileşenler
+
+  ```plaintext
+  GhidrAssistMCP/
+  ├── GhidrAssistMCPManager     # Multi-window desteği için singleton koordinatör
+  │   ├── Tüm CodeBrowser pencerelerini takip eder
+  │   ├── Odak takiyi yönetir
+  │   └── Paylaşılan sunucuyu ve arka ucu sahipliğinde
+  ├── GhidrAssistMCPPlugin      # Plugin örneği (CodeBrowser penceresi başına bir)
+  │   └── Singleton yöneticisine kaydolur
+  ├── GhidrAssistMCPServer      # HTTP MCP sunucusu (SSE + Streamable)
+  │   └── Port 8080 adresinde tek paylaşılan örnek
+  ├── GhidrAssistMCPBackend     # Araç yönetimi ve yürütmesi
+  │   ├── Etkinleştir/devre dışı bırak durumları ile araç kayıtları
+  │   ├── Sonuç caching sistemi
+  │   ├── Async görev yönetimi
+  │   └── Kaynak ve istem kayıtları
+  ├── GhidrAssistMCPProvider    # UI bileşeni sağlayıcısı
+  │   └── İlk kayıtlı örnek UI sağlar
+  ├── cache/                    # Caching altyapısı
+  │   ├── McpCache.java
+  │   └── CacheEntry.java
+  ├── tasks/                    # Async görev yönetimi
+  │   ├── McpTaskManager.java
+  │   └── McpTask.java
+  ├── resources/                # MCP Kaynakları (6 toplam)
+  │   ├── ProgramInfoResource.java
+  │   ├── FunctionListResource.java
+  │   ├── StringsResource.java
+  │   ├── ImportsResource.java
+  │   ├── ExportsResource.java
+  │   └── SegmentsResource.java
+  ├── prompts/                  # MCP İstekl
 ---
 
 # GhidrAssistMCP

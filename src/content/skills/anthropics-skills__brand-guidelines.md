@@ -12,6 +12,74 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Anthropic Brand Styling
+
+  ## Genel Bakış
+
+  Anthropic'in resmi brand kimliği ve stil kaynaklarına erişmek için bu skill'i kullanın.
+
+  **Anahtar Kelimeler**: branding, kurumsal kimlik, görsel kimlik, son işleme, styling, brand renkleri, tipografi, Anthropic brand, görsel biçimlendirme, görsel tasarım
+
+  ## Brand Yönergeleri
+
+  ### Renkler
+
+  **Ana Renkler:**
+
+  - Dark: `#141413` - Birincil metin ve koyu arka planlar
+  - Light: `#faf9f5` - Açık arka planlar ve koyu üzerinde metin
+  - Mid Gray: `#b0aea5` - İkincil öğeler
+  - Light Gray: `#e8e6dc` - Hafif arka planlar
+
+  **Accent Renkler:**
+
+  - Orange: `#d97757` - Birincil accent
+  - Blue: `#6a9bcc` - İkincil accent
+  - Green: `#788c5d` - Üçüncül accent
+
+  ### Tipografi
+
+  - **Başlıklar**: Poppins (Arial fallback ile)
+  - **Body Text**: Lora (Georgia fallback ile)
+  - **Not**: En iyi sonuçlar için fontlar ortamınızda önceden yüklü olmalıdır
+
+  ## Özellikler
+
+  ### Akıllı Font Uygulaması
+
+  - Başlıklara Poppins fontunu uygular (24pt ve üzeri)
+  - Body text'e Lora fontunu uygular
+  - Özel fontlar kullanılamıyorsa otomatik olarak Arial/Georgia'ya döner
+  - Tüm sistemlerde okunabilirliği korur
+
+  ### Metin Styling
+
+  - Başlıklar (24pt+): Poppins font
+  - Body text: Lora font
+  - Arka plana dayalı akıllı renk seçimi
+  - Metin hiyerarşisini ve biçimlendirmesini korur
+
+  ### Şekil ve Accent Renkler
+
+  - Metin olmayan şekiller accent renkleri kullanır
+  - Orange, blue ve green accent'ler arasında döner
+  - Brand'a uyum sağlarken görsel ilgiyi korur
+
+  ## Teknik Detaylar
+
+  ### Font Yönetimi
+
+  - Mevcut olduğunda sistem tarafından yüklü Poppins ve Lora fontlarını kullanır
+  - Arial (başlıklar) ve Georgia (body) için otomatik fallback sağlar
+  - Font yükleme gerekmez - mevcut sistem fontları ile çalışır
+  - En iyi sonuçlar için Poppins ve Lora fontlarını ortamınızda önceden yükleyin
+
+  ### Renk Uygulaması
+
+  - Kesin brand eşleştirmesi için RGB renk değerlerini kullanır
+  - python-pptx'in RGBColor sınıfı aracılığıyla uygulanır
+  - Farklı sistemler arasında renk sadakatini korur
 ---
 
 # Anthropic Brand Styling

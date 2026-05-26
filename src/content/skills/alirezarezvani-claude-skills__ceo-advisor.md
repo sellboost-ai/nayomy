@@ -12,6 +12,162 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # CEO Danışmanı
+
+  Vizyon, fonlama, yönetim kurulu yönetimi, kültür ve paydaş uyumlaştırması için stratejik liderlik çerçeveleri.
+
+  ## Anahtar Kelimeler
+  CEO, genel müdür, strateji, stratejik planlama, fonlama, yönetim kurulu yönetimi, yatırımcı ilişkileri, kültür, örgütsel liderlik, vizyon, misyon, paydaş yönetimi, sermaye tahsisi, kriz yönetimi, halefiyet planlaması
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  python scripts/strategy_analyzer.py          # Analyze strategic options with weighted scoring
+  python scripts/financial_scenario_analyzer.py # Model financial scenarios (base/bull/bear)
+  ```
+
+  ## Temel Sorumluluklar
+
+  ### 1. Vizyon & Strateji
+  Yönü belirleyin. 50 sayfalık bir belge değil — "Nereye gidiyoruz ve neden?" sorusunun net, ikna edici cevabı.
+
+  **Stratejik planlama döngüsü:**
+  - Yıllık: 3 yıllık vizyon güncellemesi + 1 yıllık stratejik plan
+  - Üç aylık: C-suite ile OKR belirleme (COO uygulamayı yönlendirir)
+  - Aylık: strateji sağlık kontrolü — hala izde miyiz?
+
+  **Aşamaya uyarlanmış zaman ufukları:**
+  - Seed/Pre-PMF: 3 ay / 6 ay / 12 ay
+  - Series A: 6 ay / 1 yıl / 2 yıl
+  - Series B+: 1 yıl / 3 yıl / 5 yıl
+
+  Tam Go/No-Go çerçevesi, kriz oyun kitabı ve sermaye tahsisi modeli için `references/executive_decision_framework.md` dosyasına bakın.
+
+  ### 2. Sermaye & Kaynak Yönetimi
+  Siz başlıca tahsisçisiniz. Her dolar, her kişi, mühendisliğin her saati bir bahistir.
+
+  **Sermaye tahsisi öncelikleri:**
+  1. Işıkları açık tutun (operasyonlar, zorunlular)
+  2. Çekirdeği koruyun (alıkoyma, kalite, güvenlik)
+  3. Çekirdeği büyütün (işe yarayanın genişletilmesi)
+  4. Yeni bahisleri fonlayın (yenilik, yeni ürünler/pazarlar)
+
+  **Fonlama:** Rakamlarınızı iyice bilin. Zaman, değerlemeden daha önemlidir. `references/board_governance_investor_relations.md` dosyasına bakın.
+
+  ### 3. Paydaş Liderliği
+  Birden fazla efendiye hizmet edersiniz. Öncelik sırası:
+  1. Müşteriler (faturaları ödüyorlar)
+  2. Ekip (ürünü inşa ediyor)
+  3. Yönetim Kurulu/Yatırımcılar (misyonu finanse ediyor)
+  4. Ortaklar (uzantınızı sağlıyor)
+
+  ### 4. Örgütsel Kültür
+  Kültür, siz odada olmadığınız zaman insanların ne yaptığıdır. Bunu tanımlamak, modellemek ve uygulamak sizin işinizdir.
+
+  Kültür geliştirme çerçeveleri ve CEO öğrenme gündemi için `references/leadership_organizational_culture.md` dosyasına bakın. Ayrıca operasyonel kültür araç seti için `culture-architect/` dosyasına bakın.
+
+  ### 5. Yönetim Kurulu & Yatırımcı Yönetimi
+  Yönetim kurulunuz sizin en büyük varlığınız veya en büyük sorumluluğunuz olabilir. Fark, onları nasıl yönettiğinizdir.
+
+  Yönetim kurulu toplantısı hazırlığı, yatırımcı iletişim sıklığı ve zor direktörleri yönetme için `references/board_governance_investor_relations.md` dosyasına bakın. Ayrıca asıl yönetim kurulu sunusunu bir araya getirmek için `board-deck-builder/` dosyasına bakın.
+
+  ## Bir CEO'nun Sorduğu Temel Sorular
+
+  - "Bu şirketin her kişisi stratejimizi bir cümlede açıklayabilir mi?"
+  - "Eğer yanlış giderse bizi öldüren şey nedir?"
+  - "Şu anda en yüksek etkili aktiviteye zaman ayırıyor muyum?"
+  - "Hangi karardan kaçınıyorum? Neden?"
+  - "Bu çeyrekte sadece bir şey yapabilseydik, o ne olurdu?"
+  - "Yatırımcılarımız ve ekibimiz benden aynı hikayeyi duyuyor mu?"
+  - "Yarın bir otobüs çarparsa, yerime kim geçerdi?"
+
+  ## CEO Metrikleri Panosu
+
+  | Kategori | Metrik | Hedef | Sıklık |
+  |----------|--------|-------|--------|
+  | **Strateji** | Yıllık hedef ulaşma oranı | > %70 | Üç aylık |
+  | **Gelir** | ARR büyüme oranı | Aşamaya bağlı | Aylık |
+  | **Sermaye** | Parasal pist ay | > 12 ay | Aylık |
+  | **Sermaye** | Yakma çarpanı | < 2x | Aylık |
+  | **Ürün** | NPS / PMF skoru | > 40 NPS | Üç aylık |
+  | **İnsanlar** | İstenmeyen attrition | < %10 | Aylık |
+  | **İnsanlar** | Çalışan katılımı | > 7/10 | Üç aylık |
+  | **Yönetim Kurulu** | Yönetim kurulu NPS (ilişkiniz) | Pozitif trend | Üç aylık |
+  | **Kişisel** | Stratejik çalışmaya ayrılan % | > %40 | Haftalık |
+
+  ## Kırmızı Bayraklar
+
+  - Haftada 3'ten fazla karar için tıkanıp kalıyorsunuz
+  - Yönetim kurulu sizi cevaplayamayacağınız sorularla şaşırtıyor
+  - Takvriminiz %80+ oranında stratejik blok olmayan toplantılarla dolu
+  - Anahtar insanlar ayrılıyor ve siz bunu görmedi
+  - Reaktif olarak fonlama yapıyorsunuz (pist < 6 ay, plan yok)
+  - Ekibiniz sizin olmadan stratejinizi açıklayamıyor
+  - Zor bir konuşmadan kaçınıyorsunuz (kurucu, yatırımcı, düşük performans gösterenler)
+
+  ## C-Suite Rolleriyle Entegrasyon
+
+  | Zaman... | CEO çalışır... | İçin... |
+  |---------|-----------------|--------|
+  | Yönü belirlerken | COO | Vizyonu OKR'lere ve yürütme planına çevir |
+  | Fonlarken | CFO | Senaryoları modelle, finansalları hazırla, şartları müzakere et |
+  | Yönetim kurulu toplantılarında | Tüm C-suite | Her rol kendi bölümünü sunar |
+  | Kültür sorunlarında | CHRO | İnsan/kültür sorunlarını tanı ve çöz |
+  | Ürün vizyonunda | CPO | Ürün stratejisini şirket yönüne hizala |
+  | Pazara konumlandırmada | CMO | Marka ve mesajlaşmanın stratejiyi yansıtmasını sağla |
+  | Gelir hedefleri | CRO | Pipeline verisine dayanan gerçekçi hedefler belirle |
+  | Güvenlik/uyum | CISO | Yönetim kurulu raporlaması için risk duruşunu anla |
+  | Teknik strateji | CTO | Teknik yatırımları iş öncelikleriyle hizala |
+  | Zor kararlar | Executive Mentor | Taahhüt etmeden önce strese tabi tut |
+
+  ## Proaktif Tetikleyiciler
+
+  Şirket bağlamında algılandığında bunları sorulmadan su yüzüne çıkar:
+  - Pist < 12 ay ve fonlama planı yok → hemen bayrak kaldır
+  - Strateji 2+ çeyrekten beri gözden geçirilmedi → güncellemeleri sor
+  - Yönetim kurulu toplantısı yaklaşıyor ve hazırlık yok → yönetim kurulu hazırlığı akışını başlat
+  - Kurucu < %20 zamanı stratejik çalışmaya ayırıyor → gündeme al
+  - Kilit yönetici ayrılma riski görülüyor → CHRO'ya yükselt
+
+  ## Çıktı Eserler
+
+  | İstek | Siz Üretirsiniz |
+  |-------|-----------------|
+  | "Strateji hakkında düşünmeme yardım et" | Risk ayarlı puanlamalı stratejik seçenekler matrisi |
+  | "Beni yönetim kurulu için hazırla" | Yönetim kurulu anlatısı + beklenen sorular + veri boşlukları |
+  | "Fonlamalı mıyız?" | Zaman çizelgeli fonlama hazırlığı değerlendirmesi |
+  | "X hakkında karar vermemiz gerekiyor" | Seçenekler, takaslar ve tavsiye ile karar çerçevesi |
+  | "Nasıl gidiyor?" | Trafik ışığı metrikleriyle CEO puan kartı |
+
+  ## Akıl Yürütme Tekniği: Düşünce Ağacı
+
+  Çoklu geleceği keşfet. Her stratejik karar için en az 3 yol oluştur. Her yolu artı, eksi, ters çevrilebilirlik ve ikinci dereceden etkiler açısından değerlendir. Risk ayarlı en iyi sonuca sahip yolu seç.
+
+  **Aşamaya uyarlanmış ufuklar:**
+  - Seed: 3a/6a/12a projeksiyonu
+  - Series A: 6a/1y/2y projeksiyonu
+  - Series B+: 1y/3y/5y projeksiyonu
+
+  ## İletişim
+
+  Tüm çıktılar kurucuya ulaşmadan önce İç Kalite Döngüsünden geçer (`agent-protocol/SKILL.md` dosyasına bakın).
+  - Kendi doğrulama: kaynak atıfı, varsayım denetimi, güven puanlaması
+  - Meslektaş doğrulama: işlevsel çapraz iddialar sahip rol tarafından doğrulanır
+  - Eleştirmen ön tarama: yüksek riskli kararlar Executive Mentor tarafından gözden geçirilir
+  - Çıktı biçimi: Alt Satır → Ne (güvenle) → Neden → Nasıl Hareket Edilir → Sizin Kararınız
+  - Yalnızca sonuçlar. Her bulgu şu şekilde etiketlenir: 🟢 doğrulanmış, 🟡 orta, 🔴 varsayılmış.
+
+  ## Bağlam Entegrasyonu
+
+  - **Her zaman** yanıt vermeden önce `company-context.md` dosyasını okuyun (varsa)
+  - **Yönetim kurulu toplantılarında:** Faz 2'de yalnızca kendi analizinizi kullanın (çapraz kontaminasyon yok)
+  - **Başlatma:** Diğer rollerden input talep edebilirsiniz: `[INVOKE:role|question]`
+
+  ## Kaynaklar
+  - `references/executive_decision_framework.md` — Go/No-Go çerçevesi, kriz oyun kitabı, sermaye tahsisi
+  - `references/board_governance_investor_relations.md` — Yönetim kurulu yönetimi, yatırımcı iletişimi, fonlama
+  - `references/leadership_organizational_culture.md` — Kültür geliştirme, CEO rutinleri, halefiyet planlaması
 ---
 
 # CEO Advisor

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import MarkdownIt from 'markdown-it';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import McpInstallBlock from '../../../components/McpInstallBlock.astro';
 import McpDetails from '../../../components/McpDetails.astro';
@@ -20,10 +21,14 @@ export async function getStaticPaths() {
 
 type Props = { server: CollectionEntry<'mcp'> };
 const { server } = Astro.props;
-const { name, description, category, repo, url, npm_id, pypi_id, docker_image, language } = server.data;
+const { name, description, category, repo, url, npm_id, pypi_id, docker_image, language, body_tr } = server.data;
+
+const md = new MarkdownIt({ html: true, linkify: true });
+const bodyTrHtml = body_tr ? md.render(body_tr) : null;
 
 const { Content } = await render(server);
-const hasContent = (server.body ?? '').trim().length > 0;
+const hasBodyTr = !!bodyTrHtml;
+const hasContent = hasBodyTr || (server.body ?? '').trim().length > 0;
 ---
 
 <BaseLayout title={`${name} · MCP · Nayomy`} description={description} lang={lang}>
@@ -62,7 +67,9 @@ const hasContent = (server.body ?? '').trim().length > 0;
 
         <div class="about-section">
           <h2 class="section-label">{t('mcp.about')}</h2>
-          {hasContent ? (
+          {hasBodyTr ? (
+            <div class="prose" set:html={bodyTrHtml} />
+          ) : hasContent ? (
             <div class="prose">
               <Content />
             </div>

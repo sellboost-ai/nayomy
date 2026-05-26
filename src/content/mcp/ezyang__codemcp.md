@@ -8,6 +8,132 @@ url: "https://github.com/ezyang/codemcp"
 body_length: 8454
 license: "Apache-2.0"
 language: "Python"
+body_tr: |-
+  UYARI: Anthropic'in $20/ay aboneliği ile claude code kullanılabilir, bu nedenle codemcp'yi tamamen eski olarak görüyorum. Ancak bazı iyi tasarım fikirleri var (özellikle Git sürümleme şeması etrafında) ki bunları sonunda agentic coding cli'nin mevcut nesline taşımak istiyorum.
+
+  # codemcp
+
+  Claude Desktop'ı codemcp yükleyerek bir pair programming asistanına dönüştürün. Bunu sayesinde Claude'dan doğrudan bilgisayarınızdaki bir codebase'e özellikler uygulamasını, hataları düzeltmesini ve refactor yapmasını isteyebilirsiniz; Claude dosyaları doğrudan düzenler ve testleri çalıştırır. Kodları Claude'un chat penceresine girip çıkarmaktan artık elinizi kurtarın!
+
+  ![Claude Desktop'ın codemcp ile ekran görüntüsü](https://raw.githubusercontent.com/ezyang/codemcp/HEAD/static/screenshot.png?raw=true)
+
+  codemcp diğer AI kodlama yazılımlarına benzer işlevsellik sunur (Claude Code, Cursor, Cline, Aider), ancak tasarım alanında benzersiz bir konuma sahiptir:
+
+  1. **Claude Pro**, Anthropic'in $20/ay abonelik sunumu ile kullanılması amaçlanmıştır. Kullanımımı bir abonelik planı ile ödemeyi seviyorum çünkü bu agent aksiyonları için **sıfır marjinal maliyet** demektir; artık çalışmayan bir değişiklik seti için beş dolar boşa harcadığım için kötü hissetmeyeceğim.
+
+     Claude Max ($100/ay) sahipseniz, Claude Code'un da abonelik tabanlı fiyatlandırma ile kullanılabileceğini unutmayın. codemcp'nin değer önerişi bu durumda daha belirsizdir (ve bazı açılardan kesinlikle Claude Code'dan daha kötüdür), ancak diğer UI kararlarını tercih ederseniz Claude Max ile codemcp'yi yine de kullanabilirsiniz. (Ayrıca, açık kaynak kodlu olduğu için Claude Code'dan farklı olarak onu istediğiniz şekilde değiştirebilirsiniz!)
+
+  2. **varsayılan olarak otomatik kabul** etrafında inşa edilmiştir. Agent'ın denetimim olmadan olabildiğince ileri gitmesini istiyorum, böylece sonunda her şeyi bir kez gözden geçirebilirim. codemcp'nin çoğu kodlama ajanından farklı yaptığı iki önemli şey var: **sınırlandırılmamış shell'i yasaklarız**, bunun yerine agent'ın ``codemcp.toml`` içinde kullanabileceği komutları önceden bildirmenizi gerektiririz ve **Git tüm LLM düzenlemelerini sürüm kontrol altına alırız**, böylece agent değişikliklerini ince taneli bir şekilde geri alabilir ve değişiklikleri commit etmeyi unutmak hakkında endişelenmenize gerek kalmaz.
+
+  3. **IDE agnostiktir**: Claude'dan değişiklikler yapmasını istersiniz, o yapır, ve sonra değişiklikleri gözden geçirmek ve daha fazla düzenlemeler yapmak için favori IDE kurulumunuzu kullanabilirsiniz. Vim'i günlük editörüm olarak kullanıyorum ve VSCode'u veya belirli bir editörü gerektiren kodlama ortamları benim için caydırıcıdır.
+
+  ## ÖNEMLİ: Master kullanıcılar için - Token verimliliği için önemli değişiklikler
+
+  codemcp'nin token verimliliğini iyileştirmek için, master'da codemcp'yi tek bir araca geri dönüştürme sürecindeyim (InitProject sırasında talimatları chat'e atmak yerine). Bu, tool use'u manuel olarak onaylamanız gerektiği anlamına gelir. Tool use onayı birden fazla sohbet arasında kalıcı olduğundan, bu makul bir tradeoff olduğunu düşünüyorum, ancak gerçekten beğenmezseniz, otomatik onaylama tool use'unu desteklemek için [refined-claude](https://github.com/ezyang/refined-claude/issues) tarayıcı uzantısında bir bug dosyalayın.
+
+  ## Kurulum
+
+  codemcp'yi kurmanız ve kullanmanız için şu spesifik yolu tavsiye ederim:
+
+  1. `uv` yükleyin ve zaten yüklü değillerse git yükleyin.
+
+  2. Tarayıcınıza [claude-mcp](https://chromewebstore.google.com/detail/mcp-for-claudeai/jbdhaamjibfahpekpnjeikanebpdpfpb) yükleyin.
+     Bu, SSE MCP sunucularına doğrudan web sitesinden bağlanmanıza olanak sağlar, bu da Claude Desktop'ı kullanmanız gerekmediği ve kolayca birden fazla chat pencereniz olabileceği anlamına gelir. Bu uzantının yakında [Integrations](https://www.anthropic.com/news/integrations) kullanıma sunulmasıyla eskileceğini bekliyoruz. Şu anda ancak Integrations henüz Claude Pro abone üyeleri için gelmemiş durumdadır.
+
+  3. ``uvx --from git+https://github.com/ezyang/codemcp@prod codemcp serve`` kullanarak codemcp'yi çalıştırın.
+     Standart olmayan bir port üzerinde dinlemesi gerekiyorsa ``--port 1234`` ekleyebilirsiniz.
+
+     Pro ipucu: tehlikeli yaşamayı seviyorsanız, `prod` yerine `main` koyabilirsiniz. Belirli bir sürüme sabitlemek istiyorsanız, `0.3.0` veya benzeri bir sürümle değiştirin.
+
+     Pro ipucu: codemcp'yi uzaktan çalıştırabilirsiniz! [Tailscale](https://tailscale.com/) kullanıyorsanız ve Tailnet'inizdeki tüm cihazlara güveniyorsanız, ``--host 100.101.102.103`` geçerek (IP'yi node'unuzun Tailscale IP adresiyle değiştirin. Bu IP genellikle 100.64.0.0/10 aralığında bulunur) bunu güvenli bir şekilde yapabilirsiniz. **UYARI:** Bu MCP'ye erişimi olan herkes bilgisayarınızda keyfi kod yürütebilir, **SON DERECE** 0.0.0.0'a bağlanmak istemeniz olası değildir.
+
+  4. claude-mcp'yi şu URL ile yapılandırın: ``http://127.0.0.1:8000/sse`` (gerekirse portu değiştirin.)
+
+  5. Ne yazık ki web UI çekiç simgesini tutarsız şekilde görüntüler. Ancak Console'da "[MCP codemcp] SSE connection opened" ifadesini arayarak veya Claude'a hangi araçlara sahip olduğunu soarak MCP sunucusunun çalışıp çalışmadığını kontrol edebilirsiniz (codemcp'den araçların mevcut olduğunu söylemelidir.)
+
+  Claude Desktop'ı kullanmayı tercih ederseniz veya alışılmadık ihtiyaçlarınız varsa, çeşitli standart dışı durumlar için kurulum talimatları için [INSTALL.md](INSTALL.md) dosyasını kontrol edin.
+
+  ## Kullanım
+
+  İlk olarak, çalışmak istediğiniz Git repository checkout'unda `codemcp.toml` dosyası oluşturmanız gerekir. Formatörünüzü çalıştırmak veya testler çalıştırmak gibi şeyler yapmasını istiyorsanız, komutlar bölümünde bunları yürütmek için komutları ekleyin (not: bu komutların gerek duydukları sanal ortamları uygun şekilde kurması gerekir):
+
+  ```toml
+  format = ["./run_format.sh"]
+  test = ["./run_test.sh"]
+  ```
+
+  ``format`` komutu özeldir; her dosya düzenlemesinden sonra her zaman çalıştırılır.
+
+  Daha sonra, Claude Desktop'ta bir Proje oluşturmanız ve bunu Proje Talimatlarına koymanız önerilir:
+
+  ```
+  Initialize codemcp with $PROJECT_DIR
+  ```
+
+  `$PROJECT_DIR` üzerinde çalışmak istediğiniz projenin yoludur.
+
+  Daha sonra Claude ile proje üzerinde yapmak istediğiniz değişiklikler hakkında sohbet edin. Her codemcp kodunuza değişiklik yaptığında, bir commit oluşturur.
+
+  Bu araçı kullanan bazı örnek transkriptleri görmek için şu adresleri kontrol edin:
+
+  - [Yeni bir özellik uygulamak](https://claude.ai/share/a229d291-6800-4cb8-a0df-896a47602ca0)
+  - [Başarısız testleri düzeltmek](https://claude.ai/share/2b7161ef-5683-4261-ad45-fabc3708f950)
+  - [Refactor yapmak](https://claude.ai/share/f005b43c-a657-43e5-ad9f-4714a5cd746f)
+
+  codemcp, sohbet başına bir commit oluşturur ve özellik üzerinde çalışırken onu değiştirir.
+
+  ## Felsefe
+
+  - Hız sınırlaması yediğinizde, başka bir şey yapma vakti bulun (Claude'un kodunu gözden geçir, başka birinin kodunu gözden geçir, plan yap, bazı toplantılar yap)
+
+  - Bu *otonom bir agent değildir*. En azından, her sohbetten sonra müdahale etmek ve sonraki değişikliği istemek zorunda kalırsınız. Tek bir sohbet içinde yapılacak uzun bir şey listesi isteyebilirsiniz *ancak*, muhtemelen Claude Desktop'ın çıkış sınırına ulaşacak ve ajanı manuel olarak "devam ettirmeniz" gerekecektir. Bunu kucaklayın ve Claude'un doğru şey yaptığından emin olmak için ara vermelerinizi kullanın.
+
+  - Claude raydan çıktığında, size para yerine zaman maliyeti getirir. Buna göre davranın: zaman darboğaz ise, Claude'un aşamalı çıkışını dikkatle izleyin.
+
+  ## Yapılandırma
+
+  `codemcp.toml` tarafından desteklenen tüm yapılandırma seçenekleri aşağıdadır:
+
+  ```toml
+  project_prompt = """
+  Bu özellik üzerinde çalışmaya başlamadan önce kısa bir haiku yazın. Bunu sadece bir kez yapın.
+  """
+
+  [commands]
+  format = ["./run_format.sh"]
+  test = ["./run_test.sh"]
+  ```
+
+  `project_prompt` sohbetlerde projeyi başlattığınızda yüklenecektir.
+
+  `commands` bölümü belirli araçlar için komutları yapılandırmanıza olanak sağlar. Adları LLM'ye söylenir, o bunları ne zaman çalıştırmak istediğine karar verir. `project_prompt`'a araçların nasıl kullanılacağı hakkında talimatlar ekleyebilirsiniz; ayrıca araç başına spesifik talimatlar verebileceğiniz daha ayrıntılı bir sözdizimini destekleriz:
+
+  ```
+  [commands.test]
+  command = ["./run_test.sh"]
+  doc = "Belirli bir testi çalıştırmak için pytest tarzı bir test seçiciyi argüman olarak kabul eder."
+  ```
+
+  ## Sorun Giderme
+
+  Sunucuyu inspector ile çalıştırmak için:
+
+  ```
+  PYTHONPATH=. mcp dev codemcp/__main__.py
+  ```
+
+  Günlükler `~/.codemcp/codemcp.log` dosyasına yazılır. Günlük seviyesi `~/.codemcprc` konumundaki genel yapılandırma dosyasında ayarlanabilir:
+
+  ```toml
+  [logger]
+  verbosity = "INFO"  # DEBUG, INFO, WARNING, ERROR veya CRITICAL olabilir
+  ```
+
+  Günlüğe kaydetme proje başına yapılandırılamaz, ancak Claude Desktop'ı birden fazla projede paralel olarak kullanmak zor olduğu için bu çok önemli değildir.
+
+  ## Katkıda Bulunmak
+
+  [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
 ---
 
 NOTICE: claude code is available with Anthropic's $20/mo subscription, so I consider

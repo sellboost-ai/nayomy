@@ -12,6 +12,80 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Faebryk Core Modülü
+
+  Buradaki Faebryk core'u **TypeGraph** + Zig'de uygulanan edge tipleri ve `faebryk.core.faebrykpy` aracılığıyla Python'a expose edilen bileşenlerdir.
+
+  API + davranış için doğruluk kaynağı:
+  - `src/faebryk/core/faebrykpy.py` (Python-facing wrapper + type-safe `EdgeTrait.traverse`)
+  - `src/faebryk/core/zig/gen/faebryk/typegraph.pyi` (public stubbed API surface)
+  - `src/faebryk/core/zig/src/faebryk/*` (Zig implementation)
+
+  ## Hızlı Başlangıç
+
+  ```python
+  import faebryk.core.faebrykpy as fbrk
+  import faebryk.core.graph as graph
+
+  g = graph.GraphView.create()
+  tg = fbrk.TypeGraph.create(g=g)
+  ```
+
+  ## İlgili Dosyalar
+
+  - `src/faebryk/core/faebrykpy.py` (re-exports + `EdgeTraversal` + type-safe `EdgeTrait.traverse`)
+  - `src/faebryk/core/zig/gen/faebryk/typegraph.pyi` (TypeGraph stub)
+  - Temel edge tipleri (`faebrykpy.py` tarafından import edilir):
+    - `EdgeComposition` (parent/child yapısı)
+    - `EdgeTrait` / `Trait` (trait ekleme)
+    - `EdgePointer` (referanslar)
+    - `EdgeInterfaceConnection` (interface bağlantıları)
+    - `EdgeOperand` (solver operand wiring)
+    - `EdgeType` / `EdgeNext` (type graph plumbing)
+  - Linker:
+    - `Linker` (compiler/linking aşamaları tarafından kullanılır)
+
+  ## Bağımlılar (Çağrı Siteleri)
+
+  - FabLL: `src/faebryk/core/node.py` (Python sınıflarını TypeGraph'a bağlar; composition/trait edges kullanır)
+  - Compiler: `src/atopile/compiler/*` (TypeGraph'ları oluşturur ve bağlar)
+  - Solver: `src/faebryk/core/solver/*` (operand edges ve instance traversal)
+  - Build/export pipeline: `src/atopile/build_steps.py` (PCB/layout özelliği için type/instance edges'i ziyaret eder)
+
+  ## Nasıl Çalışılır / Geliştirilebilir / Test Edilebilir
+
+  ### Temel Kavramlar
+  - **GraphView + TypeGraph**: bir `TypeGraph` bir `GraphView`'a karşı oluşturulur:
+    ```python
+    import faebryk.core.graph as graph
+    import faebryk.core.faebrykpy as fbrk
+
+    g = graph.GraphView.create()
+    tg = fbrk.TypeGraph.create(g=g)
+    ```
+  - **Type node'ları vs instance node'ları**:
+    - TypeGraph type tanımlarını depolar ("bir type üzerinde yapısal olarak ne var")
+    - GraphView ayrıca bu type'lardan oluşturulan instance'ları depolar ("somut bir design graph")
+  - **EdgeTraversal**: `TypeGraph.ensure_child_reference(..., path=[...])` type graph üzerinden referansları yürümek için `EdgeTraversal` item'larını kullanır.
+
+  ### Geliştirme İş Akışı
+  1) Zig-side değişiklikleri: `src/faebryk/core/zig/src/faebryk/*` dosyalarını düzenleyin (edges, typegraph internals).
+  2) Bindings'i yeniden derleyin: `ato dev compile` (`faebryk.core.zig` import eder).
+  3) Python ergonomics: `src/faebryk/core/faebrykpy.py` içine wrapper'lar/helper'lar ekleyin (örnek: type-safe `EdgeTrait.traverse`).
+
+  ### Test Etme
+  - TypeGraph-ağır testler compiler/runtime suite'lerinde bulunur:
+    - `ato dev test --llm test/compiler/test_typegraph.py -q`
+    - `ato dev test --llm test/compiler/test_runtime.py -q`
+  - Zig-backed traversal testleri:
+    - `ato dev test --llm test/core/zig/test_interface_pathfinder.py -q`
+
+  ## En İyi Uygulamalar
+  - Edges/TypeGraph'ı `faebryk.core.faebrykpy` üzerinden import edin (böylece arayanlar Python helper'larını alır, sadece raw generated type'ları değil).
+  - Type-safe trait traversal'ı tercih edin:
+    - `EdgeTrait.traverse(trait_type=SomeTrait)` yerine stringly-typed `trait_type_name=...` kullanın.
+  - Reference path'leri oluştururken, implicit string davranışına güvenmek yerine edge semantiği'ni açıkça belirtin (composition vs pointer vs trait).
 ---
 
 # Faebryk Core Module

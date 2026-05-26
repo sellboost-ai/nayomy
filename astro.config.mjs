@@ -6,12 +6,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://nayomy.com',
-  integrations: [
-    mdx(),
-    sitemap({
-      filter: (page) => !page.includes('/tr/'),
-    }),
-  ],
+  integrations: [mdx(), sitemap()],
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'tr'],

@@ -8,6 +8,48 @@ url: "https://github.com/weaviate/mcp-server-weaviate"
 body_length: 378
 language: "Go"
 homepage: "https://www.anthropic.com/news/model-context-protocol"
+body_tr: |-
+  # Weaviate MCP Sunucusu
+
+  ## Talimatlar
+
+  Sunucuyu derleyin:
+  ```
+  make build
+  ```
+
+  Test istemcisini çalıştırın
+  ```
+  make run-client
+  ```
+
+  ## Araçlar
+
+  ### Bir Tane Ekle
+  Weaviate'e bir nesne ekleyin.
+
+  **İstek gövdesi:**
+  ```json
+  {}
+  ```
+
+  **Yanıt gövdesi**
+  ```json
+  {}
+  ```
+
+  ### Sorgu
+  Weaviate'den hibrit aramayla nesneleri alın.
+
+  **İstek gövdesi:**
+  ```json
+  {}
+  ```
+
+  **Yanıt gövdesi**
+  ```json
+  {}
+  ```
 ---
 
 # Weaviate MCP Server

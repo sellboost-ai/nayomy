@@ -9,6 +9,18 @@ body_length: 518
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/base-mcp"
+body_tr: |-
+  # base-mcp [DEPRECATED]
+
+  > **Bu repository arşivlenmiştir ve artık bakımı yapılmamaktadır.**
+
+  Base MCP sunucusu değiştirilmiştir. Base üzerinde AI ajanları oluşturmak için en son araçlar, dokümentasyon ve hızlı başlangıç rehberleri için şu adresi ziyaret edin:
+
+  - **Docs:** https://docs.base.org/ai-agents
+  - **Quickstart (Payments):** https://docs.base.org/ai-agents/quickstart/payments
+  - **Quickstart (Trading):** https://docs.base.org/ai-agents/quickstart/trading
+
+  `base-mcp` npm paketi deprecated durumdadır. `npx base-mcp` kullanmayın veya `npm install base-mcp` kurmayın.
 ---
 
 # base-mcp [DEPRECATED]

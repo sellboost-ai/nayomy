@@ -12,6 +12,229 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Chief AI Officer Advisor
+
+  Startup CAIO'ları ve CAIO'su olmayan kurucuların stratejik AI liderliği. **Dört karar, AI hype yok:**
+
+  1. **API, fine-tune mu yoksa kendi sistemimizi mi kullanmalıyız?** — 3 yıllık TCO ile model al-veya-kur analizi
+  2. **Bu AI use case düzenlemeler altında yüksek riskli mi ve nasıl yönetiriz?** — EU AI Act + NIST AI RMF + ABD eyalet karmaşası
+  3. **API'den self-hosted'a ne zaman geçeriz ve ne kadar maliyeti olur?** — token ekonomisi ve kırılma noktası analizi
+  4. **Sonraki AI pozisyonuna kim işe alırız?** — aşama-rol haritası (AI engineer ≠ ML engineer ≠ research scientist)
+
+  Bu beceri taktik AI/ML mühendisliğini **kapsamaz**. RAG implementasyonu, agent tasarımı, prompt mühendisliği, eval altyapısı, model deployment veya cost optimizasyonu için bkz. `engineering/rag-architect/`, `engineering/agent-designer/`, `engineering/prompt-governance/`, `engineering/self-eval/`, `engineering/llm-cost-optimizer/`.
+
+  ## Anahtar Kelimeler
+
+  CAIO, chief AI officer, AI stratejisi, model seçimi, foundation model, fine-tuning, RLHF, DPO, LoRA, QLoRA, build vs buy, AI build-vs-buy, model risk tier, EU AI Act, AI Act Article 6, Article 9, Article 10, Annex III, prohibited AI, high-risk AI, NIST AI RMF, AI risk management framework, NYC Local Law 144, Colorado SB 21-169, Illinois HB 53, model card, eval set, eval harness, hallucination rate, jailbreak risk, prompt injection, AI red team, AI safety, alignment, model lifecycle, model registry, API-to-self-hosted breakeven, GPU economics, A100, H100, inference cost, fine-tuning cost, AI team, AI engineer, ML engineer, research scientist, MLOps, AI platform
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  # Karar A: API vs fine-tune vs build
+  python scripts/model_buildvsbuy_calculator.py                          # gömülü müşteri-destek örneği
+  python scripts/model_buildvsbuy_calculator.py path/to/use_case.json
+
+  # Karar B: EU AI Act + ABD eyalet kanunları altında risk sınıflandırması
+  python scripts/ai_risk_classifier.py                                   # gömülü işe alım-AI örneği
+  python scripts/ai_risk_classifier.py path/to/use_case.json
+
+  # Karar C: API vs self-hosted ekonomisi
+  python scripts/ai_cost_economics.py                                    # gömülü 5M tokens/gün örneği
+  python scripts/ai_cost_economics.py path/to/workload.json
+  ```
+
+  ## Temel Sorular (bunları ilk olarak sorun)
+
+  - **Bu AI'nin iyi olması gereken şey nedir ve nasıl ölçersiniz?** (Eval set yoksa, deploy etmeyin.)
+  - **Hallucination / hata oranı SLO'su nedir?** (Yoksa, "AI quality" vibes'dır.)
+  - **Model yanlış olduğunda ne olur?** (Fallback davranışı, human-in-the-loop, etki alanı.)
+  - **EU AI Act altında risk tier nedir ve uyum değerlendirmesi gerekli mi?** (Ürün lansman zaman çizelgesini belirler.)
+  - **Aylık kaç token'da self-hosting API'yi yener?** (Frontier kalite için neredeyse hiçbir zaman 100M token/ay'ın altında değil.)
+  - **AI engineer mi yoksa ML research scientist mi işe alıyoruz?** (Farklı işler; kurucular karıştırırlar.)
+
+  ## Temel Sorumluluklar
+
+  ### 1. Model Build-vs-Buy
+
+  Karar "AI kullan mı yoksa kullanma mı" değildir — her use case için **API vs fine-tune vs in-house**'dur. Her yolun farklı bir TCO eğrisi, latency profili ve capability tavanı vardır.
+
+  **Varsayılan yol: API (frontier model)**
+  - Ne zaman kullanılır: frontier (Claude, GPT, Gemini) tarafından iyi sunulan, QPS < 100, latency bütçesi > 1s, maliyet < $50K/ay
+  - Neden: frontier API'ler çoğu takımın in-house fine-tune yapabileceğinden 10-100x daha yeteneklidir
+  - Başarısızlık modu: API rate limits ölçekte, vendor lock-in, model versiyonları arasında capability kayması
+
+  **Daha küçük bir modeli fine-tune edin**
+  - Ne zaman kullanılır: API'nin prompt'a sığmadığı alan-spesifik davranış (medikal kodlama, yasal redline), yüksek hacim API maliyetini azaltır, latency bütçesi < 500ms, belirli stil/format tutarlılığı gerekli
+  - Yaklaşımlar: tam fine-tune (nadir), LoRA/QLoRA (yaygın), RLHF/DPO (alignment önemli olduğunda)
+  - Başarısızlık modu: fine-tune edilmiş model 6-12 ay içinde frontier capability'nin gerisinde kalır; devam eden retraining maliyeti
+
+  **Sıfırdan build / pre-train edin**
+  - Ne zaman kullanılır: neredeyse hiçbir zaman. Siz bir foundation-model şirketsiniz VEYA benzersiz bir veri corpus'unuz, $50M+ funding'i ve 18+ ay sabırsızlığınız vardır.
+  - Başarısızlık modu: ship ettiğinde frontier modeller yakalamış olur ve batık maliyetiniz kurtarılamaz
+
+  **Çalıştırın** `model_buildvsbuy_calculator.py` 3 yıllık TCO ile use-case-spesifik tavsiye için. Tam karar ağacı için bkz. `references/model_buildvsbuy_strategy.md`.
+
+  ### 2. AI Risk Sınıflandırması & Yönetim
+
+  2026 sorusu her kurucu yüzleşiyor: **bu AI use case yüksek-risk düzenleyici yükümlülükleri tetikliyor mu?**
+
+  **EU AI Act (2026'da yürürlükte) seviyeleri:**
+
+  | Seviye | Örnekler | Yükümlülükler |
+  |---|---|---|
+  | **Yasak** | Sosyal puanlama, gerçek zamanlı biyometrik gözetim, manipülatif AI | EU'da deploy edilemez |
+  | **Yüksek-risk** | İstihdam taraması, kredi puanlaması, eğitim erişimi, kritik altyapı, kanun yaptırımı, biyometrik kimlik | Uyum değerlendirmesi, kayıt, pazar sonrası izleme, şeffaflık, insan gözetimi |
+  | **Sınırlı-risk** | Chatbotlar, deepfakeler, duygu tanıma | Şeffaflık: kullanıcı AI ile etkileşim halinde olduğunu bilmeli |
+  | **Minimal-risk** | Tavsiye sistemleri, spam filtreleri, çoğu B2B SaaS içlikleri | Belirli yükümlülükler yoktur |
+
+  **Çalıştırın** `ai_risk_classifier.py` use case'i sınıflandırmak ve gerekli kontrol listesini almak için.
+
+  **ABD eyalet karmaşası (kapsamlı değil):**
+
+  - NYC LL 144 — Otomasyonlu İstihdam Karar Araçları (AEDT'ler) yıllık bias audit + aday bildirimini gerektirir
+  - Colorado AI Act / SB 21-169 — Tüketici kararlarında AI (kredi, sigorta, istihdam, konut)
+  - Illinois HB 53 — Mülakatlar/işe almada AI
+  - California SB 1001 — Bot açıklaması
+  - Texas TCPA — Biyometrik tanımlayıcı yakalama
+  - Federal NIST AI RMF — gönüllü; giderek daha fazla sözleşmelerde referans alınıyor
+
+  **Endüstri-spesifik katmanlar:**
+
+  - Sağlık: FDA AI/ML rehberi (2023), MDR (EU) tıbbi cihaz AI'ı için, tıbbi cihazlar için AI/ML etkin 510(k) yolu
+  - Mali: NYDFS Reg 23, FTC Section 5, kredi kararları için ECOA
+  - Sigorta: NAIC model bulletin, eyalet sigorta komiseri kuralları
+
+  Tam düzenleyici ortam + yönetim programı kontrol listesi için bkz. `references/ai_risk_governance.md`.
+
+  ### 3. AI Maliyet Ekonomisi
+
+  **Kırılma noktası sorusu:** aylık kaç token'da self-hosted inference API maliyetlerini yener?
+
+  **Anahtar bileşenler:**
+
+  - **API maliyeti** — değişken, token başına. Frontier modeller 2026: Claude Sonnet 4.6 ~$3/$15 M token başına (input/output), GPT-4o ~$2.50/$10, Gemini 2.5 ~$1.25/$5
+  - **Self-hosted maliyeti** — sabit (GPU commitment) + değişken (elektrik). H100 spot ~$2-5/saat, A100 spot ~$1-3/saat. Llama 3.1 70B / Qwen 2.5 72B: %70 kullanımdayken ~$0.50-2.00 M output token başına
+  - **Self-hosting'in gizli maliyetleri** — on-call ops, monitoring, model güncellemeleri, scaling overhead, idle time cezası
+  - **API'nin gizli maliyetleri** — rate limits çok-vendor failover gerektiriyor, vendor lock-in, versiyonlar arasında capability kayması, veri konutu
+
+  **Tipik kırılma noktası (frontier-quality):** model boyutuna ve kabul edilebilir quality tradeoff'a bağlı olarak 100M–500M token/ay. Bunun altında API kazanır. Bunun üstünde hesap makinesiyi çalıştırın.
+
+  **Çalıştırın** `ai_cost_economics.py` workload özelliğiyle kırılma noktası + GPU oranları ve model boyutu duyarlılığı için.
+
+  Tam ekonomi modeli ve operasyonel hususlar için bkz. `references/ai_cost_economics.md`.
+
+  ### 4. AI Takım Org Evrim
+
+  **Yanlış soru:** "ML engineer mi yoksa research scientist mi işe alalım?"
+  **Doğru soru:** "Sonraki AI capability'sini ship etmek için ne gerekiyor ve hangi rol bunu açıyor?"
+
+  Aşama-rol haritası:
+
+  | Aşama | İlk AI işe alımı | Sonra | Sonra |
+  |---|---|---|---|
+  | Pre-PMF | Kurucu + 1 ML-meraklı engineer prompt'larla oynayan | — | — |
+  | Series A | **AI engineer** (applied, full-stack; prompts/evals/deployment sahipleri) | Evals/quality için ikinci AI engineer | — |
+  | Series B | AI/ML platform engineer (inference, evals, observability) | Ürün güvenilirliği için üçüncü AI engineer | Model core IP ise data scientist |
+  | Series C | AI Müdürü | ML research scientist (ancak model ÜRÜN ise) | AI safety / red team (müşteri-facing AI ise) |
+  | Late-stage | Head of AI → CAIO | Birden fazla research scientist, platform takım, safety/red team | İş birimi başına federe AI leads |
+
+  **Kritik farklar:**
+
+  - **AI engineer** ≠ **ML engineer** ≠ **research scientist**
+    - AI engineer: full-stack + prompts + evals + deployment. Çoğu startup buna ihtiyaç duyar, diğerlerine değil.
+    - ML engineer: production deployment, monitoring, retraining altyapısı. Data engineer'dan sonra işe alın.
+    - Research scientist: model muciti, yeni mimariler. Sadece Series C+ ve model core IP ise.
+
+  **Merkezi vs gömülü AI:** AI merkezi başlar (bir takım) ve data takımından çok daha uzun kalır, çünkü yüzey alanı daha küçüktür. Ancak AI 4+ ürün yüzeyine deploy edildikten sonra gömün.
+
+  Bkz. `references/ai_team_org_evolution.md`.
+
+  ## İş Akışları
+
+  ### İş Akışı 1: Model Seçim Kararı (1 saat)
+  **Amaç:** Belirli bir use case'in API, fine-tune mu yoksa build'i kullanması gerekip gerekmediğine karar verin.
+
+  ```bash
+  # 1. use_case.json tanımlayın (hacim, latency, accuracy, takım boyutu, bütçe)
+  python scripts/model_buildvsbuy_calculator.py use_case.json
+  # 2. 3 yıllık TCO + breakeven'ı gözden geçirin
+  # 3. cs-cfo-advisor ile bütçe taahhütünü çapraz kontrol edin
+  # 4. cs-cto-advisor ile mühendislik kapasitesini çapraz kontrol edin (esp. fine-tune için)
+  # 5. /cs:decide ile günlüğe kaydedin; multi-yıl vendor taahhütü üzerinde /cs:freeze 60'ı düşünün
+  ```
+
+  ### İş Akışı 2: AI Risk Sınıflandırması (2-4 saat)
+  **Amaç:** EU AI Act + ABD eyalet kanunları altında use case'i sınıflandırın, gerekli kontrolleri belirleyin.
+
+  ```bash
+  # 1. use_case.json tanımlayın (etkilenen kararlar, kullanıcılar, coğrafya, sektor)
+  python scripts/ai_risk_classifier.py use_case.json
+  # 2. YÜKSEK-RİSK için: uyum değerlendirmesi + kayıt bütçeyi belirleyin
+  # 3. SINIRLI-RİSK için: şeffaflık gerekliliklerini uygulayın
+  # 4. cs-general-counsel-advisor ile kontratlar etkisini çapraz kontrol edin
+  # 5. cs-ciso-advisor ile teknik güvenlemeleri çapraz kontrol edin
+  # 6. /cs:decide ile günlüğe kaydedin
+  ```
+
+  ### İş Akışı 3: API-to-Self-Hosted Breakeven (1 gün)
+  **Amaç:** API'den self-hosted inference'a taşındığında (ve taşındığında) kararını verin.
+
+  ```bash
+  # 1. workload.json oluşturun (token/gün, model boyutu, latency, quality toleransı)
+  python scripts/ai_cost_economics.py workload.json
+  # 2. Duyarlılık senaryoları çalıştırın (düşük/orta/yüksek GPU oranları)
+  # 3. Taşıma maliyeti tahmin edin (mühendislik zamanı + risk)
+  # 4. cs-cfo-advisor ile capex taahhütünü çapraz kontrol edin
+  # 5. cs-cto-advisor ile platform hazırlığını çapraz kontrol edin
+  # 6. /cs:decide ile günlüğe kaydedin; GPU taahhütü imzalanırsa /cs:freeze ile eşleştirin
+  ```
+
+  ### İş Akışı 4: AI Takım Yol Haritası (1 hafta)
+  **Amaç:** Sonraki 18 ayın AI işe alımlarını ship etme yetenekleriyle hizala.
+
+  1. Ürünün 12 ayda ihtiyaç duyduğu ilk 5 AI yeteneğini listele
+  2. Her yeteneği onu ship eden role harita (bkz. `ai_team_org_evolution.md`)
+  3. İşe alımları sırala (bir defada bir rol, sonraki öncesi ramp)
+  4. cs-chro-advisor ile comp + leveling'i çapraz kontrol edin
+  5. merkezi vs gömülü tetikleyiciyi belirleyin
+
+  ## Çıktı Standartları
+
+  ```
+  **Bottom Line:** [bir cümle — karar ve gerekçe]
+  **Karar:** [birden biri: model seçimi | risk sınıflandırması | ekonomisi | sonraki işe alım]
+  **Kanıt:** [araçtan sayılar, sıfatlar değil]
+  **Nasıl Hareket Edilir:** [3 somut sonraki adım]
+  **Sizin Kararınız:** [sadece kurucu yapabilir]
+  ```
+
+  ## Bitişik Beceriler
+
+  - `../chief-data-officer-advisor/` — Training data hakları, veri ürün stratejisi (model kararlarına doğrudan bağlı)
+  - `../cto-advisor/` — Mimari kapasite, scaling uçurumları (esp. self-hosted inference için)
+  - `../ciso-advisor/` — AI için tehdit modellemesi (prompt injection, jailbreak, training data poisoning)
+  - `../general-counsel-advisor/` — AI sözleşmeleri (vendor sorumluluğu, output mülkiyeti, training-data lisanslama)
+  - `../cfo-advisor/` — Build-vs-buy TCO math, multi-yıl vendor taahhütleri
+  - `../chro-advisor/` — AI takım işe alımı + comp
+  - `../../../engineering/rag-architect/` — Taktik RAG implementasyonu
+  - `../../../engineering/agent-designer/` — Taktik agent mimarisi
+  - `../../../engineering/prompt-governance/` — Taktik prompt yönetimi
+  - `../../../engineering/self-eval/` — Taktik eval altyapısı
+  - `../../../engineering/llm-cost-optimizer/` — Taktik inference cost optimizasyonu
+
+  ## Referanslar
+
+  - [model_buildvsbuy_strategy.md](references/model_buildvsbuy_strategy.md) — Tam karar ağacı + 3 yıllık TCO bileşenleri + her yolun ne zaman başarısız olduğu
+  - [ai_risk_governance.md](references/ai_risk_governance.md) — EU AI Act + NIST AI RMF + ABD eyalet karmaşası + endüstri katmanları + yönetim programı
+  - [ai_cost_economics.md](references/ai_cost_economics.md) — API fiyatlandırması 2026 + GPU kiralama ekonomisi + kullanım gerçeklikleri + taşıma maliyeti
+  - [ai_team_org_evolution.md](references/ai_team_org_evolution.md) — Aşama-rol haritası + rol tanımları (AI engineer ≠ ML engineer ≠ scientist) + anti-pattern'ler
+
+  ---
+
+  **Versiyon:** 1.0.0
+  **Durum:** Üretime Hazır
+  **Sorumluluk Reddi:** AI düzenlemesi hızla evrimleşiyor. Bu beceri kararları ve tradeoff'ları 2026 itibariyle yüzeylese de, özellikle EU AI Act uyum değerlendirmeleri altında bağlayıcı uyum kararları için nitelikli AI hukuk müşaviri yerine geçemez.
 ---
 
 # Chief AI Officer Advisor

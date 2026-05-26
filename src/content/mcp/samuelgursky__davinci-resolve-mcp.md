@@ -8,6 +8,172 @@ url: "https://github.com/samuelgursky/davinci-resolve-mcp"
 body_length: 12441
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # DaVinci Resolve MCP Server
+
+  [![Version](https://img.shields.io/badge/version-2.24.0-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
+  [![npm](https://img.shields.io/npm/v/davinci-resolve-mcp.svg?label=npm&color=CB3837)](https://www.npmjs.com/package/davinci-resolve-mcp)
+  [![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](docs/reference/api-coverage.md)
+  [![Tools](https://img.shields.io/badge/MCP%20Tools-32%20(329%20full)-blue.svg)](#server-modes)
+  [![Tested](https://img.shields.io/badge/Live%20Tested-98.5%25-green.svg)](docs/reference/api-coverage.md#test-results)
+  [![DaVinci Resolve](https://img.shields.io/badge/DaVinci%20Resolve-18.5+-darkred.svg)](https://www.blackmagicdesign.com/products/davinciresolve)
+  [![Python](https://img.shields.io/badge/python-3.10--3.12-green.svg)](https://www.python.org/downloads/)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+  AI asistanlarının resmi Scripting API üzerinden DaVinci Resolve Studio'yu kontrol etmesini sağlayan bir Model Context Protocol (MCP) sunucusu. Tam API kapsamı sağlayarak, düzenleme, medya havuzu organizasyonu, render kurulumu, inceleme işaretçileri, grading, Fusion, Fairlight, proje yaşam döngüsü görevleri, uzantı yazma ve kaynaksafe medya analizi için korumalı iş akışı yardımcıları sunmaktadır.
+
+  [![Local control panel](https://raw.githubusercontent.com/samuelgursky/davinci-resolve-mcp/HEAD/docs/images/control-panel/01-overview.png)](docs/guides/control-panel.md)
+
+  Sunucu ile birlikte gelen yerel tarayıcı kontrol paneli, Resolve durumunu inceleme, kaynaksafe analiz çalıştırma, analiz edilen klipLeri ve shotları detaylandırma ve analiz çıktısını satır içinde düzenleme olanağı sağlar. Tam tur için [Kontrol Paneli Kılavuzu](docs/guides/control-panel.md) bölümüne bakınız.
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  npx davinci-resolve-mcp setup
+  ```
+
+  Bağlanmadan önce DaVinci Resolve Studio'yu açın ve **Tercihler > Genel > Dış scripting kullanma** seçeneğini **Yerel** olarak ayarlayın. npm başlatıcısı, kullanıcı uygulama-veri dizini altında yönetilen bir kopya kurar, ardından evrensel Python yükleyicisini çalıştırır. Yükleyici sanal bir ortam oluşturur, Resolve yollarını algılar ve Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, Zed, Continue, Cline, Roo Code ve JetBrains IDE'lerini yapılandırabilir.
+
+  Kaynak kurulumları için:
+
+  ```bash
+  git clone https://github.com/samuelgursky/davinci-resolve-mcp.git
+  cd davinci-resolve-mcp
+  python install.py
+  ```
+
+  Platform yolları, istemci özel yapılandırması ve manuel kurulum için [Kurulum ve Yapılandırma](docs/install.md) bölümüne bakınız.
+
+  Yükleyici ve sunucu, MCP güncellemeleri için en son GitHub sürümünü kontrol eder. Kontroller en iyi çabaya bağlıdır ve sınırlandırılmıştır; sunucu asla MCP başlatmasını bir istem için engellenmez. Yükleyici isteme, ertelemeye, sürümü yoksaymaya, kontrolleri devre dışı bırakmaya veya temiz git checkoutları için opt-in güvenli otomatik güncelleştirme uygulayabilir.
+
+  ## Yerel Kontrol Paneli
+
+  Depo kökünden tek kullanıcılı yerel kontrol panelini başlatın:
+
+  ```bash
+  venv/bin/python -m src.control_panel
+  ```
+
+  Komut, localhost sunucusunu başlatır ve kontrol panelini tarayıcınızda açar. Bir AI kodlama aracısının bunu yapmasını istiyorsanız şunu sorun: **"Bu depo için Resolve MCP kontrol panelini aç."** Aracılar, Python ortamınız zaten etkin olmadığı sürece `venv/bin/python -m src.control_panel` kullanmalıdır. Kalıcı analiz işleri, başarılı dilimlemelerden sonra yerel arama dizinini otomatik olarak yeniler; manuel Build Index eylemi mevcut raporlardan yeniden oluşturmak içindir.
+
+  ## Sunucu Modları
+
+  | Mode | Entry point | Tools | En iyi kullanım |
+  |------|-------------|-------|----------|
+  | Compound | `src/server.py` | 32 | Çoğu asistan için varsayılan mode. İlgili Resolve işlemleri, bağlam kullanımını düşük tutmak için eylem parametrelerinin arkasında gruplandırılmıştır. |
+  | Full / granular | `src/server.py --full` veya `src/resolve_mcp_server.py` | 329 | Resolve API yöntemi başına bir MCP aracı isteyenlerin için. |
+
+  Compound sunucu, özel olarak granular tek-aracı-başına-yöntemi yüzeyi ihtiyacınız olmadıkça önerilir.
+
+  ## Neler Yapabilirsiniz
+
+  ```text
+  "List all projects and open the one called 'My Film'"
+  "Create a timeline called 'Assembly Cut' from all clips in the current bin"
+  "Build a multicam prep timeline from selected camera angles and preserve source media"
+  "Detect 2-pops or slate claps and suggest record offsets for sync prep"
+  "Publish analysis summaries, keywords, people, and slate hints into Resolve clip metadata"
+  "Probe this timeline for gaps, overlaps, missing media, and source frame ranges"
+  "Safely import this image sequence, organize it into bins, and normalize clip metadata"
+  "Build a ProRes 422 HQ render plan, validate the settings, and queue the job"
+  "Copy review markers from the timeline to the selected clip and export a review report"
+  "Snapshot this clip's grade, validate a CDL update, and export a temp LUT"
+  "Create a Fusion TextPlus overlay on the selected clip and verify graph connections"
+  "Report audio channel mappings, voice isolation availability, and subtitle support"
+  "Install this MCP-marked DCTL or script, classify refresh/restart needs, then remove it"
+  ```
+
+  ## Temel Yetenekler
+
+  | Alan | Compound sunucunun desteklediği |
+  |------|-----------------------------------|
+  | App ve proje kontrolü | Başlatma/yeniden bağlanma, sayfa değiştirme, proje CRUD, proje klasörleri, veritabanları, bulut proje sarmalayıcıları, ayarlar, ön ayarlar, arşivler |
+  | Medya havuzu ve yutma | Güvenli import, görüntü dizileri, multicam prep zaman çizelgeleri, bin organizasyonu, metadata normalizasyonu, metadata alan envanteri, işaretler, açıklamalar, yeniden bağlama/proxy/tam çözünürlük korumaları |
+  | Medya analizi | Kaynaksafe dosya/klip/bin/proje analizi, 2-pop/slate-clap sync-event tespiti, varsayılan Resolve metadata ve Media Pool marker yazma geri çekme, kalıcı analiz eserleri, mevcut rapor yeniden kullanımı, host_chat_paths görsel analiz (`commit_vision` ile klip başına tamamlanan, herhangi bir vision-capable MCP istemcisi ile çalışır) opt-out ile, opt-out ile transcription |
+  | Zaman çizelgesi düzenleme ve conform | Parça/öğe probing, başlık metin tuş taraması/yazma, kopyalama/taşıma/çoğaltma yardımcıları, aralık işlemleri, boşluklar/örtüşmeler, kaynak aralıkları, kontrol edilen interchange export/import |
+  | Müşavirlik açıklamaları | Zaman çizelgesi/öğe/klip işaretçileri, özel veriler, bayraklar, klip rengi, kopyalama/taşıma/sync temizliği, inceleme raporları, işaretçi thumbnail incelemesi |
+  | Renk ve grading | Düğüm grafı probing, CDL doğrulama, sınıf kopyalama, DRX/LUT yardımcıları, versiyonlar, Galeri stiller, renk grupları |
+  | Fusion | Zaman çizelgesi-öğe compositlar, güvenli araç oluşturma, giriş yazmaları, port incelemesi, doğrulanmış bağlantılar, kapsamlı toplu yazılar |
+  | Ses ve Fairlight | Parça/öğe probes, kaynak mapping, korumalı ses özelliği yazmaları, ses izolasyonu, auto-sync planlama, transcription/subtitle probes |
+  | Render ve teslim | Format/codec matris probing, render ayarları doğrulama, sıralanmış iş yaşam döngüsü kontrolleri, korumalı Quick Export |
+  | Uzantı yazma | Fuse, DCTL, ACES DCTL ve Resolve-page Lua/Python script yaşam döngüsü yardımcıları ile güvenli MCP-işaretli kurulum/kaldırma |
+
+  ## Kaynak Medya Güvenliği
+
+  Bu proje kamera orijinallerini ve kaynak medyayı değişmez olarak kabul eder. Analiz araçları kaynak dosyaları okur ve raporları yalnızca sidecar, scratch veya proje analiz dizinlerine yazar; onaylanmış metadata yayını yalnızca Resolve'nin proje veritabanına yazar. Sunucu, kullanıcı açıkça istememedikçe kaynak medyayı değiştirmemeli, kodla değiştirmemeli, proxy haline getirmemeli veya türev oluşturmamalıdır. Ayrıntılı kaynaksafe iş akışı için [Medya Analiz Kılavuzu](docs/guides/media-analysis-guide.md) bölümüne bakınız.
+
+  ## Güvenlik Duruşu
+
+  Varsayılan sunucu, MCP istemcisi tarafından başlatılan yerel stdio işlemidir; ağ dinleyicisini veya yerleşik çok kullanıcılı auth yüzeyini ortaya koymaz. Araç metadata, salt okunur, bozucu, idempotent ve harici kaynak işlemleri için MCP istemci-güvenlik ipuçları içerir. Operasyonel sınırları, onay kılavuzunu ve güvenlik açığı raporlamasını [Güvenlik Politikası](SECURITY.md) bölümünde bulunuz.
+
+  ## Temel İstatistikler
+
+  | Metrik | Değer |
+  |--------|-------|
+  | MCP Tools | **32** compound / **329** granular |
+  | Kernel Actions | **136** korumalı iş akışı eylemi 9 compound araç arasında |
+  | Kaplanan API Yöntemleri | **336/336** (100%) |
+  | Canlı Test Edilen Yöntemler | **331/336** (98.5%) |
+  | Canlı Test Başarı Oranı | **331/331** (100%) |
+  | Test Edilmiş Sürümler | DaVinci Resolve 19.1.3 Studio + Resolve 20.3.2 Studio |
+
+  Yönteme göre durum için [API Kapsamı ve Test Sonuçları](docs/reference/api-coverage.md) bölümüne bakınız. Mevcut iş akışı desteği için [Kernel Action Kapsamı](docs/kernels/README.md) bölümüne bakınız.
+
+  `analyze_media`, varsayılan olarak doğrudan yürütülür, denetlenebilir raporlar/eserleri analiz kökü altında kalıcılaştırır, `host_chat_paths` protokolü aracılığıyla host-chat görsel analizi talep eder (analiz mutlak çerçeve yollarını + bir JSON şemasını döndürür; host chat her çerçeveyi bir resim olarak okur ve `media_analysis(action="commit_vision", ...)` çağırarak tamamlanır), yapılandırılmış yerel backend aracılığıyla transcription çalıştırır ve analiz özetleri artı kaynak-zaman Media Pool klip işaretçileri Resolve projesine geri yazar. Yalnızca bu varsayılan davranışlardan opt-out istediğinizde `include_visuals=false`, `include_transcription=false`, `publish_metadata=false`, `timed_markers=no` veya `dry_run=true` olarak geçirin. `commit_vision` atlanması, çalıştırmayı `pending_host_vision_analysis` içinde bırakır — başarısızlık modu olarak yüzeylenir, sessizce düşürülmez.
+
+  ## Belgeler
+
+  | Belge | Kullanım |
+  |----------|------------|
+  | [Kurulum ve Yapılandırma](docs/install.md) | Gereksinimler, yükleyici seçenekleri, desteklenen istemciler, sunucu modları, manuel yapılandırma |
+  | [API Kapsamı ve Test Sonuçları](docs/reference/api-coverage.md) | Temel istatistikler, API kapsam tablosu, canlı test durumu, tam yöntemi referansı |
+  | [Kernel Action Kapsamı](docs/kernels/README.md) | Mevcut korumalı iş akışı eylem haritası |
+  | [AI Skill Referansı](docs/SKILL.md) | Compound sunucuyu kullanan AI asistanları için operasyonel bağlam |
+  | [Kontrol Paneli Kılavuzu](docs/guides/control-panel.md) | Yerel tarayıcı paneli turu: Genel Bakış, İnceleme (bin/klip/shot), Analiz, Kurulum, Tercihler |
+  | [Medya Analiz Kılavuzu](docs/guides/media-analysis-guide.md) | Kaynaksafe FFprobe, FFmpeg, Whisper, sidecar ve analiz-kök iş akışları |
+  | [Multicam Kurulum Yardımcısı Kılavuzu](docs/guides/multicam-setup-guide.md) | Yığılmış zaman çizelgesi prep, yardımcı/API sınırı ve Resolve UI dönüştürme adımları |
+  | [Editorial Decision Kılavuzu](docs/guides/editorial-decision-guide.md) | Proje sahibi analiz ve zaman çizelgesi kararları için editorial craft rehberliği |
+  | [Renk Decision Kılavuzu](docs/guides/color-decision-guide.md) | Proje sahibi renk düzeltme rehberliği ve Resolve renk API sınırları |
+  | [Katkıda Bulunma ve Proje Düzeni](docs/contributing.md) | Katkı iş akışı, platform desteği, güvenlik notları, depo yapısı |
+  | [Güvenlik Politikası](SECURITY.md) | Yerel stdio güven sınırı, araç metadata, onay rehberliği, raporlama |
+  | [Yayın Süreci](docs/process/release-process.md) | Maintainer yayın kontrol listesi, sürüm yüzeyleri, doğrulama, etiketler ve yayın notları |
+  | [Changelog](CHANGELOG.md) | Tarihsel yayın notları |
+
+  Uzantı yazma referansları [docs/authoring](docs/authoring/) içinde yaşar. Resolve geliştirici-paketi notları [docs/notes](docs/notes/) ve [docs/integrations](docs/integrations/) içinde yaşar. İstem tarifleri [examples](examples/) içinde yaşar.
+
+  ## Gereksinimler
+
+  - macOS, Windows veya Linux üzerinde DaVinci Resolve Studio 18.5+. Ücretsiz sürüm harici scripting'i desteklemez.
+  - Python 3.10-3.12 önerilir. Python 3.13+, Resolve'nin scripting kütüphanesi ile ABI uyuşmazlıklarına sahip olabilir.
+  - Resolve harici scripting **Yerel** olarak ayarlanmış.
+
+  Resolve 19.1.3, uyumluluk taban çizgisi olarak kalır. Resolve 20.x scripting çağrıları katkılı, sürüm-korumalı ve 20.3.2 üzerinde canlı test edilmiştir. Resolve 21 beta API'leri kasıtlı olarak kararlı olana kadar ertelenir.
+
+  ## Geliştirme
+
+  ```bash
+  python src/server.py          # Compound server
+  python src/server.py --full   # Granular server
+  venv/bin/python tests/test_import.py
+  venv/bin/python scripts/audit_api_parity.py
+  ```
+
+  Yayın ve doğrulama kuralları [docs/process/release-process.md](docs/process/release-process.md) bölümünde bulunmaktadır. Bu depoda çalışan AI aracıları [AGENTS.md](AGENTS.md) ile başlamalıdır; Claude Code kullanıcıları ayrıca [CLAUDE.md](CLAUDE.md) okuyabilir, bu da aynı kurallı talimatları gösterir.
+
+  ## Lisans
+
+  MIT
+
+  ## Yazar
+
+  Samuel Gursky (samgursky@gmail.com)
+  - GitHub: [github.com/samuelgursky](https://github.com/samuelgursky)
+
+  ## Teşekkürler
+
+  - Blackmagic Design, DaVinci Resolve ve scripting API'si için
+  - Model Context Protocol ekibi, AI asistan entegrasyonunu etkinleştirdiği için
+  - Anthropic, geliştirme ve teste yoğun şekilde kullanılan Claude Code için
 ---
 
 # DaVinci Resolve MCP Server

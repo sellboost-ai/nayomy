@@ -9,6 +9,402 @@ body_length: 24173
 license: "MIT"
 language: "TypeScript"
 homepage: "https://docs.metamcp.com"
+body_tr: |-
+  # 🚀 MetaMCP (MCP Aggregator, Orchestrator, Middleware, Gateway in one docker) <!-- omit in toc -->
+
+  <div align="center">
+
+  <div align="center">
+    <a href="https://discord.gg/mNsyat7mFX" style="text-decoration: none;">
+      
+    </a>
+    <a href="https://docs.metamcp.com" style="text-decoration: none;">
+      
+    </a>
+    <a href="https://opensource.org/licenses/MIT" style="text-decoration: none;">
+      
+    </a>
+    <a href="https://github.com/metatool-ai/metamcp/pkgs/container/metamcp" style="text-decoration: none;">
+      
+    </a>
+    <a href="https://deepwiki.com/metatool-ai/metamcp"></a>
+  </div>
+
+  </div>
+
+  > **📢 Güncelleme:** *[Yazardan: son zamanlardaki bakım gecikmesi için özür dilerim, ancak en azından PR'ları merge etmeye devam edeceğim, daha fazla bilgi [burada](recent-updates.md)]*
+
+  **MetaMCP**, MCP sunucularını dinamik olarak tek bir birleşik MCP sunucusuna toplayan ve middleware uygulayan bir MCP proxy'sidir. MetaMCP kendisi bir MCP sunucusu olduğundan **HERHANGİ** bir MCP istemcisine kolayca entegre edilebilir.
+
+  ![MetaMCP Diagram](https://raw.githubusercontent.com/metatool-ai/metamcp/HEAD/metamcp.svg)
+
+  ---
+
+  Daha fazla ayrıntı için lütfen documentation sitesini ziyaret edin: https://docs.metamcp.com
+
+  English | [中文](./README_cn.md)
+  ## 📋 İçindekiler <!-- omit in toc -->
+
+  - [🎯 Kullanım Alanları](#-kullanım-alanları)
+  - [📖 Konseptler](#-konseptler)
+    - [🖥️ **MCP Sunucusu**](#️-mcp-sunucusu)
+      - [🔐 **Ortam Değişkenleri & Sırlar (STDIO MCP Sunucuları)**](#-ortam-değişkenleri--sırlar-stdio-mcp-sunucuları)
+    - [🏷️ **MetaMCP Ad Alanı**](#️-metamcp-ad-alanı)
+    - [🌐 **MetaMCP Endpoint**](#-metamcp-endpoint)
+    - [⚙️ **Middleware**](#️-middleware)
+    - [🔍 **Inspector**](#-inspector)
+    - [✏️ **Tool Overrides & Annotations**](#️-tool-overrides--annotations)
+  - [🚀 Hızlı Başlangıç](#-hızlı-başlangıç)
+    - [🐳 Docker Compose ile Çalıştırma (Önerilen)](#-docker-compose-ile-çalıştırma-önerilen)
+    - [📦 Dev Containers ile Geliştirme Ortamı Kurma (VSCode/Cursor)](#-dev-containers-ile-geliştirme-ortamı-kurma-vscodecursor)
+    - [💻 Yerel Geliştirme](#-yerel-geliştirme)
+  - [🔌 MCP Protokol Uyumluluğu](#-mcp-protokol-uyumluluğu)
+  - [🔗 MetaMCP'ye Bağlanma](#-metamcpye-bağlanma)
+    - [📝 Örn., Cursor üzerinden mcp.json](#-örn-cursor-üzerinden-mcpjson)
+    - [🖥️ Claude Desktop ve Diğer STDIO-only İstemcileri Bağlama](#️-claude-desktop-ve-diğer-stdio-only-istemcileri-bağlama)
+    - [🔧 API Anahtar Auth Sorun Giderme](#-api-anahtar-auth-sorun-giderme)
+  - [❄️ Cold Start Sorunu ve Özel Dockerfile](#️-cold-start-sorunu-ve-özel-dockerfile)
+  - [🧾 Log Seviyeleri](#-log-seviyeleri)
+  - [🔐 Kimlik Doğrulama](#-kimlik-doğrulama)
+  - [🚦 Trafik Yönetimi](#-trafik-yönetimi)
+    - [🚧 **MCP Rate Limit**](#-mcp-rate-limit)
+  - [🔗 OpenID Connect (OIDC) Provider Desteği](#-openid-connect-oidc-provider-desteği)
+    - [🛠️ **Konfigürasyon**](#️-konfigürasyon)
+    - [🏢 **Desteklenen Provider'lar**](#-desteklenen-providerlar)
+    - [🔒 **Güvenlik Özellikleri**](#-güvenlik-özellikleri)
+    - [📱 **Kullanım**](#-kullanım)
+  - [⚙️ Kayıt Kontrolleri](#️-kayıt-kontrolleri)
+    - [🎛️ **Kullanılabilir Kontroller**](#️-kullanılabilir-kontroller)
+    - [🏢 **Kurumsal Kullanım Senaryoları**](#-kurumsal-kullanım-senaryoları)
+    - [🛠️ **Konfigürasyon**](#️-konfigürasyon-1)
+  - [🌐 Özel Deployment ve Nginx için SSE Konfigürasyonu](#-özel-deployment-ve-nginx-için-sse-konfigürasyonu)
+  - [🏗️ Mimari](#️-mimari)
+    - [📊 Sequence Diagram](#-sequence-diagram)
+  - [🗺️ Yol Haritası](#️-yol-haritası)
+  - [🌐 i18n](#-i18n)
+  - [🤝 Katkıda Bulunma](#-katkıda-bulunma)
+  - [📄 Lisans](#-lisans)
+  - [🙏 Teşekkürler](#-teşekkürler)
+
+  ## 🎯 Kullanım Alanları
+  - 🏷️ **MCP sunucularını ad alanlarına gruplandırma, meta-MCP'ler olarak barındırma ve genel endpoint'ler atama** (SSE veya Streamable HTTP), kimlik doğrulama ile. Bir ad alanını bir endpoint için tek tıkla değiştirme.
+  -  🎯 **MCP sunucularını remix ederken sadece ihtiyacınız olan tool'ları seçme.** Gözlemlenebilirlik, güvenlik vb. gibi diğer **takılabilir middleware'ler** uygulama. (yakında)
+  -  🔍 **Geliştirilmiş MCP inspector olarak kullanma** kaydedilmiş sunucu konfigürasyonları ile ve MetaMCP endpoint'lerinizi kontrol etme.
+  -  🔍 **MCP tool seçimi için Elasticsearch olarak kullanma** (yakında)
+
+  Genel olarak geliştiriciler MetaMCP'yi dinamik olarak oluşturulan MCP sunucularını birleşik bir endpoint aracılığıyla barındırmak için **altyapı** olarak kullanabilir ve bunun üzerine agent'lar kurabilir.
+
+  Hızlı demo videosu: https://youtu.be/Cf6jVd2saAs
+
+  ![MetaMCP Screenshot](https://raw.githubusercontent.com/metatool-ai/metamcp/HEAD/metamcp_screenshot.png)
+
+  ## 📖 Konseptler
+
+  ### 🖥️ **MCP Sunucusu**
+  MetaMCP'ye bir MCP sunucusunun nasıl başlatılacağını söyleyen bir MCP sunucusu konfigürasyonu.
+
+  ```json
+  "HackerNews": {
+    "type": "STDIO",
+    "command": "uvx",
+    "args": ["mcp-hn"]
+  }
+  ```
+
+  #### 🔐 **Ortam Değişkenleri & Sırlar (STDIO MCP Sunucuları)**
+
+  **STDIO MCP sunucuları** için, MetaMCP ortam değişkenlerini ve sırları işlemek için üç yol destekler:
+
+  **1. Ham Değerler** - Doğrudan string değerleri (sırlar için önerilmez):
+  ```
+  API_KEY=your-actual-api-key-here
+  DEBUG=true
+  ```
+
+  **2. Ortam Değişkeni Referansları** - `${ENV_VAR_NAME}` sözdizimini kullanma:
+  ```
+  API_KEY=${OPENAI_API_KEY}
+  DATABASE_URL=${DB_CONNECTION_STRING}
+  ```
+
+  **3. Otomatik Eşleştirme** - Beklenen ortam değişken adı konfigürasyonda belirlenen tool ile MetaMCP container ortam değişkeniyle eşleşirse, tamamen silebilirsiniz. MetaMCP eşleşen ortam değişkenlerini otomatik olarak iletecektir.
+
+  > **🔒 Güvenlik Notu**: Ortam değişkeni referansları (`${VAR_NAME}`) runtime'da MetaMCP container'ının ortamından çözümlenir. Bu gerçek gizli değerleri konfigürasyonunuzdan ve git repository'sinden uzak tutar.
+
+  > **⚙️ Geliştirme Notu**: `pnpm run dev:docker` ile yerel geliştirme için, ortam değişkenlerinizin `turbo.json` dosyasında `globalEnv` altında listelenmesi gerekir ve geliştirme süreçlerine geçirilecektir. Bu production Docker deployments için gerekli değildir.
+
+  ### 🏷️ **MetaMCP Ad Alanı**
+  - Bir veya daha fazla MCP sunucusunu bir ad alanında gruplandırma
+  - MCP sunucularını veya tool seviyesinde etkinleştirme/devre dışı bırakma
+  - MCP request'leri ve response'larına middleware uygulama
+  - Ad alanı başına tool adlarını/başlıklarını/açıklamalarını override etme ve özel MCP annotation'ları ekleme (ör. `{ "annotations": { "readOnlyHint": false } }`)
+
+  ### 🌐 **MetaMCP Endpoint**
+  - Endpoint'ler oluşturma ve namespace'i endpoint'lere atama
+  - Namespace'deki birden fazla MCP sunucusu bir MetaMCP endpoint olarak toplanacak ve yayınlanacak
+  - API-Key Auth (header veya query param'da) veya MCP Spec 2025-06-18'de standart OAuth arasında seçim yapma
+  - **SSE** veya **Streamable HTTP** transport'ları aracılığıyla ve [Open WebUI](https://github.com/open-webui/open-webui) gibi istemciler için **OpenAPI** endpoint'leri ile barındırma
+
+  ### ⚙️ **Middleware**
+  - MCP request'leri ve response'larını namespace seviyesinde intercept ediyor ve dönüştürüyor
+  - **Yerleşik örnek**: "Inaktif tool'ları filtreleme" - LLM'ler için tool context'i optimize eder
+  - **Gelecek fikirleri**: tool logging, error traces, validation, scanning
+
+  ### 🔍 **Inspector**
+  Resmi MCP inspector'a benzer, ancak **kaydedilmiş sunucu konfigürasyonları** ile - MetaMCP otomatik olarak konfigürasyonlar oluşturur böylece MetaMCP endpoint'lerinizi hemen debug edebilirsiniz.
+
+  ### ✏️ **Tool Overrides & Annotations**
+  - Bir namespace'i açın → bağlı MCP sunucularından gelen tüm tool'ları görmek için **Tools** sekmesi.
+  - Her kaydedilmiş tool genişletilebilir ve satır içi düzenlenebilir: görüntüleme **adını/başlığını/açıklamasını** güncelleyin veya namespace'e özel bir JSON blob sağlayın (örneğin `{ "annotations": { "readOnlyHint": false } }`).
+  - Tablo'daki badge'ler ("Overridden", "Annotations") şu anda hangi tool'ların özel metadata'ya sahip olduğunu gösterir. Neyin override edildiğini açıklayan bir tooltip okumak için üzerlerine gidin.
+  - Annotation override'ları upstream MCP sunucusunun döndürdüğü şeylerle birleştirilir, bu nedenle provider metadata'sını kaybetmeden güvenli bir şekilde özel UI ipuçları ekleyebilirsiniz.
+
+  ## 🚀 Hızlı Başlangıç
+
+  ### **🐳 Docker Compose ile Çalıştırma (Önerilen)**
+
+  Repository'yi klonlayın, `.env`'yi hazırlayın ve docker compose ile başlatın:
+
+  ```bash
+  git clone https://github.com/metatool-ai/metamcp.git
+  cd metamcp
+  cp example.env .env
+  docker compose up -d
+  ```
+
+  APP_URL env değişkenlerini değiştirirseniz, sadece APP_URL'den eriştiğinizden emin olun, çünkü MetaMCP URL'de CORS politikasını uygular, bu yüzden başka hiçbir URL erişilemez.
+
+  pg volume adının diğer pg docker'ları ile çakışabileceğini unutmayın, bu global'dir, `docker-compose.yml`'de yeniden adlandırmayı düşünün:
+
+  ```
+  volumes:
+    metamcp_postgres_data:
+      driver: local
+  ```
+
+  ### **📦 Dev Containers ile Geliştirme Ortamı Kurma (VSCode/Cursor)**
+
+  VSCode/Cursor extension'ını kullanarak development ortamını bir container'da kurabilirsiniz.
+
+  Sadece Docker veya benzeri bir alternatif çalıştıran bir ortama sahip olmak gerekir (`docker`/`docker compose` komutu gereklidir) ve başka hiçbir bağımlı bileşenin host makinenize yüklenmesine gerek yoktur.
+
+  1. İlk olarak MetaMCP kaynak kodunu klonlayın, Visual Studio Code'da projeyi açın.
+  ```bash
+  git clone https://github.com/metatool-ai/metamcp.git
+  cd metamcp
+  code .
+  ```
+  2. Dev Containers'a geçin. VSCode Command Palette'i açın ve `Dev Containers: Reopen in Container` komutunu çalıştırın.
+
+  VSCode Dev Containers projesini yeni bir pencerede açacak, burada `Dockerfile`'a göre runtime'ı oluşturacak ve toolchain'i yükleyecek, bağlantıyı başlatacak ve son olarak MetaMCP bağımlılıklarını yükleyecektir.
+
+
+  > **not**
+  > Bu işlem güvenilir bir ağ bağlantısı gerektirir ve Docker Hub, GitHub ve diğer bazı sitelere erişecektir. Ağ bağlantısını kendiniz sağlamanız gerekecek, aksi takdirde container build'i başarısız olabilir.
+
+  İnternet bağlantısı veya bilgisayar performansına bağlı olarak, birkaç dakikadan onlarca dakikaya kadar sürebilir, sağ alt köşedeki Progress Bar'a tıklayarak yaşanan olağandışı durmaları kontrol etmek için canlı günlüğü görüntüleyebilirsiniz.
+
+
+  Tamamlandıktan sonra geliştirme sunucusunu başlatmak için `pnpm dev` komutunu çalıştırabilirsiniz.
+
+  ### **💻 Yerel Geliştirme**
+
+  Yine de kolay kurulum için postgres'i docker aracılığıyla çalıştırmak önerilir:
+
+  ```bash
+  pnpm install
+  pnpm dev
+  ```
+
+  ## 🔌 MCP Protokol Uyumluluğu
+
+  - ✅ **Tools, Resources ve Prompts** desteklenir
+  - ✅ **OAuth-enabled MCP sunucuları** 03-26 sürümü için test edildi
+
+  Sorularınız varsa, çekinmeden **GitHub issues** veya **PR'lar** bırakmaktan çekinmeyin.
+
+  ## 🔗 MetaMCP'ye Bağlanma
+
+  ### 📝 Örn., Cursor üzerinden mcp.json
+
+  Örnek `mcp.json`
+
+  ```json
+  {
+    "mcpServers": {
+      "MetaMCP": {
+        "url": "http://localhost:12008/metamcp/<YOUR_ENDPOINT_NAME>/sse"
+      }
+    }
+  }
+  ```
+
+  ### 🖥️ Claude Desktop ve Diğer STDIO-only İstemcileri Bağlama
+
+  MetaMCP endpoint'leri uzak olduğundan (SSE, Streamable HTTP, OpenAPI), sadece stdio sunucularını destekleyen istemciler (Claude Desktop gibi) bağlanmak için yerel bir proxy gerektirir.
+
+  **Not:** `mcp-remote` bazen bu amaç için önerilse de, OAuth tabanlı kimlik doğrulaması için tasarlanmıştır ve MetaMCP'nin API key kimlik doğrulaması ile çalışmaz. Test'e göre `mcp-proxy` önerilen çözümdür.
+
+  `mcp-proxy` kullanan Claude Desktop için çalışan bir konfigürasyon:
+
+  Streamable HTTP Kullanma
+
+  ```json
+  {
+    "mcpServers": {
+      "MetaMCP": {
+        "command": "uvx",
+        "args": [
+          "mcp-proxy",
+          "--transport",
+          "streamablehttp",
+          "http://localhost:12008/metamcp/<YOUR_ENDPOINT_NAME>/mcp"
+        ],
+        "env": {
+          "API_ACCESS_TOKEN": "<YOUR_API_KEY_HERE>"
+        }
+      }
+    }
+  }
+  ```
+
+  SSE Kullanma
+
+  ```json
+  {
+    "mcpServers": {
+      "ehn": {
+        "command": "uvx",
+        "args": [
+          "mcp-proxy",
+          "http://localhost:12008/metamcp/<YOUR_ENDPOINT_NAME>/sse"
+        ],
+        "env": {
+          "API_ACCESS_TOKEN": "<YOUR_API_KEY_HERE>"
+        }
+      }
+    }
+  }
+  ```
+
+  **Önemli notlar:**
+  - `<YOUR_ENDPOINT_NAME>` yerine gerçek endpoint adınızı yazın
+  - `<YOUR_API_KEY_HERE>` yerine MetaMCP API anahtarınızı yazın (format: `sk_mt_...`)
+
+  Daha fazla ayrıntı ve alternatif yaklaşımlar için [issue #76](https://github.com/metatool-ai/metamcp/issues/76#issuecomment-3046707532) bölümüne bakın.
+
+  ### 🔧 API Anahtar Auth Sorun Giderme
+
+  - `?api_key=` parametreli API key auth SSE için çalışmaz. Sadece Streamable HTTP ve OpenAPI için çalışır.
+  - En iyi uygulama, API anahtarını `Authorization: Bearer <API_KEY>` header'ında kullanmaktır.
+  - Bağlantı sorunuyla karşılaştığınızda auth sorunun olup olmadığını görmek için kimlik doğrulamayı geçici olarak devre dışı bırakmayı deneyin.
+
+  ## ❄️ Cold Start Sorunu ve Özel Dockerfile
+
+  - MetaMCP her konfigüre edilen MCP sunucusu ve MetaMCP'ler için boş session'ları önceden tahsis eder. Varsayılan boş session her biri için 1'dir ve bu cold start süresini azaltmaya yardımcı olabilir.
+  - MCP'niz `uvx` veya `npx` dışında bağımlılıklar gerektiriyorsa, Dockerfile'ı özelleştirerek bağımlılıkları kendiniz yüklemeniz gerekir.
+  - Boş session'ların güncelleme sırasında nasıl geçersiz kılındığı hakkında bir seq diagram için [invalidation.md](invalidation.md) dosyasına bakın.
+
+  🛠️ **Çözüm**: Cold start süresini azaltmak için bağımlılıkları eklemek veya paketleri önceden yüklemek amacıyla Dockerfile'ı özelleştirin.
+
+  ## 🧾 Log Seviyeleri
+
+  MetaMCP'nin backend'i günlükleri dosyalara yazar ve isteğe bağlı olarak seçilmiş seviyeleri konsola yansıtır. `LOG_LEVEL` ortam değişkeni ile konsol yansıtmasını kontrol edin.
+
+  - Dosyalar
+    - `app.log`: `DEBUG`, `INFO` ve `WARN` alır
+    - `error.log`: `ERROR` alır
+
+  - Konsol yansıtması (`LOG_LEVEL`)
+    - `all`: `DEBUG`, `INFO`, `WARN`, `ERROR` konsola yansıt
+    - `info`: sadece `INFO`'yı konsola yansıt
+    - `errors-only`: `WARN` ve `ERROR`'ı konsola yansıt
+    - `none`: konsol çıkış'ı yok
+
+  - Varsayılanlar ve örnekler
+    - Varsayılan (ayarlanmadığında veya geçersiz): `errors-only`
+    - `.env` örneği:
+      ```bash
+      LOG_LEVEL='errors-only' # 'all', 'info', 'errors-only', 'none'
+      ```
+    - `docker-compose.dev.yml` kullanır: `LOG_LEVEL: ${LOG_LEVEL:-all}`
+
+  ## 🔐 Kimlik Doğrulama
+
+  - 🛡️ **Better Auth** frontend ve backend için (TRPC procedures)
+  - 🍪 **Session cookies** güvenli iç MCP proxy bağlantılarını uygular
+  - 🔑 **API key kimlik doğrulaması** `Authorization: Bearer <api-key>` header'ı üzerinden harici erişim için
+  - 🪪 **MCP OAuth**: Exposed endpoint'ler MCP Spec 2025-06-18'de standart OAuth kullanma seçeneğine sahiptir, bağlanması kolaydır.
+  - 🏢 **Multi-tenancy**: Kuruluşların kendi makinelerinde deploy etmesi için tasarlanmış. Hem private hem de public access scope'larını destekler. Kullanıcılar kendileri veya herkesi için MCP'ler, namespace'ler, endpoint'ler ve API anahtarları oluşturabilir. Genel API anahtarları private MetaMCP'lere erişemez.
+  - ⚙️ **Ayrı Kayıt Kontrolleri**: Yöneticiler settings sayfası aracılığıyla UI kaydını ve SSO/OAuth kaydını bağımsız olarak kontrol edebilir, esnek kurumsal deployment senaryolarına izin verir.
+
+  ## 🚦 Trafik Yönetimi
+
+  ### 🚧 MCP Rate Limit
+  MCP Rate Limit özelliği, bir MCP tool'unun (endpoint) belirli bir zaman penceresinde kabul edeceği maksimum istek sayısını ayarlamanıza izin verir. Ayrı ayrı veya birlikte kullanabileceğiniz iki farklı strateji vardır:
+
+   * `Endpoint rate-limiting (Rate Limiting)`: endpoint'i kullanan tüm istemcilere aynı anda uygulanır, benzersiz bir sayaç paylaşır.
+   * `User rate-limiting (Client Rate Limiting)`: her bireysel kullanıcıya bir sayaç ayarlar.
+
+  Her iki tür de birlikte var olabilir ve birbirlerini tamamlarlar, sayaçları bellekte depolarlar. Bir cluster'da, her makine sadece geçen trafiğini görür ve sayar.
+
+  ### **Endpoint rate-limiting**
+  Endpoint rate limit, bir endpoint'in işleyebileceği eşzamanlı işlem sayısına hareket eder. Bu tür limit hizmet'i tüm müşteriler için korur.
+  Bir endpoint'e bağlı kullanıcılar birlikte `rate-limiting`'i aştığında, MetaMCP `503 Service Unavailable` durum koduyla bağlantıları reddetmeye başlar.
+
+  #### **Endpoint rate-limiting seçenekleri**
+   * `Max Rate`: Herhangi bir zamanda tüm kullanıcılardan birlikte kaç istek kabul edeceğinizi tanımlar. Gateway başladığında, bucket dolup taşar. Kullanıcılardan request'ler geldikçe, bucket'daki kalan token'lar azalır. Aynı zamanda, rate-limiting bucket'ı maksimum kapasitesine ulaşana kadar istenen oranda yeniden doldurur.
+   * `Max Rate Seconds`: Maksimum hızların saniye cinsinden işlem gördüğü zaman dilimi. Örneğin, max rate seconds'u 60s'ye ve rate-limiting'i 5'e ayarlarsanız, altmış saniye içinde 5 istek kabul edersiniz.
+
+  ### **User rate-limiting**
+  İstemci veya kullanıcı rate limit her bireysel kullanıcıya ve endpoint'e bir sayaç uygular. Tek bir kullanıcı bir endpoint'e bağlandığında `client-max-rate`'i aştığında, MetaMCP `429 Too Many Requests` durum koduyla bağlantıları reddetmeye başlar.
+
+  #### **User rate-limiting seçenekleri**
+   * `Client Max Rate`: Her bireysel kullanıcı (kullanıcı kotası) için Token Bucket'a eklediğiniz token sayısı istediğiniz zaman aralığında (Client Max Rate Seconds). Bucket'daki kalan token'lar belirli bir kullanıcının yapabileceği istek'lerdir.
+   * `Client Max Rate Seconds`: Maksimum hızların saniye cinsinden işlem gördüğü zaman dilimi. Örneğin, her'i 60s'ye ve rate'i 5'e ayarlarsanız, altmış saniye içinde 5 istek kabul edersiniz.
+   * `Client Max Rate Strategy`: İstemci sayaçlarını ayarlamak için kullanacağınız stratejiyi ayarlar. İp seçin, kısıtlamalar istemcinin IP adresine uygulanırken, yoksa bir kullanıcıyı benzersiz olarak tanımlayan bir header olduğunda header'ı ayarlayın. Bu header, key entry ile tanımlanmalıdır.
+   * `Client Max Rate Strategy Key`: Kullanıcı tanımlaması içeren header adı (ör., token'lar için Authorization veya IP'ler için X-Original-Forwarded-For).
+
+  ## 🔗 OpenID Connect (OIDC) Provider Desteği
+
+  MetaMCP kurumsal SSO entegrasyonu için **OpenID Connect kimlik doğrulamasını** destekler. Bu, kuruluşların kimlik doğrulama için mevcut kimlik sağlayıcılarını (Auth0, Keycloak, Azure AD, vb.) kullanmasına izin verir.
+
+  ### 🛠️ **Konfigürasyon**
+
+  `.env` dosyasına aşağıdaki ortam değişkenlerini ekleyin:
+
+  ```bash
+  # Gerekli
+  OIDC_CLIENT_ID=your-oidc-client-id
+  OIDC_CLIENT_SECRET=your-oidc-client-secret
+  OIDC_DISCOVERY_URL=https://your-provider.com/.well-known/openid-configuration
+
+  # İsteğe bağlı özelleştirme
+  OIDC_PROVIDER_ID=oidc
+  OIDC_SCOPES=openid email profile
+  OIDC_PKCE=true
+  ```
+
+  ### 🏢 **Desteklenen Provider'lar**
+
+  MetaMCP popüler OIDC provider'ları ile test edilmiştir:
+
+  - **Auth0**: `https://your-domain.auth0.com/.well-known/openid-configuration`
+  - **Keycloak**: `https://your-keycloak.com/realms/your-realm/.well-known/openid-configuration`
+  - **Azure AD**: `https://login.microsoftonline.com/your-tenant-id/v2.0/.well-known/openid-configuration`
+  - **Google**: `https://accounts.google.com/.well-known/openid-configuration`
+  - **Okta**: `https://your-domain.okta.com/.well-known/openid-configuration`
+
+  ### 🔒 **Güvenlik Özellikleri**
+
+  - 🔐 **PKCE (Proof Key for Code Exchange)** varsayılan olarak etkindir
+  - 🛡️ **Authorization Code Flow** otomatik kullanıcı oluşturma ile
+  - 🔄 **Otomatik keşif** OIDC endpoint'lerinin
+  - 🍪 **Sorunsuz oturum yönetimi** mevcut auth sistemi ile
+
+  ### 📱 **Kullanım**
+
+  Yapılandırıldıktan sonra, kullanıcılar login sayfasında email/şifre formunun yanında bir **"Sign in with OIDC"** düğmesi görecekler. Kimlik doğrulama akışı ilk login'de yeni kullanıcıları otomatik olarak
 ---
 
 # 🚀 MetaMCP (MCP Aggregator, Orchestrator, Middleware, Gateway in one docker) <!-- omit in toc -->

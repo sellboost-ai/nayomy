@@ -9,6 +9,169 @@ body_length: 11325
 license: "MPL-2.0"
 language: "Python"
 homepage: "https://www.wisevision.tech/"
+body_tr: |-
+  # ROS2 MCP Server
+
+  [![Discord](https://img.shields.io/badge/Discord-Join%20Us-5865F2?logo=discord)](https://discord.gg/9aSw6HbUaw)
+  ![ROS 2 Humble](https://img.shields.io/badge/ROS2-Humble-blue)
+  ![ROS 2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-purple)
+  [![Docker](https://img.shields.io/badge/Docker-MCP-blue?logo=docker)](https://hub.docker.com/mcp/server/ros2/overview)
+  [![GitHub stars](https://img.shields.io/github/stars/wise-vision/mcp_server_ros_2?style=social)](https://github.com/wise-vision/mcp_server_ros_2/stargazers)
+
+  ![Flow graph](https://raw.githubusercontent.com/wise-vision/ros2_mcp/HEAD/docs/assets/flow-graph.gif)
+
+  **Python** ile yazılmış **Model Context Protocol (MCP)** uygulaması **ROS 2** için. Bu sunucu, AI araçlarının **ROS 2** düğümleri, konuları ve servisleriyle **MCP** standardı üzerinden **stdio** kullanarak bağlanmasını sağlar. **En kolay** **ROS 2** MCP sunucusu olarak tasarlanmıştır.
+
+  # ✨ Araçlar
+  - Mevcut konuları listele
+  - Mevcut servisleri listele
+  - Türleri ve istek alanlarıyla birlikte mevcut eylemleri listele
+  - Servisleri çağır
+  - Konuları abone ol ve mesajlar topla
+  - Konulara mesaj yayınla
+  - Konulardaki mesajları göster
+  - Mesaj türlerinden alanları al
+  - Eylem hedefi gönder ve sonucu bekle (isteğe bağlı)
+  - Eylem hedefinin sonucunu iste
+  - Eylemden geri bildirim mesajlarına abone ol
+  - Eylemin durum güncellemelerine abone ol
+  - Belirli bir hedefi veya tüm aktif hedefleri iptal et
+  - [WiseVision Data Black Box](https://github.com/wise-vision/wisevision_data_black_box) adresinden mesaj al ([InfluxDB](https://www.influxdata.com) [Rosbag2](https://github.com/ros2/rosbag2) alternatifi)
+
+
+  # 🤖 Mevcut İstemler
+  ### 📘 Özel bir istem oluşturmak mı istiyorsunuz? [Rehberi burada kontrol edin](/docs/CREATE_PROMPT.md)
+
+  ## 📊 base.ros2-topic-echo-and-analyze
+
+  ROS2 konusuna abone ol, belirli bir süre boyunca mesajlar topla ve toplanan verilerin istatistiksel analizini sağla.
+
+  ➡️ Yalnızca bir konu varsa otomatik olarak algılayabilir. Mesaj oranlarını, sayılarını ve sayısal alanlar üzerindeki istatistikleri analiz eder.
+
+  ## 🔄 base.ros2-topic-relay
+
+  Bir ROS2 konusuna abone ol ve mesajları isteğe bağlı dönüştürmelerle başka bir konuya yeniden yayınla.
+
+  ➡️ Kimlik geçişi, hız sınırlandırması ve değişim tabanlı filtrelemeyi destekler.
+
+  ## 🏥 base.ros2-node-health-check
+
+  Beklenen ROS2 konuları ve servislerinin mevcut olduğunu ve doğru şekilde çalıştığını isteğe bağlı yayın oranı izlemesiyle kontrol et.
+
+  ➡️ Durum göstergeleri ve önerilerle kapsamlı bir sağlık raporu sağlar.
+
+  ## 🔍 base.ros2-topic-diff-monitor
+
+  İki ROS2 konusunu karşılaştır ve mesajlarındaki farklılıkları ayrıntılı alan-alan analizi ile rapor et.
+
+  ➡️ Ham sensör verilerini filtrelenmiş/işlenmiş versiyonlarla karşılaştırmak veya konu senkronizasyonunu doğrulamak için kullanışlıdır.
+
+  ## ROS2 MCP'nin Ek İstemlerle Prompts uzantısı vardır [Buraya bakın](https://github.com/wise-vision/ros2_mcp_prompts)
+
+
+
+  ### 💡 İstemler ne olduğunu bilmiyor musunuz? [MCP spesifikasyonunu buradan görün](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts#user-interaction-model).
+
+
+
+
+  **Not:** Özel (varsayılan olmayan) bir tür ile bir servisi çağırmak için sunucuyu başlatmadan önce bunu tanımlayan paketi kaynak haline getirin.
+
+  ## 🎯 Bu MCP Sunucusunu Neden Seçmelisiniz?
+
+  ROS 2 projelerinizde **yapay zeka entegrasyonu ile geliştirme süresini saatlerce tasarruf edin**:
+
+  ## Bu ROS 2 MCP sunucusu neden ⭐
+
+  - **⚡ 1 dakikalık kurulum** - Dünyanın en kolay ROS 2 MCP konfigürasyonu
+  - **0️⃣ Sıfır friktiyonlu kurulum** - stdio taşıyıcı, aracı yok, web sunucusu yok.
+  - **🔌 Otomatik tür keşfi** - Yerleşik bir "arayüzleri listele" aracı, mevcut konuları ve servisleri ilgili mesaj/servis tanımlarıyla (alanlar, türler, şema) dinamik olarak numaralandırır — böylece istemci her zaman tam olarak hangi verilerin yayınlanabileceğini veya çağrılabileceğini bilir.
+  - **✨ İç içe geçmiş alan desteği**: Karmaşık mesaj yapılarını kolaylıkla işleyin.
+  - **🤖 Yapay zeka destekli hata ayıklama** - Yapay zekanın ROS 2 sorunlarını gerçek zamanda gidermeye yardımcı olmasını sağla
+  - **📊 Akıllı veri analizi** - Robotunuzun sensör verilerini doğal dil kullanarak sorgula
+  - **🚀 Üretkenliği artır** - Robotları kontrol et, günlükleri analiz et ve yapay zeka sohbeti aracılığıyla sorunları gider
+  - **💡 ROS 2 uzmanlığı gerekli değil** - Yapay zeka talebinizi uygun ROS 2 komutlarına çevirir
+  - **🐋 Docker'da Konteynerleştirilmiş**: Hızlı dağıtım için hazır Docker görüntüsü.
+  - **🔧 Otomatik QoS seçimi**: Konular ve servisler için otomatik olarak uygun Hizmet Kalitesi ayarlarını seçer, manuel yapılandırma olmadan optimal iletişim performansını sağlar.
+
+  **Uygun:** Robotik geliştiriciler, araştırmacılar, öğrenciler ve ROS 2 ile çalışan ve daha hızlı geliştirme ve hata ayıklama için yapay zekadan yararlanmak isteyen herkes.
+
+  Bu projeyi faydalı bulursanız lütfen ⭐ depo yıldızı ekleyin — başkalarının onu bulmasına yardımcı olur.
+
+  🚀 **Bu projenin tadını mı alıyorsunuz?**  
+  Katkıda bulunmaktan veya destek almaktan çekinmeyin! İssueler yazın, PR'ler gönderin veya diğer ROS 2 ve yapay zeka meraklılarıyla bağlantı kurmak için [Discord komunitemize](https://discord.gg/9aSw6HbUaw) katılın.
+
+  # 🚀 İstemler Kullanarak İnsansız Hava Aracı Misyonu
+  ![Drone mission demo](https://raw.githubusercontent.com/wise-vision/ros2_mcp/HEAD/docs/assets/drone_mcp_prompts.gif)
+
+  # 🌍 Gerçek dünya örnekleri:
+  ![Demo](https://raw.githubusercontent.com/wise-vision/ros2_mcp/HEAD/docs/assets/mcp-ros2-server.gif)
+
+  # ⚙️ Kurulum
+
+  Adım adım talimatlar için [kurulum kılavuzunu](installation/README.md) izleyin:
+  - [🧩 Visual Studio Code Copilot'a Yükle](installation/README.md#configure-visual-studio-code-copilot)
+  - [🤖 Claude Desktop'a Yükle](installation/README.md#configure-claude-desktop)
+  - [💻 Warp'a Yükle](installation/README.md#configure-warp)
+  - [🐳 Docker Görüntüsünü Yerel Olarak Oluştur](installation/README.md#build-docker-image-locally)
+
+  ## 💡 Simülasyonda denemek istiyorum musunuz?
+  [Gazebo İnsansız Hava Aracı Demo bölümünü kontrol edin](docs/DEMO_DRONE.md)
+
+
+
+  ### 🔧 ROS 2 Araçları
+
+  #### 📋 **Konular**
+  | Araç | Açıklama | Girdiler | Çıktılar |
+  |------|----------|---------|---------|
+  | **`ros2_topic_list`** | Mevcut konuların listesini döndürür | – | `topic_name` (string): Konu adı <br> `topic_type` (string): Mesaj türü |
+  | **`ros2_topic_subscribe`** | Bir ROS 2 konusuna abone olur ve belirli bir süre veya mesaj sınırı için mesajlar toplar | `topic_name` (string) <br> `duration` (float) <br> `message_limit` (int) <br> *(varsayılanlar: ilk msg, 5s)* | `messages` <br> `count` <br> `duration` |
+  | **`ros2_get_messages`** | Konudan geçmiş mesajları alır (veri black box) | `topic_name` (string) <br> `message_type` (string) <br> `number_of_messages` (int) <br> `time_start` (str) <br> `time_end` (str) | `timestamps` <br> `messages` |
+  | **`ros2_get_message_fields`** | Bir mesaj türü için alan adlarını ve türlerini alır | `message_type` (string) | Alan adları + türler |
+  | **`ros2_topic_publish`** | Konuya mesaj yayınlar | `topic_name` (string) <br> `message_type` (string) <br> `data` (dict) | `status` |
+
+  ---
+
+  #### 🛠 **Servisler**
+  | Araç | Açıklama | Girdiler | Çıktılar |
+  |------|----------|---------|---------|
+  | **`ros2_service_list`** | Mevcut servislerin listesini döndürür | – | `service_name` (string) <br> `service_type` (string) <br> `request_fields` (array) |
+  | **`ros2_service_call`** | ROS 2 servisini çağırır | `service_name` (string) <br> `service_type` (string) <br> `fields` (array) <br> `force_call` (bool, varsayılan: false) | `result` (string) <br> `error` (string, varsa) |
+
+  #### 🎯 **Eylemler**
+  | Araç | Açıklama | Girdiler | Çıktılar |
+  |------|----------|---------|---------|
+  | **`ros2_list_actions`** | Türleri ve istek alanlarıyla birlikte mevcut ROS 2 eylemlerinin listesini döndürür | – | `actions[]` (array) <br> └ `name` (string) <br> └ `types[]` (string dizisi) <br> └ `request_fields` (array) |
+  | **`ros2_send_action_goal`** | Bir hedefe eylem hedefi gönderir. İsteğe bağlı olarak sonucu bekler. | `action_name` (string) <br> `action_type` (string) <br> `goal_fields` (object) <br> `wait_for_result` (bool, varsayılan: false) <br> `timeout_sec` (number, varsayılan: 60.0) | `accepted` (bool) <br> `goal_id` (string\|null) <br> `send_goal_stamp` (object\|null) <br> `waited` (bool) <br> `result_timeout_sec` (number\|null) <br> `status_code` (int\|null) <br> `status` (string\|null) <br> `result` (object\|null) \| `error` (string) |
+  | **`ros2_cancel_action_goal`** | Belirli bir hedefi veya bir eylemin tüm hedeflerini iptal eder | `action_name` (string) <br> `goal_id_hex` (string, `cancel_all`=false ise gerekli) <br> `cancel_all` (bool, varsayılan: false) <br> `stamp_sec` (int, varsayılan: 0) <br> `stamp_nanosec` (int, varsayılan: 0) <br> `wait_timeout_sec` (number, varsayılan: 3.0) | `service` (string) <br> `return_code` (int) <br> `return_code_text` (string) <br> `goals_canceling[]` (array of {`goal_id`, `stamp`}) \| `error` (string) |
+  | **`ros2_action_request_result`** | GetResult aracılığıyla verilen bir hedefin SONUCUNU bekler | `action_name` (string) <br> `action_type` (string) <br> `goal_id_hex` (string, 32 karakterli UUID) <br> `timeout_sec` (number\|null, varsayılan: 60.0) <br> `wait_for_service_sec` (number, varsayılan: 3.0) | `service` (string) <br> `goal_id` (string) <br> `waited` (bool) <br> `result_timeout_sec` (number\|null) <br> `status_code` (int\|null) <br> `status` (string\|null) <br> `result` (object\|null) \| `error` (string) |
+  | **`ros2_action_subscribe_feedback`** | Bir eylem için geri bildirim mesajlarına abone olur. Goal_id'ye göre filtreleyebilir. Süre veya maksimum sayı için mesajlar toplar. | `action_name` (string) <br> `action_type` (string) <br> `goal_id_hex` (string\|null) <br> `duration_sec` (number, varsayılan: 5.0) <br> `max_messages` (int, varsayılan: 100) | `topic` (string) <br> `action_type` (string) <br> `goal_id_filter` (string\|null) <br> `duration_sec` (number) <br> `messages[]` (array of {`goal_id`, `feedback`, `recv_stamp`}) \| `error` (string) |
+  | **`ros2_action_subscribe_status`** | Bir eylemin durum konusuna abone olur ve toplanan durum çerçevelerini döndürür | `action_name` (string) <br> `duration_sec` (number, varsayılan: 5.0) <br> `max_messages` (int, varsayılan: 100) | `topic` (string) <br> `duration_sec` (number) <br> `frames[]` (array of {`stamp`, `statuses[]`}) \| `error` (string) |
+
+
+  # 🐞 Hata Ayıklama
+
+  MCP sunucuları stdio üzerinden çalıştığı için hata ayıklama zor olabilir. En iyi hata ayıklama
+  deneyimi için [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı şiddetle tavsiye ederiz.
+
+  MCP Inspector'u bu komutla [ `npm` ](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) ile başlatabilirsiniz:
+
+  ```bash
+  npx @modelcontextprotocol/inspector uv --directory /path/to/ros2_mcp run mcp_ros_2_server
+  ```
+
+  Başladığında, Inspector hata ayıklamaya başlamak için tarayıcınızda erişebileceğiniz bir URL görüntüleyecektir.
+
+  ## 📚 Kökenler ve evrim
+
+  Bu sunucuyu yapay zeka tarafından desteklenen ROS 2 geliştirmesini hızlı ve güvenilir hale getirmek için inşa ettik. Dahili olarak, ajanların mesaj türlerini keşfetmesi, konulara yayınlanması/abone olması ve servisleri çağırması için basit bir yol bulmamız gerekiyordu — boilerplate veya hatalı ağ olmadan. Bu birkaç çekirdek tasarım hedefine yol açtı:
+  - Ajanların herhangi bir kodu yazması ve test etmesi için tüm ROS 2 mesaj türlerini (iç içe geçmiş alanlar dahil) işle
+  - Davranışı uçtan uca doğrulamak için konu pub/sub ve servis çağrılarını entegre et
+  - VS Code'da GitHub Copilot ve diğer MCP istemcileriyle sorunsuz çalış
+  - Ağ karmaşıklığından kaçınmak için basit bir stdio taşıyıcı kullan
+
+  Bunu dahili olarak denedikten sonra, daha geniş ROS 2 topluluğunun yapay zeka ile daha hızlı inşa etmesine yardımcı olmak için projeyi açık kaynak hale getirdik. Şimdi yalnızca geliştirme için değil, aynı zamanda robotları kontrol etmek, QoS deneyleri çalıştırmak ve canlı verileri ve robot/sürü durumunu analiz etmek için de kullanışlıdır. Proje aktif olarak sürdürülüyor — özellikler ve geliştirmeler kullanıcı geri bildirimine dayanarak düzenli olarak sevk edilir. Bu proje size yardımcı olursa lütfen depoyu yıldızlayın ve kendi durumunuzu paylaşın!
 ---
 
 # ROS2 MCP Server

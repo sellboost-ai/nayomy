@@ -9,6 +9,253 @@ body_length: 8790
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/anilist-mcp"
+body_tr: |-
+  # AniList MCP Server
+
+  AniList API ile arayüz oluşturan ve LLM istemcilerine AniList'ten anime, manga, karakter, staff ve kullanıcı verilerine erişim sağlayan bir Model Context Protocol (MCP) sunucusu.
+
+  ## Özellikler
+
+  - Anime, manga, karakter, staff ve stüdyoları arama
+  - Belirli anime, manga, karakter ve staff üyeleri hakkında detaylı bilgi edinme
+  - Kullanıcı profilleri ve listelerine erişim
+  - Gelişmiş filtreleme seçenekleri desteği
+  - Türleri ve medya etiketlerini alma
+  - **Çift transport desteği**: Hem HTTP hem de STDIO transportları
+  - **Bulut dağıtımı için hazır**: Smithery ve diğer platformları destekler
+
+  ## Gereksinimler
+
+  - Node.js 18+
+
+  ## Yerel Kurulum (STDIO Transport)
+
+  1. Bu sunucuyu `mcp.json` / `claude_desktop_config.json` dosyanıza ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "anilist": {
+        "command": "npx",
+        "args": ["-y", "anilist-mcp"],
+        "env": {
+          "ANILIST_TOKEN": "your_api_token"
+        }
+      }
+    }
+  }
+  ```
+
+  Oturum açmayı gerektiren işlemler için AniList Token'ı kullanmayı planlamıyorsanız `env` nesnesini tamamen kaldırabilirsiniz.
+
+  2. MCP istemcinizi yeniden başlatın (örneğin, Claude Desktop)
+  3. AniList ile etkileşim kurmak için araçları kullanın
+
+  ## Sunucu Dağıtımı (HTTP Transport)
+
+  ### Kendi Barındırmanız
+  Projeyi yerel olarak kurmak için [Yerel Geliştirme](#yerel-geliştirme) talimatlarını izleyin, ardından şunu çalıştırın:
+  ```bash
+  pnpm run start:http
+  ```
+  Bu, sunucuyu varsayılan olarak 8081 portunda başlatacaktır. `PORT` ortam değişkenini ayarlayarak portu değiştirebilirsiniz.
+
+  ### Bulut Dağıtımı
+
+  Bu MCP sunucusunu Node.js sunucu uygulamalarını destekleyen herhangi bir bulut platformuna dağıtabilirsiniz.
+
+  [Smithery](https://smithery.ai/server/@yuna0x0/anilist-mcp) gibi MCP platformları aracılığıyla da dağıtabilirsiniz.
+
+  ## Yapılandırma
+  ### Ortam Değişkenleri (STDIO Transport ve ana bilgisayarın yapılandırmayı sağladığı HTTP Transport sunucusu)
+
+  STDIO transportunu kullanırken veya HTTP transport sunucusunu barındırırken, yapılandırmayı ortam değişkenleri aracılığıyla geçirebilirsiniz:
+  - `ANILIST_TOKEN`: (İsteğe bağlı) AniList API Token (Yalnızca oturum açmayı gerektiren işlemler için gerekli)
+
+  > [!CAUTION]
+  > HTTP transport sunucusunu önceden yapılandırılmış token ile barındırıyorsanız, kullanıcılara erişim izni vermeden önce uç noktanızı korumalı ve kimlik doğrulaması uygulamalısınız. Aksi takdirde, herhangi biri AniList token'ınızı kullanırken MCP sunucunuza erişebilir.
+
+  ### HTTP Header'ları (Kullanıcının yapılandırmayı sağladığı HTTP Transport)
+
+  HTTP transportunu kullanırken, kullanıcı yapılandırmayı HTTP header'ları aracılığıyla geçirebilir:
+  - `Anilist-Token`: (İsteğe bağlı) AniList API Token (Yalnızca oturum açmayı gerektiren işlemler için gerekli)
+
+  Kullanıcı header'da token sağlarken, sunucu ayrıca `ANILIST_TOKEN` ayarlanmışsa, header değeri öncelik alacaktır.
+
+  ### AniList API Token Alma (İsteğe Bağlı)
+
+  API token almak için şu adımları izleyin:
+
+  1. [AniList ayarlarına](https://anilist.co/settings/developer) gidin.
+  2. "Create New Client" (Yeni İstemci Oluştur) öğesine tıklayın.
+  3. İstemcinizin "Redirect URL" olarak bu URL'yi kullanın:
+  ```
+  https://anilist.co/api/v2/oauth/pin
+  ```
+
+  4. "Save" (Kaydet) öğesine tıklayın
+  5. Ardından https://anilist.co/api/v2/oauth/authorize?client_id={clientID}&response_type=token adresine gidin, `{clientID}` yerine aldığınız istemci kimliğini yazın. Oturum açmanız istenecek ve ardından kullanılacak token sağlanacaktır.
+  6. Oluşturulan token'ı kopyalayın ve `.env` dosyanızda veya ortam değişkenlerinde kullanın.
+
+  ## Kullanılabilir Araçlar
+
+  ### Çeşitli Araçlar
+  - **get_genres**: AniList'teki tüm mevcut türleri alma
+  - **get_media_tags**: AniList'teki tüm mevcut medya etiketlerini alma
+  - **get_site_statistics**: Son yedi gün içindeki AniList site istatistiklerini alma
+  - **get_studio**: AniList ID'si veya adına göre stüdyo bilgisi alma
+  - **favourite_studio**: [Oturum Açmayı Gerektirir] Bir stüdyoyu ID'sine göre favoriye ekleme veya kaldırma
+
+  ### Aktivite Araçları
+  - **delete_activity**: [Oturum Açmayı Gerektirir] Güncel yetkili kullanıcının aktivite gönderisini silme
+  - **get_activity**: Belirli bir AniList aktivitesini ID'sine göre alma
+  - **get_user_activity**: Bir kullanıcıdan aktiviteleri alma
+  - **post_message_activity**: [Oturum Açmayı Gerektirir] Yeni bir mesaj aktivitesi gönderme veya varolan birini güncelleme
+  - **post_text_activity**: [Oturum Açmayı Gerektirir] Yeni bir metin aktivitesi gönderme veya varolan birini güncelleme
+
+  ### Liste Araçları
+  - **get_user_anime_list**: Bir kullanıcının anime listesini alma
+  - **get_user_manga_list**: Bir kullanıcının manga listesini alma
+  - **add_list_entry**: [Oturum Açmayı Gerektirir] Yetkili kullanıcının listesine giriş ekleme
+  - **remove_list_entry**: [Oturum Açmayı Gerektirir] Yetkili kullanıcının listesinden giriş kaldırma
+  - **update_list_entry**: [Oturum Açmayı Gerektirir] Yetkili kullanıcının listesindeki girişi güncelleme
+
+  ### Medya Araçları
+  - **get_anime**: AniList ID'sine göre anime hakkında detaylı bilgi alma
+  - **get_manga**: AniList ID'sine göre manga hakkında detaylı bilgi alma
+  - **favourite_anime**: [Oturum Açmayı Gerektirir] Bir anime'yi ID'sine göre favoriye ekleme veya kaldırma
+  - **favourite_manga**: [Oturum Açmayı Gerektirir] Bir manga'yı ID'sine göre favoriye ekleme veya kaldırma
+
+  ### İnsanlar Araçları
+  - **get_character**: Karakter hakkında AniList ID'sine göre bilgi alma
+  - **get_staff**: Staff üyesi hakkında AniList ID'sine göre bilgi alma
+  - **favourite_character**: [Oturum Açmayı Gerektirir] Bir karakteri ID'sine göre favoriye ekleme veya kaldırma
+  - **favourite_staff**: [Oturum Açmayı Gerektirir] Bir staff üyesini ID'sine göre favoriye ekleme veya kaldırma
+  - **get_todays_birthday_characters**: Doğum günü bugün olan tüm karakterleri alma
+  - **get_todays_birthday_staff**: Doğum günü bugün olan tüm staff üyelerini alma
+
+  ### Tavsiye Araçları
+  - **get_recommendation**: AniList tavsiyesini ID'sine göre alma
+  - **get_recommendations_for_media**: Belirli bir medya için AniList tavsiyeleri alma
+
+  ### Arama Araçları
+  - **search_activity**: AniList'te aktiviteleri arama
+  - **search_anime**: Sorgu terimi ve filtreleriyle anime arama
+  - **search_manga**: Sorgu terimi ve filtreleriyle manga arama
+  - **search_character**: Sorgu terimini temel alan karakterleri arama
+  - **search_staff**: Sorgu terimini temel alan staff üyelerini arama
+  - **search_studio**: Sorgu terimini temel alan stüdyoları arama
+  - **search_user**: AniList'te kullanıcıları arama
+
+  ### Thread Araçları
+  - **get_thread**: AniList ID'sine göre belirli bir thread'i alma
+  - **get_thread_comments**: Belirli bir thread'in yorumlarını alma
+  - **delete_thread**: [Oturum Açmayı Gerektirir] Bir thread'i ID'sine göre silme
+
+  ### Kullanıcı Araçları
+  - **get_user_profile**: Bir kullanıcının AniList profilini alma
+  - **get_user_stats**: Bir kullanıcının AniList istatistiklerini alma
+  - **get_full_user_info**: Bir kullanıcının tam profil ve istatistik bilgilerini alma
+  - **get_user_recent_activity**: Bir kullanıcıdan son aktiviteleri alma
+  - **get_authorized_user**: [Oturum Açmayı Gerektirir] Güncel yetkili kullanıcının profil bilgilerini alma
+  - **follow_user**: [Oturum Açmayı Gerektirir] Bir kullanıcıyı ID'sine göre takip etme veya takibi bırakma
+  - **update_user**: [Oturum Açmayı Gerektirir] Kullanıcı ayarlarını güncelleme
+
+  ## Kullanım Örnekleri
+
+  ### Temel Anime Arama
+
+  ```
+  "Bocchi the Rock!" benzeri anime'leri arayabilir misin?
+  ```
+
+  ### Karakter Bilgisi Alma
+
+  ```
+  Hitori Gotoh karakteri hakkında bana bilgi verir misin? AniList araçlarını kullanarak bilgi bulmaya çalış.
+  ```
+
+  ### Stüdyo Çalışmalarını Karşılaştırma
+
+  ```
+  Studio Ghibli hangi anime'leri üretmiştir? En popüler eserlerini listeleyebilir misin?
+  ```
+
+  ## Yerel Geliştirme
+
+  Bu proje paket yöneticisi olarak [pnpm](https://pnpm.io) kullanır.
+
+  Depoyu klonlayın ve bağımlılıkları yükleyin:
+
+  ```bash
+  git clone https://github.com/yuna0x0/anilist-mcp.git
+  cd anilist-mcp
+  pnpm install
+  ```
+
+  ### Yapılandırma (İsteğe Bağlı)
+
+  1. Örneği kopyalayarak `.env` dosyası oluşturun:
+  ```bash
+  cp env.example .env
+  ```
+
+  2. `.env` dosyasını düzenleyin ve AniList API token'ınızı ekleyin:
+  ```
+  ANILIST_TOKEN=your_api_token
+  ```
+
+  ## MCP Inspector ile Hata Ayıklama
+
+  AniList MCP sunucusunu test etmek ve hata ayıklamak için MCP Inspector'ı kullanabilirsiniz:
+
+  ```bash
+  npx @modelcontextprotocol/inspector -e ANILIST_TOKEN=your_api_token npx anilist-mcp
+
+  # Yerel Geliştirme sırasında bunun yerine bunu kullanın
+  pnpm run inspector
+  ```
+
+  Ardından tarayıcınızı sağlanan URL'ye açın (genellikle http://localhost:6274) ve MCP Inspector arayüzüne erişin. Buradan şunları yapabilirsiniz:
+
+  1. Çalışan AniList MCP sunucusuna bağlanma
+  2. Mevcut araçlara göz atma
+  3. Özel parametrelerle araçları çalıştırma
+  4. Yanıtları görüntüleme
+
+  Bu, Claude Desktop gibi MCP istemcilerine bağlamadan önce kurulumunuzu test etmek için çok kullanışlıdır.
+
+  ## Docker
+
+  GitHub Container Registry'den çekin:
+  ```bash
+  docker pull ghcr.io/yuna0x0/anilist-mcp
+  ```
+
+  Docker build (Yerel Geliştirme):
+  ```bash
+  docker build -t ghcr.io/yuna0x0/anilist-mcp .
+  ```
+
+  Docker çoklu platform build (Yerel Geliştirme):
+  ```bash
+  docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/yuna0x0/anilist-mcp .
+  ```
+
+  ## MCP Bundles (MCPB)
+
+  Bu sunucu için bir MCP Bundle oluşturmak üzere şunu çalıştırın:
+  ```bash
+  pnpm run pack:mcpb
+  ```
+
+  ## Güvenlik Uyarısı
+
+  Bu MCP sunucusu AniList API token'ınızı .env dosyasında, ortam değişkeninde veya HTTP header'ında kabul eder. Bu bilgileri güvende tutun ve asla sürüm kontrolüne kaydetmeyin.
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 # AniList MCP Server

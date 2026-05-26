@@ -9,6 +9,512 @@ body_length: 40731
 license: "MIT"
 language: "Python"
 homepage: "https://www.npmjs.com/package/kubectl-mcp-server"
+body_tr: |-
+  <p align="center">
+    
+    <br>
+    <strong style="font-size: 24px;">kubectl-mcp-server</strong>
+  </p>
+
+  <p align="center">
+  <b>Tüm Kubernetes altyapınızı AI ile yapılan doğal dil konuşmaları aracılığıyla kontrol edin.</b><br>
+  Kümelerinizle DevOps uzmanıyla konuşuyor gibi konuşun. Çökmüş pod'ları debug edin, maliyetleri optimize edin, uygulamaları dağıtın, güvenliği denetleyin, Helm grafiklerini yönetin ve kontrol panolarını görselleştirin, hepsi doğal dil aracılığıyla.<br>
+  <b>CNCF Landscape'in Parçası, Terraform'un Yanında</b>
+  </p>
+
+
+
+  <p align="center">
+    <a href="https://github.com/rohitg00/kubectl-mcp-server"></a>
+    <a href="https://opensource.org/licenses/MIT"></a>
+    <a href="https://www.python.org/"></a>
+    <a href="https://kubernetes.io/"></a>
+    <a href="https://modelcontextprotocol.io"></a>
+  </p>
+
+  <p align="center">
+    <a href="https://pypi.org/project/kubectl-mcp-server/"></a>
+    <a href="https://www.npmjs.com/package/kubectl-mcp-server"></a>
+    <a href="https://hub.docker.com/r/rohitghumare64/kubectl-mcp-server"></a>
+    <a href="https://github.com/rohitg00/kubectl-mcp-server"></a>
+    <a href="https://aregistry.ai"></a>
+  </p>
+
+  ---
+
+  ## Kurulum
+
+  ### npx ile Hızlı Başlangıç (Önerilir - Kurulum Gerekmez)
+
+  ```bash
+  # Kurulum olmadan doğrudan çalıştırın - anında çalışır!
+  npx -y kubectl-mcp-server
+
+  # Veya daha hızlı başlangıç için genel olarak yükleyin
+  npm install -g kubectl-mcp-server
+  ```
+
+  ### Veya pip (Python) ile yükleyin
+
+  ```bash
+  # Standart kurulum
+  pip install kubectl-mcp-server
+
+  # İnteraktif UI kontrol panelleri ile (önerilir)
+  pip install kubectl-mcp-server[ui]
+  ```
+  ---
+
+  ## 📑 İçindekiler
+
+  - [Ne Yapabilirsiniz?](#ne-yapabilirsiniz)
+  - [Neden kubectl-mcp-server?](#neden-kubectl-mcp-server)
+  - [Canlı Demolar](#canlı-demolar)
+  - [Kurulum](#kurulum)
+    - [npx ile Hızlı Başlangıç](#npx-ile-hızlı-başlangıç-önerilir---kurulum-gerekmez)
+    - [pip ile Yükleyin](#veya-pip-python-ile-yükleyin)
+    - [Docker](#docker)
+  - [Başlarken](#başlarken)
+  - [AI Asistanınız ile Hızlı Kurulum](#ai-asistanınız-ile-hızlı-kurulum)
+  - [Tüm Desteklenen AI Asistanları](#tüm-desteklenen-ai-asistanları)
+  - [Tam Özellik Seti](#tam-özellik-seti)
+  - [CLI Kullanımı](#cli-kullanımı)
+  - [İleri Yapılandırma](#ileri-yapılandırma)
+  - [İsteğe Bağlı Özellikler](#i̇steğe-bağlı-i̇nteraktif-kontrol-panelleri-6-ui-aracı)
+    - [İnteraktif Kontrol Panelleri](#i̇steğe-bağlı-i̇nteraktif-kontrol-panelleri-6-ui-aracı)
+    - [Browser Otomasyonu](#i̇steğe-bağlı-browser-otomasyonu-26-araç)
+  - [Enterprise](#enterprise-oauth-21-kimlik-doğrulaması)
+  - [İntegrasyonlar ve Ekosistem](#i̇ntegrasyonlar-ve-ekosistem)
+  - [Küme İçi Dağıtım](#küme-i̇çi-dağıtım)
+  - [Çok Küme Desteği](#çok-küme-desteği)
+  - [Mimari](#mimari)
+  - [Agent Yetenekleri](#agent-yetenekleri-25-yapay-zeka-kodlama-ajanları-için-yetenek)
+  - [Geliştirme ve Test Etme](#geliştirme-ve-test-etme)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+  - [Destek ve Topluluk](#destek-ve-topluluk)
+
+  ---
+
+  ## Ne Yapabilirsiniz?
+
+  AI asistanınıza doğal dilde sorular sorun:
+
+  💬 **"Pod'um neden çöküyor?"**
+  - Anında çöküş teşhisi günlükleri, olayları ve kaynak analizi ile
+  - Kök neden tanımlaması ve uygulanabilir öneriler
+
+  💬 **"3 replika ile Redis kümesi dağıt"**
+  - En iyi uygulamalarla dağıtım oluşturur
+  - Hizmetleri, kalıcı depolamayı ve sağlık kontrollerini yapılandırır
+
+  💬 **"Hangi pod'lar kaynakları boşa harcıyor?"**
+  - AI tarafından desteklenen maliyet optimizasyonu analizi
+  - Olası tasarruflar ile kaynak önerileri
+
+  💬 **"Hangi hizmetler veritabanına ulaşamıyor?"**
+  - DNS çözünürlüğü ile ağ bağlantısı tanılaması
+  - Ingress'ten pod'lara hizmet zinciri izlemesi
+
+  💬 **"Tüm ad alanlarında güvenlik denetimi yap"**
+  - RBAC izin analizi
+  - Gizli güvenlik taraması ve pod güvenlik politikaları
+
+  💬 **"Küme kontrol panelini göster"**
+  - Canlı metriklerle etkileşimli HTML kontrol panelleri
+  - Olayların ve kaynak kullanımının görsel zaman çizelgesi
+
+  **253 güçlü araç** | **8 iş akışı istemi** | **8 veri kaynağı** | **Tüm büyük AI asistanları ile çalışır**
+
+  ## Neden kubectl-mcp-server?
+
+  - **🚀 Bağlam değiştirmeyi durdurun** - Kubernetes'i doğrudan AI asistanı konuşmalarınızdan yönetin
+  - **🧠 AI tarafından desteklenen tanı** - Ham veri değil, akıllı sorun giderme alın
+  - **💰 Yerleşik maliyet optimizasyonu** - Atıkları tanımlayın ve uygulanabilir tasarruf önerileri alın
+  - **🔒 Enterprise-ready** - OAuth 2.1 auth, RBAC doğrulaması, yapıcı olmayan mod, gizli maskeleme
+  - **⚡ Sıfır öğrenme eğrisi** - kubectl komutlarını ezberlemek yerine doğal dil
+  - **🌐 Evrensel uyumluluk** - Claude, Cursor, Windsurf, Copilot ve 15+ diğer AI araçları ile çalışır
+  - **📊 Görsel içgörüler** - İnteraktif kontrol panelleri ve web tabanlı araçlar için browser otomasyonu
+  - **☸️ Production-grade** - Küme içi kMCP ile dağıt, 216 geçen test, aktif bakım
+
+  Çökmüş pod'ları debug etmekten küme maliyetlerini optimize etmeye kadar, kubectl-mcp-server sizin AI tarafından güçlendirilmiş DevOps yardımcınızıdır.
+
+  ## Canlı Demolar
+
+  ### Claude Desktop
+  ![Claude MCP](https://raw.githubusercontent.com/rohitg00/kubectl-mcp-server/HEAD/docs/claude/claude-mcp.gif)
+
+  ### Cursor AI
+  ![Cursor MCP](https://raw.githubusercontent.com/rohitg00/kubectl-mcp-server/HEAD/docs/cursor/cursor-mcp.gif)
+
+  ### Windsurf
+  ![Windsurf MCP](https://raw.githubusercontent.com/rohitg00/kubectl-mcp-server/HEAD/docs/windsurf/windsurf-mcp.gif)
+
+  ## Kurulum
+
+  ### npx ile Hızlı Başlangıç (Önerilir - Kurulum Gerekmez)
+
+  ```bash
+  # Kurulum olmadan doğrudan çalıştırın - anında çalışır!
+  npx -y kubectl-mcp-server
+
+  # Veya daha hızlı başlangıç için genel olarak yükleyin
+  npm install -g kubectl-mcp-server
+  ```
+
+  ### Veya pip (Python) ile yükleyin
+
+  ```bash
+  # Standart kurulum
+  pip install kubectl-mcp-server
+
+  # İnteraktif UI kontrol panelleri ile (önerilir)
+  pip install kubectl-mcp-server[ui]
+  ```
+
+  ### GitHub Release'tan Yükleyin
+
+  ```bash
+  # GitHub release'ten doğrudan belirli versiyonu yükleyin ({VERSION} yerine istenen versiyonu kullanın)
+  pip install https://github.com/rohitg00/kubectl-mcp-server/releases/download/v{VERSION}/kubectl_mcp_server-{VERSION}-py3-none-any.whl
+
+  # Örnek: v1.19.0 yükleyin
+  pip install https://github.com/rohitg00/kubectl-mcp-server/releases/download/v1.19.0/kubectl_mcp_server-1.19.0-py3-none-any.whl
+
+  # Veya git'ten en son versiyonu yükleyin
+  pip install git+https://github.com/rohitg00/kubectl-mcp-server.git
+  ```
+
+  ### Ön Koşullar
+  - **Python 3.9+** (pip kurulumu için)
+  - **Node.js 14+** (npx kurulumu için)
+  - **kubectl** yüklü ve yapılandırılmış
+  - Kubernetes kümesine erişim
+
+  ### Docker
+
+  ```bash
+  # Docker Hub'dan çekin
+  docker pull rohitghumare64/kubectl-mcp-server:latest
+
+  # Veya GitHub Container Registry'den çekin
+  docker pull ghcr.io/rohitg00/kubectl-mcp-server:latest
+
+  # stdio transport ile çalıştırın
+  docker run -i -v $HOME/.kube:/root/.kube:ro rohitghumare64/kubectl-mcp-server:latest
+
+  # HTTP transport ile çalıştırın
+  docker run -p 8000:8000 -v $HOME/.kube:/root/.kube:ro rohitghumare64/kubectl-mcp-server:latest --transport sse
+  ```
+
+  ## Başlarken
+
+  ### 1. Sunucuyu Test Edin (İsteğe Bağlı)
+
+  AI asistanınızla entegre etmeden önce kurulumu doğrulayın:
+
+  ```bash
+  # kubectl'in yapılandırıldığını kontrol edin
+  kubectl cluster-info
+
+  # MCP sunucusunu doğrudan test edin
+  kubectl-mcp-server info
+
+  # Tüm kullanılabilir araçları listeleyin
+  kubectl-mcp-server tools
+
+  # Bir aracı çağırmayı deneyin
+  kubectl-mcp-server call get_pods '{"namespace": "kube-system"}'
+  ```
+
+  ### 2. AI Asistanınıza Bağlanın
+
+  Favori AI asistanınızı seçin ve yapılandırmayı ekleyin:
+
+  ## AI Asistanınız ile Hızlı Kurulum
+
+  ### Claude Desktop
+
+  `~/Library/Application Support/Claude/claude_desktop_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "npx",
+        "args": ["-y", "kubectl-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  ### Cursor AI
+
+  `~/.cursor/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "npx",
+        "args": ["-y", "kubectl-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  ### Windsurf
+
+  `~/.config/windsurf/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "npx",
+        "args": ["-y", "kubectl-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  ### Python Yerine Kullanma
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "python",
+        "args": ["-m", "kubectl_mcp_tool.mcp_server"],
+        "env": {
+          "KUBECONFIG": "/path/to/.kube/config"
+        }
+      }
+    }
+  }
+  ```
+
+  **Daha fazla entegrasyon**: GitHub Copilot, Goose, Gemini CLI, Roo Code ve [15+ diğer istemci](#mcp-istemci-uyumluluğu) —> aşağıdaki [tam yapılandırma kılavuzuna](#tüm-desteklenen-ai-asistanları) bakın.
+
+  ### 3. AI Asistanınızı Yeniden Başlatın
+
+  Yapılandırmayı ekledikten sonra, MCP sunucusunu yüklemek için AI asistanınızı **(GitHub Copilot, Claude Code, Claude Desktop, Cursor, vb.)** yeniden başlatın.
+
+  ### 4. Bu Komutları Deneyin
+
+  AI asistanınızla bir konuşma başlatın ve şunları deneyin:
+
+  **Sorun Giderme:**
+  ```
+  "kube-system ad alanındaki tüm pod'ları göster"
+  "nginx-deployment pod'u neden çöküyor?"
+  "default ad alanında ağ bağlantısı sorunlarını tanıla"
+  ```
+
+  **Dağıtımlar:**
+  ```
+  "nginx için 3 replika ile dağıtım oluştur"
+  "frontend dağıtımımı 5 replika'ya ölçeklendir"
+  "api-server dağıtımını önceki versiyona geri al"
+  ```
+
+  **Maliyet ve Optimizasyon:**
+  ```
+  "En fazla kaynak kullanan pod'lar hangileri?"
+  "Para boşa harcayan boş kaynakları göster"
+  "production ad alanında maliyet optimizasyonu fırsatlarını analiz et"
+  ```
+
+  **Güvenlik:**
+  ```
+  "Tüm ad alanlarında RBAC izinlerini denetle"
+  "Güvensiz gizli anahtarları ve yapılandırmaları kontrol et"
+  "Ayrıcalıklı erişim ile çalışan pod'ları göster"
+  ```
+
+  **Helm:**
+  ```
+  "Kümede tüm Helm versiyonlarını listele"
+  "Bitnami grafik deposundan Redis'i yükle"
+  "nginx-ingress Helm sürümümün değerlerini göster"
+  ```
+
+  **Çok Küme:**
+  ```
+  "Kullanılabilir tüm Kubernetes bağlamlarını listele"
+  "production küme bağlamına geç"
+  "Küme bilgisini ve versiyonunu göster"
+  ```
+
+  ## MCP İstemci Uyumluluğu
+
+  **Tüm MCP uyumlu AI asistanları** ile sorunsuz çalışır:
+
+  | İstemci | Durum | İstemci | Durum |
+  |---------|-------|--------|-------|
+  | Claude Desktop | ✅ Yerel | Claude Code | ✅ Yerel |
+  | Cursor | ✅ Yerel | Windsurf | ✅ Yerel |
+  | GitHub Copilot | ✅ Yerel | OpenAI Codex | ✅ Yerel |
+  | Gemini CLI | ✅ Yerel | Goose | ✅ Yerel |
+  | Roo Code | ✅ Yerel | Kilo Code | ✅ Yerel |
+  | Amp | ✅ Yerel | Trae | ✅ Yerel |
+  | OpenCode | ✅ Yerel | Kiro CLI | ✅ Yerel |
+  | Antigravity | ✅ Yerel | Clawdbot | ✅ Yerel |
+  | Droid (Factory) | ✅ Yerel | Herhangi bir MCP İstemci | ✅ Uyumlu |
+
+  ## Tüm Desteklenen AI Asistanları
+
+  ### Claude Code
+
+  `~/.config/claude-code/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "npx",
+        "args": ["-y", "kubectl-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  ### GitHub Copilot (VS Code)
+
+  VS Code `settings.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcp": {
+      "servers": {
+        "kubernetes": {
+          "command": "npx",
+          "args": ["-y", "kubectl-mcp-server"]
+        }
+      }
+    }
+  }
+  ```
+
+  ### Goose
+
+  `~/.config/goose/config.yaml` dosyasına ekleyin:
+
+  ```yaml
+  extensions:
+    kubernetes:
+      command: npx
+      args:
+        - -y
+        - kubectl-mcp-server
+  ```
+
+  ### Gemini CLI
+
+  `~/.gemini/settings.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "npx",
+        "args": ["-y", "kubectl-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  ### Roo Code / Kilo Code
+
+  `~/.config/roo-code/mcp.json` veya `~/.config/kilo-code/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "kubernetes": {
+        "command": "npx",
+        "args": ["-y", "kubectl-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  ## Tam Özellik Seti
+
+  ### 253 MCP Aracı Eksiksiz Kubernetes Yönetimi için
+
+  | Kategori | Araçlar |
+  |----------|---------|
+  | **Pod'lar** | `get_pods`, `get_logs`, `get_pod_events`, `check_pod_health`, `exec_in_pod`, `cleanup_pods`, `get_pod_conditions`, `get_previous_logs` |
+  | **Dağıtımlar** | `get_deployments`, `create_deployment`, `scale_deployment`, `kubectl_rollout`, `restart_deployment` |
+  | **İş Yükleri** | `get_statefulsets`, `get_daemonsets`, `get_jobs`, `get_replicasets` |
+  | **Hizmetler ve Ağ** | `get_services`, `get_ingress`, `get_endpoints`, `diagnose_network_connectivity`, `check_dns_resolution`, `trace_service_chain` |
+  | **Depolama** | `get_persistent_volumes`, `get_pvcs`, `get_storage_classes` |
+  | **Yapılandırma** | `get_configmaps`, `get_secrets`, `get_resource_quotas`, `get_limit_ranges` |
+  | **Küme** | `get_nodes`, `get_namespaces`, `get_cluster_info`, `get_cluster_version`, `health_check`, `get_node_metrics`, `get_pod_metrics` |
+  | **RBAC ve Güvenlik** | `get_rbac_roles`, `get_cluster_roles`, `get_service_accounts`, `audit_rbac_permissions`, `check_secrets_security`, `get_pod_security_info`, `get_admission_webhooks` |
+  | **CRD'ler** | `get_crds`, `get_priority_classes` |
+  | **Helm Sürümleri** | `helm_list`, `helm_status`, `helm_history`, `helm_get_values`, `helm_get_manifest`, `helm_get_notes`, `helm_get_hooks`, `helm_get_all` |
+  | **Helm Grafikleri** | `helm_show_chart`, `helm_show_values`, `helm_show_readme`, `helm_show_crds`, `helm_show_all`, `helm_search_repo`, `helm_search_hub` |
+  | **Helm Depoları** | `helm_repo_list`, `helm_repo_add`, `helm_repo_remove`, `helm_repo_update` |
+  | **Helm İşlemleri** | `install_helm_chart`, `upgrade_helm_chart`, `uninstall_helm_chart`, `helm_rollback`, `helm_test`, `helm_template`, `helm_template_apply` |
+  | **Helm Geliştirme** | `helm_create`, `helm_lint`, `helm_package`, `helm_pull`, `helm_dependency_list`, `helm_dependency_update`, `helm_dependency_build`, `helm_version`, `helm_env` |
+  | **Bağlam** | `get_current_context`, `switch_context`, `list_contexts`, `list_kubeconfig_contexts` |
+  | **Tanılamalar** | `diagnose_pod_crash`, `detect_pending_pods`, `get_evicted_pods`, `compare_namespaces` |
+  | **İşlemler** | `kubectl_apply`, `kubectl_create`, `kubectl_describe`, `kubectl_patch`, `delete_resource`, `kubectl_cp`, `backup_resource`, `label_resource`, `annotate_resource`, `taint_node`, `wait_for_condition` |
+  | **Otomatik Ölçeklendirme** | `get_hpa`, `get_pdb` |
+  | **Maliyet Optimizasyonu** | `get_resource_recommendations`, `get_idle_resources`, `get_resource_quotas_usage`, `get_cost_analysis`, `get_overprovisioned_resources`, `get_resource_trends`, `get_namespace_cost_allocation`, `optimize_resource_requests` |
+  | **İleri** | `kubectl_generic`, `kubectl_explain`, `get_api_resources`, `port_forward`, `get_resource_usage`, `node_management` |
+  | **UI Kontrol Panelleri** | `show_pod_logs_ui`, `show_pods_dashboard_ui`, `show_resource_yaml_ui`, `show_cluster_overview_ui`, `show_events_timeline_ui`, `render_k8s_dashboard_screenshot` |
+  | **GitOps (Flux/Argo)** | `gitops_apps_list`, `gitops_app_get`, `gitops_app_sync`, `gitops_app_status`, `gitops_sources_list`, `gitops_source_get`, `gitops_detect_engine` |
+  | **Cert-Manager** | `certs_list`, `certs_get`, `certs_issuers_list`, `certs_issuer_get`, `certs_renew`, `certs_status_explain`, `certs_challenges_list`, `certs_requests_list`, `certs_detect` |
+  | **Policy (Kyverno/Gatekeeper)** | `policy_list`, `policy_get`, `policy_violations_list`, `policy_explain_denial`, `policy_audit`, `policy_detect` |
+  | **Yedekleme (Velero)** | `backup_list`, `backup_get`, `backup_create`, `backup_delete`, `restore_list`, `restore_create`, `restore_get`, `backup_locations_list`, `backup_schedules_list`, `backup_schedule_create`, `backup_detect` |
+  | **KEDA Otomatik Ölçeklendirme** | `keda_scaledobjects_list`, `keda_scaledobject_get`, `keda_scaledjobs_list`, `keda_triggerauths_list`, `keda_triggerauth_get`, `keda_hpa_list`, `keda_detect` |
+  | **Cilium/Hubble** | `cilium_policies_list`, `cilium_policy_get`, `cilium_endpoints_list`, `cilium_identities_list`, `cilium_nodes_list`, `cilium_status`, `hubble_flows_query`, `cilium_detect` |
+  | **Argo Rollouts/Flagger** | `rollouts_list`, `rollout_get`, `rollout_status`, `rollout_promote`, `rollout_abort`, `rollout_retry`, `rollout_restart`, `analysis_runs_list`, `flagger_canaries_list`, `flagger_canary_get`, `rollouts_detect` |
+  | **Cluster API** | `capi_clusters_list`, `capi_cluster_get`, `capi_machines_list`, `capi_machine_get`, `capi_machinedeployments_list`, `capi_machinedeployment_scale`, `capi_machinesets_list`, `capi_machinehealthchecks_list`, `capi_clusterclasses_list`, `capi_cluster_kubeconfig`, `capi_detect` |
+  | **KubeVirt VM'leri** | `kubevirt_vms_list`, `kubevirt_vm_get`, `kubevirt_vmis_list`, `kubevirt_vm_start`, `kubevirt_vm_stop`, `kubevirt_vm_restart`, `kubevirt_vm_pause`, `kubevirt_vm_unpause`, `kubevirt_vm_migrate`, `kubevirt_datasources_list`, `kubevirt_instancetypes_list`, `kubevirt_datavolumes_list`, `kubevirt_detect` |
+  | **Istio/Kiali** | `istio_virtualservices_list`, `istio_virtualservice_get`, `istio_destinationrules_list`, `istio_gateways_list`, `istio_peerauthentications_list`, `istio_authorizationpolicies_list`, `istio_proxy_status`, `istio_analyze`, `istio_sidecar_status`, `istio_detect` |
+  | **vCluster (vind)** | `vind_detect_tool`, `vind_list_clusters_tool`, `vind_status_tool`, `vind_get_kubeconfig_tool`, `vind_logs_tool`, `vind_create_cluster_tool`, `vind_delete_cluster_tool`, `vind_pause_tool`, `vind_resume_tool`, `vind_connect_tool`, `vind_disconnect_tool`, `vind_upgrade_tool`, `vind_describe_tool`, `vind_platform_start_tool` |
+  | **kind (Docker'da K8s)** | `kind_detect_tool`, `kind_version_tool`, `kind_list_clusters_tool`, `kind_get_nodes_tool`, `kind_get_kubeconfig_tool`, `kind_export_logs_tool`, `kind_cluster_info_tool`, `kind_node_labels_tool`, `kind_create_cluster_tool`, `kind_delete_cluster_tool`, `kind_delete_all_clusters_tool`, `kind_load_image_tool`, `kind_load_image_archive_tool`, `kind_build_node_image_tool`, `kind_set_kubeconfig_tool` |
+
+  ### MCP Kaynakları
+
+  Kubernetes verilerine tarayıcı yapılabilir kaynaklar olarak erişin:
+
+  | Kaynak URI | Açıklama |
+  |------------|----------|
+  | `kubeconfig://contexts` | Tüm kullanılabilir kubectl bağlamlarını listele |
+  | `kubeconfig://current-context` | Geçerli etkin bağlamı al |
+  | `namespace://current` | Geçerli ad alanını al |
+  | `namespace://list` | Tüm ad alanlarını listele |
+  | `cluster://info` | Küme bilgisini al |
+  | `cluster://nodes` | Ayrıntılı düğüm bilgisini al |
+  | `cluster://version` | Kubernetes sürümünü al |
+  | `cluster://api-resources` | Kullanılabilir API kaynaklarını listele |
+  | `manifest://deployments/{ns}/{name}` | Dağıtım YAML'ını al |
+  | `manifest://services/{ns}/{name}` | Hizmet YAML'ını al |
+  | `manifest://pods/{ns}/{name}` | Pod YAML'ını al |
+  | `manifest://configmaps/{ns}/{name}` | ConfigMap YAML'ını al |
+  | `manifest://secrets/{ns}/{name}` | Gizli YAML'ını al (veri maskelenmiş) |
+  | `manifest://ingresses/{ns}/{name}` | Ingress YAML'ını al |
+
+  ### MCP İstemleri
+
+  Yaygın Kubernetes işlemleri için önceden oluşturulmuş iş akışı istekleri:
+
+  | İstem | Açıklama |
+  |------|----------|
+  | `troubleshoot_workload` | Pod'lar/dağıtımlar için kapsamlı sorun giderme kılavuzu |
+  | `deploy_application` | Adım adım dağıtım iş akışı |
+  | `security_audit` | Güvenlik taraması ve RBAC analizi iş akışı |
+  | `cost_optimization` | Kaynak optimizasyonu ve maliyet analizi iş akışı |
+  | `disaster_recovery` | Yedekleme ve kurtarma planlama iş akışı |
+  | `debug_networking` | Hizmetler ve bağlantı için ağ hata ayıklaması |
+  | `scale_application` | HPA/VPA en iyi uygulamaları ile ölçeklendirme kılavuzu |
+  | `upgrade_cluster` | Kubernetes kümesi yükseltme planlama |
+
+  ### Temel
 ---
 
 <p align="center">

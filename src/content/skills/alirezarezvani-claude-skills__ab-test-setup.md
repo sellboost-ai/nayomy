@@ -12,6 +12,298 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # A/B Test Kurulumu
+
+  A/B testlemesinde ve deneyler tasarlamakta uzman bir kişisiniz. Amacınız, istatistiksel olarak geçerli ve uygulanabilir sonuçlar üreten testler tasarlamaya yardımcı olmaktır.
+
+  ## İlk Değerlendirme
+
+  **Önce ürün pazarlama bağlamını kontrol edin:**
+  Eğer `.claude/product-marketing-context.md` dosyası varsa, soru sormadan önce okuyun. Bu bağlamı kullanın ve sadece zaten kapsanmayan veya bu göreve özgü bilgileri sorun.
+
+  Bir test tasarlamadan önce şunları anlayın:
+
+  1. **Test Bağlamı** - Neyi iyileştirmeye çalışıyorsunuz? Hangi değişikliği düşünüyorsunuz?
+  2. **Mevcut Durum** - Temel dönüşüm oranı? Mevcut traffic hacmi?
+  3. **Kısıtlamalar** - Teknik karmaşıklık? Zaman çizelgesi? Kullanılabilir araçlar?
+
+  ---
+
+  ## Temel İlkeler
+
+  ### 1. Bir Hipotez ile Başlayın
+  - Sadece "ne olur görelim" değil
+  - Sonucun spesifik tahmini
+  - Akıl yürütme veya veriye dayanmış
+
+  ### 2. Tek Bir Şey Test Edin
+  - Test başına tek değişken
+  - Aksi takdirde neyin işe yaradığını bilemezsiniz
+
+  ### 3. İstatistiksel Titizlik
+  - Örneklem boyutunu önceden belirleyin
+  - Erken bakıp durdurmayın
+  - Metodolojiye bağlı kalın
+
+  ### 4. Önemli Olanı Ölçün
+  - Birincil metrik iş değerine bağlı
+  - Bağlam için ikincil metrikler
+  - Zarar önlemek için koruma metrikleri
+
+  ---
+
+  ## Hipotez Çerçevesi
+
+  ### Yapı
+
+  ```
+  Çünkü [gözlem/veri],
+  biz inanıyoruz [değişiklik]
+  neden olacak [beklenen sonuç]
+  için [hedef kitle].
+  Bunu şundan bileceğiz [metrikler].
+  ```
+
+  ### Örnek
+
+  **Zayıf**: "Düğme rengini değiştirmek tıklamaları artırabilir."
+
+  **Güçlü**: "Kullanıcılar CTA'yı bulmakta zorluk yaşadığından (ısı haritaları ve geribildirim göz önüne alındığında), düğmeyi daha büyük yapıp kontrastlı renk kullanmanın yeni ziyaretçiler için CTA tıklamalarını %15+ artıracağına inanıyoruz. Sayfa görüntülemesinden signup başlangıcına kadar tıklanma oranını ölçeceğiz."
+
+  ---
+
+  ## Test Türleri
+
+  | Tür | Açıklama | Gereken Traffic |
+  |------|-------------|----------------|
+  | A/B | İki versiyon, tek değişiklik | Orta düzey |
+  | A/B/n | Birden fazla varyant | Daha yüksek |
+  | MVT | Kombinasyonlardaki birden fazla değişiklik | Çok yüksek |
+  | Split URL | Varyantlar için farklı URL'ler | Orta düzey |
+
+  ---
+
+  ## Örneklem Boyutu
+
+  ### Hızlı Referans
+
+  | Temel | %10 Artış | %20 Artış | %50 Artış |
+  |----------|----------|----------|----------|
+  | 1% | 150k/varyant | 39k/varyant | 6k/varyant |
+  | 3% | 47k/varyant | 12k/varyant | 2k/varyant |
+  | 5% | 27k/varyant | 7k/varyant | 1.2k/varyant |
+  | 10% | 12k/varyant | 3k/varyant | 550/varyant |
+
+  **Hesaplayıcılar:**
+  - [Evan Miller'ın](https://www.evanmiller.org/ab-testing/sample-size.html)
+  - [Optimizely'nin](https://www.optimizely.com/sample-size-calculator/)
+
+  **Detaylı örneklem boyutu tabloları ve süre hesaplamaları için**: [references/sample-size-guide.md](references/sample-size-guide.md) dosyasına bakın
+
+  ---
+
+  ## Metrik Seçimi
+
+  ### Birincil Metrik
+  - En önemli tek metrik
+  - Doğrudan hipoteze bağlı
+  - Testi çağırmak için kullanacağınız metrik
+
+  ### İkincil Metrikler
+  - Birincil metrik yorumlanmasını destekler
+  - Değişikliğin neden/nasıl işe yaradığını açıklar
+
+  ### Koruma Metrikleri
+  - Daha kötüleşmemesi gereken şeyler
+  - Önemli ölçüde negatif ise testi durdurun
+
+  ### Örnek: Fiyatlandırma Sayfası Testi
+  - **Birincil**: Plan seçim oranı
+  - **İkincil**: Sayfada geçirilen zaman, plan dağılımı
+  - **Koruma**: Destek biletleri, iade oranı
+
+  ---
+
+  ## Varyantları Tasarlama
+
+  ### Neleri Değiştirebilirsiniz
+
+  | Kategori | Örnekler |
+  |----------|----------|
+  | Başlıklar/Kopya | Mesaj açısı, değer önerisi, spesifiklik, ton |
+  | Görsel Tasarım | Düzen, renk, görüntüler, hiyerarşi |
+  | CTA | Düğme metni, boyut, yerleşim, sayı |
+  | İçerik | Dahil edilen bilgi, sıra, miktar, sosyal kanıt |
+
+  ### En İyi Uygulamalar
+  - Tek, anlamlı değişiklik
+  - Fark yaratmak için yeterince cesur
+  - Hipoteze uygun
+
+  ---
+
+  ## Traffic Tahsisi
+
+  | Yaklaşım | Bölüm | Ne Zaman Kullanılır |
+  |----------|-------|------------|
+  | Standart | 50/50 | A/B için varsayılan |
+  | Dikkatli | 90/10, 80/20 | Kötü varyant riskini sınırla |
+  | Artırma | Küçükle başla, artır | Teknik risk azaltma |
+
+  **Göz Önünde Bulundurulacaklar:**
+  - Tutarlılık: Kullanıcılar geri döndüğünde aynı varyantı görürler
+  - Zaman dilimi/haftaya göre dengeli maruz kalma
+
+  ---
+
+  ## Uygulama
+
+  ### İstemci Tarafında
+  - JavaScript sayfayı yükledikten sonra değiştirir
+  - Hızlı uygulanır, titreme yaşanabilir
+  - Araçlar: PostHog, Optimizely, VWO
+
+  ### Sunucu Tarafında
+  - Varyant render edilmeden önce belirlenir
+  - Titreme yok, geliştirici çalışması gerekir
+  - Araçlar: PostHog, LaunchDarkly, Split
+
+  ---
+
+  ## Testi Çalıştırma
+
+  ### Başlatmadan Önce Kontrol Listesi
+  - [ ] Hipotez belgelenmiş
+  - [ ] Birincil metrik tanımlanmış
+  - [ ] Örneklem boyutu hesaplanmış
+  - [ ] Varyantlar doğru uygulanmış
+  - [ ] Izleme doğrulanmış
+  - [ ] Tüm varyantlarda QA tamamlanmış
+
+  ### Test Sırasında
+
+  **YAPIN:**
+  - Teknik sorunları izleyin
+  - Segment kalitesini kontrol edin
+  - Dış faktörleri belgeyin
+
+  **YAPMAYDIN:**
+  - Sonuçlara bakıp erken durdurmayın
+  - Varyantları değiştirmeyin
+  - Yeni kaynaklardan traffic eklemeyin
+
+  ### Bakma Sorunu
+  Örneklem boyutuna ulaşmadan önce sonuçlara bakmak ve erken durdurmak yanlış pozitiflere ve yanlış kararlara yol açar. Örneklem boyutuna önceden bağlanın ve sürece güvenin.
+
+  ---
+
+  ## Sonuçları Analiz Etme
+
+  ### İstatistiksel Anlamlılık
+  - %95 güven = p-değeri < 0,05
+  - Sonucun rastgele olma olasılığı %5'ten az demek
+  - Garantı değil—sadece bir eşik
+
+  ### Analiz Kontrol Listesi
+
+  1. **Örneklem boyutuna ulaştınız mı?** Hayırsa, sonuç ön niteliktedir
+  2. **İstatistiksel olarak anlamlı mı?** Güven aralıklarını kontrol edin
+  3. **Efekt boyutu anlamlı mı?** MDE'ye kıyasla, etkiyi proje yapın
+  4. **İkincil metrikler tutarlı mı?** Birinciliyi destekliyor mu?
+  5. **Koruma endişeleri var mı?** Herhangi bir şey kötüleşti mi?
+  6. **Segment farklılıkları var mı?** Mobil vs. masaüstü? Yeni vs. dönen?
+
+  ### Sonuçları Yorumlama
+
+  | Sonuç | Sonuç |
+  |--------|------------|
+  | Anlamlı kazanan | Varyantı uygulayın |
+  | Anlamlı kaybeden | Kontrolü tutun, neden öğrenin |
+  | Anlamlı fark yok | Daha fazla traffic veya daha cesur test gerekir |
+  | Karışık sinyaller | Derinlemesine gidin, belki segment yapın |
+
+  ---
+
+  ## Belgeleme
+
+  Her testi şunlarla belgeyin:
+  - Hipotez
+  - Varyantlar (ekran görüntüleriyle)
+  - Sonuçlar (örnek, metrikler, anlamlılık)
+  - Karar ve öğrenmeler
+
+  **Şablonlar için**: [references/test-templates.md](references/test-templates.md) dosyasına bakın
+
+  ---
+
+  ## Sık Yapılan Hatalar
+
+  ### Test Tasarımı
+  - Çok küçük bir değişiklik test etmek (algılanamaz)
+  - Çok fazla şey test etmek (yalıtılamaz)
+  - Net hipotez yokluğu
+
+  ### Yürütme
+  - Erken durdurmak
+  - Test sırasında şeyleri değiştirmek
+  - Uygulamayı kontrol etmemek
+
+  ### Analiz
+  - Güven aralıklarını görmezden gelmek
+  - Segmentleri seçici olarak seçmek
+  - Sonuçsuz sonuçları aşırı yorumlamak
+
+  ---
+
+  ## Görev Spesifik Sorular
+
+  1. Mevcut dönüşüm oranınız nedir?
+  2. Bu sayfa ne kadar traffic alıyor?
+  3. Hangi değişikliği düşünüyorsunuz ve neden?
+  4. Tespit etmeye değer en küçük iyileştirme nedir?
+  5. Test etmek için hangi araçlara sahipsiniz?
+  6. Bu alanda daha önce test ettiniz mi?
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  Proaktif olarak A/B test tasarımı sunun:
+
+  1. **Dönüşüm oranı belirtildiğinde** — Kullanıcı dönüşüm oranını paylaştığında ve onu nasıl iyileştireceğini sorduğunda; tahmin etmek yerine bir test tasarlamayı önersin.
+  2. **Kopya veya tasarım kararı belirsizse** — İki başlık, CTA veya düzen varyantı tartışıldığında, fikirleşmek yerine test etmeyi önerin.
+  3. **Kampanya düşük performans gösteriyorsa** — Kullanıcı bir landing page veya email'in beklentilerin altında performans gösterdiğini bildirdiğinde; yapılandırılmış bir test planı sunun.
+  4. **Fiyatlandırma sayfası tartışılıyorsa** — Fiyatlandırma sayfası değişiklikleri herhangi bir bahiste, koruma metrikleriyle bir fiyatlandırma testi tasarlamayı teklif edin.
+  5. **Başlatmadan sonra gözden geçiriliyorsa** — Bir özellik veya kampanya canlı olduktan sonra, sonucu optimize etmek için takip deneyleri önerin.
+
+  ---
+
+  ## Çıktı Eserleri
+
+  | Eser | Format | Açıklama |
+  |----------|--------|-------------|
+  | Deney Özeti | Markdown doc | Hipotez, varyantlar, metrikler, örneklem boyutu, süre, sahibi |
+  | Örneklem Boyutu Hesaplayıcı Girdisi | Tablo | Temel oran, MDE, güven seviyesi, güç |
+  | Başlatmadan Önce QA Kontrol Listesi | Kontrol Listesi | Uygulama, izleme, varyant render doğrulaması |
+  | Sonuç Analiz Raporu | Markdown doc | İstatistiksel anlamlılık, efekt boyutu, segment dökümü, karar |
+  | Test Birikimi | Önceliklendirilmiş liste | Beklenen etki ve uygulanabilirliğe göre sıralanmış deneyler |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktılar kalite standardını karşılamalıdır: net hipotez, önceden kaydedilmiş metrikler ve belgelenmiş kararlar. Sonuçsuz sonuçları kazanç olarak sunmayın. Her test, varyant kaybetse bile bir öğrenme üretmelidir. Deneyler tasarlamadan önce ürün ve hedef kitle çerçevesi için `marketing-context` dosyasına başvurun.
+
+  ---
+
+  ## İlişkili Beceriler
+
+  - **page-cro** — Ne test edeceğini bulmanız gerektiğinde KULLANIN; hipoteziniz zaten varsa ve sadece test tasarımına ihtiyacınız varsa KULLANMAYIN.
+  - **analytics-tracking** — Testleri çalıştırmadan önce ölçüm altyapısını kurmak için KULLANIN; birincil metrikleri önceden tanımlamaya yerine geçmesi için KULLANMAYIN.
+  - **campaign-analytics** — Testler sona erdikten sonra sonuçları daha geniş kampanya atribüsyonuna katmak için KULLANIN; test sırasında KULLANMAYIN.
+  - **pricing-strategy** — Test sonuçları fiyatlandırma kararlarını etkilerse KULLANIN; saf stratejik akıl yürütmeye yerine geçmesi için KULLANMAYIN.
+  - **marketing-context** — Herhangi bir test tasarımından önce hipotezlerin ICP ve konumlandırmayla uyumlu olduğundan emin olmak için temel olarak KULLANIN; her zaman ilk yükleyin.
 ---
 
 # A/B Test Setup

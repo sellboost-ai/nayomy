@@ -8,6 +8,213 @@ url: "https://github.com/securityfortech/secops-mcp"
 body_length: 6219
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Güvenlik İşlemleri Çok Araçlı Platform (MCP)
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/securityfortech/secops-mcp)](https://archestra.ai/mcp-catalog/securityfortech__secops-mcp)
+
+  Birden fazla güvenlik aracını birleşik bir arayüzde entegre eden kapsamlı bir güvenlik işlemleri platformu. Bu platform, çeşitli güvenlik taraması ve test araçlarını çalıştırmak için merkezi bir yol sağlar.
+
+  ## Özellikler
+
+  - **Birleşik Arayüz**: Birden fazla güvenlik aracı için tek giriş noktası
+  - **Docker Desteği**: Docker kullanarak kolay dağıtım
+  - **JSON Çıktısı**: Tüm araçlar arasında tutarlı JSON çıktı formatı
+  - **Hata Yönetimi**: Güçlü hata işleme ve raporlama
+  - **Genişletilebilir**: Yeni araçlar ve işlevleri kolayca ekleme
+
+  ## Dahil Edilen Araçlar
+
+  - **Nuclei**: Hızlı ve özelleştirilebilir zafiyet tarayıcısı
+  - **FFUF**: Hızlı web fuzzer ve içerik keşif aracı
+  - **Amass**: Derinlemesine saldırı yüzeyi eşlemesi ve dış varlık keşfi
+  - **Arjun**: Gizli parametreleri bulmak için HTTP parametresi keşif aracı
+  - **Dirsearch**: Web yolu tarayıcısı
+  - **Gospider**: Crawling ve URL keşfi için hızlı web spider
+  - **Hashcat**: Gelişmiş parola kurtarma
+  - **HTTPX**: Hızlı ve çok amaçlı HTTP toolkit
+  - **IPInfo**: IP adresi bilgi toplama
+  - **Nmap**: Ağ keşfi ve güvenlik denetimi
+  - **SQLMap**: Otomatik SQL injection ve veritabanı devralmesi aracı
+  - **Subfinder**: Subdomain keşif aracı
+  - **TLSX**: TLS/SSL taraması ve analizi
+  - **WFuzz**: Web uygulaması fuzzer
+  - **XSStrike**: Gelişmiş XSS tespiti ve istismarı
+
+  ## Araç Kategorileri
+
+  ### Web Uygulaması Güvenliği
+  - **Nuclei**: Özel şablonlarla zafiyet taraması
+  - **FFUF**: Hızlı web fuzzing ve içerik keşfi
+  - **WFuzz**: Web uygulaması fuzzing
+  - **XSStrike**: XSS tespiti ve istismarı
+  - **SQLMap**: SQL injection testi ve istismarı
+  - **Arjun**: HTTP parametresi keşfi ve testi
+  - **Gospider**: Web crawling ve URL keşfi
+  - **Dirsearch**: Dizin ve dosya enumerasyonu
+
+  ### Ağ Güvenliği
+  - **Nmap**: Ağ taraması ve servis enumerasyonu
+  - **HTTPX**: HTTP probing ve analizi
+  - **TLSX**: TLS/SSL yapılandırması analizi
+
+  ### Keşif
+  - **Amass**: Saldırı yüzeyi eşlemesi ve varlık keşfi
+  - **Subfinder**: Subdomain enumerasyonu
+  - **IPInfo**: IP adresi zekası toplama
+
+  ### Kriptografi
+  - **Hashcat**: Parola kırma ve hash analizi
+
+  ## Son Eklenenler
+
+  ### Gospider Entegrasyonu
+  - **Web Crawling**: Otomatik website crawling ve URL keşfi
+  - **Birden Fazla Çıktı Formatı**: JSON ve metin çıktısı desteği
+  - **Filtreleme Yetenekleri**: Uzantı tabanlı filtreleme ve içerik filtreleme
+  - **Özelleştirilebilir Derinlik**: Ayarlanabilir crawling derinliği ve eşzamanlılık
+  - **Subdomain Desteği**: Crawling'de alt domainleri dahil etme seçeneği
+  - **Form Tespiti**: Otomatik HTML form tespiti
+  - **Gizli Bilgi Keşfi**: Potansiyel hassas bilgilerin tanımlanması
+
+  ### Arjun Entegrasyonu
+  - **Parametre Keşfi**: Web uygulamalarında gizli HTTP parametrelerini bulma
+  - **Birden Fazla HTTP Metodu**: GET, POST, PUT ve diğer metodlar desteği
+  - **Toplu Tarama**: Birden fazla URL'yi aynı anda tarama
+  - **Özel Wordlistler**: Özel parametre wordlistleri kullanma
+  - **Kararlı Mod**: Kararlı tarama moduyla azaltılmış yalış pozitifleri
+  - **Özel Header'lar**: Özel HTTP header'ları ve kimlik doğrulama desteği
+  - **Threading Desteği**: Hızlı taramalar için yapılandırılabilir threading
+
+  ## Kurulum
+
+  ### Docker Kullanarak (Önerilen)
+
+  1. Repository'yi klonlayın:
+     ```bash
+     git clone https://github.com/securityfortech/secops-mcp.git
+     cd secops-mcp
+     ```
+
+  2. Docker image'ını oluşturun:
+     ```bash
+     docker build -t secops-mcp .
+     ```
+
+  3. Container'ı çalıştırın:
+     ```bash
+     docker run -it --rm secops-mcp
+     ```
+
+  ### Manuel Kurulum
+
+  1. Repository'yi klonlayın:
+     ```bash
+     git clone https://github.com/securityfortech/secops-mcp.git
+     cd secops-mcp
+     ```
+
+  2. Virtual environment oluşturun ve etkinleştirin:
+     ```bash
+     python -m venv venv
+     source venv/bin/activate  # Windows'ta: venv\Scripts\activate
+     ```
+
+  3. Bağımlılıkları yükleyin:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+  4. Gerekli araçları yükleyin:
+     - `tools/` dizinindeki her araç için kurulum talimatlarını izleyin
+     - Tüm araçların sistem PATH'inizde olduğundan emin olun
+
+  ## Kullanım
+
+  1. Uygulamayı başlatın:
+     ```bash
+     python main.py
+     ```
+
+  2. Uygulama, çeşitli güvenlik araçlarını çalıştırmak için birleşik bir arayüz sağlayacaktır.
+
+  3. Her araç tutarlı bir JSON formatında sonuçlar döndürür:
+     ```json
+     {
+         "success": boolean,
+         "error": string (hata durumunda),
+         "results": object (başarı durumunda)
+     }
+     ```
+
+  ## Kullanım Örnekleri
+
+  ### Gospider Web Crawling
+  ```python
+  # Temel web crawling
+  gospider_scan("https://example.com", depth=3, include_subs=True)
+
+  # Belirli dosya türleri için filtrelenmiş crawling
+  gospider_filtered_scan(
+      "https://example.com",
+      extensions=["js", "json", "xml"],
+      exclude_extensions=["png", "jpg", "css"]
+  )
+  ```
+
+  ### Arjun Parametre Keşfi
+  ```python
+  # Temel parametre keşfi
+  arjun_scan("https://example.com/api", method="GET")
+
+  # Özel verilerle POST parametresi keşfi
+  arjun_scan(
+      "https://example.com/login",
+      method="POST",
+      data="username=test&password=test",
+      stable=True
+  )
+
+  # Toplu parametre taraması
+  arjun_bulk_parameter_scan([
+      "https://example.com/api/v1",
+      "https://example.com/api/v2"
+  ])
+  ```
+
+  ## Araç Yapılandırması
+
+  Her araç, `tools/` dizinindeki ilgili wrapper aracılığıyla yapılandırılabilir. Yapılandırma seçenekleri şunlardır:
+
+  - Çıktı formatları
+  - Zaman aşımları
+  - Ayrıntılılık seviyeleri
+  - Özel wordlistler
+  - Araç özel parametreleri
+
+  ## Güvenlik Hususları
+
+  - Bu araç yalnızca yetkili güvenlik testi için kullanılır
+  - Sistemleri taramadan önce her zaman uygun yetkilendirme alın
+  - Rate limiting ve tarama yoğunluğu konusunda dikkatli olun
+  - robots.txt ve hizmet koşullarına saygı gösterin
+  - Uygun wordlistler ve tarama parametreleri kullanın
+
+  ## Katkıda Bulunma
+
+  1. Repository'yi fork edin
+  2. Bir feature branch oluşturun
+  3. Değişikliklerinizi commit edin
+  4. Branch'e push edin
+  5. Pull Request oluşturun
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakın.
+
+  ## Teşekkürler
+
+  - Tüm güvenlik araçları ve bunların geliştiricileri
+  - Katkı ve desteği için güvenlik topluluğu
 ---
 
 # Security Operations Multi-Tool Platform (MCP)

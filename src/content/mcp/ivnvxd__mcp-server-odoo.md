@@ -8,6 +8,640 @@ url: "https://github.com/ivnvxd/mcp-server-odoo"
 body_length: 25524
 license: "MPL-2.0"
 language: "Python"
+body_tr: |-
+  # Odoo için MCP Server
+
+  [![CI](https://github.com/ivnvxd/mcp-server-odoo/actions/workflows/ci.yml/badge.svg)](https://github.com/ivnvxd/mcp-server-odoo/actions/workflows/ci.yml)
+  [![codecov](https://codecov.io/gh/ivnvxd/mcp-server-odoo/branch/main/graph/badge.svg)](https://codecov.io/gh/ivnvxd/mcp-server-odoo)
+  [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+  [![Checked with ty](https://img.shields.io/badge/checked%20with-ty-blue?labelColor=orange)](https://github.com/astral-sh/ty)
+  [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+  [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+
+  Claude gibi AI asistanlarının Odoo ERP sistemleriyle etkileşim kurmasını sağlayan bir MCP server'ı. İş verilerine erişin, kayıtları arayın, yeni girdiler oluşturun, mevcut verileri güncelleyin ve doğal dil aracılığıyla Odoo örneğinizi yönetin.
+
+  **Herhangi bir Odoo örneğiyle çalışır!** Hızlı test ve demolar için herhangi bir standart Odoo yüklemesiyle [YOLO modunu](#yolo-mode-geliştirmetesting-only-) kullanın. Kurumsal güvenlik, erişim kontrolleri ve üretim kullanımı için [Odoo MCP modülünü](https://apps.odoo.com/apps/modules/19.0/mcp_server) kurun.
+
+  ## Özellikler
+
+  - 🔍 **Arayın ve alın** herhangi bir Odoo kaydını (müşteriler, ürünler, faturalar, vb.)
+  - ✨ **Yeni kayıtlar oluşturun** alan doğrulaması ve izin kontrolüyle
+  - ✏️ **Mevcut verileri güncelleyin** akıllı alan işlemeyle
+  - 🗑️ **Kaydı silin** model düzeyinde izinleri saygı göstererek
+  - 🔢 **Kayıtları sayın** belirli kriterleri karşılayan
+  - 📋 **Model alanlarını inceleyin** veri yapısını anlamak için
+  - 📊 **Server tarafı toplama** — ham satırları çekmeden gruplandırın, toplayın ve sayın
+  - ⚡ **İş akışı eylemleri** — opt-in kaçış tepesi aracılığıyla herhangi bir genel Odoo methodunu çağırın (faturayı gönder, SO'yu onayla, vb.)
+  - 🔐 **Güvenli erişim** API anahtarı veya kullanıcı adı/şifre doğrulaması ile
+  - 🎯 **Akıllı sayfalandırma** büyük veri kümeleri için
+  - 🧠 **Akıllı alan seçimi** — model başına en uygun alanları otomatik olarak seçer
+  - 💬 **LLM'ye optimize edilmiş çıktı** hiyerarşik metin biçimlendirmesiyle
+  - 🌍 **Çok dilli destek** — tercih ettiğiniz dilde yanıtlar alın
+  - 🚀 **YOLO Modu** herhangi bir Odoo örneğiyle hızlı erişim için (modül gerekli değil)
+
+  ## Kurulum
+
+  ### Ön Koşullar
+
+  - Python 3.10 veya daha yüksek
+  - Bir Odoo örneğine erişim:
+    - **Standart mod** (üretim): Sürüm 16.0+ ve [Odoo MCP modülü](https://apps.odoo.com/apps/modules/19.0/mcp_server) kurulu
+    - **YOLO modu** (test/demolar): XML-RPC etkinleştirilmiş herhangi bir Odoo sürümü (modül gerekli değil)
+
+  ### Önce UV'yi Kurun
+
+  MCP server'ı **yerel bilgisayarınızda** (Claude Desktop'ın kurulu olduğu yerde) çalışır, Odoo sunucunuzda değil. Yerel makinenize UV kurmak gereklidir:
+
+  <details>
+  <summary>macOS/Linux</summary>
+
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+  </details>
+
+  <details>
+  <summary>Windows</summary>
+
+  ```powershell
+  powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+  </details>
+
+  Kurulumdan sonra, UV'nin PATH'inizde olduğundan emin olmak için terminalinizi yeniden başlatın.
+
+  ### MCP Ayarları Aracılığıyla Kurulum (Önerilir)
+
+  MCP ayarlarınıza bu yapılandırmayı ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here"
+        }
+      }
+    }
+  }
+  ```
+
+  <details>
+  <summary>Claude Desktop</summary>
+
+  `~/Library/Application Support/Claude/claude_desktop_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here",
+          "ODOO_DB": "your-database-name"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary>Claude Code</summary>
+
+  Proje kök dizininize `.mcp.json` ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here",
+          "ODOO_DB": "your-database-name"
+        }
+      }
+    }
+  }
+  ```
+
+  Veya CLI'yi kullanın:
+
+  ```bash
+  claude mcp add odoo \
+    --env ODOO_URL=https://your-odoo-instance.com \
+    --env ODOO_API_KEY=your-api-key-here \
+    --env ODOO_DB=your-database-name \
+    -- uvx mcp-server-odoo
+  ```
+  </details>
+
+  <details>
+  <summary>Cursor</summary>
+
+  `~/.cursor/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here",
+          "ODOO_DB": "your-database-name"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary>VS Code (GitHub Copilot ile)</summary>
+
+  Çalışma alanınıza `.vscode/mcp.json` ekleyin:
+
+  ```json
+  {
+    "servers": {
+      "odoo": {
+        "type": "stdio",
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here",
+          "ODOO_DB": "your-database-name"
+        }
+      }
+    }
+  }
+  ```
+
+  > **Not:** VS Code kök anahtar olarak `"mcpServers"` değil `"servers"` kullanır.
+  </details>
+
+  <details>
+  <summary>Windsurf</summary>
+
+  `~/.codeium/windsurf/mcp_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here",
+          "ODOO_DB": "your-database-name"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary>Zed</summary>
+
+  `~/.config/zed/settings.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "context_servers": {
+      "odoo": {
+        "command": {
+          "path": "uvx",
+          "args": ["mcp-server-odoo"],
+          "env": {
+            "ODOO_URL": "https://your-odoo-instance.com",
+            "ODOO_API_KEY": "your-api-key-here",
+            "ODOO_DB": "your-database-name"
+          }
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  ### Alternatif Kurulum Yöntemleri
+
+  <details>
+  <summary>Docker Kullanımı</summary>
+
+  Docker ile çalıştırın — Python kurulumuna gerek yok:
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-e", "ODOO_URL=http://host.docker.internal:8069",
+          "-e", "ODOO_API_KEY=your-api-key-here",
+          "ivnvxd/mcp-server-odoo"
+        ]
+      }
+    }
+  }
+  ```
+
+  > **Not:** Odoo'ya host makinesinde bağlanmak için `localhost` yerine `host.docker.internal` kullanın.
+
+  HTTP taşıması için:
+
+  ```bash
+  docker run --rm -p 8000:8000 \
+    -e ODOO_URL=http://host.docker.internal:8069 \
+    -e ODOO_API_KEY=your-api-key-here \
+    ivnvxd/mcp-server-odoo --transport streamable-http --host 0.0.0.0
+  ```
+
+  Görüntü GHCR'de de mevcuttur: `ghcr.io/ivnvxd/mcp-server-odoo`
+  </details>
+
+  <details>
+  <summary>pip Kullanımı</summary>
+
+  ```bash
+  # Global olarak kurun
+  pip install mcp-server-odoo
+
+  # Veya isolated ortam için pipx kullanın
+  pipx install mcp-server-odoo
+  ```
+
+  Daha sonra MCP yapılandırmanızda `mcp-server-odoo` komutunu kullanın.
+  </details>
+
+  <details>
+  <summary>Kaynaktan</summary>
+
+  ```bash
+  git clone https://github.com/ivnvxd/mcp-server-odoo.git
+  cd mcp-server-odoo
+  pip install -e .
+  ```
+
+  Daha sonra MCP yapılandırmanızda paketin tam yolunu kullanın.
+  </details>
+
+  ## Yapılandırma
+
+  ### Çevre Değişkenleri
+
+  Server aşağıdaki çevre değişkenlerini gerektirir:
+
+  | Değişken | Gerekli | Açıklama | Örnek |
+  |----------|---------|---------|--------|
+  | `ODOO_URL` | Evet | Odoo örneğinizin URL'si | `https://mycompany.odoo.com` |
+  | `ODOO_API_KEY` | Evet* | Doğrulama için API anahtarı | `0ef5b399e9ee9c11b053dfb6eeba8de473c29fcd` |
+  | `ODOO_USER` | Evet* | Kullanıcı adı (API anahtarı kullanılmıyorsa) | `admin` |
+  | `ODOO_PASSWORD` | Evet* | Şifre (API anahtarı kullanılmıyorsa) | `admin` |
+  | `ODOO_DB` | Hayır | Veritabanı adı (ayarlanmamışsa otomatik olarak tespit edilir) | `mycompany` |
+  | `ODOO_LOCALE` | Hayır | Odoo yanıtları için dil/yerel ayar | `es_ES`, `fr_FR`, `de_DE` |
+  | `ODOO_YOLO` | Hayır | YOLO modu - MCP güvenliğini atlayın (⚠️ SADECE GELİŞTİRME) | `off`, `read`, `true` |
+  | `ODOO_MCP_ENABLE_METHOD_CALLS` | Hayır | `call_model_method` aracını etkinleştir — `ODOO_YOLO=true` gerektirir (⚠️ Tehlikeli, [`call_model_method`](#call_model_method) bölümüne bakın) | `false`, `true` |
+
+  *`ODOO_API_KEY` veya hem `ODOO_USER` hem de `ODOO_PASSWORD` gereklidir.
+
+  **Notlar:**
+  - Sunucunuzda veritabanı listeleme kısıtlanmışsa `ODOO_DB` belirtmelisiniz
+  - API anahtarı doğrulaması daha iyi güvenlik için önerilir
+  - Server ayrıca çalışma dizinindeki `.env` dosyasından çevre değişkenlerini yükler
+
+  #### Gelişmiş Yapılandırma
+
+  | Değişken | Varsayılan | Açıklama |
+  |----------|----------|---------|
+  | `ODOO_MCP_DEFAULT_LIMIT` | `10` | Arama başına döndürülen varsayılan kayıt sayısı |
+  | `ODOO_MCP_MAX_LIMIT` | `100` | İstek başına izin verilen maksimum kayıt sınırı |
+  | `ODOO_MCP_MAX_SMART_FIELDS` | `15` | Akıllı alan seçimi tarafından döndürülen maksimum alan sayısı |
+  | `ODOO_MCP_LOG_LEVEL` | `INFO` | Log seviyesi (`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`) |
+  | `ODOO_MCP_LOG_JSON` | `false` | Yapılandırılmış JSON log çıktısını etkinleştir |
+  | `ODOO_MCP_LOG_FILE` | — | Dönen log dosyası için yol (10 MB, 5 yedek) |
+  | `ODOO_MCP_TRANSPORT` | `stdio` | Taşıma türü (`stdio`, `streamable-http`) |
+  | `ODOO_MCP_HOST` | `localhost` | HTTP taşıması için bağlanılacak host |
+  | `ODOO_MCP_PORT` | `8000` | HTTP taşıması için bağlanılacak port |
+
+  ### Taşıma Seçenekleri
+
+  Server, farklı kullanım durumları için birden fazla taşıma protokolünü destekler:
+
+  #### 1. **stdio** (Varsayılan)
+  Standart giriş/çıkış taşıması - Claude Desktop gibi masaüstü AI uygulamaları tarafından kullanılır.
+
+  ```bash
+  # Varsayılan taşıma - ek yapılandırma gerekli değil
+  uvx mcp-server-odoo
+  ```
+
+  #### 2. **streamable-http**
+  REST API tarzı erişim ve uzaktan bağlantı için standart HTTP taşıması.
+
+  ```bash
+  # HTTP taşıması ile çalıştırın
+  uvx mcp-server-odoo --transport streamable-http --host 0.0.0.0 --port 8000
+
+  # Veya çevre değişkenlerini kullanın
+  export ODOO_MCP_TRANSPORT=streamable-http
+  export ODOO_MCP_HOST=0.0.0.0
+  export ODOO_MCP_PORT=8000
+  uvx mcp-server-odoo
+  ```
+
+  HTTP uç noktası şurada kullanılabilir: `http://localhost:8000/mcp/`
+
+  > **Not**: SSE (Server-Sent Events) taşıması MCP protokol sürüm 2025-03-26'da kullanım dışı bırakılmıştır. HTTP tabanlı iletişim için streamable-http taşımasını kullanın. Uygun oturum yönetimi için MCP kitaplığı v1.9.4 veya daha yüksek gerekir.
+
+  <details>
+  <summary>Uzaktan erişim için streamable-http taşımasını çalıştırma</summary>
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo-remote": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo", "--transport", "streamable-http", "--port", "8080"],
+        "env": {
+          "ODOO_URL": "https://your-odoo-instance.com",
+          "ODOO_API_KEY": "your-api-key-here",
+          "ODOO_DB": "your-database-name"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  ### Odoo'yu Ayarlama
+
+  1. **MCP modülünü kurun**:
+     - [mcp_server](https://apps.odoo.com/apps/modules/19.0/mcp_server) modülünü indirin
+     - Odoo örneğinize kurun
+     - Ayarlar > MCP Server'a gidin
+
+  2. **MCP erişimi için modelleri etkinleştirin**:
+     - Ayarlar > MCP Server > Etkinleştirilen Modeller'e gidin
+     - Erişmek istediğiniz modelleri ekleyin (örn. res.partner, product.product)
+     - Model başına izinleri yapılandırın (oku, yaz, oluştur, sil)
+
+  3. **API anahtarı oluşturun**:
+     - Ayarlar > Kullanıcılar & Şirketler > Kullanıcılar'a gidin
+     - Kullanıcınızı seçin
+     - "API Anahtarları" sekmesinde yeni bir anahtar oluşturun
+     - MCP yapılandırmanız için anahtarı kopyalayın
+
+  ### YOLO Modu (Sadece Geliştirme/Test) ⚠️
+
+  YOLO modu, MCP server'ının **MCP modülü gerektirmeden** herhangi bir standart Odoo örneğine doğrudan bağlanmasını sağlar. Bu mod tüm MCP güvenlik kontrollerini atlayarak **SADECE geliştirme, test ve demolar** için tasarlanmıştır.
+
+  **🚨 UYARI: YOLO modunu asla üretim ortamlarında kullanmayın!**
+
+  #### YOLO Modu Seviyeleri
+
+  1. **Salt Okunur Mod** (`ODOO_YOLO=read`):
+     - Tüm okuma işlemlerine izin verir (arama, oku, say)
+     - Tüm yazma işlemlerini engeller (oluştur, güncelle, sil)
+     - Demolar ve test için güvenlidir
+     - Yanıtlarda "SALT OKUNUR" göstergeleri gösterir
+
+  2. **Tam Erişim Modu** (`ODOO_YOLO=true`):
+     - Kısıtlama olmaksızın TÜM işlemlere izin verir
+     - Tüm modellere tam CRUD erişimi
+     - **ÇOK TEHLİKELİ** — sadece yalıtılmış ortamlarda kullanın
+     - Yanıtlarda "TAM ERİŞİM" uyarıları gösterir
+
+  #### YOLO Modu Yapılandırması
+
+  <details>
+  <summary>Salt Okunur YOLO Modu (demolar için daha güvenli)</summary>
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo-demo": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "http://localhost:8069",
+          "ODOO_USER": "admin",
+          "ODOO_PASSWORD": "admin",
+          "ODOO_DB": "demo",
+          "ODOO_YOLO": "read"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary>Tam Erişim YOLO Modu (⚠️ çok dikkatli kullanın)</summary>
+
+  ```json
+  {
+    "mcpServers": {
+      "odoo-test": {
+        "command": "uvx",
+        "args": ["mcp-server-odoo"],
+        "env": {
+          "ODOO_URL": "http://localhost:8069",
+          "ODOO_USER": "admin",
+          "ODOO_PASSWORD": "admin",
+          "ODOO_DB": "test",
+          "ODOO_YOLO": "true"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  #### YOLO Modunu Ne Zaman Kullanın
+
+  ✅ **Uygun Kullanımlar:**
+  - Test verileriyle yerel geliştirme
+  - Hassas olmayan verilerle hızlı demolar
+  - MCP modülünü kurmadan önce MCP istemcilerini test etme
+  - Yalıtılmış ortamlarda prototip oluşturma
+
+  ❌ **Asla Kullanmayın:**
+  - Üretim ortamlarında
+  - Gerçek müşteri verisi bulunan örneklerde
+  - Paylaşılan geliştirme sunucularında
+  - Hassas bilgiler bulunan herhangi bir ortamda
+
+  #### YOLO Modu Güvenlik Notları
+
+  - Odoo'nun standart XML-RPC uç noktalarına doğrudan bağlanır
+  - Tüm MCP erişim kontrollerini ve model kısıtlamalarını atlayır
+  - Hız sınırlandırması uygulanmaz
+  - Tüm işlemler kaydedilir ancak kısıtlanmaz
+  - Model listeleme etkinleştirilmiş olanlar yerine 200+ modeli gösterir
+
+  ## Kullanım Örnekleri
+
+  Yapılandırıldıktan sonra Claude'a şunları sorabilirsiniz:
+
+  **Arama ve Alma:**
+  - "İspanya'daki tüm müşterileri göster"
+  - "Stok 10 birimden az olan ürünleri bul"
+  - "Bugünün 1000 dolardan fazla satış siparişlerini listele"
+  - "Geçen aydan ödenmemiş faturaları ara"
+  - "Kaç aktif çalışanımız olduğunu say"
+  - "Microsoft için iletişim bilgilerini göster"
+
+  **Oluştur ve Yönet:**
+  - "Acme Corporation için yeni bir müşteri iletişimi oluştur"
+  - "'Premium Widget' adlı yeni bir ürün ekle, fiyatı 99,99 dolar"
+  - "Yarın saat 2 PM için bir takvim etkinliği oluştur"
+  - "John Doe müşterisinin telefon numarasını +1-555-0123 olarak güncelle"
+  - "SO/2024/001 siparişinin durumunu onaylı olarak değiştir"
+  - "Daha önce oluşturduğumuz test iletişisini sil"
+
+  ## Mevcut Araçlar
+
+  ### `search_records`
+  Herhangi bir Odoo modelinde filtrelerle kayıt arayın.
+
+  ```json
+  {
+    "model": "res.partner",
+    "domain": [["is_company", "=", true], ["country_id.code", "=", "ES"]],
+    "fields": ["name", "email", "phone"],
+    "limit": 10
+  }
+  ```
+
+  **Alan Seçim Seçenekleri:**
+  - `fields` atlanır veya `null` olarak ayarlanır: Yaygın alanların akıllı seçimini döndürür
+  - Alan listesi belirt: Sadece o belirli alanları döndürür
+  - `["__all__"]` kullan: Tüm alanları döndürür (dikkatli kullanın)
+
+  ### `get_record`
+  ID'ye göre belirli bir kaydı alın.
+
+  ```json
+  {
+    "model": "res.partner",
+    "record_id": 42,
+    "fields": ["name", "email", "street", "city"]
+  }
+  ```
+
+  **Alan Seçim Seçenekleri:**
+  - `fields` atlanır veya `null` olarak ayarlanır: Meta veri ile yaygın alanların akıllı seçimini döndürür
+  - Alan listesi belirt: Sadece o belirli alanları döndürür
+  - `["__all__"]` kullan: Tüm alanları meta veri olmaksızın döndürür
+
+  ### `list_models`
+  MCP erişimi için etkinleştirilmiş tüm modelleri listeleyin.
+
+  ```json
+  {}
+  ```
+
+  ### `list_resource_templates`
+  Mevcut kaynak URI şablonlarını ve bunların desenlerini listeleyin.
+
+  ```json
+  {}
+  ```
+
+  ### `create_record`
+  Odoo'da yeni bir kayıt oluşturun.
+
+  ```json
+  {
+    "model": "res.partner",
+    "values": {
+      "name": "New Customer",
+      "email": "customer@example.com",
+      "is_company": true
+    }
+  }
+  ```
+
+  ### `update_record`
+  Mevcut bir kaydı güncelleyin.
+
+  ```json
+  {
+    "model": "res.partner",
+    "record_id": 42,
+    "values": {
+      "phone": "+1234567890",
+      "website": "https://example.com"
+    }
+  }
+  ```
+
+  ### `delete_record`
+  Odoo'dan bir kaydı silin.
+
+  ```json
+  {
+    "model": "res.partner",
+    "record_id": 42
+  }
+  ```
+
+  ### `post_message`
+  Bir kaydın chatter'ına mesaj gönder (`mail.thread`). `subtype="note"` (varsayılan) dahili logtur; `subtype="comment"` takipçileri bilgilendirir. HTML işaretlemesi için `body_is_html=true` ayarlayın. İsteğe bağlı `partner_ids` ve `attachment_ids` mevcut ortakları ve ekleri referans alır.
+
+  ```json
+  {
+    "model": "res.partner",
+    "record_id": 42,
+    "body": "Called customer, will follow up Tuesday"
+  }
+  ```
+
+  ```json
+  {
+    "model": "sale.order",
+    "record_id": 17,
+    "body": "<p>Shipping confirmed for Monday</p>",
+    "subtype": "comment",
+    "body_is_html": true
+  }
+  ```
+
+  ### `aggregate_records`
+  Server tarafı toplama. Soru "listesi" yerine "toplamlar/sayımlar/gruplandırmalar" olduğunda bunu kullanın — çalışmayı raw satırları çekmek yerine PostgreSQL'e iter. Odoo 19+ üzerinde `formatted_read_group`'a gönderir (yeni adanmış method) ve eski sürümlerde yanıt normalizasyonu ile `read_group`'a geri döner. Arayanlar, desteklenen her sürümde tutarlı bir yanıt şekli görürler. `aggregates` atlanırsa, varsayılan olarak `["__count"]` olur, böylece her grup her zaman bir sayım taşır.
+
+  ```json
+  {
+    "model": "sale.order",
+    "groupby": ["date_order:month"],
+    "aggregates": ["amount_total:sum"],
+    "domain": [["state", "in", ["sale", "done"]]]
+  }
+  ```
+
+  ```json
+  {
+    "model": "res.partner",
+    "groupby": ["country_id"]
+  }
+  ```
+
+  ### `call_model_method`
+  Genel XML-RPC `execute_kw` kaçış tepesi — CRUD tarafından kapsanmayan iş akışı eylemleri için (faturayı gönder, satış siparişini onayla, toplama doğrula, vb.) herhangi bir **genel** methodunu herhangi bir modelde çağırır. **Sadece** `ODOO_YOLO=true` (tam YOLO) ve `ODOO_MCP_ENABLE_METHOD_CALLS=true` her ikisi de ayarlandığında kullanılabilir; aksi takdirde araç kaydedilmez. Yalnızca genel ASCII Python tanımlayıcıları method adları olarak kabul edilir
 ---
 
 # MCP Server for Odoo

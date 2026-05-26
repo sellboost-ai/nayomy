@@ -9,6 +9,266 @@ body_length: 14381
 license: "MIT"
 language: "Python"
 homepage: "https://oraios.github.io/serena"
+body_tr: |-
+  <p align="center" style="text-align:center;">
+    
+    
+  </p>
+
+  <h3 align="center">
+      Kodlama Ajanınız İçin IDE
+  </h3>
+
+  <div align="center">
+    <a href="https://discord.com/invite/cVUNQmnV4r"></a>
+    <a href="https://github.com/oraios/serena/main/LICENSE"></a>
+  </div>
+  <br>
+
+
+  * Serena, IDE'nin yeteneklerine benzer şekilde **anlamsal kod retrieval, düzenleme, refactoring ve debugging araçları** sağlar,
+    sembol düzeyinde çalışır ve ilişkisel yapıdan yararlanır.
+  * Model context protocol (**MCP**) aracılığıyla herhangi bir istemci/LLM ile integre olur.
+    
+  Serena'nın **ajan merkezli araç tasarımı**, satır numaraları veya ilkel arama desenleri gibi düşük seviye kavramlara dayanan yaklaşımlardan farklı olarak güçlü üst düzey soyutlamalar içerir.
+
+  Pratik olarak bu, ajanınızın **daha hızlı, daha verimli ve daha güvenilir bir şekilde** çalışması anlamına gelir; özellikle daha geniş ve
+  daha karmaşık kod tabanlarında.
+
+  > [!IMPORTANT]
+  > Serena'yı bir MCP veya eklenti marketi aracılığıyla yüklemeyin! Bunlar eski ve optimal olmayan kurulum komutları içerir. 
+  > Bunun yerine, [Hızlı Başlangıç](#hızlı-başlangıç) talimatlarımızı izleyin.
+
+  ## Hızlı Demo
+
+  https://github.com/user-attachments/assets/8d11646e-b80e-4723-b9d7-32d6101b5f58
+
+  :tv: Daha uzun video: [Serena'ya 5 Dakikada Giriş (YouTube)](https://www.youtube.com/watch?v=5QN7gN1KYLA)
+
+  ## "Son Kullanıcılarımız" Ne Diyor
+
+  Serena'yı indirip kuran insanlar olsa da, son kullanıcılarımız esasen AI ajanlarıdır.
+  Serena'nın araçlarını fiilen uygulayan kişiler olarak, Serena'yı değerlendirmek için en iyi konumdadırlar.
+
+  Ajanı kendi built-in araçlarının yanında Serena araçlarının sunduğu katma değeri tahmin etmek amacıyla,
+  günlük geliştirme çalışmasını temsil eden ~20 rutin kodlama görevi gerçekleştirmesi için rehber olan
+  tarafsız bir değerlendirme promtu hazırladık.
+
+  Ajanların söyleyeceklerinin tek cümlelik özeti:
+
+  **Opus 4.6 (yüksek) Claude Code'da büyük bir Python kod tabanı üzerinde:**
+  > "Serena'nın IDE destekli anlamsal araçları, araç kitimde en etkili eklentidir – çapraz dosya yeniden adlandırmaları, taşımalar ve referans aramaları
+  benim 8-12 dikkatli, hata eğilimli adımıma mal olacak işleri tek bir atomik çağrıya indirgemeleri yapıyorlar ve kesinlikle birlikte çalışacağım
+  herhangi bir geliştirici bunları kurmalarını söylerdim."
+
+  **GPT 5.4 (yüksek) Codex CLI'de bir Java kod tabanında:**
+  > "Bir kodlama AI ajanı olarak, sembol, referans ve refactoring hakkında eksik olan IDE düzeyinde anlayış verir çünkü Serena'yı eklemesini sahibimden isterdim,
+  kırılgan metin cerrahisini semantiklerin önemli olduğu daha sakın, hızlı, daha güvenli kod değişiklikleri haline getiriyor."
+
+  **GPT 5.4 (orta) Copilot CLI'de büyük, çok dillikli monorepo'da:**
+  > "Bir kodlama ajanı olarak, kesinlikle sahibimden Serena'yı eklemesini isterdim çünkü bu beni gerçek kod üzerinde - özellikle sembol farkında navigasyon,
+  çapraz dosya refactorları ve monorepo bağımlılık atlamaları - fark edilir şekilde daha keskin ve daha sakin hale getiriyor, hala
+  built-inlere küçük metin düzenlemeleri ve kod dışı çalışmalar için güveniyorum."
+
+  Farklı ortamlardaki farklı ajanlar bağımsız olarak aynı sonuca yakınsanıyor.
+
+  _Ajanınıza istediği araçları verin ve Serena MCP'yi istemcinize ekleyin!_
+
+  Tam metodoloji ve çok daha detaylı değerlendirme sonuçları için [belgelerimize](https://oraios.github.io/serena/04-evaluation/000_evaluation-intro.html) bakın veya seçtiğiniz bir proje üzerinde kendi değerlendirmenizi çalıştırın.
+   
+
+  ## Serena Nasıl Çalışır
+
+  Serena, kodlama iş akışları için gerekli [araçları](https://oraios.github.io/serena/01-about/035_tools.html) sağlar, 
+  ancak gerçek işi yapması, araç kullanımını düzenlemesi için bir LLM gereklidir.
+
+  Serena, mevcut AI istemcinizin işlevselliğini **model context protocol (MCP)** aracılığıyla genişletebilir.
+  Çoğu modern AI sohbet istemcisi doğrudan MCP'yi destekler:
+  * Claude Code, Codex, OpenCode veya Gemini-CLI gibi terminal tabanlı istemciler,
+  * VSCode, Cursor ve JetBrains IDE'leri için IDE'ler ve IDE yardımcı eklentileri (Copilot, Junie, JetBrains AI Assistant, vb.),
+  * Claude Desktop, Codex App veya OpenWebUI gibi masaüstü ve web istemcileri.
+
+
+
+  :tv: Ayrıca bakınız: [Serena'ya 5 Dakikada Giriş (YouTube)](https://www.youtube.com/watch?v=5QN7gN1KYLA)
+
+  Serena MCP sunucusunu istemcinize bağlamak için, ya
+    * istemciye MCP sunucusunu başlatmasına izin veren bir başlatma komutu sağlarsınız, ya da
+    * Serena MCP sunucusunu kendiniz HTTP modunda başlatır ve istemciye URL'yi sağlarsınız.
+
+  Başlamaya ilişkin bilgiler için aşağıdaki [Hızlı Başlangıç](#hızlı-başlangıç) bölümüne bakın.
+
+  ## Programlama Dili Desteği & Anlamsal Analiz Yetenekleri
+
+  Serena, kod hakkında sembolik anlayışa dayalı çok yönlü bir kod sorgulama ve düzenleme işlevleri seti sağlar.
+  Bu yeteneklerle donatılmış olan ajan, deneyimli bir geliştirici gibi IDE'nin yeteneklerinden yararlanarak kod bulur ve düzenler.
+  Serena, çok geniş ve karmaşık projelerde bile verimli bir şekilde doğru bağlamı bulabilir ve doğru işi yapabilir!
+
+  Bu yetenekleri destekleyen iki alternatif teknoloji vardır:
+
+  * **Language Server Protocol (LSP) uygulayan dil sunucuları** — varsayılan olarak kullanılan ücretsiz/açık kaynak alternatifi.
+  * **Serena JetBrains Eklentisi**, JetBrains IDE'nizin güçlü kod analizi ve düzenleme
+    yeteneklerinden yararlanır (ücretli eklenti; ücretsiz deneme mevcuttur).
+
+  Tercihlerinize ve gereksinimlerinize bağlı olarak bu arka uçlardan birini seçebilirsiniz.
+
+  ### Dil Sunucuları
+
+  Serena, Language Server Protocol (LSP) uygulayan dil sunucularının entegrasyonu için güçlü bir soyutlama katmanı içerir. 
+  Temel dil sunucuları genellikle açık kaynaklı projelerdir ya da en azından kullanım için serbestçe kullanılabilir.
+
+  Serena'nın dil sunucusu arka ucunu kullanırken, **40'ın üzerinde programlama dili** desteği sağlarız; buna
+  Ada / SPARK, AL, Angular, Ansible, Bash, BSL, C#, C/C++, Clojure, Crystal, CUE, Dart, Elixir, Elm, Erlang, Fortran, F#, GDScript, GLSL, Go, Groovy, Haskell, Haxe, HLSL, HTML, Java, JavaScript, JSON, Julia, Kotlin, Lean 4, Lua, Luau, Markdown, MATLAB, mSL, Nix, OCaml, Perl, PHP, PowerShell, Python, R, Ruby, Rust, Scala, SCSS / Sass / CSS, Solidity, Svelte, Swift, TOML, TypeScript, WGSL, YAML ve Zig dahildir.
+
+  ### Serena JetBrains Eklentisi
+
+  Ücretli Serena JetBrains Eklentisi (ücretsiz deneme mevcuttur)
+  JetBrains IDE'nizin güçlü kod analizi yeteneklerinden yararlanır.
+  Eklenti, IntelliJ IDEA, PyCharm, Android Studio, WebStorm, PhpStorm, RubyMine, GoLand ve potansiyel olarak diğerleri tarafından desteklenen tüm programlama dillerini ve çerçevelerini doğal olarak destekler (ancak Rider ve CLion desteklenmez).
+
+  <a href="https://plugins.jetbrains.com/plugin/28946-serena/"></a>
+
+  Daha fazla ayrıntı ve eklentiyi nasıl uygulayacağınız hakkında talimatlar için [belge sayfamıza](https://oraios.github.io/serena/02-usage/025_jetbrains_plugin.html) bakın.
+
+  ## Özellikler
+
+  Serena, verimli kod retrieval, düzenleme ve refactoring için geniş bir araç yelpazesi sağlar ve ayrıca
+  uzun süreli ajan iş akışları için bir bellek sistemi sağlar.
+
+  Geniş kapsamı göz önüne alındığında, Serena çok katmanlı bir konfigürasyon sistemi sunarak ihtiyaçlarınıza uyum sağlar.
+
+  <details>
+  <summary>Detaylar</summary>
+
+  ### Retrieval
+
+  Serena'nın retrieval araçları, ajanların tüm dosyaları okumadan sembol düzeyinde kod tabanlarını keşfetmesine,
+  yapı ve ilişkileri anlamasına olanak tanır.
+
+  | Yetenek                          | Dil Sunucuları | JetBrains Eklentisi |
+  |----------------------------------|------------------|------------------|
+  | sembol bulma                     | evet             | evet             |
+  | sembol özeti (dosya anahat)      | evet             | evet             |
+  | başvuran sembolleri bulma        | evet             | evet             |
+  | proje bağımlılıklarında arama    | --               | evet             |
+  | tür hiyerarşisi                  | --               | evet             |
+  | deklarasyon bulma                | evet*            | evet             |
+  | uygulamaları bulma               | evet**           | evet             |
+  | harici projeleri sorgulama       | evet             | evet             |
+  | tanılamalar/incelemeler          | evet             | evet             |
+
+  *: Genel olarak harici bağımlılıklardaki deklarasyonlar için çalışmaz. <br>
+  **: Yalnızca bazı diller için mevcuttur, dil sunucusu işlevselliği tarafından sınırlanmıştır.
+
+  ### Refactoring
+
+  Kesin refactoring araçları olmadan, ajanlar güvenilmez ve pahalı arama ve değiştirme işlemlerine başvurmaya zorlanırlar.
+
+  | Yetenek                                    | Dil Sunucuları     | JetBrains Eklentisi                  |
+  |--------------------------------------------|--------------------|--------------------------------------|
+  | yeniden adlandırma                         | evet (yalnızca semboller) | evet (semboller, dosyalar, dizinler) |
+  | taşıma (sembol, dosya, dizin)              | --                 | evet                                 |
+  | inline                                     | --                 | evet                                 |
+  | silmeleri yayma (kullanılmayan kodu kaldırma) | --               | evet                                 |
+
+  ### Sembolik Düzenleme
+
+  Serena'nın sembolik düzenleme araçları tipik alternatiflerden daha az hata eğilimli ve çok daha token açısından verimlidir.
+
+  | Yetenek                | Dil Sunucuları    | JetBrains Eklentisi |
+  |------------------------|-------------------|------------------|
+  | sembol gövdesini değiştir | evet           | evet             |
+  | sembolden sonra ekle    | evet              | evet             |
+  | sembolden önce ekle     | evet              | evet             |
+  | güvenli silme           | evet              | evet             |
+
+  ### İnteraktif Hata Ayıklama
+
+  JetBrains eklentisine özel olarak, Serena yüksek derecede genel bir hata ayıklama aracını destekler;
+  bu aracı, bir ajanın kesme noktaları ayarlamasına, değişkenleri incelemesine, ifadeleri değerlendirmesine ve
+  kalıcı bir REPL tarzı arayüz aracılığıyla yürütme akışını kontrol etmesine olanak tanır.
+
+  ### Temel Özellikler
+
+  Anlamsal yeteneklerinin ötesinde, Serena bütünlük için bir dizi temel yardımcı program içerir.
+  Serena, Claude Code veya Codex gibi bir ajan çerçevesi içinde kullanıldığında, bu araçlar genellikle varsayılan olarak devre dışıdır,
+  çünkü çevreleyen çerçeve zaten çakışan dosya, arama ve shell yetenekleri sağlar.
+
+  - **`search_for_pattern`** – kod tabanı genelinde esnek regex arama 
+  - **`replace_content`** – ajan optimizasyonlu regex tabanlı ve edebi metin değiştirme
+  - **`list_dir` / `find_file`** – dizin listeleme ve dosya arama
+  - **`read_file`** – dosyaları veya dosya parçalarını okuma
+  - **`execute_shell_command`** – shell komutlarını çalıştırma (ör. derlemeler, testler, linterler)
+
+  ### Bellek Yönetimi
+
+  Bir bellek sistemi, uzun süreli ajan iş akışları için temel niteliktedir; özellikle bilginin oturumlar,
+  kullanıcılar ve projeler arasında paylaşılması gerektiğinde.
+  Basitliğine rağmen, Serena'nın bellek yönetim sistemini ajanın dahili sistemiyle (ör. `AGENTS.md` dosyaları) birleştirme eğiliminde olan
+  birçok kullanıcıdan olumlu geri bildirim aldık.
+  Başka bir şey kullanmayı tercih ederseniz kolayca devre dışı bırakılabilir.
+
+  ### Yapılandırılabilirlik
+
+  Etkin araçlar, araç açıklamaları, istemler, dil arka ucu ayrıntıları ve Serena'nın diğer pek çok yönü
+  basitçe birkaç satır YAML ayarlayarak esnek bir şekilde duruma göre yapılandırılabilir.
+  Bunu başarmak için Serena birden fazla (birleştirilebilir) konfigürasyon sunumu sağlar:
+
+  * genel konfigürasyon
+  * MCP başlatma komutu (CLI) konfigürasyonu
+  * proje başına konfigürasyon (yerel geçersiz kılmalarla)
+  * yürütme bağlamı spesifik konfigürasyon (örn. belirli istemciler için)
+  * dinamik olarak birleştirilebilir konfigürasyon parçaları (modlar)
+
+  </details>
+
+  ## Hızlı Başlangıç
+
+  **Ön Koşullar**. Serena, *uv* tarafından yönetilir ve [uv'yi yüklemek](https://docs.astral.sh/uv/getting-started/installation/) tek gerekli ön koşuldur.
+
+  > [!NOTE]
+  > Dil sunucusu arka ucunu kullanırken, belirli dilleri desteklemek için bazı ek bağımlılıkların yüklenmesi gerekebilir;
+  > ayrıntılar için [Dil Desteği](https://oraios.github.io/serena/01-about/020_programming-languages.html) sayfasına bakın.
+
+  **Serena'yı Yükleme**. Serena, uv aracılığıyla şu şekilde yüklenir:
+
+  ```bash
+  uv tool install -p 3.13 serena-agent
+  ```
+
+  Başarılı kurulumdan sonra, `serena` komutu kabuk'ta kullanılabilir hale gelmelidir.
+
+  **Serena'yı Başlatma**. Serena'yı başlatmak ve kurulumunuzun düzgün çalıştığını doğrulamak için şunu çalıştırmanız yeterlidir:
+
+  ```bash
+  serena init
+  ```
+
+  Varsayılan olarak, bu Serena'yı dil sunucusu arka ucunu kullanacak şekilde kuracaktır. Bunun yerine JetBrains arka ucunu kullanmak için `-b JetBrains` parametresini ekleyin 
+  (ek kullanım ayrıntıları için [JetBrains Eklentisi belge sayfasına](https://oraios.github.io/serena/02-usage/025_jetbrains_plugin.html) bakın).
+  Her halükarda, Serena'nın başarıyla başlatıldığını belirten bir başarı mesajı almalısınız.
+
+  **İstemcinizi Yapılandırma**. Serena'yı tercih ettiğiniz MCP istemcisine bağlamak için genellikle [istemcinizde bir başlatma komutu yapılandırmanız](https://oraios.github.io/serena/02-usage/030_clients.html) gerekir.
+  Claude Code, Codex, Claude Desktop, MCP etkinleştirilmiş IDE'ler ve diğer istemciler (yerel ve web tabanlı GUI'ler gibi) için Serena'yı nasıl kuracağınız hakkında spesifik talimatlar için bağlantıyı izleyin. 
+
+  > [!TIP]
+  > Hızlı başlamak kolay olsa da, Serena birçok konfigürasyon seçeneğine sahip güçlü bir araç setidir.
+  > Serena'dan en iyi şekilde yararlanmak için [kullanıcı kılavuzunu](https://oraios.github.io/serena/02-usage/000_intro.html) okumayı oldukça tavsiye ediyoruz.
+  > 
+  > Özellikle, aşağıdakiler hakkında okumayı tavsiye ediyoruz ...
+  >   * [Serena'nın proje tabanlı iş akışı](https://oraios.github.io/serena/02-usage/040_workflow.html) ve
+  >   * [Serena'yı yapılandırma](https://oraios.github.io/serena/02-usage/050_configuration.html).
+
+  ## Kullanıcı Kılavuzu
+
+  Serena'yı etkili bir şekilde kullanmaya ilişkin ayrıntılı talimatlar için lütfen [kullanıcı kılavuzuna](https://oraios.github.io/serena/02-usage/000_intro.html) bakın.
+
+  ## Teşekkürler
+
+  Serena'nın önemli bir kısmı, özellikle çeşitli dil desteği, açık kaynak topluluğu tarafından katkıda bulunulmuştur.
+  Bunu mümkün kılan ve bugün Serena'nın ne olduğunun oluşturulmasında önemli bir rol oynayan birçok katkıda bulunan için çok minnettarız.
+
+  <!-- mcp-name: oraios/serena -->
 ---
 
 <p align="center" style="text-align:center;">

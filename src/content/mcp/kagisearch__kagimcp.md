@@ -8,6 +8,177 @@ url: "https://github.com/kagisearch/kagimcp"
 body_length: 4366
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Kagi MCP Server
+
+  [Kagi API](https://help.kagi.com/kagi/api/overview.html) tarafından desteklenen bir MCP sunucusu. MCP uyumlu istemcilere arama ve çıkarma araçlarını sunar.
+
+  ## Araçlar
+
+  - **`kagi_search_fetch`** - web, haber, video, podcast ve resim araması; isteğe bağlı sayfa çıkarımları, filtreler ve Kagi lens'leri ile.
+  - **`kagi_extract`** - bir sayfanın tam içeriğini markdown olarak getir.
+
+  > **Not:** Önceki `kagi_fastgpt` ve `kagi_summarizer` araçları kaldırılmıştır. Her ikisi de gelecek bir sürümde geri dönmesi planlanmaktadır.
+
+  ## Gereksinimler
+
+  - `KAGI_API_KEY` ortam değişkeninde bir Kagi API anahtarı.
+  - Önerilen `uvx` kurulum yöntemi için [`uv`](https://docs.astral.sh/uv/).
+
+  `uv` kurulumu:
+
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+  Windows:
+
+  ```powershell
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+
+  ## İstemci Kurulumu
+
+  ### Codex CLI
+
+  ```bash
+  codex mcp add kagi --env KAGI_API_KEY=<YOUR_API_KEY_HERE> -- uvx kagimcp
+  ```
+
+  Codex, MCP yapılandırmasını `~/.codex/config.toml` adresine yazar.
+
+  ### Claude Desktop
+
+  Önce uv kurulumu yapın.
+
+  MacOS/Linux:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+  Windows:
+  ```
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+
+  Ardından Claude Desktop yapılandırmanızda (Ayarlar -> Geliştirici -> Yapılandırmayı Düzenle yoluyla bulunabilir):
+
+  ```json
+  {
+    "mcpServers": {
+      "kagi": {
+        "command": "uvx",
+        "args": ["kagimcp"],
+        "env": {
+          "KAGI_API_KEY": "YOUR_API_KEY_HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Claude Code
+
+  ```bash
+  claude mcp add kagi -e KAGI_API_KEY="YOUR_API_KEY_HERE" -- uvx kagimcp
+  ```
+
+  ### Smithery
+
+  ```bash
+  npx -y @smithery/cli install kagimcp --client claude
+  ```
+
+  ## Kullanım Örnekleri
+
+  - Arama: `Who was Time's 2024 person of the year?`
+  - Çıkarma: `extract the full content of https://en.wikipedia.org/wiki/Model_Context_Protocol`
+
+  ## Yapılandırma
+
+  Ortam değişkeni | Açıklama
+  --- | ---
+  `KAGI_API_KEY` | Gerekli Kagi API anahtarı.
+  `FASTMCP_LOG_LEVEL` | Günlük seviyesi, örneğin `ERROR`.
+  `KAGI_SEARCH_TIMEOUT` | Arama zaman aşımı (saniye cinsinden). Varsayılan değer: `10`.
+  `KAGI_EXTRACT_TIMEOUT` | Çıkarma zaman aşımı (saniye cinsinden). Varsayılan değer: `30`.
+  `KAGI_MAX_RETRIES` | İlk istekten sonra maksimum yeniden deneme sayısı. Varsayılan değer: `2`; yeniden denemeleri devre dışı bırakmak için `0` olarak ayarlayın.
+  `KAGI_HIDDEN_PARAMS` | LLM ile karşı karşıya gelen şemadan gizlenecek arama parametreleri (virgülle ayrılmış).
+
+  Gizlenebilir arama parametreleri:
+
+  ```text
+  workflow, extract_count, limit, include_domains, exclude_domains, time_relative, after, before, file_type, lens_id
+  ```
+
+  Örnek:
+
+  ```bash
+  KAGI_HIDDEN_PARAMS="extract_count,after,before,time_relative,include_domains,exclude_domains"
+  ```
+
+  ## Yerel Geliştirme
+
+  ```bash
+  git clone https://github.com/kagisearch/kagimcp.git
+  cd kagimcp
+  uv sync
+  ```
+
+  Yerel olarak stdio üzerinden çalıştırın:
+
+  ```bash
+  KAGI_API_KEY=<YOUR_API_KEY_HERE> uv run kagimcp
+  ```
+
+  Akışlı HTTP taşıması ile çalıştırın:
+
+  ```bash
+  KAGI_API_KEY=<YOUR_API_KEY_HERE> uv run kagimcp --http --host 0.0.0.0 --port 8000
+  ```
+
+  ## Kendi Sunucunuzda Barındırma
+
+  HTTP modu çok kiracılıdır: her istek, sunucu genelinde ortam değişkeni yerine `Authorization: Bearer <key>` başlığı aracılığıyla API anahtarını sağlar, böylece bir örnek birden fazla kullanıcıya hizmet verebilir. Depo, PyPI'den sabitlenmiş bir `kagimcp` kuran ve HTTP modunda çalıştıran bir `Dockerfile` içerir. Kapsayıcı `$PORT` değerini dikkate alır, bu nedenle bunu enjekte eden herhangi bir platformda çalışır (Railway, Render, Cloud Run, Fly.io, vb.).
+
+  Yerel olarak oluşturun ve çalıştırın:
+
+  ```sh
+  docker build -t kagimcp-hosted .
+  docker run --rm -p 8000:8000 kagimcp-hosted
+  ```
+
+  Temel test:
+
+  ```sh
+  curl -sL http://127.0.0.1:8000/mcp -X POST \
+    -H "authorization: Bearer $KAGI_API_KEY" \
+    -H "content-type: application/json" \
+    -H "accept: application/json, text/event-stream" \
+    -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+  ```
+
+  Üretimde sürümü yükseltmek için, `Dockerfile` adresindeki sabiti düzenleyin ve yeniden dağıtın.
+
+  ## Hata Ayıklama
+
+  Yayınlanan paketi inceleyin:
+
+  ```bash
+  npx @modelcontextprotocol/inspector uvx kagimcp
+  ```
+
+  Yerel bir çıkışı inceleyin:
+
+  ```bash
+  npx @modelcontextprotocol/inspector uv --directory /ABSOLUTE/PATH/TO/kagimcp run kagimcp
+  ```
+
+  Inspector genellikle `http://localhost:5173` adresinde kullanılabilir.
+
+  ## Ön Sürüm Yönergeleri
+
+  Ön sürüm derlemesi kullanılıyorsa, aynı kurulum yönergeleri geçerlidir, ancak `uvx kagimcp` yerine `uvx --prerelease allow --from kagimcp==1.0.0rc2 kagimcp` kullanın (`1.0.0rc2` yerine yüklemek istediğiniz sürümü yazın).
 ---
 
 # Kagi MCP Server

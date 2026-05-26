@@ -8,6 +8,249 @@ url: "https://github.com/optuna/optuna-mcp"
 body_length: 12060
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Optuna MCP Server
+
+  [![Python](https://img.shields.io/badge/python-3.12%20%7C%203.13-blue)](https://www.python.org)
+  [![pypi](https://img.shields.io/pypi/v/optuna-mcp.svg)](https://pypi.python.org/pypi/optuna-mcp)
+  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/optuna/optuna-mcp)
+  [![Tests](https://github.com/optuna/optuna-mcp/actions/workflows/tests.yml/badge.svg)](https://github.com/optuna/optuna-mcp/actions/workflows/tests.yml)
+
+  [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) kullanarak [Optuna](http://optuna.org) ile optimizasyon ve analizi otomatikleştiren bir sunucu.
+
+  ## Kullanım Alanları
+
+  Optuna MCP Server aşağıdaki kullanım alanlarında kullanılabilir.
+
+  - LLM'ler tarafından otomatikleştirilmiş hiperparametre optimizasyonu
+  - Optuna optimizasyon sonuçlarının sohbet arayüzü aracılığıyla etkileşimli analizi
+  - Diğer MCP araçlarının giriş ve çıkışını optimize etme
+
+  Ayrıntılar için [Örnekler bölümüne](#örnekler) bakınız.
+
+  ## Kurulum
+
+  Optuna MCP server, `uv` veya Docker kullanılarak kurulabilir.
+  Bu bölüm, MCP istemcisi örneği olarak Claude Desktop kullanılarak Optuna MCP server'ının nasıl kurulacağını açıklamaktadır.
+
+  ### uv ile Kullanım
+
+  Kurulum işlemine başlamadan önce `uv`'yi [Astral](https://docs.astral.sh/uv/getting-started/installation/) adresinden kurunuz.
+
+  Ardından, Optuna MCP server yapılandırmasını MCP istemcisine ekleyiniz.
+  Claude Desktop'a dahil etmek için, Claude > Ayarlar > Geliştirici > Yapılandırmayı Düzenle > `claude_desktop_config.json` adresine gidiniz
+  ve aşağıdakileri ekleyiniz:
+
+  ```json
+  {
+    "mcpServers": {
+      "Optuna": {
+        "command": "/path/to/uvx",
+        "args": [
+          "optuna-mcp"
+        ]
+      }
+    }
+  }
+  ```
+
+  Ek olarak, sonuçları kalıcı hale getirmek için `--storage` argümanı ile Optuna depolama alanını belirtebilirsiniz.
+
+  ```json
+  {
+    "mcpServers": {
+      "Optuna": {
+        "command": "/path/to/uvx",
+        "args": [
+          "optuna-mcp",
+          "--storage",
+          "sqlite:///optuna.db"
+        ]
+      }
+    }
+  }
+  ```
+
+  Bunu ekledikten sonra lütfen Claude Desktop uygulamasını yeniden başlatınız.
+  Claude Desktop hakkında daha fazla bilgi için [hızlı başlangıç sayfasını](https://modelcontextprotocol.io/quickstart/user) kontrol ediniz.
+
+  ### Docker ile Kullanım
+
+  Optuna MCP server'ını Docker kullanarak da çalıştırabilirsiniz. Makinenizde Docker'ın kurulu ve çalışıyor olduğundan emin olunuz.
+
+  ```json
+  {
+    "mcpServers": {
+      "Optuna": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "--net=host",
+          "-v",
+          "/PATH/TO/LOCAL/DIRECTORY/WHICH/INCLUDES/DB/FILE:/app/workspace",
+          "ghcr.io/optuna/optuna-mcp:latest",
+          "--storage",
+          "sqlite:////app/workspace/optuna.db"
+        ]
+      }
+    }
+  }
+  ```
+
+  ## Optuna MCP tarafından Sağlanan Araçlar
+
+  Optuna MCP aşağıdaki araçları sağlar.
+  Özellikle, Optuna'nın Study, Trial, Visualization ve Dashboard gibi ilkel fonksiyonlarını sunar.
+  MCP istemcileri araçların listesini ve her araçın ayrıntılarını bildiğinden, kullanıcıların bu ayrıntıları hatırlaması gerekmez.
+
+  ### Study
+
+  - **create_study** - Verilen study_name ve directions ile yeni bir Optuna study'si oluşturunuz.
+    Eğer study zaten varsa, basitçe yüklenecektir.
+    - `study_name` : study'nin adı (string, gerekli).
+    - `directions`: Optimizasyon yönleri (minimize/maximize literal stringlerinin listesi, isteğe bağlı).
+  - **set_sampler** - Study için sampler'ı ayarlayınız.
+    - `name` : sampler'ın adı (string, gerekli).
+  - **get_all_study_names** - Depolama alanından tüm study adlarını alınız.
+  - **set_metric_names** - metric_names'i ayarlayınız. Metric_names, her objective value'nun ne olduğunu ayırt etmek için kullanılan etiketlerdir.
+    - `metric_names` : Her objective için metrik adlarının listesi (string listesi, gerekli).
+  - **get_metric_names** - metric_names'i alınız.
+    - Parametre gerekmez.
+  - **get_directions** - Study'nin yönlerini alınız.
+    - Parametre gerekmez.
+  - **get_trials** - Bir study'deki tüm trial'ları CSV formatında alınız.
+    - Parametre gerekmez.
+  - **best_trial** - En iyi trial'ı alınız.
+    - Parametre gerekmez.
+  - **best_trials** - Study'de Pareto cephesinde yer alan trial'ları döndürünüz.
+    - Parametre gerekmez.
+
+  ### Trial
+
+  - **ask** - Optuna kullanarak yeni parametreler öneriniz.
+    - `search_space` : Optuna için arama alanı (dictionary, gerekli).
+  - **tell** - Bir trial'ın sonucunu rapor ediniz.
+    - `trial_number` : trial numarası (integer, gerekli).
+    - `values` : trial'ın sonucu (float veya float listesi, gerekli).
+  - **set_trial_user_attr** - Bir trial için kullanıcı öznitelikleri ayarlayınız.
+    - `trial_number`: trial numarası (integer, gerekli).
+    - `key`: kullanıcı özniteliğinin anahtarı (string, gerekli).
+    - `value`: kullanıcı özniteliğinin değeri (herhangi bir tür, gerekli).
+  - **get_trial_user_attrs** - Bir trial'da kullanıcı özniteliklerini alınız.
+    - `trial_number`: trial numarası (integer, gerekli).
+
+  ### Görselleştirme
+
+  - **plot_optimization_history** - Optimizasyon geçmişi grafiğini bir görüntü olarak döndürünüz.
+    - `target`: hangi değerin görüntüleneceğini belirtmek için index (integer, isteğe bağlı).
+    - `target_name`: eksen etiketinde gösterilecek target'ın adı (string, isteğe bağlı).
+  - **plot_hypervolume_history** - Hypervolume geçmişi grafiğini bir görüntü olarak döndürünüz.
+    - `reference_point` : hypervolume'ü hesaplamak için referans noktalarının listesi (float listesi, gerekli).
+  - **plot_pareto_front** - Çok amaçlı optimizasyon için Pareto cephesi grafiğini bir görüntü olarak döndürünüz.
+    - `target_names`: eksen başlıkları olarak kullanılacak objective adı listesi (string listesi, isteğe bağlı).
+    - `include_dominated_trials`: tüm dominant olmayan trial'ların objective değerlerini dahil etmek için bayrak (boolean, isteğe bağlı).
+    - `targets`: görüntülenecek objective değerlerini belirtmek için indisler listesi. (integer listesi, isteğe bağlı).
+  - **plot_contour** - Kontur grafiğini bir görüntü olarak döndürünüz.
+    - `params` : görselleştirilecek parametre listesi (string listesi, isteğe bağlı).
+    - `target` : görüntülenecek değeri belirtmek için index (integer, gerekli).
+    - `target_name` : renk çubuğunda gösterilecek target'ın adı (string, gerekli).
+  - **plot_parallel_coordinate** - Paralel koordinat grafiğini bir görüntü olarak döndürünüz.
+    - `params` : görselleştirilecek parametre listesi (string listesi, isteğe bağlı).
+    - `target` : görüntülenecek değeri belirtmek için index (integer, gerekli).
+    - `target_name` : eksen etiketi ve efsanede gösterilecek target'ın adı (string, gerekli).
+  - **plot_slice** - Dilim grafiğini bir görüntü olarak döndürünüz.
+    - `params` : görselleştirilecek parametre listesi (string listesi, isteğe bağlı).
+    - `target` : görüntülenecek değeri belirtmek için index (integer, gerekli).
+    - `target_name` : eksen etiketinde gösterilecek target'ın adı (string, gerekli).
+  - **plot_param_importances** - Parametre önemlilikleri grafiğini bir görüntü olarak döndürünüz.
+    - `params` : görselleştirilecek parametre listesi (string listesi, isteğe bağlı).
+    - `target` : görüntülenecek değeri belirtmek için index (integer/null, isteğe bağlı).
+    - `target_name` : efsanede gösterilecek target'ın adı (string, gerekli).
+  - **plot_edf** - EDF grafiğini bir görüntü olarak döndürünüz.
+    - `target` : görüntülenecek değeri belirtmek için index (integer, gerekli).
+    - `target_name` : eksen etiketinde gösterilecek target'ın adı (string, gerekli).
+  - **plot_timeline** - Zaman çizelgesi grafiğini bir görüntü olarak döndürünüz.
+    - Parametre gerekmez.
+  - **plot_rank** - Sıra grafiğini bir görüntü olarak döndürünüz.
+    - `params` : görselleştirilecek parametre listesi (string listesi, isteğe bağlı).
+    - `target` : görüntülenecek değeri belirtmek için index (integer, gerekli).
+    - `target_name` : renk çubuğunda gösterilecek target'ın adı (string, gerekli).
+
+  ### Web Panosu
+
+  - **launch_optuna_dashboard** - Optuna panosunu başlatınız.
+    - `port`: sunucu portu (integer, isteğe bağlı, varsayılan: 58080).
+
+  ## Örnekler
+
+  - [2D-Sphere Fonksiyonunun Optimize Edilmesi](#2d-sphere-fonksiyonunun-optimize-edilmesi)
+  - [Optuna Panosunun Başlatılması ve Optimizasyon Sonuçlarının Analiz Edilmesi](#optuna-panosunun-başlatılması-ve-optimizasyon-sonuçlarının-analiz-edilmesi)
+  - [FFmpeg Kodlama Parametrelerinin Optimize Edilmesi](#ffmpeg-kodlama-parametrelerinin-optimize-edilmesi)
+  - [Cookie Tarifinin Optimize Edilmesi](#cookie-tarifinin-optimize-edilmesi)
+  - [Matplotlib Yapılandırmasının Optimize Edilmesi](#matplotlib-yapılandırmasının-optimize-edilmesi)
+
+  ### 2D-Sphere Fonksiyonunun Optimize Edilmesi
+
+  Burada 2D-Sphere fonksiyonunun optimize edilmesine dair basit bir örnek, örnek istemi ve LLM yanıtlarının özeti sunulmaktadır.
+
+  | Kullanıcı İstemi | Claude'da Çıkış |
+  | - | - |
+  | (Claude Desktop'ı başlatınız) |  |
+  | Lütfen minimizasyon için "Optimize-2D-Sphere" adında bir Optuna study'si oluşturunuz. |  |
+  | Lütfen [-1, 1] aralığında iki float parametre x, y öneriniz. |  |
+  | Lütfen objective value x\*\*2 + y\*\*2'ı rapor ediniz. Değeri hesaplamak için lütfen JavaScript yorumlayıcısını kullanınız ve değerleri yuvarlamamayınız. |  |
+  | Lütfen başka bir parametre seti öneriniz ve değerlendiriniz. |  |
+  | Lütfen şu ana kadar olan optimizasyon geçmişini çiziminiz. |  |
+
+  ### Optuna Panosunun Başlatılması ve Optimizasyon Sonuçlarının Analiz Edilmesi
+
+  [Optuna panosunu](https://github.com/optuna/optuna-dashboard) MCP server aracılığıyla başlatarak optimizasyon sonuçlarını etkileşimli olarak analiz edebilirsiniz.
+
+  | Kullanıcı İstemi | Claude'da Çıkış |
+  | - | - |
+  | Lütfen Optuna panosunu başlatınız. |  |
+
+  Varsayılan olarak, Optuna panosu 58080 portunda başlatılacaktır.
+  Aşağıda gösterildiği gibi web tarayıcınızda `http://localhost:58080` adresine giderek erişebilirsiniz:
+
+
+  Optuna panosu optimizasyon geçmişi, parametre önemlilikleri ve daha birçok şey gibi optimizasyon sonuçlarını analiz etmek için çeşitli görselleştirmeler sağlar.
+
+  ### FFmpeg Kodlama Parametrelerinin Optimize Edilmesi
+
+  ![ffmpeg-2](https://raw.githubusercontent.com/optuna/optuna-mcp/main/examples/ffmpeg/images/demo-ffmpeg-2.png)
+
+  Bu demo, Optuna MCP server'ını optimal FFmpeg kodlama parametrelerini otomatik olarak bulabilmek için nasıl kullanacağını göstermektedir. x264 kodlama seçeneklerini, kodlama süresini makul tutarken video kalitesini (SSIM puanı ile ölçülen) en üst düzeye çıkarmak için optimize eder.
+
+  Ayrıntılar için [examples/ffmpeg](https://github.com/optuna/optuna-mcp/tree/main/examples/ffmpeg/README.md) adresini kontrol ediniz.
+
+  ### Cookie Tarifinin Optimize Edilmesi
+
+  ![cookie-recipe](https://raw.githubusercontent.com/optuna/optuna-mcp/main/examples/cookie-recipe/images/result-table.png)
+
+  Bu örnekte "[Bayesian Optimization for a Better Dessert](https://research.google/pubs/bayesian-optimization-for-a-better-dessert/)" başlıklı makaleye referans vererek bir cookie tarifini optimize edeceğiz.
+
+  Ayrıntılar için [examples/cookie-recipe](https://github.com/optuna/optuna-mcp/tree/main/examples/cookie-recipe/README.md) adresini kontrol ediniz.
+
+  ### Matplotlib Yapılandırmasının Optimize Edilmesi
+
+  <table>
+      <caption>Optuna MCP tarafından varsayılan ve optimize edilmiş figürler.</caption>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </table>
+
+  Bu örnek bir Matplotlib yapılandırmasını optimize eder.
+
+  Ayrıntılar için [examples/auto-matplotlib](https://github.com/optuna/optuna-mcp/tree/main/examples/auto-matplotlib/README.md) adresini kontrol ediniz.
+
+  ## Lisans
+
+  MIT Lisansı ([LICENSE](./LICENSE) dosyasına bakınız).
 ---
 
 # Optuna MCP Server

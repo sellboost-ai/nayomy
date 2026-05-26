@@ -8,6 +8,218 @@ url: "https://github.com/ttommyth/interactive-mcp"
 body_length: 9270
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # interactive-mcp
+
+  [![npm version](https://img.shields.io/npm/v/interactive-mcp)](https://www.npmjs.com/package/interactive-mcp) [![npm downloads](https://img.shields.io/npm/dm/interactive-mcp)](https://www.npmjs.com/package/interactive-mcp) [![smithery badge](https://smithery.ai/badge/@ttommyth/interactive-mcp)](https://smithery.ai/server/@ttommyth/interactive-mcp) [![GitHub license](https://img.shields.io/github/license/ttommyth/interactive-mcp)](https://github.com/ttommyth/interactive-mcp/blob/main/LICENSE) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Platforms](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://github.com/ttommyth/interactive-mcp) [![GitHub last commit](https://img.shields.io/github/last-commit/ttommyth/interactive-mcp)](https://github.com/ttommyth/interactive-mcp/commits/main)
+
+  [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=interactive&config=eyJjb21tYW5kIjoibnB4IC15IGludGVyYWN0aXZlLW1jcCJ9)
+
+  ![Screenshot 2025-05-13 213745](https://github.com/user-attachments/assets/40208534-5910-4eb2-bfbc-58f7d93aec95)
+
+  Node.js/TypeScript'te uygulanmış bir MCP Server'ı, LLM'ler ve kullanıcılar arasında etkileşimli iletişimi kolaylaştırır. **Not:** Bu server, MCP client'ı (örneğin, Claude Desktop, VS Code) ile yerel olarak çalışmak üzere tasarlanmıştır çünkü kullanıcının işletim sistemi üzerinde bildirimler ve komut satırı istemlerini göstermek için doğrudan erişime ihtiyaç duyar.
+
+  _(Not: Bu proje erken aşamalarındadır.)_
+
+  **Hızlı bir özet mi istiyorsunuz?** Giriş yazısını inceleyin: [Stop Your AI Assistant From Guessing — Introducing interactive-mcp](https://medium.com/@ttommyth/stop-your-ai-assistant-from-guessing-introducing-interactive-mcp-b42ac6d9b0e2)
+
+  [Demo Videosu](https://youtu.be/ebwDZdfgSHo)
+
+  <div align="center">
+  <a href="https://glama.ai/mcp/servers/@ttommyth/interactive-mcp">
+    
+  </a>
+  </div>
+
+  ## Araçlar
+
+  Bu server, Model Context Protocol (MCP) aracılığıyla aşağıdaki araçları ortaya koymaktadır:
+
+  - `request_user_input`: Kullanıcıya bir soru sorar ve yanıtını döndürür. Önceden tanımlanmış seçenekleri gösterebilir.
+  - `message_complete_notification`: Basit bir işletim sistemi bildirimi gönderir.
+  - `start_intensive_chat`: Kalıcı bir komut satırı sohbet oturumunu başlatır.
+  - `ask_intensive_chat`: Etkin bir yoğun sohbet oturumunda bir soru sorar.
+  - `stop_intensive_chat`: Etkin bir yoğun sohbet oturumunu kapatır.
+
+  ## Demo
+
+  Etkileşimli özelliklerin gösterimleri:
+
+  |                      Normal Soru                       |                       Tamamlama Bildirimi                       |
+  | :--------------------------------------------------------: | :-----------------------------------------------------------------: |
+  | ![Normal Question Demo](https://raw.githubusercontent.com/ttommyth/interactive-mcp/HEAD/docs/assets/normal-question.gif) | ![Completion Notification Demo](https://raw.githubusercontent.com/ttommyth/interactive-mcp/HEAD/docs/assets/end-notification.gif) |
+
+  |                         Yoğun Sohbet Başlat                         |                        Yoğun Sohbet Bitir                        |
+  | :------------------------------------------------------------------: | :--------------------------------------------------------------: |
+  | ![Start Intensive Chat Demo](https://raw.githubusercontent.com/ttommyth/interactive-mcp/HEAD/docs/assets/start-intensive-chat.gif) | ![End Intensive Chat Demo](https://raw.githubusercontent.com/ttommyth/interactive-mcp/HEAD/docs/assets/end-intensive-chat.gif) |
+
+  ## Kullanım Senaryoları
+
+  Bu server, bir LLM'nin yerel makinedeki kullanıcıyla doğrudan etkileşim kurması gereken senaryolar için idealdir; örneğin:
+
+  - Etkileşimli kurulum veya yapılandırma işlemleri.
+  - Kod oluşturma veya değiştirme sırasında geri bildirim toplama.
+  - Pair programming'de talimatları açıklığa kavuşturma veya eylemleri onaylama.
+  - LLM işlemi sırasında kullanıcı girdisi veya onayı gerektiren herhangi bir iş akışı.
+
+  ## İstemci Yapılandırması
+
+  Bu bölümde, MCP istemcilerini `interactive-mcp` sunucusunu kullanacak şekilde yapılandırma açıklanmaktadır.
+
+  Varsayılan olarak, kullanıcı istemi 30 saniye sonra zaman aşımına uğrar. İstemciyi yapılandırırken `args` dizisine doğrudan komut satırı bayraklarını ekleyerek timeout veya devre dışı bırakılan araçlar gibi sunucu seçeneklerini özelleştirebilirsiniz.
+
+  `npx` komutunun mevcut olduğundan emin olun.
+
+  ### Claude Desktop / Cursor ile Kullanım
+
+  Aşağıdaki minimal yapılandırmayı `claude_desktop_config.json` (Claude Desktop) veya `mcp.json` (Cursor) dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "interactive": {
+        "command": "npx",
+        "args": ["-y", "interactive-mcp"]
+      }
+    }
+  }
+  ```
+
+  **Belirli sürümle**
+
+  ```json
+  {
+    "mcpServers": {
+      "interactive": {
+        "command": "npx",
+        "args": ["-y", "interactive-mcp@1.9.0"]
+      }
+    }
+  }
+  ```
+
+  **Özel Timeout ile Örnek (30s):**
+
+  ```json
+  {
+    "mcpServers": {
+      "interactive": {
+        "command": "npx",
+        "args": ["-y", "interactive-mcp", "-t", "30"]
+      }
+    }
+  }
+  ```
+
+  ### VS Code ile Kullanım
+
+  Aşağıdaki minimal yapılandırmayı User Settings (JSON) dosyanıza veya `.vscode/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcp": {
+      "servers": {
+        "interactive-mcp": {
+          "command": "npx",
+          "args": ["-y", "interactive-mcp"]
+        }
+      }
+    }
+  }
+  ```
+
+  #### macOS Önerileri
+
+  macOS'ta varsayılan `Terminal.app` kullanırken daha sorunsuz bir deneyim için bu profil ayarını göz önünde bulundurun:
+
+  - **(Shell Tab):** **"Shell çıktığında"** (**Terminal > Settings > Profiles > _[Profiliniz]_ > Shell**) altında, **"Shell temiz bir şekilde çıktığında Kapat"** veya **"Pencereyi Kapat"** seçeneğini seçin. Bu, MCP sunucusu başladığında ve durduğunda pencereleri yönetmeye yardımcı olur.
+
+  ## Geliştirme Kurulumu
+
+  Bu bölüm öncelikle sunucuyu değiştirmek veya geliştirmek isteyen geliştiricilere yöneliktir. Sunucuyu bir MCP istemcisiyle _kullanmak_ istiyorsanız, yukarıdaki "İstemci Yapılandırması" bölümüne bakın.
+
+  ### Ön Koşullar
+
+  - **Node.js:** Sürüm uyumluluğu için `package.json` dosyasını kontrol edin.
+  - **pnpm:** Paket yönetimi için kullanılır. Node.js'yi yükledikten sonra `npm install -g pnpm` ile yükleyin.
+
+  ### Kurulum (Geliştiriciler)
+
+  1. Depoyu klonlayın:
+
+     ```bash
+     git clone https://github.com/ttommyth/interactive-mcp.git
+     cd interactive-mcp
+     ```
+
+  2. Bağımlılıkları yükleyin:
+
+     ```bash
+     pnpm install
+     ```
+
+  ### Uygulamayı Çalıştırma (Geliştiriciler)
+
+  ```bash
+  pnpm start
+  ```
+
+  #### Komut Satırı Seçenekleri
+
+  `interactive-mcp` sunucusu aşağıdaki komut satırı seçeneklerini kabul eder. Bunlar tipik olarak MCP istemcisinin JSON ayarlarında `args` dizisine doğrudan eklenerek yapılandırılmalıdır (bkz. "İstemci Yapılandırması" örnekleri).
+
+  | Seçenek            | Takma Ad | Açıklama                                                                                                                                                                                           |
+  | ----------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `--timeout`       | `-t`  | Kullanıcı girdisi istemi için varsayılan zaman aşımını (saniye cinsinden) ayarlar. Varsayılan değer 30 saniyedir.                                                                                                                 |
+  | `--disable-tools` | `-d`  | Belirli araçları veya grupları devre dışı bırakır (virgülle ayrılmış liste). Sunucunun bunları tanıtmasını veya kaydetmesini engeller. Seçenekler: `request_user_input`, `message_complete_notification`, `intensive_chat`. |
+
+  **Örnek:** İstemci yapılandırması `args` dizisinde birden çok seçeneği birleştirme:
+
+  ```jsonc
+  // İstemci yapılandırmasının "args" dizisinde seçenekleri birleştirme örneği:
+  "args": [
+    "-y", "interactive-mcp",
+    "-t", "30", // Zaman aşımını 30 saniyeye ayarla
+    "--disable-tools", "message_complete_notification,intensive_chat" // Bildirimleri ve yoğun sohbeti devre dışı bırak
+  ]
+  ```
+
+  ## Geliştirme Komutları
+
+  - **Build:** `pnpm build`
+  - **Lint:** `pnpm lint`
+  - **Format:** `pnpm format`
+
+  ## Etkileşim İçin Yol Gösterici İlkeler
+
+  Bu MCP sunucusuyla etkileşim kurarken (örneğin, bir LLM istemcisi olarak), açıklığı sağlamak ve beklenmeyen değişiklikleri azaltmak için lütfen aşağıdaki ilkelere uyun:
+
+  - **Etkileşimi Öncelendir:** Kullanıcıyla etkileşim kurabilmek için sağlanan MCP araçlarını (`request_user_input`, `start_intensive_chat` vb.) sıklıkla kullanın.
+  - **Açıklığa Kavuştur:** Gereksinimler, talimatlar veya bağlam belirsizse, **her zaman** devam etmeden önce açıklayıcı sorular sorun. Varsayım yapmayın.
+  - **Eylemleri Onayla:** Dosyaları değiştirmek, karmaşık komutlar çalıştırmak veya mimari kararlar vermek gibi önemli eylemler gerçekleştirmeden önce planı kullanıcıyla onaylayın.
+  - **Seçenekler Sağla:** Mümkün olduğunda, hızlı kararları kolaylaştırmak için MCP araçları aracılığıyla kullanıcıya önceden tanımlanmış seçenekler sunun.
+
+  Bu talimatları bir LLM istemcisine şu şekilde sağlayabilirsiniz:
+
+  ```markdown
+  # Etkileşim
+
+  - Lütfen etkileşimli MCP araçlarını kullanın
+  - Mümkünse etkileşimli MCP'ye seçenekler sağlayın
+
+  # Beklenmeyen Değişiklikleri Azalt
+
+  - Varsayım yapmayın.
+  - Gereksinimin yeterince açık olduğunu düşünene kadar yürütmeden önce daha fazla soru sorun.
+  ```
+
+  ## Katkı Yapma
+
+  Katkılar hoş karşılanır! Lütfen standart geliştirme uygulamalarını takip edin. (Daha fazla detay daha sonra eklenebilir).
+
+  ## Lisans
+
+  MIT (Detaylar için `LICENSE` dosyasına bakın - uygulanabilir olduğu takdirde, veya lisansı doğrudan belirtin).
 ---
 
 # interactive-mcp

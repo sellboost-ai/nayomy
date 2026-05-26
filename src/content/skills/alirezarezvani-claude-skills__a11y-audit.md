@@ -12,6 +12,213 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Erişilebilirlik Denetimi
+
+  WCAG 2.2 Erişilebilirlik Denetimi ve Düzeltme Becerisi
+
+  ## Açıklama
+
+  a11y-audit becerisi, modern web uygulamaları için tam bir erişilebilirlik denetim hattı sağlar. Tarama, Düzeltme, Doğrulama olmak üzere üç aşamalı bir iş akışı uygular; WCAG 2.2 Seviye A ve AA ihlallerini tanımlar, çerçeveye özgü tam düzeltme kodu üretir ve paydaşlara hazır uyumluluk raporları oluşturur.
+
+  Bulduğu her ihlal için, çerçevenize (React, Next.js, Vue, Angular, Svelte veya düz HTML) uyarlanmış kesin kod düzeltmesini sağlar.
+
+  **Bu beceri neler yapar:**
+
+  1. **Tarar** codebase'inizi her WCAG 2.2 Seviye A ve AA ihlali açısından, ciddiyet düzeyine göre kategorize ederek (Kritik, Önemli, Küçük)
+  2. **Düzeltir** her ihlalin çerçeveye özgü öncesi/sonrası kod modellerini uygulayarak
+  3. **Doğrular** düzeltmelerin orijinal ihlalleri çözdüğünü ve gerileme olmadığını kontrol ederek
+  4. **Raporlar** bulguları geliştirici, PM ve uyumluluk paydaşlarına uygun yapılandırılmış bir biçimde
+  5. **Entegre eder** erişilebilirlik gerilememesini önlemek için CI/CD hattına
+
+  ## Özellikler
+
+  | Özellik | Açıklama |
+  |---------|----------|
+  | **Tam WCAG 2.2 Taraması** | Codebase'iniz genelinde tüm Seviye A ve AA başarı kriterlerini kontrol eder |
+  | **Çerçeve Algılama** | React, Next.js, Vue, Angular, Svelte veya düz HTML'i otomatik olarak algılar |
+  | **Ciddiyet Sınıflandırması** | Her ihlalin Kritik, Önemli veya Küçük olarak kategorize eder |
+  | **Düzeltme Kodu Üretimi** | Her sorun için öncesi/sonrası kod farkları üretir |
+  | **Renk Kontrast Denetçisi** | Ön plan/arka plan çiftlerini AA ve AAA oranlarına karşı doğrular |
+  | **Uyumluluk Raporlaması** | Geçme/başarısız özeti içeren paydaş raporları oluşturur |
+  | **CI/CD Entegrasyonu** | GitHub Actions, GitLab CI, Azure DevOps hat yapılandırmaları |
+  | **Klavye Navigasyonu Denetimi** | Eksik odak yönetimi ve sekme sırası sorunlarını algılar |
+  | **ARIA Doğrulaması** | Yanlış, gereksiz veya eksik ARIA niteliklerini kontrol eder |
+
+  ### Ciddiyet Tanımları
+
+  | Ciddiyet | Tanım | Örnek | SLA |
+  |----------|-------|-------|-----|
+  | **Kritik** | Tüm kullanıcı grupları için erişimi engeller | Eksik alt metin, navigasyonda klavye erişimi yok | Yayınlamadan önce düzelt |
+  | **Önemli** | Deneyimi olumsuz etkileyen önemli engel | Yetersiz renk kontrası, eksik form etiketleri | Mevcut sprint içinde düzelt |
+  | **Küçük** | Kullanılabilirlik sorunu | Gereksiz ARIA rolleri, alt optimal başlık hiyerarşisi | Sonraki 2 sprint içinde düzelt |
+
+  ## Kullanım
+
+  ### Hızlı Başlangıç
+
+  ```bash
+  # Tüm projeyi tara
+  python scripts/a11y_scanner.py /path/to/project
+
+  # JSON çıktısı ile ara
+  python scripts/a11y_scanner.py /path/to/project --json
+
+  # Belirli değerler için renk kontrastını kontrol et
+  python scripts/contrast_checker.py --fg "#777777" --bg "#ffffff"
+
+  # CSS/Tailwind dosyası genelinde kontrastı kontrol et
+  python scripts/contrast_checker.py --file /path/to/styles.css
+  ```
+
+  ### Slash Komutu
+
+  ```
+  /a11y-audit                    # Mevcut projeyi denet
+  /a11y-audit --scope src/       # Belirli dizini denet
+  /a11y-audit --fix              # Denet ve otomatik düzeltmeleri uygula
+  /a11y-audit --report           # Paydaş raporu oluştur
+  /a11y-audit --ci               # CI uyumlu sonuçlar çıkart
+  ```
+
+  ### Üç Aşamalı İş Akışı
+
+  **Aşama 1: Tarama** -- Kaynak ağacını yürü, çerçeveyi algıla, kural setini uygula.
+
+  ```bash
+  python scripts/a11y_scanner.py /path/to/project --format table
+  ```
+
+  **Aşama 2: Düzeltme** -- Her ihlal için çerçeveye özgü düzeltmeleri uygula.
+
+  > Tam düzeltme modellerinin kataloğu için [references/framework-a11y-patterns.md](references/framework-a11y-patterns.md) bölümüne bakın.
+
+  **Aşama 3: Doğrulama** -- Düzeltmelerin çalıştığını ve gerileme olmadığını kontrol etmek için tarayıcıyı yeniden çalıştır.
+
+  ```bash
+  python scripts/a11y_scanner.py /path/to/project --baseline audit-baseline.json
+  ```
+
+  ## Örnek: React Bileşeni Denetimi
+
+  ```tsx
+  // BEFORE: src/components/ProductCard.tsx
+  function ProductCard({ product }) {
+    return (
+      <div onClick={() => navigate(`/product/${product.id}`)}>
+        <img src={product.image} />
+        <div style={{ color: '#aaa', fontSize: '12px' }}>{product.name}</div>
+        <span style={{ color: '#999' }}>${product.price}</span>
+      </div>
+    );
+  }
+  ```
+
+  | # | WCAG | Ciddiyet | Sorun |
+  |---|------|----------|-------|
+  | 1 | 1.1.1 | Kritik | `<img>` öğesinde `alt` niteliği yok |
+  | 2 | 2.1.1 | Kritik | `<div onClick>` klavye erişimine uygun değil |
+  | 3 | 1.4.3 | Önemli | Renk `#aaa` beyaz üzerinde kontrastı başarısız (2.32:1, 4.5:1 gerekli) |
+  | 4 | 1.4.3 | Önemli | Renk `#999` beyaz üzerinde kontrastı başarısız (2.85:1, 4.5:1 gerekli) |
+  | 5 | 4.1.2 | Önemli | İnteraktif öğe rol ve erişilebilir ad eksik |
+
+  ```tsx
+  // AFTER: src/components/ProductCard.tsx
+  function ProductCard({ product }) {
+    return (
+      <a href={`/product/${product.id}`} className="product-card"
+         aria-label={`View ${product.name} - $${product.price}`}>
+        <img src={product.image} alt={product.imageAlt || product.name} />
+        <div style={{ color: '#595959', fontSize: '12px' }}>{product.name}</div>
+        <span style={{ color: '#767676' }}>${product.price}</span>
+      </a>
+    );
+  }
+  ```
+
+  > Vue, Angular, Next.js ve Svelte örnekleri için [references/examples-by-framework.md](references/examples-by-framework.md) bölümüne bakın.
+
+  ## Araçlar Referansı
+
+  ### a11y_scanner.py
+
+  ```
+  Kullanım: python scripts/a11y_scanner.py <path> [options]
+
+  Seçenekler:
+    --json                  Sonuçları JSON olarak çıkart
+    --format {table,csv}    Çıktı biçimi (varsayılan: table)
+    --severity {critical,major,minor}  Minimum ciddiyet düzeyine göre filtrele
+    --framework {react,vue,angular,svelte,html,auto}  Çerçeveyi zorla (varsayılan: auto)
+    --baseline FILE         Önceki tarama sonuçlarıyla karşılaştır
+    --report                Paydaş raporu oluştur
+    --output FILE           Sonuçları dosyaya yaz
+    --quiet                 Çıktıyı bastır, sadece çıkış kodu
+    --ci                    CI modu: kritik sorunlarda sıfır olmayan çıkış
+  ```
+
+  ### contrast_checker.py
+
+  ```
+  Kullanım: python scripts/contrast_checker.py [options]
+
+  Seçenekler:
+    --fg COLOR              Ön plan rengi (hex)
+    --bg COLOR              Arka plan rengi (hex)
+    --file FILE             Renk çiftleri için CSS dosyasını tara
+    --tailwind DIR          Tailwind renk sınıfları için dizini tara
+    --json                  Sonuçları JSON olarak çıkart
+    --suggest               Başarısız olan erişilebilir alternatifler öner
+    --level {aa,aaa}        Hedef uyumluluk seviyesi (varsayılan: aa)
+  ```
+
+  ## Yaygın Tuzaklar
+
+  | Tuzak | Doğru Yaklaşım |
+  |-------|----------------|
+  | `role="button"` bir `<div>` üzerinde | Yerel `<button>` kullan -- klavye işlemesini otomatik sağlar |
+  | `tabindex="0"` her şeyde | Sadece etkileşimli öğelerin odağı gerekir; yerel öğeleri kullan |
+  | `aria-label` etkileşim dışı öğelerde | `aria-labelledby`'yi görünür metne işaret etmek için kullan |
+  | `display: none` ekran okuyucu gizlemesi için | Bunun yerine `.sr-only` sınıfını kullan |
+  | Anlamı belirtmek için sadece renk | Renkle birlikte simgeler, metin etiketleri veya desenleri ekle |
+  | Yer tutucu tek etiket olarak | Her zaman görünür bir `<label>` sağla |
+  | `outline: none` değiştirme olmadan | `focus-visible` üzerinden her zaman görünür odak göstergesi sağla |
+  | Bilgilendirici görsellerde boş `alt=""` | Bilgilendirici görsellerin açıklayıcı alt metne ihtiyacı vardır |
+  | Başlık seviyelerini atlama (h1 -> h3) | Başlık seviyeleri sıralı olmalı |
+  | `onClick` olmadan `onKeyDown` | Klavye desteği ekle veya yerel öğeleri tercih et |
+  | `prefers-reduced-motion` yoksay | Animasyonları `@media (prefers-reduced-motion: no-preference)` içine al |
+
+  ## İlgili Beceriler
+
+  | Beceri | İlişki |
+  |--------|--------|
+  | **senior-frontend** | a11y düzeltmelerinde kullanılan frontend modellleri |
+  | **code-reviewer** | Kod incelemesi iş akışına a11y kontrollerini dahil et |
+  | **senior-qa** | a11y testinin QA süreçlerine entegrasyonu |
+  | **playwright-pro** | Erişilebilirlik assert'leri ile otomatik tarayıcı testi |
+  | **epic-design** | WCAG 2.1 AA uyumlu animasyonlar ve kaydırma anlatısı |
+  | **tdd-guide** | a11y test vakaları için test güdümlü geliştirme modelleri |
+
+  ## Referans Belgelendirme
+
+  | Referans | Açıklama |
+  |----------|----------|
+  | [wcag-quick-ref.md](references/wcag-quick-ref.md) | WCAG 2.2 Seviye A & AA kriterleri hızlı referansı |
+  | [wcag-22-new-criteria.md](references/wcag-22-new-criteria.md) | Yeni WCAG 2.2 başarı kriterleri (Odak Görünümü, Hedef Boyutu, vb.) |
+  | [aria-patterns.md](references/aria-patterns.md) | ARIA modelleri, klavye etkileşimi ve canlı bölgeler |
+  | [framework-a11y-patterns.md](references/framework-a11y-patterns.md) | Çerçeveye özgü düzeltme modelleri (React, Vue, Angular, Svelte, HTML) |
+  | [color-contrast-guide.md](references/color-contrast-guide.md) | Renk kontrast denetçisi detayları, Tailwind palet haritalandırması, sr-only sınıfı |
+  | [ci-cd-integration.md](references/ci-cd-integration.md) | GitHub Actions, GitLab CI, Azure DevOps, pre-commit hook yapılandırmaları |
+  | [audit-report-template.md](references/audit-report-template.md) | Paydaşlara hazır denetim raporu şablonu |
+  | [testing-checklist.md](references/testing-checklist.md) | Manuel test kontrol listesi (klavye, ekran okuyucu, görsel, formlar) |
+  | [examples-by-framework.md](references/examples-by-framework.md) | Vue, Angular, Next.js ve Svelte için tam denetim örnekleri |
+
+  ## Kaynaklar
+
+  - [WCAG 2.2 Specification](https://www.w3.org/TR/WCAG22/)
+  - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/WAI/ARIA/apg/)
+  - [Deque axe-core Rules](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md)
+  - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 ---
 
 # Accessibility Audit

@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Agiled Otomasyonu
+
+  Composio'nun Agiled toolkit'ini Rube MCP aracılığıyla kullanarak Agiled işlemlerini otomatikleştirin.
+
+  **Toolkit dokümanları**: [composio.dev/toolkits/agiled](https://composio.dev/toolkits/agiled)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir durumda)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Agiled bağlantısı (toolkit: `agiled`)
+  - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi alın**: MCP sunucu yapılandırmanıza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
+  2. `RUBE_MANAGE_CONNECTIONS`'ı toolkit `agiled` ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için dönen auth linkini takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Discovery
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Agiled operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Tool'ları Keşfet
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Agiled task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Et
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["agiled"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştır
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS`'ı çağırmadan tool slug'ları veya parametreleri asla hardcode etmeyin
+  - **Bağlantıyı kontrol et**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş bile olsa (`{}`)
+  - **Session yeniden kullanımı**: Workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|----------|
+  | Tool bul | `RUBE_SEARCH_TOOLS`'u Agiled'e özgü use case ile çağır |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS`'ı toolkit `agiled` ile çağır |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL`'u keşfedilen tool slug'ları ile çalıştır |
+  | Toplu işlem | `RUBE_REMOTE_WORKBENCH`'i `run_composio_tool()` ile çalıştır |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS`'ı `schemaRef` olan tool'lar için çalıştır |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Agiled Automation via Rube MCP

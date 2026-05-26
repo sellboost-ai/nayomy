@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Agenty Otomasyonu Rube MCP Üzerinden
+
+  Composio'nun Agenty araç takımı aracılığıyla Rube MCP üzerinden Agenty işlemlerini otomatikleştirin.
+
+  **Araç takımı dokümantasyonu**: [composio.dev/toolkits/agenty](https://composio.dev/toolkits/agenty)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla etkin Agenty bağlantısı ve `agenty` araç takımı
+  - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: `https://rube.app/mcp` adresini istemci yapılandırmanızda MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
+  2. `RUBE_MANAGE_CONNECTIONS` öğesini `agenty` araç takımı ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Agenty operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slug'larını, giriş şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Agenty task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["agenty"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa da (`{}`)
+  - **Oturum yeniden kullanımı**: Bir workflow içinde oturum kimliklerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Sayfalandırma**: Yanıtlarda sayfalandırma token'larını kontrol edin ve işlem tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Başvuru
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araç bulma | Agenty'e özel use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlantı | `RUBE_MANAGE_CONNECTIONS` ile `agenty` araç takımı |
+  | Yürütme | Keşfedilen araç slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` olan araçlar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Agenty Automation via Rube MCP

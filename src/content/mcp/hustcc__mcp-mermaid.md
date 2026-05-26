@@ -9,6 +9,196 @@ body_length: 5631
 license: "MIT"
 language: "TypeScript"
 homepage: "https://github.com/hustcc/mcp-mermaid"
+body_tr: |-
+  #  MCP Mermaid ![](https://badge.mcpx.dev?type=server 'MCP Server')  [![build](https://github.com/hustcc/mcp-mermaid/actions/workflows/build.yml/badge.svg)](https://github.com/hustcc/mcp-mermaid/actions/workflows/build.yml) [![npm Version](https://img.shields.io/npm/v/mcp-mermaid.svg)](https://www.npmjs.com/package/mcp-mermaid) [![smithery badge](https://smithery.ai/badge/@hustcc/mcp-mermaid)](https://smithery.ai/server/@hustcc/mcp-mermaid) [![npm License](https://img.shields.io/npm/l/mcp-mermaid.svg)](https://www.npmjs.com/package/mcp-mermaid) [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/hustcc/mcp-mermaid)](https://archestra.ai/mcp-catalog/hustcc__mcp-mermaid)
+
+  AI MCP ile [mermaid](https://mermaid.js.org/) diyagramı ve grafiği dinamik olarak oluşturun. Ayrıca şunları kullanabilirsiniz:
+
+  -  [mcp-server-chart](https://github.com/antvis/mcp-server-chart) grafik, chart ve harita oluşturmak için.
+  -  [Infographic](https://github.com/antvis/Infographic) infografik oluşturmak için, örneğin `Timeline`, `Comparison`, `List`, `Process` ve benzeri.
+  - 🖼️ [figure.ling.pub/gallery](https://figure.ling.pub/gallery) mcp-mermaid ve diğer araçlarla oluşturulan AI tarafından üretilen diyagramları ve figürleri incelemek ve paylaşmak için.
+
+
+  ## ✨ Özellikler
+
+  - `Mermaid` ın tüm özelliklerini ve söz dizimini tam olarak destekler.
+  - `backgroundColor` ve `theme` yapılandırmasını destekler, büyük AI modellerinin zengin stil konfigürasyonları çıkartmasını sağlar.
+
+  - `base64`, `svg`, `mermaid`, `file` ve uzak dostu `svg_url`, `png_url` formatlarına dışa aktarımı destekler. `Mermaid` için doğrulama ile modelin çok turlu doğru söz dizimi ve grafik çıkartmasını kolaylaştırır. PNG diyagramları diske otomatik olarak kaydetmek için `outputType: "file"` kullanın veya herkese açık mermaid.ink bağlantıları aracılığıyla diyagramları paylaşmak için URL modlarını kullanın.
+
+
+
+
+
+  ## 🤖 Kullanım
+
+  `Desktop APP` ile kullanmak için, Claude, VSCode, Cline, Cherry Studio gibi uygulamalar, aşağıdaki MCP server konfigürasyonunu ekleyin. Mac sisteminde:
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-mermaid": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-mermaid"
+        ]
+      }
+    }
+  }
+  ```
+
+  Windows sisteminde:
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-mermaid": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "npx",
+          "-y",
+          "mcp-mermaid"
+        ]
+      }
+    }
+  }
+  ```
+
+  Ayrıca, aliyun, modelscope, glama.ai, smithery.ai veya HTTP, SSE Protocol ile diğerlerinde kullanabilirsiniz.
+
+  **Erişim Noktaları:**
+  - SSE: `http://localhost:3033/sse`
+  - Streamable: `http://localhost:1122/mcp`
+
+  **Mevcut Docker Etiketleri:**
+  - `susuperli/mcp-mermaid:latest` - En son kararlı sürüm
+  - [Docker Hub](https://hub.docker.com/repository/docker/susuperli/mcp-mermaid/tags) adresinden tüm mevcut etiketleri görüntüleyin
+
+
+  ## 🚰 SSE veya Streamable taşıma ile Çalıştırma
+
+  ### Seçenek 1: Global Kurulum
+
+  Paketi global olarak kurun:
+
+  ```bash
+  npm install -g mcp-mermaid
+  ```
+
+  Sunucuyu tercih ettiğiniz taşıma seçeneğiyle çalıştırın:
+
+  ```bash
+  # SSE taşıması için (varsayılan endpoint: /sse)
+  mcp-mermaid -t sse
+
+  # Streamable taşıması özel endpoint ile
+  mcp-mermaid -t streamable
+  ```
+
+  ### Seçenek 2: Yerel Geliştirme
+
+  Kaynak kodla lokal çalışıyorsanız:
+
+  ```bash
+  # Klonlama ve kurulum
+  git clone https://github.com/hustcc/mcp-mermaid.git
+  cd mcp-mermaid
+  npm install
+  npm run build
+
+  # npm scriptleriyle çalıştırma
+  npm run start:sse        # 3033 portunda SSE taşıması
+  npm run start:streamable # 1122 portunda Streamable taşıması
+  ```
+
+  ### Erişim Noktaları
+
+  Sunucuya şu adresten erişebilirsiniz:
+
+  - SSE taşıması: `http://localhost:3033/sse`
+  - Streamable taşıması: `http://localhost:1122/mcp` (lokal) veya `http://localhost:3033/mcp` (global)
+
+  ## 🎮 CLI Seçenekleri
+
+  MCP sunucusunu çalıştırırken aşağıdaki CLI seçeneklerini de kullanabilirsiniz. CLI'yi `-h` ile çalıştırarak komut seçeneklerini görüntüleyin.
+
+  ```plain
+  MCP Mermaid CLI
+
+  Options:
+    --transport, -t  Taşıma protokolünü belirtin: "stdio", "sse" veya "streamable" (varsayılan: "stdio")
+    --port, -p       SSE veya streamable taşıması için portu belirtin (varsayılan: 3033)
+    --endpoint, -e   Taşıma için endpoint belirtin:
+                      - SSE için: varsayılan "/sse" dir
+                      - Streamable için: varsayılan "/mcp" dir
+    --help, -h       Bu yardım mesajını göster
+  ```
+
+  ## 🔨 Geliştirme
+
+  Bağımlılıkları kurun:
+
+  ```bash
+  npm install
+  ```
+
+  Sunucuyu derleyin:
+
+  ```bash
+  npm run build
+  ```
+
+  ### MCP sunucusunu başlatın
+
+  **MCP Inspector ile (hata ayıklama için):**
+
+  ```bash
+  npm run start
+  ```
+
+  **Farklı taşıma protokolleriyle:**
+
+  ```bash
+  # SSE taşıması (Server-Sent Events)
+  npm run start:sse
+
+  # Streamable HTTP taşıması
+  npm run start:streamable
+  ```
+
+  **Doğrudan node komutları:**
+
+  ```bash
+  # 3033 portunda SSE taşıması
+  node build/index.js --transport sse --port 3033
+
+  # 1122 portunda Streamable HTTP taşıması
+  node build/index.js --transport streamable --port 1122
+
+  # STDIO taşıması (MCP client entegrasyonu için)
+  node build/index.js --transport stdio
+  ```
+
+  ## 🐳 Docker Kullanımı
+
+  MCP Mermaid'i Docker ile çalıştırın:
+
+  ```bash
+  # Image'i çekin
+  docker pull susuperli/mcp-mermaid:latest
+
+  # SSE taşıması ile çalıştırın (varsayılan)
+  docker run -p 3033:3033 susuperli/mcp-mermaid:latest --transport sse
+
+  # Streamable taşıması ile çalıştırın
+  docker run -p 1122:1122 susuperli/mcp-mermaid:latest --transport streamable --port 1122
+  ```
+
+  ## 📄 Lisans
+
+  MIT@[hustcc](https://github.com/hustcc).
 ---
 
 #  MCP Mermaid ![](https://badge.mcpx.dev?type=server 'MCP Server')  [![build](https://github.com/hustcc/mcp-mermaid/actions/workflows/build.yml/badge.svg)](https://github.com/hustcc/mcp-mermaid/actions/workflows/build.yml) [![npm Version](https://img.shields.io/npm/v/mcp-mermaid.svg)](https://www.npmjs.com/package/mcp-mermaid) [![smithery badge](https://smithery.ai/badge/@hustcc/mcp-mermaid)](https://smithery.ai/server/@hustcc/mcp-mermaid) [![npm License](https://img.shields.io/npm/l/mcp-mermaid.svg)](https://www.npmjs.com/package/mcp-mermaid) [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/hustcc/mcp-mermaid)](https://archestra.ai/mcp-catalog/hustcc__mcp-mermaid)

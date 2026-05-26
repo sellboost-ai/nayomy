@@ -8,6 +8,126 @@ url: "https://github.com/LaurieWired/GhidraMCP"
 body_length: 4873
 license: "Apache-2.0"
 language: "Java"
+body_tr: |-
+  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+  [![GitHub release (latest by date)](https://img.shields.io/github/v/release/LaurieWired/GhidraMCP)](https://github.com/LaurieWired/GhidraMCP/releases)
+  [![GitHub stars](https://img.shields.io/github/stars/LaurieWired/GhidraMCP)](https://github.com/LaurieWired/GhidraMCP/stargazers)
+  [![GitHub forks](https://img.shields.io/github/forks/LaurieWired/GhidraMCP)](https://github.com/LaurieWired/GhidraMCP/network/members)
+  [![GitHub contributors](https://img.shields.io/github/contributors/LaurieWired/GhidraMCP)](https://github.com/LaurieWired/GhidraMCP/graphs/contributors)
+  [![Follow @lauriewired](https://img.shields.io/twitter/follow/lauriewired?style=social)](https://twitter.com/lauriewired)
+
+  ![ghidra_MCP_logo](https://github.com/user-attachments/assets/4986d702-be3f-4697-acce-aea55cd79ad3)
+
+
+  # ghidraMCP
+  ghidraMCP, LLM'lerin uygulamaları otonom olarak tersine mühendislik yapmasını sağlayan bir Model Context Protocol sunucusudur. Ghidra'nın temel işlevselliğinden MCP istemcilerine çok sayıda araç sunar.
+
+  https://github.com/user-attachments/assets/36080514-f227-44bd-af84-78e29ee1d7f9
+
+
+  # Özellikler
+  MCP Sunucusu + Ghidra Plugin'i
+
+  - Ghidra'da ikili dosyaları decompile ve analiz edin
+  - Method ve veri adlarını otomatik olarak yeniden adlandırın
+  - Method, class, import ve export'ları listeleyin
+
+  # Kurulum
+
+  ## Ön Koşullar
+  - [Ghidra](https://ghidra-sre.org)'yı yükleyin
+  - Python3
+  - MCP [SDK](https://github.com/modelcontextprotocol/python-sdk)
+
+  ## Ghidra
+  İlk olarak, bu depodan en son [release](https://github.com/LaurieWired/GhidraMCP/releases)'i indirin. Bu, Ghidra plugin'ini ve Python MCP istemcisini içerir. Ardından plugin'i doğrudan Ghidra'ya aktarabilirsiniz.
+
+  1. Ghidra'yı çalıştırın
+  2. `File` -> `Install Extensions` seçin
+  3. `+` düğmesine tıklayın
+  4. İndirilen release'ten `GhidraMCP-1-2.zip` (veya seçtiğiniz sürüm) seçin
+  5. Ghidra'yı yeniden başlatın
+  6. GhidraMCPPlugin'in `File` -> `Configure` -> `Developer` içinde etkinleştirildiğinden emin olun
+  7. *İsteğe Bağlı*: Ghidra'da `Edit` -> `Tool Options` -> `GhidraMCP HTTP Server` ile portu yapılandırın
+
+  Video Kurulum Kılavuzu:
+
+
+  https://github.com/user-attachments/assets/75f0c176-6da1-48dc-ad96-c182eb4648c3
+
+
+
+  ## MCP İstemcileri
+
+  Teorik olarak, herhangi bir MCP istemcisi ghidraMCP ile çalışmalıdır. Aşağıda üç örnek verilmiştir.
+
+  ## Örnek 1: Claude Desktop
+  Claude Desktop'u Ghidra MCP istemcisi olarak kurmak için `Claude` -> `Settings` -> `Developer` -> `Edit Config` -> `claude_desktop_config.json` sayfasına gidin ve aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "ghidra": {
+        "command": "python",
+        "args": [
+          "/ABSOLUTE_PATH_TO/bridge_mcp_ghidra.py",
+          "--ghidra-server",
+          "http://127.0.0.1:8080/"
+        ]
+      }
+    }
+  }
+  ```
+
+  Alternatif olarak, bu dosyayı doğrudan düzenleyin:
+  ```
+  /Users/YOUR_USER/Library/Application Support/Claude/claude_desktop_config.json
+  ```
+
+  Sunucu IP'si ve portu yapılandırılabilir ve hedef Ghidra örneğine işaret edecek şekilde ayarlanmalıdır. Ayarlanmazsa, her ikisi de localhost:8080'e varsayılan olarak atanır.
+
+  ## Örnek 2: Cline
+  [Cline](https://cline.bot) ile GhidraMCP'yi kullanmak için, MCP sunucusunu da el ile çalıştırmanız gerekir. İlk olarak aşağıdaki komutu çalıştırın:
+
+  ```
+  python bridge_mcp_ghidra.py --transport sse --mcp-host 127.0.0.1 --mcp-port 8081 --ghidra-server http://127.0.0.1:8080/
+  ```
+
+  Tek *gerekli* argüman transport'tur. Diğer tüm argümanlar belirtilmezse, yukarıdakilere varsayılan olarak atanır. MCP sunucusu çalıştıktan sonra Cline'ı açın ve üstteki `MCP Servers` seçeneğini seçin.
+
+  ![Cline select](https://github.com/user-attachments/assets/88e1f336-4729-46ee-9b81-53271e9c0ce0)
+
+  Ardından `Remote Servers` seçin ve aşağıdakini ekleyin, URL'nin MCP host ve portu ile eşleştiğinden emin olun:
+
+  1. Sunucu Adı: GhidraMCP
+  2. Sunucu URL'si: `http://127.0.0.1:8081/sse`
+
+  ## Örnek 3: 5ire
+  Backend'de birden fazla modeli destekleyen başka bir MCP istemcisi [5ire](https://github.com/nanbingxyz/5ire)'dir. GhidraMCP'yi kurmak için 5ire'yi açın ve `Tools` -> `New` sayfasına gidin ve aşağıdaki konfigürasyonları ayarlayın:
+
+  1. Tool Key: ghidra
+  2. Name: GhidraMCP
+  3. Command: `python /ABSOLUTE_PATH_TO/bridge_mcp_ghidra.py`
+
+  # Kaynaktan Oluşturma
+  1. Ghidra dizininizden bu projenin `lib/` dizinine aşağıdaki dosyaları kopyalayın:
+  - `Ghidra/Features/Base/lib/Base.jar`
+  - `Ghidra/Features/Decompiler/lib/Decompiler.jar`
+  - `Ghidra/Framework/Docking/lib/Docking.jar`
+  - `Ghidra/Framework/Generic/lib/Generic.jar`
+  - `Ghidra/Framework/Project/lib/Project.jar`
+  - `Ghidra/Framework/SoftwareModeling/lib/SoftwareModeling.jar`
+  - `Ghidra/Framework/Utility/lib/Utility.jar`
+  - `Ghidra/Framework/Gui/lib/Gui.jar`
+  2. Maven ile oluşturun:
+
+  `mvn clean package assembly:single`
+
+  Oluşturulan zip dosyası, yapılandırılmış Ghidra plugin'ini ve kaynaklarını içerir. Bu dosyalar Ghidra'nın yeni uzantıyı tanıması için gereklidir.
+
+  - lib/GhidraMCP.jar
+  - extensions.properties
+  - Module.manifest
 ---
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)

@@ -8,6 +8,391 @@ url: "https://github.com/redleaves/context-keeper"
 body_length: 24595
 license: "MIT"
 language: "Go"
+body_tr: |-
+  <div align="center">
+
+  <p align="center">
+    
+  </p>
+
+  # Context-Keeper
+
+  **LLM tarafından güçlendirilmiş akıllı bellek ve bağlam yönetim sistemi**
+
+  *AI asistanlarının bellek sınırlarını yeniden tanımlayın, her konuşmayı anlamlı kılın*
+
+  <p align="center">
+    <a href="https://github.com/redleaves/context-keeper"></a>
+    <a href="LICENSE"></a>
+    <a href="https://golang.org/"></a>
+    <a href="https://github.com/modelcontextprotocol"></a>
+  </p>
+
+  <h3 align="center">
+    <a href="README-en.md">English</a> | Türkçe
+  </h3>
+
+  </div>
+
+  ---
+
+  ## 📋 **İçindekiler**
+
+  - [🎯 Context-Keeper Neden Seçilmeli?](#1-ai-çağının-geliştirme-zorluğu-akıllı-araçlar-bellek-kesintisiyle-karşılaşınca)
+  - [🎯 Temel Özellikler](#2-temel-özellikler)
+  - [🏗️ Mimari Tasarım](#3-mimari-tasarım)
+  - [📖 Dağıtım ve Entegrasyon](#4-dağıtım-ve-entegrasyon)
+  - [🗺️ Ürün Geliştirme Yol Haritası](#5-ürün-geliştirme-yol-haritası)
+  - [🤝 Katkı Rehberi](#6-katkı-rehberi)
+
+  ---
+
+  ## 1. AI Çağının Geliştirme Zorluğu: Akıllı Araçlar Bellek Kesintisiyle Karşılaşınca
+
+  > **"Dün tartışılan microservice mimarisi çözümünü hatırlıyor musunuz?"** → "Üzgünüm, hatırlamıyorum..." → 😤
+
+  ### 📊 **Dört Boyutlu Zorluklar: Siz Hangi Türdesiniz?**
+
+  <div align="center">
+
+  |  | 👤 **Bireysel Geliştirici** | 👥 **Takım Lider** | 🏗️ **Proje Yöneticisi** | 🏢 **Kurumsal Yönetici** |
+  |------|-----------------|----------------|----------------|----------------|
+  | **💔 Ana Zorluk** | 🔄 **Her gün tekrar anlatmak** AI'ye proje geçmişini<br/>🧠 **Bağlam kaybı**: AI geliştirme amacını anlayamıyor<br/>🌀 **Tekrarlayan işler**: Benzer sorunlar tekrar çözüm isteniyor | 📚 **Bilgi uçurumu**: Deneyimli çalışanların bilgisi aktarılmıyor<br/>💬 **Yüksek iletişim maliyeti**: Aynı konuları tekrar açıklamak<br/>🚫 **Karar gecikmesi**: Geçmiş bağlamı referans almak zor | 🔧 **Teknik borç**: Tarihi kararlar neden alındığı bilinmiyor<br/>⏱️ **Proje gecikmesi**: Yeni çalışanlar uzun sürede adapte oluyor<br/>📋 **Belgelerin günü geçmiş**: Kod ve belgeler uyuşmuyor | 💸 **Yetenekçi kaybı**: Temel bilgi çalışanlarla gidiyor<br/>📈 **ROI düşüşü**: Projeler arası en iyi pratikler yeniden kullanılmıyor<br/>🎯 **Rekabet dezavantajı**: İnovasyon hızı düşüyor |
+  | **⚡ Doğrudan Etki** | **🔥%30 geliştirme zamanı boşa gidiyor** | **📉Takım verimliliği %40 düşüyor** | **💰Proje maliyeti 2x bütçeyi aşıyor** | **⏰Yetenekçi eğitimi 6-12 ay sürüyor** |
+
+  </div>
+
+  ### 🔥 **Endüstri Veri Analizi**
+  - 📊 **%50 geliştirici** her gün proje geçmişini AI asistanına tekrar anlatıyor
+  - 💰 **Ortalama maliyet**: Kıdemli mühendis değişimi 6-12 ay alıyor
+  - ⏱️ **Zaman kaybı**: Yeni çalışanlar karmaşık projede 3-6 ay çalışıyor
+  - 🔄 **Tekrarlanan çalışma**: Takımdaki %30-40 teknik sorular tekrar aynı
+
+  **Ana Sorun**: AI araçlarında sürekli bellek yeteneği yok, akıllı bilgi birikimi ve aktarım sistemi kuramıyor. Bu zorluklar karşısında, başka bir bellek aracına değil, gerçekten geliştirici amacını anlayan akıllı bir beyne ihtiyacımız var. 🚀 **Context-Keeper: Geleneksel sınırları aşan akıllı çözüm**
+
+
+  ---
+
+  ## 2. Temel Özellikler
+
+
+
+  ```mermaid
+  %%{init: {'theme':'base', 'themeVariables': {'fontSize':'16px', 'fontFamily':'Arial, sans-serif'}}}%%
+  graph LR
+      subgraph Stage1["🔍 Çok Boyutlu Geniş Çağrı<br/>(Yüksek Kapsama Oranı)"]
+          A1("Semantik Arama<br/>ÜST-50") 
+          A2("Zaman Çizgisi Arama<br/>ÜST-30")
+          A3("Bilgi Grafiği<br/>ÜST-20")
+          A1 --> A4("Aday Seti<br/>~100 öğe")
+          A2 --> A4
+          A3 --> A4
+      end
+      
+      subgraph Stage2["🧠 LLM Hassas Sıralama<br/>(Yüksek Doğruluk)"]
+          A4 --> B1("LLM Akıllı Analiz")
+          B1 --> B2("Kalite Değerlendirmesi")
+          B2 --> B3("İlgililik Sıralaması")
+          B3 --> B4("ÜST-N<br/>Hassas Sonuçlar")
+      end
+      
+      subgraph Stage3["🎯 Çok Boyutlu Füzyon<br/>(Kişisel Çıktı)"]
+          B4 --> C1("Semantik Boyut")
+          B4 --> C2("Zaman Boyutu") 
+          B4 --> C3("Bilgi Boyutu")
+          C1 --> C4("Akıllı Füzyon Motoru")
+          C2 --> C4
+          C3 --> C4
+          C4 --> C5("Kişiselleştirilmiş Çözüm")
+      end
+      
+      style Stage1 fill:#e3f2fd,stroke:#e2e8f0,stroke-width:1px,rx:8,ry:8
+      style Stage2 fill:#fff3e0,stroke:#e2e8f0,stroke-width:1px,rx:8,ry:8
+      style Stage3 fill:#e8f5e9,stroke:#e2e8f0,stroke-width:1px,rx:8,ry:8
+  ```
+
+  ### 🚀 **Üç Ana Çıkış Noktası**
+
+  | Çıkış Noktası | Geleneksel Çözümün Sorunu | **Context-Keeper Çözümü** | Ana Avantaj |
+  |-------|------------|-------------------------|---------|
+  | **🧠 Akıllı Akıl Yürütme** | Mekanik eşleştirme, amacı anlayamıyor | **LLM derin akıl yürütme**: Geliştirme senaryosu ve proje bağlamını anla | %75+ doğruluk |
+  | **⚡ Geniş Çağrı+Hassas Sıralama** | Çağrı oranı ve doğruluk çelişkili | **İki aşama mimarisi**: Geniş çağrı(100 öğe) → Hassas sıralama(ÜST-N) | %80+ kapsama |
+  | **🎯 Çok Boyutlu Füzyon** | Tek semantik arama, bilgi izole | **Üç boyutlu bellek alanı**: Semantik+Zaman+**Bilgi Grafiği** derin füzyon | İlişki keşfi 3x artış |
+
+
+
+  ### 🎯 **İş Değeri**
+
+  #### **Geliştirme Takımı İçin Değer**
+
+
+  | Kullanım Senaryosu | Geliştirici Sorusu | Context-Keeper Akıllı Yanıt | Değer Sunumu |
+  |---------|-----------|----------------------|---------|
+  | **Mimari Karar İncelemesi** | "Neden microservice seçildikten tek parça değil?" | 15 Mart teknik gözden geçirme kaydına dayalı detaylı analiz | 🧠 **Tarihsel Bilgelik Yeniden Kullan** |
+  | **Hata Onarımı Yeniden Kullan** | "Benzer performans sorunu nasıl çözülür?" | 2 ilişkili durum bulur ve çözüm önerisi sunar | ⚡ **Deneyim Hızlı Yeniden Kullan** |
+  | **Teknoloji Seçimi Referansı** | "Redis küme yapılandırması en iyi uygulaması?" | Proje geçmiş yapılandırma + endüstri en iyi uygulaması karşılaştırma | 🎯 **Karar Desteği Optimizasyonu** |
+
+  #### **Kuruluş İçin Değer**
+  - 📈 **Geliştirme Verimliliği Artışı**: Tekrarlanan açıklama ve tartışmaları azalt
+  - 💰 **İnsan Kaynağı Maliyeti Tasarrufu**: Yeni çalışan eğitim süresi büyük ölçüde kısalt
+  - 🎯 **Karar Kalitesi Artışı**: Geçmiş deneyime dayalı akıllı öneriler
+  - 🔄 **Bilgi Varlığı Birikimi**: Takım bilgeliğinin sistematik sedimentasyonu
+
+  ---
+
+  ## 3. Mimari Tasarım
+  Context-Keeper şu anda iki sürümün yinelemesinden geçmiştir:
+  #### **🧠 Birinci Dönem Ana Tasarım**
+
+  **📚 Kısa Uzun Dönem Bellek Katmanlı Tasarım**
+  - **Kısa Dönem Bellek**: Tam yakın dönem konuşmaları depola, yerel dosya sistemi kullan, yüksek hız erişimini garanti et
+  - **Uzun Dönem Bellek**: Anahtar bilgi özeti depola, vektör veritabanı sürekli koru
+  - **Aşamalı Sıkıştırma**: Bilgi kısa dönem belleğin detaylı kaydından uzun dönem belleğin semantik özetine yavaş yavaş dönüşür
+
+  **👤 Kullanıcı İzolasyonu ve Kişiselleştirme**
+  - **Oturum İzolasyonu**: Her kullanıcının bağımsız oturum alanı var, veri güvenliği ve gizliliği garanti et
+  - **Çalışma Alanı İzolasyonu**: Farklı proje/çalışma alanı bağlamı tamamen izole, bilgi karışmasını önle
+  - **Kişiselleştirilmiş Bellek Stratejisi**: Kullanıcı çalışma stiline göre otomatik bellek eşiği ve özet stratejisini ayarla
+  - **Oturum Arası Bilgi Aktarımı**: Aynı kullanıcının farklı oturumları arasında akıllı ilişki kur
+
+  **🔄 Bellek ve Toplu İşlem Yönetimi Mekanizması**
+  - **Bellek Kimliği (memoryID)**: Kullanıcı açısından "tam bellek", bir iş göreviyle veya konuyla ilişkili
+  - **Toplu İşlem Kimliği (batchID)**: Sistem açısından "depolama birimi", ardışık konuşma parçasıyla ilişkili
+  - **Akıllı Önem Değerlendirmesi**: Otomatik anahtar karar noktalarını belirle, temel içeriğin sürekli korunmasını garanta
+
+  #### **🚀 İkinci Dönem LLM Tarafından Güçlendirilmiş Yükseltme**
+
+  Context-Keeper **LLM tarafından güçlendirilmiş akıllı bağlam bellek yönetim sistemi** temel alır, birinci dönem temeli üzerinde iki ana çıkış noktasını gerçekleştirir:
+
+  🧠 **LLM tarafından güçlendirilmiş geniş çağrı+hassas sıralama mimarisi** - "Amaç anlama → Geniş çağrı → Hassas sıralama → Akıllı sentez" LLM tarafından güçlendirilmiş mimarisi kur
+
+  ⭐️ **Akıllı Bağlam Yönetimi** - Dört boyutlu birleşik bağlam modeli+LLM tarafından güçlendirilmiş tam yaşam döngüsü akıllı yönetimi
+
+  ---
+
+  ### 🧠 **3.1 LLM Tarafından Güçlendirilmiş Geniş Çağrı+Hassas Sıralama Mimarisi**
+
+  #### **🏗️ Mimari Diyagram**
+
+  <div align="center">
+
+  </div>
+
+
+  #### **⏱️ Sıra Diyagramı**
+
+  ```mermaid
+  sequenceDiagram
+      participant User as 👤 Kullanıcı
+      participant LLM1 as 🧠 LLM Aşama Bir
+      participant MDRE as 🔍 Çok Boyutlu Arama Motoru
+      participant LLM2 as 🧠 LLM Aşama İki
+      participant Context as 🌟 Bağlam Yönetimi
+      
+      User->>LLM1: "Proje mimarisi tasarımını hatırla"
+      LLM1->>LLM1: 🎯 Amaç Analiz<br/>Temel Amaç+Alan Bağlamı+Uygulama Senaryosu
+      LLM1->>MDRE: Arama Stratejisi+Sorgu Yeniden Yazma
+      
+      par Geniş Çağrı Aşaması
+          MDRE->>MDRE: Vektör Arama: Mimari Semantiği
+          MDRE->>MDRE: Zaman Çizgisi Arama: Tasarım Tartışması
+          MDRE->>MDRE: Bilgi Grafiği: Mimari İlişkisi
+      end
+      
+      MDRE->>LLM2: Aday Seti (~100 öğe)
+      LLM2->>LLM2: 🧠 Hassas Sıralama<br/>Kalite Değerlendirmesi+İlgililik Sıralaması
+      LLM2->>Context: Yapılandırılmış Sentez
+      Context->>User: ✅ Kişiselleştirilmiş Mimari Çözümü
+  ```
+
+  #### **📋 Mimari Ana Özellikler**
+
+  | Katman | Ana Yetenek | Teknoloji Uygulaması | Performans Avantajı |
+  |------|---------|---------|---------|
+  | **🧠 Akıllı Katman** | İki aşama LLM işbirliği akıl yürütme | Amaç analiz+Akıllı sentez iş bölümü | **%75 Doğruluk** |
+  | **🔍 Arama Katmanı** | Çok boyutlu geniş çağrı+hassas sıralama | Semantik+Zaman+**Grafik Karma Arama** | **%80+ Kapsama** |
+  | **⭐️ Yönetim Katmanı** | Akıllı Bağlam Yönetimi | Dört boyutlu işbirliği+Gerçek zaman eşitleme | **Tepki <500ms** |
+
+  ### 📋 **3.2 Akıllı Bağlam Yönetimi**
+
+  Context-Keeper **dört boyutlu birleşik bağlam modeli** kurar, bağlam bilgisinin taşıyıcısı olarak, LLM tarafından güçlendirilmiş akıllı yönetim mekanizması vasıtasıyla, bağlamın ilk inşa→doldur iyileştir→akıllı analiz&bağlam güncelle (döngüsel) tam yaşam döngüsü yönetimini gerçekleştirir
+
+  **Ana Tasarım**:
+  - 🏗️ **Birleşik Bağlam Modeli**: Dört boyutlu işbirliği veri depolama temeli
+  - 🔄 **Akıllı Yönetim Süreci**: LLM tarafından güçlendirilmiş tam yaşam döngüsü yönetim mekanizması
+  - ⚡️ **Gerçek Zaman Değişim Algılama**: Semantik seviyesinde bağlam değişim algılama ve güncelleme
+
+  #### **🏗️ Akıllı Bağlam Yönetimi Katmanlı Mimarisi**
+
+  <div align="center">
+
+  </div>
+
+  #### **⏱️ Akıllı Bağlam Yönetimi Sırası**
+
+  ```mermaid
+  sequenceDiagram
+      participant User as 👤 Kullanıcı
+      participant SessionMgmt as 🚀 Oturum Yönetim Aracı
+      participant RetrieveCtx as 🔍 Bağlam Arama Aracı
+      participant StoreConv as 💾 Konuşma Depolama Aracı
+      participant AssocFile as 📝 Dosya İlişki Aracı
+      participant Context as ⭐️ Bağlam Yönetimi
+      participant LLM1 as 🧠 LLM Aşama Bir
+      participant MDRE as 🔍 Çok Boyutlu Arama
+      participant LLM2 as 🧠 LLM Aşama İki
+      participant Storage as 💾 Depolama Katmanı
+      
+      Note over User,Storage: 🆕 İlk Tasarım (İlk Oturum)
+      
+      User->>SessionMgmt: session_management(get_or_create)
+      SessionMgmt->>SessionMgmt: Mühendislik Algılama Analiz<br/>Teknik Yığın·Mimari·Bağımlılık Belirle
+      SessionMgmt->>Context: İlk İnşa Yönetimini Tetikle
+      Context->>Context: ProjectContext Oluştur<br/>Birleşik Bağlam Modeli Temeli Kur
+      Context->>Storage: ProjectContext Kalıcı Saklama
+      
+      Note over User,Storage: 🔍 Doldur İyileştir (İlk Arama)
+      
+      User->>RetrieveCtx: retrieve_context(query, sessionId)
+      RetrieveCtx->>Context: Mevcut Bağlamı Al
+      Context-->>RetrieveCtx: ProjectContext Döndür
+      RetrieveCtx->>LLM1: Kullanıcı Sorgusu+Bağlam
+      LLM1->>LLM1: Amaç Anlama+Sorgu Yeniden Yazma
+      LLM1->>MDRE: Geniş Çağrı Komutu
+      
+      par Geniş Çağrı Paralel Arama
+          MDRE->>MDRE: Vektör Arama
+          MDRE->>MDRE: Zaman Çizgisi Arama  
+          MDRE->>MDRE: Bilgi Grafiği Arama
+      end
+      
+      MDRE->>LLM2: Aday Seti Verisi
+      LLM2->>Context: Mevcut Bağlamı Karşılaştırmak İçin Al
+      Context-->>LLM2: ProjectContext (Diğer Boyutlar Doldurulmayı Bekliyor)
+      LLM2->>LLM2: 🧠 Semantik Karşılaştırma+Hassas Sıralama Sentezi
+      LLM2->>Context: Doldur İyileştir Yönetimini Tetikle
+      Context->>Context: TopicCtx+ConvCtx Tamamen İnşa Et<br/>(CodeCtx Kod Değişimi Tarafından Tetiklenir)
+      Context->>Storage: Tam Bağlam Modeli Kalıcı Saklama
+      RetrieveCtx->>User: Akıllı Sentez Sonucu Döndür
+      
+      Note over User,Storage: 🔄 Değişim Yönetimi (Sonraki Tüm İşlemler)
+      
+      loop Standart SOP Döngüsü: Her MCP Araç Çağrısı
+          alt Arama Tetiklemesi
+              User->>RetrieveCtx: retrieve_context(query, sessionId)
+              RetrieveCtx->>Context: Mevcut Bağlamı Al
+              Context-->>RetrieveCtx: Tam Dört Boyutlu Bağlam
+              RetrieveCtx->>LLM1: Sorgu+Bağlam
+              LLM1->>MDRE: Geniş Çağrı
+              MDRE->>LLM2: Aday Seti
+              LLM2->>Context: Semantik Karşılaştırma+Değişim Algılama
+          else Depolama Tetiklemesi
+              User->>StoreConv: store_conversation(messages, sessionId)
+              StoreConv->>Context: Mevcut Bağlamı Al
+              Context->>Context: Mevcut Bağlama Dayalı Değişim Algılama
+          else Kod Değişimi Tetiklemesi
+              User->>AssocFile: associate_file(filePath, sessionId)
+              AssocFile->>Context: Mevcut Bağlamı Al
+              Context->>Context: Konu Bağlamı ile İlişkili CodeContext Güncelle
+          end
+          
+          Context->>Context: 🎯 Değişim Algılama Yönetimi<br/>Mevcut Bağlam vs Yeni Veri
+          
+          alt Semantik Değişim Algılandı
+              Context->>Context: ⚡️ Akıllı Güncelleme Yönetimi<br/>Artan Değişim+Çatışma Çözümü
+              Context->>Storage: Değişim Kalıcı Saklama
+          else Değişim Yok
+              Context->>Context: Mevcut Durumu Koru
+          end
+          
+          alt Arama Tetiklemesi
+              RetrieveCtx->>User: Arama Sonucu Döndür
+          else Depolama Tetiklemesi
+              StoreConv->>User: Depolama Onayı Döndür
+          else Kod Değişimi Tetiklemesi
+              AssocFile->>User: İlişki Onayı Döndür
+          end
+      end
+  ```
+
+
+  **🔥 Yönetim Mekanizması Ana Avantajları**:
+  - ✅ **Birleşik Depolama Temeli**: Dört boyutlu birleşik bağlam modeli tüm yönetim işlemlerinin veri temeli
+  - ✅ **Tam Yaşam Döngüsü Kapsamı**: İlk inşa→Doldur iyileştir→Döngüsel değişim tam yönetim zinciri  
+  - ✅ **LLM Akıllı Tarafından Güçlendirilmiş**: Her yönetim aşaması LLM karar almaya katılır, geleneksel kural motoru değil
+  - ✅ **Gerçek Zaman Değişim Algılama**: Semantik analize dayalı bağlam değişim algılama
+  - ✅ **Çatışma Içermeyen Birleştirme**: LLM tarafından güçlendirilmiş akıllı çatışma çözümü ve öncelik hakem
+
+  ---
+
+  ## 4. Dağıtım ve Entegrasyon
+
+  ### 🛠️ **Ön Hazırlık**
+
+  Context-Keeper'ı dağıtmadan önce aşağıdaki altyapıyı hazırlamanız gerekir:
+
+  #### **📊 Çok Boyutlu Depolama Altyapısı**
+
+  **1. Vektör Veritabanı (Gerekli)**
+
+  Birleşik vektör depolama arayüzü tasarladık, **Geliştirici/Kurumsal gereksinime göre kendi kendine genişlet**, birçok vektör veritabanı destekle:
+
+  - **Alibaba Cloud DashVector**: Alibaba Cloud konsolu üzerinde hızlıca talep et
+  - **JD Cloud Vearch**: JD Cloud üzerinde hızlıca talep et
+  - **Özel Uygulamalar Genişletme**: Birleşik arayüzüne dayalı diğer vektör depolarının uygulanması genişlet (Milvus, Weaviate vb)
+
+  ```bash
+  # Yapılandırma Örneği (İkisinden Biri Seç)
+  # Seçenek 1: Alibaba Cloud DashVector Kullan
+  VECTOR_STORE_TYPE=aliyun
+  VECTOR_DB_URL=https://your-instance.dashvector.cn-hangzhou.aliyuncs.com
+  VECTOR_DB_API_KEY=your-dashvector-api-key
+
+  # Seçenek 2: JD Cloud Vearch Kullan  
+  VECTOR_STORE_TYPE=vearch
+  VEARCH_URL=http://your-vearch-instance.jd.local
+  VEARCH_USERNAME=your-username
+  VEARCH_PASSWORD=your-password
+  ```
+
+  **2. Zaman Serisi Veritabanı (Gerekli)**
+
+  Kendi Başınıza Kurun: **TimescaleDB/PostgreSQL** (Zaman Çizgisi Depolama İçin)
+
+  **3. Grafik Veritabanı (Gerekli)**
+
+  Kendi Başınıza Kurun: **Neo4j** (Bilgi Grafiği ve İlişki Analizi İçin)
+
+  **4. LLM Model Yapılandırması (Gerekli)**
+
+  Yerel ve Bulut Büyük Model Yapılandırmasını Destekleriz, **Farklı Senaryoları Esnek Karşıla**:
+
+  **🏠 Yerel Model (Önerilir)**
+  - **Ollama** Çerçevesine Dayalı, Hızlı Yanıt, Düşük Maliyet, Veri Güvenliği
+  - Ollama Kur: `curl -fsSL https://ollama.ai/install.sh | sh`
+  - Talep Et Modeli: `ollama pull deepseek-coder-v2:16b`
+  - Desteklenen Model: CodeQwen, DeepSeek Coder, Llama vb
+
+  **☁️ Bulut Model (Yedek)**
+  - İlişkili LLM Satıcısı API Anahtarını Talep Et
+  - Destek: OpenAI, DeepSeek, Claude, Tongyi Qianwen vb
+  - Kolay Yapılandırma, Talep Üzerine Çağır
+
+  ###  **5 Dakikada Hızlı Başlangıç**
+
+  #### **Çevre Gereksinimleri**
+  - Go 1.21+
+  - 4GB+ Bellek
+  - Docker ortamı destekler (İsteğe Bağlı)
+
+  #### **Tek Tık Yerel Dağıtım**
+
+  ```bash
+  # 1. Context-Keeper Al
+  git clone https://github.com/redleaves/context-keeper.git
+  cd context-keeper
+
+  # 2. Çevre Yap
 ---
 
 <div align="center">

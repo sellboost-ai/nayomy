@@ -12,6 +12,136 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:boardroom — Multi-Role Boardroom Müzakeresi
+
+  **Komut:** `/cs:boardroom <brief-path>`
+
+  `board-meeting` skill protokolünü C-suite'de tek bir strateji özeti için çalıştırır. Bu, eklentinin **kalbi**'dir — gstack'in inceleme zincirinin yalnızca yaklaştırdığı multi-role müzakere.
+
+  ## Pipeline Konumu
+
+  ```
+  /cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
+                                       ↑ siz burada
+  ```
+
+  ## 6 Faz (board-meeting skill'den)
+
+  ### Faz 1 — Briefing
+  - Chief of Staff özeti, **Etkilenen Roller**'de işaretlenen tüm danışmanlara dağıtır.
+  - Her danışman company-context.md + özeti okur.
+  - Henüz tartışma yoktur.
+
+  ### Faz 2 — Bağımsız Düşünme (İZOLASYON)
+  - **Kritik:** her danışman kendi konumunu **bağımsız olarak** oluşturur, diğerlerinin konumlarını görmeden.
+  - Bu, grup düşüncesini engeller ve muhalefeti ortaya çıkarır.
+  - Her biri yazar: kendi sesinin açılışı, tavsiyesi, ilk 3 endişesi, ilk 3 destekleyicisi.
+
+  ### Faz 3 — Çapraz Sorgulama
+  - Konumlar eş zamanlı olarak ortaya çıkar.
+  - Her danışman diğerlerinin konumlarını kendi sahip olduğu boyutlarda eleştirir:
+    - cs-cfo-advisor matematik'i eleştirir
+    - cs-ciso-advisor riski eleştirir
+    - cs-cpo-advisor JTBD'yi eleştirir
+    - cs-cmo-advisor konumlandırmayı eleştirir
+    - cs-cro-advisor gelir matematiğini eleştirir
+    - vs.
+
+  ### Faz 4 — Şeytanın Avukatı Geçişi
+  - `executive-mentor/devils-advocate` agent'ı öncü seçenekte `/em:challenge`'ı çalıştırır.
+  - Üç endişeyi önem derecelendirmesiyle ortaya çıkarır.
+
+  ### Faz 5 — Sentez
+  - Chief of Staff sentez yapar: hangi seçenek çoğunluğu komuta ediyor, hangi muhalefetler çözülmemiş.
+  - **Board memo**'yu tavsiye + muhalefet ile üretir.
+
+  ### Faz 6 — Karar Devri
+  - Memo kurucuya sunulur.
+  - Kurucu kabul eder, değiştirir veya reddeder.
+  - Onaylanmış memo `/cs:decide`'a yönlendirilir.
+
+  ## Çıktı: Board Memo
+
+  `~/.claude/boardroom/YYYY-MM-DD-<slug>.md` konumuna kaydedilir:
+
+  ```markdown
+  # Board Memo: <topic>
+  **Date:** YYYY-MM-DD
+  **Brief:** <link to /cs:brief file>
+  **Status:** AWAITING FOUNDER DECISION | APPROVED | REJECTED
+
+  ## Question
+  [Brief'ten bir cümle]
+
+  ## Önerilen Seçenek
+  **<Option name>** — seçildi çünkü <synthesis reasoning>
+
+  ## Oy Tablosu
+  | Danışman | Oy | Tek Cümlelik Neden |
+  |---|---|---|
+  | cs-ceo-advisor | A | <reason> |
+  | cs-cfo-advisor | A | <reason> |
+  | cs-cto-advisor | B | <reason> |
+  | ... | | |
+
+  ## Muhalefet
+  - **<dissenter>:** <unresolved concern>
+
+  ## Şeytanın Avukatı Endişeleri
+  1. **KRİTİK** — <concern> — Azaltma: <plan>
+  2. **YÜKSEK** — <concern> — Azaltma: <plan>
+  3. **ORTA** — <concern> — Azaltma: <plan>
+
+  ## Başarı & Kill Kriterleri
+  [Özetten kopyalandı, panel tarafından iyileştirildi]
+
+  ## Önerilen Karar Yolu
+  - `/cs:decide` → kararı logla
+  - `/cs:execute` → 90 günlük plan
+  - `/cs:cross-eval` → multi-model akıl sağlığı kontrolü (isteğe bağlı, yüksek riskli)
+  - `/cs:freeze N` → cooldown kilidi (isteğe bağlı, geri alınamaz)
+  ```
+
+  ## Neden Faz 2 İzolasyonu Önemlidir
+
+  Danışmanlar kendi konumlarını oluşturmadan önce birbirlerinin konumlarını görürlerse, sabitlenirler. Faz 2 izolasyonu board-meeting protokolündeki en yüksek kaldıraç uygulamadır — sadakatsizliğin bastıracağı muhalefetleri ortaya çıkarır.
+
+  ## Neden Bu, gstack'in İnceleme Zincirini Yenetir
+
+  | | gstack `/autoplan` | `/cs:boardroom` |
+  |---|---|---|
+  | Roller | CEO → design → eng (3) | 10'a kadar C-rolle |
+  | Sıra | Sıralı | Faz 2 izolasyon, sonra eş zamanlı |
+  | Muhalefet yakalama | Örtülü | Açık muhalefet sütunu |
+  | Adversarial geçişi | Hayır | Faz 4 şeytanın avukatı |
+  | Çıktı | İncelenmiş plan | Oy kullanılmış memo muhalefet + kill kriterleri ile |
+
+  ## İş Akışı
+
+  1. `~/.claude/briefs/<file>` konumundan özeti okuyun
+  2. Etkilenen rolleri belirleyin
+  3. Her cs-* danışmanı bağımsız olarak çağırın (Faz 2)
+  4. Konumları toplayın
+  5. Çapraz sorgulama turunu çalıştırın (Faz 3)
+  6. Öncü seçenekte `/em:challenge`'ı çalıştırın (Faz 4)
+  7. Memo sentezi yapın (Faz 5)
+  8. Kurucuya devrederim (Faz 6)
+
+  ## Yönlendirme
+
+  - `/cs:decide` — onaylanmış memo'yu logla
+  - `/cs:cross-eval` — yüksek riskli ikinci görüş
+  - `/cs:freeze` — cooldown kilidi
+
+  ## İlgili
+
+  - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
+  - Skills: [`board-meeting`](../../../skills/board-meeting/SKILL.md), [`executive-mentor`](../../../executive-mentor/)
+
+  ---
+
+  **Version:** 1.0.0
 ---
 
 # /cs:boardroom — Multi-Role Boardroom Deliberation

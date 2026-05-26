@@ -9,6 +9,157 @@ body_length: 67134
 license: "MIT"
 language: "JavaScript"
 homepage: "https://www.npmjs.com/package/mongodb-lens"
+body_tr: |-
+  # MongoDB Lens
+
+  [![License](https://img.shields.io/github/license/furey/mongodb-lens)](./LICENSE)
+  [![Docker Hub Version](https://img.shields.io/docker/v/furey/mongodb-lens)](https://hub.docker.com/r/furey/mongodb-lens)
+  [![NPM Version](https://img.shields.io/npm/v/mongodb-lens)](https://www.npmjs.com/package/mongodb-lens)
+  [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-orange.svg)](https://www.buymeacoffee.com/furey)
+
+  **MongoDB Lens**, doğal dil aracılığıyla LLM'ler kullanarak MongoDB veritabanlarına tam özellikli erişim sağlayan yerel bir Model Context Protocol (MCP) sunucusudur. Sorgular çalıştırabilir, aggregation'ları çalıştırabilir, performansı optimize edebilir ve daha fazlasını yapabilirsiniz.
+
+  ## İçindekiler
+
+  - [Hızlı Başlangıç](#hızlı-başlangıç)
+  - [Özellikler](#özellikler)
+  - [Kurulum](#kurulum)
+  - [Konfigürasyon](#konfigürasyon)
+  - [İstemci Kurulumu](#istemci-kurulumu)
+  - [Veri Koruması](#veri-koruması)
+  - [Öğretici](#öğretici)
+  - [Test Suite](#test-suite)
+  - [Sorumluluk Reddi](#sorumluluk-reddi)
+  - [Destek](#destek)
+
+  ## Hızlı Başlangıç
+
+  - MongoDB Lens'i [kurun](#kurulum)
+  - MongoDB Lens'i [yapılandırın](#konfigürasyon)
+  - MCP İstemcisini kurun (örn. [Claude Desktop](#istemci-kurulumu-claude-desktop), [Cursor](https://docs.cursor.com/context/model-context-protocol#configuring-mcp-servers), vb.)
+  - [Doğal dil sorguları](#öğretici-4-örnek-sorgular) ile MongoDB veritabanlarınızı keşfedin
+
+  ## Özellikler
+
+  - [Araçlar](#araçlar)
+  - [Kaynaklar](#kaynaklar)
+  - [İstemler](#istemler)
+  - [Diğer](#diğer-özellikler)
+
+  ### Araçlar
+
+  - [`add-connection-alias`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27add-connection-alias%27%2C%2F): Yeni bir MongoDB bağlantı takma adı ekle
+  - [`aggregate-data`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27aggregate-data%27%2C%2F): Aggregation pipeline'larını çalıştır
+  - [`analyze-query-patterns`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27analyze-query-patterns%27%2C%2F): Canlı sorguları analiz et ve optimizasyon önerileri sun
+  - [`analyze-schema`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27analyze-schema%27%2C%2F): Koleksiyon şemalarını otomatik olarak çıkar
+  - [`bulk-operations`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27bulk-operations%27%2C%2F): Birden fazla işlemi verimli bir şekilde gerçekleştir ([yıkıcı işlemler için onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`clear-cache`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27clear-cache%27%2C%2F): Bellek önbelleklerini temizle ve taze veri sağla
+  - [`collation-query`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27collation-query%27%2C%2F): Dile özgü collation kuralları ile belgeleri bul
+  - [`compare-schemas`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27compare-schemas%27%2C%2F): İki koleksiyon arasında şemaları karşılaştır
+  - [`connect-mongodb`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27connect-mongodb%27%2C%2F): Farklı bir MongoDB URI'ye bağlan
+  - [`connect-original`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27connect-original%27%2C%2F): Başlangıçta kullanılan orijinal MongoDB URI'ye geri bağlan
+  - [`count-documents`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27count-documents%27%2C%2F): Belirtilen ölçütlerle eşleşen belgeleri say
+  - [`create-collection`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27create-collection%27%2C%2F): Özel seçeneklerle yeni koleksiyonlar oluştur
+  - [`create-database`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27create-database%27%2C%2F): Yeni bir veritabanı oluştur ve ona geçiş seçeneği
+  - [`create-index`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27create-index%27%2C%2F): Performans optimizasyonu için yeni indexler oluştur
+  - [`create-timeseries`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27create-timeseries%27%2C%2F): Zamansal veriler için zaman serisi koleksiyonları oluştur
+  - [`create-user`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27create-user%27%2C%2F): Belirli roller ile yeni veritabanı kullanıcıları oluştur
+  - [`current-database`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27current-database%27%2C%2F): Geçerli veritabanı bağlamını göster
+  - [`delete-document`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27delete-document%27%2C%2F): Belirtilen ölçütlerle eşleşen belgeleri sil ([onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`distinct-values`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27distinct-values%27%2C%2F): Herhangi bir alan için benzersiz değerleri çıkar
+  - [`drop-collection`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27drop-collection%27%2C%2F): Koleksiyonları veritabanından kaldır ([onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`drop-database`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27drop-database%27%2C%2F): Veritabanını sil ([onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`drop-index`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27drop-index%27%2C%2F): Koleksiyonlardan indexleri kaldır ([onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`drop-user`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27drop-user%27%2C%2F): Veritabanı kullanıcılarını kaldır ([onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`explain-query`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27explain-query%27%2C%2F): Sorgu yürütme planlarını analiz et
+  - [`export-data`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27export-data%27%2C%2F): Sorgu sonuçlarını JSON veya CSV formatında dışa aktar
+  - [`find-documents`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27find-documents%27%2C%2F): Filtreler, projeksiyonlar ve sıralamalar ile sorgular çalıştır
+  - [`generate-schema-validator`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27generate-schema-validator%27%2C%2F): JSON Schema doğrulayıcıları oluştur
+  - [`geo-query`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27geo-query%27%2C%2F): Çeşitli operatörlerle coğrafi sorgular gerçekleştir
+  - [`get-stats`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27get-stats%27%2C%2F): Veritabanı veya koleksiyon istatistiklerini al
+  - [`gridfs-operation`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27gridfs-operation%27%2C%2F): GridFS bucket'ları ile büyük dosyaları yönet
+  - [`insert-document`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27insert-document%27%2C%2F): Koleksiyonlara bir veya daha fazla belge ekle
+  - [`list-collections`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27list-collections%27%2C%2F): Geçerli veritabanındaki koleksiyonları keşfet
+  - [`list-connections`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27list-connections%27%2C%2F): Kullanılabilir tüm MongoDB bağlantı takma adlarını göster
+  - [`list-databases`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27list-databases%27%2C%2F): Erişilebilir tüm veritabanlarını göster
+  - [`rename-collection`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27rename-collection%27%2C%2F): Mevcut koleksiyonları yeniden adlandır ([hedefleri düşürürken onay gerekir](#veri-koruması-yıkıcı-işlemler-için-onay))
+  - [`shard-status`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27shard-status%27%2C%2F): Veritabanları ve koleksiyonlar için sharding yapılandırmasını görüntüle
+  - [`text-search`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27text-search%27%2C%2F): Metin indexli alanlar arasında tam metin araması yap
+  - [`transaction`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27transaction%27%2C%2F): Birden fazla işlemi tek bir ACID transaction'da çalıştır
+  - [`update-document`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27update-document%27%2C%2F): Belirtilen ölçütlerle eşleşen belgeleri güncelle
+  - [`use-database`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27use-database%27%2C%2F): Belirli veritabanı bağlamına geç
+  - [`validate-collection`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27validate-collection%27%2C%2F): Veri tutarsızlıklarını kontrol et
+  - [`watch-changes`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.tool%5C%28%5Cs*%27watch-changes%27%2C%2F): Koleksiyonlardaki gerçek zamanlı değişiklikleri izle
+
+  ### Kaynaklar
+
+  - [`collection-indexes`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27collection-indexes%27%2C%2F): Koleksiyonun index bilgileri
+  - [`collection-schema`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27collection-schema%27%2C%2F): Koleksiyonun şema bilgileri
+  - [`collection-stats`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27collection-stats%27%2C%2F): Koleksiyonun performans istatistikleri
+  - [`collection-validation`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27collection-validation%27%2C%2F): Koleksiyonun doğrulama kuralları
+  - [`collections`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27collections%27%2C%2F): Geçerli veritabanındaki koleksiyonlar listesi
+  - [`database-triggers`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27database-triggers%27%2C%2F): Veritabanı change stream'leri ve event trigger'ları yapılandırması
+  - [`database-users`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27database-users%27%2C%2F): Geçerli veritabanındaki veritabanı kullanıcıları ve roller
+  - [`databases`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27databases%27%2C%2F): Erişilebilir tüm veritabanlar listesi
+  - [`performance-metrics`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27performance-metrics%27%2C%2F): Gerçek zamanlı performans metrikleri ve profiling verileri
+  - [`replica-status`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27replica-status%27%2C%2F): Replica set durumu ve yapılandırması
+  - [`server-status`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27server-status%27%2C%2F): Sunucu durum bilgileri
+  - [`stored-functions`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.resource%5C%28%5Cs*%27stored-functions%27%2C%2F): Geçerli veritabanında depolanmış JavaScript fonksiyonları
+
+  ### İstemler
+
+  - [`aggregation-builder`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27aggregation-builder%27%2C%2F): Aggregation pipeline'larının adım adım oluşturulması
+  - [`backup-strategy`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27backup-strategy%27%2C%2F): Özelleştirilmiş yedekleme ve kurtarma önerileri
+  - [`data-modeling`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27data-modeling%27%2C%2F): Belirli kullanım durumları için MongoDB şema tasarımı hakkında uzman tavsiyeleri
+  - [`database-health-check`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27database-health-check%27%2C%2F): Kapsamlı veritabanı sağlık değerlendirmesi ve öneriler
+  - [`index-recommendation`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27index-recommendation%27%2C%2F): Sorgu desenlerine dayalı kişiselleştirilmiş index önerileri
+  - [`migration-guide`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27migration-guide%27%2C%2F): Adım adım MongoDB versiyonu migration planları
+  - [`mongo-shell`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27mongo-shell%27%2C%2F): Açıklamalar ile MongoDB shell komutları oluştur
+  - [`multi-tenant-design`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27multi-tenant-design%27%2C%2F): MongoDB çok kiracılı veritabanı mimarisi tasarımı
+  - [`query-builder`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27query-builder%27%2C%2F): MongoDB sorguları oluşturmak için etkileşimli rehberlik
+  - [`query-optimizer`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27query-optimizer%27%2C%2F): Yavaş sorgular için optimizasyon önerileri
+  - [`schema-analysis`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27schema-analysis%27%2C%2F): Detaylı koleksiyon şema analizi ve önerileri
+  - [`schema-versioning`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27schema-versioning%27%2C%2F): MongoDB uygulamalarında şema evrimini yönet
+  - [`security-audit`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27security-audit%27%2C%2F): Veritabanı güvenliği analizi ve iyileştirme önerileri
+  - [`sql-to-mongodb`](https://github.com/search?type=code&q=repo%3Afurey%2Fmongodb-lens+%2Fserver%5C.prompt%5C%28%5Cs*%27sql-to-mongodb%27%2C%2F): SQL sorgularını MongoDB aggregation pipeline'larına dönüştür
+
+  ### Diğer Özellikler
+
+  - [Genel Bakış](#diğer-özellikler-genel-bakış)
+  - [Yeni Veritabanı Metadata'sı](#diğer-özellikler-yeni-veritabanı-metadatası)
+
+  #### Diğer Özellikler: Genel Bakış
+
+  MongoDB Lens birçok diğer özellik içerir:
+
+  - **[Konfigürasyon Dosyası](#konfigürasyon-konfigürasyon-dosyası)**: `~/.mongodb-lens.[jsonc|json]` aracılığıyla özel konfigürasyon
+  - **[Env Var Overrides](#konfigürasyon-ortam-değişkeni-overrides)**: `process.env.CONFIG_*` aracılığıyla konfigürasyon ayarlarını geçersiz kıl
+  - **[Onay Sistemi](#veri-koruması-yıkıcı-işlemler-için-onay)**: Yıkıcı işlemler için iki adımlı doğrulama
+  - **[Birden Fazla Bağlantı](#konfigürasyon-birden-fazla-mongodb-bağlantısı)**: Adlandırılmış URI takma adlarını tanımla ve bunlar arasında geçiş yap
+  - **[Bileşen Devre Dışı Bırakma](#araçları-devre-dışı-bırakma)**: Araçları, istemi'leri veya kaynakları seçici olarak devre dışı bırak
+  - **Bağlantı Dayanıklılığı**: Üstel geri sayım ile otomatik yeniden bağlantı
+  - **Sorgu Güvenliği**: Yapılandırılabilir limitler ve performans koruması
+  - **Hata İşleme**: Kapsamlı JSONRPC hata kodları ve mesajları
+  - **Şema Çıkarması**: Akıllı örnekleme ile verimli şema analizi
+  - **Kimlik Bilgisi Koruması**: Günlüklerde bağlantı dizesi şifresi obfuskasyonu
+  - **Bellek Yönetimi**: Büyük işlemler için otomatik izleme ve temizleme
+  - **Akıllı Caching**: Şema, index, alanlar ve koleksiyonlar için optimize edilmiş caching
+  - **Geriye Doğru Uyumlu**: Hem modern hem de eski MongoDB sürümlerini destekle
+
+  #### Diğer Özellikler: Yeni Veritabanı Metadatası
+
+  MongoDB Lens, oluşturduğu her veritabanına bir `metadata` koleksiyonu ekler.
+
+  Bu `metadata` koleksiyonu, veritabanının menşeinin kalıcı bir kaydı olarak hizmet eden bağlamsal bilgiler içeren tek bir belge depolar ve yeni ve başka türlü boş veritabanının MongoDB'nin depolama sisteminde kalıcı olmasını sağlar.
+
+  <details>
+    <summary><strong>Örnek metadata belgesi</strong></summary>
+
+  ```js
+  {
+      "_id" : ObjectId("67d5284463788ec38aecee14"),
+      "created" : {
+          "timestamp" : ISODate("2025-03-15T07:12:04.705Z"),
 ---
 
 # MongoDB Lens

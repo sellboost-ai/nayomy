@@ -8,6 +8,129 @@ url: "https://github.com/ktanaka101/mcp-server-duckdb"
 body_length: 4751
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # mcp-server-duckdb
+
+  [![PyPI - Version](https://img.shields.io/pypi/v/mcp-server-duckdb)](https://pypi.org/project/mcp-server-duckdb/)
+  [![PyPI - License](https://img.shields.io/pypi/l/mcp-server-duckdb)](LICENSE)
+  [![smithery badge](https://smithery.ai/badge/mcp-server-duckdb)](https://smithery.ai/server/mcp-server-duckdb)
+
+  DuckDB için Model Context Protocol (MCP) sunucu uygulaması, MCP araçları aracılığıyla veritabanı etkileşim yetenekleri sağlar.
+  LLM'nin bunu analiz etmesi ilginç olurdu. DuckDB, yerel analiz için uygundur.
+
+  <a href="https://glama.ai/mcp/servers/fwggl49w22"></a>
+
+  ## Genel Bakış
+
+  Bu sunucu, Model Context Protocol aracılığıyla DuckDB veritabanı ile etkileşim sağlar ve sorgu çalıştırma, tablo oluşturma ve şema inceleme gibi veritabanı işlemlerine olanak tanır.
+
+  ## Bileşenler
+
+  ### Kaynaklar
+
+  Şu anda özel kaynaklar uygulanmamıştır.
+
+  ### İstemler
+
+  Şu anda özel istemler uygulanmamıştır.
+
+  ### Araçlar
+
+  Sunucu aşağıdaki veritabanı etkileşim aracını uygular:
+
+  - **query**: DuckDB veritabanında herhangi bir SQL sorgusu çalıştırma
+    - **Giriş**: `query` (string) - Herhangi bir geçerli DuckDB SQL ifadesi
+    - **Çıkış**: Sorgu sonuçları metin olarak (veya CREATE/INSERT gibi işlemler için başarı mesajı)
+
+  > [!NOTE]
+  > Sunucu, ayrı özel işlevlerin yerine tek bir birleştirilmiş `query` işlevi sağlar; çünkü modern LLM'ler, ayrı endpoint'ler gerektirmeden herhangi bir veritabanı işlemi (SELECT, CREATE TABLE, JOIN, vb.) için uygun SQL oluşturabilir.
+
+  > [!NOTE]
+  > Sunucu `readonly` modunda çalışırken, DuckDB'nin yerel salt okunur koruması uygulanır.
+  > Bu, Language Model (LLM) tarafından herhangi bir yazma işleminin (CREATE, INSERT, UPDATE, DELETE) gerçekleştirilememesini, veri bütünlüğünü korumasını ve istenmeyen değişiklikleri önlemesini sağlar.
+
+  ## Yapılandırma
+
+  ### Gerekli Parametreler
+
+  - **db-path** (string): DuckDB veritabanı dosyasının yolu
+    - Sunucu, veritabanı dosyası ve üst dizinler mevcut değilse otomatik olarak oluşturacaktır
+    - `--readonly` belirtilmişse ve veritabanı dosyası mevcut değilse, sunucu hata ile başlamayı başaramayacaktır
+
+  ### İsteğe Bağlı Parametreler
+
+  - **--readonly**: Sunucuyu salt okunur modda çalıştırma (varsayılan: `false`)
+    - **Açıklama**: Bu bayrak ayarlandığında, sunucu salt okunur modunda çalışır. Bu şu anlama gelir:
+      - DuckDB veritabanı `read_only=True` ile açılacak, herhangi bir yazma işlemini engelleyecektir.
+      - Belirtilen veritabanı dosyası mevcut değilse, oluşturulma**yacaktır**.
+      - **Güvenlik Faydası**: Language Model (LLM) tarafından herhangi bir yazma işleminin gerçekleştirilmesini önler, veritabanının değiştirilmediğini sağlar.
+    - **Referans**: DuckDB'de salt okunur bağlantılar hakkında daha fazla ayrıntı için, [DuckDB Python API belgelerine](https://duckdb.org/docs/api/python/dbapi.html#read_only-connections) bakın.
+  - **--keep-connection**: Tek bir DuckDB bağlantısını yeniden kullanma modu (varsayılan: `false`)
+    - **Açıklama**: Bu bayrak ayarlandığında, sunucunun tüm ömrü boyunca tek bir DuckDB bağlantısını yeniden kullanır. TEMP nesnelerini etkinleştirir ve sorguları biraz daha hızlı yapabilir, ancak dosyada özel kilit tutabilir.
+
+  ## Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  DuckDB Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-server-duckdb) aracılığıyla otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install mcp-server-duckdb --client claude
+  ```
+
+  ### Claude Desktop Entegrasyonu
+
+  MCP sunucusunu Claude Desktop'ın yapılandırma dosyasında yapılandırın:
+
+  #### MacOS
+  Konum: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+  #### Windows
+  Konum: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  ```json
+  {
+    "mcpServers": {
+      "duckdb": {
+        "command": "uvx",
+        "args": [
+          "mcp-server-duckdb",
+          "--db-path",
+          "~/mcp-server-duckdb/data/data.db"
+        ]
+      }
+    }
+  }
+  ```
+
+  * Not: `~/mcp-server-duckdb/data/data.db` DuckDB veritabanı dosyasının gerçek yolu ile değiştirilmelidir.
+
+  ## Geliştirme
+
+  ### Ön Koşullar
+
+  - `uv` paket yöneticisine sahip Python
+  - DuckDB Python paketi
+  - MCP sunucu bağımlılıkları
+
+  ### Hata Ayıklama
+
+  MCP sunucularında hata ayıklama, stdio tabanlı iletişim nedeniyle zorlayıcı olabilir. En iyi hata ayıklama deneyimi için [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı öneririz.
+
+  #### MCP Inspector Kullanma
+
+  1. İnspektörü npm kullanarak yükleyin:
+  ```bash
+  npx @modelcontextprotocol/inspector uv --directory ~/codes/mcp-server-duckdb run mcp-server-duckdb --db-path ~/mcp-server-duckdb/data/data.db
+  ```
+
+  2. Hata ayıklama arayüzüne erişmek için sağlanan URL'yi tarayıcınızda açın
+
+  İnspektör, şunlara görünürlük sağlar:
+  - Request/response iletişimi
+  - Araç çalıştırma
+  - Sunucu durumu
+  - Hata mesajları
 ---
 
 # mcp-server-duckdb

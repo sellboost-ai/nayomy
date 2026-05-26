@@ -9,6 +9,440 @@ body_length: 14776
 license: "MIT"
 language: "Go"
 homepage: "https://docs.tuannvm.com/mcp-trino"
+body_tr: |-
+  # Go'da Trino MCP Sunucusu
+
+  Trino için Go'da uygulanmış yüksek performanslı bir Model Context Protocol (MCP) sunucusu. Bu proje, AI asistanlarının Trino'nun dağıtılmış SQL sorgu motoruyla standardlaştırılmış MCP araçları aracılığıyla sorunsuz bir şekilde etkileşim kurmasını sağlar.
+
+  [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/tuannvm/mcp-trino/build.yml?branch=main&label=CI%2FCD&logo=github)](https://github.com/tuannvm/mcp-trino/actions/workflows/build.yml)
+  [![Go Version](https://img.shields.io/github/go-mod/go-version/tuannvm/mcp-trino?logo=go)](https://github.com/tuannvm/mcp-trino/blob/main/go.mod)
+  [![Trivy Scan](https://img.shields.io/github/actions/workflow/status/tuannvm/mcp-trino/build.yml?branch=main&label=Trivy%20Security%20Scan&logo=aquasec)](https://github.com/tuannvm/mcp-trino/actions/workflows/build.yml)
+  [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
+  [![Go Report Card](https://goreportcard.com/badge/github.com/tuannvm/mcp-trino)](https://goreportcard.com/report/github.com/tuannvm/mcp-trino)
+  [![Go Reference](https://pkg.go.dev/badge/github.com/tuannvm/mcp-trino.svg)](https://pkg.go.dev/github.com/tuannvm/mcp-trino)
+  [![Docker Image](https://img.shields.io/github/v/release/tuannvm/mcp-trino?sort=semver&label=GHCR&logo=docker)](https://github.com/tuannvm/mcp-trino/pkgs/container/mcp-trino)
+  [![GitHub Release](https://img.shields.io/github/v/release/tuannvm/mcp-trino?sort=semver)](https://github.com/tuannvm/mcp-trino/releases/latest)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/tuannvm/mcp-trino)](https://archestra.ai/mcp-catalog/tuannvm__mcp-trino)
+
+  ## Genel Bakış
+
+  Bu proje, Trino için bir Model Context Protocol (MCP) sunucusu Go'da uygulamaktadır. AI asistanlarının Trino'nun dağıtılmış SQL sorgu motoruna standardlaştırılmış MCP araçları aracılığıyla erişmesini sağlar.
+
+  Trino (eski adıyla PrestoSQL), büyük veri setleri üzerinde hızlı analitiği için tasarlanmış güçlü bir dağıtılmış SQL sorgu motorudur.
+
+  ## Mimari
+
+  ```mermaid
+  graph TB
+      subgraph "AI Clients"
+          CC[Claude Code]
+          CD[Claude Desktop]
+          CR[Cursor]
+          WS[Windsurf]
+          CW[ChatWise]
+      end
+      
+      subgraph "Authentication (Optional)"
+          OP[OAuth Provider<br/>Okta/Google/Azure AD]
+          JWT[JWT Tokens]
+      end
+      
+      subgraph "MCP Server (mcp-trino)"
+          HTTP[HTTP Transport<br/>/mcp endpoint]
+          STDIO[STDIO Transport]
+          AUTH[OAuth Middleware]
+          TOOLS[MCP Tools<br/>• execute_query<br/>• list_catalogs<br/>• list_schemas<br/>• list_tables<br/>• get_table_schema<br/>• explain_query]
+      end
+      
+      subgraph "Data Layer"
+          TRINO[Trino Cluster<br/>Distributed SQL Engine]
+          CATALOGS[Data Sources<br/>• PostgreSQL<br/>• MySQL<br/>• S3/Hive<br/>• BigQuery<br/>• MongoDB]
+      end
+      
+      %% Connections
+      CC -.->|OAuth Flow| OP
+      OP -.->|JWT Token| JWT
+      
+      CC -->|HTTP + JWT| HTTP
+      CD -->|STDIO| STDIO
+      CR -->|HTTP + JWT| HTTP
+      WS -->|STDIO| STDIO
+      CW -->|HTTP + JWT| HTTP
+      
+      HTTP --> AUTH
+      AUTH -->|Validated| TOOLS
+      STDIO --> TOOLS
+      
+      TOOLS -->|SQL Queries| TRINO
+      TRINO --> CATALOGS
+      
+      %% Styling
+      classDef client fill:#e1f5fe
+      classDef auth fill:#f3e5f5
+      classDef server fill:#e8f5e8
+      classDef data fill:#fff3e0
+      
+      class CC,CD,CR,WS,CW client
+      class OP,JWT auth
+      class HTTP,STDIO,AUTH,TOOLS server
+      class TRINO,CATALOGS data
+  ```
+
+  **Ana Bileşenler:**
+
+  - **AI İstemcileri**: Çeşitli MCP uyumlu uygulamalar
+  - **Kimlik Doğrulama**: OAuth 2.0 isteğe bağlı OIDC sağlayıcılarla
+  - **MCP Sunucusu**: Çift transport desteği olan Go tabanlı sunucu
+  - **CLI Modu**: Doğrudan Trino erişimi için etkileşimli SQL kabuğu (psql benzeri)
+  - **Veri Katmanı**: Birden fazla veri kaynağına bağlanan Trino kümesi
+
+  ## Özellikler
+
+  - ✅ **Çift Mod**: Hem MCP sunucusu HEMDE etkileşimli CLI olarak çalışır
+    - **CLI Modu**: Doğrudan Trino erişimi için psql benzeri etkileşimli SQL kabuğu
+    - **MCP Modu**: AI asistan entegrasyonu için tam MCP sunucusu
+  - ✅ Go'da MCP sunucusu uygulaması
+  - ✅ MCP araçları aracılığıyla Trino SQL sorgusu yürütme
+  - ✅ Katalog, schema ve tablo keşfi
+  - ✅ Docker konteyner desteği
+  - ✅ STDIO ve HTTP transport desteği
+  - ✅ [oauth-mcp-proxy](https://github.com/tuannvm/oauth-mcp-proxy) kütüphanesi aracılığıyla OAuth 2.1 kimlik doğrulaması
+    - **4 Sağlayıcı**: HMAC, Okta, Google, Azure AD
+    - **Native mod**: İstemci OAuth'u doğrudan işler (sunucu tarafında sıfır sır)
+    - **Proxy mod**: Sunucu basit istemciler için OAuth akışını proxy'ler
+    - **Üretime hazır**: Token caching, PKCE, derinlemesine güvenlik
+    - **Yeniden kullanılabilir**: OAuth kütüphanesi herhangi bir Go MCP sunucusu için kullanılabilir
+  - ✅ JWT kimlik doğrulamasıyla StreamableHTTP desteği (SSE'den yükseltildi)
+  - ✅ SSE endpoint'leriyle geriye dönük uyumluluk
+  - ✅ Cursor, Claude Desktop, Windsurf, ChatWise ve herhangi bir MCP uyumlu istemciyle uyumlu.
+  - ✅ Kullanıcı Kimlik İzleme:
+    - **Sorgu Atlaması** (otomatik): Sorguları `X-Trino-Client-Tags/Info` başlıkları aracılığıyla OAuth kullanıcısıyla etiketler
+    - **Kullanıcı Kimliğine Bürünme** (opsiyonel): `X-Trino-User` başlığı aracılığıyla OAuth kullanıcısı olarak sorguları yürütür
+
+  ## Kurulum & Hızlı Başlangıç
+
+  **Kurun:**
+
+  ```bash
+  # Homebrew
+  brew install tuannvm/mcp/mcp-trino
+
+  # Veya tek satırlı (macOS/Linux)
+  curl -fsSL https://raw.githubusercontent.com/tuannvm/mcp-trino/main/install.sh | bash
+  ```
+
+  **Çalıştırın (Yerel Geliştirme):**
+
+  ```bash
+  export TRINO_HOST=localhost TRINO_USER=trino
+  mcp-trino
+  ```
+
+  OAuth ile üretime hazır dağıtım için [Dağıtım Rehberi](docs/deployment.md) ve [OAuth Mimarisi](docs/oauth.md) başlıklarına bakın.
+
+  ## CLI Modu
+
+  mcp-trino, `psql` veya Trino CLI'ya benzer şekilde etkileşimli CLI olarak kullanılabilir:
+
+  ```bash
+  # Etkileşimli REPL modu
+  mcp-trino --interactive
+
+  # Bir sorguyu doğrudan yürütün
+  mcp-trino query "SELECT * FROM my_table LIMIT 10"
+
+  # Katalogları, şemaları, tabloları listeleyin
+  mcp-trino catalogs
+  mcp-trino schemas my_catalog
+  mcp-trino tables my_catalog my_schema
+
+  # Bir tabloyu açıklayın
+  mcp-trino describe my_catalog.my_schema.my_table
+
+  # Bir sorguyu açıklayın
+  mcp-trino explain "SELECT COUNT(*) FROM my_table"
+
+  # Çıktı formatları
+  mcp-trino --format json query "SELECT 1"
+  mcp-trino --format csv query "SELECT 1"
+  mcp-trino --format table query "SELECT 1"  # varsayılan
+  ```
+
+  ### Yerleşik Yardım
+
+  Her komutun yapılandırılmış, LLM dostu yardım çıktısı vardır:
+
+  ```bash
+  # Tüm komutları, bayrakları, örnekleri ve ortam değişkenlerini gösteren ana yardım
+  mcp-trino --help
+
+  # Alt komuta özgü yardım
+  mcp-trino query --help
+  mcp-trino describe --help
+  ```
+
+  Yardım çıktısı Unix man-sayfası kurallarını takip eder: NAME, SYNOPSIS, DESCRIPTION, COMMANDS, FLAGS, EXAMPLES, ENVIRONMENT ve CONFIGURATION bölümleri.
+
+  ### Çıkış Kodları
+
+  | Kod | Anlam |
+  |-----|--------|
+  | 0 | Başarı |
+  | 1 | Çalışma zamanı hatası (bağlantı başarısız, sorgu hatası, vb.) |
+  | 2 | Kullanım hatası (bilinmeyen komut, geçersiz bayraklar, eksik argümanlar) |
+
+  ### Adlandırılmış Profiller
+
+  mcp-trino, Trino ortamları arasında kolay geçiş için adlandırılmış bağlantı profillerini destekler.
+
+  **Yapılandırma Dosyası** — YAML (`~/.config/trino/config.yaml`) ve JSON (`~/.config/trino/config.json`) ikisini destekler:
+
+  ```yaml
+  # ~/.config/trino/config.yaml
+  current: prod
+
+  profiles:
+    prod:
+      host: trino.example.com
+      port: 443
+      user: prod_user
+      password: prod_password
+      catalog: hive
+      schema: analytics
+      ssl:
+        enabled: true
+        insecure: false
+
+    dev:
+      host: localhost
+      port: 8080
+      user: trino
+      catalog: memory
+      schema: default
+
+    staging:
+      host: staging-trino.example.com
+      port: 443
+      user: staging_user
+
+  output:
+    format: table
+  ```
+
+  Veya eşdeğer olarak JSON'da:
+
+  ```json
+  {
+    "current": "prod",
+    "profiles": {
+      "prod": {
+        "host": "trino.example.com",
+        "port": 443,
+        "user": "prod_user",
+        "catalog": "hive",
+        "ssl": { "enabled": true }
+      },
+      "dev": {
+        "host": "localhost",
+        "port": 8080,
+        "user": "trino"
+      }
+    },
+    "output": { "format": "table" }
+  }
+  ```
+
+  Her iki dosya mevcut olduğunda, `config.json` önceliklidir. Yeni konfigurasyonlar varsayılan olarak JSON'dur.
+
+  **Profil Yönetimi Komutları:**
+
+  ```bash
+  # Tüm profilleri listeleyin
+  mcp-trino config profile list
+
+  # Varsayılan profili ayarlayın
+  mcp-trino config profile use prod
+
+  # Profil ayrıntılarını gösterin
+  mcp-trino config profile show staging
+
+  # Belirli bir profil kullanın (yapılandırma dosyasını geçersiz kılar)
+  mcp-trino --profile dev catalogs
+  ```
+
+  **Yapılandırma Önceliği** (en yüksekten en düşüğe):
+  1. CLI bayrakları (`--host`, `--port`, vb.)
+  2. `--profile` bayrağı
+  3. `TRINO_PROFILE` ortam değişkeni
+  4. Yapılandırma dosyasında `current` alanı
+  5. `default` profil geri dönüşü
+  6. Ortam değişkenleri (`TRINO_HOST`, vb.)
+
+  **Ortam Değişkenleri** (en düşük öncelik - profiller ve bayraklar tarafından geçersiz kılınır):
+
+  ```bash
+  export TRINO_HOST=trino.example.com
+  export TRINO_PORT=443
+  export TRINO_USER=myuser
+  export TRINO_PASSWORD=mypass
+  export TRINO_CATALOG=hive
+  export TRINO_SCHEMA=analytics
+  export TRINO_SSL=true
+  ```
+
+  **Sır Yönetimi** (önerilen):
+
+  Sırlar yalnızca ortam değişkenlerinden yüklenir. Başlangıç zamanında Unix piping aracılığıyla bir sırlar CLI kullanarak bunları enjekte edin — uygulama asla kasanıza dokunmaz:
+
+  ```bash
+  # 1Password CLI — .env dosyasında op:// referanslarını çözer
+  op run --env-file=.env -- mcp-trino
+
+  # Veya satır içi değişken başına
+  TRINO_PASSWORD=$(op read 'op://Engineering/Trino/password') mcp-trino
+  ```
+
+  [docs/secrets.md](docs/secrets.md) dosyasına bakın 1Password, Vault ve Kubernetes desenleri için, ve güvenlik nüansları (shell geçmişi, işlem listesi ve ortam değişkeni sızıntısı) için.
+
+  **REPL Meta-Komutları** (etkileşimli modda):
+  - `\help` - Yardımı göster
+  - `\quit`, `\exit`, `\q` - REPL'den çık
+  - `\history` - Komut geçmişini göster
+  - `\catalogs` - Tüm katalogları listele
+  - `\schemas [catalog]` - Şemaları listele
+  - `\tables [catalog schema]` - Tabloları listele
+  - `\describe <table>` - Tabloyu açıkla
+  - `\format <table|json|csv>` - Çıktı formatını değiştir
+
+  ## Kullanım
+
+  **Desteklenen İstemciler:** Claude Desktop, Claude Code, Cursor, Windsurf, ChatWise
+
+  **Mevcut Araçlar:** `execute_query`, `list_catalogs`, `list_schemas`, `list_tables`, `get_table_schema`, `explain_query`
+
+  İstemci entegrasyonu ve araç dokümantasyonu için [Entegrasyon Rehberi](docs/integrations.md) ve [Araçlar Referansı](docs/tools.md) başlıklarına bakın.
+
+  ## Yapılandırma
+
+  **Temel Değişkenler:** `TRINO_HOST`, `TRINO_USER`, `TRINO_SCHEME`, `MCP_TRANSPORT`, `OAUTH_PROVIDER`
+
+  **Sır Yönetimi:** Sırları işlem ortamı aracılığıyla enjekte edin — `mcp-trino` bunları doğrudan okur. [docs/secrets.md](docs/secrets.md) dosyasına bakın 1Password, Vault ve Kubernetes tarifler için.
+
+  ```bash
+  # 1Password (biyometrik kapsama, disk yazıları sıfır)
+  op run --env-file=.env -- mcp-trino
+
+  # Vault (vault-agent veya CLI aracılığıyla)
+  TRINO_PASSWORD=$(vault kv get -field=password secret/mcp-trino) mcp-trino
+
+  # Kubernetes: Helm chart değerlerinde standart Secret → envFrom kullanın
+  ```
+
+  **OAuth Yapılandırması:**
+
+  ```bash
+  # Native mod (en güvenli - sunucu tarafında sıfır sır)
+  export OAUTH_ENABLED=true OAUTH_MODE=native OAUTH_PROVIDER=okta
+  export OIDC_ISSUER=https://company.okta.com OIDC_AUDIENCE=https://mcp-server.com
+
+  # Proxy mod (merkezi kimlik bilgileri yönetimi)
+  export OAUTH_MODE=proxy OIDC_CLIENT_ID=app-id OIDC_CLIENT_SECRET=secret
+  export OAUTH_REDIRECT_URI=https://mcp-server.com/oauth/callback  # Sabit mod (yalnızca localhost)
+  export OAUTH_REDIRECT_URI=https://app1.com/cb,https://app2.com/cb  # İzin listesi modu
+  export JWT_SECRET=$(openssl rand -hex 32)  # Multi-pod dağıtımlar için gerekli
+  ```
+
+  **Performans Optimizasyonu:**
+
+  ```bash
+  # AI'ı yalnızca belirli şemaları odaklanmasını sağlayın (10-20x performans iyileşmesi)
+  export TRINO_ALLOWED_SCHEMAS="hive.analytics,hive.marts,hive.reporting"
+  ```
+
+  **Kullanıcı Kimlik İzleme:**
+
+  ```bash
+  # Sorgu Atlaması OAuth etkinleştirildiğinde OTOMATİKTİR
+  # Sorgular X-Trino-Client-Tags ve X-Trino-Client-Info başlıklarıyla etiketlenir
+
+  # Tam kimlik bürünme için (Trino kullanıcı izinlerini zorunlu kılar):
+  export TRINO_ENABLE_IMPERSONATION=true
+  export TRINO_IMPERSONATION_FIELD=email  # Seçenekler: username, email, subject
+  ```
+
+  Tam yapılandırma için [Dağıtım Rehberi](docs/deployment.md), [OAuth Rehberi](docs/oauth.md), [İzin Listeleri Rehberi](docs/allowlists.md) ve [Kullanıcı Kimlik Rehberi](docs/impersonation.md) başlıklarına bakın.
+
+  ## OAuth Uygulaması
+
+  mcp-trino, [oauth-mcp-proxy](https://github.com/tuannvm/oauth-mcp-proxy) — Go MCP sunucuları için bağımsız OAuth 2.1 kütüphanesi kullanır.
+
+  **Neden ayrı bir kütüphane?**
+  - ✅ Herhangi bir Go MCP sunucusu arasında yeniden kullanılabilir
+  - ✅ Bağımsız test ve sürüm yönetimi
+  - ✅ Adanmış dokümantasyon ve örnekler
+  - ✅ Topluluk tarafından yönetilen OAuth uygulaması
+
+  **OAuth ayrıntıları için:**
+  - [oauth-mcp-proxy Dokümantasyonu](https://github.com/tuannvm/oauth-mcp-proxy#readme) - Tam OAuth rehberi
+  - [Sağlayıcı Kurulum Rehberleri](https://github.com/tuannvm/oauth-mcp-proxy/tree/main/docs/providers) - Okta, Google, Azure AD
+  - [Güvenlik En İyi Uygulamaları](https://github.com/tuannvm/oauth-mcp-proxy/blob/main/docs/SECURITY.md) - Üretim güvenliği
+
+  ## Katkıda Bulunma
+
+  Katkılar memnuniyetle karşılanır! Lütfen bir Pull Request göndermekten çekinmeyin.
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakın.
+
+  ## İlgili Projeler
+
+  - **[oauth-mcp-proxy](https://github.com/tuannvm/oauth-mcp-proxy)** — mcp-trino tarafından kullanılan OAuth 2.1 kimlik doğrulama kütüphanesi (herhangi bir Go MCP sunucusu için yeniden kullanılabilir)
+
+  ## CI/CD ve Yayınlar
+
+  Bu proje, sürekli entegrasyon için GitHub Actions ve otomatik yayınlar için GoReleaser kullanır.
+
+  ### Sürekli Entegrasyon Kontrolleri
+
+  CI pipeline'ı, tüm PR'ler ve main branch'e yapılan commits üzerinde aşağıdaki kontrolleri gerçekleştirir:
+
+  #### Kod Kalitesi
+
+  - **Linting**: golangci-lint kullanarak ortak kod sorunları ve stil ihlallerini kontrol etme
+  - **Go Module Doğrulaması**: go.mod ve go.sum'ın düzgün bir şekilde bakımından emin olma
+  - **Biçimlendirme**: Kodun gofmt ile düzgün biçimlendirildiğini doğrulama
+
+  #### Güvenlik
+
+  - **Güvenlik Açığı Taraması**: Bağımlılıklarda bilinen güvenlik açıklarını kontrol etmek için govulncheck kullanma
+  - **Bağımlılık Taraması**: Bağımlılıklarda güvenlik açıklarını taramak için Trivy kullanma (CRITICAL, HIGH ve MEDIUM)
+  - **SBOM Oluşturma**: Bağımlılık takibi için Yazılım Malzeme Listesi oluşturma
+  - **SLSA Kanıtı**: Tedarik zinciri güvenliği için doğrulanabilir derleme kanıtı oluşturma
+
+  #### Test Etme
+
+  - **Birim Testleri**: Yarışma algılaması ve kod kapsamı raporlamasıyla testleri çalıştırma
+  - **Derleme Doğrulaması**: Kod tabanının başarıyla derlendiğinden emin olma
+
+  #### CI/CD Güvenliği
+
+  - **En Az Ayrıcalık**: İş akışları minimum gerekli izinlerle çalışır
+  - **Sabitlenmiş Sürümler**: Tüm GitHub Actions tedarik zinciri saldırılarını önlemek için belirli sürümleri kullanır
+  - **Bağımlılık Güncellemeleri**: Dependabot aracılığıyla otomatik bağımlılık güncellemeleri
+
+  ### Yayın Süreci
+
+  Değişiklikler main branch'e birleştirildiğinde:
+
+  1. CI kontrolleri kod kalitesi ve güvenliği doğrulamak için çalıştırılır
+  2. Başarılı olursa, yeni bir yayın otomatik olarak aşağıdakilerle oluşturulur:
+     - Commit mesajlarına dayanan anlamsal versiyonlandırma
+     - Birden fazla platform için ikili derlemeler
+     - GitHub Container Registry'ye Docker görüntüsü yayınlama
+     - SBOM ve kanıt attestation
 ---
 
 # Trino MCP Server in Go

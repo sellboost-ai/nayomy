@@ -12,6 +12,145 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # C-Level Advisory Ecosystem
+
+  Kurucular ve yöneticiler için tam bir sanal yönetim kurulu.
+
+  ## Hızlı Başlangıç
+
+  ```
+  1. /cs:setup komutunu çalıştırın → company-context.md oluşturur (tüm ajanlar bunu okur)
+     ✓ company-context.md dosyasının oluşturulduğunu ve şirket adı, aşama ve temel
+       metrikleri içerdiğini doğrulayın, sonra devam edin.
+  2. Herhangi bir stratejik soru sorun → Chief of Staff bunu doğru role yönlendirir
+  3. Büyük kararlar için → /cs:board çok roleli bir yönetim kurulu toplantısı başlatır
+     ✓ Bir sonuca katılmadan önce en az 3 rolün görüş bildirdiğini doğrulayın.
+  ```
+
+  ### Komutlar
+
+  #### `/cs:setup` — Oryantasyon Anketi
+
+  Aşağıdaki soruları sorar ve proje kökü dizinine `company-context.md` yazar. Şirket başına bir kez veya bağlam önemli ölçüde değiştiğinde çalıştırın.
+
+  ```
+  S1. Şirketinizin adı ve tek satırlık açıklaması nedir?
+  S2. Hangi aşamada bulunuyorsunuz? (Fikir / Ön-seed / Seed / Series A / Series B+)
+  S3. Mevcut ARR'niz (veya MRR'niz) ve parasal kapasiteniz kaç aydır?
+  S4. Ekip boyutunuz ve yapısı nedir?
+  S5. Hangi endüstri ve müşteri segmentine hizmet veriyorsunuz?
+  S6. Sonraki 90 gün için en önemli 3 önceliğiniz nedir?
+  S7. Mevcut en büyük risk veya engeliniz nedir?
+  ```
+
+  Cevapları topladıktan sonra, ajan yapılandırılmış çıktı yazar:
+
+  ```markdown
+  # Company Context
+  - Name: <cevap>
+  - Stage: <cevap>
+  - Industry: <cevap>
+  - Team size: <cevap>
+  - Key metrics: <ARR/MRR, büyüme oranı, parasal kapasite>
+  - Top priorities: <cevap>
+  - Key risks: <cevap>
+  ```
+
+  #### `/cs:board` — Tam Yönetim Kurulu Toplantısı
+
+  Tüm ilgili yönetici rollerini üç aşamada bir araya getirir:
+
+  ```
+  Aşama 1 — Çerçeveleme:     Chief of Staff kararı ve başarı kriterlerini belirtir.
+  Aşama 2 — İzolasyon:       Her rol bağımsız analiz üretir (konuşma yoktur).
+  Aşama 3 — Tartışma:        Roller çatışmaları ortaya koyar, varsayımları test eder,
+                             öneriye katılır. Muhalif görüşler günlükte korunur.
+  ```
+
+  Yüksek riskli veya işlevler arası kararlar için kullanın. Bir sonuca katılmadan önce en az 3 rolün görüş bildirdiğini doğrulayın.
+
+  ### Chief of Staff Yönlendirme Matrisi
+
+  Bir soru role özgü bir ön ek olmadan geldiğinde, Chief of Staff bunu bu temel sinyalleri kullanarak uygun yöneticiye eşler:
+
+  | Konu Sinyali | Birincil Role | Destekleyici Roller |
+  |---|---|---|
+  | Finansman, değerleme, harcama | CFO | CEO, CRO |
+  | Mimari, yap ya da satın al, teknik borç | CTO | CPO, CISO |
+  | İşe alma, kültür, performans | CHRO | CEO, Executive Mentor |
+  | GTM, talep oluşturma, konumlandırma | CMO | CRO, CPO |
+  | Gelir, pipeline, satış hareketi | CRO | CMO, CFO |
+  | Güvenlik, uyum, risk | CISO | CTO, CFO |
+  | Ürün yol haritası, önceliklendirme | CPO | CTO, CMO |
+  | İşlemler, süreç, ölçekleme | COO | CFO, CHRO |
+  | Vizyon, strateji, yatırımcı ilişkileri | CEO | Executive Mentor |
+  | Kariyer, kurucu psikolojisi, liderlik | Executive Mentor | CEO, CHRO |
+  | Çok alanlı / belirsiz | Chief of Staff yönetim kurulunu toplar | Tüm ilgili roller |
+
+  ### Belirli Bir Role Doğrudan Erişim
+
+  Chief of Staff yönlendirmesini atlamak ve bir yöneticiye doğrudan hitap etmek için sorunuzu rol adıyla başlatın:
+
+  ```
+  CFO: Series A'ya giderken optimal harcama oranımız nedir?
+  CTO: Auth katmanımızı şirket içinde mi yeniden oluşturmalı yoksa bir çözüm mü satın almalıyız?
+  CHRO: 15 kişilik bir ekip için nasıl bir performans değerlendirme süreci tasarlarız?
+  ```
+
+  Chief of Staff yine de değişimi günlüğe kaydeder; sadece yönlendirme atlanır.
+
+  ### Örnek: Stratejik Soru
+
+  **Giriş:** "Şimdi Series A finansmanı almalı mıyız yoksa parasal kapasiteyi uzatıp ARR'yi büyütelim mi?"
+
+  **Çıktı formatı:**
+  - **Alt Satır:** Parasal kapasiteyi 6 ay uzatın; daha iyi koşullar için $2M ARR'de finansman alın.
+  - **Nedir:** Mevcut $800K ARR, çoğu Series A yatırımcının kıyasladığı eşiğin altındadır.
+  - **Neden:** Şimdi finansman almak seyreltme riskini artırır; 6 aylık uzatma mevcut harcamayla başarılabilir.
+  - **Nasıl Hareket Edilir:** 2 düşük ROI'li kanalı kesin, $2M ARR'ye ulaşın, sonra 6 haftalık finansman sprint'i çalıştırın.
+  - **Sizin Kararınız:** Uzatmayla devam et / Yine de şimdi finansman al (birini seçin).
+
+  ### Örnek: company-context.md (/cs:setup sonrası)
+
+  ```markdown
+  # Company Context
+  - Name: Acme Inc.
+  - Stage: Seed ($800K ARR)
+  - Industry: B2B SaaS
+  - Team size: 12
+  - Key metrics: 15% MoM büyüme, 18 aylık parasal kapasite
+  - Top priorities: Series A hazırlığı, enterprise GTM
+  ```
+
+  ## Dahil Olanlar
+
+  ### 10 C-Suite Rolü
+  CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor
+
+  ### 6 Orkestrasyon Becerisi
+  Founder Onboard, Chief of Staff (router), Board Meeting, Decision Logger, Agent Protocol, Context Engine
+
+  ### 6 Çapraz Kesme Yeteneği
+  Board Deck Builder, Scenario War Room, Competitive Intel, Org Health Diagnostic, M&A Playbook, International Expansion
+
+  ### 6 Kültür ve İşbirliği
+  Culture Architect, Company OS, Founder Coach, Strategic Alignment, Change Management, Internal Narrative
+
+  ## Temel Özellikler
+
+  - **İç Kalite Döngüsü:** Kendi doğru olup olmadığını kontrol et → meslektaş doğrulama → eleştirmen ön kontrolü → sunuş
+  - **İki Katmanlı Bellek:** Ham transkriptler + onaylanan kararlar sadece (hallüsinasyon yapılmış fikir birliğini önler)
+  - **Yönetim Kurulu Toplantısı İzolasyonu:** Çapraz sorgudan önce Aşama 2 bağımsız analizi
+  - **Proaktif Tetikleyiciler:** Sorulmadan bağlam odaklı erken uyarılar
+  - **Yapılandırılmış Çıktı:** Alt Satır → Nedir → Neden → Nasıl Hareket Edilir → Sizin Kararınız
+  - **25 Python Aracı:** Tümü stdlib-only, CLI-first, JSON çıktı, sıfır bağımlılık
+
+  ## Ayrıca Bakın
+
+  - `CLAUDE.md` — tam mimari diyagram ve entegrasyon kılavuzu
+  - `agent-protocol/SKILL.md` — iletişim standardı ve kalite döngüsü detayları
+  - `chief-of-staff/SKILL.md` — tüm 28 beceri için yönlendirme matrisi
 ---
 
 # C-Level Advisory Ecosystem

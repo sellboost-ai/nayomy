@@ -12,6 +12,227 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Kaos Mühendisliği
+
+  Üretim sistemlerindeki gerçek zayıflıkları ortaya çıkaran deneyler tasarlayın — bunları kesintiye dönüştürmeden. Çoğu "kaos mühendisliği" girişimi sabit durum ölçümünü atlar, durdurma kriteri tanımlamaz ve patlama yarıçapı sınırı koymaz. Bu beceri, kaos deneylerini güvenli ve yararlı kılan disiplini uygular.
+
+  ## Kullanım zamanı
+
+  - Kaos deneyimi planlama (ne kıracağız, nerede, ne zaman, nasıl durduracağız)
+  - Deneyimi çalıştırmadan önce patlama yarıçapını hesaplama
+  - Mevcut deneyim planını güvenlik açısından inceleme
+  - Kaos aracı seçme (Chaos Toolkit / Chaos Mesh / Litmus / Gremlin / AWS FIS)
+  - Kaos deneyimi postmortem yazma
+  - Game Day alıştırması yürütme
+
+  ## Kullanmama zamanı
+
+  - Genel olay yanıtı (kullanın `incident-response`)
+  - Tehdit avcılığı / red-team (kullanın `red-team`, `threat-detection`)
+  - Performans yük testi (farklı amaç — kaos kapasite değil, başarısızlık modları hakkındadır)
+  - Üretim hata ayıklaması (kaos zayıflıkları proaktif olarak keşfeder, gerçek olaydan sonra değil)
+
+  ## Temel ilke: durdurma kriteri olmayan kaos bir kesintiye eşittir
+
+  Kaos Mühendisliğinin 4 İlkesi (Netflix, 2016):
+
+  1. **Sabit durum davranışı etrafında bir hipotez oluşturun.** "Ne kırılır?" değil, "X geçerlidir; Y hatası altında hala geçerli olur mu?" diye sorun.
+  2. **Gerçek dünyada olayları değiştirin.** Gerçekçi arızalar enjekte edin: düğümleri öldürün, ağları yavaşlatın, önbelleği kaybettirin, bağımlılıkları kısıtlayın.
+  3. **Deneyimleri üretimde çalıştırın.** Staging hiçbir zaman aynı başarısızlık modlarına sahip değildir. Küçükten başlayın.
+  4. **Deneyimleri sürekli çalıştıracak şekilde otomatikleştirin.** Tek seferlik kaos bir basın açıklamasıdır; sürekli kaos mühendislistir.
+
+  Beşinci ekleyin: **Durdurma kriterlerini önceden tanımlayın.** Durdurma kritereri olmayan kaos deneyimi başka bir adla bir kesintiye eşittir.
+
+  ## Hızlı başlangıç
+
+  ```bash
+  SKILL=engineering/chaos-engineering/skills/chaos-engineering
+
+  # 1. Deneyim tasarla
+  python "$SKILL/scripts/experiment_designer.py" --target "checkout-svc" --hypothesis "p99 latency stays <500ms" --attack latency --duration-min 15
+
+  # 2. Patlama yarıçapını hesapla
+  python "$SKILL/scripts/blast_radius_calculator.py" --traffic-share 0.05 --user-pop 1000000 --duration-min 15
+
+  # 3. Deneyimden sonra postmortem oluştur
+  python "$SKILL/scripts/experiment_postmortem.py" --plan experiment.json --result-log results.txt
+  ```
+
+  ## 3 Python aracı
+
+  Hepsi stdlib-only. `--help` ile çalıştırın.
+
+  ### `experiment_designer.py`
+
+  Girdilerden yapılandırılmış deneyim planı oluşturur. Gerekli bölümleri (hipotez, sabit durum metriği, patlama yarıçapı, durdurma kriterleri, geri alma) uygular.
+
+  ```bash
+  python scripts/experiment_designer.py \
+    --target "checkout-svc" \
+    --hypothesis "p99 latency stays <500ms when payment-svc is slow" \
+    --attack latency \
+    --magnitude "+200ms" \
+    --duration-min 15 \
+    --blast-radius "5% of US traffic" \
+    --abort-if "p99 > 1000ms OR error_rate > baseline + 1pp"
+  ```
+
+  Çıktı: hipotez, sabit durum, saldırı, büyüklük, süre, patlama yarıçapı, durdurma kriterleri, geri alma prosedürü, izleme panoları ve öğrenme sorusu içeren markdown plan.
+
+  ### `blast_radius_calculator.py`
+
+  Planlanan deneyimin patlama yarıçapını hesaplar. Trafik payı + kullanıcı popülasyonu + süre verildiğinde, beklenen etkilenen kullanıcıları, beklenen hata bütçesi tüketimini ve risk puanını hesaplar.
+
+  ```bash
+  python scripts/blast_radius_calculator.py \
+    --traffic-share 0.05 \
+    --user-pop 1000000 \
+    --duration-min 15 \
+    --baseline-availability 0.999 \
+    --expected-impact-availability 0.95
+  ```
+
+  Çıktı:
+  - Beklenen etkilenen kullanıcılar
+  - Tüketilen hata bütçesi (hata bütçesi dakikaları cinsinden)
+  - Risk puanı: GREEN / YELLOW / RED
+  - Tavsiye: PROCEED / REDUCE / ABORT
+
+  GREEN = <%1 hata bütçesi; YELLOW = %1-10; RED = >%10.
+
+  ### `experiment_postmortem.py`
+
+  Deneyim planı + sonuçlarından yapılandırılmış postmortem üretir. Yaygın postmortem başarısızlık modlarını yakalar: kaydedilen öğrenme yok, takip eylemi yok, suçlayıcı dil.
+
+  ```bash
+  python scripts/experiment_postmortem.py --plan experiment.json --result-log results.txt
+  ```
+
+  Çıktı: özet, hipotez (doğrulandı mı/çürütüldü mü?), öğrendiklerimiz, bizi şaşırtanlar, sahibi olan takip eylemleri ve sonraki deneyim bağlantısı içeren markdown.
+
+  ## 7 saldırı türü (taksonomi)
+
+  Farklı saldırılar farklı zayıflıkları ortaya çıkarır. Tam ayrıntı için `references/attack_taxonomy.md` dosyasına bakın.
+
+  | Saldırı | Neyi test eder | Araçlar |
+  |---|---|---|
+  | **Gecikme** | Zaman aşımları, yeniden denemeler, devre kesiciler | tc, Chaos Mesh `NetworkChaos` |
+  | **Hata** | Hata işleme, geri dönüş yolları | Chaos Mesh `HTTPChaos`, Toxiproxy |
+  | **Kaynak** (CPU, hafıza, disk) | Doygunluk işleme, otomatik ölçekleme | Chaos Mesh `StressChaos`, stress-ng |
+  | **Ağ bölünmesi** | Bölünmüş beyin, fikir birliği, yük devretme | Chaos Mesh `NetworkChaos` partition |
+  | **Bağımlılık hatası** | Zarifce degradasyon, geri dönüş | Service mesh fault injection |
+  | **Zaman** | Saat eğriltmesi, NTP sorunları | libfaketime, Chaos Mesh `TimeChaos` |
+  | **Altyapı** (örnek öldür) | Otomatik kurtarma, yük devretme | AWS FIS, Chaos Monkey |
+
+  Hipoteze uyan saldırıyı seçin. "X yavaşsa ne olur?" → gecikme. "X ağ bağlantısını kaybetse ne olur?" → bölünme.
+
+  ## Araçlama seçici
+
+  | Araç | En iyi kullanım | Fiyatlandırma | Stack |
+  |---|---|---|---|
+  | **Chaos Toolkit** | Hafif, dil-agnostik, JSON deneyimleri | OSS | Herhangi biri |
+  | **Chaos Mesh** | Kubernetes-native, zengin CRD'ler, içi-küme | OSS | Kubernetes |
+  | **Litmus** | Kubernetes, Argo-entegre, geniş kütüphane | OSS + Enterprise | Kubernetes |
+  | **Gremlin** | Kurumsal SaaS, multi-bulut, denetim | Ödemeliİ | Herhangi biri |
+  | **AWS FIS** | AWS-native, IAM-entegre, EC2/ECS/EKS | Ödemeliİ (AWS) | AWS |
+  | **Özel** | Niş ihtiyaçlar, tek-bulut, düşük bütçe | Yok | Herhangi biri |
+
+  Karar kuralları:
+  - k8s-only stack + OSS → Chaos Mesh veya Litmus (Litmus daha geniş deneyim kütüphanesine sahip)
+  - Multi-bulut + OSS → Chaos Toolkit
+  - AWS-ağırlıklı + basit ihtiyaçlar → AWS FIS
+  - Kurumsal + denetim/uyum → Gremlin
+
+  Ödünleşmeler için `references/tooling_landscape.md` dosyasına bakın.
+
+  ## İş akışları
+
+  ### İş Akışı 1: Tek bir deneyim tasarlayın ve çalıştırın
+
+  ```
+  1. Hipotez belirtin: "[Hata] olduğunda, sabit durum metriği X, Y içinde kalır."
+  2. Sabit durum metriğini tanımlayın — deneyimden ÖNCESİ ölçülebilir olmalıdır.
+  3. blast_radius_calculator.py çalıştırın — devam etmeden önce GREEN olduğunu doğrulayın.
+  4. Planı üretmek için experiment_designer.py çalıştırın.
+  5. Planın eş incelemesini alın; durdurma kriterlerinin somut olduğunu doğrulayın.
+  6. #incidents (veya başka bir kanal) içinde on-call ekibini bilgilendirin.
+  7. Deneyimi izleme açık olduğu şekilde çalıştırın.
+  8. Durdurma kriterleri karşılanırsa, hemen durdurun; ne olduğunu kaydedin.
+  9. Öğrenmeleri yakalamak için experiment_postmortem.py çalıştırın.
+  10. Takip eylemlerini dosyalayın; sonraki deneyime bağlantı verin.
+  ```
+
+  ### İş Akışı 2: Game Day alıştırması
+
+  ```
+  1. Senaryo seçin (örn., "birincil veritabanı yük devretme").
+  2. Çalışmaya devam etmesi gereken tüm bağımlı hizmetleri tanımlayın.
+  3. Her katmanı kapsayan çok deneyimli plan oluşturun.
+  4. Paydaşlar ile zamanla; on-call kapsamı gerekli.
+  5. Senaryoyu yöneten bir kolaylaştırıcı ile çalıştırın.
+  6. Gözlemleri gerçekleştikçe paylaşılan belgede yakalayın.
+  7. Tüm gözlemleri kapsayan tek birleştirilmiş postmortem.
+  8. Sahibi olan takip eylemlerini yönetim panosunda izleyin.
+  ```
+
+  ### İş Akışı 3: Sürekli kaos (game days → günlük)
+
+  ```
+  1. Başlangıç: haftalık Game Day staging'de.
+  2. Şuna geç: haftalık Game Day üretimde sınırlı patlama yarıçapı ile.
+  3. Olgunlaş: zamanlanmış deneyimler aracılığıyla sürekli kaos (Litmus kaos takvimi, Gremlin senaryoları).
+  4. Dağıtıma bağlayın: her prod dağıtımı temel kaos taraması tetikler.
+  5. İzle: hafta başına deneyimler, keşfedilen zayıflıklar, MTTR trendi.
+  ```
+
+  ## Diğer beceriler ile bileşim
+
+  Bu beceri, bu kütüphanedeki iki diğer beceri ile açık şekilde bileşim yapır:
+
+  | Beceri | Bileşim |
+  |---|---|
+  | `feature-flags-architect` | Orada tanımlanan kill switch'ler buradaki durdurma tetikleyicileridir |
+  | `kubernetes-operator` | Operatörler yaygın kaos hedefleridir (hatası altında uyumunu test et) |
+  | `incident-response` | Tırmanılan kaos deneyimleri olaylar haline gelir |
+
+  ## Anti-paternler
+
+  - **Hipotez yok** — "şeyleri kıralım" sabotajdır, mühendislik değildir
+  - **Sabit durum metriği yok** — temel olmadan, X'in kırılıp kırılmadığını söyleyemezsiniz
+  - **Patlama yarıçapı sınırı yok** — sınırsız tam-prod deneyimi = kesinti
+  - **Durdurma kriterleri yok** — yukarıya bakın; bu zorunludur
+  - **On-call kapsamı yok** — izlemesiz kaos, izlenmeyen üretimdir
+  - **Sadece staging'de kaos** — staging asla prod başarısızlık modlarına sahip değildir
+  - **Dev'de kaos** — işe yaramaz; dev'in prod'dan farklı başarısızlık modları vardır
+  - **Tek seferlik kaos** — tek deneyim bir basın açıklamasıdır; öğrenme tekrarı gerektirir
+  - **Suçlayıcı postmortem** — suçu değil, nedenleri kaydedin; takımlar aksi halde kaos çalıştırmayı bırakır
+
+  ## Referanslar
+
+  - `references/chaos_principles.md` — 4 ilke, tarih, ne zaman başlanacağı
+  - `references/experiment_design.md` — hipotez yapısı, sabit durum metrikleri, durdurma kriterleri
+  - `references/attack_taxonomy.md` — örnekler ve araçlar içeren 7 saldırı türü
+  - `references/tooling_landscape.md` — Chaos Toolkit / Mesh / Litmus / Gremlin / FIS / DIY
+
+  ## Slash komutu
+
+  `/chaos-experiment` — 3 aracı da çalıştıran etkileşimli deneyim tasarım sihirbazı.
+
+  ## Varlık şablonları
+
+  - `assets/experiment_template.md` — doldur-boşluğu planı şablonu
+  - `assets/postmortem_template.md` — yapılandırılmış postmortem şablonu
+
+  ## Doğrulanabilir başarı
+
+  Bu beceriyi kullanan bir takım şunu başarmalıdır:
+
+  - Tüm kaos deneyimlerinin %100'ü yazılı hipotez, durdurma kriterleri ve patlama yarıçapı hesaplamasına sahip olmalıdır
+  - Herhangi bir deneyimin patlama yarıçapı asla hata bütçesinin %10'unu aşmamalıdır
+  - Kaos deneyimleri arasında ortalama süre <14 gün (tek seferlik değil, sürekli)
+  - Her deneyim ≥1 gönderilen takip eylemi üretir
+  - Sonraki 90 gün içinde hiçbir kaos deneyimi müşteri etkili olayına tırmanmaz
 ---
 
 # Chaos Engineering

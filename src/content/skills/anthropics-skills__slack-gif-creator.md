@@ -12,6 +12,255 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Slack GIF Oluşturucu
+
+  Slack için optimize edilmiş animasyonlu GIF'ler oluşturmak üzere yardımcı programlar ve bilgi sağlayan bir araç seti.
+
+  ## Slack Gereksinimleri
+
+  **Boyutlar:**
+  - Emoji GIF'leri: 128x128 (önerilen)
+  - Mesaj GIF'leri: 480x480
+
+  **Parametreler:**
+  - FPS: 10-30 (düşük = daha küçük dosya boyutu)
+  - Renkler: 48-128 (az = daha küçük dosya boyutu)
+  - Süre: Emoji GIF'leri için 3 saniyenin altında tutun
+
+  ## Temel İş Akışı
+
+  ```python
+  from core.gif_builder import GIFBuilder
+  from PIL import Image, ImageDraw
+
+  # 1. Builder oluştur
+  builder = GIFBuilder(width=128, height=128, fps=10)
+
+  # 2. Kareleri üret
+  for i in range(12):
+      frame = Image.new('RGB', (128, 128), (240, 248, 255))
+      draw = ImageDraw.Draw(frame)
+
+      # PIL primitive'lerini kullanarak animasyonunuzu çizin
+      # (daireler, çokgenler, çizgiler, vb.)
+
+      builder.add_frame(frame)
+
+  # 3. Optimizasyon ile kaydet
+  builder.save('output.gif', num_colors=48, optimize_for_emoji=True)
+  ```
+
+  ## Grafikleri Çizme
+
+  ### Kullanıcı Tarafından Yüklenen Görüntülerle Çalışma
+  Bir kullanıcı görüntü yüklerse, şunlardan birini isteyip istemediğini göz önünde bulundurun:
+  - **Doğrudan kullan** (ör. "bunu canlandır", "bunu karelere böl")
+  - **İlham kaynağı olarak kullan** (ör. "buna benzer bir şey yap")
+
+  PIL kullanarak görüntüleri yükleyin ve çalışın:
+  ```python
+  from PIL import Image
+
+  uploaded = Image.open('file.png')
+  # Doğrudan kullanın veya sadece renkler/stil için referans olarak kullanın
+  ```
+
+  ### Sıfırdan Çizim
+  Grafikleri sıfırdan çizerken, PIL ImageDraw primitive'lerini kullanın:
+
+  ```python
+  from PIL import ImageDraw
+
+  draw = ImageDraw.Draw(frame)
+
+  # Daireler/ovaller
+  draw.ellipse([x1, y1, x2, y2], fill=(r, g, b), outline=(r, g, b), width=3)
+
+  # Yıldızlar, üçgenler, herhangi bir çokgen
+  points = [(x1, y1), (x2, y2), (x3, y3), ...]
+  draw.polygon(points, fill=(r, g, b), outline=(r, g, b), width=3)
+
+  # Çizgiler
+  draw.line([(x1, y1), (x2, y2)], fill=(r, g, b), width=5)
+
+  # Dikdörtgenler
+  draw.rectangle([x1, y1, x2, y2], fill=(r, g, b), outline=(r, g, b), width=3)
+  ```
+
+  **Kullanmayın:** Emoji fontları (platformlar arasında güvenilmez) veya bu beceri içinde önceden paketlenmiş grafiklerin var olduğunu varsaymayın.
+
+  ### Grafikleri İyi Görünür Kılma
+
+  Grafikler temel değil, cilalı ve yaratıcı görünmelidir. İşte nasıl yapılır:
+
+  **Daha kalın çizgiler kullanın** - Her zaman konturlar ve çizgiler için `width=2` veya daha yüksek ayarlayın. İnce çizgiler (width=1) sıçramalı ve amatörcü görünür.
+
+  **Görsel derinlik ekleyin**:
+  - Arka planlar için gradyan kullanın (`create_gradient_background`)
+  - Karmaşıklık için birden fazla şekli katmanlayın (ör. içinde daha küçük bir yıldız olan bir yıldız)
+
+  **Şekilleri daha ilginç hale getirin**:
+  - Sadece sade bir daire çizmeyin - vurgular, halkalar veya desenler ekleyin
+  - Yıldızların parlaması olabilir (arkasında daha büyük, yarı şeffaf versiyonlar çizin)
+  - Birden fazla şekli birleştirin (yıldızlar + kıvılcımlar, daireler + halkalar)
+
+  **Renklere dikkat edin**:
+  - Canlı, tamamlayıcı renkler kullanın
+  - Kontrast ekleyin (açık şekillerde koyu konturlar, koyu şekillerde açık konturlar)
+  - Genel bileşimi göz önünde bulundurun
+
+  **Karmaşık şekiller için** (kalpler, kar kristalleri, vb.):
+  - Çokgen ve elips kombinasyonları kullanın
+  - Simetri için noktaları dikkatlice hesaplayın
+  - Detaylar ekleyin (bir kalp vurgu eğrisine sahip olabilir, kar kristalleri karmaşık dallar içerir)
+
+  Yaratıcı olun ve detaylı olun! İyi bir Slack GIF'i, yer tutucu grafikleri değil, cilalı görünmelidir.
+
+  ## Mevcut Yardımcı Programlar
+
+  ### GIFBuilder (`core.gif_builder`)
+  Kareleri bir araya getirir ve Slack için optimize eder:
+  ```python
+  builder = GIFBuilder(width=128, height=128, fps=10)
+  builder.add_frame(frame)  # PIL Image ekle
+  builder.add_frames(frames)  # Kare listesi ekle
+  builder.save('out.gif', num_colors=48, optimize_for_emoji=True, remove_duplicates=True)
+  ```
+
+  ### Validators (`core.validators`)
+  GIF'in Slack gereksinimlerini karşılayıp karşılamadığını kontrol edin:
+  ```python
+  from core.validators import validate_gif, is_slack_ready
+
+  # Detaylı doğrulama
+  passes, info = validate_gif('my.gif', is_emoji=True, verbose=True)
+
+  # Hızlı kontrol
+  if is_slack_ready('my.gif'):
+      print("Hazır!")
+  ```
+
+  ### Easing Fonksiyonları (`core.easing`)
+  Doğrusal yerine düzgün hareket:
+  ```python
+  from core.easing import interpolate
+
+  # 0.0 ile 1.0 arasında ilerleme
+  t = i / (num_frames - 1)
+
+  # Easing uygula
+  y = interpolate(start=0, end=400, t=t, easing='ease_out')
+
+  # Mevcut: linear, ease_in, ease_out, ease_in_out,
+  #         bounce_out, elastic_out, back_out
+  ```
+
+  ### Kare Yardımcıları (`core.frame_composer`)
+  Yaygın ihtiyaçlar için kolaylık fonksiyonları:
+  ```python
+  from core.frame_composer import (
+      create_blank_frame,         # Solid renk arka planı
+      create_gradient_background,  # Dikey gradyan
+      draw_circle,                # Daireler için yardımcı
+      draw_text,                  # Basit metin oluşturma
+      draw_star                   # 5 köşeli yıldız
+  )
+  ```
+
+  ## Animasyon Kavramları
+
+  ### Sallantı/Titreme
+  Nesne konumunu salınımla ofset edin:
+  - `math.sin()` veya `math.cos()` öğesini kare indeksi ile kullanın
+  - Doğal bir his için küçük rastgele varyasyonlar ekleyin
+  - x ve/veya y konumuna uygulayın
+
+  ### Nabız/Kalp Atışı
+  Nesne boyutunu ritmik olarak ölçekleyin:
+  - Düzgün nabız için `math.sin(t * frequency * 2 * math.pi)` kullanın
+  - Kalp atışı için: iki hızlı nabız ardından duraklatma (sinüs dalgasını ayarlayın)
+  - Temel boyutun 0.8 ile 1.2 arasında ölçekleyin
+
+  ### Sıçrama
+  Nesne düşer ve sıçrar:
+  - İniş için `interpolate()` öğesini `easing='bounce_out'` ile kullanın
+  - Düşüş için `easing='ease_in'` kullanın (hızlanıyor)
+  - Her kare için y hızını artırarak yerçekimi uygulayın
+
+  ### Döndür/Döndürme
+  Nesneyi merkez etrafında döndürün:
+  - PIL: `image.rotate(angle, resample=Image.BICUBIC)`
+  - Sallanma için: doğrusal yerine açı için sinüs dalgası kullanın
+
+  ### Solma İçeri/Dışarı
+  Kademeli olarak görün veya kaybolun:
+  - RGBA görüntüsü oluşturun, alfa kanalını ayarlayın
+  - Veya `Image.blend(image1, image2, alpha)` kullanın
+  - Solma: alfa 0'dan 1'e
+  - Solma dışarı: alfa 1'den 0'a
+
+  ### Kaydır
+  Nesneyi ekran dışından konuma taşıyın:
+  - Başlangıç konumu: kare sınırlarının dışı
+  - Son konum: hedef konum
+  - Düzgün durdurma için `interpolate()` öğesini `easing='ease_out'` ile kullanın
+  - Fazlalık için: `easing='back_out'` kullanın
+
+  ### Yakınlaş
+  Yakınlaştırma efekti için ölçekleyin ve konumlandırın:
+  - Yakınlaş: 0.1'den 2.0'ye ölçekleyin, merkezi kırpın
+  - Uzaklaş: 2.0'dan 1.0'ye ölçekleyin
+  - Drama için hareket bulanıklığı ekleyebilir (PIL filtresi)
+
+  ### Patla/Parçacık Patlaması
+  Radyal olarak dışa doğru yayılan parçacıklar oluşturun:
+  - Rastgele açılar ve hızlar ile parçacıklar oluşturun
+  - Her parçacığı güncelleyin: `x += vx`, `y += vy`
+  - Yerçekimi ekleyin: `vy += gravity_constant`
+  - Zamanla parçacıkları soluklayın (alfa'yı azaltın)
+
+  ## Optimizasyon Stratejileri
+
+  Dosya boyutunu küçültmek için istendiğinde, aşağıdaki yöntemlerden birkaçını uygulayın:
+
+  1. **Daha az kare** - Daha düşük FPS (20 yerine 10) veya daha kısa süre
+  2. **Daha az renk** - `num_colors=48` yerine 128
+  3. **Daha küçük boyutlar** - 480x480 yerine 128x128
+  4. **Dublikaları kaldır** - save() öğesinde `remove_duplicates=True`
+  5. **Emoji modu** - `optimize_for_emoji=True` otomatik olarak optimize eder
+
+  ```python
+  # Emoji için maksimum optimizasyon
+  builder.save(
+      'emoji.gif',
+      num_colors=48,
+      optimize_for_emoji=True,
+      remove_duplicates=True
+  )
+  ```
+
+  ## Felsefe
+
+  Bu beceri sağlar:
+  - **Bilgi**: Slack'in gereksinimleri ve animasyon kavramları
+  - **Yardımcı Programlar**: GIFBuilder, validators, easing fonksiyonları
+  - **Esneklik**: PIL primitive'lerini kullanarak animasyon mantığını oluşturun
+
+  Sağlamaz:
+  - Katı animasyon şablonları veya önceden hazırlanmış fonksiyonlar
+  - Emoji yazı tipi oluşturma (platformlar arasında güvenilmez)
+  - Beceriye yerleştirilmiş önceden paketlenmiş grafiklerin bir kütüphanesi
+
+  **Kullanıcı yüklemeleri hakkında not**: Bu beceri önceden oluşturulmuş grafikler içermez, ancak bir kullanıcı görüntü yüklerse, PIL kullanarak yükleyin ve çalışın - onların isteğine göre doğrudan kullanılmasını mı yoksa sadece ilham kaynağı olarak mı kullanıldığını yorumlayın.
+
+  Yaratıcı olun! Kavramları birleştirin (sıçrayan + dönen, atılan + kayan, vb.) ve PIL'in tam yeteneklerini kullanın.
+
+  ## Bağımlılıklar
+
+  ```bash
+  pip install pillow imageio numpy
+  ```
 ---
 
 # Slack GIF Creator

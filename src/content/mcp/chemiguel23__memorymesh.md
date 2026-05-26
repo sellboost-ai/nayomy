@@ -8,6 +8,369 @@ url: "https://github.com/CheMiguel23/MemoryMesh"
 body_length: 18149
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # MemoryMesh
+  [![Release](https://img.shields.io/badge/Release-v0.3.0-blue.svg)](./CHANGELOG.md)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  ![GitHub Stars](https://img.shields.io/github/stars/CheMiguel23/MemoryMesh.svg?style=social)
+
+  MemoryMesh, AI modelleri için tasarlanmış bir bilgi grafı sunucusudur ve metin tabanlı RPG'ler ile etkileşimli hikaye anlatımına odaklanmıştır. AI'ın konuşmalar arasında tutarlı, yapılandırılmış belleği korumasına yardımcı olarak, daha zengin ve dinamik etkileşimleri mümkün kılar.
+
+  *Proje, MCP sunucuları deposundan [Knowledge Graph Memory Server](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) tabanlıdır ve temel işlevselliğini korumaktadır.*
+
+  <a href="https://glama.ai/mcp/servers/kf6n6221pd"></a>
+
+  [![MseeP.ai Security Assessment](https://mseep.net/pr/chemiguel23-memorymesh-badge.png)](https://mseep.ai/app/chemiguel23-memorymesh)
+
+  ## ÖNEMLİ
+
+  **v0.3.0 Güncellemesi:** MCP SDK, mevcut [Model Context Protocol spesifikasyonuna (2025-11-25)](https://modelcontextprotocol.io/specification/2025-11-25) uyum sağlamak için v1.0.4'ten v1.25.2'ye güncellendi. Bu, Claude Desktop, ChatGPT, Cursor, Gemini ve VS Code dahil olmak üzere en son MCP istemcileriyle uyumluluğu sağlayan büyük bir güncellemedir. Güncelledikten sonra, yeni bağımlılıkları almak için `npm install` komutunu çalıştırın.
+
+  `v0.2.7` sürümünden itibaren şemaların varsayılan konumu `dist/data/schemas` olarak değiştirilmiştir.
+  Bu konum gelecekte değişmesi beklenmemektedir, ancak önceki bir sürümden güncelleme yapıyorsanız, şema dosyalarınızı yeni konuma taşıdığınızdan emin olun.
+
+  ## Hızlı Bağlantılar
+
+  *   [Kurulum](#kurulum)
+  *   [Örnek](#örnek)
+  *   [SchemaManager Kılavuzu Tartışması](https://github.com/CheMiguel23/MemoryMesh/discussions/3)
+  *   [MemoryViewer Kılavuzu Tartışması](https://github.com/CheMiguel23/MemoryMesh/discussions/15)
+
+  ## Genel Bakış
+
+  MemoryMesh, AI modelleri için yapılandırılmış bilgi oluşturmanızı ve yönetmenizi sağlayan yerel bir bilgi grafı sunucusudur. Metin tabanlı RPG'ler için özellikle uygun olmakla birlikte, uyarlanabilir tasarımı sosyal ağ simülasyonları, organizasyon planlaması veya yapılandırılmış verileri içeren herhangi bir senaryo için kullanışlı hale getirir.
+
+  ### Temel Özellikler
+
+  *   **Dinamik Şema Tabanlı Araçlar:** Verilerinizin yapısını şemalarla tanımlayın ve MemoryMesh, veri eklemek, güncellemek ve silmek için araçlar otomatik olarak oluştursun.
+  *   **Sezgisel Şema Tasarımı:** AI'ı düğümleri oluşturmaya ve bağlamaya rehberlik eden şemalar oluşturun, zorunlu alanları, numaralandırılmış türleri ve ilişki tanımlamalarını kullanın.
+  *   **AI Rehberliği için Meta Veri:**  AI'ın verilerinizin anlamını ve ilişkilerini anlamasına yardımcı olmak için bağlam ve yapı sağlamak amacıyla meta verileri kullanın.
+  *   **İlişki Yönetimi:** Şemalarınız içinde ilişkileri tanımlayarak AI'ı ilgili veri noktaları (düğümler) arasında bağlantı (kenarlar) oluşturmaya teşvik edin.
+  *   **Bilgilendirici Geri Bildirim:**  AI'a hata geri bildirimi sunarak, hata yapmaktan öğrenmesine ve bilgi grafı ile etkileşimlerini geliştirmesine olanak tanıyın.
+  *   **Event Desteği:** Operasyonları izleyen bir event sistemi, bilgi grafının nasıl değiştirildiğine ilişkin içgörüler sağlar.
+
+  #### Düğümler
+
+  Düğümler, bilgi grafı içindeki varlıkları veya kavramları temsil eder. Her düğüm şunlara sahiptir:
+
+  * `name`: Benzersiz bir tanımlayıcı.
+  * `nodeType`: Düğümün türü (örn. `npc`, `artifact`, `location`), şemalarınız tarafından tanımlanır.
+  * `metadata`: Düğüm hakkında açıklayıcı ayrıntılar sağlayan dizelerin bir dizisi.
+  * `weight`: (İsteğe Bağlı) İlişkinin gücünü temsil eden 0 ile 1 arasında bir sayısal değer, varsayılan olarak 1'dir.
+
+  **Örnek Düğüm:**
+
+  ```json
+      {
+        "name": "Aragorn",
+        "nodeType": "player_character",
+        "metadata": [
+          "Race: Human",
+          "Class: Ranger",
+          "Skills: Tracking, Swordsmanship",
+          "Affiliation: Fellowship of the Ring"
+        ]
+      }
+  ```
+
+  #### Kenarlar
+
+  Kenarlar, düğümler arasındaki ilişkileri temsil eder. Her kenar şunlara sahiptir:
+
+  * `from`: Kaynak düğümün adı.
+  * `to`: Hedef düğümün adı.
+  * `edgeType`: İlişkinin türü (örn. `owns`, `located_in`).
+
+  ```json
+  {
+    "from": "Aragorn",
+    "to": "Andúril",
+    "edgeType": "owns"
+  }
+  ```
+
+  #### Şemalar
+
+  Şemalar, MemoryMesh'in kalbidir. Verilerinizin yapısını tanımlar ve araçların otomatik oluşturulmasını yönlendirir.
+
+  ##### Şema Dosyası Konumu
+
+  Şema dosyalarınızı (`.schema.json`) yapılı MemoryMesh projenizin `dist/data/schemas` dizinine yerleştirin. MemoryMesh, başlangıçta bu dosyaları otomatik olarak algılayacak ve işleyecektir.
+
+  ##### Şema Yapısı
+
+  Dosya adı: `[name].schema.json`. Örneğin, bir 'npc' tanımlayan bir şema için, dosya adı `add_npc.schema.json` olacaktır.
+
+  * `name` - Şema ve bellek içindeki düğüm türü için tanımlayıcı. **ÖNEMLİ**: Şemanın adı tanınması için `add_` ile başlamalıdır.
+  * `description` - `add_<name>` aracının açıklaması olarak kullanılır, AI için bağlam sağlar. *(İçin `delete` ve `update` araçlarının genel bir açıklaması vardır)*
+  * `properties` - Her property, türü, açıklaması ve ek kısıtlamalarını içerir.
+      * `property`
+          * `type` - Desteklenen değerler `string` veya `array` şeklindedir.
+          * `description` - AI'ı varlığın amacı hakkında rehberlik etmeye yardımcı olur.
+          * `required` - Boolean. `true` ise, **AI'ın zorunlu olarak** bir düğüm oluştururken bu property'yi sağlaması gerekir.
+          * `enum` - Dizelerin bir dizisi. Mevcutsa, **AI'ın verilen seçeneklerden birini seçmesi gerekir**.
+          * `relationship` - Başka bir düğüme bağlantı tanımlar. Bir property zorunlu ve ilişkiye sahipse, **AI her zaman** hem düğümü hem de karşılık gelen kenarı oluşturacaktır.
+              * `edgeType` - Oluşturulacak ilişkinin türü.
+              * `description` - AI'ı ilişkinin amacı hakkında rehberlik etmeye yardımcı olur.
+  * `additionalProperties` - Boolean. `true` ise, AI'ın zorunlu veya isteğe bağlı olarak tanımlanan olanlar dışında ek attribute eklemesine izin verir.
+
+  ##### Örnek Şema (add_npc.schema.json):
+
+  ```json
+  {
+    "name": "add_npc",
+    "description": "Schema for adding an NPC to the memory" ,
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "A unique identifier for the NPC",
+        "required": true
+      },
+      "race": {
+        "type": "string",
+        "description": "The species or race of the NPC",
+        "required": true,
+        "enum": [
+          "Human",
+          "Elf",
+          "Dwarf",
+          "Orc",
+          "Goblin"
+        ]
+      },
+      "currentLocation": {
+        "type": "string",
+        "description": "The current location of the NPC",
+        "required": true,
+        "relationship": {
+          "edgeType": "located_in",
+          "description": "The current location of the NPC"
+        }
+      }
+    },
+    "additionalProperties": true
+  }
+  ```
+
+  Bu şemaya bağlı olarak, MemoryMesh otomatik olarak şunları oluşturur:
+  * add_npc: Yeni NPC düğümleri eklemek için.
+  * update_npc: Mevcut NPC düğümlerini değiştirmek için.
+  * delete_npc: NPC düğümlerini kaldırmak için.
+
+  MemoryMesh, metin tabanlı RPG'ler için tasarlanmış 11 ön kurulu şema içerir ve oyun geliştirme için hazır kullanıma hazır bir temel sağlar.
+
+  ##### SchemaManager Aracı
+
+  MemoryMesh, şema oluşturma ve düzenlemesini basitleştirmek için bir [SchemaManager aracı](https://github.com/CheMiguel23/MemoryMesh/blob/main/SchemaManager.html) içerir. Visual bir arayüz sağlayarak, JSON'u doğrudan yazmadan veri yapılarınızı tanımlamayı kolaylaştırır.
+
+
+
+  ### Dinamik Araçlar
+
+  MemoryMesh, **dinamik araçlar** aracılığıyla bilgi grafınız ile etkileşimi basitleştirir. Bu araçlar manuel olarak kodlanmaz, bunun yerine **otomatik olarak oluşturulur** doğrudan **şema tanımlarınızdan**. Bu, şemalar kullanarak verilerinizin yapısını tanımladığınızda, MemoryMesh'in bu belirli veri yapısıyla çalışmak için özel olarak tasarlanmış bir araç seti zekice oluşturacağı anlamına gelir.
+
+  **Bunu şöyle düşünün:** Siz bir blueprint (şema) sağlarsınız ve MemoryMesh, o blueprint'e dayalı olarak öğeleri oluşturmak, değiştirmek ve kaldırmak için gerekli araçları otomatik olarak inşa eder.
+
+  #### Arkasında nasıl çalışır?
+
+  MemoryMesh'in, şema tanımlarınızı okuyan akıllı bir sistemi vardır. Tanımladığınız yapıyı, varlıklarınızın özellikleri ve ilişkilerini analiz eder. Bu analize bağlı olarak, her varlık türü için otomatik olarak bir araç seti oluşturur:
+
+  *   **`add_<entity>`:**  Bir varlığın yeni örneklerini oluşturmak için bir araç.
+  *   **`update_<entity>`:** Mevcut varlıkları değiştirmek için bir araç.
+  *   **`delete_<entity>`:** Varlıkları kaldırmak için bir araç.
+
+  Bu araçlar daha sonra MemoryMesh içindeki merkezi bir hub aracılığıyla kullanıma sunulur, böylece bağlı herhangi bir istemci veya AI tarafından kolayca erişilebilir ve kullanılabilir duruma getirilir.
+
+  **Esasen, MemoryMesh'in dinamik araç sistemi, bilgi grafınızı yönetmek için güçlü ve etkili bir yol sağlayarak, temel veri manipülasyonunun mekaniklerinden ziyade uygulamanızın içeriği ve mantığına odaklanmanıza olanak tanır.**
+
+  ### Bellek dosyası
+
+  Varsayılan olarak, veriler `dist/data/memory.json` dosyasında JSON olarak depolanır.
+
+  #### Memory Viewer
+
+  Memory Viewer, MemoryMesh tarafından yönetilen bilgi grafının içeriğini görselleştirmenize ve incelemenize yardımcı olmak için tasarlanmış ayrı bir araçtır. Düğümleri, kenarları ve özelliklerini keşfetmek için kullanıcı dostu bir arayüz sağlar.
+
+  ##### Temel Özellikler:
+  * Grafik Görselleştirmesi: Bilgi grafını etkileşimli bir düğüm-bağlantı diyagramı olarak görüntüleyin.
+  * Düğüm İncelemesi: NodeType'ını, metadata'sını ve bağlı kenarlarını görmek için düğümleri seçin.
+  * Kenar Keşfi: Düğümler arasındaki ilişkileri keşfedin, edgeType ve yönü de dahil olmak üzere.
+  * Arama ve Filtreleme: Belirli düğümleri hızlıca bulun veya bunları türe göre filtreleyin.
+  * Tablo Görünümü: Belirli düğümleri ve kenarları veya tümünü kolayca bulmanıza ve incelemenize izin verir.
+  * Ham JSON Görünümü: Bellek dosyasından ham JSON verileri görüntülemenize izin verir.
+  * İstatistikler Paneli: Bilgi grafı hakkında temel metrikler ve bilgiler sağlar: toplam düğümler, toplam kenarlar, düğüm türleri ve kenar türleri.
+  * Arama ve Filtreleme: Düğüm türü veya kenar türüne göre filtrelemeye ve düğümleri, kenarları veya her ikisini de gösterip göstermemeyi filtrelemeye izin verir.
+
+  ##### Memory Viewer'a Erişim
+  Memory Viewer, bağımsız bir web uygulamasıdır. [Memory Viewer tartışması](https://github.com/CheMiguel23/MemoryMesh/discussions/15)
+
+  ##### Memory Viewer'ı Kullanma
+  * Bellek Dosyasını Seçin: Memory Viewer'da "Bellek Dosyasını Seç" düğmesine tıklayın.
+  * Dosya Seçin: MemoryMesh proje dizinine gidin ve `memory.json` dosyasını seçin (varsayılan olarak `dist/data/memory.json` konumunda).
+  * Keşfedin: Memory Viewer, bilgi grafının içeriğini yükleyecek ve görüntüleyecektir.
+
+  ## Bellek Akışı
+
+  ![image](https://github.com/user-attachments/assets/27519003-c1e6-448a-9fdb-cd0a0009f67d)
+
+  ## İstemi
+
+  En iyi sonuçlar için Claude'un "Projects" özelliğini özel talimatlarla kullanın. Başlayabileceğiniz bir istem örneği:
+
+  ```
+  You are a helpful AI assistant managing a knowledge graph for a text-based RPG. You have access to the following tools: add_npc, update_npc, delete_npc, add_location, update_location, delete_location, and other tools for managing the game world.
+
+  When the user provides input, first process it using your available tools to update the knowledge graph. Then, respond in a way that is appropriate for a text-based RPG.
+  ```
+
+  Sohbette doğrudan AI'ya belirli eylemler gerçekleştirmesi talimatını da verebilirsiniz.
+
+  Kullanım durumunuz için en iyi sonucu veren farklı istemler deneyin!
+
+  ### Örnek
+  1. Özel talimatlarla [basit bir örnek](https://pastebin.com/0HvKg5FZ).
+  2. Örneğin sahibi olan bir örnek, görselleştirme ile _(İŞLEVSELLİĞİN PARÇASI DEĞİL)_
+
+  > Birkaç şehir, bazı NPC'ler, şehrin etrafında keşfetmek için birkaç konum ekleyin, bir veya iki artefaktı bir yerlere gizleyin
+
+  ![image](https://github.com/user-attachments/assets/508d5903-2896-4665-a892-cdb7b81dfba6)
+
+  ## Kurulum
+
+  ### Ön Koşullar
+
+  *   **Node.js:** Sürüm 18 veya daha yüksek. [nodejs.org](https://nodejs.org/) adresinden indirebilirsiniz.
+  *   **npm:**  Genellikle Node.js'ye dahildir.
+  *   **Claude Desktop:**  [claude.ai/download](https://claude.ai/download) adresinden en son sürümü yüklediğinizden emin olun.
+
+  ### Kurulum Adımları
+
+  1. **Depoyu Klonlayın:**
+
+      ```bash
+      git clone https://github.com/CheMiguel23/memorymesh.git
+      cd memorymesh
+      ```
+
+  2. **Bağımlılıkları Kurun:**
+
+      ```bash
+      npm install
+      ```
+
+  3. **Projeyi Yapılandırın:**
+
+      ```bash
+      npm run build
+      ```
+     Bu komut, TypeScript kodunu `dist` dizininde JavaScript'e derler ve örnek şema ile veri dosyalarını da kopyalar.
+
+  4. **Dosya Kopyalamayı Doğrulayın (İsteğe Bağlı):**
+
+      *   Yapı işlemi, `data` klasörünü `dist` klasörüne otomatik olarak kopyalamalıdır.
+      *   **Kontrol edin** `dist/data` klasörünün var olduğunu ve `.json` dosyaları içerdiğini. Ayrıca `dist/data/schemas` klasörünün var olduğunu ve `.schema.json` dosyaları içerdiğini doğrulayın.
+
+  5. **Claude Desktop'ı Yapılandırın:**
+
+     Claude Desktop yapılandırma dosyanızı açın:
+
+      * **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+      * **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+      * `mcpServers` bölümüne `memorymesh` için bir entry ekleyin. Aşağıdaki yapılandırma seçeneklerinden **birini** seçebilirsiniz:
+
+      ```json
+      "mcpServers": {
+        "memorymesh": {
+          "command": "node", 
+          "args": ["/ABSOLUTE/PATH/TO/YOUR/PROJECT/memorymesh/dist/index.js"]
+        }
+      }
+      ```
+
+      *   `/ABSOLUTE/PATH/TO/YOUR/PROJECT/` öğesini `memorymesh` proje dizininizin **gerçek mutlak yolu** ile değiştirin.
+      *   **Örnek (macOS):**
+          ```json
+          "command": "node",
+          "args": ["/Users/yourusername/Projects/memorymesh/dist/index.js"]
+          ```
+      *   **Örnek (Windows):**
+          ```json
+          "command": "node",
+          "args": ["C:\\Projects\\memorymesh\\dist\\index.js"]
+          ```
+
+  6. **Claude Desktop'ı Yeniden Başlatın:** Değişikliklerin etkili olması için Claude Desktop'ı tamamen yeniden başlatın.
+
+  ### Kurulumu Doğrulayın
+
+  1. Claude Desktop'ı başlatın.
+  2. Yeni bir sohbet açın.
+  3. Sağ üst köşedeki MCP eklenti simgesini arayın. Oradaysa, yapılandırmanız muhtemelen doğrudur.
+  4. Simgeyi tıklayın. Bağlı sunucuların listesinde "memorymesh" görmeniz gerekir.
+  5. Simgeyi tıklayın. Araçlar listelenen görmek istiyorsanız (örn. `add_npc`, `update_npc`, vb.), sunucunuz çalışıyor ve araçları doğru şekilde ortaya koymaktadır.
+
+  ### Güncelleme
+  Güncellemelerden önce, bellek verilerinizi kaybetmemek için `dist/data` dizinini yedekleyin.
+
+  ### Sorun Giderme
+
+  *   **Sunucu Claude'da görünmüyor:**
+      *   `claude_desktop_config.json` dosyasındaki yolları çift kontrol edin. Mutlak yollar ve doğru oldukları emin olun.
+      *   `dist` dizininin var olduğunu ve `index.js` dahil olmak üzere derlenmiş JavaScript dosyalarını içerdiğini doğrulayın.
+      *   Claude Desktop günlüklerinde hataları kontrol edin:
+          *   **macOS:** `~/Library/Logs/Claude/mcp-server-memorymesh.log` (ve `mcp.log`)
+          *   **Windows:** (Muhtemelen `%AppData%\Claude` altındaki bir `Logs` klasöründe)
+
+  *   **Araçlar görünmüyor:**
+      *   `npm run build` komutunuzun hatasız tamamlandığından emin olun.
+      *   Şema dosyalarınızın `dist/data/schemas` konumunda doğru bir şekilde yerleştirildiğini ve doğru adlandırma kuralını izlediğini doğrulayın (`add_[entity].schema.json`).
+      *   Başlatma sırasında hataları almak için sunucunuzun konsol çıktısını veya günlüklerini kontrol edin.
+
+  ## Gelişmiş Yapılandırma
+  MemoryMesh, temel kurulumun ötesinde davranışını özelleştirmenin birkaç yolunu sunar:
+
+  ### Değişkenler
+  `/config/config.ts` içinde varsayılan ayarları geçersiz kılabilirsiniz
+  * MEMORY_FILE: Bilgi grafı verilerini depolamak için kullanılan JSON dosyasının yolunu belirtir. (Varsayılan: `dist/data/memory.json`)
+  * SCHEMAS_DIR: Şema dosyaları dizinine giden yol. (Varsayılan: `dist/data/schemas/memory.json`)
+
+  ## Sınırlamalar
+
+  1. **Düğüm Silme:** AI, bilgi grafından düğümleri silme konusunda isteksiz olabilir. Gerekirse istemler aracılığıyla bunu teşvik edin.
+
+  2. **Çatışan Bilgi:** MemoryMesh, verileri işlemek için şu anda bir "son yazı kazanır" yaklaşımı kullanır. Aynı varlık hakkında çatışan bilgiler sağlanırsa, en son güncelleme önceki değerlerin yerine geçer. Çatışan bilgileri yönetmek için stratejiler:
+
+     **Mevcut Yaklaşımlar:**
+     - **Kaynakları izlemek için meta verileri kullanın:** `"Source: Character testimony"` veya `"Source: Official records"` gibi meta veri girişleri ekleyerek bilginin nereden geldiğini takip edin.
+     - **Zamansal meta veri kullanın:** Meta verilere zaman damgalarını veya anlatı zaman işaretçilerini (örn. `"As of Chapter 3"`) ekleyerek bilginin ne zaman geçerli olduğunu takip edin.
+     - **Perspektifler için ayrı düğümler oluşturun:** Öznel veya tartışmalı bilgiler için, farklı görüşpontları temsil eden ayrı düğümler oluşturun (örn. `rumor_about_villain` vs `truth_about_villain`).
+     - **Kenar ağırlıklarını kullanın:** İlişkilerin güvenilirliğini veya ilişkisini belirtmek için kenarlar (0-1 aralığında) üzerinde isteğe bağlı `weight` özelliğini kullanın.
+
+     **Örnek - Belirsiz bilgileri izlemek:**
+     ```json
+     {
+       "name": "VillainOrigin_Rumor",
+       "nodeType": "information",
+       "metadata": [
+         "Source: Tavern gossip",
+         "Reliability: Low",
+         "Claims: Villain came from the northern mountains"
+       ]
+     }
+     ```
+
+     **Gelecekteki Hususlar:**
+     Sofistike çatışma çözümleme gerektiren uygulamalar için, şunları yapan özel bir katman uygulamayı düşünün:
+     - Düğüm değişikliklerinin sürüm geçmişini tutar
+     - Her bilgi parçasının kaynağını (provenance) takip eder
+     - İçin güven puanları uygular
+     - Gerçekler için zamansal geçerlilik dönemleri destekler
+
+  ## Katkı
+
+  Katkılar, geri bildirim ve fikirler hoş karşılanır!
+  Bu proje, yapılandırılmış verilerin AI akıl yürütme yetenekleriyle entegre edilmesine yönelik kişisel bir keşiftir. Bunu ileriye taşımak veya yeni projeleri ilham vermek için katkılar, geri bildirim ve fikirler hoş karşılanır.
 ---
 
 # MemoryMesh

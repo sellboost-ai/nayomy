@@ -12,6 +12,183 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /em:challenge — Pre-Mortem Plan Analizi
+
+  **Komut:** `/em:challenge <plan>`
+
+  Gerçeklik ortaya çıkarmadan önce herhangi bir plandaki zayıflıkları sistematik olarak bulur. Planı öldürmek için değil — gerçeklikle temasını sürdürmesini sağlamak için.
+
+  ---
+
+  ## Temel Fikir
+
+  Çoğu plan tahmin edilebilir nedenlerden başarısız olur. Şans değil — yanlış varsayımlar. Aşırı tahmin edilen talep. Eksik tahmin edilen karmaşıklık. Kimsenin sorgulamadığı bağımlılıklar. Bir spreadsheet'te mantıklı görünen ama gerçek dünyada mantıksız zaman dilimleri.
+
+  Pre-mortem tekniği: **şimdi 12 ay sonra olduğunu ve bu plan spektaküler bir şekilde başarısız olduğunu hayal et. Şimdi geriye doğru git. Neden?**
+
+  Bu pesimizm değil. Çökmeyecek bir şey inşa etmenin yoludur.
+
+  ---
+
+  ## Ne Zaman Challenge Çalıştırılmalı
+
+  - Bir plana önemli kaynaklar taahhüt etmeden önce
+  - Yönetim kurulu veya yatırımcılara sunmadan önce
+  - Planda yalnızca olumlu geri bildirim aldığını fark ettiğinde
+  - Plan birden fazla dış bağımlılığın hizalanmasını gerektirdiğinde
+  - Hızlı hareket etmeye ve "sonra çözeriz" demeye baskı olduğunda
+  - Plana heyecan duyduğunda (heyecan daha sıkı inceleme sinyalidir)
+
+  ---
+
+  ## Challenge Framework
+
+  ### Adım 1: Temel Varsayımları Çıkar
+  Bir planı test edebilmek için önce onun doğru olduğunu varsaydığı her şeyi ortaya çıkarmanız gerekir.
+
+  Planın her bölümü için sorun:
+  - Bunun işlemesi için ne doğru olmalı?
+  - Müşteri davranışı hakkında ne varsayıyoruz?
+  - Rakip tepkisi hakkında ne varsayıyoruz?
+  - Kendi yürütme yeteneğimiz hakkında ne varsayıyoruz?
+  - Bu hangi dış faktörlere bağlıdır?
+
+  **Yaygın varsayım kategorileri:**
+  - **Pazar varsayımları** — boyut, büyüme oranı, müşteri ödeme istekliliği, satın alma döngüsü
+  - **Yürütme varsayımları** — takım kapasitesi, hız, büyük işe alımlar gerekmez
+  - **Müşteri varsayımları** — sorunu var, farkında, çözmek için ödeyecek
+  - **Rekabet varsayımları** — mevcut oyuncular tepki vermez, yeni giriş yapan olmaz, moat devam eder
+  - **Finansal varsayımlar** — burn rate, gelir zamanlaması, CAC, LTV oranları
+  - **Bağımlılık varsayımları** — ortak teslim edecek, API değişmez, düzenlemeler kaymaz
+
+  ### Adım 2: Her Varsayımı Değerlendir
+
+  Çıkarılan her varsayım için iki boyuta göre puanlayın:
+
+  **Güven seviyesi (bunun doğru olduğundan ne kadar emin olduğunuz):**
+  - **Yüksek** — veriler, müşteri görüşmeleri, pazar araştırması ile doğrulanmış
+  - **Orta** — doğru yöne doğru ama doğrulanmamış
+  - **Düşük** — makul ama test edilmemiş
+  - **Bilinmiyor** — basitçe bilmiyoruz
+
+  **Yanlış olursa etki (bu varsayım başarısız olursa ne olur):**
+  - **Kritik** — plan tamamen başarısız
+  - **Yüksek** — büyük gecikme veya maliyet aşması
+  - **Orta** — önemli yeniden çalışma gerekli
+  - **Düşük** — yönetilebilir ayarlama
+
+  ### Adım 3: Zayıflık Haritası Oluştur
+
+  Düşük/Bilinmeyen güven × Kritik/Yüksek etki matrisi = en yüksek riskli varsayımlarınız.
+
+  **Zayıflık = Düşük güven + Yüksek etki**
+
+  Bunlar görmezden gelinecek problemler değil. Yaptığınız bahislerdir. Soru şu: bunları bilinçli mi yapıyorsunuz?
+
+  ### Adım 4: Bağımlılık Zincirini Bul
+
+  Çoğu plan herhangi bir varsayımın yanlış olması nedeniyle değil, birden fazla varsayımın aynı anda doğru olması gerektiğinden başarısız olur.
+
+  Zinciri harita:
+  - B varsayımı, A varsayımının ilk doğru olmasına bağlı mı?
+  - İlk şey ters giderse, kaç tane aşağı akış şeyi kırar?
+  - Kritik yol nedir? Neyin sıfır oyunakışı var?
+
+  ### Adım 5: Tersinirliği Test Et
+
+  Her kritik zayıflık için: bu varsayım 3. ayda yanlış çıkarsa ne yaparsınız?
+
+  - Pivot yapabilir misiniz?
+  - Kapsamı azaltabilir misiniz?
+  - Para zaten harcandı mı?
+  - Taahhütler zaten verildi mi?
+
+  Ne kadar az geri döndürülebilir, taahhüt etmeden önce o kadar sıkı doğrulamanız gerekir.
+
+  ---
+
+  ## Çıktı Formatı
+
+  **Challenge Raporu: [Plan Adı]**
+
+  ```
+  TEMEL VARSAYIMLAR (çıkarılmış)
+  1. [Varsayım] — Güven: [Y/O/D/?] — Yanlış olursa Etki: [Kritik/Yüksek/Orta/Düşük]
+  2. ...
+
+  ZAYIFLIK HARİTASI
+  Kritik riskler (devam etmeden önce hareket et):
+  • [#N] [Varsayım] — NEDEN yanlış olabilir — NEYIN başarısız olacağı
+
+  Yüksek riskler (ölçeklemeden önce doğrula):
+  • ...
+
+  BAĞIMLILLIK ZİNCİRİ
+  [Varsayım A] → bağlıdır → [Varsayım B] → etkinleştirir → [Varsayım C]
+  En zayıf halka: [X] — bu kırılırsa, [Y] ve [Z] de başarısız olur
+
+  TERSİNİRLİK DEĞERLENDİRMESİ
+  • Tersinir bahisler: [liste]
+  • Geri döndürülemez taahhütler: [liste — aşırı dikkatli davran]
+
+  ÖLDÜR DÜĞMELERI
+  [30/60/90 gün]'de devam etmek vs öldürmek/pivot yapmak için ne doğru olmalıdır?
+  • Devam et eğer: ...
+  • Öldür/pivot yap eğer: ...
+
+  SERTLEŞTIRME EYLEMLER
+  1. [Devam etmeden önce yapılacak spesifik doğrulama]
+  2. [Göz önünde bulundurulacak alternatif yaklaşım]
+  3. [Plana inşa edilecek beklenmedik durum]
+  ```
+
+  ---
+
+  ## Plan Türüne Göre Challenge Desenleri
+
+  ### Ürün Yol Haritası
+  - Müşterilerin ödeyeceği şeyi mi, yoksa söylediklerini mi inşa ediyoruz?
+  - Hız tahmini gerçek takım kapasitesini hesaba katıyor mu (teorik değil)?
+  - Çapa özelliği tahminin 3× katını alırsa ne olur?
+  - Gereksinimler çatışırsa kararları kim alır?
+
+  ### Pazara Gitme Planı
+  - Gerçek ICP dönüşüm oranı nedir, umut edilen değil?
+  - Kaç temas kapatmak için gereklidir ve bunun için satış kapasitesine sahip misiniz?
+  - İlk 10 anlaşma 1 ay yerine 3 ayda alırsa ne olur?
+  - "İniş ve genişleme" gerçek bir hareket mi yoksa bir umut mu?
+
+  ### İşe Alma Planı
+  - Anahtar işe alım bulmak 6 hafta değil 4 ayda alırsa ne olur?
+  - Plan ayrılabilecek belirli kişileri tutmaya bağlı mı?
+  - Plan ramp zamanını hesaba katıyor mu (genellikle tam verimlilik için 3-6 ay)?
+  - Ücretler gelirleri 6 ay önceden alırsa burn etkisi nedir?
+
+  ### Fon Yaratma Planı
+  - Baş yatırımcı geçerse fallback'iniz ne?
+  - 3 ayda değil 6 ayda alırsa zaman çizelgesini modellemeniz gerekti mi?
+  - Tur düşük ucunda kapanırsa mevcut burn'da runaway nedir?
+  - Hedef tutarın %50'sini kaldırırsanız ne varsayımlar kırılır?
+
+  ---
+
+  ## En Zor Sorular
+
+  Bunlar insanların atladığı sorulardır:
+  - "Temel durum değil, ayı durumu nedir?"
+  - "Bu tam plan güvenmediğimiz bir takım tarafından yürütülseydi işe yarar mıydı?"
+  - "Rahatsız edici olduğu için yüksek sesle söylemediklerimiz neler?"
+  - "Kimin bu planı olduğundan daha iyi görünmesi için teşvikleri var?"
+  - "Bu planın düşmanı ilk olarak neye saldıracak?"
+
+  ---
+
+  ## Teslimat
+
+  `/em:challenge` çıktısı durdurma izni değil. Zayıflık haritasıdır. Şimdi bilinçli kararlar alabilirsiniz: riskli varsayımları doğrulayın, kritik olanları hedge edin, ya da yaptığınız bahisleri bilerek kabul edin.
+
+  Bilinmeyen riskler tehlikelidir. Bilinen riskler yönetilebilirdir.
 ---
 
 # /em:challenge — Pre-Mortem Plan Analysis

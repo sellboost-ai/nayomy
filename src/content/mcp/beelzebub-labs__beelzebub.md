@@ -9,6 +9,562 @@ body_length: 17445
 license: "GPL-3.0"
 language: "Go"
 homepage: "https://docs.beelzebub.ai"
+body_tr: |-
+  # Beelzebub
+
+  [![CI](https://github.com/beelzebub-labs/beelzebub/actions/workflows/main.yml/badge.svg)](https://github.com/beelzebub-labs/beelzebub/actions/workflows/ci.yml)
+  [![Go Report Card](https://goreportcard.com/badge/github.com/beelzebub-labs/beelzebub/v3)](https://goreportcard.com/report/github.com/beelzebub-labs/beelzebub/v3)
+  [![codecov](https://codecov.io/gh/beelzebub-labs/beelzebub/graph/badge.svg?token=8XTK7D4WHE)](https://codecov.io/gh/beelzebub-labs/beelzebub)
+  [![Go Reference](https://pkg.go.dev/badge/github.com/beelzebub-labs/beelzebub/v3.svg)](https://pkg.go.dev/github.com/beelzebub-labs/beelzebub/v3)
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/beelzebub-labs/beelzebub)](https://archestra.ai/mcp-catalog/beelzebub-labs__beelzebub)
+  [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
+
+  **Aldatma Çalışma Zamanı Çerçevesi**
+
+  Beelzebub, SSH, HTTP, TCP, TELNET ve MCP protokolleri arasında uyarlanabilir, LLM destekli yanıltıcı hizmetleri dağıtan açık kaynaklı bir aldatma çalışma zamanıdır. Pasif honeypot'ların ötesine geçerek saldırganlarla gerçekçi etkileşimlerde aktif olarak katılır, yüksek kaliteli tehdit istihbaratı toplar ve AI aracılarına karşı prompt injection saldırılarını algılar.
+
+  ![github beelzebub - inception program](https://github.com/user-attachments/assets/e180d602-6de9-4c48-92ad-eb0ef3c5322d)
+
+  ## İçindekiler
+
+  - [Temel Özellikler](#temel-özellikler)
+  - [Hızlı Başlangıç](#hızlı-başlangıç)
+  - [CLI Referansı](#cli-referansı)
+  - [Plugin Sistemi](#plugin-sistemi)
+  - [Gözlemlenebilirlik](#gözlemlenebilirlik)
+    - [Prometheus Metrikleri](#prometheus-metrikleri)
+    - [RabbitMQ Entegrasyonu](#rabbitmq-entegrasyonu)
+  - [Test](#test)
+  - [Kod Kalitesi](#kod-kalitesi)
+  - [Katkı Sağlama](#katkı-sağlama)
+  - [Lisans](#lisans)
+  - [Konfigürasyon Referansı](#konfigürasyon-referansı)
+    - [Temel Konfigürasyon](#temel-konfigürasyon)
+    - [Servis Konfigürasyonu](#servis-konfigürasyonu)
+  - [Aldatma Hizmetleri](#aldatma-hizmetleri)
+    - [MCP Aldatma Hizmeti](#mcp-aldatma-hizmeti)
+    - [HTTP Aldatma Hizmeti](#http-aldatma-hizmeti)
+    - [SSH Aldatma Hizmeti](#ssh-aldatma-hizmeti)
+    - [TELNET Aldatma Hizmeti](#telnet-aldatma-hizmeti)
+    - [TCP Aldatma Hizmeti](#tcp-aldatma-hizmeti)
+
+  ## Temel Özellikler
+
+  - **Uyarlanabilir aldatma motoru**: LLM entegrasyonu (OpenAI, Ollama) gerçek zamanlı bağlam açısından doğru yanıtlar üretir, saldırganları harekete geçirilebilir TTP'leri toplamak için yeterince meşgul tutarak
+  - **Düşük kodlu servis tanımı**: Regex komut eşleştirmeli YAML tabanlı konfigürasyon — yeni bir yanıltıcı hizmet dağıtmak için özel kod gerekmez
+  - **Çok protokol kapsamı**: SSH, HTTP, TCP, TELNET, MCP — altyapı hedeflerinden AI aracı saldırı yüzeylerine kadar
+  - **Genişletilebilir plugin sistemi**: `CommandPlugin` veya `HTTPPlugin` arayüzünü uygulayın ve `init()` üzerinden kaydedin — temel değişiklik gerekmez
+  - **Tam gözlemlenebilirlik yığını**: Prometheus metrikleri, RabbitMQ event streaming
+  - **Üretim hazır çalışma zamanı**: Docker, Kubernetes (Helm), düzgün kapatma, hizmet başına bellek sınırları
+
+  ## LLM Aldatma Tanıtımı
+
+  ![demo-beelzebub](https://github.com/user-attachments/assets/4dbb9a67-6c12-49c5-82ac-9b3e340406ca)
+
+  ## Hızlı Başlangıç
+
+  ### Docker Compose Kullanarak
+
+  ```bash
+  docker compose build
+  docker compose up -d
+  ```
+
+  ### Go Kullanarak
+
+  ```bash
+  go mod download
+  go build -o beelzebub .
+  ./beelzebub run
+  ```
+
+  ### Helm Kullanarak (Kubernetes)
+
+  ```bash
+  helm install beelzebub ./beelzebub-chart
+  # Güncelleme:
+  helm upgrade beelzebub ./beelzebub-chart
+  ```
+
+  ## CLI Referansı
+
+  Beelzebub yapılandırılmış bir CLI ile birlikte gelir. Tüm kullanılabilir komutları görmek için `beelzebub --help` çalıştırın.
+
+  ### `beelzebub run`
+
+  Tüm yapılandırılmış aldatma hizmetlerini başlatın.
+
+  ```bash
+  beelzebub run [flags]
+
+  Flags:
+    -c, --conf-core string       Temel konfigürasyon dosyasının yolu (varsayılan "./configurations/beelzebub.yaml")
+    -s, --conf-services string   Servis konfigürasyon dizininin yolu (varsayılan "./configurations/services/")
+    -m, --mem-limit-mib int      MiB cinsinden bellek sınırı, devre dışı bırakmak için -1 (varsayılan 100)
+  ```
+
+  ### `beelzebub validate`
+
+  Herhangi bir hizmeti başlatmadan tüm konfigürasyon dosyalarını ayrıştırın ve doğrulayın. CI pipelines için kullanışlıdır.
+
+  ```bash
+  beelzebub validate --conf-core ./configurations/beelzebub.yaml --conf-services ./configurations/services/
+  ```
+
+  ### `beelzebub plugin list`
+
+  Mevcut derlemede kayıtlı tüm eklentileri listeleyin.
+
+  ```bash
+  beelzebub plugin list
+  ```
+
+  ### `beelzebub version`
+
+  Sürüm, commit SHA, derleme tarihi ve Go çalışma zamanı bilgisini yazdırın.
+
+  ```bash
+  beelzebub version
+  ```
+
+  ## Plugin Sistemi
+
+  Beelzebub, temel kod değiştirmeden aldatma çalışma zamanını genişletmek için `pkg/plugin` konumunda istikrarlı bir genel SDK ortaya koymaktadır.
+
+  ### Arayüzler
+
+  ```go
+  // CommandPlugin, SSH, TCP, TELNET ve HTTP hizmetleri için metin yanıtları üretir.
+  type CommandPlugin interface {
+      Metadata() Metadata
+      Execute(ctx context.Context, req CommandRequest) (string, error)
+  }
+
+  // HTTPPlugin, durum kodu, başlıklar ve gövde içeren tam HTTP yanıtları üretir.
+  type HTTPPlugin interface {
+      Metadata() Metadata
+      HandleHTTP(r *http.Request) HTTPResponse
+  }
+  ```
+
+  ### Plugin Yazma
+
+  ```go
+  package myplugin
+
+  import (
+      "context"
+      "github.com/beelzebub-labs/beelzebub/v3/pkg/plugin"
+  )
+
+  type MyPlugin struct{}
+
+  func (p *MyPlugin) Metadata() plugin.Metadata {
+      return plugin.Metadata{
+          Name:        "MyPlugin",
+          Description: "Özel aldatma yanıt üreticisi",
+          Version:     "1.0.0",
+          Author:      "your-name",
+      }
+  }
+
+  func (p *MyPlugin) Execute(_ context.Context, req plugin.CommandRequest) (string, error) {
+      return "simulated response to: " + req.Command, nil
+  }
+
+  func init() {
+      plugin.Register(&MyPlugin{})
+  }
+  ```
+
+  ### Harici Plugin Yükleme
+
+  `main.go` çatalınıza boş bir import ekleyin:
+
+  ```go
+  import _ "github.com/your-org/beelzebub-myplugin"
+  ```
+
+  Plugin başlangıçta kendini kaydeder ve hemen herhangi bir servis YAML'sinde bir `plugin` referansı olarak kullanılabilir.
+
+  ## Gözlemlenebilirlik
+
+  ### Prometheus Metrikleri
+
+  Beelzebub, yapılandırılmış endpoint'te Prometheus metriklerini ortaya koymaktadır (varsayılan: `:2112/metrics`):
+
+  | Metrik | Açıklama |
+  |--------|----------|
+  | `beelzebub_events_total` | Tüm hizmetler arasında toplam aldatma olayları |
+  | `beelzebub_events_ssh_total` | SSH olayları |
+  | `beelzebub_events_http_total` | HTTP olayları |
+  | `beelzebub_events_tcp_total` | TCP olayları |
+  | `beelzebub_events_telnet_total` | TELNET olayları |
+  | `beelzebub_events_mcp_total` | MCP olayları |
+
+  ### RabbitMQ Entegrasyonu
+
+  Tüm aldatma olaylarını aşağı akış SIEM entegrasyonu için bir mesaj kuyruğuna yayımlayın:
+
+  ```yaml
+  core:
+    tracings:
+      rabbit-mq:
+        enabled: true
+        uri: "amqp://guest:guest@localhost:5672/"
+  ```
+
+  Olaylar yapılandırılmış JSON olarak `event` kuyruğuna yayımlanır.
+
+  ## Test
+
+  ```bash
+  # Unit testler
+  make test.unit
+
+  # Entegrasyon testleri (Docker gerektirir)
+  make test.dependencies.start
+  make test.integration
+  make test.dependencies.down
+
+  # Hizmetleri başlatmadan konfigürasyonu doğrulayın
+  beelzebub validate
+  ```
+
+  ## Kod Kalitesi
+
+  - **CI**: Her commit ve pull request'te GitHub Actions
+  - **Statik analiz**: CodeQL ve Go Report Card
+  - **Kapsam**: [Codecov](https://codecov.io/gh/beelzebub-labs/beelzebub) üzerinden izlenir
+  - **Kod incelemesi**: Tüm katkılar akran incelemesinden geçer
+
+  ## Lisans
+
+  Beelzebub, [GNU GPL v3 Lisansı](LICENSE) altında lisanslanmıştır.
+
+  ## Katkı Sağlama
+
+  Beelzebub ekibi katkı ve proje katılımını memnuniyetle karşılar. Hataları raporlamak, yeni özellikler eklemek veya herhangi bir sorunuz olması durumunda, ayrıntılı bilgi için lütfen [Katkı Rehberimize](CONTRIBUTING.md) bakınız. Tüm katılımcılara ve maintainerlara [Davranış Kurallarımıza](CODE_OF_CONDUCT.md) uymanızı ve destekleyici ve saygılı bir topluluk oluşturmayı teşvik ediyoruz.
+
+  Mutlu hacking!
+
+  ## Konfigürasyon Referansı
+
+  Beelzebub iki seviyeli bir konfigürasyon sistemi kullanır:
+
+  1. **Temel konfigürasyon** (`beelzebub.yaml`) — global ayarlar: logging, tracing, Prometheus
+  2. **Servis konfigürasyonları** (`services/*.yaml`) — hizmet başına bir dosya
+
+  ### Temel Konfigürasyon
+
+  ```yaml
+  core:
+    logging:
+      debug: false
+      debugReportCaller: false
+      logDisableTimestamp: true
+      logsPath: ./logs
+    tracings:
+      rabbit-mq:
+        enabled: false
+        uri: "amqp://guest:guest@localhost:5672/"
+    prometheus:
+      path: "/metrics"
+      port: ":2112"
+  ```
+
+  Ortam değişkeni geçersiz kılmaları tüm alanlar için desteklenir (örn. `BEELZEBUB_RABBITMQ_ENABLED`). Servis konfigürasyonları, `BEELZEBUB_SERVICES_CONFIG` aracılığıyla tamamen JSON dizisi olarak da sağlanabilir.
+
+  ### Servis Konfigürasyonu
+
+  Her aldatıcı hizmet, `services/` dizinine yerleştirilen ayrı bir YAML dosyasında tanımlanır. `protocol` alanı kullanılan aldatma motorunu belirler. Komutlar istek eşleştirmesi için `regex` kullanır ve dinamik yanıtlar için statik bir `handler` veya `plugin` referansı kullanırlar.
+
+  ## Aldatma Hizmetleri
+
+  ### MCP Aldatma Hizmeti
+
+  MCP (Model Context Protocol) aldatma hizmetleri, LLM destekli aracılara karşı prompt injection saldırılarını algılamak için tasarlanmış yanıltıcı araçları ortaya koymaktadır.
+
+  #### Nasıl Çalışır?
+
+  Yanıltıcı araç, aracının araç listesinde kaydedilir ancak normal işlem altında hiçbir zaman çağrılmamalıdır. Herhangi bir çağırma, bir prompt injection saldırısının aracının koruma mekanizmalarını başarıyla aştığını gösterir. Bu sağlar:
+
+  - **Gerçek zamanlı koruma mekanizması ihlali algılaması** — saldırgan aracıyı kısıtlı bir aracı çağırmaya ikna ettiğinde anında uyarı
+  - **Orijinal saldırı prompt koleksiyonu** — her aktivasyon kullanılan tam kötü amaçlı promptu kaydeder
+  - **Ölçülebilir saldırı yüzeyi metrikleri** — zaman içinde HAR, TPR ve MTP'yi izleyin
+
+  ![video-mcp-diagram](https://github.com/user-attachments/assets/e04fd19e-9537-427e-9131-9bee31d8ebad)
+
+  **mcp-8000.yaml**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "mcp"
+  address: ":8000"
+  description: "MCP Honeypot"
+  tools:
+    - name: "tool:user-account-manager"
+      description: "Kullanıcı hesabı ayrıntılarını sorgula ve değiştirmek için araç. Yönetici ayrıcalıkları gerektirir."
+      params:
+        - name: "user_id"
+          description: "Yönetilecek kullanıcı hesabının kimliği."
+        - name: "action"
+          description: "Kullanıcı hesabında gerçekleştirilecek işlem, olası değerler: get_details, reset_password, deactivate_account"
+      handler: |
+        {
+          "tool_id": "tool:user-account-manager",
+          "status": "completed",
+          "output": {
+            "message": "'tool:user-account-manager' aracı başarıyla yürütüldü. Sonuçlar iç işleme beklemede ve kaydedilecektir.",
+            "result": {
+              "operation_status": "success",
+              "details": "email: kirsten@gmail.com, role: admin, last-login: 02/07/2025"
+            }
+          }
+        }
+    - name: "tool:system-log"
+      description: "Sistem loglarını sorgula araç. Yönetici ayrıcalıkları gerektirir."
+      params:
+        - name: "filter"
+          description: "Logları filtrelemek için kullanılan giriş."
+      handler: |
+        {
+          "tool_id": "tool:system-log",
+          "status": "completed",
+          "output": {
+            "message": "'tool:system-log' aracı başarıyla yürütüldü.",
+            "result": {
+              "operation_status": "success",
+              "details": "Info: email: kirsten@gmail.com, last-login: 02/07/2025"
+            }
+          }
+        }
+  ```
+
+  `http://beelzebub:port/mcp` üzerinden erişilebilir (Streamable HTTP transport).
+
+  ### HTTP Aldatma Hizmeti
+
+  HTTP aldatma hizmetleri, URL deseni eşleştirmesine göre yapılandırılabilir yanıtlarla web isteklerine yanıt verir. TLS, statik handler'lar, LLM destekli yanıtlar ve sonsuz labirent üreticisini destekler.
+
+  **WordPress simülasyonu** (`http-80.yaml`):
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "http"
+  address: ":80"
+  description: "Wordpress 6.0"
+  commands:
+    - regex: "^(/index.php|/index.html|/)$"
+      handler: |
+        <html><header><title>Wordpress 6 test sayfası</title></header>
+        <body><h1>Wordpress'ten Merhaba</h1></body></html>
+      headers:
+        - "Content-Type: text/html"
+        - "Server: Apache/2.4.53 (Debian)"
+        - "X-Powered-By: PHP/7.4.29"
+      statusCode: 200
+    - regex: "^(/wp-login.php|/wp-admin)$"
+      handler: |
+        <html><body>
+          <form method="post">
+            <input type="text" name="uname" placeholder="Kullanıcı Adı" required>
+            <input type="password" name="psw" placeholder="Şifre" required>
+            <button type="submit">Giriş</button>
+          </form>
+        </body></html>
+      headers:
+        - "Content-Type: text/html"
+        - "Server: Apache/2.4.53 (Debian)"
+      statusCode: 200
+    - regex: "^.*$"
+      handler: "<html><body><h1>Bulunamadı!</h1></body></html>"
+      headers:
+        - "Content-Type: text/html"
+      statusCode: 404
+  ```
+
+  **LLM destekli HTTP hizmeti** — eşleşmeyen herhangi bir istek için dinamik yanıtlar oluşturmak üzere `fallbackCommand` ile `plugin: LLMHoneypot` ekleyin.
+
+  **Sonsuz labirent üreticisi** — otomatik tarayıcıları ve crawlerleri tuzağa düşüren sonsuz genişleyen bir Apache tarzı dizin listesi dağıtmak için `plugin: MazeHoneypot` kullanın.
+
+  ### SSH Aldatma Hizmeti
+
+  SSH aldatma hizmetleri hem statik komut yanıtlarını hem de oturum başına konuşma geçmişi içeren LLM destekli etkileşimli seansları destekler.
+
+  **LLM destekli SSH** (OpenAI):
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "ssh"
+  address: ":2222"
+  description: "SSH interactive GPT-4o"
+  commands:
+    - regex: "^(.+)$"
+      plugin: "LLMHoneypot"
+  serverVersion: "OpenSSH"
+  serverName: "ubuntu"
+  passwordRegex: "^(root|qwerty|Smoker666|123456|jenkins|minecraft|sinus|alex|postgres|Ly123456)$"
+  deadlineTimeoutSeconds: 60
+  plugin:
+    llmProvider: "openai"
+    llmModel: "gpt-4o"
+    openAISecretKey: "sk-proj-1234"
+  ```
+
+  **LLM destekli SSH** (yerel Ollama):
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "ssh"
+  address: ":2222"
+  description: "SSH Ollama Llama3"
+  commands:
+    - regex: "^(.+)$"
+      plugin: "LLMHoneypot"
+  serverVersion: "OpenSSH"
+  serverName: "ubuntu"
+  passwordRegex: "^(root|qwerty|123456)$"
+  deadlineTimeoutSeconds: 60
+  plugin:
+    llmProvider: "ollama"
+    llmModel: "codellama:7b"
+    host: "http://localhost:11434/api/chat"
+  ```
+
+  **Statik SSH**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "ssh"
+  address: ":22"
+  description: "SSH interactive"
+  commands:
+    - regex: "^ls$"
+      handler: "Documents Images Desktop Downloads .m2 .kube .ssh .docker"
+    - regex: "^pwd$"
+      handler: "/home/user"
+    - regex: "^uname -m$"
+      handler: "x86_64"
+    - regex: "^docker ps$"
+      handler: "CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES"
+    - regex: "^(.+)$"
+      handler: "command not found"
+  serverVersion: "OpenSSH"
+  serverName: "ubuntu"
+  passwordRegex: "^(root|qwerty|Smoker666)$"
+  deadlineTimeoutSeconds: 60
+  ```
+
+  ### TELNET Aldatma Hizmeti
+
+  TELNET aldatma hizmetleri, tam kimlik doğrulama akışı ve LLM entegrasyonu içeren terminal tabanlı cihazları (yönlendiriciler, anahtarlar, eski sistemler) taklit eder.
+
+  **LLM destekli TELNET**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "telnet"
+  address: ":23"
+  description: "TELNET LLM"
+  commands:
+    - regex: "^(.+)$"
+      plugin: "LLMHoneypot"
+  serverName: "router"
+  passwordRegex: "^(admin|root|password|123456)$"
+  deadlineTimeoutSeconds: 120
+  plugin:
+    llmProvider: "openai"
+    llmModel: "gpt-4o"
+    openAISecretKey: "sk-1234"
+  ```
+
+  **Statik Cisco IOS simülasyonu**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "telnet"
+  address: ":23"
+  description: "Cisco IOS Router"
+  commands:
+    - regex: "^show version$"
+      handler: "Cisco IOS Software, Version 15.1(4)M4"
+    - regex: "^show ip interface brief$"
+      handler: "Interface   IP-Address   Method   Status   Protocol\nFastEthernet0/0   192.168.1.1   YES NVRAM   up   up"
+    - regex: "^(.+)$"
+      handler: "% Unknown command"
+  serverName: "router"
+  passwordRegex: "^(admin|cisco|password)$"
+  deadlineTimeoutSeconds: 60
+  ```
+
+  ### TCP Aldatma Hizmeti
+
+  TCP aldatma hizmetleri ikili ve metin tabanlı protokolleri kapsar: veritabanları, mesaj broker'ları, dizin hizmetleri, uzaktan erişim ve daha fazlası. Banner'ı yalnızca mod, etkileşimli regex eşleştirme ve LLM entegrasyonunu destekler.
+
+  **Redis**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "tcp"
+  address: ":6379"
+  description: "Redis 7.0.12"
+  commands:
+    - regex: "^PING"
+      handler: "+PONG\r\n"
+    - regex: "^AUTH"
+      handler: "-ERR Client sent AUTH, but no password is set\r\n"
+    - regex: "^INFO"
+      handler: "$180\r\n# Server\r\nredis_version:7.0.12\r\nos:Linux 5.15.0-76-generic x86_64\r\ntcp_port:6379\r\n\r\n"
+    - regex: "^(.+)$"
+      handler: "-ERR unknown command\r\n"
+  deadlineTimeoutSeconds: 60
+  serverName: "redis-prod-01"
+  ```
+
+  **LDAP / Active Directory**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "tcp"
+  address: ":389"
+  description: "Active Directory LDAP Domain Controller"
+  banner: "0\x84\x00\x00\x00\x10\x02\x01\x01\x61\x84\x00\x00\x00\x07\x0a\x01\x00\x04\x00\x04\x00"
+  commands:
+    - regex: "\\x30.*\\x60"
+      handler: "0\x84\x00\x00\x00\x10\x02\x01\x01\x61\x84\x00\x00\x00\x07\x0a\x01\x00\x04\x00\x04\x00"
+    - regex: "\\x30.*\\x63"
+      handler: "0\x84\x00\x00\x00\x2a\x02\x01\x02\x65\x84\x00\x00\x00\x21\x04\x00\x30\x84\x00\x00\x00\x00"
+  deadlineTimeoutSeconds: 30
+  serverName: "DC01.corp.local"
+  ```
+
+  **LLM destekli PostgreSQL**:
+
+  ```yaml
+  apiVersion: "v1"
+  protocol: "tcp"
+  address: ":5432"
+  description: "PostgreSQL 15.3"
+  commands:
+    - regex: "^(.+)$"
+      plugin: "LLMHoneypot"
+  deadlineTimeoutSeconds: 120
+  serverName: "pg-master"
+  plugin:
+    llmProvider: "openai"
+    llmModel: "gpt-4o"
+    openAISecretKey: "sk-proj-..."
+    prompt: "PostgreSQL 15.3 sunucusunu simule ediyorsunuz. Gelen TCP verilerine bir PostgreSQL sunucusu gibi yanıt verin."
+  ```
+
+  Memcached, MS-SQL, SMB, RDP, VNC ve MQTT için ek örnek konfigürasyonlar `configurations/services/` içinde mevcuttur.
+
+  ## Destekleyen
+
+  [![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://jb.gg/OpenSourceSupport)
+
+  ![gitbook logo](https://i.postimg.cc/VNQh5hnk/gitbook.png)
 ---
 
 # Beelzebub

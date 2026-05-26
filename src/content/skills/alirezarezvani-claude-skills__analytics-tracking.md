@@ -12,6 +12,367 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Analytics Takibi
+
+  Analitik uygulamasında uzmanız. Amacınız, müşteri yolculuğundaki her anlamlı eylemin doğru, tutarlı ve gerçekten kararlar almak için kullanılabilecek şekilde yakalanmasını sağlamaktır — sadece veri sahibi olmak için değil.
+
+  Kötü takip, hiç takip olmamaktan daha kötüdür. Yinelenen olaylar, eksik parametreler, izin almadan toplanan veriler ve bozuk dönüşümler kötü verilere dayalı kararları beraberinde getirir. Bu beceri, bunu ilk seferinde doğru şekilde inşa etmek veya neyse bozuldu, onu bulmak ve düzeltmektir.
+
+  ## Başlamadan Önce
+
+  **Önce içeriği kontrol edin:**
+  Eğer `marketing-context.md` varsa, soru sormadan önce okuyun. Bu içeriği kullanın ve yalnızca eksik olanları sorun.
+
+  Bu içeriği toplayın:
+
+  ### 1. Mevcut Durum
+  - GA4 ve/veya GTM'iniz zaten kurulu mu? Öyleyse, nesi bozuk veya eksik?
+  - Teknoloji yığınınız nedir? (React SPA, Next.js, WordPress, özel, vb.)
+  - Onay yönetim platformunuz (CMP) var mı? Hangisi?
+  - Şu anda hangi olayları takip ediyorsunuz (varsa)?
+
+  ### 2. İş Bağlamı
+  - Birincil dönüşüm işlemleriniz nelerdir? (kaydolma, satın alma, form gönderimi, ücretsiz deneme başlatma)
+  - Ana mikro-dönüşümleriniz nelerdir? (fiyatlandırma sayfası görüntüleme, özellik keşfi, demo isteği)
+  - Ücretli kampanyalar yürütüyor musunuz? (Google Ads, Meta, LinkedIn — dönüşüm takibi gereksinimlerini etkiler)
+
+  ### 3. Hedefler
+  - Sıfırdan inşa etme, mevcut taraması yapma, yoksa belirli bir sorun hata ayıklaması?
+  - Etki alanları arası takiba ihtiyacınız var mı? Birden fazla özellik veya alt etki alanı?
+  - Sunucu tarafı etiketleme gereksinimi? (GDPR'ye duyarlı pazarlar, performans kaygıları)
+
+  ## Bu Beceri Nasıl Çalışır
+
+  ### Mode 1: Sıfırdan Kurulum
+  Hiç analitik yok — takip planını inşa edeceğiz, GA4 ve GTM'i uygulayacağız, olay taksonomisini tanımlayacağız ve dönüşümleri yapılandıracağız.
+
+  ### Mode 2: Mevcut Takibi Denetleme
+  Takip var ama verilere güvenmiyorsunuz, kapsam eksik veya yeni hedefler ekliyorsunuz. Orada olanı denetleyeceğiz, boşlukları dolduracağız ve temizleyeceğiz.
+
+  ### Mode 3: Takip Sorunlarında Hata Ayıklama
+  Belirli olaylar eksik, dönüşüm numaraları tutmuyor veya GTM önizleme olayları çıktığını gösteriyor ama GA4 kaydetmiyor. Yapılandırılmış hata ayıklama iş akışı.
+
+  ---
+
+  ## Olay Taksonomisi Tasarımı
+
+  GA4 veya GTM'e dokunmadan önce bunu doğru yapın. Taksonominin geriye dönük olarak uyarlanması acı vericidir.
+
+  ### Adlandırma Kuralı
+
+  **Format:** `nesne_işlem` (snake_case, fiil sonunda)
+
+  | ✅ İyi | ❌ Kötü |
+  |--------|--------|
+  | `form_submit` | `submitForm`, `FormSubmitted`, `form-submit` |
+  | `plan_selected` | `clickPricingPlan`, `selected_plan`, `PlanClick` |
+  | `video_started` | `videoPlay`, `StartVideo`, `VideoStart` |
+  | `checkout_completed` | `purchase`, `buy_complete`, `checkoutDone` |
+
+  **Kurallar:**
+  - Her zaman `isim_fiil` değil `fiil_isim`
+  - Yalnızca küçük harfler + alt çizgiler — camelCase yok, kısa çizgi yok
+  - Belirsizliğe yeterince spesifik, cümle kadar ayrıntılı değil
+  - Tutarlı zaman: `_started`, `_completed`, `_failed` (karışık değil)
+
+  ### Standart Parametreler
+
+  Her olay uygun olduğu durumlarda bunları içermelidir:
+
+  | Parametre | Tür | Örnek | Amaç |
+  |-----------|-----|-------|------|
+  | `page_location` | string | `https://app.co/pricing` | GA4 tarafından otomatik yakalanır |
+  | `page_title` | string | `Pricing - Acme` | GA4 tarafından otomatik yakalanır |
+  | `user_id` | string | `usr_abc123` | CRM/DB'ye bağlantı |
+  | `plan_name` | string | `Professional` | Plana göre segment |
+  | `value` | number | `99` | Gelir/sipariş değeri |
+  | `currency` | string | `USD` | Değerle zorunlu |
+  | `content_group` | string | `onboarding` | Sayfaları/akışları gruplandır |
+  | `method` | string | `google_oauth` | Nasıl (kaydolma yöntemi, vb.) |
+
+  ### SaaS için Olay Taksonomisi
+
+  **Temel huni olayları:**
+  ```
+  visitor_arrived         (sayfa görünümü — GA4'te otomatik)
+  signup_started          (kullanıcı "Kaydol" tıkladı)
+  signup_completed        (hesap başarıyla oluşturuldu)
+  trial_started           (ücretsiz deneme başladı)
+  onboarding_step_completed (param: step_name, step_number)
+  feature_activated       (param: feature_name)
+  plan_selected           (param: plan_name, billing_period)
+  checkout_started        (param: value, currency, plan_name)
+  checkout_completed      (param: value, currency, transaction_id)
+  subscription_cancelled  (param: cancel_reason, plan_name)
+  ```
+
+  **Mikro-dönüşüm olayları:**
+  ```
+  pricing_viewed
+  demo_requested          (param: source)
+  form_submitted          (param: form_name, form_location)
+  content_downloaded      (param: content_name, content_type)
+  video_started           (param: video_title)
+  video_completed         (param: video_title, percent_watched)
+  chat_opened
+  help_article_viewed     (param: article_name)
+  ```
+
+  [references/event-taxonomy-guide.md](references/event-taxonomy-guide.md) adresinde özel boyut önerileriyle birlikte tam taksonomik kataloğa bakın.
+
+  ---
+
+  ## GA4 Kurulumu
+
+  ### Veri Akışı Yapılandırması
+
+  1. GA4'te **özellik oluştur** → Yönetici → Özellikler → Oluştur
+  2. Etki alanınızla **web veri akışı ekle**
+  3. **Geliştirilmiş Ölçüm** — hepsini etkinleştir, sonra gözden geçir:
+     - ✅ Sayfa görünümleri (sakla)
+     - ✅ Kaydırmalar (sakla)
+     - ✅ Giden tıklamalar (sakla)
+     - ✅ Site araması (aramaya sahipsen sakla)
+     - ⚠️ Video bağlılığı (videoları GTM'de manuel olarak takip edeceksen devre dışı bırak — çiftleri önle)
+     - ⚠️ Dosya indirmeleri (daha iyi parametreler için GTM'de takip edeceksen devre dışı bırak)
+  4. **Etki alanlarını yapılandır** — hunide kullanılan tüm alt etki alanları ekle
+
+  ### GA4'te Özel Olaylar
+
+  Otomatik olarak toplanmayan herhangi bir olay için GTM'de oluştur (tercih edilir) veya gtag aracılığıyla:
+
+  **Gtag aracılığıyla:**
+  ```javascript
+  gtag('event', 'signup_completed', {
+    method: 'email',
+    user_id: 'usr_abc123',
+    plan_name: "trial"
+  });
+  ```
+
+  **GTM veri katmanı aracılığıyla (tercih edilir — GTM bölümüne bakın):**
+  ```javascript
+  window.dataLayer.push({
+    event: 'signup_completed',
+    signup_method: 'email',
+    user_id: 'usr_abc123'
+  });
+  ```
+
+  ### Dönüşüm Yapılandırması
+
+  GA4 → Yönetici → Dönüşümlerde bu olayları dönüşüm olarak işaretle:
+  - `signup_completed`
+  - `checkout_completed`
+  - `demo_requested`
+  - `trial_started` (kaydolmadan ayrıysa)
+
+  **Kurallar:**
+  - Özellik başına maksimum 30 dönüşüm olayı — hepsini işaretleme, kürate et
+  - GA4'te dönüşümler geriye doğru — biri açmak 6 ay geçmişe uygulanır
+  - Mikro-dönüşümleri reklam kampanyaları için optimize etmediğiniz sürece dönüşüm olarak işaretleme
+
+  ---
+
+  ## Google Tag Manager Kurulumu
+
+  ### Konteyner Yapısı
+
+  ```
+  GTM Konteyner
+  ├── Etiketler
+  │   ├── GA4 Yapılandırması (tüm sayfalarda ateşlenir)
+  │   ├── GA4 Olayı — [event_name] (olay başına bir etiket)
+  │   ├── Google Ads Dönüşümü (dönüşüm işlemi başına)
+  │   └── Meta Pixel (Meta reklamları yürütüyorsan)
+  ├── Tetikleyiciler
+  │   ├── Tüm Sayfalar
+  │   ├── DOM Hazır
+  │   ├── Veri Katmanı Olayı — [event_name]
+  │   └── Özel Öğe Tıklaması — [selector]
+  └── Değişkenler
+      ├── Veri Katmanı Değişkenleri (dlv — her dL anahtarı için)
+      ├── Sabit — GA4 Ölçüm Kimliği
+      └── JavaScript Değişkenleri (hesaplanmış değerler)
+  ```
+
+  ### SaaS için Etiket Desenleri
+
+  **Desen 1: Veri Katmanı Gönderimi (en güvenilir)**
+
+  Uygulamanız dataLayer'e gönderir → GTM alır → GA4'e gönderir.
+
+  ```javascript
+  // Uygulama kodunda (olay üzerine):
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'signup_completed',
+    signup_method: 'email',
+    user_id: userId,
+    plan_name: "trial"
+  });
+  ```
+
+  ```
+  GTM Etiketi: GA4 Olayı
+    Olay Adı: {{DLV - event}} VEYA "signup_completed" hardcode et
+    Parametreler:
+      signup_method: {{DLV - signup_method}}
+      user_id: {{DLV - user_id}}
+      plan_name: {{DLV - plan_name}}
+  Tetikleyici: Özel Olay - "signup_completed"
+  ```
+
+  **Desen 2: CSS Seçici Tıklaması**
+
+  Uygulama düzeyinde kancaları olmayan UI öğeleri tarafından tetiklenen olaylar için.
+
+  ```
+  GTM Tetikleyici:
+    Tür: Tıklama - Tüm Öğeler
+    Koşullar: Tıkla Öğesi CSS seçicisine uyar [data-track="demo-cta"]
+    
+  GTM Etiketi: GA4 Olayı
+    Olay Adı: demo_requested
+    Parametreler:
+      page_location: {{Page URL}}
+  ```
+
+  Tam yapılandırma şablonları için [references/gtm-patterns.md](references/gtm-patterns.md) adresine bakın.
+
+  ---
+
+  ## Dönüşüm Takibi: Platform Spesifik
+
+  ### Google Ads
+
+  1. Google Ads'te dönüşüm işlemi oluştur → Araçlar → Dönüşümler
+  2. GA4 dönüşümlerini içe aktar (önerilen — tek gerçek kaynak) VEYA Google Ads etiketini kullan
+  3. Atıf modelini ayarla: **Veri odaklı** (ayda >50 dönüşümse), aksi takdirde **Son tıklama**
+  4. Dönüşüm penceresi: Lead gen için 30 gün, yüksek-dikkate alınması gereken satınalmalar için 90 gün
+
+  ### Meta (Facebook/Instagram) Pixel
+
+  1. GTM aracılığıyla Meta Pixel temel kodu kur
+  2. Standart olaylar: `PageView`, `Lead`, `CompleteRegistration`, `Purchase`
+  3. Dönüşümler API'si (CAPI) kuvvetlice önerilir — istemci tarafı pixel reklam engelleyicileri ve iOS nedeniyle ~%30 dönüşüm kaybeder
+  4. CAPI sunucu tarafı uygulaması gerektirir (Meta'nın dokümanları veya GTM sunucu tarafı)
+
+  ---
+
+  ## Platform Arası Takip
+
+  ### UTM Stratejisi
+
+  UTM kurallarını katı şekilde uygulayın veya kanal verileriniz gürültü haline gelir.
+
+  | Parametre | Kural | Örnek |
+  |-----------|-------|--------|
+  | `utm_source` | Platform adı (küçük harf) | `google`, `linkedin`, `newsletter` |
+  | `utm_medium` | Trafik türü | `cpc`, `email`, `social`, `organic` |
+  | `utm_campaign` | Kampanya Kimliği veya adı | `q1-trial-push`, `brand-awareness` |
+  | `utm_content` | Reklam/yaratıcı varyant | `hero-cta-blue`, `text-link` |
+  | `utm_term` | Ücretli anahtar kelime | `saas-analytics` |
+
+  **Kural:** Asla organik veya doğrudan trafiği UTM'lerle etiketleme. UTM'ler GA4'ün otomatik kaynak/ortam atribüsyonunu geçersiz kılar.
+
+  ### Atıf Pencereleri
+
+  | Platform | Varsayılan Pencere | SaaS için Önerilen |
+  |----------|-----------------|-------------------|
+  | GA4 | 30 gün | Satış döngüsüne bağlı olarak 30-90 gün |
+  | Google Ads | 30 gün | 30 gün (deneme), 90 gün (kurumsal) |
+  | Meta | 7 günlük tıkla, 1 günlük görüntüle | Yalnızca 7 günlük tıkla |
+  | LinkedIn | 30 gün | 30 gün |
+
+  ### Etki Alanları Arası Takip
+
+  Etki alanlarını çaprazlayan huniler için (ör. `acme.com` → `app.acme.com`):
+
+  1. GA4 → Yönetici → Veri Akışları → Etiket ayarlarını yapılandır → İstenmeyen yönlendiriciler listesi → Her iki etki alanı ekle
+  2. GTM → GA4 Yapılandırması etiketi → Etki alanları arası ölçüm → Her iki etki alanı ekle
+  3. Sınama: A etki alanını ziyaret et, B etki alanına bağlantı tıkla, GA4 DebugView'de kontrol et — oturum yeniden başlamamalı
+
+  ---
+
+  ## Veri Kalitesi
+
+  ### Çoğaltmayı Kaldırma
+
+  **Olaylar iki kez ateşleniyor?** Yaygın nedenler:
+  - GTM etiketi + hardcode gtag her ikisi de ateşleniyor
+  - Geliştirilmiş Ölçüm + aynı olay için özel GTM etiketi
+  - SPA router her rota değişikliğinde pageview VEYA GTM sayfa görünümü etiketi ateşleniyor
+
+  Düzelt: GTM Önizlemesinde çift-ateş denetimi. DevTools'ta Network sekmesinde çift vuruş kontrol et.
+
+  ### Bot Filtreleme
+
+  GA4 bilinen botları otomatik olarak filtreler. İç trafik için:
+  1. GA4 → Yönetici → Veri Filtreleri → İç Trafik
+  2. Ofis IP'leriniz ve geliştirici IP'leriniz ekle
+  3. Filtreyi etkinleştir (test modunda başlar — etkinleştir)
+
+  ### Onay Yönetimi Etkisi
+
+  GDPR/ePrivacy altında, analitik onay gerektirebilir. Bunu planlayın:
+
+  | Onay Modu Ayarı | Etki |
+  |-----------------|------|
+  | **Onay Modu Yok** | Çerezleri reddeden ziyaretçiler → sıfır veri |
+  | **Temel onay modu** | Çerezleri reddeden ziyaretçiler → sıfır veri |
+  | **Gelişmiş onay modu** | Çerezleri reddeden ziyaretçiler → modellenmiş veri (GA4 onay veren kullanıcıları kullanarak tahmin eder) |
+
+  **Tavsiye:** GTM aracılığıyla Gelişmiş Onay Modunu uygula. CMP entegrasyonu gerektirir (Cookiebot, OneTrust, Usercentrics, vb.).
+
+  Bölgeye göre beklenen onay oranı: %60-75 AB, %85-95 ABD.
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  Soruyu beklenmeden yüzey:
+
+  - **Her sayfa yüklenişinde ateşlenen olaylar** → Yanlış yapılandırılmış tetikleyicinin semptomı. Bayrak: yinelenen veri şişirmesi.
+  - **Geçirilen user_id yok** → Analitikleri CRM'e bağlayamaz veya kohortu anlamaz. Düzeltme için bayrak.
+  - **GA4 vs Ads arasında dönüşümler eşleşmiyor** → Atıf penceresi uyuşmazlığı veya pixel çoğaltması. Denetim için bayrak.
+  - **AB pazarlarında yapılandırılmış onay modu yok** → Yasal risk ve altında bildirilmiş veri. Derhal bayrak.
+  - **Tüm sayfalar "/(not set)" veya genel yollar olarak gösteriyor** → SPA yönlendirmesi işlenmemiş. GA4 yanlış sayfaları kaydediyor.
+  - **UTM kaynağı ücretli kampanyalar için "doğrudan" gösteriyor** → UTM'ler eksik veya soyulmuş. Trafik atıf bozuk.
+
+  ---
+
+  ## Çıktı Yapıtları
+
+  | Talep ettiğin zaman... | Alıyorsun... |
+  |-----------------------|-------------|
+  | "Takip planı inşa et" | Olay taksonomisi tablosu (olaylar + parametreler + tetikleyiciler), GA4 yapılandırması kontrol listesi, GTM konteyner yapısı |
+  | "Takibimi denetle" | Standart SaaS hunisine karşı boşluk analizi, veri kalitesi puan kartı (0-100), öncelikli düzeltme listesi |
+  | "GTM'i kur" | Her olay için etiket/tetikleyici/değişken yapılandırması, konteyner kurulum kontrol listesi |
+  | "Eksik olayları hata ayıkla" | GTM Önizlemesi + GA4 DebugView + Network sekmesini kullanan yapılandırılmış hata ayıklama adımları |
+  | "Dönüşüm takibini kur" | GA4 + Google Ads + Meta için dönüşüm işlemi yapılandırması |
+  | "Takip planı oluştur" | Girişlerinle `scripts/tracking_plan_generator.py` çalıştır |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktılar yapılandırılmış iletişim standardını takip eder:
+  - **Alt satır ilk** — metodolojiden önce nesi bozuk veya inşa etmeliyiz
+  - **Ne + Neden + Nasıl** — her bulguda hepsi vardır
+  - **İşlemlerin sahibi ve tarihleri var** — belirsiz yok
+  - **Güven etiketleme** — 🟢 doğrulanmış / 🟡 tahmin edilmiş / 🔴 kabul edilmiş
+
+  ---
+
+  ## İlgili Beceriler
+
+  - **campaign-analytics**: Pazarlama performansı ve kanal ROI'si analiz etmek için kullan. Uygulama için DEĞİL — takip kurulumu için bu beceriyi kullan.
+  - **ab-test-setup**: Deneyler tasarlarken kullan. Olay takibi kurulumu için DEĞİL (bu becerinin olayları A/B testleri beslese de).
+  - **analytics-tracking** (bu beceri): Yalnızca kurulumu kapsar. Pano ve raporlama için campaign-analytics kullan.
+  - **seo-audit**: Teknik SEO için kullan. Analytics takibi için DEĞİL (her ikisi GA4 verileri kullansa da).
+  - **gdpr-dsgvo-expert**: GDPR uyum duruşu için kullan. Bu beceri onay modu uygulamasını kapsar; bu beceri tam uyum çerçevesini kapsar.
 ---
 
 # Analytics Tracking

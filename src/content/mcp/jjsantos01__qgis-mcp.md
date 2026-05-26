@@ -7,6 +7,145 @@ stars: 956
 url: "https://github.com/jjsantos01/qgis_mcp"
 body_length: 5874
 language: "Python"
+body_tr: |-
+  # QGISMCP - QGIS Model Context Protocol Entegrasyonu
+
+  QGISMCP, [QGIS](https://qgis.org/) ile [Claude AI](https://claude.ai/chat) arasında [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) üzerinden bağlantı kurar ve Claude'un doğrudan QGIS ile etkileşim kurmasını ve kontrolünü sağlar. Bu entegrasyon, prompt destekli proje oluşturma, katman yükleme, kod yürütme ve daha fazlasını mümkün kılar.
+
+  Bu proje, [Siddharth Ahuja](https://x.com/sidahuj) tarafından hazırlanan [BlenderMCP](https://github.com/ahujasid/blender-mcp/tree/main) projesine güçlü bir şekilde dayanmaktadır.
+
+  ## Özellikler
+
+  - **İki yönlü iletişim**: Claude AI'yi socket tabanlı bir sunucu aracılığıyla QGIS'e bağlayın.
+  - **Proje manipülasyonu**: QGIS'te projeleri oluşturun, yükleyin ve kaydedin.
+  - **Katman manipülasyonu**: Bir projeye vektör veya raster katmanları ekleyin ve kaldırın.
+  - **Processing yürütme**: Processing algoritmalarını yürütün ([Processing Toolbox](https://docs.qgis.org/3.40/en/docs/user_manual/processing/toolbox.html)).
+  - **Kod yürütme**: Claude'tan QGIS'de rastgele Python kodu çalıştırın. Çok güçlü, ancak bu aracı kullanırken çok dikkatli olun.
+
+  ## Bileşenler
+
+  Sistem iki ana bileşenden oluşur:
+
+  1. **[QGIS eklentisi](/qgis_mcp_plugin/)**: Komutları almak ve yürütmek için QGIS içinde bir socket sunucusu oluşturan QGIS eklentisi.
+  2. **[MCP Sunucusu](/src/qgis_mcp/qgis_mcp_server.py)**: Model Context Protocol'ü uygulayan ve QGIS eklentisine bağlanan Python sunucusu.
+
+  ## Kurulum
+
+  ### Ön Koşullar
+
+  - QGIS 3.X (yalnızca 3.22 üzerinde test edilmiştir)
+  - Claude desktop
+  - Python 3.10 veya daha yeni
+  - uv paket yöneticisi:
+
+  Mac üzerindeyseniz, uv'yi şu şekilde yükleyin:
+
+  ```bash
+  brew install uv
+  ```
+
+  Windows Powershell'de:
+
+  ```bash
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+
+  Diğer kurulum talimatları websitelerinde bulunmaktadır: [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+  **⚠️ UV yüklemeden önce devam etmeyin**
+
+  ### Kodu İndir
+
+  Bu repo'yu bilgisayarınıza indirin. Şu komutla klonlayabilirsiniz:
+
+  ```bash
+  git clone git@github.com:jjsantos01/qgis_mcp.git
+  ```
+
+  ### QGIS eklentisi
+
+  [qgis_mcp_plugin](/qgis_mcp_plugin/) klasörünü ve içeriğini QGIS profil eklentileri klasörüne kopyalamanız gerekir.
+
+  Profil klasörünüzü QGIS'te `Settings` -> `User profiles` -> `Open active profile folder` menüsüne giderek bulabilirsiniz. Ardından `Python/plugins` klasörüne gidin ve `qgis_mcp_plugin` klasörünü yapıştırın.
+
+  > Windows makinesinde eklentiler klasörü genellikle şu yolda bulunur: `C:\Users\USER\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins` 
+
+  ve MacOS'ta: `~/Library/Application\ Support/QGIS/QGIS3/profiles/default/python/plugins`
+
+  Ardından QGIS'i kapatın ve tekrar açın. `Plugins` > `Installing and Managing Plugins` menü seçeneğine gidin, `All` sekmesini seçin ve "QGIS MCP" araması yapın, ardından QGIS MCP checkbox'ını işaretleyin.
+
+  ### Claude for Desktop Entegrasyonu
+
+  `Claude` > `Settings` > `Developer` > `Edit Config` > `claude_desktop_config.json` sayfasına gidin ve aşağıdakileri ekleyin:
+
+  > "Developers tab"ını veya `claude_desktop_config.json`ı bulamıyorsanız bu [belgeye](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) bakın.
+
+  ```json
+  {
+      "mcpServers": {
+          "qgis": {
+              "command": "uv",
+              "args": [
+                  "--directory",
+                  "/ABSOLUTE/PATH/TO/PARENT/REPO/FOLDER/qgis_mcp/src/qgis_mcp",
+                  "run",
+                  "qgis_mcp_server.py"
+              ]
+          }
+
+      }
+  }
+  ```
+
+  ## Kullanım
+
+  ### Bağlantıyı Başlatma
+
+  1. QGIS'te `plugins` > `QGIS MCP` > `QGIS MCP` sayfasına gidin
+      ![plugins menu](https://raw.githubusercontent.com/jjsantos01/qgis_mcp/HEAD/assets/imgs/qgis-plugins-menu.png)
+  2. "Start Server" düğmesine tıklayın
+      ![start server](https://raw.githubusercontent.com/jjsantos01/qgis_mcp/HEAD/assets/imgs/qgis-mcp-start-server.png)
+
+  ### Claude ile Kullanım
+
+  Yapılandırma dosyası Claude'a ayarlandığında ve sunucu QGIS'te çalışırken, QGIS MCP için araçlarla birlikte bir çekiç simgesi göreceksiniz.
+
+  ![Claude tools](https://raw.githubusercontent.com/jjsantos01/qgis_mcp/HEAD/assets/imgs/claude-available-tools.png)
+
+  #### Araçlar
+
+  - `ping` - Sunucu bağlantısını kontrol etmek için basit ping komutu
+  - `get_qgis_info` - Mevcut kurulum hakkında QGIS bilgileri alın
+  - `load_project` - Belirtilen yoldan bir QGIS projesi yükleyin
+  - `create_new_project` - Yeni bir proje oluşturun ve kaydedin
+  - `get_project_info` - Geçerli proje bilgilerini alın
+  - `add_vector_layer` - Projeye vektör katmanı ekleyin
+  - `add_raster_layer` - Projeye raster katmanı ekleyin
+  - `get_layers` - Geçerli projedeki tüm katmanları alın
+  - `remove_layer` - Bir katmanı proje içinden kaldırın
+  - `zoom_to_layer` - Belirtilen katmanın kapsamına yakınlaştırın
+  - `get_layer_features` - Vektör katmanından isteğe bağlı limit ile özellikleri alın
+  - `execute_processing` - Verilen parametrelerle bir processing algoritması yürütün
+  - `save_project` - Geçerli projeyi verilen yola kaydedin
+  - `render_map` - Geçerli harita görünümünü bir görüntü dosyasına işleyin
+  - `execute_code` - String olarak sağlanan rastgele PyQGIS kodu yürütün
+
+  ### Örnek Komutlar
+
+  Bu, [demo](https://x.com/jjsantoso/status/1900293848271667395) için kullandığım örnektir:
+
+  ```plain
+  You have access to the tools to work with QGIS. You will do the following:
+  	1. Ping to check the connection. If it works, continue with the following steps.
+  	2. Create a new project and save it at: "C:/Users/USER/GitHub/qgis_mcp/data/cdmx.qgz"
+  	3. Load the vector layer: ""C:/Users/USER/GitHub/qgis_mcp/data/cdmx/mgpc_2019.shp" and name it "Colonias".
+  	4. Load the raster layer: "C:/Users/USER/GitHub/qgis_mcp/data/09014.tif" and name it "BJ"
+  	5. Zoom to the "BJ" layer.
+  	6. Execute the centroid algorithm on the "Colonias" layer. Skip the geometry check. Save the output to "colonias_centroids.geojson".
+  	7. Execute code to create a choropleth map using the "POB2010" field in the "Colonias" layer. Use the quantile classification method with 5 classes and the Spectral color ramp.
+  	8. Render the map to "C:/Users/USER/GitHub/qgis_mcp/data/cdmx.png"
+  	9. Save the project.
+  ```
 ---
 
 # QGISMCP - QGIS Model Context Protocol Integration

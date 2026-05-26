@@ -9,6 +9,505 @@ body_length: 50214
 license: "MIT"
 language: "TypeScript"
 homepage: "https://desktopcommander.app/"
+body_tr: |-
+  # Desktop Commander MCP
+  ### Dosyaları arayın, güncelleyin, yönetin ve AI ile terminal komutlarını çalıştırın
+
+  [![npm downloads](https://img.shields.io/npm/dw/@wonderwhy-er/desktop-commander)](https://www.npmjs.com/package/@wonderwhy-er/desktop-commander)
+  [![AgentAudit Verified](https://agentaudit.dev/api/badge/desktop-commander)](https://agentaudit.dev/skills/desktop-commander)
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/wonderwhy-er/DesktopCommanderMCP)](https://archestra.ai/mcp-catalog/wonderwhy-er__desktopcommandermcp)
+  [![smithery badge](https://smithery.ai/badge/@wonderwhy-er/desktop-commander)](https://smithery.ai/server/@wonderwhy-er/desktop-commander)
+  [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow.svg)](https://www.buymeacoffee.com/wonderwhyer)
+
+
+  [![Discord](https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/kQ27sNnZr7)
+
+
+  Kod ve metinlerle çalışın, işlemleri çalıştırın ve görevleri otomatikleştirin; diğer AI editörlerinin çok ötesine geçin — aynı zamanda API token maliyetleri yerine host client aboneliklerini kullanın.
+
+  <a href="https://glama.ai/mcp/servers/zempur9oh4">
+    
+  </a>
+
+  ## 👋 Biz işe alıyoruz — bizimle inşa etmeye gelin: https://desktopcommander.app/careers/
+
+  ## 🖥️ Desktop Commander Uygulamasını Deneyin (Beta)
+
+  **Daha iyi bir deneyim mi istiyorsunuz?** Desktop Commander Uygulaması, MCP sunucusunun yaptığı her şeyi ve daha fazlasını sağlar:
+
+  - **Herhangi bir AI modelini kullanın** — Claude, GPT-4.5, Gemini 2.5 veya tercih ettiğiniz herhangi bir modeli kullanın
+  - **Dosya değişikliklerini canlı görün** — AI dosyalarınızı düzenlerken görsel dosya önizlemeleri
+  - **Özel MCP'ler ve bağlam ekleyin** — yapılandırma dosyaları olmadan kendi araçlarınızla genişletin
+  - **Yakında gelecek** — beceriler sistemi, dikte, arka plan zamanlanmış görevleri ve daha fazlası
+
+  **👉 [Uygulamayı İndirin](https://desktopcommander.app/#download)** (macOS & Windows)
+
+  > Aşağıdaki MCP sunucusu Claude Desktop ve diğer MCP istemcileriyle hala harika çalışır — uygulama, adanmış, parlak bir deneyim isteyen kişiler içindir.
+
+  ## İçindekiler
+  - [Özellikler](#özellikler)
+  - [Nasıl yüklenir](#nasıl-yüklenir)
+  - [Başlarken](#başlarken)
+  - [Kullanım](#kullanım)
+  - [Dosya Önizleme UI & Markdown Editörü](#dosya-önizleme-ui--markdown-editörü)
+  - [Uzun Çalışan Komutları İşleme](#uzun-çalışan-komutları-işleme)
+  - [Devam Eden İş ve Yapılacaklar](#roadmap)
+  - [Sponsorlar ve Destekçiler](#desktop-commanderi-destekle)
+  - [Website](#website)
+  - [Medya](#medya)
+  - [Testimonyal](#testimonyal)
+  - [Sıkça Sorulan Sorular](#sıkça-sorulan-sorular)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+  - [Lisans](#lisans)
+
+  Tüm AI geliştirme araçlarınız bir yerde.
+  Desktop Commander tüm dev araçlarını bir sohbete koyar.
+  Model Context Protocol (MCP) üzerinden bilgisayarınızda uzun çalışan terminal komutlarını çalıştırın ve işlemleri yönetin. Ek arama ve değiştirme dosya düzenleme yetenekleri sağlamak için [MCP Dosya Sistemi Sunucusunun](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) üzerine inşa edilmiştir.
+
+  ## Özellikler
+
+  - **Uzak AI Kontrolü** - ChatGPT, Claude web ve diğer AI hizmetlerinden [Remote MCP](https://mcp.desktopcommander.app) üzerinden Desktop Commander kullanın
+  - **Dosya Önizleme UI** - Claude Desktop'ta renderleme yapılmış markdown, satır içi görseller, genişletilebilir içerik, yerleşik markdown editörü ve hızlı "Klasörde Aç" erişimi ile görsel dosya önizlemeleri
+  - **Etkileşimli işlem kontrolü ile geliştirilmiş terminal komutları**
+  - **Bellek içinde kod çalıştırın (Python, Node.js, R) dosya kaydetmeden**
+  - **Anında veri analizi - sadece CSV/JSON/Excel dosyalarını analiz etmek için isteyin**
+  - **Yerel Excel dosyası desteği** - Excel dosyalarını (.xlsx, .xls, .xlsm) harici araçlar olmadan okuyun, yazın, düzenleyin ve arayın
+  - **PDF desteği** - PDF'leri metin çıkarımı ile okuyun, markdown'dan yeni PDF'ler oluşturun, mevcut PDF'leri değiştirin
+  - **DOCX desteği** - Word belgelerini (.docx) cerrahi XML düzenleme ve markdown-to-DOCX dönüşümü ile okuyun, oluşturun, düzenleyin ve arayın
+  - **Çalışan işlemlerle etkileşim kurun (SSH, veritabanları, geliştirme sunucuları)**
+  - Terminal komutlarını çıktı akışı ile çalıştırın
+  - Komut zaman aşımı ve arka planda çalıştırma desteği
+  - İşlem yönetimi (işlemleri listeleme ve kapatma)
+  - Uzun çalışan komutlar için oturum yönetimi
+  - **İşlem çıktısı sayfalandırması** - Bağlam taşmasını önlemek için offset/length kontrolleriyle terminal çıktısını okuyun
+  - Sunucu konfigürasyonu yönetimi:
+    - Konfigürasyon değerlerini alın/ayarlayın
+    - Birden fazla ayarı aynı anda güncelleyin
+    - Sunucu yeniden başlatılmadan dinamik konfigürasyon değişiklikleri
+  - Tam dosya sistemi işlemleri:
+    - Dosyaları okuyun/yazın (metin, Excel, PDF, DOCX)
+    - Dizin oluşturun/listeleyin
+    - **Özyinelemeli dizin listeleme** yapılandırılabilir derinlik ve büyük klasörler için bağlam taşması koruması ile
+    - Dosyaları/dizinleri taşıyın
+    - Dosyaları ve içeriği arayın (Excel içeriği dahil)
+    - Dosya meta verilerini alın
+    - **Negatif offset dosya okuma**: Negatif offset değerlerini kullanarak dosyaların sonundan okuyun (Unix tail gibi)
+  - Kod düzenleme yetenekleri:
+    - Küçük değişiklikler için cerrahi metin değiştirmeler
+    - Büyük değişiklikler için tam dosya yeniden yazmaları
+    - Birden fazla dosya desteği
+    - Desen tabanlı değiştirmeler
+    - vscode-ripgrep tabanlı klasörlerde özyinelemeli kod veya metin araması
+  - Kapsamlı denetim günlüğü:
+    - Tüm araç çağrıları otomatik olarak kaydedilir
+    - 10MB boyut limiti ile günlük döndürme
+    - Ayrıntılı zaman damgaları ve bağımsız değişkenler
+  - Güvenlik sertleştirmesi:
+    - Dosya işlemlerinde sembolik bağlantı geçişi önleme
+    - Bypass koruması ile komut engelle listesi
+    - [Docker izolasyonu](#option-6-docker-kurulumu--otomatik-güncellemeler-nodejs-gerekli-değil) tam sandboxing için
+    - Ayrıntılar için [SECURITY.md](SECURITY.md) bölümüne bakın
+
+  ## Nasıl yüklenir
+
+  ### Claude Desktop'ta Yükleyin
+
+  Desktop Commander, Claude Desktop için birden fazla kurulum yöntemi sunar.
+
+  > **📋 Güncelleme & Kaldırma Bilgileri:** Seçenekler 1, 2, 3, 4 ve 6 otomatik güncellemelere sahiptir. Seçenek 5 manuel güncellemeler gerektirir. Ayrıntılar için aşağıya bakın.
+
+  <details>
+  <summary><b>Seçenek 1: npx üzerinden yükleyin ⭐ Otomatik Güncellemeler (Node.js Gerekli)</b></summary>
+
+  Terminalde şu komutu çalıştırın:
+  ```
+  npx @wonderwhy-er/desktop-commander@latest setup
+  ```
+
+  Hata ayıklama modu için (Node.js inspector bağlantısına izin verir):
+  ```
+  npx @wonderwhy-er/desktop-commander@latest setup --debug
+  ```
+
+  **Kurulum sırasında komut satırı seçenekleri:**
+  - `--debug`: Node.js inspector için hata ayıklama modunu etkinleştirin
+  - `--no-onboarding`: Yeni kullanıcılar için oryantasyon istemlerini devre dışı bırakın
+
+  Claude çalışıyorsa yeniden başlatın.
+
+  **✅ Otomatik Güncellemeler:** Evet - Claude yeniden başlattığınızda otomatik olarak güncellenir  
+  **🔄 Manuel Güncelleme:** Setup komutunu yeniden çalıştırın  
+  **🗑️ Kaldırma:** `npx @wonderwhy-er/desktop-commander@latest remove` komutunu çalıştırın
+
+  </details>
+
+  <details>
+  <summary><b>Seçenek 2: Bash script yükleyicisini kullanın (macOS) ⭐ Otomatik Güncellemeler (Gerekirse Node.js Yükler)</b></summary>
+
+  ```
+  curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install.sh | bash
+  ```
+  Bu script tüm bağımlılıkları ve konfigürasyonu otomatik olarak işler.
+
+  **✅ Otomatik Güncellemeler:** Evet  
+  **🔄 Manuel Güncelleme:** Yukarıdaki bash yükleyici komutunu yeniden çalıştırın  
+  **🗑️ Kaldırma:** `npx @wonderwhy-er/desktop-commander@latest remove` komutunu çalıştırın
+
+  </details>
+
+  <details>
+  <summary><b>Seçenek 3: Smithery üzerinden yükleyin ⭐ Otomatik Güncellemeler (Node.js Gerekli)</b></summary>
+
+  1. **Ziyaret edin:** https://smithery.ai/server/@wonderwhy-er/desktop-commander
+  2. **Smithery'ye giriş yapın** (henüz yapmadıysanız)
+  3. **İstemcinizi seçin** (Claude Desktop) sağ tarafta
+  4. **Sağlanan anahtarla yükleyin** (istemcinizi seçtikten sonra görünen)
+  5. **Claude Desktop'u yeniden başlatın**
+
+  **✅ Otomatik Güncellemeler:** Evet - Claude yeniden başlattığınızda otomatik olarak güncellenir  
+  **🔄 Manuel Güncelleme:** Smithery sayfasını ziyaret edin ve yeniden yükleyin  
+
+  </details>
+
+  <details>
+  <summary><b>Seçenek 4: claude_desktop_config'e manuel olarak ekleyin ⭐ Otomatik Güncellemeler (Node.js Gerekli)</b></summary>
+
+  Bu girişi claude_desktop_config.json dosyanıza ekleyin:
+
+  - Mac'te: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Windows'ta: `%APPDATA%\Claude\claude_desktop_config.json`
+  - Linux'ta: `~/.config/Claude/claude_desktop_config.json`
+
+  ```json
+  {
+    "mcpServers": {
+      "desktop-commander": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@wonderwhy-er/desktop-commander@latest"
+        ]
+      }
+    }
+  }
+  ```
+  Claude çalışıyorsa yeniden başlatın.
+
+  **✅ Otomatik Güncellemeler:** Evet - Claude yeniden başlattığınızda otomatik olarak güncellenir  
+  **🔄 Manuel Güncelleme:** Setup komutunu yeniden çalıştırın  
+  **🗑️ Kaldırma:** `npx @wonderwhy-er/desktop-commander@latest remove` komutunu çalıştırın veya girişi claude_desktop_config.json'dan kaldırın
+
+  </details>
+
+  <details>
+  <summary><b>Seçenek 5: Yerel olarak kontrol edin ❌ Manuel Güncellemeler (Node.js Gerekli)</b></summary>
+
+  ```bash
+  git clone https://github.com/wonderwhy-er/DesktopCommanderMCP.git
+  cd DesktopCommanderMCP
+  npm run setup
+  ```
+  Claude çalışıyorsa yeniden başlatın.
+
+  Setup komutu bağımlılıkları yükleyecek, sunucuyu oluşturacak ve Claude'un masaüstü uygulamasını konfigüre edecektir.
+
+  **❌ Otomatik Güncellemeler:** Hayır - manuel git güncellemeleri gerekir  
+  **🔄 Manuel Güncelleme:** `cd DesktopCommanderMCP && git pull && npm run setup`  
+  **🗑️ Kaldırma:** `npx @wonderwhy-er/desktop-commander@latest remove` komutunu çalıştırın veya klonlanan dizini ve Claude config'den MCP sunucusu girişini kaldırın
+
+  </details>
+
+  <details>
+  <summary><b>Seçenek 6: Docker Kurulumu 🐳 ⭐ Otomatik Güncellemeler (Node.js Gerekli Değil)</b></summary>
+
+  İzolasyon isteyenler veya Node.js'si olmayan kullanıcılar için mükemmel. Kalıcı bir çalışma ortamı ile izole edilmiş bir Docker konteynerinde çalışır.
+
+  **Ön Koşullar:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) kurulu **ve çalışıyor**, Claude Desktop uygulaması kurulu.
+
+  **macOS/Linux:**
+  ```bash
+  bash <(curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.sh)
+  ```
+
+  **Windows PowerShell:**
+  ```powershell
+  iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.ps1'))
+  ```
+
+  Yükleyici Docker'ı kontrol edecek, görüntüyü çekecek, klasör bağlama isteminde bulunacak ve Claude Desktop'u konfigüre edecektir.
+
+  **Docker kalıcılığı:** Araçlarınız, yapılandırmalarınız, çalışma dosyalarınız ve paket önbellekleri yeniden başlatmalardan sonra da kalır.
+
+  <details>
+  <summary>Manuel Docker Konfigürasyonu</summary>
+
+  **Temel kurulum (dosya erişimi yok):**
+  ```json
+  {
+    "mcpServers": {
+      "desktop-commander-in-docker": {
+        "command": "docker",
+        "args": ["run", "-i", "--rm", "mcp/desktop-commander:latest"]
+      }
+    }
+  }
+  ```
+
+  **Klasör bağlama ile:**
+  ```json
+  {
+    "mcpServers": {
+      "desktop-commander-in-docker": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-v", "/Users/username/Desktop:/mnt/desktop",
+          "-v", "/Users/username/Documents:/mnt/documents",
+          "mcp/desktop-commander:latest"
+        ]
+      }
+    }
+  }
+  ```
+
+  **Gelişmiş klasör bağlama:**
+  ```json
+  {
+    "mcpServers": {
+      "desktop-commander-in-docker": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-v", "dc-system:/usr",
+          "-v", "dc-home:/root", 
+          "-v", "dc-workspace:/workspace",
+          "-v", "dc-packages:/var",
+          "-v", "/Users/username/Projects:/mnt/Projects",
+          "-v", "/Users/username/Downloads:/mnt/Downloads",
+          "mcp/desktop-commander:latest"
+        ]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary>Docker Yönetim Komutları</summary>
+
+  **macOS/Linux:**
+  ```bash
+  # Durumu kontrol edin
+  bash <(curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.sh) --status
+
+  # Tüm kalıcı verileri sıfırla
+  bash <(curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.sh) --reset
+  ```
+
+  **Windows PowerShell:**
+  ```powershell
+  # Durumu kontrol edin
+  $script = (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.ps1'); & ([ScriptBlock]::Create("$script")) -Status
+
+  # Tüm verileri sıfırla
+  $script = (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.ps1'); & ([ScriptBlock]::Create("$script")) -Reset
+
+  # Yardım göster
+  $script = (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.ps1'); & ([ScriptBlock]::Create("$script")) -Help
+  ```
+
+  **Sorun Giderme:** Sıfırla ve baştan yükle:
+  ```bash
+  bash <(curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.sh) --reset && bash <(curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install-docker.sh)
+  ```
+
+  </details>
+
+  **✅ Otomatik Güncellemeler:** Evet - `latest` etiketi otomatik olarak yeni sürümler alır  
+  **🔄 Manuel Güncelleme:** `docker pull mcp/desktop-commander:latest` komutunu çalıştırın ardından Claude'u yeniden başlatın  
+
+  </details>
+
+  ### Diğer İstemcilere Yükleyin
+
+  Desktop Commander, herhangi bir MCP uyumlu istemci ile çalışır. Standart JSON konfigürasyonu:
+
+  ```json
+  {
+    "mcpServers": {
+      "desktop-commander": {
+        "command": "npx",
+        "args": ["-y", "@wonderwhy-er/desktop-commander@latest"]
+      }
+    }
+  }
+  ```
+
+  Bunu istemcinizin MCP konfigürasyon dosyasına aşağıdaki konumlarda ekleyin:
+
+  <details>
+  <summary><b>Cursor</b></summary><br>
+
+  [![MCP Sunucusunu Yükle](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=desktop-commander&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB3b25kZXJ3aHktZXIvZGVza3RvcC1jb21tYW5kZXJAbGF0ZXN0Il19)
+
+  [Dizinde MCP Sunucusunu Görüntüle](https://cursor.directory/mcp/desktop-commander-mcp)
+
+  Veya `~/.cursor/mcp.json` (genel) veya proje klasörünüzde `.cursor/mcp.json` (projeye özgü) dosyasına manuel olarak ekleyin.
+
+  Daha fazla bilgi için [Cursor MCP dokümantasyonuna](https://docs.cursor.com/context/model-context-protocol) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Windsurf</b></summary>
+
+  `~/.codeium/windsurf/mcp_config.json` dosyasına ekleyin. Daha fazla bilgi için [Windsurf MCP dokümantasyonuna](https://docs.windsurf.com/windsurf/cascade/mcp) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>VS Code / GitHub Copilot</b></summary>
+
+  Proje klasörünüzde `.vscode/mcp.json` dosyasına veya VS Code Kullanıcı Ayarları (JSON) dosyasına ekleyin. Chat > MCP altında MCP'nin etkinleştirildiğinden emin olun. Agent modunda çalışır.
+
+  Daha fazla bilgi için [VS Code MCP dokümantasyonuna](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Cline</b></summary>
+
+  VS Code'da Cline uzantısı ayarlarından yapılandırın. Cline kenar çubuğunu açın, MCP Sunucuları simgesine tıklayın ve yukarıdaki JSON konfigürasyonunu ekleyin. Daha fazla bilgi için [Cline MCP dokümantasyonuna](https://docs.cline.bot/mcp/configuring-mcp-servers) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Roo Code</b></summary>
+
+  Roo Code MCP konfigürasyon dosyanıza ekleyin. Daha fazla bilgi için [Roo Code MCP dokümantasyonuna](https://docs.roocode.com/features/mcp/using-mcp-in-roo) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Claude Code</b></summary>
+
+  ```sh
+  claude mcp add --scope user desktop-commander -- npx -y @wonderwhy-er/desktop-commander@latest
+  ```
+
+  Yalnızca mevcut proje için yüklemek istiyorsanız `--scope user` öğesini kaldırın. Daha fazla bilgi için [Claude Code MCP dokümantasyonuna](https://docs.anthropic.com/en/docs/claude-code/mcp) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Trae</b></summary>
+
+  "Manuel olarak ekle" özelliğini kullanın ve yukarıdaki JSON konfigürasyonunu yapıştırın. Daha fazla bilgi için [Trae MCP dokümantasyonuna](https://docs.trae.ai/ide/model-context-protocol?_lang=en) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Kiro</b></summary>
+
+  `Kiro` > `MCP Sunucuları` bölümüne gidin, `+ Ekle` düğmesine tıklayın ve yukarıdaki JSON konfigürasyonunu yapıştırın. Daha fazla bilgi için [Kiro MCP dokümantasyonuna](https://kiro.dev/docs/mcp/configuration/) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Codex (OpenAI)</b></summary>
+
+  Codex, TOML konfigürasyonunu kullanır. Desktop Commander'ı eklemek için şu komutu çalıştırın:
+
+  ```sh
+  codex mcp add desktop-commander -- npx -y @wonderwhy-er/desktop-commander@latest
+  ```
+
+  Veya `~/.codex/config.toml` dosyasına manuel olarak ekleyin:
+
+  ```toml
+  [mcp_servers.desktop-commander]
+  command = "npx"
+  args = ["-y", "@wonderwhy-er/desktop-commander@latest"]
+  ```
+
+  Daha fazla bilgi için [Codex MCP dokümantasyonuna](https://developers.openai.com/codex/mcp/) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>JetBrains (AI Asistanı)</b></summary>
+
+  JetBrains IDE'lerinde, **Ayarlar → Araçlar → AI Asistanı → Model Context Protocol (MCP)** bölümüne gidin, `+` Ekle düğmesine tıklayın, **JSON Olarak** seçeneğini seçin ve yukarıdaki JSON konfigürasyonunu yapıştırın. Daha fazla bilgi için [JetBrains MCP dokümantasyonuna](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Gemini CLI</b></summary>
+
+  `~/.gemini/settings.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "desktop-commander": {
+        "command": "npx",
+        "args": ["-y", "@wonderwhy-er/desktop-commander@latest"]
+      }
+    }
+  }
+  ```
+
+  Daha fazla bilgi için [Gemini CLI dokümantasyonuna](https://github.com/google-gemini/gemini-cli) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Augment Code</b></summary>
+
+  `Cmd/Ctrl+Shift+P` tuşlarına basın, Augment panelini açın ve yukarıdaki JSON konfigürasyonu ile `desktop-commander` adında yeni bir MCP sunucusu ekleyin. Daha fazla bilgi için [Augment Code MCP dokümantasyonuna](https://docs.augmentcode.com/setup-augment/mcp) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>Qwen Code</b></summary>
+
+  Desktop Commander'ı eklemek için şu komutu çalıştırın:
+
+  ```sh
+  qwen mcp add desktop-commander -- npx -y @wonderwhy-er/desktop-commander@latest
+  ```
+
+  Veya `.qwen/settings.json` (proje) veya `~/.qwen/settings.json` (genel) dosyasına ekleyin. Daha fazla bilgi için [Qwen Code MCP dokümantasyonuna](https://qwenlm.github.io/qwen-code-docs/en/developers/tools/mcp-server/) bakın.
+
+  </details>
+
+  <details>
+  <summary><b>ChatGPT / Claude Web (Remote MCP)</b></summary>
+
+  **ChatGPT**, **Claude web** ve diğer AI hizmetlerinden Remote MCP üzerinden Desktop Commander'ı kullanın — masaüstü uygulaması gerekli değildir.
+
+  **👉 [mcp.desktopcommander.app adresinde başlayın](https://mcp.desktopcommander.app)**
+
+  Nasıl çalışır:
+  1. Bilgisayarınızda hafif bir **Remote Device** çalıştırırsınız
+  2. Bulut Remote MCP hizmetine güvenli bir şekilde bağlanır
+  3. AI komutu bulut üzerinden cihazınıza gönderir
+  4. Komutlar yerel olarak yürütülür, sonuçlar AI'nize geri döner
+  5. **Kontrol sizde kalır** — `Ctrl+C` ile istediğiniz zaman durdurun
+
+  ### Güvenlik
+
+  - ✅ Cihaz yalnızca başlattığınızda çalışır
+  - ✅ Komutlar kullanıcı izinleriniz altında yürütülür
+  - ✅ Güvenli OAuth kimlik doğrulaması ve şifreli iletişim kanalı
+
+  </details>
+
+  ## Desktop Commander'ı Güncelleme & Kaldırma
+
+  ### Otomatik Güncellemeler (Seçenekler 1, 2, 3, 4 & 6)
+  **Seçenek 1 (
 ---
 
 # Desktop Commander MCP

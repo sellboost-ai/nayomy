@@ -8,6 +8,545 @@ url: "https://github.com/pi22by7/In-Memoria"
 body_length: 20547
 license: "MIT"
 language: "Rust"
+body_tr: |-
+  # In Memoria
+
+  [![npm version](https://img.shields.io/npm/v/in-memoria.svg)](https://www.npmjs.com/package/in-memoria)
+  [![npm downloads](https://img.shields.io/npm/dm/in-memoria.svg)](https://www.npmjs.com/package/in-memoria)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Discord](https://img.shields.io/discord/1431193342200516630?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/6mGsM4qkYm)
+
+  **AI kod yazma asistanlarına gerçekten devam eden bir hafıza verin.**
+
+  ## Hızlı Demo
+
+  [![asciicast](https://asciinema.org/a/ZyD2bAZs1cURnqoFc3VHXemJx.svg)](https://asciinema.org/a/ZyD2bAZs1cURnqoFc3VHXemJx)
+
+  _In Memoria'nın aksiyonda görünüşü: kod tabanını öğrenme, anlık bağlam sağlama ve özellikleri dosyalara yönlendirme._
+
+  ---
+
+  ## Sorun: Oturum Hafızası Kaybı
+
+  Biliyorsunuz. Claude, Copilot veya Cursor'u kod tabanınıza yardımcı olmak için başlatırsınız. Mimarinizi açıklarsınız. Desenlerinizi tanımlarsınız. Kurallarınızı belirtirsiniz. AI bunu anlar, size yardım eder ve her şey mükemmel olur.
+
+  Sonra pencereyi kapatırsınız.
+
+  Sonraki oturum? Tamamen hafıza kaybı. Aynı mimari kararları tekrar açıklıyorsunuz. Aynı adlandırma kurallarını. Aynı "hayır, burada sınıflar kullanmıyoruz, fonksiyonel composition kullanıyoruz" cümlesini on beşinci kez.
+
+  **Her AI kod yazma oturumu sıfırdan başlar.**
+
+  Bu sadece sinir bozucu değil, verimsizdir. Bu araçlar her etkileşimde kod tabanınızı yeniden analiz eder, token ve zaman harcar. Sizin stilinize uymayan genel öneriler verirler. Son sefer ne işe yaradığını, ne reddettiğinizi veya neden reddettiğinizi hatırlamazlar.
+
+  ## Çözüm: Kalıcı İstihbarat
+
+  In Memoria, gerçek kod tabanınızdan öğrenen ve oturumlar arasında hatırlayan bir MCP sunucusudur. Kod tabanınız hakkında kalıcı istihbarat (desenler, mimari, kurallar, kararlar) oluşturur; AI asistanları bunu Model Context Protocol aracılığıyla sorgulayabilir.
+
+  Bunu, AI pair programmer'ınıza oturumu yeniden başlattığınız her seferde silinen bir not defteri vermek gibi düşünün.
+
+  **Mevcut sürüm: 0.6.0** - [Neler değişti](CHANGELOG.md)
+
+  ### Ne Yapar
+
+  - **Desenlerinizi öğrenir** - Adlandırma kurallarını, mimari seçimlerini ve yapısal tercihlerinizi anlamak için kodunuzu analiz eder
+  - **Anlık proje bağlamı** - Tech stack, giriş noktaları ve mimariyi <200 token'da sağlar (yeniden analiz gerekmez)
+  - **Akıllı dosya yönlendirmesi** - "Şifre sıfırlama ekle" gibi belirsiz istekleri doğrudan ilgili dosyalara yönlendirir
+  - **Anlamsal arama** - Kodu sadece anahtar kelimelerle değil, anlam ile bulur
+  - **Çalışma hafızası** - Mevcut görevleri ve mimari kararları oturumlar arasında takip eder
+  - **Desen tahmini** - Geçmişinize dayanarak benzer sorunları nasıl çözeceğinizi önerir
+
+  ### Örnek İş Akışı
+
+  ```bash
+  # İlk kez: Kod tabanınızı öğren
+  npx in-memoria learn ./my-project
+
+  # MCP sunucusunu başlat
+  npx in-memoria server
+
+  # Şimdi Claude/Copilot'ta:
+  Siz: "Şifre sıfırlama işlevi ekle"
+  AI: *In Memoria'yı sorgular*
+      "src/auth/login.ts'deki auth desenlerinize dayanarak, yerleşik
+       JWT middleware desenini kullanacağım ve Result<T>
+       hata işleme kuralınızı izleyeceğim..."
+
+  # Sonraki oturum (günler sonra):
+  Siz: "Şifre sıfırlama kodunu nereye koyduk?"
+  AI: *In Memoria'yı sorgular*
+      "src/auth/password-reset.ts'de, geçen oturumumuzda
+       oluşturduğumuz deseni izleyerek..."
+  ```
+
+  Tekrar açıklama yok. Genel öneriler yok. Sadece sürekli, bağlamdan haberdar yardım.
+
+  ## Hızlı Başlangıç
+
+  ### Kurulum
+
+  ```bash
+  # Küresel olarak yükle
+  npm install -g in-memoria
+
+  # Veya doğrudan npx ile kullan
+  npx in-memoria --help
+  ```
+
+  ### AI Aracınıza Bağlanın
+
+  **Claude Desktop** - Config dosyasına ekleyin (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+
+  ```json
+  {
+    "mcpServers": {
+      "in-memoria": {
+        "command": "npx",
+        "args": ["in-memoria", "server"]
+      }
+    }
+  }
+  ```
+
+  **Claude Code CLI**:
+
+  ```bash
+  claude mcp add in-memoria -- npx in-memoria server
+  ```
+
+  **GitHub Copilot** - [GitHub Copilot Entegrasyonu](#github-copilot-entegrasyon) bölümüne bakın
+
+  ### Kod Tabanınızı Öğrenin
+
+  ```bash
+  # Projenizi analiz edin ve öğrenin
+  npx in-memoria learn ./my-project
+
+  # Veya AI ajanlarının otomatik olarak öğrenmesini tetiklemesine izin verin
+  # (Sunucuyu başlatın ve auto_learn_if_needed'ın işini yapmasını izleyin)
+  npx in-memoria server
+  ```
+
+  ## Nasıl Çalışır
+
+  In Memoria, Rust + TypeScript ile yapılmıştır ve AI araçlarını kalıcı kod tabanı istihbaratına bağlamak için Model Context Protocol kullanır.
+
+  ### Mimari
+
+  ```
+  ┌─────────────────────┐    MCP     ┌──────────────────────┐    napi-rs    ┌─────────────────────┐
+  │  AI Aracı (Claude)  │◄──────────►│  TypeScript Server   │◄─────────────►│   Rust Çekirdeği    │
+  └─────────────────────┘            └──────────┬───────────┘               │  • AST Ayrıştırıcı  │
+                                                │                           │  • Desen Öğrenici   │
+                                                │                           │  • Anlamsal Motor   │
+                                                ▼                           │  • Blueprint Sistemi│
+                                     ┌──────────────────────┐               └─────────────────────┘
+                                     │ SQLite (kalıcı)      │
+                                     │ SurrealDB (hafızada) │
+                                     └──────────────────────┘
+  ```
+
+  ### Temel Bileşenler
+
+  **Rust Katmanı** - Hızlı, yerel işleme:
+
+  - 12 dil için Tree-sitter AST ayrıştırma (TypeScript, JavaScript, Python, PHP, Rust, Go, Java, C/C++, C#, Svelte, SQL)
+  - Blueprint analizcisi (proje yapısını, giriş noktalarını, mimari desenleri tespit eder)
+  - Desen öğrenici (kodlama stilinizin istatistiksel analizi)
+  - Anlamsal motor (kod ilişkilerini ve kavramlarını anlar)
+
+  **TypeScript Katmanı** - MCP sunucusu ve orkestrasyonu:
+
+  - AI asistanları için 13 uzmanlaşmış araç (4 kategoride organize edilmiş)
+  - Yapılandırılmış veriler için SQLite, kalıcı vektör embedleri için SurrealDB ve SurrealKV
+  - Artımlı güncellemeler için dosya izlemesi
+  - Özellikleri dosyalara eşleyen akıllı yönlendirme
+
+  **Depolama** - Yerel-ilk:
+
+  - Her şey makinenizde kalır
+  - Desenler ve meta veriler için SQLite
+  - Kalıcı vektör embedleri için SurrealDB ve SurrealKV arka ucu
+  - Embedler için yerel transformers.js (Xenova/all-MiniLM-L6-v2)
+
+  ### Farkı Oluşturan Nedir
+
+  Bu sadece bir başka RAG sistemi veya statik kural motoru değildir:
+
+  - **Gerçek koddan öğrenir** - Manuel tanımlı kurallar değil, gerçek kod tabanınızdan istatistiksel desenler
+  - **Yaklaşımınızı tahmin eder** - Daha önce benzer sorunları nasıl çözdüğünüze dayanarak
+  - **Token verimli** - Yanıtlar LLM bağlamı kullanımını en aza indirmek için optimize edilmiş (<200 token proje bağlamı için)
+  - **Dosyalara yönlendirir** - "Login ekle" → otomatik olarak `src/auth/login.ts` önerir
+  - **Bağlamı hatırlar** - Çalışma oturumlarını, görevleri ve mimari kararları takip eder
+  - **Multi-mod arama** - Anlamsal (anlam), metin (anahtar kelime) veya desen tabanlı
+
+  ## v0.5.x'te Yenilikler
+
+  Son zamanlarda uygulama yol haritasının 1-4 Fazlarını tamamladık:
+
+  ### 🗺️ Proje Blueprintleri (Faz 1)
+
+  Tam öğrenme olmadan anlık proje bağlamı. Bir kod tabanı hakkında sorun ve 200 token'ın altında tech stack, giriş noktaları, anahtar dizinler ve mimariyi alın.
+
+  ### 💼 Çalışma Bağlamı Sistemi (Faz 2)
+
+  AI ajanları artık çalışma oturumlarını takip edebilir, görev listelerini koruyabilir ve mimari kararları kaydedebilir. Tam olarak kaldığınız yerden işe devam edin.
+
+  ### 🧭 Akıllı Dosya Yönlendirmesi (Faz 3)
+
+  10 kategori arasında özellik-dosya eşleştirmesi (auth, API, veritabanı, UI, vb.). "Şifre sıfırlama ekle" gibi belirsiz istekler otomatik olarak belirli dosyalara yönlendirilir.
+
+  ### ⚡ Düzgün İlerleme Takibi (v0.5.3)
+
+  Artık konsolda berbat spam yok. İlerleme çubukları 500ms tutarlı yenileme hızıyla yerinde güncellenir.
+
+  ## AI Asistanları için MCP Araçları
+
+  In Memoria, AI asistanlarının MCP aracılığıyla çağırabileceği **13 uzmanlaşmış araç** sağlar. 4 kategoride organize edilmiştir (Faz 4 sonrasında redundant araçları birleştiren 16'dan düşürülmüş):
+
+  ### 🎯 Temel Analiz (2 araç)
+
+  - `analyze_codebase` - Dosya/dizinleri kavramlar, desenler, karmaşıklık ile analiz edin (Faz 4: artık hem dosyaları hem dizinleri işler)
+  - `search_codebase` - Multi-mod arama (anlamsal/metin/desen)
+
+  ### 🧠 İstihbarat (7 araç)
+
+  - `learn_codebase_intelligence` - Desenler ve mimariyi çıkarmak için derin öğrenme
+  - `get_project_blueprint` - Anlık proje bağlamı tech stack ve giriş noktaları ile ⭐ (Faz 4: öğrenme durumunu içerir)
+  - `get_semantic_insights` - Öğrenilen kavramlar ve ilişkileri sorgulayın
+  - `get_pattern_recommendations` - Tutarlılık için ilgili dosyalarla desenleri alın
+  - `predict_coding_approach` - Dosya yönlendirmesi ile uygulama rehberlenmesi ⭐
+  - `get_developer_profile` - Kodlama stiline ve çalışma bağlamına erişin
+  - `contribute_insights` - Mimari kararları kaydedin
+
+  ### 🤖 Otomasyon (1 araç)
+
+  - `auto_learn_if_needed` - Bayatlık tespiti ile akıllı otomatik öğrenme ⭐ (Faz 4: hızlı kurulum işlevselliğini içerir)
+
+  ### 📊 İzleme (3 araç)
+
+  - `get_system_status` - Sağlık kontrolü
+  - `get_intelligence_metrics` - Öğrenilen desenler üzerinde analitikler
+  - `get_performance_status` - Performans tanılaması
+
+  **Faz 4 Konsolidasyonu**: Üç araç daha iyi AX (ajan deneyimi haha) için mevcut araçlara birleştirildi:
+
+  - ~~get_file_content~~ → `analyze_codebase` içine birleştirildi
+  - ~~get_learning_status~~ → `get_project_blueprint` içine birleştirildi
+  - ~~quick_setup~~ → `auto_learn_if_needed` içine birleştirildi
+
+  > **AI ajanları için**: Tam araç referansı, kullanım desenleri ve karar ağaçları için [`AGENT.md`](AGENT.md) bölümüne bakın.
+
+  ## GitHub Copilot Entegrasyonu
+
+  In Memoria, özel talimatlar ve sohbet modları aracılığıyla GitHub Copilot ile çalışır.
+
+  ### Kurulum
+
+  Bu depo şunları içerir:
+
+  - `.github/copilot-instructions.md` - Copilot için otomatik rehberlik
+  - `.github/agents/` - Üç uzmanlaşmış ajan:
+    - 🔍 **inmemoria-explorer** - Akıllı kod tabanı gezintisi
+    - 🚀 **inmemoria-feature** - Desen ile özellik uygulaması
+    - 🔎 **inmemoria-review** - Tutarlılık kontrolü ile kod incelemesi
+
+  ## GitHub Copilot Entegrasyonu (VS Code)
+
+  In Memoria, **GitHub Copilot Chat** ile **MCP + Özel Ajanlar** (eski adı *Chat Modları*) kullanılarak entegre olur.
+  Bu ajanlar Copilot'un **Ajan modu**'nda çalışırken In Memoria'nın kalıcı istihbaratını sorgulamasını sağlar.
+
+  > ⚠️ **Önemli**: Copilot yalnızca sohbet **Ajan** modunda (Ask veya Edit değil) olduğunda MCP araçlarını çağırır.
+
+  ### Gereksinimler
+
+  * **VS Code 1.106+**
+  * **GitHub Copilot Chat** etkin
+  * In Memoria MCP sunucusu yapılandırılmış ve çalışıyor
+
+  ---
+
+  ### MCP Sunucu Kurulumu (Gerekli)
+
+  Çalışma alanında aşağıdaki dosyayı oluşturun veya düzenleyin:
+
+  **`.vscode/mcp.json`**
+
+  ```json
+  {
+    "servers": {
+      "in-memoria": {
+        "command": "npx",
+        "args": ["in-memoria", "server"]
+      }
+    }
+  }
+  ```
+
+  Bu dosyayı VS Code'da açın ve istendiğinde **Başlat**'ı tıklayın veya manuel olarak başlatın.
+
+  ---
+
+  ### Copilot Talimatları (Otomatik)
+
+  Bu depo şunları içerir:
+
+  * **`.github/copilot-instructions.md`**
+
+  VS Code otomatik olarak bu dosyayı yükler ve Copilot Chat'e rehberlik uygular.
+  Ek kurulum gerekmez.
+
+  ---
+
+  ### Özel Ajanlar (eski adı "Chat Modları")
+
+  Bu depo Copilot için **üç Özel Ajan** sağlar:
+
+  | Ajan                      | Amaç                                          |
+  | ------------------------- | --------------------------------------------- |
+  | 🔍 **inmemoria-explorer** | Akıllı kod tabanı gezintisi                   |
+  | 🚀 **inmemoria-feature**  | Öğrenilen desenleri kullanarak özellik uygulaması |
+  | 🔎 **inmemoria-review**   | Tutarlılık & desen tabanlı kod incelemesi   |
+
+  #### Ajan Dosyası Konumu
+
+  > ⚠️ VS Code *Chat Modları*'nı **Özel Ajanlar** olarak yeniden adlandırdı
+
+  Mevcut VS Code sürümleriyle uyumluluğu sağlamak için:
+
+  1. Klasörü oluşturun:
+
+     ```
+     .github/agents/
+     ```
+  2. Dosyaları şuradan taşıyın veya kopyalayın:
+
+     ```
+     .github/chatmodes/
+     ```
+
+     şuraya:
+
+     ```
+     .github/agents/
+     ```
+  3. Her dosyayı yeniden adlandırın:
+
+     ```
+     *.chatmode.md → *.agent.md
+     ```
+
+  Örnek:
+
+  ```
+  inmemoria-feature.chatmode.md → inmemoria-feature.agent.md
+  ```
+
+  ---
+
+  ### VS Code'da Ajanları Kullanma
+
+  1. **Copilot Chat**'i açın
+  2. Açılır menüden özel ajanı seçin (örn. inmemoria-featurename).
+
+  Ajanlar görünmüyorsa:
+
+  * Pencereyi yeniden yükleyin
+  * Dosyaların `.github/agents/` içinde olduğundan emin olun
+
+  ---
+
+  ### Örnek Kullanım
+
+  ```text
+  Kimlik doğrulama mantığı nerede?
+  ```
+
+  → Copilot In Memoria'nın anlamsal indeksini sorgular
+
+  ```text
+  Şifre sıfırlama işlevi ekle
+  ```
+
+  → Copilot şunları alır:
+
+  * dosya yönlendirmesi
+  * mimari desenler
+  * önceki auth kararları
+
+  ```text
+  Bu kodu tutarlılık açısından incele
+  ```
+
+  → Copilot öğrenilen kurallarla karşılaştırır
+
+  ---
+
+  ### Yaygın Tuzaklar
+
+  * ❌ **Ask/Edit modu** kullanma → MCP araçları yok sayılır
+  * ❌ MCP sunucusu çalışmıyor
+  * ❌ Ajan dosyaları yalnızca `.github/chatmodes/` içinde kalması
+  * ❌ VS Code sürümü < 1.106
+
+  ---
+
+  ### VS Code Terminolojisi Hakkında Notlar
+
+  | Eski Ad                           | Mevcut Ad                      |
+  | --------------------------------- | ------------------------------- |
+  | Chat Modları                      | Özel Ajanlar                   |
+  | `Chat: Configure Chat Modes…`     | `Chat: Configure Custom Agents` |
+  | `.github/chatmodes/`              | `.github/agents/`               |
+
+  VS Code hala eski dosyaları tanır, ancak **`.github/agents/*.agent.md` ileriye dönük önerilen format**dır.
+
+  ## Dil Desteği
+
+  Tree-sitter aracılığıyla yerel AST ayrıştırma:
+
+  - TypeScript & JavaScript (JSX/TSX dahil)
+  - Python
+  - PHP
+  - Rust
+  - Go
+  - Java
+  - C & C++
+  - C#
+  - Svelte
+  - SQL
+
+  Build yapıtları (`node_modules/`, `dist/`, `.next/`, vb.) otomatik olarak filtrelenir.
+
+  ## Durum: Devam Etmekte Olan İş
+
+  **Açıkça söylemek gerekirse**: In Memoria erken aşama yazılımdır. Çalışır, ancak mükemmel değildir.
+
+  ### İyi Çalışan Kısımlar
+
+  - ✅ Gerçek kod tabanlarından desen öğrenme
+  - ✅ Kavramlar arasında anlamsal arama
+  - ✅ Proje blueprint'i üretimi
+  - ✅ Claude Desktop/Code ile MCP entegrasyonu
+  - ✅ Çapraz platform desteği (Linux, macOS, Windows)
+  - ✅ Token verimli yanıtlar
+
+  ### Bilinen Sınırlamalar
+
+  - ⚠️ Büyük kod tabanları (100k+ dosya) ilk analizde yavaş olabilir
+  - ⚠️ Desen doğruluğu kod tabanı tutarlılığı ile artar
+  - ⚠️ Bazı dillerin tree-sitter desteği diğerlerinden daha iyidir
+  - ⚠️ Dokümantasyon daha kapsamlı olabilir
+
+  ### Yardımınıza İhtiyacımız Var
+
+  Bu, AI destekli geliştirme için açık kaynaklı altyapıdır. Şu anda [@pi22by7](https://github.com/pi22by7) tarafından solo bir proje, ancak katkılar sadece hoş karşılanmakla kalmaz, gereklidir.
+
+  **Kod katkılamadan önce**, lütfen:
+
+  - [GitHub Projects board](https://github.com/pi22by7/in-memoria/projects) neyin planlandığını görmek için kontrol edin
+  - Fikirlerinizi tartışmak için [Discord](https://discord.gg/6mGsM4qkYm) katılın (@pi_22by7)
+  - Özellik/düzeltme tartışmak için [bir issue açın](https://github.com/pi22by7/in-memoria/issues)
+  - Daha büyük katkılar için bana [talk@pi22by7.me](mailto:talk@pi22by7.me) adresinden e-posta gönderin
+
+  **Katkı yapmanın yolları**:
+
+  - 🐛 **Hataları bildirin** - Bir şeyler kırık mı? [Issue açın](https://github.com/pi22by7/in-memoria/issues)
+  - 💡 **Özellik önerin** - Fikirleriniz var mı? [Discord](https://discord.gg/6mGsM4qkYm)'da veya [GitHub Discussions](https://github.com/pi22by7/in-memoria/discussions)'ta tartışın
+  - 🔧 **PR gönderin** - Kod katkıları her zaman takdir edilir (önce tartışın!)
+  - 📖 **Dokümentasyonu iyileştirin** - Bunu anlamayı daha kolay hale getirmede yardımcı olun
+  - 🧪 **Kod tabanınızda test edin** - Deneyin ve bize neyin kırıldığını söyleyin
+  - 💬 **Topluluğa katılın** - Gerçek zamanlı tartışmalar için [Discord](https://discord.gg/6mGsM4qkYm)
+
+  Geliştirme kurulumu ve yönergeler için [CONTRIBUTING.md](CONTRIBUTING.md) bölümüne bakın.
+
+  ## Teknik Karşılaştırma
+
+  **GitHub Copilot'un hafızasına karşı**:
+
+  - Copilot: Temel gerçek depolama, desen öğrenme yok
+  - In Memoria: Anlamsal analiz + desen öğrenme + mimari istihbarat + çalışma bağlamı
+
+  **Cursor'un kurallarına karşı**:
+
+  - Cursor: Statik kurallar, manuel tanımlı
+  - In Memoria: Gerçek koddan dinamik öğrenme + akıllı dosya yönlendirmesi + proje blueprintleri
+
+  **Özel RAG'e karşı**:
+
+  - RAG: İlgili kod parçacıklarını alır
+  - In Memoria: Desenleri anlar + yaklaşımları tahmin eder + dosyalara yönlendirir + çalışma bağlamını takip eder
+
+  ## Takım Kullanımı
+
+  In Memoria hem bireysel geliştiriciler hem de takımlar için çalışır:
+
+  **Bireysel**:
+
+  - Kişisel kodlama stilinizi öğrenir
+  - Yaptığınız mimari kararları hatırlar
+  - Bağlamdan haberdar öneriler sağlar
+
+  **Takım**:
+
+  - `.in-memoria.db` dosyalarını dağıtmak için öğrenilen desenleri paylaşın
+  - Öğrenilmiş kod tabanı istihbaratı ile yeni geliştiricileri hızla oyunun içine sokun
+  - Takım genelinde tutarlı AI önerileri sağlayın
+
+  ## Kaynaktan Derleyin
+
+  ```bash
+  git clone https://github.com/pi22by7/in-memoria
+  cd in-memoria
+  npm install
+  npm run build
+  ```
+
+  **Gereksinimler**:
+
+  - Node.js 18+
+  - Rust 1.70+ (kaynaktan derleme için)
+  - En az 2GB RAM
+
+  **Geliştirme**:
+
+  ```bash
+  npm run dev          # Geliştirme modunda başlat
+  npm test            # Test paketini çalıştır (%98.3 geçiş oranı)
+  npm run build:rust  # Rust bileşenlerini derle
+  ```
+
+  **Kalite metrikleri**:
+
+  - 118/120 birim testi geçiyor (%98.3)
+  - 23/23 MCP entegrasyon testi geçiyor (%100)
+  - Rust kodunda sıfır clippy uyarısı
+  - Doğrulanan sıfır bellek sızıntısı
+
+  ## SSS
+
+  **S: Bu AI kod yazma asistanımın yerini alır mı?**
+  C: Hayır, onu geliştiriyor. In Memoria, Claude, Copilot ve Cursor gibi araçların daha iyi öneriler vermek için kullanabileceği hafıza ve bağlam sağlar.
+
+  **S: Hangi veriler toplandı?**
+  C: Her şey yerel kalır. Hiçbir telemetri, hiçbir eve arama yok. Kodunuz asla makinenizi terk etmez. Tüm embedler transformers.js modelleri kullanarak yerel olarak üretilir.
+
+  **S: Desen öğrenme ne kadar doğru?**
+  C: Kod tabanı boyutu ve tutarlılığı ile artar. Oluşturulmuş desenlere sahip projeler küçük veya tutarsız kod tabanlarından daha iyi sonuçlar alır. Sistem sıklık ve tekrarlama yoluyla öğrenir.
+
+  **S: Performans etkisi ne kadar?**
+  C: Minimal. İlk öğrenme zaman alır (kod tabanı boyutuna orantılı), ancak sonraki sorgular hızlıdır. Dosya izlemesi artımlı güncellemeleri sağlar. Akıllı filtreleme build yapıtlarını otomatik olarak atlar.
+
+  **S: Analiz başarısız olursa veya garip sonuçlar verirse?**
+  C: Ayrıntılarla [bir issue açın](https://github.com/pi22by7/in-memoria/issues). Yerleşik zaman aşımları ve devre kesiciler çoğu uç durumu işler, ancak gerçek dünyadaki kod tabanları dağınıktır ve iyileştirmek için geri bildiriminize ihtiyacımız vardır.
+
+  **S: Bunu üretimde kullanabilir miyim?**
+  C: _Yapabilirsiniz_, ancak bunun v0.5.x olduğunu hatırlayın. Düzgün olmayan kenarlar olmasını bekleyin. Kapsamlı test edin. Sorunları bildirin. İstikrara doğru ilerliyoruz ancak henüz oraya varmadık.
+
+  **S: Neden Rust + TypeScript?**
+  C: Performans kritik AST ayrıştırma ve desen analizi için Rust. MCP sunucusu ve orkestrasyonu için TypeScript. Her ikisinin de en iyisi: hızlı çekirdek, esnek entegrasyon katmanı.
+
+  **S: Diğer AI araçları hakkında ne (Claude/Copilot değil)?**
+  C: MCP'yi destekleyen herhangi bir araç In Memoria'y
 ---
 
 # In Memoria

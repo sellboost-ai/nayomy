@@ -8,6 +8,326 @@ url: "https://github.com/pab1it0/adx-mcp-server"
 body_length: 10876
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Azure Data Explorer MCP Server
+
+  <a href="https://glama.ai/mcp/servers/1yysyd147h">
+    
+  </a>
+
+  [![CI](https://github.com/pab1it0/adx-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/pab1it0/adx-mcp-server/actions/workflows/ci.yml)
+  [![codecov](https://codecov.io/gh/pab1it0/adx-mcp-server/branch/main/graph/badge.svg)](https://codecov.io/gh/pab1it0/adx-mcp-server)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
+
+  AI asistanlarının KQL sorgularını yürütmesine ve Azure Data Explorer (ADX/Kusto) veritabanlarını standart arabirimler aracılığıyla keşfetmesine olanak sağlayan bir [Model Context Protocol][mcp] (MCP) sunucusu.
+
+  Bu sunucu, Azure Data Explorer ve Eventhouse (Microsoft Fabric'te) kümelerine sorunsuz erişim sağlayarak, AI asistanlarının güçlü Kusto Query Language kullanarak verilerinizi sorgulamasına ve analiz etmesine izin verir.
+
+  [mcp]: https://modelcontextprotocol.io
+
+  ## Özellikler
+
+  ### Query Yürütme
+  - **KQL sorgularını yürütme** - ADX veritabanınıza karşı isteğe bağlı KQL sorguları çalıştırın
+  - **Yapılandırılmış sonuçlar** - Sonuçları kolay tüketim için JSON formatında alın
+
+  ### Veritabanı Keşfi
+  - **Tabloları listeleme** - Veritabanınızdaki tüm tabloları keşfedin
+  - **Şemaları görüntüleme** - Tablo şemalarını ve sütun türlerini inceleyin
+  - **Örnek veriler** - Yapılandırılabilir örnek boyutlarıyla tablo içeriğinin önizlemesini alın
+  - **Tablo istatistikleri** - Satır sayıları ve depolama boyutu da dahil olmak üzere ayrıntılı metaveri alın
+
+  ### Kimlik Doğrulama
+  - **DefaultAzureCredential** - Azure CLI, Managed Identity ve diğerlerini destekler
+  - **Workload Identity** - AKS workload identity için yerel destek
+  - **Esnek kimlik bilgileri** - Birden fazla Azure kimlik doğrulama yöntemiyle çalışır
+
+  ### Deployment Seçenekleri
+  - **Birden fazla transport** - stdio (varsayılan), HTTP ve Server-Sent Events (SSE)
+  - **Docker desteği** - Güvenlik en iyi uygulamalarıyla üretime hazır konteyner görüntüleri
+  - **Dev Container** - GitHub Codespaces ile sorunsuz geliştirme deneyimi
+
+  Araçlar listesi yapılandırılabilir, bu nedenle MCP istemcisine hangi araçları kullanıma sunmak istediğinizi seçebilirsiniz. Bu, belirli işlevselliği kullanmıyorsanız veya context window'u çok fazla kullanmak istemiyorsanız yararlıdır.
+
+  ## Kullanım
+
+  1. Azure Data Explorer kümesine izni olan Azure hesabınıza Azure CLI kullanarak giriş yapın.
+
+  2. ADX kümeniz için ortam değişkenlerini `.env` dosyası veya sistem ortam değişkenleri aracılığıyla yapılandırın:
+
+  ```env
+  # Zorunlu: Azure Data Explorer yapılandırması
+  ADX_CLUSTER_URL=https://yourcluster.region.kusto.windows.net
+  ADX_DATABASE=your_database
+
+  # İsteğe bağlı: Azure Workload Identity kimlik bilgileri 
+  # AZURE_TENANT_ID=your-tenant-id
+  # AZURE_CLIENT_ID=your-client-id 
+  # ADX_TOKEN_FILE_PATH=/var/run/secrets/azure/tokens/azure-identity-token
+
+  # İsteğe bağlı: Özel MCP Server yapılandırması
+  ADX_MCP_SERVER_TRANSPORT=stdio # http/sse/stdio arasında seçim yapın, varsayılan = stdio
+
+  # İsteğe bağlı: Yalnızca stdio olmayan transport'lar için geçerli
+  ADX_MCP_BIND_HOST=127.0.0.1 # varsayılan = 127.0.0.1
+  ADX_MCP_BIND_PORT=8080 # varsayılan = 8080
+  ```
+
+  #### Azure Workload Identity Desteği
+
+  Sunucu, Azure Kubernetes Service (AKS) ortamlarında workload identity yapılandırılmışsa varsayılan olarak WorkloadIdentityCredential kullanır. Gerekli ortam değişkenleri mevcut olduğunda WorkloadIdentityCredential kullanımını önceliklendirer.
+
+  AKS ile Azure Workload Identity için, yalnızca şunları yapmanız gerekir:
+  1. Pod'un `AZURE_TENANT_ID` ve `AZURE_CLIENT_ID` ortam değişkenlerinin ayarlandığından emin olun
+  2. Token dosyasının varsayılan yola bağlı olduğundan veya `ADX_TOKEN_FILE_PATH` ile özel bir yol belirttiğinizden emin olun
+
+  Bu ortam değişkenleri mevcut değilse, sunucu otomatik olarak DefaultAzureCredential'e geri döner, bu da birden fazla kimlik doğrulama yöntemini sırayla dener.
+
+  3. Sunucu yapılandırmasını istemci yapılandırma dosyanıza ekleyin. Örneğin, Claude Desktop için:
+
+  ```json
+  {
+    "mcpServers": {
+      "adx": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "<full path to adx-mcp-server directory>",
+          "run",
+          "src/adx_mcp_server/main.py"
+        ],
+        "env": {
+          "ADX_CLUSTER_URL": "https://yourcluster.region.kusto.windows.net",
+          "ADX_DATABASE": "your_database"
+        }
+      }
+    }
+  }
+  ```
+
+  > Not: Claude Desktop'ta `Error: spawn uv ENOENT` hatası görürseniz, `uv` için tam yolu belirtmeniz veya yapılandırmada `NO_UV=1` ortam değişkenini ayarlamanız gerekebilir.
+
+  ## Docker Kullanımı
+
+  Bu proje kolay deployment ve izolasyon için Docker desteğini içerir.
+
+  ### Docker Image'ı Oluşturma
+
+  Docker image'ını şu komutu kullanarak oluşturun:
+
+  ```bash
+  docker build -t adx-mcp-server .
+  ```
+
+  ### Docker ile Çalıştırma
+
+  Sunucuyu birkaç şekilde Docker ile çalıştırabilirsiniz:
+
+  #### docker run'ı doğrudan kullanarak:
+
+  ```bash
+  docker run -it --rm \
+    -e ADX_CLUSTER_URL=https://yourcluster.region.kusto.windows.net \
+    -e ADX_DATABASE=your_database \
+    -e AZURE_TENANT_ID=your_tenant_id \
+    -e AZURE_CLIENT_ID=your_client_id \
+    adx-mcp-server
+  ```
+
+  #### docker-compose kullanarak:
+
+  Azure Data Explorer kimlik bilgilerinizle bir `.env` dosyası oluşturun ve ardından şu komutu çalıştırın:
+
+  ```bash
+  docker-compose up
+  ```
+
+  ### Claude Desktop'ta Docker ile Çalıştırma
+
+  Konteynerli sunucuyu Claude Desktop ile kullanmak için, Docker'ı ortam değişkenleriyle kullanmak üzere yapılandırmayı güncelleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "adx": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e", "ADX_CLUSTER_URL",
+          "-e", "ADX_DATABASE",
+          "-e", "AZURE_TENANT_ID",
+          "-e", "AZURE_CLIENT_ID",
+          "-e", "ADX_TOKEN_FILE_PATH",
+          "adx-mcp-server"
+        ],
+        "env": {
+          "ADX_CLUSTER_URL": "https://yourcluster.region.kusto.windows.net",
+          "ADX_DATABASE": "your_database",
+          "AZURE_TENANT_ID": "your_tenant_id",
+          "AZURE_CLIENT_ID": "your_client_id",
+          "ADX_TOKEN_FILE_PATH": "/var/run/secrets/azure/tokens/azure-identity-token"
+        }
+      }
+    }
+  }
+  ```
+
+  Bu yapılandırma, Claude Desktop'tan ortam değişkenlerini Docker konteynerine `-e` bayrağını sadece değişken adıyla ve `env` nesnesi içinde gerçek değerleri sağlayarak iletir.
+
+  #### HTTP Transport ile Docker Kullanımı
+
+  HTTP modu deployment'ı için aşağıdaki Docker yapılandırmasını kullanabilirsiniz:
+
+  ```json
+  {
+    "mcpServers": {
+      "adx": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-p", "8080:8080",
+          "-e", "ADX_CLUSTER_URL",
+          "-e", "ADX_DATABASE", 
+          "-e", "ADX_MCP_SERVER_TRANSPORT",
+          "-e", "ADX_MCP_BIND_HOST",
+          "-e", "ADX_MCP_BIND_PORT",
+          "adx-mcp-server"
+        ],
+        "env": {
+          "ADX_CLUSTER_URL": "https://yourcluster.region.kusto.windows.net",
+          "ADX_DATABASE": "your_database",
+          "ADX_MCP_SERVER_TRANSPORT": "http",
+          "ADX_MCP_BIND_HOST": "0.0.0.0",
+          "ADX_MCP_BIND_PORT": "8080"
+        }
+      }
+    }
+  }
+  ```
+
+  ## Dev Container / GitHub Codespace Olarak Kullanma
+
+  Bu depo, sorunsuz bir geliştirme deneyimi için bir geliştirme konteyneri olarak da kullanılabilir. Dev container kurulumu `devcontainer-feature/adx-mcp-server` klasöründe yer almaktadır.
+
+  Daha fazla ayrıntı için [devcontainer README](devcontainer-feature/adx-mcp-server/README.md) dosyasını kontrol edin.
+
+
+
+  ## Geliştirme
+
+  Katkılar memnuniyetle karşılanır! Herhangi bir öneriniz veya iyileştirmeniz varsa lütfen bir issue açın veya pull request gönderin.
+
+  Bu proje, bağımlılıkları yönetmek için [`uv`](https://github.com/astral-sh/uv) kullanır. Platformunuz için yönergeleri izleyerek `uv` yükleyin:
+
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+  Daha sonra virtual environment oluşturabilir ve bağımlılıkları şu şekilde yükleyebilirsiniz:
+
+  ```bash
+  uv venv
+  source .venv/bin/activate  # Unix/macOS üzerinde
+  .venv\Scripts\activate     # Windows üzerinde
+  uv pip install -e .
+  ```
+
+  ## Proje Yapısı
+
+  Proje bir `src` dizin yapısı ile düzenlenmiştir:
+
+  ```
+  adx-mcp-server/
+  ├── src/
+  │   └── adx_mcp_server/
+  │       ├── __init__.py      # Paket başlatması
+  │       ├── server.py        # MCP server uygulaması
+  │       ├── main.py          # Ana uygulama mantığı
+  ├── Dockerfile               # Docker yapılandırması
+  ├── docker-compose.yml       # Docker Compose yapılandırması
+  ├── .dockerignore            # Docker ignore dosyası
+  ├── pyproject.toml           # Proje yapılandırması
+  └── README.md                # Bu dosya
+  ```
+
+  ### Test Etme
+
+  Proje, işlevselliği sağlayan ve regresyonları önlemeye yardımcı olan kapsamlı bir test paketi içerir.
+
+  Testleri pytest ile çalıştırın:
+
+  ```bash
+  # Geliştirme bağımlılıklarını yükleyin
+  uv pip install -e ".[dev]"
+
+  # Testleri çalıştırın
+  pytest
+
+  # Kapsam raporu ile çalıştırın
+  pytest --cov=src --cov-report=term-missing
+  ```
+  Testler şu şekilde düzenlenmiştir:
+
+  - Yapılandırma doğrulama testleri
+  - Sunucu işlevselliği testleri
+  - Hata işleme testleri
+  - Ana uygulama testleri
+
+  Yeni özellikler eklerken, lütfen karşılık gelen testleri de ekleyin.
+
+  ## Mevcut Araçlar
+
+  | Araç | Kategori | Açıklama | Parametreler |
+  |------|----------|---------|------------|
+  | `execute_query` | Query | Azure Data Explorer'a karşı KQL sorgusu yürütün | `query` (string) - Yürütülecek KQL sorgusu |
+  | `list_tables` | Discovery | Yapılandırılmış veritabanındaki tüm tabloları listeleme | Yok |
+  | `get_table_schema` | Discovery | Belirli bir tablo için şema alın | `table_name` (string) - Tablo adı |
+  | `sample_table_data` | Discovery | Tablodan örnek veri alın | `table_name` (string), `sample_size` (int, varsayılan: 10) |
+  | `get_table_details` | Discovery | Tablo istatistikleri ve metaveri alın | `table_name` (string) - Tablo adı |
+
+  ## Yapılandırma
+
+  ### Zorunlu Ortam Değişkenleri
+
+  | Değişken | Açıklama | Örnek |
+  |----------|---------|-------|
+  | `ADX_CLUSTER_URL` | Azure Data Explorer cluster URL'si | `https://yourcluster.region.kusto.windows.net` |
+  | `ADX_DATABASE` | Bağlanılacak veritabanı adı | `your_database` |
+
+  ### İsteğe Bağlı Ortam Değişkenleri
+
+  #### Azure Workload Identity (AKS için)
+  | Değişken | Açıklama | Varsayılan |
+  |----------|---------|----------|
+  | `AZURE_TENANT_ID` | Azure AD tenant ID'si | - |
+  | `AZURE_CLIENT_ID` | Azure AD client/application ID'si | - |
+  | `ADX_TOKEN_FILE_PATH` | Workload identity token dosyasının yolu | `/var/run/secrets/azure/tokens/azure-identity-token` |
+
+  #### MCP Server Yapılandırması
+  | Değişken | Açıklama | Varsayılan |
+  |----------|---------|----------|
+  | `ADX_MCP_SERVER_TRANSPORT` | Transport modu: `stdio`, `http` veya `sse` | `stdio` |
+  | `ADX_MCP_BIND_HOST` | Bağlanılacak host (yalnızca HTTP/SSE) | `127.0.0.1` |
+  | `ADX_MCP_BIND_PORT` | Bağlanılacak port (yalnızca HTTP/SSE) | `8080` |
+
+  #### Logging
+  | Değişken | Açıklama | Varsayılan |
+  |----------|---------|----------|
+  | `LOG_LEVEL` | Logging seviyesi: `DEBUG`, `INFO`, `WARNING`, `ERROR` | `INFO` |
+
+
+  ## Lisans
+
+  MIT
+
+  ---
+
+  [mcp]: https://modelcontextprotocol.io
 ---
 
 # Azure Data Explorer MCP Server

@@ -9,6 +9,135 @@ body_length: 4749
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server"
+body_tr: |-
+  # Markmap MCP Server
+
+  ![Sample Mindmap](https://raw.githubusercontent.com/jinzcdev/markmap-mcp-server/HEAD/docs/markmap.svg)
+
+  [![NPM Version](https://img.shields.io/npm/v/@jinzcdev/markmap-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server)
+  [![NPM Downloads](https://img.shields.io/npm/dm/@jinzcdev/markmap-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server)
+  [![GitHub License](https://img.shields.io/github/license/jinzcdev/markmap-mcp-server.svg)](LICENSE)
+  [![中文文档](https://img.shields.io/badge/简体中文-查看-blue)](README_zh-CN.md)
+  [![Stars](https://img.shields.io/github/stars/jinzcdev/markmap-mcp-server)](https://github.com/jinzcdev/markmap-mcp-server)
+
+  Markmap MCP Server, [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) protokolüne dayalı olarak Markdown metinlerini etkileşimli zihin haritalarına tek tıkla dönüştürmeyi sağlayan, açık kaynak proje [markmap](https://github.com/markmap/markmap) üzerine inşa edilmiştir. Oluşturulan zihin haritaları zengin etkileşimli işlemleri destekler ve çeşitli görüntü formatlarında dışa aktarılabilir.
+
+  ## Özellikler
+
+  - 🌠 **Markdown'dan Zihin Haritasına**: Markdown metinlerini etkileşimli zihin haritalarına dönüştürün
+  - 🖼️ **Çok Formatlı Dışa Aktarma**: PNG, JPG ve SVG görüntüleri olarak dışa aktarma desteği
+  - 🔄 **Etkileşimli İşlemler**: Yakınlaştırma, düğümleri genişletme/daraltma ve diğer etkileşimli özellikleri destekler
+  - 📋 **Markdown Kopyalama**: Orijinal Markdown içeriğinin tek tıkla kopyalanması
+  - 🌐 **Otomatik Tarayıcı Önizlemesi**: Oluşturulan zihin haritalarını tarayıcıda otomatik olarak açma seçeneği
+
+  ## Ön Koşullar
+
+  1. Node.js (v20 veya üstü)
+
+  ## Kurulum
+
+  ### Smithery Üzerinden Kurulum
+
+  Markmap MCP Server'ı [Smithery](https://smithery.ai/server/@jinzcdev/markmap-mcp-server) aracılığıyla Claude Desktop'a otomatik olarak kurmak için:
+
+  ```bash
+  npx -y @smithery/cli install @jinzcdev/markmap-mcp-server --client claude
+  ```
+
+  ### Manuel Kurulum
+
+  ```bash
+  # npm'den yükleyin
+  npm install @jinzcdev/markmap-mcp-server -g
+
+  # Temel çalıştırma
+  npx -y @jinzcdev/markmap-mcp-server
+
+  # Çıkış dizinini belirtin
+  npx -y @jinzcdev/markmap-mcp-server --output /path/to/output/directory
+  ```
+
+  Alternatif olarak, repository'yi klonlayıp yerel olarak çalıştırabilirsiniz:
+
+  ```bash
+  # Repository'yi klonlayın
+  git clone https://github.com/jinzcdev/markmap-mcp-server.git
+
+  # Proje dizinine gidin
+  cd markmap-mcp-server
+
+  # Projeyi derleyin
+  npm install && npm run build
+
+  # Sunucuyu çalıştırın
+  node build/index.js
+  ```
+
+  ## Kullanım
+
+  MCP client konfigürasyon dosyanıza aşağıdaki konfigürasyonu ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "markmap": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "@jinzcdev/markmap-mcp-server"],
+        "env": {
+          "MARKMAP_DIR": "/path/to/output/directory"
+        }
+      }
+    }
+  }
+  ```
+
+  > [!TIP]
+  >
+  > Servis aşağıdaki ortam değişkenlerini destekler:
+  >
+  > - `MARKMAP_DIR`: Zihin haritaları için çıkış dizinini belirtin (isteğe bağlı, varsayılan sistem geçici dizini)
+  >
+  > **Öncelik Notu**:
+  >
+  > Hem `--output` komut satırı argümanı hem de `MARKMAP_DIR` ortam değişkeni belirtildiğinde, komut satırı argümanı öncelik alır.
+
+  ## Kullanılabilir Araçlar
+
+  ### markdown-to-mindmap
+
+  Markdown metinlerini etkileşimli zihin haritasına dönüştürün.
+
+  **Parametreler:**
+
+  - `markdown`: Dönüştürülecek Markdown içeriği (gerekli string)
+  - `open`: Oluşturulan zihin haritasını tarayıcıda otomatik olarak açıp açmayacağı (isteğe bağlı boolean, varsayılan false)
+
+  **Dönüş Değeri:**
+
+  ```json
+  {
+    "content": [
+      {
+        "type": "text",
+        "text": "JSON_DATA_OF_MINDMAP_FILEPATH"
+      }
+    ]
+  }
+  ```
+
+  ## İlgili Projeler
+
+  🎉 Daha Fazla Zihin Haritası Aracı Keşfedin:
+
+  | Proje                                                                           | Açıklama                                                                                                                                                                                                       |
+  | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **[MarkXMind Online](https://github.com/jinzcdev/markxmind)**                   | Markdown ile çevrimiçi XMind zihin haritaları oluşturun. Gerçek zamanlı önizleme, `.xmind` / `.md` / `.png` / `.svg` olarak tek tıkla dışa aktarma ve mevcut XMind dosyalarını içe aktarma desteği. [Şimdi deneyin →](https://markxmind.js.org/) |
+  | **[Obsidian MarkXMind Plugin](https://github.com/jinzcdev/obsidian-markxmind)** | XMindMark sözdizimini `xmind` kod bloklarının içinde XMind zihin haritaları olarak işlemeyi destekleyen bir Obsidian plugin'i.                                                                                |
+
+  ## Lisans
+
+  Bu proje [MIT](./LICENSE) Lisansı altında lisanslanmıştır.
 ---
 
 # Markmap MCP Server

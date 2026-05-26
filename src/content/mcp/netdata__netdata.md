@@ -9,6 +9,408 @@ body_length: 26186
 license: "GPL-3.0"
 language: "C"
 homepage: "https://www.netdata.cloud"
+body_tr: |-
+  <p align="center">
+  <a href="https://www.netdata.cloud#gh-light-mode-only">
+    
+  </a>
+  <a href="https://www.netdata.cloud#gh-dark-mode-only">
+    
+  </a>
+  </p>
+  <h3 align="center">Altyapınız için X-Ray Görüşü!</h3>
+  <h4 align="center">Her Metrik, Her Saniye. Saçmalık Yok.</h4>
+
+  <br />
+  <p align="center">
+    <a href="https://github.com/netdata/netdata/"></a>
+    <br />
+    <a href="https://app.netdata.cloud/spaces/netdata-demo?utm_campaign=github_readme_demo_badge"></a>
+    <a href="https://github.com/netdata/netdata/releases/latest"></a>
+    <a href="https://github.com/netdata/netdata-nightlies/releases/latest"></a>
+    <br/>
+    <a href="https://community.netdata.cloud"></a>
+    <a href="https://github.com/netdata/netdata/discussions"></a>
+    <br/>
+    <a href="https://bestpractices.coreinfrastructure.org/projects/2231"></a>
+    <a href="https://scan.coverity.com/projects/netdata-netdata?tab=overview"></a>
+  </p>
+
+  <p align="center">
+    <a href="https://registry.my-netdata.io/#menu_netdata_submenu_registry"></a>
+    <a href="https://registry.my-netdata.io/#menu_netdata_submenu_registry"></a>
+    <a href="https://registry.my-netdata.io/#menu_netdata_submenu_registry"></a>
+    <a href="https://hub.docker.com/r/netdata/netdata"></a>
+  </p>
+  <p align="center"><b><a href="https://www.netdata.cloud">Ana Sayfamızı</a> ziyaret edin</b></p>
+
+  <hr class="solid">
+
+  MENU: **[KİM OLDUĞUMUZ](#who-we-are)** | **[ANA ÖZELLİKLER](#key-features)** | **[BAŞLARKEN](#getting-started)** | **[NASIL ÇALIŞIR](#how-it-works)** | **[SSS](#faq)** | **[DÖKÜMANLAR](#book-documentation)** | **[TOPLULUK](#tada-community)** | **[KATKIDA BULUN](#pray-contribute)** | **[LİSANS](#scroll-license)**
+
+
+  > [!WARNING]
+  > İnsanlar **Netdata'ya bağımlı hale gelir.**
+  > Sistemlerinizde bir kez kullanmaya başladığınızda, *geri dönüş yoktur.*
+
+  [![Platforms](https://img.shields.io/badge/Platforms-Linux%20%7C%20macOS%20%7C%20FreeBSD%20%7C%20Windows-blue)]()
+
+  ---
+
+  ## KİM OLDUĞUMUZ
+
+  Netdata açık kaynaklı, gerçek zamanlı bir altyapı izleme platformudur. Tüm altyapınızda izleyin, algılayın ve harekete geçin.
+
+  **Temel Avantajları:**
+
+  * **Anlık İçgörüler** – Netdata ile saniye bazında metriklere ve görselleştirmelere erişebilirsiniz.
+  * **Sıfır Konfigürasyon** – Karmaşık kurulum olmadan hemen dağıtabilirsiniz.
+  * **ML Destekli** – Anomalileri algılayabilir, sorunları tahmin edebilir ve analizi otomatikleştirebilirsiniz.
+  * **Verimli** – Minimum kaynak kullanımı ve maksimum ölçeklenebilirlikle izleyebilirsiniz.
+  * **Güvenli ve Dağıtık** – Verinizi yerel tutabilir, merkezi toplama yapmanıza gerek yoktur.
+
+  Netdata ile gerçek zamanlı, saniye bazında güncellemeler alırsınız. **Bir bakışta net içgörüler**, karmaşıklık yok.
+
+  <details>
+    <summary><strong>Tüm kahramanların harika bir köken hikayesi vardır. Keşfetmek için tıklayın.</strong></summary>
+    <br/>
+
+  2013'te Costa Tsaousis'in COO olduğu şirkette, bulut tabanlı işlemlerinin önemli bir yüzdesi sessizce başarısız oldu ve iş performansını ciddi şekilde etkiledi.
+
+  Costa ve ekibi o zamanlar mevcut olan her sorun giderme aracını denedi. Hiçbiri kök nedeni belirleyemedi. Costa daha sonra yazdığı gibi:
+
+  "*İzleme sistemlerinin çok az metrik sağlaması ve bu kadar düşük çözünürlükte, bu kadar kötü ölçeklenmesi ve çalıştırması için bu kadar para gerektirmesi inanılmaz.*"
+
+  Hayal kırıklığına uğrayan Costa, sıfırdan kendi izleme aracını inşa etmeye karar verdi.
+
+  Bu karar sayısız geç gecelere ve hafta sonlarına neden oldu. Aynı zamanda altyapı izleme ve sorun gidermenin nasıl yapıldığında temel bir paradigma değişimi başlattı, hem yöntem hem de maliyet açısından.
+  </details>
+
+  ### En Enerji Verimli İzleme Aracı
+
+  <p align="center">
+  <a href="https://www.ivanomalavolta.com/files/papers/ICSOC_2023.pdf#gh-dark-mode-only">
+    
+  </a>
+  <a href="https://www.ivanomalavolta.com/files/papers/ICSOC_2023.pdf#gh-light-mode-only">
+    
+  </a>
+  </p>
+
+  [Amsterdam Üniversitesi çalışmasına](https://www.ivanomalavolta.com/files/papers/ICSOC_2023.pdf) göre, Netdata Docker tabanlı sistemleri izlemek için en enerji verimli araçtır. Çalışma ayrıca Netdata'nın diğer izleme çözümlerine kıyasla CPU kullanımı, RAM kullanımı ve yürütme süresi açısından üstün olduğunu göstermektedir.
+
+  ---
+
+  ## Ana Özellikler
+
+  | Özellik                    | Açıklama                               | Onu Benzersiz Yapan Şey                                     |
+  |----------------------------|-------------------------------------------|----------------------------------------------------------|
+  | **Gerçek Zamanlı**              | Saniye bazında veri toplama ve işleme | Bir çarpışmada çalışır – tıklayın ve sonuçları anında görün        |
+  | **Sıfır Konfigürasyon**     | Otomatik algılama ve bulma         | Üzerinde çalıştığı düğümlerdeki her şeyi otomatik olarak bulur           |
+  | **ML Destekli**             | Denetlemsiz anomali tespiti            | Her metrik için birden fazla ML modeli eğitir        |
+  | **Uzun Vadeli Alıkoyma**    | Yüksek performanslı depolama                  | ~0.5 bayt/örnek arşivleme için katmanlı depolama ile       |
+  | **Gelişmiş Görselleştirme** | Zengin, etkileşimli gösterge panelleri              | Sorgu dili olmadan verileri dilimleyin ve doğrayın               |
+  | **Aşırı Ölçeklenebilirlik**    | Yerel yatay ölçekleme                 | Milyonlarca örnek/s ile Ana-Çocuk merkezileştirmesi |
+  | **Tam Görünürlük**    | Altyapıdan uygulamalara       | İşlemleri basitleştirir ve siloları ortadan kaldırır               |
+  | **Kenar Tabanlı**             | Tesislerinizde işleme               | Veriyi merkezileştirmek yerine kodu dağıtır            |
+
+  > [!NOTE]  
+  > Netdata'yı Prometheus ile ölçmek ister misiniz?
+  > [Tam karşılaştırmayı](https://www.netdata.cloud/blog/netdata-vs-prometheus-2025/) keşfedin.
+
+  ---
+
+  ## Netdata Ekosistemi
+
+  Bu üç parçalı mimari, tek düğümlerden karmaşık çok bulut ortamlarına kadar ölçeklendirmenizi sağlar:
+
+  | Bileşen         | Açıklama                                                                                                                                                 | Lisans                                         |
+  |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+  | **Netdata Agent** | • Temel izleme motoru<br>• Toplama, depolama, ML, uyarılar, dışa aktarım işlemleri<br>• Sunucular, bulut, K8s, IoT'de çalışır<br>• Sıfır üretim etkisi            | [GPL v3+](https://www.gnu.org/licenses/gpl-3.0) |
+  | **Netdata Cloud** | • Kurumsal özellikler<br>• Kullanıcı yönetimi, RBAC, yatay ölçekleme<br>• Merkezi uyarılar<br>• Ücretsiz topluluk katmanı<br>• Metrik depolamada merkezileştirme yok |                                                 |
+  | **Netdata UI**    | • Gösterge panelleri ve görselleştirmeler<br>• Kullanmak ücretsiz<br>• Standart paketlerde dahil<br>• CDN aracılığıyla en son sürüm                                             | [NCUL1](https://app.netdata.cloud/LICENSE.txt)  |
+
+  ## Neleri İzleyebilirsiniz
+
+  Netdata ile platformlar arasında tüm bu bileşenleri izleyebilirsiniz:
+
+  |                                                                                                   Bileşen |              Linux               | FreeBSD | macOS |                      Windows                      |
+  |------------------------------------------------------------------------------------------------------------:|:--------------------------------:|:-------:|:-----:|:-------------------------------------------------:|
+  |                             **Sistem Kaynakları**<small><br/>CPU, Bellek ve sistem paylaşılan kaynakları</small> |               Tam               |   Evet   |  Evet  |                        Evet                        |
+  |                                **Depolama**<small><br/>Diskler, Bağlama noktaları, Dosya sistemleri, RAID dizileri</small> |               Tam               |   Evet   |  Evet  |                        Evet                        |
+  |                                 **Ağ**<small><br/>Ağ Arayüzleri, Protokoller, Güvenlik Duvarı, vb.</small> |               Tam               |   Evet   |  Evet  |                        Evet                        |
+  |                        **Donanım ve Sensörler**<small><br/>Fanlar, Sıcaklıklar, Denetleyiciler, GPU'lar, vb.</small> |               Tam               |  Kısmen   | Kısmen  |                       Kısmen                        |
+  |                                       **İ/S Hizmetleri**<small><br/>Kaynaklar, Performans ve Durum</small> | Evet<small><br/>`systemd`</small> |    -    |   -   |                         -                         |
+  |                                      **Süreçler**<small><br/>Kaynaklar, Performans, OOM, vb.</small> |               Evet                |   Evet   |  Evet  |                        Evet                        |
+  |                                                                             Sistem ve Uygulama **Günlükleri** | Evet<small><br/>`systemd`-journal |    -    |   -   | Evet<small><br/>`Windows Event Log`, `ETW`</small> |
+  |                                 **Ağ Bağlantıları**<small><br/>PID başına canlı TCP ve UDP soketleri</small> |               Evet                |    -    |   -   |                         -                         |
+  |                               **Konteynerler**<small><br/>Docker/containerd, LXC/LXD, Kubernetes, vb.</small> |               Evet                |    -    |   -   |                         -                         |
+  |                                 **VM'ler** (ana bilgisayardan)<small><br/>KVM, qemu, libvirt, Proxmox, vb.</small> | Evet<small><br/>`cgroups`</small> |    -    |   -   |         Evet<small><br/>`Hyper-V`</small>          |
+  |                       **Sentetik Denetimler**<small><br/>API'ları, TCP bağlantı noktalarını, Ping, Sertifikaları test edin, vb.</small> |               Evet                |   Evet   |  Evet  |                        Evet                        |
+  | **Paketlenmiş Uygulamalar**<small><br/>nginx, apache, postgres, redis, mongodb,<br/>ve yüzlerce daha fazlası</small> |               Evet                |   Evet   |  Evet  |                        Evet                        |
+  |                              **Bulut Sağlayıcı Altyapısı**<small><br/>AWS, GCP, Azure ve daha fazlası</small> |               Evet                |   Evet   |  Evet  |                        Evet                        |
+  |                       **Özel Uygulamalar**<small><br/>OpenMetrics, StatsD ve yakında OpenTelemetry</small> |               Evet                |   Evet   |  Evet  |                        Evet                        |
+
+  Linux'ta, hataları sürekli olarak izleyebileceğiniz tüm çekirdek özelliklerini ve donanım sensörlerini Intel/AMD/Nvidia GPU'ları, PCI AER, RAM EDAC, IPMI, S.M.A.R.T, Intel RAPL, NVMe, fanlar, güç kaynakları ve voltaj okumalarını içererek izleyebilirsiniz.
+
+  ---
+
+  ## BAŞLARKEN
+
+  Netdata'yı tüm ana işletim sistemlerine yükleyebilirsiniz. Başlamak için:
+
+  ### 1. Netdata'yı Yükleyin
+
+  Platformunuzu seçin ve kurulum kılavuzunu izleyin:
+
+  * [Linux Kurulumu](https://learn.netdata.cloud/docs/installing/one-line-installer-for-all-linux-systems)
+  * [macOS](https://learn.netdata.cloud/docs/installing/macos)
+  * [FreeBSD](https://learn.netdata.cloud/docs/installing/freebsd)
+  * [Windows](https://learn.netdata.cloud/docs/netdata-agent/installation/windows)
+  * [Docker Kılavuzu](/packaging/docker/README.md)
+  * [Kubernetes Kurulumu](https://learn.netdata.cloud/docs/installation/install-on-specific-environments/kubernetes)
+
+  > [!NOTE]
+  > Netdata UI'ye `http://localhost:19999` adresinden erişebilirsiniz (veya uzak ise `http://NODE:19999`).
+
+  ### 2. Toplayıcıları Yapılandırın
+
+  Netdata çoğu metriği otomatik olarak bulur, ancak bazı toplayıcıları manuel olarak yapılandırabilirsiniz:
+
+  * [Tüm toplayıcılar](https://learn.netdata.cloud/docs/data-collection/)
+  * [SNMP izlemesi](https://learn.netdata.cloud/docs/data-collection/monitor-anything/networking/snmp)
+
+  ### 3. Uyarıları Yapılandırın
+
+  Yüzlerce yerleşik uyarı kullanabilir ve bunlarla entegre olabilirsiniz:
+
+  `email`, `Slack`, `Telegram`, `PagerDuty`, `Discord`, `Microsoft Teams` ve daha fazlası.
+
+  > [!NOTE]  
+  > E-posta uyarıları, yapılandırılmış bir MTA varsa varsayılan olarak çalışır.
+
+  ### 4. Ana Bilgisayarları Yapılandırın
+
+  Netdata Ana Bilgisayarları ile gösterge panellerini, uyarıları ve depolamayı merkezileştirebilirsiniz:
+
+  * [Akış Başvurusu](https://learn.netdata.cloud/docs/streaming/streaming-configuration-reference)
+
+  > [!NOTE]  
+  > Netdata Ana Bilgisayarlarını merkezi gösterge panelleri, daha uzun alıkoyma ve uyarı yapılandırması için kullanabilirsiniz.
+
+  ### 5. Netdata Cloud'a Bağlanın
+
+  [Netdata Cloud'a giriş yapın](https://app.netdata.cloud/sign-in) ve düğümlerinizi bağlayın:
+
+  * Her yerden erişim
+  * Yatay ölçeklenebilirlik ve çok düğümlü gösterge panelleri
+  * Uyarılar ve veri toplama için UI yapılandırması
+  * Rol tabanlı erişim denetimi
+  * Ücretsiz katman mevcuttur
+
+  > [!NOTE]  
+  > Netdata Cloud isteğe bağlıdır. Verileriniz altyapınızda kalır.
+
+  ## Canlı Demo Siteleri
+
+  <p align="center">
+    <b>Netdata'yı iş başında görün</b><br/>
+    <a href="https://frankfurt.netdata.rocks"><b>FRANKFURT</b></a> |
+    <a href="https://newyork.netdata.rocks"><b>NEWYORK</b></a> |
+    <a href="https://atlanta.netdata.rocks"><b>ATLANTA</b></a> |
+    <a href="https://sanfrancisco.netdata.rocks"><b>SANFRANCISCO</b></a> |
+    <a href="https://toronto.netdata.rocks"><b>TORONTO</b></a> |
+    <a href="https://singapore.netdata.rocks"><b>SINGAPORE</b></a> |
+    <a href="https://bangalore.netdata.rocks"><b>BANGALORE</b></a>
+    <br/>
+    <i>Bu demo kümeleri varsayılan yapılandırma ile çalışır ve gerçek izleme verilerini gösterir.</i>
+    <br/>
+    <i>En iyi performans için size en yakın örneği seçin.</i>
+  </p>
+
+  ---
+
+  ## NASIL ÇALIŞIR
+
+  Netdata ile metrik toplama, işleme ve görselleştirme için modüler bir pipeline çalıştırabilirsiniz.
+
+  ```mermaid
+  flowchart TB
+    A[Netdata Agent]:::mainNode
+    A1(Toplama):::green --> A
+    A2(Depolama):::green --> A
+    A3(Öğrenme):::green --> A
+    A4(Algılama):::green --> A
+    A5(Denetim):::green --> A
+    A6(Akış):::green --> A
+    A7(Arşiv):::green --> A
+    A8(Sorgu):::green --> A
+    A9(Puanlama):::green --> A
+
+    classDef green fill:#bbf3bb,stroke:#333,stroke-width:1px,color:#000
+    classDef mainNode fill:#f0f0f0,stroke:#333,stroke-width:1px,color:#333
+  ```
+
+  Her Agent ile şunları yapabilirsiniz:
+
+  1. **Toplama** – Sistemler, konteynerler, uygulamalar, günlükler, API'lar ve sentetik denetimlerden metrik toplayın.
+  2. **Depolama** – Metrikleri yüksek verimli, katmanlı bir zaman serisi veritabanına kaydedin.
+  3. **Öğrenme** – Son davranışı kullanarak her metrik için ML modellerini eğitin.
+  4. **Algılama** – Eğitilmiş ML modellerini kullanarak anomalileri belirleyin.
+  5. **Denetim** – Metrikleri önceden ayarlanmış veya özel uyarı kurallarına göre değerlendirin.
+  6. **Akış** – Metrikleri gerçek zamanlı olarak Netdata Ana Bilgisayarlarına gönderin.
+  7. **Arşiv** – Metrikleri Prometheus, InfluxDB, OpenTSDB, Graphite ve diğerlerine dışa aktarın.
+  8. **Sorgu** – Gösterge panelleri veya üçüncü taraf araçlar için API aracılığıyla metriklere erişin.
+  9. **Puanlama** – Metriklerdeki desenleri ve korelasyonları bulmak için bir puanlama motoru kullanın.
+
+  > [!NOTE]  
+  > Daha fazla bilgi: [Netdata mimarisi](https://learn.netdata.cloud/docs/netdata-agent/#distributed-observability-pipeline)
+
+  ## Agent Yetenekleri
+
+  Netdata Agent ile kutudan çıkış durumunda bu temel yetenekleri kullanabilirsiniz:
+
+  | Yetenek                   | Açıklama                                                                                                                                   |
+  |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+  | **Kapsamlı Toplama** | • 800+ entegrasyonu<br>• Sistemler, konteynerler, VM'ler, donanım sensörleri<br>• OpenMetrics, StatsD ve günlükler<br>• OpenTelemetry desteği yakında |
+  | **Performans ve Doğruluk**  | • Saniye bazında toplama<br>• 1 saniye gecikme ile gerçek zamanlı görselleştirme<br>• Yüksek çözünürlüklü metrikler                                       |
+  | **Kenar Tabanlı ML**            | • Kenarında eğitilmiş ML modelleri<br>• Metrik başına otomatik anomali tespiti<br>• Tarihsel davranışa dayalı desen tanıma             |
+  | **Gelişmiş Günlük Yönetimi**  | • Doğrudan systemd-journald ve Windows Event Log entegrasyonu<br>• Kenarında günlükleri işleyin<br>• Zengin günlük görselleştirmesi                         |
+  | **Gözlemlenebilirlik Pipeline**   | • Ana-Çocuk ilişkileri<br>• Esnek merkezileştirme<br>• Çok düzeyli çoğaltma ve alıkoyma                                          |
+  | **Otomatik Görselleştirme**    | • NIDL veri modeli<br>• Otomatik olarak oluşturulan gösterge panelleri<br>• Sorgu dili gerekmez                                                                |
+  | **Akıllı Uyarma**           | • Önceden yapılandırılmış uyarılar<br>• Birden fazla bildirim yöntemi<br>• Proaktif algılama                                                           |
+  | **Düşük Bakım**          | • Otomatik algılama<br>• Sıfır dokunuş ML<br>• Kolay ölçeklenebilirlik<br>• CI/CD dostu                                                                 |
+  | **Açık ve Genişletilebilir**        | • Modüler mimari<br>• Özelleştirmesi kolay<br>• Mevcut araçlarla entegrasyon                                                             |
+
+  ---
+
+  ## CNCF Üyeliği
+
+  <p align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cncf/artwork/master/other/cncf/horizontal/white/cncf-white.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cncf/artwork/master/other/cncf/horizontal/color/cncf-color.svg">
+      
+    </picture>
+    <br />
+    Netdata aktif olarak destekler ve Cloud Native Computing Foundation (CNCF) üyesidir.<br />
+    <a href="https://landscape.cncf.io/?item=observability-and-analysis--observability--netdata">CNCF landscape</a>'teki en yıldızlı projelerden biridir.
+  </p>
+
+  ---
+
+  ## SSS
+
+  <details>
+  <summary><strong>Netdata güvenli midir?</strong></summary>
+  <br/>
+
+  Evet. Netdata [OpenSSF en iyi uygulamalarını](https://bestpractices.coreinfrastructure.org/en/projects/2231) takip eder, güvenlik öncelikli bir tasarıma sahiptir ve topluluk tarafından düzenli olarak denetlenir.
+
+  * [Güvenlik tasarımı](https://learn.netdata.cloud/docs/security-and-privacy-design)
+  * [Güvenlik politikaları ve önerileri](https://github.com/netdata/netdata/security)
+
+  </details>
+
+  <details>
+  <summary><strong>Netdata çok kaynak kullanır mı?</strong></summary>
+  <br/>
+
+  Hayır. ML ve saniye bazında metriklerle bile Netdata minimum kaynaklar kullanır.
+
+  * Üretim sistemlerinde varsayılan olarak ~%5 CPU ve 150MiB RAM
+  * ML ve uyarılar devre dışı bırakıldığında ve geçici depolama kullanılırken <1% CPU ve ~100MiB RAM
+  * Ana Bilgisayarlar uygun donanımla saniyede milyonlarca metriğe ölçeklenir
+
+  > Kaynak kullanımını incelemek için gösterge panelindeki **Netdata İzleme** bölümünü kullanabilirsiniz.
+
+  </details>
+
+  <details>
+  <summary><strong>Ne kadar veri alıkoyma mümkün?</strong></summary>
+  <br/>
+
+  Diskiniz kadar.
+
+  Netdata ile katmanlı alıkoyma kullanabilirsiniz:
+
+  * Katman 0: saniye çözünürlüğü
+  * Katman 1: dakika çözünürlüğü
+  * Katman 2: saat çözünürlüğü
+
+  Bunlar yakınlaştırma düzeyine göre otomatik olarak sorgulanır.
+  </details>
+
+  <details>
+  <summary><strong>Netdata birçok sunucuya ölçeklenebilir mi?</strong></summary>
+  <br/>
+
+  Evet. Netdata ile:
+
+  * Birçok Agent ile yatay ölçekleme yapabilir
+  * Güçlü Ana Bilgisayarlar ile dikey ölçekleme yapabilir
+  * Netdata Cloud aracılığıyla sonsuz ölçekleme yapabilir
+
+  > Netdata Cloud'u birçok bağımsız altyapıyı bir mantıksal görünüme birleştirmek için kullanabilirsiniz.
+
+  </details>
+
+  <details>
+  <summary><strong>Disk I/O endişe kaynağı mı?</strong></summary>
+  <br/>
+
+  Hayır. Netdata disk kullanımını en aza indirir:
+
+  * Metrikler her 17 dakikada bir diske boşaltılır, eşit şekilde dağıtılır
+  * Doğrudan I/O ve sıkıştırma (ZSTD) kullanır
+  * Tamamen RAM'de çalışabilir veya bir Ana Bilgisayara akış yapabilir
+
+  > Disk yazımı olmamak için `alloc` veya `ram` modunu kullanabilirsiniz.
+
+  </details>
+
+  <details>
+  <summary><strong>Netdata, Prometheus + Grafana'dan ne kadar farklıdır?</strong></summary>
+  <br/>
+
+  Netdata ile sadece araçlar değil, tamamen bir izleme çözümü alırsınız.
+
+  * Manuel kurulum veya gösterge panelleri gerekmez
+  * Yerleşik ML, uyarılar, gösterge panelleri ve korelasyonlar
+  * Daha verimli ve dağıtması daha kolay
+
+  > [Performans karşılaştırması](https://blog.netdata.cloud/netdata-vs-prometheus-performance-analysis/)
+
+  </details>
+
+  <details>
+  <summary><strong>Netdata, ticari SaaS araçlarından ne kadar farklıdır?</strong></summary>
+  <br/>
+
+  Netdata ile tüm metrikleri altyapınızda depolayabilirsiniz – örnekleme yok, toplaştırma yok, kayıp yok.
+
+  * Varsayılan olarak yüksek çözünürlüklü metrikler
+  * Paylaşılan modeller değil, metrik başına ML
+  * Fiyat patlaması olmadan sınırsız ölçeklenebilirlik
+
+  </details>
+
+  <details>
+  <summary><strong>Netdata, Nagios, Zabbix, vb. ile yan yana çalışabilir mi?</strong></summary>
+  <br/>
+
+  Evet. Netdata'yı geleneksel araçlarla birlikte kullanabilirsiniz.
+
+  Netdata ile:
+
+  * Gerçek zamanlı, yüksek çözünürlüklü izleme alırsınız
+  * Sıfır konfigürasyon ve otomatik olarak oluşturulan gösterge panelleri
+  * Anomali tespiti ve gelişmiş görselleştirme
+
+  </details>
+
+  <details>
+  <summary><strong>
 ---
 
 <p align="center">

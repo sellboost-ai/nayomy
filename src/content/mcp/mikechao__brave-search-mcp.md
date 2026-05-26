@@ -8,6 +8,332 @@ url: "https://github.com/mikechao/brave-search-mcp"
 body_length: 11720
 license: "GPL-3.0"
 language: "TypeScript"
+body_tr: |-
+  # Brave Search MCP Server
+
+  Brave Search API'sini entegre eden bir MCP Server uygulaması; Web Arama, Yerel İlgi Noktaları Arama, Video Arama, Resim Arama, Haber Arama ve LLM Bağlam Arama yetenekleri sağlar
+
+  <a href="https://glama.ai/mcp/servers/@mikechao/brave-search-mcp">
+    
+  </a>
+
+  ## Barındırılan Dağıtım
+
+  Barındırılan bir dağıtım [Fronteir AI](https://fronteir.ai/mcp/mikechao-brave-search-mcp) üzerinde mevcuttur.
+
+  ## Özellikler
+
+  - **Web Arama**: Web üzerinde normal arama yapın
+  - **Resim Arama**: Web üzerinde resim arayın
+  - **Haber Arama**: Web üzerinde haber arayın
+  - **Video Arama**: Web üzerinde video arayın
+  - **Yerel İlgi Noktaları Arama**: Yerel fiziksel konumları, işletmeleri, restoranları, hizmetleri vb. arayın
+  - **LLM Bağlam Arama**: Okuma ve kaynakları sentezlemek için optimize edilmiş tam web sayfası içeriğini getirin ve çıkartın
+
+  ## Araçlar
+
+  - **brave_web_search**
+    - Brave'in API'sini kullanarak web aramaları gerçekleştirin
+    - Girdiler:
+      - `query` (string): İnternette aranacak terim
+      - `count` (number, opsiyonel): Döndürülecek sonuç sayısı (maks 20, varsayılan 10)
+      - `offset` (number, opsiyonel, varsayılan 0): Sayfalandırma için offset
+      - `freshness` (enum, opsiyonel): Arama sonuçlarını keşfedilme zamanına göre filtreler
+        - Aşağıdaki değerler desteklenmektedir
+          - pd: Son 24 saat içinde keşfedildi.
+          - pw: Son 7 gün içinde keşfedildi.
+          - pm: Son 31 gün içinde keşfedildi.
+          - py: Son 365 gün içinde keşfedildi
+          - YYYY-MM-DDtoYYYY-MM-DD: Özel tarih aralığı (örn. 2022-04-01to2022-07-30)
+
+  - **brave_image_search**
+    - Sorguyla ilgili web'den resim alın
+    - Girdiler:
+      - `query` (string): İnternette resim aranacak terim
+      - `count` (number, opsiyonel): Döndürülecek resim sayısı (maks 50, varsayılan 10)
+
+  - **brave_news_search**
+    - Web üzerinde haber arayın
+    - Girdiler:
+      - `query` (string): İnternette haber makaleleri, trend konular veya son olaylar için aranacak terim
+      - `count` (number, opsiyonel): Döndürülecek sonuç sayısı (maks 20, varsayılan 10)
+      - `offset` (number, opsiyonel, varsayılan 0): Sayfalandırma için sıfırdan başlayan offset (maks 9)
+      - `freshness` (enum, opsiyonel): Arama sonuçlarını keşfedilme zamanına göre filtreler
+        - Aşağıdaki değerler desteklenmektedir
+          - pd: Son 24 saat içinde keşfedildi.
+          - pw: Son 7 gün içinde keşfedildi.
+          - pm: Son 31 gün içinde keşfedildi.
+          - py: Son 365 gün içinde keşfedildi
+          - YYYY-MM-DDtoYYYY-MM-DD: Özel tarih aralığı (örn. 2022-04-01to2022-07-30)
+
+  - **brave_local_search**
+    - Yerel işletmeleri, hizmetleri ve ilgi noktalarını arayın
+    - Konum sonucu bulunamazsa ilk sayfada brave_web_search'e geri döner
+    - Girdiler:
+      - `query` (string): Yerel arama terimi
+      - `count` (number, opsiyonel): Döndürülecek sonuç sayısı (maks 20, varsayılan 5)
+      - `offset` (number, opsiyonel, varsayılan 0): Sayfalandırma için sıfırdan başlayan offset (maks 9)
+
+  - **brave_video_search**
+    - Web üzerinde video arayın
+    - Girdiler:
+      - `query`: (string): Video aranacak terim
+      - `count`: (number, opsiyonel): Döndürülecek video sayısı (maks 20, varsayılan 10)
+      - `offset` (number, opsiyonel, varsayılan 0): Sayfalandırma için sıfırdan başlayan offset (maks 9)
+      - `freshness` (enum, opsiyonel): Arama sonuçlarını keşfedilme zamanına göre filtreler
+        - Aşağıdaki değerler desteklenmektedir
+          - pd: Son 24 saat içinde keşfedildi.
+          - pw: Son 7 gün içinde keşfedildi.
+          - pm: Son 31 gün içinde keşfedildi.
+          - py: Son 365 gün içinde keşfedildi
+          - YYYY-MM-DDtoYYYY-MM-DD: Özel tarih aralığı (örn. 2022-04-01to2022-07-30)
+
+  - **brave_llm_context_search**
+    - AI ajanları, LLM temellendirmesi ve RAG pipeline'ları için optimize edilmiş önceden çıkartılmış web içeriği.
+    - `compact` modda Brave'in `balanced` bağlam eşik modunu kullanır ve `full` modda Brave alaka filtreleştirilmesini devre dışı bırakır.
+    - Girdiler:
+      - `query` (string): Arama sorgusu. Maksimum 400 karakter ve 50 kelime.
+      - `url` (string, opsiyonel): Hedeflenecek opsiyonel URL. Sağlandığında, sorgu ve URL alım için birleştirilir ve yalnızca bu tam URL'den kod parçaları döndürülür.
+      - `count` (number, opsiyonel, varsayılan 8): Dikkate alınacak maksimum arama sonuç sayısı. Minimum 1, maksimum 50.
+      - `maximumNumberOfUrls` (number, opsiyonel, varsayılan 8): Yanıta dahil edilecek maksimum URL sayısı. Minimum 1, maksimum 50.
+      - `maximumNumberOfTokens` (number, opsiyonel, varsayılan 2048): Döndürülen bağlamda yaklaşık maksimum token sayısı. Minimum 1024, maksimum 32768.
+      - `maximumNumberOfSnippets` (number, opsiyonel, varsayılan 16): Tüm URL'ler arasında maksimum kod parçası sayısı. Minimum 1, maksimum 100.
+      - `maximumNumberOfTokensPerUrl` (number, opsiyonel, varsayılan 512): URL başına maksimum token sayısı. Minimum 512, maksimum 8192.
+      - `maximumNumberOfSnippetsPerUrl` (number, opsiyonel, varsayılan 2): URL başına maksimum kod parçası sayısı. Minimum 1, maksimum 100.
+      - `responseMode` (enum, opsiyonel, varsayılan `compact`): `compact`, Brave'in `balanced` alaka filtreleştirilmesini artı yerel kod parçası filtreleştirilmesi/kesimesini uygular. `full`, Brave'in alaka filtreleştirilmesini devre dışı bırakır ve ham kod parçalarını yerel filtreleştirilme veya kesiş olmadan döndürür.
+      - `maxSnippetChars` (number, opsiyonel, varsayılan 400): Compact modda kod parçası başına maksimum karakter. Minimum 80, maksimum 4000.
+      - `maxOutputChars` (number, opsiyonel, varsayılan 8000): Compact modda yaklaşık maksimum seri hale getirilmiş yanıt boyutu. Minimum 1000, maksimum 100000.
+
+  ## OpenAI Apps & MCP Apps Desteği
+
+  <p align="center">
+    <a href="https://www.youtube.com/watch?v=Z5KiC00gBVE">
+      
+    </a>
+    <br>
+    <a href="https://www.youtube.com/watch?v=Z5KiC00gBVE"><em>▶️ Demo videoyu izlemek için tıklayın</em></a>
+  </p>
+
+  Bu MCP Server'da [OpenAI Apps](https://developers.openai.com/apps-sdk/) ve [MCP Apps](https://modelcontextprotocol.io/docs/extensions/apps) desteği bulunmaktadır. Her araç için UI modu etkinleştirildiğinde, modelin bağlamına neyin ekleneceğini kontrol etmenize izin veren ilgili bir UI widget'ı bulunmaktadır. [ChatGPT ile kullanım bölümündeki](#usage-with-chatgpt) yönergelere bakın.
+
+  ## Yapılandırma
+
+  ### API Anahtarı Alma
+
+  1. [Brave Search API hesabına](https://brave.com/search/api/) kaydolun
+  2. Bir plan seçin
+  3. API anahtarınızı [geliştirici panodan](https://api.search.brave.com/app/keys) oluşturun
+
+  ### Streamable HTTP modu
+
+  Varsayılan olarak MCP server'ı stdio modunda çalışır.
+
+  ```bash
+  BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp
+  ```
+
+  Streamable HTTP modunu etkinleştirmek için:
+
+  ```bash
+  BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http
+  ```
+
+  Varsayılan olarak server 3001 portunda dinler.
+  URL:
+
+  ```
+  http://0.0.0.0:3001/mcp
+  ```
+
+  ### Ortam değişkenleri
+
+  HTTP modunda çalışırken, aşağıdaki ortam değişkenleri desteklenmektedir:
+
+  - `BRAVE_API_KEY` (gerekli): Brave Search API anahtarı.
+  - `PORT` (opsiyonel): HTTP port'u (varsayılan: `3001`).
+  - `HOST` (opsiyonel): Bağlanacak arayüz (varsayılan: `0.0.0.0`).
+  - `ALLOWED_HOSTS` (opsiyonel): Host başlığı doğrulaması için izin verilen ana bilgisayar adlarının virgülle ayrılmış listesi.
+    - Örnek: `ALLOWED_HOSTS=localhost,127.0.0.1,my-app.ngrok-free.app`
+    - Yalnızca ana bilgisayar adlarını kullanın (şema/yol yok), örn. `my-app.ngrok-free.app` değil `https://my-app.ngrok-free.app/mcp`
+
+  Örnekler:
+
+  ```bash
+  # Yalnızca yerel
+  HOST=127.0.0.1 ALLOWED_HOSTS=localhost,127.0.0.1 BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http
+  ```
+
+  ```bash
+  # ngrok tüneli ile yerel
+  HOST=127.0.0.1 ALLOWED_HOSTS=localhost,127.0.0.1,my-app.ngrok-free.app BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http --ui
+  ```
+
+  ### ChatGPT ile Kullanım
+
+  Brave Search MCP Server, ChatGPT'nin web UI'sı ile kullanılabilir. Birkaç adım gerekir.
+
+  #### 1. ChatGPT'de Geliştirici Modunu Etkinleştirin
+
+  Ayarlar → Uygulamalar → Gelişmiş ayarlar → Geliştirici modu
+
+  Ek talimatlar [burada](https://platform.openai.com/docs/guides/developer-mode)
+
+  #### 2. Brave Search MCP'yi HTTP modu ve UI modunda çalıştırın
+
+  ```bash
+  BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http --ui
+  ```
+
+  #### 3. MCP Server'ı ChatGPT'ye açığa çıkarmak için yerel bir tünel oluşturun
+
+  [ngrok](https://ngrok.com/) ile kaydolun ve yapılandırın, ücretsiz plan işe yarar.
+
+  ```bash
+  ngrok http 3001
+  ```
+
+  Yönlendirme URL'sini not edin.
+
+  ```bash
+  ...
+  Forwarding                    https://john-joe-asdf.ngrok-free.dev -> http://localhost:3001
+  ...
+  ```
+
+  #### 4. Brave Search MCP'yi ChatGPT'ye Connector olarak Ekleyin
+
+  [ChatGPT Apps ayarlarını](https://chatgpt.com/#settings/Connectors) açın
+
+  Uygulamalar'a tıklayın
+
+  Uygulama Oluştur'a tıklayın
+
+  3. adımdaki URL'yi MCP Server URL'si olarak kullanarak formu doldurun, ancak `/mcp` ekleyin.
+
+  ```
+  https://john-joe-asdf.ngrok-free.dev/mcp
+  ```
+
+  Kimlik Doğrulama için 'Kimlik Doğrulama Yok'u seçin
+
+  'Anladım ve devam etmek istiyorum' kutusu işaretli olmalıdır
+
+  Sonra Oluştur'a tıklayın.
+
+  #### 5. Brave Search MCP Server'ını Kullanma
+
+  ChatGPT UI'sında '+' düğmesine tıklayın, '...daha fazla'a kaydırın, yeni oluşturulan Brave Search uygulamasını seçin ve sorgunuzu girin.
+
+  ### Claude Code ile Kullanım
+
+  [Claude Code](https://claude.ai/code) kullanıcıları için bu komutu çalıştırın:
+
+  **Windows:**
+
+  ```bash
+  claude mcp add-json brave-search '{"command":"cmd","args":["/c","npx","-y","brave-search-mcp"],"env":{"BRAVE_API_KEY":"YOUR_API_KEY_HERE"}}'
+  ```
+
+  **Linux/macOS:**
+
+  ```bash
+  claude mcp add-json brave-search '{"command":"npx","args":["-y","brave-search-mcp"],"env":{"BRAVE_API_KEY":"YOUR_API_KEY_HERE"}}'
+  ```
+
+  `YOUR_API_KEY_HERE` yerine gerçek Brave Search API anahtarınızı yazın.
+
+  ### Claude Desktop ile Kullanım
+
+  #### MCP Bundle (MCPB)
+
+  1. [Sürümler](https://github.com/mikechao/brave-search-mcp/releases) sayfasından `mcpb` dosyasını indirin
+  2. Claude Desktop ile açın
+     veya
+     Dosya → Ayarlar → Uzantılar'a gidin ve .mcpb dosyasını pencereye sürükleyerek yükleyin
+
+  #### Docker
+
+  1. Repo'yu klonlayın
+  2. Repo kökünden imajı oluşturun
+
+  ```bash
+  docker build -t brave-search-mcp:latest -f apps/brave-search-mcp/Dockerfile .
+  ```
+
+  3. HTTP modu istiyorsanız doğrudan çalıştırın:
+
+  ```bash
+  docker run --rm -p 3001:3001 -e BRAVE_API_KEY="YOUR_API_KEY_HERE" brave-search-mcp:latest --http
+  ```
+
+  4. Stdio modu için bunu `claude_desktop_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcp-servers": {
+      "brave-search": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "-e",
+          "BRAVE_API_KEY",
+          "brave-search-mcp"
+        ],
+        "env": {
+          "BRAVE_API_KEY": "YOUR API KEY HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  #### NPX
+
+  Bunu `claude_desktop_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcp-servers": {
+      "brave-search": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "brave-search-mcp"
+        ],
+        "env": {
+          "BRAVE_API_KEY": "YOUR API KEY HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  ### LibreChat ile Kullanım
+
+  Bunu librechat.yaml dosyasına ekleyin
+
+  ```yaml
+  brave-search:
+    command: sh
+    args:
+      - -c
+      - BRAVE_API_KEY=API KEY npx -y brave-search-mcp
+  ```
+
+  ## Katkıda Bulunma
+
+  Katkılar hoşlanır! Geliştirme kurulumu, monorepo yapısı ve sürüm talimatları için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  UI derleme workflow detayları, giriş noktası orkestratörü dahil olmak üzere [UI Build Orchestrator](CONTRIBUTING.md#ui-build-orchestrator) bölümüne bakın.
+
+  ## Feragatname
+
+  Bu kütüphane Brave Software ile resmi olarak ilişkili değildir. Brave Search API'sinin ve MCP Server'ının üçüncü taraf bir uygulamasıdır.
+
+  ## Lisans
+
+  Bu proje GNU General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 # Brave Search MCP Server

@@ -9,6 +9,427 @@ body_length: 20009
 license: "MIT"
 language: "Python"
 homepage: "https://pypi.org/project/mcp-server-apache-airflow/"
+body_tr: |-
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yangkyeongmo-mcp-server-apache-airflow-badge.png)](https://mseep.ai/app/yangkyeongmo-mcp-server-apache-airflow)
+
+  # mcp-server-apache-airflow
+
+  [![smithery badge](https://smithery.ai/badge/@yangkyeongmo/mcp-server-apache-airflow)](https://smithery.ai/server/@yangkyeongmo/mcp-server-apache-airflow)
+  ![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-server-apache-airflow)
+
+  Apache Airflow için bir Model Context Protocol (MCP) sunucu uygulaması. MCP istemcileriyle sorunsuz entegrasyon sağlar. Bu proje, Model Context Protocol aracılığıyla Apache Airflow ile etkileşim kurmanın standartlaştırılmış bir yolunu sunar.
+
+  <a href="https://glama.ai/mcp/servers/e99b6vx9lw">
+    
+  </a>
+
+  ## Hakkında
+
+  Bu proje, Apache Airflow'un REST API'sini sarmalayan bir [Model Context Protocol](https://modelcontextprotocol.io/introduction) sunucusu uygular ve MCP istemcilerinin Airflow ile standartlaştırılmış bir şekilde etkileşim kurmasını sağlar. Uyumluluk ve bakımlanabilirliği sağlamak için resmi Apache Airflow istemci kütüphanesini kullanır.
+
+  ## Özellik Uygulama Durumu
+
+  | Özellik                          | API Yolu                                                                                      | Durum |
+  | -------------------------------- | --------------------------------------------------------------------------------------------- | ------ |
+  | **DAG Yönetimi**         |                                                                                               |        |
+  | DAG'ları Listele                        | `/api/v1/dags`                                                                              | ✅     |
+  | DAG Detaylarını Al                  | `/api/v1/dags/{dag_id}`                                                                     | ✅     |
+  | DAG'ı Duraklat                        | `/api/v1/dags/{dag_id}`                                                                     | ✅     |
+  | DAG'ı Devam Ettir                      | `/api/v1/dags/{dag_id}`                                                                     | ✅     |
+  | DAG'ı Güncelle                       | `/api/v1/dags/{dag_id}`                                                                     | ✅     |
+  | DAG'ı Sil                       | `/api/v1/dags/{dag_id}`                                                                     | ✅     |
+  | DAG Kaynağını Al                   | `/api/v1/dagSources/{file_token}`                                                           | ✅     |
+  | Birden Fazla DAG'ı Düzelt              | `/api/v1/dags`                                                                              | ✅     |
+  | DAG Dosyasını Yeniden Ayrıştır                 | `/api/v1/dagSources/{file_token}/reparse`                                                   | ✅     |
+  | **DAG Çalıştırmaları**               |                                                                                               |        |
+  | DAG Çalıştırmalarını Listele                    | `/api/v1/dags/{dag_id}/dagRuns`                                                             | ✅     |
+  | DAG Çalıştırması Oluştur                   | `/api/v1/dags/{dag_id}/dagRuns`                                                             | ✅     |
+  | DAG Çalıştırması Detaylarını Al              | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}`                                                | ✅     |
+  | DAG Çalıştırmasını Güncelle                   | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}`                                                | ✅     |
+  | DAG Çalıştırmasını Sil                   | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}`                                                | ✅     |
+  | DAG Çalıştırmalarını Toplu Al               | `/api/v1/dags/~/dagRuns/list`                                                               | ✅     |
+  | DAG Çalıştırmasını Temizle                    | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/clear`                                          | ✅     |
+  | DAG Çalıştırması Notu Ayarla                 | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/setNote`                                        | ✅     |
+  | Upstream Veri Seti Olaylarını Al      | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/upstreamDatasetEvents`                          | ✅     |
+  | **Görevler**                  |                                                                                               |        |
+  | DAG Görevlerini Listele                   | `/api/v1/dags/{dag_id}/tasks`                                                               | ✅     |
+  | Görev Detaylarını Al                 | `/api/v1/dags/{dag_id}/tasks/{task_id}`                                                     | ✅     |
+  | Görev Örneğini Al                | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}`                        | ✅     |
+  | Görev Örneklerini Listele              | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances`                                  | ✅     |
+  | Görev Örneğini Güncelle             | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}`                        | ✅     |
+  | Görev Örneği Günlüğünü Al            | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/logs/{task_try_number}` | ✅     |
+  | Görev Örneklerini Temizle             | `/api/v1/dags/{dag_id}/clearTaskInstances`                                                  | ✅     |
+  | Görev Örnekleri Durumunu Ayarla         | `/api/v1/dags/{dag_id}/updateTaskInstancesState`                                            | ✅     |
+  | Görev Örneği Denemelerini Listele         | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/tries`                  | ✅     |
+  | **Değişkenler**              |                                                                                               |        |
+  | Değişkenleri Listele                   | `/api/v1/variables`                                                                         | ✅     |
+  | Değişken Oluştur                  | `/api/v1/variables`                                                                         | ✅     |
+  | Değişkeni Al                     | `/api/v1/variables/{variable_key}`                                                          | ✅     |
+  | Değişkeni Güncelle                  | `/api/v1/variables/{variable_key}`                                                          | ✅     |
+  | Değişkeni Sil                  | `/api/v1/variables/{variable_key}`                                                          | ✅     |
+  | **Bağlantılar**            |                                                                                               |        |
+  | Bağlantıları Listele                 | `/api/v1/connections`                                                                       | ✅     |
+  | Bağlantı Oluştur                | `/api/v1/connections`                                                                       | ✅     |
+  | Bağlantıyı Al                   | `/api/v1/connections/{connection_id}`                                                       | ✅     |
+  | Bağlantıyı Güncelle                | `/api/v1/connections/{connection_id}`                                                       | ✅     |
+  | Bağlantıyı Sil                | `/api/v1/connections/{connection_id}`                                                       | ✅     |
+  | Bağlantıyı Test Et                  | `/api/v1/connections/test`                                                                  | ✅     |
+  | **Havuzlar**                  |                                                                                               |        |
+  | Havuzları Listele                       | `/api/v1/pools`                                                                             | ✅     |
+  | Havuz Oluştur                      | `/api/v1/pools`                                                                             | ✅     |
+  | Havuzu Al                         | `/api/v1/pools/{pool_name}`                                                                 | ✅     |
+  | Havuzu Güncelle                      | `/api/v1/pools/{pool_name}`                                                                 | ✅     |
+  | Havuzu Sil                      | `/api/v1/pools/{pool_name}`                                                                 | ✅     |
+  | **XCom'lar**                  |                                                                                               |        |
+  | XCom'ları Listele                       | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries`            | ✅     |
+  | XCom Girişini Al                   | `/api/v1/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{xcom_key}` | ✅     |
+  | **Veri Setleri**               |                                                                                               |        |
+  | Veri Setlerini Listele                    | `/api/v1/datasets`                                                                          | ✅     |
+  | Veri Setini Al                      | `/api/v1/datasets/{uri}`                                                                    | ✅     |
+  | Veri Seti Olaylarını Al               | `/api/v1/datasetEvents`                                                                     | ✅     |
+  | Veri Seti Olayı Oluştur             | `/api/v1/datasetEvents`                                                                     | ✅     |
+  | DAG Veri Seti Kuyruğa Alınmış Olayını Al     | `/api/v1/dags/{dag_id}/dagRuns/queued/datasetEvents/{uri}`                                  | ✅     |
+  | DAG Veri Seti Kuyruğa Alınmış Olaylarını Al    | `/api/v1/dags/{dag_id}/dagRuns/queued/datasetEvents`                                        | ✅     |
+  | DAG Veri Seti Kuyruğa Alınmış Olayını Sil  | `/api/v1/dags/{dag_id}/dagRuns/queued/datasetEvents/{uri}`                                  | ✅     |
+  | DAG Veri Seti Kuyruğa Alınmış Olaylarını Sil | `/api/v1/dags/{dag_id}/dagRuns/queued/datasetEvents`                                        | ✅     |
+  | Veri Seti Kuyruğa Alınmış Olaylarını Al        | `/api/v1/datasets/{uri}/dagRuns/queued/datasetEvents`                                       | ✅     |
+  | Veri Seti Kuyruğa Alınmış Olaylarını Sil     | `/api/v1/datasets/{uri}/dagRuns/queued/datasetEvents`                                       | ✅     |
+  | **İzleme**             |                                                                                               |        |
+  | Sağlığı Al                       | `/api/v1/health`                                                                            | ✅     |
+  | **DAG İstatistikleri**              |                                                                                               |        |
+  | DAG İstatistiklerini Al                    | `/api/v1/dags/statistics`                                                                   | ✅     |
+  | **Yapılandırma**                 |                                                                                               |        |
+  | Yapılandırmayı Al                       | `/api/v1/config`                                                                            | ✅     |
+  | **Eklentiler**                |                                                                                               |        |
+  | Eklentileri Al                      | `/api/v1/plugins`                                                                           | ✅     |
+  | **Sağlayıcılar**              |                                                                                               |        |
+  | Sağlayıcıları Listele                   | `/api/v1/providers`                                                                         | ✅     |
+  | **Olay Günlükleri**             |                                                                                               |        |
+  | Olay Günlüklerini Listele                  | `/api/v1/eventLogs`                                                                         | ✅     |
+  | Olay Günlüğünü Al                    | `/api/v1/eventLogs/{event_log_id}`                                                          | ✅     |
+  | **Sistem**                 |                                                                                               |        |
+  | İthalatı Hataları Al                | `/api/v1/importErrors`                                                                      | ✅     |
+  | İthalatı Hatası Detaylarını Al         | `/api/v1/importErrors/{import_error_id}`                                                    | ✅     |
+  | Sağlık Durumunu Al                | `/api/v1/health`                                                                            | ✅     |
+  | Sürümü Al                      | `/api/v1/version`                                                                           | ✅     |
+
+  ## Kurulum
+
+  ### Bağımlılıklar
+
+  Bu proje resmi Apache Airflow istemci kütüphanesine (`apache-airflow-client`) bağlıdır. Bu paketi yüklediğinizde otomatik olarak yüklenecektir.
+
+  ### Ortam Değişkenleri
+
+  Aşağıdaki ortam değişkenlerini ayarlayın:
+
+  ```
+  AIRFLOW_HOST=<your-airflow-host>        # İsteğe bağlı, varsayılan http://localhost:8080
+  AIRFLOW_API_VERSION=v1                  # İsteğe bağlı, varsayılan v1
+  READ_ONLY=true                          # İsteğe bağlı, salt okunur modu etkinleştirir (true/false, varsayılan false)
+  ```
+
+  #### Kimlik Doğrulama
+
+  Aşağıdaki kimlik doğrulama yöntemlerinden birini seçin:
+
+  **Temel Kimlik Doğrulama (varsayılan):**
+  ```
+  AIRFLOW_USERNAME=<your-airflow-username>
+  AIRFLOW_PASSWORD=<your-airflow-password>
+  ```
+
+  **JWT Token Kimlik Doğrulaması:**
+  ```
+  AIRFLOW_JWT_TOKEN=<your-jwt-token>
+  ```
+
+  JWT token almak için Airflow'un kimlik doğrulama endpoint'ini kullanabilirsiniz:
+
+  ```bash
+  ENDPOINT_URL="http://localhost:8080"  # Airflow endpoint'iniz ile değiştirin
+  curl -X 'POST' \
+    "${ENDPOINT_URL}/auth/token" \
+    -H 'Content-Type: application/json' \
+    -d '{ "username": "<your-username>", "password": "<your-password>" }'
+  ```
+
+  > **Not**: JWT token ve temel kimlik doğrulama bilgilerinin her ikisi de sağlanırsa, JWT token öncelik kazanır.
+
+  ### Claude Desktop ile Kullanım
+
+  `claude_desktop_config.json` dosyanıza ekleyin:
+
+  **Temel Kimlik Doğrulama:**
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-apache-airflow": {
+        "command": "uvx",
+        "args": ["mcp-server-apache-airflow"],
+        "env": {
+          "AIRFLOW_HOST": "https://your-airflow-host",
+          "AIRFLOW_USERNAME": "your-username",
+          "AIRFLOW_PASSWORD": "your-password"
+        }
+      }
+    }
+  }
+  ```
+
+  **JWT Token Kimlik Doğrulaması:**
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-apache-airflow": {
+        "command": "uvx",
+        "args": ["mcp-server-apache-airflow"],
+        "env": {
+          "AIRFLOW_HOST": "https://your-airflow-host",
+          "AIRFLOW_JWT_TOKEN": "your-jwt-token"
+        }
+      }
+    }
+  }
+  ```
+
+  Salt okunur mod için (güvenlik açısından tavsiye edilir):
+
+  **Temel Kimlik Doğrulama:**
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-apache-airflow": {
+        "command": "uvx",
+        "args": ["mcp-server-apache-airflow"],
+        "env": {
+          "AIRFLOW_HOST": "https://your-airflow-host",
+          "AIRFLOW_USERNAME": "your-username",
+          "AIRFLOW_PASSWORD": "your-password",
+          "READ_ONLY": "true"
+        }
+      }
+    }
+  }
+  ```
+
+  **JWT Token Kimlik Doğrulaması:**
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-apache-airflow": {
+        "command": "uvx",
+        "args": ["mcp-server-apache-airflow", "--read-only"],
+        "env": {
+          "AIRFLOW_HOST": "https://your-airflow-host",
+          "AIRFLOW_JWT_TOKEN": "your-jwt-token"
+        }
+      }
+    }
+  }
+  ```
+
+  `uv` kullanarak alternatif yapılandırma:
+
+  **Temel Kimlik Doğrulama:**
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-apache-airflow": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "/path/to/mcp-server-apache-airflow",
+          "run",
+          "mcp-server-apache-airflow"
+        ],
+        "env": {
+          "AIRFLOW_HOST": "https://your-airflow-host",
+          "AIRFLOW_USERNAME": "your-username",
+          "AIRFLOW_PASSWORD": "your-password"
+        }
+      }
+    }
+  }
+  ```
+
+  **JWT Token Kimlik Doğrulaması:**
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-apache-airflow": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "/path/to/mcp-server-apache-airflow",
+          "run",
+          "mcp-server-apache-airflow"
+        ],
+        "env": {
+          "AIRFLOW_HOST": "https://your-airflow-host",
+          "AIRFLOW_JWT_TOKEN": "your-jwt-token"
+        }
+      }
+    }
+  }
+  ```
+
+  `/path/to/mcp-server-apache-airflow` yerine depoyu klonladığınız gerçek yolu yazın.
+
+  ### API Gruplarını Seçme
+
+  `--apis` flag'ini ayarlayarak kullanmak istediğiniz API gruplarını seçebilirsiniz.
+
+  ```bash
+  uv run mcp-server-apache-airflow --apis dag --apis dagrun
+  ```
+
+  Varsayılan olarak tüm API'ler kullanılır.
+
+  İzin verilen değerler:
+
+  - config
+  - connections
+  - dag
+  - dagrun
+  - dagstats
+  - dataset
+  - eventlog
+  - importerror
+  - monitoring
+  - plugin
+  - pool
+  - provider
+  - taskinstance
+  - variable
+  - xcom
+
+  ### Salt Okunur Mod
+
+  `--read-only` flag'ini kullanarak veya `READ_ONLY=true` ortam değişkenini ayarlayarak sunucuyu salt okunur modda çalıştırabilirsiniz. Bu mod yalnızca okuma işlemleri (GET istekleri) yapan araçları ortaya çıkaracak ve kaynakları oluşturan, güncelleyen veya silen araçları dışlayacaktır.
+
+  Komut satırı flag'ini kullanarak:
+  ```bash
+  uv run mcp-server-apache-airflow --read-only
+  ```
+
+  Ortam değişkenini kullanarak:
+  ```bash
+  READ_ONLY=true uv run mcp-server-apache-airflow
+  ```
+
+  Salt okunur modda, sunucu yalnızca şu gibi araçları ortaya çıkaracaktır:
+  - DAG'ları, DAG çalıştırmalarını, görevleri, değişkenleri, bağlantıları vb. listeleme
+  - Belirli kaynakların ayrıntılarını alma
+  - Yapılandırmaları ve izleme bilgilerini okuma
+  - Bağlantıları test etme (zararlı olmayan)
+
+  DAG'ları, değişkenleri, bağlantıları oluşturma, güncelleme, silme, DAG çalıştırmalarını tetikleme vb. gibi yazma işlemleri salt okunur modda kullanılamayacaktır.
+
+  Salt okunur modu API grup seçimiyle birleştirebilirsiniz:
+
+  ```bash
+  uv run mcp-server-apache-airflow --read-only --apis dag --apis variable
+  ```
+
+  ### Manuel Yürütme
+
+  Sunucuyu manuel olarak da çalıştırabilirsiniz:
+
+  ```bash
+  make run
+  ```
+
+  `make run` aşağıdaki seçenekleri kabul eder:
+
+  Seçenekler:
+
+  - `--port`: SSE için dinlenecek port (varsayılan: 8000)
+  - `--transport`: Transport türü (stdio/sse/http, varsayılan: stdio)
+
+  Veya SSE sunucusunu doğrudan çalıştırabilirsiniz, aynı parametreleri kabul eder:
+
+  ```bash
+  make run-sse
+  ```
+
+  Ayrıca, hizmeti aşağıdaki komut gibi `uv` kullanarak doğrudan başlatabilirsiniz:
+
+  ```bash
+  uv run src --transport http --port 8080
+  ```
+
+  ### Smithery üzerinden Kurulum
+
+  Apache Airflow MCP Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/@yangkyeongmo/mcp-server-apache-airflow) üzerinden otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install @yangkyeongmo/mcp-server-apache-airflow --client claude
+  ```
+
+  ## Geliştirme
+
+  ### Geliştirme Ortamını Kurma
+
+  1. Depoyu klonlayın:
+  ```bash
+  git clone https://github.com/yangkyeongmo/mcp-server-apache-airflow.git
+  cd mcp-server-apache-airflow
+  ```
+
+  2. Geliştirme bağımlılıklarını yükleyin:
+  ```bash
+  uv sync --dev
+  ```
+
+  3. Ortam değişkenleri için bir `.env` dosyası oluşturun (geliştirme için isteğe bağlı):
+  ```bash
+  touch .env
+  ```
+
+  > **Not**: Testleri çalıştırmak için ortam değişkenlerine ihtiyaç yoktur. `AIRFLOW_HOST` geliştirme ve test amaçları için `http://localhost:8080` olarak varsayılan olur.
+
+  ### Testleri Çalıştırma
+
+  Proje pytest için aşağıdaki komutlarla kullanılabilir:
+
+  ```bash
+  # Tüm testleri çalıştır
+  make test
+  ```
+
+  ### Kod Kalitesi
+
+  ```bash
+  # Linting'i çalıştır
+  make lint
+
+  # Kod biçimlendirmesini çalıştır
+  make format
+  ```
+
+  ### Sürekli Entegrasyon
+
+  Proje, GitHub Actions iş akışını (`.github/workflows/test.yml`) içerir ve otomatik olarak:
+
+  - Python 3.10, 3.11 ve 3.12'de testleri çalıştırır
+  - ruff kullanarak linting kontrolleri yürütür
+  - `main` dalına her push ve pull request'te çalışır
+
+  CI pipeline'ı, herhangi bir değişiklik birleştirilmeden önce kod kalitesini ve desteklenen Python versiyonları arasında uyumluluğu sağlar.
+
+  ## Katkı
+
+  Katkılar memnuniyetle karşılanır! Lütfen özgürce bir Pull Request göndermekten çekinmeyin.
+
+  Paket, `pyproject.toml` dosyasındaki project.version güncellendiğinde otomatik olarak PyPI'ye yayınlanır.
+  Sürümlendirme için semver'ı izleyin.
+
+  Lütfen çekirdek mantığa yapılan değişiklikleri uygulamak için PR'e sürüm güncellemesi dahil edin.
+
+  ## Lisans
+
+  [MIT Lisansı](LICENSE)
 ---
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yangkyeongmo-mcp-server-apache-airflow-badge.png)](https://mseep.ai/app/yangkyeongmo-mcp-server-apache-airflow)

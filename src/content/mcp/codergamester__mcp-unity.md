@@ -8,6 +8,415 @@ url: "https://github.com/CoderGamester/mcp-unity"
 body_length: 33659
 license: "MIT"
 language: "C#"
+body_tr: |-
+  # MCP Unity Editörü (Oyun Motoru)
+
+  [![](https://badge.mcpx.dev?status=on 'MCP Enabled')](https://modelcontextprotocol.io/introduction)
+  [![](https://img.shields.io/badge/Unity-000000?style=flat&logo=unity&logoColor=white 'Unity')](https://unity.com/releases/editor/archive)
+  [![](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white 'Node.js')](https://nodejs.org/en/download/)
+  [![](https://img.shields.io/github/stars/CoderGamester/mcp-unity 'Stars')](https://github.com/CoderGamester/mcp-unity/stargazers)
+  [![](https://img.shields.io/github/last-commit/CoderGamester/mcp-unity 'Last Commit')](https://github.com/CoderGamester/mcp-unity/commits/main)
+  [![](https://img.shields.io/badge/License-MIT-red.svg 'MIT License')](https://opensource.org/licenses/MIT)
+
+  | [🇺🇸English](README.md) | [🇨🇳简体中文](README_zh-CN.md) | [🇯🇵日本語](README-ja.md) |
+  |----------------------|---------------------------------|----------------------|
+
+  ```        
+                                ,/(/.   *(/,                                  
+                            */(((((/.   *((((((*.                             
+                       .*((((((((((/.   *((((((((((/.                         
+                   ./((((((((((((((/    *((((((((((((((/,                     
+               ,/(((((((((((((/*.           */(((((((((((((/*.                
+              ,%%#((/((((((*                    ,/(((((/(#&@@(                
+              ,%%##%%##((((((/*.             ,/((((/(#&@@@@@@(                
+              ,%%######%%##((/(((/*.    .*/(((//(%@@@@@@@@@@@(                
+              ,%%####%#(%%#%%##((/((((((((//#&@@@@@@&@@@@@@@@(                
+              ,%%####%(    /#%#%%%##(//(#@@@@@@@%,   #@@@@@@@(                
+              ,%%####%(        *#%###%@@@@@@(        #@@@@@@@(                
+              ,%%####%(           #%#%@@@@,          #@@@@@@@(                
+              ,%%##%%%(           #%#%@@@@,          #@@@@@@@(                
+              ,%%%#*              #%#%@@@@,             *%@@@(                
+              .,      ,/##*.      #%#%@@@@,     ./&@#*      *`                
+                  ,/#%#####%%#/,  #%#%@@@@, ,/&@@@@@@@@@&\.                    
+                   `*#########%%%%###%@@@@@@@@@@@@@@@@@@&*´                   
+                      `*%%###########%@@@@@@@@@@@@@@&*´                        
+                          `*%%%######%@@@@@@@@@@&*´                            
+                              `*#%%##%@@@@@&*´                                 
+                                 `*%#%@&*´                                     
+                                                         
+       ███╗   ███╗ ██████╗██████╗         ██╗   ██╗███╗   ██╗██╗████████╗██╗   ██╗
+       ████╗ ████║██╔════╝██╔══██╗        ██║   ██║████╗  ██║██║╚══██╔══╝╚██╗ ██╔╝
+       ██╔████╔██║██║     ██████╔╝        ██║   ██║██╔██╗ ██║██║   ██║    ╚████╔╝ 
+       ██║╚██╔╝██║██║     ██╔═══╝         ██║   ██║██║╚██╗██║██║   ██║     ╚██╔╝  
+       ██║ ╚═╝ ██║╚██████╗██║             ╚██████╔╝██║ ╚████║██║   ██║      ██║   
+       ╚═╝     ╚═╝ ╚═════╝╚═╝              ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝      ╚═╝   
+  ```       
+
+  MCP Unity, Unity Editörü için Model Context Protocol uygulamasıdır ve AI asistanlarının Unity projelerinizle etkileşim kurmasını sağlar. Bu paket, Unity ile MCP protokolünü uygulayan bir Node.js sunucusu arasında bir köprü sağlar ve Cursor, Windsurf, Claude Code, Codex CLI, GitHub Copilot, Google Antigravity ve OpenCode gibi AI ajanlarının Unity Editörü içinde işlem yürütmesini sağlar.
+
+  ## Özellikler
+
+  ### IDE Entegrasyonu - Paket Önbelleği Erişimi
+
+  MCP Unity, VSCode benzeri IDEler (Visual Studio Code, Cursor, Windsurf, Google Antigravity) ile otomatik entegrasyon sağlar ve Unity `Library/PackedCache` klasörünü çalışma alanınıza ekler. Bu özellik:
+
+  - Unity paketleri için kod zekasını iyileştirir
+  - Unity paketleri için daha iyi otomatik tamamlama ve tür bilgisi sağlar
+  - AI kodlama asistanlarının projenizin bağımlılıklarını anlamasına yardımcı olur
+
+  ### MCP Sunucu Araçları
+
+  Aşağıdaki araçlar MCP aracılığıyla Unity sahneleri ve GameObjects'i manipüle etme ve sorgulama için kullanılabilir:
+
+  - `execute_menu_item`: Unity menü öğelerini çalıştırır (MenuItem özniteliği ile etiketlenmiş fonksiyonlar)
+    > **Örnek istem:** "Yeni boş bir GameObject oluşturmak için 'GameObject/Create Empty' menü öğesini çalıştır"
+
+  - `select_gameobject`: GameObject'leri hiyerarşide yol veya örnek kimliğine göre seçer
+    > **Örnek istem:** "Sahnemizdeki Main Camera nesnesini seç"
+
+  - `update_gameobject`: GameObject'in temel özelliklerini günceller (ad, etiket, katman, aktif/statik durumu) veya yoksa GameObject oluşturur
+    > **Örnek istem:** "Player nesnesinin etiketini 'Enemy' olarak ayarla ve onu deaktif yap"
+
+  - `update_component`: GameObject'teki bileşen alanlarını günceller veya GameObject'te yoksa bileşeni ekler
+    > **Örnek istem:** "Player nesnesine Rigidbody bileşeni ekle ve kütlesini 5 olarak ayarla"
+
+  - `add_package`: Unity Package Manager'da yeni paketler yükler
+    > **Örnek istem:** "TextMeshPro paketini projeme ekle"
+
+  - `run_tests`: Unity Test Runner kullanarak testleri çalıştırır
+    > **Örnek istem:** "Projemizdeki tüm EditMode testlerini çalıştır"
+
+  - `send_console_log`: Unity'ye konsol günlüğü gönderir
+    > **Örnek istem:** "Unity Editörüne bir konsol günlüğü gönder"
+
+  - `add_asset_to_scene`: AssetDatabase'deki bir varlığı Unity sahnesine ekler
+    > **Örnek istem:** "Player prefab'ini projemden mevcut sahneye ekle"
+
+  - `create_prefab`: İsteğe bağlı MonoBehaviour script ve serialized alan değerleri ile bir prefab oluşturur
+    > **Örnek istem:** "'PlayerController' script'inden 'Player' adlı bir prefab oluştur"
+
+  - `create_scene`: Yeni bir sahne oluşturur ve belirtilen yola kaydeder
+    > **Örnek istem:** "Scenes klasöründe 'Level1' adlı yeni bir sahne oluştur"
+
+  - `load_scene`: Bir sahneyi yol veya ada göre yükler, isteğe bağlı olarak eklemeli yükleme ile
+    > **Örnek istem:** "MainMenu sahnesi yükle"
+
+  - `delete_scene`: Bir sahneyi yol veya ada göre siler ve Build Settings'ten kaldırır
+    > **Örnek istem:** "Eski TestScene'i projemden sil"
+
+  - `get_gameobject`: Tüm bileşenleri içeren belirli bir GameObject hakkında ayrıntılı bilgi alır
+    > **Örnek istem:** "Player GameObject'inin ayrıntılarını al"
+
+  - `get_console_logs`: Sayfalandırma desteği ile Unity konsolundan günlükleri alır
+    > **Örnek istem:** "Unity konsolundan son 20 hata günlüğünü göster"
+
+  - `recompile_scripts`: Unity projesindeki tüm script'leri yeniden derler
+    > **Örnek istem:** "Unity projemizdeki script'leri yeniden derle"
+
+  - `save_scene`: Mevcut etkin sahneyi kaydeder, isteğe bağlı olarak yeni yola Farklı Kaydet ile
+    > **Örnek istem:** "Mevcut sahneyi kaydet" veya "Sahneyi 'Assets/Scenes/Level2.unity' olarak kaydet"
+
+  - `get_scene_info`: Etkin sahne hakkında bilgi alır: ad, yol, dirty durumu ve yüklü tüm sahneler
+    > **Örnek istem:** "Projemde şu anda hangi sahneler yüklü?"
+
+  - `unload_scene`: Bir sahneyi hiyerarşiden boşaltır (sahne varlığını silmez)
+    > **Örnek istem:** "UI sahnesi hiyerarşiden boşalt"
+
+  - `duplicate_gameobject`: Sahnede isteğe bağlı yeniden adlandırma ve yeniden ebeveynleştirme ile bir GameObject'i kopyalar
+    > **Örnek istem:** "Enemy prefab'ini 5 kez kopyala ve Enemy_1 ile Enemy_5 arasında adlandır"
+
+  - `delete_gameobject`: Sahnesinden bir GameObject'i siler
+    > **Örnek istem:** "Eski Player nesnesini sahnesinden sil"
+
+  - `reparent_gameobject`: Hiyerarşideki GameObject'in ebeveynini değiştirir
+    > **Örnek istem:** "HealthBar nesnesini UI Canvas'ının alt öğesi olacak şekilde taşı"
+
+  - `move_gameobject`: Bir GameObject'i yeni bir konuma taşır (yerel veya dünya alanı)
+    > **Örnek istem:** "Player nesnesini dünya alanında (10, 0, 5) konumuna taşı"
+
+  - `rotate_gameobject`: Bir GameObject'i yeni bir rotasyona döndürür (yerel veya dünya alanı, Euler açıları veya quaternion)
+    > **Örnek istem:** "Kamerayı Y ekseni üzerinde 45 derece döndür"
+
+  - `scale_gameobject`: Bir GameObject'i yeni bir yerel ölçeğe ölçeklendir
+    > **Örnek istem:** "Enemy nesnesini boyutunun iki katına ölçeklendir"
+
+  - `set_transform`: Bir GameObject'in konumunu, rotasyonunu ve ölçeğini tek bir işlemde ayarlar
+    > **Örnek istem:** "Cube'ün konumunu (0, 5, 0), rotasyonunu (0, 90, 0) ve ölçeğini (2, 2, 2) olarak ayarla"
+
+  - `create_material`: Belirtilen shader ile yeni bir materyal oluşturur ve projeye kaydeder
+    > **Örnek istem:** "URP Lit shader kullanarak 'EnemyMaterial' adlı kırmızı bir materyal oluştur"
+
+  - `assign_material`: Bir GameObject'in Renderer bileşenine bir materyal atar
+    > **Örnek istem:** "'EnemyMaterial'ı Enemy GameObject'ine ata"
+
+  - `modify_material`: Mevcut bir materyalin özelliklerini değiştirir (renkler, float'lar, dokular)
+    > **Örnek istem:** "'EnemyMaterial'ın rengini mavi olarak değiştir ve metalik'i 0.8 olarak ayarla"
+
+  - `get_material_info`: Shader ve tüm özellikleri içeren materyal hakkında ayrıntılı bilgi alır
+    > **Örnek istem:** "'PlayerMaterial'ın tüm özelliklerini göster"
+
+  - `batch_execute`: Birden fazla araç işlemini tek bir batch istekte çalıştırır, tur sayısını azaltır ve başarısızlık durumunda isteğe bağlı geri alma ile atomic işlemleri sağlar
+    > **Örnek istem:** "Enemy_1 ile Enemy_10 arasında adlandırılmış 10 boş GameObject'i tek bir batch işleminde oluştur"
+
+  ### MCP Sunucu Kaynakları
+
+  - `unity://menu-items`: `execute_menu_item` aracını kolaylaştırmak için Unity Editörü'ndeki tüm kullanılabilir menü öğelerinin bir listesini alır
+    > **Örnek istem:** "GameObject oluşturma ile ilgili tüm kullanılabilir menü öğelerini göster"
+
+  - `unity://scenes-hierarchy`: Mevcut Unity sahne hiyerarşisindeki tüm game objects'in bir listesini alır
+    > **Örnek istem:** "Geçerli sahneler hiyerarşi yapısını göster"
+
+  - `unity://gameobject/{id}`: Örnek kimliğine veya sahne hiyerarşisindeki nesne yoluna göre belirli bir GameObject hakkında ayrıntılı bilgi alır; tüm GameObject bileşenleri ile serialized özellikler ve alanları içerir
+    > **Örnek istem:** "Player GameObject hakkında ayrıntılı bilgi al"
+
+  - `unity://logs`: Unity konsolundaki tüm günlüklerin bir listesini alır
+    > **Örnek istem:** "Unity konsolundan son hata mesajlarını göster"
+
+  - `unity://packages`: Unity Package Manager'dan yüklü ve kullanılabilir paketler hakkında bilgi alır
+    > **Örnek istem:** "Unity projemde şu anda yüklü olan tüm paketleri listele"
+
+  - `unity://assets`: Unity Asset Database'deki varlıklar hakkında bilgi alır
+    > **Örnek istem:** "Projemde tüm doku varlıklarını bul"
+
+  - `unity://tests/{testMode}`: Unity Test Runner'daki testler hakkında bilgi alır
+    > **Örnek istem:** "Unity projemizdeki tüm kullanılabilir testleri listele"
+
+  ## Gereksinimler
+  - Unity 6 veya daha yeni - sunucuyu [yüklemek](#install-server) için
+  - Node.js 18 veya daha yeni - sunucuyu [başlatmak](#start-server) için
+  - npm 9 veya daha yeni - sunucuyu [hata ayıklamak](#debug-server) için
+
+  > [!NOTE]
+  > **Boşluk İçeren Proje Yolları**
+  >
+  > MCP Unity boşluk içeren proje yollarını destekler. Ancak bağlantı sorunları yaşıyorsanız, sorun giderme adımı olarak projenizi boşluk olmayan bir yola taşımayı deneyin.
+  >
+  > **Örnekler:**
+  > -   ✅ **Önerilen:** `C:\Users\YourUser\Documents\UnityProjects\MyAwesomeGame`
+  > -   ✅ **Desteklenen:** `C:\Users\Your User\Documents\Unity Projects\My Awesome Game`
+
+  ## <a name="install-server"></a>Kurulum
+
+  MCP Unity Server'ı yüklemek çok adımlı bir işlemdir:
+
+  ### Adım 1: Node.js'i yükle
+  > MCP Unity sunucusunu çalıştırmak için, bilgisayarınızda Node.js 18 veya daha yeni bir sürüm yüklü olmalıdır:
+
+  ![node](https://raw.githubusercontent.com/CoderGamester/mcp-unity/HEAD/docs/node.jpg)
+
+  <details>
+  <summary><span style="font-size: 1.1em; font-weight: bold;">Windows</span></summary>
+
+  1. [Node.js indirme sayfasını](https://nodejs.org/en/download/) ziyaret edin
+  2. LTS sürümü için Windows Installer (.msi) dosyasını indirin (önerilir)
+  3. Yükleyiciyi çalıştırın ve kurulum sihirbazını takip edin
+  4. PowerShell'i açarak ve şu komutu çalıştırarak kurulumu doğrulayın:
+     ```bash
+     node --version
+     ```
+  </details>
+
+  <details>
+  <summary><span style="font-size: 1.1em; font-weight: bold;">macOS</span></summary>
+
+  1. [Node.js indirme sayfasını](https://nodejs.org/en/download/) ziyaret edin
+  2. LTS sürümü için macOS Installer (.pkg) dosyasını indirin (önerilir)
+  3. Yükleyiciyi çalıştırın ve kurulum sihirbazını takip edin
+  4. Alternatif olarak, Homebrew yüklüyse, şu komutu çalıştırabilirsiniz:
+     ```bash
+     brew install node@18
+     ```
+  5. Terminal'i açarak ve şu komutu çalıştırarak kurulumu doğrulayın:
+     ```bash
+     node --version
+     ```
+  </details>
+
+  ### Adım 2: Unity MCP Server paketini Unity Package Manager aracılığıyla yükle
+  1. Unity Package Manager'ı aç (Window > Package Manager)
+  2. Sol üst köşedeki "+" düğmesini tıkla
+  3. "Add package from git URL..." seçeneğini belirle
+  4. Şu komutu gir: `https://github.com/CoderGamester/mcp-unity.git`
+  5. "Add" butonuna tıkla
+
+  ![package manager](https://github.com/user-attachments/assets/a72bfca4-ae52-48e7-a876-e99c701b0497)
+
+  ### Adım 3: AI LLM İstemcisini Yapılandır
+
+  <details open>
+  <summary><span style="font-size: 1.1em; font-weight: bold;">Seçenek 1: Unity Editörü Kullanarak Yapılandırma</span></summary>
+
+  1. Unity Editörü'nü aç
+  2. Tools > MCP Unity > Server Window'a git
+  3. Aşağıdaki görüntüde gösterildiği gibi AI LLM istemciniz için "Configure" düğmesine tıkla
+
+  ![image](https://raw.githubusercontent.com/CoderGamester/mcp-unity/HEAD/docs/configure.jpg)
+
+  4. Verilen açılır pencerenin yanında konfigürasyon kurulumunu onayla
+
+  ![image](https://github.com/user-attachments/assets/b1f05d33-3694-4256-a57b-8556005021ba)
+
+  </details>
+
+  <details>
+  <summary><span style="font-size: 1.1em; font-weight: bold;">Seçenek 2: Manuel Olarak Yapılandırma</span></summary>
+
+  AI istemcinizin MCP yapılandırma dosyasını açın ve MCP Unity sunucu yapılandırmasını ekleyin:
+
+  > `ABSOLUTE/PATH/TO` değerini MCP Unity kurulumunuzun mutlak yolunun yerine geçirin veya Unity Editörü MCP Server penceresinden metni kopyalayın (Tools > MCP Unity > Server Window).
+  >
+  > Git'e yürütülen ve Unity proje ağacı içinde yaşayan konfigürasyonlar için (ör. `<project>/.vscode/mcp.json`, `<project>/opencode.json`, `<project>/.cursor/mcp.json`, `<project>/.mcp.json`, `<project>/.codex/config.toml`), projeyle ilgili yolu tercih edin ve aynı dosya makineler arasında çalışsın. Server Window'da **"Use relative path"** seçeneğini açıp/kapatarak kopyalama-yapıştırma snippet'i mutlak ve proje-göreceli formları arasında değiştirin. **Configure GitHub Copilot**, **Configure OpenCode**, **Configure Cursor (Project)**, **Configure Claude Code (Project)** ve **Configure Codex CLI (Project)** düğmeleri zaten otomatik olarak nispi yolları yayarlar.
+  >
+  > Proje-yerel düğmeler (Cursor / Claude Code / Codex CLI), MCP sunucu girişini global kullanıcı yapılandırması yerine Unity proje dizinine yazarlar, böylece diğer (Unity olmayan) projeler MCP bağlantı hatası uyarıları görmezler. **Codex CLI (Project)** özelinde, proje kökünden ilk kez `codex` çalıştırdığınızda, Codex `<project>/.codex/config.toml` dosyasını yok sayar aksi takdirde proje güven istemini onaylamalısınız.
+
+  **JSON tabanlı istemciler için** (Cursor, Windsurf, Claude Code, GitHub Copilot, vb.):
+
+  ```json
+  {
+     "mcpServers": {
+         "mcp-unity": {
+            "command": "node",
+            "args": [
+               "ABSOLUTE/PATH/TO/mcp-unity/Server~/build/index.js"
+            ]
+         }
+     }
+  }
+  ```
+
+  Çalışma alanı kapsamlı VS Code / GitHub Copilot (`.vscode/mcp.json`) için, yolun makineler arasında taşınabilir olması için `${workspaceFolder}` kullanın:
+
+  ```json
+  {
+     "mcpServers": {
+         "mcp-unity": {
+            "command": "node",
+            "args": [
+               "${workspaceFolder}/Library/PackageCache/com.gamelovers.mcp-unity@<hash>/Server~/build/index.js"
+            ]
+         }
+     }
+  }
+  ```
+
+  **Codex CLI için** (`~/.codex/config.toml`):
+
+  ```toml
+  [mcp_servers.mcp-unity]
+  command = "node"
+  args = ["ABSOLUTE/PATH/TO/mcp-unity/Server~/build/index.js"]
+  ```
+
+  **Cursor — proje-yerel** (Unity proje kökündeki `.cursor/mcp.json`, proje-göreceli yol):
+
+  ```json
+  {
+     "mcpServers": {
+         "mcp-unity": {
+            "command": "node",
+            "args": [
+               "Library/PackageCache/com.gamelovers.mcp-unity@<hash>/Server~/build/index.js"
+            ]
+         }
+     }
+  }
+  ```
+
+  **Claude Code — proje-yerel** (Unity proje kökündeki `.mcp.json`, proje-göreceli yol — Claude Code'un takım paylaşımı MCP yapılandırması):
+
+  ```json
+  {
+     "mcpServers": {
+         "mcp-unity": {
+            "command": "node",
+            "args": [
+               "Library/PackageCache/com.gamelovers.mcp-unity@<hash>/Server~/build/index.js"
+            ]
+         }
+     }
+  }
+  ```
+
+  **Codex CLI — proje-yerel** (Unity proje kökündeki `.codex/config.toml`, proje-göreceli yol):
+
+  ```toml
+  [mcp_servers.mcp-unity]
+  command = "node"
+  args = ["Library/PackageCache/com.gamelovers.mcp-unity@<hash>/Server~/build/index.js"]
+  ```
+
+  > Codex, bu dosyayı global `~/.codex/config.toml` üzerine katmanlar, ancak yalnızca proje güvenilir olarak işaretlenmişse. Proje içine ilk kez `cd` yaptığınızda ve `codex` çalıştırdığınızda, güven istemini onaylayın — aksi takdirde Codex `.codex/config.toml` dosyasını yok sayar.
+
+  **OpenCode için** (Unity proje kökündeki `opencode.json`):
+
+  ```json
+  {
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+      "mcp-unity": {
+        "type": "local",
+        "enabled": true,
+        "command": ["node", "Library/PackageCache/com.gamelovers.mcp-unity@<hash>/Server~/build/index.js"],
+        "environment": {}
+      }
+    }
+  }
+  ```
+
+  > Not: UPM paket önbelleği yolundaki `@<hash>` segmenti, paket güncellendiğinde değişir. MCP Unity'yi güncellerseniz, **Configure** düğmesini yeniden çalıştırın (veya yolu manuel olarak güncelleyin) böylece snippet yeni önbellek dizinini göstersin.
+
+  </details>
+
+  ## <a name="start-server"></a>Unity Editörü MCP Sunucusunu Başlat
+  1. Unity Editörü'nü aç
+  2. Tools > MCP Unity > Server Window'a git
+  3. WebSocket sunucusunu başlatmak için "Start Server" düğmesine tıkla
+  4. AI Kodlama IDE'nizi açın (ör. Cursor, Windsurf, Claude Code, Codex CLI, GitHub Copilot, Google Antigravity, OpenCode, vb.) ve Unity araçlarını çalıştırmaya başlayın
+     
+  ![connect](https://github.com/user-attachments/assets/2e266a8b-8ba3-4902-b585-b220b11ab9a2)
+
+  > AI istemcisi WebSocket sunucusuna bağlanırken, penceredeki yeşil kutuda otomatik olarak gösterilir
+
+  ## İsteğe Bağlı: WebSocket Bağlantı Noktasını Ayarla
+  Varsayılan olarak, WebSocket sunucusu '8090' bağlantı noktasında çalışır. Bu bağlantı noktasını iki şekilde değiştirebilirsiniz:
+
+  1. Unity Editörü'nü aç
+  2. Tools > MCP Unity > Server Window'a git
+  3. "WebSocket Port" değerini istenen bağlantı noktası numarasına değiştir
+  4. Unity UNITY_PORT sistem ortam değişkenini yeni bağlantı noktası numarasına ayarlar
+  5. Node.js sunucusunu yeniden başlat
+  6. Unity Editörü web soketini Node.js MCP Sunucusuna yeniden bağlanmak için "Start Server"'ı tekrar tıkla
+
+  ## İsteğe Bağlı: Zaman Aşımını Ayarla
+
+  Varsayılan olarak, MCP sunucusu ile WebSocket arasındaki zaman aşımı 10 saniyedir.
+  Kullandığınız işletim sistemine bağlı olarak değiştirebilirsiniz:
+
+  1. Unity Editörü'nü aç
+  2. Tools > MCP Unity > Server Window'a git
+  3. "Request Timeout (seconds)" değerini istenen zaman aşımı saniyesine değiştir
+  4. Unity UNITY_REQUEST_TIMEOUT sistem ortam değişkenini yeni zaman aşımı değerine ayarlar
+  5. Node.js sunucusunu yeniden başlat
+  6. Unity Editörü web soketini Node.js MCP Sunucusuna yeniden bağlanmak için "Start Server"'ı tekrar tıkla
+
+  > [!TIP]  
+  > AI Kodlama IDE'niz (ör. Claude Desktop, Cursor IDE, Windsurf IDE) ile MCP Sunucusu arasındaki zaman aşımı IDE'ye bağlıdır.
+
+  ## İsteğe Bağlı: Uzak MCP Köprüsü Bağlantılarına İzin Ver
+
+  Varsayılan olarak, WebSocket sunucusu 'localhost' üzerine bağlanır. Diğer makinelerden MCP köprüsü bağlantılarına izin vermek için:
+
+  1. Unity Editörü'nü aç
+  2. Tools > MCP Unity > Server Window'a git
+  3. "Allow Remote Connections" onay kutusunu etkinleştir
+  4. Unity WebSocket sunucusunu '0.0.0.0' (tüm arayüzleri) üzerine bağlar
+  5. Yeni host yapılandırmasını uygulamak için Node.js sunucusunu yeniden başlat
+  6. MCP köprüsünü uzaktan çalıştırırken UNITY_HOST ortam değişkenini Unity makinenizin IP adresine ayarla: `UNITY_HOST=192.168.1.100 node server.js`
+
+  ## <a name="debug-server"></a>Sunucuyu Hata Ayıklama
+
+  <details>
+  <summary><span style="font-size: 1.1em; font-weight: bold;">Node.js
 ---
 
 # MCP Unity Editor (Game Engine)

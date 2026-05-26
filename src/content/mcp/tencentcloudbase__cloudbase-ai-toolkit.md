@@ -9,6 +9,463 @@ body_length: 21135
 license: "MIT"
 language: "TypeScript"
 homepage: "https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/"
+body_tr: |-
+  <div align="center"><a name="readme-top"></a>
+
+    
+  <a href="https://cloud.tencent.com/developer/article/2649588" target="_blank"></a>
+
+  ![](https://raw.githubusercontent.com/TencentCloudBase/CloudBase-AI-ToolKit/HEAD/scripts/assets/toolkit-better.gif)
+
+  <h1>CloudBase MCP</h1>
+
+  **🪐 AI programlama, tek tıkla yayına al**<br/>
+  AI IDE'yi Tencent Cloud CloudBase ile bağlayan dağıtım köprüsü, AI uygulamanızı anında yayına alın<br/>
+  <sup>💡 Vercel + Supabase gibi, ama tamamen AI odaklı——istemden üretim ortamına doğru</sup>
+
+  [English](./README-EN.md) · **简体中文** · [Belgeler][docs] · [Değişiklik Günlüğü][changelog] · [Geri Bildirim][github-issues-link]
+
+  <!-- SHIELD GROUP -->
+
+
+  [![][npm-version-shield]][npm-link]
+  [![][npm-downloads-shield]][npm-link]
+  [![][github-stars-shield]][github-stars-link]
+  [![][github-forks-shield]][github-forks-link]
+  [![][github-issues-shield]][github-issues-link]
+  ![][github-license-shield]
+  ![][github-contributors-shield]
+  [![][cnb-shield]][cnb-link]
+  [![][deepwiki-shield]][deepwiki-link]
+
+  ⭐ Bu projeyi beğendin mi? Yıldız ekle, yeni sürüm yayınlandığında bildirim al～
+
+  **AI programlaması ile tek tıkla uygulamayı yayına alan harika bir araç buldum, AI programlamayı kullanan arkadaşlara tavsiye et**
+
+  [![][share-x-shield]][share-x-link]
+  [![][share-telegram-shield]][share-telegram-link]
+  [![][share-weibo-shield]][share-weibo-link]
+
+  <sup>AI isteminden uygulama yayınına kadar en kısa yol</sup>
+
+
+
+  [![][github-trending-shield]](https://github.com/TencentCloudBase/CloudBase-MCP)
+
+  [](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/tutorials)
+
+  </div>
+
+  ## Neden CloudBase MCP'ye ihtiyacın var?
+
+  AI programlama araçları (OpenClaw, Cursor, CodeBuddy gibi) **kod üretimi** sorununu çözdü.
+
+  Ancak, "kod üretimi"nden "uygulama yayını"na (dağıtım, veritabanı yapılandırması, CDN, alan adı) giden yol hâlâ zor.
+
+  **CloudBase MCP** (önceki adı CloudBase AI ToolKit) bu boşluğu doldurur.
+
+  Artık ihtiyacın yok:
+  - ❌ Karmaşık DevOps yapılandırması ve YAML dosyaları
+  - ❌ Bulut fonksiyonları ve veritabanını manuel ayarlama
+  - ❌ IDE ile bulut kontrol paneli arasında ileri geri gidip gelme
+
+  Sadece AI IDE'de doğal dil kullanarak "fikirden" "yayına" kadar tüm süreci tamamla.
+
+  <details>
+  <summary><kbd>İçindekiler</kbd></summary>
+
+  - [🚀 Hızlı Başlangıç](#-hızlı-başlangıç)
+  - [✨ Temel Özellikler](#-temel-özellikler)
+  - [📦 Kurulum ve Yapılandırma](#-kurulum-ve-yapılandırma)
+  - [🎯 Kullanım Örnekleri](#-kullanım-örnekleri)
+  - [🧩 MCP Araçları](#-mcp-araçları)
+  - [📚 Daha Fazla Kaynak](#-daha-fazla-kaynak)
+
+  </details>
+
+  ## 🚀 Hızlı Başlangıç
+
+  ### Tek satır yapılandırma, hemen kullan
+
+  MCP'yi destekleyen AI IDE'ye (Cursor, WindSurf, CodeBuddy vb.) aşağıdaki yapılandırmalardan birini ekle. Bağlantı yöntemleri iki şekilde vardır:
+
+  ---
+
+  #### Yöntem 1: Yerel Mod (Önerilir)
+
+  **Anlam**: MCP servisi yerel makinenizde `npx` aracılığıyla başlatılır, IDE ile aynı makinede çalışır.
+  **Avantaj**: En tam işlevli (yükle/indir, şablon yükleme gibi yerel dosya sistemine bağlı özellikleri içerir).
+  **Gereksinimler**: Makinenizde Node.js yüklü olmalı ve `npx` çalıştırabilmeli.
+
+  ```json
+  {
+    "mcpServers": {
+      "cloudbase": {
+        "command": "npx",
+        "args": ["@cloudbase/cloudbase-mcp@latest"]
+      }
+    }
+  }
+  ```
+
+  ---
+
+  #### Yöntem 2: Barındırılan Mod
+
+  **Anlam**: MCP servisi Tencent Cloud'da çalışır, IDE HTTP aracılığıyla bulut hizmetine bağlanır, yerel Node kurulumuna gerek yoktur.
+  **Avantaj**: Yerel ortama bağlı değil, API anahtarını yapılandırdıktan sonra hemen kullanılabilir.
+  **Sınırlama**: Yerel dosya sistemine bağlı bazı özellikler kullanılamaz (yerel dosya yükleme, şablon makinaya indirme gibi).
+
+  Aşağıdaki yapılandırmada `<env_id>`, `<Tencent Cloud Secret ID>`, `<Tencent Cloud Secret Key>` değerlerini kendi ortam ID'niz ve Tencent Cloud API anahtarı ile değiştirin:
+
+  ```json
+  {
+    "mcpServers": {
+      "cloudbase": {
+        "type": "http",
+        "url": "https://tcb-api.cloud.tencent.com/mcp/v1?env_id=<env_id>",
+        "headers": {
+          "X-TencentCloud-SecretId": "<Tencent Cloud Secret ID>",
+          "X-TencentCloud-SecretKey": "<Tencent Cloud Secret Key>"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Yöntem 3: Kendi Sunucunuza Dağıtım (Cloud Mode)
+
+  **Anlam**: MCP hizmetini kendi sunucunuzda çalıştırın, `CLOUDBASE_MCP_CLOUD_MODE=true` ortam değişkeni ile bulut modunu etkinleştirin.
+  **Kullanım Senaryosu**: MCP sunucu tarafını kendi uzak sunucunuzda dağıtmak, dışarıya Streamable HTTP arayüzü sağlamak gerektiğinde.
+  **Güvenlik Mekanizması**: Cloud Mode etkinleştirildikten sonra, yerel dosya sistemi okuma/yazma ve yerel süreç başlatma ile ilgili tüm araçlar **otomatik olarak devre dışı bırakılır**, uzak arayanın sunucu yerel kaynaklarını işletememesini garantiler.
+
+  ```bash
+  # Bulut modunu etkinleştiren ortam değişkeni (ikisinden biri)
+  export CLOUDBASE_MCP_CLOUD_MODE=true
+  # veya
+  export MCP_CLOUD_MODE=true
+  ```
+
+  Cloud Mode altında devre dışı bırakılan araçlar: `downloadRemoteFile`, `downloadTemplate`, `manageCloudRun` (yerel çalıştırma), `manageApps` (yerel kod yükleme dağıtımı), `manageStorage` (yerel dosya yükle/indir), `createFunction` (yerel kod yükleme) vb. yerel dosya G/Ç işlemlerini içeren işlemler.
+
+  > [!IMPORTANT]
+  > **Dağıtım Modu Seçimi Önerisi:**
+  > - **Kişisel Geliştirme**: Yerel Mod (`npx`) kullan, en çok işlevlilik
+  > - **Takım İşbirliği / Uzak Hizmet**: Tencent Cloud barındırılan mod (Yöntem 2) kullan, operasyon yok
+  > - **Kendi Sunucunuz**: Mutlaka `CLOUDBASE_MCP_CLOUD_MODE=true` ayarla, yerel dosya işleme araçlarını devre dışı bırak
+
+  ---
+
+  **Barındırılan Mod İsteğe Bağlı: URL üzerinden eklenti etkinleştirme aralığını kontrol et**
+
+  `url` içinde sorgu parametreleri üzerinden eklenti etkinleştirme aralığını kontrol edebilirsin:
+
+  - `enable_plugins`: Yalnızca belirtilen eklentileri etkinleştir, birden fazla eklenti virgülle ayrılır, örneğin sadece `env` ve `database` etkinleştir
+  - `disable_plugins`: Varsayılan eklenti setinden belirtilen eklentileri devre dışı bırak, birden fazla eklenti virgülle ayrılır, örneğin `rag` ve `env` devre dışı bırak
+
+  ```
+  # Sadece belirtilen eklentileri etkinleştir
+  https://tcb-api.cloud.tencent.com/mcp/v1?env_id=YOUR_ENV_ID&enable_plugins=env,database
+
+  # Belirtilen eklentileri devre dışı bırak
+  https://tcb-api.cloud.tencent.com/mcp/v1?env_id=YOUR_ENV_ID&disable_plugins=rag,env
+  ```
+
+  Şu anda yapılandırılabilir eklentiler `mcp/src/server.ts` dosyasına göre belirlenmiştir, canonical adları kullanmanız önerilir: `env`, `database`, `functions`, `hosting`, `storage`, `setup`, `rag`, `download`, `gateway`, `cloudrun`, `app-auth`, `permissions`, `logs`, `agents`, `invite-code`, `capi`, `apps`.
+
+  > [!TIP]
+  > **CloudBase AI CLI Kullanmanız Önerilir**
+  > 
+  > Tek tıkla kurulum, otomatik yapılandırma, birçok AI programlama aracını destekler:
+  > 
+  > ```bash
+  > npm install @cloudbase/cli@latest -g
+  > ```
+  > 
+  > Kurulumdan sonra `tcb ai` çalıştır
+  > 
+  > [Tam Belgeleri Görüntüle](https://docs.cloudbase.net/cli-v1/ai/introduce) | [Ayrıntılı Örnek Öğretici](https://docs.cloudbase.net/practices/ai-cli-mini-program)
+
+  ### İlk Kullanım
+
+  1. **Bulut Geliştirmede Oturum Aç**
+     ```
+     Bulut geliştirmede oturum aç
+     ```
+     AI otomatik olarak giriş arayüzünü açacak ve ortam seçiminde rehberlik edecek
+
+  2. **Geliştirmeye Başla**
+     ```
+     Çift kişili çevrimiçi beşer taş oyunu yapan web sitesi, ağ üzerinden savaş destekleyen, son olarak dağıt
+     ```
+     AI otomatik olarak kod oluşturacak, buluta dağıtacak ve erişim bağlantısını döndürecek
+
+
+
+  ### Desteklenen AI IDE'ler
+
+
+  | Araç | Desteklenen Platform | Rehberi Görüntüle |
+  |------|----------|----------|
+  | [CloudBase AI CLI](https://docs.cloudbase.net/cli-v1/ai/introduce) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/cli-v1/ai/introduce) |
+  | [OpenClaw](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/openclaw) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/openclaw) |
+  | [WorkBuddy](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/workbuddy) | Bağımsız IDE | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/workbuddy) |
+  | [Cursor](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/cursor) | Bağımsız IDE| [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/cursor) |
+  | [WindSurf](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/windsurf) | Bağımsız IDE, VSCode, JetBrains Eklentisi | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/windsurf) |
+  | [CodeBuddy](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/codebuddy) | Bağımsız IDE (CloudBase Önceden Kurulu), VS Code, JetBrains, WeChat Geliştirici Aracı| [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/codebuddy) |
+  | [CLINE](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/cline) | VS Code Eklentisi | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/cline) |
+  | [GitHub Copilot](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/github-copilot) | VS Code Eklentisi | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/github-copilot) |
+  | [Trae](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/trae) | Bağımsız IDE | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/trae) |
+  | [Tongyi Lingma](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/tongyi-lingma) | Bağımsız IDE, VS Code, JetBrains Eklentisi | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/tongyi-lingma) |
+  | [RooCode](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/roocode) | VS Code Eklentisi | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/roocode) |
+  | [Baidu Comate](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/baidu-comate) | VS Code, JetBrains Eklentisi| [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/baidu-comate) |
+  | [Augment Code](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/augment-code) | VS Code, JetBrains Eklentisi | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/augment-code) |
+  | [Claude Code](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/claude-code) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/claude-code) |
+  | [Gemini CLI](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/gemini-cli) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/gemini-cli) |
+  | [OpenAI Codex CLI](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/openai-codex-cli) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/openai-codex-cli) |
+  | [OpenCode](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/opencode) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/opencode) |
+  | [Qwen Code](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/qwen-code) | Komut Satırı Aracı | [Rehberi Görüntüle](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/qwen-code) |
+
+
+
+  ## ✨ AI Programlaması "Tek Tıkla Yayına" Nasıl Uygulanır?
+
+  ### 1. AI Özü (AI-Native)
+
+  Basit "yapıştırıcı kod" değiliz. Dahili kural kütüphanesi AI programlaması için tasarlanmıştır, AI'ın doğrudan "dağıtılabilir" CloudBase en iyi uygulamalar kodunu oluşturmasını sağlar.
+
+  ```markdown
+  İstem: Kullanıcı giriş işlevi oluştur
+  - AI otomatik olarak bulut geliştirme standartlarına uygun kod oluşturur
+  - Veritabanı, bulut fonksiyonları, güvenlik kurallarını otomatik yapılandırır
+  - Tek tıkla buluta dağıt
+  ```
+
+
+
+  ### 2. Tek Tıkla Dağıtım (One-Click Deploy)
+
+  AI otomatikleştirilen MCP dağıtım akışı, AI bulut fonksiyonları, veritabanı ve statik websitelerinin **tümü** bulut kaynak yapılandırması ile ilgilenir.
+
+  ```markdown
+  İstem: Geçerli projeyi bulut geliştirmeye dağıt
+  - Proje türünü otomatik algıla (Web/Mini Program/Backend)
+  - Dağıtım parametrelerini akıllıca yapılandır
+  - Dağıtım ilerlemesini gerçek zamanlı göster
+  - Otomatik erişim bağlantısı döndür
+  ```
+
+
+
+  ### 3. Akıllı Hata Ayıklama (Smart Debugging)
+
+  Dağıtım hatası mı? Endişelenme. AI otomatik olarak günlükleri okuyacak, sorunu analiz edip çözmede yardımcı olacak, gerçekten **geliştirme-dağıtım-hata ayıklama** döngüsünü tamamlayacak.
+
+  ```markdown
+  İstem: Hata var, hata xxxx
+  - AI otomatik olarak bulut fonksiyonu günlüklerini inceler
+  - Hata nedenini analiz eder
+  - Düzeltme kodu oluşturur
+  - Otomatik yeniden dağıtır
+  ```
+
+
+
+  ### 4. Tam Yığın Desteği (Full-Stack Ready)
+
+  Web uygulaması, mini program veya backend hizmeti olsun, AI hepsini sizin için işler, sadece iş mantığına odaklanın.
+
+  | Uygulama Türü | Teknoloji Yığını | Dağıtım Yöntemi |
+  |---------|--------|---------|
+  | **Web Uygulaması** | React/Vue/Next.js | Statik Barındırma + CDN |
+  | **WeChat Mini Program** | Yerel/UniApp | Mini Program Yayını |
+  | **Backend Hizmeti** | Node.js/Python | Bulut Fonksiyonları/Bulut Barındırması |
+
+
+
+  ### 5. Bilgi Araması (Knowledge Search)
+
+  Bulut geliştirme, WeChat mini program vb. profesyonel bilgi tabanının akıllı vektör araması dahil, AI'ın bulut geliştirmeyi daha iyi anlamasını sağlar.
+
+  ```markdown
+  İstem: Bulut veritabanı kullanarak gerçek zamanlı veri senkronizasyonu nasıl yapılır?
+  - Bulut geliştirme bilgi tabanını akıllıca arar
+  - İlgili belgeler ve en iyi uygulamalar döndürür
+  - Kod örnekleri sağlar
+  ```
+
+
+
+  ### 6. Esnek İş Akışı (Flexible Workflow)
+
+  `/spec` ve `/no_spec` komutlarını destekler, görev karmaşıklığına göre akıllıca seçer.
+
+  ```markdown
+  /spec - Tam iş akışı (Gereksinim→Tasarım→Görev→Uygulama)
+  /no_spec - Hızlı yineleme (Doğrudan uygula)
+  ```
+
+
+
+
+  ## 📦 Kurulum ve Yapılandırma
+
+  ### Ön Koşullar
+
+  - ✅ Node.js v18.15.0 veya daha yüksek sürüm
+  - ✅ [Tencent Cloud Geliştirme Ortamı](https://tcb.cloud.tencent.com/dev) açık
+  - ✅ MCP'yi destekleyen AI IDE kurulu ([Desteklenen IDE'ler](#desteklenen-ai-ideler))
+
+  ### Yapılandırma Yöntemleri
+
+  #### Yöntem 1: CloudBase AI CLI (Önerilir)
+
+  ```bash
+  # Kur
+  npm install @cloudbase/cli@latest -g
+
+  # Kullan
+  tcb ai
+  ```
+
+  #### Yöntem 2: MCP'yi Manuel Olarak Yapılandır
+
+  Kullanmakta olduğunuz AI IDE'ye göre MCP yapılandırması ekle:
+
+  <details>
+  <summary><b>Cursor</b></summary>
+
+  `.cursor/mcp.json` dosyasına ekle:
+
+  ```json
+  {
+    "mcpServers": {
+      "cloudbase": {
+        "command": "npx",
+        "args": ["@cloudbase/cloudbase-mcp@latest"]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary><b>WindSurf</b></summary>
+
+  `.windsurf/settings.json` dosyasına ekle:
+
+  ```json
+  {
+    "mcpServers": {
+      "cloudbase": {
+        "command": "npx",
+        "args": ["@cloudbase/cloudbase-mcp@latest"]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary><b>CodeBuddy</b></summary>
+
+  CodeBuddy'de CloudBase MCP önceden kurulu, yapılandırma gerekli değil, doğrudan kullan.
+
+  </details>
+
+  <details>
+  <summary><b>Diğer IDE'ler</b></summary>
+
+  Diğer IDE'lerin yapılandırma yöntemi için [tam yapılandırma rehberini](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/) görüntüle.
+
+  </details>
+
+
+  ## 🎯 Kullanım Örnekleri
+
+  ### Örnek 1: Çift Kişili Çevrimiçi Beşer Taş Oyunu
+
+  **Geliştirme Süreci:**
+  1. İstem gir: "Çift kişili çevrimiçi beşer taş oyunu web sitesi yap, ağ üzerinden savaş destekle"
+  2. AI oluştur: Web uygulaması + Bulut veritabanı + Gerçek zamanlı veri itişi
+  3. Otomatik dağıt ve erişim bağlantısını al
+
+  **Deneyim Adresi:** [Beşer Taş Oyunu](https://cloud1-5g39elugeec5ba0f-1300855855.tcloudbaseapp.com/gobang/#/)
+
+  <details>
+  <summary>Geliştirme ekran görüntülerini görüntüle</summary>
+
+  | Geliştirme Süreci | Son Sonuç |
+  |---------|---------|
+  | ![][image-case1-dev] | ![][image-case1-result] |
+
+  </details>
+
+  ### Örnek 2: AI Pet Yetişme Mini Program
+
+  **Geliştirme Süreci:**
+  1. İstem: "Pet Pocket Monsters yetişme mini programı geliştir, AI ile etkileşimi geliştir"
+  2. AI oluştur: Mini Program + Bulut veritabanı + AI bulut fonksiyonları
+  3. WeChat Geliştirici Aracına aktar ve yayınla
+
+  <details>
+  <summary>Geliştirme ekran görüntülerini ve mini program önizlemesini görüntüle</summary>
+
+  ![][image-case2]
+
+  </details>
+
+  ### Örnek 3: Akıllı Sorun Teşhisi
+
+  Uygulama sorun gösteriyorsa, AI otomatik olarak günlükleri inceler, hatayı analiz eder ve düzeltme kodu oluşturur.
+
+  <details>
+  <summary>Akıllı tanı sürecini görüntüle</summary>
+
+  ![][image-case3]
+
+  </details>
+
+  ## 🧩 MCP Araçları
+
+  Ortam yönetimi, veritabanı, bulut fonksiyonları, statik barındırma, mini program yayını gibi çekirdek işlevleri kapsar.
+
+  | Kategori | Araç | Temel İşlevler |
+  |------|------|----------|
+  | **Ortam** | 4 araç | Giriş doğrulaması, ortam sorgusu, alan adı yönetimi |
+  | **Veritabanı** | 11 araç | Koleksiyon yönetimi, belge CRUD, indeks, veri modeli |
+  | **Bulut Fonksiyonları** | 9 araç | Oluştur, güncelle, çağır, günlük, tetikleyici |
+  | **Statik Barındırma** | 5 araç | Dosya yükleme, alan adı yapılandırması, website dağıtımı |
+  | **Mini Program** | 7 araç | Yükle, önizle, oluştur, yapılandır, hata ayıkla |
+  | **Araç Desteği** | 4 araç | Şablonlar, bilgi tabanı araması, ağ araması, etkileşimli sohbet |
+
+  [Tam Araç Belgelerine Bak](doc/mcp-tools.md) | [Araç Spesifikasyonu JSON](scripts/tools.json)
+
+  ## 📚 Daha Fazla Kaynak
+
+  ### Belgeler
+
+  - [Hızlı Başlangıç](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/getting-started)
+  - [IDE Yapılandırma Rehberi](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/)
+  - [Proje Şablonları](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/templates)
+  - [Geliştirme Rehberi](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/development)
+  - [Eklenti Sistemi](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/plugins)
+  - [Sık Sorulan Sorular](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/faq)
+
+  ### Son Makaleler
+
+  - [Tek kişi tüm takım: OpenClaw+CloudBase ile tam otomatik geliştirme yayını](https://mp.weixin.qq.com/s/vKcnro2GrbjI_QyQohpNRw)
+  - [Agent Skills Gerçek Dünya Paylaşımı: AI Programlamasının Son Adımı, Kodun localhost'ta ölmesine izin verme](https://mp.weixin.qq.com/s/soIEU5DG01xfrKMaCetGAA)
+  - [Daha Fazla Video ve Öğretici](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/tutorials)
+
+  ## ❓ Sık Sorulan Sorular
+
+  <details>
+  <summary><b>Vercel / Railway / Netlify ile farkı nedir?</b></summary>
+
+  Bu platformlar "dağıtım" sorununu çözer, CloudBase MCP "AI kod oluşturmadan dağıtım yayınına" tam akışını çözer. IDE'den çıkmana gerek yok, yapılandırma dosyası yazma ihtiyacı yok, AI otomatik olarak bulut fonksiyonları, veritabanı, CDN, alan adı vb. tüm bulut kaynaklarını ayarlar. Bir c
 ---
 
 <div align="center"><a name="readme-top"></a>

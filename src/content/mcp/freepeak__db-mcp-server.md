@@ -8,6 +8,691 @@ url: "https://github.com/FreePeak/db-mcp-server"
 body_length: 20703
 license: "MIT"
 language: "Go"
+body_tr: |-
+  <div align="center">
+
+
+
+  # Multi Database MCP Server
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![Go Report Card](https://goreportcard.com/badge/github.com/FreePeak/db-mcp-server)](https://goreportcard.com/report/github.com/FreePeak/db-mcp-server)
+  [![Go Reference](https://pkg.go.dev/badge/github.com/FreePeak/db-mcp-server.svg)](https://pkg.go.dev/github.com/FreePeak/db-mcp-server)
+  [![Contributors](https://img.shields.io/github/contributors/FreePeak/db-mcp-server)](https://github.com/FreePeak/db-mcp-server/graphs/contributors)
+
+  <h3>Model Context Protocol (MCP) uygulayan, yapay zeka asistanlarına veritabanlarına yapılandırılmış erişim sağlayan güçlü bir çok veritabanı sunucusu.</h3>
+
+  <div class="toc">
+    <a href="#overview">Genel Bakış</a> •
+    <a href="#core-concepts">Temel Kavramlar</a> •
+    <a href="#features">Özellikler</a> •
+    <a href="#supported-databases">Desteklenen Veritabanları</a> •
+    <a href="#deployment-options">Dağıtım Seçenekleri</a> •
+    <a href="#configuration">Yapılandırma</a> •
+    <a href="#available-tools">Mevcut Araçlar</a> •
+    <a href="#examples">Örnekler</a> •
+    <a href="#troubleshooting">Sorun Giderme</a> •
+    <a href="#contributing">Katkıda Bulunma</a>
+  </div>
+
+  </div>
+
+  ## Genel Bakış
+
+  DB MCP Server, yapay zeka modellerinin birden fazla veritabanıyla aynı anda etkileşim kurması için standartlaştırılmış bir yol sağlar. [FreePeak/cortex](https://github.com/FreePeak/cortex) framework'ü üzerine inşa edilen bu sunucu, yapay zeka asistanlarının SQL sorguları yürütmesine, işlemleri yönetmesine, şemaları keşfetmesine ve farklı veritabanı sistemleri arasında birleşik bir arayüz üzerinden performansı analiz etmesine olanak tanır.
+
+  ## Temel Kavramlar
+
+  ### Çok Veritabanı Desteği
+
+  Geleneksel veritabanı bağlayıcılarından farklı olarak, DB MCP Server birden fazla veritabanına aynı anda bağlanabilir ve bunlarla etkileşim kurabilir:
+
+  ```json
+  {
+    "connections": [
+      {
+        "id": "mysql1",
+        "type": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "name": "db1",
+        "user": "user1",
+        "password": "password1"
+      },
+      {
+        "id": "postgres1",
+        "type": "postgres",
+        "host": "localhost",
+        "port": 5432,
+        "name": "db2",
+        "user": "user2",
+        "password": "password2"
+      },
+      {
+        "id": "oracle1",
+        "type": "oracle",
+        "host": "localhost",
+        "port": 1521,
+        "service_name": "XEPDB1",
+        "user": "user3",
+        "password": "password3"
+      }
+    ]
+  }
+  ```
+
+  ### Dinamik Tool Üretimi
+
+  Bağlı her veritabanı için, sunucu otomatik olarak özel araçlar oluşturur:
+
+  ```go
+  // "mysql1" kimliğine sahip veritabanı için şu araçlar oluşturulur:
+  query_mysql1       // SQL sorguları yürüt
+  execute_mysql1     // Veri değiştirme ifadelerini çalıştır
+  transaction_mysql1 // İşlemleri yönet
+  schema_mysql1      // Veritabanı şemasını keşfet
+  performance_mysql1 // Sorgu performansını analiz et
+  ```
+
+  ### Temiz Mimari
+
+  Sunucu, Clean Architecture prensiplerini şu katmanlarla takip eder:
+
+  1. **Domain Layer**: Temel iş varlıkları ve arayüzleri
+  2. **Repository Layer**: Veri erişim uygulamaları
+  3. **Use Case Layer**: Uygulama iş mantığı
+  4. **Delivery Layer**: Dış arayüzler (MCP araçları)
+
+  ## Özellikler
+
+  - **Eşzamanlı Çok Veritabanı Desteği**: Birden fazla MySQL, PostgreSQL, SQLite ve Oracle veritabanlarına aynı anda bağlanın
+  - **Lazy Loading Modu**: Bağlantı kurmayı ilk kullanım için erteleme - 10+ veritabanı kurulumu için ideal (`--lazy-loading` bayrağıyla etkinleştirin)
+  - **Veritabanına Özgü Tool Üretimi**: Bağlı her veritabanı için otomatik olarak özel araçlar oluşturur
+  - **Clean Architecture**: Endişelerin açık bir şekilde ayrıldığı modüler tasarım
+  - **OpenAI Agents SDK Uyumluluğu**: Sorunsuz yapay zeka asistanı entegrasyonu için tam uyumluluk
+  - **Dinamik Veritabanı Araçları**: Sorguları yürütün, ifadeleri çalıştırın, işlemleri yönetin, şemaları keşfedin, performansı analiz edin
+  - **Birleşik Arayüz**: Farklı veritabanı türleri arasında tutarlı etkileşim desenleri
+  - **Bağlantı Yönetimi**: Birden fazla veritabanı bağlantısı için basit yapılandırma
+  - **Sağlık Kontrolü**: Başlatma sırasında otomatik veritabanı bağlantısı doğrulaması
+
+  ## Desteklenen Veritabanları
+
+  | Veritabanı   | Durum                     | Özellikler                                                   |
+  | ---------- | ------------------------- | ------------------------------------------------------------ |
+  | MySQL      | ✅ Tam Destek           | Sorgular, İşlemler, Şema Analizi, Performans İçgörüleri |
+  | PostgreSQL | ✅ Tam Destek (v9.6-17) | Sorgular, İşlemler, Şema Analizi, Performans İçgörüleri |
+  | SQLite     | ✅ Tam Destek           | Dosya tabanlı ve In-memory veritabanları, SQLCipher şifreleme desteği |
+  | Oracle     | ✅ Tam Destek (10g-23c) | Sorgular, İşlemler, Şema Analizi, RAC, Cloud Wallet, TNS |
+  | TimescaleDB| ✅ Tam Destek           | Hypertables, Zaman Serisi Sorguları, Sürekli Agregasyonlar, Sıkıştırma, Saklama Politikaları |
+
+  ## Dağıtım Seçenekleri
+
+  DB MCP Server, farklı ortamlara ve entegrasyon ihtiyaçlarına uygun birden fazla yolla dağıtılabilir:
+
+  ### Docker Dağıtımı
+
+  ```bash
+  # En son imajı çek
+  docker pull freepeak/db-mcp-server:latest
+
+  # Bağlı yapılandırma dosyasıyla çalıştır
+  docker run -p 9092:9092 \
+    -v $(pwd)/config.json:/app/my-config.json \
+    -e TRANSPORT_MODE=sse \
+    -e CONFIG_PATH=/app/my-config.json \
+    freepeak/db-mcp-server
+  ```
+
+  > **Not**: Konteyner `/app/config.json` konumunda varsayılan bir dosyaya sahip olduğundan, `/app/my-config.json` konumuna bağlayın.
+
+  ### STDIO Modu (IDE Entegrasyonu)
+
+  ```bash
+  # Sunucuyu STDIO modunda çalıştır
+  ./bin/server -t stdio -c config.json
+  ```
+
+  Cursor IDE entegrasyonu için `.cursor/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "stdio-db-mcp-server": {
+        "command": "/path/to/db-mcp-server/server",
+        "args": ["-t", "stdio", "-c", "/path/to/config.json"]
+      }
+    }
+  }
+  ```
+
+  ### SSE Modu (Server-Sent Events)
+
+  ```bash
+  # Varsayılan yapılandırma (localhost:9092)
+  ./bin/server -t sse -c config.json
+
+  # Özel ana bilgisayar ve port
+  ./bin/server -t sse -host 0.0.0.0 -port 8080 -c config.json
+  ```
+
+  İstemci bağlantı uç noktası: `http://localhost:9092/sse`
+
+  ### Kaynak Kodu Kurulumu
+
+  ```bash
+  # Depoyu klonla
+  git clone https://github.com/FreePeak/db-mcp-server.git
+  cd db-mcp-server
+
+  # Sunucuyu derle
+  make build
+
+  # Sunucuyu çalıştır
+  ./bin/server -t sse -c config.json
+  ```
+
+  ## Yapılandırma
+
+  ### Veritabanı Yapılandırma Dosyası
+
+  `config.json` dosyasını veritabanı bağlantılarınızla oluşturun:
+
+  ```json
+  {
+    "connections": [
+      {
+        "id": "mysql1",
+        "type": "mysql",
+        "host": "mysql1",
+        "port": 3306,
+        "name": "db1",
+        "user": "user1",
+        "password": "password1",
+        "query_timeout": 60,
+        "max_open_conns": 20,
+        "max_idle_conns": 5,
+        "conn_max_lifetime_seconds": 300,
+        "conn_max_idle_time_seconds": 60
+      },
+      {
+        "id": "postgres1",
+        "type": "postgres",
+        "host": "postgres1",
+        "port": 5432,
+        "name": "db1",
+        "user": "user1",
+        "password": "password1"
+      },
+      {
+        "id": "sqlite_app",
+        "type": "sqlite",
+        "database_path": "./data/app.db",
+        "journal_mode": "WAL",
+        "cache_size": 2000,
+        "read_only": false,
+        "use_modernc_driver": true,
+        "query_timeout": 30,
+        "max_open_conns": 1,
+        "max_idle_conns": 1
+      },
+      {
+        "id": "sqlite_encrypted",
+        "type": "sqlite",
+        "database_path": "./data/secure.db",
+        "encryption_key": "your-secret-key-here",
+        "journal_mode": "WAL",
+        "use_modernc_driver": false
+      },
+      {
+        "id": "sqlite_memory",
+        "type": "sqlite",
+        "database_path": ":memory:",
+        "cache_size": 1000,
+        "use_modernc_driver": true
+      }
+    ]
+  }
+  ```
+
+  ### Komut Satırı Seçenekleri
+
+  ```bash
+  # Temel söz dizimi
+  ./bin/server -t <transport> -c <config-file>
+
+  # SSE taşıma seçenekleri
+  ./bin/server -t sse -host <hostname> -port <port> -c <config-file>
+
+  # Lazy loading modu (10+ veritabanı için önerilir)
+  ./bin/server -t stdio -c <config-file> --lazy-loading
+
+  # Günlük dizinini özelleştir (çok projeli kurulumlar için yararlı)
+  ./bin/server -t stdio -c <config-file> -log-dir /tmp/db-mcp-logs
+
+  # Satır içi veritabanı yapılandırması
+  ./bin/server -t stdio -db-config '{"connections":[...]}'
+
+  # Ortam değişkeni yapılandırması
+  export DB_CONFIG='{"connections":[...]}'
+  ./bin/server -t stdio
+  ```
+
+  **Mevcut Bayraklar:**
+  - `-t, -transport`: Taşıma modu (`stdio` veya `sse`)
+  - `-c, -config`: Veritabanı yapılandırma dosyasının yolu
+  - `-p, -port`: SSE modu için sunucu portu (varsayılan: 9092)
+  - `-h, -host`: SSE modu için sunucu ana bilgisayarı (varsayılan: localhost)
+  - `-log-level`: Günlük seviyesi (`debug`, `info`, `warn`, `error`)
+  - `-log-dir`: Günlük dosyaları için dizin (varsayılan: `./logs` mevcut dizinde)
+  - `-db-config`: Satır içi JSON veritabanı yapılandırması
+
+  ## SQLite Yapılandırma Seçenekleri
+
+  SQLite veritabanlarını kullanırken, şu ek yapılandırma seçeneklerinden yararlanabilirsiniz:
+
+  ### SQLite Bağlantı Parametreleri
+
+  | Parametre | Tür | Varsayılan | Açıklama |
+  |-----------|------|---------|-------------|
+  | `database_path` | string | Gerekli | SQLite veritabanı dosyasının yolu veya `:memory:` in-memory için |
+  | `encryption_key` | string | - | SQLCipher şifreli veritabanları için anahtar |
+  | `read_only` | boolean | false | Veritabanını salt okunur modunda aç |
+  | `cache_size` | integer | 2000 | SQLite önbellek boyutu sayfalar cinsinden |
+  | `journal_mode` | string | "WAL" | Günlük modu: DELETE, TRUNCATE, PERSIST, WAL, OFF |
+  | `use_modernc_driver` | boolean | true | modernc.org/sqlite (CGO-free) veya mattn/go-sqlite3 kullan |
+
+  ### SQLite Örnekleri
+
+  #### Temel Dosya Veritabanı
+  ```json
+  {
+    "id": "my_sqlite_db",
+    "type": "sqlite",
+    "database_path": "./data/myapp.db",
+    "journal_mode": "WAL",
+    "cache_size": 2000
+  }
+  ```
+
+  #### Şifreli Veritabanı (SQLCipher)
+  ```json
+  {
+    "id": "encrypted_db",
+    "type": "sqlite",
+    "database_path": "./data/secure.db",
+    "encryption_key": "your-secret-encryption-key",
+    "use_modernc_driver": false
+  }
+  ```
+
+  #### In-Memory Veritabanı
+  ```json
+  {
+    "id": "memory_db",
+    "type": "sqlite",
+    "database_path": ":memory:",
+    "cache_size": 1000
+  }
+  ```
+
+  #### Salt Okunur Veritabanı
+  ```json
+  {
+    "id": "reference_data",
+    "type": "sqlite",
+    "database_path": "./data/reference.db",
+    "read_only": true,
+    "journal_mode": "DELETE"
+  }
+  ```
+
+  ## Oracle Yapılandırma Seçenekleri
+
+  Oracle veritabanlarını kullanırken, şu ek yapılandırma seçeneklerinden yararlanabilirsiniz:
+
+  ### Oracle Bağlantı Parametreleri
+
+  | Parametre | Tür | Varsayılan | Açıklama |
+  |-----------|------|---------|-------------|
+  | `host` | string | Gerekli | Oracle veritabanı ana bilgisayarı |
+  | `port` | integer | 1521 | Oracle dinleyici portu |
+  | `service_name` | string | - | Hizmet adı (RAC için önerilir) |
+  | `sid` | string | - | Sistem tanımlayıcı (eski, bunun yerine service_name kullanın) |
+  | `user` | string | Gerekli | Veritabanı kullanıcı adı |
+  | `password` | string | Gerekli | Veritabanı şifresi |
+  | `wallet_location` | string | - | Oracle Cloud wallet dizininin yolu |
+  | `tns_admin` | string | - | tnsnames.ora içeren dizinin yolu |
+  | `tns_entry` | string | - | tnsnames.ora dosyasındaki adlandırılmış giriş |
+  | `edition` | string | - | Edition-Based Redefinition sürümü adı |
+  | `pooling` | boolean | false | Sürücü seviyesi bağlantı havuzlamasını etkinleştir |
+  | `standby_sessions` | boolean | false | Bekleme veritabanlarında sorgulara izin ver |
+  | `nls_lang` | string | AMERICAN_AMERICA.AL32UTF8 | Karakter seti yapılandırması |
+
+  ### Oracle Örnekleri
+
+  #### Temel Oracle Bağlantısı (Geliştirme)
+  ```json
+  {
+    "id": "oracle_dev",
+    "type": "oracle",
+    "host": "localhost",
+    "port": 1521,
+    "service_name": "XEPDB1",
+    "user": "testuser",
+    "password": "testpass",
+    "max_open_conns": 50,
+    "max_idle_conns": 10,
+    "conn_max_lifetime_seconds": 1800
+  }
+  ```
+
+  #### Oracle SID ile (Eski)
+  ```json
+  {
+    "id": "oracle_legacy",
+    "type": "oracle",
+    "host": "oracledb.company.com",
+    "port": 1521,
+    "sid": "ORCL",
+    "user": "app_user",
+    "password": "app_password"
+  }
+  ```
+
+  #### Oracle Cloud Otonom Veritabanı (Wallet ile)
+  ```json
+  {
+    "id": "oracle_cloud",
+    "type": "oracle",
+    "user": "ADMIN",
+    "password": "your-cloud-password",
+    "wallet_location": "/path/to/wallet_DBNAME",
+    "service_name": "dbname_high"
+  }
+  ```
+
+  #### Oracle RAC (Real Application Clusters)
+  ```json
+  {
+    "id": "oracle_rac",
+    "type": "oracle",
+    "host": "scan.company.com",
+    "port": 1521,
+    "service_name": "production",
+    "user": "app_user",
+    "password": "app_password",
+    "max_open_conns": 100,
+    "max_idle_conns": 20
+  }
+  ```
+
+  #### Oracle TNS Girişi ile
+  ```json
+  {
+    "id": "oracle_tns",
+    "type": "oracle",
+    "tns_admin": "/opt/oracle/network/admin",
+    "tns_entry": "PROD_DB",
+    "user": "app_user",
+    "password": "app_password"
+  }
+  ```
+
+  #### Oracle Edition-Based Redefinition ile
+  ```json
+  {
+    "id": "oracle_ebr",
+    "type": "oracle",
+    "host": "oracledb.company.com",
+    "port": 1521,
+    "service_name": "production",
+    "user": "app_user",
+    "password": "app_password",
+    "edition": "v2_0"
+  }
+  ```
+
+  ### Oracle Bağlantı Dizesi Önceliği
+
+  Birden fazla bağlantı yöntemi yapılandırıldığında, şu öncelik kullanılır:
+
+  1. **TNS Girişi** (`tns_entry` ve `tns_admin` yapılandırıldıysa)
+  2. **Wallet** (`wallet_location` yapılandırıldıysa) - Oracle Cloud için
+  3. **Standart** (host:port/service_name) - varsayılan yöntem
+
+  ## Mevcut Araçlar
+
+  Bağlı her veritabanı için, DB MCP Server otomatik olarak şu özel araçları oluşturur:
+
+  ### Sorgu Araçları
+
+  | Tool Adı | Açıklama |
+  |-----------|-------------|
+  | `query_<db_id>` | SELECT sorguları yürüt ve sonuçları tablo veri seti olarak al |
+  | `execute_<db_id>` | Veri manipülasyon ifadelerini çalıştır (INSERT, UPDATE, DELETE) |
+  | `transaction_<db_id>` | İşlemleri başlat, bağla ve geri al |
+
+  ### Şema Araçları
+
+  | Tool Adı | Açıklama |
+  |-----------|-------------|
+  | `schema_<db_id>` | Tablolar, sütunlar, dizinler ve yabancı anahtarlar hakkında bilgi al |
+  | `generate_schema_<db_id>` | Veritabanı şemasından SQL veya kod üret |
+
+  ### Performans Araçları
+
+  | Tool Adı | Açıklama |
+  |-----------|-------------|
+  | `performance_<db_id>` | Sorgu performansını analiz et ve optimizasyon önerileri al |
+
+  ### TimescaleDB Araçları
+
+  TimescaleDB uzantısına sahip PostgreSQL veritabanları için, şu ek özel araçlar mevcuttur:
+
+  | Tool Adı | Açıklama |
+  |-----------|-------------|
+  | `timescaledb_<db_id>` | Genel TimescaleDB işlemlerini gerçekleştir |
+  | `create_hypertable_<db_id>` | Standart tabloyu TimescaleDB hypertable'a dönüştür |
+  | `list_hypertables_<db_id>` | Veritabanındaki tüm hypertable'ları listele |
+  | `time_series_query_<db_id>` | Gruplama ile optimize edilmiş zaman serisi sorguları yürüt |
+  | `time_series_analyze_<db_id>` | Zaman serisi veri düzenlerini analiz et |
+  | `continuous_aggregate_<db_id>` | Otomatik olarak güncelleştirilen materyalleştirilmiş görünümler oluştur |
+  | `refresh_continuous_aggregate_<db_id>` | Sürekli agregasyonları manuel olarak yenile |
+
+  TimescaleDB araçları hakkında ayrıntılı dokümantasyon için bkz. [TIMESCALEDB_TOOLS.md](docs/TIMESCALEDB_TOOLS.md).
+
+  ## Örnekler
+
+  ### Birden Fazla Veritabanını Sorgulama
+
+  ```sql
+  -- MySQL veritabanını sorgula
+  query_mysql1("SELECT * FROM users LIMIT 10")
+
+  -- Aynı bağlamda PostgreSQL veritabanını sorgula
+  query_postgres1("SELECT * FROM products WHERE price > 100")
+
+  -- SQLite veritabanını sorgula
+  query_sqlite_app("SELECT * FROM local_data WHERE created_at > datetime('now', '-1 day')")
+
+  -- Oracle veritabanını sorgula
+  query_oracle_dev("SELECT * FROM employees WHERE hire_date > SYSDATE - 30")
+  ```
+
+  ### İşlemleri Yönetme
+
+  ```sql
+  -- Bir işlem başlat
+  transaction_mysql1("BEGIN")
+
+  -- İşlem içinde ifadeleri yürüt
+  execute_mysql1("INSERT INTO orders (customer_id, product_id) VALUES (1, 2)")
+  execute_mysql1("UPDATE inventory SET stock = stock - 1 WHERE product_id = 2")
+
+  -- Bağla veya geri al
+  transaction_mysql1("COMMIT")
+  -- VEYA
+  transaction_mysql1("ROLLBACK")
+  ```
+
+  ### Veritabanı Şemasını Keşfetme
+
+  ```sql
+  -- Veritabanındaki tüm tabloları al
+  schema_mysql1("tables")
+
+  -- Belirli bir tablo için sütunları al
+  schema_mysql1("columns", "users")
+
+  -- Kısıtlamaları al
+  schema_mysql1("constraints", "orders")
+  ```
+
+  ### SQLite'a Özgü Özellikleri Kullanma
+
+  ```sql
+  -- SQLite'da bir tablo oluştur
+  execute_sqlite_app("CREATE TABLE IF NOT EXISTS local_cache (key TEXT PRIMARY KEY, value TEXT, timestamp DATETIME)")
+
+  -- SQLite'a özgü tarih işlevlerini kullan
+  query_sqlite_app("SELECT * FROM events WHERE date(created_at) = date('now')")
+
+  -- Şema bilgileri için SQLite master tablosunu sorgula
+  query_sqlite_app("SELECT name, sql FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")
+
+  -- WAL modu ile performans optimizasyonu
+  execute_sqlite_app("PRAGMA journal_mode = WAL")
+  execute_sqlite_app("PRAGMA synchronous = NORMAL")
+  ```
+
+  ### Oracle'a Özgü Özellikleri Kullanma
+
+  ```sql
+  -- Kullanıcı tablolarını sorgula (sistem şemalarını hariç tutar)
+  query_oracle_dev("SELECT table_name FROM user_tables ORDER BY table_name")
+
+  -- Oracle'a özgü tarih işlevlerini kullan
+  query_oracle_dev("SELECT employee_id, hire_date FROM employees WHERE hire_date >= TRUNC(SYSDATE, 'YEAR')")
+
+  -- Oracle sequence işlemleri
+  execute_oracle_dev("CREATE SEQUENCE emp_seq START WITH 1000 INCREMENT BY 1")
+  query_oracle_dev("SELECT emp_seq.NEXTVAL FROM DUAL")
+
+  -- Oracle'a özgü veri türleri
+  query_oracle_dev("SELECT order_id, TO_CHAR(order_date, 'YYYY-MM-DD HH24:MI:SS') FROM orders")
+
+  -- Oracle data dictionary'sinden şema metaverilerini al
+  query_oracle_dev("SELECT column_name, data_type, nullable FROM user_tab_columns WHERE table_name = 'EMPLOYEES'")
+
+  -- Oracle analitik işlevlerini kullan
+  query_oracle_dev("SELECT employee_id, salary, RANK() OVER (ORDER BY salary DESC) as salary_rank FROM employees")
+  ```
+
+  ## Sorun Giderme
+
+  ### Yaygın Sorunlar
+
+  - **Bağlantı Hataları**: Ağ bağlantısı ve veritabanı kimlik bilgilerini doğrulayın
+  - **İzin Hataları**: Veritabanı kullanıcısının uygun izinlere sahip olduğundan emin olun
+  - **Zaman Aşımı Sorunları**: Yapılandırmanızda `query_timeout` ayarını kontrol edin
+
+  ### Günlükler
+
+  Sorun giderme için ayrıntılı günlüğü etkinleştirin:
+
+  ```bash
+  ./bin/server -t sse -c config.json -v
+  ```
+
+  ## Test
+
+  ### Testleri Çalıştırma
+
+  Proje, desteklenen tüm veritabanları için kapsamlı birim ve entegrasyon testleri içerir.
+
+  #### Birim Testleri
+
+  Birim testlerini çalıştırın (veritabanı gerekli değildir):
+
+  ```bash
+  make test
+  # veya
+  go test -short ./...
+  ```
+
+  #### Entegrasyon Testleri
+
+  Entegrasyon testleri çalışan veritabanı örneklerini gerektirir. Kolay kurulum için Docker Compose yapılandırmaları sağlıyoruz.
+
+  **Tüm Veritabanlarını Test Et:**
+
+  ```bash
+  # Test veritabanlarını başlat
+  docker-compose -f docker-compose.test.yml up -d
+
+  # Tüm entegrasyon testlerini çalıştır
+  go test ./... -v
+
+  # Test veritabanlarını durdur
+  docker-compose -f docker-compose.test.yml down -v
+  ```
+
+  **Oracle Veritabanını Test Et:**
+
+  ```bash
+  # Oracle test ortamını başlat
+  ./oracle-test.sh start
+
+  # Oracle testlerini çalıştır
+  ./oracle-test.sh test
+  # veya manuel olarak
+  ORACLE_TEST_HOST=localhost go test -v ./pkg/db -run TestOracle
+  ORACLE_TEST_HOST=localhost go test -v ./pkg/dbtools -run TestOracle
+
+  # Oracle test ortamını durdur
+  ./oracle-test.sh stop
+
+  # Tam temizlik (hacimleri kaldırır)
+  ./oracle-test.sh cleanup
+  ```
+
+  **TimescaleDB'yi Test Et:**
+
+  ```bash
+  # TimescaleDB test ortamını başlat
+  ./timescaledb-test.sh start
+
+  # TimescaleDB testlerini çalıştır
+  TIMESCALEDB_TEST_HOST=localhost go test -v ./pkg/db/timescale ./internal/delivery/mcp
+
+  # TimescaleDB test ortamını durdur
+  ./timescaledb-test.sh stop
+  ```
+
+  #### Regresyon Testleri
+
+  Tüm veritabanı türleri arasında kapsamlı regresyon testleri çalıştırın:
+
+  ```bash
+  # Tüm test veritabanlarının çalıştığından emin olun
+  docker-compose -f docker-compose.test.yml up -d
+  ./oracle-test.sh start
+
+  # Regresyon testlerini çalıştır
+  MYSQL_TEST_HOST=localhost \
+  POSTGRES_TEST_HOST=localhost \
+  ORACLE_TEST_HOST=localhost \
+  go test -v ./pkg/db -run TestRegression
+
+  # Bağlantı havuzu testlerini çalıştır
+  go test -v ./pkg/db -run TestConnectionPooling
+  ```
+
+  ### Sürekli Entegrasyon
+
+  Tüm testler her pull request üzerinde GitHub Actions aracılığıyla otomatik olarak çalıştırılır. CI hattı şunları içerir:
+
+  - **Bi
 ---
 
 <div align="center">

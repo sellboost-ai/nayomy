@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP ile Ambient Weather Otomasyonu
+
+  Composio'nun Ambient Weather araç seti aracılığıyla Rube MCP üzerinden Ambient Weather işlemlerini otomatikleştirin.
+
+  **Araç seti dokümantasyonu**: [composio.dev/toolkits/ambient_weather](https://composio.dev/toolkits/ambient_weather)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `ambient_weather` araç seti ile aktif Ambient Weather bağlantısı
+  - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: İstemci yapılandırmanıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıtlanıp yanıtlandığını doğrulayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` öğesini `ambient_weather` araç seti ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Discovery
+
+  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Ambient Weather operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Core Workflow Deseni
+
+  ### Adım 1: Mevcut Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Ambient Weather task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["ambient_weather"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanlarını hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session tekrar kullanımı**: Bir workflow içinde session ID'lerini tekrar kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Pagination token'ları için yanıtları kontrol edin ve tamamlanana kadar getirmeyi devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool bulma | `RUBE_SEARCH_TOOLS` ile Ambient Weather'a özel use case |
+  | Bağlantı | `RUBE_MANAGE_CONNECTIONS` ile `ambient_weather` araç seti |
+  | Çalıştırma | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` - `schemaRef` ile tool'lar için |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Ambient Weather Automation via Rube MCP

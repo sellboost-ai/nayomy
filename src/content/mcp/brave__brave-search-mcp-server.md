@@ -8,6 +8,394 @@ url: "https://github.com/brave/brave-search-mcp-server"
 body_length: 18226
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Brave Search MCP Server
+
+  Brave Search API'sini entegre eden bir MCP server uygulaması. Web arama, yerel işletme arama, mekan arama, görsel arama, video arama, haber arama, LLM bağlamı ve yapay zeka destekli özet oluşturma dahil olmak üzere kapsamlı arama yetenekleri sağlar. Bu proje STDIO ve HTTP taşımaları destekler, varsayılan mod olarak STDIO'yu kullanır.
+
+  [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/brave/brave-search-mcp-server)
+
+  ## Geçiş
+
+  ### 1.x'ten 2.x'e
+
+  #### Varsayılan taşıma artık STDIO
+
+  Yerleşik MCP konvansiyonlarını takip etmek için, server artık STDIO'ya varsayılan olarak ayarlanmıştır. HTTP kullanmaya devam etmek isterseniz, `BRAVE_MCP_TRANSPORT` ortam değişkenini `http` olarak ayarlamanız veya server başlatırken `--transport http` runtime argümanını sağlamanız gerekir.
+
+  #### `brave_image_search` yanıt yapısı
+
+  MCP server'ın 1.x sürümü, resim URL'leriyle birlikte base64 kodlanmış görsel verilerini döndürürdü. Bu, yanıt hızını önemli ölçüde yavaşlattı ve oturumdaki bağlamı gereksiz yere tüketmekteydi. 2.x sürümü base64 kodlanmış verileri kaldırır ve orijinal Brave Search API yanıtını daha yakından yansıtan bir yanıt nesnesi döndürür. Güncellenmiş çıktı şeması [`src/tools/images/schemas/output.ts`](https://github.com/brave/brave-search-mcp-server/blob/main/src/tools/images/schemas/output.ts) içinde tanımlanmıştır.
+
+  ## Araçlar
+
+  ### Web Arama (`brave_web_search`)
+  Zengin sonuç türleri ve gelişmiş filtreleme seçenekleriyle kapsamlı web aramaları gerçekleştirir.
+
+  **Parametreler:**
+  - `query` (string, gerekli): Arama terimleri (maks 400 karakter, 50 kelime)
+  - `country` (string, opsiyonel): Ülke kodu (varsayılan: "US")
+  - `search_lang` (string, opsiyonel): Arama dili (varsayılan: "en")
+  - `ui_lang` (string, opsiyonel): Kullanıcı arayüzü dili (varsayılan: "en-US")
+  - `count` (number, opsiyonel): Sayfa başına sonuç sayısı (1-20, varsayılan: 10)
+  - `offset` (number, opsiyonel): Sayfalandırma ofseti (maks 9, varsayılan: 0)
+  - `safesearch` (string, opsiyonel): İçerik filtreleme ("off", "moderate", "strict", varsayılan: "moderate")
+  - `freshness` (string, opsiyonel): Zaman filtresi ("pd", "pw", "pm", "py", ya da tarih aralığı)
+  - `text_decorations` (boolean, opsiyonel): Vurgulama işaretçileri ekle (varsayılan: true)
+  - `spellcheck` (boolean, opsiyonel): Yazım denetimini etkinleştir (varsayılan: true)
+  - `result_filter` (array, opsiyonel): Sonuç türlerini filtrele (varsayılan: ["web", "query"])
+  - `goggles` (array, opsiyonel): Özel yeniden sıralama tanımları
+  - `units` (string, opsiyonel): Ölçü birimleri ("metric" veya "imperial")
+  - `extra_snippets` (boolean, opsiyonel): Ek alıntı al (Yalnızca Pro planlar)
+  - `summary` (boolean, opsiyonel): Yapay zeka özeti oluşturması için özet anahtar üretimini etkinleştir
+
+  ### Yerel Arama (`brave_local_search`)
+  Derecelendirmeler, çalışma saatleri ve yapay zeka tarafından oluşturulan açıklamalar dahil olmak üzere detaylı bilgiler içeren yerel işletmeleri ve mekanları arar.
+
+  **Parametreler:**
+  - `brave_web_search` ile aynı, otomatik konum filtrelemesi ile
+  - Otomatik olarak result_filter içinde "web" ve "locations" dahil
+
+  **Not:** Tam yerel arama yetenekleri için Pro plan gereklidir. Aksi halde web aramasına geri döner.
+
+  ### Video Arama (`brave_video_search`)
+  Kapsamlı metadata ve thumbnail bilgileri içeren videoları arar.
+
+  **Parametreler:**
+  - `query` (string, gerekli): Arama terimleri (maks 400 karakter, 50 kelime)
+  - `country` (string, opsiyonel): Ülke kodu (varsayılan: "US")
+  - `search_lang` (string, opsiyonel): Arama dili (varsayılan: "en")
+  - `ui_lang` (string, opsiyonel): Kullanıcı arayüzü dili (varsayılan: "en-US")
+  - `count` (number, opsiyonel): Sayfa başına sonuç sayısı (1-50, varsayılan: 20)
+  - `offset` (number, opsiyonel): Sayfalandırma ofseti (maks 9, varsayılan: 0)
+  - `spellcheck` (boolean, opsiyonel): Yazım denetimini etkinleştir (varsayılan: true)
+  - `safesearch` (string, opsiyonel): İçerik filtreleme ("off", "moderate", "strict", varsayılan: "moderate")
+  - `freshness` (string, opsiyonel): Zaman filtresi ("pd", "pw", "pm", "py", ya da tarih aralığı)
+
+  ### Görsel Arama (`brave_image_search`)
+  Doğrudan görüntüleme için otomatik getirme ve base64 kodlamayı içeren görselleri arar.
+
+  **Parametreler:**
+  - `query` (string, gerekli): Arama terimleri (maks 400 karakter, 50 kelime)
+  - `country` (string, opsiyonel): Ülke kodu (varsayılan: "US")
+  - `search_lang` (string, opsiyonel): Arama dili (varsayılan: "en")
+  - `count` (number, opsiyonel): Sayfa başına sonuç sayısı (1-200, varsayılan: 50)
+  - `safesearch` (string, opsiyonel): İçerik filtreleme ("off", "strict", varsayılan: "strict")
+  - `spellcheck` (boolean, opsiyonel): Yazım denetimini etkinleştir (varsayılan: true)
+
+  ### Haber Arama (`brave_news_search`)
+  Tazelik kontrolleri ve son dakika haberi göstergeleri ile güncel haber makalelerini arar.
+
+  **Parametreler:**
+  - `query` (string, gerekli): Arama terimleri (maks 400 karakter, 50 kelime)
+  - `country` (string, opsiyonel): Ülke kodu (varsayılan: "US")
+  - `search_lang` (string, opsiyonel): Arama dili (varsayılan: "en")
+  - `ui_lang` (string, opsiyonel): Kullanıcı arayüzü dili (varsayılan: "en-US")
+  - `count` (number, opsiyonel): Sayfa başına sonuç sayısı (1-50, varsayılan: 20)
+  - `offset` (number, opsiyonel): Sayfalandırma ofseti (maks 9, varsayılan: 0)
+  - `spellcheck` (boolean, opsiyonel): Yazım denetimini etkinleştir (varsayılan: true)
+  - `safesearch` (string, opsiyonel): İçerik filtreleme ("off", "moderate", "strict", varsayılan: "moderate")
+  - `freshness` (string, opsiyonel): Zaman filtresi (varsayılan: "pd" son 24 saat için)
+  - `extra_snippets` (boolean, opsiyonel): Ek alıntı al (Yalnızca Pro planlar)
+  - `goggles` (array, opsiyonel): Özel yeniden sıralama tanımları
+
+  ### Özet Oluşturucu Arama (`brave_summarizer`)
+  Brave'in özet oluşturma API'sini kullanarak web arama sonuçlarından yapay zeka destekli özetler oluşturur.
+
+  **Parametreler:**
+  - `key` (string, gerekli): Web arama sonuçlarından özet anahtarı (web aramasında `summary: true` kullanın)
+  - `entity_info` (boolean, opsiyonel): Varlık bilgisini ekle (varsayılan: false)
+  - `inline_references` (boolean, opsiyonel): Kaynak URL referansları ekle (varsayılan: false)
+
+  **Kullanım:** Önce `summary: true` ile bir web arama gerçekleştirin, ardından döndürülen özet anahtarını bu araçla kullanın.
+
+  ### Mekan Arama (`brave_place_search`)
+  Brave'in Place Search API'sini kullanarak belirtilen coğrafi alanda ilgi noktaları (POI) arar. Ad, adres, açılış saatleri, iletişim bilgisi, derecelendirmeler, fotoğraflar, kategoriler ve saat dilimi dahil olmak üzere zengin, yapılandırılmış mekan verisi döndürür.
+
+  **Parametreler:**
+  - `query` (string, opsiyonel): POI aramasını rafine etmek için kullanılan sorgu dizesi (maks 400 karakter, 50 kelime). Atlanırsa, sağlanan alandaki genel ilgi noktalarını döndürür.
+  - `latitude` (number, opsiyonel): Arama merkezinin enlem değeri (-90 ile 90). Tipik olarak `longitude` ile birlikte kullanılır.
+  - `longitude` (number, opsiyonel): Arama merkezinin boylam değeri (-180 ile 180). Tipik olarak `latitude` ile birlikte kullanılır.
+  - `location` (string, opsiyonel): `latitude`/`longitude` yerine alternatif olarak kullanılan konum dizesi. ABD konumları için `<şehir> <eyalet> <ülke adı>` formunu tercih edin (örn. `san francisco ca united states`); ABD dışı konumlar için `<şehir> <ülke adı>` kullanın (örn. `tokyo japan`).
+  - `radius` (number, opsiyonel): Sağlanan koordinatların etrafındaki arama yarıçapı, metre cinsinden. Atlanırsa, arama global olarak gerçekleştirilir.
+  - `count` (number, opsiyonel): Döndürülecek sonuç sayısı (1-50, varsayılan 20).
+  - `country` (string, opsiyonel): İki harfli ülke kodu (varsayılan `US`).
+  - `search_lang` (string, opsiyonel): Arama dili (varsayılan `en`).
+  - `ui_lang` (string, opsiyonel): Kullanıcı arayüzü dili (varsayılan `en-US`).
+  - `units` (string, opsiyonel): Mesafe birimleri (`metric` veya `imperial`, varsayılan `metric`).
+  - `safesearch` (string, opsiyonel): Güvenli arama seviyesi (`off`, `moderate`, `strict`, varsayılan `strict`).
+  - `spellcheck` (boolean, opsiyonel): Sorguyu yazım denetiminden geçirip geçirmeyeceği (varsayılan `true`).
+  - `geoloc` (string, opsiyonel): Sonuçları rafine etmek için kullanılan opsiyonel coğrafi konum jetonu.
+
+  **Opsiyonel istek başlıkları:**
+  - `api-version` (string, opsiyonel): Brave API sürümü (`YYYY-MM-DD`)
+  - `accept` (string, opsiyonel): Yanıt medya türü (`application/json` veya `*/*`)
+  - `cache-control` (string, opsiyonel): Taze içerik talep etmek için `no-cache` kullanın
+  - `user-agent` (string, opsiyonel): İsteğe kaynak olan user agent
+
+  ### LLM Bağlamı (`brave_llm_context`)
+  Yapay zeka ajanları, LLM temellendirilmesi ve RAG pipeline'ları için optimize edilmiş önceden çıkarılmış web içeriğini alır.
+
+  **Parametreler:**
+  - `query` (string, gerekli): Arama sorgusu (maks 400 karakter, 50 kelime)
+  - `country` (string, opsiyonel): Arama ülke kodu
+  - `search_lang` (string, opsiyonel): Arama dili kodu
+  - `count` (number, opsiyonel): Dikkate alınacak maksimum arama sonuç sayısı (1-50)
+  - `spellcheck` (boolean, opsiyonel): Yazım denetimini etkinleştir
+  - `maximum_number_of_urls` (number, opsiyonel): Dahil edilecek maksimum URL sayısı (1-50)
+  - `maximum_number_of_tokens` (number, opsiyonel): Yaklaşık maksimum bağlam token sayısı (1024-32768)
+  - `maximum_number_of_snippets` (number, opsiyonel): Dahil edilecek maksimum snippet sayısı (1-256)
+  - `context_threshold_mode` (string, opsiyonel): Eşik modu ("disabled", "strict", "lenient", "balanced")
+  - `maximum_number_of_tokens_per_url` (number, opsiyonel): URL başına maksimum token sayısı (512-8192)
+  - `maximum_number_of_snippets_per_url` (number, opsiyonel): URL başına maksimum snippet sayısı (1-100)
+  - `goggles` (string veya array, opsiyonel): Özel yeniden sıralama için Goggle URL'si veya tanımı
+  - `freshness` (string, opsiyonel): Zaman filtresi ("pd", "pw", "pm", "py", ya da tarih aralığı)
+  - `enable_local` (boolean, opsiyonel): Yerel geri çağırmayı etkinleştir
+  - `enable_source_metadata` (boolean, opsiyonel): Kaynak metadata zenginleştirmesi ekle
+
+  **Opsiyonel istek başlıkları:**
+  - `x-loc-lat` (number, opsiyonel): İstemci enlem değeri (-90 ile 90)
+  - `x-loc-long` (number, opsiyonel): İstemci boylam değeri (-180 ile 180)
+  - `x-loc-city` (string, opsiyonel): İstemci şehir adı
+  - `x-loc-state` (string, opsiyonel): İstemci eyalet veya bölge kodu
+  - `x-loc-state-name` (string, opsiyonel): İstemci eyalet veya bölge adı
+  - `x-loc-country` (string, opsiyonel): İstemci ülke kodu
+  - `x-loc-postal-code` (string, opsiyonel): İstemci posta kodu
+  - `api-version` (string, opsiyonel): Brave API sürümü (`YYYY-MM-DD`)
+  - `accept` (string, opsiyonel): Yanıt medya türü ("application/json" veya "*/*")
+  - `cache-control` (string, opsiyonel): Taze içerik talep etmek için `no-cache` kullanın
+  - `user-agent` (string, opsiyonel): İsteğe kaynak olan user agent
+
+  ## Yapılandırma
+
+  ### API Anahtarı Alma
+
+  1. [Brave Search API hesabına kaydolun](https://brave.com/search/api/)
+  2. Bir plan seçin:
+      - **Search**: Chatbot'larınız ve ajanlarınızın cevaplar üretmesi için gereken gerçek zamanlı arama verileri. Tamamlanmış arama sonuçları (URL'ler, metin, haberler, görseller ve daha fazlası), yapay zeka için optimize edilmiş ek LLM bağlamı ile.
+      - **Answers**: Herhangi bir soruya ilişkin özetlenmiş, tamamlanmış cevaplar. Daha yüksek doğruluk ve azalan halüsinasyonlar için tek bir arama veya birden çok aramalara dayalı cevaplar.
+  3. [Developer panosundan](https://api-dashboard.search.brave.com/app/keys) API anahtarınızı oluşturun
+
+  ### Ortam Değişkenleri
+
+  Server aşağıdaki ortam değişkenlerini destekler:
+
+  - `BRAVE_API_KEY`: Brave Search API anahtarınız (gerekli)
+  - `BRAVE_MCP_TRANSPORT`: Taşıma modu ("http" veya "stdio", varsayılan: "stdio")
+  - `BRAVE_MCP_PORT`: HTTP server portu (varsayılan: 8000)
+  - `BRAVE_MCP_HOST`: HTTP server host'u (varsayılan: "0.0.0.0")
+  - `BRAVE_MCP_LOG_LEVEL`: İstenen logging seviyesi ("debug", "info", "notice", "warning", "error", "critical", "alert" veya "emergency", varsayılan: "info")
+  - `BRAVE_MCP_ENABLED_TOOLS`: Kullanıldığında, desteklenen araçlar için boşluk ayrılmış bir whitelist belirtir
+  - `BRAVE_MCP_DISABLED_TOOLS`: Kullanıldığında, desteklenen araçlar için boşluk ayrılmış bir blacklist belirtir
+  - `BRAVE_MCP_STATELESS`: HTTP stateless modu (varsayılan: "true"). Amazon Bedrock Agentcore'da çalıştırırken "true" olarak ayarlayın.
+
+  ### Komut Satırı Seçenekleri
+
+  ```bash
+  node dist/index.js [options]
+
+  Options:
+    --brave-api-key <string>    Brave API key
+    --transport <stdio|http>    Transport type (default: stdio)
+    --port <number>             HTTP server port (default: 8080)
+    --host <string>             HTTP server host (default: 0.0.0.0)
+    --logging-level <string>    Desired logging level (one of _debug_, _info_, _notice_, _warning_, _error_, _critical_, _alert_, or _emergency_)
+    --enabled-tools             Tools whitelist (only the specified tools will be enabled)
+    --disabled-tools            Tools blacklist (included tools will be disabled)
+    --stateless  <boolean>      HTTP Stateless flag
+  ```
+
+  ## Kurulum
+
+  ### Claude Desktop ile Kullanım
+
+  Bunu `claude_desktop_config.json` dosyanıza ekleyin:
+
+  #### Docker
+
+  ```json
+  {
+    "mcpServers": {
+      "brave-search": {
+        "command": "docker",
+        "args": ["run", "-i", "--rm", "-e", "BRAVE_API_KEY", "docker.io/mcp/brave-search"],
+        "env": {
+          "BRAVE_API_KEY": "YOUR_API_KEY_HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  #### NPX
+
+  ```json
+  {
+    "mcpServers": {
+      "brave-search": {
+        "command": "npx",
+        "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "http"],
+        "env": {
+          "BRAVE_API_KEY": "YOUR_API_KEY_HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  ### VS Code ile Kullanım
+
+  Hızlı kurulum için aşağıdaki tek tıklamalı kurulum düğmelerini kullanın:
+
+  [![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=brave-search&inputs=%5B%7B%22password%22%3Atrue%2C%22id%22%3A%22brave-api-key%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22Brave+Search+API+Key%22%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40brave%2Fbrave-search-mcp-server%22%2C%22--transport%22%2C%22stdio%22%5D%2C%22env%22%3A%7B%22BRAVE_API_KEY%22%3A%22%24%7Binput%3Abrave-api-key%7D%22%7D%7D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=brave-search&inputs=%5B%7B%22password%22%3Atrue%2C%22id%22%3A%22brave-api-key%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22Brave+Search+API+Key%22%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40brave%2Fbrave-search-mcp-server%22%2C%22--transport%22%2C%22stdio%22%5D%2C%22env%22%3A%7B%22BRAVE_API_KEY%22%3A%22%24%7Binput%3Abrave-api-key%7D%22%7D%7D&quality=insiders)  
+  [![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Docker-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=brave-search&inputs=%5B%7B%22password%22%3Atrue%2C%22id%22%3A%22brave-api-key%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22Brave+Search+API+Key%22%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22BRAVE_API_KEY%22%2C%22mcp%2Fbrave-search%22%5D%2C%22env%22%3A%7B%22BRAVE_API_KEY%22%3A%22%24%7Binput%3Abrave-api-key%7D%22%7D%7D) [![Install with Docker in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Docker-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=brave-search&inputs=%5B%7B%22password%22%3Atrue%2C%22id%22%3A%22brave-api-key%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22Brave+Search+API+Key%22%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22BRAVE_API_KEY%22%2C%22mcp%2Fbrave-search%22%5D%2C%22env%22%3A%7B%22BRAVE_API_KEY%22%3A%22%24%7Binput%3Abrave-api-key%7D%22%7D%7D&quality=insiders)
+
+  Manuel kurulum için, User Settings (JSON) veya `.vscode/mcp.json` dosyanıza şunları ekleyin:
+
+  #### Docker
+
+  ```json
+  {
+    "inputs": [
+      {
+        "password": true,
+        "id": "brave-api-key",
+        "type": "promptString",
+        "description": "Brave Search API Key",
+      }
+    ],
+    "servers": {
+      "brave-search": {
+        "command": "docker",
+        "args": ["run", "-i", "--rm", "-e", "BRAVE_API_KEY", "mcp/brave-search"],
+        "env": {
+          "BRAVE_API_KEY": "${input:brave-api-key}"
+        }
+      }
+    }
+  }
+  ```
+
+  #### NPX
+
+  ```json
+  {
+    "inputs": [
+      {
+        "password": true,
+        "id": "brave-api-key",
+        "type": "promptString",
+        "description": "Brave Search API Key",
+      }
+    ],
+    "servers": {
+      "brave-search-mcp-server": {
+        "command": "npx",
+        "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
+        "env": {
+          "BRAVE_API_KEY": "${input:brave-api-key}"
+        }
+      }
+    }
+  }
+  ```
+
+  ## Derleme
+
+  ### Docker
+
+  ```bash
+  docker build -t mcp/brave-search:latest .
+  ```
+
+  ### Yerel Derleme
+
+  ```bash
+  npm install
+  npm run build
+  ```
+
+  ## Geliştirme
+
+  ### Ön Koşullar
+
+  - Node.js 22.x veya daha yüksek
+  - npm
+  - Brave Search API anahtarı
+
+  ### Kurulum
+
+  1. Depoyu klonlayın:
+  ```bash
+  git clone https://github.com/brave/brave-search-mcp-server.git
+  cd brave-search-mcp-server
+  ```
+
+  2. Bağımlılıkları yükleyin:
+  ```bash
+  npm install
+  ```
+
+  3. Projeyi derleyin:
+  ```bash
+  npm run build
+  ```
+
+  ### Claude Desktop aracılığıyla Test
+
+  Yerel derlemenize bir referans `claude_desktop_config.json` dosyanıza ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "brave-search-dev": {
+        "command": "node",
+        "args": ["C:\\GitHub\\brave-search-mcp-server\\dist\\index.js"], // Verify your path
+        "env": {
+          "BRAVE_API_KEY": "YOUR_API_KEY_HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  ### MCP Inspector aracılığıyla Test
+
+  1. Server'ı derleyin ve başlatın:
+  ```bash
+  npm run build
+  node dist/index.js
+  ```
+
+  2. Başka bir terminalde, MCP Inspector'ı başlatın:
+  ```bash
+  npx @modelcontextprotocol/inspector node dist/index.js
+  ```
+
+  STDIO varsayılan moddur. HTTP modu testi için Inspector UI'da argümanlara `--transport http` ekleyin.
+
+  ### Mevcut Scripts
+
+  - `npm run build`: TypeScript projesini derle
+  - `npm run watch`: Değişiklikleri izle ve yeniden derle
+  - `npm run format`: Prettier ile kodu biçimlendir
+  - `npm run format:check`: Kod biçimlendirmesini kontrol et
+  - `npm run prepare`: Biçimlendir ve derle (npm install'da otomatik olarak çalışır)
+
+  - `npm run inspector`: MCP Inspector örneğini başlat
+  - `npm run inspector:stdio`: STDIO için yapılandırılmış MCP Inspector örneğini başlat
+
+  ### Docker Compose
+
+  Yerel geliştirme için Docker ile:
+
+  ```bash
+  docker-compose up --build
+  ```
+
+  ## Lisans
+
+  Bu MCP server MIT Lisansı altında lisanslanmıştır. Bu, MIT Lisansının hüküm ve koşullarına tabi olarak yazılımı kullanmakta, değiştirmekte ve dağıtmakta özgürsünüz. Daha fazla ayrıntı için proje deposundaki LICENSE dosyasına bakın.
 ---
 
 # Brave Search MCP Server

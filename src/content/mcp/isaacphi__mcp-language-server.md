@@ -8,6 +8,269 @@ url: "https://github.com/isaacphi/mcp-language-server"
 body_length: 10213
 license: "BSD-3-Clause"
 language: "Go"
+body_tr: |-
+  # MCP Language Server
+
+  [![Go Tests](https://github.com/isaacphi/mcp-language-server/actions/workflows/go.yml/badge.svg)](https://github.com/isaacphi/mcp-language-server/actions/workflows/go.yml)
+  [![Go Report Card](https://goreportcard.com/badge/github.com/isaacphi/mcp-language-server)](https://goreportcard.com/report/github.com/isaacphi/mcp-language-server)
+  [![GoDoc](https://pkg.go.dev/badge/github.com/isaacphi/mcp-language-server)](https://pkg.go.dev/github.com/isaacphi/mcp-language-server)
+  [![Go Version](https://img.shields.io/github/go-mod/go-version/isaacphi/mcp-language-server)](https://github.com/isaacphi/mcp-language-server/blob/main/go.mod)
+
+  Bu, [MCP](https://modelcontextprotocol.io/introduction) sunucusu çalıştıran ve LLM'lere bir [language server](https://microsoft.github.io/language-server-protocol/) ortaya çıkaran bir sunucudur. MCP için bir language server değildir, o da ne olurdu.
+
+  ## Demo
+
+  `mcp-language-server`, MCP etkin istemcilere definition alma, referanslar, yeniden adlandırma ve diagnostikler gibi semantik araçlara erişim sağlayarak kod tabanlarında daha kolay gezinmelerine yardımcı olur.
+
+  ![Demo](https://raw.githubusercontent.com/isaacphi/mcp-language-server/HEAD/demo.gif)
+
+  ## Kurulum
+
+  1. **Go'yu yükleyin**: <https://golang.org/doc/install> adresindeki yönergeleri izleyin
+  2. **Bu sunucuyu yükleyin veya güncelleyin**: `go install github.com/isaacphi/mcp-language-server@latest`
+  3. **Bir language server yükleyin**: _aşağıdaki kılavuzlardan birini izleyin_
+  4. **MCP istemcinizi yapılandırın**: _aşağıdaki kılavuzlardan birini izleyin_
+
+  <details>
+    <summary>Go (gopls)</summary>
+    <div>
+      <p><strong>gopls'i yükleyin</strong>: <code>go install golang.org/x/tools/gopls@latest</code></p>
+      <p><strong>MCP istemcinizi yapılandırın</strong>: Bu her istemci için farklı ama benzer olacaktır. Claude Desktop için, aşağıdakileri <code>~/Library/Application\ Support/Claude/claude_desktop_config.json</code> dosyasına ekleyin</p>
+
+  <pre>
+  {
+    "mcpServers": {
+      "language-server": {
+        "command": "mcp-language-server",
+        "args": ["--workspace", "/Users/you/dev/yourproject/", "--lsp", "gopls"],
+        "env": {
+          "PATH": "/opt/homebrew/bin:/Users/you/go/bin",
+          "GOPATH": "/users/you/go",
+          "GOCACHE": "/users/you/Library/Caches/go-build",
+          "GOMODCACHE": "/Users/you/go/pkg/mod"
+        }
+      }
+    }
+  }
+  </pre>
+
+  <p><strong>Not</strong>: Tüm istemciler bu ortam değişkenlerine ihtiyaç duymayacaktır. Claude Desktop için yukarıdaki ortam değişkenlerini makinenize ve kullanıcı adınıza göre güncellemeniz gerekecektir:</p>
+  <ul>
+    <li><code>PATH</code>, <code>go</code> ve <code>gopls</code> yolunu içermelidir. Bunu <code>echo $(which go):$(which gopls)</code> ile alabilirsiniz</li>
+    <li><code>GOPATH</code>, <code>GOCACHE</code> ve <code>GOMODCACHE</code> makinenizde farklı olabilir. Bunlar varsayılanlarıdır.</li>
+  </ul>
+
+    </div>
+  </details>
+  <details>
+    <summary>Rust (rust-analyzer)</summary>
+    <div>
+      <p><strong>rust-analyzer'ı yükleyin</strong>: <code>rustup component add rust-analyzer</code></p>
+      <p><strong>MCP istemcinizi yapılandırın</strong>: Bu her istemci için farklı ama benzer olacaktır. Claude Desktop için, aşağıdakileri <code>~/Library/Application\ Support/Claude/claude_desktop_config.json</code> dosyasına ekleyin</p>
+
+  <pre>
+  {
+    "mcpServers": {
+      "language-server": {
+        "command": "mcp-language-server",
+        "args": [
+          "--workspace",
+          "/Users/you/dev/yourproject/",
+          "--lsp",
+          "rust-analyzer"
+        ]
+      }
+    }
+  }
+  </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Python (pyright)</summary>
+    <div>
+      <p><strong>pyright'ı yükleyin</strong>: <code>npm install -g pyright</code></p>
+      <p><strong>MCP istemcinizi yapılandırın</strong>: Bu her istemci için farklı ama benzer olacaktır. Claude Desktop için, aşağıdakileri <code>~/Library/Application\ Support/Claude/claude_desktop_config.json</code> dosyasına ekleyin</p>
+
+  <pre>
+  {
+    "mcpServers": {
+      "language-server": {
+        "command": "mcp-language-server",
+        "args": [
+          "--workspace",
+          "/Users/you/dev/yourproject/",
+          "--lsp",
+          "pyright-langserver",
+          "--",
+          "--stdio"
+        ]
+      }
+    }
+  }
+  </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Typescript (typescript-language-server)</summary>
+    <div>
+      <p><strong>typescript-language-server'ı yükleyin</strong>: <code>npm install -g typescript typescript-language-server</code></p>
+      <p><strong>MCP istemcinizi yapılandırın</strong>: Bu her istemci için farklı ama benzer olacaktır. Claude Desktop için, aşağıdakileri <code>~/Library/Application\ Support/Claude/claude_desktop_config.json</code> dosyasına ekleyin</p>
+
+  <pre>
+  {
+    "mcpServers": {
+      "language-server": {
+        "command": "mcp-language-server",
+        "args": [
+          "--workspace",
+          "/Users/you/dev/yourproject/",
+          "--lsp",
+          "typescript-language-server",
+          "--",
+          "--stdio"
+        ]
+      }
+    }
+  }
+  </pre>
+    </div>
+  </details>
+  <details>
+    <summary>C/C++ (clangd)</summary>
+    <div>
+      <p><strong>clangd'yi yükleyin</strong>: Önceden derlenmiş ikili dosyaları <a href="https://github.com/clangd/clangd/releases">resmi LLVM yayınlar sayfasından</a> indirin veya sisteminizin paket yöneticisi aracılığıyla yükleyin (örn. <code>apt install clangd</code>, <code>brew install clangd</code>).</p>
+      <p><strong>MCP istemcinizi yapılandırın</strong>: Bu her istemci için farklı ama benzer olacaktır. Claude Desktop için, aşağıdakileri <code>~/Library/Application\\ Support/Claude/claude_desktop_config.json</code> dosyasına ekleyin</p>
+
+  <pre>
+  {
+    "mcpServers": {
+      "language-server": {
+        "command": "mcp-language-server",
+        "args": [
+          "--workspace",
+          "/Users/you/dev/yourproject/",
+          "--lsp",
+          "/path/to/your/clangd_binary",
+          "--",
+          "--compile-commands-dir=/path/to/yourproject/build_or_compile_commands_dir"
+        ]
+      }
+    }
+  }
+  </pre>
+      <p><strong>Not</strong>:</p>
+      <ul>
+        <li><code>/path/to/your/clangd_binary</code> yerine clangd yürütülebilir dosyasının gerçek yolunu koyun.</li>
+        <li><code>--compile-commands-dir</code>, <code>compile_commands.json</code> dosyanızı içeren dizini göstermelidir (örn. <code>./build</code>, <code>./cmake-build-debug</code>).</li>
+        <li>clangd'nin etkili bir şekilde çalışması için projeniz için <code>compile_commands.json</code> oluşturulduğundan emin olun.</li>
+      </ul>
+    </div>
+  </details>
+  <details>
+    <summary>Diğer</summary>
+    <div>
+      <p>Bu repo'yu yalnızca yukarıdaki sunucularla test ettim ama birçok başkasıyla uyumlu olmalıdır. Unutmayın:</p>
+      <ul>
+        <li>Language server stdio üzerinden iletişim kurmalıdır.</li>
+        <li><code>--</code> sonrasındaki herhangi bir argüman language server'a argüman olarak gönderilir.</li>
+        <li>Herhangi bir ortam değişkeni language server'a iletilir.</li>
+      </ul>
+    </div>
+  </details>
+
+  ## Araçlar
+
+  - `definition`: Kod tabanınızdan herhangi bir sembolün (function, type, constant, vb.) tam kaynak kodu tanımını alır.
+  - `references`: Sembolün kod tabanı genelinde tüm kullanımlarını ve referanslarını bulur.
+  - `diagnostics`: Uyarılar ve hatalar da dahil olmak üzere belirli bir dosya için tanı bilgileri sağlar.
+  - `hover`: Belirli bir konum için belgeleri, tip ipuçlarını veya diğer hover bilgilerini görüntüle.
+  - `rename_symbol`: Bir sembolü proje genelinde yeniden adlandırın.
+  - `edit_file`: Satır numaralarına göre bir dosyaya birden çok metin düzenlemesi yapılmasına izin verir. Arama ve değiştirme tabanlı düzenleme araçlarına kıyasla dosyaları düzeltmenin daha güvenilir ve bağlam açısından ekonomik bir yolunu sağlar.
+
+  ## Hakkında
+
+  Bu kod tabanı, LSP iletişimini işlemek için [gopls](https://go.googlesource.com/tools/+/refs/heads/master/gopls/internal/protocol) adresinden düzenlenmiş kodu kullanır. Ayrıntılar için ATTRIBUTION dosyasına bakın. Buradaki her şey izin verici BSD tarzı lisans tarafından kapsanmıştır.
+
+  [mcp-go](https://github.com/mark3labs/mcp-go), MCP iletişimi için kullanılır. Hizmetiniz için teşekkürler.
+
+  Bu beta yazılımdır. Herhangi bir soruna çarptıysanız veya herhangi bir türde öneriniz varsa bir issue oluşturarak lütfen bana bildirin.
+
+  ## Katkıda Bulunma
+
+  PR'leri küçük tutun ve önemli herhangi bir şey için önce Issues açın. AI slop sorun değildir, sürece test edilirse, kontrolleri geçerse ve çok kötü kokmazsa.
+
+  ### Kurulum
+
+  Repo'yu klonlayın:
+
+  ```bash
+  git clone https://github.com/isaacphi/mcp-language-server.git
+  cd mcp-language-server
+  ```
+
+  Kolaylık için bir [justfile](https://just.systems/man/en/) eklenmiştir:
+
+  ```bash
+  just -l
+  Available recipes:
+      build    # Build
+      check    # Run code audit checks
+      fmt      # Format code
+      generate # Generate LSP types and methods
+      help     # Help
+      install  # Install locally
+      snapshot # Update snapshot tests
+      test     # Run tests
+  ```
+
+  Claude Desktop'u (veya benzerini) yerel binary'yi kullanacak şekilde yapılandırın:
+
+  ```json
+  {
+    "mcpServers": {
+      "language-server": {
+        "command": "/full/path/to/your/clone/mcp-language-server/mcp-language-server",
+        "args": [
+          "--workspace",
+          "/path/to/workspace",
+          "--lsp",
+          "language-server-executable"
+        ],
+        "env": {
+          "LOG_LEVEL": "DEBUG"
+        }
+      }
+    }
+  }
+  ```
+
+  Değişiklik yaptıktan sonra yeniden derleyin.
+
+  ### Logging
+
+  `LOG_LEVEL` ortam değişkenini DEBUG olarak ayarlamak, language server'a ve language server'ın günlüklerine giden mesajler de dahil olmak üzere tüm bileşenler için stderr'e ayrıntılı logging'i etkinleştirir.
+
+  ### LSP interaction
+
+  - `internal/lsp/methods.go` bağlı language server'a çağrılar yapmak için oluşturulan kod içerir.
+  - `internal/protocol/tsprotocol.go` LSP türleri için oluşturulan kod içerir. Bunu `gopls`'in kaynak kodundan ödünç aldım. Hizmetiniz için teşekkürler.
+  - LSP, language server'ların aynı methodlar için farklı türler döndürmesine izin verir. Go bunu sevmez, bu yüzden `internal/protocol/interfaces.go` dosyasında bazı çirkin workaround'lar vardır.
+
+  ### Yerel Geliştirme ve Snapshot Testleri
+
+  Araçlardaki değişiklikleri denemeyi çok daha kolay hale getiren bir snapshot test paketi vardır. Bunlar mock workspaces'lerde gerçek language server'ları çalıştırır ve çıktı ve günlükleri yakalar.
+
+  Onları çalıştırmak için language server'ları yerel olarak yüklemeniz gerekecektir. Go, rust, python ve typescript için testler vardır.
+
+  ```
+  integrationtests/
+  ├── tests/        # Tests are in this folder
+  ├── snapshots/    # Snapshots of tool outputs
+  ├── test-output/  # Gitignored folder showing the final state of each workspace and logs after each test run
+  └── workspaces/   # Mock workspaces that the tools run on
+  ```
+
+  Snapshot'ları güncellemek için `UPDATE_SNAPSHOTS=true go test ./integrationtests/...` komutunu çalıştırın
 ---
 
 # MCP Language Server

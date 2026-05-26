@@ -9,6 +9,14 @@ body_length: 235
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://bluesky-demo.vercel.app"
+body_tr: |-
+  # 🚨 DEPRECATED
+
+  **Bu repository deprecated durumdadır ve artık bakımı yapılmamaktadır.**
+
+  **Yeni implementasyon:** [Tinybird MCP Server](https://www.tinybird.co/docs/forward/analytics-agents/mcp)
+
+  **Lütfen resmi implementasyona geçiş yapınız.**
 ---
 
 # 🚨 DEPRECATED

@@ -8,6 +8,359 @@ url: "https://github.com/takumi0706/google-calendar-mcp"
 body_length: 15181
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Google Calendar MCP Server
+  ![Apr-15-2025 12-17-08](https://github.com/user-attachments/assets/8970351e-c90d-42e3-8609-b4dfe33f8615)
+
+
+  > **🔔 VERSİYON GÜNCELLEME BİLDİRİMİ 🔔**  
+  > Sürüm 1.0.5, hem `createEvent` hem de `updateEvent` araçlarında `recurrence` parametresi aracılığıyla tekrarlayan etkinlikler için destek ekler. Bu, oluşturulduktan sonra manuel olarak ayarlamak zorunda kalmadan doğrudan tekrarlayan etkinlikler oluşturmanızı ve değiştirmenizi sağlar.
+
+  ![](https://badge.mcpx.dev?type=server 'MCP Server')
+  ![Version](https://img.shields.io/badge/version-1.0.7-blue.svg)
+  ![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+  [![日本語](https://img.shields.io/badge/日本語-クリック-青)](README.ja.md)
+  [![English](https://img.shields.io/badge/English-Click-blue)](README.md)
+
+
+  ## Proje Özeti
+
+  Google Calendar MCP Server, Google Calendar ile Claude Desktop arasında entegrasyonu sağlayan bir MCP (Model Context Protocol) sunucu uygulamasıdır. Bu proje, Claude'un kullanıcının Google Takvimini etkileşime girmesini, doğal dil etkileşimi aracılığıyla takvim etkinliklerini görüntüleme, oluşturma, güncelleme ve silme yeteneğini sağlar.
+
+  ### Temel Özellikler
+
+  - **Google Calendar entegrasyonu**: Claude Desktop ile Google Calendar API arasında bir köprü sağlar
+  - **MCP uygulaması**: AI asistan araç entegrasyonu için Model Context Protocol belirtimini takip eder
+  - **OAuth2 kimlik doğrulaması**: Google API kimlik doğrulama akışını güvenli şekilde yönetir
+  - **Etkinlik yönetimi**: Kapsamlı takvim etkinliği işlemlerini destekler (get, create, update, delete)
+  - **Renk desteği**: colorId parametresini kullanarak etkinlik rengini ayarlama ve güncelleme yeteneği
+  - **STDIO iletişimi**: Claude Desktop ile iletişim için standart input/output kullanır
+
+  ## Teknik Mimari
+
+  Bu proje şunları kullanır:
+
+  - **TypeScript**: Tür-güvenli kod geliştirmesi için
+  - **MCP SDK**: Claude Desktop ile entegrasyon için `@modelcontextprotocol/sdk` kullanır
+  - **Google API**: Google Calendar API erişimi için `googleapis` kullanır
+  - **Hono**: Kimlik doğrulama sunucusu için hafif ve hızlı web framework
+  - **OAuth2 Sağlayıcıları**: PKCE etkinleştirilen OAuth2 akışı için `@hono/oauth-providers` kullanır
+  - **Zod**: İstek/yanıt verisi için şema doğrulaması uygular
+  - **Ortam tabanlı yapılandırma**: Yapılandırma yönetimi için dotenv kullanır
+  - **AES-256-GCM**: Node.js crypto modülünü kullanarak token şifreleme için
+  - **Open**: Kimlik doğrulama sırasında otomatik tarayıcı başlatma için
+  - **Readline**: Sunucu ortamlarında manuel kimlik doğrulama girişi için
+  - **Jest**: Birim testi ve kapsam alanı için
+  - **GitHub Actions**: CI/CD için
+
+  ## Ana Bileşenler
+
+  1. **MCP Sunucusu**: Claude Desktop ile iletişimi işleyen temel sunucu uygulaması
+  2. **Google Calendar Araçları**: Takvim işlemleri (alma, oluşturma, güncelleme, silme)
+  3. **Kimlik Doğrulama İşleyicisi**: Google API ile OAuth2 akışı yönetimi
+  4. **Şema Doğrulaması**: Tüm işlemlerde veri bütünlüğünü sağlama
+  5. **Token Yöneticisi**: Kimlik doğrulama tokenlarının güvenli şekilde işlenmesi
+
+  ## Kullanılabilir Araçlar
+
+  Bu MCP sunucusu, Google Takvim ile etkileşim kurmak için aşağıdaki araçları sağlar:
+
+  ### 1. getEvents
+
+  Çeşitli filtreleme seçenekleri ile takvim etkinliklerini alır.
+
+  **Parametreler:**
+  - `calendarId` (isteğe bağlı): Takvim ID'si (atlanırsa, boş string, null veya undefined ise birincil takvimi kullanır)
+  - `timeMin` (isteğe bağlı): Etkinlik alımı için başlangıç saati (ISO 8601 formatı, örneğin "2025-03-01T00:00:00Z"). Boş string, null veya undefined değerleri yoksayılır
+  - `timeMax` (isteğe bağlı): Etkinlik alımı için bitiş saati (ISO 8601 formatı). Boş string, null veya undefined değerleri yoksayılır
+  - `maxResults` (isteğe bağlı): Alınacak maksimum etkinlik sayısı (varsayılan: 10)
+  - `orderBy` (isteğe bağlı): Sıralama düzeni ("startTime" veya "updated"). Boş string, null veya undefined ise "startTime" olarak varsayılan
+
+  ### 2. createEvent
+
+  Yeni bir takvim etkinliği oluşturur.
+
+  **Parametreler:**
+  - `calendarId` (isteğe bağlı): Takvim ID'si (atlanırsa birincil takvimi kullanır)
+  - `event`: Aşağıdakileri içeren etkinlik ayrıntıları nesnesi:
+    - `summary` (gerekli): Etkinlik başlığı
+    - `description` (isteğe bağlı): Etkinlik açıklaması
+    - `location` (isteğe bağlı): Etkinlik konumu
+    - `start`: Aşağıdakileri içeren başlangıç saati nesnesi:
+      - `dateTime` (isteğe bağlı): ISO 8601 formatı (örneğin, "2025-03-15T09:00:00+09:00")
+      - `date` (isteğe bağlı): YYYY-MM-DD formatı tüm gün etkinlikleri için
+      - `timeZone` (isteğe bağlı): Saat dilimi (örneğin, "Asia/Tokyo")
+    - `end`: Bitiş saati nesnesi (başlangıç ile aynı format)
+    - `attendees` (isteğe bağlı): Email ve isteğe bağlı displayName içeren katılımcı dizisi
+    - `colorId` (isteğe bağlı): Etkinlik renk ID'si (1-11)
+    - `recurrence` (isteğe bağlı): RFC5545 formatında tekrarlama kuralları dizisi (örneğin, ["RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR"])
+
+  ### 3. updateEvent
+
+  Mevcut bir takvim etkinliğini günceller. İşlev önce mevcut etkinlik verilerini alır ve güncelleme verileriyle birleştirir, güncelleme isteğine dahil olmayan alanları korur.
+
+  **Parametreler:**
+  - `calendarId` (isteğe bağlı): Takvim ID'si (atlanırsa birincil takvimi kullanır)
+  - `eventId` (gerekli): Güncellenecek etkinliğin ID'si
+  - `event`: Güncellenecek alanları içeren etkinlik ayrıntıları nesnesi (createEvent ile aynı yapı, tüm alanlar isteğe bağlı)
+    - Yalnızca açıkça sağlanan alanlar güncellenecektir
+    - Güncelleme isteğine dahil olmayan alanlar mevcut değerlerini koruyacaktır
+    - Bu, veri kaybı olmadan kısmi güncellemelere izin verir
+    - `recurrence` parametresi tekrarlayan etkinlik desenlerini değiştirmek için güncellenebilir
+
+  ### 4. deleteEvent
+
+  Bir takvim etkinliğini siler.
+
+  **Parametreler:**
+  - `calendarId` (isteğe bağlı): Takvim ID'si (atlanırsa birincil takvimi kullanır)
+  - `eventId` (gerekli): Silinecek etkinliğin ID'si
+
+  ### 5. authenticate
+
+  Google Takvim ile yeniden kimlik doğrulaması yapar. Bu, Claude'u yeniden başlatmak zorunda kalmadan farklı Google hesapları arasında geçiş yapmak istediğinizde faydalıdır.
+
+  **Parametreler:**
+  - Hiçbiri
+
+  ## Geliştirme Yönergeleri
+
+  Yeni işlevler eklerken, kodu değiştirirken veya hataları düzeltirken, lütfen `npm version` komutu kullanarak her değişiklik için sürümü semantik olarak artırın.
+  Ayrıca, kodunuzun açık olduğundan ve OOP gibi tüm gerekli kodlama kurallarını izlediğinden emin olun.
+  Sürüm betiği sürüm güncellendiğinde otomatik olarak `npm install` çalıştıracak, ancak yine de gönderimden önce kodunuzu derleme, lint ve test etmelisiniz.
+
+  ### Kod Yapısı
+
+  - **src/**: Kaynak kod dizini
+    - **auth/**: Kimlik doğrulama işleme
+    - **config/**: Yapılandırma ayarları
+    - **mcp/**: MCP sunucu uygulaması
+    - **tools/**: Google Calendar araç uygulamaları
+    - **utils/**: Yardımcı işlevler ve yardımcılar
+
+  ### En İyi Uygulamalar
+
+  - TypeScript en iyi uygulamalarına göre uygun yazım
+  - Kapsamlı hata işleme sürdürülmesi
+  - Uygun kimlik doğrulama akışı sağlanması
+  - Bağımlılıkları güncel tutma
+  - Tüm işlevler için açık dokümantasyon yazma
+  - Güvenlik en iyi uygulamalarını uygulama
+  - OAuth 2.1 kimlik doğrulama standartlarını izleme
+  - Tüm input/output verisi için şema doğrulaması kullanma
+
+  ### Test Etme
+
+  - Temel işlevsellik için birim testler uygulama
+  - Kimlik doğrulama akışını kapsamlı şekilde test etme
+  - Takvim manipülasyonunu Google API'ye karşı doğrulama
+  - Kapsam raporları ile testleri çalıştırma
+  - Güvenlik testlerinin dahil olduğundan emin olma
+
+  ## Dağıtım
+
+  Bu paket npm'de `@takumi0706/google-calendar-mcp` olarak yayınlanmaktadır:
+
+  ```bash
+  npx @takumi0706/google-calendar-mcp@1.0.7
+  ```
+
+  ### Ön Koşullar
+
+  1. Google Cloud Project oluşturun ve Google Calendar API'yi etkinleştirin
+  2. Google Cloud Console'da OAuth2 kimlik bilgilerini yapılandırın
+  3. Ortam değişkenlerini ayarlayın:
+
+  ```bash
+  # Google OAuth kimlik bilgileriniz ile bir .env dosyası oluşturun
+  GOOGLE_CLIENT_ID=your_client_id
+  GOOGLE_CLIENT_SECRET=your_client_secret
+  GOOGLE_REDIRECT_URI=http://localhost:4153/oauth2callback
+  # İsteğe bağlı: Token şifreleme anahtarı (sağlanmaz ise otomatik oluşturulur)
+  TOKEN_ENCRYPTION_KEY=32-byte-hex-key
+  # İsteğe bağlı: Auth sunucu portu ve hostı (varsayılan port: 4153, host: localhost)
+  AUTH_PORT=4153
+  AUTH_HOST=localhost
+  # İsteğe bağlı: MCP sunucu portu ve hostı (varsayılan port: 3000, host: localhost)
+  PORT=3000
+  HOST=localhost
+  # İsteğe bağlı: Manuel kimlik doğrulamayı etkinleştir (localhost erişilebilir olmadığında faydalı)
+  USE_MANUAL_AUTH=true
+  ```
+
+  ### Claude Desktop Yapılandırması
+
+  Sunucuyu `claude_desktop_config.json` dosyanıza ekleyin. Localhost'a erişilemeyen bir ortamda çalışıyorsanız, `USE_MANUAL_AUTH` ortam değişkenini "true" olarak ayarlayın.
+
+  ```json
+  {
+    "mcpServers": {
+      "google-calendar": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@takumi0706/google-calendar-mcp"
+        ],
+        "env": {
+          "GOOGLE_CLIENT_ID": "your_client_id",
+          "GOOGLE_CLIENT_SECRET": "your_client_secret",
+          "GOOGLE_REDIRECT_URI": "http://localhost:4153/oauth2callback"
+        }
+      }
+    }
+  }
+  ```
+
+  ## Güvenlik Dikkat Noktaları
+
+  - **OAuth tokenları** yalnızca bellekte saklanır (dosya tabanlı depolamada saklanmaz)
+  - **Hassas kimlik bilgileri** ortam değişkenleri olarak sağlanmalıdır
+  - **Token şifreleme** AES-256-GCM kullanarak güvenli depolama için
+  - **PKCE uygulaması** açık code_verifier ve code_challenge oluşturma ile
+  - **State parametresi doğrulaması** CSRF koruması için
+  - **API endpoint koruması** için hız sınırlaması
+  - **Zod şeması** ile input doğrulaması
+
+  Daha fazla ayrıntı için bkz. [SECURITY.md](SECURITY.md).
+
+  ## Bakım
+
+  - Google Calendar API ile uyumluluğu korumak için düzenli güncellemeler
+  - Sürüm güncellemeleri README.md'de belgelenmiştir
+
+  ## Sorun Giderme
+
+  Herhangi bir sorunla karşılaşırsanız:
+
+  1. Google OAuth kimlik bilgilerinizin doğru şekilde yapılandırıldığından emin olun
+  2. Google Calendar API erişimi için yeterli izinlere sahip olduğunuzu doğrulayın
+  3. Claude Desktop yapılandırmanızın doğru olduğunu doğrulayın
+
+  ### Yaygın Hatalar
+
+  - **JSON Ayrıştırma Hataları**: `Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)` gibi hatalar görürseniz, tipik olarak hatalı biçimlendirilmiş JSON-RPC iletileri nedeniyledir. Bu sorun sürüm 0.6.7 ve sonrasında düzeltilmiştir. Hala bu hataları yaşıyorsanız, lütfen en son sürüme güncelleyin.
+  - **Kimlik Doğrulama Hataları**: Google OAuth kimlik bilgilerinizi doğrulayın
+  - **Geçersiz state parametresi**: Yeniden kimlik doğrularken `Authentication failed: Invalid state parameter` hatası görürseniz, OAuth sunucu yaşam döngüsü yönetimini düzeltecek olan sürüm 1.0.3 veya sonrasına güncelleyin. Eski sürümlerde, bağlantı noktası 4153'ü kapatmanız ve uygulamayı yeniden başlatmanız gerekebilir.
+  - **Bağlantı Hataları**: Sunucunun yalnızca bir örneğinin çalıştığından emin olun
+  - **Bağlantı Kesme Sorunları**: Sunucunuzun özel TCP soketleri olmadan MCP mesajlarını düzgün şekilde işlediğinden emin olun
+  - **Localhost'a erişilemiyor**: Uygulamayı localhost'a erişilemeyen bir ortamda çalıştırıyorsanız (uzak sunucu veya konteyner gibi), `USE_MANUAL_AUTH=true` ayarlayarak manuel kimlik doğrulamayı etkinleştirin. Bu, uygulamayı yetkilendirdikten sonra Google tarafından gösterilen yetkilendirme kodunu manuel olarak girmenize izin verir.
+  - **MCP Parametre Doğrulama Hataları**: Boş string parametreleri ile -32602 hatası görürseniz, boş string, null ve undefined değerlerini düzgün şekilde işleyecek olan sürüm 1.0.7 veya sonrasına güncelleyin.
+
+  ## Sürüm Geçmişi
+
+  ### Sürüm 1.0.7 Değişiklikleri
+  - MCP araçları için geliştirilmiş parametre doğrulaması, boş string, null ve undefined değerleri düzgün şekilde işlemek için
+  - Boş string parametreleri getEvents aracına geçirildiğinde MCP hatasını -32602 düzeltti
+  - preprocessArgs işlevini iyileştirildi, Zod şeması varsayılanlarının uygulanmasına izin vermek için boş değerleri atlayacak şekilde
+  - Boş parametre işleme için kapsamlı test kapsamı eklendi
+
+  ### Sürüm 1.0.6 Değişiklikleri
+  - Bu google calendar mcp sunucusunda kapsam gerekmediğini düzeltti
+
+  ### Sürüm 1.0.5 Değişiklikleri
+  - Hem `createEvent` hem de `updateEvent` araçlarında `recurrence` parametresi aracılığıyla tekrarlayan etkinlikler için destek eklendi
+  - Manuel kurulum olmadan doğrudan tekrarlayan etkinlikler oluşturma ve değiştirme olanağı sağlar
+
+  ### Sürüm 1.0.4 Değişiklikleri
+  - Sürüm numarası güncelleme ile bakım sürümü
+  - Sürüm 1.0.3'ten işlevsel değişiklik yok
+  - En son bağımlılıklarla uyumluluk sağlar
+
+  ### Sürüm 1.0.3 Değişiklikleri
+  - Claude'u yeniden başlatmadan yeniden kimlik doğrulaması için yeni `authenticate` aracı eklendi
+  - Bir oturum sırasında farklı Google hesapları arasında geçiş yapma olanağı
+  - Kimlik doğrulama işlevselliğini MCP arabirimi aracılığıyla sundu
+  - Hesap değiştirmek için yeniden başlatma gereksinimini ortadan kaldırarak kullanıcı deneyimini geliştirdi
+  - Localhost'a erişilemeyen ortamlar için manuel kimlik doğrulama seçeneği eklendi
+  - Yetkilendirme kodlarını manuel olarak girme için readline arabirimi uygulandı
+  - Manuel kimlik doğrulamayı etkinleştirmek için USE_MANUAL_AUTH ortam değişkeni eklendi
+  - Zod bağımlılığı en son sürüme güncellendi (3.24.2)
+  - En son zod özellikleri ile iyileştirilmiş şema doğrulaması
+  - Geliştirilmiş kod kararlılığı ve güvenliği
+  - Yeniden kimlik doğrulama sırasında "Geçersiz state parametresi" hatası düzeltildi
+  - OAuth sunucusunu isteğe bağlı olarak başlatacak ve kimlik doğrulmadan sonra kapatacak şekilde değiştirildi
+  - Bağlantı noktası çakışmalarını önlemek için geliştirilmiş sunucu yaşam döngüsü yönetimi
+  - Kimlik doğrulama akışı için geliştirilmiş hata işleme
+
+  ### Sürüm 1.0.2 Değişiklikleri
+  - `updateEvent` işlevini, kısmi güncellemeler gerçekleştirirken mevcut etkinlik verilerini korumak üzere düzeltildi
+  - Mevcut etkinlik verilerini güncellenmeden önce almak için `getEvent` işlevini eklendi
+  - Veri kaybını önlemek için güncelleme verilerini mevcut verilerle birleştirmek üzere `updateEvent` değiştirildi
+  - Güncelleme isteklerinde tüm alanları isteğe bağlı hale getirmek üzere şema doğrulaması güncellendi
+  - `updateEvent` işlevi için geliştirilmiş dokümantasyon
+
+  ### Sürüm 1.0.1 Değişiklikleri
+  - Node.js v20.9.0+ ve 'open' paketi (v10+) ile uyumluluk sorunu düzeltildi
+  - ESM-only 'open' paketi için statik import'u dinamik import'a değiştirildi
+  - OAuth kimlik doğrulaması sırasında tarayıcı açma için geliştirilmiş hata işleme
+  - Daha iyi bakım için geliştirilmiş kod yorumları
+
+  ### Sürüm 1.0.0 Değişiklikleri
+  - Üretime hazırlık olarak işaretleyen ana sürüm yayını
+  - Bakımı iyileştirmek için kapsamlı kod yeniden faktörleme
+  - Tüm mesaj ve yorumların uluslararasılaştırılması (Japonca'dan İngilizce'ye çeviri)
+  - Geliştirilmiş kod tutarlılığı ve okunabilirliği
+  - Daha iyi kullanıcı deneyimi için geliştirilmiş hata mesajları
+  - Projenin mevcut durumunu yansıtacak şekilde güncellenen dokümantasyon
+  - Kod tabanı genelinde standartlaştırılmış kodlama stili
+
+  ### Sürüm 0.8.0 Değişiklikleri
+  - Yenileme token sorunlarını işlemek için geliştirilmiş OAuth kimlik doğrulama akışı
+  - Google'ı onay ekranını göstermeye ve yeni bir yenileme tokeni sağlamaya zorlamak için `prompt: 'consent'` parametresi eklendi
+  - Yalnızca erişim tokeni varsa çalışmak üzere kimlik doğrulama akışı değiştirildi
+  - Yenileme tokeni olmadığında veya yenileme tokeni geçersiz ise durumu işlemek için geliştirilmiş token yenileme mantığı
+  - Token yönetimi iyileştirmesi için yenilenen erişim tokenlarını kaydetmek üzere token depolaması güncellendi
+  - Token yenileme mantığında olası sonsuz döngü düzeltildi
+
+  ## Kurulum
+
+  ### Hızlı Başlangıç (Önerilir)
+
+  Doğrudan npm'den kurun:
+
+  ```bash
+  npm install -g @takumi0706/google-calendar-mcp
+  ```
+
+  ### Manuel Kurulum
+
+  Geliştirme veya özelleştirme için:
+
+  ```bash
+  # Deposu klonla
+  git clone https://github.com/takumi0706/google-calendar-mcp.git
+  cd google-calendar-mcp
+
+  # Bağımlılıkları yükle
+  npm install
+
+  # Projeyi derle
+  npm run build
+
+  # Sunucuyu çalıştır
+  npm start
+  ```
+
+  ## Üretim Dağıtımı
+
+  Üretim kullanımı için sunucu geçerli Google OAuth kimlik bilgilerine ihtiyaç duyar. Sunucu uygun kimlik bilgileri olmadan başlayamaz ve güvenlik uyumluluğunu sağlar.
+
+  ## Test Etme
+
+  Testleri çalıştırmak için:
+
+  ```bash
+  # Tüm testleri çalıştır
+  npm test
+
+  # Kapsam raporu ile testleri çalıştır
+  npm test -- --coverage
+  ```
+
+  ## Lisans
+
+  MIT
 ---
 
 # Google Calendar MCP Server

@@ -9,6 +9,279 @@ body_length: 11535
 license: "MIT"
 language: "JavaScript"
 homepage: "https://docs.octagonagents.com/guide/agents/deep-research-agent.html"
+body_tr: |-
+  # Octagon Deep Research MCP
+
+  ![Favicon](https://docs.octagonagents.com/logo.svg) Octagon Deep Research MCP sunucusu, gelişmiş derin araştırma ajanlarıyla entegrasyon sağlayarak özel olarak tasarlanmış AI destekli kapsamlı araştırma ve analiz yetenekleri sunar. Oran sınırı yok, ChatGPT Deep Research'ten daha hızlı, Grok DeepSearch veya Perplexity Deep Research'ten daha kapsamlı. Claude Desktop, Cursor ve diğer popüler MCP özellikli uygulamalar da dahil olmak üzere herhangi bir MCP istemcisine sınırsız derin araştırma işlevselliği ekleyin.
+
+  **[Octagon AI](https://docs.octagonagents.com) tarafından sunulmaktadır** - Deep Research Agent hakkında daha fazla bilgi için [docs.octagonagents.com](https://docs.octagonagents.com/guide/agents/deep-research-agent.html) sayfasını ziyaret edin
+
+  [![Demo](https://img.youtube.com/vi/yh1cyrm9aus/0.jpg)](https://youtu.be/yh1cyrm9aus)
+
+  ## 🏆 Neden Takımlar Octagon'un Kurumsal Sınıf Derin Araştırma API'sini Seçer
+
+  👉 **Önde gelen rakiplerden 8–10x daha hızlı**—karmaşık analizler dakikalar değil saniyeler içinde tamamlanır  
+  👉 **Daha büyük derinlik & doğruluk**—3 kat daha fazla yüksek kaliteli kaynaktan veri çeker ve her rakamı çapraz kontrol eder  
+  👉 **Sınırsız paralel çalışma**—oran sınırı yok, bu nedenle analistleriniz ihtiyaç duydukları kadar derin araştırma görevini başlatabilir (ChatGPT Pro'nun 125 aylık görev sınırından farklı olarak)  
+
+  ## 🚀 Temel Farklılaştırıcılar
+
+  ✅ **Oran Sınırı Yok** - Sınırlandırma olmaksızın sınırsız derin araştırma sorguları yürütün (ChatGPT Pro'nun 125 aylık görev sınırına karşı)  
+  ✅ **Üstün Performans** - ChatGPT Deep Research'ten daha hızlı, Grok DeepSearch veya Perplexity Deep Research'ten daha kapsamlı  
+  ✅ **Kurumsal Sınıf Hız** - Önde gelen rakiplerden 8-10x daha hızlı, 3 kat daha fazla kaynak kapsamı  
+  ✅ **Evrensel MCP Entegrasyonu** - Herhangi bir MCP istemcisine derin araştırma işlevselliği ekleyin  
+  ✅ **Çok Alanlı Uzmanlık** - Herhangi bir konu veya endüstri genelinde kapsamlı araştırma  
+  ✅ **Gelişmiş Veri Sentezi** - Çok kaynaklı toplama ve her rakamın çapraz doğrulanması  
+
+  ## Özellikler
+
+  ✅ **Kapsamlı Araştırma Yetenekleri**
+     - Çok kaynaklı veri toplama ve sentez
+     - Akademik araştırma ve literatür incelemesi
+     - Rekabet ortamı analizi
+     - Pazar zekası ve trend analizi
+     - Teknik ve bilimsel araştırma
+     - Politika ve düzenleme araştırması
+     - Gerçek zamanlı web kazıması ve veri çıkarma
+       
+  ✅ **Evrensel Alan Kapsamı**
+     - Teknoloji ve AI araştırması
+     - Sağlık ve tıbbi araştırma
+     - Çevre ve sürdürülebilirlik çalışmaları
+     - Ekonomik ve iş analizi
+     - Bilimsel ve mühendislik araştırması
+     - Sosyal ve kültürel çalışmalar
+     - Siyasi ve politika analizi
+       
+  ✅ **Gelişmiş Analiz Araçları**
+     - Kapsamlı rapor oluşturma
+     - Kaynak arası doğrulama
+     - Trend belirleme ve tahmin
+     - Karşılaştırmalı analiz çerçeveleri
+
+  ## Octagon API Anahtarınızı Alın
+
+  Octagon Deep Research MCP'yi kullanmak için:
+
+  1. [Octagon](https://app.octagonai.co/signup/?redirectToAfterSignup=https://app.octagonai.co/api-keys) adresinde ücretsiz bir hesap açın
+  2. Giriş yaptıktan sonra, sol menüden **API Keys** sayfasına gidin
+  3. Yeni bir API anahtarı oluşturun
+  4. Bu API anahtarını konfigürasyonunuzda `OCTAGON_API_KEY` değeri olarak kullanın
+
+  ## Ön Koşullar
+
+  Octagon Deep Research MCP'yi kurmadan veya çalıştırmadan önce, sisteminizde `npx` (Node.js ve npm ile birlikte gelir) kurulu olması gerekir.
+
+  ### Mac (macOS)
+
+  1. **Homebrew'i kurun** (henüz yoksa):
+     ```bash
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+     ```
+  2. **Node.js'i kurun (npm ve npx içerir):**
+     ```bash
+     brew install node
+     ```
+     Bu, Node.js, npm ve npx'in en son sürümünü yükleyecektir.
+
+  3. **Kurulumu doğrulayın:**
+     ```bash
+     node -v
+     npm -v
+     npx -v
+     ```
+
+  ### Windows
+
+  1. **Node.js yükleyicisini indirin:**
+     - [https://nodejs.org/](https://nodejs.org/) adresine gidin ve Windows için LTS sürümünü indirin.
+  2. **Yükleyiciyi çalıştırın** ve talimatları izleyin. Bu, Node.js, npm ve npx'i yükleyecektir.
+  3. **Kurulumu doğrulayın:**
+     Komut İstemi'ni açın ve çalıştırın:
+     ```cmd
+     node -v
+     npm -v
+     npx -v
+     ```
+
+  Üçünün tümü için sürüm numaralarını görürseniz, aşağıdaki kurulum adımlarına devam etmeye hazırsınız.
+
+  ## Kurulum
+
+  ### Claude Desktop'ta Çalıştırma
+
+  Octagon Deep Research MCP'yi Claude Desktop için yapılandırmak üzere:
+
+  1. Claude Desktop'ı açın
+  2. Ayarlar > Geliştirici > Konfigürasyonu Düzenle bölümüne gidin
+  3. Aşağıdakileri `claude_desktop_config.json` dosyasına ekleyin (`your-octagon-api-key` yerine Octagon API anahtarınızı koyun):
+  ```json
+  {
+    "mcpServers": {
+      "octagon-deep-research-mcp": {
+        "command": "npx",
+        "args": ["-y", "octagon-deep-research-mcp@latest"],
+        "env": {
+          "OCTAGON_API_KEY": "YOUR_API_KEY_HERE"
+        }
+      }
+    }
+  }
+  ```
+  4. Değişikliklerin etkili olması için Claude'u yeniden başlatın
+
+  ### Cursor'da Çalıştırma
+
+  Cursor Desktop'u Yapılandırma 🖥️
+  Not: Cursor sürümü 0.45.6+ gereklidir
+
+  Octagon Deep Research MCP'yi Cursor'da yapılandırmak için:
+
+  1. Cursor Ayarları'nı açın
+  2. Özellikler > MCP Sunucuları bölümüne gidin
+  3. "+ Yeni MCP Sunucusu Ekle"ye tıklayın
+  4. Aşağıdakileri girin:
+     - Ad: "octagon-deep-research-mcp" (veya tercih ettiğiniz ad)
+     - Tür: "command"
+     - Komut: `env OCTAGON_API_KEY=your-octagon-api-key npx -y octagon-deep-research-mcp`
+
+  > Windows kullanıyorsanız ve sorunlarla karşılaşıyorsanız, `cmd /c "set OCTAGON_API_KEY=your-octagon-api-key && npx -y octagon-deep-research-mcp"` komutunu deneyin
+
+  `your-octagon-api-key` yerine Octagon API anahtarınızı koyun.
+
+  Eklendikten sonra, MCP sunucu listesini yenileyerek yeni araçları görebilirsiniz. Composer Agent, Octagon Deep Research MCP'yi uygun olduğunda otomatik olarak kullanacaktır, ancak araştırma ihtiyaçlarınızı açıklayarak açıkça talep edebilirsiniz. Composer'a Command+L (Mac) ile erişin, gönder düğmesinin yanında "Agent"i seçin ve sorgunuzu girin.
+
+  ### Windsurf'de Çalıştırma
+
+  Bunu `./codeium/windsurf/model_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "octagon-deep-research-mcp": {
+        "command": "npx",
+        "args": ["-y", "octagon-deep-research-mcp@latest"],
+        "env": {
+          "OCTAGON_API_KEY": "YOUR_API_KEY_HERE"
+        }
+      }
+    }
+  }
+  ```
+
+  ### npx ile Çalıştırma
+
+  ```bash
+  env OCTAGON_API_KEY=your_octagon_api_key npx -y octagon-deep-research-mcp
+  ```
+
+  ### Manuel Kurulum
+
+  ```bash
+  npm install -g octagon-deep-research-mcp
+  ```
+
+  ## Belgeler
+
+  Deep Research yeteneklerini kullanma hakkında kapsamlı belgeler için lütfen resmi belgelerimizi ziyaret edin:
+  [https://docs.octagonagents.com](https://docs.octagonagents.com)
+
+  Özellikle Deep Research Agent için: [Deep Research Agent Kılavuzu](https://docs.octagonagents.com/guide/agents/deep-research-agent.html)
+
+  Belgeler şunları içerir:
+  - Detaylı API referansları
+  - Araştırma metodolojisi yönergeleri
+  - Örnekler ve kullanım durumları
+  - Kapsamlı araştırma için en iyi uygulamalar
+  - Gelişmiş özellikler ve yetenekler
+
+  ## Kullanılabilir Araç
+
+  ### octagon-deep-research-agent
+  Herhangi bir konu veya alan genelinde kapsamlı derin araştırma ve analiz.
+
+  Araç, doğal dil sorgusunu kabul eden tek bir `prompt` parametresi kullanır. Optimal sonuçlar için ilgili tüm detayları sorunuza ekleyin.
+
+  ## 📚 Örnek Araştırma Sorguları
+
+  ### Teknoloji & AI Araştırması
+  - "Kuantum bilgisayar geliştirmesinin mevcut durumunu ve büyük teknoloji şirketleri arasındaki ticari uygulamalarını araştırın"
+  - "Büyük dil modellerinde rekabet ortamını analiz edin, yetenekleri, sınırlamaları ve pazar konumlandırmasını karşılaştırın"
+  - "Otonom araç teknolojisindeki son gelişmeleri ve düzenleme zorluk larını araştırın"
+  - "Edge bilgisayar mimarilerinin evrimi ve IoT dağıtımına etkisini çalışın"
+
+  ### Sağlık & Tıbbi Araştırma
+  - "Son 3 yılda geliştirilen Alzheimer hastalığı için çıkış niteliğindeki tıbbi tedavileri araştırın"
+  - "Farklı COVID-19 aşı teknolojilerinin etkinliğini ve küresel dağıtımını analiz edin"
+  - "Nadir hastalıklar için gen terapisi araştırmasının mevcut durumunu araştırın"
+  - "Ruh sağlığı tedavi yeniliklerini ve farklı demografiler arasındaki erişilebilirliğini çalışın"
+
+  ### Çevre & Sürdürülebilirlik
+  - "Sürdürülebilir tarım uygulamalarını ve küresel benimseme oranlarını araştırın"
+  - "Yenilenebilir enerji benimseme eğilimlerini ve farklı ülkeler arasındaki politika itici güçlerini analiz edin"
+  - "Kripto para madenciliğinin çevre etkisini ve önerilen çözümleri araştırın"
+  - "Karbon yakalama teknolojilerini ve ticari uygulanabilirliğini çalışın"
+
+  ### İşletme & Ekonomi
+  - "Gig ekonomisinin geleneksel istihdam modelleri ve işçi korumaları üzerindeki etkisini analiz edin"
+  - "Pandemi sonrası uzaktan çalışma politikalarının evrimini ve üretkenlik üzerindeki etkinliğini araştırın"
+  - "Küresel aksamalar sonrasında benimsenen tedarik zinciri dayanıklılığı stratejilerini araştırın"
+  - "Dijital dönüşümün geleneksel perakende işletmeleri üzerindeki etkisini çalışın"
+
+  ### Sosyal & Kültürel Çalışmalar
+  - "Sosyal medya algoritmalarının bilgi tüketim alışkanlıkları ve siyasi polarizasyon üzerindeki etkisini araştırın"
+  - "Kentsel alanlardaki değişen demografiyi ve şehir planlama üzerindeki etkisini analiz edin"
+  - "Farklı dijital okuryazarlık eğitimi yaklaşımlarının etkinliğini araştırın"
+  - "Akış hizmetlerinin geleneksel medya tüketimine kültürel etkisini çalışın"
+
+  ### Bilim & Mühendislik
+  - "Yarı iletken üretimi için malzeme biliminde ilerlemeleri araştırın"
+  - "Füzyon enerji teknolojilerinin gelişimini ve ticari hale gelme zaman çizelgesini analiz edin"
+  - "Gelişmekte olan bölgeler için su arıtma teknolojilerindeki yenilikleri araştırın"
+  - "Uzay keşif görevleri için mühendislik zorluk larını ve çözümlerini çalışın"
+
+  ### Politika & Yönetişim
+  - "Farklı ülkelerdeki AI düzenlemesindeki son gelişmeleri ve olası etkisini araştırın"
+  - "Gizlilik mevzuatı eğilimlerini ve teknoloji şirketlerine etkilerini araştırın"
+  - "Kripto para düzenlemesine küresel yaklaşımları analiz edin"
+  - "Çeşitli iklim politikası mekanizmalarının etkinliğini çalışın"
+
+  ### Siber Güvenlik & Gizlilik
+  - "IoT cihazlarında siber güvenlik tehditleri ve kurumsal azaltma stratejilerini araştırın"
+  - "Fidye yazılımı saldırılarının evrimini ve savunma teknolojilerini araştırın"
+  - "Gizliliği koruyan teknolojileri ve tüketici uygulamalarında benimsemesini analiz edin"
+  - "Kuantum bilgisayarın mevcut şifreleme yöntemlerine güvenlik sonuçlarını çalışın"
+
+  ### Eğitim & Öğrenme
+  - "Farklı çevrimiçi öğrenme platformlarının ve metodolojilerinin etkinliğini araştırın"
+  - "AI araçlarının akademik araştırma ve eğitime etkisini analiz edin"
+  - "Hizmet eksikliği olan topluluklar için STEM eğitiminde yenilikçi yaklaşımları araştırın"
+  - "Beceri tabanlı öğrenme ve sertifikasyon programlarının geleceğini çalışın"
+
+  ## 🔍 Araştırma Yetenekleri
+
+  - **Çok Kaynaklı Analiz**: Akademik makaleler, endüstri raporları, haber kaynakları ve uzman görüşlerinden bilgi toplar
+  - **Gerçek Zamanlı Veri**: Güncel bilgilere ve son gelişmelere erişir
+  - **Çapraz Doğrulama**: Bulguları birden fazla güvenilir kaynakta doğrular
+  - **Trend Analizi**: Desenleri tanımlar ve gelecekteki gelişmeleri tahmin eder
+  - **Rekabet Zekası**: Kapsamlı rekabet ortamı analizi
+  - **Teknik Derinlemesine İncelemeler**: Karmaşık teknik konuların detaylı analizi
+  - **Politika Etki Değerlendirmesi**: Düzenleme ve politika sonuçlarının analizi
+  - **Pazar Dinamikleri**: Pazar güçlerinin ve iş sonuçlarının anlaşılması
+
+  ## Sorun Giderme
+
+  1. **API Anahtarı Sorunları**: Octagon API anahtarınızın ortam veya konfigürasyon dosyasında doğru şekilde ayarlandığından emin olun.
+  2. **Bağlantı Sorunları**: Octagon API'sine bağlantının düzgün çalışmasından emin olun.
+  3. **Oran Sınırlama**: Deep Research MCP'ye oran sınırı uygulanmaz - sınırsız sorgular yürütün.
+
+  ## Lisans
+
+  MIT 
+
+  ---
+
+  ⭐ Araştırma ihtiyaçlarınız için yararlı bulursanız bu depoyu yıldızlayın!
 ---
 
 # Octagon Deep Research MCP

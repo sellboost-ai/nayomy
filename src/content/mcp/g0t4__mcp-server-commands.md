@@ -8,6 +8,161 @@ url: "https://github.com/g0t4/mcp-server-commands"
 body_length: 5584
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  ## `runProcess` tool
+
+  `runProcess` tool, host makinesi üzerinde process'leri çalıştırır. Bunu çağırmak için iki mutually exclusive yol vardır:
+
+  1. **`command_line`** (string) — Sistemin varsayılan shell'i aracılığıyla çalıştırılır (tıpkı `bash`/`fish`/`pwsh`/vb. içine yazıyor gibi). Pipes, redirects ve variable expansion gibi shell özellikleri hepsi çalışır.
+  2. **`argv`** (string array) — Doğrudan executable çağırma. `argv[0]` executable'dır, geri kalanlar argumentlerdir. Shell interpretasyonu yoktur.
+
+  Her ikisini de geçemezsiniz. Tool, hangi parametreyi sağladığınızdan shell kullanıp kullanmayacağını çıkarsar.
+
+  Modelin sistem üzerinde belirli shell'leri kullanmasını istiyorsanız, bunları system prompt'ınızda listeleyebilirsiniz. Veya belki tool instructions'ında, ancak modeller genellikle system prompt'taki örneklere daha iyi dikkat eder.
+
+  Sorunlar yaşarsanız bana haber verin!
+
+  ## Tools
+
+  Tools, LLM'ler için istek göndermek içindir. Claude Sonnet 3.5, `run_process` konusunda akıllıca davranır. Ve ilk testler [Groq Desktop with MCP](https://github.com/groq/groq-desktop-beta) ve `llama4` modelleriyle umut verici sonuçlar göstermektedir.
+
+  Şu anda, hepsini yöneten tek bir komut!
+
+  - `run_process` - bir komut çalıştır, örneğin `hostname` veya `ls -al` veya `echo "hello world"` vb.
+    - `STDOUT` ve `STDERR`'ı metin olarak döndürür
+    - Optional `stdin` parametresi, LLM'nizin şunları yapmasını sağlar:
+      - `fish`, `bash`, `zsh`, `python` gibi komutlara `STDIN` üzerinden script'ler geçme
+      - `stdin` içindeki metinle `cat >> foo/bar.txt` kullanarak dosya oluşturma
+
+  > [!WARNING]
+  > Bu sunucunun çalıştırmasını istediğiniz şeyler hakkında dikkatli olun!
+  > Claude Desktop app'inde, her komutu gözden geçirebilmek için `Approve Once` kullanın (`Allow for This Chat` değil), komutu güvenmiyorsanız `Deny` kullanın.
+  > İzinler, sunucuyu çalıştıran kullanıcı tarafından belirlenir.
+  > `sudo` ile çalıştırmayın.
+
+  ## Video açıklaması
+
+  <a href="https://youtu.be/0-VPu1Pc18w"></a>
+
+  ## Prompts
+
+  Prompts, kullanıcıların chat history'ye dahil etmeleri içindir, örneğin `Zed`'in slash komutları aracılığıyla (AI Chat panelinde)
+
+  - `run_process` - komut çıktısıyla bir prompt mesajı oluştur
+
+  * Bilgi: Bu çoğunlukla bir öğrenme alıştırmasıydı... Bunu user requested tool call olarak görüyorum. Yani, bir komut çalıştırmak ve çıktıları modele geçmek için bir template'dir!
+
+  ## Development
+
+  Bağımlılıkları yükle:
+  ```bash
+  npm install
+  ```
+
+  Server'ı build et:
+  ```bash
+  npm run build
+  ```
+
+  Auto-rebuild ile development:
+  ```bash
+  npm run watch
+  ```
+
+  ## Installation
+
+  Claude Desktop ile kullanmak için, server config'i ekle:
+
+  MacOS'ta: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  Groq Desktop (beta, macOS) `~/Library/Application Support/groq-desktop-app/settings.json` kullanır
+
+  ### Yayınlanan npm paketini kullan
+
+  npm'e [mcp-server-commands](https://www.npmjs.com/package/mcp-server-commands) olarak yayınlandı, bu [workflow](https://github.com/g0t4/mcp-server-commands/actions) kullanılarak
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-commands": {
+        "command": "npx",
+        "args": ["mcp-server-commands"]
+      }
+    }
+  }
+  ```
+
+  ### Lokal bir build kullan (repo checkout)
+
+  `npm run build` çalıştırdığından emin ol
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-server-commands": {
+        // index.js içindeki shebang nedeniyle çalışır
+        "command": "/path/to/mcp-server-commands/build/index.js"
+      }
+    }
+  }
+  ```
+
+  ## Local Models
+
+  - Çoğu model, sizin için komut çalıştıramayacaklarını düşünecek şekilde eğitilmiştir.
+    - Bazen, tools'ları tereddütsüz kullanırlar... bazen de onları çekmeliyim.
+    - User isteklerini izlemeleri gerektiğini (kontrol etmeden `run_processs` kullanmayı da dahil) belirtmek için system prompt veya prompt template kullan.
+  - Ollama, bir modeli yerel olarak çalıştırmanın harika bir yoludur (Open-WebUI ile)
+
+  ```sh
+  # NOT: model'in VRAM'inize uygun şekilde performans gösterebilmesi için variants ve sizes'ı gözden geçirdiğinden emin ol!
+
+  # Şu ana kadar en iyisi muhtemelen [OpenHands LM](https://www.all-hands.dev/blog/introducing-openhands-lm-32b----a-strong-open-coding-agent-model)
+  ollama pull https://huggingface.co/lmstudio-community/openhands-lm-32b-v0.1-GGUF
+
+  # https://ollama.com/library/devstral
+  ollama pull devstral
+
+  # Qwen2.5-Coder tool use'a sahiptir ama onu çekmelisin
+  ollama pull qwen2.5-coder
+  ```
+
+  ### HTTP / OpenAPI
+
+  Server, `STDIO` transport ile uygulanmıştır.
+  `HTTP` için, `OpenAPI` uyumlu web server interface'i için [`mcpo`](https://github.com/open-webui/mcpo) kullan.
+  Bu [`Open-WebUI`](https://github.com/open-webui/open-webui) ile çalışır
+
+  ```bash
+  uvx mcpo --port 3010 --api-key "supersecret" -- npx mcp-server-commands
+
+  # uvx, mcpo'yu çalıştırır => mcpo, npx'i çalıştırır => npx, mcp-server-commands'i çalıştırır
+  # sonra, mcpo STDIO <=> HTTP'yi köprülendirir
+  ```
+
+  > [!WARNING]
+  > `mcpo`'yu kısaca `open-webui` ile kullandım, güvenlik endişeleri açısından incelediğinden emin ol.
+
+  ### Logging
+
+  Claude Desktop app, `~/Library/Logs/Claude/mcp-server-mcp-server-commands.log` içine log yazar
+
+  Varsayılan olarak, yalnızca önemli mesajlar log'lanır (örn. hatalar).
+  Daha fazla mesaj görmek istiyorsanız, server'ı yapılandırırken `args`'a `--verbose` ekle.
+
+  Ayrıca, loglar `STDERR` içine yazılır çünkü Claude Desktop app bunu log dosyalarına yönlendirir.
+  Gelecekte, iyi biçimlendirilmiş log mesajlarının `STDIO` transport üzerinden MCP client'a yazılmasını bekliyorum (not: Claude Desktop app değil).
+
+  ### Debugging
+
+  MCP server'ları stdio üzerinden iletişim kurduğu için, debugging zor olabilir. [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı öneririz; bu paket script olarak mevcuttur:
+
+  ```bash
+  npm run inspector
+  ```
+
+  Inspector, tarayıcınızda debugging araçlarına erişmek için bir URL sağlayacaktır.
 ---
 
 ## `runProcess` tool

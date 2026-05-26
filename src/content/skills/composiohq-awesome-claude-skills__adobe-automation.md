@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Adobe Otomasyonu via Rube MCP
+
+  Rube MCP aracılığıyla Composio'nun Adobe toolkit'ini kullanarak Adobe işlemlerini otomatikleştirin.
+
+  **Toolkit dokümanları**: [composio.dev/toolkits/adobe](https://composio.dev/toolkits/adobe)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Adobe bağlantısı ve `adobe` toolkit'i
+  - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıtlanıp yanıtlanmadığını kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `adobe` toolkit'ini belirtin
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Adobe operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Adobe task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["adobe"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanlarını asla sabit kodlamayın
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlardaki pagination token'larını kontrol edin ve tüm sonuçlara ulaşana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Adobe'ye özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `adobe` toolkit'i |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef`'e sahip tool'lar için |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Adobe Automation via Rube MCP

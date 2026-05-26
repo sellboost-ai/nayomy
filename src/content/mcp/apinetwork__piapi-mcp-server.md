@@ -8,6 +8,191 @@ url: "https://github.com/apinetwork/piapi-mcp-server"
 body_length: 6460
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # piapi-mcp-server
+
+  [![Website](https://img.shields.io/badge/Website-piapi.ai-blue?style=flat-square&logo=internet-explorer)](https://piapi.ai)
+  [![Documentation](https://img.shields.io/badge/Documentation-docs-green?style=flat-square&logo=bookstack)](https://piapi.ai/docs)
+  [![Discord](https://img.shields.io/badge/Discord-Join%20chat-7289da?style=flat-square&logo=discord)](https://discord.gg/qRRvcGa7Wb)
+
+  [![smithery badge](https://smithery.ai/badge/piapi-mcp-server)](https://smithery.ai/server/piapi-mcp-server)
+
+  PiAPI'nin API'si ile entegre olan Model Context Protocol (MCP) sunucusunun bir TypeScript uygulaması. PiAPI, kullanıcıların Midjourney/Flux/Kling/LumaLabs/Udio/Chrip/Trellis ile medya içeriği oluşturmasını Claude veya diğer MCP-uyumlu uygulamalardan doğrudan sağlar.
+
+  <a href="https://glama.ai/mcp/servers/ywvke8xruo"></a>
+
+  ## Özellikler (daha fazlası yakında)
+
+  Not: Video oluşturma gibi zaman alan araçlar Claude'un zaman aşımı sınırlamaları nedeniyle tamamlanamayabilir
+
+  - [x] Temel Image toolkit
+  - [x] Temel Video toolkit
+  - [x] Flux metin/görüntü istemi ile görüntü oluşturma
+  - [x] Hunyuan metin/görüntü istemi ile video oluşturma
+  - [x] Skyreels görüntü istemi ile video oluşturma
+  - [x] Wan metin/görüntü istemi ile video oluşturma
+  - [x] MMAudio video ile müzik oluşturma
+  - [x] TTS sıfır çekimli ses oluşturma
+  - [ ] Midjourney görüntü oluşturma
+    - [x] imagine
+    - [ ] diğerleri
+  - [x] Kling Video ve Efekt oluşturma
+  - [x] Luma Dream Machine video oluşturma
+  - [x] Suno müzik oluşturma
+  - [ ] Suno şarkı sözü oluşturma
+  - [ ] Udio müzik ve şarkı sözü oluşturma
+  - [x] Trellis görüntüden 3D model oluşturma
+  - [ ] LLM'ler içinde iş akışı planlama
+
+  ## Claude Desktop ile Çalışma Örneği
+
+  ![image](https://raw.githubusercontent.com/apinetwork/piapi-mcp-server/HEAD/assets/Claude-desktop.png)
+
+  ## Ön Koşullar
+
+  - Node.js 16.x veya daha yüksek
+  - npm veya yarn
+  - Bir PiAPI API anahtarı ([piapi.ai](https://piapi.ai/workspace/key) adresinden alabilirsiniz)
+
+  ## Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  PiAPI MCP Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/piapi-mcp-server) aracılığıyla otomatik olarak kurmak için:
+
+  ```bash
+  npx -y @smithery/cli install piapi-mcp-server --client claude
+  ```
+
+  ### Manuel Kurulum
+  1. Repository'i klonlayın:
+
+  ```bash
+  git clone https://github.com/apinetwork/piapi-mcp-server
+  cd piapi-mcp-server
+  ```
+
+  2. Bağımlılıkları yükleyin:
+
+  ```bash
+  npm install
+  ```
+
+  3. Projeyi derleyin:
+
+  ```bash
+  npm run build
+  ```
+
+  Derleme işleminden sonra bir `dist/index.js` dosyası oluşturulacaktır. Daha sonra bu dosyayı Claude Desktop ve diğer uygulamalarla yapılandırabilirsiniz. Ayrıntılı yapılandırma talimatları için lütfen Kullanım bölümüne bakınız.
+
+  4. (İsteğe bağlı) MCP Inspector ile sunucuyu test edin:
+
+  İlk olarak, proje kök dizininde API anahtarınızla bir `.env` dosyası oluşturun:
+
+  ```bash
+  PIAPI_API_KEY=your_api_key_here
+  ```
+
+  Ardından MCP Inspector'ı başlatmak için aşağıdaki komutu çalıştırın:
+
+  ```bash
+  npm run inspect
+  ```
+
+  Komutu çalıştırdıktan sonra, MCP Inspector http://localhost:5173 adresinde kullanılabilir hale gelir (varsayılan port: 5173). Bu URL'yi tarayıcınızda açarak test etmeye başlayabilirsiniz. Inspector işlemleri için varsayılan zaman aşımı 10000ms (10 saniye) olup, bu görüntü oluşturma görevleri için yeterli olmayabilir. Görüntü oluşturma veya diğer zaman alan işlemleri test ederken zaman aşımını artırmanız önerilir. URL'ye bir timeout parametresi ekleyerek zaman aşımını ayarlayabilirsiniz, örneğin: http://localhost:5173?timeout=60000 (zaman aşımını 60 saniyeye ayarlar)
+
+  MCP Inspector, MCP sunucu uygulamanızı test etmenize ve hata ayıklamanıza yardımcı olan güçlü bir geliştirme aracıdır. Ana özellikler şunlardır:
+
+  - **Etkileşimli Test Etme**: Sunucunuzun işlevlerini web arayüzü aracılığıyla doğrudan test edin
+  - **Gerçek Zamanlı Geri Bildirim**: İşlev çağrılarınızın ve oluşan hataların anında sonuçlarını görün
+  - **İstek/Yanıt İncelemesi**: İstekler ve yanıtlar hakkında ayrıntılı bilgileri görüntüleyin
+  - **İşlev Belgeleri**: Kullanılabilir işlevleri ve parametrelerini inceleyin
+  - **Özel Parametreler**: Özel zaman aşımı değerleri ve diğer yapılandırma seçeneklerini ayarlayın
+  - **Geçmiş İzleme**: Önceki işlev çağrılarınızı ve sonuçlarını takip edin
+
+  MCP Inspector'ı kullanma ve özellikleri hakkında ayrıntılı bilgiler için [resmi MCP belgelerine](https://modelcontextprotocol.io/docs/tools/inspector) ziyaret edin.
+
+  ## Kullanım
+
+  ### Claude Desktop'a Bağlanma
+
+  Bunu Claude Desktop yapılandırma dosyanıza ekleyin (macOS'ta `~/Library/Application Support/Claude/claude_desktop_config.json` veya Windows'ta `%APPDATA%\Claude\claude_desktop_config.json`):
+
+  ```json
+  {
+    "mcpServers": {
+      "piapi": {
+        "command": "node",
+        "args": ["/absolute/path/to/piapi-mcp-server/dist/index.js"],
+        "env": {
+          "PIAPI_API_KEY": "your_api_key_here"
+        }
+      }
+    }
+  }
+  ```
+
+  Yapılandırma dosyanızı güncelledikten sonra, Claude for Desktop'u yeniden başlatmanız gerekir. Yeniden başlatıldıktan sonra, giriş kutusunun sağ alt köşesinde bir çekiç simgesi görmeniz gerekir.
+  Daha ayrıntılı bilgiler için [resmi MCP belgelerine](https://modelcontextprotocol.io/quickstart/user) ziyaret edin.
+
+  ### Cursor'a Bağlanma
+
+  Not: Aşağıdaki kılavuz Cursor 0.47.5 sürümüne dayanmaktadır. Özellikler ve davranışlar farklı sürümlerde değişebilir.
+
+  MCP sunucusunu yapılandırmak için:
+
+  1. Şu konuma gidin: File > Preferences > Cursor Settings veya `Ctrl+Shift+J` kısayol tuşunu kullanın
+  2. Sol panelde "MCP" sekmesini seçin
+  3. Sağ üst köşedeki "Add new global MCP server" düğmesine tıklayın
+  4. Açılan mcp.json dosyasına yapılandırmanızı ekleyin
+
+  ```json
+  {
+    "mcpServers": {
+      "piapi": {
+        "command": "node",
+        "args": ["/absolute/path/to/piapi-mcp-server/dist/index.js"],
+        "env": {
+          "PIAPI_API_KEY": "your_api_key_here"
+        }
+      }
+    }
+  }
+  ```
+
+  5. Yapılandırmadan sonra, MCP Servers sayfasında bir "piapi" girişi göreceksiniz
+  6. Girişin yanındaki Refresh düğmesine tıklayın veya piapi sunucusuna bağlanmak için Cursor'u yeniden başlatın
+
+  piapi görüntü oluşturmayı test etmek için:
+
+  1. Cursor Chat'te "Agent mode" seçeneğini açın ve seçin veya `Ctrl+I` kısayol tuşunu kullanın
+  2. Test istemini girin, örneğin: "bir köpeğin görüntüsünü oluştur"
+  3. Görüntü, istemininize göre piapi sunucusu kullanılarak oluşturulacaktır
+
+  piapi sunucusunu devre dışı bırakmak için:
+
+  1. Cursor Ayarları'nda MCP Servers sayfasına gidin
+  2. Sunucu listesinde "piapi" girişini bulun
+  3. "Enabled" geçiş düğmesine tıklayarak "Disabled" olarak değiştirin
+
+  ## Geliştirme
+
+  ### Proje Yapısı
+
+  ```
+  piapi-mcp-server/
+  ├── assets/
+  ├── src/
+  │   ├── index.ts        # Ana sunucu giriş noktası
+  ├── package.json
+  ├── tsconfig.json
+  └── .env.example
+  ```
+
+  ## Lisans
+
+  MIT
 ---
 
 # piapi-mcp-server

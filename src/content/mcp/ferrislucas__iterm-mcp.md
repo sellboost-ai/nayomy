@@ -9,6 +9,98 @@ body_length: 2942
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/iterm-mcp"
+body_tr: |-
+  # iterm-mcp 
+  iTerm oturumunuza erişim sağlayan bir Model Context Protocol sunucusu.
+
+  ![Main Image](https://raw.githubusercontent.com/ferrislucas/iterm-mcp/HEAD/.github/images/demo.gif)
+
+  ### Özellikler
+
+  **Verimli Token Kullanımı:** iterm-mcp, modele yalnızca ilgilendiği çıktıyı inceleme yeteneği verir. Model, uzun süredir çalışan komutlar için bile genellikle yalnızca çıktının son birkaç satırını görmek ister. 
+
+  **Doğal Entegrasyon:** iTerm'i model ile paylaşırsınız. Ekranda neler olduğu hakkında sorular sorabilir veya modele bir görevi devredebilir ve her adımı gerçekleştirirken izleyebilirsiniz.
+
+  **Tam Terminal Kontrolü ve REPL Desteği:** Model, REPL'lerle başlatabilir ve etkileşim kurabileceği gibi ctrl-c, ctrl-z gibi kontrol karakterlerini gönderebilir.
+
+  **Bağımlılıklara Dikkat Eder:** iterm-mcp minimal bağımlılıklarla oluşturulmuştur ve npx üzerinden çalıştırılabilir. Claude Desktop ve diğer MCP istemcilerine eklenmesi kolay olacak şekilde tasarlanmıştır. Hiçbir sorun olmadan çalışmalıdır.
+
+
+  ## Güvenlik Hususları
+
+  * Aracı güvenli şekilde kullanmak kullanıcının sorumluluğundadır.
+  * Yerleşik kısıtlama yoktur: iterm-mcp, yürütülen komutların güvenliğini değerlendirmeye çalışmaz.
+  * Modeller beklenmedik şekillerde davranabilir. Kullanıcının aktiviteyi izlemesi ve uygun olduğunda iptal etmesi beklenir.
+  * Çok adımlı görevler için, model hatalı bir yola giderse onu durdurmanız gerekebilir. Modelin davranışını tanıyana kadar daha küçük, odaklanmış görevlerle başlayın. 
+
+  ### Araçlar
+  - `write_to_terminal` - Aktif iTerm terminaline yazar, genellikle bir komutu çalıştırmak için kullanılır. Komut tarafından üretilen çıktı satırlarının sayısını döndürür.
+  - `read_terminal_output` - Aktif iTerm terminalinden istenen sayıda satırı okur.
+  - `send_control_character` - Aktif iTerm terminaline bir kontrol karakteri gönderir.
+
+  ### Gereksinimler
+
+  * iTerm2 çalışıyor olmalı
+  * Node sürümü 18 veya daha büyük
+
+
+  ## Kurulum
+
+  Claude Desktop ile kullanmak için sunucu konfigürasyonunu ekleyin:
+
+  macOS'ta: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  ```json
+  {
+    "mcpServers": {
+      "iterm-mcp": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "iterm-mcp"
+        ]
+      }
+    }
+  }
+  ```
+
+  ### Smithery Aracılığıyla Kurulum
+
+  iTerm'i Claude Desktop için otomatik olarak [Smithery](https://smithery.ai/server/iterm-mcp) aracılığıyla kurmak için:
+
+  ```bash
+  npx -y @smithery/cli install iterm-mcp --client claude
+  ```
+  [![smithery badge](https://smithery.ai/badge/iterm-mcp)](https://smithery.ai/server/iterm-mcp)
+
+  ## Geliştirme
+
+  Bağımlılıkları yükleyin:
+  ```bash
+  yarn install
+  ```
+
+  Sunucuyu derleyin:
+  ```bash
+  yarn run build
+  ```
+
+  Otomatik yeniden derleme ile geliştirme için:
+  ```bash
+  yarn run watch
+  ```
+
+  ### Hata Ayıklama
+
+  MCP sunucuları stdio üzerinden iletişim kurduğundan, hata ayıklama zorlayıcı olabilir. Paket betiği olarak mevcut olan [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı öneriyoruz:
+
+  ```bash
+  yarn run inspector
+  yarn debug <command>
+  ```
+
+  Inspector, tarayıcınızda hata ayıklama araçlarına erişmek için bir URL sağlayacaktır.
 ---
 
 # iterm-mcp 

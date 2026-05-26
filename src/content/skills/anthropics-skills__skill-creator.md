@@ -12,6 +12,304 @@ has_scripts: true
 has_references: true
 has_examples: false
 related_files: []
+body_tr: |-
+  # Beceri Yaratıcı
+
+  Yeni beceriler oluşturmak ve bunları yinelemeli olarak geliştirmek için bir beceri.
+
+  Yüksek düzeyden bakılacak olursa, bir beceri oluşturma süreci şöyle ilerler:
+
+  - Becerinin ne yapması gerektiğine ve kabaca nasıl yapması gerektiğine karar verin
+  - Becerinin taslağını yazın
+  - Birkaç test sorusu oluşturun ve claude-with-access-to-the-skill ile bunları çalıştırın
+  - Kullanıcının sonuçları hem niteliksel hem de nicel olarak değerlendirmesine yardımcı olun
+    - Çalıştırmalar arka planda yapılırken, nicel değerlendirmeler taslağını oluşturun (eğer yoksa) (varsa, olduğu gibi kullanabilir ya da değiştirilmesi gerektiğini düşünüyorsanız değiştirebilirsiniz). Sonra bunları kullanıcıya açıklayın (ya da önceden varsa, zaten olanları açıklayın)
+    - Kullanıcının sonuçları görebilmesi ve nicel metriklere bakabilmesi için `eval-viewer/generate_review.py` script'ini kullanın
+  - Beceriyi, kullanıcının sonuçlarını değerlendirmesinden gelen geri bildirime (ve ayrıca nicel karşılaştırmalardan ortaya çıkan belirgin kusurlar varsa) göre yeniden yazın
+  - Memnun olana kadar tekrarlayın
+  - Test setini genişletin ve daha büyük ölçekte tekrar deneyin
+
+  Bu beceriyi kullanırken sizin işiniz, kullanıcının bu sürecin hangi aşamasında olduğunu belirlemek ve sonra bu aşamaları ilerletmeleri için yardımcı olmaktır. Örneğin, "X için bir beceri yapmak istiyorum" diye söyleyebilirler. Bunun ne anlama geldiğini daraltmaya, taslak yazmaya, test durumları yazmaya, değerlendirmeyi nasıl yapmak istediklerini bulmaya, tüm soruları çalıştırmaya ve tekrarlamaya yardımcı olabilirsiniz.
+
+  Öte yandan, belki zaten becerinizin bir taslağı var. Bu durumda doğrudan değerlendirme/yineleme döngüsünün bir parçasına geçebilirsiniz.
+
+  Tabii ki, her zaman esnek olmalısınız ve kullanıcı "çok fazla değerlendirmeye gerek yok, sadece bana katıl" derse, bunu yapabilirsiniz.
+
+  Beceri tamamlandıktan sonra (tekrar, sıra esnek olsa da), beceri açıklaması iyileştiricisini çalıştırabilirsiniz; bunun için ayrı bir script'imiz var; becerinin tetiklenmesini optimize etmek için.
+
+  Tamam mı? Tamam.
+
+  ## Kullanıcı ile İletişim Kurma
+
+  Beceri yaratıcı, kodlama argo konusunda çok çeşitli bilgiye sahip kişiler tarafından kullanılabilir. Duymuş olabilirsiniz (ve nasıl duymazsınız ki, çok yakın zamanda başladı), şu anda Claude'un gücü tesisatçıları terminallerini açmaya, ebeveynleri ve büyükelçileri "npm nasıl yüklenir" google'lamaya ilham veriyor. Öte yandan, kullanıcıların çoğu muhtemelen oldukça bilgisayara uygun.
+
+  Bu nedenle lütfen iletişiminizi nasıl ifade edeceğinizi anlamak için bağlama ilişkin işaretlere dikkat edin! Varsayılan durumda, size bir fikir vermek için:
+
+  - "evaluation" (değerlendirme) ve "benchmark" sınırda, ama tamam
+  - "JSON" ve "assertion" (iddaa) için, bunları açıklamadan kullanmadan önce kullanıcıdan ciddi işaretler görmek istersiniz
+
+  Eğer şüphe duyarsanız, kısaca terimler açıklamak tamam, emin değilseniz kullanıcının anlayacağı konusunda kısa bir tanım vererek terimi açıklığa kavuşturmaktan çekinmeyin.
+
+  ---
+
+  ## Beceri Oluşturma
+
+  ### Niyeti Yakalayın
+
+  Kullanıcının niyetini anlamakla başlayın. Mevcut konuşma, kullanıcının yakalamak istediği bir iş akışı içeriyor olabilir (örneğin, "bunu bir beceriye dönüştür" derler). Eğer öyleyse, ilk olarak konuşma geçmişinden cevapları çıkarın — kullanılan araçlar, adımların sırası, kullanıcının yaptığı düzeltmeler, gözlemlenen giriş/çıkış biçimleri. Kullanıcının boşlukları doldurması gerekebilir ve sonraki adıma geçmeden önce onaylamalıdır.
+
+  1. Bu beceri Claude'u ne yapması için etkinleştirmeli?
+  2. Bu beceri ne zaman tetiklenmelidir? (hangi kullanıcı ifadeleri/bağlamlar)
+  3. Beklenen çıkış biçimi nedir?
+  4. Becerinin çalıştığını doğrulamak için test durumları ayarlamalı mıyız? Objektif olarak doğrulanabilir çıktıları olan beceriler (dosya dönüşümleri, veri çıkarımı, kod üretimi, sabit iş akışı adımları) test durumlarından faydalanır. Öznel çıktılar olan beceriler (yazı stili, sanat) genellikle bunlara gerek duymaz. Beceri türüne göre uygun varsayılanı öneriniz, ancak kullanıcının karar vermesine izin verin.
+
+  ### Görüşme ve Araştırma
+
+  Kenar durumları, giriş/çıkış biçimlerini, örnek dosyaları, başarı kriterlerini ve bağımlılıkları hakkında proaktif olarak sorular sorun. Test istemlerini yazmaya, bu kısmı düzelttikten sonra başlayın.
+
+  Mevcut MCP'leri kontrol edin — araştırma için faydalı ise (docu arama, benzer becerileri bulma, en iyi uygulamaları arama), mümkünse alt ajanlar aracılığıyla paralel olarak araştırın, aksi takdirde satır içi. Kullanıcı üzerindeki yükü azaltmak için bağlamla hazır olun.
+
+  ### SKILL.md Yazın
+
+  Kullanıcı görüşmesine göre, bu bileşenleri doldurun:
+
+  - **name**: Beceri tanımlayıcısı
+  - **description**: Ne zaman tetikleyeceği, ne yaptığı. Bu, birincil tetikleme mekanizmasıdır — hem becerinin ne yaptığını HEM DE ne zaman kullanacağına ilişkin özel bağlamları ekleyin. Tüm "ne zaman kullanılacağı" bilgileri buraya gider, bedene değil. Not: Claude'un beceri "az tetikleme" eğilimi vardır — uygun olduğunda kullanmamak. Buna karşı koymak için, lütfen beceri açıklamalarını biraz "ısrarcı" yapın. Örneğin, "iç Anthropic veri görüntülemek için basit bir hızlı pano oluşturma" yerine, "iç Anthropic veri görüntülemek için basit bir hızlı pano oluşturma. Kullanıcı panolar, veri görselleştirmesi, iç metrikler hakkında konuştuğunda veya açıkça "pano" istemese bile herhangi bir şirket verisi görüntülemek istediğinde bu beceriyi kullandığınızdan emin olun."
+  - **compatibility**: Gerekli araçlar, bağımlılıklar (isteğe bağlı, nadiren gerekli)
+  - **becerenin geri kalanı :)**
+
+  ### Beceri Yazma Kılavuzu
+
+  #### Bir Becerenin Anatomisi
+
+  ```
+  skill-name/
+  ├── SKILL.md (gerekli)
+  │   ├── YAML frontmatter (name, description gerekli)
+  │   └── Markdown talimatları
+  └── Paketlenmiş Kaynaklar (isteğe bağlı)
+      ├── scripts/    - Deterministik/tekrarlayan görevler için yürütülebilir kod
+      ├── references/ - Gerektiğinde bağlama yüklenen belgeler
+      └── assets/     - Çıkışta kullanılan dosyalar (şablonlar, simgeler, yazı tipleri)
+  ```
+
+  #### Kademeli Açıklama
+
+  Beceriler üç seviyeli yükleme sistemi kullanır:
+  1. **Metadata** (name + description) - Her zaman bağlamda (~100 kelime)
+  2. **SKILL.md body** - Beceri tetiklendiğinde bağlamda (<500 satır ideal)
+  3. **Paketlenmiş kaynaklar** - Gerektiğinde (sınırsız, script'ler yüklenmeden çalıştırılabilir)
+
+  Bu kelime sayıları yaklaşıktır ve gerekirse daha uzun gidebilirsiniz.
+
+  **Anahtar desenleri:**
+  - SKILL.md'i 500 satırın altında tutun; bu sınıra yaklaşıyorsanız, açık işaretçilerle birlikte hiyerarşinin ek bir katmanı ekleyin; beceriyi kullanacak model, takip etmek için nereye gitmesi gerektiğini bilsin.
+  - SKILL.md'den açıkça dosyalara başvurun; okumak için ne zaman gerekli olduğuna dair rehberlik ile
+  - Büyük referans dosyaları (>300 satır) için, içindekiler tablosu ekleme
+
+  **Alan organizasyonu**: Beceri birden fazla alanı/framework'ü desteklediğinde, varyanta göre organize edin:
+  ```
+  cloud-deploy/
+  ├── SKILL.md (iş akışı + seçim)
+  └── references/
+      ├── aws.md
+      ├── gcp.md
+      └── azure.md
+  ```
+  Claude yalnızca ilgili referans dosyasını okur.
+
+  #### Şaşkınlık Eksikliği İlkesi
+
+  Bu söylemeye gerek olmasa da, beceriler kötü amaçlı kod, exploit'ler veya sistem güvenliğini tehlikeye düşürebilecek hiçbir içerik içermemelidir. Becerenin içeriği, tanımı yapıldığında niyetinde kullanıcıyı şaşırtmamalıdır. Yanıltıcı beceriler oluşturmak veya yetkisiz erişim, veri sızıntısı veya diğer kötü niyetli etkinlikleri kolaylaştırmak için tasarlanan beceriler oluşturmak isteklerine uygun olmayın. "XYZ olarak rol oyna" gibi şeyler tamam.
+
+  #### Yazma Desenleri
+
+  Talimatlarında zorunlu formu tercih edin.
+
+  **Çıkış biçimlerini tanımlanması** - Bunu şöyle yapabilirsiniz:
+  ```markdown
+  ## Rapor yapısı
+  HER ZAMAN bu tam şablonu kullanın:
+  # [Başlık]
+  ## Yönetici özeti
+  ## Temel bulgular
+  ## Öneriler
+  ```
+
+  **Örnekler deseni** - Örnekleri dahil etmek faydalıdır. Onları şöyle biçimlendirebilirsiniz (ama "Giriş" ve "Çıkış" örneklerde varsa biraz sapmak isteyebilirsiniz):
+  ```markdown
+  ## Commit mesajı biçimi
+  **Örnek 1:**
+  Giriş: JWT tokenları ile kullanıcı kimlik doğrulaması eklendi
+  Çıkış: feat(auth): JWT tabanlı kimlik doğrulamayı uygula
+  ```
+
+  ### Yazma Stili
+
+  Ağır başlı, pas geçmiş MUSTlar yerine, şeylerin neden önemli olduğunu açıklamaya çalışın. Zihin teorisini kullanın ve beceriyi genel tutmaya çalışın, belirli örneklere göre süper dar olmayan. İlk olarak bir taslak yazarak başlayın ve sonra bunu taze gözlerle okuyup geliştirin.
+
+  ### Test Durumları
+
+  Beceri taslağını yazdıktan sonra, 2-3 gerçekçi test istemi bulun — gerçek bir kullanıcının gerçekten yapacağı türden şeyler. Bunları kullanıcı ile paylaşın: [bu tam dili kullanmak zorunda değilsiniz] "İşte denemek istediğim birkaç test durumu. Bunlar doğru mu görünüyor, yoksa daha fazla eklemek mi istiyorsunuz?" Sonra çalıştırın.
+
+  Test durumlarını `evals/evals.json` içine kaydedin. Henüz iddiaları yazımı — sadece istemi. Sonraki adımda çalıştırmalar sırasında iddiaları taslak halinde hazırlayacaksınız.
+
+  ```json
+  {
+    "skill_name": "example-skill",
+    "evals": [
+      {
+        "id": 1,
+        "prompt": "Kullanıcının görev istemi",
+        "expected_output": "Beklenen sonuç açıklaması",
+        "files": []
+      }
+    ]
+  }
+  ```
+
+  `references/schemas.md` adresini tam şema için inceleyin (`assertions` alanını da içerir, bunu daha sonra ekleyeceksiniz).
+
+  ## Test durumlarını çalıştırma ve değerlendirme
+
+  Bu bölüm tek bir kesintisiz dizi — yarı yolda durmayın. `/skill-test` veya başka bir test becerisini KULLANMAYIN.
+
+  Sonuçları `<skill-name>-workspace/` içine beceri dizininin eş kütüğü olarak koyun. Workspace içinde, sonuçları yinelemeye göre organize edin (`iteration-1/`, `iteration-2/`, vb.) ve bunun içinde, her test durumu bir dizin alır (`eval-0/`, `eval-1/`, vb.). Tüm bunları önceden oluşturmayın — bunları gidince oluşturun.
+
+  ### Adım 1: Tüm çalıştırmaları (with-skill VE baseline) aynı turda çoğaltın
+
+  Her test durumu için, aynı turda iki alt ajan çoğaltın — biri beceri ile, biri olmadan. Bu önemli: yetenek ile ilk ve ardından taban çizgileri için geri dönmeyin. Her şeyi aynı anda başlatın; böylece hepsi aynı anda bitsin.
+
+  **With-skill çalıştırması:**
+
+  ```
+  Bu görevi çalıştırın:
+  - Beceri yolu: <path-to-skill>
+  - Görev: <eval prompt>
+  - Giriş dosyaları: <eval files if any, or "none">
+  - Çıktıları kaydet: <workspace>/iteration-<N>/eval-<ID>/with_skill/outputs/
+  - Kaydedilecek çıktılar: <user cares about — e.g., ".docx dosyası", "final CSV">
+  ```
+
+  **Baseline çalıştırması** (aynı istem, ama baseline bağlama bağlıdır):
+  - **Yeni bir beceri oluşturma**: hiçbir beceri yok. Aynı istem, hiçbir beceri yolu yok, `without_skill/outputs/` adresine kaydedin.
+  - **Mevcut bir beceriyi geliştirme**: eski sürüm. Düzenlemeden önce, beceriyi anlık görüntüleyin (`cp -r <skill-path> <workspace>/skill-snapshot/`), sonra baseline alt ajanını anlık görüntüye işaret edin. `old_skill/outputs/` adresine kaydedin.
+
+  Her test durumu için bir `eval_metadata.json` yazın (şu an içiniassertions boş olabilir). Her değerlendirmesine sadece "eval-0" değil, test ettiği şeye göre açıklayıcı bir ad verin. Bu adı dizin için de kullanın. Bu yineleme yeni veya değiştirilmiş eval istemlerini kullanırsa, her yeni eval dizini için bu dosyaları oluşturun — önceki yinelemelerden taşınacaklarını varsaymayın.
+
+  ```json
+  {
+    "eval_id": 0,
+    "eval_name": "descriptive-name-here",
+    "prompt": "Kullanıcının görev istemi",
+    "assertions": []
+  }
+  ```
+
+  ### Adım 2: Çalıştırmalar sırasında, iddiaları taslak halinde hazırlayın
+
+  Çalıştırmalar bitmesini beklemek — bunu üretken olarak kullanabilirsiniz. Her test durumu için nicel iddiaları taslak halinde hazırlayın ve bunları kullanıcıya açıklayın. `evals/evals.json` adresinde zaten iddialar varsa, bunları gözden geçirin ve ne denetlediklerini açıklayın.
+
+  İyi iddiaların objektif olarak doğrulanabilir olması ve tanımlayıcı adları olması — kısa bir göz atmada birinin her bir kontrolün ne denetlediğini anlaması için benchmark görüntüleyicide açıkça okuması gerekir. Öznel beceriler (yazı stili, tasarım kalitesi) niteliksel olarak daha iyi değerlendirilir — insan yargısı gereken şeylere iddiaları zorlama.
+
+  `eval_metadata.json` dosyalarını ve `evals/evals.json` dosyalarını taslak iddialarla güncelleyin. Ayrıca kullanıcıya görüntüleyicide neler göreceğini açıklayın — hem niteliksel çıktılar hem de nicel karşılaştırma.
+
+  ### Adım 3: Çalıştırmalar tamamlandıkça, zamanlama verilerini yakalayın
+
+  Her alt ajan görevi tamamlandığında, `total_tokens` ve `duration_ms` içeren bir bildirim alırsınız. Bu verileri hemen `timing.json` adresine, çalıştırma dizininin içine kaydedin:
+
+  ```json
+  {
+    "total_tokens": 84852,
+    "duration_ms": 23332,
+    "total_duration_seconds": 23.3
+  }
+  ```
+
+  Bu, bu verileri yakalamak için tek fırsattır — görev bildiriminden gelir ve başka yerde kalıcı değildir. Her bildirimi, hepsini bir araya toplamaya çalışmak yerine alındığında işleyin.
+
+  ### Adım 4: Değerlendir, topla ve görüntüleyiciyi başlat
+
+  Tüm çalıştırmalar tamamlandıktan sonra:
+
+  1. **Her çalıştırmayı değerlendir** — bir değerlendirici alt ajan çoğaltın (ya da satır içi derecelen) `agents/grader.md` okuyan ve çıktılara karşı her iddiayı değerlendiren. Sonuçları her çalıştırma dizininde `grading.json` adresine kaydedin. `grading.json` beklentileri dizisi `text`, `passed` ve `evidence` alanlarını kullanmalıdır (`name`/`met`/`details` veya diğer varyantları değil) — görüntüleyici bu tam alan adlarına bağlıdır. Programlı olarak denetlenebilecek iddialar için, bunu elle incelemek yerine bir script yazın ve çalıştırın — script'ler daha hızlı, daha güvenilir ve yinelemeler arasında yeniden kullanılabilir.
+
+  2. **Karşılaştırma karşılaştırmasına topla** — beceri yaratıcısı dizininden toplama script'ini çalıştırın:
+     ```bash
+     python -m scripts.aggregate_benchmark <workspace>/iteration-N --skill-name <name>
+     ```
+     Bu `benchmark.json` ve `benchmark.md` üretir; her yapılandırma için pass_rate, time ve tokens ile; mean ± stddev ve delta ile. `benchmark.json` el ile oluştururken, `references/schemas.md` adresinde görüntüleyicinin beklediği tam şemaya bakın.
+     Her with_skill sürümünü, taban çizgisi eşi olmadan önce koyun.
+
+  3. **Analist geçiş yap** — karşılaştırma verilerini oku ve toplama istatistiklerinin gizleyebileceği desenleri yüzeysel kılın. `agents/analyzer.md` (""Karşılaştırma Sonuçlarını Analiz Etme"" bölümü) adresinde neyi arayacağını görmek için — her zaman geçen iddialar (discriminating değil), yüksek varyans değerlendirmeler (muhtemelen kırılgan) ve zaman/token ödünleşmeleri gibi şeyler.
+
+  4. **Görüntüleyiciyi başlat** niteliksel çıktılar ve nicel veriler ile:
+     ```bash
+     nohup python <skill-creator-path>/eval-viewer/generate_review.py \
+       <workspace>/iteration-N \
+       --skill-name "my-skill" \
+       --benchmark <workspace>/iteration-N/benchmark.json \
+       > /dev/null 2>&1 &
+     VIEWER_PID=$!
+     ```
+     Yineleme 2+ için, ayrıca `--previous-workspace <workspace>/iteration-<N-1>` geçirin.
+
+     **Cowork / headless ortamları:** `webbrowser.open()` mevcut değilse veya ortamda hiçbir görüntü yoksa, server başlatmak yerine `--static <output_path>` kullanarak tek başına bir HTML dosyasına yazın. Geri bildirim, kullanıcı "Tüm İncelemeleri Gönder" düğmesine tıkladığında `feedback.json` dosyası olarak indirilir. İndirdikten sonra, `feedback.json` adresini sonraki yineleme için workspace dizinine kopyalayın.
+
+  Not: `generate_review.py` adresini kullanarak görüntüleyiciyi oluşturun; özel HTML yazmanın gerek yoktur.
+
+  5. **Kullanıcıya söyle** bir şey gibi: "Sonuçları tarayıcınızda açtım. İki sekme vardır — 'Çıktılar' her test durumuna tıklamanıza ve geri bildirim bırakmanıza izin verir, 'Karşılaştırma' nicel karşılaştırmayı gösterir. Bitirdiğinizde, buraya geri dönün ve bana söyleyin."
+
+  ### Kullanıcı görüntüleyicide neler görür
+
+  "Çıktılar" sekmesi aynı anda bir test durumunu gösterir:
+  - **İstem**: verilen görev
+  - **Çıkış**: becerinin ürettiği dosyalar, mümkün olduğunda satır içi olarak işlenir
+  - **Önceki Çıkış** (yineleme 2+): son yinelemesinin çıkışını gösteren daraltılmış bölüm
+  - **Resmi Dereceler** (değerlendirme yapıldıysa): iddia geçme/başarısızlık gösteren daraltılmış bölüm
+  - **Geri bildirim**: yazarken otomatik olarak kaydeden bir metin kutusu
+  - **Önceki Geri Bildirim** (yineleme 2+): geçen zamanlarından yorumları, metin kutusunun altında gösterilir
+
+  Navigasyon, önceki/sonraki düğmeleri veya ok tuşları aracılığıyladır. Bitirdiğinde, "Tüm İncelemeleri Gönder" düğmesine tıklar; bu tüm geri bildirimi `feedback.json` adresine kaydeder.
+
+  ### Adım 5: Geri bildirimi oku
+
+  Kullanıcı bitirdiğini söylediğinde, `feedback.json` okuyun:
+
+  ```json
+  {
+    "reviews": [
+      {"run_id": "eval-0-with_skill", "feedback": "the chart is missing axis labels", "timestamp": "..."},
+      {"run_id": "eval-1-with_skill", "feedback": "", "timestamp": "..."},
+      {"run_id": "eval-2-with_skill", "feedback": "perfect, love this", "timestamp": "..."}
+    ],
+    "status": "complete"
+  }
+  ```
+
+  Boş geri bildirim, kullanıcının uygun olduğunu düşündüğü anlamına gelir. Geliştirmelerinizi, kullanıcının özel şikayetleri olduğu test durumlarına odaklanın.
+
+  Bitirdiğinizde görüntüleyici sunucusunu öldürün:
+
+  ```bash
+  kill $VIEWER_PID 2>/dev/null
+  ```
+
+  ---
+
+  ## Beceriyi Geliştirme
+
+  Bu döngünün kalbi. Test durumlarını çalıştırdınız, kullanıcı sonuçları inceledi ve şimdi geri bildirilerine dayalı olarak beceriyi daha iyi hale getirmeniz gerekiyor.
+
+  ### İyileştirmeler Hakkında Nasıl Düşünürsünüz
+
+  1. **Geri bildirimi genelleştirin.** Burada olan büyük resim şeyi şudur: milyon kez (belki gerçekten, belki hatta daha fazla bilmeyen biri) birçok farklı istem arasında kullanılabilecek beceriler oluşturmaya çalışıyoruz. Burada siz ve kullanıcı yalnızca birkaç örnek üzerinde tekrar tekrar yineliyorsunuz, çünkü daha hızlı hareket etmeye yardımcı oluyor. Kullanıcı bu örnekleri içinde ve dışında biliyor ve yeni çıktıları değerlendirmesi hızlı. Ancak siz ve kullanıcının birlikte geliştirdiği beceri yalnızca bu örnekler için çalışıyorsa, işe yaramaz. Finicky overfitty değişiklikleri veya opresyif MUSTUR'ları koymak yerine, belirli bir sorun varsa, branşlamayı ve farklı metaforları kullanmayı deneyin ya da çalışmanın farklı desenleri öneriniz. Denemek nispeten ucuz ve belki de harika bir şeyler bulacaksınız.
+
+  2. **İstemini yalın tutun.** Ağır kaldırmayan şeyleri kaldırın. Transkriptleri okuduğunuzdan emin olun, sadece son çıktı değil — becerinin model harcamasını çok fazla verimli olmayan şeyleri yapmaya zorluyormuş gibi görünüyorsa, beceriye bunu yapması için baskı yapan parçaları kaldırarak ve ne olduğunu görerek, şeyler deney yapabilirsiniz.
+
+  3. **Neden'i açıklayın.** Modelden ne yapmasını istediğinizin arkasındaki **neden'i** açıklamaya çok çalışın. Bugünün LLM'leri *akıllıdır*. İyi bir kuşak verildiğinde iyi zihin teorisine ve rutine gitmelerin ötesine geçebilir ve gerçekten işleri yapabilirler. Kullanıcıdan geri bildirim kısa veya sinirli olsa bile, görevi ve kullanıcının neden yazdığını, onların gerçekten neyi yazdığını anlamaya çalışın ve sonra bu anlayışı talimatların içine iletin. Çok başlı veya çok katı yapıları yazarken kendinizi bulursanız, bu sarı bir bayrak — mümkünse yeniden çerçevelendirin ve akıl yürütün; böylece model istediğiniz şeyin neden önemli olduğunu anlar. Bu daha insani, güçlü ve etkili bir yaklaşımdır.
+
+  4. **Test durumlarında tekrarlanan
 ---
 
 # Skill Creator

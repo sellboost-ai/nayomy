@@ -9,6 +9,156 @@ body_length: 5464
 license: "Apache-2.0"
 language: "JavaScript"
 homepage: "https://plugins.jetbrains.com/plugin/26071-mcp-server"
+body_tr: |-
+  [![official JetBrains project](http://jb.gg/badges/incubator-flat-square.svg)](https://github.com/JetBrains#jetbrains-on-github)
+
+  # ⚠️ Kullanımdan Kaldırıldı
+
+  **Bu depo artık bakımı yapılmamaktadır.** Temel işlevsellik, sürüm 2025.2'den itibaren tüm IntelliJ tabanlı IDE'lere entegre edilmiştir.
+  Yerleşik işlevsellik SSE ve JVM tabanlı proxy (STDIO için) ile çalışmakta olduğundan bu NPM paketi artık gerekli değildir.
+
+  **Geçiş:** Yerleşik işlevselliği kullanma hakkında ayrıntılar için lütfen [resmi dokumentasyona](https://www.jetbrains.com/help/idea/mcp-server.html) bakınız.
+
+  **Sorunlar & Destek:** Yerleşik MCP işlevselliği ile ilgili hatalar veya özellik istekleri için lütfen [JetBrains YouTrack](https://youtrack.jetbrains.com/issues?q=project:%20IJPL%20Subsystem:%20%7BMCP%20(Model%20Context%20Protocol)%7D%20)'i kullanınız.
+
+  # JetBrains MCP Proxy Server
+
+  Server, istemciden JetBrains IDE'ye istekleri yönlendirir.
+
+  ## MCP Server eklentisini yükleyin
+
+  https://plugins.jetbrains.com/plugin/26071-mcp-server
+
+  ## VS Code Kurulumu
+
+  Tek tıkla kurulum için aşağıdaki kurulum düğmelerinden birine tıklayınız:
+
+  [![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=jetbrains&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40jetbrains%2Fmcp-proxy%22%5D%7D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=jetbrains&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40jetbrains%2Fmcp-proxy%22%5D%7D&quality=insiders)
+
+  ### Manuel Kurulum
+
+  VS Code'daki Kullanıcı Ayarları (JSON) dosyanıza aşağıdaki JSON bloğunu ekleyiniz. Bunu `Ctrl + Shift + P` tuşlarına basıp `Preferences: Open User Settings (JSON)` yazarak yapabilirsiniz.
+
+  ```json
+  {
+    "mcp": {
+      "servers": {
+        "jetbrains": {
+          "command": "npx",
+          "args": ["-y", "@jetbrains/mcp-proxy"]
+        }
+      }
+    }
+  }
+  ```
+
+  İsteğe bağlı olarak, çalışma alanınızda `.vscode/mcp.json` adlı bir dosyaya ekleyebilirsiniz:
+
+  ```json
+  {
+    "servers": {
+      "jetbrains": {
+        "command": "npx",
+        "args": ["-y", "@jetbrains/mcp-proxy"]
+      }
+    }
+  }
+  ```
+
+  ## Claude Desktop ile Kullanım
+
+  Bunu Claude Desktop ile kullanmak için aşağıdakileri `claude_desktop_config.json` dosyanıza ekleyiniz.
+  macOS'ta tam yol: `~/Library/Application\ Support/Claude/claude_desktop_config.json`, Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`.
+
+  ```json
+  {
+    "mcpServers": {
+      "jetbrains": {
+        "command": "npx",
+        "args": ["-y", "@jetbrains/mcp-proxy"]
+      }
+    }
+  }
+  ```
+
+  MCP Server Plugin'i yükledikten ve JSON'u config dosyasına ekledikten sonra, Claude Desktop'ı yeniden başlatınız ve Claude Desktop'ı yeniden başlatmadan önce Jetbrains ürününün açık olduğundan emin olunuz.
+
+  ## Yapılandırma
+
+  Birden fazla IDE'yi MCP server ile çalıştırıyorsanız ve belirli bir IDE'ye bağlanmak istiyorsanız, MCP server yapılandırmasına ekleyiniz:
+  ```json
+  "env": {
+    "IDE_PORT": "<IDE'nin yerleşik web sunucusunun portu>"
+  }
+  ```
+
+  Varsayılan olarak IDE'ye 127.0.0.1 üzerinden bağlanırız ancak farklı bir adres/host belirtebilirsiniz:
+  ```json
+  "env": {
+    "HOST": "<IDE'nin yerleşik web sunucusunun host/adresi>"
+  }
+  ```
+
+  Logging'i etkinleştirmek için ekleyiniz:
+  ```json
+  "env": {
+    "LOG_ENABLED": "true"
+  }
+  ```
+
+  ## Sorun Giderme
+
+  ### Node.js Sürüm Gereksinimleri
+  **Sorun:** Hata mesajı: `Cannot find module 'node:path'`
+
+  **Çözüm:**
+  MCP Proxy, Node 16'da çalışmaz.
+  Node.js kurulumunuzu sürüm 18 veya daha yeni bir sürüme yükseltin. Config dosyanızdaki `command` parametresinin doğru Node.js sürümünü işaret ettiğinden emin olun.
+  NodeJS'in en son sürümünün tam yolunu kullanmayı deneyin.
+
+  ### 
+
+  ### macOS: Eklenti, nvm Aracılığıyla Yüklenen Node.js'i Algılayamıyor
+  **Sorun:** macOS'ta nvm (Node Version Manager) aracılığıyla Node.js yüklediyseniz, MCP Server Plugin Node.js kurulumunuzu algılayamayabilir.
+
+  **Çözüm:** `/usr/local/bin` dizininde nvm npx çalıştırılabilir dosyasını işaret eden bir sembolik bağlantı oluşturunuz:
+  ```bash
+  which npx &>/dev/null && sudo ln -sf "$(which npx)" /usr/local/bin/npx
+  ```
+  Bu tek satırlık komut, npx'in yolunuzda var olup olmadığını kontrol eder ve gerekli sembolik bağlantıyı uygun izinlerle oluşturur.
+
+  ### Harici Klientler veya Docker Konteynerler ile MCP Kullanımı (LibreChat, Cline, vb.)
+
+  **Sorun:** JetBrains MCP proxy'sine harici klientlerden, Docker konteynerlerinden veya üçüncü taraf uygulamalardan (LibreChat gibi) bağlanmaya çalışırken, http://host.docker.internal:6365/api/mcp/list_tools gibi endpoint'lere gelen istekler 404 hatası döndürebilir veya bağlantı kuramayabilir.
+  **Çözüm:** Ele alınması gereken iki temel sorun vardır:
+  1. Harici Bağlantıları Etkinleştirin:
+
+  JetBrains IDE'niz içinde, _Settings | Build, Execution, Deployment | Debugger_ bölümünde "Can accept external connections" seçeneğini etkinleştirin.
+
+  2. LAN IP ve Port ile Yapılandırın:
+
+  `host.docker.internal` yerine makinenizin LAN IP adresini kullanınız
+  Yapılandırmada IDE_PORT ve HOST'u açıkça ayarlayınız
+  LibreChat veya benzer harici klientler için örnek yapılandırma:
+  ```yaml
+  mcpServers:
+    intellij:
+      type: stdio
+      command: sh
+      args:
+        - "-c"
+        - "IDE_PORT=YOUR_IDEA_PORT HOST=YOUR_IDEA_LAN_IP npx -y @jetbrains/mcp-proxy"
+  ```
+  Aşağıdakileri değiştirin:
+
+  `YOUR_IDEA_PORT` ile IDE'niz ait debug portunu (IDE ayarlarında bulunur)
+  `YOUR_IDEA_LAN_IP` ile bilgisayarınızın yerel ağ IP'sini (örneğin, 192.168.0.12)
+
+
+  ## Derleme Yöntemi
+  1. macOS'ta test edilmiştir
+  2. `brew install node pnpm`
+  3. Projeyi derlemek için `pnpm build` komutunu çalıştırınız
 ---
 
 [![official JetBrains project](http://jb.gg/badges/incubator-flat-square.svg)](https://github.com/JetBrains#jetbrains-on-github)

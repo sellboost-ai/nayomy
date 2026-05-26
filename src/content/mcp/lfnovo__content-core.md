@@ -8,6 +8,297 @@ url: "https://github.com/lfnovo/content-core"
 body_length: 8743
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Content Core
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![PyPI version](https://badge.fury.io/py/content-core.svg)](https://badge.fury.io/py/content-core)
+  [![Downloads](https://pepy.tech/badge/content-core)](https://pepy.tech/project/content-core)
+  [![Downloads](https://pepy.tech/badge/content-core/month)](https://pepy.tech/project/content-core)
+  [![GitHub stars](https://img.shields.io/github/stars/lfnovo/content-core?style=social)](https://github.com/lfnovo/content-core)
+  [![GitHub forks](https://img.shields.io/github/forks/lfnovo/content-core?style=social)](https://github.com/lfnovo/content-core)
+  [![GitHub issues](https://img.shields.io/github/issues/lfnovo/content-core)](https://github.com/lfnovo/content-core/issues)
+  [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+  URL'ler, dosyalar ve metinden içeriği unified async Python API, CLI veya MCP sunucusu aracılığıyla çıkarın, işleyin ve özetleyin.
+
+  ## Desteklenen Biçimler
+
+  | Kategori | Biçimler |
+  |----------|---------|
+  | Web | URL'ler, HTML sayfaları, YouTube videoları, Reddit yazıları |
+  | Belgeler | PDF, DOCX, PPTX, XLSX, EPUB, Markdown, düz metin |
+  | Medya | MP3, WAV, M4A, FLAC, OGG (ses); MP4, AVI, MOV, MKV (video) |
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  pip install content-core
+  ```
+
+  ```python
+  import content_core
+
+  result = await content_core.extract_content(url="https://example.com")
+  print(result.content)
+  ```
+
+  Veya kurulum olmadan:
+
+  ```bash
+  uvx content-core extract "https://example.com"
+  ```
+
+  ## CLI Kullanımı
+
+  Content Core, çıkarma, özetleme ve MCP sunucusu için alt komutlarla birleştirilmiş bir `content-core` komutu sağlar.
+
+  ### Çıkart
+
+  ```bash
+  # Bir URL'den
+  content-core extract "https://example.com"
+
+  # Bir dosyadan
+  content-core extract document.pdf
+
+  # JSON çıktısı ile
+  content-core extract document.pdf --format json
+
+  # Belirli bir engine ile
+  content-core extract "https://example.com" --engine firecrawl
+
+  # stdin'den
+  echo "some text" | content-core extract
+  ```
+
+  ### Özetle
+
+  ```bash
+  # Metni özetle
+  content-core summarize "Long article text here..."
+
+  # Bağlam ile
+  content-core summarize "Long text" --context "bullet points"
+
+  # stdin'den
+  cat article.txt | content-core summarize --context "explain to a child"
+  ```
+
+  ### MCP Sunucusu
+
+  ```bash
+  content-core mcp
+  ```
+
+  ### Yapılandırma
+
+  ```bash
+  # Kalıcı yapılandırma ayarla
+  content-core config set llm_provider anthropic
+  content-core config set llm_model claude-sonnet-4-20250514
+
+  # Mevcut yapılandırmayı listele
+  content-core config list
+
+  # Bir yapılandırma değerini sil
+  content-core config delete llm_provider
+  ```
+
+  Yapılandırma `~/.content-core/config.toml` dosyasında saklanır. Öncelik: komut bayrakları > ortam değişkenleri > yapılandırma dosyası > varsayılanlar.
+
+  ### uvx ile Kurulum Olmadan
+
+  Tüm komutlar `uvx` kullanılarak kurulum olmadan çalışır:
+
+  ```bash
+  uvx content-core extract "https://example.com"
+  uvx content-core summarize "text" --context "one sentence"
+  uvx content-core mcp
+  ```
+
+  ## Python API
+
+  ### Çıkarma
+
+  ```python
+  import content_core
+
+  # Bir URL'den
+  result = await content_core.extract_content(url="https://example.com")
+
+  # Bir dosyadan
+  result = await content_core.extract_content(file_path="document.pdf")
+
+  # Metinden
+  result = await content_core.extract_content(content="some text")
+
+  # Engine geçersiz kılması ile
+  from content_core import ContentCoreConfig
+  config = ContentCoreConfig(url_engine="firecrawl")
+  result = await content_core.extract_content(url="https://example.com", config=config)
+  ```
+
+  ### Özetleme
+
+  ```python
+  import content_core
+
+  summary = await content_core.summarize("long article text", context="bullet points")
+  ```
+
+  ### Yapılandırma
+
+  ```python
+  from content_core import ContentCoreConfig
+
+  config = ContentCoreConfig(
+      url_engine="firecrawl",
+      document_engine="docling",
+      audio_concurrency=5,
+  )
+  result = await content_core.extract_content(url="https://example.com", config=config)
+  ```
+
+  ## MCP Entegrasyonu
+
+  Content Core, Claude Desktop ve diğer MCP uyumlu uygulamalarla kullanılmak üzere bir Model Context Protocol (MCP) sunucusu içerir.
+
+  <a href="https://glama.ai/mcp/servers/@lfnovo/content-core">
+    
+  </a>
+
+  `claude_desktop_config.json` dosyanıza ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "content-core": {
+        "command": "uvx",
+        "args": ["content-core", "mcp"],
+        "env": {
+          "OPENAI_API_KEY": "sk-..."
+        }
+      }
+    }
+  }
+  ```
+
+  MCP sunucusu iki tool'u açığa çıkarır: `extract_content` ve `summarize_content`. Her ikisi de düz metin döndürür.
+
+  Ayrıntılı kurulum için [MCP belgelerine](docs/mcp.md) bakın.
+
+  ## Claude Code Skill
+
+  Content Core, yapay zeka aracılarına dış kaynaklardan içeriği çıkarmak için nasıl kullanacaklarını öğreten bir [`SKILL.md`](SKILL.md) dosyası içerir. Bunu Claude Code projenizde kullanılabilir hale getirmek için, beceri dizininize kopyalayın:
+
+  ```bash
+  # Skill'i indir
+  curl -o .claude/skills/content-core/SKILL.md --create-dirs \
+    https://raw.githubusercontent.com/lfnovo/content-core/main/SKILL.md
+  ```
+
+  Yüklendikten sonra Claude Code, URL'ler, belgeler ve medya dosyalarından içeriği çıkarmak için content-core'u kullanabilir — CLI (`uvx content-core`) veya yapılandırılmışsa MCP aracılığıyla.
+
+  ## AI Sağlayıcıları
+
+  Content Core, birden fazla LLM ve STT sağlayıcısını desteklemek için [Esperanto](https://github.com/lfnovo/esperanto)'yu kullanır. Sağlayıcıyı yapılandırmayı değiştirerek geçişin — kod değişiklikleri gerekli değil:
+
+  ```bash
+  # Özetleme için Anthropic'i kullan
+  content-core config set llm_provider anthropic
+  content-core config set llm_model claude-sonnet-4-20250514
+
+  # Transkripsiyon için Groq'u kullan
+  content-core config set stt_provider groq
+  content-core config set stt_model whisper-large-v3
+  ```
+
+  Desteklenen sağlayıcılar OpenAI, Anthropic, Google, Groq, DeepSeek, Ollama ve daha fazlasını içerir. Tam liste için [Esperanto belgelerine](https://github.com/lfnovo/esperanto) bakın.
+
+  ## Yapılandırma
+
+  Content Core, pydantic-settings tarafından desteklenen `ContentCoreConfig` kullanır. Ayarlar öncelik sırasına göre çözümlenir: constructor argümanları > ortam değişkenleri (`CCORE_*`) > yapılandırma dosyası (`~/.content-core/config.toml`) > varsayılanlar.
+
+  ### Ortam Değişkenleri
+
+  | Değişken | Açıklama | Varsayılan |
+  |----------|----------|-----------|
+  | `CCORE_URL_ENGINE` | URL çıkarma engine'i (`auto`, `simple`, `firecrawl`, `jina`, `crawl4ai`) | `auto` |
+  | `CCORE_DOCUMENT_ENGINE` | Belge çıkarma engine'i (`auto`, `simple`, `docling`) | `auto` |
+  | `CCORE_AUDIO_CONCURRENCY` | Eşzamanlı ses transkripsiyonları (1-10) | `3` |
+  | `CRAWL4AI_API_URL` | Crawl4AI Docker API URL'si (yerel tarayıcı modu için atlayın) | - |
+  | `FIRECRAWL_API_URL` | Kendi kendine barındırılan örnekler için özel Firecrawl API URL'si | - |
+  | `CCORE_FIRECRAWL_PROXY` | Firecrawl proxy modu (`auto`, `basic`, `stealth`) | `auto` |
+  | `CCORE_FIRECRAWL_WAIT_FOR` | Çıkarmadan önce bekleme süresi ms cinsinden | `3000` |
+  | `CCORE_LLM_PROVIDER` | Özetleme için LLM sağlayıcısı | - |
+  | `CCORE_LLM_MODEL` | Özetleme için LLM modeli | - |
+  | `CCORE_STT_PROVIDER` | Konuşmadan metne dönüştürme sağlayıcısı | - |
+  | `CCORE_STT_MODEL` | Konuşmadan metne dönüştürme modeli | - |
+  | `CCORE_STT_TIMEOUT` | Konuşmadan metne dönüştürme zaman aşımı saniye cinsinden | - |
+  | `CCORE_YOUTUBE_LANGUAGES` | Tercih edilen YouTube transkript dilleri | - |
+
+  Harici hizmetler için API anahtarları, standart ortam değişkenleri aracılığıyla ayarlanır (örneğin, `OPENAI_API_KEY`, `FIRECRAWL_API_KEY`, `JINA_API_KEY`).
+
+  ### Proxy Yapılandırması
+
+  Content Core, standart `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` ortam değişkenlerini otomatik olarak okur. Ek yapılandırma gerekmez.
+
+  ## İsteğe Bağlı Bağımlılıklar
+
+  ```bash
+  # Gelişmiş belge ayrıştırma için Docling (PDF, DOCX, PPTX, XLSX)
+  pip install content-core[docling]
+
+  # Yerel tarayıcı tabanlı URL çıkarma için Crawl4AI
+  pip install content-core[crawl4ai]
+  python -m playwright install --with-deps
+
+  # LangChain tool sarmalayıcıları
+  pip install content-core[langchain]
+
+  # Tüm isteğe bağlı özellikler
+  pip install content-core[docling,crawl4ai,langchain]
+  ```
+
+  ### LangChain ile Kullanma
+
+  `langchain` extra'sı ile yüklendiğinde, Content Core LangChain uyumlu tool sarmalayıcılarını sağlar:
+
+  ```python
+  from content_core.tools import extract_content_tool, summarize_content_tool
+
+  tools = [extract_content_tool, summarize_content_tool]
+  ```
+
+  ## Belgeler
+
+  - [Kullanım Kılavuzu](docs/usage.md) -- Python API ayrıntıları, yapılandırma ve örnekler
+  - [İşlemciler](docs/processors.md) -- Her biçim için içeriği çıkarma nasıl çalışır
+  - [MCP Sunucusu](docs/mcp.md) -- Claude Desktop ve MCP entegrasyonu
+
+  ## Geliştirme
+
+  ```bash
+  git clone https://github.com/lfnovo/content-core
+  cd content-core
+
+  uv sync --group dev
+
+  # Testleri çalıştır
+  make test
+
+  # Linting
+  make ruff
+  ```
+
+  ## Lisans
+
+  Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+
+  ## Katkı
+
+  Katkılar hoş karşılanır! Ayrıntılar için lütfen [Katkı Kılavuzumuza](CONTRIBUTING.md) bakın.
 ---
 
 # Content Core

@@ -8,6 +8,261 @@ url: "https://github.com/MarkusPfundstein/mcp-gsuite"
 body_length: 7749
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # mcp-gsuite MCP sunucusu
+
+  [![smithery badge](https://smithery.ai/badge/mcp-gsuite)](https://smithery.ai/server/mcp-gsuite)
+  Google ürünleriyle etkileşim kurmak için MCP sunucusu.
+
+  ## Örnek istemler
+
+  Şu anda bu MCP sunucusu Gmail ve Takvim entegrasyonunu aşağıdaki yeteneklerle desteklemektedir:
+
+  1. Genel
+  * Birden fazla google hesabı
+
+  2. Gmail
+  * Gmail kullanıcı bilgilerinizi alın
+  * Esnek aramayla e-postaları sorgulayın (örneğin, okunmamış, belirli göndericilerden, tarih aralıkları, ekli dosyalarla)
+  * ID'ye göre tam e-posta içeriğini alın
+  * Alıcılar, konu, gövde ve CC seçenekleriyle yeni taslak e-postalar oluşturun
+  * Taslak e-postaları silin
+  * Mevcut e-postaylara yanıt verin (hemen gönderebilir veya taslak olarak kaydedebilirsiniz)
+  * ID'lerine göre birden fazla e-postayı aynı anda alın
+  * E-postalardan birden fazla eki yerel sisteminize kaydedin
+
+  3. Takvim
+  * Birden fazla takvimi yönetin
+  * Belirtilen zaman aralıklarında takvim etkinliklerini alın
+  * Takvim etkinlikleri oluşturun:
+    + Başlık, başlangıç/bitiş saatleri
+    + İsteğe bağlı konum ve açıklama
+    + İsteğe bağlı katılımcılar
+    + Özel saat dilimi desteği
+    + Bildirim tercihleri
+  * Takvim etkinliklerini silin
+
+  Deneyebileceğiniz örnek istemler:
+
+  * Son okunmamış mesajlarımı al
+  * Scrum Master'ın e-postalarını ara
+  * Muhasebe'den tüm e-postaları al
+  * ABC hakkındaki e-postayı al ve özetle
+  * Alice'in son e-postasına hoş bir yanıt yaz ve taslak olarak yükle
+  * Bob'un e-postasına Teşekkür notu ile yanıt ver. Taslak olarak kaydet
+
+  * Yarın takvimimde neler var?
+  * Özel hesabımın Aile takvimini gelecek hafta için kontrol et
+  * Tim ile sonraki hafta 2 saatlik bir etkinlik planlamam gerekiyor. Bazı zaman aralıkları öner
+
+  ## Hızlı Başlangıç
+
+  ### Kurulum
+
+  ### Smithery Üzerinden Yükleme
+
+  mcp-gsuite'i Claude Desktop'a otomatik olarak [Smithery](https://smithery.ai/server/mcp-gsuite) aracılığıyla yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install mcp-gsuite --client claude
+  ```
+
+  #### OAuth 2
+
+  Google Workspace (G Suite) API'leri OAuth2 yetkilendirmesi gerektirir. Kimlik doğrulamayı ayarlamak için bu adımları izleyin:
+
+  1. OAuth2 Kimlik Bilgileri Oluşturun:
+     - [Google Cloud Console](https://console.cloud.google.com/) sayfasına gidin
+     - Yeni bir proje oluşturun veya mevcut bir projeyi seçin
+     - Projeniz için Gmail API ve Google Takvim API'sini etkinleştirin
+     - "Credentials" → "Create Credentials" → "OAuth client ID" sayfasına gidin
+     - Uygulama türü olarak "Desktop app" veya "Web application" seçin
+     - Gerekli bilgiler ile OAuth consent screen'i yapılandırın
+     - Yetkili redirect URI'lerini ekleyin (yerel geliştirme için `http://localhost:4100/code` ekleyin)
+
+  2. Gerekli OAuth2 Kapsamları:
+     
+
+  ```json
+     [
+       "openid",
+       "https://mail.google.com/",
+       "https://www.googleapis.com/auth/calendar",
+       "https://www.googleapis.com/auth/userinfo.email"
+     ]
+  ```
+
+  3. Daha sonra çalışma dizininizde client ile bir `.gauth.json` dosyası oluşturun
+
+  ```json
+  {
+      "web": {
+          "client_id": "$your_client_id",
+          "client_secret": "$your_client_secret",
+          "redirect_uris": ["http://localhost:4100/code"],
+          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+          "token_uri": "https://oauth2.googleapis.com/token"
+      }
+  }
+  ```
+
+  4. Hesap bilgileriyle bir `.accounts.json` dosyası oluşturun
+
+  ```json
+  {
+      "accounts": [
+          {
+              "email": "alice@bob.com",
+              "account_type": "personal",
+              "extra_info": "Claude'a söylemek istediğiniz ek bilgiler: Örn. 'Aile Takvimini İçerir'"
+          }
+      ]
+  }
+  ```
+
+  Birden fazla hesap belirtebilirsiniz. Google Auth uygulamanızda bunlara erişim izni olduğundan emin olun. `extra_info` alanı özellikle ilginçtir çünkü yapay zeka hakkında bilgilendirmek istediğiniz bilgileri buraya ekleyebilirsiniz (örneğin, belirli bir ajandaya sahip olup olmadığı)
+
+  Not: Belirli bir hesap için araçlardan birini ilk kez çalıştırdığınızda, bir tarayıcı açılır, sizi Google'a yönlendirir ve kimlik bilgilerinizi, kapsamı vb. ister. Başarılı bir giriş sonrasında, kimlik bilgilerini `.oauth.{email}.json` adlı yerel bir dosyaya kaydeder. Yetkilendirildikten sonra, refresh token kullanılacaktır.
+
+  #### Claude Desktop
+
+  MacOS üzerinde: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+
+  Windows üzerinde: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  <details>
+    <summary>Geliştirme/Yayımlanmamış Sunucular Yapılandırması</summary>
+    
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-gsuite": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "<dir_to>/mcp-gsuite",
+          "run",
+          "mcp-gsuite"
+        ]
+      }
+    }
+  }
+  ```
+
+
+  Not: Farklı bir hesaplar dosyasını belirtmek için `uv run mcp-gsuite --accounts-file /path/to/custom/.accounts.json` komutunu veya farklı bir credentials dizinini belirtmek için `--credentials-dir /path/to/custom/credentials` komutunu da kullanabilirsiniz.
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-gsuite": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "<dir_to>/mcp-gsuite",
+          "run",
+          "mcp-gsuite",
+          "--accounts-file",
+          "/path/to/custom/.accounts.json",
+          "--credentials-dir",
+          "/path/to/custom/credentials"
+        ]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+    <summary>Yayımlanmış Sunucular Yapılandırması</summary>
+    
+
+  ```json
+  {
+    "mcpServers": {
+      "mcp-gsuite": {
+        "command": "uvx",
+        "args": [
+          "mcp-gsuite",
+          "--accounts-file",
+          "/path/to/custom/.accounts.json",
+          "--credentials-dir",
+          "/path/to/custom/credentials"
+        ]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  ### Yapılandırma Seçenekleri
+
+  MCP sunucusu, kimlik doğrulama ve hesap bilgileri için özel yolları belirtmek üzere birkaç command-line seçeneğiyle yapılandırılabilir:
+
+  * `--gauth-file`: OAuth2 client yapılandırmasını içeren `.gauth.json` dosyasının yolunu belirtir. Varsayılan `./.gauth.json`'dur.
+  * `--accounts-file`: Google hesapları hakkında bilgi içeren `.accounts.json` dosyasının yolunu belirtir. Varsayılan `./.accounts.json`'dur.
+  * `--credentials-dir`: Başarılı kimlik doğrulamadan sonra OAuth kimlik bilgilerinin saklandığı dizini belirtir. Varsayılan, her hesap için `.oauth.{email}.json` alt dizini ile geçerli çalışma dizinidir.
+
+  Bu seçenekler, özellikle geliştirme ve test senaryolarında farklı ortamları veya birden fazla kimlik bilgileri ve hesaplar kümesini yönetmede esneklik sağlar.
+
+  Örnek kullanım:
+
+  ```bash
+  uv run mcp-gsuite --gauth-file /path/to/custom/.gauth.json --accounts-file /path/to/custom/.accounts.json --credentials-dir /path/to/custom/credentials
+  ```
+
+  Bu yapılandırma, sunucunun birden fazla örneğini farklı yapılandırmalarla çalıştırdığınızda veya varsayılan yolların uygun olmadığı ortamlara dağıtırken özellikle faydalıdır.
+
+  ## Geliştirme
+
+  ### Derleme ve Yayımlama
+
+  Paketi dağıtım için hazırlamak için:
+
+  1. Bağımlılıkları senkronize edin ve lockfile'ı güncelleyin:
+
+  ```bash
+  uv sync
+  ```
+
+  2. Paket dağıtımlarını oluşturun:
+
+  ```bash
+  uv build
+  ```
+
+  Bu, `dist/` dizininde kaynak ve wheel dağıtımları oluşturacaktır.
+
+  3. PyPI'ye yayımlayın:
+
+  ```bash
+  uv publish
+  ```
+
+  Not: PyPI kimlik bilgilerini environment variables veya command flags aracılığıyla ayarlamanız gerekecektir:
+  * Token: `--token` veya `UV_PUBLISH_TOKEN`
+  * Ya da username/password: `--username`/`UV_PUBLISH_USERNAME` ve `--password`/`UV_PUBLISH_PASSWORD`
+
+  ### Hata Ayıklama
+
+  MCP sunucuları stdio üzerinden çalıştığından, hata ayıklama zor olabilir. En iyi hata ayıklama deneyimi için [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı kesinlikle öneriyoruz.
+
+  MCP Inspector'u şu komutla [ `npm` ](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) aracılığıyla başlatabilirsiniz:
+
+  ```bash
+  npx @modelcontextprotocol/inspector uv --directory /path/to/mcp-gsuite run mcp-gsuite
+  ```
+
+  Başlatıldığında, Inspector hata ayıklamaya başlamak için tarayıcınızda erişebileceğiniz bir URL gösterecektir.
+
+  Ayrıca sunucu günlüklerini şu komutla izleyebilirsiniz:
+
+  ```bash
+  tail -n 20 -f ~/Library/Logs/Claude/mcp-server-mcp-gsuite.log
+  ```
 ---
 
 # mcp-gsuite MCP server

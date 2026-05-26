@@ -12,6 +12,181 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Solver Modülü
+
+  Solver, atopile'nin **parametre alt sisteminin** kalbidir: **Parametreler**, **Literaller (Kümeler)** ve **İfadelerden** oluşturulan kısıt sistemlerini sembolik olarak basitleştirir ve kontrol eder.
+
+  Solver'ın iç yapısını değiştiriyorsanız, önce bunları okuyun:
+
+  - `src/faebryk/core/solver/README.md` (konseptler, küme korelasyonu, sadece-append grafleri, canonicalization)
+  - `src/faebryk/core/solver/symbolic/invariants.py` (ifade ekleme sırasında uygulanan *gerçek* değişmezler)
+
+  ## Hızlı Başlangıç
+
+  ```python
+  import faebryk.core.node as fabll
+  import faebryk.library._F as F
+  from faebryk.core.solver.defaultsolver import DefaultSolver
+  from faebryk.libs.test.boundexpressions import BoundExpressions
+
+  E = BoundExpressions()
+
+  class _App(fabll.Node):
+      x = F.Parameters.NumericParameter.MakeChild(unit=E.U.dl)
+
+  app = _App.bind_typegraph(tg=E.tg).create_instance(g=E.g)
+  x = app.x.get().can_be_operand.get()
+  E.is_subset(x, E.lit_op_range(((9, E.U.dl), (11, E.U.dl))), assert_=True)
+
+  solver = DefaultSolver()
+  res = solver.simplify(g=E.g, tg=E.tg, terminal=True).data.mutation_map
+  lit = res.try_extract_superset(app.x.get().is_parameter_operatable.get(), domain_default=True)
+  assert lit is not None
+  ```
+
+  ## İlgili Dosyalar
+
+  - Solver runtime + orkestrasyonu:
+    - `src/faebryk/core/solver/defaultsolver.py` (`DefaultSolver`, iterasyon döngüsü, terminal vs non-terminal)
+    - `src/faebryk/core/solver/solver.py` (solver protokolü + yardımcı API'ler)
+  - Mutasyon mekanizması ("graflerin sadece-append olması" burada işlenir):
+    - `src/faebryk/core/solver/mutator.py` (`Mutator`, `Transformations`, `MutationStage`, `MutationMap`, tracebacks)
+  - Sembolik katman (kanonik formlar + değişmezler):
+    - `src/faebryk/core/solver/symbolic/invariants.py` (`insert_expression(...)` değişmez pipeline'ı)
+    - `src/faebryk/core/solver/symbolic/canonical.py` (canonicalization geçişleri)
+    - `src/faebryk/core/solver/symbolic/*` (yapısal + ifade-yönlü algoritmalar)
+  - Domain nesneleri (kullanıcıların grafiklerde gerçekten oluşturduğu şeyler):
+    - `src/faebryk/library/Parameters.py` (ParameterOperatables, domainler, kompakt repr)
+    - `src/faebryk/library/Expressions.py` (ifade düğüm türleri, yüklemler, assertables)
+    - `src/faebryk/library/Literals.py` (Kümeler; sayısal/boolean/enum literalleri)
+  - Test yardımcıları:
+    - `src/faebryk/libs/test/boundexpressions.py` (testler için kısa graf + ifade oluşturma)
+
+  ## Bağımlılar (Çağrı Alanları)
+
+  - Kütüphane bileşenleri (`src/faebryk/library/`): parametreleri/kısıtlamaları tanımlar (ör. `R.resistance`)
+  - Compiler + frontendler: `ato` kısıtlamalarını solver ifadelerine çevirir
+  - Picker backend: solver basitleştirmesi + sınır çıkarma kullanarak aday parçaları budamak için
+
+  ## Nasıl Çalışır / Geliştirme / Test
+
+  ### Zihinsel Model (doğruluk için önemli olan kısımlar)
+
+  ### 1) Literaller Kümelerdir (ve korelasyon inceliktir)
+  - `100kOhm +/- 10%` gibi bir literal bir **Küme** (aralık), skaler değil.
+  - **Tekil kümeler kendileriyle ilişkilidir**; diğer tüm kümeler **ilişkisiz** olarak değerlendirilir, hatta kendileriyle bile.
+    - Bu yüzden `X - X` `X` bir aralık olduğunda mutlaka `{0}` değildir, ama `X` bir tekil küme olduğunda *mutlaka* `{0}` olur.
+
+  ### 2) Semboller (Parametreler) korelasyon oluşturur
+  - Bir `Parameter` matematiksel bir sembol (değişken) gibi davranır, Python değişkeni değil.
+  - Semboller arasındaki korelasyon *asserted* kısıtlamalar aracılığıyla oluşturulur, en önemlileri:
+    - `Is(A, B).assert_()` / `A.alias_is(B)` güçlü "bunlar aynı" korelasyonu oluşturur.
+    - `IsSubset(A, X).assert_()` / `A.constrain_subset(X)` `A`'yı `X` içinde olacak şekilde kısıtlar.
+    - `IsSubset(X, A).assert_()` / `A.constrain_superset(X)` `A`'yı en azından `X` kabul edecek şekilde kısıtlar.
+
+  ### 3) İfadeler graf nesneleridir (sadece Python ağaçları değil)
+  İfadeler, operand düğümlerine işaret eden Faebryk grafındaki düğümlerdir. Bu önemlidir çünkü…
+
+  ### 4) Alttaki grafleri sadece-append'dir
+  Solver bir ifadeyi yerinde "düzenleyemez". Bunun yerine:
+  - dönüştürülmüş/kopyalanmış düğümler içeren yeni bir graf oluşturur,
+  - eski düğümleri → yeni düğümlerin eşlemesini kaydeder (`MutationMap`),
+  - eski grafı değişmez bırakır.
+
+  ### Geliştirme İş Akışı
+
+  1) Minimal grafta yeniden üretin (testler + `BoundExpressions` tercih edin).
+  2) `DefaultSolver().simplify(...)` çalıştırın ve ortaya çıkan `MutationMap`'i inceleyin.
+  3) Yeniden yazma mantığını değiştiriyorsanız, `src/faebryk/core/solver/symbolic/invariants.py::insert_expression` içindeki değişmez pipeline'ını anladığınızdan ve koruduğunuzdan emin olun.
+  4) `src/faebryk/core/solver/symbolic/*` içinde algoritmalar ekleyin/ayarlayın (çoğu mantık orada yaşar, `mutator.py` içinde değil).
+
+  ### Test
+  - Solver testleri `test/core/solver/` içinde yaşar:
+    - `test/core/solver/test_solver.py`
+    - `test/core/solver/test_literal_folding.py`
+    - `test/core/solver/test_solver_util.py`
+
+  Tekrar ederken sıkı bir döngü çalıştırın:
+
+  - `ato dev test --llm test/core/solver -k invariant -q`
+  - `ato dev test --llm test/core/solver/test_solver.py::test_simplify -q`
+
+  ## En İyi Uygulamalar
+
+  ### Açık `simplify(...)` argümanlarını tercih edin
+  `DefaultSolver.simplify` `(tg, g)` veya `(g, tg)` kabul eden bir uyumluluk katmanına sahiptir. Yeni kodda adlandırılmış argümanları tercih edin:
+
+  ```python
+  res = DefaultSolver().simplify(g=g, tg=tg, terminal=True)
+  mutation_map = res.data.mutation_map
+  ```
+
+  ### Ad-hoc yeniden yazma yerine `Mutator`/`insert_expression` pipeline'ını kullanın
+  Bir ifadeyi "oluşturduğunuzda" veya "yeniden yazdığınızda", gerçekten solver'dan geçici grafa bir şey eklemesini istiyorsunuz
+  değişmezleri uphold ederken. Bunun gerçekleştiği kanonik yer:
+
+  - `src/faebryk/core/solver/symbolic/invariants.py::insert_expression`
+
+  Bunu bypass ederseniz, neredeyse kesinlikle bir değişmezi ihlal edeceksiniz ve şunu alacaksınız:
+  - tekli/uyumlu ifadeler,
+  - bir operand üzerinde birden fazla uyumsuz sınır,
+  - operand olarak kullanılan yüklemler,
+  - kaçırılan literal folding, veya
+  - gerçek kök nedenin bulunmadığı çelişkiler.
+
+  ## Temel Değişmezler (kaynak gerçeği: `insert_expression`)
+
+  Değişmez pipeline'ı sıra-hassastır. Yüksek seviyede uyguladığı şey (parafraze):
+
+  - Yüklem operandı yok: `Op(P!, ...)` mümkün olduğunca boolean literalleri kullanmak üzere yeniden yazılır
+  - Yüklem literal kuralları: `P{S|True} -> P!`; `P!{S/P|False} -> Contradiction`; `P!{S|True} -> P!`
+  - Literal eşitsizlik yok: literalleri içeren eşitsizlikler subset kısıtlamalarına yeniden yazılır
+  - Operand olarak tekil superset yok: `f(A{S|{x}}, ...) -> f(x, ...)`
+  - Uyum yok: uyumlu ifadeler çoğaltılmıştır (ilişkisiz uyum için isteğe bağlı kurallarla)
+  - Minimal kapsama: daha güçlü kısıtlamalar daha zayıf olanları kapsar; fazlalık olanlar ilgisiz olur
+  - Operand başına tek "birleştirilmiş" superset/subset (ör. kesiştirilmiş superset'ler)
+  - Boş superset/subset yok: boş-küme kısıtlamaları çelişkilerdir
+  - Saf literal ifadeleri literallere fold edin (ve subset/superset olarak yeniden ifade edin)
+  - Belirli literal subset kısıtlamalarını sonlandırın
+  - Kanonik form: ifadeler kanonik operatörlere oluşturulur/normalize edilir
+
+  Yeni bir algoritma eklerken, doğru kalmak için en kolay yol yeni bir `ExpressionBuilder` oluşturmak
+  ve `insert_expression`'ın zor işi yapmasına izin vermektir.
+
+  ## İç Yapılar & Runtime Davranışı
+
+  ### Örnek Oluşturma & Bağımlılıklar
+  - **`DefaultSolver()` durum tutar**: `terminal=False` ile çağrıldığında, artımlı çözme için yeniden kullanılabilir iç durumu tutabilir.
+  - **Terminal vs non-terminal**:
+    - `terminal=True` (varsayılan) daha güçlüdür ama artımlı durum olarak yeniden kullanılması amaçlanmamıştır.
+    - `terminal=False` sadece non-terminal algoritmaları çalıştırır ve sonraki çağrılar için `reusable_state` depolar.
+  - **Graf kapsamı**: `simplify(..., relevant=[...])` "tüm dünyayı çözme"yi kaçınmak için amaçlanan kancadır.
+
+  ### Veri Yapıları
+  - `MutationStage`: bir algoritma uygulaması giriş graf → çıkış graf, `Transformations` nesnesiyle.
+  - `MutationMap`: aşamaların bir zinciri; şunu yapmanızı sağlar:
+    - eski → yeni operableları eşleyin (`map_forward`)
+    - yeni → eski kaynakları eşleyin (`map_backward`)
+    - mevcut sınırları literaller olarak çıkarın (`try_extract_superset`; subset çıkarma tipik olarak eşlenmiş operable'ın `try_extract_subset()` aracılığıyla yapılır)
+    - "neden bu değişti?" için tracebacks oluşturun (bkz. `mutator.py` içinde `Traceback`)
+
+  ### Hata Ayıklama & Logging
+  Faydalı konfigürasyon bayrakları (bkz. `src/faebryk/core/solver/utils.py`):
+
+  - `SLOG=1`: solver/mutator için hata ayıklama logging
+  - `SPRINT_START=1`: her fazın başlangıcını log edin
+  - `SVERBOSE_TABLE=1`: ayrıntılı mutasyon tabloları
+  - `SSHOW_SS_IS=1`: graf yazdırma çıktılarında subset/is yüklemlerini içeyin
+  - `SMAX_ITERATIONS=N`: kötü yeniden yazmaları yakalarken erken ise yükselt (sonsuz döngüyü bulunmasına yardımcı olur)
+
+  Hatalarda, `Contradiction` / `ContradictionByLiteral` çıktısını arayın: mutasyon tracebacks'ini
+  orijin ifadelerine/parametrelerine geri yazdırır, bu genellikle gerçek hataya en kısa yoldur.
+
+  ### Performans
+  - Yapabileceğiniz zaman `relevant=[...]` aracılığıyla kapsamı kısıtlamayı tercih edin.
+  - çok sayıda neredeyse-tekli ifade oluşturmaktan kaçının; uyum + kapsama yardımcı olur, ama churn hala maliyetlidir.
+  - Bir algoritma eklerseniz, bunu *idempotent* yapın (veya oluşturduğunuz şeyleri açıkça işaretleyin/sonlandırın) sonsuz iterasyonu kaçınmak için.
 ---
 
 # Solver Module

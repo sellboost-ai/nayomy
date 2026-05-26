@@ -8,6 +8,119 @@ url: "https://github.com/34892002/bilibili-mcp-js"
 body_length: 2332
 license: "MIT"
 language: "JavaScript"
+body_tr: |-
+  # Bilibili MCP
+
+  [![English](https://img.shields.io/badge/English-Click-yellow)](README-en.md)
+  [![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](README.md)
+  [![日本語](https://img.shields.io/badge/日本語-クリック-青)](README-ja.md)
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/34892002/bilibili-mcp-js)](https://archestra.ai/mcp-catalog/34892002__bilibili-mcp-js)
+
+  ## Giriş
+  Bu, Model Context Protocol (MCP) tabanlı bir Bilibili video arama sunucusudur. Sunucu, kullanıcıların Bilibili'de video içeriğini aramasına olanak tanıyan basit API arayüzü sağlar. LangChain çağrı örnekleri ve test komut dosyaları sunar.
+
+  ## Teşekkürler
+  - LangChain örnek kodu [mcp-langchain-ts-client](https://github.com/isaacwasserman/mcp-langchain-ts-client) adresinden alınmıştır
+
+  ## Özellikler
+  - Bilibili video içeriği özet listesi arama
+  - Bilibili popüler içeriğini alma (kapsamlı popüler, başlangıç seviyesi, sıralamalar, siteler arası müzik sıralaması)
+  - Bilibili video ayrıntı bilgilerini alma (BV numarası veya AV numarası destekler)
+  - UP sahibi bilgisini alma (temel bilgiler, takipçi sayısı, takip sayısı vb.)
+  - Anime takvimi (zaman aralığındaki anime yayın bilgileri)
+
+  ## Sistem Gereksinimleri
+  - Node.js >= 20.12.0
+  ## AI Aracı Kullanım Yapılandırması
+  Trae örneğiyle
+  ![](https://raw.githubusercontent.com/34892002/bilibili-mcp-js/HEAD/imgs/config.png)
+
+  ## npm paketi
+  [HQHC](https://github.com/HQHC) tarafından yayınlanan npm paketi için teşekkürler
+  ```json
+  {
+    "mcpServers": {
+      "bilibili-search": {
+      "command": "npx",
+      "args": ["bilibili-mcp-js"],
+      "description": "B站视频搜索 MCP 服务，可以在AI应用中搜索B站视频内容。"
+      }
+    }
+  }
+  ```
+  ## Yerel Derleme Kullanımı
+  >Kullanmak için derleme gereklidir.
+  İlk olarak npm run build çalıştırın, ardından buradaki yolu derlenmiş dist klasörü yolunuzla değiştirin, "args": ["d:\\your-path\\bilibili-mcp-js\\dist\\index.js"]
+  ```json
+  {
+    "mcpServers": {
+      "bilibili-search": {
+        "command": "node",
+        "args": ["d:\\your-path\\bilibili-mcp-js\\dist\\index.js"],
+        "description": "B站视频搜索 MCP 服务，可以在AI应用中搜索B站视频内容。"
+      }
+    }
+  }
+  ```
+
+  ## Hızlı Başlangıç
+  > Langchain örneğini çalıştırmak için lütfen llm modelini yapılandırın ve .\example.ts dosyasını düzenleyin.
+  ```javascript
+  const llm = new ChatOpenAI({
+    modelName: "gpt-4o-mini",
+    temperature: 0,
+    openAIApiKey: "your_api_key", // Modelinizin anahtarıyla değiştirin
+    configuration: {
+      baseURL: "https://www.api.com/v1", // Modelinizin API adresiyle değiştirin
+    },
+  });
+  ```
+
+  bun:
+
+  ```bash
+  # Bağımlılıkları yükle
+  bun i
+  # stdio modu
+  bun index.ts
+  # streamable http modu
+  TRANSPORT=remote bun index.ts
+  TRANSPORT=remote PORT=8888 bun index.ts
+  # Test komut dosyası
+  bun test.js
+  # MCP Inspector
+  bun run inspector
+  # Langchain örneğini çalıştır
+  bun build:bun
+  bun example.ts
+  ```
+
+  npm:
+
+  ```bash
+  # Bağımlılıkları yükle
+  npm i
+  # stdio modu
+  npm run start
+  # streamable http modu
+  TRANSPORT=remote npm run start
+  TRANSPORT=remote PORT=8888 npm run start
+  # Test komut dosyası
+  npm run test
+  # MCP Inspector
+  npm run inspector
+  # Langchain örneğini çalıştır
+  npm run build
+  node dist/example.js
+  ```
+
+  ## Ekran Görüntüleri
+  ![](https://raw.githubusercontent.com/34892002/bilibili-mcp-js/HEAD/imgs/test-01.png)
+  ![](https://raw.githubusercontent.com/34892002/bilibili-mcp-js/HEAD/imgs/test-02.png)
+
+  ## Barındırılan Dağıtım
+
+  Barındırılan dağıtım [Fronteir AI](https://fronteir.ai/mcp/34892002-bilibili-mcp-js) adresinde mevcuttur.
 ---
 
 # Bilibili MCP

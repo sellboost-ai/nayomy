@@ -8,6 +8,246 @@ url: "https://github.com/tumf/mcp-shell-server"
 body_length: 6120
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # MCP Shell Server
+
+  [![codecov](https://codecov.io/gh/tumf/mcp-shell-server/branch/main/graph/badge.svg)](https://codecov.io/gh/tumf/mcp-shell-server)
+  [![smithery badge](https://smithery.ai/badge/mcp-shell-server)](https://smithery.ai/server/mcp-shell-server)
+
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/tumf-mcp-shell-server-badge.png)](https://mseep.ai/app/tumf-mcp-shell-server)
+
+  Model Context Protocol (MCP) uygulayan güvenli bir shell command execution sunucusu. Bu sunucu, stdin girişi desteği ile beyaz listeye alınmış shell komutlarının uzaktan yürütülmesine izin verir.
+
+  <a href="https://glama.ai/mcp/servers/rt2d4pbn22"></a>
+
+  <a href="https://glama.ai/mcp/servers/rt2d4pbn22"></a>
+
+  ## Özellikler
+
+  * **Güvenli Command Yürütümü**: Yalnızca beyaz listeye alınmış komutlar yürütülebilir
+  * **Standart Input Desteği**: Komutlara stdin aracılığıyla giriş aktarın
+  * **Kapsamlı Çıktı**: stdout, stderr, çıkış durumu ve yürütme süresini döndürür
+  * **Shell Operatör Güvenliği**: Shell operatörleri (;, &&, ||, |) sonrasındaki komutları doğrular
+  * **Timeout Kontrolü**: Komutlar için maksimum yürütme süresini ayarlayın
+
+  ## Claude.app'te MCP istemci ayarlanması
+
+  ### Yayınlanmış sürüm
+
+  ```shell
+  code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+  ```
+
+  ```json
+  {
+    "mcpServers": {
+      "shell": {
+        "command": "uvx",
+        "args": [
+          "mcp-shell-server"
+        ],
+        "env": {
+          "ALLOW_COMMANDS": "ls,cat,pwd,grep,wc,touch,find"
+        }
+      },
+    }
+  }
+  ```
+
+  ### Yerel sürüm
+
+  #### Konfigürasyon
+
+  ```shell
+  code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+  ```
+
+  ```json
+  {
+    "mcpServers": {
+      "shell": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          ".",
+          "run",
+          "mcp-shell-server"
+        ],
+        "env": {
+          "ALLOW_COMMANDS": "ls,cat,pwd,grep,wc,touch,find"
+        }
+      },
+    }
+  }
+  ```
+
+  #### Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  Shell Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-shell-server) aracılığıyla otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install mcp-shell-server --client claude
+  ```
+
+  ### Manuel Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  Shell Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-shell-server) aracılığıyla otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install mcp-shell-server --client claude
+  ```
+
+  ### Manuel Kurulum
+
+  ```bash
+  pip install mcp-shell-server
+  ```
+
+  ### Smithery Aracılığıyla Kurulum
+
+  Shell Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-shell-server) aracılığıyla otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install mcp-shell-server --client claude
+  ```
+
+  ## Kullanım
+
+  ### Sunucuyu Başlatma
+
+  ```bash
+  ALLOW_COMMANDS="ls,cat,echo" uvx mcp-shell-server
+  # Veya takma adı kullanarak
+  ALLOWED_COMMANDS="ls,cat,echo" uvx mcp-shell-server
+  ```
+
+  `ALLOW_COMMANDS` (veya takma adı `ALLOWED_COMMANDS`) ortam değişkeni, hangi komutların yürütülmesine izin verileceğini belirtir. Komutlar virgülle ayrılabilir ve etrafında isteğe bağlı boşluklar bulunabilir.
+
+  ALLOW_COMMANDS veya ALLOWED_COMMANDS için geçerli formatlar:
+
+  ```bash
+  ALLOW_COMMANDS="ls,cat,echo"          # Temel format
+  ALLOWED_COMMANDS="ls ,echo, cat"      # Boşluklarla (takma ad kullanılarak)
+  ALLOW_COMMANDS="ls,  cat  , echo"     # Çoklu boşluklarla
+  ```
+
+  ### İstek Formatı
+
+  ```python
+  # Temel command yürütümü
+  {
+      "command": ["ls", "-l", "/tmp"]
+  }
+
+  # Stdin girdisi ile command
+  {
+      "command": ["cat"],
+      "stdin": "Hello, World!"
+  }
+
+  # Timeout ile command
+  {
+      "command": ["long-running-process"],
+      "timeout": 30  # Saniye cinsinden maksimum yürütme süresi
+  }
+
+  # Çalışma dizini ve timeout ile command
+  {
+      "command": ["grep", "-r", "pattern"],
+      "directory": "/path/to/search",
+      "timeout": 60
+  }
+  ```
+
+  ### Yanıt Formatı
+
+  Başarılı yanıt:
+
+  ```json
+  {
+      "stdout": "command output",
+      "stderr": "",
+      "status": 0,
+      "execution_time": 0.123
+  }
+  ```
+
+  Hata yanıtı:
+
+  ```json
+  {
+      "error": "Command not allowed: rm",
+      "status": 1,
+      "stdout": "",
+      "stderr": "Command not allowed: rm",
+      "execution_time": 0
+  }
+  ```
+
+  ## Güvenlik
+
+  Sunucu, çeşitli güvenlik önlemleri uygular:
+
+  1. **Command Beyaz Listesi**: Yalnızca açıkça izin verilen komutlar yürütülebilir
+  2. **Shell Operatör Doğrulaması**: Shell operatörleri (;, &&, ||, |) sonrasındaki komutlar da beyaz listeye karşı doğrulanır
+  3. **Shell Injection Yok**: Komutlar shell yorumlama olmaksızın doğrudan yürütülür
+
+  ## Geliştirme
+
+  ### Geliştirme Ortamını Ayarlama
+
+  1. Repository'i klonlayın
+
+  ```bash
+  git clone https://github.com/yourusername/mcp-shell-server.git
+  cd mcp-shell-server
+  ```
+
+  2. Test gereksinimleri dahil bağımlılıkları yükleyin
+
+  ```bash
+  pip install -e ".[test]"
+  ```
+
+  ### Testleri Çalıştırma
+
+  ```bash
+  pytest
+  ```
+
+  ## API Referansı
+
+  ### İstek Parametreleri
+
+  | Alan      | Tip        | Gerekli | Açıklama                                      |
+  |-----------|------------|--------|-----------------------------------------------|
+  | command   | string[]   | Evet   | Komut ve argümanları dizi elemanları olarak   |
+  | stdin     | string     | Hayır  | Komuta aktarılacak giriş                     |
+  | directory | string     | Hayır  | Command yürütümü için çalışma dizini         |
+  | timeout   | integer    | Hayır  | Saniye cinsinden maksimum yürütme süresi      |
+
+  ### Yanıt Alanları
+
+  | Alan            | Tip     | Açıklama                                    |
+  |-----------------|---------|---------------------------------------------|
+  | stdout          | string  | Komuttan standart çıktı                    |
+  | stderr          | string  | Komuttan standart hata çıktısı             |
+  | status          | integer | Çıkış durumu kodu                          |
+  | execution_time  | float   | Yürütme için geçen süre (saniye cinsinden) |
+  | error           | string  | Hata mesajı (yalnızca başarısız olursa)    |
+
+  ## Gereksinimler
+
+  * Python 3.11 veya üstü
+  * mcp>=1.1.0
+
+  ## Lisans
+
+  MIT Lisansı - Ayrıntılar için LICENSE dosyasına bakın
 ---
 
 # MCP Shell Server

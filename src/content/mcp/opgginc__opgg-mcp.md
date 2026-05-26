@@ -8,6 +8,120 @@ url: "https://github.com/opgginc/opgg-mcp"
 body_length: 4329
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # OP.GG MCP Server
+
+  🇰🇷 [한국어](./README.ko.md) | 🇯🇵 [日本語](./README.ja.md) | 🇨🇳 [简体中文](./README.zh-CN.md) | 🇹🇼 [繁體中文](./README.zh-TW.md) | 🇧🇷 [Português](./README.pt-BR.md)
+
+  OP.GG MCP Server, League of Legends, Teamfight Tactics ve Valorant oyun verilerine yapay zeka ajanlarının erişim sağlaması için [Model Context Protocol](https://modelcontextprotocol.io) uygulamasıdır.
+
+  ![opgg-mcp-lol-leaderboard](https://github.com/user-attachments/assets/e89a77e7-0b83-4e20-a660-b16aa2d03fe2)
+
+  ## Endpoint
+
+  ```
+  https://mcp-api.op.gg/mcp
+  ```
+
+  Server, **Streamable HTTP** taşımasını destekler.
+
+  ## Alan Seçimi
+
+  Çoğu tool, döndürülecek alanları belirtmek için `desired_output_fields` parametresini gerektirir. Bu, payload boyutunu azaltır ve yanıt verimliliğini artırır.
+
+  ### Sözdizimi
+
+  | Pattern | Açıklama | Örnek |
+  |---------|----------|-------|
+  | `field` | Tek alan | `name` |
+  | `parent.child` | İç içe alan | `data.summoner.level` |
+  | `array[]` | Dizi alanı | `champions[]` |
+  | `array[].field` | Dizi öğelerindeki alan | `data.champions[].name` |
+  | `{a,b,c}` | Aynı seviyede birden fazla alan | `{name,title,lore}` |
+  | `parent.{a,b}` | Birden fazla iç içe alan | `data.summoner.{level,name}` |
+  | `array[].{a,b}` | Dizi öğelerindeki birden fazla alan | `data.champions[].{name,title}` |
+
+  ### Örnek
+
+  ```json
+  {
+    "desired_output_fields": [
+      "data.summoner.{game_name,tagline,level}",
+      "data.summoner.league_stats[].{game_type,win,lose}",
+      "data.summoner.league_stats[].tier_info.{tier,division,lp}"
+    ]
+  }
+  ```
+
+  ## Kullanılabilir Araçlar
+
+  ### League of Legends
+
+  #### Şampiyonlar
+  | Araç | Açıklama |
+  |------|----------|
+  | `lol_get_champion_analysis` | Detaylı şampiyon istatistiklerini (kazanma/seçilme/yasak oranları), optimal yapıları (itemler, runlar, beceriler, yazılımlar), karşı eşleşmeleri ve takım sinerjilerini al |
+  | `lol_get_champion_synergies` | Şampiyon sinerji bilgisini al |
+  | `lol_get_lane_matchup_guide` | Belirli bir lane için lane eşleşme rehberi al |
+  | `lol_list_champion_details` | 10'a kadar şampiyon için yetenek, ipucu, hikaye ve istatistik meta verilerini al |
+  | `lol_list_champion_leaderboard` | Şampiyon liderlik tablosu verilerini al |
+  | `lol_list_champions` | Tüm şampiyon meta verilerini listele |
+  | `lol_list_lane_meta_champions` | Lane bazında şampiyon seviyelerini kazanma/seçilme/yasak oranları, KDA ve tier sıralamalarıyla al |
+
+  #### Invocatörler
+  | Araç | Açıklama |
+  |------|----------|
+  | `lol_get_summoner_game_detail` | Belirli bir oyun için detaylı bilgi al (tüm oyuncular) |
+  | `lol_get_summoner_profile` | Rank, tier, LP, kazanma oranı ve şampiyon havuzu ile invocatör profili al |
+  | `lol_list_summoner_matches` | Oyun başına istatistikler ile son maç geçmişi al |
+
+  #### Kaynaklar
+  | Araç | Açıklama |
+  |------|----------|
+  | `lol_list_discounted_skins` | Şu anda indirimli skins al |
+  | `lol_list_items` | Tüm item meta verilerini listele |
+
+  #### Pro Oyuncular
+  | Araç | Açıklama |
+  |------|----------|
+  | `lol_get_pro_player_riot_id` | Pro oyuncu için Riot ID al |
+
+  #### Esports
+  | Araç | Açıklama |
+  |------|----------|
+  | `lol_esports_list_schedules` | Takımlar, ligalar ve maç saatleri ile yaklaşan LoL esports takvimini al |
+  | `lol_esports_list_team_standings` | LoL ligi için takım sıralamasını al |
+
+  ### Teamfight Tactics (TFT)
+
+  | Araç | Açıklama |
+  |------|----------|
+  | `tft_get_champion_item_build` | Şampiyon item yapı önerilerini al |
+  | `tft_get_play_style` | Oyun stili önerilerini al |
+  | `tft_list_augments` | Augment listesi ve açıklamalarını al |
+  | `tft_list_champions_for_item` | Belirli bir item için şampiyon önerilerini al |
+  | `tft_list_item_combinations` | Item kombinasyon reçetelerini al |
+  | `tft_list_meta_decks` | Mevcut meta desteyi al |
+
+  ### Valorant
+
+  | Araç | Açıklama |
+  |------|----------|
+  | `valorant_list_agent_compositions_for_map` | Belirli bir harita için agent kompozisyonlarını al |
+  | `valorant_list_agent_statistics` | Agent istatistikleri ve meta verilerini al |
+  | `valorant_list_agents` | Yetenekler ve roller ile agent meta verilerini al |
+  | `valorant_list_leaderboard` | Bölgeye göre liderlik tablosunu al (ap, br, eu, kr, latam, na) |
+  | `valorant_list_maps` | Harita meta verilerini al |
+  | `valorant_list_player_matches` | Oyuncu maç geçmişini al |
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakınız.
+
+  ## İlgili Bağlantılar
+
+  - [Model Context Protocol](https://modelcontextprotocol.io)
+  - [OP.GG](https://op.gg)
 ---
 
 # OP.GG MCP Server

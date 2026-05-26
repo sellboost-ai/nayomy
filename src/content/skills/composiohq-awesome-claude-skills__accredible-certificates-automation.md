@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Accredible Certificates Otomasyonu
+
+  Composio'nun Accredible Certificates toolkit'ini Rube MCP üzerinden kullanarak Accredible Certificates işlemlerini otomatikleştirin.
+
+  **Toolkit dokümantasyonu**: [composio.dev/toolkits/accredible_certificates](https://composio.dev/toolkits/accredible_certificates)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `accredible_certificates` toolkit'i ile aktif Accredible Certificates bağlantısı
+  - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP Edinin**: MCP sunucusu yapılandırmanızda `https://rube.app/mcp` adresini ekleyin. API anahtarı gerekli değildir — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin mevcut olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `accredible_certificates` toolkit'ini belirtin
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Keşfi
+
+  Workflow'ları yürütmeden önce her zaman mevcut tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Accredible Certificates işlemleri", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'ları, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Core Workflow Deseni
+
+  ### Adım 1: Mevcut Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "spesifik Accredible Certificates göreviniz"}]
+  session: {id: "mevcut_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["accredible_certificates"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "ARAMA_SONUCUNDAN_TOOL_SLUG",
+    arguments: {/* arama sonuçlarından şemaya uygun argümanlar */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'ları veya argümanları sabit kodlamayın
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterip göstermediğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
+  - **Session'u yeniden kullanın**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tümü alınana kadar fetching'e devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|---------|
+  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Accredible Certificates'e özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `accredible_certificates` toolkit'i |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` `schemaRef` ile tool'lar için |
+
+  ---
+  *Tarafından desteklenmektedir: [Composio](https://composio.dev)*
 ---
 
 # Accredible Certificates Automation via Rube MCP

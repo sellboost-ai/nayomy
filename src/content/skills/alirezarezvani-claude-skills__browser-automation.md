@@ -12,6 +12,268 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Browser Automation - POWERFUL
+
+  ## Genel Bakış
+
+  Browser Automation skill, Playwright kullanarak production-grade web automation iş akışları oluşturmak için kapsamlı araçlar ve bilgi sağlar. Bu skill veri çıkarma, form doldurma, ekran görüntüsü alma, oturum yönetimi ve ölçekte güvenilir browser automation için anti-detection desenlerini kapsar.
+
+  **Bu skill ne zaman kullanılmalı:**
+  - Web sitelerinden yapılandırılmış veri scraping (tablolar, listeler, arama sonuçları)
+  - Multi-step browser iş akışlarını otomatikleştirme (login, form doldurma, dosya indirme)
+  - Web sayfalarının ekran görüntüsü veya PDF'sini alma
+  - SPA'lar ve JavaScript ağırlıklı sitelerden veri çıkarma
+  - Tekrarlanabilir browser tabanlı veri pipeline'ları oluşturma
+
+  **Bu skill ne zaman kullanılmamalı:**
+  - Browser testleri veya E2E test süitleri yazma — bunun yerine **playwright-pro** kullanın
+  - API endpoint'leri test etme — bunun yerine **api-test-suite-builder** kullanın
+  - Load testing veya performance benchmarking — bunun yerine **performance-profiler** kullanın
+
+  **Selenium veya Puppeteer yerine Playwright neden:**
+  - **Yerleşik auto-wait** — çoğu işlem için açık `sleep()` veya `waitForElement()` gerekmez
+  - **Tek API'den multi-browser** — Chromium, Firefox, WebKit sıfır config değişikliği ile
+  - **Network interception** — reklamları engelle, yanıtları mock et, API çağrılarını native olarak yakala
+  - **Browser contexts** — yeni browser instance'ları başlatmadan izole oturumlar
+  - **Codegen** — `playwright codegen` eylemlerinizi kaydeder ve script'ler üretir
+  - **Async-first** — yüksek throughput scraping için Python async/await
+
+  ## Temel Yetkinlikler
+
+  ### 1. Web Scraping Desenleri
+
+  **Selector önceliği (en güvenilir olan ilk):**
+  1. `data-testid`, `data-id` veya custom data attributes — tasarımlar arası stabil
+  2. `#id` selector'ları — benzersiz ancak deploy'lar arasında değişebilir
+  3. Semantic selector'lar: `article`, `nav`, `main`, `section` — CSS değişikliklerine dayanıklı
+  4. Class tabanlı: `.product-card`, `.price` — oluşturulan classlar varsa kırılgan (ör. CSS modules)
+  5. Konumsal: `nth-child()`, `nth-of-type()` — son çare, layout değişikliklerinde kırılır
+
+  XPath'i yalnızca CSS ilişkiyi ifade edemediğinde kullanın (ör. ancestor traversal, metin tabanlı seçim).
+
+  **Pagination stratejileri:** next-button, URL tabanlı (`?page=N`), infinite scroll, load-more butonu. Tam pagination handler'ları ve scroll desenleri için [data_extraction_recipes.md](references/data_extraction_recipes.md) dosyasına bakın.
+
+  ### 2. Form Doldurma & Multi-Step İş Akışları
+
+  Multi-step form'ları adım başına ayrık function'lara bölün. Her function alanları doldurur, "Next"/"Continue" öğesine tıklar ve bir sonraki adımın yüklenmesini bekler (URL değişikliği veya DOM elementi).
+
+  Anahtar desenler: login flow'ları, multi-page form'lar, dosya yüklemeleri (drag-and-drop zone'lar dahil), native ve custom dropdown yönetimi. `fill()`, `select_option()`, `set_input_files()` ve `expect_file_chooser()` için tam API referansı [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+
+  ### 3. Ekran Görüntüsü & PDF Yakalama
+
+  - **Tam sayfa:** `await page.screenshot(path="full.png", full_page=True)`
+  - **Element:** `await page.locator("div.chart").screenshot(path="chart.png")`
+  - **PDF (yalnızca Chromium):** `await page.pdf(path="out.pdf", format="A4", print_background=True)`
+  - **Visual regression:** Bilinen durumlarda ekran görüntüsü alın, baselines'ları version control'de şu isimle saklayın: `{page}_{viewport}_{state}.png`
+
+  Tam ekran görüntüsü/PDF seçenekleri için [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+
+  ### 4. Yapılandırılmış Veri Çıkarma
+
+  Temel çıkarma desenleri:
+  - **Tablolar JSON'a** — `<thead>` header'ları ve `<tbody>` satırlarını sözlüklere çıkarın
+  - **Listeler array'lere** — Field-selector map kullanarak tekrar eden card element'lerini map'leyin (attribute'ler için `::attr()` destekler)
+  - **İç içe/threaded veri** — yanıtları olan comments, kategori ağaçları için recursive çıkarma
+
+  Tam çıkarma function'ları, fiyat parsing, veri temizleme utilities ve output format helper'ları (JSON, CSV, JSONL) için [data_extraction_recipes.md](references/data_extraction_recipes.md) dosyasına bakın.
+
+  ### 5. Cookie & Oturum Yönetimi
+
+  - **Cookie'leri kaydet/geri yükle:** `context.cookies()` ve `context.add_cookies()`
+  - **Tam storage state** (cookies + localStorage): `context.storage_state(path="state.json")` kaydetmek için, `browser.new_context(storage_state="state.json")` geri yüklemek için
+
+  **Best practice:** Login'den sonra state kaydedin, scraping oturumları arasında yeniden kullanın. Uzun bir job başlatmadan önce oturum geçerliliğini kontrol edin — protected bir sayfaya hafif bir istek yapın ve login'e yönlendirilmediğinizi doğrulayın. Cookie ve storage state API detayları için [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+
+  ### 6. Anti-Detection Desenleri
+
+  Modern web siteleri automation'ı birden fazla vektör aracılığıyla algılarlar. Bunları öncelik sırasına göre uygulayın:
+
+  1. **WebDriver flag kaldırma** — Init script aracılığıyla `navigator.webdriver = true` öğesini kaldırın (kritik)
+  2. **Custom user agent** — Gerçek browser UA'ları arasında döndürün; asla varsayılan headless UA'sını kullanmayın
+  3. **Realistic viewport** — 1920x1080 veya benzeri gerçek dünya boyutlarını ayarlayın (varsayılan 800x600 bir red flag'dir)
+  4. **Request throttling** — İşlemler arasına `random.uniform()` delay'leri ekleyin
+  5. **Proxy support** — Per-browser veya per-context proxy konfigürasyonu
+
+  Navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation stratejileri ve detection self-test URL'leri için tam stealth stack [anti_detection_patterns.md](references/anti_detection_patterns.md) dosyasına bakın.
+
+  ### 7. Dinamik İçerik Yönetimi
+
+  - **SPA rendering:** Page load event'i değil, content selector'larını bekleyin (`wait_for_selector`)
+  - **AJAX/Fetch bekleme:** Spesifik API çağrılarını intercept etmek ve beklemek için `page.expect_response("**/api/data*")` kullanın
+  - **Shadow DOM:** Playwright open Shadow DOM'u `>>` operator'ü ile pierces'ler: `page.locator("custom-element >> .inner-class")`
+  - **Lazy-loaded images:** Yüklemeyi tetiklemek için element'leri view'a scroll edin `scroll_into_view_if_needed()` ile
+
+  Wait stratejileri, network interception ve Shadow DOM detayları için [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+
+  ### 8. Error Handling & Retry Logic
+
+  - **Backoff ile retry:** Page interactions'ları exponential backoff ile retry logic'e sarmalayın (ör. 1s, 2s, 4s)
+  - **Fallback selector'ları:** `TimeoutError`'da başarısız olmadan önce alternative selector'ları deneyin
+  - **Error-state screenshot'ları:** Beklenmeyen hatalar için debugging açısından `page.screenshot(path="error-state.png")` alın
+  - **Rate limit detection:** HTTP 429 yanıtlarını kontrol edin ve `Retry-After` header'larına saygı gösterin
+
+  Tam exponential backoff implementation'ı ve rate limiter class'ını [anti_detection_patterns.md](references/anti_detection_patterns.md) dosyasına bakın.
+
+  ## İş Akışları
+
+  ### İş Akışı 1: Tek Sayfa Veri Çıkarma
+
+  **Senaryo:** JavaScript render'ı yapılmış içeriğe sahip bir sayfadan product verisi çıkarın.
+
+  **Adımlar:**
+  1. Development sırasında browser'ı headed mode'da başlatın (`headless=False`), production için headless'a geçin
+  2. URL'ye navigate edin ve content selector'ını bekleyin
+  3. Field mapping ile `query_selector_all` kullanarak veri çıkarın
+  4. Çıkarılan verileri doğrulayın (null'ları kontrol edin, beklenen type'ları)
+  5. JSON olarak output verin
+
+  ```python
+  async def extract_single_page(url, selectors):
+      async with async_playwright() as p:
+          browser = await p.chromium.launch(headless=True)
+          context = await browser.new_context(
+              viewport={"width": 1920, "height": 1080},
+              user_agent="Mozilla/5.0 ..."
+          )
+          page = await context.new_page()
+          await page.goto(url, wait_until="networkidle")
+          data = await extract_listings(page, selectors["container"], selectors["fields"])
+          await browser.close()
+      return data
+  ```
+
+  ### İş Akışı 2: Pagination ile Multi-Page Scraping
+
+  **Senaryo:** 50+ sayfa arasında arama sonuçlarını scrape'leyin.
+
+  **Adımlar:**
+  1. Anti-detection ayarları ile browser başlatın
+  2. İlk sayfaya navigate edin
+  3. Geçerli sayfadan veri çıkarın
+  4. "Next" butonu var mı ve enabled mı kontrol edin
+  5. Next'e tıklayın, yeni içeriğin yüklenmesini bekleyin (sadece navigation değil)
+  6. Sonraki sayfa yok veya max pages'e ulaşana kadar repeat edin
+  7. Sonuçları unique key'le deduplicate edin
+  8. Output'ı incremental olarak yazın (hepsini memoryde tutmayın)
+
+  ```python
+  async def scrape_paginated(base_url, selectors, max_pages=100):
+      all_data = []
+      async with async_playwright() as p:
+          browser = await p.chromium.launch(headless=True)
+          page = await (await browser.new_context()).new_page()
+          await page.goto(base_url)
+
+          for page_num in range(max_pages):
+              items = await extract_listings(page, selectors["container"], selectors["fields"])
+              all_data.extend(items)
+
+              next_btn = page.locator(selectors["next_button"])
+              if await next_btn.count() == 0 or await next_btn.is_disabled():
+                  break
+
+              await next_btn.click()
+              await page.wait_for_selector(selectors["container"])
+              await human_delay(800, 2000)
+
+          await browser.close()
+      return all_data
+  ```
+
+  ### İş Akışı 3: Authenticated Workflow Automation
+
+  **Senaryo:** Bir portal'da login yapın, multi-step form'da navigate edin, bir report indirin.
+
+  **Adımlar:**
+  1. Mevcut oturum state dosyasını kontrol edin
+  2. Oturum yoksa login yapın ve state kaydedin
+  3. Kaydedilen oturumu kullanarak target sayfaya navigate edin
+  4. Multi-step form'u sağlanan verilerle doldurun
+  5. İndirmenin tetiklenmesini bekleyin
+  6. İndirilen dosyayı target directory'ye kaydedin
+
+  ```python
+  async def authenticated_workflow(credentials, form_data, download_dir):
+      async with async_playwright() as p:
+          browser = await p.chromium.launch(headless=True)
+          state_file = "session_state.json"
+
+          # Restore or create session
+          if os.path.exists(state_file):
+              context = await browser.new_context(storage_state=state_file)
+          else:
+              context = await browser.new_context()
+              page = await context.new_page()
+              await login(page, credentials["url"], credentials["user"], credentials["pass"])
+              await context.storage_state(path=state_file)
+
+          page = await context.new_page()
+          await page.goto(form_data["target_url"])
+
+          # Fill form steps
+          for step_fn in [fill_step_1, fill_step_2]:
+              await step_fn(page, form_data)
+
+          # Handle download
+          async with page.expect_download() as dl_info:
+              await page.click("button:has-text('Download Report')")
+          download = await dl_info.value
+          await download.save_as(os.path.join(download_dir, download.suggested_filename))
+
+          await browser.close()
+  ```
+
+  ## Araçlar Referansı
+
+  | Script | Amaç | Anahtar Flagler | Output |
+  |--------|---------|-----------|--------|
+  | `scraping_toolkit.py` | Playwright scraping script iskeletini oluştur | `--url`, `--selectors`, `--paginate`, `--output` | Python script veya JSON config |
+  | `form_automation_builder.py` | Field spec'ten form-fill automation script'i oluştur | `--fields`, `--url`, `--output` | Python automation script |
+  | `anti_detection_checker.py` | Bir Playwright script'i detection vektörleri için audit et | `--file`, `--verbose` | Risk raporu ve score |
+
+  Tüm script'ler stdlib-only'dir. Tam kullanım için `python3 <script> --help` çalıştırın.
+
+  ## Anti-Patterns
+
+  ### Hardcoded Waits
+  **Kötü:** Her işlemden önce `await page.wait_for_timeout(5000)`.
+  **İyi:** `wait_for_selector`, `wait_for_url`, `expect_response` veya `wait_for_load_state` kullanın. Hardcoded wait'ler flaky ve yavaştır.
+
+  ### Error Recovery Yok
+  **Kötü:** İlk hatada crash'e giren linear script.
+  **İyi:** Her page interaction'ı try/except'e sarmalayın. Error-state screenshot'ları alın. Exponential backoff ile retry implement edin.
+
+  ### robots.txt'i Görmezden Gelmek
+  **Kötü:** robots.txt directive'lerini kontrol etmeden scrape etme.
+  **İyi:** Scrape'lemeden önce robots.txt dosyasını fetch'leyin ve parse'leyin. `Crawl-delay`'e saygı gösterin. Disallowed path'leri skip edin. Ölçekte çalıştırıyorsanız User-Agent'a bot isminizi ekleyin.
+
+  ### Script'lerde Credentials Saklamak
+  **Kötü:** Python dosyalarında username ve password hardcode'lama.
+  **İyi:** Environment variable'ları, `.env` dosyaları (gitignored) veya secrets manager kullanın. Credentials'ları CLI argument'leri aracılığıyla geçin.
+
+  ### Rate Limiting Yok
+  **Kötü:** Bir site'ye saniyede 100 request ile vurmak.
+  **İyi:** Request'ler arasına random delay'ler ekleyin (polite scraping için 1-3s). 429 yanıtlarını monitör edin. Exponential backoff implement edin.
+
+  ### Selector Fragilty
+  **Kötü:** Auto-generated class name'lere (`.css-1a2b3c`) veya deep nesting'e (`div > div > div > span:nth-child(3)`) güvenmek.
+  **İyi:** Data attribute'leri, semantic HTML veya text-based locator'ları kullanın. Selector'ları browser DevTools'ta test edin.
+
+  ### Browser Instance'larını Temizlememek
+  **Kötü:** Browser'ları kapatmadan başlatmak, resource leak'lerine yol açmak.
+  **İyi:** `try/finally` veya async context manager'larını kullanarak `browser.close()`'ın çağrıldığından emin olun.
+
+  ### Production'da Headed Çalıştırmak
+  **Kötü:** Production/CI'da `headless=False` kullanmak.
+  **İyi:** Debugging için headed mode'da geliştirin, `headless=True` ile deploy edin. Toggle etmek için environment variable kullanın: `headless = os.environ.get("HEADLESS", "true") == "true"`.
+
+  ## Çapraz Referanslar
+
+  - **playwright-pro** — Browser testing skill. E2E testler, test assertions, test fixtures için kullanın. Browser Automation veri çıkarma ve workflow automation içindir, testing için değil.
+  - **api-test-suite-builder** — Web sitesinin public API'si varsa, render'ı yapılmış sayfayı scrape'lemek yerine API'ye doğrudan hit edin. Daha hızlı, daha güvenilir, daha az tespit edilebilir.
+  - **performance-profiler** — Automation script'leriniz yavaşsa, concurrency eklemeden önce bottleneck'leri profile'layın.
+  - **env-secrets-manager** — Authenticated automation iş akışlarında kullanılan credentials'ları güvenli bir şekilde yönetmek için.
 ---
 
 # Browser Automation - POWERFUL

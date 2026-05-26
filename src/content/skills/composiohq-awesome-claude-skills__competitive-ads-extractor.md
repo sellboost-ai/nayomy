@@ -12,6 +12,294 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rekabet Halindeki Reklamlar Çıkarıcısı
+
+  Bu beceri, rakiplerinizin reklam kütüphanelerinden reklamlarını çıkarır ve neyin işe yaradığını analiz eder—vurguladıkları sorunlar, hedefledikleri kullanım durumları ve rezonan olan kopya/yaratıcı içerik.
+
+  ## Bu Beceriyi Ne Zaman Kullanacaksınız
+
+  - Rakip reklam stratejilerini araştırma
+  - Kendi reklamlarınız için ilham bulma
+  - Pazar konumlandırmasını anlama
+  - Başarılı reklam kalıplarını belirleme
+  - İşe yarayan mesajlaşmayı analiz etme
+  - Yeni kullanım durumları veya ağrı noktaları keşfetme
+  - Kanıtlanmış kavramlarla reklam kampanyaları planlama
+
+  ## Bu Beceri Ne Yapar
+
+  1. **Reklamları Çıkarır**: Facebook Ad Library, LinkedIn vb. kaynaklardan reklamları kazır.
+  2. **Ekran Görüntüleri Yakalar**: Tüm reklamların görsel kopyalarını kaydeder
+  3. **Mesajlaşmayı Analiz Eder**: Sorunları, kullanım durumlarını ve değer önerilerini belirler
+  4. **Reklamları Kategorize Eder**: Tema, hedef kitle veya formata göre gruplandırır
+  5. **Kalıpları Belirler**: Yaygın başarılı yaklaşımları bulur
+  6. **İçgörüler Sağlar**: Belirli reklamların neden iyi performans gösterebileceğini açıklar
+
+  ## Nasıl Kullanacaksınız
+
+  ### Temel Çıkarma
+
+  ```
+  [Rakip Adı]'nın Facebook Ad Library'deki tüm güncel reklamlarını çıkar
+  ```
+
+  ```
+  [Şirket]'tan reklamları kaz ve mesajlaşmalarını analiz et
+  ```
+
+  ### Spesifik Analiz
+
+  ```
+  [Rakip]'ten [spesifik sorun] hakkındaki mesajlaşmaya odaklanarak
+  tüm reklamları al. Hangi ağrı noktalarını vurguluyorlar?
+  ```
+
+  ### Rekabet Seti
+
+  ```
+  Bu 5 rakipten reklamları çıkar: [liste]. 
+  Yaklaşımlarını karşılaştır ve neyin işe yaradığını söyle.
+  ```
+
+  ### Spesifik Platform
+
+  ```
+  [Rakip]'ten LinkedIn reklamlarını al ve onların 
+  B2B konumlandırma stratejisini analiz et
+  ```
+
+  ## Örnek
+
+  **Kullanıcı**: "Notion'ın Facebook Ad Library'deki reklamlarını çıkar ve onların için neyin işe yaradığını söyle."
+
+  **İşlem**:
+  ```
+  Facebook Ad Library'ye erişiliyor...
+  Arama: Notion
+  Bulunan: 23 aktif reklam
+
+  Ekran görüntüleri çıkarılıyor...
+  [████████████████████] 100%
+
+  Kaydedildi: competitor-ads/notion/
+  - ad-001-collaboration.png
+  - ad-002-productivity.png
+  - ad-003-templates.png
+  ...
+
+  Mesajlaşma analiz ediliyor...
+  ```
+
+  **Çıktı**:
+  ```
+  # Notion Reklam Analizi
+
+  ## Genel Bakış
+  - Toplam Reklam: 23 aktif
+  - Birincil Temalar: Verimlilik (%35), İşbirliği (%30), 
+    Şablonlar (%20), AI Özellikleri (%15)
+  - Reklam Formatları: Statik görüntüler (%60), Video (%40)
+  - CTA Desenleri: "Ücretsiz dene", "Başla"
+
+  ## Vurguladıkları Temel Sorunlar
+
+  1. **Dağınık Bilgiler** (8 reklam)
+     Kopya: "10 farklı araç arasında geçişi durdur"
+     Neden işe yaradığı: Birçok ekibin karşılaştığı doğrudan ağrı noktası
+
+  2. **Toplantı Aşırılığı** (5 reklam)
+     Kopya: "Gereksiz toplantıları asenkron güncellemelerle değiştir"
+     Neden işe yaradığı: COVID sonrası uzaktan çalışma ağrı noktası
+
+  3. **Kayıp Belgeler** (4 reklam)
+     Kopya: "Bir daha 'bu döküman nerede?' diye sorma"
+     Neden işe yaradığı: Evrensel işyeri hayal kırıklığı
+
+  ## Başarılı Yaratıcı Kalıpları
+
+  ### Kalıp 1: Önce/Sonra Bölünmesi
+  - Kaotik araç ortamı → Temiz Notion çalışma alanı
+  - 6 yüksek performanslı reklamda kullanıldı
+  - Görsel metafor hemen anlaşılır
+
+  ### Kalıp 2: Özellik Vitrin
+  - Gerçek ürün kullanımının GIF'i
+  - 5 saniyede belirli özellik gösterir
+  - Yeni özellikler için kullanıldı (AI, şablonlar)
+
+  ### Kalıp 3: Sosyal Kanıt
+  - "20M kullanıcıya katıl" mesajlaşması
+  - Müşteri logoları
+  - Kurumsal hedef kitleyi hedefleyen 4 reklamda kullanıldı
+
+  ## İşe Yarayan Kopya
+
+  En İyi Başlıklar:
+  1. "Ekibinizin bilgisi, sonunda tek bir yerde"
+     → Fayda odaklı, ağrı noktasını doğrudan ele alır
+     
+  2. "Hepsi bir arada çalışma alanı"
+     → Açık konumlandırma, geniş çekicilik
+     
+  3. "Gerçekten çalışmanıza yardımcı olan AI"
+     → AI şüpheciliğini ele alır, pratik açı
+
+  En İyi Gövde Kopya Desenleri:
+  - Kısa cümleler (10 kelimeden az)
+  - Özellikleri değil sonuçlara odaklan
+  - Spesifik numaralar içer ("Toplantıları %50 azalt")
+
+  ## Hedef Kitle Konumlandırması İçgörüleri
+
+  Reklam varyasyonlarına dayanarak:
+  - Startup kurucuları: Kişisel verimlilik açısı
+  - Takım liderleri: İşbirliği ve hizalama
+  - Kurumsal: Güvenlik ve uyum bahisleri
+  - Öğrenciler: Ücretsiz plan, şablonlar, organizasyon
+
+  ## Reklamlarınız İçin Öneriler
+
+  1. **"Araç çokluk" ağrı noktasını test et**
+     → Reklam frekansına dayanarak güçlü rezonans
+
+  2. **Soyut görseller yerine ürün ekran görüntüleri kullan**
+     → Tüm en iyi reklamları gerçek UI gösterir
+
+  3. **Çözümü değil sorunu vurgula**
+     → "X'ten bıktın mı?" "Y Tanıtılıyor" çok daha iyi performans gösterir
+
+  4. **Kopyayı 100 karakterin altında tut**
+     → En kısa reklamları en sık görünen gibi görünüyor
+
+  5. **Önce/sonra görsel formatlarını test et**
+     → Yaratıcı içeriklerinde kanıtlanmış kalıp
+
+  ## Kaydedilen Dosyalar
+  - Tüm reklamlar: ~/competitor-ads/notion/
+  - Analiz: ~/competitor-ads/notion/analysis.md
+  - En iyi performanslılar: ~/competitor-ads/notion/top-10/
+  ```
+
+  **İlhamı alındığı kaynak:** Sumant Subrahmanya'nın Lenny's Newsletter'dan kullanım durumu
+
+  ## Neler Öğrenebilirsiniz
+
+  ### Mesajlaşma Analizi
+  - Hangi sorunları vurguluyorlar
+  - Rekabete karşı nasıl konumlandırırlar
+  - Rezonan olan değer önerileri
+  - Hedef kitle segmentleri
+
+  ### Yaratıcı Kalıpları
+  - İşe yarayan görsel stilller
+  - Video vs. statik görüntü performansı
+  - Renk şemaları ve marka kullanımı
+  - Düzen desenleri
+
+  ### Kopya Formülleri
+  - Başlık yapıları
+  - Call-to-action desenleri
+  - Uzunluk ve ton
+  - Duygusal tetikleyiciler
+
+  ### Kampanya Stratejisi
+  - Mevsimsel kampanyalar
+  - Ürün lansmanı yaklaşımları
+  - Özellik duyurusu taktikleri
+  - Retargeting desenleri
+
+  ## En İyi Uygulamalar
+
+  ### Yasal ve Etik
+  ✓ Yalnızca araştırma ve ilham için kullan
+  ✓ Reklamları doğrudan kopyalama
+  ✓ Fikri mülkiyete saygı göster
+  ✓ Orijinal yaratıcı içerik oluşturmak için içgörüler kullan
+  ✗ Kopya veya tasarımları çalma
+
+  ### Analiz İpuçları
+  1. **Kalıpları arayın**: Hangi temalar tekrarlanır?
+  2. **Zamanla izleyin**: Evrim görmek için aylık reklamları kaydet
+  3. **Hipotezleri test et**: Başarılı desenleri marka için uyarla
+  4. **Hedef kitleye göre segmente et**: Farklı hedefler için farklı mesajlar
+  5. **Platformları karşılaştır**: LinkedIn vs Facebook mesajlaşması farklılık gösterir
+
+  ## Gelişmiş Özellikler
+
+  ### Trend İzleme
+  ```
+  [Rakip]'in Q1 vs Q2 reklamlarını karşılaştır. 
+  Mesajlaşma nasıl değişti?
+  ```
+
+  ### Çoklu Rakip Analizi
+  ```
+  [Şirket A], [Şirket B], [Şirket C]'den reklamları çıkar. 
+  Ortak kalıpları nelerdir? Farkları nelerdir?
+  ```
+
+  ### Endüstri Kriterleri
+  ```
+  En iyi 10 proje yönetim aracı arasında reklam kalıplarını göster. 
+  Tümü hangi sorunlara odaklanır?
+  ```
+
+  ### Format Analizi
+  ```
+  [Rakip]'ten video reklamları vs statik görüntü reklamlarını analiz et. 
+  Hangisi daha fazla katılım alır? (veri varsa)
+  ```
+
+  ## Yaygın İş Akışları
+
+  ### Reklam Kampanyası Planlama
+  1. Rakip reklamlarını çıkar
+  2. Başarılı kalıpları belirle
+  3. Mesajlaşmadaki boşlukları not et
+  4. Benzersiz açılar için beyin fırtınası yap
+  5. Test reklam varyasyonları taslağını oluştur
+
+  ### Konumlandırma Araştırması
+  1. 5 rakipten reklamları al
+  2. Konumlandırmalarını haritala
+  3. Hizmet vermeyen açıları bul
+  4. Farklılaştırılmış mesajlaşma geliştir
+  5. Yaklaşımlarına karşı test et
+
+  ### Yaratıcı İlham
+  1. Reklamları temaya göre çıkar
+  2. Görsel kalıpları analiz et
+  3. Renk ve düzen eğilimlerini not et
+  4. Başarılı desenleri uyarla
+  5. Orijinal varyasyonlar oluştur
+
+  ## Başarı İpuçları
+
+  1. **Düzenli İzleme**: Değişiklikleri görmek için aylık kontrol et
+  2. **Geniş Araştırma**: Komşu rakipleri de araştır
+  3. **Her Şeyi Kaydet**: Referans kütüphanesi oluştur
+  4. **İçgörüleri Test Et**: Kendi deneylerini çalıştır
+  5. **Performansı İzle**: İlham verilen kavramları A/B test et
+  6. **Orijinal Kal**: Kopya değil ilham için kullan
+  7. **Çoklu Platformlar**: Facebook, LinkedIn, TikTok vb. karşılaştır
+
+  ## Çıktı Formatları
+
+  - **Ekran Görüntüleri**: Tüm reklamlar görüntü olarak kaydedilir
+  - **Analiz Raporu**: İçgörülerin Markdown özeti
+  - **Elektronik Tablo**: Reklam kopyası, CTA'lar, temalar içeren CSV
+  - **Sunum**: En iyi performanslıların görsel paketi
+  - **Kalıp Kütüphanesi**: Yaklaşıma göre kategorize edilmiş
+
+  ## İlgili Kullanım Durumları
+
+  - Kampanyalarınız için daha iyi reklam kopyası yazma
+  - Pazar konumlandırmasını anlama
+  - Mesajlaşmanızda içerik boşluklarını bulma
+  - Ürününüz için yeni kullanım durumları keşfetme
+  - Ürün pazarlama stratejisini planlama
+  - Sosyal medya içeriğinden ilham alma
 ---
 
 # Competitive Ads Extractor

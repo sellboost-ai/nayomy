@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP aracılığıyla Adrapid Otomasyonu
+
+  Composio'nun Adrapid araç seti üzerinden Rube MCP aracılığıyla Adrapid işlemlerini otomatikleştirin.
+
+  **Araç seti dokümantasyonu**: [composio.dev/toolkits/adrapid](https://composio.dev/toolkits/adrapid)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS mevcut)
+  - `RUBE_MANAGE_CONNECTIONS` üzerinden aktif Adrapid bağlantısı, `adrapid` araç seti ile
+  - Mevcut araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: İstemci yapılandırmanızda `https://rube.app/mcp` adresini bir MCP server olarak ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin mevcut olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağırın, `adrapid` araç seti ile
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Adrapid operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfet
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Adrapid task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Et
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["adrapid"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştır
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce ara**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol et**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |--------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Adrapid'e özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `adrapid` araç seti |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilmiş araç slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan araçlar için |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Adrapid Automation via Rube MCP

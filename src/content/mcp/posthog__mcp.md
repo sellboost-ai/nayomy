@@ -9,6 +9,22 @@ body_length: 438
 license: "MIT"
 language: "TypeScript"
 homepage: "https://posthog.com/docs/model-context-protocol"
+body_tr: |-
+  # PostHog MCP
+
+  MCP server, PostHog Monorepo içine taşınmıştır - [burada](https://github.com/PostHog/posthog/tree/master/services/mcp) bulabilirsiniz.
+
+  Dokümantasyon: https://posthog.com/docs/model-context-protocol
+
+  ## MCP Server'ı Kullan
+
+  ### Hızlı kurulum
+
+  Aşağıdaki komutu çalıştırarak MCP server'ı Cursor, Claude, Claude Code, VS Code ve Zed'e otomatik olarak kurabilirsiniz:
+
+  ```
+  npx @posthog/wizard@latest mcp add
+  ```
 ---
 
 # PostHog MCP

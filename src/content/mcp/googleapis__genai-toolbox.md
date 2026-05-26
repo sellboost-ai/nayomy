@@ -9,6 +9,600 @@ body_length: 31861
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://mcp-toolbox.dev/documentation/introduction/"
+body_tr: |-
+  <div align="center">
+
+  ![logo](https://raw.githubusercontent.com/googleapis/genai-toolbox/HEAD/logo.png)
+
+  # Veritabanları İçin MCP Toolbox
+
+  <a href="https://trendshift.io/repositories/13019" target="_blank"></a>
+
+  [![Go Report Card](https://goreportcard.com/badge/github.com/googleapis/mcp-toolbox)](https://goreportcard.com/report/github.com/googleapis/mcp-toolbox)
+  [![License: Apache
+  2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+  [![Docs](https://img.shields.io/badge/Docs-MCP_Toolbox-blue)](https://mcp-toolbox.dev/)
+  [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=flat&logo=discord&logoColor=white)](https://discord.gg/Dmm69peqjh)
+  [![Medium](https://img.shields.io/badge/Medium-12100E?style=flat&logo=medium&logoColor=white)](https://medium.com/@mcp_toolbox)
+
+  [![Python SDK](https://img.shields.io/pypi/v/toolbox-core?logo=python&logoColor=white&label=Python%20SDK)](https://pypi.org/project/toolbox-core/)
+  [![JS/TS SDK](https://img.shields.io/npm/v/@toolbox-sdk/core?logo=javascript&logoColor=white&label=JS%20SDK)](https://www.npmjs.com/package/@toolbox-sdk/core)
+  [![Go SDK](https://img.shields.io/github/v/release/googleapis/mcp-toolbox-sdk-go?logo=go&logoColor=white&label=Go%20SDK)](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go)
+  [![Java SDK](https://img.shields.io/maven-central/v/com.google.cloud.mcp/mcp-toolbox-sdk-java?logo=apache-maven&logoColor=white&label=Java%20SDK)](https://mvnrepository.com/artifact/com.google.cloud.mcp/mcp-toolbox-sdk-java)
+  </div>
+
+  Veritabanları İçin MCP Toolbox, AI ajanlarınızı, IDE'lerinizi ve uygulamalarınızı doğrudan kurumsal veritabanlarınıza bağlayan açık kaynaklı bir Model Context Protocol (MCP) sunucusudur.
+
+  <p align="center">
+
+  </p>
+
+  **İkili bir amaca hizmet eder**:
+  1. **Hazır Kullanıma Sunulan MCP Sunucusu (Derleme Zamanı):** Gemini CLI, Google Antigravity, Claude Code, Codex veya diğer MCP istemcilerini *önceden oluşturulmuş genel araçlar* kullanarak veritabanlarınıza anında bağlayın. Verilerinizle konuşun, şemaları keşfedin ve boilerplate yazmadan kod oluşturun.
+  2. **Özel Araçlar Çerçevesi (Çalışma Zamanı):** Üretim ajanları için özelleştirilmiş, yüksek düzeyde güvenli AI araçları geliştirmek için sağlam bir çerçeve. Yapılandırılmış sorguları, anlamsal aramayı ve NL2SQL özelliklerini güvenli ve kolay bir şekilde tanımlayın.
+
+
+  Bu README kısa bir özet sağlamaktadır. Kapsamlı ayrıntılar için [tam belgelendirmeyi](https://mcp-toolbox.dev/) inceleyin.
+
+  > [!IMPORTANT]  
+  > **Depo Adı Güncellemesi:** `genai-toolbox` deposu resmi olarak `mcp-toolbox` olarak yeniden adlandırılmıştır. Yerel ortamınızı yeni adla senkronize etmek için uzak kaynağınızı güncelleme yapabilirsiniz:
+  > `git remote set-url origin https://github.com/googleapis/mcp-toolbox.git`
+
+  > [!NOTE]
+  > Bu çözüm başlangıçta "Veritabanları İçin Gen AI Toolbox" (github.com/googleapis/genai-toolbox) olarak adlandırılmıştır; bu ad ilk geliştirme MCP'den daha öncesine dayanır, ancak MCP uyumluluğu sağlamak için yeniden adlandırılmıştır.
+
+  <!-- TOC ignore:true -->
+  ## İçindekiler
+
+  - [Neden MCP Toolbox?](#neden-mcp-toolbox)
+  - [Hızlı Başlangıç: Hazır Araçlar](#hızlı-başlangıç-hazır-araçlar)
+  - [Hızlı Başlangıç: Özel Araçlar](#hızlı-başlangıç-özel-araçlar)
+  - [Toolbox Sunucusunu Yükleyin ve Çalıştırın](#toolbox-sunucusunu-yükleyin-ve-çalıştırın)
+  - [Toolbox'a Bağlanın](#toolboxa-bağlanın)
+    - [MCP İstemcisi](#mcp-istemcisi)
+    - [Toolbox SDK'ları: Uygulamanızla Entegre Olun](#toolbox-sdkları-uygulamanızla-entegre-olun)
+  - [Ek Özellikler](#ek-özellikler)
+  - [Sürüm Kontrolü](#sürüm-kontrolü)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+  - [Topluluk](#topluluk)
+
+  ---
+
+  ## Neden MCP Toolbox?
+
+  - **Hazır Veritabanı Erişimi:** IDE veya CLI'dan anında veri keşfi için önceden oluşturulmuş genel araçlar (ör. `list_tables`, `execute_sql`).
+  - **Özel Araçlar Çerçevesi:** Kendi önceden tanımlanmış mantığınızla üretim hazır araçlar oluşturun; Sınırlı Erişim, Yapılandırılmış Sorgular ve Anlamsal Arama yoluyla güvenlik sağlanır.
+  - **Basitleştirilmiş Geliştirme:** Araçları Agent Development Kit (ADK), LangChain, LlamaIndex veya özel ajanlar içine 10 satırdan az kodla entegre edin.
+  - **Daha İyi Performans:** Bağlantı havuzu yönetimi, entegre auth (IAM) ve uçtan uca gözlemlenebilirlik (OpenTelemetry) kutudan çıktığında kullanıma sunulur.
+  - **Geliştirilmiş Güvenlik**: Verilerinize daha güvenli erişim için entegre kimlik doğrulama.
+  - **Uçtan Uca Gözlemlenebilirlik**: OpenTelemetry desteğiyle kutudan çıktığında metrikler ve izleme.
+
+  ---
+
+  ## Hızlı Başlangıç: Hazır Araçlar
+
+  Bağlam değiştirmeyi bırakın ve AI asistanınızı gerçek bir yer ortağı yapın. MCP Toolbox ile IDE'nizi veritabanlarınıza bağlayarak, verilerinizi düz İngilizce ile sorgulayabilir, şema keşfi ve yönetimini otomatikleştirebilir ve veritabanı bilgisine sahip kod oluşturabilirsiniz.
+
+  Toolbox'u herhangi bir MCP uyumlu IDE veya istemcide (ör. Gemini CLI, Google Antigravity, Claude Code, Codex, vb.) MCP sunucusunu yapılandırarak kullanabilirsiniz.
+
+  **Hazır araçlar ayrıca [Google Antigravity MCP Store](https://antigravity.google/docs/mcp) aracılığıyla basit bir tıkla kurulum deneyimiyle kullanılabilir.**
+
+  1. İstemcinizin MCP yapılandırma dosyasına (genellikle `mcp.json` veya `claude_desktop_config.json`) aşağıdakini ekleyin:
+
+      ```json
+      {
+        "mcpServers": {
+          "toolbox-postgres": {
+            "command": "npx",
+            "args": [
+              "-y",
+              "@toolbox-sdk/server",
+              "--prebuilt=postgres",
+              "--stdio"
+            ]
+          }
+        }
+      }
+      ```
+
+  2. Bağlanmak için uygun ortam değişkenlerini ayarlayın, bkz. [Hazır Araçlar Referansı](https://mcp-toolbox.dev/documentation/configuration/prebuilt-configs/).
+
+  Toolbox'u `--prebuilt=<database>` bayrağı ile çalıştırdığınızda, o veritabanıyla etkileşim kurmanız için anında standart araçlara erişebilirsiniz.
+
+  Şu anda desteklenen veritabanları şunları içerir:
+  - **Google Cloud:** AlloyDB, BigQuery, Cloud SQL (PostgreSQL, MySQL, SQL Server), Spanner, Firestore, Knowledge Catalog (daha önce Dataplex olarak bilinirdi).
+  - **Diğer Veritabanları:** PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Redis, Elasticsearch, CockroachDB, ClickHouse, Couchbase, Neo4j, Snowflake, Trino ve daha fazlası.
+
+  Tüm desteklenen veritabanları genelinde kullanılabilir araçların ve yeteneklerinin tam listesi için [Hazır Araçlar Referansı](https://mcp-toolbox.dev/documentation/configuration/prebuilt-configs/) bölümüne bakın.
+
+  *Docker veya ikili dosyalar gibi farklı yürütme yöntemleri için [Toolbox Sunucusunu Yükleyin ve Çalıştırın](#toolbox-sunucusunu-yükleyin-ve-çalıştırın) bölümüne bakın.*
+
+
+  > [!TIP]
+  > Yönetilen bir çözüm arayan kullanıcılar için [Google Cloud MCP Sunucuları](https://cloud.google.com/blog/products/databases/managed-mcp-servers-for-google-cloud-databases) 
+  > önceden oluşturulmuş araçlarla yönetilen bir MCP deneyimi sağlar; [burada farklılıklar hakkında bilgi edinebilirsiniz](https://mcp-toolbox.dev/dev/reference/faq/).
+
+  ---
+
+  ## Hızlı Başlangıç: Özel Araçlar
+
+  Toolbox ayrıca özelleştirilmiş araçlar için bir çerçeve olarak kullanılabilir.
+  Toolbox'u yapılandırmanın birincil yolu `tools.yaml` dosyasıdır. Birden çok dosyanız varsa,
+  `--config tools.yaml` bayrağını kullanarak hangisini yükleyeceğini Toolbox'a söyleyebilirsiniz.
+
+  Tüm kaynak türlerine daha ayrıntılı referans belgelendirmesini
+  [Kaynaklar](https://mcp-toolbox.dev/documentation/configuration/) bölümünde bulabilirsiniz.
+
+  ### Kaynaklar
+
+  `tools.yaml` dosyasının `sources` bölümü, Toolbox'un hangi veri kaynaklarına erişim sahibi olması gerektiğini tanımlar. Çoğu araç yürütmek için en az bir kaynağa sahip olacaktır.
+
+  ```yaml
+  kind: source
+  name: my-pg-source
+  type: postgres
+  host: 127.0.0.1
+  port: 5432
+  database: toolbox_db
+  user: toolbox_user
+  password: my-password
+  ```
+
+  Farklı kaynak türlerini yapılandırma hakkında daha fazla ayrıntı için
+  [Kaynaklar](https://mcp-toolbox.dev/documentation/configuration/sources/) bölümüne bakın.
+
+  ### Araçlar
+
+  `tools.yaml` dosyasının `tools` bölümü bir ajanın gerçekleştirebileceği eylemleri tanımlar: araç türü nedir, hangi kaynakları etkiler, hangi parametreleri kullanır, vb.
+
+  ```yaml
+  kind: tool
+  name: search-hotels-by-name
+  type: postgres-sql
+  source: my-pg-source
+  description: Search for hotels based on name.
+  parameters:
+    - name: name
+      type: string
+      description: The name of the hotel.
+  statement: SELECT * FROM hotels WHERE name ILIKE '%' || $1 || '%';
+  ```
+
+  Farklı araç türlerini yapılandırma hakkında daha fazla ayrıntı için
+  [Araçlar](https://mcp-toolbox.dev/documentation/configuration/tools/) bölümüne bakın.
+
+  ### Araç Setleri
+
+  `tools.yaml` dosyasının `toolsets` bölümü, birlikte yüklemek istediğiniz araçlardan oluşan grupları tanımlamanıza olanak sağlar. Bu, farklı grupları ajen veya uygulamaya göre tanımlamak için yararlı olabilir.
+
+  ```yaml
+  kind: toolset
+  name: my_first_toolset
+  tools:
+      - my_first_tool
+      - my_second_tool
+  ---
+  kind: toolset
+  name: my_second_toolset
+  tools:
+      - my_second_tool
+      - my_third_tool
+  ```
+
+  ### İstemler
+
+  `tools.yaml` dosyasının `prompts` bölümü, LLM'lerle etkileşimlerde kullanılabilecek istemler tanımlar.
+
+  ```yaml
+  kind: prompt
+  name: code_review
+  description: "Asks the LLM to analyze code quality and suggest improvements."
+  messages:
+    - content: >
+           Please review the following code for quality, correctness,
+           and potential improvements: \n\n{{.code}}
+  arguments:
+    - name: "code"
+      description: "The code to review"
+  ```
+
+  İstemler yapılandırma hakkında daha fazla ayrıntı için
+  [İstemler](https://mcp-toolbox.dev/documentation/configuration/prompts/) bölümüne bakın.
+
+  ---
+
+  ## Toolbox Sunucusunu Yükleyin ve Çalıştırın
+
+  Toolbox'u doğrudan bir [yapılandırma dosyası](#hızlı-başlangıç-özel-araçlar) ile çalıştırabilirsiniz:
+
+  ```sh
+  npx @toolbox-sdk/server --config tools.yaml
+  ```
+
+  Bu, yapılandırma dosyanızla Toolbox sunucusunun en son sürümünü çalıştırır.
+
+  > [!NOTE]
+  > Bu yöntem kolaylık açısından optimize edilmiştir; performans açısından değil. 
+  > Daha standart ve güvenilir bir kurulum için lütfen [Toolbox Sunucusunu Yükleyin ve Çalıştırın](#toolbox-sunucusunu-yükleyin-ve-çalıştırın) bölümünde açıklandığı gibi ikili dosya
+  > veya container görüntüsü kullanın.
+
+  ### Toolbox'u Yükleyin
+
+  En son sürüm için [sürümler sayfasını][releases] kontrol edin ve
+  işletim sisteminiz ve CPU mimarisi için aşağıdaki talimatları kullanın.
+
+  [releases]: https://github.com/googleapis/mcp-toolbox/releases
+
+  <details open>
+  <summary>İkili Dosya</summary>
+
+  Toolbox'u ikili dosya olarak yüklemek için:
+
+  <!-- {x-release-please-start-version} -->
+  > <details>
+  > <summary>Linux (AMD64)</summary>
+  >
+  > Linux (AMD64) üzerinde Toolbox'u ikili dosya olarak yüklemek için:
+  >
+  > ```sh
+  > # diğer sürümler için sürümler sayfasına bakın
+  > export VERSION=1.3.0
+  > curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/linux/amd64/toolbox
+  > chmod +x toolbox
+  > ```
+  >
+  > </details>
+  > <details>
+  > <summary>macOS (Apple Silicon)</summary>
+  >
+  > macOS (Apple Silicon) üzerinde Toolbox'u ikili dosya olarak yüklemek için:
+  >
+  > ```sh
+  > # diğer sürümler için sürümler sayfasına bakın
+  > export VERSION=1.3.0
+  > curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/darwin/arm64/toolbox
+  > chmod +x toolbox
+  > ```
+  >
+  > </details>
+  > <details>
+  > <summary>macOS (Intel)</summary>
+  >
+  > macOS (Intel) üzerinde Toolbox'u ikili dosya olarak yüklemek için:
+  >
+  > ```sh
+  > # diğer sürümler için sürümler sayfasına bakın
+  > export VERSION=1.3.0
+  > curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/darwin/amd64/toolbox
+  > chmod +x toolbox
+  > ```
+  >
+  > </details>
+  > <details>
+  > <summary>Windows (Command Prompt)</summary>
+  >
+  > Windows (Command Prompt) üzerinde Toolbox'u ikili dosya olarak yüklemek için:
+  >
+  > ```cmd
+  > :: diğer sürümler için sürümler sayfasına bakın
+  > set VERSION=1.3.0
+  > curl -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v%VERSION%/windows/amd64/toolbox.exe"
+  > ```
+  >
+  > </details>
+  > <details>
+  > <summary>Windows (PowerShell)</summary>
+  >
+  > Windows (PowerShell) üzerinde Toolbox'u ikili dosya olarak yüklemek için:
+  >
+  > ```powershell
+  > # diğer sürümler için sürümler sayfasına bakın
+  > $VERSION = "1.3.0"
+  > curl.exe -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/windows/amd64/toolbox.exe"
+  > ```
+  >
+  > </details>
+  </details>
+
+  <details>
+  <summary>Container görüntüsü</summary>
+  Toolbox'u container olarak da yükleyebilirsiniz:
+
+  ```sh
+  # diğer sürümler için sürümler sayfasına bakın
+  export VERSION=1.3.0
+  docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
+  ```
+
+  </details>
+
+  <details>
+  <summary>Homebrew</summary>
+
+  macOS veya Linux üzerinde Homebrew kullanarak Toolbox'u yüklemek için:
+
+  ```sh
+  brew install mcp-toolbox
+  ```
+
+  </details>
+
+  <details>
+  <summary>Kaynaktan Derleyin</summary>
+
+  Kaynaktan yüklemek için [Go'nun en son sürümünün yüklü olduğundan](https://go.dev/doc/install) emin olun ve ardından aşağıdaki komutu çalıştırın:
+
+  ```sh
+  go install github.com/googleapis/mcp-toolbox@v1.3.0
+  ```
+  <!-- {x-release-please-end} -->
+
+  </details>
+  <details>
+  <summary>Gemini CLI</summary>
+  Belirli veritabanları için AlloyDB, BigQuery ve Cloud SQL gibi önceden oluşturulmuş araçları doğrudan Gemini CLI'ye yüklemek için [Gemini CLI uzantılarını](https://geminicli.com/extensions/) kontrol edin.
+
+  ```sh
+  # Gemini CLI'yi yükleyin
+  npm install -g @google/gemini-cli
+  # Uzantıyı yükleyin
+  gemini extensions install https://github.com/gemini-cli-extensions/cloud-sql-postgres
+  # Gemini CLI'yi çalıştırın
+  gemini
+  ```
+
+  Gemini CLI aracılığıyla özel araçlarınızla doğal dil kullanarak etkileşim kurun.
+
+  ```sh
+  # Uzantıyı yükleyin
+  gemini extensions install https://github.com/gemini-cli-extensions/mcp-toolbox
+  ```
+  </details>
+
+
+  ### Toolbox'u Çalıştırın
+
+  Araçlarınızı tanımlamak için [configure](#hızlı-başlangıç-özel-araçlar) bölümünde `tools.yaml` dosyasını yapılandırın ve ardından
+  sunucuyu başlatmak için `toolbox` komutunu yürütün:
+
+  <details open>
+  <summary>İkili Dosya</summary>
+
+  Toolbox'u ikili dosyadan çalıştırmak için:
+
+  ```sh
+  ./toolbox --config "tools.yaml"
+  ```
+
+  > ⓘ Not  
+  > Toolbox varsayılan olarak dinamik yeniden yüklemeyi etkinleştirir. Devre dışı bırakmak için
+  > `--disable-reload` bayrağını kullanın.
+
+  </details>
+
+  <details>
+
+  <summary>Container görüntüsü</summary>
+
+  [Container görüntüsünü](#toolboxyü-yükleyin) çektikten sonra sunucuyu çalıştırmak için:
+
+  ```sh
+  export VERSION=0.24.0 # Çektiğiniz sürümü kullanın
+  docker run -p 5000:5000 \
+  -v $(pwd)/tools.yaml:/app/tools.yaml \
+  us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION \
+  --config "/app/tools.yaml"
+  ```
+
+  > ⓘ Not  
+  > `-v` bayrağı yerel `tools.yaml` dosyanızı container'e monte eder ve `-p` container'in
+  > `5000` portunu ana makinenizin `5000` portuna eşler.
+
+  </details>
+
+  <details>
+
+  <summary>Kaynak</summary>
+
+  Sunucuyu kaynaktan doğrudan çalıştırmak için proje kök dizinine gidin
+  ve çalıştırın:
+
+  ```sh
+  go run .
+  ```
+
+  > ⓘ Not  
+  > Bu komut projeyi kaynaktan çalıştırır ve geliştirme
+  > ve test için daha uygun olur. **Değil** bir ikili dosyayı `$GOPATH` içine derler. İkili dosya derlemek istiyorsanız, [Geliştirici
+  > Belgelendirmesi](./DEVELOPER.md#building-the-binary) bölümüne bakın.
+
+  </details>
+
+  <details>
+
+  <summary>Homebrew</summary>
+
+  Toolbox'u [Homebrew](https://brew.sh/) kullanarak yüklediyseniz, `toolbox`
+  ikili dosyası sistem yolunuzda bulunur. Sunucuyu aynı komutla başlatabilirsiniz:
+
+  ```sh
+  toolbox --config "tools.yaml"
+  ```
+
+  </details>
+
+  <details>
+  <summary>NPM</summary>
+
+  İkili dosyayı el ile indirmeden Toolbox'u doğrudan çalıştırmak için (Node.js gereklidir):
+  ```sh
+  npx @toolbox-sdk/server --config tools.yaml
+  ```
+
+  </details>
+  <details>
+  <summary>Gemini CLI</summary>
+  Bir [Gemini CLI uzantısı](https://geminicli.com/extensions/) yükledikten sonra, önceden oluşturulmuş araçlar kullanım sırasında kullanılabilir olacaktır.
+
+  ```sh
+  # Gemini CLI'yi çalıştırın
+  gemini
+
+  # Uzantıları listeleyin
+  /extensions list
+  # MCP sunucularını listeleyin
+  /mcp list
+  ```
+
+  </details>
+
+
+  Tüm bayraklar için bir liste almak istiyorsanız `toolbox help` kullanabilirsiniz! Sunucuyu durdurmak için bir sonlandırma sinyali gönderin (`çoğu platformda ctrl+c`).
+
+  Farklı ortamlara dağıtım hakkında daha detaylı belgelendirme için [Toolbox'u Dağıt
+  bölümü](https://mcp-toolbox.dev/documentation/deploy-to/) içindeki kaynakları kontrol edin
+
+  ---
+
+  ## Toolbox'a Bağlanın
+
+  Toolbox sunucunuz çalışır duruma geldikten sonra, araçları MCP uyumlu istemcinize veya
+  uygulamanıza yükleyebilirsiniz.
+
+  ### MCP İstemcisi
+
+  MCP istemcinizin yapılandırmasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "toolbox": {
+        "type": "http",
+        "url": "http://127.0.0.1:5000/mcp",
+      }
+    }
+  }
+  ```
+
+  Belirli bir araç setine bağlanmak istiyorsanız, URL'yi "http://127.0.0.1:5000/mcp/{toolset_name}" ile değiştirin.
+
+
+  ### Toolbox SDK'ları: Uygulamanızla Entegre Olun
+
+  Toolbox Client SDK'ları, özel uygulamalarınızı MCP Toolbox sunucusuna bağlamak için kolay kullanılan yapı taşları ve gelişmiş özellikler sağlar. Aşağıda çeşitli çerçeveleri kullanmak için Client SDK'larının listesini görebilirsiniz:
+
+  <details open>
+    <summary>Python (<a href="https://github.com/googleapis/mcp-toolbox-sdk-python">Github</a>)</summary>
+    <br>
+    <blockquote>
+
+    <details open>
+      <summary>Core</summary>
+
+  1. [Toolbox Core SDK][toolbox-core] yükleyin:
+
+      ```bash
+      pip install toolbox-core
+      ```
+
+  1. Araçları yükleyin:
+
+      ```python
+      from toolbox_core import ToolboxClient
+
+      # sunucunuzu işaret etmek için URL'yi güncelleyin
+      async with ToolboxClient("http://127.0.0.1:5000") as client:
+
+          # bu araçlar uygulamanıza geçirilebilir!
+          tools = await client.load_toolset("toolset_name")
+      ```
+
+  Toolbox Core SDK'sını kullanma hakkında daha detaylı talimatlar için
+  [projenin README][toolbox-core-readme] bölümüne bakın.
+
+  [toolbox-core]: https://pypi.org/project/toolbox-core/
+  [toolbox-core-readme]: https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-core/README.md
+
+    </details>
+    <details>
+      <summary>LangChain / LangGraph</summary>
+
+  1. [Toolbox LangChain SDK][toolbox-langchain] yükleyin:
+
+      ```bash
+      pip install toolbox-langchain
+      ```
+
+  1. Araçları yükleyin:
+
+      ```python
+      from toolbox_langchain import ToolboxClient
+
+      # sunucunuzu işaret etmek için URL'yi güncelleyin
+      async with ToolboxClient("http://127.0.0.1:5000") as client:
+
+          # bu araçlar uygulamanıza geçirilebilir!
+          tools = client.load_toolset()
+      ```
+
+      Toolbox LangChain SDK'sını kullanma hakkında daha detaylı talimatlar için
+      [projenin README][toolbox-langchain-readme] bölümüne bakın.
+
+      [toolbox-langchain]: https://pypi.org/project/toolbox-langchain/
+      [toolbox-langchain-readme]: https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-langchain/README.md
+
+    </details>
+    <details>
+      <summary>LlamaIndex</summary>
+
+  1. [Toolbox Llamaindex SDK][toolbox-llamaindex] yükleyin:
+
+      ```bash
+      pip install toolbox-llamaindex
+      ```
+
+  1. Araçları yükleyin:
+
+      ```python
+      from toolbox_llamaindex import ToolboxClient
+
+      # sunucunuzu işaret etmek için URL'yi güncelleyin
+      async with ToolboxClient("http://127.0.0.1:5000") as client:
+
+          # bu araçlar uygulamanıza geçirilebilir!
+          tools = client.load_toolset()
+      ```
+
+      Toolbox Llamaindex SDK'sını kullanma hakkında daha detaylı talimatlar için
+      [projenin README][toolbox-llamaindex-readme] bölümüne bakın.
+
+      [toolbox-llamaindex]: https://pypi.org/project/toolbox-llamaindex/
+      [toolbox-llamaindex-readme]: https://github.com/googleapis/genai-toolbox-llamaindex-python/blob/main/README.md
+
+    </details>
+  </details>
+  </blockquote>
+  <details>
+    <summary>Javascript/Typescript (<a href="https://github.com/googleapis/mcp-toolbox-sdk-js">Github</a>)</summary>
+    <br>
+    <blockquote>
+
+    <details open>
+      <summary>Core</summary>
+
+  1. [Toolbox Core SDK][toolbox-core-js] yükleyin:
+
+      ```bash
+      npm install @toolbox-sdk/core
+      ```
+
+  1. Araçları yükleyin:
+
+      ```javascript
+      import { ToolboxClient } from '@toolbox-sdk/core';
+
+      // sunucunuzu işaret etmek için URL'yi güncelleyin
+      const URL =
 ---
 
 <div align="center">

@@ -8,6 +8,347 @@ url: "https://github.com/gannonh/firebase-mcp"
 body_length: 11107
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Firebase MCP
+
+
+  ![Project Logo](https://raw.githubusercontent.com/gannonh/firebase-mcp/HEAD/assets/logo.png)
+
+  <a href="https://glama.ai/mcp/servers/x4i8z2xmrq">
+    
+  </a>
+
+  [![Firebase Tests CI](https://github.com/gannonh/firebase-mcp/actions/workflows/tests.yml/badge.svg)](https://github.com/gannonh/firebase-mcp/actions/workflows/tests.yml)
+
+  ## Genel Bakış
+
+  **Firebase MCP**, AI asistanlarının Firebase hizmetleriyle doğrudan çalışmasını sağlar:
+
+  - **Firestore**: Belge veritabanı işlemleri
+  - **Storage**: Güçlü yükleme yeteneklerine sahip dosya yönetimi
+  - **Authentication**: Kullanıcı yönetimi ve doğrulama
+
+  Sunucu, [Claude Desktop](https://claude.ai/download), [Augment Code](https://docs.augmentcode.com/setup-augment/mcp), [VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) ve [Cursor](https://www.cursor.com/) gibi MCP istemci uygulamalarıyla çalışır.
+
+  > ⚠️ **Bilinen Sorun**: `firestore_list_collections` aracı istemci günlüklerinde Zod doğrulama hatası döndürebilir. Bu, MCP SDK'daki hatalı bir doğrulama hatasıdır; yaptığımız inceleme yanıtında hiçbir boolean değer olmadığını doğrulamıştır. Hata mesajına rağmen sorgu hala doğru şekilde çalışır ve uygun koleksiyon verilerini döndürür. Bu, işlevselliği etkilemeyen günlük düzeyindeki bir hatadır.
+
+  ## ⚡ Hızlı Başlangıç
+
+  ### Ön Koşullar
+  - Firebase projesi ve service account kimlik bilgileri
+  - Node.js ortamı
+
+  ### 1. MCP Sunucusunu Yükleyin
+
+  Sunucu yapılandırmasını MCP ayarları dosyanıza ekleyin:
+
+  - Claude Desktop: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Augment: `~/Library/Application Support/Code/User/settings.json`
+  - Cursor: `[project root]/.cursor/mcp.json`
+
+  MCP Sunucuları manual olarak veya npx aracılığıyla çalışma zamanında yüklenebilir (önerilir). Yükleme şekliniz yapılandırmanızı belirler:
+
+  #### npx için Yapılandırma (önerilir)
+
+     ```json
+     {
+       "firebase-mcp": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "@gannonh/firebase-mcp"
+         ],
+         "env": {
+           "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
+           "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
+         }
+       }
+     }
+     ```
+
+  #### Yerel kurulum için Yapılandırma
+
+     ```json
+     {
+       "firebase-mcp": {
+         "command": "node",
+         "args": [
+           "/absolute/path/to/firebase-mcp/dist/index.js"
+         ],
+         "env": {
+           "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
+           "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
+         }
+       }
+     }
+     ```
+
+
+  ### 2. Kurulumu Test Edin
+
+  AI istemcinize şunu sorun: "Lütfen tüm Firebase MCP araçlarını test et."
+
+  ## 🛠️ Kurulum & Yapılandırma
+
+  ### 1. Firebase Yapılandırması
+
+  1. [Firebase Console](https://console.firebase.google.com) → Proje Ayarları → Service Accounts bölümüne gidin
+  2. "Yeni özel anahtar oluştur" seçeneğine tıklayın
+  3. JSON dosyasını güvenli bir şekilde kaydedin
+
+  ### 2. Ortam Değişkenleri
+
+  #### Gerekli
+  - `SERVICE_ACCOUNT_KEY_PATH`: Firebase service account key JSON dosyasının yolu (gerekli)
+
+  #### İsteğe Bağlı
+  - `FIREBASE_STORAGE_BUCKET`: Firebase Storage için depo adı (varsayılan: `[projectId].appspot.com`)
+  - `MCP_TRANSPORT`: Kullanılacak aktarım türü (`stdio` veya `http`) (varsayılan: `stdio`)
+  - `MCP_HTTP_PORT`: HTTP aktarımı için port (varsayılan: `3000`)
+  - `MCP_HTTP_HOST`: HTTP aktarımı için host (varsayılan: `localhost`)
+  - `MCP_HTTP_PATH`: HTTP aktarımı için yol (varsayılan: `/mcp`)
+  - `DEBUG_LOG_FILE`: Dosya günlüğünü etkinleştir:
+    - `true` olarak ayarlayın `~/.firebase-mcp/debug.log` dosyasına günlük kaydı için
+    - Özel bir konuma günlük kaydı için dosya yolunu ayarlayın
+
+  ### 3. İstemci Entegrasyonu
+
+  #### Claude Desktop
+  Düzenle: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+  #### VS Code / Augment
+  Düzenle: `~/Library/Application Support/Code/User/settings.json`
+
+  #### Cursor
+  Düzenle: `[project root]/.cursor/mcp.json`
+
+  ## 📚 API Referansı
+
+  ### Firestore Araçları
+
+  | Araç                               | Açıklama                       | Gerekli Parametreler       |
+  | ---------------------------------- | ------------------------------ | -------------------------- |
+  | `firestore_add_document`           | Koleksiyona belge ekle          | `collection`, `data`       |
+  | `firestore_list_documents`         | Belgeleri filtreyle listele     | `collection`               |
+  | `firestore_get_document`           | Belirli bir belgeyi al          | `collection`, `id`         |
+  | `firestore_update_document`        | Mevcut belgeyi güncelle         | `collection`, `id`, `data` |
+  | `firestore_delete_document`        | Belgeyi sil                     | `collection`, `id`         |
+  | `firestore_list_collections`       | Kök koleksiyonları listele      | Hiçbiri                    |
+  | `firestore_query_collection_group` | Alt koleksiyonlar arasında sorgula | `collectionId`             |
+
+  ### Storage Araçları
+
+  | Araç                      | Açıklama                  | Gerekli Parametreler             |
+  | ------------------------- | ------------------------- | -------------------------------- |
+  | `storage_list_files`      | Bir dizindeki dosyaları listele | Hiçbiri (isteğe bağlı: `directoryPath`) |
+  | `storage_get_file_info`   | Dosya meta verilerini ve URL'sini al | `filePath`                       |
+  | `storage_upload`          | İçerikten dosya yükle     | `filePath`, `content`            |
+  | `storage_upload_from_url` | URL'den dosya yükle       | `filePath`, `url`                |
+
+  ### Authentication Araçları
+
+  | Araç            | Açıklama             | Gerekli Parametreler |
+  | --------------- | ----------------------- | ------------------- |
+  | `auth_get_user` | Kullanıcıyı ID veya e-postayla al | `identifier`        |
+
+  ## 💻 Geliştirici Rehberi
+
+  ### Kurulum & Derleme
+
+  ```bash
+  git clone https://github.com/gannonh/firebase-mcp
+  cd firebase-mcp
+  npm install
+  npm run build
+  ```
+
+  ### Testleri Çalıştırma
+
+  Önce Firebase emulatörlerini yükleyin ve başlatın:
+  ```bash
+  npm install -g firebase-tools
+  firebase init emulators
+  firebase emulators:start
+  ```
+
+  Ardından testleri çalıştırın:
+  ```bash
+  # Emulatör ile testleri çalıştır
+  npm run test:emulator
+
+  # Kapsam ile testleri çalıştır
+  npm run test:coverage:emulator
+  ```
+
+  ### Proje Yapısı
+
+  ```bash
+  src/
+  ├── index.ts                  # Sunucu giriş noktası
+  ├── utils/                    # Yardımcı fonksiyonlar
+  └── lib/
+      └── firebase/              # Firebase hizmet istemcileri
+          ├── authClient.ts     # Authentication işlemleri
+          ├── firebaseConfig.ts   # Firebase yapılandırması
+          ├── firestoreClient.ts # Firestore işlemleri
+          └── storageClient.ts  # Storage işlemleri
+  ```
+
+  ## 🌐 HTTP Aktarımı
+
+  Firebase MCP artık varsayılan stdio aktarımına ek olarak HTTP aktarımını desteklemektedir. Bu, sunucuyu birden fazla istemci tarafından erişilebilen bağımsız bir HTTP hizmeti olarak çalıştırmanıza olanak tanır.
+
+  ### HTTP Aktarımı ile Çalıştırma
+
+  Sunucuyu HTTP aktarımı ile çalıştırmak için:
+
+  ```bash
+  # Ortam değişkenleri kullanarak
+  MCP_TRANSPORT=http MCP_HTTP_PORT=3000 node dist/index.js
+
+  # Veya npx ile
+  MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @gannonh/firebase-mcp
+  ```
+
+  ### HTTP için İstemci Yapılandırması
+
+  HTTP aktarımı kullanırken, MCP istemcinizi HTTP endpoint'ine bağlanacak şekilde yapılandırın:
+
+  ```json
+  {
+    "firebase-mcp": {
+      "url": "http://localhost:3000/mcp"
+    }
+  }
+  ```
+
+  ### Oturum Yönetimi
+
+  HTTP aktarımı, birden fazla istemcinin aynı sunucu örneğine bağlanmasına olanak tanıyan oturum yönetimini destekler. Her istemci, istekler arasında durumu korumak için kullanılan benzersiz bir oturum kimliği alır.
+
+  ## 🔍 Sorun Giderme
+
+  ### Yaygın Sorunlar
+
+  #### Storage Deposu Bulunamadı
+  "The specified bucket does not exist" hatası görürseniz:
+  1. Firebase Console → Storage bölümünde depo adınızı doğrulayın
+  2. `FIREBASE_STORAGE_BUCKET` ortam değişkeninde doğru depo adını ayarlayın
+
+  #### Firebase Başlatma Başarısız Oldu
+  "Firebase is not initialized" hatası görürseniz:
+  1. Service account key yolunuzun doğru ve mutlak olduğunu kontrol edin
+  2. Service account'unuzun Firebase hizmetleri için uygun izinleri olduğundan emin olun
+
+  #### Bileşik İndeks Gereklidir
+  "This query requires a composite index" hatası alırsanız:
+  1. Hata mesajında sağlanan URL'yi arayın
+  2. Firebase Console'da gerekli indeksi oluşturmak için bağlantıyı izleyin
+  3. İndeks oluşturulduktan sonra sorgunuzu yeniden deneyin (birkaç dakika sürebilir)
+
+  #### `firestore_list_collections` ile Zod Doğrulama Hatası
+  `firestore_list_collections` aracı kullanırken "Expected object, received boolean" mesajıyla Zod doğrulama hatası görürseniz:
+
+  > ⚠️ **Bilinen Sorun**: `firestore_list_collections` aracı istemci günlüklerinde Zod doğrulama hatası döndürebilir. Bu, MCP SDK'daki hatalı bir doğrulama hatasıdır; yaptığımız inceleme yanıtında hiçbir boolean değer olmadığını doğrulamıştır. Hata mesajına rağmen sorgu hala doğru şekilde çalışır ve uygun koleksiyon verilerini döndürür. Bu, işlevselliği etkilemeyen günlük düzeyindeki bir hatadır.
+
+  ### Hata Ayıklama
+
+  #### Dosya Günlüğünü Etkinleştirme
+  Sorunları tanılamaya yardımcı olmak için dosya günlüğünü etkinleştirebilirsiniz:
+
+  ```bash
+  # Varsayılan konuma günlük kaydı (~/.firebase-mcp/debug.log)
+  DEBUG_LOG_FILE=true npx @gannonh/firebase-mcp
+
+  # Özel bir konuma günlük kaydı
+  DEBUG_LOG_FILE=/path/to/custom/debug.log npx @gannonh/firebase-mcp
+  ```
+
+  MCP istemci yapılandırmanızda günlüğü de etkinleştirebilirsiniz:
+
+  ```json
+  {
+    "firebase-mcp": {
+      "command": "npx",
+      "args": ["-y", "@gannonh/firebase-mcp"],
+      "env": {
+        "SERVICE_ACCOUNT_KEY_PATH": "/path/to/serviceAccountKey.json",
+        "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app",
+        "DEBUG_LOG_FILE": "true"
+      }
+    }
+  }
+  ```
+
+  #### Gerçek Zamanlı Günlük Görüntüleme
+  Günlükleri gerçek zamanlı olarak görüntülemek için:
+
+  ```bash
+  # Günlük dosyasını izlemek için tail kullanma
+  tail -f ~/.firebase-mcp/debug.log
+
+  # stderr'i yakalamak için bölünmüş terminal kullanma
+  npm start 2>&1 | tee logs.txt
+  ```
+
+  #### MCP Inspector Kullanma
+  MCP Inspector etkileşimli hata ayıklama sağlar:
+
+  ```bash
+  # MCP Inspector'u yükle
+  npm install -g @mcp/inspector
+
+  # MCP sunucunuza bağlan
+  mcp-inspector --connect stdio --command "node ./dist/index.js"
+  ```
+
+  ## 📋 Yanıt Biçimlendirmesi
+
+  ### Storage Yükleme Yanıtı Örneği
+
+  ```json
+  {
+    "name": "reports/quarterly.pdf",
+    "size": "1024000",
+    "contentType": "application/pdf",
+    "updated": "2025-04-11T15:37:10.290Z",
+    "downloadUrl": "https://storage.googleapis.com/bucket/reports/quarterly.pdf?alt=media",
+    "bucket": "your-project.appspot.com"
+  }
+  ```
+
+  Kullanıcıya şu şekilde görüntülenir:
+
+  ```markdown
+  ## Dosya Başarıyla Yüklendi! 📁
+
+  Dosyanız Firebase Storage'a yüklendi:
+
+  **Dosya Ayrıntıları:**
+  - **Ad:** reports/quarterly.pdf
+  - **Boyut:** 1024000 bytes
+  - **Tür:** application/pdf
+  - **Son Güncelleme:** 11 Nisan 2025 saat 15:37:10 UTC
+
+  **[Dosyanızı indirmek için burayı tıklayın](https://storage.googleapis.com/bucket/reports/quarterly.pdf?alt=media)**
+  ```
+
+  ## 🤝 Katkıda Bulunma
+
+  1. Depoyu fork edin
+  2. Bir özellik şubesi oluşturun
+  3. Testler ile değişiklikleri uygulayın (%80+ kapsam gereklidir)
+  4. Pull request gönderin
+
+  ## 📄 Lisans
+
+  MIT Lisansı - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın
+
+  ## 🔗 İlgili Kaynaklar
+
+  - [Model Context Protocol Belgeleri](https://github.com/modelcontextprotocol)
+  - [Firebase Belgeleri](https://firebase.google.com/docs)
+  - [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
 ---
 
 # Firebase MCP

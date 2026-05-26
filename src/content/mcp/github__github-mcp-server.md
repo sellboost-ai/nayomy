@@ -8,6 +8,474 @@ url: "https://github.com/github/github-mcp-server"
 body_length: 89001
 license: "MIT"
 language: "Go"
+body_tr: |-
+  [![Go Report Card](https://goreportcard.com/badge/github.com/github/github-mcp-server)](https://goreportcard.com/report/github.com/github/github-mcp-server)
+
+  # GitHub MCP Server
+
+  GitHub MCP Server, GitHub platformunu AI araçlarına doğrudan bağlar. Bu, AI ajanlarına, asistanlara ve sohbet botlarına depoları ve kod dosyalarını okuma, sorunları ve PR'ları yönetme, kodu analiz etme ve iş akışlarını otomatikleştirme yeteneği sağlar. Tümü doğal dil etkileşimleri aracılığıyla.
+
+  ### Kullanım Senaryoları
+
+  - Depo Yönetimi: Herhangi bir depoda kod göz atma ve sorgulama, dosya arama, commit'leri analiz etme ve proje yapısını anlama.
+  - Sorun ve PR Otomasyonu: Sorunları ve pull request'leri oluşturma, güncelleme ve yönetme. AI'nın bug triage'ı, kod değişikliklerini gözden geçirmesi ve proje panolarını yönetmesine izin verin.
+  - CI/CD ve İş Akışı İstihbaratı: GitHub Actions iş akışı çalışmalarını izleme, derleme hatalarını analiz etme, yayınları yönetme ve geliştirme hattınız hakkında içgörü edinme.
+  - Kod Analizi: Güvenlik bulgularını inceleme, Dependabot uyarılarını gözden geçirme, kod desenlerini anlama ve kod tabanınız hakkında kapsamlı içgörü edinme.
+  - Takım İşbirliği: Tartışmalara erişme, bildirimleri yönetme, takım etkinliğini analiz etme ve takımınız için süreçleri kolaylaştırma.
+
+  AI araçlarını GitHub bağlamı ve yeteneklerine bağlamak isteyen geliştiriciler için tasarlandı; basit doğal dil sorgularından karmaşık çok adımlı ajan iş akışlarına kadar.
+
+  ---
+
+  ## Uzak GitHub MCP Server
+
+  [![VS Code'da Kur](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D) [![VS Code Insiders'da Kur](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D&quality=insiders)
+
+  Uzak GitHub MCP Server, GitHub tarafından barındırılır ve çalışmaya başlamanın en kolay yöntemini sağlar. MCP ana bilgisayarınız uzak MCP sunucularını desteklemiyorsa endişelenmeyin! Bunun yerine [GitHub MCP Server'ın yerel versiyonunu](https://github.com/github/github-mcp-server?tab=readme-ov-file#local-github-mcp-server) kullanabilirsiniz.
+
+  ### Ön Koşullar
+
+  1. Uzak sunucu desteğine sahip uyumlu MCP ana bilgisayarı (VS Code 1.101+, Claude Desktop, Cursor, Windsurf, vb.)
+  2. Etkinleştirilen herhangi bir [politika](https://github.com/github/github-mcp-server/blob/main/docs/policies-and-governance.md)
+
+  ### VS Code'da Kur
+
+  Hızlı kurulum için yukarıdaki tek tıklamalı kurulum düğmelerinden birini kullanın. Bu akışı tamamladıktan sonra Agent modunu (Copilot Chat metin girdisinin yanında bulunan) açın ve sunucu başlayacaktır. [VS Code 1.101](https://code.visualstudio.com/updates/v1_101) veya [daha yeni](https://code.visualstudio.com/updates) bir sürümü kullandığınızdan emin olun.
+
+  Alternatif olarak, VS Code'u manuel olarak yapılandırmak için aşağıdaki örneklerden uygun JSON bloğunu seçin ve ana bilgisayar yapılandırmanıza ekleyin:
+
+  <table>
+  <tr><th>OAuth Kullanarak</th><th>GitHub PAT Kullanarak</th></tr>
+  <tr><th align=left colspan=2>VS Code (sürüm 1.101 veya üzeri)</th></tr>
+  <tr valign=top>
+  <td>
+
+  ```json
+  {
+    "servers": {
+      "github": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/"
+      }
+    }
+  }
+  ```
+
+  </td>
+  <td>
+
+  ```json
+  {
+    "servers": {
+      "github": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "Authorization": "Bearer ${input:github_mcp_pat}"
+        }
+      }
+    },
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "github_mcp_pat",
+        "description": "GitHub Kişisel Erişim Jetonu",
+        "password": true
+      }
+    ]
+  }
+  ```
+
+  </td>
+  </tr>
+  </table>
+
+  ### Diğer MCP Ana Bilgisayarlarında Kur
+
+  - **[Copilot CLI](/docs/installation-guides/install-copilot-cli.md)** - GitHub Copilot CLI için kurulum kılavuzu
+  - **[Diğer IDE'lerde GitHub Copilot](/docs/installation-guides/install-other-copilot-ides.md)** - JetBrains, Visual Studio, Eclipse ve Xcode'da GitHub Copilot kurulumu
+  - **[Claude Uygulamaları](/docs/installation-guides/install-claude.md)** - Claude Desktop ve Claude Code CLI için kurulum kılavuzu
+  - **[Codex](/docs/installation-guides/install-codex.md)** - OpenAI Codex için kurulum kılavuzu
+  - **[Cursor](/docs/installation-guides/install-cursor.md)** - Cursor IDE için kurulum kılavuzu
+  - **[Windsurf](/docs/installation-guides/install-windsurf.md)** - Windsurf IDE için kurulum kılavuzu
+  - **[Rovo Dev CLI](/docs/installation-guides/install-rovo-dev-cli.md)** - Rovo Dev CLI için kurulum kılavuzu
+
+  > **Not:** Her MCP ana bilgisayar uygulaması, OAuth aracılığıyla uzak erişimi desteklemek için bir GitHub App veya OAuth App yapılandırması gereklidir. Uzak MCP sunucularını destekleyen herhangi bir ana bilgisayar uygulaması, PAT kimlik doğrulamasına sahip uzak GitHub sunucusunu desteklemelidir. Yapılandırma ayrıntıları ve destek seviyeleri ana bilgisayara göre değişir. Daha fazla bilgi için ana bilgisayar uygulamasının belgelerine bakın.
+
+  ### Yapılandırma
+
+  #### Araç seti yapılandırması
+
+  Uzak sunucu yapılandırması, araç setleri, başlıklar ve gelişmiş kullanım hakkında tam ayrıntılar için [Uzak Sunucu Belgelerine](docs/remote-server.md) bakın. Bu dosya, uzak GitHub MCP Server'ı VS Code ve diğer MCP ana bilgisayarlarında bağlama, özelleştirme ve kurma konusunda kapsamlı yönergeler ve örnekler sağlar.
+
+  Araç seti belirtilmediğinde, [varsayılan araç setleri](#default-toolset) kullanılır.
+
+  #### Insiders Modu
+
+  > **Yeni özellikleri erkenden deneyin!** Uzak sunucu, yeni özelliklere ve deneysel araçlara erken erişim sağlayan bir insiders versiyonu sunmaktadır.
+
+  <table>
+  <tr><th>URL Yolu Kullanarak</th><th>Başlık Kullanarak</th></tr>
+  <tr valign=top>
+  <td>
+
+  ```json
+  {
+    "servers": {
+      "github": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/insiders"
+      }
+    }
+  }
+  ```
+
+  </td>
+  <td>
+
+  ```json
+  {
+    "servers": {
+      "github": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "X-MCP-Insiders": "true"
+        }
+      }
+    }
+  }
+  ```
+
+  </td>
+  </tr>
+  </table>
+
+  Daha fazla ayrıntı ve örnek için [Uzak Sunucu Belgelerine](docs/remote-server.md#insiders-mode) ve mevcut olanların tam listesi için [Insiders Özellikleri](docs/insiders-features.md) sayfasına bakın.
+
+  #### GitHub Enterprise
+
+  ##### Veri yerleşimi ile GitHub Enterprise Cloud (ghe.com)
+
+  GitHub Enterprise Cloud ayrıca uzak sunucuyu kullanabilir.
+
+  `https://octocorp.ghe.com` için GitHub PAT jetonu ile örnek:
+
+  ```
+  {
+      ...
+      "github-octocorp": {
+        "type": "http",
+        "url": "https://copilot-api.octocorp.ghe.com/mcp",
+        "headers": {
+          "Authorization": "Bearer ${input:github_mcp_pat}"
+        }
+      },
+      ...
+  }
+  ```
+
+  > **Not:** VS Code ve GitHub Copilot ile Veri Yerleşimi ile GitHub Enterprise kullanırken, VS Code ayarlarınızı GitHub Enterprise örneğinize işaret etmek için de yapılandırmanız gerekir - [VS Code'dan Kimlik Doğrula](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom) sayfasına bakın
+
+  ##### GitHub Enterprise Server
+
+  GitHub Enterprise Server, uzak sunucu barındırmasını desteklemez. Lütfen yerel sunucu yapılandırmasından [GitHub Enterprise Server ve Veri Yerleşimi ile Enterprise Cloud (ghe.com)](#github-enterprise-server-and-enterprise-cloud-with-data-residency-ghecom) sayfasına bakın.
+
+  ---
+
+  ## Yerel GitHub MCP Server
+
+  [![VS Code'da Docker ile Kur](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D) [![VS Code Insiders'da Docker ile Kur](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D&quality=insiders)
+
+  ### Ön Koşullar
+
+  1. Sunucuyu bir konteyner'da çalıştırmak için [Docker](https://www.docker.com/) kurulu olması gerekir.
+  2. Docker kurulduktan sonra, Docker'ın çalıştığından emin olmanız gerekir. Docker image'ı `ghcr.io/github/github-mcp-server` adresinde mevcuttur. Image halka açıktır; pull işleminde hata alırsanız, süresi dolmuş bir token'ınız olabilir ve `docker logout ghcr.io` yapmanız gerekebilir.
+  3. Son olarak [GitHub Kişisel Erişim Jetonu Oluşturmanız](https://github.com/settings/personal-access-tokens/new) gerekir.
+  MCP sunucusu, GitHub API'larının çoğunu kullanabilir, bu nedenle AI araçlarınıza verilmesi konusunda kendini rahat hissettiğiniz izinleri etkinleştirin (erişim token'ları hakkında daha fazla bilgi için lütfen [belgelerine](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) bakın).
+
+  <details><summary><b>PAT'ları Güvenli Bir Şekilde İşleme</b></summary>
+
+  ### Ortam Değişkenleri (Önerilir)
+
+  GitHub PAT'inizi güvenli tutmak ve farklı MCP ana bilgisayarlarında yeniden kullanılabilir hale getirmek için:
+
+  1. **PAT'inizi ortam değişkenlerinde saklayın**
+
+     ```bash
+     export GITHUB_PAT=your_token_here
+     ```
+
+     Veya bir `.env` dosyası oluşturun:
+
+     ```env
+     GITHUB_PAT=your_token_here
+     ```
+
+  2. **`.env` dosyanızı koruyun**
+
+     ```bash
+     # .gitignore'a ekleyin yanlışlıkla commit'leri önlemek için
+     echo ".env" >> .gitignore
+     ```
+
+  3. **Token'i yapılandırmalarda referans verin**
+
+     ```bash
+     # CLI kullanımı
+     claude mcp update github -e GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PAT
+
+     # Yapılandırma dosyalarında (desteklendiğinde)
+     "env": {
+       "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_PAT"
+     }
+     ```
+
+  > **Not**: Ortam değişkeni desteği ana bilgisayar uygulaması ve IDE'ye göre değişir. Bazı uygulamalar (Windsurf gibi) yapılandırma dosyalarında sabit kod yazılmış token'ler gerektirir.
+
+  ### Token Güvenliği En İyi Uygulamaları
+
+  - **Minimum kapsamlar**: Yalnızca gerekli izinleri verin
+    - `repo` - Depo işlemleri
+    - `read:packages` - Docker image'ı erişimi
+    - `read:org` - Organizasyon takımı erişimi
+  - **Ayrı token'ler**: Farklı projeler/ortamlar için farklı PAT'ler kullanın
+  - **Düzenli rotasyon**: Token'leri periyodik olarak güncelleyin
+  - **Asla commit etmeyin**: Token'leri version kontrolünün dışında tutun
+  - **Dosya izinleri**: Token'ler içeren yapılandırma dosyalarına erişimi kısıtlayın
+
+    ```bash
+    chmod 600 ~/.your-app/config.json
+    ```
+
+  </details>
+
+  ### GitHub Enterprise Server ve Veri Yerleşimi ile Enterprise Cloud (ghe.com)
+
+  `--gh-host` bayrağı ve `GITHUB_HOST` ortam değişkeni, GitHub Enterprise Server veya Veri Yerleşimi ile GitHub Enterprise Cloud için ana bilgisayar adını ayarlamak üzere kullanılabilir.
+
+  - GitHub Enterprise Server için, ana bilgisayar adını `https://` URI şeması ile önek ekleyin, aksi takdirde `http://` varsayılan olur ve GitHub Enterprise Server bunu desteklemez.
+  - Veri Yerleşimi ile GitHub Enterprise Cloud için, ana bilgisayar adı olarak `https://YOURSUBDOMAIN.ghe.com` kullanın.
+
+  ``` json
+  "github": {
+      "command": "docker",
+      "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "GITHUB_PERSONAL_ACCESS_TOKEN",
+      "-e",
+      "GITHUB_HOST",
+      "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}",
+          "GITHUB_HOST": "https://<your GHES or ghe.com domain name>"
+      }
+  }
+  ```
+
+  ## Kurulum
+
+  ### GitHub Copilot on VS Code'da Kur
+
+  Hızlı kurulum için yukarıdaki tek tıklamalı kurulum düğmelerinden birini kullanın. Bu akışı tamamladıktan sonra Agent modunu (Copilot Chat metin girdisinin yanında bulunan) açın ve sunucu başlayacaktır.
+
+  VS Code'un [ajan modu belgelerine](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) bakın MCP sunucu araçlarını kullanma hakkında daha fazla bilgi için.
+
+  Diğer IDE'lerde GitHub Copilot'a (JetBrains, Visual Studio, Eclipse, vb.) Kur
+
+  Aşağıdaki JSON bloğunu IDE'nin MCP ayarlarına ekleyin.
+
+  ```json
+  {
+    "mcp": {
+      "inputs": [
+        {
+          "type": "promptString",
+          "id": "github_token",
+          "description": "GitHub Kişisel Erişim Jetonu",
+          "password": true
+        }
+      ],
+      "servers": {
+        "github": {
+          "command": "docker",
+          "args": [
+            "run",
+            "-i",
+            "--rm",
+            "-e",
+            "GITHUB_PERSONAL_ACCESS_TOKEN",
+            "ghcr.io/github/github-mcp-server"
+          ],
+          "env": {
+            "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  İsteğe bağlı olarak, çalışma alanınızda `.vscode/mcp.json` adında bir dosyaya benzer bir örnek (yani mcp anahtarı olmadan) ekleyebilirsiniz. Bu, yapılandırmayı aynı formatı kabul eden diğer ana bilgisayar uygulamaları ile paylaşmanıza izin verir.
+
+  <details>
+  <summary><b>MCP anahtarı olmayan örnek JSON bloğu</b></summary>
+  <br>
+
+  ```json
+  {
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "github_token",
+        "description": "GitHub Kişisel Erişim Jetonu",
+        "password": true
+      }
+    ],
+    "servers": {
+      "github": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "-e",
+          "GITHUB_PERSONAL_ACCESS_TOKEN",
+          "ghcr.io/github/github-mcp-server"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
+        }
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  ### Diğer MCP Ana Bilgisayarlarında Kur
+
+  Diğer MCP ana bilgisayar uygulamaları için lütfen kurulum kılavuzlarımıza bakın:
+
+  - **[Copilot CLI](docs/installation-guides/install-copilot-cli.md)** - GitHub Copilot CLI için kurulum kılavuzu
+  - **[Diğer IDE'lerde GitHub Copilot](/docs/installation-guides/install-other-copilot-ides.md)** - JetBrains, Visual Studio, Eclipse ve Xcode'da GitHub Copilot kurulumu
+  - **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Claude Code ve Claude Desktop için kurulum kılavuzu
+  - **[Cursor](docs/installation-guides/install-cursor.md)** - Cursor IDE için kurulum kılavuzu
+  - **[Google Gemini CLI](docs/installation-guides/install-gemini-cli.md)** - Google Gemini CLI için kurulum kılavuzu
+  - **[Windsurf](docs/installation-guides/install-windsurf.md)** - Windsurf IDE için kurulum kılavuzu
+
+  Tüm kurulum seçeneklerine genel bir bakış için, lütfen **[Kurulum Kılavuzları İndeksine](docs/installation-guides)** bakın.
+
+  > **Not:** Yerel MCP sunucularını destekleyen herhangi bir ana bilgisayar uygulaması, yerel GitHub MCP sunucusuna erişebilmelidir. Ancak, belirli yapılandırma süreci, söz dizimi ve entegrasyonun stabilitesi ana bilgisayar uygulamasına göre değişir. Çoğu yukarıdaki örneklere benzer bir format izleyebilirken, bu garantili değildir. Doğru MCP yapılandırma söz dizimi ve kurulum süreci için lütfen ana bilgisayar uygulamanızın belgelerine bakın.
+
+  ### Kaynaktan Derle
+
+  Docker'ınız yoksa, `cmd/github-mcp-server` dizininde `go build` kullanarak ikili dosyayı derleyebilir ve `GITHUB_PERSONAL_ACCESS_TOKEN` ortam değişkeni token'ize ayarlanmış şekilde `github-mcp-server stdio` komutunu kullanabilirsiniz. Derlemenin çıkış konumunu belirtmek için `-o` bayrağını kullanın. Sunucunuzu, derlenmiş yürütülebilir dosyayı `command` olarak kullanacak şekilde yapılandırmalısınız. Örneğin:
+
+  ```JSON
+  {
+    "mcp": {
+      "servers": {
+        "github": {
+          "command": "/path/to/github-mcp-server",
+          "args": ["stdio"],
+          "env": {
+            "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  ### CLI Yardımcı Programları
+
+  `github-mcp-server` ikili dosyası, sunucuyu hata ayıklama ve keşfetme konusunda yardımcı olan birkaç CLI alt komutu içerir.
+
+  - `github-mcp-server tool-search "<query>"` araçları ada, açıklamaya ve giriş parametre adlarına göre arar. Daha fazla eşleşme döndürmek için `--max-results` kullanın.
+  Örnek (renk çıktısı TTY gerektirir; Docker'da çalıştırırken `docker run -t` (veya `-it`) kullanın):
+  ```bash
+  docker run -it --rm ghcr.io/github/github-mcp-server tool-search "issue" --max-results 5
+  github-mcp-server tool-search "issue" --max-results 5
+  ```
+
+  ## Araç Yapılandırması
+
+  GitHub MCP Server, `--toolsets` bayrağı aracılığıyla belirli işlevsellik gruplarını etkinleştirme veya devre dışı bırakma destekler. Bu, AI araçlarına hangi GitHub API yeteneklerinin kullanılabilir olduğunu kontrol etmenize izin verir. Yalnızca ihtiyaç duyduğunuz araç setlerini etkinleştirmek, LLM'nin araç seçimine yardımcı olabilir ve bağlam boyutunu azaltabilir.
+
+  _Araç setleri araçlarla sınırlı değildir. İlgili MCP Kaynakları ve İstemler de uygulanabilir yerlerde dahil edilir._
+
+  Araç seti belirtilmediğinde, [varsayılan araç setleri](#default-toolset) kullanılır.
+
+  > **Örnekler arıyor? mısınız?** Minimal kurulumlar, salt okunur mod ve araçları araç setleriyle birleştirme gibi yaygın tarifler için [Server Yapılandırma Kılavuzuna](./docs/server-configuration.md) bakın.
+
+  #### Araç Setlerini Belirtme
+
+  LLM'nin kullanabileceğini istediğiniz araç setlerini belirtmek için, bir izin listesini iki şekilde geçebilirsiniz:
+
+  1. **Komut Satırı Argümanı Kullanarak**:
+
+     ```bash
+     github-mcp-server --toolsets repos,issues,pull_requests,actions,code_security
+     ```
+
+  2. **Ortam Değişkeni Kullanarak**:
+
+     ```bash
+     GITHUB_TOOLSETS="repos,issues,pull_requests,actions,code_security" ./github-mcp-server
+     ```
+
+  Ortam değişkeni `GITHUB_TOOLSETS`, her ikisi de sağlanırsa komut satırı argümanından öncelik alır.
+
+  #### Bireysel Araçları Belirtme
+
+  Ayrıca `--tools` bayrağını kullanarak belirli araçları yapılandırabilirsiniz. Araçlar bağımsız olarak veya ince taneli kontrol için araç setleriyle birleştirilmiş olarak kullanılabilir.
+
+  1. **Komut Satırı Argümanı Kullanarak**:
+
+     ```bash
+     github-mcp-server --tools get_file_contents,issue_read,create_pull_request
+     ```
+
+  2. **Ortam Değişkeni Kullanarak**:
+
+     ```bash
+     GITHUB_TOOLS="get_file_contents,issue_read,create_pull_request" ./github-mcp-server
+     ```
+
+  3. **Araç Setleriyle Birleştirme** (kümülatif):
+
+     ```bash
+     github-mcp-server --toolsets repos,issues --tools get_gist
+     ```
+
+     Bu, `repos` ve `issues` araç setlerinden tüm araçları, plus `get_gist` kaydettirir.
+
+  **Önemli Notlar:**
+
+  - Araçlar ve araç setleri birlikte kullanılabilir
+  - Salt okunur mod önceliğe sahiptir: yazma araçları `--read-only` ayarlanırsa, `--tools` aracılığıyla açıkça istense bile atlanır
+  - Araç adları tam olarak eşleşmelidir (ör. `get_file_contents`, `getFileContents` değil). Geçersiz araç adları sunucunun başlangıçta bir hata mesajı ile başarısız olmasına neden olur
+  - Araçlar yeniden adlandırıldığında, eski adlar geriye dönük uyumluluk için takma ad olarak korunur. Ayrıntılar için [Araç Yeniden Adlandırma](docs/tool-renaming.md) sayfasına bakın.
+
+  ### Docker ile Araç Setlerini Kullanma
+
+  Docker kullanırken, araç setlerini ortam değişkenleri olarak geçebilirsiniz:
+
+  ```bash
+  docker run -i --rm \
+    -e GITHUB_PERSONAL_ACCESS_TOKEN=<your-token> \
+    -e GITHUB_TOOLSETS="repos,issues,pull_requests,actions,code_security" \
+    ghcr.io/github/github-mcp-server
+  ```
+
+  ### Docker ile Araçları Kullanma
+
+  Docker kullanırken, belirli araçları ortam değişkenleri olarak
 ---
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/github/github-mcp-server)](https://goreportcard.com/report/github.com/github/github-mcp-server)

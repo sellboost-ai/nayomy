@@ -9,6 +9,408 @@ body_length: 9273
 license: "MIT"
 language: "Go"
 homepage: "https://smcleod.net"
+body_tr: |-
+  # Package Version MCP Server
+
+  [![smithery badge](https://smithery.ai/badge/mcp-package-version)](https://smithery.ai/server/mcp-package-version)
+
+  Birden çok paket registryinden en son kararlı paket sürümlerini kontrol etmek için araçlar sağlayan bir MCP sunucusu:
+
+  - npm (Node.js/JavaScript)
+  - PyPI (Python)
+  - Maven Central (Java)
+  - Go Proxy (Go)
+  - Swift Packages (Swift)
+  - AWS Bedrock (AI Models)
+  - Docker Hub (Container Images)
+  - GitHub Container Registry (Container Images)
+  - GitHub Actions
+
+  Bu sunucu, LLM'lerin kod yazarken güncel paket sürümlerini önerdiğinden emin olmalarına yardımcı olur.
+
+  **ÖNEMLİ: Bu aracı yavaş yavaş [mcp-devtools](https://github.com/sammcj/mcp-devtools) sunucusunun bir bileşenine taşıyorum**
+
+  <a href="https://glama.ai/mcp/servers/zkts2w92ba"></a>
+
+  ## Ekran Görüntüsü
+
+  ![mcp-package-version ile ve olmadan araçlar](https://raw.githubusercontent.com/sammcj/mcp-package-version/HEAD/images/with-without.jpg)
+
+  - [Package Version MCP Server](#package-version-mcp-server)
+    - [Ekran Görüntüsü](#ekran-görüntüsü)
+    - [Kurulum](#kurulum)
+    - [Kullanım](#kullanım)
+    - [Araçlar](#araçlar)
+    - [Sürümler ve CI/CD](#sürümler-ve-cicd)
+    - [Lisans](#lisans)
+
+  ## Kurulum
+
+  Gereksinimler:
+
+  - Modern bir Go sürümü yüklü (Bkz. [Go Kurulum](https://go.dev/doc/install))
+
+  `go install` kullanarak (MCP Client Kurulumu için Önerilen):
+
+  ```bash
+  go install github.com/sammcj/mcp-package-version/v2@HEAD
+  ```
+
+  Daha sonra istemcinizi MCP sunucusunu kullanacak şekilde ayarlayın. `go install github.com/sammcj/mcp-package-version/v2@HEAD` ile binary'yi yüklediyseniz ve `$GOPATH` değeriniz `/Users/sammcj/go/bin` ise, binary'nin tam yolunu sağlayabilirsiniz:
+
+  ```json
+  {
+    "mcpServers": {
+      "package-version": {
+        "command": "/Users/sammcj/go/bin/mcp-package-version"
+      }
+    }
+  }
+  ```
+
+  - Cline VSCode Extension için bu `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json` olacaktır
+  - Claude Desktop için `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+  - GoMCP için `~/.config/gomcp/config.yaml`
+
+  ### Diğer Kurulum Yöntemleri
+
+  Veya depoyu klonlayıp derleyin:
+
+  ```bash
+  git clone https://github.com/sammcj/mcp-package-version.git
+  cd mcp-package-version
+  make
+  ```
+
+  Sunucuyu bir container içinde de çalıştırabilirsiniz:
+
+  ```bash
+  docker run -p 18080:18080 ghcr.io/sammcj/mcp-package-version:main
+  ```
+
+  Not: Bir container içinde çalıştırıyorsanız, istemciyi komut yerine URL kullanacak şekilde yapılandırmanız gerekir, örneğin:
+
+  ```json
+  {
+    "mcpServers": {
+      "package-version": {
+        "url": "http://localhost:18080",
+      }
+    }
+  }
+  ```
+
+  #### İpucu: Go Path
+
+  Eğer `$GOPATH/bin` sizin `PATH` değerinizde değilse, MCP istemcinizi yapılandırırken binary'nin tam yolunu sağlamanız gerekir (örneğin `/Users/sammcj/go/bin/mcp-package-version`).
+
+  Go uygulamaları hiç kullanmadıysanız ve Go'yu yeni yüklediyseniz, ortamınızda yapılandırılmış bir `$GOPATH` olmayabilir. Bu, herhangi bir `go install` komutunun doğru şekilde çalışması için önemlidir.
+
+  > **`$GOPATH` Anlamak**
+  >
+  > `go install` komutu Go paketlerini indirir ve derler, ortaya çıkan binary çalıştırılabilir dosyasını `$GOPATH` sizin `bin` alt dizinine yerleştirir. Varsayılan olarak, `$GOPATH` Unix benzeri sistemlerde (macOS dahil) genellikle `$HOME/go` konumunda bulunur. `$GOPATH` değerini açıkça yapılandırmadıysanız, Go bu varsayılanı kullanır.
+  >
+  > `$GOPATH/bin` konumu (örn. `/Users/your_username/go/bin`) sisteminizin `PATH` ortam değişkenine dahil edilmelidir, eğer yüklü Go binary'lerini herhangi bir terminal konumundan doğrudan ad ile çalıştırmak istiyorsanız.
+  >
+  > Shell yapılandırma dosyanıza (örn. `~/.zshrc`, `~/.bashrc`) aşağıdaki satırı ekleyerek, `$GOPATH` değerini zaten ayarlanmadıysa varsayılan değere ayarlayabilir ve `$GOPATH/bin` değerini `PATH` değerinize dahil edebilirsiniz:
+  >
+  > ```bash
+  > [ -z "$GOPATH" ] && export GOPATH="$HOME/go"; echo "$PATH" | grep -q ":$GOPATH/bin" || export PATH="$PATH:$GOPATH/bin"
+  > ```
+  >
+  > Bu satırı ekledikten sonra terminal veya MCP istemcinizi yeniden başlatın.
+
+  ## Kullanım
+
+  Sunucu iki transport modunu destekler: stdio (varsayılan) ve SSE (Server-Sent Events).
+
+  ### STDIO Transport (Varsayılan)
+
+  ```bash
+  mcp-package-version
+  ```
+
+  ### SSE Transport
+
+  ```bash
+  mcp-package-version --transport sse --port 18080 --base-url "http://localhost:18080"
+  ```
+
+  Bu, sunucuyu istemciler için `http://localhost:18080/sse` konumunda (Not: `/sse` eki!) kullanılabilir hale getirecektir.
+
+  #### Komut Satırı Seçenekleri
+
+  - `--transport`, `-t`: Transport türü (stdio veya sse). Varsayılan: stdio
+  - `--port`: SSE transport için kullanılacak port. Varsayılan: 18080
+  - `--base-url`: SSE transport için temel URL. Varsayılan: http://localhost
+
+  ### Docker İmajları
+
+  Docker imajları GitHub Container Registry'den kullanılabilir:
+
+  ```bash
+  docker pull ghcr.io/sammcj/mcp-package-version:main
+  ```
+
+  Ayrıca örnek [docker-compose.yaml](docker-compose.yaml) dosyasını da görebilirsiniz.
+
+  ## Araçlar
+
+  ### NPM Paketleri
+
+  NPM paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_npm_versions",
+    "arguments": {
+      "dependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "lodash": "4.17.21"
+      },
+      "constraints": {
+        "react": {
+          "majorVersion": 17
+        }
+      }
+    }
+  }
+  ```
+
+  ### Python Paketleri (requirements.txt)
+
+  requirements.txt dosyasından Python paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_python_versions",
+    "arguments": {
+      "requirements": [
+        "requests==2.28.1",
+        "flask>=2.0.0",
+        "numpy"
+      ]
+    }
+  }
+  ```
+
+  ### Python Paketleri (pyproject.toml)
+
+  pyproject.toml dosyasından Python paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_pyproject_versions",
+    "arguments": {
+      "dependencies": {
+        "dependencies": {
+          "requests": "^2.28.1",
+          "flask": ">=2.0.0"
+        },
+        "optional-dependencies": {
+          "dev": {
+            "pytest": "^7.0.0"
+          }
+        },
+        "dev-dependencies": {
+          "black": "^22.6.0"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Java Paketleri (Maven)
+
+  Maven'den Java paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_maven_versions",
+    "arguments": {
+      "dependencies": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-web",
+          "version": "2.7.0"
+        },
+        {
+          "groupId": "com.google.guava",
+          "artifactId": "guava",
+          "version": "31.1-jre"
+        }
+      ]
+    }
+  }
+  ```
+
+  ### Java Paketleri (Gradle)
+
+  Gradle'dan Java paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_gradle_versions",
+    "arguments": {
+      "dependencies": [
+        {
+          "configuration": "implementation",
+          "group": "org.springframework.boot",
+          "name": "spring-boot-starter-web",
+          "version": "2.7.0"
+        },
+        {
+          "configuration": "testImplementation",
+          "group": "junit",
+          "name": "junit",
+          "version": "4.13.2"
+        }
+      ]
+    }
+  }
+  ```
+
+  ### Go Paketleri
+
+  go.mod dosyasından Go paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_go_versions",
+    "arguments": {
+      "dependencies": {
+        "module": "github.com/example/mymodule",
+        "require": [
+          {
+            "path": "github.com/gorilla/mux",
+            "version": "v1.8.0"
+          },
+          {
+            "path": "github.com/spf13/cobra",
+            "version": "v1.5.0"
+          }
+        ]
+      }
+    }
+  }
+  ```
+
+  ### Docker İmajları
+
+  Docker imajları için kullanılabilir etiketleri kontrol edin:
+
+  ```json
+  {
+    "name": "check_docker_tags",
+    "arguments": {
+      "image": "nginx",
+      "registry": "dockerhub",
+      "limit": 5,
+      "filterTags": ["^1\\."],
+      "includeDigest": true
+    }
+  }
+  ```
+
+  ### AWS Bedrock Modelleri
+
+  Tüm AWS Bedrock modellerini listeleyin:
+
+  ```json
+  {
+    "name": "check_bedrock_models",
+    "arguments": {
+      "action": "list"
+    }
+  }
+  ```
+
+  Belirli AWS Bedrock modellerini arayın:
+
+  ```json
+  {
+    "name": "check_bedrock_models",
+    "arguments": {
+      "action": "search",
+      "query": "claude",
+      "provider": "anthropic"
+    }
+  }
+  ```
+
+  En son Claude Sonnet modelini alın:
+
+  ```json
+  {
+    "name": "get_latest_bedrock_model",
+    "arguments": {}
+  }
+  ```
+
+  ### Swift Paketleri
+
+  Swift paketlerinin en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_swift_versions",
+    "arguments": {
+      "dependencies": [
+        {
+          "url": "https://github.com/apple/swift-argument-parser",
+          "version": "1.1.4"
+        },
+        {
+          "url": "https://github.com/vapor/vapor",
+          "version": "4.65.1"
+        }
+      ],
+      "constraints": {
+        "https://github.com/apple/swift-argument-parser": {
+          "majorVersion": 1
+        }
+      }
+    }
+  }
+  ```
+
+  ### GitHub Actions
+
+  GitHub Actions'ın en son sürümlerini kontrol edin:
+
+  ```json
+  {
+    "name": "check_github_actions",
+    "arguments": {
+      "actions": [
+        {
+          "owner": "actions",
+          "repo": "checkout",
+          "currentVersion": "v3"
+        },
+        {
+          "owner": "actions",
+          "repo": "setup-node",
+          "currentVersion": "v3"
+        }
+      ],
+      "includeDetails": true
+    }
+  }
+  ```
+
+  ## Sürümler ve CI/CD
+
+  Bu proje sürekli entegrasyon ve dağıtım için GitHub Actions kullanır. İş akışı otomatik olarak:
+
+  1. Ana dala her push'ta ve pull request'lerde uygulamayı derler ve test eder
+  2. `v*` formatında bir tag (örn. `v1.0.0`) puslendiğinde bir sürüm oluşturur
+  3. Docker imajlarını derler ve GitHub Container Registry'ye yükler
+
+  ## Lisans
+
+  [MIT](LICENSE)
 ---
 
 # Package Version MCP Server

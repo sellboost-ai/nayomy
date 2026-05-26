@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla API Labz Otomasyonu
+
+  Composio'nun API Labz araç seti aracılığıyla Rube MCP üzerinden API Labz işlemlerini otomatikleştirin.
+
+  **Araç seti dokümanları**: [composio.dev/toolkits/api_labz](https://composio.dev/toolkits/api_labz)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlanmış olmalı (`RUBE_SEARCH_TOOLS` kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `api_labz` araç seti ile aktif API Labz bağlantısı
+  - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısını yapın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: MCP sunucu yapılandırmasında `https://rube.app/mcp` ekleyin. API anahtarlarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağrısını `api_labz` araç seti ile yapın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama bağlantısını izleyin
+  4. Herhangi bir workflow'u çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  İş akışlarını yürütmeden önce her zaman kullanılabilir araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "API Labz operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific API Labz task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["api_labz"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slug'larını veya argümanlarını asla hardcode'lamayın
+  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
+  - **Oturum yeniden kullanımı**: Bir workflow içinde oturum ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Sayfalandırma**: Yanıtları sayfalandırma tokenları için kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` ile API Labz'a özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `api_labz` araç seti |
+  | Çalıştır | Keşfedilen araç slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `schemaRef` olan araçlar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # API Labz Automation via Rube MCP

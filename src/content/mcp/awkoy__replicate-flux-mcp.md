@@ -8,6 +8,455 @@ url: "https://github.com/awkoy/replicate-flux-mcp"
 body_length: 19859
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/awkoy-replicate-flux-mcp-badge.png)](https://mseep.ai/app/awkoy-replicate-flux-mcp)
+
+  # Replicate Flux MCP
+
+  ![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)
+  ![License](https://img.shields.io/badge/license-MIT-green)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue)
+  ![Model Context Protocol](https://img.shields.io/badge/MCP-Enabled-purple)
+  [![smithery badge](https://smithery.ai/badge/@awkoy/replicate-flux-mcp)](https://smithery.ai/server/@awkoy/replicate-flux-mcp)
+  ![NPM Downloads](https://img.shields.io/npm/dw/replicate-flux-mcp)
+  ![Stars](https://img.shields.io/github/stars/awkoy/replicate-flux-mcp)
+
+  <a href="https://glama.ai/mcp/servers/ss8n1knen8">
+    
+  </a>
+
+  **Replicate Flux MCP**, yapay zeka asistanlarına yüksek kaliteli resimler ve vektör grafikler oluşturma gücü veren gelişmiş bir Model Context Protocol (MCP) sunucusudur. Raster görseller için [Black Forest Labs'ın Flux Schnell modelinden](https://replicate.com/black-forest-labs/flux-schnell) ve vektör grafikler için [Recraft'ın V3 SVG modelinden](https://replicate.com/recraft-ai/recraft-v3-svg) yararlanarak Replicate API aracılığıyla çalışır.
+
+  ## 📑 İçindekiler
+
+  - [Başlarken & Entegrasyon](#-başlarken--entegrasyon)
+    - [Kurulum Süreci](#kurulum-süreci)
+    - [Cursor Entegrasyonu](#cursor-entegrasyonu)
+    - [Claude Desktop Entegrasyonu](#claude-desktop-entegrasyonu)
+    - [Smithery Entegrasyonu](#smithery-entegrasyonu)
+    - [Glama.ai Entegrasyonu](#glamaai-entegrasyonu)
+  - [Özellikler](#-özellikler)
+  - [Dokümantasyon](#-dokümantasyon)
+    - [Mevcut Araçlar](#mevcut-araçlar)
+    - [Mevcut Kaynaklar](#mevcut-kaynaklar)
+    - [Mevcut İstemler](#mevcut-istemler)
+    - [Yapılandırılmış Çıktı](#yapılandırılmış-çıktı)
+    - [Ortam Değişkenleri](#ortam-değişkenleri)
+  - [Geliştirme](#-geliştirme)
+    - [Test Etme](#test-etme)
+  - [Teknik Detaylar](#-teknik-detaylar)
+  - [Sorun Giderme](#-sorun-giderme)
+  - [Katkıda Bulunma](#-katkıda-bulunma)
+  - [Lisans](#-lisans)
+  - [Kaynaklar](#-kaynaklar)
+  - [Örnekler](#-örnekler)
+
+  ## 🚀 Başlarken & Entegrasyon
+
+  ### Kurulum Süreci
+
+  1. **Replicate API Token Alın**
+     - [Replicate](https://replicate.com/) adresine kaydolun
+     - Hesap ayarlarınızda bir API token oluşturun
+
+  2. **Entegrasyon Yönteminizi Seçin**
+     - Tercih ettiğiniz MCP istemcisine göre aşağıdaki entegrasyon seçeneklerinden birini izleyin
+
+  3. **AI Asistanınızdan Bir Resim Oluşturmasını İsteyin**
+     - Basitçe sorun: "Günbatımında sakin bir dağ manzarası resmi oluşturabilir misin?"
+     - Veya daha spesifik olun: "Lütfen ön planda günbatımı renklerini yansıtan bir göl olan sakin bir dağ sahnesi gösteren bir resim oluştur"
+
+  4. **Gelişmiş Özellikleri Keşfedin**
+     - Özelleştirilmiş sonuçlar için farklı parametre ayarlarını deneyin
+     - SVG oluşturmayı `generate_svg` kullanarak deneyin
+     - Batch resim oluşturma veya varyant oluşturma özelliklerini kullanın
+
+  ### Cursor Entegrasyonu
+
+  #### Yöntem 1: mcp.json Kullanma
+
+  1. Proje dizininizde `.cursor/mcp.json` dosyasını oluşturun veya düzenleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "replicate-flux-mcp": {
+        "command": "env REPLICATE_API_TOKEN=YOUR_TOKEN npx",
+        "args": ["-y", "replicate-flux-mcp"]
+      }
+    }
+  }
+  ```
+
+  2. `YOUR_TOKEN` yerine gerçek Replicate API token'inizi yazın
+  3. Değişiklikleri uygulamak için Cursor'u yeniden başlatın
+
+  #### Yöntem 2: Manuel Mod
+
+  1. Cursor'u açın ve Ayarlar'a gidin
+  2. "MCP" veya "Model Context Protocol" bölümüne gidin
+  3. "Sunucu Ekle" veya eşdeğerini tıklatın
+  4. İlgili alana aşağıdaki komutu girin:
+
+  ```
+  env REPLICATE_API_TOKEN=YOUR_TOKEN npx -y replicate-flux-mcp
+  ```
+
+  5. `YOUR_TOKEN` yerine gerçek Replicate API token'inizi yazın
+  6. Ayarları kaydedin ve gerekirse Cursor'u yeniden başlatın
+
+  ### Claude Desktop Entegrasyonu
+
+  1. Konfigürasyon dizininizde `mcp.json` dosyasını oluşturun veya düzenleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "replicate-flux-mcp": {
+        "command": "npx",
+        "args": ["-y", "replicate-flux-mcp"],
+        "env": {
+          "REPLICATE_API_TOKEN": "YOUR TOKEN"
+        }
+      }
+    }
+  }
+  ```
+
+  2. `YOUR_TOKEN` yerine gerçek Replicate API token'inizi yazın
+  3. Değişiklikleri uygulamak için Claude Desktop'u yeniden başlatın
+
+  ### Smithery Entegrasyonu
+
+  Bu MCP sunucusu, Smithery'de barındırılan bir hizmet olarak mevcuttur ve kendi sunucunuzu kurmanıza gerek kalmadan kullanmanıza izin verir.
+
+  1. [Smithery](https://smithery.ai/) adresini ziyaret edin ve hesap yoksa oluşturun
+  2. [Replicate Flux MCP sunucu sayfasına](https://smithery.ai/server/@awkoy/replicate-flux-mcp) gidin
+  3. Sunucuyu Smithery çalışma alanınıza eklemek için "Add to Workspace" (Çalışma Alanına Ekle) seçeneğini tıklatın
+  4. MCP istemcinizi (Cursor, Claude Desktop, vb.) Smithery çalışma alanı URL'inizi kullanacak şekilde yapılandırın
+
+  MCP istemcilerinizle Smithery'yi kullanma hakkında daha fazla bilgi için [Smithery dokümantasyonunu](https://smithery.ai/docs) ziyaret edin.
+
+  ### Glama.ai Entegrasyonu
+
+  Bu MCP sunucusu ayrıca Glama.ai'de barındırılan bir hizmet olarak mevcuttur ve yerel kurulum olmadan kullanmanız için başka bir seçenek sağlar.
+
+  1. [Glama.ai](https://glama.ai/) adresini ziyaret edin ve hesap yoksa oluşturun
+  2. [Replicate Flux MCP sunucu sayfasına](https://glama.ai/mcp/servers/ss8n1knen8) gidin
+  3. Sunucuyu çalışma alanınıza eklemek için "Install Server" (Sunucuyu Yükle) seçeneğini tıklatın
+  4. MCP istemcinizi Glama.ai çalışma alanınızı kullanacak şekilde yapılandırın
+
+  Daha fazla bilgi için [Glama.ai MCP sunucuları dokümantasyonunu](https://glama.ai/mcp/servers) ziyaret edin.
+
+  ## 🌟 Özellikler
+
+  - **🖼️ Yüksek Kaliteli Resim Oluşturma** — Flux Schnell raster görselleri, en boy oranı, megapiksel, inference adımları, çıktı formatı ve seed üzerinde tam kontrol ile.
+  - **🎨 Vektör Grafikler** — Logolar, ikonlar ve diyagramlar için Recraft V3 SVG.
+  - **📊 Batch + Varyantlar** — N istemi N resim veya bir istemi N varyant olarak oluşturun (seed tabanlı veya istem-modifier tabanlı).
+  - **🧩 Rastgele Replicate Modelleri** — `run_replicate_model` kaçış kapısı, OpenAPI giriş şeması için `get_model_schema` introspeksiyonu ile birlikte herhangi bir `owner/name[:version]` referansını kabul eder. `REPLICATE_MODEL_ALLOWLIST` aracılığıyla isteğe bağlı izin listesi.
+  - **📦 Yapılandırılmış Çıktı** — Her `generate_*` aracı, her araç `outputSchema`'sı (URL, istem, format, en boy oranı, varyant başına seed, vb.) eşleşen, insan tarafından okunabilir içeriğin yanında makine tarafından okunabilir `structuredContent` döndürür.
+  - **⏳ İlerleme Bildirimleri** — Batch ve varyant oluşturma, `progressToken` aracılığıyla katılım sağlayan istemciler için `notifications/progress` yayınlar, böylece uzun çalışmalar kara kutu değildir.
+  - **💬 Seçilmiş İstemler** — 5 hazır istem şablonu (`logo`, `portrait`, `svg-icon`, `product-shot`, `isometric-diagram`) Claude Desktop'ın slash paletinde ve Cursor'ın `@`-menüsünde yüzey oluşturulmuştur.
+  - **🏷️ Uygun Araç Ek Açıklamaları** — `readOnlyHint` / `destructiveHint` / `openWorldHint` / `idempotentHint` doğru şekilde ayarlanmıştır, böylece istemciler güvenlik ve maliyet hakkında akıl yürütebilir.
+  - **🪵 Yapılandırılmış Günlüğe Kaydetme** — Sunucu tarafı hatalar, stderr yerine `notifications/message` üzerinden seyahat eder.
+  - **🔌 Evrensel MCP Uyumluluğu** — MCP protokolü 2025-11-25; Claude Desktop, Cursor, Cline, Zed ve herhangi bir spec-uyumlu istemci ile çalışır.
+  - **🔍 Oluşturma Geçmişi** — `imagelist`, `svglist` ve `predictionlist` kaynakları aracılığıyla geçmiş çalışmaları inceleyin.
+
+  ## 📚 Dokümantasyon
+
+  ### Mevcut Araçlar
+
+  #### `generate_image`
+
+  Flux Schnell modelini kullanarak bir metin istemine dayalı olarak bir resim oluşturur.
+
+  ```typescript
+  {
+    prompt: string;                // Gerekli: Oluşturulacak resmin metin açıklaması
+    seed?: number;                 // İsteğe bağlı: Yeniden üretilebilir oluşturma için rastgele seed
+    go_fast?: boolean;             // İsteğe bağlı: Optimize edilmiş model ile daha hızlı tahminler çalıştır (varsayılan: true)
+    megapixels?: "1" | "0.25";     // İsteğe bağlı: Resim çözünürlüğü (varsayılan: "1")
+    num_outputs?: number;          // İsteğe bağlı: Oluşturulacak resim sayısı (1-4) (varsayılan: 1)
+    aspect_ratio?: string;         // İsteğe bağlı: En boy oranı (örn. "16:9", "4:3") (varsayılan: "1:1")
+    output_format?: string;        // İsteğe bağlı: Çıktı formatı ("webp", "jpg", "png") (varsayılan: "webp")
+    output_quality?: number;       // İsteğe bağlı: Resim kalitesi (0-100) (varsayılan: 80)
+    num_inference_steps?: number;  // İsteğe bağlı: Denoising adımlarının sayısı (1-4) (varsayılan: 4)
+    disable_safety_checker?: boolean; // İsteğe bağlı: Güvenlik filtresini devre dışı bırak (varsayılan: false)
+  }
+  ```
+
+  #### `generate_multiple_images`
+
+  Flux Schnell modelini kullanarak bir istem dizisine dayalı olarak birden çok resim oluşturur.
+
+  ```typescript
+  {
+    prompts: string[];             // Gerekli: Oluşturulacak resimler için metin açıklamalarının dizisi (1-10 istem)
+    seed?: number;                 // İsteğe bağlı: Yeniden üretilebilir oluşturma için rastgele seed
+    go_fast?: boolean;             // İsteğe bağlı: Optimize edilmiş model ile daha hızlı tahminler çalıştır (varsayılan: true)
+    megapixels?: "1" | "0.25";     // İsteğe bağlı: Resim çözünürlüğü (varsayılan: "1")
+    aspect_ratio?: string;         // İsteğe bağlı: En boy oranı (örn. "16:9", "4:3") (varsayılan: "1:1")
+    output_format?: string;        // İsteğe bağlı: Çıktı formatı ("webp", "jpg", "png") (varsayılan: "webp")
+    output_quality?: number;       // İsteğe bağlı: Resim kalitesi (0-100) (varsayılan: 80)
+    num_inference_steps?: number;  // İsteğe bağlı: Denoising adımlarının sayısı (1-4) (varsayılan: 4)
+    disable_safety_checker?: boolean; // İsteğe bağlı: Güvenlik filtresini devre dışı bırak (varsayılan: false)
+  }
+  ```
+
+  #### `generate_image_variants`
+
+  Tek bir isteme dayalı olarak aynı resmin birden çok varyantını oluşturur.
+
+  ```typescript
+  {
+    prompt: string;                // Gerekli: Varyantları oluşturulacak resim için metin açıklaması
+    num_variants: number;          // Gerekli: Oluşturulacak resim varyantı sayısı (2-10, varsayılan: 4)
+    prompt_variations?: string[];  // İsteğe bağlı: Varyantlara uygulanacak istem değiştiricileri listesi (örn. ["suluboya stilinde", "yağlıboya stilinde"])
+    variation_mode?: "append" | "replace"; // İsteğe bağlı: Varyasyonlar nasıl uygulanır - 'append' temel isteme ekler, 'replace' varyasyonları doğrudan kullanır (varsayılan: "append")
+    seed?: number;                 // İsteğe bağlı: Temel rastgele seed. Her varyant seed+variant_index kullanacak
+    go_fast?: boolean;             // İsteğe bağlı: Optimize edilmiş model ile daha hızlı tahminler çalıştır (varsayılan: true)
+    megapixels?: "1" | "0.25";     // İsteğe bağlı: Resim çözünürlüğü (varsayılan: "1")
+    aspect_ratio?: string;         // İsteğe bağlı: En boy oranı (örn. "16:9", "4:3") (varsayılan: "1:1")
+    output_format?: string;        // İsteğe bağlı: Çıktı formatı ("webp", "jpg", "png") (varsayılan: "webp")
+    output_quality?: number;       // İsteğe bağlı: Resim kalitesi (0-100) (varsayılan: 80)
+    num_inference_steps?: number;  // İsteğe bağlı: Denoising adımlarının sayısı (1-4) (varsayılan: 4)
+    disable_safety_checker?: boolean; // İsteğe bağlı: Güvenlik filtresini devre dışı bırak (varsayılan: false)
+  }
+  ```
+
+  #### `generate_svg`
+
+  Recraft V3 SVG modelini kullanarak bir metin istemine dayalı olarak bir SVG vektör resmi oluşturur.
+
+  ```typescript
+  {
+    prompt: string;                // Gerekli: Oluşturulacak SVG için metin açıklaması
+    size?: string;                 // İsteğe bağlı: Oluşturulan SVG'nin boyutu (varsayılan: "1024x1024")
+    style?: string;                // İsteğe bağlı: Oluşturulan resmin stili (varsayılan: "any")
+                                  // Seçenekler: "any", "engraving", "line_art", "line_circuit", "linocut"
+  }
+  ```
+
+  #### `prediction_list`
+
+  Replicate'ten son tahminlerinizin listesini alır.
+
+  ```typescript
+  {
+    limit?: number;  // İsteğe bağlı: Döndürülecek maksimum tahmin sayısı (1-100) (varsayılan: 50)
+  }
+  ```
+
+  #### `get_prediction`
+
+  Belirli bir tahmin hakkında ayrıntılı bilgi alır.
+
+  ```typescript
+  {
+    predictionId: string;  // Gerekli: Alınacak tahminin ID'si
+  }
+  ```
+
+  #### `run_replicate_model`
+
+  Replicate'te barındırılan herhangi bir modeli `owner/name[:version]` referansı ile çalıştırır. Curated araçlardan hiçbiri uygun olmadığında bunu kaçış kapısı olarak kullanın. Giriş şeklini bilmiyorsanız önce `get_model_schema` çağırın.
+
+  ```typescript
+  {
+    model: string;                              // Gerekli: 'owner/name' veya 'owner/name:version'
+    input: Record<string, unknown>;             // Gerekli: Model giriş parametreleri
+    prefer_wait?: number;                       // İsteğe bağlı: Senkron çıktı için bekleme saniyesi (1-60, varsayılan 60)
+    return_as?: "url" | "base64" | "both";      // İsteğe bağlı: Dosya çıktıları nasıl döndürülür (varsayılan "url")
+  }
+  ```
+
+  `REPLICATE_MODEL_ALLOWLIST` env var'ını (virgülle ayrılmış `owner/name` girişleri) ayarlayarak hangi modellerin çağrılabileceğini kısıtlayın. Ayarlanmamış = herhangi bir model izin verilir. Ayarlanmış-ama-boş = tümünü reddet (sunucu başarısız kapanır ve her şeye sessizce izin vermez).
+
+  #### `get_model_schema`
+
+  Bir Replicate modelinin OpenAPI giriş şemasını ve açıklamasını alır; böylece `run_replicate_model`'e doğru parametreleri geçebilirsiniz.
+
+  ```typescript
+  {
+    model: string;  // Gerekli: 'owner/name' formunda Replicate model referansı
+  }
+  ```
+
+  ### Mevcut Kaynaklar
+
+  #### `imagelist`
+
+  Flux Schnell modeliyle oluşturulan oluşturulmuş resimlerinizin geçmişine göz atın.
+
+  #### `svglist`
+
+  Recraft V3 SVG modeliyle oluşturulan oluşturulmuş SVG resimlerinizin geçmişine göz atın.
+
+  #### `predictionlist`
+
+  Tüm Replicate tahminlerinizin geçmişine göz atın.
+
+  ### Mevcut İstemler
+
+  Claude Desktop'ın slash menüsü ve Cursor'ın `@`-paletinde yüzey oluşturulan curated şablonlar. Her biri makul varsayılanları doldurur, sonra ilgili oluşturma aracına devreder.
+
+  | İstem | Açıklama | Argümanlar |
+  | --- | --- | --- |
+  | `logo` | Marka/ürün logosu | `brand`, `style?`, `palette?` |
+  | `portrait` | Fotogerçekçi portre | `subject`, `mood?`, `lens?` |
+  | `svg-icon` | Tek konseptli vektör ikon | `concept`, `style?` |
+  | `product-shot` | Stüdyo ürün fotoğrafyası | `product`, `surface?` |
+  | `isometric-diagram` | İzometrik teknik illüstrasyon | `subject`, `emphasis?` |
+
+  ### Yapılandırılmış Çıktı
+
+  Her `generate_*` aracı hem insan tarafından okunabilir `content` (metin + resim blokları) hem de aracın `outputSchema`'sı eşleşen makine tarafından okunabilir `structuredContent` döndürür.
+
+  | Araç | `structuredContent` şekli |
+  | --- | --- |
+  | `generate_image` | `{ url, prompt, format, aspect_ratio, seed? }` |
+  | `generate_svg` | `{ url, prompt, size, style, svg? }` |
+  | `generate_multiple_images` | `{ images: [{ url, prompt }], format, aspect_ratio }` |
+  | `generate_image_variants` | `{ base_prompt, variation_mode, variants: [{ variant_index, url, prompt_used, seed? }], format, aspect_ratio }` |
+
+  MCP yapılandırılmış çıktıyı anlayan istemciler, prose ayrıştırılmadan doğrudan URL'leri ve meta verileri tüketebilir.
+
+  ### Ortam Değişkenleri
+
+  | Değişken | Gerekli | Amaç |
+  | --- | --- | --- |
+  | `REPLICATE_API_TOKEN` | evet | [Replicate](https://replicate.com/account/api-tokens) için API token'ı. Eksikse sunucu hemen çıkar. |
+  | `REPLICATE_MODEL_ALLOWLIST` | hayır | `run_replicate_model`'i gate eden virgülle ayrılmış `owner/name` girişleri. **Ayarlanmamış** = herhangi bir model izin verilir. **Ayarlanmış-ama-boş** = tümünü reddet (başarısız kapanır). İşlem başlangıcında bir kez değerlendirilir, bu nedenle MCP istemcinizin `env` bloğunda ayarlayın (daha sonra yüklenen dotenv aracılığıyla değil).
+
+  ## 💻 Geliştirme
+
+  1. Repository'yi klonlayın:
+
+  ```bash
+  git clone https://github.com/awkoy/replicate-flux-mcp.git
+  cd replicate-flux-mcp
+  ```
+
+  2. Bağımlılıkları yükleyin:
+
+  ```bash
+  npm install
+  ```
+
+  3. TypeScript watcher'ını başlatın:
+
+  ```bash
+  npm run watch
+  ```
+
+  4. Projeyi derleyin:
+
+  ```bash
+  npm run build
+  ```
+
+  5. MCP Inspector ile sunucuyu smoke-test edin:
+
+  ```bash
+  npm run inspector
+  ```
+
+  6. İstemciye Bağlanın:
+
+  ```json
+  {
+    "mcpServers": {
+      "image-generation-mcp": {
+        "command": "npx",
+        "args": [
+          "/Users/{USERNAME}/{PATH_TO}/replicate-flux-mcp/build/index.js"
+        ],
+        "env": {
+          "REPLICATE_API_TOKEN": "YOUR REPLICATE API TOKEN"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Test Etme
+
+  Bu projenin şu anda otomatik test paketi yoktur. Doğrulama yapılır:
+
+  - `npm run build` — TypeScript tür-kontrolü çoğu gerilemeyi yakalar.
+  - `npm run inspector` — oluşturulan ikiliyi resmi MCP Inspector aracılığıyla yönlendirerek araçlar, kaynaklar ve istemler için uçtan uca smoke testlemesi yapar.
+
+  Uygun bir test çerçevesi ekleyen katkılar (örn. Vitest + bir MCP stdio istemci harnesı) kabul edilir.
+
+  ## ⚙️ Teknik Detaylar
+
+  ### Stack
+
+  - **Model Context Protocol SDK** - Araç ve kaynak yönetimi için temel MCP işlevselliği
+  - **Replicate API** - Son teknoloji yapay zeka resim oluşturma modellerine erişim sağlar
+  - **TypeScript** - Tür güvenliğini sağlar ve modern JavaScript özelliklerinden yararlanır
+  - **Zod** - Sağlam API etkileşimleri için çalışma zamanı tür doğrulaması uygular
+
+  ### Yapılandırma
+
+  Sunucu, `src/config/index.ts` dosyasındaki `CONFIG` nesnesini değiştirerek yapılandırılabilir:
+
+  ```typescript
+  export const CONFIG = {
+    serverName: "replicate-flux-mcp",
+    serverVersion: "0.4.0",
+    imageModelId: "black-forest-labs/flux-schnell",
+    svgModelId: "recraft-ai/recraft-v3-svg",
+    pollingAttempts: 25,
+    pollingInterval: 2000, // ms
+    modelAllowlist: (process.env.REPLICATE_MODEL_ALLOWLIST ?? "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
+  };
+  ```
+
+  `modelAllowlist`, `REPLICATE_MODEL_ALLOWLIST` ortam değişkeninden işlem başlangıcında değerlendirilir. Değiştirdikten sonra sunucuyu yeniden başlatın.
+
+  ## 🔍 Sorun Giderme
+
+  ### Yaygın Sorunlar
+
+  #### Kimlik Doğrulama Hatası
+  - `REPLICATE_API_TOKEN`'in ortamda doğru şekilde ayarlandığından emin olun
+  - Token'inizi Replicate API ile doğrudan test ederek geçerli olduğunu doğrulayın
+
+  #### Güvenlik Filtresi Tetiklendi
+  - Model, belirli istitleri engelleyebilecek yerleşik bir güvenlik filtresine sahiptir
+  - İsteminizi potansiyel olarak sorunlu içerikten kaçınacak şekilde değiştirmeyi deneyin
+
+  #### Zaman Aşımı Hatası
+  - Daha büyük resimler veya meşgul sunucular için `pollingAttempts` veya `pollingInterval`'i yapılandırmada artırmanız gerekebilir
+  - Varsayılan ayarlar çoğu kullanım durumu için işe yaramalıdır
+
+  ## 🤝 Katkıda Bulunma
+
+  Katkılar kabul edilir! Katkıda bulunmak için aşağıdaki adımları izleyin:
+
+  1. Repository'yi fork edin
+  2. Feature branch'inizi oluşturun (`git checkout -b feature/amazing-feature`)
+  3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
+  4. Branch'e push edin (`git push origin feature/amazing-feature`)
+  5. Bir Pull Request açın
+
+  Özellik istekleri veya hata raporları için lütfen bir GitHub issue oluşturun. Bu projeyi beğeniyorsanız, repository'ye yıldız vermeyi düşünün!
+
+  ## 📄 Lisans
+
+  Bu proje MIT Lisansı kapsamında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakın.
+
+  ## 🔗 Kaynaklar
+
+  - [Model Context Protocol Dokümantasyonu](https://modelcontextprotocol.io)
+  - [Replicate API Dokümantasyonu](https://replicate.com/docs)
+  - [Flux Schnell Modeli](https://replicate.com/black-forest-labs/flux-schnell)
+  - [Recraft V3 SVG Modeli](https://replicate.com/recraft-ai/recraft-v3-svg)
+  - [MCP
 ---
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/awkoy-replicate-flux-mcp-badge.png)](https://mseep.ai/app/awkoy-replicate-flux-mcp)

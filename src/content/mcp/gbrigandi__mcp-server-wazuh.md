@@ -8,6 +8,344 @@ url: "https://github.com/gbrigandi/mcp-server-wazuh"
 body_length: 25047
 license: "MIT"
 language: "Rust"
+body_tr: |-
+  # Wazuh MCP Server - SIEM'inizle Konuşun
+
+  Wazuh Güvenlik Bilgisi ve Olay Yönetimi (SIEM) sistemi ile bağlamsal güvenlik verilerine ihtiyaç duyan uygulamalar arasındaki boşluğu kapatmak için tasarlanmış, Model Context Protocol (MCP) kullanarak Claude Desktop Entegrasyonuna özel olarak uyarlanmış Rust tabanlı sunucu.
+
+  ## Genel Bakış
+
+  Claude gibi modern yapay zeka asistanları, kullanıcının güvenlik ortamı hakkında gerçek zamanlı bağlamdan önemli ölçüde faydalanabilirler. Wazuh MCP Server, doğal dil etkileşimleri aracılığıyla Wazuh SIEM verilerine kapsamlı erişim sağlayarak bu boşluğu kapatır.
+
+  Bu sunucu, karmaşık Wazuh API yanıtlarını MCP uyumlu biçime dönüştürerek yapay zeka asistanlarının şu verilere erişmesini sağlar:
+
+  - **Güvenlik Uyarıları ve Olayları** tehdit tespiti ve olay yanıtı için Wazuh Indexer'dan
+  - **Agent Yönetimi ve İzlenmesi** sağlık durumu, sistem işlemleri ve ağ bağlantı noktaları dahil
+  - **Güvenlik Açığı Değerlendirmesi** risk yönetimi ve yama öncelendirmesi için veriler
+  - **Güvenlik Kuralları ve Konfigürasyonu** tespit optimizasyonu ve uyum doğrulaması için
+  - **Sistem İstatistikleri ve Performansı** operasyonel izleme ve denetim izleri için ölçütler
+  - **Log Analizi ve Adli İnceleme** olay soruşturması ve uyum raporlaması yetenekleri
+  - **Küme Sağlığı ve Yönetimi** altyapı güvenilirliği ve kullanılabilirlik gereksinimleri için
+  - **Uyum İzlenmesi ve Boşluk Analizi** PCI-DSS, HIPAA, SOX ve GDPR gibi düzenleyici çerçeveler için
+
+  Manuel API çağrıları veya karmaşık sorgular gerektirmek yerine, güvenlik ekipleri artık "Web sunucularında kritik güvenlik açıklarını göster", "Agent 001'de hangi işlemler çalışıyor?" veya "PCI-DSS günlüğü gereksinimlerini karşılıyor muyuz?" gibi doğal dil soruları sorabiliyor ve Wazuh dağıtımlarından yapılandırılmış, eyleme dönüştürülebilir veri alabiliyorlar.
+
+  Bu yaklaşım, özellikle güvenlik duruşunu hızlı bir şekilde değerlendirmesi, izleme kapsamındaki boşlukları belirlemesi, kural etkinliğini doğrulaması ve dağıtılmış altyapı genelinde denetim gereksinimleri için kanıt oluşturması gereken uyum ekipleri için değerlidir.
+
+  ![](https://raw.githubusercontent.com/gbrigandi/mcp-server-wazuh/HEAD/media/wazuh-alerts-1.png)
+
+  ## Örnek Kullanım Senaryoları
+
+  Wazuh MCP Server, doğal dil etkileşimleri aracılığıyla Wazuh güvenlik verilerine doğrudan erişim sağlayarak çeşitli pratik kullanım senaryolarını mümkün kılar:
+
+  ### Güvenlik Uyarısı Analizi
+  *   **Uyarı Sınıflandırması ve Soruşturması:** Hızla tehditleri tanımlamak ve acil dikkat gerektiren tehditleri öncelendirmek için `get_wazuh_alert_summary` ile son güvenlik uyarılarını sorgulayın.
+  *   **Uyarı Deseni Tanıma:** Uyarı eğilimlerini ve desenlerini analiz ederek tekrarlayan güvenlik sorunlarını veya potansiyel saldırı kampanyalarını tanımlayın.
+
+  ### Güvenlik Açığı Yönetimi
+  *   **Agent Güvenlik Açığı Değerlendirmesi:** Belirli ajanların güvenlik duruşunu değerlendirmek ve yama çabalarını öncelendirmek için `get_wazuh_vulnerability_summary` ve `get_wazuh_critical_vulnerabilities` kullanın.
+  *   **Risk Tabanlı Güvenlik Açığı Öncelendirmesi:** Güvenlik açığı verilerini agent kritikliği ve maruziyeti ile ilişkilendirerek düzeltme çabalarını odaklaştırın.
+
+  ### Sistem İzlenmesi ve Adli İnceleme
+  *   **İşlem Analizi:** Tehdit avcılığı ve sistem analizi için `get_wazuh_agent_processes` kullanarak ajanlarındaki çalışan işlemleri araştırın.
+  *   **Ağ Güvenliği Değerlendirmesi:** Potansiyel saldırı vektörlerini belirlemek için `get_wazuh_agent_ports` ile açık bağlantı noktalarını ve ağ hizmetlerini izleyin.
+  *   **Agent Sağlığı İzlenmesi:** Kapsamlı güvenlik kapsamı sağlamak için `get_wazuh_running_agents` kullanarak agent durumunu ve bağlantısını izleyin.
+
+  ### Güvenlik Operasyonları İstihbaratı
+  *   **Kural Etkinlik Analizi:** Tespit yeteneklerini optimize etmek için `get_wazuh_rules_summary` ile güvenlik tespit kurallarını gözden geçirin ve analiz edin.
+  *   **Manager Performans İzlemmesi:** `get_wazuh_weekly_stats`, `get_wazuh_remoted_stats` ve `get_wazuh_log_collector_stats` gibi araçları kullanarak sistem performansı ve istatistiklerini izleyin.
+  *   **Küme Sağlığı Yönetimi:** Operasyonel güvenilirlik için `get_wazuh_cluster_health` ve `get_wazuh_cluster_nodes` ile Wazuh küme durumunu izleyin.
+
+  ### Olay Yanıtı ve Adli İnceleme
+  *   **Log Analizi:** Olay soruşturması için `search_wazuh_manager_logs` ve `get_wazuh_manager_error_logs` kullanarak manager günlüklerini arayın ve analiz edin.
+  *   **Agent Özgü Soruşturma:** Güvenlik olayları sırasında belirli ajanların kapsamlı profillerini oluşturmak için birden fazla aracı birleştirin.
+  *   **Doğal Dil Güvenlik Sorguları:** Karmaşık güvenlik sorularını doğal dilde sorun ve Wazuh bileşenlerinden yapılandırılmış veri alın.
+
+  ### Operasyonel Verimlilik
+  *   **Otomatik Raporlama:** Manuel API çağrıları olmadan konuşmacı arayüzler aracılığıyla güvenlik raporları ve özetleri oluşturun.
+  *   **Bileşen Arası Analiz:** Kapsamlı güvenlik içgörüleri için Wazuh Indexer (uyarılar) ve Wazuh Manager (ajanlar, kurallar, güvenlik açıkları) verilerini ilişkilendirin.
+  *   **Çok Dilli Güvenlik Operasyonları:** Global güvenlik ekipleri için Wazuh verilerine erişin ve içgörüleri birden fazla dilde alın.
+
+  ### Tehdit İstihbaratı Toplanması ve Yanıtı
+
+  Geliştirilmiş tehdit istihbaratı ve olay yanıtı yetenekleri için Wazuh MCP Server tamamlayıcı güvenlik MCP sunucuları ile birleştirilebilir:
+
+  | Sunucu | Açıklama |
+  |--------|----------|
+  | **[Cortex MCP Server](https://github.com/gbrigandi/mcp-server-cortex/)** | 140+ analizör aracılığıyla artefakt analizi ve IOC zenginleştirmesi |
+  | **[TheHive MCP Server](https://github.com/gbrigandi/mcp-server-thehive/)** | Vaka yönetimi ve olay yanıtı orkestrasyonu |
+  | **[MISP MCP Server](https://github.com/gbrigandi/mcp-server-misp/)** | Tehdit istihbaratı paylaşımı ve IOC araması |
+
+  **Cortex Entegrasyonu ile Geliştirilmiş Yetenekler:**
+  *   **Artefakt Analizi:** Wazuh uyarılarında bulunan şüpheli dosyaları, URL'leri, etki alanlarını ve IP adreslerini Cortex'in 140+ analizörünü kullanarak otomatik olarak analiz edin
+  *   **IOC Zenginleştirmesi:** Wazuh uyarılarından ödün verme göstergelerini (IOC) VirusTotal, Shodan, MISP ve daha fazla dahil olmak üzere birden fazla kaynaktan tehdit istihbaratı ile zenginleştirin
+  *   **Otomatik Tehdit Avı:** Tehditleri otomatik olarak araştırmak ve sınıflandırmak için Wazuh'un tespit yeteneklerini Cortex'in analiz motorları ile birleştirin
+  *   **Çok Kaynağlı İstihbarat:** İtibar kontrolleri, kötü amaçlı yazılım analizi, etki alanı analizi ve davranışsal analiz için analizörleri kullanın
+  *   **Yanıt Orkestrasyonu:** Analiz sonuçlarını otomatik yanıt eylemlerini ve uyarı öncelendirmesini bilgilendirmek için kullanın
+
+  **TheHive Entegrasyonu ile Geliştirilmiş Yetenekler:**
+  *   **Vaka Oluşturma:** Yapılandırılmış olay izleme için Wazuh uyarılarından TheHive'de otomatik olarak vakalar oluşturun
+  *   **Uyarı Korelasyonu:** İlişkili Wazuh uyarılarını mevcut vakalara bağlayarak kapsamlı olay zaman çizelgeleri oluşturun
+  *   **Görev Yönetimi:** Uyarı önem derecesine ve türüne göre soruşturma görevleri oluşturun ve izleyin
+  *   **Gözlenebilir Yönetim:** Vaka soruşturmaları içinde IOC'leri gözlenebilirler olarak çıkarın ve yönetin
+  *   **İşbirliği:** Güvenlik ekibinin Wazuh tarafından tespit edilen olaylar üzerinde işbirliği yapmasını sağlayın
+
+  **MISP Entegrasyonu ile Geliştirilmiş Yetenekler:**
+  *   **IOC Araması:** Wazuh uyarılarından gelen göstergelerin tehdit istihbaratı veritabanınızda bilinen olup olmadığını kontrol edin
+  *   **Tehdit Bağlamı:** IOC'ler için olay bağlamı, tehdit aktörü atanması ve MITRE ATT&CK eşleştirmelerini alın
+  *   **Yanlış Pozitif Azaltma:** Yanlış pozitifleri azaltmak için MISP uyarı listelerine karşı IOC'leri doğrulayın
+  *   **Sighting İzlenmesi:** IOC yaygınlığını değerlendirmek için gözlem geçmişini kaydedin ve sorgulayın
+  *   **Galaxy Keşfi:** Tehdit aktörü profilleri, kötü amaçlı yazılım aileleri ve saldırı desenlerine erişin
+
+  **Örnek İş Akışı:**
+  1. Wazuh bir uyarıda şüpheli bir dosya hash'i veya ağ bağlantısı tespit eder
+  2. Yapay zeka asistanı, IOC'nin tehdit istihbaratında bilinip bilinmediğini kontrol etmek için MISP MCP Server'ı sorgular
+  3. Bilinmiyorsa, Cortex MCP Server artefaktı birden fazla analizör kullanarak analiz eder
+  4. VirusTotal, hybrid analizi, etki alanı itibarı ve diğer kaynaklardan elde edilen sonuçlar ilişkilendirilir
+  5. TheHive MCP Server aracılığıyla soruşturmayı izlemek için TheHive'de bir vaka oluşturulur
+  6. Birleştirilmiş istihbarat olay yanıtı kararları için bağlam sağlar
+  7. Bulgular Wazuh kurallarını güncellemek veya ek izleme tetiklemek için kullanılabilir
+
+  ## Gereksinimler
+
+  -   Bir MCP (Model Context Protocol) uyumlu LLM istemcisi (ör. Claude Desktop)
+  -   Çalışan bir Wazuh sunucusu (v4.12 önerilir) API etkin ve erişilebilir.
+  -   Bu sunucu ile Wazuh API arasında ağ bağlantısı (API etkileşimi kullanılıyorsa).
+
+  ## Kurulum
+
+  ### Seçenek 1: Önceden Derlenmiş İkili İndir (Önerilir)
+
+  1.  **İkiliyi İndirin:**
+      *   `mcp-server-wazuh` GitHub deposunun [Sürümler sayfasına](https://github.com/gbrigandi/mcp-server-wazuh/releases) gidin.
+      *   İşletim sisteminiz için uygun ikiliyi indirin (ör. `mcp-server-wazuh-linux-amd64`, `mcp-server-wazuh-macos-amd64`, `mcp-server-wazuh-macos-arm64`, `mcp-server-wazuh-windows-amd64.exe`).
+      *   İndirilen ikiliyi çalıştırılabilir yapın (ör. `chmod +x mcp-server-wazuh-linux-amd64`).
+      *   (İsteğe bağlı) Daha basit bir ad gibi `mcp-server-wazuh` olarak yeniden adlandırın ve daha kolay erişim için sistem `PATH`'inizde bulunan bir dizine taşıyın.
+
+  ### Seçenek 2: Docker
+
+  1.  **Docker İmajını Çekin:**
+      ```bash
+      docker pull ghcr.io/gbrigandi/mcp-server-wazuh:latest
+      ```
+
+  ### Seçenek 3: Kaynaktan Derleyin
+
+  1.  **Ön Koşullar:**
+      *   Rust'ı yükleyin: [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+
+  2.  **Derleyin:**
+      ```bash
+      git clone https://github.com/gbrigandi/mcp-server-wazuh.git
+      cd mcp-server-wazuh
+
+      # Yalnızca stdio taşıması ile derle (varsayılan)
+      cargo build --release
+
+      # HTTP taşıması desteği ile derle
+      cargo build --release --features http
+      ```
+      İkili `target/release/mcp-server-wazuh` konumunda bulunacaktır.
+
+  ### LLM İstemcinizi Yapılandırın
+
+  LLM istemcinizi yapılandırma yöntemi istemciye bağlı olarak değişecektir. MCP'yi (Model Context Protocol) destekleyen istemciler için, istemciyi genellikle `mcp-server-wazuh` yürütülebilirinin yoluna işaret etmeniz gerekir.
+
+  **Claude Desktop için Örnek:**
+
+  `claude_desktop_config.json` dosyanızı yapılandırın:
+
+  ```json
+  {
+    "mcpServers": {
+      "wazuh": {
+        "command": "/path/to/mcp-server-wazuh",
+        "args": [],
+        "env": {
+          "WAZUH_API_HOST": "your_wazuh_manager_api_host",
+          "WAZUH_API_PORT": "55000",
+          "WAZUH_API_USERNAME": "your_wazuh_api_user",
+          "WAZUH_API_PASSWORD": "your_wazuh_api_password",
+          "WAZUH_INDEXER_HOST": "your_wazuh_indexer_host",
+          "WAZUH_INDEXER_PORT": "9200",
+          "WAZUH_INDEXER_USERNAME": "your_wazuh_indexer_user",
+          "WAZUH_INDEXER_PASSWORD": "your_wazuh_indexer_password",
+          "WAZUH_VERIFY_SSL": "false",
+          "WAZUH_TEST_PROTOCOL": "https",
+          "RUST_LOG": "info"
+        }
+      }
+    }
+  }
+  ```
+
+  `/path/to/mcp-server-wazuh` yerine İkili dosyanızın gerçek yolunu yazın ve ortam değişkenlerini [Konfigürasyon](#konfigürasyon) bölümünde ayrıntılar doğrultusunda yapılandırın.
+
+  Yapılandırıldıktan sonra, LLM istemciniz `mcp-server-wazuh`u başlatıp Wazuh güvenlik verilerine erişmek için iletişim kurabilmelidir.
+
+  Docker kullanıyorsanız, Wazuh konfigürasyonunuz ile bir `.env` dosyası oluşturun:
+      
+  ```bash
+  WAZUH_API_HOST=your_wazuh_manager_api_host
+  WAZUH_API_PORT=55000
+  WAZUH_API_USERNAME=your_wazuh_api_user
+  WAZUH_API_PASSWORD=your_wazuh_api_password
+  WAZUH_INDEXER_HOST=your_wazuh_indexer_host
+  WAZUH_INDEXER_PORT=9200
+  WAZUH_INDEXER_USERNAME=your_wazuh_indexer_user
+  WAZUH_INDEXER_PASSWORD=your_wazuh_indexer_password
+  WAZUH_VERIFY_SSL=false
+  WAZUH_TEST_PROTOCOL=https
+  RUST_LOG=info
+  ```
+
+  `claude_desktop_config.json` dosyanızı yapılandırın:
+
+  ```
+  {
+    "mcpServers": {
+      "wazuh": {
+        "command": "docker",
+        "args": [
+          "run", "--rm", "-i",
+          "--env-file", "/path/to/your/.env",
+          "ghcr.io/gbrigandi/mcp-server-wazuh:latest"
+        ]
+      }
+    }
+  }
+  ```
+
+  ## Konfigürasyon
+
+  Konfigürasyon ortam değişkenleri aracılığıyla yönetilir. Yerel geliştirme için proje köküne bir `.env` dosyası yerleştirilebilir.
+
+  | Değişken                 | Açıklama                                                                    | Varsayılan  | Gerekli |
+  | ------------------------ | ------------------------------------------------------------------------------ | ----------- | ------- |
+  | `WAZUH_API_HOST`         | Wazuh Manager API sunucusunun ana bilgisayar adı veya IP adresi.              | `localhost` | Evet    |
+  | `WAZUH_API_PORT`         | Wazuh Manager API için bağlantı noktası numarası.                             | `55000`     | Evet    |
+  | `WAZUH_API_USERNAME`     | Wazuh Manager API kimlik doğrulaması için kullanıcı adı.                     | `wazuh`     | Evet    |
+  | `WAZUH_API_PASSWORD`     | Wazuh Manager API kimlik doğrulaması için şifre.                             | `wazuh`     | Evet    |
+  | `WAZUH_INDEXER_HOST`     | Wazuh Indexer API sunucusunun ana bilgisayar adı veya IP adresi.              | `localhost` | Evet    |
+  | `WAZUH_INDEXER_PORT`     | Wazuh Indexer API için bağlantı noktası numarası.                             | `9200`      | Evet    |
+  | `WAZUH_INDEXER_USERNAME` | Wazuh Indexer API kimlik doğrulaması için kullanıcı adı.                     | `admin`     | Evet    |
+  | `WAZUH_INDEXER_PASSWORD` | Wazuh Indexer API kimlik doğrulaması için şifre.                             | `admin`     | Evet    |
+  | `WAZUH_VERIFY_SSL`       | Wazuh API ve Indexer bağlantıları için SSL sertifikalarını doğrulamak için `true` olarak ayarlayın. | `false`     | Hayır   |
+  | `WAZUH_TEST_PROTOCOL`    | Wazuh bağlantıları için protokol (ör. "http", "https"). İstemci varsayılanını geçersiz kılar. | `https`     | Hayır   |
+  | `RUST_LOG`               | Günlük seviyesi (ör. `info`, `debug`, `trace`).                                | `info`      | Hayır   |
+
+  **`WAZUH_VERIFY_SSL` Hakkında Not:** Üretim ortamları için, `WAZUH_VERIFY_SSL=true` olarak ayarlanması ve Wazuh Manager API ve Wazuh Indexer bağlantıları için uygun sertifika doğrulaması yapılması önerilir. Bunu `false` olarak ayarlamak, sertifika kontrollerini devre dışı bırakır ve bu güvensizdir.
+  "Gerekli: Evet" göstergesi, bu değişkenlerin ilgili Wazuh bileşenlerine bağlanmak için gerekli olduğunu gösterir. Varsayılanlar sağlanmış olsa da, bir üretim kurulumuna veya yerel olmayan bir kuruluma uyma olasılığı düşüktür.
+
+  ## Derleme
+
+  ### Ön Koşullar
+
+  -   Rust'ı yükleyin: [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+  -   Docker ve Docker Compose'u yükleyin (isteğe bağlı, konteynerleştirilmiş dağıtım için): [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+
+  ### Yerel Geliştirme
+
+  1.  **Depoyu klonlayın:**
+      ```bash
+      git clone https://github.com/gbrigandi/mcp-server-wazuh.git 
+      cd mcp-server-wazuh
+      ```
+  2.  **Yapılandırın (Wazuh API kullanıyorsanız):**
+      *   Örnek ortam dosyasını kopyalayın: `cp .env.example .env`
+      *   `.env` dosyasını belirli Wazuh API ayrıntılarınız ile düzenleyin (ör. `WAZUH_API_HOST`, `WAZUH_API_PORT`).
+  3.  **Derleyin:**
+      ```bash
+      # Varsayılan özellikleri ile derle (yalnızca stdio taşıması)
+      cargo build
+
+      # HTTP taşıması desteği ile derle
+      cargo build --features http
+      ```
+  4.  **Çalıştırın:**
+      ```bash
+      # Stdio taşıması ile çalıştır (varsayılan)
+      cargo run
+
+      # HTTP taşıması ile çalıştır (derleme sırasında --features http gerekli)
+      cargo run --features http -- --transport http
+
+      # Veya çalıştırma betiğini kullanın (stdio modu ayarlayabilir):
+      # ./run.sh
+      ```
+
+  ## Taşıma Modları
+
+  Wazuh MCP Server, MCP istemcileri ile iletişim için iki taşıma modunu destekler:
+
+  ### stdio Taşıması (Varsayılan)
+
+  Stdio taşıması varsayılan moddur, MCP istemcisinin sunucuyu alt işlem olarak başlattığı yerel entegrasyonlar için idealdir. İletişim JSON-RPC 2.0 mesajları kullanarak stdin/stdout aracılığıyla gerçekleşir.
+
+  ```bash
+  # Stdio taşıması ile çalıştır (varsayılan)
+  mcp-server-wazuh
+
+  # Açık stdio taşıması
+  mcp-server-wazuh --transport stdio
+  ```
+
+  ### Akışlanabilir HTTP Taşıması
+
+  HTTP taşıması, uzak sunucu dağıtımını etkinleştirerek MCP istemcilerinin ağ üzerinden bağlanmasını sağlar. Bu mod, Server-Sent Events (SSE) desteği ile MCP Akışlanabilir HTTP spesifikasyonunu uygular.
+
+  ```bash
+  # Varsayılan adres üzerinde HTTP taşıması ile çalıştır (127.0.0.1:8080)
+  mcp-server-wazuh --transport http
+
+  # Özel ana bilgisayar ve bağlantı noktası ile çalıştır
+  mcp-server-wazuh --transport http --host 0.0.0.0 --port 3000
+  ```
+
+  **HTTP Taşıması Özellikleri:**
+  - Tüm MCP iletişimi için tek `/mcp` uç noktası
+  - JSON-RPC mesajları ile POST istekleri
+  - Akış yanıtları için Server-Sent Events (SSE)
+  - `MCP-Session-Id` başlığı ile oturum yönetimi
+  - Protokol sürümü: `2025-06-18` (rmcp 0.10 tarafından desteklenen MCP spesifikasyonu)
+
+  **Güvenlik Notu:** Varsayılan olarak, HTTP taşıması `127.0.0.1` (yalnızca yerel ana bilgisayar) çizgisine bağlanır. Uzak erişim için `0.0.0.0` çizgisine bağlarken, uygun ağ güvenliği önlemleri (güvenlik duvarı kuralları, TLS'li ters vekil, vb.) devreye sokun.
+
+  ### CLI Argümanları
+
+  | Argüman | Açıklama | Varsayılan |
+  |---------|----------|---------|
+  | `--transport` | Taşıma modu: `stdio` veya `http` | `stdio` |
+  | `--host` | HTTP sunucu bağlama adresi (yalnızca http taşıması için) | `127.0.0.1` |
+  | `--port` | HTTP sunucu bağlantı noktası (yalnızca http taşıması için) | `8080` |
+
+  ## Mimari
+
+  Sunucu [rmcp](https://crates.io/crates/rmcp) çerçevesi (v0.10+) kullanılarak oluşturulmuş olup, MCP istemcileri (ör. Claude Desktop, IDE uzantıları) ve Wazuh MCP Server arasında iletişimi kolaylaştırır. Sunucu hem stdio hem de Akışlanabilir HTTP taşımalarını destekler ve güvenlik uyarılarını ve diğer verileri almak için Wazuh Indexer ve Wazuh Manager API'leri ile etkileşime girer.
+
+  ```mermaid
+  sequenceDiagram
+      participant ClientApp as İstemci Uygulaması (ör. IDE Uzantısı / Claude Desktop)
+      participant WazuhMCPServer as Wazuh MCP Server (bu uygulama)
+      participant WazuhAPI as Wazuh API
+
+      ClientApp->>+WazuhMCPServer: (stdio) MCP Initialize
+      WazuhMCPServer-->>-ClientApp: (stdout) MCP Initialized
+      
+      ClientApp->>+WazuhMCPServer: (stdio) MCP Request (tools/list)
+      WazuhMCPServer->>WazuhMCPServer: Parse MCP Request
+      WazuhMCPServer->>WazuhMCPServer: Process internally
+      WazuhMCPServer-->>-ClientApp: (stdout) MCP Response (available tools)
+      
+      ClientApp->>+WazuhMCPServer: (stdio) MCP Request (tools/call for wazuhAlerts)
+      WazuhMCPServer->>WazuhMCPServer: Parse MCP Request
+      WazuhMCPServer->>+WazuhAPI: Request Wazuh Alerts (with WAZUH_API_USERNAME, WAZUH_API_PASSWORD)
+      WazuhAPI-->>-WazuhMCPServer: Wazuh Alert Data (JSON)
+      WazuhMCPServer->>WazuhMCPServer: Transform Wazuh Alerts to MCP Format
+      WazuhMCPServer-->>-ClientApp: (stdout) MCP Response (alerts)
+  ```
+
+  **Veri Akışı
 ---
 
 # Wazuh MCP Server - Talk to your SIEM

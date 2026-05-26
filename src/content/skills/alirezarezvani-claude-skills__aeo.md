@@ -12,6 +12,216 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Answer Engine Optimization (AEO)
+
+  **ChatGPT, Perplexity, Claude, Gemini ve Mistral tarafından yetkili kaynak olarak alıntılanmak için içeriğinizi optimize edin.**
+
+  AEO, LLM tarafından üretilen yanıtlarda **alıntılanma** için içeriği optimize etme uygulamasıdır — arama sıralamalarına yönelik SEO'dan farklıdır. Bu beceri AEO performansını denetler, optimize eder ve izler.
+
+  ## SEO'dan Farklı
+
+  | | SEO | AEO |
+  |---|---|---|
+  | **Optimize eden** | Tıklama sıralaması | Yetkili kaynak olarak alıntılanma |
+  | **Hedef kitle** | Arama sonuçlarına gözatan insanlar | Sorulara cevap veren LLM'ler |
+  | **Başarı metriği** | 1-10 konumu, organik trafik | LLM'ler arasında alıntı sayısı |
+  | **Anahtar sinyaller** | Geri bağlantılar, anahtar sözcükler, sayfa hızı | E-E-A-T, yapılandırılmış veri, gerçek yoğunluğu |
+  | **Güncelleme hızı** | Haftalar-aylar | Günler-haftalar (LLM eğitim döngüleri) |
+
+  Her ikisi de bir arada bulunabilir — aynı içerik Google'da #1 sırada ÇIKABİLİR VE Perplexity tarafından alıntılanabilir. Ancak teknikler farklıdır: SEO, anahtar sözcük yoğunluğu + geri bağlantıları ödüllendirir; AEO, birincil kaynak sinyalleri + yapılandırılmış gerçekleri ödüllendirir.
+
+  ## Ne Zaman Kullanılır
+
+  - AI-öncelikli bir hedef kitle için yeni bir içerik parçası planlama
+  - AI Overview kullanıma açılmadan önce mevcut içeriği E-E-A-T açıkları için denetleme
+  - Hangi sayfaların hangi LLM tarafından alıntılandığını izleme (alıntı defteri)
+  - LLM'lerin hangi sorgular için kaynak alıntıladığını araştırma (eğitim verileriyle cevaplananlar)
+  - Rakiplerin alıntı oranlarına karşı değerlendirme
+  - Geleneksel SEO ile uyumlu uzun vadeli bir AEO stratejisi oluşturma
+
+  ## Ne Zaman Kullanılmaz
+
+  - LLM alıntı niyeti olmaksızın saf tıklama SEO'su — bunun yerine `marketing-skill/skills/seo-audit` kullanın
+  - Gerçek iddiası olmayan marka sesi içeriği — alıntılar alıntılanacak gerçekler gerektirir
+  - LLM'lerin zaten güçlü bir eğitim sinyaline sahip olduğu konular (örn. ilköğretim matematiği) — alıntı potansiyeli minimumdur
+  - Zamana duyarlı içerik (haber spikeri) — LLM eğitim gecikmesi alıntıların aylar sonra gelmesi anlamına gelir
+
+  ## Temel Yetenekler
+
+  ### 1. İçerik denetimi + E-E-A-T puanlaması
+
+  Denetçi (`aeo_audit.py`) içeriği 4 boyut üzerinden puanlandırır:
+
+  - **Experience**: Birinci şahıs kanıtı, tarihli örnekler, vaka çalışmaları, "2026'da X çalıştırdık" iddialarını
+  - **Expertise**: Yazar biyografisi, kimlik bilgileri, akran tarafından incelenen kaynaklara alıntılar, teknik derinlik
+  - **Authoritativeness**: Otorite alanlarından dış bağlantılar, schema.org işaretlemesi, yapılandırılmış veri
+  - **Trustworthiness**: HTTPS, iletişim bilgileri, şeffaf düzeltmeler, gerçek yoğunluğu (1000 kelime başına doğrulanabilir iddia sayısı)
+
+  0-100 arasında bileşik puan ve boyut başına detaylı dökümü. Çıktı: belirli düzeltme önerileriyle işaretleme raporu.
+
+  ### 2. İçerik optimizasyonu
+
+  Iyileştirici (`aeo_optimizer.py`) AEO-geliştirilmiş varyantlar oluşturur:
+
+  - **Yapı yeniden yazma** — LLM ayrıştırması için optimize edilmiş H2/H3 hiyerarşisi
+  - **Alıntı yoğunluğu artışı** — kaynaklarla `[1]` stil referansları ekler
+  - **Schema enjeksiyonu** — FAQ, HowTo, Article şemaları için JSON-LD oluşturur
+  - **Gerçek-önce açılış** — doğrulanabilir iddiaları ilk 200 kelimeye taşır
+
+  Üç mod: `conservative` (< %10 kelime dokunuş), `balanced` (< %30), `aggressive` (maksimum AEO için yeniden yazı).
+
+  ### 3. Alıntı izleme
+
+  İzleyici (`citation_tracker.py`) yerel bir alıntı defteri tutar:
+
+  - Manuel giriş: ChatGPT/Perplexity/Claude/Gemini çıktısında bulunan alıntıyı yapıştırın
+  - Hangi URL, hangi LLM, hangi sorgu, hangi tarih olduğunu izleyin
+  - Sayfa başına alıntı sayısı, alıntı hızı, LLM kapsamını hesaplayın
+  - Raporlama için CSV'ye aktarın
+
+  `~/.aeo-data/citations.json` içinde depolanır (yerel, telemetri yok).
+
+  ## İş Akışı
+
+  ```
+  1. Mevcut içeriği denetle
+     $ python3 scripts/aeo_audit.py --url https://example.com/blog/post
+     → bileşik puan + 4 boyut dökümü ile işaretleme raporu
+
+  2. Optimizasyon önerilerini uygula
+     $ python3 scripts/aeo_optimizer.py --input post.md --mode balanced --output post-aeo.md
+     → alıntılar + şema + yapısal düzeltmelerle optimize edilmiş varyant
+
+  3. Yayımla + izle
+     $ python3 scripts/citation_tracker.py --action add --url https://example.com/blog/post \
+         --llm perplexity --query "what is AEO" --date 2026-05-17
+     → yerel citations.json defterine giriş ekler
+
+  4. Rapor
+     $ python3 scripts/citation_tracker.py --action report --url https://example.com/blog/post
+     → sayfa başına alıntı istatistikleri: sayı, LLM'ler, sorgular, hız
+  ```
+
+  ## Yapılandırma
+
+  Beceri, çalışma başına `--industry` bayrağı aracılığıyla sektöre duyarlıdır. Desteklenen: `saas`, `healthcare`, `finance`, `legal`, `ecommerce`, `b2b`, `media`, `education`.
+
+  Sektör etkileyenler:
+  - **Otorite sinyali gereksinimleri** — sağlık hizmetleri/finans daha katı kaynak alıntıları gerektirir
+  - **Gerçek denetleme titizliği** — hukuk/sağlık hizmetleri doğrulanabilir olmayan iddialar kritik olarak işaretlenir
+  - **Alıntı stili** — akademik vs. ticari dergi vs. blog kuralları
+
+  Örnek:
+  ```bash
+  python3 scripts/aeo_audit.py --url <url> --industry healthcare
+  # → daha katı E-E-A-T eşikleri; birincil alıntısız herhangi bir sağlık iddiasını işaretler
+  ```
+
+  ## Çıktı Biçimi
+
+  ### İşaretleme denetim raporu (varsayılan)
+
+  ```markdown
+  # AEO Denetim Raporu — [Sayfa Başlığı]
+
+  **URL:** https://example.com/blog/post
+  **Tarih:** 2026-05-17
+  **Sektör:** saas
+  **Bileşik Puan:** 72/100 (B+)
+
+  ## Boyut Dökümü
+
+  | Boyut | Puan | Karar |
+  |---|---|---|
+  | Experience | 80/100 | Güçlü — birinci şahıs vaka çalışması mevcut |
+  | Expertise | 65/100 | Yazar biyografisi kimlik bilgileri eksik |
+  | Authoritativeness | 75/100 | Otorite alanlarından 4 geri bağlantı |
+  | Trustworthiness | 68/100 | Düzeltmeler politikası bağlantı yok |
+
+  ## En İyi 3 Düzeltme
+
+  1. Kimlik bilgileriyle yazar biyografisi ekle (Expertise +15)
+  2. Düzeltmeler politikasını altbilgiden bağla (Trustworthiness +12)
+  3. H2'lerde zımni olan 5 soru için FAQ şeması enjekte et (Authoritativeness +8)
+
+  ## Tüm Öneriler
+  [...]
+
+  ## Denetim İzleri
+  [analiz adımlarının 3 sayısı, alıntı yapılan kaynaklar, kullanılan zaman]
+  ```
+
+  ### Pipeline'lar için JSON
+
+  ```bash
+  python3 scripts/aeo_audit.py --url <url> --output json
+  ```
+
+  İçerik yönetimi iş akışlarıyla entegrasyon için tam yapılandırılmış verileri döndürür.
+
+  ## Sektöre Özel E-E-A-T Eşikleri
+
+  | Sektör | Min Bileşik | Kritik Sinyaller |
+  |---|---|---|
+  | Healthcare | 85 | Tıbbi inceleme yazarlığı, akran tarafından incelenen alıntılar, FDA açıklaması |
+  | Finance | 85 | Yazar CFA/CPA kimlik bilgileri, "yatırım tavsiyesi değil" sorumluluk reddi, tarihli örnekler |
+  | Legal | 85 | Yetki alanı açıklaması, avukat biyografisi, "hukuki tavsiye değil" sorumluluk reddi |
+  | SaaS | 70 | Ürün müdürü yazarlığı, metrikli vaka çalışması, ROI hesaplayıcısı |
+  | E-commerce | 65 | Toplu ürün incelemeleri, iade politikası, schema.org Product |
+  | B2B | 70 | Endüstri analisti alıntıları, müşteri logoları, ROI verileri |
+  | Media | 70 | Editoryal politika, gerçek kontrol bağlantısı, orijinal raporlama |
+  | Education | 75 | Eğitmen biyografisi, öğrenme sonuçları, varsa akredite |
+
+  ## Reddedilen Anti-Desenler
+
+  - **AI için anahtar sözcük doldurma** — LLM'ler zaten semantikten konuyu çıkarır; anahtar sözcük yoğunluğu alıntı olasılığını artırmaz
+  - **İnsan gözden geçirmesiz saf AI-üretilmiş içerik** — genel LLM çıktısı, ayırt edici sinyal arayan RAG alma algoritmaları tarafından düşürülür
+  - **Alıntı çiftlikleri / bağlantı çarkları** — modern LLM RAG düşük otorite bağlantılı ağları cezalandırır
+  - **Şema spam'ı** — yanlış veya doğrulanabilir olmayan schema.org iddialar filtrelenir; yalnızca gerçek, doğrulanabilir iddialar işaretle
+  - **Bir LLM için diğerlerinin pahasına optimize etme** — alıntı dağılımları, eğitim veri kaynakları paylaştığı için büyük LLM'ler arasında yüksek ilişkilidir; LLM başına oyunlar değil paylaşılan sinyalleri (E-E-A-T) optimize et
+  - **SEO'yu tamamen görmezden gelme** — AEO alıntıları sık sık zaten organik olarak iyi sıralanan kaynaklardan kaynaklanır; AEO ve SEO tamamlayıcı, ikame değildir
+
+  ## Bağımlılıklar
+
+  - **Yalnızca stdlib** tüm 3 betik için — `pip install` gerekli değil
+  - **İsteğe bağlı**: `requests` + `beautifulsoup4` eğer `--url` modu kullanılıyorsa (aksi takdirde dosya tabanlı denetimler için `--input` aracılığıyla işaretlemeyi geçir)
+  - **İsteğe bağlı**: `query_research` modu için herhangi bir LLM API anahtarı (şu anda iskele-yalnızca — tam LLM-tarafından yönlendirilen sorgu araştırması yol haritası)
+
+  ## Depolama
+
+  Tüm veriler yerel-öncelikli:
+  - `~/.aeo-data/citations.json` — alıntı defteri
+  - `~/.aeo-data/patterns.json` — başarı desenleri kütüphanesi
+  - `~/.aeo-data/audits/<hash>.md` — kaydedilmiş denetim raporları
+
+  Telemetri yok. Bulut senkronizasyonu yok. `citation_tracker.py --action export` aracılığıyla istediğiniz zaman CSV'ye aktarın.
+
+  ## Tetikleyici İfadeler
+
+  - "AEO denetimi", "AEO kontrolü"
+  - "ChatGPT / Perplexity / Claude / Gemini için optimize et"
+  - "[LLM] tarafından alıntılanmak"
+  - "LLM alıntı stratejisi"
+  - "answer engine optimization"
+  - "AI arama için içerik"
+  - "E-E-A-T denetimi"
+  - "AI alıntılarını izle"
+  - "AI için şema"
+
+  ## İlişkili Beceriler
+
+  - `marketing-skill/skills/seo-audit` — geleneksel tıklama SEO'su
+  - `marketing-skill/skills/programmatic-seo` — şablon-tarafından yönlendirilen ölçekli SEO
+  - `marketing-skill/skills/content-strategy` — daha geniş içerik planlama
+  - `marketing-skill/skills/copywriting` — ses + ton
+  - `marketing-skill/skills/schema-markup` — yapılandırılmış veri uygulaması
+
+  ---
+
+  **Sürüm:** 2.7.3
+  **Kaynak:** [`alirezarezvani/aeo-box`](https://github.com/alirezarezvani/aeo-box) adresinden taşındı (`answer-engine-optimization/` beceri, 9 modül arasında 2.464 LOC). Bu port, 9 modüllü Python araç takımını claude-skills kuralına göre 3 stdlib CLI aracına damıtır; E-E-A-T puanlama metodolojisini, alıntı izleme şemasını ve sektöre duyarlı eşikleri kelimesi kelimesine korur.
+  **Lisans:** MIT (upstream + bu repo ile eşleşir).
 ---
 
 # Answer Engine Optimization (AEO)

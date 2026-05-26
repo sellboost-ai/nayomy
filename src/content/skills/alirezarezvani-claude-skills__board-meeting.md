@@ -12,6 +12,140 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Board Meeting Protocol
+
+  Yapılandırılmış çok agenli danışma, grup düşüncesini önler, azınlık görüşlerini kaydeder ve temiz, uygulanabilir kararlar üretir.
+
+  ## Keywords
+  board meeting, yönetim danışması, stratejik karar, C-suite, multi-agent, /cs:board, founder review, decision extraction, bağımsız perspektifler
+
+  ## Invoke
+  `/cs:board [topic]` — örneğin `/cs:board Should we expand to Spain in Q3?`
+
+  ---
+
+  ## 6 Aşamalı Protocol
+
+  ### PHASE 1: Context Gathering
+  1. `memory/company-context.md` yükle
+  2. `memory/board-meetings/decisions.md` yükle **(Sadece Layer 2 — ham transkript yok)**
+  3. Session state sıfırla — önceki konuşmalardan sızıntı yok
+  4. Agenda + aktif roller sundu → founder onayı için bekle
+
+  **Chief of Staff konuya göre uygun rolleri seçer** (her seferinde 9'unun tamamı değil):
+  | Konu | Aktif Et |
+  |-------|----------|
+  | Pazar genişletme | CEO, CMO, CFO, CRO, COO |
+  | Ürün yönü | CEO, CPO, CTO, CMO |
+  | İşe alım/org | CEO, CHRO, CFO, COO |
+  | Fiyatlandırma | CMO, CFO, CRO, CPO |
+  | Teknoloji | CTO, CPO, CFO, CISO |
+
+  ---
+
+  ### PHASE 2: Bağımsız Katkılar (İZOLE)
+
+  **Çapraz kontaminasyon yok. Her agent diğerlerinin output'unu görmeden çalışır.**
+
+  Sıra: Araştırma (gerekirse) → CMO → CFO → CEO → CTO → COO → CHRO → CRO → CISO → CPO
+
+  **Reasoning teknikleri:** CEO: Tree of Thought (3 senaryo) | CFO: Chain of Thought (matematiği göster) | CMO: Recursion of Thought (taslak→eleştiri→iyileştir) | CPO: First Principles | CRO: Chain of Thought (pipeline matematiği) | COO: Step by Step (process map) | CTO: ReAct (araştır→analiz et→hareket et) | CISO: Risk-Based (P×I) | CHRO: Empati + Veri
+
+  **Katkı formatı (max 5 key point, self-verified):**
+  ```
+  ## [ROLE] — [DATE]
+
+  Key points (max 5):
+  • [Bulgu] — [VERIFIED/ASSUMED] — 🟢/🟡/🔴
+  • [Bulgu] — [VERIFIED/ASSUMED] — 🟢/🟡/🔴
+
+  Recommendation: [açık konum]
+  Confidence: High / Medium / Low
+  Source: [verinin nereden geldiği]
+  What would change my mind: [spesifik koşul]
+  ```
+
+  Her agent katkıda bulunmadan önce self-verify eder: kaynak atıf, varsayım denetimi, güven puanlaması. Etiketlenmemiş iddia yok.
+
+  ---
+
+  ### PHASE 3: Critic Analysis
+  Executive Mentor tüm Phase 2 output'larını aynı anda alır. Rol: adversarial reviewer, synthesizer değil.
+
+  Checklist:
+  - Agentler çok kolay mı hemfikir oldu? (şüpheli konsensüs = kırmızı bayrak)
+  - Hangi varsayımlar paylaşılıyor ama doğrulanmamış?
+  - Odada kim eksik? (müşteri sesi? front-line ops?)
+  - Hangi risk kimse tarafından bahsedilmedi?
+  - Hangi agent kendi domain'inin dışında hareket etti?
+
+  ---
+
+  ### PHASE 4: Synthesis
+  Chief of Staff **Board Meeting Output** formatını kullanarak sunar (`agent-protocol/SKILL.md` içinde tanımlanmış):
+  - Decision Required (bir cümle)
+  - Perspectives (katkı yapan her rol için bir satır)
+  - Where They Agree / Where They Disagree
+  - Critic's View (rahatsız edici gerçek)
+  - Recommended Decision + Action Items (sahibi, deadline)
+  - Your Call (founder uyuşmazsa seçenekler)
+
+  ---
+
+  ### PHASE 5: Human in the Loop ⏸️
+
+  **Tam duruş. Founder'ı bekle.**
+
+  ```
+  ⏸️ FOUNDER REVIEW — [Synthesis yapıştır]
+
+  Seçenekler: ✅ Approve | ✏️ Modify | ❌ Reject | ❓ Ask follow-up
+  ```
+
+  **Kurallar:**
+  - User düzeltmeleri agent önerilerini OVERRIDE eder. Geri çekilme yok. "Ama CFO dedi ki..." yok.
+  - 30 dakika inaktivite → "pending review" olarak auto-close
+  - `/cs:board resume` ile herhangi bir zaman yeniden aç
+
+  ---
+
+  ### PHASE 6: Decision Extraction
+  Founder onayından sonra:
+  - **Layer 1:** Full transcript yaz → `memory/board-meetings/YYYY-MM-DD-raw.md`
+  - **Layer 2:** Onaylanan kararları append et → `memory/board-meetings/decisions.md`
+  - Reddedilen önerileri `[DO_NOT_RESURFACE]` ile işaretle
+  - Founder'a logged kararların sayısı, tracked action'lar, eklenen flaglar ile onayla
+
+  ---
+
+  ## Memory Structure
+  ```
+  memory/board-meetings/
+  ├── decisions.md          # Layer 2 — founder-onaylı sadece (Phase 1 bunu yükler)
+  ├── YYYY-MM-DD-raw.md     # Layer 1 — full transcripts (asla auto-loaded değil)
+  └── archive/YYYY/         # Raw transcripts 90 gün sonra
+  ```
+
+  **Gelecekteki toplantılar Layer 2 sadece yükler.** Asla Layer 1. Bu hallüsinasyon konsensüsünü engeller.
+
+  ---
+
+  ## Failure Mode Quick Reference
+  | Failure | Fix |
+  |---------|-----|
+  | Groupthink (hepsi hemfikir) | Phase 2'yi yeniden çalıştır izole; "karşı en güçlü argüman"ı zorla |
+  | Analysis paralysis | Max 5 point'te; Low confidence'da bile recommendation'ı zorla |
+  | Bikeshedding | Log as async action item; main agenda'ya dön |
+  | Role bleed (CFO ürün kararları verirse) | Critic flags; synthesis'ten dışla |
+  | Layer contamination | Phase 1 decisions.md sadece yükler — hard rule |
+
+  ---
+
+  ## References
+  - `templates/meeting-agenda.md` — agenda format
+  - `templates/meeting-minutes.md` — final output format
+  - `references/meeting-facilitation.md` — conflict handling, timing, failure modes
 ---
 
 # Board Meeting Protocol

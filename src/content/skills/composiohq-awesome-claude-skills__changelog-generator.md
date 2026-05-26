@@ -12,6 +12,105 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Changelog Oluşturucu
+
+  Bu skill, teknik git commit'lerini parlak, kullanıcı dostu changelog'lara dönüştürür ve müşterileriniz ile kullanıcılarınız tarafından gerçekten anlaşılacak ve takdir edilecek şekilde sunar.
+
+  ## Bu Skill Ne Zaman Kullanılır
+
+  - Yeni bir sürüm için sürüm notları hazırlamak
+  - Haftalık veya aylık ürün güncelleme özetleri oluşturmak
+  - Müşteriler için değişiklikleri belgelemek
+  - App store gönderileri için changelog girdileri yazmak
+  - Güncelleme bildirimleri oluşturmak
+  - İç sürüm belgeleri oluşturmak
+  - Herkese açık changelog/ürün güncellemeleri sayfasını yönetmek
+
+  ## Bu Skill Ne Yapar
+
+  1. **Git Geçmişini Tarar**: Belirli bir zaman diliminden veya sürümler arasındaki commit'leri analiz eder
+  2. **Değişiklikleri Kategorize Eder**: Commit'leri mantıksal kategorilere ayırır (özellikler, iyileştirmeler, hata düzeltmeleri, breaking changes, güvenlik)
+  3. **Teknik → Kullanıcı Dostu'ya Çevirir**: Geliştirici commit'lerini müşteri diline dönüştürür
+  4. **Profesyonelce Biçimlendirir**: Temiz, yapılandırılmış changelog girdileri oluşturur
+  5. **Gürültüyü Filtreler**: İç commit'leri dışlar (refactoring, test'ler, vb.)
+  6. **En İyi Uygulamaları Takip Eder**: Changelog yönergelerini ve marka sesinizi uygular
+
+  ## Nasıl Kullanılır
+
+  ### Temel Kullanım
+
+  Proje deponuzdan:
+
+  ```
+  Create a changelog from commits since last release
+  ```
+
+  ```
+  Generate changelog for all commits from the past week
+  ```
+
+  ```
+  Create release notes for version 2.5.0
+  ```
+
+  ### Belirli Tarih Aralığı ile
+
+  ```
+  Create a changelog for all commits between March 1 and March 15
+  ```
+
+  ### Özel Yönergeler ile
+
+  ```
+  Create a changelog for commits since v2.4.0, using my changelog 
+  guidelines from CHANGELOG_STYLE.md
+  ```
+
+  ## Örnek
+
+  **Kullanıcı**: "Son 7 günün commit'lerinden bir changelog oluştur"
+
+  **Çıktı**:
+  ```markdown
+  # Güncellemeler - 10 Mart 2024 Haftası
+
+  ## ✨ Yeni Özellikler
+
+  - **Takım Çalışma Alanları**: Farklı projeler için ayrı çalışma alanları 
+    oluşturun. Takım üyelerini davet edin ve her şeyi organize tutun.
+
+  - **Klavye Kısayolları**: Tüm kullanılabilir kısayolları görmek için ? 
+    tuşuna basın. Fareye dokunmadan daha hızlı gezinin.
+
+  ## 🔧 İyileştirmeler
+
+  - **Daha Hızlı Senkronizasyon**: Dosyalar artık cihazlar arasında 2x daha hızlı senkronize olur
+  - **Daha İyi Arama**: Arama artık sadece başlıkları değil, dosya içeriklerini de içerir
+
+  ## 🐛 Düzeltmeler
+
+  - Büyük resimlerin yüklenmediği sorunu düzeltildi
+  - Planlı yazılarındaki saat dilimi karışıklığı çözüldü
+  - Bildirim rozeti sayısı düzeltildi
+  ```
+
+  **İlham Kaynağı:** Manik Aggarwal'ın Lenny's Newsletter'dan kullanım senaryosu
+
+  ## İpuçları
+
+  - Git deposu kökünden çalıştırın
+  - Odaklanmış changelog'lar için tarih aralıklarını belirtin
+  - Tutarlı biçimlendirme için CHANGELOG_STYLE.md dosyanızı kullanın
+  - Yayınlamadan önce oluşturulan changelog'u gözden geçirin ve ayarlayın
+  - Çıktıyı doğrudan CHANGELOG.md dosyasına kaydedin
+
+  ## İlgili Kullanım Senaryoları
+
+  - GitHub sürüm notları oluşturmak
+  - App store güncelleme açıklamaları yazmak
+  - Kullanıcılar için email güncellemeleri oluşturmak
+  - Sosyal medya duyuru gönderileri oluşturmak
 ---
 
 # Changelog Generator

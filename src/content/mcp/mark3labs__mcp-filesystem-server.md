@@ -8,6 +8,208 @@ url: "https://github.com/mark3labs/mcp-filesystem-server"
 body_length: 5802
 license: "MIT"
 language: "Go"
+body_tr: |-
+  # MCP Filesystem Server
+
+  Bu MCP sunucusu, Model Context Protocol (MCP) aracılığıyla yerel dosya sistemine güvenli erişim sağlar.
+
+  ## Bileşenler
+
+  ### Kaynaklar
+
+  - **file://**
+    - Ad: File System
+    - Açıklama: Yerel dosya sistemindeki dosya ve dizinlere erişim
+
+  ### Araçlar
+
+  #### Dosya İşlemleri
+
+  - **read_file**
+    - Bir dosyanın tüm içeriğini dosya sisteminden oku
+    - Parametreler: `path` (gerekli): Okunacak dosyanın yolu
+
+  - **read_multiple_files**
+    - Birden fazla dosyanın içeriğini tek bir işlemde oku
+    - Parametreler: `paths` (gerekli): Okunacak dosya yollarının listesi
+
+  - **write_file**
+    - Yeni bir dosya oluştur veya mevcut bir dosyayı yeni içerikle üzerine yaz
+    - Parametreler: `path` (gerekli): Dosyanın yazılacağı yol, `content` (gerekli): Dosyaya yazılacak içerik
+
+  - **copy_file**
+    - Dosya ve dizinleri kopyala
+    - Parametreler: `source` (gerekli): Dosya veya dizinin kaynak yolu, `destination` (gerekli): Hedef yol
+
+  - **move_file**
+    - Dosya ve dizinleri taşı veya adını değiştir
+    - Parametreler: `source` (gerekli): Dosya veya dizinin kaynak yolu, `destination` (gerekli): Hedef yol
+
+  - **delete_file**
+    - Bir dosya veya dizini dosya sisteminden sil
+    - Parametreler: `path` (gerekli): Silinecek dosya veya dizinin yolu, `recursive` (isteğe bağlı): Dizinleri özyinelemeli olarak sil (varsayılan: false)
+
+  - **modify_file**
+    - Dosyayı metin eşleştirme veya regex kullanarak metin bulup değiştirerek güncelle
+    - Parametreler: `path` (gerekli): Değiştirilecek dosyanın yolu, `find` (gerekli): Aranacak metin, `replace` (gerekli): Yerine yazılacak metin, `all_occurrences` (isteğe bağlı): Tüm oluşumları değiştir (varsayılan: true), `regex` (isteğe bağlı): Find desenini regex olarak işle (varsayılan: false)
+
+  #### Dizin İşlemleri
+
+  - **list_directory**
+    - Belirtilen bir yoldaki tüm dosya ve dizinlerin ayrıntılı bir listesini al
+    - Parametreler: `path` (gerekli): Listelenecek dizinin yolu
+
+  - **create_directory**
+    - Yeni bir dizin oluştur veya bir dizinin var olduğundan emin ol
+    - Parametreler: `path` (gerekli): Oluşturulacak dizinin yolu
+
+  - **tree**
+    - Bir dizin yapısının hiyerarşik JSON gösterimini döndür
+    - Parametreler: `path` (gerekli): Geçilecek dizinin yolu, `depth` (isteğe bağlı): Geçilecek maksimum derinlik (varsayılan: 3), `follow_symlinks` (isteğe bağlı): Sembolik bağlantıları takip et (varsayılan: false)
+
+  #### Arama ve Bilgi
+
+  - **search_files**
+    - Bir düzene uyan dosya ve dizinleri özyinelemeli olarak ara
+    - Parametreler: `path` (gerekli): Arama için başlangıç yolu, `pattern` (gerekli): Dosya adlarına karşı eşleştirilecek arama deseni
+
+  - **search_within_files**
+    - Dosya içeriğinde metin ara ve dizin ağaçları arasında ara
+    - Parametreler: `path` (gerekli): Arama için başlangıç dizini, `substring` (gerekli): Dosya içeriklerinde aranacak metin, `depth` (isteğe bağlı): Aranacak maksimum dizin derinliği, `max_results` (isteğe bağlı): Döndürülecek maksimum sonuç sayısı (varsayılan: 1000)
+
+  - **get_file_info**
+    - Bir dosya veya dizin hakkında ayrıntılı metadata bilgisi al
+    - Parametreler: `path` (gerekli): Dosya veya dizinin yolu
+
+  - **list_allowed_directories**
+    - Bu sunucunun erişmesine izin verilen dizinlerin listesini döndür
+    - Parametreler: Hiçbiri
+
+  ## Özellikler
+
+  - Belirtilen dizinlere güvenli erişim
+  - Dizin traversal saldırılarını önlemek için yol doğrulaması
+  - Güvenlik kontrolleri ile sembolik bağlantı çözümlemesi
+  - MIME türü algılaması
+  - Metin, ikili ve görüntü dosyaları desteği
+  - Satır içi içerik ve base64 kodlaması için boyut sınırları
+
+  ## Başlarken
+
+  ### Kurulum
+
+  #### Go Install Kullanarak
+
+  ```bash
+  go install github.com/mark3labs/mcp-filesystem-server@latest
+  ```
+
+  ### Kullanım
+
+  #### Bağımsız bir sunucu olarak
+
+  MCP sunucusunu izin verilen dizinlerle başlat:
+
+  ```bash
+  mcp-filesystem-server /path/to/allowed/directory [/another/allowed/directory ...]
+  ```
+
+  #### Go projenizde bir kütüphane olarak
+
+  ```go
+  package main
+
+  import (
+  	"log"
+  	"os"
+
+  	"github.com/mark3labs/mcp-filesystem-server/filesystemserver"
+  )
+
+  func main() {
+  	// İzin verilen dizinlerle yeni bir filesystem sunucusu oluştur
+  	allowedDirs := []string{"/path/to/allowed/directory", "/another/allowed/directory"}
+  	fs, err := filesystemserver.NewFilesystemServer(allowedDirs)
+  	if err != nil {
+  		log.Fatalf("Failed to create server: %v", err)
+  	}
+
+  	// İsteklere hizmet ver
+  	if err := fs.Serve(); err != nil {
+  		log.Fatalf("Server error: %v", err)
+  	}
+  }
+  ```
+
+  ### Model Context Protocol ile Kullanım
+
+  Bu sunucuyu MCP destekleyen uygulamalarla entegre etmek için:
+
+  ```json
+  {
+    "mcpServers": {
+      "filesystem": {
+        "command": "mcp-filesystem-server",
+        "args": ["/path/to/allowed/directory", "/another/allowed/directory"]
+      }
+    }
+  }
+  ```
+
+  ### Docker
+
+  #### Docker ile Çalıştırma
+
+  Filesystem MCP sunucusunu Docker kullanarak çalıştırabilirsiniz:
+
+  ```bash
+  docker run -i --rm ghcr.io/mark3labs/mcp-filesystem-server:latest /path/to/allowed/directory
+  ```
+
+  #### Docker Yapılandırması MCP ile
+
+  Docker görüntüsünü MCP destekleyen uygulamalarla entegre etmek için:
+
+  ```json
+  {
+    "mcpServers": {
+      "filesystem": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "ghcr.io/mark3labs/mcp-filesystem-server:latest",
+          "/path/to/allowed/directory"
+        ]
+      }
+    }
+  }
+  ```
+
+  Konteyner içinde yapılan değişikliklerin ana bilgisayar dosya sistemine yansıması gerekiyorsa, bir volume monte edebilirsiniz. Bu, konteynerin ana bilgisayar sistemindeki dosyalara erişmesini ve değiştirmesini sağlar. İşte bir örnek:
+
+  ```json
+  {
+    "mcpServers": {
+      "filesystem": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "--volume=/allowed/directory/in/host:/allowed/directory/in/container",
+          "ghcr.io/mark3labs/mcp-filesystem-server:latest",
+          "/allowed/directory/in/container"
+        ]
+      }
+    }
+  }
+  ```
+
+  ## Lisans
+
+  Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 # MCP Filesystem Server

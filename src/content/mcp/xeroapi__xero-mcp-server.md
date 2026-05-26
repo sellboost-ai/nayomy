@@ -8,6 +8,250 @@ url: "https://github.com/XeroAPI/xero-mcp-server"
 body_length: 9351
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Xero MCP Server
+
+  Bu, Xero için Model Context Protocol (MCP) sunucu uygulamasıdır. MCP protokolü ile Xero API'si arasında bir köprü sağlayarak, Xero'nun muhasebe ve işletme özelliklerine standartlaştırılmış erişim imkanı tanır.
+
+  ## Özellikler
+
+  - Xero OAuth2 kimlik doğrulaması ve özel bağlantılar
+  - İletişim yönetimi
+  - Hesap Planı yönetimi
+  - Fatura oluşturma ve yönetimi
+  - MCP protokolü uyumluluğu
+
+  ## Ön Koşullar
+
+  - Node.js (v18 veya daha yüksek)
+  - npm veya pnpm
+  - API kimlik bilgileriyle birlikte Xero geliştirici hesabı
+
+  ## Dokümantasyon ve Bağlantılar
+
+  - [Xero Public API Dokümantasyonu](https://developer.xero.com/documentation/api/)
+  - [Xero API Explorer](https://api-explorer.xero.com/)
+  - [Xero OpenAPI Specs](https://github.com/XeroAPI/Xero-OpenAPI)
+  - [Xero-Node Public API SDK Dokümantasyonu](https://xeroapi.github.io/xero-node/accounting)
+  - [Geliştirici Dokümantasyonu](https://developer.xero.com/)
+
+  ## Kurulum
+
+  ### Xero Hesabı Oluşturma
+
+  Henüz Xero hesabınız ve organizasyonunuz yoksa, [buradaki](https://www.xero.com/au/signup/) ücretsiz deneme sürümünü kullanarak bir hesap oluşturabilirsiniz.
+
+  Başlamak için Demo Company kullanmanızı öneririz çünkü önceden yüklenmiş örnek verilerle gelir. Oturum açtıktan sonra, sol üst köşedeki açılır menüyü kullanarak "Demo Company" seçerek geçiş yapabilirsiniz. Demo Company'deki verileri sıfırlayabilir veya ülkeyi değiştirebilirsiniz; sol üst köşedeki açılır menüyü kullanarak [My Xero](https://my.xero.com) sayfasına giderek bunu yapabilirsiniz.
+
+  NOT: Bordro özelindeki sorguları kullanmak için bölge NZ veya UK olmalıdır.
+
+  ### Kimlik Doğrulama
+
+  Xero MCP sunucusu 2 kimlik doğrulama modunu desteklemektedir:
+
+  #### 1. Özel Bağlantılar
+
+  Bu, test ve geliştirme için daha iyi bir seçimdir ve belirli bir organizasyon için client id ve secret belirtmenizi sağlar.
+  Claude Desktop gibi 3. parti MCP istemcilerine entegre ediliyorsa da önerilen yaklaşımdır.
+
+  ##### Xero Geliştirici Hesabınızı Yapılandırma
+
+  Şu talimatları izleyerek bir Özel Bağlantı kurun: https://developer.xero.com/documentation/guides/oauth2/custom-connections/
+
+  ##### Gerekli Kapsamlar
+
+  Özel bağlantılar, oluşturulma zamanına bağlı olarak farklı kapsamlar gerektirir. **İlgili listedeki tüm kapsamlar özel bağlantınıza eklenmelidir:**
+
+  | Özel Bağlantı Oluşturulma Tarihi | Gerekli Kapsamlar |
+  |---------------------------|-----------------|
+  | 29 Nisan 2026'dan önce | [SCOPES_V1](src/clients/xero-client.ts#L82-L90) (paket izinler) |
+  | 29 Nisan 2026'dan itibaren | [SCOPES_V2](src/clients/xero-client.ts#L93-L112) (ayrıntılı izinler) |
+
+  > **Not:** MCP sunucusu otomatik olarak önce V1 kapsamlarını dener ve gerekirse V2'ye geri döner.
+  > 
+  > Bunları `XERO_SCOPES` ortam değişkenini boşlukla ayrılmış kapsam listesine ayarlayarak geçersiz kılabilirsiniz.
+
+  ##### MCP sunucusunu Claude Desktop ile entegre etme
+
+  MCP sunucusunu Claude'a eklemek için Settings > Developer > Edit config seçeneğine gidin ve aşağıdakini `claude_desktop_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "xero": {
+        "command": "npx",
+        "args": ["-y", "@xeroapi/xero-mcp-server@latest"],
+        "env": {
+          "XERO_CLIENT_ID": "your_client_id_here",
+          "XERO_CLIENT_SECRET": "your_client_secret_here",
+          "XERO_SCOPES": "accounting.invoices accounting.contacts accounting.settings"
+        }
+      }
+    }
+  }
+  ```
+
+  `XERO_SCOPES` değişkeni isteğe bağlıdır. Belirtilmezse, yukarıda listelenen varsayılan kapsamlar kullanılacaktır.
+
+  NOT: [Node Version Manager](https://github.com/nvm-sh/nvm) kullanıyorsanız, `"command": "npx"` bölümünü executable'ın tam yolu ile değiştirin; Mac/Linux'ta `your_home_directory/.nvm/versions/node/v22.14.0/bin/npx` veya Windows'ta `"your_home_directory\\.nvm\\versions\\node\\v22.14.0\\bin\\npx"` gibi
+
+  #### 2. Bearer Token
+
+  Bu, çalışma zamanında birden fazla Xero hesabını desteklemek ve MCP istemcisinin gerektiği şekilde kimlik doğrulama akışını (PKCE gibi) yürütmesine izin vermek istiyorsanız daha iyi bir seçimdir.
+  Bu durumda, aşağıdaki yapılandırmayı kullanın:
+
+  ```json
+  {
+    "mcpServers": {
+      "xero": {
+        "command": "npx",
+        "args": ["-y", "@xeroapi/xero-mcp-server@latest"],
+        "env": {
+          "XERO_CLIENT_BEARER_TOKEN": "your_bearer_token"
+        }
+      }
+    }
+  }
+  ```
+
+  NOT: Tanımlandığında `XERO_CLIENT_BEARER_TOKEN` değişkeni `XERO_CLIENT_ID` değişkeninden öncelikli olacaktır.
+
+  ##### Bearer Token İçin Gerekli Kapsamlar
+
+  Bir bearer token aldığınızda, uygun kapsamları istemelisiniz. İstemeniz gereken kapsamlar şunlardır:
+
+  > **Not:** Bazı kapsamlar daha ayrıntılı kapsamlar lehine kullanımdan kaldırılmaktadır. Kullanımdan kaldırma zaman çizelgeleri hakkında ayrıntılar için [Xero OAuth 2.0 Kapsamları dokümantasyonuna](https://developer.xero.com/documentation/guides/oauth2/scopes/) bakın.
+
+  ```
+  accounting.transactions (Deprecated)
+  accounting.transactions.read (Deprecated)
+  accounting.invoices
+  accounting.invoices.read
+  accounting.payments
+  accounting.payments.read
+  accounting.banktransactions
+  accounting.banktransactions.read
+  accounting.manualjournals
+  accounting.manualjournals.read
+  accounting.reports.read (Deprecated)
+  accounting.reports.aged.read
+  accounting.reports.balancesheet.read
+  accounting.reports.profitandloss.read
+  accounting.reports.trialbalance.read
+  accounting.contacts 
+  accounting.settings 
+  payroll.settings 
+  payroll.employees 
+  payroll.timesheets
+  ```
+
+
+  ### Mevcut MCP Komutları
+
+  - `list-accounts`: Hesapların listesini alma
+  - `list-contacts`: Xero'dan iletişim listesini alma
+  - `list-credit-notes`: Alacak notları listesini alma
+  - `list-invoices`: Faturaların listesini alma
+  - `list-items`: Ürünlerin listesini alma
+  - `list-manual-journals`: Manuel günlüklerin listesini alma
+  - `list-organisation-details`: Organizasyon detaylarını alma
+  - `list-profit-and-loss`: Kar ve zarar raporu alma
+  - `list-quotes`: Tekliflerin listesini alma
+  - `list-tax-rates`: Vergi oranlarının listesini alma
+  - `list-payments`: Ödemelerin listesini alma
+  - `list-trial-balance`: Mizan raporu alma
+  - `list-bank-transactions`: Banka hesabı işlemlerinin listesini alma
+  - `list-payroll-employees`: Bordro Çalışanlarının listesini alma
+  - `list-report-balance-sheet`: Bilançoyu alma
+  - `list-payroll-employee-leave`: Bordro Çalışanının izin kayıtlarını alma
+  - `list-payroll-employee-leave-balances`: Bordro Çalışanının izin bakiyelerini alma
+  - `list-payroll-employee-leave-types`: Bordro izin türlerinin listesini alma
+  - `list-payroll-leave-periods`: Bordro Çalışanının izin dönemlerinin listesini alma
+  - `list-payroll-leave-types`: Xero Bordro'da mevcut tüm izin türlerinin listesini alma
+  - `list-timesheets`: Bordro Zaman Çizelgelerinin listesini alma
+  - `list-aged-receivables-by-contact`: Bir iletişim için yaşlandırılmış alacakları alma
+  - `list-aged-payables-by-contact`: Bir iletişim için yaşlandırılmış borçları alma
+  - `list-contact-groups`: İletişim gruplarının listesini alma
+  - `list-tracking-categories`: İzleme kategorilerinin listesini alma
+  - `create-bank-transaction`: Yeni banka işlemi oluşturma
+  - `create-contact`: Yeni iletişim oluşturma
+  - `create-credit-note`: Yeni alacak notu oluşturma
+  - `create-invoice`: Yeni fatura oluşturma
+  - `create-item`: Yeni ürün oluşturma
+  - `create-manual-journal`: Yeni manuel günlük oluşturma
+  - `create-payment`: Yeni ödeme oluşturma
+  - `create-quote`: Yeni teklif oluşturma
+  - `create-payroll-timesheet`: Yeni Bordro Zaman Çizelgesi oluşturma
+  - `create-tracking-category`: Yeni izleme kategorisi oluşturma
+  - `create-tracking-option`: Yeni izleme seçeneği oluşturma
+  - `update-bank-transaction`: Mevcut banka işlemini güncelleme
+  - `update-contact`: Mevcut iletişimi güncelleme
+  - `update-invoice`: Mevcut taslak faturayı güncelleme
+  - `update-item`: Mevcut ürünü güncelleme
+  - `update-manual-journal`: Mevcut manuel günlüğü güncelleme
+  - `update-quote`: Mevcut taslak teklifi güncelleme
+  - `update-credit-note`: Mevcut taslak alacak notunu güncelleme
+  - `update-tracking-category`: Mevcut izleme kategorisini güncelleme
+  - `update-tracking-options`: İzleme seçeneklerini güncelleme
+  - `update-payroll-timesheet-line`: Mevcut Bordro Zaman Çizelgesinde bir satırı güncelleme
+  - `approve-payroll-timesheet`: Bordro Zaman Çizelgesini onaylama
+  - `revert-payroll-timesheet`: Onaylanmış Bordro Zaman Çizelgesini geri alma
+  - `add-payroll-timesheet-line`: Mevcut Bordro Zaman Çizelgesine yeni satır ekleme
+  - `delete-payroll-timesheet`: Mevcut Bordro Zaman Çizelgesini silme
+  - `get-payroll-timesheet`: Mevcut Bordro Zaman Çizelgesini alma
+
+  Ayrıntılı API dokümantasyonu için lütfen [MCP Protokolü Belirtimi](https://modelcontextprotocol.io/) sayfasına başvurun.
+
+  ## Geliştiriciler İçin
+
+  ### Kurulum
+
+  ```bash
+  # npm kullanarak
+  npm install
+
+  # pnpm kullanarak
+  pnpm install
+  ```
+
+  ### Derleme Yapma
+
+  ```bash
+  # npm kullanarak
+  npm run build
+
+  # pnpm kullanarak
+  pnpm build
+  ```
+
+  ### Claude Desktop ile Entegre Etme
+
+  Geliştirmede Xero MCP sunucunuzu Claude Desktop'a bağlamak için Settings > Developer > Edit config seçeneğine gidin ve aşağıdakini `claude_desktop_config.json` dosyasına ekleyin:
+
+  NOT: Windows'ta `args` yolunun klasörler arasındaki `\` karakterini kaçırdığından emin olun; örneğin `"C:\\projects\xero-mcp-server\\dist\\index.js"`
+
+  ```json
+  {
+    "mcpServers": {
+      "xero": {
+        "command": "node",
+        "args": ["insert-your-file-path-here/xero-mcp-server/dist/index.js"],
+        "env": {
+          "XERO_CLIENT_ID": "your_client_id_here",
+          "XERO_CLIENT_SECRET": "your_client_secret_here"
+        }
+      }
+    }
+  }
+  ```
+
+  ## Lisans
+
+  MIT
+
+  ## Güvenlik
+
+  Lütfen `.env` dosyanızı veya herhangi bir hassas kimlik bilgisini sürüm kontrolüne kaydetmeyin (güvenli varsayılan olarak `.gitignore` dosyasında yer almaktadır.)
 ---
 
 # Xero MCP Server

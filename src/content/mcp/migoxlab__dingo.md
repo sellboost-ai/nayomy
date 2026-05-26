@@ -9,6 +9,570 @@ body_length: 24608
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://dingo.openxlab.org.cn/"
+body_tr: |-
+  <!-- SEO Meta Information and Structured Data -->
+  <div itemscope itemtype="https://schema.org/SoftwareApplication" align="center" xmlns="http://www.w3.org/1999/html">
+    <meta itemprop="name" content="Dingo: A Comprehensive AI Data Quality Evaluation Tool">
+    <meta itemprop="description" content="Comprehensive AI-powered data quality assessment platform for machine learning datasets, LLM training data validation, hallucination detection, and RAG system evaluation">
+    <meta itemprop="applicationCategory" content="Data Quality Software">
+    <meta itemprop="operatingSystem" content="Cross-platform">
+    <meta itemprop="programmingLanguage" content="Python">
+    <meta itemprop="url" content="https://github.com/MigoXLab/dingo">
+    <meta itemprop="downloadUrl" content="https://pypi.org/project/dingo-python/">
+    <meta itemprop="softwareVersion" content="latest">
+    <meta itemprop="license" content="Apache-2.0">
+
+  <!-- logo -->
+  <p align="center">
+    
+  </p>
+
+  <!-- badges -->
+  <p align="center">
+    <a href="https://github.com/pre-commit/pre-commit"></a>
+    <a href="https://pypi.org/project/dingo-python/"></a>
+    <a href="https://pypi.org/project/dingo-python/"></a>
+    <a href="https://github.com/MigoXLab/dingo/blob/main/LICENSE"></a>
+    <a href="https://github.com/MigoXLab/dingo/stargazers"></a>
+    <a href="https://github.com/MigoXLab/dingo/network/members"></a>
+    <a href="https://github.com/MigoXLab/dingo/issues"></a>
+    <a href="https://mseep.ai/app/dataeval-dingo"></a>
+    <a href="https://deepwiki.com/MigoXLab/dingo"></a>
+    <a href="https://archestra.ai/mcp-catalog/dataeval__dingo"></a>
+    <a href="https://clawhub.ai/e06084/dingo"></a>
+  </p>
+
+  </div>
+
+
+  <div align="center">
+
+  [English](README.md) · [简体中文](README_zh-CN.md) · [日本語](README_ja.md)
+
+  </div>
+
+
+  <!-- join us -->
+
+  <p align="center">
+      👋 <a href="https://discord.gg/Jhgb2eKWh8" target="_blank">Discord</a> ve <a href="./docs/assets/wechat.jpg" target="_blank">WeChat</a> üzerinde bize katılın
+  </p>
+
+
+  <p align="center">
+    Dingo'yu seviyorsanız, lütfen GitHub'da bize bir ⭐ verin!
+    <br/>
+    <a href="https://github.com/MigoXLab/dingo/stargazers" target="_blank">
+      
+    </a>
+  </p>
+
+
+  # Giriş
+
+  **Dingo, ML uygulayıcıları, veri mühendisleri ve yapay zeka araştırmacıları için tasarlanmış kapsamlı bir AI verisi, model ve uygulama kalitesi değerlendirme aracıdır**. Eğitim verilerinin, fine-tuning veri setlerinin ve üretim AI sistemlerinin kalitesini sistematik olarak değerlendirmenize ve iyileştirmenize yardımcı olur.
+
+  ---
+
+  ## 🚀 Enterprise Dingo SaaS Sürümü
+
+  **Üretime hazır bir veri kalitesi platformu** mu arıyorsunuz? [Dingo SaaS](https://dingo.openxlab.org.cn) Enterprise Edition'ı deneyin!
+
+  ### ✨ Açık kaynak sürümüne kıyasla, SaaS şunları sağlar:
+
+  - 🌐 **Web UI** - Görsel değerlendirme arayüzü, kodlama gerekmez
+  - 🔐 **Erişim Kontrolü** - JWT + Google OAuth 2.0
+  - 📊 **Görsel Raporlar** - İnteraktif grafikler, trend analizi, dışa aktarma özellikleri
+  - 🔌 **RESTful API** - Mevcut sistemlerle sorunsuz entegrasyon
+
+  ### 📝 Ücretsiz SaaS Kodunu Alma
+
+  👉 **[Dingo SaaS Repository Erişimi İçin Başvur](https://aicarrier.feishu.cn/share/base/form/shrcnr19E0upfiA92Wm5i2eic7g)** 
+
+  İnceleme süresi: 1-5 iş günü | Kurumsal veri yönetimi, ekip işbirliği için uygun
+
+  ---
+
+  ## Neden Dingo?
+
+  🎯 **Üretim Sınıfı Kalite Kontrolleri** - Ön-eğitim veri setlerinden RAG sistemlerine kadar, yapay zekanızın yüksek kaliteli veriler almasını sağlayın
+
+  🗄️ **Çok Kaynaktan Veri Entegrasyonu** - Yerel dosyalar, SQL veritabanları (PostgreSQL/MySQL/SQLite), HuggingFace veri setleri ve S3 depolama alanına sorunsuz bağlanın
+
+  🔍 **Çok Alanlı Değerlendirme** - Paralel olarak farklı alanlara farklı kalite kuralları uygulayın (örneğin `isbn` için ISBN doğrulaması, `title` için metin kalitesi)
+
+  🤖 **RAG Sistem Değerlendirmesi** - 5 akademik temelli metrik ile alma ve oluşturma kalitesinin kapsamlı değerlendirmesi
+
+  🧠 **LLM & Kural & Ajan Hibrid** - Hızlı sezgisel kuralları (30+ yerleşik) LLM tabanlı derin değerlendirme ile birleştirin
+
+  🚀 **Esnek Yürütme** - Hızlı yineleme için yerel olarak çalıştırın veya milyar ölçekli veri setleri için Spark ile ölçeklendirin
+
+  📊 **Zengin Raporlama** - GUI görselleştirme ve alan düzeyinde içgörülerle ayrıntılı kalite raporları
+
+  ## Mimari Diyagram
+
+  ![Architecture of dingo](https://raw.githubusercontent.com/MigoXLab/dingo/HEAD/docs/assets/architeture.png)
+
+  # Hızlı Başlangıç
+
+  ## Kurulum
+
+  ```shell
+  # Çekirdek paket (kural değerlendirmesi, LLM değerlendirmesi, MCP sunucusu, veri kaynağı desteği dahil)
+  pip install dingo-python
+
+  # HHEM halüsinasyon tespit modeli ile (transformers + torch gerektirir)
+  pip install "dingo-python[hhem]"
+
+  # Tüm özellikler ile (HHEM + Ajan)
+  pip install "dingo-python[all]"
+  ```
+
+  ## Dingo'nun Kullanım Durumlarına Örnekler
+
+  ### 1. LLM sohbet verilerini değerlendirin
+
+  ```python
+  from dingo.config.input_args import EvaluatorLLMArgs
+  from dingo.io.input import Data
+  from dingo.model.llm.text_quality.llm_text_quality_v4 import LLMTextQualityV4
+  from dingo.model.rule.rule_common import RuleSpecialCharacter
+
+  data = Data(
+      data_id='123',
+      prompt="hello, introduce the world",
+      content="�I am 8 years old. ^I love apple because:"
+  )
+
+
+  def llm():
+      LLMTextQualityV4.dynamic_config = EvaluatorLLMArgs(
+          key='YOUR_API_KEY',
+          api_url='https://api.openai.com/v1/chat/completions',
+          model='gpt-4o',
+      )
+      res = LLMTextQualityV4.eval(data)
+      print(res)
+
+  def rule():
+      res = RuleSpecialCharacter().eval(data)
+      print(res)
+
+  rule()
+  ```
+
+  ### 2. Veri Setini Değerlendirin
+
+  ```python
+  from dingo.config import InputArgs
+  from dingo.exec import Executor
+
+  # Hugging Face'ten bir veri seti değerlendirin
+  if __name__ == '__main__':
+      input_data = {
+          "input_path": "tatsu-lab/alpaca",  # Hugging Face'ten veri seti
+          "dataset": {
+              "source": "hugging_face",
+              "format": "plaintext"  # Format: plaintext
+          },
+          "executor": {
+              "result_save": {
+                  "bad": True  # Değerlendirme sonuçlarını kaydet
+              }
+          },
+          "evaluator": [
+              {
+                  "evals": [
+                      {"name": "RuleColonEnd"},
+                      {"name": "RuleSpecialCharacter"}
+                  ]
+              }
+          ]
+      }
+
+      input_args = InputArgs(**input_data)
+      executor = Executor.exec_map["local"](input_args)
+      result = executor.execute()
+      print(result)
+  ```
+
+  ## Komut Satırı Arayüzü
+
+  ### Kural Setleri ile Değerlendirin
+
+  ```shell
+  dingo eval --input .github/env/local_plaintext.json
+  ```
+
+  ### LLM ile Değerlendirin (örneğin, GPT-4o)
+
+  ```shell
+  dingo eval --input .github/env/local_json.json
+  ```
+
+  ---
+
+  # MCP Sunucusu
+
+  Dingo, yapay zeka ajanı entegrasyonu için yerleşik bir Model Context Protocol (MCP) sunucusu içerir:
+
+  ```bash
+  # MCP sunucusunu başlat (SSE transport, varsayılan port 8000)
+  dingo serve
+
+  # Özel port
+  dingo serve --port 9000
+
+  # stdio transport (Claude Desktop için)
+  dingo serve --transport stdio
+  ```
+
+  Ayrıntılı kurulum ve Cursor/Claude Desktop entegrasyonu için bkz:
+
+  [English](README_mcp.md) · [简体中文](README_mcp_zh-CN.md) · [日本語](README_mcp_ja.md)
+
+  ## Video Gösterimi
+
+  Dingo MCP ile hızlı başlamanıza yardımcı olmak için bir video kılavuzu oluşturduk:
+
+  https://github.com/user-attachments/assets/aca26f4c-3f2e-445e-9ef9-9331c4d7a37b
+
+  Bu video, Dingo MCP sunucusunun Cursor ile nasıl kullanılacağını adım adım göstermektedir.
+
+  ---
+
+  # 📚 Veri Kalitesi Metrikleri
+
+  Dingo, kural tabanlı hızlılığı LLM tabanlı derinlikle birleştirerek birden fazla boyutta **100'den fazla değerlendirme metriği** sağlar.
+
+  ## Metrik Kategorileri
+
+  | Kategori | Örnekler | Kullanım Durumu |
+  |----------|----------|----------|
+  | **Ön-eğitim Metni Kalitesi** | Bütünlük, Etkinlik, Benzerlik, Güvenlik | LLM ön-eğitim veri filtreleme |
+  | **SFT Veri Kalitesi** | Dürüst, Faydalı, Zararsız (3H) | Talimat fine-tuning verisi |
+  | **RAG Değerlendirmesi** | Sadakat, Bağlam Kesinliği, Cevap İlgisi | RAG sistem değerlendirmesi |
+  | **Halüsinasyon Tespiti** | HHEM-2.1-Open, Gerçeksellik Kontrolü | Üretim yapay zeka güvenilirliği |
+  | **Sınıflandırma** | Konu kategorileştirmesi, İçerik etiketleme | Veri organizasyonu |
+  | **Çok Modalite** | Görüntü-metin alaka, VLM kalitesi, OCR görsel değerlendirmesi | Görme-dil verisi |
+  | **Güvenlik** | PII tespiti, Perspective API toksisite | Gizlilik ve güvenlik |
+
+  📊 **[Tam Metrikleri Belgesi Görüntüle →](docs/metrics.md)**  
+  📖 **[RAG Değerlendirme Rehberi →](docs/rag_evaluation_metrics.md)** | **[中文版](docs/rag_evaluation_metrics_zh.md)**  
+  🔍 **[Halüsinasyon Tespit Rehberi →](docs/hallucination_detection_guide.md)** | **[中文版](docs/hallucination_guide.md)**  
+  ✅ **[Gerçeksellik Değerlendirme Rehberi →](docs/factuality_assessment_guide.md)** | **[中文版](docs/factcheck_guide.md)**  
+  👁️ **[VLM Render Judge Rehberi →](docs/en/vlm_render_judge_guide.md)** | **[中文版](docs/vlm_render_judge_guide.md)**
+
+  Çoğu metrik bilimsel titizliği sağlamak için akademik araştırma tarafından desteklenmektedir.
+
+  ## Hızlı Metrik Kullanımı
+
+  ```python
+  llm_config = {
+      "model": "gpt-4o",
+      "key": "YOUR_API_KEY",
+      "api_url": "https://api.openai.com/v1/chat/completions"
+  }
+
+  input_data = {
+      "evaluator": [
+          {
+              "fields": {"content": "content"},
+              "evals": [
+                  {"name": "RuleAbnormalChar"},           # Kural tabanlı (hızlı)
+                  {"name": "LLMTextQualityV5", "config": llm_config}  # LLM tabanlı (derin)
+              ]
+          }
+      ]
+  }
+  ```
+
+  **Özelleştirme**: Tüm istemler `dingo/model/llm/` dizininde tanımlanmıştır (kategori başına organize edilmiş: `text_quality/`, `rag/`, `hhh/`, vb.). Etki alanına özgü gereksinimler için bunları genişletin veya değiştirin.
+
+
+  ---
+
+  # 🎓 Uygulayıcılar için Temel Kavramlar
+
+  ## Dingo'yu Üretime Hazır Yapan Nedir?
+
+  ### 1. **Çok Alanlı Değerlendirme Pipeline**
+  Farklı alanlara tek bir geçişte farklı kalite kontrolleri uygulayın:
+  ```python
+  "evaluator": [
+      {"fields": {"content": "isbn"}, "evals": [{"name": "RuleIsbn"}]},
+      {"fields": {"content": "title"}, "evals": [{"name": "RuleAbnormalChar"}]},
+      {"fields": {"content": "description"}, "evals": [{"name": "LLMTextQualityV5"}]}
+  ]
+  ```
+  **Neden Önemli**: Her alan için ayrı script yazmadan yapılandırılmış verileri (veritabanı tabloları gibi) değerlendirin.
+
+  ### 2. **Büyük Veri Setleri için Akış İşleme**
+  SQL veri kaynakları SQLAlchemy'nin sunucu tarafı imleçlerini kullanır:
+  ```python
+  # Milyarlarca satırı OOM olmadan işle
+  for data in dataset.get_data():  # Aynı anda bir satır verir
+      result = evaluator.eval(data)
+  ```
+  **Neden Önemli**: Ara dosyalara dışa aktarmadan üretim veritabanlarını işleyin.
+
+  ### 3. **Bellekte Alan Yalıtımı**
+  RAG değerlendirmeleri farklı alan kombinasyonları arasında bağlam sızıntısını önler:
+  ```
+  outputs/
+  ├── user_input,response,retrieved_contexts/  # Sadakat grubu
+  └── user_input,response/                     # Cevap İlgisi grubu
+  ```
+  **Neden Önemli**: Birden çok alan kombinasyonu değerlendirilirken doğru metrik hesaplamaları.
+
+  ### 4. **Hibrid Kural-LLM Stratejisi**
+  Hızlı kuralları (% 100 kapsama) örneklenmiş LLM kontrolleri (% 10 kapsama) ile birleştirin:
+  ```python
+  "evals": [
+      {"name": "RuleAbnormalChar"},        # Hızlı, tüm verilerde çalışır
+      {"name": "LLMTextQualityV5"}         # Pahalı, gerekirse örnek al
+  ]
+  ```
+  **Neden Önemli**: Üretim ölçeğinde değerlendirme için maliyet ve kapsama arasında denge sağlayın.
+
+  ### 5. **Kayıt Yoluyla Genişletilebilirlik**
+  Özel kurallar, istemler ve modeller için temiz eklenti mimarisi:
+  ```python
+  @Model.rule_register('QUALITY_BAD_CUSTOM', ['default'])
+  class MyCustomRule(BaseRule):
+      @classmethod
+      def eval(cls, input_data: Data) -> EvalDetail:
+          # Örnek: içeriğin boş olup olmadığını kontrol et
+          if not input_data.content:
+              return EvalDetail(
+                  metric=cls.__name__,
+                  status=True,  # Sorun bulundu
+                  label=[f'{cls.metric_type}.{cls.__name__}'],
+                  reason=["Content is empty"]
+              )
+          return EvalDetail(
+              metric=cls.__name__,
+              status=False,  # Sorun bulunamadı
+              label=['QUALITY_GOOD']
+          )
+  ```
+  **Neden Önemli**: Kod tabanını fork'lamadan etki alanına özgü gereksinimlere uyarlanın.
+
+  ---
+
+  # 🌟 Özellik Vurguları
+
+  ## 📊 Çok Kaynaktan Veri Entegrasyonu
+
+  **Çeşitli Veri Kaynakları** - Verilerinizin bulunduğu yere bağlanın  
+  ✅ **Yerel Dosyalar**: JSONL, CSV, TXT, Parquet  
+  ✅ **SQL Veritabanları**: PostgreSQL, MySQL, SQLite, Oracle, SQL Server (akış işleme ile)  
+  ✅ **Bulut Depolama**: S3 ve S3 uyumlu depolama  
+  ✅ **ML Platformları**: Doğrudan HuggingFace veri setleri entegrasyonu
+
+  **Kurumsal Sınıfı SQL Desteği** - Üretim veritabanı entegrasyonu  
+  ✅ Milyar ölçekli veri setler için bellek verimli akış  
+  ✅ Bağlantı havuzu ve otomatik kaynak temizleme  
+  ✅ Karmaşık SQL sorguları (JOIN, WHERE, agregasyonlar)  
+  ✅ SQLAlchemy ile birden çok lehçe desteği
+
+  **Çok Alanlı Kalite Kontrolleri** - Farklı alanlar için farklı kurallar  
+  ✅ Paralel değerlendirme pipeline'ları (örneğin, ISBN doğrulaması + metin kalitesi eş zamanlı)  
+  ✅ Alan takma adı ve iç içe alan çıkarması (`user.profile.name`)  
+  ✅ Alan başına bağımsız sonuç raporları  
+  ✅ Esnek veri dönüşümü için ETL pipeline mimarisi
+
+  ---
+
+  ## 🤖 RAG Sistem Değerlendirmesi
+
+  **5 Akademik Temelli Metrik** - RAGAS, DeepEval, TruLens araştırmasına dayalı  
+  ✅ **Sadakat**: Cevap-bağlam tutarlılığı (halüsinasyon tespiti)  
+  ✅ **Cevap İlgisi**: Cevap-sorgu hizalaması  
+  ✅ **Bağlam Kesinliği**: Alma kesinliği  
+  ✅ **Bağlam Geri Çağırma**: Alma geri çağırması  
+  ✅ **Bağlam İlgisi**: Bağlam-sorgu uygunluğu
+
+  **Kapsamlı Raporlama** - Otomatik toplanmış istatistikler  
+  ✅ Her metrik için ortalama, min, maks, standart sapma  
+  ✅ Alan gruplandırılmış sonuçlar  
+  ✅ Batch ve tek değerlendirme modları
+
+  📖 **[RAG Değerlendirme Rehberini Görüntüle →](docs/rag_evaluation_metrics_zh.md)**
+
+  ---
+
+  ## 🧠 Hibrid Değerlendirme Sistemi
+
+  **Kural Tabanlı** - Hızlı, belirleyici, uygun maliyetli  
+  ✅ 30+ yerleşik kural (metin kalitesi, format, PII tespiti)  
+  ✅ Regex, sezgisel, istatistiksel kontroller  
+  ✅ Özel kural kaydı
+
+  **LLM Tabanlı** - Derin anlamsal anlayış  
+  ✅ OpenAI (GPT-4o, GPT-3.5), DeepSeek, Kimi  
+  ✅ Yerel modeller (Llama3, Qwen)  
+  ✅ Görme-Dil Modelleri (InternVL, Gemini)  
+  ✅ Özel istem kaydı
+
+  **Ajan Tabanlı** - Araçlarla çok adımlı akıl yürütme  
+  ✅ Web arama entegrasyonu (Tavily)  
+  ✅ Uyarlanabilir bağlam toplama  
+  ✅ Çok kaynaktan gerçek doğrulama  
+  ✅ Özel ajan & araç kaydı
+
+  **Genişletilebilir Mimari**  
+  ✅ Eklenti tabanlı kural/istem/model kaydı  
+  ✅ Kaygıların temiz ayrılması (ajanlar, araçlar, orkestrasyon)  
+  ✅ Etki alanına özgü özelleştirme
+
+  ---
+
+  ## 🚀 Esnek Yürütme & Entegrasyon
+
+  **Çoklu Arayüzler**  
+  ✅ Hızlı kontroller için CLI  
+  ✅ Entegrasyon için Python SDK  
+  ✅ IDE'ler için MCP (Model Context Protocol) sunucusu (Cursor, vb.)
+
+  **Ölçeklenebilir Yürütme**  
+  ✅ Hızlı yineleme için yerel yürütücü  
+  ✅ Dağıtılmış işleme için Spark yürütücüsü  
+  ✅ Yapılandırılabilir eşzamanlılık ve toplu işlem
+
+  **Veri Kaynakları**  
+  ✅ **Yerel Dosyalar**: JSONL, CSV, TXT, Parquet formatları  
+  ✅ **Hugging Face**: HF veri setleri hub'ı ile doğrudan entegrasyon  
+  ✅ **S3 Depolama**: AWS S3 ve S3 uyumlu depolama  
+  ✅ **SQL Veritabanları**: PostgreSQL, MySQL, SQLite, Oracle, SQL Server (geniş ölçekli veriler için akış işleme)
+
+  **Modaliteler**  
+  ✅ Metin (sohbet, belgeler, kod)  
+  ✅ Görüntüler (VLM desteği ile)  
+  ✅ Çok modalite (metin + görüntü tutarlılığı)
+
+  ---
+
+  ## 📈 Zengin Raporlama & Görselleştirme
+
+  **Çok Düzeyli Raporlar**  
+  ✅ Genel puanlarla Özet JSON  
+  ✅ Alan düzeyinde dökümü  
+  ✅ Kural ihlali başına ayrıntılar  
+  ✅ Tür ve ad dağılımı
+
+  **GUI Görselleştirme** ([Dingo SaaS](https://github.com/MigoXLab/dingo-saas) aracılığıyla)  
+  ✅ İnteraktif veri keşfiyle Web UI  
+  ✅ Trend analizi ile görsel raporlar  
+  ✅ Anomali izleme
+
+  **Metrik Agregasyonu**  
+  ✅ Otomatik istatistikler (ort, min, maks, std_dev)  
+  ✅ Alan gruplandırılmış metrikler  
+  ✅ Genel kalite puanı
+
+  ---
+
+  # 📖 Kullanıcı Rehberi
+
+  ## 🔧 Genişletilebilirlik
+
+  Dingo, etki alanına özgü özelleştirme için temiz bir eklenti mimarisi kullanır:
+
+  ### Özel Kural Kaydı
+
+  ```python
+  from dingo.model import Model
+  from dingo.model.rule.base import BaseRule
+  from dingo.io import Data
+  from dingo.io.output.eval_detail import EvalDetail
+
+  @Model.rule_register('QUALITY_BAD_CUSTOM', ['default'])
+  class DomainSpecificRule(BaseRule):
+      """Etki alanına özgü desenleri kontrol et"""
+
+      @classmethod
+      def eval(cls, input_data: Data) -> EvalDetail:
+          text = input_data.content
+
+          # Sizin özel mantığınız
+          is_valid = your_validation_logic(text)
+
+          return EvalDetail(
+              metric=cls.__name__,
+              status=not is_valid,  # False = iyi, True = kötü
+              label=['QUALITY_GOOD' if is_valid else 'QUALITY_BAD_CUSTOM'],
+              reason=["Doğrulama ayrıntıları..."]
+          )
+  ```
+
+  ### Özel LLM/İstem Kaydı
+
+  ```python
+  from dingo.model import Model
+  from dingo.model.llm.base_openai import BaseOpenAI
+
+  @Model.llm_register('custom_evaluator')
+  class CustomEvaluator(BaseOpenAI):
+      """Özelleştirilmiş istemlerle özel LLM değerlendiricisi"""
+
+      _metric_info = {
+          "metric_name": "CustomEvaluator",
+          "metric_type": "LLM-Based Quality",
+          "category": "Custom Category"
+      }
+
+      prompt = """Özel istem burada..."""
+  ```
+
+  **Örnekler:**
+  - [Özel Kurallar](examples/register/sdk_register_rule.py)
+  - [Özel Modeller](examples/register/sdk_register_llm.py)
+
+  ### Araçlarla Ajan Tabanlı Değerlendirme
+
+  Dingo, çok adımlı akıl yürütme ve uyarlanabilir bağlam toplama için harici araçları kullanabilen ajan tabanlı değerlendiricileri destekler. İki uygulama deseni mevcuttur:
+
+  **Desen 1: LangChain Tabanlı** (örneğin, `AgentFactCheck`)
+  - Çerçeve tarafından yönetilen otonom çok adımlı akıl yürütme
+  - LangChain 1.0'ın `create_agent` ile ReAct modelini kullanır
+  - İdeal: Karmaşık akıl yürütme görevleri, hızlı prototipleme
+  - Daha az kod, daha bildirimsel
+
+  **Desen 2: Özel İş Akışı** (örneğin, `AgentHallucination`)
+  - Geliştirici tarafından yönetilen açık iş akışı kontrolü
+  - Manuel araç çağrıları ve LLM etkileşimleri
+  - İdeal: Mevcut değerlendiricileri birleştirme, etki alanına özgü iş akışları
+  - Tam kontrol, açık davranış
+
+  Her iki desen de aynı konfigürasyon arayüzünü paylaşır ve kullanıcılara karşı saydamdır.
+
+  **Yerleşik Ajanlar:**
+  - `AgentFactCheck`: Otonom arama kontrolü ile LangChain tabanlı gerçek denetlemesi
+  - `AgentHallucination`: Uyarlanabilir bağlam toplama ile özel iş akışı halüsinasyon tespiti
+  - `ArticleFactChecker`: İki aşamalı makale gerçek denetlemesi — doğrulanabilir iddiaları çıkarır sonra her birini web araması ve Arxiv kullanarak paralel olarak doğrular, yapılandırılabilir eşzamanlılık kontrolü ile
+
+  **Hızlı Örnek:**
+
+  ```python
+  from dingo.io import Data
+  from dingo.io.output.eval_detail import EvalDetail
+  from dingo.model import Model
+  from dingo.model.llm.agent.base_agent import BaseAgent
+
+  @Model.llm_register('MyAgent')
+  class MyAgent(BaseAgent):
+      """Araç desteği olan özel ajan"""
+
+      available_tools = ["tavily_search", "my_custom_tool"]
+      max_iterations = 5
+
+      @classmethod
+      def eval(cls, input_data: Data) -> EvalDetail:
+          # Gerçek denetlemesi için araçları kullan
+          search_result = cls.execute_tool('tavily_search', query=input_data.content)
+
+          # L
 ---
 
 <!-- SEO Meta Information and Structured Data -->

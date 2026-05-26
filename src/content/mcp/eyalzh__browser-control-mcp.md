@@ -8,6 +8,138 @@ url: "https://github.com/eyalzh/browser-control-mcp"
 body_length: 6493
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Browser Control MCP
+
+  [![Firefox Add-on](https://raw.githubusercontent.com/eyalzh/browser-control-mcp/HEAD/.github/addon_badge.svg)](https://addons.mozilla.org/en-US/firefox/addon/browser-control-mcp/)
+
+  Firefox tarayıcı uzantısıyla eşleştirilmiş bir MCP sunucusu; AI asistanlarına sekme yönetimi, tarama geçmişi ve web sayfası metin içeriğine erişim sağlar.
+
+  ## Özellikler
+
+  MCP sunucusu aşağıdaki araçları destekler:
+  - Sekmeleri aç veya kapat
+  - Açık sekmelerin listesini al
+  - Ad ve renk ile sekme grupları oluştur
+  - Açık sekmeleri yeniden düzenle
+  - Tarayıcının geçmişini oku ve ara
+  - Bir web sayfasının metin içeriğini ve bağlantılarını oku (kullanıcı izni gerekir)
+  - Bir tarayıcı sekmesinde metni bul ve vurgula (kullanıcı izni gerekir)
+
+  ## Örnek kullanım senaryoları:
+
+  ### Sekme yönetimi
+  - *"Tarayıcımdaki iş ile ilgisiz tüm sekmeleri kapat."*
+  - *"Tarayıcımdaki tüm geliştirme ile ilgili sekmeleri 'Development' adında yeni bir gruba ayır."*
+  - *"Tarayıcımdaki sekmeleri mantıklı bir sıraya göre düzenle."*
+  - *"Tarayıcımdaki son 24 saat içinde erişilmeyen tüm sekmeleri kapat"*
+
+  ### Tarama geçmişi arama
+  - *"Tarayıcı geçmişimde Yeni Zelanda'daki Milford track hakkında bir makale bulmama yardım et."*
+  - *"Geçen hafta ziyaret ettiğim, en fazla 10 makale olmak üzere, çoğaltmalardan kaçınarak AI hakkındaki tüm makaleleri aç."*
+
+  ### Tarama ve araştırma 
+  - *"Tarayıcımda hackernews'i aç, ardından en önemli hikayeyi aç, oku, yorumları da oku. Yorumlar hikayeyle aynı fikirde mi?"*
+  - *"Tarayıcımda Google Scholar'ı kullanarak son 3 yıldaki L-theanine hakkındaki makaleler ara. En çok alıntılanan 3 makaleyi aç. Bunları oku ve bana özetle."*
+  - *"Tarayıcımda Google aramayı kullanarak çiçek dükkanları ara. En uygun 10 sonucu aç. Bana her çiçek dükkanının konumu ve çalışma saatleriyle bir tablo göster."*
+
+  ## Web otomasyonu MCP sunucularıyla karşılaştırma
+
+  MCP sunucusu ve Firefox uzantısı kombinasyonu, web otomasyonu MCP sunucularından daha güvenli olacak şekilde tasarlanmıştır; kullanıcının kişisel tarayıcısıyla daha güvenli kullanım sağlar.
+
+  * Web sayfası değişikliği, sayfa etkileşimleri veya keyfi komut dosyası oluşturmayı desteklemez.
+  * Web sayfası içeriğini okumak, her etki alanı için tarayıcıda kullanıcının açık rızasını gerektirir. Bu, uzantının manifest düzeyinde uygulanır.
+  * MCP sunucusu ve uzantı arasında paylaşılan bir sırrla yerel bağlantı kullanır.
+  * Uzak veri toplama veya takip yoktur.
+  * Araç çağrıları için uzantı tarafındaki denetim günlüğü ve araç etkinleştirme/devre dışı bırakma yapılandırması sağlar.
+  * Uzantı çalışma zamanı üçüncü taraf bağımlılıkları içermez.
+
+  **Önemli not**: Browser Control MCP hala deneyseldir. Kendi sorumluluğunuzda kullanın. Diğer herhangi bir MCP sunucusu gibi dikkatli davranmalı ve araç çağrılarını dikkatle yetkilendirip izlemelisiniz.
+
+  ## Kurulum
+
+  ### Seçenek 1: Firefox ve Claude Desktop uzantılarını kurun
+
+  Firefox uzantısı / add-on [addons.mozilla.org adresinde mevcuttur](https://addons.mozilla.org/en-US/firefox/addon/browser-control-mcp/). Ayrıca bu GitHub deposundan en son önceden oluşturulmuş sürümü indirebilir ve açabilirsiniz: [browser-control-mcp-1.5.0.xpi](https://github.com/eyalzh/browser-control-mcp/releases/download/v1.5.0/browser-control-1.5.0.xpi). Kurulumdan sonra otomatik olarak açılacak olan "Uzantıyı Yönet" sayfasındaki talimatları izleyerek kurulumu tamamlayın.
+
+  Add-on'un "Uzantıyı Yönet" sayfası Claude Desktop DXT dosyasına bir bağlantı içerecektir. Ayrıca buradan indirebilirsiniz: [mcp-server-v1.5.1.dxt](
+  https://github.com/eyalzh/browser-control-mcp/releases/download/v1.5.1/mcp-server-v1.5.1.dxt). Dosyayı indirdikten sonra, Claude Desktop'ın ayarlar penceresinde açın veya sürükleyip bırakın. Kurulduktan sonra DXT uzantısını etkinleştirmeyi unutmayın. Bu, yalnızca Claude Desktop'ın en son sürümleriyle çalışacaktır. MCP sunucusunu yerel olarak kurmak istiyorsanız, aşağıdaki MCP yapılandırması bölümüne bakın.
+
+  ### Seçenek 2: Koddan derleyin
+
+  Koddan derlemek için, bu depoyu klonlayın, ardından ana depo dizininde hem MCP sunucusunu hem de tarayıcı uzantısını derlemek için aşağıdaki komutları çalıştırın.
+  ```
+  npm install
+  npm run build
+  ```
+
+  #### Firefox Geçici Add-on Kurulumu 
+
+  Uzantıyı Firefox'a Geçici Add-on olarak kurmak için:
+
+  1. Firefox adres çubuğuna `about:debugging` yazın
+  2. "Bu Firefox"e tıklayın
+  3. "Geçici Add-on Yükle..."ye tıklayın
+  4. Bu projede `firefox-extension` klasörü altındaki `manifest.json` dosyasını seçin
+  5. Uzantının tercihler sayfası açılacaktır. Gizli anahtarı panonuza kopyalayın. MCP sunucusunu yapılandırmak için kullanılacaktır.
+
+  Alternatif olarak, kalıcı bir add-on kurmak için [addons.mozilla.org adresinde Browser Control MCP'yi kurup](https://addons.mozilla.org/en-US/firefox/addon/browser-control-mcp/), aşağıda ayrıntılandırıldığı gibi MCP Sunucusunu yapılandırabilirsiniz.
+
+  Uzantıyı kişisel Firefox tarayıcınızda çalıştırmamayı tercih ederseniz, başka bir seçenek de ayrı bir Firefox örneğini indirmektir (örneğin https://www.mozilla.org/en-US/firefox/developer/ adresinden kullanılabilen Firefox Developer Edition).
+
+
+  #### MCP Sunucusu yapılandırması
+
+  Tarayıcı uzantısını kurulduktan sonra, mcpServers yapılandırmanıza (örneğin Claude Desktop için `claude_desktop_config.json`) aşağıdaki yapılandırmayı ekleyin:
+  ```json
+  {
+      "mcpServers": {
+          "browser-control": {
+              "command": "node",
+              "args": [
+                  "/path/to/repo/mcp-server/dist/server.js"
+              ],
+              "env": {
+                  "EXTENSION_SECRET": "<secret_on_firefox_extension_options_page>",
+                  "EXTENSION_PORT": "8089" 
+              }
+          }
+      }
+  }
+  ```
+  `/path/to/repo` yerine doğru yolu yazın.
+
+  EXTENSION_SECRET değerini Firefox'taki uzantının tercihler sayfasında gösterilen değere ayarlayın (`about:addons` adresinden erişebilirsiniz). MCP sunucusunun uzantı ile iletişim kurmak için kullanacağı portu belirtmek üzere EXTENSION_PORT ortam değişkenini de ayarlayabilirsiniz (varsayılan 8089'dur).
+
+  MCP sunucusunun uzantıya bağlanması birkaç saniye sürebilir.
+
+  ##### MCP sunucusunu Docker ile yapılandırın
+
+  Alternatif olarak, Docker tabanlı bir yapılandırma kullanabilirsiniz. Bunu yapmak için, mcp-server Docker görüntüsünü derleyin:
+  ```
+  docker build -t browser-control-mcp .
+  ```
+
+  ve aşağıdaki mcpServers yapılandırmasını kullanın:
+
+  ```json
+  {
+      "mcpServers": {
+          "browser-control": {
+              "command": "docker",
+              "args": [
+                  "run",
+                  "--rm",
+                  "-i",
+                  "-p", "127.0.0.1:8089:8089",
+                  "-e", "EXTENSION_SECRET=<secret_from_extension>",
+                  "-e", "CONTAINERIZED=true",
+                  "browser-control-mcp"
+              ]
+          }
+      }
+  }
+  ```
 ---
 
 # Browser Control MCP

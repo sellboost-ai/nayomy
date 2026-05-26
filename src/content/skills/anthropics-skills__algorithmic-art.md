@@ -12,6 +12,380 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Algoritmic Felsefeler
+
+  Algoritmic felsefeler, kod aracılığıyla ifade edilen hesaplamalı estetik hareketleridir. .md dosyaları (felsefe), .html dosyaları (interaktif görüntüleyici) ve .js dosyaları (generatif algoritmalar) çıktısı verir.
+
+  Bu iki adımda gerçekleşir:
+  1. Algoritmic Felsefe Oluşturma (.md dosyası)
+  2. p5.js generatif sanat oluşturarak ifade etme (.html + .js dosyaları)
+
+  Önce bu görevi üstlenin:
+
+  ## ALGORİTMİC FELSEFESİ OLUŞTURMA
+
+  Başlamak için, şu yollarla yorumlanacak bir ALGORİTMİC FELSEFESİ (statik görüntüler veya şablonlar değil) oluşturun:
+  - Hesaplamalı süreçler, ortaya çıkan davranış, matematiksel güzellik
+  - Tohumlanmış rastgelelik, gürültü alanları, organik sistemler
+  - Parçacıklar, akışlar, alanlar, kuvvetler
+  - Parametrik değişim ve kontrollü kaos
+
+  ### KRİTİK ANLAYIŞ
+  - Ne alınır: Kullanıcı tarafından verilen bazı ince girdiler veya talimatlar; temeli olarak kullanılmalıdır, ancak yaratıcı özgürlüğü kısıtlamamalıdır.
+  - Ne yaratılır: Bir algoritmic felsefe/generatif estetik hareketi.
+  - Sonraki adım: Aynı versiyon felsefesini alır ve KODU İLE İFADE EDER - %90 algoritmic üretim, %10 temel parametreler olan p5.js taslakları oluşturur.
+
+  Bu yaklaşımı düşünün:
+  - Bir generatif sanat hareketinin manifestosu yazın
+  - Sonraki aşama, onu hayata getiren algoritmayı yazma işlemini içerir
+
+  Felsefe vurgulamalıdır: Algoritmic ifade. Ortaya çıkan davranış. Hesaplamalı güzellik. Tohumlanmış değişim.
+
+  ### ALGORİTMİC FELSEFESİ NASIL OLUŞTURULUR
+
+  **Hareketi adlandırın** (1-2 kelime): "Organic Turbulence" / "Quantum Harmonics" / "Emergent Stillness"
+
+  **Felsefesini açıklayın** (4-6 paragraf - özlü ancak kapsamlı):
+
+  ALGORİTMİK özü yakalaması için, bu felsefenin nasıl tezahür ettiğini ifade edin:
+  - Hesaplamalı süreçler ve matematiksel ilişkiler?
+  - Gürültü fonksiyonları ve rastgelelik desenleri?
+  - Parçacık davranışları ve alan dinamikleri?
+  - Zamansal evrimi ve sistem durumları?
+  - Parametrik değişim ve ortaya çıkan karmaşıklık?
+
+  **KRİTİK YÖNERGELER:**
+  - **Gereksizlikten kaçının**: Her algoritmic aspekt bir kez bahsedilmelidir. Gürültü teorisi, parçacık dinamikleri veya matematiksel ilkeler hakkındaki kavramları, yeni derinlik eklemiyorsanız tekrarlamayın.
+  - **Zanaatçılığı TEKRARLANAKtekrarlanarak vurgulayın**: Felsefe, son algoritmun sayısız saat geliştirilerek, özenle refine edilerek ve alanında mutlak zirvede birinin elinden çıkıyor görünmesi gerektiğini KATIYEN vurgulamalidir. Bu çerçeve önemlidir - "meticulously crafted algorithm", "deep computational expertise ürünü", "painstaking optimization", "master-level implementation" gibi ifadeleri tekrar edin.
+  - **Yaratıcı alan bırakın**: Algoritmic yönü belirli olun, ancak sonraki Claude'un son derece yüksek zanaatçılık seviyesinde yorumcu uygulama seçimleri yapması için yeterince özlü olun.
+
+  Felsefe, sonraki versiyonu fikri STATİK GÖRÜNTÜLER değil, ALGORİTMİK OLARAK ifade etmeye yönlendirmelidir. Güzellik son karede değil, süreçte yaşar.
+
+  ### FELSEFESİ ÖRNEKLERİ
+
+  **"Organic Turbulence"**
+  Felsefe: Doğal yasa tarafından kısıtlanan kaos, düzensizlikten ortaya çıkan düzen.
+  Algoritmic ifade: Katmanlı Perlin gürültüsü tarafından yönlendirilen akış alanları. Binlerce parçacık vektör kuvvetlerini takip ederek, izleri organik yoğunluk haritalarında birikirler. Çoklu gürültü oktavları türbüler bölgeler ve sakin alanlar oluşturur. Renk hız ve yoğunluktan ortaya çıkar - hızlı parçacıklar parlak yanarken, yavaş olanlar gölgeye solup giderler. Algoritm, hesaplamalı estetiğin ustası tarafından sayısız yinelemeler aracılığıyla refine edilen parametrelerin meticulously tuned dengesini sağlayan dengeye ulaşıncaya kadar çalışır.
+
+  **"Quantum Harmonics"**
+  Felsefe: Dalga benzeri girişim desenleri sergileyen ayrık varlıklar.
+  Algoritmic ifade: Bir ızgarada başlatılan parçacıklar, her biri sinüs dalgaları aracılığıyla evrimleşen bir faz değeri taşırlar. Parçacıklar yakın olduğunda, fazları girişime uğrarlar - yapıcı girişim parlak düğümler yaratırken, yıkıcı boşluk oluşturur. Basit harmonik hareket karmaşık ortaya çıkan mandalalara ürün verir. Painstaking frekans kalibrasyonunun sonucu, burada her oran rezonant güzellik üretmek için özenle seçilmiştir.
+
+  **"Recursive Whispers"**
+  Felsefe: Ölçekler arasında kendi kendine benzerlik, sonlu alanda sonsuz derinlik.
+  Algoritmic ifade: Kendini tekrarlayan şekilde alt bölüne giden dallanma yapıları. Her dal biraz rastgeleleştirilmiş ancak altın oranlarla kısıtlı. L-sistemleri veya özyinelemeli alt bölümü, matematiksel ve organik görünen ağaç benzeri formları üretir. Hafif gürültü bozulmaları mükemmel simetriyi bozar. Çizgi ağırlıkları her özyineleme düzeyinde azalır. Her dallanma açısı derin matematiksel araştırmanın ürünüdür.
+
+  **"Field Dynamics"**
+  Felsefe: Görünmez kuvvetler, madde üzerindeki etkileri aracılığıyla görünür hale gelir.
+  Algoritmic ifade: Matematiksel fonksiyonlar veya gürültüden inşa edilen vektör alanları. Kenarlardan doğan parçacıklar, alan çizgilerini takip ederek, denge noktalarına veya sınırlara ulaştığında ölürler. Birden fazla alan parçacıkları çekebilir, itebilir veya döndürebilir. Görselleştirme yalnızca izleri gösterir - görünmez kuvvetlerin hayalet gibi kanıtı. Kuvvet dengesinin aracılığıyla meticulously koreografisi hazırlanmış hesaplamalı bir dans.
+
+  **"Stochastic Crystallization"**
+  Felsefe: Rastgele süreçler sıralı yapılara kristalleşir.
+  Algoritmic ifade: Rastgeleleştirilmiş daire paketlemesi veya Voronoi tessellasyonu. Rastgele noktalarla başlayın, onları relaksasyon algoritmaları aracılığıyla evrimleştirin. Hücreler denge ulaşıncaya kadar ayrı itilir. Renk hücre boyutuna, komşu sayısına veya merkeze olan uzaklığa dayalı. Ortaya çıkan organik tessellation hem rastgele hem de kaçınılmaz görünür. Her tohum benzersiz kristallin güzellik üretir - master-level generatif algoritmanın işareti.
+
+  *Bunlar sıkıştırılmış örneklerdir. Gerçek algoritmic felsefesi 4-6 ciddi paragraf olmalıdır.*
+
+  ### TEMEL İLKELER
+  - **ALGORİTMİC FELSEFESİ**: Kod aracılığıyla ifade edilecek bir hesaplamalı dünya görüşü oluşturma
+  - **SÜREÇTİN ÜZERİNE ÜRÜN**: Her zaman güzelliğin algoritmanın yürütülmesinden ortaya çıktığını vurgulayın - her çalıştırma benzersizdir
+  - **PARAMETRİK İFADE**: Fikirler matematiksel ilişkiler, kuvvetler, davranışlar aracılığıyla iletişim kurar - statik kompozisyon değil
+  - **SANATSAL ÖZGÜRLÜK**: Sonraki Claude felsefesini algoritmic olarak yorumlar - yaratıcı uygulama alanı sağlayın
+  - **SAF GENERATIF SANAT**: Bu, statik görüntülerle rastgelelik değil, YAŞAYAN ALGORITMALAR yapmakla ilgilidir
+  - **UZMAN ZANAATÇILIĞİ**: Son algoritmanın meticulously crafted, sayısız yinelemeler aracılığıyla refine edilmiş, hesaplamalı estetiklerin alanında mutlak zirvede birinin derin uzmanlığının ürünü olması gerektiğini tekrar tekrar vurgulayın
+
+  **Algoritmic felsefesi 4-6 paragraf uzunluğunda olmalıdır.** Bunu hedeflenen vizyonu bir araya getiren şiirsel hesaplamalı felsefesiyle doldurun. Aynı noktaları tekrarlamaktan kaçının. Bu algoritmic felsefesini bir .md dosyası olarak çıktı verin.
+
+  ---
+
+  ## KONSEPTSEL TOHUMUNun ÇIKARILMASI
+
+  **KRİTİK ADIM**: Algoritmayı uygulamadan önce, orijinal istekten hafif konseptsel ipiği tanımlayın.
+
+  **TEMEL İLKE**:
+  Konsept, **algoritm içine gömülü hafif, niş bir referans** - asla kelimelere tamamen bağlı değil, her zaman sofistike. Konu ile tanıdık birisi bunu sezgisel olarak hissetmelidir, diğerleri basitçe masterful bir generatif komposisyondan faydalanırlar. Algoritmic felsefesi hesaplamalı dili sağlar. Çıkarılan konsept ruhu sağlar - parametrelere, davranışlara ve ortaya çıkan desenlere görünmez olarak dokunmuş hafif konseptsel DNA'yı.
+
+  Bu **ÇOK ÖNEMLİdir**: Referans o kadar refine edilmelidir ki, kendini açıklamadan çalışmanın derinliğini arttırır. Başka bir şarkıyı algoritmic uyum aracılığıyla alıntılayan bir caz müzisyeni gibi düşünün - sadece bilenler yakalarlar, ancak herkes generatif güzelliği takdir eder.
+
+  ---
+
+  ## P5.JS UYGULAMASI
+
+  Felsefe ve konseptsel çerçeve kurulduktan sonra, bunu kod aracılığıyla ifade edin. İlerlemeye başlamadan önce düşüncelerinizi toplayın. Yalnızca oluşturulan algoritmic felsefesini ve aşağıdaki talimatları kullanın.
+
+  ### ⚠️ ADIM 0: ÖNCESİNDE ŞABLONU OKU ⚠️
+
+  **KRİTİK: Herhangi bir HTML yazmadan:**
+
+  1. **Oku** `templates/viewer.html` Read aracını kullanarak
+  2. **Incele** kesin yapı, stil ve Anthropic markalaşması
+  3. **Bu dosyayı ANLAMSAL BAŞLANGIÇ NOKTASI olarak kullan** - sadece ilham değil
+  4. **Tüm SABİT bölümleri tam olarak gösterildiği şekilde tut** (başlık, kenar çubuğu yapısı, Anthropic renkleri/yazı tipleri, seed kontrolleri, aksiyon düğmeleri)
+  5. **Dosyadaki yorumlarla işaretlenmiş yalnızca DEĞİŞKEN bölümleri değiştir** (algoritm, parametreler, parametreler için UI kontrolleri)
+
+  **Kaçının:**
+  - ❌ Sıfırdan HTML oluşturma
+  - ❌ Özel stil veya renk şemaları icat etme
+  - ❌ Sistem yazı tipleri veya koyu temalar kullanma
+  - ❌ Kenar çubuğu yapısını değiştirme
+
+  **Şu uygulamaları izleyin:**
+  - ✅ Şablonun tam HTML yapısını kopyala
+  - ✅ Anthropic markalaşmasını tut (Poppins/Lora yazı tipleri, açık renkler, gradient arka plan)
+  - ✅ Kenar çubuğu düzenini koru (Seed → Parameters → Renkler? → Actions)
+  - ✅ Yalnızca p5.js algoritmasını ve parametre kontrollerini değiştir
+
+  Şablon temelleridir. Buna daha fazlasını ekle, yeniden inşa etme.
+
+  ---
+
+  Yaşayan ve nefes alan, galeri kalitesi hesaplamalı sanat yaratmak için algoritmic felsefesini temel olarak kullanın.
+
+  ### TEKNİK GEREKSINIMLER
+
+  **Tohumlanmış Rastgelelik (Art Blocks Deseni)**:
+  ```javascript
+  // HER ZAMAN tekrarlanabilirlik için bir tohum kullan
+  let seed = 12345; // veya kullanıcı girdisinden hash
+  randomSeed(seed);
+  noiseSeed(seed);
+  ```
+
+  **Parametre Yapısı - FELSEFESİNİ TAKİP ET**:
+
+  Algoritmic felsefesinden doğal olarak ortaya çıkan parametreleri oluşturmak için şunları düşünün: "Bu sistemin hangi nitelikleri ayarlanabilir?"
+
+  ```javascript
+  let params = {
+    seed: 12345,  // Her zaman tekrarlanabilirlik için seed ekle
+    // renkler
+    // ALGORİTMANIZI kontrol eden parametreler ekle:
+    // - Miktarlar (kaç tane?)
+    // - Ölçekler (ne kadar büyük? ne kadar hızlı?)
+    // - Olasılıklar (ne kadar muhtemel?)
+    // - Oranlar (hangi oranlar?)
+    // - Açılar (hangi yön?)
+    // - Eşikler (davranış ne zaman değişir?)
+  };
+  ```
+
+  **Etkili parametreler tasarlamak için, sistemin "hangi desen tipi kullanmalı?" düşünmek yerine tunelanmaya ihtiyaç duyduğu özelliklere odaklanın.**
+
+  **Temel Algoritm - FELSEFESİNİ İFADE ET**:
+
+  **KRİTİK**: Algoritmic felsefesi ne inşa edileceğini belirlemeli.
+
+  Felsefesini kod aracılığıyla ifade etmek için "hangi deseni kullanmalı?" düşünmek yerine "bu felsefesini kod aracılığıyla nasıl ifade edebilirim?" düşünün.
+
+  Felsefesi **organik ortaya çıkış** hakkında ise şunları kullanmayı düşünün:
+  - Zamanla birikirn veya büyüyen öğeler
+  - Doğal kurallarla kısıtlanan rastgele süreçler
+  - Geri bildirim döngüleri ve etkileşimler
+
+  Felsefesi **matematiksel güzellik** hakkında ise şunları kullanmayı düşünün:
+  - Geometrik ilişkiler ve oranlar
+  - Trigonometrik fonksiyonlar ve harmonikler
+  - Kesin hesaplamalar beklenmedik desenleri yaratırlar
+
+  Felsefesi **kontrollü kaos** hakkında ise şunları kullanmayı düşünün:
+  - Sıkı sınırlar içinde rastgele değişim
+  - Bifurkasyon ve faz geçişleri
+  - Düzensizlikten ortaya çıkan düzen
+
+  **Algoritm felsefeden akar, seçenekler menüsünden değil.**
+
+  Uygulamayı rehber etmek için, konseptsel özü yaratıcı ve orijinal seçimleri bilgilendirmesine izin verin. Bu özel istek için vizyonu ifade eden bir şey inşa edin.
+
+  **Canvas Kurulumu**: Standart p5.js yapısı:
+  ```javascript
+  function setup() {
+    createCanvas(1200, 1200);
+    // Sisteminizi başlatın
+  }
+
+  function draw() {
+    // Generatif algoritmanız
+    // Statik (noLoop) veya hareketli olabilir
+  }
+  ```
+
+  ### ZANAATÇILIKteki GEREKLEMELER
+
+  **KRİTİK**: Ustalık elde etmek için, master generatif sanatçı tarafından sayısız yinelemeler aracılığıyla ortaya çıkmış görünen algoritmalar oluşturun. Her parametreyi özenle ayarlayın. Her desennin amaçla ortaya çıktığından emin olun. Bu rastgele gürültü DEĞİL - bu derin uzmanlık tarafından refine edilen KONTROLLÜ KAOSTUR.
+
+  - **Denge**: Görsel gürültü olmadan karmaşıklık, sertlik olmadan düzen
+  - **Renk Uyumu**: Düşünceli paletler, rastgele RGB değerleri değil
+  - **Kompozisyon**: Rastgelelik içinde bile, görsel hiyerarşi ve akışı koru
+  - **Performans**: Pürüzsüz yürütme, canlı ise optimize edilmiş
+  - **Tekrarlanabilirlik**: Aynı tohum DAIMA özdeş çıktı üretir
+
+  ### ÇIKTI FORMATI
+
+  Çıktı:
+  1. **Algoritmic Felsefesi** - Generatif estetikle açıklayan markdown veya metin
+  2. **Tek HTML Eseri** - `templates/viewer.html` öğesinden inşa edilen kendi kendine yeterli etkileşimli generatif sanat (ADIM 0 ve sonraki bölüme bakın)
+
+  HTML eseri her şeyi içerir: p5.js (CDN'den), algoritm, parametre kontrolleri ve UI - claude.ai yapıtlarında veya herhangi bir tarayıcıda hemen çalışan tek bir dosya. Sıfırdan değil, şablon dosyasından başlayın.
+
+  ---
+
+  ## İNTERAKTİF ESERI OLUŞTURMA
+
+  **HATIRLATMA: `templates/viewer.html` zaten okunmuş olmalıdır (ADIM 0 bölümüne bakın). Bu dosyayı başlangıç noktası olarak kullanın.**
+
+  Generatif sanatı keşfetmeye izin vermek için, tek, kendi kendine yeterli bir HTML eseri oluşturun. Bu eserin claude.ai veya herhangi bir tarayıcıda hemen çalışmasını sağlayın - kurulum gerekmez. Her şeyi satır içi gömün.
+
+  ### KRİTİK: SABİT VS DEĞİŞKEN
+
+  `templates/viewer.html` dosyası temelleridir. Gerekli tam yapı ve stil içerir.
+
+  **SABİT (her zaman tam olarak gösterildiği şekilde ekle):**
+  - Düzen yapısı (başlık, kenar çubuğu, ana tuval alanı)
+  - Anthropic markalaşması (UI renkleri, yazı tipleri, gradyanlar)
+  - Kenar çubuk seed bölümü:
+    - Seed göstergesi
+    - Önceki/Sonraki düğmeleri
+    - Rastgele düğme
+    - Seed'e git girişi + Git düğmesi
+  - Actions bölümü kenar çubukta:
+    - Yeniden oluştur düğmesi
+    - Sıfırla düğmesi
+
+  **DEĞİŞKEN (her sanat eseri için özelleştir):**
+  - Tüm p5.js algoritması (setup/draw/sınıflar)
+  - Parametreler nesnesi (sanatın neye ihtiyacı var)
+  - Kenar çubuk Parameters bölümü:
+    - Parametre kontrolleri sayısı
+    - Parametre adları
+    - Kaydırıcılar için min/max/step değerleri
+    - Kontrol türleri (kaydırıcılar, girdiler vb.)
+  - Renkler bölümü (isteğe bağlı):
+    - Bazı sanatlar renk seçici gerektirir
+    - Bazı sanat sabit renkler kullanabilir
+    - Bazı sanat monokromatik olabilir (renk kontrolleri gerekmez)
+    - Sanatın ihtiyaçlarına karar verin
+
+  **Her sanat eseri benzersiz parametreler ve algoritma olmalıdır!** Sabit kısımlar tutarlı UX sağlar - diğer her şey benzersiz vizyonu ifade eder.
+
+  ### GEREKLE ÖZELLİKLERİ
+
+  **1. Parametre Kontrolleri**
+  - Sayısal parametreler için kaydırıcılar (parçacık sayısı, gürültü ölçeği, hız vb.)
+  - Palet renkleri için renk seçiciler
+  - Parametreler değiştiğinde gerçek zamanlı güncellemeler
+  - Varsayılanlara geri yüklemek için sıfırla düğmesi
+
+  **2. Seed Navigasyonu**
+  - Geçerli seed numarasını görüntüle
+  - Tohum arasında döngüye girmek için "Önceki" ve "Sonraki" düğmeleri
+  - Rastgele seed için "Rastgele" düğmesi
+  - Belirli seed'e atlamak için giriş alanı
+  - İstendiğinde 100 varyasyon oluştur (seed'ler 1-100)
+
+  **3. Tek Eseri Yapısı**
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <!-- p5.js CDN'den - her zaman mevcut -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <style>
+      /* Tüm stil satır içi - temiz, minimal */
+      /* Tuval üstte, kontroller altında */
+    </style>
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+    <div id="controls">
+      <!-- Tüm parametre kontrolleri -->
+    </div>
+    <script>
+      // Tüm p5.js kodu satır içi burada
+      // Parametre nesneleri, sınıflar, fonksiyonlar
+      // setup() ve draw()
+      // UI işleyicileri
+      // Her şey kendi kendine yeterli
+    </script>
+  </body>
+  </html>
+  ```
+
+  **KRİTİK**: Bu tek bir eseridir. Dış dosyalar yok, ithalatlar yok (p5.js CDN hariç). Her şey satır içi.
+
+  **4. Uygulama Detayları - KENAR ÇUBUĞU OLUŞTUR**
+
+  Kenar çubuk yapısı:
+
+  **1. Seed (SABİT)** - Her zaman tam olarak gösterildiği şekilde ekle:
+  - Seed göstergesi
+  - Önceki/Sonraki/Rastgele/Atla düğmeleri
+
+  **2. Parametreler (DEĞİŞKEN)** - Sanat için kontroller oluştur:
+  ```html
+  <div class="control-group">
+      <label>Parametre Adı</label>
+      <input type="range" id="param" min="..." max="..." step="..." value="..." oninput="updateParam('param', this.value)">
+      <span class="value-display" id="param-value">...</span>
+  </div>
+  ```
+  Parametre kadar çok kontrol-grup div'i ekle.
+
+  **3. Renkler (İSTEĞE BAĞLI/DEĞİŞKEN)** - Sanat renk ayarlamasına ihtiyaç duyuyorsa ekle:
+  - Kullanıcılar palet kontrol etmeli ise renk seçiciler ekle
+  - Sanat sabit renkler kullanıyorsa bu bölümü atla
+  - Sanat monokromatik ise atla
+
+  **4. Actions (SABİT)** - Her zaman tam olarak gösterildiği şekilde ekle:
+  - Yeniden oluştur düğmesi
+  - Sıfırla düğmesi
+  - PNG'yi indir düğmesi
+
+  **Gereklemeler**:
+  - Seed kontrolleri çalışmalı (önceki/sonraki/rastgele/atla/gösterge)
+  - Tüm parametrelerin UI kontrolleri olmalı
+  - Yeniden oluştur, Sıfırla, İndir düğmeleri çalışmalı
+  - Anthropic markalaşmasını koru (UI stil, sanat renkleri değil)
+
+  ### ESERİ KULLANMA
+
+  HTML eseri hemen çalışır:
+  1. **claude.ai'de**: Etkileşimli bir eser olarak görüntülenir - anında çalışır
+  2. **Dosya olarak**: Kaydet ve herhangi bir tarayıcıda aç - sunucu gerekmez
+  3. **Paylaşma**: HTML dosyasını gönder - tamamen kendi kendine yeterli
+
+  ---
+
+  ## VARYASYONLAR & KEŞIF
+
+  Eser varsayılan olarak seed navigasyonu içerir (önceki/sonraki/rastgele düğmeleri), kullanıcıların birden fazla dosya oluşturmadan varyasyonları keşfetmesini sağlar. Kullanıcı belirli varyasyonlar vurgulanmış isterse:
+
+  - Seed ön ayarlarını ekle ("Varyasyon 1: Seed 42", "Varyasyon 2: Seed 127" vb. düğmeleri)
+  - Birden fazla seed'in küçük resimleri yan yana gösteren "Galeri Modu" ekle
+  - Hepsi aynı tek eseri içinde
+
+  Bu, aynı plakadan bir dizi baskı yaratmak gibiydi - algoritm tutarlıdır, ancak her tohum potansiyelinin farklı yönlerini ortaya çıkarır. Etkileşimli doğa, kullanıcıların seed alanını keşfederek kendi favorilarını keşfetmesi demektir.
+
+  ---
+
+  ## YARATICI SÜREç
+
+  **Kullanıcı isteği** → **Algoritmic felsefesi** → **Uygulama**
+
+  Her istek benzersizdir. Süreç şunları içerir:
+
+  1. **Kullanıcının niyetini yorumla** - Hangi estetik aranıyor?
+  2. **Bir algoritmic felsefesi oluştur** (4-6 paragraf) hesaplamalı yaklaşımı açıklayan
+  3. **Bunu kodda uygula** - Bu felsefesini ifade eden algoritmayı inşa et
+  4. **Uygun parametreleri tasarla** - Hangisi tunelanabilir olmalı?
+  5. **Eşleşen UI kontrolleri oluştur** - Bu parametreler için kaydırıcılar/girdiler
+
+  **Sabitler**:
+  - Anthropic markalaşması (renkler, yazı tipleri, düzen)
+  - Seed navigasyonu (her zaman mevcut)
+  - Kendi kendine yeterli HTML eseri
+
+  **Diğer her şey değişkendir**:
+  - Algorit
 ---
 
 Algorithmic philosophies are computational aesthetic movements that are then expressed through code. Output .md files (philosophy), .html files (interactive viewer), and .js files (generative algorithms).

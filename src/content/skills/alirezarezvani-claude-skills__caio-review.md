@@ -12,6 +12,142 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:caio-review — CAIO Forcing Questions
+
+  **Komut:** `/cs:caio-review <plan>`
+
+  Değerlendirme gerektiren CAIO, yapay zeka içeren herhangi bir planı baskı testine tabi tutar. Herhangi bir yapay zeka özelliği yayımlanmadan, herhangi bir çok yıllık satıcı taahhüdü imzalanmadan veya herhangi bir yapay zeka takımı genişlemesinden önce altı soru.
+
+  ## Ne Zaman Çalıştırılır
+
+  - Yeni bir yapay zeka destekli özellik yayımlanmadan önce
+  - Çok yıllı bir yapay zeka satıcı sözleşmesi imzalanmadan önce (API veya kendi barındırılan altyapı)
+  - AB lansmanından önce herhangi bir yapay zeka özelliğinin
+  - Büyük bir yapay zeka takımı işe alımından önce (özellikle ML mühendisi veya araştırma bilimci)
+  - İnce ayar projesi taahhüdünden önce
+  - Düzenlenmiş bir alanda yapay zekanın benimsenmesinden önce (istihdam, kredi, sağlık, eğitim, vb.)
+  - Kurucu "AI" kelimesini "rekabet avantajı" veya "moat" kelimelerine yakın kullandığında
+
+  ## Altı CAIO Sorusu
+
+  ### 1. Bu yapay zekanın iyi olması gereken şey nedir ve bunu nasıl ölçersiniz?
+  **Değerlendirme seti = gemi yok.** Herhangi bir yapay zeka özelliği dağıtılmadan önce, değerlendirme kriterlerini tanımlayın.
+  - Minimum 50-100 temsili girdi
+  - Beklenen çıktılar VEYA derecelendirme rubriği
+  - Kenar durumları: belirsiz, adversarial, format-kenarı
+  - "İyi" neye benzediğini yazamıyorsanız, özelliğiniz yok; sadece bir his var.
+
+  ### 2. Halüsinasyon / hata oranı üzerindeki SLO nedir ve geri dönüş planı nedir?
+  **Her yapay zeka özelliğinin bir arıza modu vardır. Buna hazırlık yapın.**
+  - Nicelleştirilmiş SLO: "<5% halüsinasyon faktual sorgularda"
+  - Algılama mekanizması: izleme, örnekleme, müşteri geri bildirimi döngüsü
+  - Geri dönüş: insan-döngüde inceleme, daha düşük risk varsayılan yanıt, yanıtsız kalma
+  - SLO ihlal edilirse etkilenen alan: kaç kullanıcı etkilenir, maliyet nedir?
+
+  ### 3. AB Yapay Zeka Yasası altındaki risk seviyesi nedir ve uygunluk değerlendirmesi gerekli midir?
+  **AB sakinleri etkileniyorsa VEYA alan düzenleniyorsa `ai_risk_classifier.py` çalıştırın.**
+  - PROHIBITED → AB'de başlatılamaz; yeniden kapsam belirle
+  - HIGH → uygunluk değerlendirmesi + AB DB kaydı + 10 Madde yükümlülükleri (3-12 ay, $50-200K)
+  - LIMITED → şeffaflık yükümlülükleri (chatbot açıklaması, yapay zeka tarafından oluşturulan içerik işaretleme)
+  - MINIMAL → belirli yükümlülük yok; NIST AI RMF gönüllü
+
+  ### 4. API, ince ayar, mı yoksa inşa etme mi?
+  **Spesifik kullanım durumu için `model_buildvsbuy_calculator.py` çalıştırın.**
+  - B2B SaaS kullanım durumlarının %80'i: API
+  - %15: ince ayar (alan özgü davranış + etiketli veri + ML takımı + yüksek hacim olduğunda)
+  - <%1: sıfırdan inşa etme
+  - Karar ekonomik başa baş noktasını VE pratik uygulanabilirliği (veri, takım, uyum) göz önünde bulundurmalıdır
+
+  ### 5. Beklenen ölçekte 12 aylık maliyet yörüngesi nedir?
+  **İş yükü için `ai_cost_economics.py` çalıştırın.**
+  - API: değişken, doğrusal ölçeklenir
+  - Kendi barındırılan: çoğunlukla sabit, başa baş genellikle 70B sınıfı için 1-10B token/ay
+  - Kendi barındırılanın gizli maliyetleri: ops, izleme, model güncellemeleri, kapasite, failover, güvenlik
+  - API'nin gizli maliyetleri: satıcı kilitlenmesi, yetenek kayması, hız sınırlaması, veri yerleşimi
+  - Prompt önbelleğe alma en az takdir edilen kaldıraçtır; sağlayıcı desteğini kontrol edin
+
+  ### 6. Hangi rol bunu açıyor — ve önkoşul işe almalarını yaptık mı?
+  **Yapay zeka yeteneğini belirli bir role eşleyin. Kurucular yapay zeka mühendisi / ML mühendisi / araştırma bilimcisini karıştırır.**
+  - Yapay zeka mühendisi: uygulamalı + tam yığın + istemler + değerlendirmeler + dağıtım (çoğu startup'ın buna ihtiyacı vardır)
+  - ML mühendisi: ince ayar + yeniden eğitim altyapısı (yalnızca platform mühendisinden ve etiketli veriden sonra)
+  - Araştırma bilimci: model icadı (yalnızca model ÜRÜN ise)
+  - Araştırma bilimciyi ilk yapay zeka işe alımı olarak işe almayın — verimli olmak için altyapıya ihtiyaçları vardır
+
+  ## İş Akışı
+
+  ```bash
+  # 1. Model seçimi kontrolü
+  python ../../../skills/chief-ai-officer-advisor/scripts/model_buildvsbuy_calculator.py use_case.json
+
+  # 2. Düzenleyici sınıflandırma
+  python ../../../skills/chief-ai-officer-advisor/scripts/ai_risk_classifier.py use_case.json
+
+  # 3. Maliyet projeksiyonu
+  python ../../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py workload.json
+  ```
+
+  ## Çıkış Biçimi
+
+  ```markdown
+  # CAIO Değerlendirmesi: <plan>
+  **Tarih:** YYYY-MM-DD
+
+  ## Alınan Karar
+  [bir cümle — hangi CAIO kararı: model seçimi | risk sınıflandırması | ekonomi | sonraki işe alım]
+
+  ## Değerlendirme Disiplini
+  - Değerlendirme seti taahhüt edildi: evet/hayır
+  - SLO tanımlandı: <metrik> < <eşik>
+  - Geri dönüş davranışı: <bir satır>
+
+  ## Model Seçimi (varsa)
+  - Önerilen: API / FINE_TUNE / BUILD
+  - 3 yıllık TCO: $X (seçilen yol) vs $Y (alternatifler)
+  - Başa baş: <hacim>
+
+  ## Risk Sınıflandırması (varsa)
+  - AB Yapay Zeka Yasası seviyesi: PROHIBITED / HIGH / LIMITED / MINIMAL
+  - Uygunluk değerlendirmesi gerekli: evet/hayır
+  - ABD eyalet tetikleri: [list]
+  - Gerekli kontroller açık: N
+
+  ## Maliyet Ekonomisi (varsa)
+  - Mevcut hacimde aylık maliyet: $X
+  - Kendi barındırılan taşınmaya ilişkin başa baş: <hacim>
+  - Varsa taşınma maliyeti: $X (3-6 ay)
+
+  ## Org (varsa)
+  - Sonraki işe alım: <role>
+  - Neden bu, alternatif değil: <bir satır>
+  - Ön koşul işe almalar yerinde: evet/hayır
+
+  ## Karar
+  🟢 SHIP | 🟡 SHARPEN | 🔴 BLOCK
+
+  ## Sonraki Adımlar
+  [3 somut eylem]
+  ```
+
+  ## Yönlendirme
+
+  - `/cs:cdo-review` — herhangi bir eğitim verisi çıkarımı için
+  - `/cs:gc-review` — yapay zeka satıcı sözleşmeleri, çıkış sorumluluğu, eğitim verisi lisanslama için
+  - `/cs:ciso-review` — istem injection / jailbreak / eğitim verisi zehirlenmesi tehdit modeli için
+  - `/cs:cfo-review` — çok yıllı satıcı veya GPU taahhüdü TCO için
+  - `/cs:chro-review` — yapay zeka takımı işe almalarında (tazminat, merdiven, seviyelendirme)
+  - `/cs:decide` — kararı günlüğe kaydet
+  - `/cs:freeze 60` — çok yıllı yapay zeka taahhütlerine
+
+  ## İlgili
+
+  - Ajan: [`cs-caio-advisor`](../../agents/cs-caio-advisor.md)
+  - Yetenek: [`chief-ai-officer-advisor`](../../../skills/chief-ai-officer-advisor/SKILL.md)
+  - Bitişik: `../../../skills/chief-data-officer-advisor/` (eğitim verisi hakları, veri stratejisi)
+
+  ---
+
+  **Sürüm:** 1.0.0
 ---
 
 # /cs:caio-review — CAIO Forcing Questions

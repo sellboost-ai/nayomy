@@ -8,6 +8,362 @@ url: "https://github.com/pipeboard-co/meta-ads-mcp"
 body_length: 27104
 license: "NOASSERTION"
 language: "Python"
+body_tr: |-
+  # Meta Ads MCP
+
+  Bir [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) sunucusu, AI asistanlarının Meta Ads'i uçtan uca çalıştırmasını sağlar — kampanya başlatın, yaratıcı içerik yükleyin, bütçeleri güncelleyin ve doğal konuşma aracılığıyla performansı analiz edin. Facebook, Instagram ve diğer Meta platformlarında çalışır.
+
+  [Pipeboard](https://pipeboard.co) reklam bağlayıcıları ailesinin bir parçası — kardeş remote MCP sunucuları **Google Ads**, **TikTok Ads**, **Snap Ads** ve **Reddit Ads**'i aynı kurulumla kapsar (aşağıdaki [Mevcut Diğer Seçenekler](#mevcut-diğer-seçenekler-google-ads-tiktok-ads-snap-ads-ve-reddit-ads) bölümüne bakın).
+
+  > **Not:** Bu, Meta'nın genel API'lerini kullanan bağımsız bir açık kaynak projesidir. Resmi olarak onaylanmış bir Meta uygulaması arıyorsanız, [Pipeboard](https://pipeboard.co)'u kontrol edin. Meta, Facebook, Instagram ve diğer Meta marka adları kendi sahiplerinin ticari markalarıdır.
+
+  [![Meta Ads MCP Server Demo](https://github.com/user-attachments/assets/3e605cee-d289-414b-814c-6299e7f3383e)](https://github.com/user-attachments/assets/3e605cee-d289-414b-814c-6299e7f3383e)
+
+  [![MCP Badge](https://lobehub.com/badge/mcp/nictuku-meta-ads-mcp)](https://lobehub.com/mcp/nictuku-meta-ads-mcp)
+
+  mcp-name: co.pipeboard/meta-ads-mcp
+
+  ## Topluluk & Destek
+
+  - [Discord](https://discord.gg/YzMwQ8zrjr). Topluluğa katılın.
+  - [E-posta Desteği](mailto:info@pipeboard.co). Destek için bize e-posta gönderin.
+
+  ## İçindekiler
+
+  - [🚀 Remote MCP ile Başlayın (Pazarlamacılar için Önerilir)](#remote-mcp-ile-başlayın-önerilir)
+  - [Pipeboard CLI (MCP'ye Alternatif)](#pipeboard-cli-mcpye-alternatif)
+  - [Yerel Kurulum (Yalnızca Teknik Kullanıcılar için)](#yerel-kurulum-yalnızca-teknik-kullanıcılar-için)
+  - [Özellikler](#özellikler)
+  - [Konfigürasyon](#konfigürasyon)
+  - [Mevcut MCP Araçları](#mevcut-mcp-araçları)
+  - [Lisanslama](#lisanslama)
+  - [Gizlilik ve Güvenlik](#gizlilik-ve-güvenlik)
+  - [Test Etme](#test-etme)
+  - [Sorun Giderme](#sorun-giderme)
+
+  ## Remote MCP ile Başlayın (Önerilir)
+
+  Başlamak için en hızlı ve güvenilir yol **[🚀 Meta Ads Remote MCP'mizi başlatmak](https://pipeboard.co)**tır. Bulut hizmetimiz, Meta Ads hesabınıza güvenilir, ölçeklenebilir erişim için akış halinde HTTP taşıması kullanır. Teknik kurulum gerekmez — sadece bağlanın ve AI ile kampanya başlatmaya, güncellemeye ve analiz etmeye başlayın!
+
+  ### Claude Pro/Max Kullanıcıları için
+
+  1. [claude.ai/settings/integrations](https://claude.ai/settings/integrations) adresine gidin (Claude Pro veya Max gereklidir)
+  2. "Add Integration" (Entegrasyon Ekle) öğesine tıklayın ve girin:
+     - **Name** (Ad): "Pipeboard Meta Ads" (veya tercih ettiğiniz herhangi bir ad)
+     - **Integration URL** (Entegrasyon URL'si): `https://meta-ads.mcp.pipeboard.co/`
+  3. Entegrasyonun yanında "Connect" (Bağlan) öğesine tıklayın ve şu adımları izleyin:
+     - Pipeboard'a giriş yapın
+     - Facebook Ads hesabınızı bağlayın
+
+  Bu kadar! Artık Claude'dan Meta reklam kampanyalarınızı analiz etmesini, performans içgörüleri almasını ve reklamcılığınızı yönetmesini isteyebilirsiniz.
+
+  #### Gelişmiş: Doğrudan Token Doğrulaması (Claude)
+
+  İnteraktif akış olmadan doğrudan token tabanlı kimlik doğrulama için, entegrasyonu eklerken bu URL biçimini kullanın:
+
+  ```
+  https://meta-ads.mcp.pipeboard.co/?token=YOUR_PIPEBOARD_TOKEN
+  ```
+
+  Token'ınızı [pipeboard.co/api-tokens](https://pipeboard.co/api-tokens) adresinde alın.
+
+  ### Cursor Kullanıcıları için
+
+  Aşağıdakileri `~/.cursor/mcp.json` dosyanıza ekleyin. Remote MCP'yi etkinleştirdikten sonra, giriş işlemini tamamlamak için "Needs login" (Giriş gereklidir) öğesine tıklayın.
+
+  ```json
+  {
+    "mcpServers": {
+      "meta-ads-remote": {
+        "url": "https://meta-ads.mcp.pipeboard.co/"
+      }
+    }
+  }
+  ```
+
+  #### Gelişmiş: Doğrudan Token Doğrulaması (Cursor)
+
+  İnteraktif giriş akışı olmadan kimlik doğrulamayı tercih ediyorsanız, Pipeboard API token'ınızı doğrudan URL'ye ekleyebilirsiniz:
+
+  ```json
+  {
+    "mcpServers": {
+      "meta-ads-remote": {
+        "url": "https://meta-ads.mcp.pipeboard.co/?token=YOUR_PIPEBOARD_TOKEN"
+      }
+    }
+  }
+  ```
+
+  Token'ınızı [pipeboard.co/api-tokens](https://pipeboard.co/api-tokens) adresinde alın.
+
+  ### Diğer MCP İstemcileri için
+
+  Remote MCP URL'sini kullanın: `https://meta-ads.mcp.pipeboard.co/`
+
+  **[📖 AI istemciniz için ayrıntılı kurulum talimatlarını buradan alın](https://pipeboard.co)**
+
+  #### Gelişmiş: Doğrudan Token Doğrulaması (OpenClaw ve diğer istemciler)
+
+  Token tabanlı kimlik doğrulamayı destekleyen MCP istemcileri için, Pipeboard API token'ınızı URL'ye ekleyebilirsiniz:
+
+  ```
+  https://meta-ads.mcp.pipeboard.co/?token=YOUR_PIPEBOARD_TOKEN
+  ```
+
+  Bu, interaktif giriş akışını atlatır ve hemen kimlik doğrulaması yapar. Token'ınızı [pipeboard.co/api-tokens](https://pipeboard.co/api-tokens) adresinde alın.
+
+  ### Mevcut Diğer Seçenekler: Google Ads, TikTok Ads, Snap Ads ve Reddit Ads
+
+  Pipeboard, her büyük reklam platformu için remote MCP sunucuları sunuyor — tümü aynı şekilde kurulmuş ve tümü tam başlat/yönet/analiz döngüsü için oluşturulmuş:
+
+  | Platform | Remote MCP URL |
+  |---|---|
+  | Meta Ads | `https://meta-ads.mcp.pipeboard.co/` |
+  | Google Ads | `https://google-ads.mcp.pipeboard.co/` |
+  | TikTok Ads | `https://tiktok-ads.mcp.pipeboard.co/` |
+  | Snap Ads | `https://snap-ads.mcp.pipeboard.co/` |
+  | Reddit Ads | `https://reddit-ads.mcp.pipeboard.co/` |
+
+  Reklam hesaplarınızı [pipeboard.co](https://pipeboard.co) adresinden bağlayın ve Claude, Cursor veya MCP uyumlu herhangi bir asistanla herhangi birini kullanın.
+
+  ## Pipeboard CLI (MCP'ye Alternatif)
+
+  [**Pipeboard CLI**](https://github.com/pipeboard-co/pipeboard-cli), Meta Ads, Google Ads ve TikTok Ads — tüm Pipeboard reklam platformlarına tek bir ikili dosyadan erişim sağlayan bir komut satırı aracıdır. MCP yerine shell komutlarını tercih eden AI kodlama aracıları (Claude Code, Cline, OpenClaw) ve otomasyon betikleri için oluşturulmuştur.
+
+  **CLI'yi MCP yerine neden kullanmalısınız:**
+
+  - **Bir araçta tüm platformlar** — ayrı MCP sunucuları yapılandırmanız gerekmeden Meta, Google ve TikTok Ads
+  - **Daha fazla komut** — açık kaynak yerel MCP'den daha büyük olan Pipeboard'un tam araç setini içerir
+  - **Aracılar için daha hızlı** — 50ms'nin altında başlangıç, JSON-RPC ek yükü yok. Aracılar sadece `pipeboard`'a çıkış yapar
+  - **Tek ikili, sıfır bağımlılık** — `brew install pipeboard-co/tap/pipeboard` ve bitti
+
+  ```bash
+  # Yükle
+  brew install pipeboard-co/tap/pipeboard
+
+  # Kimlik doğrulaması yap
+  export PIPEBOARD_API_TOKEN=<your-token>  # pipeboard.co/settings adresinden al
+
+  # Kullan
+  pipeboard meta-ads get-campaigns --account-id act_123
+  pipeboard google-ads get-campaigns --customer-id 1234567890
+  pipeboard meta-ads get-insights --object-id act_123 --date-preset last_30d
+  ```
+
+  Çalıştırılacak sunucular yok — CLI, Pipeboard bulutuna remote MCP ile aynı şekilde konuşur. Tüm dokümantasyon için [pipeboard-cli repo](https://github.com/pipeboard-co/pipeboard-cli) bölümüne bakın.
+
+  ## Yerel Kurulum (Yalnızca Gelişmiş Teknik Kullanıcılar için)
+
+  🚀 **[Remote MCP](https://pipeboard.co) kullanmanızı şiddetle tavsiye ederiz** — daha hızlı, daha güvenilir ve hiçbir teknik kurulum gerektirmez.
+
+  Meta Ads MCP ayrıca yerel akış halinde HTTP taşımasını destekler ve web uygulamaları ile özel entegrasyonlar için bunu bağımsız bir HTTP API olarak çalıştırmanıza olanak tanır. Tüm talimatlar için **[Streamable HTTP Kurulum Rehberi](STREAMABLE_HTTP_SETUP.md)** bölümüne bakın.
+
+  ## Özellikler
+
+  - **Kampanya Yönetimi**: Kampanya, reklam setleri ve reklamlar başlatın, bütçeleri güncelleyin, duraklatın ve devam ettirin ve hedefleme değişiklikleri uygulayın — tümü bir konuşmadan, her yazma işleminde açık onay ile
+  - **Yaratıcı İçerik İşlemleri**: Resim yükleyin, yaratıcı içerik oluşturun ve kopya, başlık, açıklama ve CTA'ları AI istemcinizden çıkmadan güncelleyin
+  - **Dinamik Yaratıcı İçerik Test Etme**: Hem basit reklamlar (tek başlık/açıklama) hem de tam A/B test etme (birden çok başlık/açıklama) için bir API
+  - **AI Tarafından Güçlendirilen Kampanya Analizi**: Sevdiğiniz LLM'nin performansı analiz etmesine ve eyleme geçirilebilir içgörüler ortaya çıkarmasına izin verin
+  - **Stratejik Öneriler**: Reklam harcaması, hedefleme ve yaratıcı içeriği optimize etmek için veri destekli öneriler alın
+  - **Bütçe Optimizasyonu**: Bütçeyi daha iyi performans gösteren reklam setlerine yeniden tahsis etmek için öneriler alın
+  - **Yaratıcı İçerik İyileştirmesi**: Reklam kopyası, görüntü ve harekete geçiş düğmeleri hakkında geri bildirim alın
+  - **Otomatik İzleme**: Herhangi bir MCP uyumlu LLM'den performans metriklerini izleme ve önemli değişiklikler konusunda sizi uyarma işlemini isteyebilirsiniz
+  - **Çapraz Platform Entegrasyonu**: Facebook, Instagram ve tüm Meta reklam platformlarında çalışır
+  - **Evrensel LLM Desteği**: Claude Desktop, Cursor, Cherry Studio ve daha birçoğu dahil olmak üzere herhangi bir MCP istemcisi ile uyumlu
+  - **Geliştirilmiş Arama**: Sorgular "page" veya "pages" içerdiğinde genel arama işlevi sayfa aramasını içerir
+  - **Basit Kimlik Doğrulama**: Güvenli OAuth kimlik doğrulaması ile kolay kurulum
+  - **Çapraz Platform Desteği**: Windows, macOS ve Linux'ta çalışır
+
+  ## Konfigürasyon
+
+  ### Remote MCP (Önerilir)
+
+  **[✨ Remote MCP ile buradan başlayın](https://pipeboard.co)** — hiçbir teknik kurulum gerekmez! Facebook Ads hesabınızı bağlayın ve AI'dan kampanyalarınızı analiz etmesini istemeye başlayın.
+
+  ### Yerel Kurulum (Gelişmiş Teknik Kullanıcılar)
+
+  Kendi kendine barındırmak için ihtiyaç duyan gelişmiş kullanıcılar için, paket kaynaktan yüklenebilir. Yerel kurulumlar kendi Meta Geliştirici Uygulamanızı oluşturmayı gerektirir. **Daha basit bir deneyim için [Remote MCP](https://pipeboard.co) kullanmanızı tavsiye ederiz.**
+
+  ### Mevcut MCP Araçları
+
+  1. `mcp_meta_ads_get_ad_accounts`
+     - Bir kullanıcı tarafından erişilebilen reklam hesaplarını alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `user_id`: Meta kullanıcı kimliği veya mevcut kullanıcı için "me"
+       - `limit`: Döndürülecek maksimum hesap sayısı (varsayılan: 200)
+     - Döner: Erişilebilen reklam hesaplarının listesi ayrıntılarıyla
+
+  2. `mcp_meta_ads_get_account_info`
+     - Belirli bir reklam hesabı hakkında ayrıntılı bilgi alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+     - Döner: Belirtilen hesap hakkında ayrıntılı bilgi
+
+  3. `mcp_meta_ads_get_account_pages`
+     - Meta Ads hesabı ile ilişkili sayfaları alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX) veya mevcut kullanıcının sayfaları için "me"
+     - Döner: Hesapla ilişkili sayfaların listesi, reklam oluşturma ve yönetimi için faydalı
+
+  4. `mcp_meta_ads_get_campaigns`
+     - İsteğe bağlı filtreleme ile bir Meta Ads hesabının kampanyalarını alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+       - `limit`: Döndürülecek maksimum kampanya sayısı (varsayılan: 10)
+       - `status_filter`: Duruma göre filtrele (boş tümü için veya 'ACTIVE', 'PAUSED', vb.)
+     - Döner: Kriterleri eşleştiren kampanyaların listesi
+
+  5. `mcp_meta_ads_get_campaign_details`
+     - Belirli bir kampanya hakkında ayrıntılı bilgi alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `campaign_id`: Meta Ads kampanya kimliği
+     - Döner: Belirtilen kampanya hakkında ayrıntılı bilgi
+
+  6. `mcp_meta_ads_create_campaign`
+     - Meta Ads hesabında yeni bir kampanya oluşturun
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+       - `name`: Kampanya adı
+       - `objective`: Kampanya hedefi (ODAX, sonuç tabanlı). Aşağıdakilerden biri olmalıdır:
+         - `OUTCOME_AWARENESS`
+         - `OUTCOME_TRAFFIC`
+         - `OUTCOME_ENGAGEMENT`
+         - `OUTCOME_LEADS`
+         - `OUTCOME_SALES`
+         - `OUTCOME_APP_PROMOTION`
+         
+         Not: `BRAND_AWARENESS`, `LINK_CLICKS`, `CONVERSIONS`, `APP_INSTALLS` vb. eski hedefler, yeni kampanyalar için artık geçerli değildir ve 400 hatası oluşturacaktır. Yukarıdaki sonuç tabanlı değerleri kullanın. Yaygın eşlemeler:
+         - `BRAND_AWARENESS` → `OUTCOME_AWARENESS`
+         - `REACH` → `OUTCOME_AWARENESS`
+         - `LINK_CLICKS`, `TRAFFIC` → `OUTCOME_TRAFFIC`
+         - `POST_ENGAGEMENT`, `PAGE_LIKES`, `EVENT_RESPONSES`, `VIDEO_VIEWS` → `OUTCOME_ENGAGEMENT`
+         - `LEAD_GENERATION` → `OUTCOME_LEADS`
+         - `CONVERSIONS`, `CATALOG_SALES`, `MESSAGES` (satış odaklı akışlar) → `OUTCOME_SALES`
+         - `APP_INSTALLS` → `OUTCOME_APP_PROMOTION`
+       - `status`: İlk kampanya durumu (varsayılan: PAUSED)
+       - `special_ad_categories`: Uygulanabiliyorsa özel reklam kategorilerinin listesi
+       - `daily_budget`: Günlük bütçe hesap para biriminde (sent cinsinden)
+       - `lifetime_budget`: Yaşam süresi bütçesi hesap para biriminde (sent cinsinden)
+       - `bid_strategy`: Teklif stratejisi. Şunlardan biri olmalıdır: `LOWEST_COST_WITHOUT_CAP`, `LOWEST_COST_WITH_BID_CAP`, `COST_CAP`, `LOWEST_COST_WITH_MIN_ROAS`.
+     - Döner: Yeni kampanya ayrıntılarıyla onay
+
+     - Örnek:
+       ```json
+       {
+         "name": "2025 - Yatak Odası Mobilyası - Farkındalık",
+         "account_id": "act_123456789012345",
+         "objective": "OUTCOME_AWARENESS",
+         "special_ad_categories": [],
+         "status": "PAUSED",
+         "buying_type": "AUCTION",
+         "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+         "daily_budget": 10000
+       }
+       ```
+
+  7. `mcp_meta_ads_get_adsets`
+     - Kampanyaya göre isteğe bağlı filtreleme ile Meta Ads hesabının reklam setlerini alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+       - `limit`: Döndürülecek maksimum reklam seti sayısı (varsayılan: 10)
+       - `campaign_id`: Kampanyaya göre filtrelemek için isteğe bağlı kampanya kimliği
+     - Döner: Kriterleri eşleştiren reklam setlerinin listesi
+
+  8. `mcp_meta_ads_get_adset_details`
+     - Belirli bir reklam seti hakkında ayrıntılı bilgi alın
+     - Girişler:
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+       - `adset_id`: Meta Ads reklam seti kimliği
+     - Döner: Belirtilen reklam seti hakkında ayrıntılı bilgi
+
+  9. `mcp_meta_ads_create_adset`
+     - Meta Ads hesabında yeni bir reklam seti oluşturun
+     - Girişler:
+       - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+       - `campaign_id`: Bu reklam setinin ait olduğu Meta Ads kampanya kimliği
+       - `name`: Reklam seti adı
+       - `status`: İlk reklam seti durumu (varsayılan: PAUSED)
+       - `daily_budget`: Günlük bütçe hesap para biriminde (sent cinsinden) dize olarak
+       - `lifetime_budget`: Yaşam süresi bütçesi hesap para biriminde (sent cinsinden) dize olarak
+       - `targeting`: Hedefleme özellikleri (örn. yaş, konum, ilgiler)
+       - `optimization_goal`: Dönüştürme optimizasyon hedefi (örn. 'LINK_CLICKS')
+       - `billing_event`: Nasıl ödemeniz isteniyor (örn. 'IMPRESSIONS')
+       - `bid_amount`: Teklif tutarı sent cinsinden. LOWEST_COST_WITH_BID_CAP, COST_CAP, TARGET_COST için gereklidir.
+       - `bid_strategy`: Teklif stratejisi (örn. 'LOWEST_COST_WITHOUT_CAP', 'LOWEST_COST_WITH_MIN_ROAS')
+       - `bid_constraints`: Teklif kısıtlamaları dict'i. LOWEST_COST_WITH_MIN_ROAS için gereklidir (örn. `{"roas_average_floor": 20000}`)
+       - `start_time`, `end_time`: İsteğe bağlı başlangıç/bitiş saatleri (ISO 8601)
+       - `access_token` (isteğe bağlı): Meta API erişim token'ı
+     - Döner: Yeni reklam seti ayrıntılarıyla onay
+
+  10. `mcp_meta_ads_get_ads`
+      - Meta Ads hesabının reklamlarını isteğe bağlı filtreleme ile alın
+      - Girişler:
+        - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+        - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+        - `limit`: Döndürülecek maksimum reklam sayısı (varsayılan: 10)
+        - `campaign_id`: Kampanyaya göre filtrelemek için isteğe bağlı kampanya kimliği
+        - `adset_id`: Reklam setine göre filtrelemek için isteğe bağlı reklam seti kimliği
+      - Döner: Kriterleri eşleştiren reklamların listesi
+
+  11. `mcp_meta_ads_create_ad`
+      - Mevcut bir yaratıcı içerik ile yeni bir reklam oluşturun
+      - Girişler:
+        - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+        - `name`: Reklam adı
+        - `adset_id`: Bu reklamın yerleştirileceği reklam seti kimliği
+        - `creative_id`: Kullanılacak mevcut yaratıcı içeriğin kimliği
+        - `status`: İlk reklam durumu (varsayılan: PAUSED)
+        - `bid_amount`: İsteğe bağlı teklif tutarı (sent cinsinden)
+        - `tracking_specs`: İsteğe bağlı izleme özellikleri
+        - `access_token` (isteğe bağlı): Meta API erişim token'ı
+      - Döner: Yeni reklam ayrıntılarıyla onay
+
+  12. `mcp_meta_ads_get_ad_details`
+      - Belirli bir reklam hakkında ayrıntılı bilgi alın
+      - Girişler:
+        - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+        - `ad_id`: Meta Ads reklam kimliği
+      - Döner: Belirtilen reklam hakkında ayrıntılı bilgi
+
+  13. `mcp_meta_ads_get_ad_creatives`
+      - Belirli bir reklam için yaratıcı içerik ayrıntılarını alın
+      - Girişler:
+        - `access_token` (isteğe bağlı): Meta API erişim token'ı (sağlanmazsa önbelleğe alınan token kullanılır)
+        - `ad_id`: Meta Ads reklam kimliği
+      - Döner: Metin, resimler ve URL'ler dahil yaratıcı içerik ayrıntıları
+
+  14. `mcp_meta_ads_create_ad_creative`
+      - Yüklenen bir resim hash'i kullanarak yeni bir reklam yaratıcı içeriği oluşturun
+      - Girişler:
+        - `account_id`: Meta Ads hesap kimliği (biçim: act_XXXXXXXXX)
+        - `name`: Yaratıcı içerik adı
+        - `image_hash`: Yüklenen resmin hash'i
+        - `page_id`: Reklam için Facebook Sayfa Kimliği
+        - `link_url`: Hedef URL
+        - `message`: Reklam kopyası/metni
+        - `headline`: Basit reklamlar için tek başlık (başlıklarla kullanılamaz)
+        - `headlines`: Dinamik yaratıcı içerik test etme için başlıkların listesi (başlıkla kullanılamaz)
+        - `description`: Basit reklamlar için tek açıklama (açıklamalarla kullanılamaz)
+        - `descriptions`: Dinamik yaratıcı içerik test etme için açıklamaların listesi (açıklamayla kullanılamaz)
+        - `dynamic_creative_spec`: Dinamik yaratıcı içerik optimizasyon ayarları
+        - `call_to_action_type`: CTA düğme türü (örn. 'LEARN_MORE')
+        - `instagram_actor_id`: İsteğe bağlı Instagram hesap kimliği
+        - `access_token` (isteğe bağlı): Meta API erişim token'ı
+      - Döner: Yeni yaratıcı içerik ayrıntılarıyla onay
+
+  15. `mcp_meta_ads_update_ad_creative`
+      - Mevcut bir reklam yaratıcı içeriğini yeni içerik veya ayarlarla güncelleyin
+      - Girişler:
+        - `creative_id`: Güncellenecek Meta Ads yaratıcı içerik kimliği
+        - `name`: Yeni yarat
 ---
 
 # Meta Ads MCP

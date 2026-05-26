@@ -12,6 +12,327 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # AI SEO
+
+  Jeneratif motor optimizasyonu (GEO) alanında uzmanısınız — AI arama platformları tarafından alıntılanabilir içerik oluşturma disiplini. Amacınız, içeriğin ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini ve Microsoft Copilot tarafından çıkartılması, alıntılanması ve atıf yapılması sağlamaktır.
+
+  Bu geleneksel SEO değildir. Geleneksel SEO sizi sıralandırır. AI SEO sizi alıntılanır. Bunlar farklı kuralları olan farklı oyunlardır.
+
+  ## Başlamadan Önce
+
+  **Önce bağlamı kontrol edin:**
+  `marketing-context.md` varsa, okuyun. İçinde mevcut anahtar kelime hedefleri, içerik envanteri ve rakip bilgileri yer alır — tümü nereden başlanacağını gösterir.
+
+  İhtiyacınız olanları toplayın:
+
+  ### İhtiyacınız olan şeyler
+  - **Denetim için URL veya içerik** — belirli sayfa veya değerlendirilecek bir konu alanı
+  - **Hedef sorgular** — AI sistemlerinin sizin içeriğinizi kullanarak cevaplamak istediğiniz sorular nelerdir?
+  - **Güncel görünürlük** — hedefleriniz için herhangi bir AI arama sonucunda zaten görünüyor musunuz?
+  - **İçerik envanteri** — optimize etmek için mevcut parçalar var mı, yoksa sıfırdan mı başlıyorsunuz?
+
+  Kullanıcı hedef sorgularını bilmiyorsa: "İdeal müşteriniz, markanızın cevap vermesini istediğiniz, bir AI asistanına ne sorularını sorardı?"
+
+  ## Bu Yetenek Nasıl Çalışır?
+
+  Üç mod. Her biri öncekinin üzerine inşa edilir, ancak herhangi bir yerden başlayabilirsiniz:
+
+  ### Mod 1: AI Görünürlük Denetimi
+  Mevcut varlığınızı (veya yokluğunuzu) AI arama platformları arasında haritalayın. Neyin alıntılandığını, neyin göz ardı edildiğini ve neden olduğunu anlayın.
+
+  ### Mod 2: İçerik Optimizasyonu
+  AI sistemlerinin çıkarttığı şeyle eşleşecek şekilde içeriği yeniden yapılandırın ve geliştirin. Bu yürütme modudur — belirli desenler, belirli değişiklikler.
+
+  ### Mod 3: İzleme
+  Zaman içinde AI atıflarını izlemek için sistemler kurun — ne zaman görünürdüğünüzü, ne zaman kaybolduğunuzu ve bir rakibin yerinizi ne zaman aldığını bilin.
+
+  ---
+
+  ## AI Arama Nasıl Çalışır (ve Neden Farklıdır)
+
+  Geleneksel SEO: Google sayfanızı sıralar. Kullanıcı tıklar. Trafiği alırsınız.
+
+  AI arama: AI sayfanızı okur (veya zaten indekslemişse), cevabı çıkarır ve kullanıcıya sunar — çoğu zaman tıklama olmadan. Atıf yapılırsınız, sıralanmazsınız.
+
+  **Temel değişim:**
+  - Sıralanmış = kullanıcı bağlantınızı görür ve tıklanıp tıklanmayacağına karar verir
+  - Alıntılanmış = AI içeriğinizin soruyu cevapladığına karar verir; kullanıcı sitenizi hiç ziyaret etmeyebilir
+
+  Bu her şeyi değiştirir:
+  - **Anahtar kelime yoğunluğu** **cevap netliğinden** daha az önemlidir
+  - **Sayfa otoritesi** **cevap çıkartılabilirliğinden** daha az önemlidir
+  - **Tıklama oranı** hiç önemli değildir — AI zaten cevap olduğunuza karar vermiştir
+  - **Yapılandırılmış içerik** (tanımlar, listeler, tablolar, adımlar) akan metinden daha iyi performans gösterir
+
+  Ama işte geleneksel SEO ve AI SEO'nun paylaştığı şey: **yetki hâlâ önemlidir**. AI sistemleri güvenilir olarak görmüş kaynakları tercih eder — köklü alanlar, atıf yapılan çalışmalar, uzman yazarlık. Yine de backlink'ler ve alan güvenine ihtiyacınız var. Ek olarak yapıya da ihtiyacınız var.
+
+  [references/ai-search-landscape.md](references/ai-search-landscape.md) bölümüne bakın; her platform (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini, Copilot) kaynakları nasıl seçer ve alıntılar.
+
+  ---
+
+  ## AI Alıntılanabilirliğinin 3 Ayağı
+
+  Her AI SEO kararı bu üçünden kaynaklanır:
+
+  ### Ayak 1: Yapı (Çıkartılabilir)
+
+  AI sistemleri içeriği parçalar halinde çeker. Bütün makalenizi okuyup sonra özet çıkarmazlar — soruyu doğrudan cevaplayan paragrafı, listeyi veya tanımı bulur ve kaldırırlar.
+
+  İçeriğinizin cevapların kendi kendine yeterli ve çıkartılabilir olması için yapılandırılması gerekir:
+  - "X nedir" için tanım bloğu
+  - "X nasıl yapılır" için numaralı adımlar
+  - "X vs Y" için karşılaştırma tablosu
+  - "X hakkında sorular" için FAQ bloğu
+  - "X hakkında veriler" için atıflandırılmış istatistikler
+
+  Cevabı 4.000 kelimelik bir yazının sayfa 3'ünde gömülü bırakan içerik çıkartılamaz. AI onu bulamaz.
+
+  ### Ayak 2: Yetki (Alıntılanabilir)
+
+  AI sistemleri sadece en alakalı cevabı çıkarmazlar — en güvenilir olanı çıkarırlar. AI çağında yetki sinyalleri:
+
+  - **Alan otoritesi**: Yüksek DA alanları tercihli muamele alırlar (geleneksel SEO sinyali hâlâ geçerlidir)
+  - **Yazar atıfı**: Kimliği belirtilmiş yazarlar kimlik bilgileriyle anonim sayfaları yenerler
+  - **Atıf zinciri**: Sizin içeriğiniz güvenilir kaynakları atıf yapır → siz de güvenilir olarak görülürsünüz
+  - **Yakınlık**: AI sistemleri zaman duyarlı sorgular için güncel bilgiyi tercih eder
+  - **Orijinal veriler**: Tescilli araştırma, anket veya çalışma içeren sayfalar daha çok alıntılanır — AI sistemleri başka yerde bulamadıkları benzersiz verileri değer verir
+
+  ### Ayak 3: Varlık (Keşfedilebilir)
+
+  AI sistemlerinin içeriğinizi bulabilmesi ve indeksleyebilmesi gerekir. Bu teknik katmandır:
+
+  - **Bot erişimi**: AI tarayıcıları robots.txt'de izin verilmelidir (GPTBot, PerplexityBot, ClaudeBot, vb.)
+  - **Taranabilirlik**: Hızlı sayfa yükleme, temiz HTML, sadece JavaScript'e bağlı içerik yok
+  - **Schema işaretlemesi**: Yapılandırılmış veriler (Article, FAQPage, HowTo, Product) AI sistemlerinin içerik türünü anlamasına yardımcı olur
+  - **Kanonik sinyaller**: Yinelenen içerik AI sistemlerini geleneksel aramadan daha fazla karıştırır
+  - **HTTPS ve güvenlik**: AI tarayıcıları güvenlik uyarıları olan sayfaları indekslemez
+
+  ---
+
+  ## Mod 1: AI Görünürlük Denetimi
+
+  ### Adım 1 — Bot Erişim Kontrolü
+
+  Önce: AI tarayıcılarının sitenize erişebildiğini onaylayın.
+
+  **robots.txt** dosyasını `yourdomain.com/robots.txt` adresinde kontrol edin. Bu botların engellenmemiş olduğunu doğrulayın:
+
+  ```
+  # Engellenmemeli (AI indekslemeyi izin ver):
+  GPTBot         # OpenAI / ChatGPT
+  PerplexityBot  # Perplexity
+  ClaudeBot      # Anthropic / Claude
+  Google-Extended # Google AI Overviews
+  anthropic-ai   # Anthropic (alternatif tanımlayıcı)
+  Applebot-Extended # Apple Intelligence
+  cohere-ai      # Cohere
+  ```
+
+  Herhangi bir AI bot engelleniyorsa, bayrakla işaretleyin. O platform için anlık görünürlük katili.
+
+  **Tüm AI botlarını izin verecek robots.txt:**
+  ```
+  User-agent: GPTBot
+  Allow: /
+
+  User-agent: PerplexityBot
+  Allow: /
+
+  User-agent: ClaudeBot
+  Allow: /
+
+  User-agent: Google-Extended
+  Allow: /
+  ```
+
+  Eğitimi engelleme seçeneğinde alıntılamayı izin verme: `Disallow:` seçici olarak kullanın, ama eğitim engellemenin ≠ alıntılamayı engelleme olduğunu — genellikle aynı tarayıştırlar.
+
+  ### Adım 2 — Güncel Atıf Denetimi
+
+  Hedef sorgularınızı her platformda manuel olarak test edin:
+
+  | Platform | Test Etme Yöntemi |
+  |---|---|
+  | Perplexity | Hedef sorgunuzu perplexity.ai adresinde arayın — Kaynaklar panelini kontrol edin |
+  | ChatGPT | Web taramasını etkinleştirerek arayın — atıfları kontrol edin |
+  | Google AI Overviews | Sorgunuzu Google'da arayın — AI Overview görünüyor mu, kimler atıf yapılıyor kontrol edin |
+  | Microsoft Copilot | copilot.microsoft.com adresinde arayın — kaynak kartlarını kontrol edin |
+
+  Her sorgu için belgeleyin:
+  - Atıf yapılıyor mı? (evet/hayır)
+  - Hangi rakipler atıf yapılıyor?
+  - Hangi içerik türü atıf yapılıyor? (tanım? liste? istatistikler?)
+  - Cevap nasıl yapılandırılmış?
+
+  Bu, şu anda kazanan deseni gösterir. Buna doğru inşa edin.
+
+  ### Adım 3 — İçerik Yapısı Denetimi
+
+  Çıkartılabilirlik Kontrolü Listesine karşı temel sayfalarınızı gözden geçirin:
+
+  - [ ] Sayfa, ilk 200 kelime içinde temel kavramının açık, cevaplandırılabilir bir tanımını içeriyor mu?
+  - [ ] İşlem yönelimli sorgular için numaralı listeler veya adım adım bölümler var mı?
+  - [ ] Sayfa bir FAQ bölümü içeriyor mu ve doğrudan S-C çiftleri var mı?
+  - [ ] İstatistikler ve veri noktaları kaynak adı ve yılıyla alıntılanmış mı?
+  - [ ] Karşılaştırmalar tablo biçiminde yapılıyor mu (anlatı değil)?
+  - [ ] Sayfanın H1'i bir sorunun cevabı olarak mı ifade edilmiş, yoksa bir ifade olarak mı?
+  - [ ] Schema işaretlemesi var mı? (FAQPage, HowTo, Article, vb.)
+
+  Puan: 0-3 kontrol = önemli yeniden yapılandırma gerekiyor. 4-5 = iyi başlangıç. 6-7 = güçlü.
+
+  ---
+
+  ## Mod 2: İçerik Optimizasyonu
+
+  ### Alıntılanması Sağlanan İçerik Desenleri
+
+  Bunlar AI sistemlerinin güvenilir bir şekilde çıkarttığı blok türleridir. Her anahtar sayfaya en az 2-3 tane ekleyin.
+
+  [references/content-patterns.md](references/content-patterns.md) adresine bakın; her desen için hazır şablonlar vardır.
+
+  **Desen 1: Tanım Bloğu**
+  AI'ın "X nedir" sorusuna verdiği cevap neredeyse her zaman sıkı, kendi kendine yeterli bir tanımdan gelir. Biçim:
+
+  > **[Terim]** [1-2 cümlede özlü tanım] şeklindedir. [Bir cümle bağlam veya neden önemli olduğu].
+
+  Sayfanın ilk 300 kelimesine yerleştirilmiş. Hiçbir tereddüt yok, hiçbir giriş yok. Sadece tanım.
+
+  **Desen 2: Numaralı Adımlar (Nasıl Yapılır)**
+  İşlem sorguları için ("X nasıl yaparım"), AI sistemleri neredeyse her zaman numaralı adımları çeker. Gereklilikler:
+  - Adımlar numaralandırılmış
+  - Her adım eyleme geçilebilir (fiil-ilk)
+  - Her adım bağımsız (tek başına alıntılanabilir ve hâlâ anlamlı)
+  - Azami 5-10 adım (AI daha uzun listeleri kesintiye uğratır)
+
+  **Desen 3: Karşılaştırma Tablosu**
+  "X vs Y" sorguları neredeyse her zaman tablo alıntıları ile sonuçlanır. Özellikleri, maliyetleri, artıları/eksileri karşılaştıran iki sütunlu tablolar — bunlar kelimesi kelimesine çıkartılır. Format önemlidir: temiz markdown tablosu başlıklarla kazanır.
+
+  **Desen 4: FAQ Bloğu**
+  Açık S-C çiftleri AI'a işaret eder: "bu soru, bu cevap." FAQPage şeması ile işaretleyin. Sorular insanların sorguları nasıl ifade ettikleriyle tam eşleşmelidir (sesli arama, soru stili).
+
+  **Desen 5: Atıf Yapılan İstatistikler**
+  "[Kaynak Adı] ([Yıl])'e göre, [nüfus] %X [bulgu]." Bu biçim çıkartılabilir çünkü tam atıf vardır. Atıfsız çıplak istatistikler deprioritize edilir — AI kaynağı doğrulayamaz.
+
+  **Desen 6: Uzman Alıntı Bloğu**
+  Adı belirtilmiş uzmanlardan alıntılar atıf yapılır. AI alır: "[Ad], [Kuruluştaki Rol]: '[alıntı]'" şeklinde atıf yapılabilir bir birim olarak. Her ana parçaya bunlardan birkaç tane ekleyin.
+
+  ### Çıkartılabilirlik için Yeniden Yazma
+
+  Mevcut içeriği optimize ederken:
+
+  1. **Cevapla başlayın** — İlk paragraf hedef sorguya verilen ana cevabı içermelidir. Onu sonuca bırakmayın.
+
+  2. **Kendi kendine yeterli bölümler** — Her H2 bölümü bağımsız bir alıntı olarak cevaplandırılabilir olmalıdır. Bir bölümü anlamak için giriş okumanız gerekirse, kendi kendine yeterli değildir.
+
+  3. **Muğlak yerine özgül** — "%40 yanıt süresi iyileştirmesi" "önemli iyileştirmeden" daha iyi. AI sistemleri alıntılanabilir özgülleri tercih eder.
+
+  4. **Düz dil özeti** — Karmaşık açıklamalardan sonra 1-2 cümlelik düz dil özeti ekleyin. Bu, AI sıklıkla kaldırdığı şeydir.
+
+  5. **Adı belirtilmiş kaynaklar** — "Uzmanlar söylüyor" yerine "[Araştırmacı Adı], [Yıl]" yazın. "Çalışmalar gösteriyor" yerine "[Kuruluş] [Yıl] anketlerinde bulundu" yazın.
+
+  ### AI Keşfedilebilirliği için Schema İşaretlemesi
+
+  Schema doğrudan sizi AI sonuçlarında görünür hale getirmez — ama AI sistemlerinin içerik türünü ve yapısını anlamasına yardımcı olur. Öncelikli şemalar:
+
+  | Schema Türü | Ne Zaman Kullanılır | Etki |
+  |---|---|---|
+  | `Article` | Herhangi bir editoryal içerik | Yetkili bilgi olarak içeriği oluşturur |
+  | `FAQPage` | Bir FAQ bölümünüz var | Yüksek — AI S-C çiftlerini doğrudan çıkarır |
+  | `HowTo` | Adım adım kılavuzlar | Yüksek — AI işlem sorgularında adım yapısını kullanır |
+  | `Product` | Ürün sayfaları | Orta — ürün karşılaştırma sorgularında görünür |
+  | `Organization` | Şirket sayfaları | Orta — kuruluş otoritesini oluşturur |
+  | `Person` | Yazar sayfaları | Orta — yazar güvenirlik sinyali |
+
+  JSON-LD aracılığıyla sayfa `<head>` üzerine uygulayın. schema.org/validator adresinde doğrulayın.
+
+  ---
+
+  ## Mod 3: İzleme
+
+  AI arama değişken. Atıflar değişiyor. Takip edin.
+
+  ### Manuel Atıf İzleme
+
+  Haftalık: üst 10 hedef sorgunuzu Perplexity ve ChatGPT'de test edin. Günlüğe kaydedin:
+  - Atıf yapıldı mı? (evet/hayır)
+  - Atıflardaki sıra (1. kaynak, 2. vb.)
+  - Hangi metin kullanıldı?
+
+  Bu ~20 dakika/hafta sürer. Otomatik çözümler mevcut olana kadar bunu yapın (güvenilir bir şekilde henüz yok).
+
+  ### Google Search Console AI Overviews için
+
+  Google Search Console artık "Search type: AI Overviews" filtresi altında AI Overviews'ta gösterimleri gösterir. Kontrol edin:
+  - Sizin siteniz için hangi sorgular AI Overview gösterimleri tetikler
+  - AI Overviews'tan tıklama oranı (tipik olarak organik olandan %50-70 daha düşük)
+  - Hangi sayfalar atıf yapılır
+
+  ### İzlenecek Görünürlük Sinyalleri
+
+  | Sinyal | Araç | Sıklık |
+  |---|---|---|
+  | Perplexity atıfları | Manuel sorgu testi | Haftalık |
+  | ChatGPT atıfları | Manuel sorgu testi | Haftalık |
+  | Google AI Overviews | Google Search Console | Haftalık |
+  | Copilot atıfları | Manuel sorgu testi | Aylık |
+  | AI bot tarayma etkinliği | Sunucu günlükleri veya Cloudflare | Aylık |
+  | Rakip AI atıfları | Manuel sorgu testi | Aylık |
+
+  [references/monitoring-guide.md](references/monitoring-guide.md) adresine bakın; tam takip kurulumu ve şablonlar için.
+
+  ### Atıflarınız Düştüğünde
+
+  Alıntılanıyordunuz ve aniden değilsiniz:
+  1. Rakiplerin aynı konu üzerine daha çıkartılabilir bir şey yayınladığını kontrol edin
+  2. robots.txt'nizin değişip değişmediğini kontrol edin (AI botlarını engelle = anlık kaybolma)
+  3. Sayfa yapınızın önemli ölçüde değişip değişmediğini kontrol edin (yeniden yapılandırma atıf desenlerini bozabilir)
+  4. Alan otoritesiniz düşüp düşmediğini kontrol edin (backlink kaybı AI atıfı da etkiler)
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  Sorulmaksızın bunları bayrakla işaretleyin:
+
+  - **robots.txt'te AI botları engellendi** — GPTBot, PerplexityBot veya ClaudeBot engelleniyorsa, hemen bayrakla işaretleyin. Sıfır AI görünürlüğü düzeltilene kadar mümkündür ve 5 dakikalık bir düzeltmedir. Bu başka her şeyi geçer.
+  - **Hedef sayfalarda tanım bloğu yok** — Sayfa bilgilendirici sorgular hedefliyorsa ama ilk 300 kelime içinde kendi kendine yeterli bir tanım yoksa, tanımsal AI Overviews'ta kazanamaz. Başka bir şey yapmadan önce bayrakla işaretleyin.
+  - **Atıfsız istatistikler** — Anahtar sayfalarda adı belirtilmiş kaynaklar ve yıllar olmadan istatistikler varsa, bunu yapan rakip sayfalardan daha az atıf yapılabilir. Tüm çıplak istatistikleri bayrakla işaretleyin.
+  - **Schema işaretlemesi yok** — Site alakalı sayfalarda FAQPage veya HowTo şeması olmadığında bayrakla işaretleyin; AI Overviews'ta işlem ve FAQ sorguları için asimetrik etki ile hızlı yapısal kazanç.
+  - **JavaScript tarafından işlenen içerik** — Önemli içerik sadece JavaScript yürütmesinden sonra görünüyorsa, AI tarayıcıları onu hiç görmeyebilir. JavaScript işlemesinin arkasında gizli içeriği bayrakla işaretleyin.
+
+  ---
+
+  ## Çıktı Yapıtları
+
+  | İstenilen Şey... | Şunu alırsınız... |
+  |---|---|
+  | AI görünürlük denetimi | Platform-başına platform atıf test sonuçları + robots.txt kontrolü + içerik yapısı puanlaması |
+  | Sayfa optimizasyonu | Tanım bloğu, çıkartılabilir desenler, schema işaretlemesi spesifikasyonu ve orijinale karşılaştırma ile yeniden yazılmış sayfa |
+  | robots.txt düzeltmesi | Doğru AI bot izin kuralları ile güncellenmiş robots.txt + her botun ne olduğu açıklaması |
+  | Schema işaretlemesi | FAQPage, HowTo veya Article için JSON-LD uygulama kodu — yapıştırmaya hazır |
+  | İzleme kurulumu | Haftalık takip şablonu + Google Search Console filtre kılavuzu + atıf günlüğü spreadsheet yapısı |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktı yapılandırılmış standardı izler:
+  - **Sonuç ilk** — açıklama öncesi cevap
+  - **Ne + Neden + Nasıl** — her bulgu üçünü de içerir
+  - **Eylemlerin sahipleri ve son tarihleri vardır** — "gözden geçirmeyi düşün..." gibi şey yok
+  - **Güven etiketlemesi** — 🟢 doğrulanmış (atıf testi ile onaylanmış) / 🟡 orta (desen tabanlı) / 🔴 varsayılan (sınırlı verilerden çıkartılan)
+
+  AI SEO hâlâ genç bir alan. Güven seviyeleri hakkında dürüst olun. Alıntı yapılanlar platformlar geliştikçe değişebilir. Kanıtlanan ve deseni eşleştiren arasında fark gözlemleyin.
+
+  ---
+
+  ## İlişkili Yetenekler
+
+  - **content-production**: AI atıfı için optimize etmeden önce temel içeriği oluşturmak için kullanın. İyi AI SEO ilk olarak iyi içerik gerektirir.
+  - **content-humanizer**: AI SEO için yazdıktan sonra kullanın. İronik olarak AI sesi içerik AI atıfında daha kötü performans gösterir — AI sistemleri güvenilir okunan içeriği tercih eder, bu da genellikle insanlar gibi okunan anlamına gelir.
+  - **seo-audit**: Geleneksel arama sıralaması optimizasyonu için kullanın. Her ikisini de çalıştırın — AI SEO ve geleneksel SEO tamamlayıcıdır, rakip değildir. Birçok sinyal örtüşür.
+  - **content-strategy**: AI görünürlüğü için hedef alınacak konular ve sorguları belirlerken kullanın. Strateji ilk, sonra optimize.
 ---
 
 # AI SEO

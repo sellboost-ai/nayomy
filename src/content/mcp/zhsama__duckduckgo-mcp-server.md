@@ -8,6 +8,114 @@ url: "https://github.com/zhsama/duckduckgo-mcp-server"
 body_length: 2406
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # duckduckgo-search MCP Server
+
+  English | [中文](README_zh.md)
+
+  DuckDuckGo Search için bir Model Context Protocol sunucusu
+
+  TypeScript tabanlı bu MCP sunucusu, DuckDuckGo arama işlevselliğini sağlar. Temel MCP kavramlarını şunlar aracılığıyla gösterir:
+
+  - DuckDuckGo Search entegrasyonu
+  - Kullanımı kolay arama aracı arayüzü
+  - Rate limiting ve hata yönetimi desteği
+
+  <a href="https://glama.ai/mcp/servers/34fhy9xb9w">
+    
+  </a>
+
+  ## Özellikler
+
+  ### Arama Aracı
+
+  - `duckduckgo_search` - DuckDuckGo API'sini kullanarak web araması yapın
+    - Zorunlu parametre: `query` (arama sorgusu, maksimum 400 karakter)
+    - İsteğe bağlı parametre: `count` (sonuç sayısı, 1-20, varsayılan 10)
+    - İsteğe bağlı parametre: `safeSearch` (güvenlik seviyesi: strict/moderate/off, varsayılan moderate)
+    - Biçimlendirilmiş Markdown arama sonuçları döndürür
+
+  ### Rate Limitler
+
+  - Saniyede maksimum 1 istek
+  - Ayda maksimum 15000 istek
+
+  ## Geliştirme
+
+  ### Ön Gereksinimler
+
+  - Node.js >= 18
+  - pnpm >= 8.0.0
+
+  ### Kurulum
+
+  ```bash
+  # Henüz kurulu değilse pnpm'i yükleyin
+  npm install -g pnpm
+
+  # Proje bağımlılıklarını yükleyin
+  pnpm install
+  ```
+
+  ### Derleme ve Çalıştırma
+
+  Sunucuyu derleyin:
+
+  ```bash
+  pnpm run build
+  ```
+
+  Otomatik yeniden derleme ile geliştirme için:
+
+  ```bash
+  pnpm run watch
+  ```
+
+  ## Claude Desktop'ta Kurulum
+
+  Claude Desktop ile kullanmak için sunucu yapılandırmasını ekleyin:
+
+  MacOS'ta: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  ```json
+  # online
+  {
+    "mcpServers": {
+      "duckduckgo-search": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "duckduckgo-mcp-server"
+          ]
+      }
+    }
+  }
+
+  # local
+  {
+    "mcpServers": {
+      "duckduckgo-search": {
+        "command": "node",
+        "args": [
+          "/path/to/duckduckgo-search/build/index.js"
+        ]
+      }
+    }
+  }
+  ```
+  ![image](https://github.com/user-attachments/assets/6906e280-9dbb-4bb5-a537-d9e45e666084)
+  ![image](https://github.com/user-attachments/assets/867a70ae-082f-45ab-a623-869bfd6c31eb)
+
+  ### Hata Ayıklama
+
+  MCP sunucuları stdio üzerinden iletişim kurduğundan, hata ayıklama zorlu olabilir. [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı öneririz; bu, paket betiği olarak mevcuttur:
+
+  ```bash
+  pnpm run inspector
+  ```
+
+  Inspector, tarayıcınızda hata ayıklama araçlarına erişmek için bir URL sağlayacaktır.
 ---
 
 # duckduckgo-search MCP Server

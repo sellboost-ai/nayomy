@@ -9,6 +9,330 @@ body_length: 30629
 license: "MIT"
 language: "TypeScript"
 homepage: "https://mcp.apify.com"
+body_tr: |-
+  <h1 align="center">
+      <a href="https://mcp.apify.com">
+          <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/apify/apify-mcp-server/refs/heads/master/docs/apify_mcp_server_dark_background.png">
+              
+          </picture>
+      </a>
+      <br>
+      <small><a href="https://mcp.apify.com">mcp.apify.com</a></small>
+  </h1>
+
+  <p align=center>
+      <a href="https://www.npmjs.com/package/@apify/actors-mcp-server" rel="nofollow"></a>
+      <a href="https://www.npmjs.com/package/@apify/actors-mcp-server" rel="nofollow"></a>
+      <a href="https://github.com/apify/actors-mcp-server/actions/workflows/check.yaml"></a>
+      <a href="https://smithery.ai/server/@apify/mcp"></a>
+  </p>
+
+  Apify Model Context Protocol (MCP) sunucusu [**mcp.apify.com**](https://mcp.apify.com) adresinde, yapay zeka aracılarınızın sosyal medya, arama motorları, haritalar, e-ticaret siteleri ve diğer herhangi bir web sitesinden [Apify Store](https://apify.com/store) adresinde bulunan binlerce hazır scraper, crawler ve otomasyon aracını kullanarak veri çıkarmasını sağlar. OAuth destekler ve Claude.ai veya Visual Studio Code gibi istemcilerden yalnızca URL'yi kullanarak bağlanmanıza izin verir.
+
+  > **🚀 Barındırılan Apify MCP Server'ı kullanın!**
+  >
+  > En iyi deneyim için yapay zeka asistanınızı barındırılan sunucumuz **[`https://mcp.apify.com`](https://mcp.apify.com)** adresine bağlayın. Barındırılan sunucu, yapılandırılmış Actor sonuçları için çıktı şeması çıkarımı dahil olmak üzere en son özellikleri destekler; bu özellikler yerel stdio aracılığıyla çalıştırıldığında mevcut değildir.
+
+  💰 Sunucu ayrıca [x402](#-x402) ve [Skyfire](#-skyfire) aracılığıyla [ajanlar için ödemeler](#-agentic-payments) destekler ve yapay zeka aracılarının API token'ı olmadan Actor çalıştırmaları için ödeme yapmasını sağlar.
+
+  Apify MCP Server, `Claude Code, Claude.ai, Cursor, VS Code` ve Model Context Protocol'e uygun herhangi bir istemciyle uyumludur.
+  Daha fazla ayrıntı için [MCP clients bölümüne](#-mcp-clients) bakın veya [MCP yapılandırma sayfasını](https://mcp.apify.com) ziyaret edin.
+
+  ![Apify-MCP-server](https://raw.githubusercontent.com/apify/apify-mcp-server/refs/heads/master/docs/apify-mcp-server.png)
+
+  ## İçindekiler
+  - [🌐 Apify MCP Server'ı Tanıtma](#-apify-mcp-serverı-tanıtma)
+  - [🚀 Hızlı Başlangıç](#-hızlı-başlangıç)
+  - [⚠️ SSE transport kullanımdan kaldırılması](#%EF%B8%8F-sse-transport-kullanımdan-kaldırılması)
+  - [🤖 MCP istemcileri](#-mcp-istemcileri)
+  - [🪄 Apify MCP'yi hemen deneyin](#-apify-mcpyi-hemen-deneyin)
+  - [💰 Ajanlar için ödemeler](#-ajanlar-için-ödemeler)
+    - [Ajanlar için ödemeler nasıl çalışır](#ajanlar-için-ödemeler-nasıl-çalışır)
+    - [💸 x402](#-x402)
+    - [🔥 Skyfire](#-skyfire)
+  - [🛠️ Araçlar, kaynaklar ve istemler](#%EF%B8%8F-araçlar-kaynaklar-ve-istemler)
+  - [📊 Telemetri](#-telemetri)
+  - [💬 Kullanım örnekleri](#-kullanım-örnekleri)
+  - [🐛 Sorun Giderme](#-sorun-giderme)
+  - [⚙️ Geliştirme](#%EF%B8%8F-geliştirme)
+  - [🔒 Gizlilik Politikası](#-gizlilik-politikası)
+  - [🤝 Katkıda Bulunma](#-katkıda-bulunma)
+  - [📚 Daha Fazla Bilgi Edinin](#-daha-fazla-bilgi-edinin)
+
+  # 🌐 Apify MCP Server'ı Tanıtma
+
+  Apify MCP Server, bir yapay zeka asistanının belirli bir görevi gerçekleştirmek için herhangi bir [Apify Actor](https://apify.com/store) aracını kullanmasına izin verir.
+  Örneğin:
+  - Birden fazla sayfa/profilden Facebook yazılarından veri çıkarmak için [Facebook Posts Scraper](https://apify.com/apify/facebook-posts-scraper) kullanabilir.
+  - Google Maps'ten iletişim bilgileri çıkarmak için [Google Maps Email Extractor](https://apify.com/lukaskrivka/google-maps-with-contact-details) kullanabilir.
+  - Google Arama Motoru Sonuçları Sayfalarını (SERP) kazımak için [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) kullanabilir.
+  - Instagram yazılarını, profillerini, mekanlarını, fotoğraflarını ve yorumlarını kazımak için [Instagram Scraper](https://apify.com/apify/instagram-scraper) kullanabilir.
+  - Web'de arama yapmak, ilk N URL'yi kazımak ve içeriğini döndürmek için [RAG Web Browser](https://apify.com/apify/rag-web-browser) kullanabilir.
+
+  **Video eğitimi: 8.000+ Apify Actors ve Agents'ı Claude ile Entegre Edin**
+
+  [![Apify MCP Server Eğitimi: 5.000+ Apify Actors ve Agents'ı Claude ile Entegre Edin](https://img.youtube.com/vi/BKu8H91uCTg/hqdefault.jpg)](https://www.youtube.com/watch?v=BKu8H91uCTg)
+
+  # 🚀 Hızlı Başlangıç
+
+  Apify MCP Server'ı iki şekilde kullanabilirsiniz:
+
+  **HTTPS Endpoint (mcp.apify.com)**: MCP istemcinizden OAuth veya isteklerinize `Authorization: Bearer <APIFY_TOKEN>` başlığını dahil ederek bağlanın. Bu, çoğu kullanım durumu için önerilen yöntemdir. OAuth'u desteklediğinden [Claude.ai](https://claude.ai) veya [Visual Studio Code](https://code.visualstudio.com/) gibi istemcilerden yalnızca URL'yi kullanarak bağlanabilirsiniz: `https://mcp.apify.com`.
+  - `https://mcp.apify.com` streamable transport
+
+  **Standart Girdi/Çıktı (stdio)**: Yerel entegrasyonlar ve Claude for Desktop istemcisi gibi komut satırı araçları için idealdir.
+  - MCP istemcisi sunucu komutunu `npx @apify/actors-mcp-server` olarak ayarlayın ve `APIFY_TOKEN` ortam değişkenini Apify API token'ınıza ayarlayın.
+  - Daha fazla seçenek için `npx @apify/actors-mcp-server --help` komutuna bakın.
+
+  MCP sunucusunu ayarlama hakkında ayrıntılı talimatları [Apify belgeleri](https://docs.apify.com/platform/integrations/mcp) adresinde bulabilirsiniz.
+
+  # ⚠️ SSE transport kullanımdan kaldırılması (1 Nisan 2026)
+
+  1 Nisan 2026 tarihinden önce MCP istemci yapılandırmanızı güncelleyin.
+  Apify MCP Server, resmi MCP belirtimi uyarınca Server-Sent Events (SSE) transportu Streamable HTTP'nin yerine bırakmaktadır.
+
+  Seçtiğiniz istemci için geçerli bir endpoint ile kurulumu güncellemek üzere [mcp.apify.com](https://mcp.apify.com/) adresine gidin.
+
+  # 🤖 MCP istemcileri
+
+  Apify MCP Server, [Model Context Protocol](https://modelcontextprotocol.org/) protokolüne uyan herhangi bir MCP istemciyle uyumludur, ancak dinamik araç keşfi ve diğer özelliklerin destek seviyesi istemciler arasında değişebilir.
+
+  Apify MCP Server ile etkileşim kurmak için [Claude Desktop](https://claude.ai/download), [Visual Studio Code](https://code.visualstudio.com/) veya [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) gibi istemcileri kullanabilirsiniz.
+
+  Tercih ettiğiniz istemci için sunucuyu yapılandırmak üzere [mcp.apify.com](https://mcp.apify.com) adresini ziyaret edin.
+
+  ![Apify-MCP-configuration-clients](https://raw.githubusercontent.com/apify/apify-mcp-server/refs/heads/master/docs/mcp-clients.png)
+
+  ### Test edilen istemciler
+
+  - [Claude Desktop](https://docs.apify.com/platform/integrations/claude-desktop)
+  - Claude.ai (web)
+  - [ChatGPT](https://docs.apify.com/platform/integrations/chatgpt)
+  - VS Code (Genie)
+  - Cursor
+  - OpenCode
+  - [Kiro](https://kiro.dev)
+  - [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) — Apify MCP sunucularını test etmek için tasarlanmıştır
+
+  **İstemci yeteneklerine dayalı akıllı araç seçimi:**
+
+  `actors` araç kategorisi istendiğinde, sunucu istemcinin yeteneklerine dayalı olarak en uygun Actor ile ilgili araçları akıllıca seçer:
+
+  - **Dinamik araç desteğine sahip istemciler** (ör. Claude.ai web, VS Code Genie): Sunucu, `call-actor` yerine `add-actor` aracını sağlar. Bu, kullanıcıların konuşmaları sırasında dinamik olarak yeni Actors'ları araç olarak keşfetmesine ve eklemesine olanak tanıyan daha iyi bir kullanıcı deneyimine izin verir.
+
+  - **Sınırlı dinamik araç desteğine sahip istemciler** (ör. Claude Desktop): Sunucu, diğer Actor kategorisi araçlarıyla birlikte standart `call-actor` aracını sağlar ve uyumluluğu sağlarken işlevselliği korur.
+
+  # 🪄 Apify MCP'yi hemen deneyin
+
+  Apify MCP'yi herhangi bir kurulum olmadan denemek ister misiniz?
+
+  [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) adresini ziyaret edin
+
+  Bu etkileşimli, sohbet benzeri arayüz, Apify MCP'nin yeteneklerini herhangi bir yerel kurulum olmadan keşfetmenin kolay bir yolunu sağlar.
+  Apify hesabınızla oturum açın ve web scraping, veri çıkarma ve otomasyon araçlarıyla deney yapmaya başlayın!
+
+  Veya tek tıklamayla kurulum için MCP paket dosyasını (eski adıyla Anthropic Desktop extension dosyası veya DXT olarak bilinir) kullanın: [Apify MCP Server MCPB dosyası](https://github.com/apify/apify-mcp-server/releases/latest/download/apify-mcp-server.mcpb)
+
+  # 💰 Ajanlar için ödemeler
+
+  **x402** veya **Skyfire** kullanarak API token olmadan Actor çalıştırmaları için ödeme yapabilirsiniz.
+
+  - **x402**, [Base](https://base.org) üzerinde USDC ile ödeme yapar ve ayrı bir platform hesabı gerektirmez. [`mcpc`](https://github.com/apify/mcp-cli) (`npm install -g @apify/mcpc`) tarafından tam olarak desteklenir. `mcpc`'yi kullandığımız nedeni, en son özellikleri ve x402 protokolünü yerel olarak destekleyen birkaç MCP istemcisinden biridir.
+  - **Skyfire**, PAY token'ları ile ödeme yapar ve finanse edilmiş bir cüzdanla Skyfire hesabı gerektirir. Özel bir MCP istemcisi gerektirmez; tüm ödeme akışı doğrudan MCP araç çağrısı parametreleri aracılığıyla işlenir.
+
+  ## Ajanlar için ödemeler nasıl çalışır
+
+  Actor çalıştırma maliyetleri değişiklik gösterdiğinden, her iki ödeme yöntemi de ön ödemeli bakiye modelini kullanır. Ödeme akışı dört adımda gerçekleşir:
+
+  1. **Keşif**: Agent, `search-actors` veya `fetch-actor-details` ile Actors'ları keşfeder. Bu çağrılar ücretsizdir.
+  2. **Ön ödeme**: Ücretli bir Actor aracını çalıştırmadan önce, agent bir ön ödemeli bakiyeyi finanse eder.
+     - **x402**: `mcpc`, $1.00 USDC işlemini otomatik olarak imzalar.
+     - **Skyfire**: Agent, Skyfire'ın `create-pay-token` aracını kullanarak bir PAY token (minimum $5.00) oluşturur.
+  3. **Yürütme**: Agent, Actor aracını çağırır.
+     - **x402**: Ön ödemeli bakiye kullanılarak `mcpc` tarafından otomatik olarak işlenir.
+     - **Skyfire**: Agent, `skyfire-pay-id` giriş özelliğinde PAY token'ını açıkça geçirir.
+  4. **Çözümleme**: Araç, Actor sonuçlarını döndürür. Kullanılmayan fonlar sonraki çalıştırmalar için mevcut kalır.
+     - **x402**: 60 dakikalık hareketsizlikten sonra sunucu, kullanılmayan bakiyeyi [Base](https://base.org) üzerindeki cüzdana geri öder.
+     - **Skyfire**: Skyfire, token'ın süresi dolduğunda kullanılmayan fonları geri verir.
+
+  ## 💸 x402
+
+  [x402 protokolü](https://www.x402.org/), doğrudan makine-makine ödemelerine olanak tanır. MCP istemciniz, [Base blockchain](https://base.org/) üzerinde USDC ile Actor çalıştırmaları için ödeme yapmak üzere bunu kullanabilir ve Apify API token'ının gereksinimini tamamen ortadan kaldırabilir.
+
+  ### Ön koşullar
+
+  - [Base](https://base.org) mainnet'inde USDC ile bir cüzdan.
+
+  ### Kurulum
+
+  Bir cüzdan oluşturun veya içeri aktarın:
+
+  ```bash
+  # Yeni bir cüzdan oluştur
+  mcpc x402 init
+
+  # Mevcut bir cüzdanı içeri aktar
+  mcpc x402 import <private-key>
+
+  # Cüzdan adresini göster; Base'de USDC ile finanse edebilirsin (https://base.org)
+  mcpc x402 info
+  ```
+
+  x402 etkinken sunucuya bağlan:
+
+  ```bash
+  mcpc connect "mcp.apify.com?payment=x402" @apify --x402
+  ```
+
+  Artık ücretli bir aracı çağırabilirsin:
+
+  ```bash
+  mcpc @apify tools-call call-actor actor:="apify/rag-web-browser" input:='{"query": "latest AI news"}'
+  ```
+
+  ## 🔥 Skyfire
+
+  [Skyfire](https://www.skyfire.xyz/), yapay zeka aracıları için yönetilen ödeme altyapısı sağlar. Apify API token'ı ile kimlik doğrulaması yapmak yerine, agentiniz her araç çağrısının maliyetini karşılamak için Skyfire ödeme token'ını PAY token'ları kullanarak geçirir.
+
+  ### Ön koşullar
+
+  - [Skyfire hesabı](https://www.skyfire.xyz/) ve finanse edilmiş cüzdan ile.
+  - Claude Desktop, OpenCode veya VS Code gibi birden fazla sunucuyu destekleyen bir MCP istemcisi.
+
+  ### Kurulum
+
+  Skyfire MCP sunucusunu ve Apify MCP Server'ı istemcinizde yapılandırın. Apify sunucu URL'sine `payment=skyfire` ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "skyfire": {
+        "url": "https://api.skyfire.xyz/mcp/sse",
+        "headers": {
+          "skyfire-api-key": "<YOUR_SKYFIRE_API_KEY>"
+        }
+      },
+      "apify": {
+        "url": "https://mcp.apify.com?payment=skyfire"
+      }
+    }
+  }
+  ```
+
+  Kurulum ayrıntıları için [Skyfire entegrasyon belgesine](https://docs.apify.com/platform/integrations/skyfire) bakın. [Skyfire ile Ajanlar için Ödemeler](https://blog.apify.com/agentic-payments-skyfire/) yazısı ek bilgi sağlar.
+
+  # 🛠️ Araçlar, kaynaklar ve istemler
+
+  MCP sunucusu, Apify Actors ile etkileşim kurmak için bir araç seti sağlar.
+  Apify Store geniş ve hızla büyüdüğünden, MCP sunucusu yeni Actors'ları dinamik olarak keşfetmek ve kullanmak için bir yol sağlar.
+
+  ### Actors
+
+  Herhangi bir [Apify Actor](https://apify.com/store) aracı olarak kullanılabilir.
+  Varsayılan olarak sunucu, `apify/rag-web-browser` adlı bir Actor ve birkaç yardımcı araçla önceden yapılandırılmıştır.
+  MCP sunucusu, bir Actor'ın giriş şemasını yükler ve buna karşılık gelen bir MCP aracını oluşturur.
+  Bu, yapay zeka aracısının Actor'a hangi argümanları geçireceğini ve geri dönüşte neler bekleyeceğini tam olarak bilmesine izin verir.
+
+  Örneğin, `apify/rag-web-browser` Actor'ı için giriş parametreleri şunlardır:
+
+  ```json
+  {
+    "query": "restaurants in San Francisco",
+    "maxResults": 3
+  }
+  ```
+
+  Hangi Actor'ı çağıracağınızı veya giriş parametrelerini manuel olarak belirtmeniz gerekmez; LLM bunu otomatik olarak işler.
+  Bir araç çağrıldığında, argümanlar LLM tarafından otomatik olarak Actor'a iletilir.
+  Kullanılabilir argümanların bir listesi için belirli Actor'ın belgesine başvurabilirsiniz.
+
+  ### Yardımcı araçlar
+
+  MCP'yi Apify ile kullanmanın en güçlü özelliklerinden biri dinamik araç keşfidir.
+  Bir yapay zeka aracısının gerektiğinde yeni araçlar (Actors) bulmasına ve bunları kullanmasına izin verir.
+  İşte bazı özel MCP işlemleri ve Apify MCP Server'ın bunları nasıl desteklediği:
+
+  - **Apify Actors**: Actors'ı arayın, ayrıntılarını görüntüleyin ve yapay zeka için araç olarak kullanın.
+  - **Apify belgeleri**: Apify belgesini arayın ve yapay zekaya bağlam sağlamak için belirli belgeleri getirin.
+  - **Actor çalıştırmaları**: Actor çalıştırmalarının listesini alın, ayrıntılarını inceleyin ve günlükleri alın.
+  - **Apify depolaması**: Veri setleriniz ve anahtar-değer depolarınızdan veri alın.
+
+  ### Mevcut araçlara genel bakış
+
+  Apify MCP Server tarafından sağlanan tüm araçların bir genel bakış listesi aşağıdadır.
+
+  | Araç adı | Kategori | Açıklama | Varsayılan olarak etkindir |
+  | :--- | :--- | :--- | :---: |
+  | `search-actors` | actors | Apify Store'da Actors'ları arayın. | ✅ |
+  | `fetch-actor-details` | actors | Giriş şeması, README (özet mevcut olduğunda, aksi takdirde tam), fiyatlandırma ve Actor çıktı şeması dahil olmak üzere belirli bir Actor hakkında ayrıntılı bilgi alın. | ✅ |
+  | `call-actor`* | actors | Bir Actor'ı çağırın ve çalıştırma sonuçlarını alın. Giriş şemasını almak için önce fetch-actor-details kullanın. | ❔ |
+  | `get-actor-run` | runs | Belirli bir Actor çalıştırması hakkında ayrıntılı bilgi alın. |  |
+  | `get-actor-output`* | - | Actor çalıştırmasından çıktıyı alın; bu, Actor aracının çıktı önizlemesine dahil değildir. | ✅ |
+  | `search-apify-docs` | docs | Apify belgesinde ilgili sayfaları arayın. | ✅ |
+  | `fetch-apify-docs` | docs | URL'ye göre Apify belge sayfasının tam içeriğini getirin. | ✅ |
+  | [`apify--rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor (bkz. [araç yapılandırması](#tools-configuration)) | Web'de gezinmek için bir Actor aracı. | ✅ |
+  | `get-actor-run-list` | runs | Bir Actor'ın çalıştırmalarının listesini alın; duruma göre filtrelenebilir. |  |
+  | `get-actor-log` | runs | Belirli bir Actor çalıştırması için günlükleri alın. |  |
+  | `get-dataset` | storage | Belirli bir veri seti hakkında meta veri alın. |  |
+  | `get-dataset-items` | storage | Filtreleme ve sayfalandırma desteği ile bir veri setinden öğeler alın. |  |
+  | `get-dataset-schema` | storage | Veri seti öğelerinden bir JSON şeması oluşturun. |  |
+  | `get-key-value-store` | storage | Belirli bir anahtar-değer deposu hakkında meta veri alın. |  |
+  | `get-key-value-store-keys`| storage | Belirli bir anahtar-değer deposundaki anahtarları listeleyin. |  |
+  | `get-key-value-store-record`| storage | Bir anahtar-değer deposundaki belirli bir anahtar için ilişkili değeri alın. |  |
+  | `get-dataset-list` | storage | Kullanıcı için tüm mevcut veri setlerini listeleyin. |  |
+  | `get-key-value-store-list`| storage | Kullanıcı için tüm mevcut anahtar-değer depolarını listeleyin. |  |
+  | `add-actor`* | experimental | Bir Actor'ı kullanıcının çağırması için yeni bir araç olarak ekleyin. | ❔ |
+
+  > **Not:**
+  >
+  > `actors` araç kategorisi istendiğinde, dinamik araç keşfini destekleyen istemciler (Claude.ai web ve VS Code gibi) geliştirilmiş Actor keşif yetenekleri için otomatik olarak `call-actor` yerine `add-actor` aracını alırlar.
+  >
+  > `get-actor-output` aracı, `call-actor`, `add-actor` veya `apify--rag-web-browser` gibi belirli bir Actor aracı gibi herhangi bir Actor ile ilgili araçla otomatik olarak dahil edilir. Bir Actor'ı çağırdığınızda (ister `call-actor` aracı ister doğrudan `apify--rag-web-browser` gibi bir Actor aracı kullanarak), çıktının bir önizlemesini alırsınız. Önizleme, Actor'ın çıktı formatına ve uzunluğuna bağlıdır; bazı Actors ve çalıştırmalar için, tüm çıktıyı içerebilir; diğerleri için, LLM'yi ezmeyi önlemek için sınırlı bir sürüm döndürülür. Bir Actor çalıştırmasının tam çıktısını almak için (`datasetId` destekle, offset ve alan filtrelemesini destekler) `get-actor-output` aracını Actor çağrısı tarafından sağlanan `datasetId` ile kullanın.
+
+  ### Araç açıklamaları
+
+  Tüm araçlar, MCP istemcilerine ve LLM'lere araç davranışını anlamalarına yardımcı olmak için meta veri açıklamaları içerir:
+
+  - **`title`**: Araçın kısa görüntüleme adı (ör. "Search Actors", "Call Actor", "apify/rag-web-browser")
+  - **`readOnlyHint`**: Durumu değiştirmeden yalnızca veri okuyan araçlar için `true` (ör. `get-dataset`, `fetch-actor-details`)
+  - **`openWorldHint`**: Apify platformı dışında dış kaynakları erişen araçlar için `true` (ör. `call-actor` harici Actors'ı yürütür). Apify platformı ile etkileşim kuran araçlar (`search-actors` veya `fetch-apify-docs` gibi) bu ipucuna sahip değildir.
+
+  ### Araçlar yapılandırması
+
+  `tools` yapılandırma parametresi, yüklenen araçları (kategoriler veya belirli araçlar doğrudan ve Apify Actors) belirtmek için kullanılır. Örneğin, `tools=storage,runs` iki kategori yükler; `tools=add-actor` yalnızca bir araç yükler.
+
+  Hiçbir sorgu parametresi verilmediğinde, MCP sunucusu aşağıdaki `tools` türünü varsayılan olarak yükler:
+
+  - `actors`
+  - `docs`
+  - `apify/rag-web-browser`
+
+  tools parametresi belirtilirse, yalnızca listelenen araçlar veya kategoriler etkinleştirilecek; varsayılan araçlar dahil edilmeyecektir.
+
+  > **Kolay yapılandırma:**
+  >
+  > Sunucunuzu yapılandırmak için [UI configurator](https://mcp.apify.com/) kullanın, ardından yapılandırmayı istemcinize kopyalayın.
+
+  **Barındırılan sunucuyu yapılandırma:**
+
+  Barındırılan sunucu, URL'deki sorgu parametreleri kullanılarak yapılandırılabilir. Örneğin, varsayılan araçları yüklemek için:
+
+  ```
+  https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser
+  ```
+
+  Minimal yapılandırma için, yalnızca bir single Actor aracı kullanmak istiyorsanız (keşif veya genel çağrı araçları olmadan), sunucu aşağıdaki şekilde yapılandırılabilir:
+
+  ```
+  https://mcp.apify.com?tools=apify/my-actor
+  ```
+
+  Bu kurulum, yalnızca belirtilen Actor'ı (`apify/my-actor`) araç olarak gösterir. Başka araç kullanılamayacaktır.
+
+  **CLI'yi yapılandırma:**
+
+  CLI, komut satırı bayraklarını kullanarak yapılandırılabilir.
 ---
 
 <h1 align="center">

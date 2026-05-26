@@ -19,6 +19,7 @@ const skills = defineCollection({
     has_references: z.boolean().optional().default(false),
     has_examples: z.boolean().optional().default(false),
     related_files: z.array(z.string()).optional().default([]),
+    body_tr: z.string().optional(),
   }),
 });
 
@@ -38,6 +39,7 @@ const mcp = defineCollection({
     pypi_id: z.string().optional(),
     docker_image: z.string().optional(),
     homepage: z.string().optional(),
+    body_tr: z.string().optional(),
   }),
 });
 

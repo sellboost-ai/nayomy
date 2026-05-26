@@ -12,6 +12,123 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # DİZAYN FELSEFESİ OLUŞTURMA
+
+  Başlamak için, aşağıdakiler aracılığıyla yorumlanacak bir GÖRSEL FELSEFE (düzenler veya şablonlar değil) oluşturun:
+  - Form, alan, renk, kompozisyon
+  - Görüntüler, grafikler, şekiller, desenler
+  - Görsel aksan olarak minimal metin
+
+  ## KRİTİK ANLAYIŞ
+  - Alınan: Kullanıcının verdiği bazı ince girdiler veya talimatlar dikkate alınmalıdır, ancak yaratıcı özgürlüğü kısıtlamamalıdır.
+  - Yaratılan: Bir tasarım felsefesi/estetik akımı.
+  - Sonra ne olur: Aynı versiyon felsefesini alır ve bunu GÖRSEL OLARAK İFADE EDER - %90 görsel tasarım, %10 temel metin içeren eserler yaratır.
+
+  Bu yaklaşımı düşünün:
+  - Bir sanat hareketi için bir manifesto yazın
+  - Sonraki aşama sanat eserini yaratmayı içerir
+
+  Felsefe şunları vurgulamalıdır: Görsel ifade. Mekansal iletişim. Sanatsal yorumlama. Minimal sözcük.
+
+  ## GÖRSEL FELSEFE NASIL OLUŞTURULUR
+
+  **Hareketi adlandırın** (1-2 sözcük): "Brutalist Neşe" / "Kromatik Sessizlik" / "Metabolist Rüyalar"
+
+  **Felsefesini açıklayın** (4-6 paragraf - kısa ama eksiksiz):
+
+  GÖRSEL özünü yakalamak için, felsefenin nasıl ortaya çıktığını ifade edin:
+  - Alan ve form
+  - Renk ve malzeme
+  - Ölçek ve ritim
+  - Kompozisyon ve denge
+  - Görsel hiyerarşi
+
+  **KRİTİK YÖNERGELER:**
+  - **Tekrardan kaçının**: Her tasarım yönü bir kez belirtilmelidir. Renk teorisi, mekansal ilişkiler veya tipografik ilkeler hakkında noktaları tekrarlamaktan kaçının, aksi takdirde yeni derinlik eklenmiyorsa.
+  - **Zanaatçılığı SÜREKLİ OLARAK VURGULAYIN**: Felsefe, son işin sayısız saat harcayarak yaratılmış gibi görünmesi, özenle üzerinde çalışılması ve mutlak en iyi seviyedeki birinden geldiği hususunu birden çok kez vurgulaMALIDIR. Bu çerçeve gereklidir - "titizlikle hazırlanan", "derin uzmanlığın ürünü", "dikkatli çaba", "usta seviyesi yürütme" gibi ifadeleri tekrarlayın.
+  - **Yaratıcı alan bırakın**: Estetik yön konusunda spesifik olun, ancak sonraki Claude'un da aşırı yüksek zanaat seviyesinde yorumlaması için yeterli kısa olun.
+
+  Felsefe, sonraki versiyonu fikirleri GÖRSEL OLARAK ifade etmeye yönlendirmelidir, metin aracılığıyla değil. Bilgi tasarımda yaşar, paragrafta değil.
+
+  ## FELSEFE ÖRNEKLERİ
+
+  **"Somut Şiir"**
+  Felsefe: Anıtsal form ve cesur geometri aracılığıyla iletişim.
+  Görsel ifade: Muazzam renk blokları, heykeltıraş tipografi (devasa tek sözcükler, küçük etiketler), Brutalist mekansal bölünmeler, Polonyalı poster enerjisi Le Corbusier ile buluşuyor. Fikirler açıklama yerine görsel ağırlık ve mekansal gerilim aracılığıyla ifade edilir. Metin nadiren güçlü bir hareket olarak - asla paragraflar değil, yalnızca görsel mimariye entegre edilmiş temel sözcükler. Her öğe bir usta zanaatçısının hassasiyetiyle yerleştirilmiştir.
+
+  **"Kromatik Dil"**
+  Felsefe: Renk birincil bilgi sistemi olarak.
+  Görsel ifade: Renk bölgelerinin anlam oluşturduğu geometrik hassasiyet. Tipografi minimal - küçük sans-serif etiketler kromatik alanların iletişim kurmasına izin veriyor. Josef Albers'in etkileşimi veri görselleştirmesiyle buluşuyor. Bilgi mekansal ve kromatik olarak kodlanır. Sözcükler yalnızca rengin zaten gösterdiğini sabitlemek için. Acıklı kromatik kalibrasyonun sonucu.
+
+  **"Analog Meditasyon"**
+  Felsefe: Doku ve nefes alan alan aracılığıyla sessiz görsel kontemplasyon.
+  Görsel ifade: Kağıt tanesi, mürekkep sızıntıları, geniş negatif alan. Fotoğrafçılık ve illüstrasyon hâkim. Tipografi fisıltılı (küçük, ölçülü, görselliğe hizmet eden). Japon fotoğraf kitabı estetiği. Görüntüler sayfalar arasında nefes alır. Metin nadiren görünür - kısa ifadeler, asla açıklayıcı bloklar değil. Her kompozisyon meditasyon uygulamasının bakımıyla dengelenmiştir.
+
+  **"Organik Sistemler"**
+  Felsefe: Doğal kümeleme ve modüler büyüme desenleri.
+  Görsel ifade: Yuvarlak formlar, organik düzenlemeler, mimariye göre doğadan renk. Bilgi görsel diyagramlar, mekansal ilişkiler, ikonografi aracılığıyla gösterilir. Metin yalnızca alanda yüzen önemli etiketler için. Kompozisyon, usta mekansal orkestrasyon aracılığıyla hikayeyi anlatır.
+
+  **"Geometrik Sessizlik"**
+  Felsefe: Saf düzen ve kısıtlama.
+  Görsel ifade: Izgara tabanlı hassasiyet, cesur fotoğrafçılık veya çıplak grafikler, dramatik negatif alan. Tipografi kesin ama minimal - küçük temel metin, geniş sessiz bölgeler. İsviçre formalizmini Brutalist malzeme dürüstlüğüyle buluşuyor. Yapı sözcükleri değil iletişim kurar. Sayısız iyileştirmenin işi olan her hizalama.
+
+  *Bunlar yoğunlaştırılmış örneklerdir. Gerçek tasarım felsefesi 4-6 maddeli paragraf olmalıdır.*
+
+  ## TEMEL İLKELER
+  - **GÖRSEL FELSEFE**: Tasarım aracılığıyla ifade edilecek estetik bir dünya görüşü oluşturun
+  - **MINIMAL METIN**: Daima metnin seyrek, yalnızca gerekli, görsel öğe olarak entegre edilmiş olduğunu vurgulayın - asla uzun değil
+  - **MEKANSAL İFADE**: Fikirler alan, form, renk, kompozisyon aracılığıyla iletişim kurar - paragraflar değil
+  - **SANATSal ÖZGÜRLÜK**: Sonraki Claude felsefesini görsel olarak yorumlar - yaratıcı yer sağlayın
+  - **SAF TASARIM**: Bu, dekorasyon içeren belgeler değil, SANAT NESNELERİ yaratmak hakkındadır
+  - **UZMAN ZANAATÇILIK**: Nihai işin dikkatle hazırlanmış, özenle üzerinde çalışılmış, mutlak en iyi seviyedeki birinin sayısız saati ürünü olması gerektiğini tekrar vurgulayın
+
+  **Tasarım felsefesi 4-6 paragraf uzunluğunda olmalıdır.** Temel vizyonu bir araya getiren şiirsel tasarım felsefesiyle doldurun. Aynı noktaları tekrarlamaktan kaçının. Tasarım felsefesini sanatın niyetinden bahsetmeden genel tutun, sanki her yerde kullanılabiliyormuş gibi. Tasarım felsefesini bir .md dosyası olarak çıktısı alın.
+
+  ---
+
+  ## İNCE REFERANSI ÇIKARMAK
+
+  **KRİTİK ADIM**: Tuval oluşturmadan önce, orijinal talepten gelen ince kavramsal ipliği belirleyin.
+
+  **TEMEL İLKE**:
+  Konu, **orijinal isteğe gömülü ince, niş bir referans** - her zaman literal değil, her zaman sofistike. Konuya aşina olan birisi bunu sezgisel olarak hissetmelidir, diğerleri basitçe usta soyut bir kompozisyon yaşarlar. Tasarım felsefesi estetik dilini sağlar. Çıkarılan konu ruhu sağlar - form, renk ve kompozisyona görünmez şekilde dokulu ince kavramsal DNA. 
+
+  Bu **ÇOK ÖNEMLİ**: Referans, işi açıkça duyurulmadan derinliğini artıracak şekilde rafine edilmelidir. Bir caz müzisyeni başka bir şarkıyı alıntılanması gibi düşünün - sadece bilenler yakalar, ama herkese müzik hoşlanır.
+
+  ---
+
+  ## TUVAL OLUŞTURMA
+
+  Hem felsefe hem de kavramsal çerçeve belirlendiğinde, bunu bir tuvale ifade edin. Düşünceleri toplamak ve zihni açmak için bir an ayırın. Oluşturulan tasarım felsefesini ve aşağıdaki talimatları kullanarak, felsefenin tüm yönlerini usta zanaatçılığı ile somutlaştıran bir şaheser yaratın.
+
+  **ÖNEMLİ**: Kullanıcı film/oyun/kitap için birşey talep etse bile her tür içerik için yaklaşım sofistike olmalıdır. Bunun sanat olması gerektiği, karikatür ya da amatörlük olmadığı fikrini asla kaybetmeyin.
+
+  Müze veya dergi kalitesinde iş yaratmak için tasarım felsefesini temel olarak kullanın. Yüksek görsel, tasarım odaklı bir PDF veya PNG çıktısı oluşturun (daha fazla sayfa istenmediği sürece). Genel olarak tekrarlanan desenleri ve mükemmel şekilleri kullanın. Soyut felsefi tasarımı, sistemli gözlemin görsel dilini ödünç alan bilimsel bir kutsal metin gibi davranın - yoğun işaret birikimi, tekrarlayan öğeler veya sabırlı tekrar ve devam eden görüntüleme ile ödüllendirilen katmanlı desenler anlamı inşa eder. Görünmez konuyu tipik olarak gözlemlenebilir fenomenleri belgelemek için ayrılan aynı saygı ile kesin, klinik tipografi ve sistematik referans işaretçileri ekleyin, tedavi edin, böyle bu imgesel disipline ait bir şeymiş gibi. Basit ifade(ler) veya ayrıntılarla parçayı sabitleyin, ince ve uyumlu olan sınırlı bir renk paletini kullanın. İnsan deneyimi hakkındaki fikirleri ifade etmek için analitik görsel dili kullanmanın paradoksunu benimseyin: sonuç, soyut bir şeyin dikkatli dikkat aracılığıyla çalışılabileceğini, haritaya alınabileceğini ve anlaşılabileceğini kanıtlayan bir eser gibi hissetmelidir. Bu gerçek sanat.
+
+  **Bağlamsal öğe olarak metin**: Metin her zaman minimal ve görsel-ilk yapılır, ancak bağlamın bu, fısıltı-sessiz etiketler mi yoksa cesur tipografik hareketler mi olduğunu rehberlik etmesine izin verin. Punk mekan afişi, minimalist seramik stüdyosu kimliğinden daha büyük, daha agresif type'a sahip olabilir. Çoğu zaman yazı ince olmalıdır. Tüm yazı tipi kullanımları tasarım odaklı olmalı ve görsel iletişimi önceliklendirmelidir. Metin ölçeğinden bağımsız olarak, hiçbir şey sayfadan düşmez ve hiçbir şey çakışmaz. Her öğe uygun kenarlarla tuval sınırları içinde bulunmalıdır. Bu, profesyonel yürütme için müzakere edilemezdir. **ÖNEMLİ: Farklı yazı tipleri kullanın metin yazarken. `./canvas-fonts` dizinini arayın. Yaklaşımdan bağımsız olarak, sofistikasyon müzakere edilemezdir.**
+
+  Bu gerçeği gerçekleştirmek için gerekli yazı tiplerini indirin ve kullanın. Tipografiyi sanatın kendisinin gerçekten bir parçası yaparak yaratıcı olun - sanat soyut ise, yazı tipini tuvale getirin, dijital olarak yazılmayan.
+
+  Sınırları zorllamak için tasarım içgüdüsü/sezgisini takip edin felsefe rehber ilke olarak kullanırken. Nihai tasarım özgürlüğünü ve seçimi benimseyin. Estetikleri ve tasarımı sınıra itin.
+
+  **KRİTİK**: İnsan tarafından hazırlanan kalite elde etmek için (AI tarafından üretilmediğini kanıtlamak), sayısız saat harcadığı görülecek iş yaratın. Bunu mutlak en iyi seviyedeki birinin her ayrıntıyı acı çekerek özenle üzerinde çalıştığı gibi göründüğünden emin olun. Kompozisyon, aralıklama, renk seçimleri - her şey usta seviyesi zanaatçılığı bağırır. Hiçbir şeyin çakışmadığını, biçimlendirmenin kusursuz olduğunu, her ayrıntının mükemmel olduğunu iki kez kontrol edin. Uzmanlığı kanıtlamak ve tartışılmaz şekilde etkileyici olarak sıralandırılmak için insanlara gösterebilecek birşey yaratın.
+
+  Nihai sonucu, kullanılan tasarım felsefesi ile birlikte bir tek, indirilebilir .pdf veya .png dosyası olarak çıktısı alın, bir .md dosyası olarak.
+
+  ---
+
+  ## SON ADIM
+
+  **ÖNEMLİ**: Kullanıcı zaten "Yeterince mükemmel değil. Müzede sergilenmek üzere olan, zanaatçılık açısından bir başyapıt olacak kadar tertemiz olması gerekir" dedi.
+
+  **KRİTİK**: İşi iyileştirmek için daha fazla grafik eklemeyin; bunun yerine oluşturulanı iyileştirin ve tasarım felsefesine ve minimalizm ilkelerine saygı göstererek son derece net yapın. Yeni bir işlev çağırma veya yeni bir şekil yeniden faktörleme içgüdüsü ise, DURUN ve bunun yerine sorun: "Zaten orada olanı nasıl sanat eserine daha çok dönüştürebilirim?"
+
+  İkinci bir geçiş alın. Kodu geri alın ve bu felsefi tasarımlanmış şaheser yaratmak için daha da iyileştirin/cilalayın.
+
+  ## ÇOK SAYFA SEÇENEĞİ
+
+  İstendiğinde ek sayfalar oluşturmak için orijinal tasarım felsefesinin aynı satırları üzerinde daha yaratıcı sayfalar oluşturun ama aynı zamanda belirgin şekilde farklı. Bu sayfaları aynı .pdf veya birçok .png içinde paketleyin. İlk sayfayı doldurulmayı bekleyen bütün bir kahve masası kitabında sadece tek bir sayfa olarak değerlendirin. Sonraki sayfaları orijinalin benzersiz bükmece ve anıları yapın. Neredeyse çok zarif bir şekilde bir hikayeyi anlat. Tam yaratıcı özgürlüğünü uygulamak.
 ---
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.

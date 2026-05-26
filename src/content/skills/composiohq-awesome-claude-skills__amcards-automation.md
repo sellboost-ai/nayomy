@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Amcards Otomasyonu
+
+  Composio'nun Amcards toolkit'ini Rube MCP üzerinden kullanarak Amcards işlemlerini otomatikleştirin.
+
+  **Toolkit dokümanları**: [composio.dev/toolkits/amcards](https://composio.dev/toolkits/amcards)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlantılı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` ile aktif Amcards bağlantısı (`amcards` toolkit'i ile)
+  - Güncel tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısı yapın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: MCP server konfigürasyonunuza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS`'ı `amcards` toolkit'i ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Amcards operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'ları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Amcards task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["amcards"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'ları veya argümanları asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlardaki pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool'ları bul | Amcards'a özgü use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `amcards` toolkit'i |
+  | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` olan tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Amcards Automation via Rube MCP

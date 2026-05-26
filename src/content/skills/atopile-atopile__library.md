@@ -12,6 +12,60 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Kütüphane Modülü
+
+  `library` modülü (`src/faebryk/library/` dizininde yer alır), donanım tasarım dilinin "standart kütüphanesini" oluşturan yeniden kullanılabilir bileşenlerin, özelliklerin ve arayüzlerin koleksiyonunu içerir.
+
+  ## Hızlı Başlangıç
+
+  ```python
+  import faebryk.core.faebrykpy as fbrk
+  import faebryk.core.graph as graph
+  import faebryk.library._F as F
+
+  g = graph.GraphView.create()
+  tg = fbrk.TypeGraph.create(g=g)
+
+  resistor = F.Resistor.bind_typegraph(tg=tg).create_instance(g=g)
+  ```
+
+  ## İlgili Dosyalar
+
+  - **Facade (otomatik oluşturulan)**: `src/faebryk/library/_F.py`
+    - Kütüphane modüllerini ve türlerini `import faebryk.library._F as F` deseni için hevesle içeri aktarır ve yeniden dışa aktarır.
+    - Bu dosya oluşturulmuştur; manuel olarak düzenlemeyin.
+  - **Generator**: `tools/library/gen_F.py`
+    - `src/faebryk/library/*.py` taraması yapar, dosyanın aynı adlı bir sınıf içerip içermediğini algılar ve `_F.py` yazar.
+    - `F.<Name>` referanslarının topolojik sıralaması aracılığıyla dışa aktarımları sıralar ve import-order döngülerini önler.
+  - **Bileşenler**: `src/faebryk/library/` spesifik bileşen tanımlarını içerir (örn. `Resistor.py`, `Capacitor.py`, `LED.py`).
+  - **Traits/Arayüzler**: Trait tanımlarını da içerir (örn. `can_bridge.py`, `is_power.py`).
+
+  ## Bağımlılar (Çağrı Sahaları)
+
+  - **Kullanıcı Kodu**: atopile projeleri `faebryk.library._F` kütüphanesinden (takma ad olarak `F`) yoğun bir şekilde import eder.
+  - **Compiler**: Derleyici `ato` yerleşiklerini bu sınıflara eşler.
+
+  ## Nasıl Çalışılır / Geliştirme / Test
+
+  ### Temel Kavramlar
+  - **Traits vs Bileşenler**: Davranış için Traits kullanın (`can_bridge` gibi *yapabilir* şeyler) ve fiziksel şeyler için Bileşenleri kullanın (`Resistor` gibi *nedir* şeyler).
+  - **Export modeli**: `_F.py` oluşturulmuş bir "barrel" modülüdür; içini aktarmak kasıtlı olarak uygundur ancak ağır olabilir.
+
+  ### Geliştirme Akışı
+  1.  **Yeni Bileşen**: `src/faebryk/library/` dizininde yeni bir `MyComponent.py` dosyası oluşturun. `Node` (veya daha spesifik bir taban) sınıfından devralın.
+  2.  **Adlandırma Kuralı**: Sınıf adları dosya temel adıyla eşleşmelidir (genellikle).
+  3.  **`_F.py` Yeniden Oluşturun**: `python tools/library/gen_F.py` çalıştırın ve güncellenmiş `src/faebryk/library/_F.py` commit edin.
+
+  ### Test
+  - Kütüphane testleri `test/library/` altında yaşar (`test/library/nodes/` dahil).
+  - Yeni modüller için iyi bir smoke test:
+    - `ato dev test --llm test/library/test_instance_library_modules.py -q`
+
+  ## En İyi Uygulamalar
+  - **Atomik Parçalar**: Yaprak bileşenleri (özel olarak doğrulanmış parça numaraları) `is_atomic_part` trait ile işaretleyin.
+  - **Parametreler**: `resistance`, `capacitance` gibi fiziksel özellikleri tanımlamak için `F.Parameters` kullanın.
+  - **Dokümantasyon**: Portlarını ve parametrelerini açıklayan bileşenlere docstring ekleyin.
 ---
 
 # Library Module

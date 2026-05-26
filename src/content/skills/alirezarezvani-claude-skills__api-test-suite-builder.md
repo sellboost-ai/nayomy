@@ -12,6 +12,179 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # API Test Suite Builder
+
+  **Tier:** POWERFUL
+  **Category:** Engineering
+  **Domain:** Testing / API Quality
+
+  ---
+
+  ## Genel Bakış
+
+  API rotası tanımlarını çeşitli framework'ler arasında tarar (Next.js App Router, Express, FastAPI, Django REST) ve
+  kimlik doğrulama, giriş doğrulaması, hata kodları, sayfalandırma, dosya
+  yüklemeleri ve oran sınırlamasını kapsayan kapsamlı test paketlerini otomatik olarak oluşturur. Vitest+Supertest (Node) veya Pytest+httpx
+  (Python) için çalıştırmaya hazır test dosyaları çıktı verir.
+
+  ---
+
+  ## Temel Yetenekler
+
+  - **Route detection** — kaynak dosyaları tarayarak tüm API uç noktalarını çıkartma
+  - **Auth coverage** — geçerli/geçersiz/süresi dolan tokenler, eksik auth başlığı
+  - **Input validation** — eksik alanlar, yanlış türler, sınır değerleri, injection denemeleri
+  - **Error code matrix** — her route için 400/401/403/404/422/500
+  - **Pagination** — ilk/son/boş/aşırı boyutlu sayfalar
+  - **File uploads** — geçerli, aşırı boyutlu, yanlış MIME tipi, boş
+  - **Rate limiting** — burst algılama, kullanıcı başına vs global sınırlar
+
+  ---
+
+  ## Ne Zaman Kullanılır
+
+  - Yeni API eklendi — uygulamayı yazmadan önce test iskeleti oluşturun (TDD)
+  - Testsiz eski API — tarayın ve temel kapsamı oluşturun
+  - API kontratı incelemesi — mevcut testler geçerli route tanımlarıyla eşleşiyor mu kontrol edin
+  - Sürüm öncesi regresyon kontrolü — tüm rotaların en azından smoke testleri olduğundan emin olun
+  - Güvenlik denetimi hazırlığı — adversarial input testleri oluşturun
+
+  ---
+
+  ## Route Detection
+
+  ### Next.js App Router
+  ```bash
+  # Tüm route handler'ları bul
+  find ./app/api -name "route.ts" -o -name "route.js" | sort
+
+  # Her route dosyasından HTTP methodlarını çıkart
+  grep -rn "export async function\|export function" app/api/**/route.ts | \
+    grep -oE "(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)" | sort -u
+
+  # Tam route haritası
+  find ./app/api -name "route.ts" | while read f; do
+    route=$(echo $f | sed 's|./app||' | sed 's|/route.ts||')
+    methods=$(grep -oE "export (async )?function (GET|POST|PUT|PATCH|DELETE)" "$f" | \
+      grep -oE "(GET|POST|PUT|PATCH|DELETE)")
+    echo "$methods $route"
+  done
+  ```
+
+  ### Express
+  ```bash
+  # Tüm router dosyalarını bul
+  find ./src -name "*.ts" -o -name "*.js" | xargs grep -l "router\.\(get\|post\|put\|delete\|patch\)" 2>/dev/null
+
+  # Satır numaralarıyla routeları çıkart
+  grep -rn "router\.\(get\|post\|put\|delete\|patch\)\|app\.\(get\|post\|put\|delete\|patch\)" \
+    src/ --include="*.ts" | grep -oE "(get|post|put|delete|patch)\(['\"][^'\"]*['\"]"
+
+  # Route haritası oluştur
+  grep -rn "router\.\|app\." src/ --include="*.ts" | \
+    grep -oE "\.(get|post|put|delete|patch)\(['\"][^'\"]+['\"]" | \
+    sed "s/\.\(.*\)('\(.*\)'/\U\1 \2/"
+  ```
+
+  ### FastAPI
+  ```bash
+  # Tüm route dekoratörlerini bul
+  grep -rn "@app\.\|@router\." . --include="*.py" | \
+    grep -E "@(app|router)\.(get|post|put|delete|patch)"
+
+  # Path ve fonksiyon adıyla çıkart
+  grep -rn "@\(app\|router\)\.\(get\|post\|put\|delete\|patch\)" . --include="*.py" | \
+    grep -oE "@(app|router)\.(get|post|put|delete|patch)\(['\"][^'\"]*['\"]"
+  ```
+
+  ### Django REST Framework
+  ```bash
+  # urlpatterns çıkartma
+  grep -rn "path\|re_path\|url(" . --include="*.py" | grep "urlpatterns" -A 50 | \
+    grep -E "path\(['\"]" | grep -oE "['\"][^'\"]+['\"]" | head -40
+
+  # ViewSet router kaydı
+  grep -rn "router\.register\|DefaultRouter\|SimpleRouter" . --include="*.py"
+  ```
+
+  ---
+
+  ## Test Oluşturma Desenleri
+
+  ### Auth Test Matrisi
+
+  Her kimlik doğrulama gerektiren uç nokta için oluşturun:
+
+  | Test Durumu | Beklenen Durum |
+  |-----------|----------------|
+  | Authorization başlığı yok | 401 |
+  | Geçersiz token formatı | 401 |
+  | Geçerli token, yanlış kullanıcı rolü | 403 |
+  | Süresi dolan JWT token | 401 |
+  | Geçerli token, doğru rol | 2xx |
+  | Silinen kullanıcıdan token | 401 |
+
+  ### Giriş Doğrulama Matrisi
+
+  Request body olan her POST/PUT/PATCH uç noktası için:
+
+  | Test Durumu | Beklenen Durum |
+  |-----------|----------------|
+  | Boş body `{}` | 400 or 422 |
+  | Eksik gerekli alanlar (teker teker) | 400 or 422 |
+  | Yanlış tür (string yerine int bekleniyor) | 400 or 422 |
+  | Sınır: min-1 değeri | 400 or 422 |
+  | Sınır: min değeri | 2xx |
+  | Sınır: max değeri | 2xx |
+  | Sınır: max+1 değeri | 400 or 422 |
+  | String alanında SQL injection | 400 or 200 (sanitized) |
+  | String alanında XSS payload | 400 or 200 (sanitized) |
+  | Gerekli alanlar için null değerler | 400 or 422 |
+
+  ---
+
+  ## Örnek Test Dosyaları
+  → Detaylar için references/example-test-files.md dosyasına bakın
+
+  ## Route Taramasından Test Oluşturma
+
+  Bir codebase verildiğinde, bu işlemi izleyin:
+
+  1. **Routeları tarayın** yukarıdaki tespit komutlarını kullanarak
+  2. **Her route handler'ı okuyun** şunları anlamak için:
+     - Beklenen request body şeması
+     - Kimlik doğrulama gereksinimleri (middleware, dekoratörler)
+     - Dönüş türleri ve durum kodları
+     - İş kuralları (sahiplik, rol kontrolleri)
+  3. **Test dosyası oluşturun** yukarıdaki desenleri kullanarak route grubu başına
+  4. **Testleri açıklayıcı olarak adlandırın**: `"returns 401 when token is expired"` değil `"auth test 3"`
+  5. **Factories/fixtures kullanın** test verileri için — hiçbir zaman ID'leri hardcode etmeyin
+  6. **Response şeklini assert edin**, sadece durum kodum değil
+
+  ---
+
+  ## Yaygın Tuzaklar
+
+  - **Sadece happy path'i test etmek** — hataların %80'i error path'lerde yaşar; önce onları test edin
+  - **Hardcoded test veri ID'leri** — factories/fixtures kullanın; ID'ler ortamlar arasında değişir
+  - **Testler arasında paylaşılan state** — her zaman afterEach/afterAll'da temizleyin
+  - **Implementasyonu değil davranışı test etmek** — API'nin ne döndürdüğünü test edin, nasıl yaptığını değil
+  - **Sınır testlerinin eksik olması** — off-by-one hataları sayfalandırma ve limitlerde çok yaygındır
+  - **Token geçerlilik süresini test etmemek** — süresi dolan tokenler geçersiz olanlardan farklı davranır
+  - **Content-Type'ı görmezden gelmek** — API'nin yanlış content type'ları reddettiğini test edin (json bekleniyor xml geldi)
+
+  ---
+
+  ## En İyi Uygulamalar
+
+  1. Uç nokta başına bir describe bloğu — hataları izole ve okunabilir tutar
+  2. Minimal veri seed'i — tüm DB'yi yüklemeyin; test sadece ihtiyaç duyduğu şeyi oluşturur
+  3. Paylaşılan setup için `beforeAll` kullanın, cleanup için `afterAll` — pahalı işlemler için `beforeEach` değil
+  4. Belirli hata mesajları/alanları assert edin, sadece durum kodları değil
+  5. Hassas alanların (password, secret) asla response'ta olmadığını test edin
+  6. Auth testleri için, "missing header" durumunu her zaman "invalid token"ten ayrı test edin
+  7. Rate limit testlerini en son ekleyin — paralel olarak çalışırsa diğer test paketlerini etkileyebilir
 ---
 
 # API Test Suite Builder

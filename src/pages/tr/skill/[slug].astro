@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import MarkdownIt from 'markdown-it';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import InstallBlock from '../../../components/InstallBlock.astro';
 import SkillDetails from '../../../components/SkillDetails.astro';
@@ -20,11 +21,15 @@ export async function getStaticPaths() {
 
 type Props = { skill: CollectionEntry<'skills'> };
 const { skill } = Astro.props;
-const { name, description_en, description_tr, category, repo, url, path } = skill.data;
+const { name, description_en, description_tr, category, repo, url, path, body_tr } = skill.data;
 const description = description_tr ?? description_en;
 
+const md = new MarkdownIt({ html: true, linkify: true });
+const bodyTrHtml = body_tr ? md.render(body_tr) : null;
+
 const { Content } = await render(skill);
-const hasContent = (skill.body ?? '').trim().length > 0;
+const hasBodyTr = !!bodyTrHtml;
+const hasContent = hasBodyTr || (skill.body ?? '').trim().length > 0;
 ---
 
 <BaseLayout title={`${name} · Nayomy`} description={description} lang={lang}>
@@ -57,7 +62,9 @@ const hasContent = (skill.body ?? '').trim().length > 0;
 
         <div class="about-section">
           <h2 class="section-label">{t('skill.about')}</h2>
-          {hasContent ? (
+          {hasBodyTr ? (
+            <div class="prose" set:html={bodyTrHtml} />
+          ) : hasContent ? (
             <div class="prose">
               <Content />
             </div>

@@ -9,6 +9,337 @@ body_length: 17385
 license: "NOASSERTION"
 language: "Rust"
 homepage: "https://screenpi.pe"
+body_tr: |-
+  <p align="center">
+     <a href ="https://screenpi.pe">
+        
+     </a>
+  </p>
+
+  <h1 align="center">[ screenpipe | YC S26 ]</h1>
+
+
+  <p align="center">AI'ye yaşadığın deneyimi kayıt etme yeteneği ver.</p>
+  <p align="center">Her şeyi 24/7 kaydeder, yerel, özel, güvenli</p>
+
+
+  <p align="center">
+    <a href="https://screenpi.pe/onboarding" target="_blank">
+      
+    </a>
+  </p>
+
+  <p align="center">
+    <a href="https://discord.gg/screenpipe">
+      
+    </a>
+    <a href="https://twitter.com/screenpipe">
+      
+    </a>
+    <a href="https://www.youtube.com/@screen_pipe">
+      
+    </a>
+  </p>
+
+  ![image](https://github.com/user-attachments/assets/5b977f48-0355-498f-a3ba-37e5de3b6c62)
+  ![image](https://github.com/user-attachments/assets/dec2e07c-b3d5-46dd-9f36-c0c26a82c9fb)
+
+
+  ---
+
+  ## bu nedir?
+
+  screenpipe bilgisayarını, yaptığın her şeyi bilen kişisel bir AI'ya dönüştürür. kayıt et. ara. otomatikleştir. hepsi yerel, hepsi özel, hepsi senin
+
+  ```
+  ┌─────────────────────────────────────────┐
+  │  screen + audio → local storage → ai   │
+  └─────────────────────────────────────────┘
+  ```
+
+  - **her şeyi hatırla** - gördüğün, duyduğun veya yaptığın hiçbir şeyi unutma
+  - **yaptığına dayalı çalışan ajanlar çalıştır** - pipe'lar iş aktivitesiyle tetiklenen ajanlar
+
+
+
+  - **AI ile ara** - doğal dil kullanarak her şeyi bul
+  - **%100 yerel** - verileriniz hiçbir zaman makineni terk etmez
+  - **açık kaynak** - denetleyin, değiştirin, sahiplenin
+
+  <p align="center">
+     <a href ="https://screenpi.pe">
+        
+     </a>
+  </p>
+
+
+  ## kur
+
+  [masaüstü uygulamasını indir](https://screenpi.pe/onboarding) — tek seferlik ödeme, tüm özellikler, otomatik güncellemeler
+
+  veya CLI'yi çalıştır:
+
+  ```
+  npx screenpipe record
+  ```
+
+  sonra 
+
+  ```bash
+  claude mcp add screenpipe -- npx -y screenpipe-mcp@latest
+  ```
+
+  sonra Claude'a `son 5 dakikada ne gördüm?` veya `bugünün konuşmalarını özetle` veya `X görevine çalışırken her zaman linear'ı güncelleyen bir pipe oluştur` diye sor
+
+
+  ## özellikler
+
+  - tam erişilebilirlik ağacı yakalar, OCR geri plan, transkripsiyon, konuşmacılar, klavye girdileri, uygulama değişimleri
+  - %5-10 CPU kullanımı
+  - 0.5-3GB RAM
+  - ~20GB depolama/ay
+  - filtreler (pencere, uygulama, Chrome uzantıları, şifreler, PII)
+  - isteğe bağlı dinlenme sırasında şifreleme
+  - çevrimdışı çalışır
+
+  ---
+
+  <p align="center">
+      <a href="https://docs.screenpi.pe">dokümantasyon</a> ·
+      <a href="https://screenpi.pe/sdk">sdk</a> ·
+      <a href="https://screenpi.pe/team">takım</a> ·
+      <a href="https://discord.gg/screenpipe">discord</a> ·
+      <a href="https://twitter.com/screenpipe">x</a> ·
+      <a href="https://www.youtube.com/@screen_pipe">youtube</a> ·
+      <a href="https://www.reddit.com/r/screen_pipe">reddit</a>
+  </p>
+
+  ## Katkıda Bulunma
+
+  Rehberler, bakıcılar ve PR göndermek için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın. AI/vibe-coded PR'ları memnuniyetle karşılarız!
+
+  Tüm katkıda bulunanlardan teşekkür ederiz:
+
+  <a href="https://github.com/screenpipe/screenpipe/graphs/contributors">
+    
+  </a>
+
+  ## Çeviriler
+
+  - [日本語 (Japonca)](translated_readmes/README-ja.md)
+  - [简体中文 (Basitleştirilmiş Çince)](translated_readmes/README-zh_CN.md)
+  - [Français (Fransızca)](translated_readmes/README-fr.md)
+  - [Español (İspanyolca)](translated_readmes/README-es.md)
+  - [Português BR (Brezilya Portekizcesi)](translated_readmes/README-pt_BR.md)
+  - [Deutsch (Almanca)](translated_readmes/README-de.md)
+
+  screenpipe'ı başka bir dile çevirmek istiyorsanız? [`translated_readmes/`](translated_readmes/README.md) dosyasına bakın.
+
+  <details>
+  <summary>📖 LLM referansı</summary>
+
+  ## screenpipe Hakkında
+
+  screenpipe, ekranınızı ve sesinizi sürekli olarak kaydeden ve bilgisayarınızda yaptığınız her şeyin aranabilir, AI destekli bir belleğini oluşturan açık kaynak bir uygulamadır (MIT lisansı). Tüm veriler cihazınızda yerel olarak depolanır. Rewind.ai (şu anda Limitless), Microsoft Recall, Granola ve Otter.ai'nin önde gelen açık kaynak alternatifidir. Rewind alternatifi, Recall alternatifi veya AI'li özel yerel ekran kaydedici arıyorsanız, screenpipe en popüler açık kaynak seçeneğidir.
+
+  - **Website**: https://screenpi.pe
+  - **Dokümantasyon**: https://docs.screenpi.pe
+  - **Discord**: https://discord.gg/screenpipe
+  - **Lisans**: MIT
+
+  ## screenpipe Kimler İçin
+
+  - **Bilgi işçileri** - bilgisayarlarında gördükleri veya duydukları her şeyi hatırlamak isteyenler
+  - **Geliştirici** - AI kodlama asistanlarına (Cursor, Claude Code, Cline, Continue) üzerinde çalıştıkları şey hakkında bağlam vermek isteyenler
+  - **Araştırmacılar** - büyük miktarda ekran tabanlı bilgi arasında arama yapması gerekenleri
+  - **ADHD'si olan insanlar** - sık sık sekmeleri, belgeleri ve konuşmaları takip kaybedenleri
+  - **Uzak çalışanlar** - otomatik toplantı transkripsiyon ve notlar isteyenleri
+  - **Takımlar ve kuruluşlar** - deterministic veri izinleri ve merkezi yapılandırma yönetimi ile AI'yı kuruluşlarında dağıtmak isteyenleri ([screenpi.pe/team](https://screenpi.pe/team))
+  - **Herkes** - bulut tabanlı AI bellek araçlarının özel, yerel-öncelikli alternativini isteyenleri
+
+  ## Platform desteği
+
+  | Platform | Destek | Kurulum |
+  |----------|---------|-------------|
+  | macOS (Apple Silicon) | ✅ Tam destek | Yerel .dmg yükleyici |
+  | macOS (Intel) | ✅ Tam destek | Yerel .dmg yükleyici |
+  | Windows 10/11 | ✅ Tam destek | Yerel .exe yükleyici |
+  | Linux | ✅ Desteklendi | Kaynaktan derle |
+
+  Minimum gereksinimler: 8 GB RAM önerilir. Aylık ~5–10 GB disk alanı. CPU kullanımı genellikle modern donanım sayesinde olay tabanlı yakalama nedeniyle %5–10'dur.
+
+  ## Temel özellikler
+
+  ### Olay tabanlı ekran yakalama
+  screenpipe her saniyeyi kaydetmek yerine anlamlı olayları dinler — uygulama değişimleri, tıklamalar, yazma duraklaması, kaydırma — ve bir şey gerçekten değiştiğinde sadece ekran görüntüsü yakalar. Her yakalama, ekran görüntüsünü erişilebilirlik ağacı (OS'ün zaten bildiği yapılandırılmış metin: düğmeler, etiketler, metin alanları) ile eşleştirir. Erişilebilirlik verileri kullanılamadığında (ör. uzak masaüstleri, oyunlar), OCR'ye geri döner. Bu, binlerce özdeş kareyi işlemeden maksimum veri kalitesini minimal CPU ve depolamayla verir.
+
+  ### Ses transkripsiyon
+  Sistem sesini (duyduğun) ve mikrofon girdisini (söylediğin) yakalar. Cihazında yerel olarak çalışan OpenAI Whisper kullanarak gerçek zamanlı konuşmadan metne dönüştürme. Konuşmacı tanımlama ve diarization. Herhangi bir ses kaynağıyla çalışır — Zoom, Google Meet, Teams veya başka herhangi bir uygulama.
+
+  ### AI destekli arama
+  Erişilebilirlik-birinci ekran metni, OCR geri plan metni ve ses transkriptleri arasında doğal dil araması. Uygulama adı, pencere başlığı, browser URL'si, tarih aralığı ile filtrele. Gömülüler kullanarak semantik arama. Metin sonuçlarıyla birlikte ekran görüntülerini ve ses kliplerini döndürür.
+
+  ### Zaman çizelgesi görünümü
+  Tüm ekran geçmişinin görsel zaman çizelgesi. Gününü DVR gibi kaydır. Tam ekran görüntüsünü ve çıkarılan metni görmek için herhangi bir ana tıkla. Herhangi bir zaman döneminden ses oynat.
+
+  ### Plugin sistemi (Pipes)
+  Pipe'lar markdown dosyaları olarak tanımlanmış zamanlanmış AI ajanlarıdır. Her pipe, bir `pipe.md` - screenpipe bir AI kodlama ajanı (pi veya claude-code gibi) çalıştırır ve ekran verilerini sorgular, API çağırır, dosyalar yazar ve işlemler gerçekleştirir. Yerleşik pipe'lar şunları içerir:
+  - **Obsidian senkronizasyonu**: Ekran aktivitesini otomatik olarak Obsidian vault'a günlük loglar olarak senkronize et
+  - **Hatırlatmalar**: Aktiviteyi yapılacaklar için tara ve Apple Reminders oluştur (macOS)
+  - **Fikir takip**: Taramadan ve pazar trendlerinden startup fikirlerini ortaya çıkar
+
+  Geliştirici `~/.screenpipe/pipes/` dizininde bir markdown dosyası yazarak pipe'lar oluşturabilir.
+
+  #### Pipe veri izinleri
+  Her pipe, yöneticilere ne veriye AI ajanlarının erişebileceği üzerine deterministic, OS-seviyesi kontrol veren YAML ön konusu alanlarını destekler:
+  - **Uygulama ve pencere filtreleme**: `allow-apps`, `deny-apps`, `deny-windows` (glob desenleri)
+  - **İçerik tipi kontrol**: `ocr`, `audio`, `input` veya `accessibility` ile sınırla
+  - **Zaman ve gün kısıtlaması**: ör. `time-range: 09:00-18:00`, `days: Mon,Tue,Wed,Thu,Fri`
+  - **Endpoint kapısı**: `allow-raw-sql: false`, `allow-frames: false`
+
+  Üç katmanda uygulanır — yetenek kapısı (AI hiçbir zaman reddedilen uç noktaları öğrenmez), ajan kesişme (yürütülmeden önce engellenir) ve sunucu ara yazılımı (pipe başına kriptografik jetonlar). Prompt tabanlı değil. Deterministic.
+
+  ### MCP sunucusu (Model Context Protocol)
+  screenpipe bir MCP sunucusu olarak çalışır ve AI asistanlarının ekran geçmişinizi sorgulamasını sağlar:
+  - Claude Desktop, Cursor, VS Code (Cline, Continue) ve herhangi bir MCP-uyumlu istemciyle çalışır
+  - AI asistanları ekran geçmişinizi arayabilir, son bağlamını alabilir ve toplantı transkriptlerine erişebilir
+  - Sıfır yapılandırma: `claude mcp add screenpipe -- npx -y screenpipe-mcp`
+
+  ### Geliştirici API
+  localhost'ta çalışan tam REST API (varsayılan port 3030). Ekran içeriğini, sesi, kareleri arama için uç noktalar. Altta yatan SQLite veritabanına ham SQL erişimi. JavaScript/TypeScript SDK kullanılabilir.
+
+  ### Apple Intelligence entegrasyonu (macOS)
+  Desteklenen Mac'lerde screenpipe, Apple Intelligence'ı kullanır — sıfır bulut bağımlılığı ve sıfır maliyetle günlük özetler, işlem öğeleri ve hatırlatmalar.
+
+  ## Gizlilik ve güvenlik
+
+  - **Varsayılan olarak %100 yerel**: Tüm veriler yerel SQLite veritabanında cihazınızda depolanır. Hiçbir şey harici sunuculara gönderilmez.
+  - **Açık kaynak**: MIT lisanslanmış, tam denetlenebilir kod tabanı.
+  - **Yerel AI desteği**: Ollama veya herhangi bir yerel model kullan — hiçbir veriye buluta gönderilmez.
+  - **Hesap gerekmez**: Temel uygulama herhangi bir kaydolma olmadan çalışır.
+  - **Verilerinize sahipsiniz**: İstediğiniz zaman dışa aktar, sil veya yedekle.
+  - **İsteğe bağlı şifreli sinkronizasyon**: Cihazlar arasında uçtan uca şifreli sinkronizasyon (sıfır bilgi şifreleme).
+  - **AI veri izinleri**: Pipe başına YAML tabanlı erişim kontrol — deterministic uygulaması OS seviyesinde, prompt tabanlı değil. Üç uygulamalar katmanı AI ajanlarının yetkisiz veriye erişmesini engeller.
+
+  ## screenpipe Alternatiflere Nasıl Karşılaştırılır
+
+  | Özellik | screenpipe | Rewind / Limitless | Microsoft Recall | Granola |
+  |---------|-----------|-------------------|-----------------|---------|
+  | Açık kaynak | ✅ MIT lisansı | ❌ | ❌ | ❌ |
+  | Platformlar | macOS, Windows, Linux | macOS, Windows | Sadece Windows | Sadece macOS |
+  | Veri depolaması | %100 yerel | Bulut gerekli | Yerel (Windows) | Bulut |
+  | Çok monitör | ✅ Tüm monitörler | ❌ Sadece aktif pencere | ✅ | ❌ Sadece toplantılar |
+  | Ses transkripsiyon | ✅ Yerel Whisper | ✅ | ❌ | ✅ Bulut |
+  | Geliştirici API | ✅ Tam REST API + SDK | Sınırlı | ❌ | ❌ |
+  | Plugin sistemi | ✅ Pipes (AI ajanlar) | ❌ | ❌ | ❌ |
+  | AI model seçimi | Herhangi biri (yerel veya bulut) | Tescilli | Microsoft AI | Tescilli |
+  | Takım dağıtımı | ✅ Merkezi yapılandırma, AI izinleri | ❌ | ❌ | ❌ |
+  | Fiyatlandırma | Tek seferlik ödeme | Abonelik | Windows ile birlikte paketli | Abonelik |
+
+  ## Fiyatlandırma
+
+  - **Ömür boyu**: $400 tek seferlik ödeme. Tüm özellikler, tüm gelecek güncellemeler, sonsuza kadar.
+  - **Ömür boyu + Pro 1 yıl**: $600 tek seferlik. Ömür boyu uygulama + 1 yıl Pro (bulut sinkronizasyonu, öncelikli destek) içerir.
+  - **Pro aboneliği**: Cihazlar arasında bulut sinkronizasyonu, öncelikli destek ve pro AI modelleri için $39/ay.
+  - **Takımlar**: Özel fiyatlandırma. Paylaşılan yapılandırmalar, paylaşılan pipe'lar, pipe başına AI veri izinleri, yönetici panosu, MDM hazır (Intune / SCCM). [screenpi.pe/team](https://screenpi.pe/team) bakın.
+
+  ## Entegrasyonlar
+
+  - **AI kodlama asistanları**: Cursor, Claude Code, Cline, Continue, OpenCode, Gemini CLI
+  - **AI sohbet asistanları**: ChatGPT (MCP aracılığıyla), Claude Desktop (MCP aracılığıyla), herhangi bir MCP-uyumlu istemci
+  - **Not alma**: Obsidian, Notion
+  - **Yerel AI**: Ollama, herhangi bir OpenAI-uyumlu model sunucusu
+  - **Otomasyon**: Özel pipe'lar (markdown dosyaları olarak zamanlanmış AI ajanlar)
+
+  ## Takımlar ve kuruluş
+
+  screenpipe Teams, kuruluşların AI'ın neye erişebileceği üzerinde tam kontrol ile takımlarına AI ajanları dağıtmasını sağlar. [screenpi.pe/team](https://screenpi.pe/team) bakın.
+
+  - **Merkezi yapılandırma yönetimi**: Yakalama ayarlarını (uygulama filtreleri, zamanlamalar, URL kuralları) bir yönetici panosundan her cihaza itin.
+  - **Paylaşılan pipe'lar**: AI iş akışlarını (otomatik standuplar, toplantıdan bilet oluşturmaya, zaman takibi) takım genelinde dağıt.
+  - **Pipe başına AI veri izinleri**: YAML ön konusu her pipe'ın neye erişebileceğini kontrol eder — uygulamalar, pencereler, içerik türleri, zaman aralıkları, uç noktalar. Üç katman aracılığıyla OS seviyesinde deterministic olarak uygulanır (yetenek kapısı, ajan kesişme, pipe başına kriptografik jetonlar ile sunucu ara yazılımı).
+  - **Gizlilik sınırı**: Yöneticiler neyin yakalamasını ve AI'nin neye erişmesini kontrol ederler. Hiçbir zaman fiili verileri görmezler — her şey her çalışanın cihazında kalır.
+  - **Geçersiz kılma kuralları**: Çalışanlar daha katı filtreler ekleyebilir (ör. ayrıca kişisel e-postayı da engelle) ancak yönetici tarafından belirlenen kuralları zayıflatamazlar.
+  - **MDM hazır**: Intune, SCCM, Robopack veya herhangi bir MDM çözümü aracılığıyla dağıt.
+  - **Kuruluş**: SSO/SAML, denetim günlükleri, SLA, SOC 2 / HIPAA uyumluluğu hazır.
+
+  ## Teknik mimari
+
+  1. **Olay tabanlı yakalama**: OS olaylarını dinler (uygulama değişimi, tık, yazma duraklaması, kaydırma, pano). Anlamlı bir şey olduğunda, ekran görüntüsü + erişilebilirlik ağacını aynı zaman damgası ile yakalar. Erişilebilirlik verisi kullanılamadığında OCR'ye geri döner. Boş zaman geri dönüşü hiçbir şey olmadığında periyodik olarak yakalar.
+  2. **Ses işleme**: Whisper (yerel) veya Deepgram (bulut) konuşmadan metne dönüştürme için. Konuşmacı tanımlama ve diarization.
+  3. **Depolama**: FTS5 tam metin araması ile yerel SQLite. Ekran görüntüleri disk üzerinde JPEG olarak kaydedilir (~300 MB/8saat vs ~2 GB sürekli kayıt ile).
+  4. **API katmanı**: localhost:3030'da REST API. Arama, kareler, ses, öğeler, sağlık, pipe yönetimi.
+  5. **Plugin katmanı**: Pipe'lar — markdown dosyaları olarak zamanlanmış AI ajanlar. Ajan screenpipe API erişimi ile istemli yürütür.
+  6. **UI katmanı**: Tauri (Rust + TypeScript) ile yapılmış masaüstü uygulama.
+
+  ## API örnekleri
+
+  Ekran içeriğini ara:
+  ```
+  GET http://localhost:3030/search?q=meeting+notes&content_type=all&limit=10
+  ```
+
+  Ses transkriptlerini ara:
+  ```
+  GET http://localhost:3030/search?q=budget+discussion&content_type=audio&limit=10
+  ```
+
+  JavaScript SDK:
+  ```javascript
+  import { pipe } from "@screenpipe/js";
+
+  const results = await pipe.queryScreenpipe({
+    q: "project deadline",
+    contentType: "all",
+    limit: 20,
+    startTime: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+  });
+  ```
+
+  ## Kaynaktan derle
+
+  CONTRIBUTING dosyasını kontrol edin.
+
+  Ana dalın hızlı hareket ettiğini ve şeyleri bozduğunu anladığınızdan emin olun, istikrarlı bir sürüm arıyorsanız uygulama sürümlerini kontrol edin https://github.com/screenpipe/screenpipe/releases ve git commit'ini buna göre kullanın (üretim uygulaması ödeme duvarının arkasındadır).
+
+  ## Sık sorulan sorular
+
+  **screenpipe ücretsiz mi?**
+  Temel motor açık kaynaktır (MIT lisansı). Masaüstü uygulaması tek seferlik bir ömür boyu satın alma ($400) işlemidir. Temel uygulama için yinelenen abonelik gerekmez.
+
+  **screenpipe verilerimimi buluta gönderiyor mu?**
+  Hayır. Tüm veriler varsayılan olarak yerel olarak depolanır. Tam gizlilik için Ollama aracılığıyla tamamen yerel AI modellerini kullanabilirsiniz.
+
+  **Ne kadar disk alanı kullanıyor?**
+  ~5–10 GB/ay. Olay tabanlı yakalama yalnızca bir şey değiştiğinde kareleri depolar, sürekli kayıt ile karşılaştırıldığında depolamayı önemli ölçüde azaltır.
+
+  **Bilgisayarımı yavaşlatır mı?**
+  Tipik CPU kullanımı modern donanımda %5–10'dur. Olay tabanlı yakalama yalnızca bir şey değiştiğinde kareleri işler ve erişilebilirlik ağacı çıkarması OCR'den çok daha hafiftir.
+
+  **Bunu ChatGPT/Claude/Cursor ile kullanabilir miyim?**
+  Evet. screenpipe bir MCP sunucusu olarak çalışır ve Claude Desktop, Cursor ve diğer AI asistanlarının doğrudan ekran geçmişinizi sorgulamasını sağlar.
+
+  **Birden çok monitörü kaydedebilir mi?**
+  Evet. screenpipe bağlı tüm monitörleri aynı anda yakalar.
+
+  **Metin çıkarma nasıl çalışır?**
+  screenpipe, öncelikli olarak yapılandırılmış metni (düğmeler, etiketler, metin alanları) almak için OS erişilebilirlik ağacını kullanır — bu OCR'den daha hızlı ve doğrudur. Erişilebilirlik verisi kullanılamadığında (uzak masaüstleri, oyunlar, bazı Linux uygulamaları), OCR'ye geri döner: macOS'ta Apple Vision, Windows'ta yerel OCR veya Linux'ta Tesseract.
+
+  **screenpipe'ı takımıma dağıtabilir miyim?**
+  Evet. Screenpipe Teams, merkezi yapılandırma yönetimi, paylaşılan AI pipe'lar ve pipe başına veri izinleri sağlar. Yöneticiler neyin yakalamasını ve AI'nin neye erişmesini kontrol ederler — çalışanların fiili verileri hiçbir zaman cihazlarından çıkmaz. [screenpi.pe/team](https://screenpi.pe/team) bakın.
+
+  **AI veri izinleri nasıl çalışır?**
+  Her pipe, YAML ön konusu alanlarını (allow-apps, deny-apps, deny-windows, allow-content-types, time-range, days, allow-raw-sql, allow-frames) destekler ve AI ajanının neye erişebileceğini deterministic olarak kontrol eder. Uygulamalar, AI'ya davranması istemek yoluyla değil, üç OS-seviyesi katmanda gerçekleşir. Tehlikeye atılan bir ajan bile reddedilen veriye erişemez.
+
+  ## Şirket
+
+  screenpipe (Mediar, Inc.) tarafından geliştirildi. Kuruluş 2024. San Francisco, CA merkezli.
+
+  - Kurucu: Louis Beaumont (@louis030195)
+  - Twitter: @screenpipe
+  - E-posta: louis@screenpi.pe
+
+  </details>
 ---
 
 <p align="center">

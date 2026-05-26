@@ -8,6 +8,433 @@ url: "https://github.com/crystaldba/postgres-mcp"
 body_length: 37467
 license: "MIT"
 language: "Python"
+body_tr: |-
+  <div align="center">
+
+
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![PyPI - Version](https://img.shields.io/pypi/v/postgres-mcp)](https://pypi.org/project/postgres-mcp/)
+  [![Discord](https://img.shields.io/discord/1336769798603931789?label=Discord)](https://discord.gg/4BEHC7ZM)
+  [![Twitter Follow](https://img.shields.io/twitter/follow/auto_dba?style=flat)](https://x.com/auto_dba)
+  [![Contributors](https://img.shields.io/github/contributors/crystaldba/postgres-mcp)](https://github.com/crystaldba/postgres-mcp/graphs/contributors)
+
+  <h3>Index ayarlaması, açıklama planları, sistem sağlığı kontrolleri ve güvenli SQL yürütme özelliklerine sahip bir Postgres MCP sunucusu.</h3>
+
+  <div class="toc">
+    <a href="#overview">Genel Bakış</a> •
+    <a href="#demo">Demo</a> •
+    <a href="#quick-start">Hızlı Başlangıç</a> •
+    <a href="#technical-notes">Teknik Notlar</a> •
+    <a href="#mcp-server-api">MCP API</a> •
+    <a href="#related-projects">İlgili Projeler</a> •
+    <a href="#frequently-asked-questions">SSS</a>
+  </div>
+
+  </div>
+
+  ## Genel Bakış
+
+  **Postgres MCP Pro**, tüm geliştirme süreci boyunca sizleri ve AI ajanlarınızı desteklemek için inşa edilmiş açık kaynak bir Model Context Protocol (MCP) sunucusudur—ilk kodlamadan, test ve deployment aşamasından geçerek, production ayarlaması ve bakımı aşamasına kadar.
+
+  Postgres MCP Pro, bir veritabanı bağlantısını basitçe sarmaktan çok daha fazlasını yapar.
+
+  Özellikler şunları içerir:
+
+  - **🔍 Veritabanı Sağlığı** - Index sağlığını, bağlantı kullanımını, buffer cache'ini, vakum sağlığını, sequence sınırlarını, replication lag'ini ve daha fazlasını analiz edin.
+  - **⚡ Index Ayarlaması** - İş yükünüz için en iyi çözümü bulmak için endüstriyel güçte algoritmalar kullanarak binlerce olası index'i keşfedin.
+  - **📈 Sorgu Planları** - EXPLAIN planlarını inceleyerek ve varsayımsal index'lerin etkisini simüle ederek performansı doğrulayın ve optimize edin.
+  - **🧠 Schema İstihbarat** - Veritabanı şemasının ayrıntılı anlayışına dayalı bağlam duyarlı SQL oluşturma.
+  - **🛡️ Güvenli SQL Yürütme** - Yapılandırılabilir erişim kontrolü, salt okunur modu ve güvenli SQL ayrıştırması desteği dahil, geliştirme ve production ortamları için kullanılabilir hale gelir.
+
+  Postgres MCP Pro, farklı ortamlarda esneklik için [Standard Input/Output (stdio)](https://modelcontextprotocol.io/docs/concepts/transports#standard-input%2Foutput-stdio) ve [Server-Sent Events (SSE)](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) taşımaları destekler.
+
+  Postgres MCP Pro'yu neden inşa ettiğimiz hakkında ek bilgi için [başlangıç blog yazımıza](https://www.crystaldba.ai/blog/post/announcing-postgres-mcp-server-pro) bakın.
+
+  ## Demo
+
+  *Kullanılamaz Durumdan Işık Hızına*
+  - **Zorluk:** Bir AI asistanı kullanarak bir film uygulaması oluşturduk, ancak SQLAlchemy ORM kodu acı verici derecede yavaş çalışıyordu.
+  - **Çözüm:** Postgres MCP Pro'yu Cursor ile kullanarak, performans sorunlarını dakikalar içinde düzelttik.
+
+  Ne yaptık:
+  - 🚀 Performansı düzelttik - ORM sorguları, indexleme ve cache'leme dahil
+  - 🛠️ Bozuk bir sayfayı düzelttik - ajanı verileri keşfetmeye, sorguları düzeltmeye ve ilgili içerik eklemeye yönlendirerek.
+  - 🧠 En popüler filmleri iyileştirdik - verileri keşfederek ve daha alakalı sonuçları ortaya çıkarmak için ORM sorgusunu düzelterek.
+
+  Aşağıdaki videoyu izleyin veya [oyun detayını](examples/movie-app.md) okuyun.
+
+  https://github.com/user-attachments/assets/24e05745-65e9-4998-b877-a368f1eadc13
+
+
+
+
+  ## Hızlı Başlangıç
+
+  ### Ön Koşullar
+
+  Başlamadan önce aşağıdakileri sağlayın:
+  1. Veritabanınız için erişim kimlik bilgileriniz.
+  2. Docker *veya* Python 3.12 veya üstü.
+
+  #### Erişim Kimlik Bilgileri
+   `psql` veya [pgAdmin](https://www.pgadmin.org/) gibi bir GUI aracı kullanarak erişim kimlik bilgilerinizin geçerli olduğunu doğrulayabilirsiniz.
+
+
+  #### Docker veya Python
+
+  Docker veya Python kullanma seçimi sizin. Genel olarak Docker'ı öneriyoruz çünkü Python kullanıcıları daha fazla ortama özgü sorunlarla karşılaşabilir. Ancak, genellikle sizin en alışık olduğunuz yöntemi kullanmak mantıklıdır.
+
+
+  ### Kurulum
+
+  Postgres MCP Pro'yu yüklemek için aşağıdaki yöntemlerden birini seçin:
+
+  #### Seçenek 1: Docker Kullanma
+
+  Postgres MCP Pro MCP sunucusu Docker görüntüsünü çekin.
+  Bu görüntü tüm gerekli bağımlılıkları içerir ve Postgres MCP Pro'yu çeşitli ortamlarda çalıştırmanın güvenilir bir yolunu sağlar.
+
+  ```bash
+  docker pull crystaldba/postgres-mcp
+  ```
+
+
+  #### Seçenek 2: Python Kullanma
+
+  `pipx` yüklüyse, Postgres MCP Pro'yu şu şekilde yükleyebilirsiniz:
+
+  ```bash
+  pipx install postgres-mcp
+  ```
+
+  Aksi halde, Postgres MCP Pro'yu `uv` ile yükleyin:
+
+  ```bash
+  uv pip install postgres-mcp
+  ```
+
+  `uv` yüklemeniz gerekiyorsa, [uv kurulum talimatlarını](https://docs.astral.sh/uv/getting-started/installation/) görün.
+
+
+  ### AI Asistanınızı Yapılandırın
+
+  Postgres MCP Pro'yu Claude Desktop ile yapılandırmak için tam talimatlar sağlıyoruz.
+  Birçok MCP istemcisinin benzer yapılandırma dosyaları vardır, bu adımları seçtiğiniz istemciyle çalışacak şekilde uyarlayabilirsiniz.
+
+  #### Claude Desktop Yapılandırması
+
+  Postgres MCP Pro'yu eklemek için Claude Desktop yapılandırma dosyasını düzenlemeniz gerekecektir.
+  Bu dosyanın konumu işletim sisteminize bağlıdır:
+  - MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  Claude Desktop'taki `Settings` menü öğesini kullanarak yapılandırma dosyasını da bulabilirsiniz.
+
+  Şimdi yapılandırma dosyasının `mcpServers` bölümünü düzenleyeceksiniz.
+
+  ##### Docker Kullanıyorsanız
+
+  ```json
+  {
+    "mcpServers": {
+      "postgres": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "-e",
+          "DATABASE_URI",
+          "crystaldba/postgres-mcp",
+          "--access-mode=unrestricted"
+        ],
+        "env": {
+          "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+  Postgres MCP Pro Docker görüntüsü, `localhost` host adresini konteyner içinden çalışacak şekilde otomatik olarak yeniden eşler.
+
+  - MacOS/Windows: `host.docker.internal` kullanır otomatik olarak
+  - Linux: `172.17.0.1` veya uygun host adresini otomatik olarak kullanır
+
+  ##### `uvx` Kullanıyorsanız
+
+  ```json
+  {
+    "mcpServers": {
+      "postgres": {
+        "command": "uvx",
+        "args": [
+          "postgres-mcp",
+          "--access-mode=unrestricted"
+        ],
+        "env": {
+          "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+
+  ##### `pipx` Kullanıyorsanız
+
+  ```json
+  {
+    "mcpServers": {
+      "postgres": {
+        "command": "postgres-mcp",
+        "args": [
+          "--access-mode=unrestricted"
+        ],
+        "env": {
+          "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+
+  ##### `uv` Kullanıyorsanız
+
+  ```json
+  {
+    "mcpServers": {
+      "postgres": {
+        "command": "uv",
+        "args": [
+          "run",
+          "postgres-mcp",
+          "--access-mode=unrestricted"
+        ],
+        "env": {
+          "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+
+  ##### Bağlantı URI'si
+
+  `postgresql://...` yerine [Postgres veritabanı bağlantısı URI'nizi](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS) girin.
+
+
+  ##### Erişim Modu
+
+  Postgres MCP Pro, AI ajanının veritabanında gerçekleştirebileceği işlemleri kontrol etmek için birden çok *erişim modu* destekler:
+  - **Kısıtlanmamış Mod**: Verileri ve şemayı değiştirmek için tam okuma/yazma erişimine izin verir. Geliştirme ortamları için uygundur.
+  - **Kısıtlı Mod**: İşlemleri salt okunur işlemlere sınırlar ve kaynak kullanımına kısıtlama getirir (şu anda yalnızca yürütme süresi). Production ortamları için uygundur.
+
+  Kısıtlı modu kullanmak için yukarıdaki yapılandırma örneklerinde `--access-mode=unrestricted` yerine `--access-mode=restricted` yazın.
+
+
+  #### Diğer MCP İstemcileri
+
+  Birçok MCP istemcisinin Claude Desktop'a benzer yapılandırma dosyaları vardır ve yukarıdaki örnekleri seçtiğiniz istemciyle çalışacak şekilde uyarlayabilirsiniz.
+
+  - Cursor kullanıyorsanız, `Command Palette`'ten `Cursor Settings`'e gidebilir, ardından `MCP` sekmesini açabilirsiniz.
+  - Windsurf kullanıyorsanız, `Command Palette`'ten `Open Windsurf Settings Page`'e gidebilirsiniz.
+  - Goose kullanıyorsanız `goose configure` komutunu çalıştırın, ardından `Add Extension` seçin.
+  - Qodo Gen kullanıyorsanız, Chat panelini açın, `Connect more tools` öğesine tıklayın, `+ Add new MCP` öğesine tıklayın, ardından yeni yapılandırmayı ekleyin.
+
+  ## SSE Taşıması
+
+  Postgres MCP Pro, [SSE taşımasını](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) destekler; bu, birden çok MCP istemcisinin bir sunucuyu (muhtemelen uzak bir sunucu) paylaşmasına olanak tanır.
+  SSE taşımasını kullanmak için sunucuyu `--transport=sse` seçeneğiyle başlatmanız gerekir.
+
+  Örneğin, Docker ile çalıştırma:
+
+  ```bash
+  docker run -p 8000:8000 \
+    -e DATABASE_URI=postgresql://username:password@localhost:5432/dbname \
+    crystaldba/postgres-mcp --access-mode=unrestricted --transport=sse
+  ```
+
+  Ardından MCP istemci yapılandırmanızı MCP sunucusunu çağırmak üzere güncelleyin.
+  Örneğin, Cursor'un `mcp.json` veya Cline'nin `cline_mcp_settings.json` dosyasında şunu yazabilirsiniz:
+
+  ```json
+  {
+      "mcpServers": {
+          "postgres": {
+              "type": "sse",
+              "url": "http://localhost:8000/sse"
+          }
+      }
+  }
+  ```
+
+  Windsurf için `mcp_config.json` dosyasındaki biçim biraz farklıdır:
+
+  ```json
+  {
+      "mcpServers": {
+          "postgres": {
+              "type": "sse",
+              "serverUrl": "http://localhost:8000/sse"
+          }
+      }
+  }
+  ```
+
+  ## Postgres Uzantısı Kurulumu (İsteğe Bağlı)
+
+  Index ayarlaması ve kapsamlı performans analizi etkinleştirmek için veritabanınıza `pg_stat_statements` ve `hypopg` uzantılarını yüklemeniz gerekir.
+
+  - `pg_stat_statements` uzantısı, Postgres MCP Pro'nun sorgu yürütme istatistiklerini analiz etmesine olanak tanır.
+  Örneğin, bu, hangi sorguların yavaş çalıştığını veya önemli kaynakları tükettiğini anlamasını sağlar.
+  - `hypopg` uzantısı, Postgres MCP Pro'nun index'ler eklendikten sonra Postgres sorgu planlayıcısının davranışını simüle etmesine olanak tanır.
+
+  ### AWS RDS, Azure SQL veya Google Cloud SQL'de Uzantıları Kurma
+
+  Postgres veritabanınız bir bulut sağlayıcısı yönetilen hizmetinde çalışıyorsa, `pg_stat_statements` ve `hypopg` uzantıları sistemde zaten kullanılabilir olmalıdır.
+  Bu durumda, yeterli ayrıcalıklara sahip bir rol kullanarak sadece `CREATE EXTENSION` komutlarını çalıştırabilirsiniz:
+
+  ```sql
+  CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
+  CREATE EXTENSION IF NOT EXISTS hypopg;
+  ```
+
+  ### Kendi Kendini Yöneten Postgres'te Uzantıları Kurma
+
+  Kendi Postgres kurulumunuzu yönetiyorsanız, ek çalışma gerekebilir.
+  `pg_stat_statements` uzantısını yüklemeden önce, bunun Postgres yapılandırma dosyasının `shared_preload_libraries` kısmında listelendiğinden emin olmalısınız.
+  `hypopg` uzantısı, Postgres ile her zaman gelmediği için ek sistem düzeyinde kurulum (örneğin, paket yöneticiniz aracılığıyla) gerektirebilir.
+
+  ## Kullanım Örnekleri
+
+  ### Veritabanı Sağlığına Genel Bakış Alın
+
+  Sorun:
+  > Veritabanımın sağlığını kontrol edin ve sorunları belirleyin.
+
+  ### Yavaş Sorguları Analiz Edin
+
+  Sorun:
+  > Veritabanımın en yavaş sorguları nelerdir? Ve bunları nasıl hızlandırabilirim?
+
+  ### Şeyleri Hızlandırma Hakkında Önerileri Alın
+
+  Sorun:
+  > Uygulamamız yavaş. Onu nasıl daha hızlı yapabilirim?
+
+  ### Index Önerileri Oluşturun
+
+  Sorun:
+  > Veritabanı iş yükümü analiz edin ve performansı iyileştirmek için index'ler öneriniz.
+
+  ### Belirli Bir Sorguyu Optimize Edin
+
+  Sorun:
+  > Bu sorguyu optimize etmeme yardımcı olun: SELECT \* FROM orders JOIN customers ON orders.customer_id = customers.id WHERE orders.created_at > '2023-01-01';
+
+  ## MCP Sunucusu API
+
+  [MCP standardı](https://modelcontextprotocol.io/), çeşitli uç nokta türlerini tanımlar: Tools, Resources, Prompts ve diğerleri.
+
+  Postgres MCP Pro işlevselliği yalnızca [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools) aracılığıyla sağlar.
+  Bunu seçtik çünkü [MCP istemci ekosistemi](https://modelcontextprotocol.io/clients) MCP tools için yaygın desteğe sahiptir.
+  Bu, [Reference Postgres MCP Server](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres) dahil diğer Postgres MCP sunucularının [MCP resources](https://modelcontextprotocol.io/docs/concepts/resources) kullanarak şema bilgisini ortaya çıkaran yaklaşımından farklıdır.
+
+
+  Postgres MCP Pro Tools'ları:
+
+  | Tool Adı | Açıklama |
+  |-----------|-------------|
+  | `list_schemas` | PostgreSQL örneğinde bulunan tüm veritabanı şemalarını listeler. |
+  | `list_objects` | Belirtilen şema içinde veritabanı nesnelerini (tablolar, görünümler, diziler, uzantılar) listeler. |
+  | `get_object_details` | Belirli bir veritabanı nesnesi hakkında bilgi sağlar; örneğin, bir tablonun sütunları, kısıtlamaları ve index'leri. |
+  | `execute_sql` | SQL deyimlerini veritabanında yürütür, kısıtlı modda bağlandığında salt okunur sınırlamalarıyla. |
+  | `explain_query` | Postgres'in bir SQL sorgusunu nasıl işleyeceğini açıklayan bir yürütme planını alır ve sorgu planlayıcısının maliyet modelini ortaya çıkarır. Index'ler eklendikten sonra davranışı simüle etmek için varsayımsal index'lerle çağrılabilir. |
+  | `get_top_queries` | `pg_stat_statements` verilerini kullanarak toplam yürütme süresine dayalı en yavaş SQL sorgularını raporlar. |
+  | `analyze_workload_indexes` | Veritabanı iş yükünü analiz ederek kaynak yoğun sorguları tanımlar, sonra bunlar için optimal index'leri önerir. |
+  | `analyze_query_indexes` | Belirli SQL sorguları listesini (en fazla 10) analiz eder ve bunlar için optimal index'leri önerir. |
+  | `analyze_db_health` | Şunları içeren kapsamlı sistem sağlığı kontrolleri gerçekleştirir: buffer cache hit oranları, bağlantı sağlığı, kısıtlama doğrulaması, index sağlığı (yinelenen/kullanılmayan/geçersiz), sequence sınırları ve vakum sağlığı. |
+
+
+  ## İlgili Projeler
+
+  **Postgres MCP Sunucuları**
+  - [Query MCP](https://github.com/alexander-zuev/supabase-mcp-server). Üç katmanlı güvenlik mimarisi ve Supabase yönetim API'ı desteğiyle Supabase Postgres için bir MCP sunucusu.
+  - [PG-MCP](https://github.com/stuzero/pg-mcp-server). Esnek bağlantı seçenekleri, açıklama planları, uzantı bağlamı ve daha fazlasıyla PostgreSQL için bir MCP sunucusu.
+  - [Reference PostgreSQL MCP Server](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres). Şema bilgisini MCP resources olarak ortaya çıkaran ve salt okunur sorguları yürüten basit bir MCP Sunucusu uygulaması.
+  - [Supabase Postgres MCP Server](https://github.com/supabase-community/supabase-mcp). Supabase yönetim özelliklerini sağlayan ve Supabase topluluğu tarafından aktif olarak yönetilen bu MCP Sunucusu.
+  - [Nile MCP Server](https://github.com/niledatabase/nile-mcp-server). Nile'nin multi-tenant Postgres hizmeti için yönetim API'sine erişim sağlayan bir MCP sunucusu.
+  - [Neon MCP Server](https://github.com/neondatabase-labs/mcp-server-neon). Neon'un serverless Postgres hizmeti için yönetim API'sine erişim sağlayan bir MCP sunucusu.
+  - [Wren MCP Server](https://github.com/Canner/wren-engine). Postgres ve diğer veritabanları için işletme analitiklerini güçlendiren bir anlamsal motor sağlar.
+
+  **DBA Araçları (ticari teklifleri dahil)**
+  - [Aiven Database Optimizer](https://aiven.io/solutions/aiven-ai-database-optimizer). Bütünsel veritabanı iş yükü analizi, sorgu optimizasyonları ve diğer performans iyileştirmeleri sağlayan bir araç.
+  - [dba.ai](https://www.dba.ai/). GitHub ile entegre olan, kod sorunlarını çözen bir yapay zeka destekli veritabanı yönetim asistanı.
+  - [pgAnalyze](https://pganalyze.com/). Performans darboğazlarını tanımlamak, sorguları optimize etmek ve gerçek zamanlı uyarı vermek için kapsamlı bir izleme ve analitik platformu.
+  - [Postgres.ai](https://postgres.ai/). Kapsamlı bir Postgres bilgi tabanı ve GPT-4'ü birleştiren etkileşimli bir sohbet deneyimi.
+  - [Xata Agent](https://github.com/xataio/agent). LLM destekli mantık ve playbookları kullanarak veritabanı sağlığını otomatik olarak izleyen, sorunları tanılayan ve öneriler sunan açık kaynak bir yapay zeka ajanı.
+
+  **Postgres Araçları**
+  - [Dexter](https://github.com/DexterDB/dexter). PostgreSQL'de varsayımsal index'ler oluşturan ve test eden bir araç.
+  - [PgHero](https://github.com/ankane/pghero). Öneriler içeren Postgres için bir performans kontrol paneli.
+  Postgres MCP Pro, PgHero'dan sistem sağlığı kontrollerini içerir.
+  - [PgTune](https://github.com/le0pard/pgtune?tab=readme-ov-file). Postgres yapılandırması ayarlaması için buluşsal yöntemler.
+
+  ## Sıkça Sorulan Sorular
+
+  *Postgres MCP Pro diğer Postgres MCP sunucularından nasıl farklı?*
+  Bir yapay zeka ajanının Postgres veritabanında sorgu çalıştırmasına izin veren birçok MCP sunucusu vardır.
+  Postgres MCP Pro bunu da yapar, ancak aynı zamanda Postgres veritabanının performansını anlamak ve iyileştirmek için araçlar ekler.
+  Örneğin, [Microsoft SQL Server'ın Database Tuning Advisor'ının Anytime Algoritmasının](https://www.microsoft.com/en-us/research/wp-content/uploads/2020/06/Anytime-Algorithm-of-Database-Tuning-Advisor-for-Microsoft-SQL-Server.pdf) otomatik index ayarlaması için sürümünü uygular; bu modern endüstriyel güçte bir algoritmadır.
+
+  | Postgres MCP Pro | Diğer Postgres MCP Sunucuları |
+  |--------------|----------------------------|
+  | ✅ Deterministik veritabanı sistem sağlığı kontrolleri | ❌ Tekrarlanamayan LLM tarafından oluşturulan sistem sağlığı sorguları |
+  | ✅ İlkeli indexleme arama stratejileri | ❌ Indexleme iyileştirmeleri hakkında Gen-AI tahminleri |
+  | ✅ En iyi sorunları bulmak için iş yükü analizi | ❌ Tutarsız sorun analizi |
+  | ✅ Performans iyileştirmelerini simüle eder | ❌ Kendiniz deneyin ve çalışıp çalışmadığını görün |
+
+  Postgres MCP Pro, deterministik araçlar ve klasik optimizasyon algoritmaları ekleyerek üretken yapay zekayı tamamlar. Kombinasyon hem güvenilir hem de esnek.
+
+
+  *LLM mantık yürütebiliyorken, SQL oluşturabiliyorken vb. MCP araçlarına neden ihtiyaç duyuluyor?*
+  LLM'ler, belirsizlik, mantık veya doğal dil içeren görevler için priceless'tır.
+  Prosedürel kod ile karşılaştırıldığında, ancak yavaş, pahalı, rastgele olabilir ve bazen güvenilmez sonuçlar üretebilir.
+  Veritabanı ayarlaması söz konusu olduğunda, çalışması kanıtlanmış onyıllar boyunca geliştirilen iyi kurulmuş algoritmalarımız vardır.
+  Postgres MCP Pro, LLM'leri klasik optimizasyon algoritmaları ve diğer prosedürel araçlarla eşleştirerek her ikisinin en iyi yönlerini birleştirmenize olanak tanır.
+
+  *Postgres MCP Pro nasıl test edilir?*
+  Test, Postgres MCP Pro'nun güvenilir ve doğru olmasını sağlamak için kritiktir.
+  Postgres MCP Pro'ya meydan okumak ve çeşitli senaryolarda performans göstermesini sağlamak için tasarlanmış yapay zeka tarafından oluşturulan antagonistik iş yükleri hakkında bir test paketini geliştiriyoruz.
+
+  *Hangi Postgres sürümleri destekleniyor?*
+  Şu anda test ettiğimiz sürümler Postgres 15, 16 ve 17'dir.
+  Postgres 13 ile 17 arasındaki sürümleri desteklemeyi planlıyoruz.
+
+  *Bu projeyi kim oluşturdu?*
+  Bu proje [Crystal DBA](https://www.crystaldba.ai) tarafından oluşturulup yönetilmektedir.
+
+  ## Yol Haritası
+
+  *TBD*
+
+  Siz ve ihtiyaçlarınız, inşa ettiğimiz şeyler için kritik bir itici güçtür.
+  [Issue](https://github.com/crystaldba/postgres-mcp/issues) veya [pull request](https://github.com/crystaldba/postgres-mcp/pulls) açarak görmek istediğiniz şeyleri bize anlatın.
+  Ayrıca [Discord](https://discord.gg/4BEHC7ZM) üzerinden bize ulaşabilirsiniz.
+
+  ## Teknik Notlar
+
+  Bu bölüm, Postgres MCP Pro tasarımını etkileyen teknik hususlarının üst düzey bir özeti içerir.
+
+  ### Index Ayarlaması
+
+  Geliştiriciler, eksik index'lerin en yaygın veritabanı performans sorunlarından biri olduğunu bilirler.
+  Index'ler, Postgres'in bir sorguyu yürütmek için gereken verileri hızlı bir şekilde bulmasına olanak tanıyan erişim yöntemleri sağlar.
+  Tablolar küçük olduğunda, index'ler çok az fark yaratır, ancak veri boyutu büyüdükçe, tablo taraması ile index araması arasındaki algoritmik karmaşıklık farkı önemli hale gelir (tipik olarak *O*(*n*) vs *O*(*log* *n*), birden çok tabl
 ---
 
 <div align="center">

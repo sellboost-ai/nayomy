@@ -12,6 +12,247 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Değişim Yönetimi Oyun Kitabı
+
+  Değişimlerin çoğu tasarımda değil, uygulamada başarısız olur. ADKAR modeli bunun nedenini ve nasıl düzeltileceğini açıklar.
+
+  ## Anahtar Kelimeler
+  değişim yönetimi, ADKAR, organizasyonel değişim, yeniden yapılanma, süreç değişimi, araç geçişi, strateji değişimi, değişim direnci, değişim yorgunluğu, değişim iletişimi, paydaş yönetimi, benimseme, uyum, değişim dağıtımı, geçiş
+
+  ## Temel Model: Startuplar için Uyarlanmış ADKAR
+
+  ADKAR, Prosci tarafından geliştirilen bir değişim yönetimi modelidir. Orijinal versiyonu işletmeler içindir. Bu, startup hızı için uyarlanmış versiyondur.
+
+  ### A — Farkındalık
+
+  **Ne olduğu:** İnsanlar değişimin NEDEN olduğunu anlıyor — işletme nedeni, sadece duyuru değil.
+
+  **Hata:** NE'yi NEDEN'den önce iletmek. "Yeni bir CRM'ye geçiyoruz" mesajını vermek, "işte mevcut sürecimiz bizi neden öldürüyor" mesajından önce.
+
+  **İnsanların duyması gerekenler:**
+  - Hangi sorunu çözeceğiz? (Dürüst olun. "Maliyeti düşürmemiz gerekiyorsa," bunu söyleyin.)
+  - Neden şimdi? Değişmezsek ne olur?
+  - Kim bu kararı aldı ve nasıl aldı?
+
+  **Startup kısayolu:** CEO'dan veya karar vericiden basit dilde "neden"i açıklayan 5 dakikalık bir video, resmi bir değişim duyuru belgesinden her zaman daha etkilidir.
+
+  ---
+
+  ### D — İstek
+
+  **Ne olduğu:** İnsanlar değişimin gerçekleşmesini istiyorlar — veya en azından aktif olarak buna karşı çıkmıyorlar.
+
+  **Hata:** İletişimin istemi yarattığını varsaymak. Farkındalık ≠ istek. İnsanlar bir değişimi anlayabilir ve yine de ondan nefret edebilir.
+
+  **İstemi yaratan şey:**
+  - "Benim için ne var?" — her paydaş grubuna dürüstçe cevap verin
+  - İnsanları "nasıl"a dahil etmek, hatta "ne" kararı verilmişse
+  - Korkuları doğrudan ele almak: "Bazı insanlar bu rollerinin değişeceği anlamına geldiğini düşünüyor. İşte gerçek: [dürüst cevap]"
+
+  **İstemi yok eden şey:**
+  - Değişimin herkes için olduğundan daha iyi olduğunu iddia etmek
+  - İnsanların yaşayacağı meşru kayıpları görmezden gelmek
+  - Herhangi bir istişare olmaksızın duyuru yapmak
+
+  **Startup kısayolu:** Duyurudan 48 saat içinde kısa bir "endişeler ve sorular" oturumu yapın. Kararı geri almak için değil — korkuları ele almak ve dinlenildiğini göstermek için.
+
+  ---
+
+  ### K — Bilgi
+
+  **Ne olduğu:** İnsanlar yeni dünyada NASIL çalışacaklarını biliyorlar — spesifik beceriler, davranışlar ve süreçler.
+
+  **Hata:** Değişimi duyurmak ve insanların bunu kendilerinin çözeceğini varsaymak.
+
+  **İnsanların ihtiyacı olan şey:**
+  - Yeni süreçlerin adım adım belgeleri
+  - Go-live'dan önce eğitim veya pratik oturumları
+  - "Ne zaman [sık senaryo] olursa ne yapmalıyım?" sorularının açık cevapları
+  - Takıldıklarında kime soracakları
+
+  **Bilgi transferi türleri:**
+  | Yöntem | En iyi kullanıldığı | Ne zaman |
+  |--------|------------------|---------|
+  | Canlı eğitim | Beceri temelli değişiklikler, karmaşık araçlar | Go-live'dan önce |
+  | Belgeler | Süreç değişiklikleri, referans materyali | Her zaman |
+  | Video kılavuzları | Araç geçişleri | 24/7 kullanılabilir, kendi hızında |
+  | Gölge çalışması / akran öğrenmesi | Davranış değişiklikleri | Başlatmadan 2-4 hafta sonra |
+  | Ofis saatleri | Birçok özel duruma sahip herhangi bir değişim | İlk 4-6 hafta |
+
+  ---
+
+  ### A — Yetenek
+
+  **Ne olduğu:** İnsanların işleri farklı şekilde yapmak için zamanı, araçları ve desteği vardır.
+
+  **Hata:** "Herkes eğitildi" ≠ "herkes artık yapabilir." Eğitim bilgidir. Yetenek pratiştir.
+
+  **Yeteneği yaratan şey:**
+  - Değerlendirilmeden önce pratik yapmak için zaman
+  - Hata yapmanın güvenli ortamı (erken zorluklar için halk utandırması yok)
+  - Geçiş sırasında azalan iş yükü (yeni beceri öğrenmelerini istiyorsanız, aynı anda yeni iş yığmayın)
+  - Yardıma erişim (Slack kanalı, sorumlu kişi, belgeler)
+
+  **Yetenek boşluğunun işaretleri:**
+  - İnsanlar baskı altında eski davranışlara dönerler
+  - Geçici çözümler ortaya çıkar (insanlar yeni sistem etrafında kendi yollarını icat ederler)
+  - Eğitim puanları yüksek ama gerçek davranış değişmedi
+
+  ---
+
+  ### R — Pekiştirme
+
+  **Ne olduğu:** Değişim kalıcı hale gelir. Yeni davranış varsayılan olur.
+
+  **Hata:** Go-live'da zaferini ilan etmek. Değişimler asla pekiştirilmedikleri için başarısız olur.
+
+  **Pekiştirmeyi yaratan şey:**
+  - Görünür ölçüm (benimsemeyi takip ediyor muyuz?)
+  - Erken benimseyenlerin tanınması ("Sarah 2. haftada yeni iş akışına tamamen geçti — ona sor")
+  - Lider modellemesi (CEO eski yolu kullanırsa, herkes kullanacak)
+  - Eski seçeneği kaldırmak (mümkün olduğunda — en az direnişli yolu ortadan kaldırın)
+  - Benimsememe sonuçları (açıkça belirtilmiş, tutarlı bir şekilde uygulanmış)
+
+  **Benimseme vs. uyum:**
+  - **Uyum:** İnsanlar gözetim altındayken yaparlar, izlenmiyorken geri dönerler
+  - **Benimseme:** İnsanlar bunu yapıyorlar çünkü bunun daha iyi olduğuna inanıyorlar
+
+  Sadece pekiştirme benimseme yaratır. Uyum, zorlamanın sonucudur. Benimsemeyi hedefleyin.
+
+  ---
+
+  ## Değişim Türleri ve ADKAR Uygulaması
+
+  ### Süreç Değişimi (yeni araçlar, yeni iş akışları)
+
+  **Zaman çizelgesi:** Tam benimseme için 4-8 hafta
+  **En zor aşama:** Yetenek (insanlar ne yapacaklarını biliyorlar ama alışkanlık oluşturmadılar)
+  **Kritik pekiştirme:** Eski araç/süreci kaldırın veya kullanımdan çıkarın
+
+  **İletişim sırası:**
+  1. 2. hafta öncesi: NEDEN + go-live tarihi duyurusu
+  2. 1. hafta öncesi: Eğitim oturumları kullanılabilir
+  3. 0. hafta (go-live): Başlatma + sorumlu kişi kullanılabilir
+  4. 2. hafta: Benimseme denetimi (kim kullanıyor? Kim değil?)
+  5. 4. hafta: Geri bildirim toplama + halka açık başarılar
+  6. 8. hafta: Eski sistem kullanımdan çıkarılıyor
+
+  ---
+
+  ### Örgütsel Değişim (yeniden yapılanma, yeni lider, takım bölme/birleştirme)
+
+  **Zaman çizelgesi:** Tam istikrar için 3-6 ay
+  **En zor aşama:** İstek (insanlar rolleri ve ilişkileri için korkuyor)
+  **Kritik pekiştirme:** Yeni liderlikten tutarlı davranış
+
+  **İletişim sırası:**
+  1. 0. gün: Değişimi "neden"ile duyurun — kişi olarak veya senkron video
+  2. 1. gün: 1:1'ler en etkilenen takım üyeleriyle yöneticileri tarafından yapılmıştır
+  3. 1. hafta: 10 en sık endişeye dürüst cevaplar içeren SSS yayınlanmış
+  4. 2-4. hafta: Yeni yapı çalışıyor (uygulamayı ertelemeyin)
+  5. 2. ay: İlk retrospektif — ne çalışıyor, ne iyileştirilmesi gerekiyor
+  6. 3-6. ay: Takım sağlığı ve moralinin düzenli denetimleri
+
+  **Bir lider ayrılıyor veya değiştiriliyor olduğunda ne söylenecek:**
+  Paylaşabileceğiniz hakkında dürüst olun. Asla: "Nedenleri paylaşamıyoruz." Her zaman: ya doğru bir açıklama ya da "özellikleri paylaşamıyoruz, ancak size [bunun sizin için anlamı] söyleyebilirim."
+
+  ---
+
+  ### Strateji Değişimi (yeni yön, sonlandırılan ürünler)
+
+  **Zaman çizelgesi:** Tam hizalama için 3-12 ay
+  **En zor aşama:** Farkındalık (insanlar pivot'ın gerçek olduğuna inanmıyor)
+  **Kritik pekiştirme:** Pivot'ın gerçekleştiğini görünür şekilde kanıtlayan kaynak yeniden dağıtımı
+
+  **İletişim sırası:**
+  1. İç tarafta ilk, her zaman. Çalışanlar asla bir pivot'ı basın açıklamasından duymamalıdır.
+  2. Tüm bağlamla Genel Kurul: pazarda ne değişti, ne yapıyorsunuz, takımlar için ne anlama geldiği
+  3. Her takım lideri takımıyla "bu bizim için ne anlama geliyor?" konuşması yapar
+  4. Kaynak yeniden dağıtımı 2 hafta içinde duyurulur (para harcanmazsa, insanlar pivot'a inanmayacak)
+  5. Yeni yönün ilk kilometre taşı halka açık olarak kutlanır
+
+  **Pivot'ları öldüren şey:** Eski olanı aynı düzeyde finanse ederken yeni bir yön açıklamak.
+
+  ---
+
+  ### Kültür Değişimi (değerler yenileme, davranış beklentileri)
+
+  **Zaman çizelgesi:** Gerçek davranış değişikliği için 12-24 ay
+  **En zor aşama:** Pekiştirme (davranış sadece değerler duyurulduğu için değişmez)
+  **Kritik pekiştirme:** Yeni değerleri yansıtan görünür kararlar
+
+  **İletişim sırası:**
+  1. Girdilerle oluştur: şirketten temsili bir örneğini değişimin tanımlanmasına dahil et
+  2. Hikayeyle duyur: "İşte gözlemlediklerimiz, işte değiştirdiklerimiz ve neden"
+  3. Davranış sabitleri: her kültür değişikliği için, davranışı gözlemlenebilir terimlerle belirt
+  4. Lider davranışı: liderlik ekibi yeni davranışı ilk olarak görünür şekilde modellenmelidir
+  5. Performans entegrasyonu: yeni beklenen davranışlar bir döngü içinde incelemelerde görünür
+  6. Doğru davranışları kutla: birisi yeni kültürü örnekleyince, bunu halka açık şekilde adlandır
+
+  ---
+
+  ## Direnç Desenleri
+
+  Direnç bilgidir, itaatsizlik değil. Cevap vermeden önce tanı koyun.
+
+  | Direnç deseni | Ne gösterdiği | Cevap |
+  |---------------|---------------|-------|
+  | "Bu işe yaramayacak" | Farkındalık boşluğu veya güvenilirlik boşluğu | Değişimin kanıt tabanını açıklayın |
+  | "Neden şimdi?" | Farkındalık boşluğu | Aciliyet açıklayın — değişmezsek ne olur |
+  | "Danışıldığım değil" | İstek boşluğu | Boşluğu kabul edin; onları "nasıl"a dahil edin |
+  | "Bunun için zamanım yok" | Yetenek boşluğu | İşlerini azaltın veya zaman çizelgesini ileriye taşıyın |
+  | "Bunu daha önce denedik" | Güven boşluğu | Bu sefer ne farklı olduğunu kabul edin. Spesifik olun. |
+  | Sessiz uyumsuzluk | Herhangi bir boşluk olabilir | Tanı koymak için 1:1 konuşma |
+
+  **Dirençe en kötü cevap:** Onu görmezden gelmek. "Bazı insanlar değişime karşı dirençli" sanki direnç kişilik kusuru yerine bir sinyal.
+
+  ---
+
+  ## Değişim Yorgunluğu
+
+  Örgütler çok hızlı değiştiğinde, insanlar herhangi bir değişimin kalıcı olacağına inanmayı bırakır.
+
+  ### İşaretler
+  - Değişim duyuruları sırasında göz devirmeler ("işte başladı yine")
+  - Değişimle ilgili oturumlara düşük katılım
+  - Kağıt üzerinde hızlı uyum, pratikte yavaş benimseme
+  - "Geçen ay X yapıyorduk, şimdi Y yapıyoruz" yorumları
+
+  ### Önleme
+  - **Başladığınız şeyi bitirin.** Son değişim hala emilirken yeni bir değişim duyurmayın.
+  - **Değişimleri aralayın.** Bir seferde bir önemli değişim. Büyük değişiklikler arasında 2-3 ay istikrar verin.
+  - **DEĞİŞMEYEN şeyleri duyurun.** Değişim yorgunluğundaki insanlar neyin istikrarlı olduğunu bilmeleri gerekir.
+  - **Sonuçları gösterin.** Sonraki değişimi başlatmadan önce önceki değişimin ne başardığını yayınlayın.
+
+  ### Zaten değişim yorgunluğunda olduğunuzda
+  - Kritik olmayan değişiklikleri duraklatın
+  - "Değişim envanteri" yapın: aynı anda kaç değişim devam ediyor?
+  - Dikkatli seçin: hangi değişiklikler şimdi gerekli? Hangisi bekleyebilir?
+  - İstikrarı iletişim kurun: "Bu çeyrek NE DEĞİŞMİYOR işte"
+
+  ---
+
+  ## Değişim Yönetimi için Önemli Sorular
+
+  - "Bu değişim hakkında en şüpheci insanlar kimler? Onlarla doğrudan konuştuk mı?"
+  - "İnsanlar bunun neden yapıldığını anladı mı, yoksa sadece ne yapıldığını mı?"
+  - "İnsanlara yeni yönteme göre performans ölçmeden önce pratik yapmak için zaman verdik mi?"
+  - "Eski yol hala mevcut mu? Öyleyse insanlar kullanacak."
+  - "Liderler yeni davranışı kendileri modelliyor mu?"
+  - "Şu anda kaç değişim başlattığımız var?"
+
+  ## Kırmızı Bayraklar
+
+  - Değişim Cuma öğleden sonra duyuruldu (insanlar hafta sonu üzüntü yaşarlar)
+  - "Bu kesindir, sorular karşılanmaz" çerçevesi
+  - Yayınlanmış SSS yok veya güvenli bir şekilde soru sormanın yolu yok
+  - Eski sistem/süreç "go-live"dan 6 hafta sonra hala çalışıyor
+  - Liderler herkesi yapmaya zorluyorları değişiklikten muaf
+  - Benimseme ölçümü yok — go-live = başarı varsayılıyor
+
+  ## Ayrıntılı Kaynaklar
+  - `references/change-playbook.md` — ADKAR derinlemesine, direnç karşı-stratejileri, iletişim şablonları, değişim yorgunluğu yönetimi
 ---
 
 # Change Management Playbook

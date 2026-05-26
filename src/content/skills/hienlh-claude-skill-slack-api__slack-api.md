@@ -12,6 +12,67 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: ["CONTRIBUTING.md", "README.md"]
+body_tr: |-
+  # Slack API
+
+  Python kullanarak Slack'i okuyun ve etkileşimde bulunun (MCP gerekli değil).
+
+  ## Hızlı Referans
+
+  ```bash
+  # URL'den mesaj/thread okuma
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --url "SLACK_URL"
+
+  # Kanal geçmişi / Thread yanıtları
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --history -c CHANNEL_ID -l 10
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --replies -c CHANNEL_ID --thread-ts TS
+
+  # Arama / Kanalları listeleme / Kullanıcı bilgisi
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --search "query"
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --list-channels
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --user-info USER_ID
+
+  # Thread'den dosyaları listeleme (ayrıntılarla)
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --url "URL" --list-files -v
+
+  # Thread'deki tüm dosyaları indirme
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --url "URL" --download-files -o ./downloads
+
+  # JSON çıktısı
+  python3 ~/.claude/skills/slack-api/scripts/slack.py --url "URL" --json
+  ```
+
+  ## Komutlar
+
+  | Flag | Açıklama | Gerekli |
+  |------|----------|---------|
+  | `--url` | Slack URL'sinden oku | URL |
+  | `--history` | Kanal mesajları | `-c` |
+  | `--replies` | Thread yanıtları | `-c`, `--thread-ts` |
+  | `--search` | Mesajlarda ara | query |
+  | `--list-channels` | Kanalları listele | - |
+  | `--user-info` | Kullanıcı detayları | user_id |
+  | `--post` | Mesaj gönder | `-c`, `-t` |
+  | `--list-files` | Dosyaları ayrıntılarla listele | `--url` veya mesajlar |
+  | `--download-files` | Tüm dosyaları indir | `--url` veya mesajlar |
+
+  ## Seçenekler
+
+  `-c`/`--channel`, `--thread-ts`, `-l`/`--limit` (20), `-o`/`--output-dir` (./slack-downloads), `-v`/`--verbose`, `--json`
+
+  ## Kimlik Doğrulama
+
+  Token'lar `~/.claude/skills/slack-api/.env` dosyasından yüklenir:
+  ```
+  SLACK_XOXC_TOKEN=xoxc-...
+  SLACK_XOXD_TOKEN=xoxd-...
+  ```
+
+  Token'ları alın: Browser DevTools -> Application -> Cookies (Slack'e giriş yapılmış)
+
+  ## URL Ayrıştırma
+
+  `p1767879572095059` -> `1767879572.095059` (sondan 6 karakter öncesine nokta ekleyin)
 ---
 
 # Slack API

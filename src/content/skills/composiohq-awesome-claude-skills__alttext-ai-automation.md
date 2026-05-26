@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Alttext AI Otomasyon via Rube MCP
+
+  Composio'nun Alttext AI toolkit'i aracılığıyla Rube MCP üzerinden Alttext AI operasyonlarını otomatikleştirin.
+
+  **Toolkit dokümantasyonu**: [composio.dev/toolkits/alttext_ai](https://composio.dev/toolkits/alttext_ai)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` üzerinden aktif Alttext AI bağlantısı `alttext_ai` toolkit'i ile
+  - Daima `RUBE_SEARCH_TOOLS` çağırarak mevcut tool şemalarını alın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: İstemci konfigürasyonunuza `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağırın `alttext_ai` toolkit'i ile
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
+  4. İş akışlarını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Keşfi
+
+  İş akışlarını yürütmeden önce daima mevcut toolları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Alttext AI operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'ları, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Mevcut Toolları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Alttext AI task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["alttext_ai"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Toolları Yürütün
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Daima önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanlarını asla hardcoded'leyin
+  - **Bağlantıyı kontrol edin**: Toolları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında daima `memory` ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: İş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yeni olanlar oluşturun
+  - **Pagination**: Yanıtlara pagination tokenları için kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|---------|
+  | Tool bul | `RUBE_SEARCH_TOOLS` ile Alttext AI'a özel use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `alttext_ai` toolkit'i |
+  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` için `schemaRef` içeren toollar |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Alttext AI Automation via Rube MCP

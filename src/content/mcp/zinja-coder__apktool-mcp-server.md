@@ -8,6 +8,309 @@ url: "https://github.com/zinja-coder/apktool-mcp-server"
 body_length: 11810
 license: "Apache-2.0"
 language: "Python"
+body_tr: |-
+  <div align="center">
+
+  # apktool-mcp-server (Zin's Reverse Engineering MCP Suite'nin Parçası)
+
+  ⚡ Claude gibi LLM'ler kullanarak Android APK'ları analiz etmek için apktool üzerine inşa edilmiş tam otomatik MCP sunucusu — güvenlik açıklarını ortaya çıkarın, manifestleri ayrıştırın ve tersine mühendislik yapın.
+
+  ![GitHub contributors apktool-mcp-server](https://img.shields.io/github/contributors/zinja-coder/apktool-mcp-server)
+  ![GitHub all releases](https://img.shields.io/github/downloads/zinja-coder/apktool-mcp-server/total)
+  ![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/zinja-coder/apktool-mcp-server/latest/total)
+  ![Latest release](https://img.shields.io/github/release/zinja-coder/apktool-mcp-server.svg)
+  ![Python 3.10+](https://img.shields.io/badge/python-3%2E10%2B-blue)
+  [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+  </div>
+
+  <!-- Hâlâ erken geliştirme aşamasındadır, bu nedenle hataları, çöküşleri ve mantıksal hataları bekleyin.-->
+
+  <div align="center">
+      
+  </div>
+
+  <!--![apktool-mcp-server-banner.png](https://raw.githubusercontent.com/zinja-coder/apktool-mcp-server/HEAD/docs/assets/apktool-mcp-server-banner.png)-->
+
+  AI araçları kullanılarak oluşturulmuş görsel.
+
+  ---
+
+  ## 🤖 apktool-mcp-server nedir?
+
+  **apktool-mcp-server**, [Apk Tool](https://github.com/iBotPeaches/apktool) için [Model Context Protocol (MCP)](https://github.com/anthropic/mcp) ile doğrudan entegre olan ve Claude gibi LLM'lerle **canlı tersine mühendislik desteği** sağlayan bir MCP sunucusudur.
+
+  Şöyle düşünün: "Decompile → Context-Aware Code Review → AI Önerileri" — tümü gerçek zamanda.
+
+  Demo izleyin!
+
+  https://github.com/user-attachments/assets/d50251b8-6b1c-4341-b18e-ae54eb24a847
+
+  - **CTF'leri Çözme**
+
+  https://github.com/user-attachments/assets/c783a604-a636-4e70-9fa8-37e3d219b20b
+
+
+  ## Zin MCP Suite'deki Diğer Projeler
+   - **[JADX-AI-MCP](https://github.com/zinja-coder/jadx-ai-mcp)**
+   - **[JADX-MCP-Server](https://github.com/zinja-coder/jadx-mcp-server)**
+   - **[ZIN-MCP-Client](https://github.com/zinja-coder/zin-mcp-client)**
+
+  ## Mevcut MCP Araçları
+
+  Aşağıdaki MCP araçları mevcuttur:
+
+  - `build_apk()` — Deşifre edilmiş bir APKTool Projesi'nden APK oluşturun.
+  - `get_manifest()` — Deşifre edilmiş bir APK projesinden AndroidManifest.xml içeriğini alın. 
+  - `get_apktool_yml()` — Deşifre edilmiş bir APK projesinden apktool.yml bilgisini alın. 
+  - `list_smali_directories()` — Projede tüm smali dizinlerini listeleyin. 
+  - `list_smali_files()` — Belirli bir smali dizinindeki smali dosyalarını listeleyin, isteğe bağlı olarak paket önekine göre filtrelenebilir.
+  - `get_smali_file()` — Belirli bir smali dosyasının içeriğini sınıf adına göre alın. 
+  - `modify_smali_file()` — Belirli bir smali dosyasının içeriğini değiştirin. 
+  - `list_resources()` — Projede kaynakları listeleyin, isteğe bağlı olarak kaynak türüne göre filtrelenebilir. 
+  - `get_resource_file()` — Belirli bir kaynak dosyasının içeriğini alın. 
+  - `modify_resource_file()` — Belirli bir kaynak dosyasının içeriğini değiştirin. 
+  - `search_in_file()` — Belirtilen uzantılara sahip dosyalarda desen arayın. 
+  - `clean_project()` — Yeniden oluşturmaya hazırlamak için proje dizinini temizleyin.
+  - `decode_apk()` — APKTool kullanarak bir APK dosyasını deşifre edin, kaynakları ve smali kodunu çıkarın. 
+
+  ---
+
+  ## 🗒️ Örnek İstemler
+
+
+  ### 🔍 Temel Kod Anlama
+
+  - "dvac projesi için tüm smali dizinlerini listele."
+
+  - "Bana dvac projesinde com.vulnerable.component paket önekinin altındaki tüm smali dosyalarını göster."
+
+  - "com.vulnerable.component.MainActivity sınıfı için smali kodunu al."
+
+  - "MainActivity.smali'yi önceki sürümüyle karşılaştır ve farklılıkları göster."
+
+  - "dvac projesinin smali dosyalarında startActivity kullanımını ara."
+
+  ### 🛡️ Güvenlik Açığı Algılama
+
+  - "dvac AndroidManifest.xml'de bildirilen izinleri analiz et ve tehlikeli olanları işaretle."
+
+  - "Projede tüm .xml ve .smali dosyalarında sabit kodlanmış URL'ler veya IP'ler ara."
+
+  - "smali dosyalarında PendingIntent.getActivity'nin tüm kullanımlarını bulun."
+
+  - "dvac'ın AndroidManifest.xml'de dışa aktarılan aktiviteleri veya alıcıları kontrol edin."
+
+  - "android.permission.SEND_SMS veya READ_CONTACTS'e erişen tüm smali dosyalarını listeleyin."
+
+  ### 🛠️ Ters Mühendislik Yardımcıları
+
+  - "Bu APK'yı deşifre et: dvac.apk ve dvac adında bir proje oluştur."
+
+  - "test-harness adında yeni bir APKTool projesi oluştur."
+
+  - "Yeniden oluşturmadan önce dvac projesini temizle."
+
+  - "dvac projesinden DEX dosyalarını harici analiz için çıkar."
+
+  - "MainActivity.smali'yi değiştir onCreate()'nin başına bir log satırı ekle."
+
+  ### 📦 Statik Analiz
+
+  - "dvac projesinden tam AndroidManifest.xml'i al."
+
+  - "dvac projesi için apktool.yml içeriğini göster."
+
+  - "Türü layout olan tüm kaynak dosyalarını listele."
+
+  - "Tüm kaynak ve smali dosyalarında password sözcüğünü ara."
+
+  - "Hangi izinlerin kullanıldığını kontrol et ve bunları tipik over-permissioning risklerine karşı karşılaştır."
+
+  ### 🤖 AI Kod Değişiklikleri
+
+  - "MainActivity.smali'deki onCreate() metodunu bir toast mesajı eklemek için değiştir."
+
+  - "strings.xml'de tüm http:// bağlantılarını https:// ile değiştir."
+
+  - "AndroidManifest.xml'de tüm aktivitelere android:exported=false niteliğini ekle."
+
+  - "LoginManager.smali'deki validateLogin metodunu her zaman true döndürecek şekilde düzelt."
+
+  - "MainActivity.smali'deki her metoda logging ifadeleri ekle."
+
+  ### 📄 Belgelendirme ve Meta Veriler
+
+  - "Çalışma alanında deşifre edilmiş tüm APKTool projelerini listele."
+
+  - "apktool.yml yapılandırmasını bana göster, sürümü, orijinal APK meta verilerini ve sıkıştırma ayarlarını gözden geçirmek için."
+
+  - "ADB üzerinden bağlı olan tüm Android cihazlarını al. (ADB MCP Server'a geçirilecek.)"
+
+  - "dvac projesinin apktool.yml'sinden meta veriler hakkında bilgi al."
+
+  - "Şu anda sunucuda yüklü olan APKTool sürümünü kontrol et."
+  ---
+
+  ## 🛠️ Başlarken 
+  ### 1. Releases'ten İndir: https://github.com/zinja-coder/apktool-mcp-server/releases
+
+  ```bash
+  # 0. apktool'u indir ve kur
+  https://apktool.org/docs/install
+
+  # 1. apktool'un ortam değişkenlerinde doğru şekilde yapılandırılıp yapılandırılmadığını test et
+  $ apktool -version
+
+  # 2. apktool-mcp-server-<version>.zip'i indir
+  https://github.com/zinja-coder/apktool-mcp-server/releases
+
+  # 3. 
+  unzip apktool-mcp-server-<version>.zip
+
+  ├apktool-mcp-server/
+    ├── apktool_mcp_server.py
+    ├── requirements.txt
+    ├── README.md
+    ├── LICENSE
+
+  # 4. apktool-mcp-server dizinine git
+  cd apktool-mcp-server
+
+  # 5. Bu proje bağımlılık yönetimi için pip yerine uv - https://github.com/astral-sh/uv kullanır.
+      ## a. uv'yi kur (henüz yoksa)
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+      ## b. İSTEĞE BAĞLI, herhangi bir nedenle apktool-mcp-server'de bağımlılık hataları alırsanız, ortamı kurun
+  uv venv
+  source .venv/bin/activate  # veya Windows'ta .venv\Scripts\activate
+      ## c. İSTEĞE BAĞLI Bağımlılıkları kur
+  uv pip install httpx fastmcp
+
+  # apktool-mcp-server kurulumu tamamlandı.
+  ```
+
+  ## 2. Ollama ve Zin MCP Client Kullanarak Yerel LLM'de Çalıştırma - Önerilen
+
+  <div align="center">
+      <a href="https://github.com/zinja-coder/zin-mcp-client">
+      
+      </a>
+  </div>
+
+  ⚡ STDIO MCP Sunucuları için Hafif, Hızlı, Basit, CLI Tabanlı MCP İstemcisi; yerel LLM'leriniz ile Ollama'da çalışan MCP Sunucuları arasında boşluğu doldurmak ve köprü sağlamak için.
+
+  Şimdi Kontrol Et: https://github.com/zinja-coder/zin-mcp-client
+
+  Demo: Yakında...
+
+  ## 🤖 3. Claude Desktop Kurulumu
+
+  Claude Desktop'ın MCP etkin olacak şekilde çalıştığından emin olun.
+
+  Örneğin, Kali Linux için aşağıdakini kullandım: https://github.com/aaddrick/claude-desktop-debian
+
+  MCP sunucusunu yapılandırın ve LLM dosyasına ekleyin:
+  ```bash
+  nano ~/.config/Claude/claude_desktop_config.json
+  ```
+
+     - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+     - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+  Ve aşağıdaki içeriği içine ekleyin:
+  ```json
+  {
+      "mcpServers": {
+          "apktool-mcp-server": {
+              "command": "/<path>/<to>/uv", 
+              "args": [
+                  "--directory",
+                  "</PATH/TO/>apktool-mcp-server/",
+                  "run",
+                  "apktool_mcp_server.py"
+              ]
+          }
+      }
+  }
+  ```
+
+  Şunları değiştirin:
+
+  - `path/to/uv` ile `uv` çalıştırılabilir dosyasının gerçek yolu
+  - `path/to/apktool-mcp-server` ile bu depoyu klonladığınız yere giden mutlak yol
+
+  Ardından, kodu gözden geçirin ve yerleşik entegrasyon kullanarak gerçek zamanlı kod inceleme istekleriyle etkileşime geçin.
+
+  ## 4. Cherry Studio Kurulumu
+
+  MCP aracını Cherry Studio'da yapılandırmak istiyorsanız, aşağıdaki yapılandırmaya başvurabilirsiniz.
+  - Tür: stdio
+  - komut: uv
+  - argüman:
+  ```bash
+  --directory
+  path/to/apktool-mcp-server
+  run
+  apktool_mcp_server.py
+  ```
+  - `path/to/apktool-mcp-server` ile bu depoyu klonladığınız yere giden mutlak yol
+
+  ## Hataları, sorunları, özellik önerisini, performans sorununu, genel soruyu, belgelendirme sorununu bildirmek için.
+   - Lütfen ilgili şablonla bir konu açın.
+
+   - Claude Desktop İstemcisinde test edilmiştir, diğer AI'lar için destek yakında test edilecektir!
+
+  ## 🙏 Teşekkürler
+
+  Bu proje, harika bir açık kaynaklı Android tersine mühendislik aracı olan ve [@iBotPeaches](https://github.com/iBotPeaches) tarafından oluşturulan ve yönetilen [Apktool](https://github.com/iBotPeaches/apktool) için bir MCP Sunucusudur. Tüm temel APK deşifre ve kaynak işleme mantığı onlara aittir. Ben bunu sadece AI yetenekleri ile MCP sunucusunu desteklemek için genişlettim.
+
+  [📎 Orijinal README (Apktool)](https://github.com/iBotPeaches/apktool)
+
+  Apktool'un orijinal README.md dosyası referans ve kredi için bu depo içinde yer almaktadır.
+
+  Ayrıca Debian tabanlı Linux için Claude masaüstünü geliştirmek için [@aaddrick](https://github.com/aaddrick)'ye çok teşekkürler.
+
+  Ve son olarak, Model Context Protocol'ü geliştirdiği için [@anthropics](https://github.com/anthropics) ve [@FastMCP](https://github.com/jlowin/fastmcp) ekibine teşekkürler.
+
+  Ve bu gibi projeleri mümkün kılan kütüphaneler ve bağımlılıklar sağlayan tüm açık kaynak proje geliştirici ve katılımcılarına.
+
+  ## 📄 Lisans
+
+  apktool-mcp-server ve tüm ilgili projeler Apache 2.0'ı devralır 
+
+  ## ⚖️ Yasal Uyarı
+
+  **Sorumluluk Reddi**
+
+  `apktool-mcp-server` ve bu proje kapsamındaki tüm ilgili araçlar, eğitim, araştırma ve etik güvenlik değerlendirmesi amaçları için kesin olarak tasarlanmıştır. Bunlar hiçbir garanti olmadan sağlanır, açık veya zımni. Kullanıcılar, bu araçların kullanımının tüm geçerli yasalar, yönetmelikleri ve etik yönergelere uygun olduğundan emin olmaktan tamamen sorumludur.
+
+  `apktool-mcp-server` kullanarak, bunları yalnızca sahip olduğunuz veya analiz etme konusunda açık izniniz olan uygulamalar gibi test yetkisine sahip olduğunuz ortamlarda kullanacağınızı kabul edersiniz. Bu araçların yetkisiz tersine mühendislik, fikri mülkiyet haklarının ihlali veya kötü amaçlı aktivite için kötüye kullanılması kesinlikle yasaktır.
+
+  `apktool-mcp-server` geliştiricileri, bu araçların kullanımından veya kötüye kullanımından kaynaklanan herhangi bir hasar, veri kaybı, yasal sonuç veya diğer sonuçlardan sorumlu tutulamaz. Kullanıcılar, eylemlerinin ve kullanımlarının neden olduğu herhangi bir etkinin tam sorumluluğunu üstlenirler.
+
+  Sorumlu bir şekilde kullanın. Fikri mülkiyete saygı gösterin. Etik hacking uygulamalarını takip edin.
+
+  ---
+
+  ## 🙌 Katkı Yapın veya Destekleyin
+
+  ## Katkı Yapma
+
+  [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTE.md)
+
+  - Faydalı buldum mu? Ona ⭐️ ver
+  - Fikirler var mı? Bir [issue](https://github.com/zinja-coder/apktool-mcp-server/issues) açın veya PR gönderin
+  - Üzerine bir şey mi inşa ettiniz? Bana DM gönderin veya bahsedin — README'ye ekleyeceğim!
+
+  ---
+  ## Denetlendi ve Değerlendirme Rozeti Aldı
+
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/zinja-coder-apktool-mcp-server-badge.png)](https://mseep.ai/app/zinja-coder-apktool-mcp-server)
+
+  Mseep.net'e denetleme ve Değerlendirme Rozeti sağladığı için teşekkürler.
+  ---
+
+  Tersine mühendislik ve AI toplulukları için ❤️ ile yapılmıştır.
 ---
 
 <div align="center">

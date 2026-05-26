@@ -9,6 +9,268 @@ body_length: 7490
 license: "MIT"
 language: "JavaScript"
 homepage: "https://cjo4m06.github.io/mcp-shrimp-task-manager/"
+body_tr: |-
+  [🇺🇸 English](README.md) | [🇩🇪 Deutsch](docs/de/README.md) | [🇪🇸 Español](docs/es/README.md) | [🇫🇷 Français](docs/fr/README.md) | [🇮🇹 Italiano](docs/it/README.md) | [🇮🇳 हिन्दी](docs/hi/README.md) | [🇰🇷 한국어](docs/ko/README.md) | [🇧🇷 Português](docs/pt/README.md) | [🇷🇺 Русский](docs/ru/README.md) | [🇨🇳 中文](docs/zh/README.md)
+
+  # MCP Shrimp Task Manager
+
+  > 🦐 **Yapay zeka destekli geliştirme için akıllı görev yönetimi** - Karmaşık projeleri yönetilebilir görevlere ayırın, oturumlar arasında bağlamı koruyun ve geliştirme iş akışınızı hızlandırın.
+
+  <div align="center">
+    
+  [![Shrimp Task Manager Demo](https://raw.githubusercontent.com/cjo4m06/mcp-shrimp-task-manager/HEAD/docs/yt.png)](https://www.youtube.com/watch?v=Arzu0lV09so)
+
+  **[Demo Videoyu İzle](https://www.youtube.com/watch?v=Arzu0lV09so)** • **[Hızlı Başlangıç](#-hızlı-başlangıç)** • **[Belgeler](#-belgeler)**
+
+  [![smithery badge](https://smithery.ai/badge/@cjo4m06/mcp-shrimp-task-manager)](https://smithery.ai/server/@cjo4m06/mcp-shrimp-task-manager)
+  <a href="https://glama.ai/mcp/servers/@cjo4m06/mcp-shrimp-task-manager"></a>
+
+  </div>
+
+  ## 🚀 Hızlı Başlangıç
+
+  ### Ön Koşullar
+  - Node.js 18+ 
+  - npm veya yarn
+  - MCP uyumlu AI istemci (Claude Code, vb.)
+
+  ### Kurulum
+
+  #### Claude Code Kurulumu
+
+  **Windows 11 (WSL2 ile):**
+  ```bash
+  # İlk olarak, WSL2'nin kurulu olduğundan emin olun (PowerShell'de Yönetici olarak)
+  wsl --install
+
+  # Ubuntu/WSL ortamına girin
+  wsl -d Ubuntu
+
+  # Claude Code'u global olarak yükleyin
+  npm install -g @anthropic-ai/claude-code
+
+  # Claude Code'u başlatın
+  claude
+  ```
+
+  **macOS/Linux:**
+  ```bash
+  # Claude Code'u global olarak yükleyin
+  npm install -g @anthropic-ai/claude-code
+
+  # Claude Code'u başlatın
+  claude
+  ```
+
+  #### Shrimp Task Manager Kurulumu
+
+  ```bash
+  # Repository'yi klonlayın
+  git clone https://github.com/cjo4m06/mcp-shrimp-task-manager.git
+  cd mcp-shrimp-task-manager
+
+  # Bağımlılıkları yükleyin
+  npm install
+
+  # Projeyi derleyin
+  npm run build
+  ```
+
+  ### Claude Code'u Yapılandırma
+
+  Proje dizininizde bir `.mcp.json` dosyası oluşturun:
+
+  ```json
+  {
+    "mcpServers": {
+      "shrimp-task-manager": {
+        "command": "node",
+        "args": ["/path/to/mcp-shrimp-task-manager/dist/index.js"],
+        "env": {
+          "DATA_DIR": "/path/to/your/shrimp_data",
+          "TEMPLATES_USE": "en",
+          "ENABLE_GUI": "false"
+        }
+      }
+    }
+  }
+  ```
+
+  Örnek yapılandırma:
+  ```json
+  {
+    "mcpServers": {
+      "shrimp-task-manager": {
+        "command": "node",
+        "args": ["/home/fire/claude/mcp-shrimp-task-manager/dist/index.js"],
+        "env": {
+          "DATA_DIR": "/home/fire/claude/project/shrimp_data",
+          "TEMPLATES_USE": "en",
+          "ENABLE_GUI": "false"
+        }
+      }
+    }
+  }
+  ```
+
+  Ardından, özel MCP yapılandırmanızla Claude Code'u başlatın:
+
+  ```bash
+  claude --dangerously-skip-permissions --mcp-config .mcp.json
+  ```
+
+  <details>
+  <summary><b>Diğer AI İstemcileri</b></summary>
+
+  **Cline (VS Code Extension)**: AI destekli kodlama için VS Code eklentisi. VS Code settings.json dosyasında `cline.mcpServers` altına ekleyin
+
+  **Claude Desktop**: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) veya `%APPDATA%\Claude\claude_desktop_config.json` (Windows) dosyasına ekleyin
+  </details>
+
+  ### Kullanmaya Başlayın
+
+  1. **Projenizi başlatın**: `"init project rules"`
+  2. **Bir görev planlayın**: `"plan task: implement user authentication"`
+  3. **Görevleri çalıştırın**: `"execute task"` veya `"continuous mode"`
+
+  ## 💡 Shrimp Nedir?
+
+  Shrimp Task Manager, AI ajanlarının yazılım geliştirme yaklaşımını dönüştüren bir MCP (Model Context Protocol) sunucusudur. Bağlamı kaybetmek veya işi tekrarlamak yerine, Shrimp sağlar:
+
+  - **🧠 Kalıcı Bellek**: Görevler ve ilerleme oturumlar arasında devam eder
+  - **📋 Yapılandırılmış İş Akışları**: Planlama, yürütme ve doğrulama için rehberli süreçler
+  - **🔄 Akıllı Ayrıştırma**: Karmaşık görevleri otomatik olarak yönetilebilir alt görevlere ayırır
+  - **🎯 Bağlam Koruması**: Token sınırlarında bile asla yerinizi kaybetmeyin
+
+  ## ✨ Temel Özellikler
+
+  ### Görev Yönetimi
+  - **Akıllı Planlama**: Uygulamadan önce gereksinimlerin derin analizi
+  - **Görev Ayrıştırması**: Büyük projeleri atomik, test edilebilir birimler halinde ayırın
+  - **Bağımlılık İzlemesi**: Görev ilişkilerinin otomatik yönetimi
+  - **İlerleme İzleme**: Gerçek zamanlı durum izlemesi ve güncellemeleri
+
+  ### İleri Yetenekler
+  - **🔬 Araştırma Modu**: Teknolojilerin ve çözümlerin sistematik keşfi
+  - **🤖 Agent Sistemi**: Özel AI ajanlarını belirli görevlere atayın ([Daha fazla bilgi](docs/agents.md))
+  - **📏 Proje Kuralları**: Proje genelinde kodlama standartlarını tanımlayın ve koruyun
+  - **💾 Görev Belleği**: Görev geçmişinin otomatik yedeklemesi ve geri yüklenmesi
+
+  ### Web Arayüzleri
+
+  #### 🖥️ Task Viewer
+  Sürükle-bırak, gerçek zamanlı arama ve multi-profil desteğine sahip görsel görev yönetimi için modern React arayüzü.
+
+  **Hızlı Kurulum:**
+  ```bash
+  cd tools/task-viewer
+  npm install
+  npm run start:all
+  # http://localhost:5173 adresinden erişin
+  ```
+
+  [📖 Tam Task Viewer Belgeleri](tools/task-viewer/README.md)
+
+  <kbd></kbd>
+
+  #### 🌐 Web GUI
+  Hızlı görev genel bakışı için isteğe bağlı hafif web arayüzü.
+
+  `.env` dosyasında etkinleştirin: `ENABLE_GUI=true`
+
+  ## 📚 Belgeler
+
+  - [📖 Tam Belgeler](docs/README.md)
+  - [🛠️ Kullanılabilir Araçlar](docs/tools.md)
+  - [🤖 Agent Yönetimi](docs/agents.md)
+  - [🎨 Prompt Özelleştirmesi](docs/en/prompt-customization.md)
+  - [🔧 API Başvurusu](docs/api.md)
+
+  ## 🎯 Yaygın Kullanım Durumları
+
+  <details>
+  <summary><b>Özellik Geliştirme</b></summary>
+
+  ```
+  Agent: "plan task: add user authentication with JWT"
+  # Agent kod tabanını analiz eder, alt görevler oluşturur
+
+  Agent: "execute task"
+  # Kimlik doğrulamayı adım adım uygular
+  ```
+  </details>
+
+  <details>
+  <summary><b>Hata Düzeltme</b></summary>
+
+  ```
+  Agent: "plan task: fix memory leak in data processing"
+  # Agent sorunu araştırır, düzeltme planı oluşturur
+
+  Agent: "continuous mode"
+  # Tüm düzeltme görevlerini otomatik olarak çalıştırır
+  ```
+  </details>
+
+  <details>
+  <summary><b>Araştırma ve Öğrenme</b></summary>
+
+  ```
+  Agent: "research: compare React vs Vue for this project"
+  # Artı/eksiyle sistematik analiz
+
+  Agent: "plan task: migrate component to chosen framework"
+  # Araştırmaya dayalı göç planı oluşturur
+  ```
+  </details>
+
+  ## 🛠️ Yapılandırma
+
+  ### Ortam Değişkenleri
+
+  Bir `.env` dosyası oluşturun:
+
+  ```bash
+  # Zorunlu
+  DATA_DIR=/path/to/data/storage
+
+  # İsteğe bağlı
+  ENABLE_GUI=true          # Web GUI'yi etkinleştir
+  WEB_PORT=3000           # Özel web portu
+  PROMPT_LANGUAGE=en      # Prompt dili (en, zh, vb.)
+  ```
+
+  ### Kullanılabilir Komutlar
+
+  | Komut | Açıklama |
+  |---------|-------------|
+  | `init project rules` | Proje standartlarını başlat |
+  | `plan task [description]` | Görev planı oluştur |
+  | `execute task [id]` | Belirli görevi çalıştır |
+  | `continuous mode` | Tüm görevleri sırayla çalıştır |
+  | `list tasks` | Tüm görevleri göster |
+  | `research [topic]` | Araştırma moduna gir |
+  | `reflect task [id]` | Görevi gözden geçir ve geliştir |
+
+  ## 🤝 Katkıda Bulunma
+
+  Katkılarınızı bekliyoruz! Ayrıntılar için lütfen [Katkı Rehberimiz](CONTRIBUTING.md) bölümüne bakın.
+
+  ## 📄 Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+
+  ## 🌟 Teşekkürler
+
+  [cjo4m06](https://github.com/cjo4m06) tarafından oluşturulmuş ve topluluk tarafından yönetilmektedir.
+
+  ---
+
+  <p align="center">
+    <a href="https://github.com/cjo4m06/mcp-shrimp-task-manager">GitHub</a> •
+    <a href="https://github.com/cjo4m06/mcp-shrimp-task-manager/issues">Sorunlar</a> •
+    <a href="https://github.com/cjo4m06/mcp-shrimp-task-manager/discussions">Tartışmalar</a>
+  </p>
 ---
 
 [🇺🇸 English](README.md) | [🇩🇪 Deutsch](docs/de/README.md) | [🇪🇸 Español](docs/es/README.md) | [🇫🇷 Français](docs/fr/README.md) | [🇮🇹 Italiano](docs/it/README.md) | [🇮🇳 हिन्दी](docs/hi/README.md) | [🇰🇷 한국어](docs/ko/README.md) | [🇧🇷 Português](docs/pt/README.md) | [🇷🇺 Русский](docs/ru/README.md) | [🇨🇳 中文](docs/zh/README.md)

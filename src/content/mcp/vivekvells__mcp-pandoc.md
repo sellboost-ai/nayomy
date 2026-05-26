@@ -9,6 +9,421 @@ body_length: 14153
 license: "MIT"
 language: "Python"
 homepage: "https://pypi.org/project/mcp-pandoc"
+body_tr: |-
+  [![Downloads](https://img.shields.io/pypi/dm/mcp-pandoc.svg)](https://pypi.python.org/pypi/mcp-pandoc)
+  [![CI](https://github.com/vivekVells/mcp-pandoc/actions/workflows/ci.yml/badge.svg)](https://github.com/vivekVells/mcp-pandoc/actions/workflows/ci.yml)
+  <br />
+
+  ![image](https://github.com/user-attachments/assets/10f18317-58e7-430e-9aec-b706b60fe2c6)
+
+  <!-- [![Downloads](https://static.pepy.tech/badge/mcp-pandoc/month)](https://pepy.tech/project/mcp-pandoc) -->
+  <!-- ![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-pandoc?style=social) -->
+
+  <!--
+  [![Downloads](https://img.shields.io/pypi/dm/mcp-pandoc.svg)](https://pypi.python.org/pypi/mcp-pandoc)
+  [![CI](https://github.com/vivekVells/mcp-pandoc/actions/workflows/ci.yml/badge.svg)](https://github.com/vivekVells/mcp-pandoc/actions/workflows/ci.yml)
+  <a href="https://smithery.ai/server/mcp-pandoc"></a> <a href="https://glama.ai/mcp/servers/xyzzgaj9bk"></a> 
+  -->
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/vivekvells-mcp-pandoc-badge.png)](https://mseep.ai/app/vivekvells-mcp-pandoc)
+  <a href="https://glama.ai/mcp/servers/xyzzgaj9bk">
+
+  # mcp-pandoc: Bir Belge Dönüştürme MCP Sunucusu
+
+  > Resmi olarak [Model Context Protocol sunucuları](https://github.com/modelcontextprotocol/servers/blob/main/README.md) açık kaynak projesine dahil edilmiştir. 🎉
+
+  ## Genel Bakış
+
+  [pandoc](https://pandoc.org/index.html) kullanarak belge formatı dönüştürme için bir Model Context Protocol sunucusu. Bu sunucu, biçimlendirme ve yapıyı koruyarak içeriği farklı belge formatları arasında dönüştürmek için araçlar sağlar.
+
+  mcp-pandoc'un şu anda erken geliştirme aşamasında olduğunu lütfen unutmayınız. PDF desteği geliştirme aşamasındadır ve sunucuyu geliştirmeye devam ettikçe işlevsellik ve kullanılabilir araçlar değişebilir ve genişleyebilir.
+
+  Kredi: Bu proje, belge dönüştürme için [Pandoc Python paketini](https://pypi.org/project/pandoc/) kullanmakta ve bu projenin temelini oluşturmaktadır.
+
+  ## 📋 Hızlı Referans
+
+  **mcp-pandoc'ta yeni misiniz?** **[📖 CHEATSHEET.md](CHEATSHEET.md)** dosyasını kontrol edin
+
+  - ⚡ Tüm formatlar için kopyala-yapıştır örnekleri
+  - 🔄 Çift yönlü dönüştürme matrisi
+  - 🎯 Yaygın iş akışları ve ipuçları
+  - 🌟 Referans belge stil rehberi
+
+  _Hızlı aramalar ve hızlı başlama için mükemmel!_
+
+  ## Demo
+
+  [![mcp-pandoc - v1: Seamless Document Format Conversion for Claude using MCP server](https://img.youtube.com/vi/vN3VOb0rygM/maxresdefault.jpg)](https://youtu.be/vN3VOb0rygM)
+
+  > 🎥 [YouTube'da İzleyin](https://youtu.be/vN3VOb0rygM)
+
+  <details>
+  <summary>Ekran Görüntüleri</summary>
+
+
+
+
+  </details>
+
+  Daha fazlası yakında gelecek...
+
+  ## Araçlar
+
+  1. `convert-contents`
+     - İçeriği desteklenen formatlar arasında dönüştürür
+     - Girdiler:
+       - `contents` (string): Dönüştürülecek kaynak içerik (input_file sağlanmadıysa gerekli)
+       - `input_file` (string): Giriş dosyasının tam yolu (contents sağlanmadıysa gerekli)
+       - `input_format` (string): İçeriğin kaynak formatı (varsayılan olarak markdown)
+       - `output_format` (string): Hedef format (varsayılan olarak markdown)
+       - `output_file` (string): Çıktı dosyası için tam yol (pdf, docx, rst, latex, epub formatları için gerekli)
+       - `reference_doc` (string): Stil için kullanılacak referans belgenin yolu (docx çıktı formatı için desteklenmiştir)
+       - `defaults_file` (string): Dönüştürme seçeneklerini içeren Pandoc varsayılanları dosyasının (YAML) yolu
+       - `filters` (array): Dönüştürme sırasında uygulanacak Pandoc filtre yollarının listesi
+     - Desteklenen giriş/çıktı formatları:
+       - markdown
+       - html
+       - pdf
+       - docx
+       - rst
+       - latex
+       - epub
+       - txt
+       - ipynb
+       - odt
+     - Not: Gelişmiş formatlar (pdf, docx, rst, latex, epub) için bir output_file yolu gereklidir
+
+  ### 🔧 Gelişmiş Özellikler
+
+  #### Varsayılanlar Dosyaları (YAML Yapılandırması)
+
+  Tutarlı biçimlendirme ile yeniden kullanılabilir dönüştürme şablonları oluşturmak için varsayılanlar dosyalarını kullanın:
+
+  ```yaml
+  # academic-paper.yaml
+  from: markdown
+  to: pdf
+  number-sections: true
+  toc: true
+  metadata:
+    title: "Academic Paper"
+    author: "Research Team"
+  ```
+
+  Örnek kullanım: `"Convert paper.md to PDF using defaults academic-paper.yaml and save as paper.pdf"`
+
+  #### Pandoc Filtreleri
+
+  Geliştirilmiş işleme için özel filtreler uygulayın:
+
+  Örnek kullanım: `"Convert docs.md to HTML with filters ['/path/to/mermaid-filter.py'] and save as docs.html"`
+
+  > 💡 **Kapsamlı örnekler ve iş akışları için**, bkz. **[CHEATSHEET.md](CHEATSHEET.md)**
+
+  ## 📊 Desteklenen Formatlar ve Dönüştürmeler
+
+  ### Çift Yönlü Dönüştürme Matrisi
+
+  | Kaynaktan\Hedef | MD  | HTML | TXT | DOCX | PDF | RST | LaTeX | EPUB | IPYNB | ODT |
+  | --------------- | --- | ---- | --- | ---- | --- | --- | ----- | ---- | ----- | --- |
+  | **Markdown**    | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **HTML**        | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **TXT**         | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **DOCX**        | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **RST**         | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **LaTeX**       | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **EPUB**        | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **IPYNB**       | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+  | **ODT**         | ✅  | ✅   | ✅  | ✅   | ✅  | ✅  | ✅    | ✅   | ✅    | ✅  |
+
+  ### PDF Desteği Hakkında Not
+
+  Bu araç dönüştürmeler için `pandoc` kullanır ve yukarıdaki formatlardan PDF dosyaları oluşturmaya izin verir. Ancak bir PDF'den diğer formatlara dönüştürme desteklenmiyor. Bu nedenle PDF, **yalnızca çıktı** formatı olarak düşünülmelidir.
+
+  ### Format Kategorileri
+
+  | Kategori      | Formatlar                  | Gereksinimler                    |
+  | ------------- | -------------------------- | -------------------------------- |
+  | **Temel**     | MD, HTML, TXT, IPYNB, ODT  | Hiçbiri                          |
+  | **Gelişmiş**  | DOCX, PDF, RST, LaTeX, EPUB| `output_file` yolu belirtilmeli |
+  | **Stillenmiş**| DOCX referans belgesi      | Özel şablon desteği ⭐           |
+
+  ### Format'a Göre Gereksinimler
+
+  - **PDF (.pdf)** - TeX Live kurulumu gerekir
+  - **DOCX (.docx)** - referans belgeler aracılığıyla özel stil desteği
+  - **Diğerleri** - ek gereksinim yoktur
+
+  Not: Gelişmiş formatlar için:
+
+  1. Dosya adı ve uzantısı içeren tam dosya yolları gereklidir
+  2. **PDF dönüştürme TeX Live kurulumunu gerektirir** (bkz. Kritik Gereksinimler bölümü -> macOS için: `brew install texlive`)
+  3. Çıktı yolu belirtilmediğinde:
+     - Temel formatlar: Sohbette dönüştürülmüş içeriği görüntüler
+     - Gelişmiş formatlar: Sistem geçici dizinine kaydedebilir (Unix sistemlerde /tmp/)
+
+  ## Kullanım ve Yapılandırma
+
+  **NOT: Aşağıdaki "Kritik Gereksinimler" altında belirtilen gerekli paketleri kurduğunuzdan emin olun.**
+
+  Yayınlanmış olanı kullanmak için
+
+  ```bash
+  {
+    "mcpServers": {
+      "mcp-pandoc": {
+        "command": "uvx",
+        "args": ["mcp-pandoc"]
+      }
+    }
+  }
+  ```
+
+  **💡 Hızlı Başlama**: Kopyala-yapıştır örnekleri ve yaygın iş akışları için **[CHEATSHEET.md](CHEATSHEET.md)** dosyasını görün.
+
+  ### ⚠️ Önemli Notlar
+
+  #### Kritik Gereksinimler
+
+  1. **Pandoc Kurulumu**
+
+  - **Gerekli**: `pandoc` yükleyin - çekirdek belge dönüştürme motorunun
+  - Kurulum:
+
+    ```bash
+    # macOS
+    brew install pandoc
+
+    # Ubuntu/Debian
+    sudo apt-get install pandoc
+
+    # Windows
+    # İndirme bağlantısı: https://pandoc.org/installing.html
+    ```
+
+  - **Doğrula**: `pandoc --version`
+
+  2. **UV paket kurulumu**
+
+  - **Gerekli**: `uv` paketini yükleyin (`uvx` komutu dahil)
+  - Kurulum:
+
+    ```bash
+    # macOS
+    brew install uv
+
+    # Windows/Linux
+    pip install uv
+    ```
+
+  - **Doğrula**: `uvx --version`
+
+  3. **PDF Dönüştürme Ön Koşulları:** Yalnızca pdf dönüştürme ve kaydetme gerekiyorsa gerekli
+
+  - PDF dönüştürmesini denemeden önce TeX Live yüklü olmalıdır
+  - Kurulum komutları:
+
+    ```bash
+    # Ubuntu/Debian
+    sudo apt-get install texlive-xetex
+
+    # macOS
+    brew install texlive
+
+    # Windows
+    # MiKTeX veya TeX Live yükleyin:
+    # https://miktex.org/ veya https://tug.org/texlive/
+    ```
+
+  4. **Dosya Yolu Gereksinimleri**
+
+  - Dosyaları kaydederken veya dönüştürürken, dosya adı ve uzantısı dahil tam dosya yolları belirtmelisiniz
+  - Araç otomatik olarak dosya adları veya uzantıları oluşturmaz
+
+  #### Örnekler
+
+  ✅ Doğru Kullanım:
+
+  ```bash
+  # İçeriği PDF'ye dönüştürme
+  "Convert this text to PDF and save as /path/to/document.pdf"
+
+  # Dosya formatları arasında dönüştürme
+  "Convert /path/to/input.md to PDF and save as /path/to/output.pdf"
+
+  # Referans belge şablonu kullanarak DOCX'e dönüştürme
+  "Convert input.md to DOCX using template.docx as reference and save as output.docx"
+
+  # Adım adım referans belge iş akışı
+  "First create a reference document: pandoc -o custom-reference.docx --print-default-data-file reference.docx" veya zaten bir belgeniz varsa onu kullanın
+  "Then convert with custom styling: Convert this text to DOCX using /path/to/custom-reference.docx as reference and save as /path/to/styled-output.docx"
+  ```
+
+  ❌ Yanlış Kullanım:
+
+  ```bash
+  # Dosya adı ve uzantısı eksik
+  "Save this as PDF in /documents/"
+
+  # Tam yol eksik
+  "Convert this to PDF"
+
+  # Uzantı eksik
+  "Save as /documents/story"
+  ```
+
+  #### Yaygın Sorunlar ve Çözümler
+
+  1. **PDF Dönüştürme Başarısız**
+
+     - Hata: "xelatex not found"
+     - Çözüm: İlk olarak TeX Live yükleyin (yukarıdaki kurulum komutlarını görün)
+
+  2. **Dosya Dönüştürme Başarısız**
+
+     - Hata: "Invalid file path"
+     - Çözüm: Dosya adı ve uzantısı dahil tam yol sağlayın
+     - Örnek: `/path/to/document.pdf` yerine sadece `/path/to/`
+
+  3. **Format Dönüştürme Başarısız**
+
+     - Hata: "Unsupported format"
+     - Çözüm: Yalnızca desteklenen formatları kullanın:
+       - Temel: txt, html, markdown
+       - Gelişmiş: pdf, docx, rst, latex, epub
+
+  4. **Referans Belge Sorunları**
+     - Hata: "Reference document not found"
+     - Çözüm: Referans belge yolunun var olduğundan ve erişilebilir olduğundan emin olun
+     - Not: Referans belgeler yalnızca DOCX çıktı formatı ile çalışır
+     - Nasıl oluşturulur: `pandoc -o reference.docx --print-default-data-file reference.docx`
+
+  ## Hızlı Başlama
+
+  <!-- Uncomment after smithery fix
+  ### Install
+
+  #### Option 1: Installing manually via claude_desktop_config.json config file
+  -->
+
+  ### claude_desktop_config.json config dosyası aracılığıyla manuel olarak yükleme
+
+  - MacOS'ta: `open ~/Library/Application\ Support/Claude/claude_desktop_config.json`
+  - Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  a) Yalnızca yerel geliştirme ve bu depoya katkı için
+
+  <details>
+    <summary>Geliştirme/Yayınlanmamış Sunucular Yapılandırması</summary>
+
+  ℹ️ <DIRECTORY> yerine yerel olarak klonlanmış proje yolunuzu yazın
+
+  ```bash
+  "mcpServers": {
+    "mcp-pandoc": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "<DIRECTORY>/mcp-pandoc",
+        "run",
+        "mcp-pandoc"
+      ]
+    }
+  }
+  ```
+
+  </details>
+
+  b) Yayınlanmış Sunucular Yapılandırması - Tüketiciler bu yapılandırmayı kullanmalıdır
+
+  ```bash
+  "mcpServers": {
+    "mcp-pandoc": {
+      "command": "uvx",
+      "args": [
+        "mcp-pandoc"
+      ]
+    }
+  }
+  ```
+
+  <!-- Uncomment after smithery cli fix
+  #### Option 2: To install Published Servers Configuration automatically via Smithery
+
+  Run the following bash command to install **published** [mcp-pandoc pypi](https://pypi.org/project/mcp-pandoc) for Claude Desktop automatically via [Smithery](https://smithery.ai/server/mcp-pandoc):
+
+  ```bash
+  npx -y @smithery/cli install mcp-pandoc --client claude
+  ```
+  -->
+
+  - Herhangi bir sorunla karşılaşırsanız, yerine doğrudan yukarıdaki "Yayınlanmış Sunucular Yapılandırması"'nı kullanın.
+
+  **Not**: Yerel olarak yapılandırılan mcp-pandoc'u kullanmak için yukarıdaki "Geliştirme/Yayınlanmamış Sunucular Yapılandırması" adımını izleyin.
+
+  ## Geliştirme
+
+  ### Test Etme
+
+  Kapsamlı test paketini çalıştırmak ve tüm desteklenen çift yönlü dönüştürmeleri doğrulamak için aşağıdaki komutu kullanın:
+
+  ```bash
+  uv run pytest tests/test_conversions.py
+  ```
+
+  Bu, geriye dönük uyumluluğu sağlar ve aracın temel işlevselliğini doğrular.
+
+  ### Oluşturma ve Yayımlama
+
+  Paketi dağıtım için hazırlamak için:
+
+  1. Bağımlılıkları senkronize edin ve kilit dosyasını güncelleyin:
+
+  ```bash
+  uv sync
+  ```
+
+  2. Paket dağıtımları oluşturun:
+
+  ```bash
+  uv build
+  ```
+
+  Bu, `dist/` dizininde kaynak ve wheel dağıtımları oluşturacak.
+
+  3. PyPI'de yayınlayın:
+
+  ```bash
+  uv publish
+  ```
+
+  Not: PyPI kimlik bilgilerini ortam değişkenleri veya komut bayrakları aracılığıyla ayarlamanız gerekir:
+
+  - Token: `--token` veya `UV_PUBLISH_TOKEN`
+  - Veya kullanıcı adı/şifre: `--username`/`UV_PUBLISH_USERNAME` ve `--password`/`UV_PUBLISH_PASSWORD`
+
+  ### Hata Ayıklama
+
+  MCP sunucuları stdio üzerinden çalıştığından hata ayıklama zor olabilir. En iyi hata ayıklama
+  deneyimi için [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı şiddetle tavsiye ederiz.
+
+  MCP Inspector'ı [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) ile şu komutla başlatabilirsiniz:
+
+  ```bash
+  npx @modelcontextprotocol/inspector uv --directory /Users/vivekvells/Desktop/code/ai/mcp-pandoc run mcp-pandoc
+  ```
+
+  Başlattığında, Inspector hata ayıklamaya başlamak için tarayıcıda erişebileceğiniz bir URL görüntüleyecek.
+
+  ---
+
+  ## Katkıda Bulunma
+
+  mcp-pandoc'u geliştirmek için katkılarınızı bekliyoruz! İşte katılabileceğiniz yollar:
+
+  1. **Sorunları Bildirin**: Bir hata buldunuz mu veya bir özellik isteğiniz mi var? [GitHub Issues](https://github.com/vivekVells/mcp-pandoc/issues) sayfamızda bir sorun açın.
+  2. **Pull Request'leri Gönderin**: Kod tabanını iyileştirin veya pull request oluşturarak yeni özellikler ekleyin.
+
+  ---
 ---
 
 [![Downloads](https://img.shields.io/pypi/dm/mcp-pandoc.svg)](https://pypi.python.org/pypi/mcp-pandoc)

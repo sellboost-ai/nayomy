@@ -8,6 +8,307 @@ url: "https://github.com/runekaagaard/mcp-alchemy"
 body_length: 9387
 license: "MPL-2.0"
 language: "Python"
+body_tr: |-
+  # MCP Alchemy
+
+  <a href="https://www.pulsemcp.com/servers/runekaagaard-alchemy"></a>
+
+  **Durum: Harika çalışıyor ve bilinen herhangi bir hata olmaksızın günlük kullanımda.**
+
+  **Durum2: Az önce paketi PyPI'ye ekledim ve kullanım talimatlarını güncelledi. Lütfen herhangi bir sorunu bildirin :)**
+
+  Claude'u veritabanı uzmanınız olarak kullanın! MCP Alchemy, Claude Desktop'ı doğrudan veritabanlarınıza bağlayarak şunları yapmasını sağlar:
+
+  - Veritabanı yapınızı keşfetmek ve anlamak konusunda yardımcı olmak
+  - SQL sorguları yazmak ve doğrulamak konusunda yardımcı olmak
+  - Tablolar arasındaki ilişkileri göstermek
+  - Büyük veri setlerini analiz etmek ve raporlar oluşturmak
+  - Claude Desktop, [claude-local-files](https://github.com/runekaagaard/claude-local-files) kullanarak çok büyük veri setleri için analiz ve yapıtlar oluşturabilir.
+
+  PostgreSQL, MySQL, MariaDB, SQLite, Oracle, MS SQL Server, CrateDB, Vertica ve diğer birçok [SQLAlchemy uyumlu](https://docs.sqlalchemy.org/en/20/dialects/) veritabanları ile çalışır.
+
+  ![MCP Alchemy'nin çalışması](https://raw.githubusercontent.com/runekaagaard/mcp-alchemy/refs/heads/main/screenshot.png)
+
+  ## Kurulum
+
+  uv'nin yüklü olduğundan emin olun:
+  ```bash
+  # Henüz yüklemediyseniz uv'yi yükleyin
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+  ## Claude Desktop ile Kullanım
+
+  `claude_desktop_config.json` dosyasına ekleyin. ``--with`` parametresinde uygun veritabanı sürücüsünü eklemeniz gerekir.
+
+  _Not: Yeni bir sürüm yayımlandıktan sonra, yerel olarak önbelleğe alınan veritabanının silinmesi nedeniyle uv'nin bir sürüm oluşturma hatası yükseltmesine kadar 600 saniyeye kadar bir süre olabilir. MCP istemcisini bir kez daha yeniden başlatmak hatayı çözer._
+
+  ### SQLite (Python'da yerleşik)
+  ```json
+  {
+    "mcpServers": {
+      "my_sqlite_db": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "sqlite:////absolute/path/to/database.db"
+        }
+      }
+    }
+  }
+  ```
+
+  ### PostgreSQL
+  ```json
+  {
+    "mcpServers": {
+      "my_postgres_db": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819", "--with", "psycopg2-binary",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "postgresql://user:password@localhost/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+  ### MySQL/MariaDB
+  ```json
+  {
+    "mcpServers": {
+      "my_mysql_db": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819", "--with", "pymysql",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "mysql+pymysql://user:password@localhost/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Microsoft SQL Server
+  ```json
+  {
+    "mcpServers": {
+      "my_mssql_db": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819", "--with", "pymssql",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "mssql+pymssql://user:password@localhost/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Oracle
+  ```json
+  {
+    "mcpServers": {
+      "my_oracle_db": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819", "--with", "oracledb",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "oracle+oracledb://user:password@localhost/dbname"
+        }
+      }
+    }
+  }
+  ```
+
+  ### CrateDB
+  ```json
+  {
+    "mcpServers": {
+      "my_cratedb": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819", "--with", "sqlalchemy-cratedb>=0.42.0.dev1",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "crate://user:password@localhost:4200/?schema=testdrive"
+        }
+      }
+    }
+  }
+  ```
+  CrateDB Cloud'a bağlanmak için şu gibi bir URL kullanın:
+  `crate://user:password@example.aks1.westeurope.azure.cratedb.net:4200?ssl=true`.
+
+  ### Vertica
+  ```json
+  {
+    "mcpServers": {
+      "my_vertica_db": {
+        "command": "uvx",
+        "args": ["--from", "mcp-alchemy==2025.8.15.91819", "--with", "vertica-python",
+                 "--refresh-package", "mcp-alchemy", "mcp-alchemy"],
+        "env": {
+          "DB_URL": "vertica+vertica_python://user:password@localhost:5433/dbname",
+          "DB_ENGINE_OPTIONS": "{\"connect_args\": {\"ssl\": false}}"
+        }
+      }
+    }
+  }
+  ```
+
+  ## Ortam Değişkenleri
+
+  - `DB_URL`: SQLAlchemy [veritabanı URL'si](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls) (gerekli)
+  - `CLAUDE_LOCAL_FILES_PATH`: Tam sonuç setleri için dizin (isteğe bağlı)
+  - `EXECUTE_QUERY_MAX_CHARS`: Maksimum çıkış uzunluğu (isteğe bağlı, varsayılan 4000)
+  - `DB_ENGINE_OPTIONS`: Ek SQLAlchemy engine seçeneklerini içeren JSON dizesi (isteğe bağlı)
+
+  ## Bağlantı Havuzu
+
+  MCP Alchemy, uzun süreli MCP sunucuları için optimize edilmiş bağlantı havuzu kullanır. Varsayılan ayarlar şunlardır:
+
+  - `pool_pre_ping=True`: Veritabanı zaman aşımlarını ve ağ sorunlarını işlemek için bağlantıları kullanmadan önce test eder
+  - `pool_size=1`: 1 kalıcı bağlantı tutar (MCP sunucuları genellikle aynı anda bir isteği işler)
+  - `max_overflow=2`: Patlama kapasitesi için 2'ye kadar ek bağlantıya izin verir
+  - `pool_recycle=3600`: 1 saatten daha eski bağlantıları yeniler (zaman aşımı sorunlarını önler)
+  - `isolation_level='AUTOCOMMIT'`: Her sorgunun otomatik olarak işlendiğinden emin olur
+
+  Bu varsayılanlar çoğu veritabanı için iyi çalışır, ancak `DB_ENGINE_OPTIONS` aracılığıyla geçersiz kılabilirsiniz:
+
+  ```json
+  {
+    "DB_ENGINE_OPTIONS": "{\"pool_size\": 5, \"max_overflow\": 10, \"pool_recycle\": 1800}"
+  }
+  ```
+
+  Agresif zaman aşımı ayarlarına sahip veritabanları (MySQL'in 8 saatlik varsayılanı gibi) için, `pool_pre_ping` ve `pool_recycle` kombinasyonu güvenilir bağlantılar sağlar.
+
+  ## API
+
+  ### Araçlar
+
+  - **all_table_names**
+    - Veritabanındaki tüm tablo adlarını döndür
+    - Giriş gerekmez
+    - Virgülle ayrılmış tablo listesini döndür
+    ```
+    users, orders, products, categories
+    ```
+
+  - **filter_table_names**
+    - Bir alt dizeyle eşleşen tabloları bul
+    - Giriş: `q` (string)
+    - Eşleşen tablo adlarını döndür
+    ```
+    Giriş: "user"
+    Döner: "users, user_roles, user_permissions"
+    ```
+
+  - **schema_definitions**
+    - Belirtilen tablolar için ayrıntılı şemayı al
+    - Giriş: `table_names` (string[])
+    - Şunları içeren tablo tanımlarını döndür:
+      - Sütun adları ve türleri
+      - Birincil anahtarlar
+      - Foreign key ilişkileri
+      - Boş değer işaretleri
+    ```
+    users:
+        id: INTEGER, primary key, autoincrement
+        email: VARCHAR(255), nullable
+        created_at: DATETIME
+        
+        İlişkiler:
+          id -> orders.user_id
+    ```
+
+  - **execute_query**
+    - SQL sorgusunu dikey çıkış formatıyla çalıştır
+    - Girişler:
+      - `query` (string): SQL sorgusu
+      - `params` (object, isteğe bağlı): Sorgu parametreleri
+    - Sonuçları temiz dikey formatta döndür:
+    ```
+    1. satır
+    id: 123
+    name: John Doe
+    created_at: 2024-03-15T14:30:00
+    email: NULL
+
+    Sonuç: 1 satır
+    ```
+    - Özellikler:
+      - Büyük sonuçların akıllı kesintiye uğraması
+      - [claude-local-files](https://github.com/runekaagaard/claude-local-files) entegrasyonu aracılığıyla tam sonuç seti erişimi
+      - Temiz NULL değeri görüntüleme
+      - ISO biçimlendirilmiş tarihler
+      - Açık satır ayrılması
+
+  ## Claude Yerel Dosyaları
+
+  [claude-local-files](https://github.com/runekaagaard/claude-local-files) yapılandırıldığında:
+
+  - Claude'un bağlam penceresini aşan tam sonuç setlerine erişim
+  - Ayrıntılı raporlar ve görselleştirmeler oluştur
+  - Büyük veri setleri üzerinde derin analiz gerçekleştir
+  - Sonuçları daha fazla işlem için dışa aktar
+
+  Entegrasyon, `CLAUDE_LOCAL_FILES_PATH` ayarlandığında otomatik olarak etkinleşir.
+
+  ## Geliştirme
+
+  Önce github deposunu klonlayın, bağımlılıkları ve seçtiğiniz veritabanı sürücüsünü yükleyin:
+
+  ```
+  git clone git@github.com:runekaagaard/mcp-alchemy.git
+  cd mcp-alchemy
+  uv sync
+  uv pip install psycopg2-binary
+  ```
+
+  Ardından bunu claude_desktop_config.json dosyasına ayarlayın:
+
+  ```
+  ...
+  "command": "uv",
+  "args": ["run", "--directory", "/path/to/mcp-alchemy", "-m", "mcp_alchemy.server", "main"],
+  ...
+  ```
+
+  ## Diğer LLM Projelerim
+
+  - **[MCP Redmine](https://github.com/runekaagaard/mcp-redmine)** - Claude Desktop'ın Redmine projelerinizi ve sorunlarını yönetmesine izin verin.
+  - **[MCP Notmuch Sendmail](https://github.com/runekaagaard/mcp-notmuch-sendmail)** - notmuch kullanan Claude Desktop için e-posta asistanı.
+  - **[Diffpilot](https://github.com/runekaagaard/diffpilot)** - Dosya gruplandırması ve etiketleme ile çok sütunlu git diff görüntüleyicisi.
+  - **[Claude Local Files](https://github.com/runekaagaard/claude-local-files)** - Claude Desktop yapıtlarında yerel dosyalara erişim.
+
+  ## MCP Dizin Listeleri
+
+  MCP Alchemy aşağıdaki MCP dizin siteleri ve depolarında listelenmektedir:
+
+  - [PulseMCP](https://www.pulsemcp.com/servers/runekaagaard-alchemy)
+  - [Glama](https://glama.ai/mcp/servers/@runekaagaard/mcp-alchemy)
+  - [MCP.so](https://mcp.so/server/mcp-alchemy)
+  - [MCP Archive](https://mcp-archive.com/server/mcp-alchemy)
+  - [Playbooks MCP](https://playbooks.com/mcp/runekaagaard-alchemy)
+  - [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)
+
+  ## Katkıda Bulunma
+
+  Katkılar sıcak bir şekilde karşılanır! İster hata raporları, ister özellik istekleri, ister belgeleme iyileştirmeleri, ister kod katkıları olsun - tüm girdiler değerlidir. Şunları yapabilirsiniz:
+
+  - Hataları bildirmek veya özellikler önermek için bir sorun açın
+  - İyileştirmelerle birlikte pull request gönderin
+  - Belgeleri geliştirin veya kullanım örneklerinizi paylaşın
+  - Sorular sorun ve deneyimlerinizi paylaşın
+
+  Amaç, Claude ile veritabanı etkileşimini daha da iyileştirmek ve sizin fikirleriniz ve katkılarınız bunu başarmaya yardımcı olur.
+
+  ## Lisans
+
+  Mozilla Kamu Lisansı Sürüm 2.0
 ---
 
 # MCP Alchemy

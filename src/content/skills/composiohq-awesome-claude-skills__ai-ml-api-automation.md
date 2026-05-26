@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # AI ML API Otomasyonu Rube MCP ile
+
+  Composio'nun AI ML API araç seti aracılığıyla Rube MCP ile AI ML API işlemlerini otomatikleştirin.
+
+  **Araç seti dokümanları**: [composio.dev/toolkits/ai_ml_api](https://composio.dev/toolkits/ai_ml_api)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` ile aktif AI ML API bağlantısı (toolkit: `ai_ml_api`)
+  - Her zaman mevcut araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısı yapın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: `https://rube.app/mcp` adresini istemci yapılandırmanızda MCP sunucusu olarak ekleyin. API anahtarları gerekmez — yalnızca endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
+  2. `RUBE_MANAGE_CONNECTIONS` çağrısı yapın (toolkit: `ai_ml_api`)
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
+
+  ## Araç Keşfi
+
+  Workflow'ları yürütmeden önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "AI ML API operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slugları, input şemaları, önerilen yürütme planları ve bilinen tuzakları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific AI ML API task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["ai_ml_api"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Yürütün
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Tuzaklar
+
+  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç sluglarını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş (`{}`) olsa bile
+  - **Session tekrar kullanımı**: Bir workflow içinde session ID'lerini tekrar kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|---------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` (AI ML API-spesifik use case ile) |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` (toolkit: `ai_ml_api`) |
+  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` (keşfedilen araç slugları ile) |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` (`run_composio_tool()` ile) |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (`schemaRef` olan araçlar için) |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # AI ML API Automation via Rube MCP

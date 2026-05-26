@@ -8,6 +8,199 @@ url: "https://github.com/etsd-tech/mcp-pointer"
 body_length: 8486
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  [![CI](https://github.com/etsd-tech/mcp-pointer/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/etsd-tech/mcp-pointer/actions/workflows/ci.yml)
+  [![Release](https://github.com/etsd-tech/mcp-pointer/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/etsd-tech/mcp-pointer/actions/workflows/release.yml)
+  [![npm version](https://img.shields.io/npm/v/@mcp-pointer/server?label=Server)](https://www.npmjs.com/package/@mcp-pointer/server)
+  [![Chrome Extension](https://img.shields.io/github/package-json/v/etsd-tech/mcp-pointer?filename=packages%2Fchrome-extension%2Fpackage.json&label=Chrome-Extension)](https://github.com/etsd-tech/mcp-pointer/releases)
+  [![License: MIT](https://img.shields.io/github/license/etsd-tech/mcp-pointer?label=License)](https://github.com/etsd-tech/mcp-pointer/blob/main/LICENSE)
+
+  # 👆 MCP Pointer
+
+  **MCP aracılığıyla agentic kodlama araçları için tarayıcı DOM öğelerine işaret edin!**
+
+  MCP Pointer, bir MCP Server'ı ve Chrome Extension'ı birleştiren *yerel* bir araçtır:
+
+  1. **🖥️ MCP Server** (Node.js paketi) - Model Context Protocol aracılığıyla tarayıcı ile AI araçları arasında köprü kurar
+  2. **🌐 Chrome Extension** - `Option+Click` kullanarak tarayıcıda DOM öğesi seçimlerini yakalar
+
+  Extension, tarayıcıda DOM öğelerini görsel olarak seçmenize ve MCP Server'ı bu **metinsel bağlamı** Claude Code, Cursor ve Windsurf gibi agentic kodlama araçlarına standartlaştırılmış MCP araçları aracılığıyla sunmanıza olanak tanır.
+
+  ## ✨ Özellikler
+
+  - 🎯 **`Option+Click` Seçimi** - Basitçe `Option` tuşunu (Windows'ta Alt) basılı tutun ve herhangi bir öğeye tıklayın
+  - 📋 **Eksiksiz Öğe Verileri** - Metin içeriği, CSS sınıfları, HTML öznitelikleri, konumlandırma ve stil
+  - 💡 **Dinamik Bağlam Kontrolü** - Yalnızca görünür metni isteyin, metni tamamen bastırın veya MCP çağrısı başına CSS detayını yok → tam hesaplanmış stil olarak ayarlayın
+  - ⚛️ **React Bileşen Algılama** - Fiber aracılığıyla bileşen adları ve kaynak dosyaları (deneysel)
+  - 🔗 **WebSocket Bağlantısı** - Tarayıcı ve AI araçları arasında gerçek zamanlı iletişim
+  - 🤖 **MCP Uyumlu** - Claude Code ve diğer MCP etkinleştirilmiş AI araçlarıyla çalışır
+
+  ## 🎬 Kullanım örneği (video)
+
+  https://github.com/user-attachments/assets/98c4adf6-1f05-4c9b-be41-0416ab784e2c
+
+  MCP Pointer'ı işlemde görün: Tarayıcınızdaki herhangi bir öğeye `Option+Click` yapın, ardından agentic kodlama aracınızdan bunu sorgulatın (bu örnekte Claude Code). AI, CSS özellikleri, url, seçici ve daha fazlasını içeren seçili DOM öğesi hakkında eksiksiz metinsel bağlam alır.
+
+  ## 🚀 Başlangıç
+
+  ### 1. Chrome Extension'ı Yükleyin
+
+  **🎉 Artık Chrome Web Store'da mevcut!**
+
+  [![Chrome Web Store'dan Yükle](https://img.shields.io/badge/Chrome_Web_Store-Install-blue?style=for-the-badge&logo=google-chrome)](https://chromewebstore.google.com/detail/mcp-pointer/jfhgaembhafbffidedhpkmnaajdfeiok)
+
+  Chrome Web Store'dan yüklemek için yukarıdaki bağlantıya tıklayın.
+
+  <details>
+  <summary>Alternatif: Manuel Yükleme</summary>
+
+  **Seçenek A: Yayınlardan İndirin**
+
+  1. [GitHub Yayınları](https://github.com/etsd-tech/mcp-pointer/releases) sayfasına gidin
+  2. En son yayından `mcp-pointer-chrome-extension.zip` dosyasını indirin
+  3. Zip dosyasını bilgisayarınızda bir klasöre açın
+  4. Chrome → Ayarlar → Uzantılar → Geliştirici modu (AÇIN)
+  5. "Paketlenmemiş dosyayı yükle" ve ayıklanan klasörü seçin
+  6. MCP Pointer extension'ı uzantılar listenizde görünmelidir
+  7. **Web sayfalarını yenileyin** extension'ı etkinleştirmek için
+
+  **Seçenek B: Kaynaktan Derleyin**
+
+  1. Bu depoyu klonlayın
+  2. [CONTRIBUTING.md](./CONTRIBUTING.md) içindeki derleme talimatlarını izleyin
+  3. Chrome → Ayarlar → Uzantılar → Geliştirici modu (AÇIN)
+  4. "Paketlenmemiş dosyayı yükle" ve `packages/chrome-extension/dist/` klasörünü seçin
+  5. **Web sayfalarını yenileyin** extension'ı etkinleştirmek için
+
+  </details>
+
+  ### 2. MCP Server'ı Yapılandırın
+
+  AI aracınız için tek komutlu kurulum:
+
+  ```bash
+  npx -y @mcp-pointer/server config claude  # veya cursor, windsurf ve diğerleri - aşağıya bakın
+  ```
+
+  <details>
+  <summary>Diğer AI Araçları ve Seçenekler</summary>
+
+  ```bash
+  # Diğer AI araçları için
+  npx -y @mcp-pointer/server config cursor     # Otomatik kurulum için Cursor deeplink'ini açar
+  npx -y @mcp-pointer/server config windsurf   # Windsurf yapılandırma dosyasını otomatik günceller
+  npx -y @mcp-pointer/server config manual     # Diğer araçlar için manuel yapılandırmayı gösterir
+  ```
+
+  > **İsteğe Bağlı:** `npm install -g @mcp-pointer/server` ile genel olarak yükleyebilir ve `npx -y @mcp-pointer/server` yerine `mcp-pointer` kullanabilirsiniz
+
+  </details>
+
+  Yapılandırmadan sonra, MCP bağlantısını yüklemek için **kodlama aracınızı yeniden başlatın**.
+
+  > **🔄 Zaten MCP Pointer kullanıyor musunuz?** Otomatik güncellenebilen yapılandırmaya güncelleme yapmak için yapılandırma komutunu yeniden çalıştırın:
+  > ```bash
+  > npx -y @mcp-pointer/server config <your-tool>  # Her zaman en yeni sürümü kullanacak şekilde yeniden yapılandırır
+  > ```
+
+  ### 3. Kullanmaya Başlayın
+
+  1. **Herhangi bir web sayfasına gidin**
+  2. **`Option+Click`** herhangi bir öğeyi seçmek için
+  3. **AI'ınızdan** hedeflenen öğeyi analiz etmesini isteyin!
+
+  AI aracınız `npx -y @mcp-pointer/server@latest start` komutu kullanarak gerektiğinde MCP sunucusunu otomatik olarak başlatacaktır.
+
+  **Mevcut MCP Aracı:**
+  - `get-pointed-element` – Şu anda işaret edilen DOM öğesi hakkında metinsel bilgi döndürür. İsteğe bağlı parametreler:
+    - `textDetail`: `0 | 1 | 2` (varsayılan `2`) ne kadar metin ekleneceğini kontrol eder (`0 = yok`, `1 = yalnızca görünür metin`, `2 = görünür + gizli`).
+    - `cssLevel`: `0 | 1 | 2 | 3` (varsayılan `1`) stil detayını kontrol eder, hiç CSS'den (0) tam hesaplanmış stil'e (3) kadar.
+
+  ## 🎯 Nasıl Çalışır
+
+  1. **Öğe Seçimi**: İçerik script `Option+Click` olaylarını yakalar
+  2. **Veri Çıkarma**: Öğe yapısını, CSS'i ve framework bilgisini analiz eder
+  3. **WebSocket Aktarımı**: Verileri 7007 portundaki MCP sunucusuna gönderir
+  4. **MCP Protokolü**: Verileri MCP araçları aracılığıyla AI araçlarına sunmaya açar
+  5. **AI Analizi**: Asistan artık öğeyi görebilir ve analiz edebilir!
+
+  ## 🎨 Çıkarılan Öğe Verileri
+
+  - **Temel Bilgi**: Etiket adı, ID, sınıflar, metin içeriği
+  - **CSS Özellikleri**: Görüntü, konum, renkler, boyutlar
+  - **Bileşen Bilgisi**: React bileşen adları ve kaynak dosyaları (deneysel)
+  - **Öznitelikler**: Tüm HTML öznitelikleri
+  - **Konum**: Kesin koordinatlar ve boyutlar
+  - **Kaynak İpuçları**: Dosya yolları ve bileşen kaynakları
+
+  ## 🔍 Framework Desteği
+
+  - ⚛️ **React** - Fiber aracılığıyla bileşen adları ve kaynak dosyaları (deneysel)
+  - 📦 **Genel HTML/CSS/JS** - Herhangi bir web içeriği için tam destek
+  - 🔮 **Planlı** - Vue bileşen algılama (PR'lar değerlidir)
+
+  ## 🌐 Tarayıcı Desteği
+
+  - ✅ **Chrome** - Tam destek (test edilmiş)
+  - 🟡 **Chromium tabanlı tarayıcılar** - Çalışmalı (Edge, Brave, Arc - yerleşik extension'ı manuel yükleyin)
+
+  ## 🐛 Sorun Giderme
+
+  ### Extension Bağlanmıyor
+
+  1. MCP sunucusunun çalıştığından emin olun: `npx -y @mcp-pointer/server@latest start`
+  2. WebSocket hataları için tarayıcı konsolunu kontrol edin
+  3. 7007 portunun güvenlik duvarı tarafından bloke edilmediğini doğrulayın
+
+  ### MCP Araçları Mevcut Değil
+
+  1. Yükledikten sonra AI asistanınızı yeniden başlatın
+  2. MCP yapılandırmasını kontrol edin: `mcp-pointer config <your-tool>`
+  3. Sunucunun çalıştığını doğrulayın: `npx -y @mcp-pointer/server@latest start`
+
+  ### Öğeler Vurgulanmıyor
+
+  1. Bazı sayfalar içerik scriptlerini bloke eder (chrome://, vb.)
+  2. Sayfayı yenilemeyi deneyin
+  3. Hedeflemenin etkinleştirilip etkinleştirilmediğini kontrol edin (extension simgesini tıklayın)
+
+  ## 🚀 Yol Haritası
+
+  ### 1. **Dinamik Bağlam Kontrolü**
+     - Tam ham bağlam sunucuya aktarıldı
+     - LLM yapılandırılabilir detay seviyeleri (yalnızca görünür metin, tüm metin, CSS seviyeleri)
+     - Kademeli iyileştirme seçenekleri / token'a duyarlı veri getirme
+
+  ### 2. **Görsel İçerik Desteği** (çoklu modlu LLM'ler için)
+     - Görüntüler için Base64 kodlaması (img etiketleri)
+     - Seçili öğelerin ekran görüntüsü
+     - Doğrudan görsel içerik alımı için ayrı MCP aracı
+
+  ### 3. **Geliştirilmiş Framework Desteği**
+     - Vue.js bileşen algılama
+     - Daha iyi React desteği (React 19 `_debugSource` kaldırdı, dev derlemelerinde kaynak eşlemesini etkiledi)
+
+  ### 4. **Çoklu Seçim**
+     - Birden fazla DOM öğesi seçme yeteneği
+     - https://github.com/etsd-tech/mcp-pointer/pull/9
+
+  ## 📝 Lisans
+
+  MIT Lisansı - ayrıntılar için LICENSE dosyasına bakın
+
+  ## 🤝 Katkı Yapma
+
+  Katkıları memnuniyetle karşılıyoruz! Lütfen geliştirme kurulumu ve yönergeleri için [CONTRIBUTING.md](./CONTRIBUTING.md) rehberimize bakın.
+
+  ---
+
+  *[Click-to-Component](https://github.com/ericclemmons/click-to-component) gibi araçlardan ilham alınmıştır ve bileşen geliştirme iş akışları için tasarlanmıştır.*
+
+  ---
+
+  **AI destekli web geliştirme için ❤️ ile yapılmıştır**
+
+  *Artık AI'ınız `Option+Click` ile işaret ettiğiniz herhangi bir öğeyi analiz edebilir! 👆*
 ---
 
 

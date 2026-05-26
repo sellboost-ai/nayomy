@@ -12,6 +12,89 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Graph Modülü
+
+  `faebryk.core.graph` modülü, Zig graph implementasyonunun etrafındaki ince bir Python wrapper'ıdır.
+
+  Davranışın source-of-truth kaynakları:
+  - Zig implementasyonu: `src/faebryk/core/zig/src/graph/graph.zig`
+  - Python bindings: `src/faebryk/core/zig/src/python/graph/graph_py.zig`
+  - Public Python API surface (stubs): `src/faebryk/core/zig/gen/graph/graph.pyi`
+
+  ## Hızlı Başlangıç
+
+  ```python
+  from faebryk.core.graph import GraphView
+
+  g = GraphView.create()
+  try:
+      _ = g.create_and_insert_node()
+  finally:
+      g.destroy()
+  ```
+
+  ## İlgili Dosyalar
+
+  - Python wrapper/re-export: `src/faebryk/core/graph.py`
+  - Zig graph core: `src/faebryk/core/zig/src/graph/graph.zig`
+  - Zig → Python wrappers: `src/faebryk/core/zig/src/python/graph/graph_py.zig`
+  - Üretilen type stubs: `src/faebryk/core/zig/gen/graph/graph.pyi`
+
+  ## Bağımlı Modüller (Çağrı Siteleri)
+
+  - `src/faebryk/core/node.py` (FabLL: node'lar/trait'ler graph-backed)
+  - `src/atopile/compiler/gentypegraph.py` (compiler, graph API'leri aracılığıyla typegraph'lar/instance'lar oluşturur)
+  - `src/faebryk/core/graph_render.py` (graph görselleştirmesi)
+
+  ## Nasıl Çalışılır / Geliştirme / Test
+
+  ### Mental Model
+  - `NodeReference` / `EdgeReference`: Zig'deki global backing storage'a (UUID'ler) value-like handle'lar.
+  - `GraphView`: bu reference'lar üzerinde bir *membership + adjacency* view (view başına arena + map'ler + bitset'ler).
+  - `BoundNode` / `BoundEdge`: traversal helper'ları için kullanılan "reference + owning GraphView pointer" wrapper'ları.
+
+  ### Temel Değişmezler (ihlal etmeyin)
+  - **Doğrudan constructor yok**: `GraphView()`, `NodeReference()`, `EdgeReference()` çağrılması amaçlanmamıştır; exposed factory method'ları kullanın.
+    - `GraphView.create()`
+    - `NodeReference.create(**attrs)`
+    - `EdgeReference.create(source=..., target=..., edge_type=..., **attrs)`
+  - **Açık cleanup**: `GraphView.create()` Zig-side graph'ı C allocator'ında tahsis eder; sadece `GraphView.destroy()` tarafından serbest bırakılır.
+    - Python GC'nin Zig tahsislerini geri almasına güvenmeyin.
+  - **Attribute limitleri**: node/edge dinamik attribute'ları Zig'de sabit-kapasiteli (şu anda 6 giriş). Bunu aşmak hard failure'dır.
+  - **Edge type width**: edge type'ları Zig'de `u8`; Python'da `0..255` olarak işleyin (hashing/modulo Zig tarafında gerçekleşir).
+  - **Self node var**: `GraphView.init` bir `self_node` ekler; sayımlar bunu içerir.
+
+  ### API Cheat Sheet (matches `src/faebryk/core/zig/gen/graph/graph.pyi`)
+
+  ```python
+  from faebryk.core.graph import GraphView, Node, Edge
+
+  g = GraphView.create()
+  try:
+      n1 = g.create_and_insert_node()           # -> BoundNode
+      n2 = Node.create(name="n2")               # -> NodeReference (henüz insert edilmedi)
+      bn2 = g.insert_node(node=n2)              # -> BoundNode
+
+      e = Edge.create(source=n1.node(), target=bn2.node(), edge_type=7, name="link")
+      _be = g.insert_edge(edge=e)               # -> BoundEdge
+  finally:
+      g.destroy()
+  ```
+
+  ### Debugging
+  - `GraphView.__repr__()` Zig'den `GraphView(id=..., |V|=..., |E|=...)` yazdırır.
+  - Graph wrapper'ı stress test var: `python -m faebryk.core.graph` (`test_graph_garbage_collection` çalıştırır).
+
+  ### Geliştirme Workflow'u
+  1) Zig değişiklikleri: `src/faebryk/core/zig/src/graph/*` düzenleyin.
+  2) Rebuild: `ato dev compile` (editable install'larda `faebryk.core.zig` import eder, compile eder).
+  3) Exposed method'ları ekler/kaldırırsanız: `src/faebryk/core/zig/src/python/graph/graph_py.zig`'deki wrapper'ı güncelleyin ve stub'ların yeniden oluşturulduğundan emin olun.
+
+  ### Testing
+  Ana test entrypoint'leri:
+  - Python: `python -m faebryk.core.graph`
+  - Zig: `zig test src/faebryk/core/zig/src/graph/graph.zig`
 ---
 
 # Graph Module

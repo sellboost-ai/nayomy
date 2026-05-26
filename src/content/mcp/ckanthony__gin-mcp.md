@@ -8,6 +8,427 @@ url: "https://github.com/ckanthony/gin-mcp"
 body_length: 18148
 license: "MIT"
 language: "Go"
+body_tr: |-
+  # Gin-MCP: Sıfır Konfigürasyonlu Gin to MCP Köprüsü
+
+  [![Go Reference](https://pkg.go.dev/badge/github.com/ckanthony/gin-mcp.svg)](https://pkg.go.dev/github.com/ckanthony/gin-mcp)
+  [![CI](https://github.com/ckanthony/gin-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/ckanthony/gin-mcp/actions/workflows/ci.yml)
+  [![codecov](https://codecov.io/gh/ckanthony/gin-mcp/branch/main/graph/badge.svg)](https://codecov.io/gh/ckanthony/gin-mcp)
+  ![](https://badge.mcpx.dev?type=dev 'MCP Dev')
+
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/ckanthony/gin-mcp)](https://archestra.ai/mcp-catalog/ckanthony__gin-mcp)
+
+  <table border="0">
+    <tr>
+      <td valign="top">
+        <strong>Herhangi bir Gin API'sı için tek satır kod ile MCP özelliklerini etkinleştirin.</strong>
+        <br><br>
+        Gin-MCP, mevcut Gin endpoint'lerinizi otomatik olarak <a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)</a> tool'ları olarak açığa çıkaran <strong>görüşlü, sıfır-konfigürasyonlu</strong> bir kütüphanedir ve bunları <a href="https://cursor.sh/">Cursor</a>, <a href="https://claude.ai/desktop">Claude Desktop</a>, <a href="https://continue.dev/">Continue</a>, <a href="https://zed.dev/">Zed</a> ve diğer MCP etkinli tool'lar gibi MCP uyumlu istemciler tarafından anında kullanılabilir hale getirir.
+        <br><br>
+        Felseféimiz basittir: <strong>minimum kurulum, maksimum verimlilik</strong>. Gin-MCP'yi Gin uygulamanıza takın ve geri kalanını biz hallederiz.
+      </td>
+      <td valign="top" align="right" width="200">
+        
+      </td>
+    </tr>
+  </table>
+
+  ## Gin-MCP Neden?
+
+  -   **Zahmetsiz Entegrasyon:** Gin API'nizi MCP istemcilerine, sıkıcı boilerplate kod yazarak, bağlayın.
+  -   **Sıfır Konfigürasyon (varsayılan olarak):** Hemen başlayın. Gin-MCP rota'ları otomatik olarak keşfeder ve şema'ları çıkarır.
+  -   **Geliştirici Verimliliği:** Araç konfigürasyonunda daha az zaman harcayın ve özellik geliştirmede daha fazla zaman harcayın.
+  -   **Esneklik:** Sıfır-konfigürasyon varsayılan olsa da, ihtiyaç halinde şema'ları ve endpoint açığa çıkarmayı özelleştirin.
+  -   **Mevcut API:** Mevcut Gin API'niz ile çalışır - hiçbir kod değişikliği yapmanız gerekmez.
+
+  ## Demo
+
+  ![gin-mcp-example](https://github.com/user-attachments/assets/ad6948ce-ed11-400b-8e96-9b020e51df78)
+
+  ## Özellikler
+
+  -   **Otomatik Keşif:** Tüm kayıtlı Gin route'larını akıllıca bulur.
+  -   **Schema İnferansi:** Rota parametreleri ve request/response türlerinden otomatik olarak MCP tool schema'ları oluşturur (mümkün olan yerlerde).
+  -   **Doğrudan Gin Entegrasyonu:** MCP server'ını doğrudan mevcut `gin.Engine` üzerine monte eder.
+  -   **Parameter Koruyması:** Gin rota parametrelerinizi (path, query) oluşturulan MCP tool'larında doğru şekilde yansıtır.
+  -   **Dinamik BaseURL Çözünürlüğü:** Proxy ortamları (Quicknode, RAGFlow) için destek kullanıcı/deployment başına endpoint'ler ile.
+  -   **Özelleştirilebilir Şema'lar:** `RegisterSchema` kullanarak belirli route'lar için şema'ları manuel olarak kaydedin ve hassas kontrol sağlayın.
+  -   **Seçmeli Açığa Çıkarma:** Operation ID'ler veya tag'ler kullanarak hangi endpoint'lerin açığa çıkarıldığını filtreleyin.
+  -   **Esnek Dağıtım:** MCP server'ını aynı Gin uygulaması içine monte edin veya ayrı olarak dağıtın.
+  -   **Streamable HTTP Taşıması:** MCP spec 2025-03-26 için opt-in ile durumsuz, load-balancer dostu dağıtımlar yapın, oturum yakınlığı gerekmez.
+  -   **Authorization Header İletimi:** İstemcinin `Authorization` başlığını otomatik olarak her dahili tool-execution çağrısına ileterek, JWT korumalı API'lere MCP erişimi etkinleştirin.
+
+  ## Kurulum
+
+  ```bash
+  go get github.com/ckanthony/gin-mcp
+  ```
+
+  ## Temel Kullanım: Anında MCP Sunucusu
+
+  Minimal kod ile MCP sunucunuzu dakikalar içinde çalıştırın:
+
+  ```go
+  package main
+
+  import (
+  	"net/http"
+
+  	server "github.com/ckanthony/gin-mcp/"
+  	"github.com/gin-gonic/gin"
+  )
+
+  func main() {
+  	// 1. Gin engine'i oluşturun
+  	r := gin.Default()
+
+  	// 2. API route'larınızı tanımlayın (Gin-MCP bunları keşfedecek)
+  	r.GET("/ping", func(c *gin.Context) {
+  		c.JSON(http.StatusOK, gin.H{"message": "pong"})
+  	})
+
+  	r.GET("/users/:id", func(c *gin.Context) {
+  		// Örnek handler...
+  		userID := c.Param("id")
+  		c.JSON(http.StatusOK, gin.H{"user_id": userID, "status": "fetched"})
+  	})
+
+  	// 3. MCP server'ını oluşturun ve yapılandırın
+  	//    MCP istemcisi için gerekli detayları sağlayın.
+  	mcp := server.New(r, &server.Config{
+  		Name:        "My Simple API",
+  		Description: "An example API automatically exposed via MCP.",
+  		// BaseURL çok önemli! MCP istemcilerine istekleri nereye göndereceğini söyler.
+  		BaseURL: "http://localhost:8080",
+  	})
+
+  	// 4. MCP server endpoint'ini monte edin
+  	mcp.Mount("/mcp") // MCP istemcileri buraya bağlanacak
+
+  	// 5. Gin sunucunuzu çalıştırın
+  	r.Run(":8080") // Gin server'ı normal şekilde çalışır
+  }
+
+  ```
+
+  Hepsi bu! MCP tool'larınız artık `http://localhost:8080/mcp` adresinde mevcuttur. Gin-MCP otomatik olarak `/ping` ve `/users/:id` için tool'lar oluşturdu.
+
+  > **`BaseURL` Hakkında Not**: Her zaman açık bir `BaseURL` sağlayın. Bu, MCP server'ına istemci tarafından bir tool çalıştırıldığında API isteklerini nereye ileteceğini söyler. Olmadan, otomatik algılama başarısız olabilir, özellikle proxy'ler veya farklı dahili/harici URL'ler olan ortamlarda.
+
+  ## Gelişmiş Kullanım
+
+  Gin-MCP sıfır konfigürasyonu hedeflese de, davranışını özelleştirebilirsiniz.
+
+  ### Handler'ları Yorumlar ile Açıklama
+
+  Gin-MCP, zengin tool açıklamaları oluşturmak için handler function yorumlarından meta veri'yi otomatik olarak çıkarır. Bu açıklamaları MCP tool'larınızı daha keşfedilebilir ve kullanışlı hale getirmek için kullanın:
+
+  ```go
+  // listProducts, ürünlerin sayfalanmış listesini alır
+  // @summary Tüm ürünleri listele
+  // @description Fiyat, tag'ler ve kullanılabilirliğe göre isteğe bağlı filtreleme ile ürünlerin sayfalanmış listesini döndürür
+  // @param page Sayfalama için sayfa numarası (varsayılan: 1)
+  // @param limit Sayfa başına öğe sayısı (varsayılan: 10, maks: 100)
+  // @param minPrice Minimum fiyat filtresi
+  // @param tag Ürünleri tag'e göre filtrele
+  // @tags public catalog
+  func listProducts(c *gin.Context) {
+      // Handler implementasyonu...
+  }
+  ```
+
+  **Desteklenen Açıklamalar:**
+
+  -   **`@summary`** - Kısa tek satırlık açıklama, tool'un ana açıklaması olur
+  -   **`@description`** - Özete eklenen ek detaylı açıklama
+  -   **`@param <name> <text>`** - Oluşturulan şema'daki belirli giriş parametrelerine açıklayıcı metin ekler
+  -   **`@tags`** - Tool'ları filtrelemek için kullanılan boşluk veya virgülle ayrılmış tag'ler (aşağıda "Açığa Çıkarılan Endpoint'leri Filtreleme" bölümüne bakın)
+  -   **`@operationId <id>`** - Tool için özel operation ID (varsayılan `METHOD_path` adlandırma şemasını geçersiz kılar). Tüm route'lar arasında benzersiz olmalı; yinelemeler atlanacak (ilk bildirim kazanır) ve bir uyarı kaydedilecektir.
+
+  Tüm açıklamalar isteğe bağlıdır, ancak bunları kullanmak API tool'larınızı Claude Desktop ve Cursor gibi MCP istemcilerde çok daha kullanıcı dostu hale getirir.
+
+  **Özel Operation ID'ler:**
+
+  Varsayılan olarak, Gin-MCP operation ID'ler `METHOD_path` formatını kullanarak oluşturur (örn. `GET_users_id`). Çok uzun yollara sahip route'lar için, daha kısa, daha yönetilebilir bir ad belirtmek üzere `@operationId` kullanabilirsiniz:
+
+  ```go
+  // getUserProfile, genişletilmiş meta veri ile bir kullanıcının profilini alır
+  // @summary Kullanıcı profilini al
+  // @operationId getUserProfile
+  // @param id Kullanıcı tanımlayıcı
+  func getUserProfile(c *gin.Context) {
+      // Varsayılan "GET_api_v2_users_userId_profile_extended" yerine
+      // bu tool "getUserProfile" olarak adlandırılacak
+  }
+  ```
+
+  **Önemli:** Operation ID'ler benzersiz olmalı. İki handler aynı `@operationId` kullanırsa, yineleme tamamen atlanacak (ilk bildirim kazanır) ve her zaman bir uyarı kaydedilecektir. Bu, tool listesi ile operations map'i arasında tutarlılık sağlar.
+
+  ### `RegisterSchema` ile Hassas Schema Kontrolü
+
+  Bazen otomatik schema çıkarımı yeterli değildir. `RegisterSchema`, belirli route'lar için query parametreleri veya request body'ler için açıkça şema tanımlamanıza izin verir. Bu kullanışlıdır:
+
+  -   Query parametreleri için karmaşık struct'lar kullandığınızda (`ShouldBindQuery`).
+  -   Request body'ler için ayrı şema'lar tanımlamak istediğinizde (örn. POST/PUT için).
+  -   Otomatik çıkarım, MCP tool tanımında açığa çıkarmak istediğiniz belirli kısıtlamaları (enum'lar, açıklamalar vb.) yakalamazsa.
+
+  ```go
+  package main
+
+  import (
+  	// ... diğer import'lar
+  	"github.com/ckanthony/gin-mcp/pkg/server"
+  	"github.com/gin-gonic/gin"
+  )
+
+  // Query parametreleri için örnek struct
+  type ListProductsParams struct {
+  	Page  int    `form:"page,default=1" json:"page,omitempty" jsonschema:"description=Page number,minimum=1"`
+  	Limit int    `form:"limit,default=10" json:"limit,omitempty" jsonschema:"description=Items per page,maximum=100"`
+  	Tag   string `form:"tag" json:"tag,omitempty" jsonschema:"description=Filter by tag"`
+  }
+
+  // POST request body'si için örnek struct
+  type CreateProductRequest struct {
+  	Name  string  `json:"name" jsonschema:"required,description=Product name"`
+  	Price float64 `json:"price" jsonschema:"required,minimum=0,description=Product price"`
+  }
+
+  func main() {
+  	r := gin.Default()
+
+  	// --- Route'ları Tanımlayın ---
+  	r.GET("/products", func(c *gin.Context) { /* ... handler ... */ })
+  	r.POST("/products", func(c *gin.Context) { /* ... handler ... */ })
+  	r.PUT("/products/:id", func(c *gin.Context) { /* ... handler ... */ })
+
+
+  	// --- MCP Sunucusunu Yapılandırın ---
+  	mcp := server.New(r, &server.Config{
+  		Name:        "Product API",
+  		Description: "API for managing products.",
+  		BaseURL:     "http://localhost:8080",
+  	})
+
+  	// --- Şema'ları Kaydedin ---
+  	// ListProductsParams'ı GET /products için query şema'sı olarak kaydedin
+  	mcp.RegisterSchema("GET", "/products", ListProductsParams{}, nil)
+
+  	// CreateProductRequest'i POST /products için request body şema'sı olarak kaydedin
+  	mcp.RegisterSchema("POST", "/products", nil, CreateProductRequest{})
+
+  	// Gerektiğinde diğer method'lar/route'lar için şema'lar kaydedebilirsiniz
+  	// örn. mcp.RegisterSchema("PUT", "/products/:id", nil, UpdateProductRequest{})
+
+  	mcp.Mount("/mcp")
+  	r.Run(":8080")
+  }
+  ```
+
+  **Açıklama:**
+
+  -   `mcp.RegisterSchema(method, path, querySchema, bodySchema)`
+  -   `method`: HTTP method'u (örn. "GET", "POST").
+  -   `path`: Gin rota yolu (örn. "/products", "/products/:id").
+  -   `querySchema`: Query parametreleri için kullanılan struct'ın bir instance'ı (veya hiç yoksa `nil`). Gin-MCP şema'yı oluşturmak için reflection ve `jsonschema` tag'lerini kullanır.
+  -   `bodySchema`: Request body'si için kullanılan struct'ın bir instance'ı (veya hiç yoksa `nil`).
+
+  ### Açığa Çıkarılan Endpoint'leri Filtreleme
+
+  Operation ID'ler veya tag'ler kullanarak hangi Gin endpoint'lerinin MCP tool'ları olacağını kontrol edin. Tag'ler handler fonksiyon yorumlarınızdan `@tags` açıklamasından gelir (yukarıda "Handler'ları Açıklama" bölümüne bakın).
+
+  #### Tag Tabanlı Filtreleme
+
+  Tag'ler handler function yorumlarında `@tags` açıklaması kullanarak belirtilir. Tag'leri boşluk, virgül veya her ikisi ile ayrılmış olarak belirtebilirsiniz:
+
+  ```go
+  // listUsers kullanıcı listelemeyi işler
+  // @summary Tüm kullanıcıları listele
+  // @tags public users
+  func listUsers(c *gin.Context) {
+      // Implementasyon...
+  }
+
+  // deleteUser kullanıcı silmeyi işler
+  // @summary Kullanıcı sil
+  // @tags admin, internal
+  func deleteUser(c *gin.Context) {
+      // Implementasyon...
+  }
+  ```
+
+  #### Filtreleme Konfigürasyonu
+
+  ```go
+  // Sadece belirli operation'ları Operation ID'lerine göre dahil et
+  mcp := server.New(r, &server.Config{
+      // ... diğer config ...
+      IncludeOperations: []string{"GET_users", "POST_users"},
+  })
+
+  // Belirli operation'ları hariç tut
+  mcp := server.New(r, &server.Config{
+      // ... diğer config ...
+      ExcludeOperations: []string{"DELETE_users_id"}, // Sil tool'unu açığa çıkarma
+  })
+
+  // Sadece "public" veya "users" tag'leri ile etiketlenen operation'ları dahil et
+  // Bir tool belirtilen tag'lerden HERHANGİ BİRİNE sahipse dahil edilir
+  mcp := server.New(r, &server.Config{
+      // ... diğer config ...
+      IncludeTags: []string{"public", "users"},
+  })
+
+  // "admin" veya "internal" tag'leri ile etiketlenen operation'ları hariç tut
+  // Bir tool belirtilen tag'lerden HERHANGİ BİRİNE sahipse hariç tutulur
+  mcp := server.New(r, &server.Config{
+      // ... diğer config ...
+      ExcludeTags: []string{"admin", "internal"},
+  })
+  ```
+
+  **Filtreleme Kuralları:**
+
+  -   Sadece **bir** dahil etme filtresi (`IncludeOperations` **VEYA** `IncludeTags`) kullanabilirsiniz.
+      - Her ikisi de ayarlanırsa, `IncludeOperations` önceliklidir ve bir uyarı kaydedilir.
+  -   Sadece **bir** hariç tutma filtresi (`ExcludeOperations` **VEYA** `ExcludeTags`) kullanabilirsiniz.
+      - Her ikisi de ayarlanırsa, `ExcludeOperations` önceliklidir ve bir uyarı kaydedilir.
+  -   Bir dahil etme filtresi ile bir hariç tutma filtresini **birleştirebilirsiniz** (örn. "public" tag'ini dahil et ama "legacyPublicOp" operation'ını hariç tut).
+  -   **Hariç tutma her zaman kazanır**: Bir tool hem dahil etme hem de hariç tutma filtrelerine uyuyorsa, hariç tutulacaktır.
+  -   **Tag eşleşmesi**: Bir tool belirtilen tag'lerden **herhangi birine** sahipse dahil edilir/hariç tutulur (VEYA mantığı).
+
+  **Örnekler:**
+
+  ```go
+  // "public" endpoint'lerini dahil et ama "internal" tag'leri de olanları hariç tut
+  mcp := server.New(r, &server.Config{
+      IncludeTags: []string{"public"},
+      ExcludeTags: []string{"internal"},
+  })
+
+  // Belirli operation'ları dahil et ama admin endpoint'lerini hariç tut
+  mcp := server.New(r, &server.Config{
+      IncludeOperations: []string{"GET_users", "GET_products"},
+      ExcludeTags:       []string{"admin"},  // Bu göz ardı edilecek (öncelik kuralı)
+  })
+  ```
+
+  ### Şema Açıklamalarını Özelleştirme (Daha Az Sık)
+
+  Yanıt şema'larının oluşturulan tool'larda açıklanma şeklinin üzerinde gelişmiş kontrol için (genellikle gerekli değildir):
+
+  ```go
+  mcp := server.New(r, &server.Config{
+      // ... diğer config ...
+      DescribeAllResponses:    true, // Tüm olası response şema'larını (örn. 200, 404) tool açıklamalarına dahil et
+      DescribeFullResponseSchema: true, // Sadece bir referans yerine tam JSON schema object'ini dahil et
+  })
+  ```
+
+  ## Örnekler
+
+  Çeşitli özelikleri gösteren tam, çalıştırılabilir örnekler için [`examples`](examples) dizinine bakın:
+
+  ### Temel Kullanım Örnekleri
+
+  - **[`examples/simple/main.go`](examples/simple/main.go)** - Statik BaseURL konfigürasyonu ile tam ürün mağazası API'si
+  - **[`examples/simple/quicknode.go`](examples/simple/quicknode.go)** - Quicknode proxy ortamları için dinamik BaseURL konfigürasyonu  
+  - **[`examples/simple/ragflow.go`](examples/simple/ragflow.go)** - RAGFlow dağıtım senaryoları için dinamik BaseURL konfigürasyonu
+
+  ### Proxy Senaryoları için Dinamik BaseURL
+
+  Her kullanıcı/dağıtımın farklı bir endpoint'e sahip olduğu ortamlarda (Quicknode veya RAGFlow gibi), dinamik BaseURL çözünürlüğünü yapılandırabilirsiniz:
+
+  ```go
+  // Quicknode örneği - kullanıcıya özel endpoint'leri çözer
+  mcp := server.New(r, &server.Config{
+      Name: "Your API",
+      Description: "API with dynamic Quicknode endpoints",
+      // Statik BaseURL gerekmez!
+  })
+
+  resolver := server.NewQuicknodeResolver("http://localhost:8080")
+  mcp.SetExecuteToolFunc(func(operationID string, parameters map[string]interface{}) (interface{}, error) {
+      return mcp.ExecuteToolWithResolver(operationID, parameters, resolver)
+  })
+  ```
+
+  **Desteklenen Ortam Değişkenleri:**
+  - **Quicknode**: `QUICKNODE_USER_ENDPOINT`, `USER_ENDPOINT`, `HOST`
+  - **RAGFlow**: `RAGFLOW_ENDPOINT`, `RAGFLOW_WORKFLOW_URL`, `RAGFLOW_BASE_URL` + `WORKFLOW_ID`
+
+  Bu, başlangıçta statik BaseURL konfigürasyonunun ihtiyacını ortadan kaldırır, çok kiracılı proxy ortamları için mükemmeldir!
+
+  ### Streamable HTTP Taşıması (yatay ölçeklendirme)
+
+  Varsayılan olarak, Gin-MCP **SSE transport**'unu (MCP spec 2024-11-05) kullanır, bu da kalıcı bir GET bağlantısının sonraki POST istekleri ile **aynı pod**'a yönlendirilmesi gerektirir. Bu, load balancer'ları oturum yakınlığı (sticky sessions) kullanmaya zorlar, bu da yatay autoscaling ile uyumsuz ve birçok yönetilen load balancer tarafından desteklenmez (örn. GCP, AWS ALB).
+
+  **Streamable HTTP transport**'u (MCP spec 2025-03-26) bunu çözer: her POST JSON-RPC yanıtını doğrudan HTTP body'sine döndürür. Önceki GET bağlantısı veya pod yakınlığı gerekli değildir.
+
+  ```go
+  mcp := server.New(r, &server.Config{
+      Name:          "My API",
+      BaseURL:       "https://api.example.com",
+      TransportType: server.TransportTypeStreamableHTTP,
+  })
+  mcp.Mount("/mcp")
+  ```
+
+  MCP istemcileri tek bir `POST /mcp` ile bağlanırlar — önceki GET gerekmez.
+
+  #### Origin doğrulaması (DNS rebinding koruması)
+
+  [MCP spec 2025-03-26 §Security](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#security-considerations) uyarınca, sunucular `Origin` başlığını doğrulamalıdır. `AllowedOrigins` kullanarak tarayıcı kaynağındaki istekleri kısıtlayın:
+
+  ```go
+  mcp := server.New(r, &server.Config{
+      Name:          "My API",
+      BaseURL:       "https://api.example.com",
+      TransportType: server.TransportTypeStreamableHTTP,
+      // Sadece bu tarayıcı kaynağından isteklere izin ver.
+      // Kimlik doğrulama zaten yetkisiz erişimi engellediğinde atlanız (veya nil olarak bırakınız).
+      AllowedOrigins: []string{"https://app.example.com"},
+  })
+  ```
+
+  - Listede olmayan bir `Origin` başlığına sahip istekler → `403 Forbidden`.
+  - `Origin` başlığı olmayan istekler (sunucu-sunucu arası: `curl`, Node.js vb.) → her zaman izin verilir.
+  - Boş / nil `AllowedOrigins` → tüm kaynaklara izin verilir (Bearer token gerekli olduğunda uygun).
+
+  ### Authorization Header İletimi
+
+  Gin endpoint'leriniz JWT Bearer token'ları tarafından korunuyorsa, istemcinin `Authorization` başlığını her dahili tool-execution HTTP çağrısına iletebilirsiniz:
+
+  ```go
+  mcp := server.New(r, &server.Config{
+      Name:               "My API",
+      BaseURL:            "https://api.example.com",
+      ForwardAuthHeaders: true,
+  })
+  mcp.Mount("/mcp")
+  ```
+
+  - **SSE transport**: başlık SSE bağlantı zamanında bir kez yakalanır ve o bağlantı üzerinde tüm sonraki tool çağrıları için yeniden kullanılır.
+  - **Streamable HTTP transport**: başlık POST isteği başına yakalanır (her çağrı bağımsızdır).
+  - Varsayılan: `false` (devre dışı, geriye uyumluluk için).
+
+  ## MCP İstemcilerini Bağlama
+
+  Gin-MCP ile Gin uygulamanız çalıştığında:
+
+  1.  Uygulamanızı başlatın.
+  2.  MCP istemcinizde, MCP server'ını monte ettiğiniz URL'yi sağlayın (örn. `http://localhost:8080/mcp`):
+      - **SSE transport (varsayılan)**: SSE endpoint'i olarak bağlanın (aynı yola GET sonra POST).
+      - **Streamable HTTP transport**: düz HTTP endpoint'i olarak bağlanın (sadece POST).
+      - **Cursor**: Ayarlar → MCP → Sunucu Ekle
+      - **Claude Desktop**: MCP yapılandırma dosyasına ekle
+      - **Continue**: VS Code ayarlarında yapılandır
+      - **Zed**: MCP ayarlarına ekle
+  3.  İstemci bağlanacak ve mevcut API tool'larını otomatik olarak keşfedecek.
+
+  ## Katkı Sağlama
+
+  Katkılar hoş geldinir! Lütfen issues veya Pull Requests göndermekten çekinmeyin.
 ---
 
 # Gin-MCP: Zero-Config Gin to MCP Bridge

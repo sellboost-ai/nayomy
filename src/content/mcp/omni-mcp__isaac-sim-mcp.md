@@ -8,6 +8,210 @@ url: "https://github.com/omni-mcp/isaac-sim-mcp"
 body_length: 6971
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Isaac Sim MCP Uzantısı ve MCP Sunucusu
+
+  MCP Sunucusu ve uzantısı, Model Context Protocol (MCP) çerçevesini kullanarak NVIDIA Isaac Sim üzerinde doğal dil kontrolünü etkinleştirerek, konuşmacı yapay zeka girdilerini kesin simülasyon manipülasyonuna dönüştürür. Bu genişletme, MCP ekosistemini somutlaştırılmış zeka uygulamalarıyla birleştirir.
+
+  ## Özellikler
+
+  - Isaac Sim'in doğal dil kontrolü
+  - Dinamik robot konumlandırması ve hareketi
+  - Özel aydınlatma ve sahne oluşturma
+  - Engel navigasyonlu gelişmiş robot simülasyonları
+  - Yürütmeden önce etkileşimli kod önizlemesi
+
+  ## Gereksinimler
+
+  - NVIDIA Isaac Sim 4.2.0 veya daha yüksek
+  - Python 3.9+
+  - MCP entegrasyonu için Cursor AI editörü
+
+  ## **Zorunlu** Ön Koşul
+
+  - uv/uvx yükleyin: [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
+  - mcp[cli] tabanı ortama yükleyin: [uv pip install "mcp[cli]"](https://pypi.org/project/mcp/)
+
+  ## Kurulum
+
+  ```bash
+  cd ~/Documents
+  git clone https://github.com/omni-mcp/isaac-sim-mcp
+  ```
+
+  ### Uzantıyı Yükleyin ve Etkinleştirin
+
+  Isaac Sim uzantı klasörü proje klasörünüze işaret etmelidir:
+  - Uzantı konumu: `~/Documents/isaac-sim-mcp` 
+  - Uzantı ID'si: `isaac.sim.mcp_extension`
+
+  ```bash
+  # Isaac Simülasyonunda uzantıyı etkinleştirin
+  # Isaac Sim kurulum dizinine cd yapın
+  # --/persistent/isaac/asset_root/default="<your asset location>" ile yerel varlıklar kökünü değiştirebilirsiniz
+  # Varsayılan olarak bir AWS demeti, ör. --/persistent/isaac/asset_root/default="/share/Assets/Isaac/4.2"
+  # Beaver3d ve NVIDIA için API KEY'i ayarlayın
+  export BEAVER3D_MODEL=<your beaver3d model name>
+  export export ARK_API_KEY=<Your Bearver3D API Key>
+  export NVIDIA_API_KEY="<your nvidia api key  and apply it from https://ngc.nvidia.com/signout>"
+
+  cd ~/.local/share/ov/pkg/isaac-sim-4.2.0
+  ./isaac-sim.sh --ext-folder /home/ubuntu/Documents/isaac-sim-mcp/ --enable isaac.sim.mcp_extension 
+  ```
+
+  Uzantının başarıyla başladığını doğrulayın. Çıktı şöyle görünmelidir:
+
+  ```
+  [7.160s] [ext: isaac.sim.mcp_extension-0.1.0] startup
+  trigger  on_startup for:  isaac.sim.mcp_extension-0.1.0
+  settings:  {'envPath': '/home/ubuntu/.local/share/ov/data/Kit/Isaac-Sim/4.2/pip3-envs/default', 'archiveDirs': {}, 'installCheckIgnoreVersion': False, 'allowOnlineIndex': True, 'tryUpgradePipOnFirstUse': False}
+  Server thread startedIsaac Sim MCP server started on localhost:8766
+  ```
+
+  Uzantı varsayılan olarak **localhost:8766** üzerinde dinlemelidir.
+
+
+
+  ### MCP Sunucusunu Yükleyin
+
+  1. Terminale gidin ve çalıştırın, MCP sunucusunun temel venv ile terminalde başarıyla başlayabildiğinden emin olun.
+     ```
+     uv pip install "mcp[cli]"
+     uv run /home/ubuntu/Documents/isaac-sim-mcp/isaac_mcp/server.py
+     ```
+  2. Cursor'u başlatın ve `~/Documents/isaac-sim-mcp` klasörünü açın
+  3. Cursor tercihlerine gidin, MCP'yi seçin ve genel bir MCP sunucusu ekleyin:
+
+  ```json
+  {
+      "mcpServers": {
+          "isaac-sim": {
+              "command": "uv run /home/ubuntu/Documents/isaac-sim-mcp/isaac_mcp/server.py"
+          }
+      }
+  }
+  ```
+
+  ### Geliştirme Modu
+
+  MCP Sunucusunu geliştirmek için MCP denetçisini başlatın:
+
+  ```bash
+  uv run mcp dev ~/Documents/isaac-sim-mcp/isaac_mcp/server.py
+  ```
+
+  Hata ayıklama sayfasını http://localhost:5173 üzerinden ziyaret edebilirsiniz
+
+  ## Simülasyon İçin Örnek İstemler
+  Not: İstem yazmadan önce sohbet iletişim kutusunun sol üst köşesinde Agent moduna geçin ve daha iyi kodlama için sonnet 3.7'yi seçin.
+
+  ### Robot Partisi
+  ```
+  # Robotları oluşturun ve aydınlatmayı iyileştirin
+  create  3x3 frankas robots in these current stage across location [3, 0, 0] and [6, 3, 0]
+  always check connection with get_scene_info before execute code.
+  add more light in the stage
+
+
+  # Belirli konumlara belirli robotlar ekleyin
+  create a g1 robot at [3, 9, 0]
+  add Go1 robot at location [2, 1, 0]
+  move go1 robot to [1, 1, 0]
+  ```
+
+  ### Fabrika Kurulumu
+  ```
+  # Bir satırda birden fazla robot oluşturun
+  acreate  3x3 frankas robots in these current stage across location [3, 0, 0] and [6, 3, 0]
+  always check connection with get_scene_info before execute code.
+  add more light in the stage
+
+
+  ```
+  ### Sıfırdan Vibe Kodlaması
+  ```
+  reference to g1.py to create an new g1 robot simulation and allow robot g1 walk straight  from [0, 0, 0] to [3, 0, 0] and [3, 3, 0]
+  create more obstacles in the stage
+
+  ```
+  ### beaver3d model desteği ile Gen3D
+
+  ```
+  Use following images to generate beaver 3d objects and place them into a grid area across [0, 0, 0] to [40, 40, 0] with scale [3, 3, 3]
+
+  <your image url here, could be multiple images urls>
+  ```
+
+  ### USD Arama
+  ```
+  search a rusty desk and place it at [0, 5, 0] with scale [3, 3, 3]
+  ```
+
+  ## MCP Araçları
+
+  Isaac Sim MCP Uzantısı, Cursor AI'da doğal dil aracılığıyla erişilebilen birkaç özel araç sağlar. Bu araçlar, NVIDIA Isaac Sim'i basit komutlarla kontrol etmenizi ve manipüle etmenizi sağlar:
+
+  ### Bağlantı ve Sahne Yönetimi
+
+  - **get_scene_info** - Isaac Sim Uzantı Sunucusuna ping gönderip bağlantı durumunu doğrular ve temel sahne bilgilerini alır. Bağlantının aktif olduğundan emin olmak için her zaman bunu ilk kullanın.
+
+  ### Fizik ve Ortam Oluşturma
+
+  - **create_physics_scene** - Yapılandırılabilir parametrelerle fizik sahne oluşturur:
+    - `objects`: Oluşturulacak nesnelerin listesi (her biri tür ve konumla)
+    - `floor`: Yer düzlemi oluşturulup oluşturulmayacağı (varsayılan: true)
+    - `gravity`: Yerçekimi yönü ve büyüklüğünü tanımlayan vektör (varsayılan: [0, -0.981, 0])
+    - `scene_name`: Sahne için ad (varsayılan: "physics_scene")
+
+  ### Robot Oluşturma ve Kontrol
+
+  - **create_robot** - Sahneye belirtilen konumda robot oluşturur:
+    - `robot_type`: Oluşturulacak robot türü (seçenekler: "franka", "jetbot", "carter", "g1", "go1")
+    - `position`: [x, y, z] konum koordinatları
+
+  ### Omniverse Kit ve Komut Dosyası
+
+  - **omni_kit_command** - Omni Kit komutu yürütür:
+    - `command`: Yürütülecek Omni Kit komutu (ör. "CreatePrim")
+    - `prim_type`: Komut için ilkel tür (ör. "Sphere")
+
+  - **execute_script** - Isaac Sim'de rastgele Python kodu yürütür:
+    - `code`: Yürütülecek Python kodu
+
+  ### Kullanım En İyi Uygulamaları
+
+  1. Herhangi bir komutu yürütmeden önce `get_scene_info` ile bağlantıyı kontrol edin
+  2. Robot eklemeden önce `create_physics_scene` ile fizik sahne başlatın
+  3. Özel komut dosyalarını denemeden önce standart robot yerleştirme için `create_robot` kullanın
+  4. Karmaşık simülasyonlar için, uygun async desenleriyle `execute_script` kullanın
+  5. Doğrulama için yürütmeden önce komutu sohbette önizleyin
+
+  ## Katkı Sağlama
+
+  Katkılar hoş karşılanır! Lütfen bir Pull Request göndermekten çekinmeyin.
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakın.
+
+  ## Video Gösterimleri
+
+  Aşağıda Isaac Sim MCP Uzantısının eylemde yapıldığı gösterimler verilmiştir:
+
+  ### Robot Partisi Demosı
+
+  ![Robot Partisi Demosı](https://raw.githubusercontent.com/omni-mcp/isaac-sim-mcp/HEAD/media/add_more_robot_into_party.gif)
+
+  *GIF: Doğal dil komutlarını kullanarak simülasyona daha fazla robot ekleme*
+
+
+  ### Video Formatı (MP4)
+
+  Daha yüksek kalitede video için MP4 sürümüne doğrudan erişebilirsiniz:
+
+  - [Robot Partisi Demosı (MP4)](media/add_more_robot_into_party.mp4)
+
+  GitHub'da görüntülerken, MP4 dosyasını görüntülemek veya indirmek için yukarıdaki bağlantıya tıklayabilirsiniz.
 ---
 
 # Isaac Sim MCP Extension and MCP Server

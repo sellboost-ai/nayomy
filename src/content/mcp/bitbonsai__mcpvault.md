@@ -7,6 +7,743 @@ stars: 1307
 url: "https://github.com/bitbonsai/mcpvault"
 body_length: 25269
 language: "Astro"
+body_tr: |-
+  <div align="center">
+    
+  </div>
+
+  # MCPVault
+
+  Obsidian kasalarınız için Model Context Protocol (MCP) standardını kullanan evrensel bir AI köprüsü. Herhangi bir MCP-uyumlu AI asistanını bilgi tabanınıza bağlayın - Claude, ChatGPT ve gelecekteki AI araçlarıyla çalışır. Bu sunucu notlarınıza güvenli okuma/yazma erişimi sağlarken YAML frontmatter'ının bozulmasını önler.
+
+  <div align="center">
+    
+  [https://mcpvault.org](https://mcpvault.org)
+
+  [Changelog](./CHANGELOG.md)
+
+  </div>
+
+  <div align="center">
+
+  [![GitHub Stars](https://img.shields.io/github/stars/bitbonsai/mcpvault?style=flat&logo=github&logoColor=white&color=9065ea&labelColor=262626)](https://github.com/bitbonsai/mcpvault)
+  [![npm version](https://img.shields.io/npm/v/%40bitbonsai%2Fmcpvault?style=flat&logo=npm&logoColor=white&color=9065ea&labelColor=262626)](https://www.npmjs.com/package/@bitbonsai/mcpvault)
+  [![npm downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fmcpvault.org%2Fapi%2Fdownloads.json&style=flat&logo=npm&logoColor=white&color=9065ea&labelColor=262626)](https://www.npmjs.com/package/@bitbonsai/mcpvault)
+  [![GitHub Sponsors](https://img.shields.io/github/sponsors/BitBonsai?style=flat&logo=github&logoColor=white&color=9065ea&labelColor=262626)](https://github.com/sponsors/bitbonsai)
+  [![Ko-Fi](https://img.shields.io/badge/Ko--fi-Support%20Me-9065ea?style=flat&logo=ko-fi&logoColor=white&labelColor=262626)](https://ko-fi.com/bitbonsai)
+  [![Liberapay](https://img.shields.io/badge/Liberapay-Weekly%20Support-9065ea?style=flat&logo=liberapay&logoColor=white&labelColor=262626)](https://liberapay.com/bitbonsai/)
+
+  </div>
+
+  ## Evrensel Uyumluluk
+
+  Claude Desktop, Claude Code, ChatGPT Desktop (Enterprise+), OpenCode, Gemini CLI, OpenAI Codex, IntelliJ IDEA 2025.1+, Cursor IDE, Windsurf IDE ve MCP standardını benimseyen gelecekteki AI platformları dahil olmak üzere herhangi bir MCP-uyumlu AI asistanıyla çalışır.
+
+  https://github.com/user-attachments/assets/657ac4c6-1cd2-4cc3-829f-fd095a32f71c
+
+  ## Hızlı Başlangıç (5 dakika)
+
+  1. **Node.js runtime'ını kurun:**
+
+     ```bash
+     # https://nodejs.org adresinden indirin (v18.0.0 veya daha yeni)
+     # veya nvm, brew, apt, vb. gibi bir paket yöneticisi kullanın
+     ```
+
+  2. **Sunucuyu test edin:**
+
+     Yayınlanmış paketi kullanıyorsanız:
+
+     ```bash
+     npx @modelcontextprotocol/inspector npx @bitbonsai/mcpvault@latest /path/to/your/vault
+     ```
+
+  3. **AI istemcinizi yapılandırın:**
+
+     **Claude Desktop** - Bunu `claude_desktop_config.json` dosyasına kopyalayın:
+
+     ```json
+     {
+       "mcpServers": {
+         "obsidian": {
+           "command": "npx",
+           "args": ["@bitbonsai/mcpvault@latest", "/path/to/your/vault"]
+         }
+       }
+     }
+     ```
+
+     **Claude Code** - Bunu `~/.claude.json` dosyasına kopyalayın:
+
+     ```json
+     {
+       "mcpServers": {
+         "obsidian": {
+           "command": "npx",
+           "args": ["@bitbonsai/mcpvault@latest", "/path/to/your/vault"],
+           "env": {}
+         }
+       }
+     }
+     ```
+
+     **OpenCode** - Bunu `~/.config/opencode/opencode.json` dosyasına kopyalayın
+
+     ```json
+     {
+       "mcp": {
+         "obsidian": {
+           "type": "local",
+           "command": [
+             "npx",
+             "@bitbonsai/mcpvault@latest",
+             "/path/to/your/vault/"
+           ],
+           "enabled": true
+         }
+       }
+     }
+     ```
+
+     `/path/to/your/vault` kısmını gerçek Obsidian kasa yolunuzla değiştirin.
+
+     Diğer platformlar için, aşağıdaki [detaylı yapılandırma rehberlerine](#ai-client-configuration) bakın.
+
+  4. **AI'ınızla test edin:**
+     - "Obsidian kasam'da dosyaları listele"
+     - "Benim 'proje-fikirler.md' adlı notumu oku"
+     - "Bugünün tarihi ile yeni bir not oluştur"
+
+  **Başarı göstergeleri:** AI'ınız kasanızdan dosyaları listeleyebilmeli ve notları okuyabilmelidir.
+
+  ## Neden MCPVault?
+
+  ### Evrensel AI Uyumluluğu
+
+  Açık Model Context Protocol standardı üzerine kurulu MCPVault, hiçbir AI sağlayıcısına kilitli değildir. Daha fazla AI asistanı MCP'yi benimledikçe, bu araçtaki yatırımınız daha değerli hale gelir. Bugün Claude ve ChatGPT ile çalışıyor - yarın ortaya çıkacak hangi AI araçlarıyla çalışacağı bilinmiyor.
+
+  ### Bilgi Tabanınızı Gelecek Prooflaştırın
+
+  Her AI şirketinin Obsidian entegrasyonları geliştirmesini beklemek yerine, MCPVault herhangi bir MCP-uyumlu asistanla çalışan evrensel bir adaptör sağlar. Bir araç, sonsuz olasılıklar.
+
+  ### Açık Standart, Kilitlenme Yok
+
+  MCP bir açık protokoldür. Herhangi bir özel satıcı veya platforma bağlı değilsiniz. Notlarınız sizin kalır, herhangi bir uyumlu AI asistanı aracılığıyla erişilebilir.
+
+  ## Özellikler
+
+  - ✅ AST-aware güncellemeleriyle gray-matter kullanarak güvenli frontmatter ayrıştırma ve doğrulama, değiştirilmemiş alanlar için ham biçimlendirmeyi korur
+  - ✅ `.obsidian` dizinini ve diğer sistem dosyalarını hariç tutmak için yol filtreleme
+  - ✅ **Tam MCP araç seti**: 14 metod tüm vault işlemlerini kapsar
+    - Dosya işlemleri: `read_note`, `write_note`, `patch_note`, `delete_note`, `move_note`, `move_file`
+    - Dizin işlemleri: `list_directory`
+    - Toplu işlemler: `read_multiple_notes`
+    - Arama: `search_notes` çok sözcüklü eşleştirme ve BM25 uygunluk yeniden sıralanması ile
+    - Meta veri: `get_frontmatter`, `update_frontmatter`, `get_notes_info`, `get_vault_stats`
+    - Tag yönetimi: `manage_tags` (ekleme, kaldırma, listeleme)
+  - ✅ Yazma modları: esnek içerik düzenlemesi için `overwrite`, `append`, `prepend`
+  - ✅ Tag yönetimi: notlara tag ekleme, kaldırma ve listeleme
+  - ✅ Kazaları önlemek için onay gerektiren güvenli silme
+  - ✅ Girişlerdeki boşluğu işlemek için otomatik yol kısaltması
+  - ✅ Node.js runtime ile TypeScript desteği (yürütme için tsx kullanarak)
+  - ✅ Kapsamlı hata işleme ve doğrulama
+  - ✅ **Token-optimized yanıtlar**: minified alan adları ve kompakt JSON ile 40-60% daha küçük yanıtlar (v0.6.3+)
+  - ✅ **İsteğe bağlı güzel yazdırma**: İnsan tarafından okunabilir hata ayıklama için `prettyPrint: true` ayarlayın
+  - ✅ **Performans optimize edilmiş**: Gereksiz token tüketimi yok, büyük kasalar için verimli
+  - ✅ **Sıfır bağımlılık**: Obsidian eklentisi gerekli değil, herhangi bir kasa yapısıyla çalışır
+
+  ## Ön Koşullar
+
+  - [Node.js](https://nodejs.org) runtime (v18.0.0 veya daha yeni)
+  - Bir Obsidian kasası (`.md`, `.markdown`, `.txt`, `.base` veya `.canvas` dosyaları içeren yerel dizin)
+  - MCP-uyumlu AI istemcisi (Claude Desktop, ChatGPT Desktop, Claude Code, vb.)
+
+  ## Kurulum
+
+  ### Son Kullanıcılar İçin (Önerilir)
+
+  Kurulum gerekli değil! `npx` ile doğrudan çalıştırın:
+
+  ```bash
+  npx @bitbonsai/mcpvault@latest /path/to/your/obsidian/vault
+  ```
+
+  Kasa yolunu atlarsanız, sunucu geçerli çalışma dizinini kasa kökü olarak kullanır.
+
+  ### Geliştiriciler İçin
+
+  1. Bu depoyu klonlayın
+  2. Doğru Node.js sürümünü kullanın:
+
+  ```bash
+  nvm use  # .nvmrc dosyasından Node 24'ü kullanır
+  ```
+
+  3. npm ile bağımlılıkları kurun:
+
+  ```bash
+  npm install  # Corepack otomatik olarak npm 10.9.0'ı kullanır
+  ```
+
+  4. MCP inspector ile yerel olarak test edin:
+
+  ```bash
+  npx @modelcontextprotocol/inspector npm start /path/to/your/vault
+  ```
+
+  **Pro ipucu:** AI istemcileriyle yapılandırmadan önce tüm sunucu işlevselliğini test etmek için MCP Inspector'ı kullanın:
+
+  ```bash
+  # Kolay erişim için genel olarak kurun
+  npm install -g @modelcontextprotocol/inspector
+
+  # Herhangi bir kasa ile test edin
+  mcp-inspector npx @bitbonsai/mcpvault@latest /path/to/your/vault
+  ```
+
+  ## Kullanım
+
+  ### Sunucuyu Çalıştırma
+
+  **Son kullanıcılar:**
+
+  ```bash
+  npx @bitbonsai/mcpvault@latest
+  npx @bitbonsai/mcpvault@latest /path/to/your/obsidian/vault
+  npx @bitbonsai/mcpvault@latest ./Vault
+  ```
+
+  **Geliştiriciler:**
+
+  ```bash
+  npm start
+  npm start /path/to/your/obsidian/vault
+  npm start ./Vault
+  ```
+
+  ### AI İstemcisi Yapılandırması
+
+  #### Claude Desktop
+
+  Claude Desktop yapılandırma dosyanıza ekleyin:
+
+  **Tek Kasa:**
+
+  ```json
+  {
+    "mcpServers": {
+      "obsidian": {
+        "command": "npx",
+        "args": [
+          "@bitbonsai/mcpvault@latest",
+          "/Users/yourname/Documents/MyVault"
+        ]
+      }
+    }
+  }
+  ```
+
+  **Birden Fazla Kasa:**
+
+  ```json
+  {
+    "mcpServers": {
+      "obsidian-personal": {
+        "command": "npx",
+        "args": [
+          "@bitbonsai/mcpvault@latest",
+          "/Users/yourname/Documents/PersonalVault"
+        ]
+      },
+      "obsidian-work": {
+        "command": "npx",
+        "args": [
+          "@bitbonsai/mcpvault@latest",
+          "/Users/yourname/Documents/WorkVault"
+        ]
+      }
+    }
+  }
+  ```
+
+  **Yapılandırma Dosyası Konumları:**
+
+  - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - **Windows:** `C:\Users\{username}\AppData\Roaming\Claude\claude_desktop_config.json`
+  - **Linux:** `~/.config/Claude/claude_desktop_config.json`
+
+  _Bunu Claude Desktop → Ayarlar → Geliştirici → Yapılandırmayı Düzenle aracılığıyla da erişebilirsiniz_
+
+  #### ChatGPT Desktop
+
+  **Gereksinimler:** ChatGPT Enterprise, Education veya Team aboneliği (bireysel Plus kullanıcıları için kullanılamaz)
+
+  ChatGPT, Deep Research ve geliştirici modu aracılığıyla MCP kullanır. Yapılandırma ChatGPT arayüzü aracılığıyla yapılır:
+
+  1. ChatGPT geliştirici moduna erişin (beta özellik)
+  2. Yerleşik MCP istemcisi aracılığıyla MCP sunucularını yapılandırın
+  3. Kuruluşunuz için özel konektörler oluşturun
+
+  _Not: ChatGPT Desktop'ın MCP entegrasyonu şu anda kurumsal aboneliklerle sınırlıdır ve dosya tabanlı yapılandırmadan farklı bir kurulum süreci kullanır._
+
+  #### Claude Code
+
+  Claude Code `.claude.json` yapılandırma dosyasını kullanır:
+
+  **Kullanıcı kapsamlı (önerilir):**
+  `~/.claude.json` dosyasını düzenleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "obsidian": {
+        "command": "npx",
+        "args": ["@bitbonsai/mcpvault@latest", "/path/to/your/vault"],
+        "env": {}
+      }
+    }
+  }
+  ```
+
+  **Proje kapsamlı:**
+  Projenizde `.claude.json` dosyasını düzenleyin veya projeler bölümüne ekleyin:
+
+  ```json
+  {
+    "projects": {
+      "/path/to/your/project": {
+        "mcpServers": {
+          "obsidian": {
+            "command": "npx",
+            "args": ["@bitbonsai/mcpvault@latest", "/path/to/your/vault"]
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  **Claude Code CLI kullanarak:**
+
+  ```bash
+  claude mcp add obsidian --scope user npx @bitbonsai/mcpvault /path/to/your/vault
+  ```
+
+  #### Goose Desktop
+
+  Goose Desktop ayarlarında **Özel uzantı ekle**'ye tıklayın ve komut alanına şunu ekleyin:
+
+  ```bash
+  npx @bitbonsai/mcpvault@latest /path/to/your/vault
+  ```
+
+  #### Diğer MCP-Uyumlu İstemciler (2025)
+
+  **Onaylı MCP Desteği:**
+
+  - **IntelliJ IDEA 2025.1+** - Yerel MCP istemcisi desteği
+  - **Cursor IDE** - Yerleşik MCP uyumluluğu
+  - **Windsurf IDE** - Tam MCP entegrasyonu
+  - **Zed, Replit, Codeium, Sourcegraph** - Geliştirme aşamasında
+  - **Microsoft Copilot Studio** - Tek tıklık sunucu bağlantılarıyla yerel MCP desteği
+
+  Çoğu modern MCP istemcisi benzer JSON yapılandırma desenleri kullanır. Tam kurulum talimatları için lütfen belirli istemcinizin belgelerine bakın.
+
+  ### Örnekler
+
+  #### AI asistanınızdan notlarınız hakkında soru sorun:
+
+  - "Obsidian kasam'da hangi dosyalar var?"
+  - "Benim 'proje-fikirler.md' adlı notumu oku"
+  - "Başlığında 'AI' olan tüm notları göster"
+
+  #### AI asistanınızdan not yönetimi konusunda yardım alın:
+
+  - "Bugünün tarihi ile frontmatter'da 'toplantı-notları.md' adlı yeni bir not oluştur"
+  - "Bugünün günlük girişini günlük notuma ekle"
+  - "Acil bir görevi yapılacaklar listemimin başına ekle"
+  - "Benim görev notuma 'proje' ve 'acil' etiketlerini ekle"
+  - "Araştırma notundaki tüm etiketleri listele"
+  - "Tamamlanmış makalemin 'taslak' etiketini kaldır"
+  - "Benim 'Projeler' klasöründeki tüm markdown dosyalarını listele"
+  - "Eski taslak notu 'taslak-fikirler.md' sil (onay ile)"
+
+  #### Gelişmiş Kullanım Durumları:
+
+  - **Bilgi Sentezi**: "Geçen ay 'makine-öğrenmesi' etiketiyle etiketlenmiş tüm araştırma notlarımı özetleyin"
+  - **Proje Yönetimi**: "Tüm proje notlarındaki durumu 'tamamlandı' olarak güncelleyin ve bugünün tarihini ekleyin"
+  - **İçerik Analizi**: "'API tasarımı'ndan bahseden tüm notları bulun ve kapsamlı bir rehber oluşturun"
+  - **Akıllı Tagleme**: "Etiketlenmemiş notlarımı gözden geçirin ve içeriğe dayalı uygun etiketler öneriniz"
+
+  ## Sorun Giderme
+
+  ### Yaygın Sorunlar
+
+  #### "command not found: npx"
+
+  - **Çözüm:** [nodejs.org](https://nodejs.org) adresinden Node.js runtime'ı kurun
+  - **Alternatif:** Genel yüklemeyi kullanın: `npm install -g @bitbonsai/mcpvault`
+
+  #### Yollar doğru görünse bile "File not found"
+
+  - **Neden:** Sunucu yanlış kasa kökünü kullanıyor
+  - **Çözüm:** Ya komutunu kasa dizininden çalıştırın ya da kasa yolunu açıkça iletin
+
+  #### "Permission denied" hataları
+
+  - **Neden:** Yetersiz dosya sistemi izinleri
+  - **Çözüm:** Kasa dizininin kullanıcınız tarafından okunabilir/yazılabilir olduğundan emin olun
+
+  #### "Path traversal not allowed"
+
+  - **Neden:** Kasanın dışında dosyalara erişmeye çalışma
+  - **Çözüm:** Tüm dosya yolları kasa köküne göre relatif olmalıdır
+
+  #### AI istemcisi sunucuyu tanımıyor
+
+  1. Yapılandırma dosyası yolunun OS'iniz için doğru olup olmadığını kontrol edin
+  2. JSON sözdiziminin geçerli olup olmadığını kontrol edin (bir JSON doğrulayıcı kullanın)
+  3. Yapılandırma değişikliklerinden sonra AI istemcinizi yeniden başlatın
+  4. Hata iletileri için AI istemcinizin günlüklerini kontrol edin
+  5. AI istemcinizin MCP (Model Context Protocol) destekleyip desteklemediğini doğrulayın
+
+  #### ".obsidian dosyaları hala görünüyor"
+
+  - **Beklenen:** Yol filtresi otomatik olarak `.obsidian/**` modellerini hariç tutar
+  - **Hala görüyorsanız:** Filtre güvenlik için tasarlandığı şekilde çalışıyor
+
+  ### Debug Modu
+
+  Hata günlüğü ile çalıştırın:
+
+  ```bash
+  npx @bitbonsai/mcpvault /path/to/vault 2>debug.log
+  ```
+
+  ### Yardım Alma
+
+  - GitHub'da [bir sorun açın](https://github.com/bitbonsai/mcpvault/issues)
+  - İşletim sisteminizi, Node.js sürümünü ve hata iletilerini ekleyin
+  - Kasa dizin yapısını sağlayın (hassas içerik olmadan)
+
+  ## Test
+
+  Test paketini çalıştırın:
+
+  ```bash
+  npm test
+  ```
+
+  ## API Metodları
+
+  ### `read_note`
+
+  Kasadan ayrıştırılmış frontmatter ile bir notu okuyun.
+
+  **İstek:**
+
+  ```json
+  {
+    "name": "read_note",
+    "arguments": {
+      "path": "project-ideas.md",
+      "prettyPrint": false
+    }
+  }
+  ```
+
+  **Yanıt (tokenler için optimize edilmiş):**
+
+  ```json
+  {
+    "fm": {
+      "title": "Project Ideas",
+      "tags": ["projects", "brainstorming"],
+      "created": "2023-01-15T10:30:00.000Z"
+    },
+    "content": "# Project Ideas\n\n## AI Tools\n- MCP server for Obsidian\n- Voice note transcription\n\n## Web Apps\n- Task management system"
+  }
+  ```
+
+  **Yanıt (prettyPrint: true ile):**
+
+  ```json
+  {
+    "fm": {
+      "title": "Project Ideas",
+      "tags": ["projects", "brainstorming"],
+      "created": "2023-01-15T10:30:00.000Z"
+    },
+    "content": "# Project Ideas\n\n## AI Tools\n- MCP server for Obsidian\n- Voice note transcription\n\n## Web Apps\n- Task management system"
+  }
+  ```
+
+  ### `write_note`
+
+  İsteğe bağlı frontmatter ve yazma modu ile kasaya bir notu yazın.
+
+  **Yazma Modları:**
+
+  - `overwrite` (varsayılan): Tüm dosya içeriğini değiştir
+  - `append`: İçeriği mevcut dosyanın sonuna ekle
+  - `prepend`: İçeriği mevcut dosyanın başına ekle
+
+  **İstek (Üzerine Yazma):**
+
+  ```json
+  {
+    "name": "write_note",
+    "arguments": {
+      "path": "meeting-notes.md",
+      "content": "# Team Meeting\n\n## Agenda\n- Project updates\n- Next milestones",
+      "frontmatter": {
+        "title": "Team Meeting Notes",
+        "date": "2023-12-01",
+        "tags": ["meetings", "team"]
+      },
+      "mode": "overwrite"
+    }
+  }
+  ```
+
+  **İstek (Ekleme):**
+
+  ```json
+  {
+    "name": "write_note",
+    "arguments": {
+      "path": "daily-log.md",
+      "content": "\n\n## 3:00 PM Update\n- Completed project review\n- Started new feature",
+      "mode": "append"
+    }
+  }
+  ```
+
+  **Yanıt:**
+
+  ```json
+  {
+    "message": "Successfully wrote note: meeting-notes.md (mode: overwrite)"
+  }
+  ```
+
+  ### `patch_note`
+
+  Tüm dosyayı yeniden yazmadan varolan bir notu içindeki tam bir dizgiyi etkili bir şekilde değiştirin.
+
+  **İstek:**
+
+  ```json
+  {
+    "name": "patch_note",
+    "arguments": {
+      "path": "meeting-notes.md",
+      "oldString": "- Next milestones",
+      "newString": "- Next milestones (owner: Alex)",
+      "replaceAll": false
+    }
+  }
+  ```
+
+  **Yanıt (başarı):**
+
+  ```json
+  {
+    "success": true,
+    "path": "meeting-notes.md",
+    "message": "Successfully replaced 1 occurrence",
+    "matchCount": 1
+  }
+  ```
+
+  **Yanıt (replaceAll=false ile birden fazla eşleşme):**
+
+  ```json
+  {
+    "success": false,
+    "path": "meeting-notes.md",
+    "message": "Found 3 occurrences of the string. Use replaceAll=true to replace all occurrences, or provide a more specific string to match exactly one occurrence.",
+    "matchCount": 3
+  }
+  ```
+
+  ### `list_directory`
+
+  Kasada dosya ve dizinleri listeleyin.
+
+  Not: bu, not araçlarının hala only note files (`.md`, `.markdown`, `.txt`, `.base`, `.canvas`) üzerinde çalışırken AI asistanlarının kasa yapısını görmesini sağlamak için `pdf`, `png`, `jpg` gibi not olmayan dosya adlarını da içerir.
+
+  **İstek:**
+
+  ```json
+  {
+    "name": "list_directory",
+    "arguments": {
+      "path": "Projects",
+      "prettyPrint": false
+    }
+  }
+  ```
+
+  **Yanıt (optimize edilmiş):**
+
+  ```json
+  {
+    "dirs": ["AI-Tools", "Web-Development"],
+    "files": ["project-template.md", "roadmap.md"]
+  }
+  ```
+
+  ### `delete_note`
+
+  Kasadan bir notu silin (güvenlik için onay gerekir).
+
+  **İstek:**
+
+  ```json
+  {
+    "name": "delete_note",
+    "arguments": {
+      "path": "old-draft.md",
+      "confirmPath": "old-draft.md",
+      "trashMode": "local"
+    }
+  }
+  ```
+
+  **Yanıt (Başarı):**
+
+  ```json
+  {
+    "success": true,
+    "path": "old-draft.md",
+    "message": "Successfully moved note to vault trash: old-draft.md"
+  }
+  ```
+
+  **Çöp modları:**
+  - `none` (varsayılan): kalıcı silme
+  - `local`: kasa içinde `.trash` klasörüne taşı, klasör yapısını koru
+  - `system`: işletim sistemi çöpüne/geri dönüşüm kutusuna taşı
+
+  **Yanıt (Onay Başarısız):**
+
+  ```json
+  {
+    "success": false,
+    "path": "old-draft.md",
+    "message": "Deletion cancelled: confirmation path does not match. For safety, both 'path' and 'confirmPath' must be identical."
+  }
+  ```
+
+  **⚠️ Güvenlik Notu:** `confirmPath` parametresi silme işlemini gerçekleştirmek için `path` parametresiyle tam olarak eşleşmelidir. Bu, yanlışlıkla silinmeleri önler.
+
+  ### `get_frontmatter`
+
+  Tam içeriği okumadan bir nottan sadece frontmatter'ı çıkarın.
+
+  **İstek:**
+
+  ```json
+  {
+    "name": "get_frontmatter",
+    "arguments": {
+      "path": "project-ideas.md",
+      "prettyPrint": false
+    }
+  }
+  ```
+
+  **Yanıt (optimize edilmiş, frontmatter'ı doğrudan döndürür):**
+
+  ```json
+  {
+    "title": "Project Ideas",
+    "tags": ["projects", "brainstorming"],
+    "created": "2023-01-15T10:30:00.000Z"
+  }
+  ```
+
+  ### `manage_tags`
+
+  Bir nottaki etiketleri ekleyin, kaldırın veya listeleyin. Etiketler frontmatter'da yönetilir ve satır içi etiketler algılanır.
+
+  **İstek (Etiketleri Listele):**
+
+  ```json
+  {
+    "name": "manage_tags",
+    "arguments": {
+      "path": "research-notes.md",
+      "operation": "list"
+    }
+  }
+  ```
+
+  **İstek (Etiket Ekle):**
+
+  ```json
+  {
+    "name": "manage_tags",
+    "arguments": {
+      "path": "research-notes.md",
+      "operation": "add",
+      "tags": ["machine-learning", "ai", "important"]
+    }
+  }
+  ```
+
+  **İstek (Etiket Kaldır):**
+
+  ```json
+  {
+    "name": "manage_tags",
+    "arguments": {
+      "path": "research-notes.md",
+      "operation": "remove",
+      "tags": ["draft", "temporary"]
+    }
+  }
+  ```
+
+  **Yanıt:**
+
+  ```json
+  {
+    "path": "research-notes.md",
+    "operation": "add",
+    "tags": ["research", "ai", "machine-learning", "important"],
+    "success": true,
+    "message": "Successfully added tags"
+  }
+  ```
+
+  ### `search_notes`
+
+  Çok sözcüklü eşleştirme ve BM25 uygunluk yeniden sıralanması ile kasada notları içerik veya frontmatter'da arayın.
+
+  **İstek:**
+
+  ```json
+  {
+    "name": "search_notes",
+    "arguments": {
+      "query": "machine learning",
+      "limit": 5,
+      "searchContent": true,
+      "searchFrontmatter": false,
+      "caseSensitive": false,
+      "prettyPrint": false
+    }
+  }
+  ```
+
+  **Yanıt (optimize edilmiş, kısaltılmış alan adları ile):**
+
+  ```json
+  [
+    {
+      "p": "ai-research.md",
 ---
 
 <div align="center">

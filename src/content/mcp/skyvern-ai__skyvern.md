@@ -9,6 +9,474 @@ body_length: 24860
 license: "AGPL-3.0"
 language: "Python"
 homepage: "https://www.skyvern.com"
+body_tr: |-
+  <!-- DOCTOC SKIP -->
+
+  <h1 align="center">
+   <a href="https://www.skyvern.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="fern/images/skyvern_logo.png"/>
+      
+    </picture>
+   </a>
+   <br />
+  </h1>
+  <p align="center">
+  🐉 LLM ve Bilgisayarla Görü Kullanarak Tarayıcı Tabanlı İş Akışlarını Otomatikleştirin 🐉
+  </p>
+  <p align="center">
+    <a href="https://www.skyvern.com/"></a>
+    <a href="https://www.skyvern.com/docs/"></a>
+    <a href="https://discord.gg/fG2XXEuQX3"></a>
+    <!-- <a href="https://pepy.tech/project/skyvern" target="_blank"></a> -->
+    <a href="https://github.com/skyvern-ai/skyvern"></a>
+    <a href="https://github.com/Skyvern-AI/skyvern/blob/main/LICENSE"></a>
+    <a href="https://twitter.com/skyvernai"></a>
+    <a href="https://www.linkedin.com/company/95726232"></a>
+  </p>
+
+  [Skyvern](https://www.skyvern.com) LLM ve bilgisayarla görü kullanarak tarayıcı tabanlı iş akışlarını otomatikleştirir. Playwright'ın üstüne AI işlevselliği ekleyen Playwright uyumlu bir SDK sağlar ve hem teknik hem de teknik olmayan kullanıcıların herhangi bir web sitesinde manuel iş akışlarını otomatikleştirmesine yardımcı olmak için kodlamaya gerek olmayan bir iş akışı oluşturucusu sağlar, bu da kırılgan veya güvenilmez otomasyon çözümlerinin yerini alır.
+
+  <p align="center">
+    
+  </p>
+
+  Tarayıcı otomasyonuna yönelik geleneksel yaklaşımlar, web sitelerine yönelik özel betikler yazmayı gerektiriyordu ve genellikle web sitesi düzenlemeleri değiştiğinde kesilen DOM ayrıştırması ve XPath tabanlı etkileşimlere dayanıyordu.
+
+  Skyvern, yalnızca kod tarafından tanımlanan XPath etkileşimlerine güvenmek yerine, web sitelerini öğrenmek ve bunlarla etkileşim kurmak için Vision LLM'leri kullanır.
+
+  # Nasıl Çalışır
+  Skyvern, [BabyAGI](https://github.com/yoheinakajima/babyagi) ve [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) tarafından popülerleştirilen Task-Driven özerk agent tasarımından ilham almıştır - bir ana avantajı vardır: Skyvern'e [Playwright](https://playwright.dev/) gibi tarayıcı otomasyon kütüphaneleri kullanarak web sitelerle etkileşim kurma yeteneği veriyoruz.
+
+  Skyvern bir web sitesini anlamak ve eylemlerini planlamak ve yürütmek için bir agent sürüsü kullanır:
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="fern/images/skyvern_2_0_system_diagram.png" />
+    
+  </picture>
+
+  Bu yaklaşımın birkaç avantajı vardır:
+
+  1. Skyvern daha önce görmediği web sitelerinde çalışabilir, çünkü herhangi bir özelleştirilmiş kod olmadan görsel öğeleri bir iş akışını tamamlamak için gerekli eylemlerle eşleyebilir
+  1. Skyvern web sitesi düzen değişikliklerine karşı dirençlidir, çünkü sistemimizin gezinmeye çalışırken aradığı önceden belirlenmiş XPath'ler veya diğer seçiciler yoktur
+  1. Skyvern tek bir iş akışını çok sayıda web sitesine uygulayabilir, çünkü iş akışını tamamlamak için gerekli etkileşimler konusunda mantık yürütebilir
+  Ayrıntılı bir teknik rapor [burada](https://www.skyvern.com/blog/skyvern-2-0-state-of-the-art-web-navigation-with-85-8-on-webvoyager-eval/) bulunabilir.
+
+  # Demo
+  <!-- Redo demo -->
+  https://github.com/user-attachments/assets/5cab4668-e8e2-4982-8551-aab05ff73a7f
+
+  # Hızlı Başlangıç
+
+  ## Skyvern Cloud
+  [Skyvern Cloud](https://app.skyvern.com), altyapı hakkında endişelenmenize gerek kalmadan Skyvern'i çalıştırmanızı sağlayan yönetilen bir bulut sürümüdür. Birden fazla Skyvern örneğini paralel olarak çalıştırmanıza izin verir ve bot algılama karşıtı mekanizmalar, proxy ağı ve CAPTCHA çözücüleriyle birlikte gelir.
+
+  Denemek istiyorsanız [app.skyvern.com](https://app.skyvern.com) adresine gidip bir hesap oluşturun.
+
+  ## Yerel Olarak Çalıştırın (UI + Server)
+
+  Tercih ettiğiniz kurulum yöntemini seçin:
+
+  > **Veritabanı varsayılanı**: `skyvern quickstart` ve `skyvern run server` varsayılan olarak `~/.skyvern/data.db` adresinde bir SQLite veritabanına ayarlanmıştır, bu nedenle pip yolu Postgres veya Docker olmadan çalışır. Bunun yerine Postgres kullanmak için, yerel bir konteyner için `--postgres` veya mevcut bir veritabanı için `--database-string` iletin. Docker Compose her zaman bundled Postgres hizmetini kullanır.
+
+  ### Seçenek A: pip install (Python tarafından yönetilen yerel kurulum için önerilen)
+
+  Gerekli bağımlılıklar:
+  - [Python 3.11, 3.12 veya 3.13](https://www.python.org/downloads/)
+
+  Ek olarak, Windows için:
+  - [Rust](https://rustup.rs/)
+  - C++ geliştirme araçları ve Windows SDK'sı olan VS Code
+
+  #### 1. Skyvern'i Yükleyin
+
+  ```bash
+  pip install "skyvern[all]"
+  ```
+
+  #### 2. Skyvern'i Çalıştırın
+
+  ```bash
+  skyvern quickstart
+  ```
+
+  Pip hızlı başlangıç varsayılan olarak SQLite'yi kullanır. Yerel bir Postgres kapsayıcısı için `skyvern quickstart --postgres` komutunu çalıştırın.
+
+  ### Seçenek B: Docker Compose
+
+  Her şey kapsayıcılı olmak (Postgres, API, UI) istiyorsanız ve Python/Node'u yerel olarak yüklemek istemiyorsanız bu seçeneği kullanın.
+
+  1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) yükleyin
+  2. Depoyu klonlayın:
+     ```bash
+     git clone https://github.com/skyvern-ai/skyvern.git && cd skyvern
+     ```
+  3. `.env` dosyasında LLM sağlayıcınızı yapılandırın (aşağıdaki `quickstart --docker-compose` komutu `.env.example` dosyasından oluşturmazsa onu oluşturacaktır):
+     ```bash
+     cp .env.example .env  # henüz oluşturılmadıysa
+     # LLM API anahtarınızı eklemek için .env dosyasını düzenleyin
+     ```
+  4. Her şeyi başlatın:
+     ```bash
+     docker compose up -d
+     ```
+  5. http://localhost:8080 adresini açın
+
+  ### Sorun Giderme
+
+  **`(sqlite3.OperationalError) table organizations already exists`** — `pip install skyvern==1.0.31` içinde bilinen bir hataya çarptınız. Düzeltme:
+
+  ```bash
+  rm ~/.skyvern/data.db   # artık kalmayan SQLite dosyasını kaldırın
+  pip install --upgrade skyvern   # 1.0.32+ düzeltmeyi içerir
+  skyvern quickstart
+  ```
+
+  Hâlâ 1.0.31 üzerindeyseniz ve yükseltemiyorsanız, bunun yerine uv kullanarak kurun:
+
+  ```bash
+  uv pip install skyvern
+  ```
+
+  **`pip install skyvern` ResolutionImpossible ile başarısız olur (litellm / fastmcp)** — 1.0.31'de bir bağımlılık çözümlemesi çatışmasına çarptınız. 1.0.32+ sürümüne yükseltin veya uv'yi kullanın: `uv pip install skyvern`.
+
+  ## SDK
+
+  **Skyvern, AI destekli tarayıcı otomasyonu ekleyen bir Playwright uzantısıdır.** Playwright'ın tüm gücünü ek AI yetenekleriyle birlikte sunar - doğal dil istemlerini kullanarak öğelerle etkileşim kurun, verileri çıkartın ve karmaşık çok adımlı iş akışlarını otomatikleştirin.
+
+  **Kurulum:**
+  - Python SDK / bulut API: `pip install skyvern`
+  - Yerel sunucu + paketlenmiş UI: `pip install "skyvern[all]"` ardından `skyvern quickstart` komutunu çalıştırın
+  - Postgres ile yerel sunucu + paketlenmiş UI: `pip install "skyvern[all]"` ardından `skyvern quickstart --postgres` komutunu çalıştırın
+  - Mevcut bir API için paketlenmiş UI: `pip install "skyvern[ui]"` ardından `skyvern run ui --api-url <api-url> --api-key <api-key>` komutunu çalıştırın
+  - TypeScript: `npm install @skyvern/client`
+
+  ### AI Destekli Sayfa Komutları
+
+  Skyvern sayfa nesnesine doğrudan dört temel AI komutu ekler:
+
+  | Komut | Açıklama |
+  |---------|-------------|
+  | `page.act(prompt)` | Doğal dili kullanarak işlem gerçekleştirin (örn. "Giriş düğmesini tıklayın") |
+  | `page.extract(prompt, schema)` | Sayfadan isteğe bağlı JSON şemasıyla yapılandırılmış verileri çıkartın |
+  | `page.validate(prompt)` | Sayfa durumunu doğrulayın, `bool` döndürür (örn. "Kullanıcının oturum açmış olup olmadığını kontrol edin") |
+  | `page.prompt(prompt, schema)` | LLM'ye isteğe bağlı yanıt şeması ile keyfi istemler gönderin |
+
+  Ek olarak, `page.agent` daha yüksek seviye iş akışı komutları sağlar:
+
+  | Komut | Açıklama |
+  |---------|-------------|
+  | `page.agent.run_task(prompt)` | Karmaşık çok adımlı görevleri yürütün |
+  | `page.agent.login(credential_type, credential_id)` | Depolanmış kimlik bilgileriyle kimlik doğrulaması yapın (Skyvern, Bitwarden, 1Password) |
+  | `page.agent.download_files(prompt)` | Dosyalara gezinin ve dosyaları indirin |
+  | `page.agent.run_workflow(workflow_id)` | Önceden oluşturulmuş iş akışlarını yürütün |
+
+  ### AI Destekli Playwright Eylemleri
+
+  Tüm standart Playwright eylemleri, AI destekli öğe konumu için isteğe bağlı bir `prompt` parametresini destekler:
+
+  | İşlem | Playwright | AI Destekli |
+  |--------|------------|--------------|
+  | Tıklama | `page.click("#btn")` | `page.click(prompt="Giriş düğmesini tıklayın")` |
+  | Doldurma | `page.fill("#email", "a@b.com")` | `page.fill(prompt="Email alanı", value="a@b.com")` |
+  | Seçme | `page.select_option("#country", "US")` | `page.select_option(prompt="Ülke açılır menüsü", value="US")` |
+  | Yükleme | `page.upload_file("#file", "doc.pdf")` | `page.upload_file(prompt="Yükleme alanı", files="doc.pdf")` |
+
+  **Üç etkileşim modu:**
+  ```python
+  # 1. Geleneksel Playwright - CSS/XPath seçicileri
+  await page.click("#submit-button")
+
+  # 2. AI destekli - doğal dil
+  await page.click(prompt="Yeşil Gönder düğmesini tıklayın")
+
+  # 3. AI geri dönüşü - önce seçiciyi dener, başarısız olursa AI'ye geri döner
+  await page.click("#submit-btn", prompt="Gönder düğmesini tıklayın")
+  ```
+
+  ### Temel AI Komutları - Örnekler
+
+  ```python
+  # act - Doğal dili kullanarak işlem gerçekleştirin
+  await page.act("Giriş düğmesini tıklayın ve panelin yüklenmesini bekleyin")
+
+  # extract - İsteğe bağlı JSON şemasıyla yapılandırılmış verileri çıkartın
+  result = await page.extract("Ürün adı ve fiyatını alın")
+  result = await page.extract(
+      prompt="Sipariş detaylarını çıkartın",
+      schema={"order_id": "string", "total": "number", "items": "array"}
+  )
+
+  # validate - Sayfa durumunu kontrol edin (bool döndürür)
+  is_logged_in = await page.validate("Kullanıcının oturum açmış olup olmadığını kontrol edin")
+
+  # prompt - LLM'ye keyfi istemler gönderin
+  summary = await page.prompt("Bu sayfada ne var özetleyin")
+  ```
+
+  ### Hızlı Başlangıç Örnekleri
+
+  **UI aracılığıyla çalıştırın:**
+  ```bash
+  skyvern run all
+  ```
+  Web arayüzü aracılığıyla görevleri çalıştırmak için http://localhost:8080 adresine gidin. Paketlenmiş UI eksikse, `skyvern run ui` eşleşen UI paketini yüklemek için bir seçenek sunacaktır. İnteraktif olmayan kurulum için `skyvern run ui --install-ui` veya `skyvern run all --install-ui` kullanın.
+
+  Mevcut bir Skyvern API'sine karşı yalnızca paketlenmiş UI'yi çalıştırmak için `skyvern[ui]` yükleyin ve `--api-url` iletin; CLI aksi takdirde geçersiz kılmadığınız sürece API URL'sinden `--wss-url` çıkarım yapın. Ayrıca `skyvern run ui` komutunu çalıştırmadan önce `VITE_API_BASE_URL`, `VITE_WSS_BASE_URL`, `VITE_ARTIFACT_API_BASE_URL`, `VITE_SKYVERN_API_KEY` ve `VITE_BROWSER_STREAMING_MODE` değişkenlerini ayarlayabilirsiniz.
+
+  **Python SDK:**
+  ```python
+  from skyvern import Skyvern
+
+  # Yerel mod
+  skyvern = Skyvern.local()
+
+  # Veya Skyvern Cloud'a bağlanın
+  skyvern = Skyvern(api_key="your-api-key")
+
+  # Tarayıcıyı başlatın ve sayfa alın
+  browser = await skyvern.launch_cloud_browser()
+  page = await browser.get_working_page()
+
+  # Playwright'ı AI destekli eylemlerle karıştırın
+  await page.goto("https://example.com")
+  await page.click("#login-button")  # Geleneksel Playwright
+  await page.agent.login(credential_type="skyvern", credential_id="cred_123")  # AI giriş
+  await page.click(prompt="Sepete ilk öğeyi ekleyin")  # AI destekli tıklama
+  await page.agent.run_task("Checkout'u şu kişi ile tamamlayın: John Snow, 12345")  # AI görevi
+  ```
+
+  **TypeScript SDK:**
+  ```typescript
+  import { Skyvern } from "@skyvern/client";
+
+  const skyvern = new Skyvern({ apiKey: "your-api-key" });
+  const browser = await skyvern.launchCloudBrowser();
+  const page = await browser.getWorkingPage();
+
+  // Playwright'ı AI destekli eylemlerle karıştırın
+  await page.goto("https://example.com");
+  await page.click("#login-button");  // Geleneksel Playwright
+  await page.agent.login("skyvern", { credentialId: "cred_123" });  // AI giriş
+  await page.click({ prompt: "Sepete ilk öğeyi ekleyin" });  // AI destekli tıklama
+  await page.agent.runTask("Checkout'u şu kişi ile tamamlayın: John Snow, 12345");  // AI görevi
+
+  await browser.close();
+  ```
+
+  **Basit görev yürütme:**
+  ```python
+  from skyvern import Skyvern
+
+  skyvern = Skyvern()
+  task = await skyvern.run_task(prompt="Bugünün hackernews'teki en iyi gönderisini bulun")
+  print(task)
+  ```
+
+  ## Gelişmiş Kullanım
+
+  ### Kendi tarayıcınızı kontrol edin (Chrome)
+
+  Skyvern'in mevcut Chrome tarayıcınızı kontrol etmesine izin verin - tüm çerezleriniz, giriş bilgileriniz ve uzantılarınız ile birlikte.
+
+  #### Adım 1: Chrome'da uzaktan hata ayıklamayı etkinleştirin
+
+  1. Chrome'u açın ve `chrome://inspect/#remote-debugging` adresine gidin
+  2. Hata ayıklama sunucusunu başlatmak için **Etkinleştir** düğmesine tıklayın
+  3. Şunu görmelisiniz: **Server running at: 127.0.0.1:9222**
+
+  > [!TIP]
+  > `skyvern init browser` komutu bunu otomatik olarak yapabilir — `chrome://inspect/#remote-debugging` adresini açar, etkinleştirmenizi bekler ve yapılandırmayı kaydeder.
+
+  #### Adım 2: Skyvern'i Bağlayın
+
+  **Seçenek A — Python Kodu:**
+  ```python
+  from skyvern import Skyvern
+
+  skyvern = Skyvern(
+      base_url="http://localhost:8000",
+      api_key="YOUR_API_KEY",
+      browser_address="http://127.0.0.1:9222",
+  )
+  task = await skyvern.run_task(
+      prompt="Bugünün hackernews'teki en iyi gönderisini bulun",
+  )
+  ```
+
+  **Seçenek B — Skyvern Hizmeti:**
+
+  .env dosyasına iki değişken ekleyin:
+  ```bash
+  BROWSER_TYPE=cdp-connect
+  BROWSER_REMOTE_DEBUGGING_URL=http://127.0.0.1:9222
+  ```
+
+  Skyvern hizmetini `skyvern run all` komutunu çalıştırarak yeniden başlatın ve UI veya kod aracılığıyla görevi çalıştırın
+
+  ### Skyvern Cloud'u yerel tarayıcınıza bağlayın
+
+  Skyvern Cloud'un makinenizde çalışan bir Chrome tarayıcısını kontrol etmesine izin verin - tüm mevcut çerezleriniz, giriş bilgileriniz ve uzantılarınız ile birlikte. Zaten oturum açtığınız veya VPN arkasında olduğunuz siteleri otomatikleştirmek için kullanışlıdır.
+
+  ```bash
+  # Chrome'u başlatmak ve Skyvern Cloud'a bir tünel oluşturmak için bir komut
+  skyvern browser serve --tunnel
+  ```
+
+  Ardından görevinizde tünel URL'sini kullanın:
+
+  ```python
+  from skyvern import Skyvern
+
+  skyvern = Skyvern(api_key="your-api-key")
+  task = await skyvern.run_task(
+      prompt="Hesabımdan en son faturayı indirin",
+      browser_address="https://abc123.ngrok-free.dev",
+  )
+  ```
+
+  > [!WARNING]
+  > Tarayıcınızı bir tünel aracılığıyla gösterirken her zaman `--api-key` kullanın. Olmadan, URL'ye sahip herkesin tarayıcının tam kontrolü vardır. [Güvenlik dokümanlarına](https://www.skyvern.com/docs/optimization/browser-tunneling#security) bakın.
+
+  Tüm seçenekler, manuel tünel kurulumu ve sorun giderme için [tam dokümantasyona](https://www.skyvern.com/docs/optimization/browser-tunneling) bakın.
+
+  ### Çalışmanızdan tutarlı çıktı şeması alın
+  Bunu `data_extraction_schema` parametresini ekleyerek yapabilirsiniz:
+  ```python
+  from skyvern import Skyvern
+
+  skyvern = Skyvern()
+  task = await skyvern.run_task(
+      prompt="Bugünün hackernews'teki en iyi gönderisini bulun",
+      data_extraction_schema={
+          "type": "object",
+          "properties": {
+              "title": {
+                  "type": "string",
+                  "description": "En iyi gönderinin başlığı"
+              },
+              "url": {
+                  "type": "string",
+                  "description": "En iyi gönderinin URL'si"
+              },
+              "points": {
+                  "type": "integer",
+                  "description": "Gönderinin aldığı puan sayısı"
+              }
+          }
+      }
+  )
+  ```
+
+  ### Sorunları ayıklamak için faydalı komutlar
+
+
+  ```bash
+  # Skyvern Sunucusunu Ayrı Olarak Başlatın*
+  skyvern run server
+
+  # Skyvern UI'yi Başlatın
+  skyvern run ui
+
+  # Skyvern hizmetinin durumunu kontrol edin
+  skyvern status
+
+  # Skyvern hizmetini durdurun
+  skyvern stop all
+
+  # Skyvern UI'yi durdurun
+  skyvern stop ui
+
+  # Skyvern Sunucusunu Ayrı Olarak Durdurun
+  skyvern stop server
+  ```
+
+  # Performans ve Değerlendirme
+
+  Skyvern, %64.4 doğruluk oranı ile [WebBench kıyaslamasında](webbench.ai) SOTA performansına sahiptir. Teknik rapor + değerlendirme [burada](https://www.skyvern.com/blog/web-bench-a-new-way-to-compare-ai-browser-agents/) bulunabilir
+
+  <p align="center">
+    
+  </p>
+
+  ## WRITE görevlerindeki performans (örneğin formları doldurma, oturum açma, dosya indirme vb.)
+
+  Skyvern, WRITE görevlerinde (örneğin formları doldurma, oturum açma, dosya indirme vb.) en iyi performans gösteren aracıdır; bu, birincil olarak RPA (Robotic Process Automation) ile ilgili görevler için kullanılır.
+
+  <p align="center">
+    
+  </p>
+
+  # Skyvern Özellikleri
+
+  ## Skyvern Görevleri
+  Görevler, Skyvern içindeki temel yapı taşıdır. Her görev, Skyvern'e bir web sitesinde gezinme ve belirli bir hedefi başarma talimatı veren tek bir istektir.
+
+  Görevler, `url`, `prompt` belirtmenizi gerektirir ve isteğe bağlı olarak `data schema` (çıktının belirli bir şemaya uymasını istiyorsanız) ve `error codes` (Skyvern'in belirli durumlarda çalışmayı durdurmasını istiyorsanız) içerebilir.
+
+  <p align="center">
+    
+  </p>
+
+
+  ## Skyvern İş Akışları
+  İş akışları, birden fazla görevi bir araya getirerek tutarlı bir iş akışı birimi oluşturmak için bir yoldur.
+
+  Örneğin, 1 Ocak'tan daha yeni tüm faturaları indirmek isteyorsanız, önce faturaların sayfasına giden, ardından yalnızca 1 Ocak'tan daha yeni faturaları göstermek için filtrelenen, uygun tüm faturaların bir listesini çıkaran ve her faturayı indirmek için her faturada döngü yapan bir iş akışı oluşturabilirsiniz.
+
+  Başka bir örnek, bir e-ticaret mağazasından ürün satın almayı otomatikleştirmek istiyorsanız, önce istenen ürüne giden, ardından bunu sepete ekleyen bir iş akışı oluşturabilirsiniz. İkinci olarak, sepete gidip sepet durumunu doğrulaması gerekir. Son olarak, satın almak için checkout işleminden geçer.
+
+  Desteklenen iş akışı özellikleri şunları içerir:
+  1. Tarayıcı Görevi
+  1. Tarayıcı Eylemi
+  1. Veri Çıkarma
+  1. Doğrulama
+  1. For Döngüleri
+  1. Dosya ayrıştırma
+  1. E-posta gönderme
+  1. Metin İstemler
+  1. HTTP İstek Bloğu
+  1. Özel Kod Bloğu
+  1. Dosyaları blok depolamaya yükleme
+  1. (Çok Yakında) Koşullar
+
+  <p align="center">
+    
+  </p>
+
+  ## Canlı Yayın
+  Skyvern, tarayıcının görüntü alanını yerel makinenize canlı yayınlamanıza olanak tanır, böylece Skyvern'in web üzerinde tam olarak ne yaptığını görebilirsiniz. Bu, hata ayıklama ve Skyvern'in bir web sitesiyle nasıl etkileşim kurduğunu anlamak için faydalıdır ve gerektiğinde müdahale etmek için
+
+  ## Form Doldurma
+  Skyvern, web sitelerindeki form girdilerini doldurma açısından natively yetkindir. `navigation_goal` aracılığıyla bilgi iletmek, Skyvern'in bilgiyi anlamasını ve formu buna göre doldurmasını sağlayacaktır.
+
+  ## Veri Çıkarma
+  Skyvern ayrıca bir web sitesinden veri çıkarma konusunda da yetkilidir.
+
+  Ayrıca, Skyvern'e web sitesinden tam olarak hangi verileri çıkartmak istediğinizi söylemek için doğrudan ana isteme içinde jsonc formatında bir `data_extraction_schema` belirtebilirsiniz. Skyvern'in çıktısı sağlanan şemaya göre yapılandırılacaktır.
+
+  ## Dosya İndirme
+  Skyvern ayrıca bir web sitesinden dosya indirme konusunda da yetkilidir. İndirilen tüm dosyalar otomatik olarak blok depolamaya yüklenir (yapılandırılmışsa) ve bunlara UI aracılığıyla erişebilirsiniz.
+
+  ## Kimlik Doğrulama
+  Skyvern, giriş arkasındaki görevleri otomatikleştirmeyi kolaylaştırmak için çok sayıda farklı kimlik doğrulama yöntemini destekler. Denemek isterseniz, lütfen bize [e-posta](mailto:founders@skyvern.com) veya [discord](https://discord.gg/fG2XXEuQX3) aracılığıyla ulaşın.
+
+  <p align="center">
+    
+  </p>
+
+
+  ### 🔐 2FA Desteği (TOTP)
+  Skyvern, 2FA gerektiren iş akışlarını otomatikleştirmenizi sağlamak için çok sayıda 2FA yöntemini destekler.
+
+  Örnekler şunları içerir:
+  1. QR tabanlı 2FA (örn. Google Authenticator, Authy)
+  1. E-posta tabanlı 2FA
+  1. SMS tabanlı 2FA
+
+  🔐 2FA desteği hakkında [daha fazlasını öğrenin](https://www.skyvern.com/docs/credentials/totp).
+
+  ### Ş
 ---
 
 <!-- DOCTOC SKIP -->

@@ -12,6 +12,107 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:cfo-review — CFO Zorlama Soruları
+
+  **Komut:** `/cs:cfo-review <plan>`
+
+  Sayıları seven şüpheci, paraya dokunan her şeyi stres testinden geçirir. Herhangi bir harcama veya fon toplamasından önce altı soru.
+
+  ## Ne Zaman Çalıştırılır
+
+  - Gelirin %1'inden fazla herhangi bir harcama onaylanmadan önce
+  - Yeni bir işe alım talep formu açılmadan önce
+  - Herhangi bir fon toplama konuşmasından önce
+  - Fiyatlandırma veya birim ekonomisi değiştirilmeden önce
+  - Çok yıllı bir sözleşme imzalanmadan önce
+
+  ## Altı CFO Sorusu
+
+  ### 1. Burn & Runway
+  **Burn multiple nedir ve temel / iyimser / kötümser senaryoda kaç ay nakit kalır?**
+  - Burn multiple = Net burn ÷ Net yeni ARR. 2x üzeri sorun.
+  - Kötümser senaryo < 12 aysa, zaten fon toplama modundasınız.
+
+  ### 2. Birim Ekonomisi
+  **Kanal başına LTV / CAC nedir ve en iyi 2 kanal için geri ödeme süresi nedir?**
+  - LTV / CAC > 3x sağlıklıdır. Geri ödeme < 12 ay sağlıklıdır.
+  - Biri bozuksa, o kanalı ölçeklendirmeyin.
+
+  ### 3. Seyreltme Yolu
+  **Bu plan bir fon turunu gerektiriyorsa, temel ve kötümser valuasyonlarda seyreltme nedir?**
+  - Tur başına kurucu seyreltmesi.
+  - Sonraki 2 tura kaydedilen seyreltme.
+
+  ### 4. Sermaye Tahsisi Alternatifi
+  **Bu dolar burada harcanmasa, başka nereye gidebilir ve beklenen getirisi nedir?**
+  - Üç alternatif: işe alım, ürün, pazarlama.
+  - Fırsat maliyetini açık hale getirin.
+
+  ### 5. Gelir Kalitesi
+  **Brüt marj nedir ve ölçekte nasıl değişir?**
+  - Marj ölçek ile sıkışıyorsa, model kırılmıştır.
+  - Gelir maliyeti, gelirden daha yavaş büyümelidir.
+
+  ### 6. Kötümser Senaryo Hayatta Kalma
+  **Gelir plana göre %50 ise, şirket 18 ay hayatta kalır mı?**
+  - Default-alive vazgeçilmez.
+  - Değilse, kesme tetikleyicilerini önceden belirleyin.
+
+  ## İş Akışı
+
+  1. **Sayıları hesaplayın:**
+     ```bash
+     python ../../../skills/cfo-advisor/scripts/burn_rate_calculator.py
+     python ../../../skills/cfo-advisor/scripts/unit_economics_analyzer.py
+     python ../../../skills/cfo-advisor/scripts/fundraising_model.py
+     ```
+  2. **Altı sorunun tümünü** sayılarla, sıfatlarla değil cevaplayın.
+  3. **Kararı uygulayın:**
+     - 🟢 YEŞİL — finanse et
+     - 🟡 SARI — kesme tetikleyicileriyle finanse et
+     - 🔴 KIRMIZI — iptal et veya revize et
+
+  ## Çıktı Formatı
+
+  ```markdown
+  # CFO Review: <plan>
+  **Tarih:** YYYY-MM-DD
+  **İnceleyici:** cs-cfo-advisor
+
+  ## Sayılar
+  - Burn multiple: X.Xx
+  - Runway (temel/iyimser/kötümser): X / X / X ay
+  - LTV/CAC en iyi kanal: X.Xx, geri ödeme Y ay
+  - Brüt marj: X% (eğilim: Y)
+  - Bu turda seyreltme: X%
+  - Kötümser senaryo hayatta kalma: BAŞARILI / BAŞARISIZ
+
+  ## Karar
+  🟢 YEŞİL | 🟡 SARI | 🔴 KIRMIZI
+
+  ## Koşullar (SARI ise)
+  - Kesme tetikleyicisi: <metrik> < <eşik> → <işlem>
+  - İnceleme kontrol noktası: <tarih>
+
+  ## Öneri
+  [3 somut sonraki adım]
+  ```
+
+  ## Yönlendirme
+
+  - `/cs:decide` — kararı günlüğe kaydet
+  - `/cs:execute` — YEŞİL ise 90 günlük plan oluştur
+  - `/cs:boardroom` — çok rollü etkileri varsa yükselt
+
+  ## İlgili
+
+  - Agent: [`cs-cfo-advisor`](../../agents/cs-cfo-advisor.md)
+  - Skill: [`cfo-advisor`](../../../skills/cfo-advisor/SKILL.md)
+
+  ---
+
+  **Sürüm:** 1.0.0
 ---
 
 # /cs:cfo-review — CFO Forcing Questions

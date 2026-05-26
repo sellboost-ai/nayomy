@@ -8,6 +8,223 @@ url: "https://github.com/IBM/mcp-cli"
 body_length: 60750
 license: "Apache-2.0"
 language: "Python"
+body_tr: |-
+  # MCP CLI - Model Context Protocol Komut Satırı Arayüzü
+
+  [![CI](https://github.com/chrishayuk/mcp-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/chrishayuk/mcp-cli/actions/workflows/ci.yml)
+  [![PyPI version](https://img.shields.io/pypi/v/mcp-cli.svg)](https://pypi.org/project/mcp-cli/)
+
+  Model Context Protocol sunucularıyla etkileşim kurması için güçlü, özellik açısından zengin bir komut satırı arayüzü. Bu istemci, [CHUK Tool Processor](https://github.com/chrishayuk/chuk-tool-processor) ve [CHUK-LLM](https://github.com/chrishayuk/chuk-llm) ile entegrasyonu sayesinde LLM'lerle sorunsuz iletişim sağlar ve araç kullanımı, konuşma yönetimi ile birden fazla operasyonel modu sunmaktadır.
+
+  **Varsayılan Yapılandırma**: MCP CLI, API anahtarı gerektirmeyen yerel, gizlilik odaklı işlem için Ollama ile `gpt-oss` akıl yürütme modeli kullanmaya varsayılan olarak ayarlanmıştır.
+
+  ## 🆕 Son Güncellemeler (v0.16)
+
+  ### AI Sanal Bellek (Deneysel)
+  - **`--vm` bayrağı**: Konuşma bağlamı yönetimi için OS tarzı sanal belleği etkinleştirin, `chuk-ai-session-manager` tarafından desteklenir
+  - **`--vm-budget`**: Konuşma olayları için token bütçesini kontrol edin (sistem istemi üstte sınırsız), daha erken tahliye ve sayfa oluşturma zorlayın
+  - **`--vm-mode`**: VM modunu seçin — `passive` (çalışma zamanında yönetilen, varsayılan), `relaxed` (VM'ye duyarlı konuşma) veya `strict` (modelin araçlarla sayfalaması)
+  - **`/memory` komutu**: Konuşmalar sırasında VM durumunu görselleştirin — sayfa tablosu, çalışma seti kullanımı, tahliye ölçümleri, TLB istatistikleri (takma adlar: `/vm`, `/mem`)
+  - **Çok modlu sayfa_hatası**: Görüntü sayfaları, çok modlu modellerin geri çağrılan görüntüleri yeniden analiz edebilmesi için çok bloklu içerik (metin + image_url) döndürür
+  - **`/memory page <id> --download`**: Sayfa içeriğini modalite farkında uzantılarla yerel dosyalara dışarı aktarın (.txt, .json, .png)
+
+  ### Yürütme Planları (Katman 6)
+  - **`/plan` komutu**: Yeniden üretebirlik araç çağrı grafikleri oluşturun, inceleyin ve yürütün — `create`, `list`, `show`, `run`, `delete`, `resume`
+  - **Model tarafından yönlendirilen planlama (`--plan-tools`)**: LLM, `/plan` komutu olmadan konuşma sırasında otonom olarak planlar oluşturur ve yürütür. Çok adımlı orkestrasyon gerektiğinde `plan_create_and_execute` öğesini çağırır ve basit görevler için düzenli araçları kullanır. Her adım, terminalde gerçek zamanlı ilerlemeyle işlenir
+  - **Paralel toplu yürütme**: Bağımsız plan adımları topolojik toplu işleme (Kahn's BFS) aracılığıyla eşzamanlı olarak çalışır, yapılandırılabilir `max_concurrency`
+  - **Değişken çözümlemesi**: `${var}`, `${var.field}` iç içe erişim ve `"https://${api.host}/users"` gibi şablon dizeleri — tek referanslar için tür koruma
+  - **Kuru çalıştırma modu**: Planlanan araç çağrılarını yürütmeden izleyin — üretim inspeksiyonu için güvenli
+  - **Kontrol noktaları ve devam ettirme**: Yürütme durumu her toplu işlemden sonra kalıcı; `/plan resume <id>` ile kesintiye uğrayan planları devam ettirin
+  - **Guard entegrasyonu**: Planlar mevcut bütçeyi, araç başına sınırları ve kaçak algılama korumasını takip eder
+  - **DAG görselleştirmesi**: Durum göstergeleri (○/◉/●/✗) ve paralel işaretçiler (∥) ile ASCII işlemesi
+  - **Yeniden planlama**: Adım hatası üzerine isteğe bağlı LLM tabanlı yeniden planlama (`enable_replan=True`)
+  - **Destekleyen**: [chuk-ai-planner](https://github.com/chrishayuk/chuk-ai-planner) grafik tabanlı plan DSL
+
+  ### MCP Uygulamaları (SEP-1865)
+  - **Etkileşimli HTML Kullanıcı Arayüzleri**: MCP sunucuları, tarayıcınızda işlenen etkileşimli HTML uygulamaları (grafikler, tablolar, haritalar, işaretleme görüntüleyicileri) sunabilir
+  - **Korumalı iframe'ler**: Uygulamalar, CSP korumasına sahip güvenli korumalı iframe'lerde çalışır
+  - **WebSocket köprüsü**: Tarayıcı uygulamaları ile MCP sunucuları arasında gerçek zamanlı çift yönlü iletişim
+  - **Otomatik başlatma**: `_meta.ui` ek açıklamaları olan araçlar çağrıldığında otomatik olarak tarayıcıda açılır
+  - **Oturum güvenilirliği**: İleti sıralaması, üstel geri çekilme ile yeniden bağlanma, ertelenmiş araç sonucu teslimi
+
+  ### Üretim Sertleştirmesi
+  - **Gizli Redaksiyonu**: Tüm günlük çıktısı (konsol ve dosya) Bearer tokenları, API anahtarları, OAuth tokenları ve Authorization başlıkları için otomatik olarak düzeltilir
+  - **Yapılandırılmış Dosya Günlüğü**: İsteğe bağlı `--log-file` bayrağı, DEBUG seviyesinde dönen JSON günlük dosyalarını etkinleştirir (10MB, 3 yedek)
+  - **Sunucu Başına Zaman Aşımları**: Sunucu yapılandırmaları `tool_timeout` ve `init_timeout` geçersiz kılmalarını destekler, sunucu başına → genel → varsayılan olarak çözümlenir
+  - **İş Parçacığı Güvenli OAuth**: Eşzamanlı OAuth akışları `asyncio.Lock` ve kopyala yazma başlığı mutasyonu ile serileştirilir
+  - **Sunucu Durumu İzlemesi**: `/health` komutu, başarısızlık durumunda sağlık kontrolü tanılaması, isteğe bağlı `--health-interval` arka plan yoklaması
+
+  ### Performans ve Polonya
+  - **O(1) Araç Aramaları**: O(n) doğrusal taramaları değiştiren dizinli araç araması
+  - **Önbelleğe Alınmış LLM Araç Meta Verileri**: Otomatik geçersiz kılma ile sağlayıcı başına önbellekleme
+  - **Başlangıç İlerlemesi**: Başlatma sırasında gerçek zamanlı ilerleme iletileri
+  - **Token Kullanımı İzlemesi**: `/usage` komutu ile kapatma başına ve kümülatif izleme (takma adlar: `/tokens`, `/cost`)
+  - **Oturum Kalıcılığı**: Konuşma oturumlarını her 10 dönüşte otomatik kaydetme ile kaydedin/yükleyin/listeleyin (`/sessions`)
+  - **Konuşma Dışarı Aktarma**: Konuşmaları Markdown veya JSON'a meta veri ile dışarı aktarın (`/export`)
+
+  ### Pano (Gerçek Zamanlı Tarayıcı Kullanıcı Arayüzü)
+  - **`--dashboard` bayrağı**: Sohbet modu yanında gerçek zamanlı bir tarayıcı panosunu başlatın
+  - **Agent Terminali**: İleti baloncukları, akan tokenler ve ek işlemeyle canlı konuşma görünümü
+  - **Aktivite Akışı**: Araç çağrısı/sonuç çiftleri, akıl yürütme adımları ve kullanıcı eki olayları
+  - **Plan Görüntüleyici**: DAG işlemesiyle görsel yürütme planı ilerlemesi
+  - **Araç Kaydı**: Keşfedilen araçları göz atın, tarayıcıdan yürütmeyi tetikleyin
+  - **Yapılandırma Paneli**: Sağlayıcıları, modelleri ve sistem istemini görüntüleyin ve değiştirin
+  - **Dosya Ekleri**: Tarayıcı dosya yüklemesi, sürükleme ve bırakma ile "+" düğmesi, pano tarafından yapıştır
+
+  ### Çok Modal Ekler
+  - **`/attach` komutu**: Dosyaları sonraki ileti için hazırlayın — görüntüler, metin/kod ve ses (takma adlar: `/file`, `/image`)
+  - **`--attach` CLI bayrağı**: Dosyaları ilk iletiye takın (tekrarlanabilir: `--attach img.png --attach code.py`)
+  - **Satır içi `@file:` referansları**: Dosyayı herhangi bir iletide eklemek için `@file:path/to/file` öğesini bahsedin
+  - **Görüntü URL algılaması**: İletilerdeki HTTP/HTTPS görüntü URL'leri otomatik olarak vizyon içeriği olarak gönderilir
+  - **Desteklenen biçimler**: PNG, JPEG, GIF, WebP, HEIC (görüntüler), MP3, WAV (ses) ve 25+ metin/kod uzantısı
+  - **Pano işlemesi**: Görüntü küçük resimleri, genişletilebilir metin ön izlemeleri, ses oynatıcılar, dosya rozeti
+  - **Tarayıcı yüklemesi**: Pano sohbet girişinde sürükleme-bırakma ve pano yapıştırma desteğine sahip "+" düğmesi
+
+  ### Kod Kalitesi
+  - **Çekirdek/Kullanıcı Arayüzü Ayrımı**: Çekirdek modüller yalnızca `logging` kullanır — UI içeri aktarma yok
+  - **4.300+ test**: Şube kapsama, entegrasyon testleri ve %60 minimum eşik ile kapsamlı test paketi
+  - **15 Mimari Prensibi**: Belgelenmiş ve uygulanmış (bkz. [architecture.md](architecture.md))
+  - **Tam [Yol Haritası](roadmap.md)**: Katmanlar 1-6 tamamlandı, Katmanlar 7-12 planlı (izler, bellek kapsamları, beceriler, zamanlama, çok aracı)
+
+  ## 🔄 Mimari Genel Bakış
+
+  MCP CLI, endişelerin temiz ayrımı ile modüler bir mimari üzerine inşa edilmiştir:
+
+  - **[CHUK Tool Processor](https://github.com/chrishayuk/chuk-tool-processor)**: Ara yazılım (yeniden deneme, devre kesici, hız sınırı), birden fazla yürütme stratejisi ve gözlemlenebilirlik ile üretim sınıfı async araç yürütme
+  - **[CHUK-LLM](https://github.com/chrishayuk/chuk-llm)**: Dinamik model keşfi, yetenek tabanlı seçim ve llama.cpp entegrasyonu (Ollama'dan 1,53x daha hızlı, otomatik model yeniden kullanımı) ile birleşik LLM sağlayıcısı
+  - **[CHUK-Term](https://github.com/chrishayuk/chuk-term)**: Temalar, çapraz platform terminal yönetimi ve zengin biçimlendirme ile geliştirilmiş terminal kullanıcı arayüzü
+  - **MCP CLI**: Komut orkestrasyonu ve entegrasyon katmanı (bu proje)
+
+  ## 🌟 Özellikler
+
+  ### Birden Fazla Operasyonel Modu
+  - **Sohbet Modu**: Akış yanıtları ve otomatik araç kullanımıyla konuşma arayüzü (varsayılan: Ollama/gpt-oss)
+  - **Etkileşimli Mod**: Doğrudan sunucu işlemleri için komut odaklı kabuk arayüzü
+  - **Komut Modu**: Betik otomasyon ve boru hatları için Unix dostu mod
+  - **Doğrudan Komutlar**: Etkileşimli moda girmeden bireysel komutları çalıştırın
+
+  ### Gelişmiş Sohbet Arayüzü
+  - **Akış Yanıtları**: Canlı kullanıcı arayüzü güncellemeleriyle gerçek zamanlı yanıt oluşturma
+  - **Akıl Yürütme Görünürlüğü**: AI'nin düşünce sürecini akıl yürütme modelleriyle görün (gpt-oss, GPT-5, Claude 4.5)
+  - **Eşzamanlı Araç Yürütme**: Konuşma sırasını korurken birden fazla aracı eşzamanlı olarak yürütün
+  - **Akıllı Kesintileme**: Ctrl+C ile akan yanıtları veya araç yürütmeyi kesintiye uğratın
+  - **Performans Ölçümleri**: Yanıt zamanlaması, saniye başına söz sayısı ve yürütme istatistikleri
+  - **Zengin Biçimlendirme**: Markdown işlemesi, sözdizimi vurgulama ve ilerleme göstergeleri
+  - **Token Kullanımı İzlemesi**: `/usage` komutu ile kapatma başına ve kümülatif API token kullanımı
+  - **Çok Modal Ekler**: `/attach`, `--attach`, `@file:` referansları veya tarayıcı yüklemesi aracılığıyla iletilere görüntüler, metin dosyaları ve sesler ekleyin
+  - **Oturum Kalıcılığı**: Konuşma oturumlarının otomatik kaydı ve manuel kaydı/yüklenmesi
+  - **Konuşma Dışarı Aktarma**: Meta veri ve token kullanımıyla Markdown veya JSON'a dışarı aktarın
+
+  ### Kapsamlı Sağlayıcı Desteği
+
+  MCP CLI, CHUK-LLM'den tüm sağlayıcıları ve modelleri destekler; bu modeller son teknoloji akıl yürütme modelleri de dahil olmak üzere:
+
+  | Sağlayıcı | Ana Modeller | Özel Özellikler |
+  |----------|------------|------------------|
+  | **Ollama** (Varsayılan) | 🧠 gpt-oss, llama3.3, llama3.2, qwen3, qwen2.5-coder, deepseek-coder, granite3.3, mistral, gemma3, phi3, codellama | Yerel akıl yürütme modelleri, gizlilik odaklı, API anahtarı gerekli değil |
+  | **OpenAI** | 🚀 GPT-5 ailesi (gpt-5, gpt-5-mini, gpt-5-nano), GPT-4o ailesi, O3 serisi (o3, o3-mini) | Gelişmiş akıl yürütme, fonksiyon çağrısı, vizyon |
+  | **Anthropic** | 🧠 Claude 4.5 ailesi (claude-4-5-opus, claude-4-5-sonnet), Claude 3.5 Sonnet | Geliştirilmiş akıl yürütme, uzun bağlam |
+  | **Azure OpenAI** 🏢 | Kurumsal GPT-5, GPT-4 modelleri | Özel uç noktalar, uyum, denetim günlükleri |
+  | **Google Gemini** | Gemini 2.0 Flash, Gemini 1.5 Pro | Çok modlu, hızlı çıkarım |
+  | **Groq** ⚡ | Llama 3.1 modelleri, Mixtral | Ultra hızlı çıkarım (500+ token/sn) |
+  | **Perplexity** 🌐 | Sonar modelleri | Alıntılarla gerçek zamanlı web araması |
+  | **IBM watsonx** 🏢 | Granite, Llama modelleri | Kurumsal uyum |
+  | **Mistral AI** 🇪🇺 | Mistral Large, Medium | Avrupa, verimli modeller |
+
+  ### Sağlam Araç Sistemi (CHUK Tool Processor v0.22+ tarafından desteklenir)
+  - **Otomatik Keşif**: Sunucu tarafından sağlanan araçlar otomatik olarak algılanır ve kataloglanır
+  - **Sağlayıcı Uyarlaması**: Araç adları sağlayıcı uyumluluğu için otomatik olarak temizlenir
+  - **Üretim Sınıfı Yürütme**: Zaman aşımları, yeniden deneme, üstel geri çekilme, önbellekleme ve devre kesiçileri olan ara yazılım katmanları
+  - **Birden Fazla Yürütme Stratejisi**: İşlem içi (hızlı), yalıtılmış alt süreç (güvenli) veya MCP aracılığıyla uzak
+  - **Eşzamanlı Yürütme**: Uygun koordinasyonla birden fazla araç eşzamanlı olarak çalışabilir
+  - **Zengin İlerleme Görüntüleme**: Gerçek zamanlı ilerleme göstergeleri ve yürütme zamanlaması
+  - **Araç Geçmişi**: Tüm araç yürütmelerinin tam denetim izi
+  - **Ara Yazılım**: CTP aracılığıyla üstel geri çekilmeli yeniden deneme, devre kesiçiler ve hız sınırı
+  - **Akan Araç Çağrıları**: Akan veri döndüren araçlar için destek
+
+  ### MCP Uygulamaları (Etkileşimli Kullanıcı Arayüzleri)
+  - **Tarayıcı Tabanlı Kullanıcı Arayüzleri**: MCP sunucuları, tarayıcınızda işlenen etkileşimli HTML uygulamaları sunabilir
+  - **Otomatik Algılama**: `_meta.ui` ek açıklamaları olan araçlar araç çağrısında otomatik olarak tarayıcı uygulamalarını başlatır
+  - **Korumalı Yürütme**: Uygulamalar, İçerik Güvenliği İlkesi korumasına sahip güvenli korumalı iframe'lerde çalışır
+  - **WebSocket Köprüsü**: Tarayıcı uygulamaları ile MCP araç sunucuları arasında gerçek zamanlı JSON-RPC köprüsü
+  - **Oturum Kalıcılığı**: Bağlantı kesintileri sırasında ileti kuyruğu, otomatik yeniden bağlanma, ertelenmiş araç sonucu teslimi
+  - **structuredContent Desteği**: Yapılandırılmış içerik çıkarma ve iletme dahil tam MCP spec uyumluluğu
+
+  ### Yürütme Planları (chuk-ai-planner tarafından desteklenir)
+  - **Plan Oluşturma**: LLM tabanlı plan ajanlarını kullanarak doğal dil açıklamalarından yürütme planları oluşturun
+  - **Model Tarafından Yönlendirilen Planlama**: `--plan-tools` ile LLM otonom olarak planlamaya karar verir — karmaşık çok adımlı görevler için `plan_create_and_execute` öğesini çağırır, basit görevler için düzenli araçları kullanır
+  - **DAG Yürütme**: Planlar yönlendirilmiş asiklik grafiklerdir — bağımsız adımlar paralel toplu işlemde çalışır, bağlı adımlar bekler
+  - **Değişken Çözümlemesi**: Adım çıkışları değişkenlere bağlanır (`result_variable`), sonraki adımlar tarafından `${var}` veya `${var.field}` olarak başvurulur
+  - **Kuru Çalıştırma Modu**: Bir planın ne yapacağını hiçbir araç yürütmeden izleyin — üretim denetimi için güvenli
+  - **Kontrol Noktaları**: Yürütme durumu her toplu işlemden sonra kaydedilir; tamamlanmış adımları yeniden çalıştırmadan kesintiye uğrayan planları devam ettirin
+  - **Guard Entegrasyonu**: Planlar konuşmayla bütçe ve araç başına sınırları paylaşır — hiçbir omuz yok
+  - **Yeniden Planlama**: Adım hatası üzerine, kalan iş için revize bir plan oluşturmak üzere LLM'yi çağırın
+  - **DAG Görselleştirmesi**: ASCII işlemesi, bağımlılık yapısını, toplu işlem gruplandırmasını ve paralel işaretçileri gösterir
+  - **Kalıcılık**: Planlar `~/.mcp-cli/plans/` adresinde JSON olarak depolanır
+
+  ### Gelişmiş Yapılandırma Yönetimi
+  - **Çevre Entegrasyonu**: Ortam değişkenleri aracılığıyla API anahtarları ve ayarlar
+  - **Dosya Tabanlı Yapılandırma**: YAML ve JSON yapılandırma dosyaları
+  - **Kullanıcı Tercihleri**: Etkin sağlayıcılar ve modeller için kalıcı ayarlar
+  - **Doğrulama ve Tanılama**: Yerleşik sağlayıcı durumu kontrolleri ve yapılandırma doğrulaması
+
+  ### Geliştirilmiş Kullanıcı Deneyimi
+  - **Çapraz Platform Desteği**: Windows, macOS ve Linux, chuk-term aracılığıyla platforma özgü optimizasyonlar
+  - **Zengin Konsol Çıkışı**: 8 yerleşik tema ile chuk-term tarafından desteklenir (varsayılan, koyu, açık, minimal, terminal, monokai, dracula, solarized)
+  - **Gelişmiş Terminal Yönetimi**: Temizleme, yeniden boyutlandırma, renk algılama ve imleç kontrol da dahil olmak üzere çapraz platform terminal işlemleri
+  - **Etkileşimli Kullanıcı Arayüzü Bileşenleri**: chuk-term'in prompt sistemi aracılığıyla kullanıcı girdisi işleme (sor, onayla, listeden_seç, çoklu_seç)
+  - **Komut Tamamlama**: Tüm arabirimler için bağlam bilgisi uyumlu sekme tamamlama
+  - **Kapsamlı Yardım**: Örnekler ve kullanım modelleriyle ayrıntılı yardım sistemi
+  - **Zarif Hata İşleme**: Sorun giderme ipuçları içeren kullanıcı dostu hata iletileri
+
+  ## 📚 Belgeler
+
+  Kapsamlı belgeler `docs/` dizininde mevcuttur:
+
+  ### Proje
+  - **[Mimari](architecture.md)** - 15 tasarım prensibi, modül düzeni ve kodlama kuralları
+  - **[Yol Haritası](roadmap.md)** - Vizyon, tamamlanmış katmanlar (1-5) ve planlı katmanlar (6-12: planlar, izler, beceriler, zamanlama, çok aracı, uzak oturumlar)
+
+  ### Temel Belgeler
+  - **[Komutlar Sistemi](docs/COMMANDS.md)** - Birleşik komut sistemi, desenler ve tüm modlar arasında kullanım için kapsamlı kılavuz
+  - **[Token Yönetimi](docs/TOKEN_MANAGEMENT.md)** - OAuth, bearer tokenları ve API anahtarları da dahil olmak üzere sağlayıcılar ve sunucular için kapsamlı token yönetimi
+
+  ### Özel Belgeler
+  - **[Yürütme Planları](docs/PLANNING.md)** - Plan oluşturma, paralel yürütme, değişken çözümlemesi, kontrol noktaları, korumalı alanlar ve yeniden planlama
+  - **[Pano](docs/DASHBOARD.md)** - Agent terminali, aktivite akışı ve dosya yükleme ile gerçek zamanlı tarayıcı kullanıcı arayüzü
+  - **[Ekler](docs/ATTACHMENTS.md)** - Çok modlu dosya ekleri: görüntüler, metin, ses ve tarayıcı yüklemesi
+  - **[MCP Uygulamaları](docs/MCP_APPS.md)** - MCP sunucuları tarafından sunulan etkileşimli tarayıcı kullanıcı arayüzleri (SEP-1865)
+  - **[OAuth Kimlik Doğrulaması](docs/OAUTH.md)** - OAuth akışları, depolama arka uçları ve MCP sunucu entegrasyonu
+  - **[Akış Entegrasyonu](docs/STREAMING.md)** - Gerçek zamanlı yanıt akışı mimarisi
+  - **[Paket Yönetimi](docs/PACKAGE_MANAGEMENT.md)** - Bağımlılık organizasyonu ve özellik grupları
+
+  ### Kullanıcı Arayüzü Belgeleri
+  - **[Temalar](docs/ui/themes.md)** - Tema sistemi ve özelleştirme
+  - **[Çıkış Sistemi](docs/ui/output.md)** - Zengin konsol çıkışı ve biçimlendirme
+  - **[Terminal Yönetimi](docs/ui/terminal.md)** - Çapraz platform terminal işlemleri
+
+  ### Test Belgeleri
+  - **[Birim Testi](docs/testing/UNIT_TESTING.md)** - Test yapısı ve modelleri
+  - **[Test Kapsamı](docs/testing/TEST_COVERAGE.md)** - Kapsama gereksinimleri ve raporlama
+
+  ## 📋 Ön Koşullar
+
+  - **Python 3.11 veya daha yüksek**
+  - **Yerel İşlem İçin (Varsayılan)**:
+    - Ollama: [ollama.ai](https://ollama.ai) adresinden yükleyin
+    - Varsayılan akıl yürütme modelini çekin: `ollama pull gpt-oss`
+  - **Bulut Sağlayıcıları İçin** (İsteğe Bağlı):
+    - OpenAI: `OPENAI_API_KEY` ortam değişkeni (GPT-5, GPT-4, O3 modelleri için)
+    - Anthropic: `ANTHROPIC_API_KEY` ortam değişkeni (Claude 4.5, Claude 3.5 için)
+    - Azure: `AZURE_OPENAI_API_KEY` ve `AZURE_OPENAI_ENDPOINT` (kurumsal GPT-5 için)
+    - Google: `GEMINI_API_KEY` (Gemini modelleri için)
+    - Groq: `GROQ_API_KEY` (hızlı Llama modelleri için)
+    - Özel sağlayıcılar: Sağlayıcıya özgü yapılandırma
+  - **MCP Sunucuları**: Sunucu yapılandırma dosyası (varsayılan: `server_config.json`)
+
+  ## 🚀 Kurulum
+
+  ### Ollama ile Hızlı Başl
 ---
 
 # MCP CLI - Model Context Protocol Command Line Interface

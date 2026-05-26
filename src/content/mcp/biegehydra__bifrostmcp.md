@@ -8,6 +8,314 @@ url: "https://github.com/biegehydra/BifrostMCP"
 body_length: 9829
 license: "AGPL-3.0"
 language: "TypeScript"
+body_tr: |-
+  # Bifrost - VSCode Dev Tools MCP Server
+  <a href="https://marketplace.visualstudio.com/items?itemName=ConnorHallman.bifrost-mcp">
+    
+  </a>
+
+  Bu VS Code uzantısı, VSCode'un güçlü geliştirme araçlarını ve dil özelliklerini AI araçlarına sunan bir Model Context Protocol (MCP) sunucusu sağlar. MCP protokolünü destekleyen AI kod asistanları kullanırken gelişmiş kod navigasyonu, analizi ve manipülasyon yeteneklerini etkinleştirir.
+
+  ![image](https://raw.githubusercontent.com/biegehydra/BifrostMCP/refs/heads/master/src/images/cursor.png)
+
+  ## İçindekiler
+  - [Özellikler](#özellikler)
+  - [Kurulum/Kullanım](#kullanım)
+  - [Çoklu Proje Desteği](#çoklu-proje-desteği)
+  - [Mevcut Araçlar](#mevcut-araçlar)
+  - [Mevcut Komutlar](#mevcut-komutlar)
+  - [Sorun Giderme](#sorun-giderme)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+  - [Hata Ayıklama](#hata-ayıklama)
+  - [Lisans](#lisans)
+
+  ## Özellikler
+
+  - **Language Server Entegrasyonu**: Desteklenen herhangi bir dil için VSCode'un language server yeteneklerine erişin
+  - **Kod Navigasyonu**: Referansları, tanımları, uygulamaları ve daha fazlasını bulun
+  - **Symbol Arama**: Çalışma alanınızda semboller arayın
+  - **Kod Analizi**: Semantic token'ları, belge sembollerini ve tür bilgilerini alın
+  - **Akıllı Seçim**: Akıllı kod seçimi için semantic seçim aralıklarını kullanın
+  - **Kod Aksiyonları**: Refactoring önerileri ve hızlı düzeltmelere erişin
+  - **HTTP/SSE Sunucusu**: Dil özelliklerini MCP uyumlu bir HTTP sunucusu üzerinden açığa çıkarır
+  - **AI Asistan Entegrasyonu**: MCP protokolünü destekleyen AI asistanlarla çalışmaya hazır
+
+  ## Kullanım
+
+  ### Kurulum
+
+  1. [Uzantıyı](https://marketplace.visualstudio.com/items?itemName=ConnorHallman.bifrost-mcp) VS Code marketplace'ten yükleyin
+  2. Geliştirme için ihtiyacınız olan dile özel uzantıları yükleyin
+  3. Projenizi VS Code'da açın
+
+  ### Yapılandırma
+
+  Uzantı etkinleştirildiğinde otomatik olarak bir MCP sunucusu başlatır. Bir AI asistanını bu sunucuyu kullanacak şekilde yapılandırmak için:
+
+  1. Sunucu varsayılan olarak port 8008'de çalışır (`bifrost.config.json` ile yapılandırılabilir)
+  2. MCP uyumlu AI asistanınızı şu uç noktalara bağlanacak şekilde yapılandırın:
+     - SSE uç noktası: `http://localhost:8008/sse`
+     - Message uç noktası: `http://localhost:8008/message`
+
+  ### LLM Kuralları
+  .cursorrules dosyaları için daha iyi sonuçlar almak amacıyla örnek kurallar sağladım.
+
+  [Örnek Cursor Kuralları](https://github.com/biegehydra/BifrostMCP/blob/master/ExampleCursorRules.md)
+
+  [Örnek MDC Kuralları](https://github.com/biegehydra/BifrostMCP/blob/master/example.mdc)
+
+  ### Cline Kurulumu
+  - Adım 1. [Supergateway](https://github.com/supercorp-ai/supergateway) yükleyin
+  - Adım 2. Cline'a config ekleyin
+  - Adım 3. Kırmızı görünecek ama sorunsuz çalışıyor gibi görünüyor
+
+  #### Windows Yapılandırması
+  ```json
+  {
+    "mcpServers": {
+      "Bifrost": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "npx",
+          "-y",
+          "supergateway",
+          "--sse",
+          "http://localhost:8008/sse"
+        ],
+        "disabled": false,
+        "autoApprove": [],
+        "timeout": 600
+      }
+    }
+  }
+  ```
+
+  #### Mac/Linux Yapılandırması
+  ```json
+  {
+    "mcpServers": {
+      "Bifrost": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "supergateway",
+          "--sse",
+          "http://localhost:8008/sse"
+        ],
+        "disabled": false,
+        "autoApprove": [],
+        "timeout": 600
+      }
+    }
+  }
+  ```
+
+  ### Roo Code Kurulumu
+  - Adım 1: SSE config'i global veya proje tabanlı MCP yapılandırmanıza ekleyin
+  ```json
+  {
+    "mcpServers": {
+      "Bifrost": {
+        "url": "http://localhost:8008/sse"
+      }
+    }
+  }
+  ```
+
+  ![Screenshot_78](https://github.com/user-attachments/assets/55588c9e-7f88-4830-b87f-184018873ca1)
+
+  Cursor ile kurulum ve kullanım için bu videoyu izleyin
+
+  #### YENİ CURSOR SÜRÜMLERI İÇİN BU KODU KULLANIN
+  ```json
+  {
+    "mcpServers": {
+      "Bifrost": {
+        "url": "http://localhost:8008/sse"
+      }
+    }
+  }
+  ```
+
+  ## Çoklu Proje Desteği
+
+  Birden fazla proje ile çalışırken, her proje kendi dedicated MCP server uç noktasına ve portuna sahip olabilir. Bu, açık birden fazla VS Code pencereniz olduğunda veya dil sunucusu yeteneklerine ihtiyaç duyan birden fazla proje ile çalışırken kullanışlıdır.
+
+  ### Proje Yapılandırması
+
+  Proje kökünüzde bir `bifrost.config.json` dosyası oluşturun:
+
+  ```json
+  {
+      "projectName": "MyProject",
+      "description": "Projenizin açıklaması",
+      "path": "/my-project",
+      "port": 5642
+  }
+  ```
+
+  Sunucu bu yapılandırmayı şu şekilde kullanır:
+  - Projeye özgü uç noktalar oluşturur (örn. `http://localhost:5642/my-project/sse`)
+  - AI asistanlarına proje bilgilerini sağlar
+  - Her proje için dedicated port kullanır
+  - Proje hizmetlerini diğer çalışan örneklerden izole eder
+
+  ### Örnek Yapılandırmalar
+
+  1. Backend API Projesi:
+  ```json
+  {
+      "projectName": "BackendAPI",
+      "description": "TypeScript ile Node.js REST API",
+      "path": "/backend-api",
+      "port": 5643
+  }
+  ```
+
+  2. Frontend Web Uygulaması:
+  ```json
+  {
+      "projectName": "FrontendApp",
+      "description": "React frontend uygulaması",
+      "path": "/frontend-app",
+      "port": 5644
+  }
+  ```
+
+  ### Port Yapılandırması
+
+  Her proje birden fazla VS Code örneği çalışırken çatışmaları önlemek için kendi benzersiz portunu belirtmelidir:
+
+  - `bifrost.config.json` içindeki `port` alanı sunucunun hangi portu kullanacağını belirler
+  - Port belirtilmezse, geriye dönük uyumluluk için varsayılan olarak 8008'e ayarlanır
+  - Farklı projelerin eş zamanlı çalışmasını sağlamak için farklı portlar seçin
+  - Yapılandırılmış port zaten kullanımdaysa sunucu başlatılamaz ve şunlardan birini yapmanız gerekir:
+    - Portu boşaltın
+    - Yapılandırmada portu değiştirin
+    - Bu portu kullanan diğer VS Code örneğini kapatın
+
+  ### Projeye Özgü Uç Noktalara Bağlanma
+
+  AI asistan yapılandırmanızı projeye özgü uç nokta ve portu kullanacak şekilde güncelleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "BackendAPI": {
+        "url": "http://localhost:5643/backend-api/sse"
+      },
+      "FrontendApp": {
+        "url": "http://localhost:5644/frontend-app/sse"
+      }
+    }
+  }
+  ```
+
+  ### Geriye Dönük Uyumluluk
+
+  `bifrost.config.json` mevcut değilse, sunucu varsayılan yapılandırmayı kullanır:
+  - Port: 8008
+  - SSE uç noktası: `http://localhost:8008/sse`
+  - Message uç noktası: `http://localhost:8008/message`
+
+  Bu, mevcut yapılandırmalar ve araçlarla uyumluluğu korur.
+
+  ## Mevcut Araçlar
+
+  Uzantı aşağıdakiler dahil olmak üzere birçok VSCode dil özelliğine erişim sağlar:
+
+  * **find\_usages**: Tüm symbol referanslarını konumlandırın.
+  * **go\_to\_definition**: Symbol tanımlarına anında atlayın.
+  * **find\_implementations**: Interface'lerin/abstract metodların uygulamalarını keşfedin.
+  * **get\_hover\_info**: Hover'da zengin symbol belgelerini alın.
+  * **get\_document\_symbols**: Bir dosyadaki tüm sembolleri listeleyin.
+  * **get\_completions**: Context farkında auto-complete'ler alın.
+  * **get\_signature\_help**: Function parametresi ipuçları ve overload'lar.
+  * **get\_rename\_locations**: Proje genelinde rename işlemi yapılacak yerlerin konumunu güvenle alın.
+  * **rename**: Bir symbol üzerinde rename işlemi gerçekleştirin
+  * **get\_code\_actions**: Hızlı düzeltmeler, refactorlar ve iyileştirmeler.
+  * **get\_semantic\_tokens**: Gelişmiş highlight verisi.
+  * **get\_call\_hierarchy**: Incoming/outgoing çağrı ilişkilerini görün.
+  * **get\_type\_hierarchy**: Sınıf ve interface kalıtımını görselleştirin.
+  * **get\_code\_lens**: İnline öngörüler (referanslar, testler, vb.).
+  * **get\_selection\_range**: Kod blokları için akıllı seçim genişlemesi.
+  * **get\_type\_definition**: Temel alınan tür tanımlarına atlayın.
+  * **get\_declaration**: Symbol deklarasyonlarına gidin.
+  * **get\_document\_highlights**: Bir simbolün tüm oluşumlarını vurgulayın.
+  * **get\_workspace\_symbols**: Tüm çalışma alanınızda semboller arayın.
+
+  ## Gereksinimler
+
+  - Visual Studio Code sürümü 1.93.0 veya üstü
+  - Çalışmak istediğiniz diller için uygun dil uzantıları (örn. C# dosyaları için C# uzantısı)
+
+  ### Mevcut Komutlar
+
+  - `Bifrost MCP: Start Server` - Port 8008'de MCP sunucusunu manuel olarak başlatın
+  - `Bifrost MCP: Start Server on port` - MCP sunucusunu belirtilen portta manuel olarak başlatın
+  - `Bifrost MCP: Stop Server` - Çalışan MCP sunucusunu durdurun
+  - `Bifrost MCP: Open Debug Panel` - Mevcut araçları test etmek için debug panel'i açın
+
+  ![image](https://raw.githubusercontent.com/biegehydra/BifrostMCP/refs/heads/master/src/images/commands.png)
+
+  ## Star Geçmişi
+
+  [![Star History Chart](https://api.star-history.com/svg?repos=biegehydra/BifrostMCP&type=Date)](https://star-history.com/#biegehydra/BifrostMCP&Date)
+
+  ## Örnek Araç Kullanımı
+
+  ### Referansları Bulma
+  ```json
+  {
+    "name": "find_usages",
+    "arguments": {
+      "textDocument": {
+        "uri": "file:///path/to/your/file"
+      },
+      "position": {
+        "line": 10,
+        "character": 15
+      },
+      "context": {
+        "includeDeclaration": true
+      }
+    }
+  }
+  ```
+
+  ### Çalışma Alanı Symbol Arama
+  ```json
+  {
+    "name": "get_workspace_symbols",
+    "arguments": {
+      "query": "MyClass"
+    }
+  }
+  ```
+
+  ## Sorun Giderme
+
+  Sorunlarla karşılaşırsanız:
+
+  1. Projeniz için uygun dil uzantılarının yüklü olduğundan emin olun
+  2. Projenizin VSCode'da doğru yüklendiğini kontrol edin
+  3. Port 8008'in sisteminizde uygun olduğunu doğrulayın
+  4. VSCode output panel'ini hata mesajları için kontrol edin
+
+  ## Katkıda Bulunma
+  Ek işlevsellik eklemek istiyorsanız işte [VSCode komutları](https://github.com/microsoft/vscode-docs/blob/main/api/references/commands.md?plain=1). Bence rename ve diğer birkaç şey hala gerekiyor.
+  Lütfen [GitHub repository](https://github.com/biegehydra/csharplangmcpserver)'ye sorunlar veya pull request'ler göndermekten çekinmeyin.
+
+  `vsce package`
+
+  ## Hata Ayıklama
+  `MCP: Open Debug Panel` komutunu kullanın
+  ![image](https://raw.githubusercontent.com/biegehydra/BifrostMCP/refs/heads/master/src/images/debug_panel.png)
+
+  ## Lisans
+
+  Bu uzantı APGL-3.0 Lisansı altında lisanslanmıştır.
 ---
 
 # Bifrost - VSCode Dev Tools MCP Server

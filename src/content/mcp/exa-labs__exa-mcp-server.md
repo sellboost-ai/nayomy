@@ -9,6 +9,716 @@ body_length: 27862
 license: "MIT"
 language: "TypeScript"
 homepage: "https://exa.ai/docs/reference/exa-mcp"
+body_tr: |-
+  # Exa MCP Sunucusu
+
+  [![Cursor'a Yükle](https://img.shields.io/badge/Install_in-Cursor-000000?style=flat-square&logoColor=white)](https://cursor.com/en/install-mcp?name=exa&config=eyJuYW1lIjoiZXhhIiwidHlwZSI6Imh0dHAiLCJ1cmwiOiJodHRwczovL21jcC5leGEuYWkvbWNwIn0=)
+  [![VS Code'a Yükle](https://img.shields.io/badge/Install_in-VS_Code-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=exa&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.exa.ai%2Fmcp%22%7D)
+  [![npm version](https://badge.fury.io/js/exa-mcp-server.svg)](https://www.npmjs.com/package/exa-mcp-server)
+
+  AI asistanlarını Exa'nın arama yeteneklerine bağlayın: web arama, kod arama ve şirket araştırması.
+
+  **[Tam Dokümantasyon](https://docs.exa.ai/reference/exa-mcp)** | **[npm Paketi](https://www.npmjs.com/package/exa-mcp-server)** | **[Exa API Anahtarınızı Alın](https://dashboard.exa.ai/api-keys)**
+
+  ## Kurulum
+
+  Exa'nın barındırılan MCP sunucusuna bağlanın:
+
+  ```
+  https://mcp.exa.ai/mcp
+  ```
+
+  [API anahtarınızı alın](https://dashboard.exa.ai/api-keys)
+
+  <details>
+  <summary><b>Cursor</b></summary>
+
+  `~/.cursor/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "url": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>VS Code</b></summary>
+
+  `.vscode/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "servers": {
+      "exa": {
+        "type": "http",
+        "url": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Claude Code</b></summary>
+
+  ```bash
+  claude mcp add --transport http exa https://mcp.exa.ai/mcp
+  ```
+  </details>
+
+  <details>
+  <summary><b>Claude Desktop</b></summary>
+
+  Exa, yerel bir Claude Konektörü olarak kullanılabilir — yapılandırma dosyaları veya terminal komutlarına gerek yok.
+
+  1. Claude Desktop **Ayarları**'nı (veya **Özelleştir**'i) açın ve **Konektörler**'e gidin
+  2. Dizinde **Exa**'yı arayın
+  3. Eklemek için **+**'ye tıklayın
+
+  İşte bu kadar! Claude artık Exa arama araçlarına erişim sağlayacak.
+
+  <details>
+  <summary>Alternatif: manuel yapılandırma</summary>
+
+  Yapılandırma dosyanıza (`macOS'ta ~/Library/Application Support/Claude/claude_desktop_config.json`, Windows'ta `%APPDATA%\Claude\claude_desktop_config.json`) ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "command": "npx",
+        "args": ["-y", "mcp-remote", "https://mcp.exa.ai/mcp"]
+      }
+    }
+  }
+  ```
+  </details>
+  </details>
+
+  <details>
+  <summary><b>Codex</b></summary>
+
+  ```bash
+  codex mcp add exa --url https://mcp.exa.ai/mcp
+  ```
+  </details>
+
+  <details>
+  <summary><b>OpenCode</b></summary>
+
+  `opencode.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcp": {
+      "exa": {
+        "type": "remote",
+        "url": "https://mcp.exa.ai/mcp",
+        "enabled": true
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Antigravity</b></summary>
+
+  MCP Store panelini açın (yan paneldeki "..." açılır menüsünden), ardından özel bir sunucu ekleyin:
+
+  ```
+  https://mcp.exa.ai/mcp
+  ```
+  </details>
+
+  <details>
+  <summary><b>Windsurf</b></summary>
+
+  `~/.codeium/windsurf/mcp_config.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "serverUrl": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Zed</b></summary>
+
+  Zed ayarlarınıza ekleyin:
+
+  ```json
+  {
+    "context_servers": {
+      "exa": {
+        "url": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Gemini CLI</b></summary>
+
+  `~/.gemini/settings.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "httpUrl": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>v0 by Vercel</b></summary>
+
+  v0'da **Prompt Tools** > **Add MCP**'yi seçin ve girin:
+
+  ```
+  https://mcp.exa.ai/mcp
+  ```
+  </details>
+
+  <details>
+  <summary><b>Warp</b></summary>
+
+  **Ayarlar** > **MCP Servers** > **Add MCP Server**'a gidin ve ekleyin:
+
+  ```json
+  {
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp"
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Kiro</b></summary>
+
+  `~/.kiro/settings/mcp.json` dosyasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "url": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Roo Code</b></summary>
+
+  Roo Code MCP yapılandırmasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "type": "streamable-http",
+        "url": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>Diğer İstemciler</b></summary>
+
+  Uzak MCP'yi destekleyen istemciler için:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "url": "https://mcp.exa.ai/mcp"
+      }
+    }
+  }
+  ```
+
+  mcp-remote'a ihtiyaç duyan istemciler için:
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "command": "npx",
+        "args": ["-y", "mcp-remote", "https://mcp.exa.ai/mcp"]
+      }
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary><b>npm Paketi Aracılığıyla</b></summary>
+
+  npm paketini API anahtarınızla kullanın. [API anahtarınızı alın](https://dashboard.exa.ai/api-keys).
+
+  ```json
+  {
+    "mcpServers": {
+      "exa": {
+        "command": "npx",
+        "args": ["-y", "exa-mcp-server"],
+        "env": {
+          "EXA_API_KEY": "your_api_key"
+        }
+      }
+    }
+  }
+  ```
+  </details>
+
+  ## Kullanılabilir Araçlar
+
+  **Varsayılan Olarak Etkin:**
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `web_search_exa` | Herhangi bir konu hakkında web'i arayın ve temiz, kullanıma hazır içerik alın |
+  | `web_fetch_exa` | Bilinen bir URL'den belirli bir web sayfasının tam içeriğini alın |
+
+  **Varsayılan Olarak Kapalı:**
+  | Araç | Açıklama |
+  | ---- | ----------- |
+  | `web_search_advanced_exa` | Filtreler, alanlar, tarihler ve içerik seçenekleri üzerinde tam kontrolle gelişmiş web araması |
+
+  **Kullanım Dışı** (geriye dönük uyumluluk için hala kullanılabilir):
+
+  | Araç | Bunun yerine kullanın |
+  | ---- | ----------- |
+  | `get_code_context_exa` | `web_search_exa` |
+  | `company_research_exa` | `web_search_advanced_exa` |
+  | `crawling_exa` | `web_fetch_exa` |
+  | `people_search_exa` | `web_search_advanced_exa` |
+  | `linkedin_search_exa` | `web_search_advanced_exa` |
+  | `deep_researcher_start` | [Research API](https://docs.exa.ai/reference/research/create-a-task) |
+  | `deep_researcher_check` | [Research API](https://docs.exa.ai/reference/research/get-a-task) |
+  | `deep_search_exa` | `web_search_advanced_exa` |
+
+  `tools` parametresiyle ek araçları etkinleştirin:
+
+  ```
+  https://mcp.exa.ai/mcp?exaApiKey=YOUR_KEY&tools=web_search_exa,web_search_advanced_exa,web_fetch_exa
+  ```
+
+  ## Agent Beceriler (Claude Becerileri)
+
+  Claude Code için hazır becerileri kullanın. Her beceri Claude'u belirli bir görev için Exa arama kullanmayı öğretir. Açılır menü içindeki içeriği kopyalayın ve Claude Code'a yapıştırın — geri kalanını halleder.
+
+  <details>
+  <summary><b>Şirket Araştırması</b></summary>
+
+  Aşağıdaki içeriği kopyalayın ve Claude Code'a yapıştırın. MCP bağlantısını ve becerisini kurucağını yapacak.
+
+  ````
+  Adım 1: Exa MCP'yi kurun veya güncelleyin
+
+  Exa MCP zaten MCP yapılandırmanızda varsa, önce kaldırıp yeni olanı kurun veya mevcut MCP yapılandırmanızı bu endpoint ile güncelleyin. Terminal'de bu komutu çalıştırın:
+
+  claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+
+
+  Adım 2: Bu Claude becerisini ekleyin
+
+  ---
+  name: company-research
+  description: Exa arama kullanarak şirket araştırması. Şirket bilgisi, rakipler, haberler, finansal veriler, LinkedIn profilleri, şirket listeleri bulur. Şirketleri araştırırken, rekabet analizı yaparken, pazar araştırması yaparken veya şirket listeleri oluştururken kullanın.
+  context: fork
+  ---
+
+  # Şirket Araştırması
+
+  ## Araç Kısıtlaması (Kritik)
+
+  SADECE `web_search_advanced_exa` kullanın. `web_search_exa` veya diğer Exa araçlarını KULLANMAYIN.
+
+  ## Token İzolasyonu (Kritik)
+
+  Exa aramalarını asıl bağlamda çalıştırmayın. Her zaman Task ajanları oluşturun:
+  - Ajan Exa aramasını içinde çalıştırır
+  - Ajan LLM zekasını kullanarak sonuçları işler
+  - Ajan yalnızca sıkıştırılmış çıktı döndürür (kompakt JSON veya kısa markdown)
+  - Ana bağlam arama hacmine bakılmaksızın temiz kalır
+
+  ## Dinamik Ayarlama
+
+  Sabit numResults yok. Kullanıcı niyetine göre ayarlayın:
+  - Kullanıcı "birkaç" derse → 10-20
+  - Kullanıcı "kapsamlı" derse → 50-100
+  - Kullanıcı sayı belirtirse → eşleştirin
+  - Belirsiz? Sorun: "Kaç şirket istiyorsunuz?"
+
+  ## Sorgu Değişkeni
+
+  Exa farklı ifadelendirmeler için farklı sonuçlar döndürür. Kapsam için:
+  - 2-3 sorgu değişkeni oluşturun
+  - Paralel çalıştırın
+  - Birleştirin ve çoğaltmayı kaldırın
+
+  ## Kategoriler
+
+  İhtiyacınıza bağlı olarak uygun Exa `category` kullanın:
+  - `company` → ana sayfalar, zengin metadata (çalışan sayısı, konum, finansman, gelir)
+  - `news` → basın kapsamı, duyurular
+  - `people` → LinkedIn profilleri (herkese açık veriler)
+  - Kategori yok (`type: "auto"`) → genel web sonuçları, derinlemesine incelemeler, daha geniş bağlam
+
+  Keşif için `category: "company"` ile başlayın, sonra daha derin araştırma için diğer kategorileri veya kategori olmayı kullanın.
+
+  ### Kategoriye Özel Filtre Kısıtlamaları
+
+  `category: "company"` kullanırken, bu parametreler 400 hatası verir:
+  - `includeDomains` / `excludeDomains`
+  - `startPublishedDate` / `endPublishedDate`
+  - `startCrawlDate` / `endCrawlDate`
+
+  Kategori olmadan araştırırken (veya `news` ile), alan ve tarih filtreleri iyi çalışır.
+
+  **Evrensel kısıtlama:** `includeText` ve `excludeText` yalnızca **tek öğe dizilerini** destekler. Çok öğeli diziler tüm kategorilerde 400 hatası verir.
+
+  ## LinkedIn
+
+  Exa aracılığıyla herkese açık LinkedIn: `category: "people"`, başka filtre yok.
+  Kimlik doğrulama gerektiren LinkedIn → Chrome tarayıcısında Claude kullanmaya dönün.
+
+  ## Tarayıcı Geri Dönüşü
+
+  Şu durumlarda Chrome tarayıcısında Claude'a otomatik geri dönüş yapın:
+  - Exa yetersiz sonuç döndürür
+  - İçerik kimlik doğrulama gerektiriyor
+  - Dinamik sayfalar JavaScript gerektirir
+
+  ## Örnekler
+
+  ### Keşif: bir alanda şirketleri bulun
+  ```
+  web_search_advanced_exa {
+    "query": "AI infrastructure startups San Francisco",
+    "category": "company",
+    "numResults": 20,
+    "type": "auto"
+  }
+  ```
+
+  ### Derinlemesine inceleme: belirli bir şirketi araştırın
+  ```
+  web_search_advanced_exa {
+    "query": "Anthropic funding rounds valuation 2024",
+    "type": "deep",
+    "numResults": 10,
+    "includeDomains": ["techcrunch.com", "crunchbase.com", "bloomberg.com"]
+  }
+  ```
+
+  ### Haber kapsamı
+  ```
+  web_search_advanced_exa {
+    "query": "Anthropic AI safety",
+    "category": "news",
+    "numResults": 15,
+    "startPublishedDate": "2024-01-01"
+  }
+  ```
+
+  ### LinkedIn profilleri
+  ```
+  web_search_advanced_exa {
+    "query": "VP Engineering AI infrastructure",
+    "category": "people",
+    "numResults": 20
+  }
+  ```
+
+  ## Çıktı Formatı
+
+  Döndürün:
+  1) Sonuçlar (yapılandırılmış liste; satır başına bir şirket)
+  2) Kaynaklar (URL'ler; satır başına 1 satır ilgililik)
+  3) Notlar (belirsizlik/çatışmalar)
+
+
+  Adım 3: Kullanıcıdan Claude Code'u Yeniden Başlatmasını İsteyin
+
+  Yapılandırma değişikliklerinin etkili olması için kullanıcıdan Claude Code'u yeniden başlatmasını istemelisiniz.
+  ````
+
+  </details>
+
+  <details>
+  <summary><b>Kod Araması</b></summary>
+
+  Aşağıdaki içeriği kopyalayın ve Claude Code'a yapıştırın. MCP bağlantısını ve becerisini kuracak.
+
+  ````
+  Adım 1: Exa MCP'yi kurun veya güncelleyin
+
+  Exa MCP zaten MCP yapılandırmanızda varsa, önce kaldırıp yeni olanı kurun veya mevcut MCP yapılandırmanızı bu endpoint ile güncelleyin. Terminal'de bu komutu çalıştırın:
+
+  claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_exa"
+
+
+  Adım 2: Bu Claude becerisini ekleyin
+
+  ---
+  name: code-search-exa
+  description: Exa kullanarak kod bağlamı. GitHub, StackOverflow ve teknik dokümentasyondan gerçek snippetler ve doküman bulur. Kod örnekleri, API sözdizimi, kütüphane dokümantasyonu veya hata ayıklama yardımı ararken kullanın.
+  context: fork
+  ---
+
+  # Kod Bağlamı (Exa)
+
+  ## Araç Kısıtlaması (Kritik)
+
+  SADECE `web_search_exa` kullanın. Diğer Exa araçlarını KULLANMAYIN.
+
+  ## Token İzolasyonu (Kritik)
+
+  Exa'yı asıl bağlamda çalıştırmayın. Her zaman Task ajanları oluşturun:
+  - Ajan `web_search_exa` çağrısı yapar
+  - Ajan minimum uygulanabilir snippet(ler) + kısıtlamaları ayıklar
+  - Ajan benzer sonuçların çoğaltmasını kaldırır (aynalar, forklarlar, tekrarlanan StackOverflow cevapları) sunmadan önce
+  - Ajan kopyalanabilir snippet'ler + kısa açıklama döndürür
+  - Ana bağlam arama hacmine bakılmaksızın temiz kalır
+
+  ## Ne Zaman Kullanılır
+
+  Herhangi bir programlama ile ilgili istek için bu aracı kullanın:
+  - API kullanımı ve sözdizimi
+  - SDK/kütüphane örnekleri
+  - yapılandırma ve kurulum desenleri
+  - framework "nasıl yapılır" soruları
+  - yetkili snippet'lere ihtiyacınız olduğunda hata ayıklama
+
+  ## Sorgu Yazma Desenleri (Yüksek Sinyal)
+
+  İlgisiz sonuçları ve diller arası gürültüyü azaltmak için:
+  - Her zaman sorguya **programlama dilini** ekleyin.
+    - Örnek: sadece **"generics"** yerine **"Go generics"** kullanın.
+  - Geçerli olduğunda, **framework + sürüm**'ü de ekleyin (örn. "Next.js 14", "React 19", "Python 3.12").
+  - Sahip olduğunuz kesin tanımlayıcıları (fonksiyon/sınıf adları, config anahtarları, hata iletileri) ekleyin.
+
+  ## Çıktı Formatı (Önerilir)
+
+  Döndürün:
+  1) En iyi minimal çalışan snippet(ler) (kopyala-yapıştır dostu tutun)
+  2) Sürüm / kısıtlamalar / uyarılar hakkında notlar
+  3) Kaynaklar (döndürülen bağlamda URL'ler varsa)
+
+  Sunmadan önce:
+  - Benzer sonuçların çoğaltmasını kaldırın ve yaklaşım başına yalnızca en iyi temsili snippet tutun.
+
+  ## MCP Yapılandırması
+
+  ```json
+  {
+    "servers": {
+      "exa": {
+        "type": "http",
+        "url": "https://mcp.exa.ai/mcp?tools=web_search_exa"
+      }
+    }
+  }
+  ```
+
+
+  Adım 3: Kullanıcıdan Claude Code'u Yeniden Başlatmasını İsteyin
+
+  Yapılandırma değişikliklerinin etkili olması için kullanıcıdan Claude Code'u yeniden başlatmasını istemelisiniz.
+  ````
+
+  </details>
+
+  <details>
+  <summary><b>İnsan Araması</b></summary>
+
+  Aşağıdaki içeriği kopyalayın ve Claude Code'a yapıştırın. MCP bağlantısını ve becerisini kuracak.
+
+  ````
+  Adım 1: Exa MCP'yi kurun veya güncelleyin
+
+  Exa MCP zaten MCP yapılandırmanızda varsa, önce kaldırıp yeni olanı kurun veya mevcut MCP yapılandırmanızı bu endpoint ile güncelleyin. Terminal'de bu komutu çalıştırın:
+
+  claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+
+
+  Adım 2: Bu Claude becerisini ekleyin
+
+  ---
+  name: people-research
+  description: Exa arama kullanarak insan araştırması. LinkedIn profilleri, profesyonel geçmişler, uzmanlar, takım üyeleri ve web'de herkese açık biyografiler bulur. İnsan ararken, uzmanları bulurken veya profesyonel profilleri ararken kullanın.
+  context: fork
+  ---
+
+  # İnsan Araştırması
+
+  ## Araç Kısıtlaması (Kritik)
+
+  SADECE `web_search_advanced_exa` kullanın. `web_search_exa` veya diğer Exa araçlarını KULLANMAYIN.
+
+  ## Token İzolasyonu (Kritik)
+
+  Exa aramalarını asıl bağlamda çalıştırmayın. Her zaman Task ajanları oluşturun:
+  - Ajan Exa aramasını içinde çalıştırır
+  - Ajan LLM zekasını kullanarak sonuçları işler
+  - Ajan yalnızca sıkıştırılmış çıktı döndürür (kompakt JSON veya kısa markdown)
+  - Ana bağlam arama hacmine bakılmaksızın temiz kalır
+
+  ## Dinamik Ayarlama
+
+  Sabit numResults yok. Kullanıcı niyetine göre ayarlayın:
+  - Kullanıcı "birkaç" derse → 10-20
+  - Kullanıcı "kapsamlı" derse → 50-100
+  - Kullanıcı sayı belirtirse → eşleştirin
+  - Belirsiz? Sorun: "Kaç profil istiyorsunuz?"
+
+  ## Sorgu Değişkeni
+
+  Exa farklı ifadelendirmeler için farklı sonuçlar döndürür. Kapsam için:
+  - 2-3 sorgu değişkeni oluşturun
+  - Paralel çalıştırın
+  - Birleştirin ve çoğaltmayı kaldırın
+
+  ## Kategoriler
+
+  İhtiyacınıza bağlı olarak uygun Exa `category` kullanın:
+  - `people` → LinkedIn profilleri, herkese açık biyografiler (keşif için birincil)
+  - `personal site` → kişisel bloglar, portfolio siteleri, about sayfaları
+  - `news` → basın sözü, röportajlar, konuşmacı biyoları
+  - Kategori yok (`type: "auto"`) → genel web sonuçları, daha geniş bağlam
+
+  Profil keşfi için `category: "people"` ile başlayın, sonra belirli kişiler için daha derin araştırma için diğer kategorileri veya kategori olmayı kullanın.
+
+  ### Kategoriye Özel Filtre Kısıtlamaları
+
+  `category: "people"` kullanırken, bu parametreler hata verir:
+  - `startPublishedDate` / `endPublishedDate`
+  - `startCrawlDate` / `endCrawlDate`
+  - `includeText` / `excludeText`
+  - `excludeDomains`
+  - `includeDomains` — **Yalnızca LinkedIn alanları** (örn. "linkedin.com")
+
+  Kategori olmadan araştırırken, tüm parametreler kullanılabilir (`includeText`/`excludeText` hala yalnızca tek öğe dizilerini destekler).
+
+  ## LinkedIn
+
+  Exa aracılığıyla herkese açık LinkedIn: `category: "people"`, başka filtre yok.
+  Kimlik doğrulama gerektiren LinkedIn → Chrome tarayıcısında Claude kullanmaya dönün.
+
+  ## Tarayıcı Geri Dönüşü
+
+  Şu durumlarda Chrome tarayıcısında Claude'a otomatik geri dönüş yapın:
+  - Exa yetersiz sonuç döndürür
+  - İçerik kimlik doğrulama gerektiriyor
+  - Dinamik sayfalar JavaScript gerektirir
+
+  ## Örnekler
+
+  ### Keşif: rollerine göre insanları bulun
+  ```
+  web_search_advanced_exa {
+    "query": "VP Engineering AI infrastructure",
+    "category": "people",
+    "numResults": 20,
+    "type": "auto"
+  }
+  ```
+
+  ### Sorgu değişkenleriyle
+  ```
+  web_search_advanced_exa {
+    "query": "machine learning engineer San Francisco",
+    "category": "people",
+    "additionalQueries": ["ML engineer SF", "AI engineer Bay Area"],
+    "numResults": 25,
+    "type": "deep"
+  }
+  ```
+
+  ### Derinlemesine inceleme: belirli bir kişiyi araştırın
+  ```
+  web_search_advanced_exa {
+    "query": "Dario Amodei Anthropic CEO background",
+    "type": "auto",
+    "numResults": 15
+  }
+  ```
+
+  ### Haber sözü
+  ```
+  web_search_advanced_exa {
+    "query": "Dario Amodei interview",
+    "category": "news",
+    "numResults": 10,
+    "startPublishedDate": "2024-01-01"
+  }
+  ```
+
+  ## Çıktı Formatı
+
+  Döndürün:
+  1) Sonuçlar (ad, unvan, şirket, konum varsa)
+  2) Kaynaklar (Profil URL'leri)
+  3) Notlar (profil bütünlüğü, doğrulama durumu)
+
+
+  Adım 3: Kullanıcıdan Claude Code'u Yeniden Başlatmasını İsteyin
+
+  Yapılandırma değişikliklerinin etkili olması için kullanıcıdan Claude Code'u yeniden başlatmasını istemelisiniz.
+  ````
+
+  </details>
+
+  <details>
+  <summary><b>Finansal Rapor Araması</b></summary>
+
+  Aşağıdaki içeriği kopyalayın ve Claude Code'a yapıştırın. MCP bağlantısını ve becerisini kuracak.
+
+  ````
+  Adım 1: Exa MCP'yi kurun veya güncelleyin
+
+  Exa MCP zaten MCP yapılandırmanızda varsa, önce kaldırıp yeni olanı kurun veya mevcut MCP yapılandırmanızı bu endpoint ile güncelleyin. Terminal'de bu komutu çalıştırın:
+
+  claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+
+
+  Adım 2: Bu Claude becerisini ekleyin
+
+  ---
+  name: web-search-advanced-financial-report
+  description: Exa gelişmiş aramasını kullanarak finansal raporları arayın. SEC dosyaları, kazanç raporları ve finansal belgeler bulmak için neredeyse tam filtre desteği. 10-K dosyaları, üç aylık kazançlar veya yıllık raporları ararken kullanın.
+  context: fork
+  ---
+
+  # Web Araması Gelişmiş - Finansal Rapor Kategorisi
+
+  ## Araç Kısıtlaması (Kritik)
+
+  SADECE `web_search_advanced_exa`'yı `category: "financial report"` ile kullanın. Diğer kategorileri veya araçları KULLANMAYIN.
+
+  ## Filtre Kısıtlamaları (Kritik)
+
+  `financial report` kategorisinin bilinen bir kısı
 ---
 
 # Exa MCP Server

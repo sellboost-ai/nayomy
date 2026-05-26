@@ -9,6 +9,347 @@ body_length: 11274
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://safedep.io"
+body_tr: |-
+  <p align="center">
+    <a href="https://safedep.io">
+      <picture>
+        <source srcset="docs/assets/vet-banner-dark.svg" media="(prefers-color-scheme: dark)">
+        <source srcset="docs/assets/vet-banner-light.svg" media="(prefers-color-scheme: light)">
+        
+      </picture>
+    </a>
+  </p>
+
+  <div align="center">
+    <p>
+      <a href="#hızlı-başlangıç"><strong>Hızlı Başlangıç</strong></a> •
+      <a href="https://docs.safedep.io/"><strong>Dokümantasyon</strong></a> •
+      <a href="#topluluk--destek"><strong>Topluluk</strong></a>
+    </p>
+  </div>
+
+  <div align="center">
+
+  [![Go Report Card](https://goreportcard.com/badge/github.com/safedep/vet)](https://goreportcard.com/report/github.com/safedep/vet)
+  [![License](https://img.shields.io/github/license/safedep/vet)](https://github.com/safedep/vet/blob/main/LICENSE)
+  [![Release](https://img.shields.io/github/v/release/safedep/vet)](https://github.com/safedep/vet/releases)
+  [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/safedep/vet/badge)](https://api.securityscorecards.dev/projects/github.com/safedep/vet)
+  [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
+  [![CodeQL](https://github.com/safedep/vet/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/safedep/vet/actions/workflows/codeql.yml)
+
+  [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/safedep/vet)
+
+  </div>
+
+  ---
+
+  > [!NOTE]
+  > `vet` Agent Skills için özel modu destekler.
+  > GitHub repository'de barındırılan bir Agent Skill'i taramak için `vet scan --agent-skill <owner/repo>` komutunu çalıştırın.
+
+  ## Neden vet?
+
+  > **Modern yazılımın %70-90'ı açık kaynaklı koddur** — nasıl güvenli olduğunu bilebilirsiniz?
+
+  Geleneksel SCA araçları sizi CVE gürültüsüne boğar. **vet** farklı bir yaklaşım sunar:
+
+  - **Shadow AI discovery** — Çeşitli araçlar ve konfigürasyonlar arasında AI araç kullanım sinyalleri keşfedin
+  - **Malware'i göndermeden yakalayın** — Statik ve dinamik davranış analizi ile sıfır gün tespiti (SafeDep Cloud erişimi gerekir)
+  - **Vulnerability gürültüsünü azaltın** — Gerçek kod kullanımını analiz ederek yalnızca önemli riskleri ortaya çıkarın
+  - **Politikayı kod olarak zorunlu kılın** — Güvenlik, lisans ve kalite gereksinimlerini [CEL](https://cel.dev/) ifadeleri olarak tanımlayın
+  - **CI/CD entegrasyonu** — CI/CD'de sıfır yapılandırmalı güvenlik koruma
+
+  Açık kaynak için ücretsiz. Hosted SaaS [SafeDep](https://safedep.io) adresinde mevcuttur.
+
+  ## Hızlı Başlangıç
+
+  **Saniyeler içinde kurun:**
+
+  ```bash
+  # macOS & Linux
+  brew install safedep/tap/vet
+
+  # npm kullanarak
+  npm install -g @safedep/vet
+  ```
+
+  veya [önceden derlenmiş binary](https://github.com/safedep/vet/releases) indirin
+
+  **Hemen başlayın:**
+
+  ```bash
+  # Bağımlılıklarınızda malware taraması yapın
+  vet scan -D . --malware-query
+
+  # Kritik açıklıklarda CI'yi başarısız kılın
+  vet scan -D . --filter 'vulns.critical.exists(p, true)' --filter-fail
+
+  # Gelişmiş malware tespiti için API anahtarı alın
+  vet cloud quickstart
+  ```
+
+  ## Mimari
+
+  `vet` bir pipeline mimarisini izler: **readers** çeşitli kaynaklardan (dizinler, repositoryler, container image'ları, SBOM'lar) package manifest'lerini alır, **enrichers** her package'ı SafeDep Cloud'dan gelen vulnerability, malware ve scorecard verileriyle zenginleştirir, **CEL policy engine** güvenlik politikalarını zenginleştirilmiş verilere karşı değerlendirir ve **reporters** SARIF, JSON ve Markdown gibi formatlarda eyleme geçirilebilir çıkış üretir.
+
+  <details>
+  <summary>Mimari diyagramını görüntüle</summary>
+
+  ```mermaid
+  graph TB
+      subgraph "OSS Ecosystem"
+          R1[npm Registry]
+          R2[PyPI Registry]
+          R3[Maven Central]
+          R4[Other Registries]
+      end
+
+      subgraph "SafeDep Cloud"
+          M[Continuous Monitoring]
+          A[Real-time Code Analysis<br/>Malware Detection]
+          T[Threat Intelligence DB<br/>Vulnerabilities • Malware • Scorecard]
+      end
+
+      subgraph "vet CLI"
+          S[Source Repository<br/>Scanner]
+          P[CEL Policy Engine]
+          O[Reports & Actions<br/>SARIF/JSON/CSV]
+      end
+
+      R1 -->|New Packages| M
+      R2 -->|New Packages| M
+      R3 -->|New Packages| M
+      R4 -->|New Packages| M
+      M -->|Behavioral Analysis| A
+      A -->|Malware Signals| T
+
+      S -->|Query Package Info| T
+      T -->|Security Intelligence| S
+      S -->|Analysis Results| P
+      P -->|Policy Decisions| O
+
+      style M fill:#7CB9E8,stroke:#5A8DB8,color:#1a1a1a
+      style A fill:#E8A87C,stroke:#B88A5A,color:#1a1a1a
+      style T fill:#7CB9E8,stroke:#5A8DB8,color:#1a1a1a
+      style S fill:#90C695,stroke:#6B9870,color:#1a1a1a
+      style P fill:#E8C47C,stroke:#B89B5A,color:#1a1a1a
+      style O fill:#B8A3D4,stroke:#9478AA,color:#1a1a1a
+  ```
+
+  </details>
+
+  ## Temel Özellikler
+
+  ### **Kötü Amaçlı Package Tespiti**
+
+  [SafeDep Cloud](https://docs.safedep.io/cloud/malware-analysis) tarafından desteklenen kötü amaçlı package'lara karşı gerçek zamanlı koruma.
+  Açık kaynak projeleri için ücretsiz. Aktif kod analizi ile sıfır günlük malware'i tespit eder.
+
+  ### **Vulnerability Analizi**
+
+  Dependency scannerlarından farklı olarak, `vet` sizi gürültü ile boğmak yerine **gerçek kod kullanımınızı** analiz ederek gerçek riskleri önceliklendirmektedir.
+  Detaylar için [dependency usage evidence](https://docs.safedep.io/vet/guides/dependency-usage-identification) bölümüne bakın.
+
+  ### **Politika Kod Olarak**
+
+  CEL ifadeleri kullanarak bağlama özgü gereksinimleri zorunlu kılmak için güvenlik politikaları tanımlayın:
+
+  ```bash
+  # Kritik CVE'leri olan package'ları engelleyin
+  vet scan --filter 'vulns.critical.exists(p, true)' --filter-fail
+
+  # Lisans uyumluluğunu zorunlu kılın
+  vet scan --filter 'licenses.contains_license("GPL-3.0")' --filter-fail
+
+  # Minimum OpenSSF Scorecard puanlarını gerekli kılın
+  vet scan --filter 'scorecard.scores.Maintained < 5' --filter-fail
+  ```
+
+  ### **Multi-Ekosistem Desteği**
+
+  Package yöneticileri: **npm**, **PyPI**, **Maven**, **Go**, **Ruby**, **Rust**, **PHP**
+  Container image'ları: **Docker**, **OCI**
+  SBOM formatları: **CycloneDX**, **SPDX**
+  Kaynak repositoryleri: **GitHub**, **GitLab**
+
+  ## Kötü Amaçlı Package Tespiti
+
+  **Aktif tarama ve davranış analizi ile kötü amaçlı package'lara karşı gerçek zamanlı koruma.**
+
+  ### Hızlı Kurulum
+
+  ```bash
+  # Gelişmiş tarama için tek seferlik kurulum
+  vet cloud quickstart
+
+  # Aktif tarama ile malware'i tarayın (API anahtarı gerekli)
+  vet scan -D . --malware
+
+  # Bilinen kötü amaçlı package'ları sorgulayın (API anahtarı gerekli değil)
+  vet scan -D . --malware-query
+  ```
+
+  **Örnek tespitler:**
+
+  - [MAL-2025-3541: express-cookie-parser](https://safedep.io/malicious-npm-package-express-cookie-parser/)
+  - [MAL-2025-4339: eslint-config-airbnb-compat](https://safedep.io/digging-into-dynamic-malware-analysis-signals/)
+  - [MAL-2025-4029: ts-runtime-compat-check](https://safedep.io/digging-into-dynamic-malware-analysis-signals/)
+
+  **Temel güvenlik özellikleri:**
+
+  - Bilinen malware veritabanlarına karşı gerçek zamanlı analiz
+  - Statik ve dinamik analiz kullanarak davranış analizi
+  - Aktif kod tarama ile sıfır gün koruması
+  - Yüksek etki bulguları için insan kontrolü triajı
+  - Şeffaflık için genel [analiz günlüğü](https://vetpkg.dev/mal)
+
+  ### Gelişmiş Kullanım
+
+  ```bash
+  # Özelleştirilmiş taramalar
+  vet scan --vsx --malware                    # VS Code uzantıları
+  vet scan -D .github/workflows --malware     # GitHub Actions
+  vet scan --image nats:2.10 --malware        # Container image'ları
+
+  # Belirli package'ları analiz edin
+  vet inspect malware --purl pkg:npm/nyc-config@10.0.0
+  ```
+
+  ## Üretime Hazır Entegrasyonlar
+
+  ### GitHub Actions
+
+  CI/CD'de sıfır yapılandırmalı güvenlik koruma:
+
+  ```yaml
+  - uses: safedep/vet-action@v1
+    with:
+      policy: ".github/vet/policy.yml"
+  ```
+
+  [vet-action](https://github.com/safedep/vet-action) dokümantasyonuna bakın.
+
+  ### GitLab CI
+
+  [vet CI Component](https://docs.safedep.io/vet/guides/gitlab-dependency-scanning) ile enterprise taraması:
+
+  ```yaml
+  include:
+    - component: gitlab.com/safedep/ci-components/vet/scan@main
+  ```
+
+  ### Container Entegrasyonu
+
+  Container image'ımızı kullanarak `vet`'i her yerde çalıştırın:
+
+  ```bash
+  docker run --rm -v $(pwd):/app ghcr.io/safedep/vet:latest scan -D /app --malware
+  ```
+
+  ## Kurulum
+
+  ### Homebrew (Önerilen)
+
+  ```bash
+  brew install safedep/tap/vet
+  ```
+
+  ### npm
+
+  ```bash
+  npm install @safedep/vet
+  ```
+
+  ### Doğrudan İndirme
+
+  Önceden derlenmiş binary'ler için [releases](https://github.com/safedep/vet/releases) sayfasına bakın.
+
+  ### Go Install
+
+  ```bash
+  go install github.com/safedep/vet@latest
+  ```
+
+  ### Container Image
+
+  ```bash
+  # Hızlı test
+  docker run --rm ghcr.io/safedep/vet:latest version
+
+  # Yerel dizin taraması
+  docker run --rm -v $(pwd):/workspace ghcr.io/safedep/vet:latest scan -D /workspace
+  ```
+
+  ### Kurulumu Doğrulayın
+
+  ```bash
+  vet version
+  # Sürüm ve derleme bilgilerini görüntülemelidir
+  ```
+
+  ## Gelişmiş Özellikler
+
+  **Kapsamlı dokümantasyonumuzda daha fazla bilgi edinin:**
+
+  - **[AI Kullanım Keşfi](./docs/ai-discovery.md)** - Çeşitli araçlar ve konfigürasyonlar arasında AI araç kullanım sinyalleri keşfedin
+  - **[AI Agent Modu](./docs/agent.md)** - vet'i bir AI agent olarak çalıştırın
+  - **[MCP Server](./docs/mcp.md)** - AI destekli kod analizi için vet'i bir MCP sunucusu olarak çalıştırın
+  - **[Raporlama](./docs/reporting.md)** - SARIF, JSON, CSV, HTML, Markdown formatları
+  - **[SBOM Desteği](https://docs.safedep.io/vet/guides/cyclonedx-sbom)** - CycloneDX, SPDX içe aktarma/dışa aktarma
+  - **[Query Modu](https://docs.safedep.io/cloud/quickstart#query-your-data)** - Bir kez tarayın, birçok kez analiz edin
+  - **[GitHub Entegrasyonu](https://docs.safedep.io/)** - Repository ve organization taraması
+  - **[GitHub Actions Pinning](./docs/github-actions-pinning.md)** - Tedarik zinciri saldırılarını önlemek için GitHub Actions'ı commit SHA'larına sabitleyin
+
+  ## Gizlilik
+
+  `vet` ürünü iyileştirmek için anonim kullanım telemetrisi toplar. **Kodunuz ve package bilgileriniz asla iletilmez.**
+
+  ```bash
+  # Telemetriyi devre dışı bırakın (isteğe bağlı)
+  export VET_DISABLE_TELEMETRY=true
+  ```
+
+  ## Topluluk & Destek
+
+  <div align="center">
+
+  ### Topluluğa Katılın
+
+  [![Discord](https://img.shields.io/discord/1090352019379851304?color=7289da&label=Discord&logo=discord&logoColor=white)](https://rebrand.ly/safedep-community)
+  [![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-green?logo=github)](https://github.com/safedep/vet/discussions)
+  [![Twitter Follow](https://img.shields.io/twitter/follow/safedepio?style=social)](https://twitter.com/safedepio)
+
+  </div>
+
+  ### Yardım Alın & Fikirlerinizi Paylaşın
+
+  - **[İnteraktif Öğretici](https://killercoda.com/safedep/scenario/101-intro)** - vet'i uygulamalı olarak öğrenin
+  - **[Tam Dokümantasyon](https://docs.safedep.io/)** - Kapsamlı rehberler
+  - **[Discord Topluluğu](https://rebrand.ly/safedep-community)** - Gerçek zamanlı destek
+  - **[Issue Tracker](https://github.com/safedep/vet/issues)** - Bug raporları ve feature istekleri
+  - **[Katkı Rehberi](CONTRIBUTING.md)** - Geliştirmeye katılın
+
+  ---
+
+  <div align="center">
+
+  ### Star Geçmişi
+
+  [![Star History Chart](https://api.star-history.com/svg?repos=safedep/vet&type=Date)](https://star-history.com/#safedep/vet&Date)
+
+  ### Açık Kaynak Üzerine Kurulmuş
+
+  vet, dev devlerin omuzlarında durur:
+
+  [OSV](https://osv.dev) • [OpenSSF Scorecard](https://securityscorecards.dev/) • [SLSA](https://slsa.dev/) • [OSV-SCALIBR](https://github.com/google/osv-scalibr) • [Syft](https://github.com/anchore/syft)
+
+  ---
+
+  <p><strong>Tedarik zincirinizi bugün güvenli hale getirin. Repo'ya yıldız verin ve başlayın!</strong></p>
+
+  [SafeDep](https://safedep.io) ve açık kaynak topluluğu tarafından sevgiyle oluşturuldu
+
+  </div>
 ---
 
 <p align="center">

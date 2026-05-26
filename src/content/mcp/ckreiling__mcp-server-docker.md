@@ -8,6 +8,220 @@ url: "https://github.com/ckreiling/mcp-server-docker"
 body_length: 5443
 license: "GPL-3.0"
 language: "Python"
+body_tr: |-
+  # 🐋 Docker MCP server
+
+  Doğal dil ile Docker'ı yönetmek için bir MCP sunucusu!
+
+  ## 🪩 Ne yapabilir?
+
+  - 🚀 Doğal dil ile containerları compose edin
+  - 🔍 Çalışan containerları inceleyip debug edin
+  - 📀 Docker volume'ler ile kalıcı verileri yönetin
+
+  ## ❓ Bu kimin için?
+
+  - Sunucu yöneticileri: uzak Docker engine'lerine bağlanarak örneğin herkese açık bir web sitesini yönetin.
+  - Meraklılar: containerları yerel olarak çalıştırın ve Docker destekleyen açık kaynak uygulamalarla deneyler yapın.
+  - AI meraklıları: bir LLM'nin yapabileceklerinin sınırlarını zorlayın!
+
+  ## Demo
+
+  Doğal dil kullanarak WordPress dağıtımını gösteren hızlı bir demo:
+
+  https://github.com/user-attachments/assets/65e35e67-bce0-4449-af7e-9f4dd773b4b3
+
+  ## 🏎️ Hızlı Başlangıç
+
+  ### Kurulum
+
+  #### Claude Desktop
+
+  MacOS'ta: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+
+  Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
+
+  <details>
+    <summary>PyPi'den uv ile kurun</summary>
+
+  `uv` yüklü değilse, sisteminiz için kurulum talimatlarını izleyin:
+  [link](https://docs.astral.sh/uv/getting-started/installation/#installation-methods)
+
+  Ardından MCP sunucuları dosyanıza aşağıdakini ekleyin:
+
+  ```
+  "mcpServers": {
+    "mcp-server-docker": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-docker"
+      ]
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+    <summary>Docker ile kurun</summary>
+
+  Sadece kolaylık için sunucu bir Docker container'ında çalışabilir.
+
+  Bu repository'yi klonladıktan sonra Docker image'ını oluşturun:
+
+  ```bash
+  docker build -t mcp-server-docker .
+  ```
+
+  Ardından MCP sunucuları dosyanıza aşağıdakini ekleyin:
+
+  ```
+  "mcpServers": {
+    "mcp-server-docker": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/var/run/docker.sock:/var/run/docker.sock",
+        "mcp-server-docker:latest"
+      ]
+    }
+  }
+  ```
+
+  Docker soketini bir volume olarak mount ettiğimize dikkat edin; bu MCP sunucusunun yerel Docker daemon'una bağlanmasını ve kontrol etmesini sağlar.
+
+  </details>
+
+  ## 📝 Promptlar
+
+  ### 🎻 `docker_compose`
+
+  Doğal dil kullanarak containerları compose edin. Demo için [yukarıya](#demo) bakın.
+
+  Bir Project Name'i ve istediğiniz containerların tanımını sağlayın ve LLM'nin geri kalanını yapmasına izin verin.
+
+  Bu prompt, LLM'yi bir `plan+apply` döngüsüne girmesi için talimatlandırır. LLM ile etkileşiminiz aşağıdaki adımları içerecektir:
+
+  1. LLM'ye hangi containerların ayağa kaldırılacağı hakkında talimatlar verirsiniz
+  2. LLM kısa bir doğal dil planı hesaplar ve size sunun
+  3. Siz şunlardan birini yaparsınız:
+     - Planı uygulayın
+     - LLM'ye geri bildirim verin ve LLM planı yeniden hesaplayın
+
+  #### Örnekler
+
+  - name: `nginx`, containers: "nginx container'ını deploy edin ve 9000 portunda expose edin"
+  - name: `wordpress`, containers: "WordPress container'ı ve destekleyici bir MySQL container'ı deploy edin, WordPress'i 9000 portunda expose edin"
+
+  #### Bir Projeyi Devam Ettirme
+
+  Bu prompt ile yeni bir sohbet başlatırken, LLM verilen proje `name` ile oluşturulan container'lar, volume'ler ve ağların durumunu alacaktır.
+
+  Bu esas olarak birçok container'dan sorumlu bir sohbeti kaybetmeniz durumunda temizleme için yararlıdır.
+
+  ## 📔 Kaynaklar
+
+  Sunucu her container için bir kaç resource uygular:
+
+  - Stats: Bir container için CPU, bellek vb.
+  - Logs: Bir container'dan bazı logları tail edin
+
+  ## 🔨 Araçlar
+
+  ### Containerlar
+
+  - `list_containers`
+  - `create_container`
+  - `run_container`
+  - `recreate_container`
+  - `start_container`
+  - `fetch_container_logs`
+  - `stop_container`
+  - `remove_container`
+
+  ### İmajlar
+
+  - `list_images`
+  - `pull_image`
+  - `push_image`
+  - `build_image`
+  - `remove_image`
+
+  ### Ağlar
+
+  - `list_networks`
+  - `create_network`
+  - `remove_network`
+
+  ### Volume'ler
+
+  - `list_volumes`
+  - `create_volume`
+  - `remove_volume`
+
+  ## 🚧 Sorumluluk Reddi
+
+  ### Hassas Veriler
+
+  **CONTAINERLARI HASSAS VERİLERLE YAPILANDIRMAYIN.** Buna API anahtarları, veritabanı şifreleri vb. dahildir.
+
+  LLM ile değiş tokuş edilen herhangi bir hassas veri, LLM yerel makinenizde çalışmıyorsa doğal olarak tehlikelidir.
+
+  Sırları containerları güvenli bir şekilde iletmekle ilgileniyorsanız, bu repository'de kullanım durumunuzla bir issue açın.
+
+  ### Oluşturulan Containerları İnceleme
+
+  LLM'nin oluşturduğu containerları dikkatli bir şekilde incelemeyi unutmayın. Docker güvenli bir sandbox değildir ve bu nedenle MCP sunucusu potansiyel olarak Docker aracılığıyla host makineyi etkileyebilir.
+
+  Güvenlik nedenleriyle, bu MCP sunucusu `--privileged` veya `--cap-add/--cap-drop` gibi hassas Docker seçeneklerini desteklemez. Bu özellikleri kullanmakla ilgileniyorsanız, bu repository'de kullanım durumunuzla bir issue açın.
+
+  ## 🛠️ Yapılandırma
+
+  Bu sunucu Python Docker SDK'sının `from_env` metodunu kullanır. Yapılandırma ayrıntıları için
+  [belgelendirmeye](https://docker-py.readthedocs.io/en/stable/client.html#docker.client.from_env) bakın.
+
+  ### SSH üzerinden Docker'a Bağlanma
+
+  Bu MCP sunucusu SSH üzerinden uzak bir Docker daemon'una bağlanabilir.
+
+  MCP sunucu tanımında bir `ssh://` host URL'i ayarlayın:
+
+  ```
+  "mcpServers": {
+    "mcp-server-docker": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-docker"
+      ],
+      "env": {
+        "DOCKER_HOST": "ssh://myusername@myhost.example.com"
+      }
+    }
+  }
+  ```
+
+  ## 💻 Geliştirme
+
+  Geliştirme ortamınızı yapılandırmak için Devbox kullanmayı tercih edin.
+
+  Faydalı geliştirme komutları için `devbox.json` dosyasına bakın.
+
+  Devbox'u ayarladıktan sonra Claude MCP yapılandırmanızı bunu kullanacak şekilde yapılandırabilirsiniz:
+
+  ```
+    "docker": {
+      "command": "/path/to/repo/.devbox/nix/profile/default/bin/uv",
+      "args": [
+        "--directory",
+        "/path/to/repo/",
+        "run",
+        "mcp-server-docker"
+      ]
+    },
+  ```
 ---
 
 # 🐋 Docker MCP server

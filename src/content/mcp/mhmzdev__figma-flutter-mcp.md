@@ -8,6 +8,264 @@ url: "https://github.com/mhmzdev/figma-flutter-mcp"
 body_length: 10694
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  <div align="center">
+    
+    <br>
+
+    <h1>Figma to Flutter MCP Server</h1>
+     <p>
+      🌐 Kullanılabilir diller:
+      <a href="README.ko.md">한국어 (Korean)</a> |
+      <a href="README.ja.md">日本語 (Japanese)</a> |
+      <a href="README.zh-cn.md">简体中文 (Simplified Chinese)</a> |
+      <a href="README.zh-tw.md">繁體中文 (Traditional Chinese)</a>
+    </p>
+    <h3>Figma'nın zengin verilerini kodlama ajanınızda kullanın.<br/>Tasarımları Flutter şeklinde uygulayın!</h3>
+    <a href="https://npmcharts.com/compare/figma-flutter-mcp?interval=30">
+      
+    </a>
+    <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/main/LICENSE">
+      
+    </a>
+    <a href="https://twitter.com/mhmzdev">
+      
+    </a>
+  </div>
+  <br>
+
+  [Cursor](https://cursor.sh) veya diğer AI destekli araçları kullanarak [MCP server](https://modelcontextprotocol.io/) aracılığıyla Figma'nın zengin dosyalarına, verilerine, bileşenlerine ve daha fazlasına erişin.
+
+  ## 📋 İçindekiler
+
+  - [🦋 Observable Flutter #70](#-observable-flutter-70)
+  - [🎥 Kısa Video Demo](#-kısa-video-demo)
+  - [📝 Başlangıç](#-başlangıç)
+  - [📚 Nasıl çalışır](#-nasıl-çalışır--detaylar-burada)
+  - [🛠️ Kullanım](#-kullanım)
+    - [🔑 Figma API Anahtarı](#-figma-api-anahtarı)
+    - [🏹 Cursor'da MCP](#-cursorda-mcp)
+    - [🚀 Yerel Test için Hızlı Başlangıç](#-yerel-test-için-hızlı-başlangıç)
+  - [🧱 Temel İş Akışı](#-temel-iş-akışı)
+    - [🤖 AI Kodlama Ajanı Yardımı](#-ai-kodlama-ajanı-yardımı)
+    - [⚠️ SVG varlıkları ekran üretimi ile çalışmazsa](#-svg-varlıkları-ekran-üretimi-ile-çalışmazsa)
+  - [⚠️ Feragatnameler](#-feragatnameler)
+  - [🙌🏼 Teşekkürler](#-teşekkürler)
+  - [🧱 Diğer çerçeveler](#-diğer-çerçeveler)
+  - [🔑 Lisans](#-lisans)
+  - [🙋‍♂️ Yazar](#-yazar)
+    - [Muhammad Hamza](#muhammad-hamza)
+
+  ## 🦋 Observable Flutter #70
+  Observable Flutter'da geliştirilmiş açıklamalar ve demo ile öne çıkarıldı:
+
+  <a href="https://www.youtube.com/live/d7qrvytOxSA?si=ESY8hPJpQm_OY4Ye">
+    
+  </a>
+
+  ## 🎥 Kısa Video Demo
+  Figma Flutter MCP'nin neredeyse tüm özellikleri gerçek figma tasarımı ile gösterilmiştir.
+  - İngilizce: https://youtu.be/lJlfOfpl2sI
+  - Urduca/Hintçe: https://youtu.be/mepPWpIZ61M
+
+  ## 📝 [Başlangıç](docs/getting-started.md)
+  Detaylı [başlangıç](docs/getting-started.md) belgelerini veya [demo videosunu](https://youtu.be/lJlfOfpl2sI) hızlı başlangıç olarak inceleyebilirsiniz. İlk Sürüm olması nedeniyle iyileştirme için çok yer vardır, bu nedenle neler yapılacağını veya iyileştirileceğini görmek için [issues](https://github.com/mhmzdev/figma-flutter-mcp/issues)'lara göz atabilirsiniz.
+
+  ## 📚 Nasıl çalışır | [Detaylar Burada](docs/figma-flutter-mcp.md)
+  1. [Bileşenler/Widgets](src/extractors/components/)
+  - ✅ Figma düğümü verilerini çıkar: Layout, stil, boyutlar, renkler, metin içeriği vb.
+  - ✅ Yapıyı analiz et: Alt öğeler, iç içe bileşenler, görsel önem
+  - ✅ Rehberlik sağla: Flutter widget'ları ve uygulama kalıplarını öner
+  - ❌ Gerçek Flutter kod dosyaları OLUŞTURMUYOR
+
+  2. [Ekranlar](src/extractors/screens/)
+  - ✅ Ekran meta verilerini çıkar: Cihaz türü, yönelim, boyutlar
+  - ✅ Bölümleri tanımla: Başlık, alt bilgi, navigasyon, içerik alanları
+  - ✅ Navigasyonu analiz et: Tab çubukları, uygulama çubukları, çekmeceler, navigasyon öğeleri
+  - ✅ Scaffold rehberliği sağla: Flutter ekran yapısını öner
+  - ❌ Gerçek Flutter ekranı OLUŞTURMUYOR
+
+  Sadece AI'ın Flutter kodu yazmasına yardımcı olduğundan, bu da daha iyi bir prompt'unuz olursa daha iyi sonuçlar alacağınız anlamına gelir.
+
+  ## 🛠️ Kullanım
+  Aşağıdaki adımlar minimal kullanım ve kurulum talimatlarını gösterir:
+
+  ### 🔑 Figma API Anahtarı
+  Bu sunucuyu kullanmak için bir Figma erişim jetonu oluşturmanız gerekecektir. Figma API erişim jetonu oluşturma yönergeleri [burada](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens) bulunabilir.
+
+  ### 🏹 Cursor'da MCP
+  FIGMA API KEY'e sahip olduğunuzda, MCP'yi cursor'da aşağıdaki gibi ayarlayabilirsiniz:
+  1. CMD + Shift + P tuşlarına basın (Windows'ta Ctrl)
+  2. "Open MCP Settings" yazın
+  3. "Add new MCP" seçeneğine tıklayın
+  4. Aşağıdaki json nesnesi yapıştırın
+
+  #### MacOS/Linux
+  ```
+  {
+    "mcpServers": {
+      "Figma Flutter MCP": {
+        "command": "npx",
+        "args": ["-y", "figma-flutter-mcp", "--figma-api-key=YOUR-API-KEY", "--stdio"]
+      }
+    }
+  }
+  ```
+  #### Windows
+  ```
+  {
+    "mcpServers": {
+      "Figma Flutter MCP": {
+        "command": "cmd",
+        "args": ["/c", "npx", "-y", "figma-flutter-mcp", "--figma-api-key=YOUR-API-KEY", "--stdio"]
+      }
+    }
+  }
+  ```
+
+  > NOT: Bu MCP'yi `npm` paketi olarak yüklediyseniz, en son sürüme güncellemeyi unutmayın. Bazen eski sürümü cache'ler ve "Not being able to use tool call" veya "Figma API key setup is not working" gibi hatalar göstermeye devam eder.
+
+
+  ### 🚀 Yerel Test için Hızlı Başlangıç
+
+  #### Ön Koşullar
+  - Node.js 18+
+  - Figma API Anahtarı (Erişim Jetonu)
+  - MCP desteği olan Cursor AI IDE
+  - Flutter SDK
+
+
+  Hızlı yerel test için sunucuyu stdio yerine HTTP aracılığıyla çalıştırabilirsiniz:
+
+  ```bash
+  # Klonla ve kur
+  git clone <your-repo-url> figma-flutter-mcp
+  cd figma-flutter-mcp
+  npm install
+
+  # Figma API anahtarınız ile .env dosyası oluştur
+  echo "FIGMA_API_KEY=your-figma-api-key-here" > .env
+
+  # Yerel test için HTTP sunucusu başlat
+  npm run dev
+  ```
+
+  Ardından bunu MCP istemci yapılandırmasına ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "local-figma-flutter": {
+        "url": "http://localhost:3333/mcp"
+      }
+    }
+  }
+  ```
+
+  Detaylı talimatlar için [CONTRIBUTING.md](CONTRIBUTING.md) bakınız.
+
+  ## 🧱 Temel İş Akışı
+  ### 🤖 AI Kodlama Ajanı Yardımı
+  Daha iyi sonuçlar için, AI Kodlama Ajanınıza göre aşağıdaki dosyalarda talimatlar ayarlayabilirsiniz:
+  - Cursor: `.cursor/rules/fluttering.mdc`
+  - Claude: `CLAUDE.md`
+  - Gemini CLI: `GEMINI.md`
+
+  Bu şekilde AI ajanınız MCP'nin çıktısını kullanacak ve Flutter kodunun proje gereksinimleriniz ve yapınıza uygun olmasını sağlayacaktır. Test etmek için kullandığım [cursor kurallarının](docs/cursor_rules_example.md) bir örneğini kontrol edebilirsiniz.
+
+  1. **Tema ve Tipografi Kurun**: En etkili yol, Figma'da Tema renkleri ve Tipografi örnekleri içeren iki frame yerleştirmektir. Örneğin:
+
+  ![Tema Kurulum Örneği](https://raw.githubusercontent.com/mhmzdev/figma-flutter-mcp/HEAD/docs/images/theme-frame.png)
+  ![Tipografi Kurulum Örneği](https://raw.githubusercontent.com/mhmzdev/figma-flutter-mcp/HEAD/docs/images/text-style-frame.png)
+
+  - Figma Desktop: Frame'i seçin ve CMD + L veya Ctrl + L tuşlarına basın
+  - Figma Web: Frame'i seçin ve URL'yi kopyalayın
+
+  > 💡 İPUCU: Geçerli URL, FILE ID ve NODE ID parametreleri içerecektir
+
+  ```
+  "Setup flutter theme from <figma_link> including Colors and Typography.
+  ```
+
+  2. **Widget Üretimi**: En etkili yol, Figma'da COMPONENTS kullanmaktır. Örneğin:
+
+  ![Düğme](https://raw.githubusercontent.com/mhmzdev/figma-flutter-mcp/HEAD/docs/images/button.png)
+
+  Bu, etkin ve devre dışı durumlar ile 2 varyanta sahiptir.
+  ```
+  "Create this widget in flutter from figma COMPONENT link: <figma_link>, use named constructors for variants and break the files in smaller parts for code readability."
+  ```
+  Figma'da COMPONENTS'e **sahip değilseniz**, bunun yerine FRAME kullanabilirsiniz ve sadece AI'ya bunun bir widget olmasını istediğinizi söyleyin, o da geri kalanını halleder.
+
+  3. **Tam Ekran Oluşturma**: Herhangi bir IMAGE ASSETS (.png, .jpeg, .jpg vb.) mevcutsa, bunları dışa aktarılacak ve `assets/` ile birlikte `pubspec.yaml`'a koyacaktır.
+
+
+
+  ```
+  "Design this intro screen from the figma link <figma_link>, ensure the code is readable by having smaller files."
+  ```
+  4. **Varlıkları Dışa Aktar**:
+  - Resim Varlıkları: Ekran oluştururken otomatik olarak çalışacaktır
+  ```
+  "Export this image asset from figma link: <figma_link>
+  ```
+  - SVG Varlıkları: Karışık veya gruplanmamışsa otomatik olarak çalışmayacaktır, aşağıda açıklanmıştır.
+  ```
+  "Export this as an SVG asset from Figma link: <figma_link>"
+  ```
+  #### ⚠️ SVG varlıkları ekran üretimi ile çalışmazsa
+  * Figma'da vektörler simgeler ve kalem aracı şekillerini içerir, bu nedenle toplu dışa aktarmalar istenmeyen düğümleri yakalayabilir;
+    *  SVG'leri **ayrı ayrı** dışa aktarmanız önerilir, yani bunları bağımsız bir FRAME veya GROUP dışına çıkarın
+    *  SVG'lerin ayrılmasının nasıl göründüğü aşağıda verilmiştir:
+
+
+
+  <br>
+
+  * Bunlar dışa aktarırken İYİ vs KÖTÜ bir SVG'yi tanımlamanın bir örneğidir:
+
+  <br>
+
+
+
+  ## ⚠️ Feragatnameler
+
+  - **Kullanım Amacı**: Bu aşamada, MVP'ler, daha küçük ve açıklayıcı görevler ile deneme yapmak dışında ölçeklenebilir uygulamalar geliştirmek için kullanılması YAPILMAMASI önerilir.
+  - **Figma Tasarım**: Figma'nın API'sini kullanarak düğüm ve detaylarını çıkardığımızdan, tasarımınız ne kadar iyi olursa AI tarafından o kadar iyi yorumlanacaktır, yani otomatik layoutlar, grup kullanımı yerine frame kullanımı, tutarlı şekilde hizalanmış.
+  - **Oran sınırlandırması**: Ağır kullanım, Figma oran sınırlarını tetikleyebilir (örneğin, HTTP 429). Sunucu geri çekme ve backoff içerir, ancak Figma sınırlarını geçmez. Oran sınırları ile karşılaşırsanız, birkaç dakika bekleyin ve istek hacmini azaltın.
+
+  ## 🙌🏼 Teşekkürler
+  [Graham Lipsman](https://x.com/glipsman) tarafından yapılan [Figma Context MCP](https://github.com/GLips/Figma-Context-MCP) ile karşılaştığım ve bu, bana Figma to Flutter'ı aşağıdaki gibi özelliklerle açıkça geliştirme motivasyonu verdi:
+  - Varlıkları dışa aktarma
+  - Renkler ve Tema kurulumları
+  - Widget ağacı ve tam ekran oluşturma
+
+  Diğerleri yakında...
+
+  ## 🧱 Diğer çerçeveler
+  Bunu React, Angular, React Native, Vue veya başka bir çerçeve için geliştirmek istiyorsanız. Keşfedebileceğiniz ve başlayabileceğiniz detaylı bir doküman [Figma Framework MCP](docs/figma-framework-mcp.md) eklemiştim. Bu arada, eğer biri çerçeveye özgü Figma'nın MCP sunucuları için bunu yapıyorsa, burada bir liste tutacağım.
+  - ...
+  - ...
+
+  ## 🔑 Lisans
+  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE.md) dosyasını görebilirsiniz
+
+  ## 🙋‍♂️ Yazar
+  #### Muhammad Hamza
+  [![LinkedIn Link](https://img.shields.io/badge/Connect-Hamza-blue.svg?logo=linkedin&longCache=true&style=social&label=Connect
+  )](https://www.linkedin.com/in/mhmzdev)
+
+  En son projelerim hakkında güncellemeler almak için GitHub Profilimi de takip edebilirsiniz:
+
+  [![GitHub Follow](https://img.shields.io/badge/Connect-Hamza-blue.svg?logo=Github&longCache=true&style=social&label=Follow)](https://github.com/mhmzdev)
+
+  Repo'yu beğendiyseniz, lütfen ona bir yıldız ⭐ vererek destekleyin!
+
+  Telif Hakkı (c) 2025 MUHAMMAD HAMZA
+
+  ---
+
+  **Tasarım ve kod arasındaki boşluğu kapatmak isteyen tasarımcılar ve geliştiriciler için ❤️ ile yapılmıştır.**
 ---
 
 <div align="center">

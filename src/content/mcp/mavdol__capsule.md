@@ -8,6 +8,559 @@ url: "https://github.com/mavdol/capsule"
 body_length: 16883
 license: "Apache-2.0"
 language: "Rust"
+body_tr: |-
+  <div align="center">
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark-mode.png" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/logo-light-mode.png" />
+    
+  </picture>
+
+  # `Capsule`
+
+  [![CI](https://img.shields.io/github/actions/workflow/status/capsulerun/capsule/ci.yml?branch=main&label=CI)](https://github.com/capsulerun/capsule/actions/workflows/ci.yml)
+  [![NPM Downloads](https://img.shields.io/npm/dm/@capsule-run%2Fcli?label=npm&color=orange&cacheSeconds=1209600)](https://www.npmjs.com/package/@capsule-run/cli)
+  [![PyPI Downloads](https://img.shields.io/pypi/dm/capsule-run?label=pypi&color=blue&cacheSeconds=1209600)](https://pypi.org/project/capsule-run/)
+
+  [Başlarken](#başlarken) • [Dokümantasyon](#dokümantasyon) • [Sorunlar](https://github.com/capsulerun/capsule/issues/new) • [Katkıda Bulunma](#katkıda-bulunma)
+
+  </div>
+
+  ---
+
+  ## Özet
+
+  ```Capsule``` güvenilmeyen kodları yalıtılmış ortamlarda çalıştırmak için bir runtime'dır. Her task kendi WebAssembly sandbox'ında çalışır ve şunları sağlar:
+
+  - **Yalıtılmış Çalıştırma**: Her task host sisteminizden izole olarak çalışır
+  - **Kaynak Sınırları**: Her task için CPU, bellek ve timeout sınırları belirleyin
+  - **Otomatik Yeniden Denemeler**: Hataları manuel müdahale olmadan işleyin
+  - **Yaşam Döngüsü İzleme**: Hangi task'ların çalıştığını, tamamlandığını veya başarısız olduğunu izleyin
+
+  ## Nasıl Çalışır
+
+  ### Python ile
+
+  Python fonksiyonlarınızı `@task` decorator'ı ile basitçe açıklayın:
+
+  ```python
+  from capsule import task
+
+  @task(name="analyze_data", compute="MEDIUM", ram="512MB", timeout="30s", max_retries=1)
+  def analyze_data(dataset: list) -> dict:
+      """Verileri yalıtılmış, kaynak kontrolüne tabi bir ortamda işleyin."""
+      # Kodunuz güvenli bir şekilde Wasm sandbox'ında çalışır
+      return {"processed": len(dataset), "status": "complete"}
+  ```
+
+  ### TypeScript / JavaScript ile
+
+  `task()` wrapper fonksiyonunu kullanın ve npm ekosisteminin tüm özellikleri:
+
+  ```typescript
+  import { task } from "@capsule-run/sdk";
+
+  export const analyzeData = task({
+    name: "analyze_data",
+    compute: "MEDIUM",
+    ram: "512MB",
+    timeout: "30s",
+    maxRetries: 1
+  }, (dataset: number[]): object => {
+    // Kodunuz güvenli bir şekilde Wasm sandbox'ında çalışır
+    return { processed: dataset.length, status: "complete" };
+  });
+  ```
+
+  > [!NOTE]
+  > Runtime'ın giriş noktası olarak `"main"` adlı bir task'a ihtiyacı vardır. Python tanımlanmamışsa otomatik olarak bir tane oluşturur, ancak açıkça belirlemek önerilir.
+
+  `capsule run main.py` (veya `main.ts`) komutunu çalıştırdığınızda, kodunuz WebAssembly modülüne derlenmiş ve yalıtılmış sandbox'larda çalıştırılır.
+
+  Her task, konfigüre edilebilir kaynak sınırlarıyla kendi sandbox'ında çalışır ve böylece hatalar sınırlandırılır, workflow'un diğer kısımlarına yayılmaz. Host sistem CPU tahsisinden (Wasm fuel metering aracılığıyla) bellek kısıtlamalarına ve timeout'a kadar çalıştırmanın her yönünü kontrol eder.
+
+  ## Başlarken
+
+  ### Python
+
+  ```bash
+  pip install capsule-run
+  ```
+
+  `hello.py` oluşturun:
+
+  ```python
+  from capsule import task
+
+  @task(name="main", compute="LOW", ram="64MB")
+  def main() -> str:
+      return "Hello from Capsule!"
+  ```
+
+  Çalıştırın:
+
+  ```bash
+  capsule run hello.py
+  ```
+
+  ### TypeScript / JavaScript
+
+  ```bash
+  npm install -g @capsule-run/cli
+  npm install @capsule-run/sdk
+  ```
+
+  `hello.ts` oluşturun:
+
+  ```typescript
+  import { task } from "@capsule-run/sdk";
+
+  export const main = task({
+    name: "main",
+    compute: "LOW",
+    ram: "64MB"
+  }, (): string => {
+    return "Hello from Capsule!";
+  });
+  ```
+
+  Çalıştırın:
+
+  ```bash
+  capsule run hello.ts
+  ```
+
+  > [!TIP]
+  > Gerçek zamanlı task çalıştırma ayrıntılarını görmek için `--verbose` ekleyin.
+
+  ## Kodunuzdan Çalıştırma
+
+  `run()` fonksiyonu, CLI kullanmak yerine task'ları kodunuzdan programatik olarak çalıştırmanıza izin verir. `args` otomatik olarak `main` task'ına parametreler olarak iletilir.
+
+  ### Python
+
+  ```python
+  from capsule import run
+
+  result = await run(
+      file="./sandbox.py",
+      args=["code to execute"]
+  )
+  ```
+
+  `sandbox.py` oluşturun:
+
+  ```python
+  from capsule import task
+
+  @task(name="main", compute="LOW", ram="64MB")
+  def main(code: str) -> str:
+      return eval(code)
+  ```
+
+  ### TypeScript / JavaScript
+
+  > [!IMPORTANT]
+  > TypeScript'te runner fonksiyonlarını kullanmak için `@capsule-run/cli` bağımlılıklarınızda olması gerekir.
+
+  ```typescript
+  import { run } from '@capsule-run/sdk/runner';
+
+  const result = await run({
+    file: './sandbox.ts',
+    args: ['code to execute']
+  });
+  ```
+
+  `sandbox.ts` oluşturun:
+
+  ```typescript
+  import { task } from "@capsule-run/sdk";
+
+  export const main = task({
+    name: "main",
+    compute: "LOW",
+    ram: "64MB"
+  }, (code: string): string => {
+    return eval(code);
+  });
+  ```
+
+  > [!TIP]
+  > Önceden yapılandırılmış, kullanıma hazır bir çözüm arıyorsanız, [Python adapter](https://github.com/capsulerun/capsule/tree/main/integrations/python-adapter)'ı veya [TypeScript adapter](https://github.com/capsulerun/capsule/tree/main/integrations/typescript-adapter)'ı kontrol edin.
+
+  ## Dokümantasyon
+
+  ### Task Konfigürasyon Seçenekleri
+
+  Task'larınızı şu parametrelerle yapılandırın:
+
+  | Parametre | Açıklama | Tip | Varsayılan | Örnek |
+  |-----------|----------|-----|-----------|--------|
+  | `name` | Task tanımlayıcı | `str` | fonksiyon adı (Python) / *gerekli* (TS) | `"process_data"` |
+  | `compute` | CPU tahsisi seviyesi: `"LOW"`, `"MEDIUM"` veya `"HIGH"` | `str` | `"MEDIUM"` | `"HIGH"` |
+  | `ram` | Task'ın bellek sınırı | `str` | sınırsız | `"512MB"`, `"2GB"` |
+  | `timeout` | Maksimum çalıştırma süresi | `str` | sınırsız | `"30s"`, `"5m"`, `"1h"` |
+  | `max_retries` / `maxRetries` | Hata durumunda yeniden deneme sayısı | `int` | `0` | `3` |
+  | `allowed_files` / `allowedFiles` | Sandbox'ta erişilebilir klasörler (opsiyonel erişim modu) | `list` | `[]` | `["./data"]`, `[{"path": "./data", "mode": "ro"}]` |
+  | `allowed_hosts` / `allowedHosts` | Sandbox'ta erişilebilir etki alanları | `list` | `[]` | `["api.openai.com", "*.anthropic.com"]` |
+  | `env_variables` / `envVariables` | Sandbox'ta erişilebilir ortam değişkenleri | `list` | `[]` | `["API_KEY"]` |
+
+  ### Hesaplama Seviyeleri
+
+  Capsule, CPU kullanımını WebAssembly'nin **fuel mekanizması** aracılığıyla kontrol eder ve bu mekanizma talimat çalıştırmasını ölçer. Hesaplama seviyesi task'ınızın aldığı yakıt miktarını belirler.
+  - **LOW** hafif task'lar için minimal tahsis sağlar
+  - **MEDIUM** tipik iş yükleri için dengeli kaynaklar sunar
+  - **HIGH** hesaplama yoğun işlemler için maksimum yakıt verir
+  - **CUSTOM** çalıştırma sınırları üzerinde hassas kontrol için tam bir yakıt değeri belirtmek için (ör. `compute="1000000"`).
+
+  ### Yanıt Biçimi
+
+  Her task, sonucu ve çalıştırma metadata'sını içeren yapılandırılmış bir JSON zarfı döndürür:
+  ```json
+  {
+    "success": true,
+    "result": "Hello from Capsule!",
+    "error": null,
+    "execution": {
+      "task_name": "data_processor",
+      "duration_ms": 1523,
+      "retries": 0,
+      "fuel_consumed": 45000,
+      "ram_used": 1200000,
+      "host_requests": [{...}]
+    }
+  }
+  ```
+
+  **Yanıt alanları:**
+  - `success` — Task'ın başarıyla tamamlanıp tamamlanmadığını belirten boolean
+  - `result` — Task'ınızdan gerçek dönüş değeri (json, string, hata durumunda null vb.)
+  - `error` — Task başarısız olduysa hata ayrıntıları (`{ error_type: string, message: string }`)
+  - `execution` — Performans metrikleri:
+    - `task_name` — Çalıştırılan task'ın adı
+    - `duration_ms` — Çalıştırma süresi (milisaniye cinsinden)
+    - `retries` — Gerçekleşen yeniden deneme sayısı
+    - `fuel_consumed` — Kullanılan CPU kaynakları (bkz. [Hesaplama Seviyeleri](#hesaplama-seviyeleri))
+    - `ram_used` — Kullanılan en yüksek bellek (bayt cinsinden)
+    - `host_requests` — Task tarafından yapılan host request'lerinin listesi
+
+  ### Ağ Erişimi
+
+  Task'lar `allowed_hosts` içinde belirtilen etki alanlarına HTTP request'leri yapabilir. Varsayılan olarak, hiçbir giden request'e izin verilmez (`[]`). Erişim izni vermek için etki alanlarının bir allowlist'ini sağlayın veya tüm etki alanlarına izin vermek için `["*"]` kullanın.
+
+  #### Python
+
+  ```python
+  import json
+  from capsule import task
+  from urllib.request import urlopen
+
+  @task(name="main", allowed_hosts=["api.openai.com", "*.anthropic.com"])
+  def main() -> dict:
+      with urlopen("https://api.openai.com/v1/models") as response:
+          return json.loads(response.read().decode("utf-8"))
+  ```
+
+  #### TypeScript / JavaScript
+
+  ```typescript
+  import { task } from "@capsule-run/sdk";
+
+  export const main = task({
+      name: "main",
+      allowedHosts: ["api.openai.com", "*.anthropic.com"]
+  }, async () => {
+      const response = await fetch("https://api.openai.com/v1/models");
+      return response.json();
+  });
+  ```
+
+  ### Dosya Erişimi
+
+  Task'lar `allowed_files` içinde belirtilen klasörlerdeki dosyaları okuyabilir ve yazabilir. Bu klasörlerin dışındaki dosyalara erişim mümkün değildir.
+
+  > [!NOTE]
+  > `allowed_files` sadece dizin yollarını destekler, bireysel dosyaları değil.
+
+  Her giriş düz bir yol (varsayılan olarak okuma-yazma) veya açık `mode` içeren yapılandırılmış bir nesne olabilir:
+  - `"read-only"` (veya `"ro"`)
+  - `"read-write"` (veya `"rw"`)
+
+  #### Python
+
+  Python'ın standart dosya işlemleri normal şekilde çalışır. `open()`, `os`, `pathlib` veya herhangi bir dosya manipülasyon kütüphanesi kullanın.
+
+  ```python
+  from capsule import task
+
+  @task(name="main", allowed_files=[
+      {"path": "./data", "mode": "read-only"},
+      {"path": "./output", "mode": "read-write"},
+  ])
+  def main() -> str:
+      with open("./data/input.txt") as f:
+          content = f.read()
+      with open("./output/result.txt", "w") as f:
+          f.write(content)
+      return content
+  ```
+
+  Düz string'ler hala kabul edilir: `allowed_files=["./output"]` okuma-yazma'ya varsayılan olur.
+
+  #### TypeScript / JavaScript
+
+  Yaygın Node.js built-in'leri kullanılabilir. Standart `fs` modülünü kullanın:
+
+  ```typescript
+  import { task } from "@capsule-run/sdk";
+  import fs from "fs/promises";
+
+  export const main = task({
+      name: "main",
+      allowedFiles: [
+          { path: "./data", mode: "read-only" },
+          { path: "./output", mode: "read-write" },
+      ]
+  }, async () => {
+      const content = await fs.readFile("./data/input.txt", "utf8");
+      await fs.writeFile("./output/result.txt", content);
+      return content;
+  });
+  ```
+
+  Düz string'ler hala kabul edilir: `allowedFiles: ["./output"]` okuma-yazma'ya varsayılan olur.
+
+  #### Dinamik dizin takma adları (`--mount`)
+
+  `--mount` flag'i (CLI) veya `mounts` parametresi (SDK) bir host dizinini sandbox'ta bir takma ad altında monte eder. Mount'lar alt-task'lara yayılır ve yeni yollara erişim ekler, `allowed_files` içinde zaten bildirilmiş yolların erişim modunu değiştirmez.
+
+  **Biçim:** `HOST_PATH[::GUEST_PATH][:ro|:rw]`
+
+  | Bölüm | Gerekli | Açıklama |
+  |-------|---------|----------|
+  | `HOST_PATH` | evet | Host makinedeki yol (cwd'ye göre göreceli, proje kökünün içinde kalmalı) |
+  | `::GUEST_PATH` | hayır | Task'ın sandbox'ında gördüğü yol. `HOST_PATH` varsayılandır |
+  | `:ro` / `:rw` | hayır | Erişim modu. Okuma-yazma varsayılandır |
+
+  **CLI**
+
+  ```bash
+  # Bir oturum workspace'ini monte edin ve task içinde "workspace" olarak gösterin
+  capsule run main.py --mount sessions/abc123_workspace::workspace
+
+  # Birden fazla dizin
+  capsule run main.py \
+    --mount sessions/abc123_workspace::workspace \
+    --mount sessions/bce456_workspace::workspace:ro
+  ```
+
+  **Python SDK**
+
+  ```python
+  from capsule import run
+
+  result = await run(
+      file="main.py",
+      mounts=[".capsule/sessions/abc123_workspace::workspace"],
+  )
+  ```
+
+  **TypeScript / JavaScript SDK**
+
+  ```typescript
+  import { run } from "@capsule-run/sdk";
+
+  const result = await run({
+      file: "main.py",
+      mounts: [".capsule/sessions/abc123_workspace::workspace"],
+  });
+  ```
+
+  Task içinde, dizin guest yolu üzerinden erişilir:
+
+  ```python
+  # task bunu tam oturum yolu değil, "workspace/" adresinde görür
+  with open("workspace/output.txt", "w") as f:
+      f.write("done")
+  ```
+
+  > [!NOTE]
+  > `--mount` yolları göreceli olmalı ve proje kökünden kaçmamalıdır. Mutlak yollar reddedilir.
+
+
+  ### Ortam Değişkenleri
+
+  Task'lar yapılandırmayı, API anahtarlarını veya diğer runtime ayarlarını okumak için ortam değişkenlerine erişebilir.
+
+  #### Python
+
+  Ortam değişkenlerine erişmek için Python'ın standart `os.environ` kullanın:
+  ```python
+  from capsule import task
+  import os
+
+  @task(name="main", env_variables=["API_KEY"])
+  def main() -> dict:
+      api_key = os.environ.get("API_KEY")
+      return {"api_key": api_key}
+  ```
+
+  #### TypeScript / JavaScript
+
+  Ortam değişkenlerine erişmek için standart `process.env` kullanın:
+  ```typescript
+  import { task } from "@capsule-run/sdk";
+
+  export const main = task({
+      name: "main",
+      envVariables: ["API_KEY"]
+  }, () => {
+      const apiKey = process.env.API_KEY;
+      return { apiKeySet: apiKey !== undefined };
+  });
+  ```
+
+  ### Proje Yapılandırması (İsteğe Bağlı)
+
+  Proje kökünüzde bir `capsule.toml` dosyası oluşturarak tüm task'lar için varsayılan seçenekler belirleyebilir ve workflow meta verilerini tanımlayabilirsiniz:
+
+  ```toml
+  # capsule.toml
+
+  [workflow]
+  name = "My Workflow"
+  version = "1.0.0"
+  entrypoint = "src/main.py"  # `capsule run` çalıştırırken varsayılan dosya
+
+  [tasks]
+  default_compute = "MEDIUM"
+  default_ram = "256MB"
+  default_timeout = "30s"
+  default_max_retries = 2
+  ```
+
+  Bir giriş noktası tanımlandığında, basitçe şu komutu çalıştırabilirsiniz:
+
+  ```bash
+  capsule run
+  ```
+
+  Task düzeyindeki seçenekler belirtildiğinde her zaman bu varsayılanları geçersiz kılar.
+
+  ### Cache Yönetimi
+
+  Kodunuzu çalıştırdığınızda, Capsule proje kökünüzde bir `.capsule` klasörü oluşturur. Bu build cache'sidir. Derlenmiş yapıtları depoladığı için sonraki çalıştırmalar hızlıdır (saniyelerden birkaç milisaniyeye).
+
+  > [!TIP]
+  > `.capsule` dosyası `.gitignore` dosyasına eklenmelidir. Cache ortamınıza özeldir ve otomatik olarak yeniden oluşturulur.
+
+  ```
+  .capsule/
+  ├── wasm/
+  │   ├── main_a1b2c3d4.wasm    # Derlenmiş WebAssembly modülü
+  │   └── main_a1b2c3d4.cwasm   # Yerel önceden derlenmiş cache
+  ├── wit/                       # Arayüz tanımları
+  └── trace.db                   # Çalıştırma günlükleri
+  ```
+
+  İlk çalıştırmada derleme maliyetini atlayarak önceden derlemek için `capsule build` kullanın:
+
+  ```bash
+  capsule build main.ts # veya `main.py`
+  ```
+
+  ## Üretim
+
+  Kaynak kodu doğrudan çalıştırmak (`.py` veya `.ts` gibi) dosyayı runtime'da değerlendirir ve derler. Geliştirme için harika olsa da, bu derleme adımı ilk çağrıda birkaç saniye gecikme ekler. Alt saniye latensi kritik olan kullanım durumları için task'larınızı önceden derlemek gerekir.
+
+  ```bash
+  # Optimize edilmiş hello.wasm dosyası oluşturur
+  capsule build hello.py --export
+
+  # Derlenmiş yapıtı doğrudan çalıştırın
+  capsule exec hello.wasm
+  ```
+
+  > [!NOTE]
+  > Veya mevcut kodunuzdan:
+  >
+  > ```python
+  > from capsule import run
+  >
+  > result = await run(
+  >    file="./hello.wasm", # veya `hello.py`
+  >    args=[]
+  > )
+  >
+  > print(f"Task tamamlandı: {result['result']}")
+  > ```
+
+  `.wasm` dosyasını çalıştırmak derleyiciyi tamamen bypass eder, başlatma süresini milisaniyeye düşürürken arkaplanda yerel olarak optimize edilmiş (`.cwasm`) biçimini kullanır.
+
+  ## Uyumluluk
+
+  > [!NOTE]
+  > TypeScript/JavaScript, yerel bağlantılara dayanmadığı için Python'dan daha geniş uyumluluğa sahiptir.
+
+  **Python:** Çoğu standart Python kütüphanesi mükemmel şekilde çalışır. C uzantılarını kullanan paketler, `wasm32-wasi` derlenmiş bir wheel gerektirirler. Numpy ve pandas gibi birçok popüler paket henüz bir tane dağıtmadığı için sandbox'ın içinde çalışmayacaklar. Ancak host kodunuz (SDK'nin `run()` fonksiyonunu kullanan), pip paketleri ve yerel uzantılar da dahil olmak üzere tam Python ekosistemine erişebilir. bkz. [kod içi kullanım](#kodunuzdan-çalıştırma)
+
+  **TypeScript/JavaScript:** npm paketleri ve ES modülleri çalışır. Yaygın Node.js built-in'leri mevcuttur. Bir built-in ile herhangi bir sorun yaşarsanız, tereddüt etmeden bir issue açın.
+
+  ## Katkıda Bulunma
+
+  Katkılar memnuniyetle karşılanır!
+
+  ### Geliştirme kurulumu
+
+  **Ön Koşullar:** Rust (en son kararlı sürüm), Python 3.13+, Node.js 22+
+
+  ```bash
+  git clone https://github.com/capsulerun/capsule.git
+  cd capsule
+
+  # CLI'yi derle ve kur
+  cargo install --path crates/capsule-cli
+
+  # Python SDK (düzenlenebilir kurulum)
+  pip install -e crates/capsule-sdk/python
+
+  # TypeScript SDK (yerel geliştirme için bağla)
+  cd crates/capsule-sdk/javascript
+  npm install && npm run build && npm link
+
+  # Daha sonra projenizde: npm link @capsule-run/sdk
+  ```
+
+  ### Nasıl katkıda bulunabilirsiniz
+
+  1. **Depoyu fork'layın**
+  2. **Bir feature branch oluşturun:** `git checkout -b feature/amazing-feature`
+  3. **Testleri çalıştırın:** `cargo test` (sadece `crates/capsule-cli` veya `crates/capsule-core` değişiklikleri yaparken gerekli)
+  4. **Bir Pull Request açın**
+
+  Yardım mı gerekli? [Bir issue açın](https://github.com/capsulerun/capsule/issues)
+
+  ## Ekosistem
+
+  | Paket | Açıklama |
+  |-------|----------|
+  | [`capsule`](https://github.com/capsulerun/capsule) | Core runtime (bu depo) |
+  | [`capsule-bash`](https://github.com/capsulerun/bash) | Capsule'den oluşturulan sandbox bash arayüzü |
+
+  ## Krediler
+
+  Capsule bu açık kaynak projelerle geliştirilmiştir:
+
+  - [componentize-py](https://github.com/bytecodealliance/componentize-py) – Python'dan WebAssembly Component derleme
+  - [jco](https://github.com/bytecodealliance/jco) – WebAssembly Componentleri için JavaScript araç takımı
+  - [wasmtime](https://github.com/bytecodealliance/wasmtime) – WebAssembly runtime
+  - [WASI](https://github.com/WebAssembly/WASI) – WebAssembly Sistem Arayüzü
+
+  ## Lisans
+
+  Bu proje **Apache License 2.0** altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 <div align="center">

@@ -8,6 +8,97 @@ url: "https://github.com/wong2/mcp-cli"
 body_length: 1976
 license: "GPL-3.0"
 language: "JavaScript"
+body_tr: |-
+  # mcp-cli
+
+  Model Context Protocol için bir CLI inspector'ı
+
+  https://github.com/user-attachments/assets/4cd113e9-f097-4c9d-b391-045c5f213183
+
+  ## Özellikler
+
+  - Çeşitli kaynaklardan MCP sunucularını çalıştırma
+  - Tools, Resources, Prompts listeleme
+  - Tools çağırma, Resources okuma, Prompts okuma
+  - SSE ve Streamable HTTP sunucuları için OAuth desteği
+
+  ## Kullanım
+
+  ### Argüman olmadan çalıştırma
+
+  ```bash
+  npx @wong2/mcp-cli
+  ```
+
+  Bu, Claude Desktop'ın config dosyasını kullanacaktır.
+
+  ### Config dosyası ile çalıştırma
+
+  ```bash
+  npx @wong2/mcp-cli -c config.json
+  ```
+
+  Config dosyası, Claude Desktop config dosyası ile aynı formata sahiptir.
+
+  ### NPM'den sunucuları çalıştırma
+
+  ```bash
+  npx @wong2/mcp-cli npx <package-name> <args>
+  ```
+
+  ### Lokal olarak geliştirilen sunucuyu çalıştırma
+
+  ```bash
+  npx @wong2/mcp-cli node path/to/server/index.js args...
+  ```
+
+  ### Streamable HTTP üzerinden çalışan sunucuya bağlanma
+
+  ```bash
+  npx @wong2/mcp-cli --url http://localhost:8000/mcp
+  ```
+
+  ### SSE üzerinden çalışan sunucuya bağlanma
+
+  ```bash
+  npx @wong2/mcp-cli --sse http://localhost:8000/sse
+  ```
+
+  ### Etkileşimli olmayan mod
+
+  Etkileşimli istemler olmadan belirli bir tool, resource veya prompt çalıştırma:
+
+  ```bash
+  npx @wong2/mcp-cli [--config config.json] <command> <server-name>:<target> [--args '{}']
+  ```
+
+  Örnekler:
+
+  ```bash
+  # Argüman olmadan tool çağırma
+  npx @wong2/mcp-cli -c config.json call-tool filesystem:list_files
+
+  # Argümanlar ile tool çağırma
+  npx @wong2/mcp-cli -c config.json call-tool filesystem:read_file --args '{"path": "package.json"}'
+
+  # Resource okuma
+  npx @wong2/mcp-cli -c config.json read-resource filesystem:file://system/etc/hosts
+
+  # Prompt kullanma
+  npx @wong2/mcp-cli -c config.json get-prompt filesystem:create_summary --args '{"text": "Hello world"}'
+  ```
+
+  Bu mod, tüm etkileşimli istemleri atladığı ve belirtilen primitive'i doğrudan yürütttüğü için scripting ve otomasyon için kullanışlıdır.
+
+  ### Depolanan verileri temizleme (OAuth token'ları, vb.)
+
+  ```bash
+  npx @wong2/mcp-cli purge
+  ```
+
+  ## İlgili
+
+  - [mcpservers.org](https://mcpservers.org) - Seçilmiş MCP sunucularının listesi
 ---
 
 # mcp-cli

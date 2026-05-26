@@ -12,6 +12,75 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Web Artifacts Builder
+
+  Güçlü frontend claude.ai artifact'ları oluşturmak için şu adımları izleyin:
+  1. `scripts/init-artifact.sh` kullanarak frontend repo'sunu başlatın
+  2. Oluşturulan kodu düzenleyerek artifact'ınızı geliştirin
+  3. `scripts/bundle-artifact.sh` kullanarak tüm kodu tek bir HTML dosyasında paketleyin
+  4. Artifact'ı kullanıcıya gösterin
+  5. (İsteğe bağlı) Artifact'ı test edin
+
+  **Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui
+
+  ## Tasarım & Stil Yönergeleri
+
+  ÇOK ÖNEMLİ: Genellikle "AI slop" olarak adlandırılan şeylerden kaçınmak için, aşırı ortalanmış düzenler, mor gradyanlar, düzgün köşeler ve Inter fontundan kaçının.
+
+  ## Hızlı Başlangıç
+
+  ### Adım 1: Projeyi Başlatın
+
+  Yeni bir React projesi oluşturmak için başlatma scriptini çalıştırın:
+  ```bash
+  bash scripts/init-artifact.sh <project-name>
+  cd <project-name>
+  ```
+
+  Bu, tamamen yapılandırılmış bir proje oluşturur:
+  - ✅ React + TypeScript (Vite aracılığıyla)
+  - ✅ Tailwind CSS 3.4.1 shadcn/ui tema sistemiyle
+  - ✅ Path aliases (`@/`) yapılandırılmış
+  - ✅ 40+ shadcn/ui component'i önceden yüklü
+  - ✅ Tüm Radix UI bağımlılıkları dahil
+  - ✅ Bundling için Parcel yapılandırılmış (.parcelrc aracılığıyla)
+  - ✅ Node 18+ uyumluluğu (Vite sürümünü otomatik algılar ve sabitleri)
+
+  ### Adım 2: Artifact'ınızı Geliştirin
+
+  Artifact'ı oluşturmak için oluşturulan dosyaları düzenleyin. Rehberlik için aşağıdaki **Yaygın Geliştirme Görevleri**ne bakın.
+
+  ### Adım 3: Tek HTML Dosyasına Paketleyin
+
+  React uygulamasını tek bir HTML artifact'ına paketlemek için:
+  ```bash
+  bash scripts/bundle-artifact.sh
+  ```
+
+  Bu, tüm JavaScript, CSS ve bağımlılıkları satır içine yerleştirilmiş kendi kendine yeterli bir artifact olan `bundle.html` oluşturur. Bu dosya doğrudan Claude konuşmalarında artifact olarak paylaşılabilir.
+
+  **Gereksinimler**: Projenizin kök dizininde bir `index.html` dosyası olması gerekir.
+
+  **Script'in yaptığı şeyler**:
+  - Bundling bağımlılıklarını yükler (parcel, @parcel/config-default, parcel-resolver-tspaths, html-inline)
+  - Path alias desteğiyle `.parcelrc` config'i oluşturur
+  - Parcel ile oluşturur (kaynak haritası yok)
+  - Tüm varlıkları html-inline kullanarak tek HTML'e satır içine yerleştirir
+
+  ### Adım 4: Artifact'ı Kullanıcıyla Paylaşın
+
+  Son olarak, paketlenmiş HTML dosyasını konuşmada kullanıcıyla paylaşın böylece onu artifact olarak görüntüleyebilsin.
+
+  ### Adım 5: Artifact'ı Test Etme/Görselleştirme (İsteğe bağlı)
+
+  Not: Bu tamamen isteğe bağlı bir adımdır. Yalnızca gerekli olursa veya istenirse gerçekleştirin.
+
+  Artifact'ı test etmek/görselleştirmek için mevcut araçları kullanın (diğer Skills veya Playwright veya Puppeteer gibi yerleşik araçlar dahil). Genel olarak, istek ile bitmiş artifact'ın görülebilmesi arasındaki gecikmeyi artırdığı için artifact'ı baştan itibaren test etmekten kaçının. Gerekirse veya sorunlar ortaya çıkarsa artifact'ı sunulduktan sonra test edin.
+
+  ## Referans
+
+  - **shadcn/ui components**: https://ui.shadcn.com/docs/components
 ---
 
 # Web Artifacts Builder

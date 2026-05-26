@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Üzerinden Altoviz Otomasyonu
+
+  Composio'nun Altoviz araç kiti aracılığıyla Rube MCP üzerinden Altoviz işlemlerini otomatikleştirin.
+
+  **Araç kiti dokümantasyonu**: [composio.dev/toolkits/altoviz](https://composio.dev/toolkits/altoviz)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `altoviz` araç kiti ile aktif Altoviz bağlantısı
+  - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: `https://rube.app/mcp` adresini istemci konfigürasyonunuzda bir MCP sunucusu olarak ekleyin. API anahtarlarına ihtiyaç yok — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `altoviz` araç kitini belirtin
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow'u çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Discovery
+
+  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Altoviz operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen tuzakları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Altoviz task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["altoviz"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Tuzaklar
+
+  - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanlarını sabitlemeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Oturum yeniden kullanımı**: Bir workflow içinde oturum kimliklerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Sayfalandırma**: Yanıtlarda sayfalandırma token'larını kontrol edin ve tamamlanıncaya kadar almaya devam edin
+
+  ## Hızlı Başvuru
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool'ları bul | `RUBE_SEARCH_TOOLS` - Altoviz'e özgü use case ile |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` - `altoviz` araç kiti ile |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` - keşfedilen tool slug'ları ile |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` - `run_composio_tool()` ile |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` - `schemaRef`'i olan tool'lar için |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Altoviz Automation via Rube MCP

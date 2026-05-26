@@ -9,6 +9,122 @@ body_length: 4195
 license: "MIT"
 language: "Python"
 homepage: "https://excelmcpserver.com"
+body_tr: |-
+  <p align="center">
+    
+  </p>
+
+  [![PyPI version](https://img.shields.io/pypi/v/excel-mcp-server.svg)](https://pypi.org/project/excel-mcp-server/)
+  [![Total Downloads](https://static.pepy.tech/badge/excel-mcp-server)](https://pepy.tech/project/excel-mcp-server)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![smithery badge](https://smithery.ai/badge/@haris-musa/excel-mcp-server)](https://smithery.ai/server/@haris-musa/excel-mcp-server)
+  [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=excel-mcp-server&config=eyJjb21tYW5kIjoidXZ4IGV4Y2VsLW1jcC1zZXJ2ZXIgc3RkaW8ifQ%3D%3D)
+
+  Microsoft Excel'in yüklü olmasına gerek kalmadan Excel dosyalarını değiştirmenizi sağlayan bir Model Context Protocol (MCP) sunucusu. AI aracınızla Excel çalışma kitaplarını oluşturun, okuyun ve değiştirin.
+
+  ## Özellikler
+
+  - 📊 **Excel İşlemleri**: Çalışma kitapları ve çalışma sayfaları oluşturun, okuyun, güncelleyin
+  - 📈 **Veri İşleme**: Formüller, biçimlendirme, grafikler, pivot tablolar ve Excel tabloları
+  - 🔍 **Veri Doğrulama**: Aralıklar, formüller ve veri bütünlüğü için yerleşik doğrulama
+  - 🎨 **Biçimlendirme**: Font stilizasyonu, renkler, kenarlıklar, hizalama ve koşullu biçimlendirme
+  - 📋 **Tablo İşlemleri**: Özel stil ile Excel tabloları oluşturun ve yönetin
+  - 📊 **Grafik Oluşturma**: Çeşitli grafik türleri oluşturun (çizgi, sütun, pasta, dağılım vb.)
+  - 🔄 **Pivot Tablolar**: Veri analizi için dinamik pivot tablolar oluşturun
+  - 🔧 **Sayfa Yönetimi**: Çalışma sayfalarını kolayca kopyalayın, yeniden adlandırın, silin
+  - 🔌 **Üçlü taşıma desteği**: stdio, SSE (kullanımdan kaldırılmış) ve streamable HTTP
+  - 🌐 **Uzak & Yerel**: Hem yerel olarak hem de uzak hizmet olarak çalışır
+
+  ## Kullanım
+
+  Sunucu üç taşıma yöntemini destekler:
+
+  ### 1. Stdio Taşıması (yerel kullanım için)
+
+  ```bash
+  uvx excel-mcp-server stdio
+  ```
+
+  ```json
+  {
+     "mcpServers": {
+        "excel": {
+           "command": "uvx",
+           "args": ["excel-mcp-server", "stdio"]
+        }
+     }
+  }
+  ```
+
+  ### 2. SSE Taşıması (Server-Sent Events - Kullanımdan Kaldırılmış)
+
+  ```bash
+  uvx excel-mcp-server sse
+  ```
+
+  **SSE taşıması bağlantısı**:
+  ```json
+  {
+     "mcpServers": {
+        "excel": {
+           "url": "http://localhost:8000/sse",
+        }
+     }
+  }
+  ```
+
+  ### 3. Streamable HTTP Taşıması (Uzak bağlantılar için Önerilir)
+
+  ```bash
+  uvx excel-mcp-server streamable-http
+  ```
+
+  **Streamable HTTP taşıması bağlantısı**:
+  ```json
+  {
+     "mcpServers": {
+        "excel": {
+           "url": "http://localhost:8000/mcp",
+        }
+     }
+  }
+  ```
+
+  ## Ortam Değişkenleri & Dosya Yolu Yönetimi
+
+  ### SSE ve Streamable HTTP Taşımaları
+
+  **SSE veya Streamable HTTP protokolleri** ile sunucuyu çalıştırırken, sunucu tarafında **`EXCEL_FILES_PATH` ortam değişkenini ayarlamanız gerekir**. Bu değişken sunucuya Excel dosyalarını nerede okuyup yazacağını söyler.
+  - Ayarlanmamışsa, varsayılan olarak `./excel_files` değerine dönüştürülür.
+  - Bu taşımalar ile tool `filepath` değerleri bu dizine **göre bağıl** olmalıdır (örneğin `reports/q1.xlsx`); mutlak yollar ve dizin dolaşımı reddedilir.
+
+  Sunucunun dinlediği portu kontrol etmek için `FASTMCP_PORT` ortam değişkenini de ayarlayabilirsiniz (ayarlanmamışsa varsayılan değer `8017`'dir).
+  - Örnek (Windows PowerShell):
+    ```powershell
+    $env:EXCEL_FILES_PATH="E:\MyExcelFiles"
+    $env:FASTMCP_PORT="8007"
+    uvx excel-mcp-server streamable-http
+    ```
+  - Örnek (Linux/macOS):
+    ```bash
+    EXCEL_FILES_PATH=/path/to/excel_files FASTMCP_PORT=8007 uvx excel-mcp-server streamable-http
+    ```
+
+  ### Stdio Taşıması
+
+  **stdio protokolünü** kullanırken, dosya yolu her tool çağrısı ile sağlandığı için sunucu tarafında `EXCEL_FILES_PATH` ayarlamanız **gerekmez**. Sunucu her işlem için istemci tarafından gönderilen yolu kullanır.
+
+  ## Kullanılabilir Araçlar
+
+  Sunucu, Excel işleme için kapsamlı bir araç seti sağlar. Tüm kullanılabilir araçların tam belgeleri için [TOOLS.md](TOOLS.md) dosyasına bakın.
+
+  ## Star Tarihi
+
+  [![Star History Chart](https://api.star-history.com/svg?repos=haris-musa/excel-mcp-server&type=Date)](https://www.star-history.com/#haris-musa/excel-mcp-server&Date)
+
+  ## Lisans
+
+  MIT Lisansı - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 <p align="center">

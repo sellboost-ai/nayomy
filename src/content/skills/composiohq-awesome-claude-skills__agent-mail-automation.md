@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Agent Mail Otomasyonu
+
+  Composio'nun Agent Mail toolkit'ini Rube MCP aracılığıyla otomatikleştirin.
+
+  **Toolkit dokümantasyonu**: [composio.dev/toolkits/agent_mail](https://composio.dev/toolkits/agent_mail)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlanmış olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir olmalı)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla active Agent Mail bağlantısı (toolkit `agent_mail` ile)
+  - Her zaman güncel tool schema'larını almak için `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: `https://rube.app/mcp` adresini client konfigürasyonunuzda MCP server olarak ekleyin. API key'e ihtiyaç yoktur — endpoint'i eklemeniz yeterlidir.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS`'ı `agent_mail` toolkit'i ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
+
+  ## Tool Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Agent Mail operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'ları, input schema'larını, önerilen execution plan'larını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Agent Mail task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["agent_mail"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Tool schema'ları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanları asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Schema uyumluluğu**: Arama sonuçlarından tam field adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` dahil edin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve işlem tamamlanana kadar fetch'i devam ettirin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool'ları bulun | `RUBE_SEARCH_TOOLS` ile Agent Mail'e özgü use case |
+  | Bağlanın | `RUBE_MANAGE_CONNECTIONS` ile toolkit `agent_mail` |
+  | Çalıştırın | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam schema | `RUBE_GET_TOOL_SCHEMAS` araçları için `schemaRef` ile |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Agent Mail Automation via Rube MCP

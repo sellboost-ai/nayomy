@@ -12,6 +12,198 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: ["docx-js.md", "ooxml.md"]
+body_tr: |-
+  # DOCX oluşturma, düzenleme ve analiz
+
+  ## Genel Bakış
+
+  Sizden bir .docx dosyasının içeriğini oluşturmanız, düzenlemeniz veya analiz etmeniz istenebilir. Bir .docx dosyası esasen XML dosyaları ve diğer kaynakları içeren bir ZIP arşividir ve bu dosyaları okuyabilir veya düzenleyebilirsiniz. Farklı görevler için farklı araçlar ve iş akışları kullanılabilir.
+
+  ## İş Akışı Karar Ağacı
+
+  ### İçerik Okuma/Analiz
+  Aşağıdaki "Metin çıkarma" veya "Ham XML erişimi" bölümlerini kullanın
+
+  ### Yeni Belge Oluşturma
+  "Word belgesi oluşturma" iş akışını kullanın
+
+  ### Mevcut Belgeyi Düzenleme
+  - **Kendi belgeniz + basit değişiklikler**
+    "Temel OOXML düzenleme" iş akışını kullanın
+
+  - **Başka birinin belgesi**
+    **"Redline iş akışını"** kullanın (önerilen varsayılan)
+
+  - **Yasal, akademik, ticari veya devlet belgeleri**
+    **"Redline iş akışını"** kullanın (gerekli)
+
+  ## İçerik okuma ve analiz
+
+  ### Metin çıkarma
+  Bir belgenin metin içeriğini okumanız gerekiyorsa, pandoc kullanarak belgeyi markdown'a dönüştürün. Pandoc, belge yapısını korumada mükemmel destek sağlar ve izlenen değişiklikleri gösterebilir:
+
+  ```bash
+  # Belgeyi markdown'a dönüştür - izlenen değişikliklerle
+  pandoc --track-changes=all path-to-file.docx -o output.md
+  # Seçenekler: --track-changes=accept/reject/all
+  ```
+
+  ### Ham XML erişimi
+  Ham XML erişimi şu durumlar için gereklidir: yorumlar, karmaşık biçimlendirme, belge yapısı, gömülü medya ve meta veriler. Bu özelliklerden herhangi biri için bir belgeyi açmanız ve ham XML içeriğini okumanız gerekir.
+
+  #### Dosya açma
+  `python ooxml/scripts/unpack.py <office_file> <output_directory>`
+
+  #### Anahtar dosya yapıları
+  * `word/document.xml` - Ana belge içeriği
+  * `word/comments.xml` - Belgedeki referans verilen yorumlar
+  * `word/media/` - Gömülü görüntüler ve medya dosyaları
+  * İzlenen değişiklikler `<w:ins>` (eklemeler) ve `<w:del>` (silmeler) etiketlerini kullanır
+
+  ## Yeni Word belgesi oluşturma
+
+  Sıfırdan yeni bir Word belgesi oluştururken, JavaScript/TypeScript kullanarak Word belgeleri oluşturmanıza olanak tanıyan **docx-js** kullanın.
+
+  ### İş Akışı
+  1. **ZORUNLU - TAM DOSYAYI OKU**: [`docx-js.md`](docx-js.md) dosyasını (~500 satır) başından sonuna kadar tamamen okuyun. **BU DOSYAYI OKURKEN HİÇBİR ARALIQ SINIRI KOYMAYINIZ.** Belge oluşturmaya başlamadan önce ayrıntılı söz dizimi, kritik biçimlendirme kuralları ve en iyi uygulamalar için tam dosya içeriğini okuyun.
+  2. Document, Paragraph, TextRun bileşenlerini kullanarak bir JavaScript/TypeScript dosyası oluşturun (Tüm bağımlılıkların kurulu olduğunu varsayabilirsiniz, ancak kurulu değilse aşağıdaki bağımlılıklar bölümüne bakın)
+  3. Packer.toBuffer() kullanarak .docx olarak dışa aktarın
+
+  ## Mevcut Word belgesini düzenleme
+
+  Mevcut bir Word belgesini düzenlerken, **Document kütüphanesini** (OOXML manipülasyonu için bir Python kütüphanesi) kullanın. Kütüphane altyapı kurulumunu otomatik olarak yönetir ve belge manipülasyonu için yöntemler sağlar. Karmaşık senaryolar için kütüphane aracılığıyla temel DOM'a doğrudan erişebilirsiniz.
+
+  ### İş Akışı
+  1. **ZORUNLU - TAM DOSYAYI OKU**: [`ooxml.md`](ooxml.md) dosyasını (~600 satır) başından sonuna kadar tamamen okuyun. **BU DOSYAYI OKURKEN HİÇBİR ARALIQ SINIRI KOYMAYINIZ.** Document kütüphanesi API'si ve doküman dosyalarını doğrudan düzenleme için XML desenleri hakkında tam dosya içeriğini okuyun.
+  2. Belgeyi açın: `python ooxml/scripts/unpack.py <office_file> <output_directory>`
+  3. Document kütüphanesini kullanarak bir Python betiği oluşturun ve çalıştırın (ooxml.md dosyasında "Document Library" bölümüne bakın)
+  4. Son belgeyi paketleyin: `python ooxml/scripts/pack.py <input_directory> <office_file>`
+
+  Document kütüphanesi, sık yapılan işlemler için yüksek seviyeli yöntemler ve karmaşık senaryolar için doğrudan DOM erişimi sağlar.
+
+  ## Belge incelemesi için Redline iş akışı
+
+  Bu iş akışı, OOXML'de uygulamadan önce markdown kullanarak kapsamlı izlenen değişiklikleri planlamanıza olanak tanır. **KRİTİK**: Tam izlenen değişiklikler için TÜM değişiklikleri sistematik olarak uygulamanız gerekir.
+
+  **Toplu İşleme Stratejisi**: İlgili değişiklikleri 3-10 değişikliklik batches'lerine gruplayın. Bu, hata ayıklamayı yönetilebilir hale getirir ve verimliliği korur. Her batch'i bir sonrakine geçmeden önce test edin.
+
+  **Prensip: Minimal, Kesin Düzenlemeler**
+  İzlenen değişiklikleri uygularken, yalnızca gerçekten değişen metni işaretleyin. Değişmeyen metni tekrarlamak, düzenlemeleri incelemeyi zorlaştırır ve profesyonelce görünmez. Değişiklikleri şu şekilde bölün: [değişmeyen metin] + [silme] + [ekleme] + [değişmeyen metin]. Orijinal run'ın RSID'sini değişmeyen metin için koruyun, orijinalden `<w:r>` öğesini çıkararak ve yeniden kullanarak.
+
+  Örnek - Bir cümlede "30 gün"ü "60 gün"e değiştirme:
+  ```python
+  # KÖTÜ - Tüm cümleyi değiştirir
+  '<w:del><w:r><w:delText>The term is 30 days.</w:delText></w:r></w:del><w:ins><w:r><w:t>The term is 60 days.</w:t></w:r></w:ins>'
+
+  # İYİ - Yalnızca değişeni işaretler, değişmeyen metin için orijinal <w:r> korur
+  '<w:r w:rsidR="00AB12CD"><w:t>The term is </w:t></w:r><w:del><w:r><w:delText>30</w:delText></w:r></w:del><w:ins><w:r><w:t>60</w:t></w:r></w:ins><w:r w:rsidR="00AB12CD"><w:t> days.</w:t></w:r>'
+  ```
+
+  ### İzlenen değişiklikler iş akışı
+
+  1. **Markdown temsilini alın**: Belgeyi izlenen değişiklikler korunarak markdown'a dönüştürün:
+     ```bash
+     pandoc --track-changes=all path-to-file.docx -o current.md
+     ```
+
+  2. **Değişiklikleri tanımlayın ve gruplandırın**: Belgeyi gözden geçirin ve gerekli TÜM değişiklikleri tanımlayın, bunları mantıksal batch'lere organize edin:
+
+     **Konum yöntemleri** (XML'de değişiklikleri bulmak için):
+     - Bölüm/başlık numaraları (örn. "Section 3.2", "Article IV")
+     - Numaralı ise paragraf tanımlayıcıları
+     - Benzersiz çevre metni ile Grep desenleri
+     - Belge yapısı (örn. "ilk paragraf", "imza bloğu")
+     - **Markdown satır numaralarını KULLANMAYINIZ** - XML yapısı ile eşleşmezler
+
+     **Batch organizasyonu** (batch başına 3-10 ilgili değişiklik gruplandırın):
+     - Bölüme göre: "Batch 1: Section 2 değişiklikleri", "Batch 2: Section 5 güncellemeleri"
+     - Türe göre: "Batch 1: Tarih düzeltmeleri", "Batch 2: Taraf adı değişiklikleri"
+     - Karmaşıklığa göre: Basit metin değiştirmelerle başlayın, sonra karmaşık yapısal değişikliklere geçin
+     - Sıralı: "Batch 1: Sayfalar 1-3", "Batch 2: Sayfalar 4-6"
+
+  3. **Belgeler okuyun ve açın**:
+     - **ZORUNLU - TAM DOSYAYI OKU**: [`ooxml.md`](ooxml.md) dosyasını (~600 satır) başından sonuna kadar tamamen okuyun. **BU DOSYAYI OKURKEN HİÇBİR ARALIQ SINIRI KOYMAYINIZ.** "Document Library" ve "Tracked Change Patterns" bölümlerine özel dikkat verin.
+     - **Belgeyi açın**: `python ooxml/scripts/unpack.py <file.docx> <dir>`
+     - **Önerilen RSID'yi not edin**: Unpack betiği, izlenen değişiklikler için kullanmanız gereken bir RSID önerecektir. Bu RSID'yi 4b adımında kullanmak için kopyalayın.
+
+  4. **Değişiklikleri batch'ler halinde uygulayın**: Değişiklikleri mantıksal olarak gruplandırın (bölüme göre, türe göre veya yakınlığa göre) ve bunları tek bir betik içinde birlikte uygulayın. Bu yaklaşım:
+     - Hata ayıklamayı kolaylaştırır (küçük batch = hataları izole etmesi daha kolay)
+     - Artımlı ilerlemeyi sağlar
+     - Verimliliği korur (3-10 değişiklik batch boyutu iyi çalışır)
+
+     **Önerilen batch gruplamaları:**
+     - Belge bölümüne göre (örn. "Section 3 değişiklikleri", "Tanımlar", "Sona erme maddesi")
+     - Değişiklik türüne göre (örn. "Tarih değişiklikleri", "Taraf adı güncellemeleri", "Yasal terim değişiklikleri")
+     - Yakınlığa göre (örn. "Sayfalar 1-3'teki değişiklikler", "Belgenin ilk yarısındaki değişiklikler")
+
+     İlgili her değişiklik batch'i için:
+
+     **a. Metni XML'ye eşleyin**: Metnin `<w:r>` öğeleri arasında nasıl bölündüğünü doğrulamak için `word/document.xml` içinde Grep yapın.
+
+     **b. Betik oluşturun ve çalıştırın**: Düğümleri bulmak için `get_node` kullanın, değişiklikleri uygulayın, ardından `doc.save()` çalıştırın. ooxml.md dosyasındaki **"Document Library"** bölümüne desenleri görmek için bakın.
+
+     **Not**: Bir betik yazmadan hemen önce her zaman `word/document.xml` dosyasında Grep yapın, geçerli satır numaralarını ve metin içeriğini doğrulamak için. Satır numaraları her betik çalıştırısından sonra değişir.
+
+  5. **Belgeyi paketleyin**: Tüm batch'ler tamamlandıktan sonra, açılmış dizini .docx'a geri dönüştürün:
+     ```bash
+     python ooxml/scripts/pack.py unpacked reviewed-document.docx
+     ```
+
+  6. **Son doğrulama**: Tam belgenin kapsamlı bir kontrolünü yapın:
+     - Son belgeyi markdown'a dönüştürün:
+       ```bash
+       pandoc --track-changes=all reviewed-document.docx -o verification.md
+       ```
+     - TÜM değişikliklerin doğru şekilde uygulandığını doğrulayın:
+       ```bash
+       grep "original phrase" verification.md  # Bulmaması gerekir
+       grep "replacement phrase" verification.md  # Bulması gerekir
+       ```
+     - İstenmeyen değişikliklerin tanıtılmadığını kontrol edin
+
+
+  ## Belgeleri Görüntülere Dönüştürme
+
+  Word belgelerini görsel olarak analiz etmek için iki aşamalı bir işlem kullanarak bunları görüntülere dönüştürün:
+
+  1. **DOCX'i PDF'ye dönüştürün**:
+     ```bash
+     soffice --headless --convert-to pdf document.docx
+     ```
+
+  2. **PDF sayfalarını JPEG görüntülere dönüştürün**:
+     ```bash
+     pdftoppm -jpeg -r 150 document.pdf page
+     ```
+     Bu, `page-1.jpg`, `page-2.jpg` vb. gibi dosyalar oluşturur.
+
+  Seçenekler:
+  - `-r 150`: Çözünürlüğü 150 DPI'ye ayarlar (kalite/boyut dengesini ayarlamak için)
+  - `-jpeg`: JPEG formatında çıkış (tercih ederseniz PNG için `-png` kullanın)
+  - `-f N`: Dönüştürülecek ilk sayfa (örn. `-f 2` sayfa 2'den başlar)
+  - `-l N`: Dönüştürülecek son sayfa (örn. `-l 5` sayfa 5'te durur)
+  - `page`: Çıkış dosyaları için ön ek
+
+  Belirli bir aralık örneği:
+  ```bash
+  pdftoppm -jpeg -r 150 -f 2 -l 5 document.pdf page  # Yalnızca sayfalar 2-5'i dönüştür
+  ```
+
+  ## Kod Stili Yönergeleri
+  **ÖNEMLİ**: DOCX işlemleri için kod üretirken:
+  - Özlü kod yazın
+  - Ayrıntılı değişken adlarını ve gereksiz işlemleri önleyin
+  - Gereksiz yazdırma ifadelerini önleyin
+
+  ## Bağımlılıklar
+
+  Gerekli bağımlılıklar (yoksa kurun):
+
+  - **pandoc**: `sudo apt-get install pandoc` (metin çıkarma için)
+  - **docx**: `npm install -g docx` (yeni belgeler oluşturmak için)
+  - **LibreOffice**: `sudo apt-get install libreoffice` (PDF dönüştürme için)
+  - **Poppler**: `sudo apt-get install poppler-utils` (pdftoppm'yi PDF'den görüntülere dönüştürmek için)
+  - **defusedxml**: `pip install defusedxml` (güvenli XML ayrıştırma için)
 ---
 
 # DOCX creation, editing, and analysis

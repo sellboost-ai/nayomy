@@ -8,6 +8,157 @@ url: "https://github.com/tacticlaunch/mcp-linear"
 body_length: 5124
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  <p align="center">
+    
+  </p>
+
+  # MCP Linear
+
+  Linear GraphQL API için Model Context Protocol (MCP) sunucusu, gerçek proje yönetimi iş akışları için tasarlanmış — sadece basit issue CRUD'dan fazlası.
+
+  ![MCP Linear](https://img.shields.io/badge/MCP-Linear-blue)
+  [![npm version](https://img.shields.io/npm/v/@tacticlaunch/mcp-linear.svg)](https://www.npmjs.com/package/@tacticlaunch/mcp-linear)
+
+  <a href="https://glama.ai/mcp/servers/@tacticlaunch/mcp-linear">
+    
+  </a>
+
+  ## Özellikler
+
+  MCP Linear, MCP protokolünü uygulayarak AI asistanları ve Linear'ı birbirine bağlar. Bunu kullanarak:
+
+  - Issue'lar, projeleri, takımları, cycle'ları, milestone'ları, roadmap'leri ve dokümanları alabilirsiniz
+  - Issue'lar oluşturup güncelleyebilir, durumunu değiştirebilir, atayabilir ve yorum yapabilirsiniz
+  - Projeleri, proje güncellemelerini, milestone'ları, roadmap'leri, kaydedilen görünümleri ve favorileri yönetebilirsiniz
+  - Şablonlar, custom field'lar, webhook'lar ve ekler ile çalışabilirsiniz
+  - Bildirimleri, abonelikleri, oturumları, audit'leri ve entegrasyonları MCP'den çıkmadan okuyabilirsiniz
+  - Ağır planlama oturumlarını çalıştırmadan önce rate-limit'i ve sunucu durumunu inceleyebilirsiniz
+
+  Tam liste için [`TOOLS.md`](./TOOLS.md) dosyasına bakınız.
+
+  ### MCP-native kaynaklar ve istemler
+
+  Sunucu, tool'lara ek olarak MCP kaynakları ve istemlerini de ortaya koymaktadır:
+
+  - Resources: `linear://viewer`, `linear://organization`, `linear://teams`, `linear://projects`, `linear://project/{id}`, `linear://project/{id}/issues`, `linear://project/{id}/documents`, `linear://issue/{id}`, `linear://document/{id}`, `linear://roadmap/{id}`, `linear://milestone/{id}`, `linear://rate-limit`
+  - Prompts: `summarize-project-status`, `draft-project-update`, `triage-issue`, `summarize-document`
+
+  ## Örnek istemler
+
+  Bağlandıktan sonra şu gibi istemler kullanabilirsiniz:
+
+  - "Bana tüm Linear issue'larımı göster"
+  - "Frontend takımında 'Fix login bug' başlıklı yeni bir issue oluştur"
+  - "FE-123 issue'sunun durumunu 'In Progress' olarak değiştir"
+  - "BE-456 issue'sunu John Smith'e ata"
+  - "Bu projede tüm açık issue'ları milestone ve cycle'a göre gruplandırarak göster"
+  - "Mevcut Linear durumundan haftalık bir proje güncellemesi tasla"
+  - "Bir projeyle ilgili en yeni dokümanları bul ve temel kararları özetle"
+
+  ## Kurulum
+
+  ### Linear API token'ınızı alma
+
+  1. Linear hesabınıza [linear.app](https://linear.app) adresinde giriş yapın
+  2. Kuruluş avatarınıza tıklayın (sol üst köşe)
+  3. **Settings** seçeneğini seçin
+  4. Sol kenar çubuğunda **Security & access** bölümüne gidin
+  5. **Personal API Keys** altında **New API Key** öğesine tıklayın
+  6. Anahtarınıza bir ad verin (örn. `MCP Linear Integration`)
+  7. Oluşturulan API token'ı kopyalayın ve güvenli bir şekilde saklayın — bunu daha sonra göremeyeceksiniz
+
+  ### [add-mcp](https://github.com/neondatabase/add-mcp) aracılığıyla kurulum (Önerilen)
+
+  `add-mcp`, sunucuyu Claude Code, Cursor, Codex, VS Code, Claude Desktop ve diğer birçok MCP-uyumlu agent'a tek bir komutla kurar:
+
+  ```bash
+  npx add-mcp @tacticlaunch/mcp-linear --env LINEAR_API_TOKEN=YOUR_LINEAR_API_TOKEN
+  ```
+
+  Geçerli projeye yerine global olarak kurmak için `-g` parametresini ekleyin. Tam agent listesi ve parametreleri için [add-mcp docs](https://github.com/neondatabase/add-mcp) sayfasına bakın.
+
+  ### Manuel konfigürasyon
+
+  MCP ayarlar dosyanıza aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "linear": {
+        "command": "npx",
+        "args": ["-y", "@tacticlaunch/mcp-linear"],
+        "env": {
+          "LINEAR_API_TOKEN": "<YOUR_TOKEN>"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Client'a özgü konfigürasyon konumları
+
+  - Cursor: `~/.cursor/mcp.json`
+  - Claude Desktop: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Claude VSCode Extension: `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`
+  - GoMCP: `~/.config/gomcp/config.yaml`
+
+  ### Manuel çalıştırma
+
+  Ön koşullar:
+
+  - Node.js (v18+)
+  - NPM veya Yarn
+  - Linear API token
+
+  ```bash
+  # Global olarak kur
+  npm install -g @tacticlaunch/mcp-linear
+
+  # Veya yerel olarak klon et ve kur
+  git clone https://github.com/tacticlaunch/mcp-linear.git
+  cd mcp-linear
+  npm install
+  npm link  # Paketi global olarak kullanılabilir hale getirir
+  ```
+
+  #### Sunucuyu çalıştırma
+
+  Sunucuyu Linear API token'ınız ile çalıştırın:
+
+  ```bash
+  mcp-linear --token YOUR_LINEAR_API_TOKEN
+  ```
+
+  Veya token'ı ortam değişkeninizde ayarlayıp argüman olmadan çalıştırın:
+
+  ```bash
+  export LINEAR_API_TOKEN=YOUR_LINEAR_API_TOKEN
+  mcp-linear
+  ```
+
+  ## Doğrulama
+
+  Varsayılan doğrulama yolu:
+
+  ```bash
+  npm test
+  npm run build
+  ```
+
+  `npm test`, Jest birim testleri ve resmi MCP SDK smoke testini oluşturulmuş stdio sunucusuna karşı çalıştırır; tool, resource ve prompt kaydını ile host-uyumlu şema yayımını kapsar.
+
+  ## Geliştirme
+
+  Yerel geliştirme ayrıntıları için [`DEVELOPMENT.md`](./DEVELOPMENT.md) dosyasına bakın.
+
+  ## Linkler
+
+  [tacticlaunch/cursor-memory-bank](https://github.com/tacticlaunch/cursor-memory-bank) — Cursor ile iş akışınızı geliştirmek isteyen bir geliştirici iseniz, bunu denemeyi düşünün.
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır — ayrıntılar için [`LICENSE`](./LICENSE) dosyasına bakın.
 ---
 
 <p align="center">

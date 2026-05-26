@@ -8,6 +8,76 @@ url: "https://github.com/takashiishida/arxiv-latex-mcp"
 body_length: 3191
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # arxiv-latex MCP Server
+  [![PyPI version](https://badge.fury.io/py/arxiv-latex-mcp.svg)](https://pypi.org/project/arxiv-latex-mcp/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![GitHub Release](https://img.shields.io/github/v/release/takashiishida/arxiv-latex-mcp)](https://github.com/takashiishida/arxiv-latex-mcp/releases)
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/takashiishida/arxiv-latex-mcp)](https://archestra.ai/mcp-catalog/takashiishida__arxiv-latex-mcp)
+
+
+  arXiv makalelerinin LaTeX kaynağını indirerek doğrudan erişim ve işlem yapabilmesini sağlayan bir MCP sunucusu. [Claude Desktop](https://claude.ai/download), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Cursor](https://www.cursor.com/) veya diğer MCP istemcilerini destekler. LaTeX'i indirme ve işleme işlemlerini yönetmek için [arxiv-to-prompt](https://github.com/takashiishida/arxiv-to-prompt) kullanır.
+
+  PDF yerine LaTeX kaynağını neden kullanmalısınız? Birçok PDF sohbet uygulaması matematiksel içeriği ve denklem yoğun makalelerle mücadele etmektedir. arXiv makalelerinin orijinal LaTeX kaynak kodunu kullanarak, LLM denklemleri ve gösterimleri doğru şekilde anlayabilir ve işleyebilir. Bu yaklaşım, matematiksel ifadelerin hassas yorumlanmasının çok önemli olduğu bilgisayar bilimi, matematik ve mühendislik gibi alanlarda özellikle değerlidir.
+
+  ## Kurulum
+
+  Claude Desktop kullanıyorsanız, `.mcpb` dosyasını çift tıklayarak Masaüstü Uzantılarını kullanabilirsiniz.
+  `.mcpb` dosyasını [buradan](https://github.com/takashiishida/arxiv-latex-mcp/releases/) indirin.
+  macOS, Windows ve Linux'ta desteklenir.
+
+  Alternatif olarak, `uvx` ile sunucuyu doğrudan PyPI'den çalıştırabilirsiniz:
+  ```json
+  {
+    "mcpServers": {
+      "arxiv-latex-mcp": {
+        "command": "uvx",
+        "args": ["arxiv-latex-mcp"]
+      }
+    }
+  }
+  ```
+
+  `pip install arxiv-latex-mcp` ile kurabilir ve `arxiv-latex-mcp` komutunu çalıştırabilir veya şu komutu kullanabilirsiniz:
+  ```bash
+  python -m arxiv_latex_mcp
+  ```
+
+  Yerel bir checkout'tan çalıştırmayı tercih ederseniz, konfigürasyon dosyanıza aşağıdakileri ekleyin:
+  ```json
+  {
+    "mcpServers": {
+        "arxiv-latex-mcp": {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "/ABSOLUTE/PATH/TO/arxiv-latex-mcp",
+                "run",
+                "python",
+                "-m",
+                "arxiv_latex_mcp"
+            ]
+        }
+    }
+  }
+  ```
+
+  `command` alanını `uv`'nin tam yolu ile değiştirmeniz gerekebilir: `which uv` (MacOS/Linux) veya `where uv` (Windows) komutunu çalıştırarak kontrol edin.
+
+  Yukarıdaki değişiklikleri kaydettikten sonra uygulamayı yeniden başlatın.
+
+  Claude Desktop için çekiç simgesine tıklayın ve "Mevcut MCP araçları" listesinde aşağıdakiler görülmelidir:
+  - `get_paper_prompt` — Makalenin tam düzleştirilmiş LaTeX'ini al
+  - `get_paper_abstract` — Sadece özeti al
+  - `list_paper_sections` — Makalenin bölüm başlıklarını listele
+  - `get_paper_section` — Yol ile belirli bir bölümü al
+
+  ## Örnek
+  arXiv'den bir makale hakkında sorular sormayı deneyin, örneğin "2202.00395'teki ilk teoremi açıkla"
+
+  <div align="center">
+    
+  </div>
 ---
 
 # arxiv-latex MCP Server

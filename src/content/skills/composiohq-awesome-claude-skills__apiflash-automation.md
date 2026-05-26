@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Apiflash Otomasyonu
+
+  Composio'nun Apiflash araç takımını Rube MCP aracılığıyla kullanarak Apiflash operasyonlarını otomatikleştirin.
+
+  **Araç takımı dokümanları**: [composio.dev/toolkits/apiflash](https://composio.dev/toolkits/apiflash)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (`RUBE_SEARCH_TOOLS` kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Apiflash bağlantısı ve `apiflash` araç takımı
+  - Güncel tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısı yapın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: İstemci konfigürasyonunuza `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` cevap vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `apiflash` araç takımı ile `RUBE_MANAGE_CONNECTIONS` çağrısı yapın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme linkini izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Discovery
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Apiflash operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu işlem kullanılabilir tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Apiflash task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["apiflash"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan asla tool slug'ları veya argümanları hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında `memory` parametresini her zaman ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: Workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Cevaplardaki pagination token'larını kontrol edin ve işlem tamamlanana kadar devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool'ları bul | Apiflash'e özel use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlan | `apiflash` araç takımı ile `RUBE_MANAGE_CONNECTIONS` |
+  | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` olan tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Apiflash Automation via Rube MCP

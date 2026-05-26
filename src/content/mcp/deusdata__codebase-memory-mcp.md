@@ -9,6 +9,384 @@ body_length: 28873
 license: "MIT"
 language: "C"
 homepage: "https://deusdata.github.io/codebase-memory-mcp/"
+body_tr: |-
+  # codebase-memory-mcp
+
+  [![GitHub Release](https://img.shields.io/github/v/release/DeusData/codebase-memory-mcp?style=flat&color=blue)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
+  [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+  [![CI](https://img.shields.io/github/actions/workflow/status/DeusData/codebase-memory-mcp/dry-run.yml?label=CI)](https://github.com/DeusData/codebase-memory-mcp/actions/workflows/dry-run.yml)
+  [![Tests](https://img.shields.io/badge/tests-2812_passing-brightgreen)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Languages](https://img.shields.io/badge/languages-155-orange)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Agents](https://img.shields.io/badge/agents-11-purple)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Pure C](https://img.shields.io/badge/pure_C-zero_dependencies-blue)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Platform](https://img.shields.io/badge/macOS_%7C_Linux_%7C_Windows-supported-lightgrey)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
+  [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/DeusData/codebase-memory-mcp/badge)](https://scorecard.dev/viewer/?uri=github.com/DeusData/codebase-memory-mcp)
+  [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
+  [![VirusTotal](https://img.shields.io/badge/VirusTotal-0%2F72_engines-brightgreen?logo=virustotal)](https://www.virustotal.com/gui/file/7e6624b345f994afb901475e9120881241f125dfecd36772b5ade8e73485daf9/detection)
+  [![arXiv](https://img.shields.io/badge/arXiv-2603.27277-b31b1b?logo=arxiv)](https://arxiv.org/abs/2603.27277)
+
+  **AI kodlama ajanları için en hızlı ve en verimli kod istihbarat motoru.** Ortalama bir repository'yi milisaniyeler içinde tam olarak indeksler, Linux kernel'ını (28M LOC, 75K dosya) 3 dakikada indeksler. Yapısal sorguları 1ms altında yanıtlar. macOS, Linux ve Windows için tek bir statik binary olarak gemi halinde gelir — indirin, `install` çalıştırın, bitti.
+
+  [tree-sitter](https://tree-sitter.github.io/tree-sitter/) AST analizi aracılığıyla tüm 155 dilde yüksek kaliteli parsing, Go, C, C++, ve TypeScript / JavaScript / JSX / TSX için LSP tarzı hibrit tip resolution ile geliştirilmiş (daha fazla dil yakında) — function'lar, class'lar, call chain'ler, HTTP route'ları ve cross-service link'lerinden oluşan kalıcı bir knowledge graph üretir. 14 MCP tool'u. Sıfır dependency. 11 kodlama ajanı arasında plug and play.
+
+  > **Araştırma** — Bu projenin tasarımı ve benchmark'ları, [*Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP*](https://arxiv.org/abs/2603.27277) (arXiv:2603.27277) preprint'inde açıklanmaktadır. 31 gerçek dünya repository'si arasında değerlendirilmiştir: %83 cevap kalitesi, %90 daha az token, dosya-dosya keşfine kıyasla %2.1 daha az tool çağrısı.
+
+  > **Güvenlik & Güven** — Bu tool'u codebase'inizi okur ve agent konfigürasyon dosyalarınıza yazar. Bu ne için tasarlanmış olduğudur. Çalıştırmadan önce audit yapmayı tercih ederseniz, [tam kaynak kod burada](https://github.com/DeusData/codebase-memory-mcp) — her release binary imzalanmış, kontrol toplamı alınmış ve 70+ antivirus motoru tarafından taranmıştır. Tüm işlem %100 yerel olarak gerçekleşir; kodunuz makinenizi hiçbir zaman terk etmez. Bir güvenlik sorunu mu buldunuz? Bilmek istiyoruz — bkz. [SECURITY.md](SECURITY.md). Güvenlik bizim için Öncelik #1'dir.
+
+  <p align="center">
+    
+    <br>
+    <em>Yerleşik 3D graph görselleştirmesi (UI varyantı) — localhost:9749 adresinde knowledge graph'ınızı keşfedin</em>
+  </p>
+
+  ## Neden codebase-memory-mcp
+
+  - **Aşırı indeksleme hızı** — Linux kernel'ı (28M LOC, 75K dosya) 3 dakikada. RAM-first pipeline: LZ4 compression, in-memory SQLite, fused Aho-Corasick pattern matching. İndeksleme sonrası hafıza serbest bırakılır.
+  - **Plug and play** — macOS (arm64/amd64), Linux (arm64/amd64) ve Windows (amd64) için tek statik binary. Docker yok, runtime dependency yok, API anahtarı yok. İndir → `install` → agent'ı yeniden başlat → bitti.
+  - **155 dil** — Vendored tree-sitter grammars binary'de derlenmiştir. Yüklenecek bir şey yok, kırılacak bir şey yok.
+  - **120x daha az token** — 5 yapısal sorgu: ~3.400 token, dosya-dosya arama yoluyla ~412.000 token'a karşı. Bir graph sorgusu düzine grep/read cycle'ını değiştirir.
+  - **11 agent, bir komut** — `install` otomatik olarak Claude Code, Codex CLI, Gemini CLI, Zed, OpenCode, Antigravity, Aider, KiloCode, VS Code, OpenClaw ve Kiro'yu algılar — her biri için MCP giriş'lerini, instruction dosyalarını ve pre-tool hook'larını yapılandırır.
+  - **Yerleşik graph görselleştirmesi** — `localhost:9749` adresinde 3D interaktif UI.
+  - **Infrastructure-as-code indeksleme** — Dockerfile'lar, Kubernetes manifest'leri ve Kustomize overlay'leri cross-reference'larla graph node'ları olarak indekslenmiş. Kubernetes kind'ları için `Resource` node'ları, Kustomize overlay'leri için `Module` node'ları, referenced resource'lara `IMPORTS` edge'leriyle.
+  - **14 MCP tool'u** — search, trace, architecture, impact analysis, Cypher sorguları, dead code detection, cross-service HTTP linking, ADR management, ve daha fazlası.
+
+  ## Hızlı Başlangıç
+
+  **Tek satırlık yükleme** (macOS / Linux):
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash
+  ```
+
+  Graph görselleştirmesi UI'ı ile:
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash -s -- --ui
+  ```
+
+  **Windows** (PowerShell):
+  ```powershell
+  # 1. Installer'ı indirin
+  Invoke-WebRequest -Uri https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.ps1 -OutFile install.ps1
+
+  # 2. (İsteğe bağlı ama önerilen) Script'i inceleyin
+  notepad install.ps1
+
+  # 3. Çalıştırın
+  .\install.ps1
+
+  ```
+
+  Seçenekler: `--ui` (graph görselleştirmesi), `--skip-config` (sadece binary, agent kurulumu yok), `--dir=<path>` (özel konum).
+
+  Kodlama agent'ınızı yeniden başlatın. **"Index this project"** deyin — bitti.
+
+  <details>
+  <summary>Manuel yükleme</summary>
+
+  1. **İndirin** platformunuzun arşivini [en son release](https://github.com/DeusData/codebase-memory-mcp/releases/latest)'dan:
+     - `codebase-memory-mcp-<os>-<arch>.tar.gz` (macOS/Linux) veya `.zip` (Windows) — standart
+     - `codebase-memory-mcp-ui-<os>-<arch>.tar.gz` / `.zip` — graph görselleştirmesi ile
+
+  2. **Çıkarın ve kurun** (her arşiv `install.sh` veya `install.ps1` içerir):
+
+     macOS / Linux:
+     ```bash
+     tar xzf codebase-memory-mcp-*.tar.gz
+     ./install.sh
+     ```
+
+     Windows (PowerShell):
+     ```powershell
+     Expand-Archive codebase-memory-mcp-windows-amd64.zip -DestinationPath .
+     .\install.ps1
+     ```
+
+  3. **Yeniden başlatın** kodlama agent'ınızı.
+
+  `install` komutu otomatik olarak macOS karantina özniteliklerini kaldırır ve binary'i ad-hoc imzalar — manuel `xattr`/`codesign` gerekmez.
+  </details>
+
+  `install` komutu otomatik olarak tüm kurulu kodlama ajanlarını algılar ve her biri için MCP server giriş'lerini, instruction dosyalarını, skill'leri ve pre-tool hook'larını yapılandırır.
+
+  ### Graph Görselleştirmesi UI'ı
+
+  `ui` varyantını indirdiyseniz:
+
+  ```bash
+  codebase-memory-mcp --ui=true --port=9749
+  ```
+
+  Tarayıcınızda `http://localhost:9749` adresini açın. UI, MCP sunucusu ile birlikte arka plan thread'i olarak çalışır — agent'ınız bağlandığında mevcut olur.
+
+  ### Otomatik İndeksleme
+
+  MCP oturumu başlangıcında otomatik indekslemeyi etkinleştirin:
+
+  ```bash
+  codebase-memory-mcp config set auto_index true
+  ```
+
+  Etkinleştirildiğinde, yeni project'ler ilk bağlantıda otomatik olarak indekslenmiş olur. Daha önce indekslenen project'ler, devam eden git tabanlı değişiklik tespit etme için arka plan izleyici'ye kaydedilir. Yapılandırılabilir dosya sınırı: `config set auto_index_limit 50000`.
+
+  ### Güncellemeleri Takip Etmek
+
+  ```bash
+  codebase-memory-mcp update
+  ```
+
+  MCP sunucusu ayrıca başlangıçta güncellemeleri kontrol eder ve ilk tool çağrısında yeni bir release mevcut olduğunu bildiririm.
+
+  ### Kaldırın
+
+  ```bash
+  codebase-memory-mcp uninstall
+  ```
+
+  Tüm agent konfigurasyonlarını, skill'leri, hook'ları ve instruction'ları kaldırır. Binary veya SQLite database'lerini kaldırmaz.
+
+  ## Özellikler
+
+  ### Graph & analiz
+  - **Mimarı genel bakış**: `get_architecture` tek bir çağrıda diller, paketler, entry point'ler, route'lar, hotspot'lar, sınırlar, katmanlar ve kümeleri döndürür
+  - **Mimarı Karar Kayıtları**: `manage_adr` oturumlar arasında mimarı kararları kalıcı kılar
+  - **Louvain community detection**: Çağrı edge'lerini kümeleyerek fonksiyonel modülleri keşfeder
+  - **Git diff impact mapping**: `detect_changes` commit edilmemiş değişiklikleri etkilenen symbol'lara eşler ve risk sınıflandırması yapar
+  - **Call graph**: Function çağrılarını dosyalar ve paketler arasında çözer (import-aware, type-inferred)
+  - **Dead code detection**: Sıfır çağıranı olan function'ları bulur, entry point'ler hariç
+  - **Cypher benzeri sorgular**: `MATCH (f:Function)-[:CALLS]->(g) WHERE f.name = 'main' RETURN g.name`
+
+  ### Arama
+  - **Semantic search** (`semantic_query`): tüm graph üzerinde vector arama, bundled Nomic `nomic-embed-code` embedding'leri tarafından desteklenen (40K token'lar, 768d int8) binary'ye derlenmiş — API anahtarı yok, Ollama yok, Docker yok. 11 sinyal kombineli puanlama (TF-IDF, RRI, API/Type/Decorator imzaları, AST profilleri, data flow, Halstead-lite, MinHash, modül yakınlığı, graph diffusion).
+  - **BM25 full-text arama** SQLite FTS5 aracılığıyla `cbm_camel_split` tokenizer'ı ile (camelCase / snake_case aware)
+  - **Yapısal arama** (`search_graph`): regex ad desenleri, label filtreleri, min/max derece, dosya kapsamı
+  - **Code arama** (`search_code`): indekslenmiş dosyaların üzerine graph-augmented grep
+
+  ### Cross-service linking
+  - **HTTP** route ↔ call-site eşleme güven puanlaması ile
+  - **gRPC, GraphQL, tRPC** service tespit etme, protobuf Route çıkarımı ile
+  - **Channel detection** (`EMITS` / `LISTENS_ON`) Socket.IO, EventEmitter ve 8 dil arasında genel pub-sub desenleri için constant resolution ile
+
+  ### Cross-repo intelligence
+  - **`CROSS_*` edge'ler** aynı store altında indekslenmiş node'ları birden fazla repo arasında bağlar
+  - **Multi-galaxy 3D UI layout** cross-repo mimarı görselleştirmesi için
+  - **Cross-repo mimarı özeti** indekslenmiş fleet'te service'ler, route'lar ve dependency'leri birleştiren
+
+  ### Edge türleri (seçili)
+  - `CALLS`, `IMPORTS`, `DEFINES`, `IMPLEMENTS`, `INHERITS`
+  - `HTTP_CALLS`, `ASYNC_CALLS` (cross-service)
+  - `EMITS`, `LISTENS_ON` (kanallar)
+  - `DATA_FLOWS` arg-to-param eşlemesi + field access chain'leri ile
+  - `SIMILAR_TO` (MinHash + LSH near-clone tespit etme, Jaccard puanlanmış)
+  - `SEMANTICALLY_RELATED` (vocabulary-mismatch, same-language, skor ≥ 0.80)
+
+  ### İndeksleme pipeline'ı
+  - **155 vendored tree-sitter grammars** binary'ye derlenmiş
+  - **Genel paket / modül resolution** — `@myorg/pkg`, `github.com/foo/bar`, `use my_crate::foo` gibi bare specifier'lar manifest taraması aracılığıyla çözülür (`package.json`, `go.mod`, `Cargo.toml`, `pyproject.toml`, `composer.json`, `pubspec.yaml`, `pom.xml`, `build.gradle`, `mix.exs`, `*.gemspec`)
+  - **Infrastructure-as-code indeksleme** — Dockerfile'lar, Kubernetes manifest'leri, Kustomize overlay'leri graph node'ları olarak
+  - **LSP tarzı hibrit typ resolution** Go, C, C++ ve TypeScript / JavaScript / JSX / TSX için (daha fazla dil yakında) — tsserver / typescript-go'nun typ resolution algoritmaların clean-room reimplementasyonu (parameter binding, return-type inference, generic substitution, JSX component dispatch, düz JS dosyaları için JSDoc inference)
+  - **RAM-first pipeline**: LZ4 compression, in-memory SQLite, sonunda tek dump. Sonrasında hafıza serbest bırakılır.
+
+  ### Dağıtım & operasyon
+  - **Tek statik binary, sıfır altyapı**: SQLite-backed, `~/.cache/codebase-memory-mcp/`'ye kalıcı
+  - **Otomatik-sync**: Arka plan izleyici dosya değişikliklerini algılar ve otomatik olarak yeniden indeksler
+  - **Route node'ları**: REST endpoint'ler birinci sınıf graph varlığıdır
+  - **CLI modu**: `codebase-memory-mcp cli search_graph '{"name_pattern": ".*Handler.*"}'`
+  - **Uygun**: npm, PyPI, Homebrew, Scoop, Winget, Chocolatey, AUR, `go install`
+
+  ## Team-Shared Graph Artifact
+
+  Tek bir sıkıştırılmış dosyayı repo'nuzda commit edin ve takım arkadaşlarınız yeniden indekslemeyi atlasın.
+
+  `.codebase-memory/graph.db.zst` kaynak'ın yanında yaşayan knowledge graph'ının zstd-compressed snapshot'ıdır. İndekslediğinizde, artifact yazılır veya yenilenir; takım arkadaşınız repo'yu klonladığında ve `codebase-memory-mcp`'yi ilk kez çalıştırdığında, artifact sıkıştırması açılır ve incremental indeksleme yerel diff'lerini doldurur.
+
+  - **Format**: SQLite database, index'ler çıkarılmış, `VACUUM INTO` ile compact edilmiş, ardından zstd 1.5.7 ile sıkıştırılmış (tipik 8–13:1 oranı)
+  - **İki katman**:
+    - **Best** (`zstd -9` + index çıkarma + `VACUUM INTO`) — açık `index_repository` üzerinde yazılmış
+    - **Fast** (`zstd -3`) — düşük gecikme incremental güncellemeler için izleyici tarafından yazılmış
+  - **Bootstrap**: yerel DB yoksa ancak artifact mevcutsa, `index_repository` önce artifact'ı alır, ardından incremental indekslemeyi çalıştırır — tam yeniden indeksleme maliyetini önler
+  - **Merge zahmeti yok**: `.gitattributes` satırı `merge=ours` ile ilk dışarı aktarım üzerinde otomatik olarak oluşturulur, bu nedenle eşzamanlı düzenlemeler binary artifact'ında conflict üretmez
+  - **İsteğe bağlı**: istediğiniz sürece commit edilmez. Herkesin sıfırdan yeniden indeksleme yapmasını tercih ederseniz `.codebase-memory/` öğesini `.gitignore`'a ekleyin.
+
+  Sonuç, graphify'ın `graphify-out/` dizini ile ruh halinde benzerdir, ancak explicit iki katmanı dışarı aktarım, integriteyi kontrol etme alma ve sıfır merge freksiyonu ile tek sıkıştırılmış dosya olarak.
+
+  ## Nasıl Çalışır
+
+  codebase-memory-mcp bir **yapısal analiz arka ucu** — knowledge graph'ı oluşturur ve sorgular. Bir LLM **içermez**. Bunun yerine, MCP istemcinize (Claude Code veya herhangi bir MCP-compatible agent) güvenilir.
+
+  ```
+  Siz: "ProcessOrder'ı kim çağırıyor?"
+
+  Agent çağırır: trace_call_path(function_name="ProcessOrder", direction="inbound")
+
+  codebase-memory-mcp: graph sorgusunu yürütür, yapılandırılmış sonuçları döndürür
+
+  Agent: çağrı chain'ını düz İngilizce'de sunumu
+  ```
+
+  **Neden built-in LLM yok?** Diğer code graph tool'ları doğal dil → graph sorgusu çevirisi için bir LLM gömürler. Bu ek API anahtarları, ek maliyet ve yapılandırılacak başka bir model anlamına gelir. MCP ile, zaten konuştuğunuz agent *sorgu çevirici*'dir.
+
+  ## Performans
+
+  Apple M3 Pro üzerinde Benchmark:
+
+  | Operasyon | Zaman | Notlar |
+  |-----------|-------|--------|
+  | **Linux kernel tam indeksleme** | **3 dak** | 28M LOC, 75K dosya → 2.1M node, 4.9M edge |
+  | Linux kernel hızlı indeksleme | 1m 12s | 1.88M node |
+  | Django tam indeksleme | ~6s | 49K node, 196K edge |
+  | Cypher sorgusu | <1ms | İlişki traversal |
+  | Ad araması (regex) | <10ms | SQL LIKE pre-filtering |
+  | Dead code tespit etme | ~150ms | Derece filtrelemesi ile tam graph taraması |
+  | Trace çağrı yolu (depth=5) | <10ms | BFS traversal |
+
+  **RAM-first pipeline**: Tüm indeksleme bellek içinde çalışır (LZ4 HC sıkıştırılmış okuma, in-memory SQLite, sonunda tek dump). İndeksleme tamamlandıktan sonra hafıza OS'a geri bırakılır.
+
+  **Token verimliliği**: Beş yapısal sorgu codebase-memory-mcp aracılığıyla ~3.400 token'a karşı dosya-dosya grep keşfi aracılığıyla ~412.000 token tüketti — **%99.2 azalma**.
+
+  ## Yükleme
+
+  ### Önceden Derlenmiş Binary'ler
+
+  | Platform | Standart | Graph UI ile |
+  |----------|----------|--------------|
+  | macOS (Apple Silicon) | `codebase-memory-mcp-darwin-arm64.tar.gz` | `codebase-memory-mcp-ui-darwin-arm64.tar.gz` |
+  | macOS (Intel) | `codebase-memory-mcp-darwin-amd64.tar.gz` | `codebase-memory-mcp-ui-darwin-amd64.tar.gz` |
+  | Linux (x86_64) | `codebase-memory-mcp-linux-amd64.tar.gz` | `codebase-memory-mcp-ui-linux-amd64.tar.gz` |
+  | Linux (ARM64) | `codebase-memory-mcp-linux-arm64.tar.gz` | `codebase-memory-mcp-ui-linux-arm64.tar.gz` |
+  | Windows (x86_64) | `codebase-memory-mcp-windows-amd64.zip` | `codebase-memory-mcp-ui-windows-amd64.zip` |
+
+  Her release `checksums.txt` ile SHA-256 hash'lerini içerir. Tüm binary'ler statik olarak bağlanmış — shared library dependency'leri yok.
+
+  > **Windows notu**: SmartScreen imzasız yazılım için uyarı gösterebilir. **"More info"** → **"Run anyway"** üzerine tıklayın. `checksums.txt` ile integriteyi doğrulayın.
+
+  ### Kurulum Script'leri
+
+  <details>
+  <summary>Otomatik indirme + yükleme</summary>
+
+  **macOS / Linux:**
+
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/scripts/setup.sh | bash
+  ```
+
+  **Windows (PowerShell):**
+
+  ```powershell
+  irm https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/scripts/setup-windows.ps1 | iex
+  ```
+
+  </details>
+
+  ### AUR (Arch Linux)
+
+  ```bash
+  yay -S codebase-memory-mcp-bin
+  ```
+
+  ```bash
+  paru -S codebase-memory-mcp-bin
+  ```
+
+  `codebase-memory-mcp-bin` paketi şu adreste mevcuttur: https://aur.archlinux.org/packages/codebase-memory-mcp-bin
+
+  ### Claude Code'da Yükleyin
+
+  ```
+  Siz: "Bu MCP sunucusunu yükleyin: https://github.com/DeusData/codebase-memory-mcp"
+  ```
+
+  ### Kaynak'tan Derleyin
+
+  <details>
+  <summary>Ön koşullar: C compiler + zlib</summary>
+
+  | Gereksinim | Kontrol | Yükleyin |
+  |-----------|---------|---------|
+  | **C compiler** (gcc veya clang) | `gcc --version` veya `clang --version` | macOS: `xcode-select --install`, Linux: `apt install build-essential` |
+  | **C++ compiler** | `g++ --version` veya `clang++ --version` | Yukarıdakiyle aynı |
+  | **zlib** | — | macOS: included, Linux: `apt install zlib1g-dev` |
+  | **Git** | `git --version` | Çoğu sistemde önceden yüklenmiş |
+
+  </details>
+
+  ```bash
+  git clone https://github.com/DeusData/codebase-memory-mcp.git
+  cd codebase-memory-mcp
+  scripts/build.sh                    # standart binary
+  scripts/build.sh --with-ui          # graph görselleştirmesi ile
+  # Binary'i: build/c/codebase-memory-mcp adresinde
+  ```
+
+  ### Manuel MCP Konfigürasyonu
+
+  <details>
+  <summary>Install komutunu kullanmamayı tercih ederseniz</summary>
+
+  `~/.claude/.mcp.json` (global) veya project `.mcp.json`'a ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "codebase-memory-mcp": {
+        "command": "/path/to/codebase-memory-mcp",
+        "args": []
+      }
+    }
+  }
+  ```
+
+  Agent'ınızı yeniden başlatın. `/mcp` ile doğrulayın — 14 tool'u olan `codebase-memory-mcp` görmeli siniz.
+
+  </details>
+
+  ## Multi-Agent Desteği
+
+  `install` tüm kurulu ajanları otomatik olarak algılar ve yapılandırır:
+
+  | Agent | MCP Konfigürasyonu | Talimatlar | Hook'lar |
+  |-------|------------------|-----------|---------|
+  | Claude Code | `.claude/.mcp.json` | 4 Skill | PreToolUse (Grep/Glob graph augment, non-blocking) |
+  | Codex CLI | `.codex/config.toml` | `.codex/AGENTS.md` | — |
+  | Gemini CLI | `.gemini/settings.json` | `.gemini/GEMINI.md` | BeforeTool (grep reminder) |
+  | Zed | `settings.json` (JSONC) | — | — |
+  | OpenCode | `opencode.json` | `AGENTS.md` | — |
+  | Antigravity | `mcp_config.json` | `AGENTS.md` | — |
+  | Aider | — | `CONVENTIONS.md` | — |
+  | KiloCode | `mcp_settings.json` | `~/.kilocode/rules/` | — |
+  | VS Code | `Code/User/mcp.json` | — | — |
+  | OpenClaw | `openclaw.json` | — | — |
+  | Kiro | `.kiro/settings/mcp.json` | — | — |
+
+  **Hook'lar yapısal olarak non-blocking** (çıkış kodu 0, her hata yolu).
+  Claude Code için, `PreToolUse` hook'u `Grep`/`Glob` seçer (asla `Read` değil —
+  `Read` gating, read-before-edit invariant'ını kırar) ve arama token'u
+  indekslenmiş symbol'larla eşleştiğinde, bunları `search_graph` aracılığıyla
+  `additionalContext` olarak enjekte eder, böylece agent normal arama
+  sonuçları ile birlikte yapılandırılmış context'i alır. Gemini CLI için,
+  `BeforeTool` kısa bir reminder yazdırır.
+  Yüklenen Claude shim dosyası mevcut yükleme'ler ile geriye doğru uyumluluk
+  için `cbm-code-discovery-gate` olarak adlandırılır; legacy ad'a rağmen asla
+  gate'lemez ve asla block etmez.
+
+  ## CLI Modu
+
+  Her MCP tool'u komut satırından çağrılabilir:
+
+  ```bash
+  codebase-memory-mcp cli index_repository '{"repo_path": "/path/to/repo"}'
+  codebase-memory-mcp cli search_graph '{"name_pattern": ".*Handler.*", "label": "Function"}'
+  codebase-memory-mcp cli trace_call_path '{"function_name": "Search", "direction": "both"}'
+  codebase-memory-mcp cli query_graph '{"query": "MATCH (f:Function) RETURN f.name LIMIT 5"}'
+  codebase-memory-mcp cli list_projects
+  codebase-memory-mcp cli --raw search_graph '{"label": "Function"}' | jq '.results[].name'
+  ```
+
+  ## MCP Tool'ları
+
+  ### İndeksleme
+
+  | Tool | Açıklama |
+  |------|----------|
 ---
 
 # codebase-memory-mcp

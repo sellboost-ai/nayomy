@@ -8,6 +8,662 @@ url: "https://github.com/CircleCI-Public/mcp-server-circleci"
 body_length: 32809
 license: "NOASSERTION"
 language: "TypeScript"
+body_tr: |-
+  # CircleCI MCP Server
+
+  [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/CircleCI-Public/mcp-server-circleci/blob/main/LICENSE)
+  [![CircleCI](https://dl.circleci.com/status-badge/img/gh/CircleCI-Public/mcp-server-circleci/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/CircleCI-Public/mcp-server-circleci/tree/main)
+  [![npm](https://img.shields.io/npm/v/@circleci/mcp-server-circleci?logo=npm)](https://www.npmjs.com/package/@circleci/mcp-server-circleci)
+
+  Model Context Protocol (MCP), bir [yeni, standartlaştırılmış protokoldür](https://modelcontextprotocol.io/introduction) ve büyük dil modelleri (LLM'ler) ile harici sistemler arasında bağlamı yönetmeyi sağlar. Bu depoda, [CircleCI](https://circleci.com) için bir MCP Server sağlıyoruz.
+
+  Cursor, Windsurf, Copilot, Claude veya herhangi bir MCP uyumlu istemciyi kullanarak CircleCI ile doğal dil aracılığıyla etkileşim kurun — IDE'nizi terk etmeden.
+
+  ## Araçlar
+
+  | Araç | Açıklama |
+  |------|----------|
+  | [`analyze_diff`](#analyze_diff) | Git diff'lerini cursor kurallarına karşı analiz edin ve ihlalleri tespit edin |
+  | [`config_helper`](#config_helper) | CircleCI konfigürasyonunuzu doğrulayın ve rehberlik alın |
+  | [`create_prompt_template`](#create_prompt_template) | AI uygulamaları için yapılandırılmış prompt şablonları oluşturun |
+  | [`download_usage_api_data`](#download_usage_api_data) | CircleCI Usage API'sinden kullanım verilerini indirin |
+  | [`find_flaky_tests`](#find_flaky_tests) | Test yürütme geçmişini analiz ederek kararsız testleri belirleyin |
+  | [`find_underused_resource_classes`](#find_underused_resource_classes) | Yeterince kullanılmayan işlem kaynağına sahip işleri bulun |
+  | [`get_build_failure_logs`](#get_build_failure_logs) | CircleCI derlemeleri ile ilgili ayrıntılı hata günlüklerini alın |
+  | [`get_job_test_results`](#get_job_test_results) | CircleCI işlerine ilişkin test meta verilerini ve sonuçlarını alın |
+  | [`get_latest_pipeline_status`](#get_latest_pipeline_status) | Bir dal için en son ardışık düzenin durumunu alın |
+  | [`list_artifacts`](#list_artifacts) | CircleCI işi tarafından üretilen yapıtları listeleyin |
+  | [`list_component_versions`](#list_component_versions) | CircleCI bileşeninin tüm sürümlerini listeleyin |
+  | [`list_followed_projects`](#list_followed_projects) | Takip ettiğiniz tüm CircleCI projelerini listeleyin |
+  | [`recommend_prompt_template_tests`](#recommend_prompt_template_tests) | Prompt şablonları için test senaryoları oluşturun |
+  | [`rerun_workflow`](#rerun_workflow) | Bir iş akışını baştan veya başarısız olan işten yeniden çalıştırın |
+  | [`run_evaluation_tests`](#run_evaluation_tests) | CircleCI ardışık düzeninde değerlendirme testleri çalıştırın |
+  | [`run_pipeline`](#run_pipeline) | Bir ardışık düzeni çalıştırmak üzere tetikleyin |
+  | [`run_rollback_pipeline`](#run_rollback_pipeline) | Bir proje için geri alma işlemini tetikleyin |
+
+  ## Kurulum
+
+  <details>
+  <summary><strong>Cursor</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+  - Docker: [Docker](https://docs.docker.com/get-docker/)
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  Cursor MCP yapılandırmanıza aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-mcp-server": {
+        "command": "npx",
+        "args": ["-y", "@circleci/mcp-server-circleci@latest"],
+        "env": {
+          "CIRCLECI_TOKEN": "your-circleci-token",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        }
+      }
+    }
+  }
+  ```
+
+  > `CIRCLECI_BASE_URL` isteğe bağlıdır — yalnızca şirket içi müşteriler için gereklidir.
+  > `MAX_MCP_OUTPUT_LENGTH` isteğe bağlıdır — MCP yanıtları için maksimum çıktı uzunluğu (varsayılan: 50000).
+
+  #### Yerel MCP Server'da Docker Kullanma
+
+  Cursor MCP yapılandırmanıza aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-mcp-server": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "CIRCLECI_TOKEN",
+          "-e",
+          "CIRCLECI_BASE_URL",
+          "-e",
+          "MAX_MCP_OUTPUT_LENGTH",
+          "circleci/mcp-server-circleci"
+        ],
+        "env": {
+          "CIRCLECI_TOKEN": "your-circleci-token",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  Cursor MCP yapılandırmanıza aşağıdakini ekleyin:
+
+  ```json
+  {
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "circleci-token",
+        "description": "CircleCI API Token",
+        "password": true
+      }
+    ],
+    "servers": {
+      "circleci-mcp-server-remote": {
+        "url": "http://your-circleci-remote-mcp-server-endpoint:8000/mcp"
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary><strong>VS Code</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+  - Docker: [Docker](https://docs.docker.com/get-docker/)
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  Projenizde `.vscode/mcp.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "circleci-token",
+        "description": "CircleCI API Token",
+        "password": true
+      },
+      {
+        "type": "promptString",
+        "id": "circleci-base-url",
+        "description": "CircleCI Base URL",
+        "default": "https://circleci.com"
+      }
+    ],
+    "servers": {
+      "circleci-mcp-server": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "@circleci/mcp-server-circleci@latest"],
+        "env": {
+          "CIRCLECI_TOKEN": "${input:circleci-token}",
+          "CIRCLECI_BASE_URL": "${input:circleci-base-url}"
+        }
+      }
+    }
+  }
+  ```
+
+  > 💡 Girişler ilk sunucu başlatmasında istenir, ardından VS Code tarafından güvenli şekilde saklanır.
+
+  #### Yerel MCP Server'da Docker Kullanma
+
+  Projenizde `.vscode/mcp.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "circleci-token",
+        "description": "CircleCI API Token",
+        "password": true
+      },
+      {
+        "type": "promptString",
+        "id": "circleci-base-url",
+        "description": "CircleCI Base URL",
+        "default": "https://circleci.com"
+      }
+    ],
+    "servers": {
+      "circleci-mcp-server": {
+        "type": "stdio",
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "CIRCLECI_TOKEN",
+          "-e",
+          "CIRCLECI_BASE_URL",
+          "circleci/mcp-server-circleci"
+        ],
+        "env": {
+          "CIRCLECI_TOKEN": "${input:circleci-token}",
+          "CIRCLECI_BASE_URL": "${input:circleci-base-url}"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  Projenizde `.vscode/mcp.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "servers": {
+      "circleci-mcp-server-remote": {
+        "type": "sse",
+        "url": "http://your-circleci-remote-mcp-server-endpoint:8000/mcp"
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary><strong>Claude Desktop</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+  - Docker: [Docker](https://docs.docker.com/get-docker/)
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  `claude_desktop_config.json` dosyanıza aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-mcp-server": {
+        "command": "npx",
+        "args": ["-y", "@circleci/mcp-server-circleci@latest"],
+        "env": {
+          "CIRCLECI_TOKEN": "your-circleci-token",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Yerel MCP Server'da Docker Kullanma
+
+  `claude_desktop_config.json` dosyanıza aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-mcp-server": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "CIRCLECI_TOKEN",
+          "-e",
+          "CIRCLECI_BASE_URL",
+          "-e",
+          "MAX_MCP_OUTPUT_LENGTH",
+          "circleci/mcp-server-circleci"
+        ],
+        "env": {
+          "CIRCLECI_TOKEN": "your-circleci-token",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  Bir sarmalayıcı betik oluşturun (ör. `circleci-remote-mcp.sh`):
+
+  ```bash
+  #!/bin/bash
+  export CIRCLECI_TOKEN="your-circleci-token"
+  npx mcp-remote http://your-circleci-remote-mcp-server-endpoint:8000/mcp --allow-http
+  ```
+
+  Betiği çalıştırılabilir yapın:
+
+  ```bash
+  chmod +x circleci-remote-mcp.sh
+  ```
+
+  Ardından `claude_desktop_config.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-remote-mcp-server": {
+        "command": "/full/path/to/circleci-remote-mcp.sh"
+      }
+    }
+  }
+  ```
+
+  Yapılandırma dosyasını bulmak veya oluşturmak için Claude Desktop ayarlarını açın, sol kenar çubuğunda **Developer** öğesine tıklayın ve ardından **Edit Config** öğesine tıklayın. Yapılandırma dosyası şu konumdadır:
+
+  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+  Daha fazla bilgi için: https://modelcontextprotocol.io/quickstart/user
+
+  </details>
+
+  <details>
+  <summary><strong>Claude Code</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+  - Docker: [Docker](https://docs.docker.com/get-docker/)
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  ```bash
+  claude mcp add circleci-mcp-server -e CIRCLECI_TOKEN=your-circleci-token -- npx -y @circleci/mcp-server-circleci@latest
+  ```
+
+  #### Yerel MCP Server'da Docker Kullanma
+
+  ```bash
+  claude mcp add circleci-mcp-server -e CIRCLECI_TOKEN=your-circleci-token -e CIRCLECI_BASE_URL=https://circleci.com -- docker run --rm -i -e CIRCLECI_TOKEN -e CIRCLECI_BASE_URL circleci/mcp-server-circleci
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  ```bash
+  claude mcp add circleci-mcp-server -e CIRCLECI_TOKEN=your-circleci-token -- npx mcp-remote http://your-circleci-remote-mcp-server-endpoint:8000/mcp --allow-http
+  ```
+
+  Daha fazla bilgi için: https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp
+
+  </details>
+
+  <details>
+  <summary><strong>Windsurf</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+  - Docker: [Docker](https://docs.docker.com/get-docker/)
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  Windsurf `mcp_config.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-mcp-server": {
+        "command": "npx",
+        "args": ["-y", "@circleci/mcp-server-circleci@latest"],
+        "env": {
+          "CIRCLECI_TOKEN": "your-circleci-token",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Yerel MCP Server'da Docker Kullanma
+
+  Windsurf `mcp_config.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-mcp-server": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "CIRCLECI_TOKEN",
+          "-e",
+          "CIRCLECI_BASE_URL",
+          "-e",
+          "MAX_MCP_OUTPUT_LENGTH",
+          "circleci/mcp-server-circleci"
+        ],
+        "env": {
+          "CIRCLECI_TOKEN": "your-circleci-token",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  Windsurf `mcp_config.json` dosyasına aşağıdakini ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "http://your-circleci-remote-mcp-server-endpoint:8000/mcp",
+          "--allow-http"
+        ],
+        "disabled": false,
+        "alwaysAllow": []
+      }
+    }
+  }
+  ```
+
+  Daha fazla bilgi için: https://docs.windsurf.com/windsurf/mcp
+
+  </details>
+
+  <details>
+  <summary><strong>Amazon Q Developer CLI</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+
+  Amazon Q Developer'daki MCP istemcisi yapılandırması JSON formatında ve `mcp.json` adlı bir dosyada saklanır. İki yapılandırma düzeyi desteklenir:
+
+  - **Global:** `~/.aws/amazonq/mcp.json` — tüm çalışma alanları için geçerli
+  - **Çalışma Alanı:** `.amazonq/mcp.json` — mevcut çalışma alanına özgü
+
+  Her iki dosya da mevcutsa, içerikleri birleştirilir. Çakışma durumunda, çalışma alanı yapılandırması öncelik alır.
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  `~/.aws/amazonq/mcp.json` dosyasını düzenleyin veya aşağıdakini içeren `.amazonq/mcp.json` dosyasını oluşturun:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-local": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@circleci/mcp-server-circleci@latest"
+        ],
+        "env": {
+          "CIRCLECI_TOKEN": "YOUR_CIRCLECI_TOKEN",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        },
+        "timeout": 60000
+      }
+    }
+  }
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  Bir sarmalayıcı betik oluşturun (ör. `circleci-remote-mcp.sh`):
+
+  ```bash
+  #!/bin/bash
+  export CIRCLECI_TOKEN="your-circleci-token"
+  npx mcp-remote http://your-circleci-remote-mcp-server-endpoint:8000/mcp --allow-http
+  ```
+
+  Betiği çalıştırılabilir yapın ve ekleyin:
+
+  ```bash
+  chmod +x circleci-remote-mcp.sh
+  q mcp add --name circleci --command "/full/path/to/circleci-remote-mcp.sh"
+  ```
+
+  </details>
+
+  <details>
+  <summary><strong>Amazon Q Developer in the IDE</strong></summary>
+
+  **Ön Koşullar:**
+  - [CircleCI Kişisel API jetonu](https://app.circleci.com/settings/user/tokens) ([daha fazlasını öğrenin](https://circleci.com/docs/managing-api-tokens/))
+  - NPX: [Node.js >= v18](https://nodejs.org/) ve [pnpm](https://pnpm.io/installation)
+
+  #### Yerel MCP Server'da NPX Kullanma
+
+  `~/.aws/amazonq/mcp.json` dosyasını düzenleyin veya aşağıdakini içeren `.amazonq/mcp.json` dosyasını oluşturun:
+
+  ```json
+  {
+    "mcpServers": {
+      "circleci-local": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@circleci/mcp-server-circleci@latest"
+        ],
+        "env": {
+          "CIRCLECI_TOKEN": "YOUR_CIRCLECI_TOKEN",
+          "CIRCLECI_BASE_URL": "https://circleci.com",
+          "MAX_MCP_OUTPUT_LENGTH": "50000"
+        },
+        "timeout": 60000
+      }
+    }
+  }
+  ```
+
+  #### Kendi Kendine Yönetilen Uzak MCP Server Kullanma
+
+  Bir sarmalayıcı betik oluşturun (ör. `circleci-remote-mcp.sh`):
+
+  ```bash
+  #!/bin/bash
+  npx mcp-remote http://your-circleci-remote-mcp-server-endpoint:8000/mcp --allow-http
+  ```
+
+  Betiği çalıştırılabilir yapın ve ardından MCP yapılandırması UI aracılığıyla ekleyin:
+
+  1. [MCP yapılandırması UI'ya erişin](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/mcp-ide.html#mcp-ide-configuration-access-ui)
+  2. **+** sembolünü seçin
+  3. Kapsam seçin: **global** veya **local**
+  4. Bir ad girin (ör. `circleci-remote-mcp`)
+  5. Taşıma protokolünü seçin: **stdio**
+  6. Betiğinizin komut yolunu girin
+  7. **Kaydet**'e tıklayın
+
+  </details>
+
+  <details>
+  <summary><strong>Smithery</strong></summary>
+
+  [Smithery](https://smithery.ai/server/@CircleCI-Public/mcp-server-circleci) aracılığıyla CircleCI MCP Server'ı Claude Desktop için otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install @CircleCI-Public/mcp-server-circleci --client claude
+  ```
+
+  </details>
+
+  ## Demo
+
+  <details>
+  <summary><strong>Eylemde Görelim</strong></summary>
+
+  Örnek: "Dalımda en son başarısız ardışık düzeni bul ve günlükleri al"
+  — daha fazla örnek için [wiki](https://github.com/CircleCI-Public/mcp-server-circleci/wiki#circleci-mcp-server-with-cursor-ide) bölümüne bakın.
+
+  https://github.com/user-attachments/assets/3c765985-8827-442a-a8dc-5069e01edb74
+
+  </details>
+
+  ## Araç Ayrıntıları
+
+  <details>
+  <summary id="analyze_diff"><strong><code>analyze_diff</code></strong></summary>
+
+  Git diff'lerini cursor kurallarına karşı analiz ederek kural ihlallerini belirler.
+
+  Sağlayın:
+  - **Git diff içeriği** (ör. `git diff --cached`, `git diff HEAD`)
+  - **Repository kuralları** `.cursorrules` veya `.cursor/rules` dosyasından
+
+  İhlal raporlarını güven puanları ve açıklamalarıyla birlikte döndürür.
+
+  Şunlar için faydalıdır:
+  - Gönderim öncesi kod kalitesi kontrolleri
+  - Takım kodlama standartlarıyla tutarlılığın sağlanması
+  - Kodu incelemeden öncce kural ihlallerinin yakalanması
+
+  </details>
+
+  <details>
+  <summary id="config_helper"><strong><code>config_helper</code></strong></summary>
+
+  CircleCI yapılandırma görevleriyle yardımcı olur ve rehberlik ve doğrulama sağlar.
+
+  - `.circleci/config.yml` dosyasını söz dizimi ve anlambilim hataları açısından doğrular
+  - Ayrıntılı doğrulama sonuçları ve yapılandırma önerileri sağlar
+  - Örnek: "CircleCI yapılandırmamı doğrula"
+
+  </details>
+
+  <details>
+  <summary id="create_prompt_template"><strong><code>create_prompt_template</code></strong></summary>
+
+  Özellik gereksinimlerine dayalı olarak AI öğretimli uygulamalar için yapılandırılmış prompt şablonları oluşturur.
+
+  - Kullanıcı gereksinimlerini optimize edilmiş prompt şablonlarına dönüştürür
+  - Yapılandırılmış bir şablon ve gerekli giriş parametrelerini tanımlayan bir bağlam şeması döndürür
+  - Örnek: "Yaşa ve konuya göre uyku zamanı hikayeleri oluşturmak için bir prompt şablonu oluştur"
+
+  </details>
+
+  <details>
+  <summary id="download_usage_api_data"><strong><code>download_usage_api_data</code></strong></summary>
+
+  Belirli bir kuruluş için CircleCI Usage API'sinden kullanım verilerini indirir. Esnek tarih girişini kabul eder (ör. "Mart 2025" veya "geçen ay"). Yalnızca bulut özelliği.
+
+  **Seçenek 1:** Aşağıdakileri sağlayarak yeni bir dışa aktarma işi başlatın:
+  - `orgId`, `startDate`, `endDate` (maksimum 32 gün), `outputDir`
+
+  **Seçenek 2:** Aşağıdakileri sağlayarak mevcut bir dışa aktarma işini kontrol edin/indirin:
+  - `orgId`, `jobId`, `outputDir`
+
+  Belirtilen zaman dilimi için CircleCI kullanım verilerini içeren bir CSV dosyası döndürür.
+
+  > [!NOTE]
+  > Kullanım verileri, maliyet optimizasyonu analizi için `find_underused_resource_classes` aracına beslenebilir.
+
+  </details>
+
+  <details>
+  <summary id="find_flaky_tests"><strong><code>find_flaky_tests</code></strong></summary>
+
+  Test yürütme geçmişini analiz ederek CircleCI projenizde kararsız testleri belirler. CircleCI'daki [kararsız test algılama özelliğinden](https://circleci.com/blog/introducing-test-insights-with-flaky-test-detection/#flaky-test-detection) yararlanır.
+
+  Bu araç üç şekilde kullanılabilir:
+
+  1. **Project Slug Kullanma (Önerilir):**
+     - Önce `list_followed_projects` kullanarak projelerinizi alın, ardından:
+     - Örnek: "my-project için kararsız testleri al"
+
+  2. **CircleCI Proje URL'si Kullanma:**
+     - Örnek: "https://app.circleci.com/pipelines/github/org/repo'da kararsız testleri bul"
+
+  3. **Yerel Proje Bağlamı Kullanma:**
+     - Çalışma alanınızdan çalışır ve çalışma alanı kökü ile git uzak URL'si sağlar
+     - Örnek: "Geçerli projemdeki kararsız testleri bul"
+
+  Çıktı modları:
+
+  - **Metin (varsayılan):** Kararsız test ayrıntılarını metin formatında döndürür
+  - **Dosya** (`FILE_OUTPUT_DIRECTORY` env değişkeni gerekir): Kararsız test ayrıntılarını içeren bir dizin oluşturur
+
+  </details>
+
+  <details>
+  <summary id="find_underused_resource_classes"><strong><code>find_underused_resource_classes</code></strong></summary>
+
+  Ortalama veya maksimum CPU/
 ---
 
 # CircleCI MCP Server

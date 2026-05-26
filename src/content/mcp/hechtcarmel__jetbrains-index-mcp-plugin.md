@@ -8,6 +8,385 @@ url: "https://github.com/hechtcarmel/jetbrains-index-mcp-plugin"
 body_length: 21275
 license: "MIT"
 language: "Kotlin"
+body_tr: |-
+  # IDE Index MCP Sunucusu
+
+  ![Build](https://github.com/hechtcarmel/jetbrains-index-mcp-plugin/workflows/Build/badge.svg)
+  [![Version](https://img.shields.io/jetbrains/plugin/v/29174.svg)](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server)
+  [![Downloads](https://img.shields.io/jetbrains/plugin/d/29174.svg)](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server)
+
+  JetBrains IDE eklentisi olup bir **MCP (Model Context Protocol) sunucusu** sunar; Claude, Codex, Cursor ve Windsurf gibi yapay zeka kodlama asistanlarının IDE'nin güçlü indexleme ve refaktoring yeteneklerinden yararlanmasını sağlar.
+
+  **Tamamen test edilmiş**: IntelliJ IDEA, PyCharm, WebStorm, GoLand, RustRover, Android Studio, PhpStorm
+  **Çalışabilir** (test edilmemiş): RubyMine, CLion, DataGrip
+
+  [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/hechtcarmel)
+
+  <!-- Plugin description -->
+  **IDE Index MCP Sunucusu**, yapay zeka kodlama asistanlarına Model Context Protocol (MCP) üzerinden IDE'nin güçlü kod zeka özelliklerine erişim imkanı sağlar.
+
+  ### Özellikler
+
+  **Çok Dil Desteği**
+  Gelişmiş araçlar mevcut eklentilere göre birden fazla dilde çalışır:
+  - **Java & Kotlin** - IntelliJ IDEA, Android Studio
+  - **Python** - PyCharm (tüm sürümler), Python eklentili IntelliJ
+  - **JavaScript & TypeScript** - WebStorm, IntelliJ Ultimate, PhpStorm
+  - **Go** - GoLand, Go eklentili IntelliJ IDEA Ultimate
+  - **PHP** - PhpStorm, PHP eklentili IntelliJ Ultimate
+  - **Rust** - RustRover, Rust eklentili IntelliJ IDEA Ultimate, CLion
+  - **Markdown** - dosya yapısında başlık anahatları; Markdown eklentisini kullanan IDE'ler için
+
+  **Evrensel Araçlar (Tüm Desteklenen JetBrains IDE'leri)**
+  - **Referansları Bul** - Proje genelinde herhangi bir sembolün tüm kullanımlarını bulun
+  - **Tanıma Git** - Sembol bildirimine gidin
+  - **Kod Tanılama** - Hataları, uyarıları ve hızlı düzeltmeleri gösterir
+  - **Index Durumu** - Kod zekasının hazır olup olmadığını kontrol edin
+  - **Dosyaları Senkronize Et** - Harici dosya değişikliklerinden sonra VFS/PSI önbelleğini zorla senkronize edin
+  - **Projeyi İnşa Et** - Yapılandırılmış hata/uyarı çıktısıyla IDE derlemesini tetikleyin (varsayılan olarak devre dışı)
+  - **Sınıf Bul** - camelCase eşleştirmesi ile sınıf/arayüz adına göre hızlı arama
+  - **Dosya Bul** - IDE'nin dosya indeksini kullanarak ada göre hızlı dosya araması
+  - **Sembol Ara** - IntelliJ Go to Symbol eşleştirmesi ile ada göre kod sembollerini bulun (varsayılan olarak devre dışı)
+  - **Metni Ara** - IDE'nin önceden oluşturulmuş kelime indeksini kullanarak metin araması
+  - **Dosya Oku** - Yol veya nitelikli ada göre dosya içeriğini okuyun; kütüphane kaynaklarını da dahil (varsayılan olarak devre dışı)
+  - **Dosyayı Aç** - Editörde dosya açın; isteğe bağlı gezinti (varsayılan olarak devre dışı)
+  - **Aktif Dosyayı Al** - İmleç konumuyla birlikte şu anda etkin editör dosyasını alın (varsayılan olarak devre dışı)
+
+  **Genişletilmiş Araçlar (Dile Duyarlı)**
+  Bu araçlar yüklü dil eklentilerine göre etkinleşir:
+  - **Tür Hiyerarşisi** - Sınıf kalıtım zincirlerini keşfedin
+  - **Çağrı Hiyerarşisi** - Metot/fonksiyon çağrı ilişkilerini izleyin
+  - **Uygulamaları Bul** - Arayüz/soyut uygulama keşfet
+  - **Üst Metodları Bul** - Metot geçersiz kılma hiyerarşisinde gezinin
+  - **Dosya Yapısı** - IDE'nin Yapı görünümü gibi hiyerarşik dosya yapısını görüntüleyin; PHP Yapı Görünümü ağaçlarını ve Markdown başlık anahatlarını dahil (varsayılan olarak devre dışı)
+
+  **Refaktoring Araçları**
+  - **Rename Refaktoring** - Otomatik ilişkili eleman yeniden adlandırması (getters/setters, geçersiz kılan metodlar) ile güvenli yeniden adlandırma - TÜM dillerde çalışır, tamamen headless
+  - **Kodu Yeniden Biçimlendir** - Proje kod stilini kullanarak yeniden biçimlendir; import optimizasyonu (varsayılan olarak devre dışı)
+  - **Güvenli Sil** - Kullanım kontrolü ile kodu kaldırın (sadece Java/Kotlin)
+  - **Java'dan Kotlin'e Dönüştürme** - Intellij'in yerleşik dönüştürücüsünü kullanarak Java'yı Kotlin'e dönüştürün (sadece Java)
+
+  ### Bu Eklentiyi Neden Kullanmalısınız?
+
+  Basit metin tabanlı kod analizinin aksine, bu eklenti yapay zeka asistanlarına şunlara erişim imkanı verir:
+  - IDE'nin AST ve indeksi aracılığıyla **gerçek anlamsal anlama**
+  - Dosyalar ve modüller arasında çalışan **çapraz proje referans çözümlemesi**
+  - Otomatik olarak dile özgü işleyicileri algılayan ve kullanan **çok dil desteği**
+  - Otomatik referans güncellemeleri ve geri alma desteğiyle **güvenli refaktoring işlemleri**
+
+  Yapay zeka destekli geliştirme iş akışları için ideal; doğruluk ve güvenliğin önemli olduğu yerler.
+  <!-- Plugin description end -->
+
+  ## İçindekiler
+
+  - [Kurulum](#kurulum)
+  - [Hızlı Başlangıç](#hızlı-başlangıç)
+  - [Topluluk İntegrasyonları](#topluluk-integrasyonları)
+  - [İstemci Yapılandırması](#istemci-yapılandırması)
+  - [Kullanılabilir Araçlar](#kullanılabilir-araçlar)
+  - [Çok Proje Desteği](#çok-proje-desteği)
+  - [Araç Penceresi](#araç-penceresi)
+  - [Hata Kodları](#hata-kodları)
+  - [Gereksinimler](#gereksinimler)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+
+  ## Kurulum
+
+  ### IDE yerleşik eklenti sistemi kullanarak
+
+  <kbd>Ayarlar/Tercihler</kbd> > <kbd>Eklentiler</kbd> > <kbd>Marketplace</kbd> > <kbd>"IDE Index MCP Server" arayın</kbd> > <kbd>Yükle</kbd>
+
+  ### JetBrains Marketplace Kullanarak
+
+  [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server) adresine gidin ve <kbd>Yükle...</kbd> düğmesini tıklayarak yükleyin.
+
+  ### Manuel Kurulum
+
+  [Son sürümü](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server/versions) indirin ve manuel olarak yükleyin:
+  <kbd>Ayarlar/Tercihler</kbd> > <kbd>Eklentiler</kbd> > <kbd>⚙️</kbd> > <kbd>Diskten eklenti yükle...</kbd>
+
+  ## Hızlı Başlangıç
+
+  1. **Eklentiyi yükleyin** ve JetBrains IDE'nizi yeniden başlatın
+  2. **Bir proje açın** - MCP sunucusu IDE'ye özel varsayılanlarla otomatik olarak başlar:
+     - IntelliJ IDEA: `intellij-index` port **29170** üzerinde
+     - PyCharm: `pycharm-index` port **29172** üzerinde
+     - WebStorm: `webstorm-index` port **29173** üzerinde
+     - Diğer IDE'ler: Bkz. [IDE'ye Özel Varsayılanlar](#ide'ye-özel-varsayılanlar)
+  3. **Yapay zeka asistanınızı yapılandırın** - "Kodlama Aracılarına Yükle" düğmesini (en kolay) veya manuel olarak kullanın
+  4. **Araç penceresini kullanın** (alt panel: "Index MCP Sunucusu") konfigürasyonu kopyalamak veya komutları izlemek için
+  5. **Portu değiştirin** (isteğe bağlı): Araç çubuğunda "Portu değiştir, araçları devre dışı bırak" veya <kbd>Ayarlar</kbd> > <kbd>Araçlar</kbd> > <kbd>Index MCP Sunucusu</kbd> kısmını tıklayın
+
+  ### "Kodlama Aracılarına Yükle" Düğmesini Kullanma
+
+  Yapay zeka asistanınızı yapılandırmanın en kolay yolu:
+  1. "Index MCP Sunucusu" araç penceresini açın (alt panel)
+  2. Araç çubuğunun sağ tarafındaki prominent **"Kodlama Aracılarına Yükle"** düğmesini tıklayın
+  3. İki bölüm içeren bir açılır pencere görüntülenir:
+     - **Şimdi Yükle** - Claude Code CLI ve Codex CLI için: Kurulum komutunu otomatik olarak çalıştırır
+     - **Konfigürasyonu Kopyala** - Diğer istemciler için: JSON konfigürasyonunu panonuza kopyalar
+  4. "Konfigürasyonu Kopyala" istemcileri için, konfigürasyonu uygun yapılandırma dosyasına yapıştırın
+
+  ## Topluluk İntegrasyonları
+
+  - [opencode-jetbrains-index](https://github.com/ineersa/opencode-jetbrains-index) - Bu eklentiyi kullanan OpenCode için üçüncü taraf entegrasyonu
+
+  > **Sorumluluk Reddi**: Bu depo tarafımdan bakılmamaktadır. Entegrasyona özgü sorunlar ve destek için kendi issue tracker'ını kullanınız.
+
+  ## İstemci Yapılandırması
+
+  ### Claude Code (CLI)
+
+  Araç penceresinde "Kodlama Aracılarına Yükle" düğmesini kullanın veya şu komutu çalıştırın (IDE'niz için adı ve portu ayarlayın):
+
+  ```bash
+  # IntelliJ IDEA
+  claude mcp add --transport http --scope user intellij-index http://127.0.0.1:29170/index-mcp/streamable-http
+
+  # PyCharm
+  claude mcp add --transport http --scope user pycharm-index http://127.0.0.1:29172/index-mcp/streamable-http
+
+  # WebStorm
+  claude mcp add --transport http --scope user webstorm-index http://127.0.0.1:29173/index-mcp/streamable-http
+  ```
+
+  Seçenekler:
+  - `--scope user` - Tüm projeler için genel olarak ekler
+  - `--scope project` - Yalnızca geçerli projeye ekler
+
+  Kaldırmak için: `claude mcp remove <server-name>` (örn. `claude mcp remove intellij-index`)
+
+  ### Codex CLI
+
+  Araç penceresinde "Kodlama Aracılarına Yükle" düğmesini kullanın veya şu komutu çalıştırın (IDE'niz için adı ve portu ayarlayın):
+
+  ```bash
+  # IntelliJ IDEA
+  codex mcp add intellij-index --url http://127.0.0.1:29170/index-mcp/streamable-http
+
+  # PyCharm
+  codex mcp add pycharm-index --url http://127.0.0.1:29172/index-mcp/streamable-http
+
+  # WebStorm
+  codex mcp add webstorm-index --url http://127.0.0.1:29173/index-mcp/streamable-http
+  ```
+
+  Kaldırmak için: `codex mcp remove <server-name>` (örn. `codex mcp remove intellij-index`)
+
+  ### Cursor
+
+  Proje kökünüzde `.cursor/mcp.json` veya genel olarak `~/.cursor/mcp.json` dosyasına ekleyin (IDE'niz için adı ve portu ayarlayın):
+
+  ```json
+  {
+    "mcpServers": {
+      "intellij-index": {
+        "url": "http://127.0.0.1:29170/index-mcp/streamable-http"
+      }
+    }
+  }
+  ```
+
+  ### Windsurf
+
+  `~/.codeium/windsurf/mcp_config.json` dosyasına ekleyin (IDE'niz için adı ve portu ayarlayın):
+
+  ```json
+  {
+    "mcpServers": {
+      "intellij-index": {
+        "serverUrl": "http://127.0.0.1:29170/index-mcp/streamable-http"
+      }
+    }
+  }
+  ```
+
+  ### VS Code (Jenerik MCP)
+
+  ```json
+  {
+    "mcp.servers": {
+      "intellij-index": {
+        "url": "http://127.0.0.1:29170/index-mcp/streamable-http"
+      }
+    }
+  }
+  ```
+
+  > **Not**: Sunucu adını ve portu IDE'nizin varsayılanları ile değiştirin. Aşağıda [IDE'ye Özel Varsayılanlar](#ide'ye-özel-varsayılanlar) kısmına bakınız.
+
+  ### IDE'ye Özel Varsayılanlar
+
+  Her JetBrains IDE'nin, çatışmalar olmadan aynı anda birden fazla IDE çalıştırabilmek için benzersiz bir varsayılan port ve sunucu adı vardır:
+
+  | IDE | Sunucu Adı | Varsayılan Port |
+  |-----|-----------|-----------------|
+  | IntelliJ IDEA | `intellij-index` | 29170 |
+  | Android Studio | `android-studio-index` | 29171 |
+  | PyCharm | `pycharm-index` | 29172 |
+  | WebStorm | `webstorm-index` | 29173 |
+  | GoLand | `goland-index` | 29174 |
+  | PhpStorm | `phpstorm-index` | 29175 |
+  | RubyMine | `rubymine-index` | 29176 |
+  | CLion | `clion-index` | 29177 |
+  | RustRover | `rustrover-index` | 29178 |
+  | DataGrip | `datagrip-index` | 29179 |
+
+  > **İpucu**: Araç penceresindeki "Kodlama Aracılarına Yükle" düğmesini kullanın - IDE'niz için otomatik olarak doğru sunucu adını ve portunu kullanır.
+
+  ## Kullanılabilir Araçlar
+
+  Eklenti, kullanılabilirliğe göre düzenlenmiş **21 MCP aracı** sağlar. *(varsayılan olarak devre dışı)* işaretli araçlar <kbd>Ayarlar</kbd> > <kbd>Araçlar</kbd> > <kbd>Index MCP Sunucusu</kbd> kısmında etkinleştirilebilir.
+
+  ### Evrensel Araçlar
+
+  Bu araçlar tüm desteklenen JetBrains IDE'lerinde çalışır.
+
+  | Araç | Açıklama |
+  |------|---------|
+  | `ide_find_references` | Tüm proje genelinde bir sembolün tüm referanslarını bulun |
+  | `ide_find_definition` | Bir sembolün tanımı/bildirimi konumunu bulun |
+  | `ide_find_class` | camelCase/substring/joker eşleştirmesi ile sınıf/arayüz ada göre arayın |
+  | `ide_find_file` | IDE'nin dosya indeksini kullanarak ada göre dosya arayın |
+  | `ide_find_symbol` | IntelliJ Go to Symbol eşleştirmesi ile ad göre sembol (sınıf, metot, alan, fonksiyon) arayın *(varsayılan olarak devre dışı)* |
+  | `ide_search_text` | Bağlam filtrelemesiyle IDE'nin önceden oluşturulmuş kelime indeksini kullanarak metin araması |
+  | `ide_diagnostics` | Açık dosyalar için taze editör tanılaması veya kapalı dosyalar için genel toplu tanılama ile dosya sorunlarını analiz edin; isteğe bağlı derleme/test sonuçları; niyetler en iyi çaba temelinde |
+  | `ide_index_status` | IDE'nin dumb mode'da mı yoksa smart mode'da mı olduğunu kontrol edin |
+  | `ide_sync_files` | IDE'nin sanal dosya sistemi ve PSI önbelleğini harici dosya değişiklikleriyle senkronize etmeyi zorla |
+  | `ide_build_project` | Yapılandırılmış hatalarla IDE derleme sistemi (JPS, Gradle, Maven) kullanarak projeyi derleyin *(varsayılan olarak devre dışı)* |
+  | `ide_read_file` | Yol veya nitelikli ada göre dosya içeriğini okuyun; kütüphane/jar kaynakları dahil *(varsayılan olarak devre dışı)* |
+  | `ide_get_active_file` | İmleç konumuyla birlikte editördeki şu anda aktif dosya(ları) alın *(varsayılan olarak devre dışı)* |
+  | `ide_open_file` | Editörde dosya açın; isteğe bağlı satır/sütun gezintisi *(varsayılan olarak devre dışı)* |
+  | `ide_refactor_rename` | Bir sembolü yeniden adlandırın ve proje genelinde tüm referansları güncelleyin (tüm diller) |
+  | `ide_move_file` | Dosyayı yeni bir dizine taşıyın; IDE anlamsal taşıma arka ucu sağladığında dile duyarlı referans/paket güncellemeleri uygulayın |
+  | `ide_reformat_code` | Proje kod stilini kullanarak kodu yeniden biçimlendir; import optimizasyonu *(varsayılan olarak devre dışı)* |
+
+  ### Genişletilmiş Araçlar (Dile Duyarlı)
+
+  Bu araçlar mevcut dil eklentilerine göre etkinleşir:
+
+  | Araç | Açıklama | Diller |
+  |------|---------|--------|
+  | `ide_type_hierarchy` | Tam tür hiyerarşisini (üst tipleri ve alt tipleri) alın | Java, Kotlin, Python, JS/TS, Go, PHP, Rust |
+  | `ide_call_hierarchy` | Metot çağrısı ilişkilerini analiz edin (arayanlar veya çağrılanlar) | Java, Kotlin, Python, JS/TS, Go, PHP, Rust |
+  | `ide_find_implementations` | Bir arayüz veya soyut metotun tüm uygulamalarını bulun | Java, Kotlin, Python, JS/TS, PHP, Rust |
+  | `ide_find_super_methods` | Bir metodun geçersiz kıldığı/uyguladığı metodların tam kalıtım hiyerarşisini bulun | Java, Kotlin, Python, JS/TS, PHP |
+  | `ide_file_structure` | Hiyerarşik dosya yapısını alın (IDE'nin Yapı görünümüne benzer) *(varsayılan olarak devre dışı)* | Java, Kotlin, Python, JS/TS, PHP, Markdown |
+
+  PHP dosya yapısı desteği PHP eklentisi gerektirir ve PhpStorm veya PHP eklentisi etkin olan IntelliJ IDEA Ultimate'de mevcuttur.
+
+  ### Java'ya Özel Refaktoring Araçları
+
+  | Araç | Açıklama |
+  |------|---------|
+  | `ide_convert_java_to_kotlin` | IntelliJ'in yerleşik dönüştürücüsünü kullanarak Java dosyalarını Kotlin'e dönüştürün *(varsayılan olarak devre dışı, Java + Kotlin eklentileri gerekir)* |
+  | `ide_refactor_safe_delete` | Bir elemanı güvenli şekilde silin; önce kullanımları kontrol edin (sadece Java/Kotlin) |
+
+  > **Not**: Refaktoring araçları kaynak dosyaları değiştirir. Tüm değişiklikler <kbd>Ctrl/Cmd+Z</kbd> üzerinden geri almayı destekler.
+
+  ### IDE'ye Göre Araç Kullanılabilirliği
+
+  **Tamamen Test Edilmiş:**
+
+  | IDE | Evrensel | Gezinti | Refaktoring |
+  |-----|---------|---------|------------|
+  | IntelliJ IDEA | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat + safe delete + Java→Kotlin |
+  | Android Studio | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat + safe delete + Java→Kotlin |
+  | PyCharm | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat |
+  | WebStorm | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat |
+  | GoLand | ✓ 14 araç | ✓ 4 araç | ✓ rename + reformat |
+  | RustRover | ✓ 14 araç | ✓ 5 araç | ✓ rename + reformat |
+  | PhpStorm | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat |
+
+  **Çalışabilir (Test Edilmemiş):**
+
+  | IDE | Evrensel | Gezinti | Refaktoring |
+  |-----|---------|---------|------------|
+  | RubyMine | ✓ 14 araç | ✓ 2 Markdown aracı | ✓ rename + reformat |
+  | CLion | ✓ 14 araç | ✓ 2 Markdown aracı | ✓ rename + reformat |
+  | DataGrip | ✓ 14 araç | ✓ 2 Markdown aracı | ✓ rename + reformat |
+
+  > **Not**: Gezinti araçları dil eklentileri mevcut olduğunda etkinleşir. Markdown, yerleşik Markdown eklentisi etkinleştirildiğinde başlık araması ve dosya yapısı desteği ekler. Go ve Rust, dil semantiğinden dolayı `ide_find_super_methods` göstermez; Go `ide_find_implementations` göstermez. Rename ve reformat araçları tüm dillerde çalışır. `ide_convert_java_to_kotlin` yalnızca IntelliJ IDEA ve Android Studio'da mevcuttur, hem Java hem de Kotlin eklentilerini gerektirir ve varsayılan olarak devre dışıdır.
+
+  Parametreler ve örnekler içeren ayrıntılı araç belgeleri için [USAGE.md](USAGE.md) dosyasına bakınız.
+
+  ## Çok Proje Desteği
+
+  Tek bir IDE penceresinde birden fazla proje açık olduğunda, `project_path` parametresiyle hangi projenin kullanılacağını belirtmelisiniz:
+
+  ```json
+  {
+    "name": "ide_find_references",
+    "arguments": {
+      "project_path": "/Users/dev/myproject",
+      "file": "src/Main.kt",
+      "line": 10,
+      "column": 5
+    }
+  }
+  ```
+
+  `project_path` atlanırsa:
+  - **Tek proje açık**: Bu proje otomatik olarak kullanılır
+  - **Birden fazla proje açık**: Kullanılabilir projeler listesiyle bir hata döndürülür
+
+  ### Workspace Projeleri
+
+  Eklenti, tek bir IDE penceresinin, ayrı içerik köklerine sahip modüller olarak birden fazla alt proje içeren **workspace projelerine** destek verir. `project_path` parametresi şunları kabul eder:
+
+  - **Workspace kök** yolu
+  - **Alt proje yolu** (modül içerik kökü)
+  - Herhangi bir açık projenin **alt dizini**
+
+  Bir hata oluştuğunda, yanıt `available_projects` döndürür. Varsayılan olarak bu, yapay zeka aracılarının geçerli modül içerik köklerini keşfetmesi için workspace alt projelerini içerir. Daha küçük hata yüklemeleri istiyorsanız, eklenti ayarlarında **Hata Yanıtlarında Proje Listesi** seçeneğini **Kompakt** olarak değiştirerek yalnızca üst düzey proje köklerini döndürün.
+
+  ## Araç Penceresi
+
+  Eklenti, şunları gösteren bir "Index MCP Sunucusu" araç penceresi (alt panel) ekler:
+
+  - **Sunucu Durumu**: Sunucu URL'si ve portu ile çalıştırma göstergesi
+  - **Proje Adı**: Şu anda etkin olan proje
+  - **Komut Geçmişi**: Tüm MCP araç çağrılarının günlüğü:
+    - Zaman damgası
+    - Araç adı
+    - Durum (Başarılı/Hata/Beklemede)
+    - Parametreler ve sonuçlar (genişletilebilir)
+    - Yürütme süresi
+
+  ### Araç Penceresi İşlemleri
+
+  | İşlem | Açıklama |
+  |------|---------|
+  | Yenile | Sunucu durumunu ve komut geçmişini yenile |
+  | URL'yi Kopyala | MCP sunucu URL'sini panoya kopyala |
+  | Geçmişi Temizle | Komut geçmişini temizle |
+  | Geçmişi Dışa Aktar | Geçmişi JSON veya CSV dosyasına dışa aktar |
+  | **Kodlama Aracılarına Yükle** | MCP sunucusunu yapay zeka asistanlarına yükle (sağ taraftaki prominent düğme) |
+
+  ## Hata Kodları
+
+  ### JSON-RPC Standart Hataları
+
+  | Kod | Adı | Açıklama |
+  |-----|-----|---------|
+  | -32700 | Parse Error | JSON-RPC isteği ayrıştırılamadı |
+  | -32600 | Invalid Request | Geçersiz JSON-RPC istek biçimi |
+  | -32601 | Method Not Found | Bilinmeyen metot adı |
+  | -32602 | Invalid Params | Geçersiz veya eksik parametreler |
+  | -32603 | Internal Error | Beklenmeyen iç hata |
+
+  ### Özel MCP Hataları
+
+  | Kod | Adı | Açıklama |
+  |-----|-----|---------|
+  | -32001 | Index Not Ready | IDE dumb mode'dadır (indexleme devam ediyor) |
+  | -32002 | File Not Found | Belirtilen dosya mevcut değil |
+  | -32003 | Symbol Not Found | Belirtilen konumda sembol bulunamadı |
+  | -32004 | Refactoring Conflict | Refaktoring tamamlanamıyor (örn. ad çakışması) |
+
+  ## Ayarlar
+
+  Eklentiyi <kbd>Ayarlar</kbd> > <kbd>Araçlar</kbd> > <kbd>Index MCP Sunuc
 ---
 
 # IDE Index MCP Server

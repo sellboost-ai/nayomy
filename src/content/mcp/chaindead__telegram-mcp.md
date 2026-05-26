@@ -8,6 +8,292 @@ url: "https://github.com/chaindead/telegram-mcp"
 body_length: 9059
 license: "MIT"
 language: "Go"
+body_tr: |-
+  [![](https://badge.mcpx.dev?type=server 'MCP Server')](https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file#communication)
+  [![](https://img.shields.io/badge/OS_Agnostic-Works_Everywhere-purple)](https://github.com/chaindead/telegram-mcp?tab=readme-ov-file#installation)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fchaindead%2Ftelegram-mcp&label=Visitors&labelColor=%23d9e3f0&countColor=%23697689&style=flat&labelStyle=none)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fchaindead%2Ftelegram-mcp)
+
+  # Telegram MCP sunucusu
+
+  Sunucu, Telegram API ile AI asistanları arasında bir köprü görevi görür ve [Model Context Protocol](https://modelcontextprotocol.io) üzerine kuruludur.
+
+  > [!IMPORTANT]
+  > Bu sunucuyu kullanmadan önce [Telegram API Hizmet Şartları](https://core.telegram.org/api/terms) hakkında okuduğunuzdan ve anladığınızdan emin olun.
+  > Telegram API'nin yanlış kullanılması hesabınızın askıya alınmasına neden olabilir.
+
+  ## İçindekiler
+  - [MCP nedir?](#mcp-nedir)
+  - [Bu sunucu ne yapar?](#bu-sunucu-ne-yapar)
+    - [Yetenekler](#yetenekler)
+    - [Prompt örnekleri](#prompt-örnekleri)
+      - [Mesaj Yönetimi](#mesaj-yönetimi)
+      - [Organizasyon](#organizasyon)
+      - [İletişim](#iletişim)
+  - [Kurulum](#kurulum)
+    - [Homebrew](#homebrew)
+    - [NPX](#npx)
+    - [Sürümlerden](#sürümlerden)
+      - [MacOS](#macos)
+      - [Linux](#linux)
+      - [Windows](#windows)
+    - [Kaynaktan](#kaynaktan)
+  - [Konfigürasyon](#konfigürasyon)
+    - [Yetkilendirme](#yetkilendirme)
+    - [Client Konfigürasyonu](#client-konfigürasyonu)
+    - [JSON Schema Sürümü](#json-schema-sürümü)
+  - [Star Geçmişi](#star-geçmişi)
+
+  ## MCP nedir?
+
+  Model Context Protocol (MCP), Claude Desktop veya Cursor gibi AI uygulamalarının harici araçlara ve veri kaynaklarına bağlanmasını sağlayan bir sistemdir. AI asistanlarının yerel servisler ve API'lerle çalışması için net ve güvenli bir yol sunar, kullanıcı kontrolünü korur.
+
+  ## Bu sunucu ne yapar?
+
+  ### Yetenekler
+
+  - [x] Mevcut hesap bilgilerini al (`tool: tg_me`)
+  - [x] Diyalogları isteğe bağlı okunmamış filtresiyle listele (`tool: tg_dialogs`)
+  - [x] Diyaloğu okundu olarak işaretle (`tool: tg_read`)
+  - [x] Belirli diyalogdan mesajları al (`tool: tg_dialog`)
+  - [x] Herhangi bir diyaloğa taslak mesajları gönder (`tool: tg_send`)
+
+  ### Prompt örnekleri
+
+  AI asistanlarıyla kullanabileceğiniz bazı örnek promptlar:
+
+  #### Mesaj Yönetimi
+  - "Telegram'da okunmamış önemli mesajları kontrol et"
+  - "Tüm okunmamış Telegram mesajlarımı özetle"
+  - "Okunmamış mesajlarımı oku ve analiz et, gerekirse taslak yanıtlar hazırla"
+  - "Kritik olmayan okunmamış mesajları kontrol et ve kısa bir özet sun"
+
+  #### Organizasyon
+  - "Telegram diyaloglarımı analiz et ve bir klasör yapısı öner"
+  - "Telegram sohbetlerimi öneme göre sınıflandırmama yardım et"
+  - "İş ile ilgili tüm konuşmaları bul ve bunları organize etmeyi öner"
+
+  #### İletişim
+  - "Belirli sohbeti [konu] hakkında güncellemeler için izle"
+  - "[sohbet] içindeki son mesaja kibar bir yanıt tasla"
+  - "Sohbetlerimde cevaplanmamış sorular olup olmadığını kontrol et"
+
+  ## Kurulum
+
+  ### Homebrew
+
+  macOS/Linux'ta brew kullanarak bir binary sürümü yükleyebilirsiniz:
+
+  ```bash
+  # Yükle
+  brew install chaindead/tap/telegram-mcp
+
+  # Güncelle
+  brew upgrade chaindead/tap/telegram-mcp
+  ```
+
+  ### NPX
+
+  npx kullanarak en son sürümü doğrudan çalıştırabilirsiniz (macOS, Linux ve Windows'u destekler):
+
+  ```bash
+  npx -y @chaindead/telegram-mcp
+  ```
+
+  NPX kullanırken, standart komutları ve konfigürasyonu aşağıdaki gibi değiştirin:
+
+  - [Kimlik doğrulama komutu](#yetkilendirme) şu hale gelir:
+  ```bash
+  npx -y @chaindead/telegram-mcp auth ...
+  ```
+
+  - [Claude MCP sunucu konfigürasyonu](#client-konfigürasyonu) şu hale gelir:
+  ```json
+  {
+    "mcpServers": {
+      "telegram": {
+        "command": "npx",
+        "args": ["-y", "@chaindead/telegram-mcp"],
+        "env": {
+          "TG_APP_ID": "<your-api-id>",
+          "TG_API_HASH": "<your-api-hash>"
+        }
+      }
+    }
+  }
+  ```
+
+  Tam kurulum talimatları için [Yetkilendirme](#yetkilendirme) ve [Client Konfigürasyonu](#client-konfigürasyonu) bölümlerine bakın.
+
+  ### Sürümlerden
+
+  #### MacOS
+
+  <details>
+
+  > **Not:** Aşağıdaki komutlar `/usr/local/bin` dizinine yükler. Başka bir yere yüklemek için `/usr/local/bin` yerine PATH'teki tercih ettiğiniz dizini kullanın.
+
+  Öncelikle mimariniz için arşivi indirin:
+
+  ```bash
+  # Intel Mac için (x86_64)
+  curl -L -o telegram-mcp.tar.gz https://github.com/chaindead/telegram-mcp/releases/latest/download/telegram-mcp_Darwin_x86_64.tar.gz
+
+  # Apple Silicon için (M1/M2)
+  curl -L -o telegram-mcp.tar.gz https://github.com/chaindead/telegram-mcp/releases/latest/download/telegram-mcp_Darwin_arm64.tar.gz
+  ```
+
+  Ardından binary dosyasını yükleyin:
+
+  ```bash
+  # Binary dosyasını çıkar
+  sudo tar xzf telegram-mcp.tar.gz -C /usr/local/bin
+
+  # Çalıştırılabilir yap
+  sudo chmod +x /usr/local/bin/telegram-mcp
+
+  # Temizle
+  rm telegram-mcp.tar.gz
+  ```
+  </details>
+
+  #### Linux
+  <details>
+
+  > **Not:** Aşağıdaki komutlar `/usr/local/bin` dizinine yükler. Başka bir yere yüklemek için `/usr/local/bin` yerine PATH'teki tercih ettiğiniz dizini kullanın.
+
+  Öncelikle mimariniz için arşivi indirin:
+
+  ```bash
+  # x86_64 için (64-bit)
+  curl -L -o telegram-mcp.tar.gz https://github.com/chaindead/telegram-mcp/releases/latest/download/telegram-mcp_Linux_x86_64.tar.gz
+
+  # ARM64 için
+  curl -L -o telegram-mcp.tar.gz https://github.com/chaindead/telegram-mcp/releases/latest/download/telegram-mcp_Linux_arm64.tar.gz
+  ```
+
+  Ardından binary dosyasını yükleyin:
+
+  ```bash
+  # Binary dosyasını çıkar
+  sudo tar xzf telegram-mcp.tar.gz -C /usr/local/bin
+
+  # Çalıştırılabilir yap
+  sudo chmod +x /usr/local/bin/telegram-mcp
+
+  # Temizle
+  rm telegram-mcp.tar.gz
+  ```
+  </details>
+
+  #### Windows
+
+  <details>
+
+  #### Windows
+  1. Mimariniz için en son sürümü indirin:
+     - [Windows x64](https://github.com/chaindead/telegram-mcp/releases/latest/download/telegram-mcp_Windows_x86_64.zip)
+     - [Windows ARM64](https://github.com/chaindead/telegram-mcp/releases/latest/download/telegram-mcp_Windows_arm64.zip)
+  2. `.zip` dosyasını çıkarın
+  3. Çıkarılan dizini PATH'e ekleyin veya `telegram-mcp.exe` dosyasını PATH'teki bir dizine taşıyın
+  </details>
+
+  ### Kaynaktan
+
+  Gereksinimler:
+  - Go 1.24 veya daha yeni sürüm
+  - GOBIN PATH'te
+
+  ```bash
+  go install github.com/chaindead/telegram-mcp@latest
+  ```
+
+  ## Konfigürasyon
+
+  ### Yetkilendirme
+
+  Sunucuyu kullanabilmek için öncelikle Telegram API'ye bağlanmanız gerekir.
+
+  1. [Telegram API](https://my.telegram.org/auth) adresinden API ID ve hash'i alın
+  2. Aşağıdaki komutu çalıştırın:
+     > __Not:__
+     > 2FA etkinleştirilmişse: --password <2fa_password> ekleyin
+
+     >  __Not:__
+     > Mevcut oturumu geçersiz kılmak istiyorsanız: --new ekleyin
+
+     ```bash
+     telegram-mcp auth --app-id <your-api-id> --api-hash <your-api-hash> --phone <your-phone-number>
+     ```
+
+     📩 Telegram'dan aldığınız kodu girerek API'ye bağlanın.
+
+  3. Tamamlandı! Projeyi desteklemek için lütfen bu projeye ⭐️ verin.
+
+  ### Client Konfigürasyonu
+
+  Claude Desktop'ı Telegram MCP sunucusunu tanıyacak şekilde yapılandırma örneği.
+
+  1. Claude Desktop konfigürasyon dosyasını açın:
+      - MacOS'ta, konfigürasyon dosyası `~/Library/Application Support/Claude/claude_desktop_config.json` adresinde bulunur
+      - Windows'ta, konfigürasyon dosyası `%APPDATA%\Claude\claude_desktop_config.json` adresinde bulunur
+
+     > __Not:__
+     > Claude Desktop uygulamasının ayarları içinde claude_desktop_config.json dosyasını da bulabilirsiniz
+
+  2. Sunucu konfigürasyonunu ekleyin
+     
+     Claude desktop için:
+     ```json
+      {
+        "mcpServers": {
+          "telegram": {
+            "command": "telegram-mcp",
+            "env": {
+              "TG_APP_ID": "<your-app-id>",
+              "TG_API_HASH": "<your-api-hash>",
+              "PATH": "<path_to_telegram-mcp_binary_dir>",
+              "HOME": "<path_to_your_home_directory"
+            }
+          }
+        }
+      }
+     ```
+
+     Cursor için:
+      ```json
+      {
+        "mcpServers": {
+          "telegram-mcp": {
+            "command": "telegram-mcp",
+            "env": {
+              "TG_APP_ID": "<your-app-id>",
+              "TG_API_HASH": "<your-api-hash>"
+            }
+          }
+        }
+      }
+      ```
+
+  ### JSON Schema Sürümü
+
+  Bazı MCP istemcileri (ör. VS Code) JSON Schema Draft 2020-12'yi desteklemez ve bu sürümü kullanan araçları reddeder. `--schema-version` flag'ini veya `TG_SCHEMA_VERSION` ortam değişkenini ayarlayarak JSON Schema sürümünü geçersiz kılabilirsiniz.
+
+  Yaygın değerler:
+  | Sürüm | URL |
+  |---------|-----|
+  | Draft-07 (VS Code için önerilen) | `https://json-schema.org/draft-07/schema#` |
+  | Draft 2020-12 (varsayılan) | `https://json-schema.org/draft/2020-12/schema` |
+
+  ## Star Geçmişi
+
+  <a href="https://www.star-history.com/#chaindead/telegram-mcp&Date">
+   <picture>
+     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=chaindead/telegram-mcp&type=Date&theme=dark" />
+     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=chaindead/telegram-mcp&type=Date" />
+     
+   </picture>
+  </a>
 ---
 
 [![](https://badge.mcpx.dev?type=server 'MCP Server')](https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file#communication)

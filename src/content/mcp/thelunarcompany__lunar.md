@@ -9,6 +9,50 @@ body_length: 2855
 license: "MIT"
 language: "TypeScript"
 homepage: "https://lunar.dev"
+body_tr: |-
+  <div align="center">
+
+
+
+  <a href="https://opensource.org/licenses/MIT">![License](https://img.shields.io/badge/License-MIT-blue.svg)</a>
+  <a href="https://docs.lunar.dev/">![Documentation](https://img.shields.io/badge/docs-viewdocs-blue.svg?style=flat-square "Viewdocs")</a>
+  <a href="https://lunar.dev/">![Website](https://img.shields.io/badge/lunar.dev-website-purple.svg?style=flat-square "Website")</a>
+
+  </div>
+
+  # Lunar.dev'e Hoşgeldiniz
+
+  **Lunar.dev**, uygulamalar ve AI agent iş yükleri arasında üçüncü taraf API tüketimini **yönetmek, kontrol etmek ve optimize etmek** için açık kaynaklı bir platformdur.
+
+  <div  align="center">
+
+
+  </div>
+
+  ## AI Çağı için Tüketim Yönetimi
+
+  AI ajanları ve otonom iş akışları dış API'lere giderek daha fazla bağımlı hale geldikçe, uygulamalar, ajanlar ve bunların bağlı oldukları hizmetler arasında merkezi bir toplama noktası olarak davranan bir mediation katmanına ihtiyaç duyulmaktadır.
+
+  Lunar.dev bu katmanı sağlar—AI için birleşik bir API Gateway olarak hizmet ederek şunları sunar:
+
+  - **Canlı API Trafiği Görünürlüğü:** LLM ve agent çağrıları da dahil olmak üzere tüm giden trafik üzerinde gecikme, hatalar, maliyet ve token kullanımı hakkında gerçek zamanlı metrikler alın.
+  - **AI Farkında Policy Uygulaması:** Tool erişimini kontrol edin, agent eylemlerini kısıtlayın ve agent trafiğini ince ayarlı kurallarla yönetin.
+  - **Gelişmiş Traffic Shaping:** Yükü yönetmek ve güvenilirliği sağlamak için rate limit, retry, priority queue ve circuit breaker uygulayın.
+  - **Maliyet & Performans Optimizasyonu:** Akıllı gateway politikaları aracılığıyla israfı belirleyin, trafiğin yoğun saatlerini düzleştirin ve pahalı API'ler üzerinde aşırı kullanımı azaltın.
+  - **Merkezi MCP Agregasyonu:** Operasyonları kolaylaştırarak birden fazla MCP sunucusunu tek bir gateway'de konsolide edin, güvenlik, gözlemlenebilirlik ve yönetimi geliştirin.
+
+  ## Yolunuzu Seçin
+
+  Lunar.dev iki ana bileşenden oluşur:
+
+  - [**Lunar Proxy**](https://github.com/TheLunarCompany/lunar/tree/main/proxy#readme) – temel API gateway'imiz ve kontrol katmanımız
+  - [**Lunar MCPX**](https://github.com/TheLunarCompany/lunar/tree/main/mcpx#readme) – birden fazla MCP sunucusu için sıfır kod agregator, birleşik API erişimi ile
+
+  İhtiyaçlarınıza uygun olanı keşfedin—veya tam yığın bir çözüm için ikisini de kullanın.
+
+  ## Özünde Açık Kaynak
+
+  Bu proje, üçüncü taraf API'leri yönetmek için daha sağlam ve üretime hazır bir yaklaşıma ihtiyaç duyulmasından ortaya çıktı. Özünde açık kaynak olmaya devam etmektedir ve üretim dışı/kişisel kullanım için ücretsizdir. Üretim ortamları için, rehberli onboarding ve platform seviyeleri aracılığıyla gelişmiş özellikler sunuyoruz; daha fazla bilgi için [web sitemizi ziyaret edin](https://lunar.dev) veya doğrudan bizimle iletişim kurun.
 ---
 
 <div align="center">

@@ -8,6 +8,124 @@ url: "https://github.com/portainer/portainer-mcp"
 body_length: 5485
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Portainer MCP
+
+  Portainer'ın resmi MCP sunucusu, [FastMCP](https://github.com/PrefectHQ/fastmcp) aracılığıyla Portainer OpenAPI spec'inden oluşturulmuştur.
+
+  ## Genel Bakış
+
+  Bu MCP sunucusu, Portainer REST API'sini MCP araçları olarak sunar: ortamları listeleyin ve inceleyin, GitOps iş akışlarını yönetin, Docker ve Kubernetes kaynaklarında sorun giderin. Ayrıca her ortamın temel Docker ve K8s API'lerine istekleri proxy'lemeyi destekler.
+
+  MCP sunucusunun minor sürümünü Portainer örneğinizin minor sürümüyle eşleştirin — örneğin MCP sunucusu 2.42.x ile Portainer 2.42.x. Ayrıntılar için [Sürüm uyumluluğu](#sürüm-uyumluluğu) bölümüne bakın.
+
+  ## Başlarken
+
+  MCP sunucusu `uvx` aracılığıyla yerel olarak veya bir container olarak çalıştırılabilir.
+
+  MCP yeteneklerini yerel olarak keşfetmek ve takım tabanlı dağıtım kurulumu için bunu kendi altyapınızda container olarak dağıtmak için ilk yaklaşımı kullanın.
+
+  > [!NOTE]
+  > MCP'yi kullanmadan önce, Portainer'da **Hesabım → Erişim tokenları** altında bir API anahtarı oluşturmayı unutmayın, çünkü her iki yolun da buna ihtiyacı vardır.
+
+  ### Tek kullanıcı (stdio via `uvx`)
+
+  MCP sunucusunu yerel olarak test etmenin önerilen yolu. Makinenizde bir stdio işlemi olarak çalışır ve Portainer örneğine doğrudan bağlanır.
+
+  > [!NOTE]
+  > `uv` kurulu olmalı ve `PATH`'de kullanılabilir olmalıdır.
+  > Bkz. [uv kurulum belgeleri](https://docs.astral.sh/uv/getting-started/installation/).
+
+  Claude Code ile kaydedin:
+
+  ```bash
+  claude mcp add portainer \
+    -e PORTAINER_URL=https://portainer.example.com \
+    -e PORTAINER_API_KEY=ptr_xxxxxxxxxxxxxxxx \
+    -- uvx --from "mcp-portainer~=2.42.0" mcp-portainer
+  ```
+
+  > [!NOTE]
+  > Portainer örneğiniz kendi imzalı TLS sertifikaları kullanıyorsa `PORTAINER_TLS_VERIFY=0` ayarlayın.
+
+  Diğer istemciler için bkz.
+  [`docs/distribution/`](https://github.com/portainer/portainer-mcp/tree/main/docs/distribution).
+  Diğer istemci talimatları için katkılar memnuniyetle karşılanır!
+
+  ### Takım dağıtımı (container)
+
+  Portainer örneğinizle MCP aracılığıyla etkileşim kuran birden fazla kullanıcınız olması için önerilen yol. İş istasyonlarından kullanıcılar tarafından HTTP üzerinden erişilen, paylaşılan bir bearer sırrı tarafından korunan altyapınızın içinde [`container`](https://hub.docker.com/r/portainer/portainer-mcp) olarak dağıtılır.
+
+  > [!IMPORTANT]
+  > Container, HTTP sonlandırır, **HTTPS'yi DEĞİL**, ve kimlik doğrulamayı tek bir paylaşılan bearer olarak sunar.
+  > Sır, TLS sonlandırması olmadan istemci ve sunucu arasındaki herhangi bir yolda yakalanabilir.
+  > 
+  > Bu MCP sunucusunu genel internette sunmak **ÖNERİLMEZ**.
+  > 
+  > Ön cephede TLS sonlandıran ters proxy olsa bile, bu MCP sunucusunu özel altyapınızda güvenlik altına almak önerilir.
+
+  MCP sunucusunu altyapınızda container olarak çalıştırın:
+
+  ```bash
+  docker run -d --name portainer-mcp -p 17717:17717 \
+    -e PORTAINER_URL=https://portainer.example.com \
+    -e PORTAINER_API_KEY=ptr_xxxxxxxxxxxxxxxx \
+    -e PORTAINER_MCP_AUTH_TOKEN="$(openssl rand -hex 32)" \
+    -e PORTAINER_MCP_ALLOWED_HOSTS=mcp.example.com:17717 \
+    portainer/portainer-mcp:2.42
+  ```
+
+  `PORTAINER_MCP_ALLOWED_HOSTS` değerini, kullanıcıların MCP'ye erişmek için kullanacağı hostname veya IP adresine ayarlayın — aksi takdirde DNS-rebinding allowlist isteği 421-reddeder.
+
+  `PORTAINER_MCP_AUTH_TOKEN` HTTP modunda **gereklidir**. MCP'ye erişimi kontrol etmek için anahtarı sağlar, bu tokeni kullanıcılara dağıtın; MCP istemcileri bunu `Authorization` başlığı aracılığıyla gönderecektir.
+
+  MCP endpoint'ini Claude Code'a ekleme:
+  ```bash
+  claude mcp add portainer --transport http http://mcp.example.com:17717/mcp --header "Authorization: Bearer <token>"
+  ```
+
+  ### Hijyen becerisi (önerilen)
+
+  Bu depo, Claude Code becerisini ([`portainer-mcp-hygiene`](https://github.com/portainer/portainer-mcp/blob/main/skills/portainer-mcp-hygiene/SKILL.md)) içerir ve modelin MCP'yi verimli bir şekilde sorgulamasına ve yanıtları context içinde tutmasına yardımcı olur. Sunucuyla aynı etikete sabitlenmiş şekilde kullanıcı genelinde yükleyin:
+
+  ```bash
+  mkdir -p ~/.claude/skills/portainer-mcp-hygiene && \
+    curl -fsSL https://raw.githubusercontent.com/portainer/portainer-mcp/2.42.0/skills/portainer-mcp-hygiene/SKILL.md \
+    -o ~/.claude/skills/portainer-mcp-hygiene/SKILL.md
+  ```
+
+  Beceri sunucu yükseltmesiyle senkronize kalması için her sunucu yükseltmesinde yeniden çalıştırılması önerilir.
+
+  ## MCP sunucusu yeteneklerini kısıtlama ve genişletme
+
+  MCP sunucusu varsayılan olarak aşağıdaki yetenekler etkinleştirilmiş şekilde gelir:
+  * Temel Portainer işlem desteği (ayarlar, sürüm, ortamlar...)
+  * Docker işlem desteği
+  * Kubernetes işlem desteği
+  * Docker ve Kubernetes proxy desteği
+
+  Bu yetenek setini kısıtlamak veya genişletmek için bkz. [`docs/profiles.md`](https://github.com/portainer/portainer-mcp/blob/main/docs/profiles.md).
+
+  ## Sürüm uyumluluğu
+
+  **MCP sunucusunun minor'ını Portainer minor'ınıza eşleştirin.** Major+minor, gömülü spec'in hedeflediği Portainer API sürümünü izler.
+
+  | Sunucu sürümü | Portainer (CE / EE) |
+  | ------------- | ------------------- |
+  | `2.42.x`      | `2.42.x`            |
+  | `2.41.x`      | `2.41.x`            |
+
+  Sürüm politikası hakkında daha fazla bilgi için [`docs/versioning.md`](https://github.com/portainer/portainer-mcp/blob/main/docs/versioning.md) bölümüne bakın.
+
+  ## Yapılandırma
+
+  MCP sunucusu aşağıdakiler gibi farklı yetenekleri sunar:
+  * Belirli profil yapılandırmasına göre farklı araç seti etkinleştirme
+  * Kapatmak için ekstra etiketleri belirterek API kapsamını genişletme
+  * Yalnızca salt okunur yetenekleri gösterme
+  * Proxy yeteneklerini devre dışı bırakma
+
+  MCP sunucusu yapılandırması hakkında daha fazla bilgi için [`docs/configuration.md`](https://github.com/portainer/portainer-mcp/blob/main/docs/configuration.md) bölümüne bakın.
 ---
 
 # Portainer MCP

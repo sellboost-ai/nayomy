@@ -8,6 +8,272 @@ url: "https://github.com/Tiberriver256/mcp-server-azure-devops"
 body_length: 12833
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Azure DevOps MCP Sunucusu
+
+  Azure DevOps için bir Model Context Protocol (MCP) sunucu uygulaması. AI yardımcılarının standartlaştırılmış bir protokol aracılığıyla Azure DevOps API'leriyle etkileşime girmesini sağlar.
+
+  ## Genel Bakış
+
+  Bu sunucu Azure DevOps için [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) uygular ve Claude gibi AI yardımcılarının Azure DevOps kaynaklarıyla güvenli bir şekilde etkileşime girmesini sağlar. Sunucu, AI modelleri ile Azure DevOps API'leri arasında bir köprü görevi görerek şunlar için standartlaştırılmış bir yol sağlar:
+
+  - Projelere, work item'lere, depolara ve daha fazlasına erişim ve yönetim
+  - Work item'ler, şubeler ve pull request'ler oluşturma ve güncelleme
+  - Doğal dil aracılığıyla yaygın DevOps iş akışlarını yürütme
+  - Standartlaştırılmış kaynak URI'leri aracılığıyla depo içeriğine erişim
+  - Azure DevOps kaynaklarıyla güvenli kimlik doğrulama ve etkileşim
+
+  ## Sunucu Yapısı
+
+  Sunucu, AI yardımcılarıyla iletişim kurmak için Model Context Protocol (MCP) etrafında yapılandırılmıştır. Azure DevOps kaynakları ile etkileşim için araçlar sağlar:
+
+  - Projeler
+  - Work Item'ler
+  - Depolar
+  - Pull Request'ler
+  - Şubeler
+  - Pipeline'lar
+
+  ### Temel Bileşenler
+
+  - **AzureDevOpsServer**: MCP sunucusunu başlatan ve araçları kaydeden ana sunucu sınıfı
+  - **Feature Modülleri**: Özellik alanına göre organize edilmiş (work-items, projects, repositories, vb.)
+  - **Request Handler'ları**: Her feature modülü request tanımlama ve işleme fonksiyonları sağlar
+  - **Tool Handler'ları**: Her Azure DevOps işlemi için modüler fonksiyonlar
+  - **Konfigürasyon**: Organizasyon URL'si, PAT vb. için ortam tabanlı konfigürasyon
+
+  Sunucu, her feature alanı (work-items, projects, repositories gibi) kendi modülü içerisine kapsüllenen feature tabanlı bir mimariye sahiptir. Bu, kod tabanını daha bakımı yapılabilir ve yeni özelliklerle genişletilmesi daha kolay hale getirir.
+
+  ## Başlangıç
+
+  ### Ön Koşullar
+
+  - Node.js (v16+)
+  - npm veya yarn
+  - Uygun erişime sahip Azure DevOps hesabı
+  - Authentication kimlik bilgileri ([Authentication Guide](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/authentication.md) bölümüne bakınız):
+    - Personal Access Token (PAT), veya
+    - Azure Identity kimlik bilgileri, veya
+    - Azure CLI login
+
+  ### npm'den çalıştırma (npx)
+
+  Eğer sadece **yayımlanmış** sunucu paketini çalıştırmak istiyorsanız, bu depoyu klonlamanız veya derleyemeniz **gerekmez**:
+
+  ```bash
+  npx -y @tiberriver256/mcp-server-azure-devops
+  ```
+
+  ### Yerel olarak çalıştırma (kaynaktan)
+
+  Bu deponun bir checkout'ından:
+
+  ```bash
+  npm ci
+  cp .env.example .env   # ardından değerleri düzenleyin
+  npm run build
+  npm start              # çalıştırır: node dist/index.js
+  ```
+
+  İteratif geliştirme için (otomatik yeniden yükleme):
+
+  ```bash
+  npm run dev            # ts-node-dev aracılığıyla src/index.ts'yi çalıştırır
+  ```
+
+  ### Claude Desktop/Cursor AI ile Kullanım
+
+  Claude Desktop veya Cursor AI ile entegrasyon için aşağıdaki konfigürasyonlardan birini yapılandırma dosyanıza ekleyin.
+
+  #### Azure Identity Authentication
+
+  `az login` ile Azure CLI'ye giriş yaptığınızdan emin olun ve ardından aşağıdakileri ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "azureDevOps": {
+        "command": "npx",
+        "args": ["-y", "@tiberriver256/mcp-server-azure-devops"],
+        "env": {
+          "AZURE_DEVOPS_ORG_URL": "https://dev.azure.com/your-organization",
+          "AZURE_DEVOPS_AUTH_METHOD": "azure-identity",
+          "AZURE_DEVOPS_DEFAULT_PROJECT": "your-project-name"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Personal Access Token (PAT) Authentication
+
+  ```json
+  {
+    "mcpServers": {
+      "azureDevOps": {
+        "command": "npx",
+        "args": ["-y", "@tiberriver256/mcp-server-azure-devops"],
+        "env": {
+          "AZURE_DEVOPS_ORG_URL": "https://dev.azure.com/your-organization",
+          "AZURE_DEVOPS_AUTH_METHOD": "pat",
+          "AZURE_DEVOPS_PAT": "<YOUR_PAT>",
+          "AZURE_DEVOPS_DEFAULT_PROJECT": "your-project-name"
+        }
+      }
+    }
+  }
+  ```
+
+  Azure DevOps Server (on-prem) PAT authentication gerektirir. Örnek:
+
+  ```json
+  {
+    "mcpServers": {
+      "azureDevOps": {
+        "command": "npx",
+        "args": ["-y", "@tiberriver256/mcp-server-azure-devops"],
+        "env": {
+          "AZURE_DEVOPS_ORG_URL": "https://server:8080/tfs/DefaultCollection",
+          "AZURE_DEVOPS_AUTH_METHOD": "pat",
+          "AZURE_DEVOPS_PAT": "<YOUR_PAT>",
+          "AZURE_DEVOPS_DEFAULT_PROJECT": "your-project-name"
+        }
+      }
+    }
+  }
+  ```
+
+  Detaylı konfigürasyon talimatları ve daha fazla authentication seçeneği için [Authentication Guide](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/authentication.md) bölümüne bakınız.
+
+  ## Authentication Yöntemleri
+
+  Bu sunucu Azure DevOps API'lerine bağlanmak için birden fazla authentication yöntemini destekler. Detaylı kurulum talimatları, konfigürasyon örnekleri ve sorun giderme ipuçları için [Authentication Guide](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/authentication.md) bölümüne bakınız.
+
+  ### Desteklenen Authentication Yöntemleri
+
+  1. **Personal Access Token (PAT)** - Basit token tabanlı authentication
+  2. **Azure Identity (DefaultAzureCredential)** - Azure Identity SDK kullanarak esnek authentication
+  3. **Azure CLI** - Azure CLI login'inizi kullanarak authentication
+
+  Her authentication yöntemi için örnek konfigürasyon dosyaları [examples directory](https://github.com/tiberriver256/mcp-server-azure-devops/tree/main/docs/examples)'de mevcuttur.
+
+  Azure DevOps Server (on-prem) sadece PAT authentication'ı destekler. Azure Identity ve Azure CLI, Azure DevOps Services için desteklenmiştir.
+
+  ## Ortam Değişkenleri
+
+  Tüm ortam değişkenlerinin ve açıklamalarının tam listesi için [Authentication Guide](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/authentication.md#configuration-reference) bölümüne bakınız.
+
+  Önemli ortam değişkenleri:
+
+  | Değişken                       | Açıklama                                                                        | Gerekli                     | Varsayılan       |
+  | ------------------------------ | ------------------------------------------------------------------------------- | --------------------------- | ---------------- |
+  | `AZURE_DEVOPS_AUTH_METHOD`     | Authentication yöntemi (`pat`, `azure-identity` veya `azure-cli`) - harf duyarsız | Hayır                       | `azure-identity` |
+  | `AZURE_DEVOPS_ORG_URL`         | Azure DevOps organizasyonunuzun veya Server koleksiyonunun tam URL'si (örn. `https://server:8080/tfs/DefaultCollection`) | Evet                        | -                |
+  | `AZURE_DEVOPS_PAT`             | Personal Access Token (PAT auth için)                                           | Sadece PAT auth ile         | -                |
+  | `AZURE_DEVOPS_DEFAULT_PROJECT` | Hiçbiri belirtilmezse varsayılan proje                                          | Hayır                       | -                |
+  | `AZURE_DEVOPS_API_VERSION`     | Kullanılacak API sürümü                                                         | Hayır                       | En Son          |
+  | `AZURE_TENANT_ID`              | Azure AD tenant ID'si (service principals için)                                 | Sadece service principals ile | -                |
+  | `AZURE_CLIENT_ID`              | Azure AD application ID'si (service principals için)                            | Sadece service principals ile | -                |
+  | `AZURE_CLIENT_SECRET`          | Azure AD client secret'ı (service principals için)                              | Sadece service principals ile | -                |
+  | `LOG_LEVEL`                    | Logging seviyesi (debug, info, warn, error)                                     | Hayır                       | info             |
+
+  ## Authentication Sorun Giderme
+
+  Her authentication yöntemi için detaylı sorun giderme bilgileri için [Authentication Guide](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/authentication.md#troubleshooting-authentication-issues) bölümüne bakınız.
+
+  Yaygın sorunlar şunları içerir:
+
+  - Geçersiz veya süresi dolmuş kimlik bilgileri
+  - Yetersiz permissions
+  - Ağ bağlantısı sorunları
+  - Konfigürasyon hataları
+
+  ## Authentication Uygulama Detayları
+
+  Azure DevOps MCP sunucusunda authentication'ın nasıl uygulandığı hakkında teknik detaylar için [Authentication Guide](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/authentication.md) bölümüne ve `src/auth` dizinindeki kaynak koduna bakınız.
+
+  ## Mevcut Araçlar
+
+  Azure DevOps MCP sunucusu Azure DevOps kaynakları ile etkileşim için çeşitli araçlar sağlar. Her araç hakkında detaylı dokumentasyon için lütfen ilgili dokumentasyona bakınız.
+
+  ### User Araçları
+
+  - `get_me`: Kimliği doğrulanmış kullanıcının detaylarını alır (id, displayName, email) (Sadece Azure DevOps Services)
+
+  ### Organization Araçları
+
+  - `list_organizations`: Tüm erişilebilir organizasyonları listeler (Sadece Azure DevOps Services)
+
+  ### Project Araçları
+
+  - `list_projects`: Bir organizasyondaki tüm projeleri listeler
+  - `get_project`: Belirli bir projenin detaylarını alır
+  - `get_project_details`: Process, work item types ve teams dahil projenin kapsamlı detaylarını alır
+
+  ### Repository Araçları
+
+  - `list_repositories`: Bir projede tüm depoları listeler
+  - `get_repository`: Belirli bir deponun detaylarını alır
+  - `get_repository_details`: İstatistikler ve refs dahil depo hakkında detaylı bilgi alır
+  - `get_file_content`: Bir depodan dosya veya dizinin içeriğini alır
+  - `get_repository_tree`: Herhangi bir yol ve derinlikteki depo dosya ağacını listeler
+  - `create_branch`: Mevcut birinden yeni bir şube oluşturur
+  - `create_commit`: Birleştirilmiş diffs veya search/replace talimatları kullanarak bir şubeye birden fazla dosya değişikliğini işler
+
+  ### Work Item Araçları
+
+  - `get_work_item`: ID'ye göre work item'i alır
+  - `create_work_item`: Yeni bir work item oluşturur
+  - `update_work_item`: Mevcut bir work item'i günceller
+  - `list_work_items`: Bir projede work item'leri listeler
+  - `manage_work_item_link`: Work item'ler arasında link ekler, kaldırır veya günceller
+
+  ### Search Araçları
+
+  - `search_code`: Bir projede depolarda kod arar
+  - `search_wiki`: Bir projede wiki sayfalarında içerik arar
+  - `search_work_items`: Azure DevOps'de projeler arasında work item'ler arar
+
+  ### Pipeline Araçları
+
+  - `list_pipelines`: Bir projede pipeline'ları listeler
+  - `get_pipeline`: Belirli bir pipeline'ın detaylarını alır
+  - `list_pipeline_runs`: Bir pipeline için isteğe bağlı filtrelerle son çalıştırmaları listeler
+  - `get_pipeline_run`: Detaylı çalıştırma bilgilerini ve artifact özetlerini alır
+  - `download_pipeline_artifact`: Tek bir artifact dosyasını metin olarak indirir
+  - `pipeline_timeline`: Bir çalıştırmanın stage ve job timeline'ını alır
+  - `get_pipeline_log`: Ham veya JSON biçimlendirilmiş log içeriğini alır
+  - `trigger_pipeline`: Özelleştirilebilir parametrelerle bir pipeline çalıştırmasını tetikler
+
+  ### Wiki Araçları
+
+  - `get_wikis`: Bir projede tüm wiki'leri listeler
+  - `get_wiki_page`: Belirli bir wiki sayfasının içeriğini düz metin olarak alır
+
+  ### Pull Request Araçları
+
+  - [`create_pull_request`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#create_pull_request) - Yeni bir pull request oluşturur
+  - [`get_pull_request`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#get_pull_request) - ID'ye göre pull request'i alır
+  - [`list_pull_requests`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#list_pull_requests) - Bir depoda pull request'leri listeler
+  - [`add_pull_request_comment`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#add_pull_request_comment) - Bir pull request'e yorum ekler
+  - [`get_pull_request_comments`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#get_pull_request_comments) - Pull request'ten yorumları alır
+  - [`update_pull_request`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#update_pull_request) - Mevcut bir pull request'i günceller (title, description, status, draft state, reviewers, work items)
+  - [`get_pull_request_changes`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#get_pull_request_changes) - Pull request'teki değişiklikleri ve policy evaluation statusını listeler
+  - [`get_pull_request_checks`](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/docs/tools/pull-requests.md#get_pull_request_checks) - Status kontrolleri, policy evaluasyonları ve ilgili pipeline'ları özetler
+
+  Tüm araçlar hakkında kapsamlı dokumentasyon için [Tools Documentation](https://github.com/tiberriver256/mcp-server-azure-devops/tree/main/docs/tools) bölümüne bakınız.
+
+  ## Katkıda Bulunma
+
+  Katkılar hoş geldinir! Katkı talimatları için lütfen [CONTRIBUTING.md](https://github.com/tiberriver256/mcp-server-azure-devops/blob/main/CONTRIBUTING.md) bölümüne bakınız.
+
+  ## Star Tarihi
+
+  [![Star History Chart](https://api.star-history.com/svg?repos=tiberriver256/mcp-server-azure-devops&type=Date)](https://www.star-history.com/#tiberriver256/mcp-server-azure-devops&Date)
+
+  ## Lisans
+
+  MIT
 ---
 
 # Azure DevOps MCP Server

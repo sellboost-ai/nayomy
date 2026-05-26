@@ -8,6 +8,220 @@ url: "https://github.com/VikashLoomba/MCP-Server-Playwright"
 body_length: 6301
 license: "MIT"
 language: "JavaScript"
+body_tr: |-
+  <h1 align="center">MCP Server Playwright</h1>
+  <p align="center">
+    <a href="https://www.automatalabs.io"></a>
+  </p>
+  <p align="center">
+    <b>Playwright kullanarak tarayıcı otomasyon yetenekleri sağlayan bir Model Context Protocol sunucusu</b></br>
+    <sub>LLM'lerin web sayfalarıyla etkileşime girmesini, ekran görüntüleri almasını ve gerçek bir tarayıcı ortamında JavaScript yürütmesini sağlayın</sub>
+  </p>
+
+  <p align="center">
+    <a href="https://www.npmjs.com/package/@automatalabs/mcp-server-playwright"></a>
+    <a href="https://npmcharts.com/compare/@automatalabs/mcp-server-playwright?minimal=true"></a>
+    <a href="https://github.com/Automata-Labs-team/MCP-Server-Playwright/blob/main/LICENSE"></a>
+    <a href="https://smithery.ai/server/@automatalabs/mcp-server-playwright"></a>
+  </p>
+
+  <a href="https://glama.ai/mcp/servers/9q4zck8po5"></a>
+
+  ## İçindekiler
+
+  - [Özellikler](#özellikler)
+  - [Kurulum](#kurulum)
+  - [Yapılandırma](#yapılandırma)
+  - [Bileşenler](#bileşenler)
+    - [Araçlar](#araçlar)
+    - [Kaynaklar](#kaynaklar)
+  - [Lisans](#lisans)
+
+  ## Özellikler
+
+  - 🌐 Tam tarayıcı otomasyon yetenekleri
+  - 📸 Tüm sayfaların veya belirli öğelerin ekran görüntüsü
+  - 🖱️ Kapsamlı web etkileşimi (gezinme, tıklama, form doldurma)
+  - 📊 Console log izleme
+  - 🔧 Tarayıcı bağlamında JavaScript yürütme
+
+  ## Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  MCP Server Playwright'ı [Smithery](https://smithery.ai/server/@automatalabs/mcp-server-playwright) aracılığıyla Claude Desktop için otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install @automatalabs/mcp-server-playwright --client claude
+  ```
+
+  Paketi npx veya mcp-get kullanarak yükleyebilirsiniz:
+
+  npx kullanarak:
+  ```bash
+  npx @automatalabs/mcp-server-playwright install
+  ```
+  Bu komut aşağıdakileri yapacaktır:
+  1. İşletim sistemi uyumluluğunuzu kontrol eder (Windows/macOS)
+  2. Claude yapılandırma dosyasını oluşturur veya günceller
+  3. Playwright sunucusu entegrasyonunu yapılandırır
+
+  Yapılandırma dosyası otomatik olarak şu konumda oluşturulacak/güncellenecektir:
+  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+  mcp-get kullanarak:
+  ```bash
+  npx @michaellatman/mcp-get@latest install @automatalabs/mcp-server-playwright
+  ```
+
+  ## Yapılandırma
+
+  Kurulum işlemi, Claude config dosyanıza otomatik olarak aşağıdaki yapılandırmayı ekleyecektir:
+
+  ```json
+  {
+    "mcpServers": {
+      "playwright": {
+        "command": "npx",
+        "args": ["-y", "@automatalabs/mcp-server-playwright"]
+      }
+    }
+  }
+  ```
+  ## Cursor ile Kullanım
+
+  MCP Server Playwright'ı [Cursor](https://www.cursor.so/) ile de kullanabilirsiniz; bu, yapay zeka destekli bir kod editörüdür. Cursor'da MCP aracılığıyla tarayıcı otomasyonunu etkinleştirmek için:
+
+  1. **Playwright tarayıcılarını yükleyin** (henüz yüklenmediyse):
+      ```bash
+      npx playwright install
+      ```
+
+  2. **Cursor için MCP Server Playwright'ı Smithery kullanarak yükleyin**:
+      ```bash
+      npx -y @smithery/cli install @automatalabs/mcp-server-playwright --client cursor
+      ```
+
+  3. **Yapılandırma dosyası kurulumu**:  
+     Claude kullanmıyorsanız, yapılandırma dosyası (`claude_desktop_config.json`) otomatik olarak oluşturulmayabilir.  
+     - Windows'ta, `%APPDATA%` içinde `Claude` adında bir klasör oluşturun (genellikle `C:\Users\<YourName>\AppData\Roaming\Claude`).
+     - Bu klasörün içinde, aşağıdaki içerikle `claude_desktop_config.json` adında bir dosya oluşturun:
+     
+      ```json
+      {
+        "serverPort": 3456
+      }
+      ```
+
+  4. **[Kurulum](#kurulum) bölümündeki kalan adımları izleyin** ve kurulumu tamamlayın.
+
+  Artık MCP Server Playwright tarafından sağlanan tüm tarayıcı otomasyon araçlarını doğrudan Cursor'un AI özellikleri (web gezintisi, ekran görüntüsü alma ve JavaScript yürütme gibi) aracılığıyla kullanabilirsiniz.
+
+  > **Not:** Node.js'nin yüklü olduğundan ve `npx`'in sistem PATH'inizde kullanılabilir olduğundan emin olun.
+
+  ## Bileşenler
+
+  ### Araçlar
+
+  #### `browser_navigate`
+  Tarayıcıda herhangi bir URL'ye gidin
+  ```javascript
+  {
+    "url": "https://stealthbrowser.cloud"
+  }
+  ```
+
+  #### `browser_screenshot`
+  Tüm sayfanın veya belirli öğelerin ekran görüntülerini alın
+  ```javascript
+  {
+    "name": "screenshot-name",     // required
+    "selector": "#element-id",     // optional
+    "fullPage": true              // optional, default: false
+  }
+  ```
+
+  #### `browser_click`
+  CSS seçicisini kullanarak sayfadaki öğeleri tıklayın
+  ```javascript
+  {
+    "selector": "#button-id"
+  }
+  ```
+
+  #### `browser_click_text`
+  Metin içeriğine göre sayfadaki öğeleri tıklayın
+  ```javascript
+  {
+    "text": "Click me"
+  }
+  ```
+
+  #### `browser_hover`
+  CSS seçicisini kullanarak sayfadaki öğelerin üzerinde gezinin
+  ```javascript
+  {
+    "selector": "#menu-item"
+  }
+  ```
+
+  #### `browser_hover_text`
+  Metin içeriğine göre sayfadaki öğelerin üzerinde gezinin
+  ```javascript
+  {
+    "text": "Hover me"
+  }
+  ```
+
+  #### `browser_fill`
+  Giriş alanlarını doldurun
+  ```javascript
+  {
+    "selector": "#input-field",
+    "value": "Hello World"
+  }
+  ```
+
+  #### `browser_select`
+  CSS seçicisini kullanarak SELECT öğesinde seçenek seçin
+  ```javascript
+  {
+    "selector": "#dropdown",
+    "value": "option-value"
+  }
+  ```
+
+  #### `browser_select_text`
+  Metin içeriğine göre SELECT öğesinde seçenek seçin
+  ```javascript
+  {
+    "text": "Choose me",
+    "value": "option-value"
+  }
+  ```
+
+  #### `browser_evaluate`
+  Tarayıcı konsolunda JavaScript yürütün
+  ```javascript
+  {
+    "script": "document.title"
+  }
+  ```
+
+  ### Kaynaklar
+
+  1. **Console Logları** (`console://logs`)
+     - Tarayıcı konsol çıktısına metin formatında erişin
+     - Tarayıcıdan gelen tüm konsol mesajlarını içerir
+
+  2. **Ekran Görüntüleri** (`screenshot://<n>`)
+     - Alınan ekran görüntülerinin PNG görüntülerine erişin
+     - Yakalama sırasında belirtilen adla referans verilir
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/Automata-Labs-team/MCP-Server-Playwright/blob/main/LICENSE) dosyasına bakın.
 ---
 
 <h1 align="center">MCP Server Playwright</h1>

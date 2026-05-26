@@ -9,6 +9,477 @@ body_length: 44192
 license: "MIT"
 language: "Go"
 homepage: "https://github.com/weibaohui/kom"
+body_tr: |-
+  # Kom - Kubernetes Operations Manager
+
+  [English](README_en.md) | [中文](README.md)
+  [![kom](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://github.com/weibaohui/kom/blob/master/LICENSE)
+  [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fweibaohui%2Fkom.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fweibaohui%2Fkom?ref=badge_shield)
+
+
+  ## Giriş
+
+  `kom` Kubernetes işlemleri için bir araçtır; SDK seviyesinde kubectl ve client-go kullanım kapsüllemesidir.
+  Kubernetes kaynaklarını yönetmek için bir dizi işlev sağlar; kaynak oluşturma, güncelleme, silme ve alma işlemleri dahildir. Bu proje, Kubernetes kaynak türlerinin çeşitli işlemlerini destekler ve özel kaynak tanımlarını (CRD) işleyebilir.
+  `kom` kullanarak, kaynaklarda CRUD işlemleri, günlük alma ve POD içi dosya işlemleri gibi işlemleri kolayca gerçekleştirebilir, hatta SQL sorguları kullanarak k8s kaynaklarını sorgulayabilir ve yönetebilirsiniz.
+
+  ## **Özellikler**
+  1. Basit ve kullanışlı: kom oluşturma, güncelleme, silme, alma, listeleme ve dahası dahil olmak üzere zengin işlevler sağlar; hem yerleşik kaynaklar hem de CRD kaynakları için işlemler vardır.
+  2. Çoklu küme desteği: RegisterCluster aracılığıyla birden fazla Kubernetes kümesini kolayca yönetebilirsiniz, AWS EKS kümelerini destekler.
+  3. MCP desteği: Çoklu küme MCP yönetimini destekler, stdio ve sse iki modunu destekler, 58 adet yerleşik araç, SSE modu desteği, özel dağıtım desteği, çoklu kullanıcı paylaşımı. 100'ün üzerinde kombinasyon işlemini destekler.
+  4. Çapraz namespace desteği: kom.Namespace("default","kube-system").List(&items) aracılığıyla çapraz namespace kaynak sorgulaması yapın.
+  5. Zincir çağrısı: kom zincir çağrısı sağlar, kaynakları yönetmek daha kolay ve sezgiseldir.
+  6. CRD desteği: kom özel kaynak tanımlarını (CRD) destekler, özel kaynakları kolayca tanımlayabilir ve yönetebilirsiniz.
+  7. Callback mekanizması desteği, iş mantığını kolayca genişletin, k8s işlemleriyle sıkı çifting gerektirmez.
+  8. POD içi dosya işlemi desteği, dosyaları kolayca yükleyin, indirin, silin.
+  9. Yüksek frekans işlem kapsüllemesi desteği; deployment restart, scale genişletme/daralama, başlat/durdur ve 20'den fazla işlem işlevi.
+  10. SQL ile k8s kaynaklarını sorgula. select * from pod where metadata.namespace='kube-system' or metadata.namespace='default' order by  metadata.creationTimestamp desc 
+  11. Sorgu önbelleği desteği; yüksek frekans, toplu sorgulama senaryolarında, önbellek sona erme süresini ayarlayabilir, sorgu performansını iyileştirin. Liste filtre koşulları önbellekten etkilenmez.
+  12. Prometheus sorgusu desteği; küme içi Prometheus hizmeti veya harici Prometheus adresi aracılığıyla izleme verisi sorgulanır, anlık ve aralık sorgularını destekler, birden fazla sonuç ayrıştırma yöntemi sağlar.
+
+
+
+  ## Örnek Program
+  **k8m** kom ve amis tabanlı hafif bir Kubernetes yönetim aracıdır; tek dosya, çoklu platform mimarisi desteği.
+  1. **İndir**: [https://github.com/weibaohui/k8m](https://github.com/weibaohui/k8m) adresinden en son sürümü indirin.
+  2. **Çalıştır**: `./k8m` komutu kullanarak başlatın, [http://127.0.0.1:3618](http://127.0.0.1:3618) adresine erişin.
+
+
+
+
+  ## Kurulum
+
+  ```bash
+  import (
+      "github.com/weibaohui/kom"
+      "github.com/weibaohui/kom/callbacks"
+  )
+  func main() {
+      // Callback'i kaydet, mutlaka önce kaydedin
+      callbacks.RegisterInit()
+      // Kümeleri kaydet
+  	defaultKubeConfig := os.Getenv("KUBECONFIG")
+  	if defaultKubeConfig == "" {
+  		defaultKubeConfig = filepath.Join(homedir.HomeDir(), ".kube", "config")
+  	}
+  	_, _ = kom.Clusters().RegisterInCluster()
+  	_, _ = kom.Clusters().RegisterByPathWithID(defaultKubeConfig, "default")
+  	kom.Clusters().Show()
+  	// Diğer mantık
+  }
+  ```
+
+  ## Kullanım Örnekleri
+
+  ### 0. Çoklu Küme k8s MCP Desteği
+  Stdio ve sse iki modunu destekler
+  Çoklu tools desteği. Herhangi bir kaynağın sorgulama listesi silme tanımlaması işlemleri ve POD günlük okuma işlemleri dahildir.
+  #### 1. Kod içine entegre edin
+  ```go
+  // Bir satırlık kod MCP Server başlatır
+  mcp.RunMCPServer("kom mcp server", "0.0.1", 9096)
+
+
+
+  ```
+  #### 2. Derle
+  ```shell
+  # Kaynak kodu başlat
+  go build main.go 
+  //kom olarak derle
+  ```
+  #### 3. Başlat
+  Başlatıldıktan sonra iki modu destekler; biri stdio, diğeri sse.
+  k8s yönetimi varsayılan olarak KUBECONFIG env ortam değişkenini kullanır.
+  ```shell
+  # KUBECONFIG ortam değişkenini ayarla
+  export KUBECONFIG = /Users/xxx/.kube/config
+  ```
+  ```shell
+  # Çalıştır
+  ./kom 
+  # MCP Server erişim adresi
+  http://IP:9096/sse
+  ```
+  Bu noktada, derlenen ikili dosya stdio modu olarak kullanılabilir.
+  http://IP:9096/sse modu, sse modu olarak kullanılabilir.
+
+
+  #### 4. MCP araçlarına entegre edin
+  Stdio\sse iki tür entegrasyon yolunu destekler.
+  MCP araç entegrasyonuna uygun; Cursor, Claude Desktop (yalnızca stdio modunu destekler), Windsurf vb., ayrıca bu yazılımların UI işlem arayüzü kullanarak ekleyebilirsiniz.
+  ```json
+  {
+    "mcpServers": {
+      "kom": {
+        "type": "sse",
+        "url": "http://IP:9096/sse"
+      }
+    }
+  }
+  ```
+  ```json
+  {
+      "mcpServers": {
+          "k8m": {
+              "command": "path/to/kom",
+              "args": []
+          }
+      }
+  }
+  ```
+
+  ####  MCP Araç Listesi (59 adet)
+
+  | Kategori                   | Metot                                | Açıklama                                              |
+  | -------------------------- | ------------------------------------ | ----------------------------------------------------- |
+  | **Küme Yönetimi (1)**      | `list_k8s_clusters`                  | Tüm kayıtlı Kubernetes kümelerini listele             |
+  | **DaemonSet Yönetimi (1)** | `restart_k8s_daemonset`              | Küme, namespace ve ad ile DaemonSet yeniden başlat    |
+  | **Deployment Yönetimi (12)** | `scale_k8s_deployment`               | Küme, namespace, ad ile Deployment genişlet/daralt, replica sayısını ayarla |
+  |                            | `restart_k8s_deployment`             | Küme, namespace ve ad ile Deployment yeniden başlat   |
+  |                            | `stop_k8s_deployment`                | Deployment'ı durdur                                   |
+  |                            | `restore_k8s_deployment`             | Deployment replica sayısını geri yükle                |
+  |                            | `update_k8s_deployment_image_tag`    | Deployment içindeki container görüntü Tag'ını güncelle |
+  |                            | `get_k8s_deployment_rollout_history` | Güncelleme geçmişini sorgula                          |
+  |                            | `undo_k8s_deployment_rollout`        | Geri al                                               |
+  |                            | `pause_k8s_deployment_rollout`       | Güncellemeyi duraklatır                               |
+  |                            | `resume_k8s_deployment_rollout`      | Güncellemeyi devam ettir                              |
+  |                            | `get_k8s_deployment_rollout_status`  | Güncelleme durumunu sorgula                           |
+  |                            | `get_k8s_deployment_hpa_list`        | Deployment'ın HPA listesini sorgula                   |
+  |                            | `list_k8s_deploy_event`              | Deployment ile ilgili olayları listele                |
+  | **Dinamik Kaynak Yönetimi (CRD, 8)** | `get_k8s_resource`                   | Küme, namespace ve ad ile Kubernetes kaynak ayrıntılarını al |
+  |                            | `describe_k8s_resource`              | Küme, namespace ve ad ile Kubernetes kaynak ayrıntılarını al |
+  |                            | `delete_k8s_resource`                | Küme, namespace ve ad ile Kubernetes kaynağını sil    |
+  |                            | `list_k8s_resource`                  | Küme ve kaynak türüne göre Kubernetes kaynaklarını listele |
+  |                            | `annotate_k8s_resource`              | Kubernetes kaynağına açıklama ekle veya sil           |
+  |                            | `label_k8s_resource`                 | Kubernetes kaynağına etiket ekle veya sil             |
+  |                            | `patch_k8s_resource`                 | Küme, namespace ve ad ile Kubernetes kaynağını güncelle |
+  |                            | `GetDynamicResource`                 | Dinamik kaynağı al                                    |
+  | **Node Yönetimi (11)**     | `taint_k8s_node`                     | Node'a leke ekle                                      |
+  |                            | `untaint_k8s_node`                   | Node'dan lekeyi kaldır                                |
+  |                            | `cordon_k8s_node`                    | Node'u planlanabilir olmayan durumuna ayarla          |
+  |                            | `uncordon_k8s_node`                  | Node'u planlanabilir durumuna ayarla                  |
+  |                            | `drain_k8s_node`                     | Node'daki Pod'ları boşalt ve yeni Pod planlama engelle |
+  |                            | `get_k8s_node_ip_usage`              | Node IP kaynak kullanımını sorgula                    |
+  |                            | `list_k8s_node`                      | Node listesini al                                     |
+  |                            | `get_k8s_top_node`                   | Node CPU ve bellek kaynak kullanım ranking listesini al |
+  |                            | `get_k8s_pod_count_running_on_node`  | Belirli Node'da çalışan Pod sayısı istatistiklerini sorgula |
+  |                            | `get_k8s_node_resource_usage`        | Node kaynak kullanımı istatistiklerini sorgula        |
+  |                            | `TaintNodeTool`                      | Node'a leke ekle                                      |
+  | **Olay Yönetimi (1)**      | `list_k8s_event`                     | Küme ve namespace'ye göre Kubernetes olaylarını listele |
+  | **Ingress Yönetimi (1)**   | `set_default_k8s_ingressclass`       | IngressClass'ı varsayılan olarak ayarla               |
+  | **Pod Yönetimi (18)**      | `run_command_in_k8s_pod`             | Pod içinde komut çalıştır                             |
+  |                            | `list_k8s_pod_event`                 | Pod ile ilgili olayları listele                       |
+  |                            | `list_files_in_k8s_pod`              | Pod'da belirtilen yoldaki dosya listesini al          |
+  |                            | `list_pod_all_files`                 | Pod'da belirtilen yoldaki tüm dosya listesini al; alt dizin dahil |
+  |                            | `delete_k8s_pod`                     | Pod'u sil                                             |
+  |                            | `delete_pod_file`                    | Pod'da belirtilen dosyayı sil                         |
+  |                            | `get_k8s_pod_linked_env`             | Pod çalışma zamanı ortam değişken bilgilerini al      |
+  |                            | `get_pod_linked_env_from_yaml`       | Pod yaml tanımı aracılığıyla Pod tanımında ortam değişken bilgilerini al |
+  |                            | `get_k8s_pod_linked_services`        | Pod ile ilişkili Service'i al                         |
+  |                            | `get_pod_linked_ingresses`           | Pod ile ilişkili Ingress'i al                         |
+  |                            | `get_pod_linked_endpoints`           | Pod ile ilişkili Endpoints'i al                       |
+  |                            | `list_k8s_pod`                       | Pod listesini al                                      |
+  |                            | `get_k8s_top_pod`                    | Pod CPU bellek kaynak kullanım ranking listesini al   |
+  |                            | `ListPodFilesTool`                   | Pod dosyalarını listele                               |
+  |                            | `ListAllPodFilesTool`                | Pod'un tüm dosyalarını listele                        |
+  |                            | `DeletePodFileTool`                  | Pod dosyasını sil                                     |
+  |                            | `UploadPodFileTool`                  | Pod dosyası yükle                                     |
+  |                            | `GetPodLogsTool`                     | Pod günlüğünü al                                      |
+  |                            | `describe_k8s_pod`                   | Pod container grubunu tanımla                         |
+  | **Depolama Yönetimi (3)**  | `set_k8s_default_storageclass`       | StorageClass'ı varsayılan olarak ayarla               |
+  |                            | `get_k8s_storageclass_pvc_count`     | StorageClass altındaki PVC sayısını al                |
+  |                            | `get_k8s_storageclass_pv_count`      | StorageClass altındaki PV sayısını al                 |
+  | **YAML Yönetimi (2)**      | `apply_k8s_yaml`                     | YAML ile Kubernetes kaynağı oluştur veya güncelle     |
+  |                            | `delete_k8s_yaml`                    | YAML ile Kubernetes kaynağını sil                     |
+
+  #### Başlatma Komutu
+  ```go
+  mcp.RunMCPServer("kom mcp server", "0.0.1", 3619)
+  ```
+   
+  #### AI Araç Entegrasyonu
+
+  ##### Claude Desktop
+  1. Claude Desktop ayar panelini açın
+  2. API yapılandırma alanında MCP Server adresini ekleyin
+  3. SSE olay dinleme işlevini etkinleştirin
+  4. Bağlantı durumunu doğrulayın
+  ```json
+  {
+    "mcpServers": {
+      "k8m": {
+        "command": "path/to/kom",
+        "args": []
+      }
+    }
+  }
+  ```
+
+  ##### Cursor
+  1. Cursor ayar arayüzüne girin
+  2. Uzantı hizmeti yapılandırma seçeneğini bulun
+  3. Sse, stdio iki türü destekler. Sse yönteminde http://localhost:9096/sse yazın, stdio yönteminde kom dosya konumunu yazın.
+
+  ##### Windsurf
+  1. Yapılandırma merkezine erişin
+  2. API sunucu adresini ayarlayın
+  3. Sse, stdio iki türü destekler. Sse yönteminde http://localhost:9096/sse yazın, stdio yönteminde kom dosya konumunu yazın.
+
+  #### cherry studio
+  1. Sol alt köşedeki ayarları tıklatın
+  2. MCP sunucusu tıklatın
+  3. Sunucu ekle'yi tıklatın
+  4. Sse, stdio iki türü destekler. Sse yönteminde http://localhost:9096/sse yazın, stdio yönteminde kom dosya konumunu yazın.
+
+
+  ### 1. Çoklu Küme Yönetimi
+  #### Çoklu Kümeleri Kaydet
+  ```go
+  // InCluster kümesini kaydet, adı InCluster
+  kom.Clusters().RegisterInCluster()
+  // Ad ile iki küme kaydet, sırasıyla orb ve docker-desktop adlandırıldı
+  kom.Clusters().RegisterByPathWithID("/Users/kom/.kube/orb", "orb")
+  kom.Clusters().RegisterByPathWithID("/Users/kom/.kube/config", "docker-desktop")
+  // Default adında bir küme kaydet, sonra kom.DefaultCluster() bu kümeyi döndürecektir.
+  kom.Clusters().RegisterByPathWithID("/Users/kom/.kube/config", "default")
+  ```
+  #### AWS EKS Kümesini Kaydet
+  ```go
+  // EKS küme bilgisini yapılandır
+  config := aws.EKSAuthConfig{
+      AccessKey:       "XXX",        // AWS Access Key ID
+      SecretAccessKey: "yyy",        // AWS Secret Access Key
+      Region:          "us-east-1",  // AWS bölgesi
+      ClusterName:     "k8m",        // EKS küme adı
+  }
+
+  // AWS EKS kümesini kaydet
+  _, err := kom.Clusters().RegisterAWSCluster(config)
+  if err != nil {
+      fmt.Printf("EKS kümesi kayıt başarısız: %v", err)
+      return
+  }
+
+  // Kayıtlı EKS kümesini kullan
+  var pods []corev1.Pod
+  clusterID := fmt.Sprintf("%s-%s", config.Region, config.ClusterName) // Küme ID formatı: {Region}-{ClusterName}
+  err = kom.Cluster(clusterID).Resource(&corev1.Pod{}).Namespace("kube-system").List(&pods).Error
+  ```
+
+  **AWS EKS Küme Kayıt Açıklaması:**
+  - `AccessKey`: AWS erişim anahtarı ID
+  - `SecretAccessKey`: AWS gizli erişim anahtarı  
+  - `Region`: AWS bölgesi; `us-east-1`, `ap-southeast-1` vb.
+  - `ClusterName`: EKS küme adı
+  - `RoleARN`: (isteğe bağlı) Üstlenilecek IAM rol ARN'i, çapraz hesap erişimi için
+  - Küme kaydedildikten sonra otomatik olarak ID oluşturulur; format `{Region}-{ClusterName}`
+  - IAM rol üstlenme mekanizması ile çapraz hesap küme erişimini destekler
+  - AWS kimlik bilgileri yalnızca bellekte kullanılır; program yeniden başlatıldığında otomatik olarak temizlenir
+  #### Kayıtlı Kümeleri Göster
+  ```go
+  kom.Clusters().Show()
+  ```
+  #### Varsayılan Kümeyi Seç
+  ```go
+  // Varsayılan kümeyi kullan, küme içi kube-system namespace'indeki pod'u sorgula
+  // Önce ID "InCluster" olan örneğini döndürmeye çalışır;
+  // yoksa, ID "default" olan örneğini döndürmeye çalışır.
+  // Yukarıdaki adların ikisi de yoksa, clusters listesindeki herhangi bir örneği döndür.
+  var pods []corev1.Pod
+  err = kom.DefaultCluster().Resource(&corev1.Pod{}).Namespace("kube-system").List(&pods).Error
+  ```
+  #### Belirtilen Kümeyi Seç
+  ```go
+  // orb kümesini seç, küme içi kube-system namespace'indeki pod'u sorgula
+  var pods []corev1.Pod
+  err = kom.Cluster("orb").Resource(&corev1.Pod{}).Namespace("kube-system").List(&pods).Error
+  ```
+
+  ### 2. Yerleşik Kaynak Nesnelerinin CRUD ve Watch Örneği
+  Bir Deployment nesnesi tanımlayın ve kom aracılığıyla kaynak işlemleri gerçekleştirin.
+  ```go
+  var item v1.Deployment
+  var items []v1.Deployment
+  ```
+  #### Belirli Bir Kaynağı Oluştur
+  ```go
+  item = v1.Deployment{
+  		ObjectMeta: metav1.ObjectMeta{
+  			Name:      "nginx",
+  			Namespace: "default",
+  		},
+  		Spec: v1.DeploymentSpec{
+  			Template: corev1.PodTemplateSpec{
+  				Spec: corev1.PodSpec{
+  					Containers: []corev1.Container{
+  						{Name: "test", Image: "nginx:1.14.2"},
+  					},
+  				},
+  			},
+  		},
+  	}
+  err := kom.DefaultCluster().Resource(&item).Create(&item).Error
+  ```
+  #### Get ile Belirli Bir Kaynağı Sorgula
+  ```go
+  // default namespace'indeki nginx adlı Deployment'ı sorgula
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").Get(&item).Error
+  // default namespace'indeki nginx adlı Deployment'ı sorgula ve 5 saniye cache kullan
+  // 5 saniye içinde tekrar sorgulanmaz; toplu işlem, yüksek frekans işlem altında cache etkinleştirmeyi önerilir
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").WithCache(5 * time.Second).Get(&item).Error
+  ```
+  #### List ile Kaynak Listesini Sorgula
+  ```go
+  // default namespace'indeki Deployment listesini sorgula
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").List(&items).Error
+  // default, kube-system namespace'indeki Deployment listesini sorgula
+  err := kom.DefaultCluster().Resource(&item).Namespace("default","kube-system").List(&items).Error
+  // Tüm namespace'lerdeki Deployment listesini sorgula
+  err := kom.DefaultCluster().Resource(&item).Namespace("*").List(&items).Error
+  err := kom.DefaultCluster().Resource(&item).AllNamespace().List(&items).Error
+  // 5 saniye cache ayarla; liste için geçerlidir
+  err := kom.DefaultCluster().Resource(&item).WithCache(5 * time.Second).List(&nodeList).Error
+  ```
+  #### Label ile Kaynak Listesini Sorgula
+  ```go
+  // default namespace'indeki app:nginx etiketi olan Deployment listesini sorgula
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").WithLabelSelector("app=nginx").List(&items).Error
+  ```
+  #### Birden Fazla Label ile Kaynak Listesini Sorgula
+  ```go
+  // default namespace'indeki app:nginx m:n etiketi olan Deployment listesini sorgula
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").WithLabelSelector("app=nginx").WithLabelSelector("m=n").List(&items).Error
+  ```
+  #### Field ile Kaynak Listesini Sorgula
+  ```go
+  // default namespace'indeki metadata.name=test-deploy etiketi olan Deployment listesini sorgula
+  // filedSelector genellikle yerleşik alan tanımını destekler. metadata.name,metadata.namespace,metadata.labels,metadata.annotations,metadata.creationTimestamp,spec.nodeName,spec.serviceAccountName,spec.schedulerName,status.phase,status.hostIP,status.podIP,status.qosClass,spec.containers.name vb. alanlar gibi
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").WithFieldSelector("metadata.name=test-deploy").List(&items).Error
+  ```
+  #### Kaynakları Sayfa Başına Sorgula
+  ```go
+  var list []corev1.Pod
+  var total int64
+  sql := "select * from pod where metadata.namespace=? or metadata.namespace=?     order by  metadata.creationTimestamp desc "
+  err := kom.DefaultCluster().Sql(sql, "kube-system", "default").
+  		FillTotalCount(&total).
+  		Limit(5).
+  		Offset(10).
+  		List(&list).Error
+  fmt.Printf("total %d\n", total)  //Toplam döndür 480
+  fmt.Printf("Count %d\n", len(list)) //Döndürülen öğe sayısı=limit=5
+  ```
+  #### Kaynak İçeriğini Güncelle
+  ```go
+  // nginx adlı Deployment'ı güncelle; açıklama ekle
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").Get(&item).Error
+  if item.Spec.Template.Annotations == nil {
+  	item.Spec.Template.Annotations = map[string]string{}
+  }
+  item.Spec.Template.Annotations["kom.kubernetes.io/restartedAt"] = time.Now().Format(time.RFC3339)
+  err = kom.DefaultCluster().Resource(&item).Update(&item).Error
+  ```
+  #### PATCH ile Kaynağı Güncelle
+  ```go
+  // Patch kullanarak kaynağı güncelle; nginx adlı Deployment'a etiket ekle ve replica sayısını 5 olarak ayarla
+  patchData := `{
+      "spec": {
+          "replicas": 5
+      },
+      "metadata": {
+          "labels": {
+              "new-label": "new-value"
+          }
+      }
+  }`
+  err := kom.DefaultCluster().Resource(&item).Patch(&item, types.StrategicMergePatchType, patchData).Error
+  ```
+  #### Kaynağı Sil
+  ```go
+  // nginx adlı Deployment'ı sil
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").Delete().Error
+  ```
+  #### Kaynağı Zorla Sil
+  ```go
+  // nginx adlı Deployment'ı sil
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").ForceDelete().Error
+  ```
+  #### Genel Tür Kaynağının Getirilmesi (k8s yerleşik tür ve CRD için geçerli)
+  ```go
+  // GVK belirterek kaynağı al
+  var list []corev1.Event
+  err := kom.DefaultCluster().GVK("events.k8s.io", "v1", "Event").Namespace("default").List(&list).Error
+  ```
+  #### Kaynak Değişikliklerini İzle
+  ```go
+  // default namespace'indeki Pod kaynağının değişikliklerini izle
+  var watcher watch.Interface
+  var pod corev1.Pod
+  err := kom.DefaultCluster().Resource(&pod).Namespace("default").Watch(&watcher).Error
+  if err != nil {
+  	fmt.Printf("Watcher Oluşturma Hatası %v", err)
+  	return err
+  }
+  go func() {
+  	defer watcher.Stop()
+
+  	for event := range watcher.ResultChan() {
+  		err := kom.DefaultCluster().Tools().ConvertRuntimeObjectToTypedObject(event.Object, &pod)
+  		if err != nil {
+  			fmt.Printf("Nesneyi *v1.Pod türüne dönüştürülemiyor: %v", err)
+  			return
+  		}
+  		// Olayı işle
+  		switch event.Type {
+  		case watch.Added:
+  			fmt.Printf("Eklenen Pod [ %s/%s ]\n", pod.Namespace, pod.Name)
+  		case watch.Modified:
+  			fmt.Printf("Değiştirilen Pod [ %s/%s ]\n", pod.Namespace, pod.Name)
+  		case watch.Deleted:
+  			fmt.Printf("Silinen Pod [ %s/%s ]\n", pod.Namespace, pod.Name)
+  		}
+  	}
+  }()
+  ```
+  #### Belirli Bir Kaynağı Açıkla
+  ```go
+  // default namespace'indeki nginx adlı Deployment'ı Describe et
+  var describeResult []byte
+  err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").Describe(&item).Error
+  fmt.Printf("describeResult: %s", describeResult)
+  ```
+
+  ### 3. YAML Oluştur, Güncelle, Sil
+  ```go
+  yaml := `apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: example-config
+    namespace: default
+  data:
+    key: value
+  ---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: example-deployment
+    namespace: default
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: example
+    template:
+      metadata:
+        labels:
+          app: example
+      spec:
+        containers:
+          - name: example-container
+            image: nginx
+  `
+  // İlk Apply çalıştırması oluşturmadır; her
 ---
 
 # Kom - Kubernetes Operations Manager

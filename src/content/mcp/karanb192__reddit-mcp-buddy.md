@@ -9,6 +9,517 @@ body_length: 19918
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/reddit-mcp-buddy"
+body_tr: |-
+  #  Reddit MCP Buddy
+
+  ### Claude Desktop ve AI Asistanları için Reddit Tarayıcı
+
+  [Model Context Protocol (MCP)](https://modelcontextprotocol.io) sunucusu; Claude Desktop ve diğer AI asistanlarının Reddit'te gezinmesini, yazıları aramasını ve kullanıcı aktivitesini analiz etmesini sağlar. Temiz, hızlı ve gerçekten çalışıyor - API anahtarı gerekmez.
+
+  [![MCP Registry](https://img.shields.io/npm/v/reddit-mcp-buddy?label=MCP%20Registry&color=blue)](https://registry.modelcontextprotocol.io)
+  [![npm version](https://img.shields.io/npm/v/reddit-mcp-buddy.svg)](https://www.npmjs.com/package/reddit-mcp-buddy)
+  [![npm downloads](https://img.shields.io/npm/dm/reddit-mcp-buddy.svg)](https://www.npmjs.com/package/reddit-mcp-buddy)
+  [![GitHub stars](https://img.shields.io/github/stars/karanb192/reddit-mcp-buddy.svg?style=flat&logo=github&color=brightgreen)](https://github.com/karanb192/reddit-mcp-buddy/stargazers)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+  ## 🎬 Aksiyon Halinde Gör
+
+  ![Reddit MCP Buddy Demo - AirPods Max 2 ve Dune Part Three](https://raw.githubusercontent.com/karanb192/reddit-mcp-buddy/HEAD/assets/images/reddit-mcp-buddy-demo-2026.gif)
+
+  *Claude, Reddit'in Dune Part Three fragmanına ve AirPods Max 2'nin 549 dolara değip değmediğine ilişkin tepkisini kontrol ediyor*
+
+  ![Reddit MCP Buddy Demo - H1B duyarlılığını subredditler arasında analiz etme](https://raw.githubusercontent.com/karanb192/reddit-mcp-buddy/HEAD/assets/images/reddit-mcp-buddy.gif)
+
+  *Claude, r/cscareerquestions ve r/india arasında H-1B visa değişiklikleri hakkında gerçek zamanlı duyarlılığı analiz ediyor*
+
+  ## İçindekiler
+
+  - [Reddit MCP Buddy'yi farklı yapan nedir?](#reddit-mcp-buddyi-farklı-yapan-nedir)
+  - [Hızlı Başlangıç](#hızlı-başlangıç-30-saniye)
+  - [Ne yapabilir?](#ne-yapabilir)
+  - [Mevcut Araçlar](#mevcut-araçlar)
+  - [Kimlik Doğrulama](#kimlik-doğrulama-isteğe-bağlı)
+  - [Kurulum Seçenekleri](#kurulum-seçenekleri)
+    - [Genel Kurulum](#genel-kurulum)
+    - [Kaynaktan](#kaynaktan)
+    - [Docker Kullanarak](#docker-kullanarak)
+    - [Claude Desktop Uzantısı](#claude-desktop-uzantısı)
+  - [Diğer Araçlarla Karşılaştırma](#diğer-araçlarla-karşılaştırma)
+  - [Sorun Giderme](#sorun-giderme)
+  - [Geliştirme](#geliştirme)
+  - [Destek](#destek)
+  - [İlgili Kaynaklar](#-ilgili-kaynaklar)
+
+  ## Reddit MCP Buddy'yi farklı yapan nedir?
+
+  - **🚀 Sıfır kurulum** - Anında çalışır, Reddit API kaydına gerek yoktur
+  - **⚡ 10x daha fazla istek** - Üç katmanlı kimlik doğrulama sistemi (dakikada 10/60/100 istek)
+  - **🎯 Temiz veriler** - Sahte "duyarlılık analizi" veya uydurma metrikler yok
+  - **🧠 LLM'ye optimize edilmiş** - Claude gibi AI asistanları için özel olarak tasarlanmış
+  - **📦 TypeScript** - Tam yazılmış, güvenilir ve bakımlı
+  - **✅ Kanıtlanmış hız limitleri** - Doğrulama araçları ile kapsamlı şekilde test edilmiş kimlik doğrulama katmanları
+
+  ## Hızlı Başlangıç (30 saniye)
+
+  ### Claude Desktop - Desktop Uzantısı (En Kolay!)
+
+  1. **İndir**: [reddit-mcp-buddy.mcpb](https://github.com/karanb192/reddit-mcp-buddy/releases/latest/download/reddit-mcp-buddy.mcpb)
+  2. **Yükle**: İndirilen dosyayı aç
+  3. **Bitti!** Reddit araçları artık Claude'da kullanılabilir
+
+  ### Claude Desktop - NPM Yöntemi (Alternatif)
+
+  Bunu `claude_desktop_config.json` dosyanıza ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "reddit": {
+        "command": "npx",
+        "args": ["-y", "reddit-mcp-buddy"]
+      }
+    }
+  }
+  ```
+
+  ### Claude Code için
+
+  MCP sunucusunu eklemek için bu komutu çalıştırın (kullanıcı kapsamı):
+
+  ```bash
+  claude mcp add --transport stdio reddit-mcp-buddy -s user -- npx -y reddit-mcp-buddy
+  ```
+
+  ### Diğer MCP İstemcileri için
+
+  NPM yöntemini kullanın: `npx -y reddit-mcp-buddy`
+
+  ## Ne yapabilir?
+
+  AI asistanınızdan şu şeyleri isteyin:
+
+  - 📊 **"Reddit'te neler trendde?"** - r/all'dan sıcak yazıları gözat
+  - 🔍 **"AI hakkındaki tartışmaları ara"** - Tüm subredditlerde ara
+  - 💬 **"Bu Reddit yazısından yorumları al"** - Yazıyı tüm yorum dizileriyle getir
+  - 👤 **"Kullanıcı spez'i analiz et"** - Kullanıcı geçmişi, karma ve aktiviteyi al
+  - 📚 **"Reddit karma'yı açıkla"** - Reddit terminolojisini anla
+
+  ## Mevcut Araçlar
+
+  ### `browse_subreddit`
+  Herhangi bir subreddit'ten sıralama seçenekleriyle yazıları gözat.
+  ```
+  - Subreddit:
+    - "all" - tüm Reddit ana sayfası
+    - "popular" - Reddit'te trendde olanlar
+    - Herhangi bir özel subreddit (ör. "technology", "programming", "science")
+  - Sırala: hot, new, top, rising, controversial
+  - Zaman aralığı: hour, day, week, month, year, all (top/controversial sıralaması için)
+  - Subreddit bilgisini dahil et: Subreddit meta verisi için isteğe bağlı bayrak
+  ```
+
+  ### `search_reddit`
+  Reddit'te veya belirli subredditlerde ara.
+  ```
+  - Sorgu: Arama terimleri
+  - Filtrele: subreddit, author, time, flair
+  - Sırala: relevance, hot, top, new, comments
+  ```
+
+  ### `get_post_details`
+  Bir yazıyı tüm yorumlarıyla al.
+  ```
+  - Giriş:
+    - Reddit URL'si (birden fazla formatı destekler), VEYA
+    - Sadece yazı ID'si (subreddit'i otomatik algıla, 2 API çağrısı), VEYA
+    - Yazı ID'si + subreddit (en verimli, 1 API çağrısı)
+  - Desteklenen URL formatları:
+    - reddit.com, www.reddit.com
+    - old.reddit.com, new.reddit.com
+    - np.reddit.com (No Participation bağlantıları)
+    - m.reddit.com (mobile bağlantıları)
+    - redd.it kısa URL'leri
+    - Sorgu parametreleri (?utm_source=...) veya fragment'ler (#comment) içeren URL'ler
+  - Seçenekler: yorum sıralaması, derinlik, bağlantı çıkarma
+  ```
+
+  ### `user_analysis`
+  Bir Reddit kullanıcısının profilini analiz et.
+  ```
+  - Kullanıcı adı: Herhangi bir Reddit kullanıcısı
+  - Döndürür: karma, yazılar, yorumlar, aktif subredditler
+  ```
+
+  ### `reddit_explain`
+  Reddit terimlerinin açıklamalarını al.
+  ```
+  - Terimler: karma, cake day, AMA, ELI5, vb.
+  ```
+
+  ## Kimlik Doğrulama (İsteğe Bağlı)
+
+  Daha fazla istek mi istiyorsunuz? Reddit kimlik bilgilerini Claude Desktop yapılandırmanıza ekleyin:
+
+  ### Kurulum Adımları
+
+  1. **Git**: https://www.reddit.com/prefs/apps
+  2. **Tıkla**: "Create App" veya "Create Another App"
+  3. **Formu doldur:**
+     - **Name**: Herhangi bir ad (ör. "reddit-mcp-buddy")
+     - **App type**: **"script"** seç (100 rpm için KRİTİK!)
+     - **Description**: İsteğe bağlı
+     - **About URL**: Boş bırak
+     - **Redirect URI**: `http://localhost:8080` (gerekli ama kullanılmaz)
+  4. **Tıkla**: "Create app"
+  5. **Kimlik bilgilerini bul:**
+     - **Client ID**: "personal use script" altındaki string
+     - **Client Secret**: Gizli string
+  6. **Claude Desktop yapılandırmanı güncelle:**
+
+  ```json
+  {
+    "mcpServers": {
+      "reddit": {
+        "command": "npx",
+        "args": ["-y", "reddit-mcp-buddy"],
+        "env": {
+          "REDDIT_CLIENT_ID": "your_client_id",
+          "REDDIT_CLIENT_SECRET": "your_client_secret",
+          "REDDIT_USERNAME": "your_username",
+          "REDDIT_PASSWORD": "your_password"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Üç Katmanlı Kimlik Doğrulama Sistemi
+
+  Reddit MCP Buddy, farklı hız limitleri ile üç kimlik doğrulama seviyesini destekler:
+
+  | Mod | Hız Limiti | Gerekli Kimlik Bilgileri | En İyisi |
+  |------|------------|---------------------|----------|
+  | **Anonymous** | 10 req/min | Hiçbiri | Test, hafif kullanım |
+  | **App-Only** | 60 req/min | Client ID + Secret | Normal tarama |
+  | **Authenticated** | 100 req/min | Tüm 4 kimlik bilgisi | Ağır kullanım, otomasyon |
+
+  #### Nasıl Çalışır:
+  - **Anonymous Mod**: Varsayılan mod, kurulum gerekli değil, genel Reddit API'ı kullanır
+  - **App-Only Mod**: OAuth2 client credentials grant kullanır (hem script hem de web uygulamalarla çalışır)
+  - **Authenticated Mod**: OAuth2 password grant kullanır (script uygulama türü gerektirir)
+
+  **Önemli Notlar**:
+  - Script uygulamalar BOTH app-only (60 rpm) ve authenticated (100 rpm) modlarını destekler
+  - Web uygulamalar sadece app-only modu destekler (maksimum 60 rpm)
+  - 100 istek/dakika için, username + password ile bir script uygulama KULLANMANIZ GEREKIR
+
+  ## Gizlilik & Veri İşleme
+
+  Reddit MCP Buddy, gizlilik ve şeffaflık göz önünde tutularak tasarlanmıştır. Verileriniz şu şekilde işlenir:
+
+  ### Veri Toplama
+  - **Reddit API Verileri**: Sunucu, Reddit'in resmi API'ı aracılığıyla genel Reddit içeriğini (yazılar, yorumlar, kullanıcı profilleri) getirir
+  - **İzleme Yok**: Analitik, telemetri veya kullanım verilerini toplamıyoruz, depolamıyoruz veya iletmiyoruz
+  - **Üçüncü Taraf Yok**: Tüm veriler doğrudan makineniz, Reddit'in API'ı ve AI asistanınız arasında akar
+
+  ### Yerel Depolama
+  - **Kimlik Doğrulama Kimlik Bilgileri** (isteğe bağlı):
+    - `--auth` CLI kurulumu kullanırken `~/.reddit-mcp-buddy/auth.json` dosyasında yerel olarak depolanır
+    - Parolalar asla diske yazılmaz - OAuth token değişimi için sadece bellekte kullanılır
+    - Ortam değişkenleri (Claude Desktop için önerilen) bu sunucu tarafından asla kalıcı hale getirilmez
+  - **Önbellek Verileri**:
+    - Reddit API yanıtları performansı iyileştirmek için bellekte geçici olarak önbelleğe alınır
+    - Maksimum 50MB önbellek boyutu sınırı
+    - Sunucu durduğunda tüm önbellek verileri temizlenir
+    - `REDDIT_BUDDY_NO_CACHE=true` ile devre dışı bırakılabilir
+
+  ### Veri İletişimi
+  - **Sadece Reddit API**: Kimlik bilgileriniz sadece Reddit'in resmi OAuth endpoints'lerine gönderilir (`https://oauth.reddit.com` ve `https://www.reddit.com`)
+  - **Harici Hizmet Yok**: Veriler başka harici hizmetlere, analitik platformlarına veya üçüncü partilere gönderilmez
+  - **Yerel İşleme**: Tüm veri işleme makinenizde yerel olarak gerçekleşir
+
+  ### Güvenlik Notları
+  - **Sadece Okuma İşlemleri**: Tüm araçlar sadece okuma işlemi yapar - sunucu hiçbir zaman Reddit içeriği göndermez, yorum yazmaz veya değiştirmez
+  - **Kimlik Bilgisi Güvenliği**:
+    - OAuth token'ları bellekte depolanır ve otomatik olarak yenilenir
+    - Client secret'ları hassas kabul edilir ve asla günlüğe kaydedilmez
+    - Maksimum güvenlik için Claude Desktop config'inde ortam değişkenlerini kullanın
+  - **Açık Kaynak**: Güvenlik denetimi için tam kaynak kodu https://github.com/karanb192/reddit-mcp-buddy adresinde mevcuttur
+
+  ### GDPR & Gizlilik Uyumluluğu
+  - **Kişisel Veri Toplama Yok**: Reddit API'ı ile kimlik doğrulamak için gerekli olan şeyden ötesinde kişisel veri toplamıyoruz veya işlemiyoruz
+  - **Kullanıcı Kontrolü**: Tüm kimlik bilgilerini kontrol edersiniz ve `~/.reddit-mcp-buddy/auth.json` dosyasını istediğiniz zaman silebilirsiniz
+  - **Silme Hakkı**: Auth dosyasını silmek veya sunucuyu kaldırmak için tüm yerel verileri kaldırın
+
+  ### Sorular veya Endişeler?
+  Herhangi bir gizlilik sorusu veya endişeniz varsa, lütfen GitHub'da [bir konu açın](https://github.com/karanb192/reddit-mcp-buddy/issues).
+
+  ## Test & Geliştirme
+
+  ### Hız Limitlerini Test Etme
+
+  Reddit MCP Buddy, kimlik doğrulamanızın doğru şekilde çalıştığını doğrulamak için kapsamlı test araçları içerir:
+
+  ```bash
+  # Önce repository'yi klonla
+  git clone https://github.com/karanb192/reddit-mcp-buddy.git
+  cd reddit-mcp-buddy
+  npm install
+
+  # Mevcut ortam ayarlarıyla test et
+  npm run test:rate-limit
+
+  # Belirli kimlik doğrulama modlarını test et
+  npm run test:rate-limit:anon    # Anonymous modunu test et (10 rpm)
+  npm run test:rate-limit:app     # App-only modunu test et (60 rpm)
+  npm run test:rate-limit:auth    # Authenticated modunu test et (100 rpm)
+  ```
+
+  Hız limiti test aracı şunları yapacak:
+  - Yerel bir sunucu örneği başlat
+  - Hız limitlerini test etmek için hızlı API istekleri yap
+  - Gerçek zamanlı ilerleme çubuğunu göster
+  - Hangi kimlik doğrulama katmanını kullandığınızı onayla
+  - Hız limitlemesinin tam olarak ne zaman başladığını göster
+
+  ### İnteraktif Kimlik Doğrulama Kurulumu (sadece yerel test için)
+
+  Yerel geliştirme ve test için, kimlik doğrulamayı etkileşimli olarak ayarlayabilirsiniz:
+  ```bash
+  npx -y reddit-mcp-buddy --auth
+  ```
+
+  Bu, Reddit uygulama kimlik bilgileri için sizi istemi yapacak ve yerel olarak kaydedecek. **Not: Bu Claude Desktop ile çalışmaz** - bunun yerine Claude config'inizde ortam değişkenlerini kullanın.
+
+  ### HTTP Modu ile Test Etme
+
+  Sunucuyu doğrudan terminalinizde test etmek için:
+  ```bash
+  # HTTP modunda 3000 portunda çalıştır
+  npx -y reddit-mcp-buddy --http
+
+  # Veya özel port ile
+  REDDIT_BUDDY_PORT=8080 npx -y reddit-mcp-buddy --http
+  ```
+
+  **Not:** Sunucu varsayılan olarak stdio modunda çalışır (Claude Desktop için). Postman MCP veya doğrudan API çağrıları ile test etmek için `--http` bayrağını kullanın.
+
+  ### Genel Kurulum
+  ```bash
+  npm install -g reddit-mcp-buddy
+  reddit-buddy --http  # Test için
+  ```
+
+  ### Kaynaktan
+  ```bash
+  git clone https://github.com/karanb192/reddit-mcp-buddy.git
+  cd reddit-mcp-buddy
+  npm install
+  npm run build
+  npm link
+  ```
+
+  ### Docker Kullanarak
+  ```bash
+  docker run -it karanb192/reddit-mcp-buddy
+  ```
+
+  ### Claude Desktop Uzantısı
+
+  Claude Desktop'ta tek tıklamayla kurulum için önceden oluşturulmuş uzantıyı indirin:
+
+  **📦 [reddit-mcp-buddy.mcpb dosyasını indir](https://github.com/karanb192/reddit-mcp-buddy/releases/latest/download/reddit-mcp-buddy.mcpb)**
+
+  **Kurulum:** İndirilen `.mcpb` dosyasını açın - Claude Desktop otomatik olarak uzantıyı kuracak ve Reddit araçları hemen kullanılabilir olacak.
+
+  #### Kaynaktan Oluştur (İsteğe Bağlı)
+
+  Uzantıyı kendiniz oluşturmayı tercih ederseniz:
+  ```bash
+  git clone https://github.com/karanb192/reddit-mcp-buddy.git
+  cd reddit-mcp-buddy
+  ./scripts/build-mcpb.sh
+  ```
+
+  **Not**: Desktop Extension formatı şu anda preview aşamasındadır (Eylül 2025). Çoğu kullanıcı [Hızlı Başlangıç](#hızlı-başlangıç-30-saniye) bölümünde gösterilen standart npm kurulum yöntemini kullanmalıdır.
+
+  ## Diğer Araçlarla Karşılaştırma
+
+  | Özellik | Reddit MCP Buddy | Diğer MCP Araçları |
+  |---------|-------------|----------------|
+  | **Sıfır Kurulum** | ✅ Anında çalışır | ❌ API anahtarı gerekir |
+  | **Max Hız Limiti** | ✅ 100 req/min kanıtlı | ❓ Doğrulanmamış iddialar |
+  | **Dil** | TypeScript/Node.js | Python (çoğunlukla) |
+  | **Araç Sayısı** | 5 (odaklanmış) | 8-10 (gereksiz) |
+  | **Sahte Metrikler** | ✅ Sadece gerçek veri | ❌ "Duyarlılık puanları" |
+  | **Arama** | ✅ Tam arama | Sınırlı veya hiçbiri |
+  | **Önbellekleme** | ✅ Akıllı önbellekleme | Genellikle hiçbiri |
+  | **LLM Optimize** | ✅ Açık parametreler | Karmaşık seçenekler |
+  | **Hız Limiti Testi** | ✅ Yerleşik araçlar | ❌ Doğrulama yok |
+
+  ## Hız Limitleri
+
+  | Mod | İstek/Dakika | Cache TTL | Kurulum Gerekli |
+  |------|----------------|-----------|----------------|
+  | Anonymous | 10 | 15 min | Hayır |
+  | App-only | 60 | 5 min | Client ID + Secret |
+  | Authenticated | 100 | 5 min | Tüm kimlik bilgileri |
+
+  ## Neden Reddit MCP Buddy?
+
+  ### Diğerleri ne yanlış yapıyor:
+  - ❌ **Sahte metrikler** - Sadece anahtar kelime sayımı olan "duyarlılık puanları"
+  - ❌ **Karmaşık kurulum** - Başlamak için API anahtarı gerekli
+  - ❌ **Şişirilmiş yanıtlar** - Reddit'in 100+ alanı ham API
+  - ❌ **Kötü LLM entegrasyonu** - Kafa karıştırıcı parametreler ve belirsiz açıklamalar
+
+  ### Biz ne doğru yapıyoruz:
+  - ✅ **Sadece gerçek veri** - Reddit API'ından değilse, uydurmuyoruz
+  - ✅ **Temiz yanıtlar** - Sadece önemli alanlar
+  - ✅ **Açık parametreler** - LLM'ler tam olarak ne göndereceğini anlar
+  - ✅ **Hızlı & önbelleğe alınmış** - Yanıtlar mümkün olduğunda anında gelir
+
+  ## Örnekler
+
+  ### AI'nız şimdi cevaplandırabilir:
+
+  **"GPT-4 hakkında bugünün en iyi yazıları neler?"**
+  ```
+  → search_reddit with query="GPT-4", time="day", sort="top"
+  ```
+
+  **"Bana teknoloji alanında trendde olanları göster"**
+  ```
+  → browse_subreddit with subreddit="technology", sort="hot"
+  ```
+
+  **"İnsanlar bu makale hakkında ne düşünüyor?"**
+  ```
+  → search_reddit with makale URL'sini tartışmaları bulmak için
+  ```
+
+  **"Kullanıcı DeepFuckingValue'i analiz et"**
+  ```
+  → user_analysis with username="DeepFuckingValue"
+  ```
+
+  **"Bu Reddit yazısından yorumları al"**
+  ```
+  → get_post_details with url="https://reddit.com/r/..."
+  ```
+
+  **"Tüm Reddit'te neler trendde?"**
+  ```
+  → browse_subreddit with subreddit="all", sort="hot"
+  ```
+
+  ## Sorun Giderme
+
+  ### Yaygın Sorunlar
+
+  **"100 istek/dakika yapamıyorum"**
+  - Uygulama türünüzün **"script"** olduğundan emin olun, "web" veya "installed" değil
+  - Bir hesap tarafından oluşturulan script uygulamalar sadece o aynı hesap olarak kimlik doğrulaması yapabilir
+  - Doğrulamak için `npm run test:rate-limit:auth` çalıştırın (repo klonlanması gerekir)
+  - Yine de başarısız olursa, kimlik doğrulaması yapan hesaba giriş yaparken yeni bir script uygulama oluşturun
+
+  **"Command not found" hatası**
+  ```bash
+  # npm'nin yüklü olduğundan emin ol
+  node --version
+  npm --version
+
+  # Tam npx yolu ile deneyin
+  $(npm bin -g)/reddit-mcp-buddy
+  ```
+
+  **Hız limiti hataları**
+  - Auth olmadan: Dakikada 10 istek limitli
+  - Sadece uygulama kimlik bilgileri ile: 60 istek/dakika
+  - Tam kimlik doğrulama ile: 100 istek/dakika
+  - Çözüm: Reddit kimlik bilgilerini ekle ([Kimlik Doğrulama](#kimlik-doğrulama-isteğe-bağlı) bölümüne bak)
+
+  **"Subreddit bulunamadı"**
+  - Yazımı kontrol et (büyük/küçük harf duyarlı değil)
+  - Bazı subredditler özel veya karantinada olabilir
+  - Bunun yerine "all" veya "popular" deneyin
+
+  **Bağlantı sorunları**
+  - Reddit'in aşağı olması (https://www.redditstatus.com adresini kontrol et)
+  - Firewall istekleri bloke ediyor
+  - MCP sunucusunu yeniden başlatmayı deneyin
+
+  ### Ortam Değişkenleri
+
+  #### Kimlik Doğrulama Değişkenleri
+  | Değişken | Açıklama | Gerekli | Hız Limiti |
+  |----------|-------------|----------|------------|
+  | `REDDIT_CLIENT_ID` | Reddit uygulama istemci ID'si | Hayır | 60 req/min (secret ile) |
+  | `REDDIT_CLIENT_SECRET` | Reddit uygulama secret'ı | Hayır | 60 req/min (ID ile) |
+  | `REDDIT_USERNAME` | Reddit hesap kullanıcı adı | Hayır | 100 req/min (tüm 4 ile) |
+  | `REDDIT_PASSWORD` | Reddit hesap şifresi | Hayır | 100 req/min (tüm 4 ile) |
+  | `REDDIT_USER_AGENT` | Kullanıcı aracı string'i | Hayır | - |
+
+  #### Sunucu Yapılandırması
+  | Değişken | Açıklama | Varsayılan |
+  |----------|-------------|---------|
+  | `REDDIT_BUDDY_HTTP` | stdio yerine HTTP sunucusu olarak çalıştır | `false` |
+  | `REDDIT_BUDDY_PORT` | HTTP sunucu portu (HTTP=true olduğunda) | `3000` |
+  | `REDDIT_BUDDY_NO_CACHE` | Önbelleklemeyi devre dışı bırak (her zaman tazele) | `false` |
+
+  ## Teknik Ayrıntılar
+
+  ### Akıllı Önbellekleme Sistemi
+
+  Reddit MCP Buddy, performansı iyileştirmek ve API çağrılarını azaltmak için akıllı önbellekleme içerir:
+
+  - **Bellek Güvenli**: 50MB katı sınırı - sistem performansınızı etkilemez
+  - **Uyarlanabilir TTL'ler**: Sıcak yazılar (5min), Yeni yazılar (2min), Top yazılar (30min)
+  - **LRU Tahliyesi**: Sınıra yaklaştığında otomatik olarak en az kullanılan verileri kaldırır
+  - **Hit İzleme**: Gerçek kullanım düzenlerine göre önbelleği optimize eder
+
+  Bu, daha hızlı yanıtlar ve Reddit'in hız limitlerinde rahat kalma anlamına gelir, tüm bunlar minimal sistem kaynakları kullanılarak.
+
+  ## Geliştirme
+
+  ```bash
+  # Bağımlılıkları yükle
+  npm install
+
+  # Geliştirmede çalıştır
+  npm run dev
+
+  # Oluştur
+  npm run build
+
+  # Testleri çalıştır
+  npm test                     # Unit testler
+  npm run test:integration     # Integration testleri
+  npm run test:all             # Tüm testler
+
+  # Hız limitlerini test et
+  npm run test:rate-limit       # Mevcut ortamla test et
+  npm run test:rate-limit:anon  # Anonymous modunu test et (10 rpm)
+  npm run test:rate-limit:app   # App-only modunu test et (60 rpm)
+  npm run test:rate-limit:auth  # Authenticated modunu test et (100 rpm)
+
+  # Lint
+  npm run lint
+
+  # Tip kontrolü
+  npm run typecheck
+  ```
+
+  ### Gereksinimler
+  - Node.js >= 18.0.0
+  - npm veya yarn
+  - TypeScript 5.5+
+
+  ## Katkıda Bulunma
+
+  PR'ler hoşgeldiniz! Yönergeler için [CONTRIBUTING.md](CONTRIBUTING.md) bölümüne bakın.
+
+  Şeyleri basit
 ---
 
 #  Reddit MCP Buddy

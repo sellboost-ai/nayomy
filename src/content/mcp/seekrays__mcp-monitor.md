@@ -9,6 +9,108 @@ body_length: 2675
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://seekrays.com/chat"
+body_tr: |-
+  # MCP System Monitor
+  ![Go](https://github.com/seekrays/mcp-monitor/actions/workflows/go.yml/badge.svg)
+  ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/seekrays/mcp-monitor?sort=semver)
+  [![Discord](https://img.shields.io/badge/Discord-Join%20Chat-blue?style=flat&logo=discord)](https://discord.gg/kbMJ9Qpf)
+
+  Model Context Protocol (MCP) aracılığıyla sistem metriklerini açığa çıkaran bir sistem izleme aracı. Bu araç, LLM'lerin MCP uyumlu bir arabirim aracılığıyla gerçek zamanlı sistem bilgilerine erişmesini sağlar.
+
+  ![](https://raw.githubusercontent.com/seekrays/mcp-monitor/HEAD/doc/snapshot-1.png)
+
+  ## Özellikler
+
+  Bu araç aşağıdaki izleme yeteneklerini sağlar:
+
+  - **CPU Bilgisi**: Kullanım yüzdesi, çekirdek sayısı ve detaylı CPU bilgisi
+  - **Bellek Bilgisi**: Sanal ve swap bellek kullanımı
+  - **Disk Bilgisi**: Disk kullanımı, bölümler ve I/O istatistikleri
+  - **Ağ Bilgisi**: Ağ arayüzleri, bağlantılar ve trafik istatistikleri
+  - **Host Bilgisi**: Sistem detayları, çalışma süresi, boot zamanı ve kullanıcılar
+  - **Process Bilgisi**: Process listesi, sıralama ve detaylı process başına istatistikler
+
+
+  ## Kullanılabilir Araçlar
+
+  ### 1. CPU Bilgisi
+
+  ```
+  Tool: get_cpu_info
+  Description: CPU bilgisi ve kullanımını al
+  Parameters:
+    - per_cpu (boolean, default: false): Her çekirdek için veri döndürülüp döndürülmeyeceği
+  ```
+
+  ### 2. Bellek Bilgisi
+
+  ```
+  Tool: get_memory_info
+  Description: Sistem bellek kullanım bilgisini al
+  Parameters: Yok
+  ```
+
+  ### 3. Disk Bilgisi
+
+  ```
+  Tool: get_disk_info
+  Description: Disk kullanım bilgisini al
+  Parameters:
+    - path (string, default: "/"): Sorgulanacak disk yolunu belirt
+    - all_partitions (boolean, default: false): Tüm bölümler için bilgi döndürülüp döndürülmeyeceği
+  ```
+
+  ### 4. Ağ Bilgisi
+
+  ```
+  Tool: get_network_info
+  Description: Ağ arayüzü ve trafik bilgisini al
+  Parameters:
+    - interface (string, optional): Sorgulanacak ağ arayüzü adını belirt
+  ```
+
+  ### 5. Host Bilgisi
+
+  ```
+  Tool: get_host_info
+  Description: Host sistem bilgisini al
+  Parameters: Yok
+  ```
+
+  ### 6. Process Bilgisi
+
+  ```
+  Tool: get_process_info
+  Description: Process bilgisini al
+  Parameters:
+    - pid (number, optional): Belirli bir process için detaylı bilgi almak için Process ID
+    - limit (number, default: 10): Döndürülen process sayısının sınırı
+    - sort_by (string, default: "cpu"): Sıralama alanı (cpu, memory, pid, name)
+  ```
+
+
+  ## Kurulum
+
+  ```bash
+  git clone https://github.com/seekrays/mcp-monitor.git
+  cd mcp-monitor
+  make build
+  ```
+
+  ## Kullanım
+
+  Derlenmiş binary'i çalıştırın:
+
+  ```bash
+  ./mcp-monitor
+  ```
+
+  Server stdio modunda başlar ve MCP uyumlu bir LLM client ile iletişim kurmaya hazır olur.
+
+
+  ## Katkıda Bulunma
+
+  Katkılar hoş karşılanır! Lütfen bir Pull Request göndermekten çekinmeyin.
 ---
 
 # MCP System Monitor

@@ -9,6 +9,228 @@ body_length: 6281
 license: "MIT"
 language: "Python"
 homepage: "https://kontext.security"
+body_tr: |-
+  # browser-use-mcp-server
+
+  <div align="center">
+
+  [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/cobrowser.svg?style=social&label=Follow%20%40cobrowser)](https://x.com/cobrowser)
+  [![Discord](https://img.shields.io/discord/1351569878116470928?logo=discord&logoColor=white&label=discord&color=white)](https://discord.gg/gw9UpFUhyY)
+  [![PyPI version](https://badge.fury.io/py/browser-use-mcp-server.svg)](https://badge.fury.io/py/browser-use-mcp-server)
+
+  **AI ajanlarının [browser-use](https://github.com/browser-use/browser-use) kullanarak web tarayıcılarını kontrol etmesini sağlayan bir MCP sunucusu.**
+
+  > **🌐 Web'de Vibe ile Gezinmek mi İstiyorsunuz?** Açık kaynaklı yapay zeka destekli web tarayıcı - [**Vibe Browser**](https://github.com/co-browser/vibe).
+  >
+  > **🔗 Birden fazla MCP sunucusunu yönetmek mi istiyorsunuz?** Geliştirme iş akışınızı [agent-browser](https://github.com/co-browser/agent-browser) ile basitleştirin
+
+  </div>
+
+  ## Ön Koşullar
+
+  - [uv](https://github.com/astral-sh/uv) - Hızlı Python paket yöneticisi
+  - [Playwright](https://playwright.dev/) - Tarayıcı otomasyonu
+  - [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy) - stdio modu için gerekli
+
+  ```bash
+  # Ön koşulları yükleyin
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  uv tool install mcp-proxy
+  uv tool update-shell
+  ```
+
+  ## Ortam Değişkenleri
+
+  `.env` dosyası oluşturun:
+
+  ```bash
+  OPENAI_API_KEY=your-api-key
+  CHROME_PATH=optional/path/to/chrome
+  PATIENT=false  # API çağrıları görev tamamlanmasını beklemelidir ayarını true yapın
+  ```
+
+  ## Kurulum
+
+  ```bash
+  # Bağımlılıkları yükleyin
+  uv sync
+  uv pip install playwright
+  uv run playwright install --with-deps --no-shell chromium
+  ```
+
+  ## Kullanım
+
+  ### SSE Modu
+
+  ```bash
+  # Kaynaktan doğrudan çalıştırın
+  uv run server --port 8000
+  ```
+
+  ### stdio Modu
+
+  ```bash
+  # 1. Oluşturun ve genel olarak yükleyin
+  uv build
+  uv tool uninstall browser-use-mcp-server 2>/dev/null || true
+  uv tool install dist/browser_use_mcp_server-*.whl
+
+  # 2. stdio aktarımı ile çalıştırın
+  browser-use-mcp-server run server --port 8000 --stdio --proxy-port 9000
+  ```
+
+  ## İstemci Yapılandırması
+
+  ### SSE Modu İstemci Yapılandırması
+
+  ```json
+  {
+    "mcpServers": {
+      "browser-use-mcp-server": {
+        "url": "http://localhost:8000/sse"
+      }
+    }
+  }
+  ```
+
+  ### stdio Modu İstemci Yapılandırması
+
+  ```json
+  {
+    "mcpServers": {
+      "browser-server": {
+        "command": "browser-use-mcp-server",
+        "args": [
+          "run",
+          "server",
+          "--port",
+          "8000",
+          "--stdio",
+          "--proxy-port",
+          "9000"
+        ],
+        "env": {
+          "OPENAI_API_KEY": "your-api-key"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Yapılandırma Konumları
+
+  | İstemci          | Yapılandırma Yolu                                                 |
+  | ---------------- | ----------------------------------------------------------------- |
+  | Cursor           | `./.cursor/mcp.json`                                              |
+  | Windsurf         | `~/.codeium/windsurf/mcp_config.json`                             |
+  | Claude (Mac)     | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+  | Claude (Windows) | `%APPDATA%\Claude\claude_desktop_config.json`                     |
+
+  ## Özellikler
+
+  - [x] **Tarayıcı Otomasyonu**: AI ajanları aracılığıyla tarayıcıları kontrol etme
+  - [x] **Çift Aktarım**: SSE ve stdio protokollerinin her ikisini de destekleme
+  - [x] **VNC Akışı**: Tarayıcı otomasyonunu gerçek zamanlı izleme
+  - [x] **Async Görevler**: Tarayıcı işlemlerini asenkron olarak yürütme
+
+  ## Yerel Geliştirme
+
+  Paketi yerel olarak geliştirmek ve test etmek için:
+
+  1. Dağıtılabilir bir wheel oluşturun:
+
+     ```bash
+     # Proje kök dizininden
+     uv build
+     ```
+
+  2. Bunu genel bir araç olarak yükleyin:
+
+     ```bash
+     uv tool uninstall browser-use-mcp-server 2>/dev/null || true
+     uv tool install dist/browser_use_mcp_server-*.whl
+     ```
+
+  3. Herhangi bir dizinden çalıştırın:
+
+     ```bash
+     # Geçerli oturum için OpenAI API anahtarınızı ayarlayın
+     export OPENAI_API_KEY=your-api-key-here
+
+     # Veya tek seferlik bir çalıştırma için satır içi sağlayın
+     OPENAI_API_KEY=your-api-key-here browser-use-mcp-server run server --port 8000 --stdio --proxy-port 9000
+     ```
+
+  4. Değişiklik yaptıktan sonra, yeniden oluşturun ve yeniden yükleyin:
+     ```bash
+     uv build
+     uv tool uninstall browser-use-mcp-server
+     uv tool install dist/browser_use_mcp_server-*.whl
+     ```
+
+  ## Docker
+
+  Docker kullanmak, sunucuyu çalıştırmak için tutarlı ve izole bir ortam sağlar.
+
+  ```bash
+  # Docker imajını oluşturun
+  docker build -t browser-use-mcp-server .
+
+  # Konteyner'i varsayılan VNC şifresi ("browser-use") ile çalıştırın
+  # --rm, konteyner durdurulduğunda otomatik olarak kaldırılmasını sağlar
+  # -p 8000:8000 sunucu portunu eşler
+  # -p 5900:5900 VNC portunu eşler
+  docker run --rm -p8000:8000 -p5900:5900 browser-use-mcp-server
+
+  # Dosyadan okunan özel bir VNC şifresi ile çalıştırın
+  # Dosya oluşturun (ör. vnc_password.txt) sadece istediğiniz şifreyi içeren
+  echo "your-secure-password" > vnc_password.txt
+  # Şifre dosyasını konteyner içinde gizli olarak bağlayın
+  docker run --rm -p8000:8000 -p5900:5900 \
+    -v $(pwd)/vnc_password.txt:/run/secrets/vnc_password:ro \
+    browser-use-mcp-server
+  ```
+
+  *Not: Birim bağlantısında (`./-v`) `:ro` bayrağı, arttırılmış güvenlik için şifre dosyasını konteyner içinde salt okunur yapar.*
+
+  ### VNC Viewer
+
+  ```bash
+  # Tarayıcı tabanlı viewer
+  git clone https://github.com/novnc/noVNC
+  cd noVNC
+  ./utils/novnc_proxy --vnc localhost:5900
+  ```
+
+  Varsayılan şifre: `browser-use` (özel şifre yöntemi kullanılarak geçersiz kılınmadığı sürece)
+
+  <div align="center">
+    
+    <br><br>
+    
+  </div>
+
+  ## Örnek
+
+  AI'dan şu şekilde talep edin:
+
+  ```text
+  https://news.ycombinator.com adresini aç ve en yüksek dereceli makaleyi döndür
+  ```
+
+  ## Destek
+
+  Sorunlar veya sorularınız için: [cobrowser.xyz](https://cobrowser.xyz)
+
+  ## Star Geçmişi
+
+  <div align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=co-browser/browser-use-mcp-server&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=co-browser/browser-use-mcp-server&type=Date" />
+      
+    </picture>
+  </div>
 ---
 
 # browser-use-mcp-server

@@ -9,6 +9,387 @@ body_length: 7044
 license: "Apache-2.0"
 language: "JavaScript"
 homepage: "https://yuzhi.tech/wenyan-mcp"
+body_tr: |-
+  <div align="center">
+      
+  </div>
+
+  # 文颜 MCP Server
+
+  [![npm](https://img.shields.io/npm/v/@wenyan-md/mcp)](https://www.npmjs.com/package/@wenyan-md/mcp)
+  [![License](https://img.shields.io/github/license/caol64/wenyan-mcp)](LICENSE)
+  ![NPM Downloads](https://img.shields.io/npm/dm/%40wenyan-md%2Fmcp)
+  [![Docker Pulls](https://img.shields.io/docker/pulls/caol64/wenyan-mcp)](https://hub.docker.com/r/caol64/wenyan-mcp)
+  [![Stars](https://img.shields.io/github/stars/caol64/wenyan-mcp?style=social)](https://github.com/caol64/wenyan-mcp)
+
+  ## Giriş
+
+  **[文颜（Wenyan）](https://wenyan.yuzhi.tech)** çok platformlu bir Markdown düzenleme ve yayınlama aracıdır. Markdown'u tek tıkla dönüştürüp şu platformlara yayınlayabilir:
+
+  -   WeChat Resmi Hesapları
+  -   Zhihu
+  -   Toutiao
+  -   Ve diğer içerik platformları (sürekli genişletiliyor)
+
+  Wenyan'ın amacı: **yazarların içeriğe odaklanması, düzenleme ve platform uyarlaması konusunda endişelenmemesi**.
+
+  ## Wenyan'ın Farklı Sürümleri
+
+  Wenyan şu anda birçok türde sunulmaktadır ve farklı kullanım senaryolarına uygun seçenekler vardır:
+
+  -   [macOS App Store Sürümü](https://github.com/caol64/wenyan) - MAC masaüstü uygulaması
+  -   [Çok platformlu masaüstü sürümü](https://github.com/caol64/wenyan-pc) - Windows/Linux
+  -   [CLI Sürümü](https://github.com/caol64/wenyan-cli) - Komut satırı / CI otomatik yayınlama
+  -   👉 [MCP Sürümü](https://github.com/caol64/wenyan-mcp) - Bu proje
+
+  ## Wenyan MCP Server Nedir?
+
+  Basitçe söylemek gerekirse, "AI yazarlığı" ile "resmi hesap yayınlaması" arasındaki bağlantıyı sağlar.
+
+  MCP protokolüne dayalı olarak, Claude Desktop gibi AI istemcileri artık doğrudan Wenyan'ın düzenleme motorunu çağırabilir. Makale yazdıktan sonra, üçüncü taraf editörde kopyala-yapıştır yapmak yerine, AI'ın doğrudan düzenleme yapmasını ve WeChat taslak kutusuna göndermesini sağlayabilirsiniz.
+
+  **Temel özellikler:**
+
+  - **Düzenleme aracını atla**: AI tarafından oluşturulan Markdown doğrudan WeChat zengin metne dönüştürülür ve yüklenir, ara adımları ortadan kaldırır.
+  - **Konuşmaya dayalı düzenleme**: AI'ya doğrudan yazarak "turuncu renkli tema kullan" diyebilirsiniz, stililer otomatik olarak uygulanır.
+  - **Aynı pencerede tüm işlemi tamamlayın**: Aynı sohbet kutusunda "konu seç -> makale yaz -> düzenlemeyi ayarla -> taslak kaydet" işlemlerinin tamamını sorunsuz bir şekilde yapabilirsiniz.
+
+  **Pratik gösterim:**
+  *   [AI'ın resmi hesap düzenleme ve yayınlamasını yönetmesini sağlayın](https://babyno.top/posts/2025/06/let-ai-help-you-manage-your-gzh-layout-and-publishing/)
+  *   [Moraya MCP Kullanım Örneği: WeChat Resmi Hesap Tam Yönetimi](https://github.com/zouwei/moraya/wiki/Moraya-MCP-%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%85%A8%E6%89%98%E7%AE%A1)
+
+  ## Özellikler
+
+  - Markdown'u tek tıkla WeChat resmi hesap taslak kutusuna yayınlayın
+  - Yerel görüntü ve kapak otomatik yükleme
+  - Uzak Server yayınlamasını destekleyin (IP beyaz liste sınırlamasını aşın)
+  - Birkaç güzel düzenleme teması içerir
+  - Özel tema desteği
+  - Standart MCP Tool arabirimini sağlar
+  - AI otomatik çağırmasını destekleyin:
+    - Markdown render etme
+    - Tema yönetimi
+    - Taslak yayınlama
+
+  ## Hızlı Başlangıç
+
+  **Kurulum**
+
+  ```bash
+  npm install -g @wenyan-md/mcp
+  ```
+
+  **Claude Desktop Yapılandırması (claude_desktop_config.json):**
+
+  ```json
+  {
+    "mcpServers": {
+      "wenyan-mcp": {
+        "command": "wenyan-mcp",
+        "env": {
+          "WECHAT_APP_ID": "your_app_id",
+          "WECHAT_APP_SECRET": "your_app_secret"
+        }
+      }
+    }
+  }
+  ```
+
+  ## Temel Kullanım
+
+  ### Temaları Listele
+
+  AI'ya şunu deyin
+
+  > Şu anda hangi resmi hesap temalarını kullanabilir?
+
+  AI cevaplar:
+
+  ```
+  Şu anda desteklediğim resmi hesap temalarına aşağıdakiler dahildir. Her tema benzersiz bir stil ve renk paletiyle gelir ve farklı içerik türleri için uygun:
+
+  1. **Default (Varsayılan)**  
+     Sade ve klasik düzenleme, uzun metinler için ideal, kullanım alanı geniş.
+
+  2. **OrangeHeart (Turuncu Kalp)**  
+     Sıcak turuncu tonlar, zarif ve canlı, duygusal ve yaşam içeriğine uygun.
+  ...
+  ```
+
+  ### Tema Kaydı
+
+  AI'ya şunu deyin
+
+  > Lütfen bu CSS'i (https://wenyan.yuzhi.tech/manhua.css) yeni bir resmi hesap teması olarak kaydetsene, adı: xiuluochang
+
+  AI cevaplar:
+
+  ```
+  Tamam, CSS stil sayfasını başarıyla yeni resmi hesap teması olarak kaydettim, tema adı: **xiuluochang**.
+
+  Artık resmi hesap arka panelinde bu temayı seçerek kullanabilirsiniz. Stil, `https://wenyan.yuzhi.tech/manhua.css` tanımına göre uygulanacaktır.
+
+  İhtiyaç duymanız halinde tema özelleştirmesi veya değişikliği için bana bildirmeniz yeterlidir!
+  ```
+
+  ### Tema Silme
+
+  AI'ya şunu deyin
+
+  > "xiuluochang" adlı resmi hesap temasını sil
+
+  AI cevaplar:
+
+  ```
+  Resmi hesap teması "xiuluochang" başarıyla silindi.
+  ```
+
+  ### Makale Yayınlama
+
+  AI'ya şunu deyin
+
+  > phycat temasını kullanarak bu makaleyi WeChat resmi hesabına yayınla: `./tests/publish.md`
+
+  AI cevaplar:
+
+  ```
+  Makale başarıyla WeChat resmi hesap taslak kutusuna yayınlandı! 🎉
+
+  - **Tema**: phycat  
+  - **Medya Kimliği**: xxx
+
+  WeChat resmi hesap arka paneline giriş yaparak "Taslaklar" bölümünde makaleyi görebilir ve düzenleyebilirsiniz. Uygun gördüğünüzde tek tıkla yayınlayabilirsiniz. İhtiyaç duymanız halinde makaleyi daha da düzenlemek, kapak eklemek veya özet ayarlamak için bana yardımcı olabilirim!
+
+  Yayın metni oluşturması veya kapak önerisi için yardıma ihtiyacınız var mı? 😊
+  ```
+
+  ## Konseptler
+
+  ### Ortam Değişkeni Yapılandırması
+
+  > [!IMPORTANT]
+  >
+  > MCP başlatıldığında aşağıdaki ortam değişkenlerinin yapılandırıldığından emin olun, aksi takdirde yükleme API'si başarısız olur.
+
+  -   `WECHAT_APP_ID`
+  -   `WECHAT_APP_SECRET`
+
+  ### WeChat Resmi Hesap IP Beyaz Listesi
+
+  > [!IMPORTANT]
+  >
+  > Wenyan'ı çalıştıran makinenin IP'sinin WeChat resmi hesap arka panelinin IP beyaz listesine eklendiğinden emin olun, aksi takdirde yükleme API'si başarısız olur.
+
+  Yapılandırma belgesi: [https://yuzhi.tech/docs/wenyan/upload](https://yuzhi.tech/docs/wenyan/upload)
+
+  ### Makale Biçimi
+
+  Makaleyi doğru bir şekilde yüklemek için, her Markdown dosyasının başında `frontmatter` bulunması gerekir:
+
+  ```md
+  ---
+  title: Yerel Olarak Büyük Bir Dil Modeli Çalıştırma(2) - Modele Dış Bilgi Tabanı Sağlama
+  cover: /Users/xxx/image.jpg
+  author: xxx
+  source_url: http://
+  ---
+  ```
+
+  Alan açıklaması:
+
+  | Alan | Gerekli | Açıklama |
+  | ---------- | -- | ----------------- |
+  | title | ✅ | Makale başlığı |
+  | cover | ❌ | Kapak görüntüsü (yerel yol veya ağ URL'si) |
+  | author | ❌ | Yazar |
+  | source_url | ❌ | Orijinal makale bağlantısı |
+  | type | ❌ | Makale türü, `image` ayarlanırsa resim mesajı (yeşil kitap) |
+  | image_list | ❌ | Görüntü yolu listesi (yeşil kitap için, en fazla 20) |
+  | need_open_comment | ❌ | Yorumları aç mı |
+  | only_fans_can_comment | ❌ | Yalnızca takipçiler yorum yapabilir mi |
+
+  Notlar:
+
+  * Kapak belirtilmezse, metin içindeki ilk görüntü otomatik olarak kapak olarak kullanılır
+  * Kapak yerel yolu ve ağ URL'sini destekler
+  * `type` ve `image_list` resim mesajı yayınlaması için kullanılır
+
+  **[Örnek Makale](tests/publish.md)**
+
+  ### Metin İçi Görüntüler ve Makale Kapağı
+
+  Makaleyi resmi hesaba yayınlamadan önce, Wenyan WeChat gereksinimlerine göre makaledeki tüm görüntüleri otomatik olarak işler ve bunları resmi hesap materyal kütüphanesine yükler. Wenyan şu anda aşağıdaki görüntüleri iyi desteklemektedir:
+
+  - Yerel diskteki mutlak yol (örneğin: `/Users/xxx/image.jpg`)
+  - Ağ yolu (örneğin: `https://example.com/image.jpg`)
+  - Mevcut makaleye göre yola (örneğin: `./assets/image.png`)
+
+  ## Resim Mesajı Yayınlama (Yeşil Kitap)
+
+  Resim mesajı yayınlaması, metin içinde frontmatter'da görüntü listesi belirtilmesi dışında grafik metin yayınlaması ile aynıdır. İki yöntem desteklenir:
+
+  ### Yöntem 1: type: image Kullanma (Önerilen)
+
+  Frontmatter'da `type: image` ayarlayın, CLI otomatik olarak metinden tüm görüntüleri çıkaracaktır:
+
+  ```md
+  ---
+  title: Çalışkan Bahar Gelir, Okumak Tam Zamanı
+  type: image
+  ---
+
+  ![](https://raw.githubusercontent.com/caol64/wenyan-mcp/HEAD/1.jpeg)
+  ![](https://raw.githubusercontent.com/caol64/wenyan-mcp/HEAD/2.jpeg)
+  ![](https://raw.githubusercontent.com/caol64/wenyan-mcp/HEAD/3.jpeg)
+  ```
+
+  ### Yöntem 2: image_list'i Manuel Belirtme
+
+  Frontmatter'da görüntü yollarını doğrudan listeleyin:
+
+  ```md
+  ---
+  title: Çalışkan Bahar Gelir, Okumak Tam Zamanı
+  image_list:
+    - ./1.jpeg
+    - ./2.jpeg
+    - ./3.jpeg
+    - ./4.jpeg
+    - ./5.jpeg
+  ---
+  ```
+
+  `image_list` en fazla 20 görüntü destekler, ilk görüntü kapak olacaktır.
+
+  ## Server Modu
+
+  **Yerel mod (Stdio Mode)** ile karşılaştırıldığında, `wenyan-mcp` ayrıca **uzak istemci modu (Client–Server Mode)** sağlar. Her iki modu da tamamen aynı şekilde çalışır, çalışma ortamınız ve ağ koşullarınıza göre en uygun olanı seçebilirsiniz.
+
+  Yerel modda, MCP doğrudan WeChat API'sini çağırarak görüntü yükleme ve taslak yayınlama işlemini tamamlar.
+
+  ```mermaid
+  flowchart LR
+      MCP[Wenyan MCP] --> Wechat[Resmi Hesap API'si]
+  ```
+
+  Uzak istemci modunda, MCP istemci olarak hareket eder ve yayın isteğini bulut sunucusuna dağıtılan Wenyan Server'a gönderir ve Server WeChat API'sini çağırır.
+
+  ```mermaid
+  flowchart LR
+      MCP[Wenyan MCP] --> Server[Wenyan Server] --> Wechat[Resmi Hesap API'si]
+  ```
+
+  **Uygulanabilir:**
+
+  * Sabit yerel IP'si olmayan, sık IP beyaz listesi eklemesi gereken kullanıcılar
+  * Takım işbirliği gerektiren kullanıcılar
+  * CI/CD otomatik yayınlamayı destekleyin
+  * AI Agent otomatik yayınlamasını destekleyin
+
+  **[Server Modu Dağıtımı](https://github.com/caol64/wenyan-cli/blob/main/docs/server.md)**
+
+  **Claude Desktop Yapılandırması:**
+
+  ```json
+  {
+    "mcpServers": {
+      "wenyan-mcp": {
+        "command": "wenyan-mcp",
+        "args": ["--server", "https://api.example.com", "--api-key", "your-api-key"]
+      }
+    }
+  }
+  ```
+
+  ## Çok Resmi Hesap Yayınlaması (İleri Seviye)
+
+  > [!IMPORTANT]
+  >
+  > Çok resmi hesap yayınlaması özelliğini kullanmak için `server` modunu kullanmalısınız.
+
+  Adımlar:
+
+  - Önce `server`'ı dağıtın
+  - `server` tarafında birden fazla WeChat kimlik bilgisi yapılandırın, [belgeye](https://github.com/caol64/wenyan-cli) bakın
+  - `MCP istemcisini` `server`'a bağlayın
+
+  AI'ya şunu deyin
+
+  > phycat temasını kullanarak bu makaleyi WeChat resmi hesabına (your_app_id) yayınla: `./tests/publish.md`
+
+  ## Docker Dağıtımı
+
+  Node.js ortamı kurmak istemeyen kullanıcılar için uygundur.
+
+  ```bash
+  docker pull caol64/wenyan-mcp:latest
+  ```
+
+  * **Claude Desktop Yapılandırması:**
+
+  ```json
+  {
+    "mcpServers": {
+      "wenyan-mcp": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-v", "/your/host/file/path:/mnt/host-downloads",
+          "-e", "WECHAT_APP_ID=your_app_id",
+          "-e", "WECHAT_APP_SECRET=your_app_secret",
+          "-e", "HOST_FILE_PATH=/your/host/file/path",
+          "caol64/wenyan-mcp"
+        ]
+      }
+    }
+  }
+  ```
+
+  > **Docker Yapılandırması Özel Açıklama:**
+  >
+  > *   **Bağlantılı Dizin (`-v`)**：Ana bilgisayarın dosya/görüntü dizinini konteynırın `/mnt/host-downloads` konumuna bağlamalısınız.
+  > *   **Ortam Değişkeni (`HOST_FILE_PATH`)**：Ana bilgisayarın bağlantılı dosya/görüntü dizini yolu ile aynı olmalıdır.
+  > *   **İlke**：Markdown dosyanız/makalenizdeki yerel görüntüler bu dizine konmalıdır, Docker otomatik olarak bunu eşler ve konteynırın okuyup yüklemesini sağlar.
+
+  ## Hata Ayıklama Nasıl Yapılır
+
+  Resmi Inspector kullanarak hata ayıklama yapılması önerilir:
+
+  ```bash
+  npx @modelcontextprotocol/inspector <command>
+  ```
+
+  Başarılı başlatılma benzer bir istem gösterir:
+
+  ```bash
+  🔗 Open inspector with token pre-filled:
+     http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=761c05058aa4f84ad02280e62d7a7e52ec0430d00c4c7a61492cca59f9eac299
+     (Auto-open is disabled when authentication is enabled)
+  ```
+
+  Yukarıdaki bağlantıyı ziyaret ederek hata ayıklama sayfasını açabilirsiniz.
+
+  ![debug](https://raw.githubusercontent.com/caol64/wenyan-mcp/HEAD/data/1.jpg)
+
+  1. Başlangıç komutunu doğru doldurun
+  2. Ortam değişkenleri ekleyin
+  3. Connect'e tıklayın
+  4. Tools -> List Tools seçin
+  5. Hata ayıklamak istediğiniz arayüzü seçin
+  6. Parametreleri doldurun ve Run Tool'a tıklayın
+  7. Tam parametreleri görün
+
+  ## Sponsorluk
+
+  Wenyan size yardımcı olmuşsa, benim kedimin birkaç kutu yemek için para harcayabilirsiniz ❤️
+
+  [https://yuzhi.tech/sponsor](https://yuzhi.tech/sponsor)
+
+  ## Lisans
+
+  Apache Lisansı Sürüm 2.0
 ---
 
 <div align="center">

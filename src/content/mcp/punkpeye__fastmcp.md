@@ -8,6 +8,694 @@ url: "https://github.com/punkpeye/fastmcp"
 body_length: 64487
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # FastMCP
+
+  MCP sunucuları oluşturmak için [MCP](https://glama.ai/mcp) istemci oturumlarını işleyebilen bir TypeScript çerçevesi.
+
+  > [!NOTE]
+  >
+  > Python uygulaması için bkz. [FastMCP](https://github.com/jlowin/fastmcp).
+
+  ## Özellikler
+
+  - Basit Tool, Resource, Prompt tanımı
+  - [Kimlik Doğrulama](#authentication)
+  - [Header'ları context üzerinden iletme](#passing-headers-through-context)
+  - [Oturum ID'si ve Request ID'si izleme](#session-id-and-request-id-tracking)
+  - [Oturumlar](#sessions)
+  - [Görüntü içeriği](#returning-an-image)
+  - [Ses içeriği](#returning-an-audio)
+  - [Gömülü Kaynaklar](#embedded-resources)
+  - [Günlükleme](#logging)
+  - [Hata işleme](#errors)
+  - [HTTP Akışı](#http-streaming) (SSE uyumluluğu ile)
+  - [HTTPS Desteği](#https-support) güvenli bağlantılar için
+  - [Özel HTTP rotaları](#custom-http-routes) REST API'ları, webhook'ları ve yönetici arayüzleri için
+  - [Edge Runtime Desteği](#edge-runtime-support) Cloudflare Workers, Deno Deploy vb. için
+  - [Stateless modu](#stateless-mode) sunucusuz dağıtımlar için
+  - CORS (varsayılan olarak etkin)
+  - [İlerleme bildirimleri](#progress)
+  - [Akış çıkışı](#streaming-output)
+  - [Yazılı sunucu olayları](#typed-server-events)
+  - [Prompt argümanı otomatik tamamlama](#prompt-argument-auto-completion)
+  - [Örnekleme](#requestsampling)
+  - [Yapılandırılabilir ping davranışı](#configurable-ping-behavior)
+  - [Sağlık kontrol uç noktası](#health-check-endpoint)
+  - [Kökler](#roots-management)
+  - [Test](#test-with-mcp-cli) ve [hata ayıklama](#inspect-with-mcp-inspector) için CLI
+
+  ## FastMCP'yi resmi SDK yerine ne zaman kullanmalısınız?
+
+  FastMCP resmi SDK'nın üzerine inşa edilmiştir.
+
+  Resmi SDK, MCP'ler oluşturmak için temel bloklar sağlar ancak birçok uygulama detayını size bırakır:
+
+  - [Tüm sunucu bileşenlerini başlatma ve yapılandırma](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L664-L744)
+  - [Bağlantıları işleme](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L760-L850)
+  - [Tool'ları işleme](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L1303-L1498)
+  - [Yanıtları işleme](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L989-L1060)
+  - [Kaynakları işleme](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L1151-L1242)
+  - [Prompt'ları](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L760-L850), [kaynakları](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L960-L962), [kaynak şablonlarını](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L964-L987) ekleme
+  - [Kaynakları](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L1569-L1643), [görüntü](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L51-L111) ve [ses](https://github.com/punkpeye/fastmcp/blob/06c2af7a3d7e3d8c638deac1964ce269ce8e518b/src/FastMCP.ts#L113-L173) içerik bloklarını gömme
+
+  FastMCP bu karmaşıklığı, sunulan bir çerçeve sağlayarak ortadan kaldırır:
+
+  - Tüm boilerplate'i otomatik olarak işler
+  - Yaygın görevler için basit, sezgisel API'lar sağlar
+  - Yerleşik en iyi uygulamalar ve hata işleme içerir
+  - MCP'nizin temel işlevselliğine odaklanmanızı sağlar
+
+  **FastMCP'yi seçin:** MCP sunucularını düşük seviye uygulama detaylarıyla uğraşmadan hızlıca oluşturmak istiyorsunuz.
+
+  **Resmi SDK'yı kullanın:** Maksimum kontrol gerektirir veya belirli mimari gereksinimleri vardır. Bu durumda, yaygın tuzakları önlemek için FastMCP'nin uygulamasına referans olarak bakmanızı teşvik ederiz.
+
+  ## Kurulum
+
+  ```bash
+  npm install fastmcp
+  ```
+
+  ## Hızlı Başlangıç
+
+  > [!NOTE]
+  >
+  > FastMCP'nin gerçek dünya örnekleri birçok yerde bulunmaktadır. Örnekler için [Vitrin](#showcase) bölümüne bakın.
+
+  ```ts
+  import { FastMCP } from "fastmcp";
+  import { z } from "zod"; // Veya Standard Schema'yı destekleyen herhangi bir doğrulama kütüphanesi
+
+  const server = new FastMCP({
+    name: "My Server",
+    version: "1.0.0",
+  });
+
+  server.addTool({
+    name: "add",
+    description: "Add two numbers",
+    parameters: z.object({
+      a: z.number(),
+      b: z.number(),
+    }),
+    execute: async (args) => {
+      return String(args.a + args.b);
+    },
+  });
+
+  server.start({
+    transportType: "stdio",
+  });
+  ```
+
+  _Bu kadar!_ Çalışan bir MCP sunucunuz var.
+
+  Sunucuyu terminal'de test edebilirsiniz:
+
+  ```bash
+  git clone https://github.com/punkpeye/fastmcp.git
+  cd fastmcp
+
+  pnpm install
+  pnpm build
+
+  # CLI kullanarak toplama sunucusu örneğini test edin:
+  npx fastmcp dev src/examples/addition.ts
+  # MCP Inspector kullanarak toplama sunucusu örneğini test edin:
+  npx fastmcp inspect src/examples/addition.ts
+  ```
+
+  Kendi MCP sunucunuzu oluşturmak için bir boilerplate deposu arıyorsanız, [fastmcp-boilerplate](https://github.com/punkpeye/fastmcp-boilerplate) kontrol edin.
+
+  ### Uzak Sunucu Seçenekleri
+
+  FastMCP, uzak iletişim için birden çok transport seçeneğini destekleyerek, uzak bir makinede barındırılan bir MCP'nin ağ üzerinden erişilmesini sağlar.
+
+  #### HTTP Akışı
+
+  [HTTP akışı](https://www.cloudflare.com/learning/video/what-is-http-live-streaming/) bunu destekleyen ortamlarda SSE'ye daha verimli bir alternatif sağlar ve daha büyük payloads için potansiyel olarak daha iyi performans sunar.
+
+  HTTP akışı desteği ile sunucuyu çalıştırabilirsiniz:
+
+  ```ts
+  server.start({
+    transportType: "httpStream",
+    httpStream: {
+      port: 8080,
+    },
+  });
+  ```
+
+  Bu, sunucuyu başlatacak ve `http://localhost:8080/mcp` adresindeki HTTP akışı bağlantılarını dinleyecektir.
+
+  > **Not:** `httpStream.endpoint` seçeneğini kullanarak endpoint yolunu özelleştirebilirsiniz (varsayılan `/mcp`'dir).
+
+  > **Not:** Bu aynı zamanda `http://localhost:8080/sse` adresinde bir SSE sunucusu başlatır.
+
+  Bu sunuculara uygun client transport kullanarak bağlanabilirsiniz.
+
+  HTTP akışı bağlantıları için:
+
+  ```ts
+  import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+
+  const client = new Client(
+    {
+      name: "example-client",
+      version: "1.0.0",
+    },
+    {
+      capabilities: {},
+    },
+  );
+
+  const transport = new StreamableHTTPClientTransport(
+    new URL(`http://localhost:8080/mcp`),
+  );
+
+  await client.connect(transport);
+  ```
+
+  SSE bağlantıları için:
+
+  ```ts
+  import { SSEClientTransport } from "@modelcontextprotocol/sdk/client/sse.js";
+
+  const client = new Client(
+    {
+      name: "example-client",
+      version: "1.0.0",
+    },
+    {
+      capabilities: {},
+    },
+  );
+
+  const transport = new SSEClientTransport(new URL(`http://localhost:8080/sse`));
+
+  await client.connect(transport);
+  ```
+
+  ##### HTTPS Desteği
+
+  FastMCP, SSL sertifika seçenekleri sağlayarak HTTPS'yi güvenli bağlantılar için destekler:
+
+  ```ts
+  server.start({
+    transportType: "httpStream",
+    httpStream: {
+      port: 8443,
+      sslCert: "./path/to/cert.pem",
+      sslKey: "./path/to/key.pem",
+      sslCa: "./path/to/ca.pem", // İsteğe bağlı: istemci sertifikası kimlik doğrulaması için
+    },
+  });
+  ```
+
+  Bu, `https://localhost:8443/mcp` adresinde sunucuyu HTTPS ile başlatacaktır.
+
+  **SSL Seçenekleri:**
+
+  - `sslCert` - SSL sertifikası dosyasının yolu
+  - `sslKey` - SSL özel anahtar dosyasının yolu
+  - `sslCa` - (İsteğe bağlı) Karşılıklı TLS kimlik doğrulaması için CA sertifikasının yolu
+
+  **Test için**, kendi imzalı sertifikalar oluşturabilirsiniz:
+
+  ```bash
+  openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=localhost"
+  ```
+
+  **Üretim için**, Let's Encrypt gibi güvenilir bir CA'dan sertifikalar alın.
+
+  Tam bir örnek için [https-server örneğine](src/examples/https-server.ts) bakın.
+
+  #### Özel HTTP Rotaları
+
+  FastMCP, MCP uç noktalarının yanında özel HTTP rotaları eklemenize izin vererek, aynı sunucu süreci içinde REST API'ları, webhook'ları, yönetici arayüzlerini ve daha fazlasını içeren kapsamlı HTTP hizmetleri oluşturmanızı sağlar.
+
+  ```ts
+  // REST API uç noktaları ekleme
+  server.addRoute("GET", "/api/users", async (req, res) => {
+    res.json({ users: [] });
+  });
+
+  // Yol parametrelerini işleme
+  server.addRoute("GET", "/api/users/:id", async (req, res) => {
+    res.json({
+      userId: req.params.id,
+      query: req.query, // Sorgu parametrelerine erişim
+    });
+  });
+
+  // POST isteklerini gövde ayrıştırması ile işleme
+  server.addRoute("POST", "/api/users", async (req, res) => {
+    const body = await req.json();
+    res.status(201).json({ created: body });
+  });
+
+  // HTML içeriğini sunma
+  server.addRoute("GET", "/admin", async (req, res) => {
+    res.send("<html><body><h1>Admin Panel</h1></body></html>");
+  });
+
+  // Webhook'ları işleme
+  server.addRoute("POST", "/webhook/github", async (req, res) => {
+    const payload = await req.json();
+    const event = req.headers["x-github-event"];
+
+    // Webhook işleme...
+    res.json({ received: true });
+  });
+  ```
+
+  Özel rotalar şunları destekler:
+
+  - Tüm HTTP yöntemleri: GET, POST, PUT, DELETE, PATCH, OPTIONS
+  - Yol parametreleri (`:param`) ve wildcard'lar (`*`)
+  - Sorgu dizesi ayrıştırması
+  - JSON ve metin gövde ayrıştırması
+  - Özel durum kodları ve başlıkları
+  - MCP ile aynı `authenticate` işlevini kullanarak kimlik doğrulaması
+  - **Kimlik doğrulamayı atlayan genel rotalar**
+
+  Rotalar kayıt sırasına göre eşleştirilir ve belirli rotaları catch-all desenlerinden önce tanımlamanıza izin verir.
+
+  ##### Genel Rotalar
+
+  Varsayılan olarak, özel rotalar kimlik doğrulama gerektirir (yapılandırılmışsa). `{ public: true }` seçeneğini ekleyerek rotaları genel hale getirebilirsiniz:
+
+  ```ts
+  // Genel rota - kimlik doğrulama gerekli değil
+  server.addRoute(
+    "GET",
+    "/.well-known/openid-configuration",
+    async (req, res) => {
+      res.json({
+        issuer: "https://example.com",
+        authorization_endpoint: "https://example.com/auth",
+        token_endpoint: "https://example.com/token",
+      });
+    },
+    { public: true },
+  );
+
+  // Özel rota - kimlik doğrulama gerekli
+  server.addRoute("GET", "/api/users", async (req, res) => {
+    // req.auth kimlik doğrulanmış kullanıcı verisi içerir
+    res.json({ users: [] });
+  });
+
+  // Genel statik dosyalar
+  server.addRoute(
+    "GET",
+    "/public/*",
+    async (req, res) => {
+      // Statik dosyaları kimlik doğrulaması olmadan sunma
+      res.send(`File: ${req.url}`);
+    },
+    { public: true },
+  );
+  ```
+
+  Genel rotalar şunlar için mükemmeldir:
+
+  - OAuth discovery uç noktaları (`.well-known/*`)
+  - Sağlık kontrolleri ve durum sayfaları
+  - Statik varlıklar ve belgeler
+  - Dış hizmetlerden webhook uç noktaları
+  - Kullanıcı kimlik doğrulaması gerektirmeyen genel API'lar
+
+  Tam bir örnek için [custom-routes örneğine](src/examples/custom-routes.ts) bakın.
+
+  #### Edge Runtime Desteği
+
+  FastMCP, Cloudflare Workers gibi edge runtime'ları destekleyerek MCP sunucularını dünya çapında minimum gecikme ile edge'e dağıtmayı sağlar.
+
+  ##### FastMCP ve EdgeFastMCP Arasında Seçim
+
+  | Kullanım Durumu              | Sınıf         | Import                                       |
+  | ----------------------------- | ------------- | -------------------------------------------- |
+  | Node.js, Express, Bun         | `FastMCP`     | `import { FastMCP } from "fastmcp"`          |
+  | Cloudflare Workers, Deno Deploy | `EdgeFastMCP` | `import { EdgeFastMCP } from "fastmcp/edge"` |
+
+  | Özellik              | FastMCP                        | EdgeFastMCP                            |
+  | -------------------- | ------------------------------ | -------------------------------------- |
+  | Runtime              | Node.js                        | Edge (V8 isolates)                     |
+  | Start yöntemi        | `server.start({ port })`       | `export default server`                |
+  | Transport            | stdio, httpStream, SSE         | Yalnızca HTTP Streamable              |
+  | Oturumlar            | Stateful veya stateless        | Yalnızca stateless                     |
+  | Dosya sistemi        | Evet                           | Hayır                                  |
+  | OAuth/Kimlik Doğrulama | Yerleşik `authenticate` seçeneği | Hono middleware'i kullanın (planlanmış) |
+  | Özel rotalar         | `server.getApp()`              | `server.getApp()`                      |
+
+  > **Not:** EdgeFastMCP için yerleşik kimlik doğrulama bir gelecek sürüm için planlanmıştır. Hem FastMCP hem de EdgeFastMCP dahili olarak Hono kullanır, bu nedenle teknik bir engel yoktur—EdgeFastMCP sadece OAuth FastMCP'ye eklenmeden önce yazılmıştır. Node.js `http.IncomingMessage` yerine web `Request`'i kabul eden bir `authenticate` seçeneği eklemek için PR'ler memnuniyetle karşılanır.
+  >
+  > Şimdilik Hono middleware'ini kullanın:
+  >
+  > ```ts
+  > const app = server.getApp();
+  > app.use("/api/*", async (c, next) => {
+  >   if (c.req.header("authorization") !== "Bearer secret") {
+  >     return c.json({ error: "Unauthorized" }, 401);
+  >   }
+  >   await next();
+  > });
+  > ```
+
+  ##### Cloudflare Workers
+
+  FastMCP'yi Cloudflare Workers'a dağıtmak için `/edge` alt yolundan `EdgeFastMCP` sınıfını kullanın:
+
+  ```ts
+  import { EdgeFastMCP } from "fastmcp/edge";
+  import { z } from "zod";
+
+  const server = new EdgeFastMCP({
+    name: "My Edge Server",
+    version: "1.0.0",
+    description: "MCP server running on Cloudflare Workers",
+  });
+
+  // Araçları, kaynakları, prompt'ları her zamanki gibi ekleyin
+  server.addTool({
+    name: "greet",
+    description: "Greet someone",
+    parameters: z.object({
+      name: z.string(),
+    }),
+    execute: async ({ name }) => {
+      return `Hello, ${name}! Served from the edge.`;
+    },
+  });
+
+  // Sunucuyu varsayılan olarak dışa aktarın (Cloudflare Workers için gerekli)
+  export default server;
+  ```
+
+  ##### Edge Runtime Farkları
+
+  Edge runtime'larda çalışırken:
+
+  - **Varsayılan olarak Stateless**: Her istek bağımsız olarak işlenir
+  - **Dosya sistemi erişimi yok**: Dış veriler için fetch API'larını kullanın
+  - **V8 Isolates**: Hızlı soğuk başlangıçlar ve verimli kaynak kullanımı
+  - **Küresel dağıtım**: Edge lokasyonlarına otomatik dağıtım
+
+  ##### Edge'de Özel Rotalar
+
+  Özel HTTP rotaları eklemek için temel Hono uygulamasına erişebilirsiniz:
+
+  ```ts
+  const app = server.getApp();
+
+  // Açılış sayfası ekleme
+  app.get("/", (c) => c.html("<h1>Welcome to my MCP server</h1>"));
+
+  // REST API uç noktaları ekleme
+  app.get("/api/status", (c) => c.json({ status: "ok" }));
+  ```
+
+  ##### Dağıtım
+
+  `wrangler.toml` dosyasını yapılandırın:
+
+  ```toml
+  name = "my-mcp-server"
+  main = "src/index.ts"
+  compatibility_date = "2024-01-01"
+  ```
+
+  Şu komutu kullanarak dağıtın:
+
+  ```bash
+  wrangler deploy
+  ```
+
+  Tam bir örnek için [edge-cloudflare-worker örneğine](src/examples/edge-cloudflare-worker.ts) bakın.
+
+  #### Stateless Modu
+
+  FastMCP, HTTP akışı için stateless işletimi destekleyerek her istek kalıcı oturumlar korulamadan bağımsız olarak işlenir. Bu, sunucusuz ortamlar, yük dengeli dağıtımlar veya oturum durumunun gerekli olmadığı durumlarda idealdir.
+
+  Stateless modunda:
+
+  - Sunucuda oturum takip edilmez
+  - Her istek, yanıttan sonra atılan geçici bir oturum oluşturur
+  - Azaltılmış bellek kullanımı ve daha iyi ölçeklenebilirlik
+  - Stateless dağıtım ortamları için mükemmel
+
+  `stateless: true` seçeneğini ekleyerek stateless modu etkinleştirebilirsiniz:
+
+  ```ts
+  server.start({
+    transportType: "httpStream",
+    httpStream: {
+      port: 8080,
+      stateless: true,
+    },
+  });
+  ```
+
+  > **Not:** Stateless modu yalnızca HTTP akışı transport'unda mevcuttur. Kalıcı oturumlara bağlı özellikler (oturuma özgü durum gibi) stateless modunda kullanılmayacaktır.
+
+  CLI argümanlarını veya ortam değişkenlerini kullanarak da stateless modu etkinleştirebilirsiniz:
+
+  ```bash
+  # CLI argümanı üzerinden
+  npx fastmcp dev src/server.ts --transport http-stream --port 8080 --stateless true
+
+  # Ortam değişkeni üzerinden
+  FASTMCP_STATELESS=true npx fastmcp dev src/server.ts
+  ```
+
+  `/ready` sağlık kontrolü uç noktası, sunucunun stateless modunda çalıştığını gösterir:
+
+  ```json
+  {
+    "mode": "stateless",
+    "ready": 1,
+    "status": "ready",
+    "total": 1
+  }
+  ```
+
+  ## Temel Kavramlar
+
+  ### Araçlar
+
+  MCP'deki [Araçlar](https://modelcontextprotocol.io/docs/concepts/tools), sunucuların istemciler tarafından çağrılabilen ve LLM'ler tarafından eylemleri gerçekleştirmek için kullanılabilen yürütülebilir işlevleri ortaya çıkarmalarını sağlar.
+
+  FastMCP, araç parametrelerini tanımlamak için [Standard Schema](https://standardschema.dev) belirtimini kullanır. Bu, Zod, ArkType veya Valibot gibi tercih ettiğiniz şema doğrulama kütüphanesini (belirtimi uygulayan) kullanmanıza izin verir.
+
+  **Zod Örneği:**
+
+  ```typescript
+  import { z } from "zod";
+
+  server.addTool({
+    name: "fetch-zod",
+    description: "Fetch the content of a url (using Zod)",
+    parameters: z.object({
+      url: z.string(),
+    }),
+    execute: async (args) => {
+      return await fetchWebpageContent(args.url);
+    },
+  });
+  ```
+
+  **ArkType Örneği:**
+
+  ```typescript
+  import { type } from "arktype";
+
+  server.addTool({
+    name: "fetch-arktype",
+    description: "Fetch the content of a url (using ArkType)",
+    parameters: type({
+      url: "string",
+    }),
+    execute: async (args) => {
+      return await fetchWebpageContent(args.url);
+    },
+  });
+  ```
+
+  **Valibot Örneği:**
+
+  Valibot, @valibot/to-json-schema peer dependency'sini gerektirir.
+
+  ```typescript
+  import * as v from "valibot";
+
+  server.addTool({
+    name: "fetch-valibot",
+    description: "Fetch the content of a url (using Valibot)",
+    parameters: v.object({
+      url: v.string(),
+    }),
+    execute: async (args) => {
+      return await fetchWebpageContent(args.url);
+    },
+  });
+  ```
+
+  #### Parametresiz Araçlar
+
+  Parametre gerektirmeyen araçlar oluştururken iki seçeneğiniz var:
+
+  1. Parameters özelliğini tamamen atlamak:
+
+     ```typescript
+     server.addTool({
+       name: "sayHello",
+       description: "Say hello",
+       // Parameters özelliği yok
+       execute: async () => {
+         return "Hello, world!";
+       },
+     });
+     ```
+
+  2. Açıkça boş parametreleri tanımlamak:
+
+     ```typescript
+     import { z } from "zod";
+
+     server.addTool({
+       name: "sayHello",
+       description: "Say hello",
+       parameters: z.object({}), // Boş nesne
+       execute: async () => {
+         return "Hello, world!";
+       },
+     });
+     ```
+
+  > [!NOTE]
+  >
+  > Her iki yaklaşım da Cursor dahil tüm MCP istemcileri ile tamamen uyumludur. FastMCP her iki durumda da uygun şemayı otomatik olarak oluşturur.
+
+  #### Araç Yetkilendirmesi
+
+  Bir aracın tanımına isteğe bağlı bir `canAccess` işlevini ekleyerek, kimlik doğrulanmış kullanıcılar için kullanılabilir araçları kontrol edebilirsiniz. Bu işlev, kimlik doğrulama bağlamını alır ve kullanıcı araca erişmesine izin verilirse `true` döndürmelidir.
+
+  ```typescript
+  server.addTool({
+    name: "admin-tool",
+    description: "An admin-only tool",
+    canAccess: (auth) => auth?.role === "admin",
+    execute: async () => "Welcome, admin!",
+  });
+  ```
+
+  #### Dize döndürme
+
+  `execute` bir dize döndürebilir:
+
+  ```js
+  server.addTool({
+    name: "download",
+    description: "Download a file",
+    parameters: z.object({
+      url: z.string(),
+    }),
+    execute: async (args) => {
+      return "Hello, world!";
+    },
+  });
+  ```
+
+  Yukarıdaki aşağıdaki ile eşdeğerdir:
+
+  ```js
+  server.addTool({
+    name: "download",
+    description: "Download a file",
+    parameters: z.object({
+      url: z.string(),
+    }),
+    execute: async (args) => {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Hello, world!",
+          },
+        ],
+      };
+    },
+  });
+  ```
+
+  #### Liste döndürme
+
+  Mesaj listesi döndürmek istiyorsanız, `content` özelliğine sahip bir nesne döndürebilirsiniz:
+
+  ```js
+  server.addTool({
+    name: "download",
+    description: "Download a file",
+    parameters: z.object({
+      url: z.string(),
+    }),
+    execute: async (args) => {
+      return {
+        content: [
+          { type: "text", text: "First message" },
+          { type: "text", text: "Second message" },
+        ],
+      };
+    },
+  });
+  ```
+
+  #### Görüntü döndürme
+
+  Bir görüntünün içerik nesnesini oluşturmak için `imageContent`'i kullanın:
+
+  ```js
+  import { imageContent } from "fastmcp";
+
+  server.addTool({
+    name: "download",
+    description: "Download a file",
+    parameters: z.object({
+      url: z.string(),
+    }),
+    execute: async (args) => {
+      return imageContent({
+        url: "https://example.com/image.png",
+      });
+
+      // veya...
+      // return imageContent({
+      //   path: "/path/to/image.png",
+      // });
+
+      // veya...
+      // return imageContent({
+      //   buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", "base64"),
+      // });
+
+      // veya...
+      // return {
+      //   content: [
+      //     await imageContent(...)
+      //   ],
+      // };
+    },
+  });
+  ```
+
+  `imageContent` işlevi şu seçenekleri alır:
+
+  - `url`: Görüntünün URL'si.
+  - `path`: Görüntü dosyasının yolu.
+  - `buffer`: Bir buffer olarak görüntü verisi.
+
+  Yalnızca `url`, `path` veya `buffer` birinin bel
 ---
 
 # FastMCP

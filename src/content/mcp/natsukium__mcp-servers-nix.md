@@ -8,6 +8,135 @@ url: "https://github.com/natsukium/mcp-servers-nix"
 body_length: 5298
 license: "Apache-2.0"
 language: "Nix"
+body_tr: |-
+  # mcp-servers-nix
+
+  Nix tabanlı bir konfigürasyon çerçevesi ve hazır kullanılabilir paketleri olan Model Control Protocol (MCP) sunucuları.
+
+  ## Genel Bakış
+
+  Bu depo, hem MCP sunucu paketleri hem de MCP sunucularını yapılandırmak ve dağıtmak için bir Nix çerçevesi sağlar. Çeşitli MCP sunucularını tutarlı bir arayüzle yapılandırmanın modüler bir yaklaşımını sunar.
+
+  ## Özellikler
+
+  - **Modüler Konfigürasyon**: Birden çok MCP sunucu konfigürasyonunu tanımlayın ve birleştirin
+  - **Yeniden Üretilebilir Derlemeler**: Yeniden üretilebilir ve deklaratif sunucu kurulumları için Nix'den yararlanın
+  - **Önceden Yapılandırılmış Modüller**: Popüler MCP sunucu türleri için hazır kullanılabilir konfigürasyonlar
+  - **Güvenlik Odaklı**: `envFile` ve `passwordCommand` aracılığıyla daha iyi kimlik bilgisi ve hassas bilgi yönetimi, sabitlenmiş sunucu sürümleri
+  - **Framework Desteği**: [Flakes](docs/module-usage.md#using-flakes), [flake-parts](docs/module-usage.md#using-flake-parts), [devenv](docs/module-usage.md#using-devenv) ve [Home Manager](docs/module-usage.md#using-home-manager) ile entegre
+
+  ## Hızlı Başlangıç
+
+  Bir MCP sunucusunu doğrudan çalıştırın:
+
+  ```bash
+  nix run github:natsukium/mcp-servers-nix#mcp-server-fetch
+  ```
+
+  `mkConfig` ile bir konfigürasyon dosyası oluşturun:
+
+  ```nix
+  # config.nix
+  let
+    pkgs = import <nixpkgs> { };
+    mcp-servers-nix = import (fetchTarball
+      "https://github.com/natsukium/mcp-servers-nix/archive/main.tar.gz") { inherit pkgs; };
+  in
+  mcp-servers-nix.lib.mkConfig pkgs {
+    programs.filesystem = {
+      enable = true;
+      args = [ "/path/to/allowed/directory" ];
+    };
+  }
+  ```
+
+  ```bash
+  nix-build config.nix && cat result
+  ```
+
+  ```json
+  {
+    "mcpServers": {
+      "filesystem": {
+        "command": "/nix/store/7b4ancp3cns9lkkybd090qzr0hah5qq0-mcp-server-filesystem-2025.12.18/bin/mcp-server-filesystem",
+        "args": [ "/path/to/allowed/directory" ]
+      }
+    }
+  }
+  ```
+
+  Çıktı formatı `flavor` seçeneğine uyum sağlar — aşağıdaki [Desteklenen Çeşitleri](#desteklenen-çeşitler) görün.
+
+  ## Desteklenen Çeşitler
+
+  | Çeşit | Anahtar | Tipik Dosya | İstemci |
+  |-------|---------|-----------|---------|
+  | `claude` | `mcpServers` | `claude_desktop_config.json` | Claude Desktop |
+  | `claude-code` | `mcpServers` | `.mcp.json` | Claude Code |
+  | `vscode` | `mcp.servers` | `settings.json` | VS Code |
+  | `vscode-workspace` | `servers` | `.vscode/mcp.json` | VS Code (çalışma alanı) |
+  | `codex` | `mcp_servers` | `.mcp.toml` | Codex CLI |
+  | `opencode` | `mcp` | `opencode.json` | OpenCode |
+  | `zed` | `context_servers` | (değişken) | Zed |
+
+  ## Kullanılabilir Modüller
+
+  - [clickup](./modules/servers/clickup.nix)
+  - [codex](./modules/servers/codex.nix)
+  - [context7](./modules/servers/context7.nix)
+  - [deepl](./modules/servers/deepl.nix)
+  - [esa](./modules/servers/esa.nix)
+  - [everything](./modules/servers/everything.nix)
+  - [fetch](./modules/servers/fetch.nix)
+  - [filesystem](./modules/servers/filesystem.nix)
+  - [freee](./modules/servers/freee.nix)
+  - [git](./modules/servers/git.nix)
+  - [github](./modules/servers/github.nix)
+  - [grafana](./modules/servers/grafana.nix)
+  - [home-assistant](./modules/servers/home-assistant.nix)
+  - [mastra](./modules/servers/mastra.nix)
+  - [memory](./modules/servers/memory.nix)
+  - [netdata](./modules/servers/netdata.nix)
+  - [nixos](./modules/servers/nixos.nix)
+  - [notion](./modules/servers/notion.nix)
+  - [playwright](./modules/servers/playwright.nix)
+  - [sequential-thinking](./modules/servers/sequential-thinking.nix)
+  - [serena](./modules/servers/serena.nix)
+  - [slite](./modules/servers/slite.nix)
+  - [tavily](./modules/servers/tavily.nix)
+  - [terraform](./modules/servers/terraform.nix)
+  - [textlint](./modules/servers/textlint.nix)
+  - [time](./modules/servers/time.nix)
+
+  ## Örnekler
+
+  Tam konfigürasyon örnekleri için `examples` dizinini kontrol edin:
+
+  - [`claude-desktop.nix`](./examples/claude-desktop.nix): Claude Desktop için temel konfigürasyon
+  - [`vscode.nix`](./examples/vscode.nix): VS Code entegrasyonu kurulumu
+  - [`librechat.nix`](./examples/librechat.nix): LibreChat entegrasyonu için konfigürasyon
+  - [`codex.nix`](./examples/codex.nix): MCP sunucuları ile Codex CLI entegrasyonu
+  - [`opencode.nix`](./examples/opencode.nix): MCP sunucuları ile OpenCode CLI entegrasyonu
+  - [`vscode-workspace`](./examples/vscode-workspace/flake.nix): VS Code çalışma alanı konfigürasyon örneği
+  - [`flake-parts-module`](./examples/flake-parts-module/flake.nix): Çok çeşit desteği ile flake-parts modül entegrasyonu
+  - [`devenv`](./examples/devenv): `claude.code.mcpServers` kullanarak devenv entegrasyonu
+  - [`home-manager`](./examples/home-manager/flake.nix): `programs.mcp.servers` ile Home Manager entegrasyonu
+
+  ### Gerçek Dünya Örnekleri
+
+  Başkalarının projelerinde mcp-servers-nix'i nasıl kullandığını görmek için [GitHub arama sonuçlarını](https://github.com/search?q=lang%3Anix+mcp-servers-nix&type=code) kontrol edin.
+
+  ## Dokumentasyon
+
+  - [Modül Kullanım Kılavuzu](docs/module-usage.md) — Nix ile MCP sunucularını yapılandırma (klasik, npins, flakes, flake-parts)
+  - [Konfigürasyon Referansı](docs/configuration-reference.md) — Güvenlik, kimlik bilgisi yönetimi ve flake-parts seçenekleri
+  - [Modül Seçenekleri Referansı](docs/module-options.md) — Tüm modül seçeneklerinin otomatik oluşturulan listesi
+  - [Paketler Kılavuzu](docs/packages.md) — Bağımsız MCP sunucu paketlerini kullanma
+  - [Katkı Kılavuzu](CONTRIBUTING.md) — Yeni paketler ve modüller ekleme
+
+  ## Lisans
+
+  Bu proje Apache License 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE dosyasını](./LICENSE) görün.
 ---
 
 # mcp-servers-nix

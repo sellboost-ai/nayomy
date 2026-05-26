@@ -8,6 +8,253 @@ url: "https://github.com/nguyenvanduocit/jira-mcp"
 body_length: 9121
 license: "MIT"
 language: "Go"
+body_tr: |-
+  ## Jira MCP
+
+  Yılların gerçek yazılım geliştirme deneyiminden türetilen, kendine has bir Jira MCP sunucusu.
+
+  Genel Jira entegrasyonlarından farklı olarak, bu MCP mühendislerin ve otomasyon QC ekiplerinin günlük iş akışlarından tasarlanmıştır. Gerçek geliştirme ihtiyaçları için hazırlanmış sofistike araçlar bulacaksınız—bir konuya bağlı tüm pull request'leri almak, karmaşık sprint geçişlerini yönetmek veya tüm iş akışınız genelinde geliştirme bilgilerini takip etmek gibi.
+
+  Bu sadece bir API wrapper değildir. Profesyonellerin Jira'yı gerçekten nasıl kullandıklarının yansımasıdır: sprint'leri yönetmek, geliştirme işini takip etmek, release'leri koordine etmek ve ekipler arası görünürlüğü korumak. Her araç, modern yazılım geliştirmesinde ortaya çıkan gerçek sorunları çözmek için tasarlanmıştır.
+
+  ## Kullanılabilir araçlar
+
+  ### Issue Yönetimi
+  - **jira_get_issue** - Durum, atanan kişi, açıklama, alt görevler ve kullanılabilir geçişler dahil olmak üzere belirli bir konunun ayrıntılı bilgilerini alır
+  - **jira_create_issue** - Belirtilen ayrıntılarla yeni bir konu oluşturur (key, ID ve URL döndürür)
+  - **jira_create_child_issue** - Ana konuya bağlı bir alt konu (sub-task) oluşturur
+  - **jira_update_issue** - Mevcut bir konunun ayrıntılarını değiştirir (kısmi güncellemeleri destekler)
+  - **jira_list_issue_types** - Bir projede tüm mevcut konu türlerini ID, ad ve açıklamaları ile listeler
+
+  ### Arama
+  - **jira_search_issue** - JQL (Jira Query Language) kullanarak özelleştirilebilir alanlar ve genişletme seçenekleri ile konuları arar
+
+  ### Sprint Yönetimi
+  - **jira_list_sprints** - Belirli bir board veya proje için tüm aktif ve gelecek sprint'leri listeler
+  - **jira_get_sprint** - Belirtilen ID'ye göre sprint hakkında ayrıntılı bilgi alır
+  - **jira_get_active_sprint** - Verilen board veya proje için şu anda aktif olan sprint'i alır
+  - **jira_search_sprint_by_name** - Sprint'leri ad'a göre tam veya kısmi eşleştirme ile arar
+
+  ### Durum & Geçişler
+  - **jira_list_statuses** - Bir proje için tüm mevcut konu durumu ID'lerini ve adlarını alır
+  - **jira_transition_issue** - Geçerli bir geçiş ID'si kullanarak bir konuyu iş akışında geçişine izin verir
+
+  ### Yorumlar
+  - **jira_add_comment** - Bir konuya yorum ekler (Atlassian Document Format kullanır)
+  - **jira_get_comments** - Bir konudan tüm yorumları alır
+
+  ### Worklogs
+  - **jira_add_worklog** - Bir konuda harcanan zamanı takip etmek için worklog girdisi ekler
+
+  ### Geçmiş & Denetim
+  - **jira_get_issue_history** - Bir konunun tüm değişim geçmişini alır
+
+  ### Konu İlişkileri
+  - **jira_get_related_issues** - İlişkisi olan konuları alır (engeller, engellenir, ilişkilidir vb.)
+  - **jira_link_issues** - İki konu arasında bir bağlantı oluşturur, aralarındaki ilişkiyi tanımlar
+
+  ### Versiyon Yönetimi
+  - **jira_get_version** - Belirli bir proje versiyonu hakkında ayrıntılı bilgi alır
+  - **jira_list_project_versions** - Bir projede ayrıntıları ile tüm versiyonları listeler
+
+  ### Geliştirme Bilgileri
+  - **jira_get_development_information** - Geliştirme aracı entegrasyonları (GitHub, GitLab, Bitbucket) aracılığıyla bir konuya bağlı branch'ler, pull request'ler ve commit'leri alır
+
+  ## Kurulum
+
+  Bu istemi AI asistanınıza kopyalayın:
+
+  ```
+  Install the Jira MCP server (https://github.com/nguyenvanduocit/jira-mcp) for my Claude Desktop or Cursor IDE. Read the MCP documentation carefully and guide me through the installation step by step.
+  ```
+
+  AI asistanınız bu kurulumda yardımcı olamıyorsa, bu bir yanlış yapılandırma veya etkisiz bir AI aracı gösterir. Yetenekli bir AI asistanı sizi MCP kurulumunda adım adım rehberlik edebilmelidir.
+
+  ## CLI Kullanımı
+
+  MCP sunucusuna ek olarak, `jira-mcp` bağımsız bir CLI binary'si (`jira-cli`) ile gelir — MCP client'ı gerekmez.
+
+  ### Kurulum
+
+  ```bash
+  just install-cli
+  # veya
+  go install github.com/nguyenvanduocit/jira-mcp/cmd/jira-cli@latest
+  ```
+
+  ### Hızlı Başlangıç
+
+  ```bash
+  export ATLASSIAN_HOST=your-instance.atlassian.net
+  export ATLASSIAN_EMAIL=you@example.com
+  export ATLASSIAN_TOKEN=your-api-token
+  # veya
+  jira-cli --env .env <command> [flags]
+  ```
+
+  ### Komutlar
+
+  | Komut | Açıklama |
+  |---------|-------------|
+  | `get-issue` | Konu ayrıntılarını alır |
+  | `search-issues` | JQL ile konuları arar |
+  | `create-issue` | Yeni bir konu oluşturur |
+  | `update-issue` | Mevcut bir konuyu günceller |
+  | `add-comment` | Bir konuya yorum ekler |
+  | `list-comments` | Bir konudaki yorumları listeler |
+  | `get-transitions` | Kullanılabilir durum geçişlerini alır |
+  | `transition-issue` | Konuyu yeni duruma geçişine izin verir |
+  | `list-sprints` | Bir board için sprint'leri listeler |
+  | `get-worklogs` | Bir konu için worklog'ları alır |
+  | `add-worklog` | Bir konuda çalışma zamanını kaydeder |
+  | `get-history` | Konu değişim geçmişini alır |
+
+  ### Örnekler
+
+  ```bash
+  # Konu al
+  jira-cli get-issue --issue-key PROJ-123
+
+  # JQL ile ara
+  jira-cli search-issues --jql "project = PROJ AND status = 'In Progress'" --max-results 20
+
+  # Konu oluştur
+  jira-cli create-issue --project PROJ --summary "Fix login bug" --type Bug
+
+  # Konu geçişi yap
+  jira-cli get-transitions --issue-key PROJ-123
+  jira-cli transition-issue --issue-key PROJ-123 --transition-id 31
+
+  # JSON çıktısı
+  jira-cli search-issues --jql "assignee = currentUser()" --output json | jq '.[].key'
+  ```
+
+  ### Bayraklar
+
+  Her komut şunları kabul eder:
+  - `--env string` — `.env` dosyası yolu
+  - `--output string` — Çıktı formatı: `text` (varsayılan) veya `json`
+
+  ## Lisans
+  MIT — `LICENSE` dosyasına bakın.
+
+  ## AI İÇİN
+
+  > BU BÖLÜM SADECE AI İÇİNDİR
+
+  Bu kod tabanıyla çalışırken, proje yapısını anlamak için bu dosyaları okuyun:
+
+  1. **CLAUDE.md** - Mimari, geliştirme komutları ve kodlama kurallarını içeren kapsamlı proje belgeleri
+  2. **main.go** - MCP sunucusunun nasıl başlatıldığını ve araçların nasıl kaydedildiğini gösteren giriş noktası
+  3. **services/jira_client.go** - Singleton Jira client'ı başlatması ve kimlik doğrulaması
+  4. **tools/** - Tutarlı desenleri takip eden bireysel araç uygulamaları
+  5. **docs/** - Detaylı belgeleme (yapı için aşağıya bakın)
+
+  Anahtar kavramlar:
+  - Bu, AI asistanlarını Jira'ya bağlayan Go tabanlı bir MCP sunucusudur
+  - Her araç, yazılan input doğrulaması ile kayıt + işleyici deseni izler
+  - Araçlar kategoriye göre organize edilir (konular, sprint'ler, yorumlar, worklogs vb.)
+  - Tüm Jira işlemleri `github.com/ctreminiom/go-atlassian` client kütüphanesini kullanır
+  - Geliştirme prensipleri `.specify/memory/constitution.md` dosyasında belgelenmiştir
+
+  Değişiklik yapmadan önce gözden geçirin:
+  - **CLAUDE.md** - mimari desenleri ve geliştirme komutları için
+  - **.specify/memory/constitution.md** - yönetim prensipleri için
+
+  ## Hızlı başlangıç
+
+  ### 1) API token'ı alın
+  `https://id.atlassian.com/manage-profile/security/api-tokens` adresinde bir tane oluşturun.
+
+  ### 2) Cursor'a ekleyin
+  Docker veya yerel binary (STDIO; port gerekmez) kullanın.
+
+  #### Docker
+  ```json
+  {
+    "mcpServers": {
+      "jira": {
+        "command": "docker",
+        "args": [
+          "run", "--rm", "-i",
+          "-e", "ATLASSIAN_HOST=https://your-company.atlassian.net",
+          "-e", "ATLASSIAN_EMAIL=your-email@company.com",
+          "-e", "ATLASSIAN_TOKEN=your-api-token",
+          "ghcr.io/nguyenvanduocit/jira-mcp:latest"
+        ]
+      }
+    }
+  }
+  ```
+
+  #### Binary
+  ```json
+  {
+    "mcpServers": {
+      "jira": {
+        "command": "/usr/local/bin/jira-mcp",
+        "env": {
+          "ATLASSIAN_HOST": "https://your-company.atlassian.net",
+          "ATLASSIAN_EMAIL": "your-email@company.com",
+          "ATLASSIAN_TOKEN": "your-api-token"
+        }
+      }
+    }
+  }
+  ```
+
+  ### 3) Cursor'da deneyin
+  - "Bana atanmış konuları göster"
+  - "ABC için mevcut sprint'te neler var?"
+  - "ABC'de bir bug oluştur: Safari'de giriş başarısız"
+
+  ## Yapılandırma
+  - **ATLASSIAN_HOST**: `https://your-company.atlassian.net`
+  - **ATLASSIAN_EMAIL**: Atlassian e-postanız
+  - **ATLASSIAN_TOKEN**: API token'ı
+
+  İsteğe bağlı `.env` (yerel olarak çalıştırılırsa):
+  ```bash
+  ATLASSIAN_HOST=https://your-company.atlassian.net
+  ATLASSIAN_EMAIL=your-email@company.com
+  ATLASSIAN_TOKEN=your-api-token
+  ```
+
+  HTTP modu (isteğe bağlı, hata ayıklama için):
+  ```bash
+  jira-mcp -env .env -http_port 3000
+  ```
+  Cursor yapılandırması (HTTP modu):
+  ```json
+  { "mcpServers": { "jira": { "url": "http://localhost:3000/mcp" } } }
+  ```
+
+  ### Açığa çıkarılan araçları sınırlandırma (ENABLED_TOOLS)
+
+  Varsayılan olarak her Jira aracı kaydedilir. Sadece bir alt kümesini açığa çıkarmak için—örneğin, bir AI aracısına Jira'nın salt okunur görünümünü vermek için—`ENABLED_TOOLS` ortam değişkenini virgülle ayrılmış araç adlarının bir izin listesine ayarlayın:
+
+  ```bash
+  ENABLED_TOOLS=jira_get_issue,jira_search_issue,jira_get_comments
+  ```
+
+  Kurallar:
+  - Ayarlanmamış veya boş → tüm araçlar açığa çıkarılır (geriye uyumlu).
+  - Adlar etrafındaki boşluklara göz yumulur.
+  - Bilinmeyen adlar yok sayılır ancak başlangıçta kaydedilir, böylece yazım hataları ortaya çıkar.
+  - Listelenmemiş adlar basitçe kaydedilmez, böylece MCP client'ı onları hiç görmez.
+
+  Salt okunur aracı örneği (15 okumayı açığa çıkarır, tüm 8 mutasyonu yapan aracı engeller):
+
+  ```bash
+  ENABLED_TOOLS=jira_get_issue,jira_search_issue,jira_list_statuses,jira_get_comments,jira_get_issue_history,jira_get_related_issues,jira_list_sprints,jira_get_sprint,jira_get_active_sprint,jira_search_sprint_by_name,jira_get_version,jira_list_project_versions,jira_get_development_information,jira_download_attachment,jira_list_issue_types
+  ```
+  ## Kurulum
+
+  ### Homebrew (macOS/Linux)
+
+  ```bash
+  brew install nguyenvanduocit/tap/jira-mcp
+  ```
 ---
 
 ## Jira MCP

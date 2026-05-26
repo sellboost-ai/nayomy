@@ -9,6 +9,157 @@ body_length: 6716
 license: "Apache-2.0"
 language: "Go"
 homepage: "http://kubefwd.com/"
+body_tr: |-
+  # kubefwd (Kube Forward)
+
+  ![kubefwd - kubernetes bulk port forwarding](https://raw.githubusercontent.com/txn2/kubefwd/HEAD/kubefwd-mast2.jpg)
+
+  [![CNCF Landscape](https://img.shields.io/badge/CNCF%20Landscape-5699C6?logo=cncf&logoColor=fff)](https://landscape.cncf.io/?item=app-definition-and-development--application-definition-image-build--kubefwd)
+  [![GitHub license](https://img.shields.io/github/license/txn2/kubefwd.svg)](https://github.com/txn2/kubefwd/blob/master/LICENSE)
+  [![codecov](https://codecov.io/gh/txn2/kubefwd/branch/master/graph/badge.svg)](https://codecov.io/gh/txn2/kubefwd)
+  [![Go Report Card](https://goreportcard.com/badge/github.com/txn2/kubefwd)](https://goreportcard.com/report/github.com/txn2/kubefwd)
+  [![GitHub release](https://img.shields.io/github/release/txn2/kubefwd.svg)](https://github.com/txn2/kubefwd/releases)
+  [![GitHub Downloads](https://img.shields.io/github/downloads/txn2/kubefwd/total)](https://github.com/txn2/kubefwd/releases)
+  [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/txn2/kubefwd/badge)](https://scorecard.dev/viewer/?uri=github.com/txn2/kubefwd)
+  [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11659/badge)](https://www.bestpractices.dev/projects/11659)
+  [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
+
+
+  **[Dokümantasyon](https://kubefwd.com)** | **[Başlarken](https://kubefwd.com/getting-started/)** | **[Kullanıcı Rehberi](https://kubefwd.com/user-guide/)** | **[API Referansı](https://kubefwd.com/api-reference/)** | **[MCP (AI Entegrasyonu)](https://kubefwd.com/mcp-integration/)**
+
+  ## Yerel Olarak Geliştirin, Kubernetes'e Bağlanın
+
+  **kubefwd**, geliştiricilerin yerel bilgisayarlarında çalışırken bir Kubernetes kümesinde çalışan servislere sorunsuz bir şekilde erişmelerini sağlar. `db:5432` adresinde bir database, `auth:443` adresinde bir auth servisi ve `redis:6379` adresinde bir cache ile bağlantı kurmak isteyen yeni bir API geliştiriyorsanız ve bunların tümü geliştirme kümenizde çalışıyorsa, kubefwd bunları yerel olarak servis isimleriyle, tam olarak küme içinde görüneceği şekilde kullanılabilir hale getirir. Ortama özel konfigürasyon yok, yerel servis kurulumu yok, Docker Compose dosyaları yok. Sadece `kubefwd` çalıştırın ve uygulamanızın mevcut bağlantı stringleri çalışır.
+
+  Bu temel kullanım durumudur: **yerel geliştirme sırasında ortama özel bağlantı kurulumunu ve konfigürasyonları azaltın veya tamamen ortadan kaldırın**. Kodunuz production ortamında `http://api-gateway:8080` kullanıyorsa? kubefwd ile dizüstü bilgisayarınızda da aynı şekilde çalışır.
+
+  > Interactive TUI ile toplu Kubernetes port forwarding, servis başına benzersiz IP'ler ve otomatik yeniden bağlantı.
+
+  **kubefwd** Kubernetes servislerini yerel çalışma istasyonunuza toplu olarak port forward eden bir komut satırı aracıdır. Her servis kendi benzersiz loopback IP'sini (127.x.x.x) alır; bu sayede port çatışmaları ortadan kalkar ve küme servisleriyle isimle erişilebilen gerçekçi yerel geliştirme mümkün olur.
+
+  ![kubefwd TUI - Ana Görünüm](https://raw.githubusercontent.com/txn2/kubefwd/HEAD/docs/images/tui-110-main-active.png)
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  # Kurulum (macOS)
+  brew install kubefwd
+
+  # Namespace'deki tüm servisleri interactive TUI ile forward edin
+  sudo -E kubefwd svc -n my-namespace --tui
+  ```
+
+  Yardım için `?`, çıkmak için `q` tuşlarına basın. Detaylı kurulum ve ayarlar için [Başlarken](https://kubefwd.com/getting-started/) kısmına bakın.
+
+  ## Nasıl Çalışır?
+
+  <div align="center">
+    
+  </div>
+
+  kubefwd namespace'deki servisleri keşfeder, her birine benzersiz loopback IP atar, `/etc/hosts` dosyasını servis isimleriyle günceller ve Kubernetes API üzerinden port forward bağlantıları kurar. Servislere tam olarak küme içinde olduğu gibi isimle erişin:
+
+  ```bash
+  curl http://api-service:8080
+  mysql -h database -P 3306
+  redis-cli -h cache -p 6379
+  ```
+
+  ## Özellikler
+
+  - **Interactive TUI**: Gerçek zamanlı servis monitoring ve trafik metrikleri
+  - **Servis Başına Benzersiz IP**: Her servis kendi 127.x.x.x adresini alır
+  - **Otomatik Yeniden Bağlantı**: Pod'lar yeniden başladığında veya bağlantı kesildiğinde yeniden bağlanır
+  - **Toplu Forwarding**: Bir komutla namespace'deki tüm servisleri forward edin
+  - **Canlı Trafik Monitoring**: Byte in/out ve HTTP aktivitesini görün
+  - **Pod Log Streaming**: TUI'de container loglarını görüntüleyin
+  - **REST API**: HTTP endpoint'leri aracılığıyla programlı kontrol
+  - **MCP Desteği**: AI asistanlarıyla entegrasyon (Claude Code, Cursor)
+
+  ## Kurulum
+
+  **macOS:**
+  ```bash
+  brew install kubefwd
+  ```
+
+  **Linux:** [releases](https://github.com/txn2/kubefwd/releases) sayfasından `.deb`, `.rpm` veya `.tar.gz` indiriniz
+
+  **Windows:**
+  ```powershell
+  winget install txn2.kubefwd
+  # veya
+  scoop install kubefwd
+  ```
+
+  **Docker:**
+  ```bash
+  docker run -it --rm --privileged \
+    -v "$HOME/.kube:/root/.kube:ro" \
+    txn2/kubefwd services -n my-namespace --tui
+  ```
+
+  ## Kullanım
+
+  ```bash
+  # Interactive mod (önerilen)
+  sudo -E kubefwd svc -n default --tui
+
+  # Birden çok namespace
+  sudo -E kubefwd svc -n default,staging --tui
+
+  # Label'a göre filtreleme
+  sudo -E kubefwd svc -n default -l app=api --tui
+
+  # REST API etkinleştirilmiş halde
+  sudo -E kubefwd svc -n default --tui --api
+  ```
+
+  ## Neden kubefwd?
+
+  `kubectl port-forward` aksine, kubefwd:
+
+  | Özellik | kubectl port-forward | kubefwd |
+  |---------|---------------------|---------|
+  | Komut başına servis sayısı | Bir | Namespace'deki tümü |
+  | IP tahsisi | Sadece localhost | Servis başına benzersiz IP |
+  | Port çatışmaları | Manuel yönetim | Yok (benzersiz IP'ler) |
+  | Servis adı çözümleme | Desteklenmez | Otomatik (/etc/hosts) |
+  | Otomatik yeniden bağlantı | Hayır | Evet |
+  | Gerçek zamanlı monitoring | Hayır | TUI ile metrikler |
+
+  Telepresence, mirrord ve diğer araçlarla detaylı karşılaştırmalar için [Karşılaştırma](https://kubefwd.com/comparison/) bölümüne bakın.
+
+  ## Dokümantasyon
+
+  Tam dokümantasyon **[kubefwd.com](https://kubefwd.com)** adresinde:
+
+  - [Başlarken](https://kubefwd.com/getting-started/) - Kurulum ve ayarlar
+  - [Kullanıcı Rehberi](https://kubefwd.com/user-guide/) - Arayüz ve kısayollar
+  - [Konfigürasyon](https://kubefwd.com/configuration/) - CLI seçenekleri
+  - [Gelişmiş Kullanım](https://kubefwd.com/advanced-usage/) - Çok kümeli, seçiciler
+  - [REST API](https://kubefwd.com/api-reference/) - API referansı
+  - [MCP Entegrasyonu](https://kubefwd.com/mcp-integration/) - AI asistan kurulumu
+  - [Sorun Giderme](https://kubefwd.com/troubleshooting/) - Sık karşılaşılan sorunlar
+  - [Mimari](https://kubefwd.com/architecture/) - Teknik detaylar
+  - [Karşılaştırma](https://kubefwd.com/comparison/) - Telepresence, mirrord ile karşılaştırma
+
+  ## Gereksinimler
+
+  - kubectl configured with cluster access
+  - Root/sudo erişimi (/etc/hosts ve network interface'leri için)
+
+  ## Katkı Sağlama
+
+  Hata düzeltmeleri, testler ve dokümantasyon için katkıları memnuniyetle karşılıyoruz. Özellik geliştirmesi yalnızca bakıcılarla sınırlıdır. [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakınız.
+
+  ## Lisans
+
+  [Apache License 2.0](LICENSE)
+
+  ---
+
+  [Craig Johnston](https://twitter.com/cjimti) tarafından açık kaynak, [Deasil Works, Inc.](https://deasil.works/) tarafından desteklenmiştir.
 ---
 
 # kubefwd (Kube Forward)

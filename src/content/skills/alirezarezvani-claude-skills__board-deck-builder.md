@@ -12,6 +12,177 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Board Deck Builder
+
+  Bir hikaye anlatan board deck'ler oluşturun — sadece veri göstermeyin. Her bölümün sahibi, bir anlatısı ve bir "neden önemli" vardır.
+
+  ## Anahtar Sözcükler
+  board deck, yatırımcı güncellemesi, board toplantısı, board paketi, yatırımcı ilişkileri, üç aylık inceleme, board sunumu, fundraising deck'i, yatırımcı deck'i, board anlatısı, QBR, üç aylık işletme incelemesi
+
+  ## Hızlı Başlangıç
+
+  ```
+  /board-deck [quarterly|monthly|fundraising] [stage: seed|seriesA|seriesB]
+  ```
+
+  Mevcut metrikler sağlayın. Builder boşlukları açık yer tutucularla doldurur — asla sayı uydurulmaz.
+
+  ## Deck Yapısı (Standart Sıra)
+
+  Her bölüm şu şekilde ilerler: **Başlık → Veri → Anlatı → İstek/Sonraki Adım**
+
+  ### 1. Executive Summary (CEO)
+  **3 cümle. Daha fazla değil.**
+  - Cümle 1: İşletmenin durumu (nerede olduğumuz)
+  - Cümle 2: Bu dönemde olan en büyük şey
+  - Cümle 3: Sonraki çeyreğe nereye gideceğimiz
+
+  *Kötü:* "İyi bir çeyrek geçirdik ve tüm alanlarda pek çok ilerleme yaptık."
+  *İyi:* "Q3'ü $2.4M ARR'de kapattık (+22% QoQ), en büyük kurumsal sözleşmeyi imzaladık ve Q4'e 14 aylık runway ile girdik. Mid-market'e stratejik kayış işe yarıyor — ACV %40 arttı ve satış döngüsü 3 hafta kısaldı. Q4 önceliği: $3M Series A'yı kapat ve $2.8M ARR'ye ulaş."
+
+  ### 2. Key Metrics Dashboard (COO)
+  **Maksimum 6-8 metrik. Tablo kullanın.**
+
+  | Metrik | Bu Dönem | Geçen Dönem | Hedef | Durum |
+  |--------|----------|-------------|--------|--------|
+  | ARR | $2.4M | $1.97M | $2.3M | ✅ |
+  | MoM büyüme | 8.1% | 7.2% | 7.5% | ✅ |
+  | Burn multiple | 1.8x | 2.1x | <2x | ✅ |
+  | NRR | 112% | 108% | >110% | ✅ |
+  | CAC payback | 11 ay | 14 ay | <12 ay | ✅ |
+  | Headcount | 24 | 21 | 25 | 🟡 |
+
+  Board'un gerçekten takip ettiği metrikleri seçin. Önemsiz olmadığını söyledikleri her şeyi değiştirin.
+
+  ### 3. Financial Update (CFO)
+  - P&L özeti: Revenue, COGS, Gross margin, OpEx, Net burn
+  - Cash pozisyonu ve runway (aylar)
+  - Burn multiple trendi (3 çeyrek görüntüsü)
+  - Plana göre fark (ne farklıydı ve neden)
+  - Sonraki çeyrek için tahmin güncellemesi
+
+  **Her farka bir cümle.** Board'lar "revenue hedefin altında kaldı" açıklaması olmadan nefret eder. Nedenini söyleyin.
+
+  ### 4. Revenue & Pipeline (CRO)
+  - ARR waterfall: başlangıç → yeni → expansion → churn → son
+  - NRR ve logo churn oranları
+  - Pipeline aşamaya göre (sayı değil $)
+  - Tahmin: güven seviyesi ile sonraki çeyrek
+  - Top 3 deal: ad/miktar/kapanış tarihi/risk
+
+  **Tahmin güven seviyesi olmalıdır.** "$2.8M bekleniyorum" zayıftır. "Yüksek güven $2.6M, iki geç aşama deal kapalı olursa $2.9M'ye kadar potansiyel" yararlıdır.
+
+  ### 5. Product Update (CPO)
+  - Bu çeyrek sevk edilen: 3-5 bullet, her biri için kullanıcı etkisi
+  - Sonraki çeyrek sevk edilen: hedef tarihler ile 3-5 bullet
+  - PMF signali: NPS trendi, DAU/MAU oranı, feature adoption
+  - Müşteri araştırmasından bir temel öğrenme
+
+  **Feature listesi yok.** Yalnızca kullanıcı etkisinin kanıtı olan featureler.
+
+  ### 6. Growth & Marketing (CMO)
+  - Kanala göre CAC (tablo)
+  - Kanala göre pipeline katkısı ($)
+  - Stage'e ilgili brand/awareness metrikleri (traffic, share of voice)
+  - Neyin işe yaradığı, neyin kesildiği, neyin test edildiği
+
+  ### 7. Engineering & Technical (CTO)
+  - Delivery velocity trendi (son 4 çeyrek)
+  - Tech debt oranı ve planı
+  - Infrastructure: uptime, olaylar, maliyet trendi
+  - Security posture (bir satır, beklemede olan her şeyi işaretle)
+
+  **Bu bölümü kısa tutun; önemli bir sorun yoksa.** Board'lar sprint detaylarına ihtiyaç duymaz.
+
+  ### 8. Team & People (CHRO)
+  - Headcount: gerçek vs plan
+  - Hiring: offer out, pipeline, time-to-fill trendi
+  - Attrition: pişman edici vs pişman etmeyen
+  - Engagement: son anket skoru, trend
+  - Bu çeyrekten temel işe alımlar, açık temel roller
+
+  ### 9. Risk & Security (CISO)
+  - Security posture: kritik kontrollerin durumu
+  - Compliance: devam eden sertifikasyonlar, son tarihler
+  - Bu çeyrekten olaylar (varsa): etki, çözüm, önleme
+  - Top 3 risk ve azaltma durumu
+
+  ### 10. Strategic Outlook (CEO)
+  - Sonraki çeyrek öncelikleri: 3-5 öğe, sıralanmış
+  - Board'dan gerekli olan önemli kararlar
+  - İstekler: bütçe, tanıştırmalar, tavsiye, oylar
+
+  **"istekler" slide'ı en önemli olanıdır.** Spesifik olun. "Series B şirketlerindeki CFO'larla 3 sıcak tanışmaya istiyoruz" "herhangi bir yardım takdir edilecektir" tarafından daha iyidir.
+
+  ### 11. Appendix
+  - Detaylı finansal model
+  - Tam pipeline veri
+  - Cohort retention grafikleri
+  - Müşteri case study'leri
+  - Detaylı headcount dökümü
+
+  ---
+
+  ## Narrative Framework
+
+  Board'lar çeyrek başına 10+ deck görür. Sizin bir akış hattı olması gerekir.
+
+  **4-Bölümlü Yapı:**
+  1. **Olacağını söylediğimiz yer** (geçen çeyreğin hedefleri)
+  2. **Gerçekten nerede olduğumuz** (dürüst değerlendirme)
+  3. **Boşluğun neden var olduğu** (bahaneler değil, fark başına bir neden)
+  4. **Bununla ilgili ne yapıyoruz** (spesifik, tarihli eylemler)
+
+  Bu iyi haberler VE kötü haberler için işe yarar. Gerçekliği kabul ettiği için güvenilirdir.
+
+  **Açılış çerçevesi:** En önemli şey ile başlayın — board slide 3'te anahtarı bilmeli, slide 30'da değil.
+
+  ---
+
+  ## Kötü Haberleri Vermek
+
+  Asla gizlemeyin. Board'lar sonunda öğrenir. Geç öğrenmek daha kötüdür.
+
+  **Framework:**
+  1. **Açıkça belirt** — "Q3 ARR hedefini $300K (12% boşluk) ile kaçırdık"
+  2. **Sebebine sahip ol** — "Birincil etken kurumsal segmentin beklenenden uzun satış döngüsü idi"
+  3. **Anladığını göster** — "8 kaybettiğimiz/durmuş deal analiz ettik; pattern X"
+  4. **Düzeltmeyi sun** — "3 değişiklik yaptık: [spesifik, tarihli değişiklikler]"
+  5. **Tahmini güncelle** — "Revize Q4 hedefi $2.6M; işte bottom-up build"
+
+  **Ne yapmamalısınız:**
+  - Kötü haberi hafifletmek için iyi haberle başlamayın — board'lar ve çerçevelemeye güvenmez
+  - Sahiplenme olmadan açıklamayın — "pazar koşulları" sebep değil, bağlam
+  - Veri olmadan düzeltme sunmayın
+  - Varsayımlarını göstermeden revize tahmin sunmayın
+
+  ---
+
+  ## Genel Board Deck Hataları
+
+  | Hata | Çözüm |
+  |---------|--------|
+  | Çok fazla slide (>25) | Acımasızca kesin — odada açıklamıyorsan slide yanlış |
+  | Hedefsiz metrikler | Her metriğin hedefi ve durumu olmalı |
+  | Hiçbir anlatı | Board'ları kendi sonuçlarına çizmesi gereken veri hikayesiz |
+  | Kötü haberi gizlemek | Bunu öncü yer, sahiplen, onarır |
+  | Muğlak istekler | Yalnızca spesifik, işlem yapılabilir, kişi atanmış istekler |
+  | Fark açıklaması yok | Hedeften her boşluğun tek cümle sebebi vardır |
+  | Eski appendix | Appendix yalnızca güncelleyse kullanışlı |
+  | Okuyucu için tasarımlamak, oda için değil | Deck'ler sunulur — sesli söylenebilir |
+
+  ---
+
+  ## Cadence Notları
+
+  **Üç aylık (standart):** Tam deck, tüm bölümler, 20-30 slide. 48 saat öncesinde gönderilmiş.
+  **Aylık (erken aşama için):** Özet — metrik panosu, finansal, pipeline, üst riskler. 8-12 slide.
+  **Fundraising:** Market/vision ile açılır, istek ile kapatılır. Sequoia formatı için `references/deck-frameworks.md` bölümüne bakın.
+
+  ## Referanslar
+  - `references/deck-frameworks.md` — SaaS board pack formatı, Sequoia yapısı, yatırımcı özelleştirmesi
+  - `templates/board-deck-template.md` — tam board deck'ler için doldurun şablonu
 ---
 
 # Board Deck Builder

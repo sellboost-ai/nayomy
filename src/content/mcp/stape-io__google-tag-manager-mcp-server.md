@@ -9,6 +9,52 @@ body_length: 1843
 license: "Apache-2.0"
 language: "TypeScript"
 homepage: "https://stape.io"
+body_tr: |-
+  # Google Tag Manager için MCP Server
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/stape-io/google-tag-manager-mcp-server)](https://archestra.ai/mcp-catalog/stape-io__google-tag-manager-mcp-server)
+
+  Bu, uzak MCP bağlantılarını destekleyen, Google OAuth'u yerleşik olarak içeren ve Google Tag Manager API'sine bir interface sağlayan bir sunucudur.
+
+
+  ## Claude Desktop'tan uzak MCP sunucusuna erişim
+
+  Claude Desktop'ı açın ve Settings -> Developer -> Edit Config adımlarını izleyin. Bu, Claude'un hangi MCP sunucularına erişebileceğini kontrol eden yapılandırma dosyasını açar.
+
+  İçeriği aşağıdaki yapılandırma ile değiştirin. Claude Desktop'ı yeniden başlattığınızda, OAuth giriş sayfanızı gösteren bir tarayıcı penceresi açılacaktır. Claude'a MCP sunucunuza erişim izni vermek için kimlik doğrulama akışını tamamlayın. Erişim izni verdikten sonra, araçlar kullanmanız için kullanılabilir hale gelecektir.
+
+  ```json
+  {
+    "mcpServers": {
+      "gtm-mcp-server": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-remote",
+          "https://gtm-mcp.stape.ai/mcp"
+        ]
+      }
+    }
+  }
+  ```
+
+  ### Sorun Giderme
+
+  **MCP Server Adı Uzunluk Sınırı**
+
+  Bazı MCP istemcileri (Cursor AI gibi) birleştirilmiş MCP sunucu adı + araç adı uzunluğu için 60 karakterlik bir sınıra sahiptir. Yapılandırmanızda daha uzun bir sunucu adı kullanırsanız (örneğin, `gtm-mcp-server-your-additional-long-name`), bazı araçlar filtrelenmeyebilir.
+
+  Bu sorunu önlemek için:
+  - MCP yapılandırmanızda daha kısa sunucu adları kullanın (örneğin, `gtm-mcp-server`)
+
+  **MCP Cache'i Temizleme**
+
+  [mcp-remote](https://github.com/geelen/mcp-remote#readme) tüm kimlik bilgisi bilgilerini ~/.mcp-auth içinde saklar (veya MCP_REMOTE_CONFIG_DIR'in işaret ettiği yerdeki). Kalıcı sorunlarla karşılaşıyorsanız, aşağıdakini çalıştırmayı deneyin:
+
+  ```
+  rm -rf ~/.mcp-auth
+  ```
+
+  Daha sonra MCP istemcinizi yeniden başlatın.
 ---
 
 # MCP Server for Google Tag Manager

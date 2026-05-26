@@ -8,6 +8,197 @@ url: "https://github.com/kukapay/freqtrade-mcp"
 body_length: 7040
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Freqtrade-MCP
+
+  [Freqtrade](https://www.freqtrade.io/) kripto para trading botunu REST API aracılığıyla entegre eden ve AI ajanların otomatik işlem yönetimi için sorunsuz etkileşimini sağlayan bir MCP sunucusu.
+
+  Daha fazla kripto ile ilgili MCP sunucusu için, [Kukapay MCP sunucuları](https://github.com/kukapay/kukapay-mcp-servers) sayfasına bakın.
+
+  ![GitHub License](https://img.shields.io/github/license/kukapay/freqtrade-mcp)
+  ![Python Version](https://img.shields.io/badge/python-3.13+-blue)
+  ![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
+
+  ## Kurulum
+
+  ### Ön Koşullar
+  - **Python 3.13+**: Sisteminizde Python kurulu olduğundan emin olun.
+  - **Freqtrade**: REST API etkinleştirilmiş çalışan bir Freqtrade örneği ([Freqtrade Dokümanları](https://www.freqtrade.io/en/stable/rest-api/)).
+  - **Git**: Depoyu klonlamak için.
+
+  ### Adımlar
+  1. **Depoyu Klonlayın**:
+     ```bash
+     git clone https://github.com/kukapay/freqtrade-mcp.git
+     cd freqtrade-mcp
+     ```
+
+  2. **Bağımlılıkları Kurun**:
+     `pip` kullanarak:
+     ```bash
+     pip install freqtrade-client mcp[cli]
+     ```
+     Veya `uv` ile (isteğe bağlı):
+     ```bash
+     uv add freqtrade-client "mcp[cli]"
+     ```
+
+  3. **İstemci Yapılandırması**:
+
+      ```
+      "mcpServers": { 
+        "freqtrade-mcp": { 
+          "command": "uv", 
+          "args": [ 
+            "--directory", "/your/path/to/freqtrade-mcp", 
+            "run", 
+            "__main__.py" 
+          ], 
+          "env": { 
+             "FREQTRADE_API_URL": "http://127.0.0.1:8080",
+             "FREQTRADE_USERNAME": "your_username",
+             "FREQTRADE_PASSWORD": "your_password"
+          } 
+        } 
+      }
+      ```
+      
+  4. **Freqtrade Yapılandırması**:
+
+      Yapılandırmanıza api_server bölümünü ekleyerek REST API'yi etkinleştirin ve api_server.enabled'ı true olarak ayarlayın.
+
+      Örnek yapılandırma:
+      ```
+          "api_server": {
+          "enabled": true,
+          "listen_ip_address": "127.0.0.1",
+          "listen_port": 8080,
+          "verbosity": "error",
+          "enable_openapi": false,
+          "jwt_secret_key": "somethingrandom",
+          "CORS_origins": [],
+          "username": "Freqtrader",
+          "password": "SuperSecret1!",
+          "ws_token": "sercet_Ws_t0ken"
+      },
+      ```
+
+     Dokümanı [burada](https://www.freqtrade.io/en/stable/rest-api/#configuration) kontrol edin.
+
+  ## Kullanım
+
+  ### Kullanılabilir Araçlar
+  Sunucu, aşağıdaki Freqtrade API endpoint'lerini MCP araçları olarak sunar:
+
+  | Araç                  | Açıklama                             | Parametreler                        |
+  |-----------------------|--------------------------------------|-------------------------------------|
+  | `fetch_market_data`   | Bir pair için OHLCV verileri getir   | `pair: str`, `timeframe: str`       |
+  | `fetch_bot_status`    | Açık işlem durumunu al               | Yok                                 |
+  | `fetch_profit`        | Kar özetini al                       | Yok                                 |
+  | `fetch_balance`       | Hesap bakiyesini al                  | Yok                                 |
+  | `fetch_performance`   | Performans metriklerini al           | Yok                                 |
+  | `fetch_whitelist`     | Pair whitelist'ini al                | Yok                                 |
+  | `fetch_blacklist`     | Pair blacklist'ini al                | Yok                                 |
+  | `fetch_trades`        | İşlem geçmişini al                   | Yok                                 |
+  | `fetch_config`        | Bot yapılandırmasını al              | Yok                                 |
+  | `fetch_locks`         | İşlem kilitlerini al                 | Yok                                 |
+  | `place_trade`         | Bir buy/sell işlemi yerleştir        | `pair: str`, `side: str`, `stake_amount: float` |
+  | `start_bot`           | Botu başlat                          | Yok                                 |
+  | `stop_bot`            | Botu durdur                          | Yok                                 |
+  | `reload_config`       | Bot yapılandırmasını yeniden yükle   | Yok                                 |
+  | `add_blacklist`       | Pair'i blacklist'e ekle              | `pair: str`                         |
+  | `delete_blacklist`    | Pair'i blacklist'ten kaldır          | `pair: str`                         |
+  | `delete_lock`         | Bir işlem kilidini sil               | `lock_id: int`                      |
+
+  ### Örnek İstemler
+  1. **Pazar Verileri Getir**:
+     - "BTC/USDT için saatlik fiyat verilerini göster."
+     - "ETH/BTC'nin 5 dakikalık grafiği nasıl?"
+     - "XRP/USDT için son saat içerisindeki en son mum verileri ver."
+
+  2. **Bot Durumunu Getir**:
+     - "Açık işlemlerimin mevcut durumu nedir?"
+     - "Şu anda aktif işlem var mı?"
+     - "Bana şu an botun işlem aktivitesi hakkında bilgi ver."
+
+  3. **Kar Getir**:
+     - "Şimdiye kadar ne kadar kar elde ettim?"
+     - "Bot için toplam kar özeti nedir?"
+     - "Bana ticari kazançlarımı gösterebilir misin?"
+
+  4. **Bakiye Getir**:
+     - "Hesap bakiyem nedir?"
+     - "İşlem hesabımda ne kadar para var?"
+     - "Freqtrade cüzdanımın mevcut bakiyesini söyle."
+
+  5. **Performans Getir**:
+     - "Bot ne kadar iyi performans gösteriyor?"
+     - "Işlemlerim için performans metrikleri nedir?"
+     - "Bana ticari istatistikleri göster."
+
+  6. **Whitelist Getir**:
+     - "Whitelist'te hangi pair'ler var?"
+     - "Bot hangi işlem pair'lerini kullanmaya izin veriliyor?"
+     - "Bana whitelisted pair'leri listele."
+
+  7. **Blacklist Getir**:
+     - "Hangi pair'ler blacklist'te?"
+     - "Şu anda hangi işlem pair'leri engelleniyor?"
+     - "Blacklist hakkında bana bilgi ver."
+
+  8. **İşlemler Getir**:
+     - "Kapalı işlemlerimin geçmişi nedir?"
+     - "Botun tamamladığı tüm işlemleri göster."
+     - "Geçmiş işlemlerimi listeler misin?"
+
+  9. **Yapılandırma Getir**:
+     - "Mevcut bot yapılandırması nedir?"
+     - "Botun kullandığı ayarları göster."
+     - "Freqtrade config'i hakkında bana bilgi ver."
+
+  10. **Kilitler Getir**:
+      - "Aktif herhangi bir işlem kilidi var mı?"
+      - "Şu anda hangi kilitler yerinde?"
+      - "Bana işlem kilitlerinin listesini göster."
+
+  11. **İşlem Yerleştir**:
+      - "Şimdi 0.01 BTC/USDT satın al."
+      - "Hemen 0.05 ETH/USDT sat."
+      - "0.1 XRP/USDT için bir alım emri yerleştir."
+
+  12. **Botu Başlat**:
+      - "İşlem botunu başlat."
+      - "Freqtrade botunu aç."
+      - "Botu şimdi çalıştır."
+
+  13. **Botu Durdur**:
+      - "İşlem botunu durdur."
+      - "Freqtrade botunu kapat."
+      - "Botun işlemini duraklat."
+
+  14. **Yapılandırmayı Yeniden Yükle**:
+      - "Botun yapılandırmasını yeniden yükle."
+      - "Bot ayarlarını güncelle."
+      - "Freqtrade config'ini yenile."
+
+  15. **Blacklist'e Ekle**:
+      - "ETH/USDT'yi blacklist'e al."
+      - "BTC/ETH'yi blacklist'e ekle."
+      - "XRP/USDT için işlemi engelle."
+
+  16. **Blacklist'ten Sil**:
+      - "ETH/USDT'yi blacklist'ten kaldır."
+      - "BTC/ETH'yi işlem için aç."
+      - "XRP/USDT'yi blacklist'ten çıkar."
+
+  17. **Kilidi Sil**:
+      - "ID'si 123 olan işlem kilidini sil."
+      - "45 numaralı kilidi kaldır."
+      - "ID'si 7 olan işlemin kilidini aç."
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](LICENSE) dosyasını göz atın.
 ---
 
 # Freqtrade-MCP

@@ -12,6 +12,293 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Çıktılar için Gereksinimler
+
+  ## Tüm Excel dosyaları
+
+  ### Profesyonel Yazı Tipi
+  - Kullanıcı tarafından aksi belirtilmedikçe tüm çıktılarda tutarlı, profesyonel bir yazı tipi (örn. Arial, Times New Roman) kullanın
+
+  ### Sıfır Formula Hatası
+  - Her Excel modeli SIFIR formula hatası (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?) ile teslim edilMELİDİR
+
+  ### Mevcut Şablonları Koru (şablonları güncelleme sırasında)
+  - Dosyaları değiştirirken mevcut biçimi, stili ve kuralları TAMAMEN eşleştirmek için çalışın
+  - Yerleşik desenlere sahip dosyalara standartlaştırılmış biçimlendirme uygulamayın
+  - Mevcut şablon kuralları HER ZAMAN bu yönergeleri geçersiz kılar
+
+  ## Finansal modeller
+
+  ### Renk Kodlama Standartları
+  Aksi belirtilmedikçe veya mevcut şablon tarafından
+
+  #### Endüstri Standart Renk Kuralları
+  - **Mavi yazı (RGB: 0,0,255)**: Sabit kodlanmış girdiler ve kullanıcıların senaryolar için değiştireceği sayılar
+  - **Siyah yazı (RGB: 0,0,0)**: TÜM formüller ve hesaplamalar
+  - **Yeşil yazı (RGB: 0,128,0)**: Aynı çalışma kitabı içindeki diğer çalışma sayfalarından çekilen bağlantılar
+  - **Kırmızı yazı (RGB: 255,0,0)**: Diğer dosyalara giden harici bağlantılar
+  - **Sarı arka plan (RGB: 255,255,0)**: Dikkat gerektiren önemli varsayımlar veya güncellenmesi gereken hücreler
+
+  ### Sayı Biçimlendirme Standartları
+
+  #### Gerekli Biçim Kuralları
+  - **Yıllar**: Metin dizesi olarak biçimlendir (örn. "2024" değil "2.024")
+  - **Para Birimi**: $#,##0 biçimini kullan; başlıklarda HER ZAMAN birimleri belirt ("Revenue ($mm)")
+  - **Sıfırlar**: Tüm sıfırları "-" olarak göstermek için sayı biçimlendirmesini kullan, yüzdeler dahil (örn. "$#,##0;($#,##0);-")
+  - **Yüzdeler**: Varsayılan olarak 0.0% biçimini kullan (bir ondalık)
+  - **Katları**: Değerleme katları için 0.0x olarak biçimlendir (EV/EBITDA, P/E)
+  - **Negatif sayılar**: Eksi -123 değil parantez (123) kullan
+
+  ### Formula Oluşturma Kuralları
+
+  #### Varsayımlar Yerleşimi
+  - TÜM varsayımları (büyüme oranları, marjlar, katlar vb.) ayrı varsayım hücrelerine yerleştir
+  - Formüllerde sabit kodlanmış değerler yerine hücre referansları kullan
+  - Örnek: =B5*1.05 yerine =B5*(1+$B$6) kullan
+
+  #### Formula Hata Önleme
+  - Tüm hücre referanslarının doğru olduğunu doğrula
+  - Aralıklarda off-by-one hatalarını kontrol et
+  - Tüm projeksiyon dönemleri arasında tutarlı formüller sağla
+  - Sınır durumlarıyla test et (sıfır değerler, negatif sayılar)
+  - İstemeden döngüsel referans olmadığını doğrula
+
+  #### Sabit Kodlar için Belgelendirme Gereksinimleri
+  - Yorum veya hücreler yanında (tablo sonundaysa). Biçim: "Source: [System/Document], [Date], [Specific Reference], [URL if applicable]"
+  - Örnekler:
+    - "Source: Company 10-K, FY2024, Page 45, Revenue Note, [SEC EDGAR URL]"
+    - "Source: Company 10-Q, Q2 2025, Exhibit 99.1, [SEC EDGAR URL]"
+    - "Source: Bloomberg Terminal, 8/15/2025, AAPL US Equity"
+    - "Source: FactSet, 8/20/2025, Consensus Estimates Screen"
+
+  # XLSX oluşturma, düzenleme ve analiz
+
+  ## Genel Bakış
+
+  Bir kullanıcı sizi bir .xlsx dosyası oluşturması, düzenlemesi veya analiz etmesi isteyebilir. Farklı görevler için kullanabileceğiniz farklı araçlar ve iş akışları vardır.
+
+  ## Önemli Gereksinimler
+
+  **Formula Yeniden Hesaplaması için LibreOffice Gerekli**: `scripts/recalc.py` betiğini kullanarak formülleri yeniden hesaplamak için LibreOffice'in kurulu olduğunu varsayabilirsiniz. Betik ilk çalıştırıldığında LibreOffice'i otomatik olarak yapılandırır; bu, Unix soketlerinin kısıtlı olduğu sandbox ortamlarını da içerir (`scripts/office/soffice.py` tarafından işlenir)
+
+  ## Verileri okuma ve analiz etme
+
+  ### pandas ile veri analizi
+  Veri analizi, görselleştirme ve temel işlemler için güçlü veri işleme yetenekleri sağlayan **pandas**'ı kullan:
+
+  ```python
+  import pandas as pd
+
+  # Excel oku
+  df = pd.read_excel('file.xlsx')  # Varsayılan: ilk sayfa
+  all_sheets = pd.read_excel('file.xlsx', sheet_name=None)  # Tüm sayfalar sözlük olarak
+
+  # Analiz et
+  df.head()      # Verileri ön izle
+  df.info()      # Sütun bilgileri
+  df.describe()  # İstatistikler
+
+  # Excel yaz
+  df.to_excel('output.xlsx', index=False)
+  ```
+
+  ## Excel Dosya İş Akışları
+
+  ## KRİTİK: Formüller Kullan, Sabit Kodlanmış Değerler Değil
+
+  **Python'da değerleri hesapladıktan sonra sabit olarak kodlamak yerine HER ZAMAN Excel formülleri kullan.** Bu, elektronik tablonun dinamik ve güncellenebilir kalmasını sağlar.
+
+  ### ❌ YANLIŞ - Hesaplanan Değerleri Sabit Kodlamak
+  ```python
+  # Kötü: Python'da hesaplama ve sonucu sabit kodlamak
+  total = df['Sales'].sum()
+  sheet['B10'] = total  # 5000 sabit kodlar
+
+  # Kötü: Python'da büyüme oranını hesaplamak
+  growth = (df.iloc[-1]['Revenue'] - df.iloc[0]['Revenue']) / df.iloc[0]['Revenue']
+  sheet['C5'] = growth  # 0.15 sabit kodlar
+
+  # Kötü: Ortalama için Python hesaplaması
+  avg = sum(values) / len(values)
+  sheet['D20'] = avg  # 42.5 sabit kodlar
+  ```
+
+  ### ✅ DOĞRU - Excel Formülleri Kullanmak
+  ```python
+  # İyi: Excel'in toplamı hesaplamasını sağla
+  sheet['B10'] = '=SUM(B2:B9)'
+
+  # İyi: Büyüme oranı Excel formülü olarak
+  sheet['C5'] = '=(C4-C2)/C2'
+
+  # İyi: Excel işlevini kullanarak ortalama
+  sheet['D20'] = '=AVERAGE(D2:D19)'
+  ```
+
+  Bu tüm hesaplamalara uygulanır - toplamlar, yüzdeler, oranlar, farklar vb. Elektronik tablo, kaynak veriler değiştiğinde yeniden hesaplayabilmelidir.
+
+  ## Yaygın İş Akışı
+  1. **Aracı seç**: Veriler için pandas, formüller/biçimlendirme için openpyxl
+  2. **Oluştur/Yükle**: Yeni çalışma kitabı oluştur veya mevcut dosyayı yükle
+  3. **Değiştir**: Veri, formül ve biçimlendirme ekle/düzenle
+  4. **Kaydet**: Dosyaya yaz
+  5. **Formülleri yeniden hesapla (FORMÜLLER KULLANIYOR İSE ZORUNLU)**: scripts/recalc.py betiğini kullan
+     ```bash
+     python scripts/recalc.py output.xlsx
+     ```
+  6. **Doğrula ve hataları düzelt**: 
+     - Betik hata detaylarıyla birlikte JSON döndürür
+     - Eğer `status` "errors_found" ise, belirli hata türleri ve konumları için `error_summary`'yi kontrol et
+     - Tanımlanan hataları düzelt ve yeniden hesapla
+     - Düzeltilmesi gereken yaygın hatalar:
+       - `#REF!`: Geçersiz hücre referansları
+       - `#DIV/0!`: Sıfıra bölme
+       - `#VALUE!`: Formülde yanlış veri türü
+       - `#NAME?`: Tanınmayan formül adı
+
+  ### Yeni Excel dosyaları oluşturma
+
+  ```python
+  # Formüller ve biçimlendirme için openpyxl kullan
+  from openpyxl import Workbook
+  from openpyxl.styles import Font, PatternFill, Alignment
+
+  wb = Workbook()
+  sheet = wb.active
+
+  # Veri ekle
+  sheet['A1'] = 'Hello'
+  sheet['B1'] = 'World'
+  sheet.append(['Row', 'of', 'data'])
+
+  # Formül ekle
+  sheet['B2'] = '=SUM(A1:A10)'
+
+  # Biçimlendirme
+  sheet['A1'].font = Font(bold=True, color='FF0000')
+  sheet['A1'].fill = PatternFill('solid', start_color='FFFF00')
+  sheet['A1'].alignment = Alignment(horizontal='center')
+
+  # Sütun genişliği
+  sheet.column_dimensions['A'].width = 20
+
+  wb.save('output.xlsx')
+  ```
+
+  ### Mevcut Excel dosyalarını düzenleme
+
+  ```python
+  # Formülleri ve biçimlendirmeyi korumak için openpyxl kullan
+  from openpyxl import load_workbook
+
+  # Mevcut dosyayı yükle
+  wb = load_workbook('existing.xlsx')
+  sheet = wb.active  # veya belirli sayfa için wb['SheetName']
+
+  # Birden çok sayfa ile çalışma
+  for sheet_name in wb.sheetnames:
+      sheet = wb[sheet_name]
+      print(f"Sheet: {sheet_name}")
+
+  # Hücreleri değiştir
+  sheet['A1'] = 'New Value'
+  sheet.insert_rows(2)  # 2. konuma satır ekle
+  sheet.delete_cols(3)  # 3. sütunu sil
+
+  # Yeni sayfa ekle
+  new_sheet = wb.create_sheet('NewSheet')
+  new_sheet['A1'] = 'Data'
+
+  wb.save('modified.xlsx')
+  ```
+
+  ## Formülleri yeniden hesaplama
+
+  openpyxl tarafından oluşturulan veya değiştirilen Excel dosyaları formülleri dizeler olarak içerir ancak hesaplanan değerler içermez. Formülleri yeniden hesaplamak için sağlanan `scripts/recalc.py` betiğini kullan:
+
+  ```bash
+  python scripts/recalc.py <excel_file> [timeout_seconds]
+  ```
+
+  Örnek:
+  ```bash
+  python scripts/recalc.py output.xlsx 30
+  ```
+
+  Betik:
+  - İlk çalıştırmada LibreOffice makrosunu otomatik olarak ayarlar
+  - Tüm sayfalardaki tüm formülleri yeniden hesaplar
+  - TÜM hücreleri Excel hataları (#REF!, #DIV/0!, vb.) açısından tarar
+  - Detaylı hata konumları ve sayıları ile JSON döndürür
+  - Linux ve macOS'ta çalışır
+
+  ## Formula Doğrulama Kontrol Listesi
+
+  Formüllerin doğru çalıştığından emin olmak için hızlı kontroller:
+
+  ### Temel Doğrulama
+  - [ ] **2-3 örnek referansı test et**: Tam modeli oluşturmadan önce doğru değerleri çektiklerini doğrula
+  - [ ] **Sütun eşlemesi**: Excel sütunlarının eşleştiğinden emin ol (örn. sütun 64 = BL, BK değil)
+  - [ ] **Satır ofseti**: Excel satırlarının 1-indexlenmiş olduğunu hatırla (DataFrame satır 5 = Excel satır 6)
+
+  ### Yaygın Tuzaklar
+  - [ ] **NaN işleme**: `pd.notna()` ile null değerleri kontrol et
+  - [ ] **Sağ taraftaki sütunlar**: FY verileri genellikle 50+ sütunlardadır
+  - [ ] **Çoklu eşleşmeler**: Sadece ilkini değil tüm oluşumları ara
+  - [ ] **Sıfıra bölme**: Formüllerde `/` kullanmadan önce paydaları kontrol et (#DIV/0!)
+  - [ ] **Yanlış referanslar**: Tüm hücre referanslarının amaçlanan hücreleri gösterdiğini doğrula (#REF!)
+  - [ ] **Çapraz sayfa referansları**: Sayfaları bağlamak için doğru biçimi kullan (Sheet1!A1)
+
+  ### Formula Test Stratejisi
+  - [ ] **Küçük başla**: Formülleri yaygın olarak uygulamadan önce 2-3 hücrede test et
+  - [ ] **Bağımlılıkları doğrula**: Formüllerde referans verilen tüm hücrelerin var olduğunu kontrol et
+  - [ ] **Sınır durumlarını test et**: Sıfır, negatif ve çok büyük değerleri ekle
+
+  ### scripts/recalc.py Çıktısını Yorumlama
+  Betik hata detaylarıyla JSON döndürür:
+  ```json
+  {
+    "status": "success",           // veya "errors_found"
+    "total_errors": 0,              // Toplam hata sayısı
+    "total_formulas": 42,           // Dosyadaki formül sayısı
+    "error_summary": {              // Sadece hata bulunursa mevcut
+      "#REF!": {
+        "count": 2,
+        "locations": ["Sheet1!B5", "Sheet1!C10"]
+      }
+    }
+  }
+  ```
+
+  ## En İyi Uygulamalar
+
+  ### Kütüphane Seçimi
+  - **pandas**: Veri analizi, toplu işlemler ve basit veri dışa aktarma için en iyi
+  - **openpyxl**: Karmaşık biçimlendirme, formüller ve Excel'e özgü özellikler için en iyi
+
+  ### openpyxl ile Çalışma
+  - Hücre indeksleri 1-tabanlıdır (row=1, column=1 A1 hücresini ifade eder)
+  - Hesaplanan değerleri okumak için `data_only=True` kullan: `load_workbook('file.xlsx', data_only=True)`
+  - **Uyarı**: `data_only=True` ile açılır ve kaydedilirse, formüller kalıcı olarak değerlerle değiştirilir
+  - Büyük dosyalar için: Okuma için `read_only=True` veya yazma için `write_only=True` kullan
+  - Formüller korunur ancak değerlendirilmez - değerleri güncellemek için scripts/recalc.py kullan
+
+  ### pandas ile Çalışma
+  - Çıkarım sorunlarını önlemek için veri türlerini belirt: `pd.read_excel('file.xlsx', dtype={'id': str})`
+  - Büyük dosyalar için, belirli sütunları oku: `pd.read_excel('file.xlsx', usecols=['A', 'C', 'E'])`
+  - Tarihleri uygun şekilde işle: `pd.read_excel('file.xlsx', parse_dates=['date_column'])`
+
+  ## Kod Stili Yönergeleri
+  **ÖNEMLİ**: Excel işlemleri için Python kodu oluştururken:
+  - Gereksiz yorumlar olmadan minimal, özlü kod yazın
+  - Ayrıntılı değişken adlarından ve gereksiz işlemlerden kaçının
+  - Gereksiz print ifadelerinden kaçının
+
+  **Excel dosyaları için**:
+  - Karmaşık formüllere veya önemli varsayımlara sahip hücrelere açıklamalar ekleyin
+  - Sabit kodlanmış değerler için veri kaynağını belgeleyin
+  - Önemli hesaplamaları ve model bölümlerini açıklamalar ekleyin
 ---
 
 # Requirements for Outputs

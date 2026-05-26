@@ -8,6 +8,247 @@ url: "https://github.com/translated/lara-mcp"
 body_length: 7730
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Lara Translate MCP Server
+
+  A Model Context Protocol (MCP) server for [Lara Translate](https://laratranslate.com/translate), enabling professional translation capabilities with support for language detection, context-aware translations, translation memories, and glossaries.
+
+  Lara leverages Translation Language Models (T-LMs) trained on billions of professionally translated segments, delivering domain-specific translations that capture cultural nuances and industry terminology that general-purpose LLMs often miss.
+
+  [![License](https://img.shields.io/github/license/translated/lara-mcp.svg)](https://github.com/translated/lara-mcp/blob/main/LICENSE)
+  [![Docker Pulls](https://img.shields.io/docker/pulls/translatednet/lara-mcp.svg)](https://hub.docker.com/r/translatednet/lara-mcp)
+  [![npm downloads](https://img.shields.io/npm/dm/@translated/lara-mcp.svg)](https://www.npmjs.com/package/@translated/lara-mcp)
+
+  ## Hızlı Başlangıç
+
+  Aşağıdan istemcinizi seçin — API anahtarına gerek yok, sadece tarayıcıdan giriş yapın.
+
+  ### Claude Desktop
+
+  1. **Ayarlar** > **Bağlayıcılar**'a gidin
+  2. **Özel Bağlayıcı Ekle**'ye tıklayın
+  3. Adı girin: `Lara`
+  4. URL'yi girin: `https://mcp-v2.laratranslate.com/v1`
+  5. **Ekle**'ye tıklayın, ardından **Bağlan**'a tıklayın
+  6. Tarayıcıda Lara Translate kimlik bilgilerinizle giriş yapın
+
+  Bitti — Lara Translate artık sohbetlerinizde kullanılabilir.
+
+  ### Cursor
+
+  Lara Translate resmi Cursor eklenti pazarında listelendikten sonra, bunu Cursor içinden yükleyin:
+
+  1. Eklenti tarayıcısını açın ve **Lara Translate** arayın.
+  2. **Yükle**'ye tıklayın.
+  3. Bir Lara aracını ilk kez kullandığınızda tarayıcınız kimlik doğrulaması için açılacak.
+
+  Bu arada veya manuel kurulum için [İstemci Kurulum Rehberi](docs/client-setup.md#cursor)'ne bakın.
+
+  ### Claude Code
+
+  Lara Translate resmi Claude Code eklenti pazarında listelendikten sonra, bunu Claude Code içinden yükleyin:
+
+  ```
+  /plugin
+  ```
+
+  **Lara Translate** arayın ve yükleyin. Bir Lara aracını ilk kez kullandığınızda tarayıcınız kimlik doğrulaması için açılacak.
+
+  Bu arada veya manuel kurulum için [İstemci Kurulum Rehberi](docs/client-setup.md#claude-code)'ne bakın.
+
+  ### Diğer İstemciler
+
+  **VS Code (GitHub Copilot)**, **Windsurf**, **Cline**, **Continue** ve daha fazlası için adım adım OAuth kurulumu için [İstemci Kurulum Rehberi](docs/client-setup.md)'ne bakın.
+
+  İstemciniz listede yoksa, genel yaklaşım server URL'sini (`https://mcp-v2.laratranslate.com/v1`) MCP config'inize eklemektir — istemci OAuth kimlik doğrulamasını otomatik olarak yönetecektir.
+
+  > MCP uyumlu istemcilerin tam listesi için [resmi MCP istemcileri sayfasını](https://modelcontextprotocol.io/clients) ziyaret edin.
+
+  ### Çalışıp Çalışmadığını Doğrulayın
+
+  Kurulumdan sonra basit bir promptla test edin:
+
+  ```
+  Translate with Lara "Hello world" to Spanish
+  ```
+
+  İstemciniz Lara Translate'i çağırmalı ve çeviriyi döndürmelidir.
+
+  ---
+
+  ## Mevcut Araçlar
+
+  ### Çeviri
+
+  | Araç | Açıklama |
+  |------|----------|
+  | `translate` | Bağlam, talimatlar, çeviri belleği, sözlük ve birden fazla stil (faithful/fluid/creative) desteği ile diller arasında metin çevirin |
+
+  ### Dil Algılama
+
+  | Araç | Açıklama |
+  |------|----------|
+  | `detect_language` | Verilen metni veya metinler dizisini dil algıla |
+  | `list_languages` | Desteklenen tüm dil kodlarını listele |
+
+  ### Çeviri Belleği
+
+  | Araç | Açıklama |
+  |------|----------|
+  | `list_memories` | Hesabınızdaki tüm çeviri belleklerini listele |
+  | `create_memory` | Yeni bir çeviri belleği oluştur |
+  | `update_memory` | Çeviri belleğinin adını güncelle |
+  | `delete_memory` | Çeviri belleğini sil |
+  | `add_translation` | Bellekte bir çeviri birimi (kaynak + hedef çifti) ekle |
+  | `delete_translation` | Bellekten bir çeviri birimini sil |
+  | `import_tmx` | TMX dosyasını belleğe aktar |
+  | `check_import_status` | TMX aktarma işinin durumunu kontrol et |
+
+  ### Sözlükler
+
+  | Araç | Açıklama |
+  |------|----------|
+  | `list_glossaries` | Hesabınızdaki tüm sözlükleri listele |
+  | `get_glossary` | Belirli bir sözlüğün ayrıntılarını al |
+  | `create_glossary` | Yeni bir sözlük oluştur |
+  | `update_glossary` | Sözlüğün adını güncelle |
+  | `delete_glossary` | Sözlüğü sil |
+  | `add_glossary_entry` | Sözlüğe terim girdisi ekle veya değiştir |
+  | `delete_glossary_entry` | Sözlükten terim girdisini sil |
+  | `import_glossary_csv` | CSV dosyasından girdileri sözlüğe aktar |
+  | `check_glossary_import_status` | Sözlük CSV aktarma işinin durumunu kontrol et |
+  | `export_glossary` | Sözlüğü CSV olarak dışa aktar |
+  | `get_glossary_counts` | Sözlükteki giriş sayısını al |
+
+  ---
+
+  ## Kimlik Doğrulama
+
+  ### OAuth 2.0 (varsayılan)
+
+  Bu, yukarıdaki [Hızlı Başlangıç](#hızlı-başlangıç) bölümünde kullanılan yöntemdir. İstemci config'inize yalnızca server URL'sini sağlarsınız — API anahtarına gerek yok. İstemciniz OAuth akışını otomatik olarak yönetir: tarayıcınızı açar, Lara Translate kimlik bilgilerinizle giriş yaparsınız ve bağlanırsınız.
+
+  İstemci başına OAuth kurulum talimatları için [İstemci Kurulum Rehberi](docs/client-setup.md)'ne bakın.
+
+  ### Access Key (alternatif)
+
+  Tarayıcı girişi yerine API anahtarları ile kimlik doğrulamayı tercih ederseniz, kimlik bilgilerinizi doğrudan istemci config'ine geçebilirsiniz. **Access Key ID** ve **Secret**'ınızı [Lara Translate](https://developers.laratranslate.com/docs/getting-started#step-3---configure-your-credentials)'den alın.
+
+  Config örnekleri için [İstemci Kurulum Rehberi'ndeki Access Key bölümüne](docs/client-setup.md#alternative-access-key-authentication) bakın.
+
+  ---
+
+  ## Kendi Barındırma
+
+  Çoğu kullanıcı yukarıdaki [Hızlı Başlangıç](#hızlı-başlangıç) talimatlarını kullanarak barındırılan endpoint'e (`https://mcp-v2.laratranslate.com/v1`) bağlanabilir. Aşağıdaki seçenekler sunucuyu kendiniz çalıştırmak içindir.
+
+  ### NPX aracılığıyla STDIO
+
+  [Node.js](https://nodejs.org/) gerekir.
+
+  ```json
+  {
+    "mcpServers": {
+      "lara-translate": {
+        "command": "npx",
+        "args": ["-y", "@translated/lara-mcp@latest"],
+        "env": {
+          "LARA_ACCESS_KEY_ID": "<YOUR_ACCESS_KEY_ID>",
+          "LARA_ACCESS_KEY_SECRET": "<YOUR_ACCESS_KEY_SECRET>"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Docker aracılığıyla STDIO
+
+  [Docker](https://www.docker.com/) gerekir.
+
+  ```json
+  {
+    "mcpServers": {
+      "lara-translate": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-e", "LARA_ACCESS_KEY_ID",
+          "-e", "LARA_ACCESS_KEY_SECRET",
+          "translatednet/lara-mcp:latest"
+        ],
+        "env": {
+          "LARA_ACCESS_KEY_ID": "<YOUR_ACCESS_KEY_ID>",
+          "LARA_ACCESS_KEY_SECRET": "<YOUR_ACCESS_KEY_SECRET>"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Kaynaktan Derlemek
+
+  #### Node.js
+
+  ```bash
+  git clone https://github.com/translated/lara-mcp.git
+  cd lara-mcp
+  pnpm install
+  pnpm run build
+  ```
+
+  Ardından MCP config'inize ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "lara-translate": {
+        "command": "node",
+        "args": ["<FULL_PATH_TO_PROJECT>/dist/index.js"],
+        "env": {
+          "LARA_ACCESS_KEY_ID": "<YOUR_ACCESS_KEY_ID>",
+          "LARA_ACCESS_KEY_SECRET": "<YOUR_ACCESS_KEY_SECRET>"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Docker
+
+  ```bash
+  git clone https://github.com/translated/lara-mcp.git
+  cd lara-mcp
+  docker build -t lara-mcp .
+  ```
+
+  Ardından MCP config'inize ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "lara-translate": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-e", "LARA_ACCESS_KEY_ID",
+          "-e", "LARA_ACCESS_KEY_SECRET",
+          "lara-mcp"
+        ],
+        "env": {
+          "LARA_ACCESS_KEY_ID": "<YOUR_ACCESS_KEY_ID>",
+          "LARA_ACCESS_KEY_SECRET": "<YOUR_ACCESS_KEY_SECRET>"
+        }
+      }
+    }
+  }
+  ```
+
+  ---
+
+  ## Destek
+
+  - Lara Translate API sorunları için: [Lara Translate Destek](https://support.laratranslate.com)'e gidin
+  - Bu MCP sunucusu ile ilgili sorunlar için: [GitHub](https://github.com/translated/lara-mcp/issues)'da bir sorun açın
 ---
 
 # Lara Translate MCP Server

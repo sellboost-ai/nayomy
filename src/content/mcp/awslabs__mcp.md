@@ -9,6 +9,170 @@ body_length: 190628
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://awslabs.github.io/mcp/"
+body_tr: |-
+  # AWS için Açık Kaynaklı MCP Sunucuları
+
+  AWS'den en iyi sonuçları elde etmenize yardımcı olan uzmanlaşmış MCP sunucularının bir takımı, MCP'yi her yerde kullanın.
+
+  [![GitHub](https://img.shields.io/badge/github-awslabs/mcp-blue.svg?style=flat&logo=github)](https://github.com/awslabs/mcp)
+  [![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen)](LICENSE)
+  [![Codecov](https://img.shields.io/codecov/c/github/awslabs/mcp)](https://app.codecov.io/gh/awslabs/mcp)
+  [![OSSF-Scorecard Score](https://img.shields.io/ossf-scorecard/github.com/awslabs/mcp)](https://scorecard.dev/viewer/?uri=github.com/awslabs/mcp)
+
+  > [!TIP]
+  > [AWS için Agent Toolkit](https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/) şu anda canlı! AWS için Agent Toolkit, AWS Labs'ta bulunan MCP sunucularının, plugin'lerinin ve skill'lerinin halefidir ve sizin gibi müşterilerin geri bildirimleriyle oluşturulmuştur. Kodlama aracılarını kullanarak üretim yazılımı geliştiriyorsanız veya kendi müşterileriniz için aracılar oluşturuyorsanız, AWS Agent Toolkit'i öneririz. IAM koşul anahtarlarını içerir, aracı eylemlerini insan eylemlerinden ayırt etmek için, CloudWatch ve CloudTrail görünürlüğü ve doğruluk ve etkinlik açısından değerlendirilmiş skill'ler. Bu repo çalışmaya devam ediyor ve katkıları kabul ediyor. Zamanla, buradaki en yararlı projeler AWS Agent Toolkit'e taşınacak.
+
+  ## İçindekiler
+
+  - [AWS için Açık Kaynaklı MCP Sunucuları](#aws-için-açık-kaynaklı-mcp-sunucuları)
+    - [İçindekiler](#i̇çindekiler)
+    - [Model Context Protocol (MCP) nedir ve AWS için MCP Sunucularıyla nasıl çalışır?](#model-context-protocol-mcp-nedir-ve-aws-için-mcp-sunucularıyla-nasıl-çalışır)
+    - [AWS için Açık Kaynaklı MCP Sunucuları Taşıma Mekanizmaları](#aws-için-açık-kaynaklı-mcp-sunucuları-taşıma-mekanizmaları)
+      - [Desteklenen taşıma mekanizmaları](#desteklenen-taşıma-mekanizmaları)
+      - [Server Sent Events Desteğinin Kaldırılması](#server-sent-events-destekinin-kaldırılması)
+      - [AWS için MCP Sunucuları Neden?](#aws-için-mcp-sunucuları-neden)
+    - [Kullanılabilir MCP Sunucuları: Hızlı Kurulum](#kullanılabilir-mcp-sunucuları-hızlı-kurulum)
+      - [🚀 AWS ile Başlama](#-aws-ile-başlama)
+      - [Ne İnşa Ettiğinize Göre Göz Atın](#ne-i̇nşa-ettiğinize-göre-göz-atın)
+        - [📚 Resmi AWS Belgelerine Gerçek Zamanlı Erişim](#-resmi-aws-belgelerine-gerçek-zamanlı-erişim)
+      - [🏗️ Altyapı \& Dağıtım](#️-altyapı--dağıtım)
+        - [Konteyner Platformları](#konteyner-platformları)
+        - [Sunucusuz \& Fonksiyonlar](#sunucusuz--fonksiyonlar)
+        - [Destek](#destek)
+      - [🤖 AI \& Machine Learning](#-ai--machine-learning)
+      - [📊 Veriler \& Analytics](#-veriler--analytics)
+        - [SQL \& NoSQL Veritabanları](#sql--nosql-veritabanları)
+          - [Arama \& Analytics](#arama--analytics)
+        - [Backend API Sağlayıcıları](#backend-api-sağlayıcıları)
+        - [Önbelleğe Alma \& Performans](#önbelleğe-alma--performans)
+      - [🛠️ Geliştirici Araçları \& Destek](#️-geliştirici-araçları--destek)
+      - [📡 Entegrasyon \& Mesajlaşma](#-entegrasyon--mesajlaşma)
+      - [💰 Maliyet \& Operasyonlar](#-maliyet--operasyonlar)
+      - [🧬 Sağlık \& Yaşam Bilimleri](#-sağlık--yaşam-bilimleri)
+      - [Nasıl Çalıştığınıza Göre Göz Atın](#nasıl-çalıştığınıza-göre-göz-atın)
+        - [👨‍💻 Vibe Kodlama \& Geliştirme](#-vibe-kodlama--geliştirme)
+          - [Temel Geliştirme İş Akışı](#temel-geliştirme-i̇ş-akışı)
+          - [Kod olarak Altyapı](#kod-olarak-altyapı)
+          - [Uygulama Geliştirme](#uygulama-geliştirme)
+          - [Konteyner \& Sunucusuz Geliştirme](#konteyner--sunucusuz-geliştirme)
+          - [Test \& Veriler](#test--veriler)
+          - [Yaşam Bilimleri İş Akışı Geliştirme](#yaşam-bilimleri-i̇ş-akışı-geliştirme)
+          - [Sağlık Verileri Yönetimi](#sağlık-verileri-yönetimi)
+        - [💬 Konuşsal Asistanlar](#-konuşsal-asistanlar)
+          - [Bilgi \& Arama](#bilgi--arama)
+          - [İçerik İşleme \& Oluşturma](#i̇çerik-i̇şleme--oluşturma)
+          - [İş Hizmetleri](#i̇ş-hizmetleri)
+        - [🤖 Otonom Arka Plan Aracıları](#-otonom-arka-plan-aracıları)
+          - [Veri Operasyonları \& ETL](#veri-operasyonları--etl)
+          - [Önbelleğe Alma \& Performans](#önbelleğe-alma--performans-1)
+          - [İş Akışı \& Entegrasyon](#i̇ş-akışı--entegrasyon)
+          - [Operasyonlar \& İzleme](#operasyonlar--i̇zleme)
+    - [MCP AWS Lambda Handler Modülü](#mcp-aws-lambda-handler-modülü)
+    - [Yerel ve Uzak MCP Sunucularını Ne Zaman Kullanmalı?](#yerel-ve-uzak-mcp-sunucularını-ne-zaman-kullanmalı)
+      - [Yerel MCP Sunucuları](#yerel-mcp-sunucuları)
+      - [Uzak MCP Sunucuları](#uzak-mcp-sunucuları)
+    - [Sunucuların Kullanım Durumları](#sunucuların-kullanım-durumları)
+    - [Kurulum ve Ayarlar](#kurulum-ve-ayarlar)
+      - [macOS/Linux için](#macos-linux-için)
+      - [Windows için](#windows-için)
+      - [MCP sunucularını konteyner'lerde çalıştırma](#mcp-sunucularını-konteyner-lerde-çalıştırma)
+      - [Kiro ile Başlama](#kiro-ile-başlama)
+        - [`~/.kiro/settings/mcp.json`](#kirosettingsmcpjson)
+      - [Cline ve Amazon Bedrock ile Başlama](#cline-ve-amazon-bedrock-ile-başlama)
+        - [`cline_mcp_settings.json`](#cline_mcp_settingsjson)
+      - [Cursor ile Başlama](#cursor-ile-başlama)
+        - [`.cursor/mcp.json`](#cursormcpjson)
+      - [Windsurf ile Başlama](#windsurf-ile-başlama)
+        - [`~/.codeium/windsurf/mcp_config.json`](#codeiumwindsurfmcp_configjson)
+      - [VS Code ile Başlama](#vs-code-ile-başlama)
+        - [`.vscode/mcp.json`](#vscodemcpjson)
+      - [Claude Code ile Başlama](#claude-code-ile-başlama)
+        - [`.mcp.json`](#mcpjson)
+    - [Örnekler](#örnekler)
+    - [Vibe kodlama](#vibe-kodlama)
+    - [Ek Kaynaklar](#ek-kaynaklar)
+    - [Güvenlik](#güvenlik)
+    - [Katkıda Bulunma](#katkıda-bulunma)
+    - [Geliştirici Kılavuzu](#geliştirici-kılavuzu)
+    - [Lisans](#lisans)
+    - [Sorumluluk Reddi](#sorumluluk-reddi)
+
+  ## Model Context Protocol (MCP) nedir ve AWS için MCP Sunucularıyla nasıl çalışır?
+
+  > Model Context Protocol (MCP), LLM uygulamalarını dış veri kaynakları ve araçlarla sorunsuz bir şekilde entegre etmenizi sağlayan açık bir protokoldür. İster AI destekli bir IDE inşa ediyor, ister bir sohbet arayüzünü geliştiriyor, ister özel AI iş akışları oluşturuyor olun, MCP, LLM'leri ihtiyaç duydukları bağlam ile bağlamak için standartlaştırılmış bir yol sağlar.
+  >
+  > &mdash; [Model Context Protocol README](https://github.com/modelcontextprotocol#:~:text=The%20Model%20Context,context%20they%20need.)
+
+  MCP Server, standartlaştırılmış Model Context Protocol aracılığıyla belirli yetenekleri ortaya koyan hafif bir programdır. Host uygulamaları (sohbet botları, IDE'ler ve diğer AI araçları gibi) MCP sunucuları ile 1:1 bağlantıları sürdüren MCP istemcilerine sahiptir. Yaygın MCP istemcileri, aracısal AI kodlama asistanlarını (Kiro, Cline, Cursor, Windsurf gibi) ve Claude Desktop gibi sohbet botu uygulamalarını içerir; daha fazla istemci yakında gelecektir. MCP sunucuları, modellerden oluşturulan çıktıları iyileştiren ek bağlam sağlamak için yerel veri kaynaklarına ve uzak hizmetlere erişebilir.
+
+  AWS için MCP Sunucuları, bu protokolü kullanarak AI uygulamalarına AWS belgelerine, bağlamsal rehberliğe ve en iyi uygulamalara erişim sağlar. Standartlaştırılmış MCP istemci-sunucu mimarisi aracılığıyla, AWS yetenekleri geliştirme ortamınızın veya AI uygulamanızın akıllı bir uzantısı haline gelir.
+
+  AWS için MCP Sunucuları, geliştirilmiş buluta dayalı geliştirme, altyapı yönetimi ve geliştirme iş akışlarını etkinleştirerek, AI destekli bulut bilişlemini daha erişilebilir ve verimli hale getirir.
+
+  Model Context Protocol, Anthropic, PBC tarafından yönetilen ve tüm toplum tarafından katkılara açık açık kaynaklı bir projedir. MCP hakkında daha fazla bilgi için, belgeler [burada](https://modelcontextprotocol.io/introduction) bulunabilir
+
+  ## AWS için Açık Kaynaklı MCP Sunucuları Taşıma Mekanizmaları
+
+  ### Desteklenen taşıma mekanizmaları
+
+  MCP protokolü şu anda istemci-sunucu iletişimi için iki standart taşıma mekanizması tanımlar:
+  - stdio, standart girdi ve standart çıktı üzerinden iletişim
+  - streamable HTTP
+
+  Bu depo'daki MCP sunucuları yalnızca stdio'yu desteklemek üzere tasarlanmıştır.
+
+  Bu sunucuların kullanımınızın onları yöneten koşullar ve sizin için geçerli olan tüm yasalar, kurallar, yönetmelikler, politikalar veya standartlarla uyumlu olmasını sağlamaktan sorumlusunuz.
+
+  ### Server Sent Events Destekinin Kaldırılması
+
+  **Önemli Bildirim:** 26 Mayıs 2025'te, Server Sent Events (SSE) desteği tüm MCP sunucularının son ana sürümlerinden kaldırılmıştır. Bu değişiklik, Model Context Protocol belirtiminin [geriye dönük uyumluluk yönergeleriyle](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#backwards-compatibility) uyumludur.
+
+  [Streamable HTTP](https://modelcontextprotocol.io/specification/draft/basic/transports#streamable-http) desteğine doğru aktif olarak çalışıyoruz; bu, gelecek sürümler için geliştirilmiş taşıma yetenekleri sağlayacaktır.
+
+  Hala SSE desteği gerektiren uygulamalar için, alternatif taşıma yöntemlerine geçene kadar ilgili MCP sunucusunun önceki ana sürümünü kullanın.
+
+  ### AWS için MCP Sunucuları Neden?
+
+  MCP sunucuları, temel modellerin (FM) yeteneklerini birkaç önemli şekilde geliştiriyor:
+
+  - **İyileştirilmiş Çıktı Kalitesi**: MCP sunucuları, ilgili bilgileri doğrudan model'in bağlamına sağlayarak, AWS hizmetleri gibi uzmanlaşmış alanlar için model yanıtlarını önemli ölçüde iyileştirir. Bu yaklaşım, hallüsinasyonları azaltır, daha doğru teknik ayrıntılar sağlar, daha kesin kod oluşturmayı etkinleştirir ve önerilerin güncel AWS en iyi uygulamaları ve hizmet yetenekleriyle uyumlu olmasını sağlar.
+
+  - **En Son Belgelere Erişim**: FM'ler, son sürümler, API'ler veya SDK'lar hakkında bilgiye sahip olmayabilir. MCP sunucuları, güncel belgeleri çekerek bu boşluğu kapatarak, AI asistanınızın her zaman en son AWS yetenekleriyle çalışmasını sağlar.
+
+  - **İş Akışı Otomasyon**: MCP sunucuları, yaygın iş akışlarını, temel modellerin doğrudan kullanabileceği araçlara dönüştürür. CDK, Terraform veya diğer AWS'ye özgü iş akışları olsun, bu araçlar AI asistanlarının daha yüksek doğruluk ve verimlilikle karmaşık görevleri gerçekleştirmesini sağlar.
+
+  - **Uzmanlaşmış Alan Bilgisi**: MCP sunucuları, temel modellerin eğitim verileri'nde tam olarak temsil edilmeyebilecek AWS hizmetleri hakkında derin, bağlamsal bilgi sağlayarak, bulut geliştirme görevleri için daha doğru ve yardımcı yanıtları etkinleştirir.
+
+  ## Kullanılabilir MCP Sunucuları: Hızlı Kurulum
+
+  Popüler MCP istemcileri için tek tıklayarak kurulum düğmeleriyle hızlı bir şekilde başlayın. Sunucuları doğrudan Cursor veya VS Code'a yüklemek için aşağıdaki düğmeleri tıklayın:
+
+  ### 🚀 AWS ile Başlama
+
+  AWS etkileşimleri için, aşağıdakilerle başlamanızı tavsiye ediyoruz:
+
+  | Sunucu Adı | Açıklama | Yükle |
+  |-------------|---------|-------|
+  | [AWS MCP Server (ön izlemede)](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html) | Güvenli, denetlenebilir AWS etkileşimleri için burada başlayın! Bu uzak, yönetilen MCP sunucusu AWS tarafından barındırılır ve kapsamlı AWS API desteğini, en son AWS belgelerine, API referanslarına, What's New yayınlarına ve Başlangıç bilgisine erişim ile birleştirir. Aracıların, AWS en iyi uygulamalarını takip eden önceden oluşturulmuş Agent SOP'ları ile karmaşık çok adımlı AWS görevlerini güvenilir bir şekilde tamamlamasına yardımcı olur. Güvenlik ve kontrol göz önünde bulundurularak oluşturulmuştur: söz dizimi doğrulanmış API çağrıları, sıfır kimlik bilgisi açıklaması ile IAM tabanlı izinler ve tam CloudTrail denetim günlüğü. Altyapıyı yönetmek, kaynakları keşfetmek ve tam şeffaflık ve izlenebilirlik ile AWS işlemlerini yürütmek için tüm AWS hizmetlerine erişin. [Daha fazlasını okuyun](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html) | [![Yükle](https://img.shields.io/badge/Yükle-Kiro-9046FF?style=flat-square&logo=kiro)](https://kiro.dev/launch/mcp/add?name=aws-mcp&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22mcp-proxy-for-aws%40latest%22%2C%22https%3A//aws-mcp.us-east-1.api.aws/mcp%22%5D%7D) <br/>[![Yükle](https://img.shields.io/badge/Yükle-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/en-US/install-mcp?name=aws-mcp&config=eyJjb21tYW5kIjoidXZ4IG1jcC1wcm94eS1mb3ItYXdzQGxhdGVzdCBodHRwczovL2F3cy1tY3AudXMtZWFzdC0xLmFwaS5hd3MvbWNwIn0%3D) <br/>[![VS Code'a Yükle](https://img.shields.io/badge/Yükle-VS_Code-FF9900?style=flat-square&logo=visualstudiocode&logoColor=white)](<https://insiders.vscode.dev/redirect/mcp/install?name=AWS%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22mcp-proxy-for-aws%40latest%22%2C%22https%3A%2F%2Faws-mcp.us-east-1.api.aws%2Fmcp%22%5D%7D>) |
+
+  ### Ne İnşa Ettiğinize Göre Göz Atın
+
+  #### 📚 Resmi AWS Belgelerine Gerçek Zamanlı Erişim
+
+  | Sunucu Adı | Açıklama | Yükle |
+  |-------------|---------|-------|
+  | [AWS Knowledge MCP Server](src/aws-knowledge-mcp-server) | AWS tarafından barındırılan, tamamen yönetilen uzak MCP sunucusu; en son AWS dokümanlarına, API referanslarına, What's New Yayınlarına, Başlangıç bilgisine, Builder Center'a, Blog yayınlarına, Mimari referanslara ve Well-Architected rehberliğine erişim sağlar. | [![Yükle](https://img.shields.io/badge/Yükle-Kiro-9046FF?style=flat-square&logo=kiro)](https://kiro.dev/launch/mcp/add?name=aws-knowledge-mcp&config=%7B%22url%22%3A%22https%3A//knowledge-mcp.global.api.aws%22%7D) <br/>[![Yükle](https://img.shields.io/badge/Yükle-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/en/install-mcp?name=aws-knowledge-mcp&config=eyJ1cmwiOiJodHRwczovL2tub3dsZWRnZS1tY3AuZ2xvYmFsLmFwaS5hd3MifQ==) <br/>[![VS Code'a Yükle](https://img.shields.io/badge/Yükle-VS_Code-FF9900?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=aws-knowledge-mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fknowledge-mcp.global.api.aws%22%7D) |
+  | [AWS Documentation MCP Server](src/aws-documentation-mcp-server) | En son AWS dokümanlarını ve API referanslarını alın | [![Yükle](https://img.shields.io/badge/Yükle-Kiro-9046FF?style=flat-square&logo=kiro)](https://kiro.dev/launch/mcp/add?name=awslabs.aws-documentation-mcp-server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22awslabs.aws-documentation-mcp-server%40latest%22%5D%2C%22env%22%3A%7B%22FASTMCP_LOG_LEVEL%22%3A%22ERROR%22%2C%22AWS_DOCUMENTATION_PARTITION%22%3A%22aws%22%7D%7D) <br/>[![Yükle](https://img.shields.io/badge/Yükle-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/en/install-mcp?name=awslabs.aws-documentation-mcp-server&config=eyJjb21tYW5kIjoidXZ4IGF3c2xhYnMuYXdzLWRvY3VtZW50YXRpb24tbWNwLXNlcnZlckBsYXRlc3QiLCJlbnYiOnsiRkFTVE1DUF9MT0dfTEVWRUwiOiJFUlJPUiIsIkFXU19ET0NVTUVOVEFUSU9OX1BBUlRJVElPTiI6ImF3cyJ9LCJkaXNhYmxlZCI6ZmFsc2UsImF1dG9BcHByb3ZlIjpbXX0%3D) <br/>[![VS Code'a Yükle](https://img.shields.io/badge/Yükle-VS_Code-FF9900?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=AWS%20Documentation%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22awslabs.aws-documentation-mcp-server%40latest%22%5D%2C%22env%22%3A%7B%22FASTMCP_LOG_LEVEL%22%3A%22ERROR%22%2C%22AWS_DOCUMENTATION_PARTITION%22%3A%22aws%22%7D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D) |
+
+
+  ### 🏗️ Altyapı & Dağıtım
+
+  Kod olarak Altyapı en iyi uygulamaları ile bulut altyapısını oluşturun, dağıtın ve yönetin.
+
+  | Sunucu Adı | Açıklama | Yükle |
+  |-------------|---------|-------|
+  | [AWS IaC MCP Server](src/aws-iac-mcp-server) | CloudFormation belgelerine erişim, CDK en iyi uygulamalarına rehberlik, yapı örnekleri, güvenlik doğrulaması ve dağıtım sorun giderme ile eksiksiz Kod olarak Altyapı araç seti | [![Yükle](https://img.shields.io/badge/Yükle-Kiro-9046FF?style=flat-square&logo=kiro)](https://kiro.dev/launch/mcp/add?name=awslabs.aws-iac-mcp-server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22awslabs.aws-iac-mcp-server%40latest%22%5D%2C%22env%22%3A%7B%22AWS_PROFILE%22%3A%22your-aws-profile%22%2C%22FASTMCP_LOG_LEVEL%22%3A%22ERROR%22%7D%7D) <br/>[![Yükle](https://img.shields.io/badge/Yükle-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/en/install-mcp?name=awslabs.aws-iac-mcp-server&config=eyJjb21tYW5kIjoidXZ4IGF3c2xhYnMuYXdzLWlhYy1tY3Atc2VydmVyQGxhdGVzdCIsImVudiI6eyJBV1NfUFJPRklMRSI6InlvdXItYXdzLXByb2ZpbGUiLCJGQVNUTUNQX0xPR19MRVZFTCI6IkVSUk9SIn0sImRpc2FibGVkIjpmYWxzZSwiYXV0b0FwcHJvdmUiOltdfQ==IiwiZW52Ijp7IkFXU19QUk9GSUxFIjoieW91ci1hd3MtcHJvZmlsZSIsIkZBU1RNQ1BfTE9HX0xFVkVMIjoiRVJST1IifSwiZGlzYWJsZWQiOmZhbHNlLCJhdXRvQXBwcm92ZSI6W119) <br/>[![VS Code'a Yükle](https://img.shields.io/badge/Yükle-VS_Code-FF9900?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=AWS%20IaC%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22awslabs.aws-iac-mcp-server%40latest%22%5D%2C%22env%22%3A%7B%22AWS_PROFILE%22%3A%22your-aws-profile%22%2C%22FASTMCP_LOG_LEVEL%22%3A%22ERROR%22%7D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D) |
+  | [AWS Cloud Control API MCP Server](src/ccapi-mcp-server) ⚠️ **KULLANIMA KAPANDI** | Güvenlik taraması ve en iyi uygulamalar ile doğrudan AWS kaynak yönetimi ([AWS IaC MCP Server](src/aws-iac-mcp-server) yerine kullanın) | [![Yükle](https://img.shields.io/badge/Yükle-Kiro-9046FF?style=flat-square&logo=kiro)](https://kiro.dev/launch/mcp/add?name=awslabs.ccapi-mcp-server&config=%7B
 ---
 
 # Open source MCP servers for AWS

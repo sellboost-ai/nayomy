@@ -8,6 +8,243 @@ url: "https://github.com/cswkim/discogs-mcp-server"
 body_length: 8934
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  [![License](https://img.shields.io/github/license/cswkim/discogs-mcp-server)](LICENSE)
+  [![GitHub Release](https://img.shields.io/github/v/release/cswkim/discogs-mcp-server)](https://github.com/cswkim/discogs-mcp-server/releases)
+  [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/cswkim/discogs-mcp-server/.github%2Fworkflows%2Fcheck-pr.yml)](https://github.com/cswkim/discogs-mcp-server/actions/workflows/check-pr.yml)
+  [![NPM Downloads](https://img.shields.io/npm/d18m/discogs-mcp-server)](https://www.npmjs.com/package/discogs-mcp-server)
+  [![Sponsor](https://img.shields.io/static/v1?label=sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4)](https://github.com/sponsors/cswkim)
+
+  # Discogs MCP Server
+
+  Discogs API için MCP Server, müzik kataloğu işlemleri, arama işlevselliği ve daha fazlasını sağlar.
+
+  ## Hızlı Başlangıç
+
+  Bu MCP Server'ı [Claude](https://claude.ai) masaüstü uygulaması ile hemen kullanmaya başlamak istiyorsanız ve geliştirme veya sunucuyu kendiniz çalıştırma konusunda endişelenmiyor iseniz, [Node.js](https://nodejs.org/en) yüklü olduğundan ve Discogs kişisel erişim tokeniniz hazır olduğundan emin olun ve doğrudan [Claude yapılandırması bölümüne](#claude-desktop-configuration) geçin. O bölümden `NPX` metodunu kullanın.
+
+  ## İçindekiler
+
+  - [Teşekkürler](#teşekkürler)
+  - [Kullanılabilir Araçlar](#kullanılabilir-araçlar)
+  - [Uyarılar](#uyarılar)
+  - [Ön Koşullar](#ön-koşullar)
+  - [Kurulum](#kurulum)
+  - [Sunucuyu Yerel Olarak Çalıştırma](#sunucuyu-yerel-olarak-çalıştırma)
+    - [Seçenek 1: Yerel Geliştirme](#seçenek-1-yerel-geliştirme)
+    - [Seçenek 2: Docker](#seçenek-2-docker)
+  - [İnceleme](#inceleme)
+  - [MCP İstemcileri](#mcp-istemcileri)
+    - [Claude Desktop Yapılandırması](#claude-desktop-yapılandırması)
+      - [NPX](#npx)
+      - [Yerel Node](#yerel-node)
+      - [Docker](#docker)
+    - [LibreChat](#librechat)
+    - [LM Studio](#lm-studio)
+  - [YAPILACAKLAR](#yapılacaklar)
+  - [Lisans](#lisans)
+
+  ## Teşekkürler
+
+  Bu MCP sunucusu, MCP sunucuları oluşturmak için bir typescript framework olan [FastMCP](https://github.com/punkpeye/fastmcp) kullanılarak inşa edilmiştir. MCP hakkında daha fazla bilgi ve MCP sunucularının nasıl kullanılacağı için lütfen [FastMCP belgelerine](https://github.com/punkpeye/fastmcp/blob/main/README.md) ve [resmi MCP belgelerine](https://modelcontextprotocol.io) bakın.
+
+  ## Kullanılabilir Araçlar
+
+  Kullanılabilir araçların listesini kontrol edin: [TOOLS.md](TOOLS.md)
+
+  ## Uyarılar
+
+  - [Discogs API belgesi](https://www.discogs.com/developers) mükemmel değildir ve bazı endpointler tam olarak belgelenmiş olmayabilir veya tutarsızlıklara sahip olabilir.
+  - Çok sayıda API endpoint'i ve response tipi nedeniyle, her olası response için tip güvenliğini doğrulamak uygulanabilir değildir. Karşılaştığınız tip ile ilgili sorunları lütfen bildirin.
+  - Bu MCP sunucusu, Discogs koleksiyonunuzdaki verileri düzenlemeye izin verir. Lütfen dikkatli kullanın ve yürütmeden önce işlemlerinizi doğrulayın.
+  - Discogs API `per_page` varsayılanı `50` olup, bu bazı istemciler için işlenmesi zor olabilecek çok fazla veri olabilir, bu nedenle bu proje içinde `discogs.config.defaultPerPage` değeri `5` olarak ayarlanmıştır. İsteklerinizde daha fazla veri talep edebilirsiniz, ancak bazı istemcilerin daha büyük responselerle zorluk çekebileceğini unutmayın.
+
+  ## Ön Koşullar
+
+  - Node.js (Node.js `20.x.x` ile test edilmiş, ancak `18.x.x` de çalışmalıdır)
+    - Node.js versiyonunuzu şu komutla kontrol edin: `node --version`
+  - Docker (isteğe bağlı, Node veya dependencies ile uğraşmadan yerel docker image'ı çalıştırmak için)
+
+  ## Kurulum
+
+  1. Repository'i klonlayın
+  2. Kök dizinde `.env.example` dosyasını temel alarak bir `.env` dosyası oluşturun
+  3. `.env` dosyasında aşağıdaki gerekli ortam değişkenlerini ayarlayın:
+     - `DISCOGS_PERSONAL_ACCESS_TOKEN`: Sizin Discogs kişisel erişim tokeniniz
+
+  Discogs kişisel erişim tokeninizi almak için [Discogs Ayarları > Geliştiriciler](https://www.discogs.com/settings/developers) sayfasına gidin ve tokeninizi bulun veya yeni bir tane oluşturun. **_TOKENINIZI PAYLAŞMAYIN_**. OAuth desteği gelecek bir sürümde eklenecektir.
+
+  `.env.example` dosyasındaki diğer ortam değişkenleri isteğe bağlıdır ve makul varsayılanları vardır, bu nedenle özel gereksinimleriniz olmadığı sürece bunları ayarlamanız gerekmez.
+
+  - `SERVER_HOST`: Sunucunun bağlanacağı host adresi (varsayılan: `0.0.0.0`). Konteyner/makine dışından bağlantılara izin vermek için `0.0.0.0` olarak ayarlayın veya yalnızca localhost'a kısıtlamak için `127.0.0.1` olarak ayarlayın.
+
+  ## Sunucuyu Yerel Olarak Çalıştırma
+
+  ### Seçenek 1: Yerel Geliştirme
+
+  1. Dependencies'i yükleyin:
+     ```bash
+     pnpm install
+     ```
+
+  2. Kullanılabilir komutlar:
+     - `pnpm run dev`: Geliştirme sunucusunu sıcak yenileme ile başlatın
+     - `pnpm run dev:stream`: Geliştirme sunucusunu HTTP streaming modunda sıcak yenileme ile başlatın
+     - `pnpm run build`: Prodüksiyon versiyonunu oluşturun
+     - `pnpm run start`: Prodüksiyon build'ini çalıştırın
+     - `pnpm run inspect`: MCP Inspector'ı çalıştırın ([İnceleme](#inceleme) bölümüne bakın)
+     - `pnpm run format`: Kod formatlamayı kontrol edin (prettier)
+     - `pnpm run lint`: Linter'ı çalıştırın (eslint)
+     - `pnpm run test`: Vitest'i çalıştırın
+     - `pnpm run test:coverage`: Vitest v8 kapsamını çalıştırın
+     - `pnpm run version:check`: package.json versiyonu ve src/version.ts eşleşmesini kontrol edin
+
+  ### Seçenek 2: Docker
+
+  1. Docker image'ını oluşturun:
+     ```bash
+     docker build -t discogs-mcp-server:latest .
+     ```
+
+  2. Konteyner'i çalıştırın:
+     ```bash
+     docker run --env-file .env discogs-mcp-server:latest
+     ```
+
+     HTTP Streaming transport modu için:
+     ```bash
+     # Port, .env dosyasında bulunan portla eşleşmelidir
+     # Varsayılan olarak, sunucu konteyner dışından bağlantılara izin veren 0.0.0.0 adresini dinler
+     docker run --env-file .env -p 3001:3001 discogs-mcp-server:latest stream
+     ```
+
+  ## İnceleme
+
+  Yerel MCP sunucunuzu test etmek için MCP Inspector'ı çalıştırın:
+
+  ```bash
+  pnpm run inspect
+  ```
+
+  Bu, MCP Inspector'ı `http://127.0.0.1:6274` adresinde başlatacaktır. Yerel MCP sunucunuzla etkileşimde bulunmak için bu URL'yi tarayıcınızda ziyaret edin.
+
+  MCP Inspector hakkında daha fazla bilgi için [resmi belgeleri](https://modelcontextprotocol.io/docs/tools/inspector) ziyaret edin.
+
+  ## MCP İstemcileri
+
+  Gelecekte daha fazla istemci örneği eklenecektir. Belirli bir istemci için yapılandırma istiyorsanız, yeni bir sorun açarak talep edin veya bu README bölümünü düzenlemek için pull request oluşturun.
+
+  ### Claude Desktop Yapılandırması
+
+  `claude_desktop_config.json` dosyanızı `Claude > Settings > Developer > Edit Config` konumunda bulun ve seçtiğiniz seçeneğe bağlı olarak aşağıdakilerden **SADECE BİRİNİ** ekleyin:
+
+  #### NPX
+
+  NPM registry'den doğrudan çalıştırma.
+
+  ```json
+  {
+    "mcpServers": {
+      "discogs": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "discogs-mcp-server"
+        ],
+        "env": {
+          "DISCOGS_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Yerel Node
+
+  Bu metodu kullanmadan önce dependencies'ler yüklenmiş olmalıdır (`pnpm install`).
+
+  ```json
+  {
+    "mcpServers": {
+      "discogs": {
+        "command": "npx",
+        "args": [
+          "tsx",
+          "/PATH/TO/YOUR/PROJECT/FOLDER/src/index.ts"
+        ],
+        "env": {
+          "DISCOGS_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+        }
+      }
+    }
+  }
+  ```
+
+  #### Docker
+
+  Docker image'ı bu metodu kullanmadan önce oluşturulmuş olmalıdır.
+
+  ```json
+  {
+    "mcpServers": {
+      "discogs": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "--env-file",
+          "/PATH/TO/YOUR/PROJECT/FOLDER/.env",
+          "discogs-mcp-server:latest"
+        ]
+      }
+    }
+  }
+  ```
+
+  Yerel koddaki herhangi bir değişiklik, etkili olması için Claude'un yeniden başlatılmasını gerektirir. Ayrıca Claude, bir MCP aracının çalıştırılmasına izin vermek için insan-döngü etkileşimi gerektirir, bu nedenle her yeni araca erişildiğinde Claude izin isteyecektir. Genellikle bunu sohbet başına araç başına yalnızca bir kez yapmanız gerekir. _Ücretsiz sürümü kullanıyorsanız, uzun sohbetler Claude tek bir sohbet içinde bağlam miktarını sınırladığı için araçları çalıştırmaya çalışırken daha sık hatalara neden olabilir._
+
+  ### LibreChat
+
+  `librechat.yaml` yapılandırma dosyasında bunu `mcpServers` bölümü altına ekleyin:
+
+  ```yaml
+  discogs:
+    type: stdio
+    command: npx
+    args: ["-y", "discogs-mcp-server"]
+    env:
+      DISCOGS_PERSONAL_ACCESS_TOKEN: YOUR_TOKEN_GOES_HERE
+  ```
+
+  ### LM Studio
+
+  Sohbet `Settings` bölümüne gidin. `Program` sekmesinde varsayılan olarak `Install` olan bir dropdown olacaktır. `Edit mcp.json` seçeneğini seçin. Bunu `mcpServers` bölümü altına ekleyin:
+
+  ```json
+  "discogs": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "discogs-mcp-server"
+    ],
+    "env": {
+      "DISCOGS_PERSONAL_ACCESS_TOKEN": "YOUR_TOKEN_GOES_HERE"
+    }
+  }
+  ```
+
+  Kaydettikten sonra, `Program` sekmesinde sunucuyu etkinleştirmek için `mcp/discogs` toggle'ı olmalıdır. Her sohbet kutusu içinde MCP sunucularını da etkinleştirebileceğiniz bir `Integrations` menüsü vardır.
+
+  ## YAPILACAKLAR
+
+  - OAuth desteği
+  - Eksik araçlar:
+    - Inventory yükleme
+
+  ## Lisans
+
+  Bu MCP sunucusu MIT Lisansı altında lisanslanmıştır. Bu, MIT Lisansının hüküm ve koşullarına tabi olarak yazılımı özgürce kullanma, değiştirme ve dağıtma konusunda özgürsünüz. Daha fazla ayrıntı için lütfen proje repository'sinde LICENSE dosyasına bakın.
 ---
 
 [![License](https://img.shields.io/github/license/cswkim/discogs-mcp-server)](LICENSE)

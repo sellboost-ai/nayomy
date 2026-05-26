@@ -7,6 +7,418 @@ stars: 351
 url: "https://github.com/marcelmarais/spotify-mcp-server"
 body_length: 17265
 language: "TypeScript"
+body_tr: |-
+  <div align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+
+  <h1>Spotify MCP Sunucusu</h1>
+  </div>
+
+  Cursor ve Claude gibi yapay zeka asistanlarının Spotify oynatmayı kontrol etmesine ve çalma listelerini yönetmesine olanak tanıyan hafif bir [Model Context Protocol (MCP)](https://modelcontextprotocol.io) sunucusu.
+
+  <details>
+  <summary>İçindekiler</summary>
+
+  - [Örnek Etkileşimler](#örnek-etkileşimler)
+  - [Araçlar](#araçlar)
+    - [Okuma İşlemleri](#okuma-i̇şlemleri)
+    - [Albüm İşlemleri](#albüm-i̇şlemleri)
+    - [Oynatma / Oluşturma İşlemleri](#oynatma--oluşturma-i̇şlemleri)
+    - [Çalma Listesi İşlemleri](#çalma-listesi-i̇şlemleri)
+  - [Kurulum](#kurulum)
+    - [Ön Koşullar](#ön-koşullar)
+    - [Kurulum](#kurulum-1)
+    - [Spotify Geliştirici Uygulaması Oluşturma](#spotify-geliştirici-uygulaması-oluşturma)
+    - [Spotify API Yapılandırması](#spotify-api-yapılandırması)
+    - [Kimlik Doğrulama Süreci](#kimlik-doğrulama-süreci)
+  - [Claude Desktop, Cursor ve VsCode (Cline) ile Entegrasyon](#claude-desktop-cursor-ve-vscode-cline-ile-entegrasyon)
+  </details>
+
+  ## Örnek Etkileşimler
+
+  - _"Elvis'in ilk şarkısını çal"_
+  - _"Taylor Swift / Slipknot fusion çalma listesi oluştur"_
+  - _"Antrenman çalma listemden tüm techno şarkılarını iş çalma listemle kopyala"_
+  - _"Sesi biraz azalt"_
+
+  ## Araçlar
+
+  ### Okuma İşlemleri
+
+  1. **searchSpotify**
+
+     - **Açıklama**: Spotify'da track, albüm, sanatçı veya çalma listesi arayın
+     - **Parametreler**:
+       - `query` (string): Arama terimi
+       - `type` (string): Aranacak öğe türü (track, album, artist, playlist)
+       - `limit` (number, optional): Döndürülecek maksimum sonuç sayısı (10-50)
+     - **Dönüş**: Eşleşen öğelerin listesi (ID, isim ve ek detaylar)
+     - **Örnek**: `searchSpotify("bohemian rhapsody", "track", 20)`
+
+  2. **getNowPlaying**
+
+     - **Açıklama**: Spotify'da şu anda çalınan track hakkında bilgi alın (cihaz ve ses düzeyi bilgileri dahil)
+     - **Parametreler**: Yok
+     - **Dönüş**: Track adı, sanatçı, albüm, oynatma ilerleme durumu, süre, oynatma durumu, cihaz bilgileri, ses düzeyi ve shuffle/repeat durumu içeren nesne
+     - **Örnek**: `getNowPlaying()`
+
+  3. **getMyPlaylists**
+
+     - **Açıklama**: Geçerli kullanıcının Spotify çalma listelerinin listesini alın
+     - **Parametreler**:
+       - `limit` (number, optional): Döndürülecek maksimum çalma listesi sayısı (varsayılan: 20)
+       - `offset` (number, optional): Döndürülecek ilk çalma listesinin indeksi (varsayılan: 0)
+     - **Dönüş**: ID, isim, track sayısı ve genel durumu olan çalma listelerinin dizisi
+     - **Örnek**: `getMyPlaylists(10, 0)`
+
+  4. **getPlaylistTracks**
+
+     - **Açıklama**: Belirli bir Spotify çalma listesindeki track'lerin listesini alın
+     - **Parametreler**:
+       - `playlistId` (string): Çalma listesinin Spotify ID'si
+       - `limit` (number, optional): Döndürülecek maksimum track sayısı (varsayılan: 100)
+       - `offset` (number, optional): Döndürülecek ilk track'in indeksi (varsayılan: 0)
+     - **Dönüş**: ID, isim, sanatçı, albüm, süre ve ekleme tarihi olan track'lerin dizisi
+     - **Örnek**: `getPlaylistTracks("37i9dQZEVXcJZyENOWUFo7")`
+
+  5. **getRecentlyPlayed**
+
+     - **Açıklama**: Spotify'dan yakın zamanda çalınan track'lerin listesini alır.
+     - **Parametreler**:
+       - `limit` (number, optional): Döndürülecek maksimum track sayısını belirten bir sayı.
+     - **Dönüş**: Track'ler bulunursa yakın zamanda çalınan track'lerin biçimlendirilmiş listesini döndürür, aksi takdirde şu mesajı döndürür: "You don't have any recently played tracks on Spotify".
+     - **Örnek**: `getRecentlyPlayed({ limit: 10 })`
+
+  6. **getUsersSavedTracks**
+
+     - **Açıklama**: Kullanıcının "Beğenilen Şarkılar" kütüphanesinde kaydedilen track'lerin listesini alın
+     - **Parametreler**:
+       - `limit` (number, optional): Döndürülecek maksimum track sayısı (1-50, varsayılan: 50)
+       - `offset` (number, optional): Sayfalandırma için offset (0 tabanlı indeks, varsayılan: 0)
+     - **Dönüş**: Track adları, sanatçılar, süre, track ID'leri ve Beğenilen Şarkılar'a eklenme zamanı olan kaydedilen track'lerin biçimlendirilmiş listesi. Sayfalandırma bilgisini gösterir (örn. "1-20 of 150").
+     - **Örnek**: `getUsersSavedTracks({ limit: 20, offset: 0 })`
+
+  7. **getQueue**
+
+     - **Açıklama**: Spotify kuyruğunda şu anda çalınan track ve sonraki öğeleri alın
+     - **Parametreler**:
+       - `limit` (number, optional): Gösterilecek maksimum sonraki öğe sayısı (1-50, varsayılan: 10)
+     - **Dönüş**: Şu anda çalınan track ve kuyrukta sonraki track'lerin listesi
+     - **Örnek**: `getQueue({ limit: 20 })`
+
+  8. **getAvailableDevices**
+
+     - **Açıklama**: Kullanıcının mevcut Spotify Connect cihazları hakkında bilgi alın
+     - **Parametreler**: Yok
+     - **Dönüş**: İsim, tür, aktif durum, ses düzeyi ve cihaz ID'si olan mevcut cihazların listesi
+     - **Örnek**: `getAvailableDevices()`
+
+  9. **removeUsersSavedTracks**
+
+     - **Açıklama**: Bir veya daha fazla track'i kullanıcının "Beğenilen Şarkılar" kütüphanesinden kaldırın (istek başına maksimum 40)
+     - **Parametreler**:
+       - `trackIds` (array): Kaldırılacak Spotify track ID'lerinin dizisi (maksimum 40)
+     - **Dönüş**: Başarı onayı mesajı
+     - **Örnek**: `removeUsersSavedTracks({ trackIds: ["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"] })`
+
+
+  ### Oynatma / Oluşturma İşlemleri
+
+  1. **playMusic**
+
+     - **Açıklama**: Spotify'da bir track, albüm, sanatçı veya çalma listesi çalmaya başlayın
+     - **Parametreler**:
+       - `uri` (string, optional): Çalınacak öğenin Spotify URI'si (tür ve id'yi geçersiz kılar)
+       - `type` (string, optional): Çalınacak öğe türü (track, album, artist, playlist)
+       - `id` (string, optional): Çalınacak öğenin Spotify ID'si
+       - `deviceId` (string, optional): Üzerinde çalacak cihazın ID'si
+     - **Dönüş**: Başarı durumu
+     - **Örnek**: `playMusic({ uri: "spotify:track:6rqhFgbbKwnb9MLmUQDhG6" })`
+     - **Alternatif**: `playMusic({ type: "track", id: "6rqhFgbbKwnb9MLmUQDhG6" })`
+
+  2. **pausePlayback**
+
+     - **Açıklama**: Spotify'da şu anda çalınan track'i duraklatın
+     - **Parametreler**:
+       - `deviceId` (string, optional): Duraklatılacak cihazın ID'si
+     - **Dönüş**: Başarı durumu
+     - **Örnek**: `pausePlayback()`
+
+  3. **resumePlayback**
+
+     - **Açıklama**: Etkin cihazda Spotify oynatmaya devam edin
+     - **Parametreler**:
+       - `deviceId` (string, optional): Oynatmanın devam edeceği cihazın ID'si
+     - **Dönüş**: Başarı durumu
+     - **Örnek**: `resumePlayback()`
+
+  4. **skipToNext**
+
+     - **Açıklama**: Geçerli oynatma kuyruğundaki sonraki track'e geçin
+     - **Parametreler**:
+       - `deviceId` (string, optional): Cihazın ID'si
+     - **Dönüş**: Başarı durumu
+     - **Örnek**: `skipToNext()`
+
+  5. **skipToPrevious**
+
+     - **Açıklama**: Geçerli oynatma kuyruğundaki önceki track'e geçin
+     - **Parametreler**:
+       - `deviceId` (string, optional): Cihazın ID'si
+     - **Dönüş**: Başarı durumu
+     - **Örnek**: `skipToPrevious()`
+
+  6. **createPlaylist**
+
+     - **Açıklama**: Spotify'da yeni bir çalma listesi oluşturun
+     - **Parametreler**:
+       - `name` (string): Yeni çalma listesinin adı
+       - `description` (string, optional): Çalma listesi açıklaması
+       - `public` (boolean, optional): Çalma listesinin genel olup olmayacağı (varsayılan: false)
+     - **Dönüş**: Yeni çalma listesinin ID'si ve URL'si içeren nesne
+     - **Örnek**: `createPlaylist({ name: "Workout Mix", description: "Songs to get pumped up", public: false })`
+
+  7. **addTracksToPlaylist**
+
+     - **Açıklama**: Mevcut bir Spotify çalma listesine track'ler ekleyin
+     - **Parametreler**:
+       - `playlistId` (string): Çalma listesinin ID'si
+       - `trackUris` (array): Eklenecek track URI'leri veya ID'lerinin dizisi
+       - `position` (number, optional): Track'lerin ekleneceği pozisyon
+     - **Dönüş**: Başarı durumu ve snapshot ID'si
+     - **Örnek**: `addTracksToPlaylist({ playlistId: "3cEYpjA9oz9GiPac4AsH4n", trackUris: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh"] })`
+
+  8. **addToQueue**
+
+     - **Açıklama**: Geçerli oynatma kuyruğuna track, albüm, sanatçı veya çalma listesi ekleyin
+     - **Parametreler**:
+       - `uri` (string, optional): Kuyruğa eklenecek öğenin Spotify URI'si (tür ve id'yi geçersiz kılar)
+       - `type` (string, optional): Kuyruğa alınacak öğe türü (track, album, artist, playlist)
+       - `id` (string, optional): Kuyruğa alınacak öğenin Spotify ID'si
+       - `deviceId` (string, optional): Kuyruğa alınacak cihazın ID'si
+     - **Dönüş**: Başarı durumu
+     - **Örnek**: `addToQueue({ uri: "spotify:track:6rqhFgbbKwnb9MLmUQDhG6" })`
+     - **Alternatif**: `addToQueue({ type: "track", id: "6rqhFgbbKwnb9MLmUQDhG6" })`
+
+  9. **setVolume**
+
+     - **Açıklama**: Oynatma sesini belirli bir yüzdeye ayarlayın (Spotify Premium gereklidir)
+     - **Parametreler**:
+       - `volumePercent` (number): Ayarlanacak ses düzeyi (0-100)
+       - `deviceId` (string, optional): Ses düzeyinin ayarlanacağı cihazın ID'si
+     - **Dönüş**: Yeni ses düzeyini gösteren başarı durumu
+     - **Örnek**: `setVolume({ volumePercent: 50 })`
+
+  10. **adjustVolume**
+
+     - **Açıklama**: Oynatma sesini göreceli bir miktarla artırın veya azaltın (Spotify Premium gereklidir)
+     - **Parametreler**:
+       - `adjustment` (number): Sesi ayarlanacak miktar (-100 ile 100). Pozitif değerler sesi artırır, negatif değerler azaltır.
+       - `deviceId` (string, optional): Ses düzeyinin ayarlanacağı cihazın ID'si
+     - **Dönüş**: Ses değişimini gösteren başarı durumu (örn. "Volume increased from 50% to 60%")
+     - **Örnek**: `adjustVolume({ adjustment: 10 })` (%10 artır)
+     - **Örnek**: `adjustVolume({ adjustment: -20 })` (%20 azalt)
+
+
+  ### Albüm İşlemleri
+
+  1. **getAlbums**
+
+     - **Açıklama**: Spotify ID'lerine göre bir veya daha fazla albüm hakkında detaylı bilgi alın
+     - **Parametreler**:
+       - `albumIds` (string|array): Tek bir albüm ID'si veya albüm ID'lerinin dizisi (maksimum 20)
+     - **Dönüş**: İsim, sanatçılar, yayın tarihi, tür, toplam track sayısı ve ID dahil albüm detayları. Tek albüm için detaylı görünüm döndürür, birden fazla albüm için özet liste döndürür.
+     - **Örnek**: `getAlbums("4aawyAB9vmqN3uQ7FjRGTy")` veya `getAlbums(["4aawyAB9vmqN3uQ7FjRGTy", "1DFixLWuPkv3KT3TnV35m3"])`
+
+  2. **getAlbumTracks**
+
+     - **Açıklama**: Sayfalandırma desteği ile belirli bir albümden track'leri alın
+     - **Parametreler**:
+       - `albumId` (string): Albümün Spotify ID'si
+       - `limit` (number, optional): Döndürülecek maksimum track sayısı (1-50)
+       - `offset` (number, optional): Sayfalandırma için offset (0 tabanlı indeks)
+     - **Dönüş**: Track adları, sanatçılar, süre ve ID'leri ile albümden track'lerin listesi. Sayfalandırma bilgisini gösterir.
+     - **Örnek**: `getAlbumTracks("4aawyAB9vmqN3uQ7FjRGTy", 10, 0)`
+
+  3. **saveOrRemoveAlbumForUser**
+
+     - **Açıklama**: Albümleri kullanıcının "Your Music" kütüphanesine kaydedin veya kaldırın
+     - **Parametreler**:
+       - `albumIds` (array): Spotify albüm ID'lerinin dizisi (maksimum 20)
+       - `action` (string): Gerçekleştirilecek işlem: "save" veya "remove"
+     - **Dönüş**: Onay mesajı ile başarı durumu
+     - **Örnek**: `saveOrRemoveAlbumForUser(["4aawyAB9vmqN3uQ7FjRGTy"], "save")`
+
+  4. **checkUsersSavedAlbums**
+
+     - **Açıklama**: Albümlerin kullanıcının "Your Music" kütüphanesine kaydedilip kaydedilmediğini kontrol edin
+     - **Parametreler**:
+       - `albumIds` (array): Kontrol edilecek Spotify albüm ID'lerinin dizisi (maksimum 20)
+     - **Dönüş**: Her albümün durumu (kaydedilmiş veya kaydedilmemiş)
+     - **Örnek**: `checkUsersSavedAlbums(["4aawyAB9vmqN3uQ7FjRGTy", "1DFixLWuPkv3KT3TnV35m3"])`
+
+  ### Çalma Listesi İşlemleri
+
+  1. **getPlaylist**
+
+     - **Açıklama**: Belirli bir Spotify çalma listesinin detaylarını alın (track sayısı, açıklama ve sahip dahil)
+     - **Parametreler**:
+       - `playlistId` (string): Çalma listesinin Spotify ID'si
+     - **Dönüş**: Çalma listesi adı, sahip, track sayısı, görünürlük, açıklama, ID ve URL
+     - **Örnek**: `getPlaylist({ playlistId: "37i9dQZEVXcJZyENOWUFo7" })`
+
+  2. **updatePlaylist**
+
+     - **Açıklama**: Spotify çalma listesinin detaylarını güncelleyin (ad, açıklama, genel/özel, işbirlikçi)
+     - **Parametreler**:
+       - `playlistId` (string): Çalma listesinin Spotify ID'si
+       - `name` (string, optional): Çalma listesinin yeni adı
+       - `description` (string, optional): Çalma listesinin yeni açıklaması
+       - `public` (boolean, optional): Çalma listesinin genel olup olmayacağı
+       - `collaborative` (boolean, optional): Çalma listesinin işbirlikçi olup olmayacağı (genel değer false olmalı)
+     - **Dönüş**: Güncellenen alanların listesi ile başarı onayı
+     - **Örnek**: `updatePlaylist({ playlistId: "3cEYpjA9oz9GiPac4AsH4n", name: "New Name", public: true })`
+
+  3. **removeTracksFromPlaylist**
+
+     - **Açıklama**: Spotify çalma listesinden bir veya daha fazla track'i kaldırın (istek başına maksimum 100 track)
+     - **Parametreler**:
+       - `playlistId` (string): Çalma listesinin Spotify ID'si
+       - `trackIds` (array): Kaldırılacak Spotify track ID'lerinin dizisi (maksimum 100)
+       - `snapshotId` (string, optional): Belirli bir sürümü hedeflemek için çalma listesi snapshot ID'si
+     - **Dönüş**: Kaldırılan track sayısı ile başarı onayı
+     - **Örnek**: `removeTracksFromPlaylist({ playlistId: "3cEYpjA9oz9GiPac4AsH4n", trackIds: ["4iV5W9uYEdYUVa79Axb7Rh"] })`
+
+  4. **reorderPlaylistItems**
+
+     - **Açıklama**: Spotify çalma listesi içindeki bir track aralığını yeni bir pozisyona taşıyarak yeniden sıralayın
+     - **Parametreler**:
+       - `playlistId` (string): Çalma listesinin Spotify ID'si
+       - `rangeStart` (number): Taşınacak ilk öğenin pozisyonu (0 tabanlı indeks)
+       - `insertBefore` (number): Öğelerin ekleneceği pozisyon (0 tabanlı indeks)
+       - `rangeLength` (number, optional): Taşınacak ardışık öğe sayısı (varsayılan: 1)
+       - `snapshotId` (string, optional): Belirli bir sürümü hedeflemek için çalma listesi snapshot ID'si
+     - **Dönüş**: Hareket detayları ile başarı onayı
+     - **Örnek**: `reorderPlaylistItems({ playlistId: "3cEYpjA9oz9GiPac4AsH4n", rangeStart: 2, insertBefore: 0 })`
+
+  ## Kurulum
+
+  ### Ön Koşullar
+
+  - Node.js v16+
+  - Spotify Premium hesabı
+  - Kayıtlı bir Spotify Geliştirici uygulaması
+
+  ### Kurulum
+
+  ```bash
+  git clone https://github.com/marcelmarais/spotify-mcp-server.git
+  cd spotify-mcp-server
+  npm install
+  npm run build
+  ```
+
+  ### Spotify Geliştirici Uygulaması Oluşturma
+
+  1. [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) adresine gidin
+  2. Spotify hesabınızla oturum açın
+  3. "Create an App" butonuna tıklayın
+  4. Uygulama adı ve açıklamasını doldurun
+  5. Hizmet Şartlarını kabul edin ve "Create" tıklayın
+  6. Yeni uygulamanızın dashboard'unda **Client ID**'nizi göreceksiniz
+  7. **Client Secret**'i ortaya çıkarmak için "Show Client Secret" tıklayın
+  8. "Edit Settings" tıklayın ve bir Redirect URI ekleyin (ör. `http://127.0.0.1:8888/callback`)
+  9. Değişiklikleri kaydedin
+
+  ### Spotify API Yapılandırması
+
+  Proje kökünde bir `spotify-config.json` dosyası oluşturun (sağlanan örneği kopyalayıp değiştirebilirsiniz):
+
+  ```bash
+  # Örnek yapılandırma dosyasını kopyalayın
+  cp spotify-config.example.json spotify-config.json
+  ```
+
+  Ardından dosyayı kimlik bilgilerinizle düzenleyin:
+
+  ```json
+  {
+    "clientId": "your-client-id",
+    "clientSecret": "your-client-secret",
+    "redirectUri": "http://127.0.0.1:8888/callback"
+  }
+  ```
+
+  ### Kimlik Doğrulama Süreci
+
+  Spotify API, kimlik doğrulama için OAuth 2.0 kullanır. Uygulamanızda kimlik doğrulama yapmak için şu adımları izleyin:
+
+  1. Kimlik doğrulama script'ini çalıştırın:
+
+  ```bash
+  npm run auth
+  ```
+
+  2. Script bir yetkilendirme URL'si oluşturacak. Bu URL'yi web tarayıcınızda açın.
+
+  3. Spotify'da oturum açmanız ve uygulamanızı yetkilendirmeniz istenecek.
+
+  4. Yetkilendirmeden sonra Spotify sizi belirtilen redirect URI'nize URL'de bir kod parametresi ile yönlendirecek.
+
+  5. Kimlik doğrulama script'i otomatik olarak bu kodu erişim ve yenileme tokenları ile değiştirecek.
+
+  6. Bu tokenlar `spotify-config.json` dosyasına kaydedilecek ve dosya şöyle görünecek:
+
+  ```json
+  {
+    "clientId": "your-client-id",
+    "clientSecret": "your-client-secret",
+    "redirectUri": "http://localhost:8888/callback",
+    "accessToken": "BQAi9Pn...kKQ",
+    "refreshToken": "AQDQcj...7w",
+    "expiresAt": 1677889354671
+  }
+  ```
+
+  **Not**: `expiresAt` alanı, erişim tokenının ne zaman sona ereceğini gösteren Unix zaman damgasıdır (milisaniye cinsinden).
+
+  7. **Otomatik Token Yenileme**: Sunucu, erişim tokenı sona erdiğinde (genellikle 1 saat sonra) otomatik olarak yenileme tokenını yenileyecek. Yenileme `refreshToken` kullanılarak şeffaf bir şekilde gerçekleşir, bu nedenle manuel olarak yeniden kimlik doğrulama yapmanız gerekmez. Yenileme başarısız olursa, yeniden kimlik doğrulamak için `npm run auth` komutunu çalıştırmanız gerekecek.
+
+  ## Claude Desktop, Cursor ve VsCode (Cline) ile Entegrasyon
+
+  MCP sunucunuzu Claude Desktop ile kullanmak için, Claude yapılandırmanıza ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "spotify": {
+        "command": "node",
+        "args": ["spotify-mcp-server/build/index.js"]
+      }
+    }
+  }
+  ```
+
+  Cursor için, `Cursor Settings` içindeki MCP sekmesine gidin (command + shift + J). Bu komutla bir sunucu ekleyin:
+
+  ```bash
+  node path/to/spotify-mcp-server/build/index.js
+  ```
+
+  Cline ile MCP'nizi doğru şekilde kurmak için şu dosya yapılandırmasının ayarlanmış olduğundan emin olun `cline_mcp_settings.json`:
+
+  ```json
+  {
+    "mcpServers": {
+      "spotify": {
+        "command": "node",
+        "args": ["~/../spotify-mcp-server/build/index.js"],
+        "autoApprove": ["getListeningHistory", "getNowPlaying"]
+      }
+    }
+  }
+  ```
+
+  Araçların müdahale olmadan çalışması için otomatik onay dizisine ek araçlar ekleyebilirsiniz.
 ---
 
 <div align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">

@@ -8,6 +8,507 @@ url: "https://github.com/Softeria/ms-365-mcp-server"
 body_length: 30552
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # ms-365-mcp-server
+
+  [![npm version](https://img.shields.io/npm/v/@softeria/ms-365-mcp-server.svg)](https://www.npmjs.com/package/@softeria/ms-365-mcp-server) [![build status](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml/badge.svg)](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/softeria/ms-365-mcp-server/blob/main/LICENSE)
+
+  Microsoft 365 MCP Server
+
+  Model Context Protocol (MCP) sunucusu, Graph API aracılığıyla Microsoft 365 ve Microsoft Office hizmetleriyle etkileşim kurmak için.
+
+  ## Desteklenen Bulutlar
+
+  Bu sunucu birden fazla Microsoft bulut ortamını destekler:
+
+  | Bulut                | Açıklama                       | Auth Uç Noktası           | Graph API Uç Noktası        |
+  | -------------------- | ---------------------------------- | ------------------------- | ------------------------------- |
+  | **Global** (varsayılan) | Uluslararası Microsoft 365        | login.microsoftonline.com | graph.microsoft.com             |
+  | **Çin** (21Vianet) | 21Vianet tarafından işletilen Microsoft 365 | login.chinacloudapi.cn    | microsoftgraph.chinacloudapi.cn |
+
+  ## Ön Koşullar
+
+  - Node.js >= 20 (önerilir)
+  - Node.js 14+ bağımlılık uyarıları ile çalışabilir
+
+  ## Özellikler
+
+  - Microsoft Authentication Library (MSAL) aracılığıyla kimlik doğrulama
+  - Kapsamlı Microsoft 365 hizmet entegrasyonu
+  - Güvenli işlemler için salt okunur mod desteği
+  - Parçalı erişim kontrolü için araç filtreleme
+
+  ## Çıktı Formatı: JSON vs TOON
+
+  Sunucu, genel olarak yapılandırılabilen iki çıktı formatını destekler:
+
+  ### JSON Formatı (Varsayılan)
+
+  Pretty-printing ile standart JSON çıktısı:
+
+  ```json
+  {
+    "value": [
+      {
+        "id": "1",
+        "displayName": "Alice Johnson",
+        "mail": "alice@example.com",
+        "jobTitle": "Software Engineer"
+      }
+    ]
+  }
+  ```
+
+  ### (deneysel) TOON Formatı
+
+  [Token-Oriented Object Notation](https://github.com/toon-format/toon) verimli LLM token kullanımı için:
+
+  ```
+  value[1]{id,displayName,mail,jobTitle}:
+    "1",Alice Johnson,alice@example.com,Software Engineer
+  ```
+
+  **Faydaları:**
+
+  - JSON'a kıyasla %30-60 daha az token
+  - Tek tip dizi verileri için en iyisi (e-posta listeleri, takvim etkinlikleri, dosyalar, vb.)
+  - Ölçekte maliyet duyarlı uygulamalar için ideal
+
+  **Kullanım:**
+  (deneysel) TOON formatını genel olarak etkinleştir:
+
+  CLI bayrağı aracılığıyla:
+
+  ```bash
+  npx @softeria/ms-365-mcp-server --toon
+  ```
+
+  Claude Desktop yapılandırması aracılığıyla:
+
+  ```json
+  {
+    "mcpServers": {
+      "ms365": {
+        "command": "npx",
+        "args": ["-y", "@softeria/ms-365-mcp-server", "--toon"]
+      }
+    }
+  }
+  ```
+
+  Ortam değişkeni aracılığıyla:
+
+  ```bash
+  MS365_MCP_OUTPUT_FORMAT=toon npx @softeria/ms-365-mcp-server
+  ```
+
+  ## Desteklenen Hizmetler ve Araçlar
+
+  Sunucu, Microsoft Graph API yüzeyinin çoğunu kapsayan 200+ araç sağlar. Her araç, bir Graph API uç noktasına 1'e 1 eşlenir ve [`src/endpoints.json`](src/endpoints.json) içinde bildirimsel olarak tanımlanır.
+
+  ### Kişisel Hesap Araçları (Varsayılan Olarak Kullanılabilir)
+
+  E-posta (Outlook), Takvim, OneDrive Dosyaları, Excel, OneNote, To Do Görevleri, Planner, Kişiler, Kullanıcı Profili, Arama
+
+  ### Kuruluş Hesabı Araçları (--org-mode Bayrağı Gereklidir)
+
+  Teams ve Sohbetler, Çevrimiçi Toplantılar, Transkriptler ve Kayıtlar, Katılım Raporları, SharePoint Siteleri ve Listeleri, Paylaşılan Posta Kutuları ve Takvimler, Kullanıcı Yönetimi, Durum, Sanal Etkinlikler
+
+  ### Gerekli Graph API İzinleri
+
+  İzinler, hangi araçların etkin olduğuna bağlı olarak dinamik olarak istenir. Yapılandırmanızın tam izinlerini görmek için `--list-permissions` kullanın:
+
+  ```bash
+  # Kişisel mod (varsayılan)
+  npx @softeria/ms-365-mcp-server --list-permissions
+
+  # Kuruluş modu (Teams, SharePoint vb. içerir)
+  npx @softeria/ms-365-mcp-server --org-mode --list-permissions
+
+  # Önceden ayarlanmış tarafından filtrelenmiş
+  npx @softeria/ms-365-mcp-server --preset mail --list-permissions
+  ```
+
+  Bu, Graph API izinlerinin yeni bir sürüm dağıtılmadan önce önceden onaylanması ve yönetici onayı alması gereken kurumsal ortamlar için yararlıdır.
+
+  `--list-permissions` JSON'u içerir:
+
+  - `toolPermissions`: `--allowed-scopes` filtrelemesinden önce araç yüzeyinin ima ettiği izinler
+  - `effectivePermissions`: `--allowed-scopes` uygulandıktan sonra etkin kalan araçların ima ettiği izinler
+  - `permissions`: `effectivePermissions` için eski ad, mevcut betiklerle uyumluluğu için tutulmuş
+  - `allowedScopes`: sağlandığında yapılandırılmış kapsam izin listesi
+  - `disabledTools`: gerekli Graph kapsamları `allowedScopes` tarafından kapsanmadığı için gizlenen araçlar
+  - `missingAllowedScopesForTools`: devre dışı bırakılmış araçlar arasında benzersiz eksik kapsamlar
+  - `extraAllowedScopesNotUsedByTools`: mevcut araç yüzeyinde kullanılmayan izin verilen kapsamlar
+
+  ### İzin Verilen Kapsamlar
+
+  Varsayılan olarak, MSAL etkin araçlar tarafından ima edilen kapsamları ister ve araç yüzeyi `--enabled-tools`, `--preset`, `--org-mode` ve `--read-only` tarafından kontrol edilir.
+
+  Kurumsal ve başsız dağıtımlar `--allowed-scopes` veya `MS365_MCP_ALLOWED_SCOPES` ile bir kapsam sınırı ekleyebilir. Yapılandırıldığında, sunucu önce normal araç yüzeyini hesaplar, ardından gerekli kapsamları izin listesi tarafından kapsanmayan Graph araçlarını gizler. OAuth meta verileri ve giriş akışları yalnızca etkin kalan araçlar için etkili izinleri ister.
+
+  ```bash
+  npx @softeria/ms-365-mcp-server \
+    --org-mode \
+    --enabled-tools '^(list-mail-messages|get-mail-message|list-drives|get-drive-item|download-bytes)$' \
+    --allowed-scopes 'User.Read Mail.Read Files.Read'
+  ```
+
+  CLI değeri `MS365_MCP_ALLOWED_SCOPES` üzerinde öncelik alır; ikisi de ayarlanmamışsa, varsayılan araç türetilmiş kapsam davranışı değişmez. Boş bir değer sağlamak dağıtımları yanlışlıkla daha geniş bir araç yüzeyine geri dönmemesi için başlangıçta başarısız olur.
+
+  Kapsam kapsamı hiyerarşi duyarlıdır: örneğin, `Mail.ReadWrite` `Mail.Read` gerektiren araçları kapsar ve `Files.ReadWrite.All` `Files.Read` gerektiren araçları kapsar.
+
+  HTTP modunda, OAuth keşfi, istemcilerin aynı onay yüzeyini istemesi için etkili filtrelenmiş izinleri yayınlar. On-Behalf-Of modu (`--obo`) hala korumalı kaynak meta verileri için `api://<clientId>/access_as_user` yayınlar; `--allowed-scopes` OBO'yu geçersiz kılmaz.
+
+  ## Kuruluş/İş Modu
+
+  İş/okul özelliklerine erişmek için (Teams, SharePoint, vb.), bu bayraklardan herhangi birini kullanarak kuruluş modunu etkinleştirin:
+
+  ```json
+  {
+    "mcpServers": {
+      "ms365": {
+        "command": "npx",
+        "args": ["-y", "@softeria/ms-365-mcp-server", "--org-mode"]
+      }
+    }
+  }
+  ```
+
+  Kuruluş modu, iş hesabı özelliklerine erişmek için baştan etkinleştirilmelidir. Bu bayrak olmadan yalnızca kişisel hesap özellikleri (e-posta, takvim, OneDrive, vb.) kullanılabilir.
+
+  ## Paylaşılan Posta Kutusu Erişimi
+
+  Paylaşılan posta kutularına erişmek için şunlara ihtiyacınız vardır:
+
+  1. **Kuruluş modu**: Paylaşılan posta kutusu araçları `--org-mode` bayrağını gerektirir (yalnızca iş/okul hesapları)
+  2. **Temsilci izinleri**: `Mail.Read.Shared` veya `Mail.Send.Shared` kapsamları
+  3. **Exchange izinleri**: Oturum açan kullanıcıya paylaşılan posta kutusuna erişim izni verilmiş olmalı
+  4. **Kullanım**: Paylaşılan posta kutusu araçlarında `user-id` parametresi olarak paylaşılan posta kutusunun e-posta adresini kullanın
+
+  **Paylaşılan posta kutularını bulma**: Kuruluşunuzdaki mevcut kullanıcıları ve paylaşılan posta kutularını keşfetmek için `list-users` aracını kullanın.
+
+  Örnek: `list-shared-mailbox-messages` ile `user-id` `shared-mailbox@company.com` olarak ayarlandı
+
+  ## Hızlı Başlangıç Örneği
+
+  Claude Desktop'ta girişi test edin:
+
+  ![Login example](https://github.com/user-attachments/assets/27f57f0e-57b8-4366-a8d1-c0bdab79900c)
+
+  ## Örnekler
+
+  ![Image](https://github.com/user-attachments/assets/ed275100-72e8-4924-bcf2-cd8e1b4c6f3a)
+
+  ## Entegrasyon
+
+  ### Claude Desktop
+
+  Bu MCP sunucusunu Claude Desktop'a eklemek için, Ayarlar > Geliştirici altındaki config dosyasını düzenleyin.
+
+  #### Kişisel Hesap (MSA)
+
+  ```json
+  {
+    "mcpServers": {
+      "ms365": {
+        "command": "npx",
+        "args": ["-y", "@softeria/ms-365-mcp-server"]
+      }
+    }
+  }
+  ```
+
+  #### İş/Okul Hesabı (Global)
+
+  ```json
+  {
+    "mcpServers": {
+      "ms365": {
+        "command": "npx",
+        "args": ["-y", "@softeria/ms-365-mcp-server", "--org-mode"]
+      }
+    }
+  }
+  ```
+
+  #### İş/Okul Hesabı (Çin 21Vianet)
+
+  ```json
+  {
+    "mcpServers": {
+      "ms365-china": {
+        "command": "npx",
+        "args": ["-y", "@softeria/ms-365-mcp-server", "--org-mode", "--cloud", "china"]
+      }
+    }
+  }
+  ```
+
+  ### Claude Code CLI
+
+  #### Kişisel Hesap (MSA)
+
+  ```bash
+  claude mcp add ms365 -- npx -y @softeria/ms-365-mcp-server
+  ```
+
+  #### İş/Okul Hesabı (Global)
+
+  ```bash
+  # macOS/Linux
+  claude mcp add ms365 -- npx -y @softeria/ms-365-mcp-server --org-mode
+
+  # Windows (cmd /c sarmalayıcısını kullan)
+  claude mcp add ms365 -s user -- cmd /c "npx -y @softeria/ms-365-mcp-server --org-mode"
+  ```
+
+  #### İş/Okul Hesabı (Çin 21Vianet)
+
+  ```bash
+  # macOS/Linux
+  claude mcp add ms365-china -- npx -y @softeria/ms-365-mcp-server --org-mode --cloud china
+
+  # Windows (cmd /c sarmalayıcısını kullan)
+  claude mcp add ms365-china -s user -- cmd /c "npx -y @softeria/ms-365-mcp-server --org-mode --cloud china"
+  ```
+
+  MCP'yi destekleyen diğer arayüzler için, lütfen doğru entegrasyon yöntemi hakkında ilgili belgelerine başvurun.
+
+  ### Open WebUI
+
+  Open WebUI, OAuth 2.1 ile HTTP taşıması aracılığıyla MCP sunucularını destekler.
+
+  1. Sunucuyu HTTP modu ile başlatın:
+
+     ```bash
+     npx @softeria/ms-365-mcp-server --http
+     ```
+
+  2. Open WebUI'de **Admin Ayarları → Araçlar** (`/admin/settings/tools`) → **Bağlantı Ekle**'ye gidin:
+     - **Tür**: MCP Streamable HTTP
+     - **URL**: `/mcp` yolu ile MCP sunucusu URL'niz
+     - **Auth**: OAuth 2.1
+
+  3. **İstemciyi Kaydet**'e tıklayın.
+
+  > **Not**: Dinamik istemci kaydı HTTP modunda varsayılan olarak etkindir. Devre dışı bırakmak için `--no-dynamic-registration` kullanın. Özel bir Azure Entra uygulaması kullanıyorsanız, yeniden yönlendirme URI'nizi "Tek sayfalı uygulama" değil, "Mobil ve masaüstü uygulamaları" platformu altına ekleyin.
+
+  **Varsayılan Azure uygulaması kullanarak hızlı test kurulumu** (ID `ms-365` ve `localhost:8080` önceden yapılandırılmış):
+
+  ```bash
+  docker run -d -p 8080:8080 \
+    -e WEBUI_AUTH=false \
+    -e OPENAI_API_KEY \
+    ghcr.io/open-webui/open-webui:main
+
+  npx @softeria/ms-365-mcp-server --http
+  ```
+
+  Daha sonra bağlantıyı URL `http://localhost:3000/mcp` ve ID `ms-365` ile ekleyin.
+
+  ![Open WebUI MCP Connection](https://github.com/user-attachments/assets/dcab71dd-cf02-4bcb-b7db-5725d6be4064)
+
+  > **Docker'da ters proxy'nin arkasında mı çalışıyor?** Kullanıcının tarayıcısından kapsayıcı ağı dışından ulaşılabilir olması için OAuth yetkilendirme URL'sinin `--public-url https://your-domain.com` ile ayarlanması. Tam kılavuz için [docs/deployment.md](docs/deployment.md) bölümüne bakın.
+
+  ### Yerel Geliştirme
+
+  Yerel geliştirme veya test için:
+
+  ```bash
+  # Proje dizininden
+  claude mcp add ms -- npx tsx src/index.ts --org-mode
+  ```
+
+  Veya Claude Desktop'u manuel olarak yapılandırın:
+
+  ```json
+  {
+    "mcpServers": {
+      "ms365": {
+        "command": "node",
+        "args": ["/absolute/path/to/ms-365-mcp-server/dist/index.js", "--org-mode"]
+      }
+    }
+  }
+  ```
+
+  > **Not**: Kod değişikliklerinden sonra `npm run build` çalıştırarak `dist/` klasörünü güncelleyin.
+
+  ### Kimlik Doğrulama
+
+  > ⚠️ Araçları kullanmadan önce kimlik doğrulaması yapmalısınız.
+
+  Sunucu üç kimlik doğrulama yöntemini destekler:
+
+  #### 1. Cihaz Kodu Akışı (Varsayılan)
+
+  Cihaz kodu aracılığıyla etkileşimli kimlik doğrulama için:
+
+  - **MCP istemci girişi**:
+    - `login` aracını çağırın (mevcut belirteci otomatik kontrol eder)
+    - Gerekirse, URL+kodu alın, tarayıcıda ziyaret edin
+    - Onaylamak için `verify-login` aracını kullanın
+  - **CLI girişi**:
+    ```bash
+    npx @softeria/ms-365-mcp-server --login
+    ```
+    Terminal'deki URL ve kod komutunu izleyin.
+
+  Belirteçler işletim sistemi kimlik bilgileri deposunda güvenli bir şekilde önbelleğe alınır (dosya tabanlı depolamaya geri düşüş).
+
+  #### 2. OAuth Yetkilendirme Kodu Akışı (Yalnızca HTTP modu)
+
+  `--http` ile çalıştırırken, sunucu **OAuth kimlik doğrulaması gerektirir**:
+
+  ```bash
+  npx @softeria/ms-365-mcp-server --http 3000
+  ```
+
+  Bu mod:
+
+  - OAuth yeteneklerini MCP istemcilerine yayınlar
+  - `/auth/*` uç noktalarında OAuth uç noktaları sağlar (yetkilendirme, belirteç, meta veriler)
+  - Tüm MCP istekleri için `Authorization: Bearer <token>` **gerektirir**
+  - Belirteçleri Microsoft Graph API ile doğrular
+  - Varsayılan olarak giriş/çıkış araçlarını **devre dışı bırakır** (etkinleştirmek için `--enable-auth-tools` kullanın)
+
+  MCP istemcileri, yayınlanan yetenekleri gördüklerinde OAuth akışını otomatik olarak işler.
+
+  ##### OAuth Test için Azure AD'yi Ayarlama
+
+  OAuth modunu özel Azure kimlik bilgileriyle kullanmak için (üretim için önerilir), bir Azure AD uygulaması kaydı ayarlamanız gerekir:
+
+  1. **Azure AD Uygulaması Kaydını Oluştur**:
+
+  - [Azure Portal](https://portal.azure.com) gidin
+  - Azure Active Directory → Uygulamalar kaydı → Yeni kayıt öğesine gidin
+  - Ad ayarla: "MS365 MCP Server"
+
+  2. **Yeniden Yönlendirme URI'lerini Yapılandır**:
+
+  - **OAuth callback URI'sini yapılandır**: Uygulamayı kaydınıza gidin ve sol tarafta Kimlik Doğrulama'ya gidin.
+  - Platform yapılandırmaları altında:
+    - Henüz "Mobil ve masaüstü uygulamaları" / "Genel istemci" için bir platform görmüyorsanız, bir platform ekleyin.
+    - Mobil ve masaüstü uygulamalarını veya Genel istemci/yerel'i seçin (portal sürümüne bağlı olarak etiket değişir).
+
+  3. **MCP Inspector ile Test (`npm run inspector`)**:
+
+  - Uygulamayı kaydınıza gidin ve sol tarafta Kimlik Doğrulama'ya gidin.
+  - Platform yapılandırmaları altında:
+    - Henüz "Web" için bir platform görmüyorsanız, bir platform ekleyin.
+    - Web seçin.
+    - Aşağıdaki yeniden yönlendirme URI'lerini yapılandırın
+      - `http://localhost:6274/oauth/callback`
+      - `http://localhost:6274/oauth/callback/debug`
+      - `http://localhost:3000/callback` (isteğe bağlı, sunucu geri çağrısı için)
+
+  4. **Kimlik Bilgilerini Al**:
+
+  - **Uygulama (istemci) ID**'sini Genel Bakış sayfasından kopyalayın
+  - Sertifikalar ve gizlilikler → Yeni istemci gizliliği → Gizli değerini kopyalayın (genel uygulamalar için isteğe bağlı)
+
+  5. **Ortam Değişkenlerini Yapılandır**:
+     Proje kökünüzde `.env` dosyası oluşturun:
+     ```env
+     MS365_MCP_CLIENT_ID=your-azure-ad-app-client-id-here
+     MS365_MCP_CLIENT_SECRET=your-secret-here  # Genel uygulamalar için isteğe bağlı
+     MS365_MCP_TENANT_ID=common
+     ```
+
+  Bunlar yapılandırıldığında, sunucu yerleşik olanı yerine özel Azure uygulamanızı kullanacaktır.
+
+  #### 3. Kendi Belirtecini Getir (BYOT)
+
+  ms-365-mcp-server'ı harici olarak Microsoft OAuth belirteçlerini yönetiyle daha geniş bir sistemin parçası olarak çalıştırıyorsanız, bir erişim belirtecini doğrudan bu MCP sunucusuna sağlayabilirsiniz:
+
+  ```bash
+  MS365_MCP_OAUTH_TOKEN=your_oauth_token npx @softeria/ms-365-mcp-server
+  ```
+
+  Bu yöntem:
+
+  - Etkileşimli kimlik doğrulama akışlarını atlar
+  - Microsoft Graph API istekleri için önceden var olan OAuth belirtecini kullan
+  - Belirteç yenilemesini işlemez (belirteç yaşam döngüsü yönetimi sizin sorumluluğunuz)
+
+  > **Not**: HTTP modu kimlik doğrulama gerektirir. Kimlik doğrulamasız test için, cihaz kodu akışı ile stdio modunu kullanın.
+  >
+  > **Kimlik Doğrulama Araçları**: HTTP modunda, OAuth kimlik doğrulamasını işlediği için giriş/çıkış araçları varsayılan olarak devre dışıdır. Onlara ihtiyacınız varsa `--enable-auth-tools` kullanın.
+
+  ## Çoklu Hesap Desteği
+
+  Tek bir sunucu örneğini birden fazla Microsoft hesabına hizmet vermek için kullanın. Birden fazla hesap oturum açarken, bir `account` parametresi otomatik olarak her araç çağrısına eklenir, bu da her araç çağrısında hangi hesabı kullanacağınızı belirtmenize olanak tanır.
+
+  **Birden fazla hesaba oturum açın** (hesap başına bir kez):
+
+  ```bash
+  # İlk hesaba oturum aç (cihaz kodu akışı)
+  npx @softeria/ms-365-mcp-server --login
+  # Cihaz kodu komutunu izleyin, personal@outlook.com olarak oturum açın
+
+  # İkinci hesaba oturum aç
+  npx @softeria/ms-365-mcp-server --login
+  # Cihaz kodu komutunu izleyin, work@company.com olarak oturum açın
+  ```
+
+  **Yapılandırılan hesapları listeleyin:**
+
+  ```bash
+  npx @softeria/ms-365-mcp-server --list-accounts
+  ```
+
+  **Araç çağrılarında kullan:** Herhangi bir araç isteğine `"account": "work@company.com"` geçirin:
+
+  ```json
+  { "tool": "list-mail-messages", "arguments": { "account": "work@company.com" } }
+  ```
+
+  **Davranış:**
+
+  - **Tek bir hesap** yapılandırılmışsa, otomatik olarak seçer (hiçbir `account` parametresi gerekmez).
+  - **Birden fazla hesap** ve `account` parametresi yoksa, sunucu seçili varsayılanı kullanır veya mevcut hesapları listeleyen yardımcı bir hata döndürür.
+  - **%100 geriye dönük uyumlu**: mevcut tek hesaplı kurulumlar değişmeden çalışır.
+  - `account` parametresi e-posta adresini (ör. `user@outlook.com`) veya MSAL `homeAccountId` öğesini kabul eder.
+
+  ### Katı Hesap Sabitleme
+
+  Başsız stdio dağıtımları yerel MSAL önbelleğini tek bir beklenen Microsoft hesabına sabitleyebilir:
+
+  ```bash
+  # Kullanıcı adı eşleştirmesi büyük/küçük harfe duyarsızdır
+  MS365_MCP_EXPECTED_USERNAME=work@company.com npx @softeria/ms-365-mcp-server --login
+
+  # Veya --list-accounts tarafından gösterilen tam MSAL homeAccountId'sini sabitle
+  npx @softeria/ms-365-mcp-server --expected-home-account-id <homeAccountId> --login
+  ```
+
+  `homeAccountId` değerlerini keşfetmek için `--list-accounts` kullanın. MCP `list-accounts` aracı kasıtlı olarak hesap kimliklerini gizler, bu nedenle tam ID sabitleme için CLI'yı kullanın.
+
+  Sabitleme isteğe bağlıdır ve yalnızca yerel-MSAL'dir:
+
+  - CLI değerleri (`--expected-username`, `--expected-home-account-id`) `MS365_MCP_EXPECTED_USERNAME` ve `MS365_MCP_EXPECTED_HOME_ACCOUNT_ID` üzerinde öncelik alır.
+  - Boş bir pin değeri sağlamak başlangıçta başarısız olur ve bu da yok sayılmaz.
+  - Kullanıcı adı pinleri büyük/küçük harf duyarsızlığı ile karşılaştırılır; `homeAccountId` pinleri tam eşleşmedir.
+  - Her iki pin de ayarlanmışsa, aynı önbelleğe alınmış hesaba çözümlenmesi gerekir.
+  - Yerel stdio başlatması, beklenen hesap belirteç önbelleğinde olmadığında hızlı başarısız olur. Pini ayarlayarak, `--login` çalıştırarak, ardından başsız sunucuyu başlatarak önyükleme yapın.
+  - Cihaz kodu ve tarayıcı girişleri, seçilen hesabı veya belirteç önbelleğini kalıcı hale getirmeden önce eksik veya uyuşmayan bir hesabı reddeder.
+  - Sabitleme etkili MCP modunu tek hesaba daraltır: sunucu bir `account` parametresi yayınlamaz ve MCP talimatları hesap değiştirmeyi önermez.
+  - `--http`, `--obo` ve `MS365_MCP_OAUTH_TOKEN` Graph çağrıları için istek tarafından sağlanan belirteçleri kullanır, bu nedenle hesap pinleri bu modlarda yalnızca uyarı amaçlıdır. HTTP auth araçları etkinse, pin hala yerel MSAL yardımcı akışlarına uygulanır.
+  - `--logout` sabitlenmiş hesap dahil olmak üzere tüm önbelleğe alınmış hesapları temizler. Cerrahi temizlik için `--remove-account <id>` tercih edin.
+
+  > **MCP multiplexerleri (Legate, Governor) için:** Çoklu hesap modu N-işlem modelinin yerini alır. Hesap başına bir sunucu oluşturmak yerine, tek bir örnek `account` parametresi aracılığıyla tüm hesapları işler, araç çoğaltmasını N×110 yerine 110'a düşürür.
+
+  ## Araç Ön Ayarları
+
+  İlk bağlantı yükünü azaltmak için, 90+ araçların tümünü yüklemek yerine ön ayarlanmış araç kategorilerini kullanın:
+
+  ```bash
+  npx @softeria/ms-365-mcp-server --preset mail
+  npx @softeria/ms-365-mcp-server --list-presets  # Tüm mevcut ön ayarları görmek
+  ```
+
+  Mevcut ön ayarlar: `mail`, `calendar`, `files`, `personal`, `work`, `excel
 ---
 
 # ms-365-mcp-server

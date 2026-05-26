@@ -12,6 +12,361 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Ne Zaman Plan Yapılmalı
+
+  **Basit görevler — hemen yapılsın:**
+  - Tek bileşen ekle/kaldır/değiştir, değer değişikliği, yeniden adlandırma
+  - Kod veya tasarımı oku/açıkla
+  - Belirli bir derleme hatasını düzelt
+  - Tek bir açık aksiyonu olan herhangi bir görev
+
+  **Karmaşık görevler — her zaman önce plan yapılsın:**
+  - Multi-bileşen sistem tasarımı (2+ IC etkileşim halinde)
+  - Yeni board veya alt sistem sıfırdan
+  - Belirsiz veya fonksiyon seviyesinde gereksinimler ("Motor sürücüsü gerekli", "bana sensor board tasarımla")
+  - Birden çok mimari karar almanız gereken görevler
+
+  **Plan yapılıp yapılmayacağı sorma.** Karmaşık görevler için doğrudan planlamaya geç. Spesifikasyonu yaz, kontrol listesini oluştur, `design_questions` çağır — tümü bir turda. Kullanıcı spesifikasyonu ve soruları görür, oradan yönlendirebilir. Bu, plan yapılıp yapılmayacağı hakkında gidiş geliş yapmaktan daha hızlıdır.
+
+  # Spesifikasyon TASARIM'dır
+
+  Spesifikasyon ve tasarım **aynı** `.ato` dosyasıdır. Spesifikasyon sadece tasarımın yüksek abstraksiyon seviyesindedir — iskelet modüller, arabirimler, kısıtlamalar ve gereksinimler. Uygularken, gerçek bileşenleri, pin eşleştirmelerini ve değerleri doldurursunuz. Dosya büyür; yapı kalır.
+
+  **Ayrı spesifikasyon dosyaları oluşturma.** Ana `.ato` dosyası spesifikasyondur.
+
+  **Modül adlarına "Spec" soneki ekleme.** `PowerSupply`, `PowerSupplySpec` değil. Bu adlar nihai tasarıma devam eder — onları ne oldukları için adlandırın, spec olarak başladıkları gerçeği için değil. **ato** skill §1.9'daki adlandırma rehberini gör.
+
+  # Proje Yapısı
+
+  IC'leri olan her proje bu yapıyı izleyin. **IC wrapper paketleri ana tasarımdan ayrılmış.**
+
+  ```
+  my-project/
+  ├── ato.yaml                        # Proje seviyesi derlemeler burada tanımlanır
+  ├── main.ato                        # Üst seviye tasarım — paketleri içe aktar, ham parçaları değil
+  ├── packages/
+  │   ├── stm32g474/
+  │   │   └── stm32g474.ato           # Wrapper: ham pinler → standart arabirimler
+  │   ├── drv8317/
+  │   │   └── drv8317.ato
+  │   └── tcan3414/
+  │       └── tcan3414.ato
+  ├── parts/                          # Tüm ham parçalar (IC'ler + konnektörler)
+  │   ├── STMicroelectronics_STM32G474CBT6/
+  │   ├── TEXAS_INSTRUMENTS_DRV8317HREER/
+  │   ├── Changzhou_Amass_Elec_XT30U_M/
+  │   └── ...
+  └── layouts/
+  ```
+
+  ## Ne nereye gider
+
+  | Öğe | Konum | Neden |
+  |------|----------|-----|
+  | IC wrapper modülleri | `packages/<name>/<name>.ato` | Karmaşık pin eşleştirmesi, yeniden kullanılabilir |
+  | Tüm ham parçalar | `parts/` (proje kökü) | `parts_install` tarafından kurulu |
+  | Basit bağımsız parçalar | Doğrudan `main.ato`'da kullanılır | Destekleyici bileşenlere veya üst seviye arabirime ihtiyaç yok (ör. konnektörler, LED'ler, test noktaları) |
+  | Genel pasif elemanlar | stdlib (`import Resistor`) | Paket gerekli değil |
+  | Üst seviye tasarım | `main.ato` | Wrapperları içe aktar, ham `_package` hiç değil |
+
+  ## Anahtar kurallar
+
+  - **IC'ler her zaman wrapper paketleri alır** — MCU, kapı sürücüsü, alıcı-verici, karmaşık pin eşleştirmesi olan herhangi bir şey
+  - **Wrapper modülleri standart arabirimler ortaya çıkarır** — `ElectricPower`, `I2C`, `SPI`, `CAN`, `UART`, `SWD`, `USB2_0`, `USB2_0_IF`, `ElectricLogic`, `ElectricSignal`, ham pinler değil
+  - **Yeni arabirim tanımlamadan önce stdlib kontrol et** — stdlib zaten doğru arabirime sahipse, veya sınır stdlib arabirimlerinin dizileri/bileşimleri olarak modellenebilirse, proje-yerel arabirim icat etmek yerine bunu kullan
+  - **Wrapper paketleri geneldir** — paket sınırları, bir panelin tam alt sistem ayrışması veya rol adlandırması değil, çip yeteneğini yansıtmalıdır
+  - **Bağımsız parçalar wrapperlarına ihtiyaç duymaz** — destekleyici bileşenlere ihtiyacı olmayan ve üst seviye arabirimler açığa çıkarmayan herhangi bir şey (konnektörler, LED'ler, test noktaları, montaj delikleri)
+  - **Paket dizinlerinde `ato.yaml` yok** — paket hedefleri otomatik olarak keşfedilir
+  - **Üst seviye `ato.yaml`'a elle paket wrapper derleme hedefleri ekleme** — yerel paketler tarafından açığa çıkarılan paket hedeflerini keşfetmek için `workspace_list_targets` kullan
+
+  ## `ato.yaml` formatı
+
+  ```yaml
+  requires-atopile: ^0.14.0
+
+  paths:
+    src: ./
+    layout: ./layouts
+
+  builds:
+    default:
+      entry: main.ato:DualBLDCController
+
+    # Paket derlemeleri — bağımsız test için
+    stm32g474:
+      entry: packages/stm32g474/stm32g474.ato:STM32G474
+      hide_designators: true
+    drv8317:
+      entry: packages/drv8317/drv8317.ato:DRV8317
+      hide_designators: true
+  ```
+
+  ## Paket wrapper deseni
+
+  ```ato
+  #pragma experiment("BRIDGE_CONNECT")
+
+  import ElectricPower
+  import CAN
+  import ElectricLogic
+  import Capacitor
+
+  from "parts/STMicroelectronics_STM32G474CBT6/STMicroelectronics_STM32G474CBT6.ato" import STMicroelectronics_STM32G474CBT6_package
+
+  module STM32G474:
+      """Ayıklamalar ve standart arabirimlerle STM32G474 MCU.
+
+      Ortaya çıkarır:
+      - power: 3.3V raylı
+      - can: CAN FD arabirimi (PA11/PA12)
+      - pwm_a: Motor A için 3x PWM (TIM1: PA8/PA9/PA10)
+      - pwm_b: Motor B için 3x PWM (TIM8: PB13/PB14/PB15)
+      """
+
+      # ── Dış arabirimler ──
+      power = new ElectricPower
+      can = new CAN
+      pwm_a = new ElectricLogic[3]
+      pwm_b = new ElectricLogic[3]
+
+      # ── Paket ──
+      package = new STMicroelectronics_STM32G474CBT6_package
+
+      # ── Güç ──
+      power.hv ~ package.VDD
+      power.hv ~ package.VDDA
+      power.lv ~ package.VSS
+      power.lv ~ package.VSSA
+      assert power.voltage within 3.3V +/- 10%
+
+      # ── Ayıklama ──
+      decoupling = new Capacitor[3]
+      for cap in decoupling:
+          cap.capacitance = 100nF +/- 10%
+          cap.package = "C0402"
+          power ~> cap ~> power.lv
+
+      # ── CAN ──
+      can.tx.line ~ package.PA11
+      can.rx.line ~ package.PA12
+      can.tx.reference ~ power
+      can.rx.reference ~ power
+
+      # ── PWM ──
+      pwm_a[0].line ~ package.PA8
+      pwm_a[1].line ~ package.PA9
+      pwm_a[2].line ~ package.PA10
+      pwm_b[0].line ~ package.PB13
+      pwm_b[1].line ~ package.PB14
+      pwm_b[2].line ~ package.PB15
+  ```
+
+  ## Temiz `main.ato`
+
+  ```ato
+  #pragma experiment("BRIDGE_CONNECT")
+
+  import ElectricPower
+
+  from "packages/stm32g474/stm32g474.ato" import STM32G474
+  from "packages/drv8317/drv8317.ato" import DRV8317
+  from "packages/tcan3414/tcan3414.ato" import TCAN3414
+  from "parts/Changzhou_Amass_Elec_XT30U_M/Changzhou_Amass_Elec_XT30U_M.ato" import Changzhou_Amass_Elec_XT30U_M_package
+
+  module DualBLDCController:
+      """Robot drivetrain için çift BLDC motor sürücü."""
+
+      mcu = new STM32G474
+      motor_a = new DRV8317
+      motor_b = new DRV8317
+      can_phy = new TCAN3414
+
+      power = new ElectricPower
+      power ~ mcu.power
+      power ~ motor_a.motor_supply
+      power ~ motor_b.motor_supply
+
+      mcu.can ~ can_phy.can
+      mcu.pwm_a ~ motor_a.pwm
+      mcu.pwm_b ~ motor_b.pwm
+  ```
+
+  `packages/<name>/<name>.ato` dosyası o parça veya alt sistem için kanonik wrapper sınırıdır.
+  O dosyayı yerinde iyileştir. `main.ato` bu wrapper paketlerini doğrudan içe aktar, ekstra wrapper toplayıcı dosyasından değil.
+
+  # Docstringlerinde Gereksinimler
+
+  Doğal dil gereksinimlerini doğrudan modülün docstringine bir `Requirements:` bölümü altına kaydet. Gereksinimleri onlardan sorumlu olan modüle koy — sistem genelinde gereksinimler için üst seviye, modüle özgü olanlar için belirli alt sistem.
+
+  ```ato
+  module PowerStage:
+      """Sürekli motor akımı için boyutlandırılan üç fazlı MOSFET köprüsü.
+
+      Requirements:
+      - R1: 20A sürekli — FET aşaması termal kenar boşluğu ile 20A için derecelendir
+      """
+  ```
+
+  Format: `- R<id>: <kısa metin> — <kriterler>`
+
+  Bu gereksinimler tasarımda kalıcı kalır. Uygulama yanında tasarım amacını belgelemektedir.
+
+  # Spesifikasyon Formatı
+
+  Spesifikasyon tasarımın iskelidir. Mimariyi, gereksinimleri ve kısıtlamaları tanımlar — ama uygulama detaylarını (pin eşleştirmeler, destek devreleri) bırakır. Bunlar uygulama sırasında doldurulur.
+
+  ```ato
+  #pragma experiment("BRIDGE_CONNECT")
+
+  import ElectricPower
+  import CAN
+  import ElectricLogic
+
+  module BLDCController:
+      """
+      # BLDC Motor Sürücü
+
+      STM32G474 ve iki DRV8317 sürücü kullanan çift-motor BLDC sürücü.
+
+      ## Anahtar Kararlar
+      - STM32G474 MCU — motor kontrol zamanlayıcıları + CAN FD
+      - DRV8317 kapı sürücü — 3-fazlı, entegre LDO
+
+      ## Gereksinimler
+      - R1: MCU platformu — STM32G474 kullanır
+      - R2: 5-18V giriş — İşletme voltaj aralığı
+      - R3: Çift motor — 2x DRV8317 3-PWM modunda
+
+      ## Açık Sorular
+      - Akım algılama: faz şunt vs düşük-yan?
+      """
+
+      # ── Mimari ──
+      power = new PowerSupply
+      control = new MCU
+      motor_a = new MotorDrive
+      motor_b = new MotorDrive
+      comms = new CANTransceiver
+
+      power.rail_3v3 ~ control.power
+      power.motor_supply ~ motor_a.supply
+      power.motor_supply ~ motor_b.supply
+      control.pwm_a ~ motor_a.pwm
+      control.pwm_b ~ motor_b.pwm
+      control.can ~ comms.can
+
+      assert power.vin.voltage within 5V to 18V
+
+  module PowerSupply:
+      """Güç giriş ve regülasyon."""
+      vin = new ElectricPower
+      rail_3v3 = new ElectricPower
+      motor_supply = new ElectricPower
+
+  module MCU:
+      """Zamanlayıcılar ve haberleşme çevre birimleriyle STM32G474."""
+      power = new ElectricPower
+      can = new CAN
+      pwm_a = new ElectricLogic[3]
+      pwm_b = new ElectricLogic[3]
+
+  module MotorDrive:
+      """DRV8317 3-fazlı kapı sürücü."""
+      supply = new ElectricPower
+      pwm = new ElectricLogic[3]
+
+  module CANTransceiver:
+      """UAVCAN konnektörlü CAN FD alıcı-verici.
+
+      Requirements:
+      - R4: UAVCAN konnektörlü CAN FD alıcı-verici
+      """
+      can = new CAN
+  ```
+
+  ## Spesifikasyon kavramları ato'ya nasıl eşlenir
+
+  | Spesifikasyon Kavramı | ato Mekanizması |
+  |---|---|
+  | **Genel bakış** | Modül docstring (`"""..."""`) |
+  | **Mimari** | Alt modüller + bağlantılar (`~`) |
+  | **Gereksinimler** | Modül docstring'inde `- R<id>: <metin> — <kriterler>` |
+  | **Biçimsel kısıtlamalar** | `assert` ifadeleri |
+  | **Bileşen seçimi** | `new` örneklemeleri |
+  | **Alt sistem açıklamaları** | Çocuk modülü docstringları |
+  | **Açık sorular** | Docstring'inde bölüm |
+
+  # İlerleme Takibi İçin Kontrol Listesi
+
+  Spesifikasyon oluştururken, uygulama ilerlemesini takip etmek için bir kontrol listesi de oluştur. Kontrol listesi öğelerini spesifikasyon gereksinimlerine bağla:
+
+  ```
+  checklist_create({
+    items: [
+      {id: "spec", description: "Spesifikasyon ve proje yapısını yaz", criteria: "Mimari ve proje seviyesi ato.yaml ile main.ato"},
+      {id: "questions", description: "Tasarım kararlarını topla", criteria: "Tüm açık sorularla design_questions çağrıldı"},
+      {id: "pkg-mcu", description: "MCU wrapper paketi oluştur", criteria: "Standart arabirimlerle packages/stm32g474/stm32g474.ato"},
+      {id: "pkg-driver", description: "Kapı sürücü wrapper paketi oluştur", criteria: "Standart arabirimlerle packages/drv8317/drv8317.ato"},
+      {id: "integrate", description: "Üst seviye tasarımı yükle", criteria: "main.ato paketleri arabirimler aracılığıyla bağlar"},
+      {id: "build", description: "Derle ve doğrula", criteria: "Derleme geçer veya sorunlar açıkça tanımlanır"},
+    ]
+  })
+  ```
+
+  # Planlama Akışı
+
+  Amaç **tüm soruları ve kararları önceden almanık**, sonra kesintisiz uygulamaktır.
+
+  ## Faz 1: Spesifikasyon & Sorma (bu sonra turun sonla)
+
+  Adımları 1-5 **tek turda** yap — adım duyururken turun sonlanma.
+
+  1. **Oku** mevcut proje dosyalarını geçerli durumu anlamak için.
+  2. **Proje yapısını kur** — proje seviyesi `ato.yaml` ve `packages/` dizinlerini oluştur. Üretilen yerel paketler için elle paket-wrapper derleme hedefleri ekleme.
+  3. **Spesifikasyonu yaz** `main.ato` olarak — alt modüllerle mimari, docstringlerinde gereksinimler, arabirim bağlantıları ve biçimsel kısıtlamalar. Yerel arabirimler icat etmek yerine spesifikasyonda standart kütüphane arabirimlerini (CAN, I2C, SPI, SWD, USB2_0, ElectricPower, ElectricLogic, ElectricSignal) kullan; sadece stdlib tarafından kapsanmayan gerçek yeniden kullanılabilir bir sınır varsa.
+  4. **Kontrol listesi oluştur** her bir paket wrapperı + entegrasyon + derleme için öğelerle.
+  5. **`design_questions` çağır** TÜM açık sorularla birden. Önerilen seçenekler ve önerilen varsayılanları dahil et — kullanıcının hızlı cevap vermesini kolaylaştır. Turun sonlandırması bu çağrıdan sonra otomatik olarak gerçekleşir.
+
+  Birden çok tasarım kararını toplamak için `design_questions`'ı herhangi bir zaman kullan. Kullanıcının cevapla veya serbest metin ile geçersiz kılabileceği madde işareti seçenekleri sunan yapılandırılmış soruları sunar. Sorguları birden çok tur arasında sızıştırma — tümünü bir `design_questions` çağrısına topla.
+
+  ## Faz 2: Kararları kilitle (kısa)
+
+  6. **Kullanıcı yanıtlarını bekle.** Tüm kararları spesifikasyona ve kontrol listesine tek bir geçişte dahil et.
+
+  ## Faz 3: Uçtan uca uygula (durdurma)
+
+  7. **Paket wrapperları oluştur** — IC başına bir. Parçaları kur, satıcı veri sayfaları/tasarım rehberlerini `web_search` ile incele, pinleri arabirimlerle eşle.
+     - Tanımadığınız bir IC, motor sürücü, PMIC, RF parça veya diğer yüksek riskli parçaya geçmeden önce, satıcı veri sayfasını/tasarım rehberini incelemek, aileleri karşılaştırmak, tipik topolojiyi doğrulamak ve referans devre rehberliği bulmak için kısa bir `web_search` geçişi yapın.
+     - Wrapperları projeler arasında yeniden kullanılabilir tutun. Genel çip yeteneklerini ortaya çıkarın ve panele özgü gruplama ve rol adlandırmasını `main.ato` veya wrapperın üstündeki proje modüllerinde tutun.
+     - Her wrapperı paket hedefini doğrulamak ve tasarımı entegre etmek için gereken minimum standart arabirimlerle temel yeniden kullanılabilir bir sınır olarak başlat. Entegrasyon gereksinimleri kanıtlarsa daha sonra sadece daha fazla arabirim veya alternatif pin eşleştirmeleri ekle.
+     - Wrapper paket hedefi doğrularken yeni destekleyici pasif elemanlar, kristaller veya konnektörler gerekliyse, bunları paket projesine `parts_install(project_path="packages/<name>")` ile kur.
+     - Paket projesi var olup çalışma bağımsız olduktan sonra, ana ajan entegrasyona ve mimariye devam edebilsin diye `package_agent_spawn(project_path="packages/<name>", goal=..., comments=...)` ile delegeler.
+  8. **Paket hedeflerini ilk olarak doğrula** — yerel paketler tarafından otomatik olarak açığa çıkarılan paket hedeflerini keşfetmek için `workspace_list_targets` kullan, sonra tam tasarımı denemeyi deneyin ve wrapperları ve diğer alt modülleri düzelt.
+     - Daha hızlı doğrulama olduğu için daha küçük tasarım bölümlerini ilk olarak derle.
+     - Daha hızlı geri bildirim almak için bağımsız paket/alt modül derlemelerini paralel olarak çalıştır.
+     - Paket wrapperı oluşturmayı sadece ideal arabirim seti tam açığa çıkmazsa engelle. Temel wrapperı derle, doğrula ve entegrasyon sırasında genişletmeyi devam ettir.
+     - Tam tasarım derlemesini sadece bu daha küçük hedefler yeşil olduktan sonra kullan, böylece ilk hata ayıklama döngüsü değil, entegrasyon kontrolü olsun.
+  9. **`main.ato`'yu yükle** — paketleri arabirimler aracılığıyla bağla. Burada ham `_package` içe aktarması yok.
+  10. **Tam tasarımı son olarak derle ve doğrula** — paket ve alt modül hedefleri yeşil olduktan sonra, üst seviye derlemeyi çalıştır ve entegrasyon sorunlarını düzelt.
+
+  **Takip soruları sormak için turun sonlanma** — makul varsayımlar yapın ve not et. Kullanıcı yönlendirme mesajları aracılığıyla düzeltme yapabilir.
+
+  ## Faz 4: Sonuçları rapor et
+
+  10. **Sonuçları döndür** ne değiştiğinin, derleme durumunun ve yaptığınız varsayımların kısa bir özeti ile.
+
+  # Kurallar
+
+  - **Plan yapılıp yapılmayacağı sorma** — karmaşık görevler için hemen yap. Kullanıcı spesifikasyonu görüp yönlendirebilir.
+  - Spesifikasyon, tasarım dosyasıdır — aynı modüller, aynı adlar, aynı yapı. Sadece soyut başlar ve doldurulur.
+  - **Spesifikasyondan uygulamaya geçerken modülleri yeniden adlandırma.** `PowerSupply` `PowerSupply` kalır.
+  - Gereksinimleri tümü üst seviyeye değil, onlardan sorumlu olan modülün docstring'ine koy.
+  - **IC wrapperları `packages/`'e gider**, `main.ato`'ya değil. Ham `_package` bileşenleri asla `main.ato`'da içe aktarılmaz.
+  - Spesifikasyonu öğrendikçe güncelleyin (canlı bir belgedir).
+  - Uygulama sırasında bir derleme başarısız olursa, gereksinimler hala karşılanıyorsa düzeltmeyi kontrol edin.
+  - Basit görevler için bunu atla — sadece doğrudan uygula.
+  - Gereksinimleri doğrulanabilir tut, bulanık değil.
 ---
 
 # When to Plan

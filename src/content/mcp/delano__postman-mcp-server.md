@@ -9,6 +9,285 @@ body_length: 10518
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.postman.com/postman/postman-public-workspace/"
+body_tr: |-
+  # Postman MCP Server
+  [![smithery badge](https://smithery.ai/badge/postman-api-server)](https://smithery.ai/server/postman-api-server)
+  **Sürüm:** v0.2.0
+
+  [Postman](https://www.postman.com/) API'sine erişim sağlayan bir MCP sunucusu. İşlevsellik [resmi OpenAPI belirtimi](https://www.postman.com/postman/postman-public-workspace/documentation/i2uqzpp/postman-api) temel alınarak oluşturulmuştur. Daha fazla bilgi için [Postman API belgelerine](https://www.postman.com/postman/postman-public-workspace/) bakın.
+
+  Bu proje Anthropic tarafından yapılan Model Context Protocol (MCP) girişiminin bir parçasıdır. Daha fazla bilgi için [MCP GitHub deposunu](https://github.com/modelcontextprotocol) ve [Anthropic blog'undaki duyuruyu](https://www.anthropic.com/news/model-context-protocol) ziyaret edin.
+
+  **[Kurulum talimatlarına atla](#kurulum)**
+
+
+  ![postman-mcp-server - Cover Image](https://github.com/user-attachments/assets/e19d712f-ad97-4456-a414-d69b159a9ed2)
+
+
+  > [!WARNING]
+  > Bu proje şu anda etkin geliştirme aşamasındadır. Lütfen dikkatli kullanınız ve değişikliklere hazırlıklı olunuz.
+
+  > [!NOTE]
+  > Yapay Zeka tarafından üretilen kod. Cline v2.2.2 ile Claude 3.5 Sonnet (2024-10-22) kullanılmıştır. Komut dosyaları ve bu kodun nasıl oluşturulduğu hakkında ayrıntılar için docs/README.md dosyasına bakınız.
+
+  <a href="https://glama.ai/mcp/servers/zoig549xfd"></a>
+
+  ---
+
+  * [Genel Bakış](#genel-bakış)
+  * [Özellikler](#özellikler)
+    * [Koleksiyonlar](#koleksiyonlar)
+    * [Ortamlar](#ortamlar)
+    * [API'ler](#apiler)
+    * [Kimlik Doğrulama & Yetkilendirme](#kimlik-doğrulama--yetkilendirme)
+    * [Ek Özellikler](#ek-özellikler)
+  * [Kurulum](#kurulum)
+    * [Ön Koşullar](#ön-koşullar)
+    * [Adımlar](#adımlar)
+  * [Kullanım](#kullanım)
+    * [API Anahtarlarını Ayarlama](#api-anahtarlarını-ayarlama)
+    * [Claude Desktop Kullanma](#claude-desktop-kullanma)
+    * [Cline Kullanma](#cline-kullanma)
+    * [Zed Kullanma](#zed-kullanma)
+  * [Belgeler](#belgeler)
+    * [Proje Genel Bakışı](#proje-genel-bakışı)
+  * [Gerekçe](#gerekçe)
+  * [Geliştirme](#geliştirme)
+  * [Hata Ayıklama](#hata-ayıklama)
+  * [Diğer MCP Sunucuları](#diğer-mcp-sunucuları)
+  * [Lisans](#lisans)
+
+  ## Genel Bakış
+
+  Postman MCP Server, Postman API'si ile entegre olan ve Postman koleksiyonları, ortamları ve API'lerinin kapsamlı yönetimini sağlayan TypeScript tabanlı bir MCP sunucusudur.
+
+  ## Özellikler
+
+  ### Koleksiyonlar
+  - **CRUD İşlemleri**: Postman koleksiyonlarını oluşturun, alın, güncelleyin ve silin.
+  - **Klasör Yönetimi**: İstekleri koleksiyonlar içindeki klasörlerde düzenleyin.
+  - **İstek Yönetimi**: Koleksiyonlar içinde istekleri ekleyin, güncelleyin ve silin.
+  - **Yanıt Yönetimi**: İsteklerle ilişkili yanıtları yönetin.
+  - **Sürüm Kontrolü**: Koleksiyonlar için dallandırma, birleştirme ve değişiklikleri çekme işlemleri yapın.
+  - **Açıklamalar**: Koleksiyonlarda açıklamalar ekleyin ve yönetin.
+
+  ### Ortamlar
+  - **Ortamları Yönetin**: Farklı kurulumlar için ortamlar oluşturun ve alın.
+  - **CRUD İşlemleri**: Ortamları oluşturma, güncelleme ve silme konusunda tam destek.
+
+  ### API'ler
+  - **API Yönetimi**: API'leri oluşturun, alın, güncelleyin ve silin.
+  - **Şema Desteği**: Çok dosya desteğiyle API şemalarını yönetin.
+  - **Etiketleme**: API'ler için etiketler ekleyin ve yönetin.
+  - **Açıklamalar**: API'lerde açıklamalar ekleyin ve yönetin.
+
+  ### Kimlik Doğrulama & Yetkilendirme
+  - **API Anahtarı Kimlik Doğrulaması**: API anahtarlarını kullanarak güvenli erişim sağlayın.
+  - **Rol Tabanlı Erişim Kontrolü**: Çalışma alanı ve koleksiyon düzeylerinde izinleri yönetin.
+  - **Çalışma Alanı İzinleri**: Çalışma alanlarına özgü izinleri tanımlayın.
+
+  ### Ek Özellikler
+  - **Özel API Ağı**: Özel bir API ağı içindeki öğeleri ve klasörleri yönetin.
+  - **Webhooks**: Özel yükler ile koleksiyonları tetiklemek için webhook'lar oluşturun.
+  - **Kurumsal Özellikler**: Kurumsal ortamlar için gelişmiş rol kontrolleri ve SCIM desteği.
+
+  ## Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  Postman MCP Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/postman-api-server) aracılığıyla otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install postman-api-server --client claude
+  ```
+
+  ### Ön Koşullar
+  - [Node.js](https://nodejs.org/) yüklü olmalıdır.
+
+  ### Adımlar
+
+  1. **Depoyu klonlayın:**
+      ```bash
+      git clone https://github.com/delano/postman-api-server.git
+      cd postman-api-server
+      ```
+
+  2. **Bağımlılıkları yükleyin:**
+      ```bash
+      pnpm install
+      ```
+
+  3. **Sunucuyu derleyin:**
+      ```bash
+      pnpm run build
+      ```
+
+  4. **Geliştirme modunda otomatik yeniden derleme ile çalıştırın:**
+      ```bash
+      pnpm run watch
+      ```
+
+  ## Kullanım
+
+  ### API Anahtarlarını Ayarlama
+
+  1. **API Anahtarınızı Oluşturun**
+     - [Postman Hesap Ayarları](https://go.postman.co/settings/me/api-keys) sayfasını ziyaret edin
+     - "Generate API Key" düğmesini tıklayın
+     - Anahtarı güvenli bir şekilde saklayın - bir daha gösterilmeyecektir
+
+  2. **API Anahtarını Yapılandırın**
+     - Anahtarı ortamınıza `POSTMAN_API_KEY` olarak ekleyin
+     - Claude Desktop veya Cline için, yapılandırma dosyanıza ekleyin (aşağıdaki yapılandırma örneklerine bakınız)
+     - API anahtarlarını hiçbir zaman sürüm kontrolüne kaydetmeyin
+
+  3. **Erişimi Doğrulayın**
+     - API anahtarı, izniniz olan tüm Postman kaynaklarına erişim sağlar
+     - Basit bir sorgu çalıştırarak erişimi test edin (örneğin, çalışma alanlarını listele)
+
+  > [!NOTE]
+  > [Postman API koleksiyonunu](https://www.postman.com/postman/postman-public-workspace/documentation/i2uqzpp/postman-api) doğrudan kullanıyorsanız, API anahtarınızı `postman-api-key` koleksiyon değişkeni olarak saklayın.
+
+  ### Claude Desktop Kullanma
+
+  Claude Desktop ile kullanmak için sunucu yapılandırmasını ekleyin:
+
+  - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - **Windows:** `%APPDATA%/Claude/claude_desktop_config.json`
+
+  > [!IMPORTANT]
+  > Bu sağlayıcıyı güncellerseniz, Claude input şemasından API değişikliklerini almak için yeniden başlatılmalıdır (yani MCP sunucusunun ToolDefinition öğeleri değiştiğinde). Bunun nedeni, Claude'un başlangıçta araç tanımlarını önbelleğe almasıdır.
+
+
+
+  #### Örnek yapılandırma
+
+  ```json
+  {
+    "mcpServers": {
+      "postman": {
+        "command": "node",
+        "args": [
+          "/path/to/postman-api-server/build/index.js"
+        ],
+        "env": {
+          "POSTMAN_API_KEY": "CHANGEME"
+        }
+      }
+    }
+  }
+  ```
+
+  ### Cline Kullanma
+
+  Yukarıdaki aynı örnek yapılandırmayı kullanarak, sunucu yapılandırmasını Cline MCP Sunucuları yapılandırmanıza ekleyin:
+
+
+
+
+  #### Örnek yapılandırma
+
+  _Yukarıdaki Claude ile aynı._
+
+  ### Zed Kullanma
+
+  Bunu çalışır hale getirmeye çalışıyorum. [Zed belgelerinden](https://zed.dev/docs/assistant/model-context-protocol) anlaşıldığına göre bir eklenti olması gerekiyor ([ayrıca bu issue #21455](https://github.com/zed-industries/zed/discussions/21455)).
+
+  ---
+
+  ## Belgeler
+
+  Resmi [Postman API belgelerine](https://learning.postman.com/docs/developer/postman-api/intro-api/) [Postman Public Workspace](https://www.postman.com/postman/postman-public-workspace/) bölümünde ulaşabilirsiniz.
+
+  ### Proje Genel Bakışı
+
+  #### Postman API Referansları & Özetleri
+
+  Bu proje, OpenAPI belirtimini TypeScript koduna dönüştürmek için Claude modelini ve Cline uzantısını kullanır, MCP sunucusu içinde tür güvenliğini ve entegrasyonu artırır.
+
+  Bu GitHub projesi, Postman platformunu programlı şekilde kullanma konusunda ayrıntılı rehberlik sağlayan [API Referansları belgelerine](docs/api/references/README.md) sahiptir. Hem yerel geliştirme için Collection SDK'sini hem de bulut platformu entegrasyonu için Postman API'sini kapsar. Temel konular kimlik doğrulama mekanizmaları, hız sınırları ve çalışma alanları, koleksiyonlar, ortamlar, mock sunucuları, monitörler ve daha fazlasını kapsayan tüm API endpoint'lerinin ayrıntılı belgeleri içerir. Ayrıca rehber, sorunsuz API etkileşimlerini kolaylaştırmak için ön koşullar ve hızlı başlangıç talimatları sunmaktadır.
+
+  `docs/api/summaries` dizini Postman API'nin kapsamlı Markdown özetlerini içerir. Bu belgeler API endpoint'lerini, istek/yanıt formatlarını ve MCP sunucusunun işlevselliğini doğrulamak ve sağlamak için gerekli olan uygulama ayrıntılarını ana hatlarıyla sunmaktadır. Belge yapısı ve uygulama stratejilerine genel bir bakış için [API Özetleri README](docs/api/summaries/README.md) dosyasına bakınız.
+
+  #### OpenAPI Spec'i TypeScript Koduna Claude ile Dönüştürme
+
+
+
+  #### MCP Sunucusunu Oluşturma
+
+  MCP sunucu handler'larını uygulamaya ilişkin ayrıntılı belirtimler için [Handlers Belgelerine](src/handlers/README.md) bakınız. Bu, URI formatlarını, prompt gereksinimlerini ve kaynak yönetimi kalıplarını içerir. Bu rehber, Postman API işlevselliklerini MCP sunucusu içinde entegre etme ve geliştirme üzerinde çalışan geliştiriciler için çok önemlidir.
+
+
+  ---
+
+  ## Gerekçe
+
+  Postman araçları için MCP sarıcısı, yapı ve güvenliğin çok önemli olduğu karmaşık, çok aşamalı işlemler için bir AI etkileşim katmanı olarak mantıklıdır. Ancak, doğrudan CLI veya API kullanımının yeterli olduğu basit işlemler için aşırı mühendislik yapılmış olabilir. MCP sarıcısı en çok şu durumlarda değer sağlar:
+
+  1. **Karmaşık İşlemler**
+  - Birden fazla koleksiyonu yönetme
+  - Ortamları koordine etme
+  - Kapsamlı raporlar oluşturma
+
+  2. **Yapay Zeka Tarafından Yönetilen Otomasyon**
+  - Otomatik test iş akışları
+  - API belgeleri bakımı
+  - Ortam yönetimi
+
+  3. **Hataya Duyarlı İşlemler**
+  - Kritik API testi
+  - Üretim dağıtımları
+  - Uyumluluk kontrolü
+
+  Aşağıdaki durumlarda daha az değer sağlar:
+
+  1. **Basit İşlemler**
+  - Temel koleksiyon çalıştırmaları
+  - Tekil API çağrıları
+  - Hızlı ortam kontrolleri
+  2. **Doğrudan CLI Kullanımı**
+  - Geliştirici tarafından yönetilen işlemler
+  - Yerel test
+  - Hızlı yinelemeler
+
+
+  ## Geliştirme
+
+  Bağımlılıkları yükleyin:
+  ```bash
+  pnpm install
+  ```
+
+  Sunucuyu derleyin:
+  ```bash
+  pnpm run build
+  ```
+
+  Otomatik yeniden derleme ile geliştirme için:
+  ```bash
+  pnpm run watch
+  ```
+
+  ## Hata Ayıklama
+
+  MCP sunucuları stdio üzerinden iletişim kurduğundan hata ayıklama zor olabilir. [MCP Inspector](https://github.com/modelcontextprotocol/inspector) kullanmanızı öneriyoruz, paket script'i olarak mevcuttur:
+
+  ```bash
+  pnpm run inspector
+  ```
+
+  [Belgeler](https://modelcontextprotocol.io/docs/tools/inspector)
+
+  Inspector, tarayıcınızda hata ayıklama araçlarına erişmek için bir URL sağlayacaktır: http://localhost:5173. Bağlanmadan önce POSTMAN_API_KEY'i eklemeniz gerekir. Başlamak için "Tools" sayfasına gidin.
+
+  ## Diğer MCP Sunucuları
+
+  - [AppCypher tarafından Awesome MCP Servers](https://github.com/appcypher/awesome-mcp-servers)
+  - [PunkPeye tarafından Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](LICENSE) dosyasına bakınız.
 ---
 
 # Postman MCP Server

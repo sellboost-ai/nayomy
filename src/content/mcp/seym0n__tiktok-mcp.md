@@ -8,6 +8,125 @@ url: "https://github.com/Seym0n/tiktok-mcp"
 body_length: 3626
 license: "MIT"
 language: "JavaScript"
+body_tr: |-
+  #  TikTok MCP
+
+  ![image (12)](https://github.com/user-attachments/assets/006f9983-b9dd-447c-87c6-ee27a414fd4c)
+
+
+  TikTok MCP, TikNeuron aracılığıyla TikTok erişimini Claude AI ve diğer uygulamalara entegre eder. Bu TikTok MCP ile şunları yapabilirsiniz:
+  - TikTok videoları analiz ederek viral olma faktörlerini belirlemek
+  - TikTok videolarından içerik almak
+  - TikTok videoları ile sohbet etmek
+
+  ## Kullanılabilir Araçlar
+
+  ### tiktok_get_subtitle
+
+  **Açıklama:**  
+  TikTok video URL'si için altyazıyı (içeriği) alın. Bu, bir TikTok videosu için altyazı, içerik veya bağlam almak için kullanılır. Hiçbir dil kodu sağlanmamışsa, araç otomatik konuşma tanıması altyazısını döndürür.
+
+  **Giriş Parametreleri:**
+  - `tiktok_url` (gerekli): TikTok video URL'si, örneğin https://www.tiktok.com/@username/video/1234567890 veya https://vm.tiktok.com/1234567890
+  - `language_code` (isteğe bağlı): Altyazı için dil kodu, örneğin en İngilizçe için, es İspanyolca için, fr Fransızca için vb.
+
+  ### tiktok_get_post_details
+
+  **Açıklama:**  
+  TikTok gönderisinin detaylarını alın. Videoyu aşağıdaki gibi döndürür:
+  - Açıklama
+  - Video ID
+  - Yaratıcı kullanıcı adı
+  - Hashtag'ler
+  - Beğeni, paylaşım, yorum, görüntüleme ve yer işareti sayıları
+  - Oluşturulma tarihi
+  - Videonun süresi
+  - Dil ve kaynak bilgisi ile mevcut altyazılar
+
+  **Giriş Parametreleri:**
+  - `tiktok_url` (gerekli): TikTok video URL'si, örneğin https://www.tiktok.com/@username/video/1234567890 veya https://vm.tiktok.com/1234567890, ya da sadece 7409731702890827041 gibi video ID
+
+  ### tiktok_search
+
+  **Açıklama:**  
+  Sorguya göre TikTok videolarını arayın. Arama kriterlerine uyan videoların açıklama, video ID, yaratıcı, hashtag'ler, katılım metrikleri, oluşturulma tarihi, süre ve mevcut altyazılar dahil olmak üzere detaylarını ve arama devam ettirmek için sayfalandırma meta verilerini içeren bir liste döndürür.
+
+  **Giriş Parametreleri:**
+  - `query` (gerekli): TikTok videoları için arama sorgusu, örneğin 'funny cats', 'dance', 'cooking tutorial'
+  - `cursor` (isteğe bağlı): Daha fazla sonuç almak için sayfalandırma imleçi
+  - `search_uid` (isteğe bağlı): Sayfalandırma için arama oturumu tanımlayıcısı
+
+  ## MCPB ile Yükleyin (En Kolay)
+
+  TikTok MCP'yi Claude Desktop'a yüklemek için en kolay yol MCPB bundle aracılığıyla — klon veya derleme gerekmez.
+
+  1. [Releases](https://github.com/Seym0n/tiktok-mcp/releases) sayfasından en son `tiktok-mcp.mcpb` dosyasını indirin
+  2. `.mcpb` dosyasını açın — Claude Desktop bir kurulum dialog'u gösterecek
+  3. İstendiğinde TikNeuron API Anahtarınızı girin
+
+  İşte bu kadar. Claude Desktop gerisi otomatik olarak halleder.
+
+  ## Gereksinimler
+
+  Bu TikTok MCP için ihtiyacınız var:
+  - NodeJS v18 veya daha yüksek (https://nodejs.org/)
+  - Git (https://git-scm.com/)
+  - TikNeuron Hesabı ve MCP API Anahtarı (https://tikneuron.com/tools/tiktok-mcp)
+
+  ## Kurulum
+
+  1. Depoyu klonlayın
+  ```
+  git clone https://github.com/Seym0n/tiktok-mcp.git
+  ```
+
+  2. Bağımlılıkları yükleyin
+  ```
+  npm install
+  ```
+
+  3. Projeyi derleyin
+  ```
+  npm run build
+  ```
+
+  Bu, `build\index.js` dosyasını oluşturur
+
+  ## Claude AI'da Kullanma
+
+  `mcpServers`'a aşağıdaki girişi ekleyin:
+
+  ```
+  "tiktok-mcp": {
+      "command": "node",
+      "args": [
+        "path\\build\\index.js"
+      ],
+      "env": {
+        "TIKNEURON_MCP_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      }
+  }
+  ```
+
+  ve path yerine TikTok MCP'nin `yolunu` ve `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` yerine TikNeuron API Anahtarını koyun
+
+  böylece `mcpServers` şöyle görünecek:
+
+  ```
+  {
+    "mcpServers": {
+      "tiktok-mcp": {
+        "command": "node",
+        "args": [
+          "path\\build\\index.js"
+        ],
+        "env": {
+          "TIKNEURON_MCP_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      }
+    }
+  }
+  ```
 ---
 
 #  TikTok MCP

@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP üzerinden All Images AI Otomasyonu
+
+  Composio'nun All Images AI araç seti üzerinden Rube MCP ile All Images AI işlemlerini otomatikleştirin.
+
+  **Araç seti dokümanları**: [composio.dev/toolkits/all_images_ai](https://composio.dev/toolkits/all_images_ai)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` üzerinden aktif All Images AI bağlantısı (`all_images_ai` araç seti ile)
+  - Her zaman mevcut araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: MCP sunucu yapılandırmanıza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — yalnızca endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıtının geldiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
+  2. `all_images_ai` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  Workflow'ları yürütmeden önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "All Images AI operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific All Images AI task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["all_images_ai"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Yürütün
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slugları veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
+  - **Oturum yeniden kullanımı**: Bir workflow içinde oturum kimliklerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|----------|
+  | Araçları bul | All Images AI'a özgü use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlan | `all_images_ai` araç seti ile `RUBE_MANAGE_CONNECTIONS` |
+  | Yürüt | Keşfedilen araç slugları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` içeren araçlar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # All Images AI Automation via Rube MCP

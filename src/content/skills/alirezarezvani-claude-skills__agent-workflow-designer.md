@@ -12,6 +12,85 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Agent Workflow Designer
+
+  **Tier:** POWERFUL  
+  **Category:** Engineering  
+  **Domain:** Multi-Agent Systems / AI Orchestration
+
+  ---
+
+  ## Genel Bakış
+
+  Üretim düzeyinde çok acentalı iş akışlarını açık desen seçimi, handoff kontratları, hata yönetimi ve maliyet/bağlam kontrolü ile tasarlayın.
+
+  ## Temel Yetenekler
+
+  - Çok adımlı agent sistemleri için workflow desen seçimi
+  - Hızlı workflow önyükleme için skeleton config oluşturma
+  - Uzun soluklu akışlar boyunca bağlam ve maliyet disiplini
+  - Hata kurtarma ve retry stratejisi iskeleti
+  - Operasyonel desen tradeoff'ları için dokümantasyon göstericileri
+
+  ---
+
+  ## Ne Zaman Kullanılır
+
+  - Tek bir prompt görev karmaşıklığı için yetersiz
+  - Açık sınırları olan specialist agentalara ihtiyacınız var
+  - Implementasyon öncesi deterministik workflow yapısı istiyorsunuz
+  - Kalite veya güvenlik kapıları için validasyon döngülerine ihtiyacınız var
+
+  ---
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  # Sıralı workflow iskeletini oluştur
+  python3 scripts/workflow_scaffolder.py sequential --name content-pipeline
+
+  # Orchestrator workflow oluştur ve kaydet
+  python3 scripts/workflow_scaffolder.py orchestrator --name incident-triage --output workflows/incident-triage.json
+  ```
+
+  ---
+
+  ## Desen Haritası
+
+  - `sequential`: katı adım adım bağımlılık zinciri
+  - `parallel`: bağımsız alt görevler için fan-out/fan-in
+  - `router`: niyet/tür ile dağıt ve fallback
+  - `orchestrator`: planlayıcı, bağımlılıkları olan specialist'leri koordine eder
+  - `evaluator`: üretici + kalite kapısı döngüsü
+
+  Detaylı şablonlar: `references/workflow-patterns.md`
+
+  ---
+
+  ## Önerilen Workflow
+
+  1. Bağımlılık şekli ve risk profili temel alınarak desen seçin.
+  2. `scripts/workflow_scaffolder.py` ile config iskelesini oluşturun.
+  3. Her kenar için handoff kontrat alanlarını tanımlayın.
+  4. Retry/timeout'lar ve çıktı validasyon kapıları ekleyin.
+  5. Ölçeklenmeden önce küçük bağlam bütçeleri ile test çalıştırması yapın.
+
+  ---
+
+  ## Yaygın Hatalar
+
+  - Bir iyi yapılandırılmış prompt tarafından çözülebilecek görevleri aşırı orkestrasyon
+  - Harici model çağrıları için timeout/retry politikaları eksik
+  - Hedeflenen yapıtlar yerine tam upstream bağlamını iletme
+  - Adım başına maliyet birikimini göz ardı etme
+
+  ## En İyi Uygulamalar
+
+  1. Gereksinimleri karşılayabilen en küçük destenle başlayın.
+  2. Handoff payload'larını açık ve sınırlı tutun.
+  3. Fan-in sentezinden önce ara çıktıları doğrulayın.
+  4. Her adımda bütçe ve timeout sınırlarını uygulayın.
 ---
 
 # Agent Workflow Designer
