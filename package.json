@@ -12,7 +12,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fetch-skills": "node scripts/fetch-skills.js"
+    "fetch-skills": "node scripts/fetch-skills.js",
+    "fetch-mcp": "node scripts/fetch-mcp.js",
+    "build-mcp": "node scripts/mcp-json-to-content.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "js-yaml": "^4.1.1",
     "typescript": "^6.0.3"
   }
 }

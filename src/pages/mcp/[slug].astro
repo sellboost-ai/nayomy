@@ -1,0 +1,196 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import McpInstallBlock from '../../components/McpInstallBlock.astro';
+import McpDetails from '../../components/McpDetails.astro';
+import SimilarMcp from '../../components/SimilarMcp.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  const servers = await getCollection('mcp');
+  return servers.map(server => ({
+    params: { slug: server.id },
+    props: { server },
+  }));
+}
+
+type Props = { server: CollectionEntry<'mcp'> };
+const { server } = Astro.props;
+const { name, description, category, repo, url, npm_id, pypi_id, docker_image, language } = server.data;
+
+const { Content } = await render(server);
+const hasContent = (server.body ?? '').trim().length > 0;
+---
+
+<BaseLayout title={`${name} · MCP Servers · Nayomy`} description={description} lang={lang}>
+  <div class="container detail-outer">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/mcp">{t('nav.mcp')}</a>
+      <span class="sep">/</span>
+      <a href="#">{category}</a>
+      <span class="sep">/</span>
+      <span class="crumb-current">{name}</span>
+    </nav>
+
+    <div class="detail-grid">
+
+      <div class="detail-main">
+        <div class="detail-header">
+          <div class="detail-meta">
+            <span class="cat-badge">{category}</span>
+            {language && <span class="lang-badge">{language}</span>}
+            <span class="stars-count">★ {server.data.stars.toLocaleString()}</span>
+          </div>
+          <h1 class="detail-title">{name}</h1>
+          <p class="detail-desc">{description}</p>
+        </div>
+
+        <McpInstallBlock
+          lang={lang}
+          name={name}
+          repo={repo}
+          npm_id={npm_id}
+          pypi_id={pypi_id}
+          docker_image={docker_image}
+          language={language}
+        />
+
+        <div class="about-section">
+          <h2 class="section-label">{t('mcp.about')}</h2>
+          {hasContent ? (
+            <div class="prose">
+              <Content />
+            </div>
+          ) : (
+            <p class="body-pending">
+              {t('mcp.body_pending')}
+              {' '}<a href={url} target="_blank" rel="noopener noreferrer">GitHub →</a>
+            </p>
+          )}
+        </div>
+      </div>
+
+      <aside class="detail-side">
+        <McpDetails lang={lang} server={server} />
+      </aside>
+
+    </div>
+
+    <SimilarMcp lang={lang} currentSlug={server.id} currentCategory={category} />
+    <div class="more-in-cat">
+      <a href="/mcp">{t('mcp.more_in')} {category} →</a>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .detail-outer { padding-top: 28px; padding-bottom: 80px; }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--ink-3); margin-bottom: 28px;
+  }
+  .breadcrumb a { color: var(--ink-3); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--ink); }
+  .breadcrumb .sep { color: var(--ink-4); }
+  .breadcrumb .crumb-current { color: var(--ink-2); }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 0;
+  }
+  .detail-side { position: sticky; top: 80px; }
+
+  .detail-header { margin-bottom: 28px; }
+  .detail-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  .cat-badge {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    font-weight: 600; padding: 3px 8px; background: var(--bg-subtle);
+    border: 1px solid var(--line); border-radius: 4px; color: var(--ink-3);
+  }
+  .lang-badge {
+    font-size: 10px; font-weight: 500; padding: 3px 8px;
+    background: var(--bg-subtle); border: 1px solid var(--line);
+    border-radius: 4px; color: var(--ink-4);
+  }
+  .stars-count { font-size: 13px; color: var(--ink-3); font-weight: 500; }
+  .detail-title {
+    font-size: clamp(24px, 3.5vw, 36px); font-weight: 700;
+    letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 12px;
+  }
+  .detail-desc { font-size: 15px; color: var(--ink-3); line-height: 1.65; }
+
+  .about-section { margin-top: 4px; }
+  .section-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--ink-3);
+    margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line);
+  }
+  .body-pending { font-size: 14px; color: var(--ink-3); font-style: italic; }
+  .body-pending a { color: var(--ink-2); }
+  .body-pending a:hover { color: var(--ink); }
+
+  /* Prose — markdown render */
+  .prose { font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
+  .prose :global(h1), .prose :global(h2) {
+    font-size: 16px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink);
+    margin: 28px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .prose :global(h3) { font-size: 14.5px; font-weight: 600; color: var(--ink); margin: 20px 0 8px; }
+  .prose :global(h4) {
+    font-size: 13px; font-weight: 600; color: var(--ink-2); margin: 16px 0 6px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .prose :global(p) { margin: 0 0 14px; }
+  .prose :global(ul), .prose :global(ol) { padding-left: 20px; margin: 0 0 14px; }
+  .prose :global(li) { margin-bottom: 4px; }
+  .prose :global(li > ul), .prose :global(li > ol) { margin-top: 4px; margin-bottom: 0; }
+  .prose :global(a) {
+    color: var(--ink); text-decoration: underline;
+    text-decoration-color: var(--line-strong); text-underline-offset: 2px;
+  }
+  .prose :global(a:hover) { text-decoration-color: var(--ink); }
+  .prose :global(code) {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 12.5px; background: var(--bg-subtle);
+    border: 1px solid var(--line); border-radius: 3px;
+    padding: 1px 5px; color: var(--ink);
+  }
+  .prose :global(pre) {
+    background: var(--bg-subtle); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 14px 16px; overflow-x: auto; margin: 0 0 16px;
+  }
+  .prose :global(pre code) { background: none; border: none; padding: 0; font-size: 13px; line-height: 1.65; }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--line-strong); padding-left: 16px;
+    color: var(--ink-3); margin: 0 0 14px; font-style: italic;
+  }
+  .prose :global(hr) { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+  .prose :global(table) { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 16px; }
+  .prose :global(th), .prose :global(td) { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  .prose :global(th) { background: var(--bg-subtle); font-weight: 600; color: var(--ink); }
+  .prose :global(strong) { color: var(--ink); font-weight: 600; }
+  .prose :global(img) { max-width: 100%; height: auto; border-radius: var(--radius); }
+
+  .more-in-cat { padding: 20px 0 0; font-size: 13px; }
+  .more-in-cat a { color: var(--ink-3); text-decoration: none; font-weight: 500; }
+  .more-in-cat a:hover { color: var(--ink); }
+
+  @media (max-width: 1023px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+    .detail-side { position: static; }
+  }
+  @media (max-width: 640px) {
+    .detail-title { font-size: 24px; }
+    .breadcrumb { flex-wrap: wrap; }
+  }
+</style>

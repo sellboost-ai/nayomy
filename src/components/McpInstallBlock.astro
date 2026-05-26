@@ -1,0 +1,188 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  name: string;
+  repo: string;
+  npm_id?: string | null;
+  pypi_id?: string | null;
+  docker_image?: string | null;
+  language?: string | null;
+}
+
+const { lang, name, repo, npm_id, pypi_id, docker_image, language } = Astro.props;
+const t = useTranslations(lang);
+
+const repoFolder = repo.split('/')[1];
+const serverKey = name.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/^-+|-+$/, '');
+
+// Build Claude Desktop config snippet
+let configArgs: string[];
+let configCommand: string;
+
+if (npm_id) {
+  configCommand = 'npx';
+  configArgs = ['-y', npm_id];
+} else if (pypi_id) {
+  configCommand = 'uvx';
+  configArgs = [pypi_id];
+} else if (docker_image) {
+  configCommand = 'docker';
+  configArgs = ['run', '-i', '--rm', docker_image];
+} else if (language?.toLowerCase().includes('python')) {
+  configCommand = 'python';
+  configArgs = ['-m', repoFolder.replace(/-/g, '_')];
+} else {
+  configCommand = 'node';
+  configArgs = [`~/.mcp/${repoFolder}/index.js`];
+}
+
+const configSnippet = JSON.stringify(
+  { mcpServers: { [serverKey]: { command: configCommand, args: configArgs } } },
+  null, 2
+);
+
+const cloneCmd = `git clone https://github.com/${repo}.git ~/.mcp/${repoFolder}\ncd ~/.mcp/${repoFolder}`;
+---
+
+<div class="install-wrap">
+  <div class="install-header">
+    <div class="tab-group">
+      <button class="tab-btn active" data-tab="config">{t('mcp.config')}</button>
+      <button class="tab-btn" data-tab="clone">{t('mcp.clone')}</button>
+    </div>
+    <button
+      class="copy-btn"
+      data-copy={t('mcp.copy')}
+      data-copied={t('mcp.copied')}
+      aria-label={t('mcp.copy')}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+      </svg>
+      <span class="copy-label">{t('mcp.copy')}</span>
+    </button>
+  </div>
+
+  <div class="tab-panel" data-panel="config">
+    <p class="hint">{t('mcp.config_hint')}</p>
+    <pre class="install-pre"><code>{configSnippet}</code></pre>
+  </div>
+  <div class="tab-panel" data-panel="clone" hidden>
+    <p class="hint">{t('mcp.clone_hint')}</p>
+    <pre class="install-pre"><code>{cloneCmd}</code></pre>
+  </div>
+</div>
+
+<style>
+  .install-wrap {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 28px;
+    background: var(--bg-elevated);
+  }
+  .install-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    gap: 8px;
+  }
+  .tab-group { display: flex; gap: 4px; }
+  .tab-btn {
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: var(--bg-subtle);
+    color: var(--ink-3);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+    line-height: 1.4;
+  }
+  .tab-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .tab-btn:not(.active):hover { border-color: var(--line-strong); color: var(--ink-2); }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-3);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .copy-btn:hover { border-color: var(--line-strong); color: var(--ink); }
+  .hint {
+    font-size: 11.5px;
+    color: var(--ink-4);
+    padding: 8px 14px 0;
+    margin: 0;
+    font-style: italic;
+  }
+  .tab-panel { display: block; }
+  .tab-panel[hidden] { display: none; }
+  .install-pre {
+    margin: 0;
+    padding: 12px 16px 14px;
+    overflow-x: auto;
+    background: var(--bg-subtle);
+  }
+  .install-pre code {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    white-space: pre;
+    background: none;
+    display: block;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.install-wrap').forEach(wrap => {
+    const tabs = wrap.querySelectorAll<HTMLButtonElement>('.tab-btn');
+    const panels = wrap.querySelectorAll<HTMLElement>('.tab-panel');
+    const copyBtn = wrap.querySelector<HTMLButtonElement>('.copy-btn');
+    const copyLabel = wrap.querySelector<HTMLSpanElement>('.copy-label');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.tab;
+        panels.forEach(p => {
+          p.dataset.panel === target ? p.removeAttribute('hidden') : p.setAttribute('hidden', '');
+        });
+      });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const activeTab = wrap.querySelector<HTMLButtonElement>('.tab-btn.active');
+      const activePanel = wrap.querySelector<HTMLElement>(`.tab-panel[data-panel="${activeTab?.dataset.tab}"]`);
+      const text = activePanel?.querySelector('code')?.textContent ?? '';
+      navigator.clipboard.writeText(text).then(() => {
+        if (!copyLabel || !copyBtn) return;
+        const original = copyBtn.dataset.copy ?? 'Copy';
+        const copied = copyBtn.dataset.copied ?? 'Copied!';
+        copyLabel.textContent = copied;
+        setTimeout(() => { copyLabel.textContent = original; }, 2000);
+      }).catch(() => {});
+    });
+  });
+</script>

@@ -1,0 +1,256 @@
+---
+name: "mckinsey/vizro"
+description: "Tools and templates to create validated and maintainable data charts and dashboards."
+category: "Data Science Tools"
+repo: "mckinsey/vizro"
+stars: 3695
+url: "https://github.com/mckinsey/vizro"
+body_length: 13710
+license: "Apache-2.0"
+language: "Python"
+homepage: "https://vizro.readthedocs.io/en/stable/"
+---
+
+<br><br>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mckinsey/vizro/main/.github/images/Vizro_Github_Banner_Dark_Mode.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mckinsey/vizro/main/.github/images/Vizro_Github_Banner_Light_Mode.png">
+  
+</picture>
+
+#### Vizro is a low-code toolkit for building high-quality data visualization apps
+
+[![Python version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmckinsey%2Fvizro%2Frefs%2Fheads%2Fmain%2Fvizro-core%2Fpyproject.toml)](https://pypi.org/project/vizro/) [![PyPI version](https://badge.fury.io/py/vizro.svg)](https://badge.fury.io/py/vizro) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/mckinsey/vizro/blob/main/LICENSE.md) [![Documentation](https://readthedocs.org/projects/vizro/badge/?version=stable)](https://vizro.readthedocs.io/) [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/7858/badge)](https://www.bestpractices.dev/projects/7858)
+
+[Documentation](https://vizro.readthedocs.io/en/stable/) | [Get Started](https://vizro.readthedocs.io/en/stable/pages/tutorials/first_dashboard/)
+
+<picture>
+  <source srcset="https://raw.githubusercontent.com/mckinsey/vizro/main/.github/images/vizro_spash_teaser.gif">
+  
+</picture>
+<br>
+<br>
+
+</div>
+
+## What is Vizro?
+
+Vizro is an open-source Python-based toolkit.
+
+Use it to build beautiful and powerful data visualization apps quickly and easily, without needing advanced engineering or visual design expertise.
+
+Then customize and deploy your app to production at scale.
+
+In just a few lines of simple low-code configuration, with in-built visual design best practices, you can quickly assemble high-quality, multi-page prototypes, that are production-ready.
+
+<div align="center">
+
+</div>
+
+Every Vizro app is defined by a simple configuration, using these high-level categories:
+
+- **[Components](https://vizro.readthedocs.io/en/stable/pages/user-guides/components/):** charts, tables, cards, KPI indicators, forms and more.
+- **[Controls](https://vizro.readthedocs.io/en/stable/pages/user-guides/controls/):** filters and parameters, using a range of selectors such as drop-down menus and sliders.
+- **[Actions](https://vizro.readthedocs.io/en/stable/pages/user-guides/actions/):** interactions between components, drill-throughs, export functionality and more.
+- **[Layouts](https://vizro.readthedocs.io/en/stable/pages/user-guides/layouts/):** grid layouts or flexible containers, with a range of pre-set styles.
+- **[Navigation](https://vizro.readthedocs.io/en/stable/pages/user-guides/navigation/):** a range of app layout and navigation settings, including nested page hierarchies.
+
+Configuration can be written in multiple formats including **Pydantic models**, **JSON**, **YAML** or **Python dictionaries** for added flexibility of implementation.
+
+Optional high-code extensions enable almost infinite customization in a modular way, combining the best of low-code and high-code - including bespoke [**visual formatting**](https://vizro.readthedocs.io/en/stable/pages/user-guides/visual-formatting/) and [**custom components**](https://vizro.readthedocs.io/en/stable/pages/user-guides/extensions/).
+
+Visit the ["How-to guides"](https://vizro.readthedocs.io/en/stable/pages/user-guides/install/) for a more detailed explanation of Vizro features.
+
+## Why use Vizro?
+
+The benefits of the Vizro toolkit include:
+
+<div align="center">
+
+</div>
+<br>
+
+Vizro helps you to build data visualization apps that are:
+
+**Quick and easy**
+
+Build apps in minutes. Use a few lines of simple configuration (via Pydantic models, JSON, YAML, or Python dictionaries) in place of thousands of lines of code.
+
+**Beautiful and powerful**
+
+Build high-quality multi-page apps without needing advanced engineering or visual design expertise. Use powerful features of production-grade BI tools, with in-built visual design best practices.
+
+**Flexible**
+
+Benefit from the capabilities and flexibility of open-source packages. Use the trusted dependencies of Plotly, Dash, and Pydantic.
+
+**Customizable**
+
+Almost infinite control for advanced users. Use Python, JavaScript, HTML and CSS code extensions.
+
+**Scalable**
+
+Rapidly prototype and deploy to production. Use the in-built production-grade capabilities of Plotly, Dash and Pydantic.
+
+Visit ["Why should I use Vizro?"](https://vizro.readthedocs.io/en/stable/pages/explanation/faq/#why-should-i-use-vizro) for a more detailed explanation of Vizro use cases.
+
+## When to use Vizro?
+
+Use Vizro when you need to combine the speed and ease of low-code Python tools, with production capabilities of JavaScript and BI tools, and the freedom of open source:
+
+- Have an app that looks beautiful and professional by default.
+- Enjoy the simplicity of low-code, plus the option to customize with code almost infinitely.
+- Rapidly create prototypes which are production-ready and easy to deploy at scale.
+
+## How to use Vizro?
+
+Explore a few live demos to see different Vizro dashboards in action:
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="33%">
+      <a href="https://huggingface.co/spaces/vizro/demo-first-dashboard" target="_blank" rel="noopener noreferrer">
+        
+      </a>
+      <br>
+      <strong>Basic Dashboard</strong>
+      <br>
+      <a href="https://huggingface.co/spaces/vizro/demo-first-dashboard" target="_blank" rel="noopener noreferrer">Try it live</a>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="https://huggingface.co/spaces/vizro/demo-visual-vocabulary" target="_blank" rel="noopener noreferrer">
+        
+      </a>
+      <br>
+      <strong>Visual Vocabulary</strong>
+      <br>
+      <a href="https://huggingface.co/spaces/vizro/demo-visual-vocabulary" target="_blank" rel="noopener noreferrer">Try it live</a>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="https://huggingface.co/spaces/vizro/BI-dashboard" target="_blank" rel="noopener noreferrer">
+        
+      </a>
+      <br>
+      <strong>BI Dashboard</strong>
+      <br>
+      <a href="https://huggingface.co/spaces/vizro/BI-dashboard" target="_blank" rel="noopener noreferrer">Try it live</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" width="33%">
+      <a href="https://huggingface.co/spaces/vizro/call-center-dashboard" target="_blank" rel="noopener noreferrer">
+        
+      </a>
+      <br>
+      <strong>Call Center Dashboard</strong>
+      <br>
+      <a href="https://huggingface.co/spaces/vizro/call-center-dashboard" target="_blank" rel="noopener noreferrer">Try it live</a>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="https://huggingface.co/spaces/vizro/demo-kpi" target="_blank" rel="noopener noreferrer">
+        
+      </a>
+      <br>
+      <strong>KPI Dashboard</strong>
+      <br>
+      <a href="https://huggingface.co/spaces/vizro/demo-kpi" target="_blank" rel="noopener noreferrer">Try it live</a>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="https://huggingface.co/spaces/vizro/demo-features" target="_blank" rel="noopener noreferrer">
+        
+      </a>
+      <br>
+      <strong>Features Dashboard</strong>
+      <br>
+      <a href="https://huggingface.co/spaces/vizro/demo-features" target="_blank" rel="noopener noreferrer">Try it live</a>
+    </td>
+  </tr>
+</table>
+
+Browse the full [Vizro Gallery](https://huggingface.co/collections/vizro/vizro-official-gallery) for more examples.
+
+## [Vizro framework](https://vizro.readthedocs.io/en/stable/)
+
+**Low-code framework for building dashboards.**
+
+The Vizro framework underpins the entire Vizro toolkit. It is a Python package (called `vizro`).
+
+Visit the [documentation](https://vizro.readthedocs.io/en/stable/) for more details.
+
+## [Vizro visual vocabulary](https://vizro-demo-visual-vocabulary.hf.space/)
+
+**Chart examples.**
+
+The visual vocabulary helps you to decide which chart type to use for your requirements, and offers sample code to create these charts with Plotly or embed them into a Vizro dashboard.
+
+Visit the [visual vocabulary](https://vizro-demo-visual-vocabulary.hf.space/) to search for charts or get inspiration.
+
+<a href="https://vizro-demo-visual-vocabulary.hf.space/">
+
+</a>
+
+## [Vizro-MCP](https://vizro.readthedocs.io/projects/vizro-mcp/)
+
+**A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for Vizro.**
+
+Vizro-MCP works alongside an LLM to help you create Vizro dashboards and charts. It provides tools and templates to create a functioning Vizro chart or dashboard step-by-step.
+
+Compatible with MCP-enabled LLM clients such as Cursor or Claude Desktop.
+
+
+
+## [Vizro-AI](https://vizro.readthedocs.io/projects/vizro-ai/)
+
+**Use LLMs to generate charts and dashboards.**
+
+> **Vizro-AI dashboard generation is no longer actively developed and is superseded by [Vizro-MCP](https://github.com/mckinsey/vizro/tree/main/vizro-mcp). Vizro-AI supports only chart generation from version 0.4.0.**
+
+Vizro-AI is a separate package (called `vizro_ai`) that extends Vizro to incorporate LLMs. Use it to build interactive Vizro charts and dashboards, by simply describing what you need in plain English or other languages.
+
+Visit the [Vizro-AI documentation](https://vizro.readthedocs.io/projects/vizro-ai/) for more details.
+
+<picture>
+  <source srcset="https://raw.githubusercontent.com/mckinsey/vizro/main/.github/images/toolkit_vizro_ai.gif">
+  
+</picture>
+
+## Installation and first steps
+
+```console
+pip install vizro
+```
+
+See the [installation guide](https://vizro.readthedocs.io/en/stable/pages/user-guides/install/) for more information.
+
+The [get started documentation](https://vizro.readthedocs.io/en/stable/pages/tutorials/first-dashboard/) explains how to create your first dashboard.
+
+## Packages
+
+This repository is a monorepo containing the following packages:
+
+|           Folder           |                                            Version                                            |                                   Documentation                                   |
+| :------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
+| [vizro-core](./vizro-core) |     [![PyPI version](https://badge.fury.io/py/vizro.svg)](https://badge.fury.io/py/vizro)     |               [Vizro Docs](https://vizro.readthedocs.io/en/stable/)               |
+|   [vizro-ai](./vizro-ai)   |  [![PyPI version](https://badge.fury.io/py/vizro-ai.svg)](https://badge.fury.io/py/vizro-ai)  |         [Vizro-AI Docs](https://vizro.readthedocs.io/projects/vizro-ai/)          |
+|  [vizro-mcp](./vizro-mcp)  | [![PyPI version](https://badge.fury.io/py/vizro-mcp.svg)](https://badge.fury.io/py/vizro-mcp) | [Vizro-MCP Docs](https://github.com/mckinsey/vizro/blob/main/vizro-mcp/README.md) |
+
+## Community and development
+
+We encourage you to ask and discuss any technical questions via the [GitHub Issues](https://github.com/mckinsey/vizro/issues). This is also the place where you can submit bug reports or request new features.
+
+## Want to contribute to Vizro?
+
+The [contributing guide](https://vizro.readthedocs.io/en/stable/pages/explanation/contributing/) explains how you can contribute to Vizro.
+
+You can also view current and former contributors [here](https://vizro.readthedocs.io/en/stable/pages/explanation/authors/).
+
+## Want to report a security vulnerability?
+
+See our [security policy](https://github.com/mckinsey/vizro/security/policy).
+
+## License
+
+`vizro` is distributed under the terms of the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).

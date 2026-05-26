@@ -22,7 +22,7 @@ const homePath = lang === 'tr' ? '/tr' : '/';
 
     <div class="nav-links">
       <a href={homePath} class="nav-link">{t('nav.skills')}</a>
-      <a href="#" class="nav-link">MCP</a>
+      <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class="nav-link">{t('nav.mcp')}</a>
       <a href="#" class="nav-link">Marketplaces</a>
       <a href="#" class="nav-link">Docs</a>
       <a href="#" class="nav-link">Changelog</a>

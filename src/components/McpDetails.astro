@@ -1,0 +1,197 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  server: CollectionEntry<'mcp'>;
+}
+
+const { lang, server } = Astro.props;
+const t = useTranslations(lang);
+const { category, repo, stars, url, license, language, npm_id, pypi_id, docker_image, homepage, body_length } = server.data;
+---
+
+<aside class="mcp-details">
+  <h3 class="details-heading">{t('mcp.details')}</h3>
+
+  <dl class="details-list">
+    <div class="dl-row">
+      <dt>{t('skill.category')}</dt>
+      <dd><span class="cat-pill">{category}</span></dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('skill.source')}</dt>
+      <dd>
+        <a href={`https://github.com/${repo}`} target="_blank" rel="noopener noreferrer" class="mono-link">
+          {repo}
+        </a>
+      </dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('skill.stars')}</dt>
+      <dd>★ {stars.toLocaleString()}</dd>
+    </div>
+    {language && (
+      <div class="dl-row">
+        <dt>{t('mcp.language')}</dt>
+        <dd>{language}</dd>
+      </div>
+    )}
+    {license && (
+      <div class="dl-row">
+        <dt>{t('mcp.license')}</dt>
+        <dd>{license}</dd>
+      </div>
+    )}
+    {body_length != null && body_length > 0 && (
+      <div class="dl-row">
+        <dt>{t('skill.length')}</dt>
+        <dd>{body_length.toLocaleString()} chars</dd>
+      </div>
+    )}
+  </dl>
+
+  {(npm_id || pypi_id || docker_image || homepage) && (
+    <div class="pkg-links">
+      {npm_id && (
+        <a href={`https://www.npmjs.com/package/${npm_id}`} target="_blank" rel="noopener noreferrer" class="pkg-link">
+          <span class="pkg-label">npm</span>
+          <span class="pkg-id">{npm_id}</span>
+        </a>
+      )}
+      {pypi_id && (
+        <a href={`https://pypi.org/project/${pypi_id}`} target="_blank" rel="noopener noreferrer" class="pkg-link">
+          <span class="pkg-label">pypi</span>
+          <span class="pkg-id">{pypi_id}</span>
+        </a>
+      )}
+      {docker_image && (
+        <a href={`https://hub.docker.com/r/${docker_image}`} target="_blank" rel="noopener noreferrer" class="pkg-link">
+          <span class="pkg-label">docker</span>
+          <span class="pkg-id">{docker_image}</span>
+        </a>
+      )}
+      {homepage && (
+        <a href={homepage} target="_blank" rel="noopener noreferrer" class="pkg-link">
+          <span class="pkg-label">web</span>
+          <span class="pkg-id">{new URL(homepage).hostname}</span>
+        </a>
+      )}
+    </div>
+  )}
+
+  <a href={url} target="_blank" rel="noopener noreferrer" class="github-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+    {t('mcp.open_github')}
+  </a>
+</aside>
+
+<style>
+  .mcp-details {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .details-heading {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .details-list { margin-bottom: 14px; }
+  .dl-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .dl-row:last-child { border-bottom: none; }
+  .dl-row dt { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-4); }
+  .dl-row dd { color: var(--ink-2); }
+  .cat-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .mono-link {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-2);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .mono-link:hover { color: var(--ink); text-decoration: underline; }
+
+  .pkg-links { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .pkg-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.12s;
+    min-width: 0;
+  }
+  .pkg-link:hover { border-color: var(--line-strong); background: var(--bg-subtle); }
+  .pkg-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-4);
+    flex-shrink: 0;
+    background: var(--bg-subtle);
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+  }
+  .pkg-id {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .github-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--ink-2);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.12s;
+    margin-top: 4px;
+  }
+  .github-btn:hover { border-color: var(--line-strong); background: var(--bg-subtle); color: var(--ink); }
+</style>

@@ -22,4 +22,23 @@ const skills = defineCollection({
   }),
 });
 
-export const collections = { skills };
+const mcp = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/mcp' }),
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    category: z.string(),
+    repo: z.string(),
+    stars: z.number(),
+    url: z.string(),
+    body_length: z.number().optional().default(0),
+    license: z.string().optional(),
+    language: z.string().optional(),
+    npm_id: z.string().optional(),
+    pypi_id: z.string().optional(),
+    docker_image: z.string().optional(),
+    homepage: z.string().optional(),
+  }),
+});
+
+export const collections = { skills, mcp };
