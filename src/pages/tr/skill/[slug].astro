@@ -7,6 +7,7 @@ import InstallBlock from '../../../components/InstallBlock.astro';
 import SkillDetails from '../../../components/SkillDetails.astro';
 import SimilarSkills from '../../../components/SimilarSkills.astro';
 import { useTranslations } from '../../../i18n/utils';
+import { skillTitle, seoDescription, softwareApplicationJsonLd } from '../../../lib/seo';
 
 const lang = 'tr' as const;
 const t = useTranslations(lang);
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 
 type Props = { skill: CollectionEntry<'skills'> };
 const { skill } = Astro.props;
-const { name, description_en, description_tr, category, repo, url, path, body_tr } = skill.data;
+const { name, description_en, description_tr, category, repo, url, path, body_tr, stars } = skill.data;
 const description = description_tr ?? description_en;
 
 const md = new MarkdownIt({ html: true, linkify: true });
@@ -30,9 +31,17 @@ const bodyTrHtml = body_tr ? md.render(body_tr) : null;
 const { Content } = await render(skill);
 const hasBodyTr = !!bodyTrHtml;
 const hasContent = hasBodyTr || (skill.body ?? '').trim().length > 0;
+
+const seoTitle = skillTitle(name, category, lang);
+const seoDesc = seoDescription(description, repo, lang);
+const pageUrl = `https://nayomy.com/tr/skill/${skill.id}/`;
+const jsonLd = softwareApplicationJsonLd({
+  name, description: seoDesc, category, url: pageUrl, repo, stars,
+  applicationCategory: 'DeveloperApplication',
+});
 ---
 
-<BaseLayout title={`${name} · Nayomy`} description={description} lang={lang}>
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} ogType="article" jsonLd={jsonLd}>
   <div class="container detail-outer">
 
     <!-- Breadcrumb — full width -->

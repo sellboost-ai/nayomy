@@ -7,6 +7,7 @@ import McpInstallBlock from '../../../components/McpInstallBlock.astro';
 import McpDetails from '../../../components/McpDetails.astro';
 import SimilarMcp from '../../../components/SimilarMcp.astro';
 import { useTranslations } from '../../../i18n/utils';
+import { mcpTitle, seoDescription, softwareApplicationJsonLd } from '../../../lib/seo';
 
 const lang = 'tr' as const;
 const t = useTranslations(lang);
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 
 type Props = { server: CollectionEntry<'mcp'> };
 const { server } = Astro.props;
-const { name, description: descriptionEn, description_tr, category, repo, url, npm_id, pypi_id, docker_image, language, body_tr } = server.data;
+const { name, description: descriptionEn, description_tr, category, repo, url, npm_id, pypi_id, docker_image, language, body_tr, stars } = server.data;
 const description = description_tr ?? descriptionEn;
 
 const md = new MarkdownIt({ html: true, linkify: true });
@@ -30,9 +31,17 @@ const bodyTrHtml = body_tr ? md.render(body_tr) : null;
 const { Content } = await render(server);
 const hasBodyTr = !!bodyTrHtml;
 const hasContent = hasBodyTr || (server.body ?? '').trim().length > 0;
+
+const seoTitle = mcpTitle(name, category, lang);
+const seoDesc = seoDescription(description, repo, lang);
+const pageUrl = `https://nayomy.com/tr/mcp/${server.id}/`;
+const jsonLd = softwareApplicationJsonLd({
+  name, description: seoDesc, category, url: pageUrl, repo, stars,
+  applicationCategory: 'DeveloperApplication',
+});
 ---
 
-<BaseLayout title={`${name} · MCP · Nayomy`} description={description} lang={lang}>
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} ogType="article" jsonLd={jsonLd}>
   <div class="container detail-outer">
 
     <nav class="breadcrumb" aria-label="Breadcrumb">

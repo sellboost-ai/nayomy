@@ -10,14 +10,30 @@ interface Props {
   lang: Lang;
   /** ISO date string shown in footer, e.g. DATA.generated_at */
   updatedAt?: string;
+  ogType?: 'website' | 'article';
+  /** Site-relative or absolute URL. Defaults to /og-default.svg. */
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
 }
 
-const { title, description, lang, updatedAt } = Astro.props;
+const {
+  title,
+  description,
+  lang,
+  updatedAt,
+  ogType = 'website',
+  ogImage = '/og-default.svg',
+  jsonLd,
+} = Astro.props;
 
+const SITE = 'https://nayomy.com';
 const route    = getRouteFromUrl(Astro.url);
 const hrefEn   = route;
 const hrefTr   = `/tr${route === '/' ? '' : route}`;
-const canonical = lang === 'tr' ? `https://nayomy.com${hrefTr}` : `https://nayomy.com${hrefEn}`;
+const canonical = lang === 'tr' ? `${SITE}${hrefTr}` : `${SITE}${hrefEn}`;
+const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${SITE}${ogImage}`;
+const ogLocale = lang === 'tr' ? 'tr_TR' : 'en_US';
+const ogLocaleAlt = lang === 'tr' ? 'en_US' : 'tr_TR';
 ---
 <!DOCTYPE html>
 <html lang={lang} data-theme="">
@@ -27,15 +43,27 @@ const canonical = lang === 'tr' ? `https://nayomy.com${hrefTr}` : `https://nayom
   <meta name="google-site-verification" content="4oudNaeGBhnIK9AFyLKqYVw0WZ3QTrAV6W405AGhsb0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta property="og:title"       content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content={canonical} />
-  <meta name="twitter:card"       content="summary_large_image" />
+  <meta property="og:title"          content={title} />
+  <meta property="og:description"    content={description} />
+  <meta property="og:type"           content={ogType} />
+  <meta property="og:url"            content={canonical} />
+  <meta property="og:image"          content={ogImageAbsolute} />
+  <meta property="og:image:width"    content="1200" />
+  <meta property="og:image:height"   content="630" />
+  <meta property="og:locale"         content={ogLocale} />
+  <meta property="og:locale:alternate" content={ogLocaleAlt} />
+  <meta property="og:site_name"      content="nayomy" />
+  <meta name="twitter:card"          content="summary_large_image" />
+  <meta name="twitter:title"         content={title} />
+  <meta name="twitter:description"   content={description} />
+  <meta name="twitter:image"         content={ogImageAbsolute} />
   <link rel="canonical"           href={canonical} />
-  <link rel="alternate" hreflang="en"        href={`https://nayomy.com${hrefEn}`} />
-  <link rel="alternate" hreflang="tr"        href={`https://nayomy.com${hrefTr}`} />
-  <link rel="alternate" hreflang="x-default" href={`https://nayomy.com${hrefEn}`} />
+  <link rel="alternate" hreflang="en"        href={`${SITE}${hrefEn}`} />
+  <link rel="alternate" hreflang="tr"        href={`${SITE}${hrefTr}`} />
+  <link rel="alternate" hreflang="x-default" href={`${SITE}${hrefEn}`} />
+  {jsonLd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />

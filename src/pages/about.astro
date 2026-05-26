@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en' as const;
+const title = 'About — nayomy';
+const description = 'nayomy is a daily-updated, searchable directory of Claude agent skills and MCP servers published on GitHub.';
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <article class="about">
+    <h1>About nayomy</h1>
+
+    <p class="lead">
+      nayomy is a daily-updated, searchable directory of <strong>Claude agent skills</strong> and
+      <strong>Model Context Protocol (MCP) servers</strong> published on GitHub.
+    </p>
+
+    <h2>What we cover</h2>
+    <ul>
+      <li><strong>Agent Skills</strong> — markdown-defined behaviors that extend Claude with domain knowledge, workflows, and integrations.</li>
+      <li><strong>MCP Servers</strong> — protocol servers that bridge Claude (and other LLMs) to external systems: databases, APIs, file systems, and more.</li>
+    </ul>
+
+    <h2>How data is collected</h2>
+    <p>
+      Every entry is harvested automatically from public GitHub repositories. A nightly job re-scans the index,
+      pulls fresh metadata (stars, descriptions, file structure), and rebuilds the catalog. We don't accept
+      manual submissions — if your skill or server is on GitHub and indexed by our crawler, it shows up here.
+    </p>
+
+    <h2>Why this exists</h2>
+    <p>
+      The agent ecosystem moves fast. Skills and MCP servers ship daily across hundreds of repositories,
+      and discovery is the bottleneck. nayomy is the place to <em>find what's been built</em> — searchable,
+      categorized, and fresh.
+    </p>
+
+    <h2>Open source</h2>
+    <p>
+      Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>. Source code,
+      indexing scripts, and crawl rules are public on
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+
+    <p class="signoff">
+      Made by independent developers. Not affiliated with Anthropic.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .about {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .about h1 {
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+  .about h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 40px 0 12px;
+  }
+  .about p { margin: 0 0 16px; }
+  .about .lead { font-size: 18px; color: var(--ink-2); margin-bottom: 32px; }
+  .about ul { padding-left: 22px; margin: 0 0 20px; }
+  .about li { margin-bottom: 10px; }
+  .about a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 2px;
+  }
+  .about a:hover { text-decoration-color: var(--ink); }
+  .about strong { color: var(--ink); font-weight: 600; }
+  .about em { color: var(--ink); font-style: italic; }
+  .about .signoff {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+</style>

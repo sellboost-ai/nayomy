@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const lang = 'tr' as const;
+const title = 'Hakkında — nayomy';
+const description = "nayomy, GitHub'da yayınlanmış Claude agent skill'lerinin ve MCP sunucularının günlük güncellenen, aranabilir kataloğudur.";
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <article class="about">
+    <h1>nayomy Hakkında</h1>
+
+    <p class="lead">
+      nayomy, GitHub'da yayınlanmış <strong>Claude agent skill'lerinin</strong> ve
+      <strong>Model Context Protocol (MCP) sunucularının</strong> günlük güncellenen, aranabilir kataloğudur.
+    </p>
+
+    <h2>Ne kapsıyoruz</h2>
+    <ul>
+      <li><strong>Agent Skill'leri</strong> — Claude'u domain bilgisi, workflow ve entegrasyonlarla genişleten markdown tanımlı davranışlar.</li>
+      <li><strong>MCP Sunucuları</strong> — Claude'u (ve diğer LLM'leri) veritabanları, API'lar, dosya sistemleri gibi dış sistemlere bağlayan protokol sunucuları.</li>
+    </ul>
+
+    <h2>Veri nasıl toplanıyor</h2>
+    <p>
+      Her giriş, GitHub'daki public repolardan otomatik olarak alınıyor. Gece çalışan bir job indeksi yeniden tarıyor,
+      güncel metadata'yı (yıldızlar, açıklamalar, dosya yapısı) çekiyor ve kataloğu yeniden inşa ediyor. Manuel başvuru
+      kabul etmiyoruz — eğer skill'iniz veya sunucunuz GitHub'da ve bizim crawler'ımız tarafından indekslendiyse, burada görünüyor.
+    </p>
+
+    <h2>Neden var</h2>
+    <p>
+      Agent ekosistemi hızlı hareket ediyor. Yüzlerce repoda her gün yeni skill ve MCP sunucusu yayınlanıyor,
+      ve keşfetme darboğaz haline geldi. nayomy, <em>neyin yapılmış olduğunu bulma</em> yeri —
+      aranabilir, kategorilenmiş ve güncel.
+    </p>
+
+    <h2>Açık kaynak</h2>
+    <p>
+      <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> ile geliştirildi.
+      Kaynak kodu, indeksleme script'leri ve crawl kuralları
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener">GitHub</a>'da public.
+    </p>
+
+    <p class="signoff">
+      Bağımsız geliştiriciler tarafından yapıldı. Anthropic ile bağlantılı değildir.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .about {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .about h1 {
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+  .about h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 40px 0 12px;
+  }
+  .about p { margin: 0 0 16px; }
+  .about .lead { font-size: 18px; color: var(--ink-2); margin-bottom: 32px; }
+  .about ul { padding-left: 22px; margin: 0 0 20px; }
+  .about li { margin-bottom: 10px; }
+  .about a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 2px;
+  }
+  .about a:hover { text-decoration-color: var(--ink); }
+  .about strong { color: var(--ink); font-weight: 600; }
+  .about em { color: var(--ink); font-style: italic; }
+  .about .signoff {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+</style>
