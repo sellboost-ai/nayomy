@@ -44,4 +44,22 @@ const mcp = defineCollection({
   }),
 });
 
-export const collections = { skills, mcp };
+const cursorRules = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/cursor-rules' }),
+  schema: z.object({
+    name: z.string(),
+    clean_name: z.string().optional(),
+    description: z.string(),
+    description_tr: z.string().optional(),
+    category: z.string(),
+    repo: z.string(),
+    stars: z.number().optional().default(0),
+    path: z.string().optional().default(''),
+    url: z.string(),
+    body_length: z.number().optional().default(0),
+    file_extension: z.string().optional(),
+    body_tr: z.string().optional(),
+  }),
+});
+
+export const collections = { skills, mcp, 'cursor-rules': cursorRules };

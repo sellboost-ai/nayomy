@@ -1,0 +1,44 @@
+---
+name: "nativescript-cursorrules-prompt-file"
+clean_name: "Nativescript"
+description: "Cursor rules for NativeScript development."
+category: "Other"
+repo: "PatrickJS/awesome-cursorrules"
+stars: 39709
+path: "rules/nativescript-cursorrules-prompt-file.mdc"
+url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nativescript-cursorrules-prompt-file.mdc"
+body_length: 961
+file_extension: ".mdc"
+---
+
+// NativeScript .cursorrules
+
+// NativeScript best practices
+
+const nativeScriptBestPractices = [
+  "Utilize @nativescript/core features and APIs where applicable",
+  "Utilize common web APIs where applicable",
+  "Implement proper navigation using NativeScript Navigation",
+  "Use NativeScript's assets folder for images, sounds or videos and use the fonts folder for custom fonts",
+  "Implement proper error handling where possible"
+];
+
+// Folder structure
+
+const folderStructure = `
+src/
+  assets/
+  components/
+  services/
+  utils/
+`;
+
+// Additional instructions
+
+const additionalInstructions = `
+1. Use TypeScript for type safety
+2. Use @nativescript/secure-storage for sensitive data
+3. Use @nativescript/biometrics for anything related to biometrics
+4. Always use nativescript-fonticon for font icons
+5. Follow NativeScript best practices for performance
+`;

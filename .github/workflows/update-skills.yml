@@ -1,4 +1,4 @@
-name: Update Skills
+name: Update Catalog
 
 on:
   schedule:
@@ -21,21 +21,42 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Run skill crawler
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch skills
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/fetch-skills.js
+
+      - name: Build skills content
+        run: node scripts/json-to-content.js
+
+      - name: Fetch MCP servers
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-mcp.js
+
+      - name: Build MCP content
+        run: node scripts/mcp-json-to-content.js
+
+      - name: Fetch Cursor rules
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-cursor-rules.js
+
+      - name: Build Cursor rules content
+        run: node scripts/cursor-rules-json-to-content.js
 
       - name: Commit & push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add skills.json
+          git add skills.json mcp.json cursor-rules.json src/content/
           if git diff --staged --quiet; then
-            echo "✅ No changes — skills.json is up to date"
+            echo "✅ No changes — catalog is up to date"
           else
-            COUNT=$(grep -c '"name":' skills.json || true)
-            git commit -m "chore: auto-update skills.json ($(date +%Y-%m-%d))"
+            git commit -m "chore: auto-update catalog ($(date +%Y-%m-%d))"
             git push
-            echo "🚀 Pushed updated skills.json"
+            echo "🚀 Pushed updated catalog"
           fi

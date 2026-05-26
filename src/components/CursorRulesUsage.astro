@@ -1,0 +1,134 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  /** Folder name (used in suggested file path) */
+  name: string;
+  /** Raw rule body — copied to clipboard via the Copy button */
+  ruleBody: string;
+}
+
+const { lang, name, ruleBody } = Astro.props;
+const t = useTranslations(lang);
+
+const dotfile = '.cursorrules';
+const mdcfile = `.cursor/rules/${name.replace(/\.cursorrules$/, '').replace(/-cursorrules.*$/, '')}.mdc`;
+---
+
+<div class="usage-wrap">
+  <div class="usage-header">
+    <span class="usage-title">{t('cursor.usage_title')}</span>
+    <button
+      class="copy-btn"
+      data-copy={t('cursor.copy')}
+      data-copied={t('cursor.copied')}
+      aria-label={t('cursor.copy')}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+      </svg>
+      <span class="copy-label">{t('cursor.copy')}</span>
+    </button>
+  </div>
+
+  <ol class="usage-steps">
+    <li>{t('cursor.usage_step1')}</li>
+    <li>
+      {t('cursor.usage_step2')}
+      <code>{dotfile}</code>
+      <span class="step-or">{t('cursor.usage_step2_or')}</span>
+      <code>{mdcfile}</code>
+    </li>
+    <li>{t('cursor.usage_step3')}</li>
+  </ol>
+
+  <pre class="rule-body" hidden>{ruleBody}</pre>
+</div>
+
+<style>
+  .usage-wrap {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .usage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    gap: 8px;
+  }
+  .usage-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-3);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+    line-height: 1.4;
+  }
+  .copy-btn:hover { border-color: var(--line-strong); color: var(--ink); }
+  .usage-steps {
+    margin: 0;
+    padding: 14px 16px 14px 36px;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .usage-steps li { margin-bottom: 6px; }
+  .usage-steps li:last-child { margin-bottom: 0; }
+  .usage-steps code {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 12px;
+    padding: 1px 6px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--ink);
+  }
+  .step-or {
+    margin: 0 4px;
+    font-size: 12px;
+    color: var(--ink-4);
+  }
+  .rule-body { display: none; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.usage-wrap').forEach((wrap) => {
+    const copyBtn = wrap.querySelector<HTMLButtonElement>('.copy-btn');
+    const copyLabel = wrap.querySelector<HTMLSpanElement>('.copy-label');
+    const ruleBody = wrap.querySelector<HTMLPreElement>('.rule-body');
+    copyBtn?.addEventListener('click', () => {
+      const text = ruleBody?.textContent ?? '';
+      navigator.clipboard.writeText(text).then(() => {
+        if (!copyLabel || !copyBtn) return;
+        const original = copyBtn.dataset.copy ?? 'Copy';
+        const copied = copyBtn.dataset.copied ?? 'Copied!';
+        copyLabel.textContent = copied;
+        setTimeout(() => { copyLabel.textContent = original; }, 2000);
+      }).catch(() => {});
+    });
+  });
+</script>

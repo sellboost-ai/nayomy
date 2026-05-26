@@ -19,6 +19,11 @@ export function mcpTitle(name: string, category: string, lang: Lang): string {
   return `${name} — ${category} MCP server · nayomy`;
 }
 
+export function cursorRuleTitle(name: string, category: string, lang: Lang): string {
+  if (lang === 'tr') return `${name} — ${category} Cursor kuralı · nayomy`;
+  return `${name} — ${category} Cursor rule · nayomy`;
+}
+
 /**
  * Builds a 150-160 char meta description by reserving room for the suffix and
  * truncating the source description if needed.

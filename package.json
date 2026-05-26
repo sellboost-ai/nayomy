@@ -14,7 +14,9 @@
     "astro": "astro",
     "fetch-skills": "node scripts/fetch-skills.js",
     "fetch-mcp": "node scripts/fetch-mcp.js",
-    "build-mcp": "node scripts/mcp-json-to-content.js"
+    "build-mcp": "node scripts/mcp-json-to-content.js",
+    "fetch-cursor": "node scripts/fetch-cursor-rules.js",
+    "build-cursor-rules": "node scripts/cursor-rules-json-to-content.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",
