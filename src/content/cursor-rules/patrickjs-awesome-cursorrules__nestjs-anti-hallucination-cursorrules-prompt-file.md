@@ -2,6 +2,7 @@
 name: "nestjs-anti-hallucination-cursorrules-prompt-file"
 clean_name: "NestJS Anti Hallucination"
 description: "Cursor rules that block deprecated, phantom, or incorrect NestJS imports, decorators, providers, modules, and testing patterns."
+description_tr: "NestJS'te kullanımdan kaldırılmış, phantom veya yanlış import, decorator, provider, module ve test pattern'lerini engelleyen Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,255 @@ path: "rules/nestjs-anti-hallucination-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nestjs-anti-hallucination-cursorrules-prompt-file.mdc"
 body_length: 7142
 file_extension: ".mdc"
+body_tr: |-
+  # NestJS Anti-Halüsinasyon Kuralları
+
+  Bu kurallar diğer tüm üretim davranışını ÖNCELİKLİ olarak geçersiz kılar. Üretilen kodun HER SATIRINI bu kurallara karşı kontrol edin.
+
+  ## Yasaklı İmportlar & Hayali Paketler
+
+  ### ASLA bu paketleri import etmeyin — mevcut değildir veya deprecated'tir:
+  ```
+  ❌ @nestjs/core/decorators    — gerçek bir export yolu değil
+  ❌ @nestjs/swagger/decorators — doğrudan @nestjs/swagger'dan import edin
+  ❌ @nestjs/typeorm/repository — gerçek bir export yolu değil
+  ❌ @nestjs/passport/strategies — passport-jwt, passport-local vb.'den import edin
+  ❌ @nestjs/bull/decorators     — @nestjs/bullmq'dan import edin (bull legacy'dir)
+  ❌ nestjs-redis               — @nestjs-modules/ioredis veya doğrudan ioredis kullanın
+  ❌ @nestjs/cqrs/decorators    — doğrudan @nestjs/cqrs'den import edin
+  ❌ nestjs-config              — @nestjs/config kullanın (resmi)
+  ❌ nestjs-pino/logger          — doğrudan nestjs-pino'dan import edin
+  ```
+
+  ### Doğru import yolları:
+  ```typescript
+  // ✅ Swagger
+  import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+
+  // ✅ TypeORM
+  import { InjectRepository } from '@nestjs/typeorm';
+  import { Repository, DataSource } from 'typeorm';
+
+  // ✅ BullMQ (Bull DEĞİL)
+  import { InjectQueue, Processor, WorkerHost } from '@nestjs/bullmq';
+
+  // ✅ Config
+  import { ConfigService, ConfigModule } from '@nestjs/config';
+
+  // ✅ Passport
+  import { AuthGuard } from '@nestjs/passport';
+  import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
+
+  // ✅ CQRS
+  import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
+  ```
+
+  ## Deprecated Kalıplar — ASLA Bu Kalıpları Üretmeyin
+
+  ### 1. getRepository() provider'ları dışında
+  ```typescript
+  // ❌ DEPRECATED — TypeORM 0.3+'da kaldırıldı
+  const repo = getRepository(User);
+  const user = await getConnection().getRepository(User).find();
+
+  // ✅ DOĞRU — constructor aracılığıyla inject edin
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepo: Repository<User>,
+  ) {}
+  ```
+
+  ### 2. @nestjs/bull (@nestjs/bullmq kullanın)
+  ```typescript
+  // ❌ ESKİ — @Process decorator ile @nestjs/bull
+  import { Process, Processor } from '@nestjs/bull';
+  @Processor('queue')
+  class MyProcessor {
+    @Process() async handle(job: Job) {}
+  }
+
+  // ✅ GÜNCEL — WorkerHost ile @nestjs/bullmq
+  import { Processor, WorkerHost } from '@nestjs/bullmq';
+  @Processor('queue')
+  class MyProcessor extends WorkerHost {
+    async process(job: Job): Promise<void> {}
+  }
+  ```
+
+  ### 3. Express'e özgü middleware hataları
+  ```typescript
+  // ❌ YANLIŞ — NestJS'te Express req/res tipleri
+  import { Request, Response } from 'express';
+  @Get()
+  async findAll(@Req() req: Request, @Res() res: Response) {
+    res.json(data); // Interceptor'ları, serialization'ı, exception filter'ları atlar
+  }
+
+  // ✅ DOĞRU — NestJS decorator'larını kullanın, değer return edin
+  @Get()
+  async findAll(@Query() query: FindAllQueryDto): Promise<UserResponseDto[]> {
+    return this.usersService.findAll(query);
+  }
+
+  // @Res() sadece dosya streamleme veya SSE'de kullanın — { passthrough: true } ekleyin
+  @Get('download')
+  async download(@Res({ passthrough: true }) res: Response) {
+    res.set('Content-Type', 'application/octet-stream');
+    return new StreamableFile(stream);
+  }
+  ```
+
+  ### 4. Yanlış decorator kombinasyonları
+  ```typescript
+  // ❌ YANLIŞ — Controller'da @Injectable()
+  @Injectable()
+  @Controller('users')
+  export class UsersController {}
+
+  // ❌ YANLIŞ — Service'de @Controller()
+  @Controller()
+  @Injectable()
+  export class UsersService {}
+
+  // ❌ YANLIŞ — GET handler'da @Body()
+  @Get()
+  async findAll(@Body() body: any) {} // GET istekleri body'ye sahip olmamalı
+
+  // ❌ YANLIŞ — Aynı adla hem @Param hem @Query
+  @Get(':id')
+  async findOne(@Param('id') paramId: string, @Query('id') queryId: string) {}
+  ```
+
+  ### 5. class-validator / class-transformer hataları
+  ```typescript
+  // ❌ YANLIŞ — main.ts'de enable etmeden validasyon
+  // (AI sık sık bu kritik satırı unutur)
+  // main.ts ŞUNLARI İÇERMELİDİR:
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true,            // Bilinmeyen özellikleri kaldır
+    forbidNonWhitelisted: true, // Bilinmeyen özellikler varsa hata fırlat
+    transform: true,            // Payload'ları otomatik olarak DTO instance'larına dönüştür
+    transformOptions: {
+      enableImplicitConversion: true,
+    },
+  }));
+
+  // ❌ YANLIŞ — Validasyon decorator'larını yanlış transform ile karıştırma
+  export class CreateUserDto {
+    @IsString()
+    name: string;
+
+    @IsNumber()
+    age: string; // Tip uyuşmazlığı! Decorator number diyor, tip string diyor
+  }
+
+  // ✅ DOĞRU — Tipler decorator'larla eşleşir
+  export class CreateUserDto {
+    @IsString()
+    @IsNotEmpty()
+    name: string;
+
+    @IsInt()
+    @Min(0)
+    age: number;
+  }
+  ```
+
+  ### 6. Async modül tuzakları
+  ```typescript
+  // ❌ YANLIŞ — await edilirken async olmayan useFactory
+  TypeOrmModule.forRootAsync({
+    useFactory: (config: ConfigService) => ({
+      type: 'postgres',
+      url: config.get('DATABASE_URL'), // Await edilmiyor, inject yok
+    }),
+  })
+
+  // ✅ DOĞRU
+  TypeOrmModule.forRootAsync({
+    imports: [ConfigModule],
+    inject: [ConfigService],
+    useFactory: async (config: ConfigService) => ({
+      type: 'postgres',
+      url: config.getOrThrow<string>('DATABASE_URL'),
+      autoLoadEntities: true,
+      synchronize: false, // Prodüksiyonda ASLA true olmasın
+    }),
+  })
+  ```
+
+  ## Tip Güvenliği Kuralları
+
+  ### ASLA `any` üretmeyin
+  ```typescript
+  // ❌ YASAK
+  catch (error: any) { ... }
+  const data: any = await response.json();
+  private cache = new Map<string, any>();
+
+  // ✅ ZORUNLU
+  catch (error: unknown) {
+    if (error instanceof DomainError) { ... }
+    throw error;
+  }
+  const data = await response.json() as PaymentGatewayResponse;
+  private cache = new Map<string, CachedSession>();
+  ```
+
+  ### ASLA tipsiz event payload'ı üretmeyin
+  ```typescript
+  // ❌ YANLIŞ
+  eventBus.emit('order.created', { order });
+
+  // ✅ DOĞRU — Tipi belirlenen event'ler
+  export class OrderCreatedEvent {
+    constructor(
+      public readonly orderId: string,
+      public readonly userId: string,
+      public readonly totalAmount: number,
+      public readonly occurredAt: Date = new Date(),
+    ) {}
+  }
+  eventBus.emit(new OrderCreatedEvent(order.id, order.userId, order.total));
+  ```
+
+  ## Konfigürasyon Güvenliği
+
+  ### ASLA sabit kodlanmış değerler üretmeyin:
+  - Veritabanı bağlantı dizgileri
+  - API anahtarları veya sırlar
+  - Port numaraları
+  - Feature flag'leri
+  - Harici servis URL'leri
+
+  ### HER ZAMAN ConfigService ile getOrThrow kullanın:
+  ```typescript
+  // ❌ YANLIŞ
+  const port = process.env.PORT || 3000;
+  const dbUrl = process.env.DATABASE_URL;
+
+  // ✅ DOĞRU
+  const port = this.configService.getOrThrow<number>('app.port');
+  const dbUrl = this.configService.getOrThrow<string>('database.url');
+  ```
+
+  ## Veritabanı Güvenliği
+
+  ### ASLA üretmeyin:
+  ```typescript
+  // ❌ Prodüksiyonda synchronize: true
+  // ❌ Migration dosyalarında DROP TABLE veya TRUNCATE
+  // ❌ Parametreli olmayan raw SQL
+  await this.dataSource.query(`SELECT * FROM users WHERE id = '${userId}'`); // SQL injection!
+
+  // ✅ DOĞRU
+  await this.dataSource.query(`SELECT * FROM users WHERE id = $1`, [userId]);
+  ```
+
+  ## Unutmayın
+  - Bir paket hakkında emin değilseniz, import etmeyin. Sorun sorun veya kontrol edin.
+  - Resmi dokümantalarda görmediğiniz bir NestJS kalıbı üretiyorsanız, DURUN ve yeniden düşünün.
+  - Şüphe olduğunda, daha FAZLA kod yerine doğru kalıplarla DAHA AZ kod üretin.
 ---
 
 # NestJS Anti-Hallucination Rules

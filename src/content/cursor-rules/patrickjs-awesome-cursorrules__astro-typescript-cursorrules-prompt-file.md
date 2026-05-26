@@ -2,6 +2,7 @@
 name: "astro-typescript-cursorrules-prompt-file"
 clean_name: "Astro TypeScript"
 description: "Cursor rules for Astro development with TypeScript integration."
+description_tr: "Astro geliştirme için TypeScript entegrasyonlu cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,95 @@ path: "rules/astro-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/astro-typescript-cursorrules-prompt-file.mdc"
 body_length: 2594
 file_extension: ".mdc"
+body_tr: |-
+  ```json
+  {
+    "rules": {
+      "commit_message_guidelines": {
+        "description": "Geleneksel commit mesajları oluşturmak için kılavuzlar.",
+        
+        "format": {
+          "description": "Geleneksel commits spesifikasyonunu kullanarak commit mesajlarının formatı.",
+          "body": "[isteğe bağlı scope]: \n\n[isteğe bağlı body]\n\n[isteğe bağlı footer(s)]"
+        },
+        
+        "enabled": true,
+        
+        "rules": [
+          {
+            "description": "Her zaman küçük harflerle yazılmış bir tür ve isteğe bağlı scope içeren geleneksel bir commit öner."
+          },
+          {
+            "description": "Commit mesajını kısa tutun ve 60 karakteri geçmeyin."
+          },
+          {
+            "description": "Commit mesajının terminal'e yapıştırılmaya hazır olduğundan ve daha fazla düzenlemeye ihtiyaç duymadığından emin olun."
+          },
+          {
+            "description": "Tam commit komutunu sağla, yalnızca mesajı değil."
+          }
+        ],
+        
+        "examples": [
+          {
+            "prompt": "<diff_context> /commit",
+            "response": "git commit -m 'feat: add responsive navbar with TailwindCSS'"
+          }
+        ]
+      },
+      
+      "development_guidelines": {
+        "description": "Astro, TypeScript ve TailwindCSS ile kod geliştirme kılavuzları.",
+        
+        "enabled": true,
+        
+        "rules": [
+          {
+            "description": "Katı TypeScript ayarlarını uygula ve proje genelinde tip güvenliğini sağla."
+          },
+          {
+            "description": "Tüm stillemeler için TailwindCSS kullan ve utility-first yaklaşımı göz önünde bulundur."
+          },
+          {
+            "description": "Astro bileşenlerinin modüler, yeniden kullanılabilir olduğundan ve açık bir sorumluluk ayrımını sürdürdüğünden emin ol."
+          }
+        ]
+      },
+      
+      "coding_style": {
+        "description": "Tutarlı kod stilini korumak için kılavuzlar.",
+        
+        "enabled": true,
+        
+        "rules": [
+          {
+            "description": "Kod, yol/dosya adı ile tek satırlık bir yorum olarak başlamalıdır."
+          },
+          {
+            "description": "Yorumlar amacını açıklamalı, etkisini değil."
+          },
+          {
+            "description": "Modülarite, DRY prensipleri ve performansı önceliktlendir."
+          }
+        ]
+      },
+      
+      "custom_slash_commands": {
+        "description": "Özel slash komutları.",
+        
+        "enabled": true,
+        
+        "commands": [
+          {
+            "name": "/commit",
+            "description": "Geleneksel commits spesifikasyonunu kullanarak bir Git commit mesajı oluştur.",
+            "enabled": true
+          }
+        ]
+      }
+    }
+  }
+  ```
 ---
 
 {

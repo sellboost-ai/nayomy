@@ -2,6 +2,7 @@
 name: "react-styled-components-cursorrules-prompt-file"
 clean_name: "React Styled Components"
 description: "Cursor rules for React development with Styled Components integration."
+description_tr: "React geliştirme için Cursor kuralları, Styled Components entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,49 @@ path: "rules/react-styled-components-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-styled-components-cursorrules-prompt-file.mdc"
 body_length: 1193
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // React + Styled Components .cursorrules
+
+  // Fonksiyonel bileşenleri hook'larla tercih edin
+
+  const preferFunctionalComponents = true;
+
+  // Styled Components en iyi uygulamaları
+
+  const styledComponentsBestPractices = [
+    "Daha iyi hata ayıklama için styled-components/macro kullanın",
+    "ThemeProvider kullanarak global bir tema uygulayın",
+    "Yeniden kullanılabilir styled bileşenler oluşturun",
+    "Dinamik stil için props kullanın",
+    "Gerektiğinde css`` gibi CSS yardımcı işlevlerini kullanın",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    components/
+      styled/
+    styles/
+      theme.js
+      globalStyles.js
+    pages/
+    utils/
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. Styled bileşenler için uygun adlandırma kurallarını kullanın (ör: StyledButton)
+  2. Tutarlı bir tema sistemi uygulayın
+  3. Tüm stil ihtiyaçları için CSS-in-JS kullanın
+  4. Sık kullanılan props için styled-components' attrs metodunu kullanın
+  5. Styled-components için uygun TypeScript desteği uygulayın
+  6. Uygun olduğunda koşullu stil için css prop'unu kullanın
+  7. En iyi uygulamalar için styled-components belgelerine uyun
+  `;
+  ```
 ---
 
 // React + Styled Components .cursorrules

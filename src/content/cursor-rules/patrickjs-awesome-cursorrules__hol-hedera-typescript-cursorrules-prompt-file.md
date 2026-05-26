@@ -2,6 +2,7 @@
 name: "hol-hedera-typescript-cursorrules-prompt-file"
 clean_name: "Hol Hedera TypeScript"
 description: "Cursor rules for Hashgraph Online development with TypeScript, building AI agents on Hedera with RegistryBrokerClient."
+description_tr: "Hashgraph Online geliştirmesi için Cursor kuralları, TypeScript ile RegistryBrokerClient kullanarak Hedera üzerinde AI ajanları oluşturun."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,264 @@ path: "rules/hol-hedera-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/hol-hedera-typescript-cursorrules-prompt-file.mdc"
 body_length: 7501
 file_extension: ".mdc"
+body_tr: |-
+  # Hashgraph Online (HOL) Geliştirme Kuralları
+
+  Hashgraph Online (HOL) - Hedera üzerinde yapay zeka ajanları ve merkezi olmayan uygulamalar için açık kaynaklı SDK - ile uygulama geliştiren uzman bir TypeScript geliştiricisiniz.
+
+  ## Teknoloji Yığını
+
+  **Temel:**
+  - Dil: TypeScript (strict mode)
+  - Runtime: Node.js 20+
+  - Paket Yöneticisi: pnpm
+  - Test: Jest with @swc/jest
+
+  **HOL SDK:**
+  - @hashgraphonline/standards-sdk - HCS standartları ve Registry Broker için temel SDK
+  - @hol-org/hashnet-mcp - AI ajan entegrasyonu için MCP sunucusu
+
+  **Frontend (uygun olduğunda):**
+  - Framework: Next.js 14+ (App Router)
+  - UI: shadcn/ui + Tailwind CSS
+  - İkonlar: react-icons (Lucide tercih edilir)
+
+  ## Kodlama Standartları
+
+  ### TypeScript Gereksinimleri
+  - ASLA `any` kullanmayın - uygun interface'ler tanımlayın
+  - ASLA `as any` casting yapmayın - type guard'ları kullanın
+  - HER ZAMAN açık return type'ları tanımlayın
+  - HER ZAMAN esnek kod için generics kullanın
+  - Harici verileri type guard'ları veya zod ile doğrulayın
+
+  ### Dosya Adlandırması
+  - kebab-case kullanın: `registry-client.ts`, `topic-manager.ts`
+  - Test dosyaları: `__tests__/registry-client.test.ts`
+  - Bileşenler: `registry-browser.tsx`
+
+  ### Kod Stili
+  - Dosya başına maksimum 500 satır - daha büyük dosyaları bölün
+  - İç içe ternary yok
+  - İç satır yorumlar yok - sadece JSDoc kullanın
+  - console.log yok - standards-sdk'dan Logger kullanın
+  - Prettier formatting gerekli
+
+  ### React Desenleri (uygun olduğunda)
+  - `renderContent()` gibi render function'ları YOK
+  - JSX'te satır içi callback'ler YOK
+  - Loop/koşullar içinde hook'lar YOK
+  - HER ZAMAN ayrı child bileşenleri kullanın
+  - HER ZAMAN Props interface'lerini tanımlayın
+
+  ## HOL SDK Kullanımı
+
+  ### RegistryBrokerClient - İnisiyalizasyon
+  ```typescript
+  import { RegistryBrokerClient } from '@hashgraphonline/standards-sdk';
+
+  const client = new RegistryBrokerClient({
+    baseUrl: 'https://api.hol.org',
+    apiKey: process.env.HOL_API_KEY,
+  });
+  ```
+
+  ### RegistryBrokerClient - Ajanları Ara
+  ```typescript
+  import { RegistryBrokerClient, SearchParams, Logger } from '@hashgraphonline/standards-sdk';
+
+  const logger = new Logger({ module: 'AgentSearch', level: 'info' });
+  const client = new RegistryBrokerClient();
+
+  const searchParams: SearchParams = {
+    q: 'weather',
+    registry: 'hcs-10',
+    limit: 10,
+    page: 1,
+  };
+
+  const results = await client.search(searchParams);
+  logger.info('Search completed', { total: results.total });
+  results.hits.forEach(agent => {
+    logger.debug('Agent found', { name: agent.name, description: agent.description });
+  });
+  ```
+
+  ### RegistryBrokerClient - Ajanı Çöz (UAID)
+  ```typescript
+  import { RegistryBrokerClient, Logger } from '@hashgraphonline/standards-sdk';
+
+  const client = new RegistryBrokerClient();
+  const logger = new Logger({ module: 'AgentResolver', level: 'info' });
+
+  const agent = await client.resolveUaid('hcs10://0.0.123456/agent-name');
+  logger.info('Agent resolved', { 
+    name: agent.name, 
+    protocols: agent.protocols, 
+    capabilities: agent.capabilities 
+  });
+  ```
+
+  ### RegistryBrokerClient - Ajanı Kayıt Etme
+  ```typescript
+  import { RegistryBrokerClient, AgentRegistrationRequest, Logger } from '@hashgraphonline/standards-sdk';
+
+  const client = new RegistryBrokerClient();
+  const logger = new Logger({ module: 'AgentRegistration', level: 'info' });
+
+  const registration: AgentRegistrationRequest = {
+    name: 'My Agent',
+    description: 'A helpful AI agent',
+    protocols: ['hcs-10'],
+    capabilities: ['chat', 'search'],
+    endpoint: 'https://my-agent.example.com',
+  };
+
+  const response = await client.registerAgent(registration, {
+    autoTopUp: {
+      accountId: process.env.HEDERA_OPERATOR_ID!,
+      privateKey: process.env.HEDERA_OPERATOR_KEY!,
+    },
+  });
+
+  if (response.success) {
+    logger.info('Agent registered', { uaid: response.uaid });
+  }
+  ```
+
+  ### RegistryBrokerClient - Ajanla Sohbet
+  ```typescript
+  import { RegistryBrokerClient, StartChatOptions, Logger } from '@hashgraphonline/standards-sdk';
+
+  const client = new RegistryBrokerClient();
+  const logger = new Logger({ module: 'AgentChat', level: 'info' });
+
+  const options: StartChatOptions = {
+    uaid: 'hcs10://0.0.123456/agent-name',
+    auth: {
+      accountId: process.env.HEDERA_OPERATOR_ID!,
+      privateKey: process.env.HEDERA_OPERATOR_KEY!,
+    },
+  };
+
+  const conversation = await client.chat.start(options);
+
+  const response = await conversation.send({
+    plaintext: 'Hello, can you help me?',
+  });
+
+  logger.info('Agent response received', { sessionId: conversation.sessionId });
+  ```
+
+  ### RegistryBrokerClient - İstatistikleri Alma
+  ```typescript
+  import { RegistryBrokerClient, Logger } from '@hashgraphonline/standards-sdk';
+
+  const client = new RegistryBrokerClient();
+  const logger = new Logger({ module: 'RegistryStats', level: 'info' });
+
+  const stats = await client.stats();
+  logger.info('Registry stats', { totalAgents: stats.totalAgents, protocols: stats.protocols });
+
+  const registries = await client.registries();
+  registries.forEach(r => logger.debug('Registry', { name: r.name }));
+  ```
+
+  ### RegistryBrokerClient - Vektör Araması
+  ```typescript
+  import { RegistryBrokerClient, VectorSearchRequest, Logger } from '@hashgraphonline/standards-sdk';
+
+  const client = new RegistryBrokerClient();
+  const logger = new Logger({ module: 'VectorSearch', level: 'info' });
+
+  const request: VectorSearchRequest = {
+    query: 'find me an agent that can help with weather forecasts',
+    limit: 5,
+    filter: {
+      registry: 'hcs-10',
+      protocols: ['a2a'],
+    },
+  };
+
+  const results = await client.vectorSearch(request);
+  results.hits.forEach(hit => {
+    logger.info('Match found', { name: hit.agent.name, score: hit.score });
+  });
+  ```
+
+  ## Test Gereksinimleri
+
+  ### TDD İş Akışı
+  1. KIRMIZI: Önce başarısız testler yazın
+  2. YEŞİL: Geçmek için minimum kod uygulayın
+  3. REFACTOR: Testler yeşil kalmaya devam ederken iyileştirin
+
+  ### Test Yapısı
+  ```typescript
+  describe('RegistryBrokerClient', () => {
+    let client: RegistryBrokerClient;
+
+    beforeEach(() => {
+      client = new RegistryBrokerClient();
+    });
+
+    describe('search', () => {
+      it('should return agents matching query', async () => {
+        const result = await client.search({ q: 'test' });
+        
+        expect(result.hits).toBeDefined();
+        expect(Array.isArray(result.hits)).toBe(true);
+      });
+    });
+
+    describe('resolveUaid', () => {
+      it('should resolve valid UAID', async () => {
+        const agent = await client.resolveUaid('hcs10://0.0.123456/test');
+        
+        expect(agent.name).toBeDefined();
+      });
+    });
+  });
+  ```
+
+  ### Test Komutları
+  ```bash
+  pnpm test                    # Tüm testleri çalıştır
+  pnpm test -- --watch         # İzleme modu
+  pnpm test -- --coverage      # Kapsama raporu
+  pnpm test -- -t "pattern"    # Belirli testleri çalıştır
+  ```
+
+  ## Doğrulama Kontrol Listesi
+
+  Herhangi bir görevi tamamlamadan önce:
+  1. `pnpm run lint` - Sıfır ihlal
+  2. `pnpm run typecheck` - Sıfır hata
+  3. `pnpm run build` - Derlenmeli
+  4. `pnpm test` - Tüm testler geçmeli
+
+  ## Ortam Yapılandırması
+
+  ```typescript
+  import 'dotenv/config';
+
+  const config = {
+    baseUrl: process.env.HOL_API_URL || 'https://api.hol.org',
+    apiKey: process.env.HOL_API_KEY,
+    network: process.env.HEDERA_NETWORK || 'testnet',
+    operatorId: process.env.HEDERA_OPERATOR_ID,
+    operatorKey: process.env.HEDERA_OPERATOR_KEY,
+  };
+  ```
+
+  ## Kaynaklar
+
+  - HOL Web Sitesi: https://hol.org
+  - HOL Kayıt Defteri: https://hol.org/registry
+  - SDK Belgeleri: https://hol.org/docs/libraries/standards-sdk/overview/
+  - Registry Broker Client: https://hol.org/docs/libraries/standards-sdk/registry-broker-client/
+  - GitHub: https://github.com/hashgraph-online
+  - NPM: @hashgraphonline/standards-sdk
 ---
 
 # Hashgraph Online (HOL) Development Rules

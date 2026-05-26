@@ -2,6 +2,7 @@
 name: "scala-kafka-cursorrules-prompt-file"
 clean_name: "Scala Kafka"
 description: "Cursor rules for Scala Kafka."
+description_tr: "Scala Kafka için Cursor kuralları."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,78 @@ path: "rules/scala-kafka-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/scala-kafka-cursorrules-prompt-file.mdc"
 body_length: 4652
 file_extension: ".mdc"
+body_tr: |-
+  # general-scala-clean-code.mdc
+
+  - Val/var bildirimleri ilk kullanıma olabildiğince yakın yerleştirilmelidir.
+  - İsim uzunluğu kapsam ile orantılı olmalıdır: 1-2 karaktere yalnızca küçük lambdaların içinde izin verilir.
+  - İki seviyeden daha derin iç içe for-comprehension'lardan kaçının; adımları helper'lara ayırın.
+  - Bir kaynak dosyasını sorumluluğa göre bölün.
+  - Uygun yerlerde *tail-rec* optimizasyonu (`@tailrec`) kullanın.
+  - *Immutable* koleksiyonları tercih edin ve iterasyon sırasında mutasyondan kaçının.
+  - Java interop mutabiliteyi zorunlu kıldığında, `.asScala` kullanarak bunu pure bir facade içine sarın ve fonksiyonel API'yi koruyun.
+  - Bir şey nullable olduğunda, bunu bir Option içine sarın ve fonksiyonel API'yi koruyun.
+  - Herhangi bir method için döngüsel karmaşıklığı 10'un altında tutun; IDE inspeksiyonları uyarı vermelidir.
+
+  # general-scala-development-practices.mdc
+
+  # ========== GENEL İLKELER ==========
+  - Deneyimli bir Senior Scala Geliştiricisiniz.
+  - Her zaman SOLID, DRY, KISS ve YAGNI ilkelerine uyarsınız.
+  - *Pure* fonksiyonları tercih edin; yan etkileri en aza indirin. Efektler gerekli olduğunda, bunları açık hale getirin (örn. scala.util.Try, Either veya benimsenmiş olduğu durumlarda cats-effect IO/Task kullanarak).
+  - `var` yerine *val* kullanın; koleksiyonlar mutabiliteyi kanıtlanmış daha ucuz ve güvenli olmadıkça immutable olmalıdır.
+  - *null* yerine Option, Either veya domain'e özgü bir ADT kullanın.
+  - Pattern matching'i kapsamlı şekilde kullanın ve *default* case'i yalnızca gerçekten açık uçlu olduğunda işleyin.
+  - Kesinlikle imperatif döngüler yerine for-comprehension'ları, map/flatMap/fold ve yüksek dereceli fonksiyonları tercih edin.
+  - Cebirsel veri türleri için *case class'ları* ve *sealed trait'leri* tercih edin.
+  - Ortak mantığı private veya package-private helper'lara çıkarın; uzun methodlardan kaçının (> 30 LOC).
+  - Davranış eklerken kalıtım yerine extension method'ları veya type class'ları tercih edin.
+  - Public API'leri küçük tutun, yalnızca modülün sahibi olduğu şeyi expose edin.
+  - Her görevi bunları birbirine bağlamadan önce en küçük composable pure fonksiyonlara bölün.
+
+  # ========== İSİMLENDİRME & SİNTAKS ==========
+  - Sınıf / object / trait isimleri UpperCamelCase isimlerdir (örn. *NotificationStreamApp*).
+  - Methodlar ve val'ler lowerCamelCase fiil veya isimlerdir (örn. *process*, *serde*, *productKey*).
+  - Sabitler `SCREAMING_SNAKE_CASE` kullanır.
+  - Java'nın static final member'larına benzer şekilde, member final, immutable ve bir package object'ine veya object'e aitse, bir sabit olarak kabul edilebilir.
+  - Sembolik isimler (`|>`) *yalnızca* yaygın FP idiomlarıyla uyumlu olduğunda kullanılır.
+  - Match ifadeleri iç içe if/else zincirleri yerine `match`/`case` kullanır; basit iki dallanma mantığı için `if … then … else …` ifadeleri tercih edin.
+
+  # ========== HATA İŞLEME & LOGGING ==========
+  - En spesifik Exception'ı ilk yakalayın; kontrol edilen Java exception'larını bir ADT veya `Try`'ye dönüştürün.
+  - Boş `catch` blokları yok; *debug* veya *error* seviyesinde anlamlı bir mesajla logging yapın.
+  - Otomatik olarak kaynakları kapatmak için `scala.util.Using` (veya cats-effect `Resource`) kullanın.
+  - "Savunmacı" logging veya `println` kullanmaktan kaçının; SLF4J (Logback) ile *scala-logging* wrapper'ını kullanın.
+
+  # ========== TEST ==========
+  - ScalaTest'i **Given-When-Then** düzeniyle AnyFlatSpec kullanarak yapılandırın.
+  - Kritik path'ler ve business invariant'larına odaklanın; boilerplate'i aşırı test etmeyin.
+  - Önemsiz olmayan invariant'lı pure fonksiyonlar için property-based test'ler (ScalaCheck).
+  - İntegrasyon testlerini "integration" adlı bir alt proje olarak ayarlayın ve entegrasyon testlerini standart test olarak işleyin.
+
+  # ========== PERFORMANS & GÜVENLİK ==========
+  - Kafka stream processing'in içinde blocking call'lardan kaçının; kaçınılmazsa bunu adanmış bir thread-pool'a offload edin.
+  - Java koleksiyonlarını sınırda bir kez Scala eşdeğerlerine dönüştürün; asla ileri geri sekmeleyin.
+  - Büyük sayısal literaller için alt çizgi ayrılmış rakamlar kullanın (örn. `val timeoutMs = 30_000`).
+
+  # ========== MODERN SCALA 3 ÖZELLİKLERİ ==========
+  - Java tarzı enum'lar yerine sonlu alternatifler için *Enum'ları* kullanın.
+  - Primitive wrapper'ların tesadüfi yanlış kullanımından kaçınmak için *opaque type'ları* benimseyin.
+  - Uygun olduğunda klasik implicit listesi yerine type-class evidence için *context parameter'ları* (`using`) kullanın.
+  - Desteklendiği yerlerde `implicit` yerine `given`/`using` sözdizimini tercih edin.
+
+  # ========== CLEAN BUILD ==========
+  - Sbt build **scalafmt** kullanır; herhangi bir scalafmt ihlalini bir build hatası olarak işleyin.
+
+  # kafka-development-practices.mdc
+
+  - Tüm topic adları config değerleri (Typesafe Config veya pure-config).
+  - Projede kullanılan JSON veya AVRO veya başka bir library'den Format veya Codec kullanın.
+  - Streams mantığı `TopologyTestDriver` ile test edilmelidir (unit-test) artı yerel Kafka'ya karşı entegrasyon testi.
+
+  # linting-formatting.mdc
+
+  - **scalafmt:** Google'dan esinlenen scalafmt konfigürasyonunu `maxColumn = 100` ile zorunlu kılın.
 ---
 
 # general-scala-clean-code.mdc

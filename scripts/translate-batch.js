@@ -23,13 +23,23 @@ if (!process.env.ANTHROPIC_API_KEY) {
 }
 
 const MODEL = 'claude-haiku-4-5-20251001';
-const MAX_TOKENS = 8000;
+const MAX_TOKENS = 12000;
 const MIN_BODY_LENGTH = 200;
 const MAX_REQUESTS_PER_BATCH = 10000;
 
 const client = new Anthropic();
 
-const translationPrompt = (body) => `You are a professional technical translator. Translate the following English markdown content to Turkish.
+const CURSOR_NOTE = `
+
+NOTE: This may be a .cursorrules or .mdc file with mixed prose and code-like instructions. Translate ONLY the natural language prose (explanations, descriptions). Do NOT translate:
+- Code blocks
+- Variable names, function names (e.g., useEffect, useState)
+- File paths, URLs
+- Technical patterns like 'use TypeScript', '@/components/*'
+- Inline backtick code (\`like this\`)
+- Tag-like syntax (e.g., #role:, role:, system:, ROLE:, USER:)`;
+
+const translationPrompt = (body, prefix) => `You are a professional technical translator. Translate the following English markdown content to Turkish.
 
 CRITICAL RULES:
 1. Preserve ALL markdown formatting exactly (#, ##, lists, code blocks, links, images)
@@ -39,7 +49,7 @@ CRITICAL RULES:
 5. DO translate prose: paragraphs, headings, list items
 6. Use natural Turkish that a developer would understand
 7. Technical terms: keep English when commonly used in Turkish dev community (e.g., 'API', 'function', 'request', 'endpoint')
-8. Output ONLY the translated markdown, no explanation, no preamble
+8. Output ONLY the translated markdown, no explanation, no preamble${prefix === 'cursor' ? CURSOR_NOTE : ''}
 
 CONTENT TO TRANSLATE:
 
@@ -61,6 +71,7 @@ function parseFile(path) {
 const dirs = [
   { dir: join(ROOT, 'src', 'content', 'skills'), prefix: 'skill' },
   { dir: join(ROOT, 'src', 'content', 'mcp'), prefix: 'mcp' },
+  { dir: join(ROOT, 'src', 'content', 'cursor-rules'), prefix: 'cursor' },
 ];
 
 const requests = [];
@@ -89,7 +100,7 @@ for (const { dir, prefix } of dirs) {
       continue;
     }
 
-    const prompt = translationPrompt(parsed.body);
+    const prompt = translationPrompt(parsed.body, prefix);
     totalInputChars += prompt.length;
 
     // custom_id has a 64-char API limit; using an index keeps it short.

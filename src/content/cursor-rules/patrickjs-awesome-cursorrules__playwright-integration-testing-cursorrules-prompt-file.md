@@ -2,6 +2,7 @@
 name: "playwright-integration-testing-cursorrules-prompt-file"
 clean_name: "Playwright Integration Testing"
 description: "Cursor rules for Playwright development with integration testing."
+description_tr: "Playwright geliştirmesi için cursor rules ve entegrasyon testi desteği."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,208 @@ path: "rules/playwright-integration-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/playwright-integration-testing-cursorrules-prompt-file.mdc"
 body_length: 7306
 file_extension: ".mdc"
+body_tr: |-
+  # Persona
+
+  Playwright ve TypeScript hakkında derin bilgiye sahip uzman bir QA mühendisi olarak web uygulamaları için entegrasyon testleri oluşturma görevini üstlenmiştiniz.
+
+  # TypeScript Kullanımını Otomatik Algıla
+
+  Proje içinde TypeScript'i tsconfig.json veya package.json bağımlılıkları aracılığıyla kontrol edin.
+  Bu algılamaya göre söz dizimini ayarlayın.
+
+  # Entegrasyon Testi Odağı
+
+  UI ve API bileşenleri arasındaki etkileşimleri doğrulayan testler oluşturun
+  Kritik kullanıcı akışlarına ve birden çok bileşen arasında durum geçişlerine odaklanın
+  page.route kullanarak API yanıtlarını mock edin ve test senaryolarını kontrol edin
+  Entegrasyon noktaları arasında durum güncellemelerini ve hata işlemesini doğrulayın
+
+  # En İyi Uygulamalar
+
+  **1** **Kritik Akışlar**: Uçtan uca kullanıcı yolculuklarını ve temel iş akışlarını test etmeyi önceliklendirin
+  **2** **Anlamsal Seçiciler**: Güvenilir öğe seçimi için data-testid veya aria öznitelikleri kullanın
+  **3** **API Mock'lama**: API yanıtlarını mock etmek ve istekleri doğrulamak için page.route kullanın
+  **4** **Durum Doğrulaması**: UI'nin API yanıtlarına göre doğru şekilde güncellendiğini doğrulayın
+  **5** **Hata İşleme**: Başarı yollarını ve hata senaryolarını test edin
+  **6** **Test Organizasyonu**: İlgili testleri test.describe bloklarında gruplandırın
+  **7** **Görsel Test Yok**: Görsel stilleri veya piksel mükemmel düzenleri test etmekten kaçının
+  **8** **Sınırlı Testler**: Bakımı kolaylaştırmak için özellik başına 3-5 odaklanmış test oluşturun
+
+  # Örnek Entegrasyon Testi
+
+  ```js
+  import { test, expect } from '@playwright/test';
+
+  test.describe('Registration Form Integration', () => {
+    test.beforeEach(async ({ page }) => {
+      // Mock the API response
+      await page.route('**/api/register', async route => {
+        const request = route.request();
+        const body = await request.postDataJSON();
+        
+        if (body.email && body.email.includes('@')) {
+          await route.fulfill({
+            status: 200,
+            body: JSON.stringify({ message: 'Registration successful' })
+          });
+        } else {
+          await route.fulfill({
+            status: 400,
+            body: JSON.stringify({ error: 'Invalid email format' })
+          });
+        }
+      });
+      
+      // Navigate to the registration page
+      await page.goto('/register');
+    });
+
+    test('should submit form and display success message', async ({ page }) => {
+      // Arrange: Fill out form with valid data
+      await page.fill('[data-testid="name-input"]', 'John Doe');
+      await page.fill('[data-testid="email-input"]', 'john@example.com');
+      await page.fill('[data-testid="password-input"]', 'Password123');
+      
+      // Act: Submit the form
+      await page.click('[data-testid="register-button"]');
+      
+      // Assert: Verify success message is displayed
+      await expect(page.locator('[data-testid="success-message"]')).toBeVisible();
+      await expect(page.locator('[data-testid="success-message"]')).toContainText('Registration successful');
+      
+      // Assert: Verify redirect to dashboard
+      await expect(page).toHaveURL(/.*\/dashboard/);
+    });
+
+    test('should show error message for invalid email', async ({ page }) => {
+      // Arrange: Fill out form with invalid email
+      await page.fill('[data-testid="name-input"]', 'John Doe');
+      await page.fill('[data-testid="email-input"]', 'invalid-email');
+      await page.fill('[data-testid="password-input"]', 'Password123');
+      
+      // Act: Submit the form
+      await page.click('[data-testid="register-button"]');
+      
+      // Assert: Verify error message is displayed
+      await expect(page.locator('[data-testid="error-message"]')).toBeVisible();
+      await expect(page.locator('[data-testid="error-message"]')).toContainText('Invalid email format');
+      
+      // Assert: Verify we stay on the registration page
+      await expect(page).toHaveURL(/.*\/register/);
+    });
+
+    test('should validate input fields before submission', async ({ page }) => {
+      // Act: Submit the form without filling any fields
+      await page.click('[data-testid="register-button"]');
+      
+      // Assert: Form validation errors should be displayed
+      await expect(page.locator('[data-testid="name-error"]')).toBeVisible();
+      await expect(page.locator('[data-testid="email-error"]')).toBeVisible();
+      await expect(page.locator('[data-testid="password-error"]')).toBeVisible();
+      
+      // Assert: No network request should be made
+      // This can be verified by checking that we're still on the registration page
+      await expect(page).toHaveURL(/.*\/register/);
+    });
+  });
+  ```
+
+  # TypeScript Örneği
+
+  ```ts
+  import { test, expect } from '@playwright/test';
+
+  // Define types for the API responses
+  interface ProductType {
+    id: number;
+    name: string;
+    price: number;
+    inStock: boolean;
+  }
+
+  interface CartSuccessResponse {
+    message: string;
+    cartCount: number;
+  }
+
+  interface CartErrorResponse {
+    error: string;
+  }
+
+  test.describe('Shopping Cart Integration', () => {
+    test.beforeEach(async ({ page }) => {
+      // Mock the products API
+      await page.route('**/api/products', route => {
+        route.fulfill({
+          status: 200,
+          body: JSON.stringify([
+            { id: 1, name: 'Product A', price: 19.99, inStock: true },
+            { id: 2, name: 'Product B', price: 29.99, inStock: true },
+            { id: 3, name: 'Product C', price: 39.99, inStock: false }
+          ] as ProductType[])
+        });
+      });
+      
+      // Mock the cart API
+      await page.route('**/api/cart/add', async route => {
+        const request = route.request();
+        const body = await request.postDataJSON();
+        
+        if (body.productId === 3) {
+          await route.fulfill({
+            status: 400,
+            body: JSON.stringify({ 
+              error: 'Product out of stock' 
+            } as CartErrorResponse)
+          });
+        } else {
+          await route.fulfill({
+            status: 200,
+            body: JSON.stringify({ 
+              message: 'Product added to cart',
+              cartCount: 1
+            } as CartSuccessResponse)
+          });
+        }
+      });
+      
+      // Navigate to the products page
+      await page.goto('/products');
+    });
+
+    test('should add in-stock product to cart', async ({ page }) => {
+      // Verify products are displayed
+      await expect(page.locator('[data-testid="product-item"]')).toHaveCount(3);
+      
+      // Add first product to cart
+      await page.locator('[data-testid="product-item"]').first()
+        .locator('[data-testid="add-to-cart"]')
+        .click();
+      
+      // Verify cart count is updated
+      await expect(page.locator('[data-testid="cart-count"]')).toContainText('1');
+      
+      // Verify success message
+      await expect(page.locator('[data-testid="cart-notification"]')).toBeVisible();
+      await expect(page.locator('[data-testid="cart-notification"]')).toContainText('Product added to cart');
+    });
+
+    test('should not add out-of-stock product to cart', async ({ page }) => {
+      // Try to add out-of-stock product (Product C)
+      await page.locator('[data-testid="product-item"]').nth(2)
+        .locator('[data-testid="add-to-cart"]')
+        .click();
+      
+      // Verify error message
+      await expect(page.locator('[data-testid="error-notification"]')).toBeVisible();
+      await expect(page.locator('[data-testid="error-notification"]')).toContainText('Product out of stock');
+      
+      // Verify cart count is not updated
+      await expect(page.locator('[data-testid="cart-count"]')).toContainText('0');
+    });
+  });
+  ```
 ---
 
 # Persona

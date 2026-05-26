@@ -2,6 +2,7 @@
 name: "react-components-creation-cursorrules-prompt-file"
 clean_name: "React Components Creation"
 description: "Cursor rules for React component creation and development."
+description_tr: "React bileşen oluşturma ve geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,42 @@ path: "rules/react-components-creation-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-components-creation-cursorrules-prompt-file.mdc"
 body_length: 1671
 file_extension: ".mdc"
+body_tr: |-
+  # Cursor Kuralları
+
+  ## React component'i gerektiğinde
+
+  1. Component'in amacını, işlevselliğini ve tasarımını dikkatlice değerlendirin
+
+  2. Yavaş düşünün, adım adım ilerleyin ve akıl yürütmenizi açıklayın
+
+  3. Aşağıdaki konumlardan herhangi birinde benzer bir component'in zaten var olup olmadığını kontrol edin
+     1. packages/ui/src/components
+     2. apps/spa/src/components
+
+  4. Eğer yoksa, component için ayrıntılı bir prompt oluşturun ve şunları ekleyin:
+     - Component adı ve amacı
+     - İstenilen props'lar ve türleri
+     - Belirli styling veya davranış gereksinimleri
+     - Styling için Tailwind CSS kullanımından bahsetme
+     - TypeScript kullanımı talebesi
+
+  5. Prompt'u URL encode edin.
+
+  6. Bu formatta tıklanabilir bir link oluşturun:
+     [ComponentName](https://v0.dev/chat?q={encoded_prompt})
+
+  7. Oluşturduktan sonra, component'i proje yapısına uyacak şekilde adapte edin:
+     - İçe aktarma
+       - ortak shadcn/ui component'lerini <ui_package_alias>@repo/ui/components/ui/</ui_package_alias> adresinden
+       - uygulamaya özel component'leri <app_package_alias>@/components</app_package_alias> adresinden
+     - Mevcut component pattern'lerimizi takip ettiğinden emin olun
+     - Gerekli olan özel logic veya state management'ı ekleyin
+
+  Örnek prompt şablonu:
+  "TypeScript ve Tailwind CSS kullanarak {ComponentName} adlı bir React component'i oluşturun. {işlevsellik açıklaması} yapmalıdır. Props şunları içermelidir: {prop'lar ve türleri listesi}. Component şunları yapmalıdır: {belirli styling veya davranış notları}. Lütfen tam component kodunu sağlayın."
+
+  <ui_package_path> ve <app_package_alias> gibi yer tutucuları projenizde kullanılan gerçek değerlerle değiştirmeyi unutmayın.
 ---
 
 # Cursor Rules

@@ -2,6 +2,7 @@
 name: "python-github-setup-cursorrules-prompt-file"
 clean_name: "Python Github Setup"
 description: "Cursor rules for Python development with GitHub setup integration."
+description_tr: "Python geliştirme için Cursor kuralları GitHub entegrasyonu ile birlikte sunuluyor."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,164 @@ path: "rules/python-github-setup-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-github-setup-cursorrules-prompt-file.mdc"
 body_length: 4828
 file_extension: ".mdc"
+body_tr: |-
+  ```json
+  {
+      "general": {
+          "coding_style": {
+              "language": "Python",
+              "use_strict": true,
+              "indentation": "4 spaces",
+              "max_line_length": 120,
+              "comments": {
+                  "style": "# tek satır için, ''' çok satır için",
+                  "require_comments": true
+              }
+          },
+          
+          "naming_conventions": {
+              "variables": "snake_case",
+              "functions": "snake_case",
+              "classes": "PascalCase",
+              "interfaces": "PascalCase",
+              "files": "snake_case"
+          },
+          
+          "error_handling": {
+              "prefer_try_catch": true,
+              "log_errors": true
+          },
+          
+          "testing": {
+              "require_tests": true,
+              "test_coverage": "80%",
+              "test_types": ["unit", "integration"]
+          },
+          
+          "documentation": {
+              "require_docs": true,
+              "doc_tool": "docstrings",
+              "style_guide": "Google Python Style Guide"
+          },
+          
+          "security": {
+              "require_https": true,
+              "sanitize_inputs": true,
+              "validate_inputs": true,
+              "use_env_vars": true
+          },
+          
+          "configuration_management": {
+              "config_files": [".env"],
+              "env_management": "python-dotenv",
+              "secrets_management": "environment variables"
+          },
+          
+          "code_review": {
+              "require_reviews": true,
+              "review_tool": "GitHub Pull Requests",
+              "review_criteria": ["functionality", "code quality", "security"]
+          },
+          
+          "version_control": {
+              "system": "Git",
+              "branching_strategy": "GitHub Flow",
+              "commit_message_format": "Conventional Commits"
+          },
+          
+          "logging": {
+              "logging_tool": "Python logging module",
+              "log_levels": ["debug", "info", "warn", "error"],
+              "log_retention_policy": "7 gün"
+          },
+          
+          "monitoring": {
+              "monitoring_tool": "Belirtilmemiş",
+              "metrics": ["dosya işleme süresi", "sınıflandırma doğruluğu", "hata oranı"]
+          },
+          
+          "dependency_management": {
+              "package_manager": "pip",
+              "versioning_strategy": "Semantic Versioning"
+          },
+          
+          "accessibility": {
+              "standards": ["Uygulanabilir değil"],
+              "testing_tools": ["Uygulanabilir değil"]
+          },
+          
+          "internationalization": {
+              "i18n_tool": "Uygulanabilir değil",
+              "supported_languages": ["English"],
+              "default_language": "English"
+          },
+          
+          "ci_cd": {
+              "ci_tool": "GitHub Actions",
+              "cd_tool": "Belirtilmemiş",
+              "pipeline_configuration": ".github/workflows/main.yml"
+          },
+          
+          "code_formatting": {
+              "formatter": "Black",
+              "linting_tool": "Pylint",
+              "rules": ["PEP 8", "projeye özgü kurallar"]
+          },
+          
+          "architecture": {
+              "patterns": ["Modüler tasarım"],
+              "principles": ["Single Responsibility", "DRY"]
+          }
+      },
+      
+      "project_specific": {
+          "use_framework": "Yok",
+          "styling": "Uygulanabilir değil",
+          "testing_framework": "pytest",
+          "build_tool": "setuptools",
+          
+          "deployment": {
+              "environment": "Yerel makine",
+              "automation": "Belirtilmemiş",
+              "strategy": "Manuel dağıtım"
+          },
+          
+          "performance": {
+              "benchmarking_tool": "Belirtilmemiş",
+              "performance_goals": {
+                  "response_time": "< 5 saniye dosya başına",
+                  "throughput": "Belirtilmemiş",
+                  "error_rate": "< 1%"
+              }
+          }
+      },
+      
+      "context": {
+          "codebase_overview": "İçerik analizi ve sınıflandırma için AI kullanan Python tabanlı dosya organizasyon aracı",
+          "libraries": [
+              "watchdog", "spacy", "PyPDF2", "python-docx", "pandas", "beautifulsoup4", 
+              "transformers", "scikit-learn", "joblib", "python-dotenv", "torch", "pytest", 
+              "shutil", "logging", "pytest-mock"
+          ],
+          
+          "coding_practices": {
+              "modularity": true,
+              "DRY_principle": true,
+              "performance_optimization": true
+          }
+      },
+      
+      "behavior": {
+          "verbosity": {
+              "level": 2,
+              "range": [0, 3]
+          },
+          "handle_incomplete_tasks": "Kısmi çözüm sağla ve sınırlamaları açıkla",
+          "ask_for_clarification": true,
+          "communication_tone": "Profesyonel ve kısa"
+      }
+  }
+  ```
 ---
 
 {

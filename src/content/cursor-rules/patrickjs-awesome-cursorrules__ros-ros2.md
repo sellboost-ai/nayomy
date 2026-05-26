@@ -2,6 +2,7 @@
 name: "ros-ros2"
 clean_name: "Ros Ros2"
 description: "ROS and ROS2 rules for packages, nodes, launch files, messages, services, actions, simulation, and testing"
+description_tr: "ROS ve ROS2 paketleri, node'lar, launch dosyaları, mesajlar, servisler, actionlar, simülasyon ve test işlemleri için kurallar"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,45 @@ path: "rules/ros-ros2.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ros-ros2.mdc"
 body_length: 2143
 file_extension: ".mdc"
+body_tr: |-
+  # ROS ve ROS2 Kuralları
+
+  ## Paket Yapısı
+
+  - Paketleri bir robot yeteneği veya entegrasyon sınırına odaklanmış şekilde tutun.
+  - `package.xml` ve `CMakeLists.txt` veya `setup.py` dosyalarını paket türüyle tutarlı şekilde kullanın.
+  - Launch dosyalarını `launch/` altında, konfigürasyonları `config/` altında, mesajları `msg/` altında, servisleri `srv/` altında ve action'ları `action/` altında tutun.
+  - Node'lar yeniden kullanılabilir olduğunda, sabit kodlanmış topic isimlerinin yerine namespace'ler ve remapping kullanın.
+
+  ## Node'lar ve Arayüzler
+
+  - Node'ları küçük ve bileşken tutun.
+  - Ayarlanabilir davranış için parametreler kullanın; ROS2 parametrelerini açıkça bildirin.
+  - Durum akışları için mesajları, hızlı istek/yanıt işlemleri için servisleri ve geri bildirimli uzun süreli hedefler için action'ları tercih edin.
+  - Özel arayüzler oluşturmadan önce standart mesaj türlerini kullanın.
+  - Topic, servis, action, frame ve parametre sözleşmelerini belgeleyin.
+
+  ## Zamanlama ve Frame'ler
+
+  - Simülasyon veya bag replay önemli olduğunda ROS zamanını kullanın.
+  - Frame dönüşümleri için `tf2` kullanın ve frame isimlerini belgeleyin.
+  - Callback'leri bloke etmeyin; uzun işleri timer'lara, worker thread'lerine veya action'lara taşıyın.
+  - QoS profillerini sensör verisi, yer tutucu konfigürasyon ve güvenilir komut yolları için kasıtlı olarak ayarlayın.
+
+  ## Derleme ve Test
+
+  - `colcon build` kullanın ve paket bağımlılıklarını açık tutun.
+  - Workspace tarafından kullanılan linter'ları ve formatlayıcıları çalıştırın.
+  - Multi-node davranışı için launch testleri veya entegrasyon testleri ekleyin.
+  - Tekrarlanabilir sensör senaryoları için simülasyon, bag dosyaları veya kaydedilmiş fixture'ları kullanın.
+  - Eksik frame dönüşümleri, eski sensör verisi ve kullanılamayan servisler gibi hata durumlarını test edin.
+
+  ## Yaygın Hatalar
+
+  - Mutlak yolları sabit kodlamayın; paket paylaşım dizinlerini kullanın.
+  - Frame, birim ve zaman damgası varsayımlarını doğrulamadan komut yayınlamayın.
+  - Standart bir mesaj uygun olduğunda özel mesajlar oluşturmayın.
+  - Publisher'lar ve subscriber'lar arasındaki QoS uyuşmazlıklarını göz ardı etmeyin.
 ---
 
 

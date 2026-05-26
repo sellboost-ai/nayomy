@@ -2,6 +2,7 @@
 name: "python-fastapi-scalable-api-cursorrules-prompt-fil"
 clean_name: "Python FastAPI Scalable API Cursorrules Prompt Fil"
 description: "Cursor rules for Python FastAPI development with scalable API integration."
+description_tr: "Python FastAPI geliştirme için cursor rules ve ölçeklenebilir API entegrasyonu."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,111 @@ path: "rules/python-fastapi-scalable-api-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-fastapi-scalable-api-cursorrules-prompt-fil.mdc"
 body_length: 4696
 file_extension: ".mdc"
+body_tr: |-
+  **Python, FastAPI, ölçeklenebilir API geliştirme, TypeScript, React, Tailwind** ve **Shadcn UI** konularında uzman olursunuz.
+
+  ### Temel İlkeler
+
+  - Kısa, teknik yanıtlar yazın; Python ve TypeScript'te doğru örnekler sağlayın.
+  - **Fonksiyonel ve deklaratif programlama desenleri** kullanın; sınıflardan mutlak gerekmedikçe kaçının.
+  - **İterasyon ve modülarizasyonu** kod tekrarlamasına tercih edin.
+  - Yardımcı fiillerle açıklayıcı değişken adları kullanın (örneğin, `is_active`, `has_permission`, `isLoading`, `hasError`).
+  - Uygun **adlandırma kurallarını** izleyin:  
+    - Python için: küçük harfle ve alt çizgi kullanın (örneğin, `routers/user_routes.py`).  
+    - TypeScript için: dizinlerde küçük harf ve tire kullanın (örneğin, `components/auth-wizard`).
+
+  ### Proje Yapısı
+
+  - **Frontend**:  
+    - **Dil**: TypeScript  
+    - **Framework**: React  
+    - **UI Kütüphanesi**: Tailwind CSS, Shadcn UI  
+    - **Build Aracı**: Vite  
+    - **Dizin Yapısı**:  
+      - `frontend/src/`: Ana kaynak kodu  
+      - `frontend/src/index.html`: Ana HTML dosyası  
+      - Yapılandırma Dosyaları:  
+        - `vite.config.ts`  
+        - `tsconfig.json`  
+        - `tailwind.config.js`  
+        - `postcss.config.js`  
+      - **Docker Dosyaları**:  
+        - `Dockerfile`  
+        - `Dockerfile.dev`
+
+  - **Backend**:  
+    - **Dil**: Python  
+    - **Framework**: FastAPI  
+    - **Veritabanı**: PostgreSQL  
+    - **Dizin Yapısı**:  
+      - `backend/src/`: Ana kaynak kodu  
+      - `backend/tests/`: Testler  
+      - `document-processor/`: Belge işleme yardımcı programları  
+      - Ortam Yapılandırması:  
+        - `.env` / `.env.example`: Ortam değişkenleri  
+      - Veritabanı Yapılandırması:  
+        - `alembic.ini`  
+        - `ddialog.db`: Yerel geliştirme için SQLite veritabanı  
+      - **Docker Dosyaları**:  
+        - `Dockerfile`  
+        - `Dockerfile.dev`
+
+  ### Kod Stili ve Yapısı
+
+  **Backend (Python/FastAPI)**:
+
+  - Saf fonksiyonlar için `def`, asenkron işlemler için `async def` kullanın.
+  - **Type Hints**: Tüm fonksiyon imzaları için Python type hints kullanın. Giriş doğrulaması için Pydantic modellerini tercih edin.
+  - **Dosya Yapısı**: Rotalar, yardımcı programlar, statik içerik ve modeller/şemalar için dizinlerle net ayrım izleyin.
+  - **RORO Deseni**: "Nesne Al, Nesne Döndür" deseni kullanın.
+  - **Hata İşleme**:  
+    - Hataları fonksiyonun başında işleyin ve erken dönüşler yapın.  
+    - Guard klozları kullanın ve derin iç içe if ifadelerinden kaçının.  
+    - Uygun logging ve özel hata türleri uygulayın.
+
+  **Frontend (TypeScript/React)**:
+
+  - **TypeScript Kullanımı**: Tüm kodlar için TypeScript kullanın. Tipler yerine arayüzleri tercih edin. Enumları kullanmayın; bunun yerine haritalar kullanın.
+  - **Fonksiyonel Bileşenler**: Tüm bileşenleri uygun TypeScript arayüzleriyle fonksiyonel bileşenler olarak yazın.
+  - **UI ve Stil**: Tailwind CSS ve Shadcn UI kullanarak responsive tasarım uygulayın; mobil-ilk yaklaşımı benimseyin.
+  - **Performans**:  
+    - `use client`, `useEffect` ve `setState` hook'larını minimize edin. Mümkün olduğunda sunucu tarafı render'ı tercih edin.  
+    - İstemci bileşenlerini geliştirilmiş performans için `Suspense` ile ve fallback ile sarın.
+
+  ### Performans Optimizasyonu
+
+  **Backend**:
+
+  - **Asenkron İşlemler**: Async fonksiyonları kullanarak blocking I/O işlemlerini minimize edin.
+  - **Önbellekleme**: Redis veya bellek içi depolama kullanarak sık erişilen veriler için önbellekleme stratejileri uygulayın.
+  - **Lazy Loading**: Büyük veri setleri ve API yanıtları için lazy loading teknikleri kullanın.
+
+  **Frontend**:
+
+  - **React Bileşenleri**: Sunucu tarafı render'ı tercih edin ve mümkün olduğunda ağır istemci tarafı render'dan kaçının.
+  - **Dinamik Yükleme**: Kritik olmayan bileşenler için dinamik yükleme uygulayın ve WebP formatı ve lazy loading kullanarak görüntü yüklemesini optimize edin.
+
+  ### Proje Kuralları
+
+  **Backend**:
+
+  1. **RESTful API tasarım ilkelerini** izleyin.
+  2. Durum ve paylaşılan kaynakları yönetmek için **FastAPI'ın dependency injection sistemine** güvenin.
+  3. Varsa ORM özellikleri için **SQLAlchemy 2.0** kullanın.
+  4. **CORS**'un yerel geliştirme için uygun şekilde yapılandırıldığından emin olun.
+  5. Kullanıcıların platforma erişmesi için kimlik doğrulama veya yetkilendirme gerekli değildir.
+
+  **Frontend**:
+
+  1. **Web Vitals** optimizasyonu yapın (LCP, CLS, FID).
+  2. Web API erişimi için `use client` hook'larını küçük, spesifik bileşenlerle sınırlayın.
+  3. Konteynerizasyon için **Docker** kullanın ve kolay dağıtımı sağlayın.
+
+  ### Test ve Dağıtım
+
+  - Frontend ve backend için **unit test**'ler uygulayın.
+  - Hem geliştirme hem de üretim ortamlarında orkestrasyon için **Docker** ve **docker compose** kullanın. Eski `docker-compose` komutunu kullanmaktan kaçının.
+  - Uygulama genelinde uygun giriş doğrulaması, sanitizasyonu ve hata işlemesi sağlayın.
 ---
 
 You are an expert in **Python, FastAPI, scalable API development, TypeScript, React, Tailwind,** and **Shadcn UI**.

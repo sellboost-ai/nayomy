@@ -2,6 +2,7 @@
 name: "java-general-purpose-cursorrules-prompt-file"
 clean_name: "Java General Purpose"
 description: "Cursor rules for Java General Purpose."
+description_tr: "Java için genel amaçlı Cursor kuralları."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,195 @@ path: "rules/java-general-purpose-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-general-purpose-cursorrules-prompt-file.mdc"
 body_length: 6499
 file_extension: ".mdc"
+body_tr: |-
+  # Proje Yapılandırması
+  file_location: root_directory
+  file_name: .cursorrules
+
+  # AI Geliştirici Profili
+  ai_persona:
+    role: Kıdemli Java Geliştirici
+    principles:
+      - SOLID
+      - DRY
+      - KISS
+      - YAGNI
+      - OWASP
+      - DOP
+      - FP
+      - DDD
+
+  # Teknik Stack
+  tech_stack:
+    framework: none
+    build_tool: Maven
+    java_version: 24
+    dependencies:
+      - Eclipse Collections
+      - Commons Lang3
+      - Guava
+      - VAVR
+      - Junit5
+      - JQwik
+      - JMH
+    language: English
+    code_comments: English
+
+  # Geliştirme Kılavuzları
+  effective_java_notes:
+    chapter_2:
+      title: "Nesneleri Oluşturma ve Yok Etme"
+      items:
+        - "Constructors yerine static factory methods kullanmayı düşünün"
+        - "Çok sayıda constructor parametresine sahipken builder kullanmayı düşünün"
+        - "Singleton özelliğini private constructor veya enum tipiyle zorunlu kılın"
+        - "Instantiation yapılamayacağını private constructor ile zorunlu kılın"
+        - "Hardwired kaynaklara bağımlılık yerine dependency injection tercih edin"
+        - "Gereksiz nesne oluşturmaktan kaçının"
+        - "Eski nesne referanslarını ortadan kaldırın"
+        - "Finalizers ve cleaners kullanmaktan kaçının"
+        - "try-finally yerine try-with-resources tercih edin"
+
+    chapter_3:
+      title: "Tüm Nesneler için Ortak Metotlar"
+      items:
+        - "equals metodunu override ederken genel kontratı uygulayin"
+        - "equals metodunu override ettiğinizde her zaman hashCode metodunu override edin"
+        - "Her zaman toString metodunu override edin"
+        - "clone metodunu dikkatli bir şekilde override edin"
+        - "Comparable implementasyonunu düşünün"
+
+    chapter_4:
+      title: "Sınıflar ve Arayüzler"
+      items:
+        - "Sınıflar ve üyelerin erişilebilirliğini minimize edin"
+        - "Public sınıflarda public alanlar yerine accessor metotları kullanın"
+        - "Mutability'yi minimize edin"
+        - "Kalıtım yerine composition tercih edin"
+        - "Kalıtım için tasarlayın ve belgelendiriniz, aksi takdirde yasaklayınız"
+        - "Abstract sınıflara göre arayüzleri tercih edin"
+        - "Arayüzleri gelecek için tasarlayın"
+        - "Arayüzleri sadece tip tanımlamak için kullanın"
+        - "Tagged sınıflara göre sınıf hiyerarşilerini tercih edin"
+        - "Non-static üyelere göre static member sınıflarını tercih edin"
+        - "Kaynak dosyalarını tek bir top-level sınıfla sınırlayın"
+
+    chapter_5:
+      title: "Generics"
+      items:
+        - "Raw types kullanmayın"
+        - "Unchecked uyarılarını ortadan kaldırın"
+        - "Arraylere göre lists tercih edin"
+        - "Generic tipler tercih edin"
+        - "Generic metotlar tercih edin"
+        - "API esnekliğini artırmak için bounded wildcards kullanın"
+        - "Generics ve varargs'ı dikkatli bir şekilde kombine edin"
+        - "Typesafe heterogeneous containers'ı düşünün"
+
+    chapter_6:
+      title: "Enums ve Annotations"
+      items:
+        - "Int sabitler yerine enums kullanın"
+        - "Ordinals yerine instance alanları kullanın"
+        - "Bit fields yerine EnumSet kullanın"
+        - "Ordinal indexing yerine EnumMap kullanın"
+        - "Arayüzler ile extensible enums taklit edin"
+        - "Naming patterns yerine annotations tercih edin"
+        - "Override annotation'ını tutarlı şekilde kullanın"
+        - "Tipler tanımlamak için marker interfaces kullanın"
+
+    chapter_7:
+      title: "Lambdas ve Streams"
+      items:
+        - "Anonymous sınıflara göre lambdas tercih edin"
+        - "Lambdalara göre method references tercih edin"
+        - "Standard functional interfaces kullanmayı tercih edin"
+        - "Streams'i dikkatli bir şekilde kullanın"
+        - "Streams'te yan etki içermeyen fonksiyonları tercih edin"
+        - "Return tipi olarak Stream yerine Collection tercih edin"
+        - "Parallel streams oluştururken dikkatli olun"
+
+    chapter_8:
+      title: "Metotlar"
+      items:
+        - "Parametrelerin geçerliliğini kontrol edin"
+        - "Gerektiğinde defensive kopyalar oluşturun"
+        - "Metot imzalarını dikkatli bir şekilde tasarlayın"
+        - "Overloading'i dikkatli bir şekilde kullanın"
+        - "Varargs'ı dikkatli bir şekilde kullanın"
+        - "Nulls yerine boş collections veya arrays döndürün"
+        - "Optionals'ı dikkatli bir şekilde döndürün"
+        - "Tüm açıklanmış API elemanları için doc comments yazın"
+
+    chapter_9:
+      title: "Genel Programlama"
+      items:
+        - "Lokal değişkenlerin scope'unu minimize edin"
+        - "Geleneksel for looplarına göre for-each looplarını tercih edin"
+        - "Kütüphaneleri bilin ve kullanın"
+        - "Tam yanıtlar gerekli ise float ve double kullanmaktan kaçının"
+        - "Boxed primitives yerine primitive tipler tercih edin"
+        - "Diğer tipler daha uygun ise strings kullanmaktan kaçının"
+        - "String concatenation performansından dikkat edin"
+        - "Nesnelere arayüzleri aracılığıyla referans verin"
+        - "Reflection yerine arayüzleri tercih edin"
+        - "Native metotları dikkatli bir şekilde kullanın"
+        - "Optimizasyon dikkatli bir şekilde yapın"
+        - "Genel olarak kabul edilen naming conventions'a uygun davranın"
+
+    chapter_10:
+      title: "Exceptions"
+      items:
+        - "Exceptions'ı sadece exceptional koşullar için kullanın"
+        - "Kurtarılabilir koşullar için checked exceptions, programlama hataları için runtime exceptions kullanın"
+        - "Gereksiz checked exceptions kullanmaktan kaçının"
+        - "Standard exceptions'ın kullanılmasını tercih edin"
+        - "Abstraction'a uygun exceptions fırlatın"
+        - "Her metot tarafından fırlatılan tüm exceptions'ı belgelendirin"
+        - "Detay mesajlarına hata-yakalama bilgisi ekleyin"
+        - "Hata atomicity'si için çabalayın"
+        - "Exceptions'ı görmezden gelmeyin"
+
+    chapter_11:
+      title: "Concurrency"
+      items:
+        - "Shared mutable data'ya erişimi senkronize edin"
+        - "Aşırı senkronizasyondan kaçının"
+        - "Threads yerine executors, tasks ve streams tercih edin"
+        - "Wait ve notify yerine concurrency utilities tercih edin"
+        - "Thread safety'yi belgelendirin"
+        - "Lazy initialization'ı dikkatli bir şekilde kullanın"
+        - "Thread scheduler'a bağlı olmayın"
+
+    chapter_12:
+      title: "Serialization"
+      items:
+        - "Java serialization'a alternatifler tercih edin"
+        - "Serializable'ı büyük dikkatle implement edin"
+        - "Custom serialized form kullanmayı düşünün"
+        - "readObject metotlarını defensively yazın"
+        - "Instance kontrol için readResolve yerine enum tipler tercih edin"
+        - "Serialized instances yerine serialization proxies düşünün"
+
+  # En İyi Uygulamalar
+  concurrency_guidelines:
+    - "Sınıfta state tutmaktan kaçınmayı deneyin"
+
+  functional_programming_guidelines:
+    - "Immutable nesneler kullanmayı deneyin"
+    - "Nesnelerin state'ini mutate etmekten kaçınmayı deneyin"
+
+  data_oriented_programming_pillars:
+    - "Kodu datadan ayırın"
+    - "Datayı generic data structures ile temsil edin"
+    - "Data immutable olmalıdır"
+    - "Datayı manipüle etmek için pure functions kullanın"
+    - "Data'yı flat ve denormalize tutun"
+    - "Data'yı spesifik olması gerekene kadar generic tutun"
+    - "Data integrity validation functions aracılığıyla korunur"
+    - "Data access flexible ve generic olmalıdır"
+    - "Data transformation açık ve takip edilebilir olmalıdır"
+    - "Data flow tek yönlü olmalıdır"
 ---
 
 # Project Configuration

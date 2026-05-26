@@ -2,6 +2,7 @@
 name: "tailwind-css-nextjs-guide-cursorrules-prompt-file"
 clean_name: "Tailwind CSS Next.js Guide"
 description: "Cursor rules for Tailwind CSS development with Next.js integration."
+description_tr: "Cursor rules for Tailwind CSS development with Next.js integration.  ---  Next.js entegrasyonu ile Tailwind CSS geliştirmesi için Cursor rules."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,115 @@ path: "rules/tailwind-css-nextjs-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/tailwind-css-nextjs-guide-cursorrules-prompt-file.mdc"
 body_length: 4566
 file_extension: ".mdc"
+body_tr: |-
+  # Prompt Oluşturma Kuralları:
+
+  - Bileşen gereksinimlerini detaylı şekilde analiz edin
+  - Spesifik DaisyUI bileşen önerileri ekleyin
+  - İstenilen Tailwind CSS sınıflarını belirtin
+  - Gerekli TypeScript türlerini veya arayüzlerini belirtin
+  - Responsive tasarım için talimatlar ekleyin
+  - Uygulanabilir Next.js özelliklerini öneride bulunun
+  - Gerekli state yönetimini veya hook'ları belirtin
+  - Erişilebilirlik konularını düşünün
+  - Gerekli ikon veya varlıkları belirtin
+  - Hata işleme ve yükleme durumlarını öneride bulunun
+  - Animasyonlar veya geçişler için talimatlar ekleyin (gerekirse)
+  - Gerekli API entegrasyonlarını veya veri getirme işlemlerini belirtin
+  - Geçerli olduğunda performans optimizasyonu tekniklerini belirtin
+  - Bileşeni test etme talimatlarını ekleyin
+  - Bileşen için dokümantasyon gereksinimlerini öneride bulunun
+
+  # Genel Bileşen Oluşturma Yönergeleri:
+
+  - Yeniden kullanılabilirlik ve modülerliği önceliklendirin
+  - Tutarlı adlandırma kurallarını sağlayın
+  - React en iyi uygulamalarını ve kalıplarını izleyin
+  - Uygun prop doğrulaması uygulayın
+  - Uluslararasılaştırma gereksinimlerini göz önünde bulundurun
+  - Geçerli olduğunda SEO için optimize edin
+  - Farklı tarayıcı ve cihazlarla uyumluluğu sağlayın
+
+  # Genel Kurallar:
+
+  - Kesin TypeScript'i etkinleştirin (tsconfig.json'da strict: true)
+  - 'any' kullanmaktan kaçının, 'unknown' ile runtime kontrolleri tercih edin
+  - İşlev girişlerini ve çıkışlarını açıkça yazın
+  - Gelişmiş TypeScript özelliklerini kullanın (type guards, mapped types, conditional types)
+  - Proje yapısını organize edin: components, pages, hooks, utils, styles, contracts, services
+  - Kaygıları ayırın: presentational bileşenler, business logic, side effects
+  - Kod formatlaması ve linting için Biome kullanın
+  - Biome'u pre-commit hook olarak yapılandırın
+
+  # Next.js Kuralları:
+
+  - Dinamik rotalar için bracket notasyonunu kullanın ([id].tsx)
+  - Rota parametrelerini doğrulayın ve sanitize edin
+  - Düz, açıklayıcı rotaları tercih edin
+  - Dinamik veri için getServerSideProps, statik veri için getStaticProps/getStaticPaths kullanın
+  - Uygun yerlerde Incremental Static Regeneration (ISR) uygulayın
+  - Optimize edilmiş görseller için next/image kullanın
+  - Görüntü layout, priority, sizes ve srcSet özniteliklerini yapılandırın
+
+  # TypeScript Kuralları:
+
+  - tsconfig.json'da tüm strict mode seçeneklerini etkinleştirin
+  - Tüm değişkenleri, parametreleri ve dönüş değerlerini açıkça yazın
+  - Utility types, mapped types ve conditional types kullanın
+  - Genişletilebilir nesne şekilleri için 'interface' tercih edin
+  - Birleşimler, kesişimler ve primitive kompozisyonları için 'type' kullanın
+  - Karmaşık türleri JSDoc ile belirtin
+  - Belirsiz birleşim türlerinden kaçının, gerektiğinde discriminated unions kullanın
+
+  # TailwindCSS ve DaisyUI Kuralları:
+
+  - Stil vermek için TailwindCSS utility sınıflarını kullanın
+  - Kesinlikle gerekmedikçe özel CSS'den kaçının
+  - Utility sınıflarının tutarlı sırasını koruyun
+  - Uyarlanabilir tasarımlar için Tailwind'in responsive variants'larını kullanın
+  - Hızlı geliştirme için DaisyUI bileşenlerinden yararlanın
+  - DaisyUI bileşenlerini yalnızca gerektiğinde özelleştirin
+  - tailwind.config.js'de design tokens'ları tanımlayın ve kullanın
+
+  # Starknet React Kuralları:
+
+  - Blockchain bağlantı yönetimini merkezileştirin
+  - Otomatik yeniden bağlanma ve hata işlemeyi uygulayın
+  - İşlem durumu yönetimi için React hook'larını kullanın
+  - Blockchain etkileşimleri için net UI geri bildirimi sağlayın
+  - Blockchain işlemleri için kapsamlı hata işleme uygulayın
+
+  # Cairo Kuralları:
+
+  - Modüler ve sürdürülebilir kontrat yapıları tasarlayın
+  - Gas verimliliği için optimize edin
+  - Durum değişikliklerini ve depolama erişimini minimize edin
+  - Tüm kontratları ve fonksiyonları detaylı şekilde belirtin
+  - Karmaşık mantık ve uygulama seçimlerini açıklayın
+
+  # Geliştirme Süreci:
+
+  - Pull Request'ler aracılığıyla detaylı kod incelemesi yapın
+  - Net PR açıklamalarını bağlam ve ekran görüntüleriyle ekleyin
+  - Kapsamlı otomatik testleri uygulayın (unit, integration, e2e)
+  - Yüksek kapsama sayılarından çok anlamlı testleri önceliklendirin
+  - Commit mesajları için Conventional Commits kullanın (feat:, fix:, docs:, chore:)
+  - Daha kolay inceleme ve hata ayıklama için küçük, kademeli commit'ler yapın
+
+  # Biome Kuralları:
+
+  - Kod formatlaması ve linting için Biome kullanın
+  - Biome'u pre-commit hook olarak yapılandırın
+  - Biome'un tavsiye edilen kurallarını izleyin
+  - Biome yapılandırmasını biome.json'da gerektiği şekilde özelleştirin
+  - Proje genelinde tutarlı kod stilini sağlayın
+  - Commit etmeden önce Biome kontrolleri çalıştırın
+  - Tüm Biome uyarılarını ve hatalarını hızlıca çözün
+  - İmport ifadelerini temiz tutmak için Biome'un organize imports özelliğini kullanın
+  - TypeScript için Biome'un gelişmiş linting yeteneklerinden yararlanın
+  - Otomatik kontroller için Biome'u CI/CD pipeline'ınıza entegre edin
+  - Biome'u en son stabil sürüme güncel tutun
+  - Gerektiğinde belirli dosya veya dizinleri hariç tutmak için Biome'un ignore kalıplarını kullanın
 ---
 
 Prompt Generation Rules:

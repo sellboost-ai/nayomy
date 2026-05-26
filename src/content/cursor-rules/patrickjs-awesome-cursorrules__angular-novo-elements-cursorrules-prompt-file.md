@@ -2,6 +2,7 @@
 name: "angular-novo-elements-cursorrules-prompt-file"
 clean_name: "Angular Novo Elements"
 description: "Cursor rules for Angular development with Novo Elements UI library."
+description_tr: "Novo Elements UI kütüphanesi ile Angular geliştirmesi için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,147 @@ path: "rules/angular-novo-elements-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/angular-novo-elements-cursorrules-prompt-file.mdc"
 body_length: 6280
 file_extension: ".mdc"
+body_tr: |-
+  # .cursor
+
+  kurallar
+
+  # Genel kurallar
+
+  - Özür dileme
+  - Bana teşekkür etme
+  - Benimle insan gibi konuş
+  - Değişiklik yapmadan önce bilgileri doğrula
+  - Mevcut kod yapılarını koru
+  - Kısa ve ilgili yanıtlar ver
+  - Değişiklik yapmadan önce tüm bilgileri doğrula
+
+  Şu durumlar için cezalandırılacaksın:
+  - Düşünce sürecinde adım atlamak
+  - Diğer geliştiriciler için yer tutucu veya TODO eklemek
+  - Üretim ortamı için hazır olmayan kod sunmak
+
+  YAPMAN GEREKEN:
+  - Kullanıcının niyetini TAM OLARAK takip et
+  - Mevcut işlevselliği bozma, tam olarak nasıl geri yükleneceğini bilmeden kod veya CSS'i kaldırma/değiştirme
+  - Diff'i mümkün olduğunca küçük tutmaya çalış
+
+  # Dosya bazında değişiklikler
+
+  - Değişiklikleri küçük, kademeli adımlarla yap
+  - Commit etmeden önce değişiklikleri kapsamlı test et
+  - Commit mesajlarında değişiklikleri net bir şekilde dokümante et
+
+  # Kod stili ve biçimlendirmesi
+
+  - Projenin kodlama standartlarını takip et
+  - Tutarlı adlandırma konvansiyonları kullan
+  - Kullanımdan kaldırılmış fonksiyon veya kütüphaneleri kullanmaktan kaçın
+
+  # Hata ayıklama ve test
+
+  - Log dosyalarına hata ayıklama bilgileri dahil et
+  - Yeni kod için unit testler yaz
+  - Merge etmeden önce tüm testlerin geçtiğinden emin ol
+
+  # Proje yapısı
+
+  - Net ve organize bir proje yapısı koru
+  - Dosya ve dizinler için anlamlı isimler kullan
+  - Gereksiz dosyaları silerek dağınıklığı önle
+
+  # Temiz Kod
+
+  Kendini Tekrar Etme (DRY)
+
+  Kod tekrarı kodun bakımını çok zor hale getirebilir. Mantıkta yapılan herhangi bir değişiklik kodu hatalara açık hale getirebilir veya kod değişikliğini zorlaştırabilir. Bu, kod yeniden kullanımı yaparak (DRY Prensibi) çözülebilir.
+
+  DRY prensibi şu şekilde ifade edilir: "Bilginin her parçası bir sistem içinde tek, açık ve yetkili bir temsile sahip olmalıdır".
+
+  DRY'ye ulaşmanın yolu, herhangi bir mantığın yalnızca bir yerde yazılmasını sağlamak için fonksiyonlar ve sınıflar oluşturmaktır.
+
+  Curly Kanunu - Bir Şey Yap
+
+  Curly Kanunu, herhangi bir kod parçası için tek ve net bir şekilde tanımlanmış bir hedefi seçmekle ilgilidir: Bir Şey Yap.
+
+  Curly Kanunu: Bir varlık (sınıf, fonksiyon, değişken) bir şey anlamlandırmalı ve yalnızca bir şey. Bir durumda bir şey anlamlandırmalı ve farklı bir alan tarafından farklı bir zaman da farklı bir değer taşımamalı. Aynı anda iki şey anlamlandırmamalı. Bir Şey anlamlandırmalı ve her zaman o şeyi anlamlandırmalı.
+
+  Basit Tut, Aptal (KISS)
+
+  KISS prensibi, çoğu sistemin karmaşık hale getirilmesinden ziyade basit tutulduğunda en iyi şekilde çalıştığını belirtir; bu nedenle basitlik tasarımda temel bir hedef olmalı ve gereksiz karmaşıklıktan kaçınılmalıdır.
+
+  Basit kod aşağıdaki faydaları sağlar:
+  yazma süresi azalır
+  hata ihtimali düşer
+  anlamak, hata ayıklamak ve değiştirmek daha kolay
+
+  Çalışabilecek en basit şeyi yap.
+
+  Beni düşünme
+
+  Kod çok fazla düşünülmeden anlaşılması kolay olmalıdır. Eğer değilse, basitleştirme ihtimali vardır.
+
+  Buna İhtiyacın Olmayacak (YAGNI)
+
+  Buna İhtiyacın Olmayacak (YAGNI), Extreme Programming (XP) uygulamasıdır: "Her zaman ihtiyacın olduğunda şeyler uygula, sadece ihtiyacın olacağını önceden gördüğünde değil."
+
+  Daha sonra kesinlikle, kesinlikle, kesinlikle bir özelliğe ihtiyacın olacağından emin olsan bile, şimdi uygulanmıyor. Genellikle, aşağıdakilerden biri ortaya çıkıyor:
+  sonuçta buna ihtiyacın olmadı, veya
+  gerçekten ihtiyaç duyduğun şey, daha önceden ihtiyaç göreceğini düşündüğün şeyden oldukça farklı.
+
+  Bu, kodunuza esneklik yerleştirmekten kaçınman gerektiği anlamına gelmez. Bu, daha sonra ihtiyacın olabileceğini düşündüğün şeye göre bir şeyi aşırı mühendislik yapmamalısın anlamına gelir.
+
+  YAGNI'yi uygulamanın iki ana nedeni var:
+  Gerçekten ihtiyacın olmadığı kodu yazmaktan kaçındığın için zaman tasarrufu yaparsın.
+  Kodunuz daha iyidir çünkü 'tahminler' ile dolduramazın; bu da daha az yanlış olmaya eğilimi gösteren ama yine de kalıyor.
+
+  Erken Optimizasyon Tüm Kötülüğün Kökü
+
+  Programcılar, programlarının performans kritik olmayan kısımlarının hızı hakkında düşünerek ya da endişelenerek muazzam miktarda zaman boşa harcarlar ve bu verimlilik çabaları hata ayıklama ve bakım göz önüne alındığında güçlü bir olumsuz etkiye sahiptir.
+
+  Küçük verimlilikleri, zamanın yaklaşık %97'sini unutmalıyız: erken optimizasyon tüm kötülüğün kökü. Yine de o kritik %3'te fırsatlarımızı kaçırmamalıyız.
+
+  - Donald Knuth
+
+  Boy-Scout Kuralı
+
+  Birisi kodun net olmadığı kadar açık olmayan herhangi bir kod gördüğünde, bunu hemen düzeltme fırsatını kullanmalıdır - ya da en azından birkaç dakika içinde.
+
+  Bu fırsat avcı refaktoring, Uncle Bob tarafından boy-scout kuralını takip etme olarak adlandırılır - kodu bulduğundan daha iyi bir durumda bırakmanız.
+
+  Kod kalitesi her değişiklikle bozulmaya eğilimi gösterir. Bu teknik borç ile sonuçlanır. Boy-Scout Prensibi bizi bundan kurtarır.
+
+  Bakımcı İçin Kod Yazma
+
+  Kod bakımı pahalı ve zor bir işlemdir. Diğer birini bakımcı olarak düşünerek ve sen bakımcı olsan bile değişiklikleri ona göre yap. Bir süre sonra kodu yabancı kadar hatırlayacaksın.
+
+  Her zaman kodunuzu bakımı yapacak kişinin şiddetli bir psikopat olduğunu ve nerede yaşadığını bildiğini düşünerek yaz.
+
+  En Az Şaşırtma Prensibi
+
+  En Az Şaşırtma Prensibi, bir sistemin bileşeninin çoğu kullanıcının bekleyeceği şekilde davranması gerektiğini belirtir. Davranış kullanıcıları şaşırtmamalı veya beklenmedik şekilde etkilememeli.
+
+  Kod, adı ve yorumların önerdiğini yapmalı. Konvansiyonlar takip edilmeli. Şaşırtıcı yan etkiler mümkün olduğunca kaçınılmalı.
+
+  # Projeye özgü kurallar
+
+  Angular'ı standalone bileşenlerle kullanıyorum
+  Novo Elements entegre ediyorum - novo-elements modülü
+
+  Dokümantasyon burada: https://bullhorn.github.io/novo-elements/docs/#/home
+  Github burada: https://github.com/bullhorn/novo-elements
+
+  Modül dosyam yok. Standalone bileşenler kullanıyorum
+
+  @Docs{
+    "library_name": "Novo Elements",
+    "documentation": "https://bullhorn.github.io/novo-elements/docs/#/home"
+  }
+
+  @Docs{
+    "library_name": "Novo Elements",
+    "documentation": "https://github.com/bullhorn/novo-elements"
+  }
 ---
 
 # .cursor

@@ -2,6 +2,7 @@
 name: "kotlin-springboot-best-practices-cursorrules-prompt-file"
 clean_name: "Kotlin Springboot Best Practices"
 description: "Cursor rules for Kotlin Springboot Best Practices."
+description_tr: "Kotlin Springboot en iyi uygulamaları için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,104 @@ path: "rules/kotlin-springboot-best-practices-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/kotlin-springboot-best-practices-cursorrules-prompt-file.mdc"
 body_length: 7205
 file_extension: ".mdc"
+body_tr: |-
+  # Kotlin Coding Best Practices for Spring Boot Development
+
+  ## Proje Yapısı ve Organizasyonu
+
+  1.	Kaynak kodunuzu controller, service, repository ve model gibi açıkça tanımlanmış paketlere gruplayarak endişeleri ayırın ve bakımlanabilirliği artırın.
+  2.	Dosya sisteminizi öyle düzenleyin ki her dizin Kotlin paket adını yansıtsın (örneğin com.myapp.users paketini src/main/kotlin/com/myapp/users altına yerleştirin).
+  3.	Her Kotlin dosyasını içerdiği birincil sınıf veya konsept adına göre adlandırın böylece kod tabanında gezinmek ve anlamak daha kolay olur.
+  4.	Utils.kt gibi muğlak dosya adlarından kaçının; bunun yerine dosyanın içeriğinin amacını yansıtan özlü ve anlamlı adlar kullanın.
+  5.	Spring Boot uygulamanızın giriş noktasını root paketine yerleştirin ve alt paketleri katman veya özelliğe göre yapılandırarak Spring'in bileşenleri verimli bir şekilde taraması ve organize etmesine yardımcı olun.
+
+  ## Kodlama Stili ve Kuralları
+
+  1.	Sınıf ve nesne adları için PascalCase, fonksiyonlar ve değişkenler için camelCase ve sabitler için UPPER_SNAKE_CASE kullanarak Kotlin adlandırma kurallarına uyun ve okunabilirliği artırın.
+  2.	Değişkenleri varsayılan olarak `val` kullanarak bildirin ve yalnızca mutasyon gerekli olduğunda `var` kullanın böylece daha güvenli ve öngörülebilir kod yazın.
+      ```kotlin
+      val maxConnections = 10    // immutable reference
+      var currentUsers = 0       // mutable, try to avoid if possible
+      ``` 
+  3.	Değişkenlerin kapsamını gerçekten kullanıldıkları yere (fonksiyonlar veya daha küçük bloklar içinde) sınırlayarak yanlışlıkla yanlış kullanımı önleyin ve kodu takip etmeyi kolaylaştırın.
+  4.	Kodunuzu tutarlı bir şekilde 4 boşluk girintisi, operatörler ve virgüller etrafında doğru boşluklandırma ve kısa, odaklanmış fonksiyonlar kullanarak biçimlendirin böylece netliği ve bakımlanabilirliği artırın.
+  5.	Akıllıca tek satırlık çözümler yerine açık ve ifadeli kod yazın; karmaşık mantığı ara değişkenlere veya iyi adlandırılmış fonksiyonlara ayırarak okunabilirliği artırın.
+  6.	Sınıfları, fonksiyonları ve değişkenleri tanımlayıcı bir şekilde adlandırarak amacı iletişim kurun ve '-Manager' veya '-Helper' gibi anlam katmayan muğlak son ekleri kullanmaktan kaçının.
+  7.	Property getter ve setter'ları basit ve ağır mantıktan uzak tutun; karmaşık davranış gerekiyorsa bunu ayrı bir metoda taşıyarak property erişimini öngörülebilir tutun.
+
+  ## İdiyomatik Kotlin Kullanımı
+
+  1.	DTO'lar ve entity'ler tanımlamak için data class kullanın böylece boilerplate kod yazmadan `equals()` ve `copy()` gibi yararlı metotları otomatik olarak elde edin.
+  2.	Aşırı yüklenmiş constructor'ları varsayılan ve adlandırılmış parametrelerle değiştirerek fonksiyon çağrılarını basitleştirin ve daha ifadeli hale getirin.
+      ```kotlin
+      // Kotlin – use default parameters
+      fun createConnection(host: String, secure: Boolean = true) { … }
+
+      createConnection("example.com")                      // uses default secure=true
+      createConnection(host = "test.com", secure = false)  // named arg for clarity
+      ``` 
+  3.	Uzun `if-else` zincirlerinin yerine `when` ifadeleri kullanarak daha temiz, okunabilir koşullu mantık yazın ve her durumu açıkça ele alın.
+  4.	Yardımcı sınıflar yerine extension function'lar oluşturarak mevcut tiplere yeniden kullanılabilir davranış eklemeyi daha doğal ve okunabilir bir şekilde yapın.
+      ```kotlin
+      fun String.capitalizeFirst(): String = replaceFirstChar { it.uppercaseChar() }
+
+      println("kotlin".capitalizeFirst())  // prints "Kotlin"
+      ```
+  5.	Tekrarı azaltmak ve nesne konfigürasyonunu veya null-safe işlemleri açıkça ifade etmek için `apply`, `let`, `also`, `run` ve `with` gibi scope function'ları kullanın.
+  6.	Değişkenleri yalnızca gerekli olduğunda nullable olarak bildirin ve safe-call operatörü (`?.`) ve Elvis operatörü (`?:`) kullanarak ele alın böylece runtime çökmelerini önleyin.
+  7.	Null değeri assert etme (`!!`) kullanmaktan kaçının ve bunun yerine fallback değerler veya açık null kontrolleri sağlayarak daha güvenli ve öngörülebilir kod yazın.
+  8.	Java API'lerinden gelen platform tiplerini hemen açık bir şekilde `String` veya `String?` olarak cast ederek ele alın böylece Kotlin kodunuzda null-ability belirsizliğinin yayılmasını önleyin.
+  9.	Manuel döngüler yerine `filter`, `map` ve `forEach` gibi Kotlin'in fonksiyonel collection işlemlerini kullanarak özlü ve ifadeli veri dönüşümü mantığı yazın.
+      ```kotlin
+      // Imperative approach
+      val activeUsers = mutableListOf<User>()
+      for (user in users) {
+          if (user.isActive) activeUsers.add(user)
+      }
+
+      // Idiomatic functional approach
+      val activeUsers = users.filter { it.isActive }
+      ``` 
+  10.	Mantık açık olduğunda basit fonksiyonları tek ifade fonksiyonlara dönüştürerek gereksiz söz dizimini ortadan kaldırın ve kod kısalığını artırın.
+      ```kotlin
+      fun toDto(entity: User) = UserDto(name = entity.name, email = entity.email)
+      ``` 
+  11.	Birleştirme yerine string template'leri (`$var` veya `${expression}`) kullanarak string'ler oluşturun ve temiz çok satırlı metinler için üçlü tırnaklı string'ler kullanın.
+
+  ## İmplementasyon Desenleri ve Tasarımı
+
+  1.	Constructor parametreleri aracılığıyla bağımlılıkları `val` kullanarak inject edin böylece onları değişmez tutun ve Spring ile Kotlin idiomlarına uygun olun.
+      ```kotlin
+      @Service
+      class OrderService(
+          private val orderRepo: OrderRepository,
+          private val notifier: Notifier
+      ) {
+          // ...
+      }
+      ``` 
+  2.	Sınıfları varsayılan olarak `final` tutun ve Spring'in 'all-open' plugin'i proxy generation'ı ele almasına izin verin böylece open modifier'ı manuel olarak eklemeniz gerekmez.
+  3.	Statik metotlar veya Java-style singleton'lar yerine gerçek singleton'lar veya durum içermeyen utility tutucular için Kotlin'in `object` bildirişini kullanın.
+  4.	Derin kalıtım hiyerarşilerine güvenmek yerine küçük, odaklanmış sınıfları birleştirerek veya üst düzey fonksiyonları kullanarak composition'u tercih edin.
+  5.	Bir tip sınırlı, kapalı bir varyant kümesine sahip olduğunda sealed class'lar tanımlayarak `when` ifadelerinde exhaustive işlemeyi zorunlu kılın ve tip güvenliğini artırın.
+      ```kotlin
+      sealed class Result<out T>
+      data class Success<T>(val data: T): Result<T>()
+      data class Error(val exception: Throwable): Result<Nothing>()
+      ``` 
+  6.	Sabit bir dizi model'lemek için enum class kullanarak mantık içerebilen magic string'ler veya raw değerler kullanmaktan kaçının.
+  7.	"bulunamadı" veya "geçersiz girdi" gibi beklenen senaryolar için istisna atmak yerine nullable tipleri, sealed class'ları veya result wrapper'ları döndürün.
+  8.	Stream'ler ve dosya handle'ları gibi kaynakları güvenli bir şekilde yönetmek ve kapatmak için `use` fonksiyonunu kullanın, bir istisna oluşsa bile kapalı olduğundan emin olun.
+      ```kotlin
+      FileInputStream("data.txt").use { stream ->
+          // read from stream 
+      } // stream is automatically closed here
+      ``` 
+  9.	Bileşenlerinizin görünürlüğünü mümkün olduğu kadar `private` veya `internal` kullanarak küçültün ve gerçekten gerekli olan şeyleri public olarak ifşa edin.
+  10.	Callback hell'e düşmeden temiz, asynchronous backend kodu yazmak için suspend fonksiyonlar ve `launch` veya `async` gibi coroutine builder'larla Kotlin coroutines kullanın.
+  11.	Özlü, ifadeli ve idiyomatik kod yazmak için `lazy`, `observable`, `infix` ve operator overloading gibi Kotlin standart kütüphanesi özelliklerinden yararlanın.
+  12.	JPA gereksinimlerini karşılarken modellerinizi güvenli ve thread-friendly tutmak için `val` alanları ve Kotlin'in JPA plugin'ini kullanarak değişmez data class entity'leri kullanın.
+  13.	Bağımlılık injection ve saf fonksiyonlar kullanarak iş mantığınız için unit test'ler yazarak test'i Spring'in kontekstinden bağımsız ve basit hale getirin.
 ---
 
 # Kotlin Coding Best Practices for Spring Boot Development

@@ -2,6 +2,7 @@
 name: "nextjs-typescript-app-cursorrules-prompt-file"
 clean_name: "Next.js TypeScript App"
 description: "Cursor rules for Next.js development with TypeScript integration."
+description_tr: "Next.js geliştirmesi için Cursor kuralları TypeScript entegrasyonuyla birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709

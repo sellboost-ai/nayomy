@@ -2,6 +2,7 @@
 name: "netlify-official-cursorrules-prompt-file"
 clean_name: "Netlify Official"
 description: "Cursor rules for Netlify development with official integration."
+description_tr: "Netlify geliştirmesi için Cursor kuralları ve resmi entegrasyon desteği."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,662 @@ path: "rules/netlify-official-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/netlify-official-cursorrules-prompt-file.mdc"
 body_length: 39360
 file_extension: ".mdc"
+body_tr: |-
+  <ProviderContextOverrides>
+  	// Geliştiriciler içeriği gerektiği gibi geçersiz kılabilirler, ancak hepsi bu bölüme yerleştirilmelidir.
+
+
+  </ProviderContextOverrides>
+
+  ProviderContextOverrides BÖLÜMÜNDEKI HERHANGI BİR KURAL, ProviderContext İçİndeki BELİRLİ KURALLARI GEÇERSİZ KILABİLİR
+
+  <ProviderContext version="1.0" provider="netlify">
+    ## Genel
+
+    - `.netlify` klasörü kullanıcı kodu için değildir. .gitignore listesine eklenmelidir
+    - içe aktarılan koda sürüm numaraları eklemeyin. (örneğin `@netlify/functions` kullanın, asla `@netlify/functions@VERSION` kullanmayın)
+    - **ASLA** CORS başlıkları eklemeyin (Access-Control-Allow-Origin gibi) kullanıcı bunları açıkça talep etmedikçe.
+    - başka bir dev komutu kullanıcı tarafından talep edilmediği sürece dev sunucusunu başlatmak için `netlify dev` kullanmayı tercih edin
+
+    # Yönergeler
+
+    - Kod yazabileceğiniz 4 türde bilişim sistemi vardır:
+      - Sunucusuz işlevler - genellikle işlemsel sunucu/API istekleri için kullanılır.
+      - Edge işlevleri - genellikle sunucuya ulaşmadan önce istekleri değiştirmek veya yanıtları kullanıcılara döndürmeden önce değiştirmek için kullanılan kod için.
+      - Arka plan işlevleri - asenkron çalışma için daha uzun süre çalışan işlevler.
+      - Planlanan işlevler - mantığı CRON tabanlı bir aralıkta çalışacak şekilde planlayın.
+    - Netlify Blobs, durumu depolama, veri depolama, vb. gerçekleştirmek için kullanılabilecek genel bir nesne depolamasıdır.
+    - Netlify Image CDN, derleme sürelerini etkilemeden veya yükleme sırasında görüntüleri optimize etmeden isteğe bağlı görüntü dönüşümlerini sağlar. Görüntüleri istemci yeteneklerine göre dinamik olarak optimize eder ve performans iyileştirmeleri için dönüşümleri önbelleğe alır. Görüntüleri dinamik olarak optimize ederken bunu kullanın. Geliştirme/derleme işlemi sırasında bir görüntüyü değiştirmeniz gerektiğinde bunu kullanmayın.
+    - Ortam değişkenleri, sırları, API anahtarlarını ve kodu dışında kontrol etmek istediğiniz veya kodda koymak için çok hassas olan diğer değerleri depolamak için kullanılabilir.
+
+
+    ## Netlify işlemi
+
+    - **ASLA** herhangi türde sunucusuz veya edge işlevini genel veya yayın dizinine koymayın
+    - açıkça talep edilmediği sürece varsayılan işlevler veya edge işlevler dizinini değiştirmeyin.
+    - işlevleri veya edge işlevleri yerleştirmek için HER ZAMAN doğru dizini doğrulayın
+
+    ### Sunucusuz işlevler ve edge işlevleri için bağlam nesnesi
+
+    Aşağıda, sunucusuz ve edge işlevlerine context bağımsız değişkeninden kullanılabilir alanlar/işlevler bulunmaktadır.
+
+    ```
+    {
+      account: {
+        id: string, // Site ve işlevle ilişkili Netlify takım hesabının benzersiz kimliği.
+      },
+      cookies: {
+        get: (name: string) => string | undefined, // Gelen istekten bir çerezi okur.
+        set: (options: { name: string; value: string; path?: string; domain?: string; secure?: boolean; httpOnly?: boolean; expires?: Date }) => void, // Giden yanıta CookieStore.set web standardını takip eden bir çerezi ayarlar.
+        delete: (nameOrOptions: string | { name: string; path?: string; domain?: string }) => void, // Giden yanıta CookieStore.delete web standardını takip eden bir çerezi siler.
+      },
+      deploy: {
+        context: string, // Dağıtım bağlamı (örn. production, deploy-preview).
+        id: string, // İşlevin ait olduğu dağıtımın benzersiz kimliği.
+        published: boolean, // İşlevin şu anda yayınlanan dağıtıma ait olup olmadığını gösterir.
+      },
+      geo: {
+        city: string, // İstemci konumunun şehir adı.
+        country: {
+          code: string, // ISO 3166 ülke kodu.
+          name: string, // Tam ülke adı.
+        },
+        latitude: number, // İstemci konumunun enlem koordinatı.
+        longitude: number, // İstemci konumunun boylam koordinatı.
+        subdivision: {
+          code: string, // ISO 3166 bölüm kodu (örn. eyalet veya il).
+          name: string, // Bölüm adı.
+        },
+        timezone: string, // Konumun saat dilimi.
+        postalCode: string, // Konumun bölgesel formatındaki posta kodu.
+        ip: string, // İstemci IP adresi.
+      },
+      params: Record<string, string>, // İşlev yolu yapılandırmasından rota parametreleri içeren nesne.
+      requestId: string, // Benzersiz Netlify istek kimliği.
+      server: {
+        region: string, // Dağıtımın çalıştığı bölge kodu (örn. us-east-1).
+      },
+      site: {
+        id: string, // Netlify sitesi için benzersiz kimlik.
+        name: string, // Sitenin Netlify alt etki alanı adı.
+        url: string, // Sitenin ana adresi; Netlify alt etki alanı veya özel bir etki alanı olabilir.
+      },
+    }
+    ```
+
+    ### `Netlify` genel nesnesi
+
+    - `Netlify` nesnesi genel kapsamda kullanılabilir.
+    - tüm sunucusuz ve edge işlevi türlerinde kullanılabilir
+
+    Aşağıdaki alanlara/işlevlere sahiptir:
+
+    ```
+    {
+      context: object | null, // Netlify'a özgü bağlam nesnesi - işlevin ikinci bağımsız değişkeniyle aynı. Yalnızca işlev işleyicileri veya alt kapsamlar içinde kullanılabilir; aksi takdirde, null döndürür.
+
+      env: {
+        delete: (name: string) => void, // Çağırma bağlamı içinde bir ortam değişkenini siler.
+        get: (name: string) => string | undefined, // Bir ortam değişkeninin dize değerini alır; tanımlı değilse undefined döndürür.
+        has: (name: string) => boolean, // Bir ortam değişkeninin var olup olmadığını kontrol eder; varsa true, aksi takdirde false döndürür.
+        set: (name: string, value: string) => void, // Çağırma bağlamı içinde bir ortam değişkenini ayarlar.
+        toObject: () => Record<string, string>, // Tüm ortam değişkenlerini ve değerlerini içeren bir nesne döndürür.
+      },
+    };
+    ```
+
+    ### Sunucusuz İşlevler (diğer adıyla İşlevler, diğer adıyla Senkron işlevler)
+    - Sunucusuz işlevler Node.js kullanır ve mümkün olduğunca yerleşik yöntemleri kullanmaya çalışmalıdır
+    - Yeni npm modülleri eklerken, "node_modules" dosyasının .gitignore içinde olduğundan emin olun
+    - HER ZAMAN bir işlevin en son biçimini kullanın.
+    - TypeScript kullanıyorsanız, `npm install @netlify/functions` adresinden türleri yüklediğinizden emin olun
+    - İşlev tanımında sarılı olmadığı sürece dışa aktarılan işlevin dışında genel mantık koymayın
+    - İşlevler dizininde başka ".js" dosyası varsa SADECE sade javascript kullanın.
+    - Diğer işlevler TypeScript ise VEYA mevcut işlev yoksa HER ZAMAN TypeScript kullanın.
+    - İlk bağımsız değişken, gelen HTTP isteğini temsil eden bir web platformu Request nesnesidir
+    - İkinci bağımsız değişken, özel bir Netlify bağlamı nesnesidir.
+    - İşlevlerin ayrıca erişilebilen genel bir `Netlify` nesnesi vardır.
+      - Koddaki ortam değişkenleriyle etkileşim için SADECE `Netlify.env.*` kullanın.
+    - İşlev dosyalarını `YOUR_BASE_DIRECTORY/netlify/functions` veya bir alt dizine yerleştirin.
+      - Sunucusuz işlevler dizini şu şekilde değiştirilebilir:
+        - **Netlify UI**: *Site yapılandırması > Derleme ve dağıtım > Sürekli dağıtım > Derleme ayarları*
+        - **`netlify.toml`**:
+          ```toml
+          [functions]
+            directory = "my_functions"
+        ```
+      - `netlify.toml` ayarları UI ayarlarını geçersiz kılar.
+    - Alt dizin kullanıyorsanız, giriş dosyasını `index.mts` olarak adlandırın veya alt dizin adıyla eşleştirin.
+      - Örnek geçerli işlev yolları:
+        - `netlify/functions/hello.mts`
+        - `netlify/functions/hello/index.mts`
+        - `netlify/functions/hello/hello.mts`
+    - Dosyaları `.mts` ile adlandırmak modern ES modülü sözdizimini etkinleştirir
+
+    #### En son Sunucusuz İşlev veya İşlev yapılarının örnekleri
+      - ```typescript
+          import type { Context, Config } from "@netlify/functions";
+
+          export default async (req: Request, context: Context) => {
+            // user code
+            return new Response("Hello, world!")
+          }
+
+          export const config: Config = {
+            // use this path instead of /.netlify/functions/{fnName}
+            path: "/hello-world"
+          };
+        ```
+      - ```javascript
+          export default async (req, context) => {
+            // user code
+            return new Response("Hello, world!")
+          }
+
+          export const config = {
+          // use this path instead of /.netlify/functions/{fnName}
+            path: "/hello-world"
+          };
+        ```
+    #### Sunucusuz işlevler için kod içi işlev yapılandırması ve yönlendirme
+    - bir `config` nesnesi dışa aktararak kod içi yapılandırma kullanmayı tercih edin. Config'in sahip olabileceği yapı aşağıda verilmiştir:
+    - config nesnesi kullanarak dostça bir yol sağlamayı tercih edin.
+    - SADECE sunucusuz işlevler varsayılan olarak `/.netlify/functions/{function_name}` yolunu kullanır.
+    - Bu config veya netlify.toml aracılığıyla belirli bir yol ayarlarsanız, yalnızca o yeni yolda kullanılabilir.
+    - path ve excludedPath, alt dize desenleri veya web platformundan URLPattern sözdizimini destekler.
+
+    ```
+    {
+      path: string | string[], // İşlevi tetikleyen URL yolunu tanımlar. Tek bir dize veya yol dizisi olabilir.
+      excludedPath?: string | string[], // İsteğe bağlı. İşlevi tetiklemekten hariç tutulması gereken yolları tanımlar.
+      preferStatic?: boolean, // İsteğe bağlı. True ise, işlevin CDN'deki mevcut statik varlıkları geçersiz kılmasını engeller.
+    }
+    ```
+
+    ### Arka Plan İşlevleri
+    - Uzun süre çalışan mantığı çalıştırmanız gerektiğinde ve bu mantığın hemen bir yanıt hesaplaması gerekmediğinde arka plan işlevlerini kullanın.
+    - Arka plan işlevlerinin kullanıcılara sunması gereken tüm veriler hesaplanmalı ve sunucusuz bir işlevin daha sonra okuyabileceği Netlify Blobs veya önceden yapılandırılmış bir veritabanı gibi bir yerde depolanmalıdır.
+    - Arka plan işlevleri standart Sunucusuz işlevlerle aynı şekilde çalışır ve aşağıdaki istisnalar dışında sözdizimsel olarak aynıdır
+      - "duvar saati" zamanı tarafından ölçülen 15 dakikalık bir zaman aşımına sahiptirler
+      - hemen 202 durum koduyla boş bir yanıt döndürürler. Bu işlevlerden dönüş değerleri yok sayılır.
+      - Arka plan işlevlerinin işlev dosya adı veya işlev dizininde "-background" soneki OLMASI GEREKIR (örneğin netlify/functions/hello-background.mts veya netlify/functions/hello-background/index.mts).
+
+    #### En son arka plan işlevi yapılarının örnekleri
+    - ```typescript
+        import { Context } from "@netlify/functions";
+
+        export default async (req: Request, context: Context) => {
+          await someLongRunningTask();
+
+          console.log("Done");
+        };
+      ```
+
+    - ```javascript
+        export default async (req, context) => {
+          await someLongRunningTask();
+
+          console.log("Done");
+        };
+      ```
+
+    ### Planlanan İşlevler
+    - Mantığın bir aralıkta çalışması gerektiğinde veya CRON zamanlaması yoluyla tanımlanabileceği zaman planlanan işlevleri kullanın.
+    - CRON ifadeleri UTC saat dilimine karşı yürütülür
+    - CRON sözdizimiz RFC'de tanımlanan uzantıları destekler ancak @reboot ve @annually hariçtir.
+    - Minimum aralık 1 dakikadır
+    - Planlanan işlevler 30 saniyelik bir yürütme limitine sahiptir
+    - Planlanan işlevler yanıt gövdeleri döndürmezler
+    - istek gövdesi, bir `next_run` özelliği içeren JSON kodlanmış bir nesnedir. ISO-8601 biçiminde bir dize olarak sonraki planlanan çağırmanın zaman damgasını temsil eder.
+    - kod içi yapılandırmaya ek olarak, zamanlamalar `netlify.toml` içinde tanımlanabilir. BUNU yalnızca tutarlılık için yapın veya tüm zamanlamaları bir yerde tutması açıkça talep edilirse.
+      ```toml
+        [functions."test-scheduled-function"]
+          schedule = "@hourly"
+      ```
+    - Planlanan işlevler SADECE yayınlanan dağıtımlarda çalışır. Dağıtım Önizlemelerinde veya dal dağıtımlarında çalışmazzlar.
+    - Yerel testler için, siteyi dev modunda çalıştırmak için Netlify CLI'ı ve planlanan işlevi tetiklemek için `netlify functions:invoke` [komutunu](mdc:https:/cli.netlify.com/commands/functions/#functionsinvoke) kullanın.
+      örnek:
+      ```bash
+        netlify functions:invoke myfunction
+      ```
+
+    #### En son arka plan işlevi yapılarının örnekleri
+    - ```typescript
+        import type { Config } from "@netlify/functions"
+
+        export default async (req: Request) => {
+            const { next_run } = await req.json()
+
+            console.log("Received event! Next invocation at:", next_run)
+        }
+
+        export const config: Config = {
+            schedule: "@hourly"
+        }
+
+      ```
+
+    - ```javascript
+        export default async (req) => {
+            const { next_run } = await req.json()
+
+            console.log("Received event! Next invocation at:", next_run)
+        }
+
+        export const config = {
+            schedule: "@hourly"
+        }
+
+      ```
+
+
+
+    ### Edge İşlevleri
+    - HER ZAMAN bir edge işlevinin en son biçimini kullanın.
+    - **DO NOT** CORS başlıkları eklemeyin (Access-Control-Allow-Origin gibi) açıkça talep edilmediği sürece.
+    - TypeScript kullanıyorsanız, `npm install @netlify/edge-functions` adresinden türleri yüklediğinizden emin olun
+    - İşlev tanımında sarılı olmadığı sürece dışa aktarılan işlevin dışında genel mantık koymayın
+    - İşlevler dizininde başka ".js" dosyası varsa SADECE sade javascript kullanın.
+    - Diğer işlevler TypeScript ise VEYA mevcut işlev yoksa HER ZAMAN TypeScript kullanın.
+    - İlk bağımsız değişken, gelen HTTP isteğini temsil eden bir web platformu Request nesnesidir
+    - İkinci bağımsız değişken, özel bir Netlify bağlamı nesnesidir.
+    - Edge işlevlerinin ayrıca erişilebilen genel bir `Netlify` nesnesi vardır.
+      - Koddaki ortam değişkenleriyle etkileşim için SADECE `Netlify.env.*` kullanın.
+    - İşlev dosyalarını `YOUR_BASE_DIRECTORY/netlify/edge-functions` veya bir alt dizine yerleştirin.
+      - Sunucusuz işlevler dizini şu şekilde değiştirilebilir:`netlify.toml`:
+        ```toml
+        [build]
+          edge_functions = "my-custom-directory"
+        ```
+
+    - Edge işlevleri Deno'yu çalışma zamanı olarak kullanır ve mümkün olduğunca yerleşik yöntemleri kullanmaya çalışmalıdır. Hangi yerleşiklerin kullanılacağını bilmek için kullanılabilir web API'lerinin listesine bakın.
+      - **Modül Desteği**:
+        - **Node.js yerleşik modüllerini**, **Deno modüllerini** ve **npm paketlerini** (beta) destekler.
+      - **Modülleri İçe Aktarma**:
+        - **Node.js yerleşik modülleri**: `node:` önekini kullanın (örn. `import { randomBytes } from "node:crypto"`).
+        - **Deno modülleri**: **URL içe aktarımlarını** kullanın (örn. `import React from "https://esm.sh/react"` veya bir **içe aktarma haritası**).
+        - **npm paketleri (beta)**: `npm install` aracılığıyla yükleyin ve paket adıyla içe aktarın (örn. `import _ from "lodash"`).
+        - **Yerel ikililer** (örn. Prisma) veya **dinamik içe aktarmalar** (örn. cowsay) içeren bazı npm paketleri çalışmayabilir.
+      - Yerine tam URL'ler için kısaltılmış adlar kullanan üçüncü taraf modüllerine başvurmak için bir **içe aktarma haritası** kullanabilirsiniz.
+      - **İçe Aktarma Haritası Kullanımı**:
+        - **ayrı bir içe aktarma harita dosyasında** eşlemeler tanımlayın (`deno.json` içinde değil).
+        - Dosya, proje dizininin herhangi bir yerine yerleştirilebilir.
+      - **Örnek İçe Aktarma Haritası (`import_map.json`)**:
+        ```json
+        {
+          "imports": {
+            "html-rewriter": "https://ghuc.cc/worker-tools/html-rewriter/index.ts"
+          }
+        }
+        ```
+      - **İçe Aktarma Haritalarını Etkinleştirme**:
+        - İçe aktarma haritasını `netlify.toml` içinde bildirin:
+          ```toml
+          [functions]
+            deno_import_map = "./path/to/your/import_map.json"
+          ```
+      - **Koddaki Kullanım**:
+        - Modüller artık ada göre içe aktarılabilir:
+          ```javascript
+          import { HTMLRewriter } from "html-rewriter";
+          ```
+    #### En son Edge işlevi yapılarının örnekleri
+      - ```typescript
+          import type { Context, Config } from "@netlify/edge-functions";
+
+          export default async (req: Request, context: Context) => {
+            // user code
+            return new Response("Hello, world!")
+          }
+
+          export const config: Config = {
+            path: "/hello-world"
+          };
+        ```
+      - ```javascript
+            export default async (req, context) => {
+              // user code
+              return new Response("Hello, world!")
+            }
+
+            export const config = {
+              path: "/hello-world"
+            };
+        ```
+
+    #### Edge İşlevleri için bağlam bağımsız değişkenindeki ek özellikler
+    - bunlar SADECE Edge İşlevlerinde kullanılabilir
+
+    ```
+    {
+      ...ALL OTHER Context fields/methods,
+
+      next: (options?: { sendConditionalRequest?: boolean }) => Promise<Response>, // İstek zincirinde sonraki öğeyi çağırır, isteğe bağlı olarak koşullu istekleri kullanır.
+
+      nextRequest: (request: Request, options?: { sendConditionalRequest?: boolean }) => Promise<Response>, // next() ile aynı, ancak açık bir Request nesnesi gerektirir.
+    }
+
+    ```
+
+    #### SADECE Edge İşlevlerinde Kullanılabilir Web API'leri
+    - console.*
+    - atob
+    - btoa
+    - Fetch API
+      - fetch
+      - Request
+      - Response
+      - URL
+      - File
+      - Blob
+    - TextEncoder
+    - TextDecoder
+    - TextEncoderStream
+    - TextDecoderStream
+    - Performance
+    - Web Crypto API
+      - randomUUID()
+      - getRandomValues()
+      - SubtleCrypto
+    - WebSocket API
+    - Timers
+      - setTimeout
+      - clearTimeout
+      - setInterval
+    - Streams API
+      - ReadableStream
+      - WritableStream
+      - TransformStream
+    - URLPattern API
+
+
+    #### Edge işlevleri için kod içi işlev yapılandırması ve yönlendirme
+    - bir `config` nesnesi dışa aktararak kod içi yapılandırma kullanmayı tercih edin. Config'in sahip olabileceği yapı aşağıda verilmiştir:
+    - config nesnesi kullanarak dostça bir yol sağlamayı tercih edin.
+    - Edge işlevleri bir yol deseniyle yapılandırılır ve yalnızca bu desenlerle eşleşen yollar edge işlevini çalıştıracaktır
+    - path ve excludedPath, alt dize desenleri veya web platformundan URLPattern sözdizimini destekler.
+    - açıkça diğer özellikleri değiştirmesi talep edilmediği sürece, işlevler oluştururken yalnızca path, pattern, excludedPath ayarlayın.
+
+    ```
+    {
+      path?: string | string[], // Edge işlevinin çalışması gereken yolları tanımlayan URLPattern ifadesi. '/' ile başlamalıdır.
+      excludedPath?: string | string[], // İsteğe bağlı. Yürütmeden hariç tutulacak yolları tanımlar. '/' ile başlamalıdır.
+      pattern?: RegExp | RegExp[], // `path` alternatifi. Yol eşleştirme için regex kullanır.
+      excludedPattern?: RegExp | RegExp[], // İsteğe bağlı. Belirli rotaları hariç tutmak için regex desenleri tanımlar.
+      method?: string | string[], // İsteğe bağlı. İşlevi tetiklemesi gereken HTTP yöntemlerini belirtir (örn. "GET", ["POST", "PUT"]).
+      onError?: "continue" | "fail" | "fallback", // İsteğe bağlı. İşlevin hataları nasıl işleyeceğini kontrol eder.
+      cache?: 'manual', // İsteğe bağlı. 'manual' olarak ayarlanırsa yanıt önbelleğini etkinleştirir.
+    } = {
+      path: "", // Varsayılan değer; işlev başına ayarlanmalıdır.
+    };
+    ```
+
+    #### netlify.toml'de Edge İşlevlerini Yapılandırma
+    - SADECE satır içi bildirimler yerine işlev sırası denetimi için `netlify.toml` kullanın.
+    - Edge işlevi sıralama gereksinimleri yoksa `netlify.toml` kullanmayın.
+    - Sırayı kontrol ederken, sıra kontrolü için tüm edge işlevlerini dahil etmek önemlidir.
+
+    - **`netlify.toml`'de Edge İşlevleri Bildirin**:
+      - Aynı yoldaki birden fazla edge işlevine açık yürütme sırası ile izin verir.
+      - İşlevler **yukarıdan aşağıya** çalışır; önbelleğe alınan işlevler her zaman son çalışır.
+
+    - **Edge İşlev Özellikleri**:
+      - `function`: Edge işlevinin adı.
+      - `path`: İşlevi tetiklemek için URL deseni ('/' ile başlamalıdır).
+      - `excludedPath`: `path`'dan belirli rotaları hariç tutar (dize veya dizi destekler).
+      - `pattern`: Regex tabanlı yol eşleştirmesi.
+      - `excludedPattern`: Belirli regex desenleri hariç tutar (tek veya dizi).
+      - `cache`: Yanıt önbelleğini etkinleştirir (önbelleğe alınan işlevler sıradaki diğerlerinden sonra çalışır) 'manual' olarak ayarlayarak başlayın.
+
+    - **Netlify.toml yapılandırma örnekleri**
+      ```toml
+      [[edge_functions]]
+        path = "/admin"
+        function = "auth"
+
+      [[edge_functions]]
+        path = "/admin"
+        function = "injector"
+        cache = "manual"
+
+      [[edge_functions]]
+        path = "/blog/*"
+        function = "auth"
+
+      [[edge_functions]]
+        path = "/blog/*"
+        function = "rewriter"
+
+      [[edge_functions]]
+        pattern = "/products/(.*)"
+        excludedPattern = "/products/things/(.*)"
+        function = "highlight"
+
+      [[edge_functions]]
+        path = "/*"
+        excludedPath = "/img/*"
+        function = "common"
+    ```
+    - **Edge İşlevleri için Yürütme Sırası**:
+      1. **Yapılandırma tabanlı** edge işlevleri (`netlify.toml`) ilk olarak çalışır.
+      2. **Çerçeve tarafından oluşturulan** edge işlevleri, kullanıcı tanımlı işlevlerden önce yürütülür.
+      3. **Önbelleğe alınmayan** edge işlevleri önbelleğe alınan işlevlerden önce yürütülür.
+      4. **Satır içi bildirilen** edge işlevleri yinelenen `netlify.toml` işlevlerini geçersiz kılar.
+      5. **Birden fazla satır içi edge işlevi** dosya adına göre alfabetik olarak çalışır.
+
+    - **Uyarılar & Özel Durumlar**:
+      - Bir edge işlevi yanıt döndürürse, o yol için yönlendirmeler OLUŞMAZ.
+      - Edge işlevleri, statik yönlendirme hedefleri için yeniden yazılmış ŞEKILDE ÇALIŞMAZ.
+      - `fetch()` veya `URL()` bir **yeni istek zinciri** tetikler, eşleşen işlevleri yeniden çalıştırır.
+      - İşlemi yeniden tetiklemek yerine işlemeye devam etmek için `context.next()` kullanın.
+      - İşlev hata davranışı **hata işleme yapılandırmasına** bağlıdır.
+
+    #### Edge işlevleri sınırlamaları
+    - 20 MB (sıkıştırılmış) kod boyutu sınırı
+    - Dağıtım başına 512 MB bellek sınırı
+    - İstek başına 50ms CPU yürütme süresi (bekleme süresi hariç)
+    - 40 saniye Yanıt başlığı zaman aşımı
+    - **Bu Netlify özellikleriyle uyumlu değildir**:
+      - Netlify'ın bölünmüş test özelliği
+      - _headers veya netlify.toml yapılandırmasından Özel Başlıklar (temel kimlik doğrulaması dahil)
+      - Edge işlevleri tarafından sunulan yollar üzerinde Netlify önceden işleme özelliği
+    - Birden fazla çerçeve adapterinin çakışan edge işlevleri oluşturabileceğinin farkında olun
+    - **Kısıtlamalar**:
+      - İstekleri yalnızca aynı sitedeki URL'lere yazabilir (harici içerik için `fetch()` kullanın)
+      - Önbelleğe alınan edge işlevleri mevcut statik dosyaları geçersiz kılar
+      - Yerel önbelleğe alma yok; HTTP önbellek başlıkları yerel test sırasında yok sayılır
+      - Netlify'ın HIPAA uyumlu barındırma sunumuna dahil değildir
+
+
+    ## Netlify Blobs
+
+    - Düz bir dosya uygun bir veri katmanı değilse, açıkça bir araç kullanması talep edilmediği veya dev'in ilişkisel yapılar veya databaselere daha uygun arama oluşturması gerekmedikçe, Netlify Blobs'u yeni bir veritabanı oluşturmak yerine tercih edin
+    - Blobs kullanmak için yapılandırma gerektirmez; her şey otomatik olarak sağlanır ve geliştiriciler herhangi bir Netlify işleminden onları başlayabilirler. API tüm işlem türleri arasında aynıdır.
+    - `@netlify/blobs` NPM modülünün yüklü olduğundan emin olun
+    - Gereksinimler ve sınırlamalar
+      - Fetch API desteği gerektirir (Node.js 18+ önerilir) - bir getirme işlevi sağlanabilir
+      - Mağaza adları 64 baytı aşamaz
+      - Nesne anahtarları 600 baytı aşamaz
+      - Maksimum nesne boyutu: 5GB
+      - Yerel geliştirme, korumalı bir depo kullanır
+
+
+    ### Netlify Blobs API
+
+    ```typescript
+      export interface BlobMetadata {
+        [key: string]: any;
+      }
+
+      export interface BlobData<T = string> {
+        data: T | null;
+        etag: string;
+        metadata: BlobMetadata;
+      }
+
+      export interface ListResult {
+        blobs: { etag: string; key: string }[];
+        directories?: string[];
+      }
+
+      interface GetKeyOptions {
+        type?: 'arrayBuffer' | 'blob' | 'json' | 'stream' | 'text'
+      }
+
+      interface GetKeyAndMetadataOptions {
+        type?: 'arrayBuffer' | 'blob' | 'json' | 'stream' | 'text',
+        etag?: string;
+      }
+
+      // BUNLAR SADECE DEPO YÖNTEMLERİDİR. YENİ OLANLAR YAPMAYIN
+      interface Store {
+
+        // Bir blob girişi oluşturur veya üzerine yazar.
+        // örnek: await store.set('key-name', 'contents-of key');
+        // - Talimata verilmediği sürece ASLA meta veri eklemeyin.
+        set(key: string, value: ArrayBuffer | Blob | string, { metadata?: object }): Promise<void>;
+
+        // JSON-serileştirilebilir bir nesneyi depolar.
+        // örnek: await store.setJSON('key-name', {version: 'a', someBoolean: true});
+        // - Talimata verilmediği sürece ASLA meta veri eklemeyin.
+        setJSON(key: string, value: any, { metadata?: object }): Promise<void>;
+
+        // Depolanan bir blob'u alır.
+        // örnek: await store.get('key-name');
+        // - İkinci arg'ı ASLA açık bir 'arrayBuffer' | 'blob' | 'json' | 'stream' | 'text' türüne ihtiyacınız olmadığı sürece eklemeyin.
+        // - JSON.parse(blob) kullanmak yerine store.get('key-name', {type: 'json'}) kullanın
+        // - blob kayıpsa, vaadi null değerle çözer
+        get(key: string, getOpt?: GetKeyOptions): Promise<any | null>;
+
+        // Meta verisi ile birlikte bir blob alır
+        // örnek: await store.getWithMetadata('key-name');
+        // - İkinci getOpts arg'ı ASLA açık bir türe veya kontrol etmek için bir etag'a ihtiyacınız olmadığı sürece eklemeyin.
+        // - Bunun güvenilir bir şekilde mevcut olmadıkça eklenmekten KAÇININ ancak eğer bir etag sağlanırsa, yalnızca depolanan etag'dan farklıysa blob'u döndürecektir.
+        // - blob kayıpsa, vaadi null değerle çözer
+        getWithMetadata(key: string, getOpts?: GetKeyAndMetadataOptions): Promise<{ data: any, etag: string, metadata: object } | null>;
+
+        // Verileri İNDİRMEDEN bir blob'un meta verilerini alır.
+        // örnek: await store.getMetadata('key-name');
+        // - İkinci getOpts arg'ı ASLA açık bir türe veya kontrol etmek için bir etag'a ihtiyacınız olmadığı sürece eklemeyin.
+        // - Bunun güvenilir bir şekilde mevcut olmadıkça eklenmekten KAÇININ ancak eğer bir etag sağlanırsa, yalnızca depolanan etag'dan farklıysa blob'u döndürecektir.
+        // - blob kayıpsa, vaadi null değerle çözer
+        getMetadata(key: string, getOpts?: GetKeyAndMetadataOptions): Promise<{ etag: string, metadata: object } | null>;
+
+        // Depodaki blob'ları isteğe bağlı hiyerarşik tarama ile listeler.
+        // örnek:
+        //      const { blobs } = await store.list()
+        //      // blobs === [ { etag: 'etag1', key: 'some-key' }, { etag: 'etag2', key: 'another-key' } ]
+        //
+        // - Aranan verileri azaltmak için açık bir ihtiyacınız olmadığı sürece ASLA options arg'ı eklemeyin.
+        //    -- SADECE aranan verileri azaltmanız gerekiyorsa, blob'ları alacak şekilde `prefix: 'some-prefix'` kullanın o önek değeriyle başlayarak. Tam dizin yolunu `key` üzerinde dahil etmek için `directories: true` kullanın
+        // - Varsayılan olarak, list() yöntemi tüm sayfaları alır, yani her zaman tam sonuç listesini alırsınız. Bu yavaş veya bellek yoğun olabilir. Sayfalandırmak için, yöntemi blob'lar arasında döngü yapmanızı sağlayan bir AsyncIterator'a çevirmek için options'a `paginate: true` iletin.
+        // - depo yolu boşsa, blob'lar vaadi boş dizi ile çözer
+        list(options?: { directories?: boolean, paginate?: boolean. prefix?: string }): Promise<{ blobs: BlobResult[], directories: string[] }> | AsyncIterable<{ blobs: BlobResult[], directories: string[] }>
+
+        // Bir blob'u siler.
+        // örnek: await store.delete('key-name');
+        // - Dönüş değeri, silinecek bir nesne olup olmadığına bakılmaksızın, her zaman `undefined` olarak çözülür.
+        delete(key: string): Promise<void>;
+      }
+
+      interface GetDeployStoreOptions extends Partial<ClientOptions> {
+        deployID?: string;
+        name?: string;
+        region?: Region;
+      }
+
+      // Blob'ları yönetmek için bir depo örneği döndürür. Bu, tüm dağıtımlar arasında genel kapsamlı verilerdir.
+      // örnek: const store = getStore('my-store');
+      // - SADECE kullanıcının güçlü tutarlılığa ihtiyacı varsa options bağımsız değişkenini ekleyin
+      export function getStore(name: string, options?: { consistency?: 'strong' | 'eventual' }): Store;
+
+      // Dağıtıma bağlı blob'ları yönetmek için bir dağıtıma özgü depo örneği döndürür.
+      // örnek: const store = getDeployStore('my-store');
+      // - SADECE kullanıcının güçlü tutarlılığa ihtiyacı varsa options bağımsız değişkenini ekleyin
+      declare const getDeployStore: (input?: GetDeployStoreOptions | string) => Store;
+      interface GetStoreOptions extends Partial<ClientOptions> {
+          deployID?: string;
+          name?: string;
+      }
+
+      // Bir sitede kullanılabilir tüm depoları listeler.
+      // örnek:
+      //    const { stores } = await listStores();
+      //      // [ "beauty", "construction" ]
+      // - Varsayılan olarak, listStores() yöntemi tüm sayfaları alır, yani her zaman tam sonuç listesini alırsınız. Bu yavaş veya bellek yoğun olabilir. Sayfalandırmak için, blob'lar arasında döngü yapmanızı sağlayan bir AsyncIterator'a çevirmek için options'a `paginate: true` iletin.
+      // - Sayfalandırılmıyorsa options'ı GEÇMEYIN.
+      declare function listStores(options?: {
+          paginate?: boolean;
+      }): Promise<ListStoresResponse> | AsyncIterable<ListStoresResponse>;
+
+      interface ListStoresResponse {
+          stores: string[];
+          next_cursor?: string;
+      }
+
+    ```
+
+    ## Dosya Tabanlı Yüklemeler
+    Dosya tabanlı yüklemelerle, site derlemesi tamamlandıktan sonra blob'ları dağıtıma özgü depolara yazın. Netlify ile entegre olan çerçeveler ve diğer araçlar için kullanışlıdır, çünkü bir derleme eklentisi gerektirmez.
+
+    Dosyaları dağıtıma özgü `.netlify/blobs/deploy/*` içine koyun
+    ```
+    .netlify/
+    └── blobs/
+       └── deploy/
+       	└── beauty/
+       	   └── nails.jpg
+    ```
+    Dosya yükleme akışları aracılığıyla bir blob'a meta veri eklemek için, ilgili blob dosya adıyla ön takılı bir JSON dosyası ve .json uzantısı içerir. Örneğin:
+    ```
+    └── blobs/
+       └── deploy/
+       	└── beauty/
+       	   ├── nails.jpg
+       	   └── $nails.jpg.json
+    ```
+
+    ## Blob tutarlılık modelleri
+    - Varsayılan olarak, blob'lar "sonuç olarak tutarlıdır" - Hızlı okumalar, güncellemeler/silmeler 60 saniye içinde yayılır.
+    - Güncellemelerin daha yavaş okumalar pahasına hemen görünür olmasını sağlayan güçlü tutarlılığa sahip olmak için, depo örneği oluşturmada `consistency` alanını `'strong'` olarak ayarlayın.
+    - Yerleşik eşzamanlılık denetimi yoktur, son yazma kazanır. Eşzamanlılık garantileri gerekiyorsa nesne kilitleme mekanizmaları ekleyin.
+
+    Örnek:
+    ```javascript
+    const store = getStore({ name: "animals", consistency: "strong" });
+    await store.set("dog", "dog");
+    const dog = await store.get("dog");
+    ```
+
+    ## Depolama kapsamları
+    - blob'lar dağıtıma özgü bir kapsamda veya genel kapsamda depolanabilir
+    - dağıtıma özgü blob'lar dağıtımlarla senkronize olur ve dağıtım silme işlemleriyle kaldırılır. `getDeployStore()` dağıtıma özgü depoları etkileşim kurmak için kullanılır.
+    - genel kapsam blob'ları otomatik olarak temizlenmez ve tüm dallar arasında tutarlıdır. `getStore()` genel kapsam için kullanılır.
+    - Eklentileri derle ve dosya tabanlı yüklemeler dağıtıma özgü depolara yazmalıdır.
+    - **HER ZAMAN** Genel kapsamda mantık kaydediliyorsa, üretim dışı verilerin bu genel depolara kaydedilmediğinden emin olun. Bu, üretim verilerini test verilerinden izole tutar. Bunu yapmak için ortamı kontrol edin ve ortama bağlı olarak hangi depoyu kullanacağını seçin.
+
+    #### Blob kullanımı örnekleri
+
+    ```javascript
+      // dağıtım deposuna temel yazma
+      import { getDeployStore } from "@netlify/blobs";
+      const store = getDeployStore("construction");
+    ```
+
+    ```javascript
+      // genel depoya temel yazma
+      import { getStore } from "@netlify/blobs";
+      const store = getStore("construction");
+    ```
+
+    ```javascript
+      // üretimde genel depo kullanmak, aksi takdirde dağıtım kapsamı deposu kullan
+      import { getStore, getDeployStore } from "@netlify/blobs";
+
+      function getBlobStore(...storeOptions){
+
+        if((Netlify.context?.deploy.context === 'production'){
+          return getStore
 ---
 
 <ProviderContextOverrides>

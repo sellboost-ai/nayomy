@@ -2,6 +2,7 @@
 name: "htmx-flask-cursorrules-prompt-file"
 clean_name: "Htmx Flask"
 description: "Cursor rules for HTMX development with Flask integration."
+description_tr: "HTMX geliştirmesi için Cursor kuralları, Flask entegrasyonu ile."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,48 @@ path: "rules/htmx-flask-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-flask-cursorrules-prompt-file.mdc"
 body_length: 1077
 file_extension: ".mdc"
+body_tr: |-
+  ```markdown
+  // HTMX ile Flask .cursorrules
+
+  // HTMX ve Flask en iyi uygulamaları
+
+  const htmxFlaskBestPractices = [
+    "Flask'ın render_template'ini sunucu tarafı renderlaması için kullan",
+    "Form işleme için Flask-WTF'yi uygula",
+    "URL oluşturmak için Flask'ın url_for'ını kullan",
+    "JSON yanıtları için Flask'ın jsonify'ını kullan",
+    "Veritabanı işlemleri için Flask-SQLAlchemy'yi uygula",
+    "Modüler uygulamalar için Flask'ın Blueprint'ini kullan",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  app/
+    templates/
+    static/
+      css/
+      js/
+    models/
+    routes/
+    __init__.py
+  config.py
+  run.py
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. HTMX özellikleri ile Jinja2 şablonlarını kullan
+  2. Flask-WTF ile uygun CSRF koruması uygula
+  3. HTMX isteklerini işlemek için Flask'ın request nesnesini kullan
+  4. Veritabanı göçleri için Flask-Migrate'i kullan
+  5. Uygun hata işleme ve logging'i uygula
+  6. Flask'ın uygulama fabrikası modelini takip et
+  7. Konfigürasyon için ortam değişkenlerini kullan
+  `;
+  ```
 ---
 
 // HTMX with Flask .cursorrules

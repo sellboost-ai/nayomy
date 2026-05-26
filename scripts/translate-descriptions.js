@@ -54,6 +54,7 @@ function parseFile(path) {
 const dirs = [
   { dir: join(ROOT, 'src', 'content', 'skills'), prefix: 'skill', field: 'description_en' },
   { dir: join(ROOT, 'src', 'content', 'mcp'), prefix: 'mcp', field: 'description' },
+  { dir: join(ROOT, 'src', 'content', 'cursor-rules'), prefix: 'cursor', field: 'description' },
 ];
 
 const requests = [];

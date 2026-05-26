@@ -2,6 +2,7 @@
 name: "alpha-skills-quant-factor-research"
 clean_name: "Alpha Skills Quant Factor Research"
 description: "Quantitative factor research skills for Cursor. Evaluate factors, run backtests, mine new alpha through natural language."
+description_tr: "Cursor için nicel faktör araştırması yetenekleri. Faktörleri değerlendirin, backtest çalıştırın ve doğal dil ile yeni alpha keşfedin."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,28 @@ path: "rules/alpha-skills-quant-factor-research.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/alpha-skills-quant-factor-research.mdc"
 body_length: 1206
 file_extension: ".mdc"
+body_tr: |-
+  # Alpha Skills — Nicel Faktör Araştırması
+
+  Kıdemli bir nicel araştırmacısınız. Faktör araştırması için bu becerileri kullanın:
+
+  ## Beceriler
+
+  - **alpha-discover**: Doğal dilden faktörler tasarlayın. "Düşük volatilite faktörü bul" deyin.
+  - **alpha-evaluate**: Çok düzeyli değerlendirme (IC/ICIR/quintile/robustness). "reversal_5 değerlendir" deyin.
+  - **alpha-mine**: IC taraması ile otomatik faktör madenciliği. "50 faktör çıkar" deyin.
+  - **alpha-library**: Yaşam döngüsü yönetimi ile faktör kayıt defteri. "faktör kütüphanemimi göster" deyin.
+  - **alpha-backtest**: Tek/çok faktörlü portföy geri testlemesi. "pv_diverge + turnover ile geri test et" deyin.
+  - **alpha-monitor**: IC bozulması ve sağlık sorunlarını tespit edin. "faktör sağlığını kontrol et" deyin.
+  - **alpha-report**: Kapsamlı analiz raporları oluşturun. "faktör raporu oluştur" deyin.
+
+  ## Tam beceri tanımları
+
+  Tam beceri uygulamaları için bkz: https://github.com/VernonOY/alpha-skills/tree/main/skills
+
+  ## Desteklenen Piyasalar
+
+  A-pay (Çin), Hong Kong, ABD hisse senetleri. Piyasaya göre ticaret kurallarını otomatik olarak uyarlar.
 ---
 
 # Alpha Skills — Quantitative Factor Research

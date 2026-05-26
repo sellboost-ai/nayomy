@@ -2,6 +2,7 @@
 name: "nextjs-supabase-todo-app-cursorrules-prompt-file"
 clean_name: "Next.js Supabase Todo App"
 description: "Cursor rules for Next.js development with Supabase integration for a Todo app."
+description_tr: "Next.js geliştirmesi için Cursor kuralları, Todo uygulaması ile Supabase entegrasyonu dahil."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709

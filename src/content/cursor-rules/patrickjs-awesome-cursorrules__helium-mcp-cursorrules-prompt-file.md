@@ -2,6 +2,7 @@
 name: "helium-mcp-cursorrules-prompt-file"
 clean_name: "Helium Mcp"
 description: "Cursor rules for Helium Mcp."
+description_tr: "Helium Mcp için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,63 @@ path: "rules/helium-mcp-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/helium-mcp-cursorrules-prompt-file.mdc"
 body_length: 4431
 file_extension: ".mdc"
+body_tr: |-
+  # Cursor'da Helium MCP
+
+  Kullanıcının projesi veya sorusu **haber**, **medya yanlılığı**, **piyasalar**, **opsiyonlar** veya **finansal meme'ler** içeriyorsa, başlıkları, fiyatları veya Yunanlıları tahmin etmek yerine **Helium MCP araçlarını** (etkinleştirilmişse) tercih edin. Helium, [Helium Trades](https://heliumtrades.com) tarafından sunulan bir barındırılan MCP hizmetidir; upstream belgeler ve kaynak kodu [github.com/connerlambden/helium-mcp](https://github.com/connerlambden/helium-mcp) adresinde yer almaktadır.
+
+  ## Sunucuyu Cursor'da etkinleştirin
+
+  Barındırılan endpoint'e işaret eden akışkan bir HTTP MCP girdisi ekleyin (ücretsiz katman için API anahtarı gerekli değildir; ücretli katmanlar MCP sayfasından anahtarlar kullanır):
+
+  ```json
+  {
+    "mcpServers": {
+      "helium": {
+        "url": "https://heliumtrades.com/mcp"
+      }
+    }
+  }
+  ```
+
+  Alternatif: iş akışınız yerel bir işlem gerektiriyorsa `npx @mcp-get-community/server-helium` aracılığıyla stdio köprüsü (o paketin README'sinde `HELIUM_MCP_URL` geçersiz kılmaları görmek için).
+
+  ## Agent için temel kurallar
+
+  1. **Araçları çağırın, veri uydurmayin** — Makale başlıkları, yanlılık puanları, fiyatlar, tahminler, opsiyon adil değerleri veya meme metadatası oluşturmayın. Uygun araç ile getirin, ardından dönen sonuçları özetleyin ve alıntı yapın.
+  2. **Yinelenen çağrıları en aza indirin** — Toplu akıl yürütme: akış başına görev başına bir `get_ticker` ve kullanıcı yenileme talep etmedikçe; aynı konuşmada hala ilgili olan önceki araç çıktısını yeniden kullanın.
+  3. **Sınırlara saygı gösterin** — Halk katmanı mütevazı bir ücretsiz sorgu payına sahiptir; paralel çağrıları spam yapmasından kaçının. Bir çağrı kota veya hız sınırı nedeniyle başarısız olursa, bunu söyleyin ve istekleri aralama veya [heliumtrades.com/mcp-page](https://heliumtrades.com/mcp-page/) aracılığıyla yükseltme yapma önerisinde bulunun.
+  4. **İstemcinin araç listesine güvenin** — Barındırılan sunucu aşağıda **dokuz** birinci sınıf araç belgelendirir. Cursor derlemeniz farklı bir sayı veya ad listeliyorsa, MCP panelinden canlı `tools/list` çıktısını izleyin.
+
+  ## Araç seçim kılavuzu
+
+  Kullanıcı anahtar kelimeler ile eşleşen **ham makaleler** istediğinde ve isteğe bağlı filtreler (kaynak, kategori, tarih penceresi, minimum paylaşım, sıralama) **`search_news`** kullanın. "X hakkında outlet'ler ne söylüyor?" ve kanıt toplama için iyi.
+
+  Kullanıcı **çoklu outlet sentezi** (sol/merkez/sağ tarzı denge) istediğinde, özet ve çıkarımlar ve ticker'lar ile—bireysel makale dökümleri değil— **`search_balanced_news`** kullanın.
+
+  Kullanıcı bir **outlet** (örneğin "Fox News", "CNN") adlandırıp **kurumsal yanlılık profilleri**, imza cümleler, benzer outlet'ler ve isteğe bağlı son makale çözümlemeleri istediğinde **`get_source_bias`** kullanın.
+
+  Kullanıcı **tek bir makale URL'si** sağlayıp o sayfa için **boyut başına yanlılık puanlaması** istediğinde **`get_bias_from_url`** kullanın.
+
+  Kullanıcı **peyzaj görünümü** istediğinde (aynı anda birçok kaynak, sıralanmış/outlet'leri karşılaştırma) **`get_all_source_biases`** kullanın. Bu ağır olabilir; derinlik yerine genişlik istediklerini onaylayın.
+
+  **Hisse senetleri, ETF'ler veya kripto** için **`get_ticker`** kullanın: spot bağlam, boğa/ayı anlatısı, tahmin tarzı çıktı, IV rank, volatilite bağlamı ve **o sembol için Helium tarafından döndürülen opsiyon stratejisi içeriğine bağlantılar**.
+
+  Kullanıcı **tek bir listelenen opsiyon** (dayanak varlık, kullanım fiyatı, vade sonu `YYYY-MM-DD`, çağrı/satış) belirttiğinde ve Helium modellerinden **ML adil değeri** ve **ITM olasılığı** istediğinde **`get_option_price`** kullanın—broker kotasyonları değil.
+
+  Kullanıcı **sıralanmış opsiyon yapıları** (kısa vol vs uzun vol paketleri, edge tarzı sıralama) istediğinde **`get_top_trading_strategies`** kullanın. Kullanıcı olumsallık vs ödül/risk vs tarihsel performans önemsediğinde sıralama tercihini iletin.
+
+  **Anlamsal meme arama** (başlık/OCR'ye karşı anahtar kelimeler), katılım sayıları ve görüntü referansları için **`search_memes`** kullanın—finansmana bitişik kültür/pazar duyarlılığı için kullanışlı.
+
+  ## Araç çağrılarından sonra yanıt stili
+
+  - **Cevap** ile başlayın, ardından destekleyici metriklerin **kompakt madde işaretleri** (yanlılık boyutları, fiyat, tahmin aralığı, strateji adları, meme katılımı).
+  - **Sınırlamaları** açık olarak adlandırın: model çıktıları yatırım tavsiyesi değildir; haber kapsamı hızlı piyasalara geç kalabilir; meme OCR gürültülü olabilir.
+  - Haberleri ve piyasaları karıştırırken, fazlalıklı çakışan aramalar yerine **araçları mantıksal olarak sıralayın** (ör. `search_balanced_news` → bahsedilen ticker'lar için `get_ticker`).
+
+  ## Güvenlik ve gizlilik
+
+  **Sırları** araç bağımsız değişkenlerine yapıştırmayın. Makale URL'leri izleyiciler içerebilir; kullanıcının sağladığı kanonik makale bağlantılarını tercih edin. İlgisiz özel repo içeriğini arama sorgularına sızdırmayın.
 ---
 
 # Helium MCP in Cursor

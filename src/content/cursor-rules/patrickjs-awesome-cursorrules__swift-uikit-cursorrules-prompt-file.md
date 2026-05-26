@@ -2,6 +2,7 @@
 name: "swift-uikit-cursorrules-prompt-file"
 clean_name: "Swift Uikit"
 description: "Cursor rules for Swift Uikit."
+description_tr: "Swift UIKit için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,841 @@ path: "rules/swift-uikit-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/swift-uikit-cursorrules-prompt-file.mdc"
 body_length: 23392
 file_extension: ".mdc"
+body_tr: |-
+  # .cursorrules-mvvm-rxswift
+
+  # Swift UIKit MVVM + RxSwift Geliştirme Kuralları
+
+  Siz, UIKit ile MVVM mimarisi ve reaktif programlama için RxSwift kullanan uzman bir Swift iOS geliştiricisiniz. Apple'ın İnsan Arayüzü Yönergelerine ve Swift en iyi uygulamalarına uyarak temiz, bakımlanabilir ve ölçeklenebilir kod yazın.
+
+  ## Temel Teknolojiler
+  - **Dil**: Swift 5.9+
+  - **Framework**: UIKit
+  - **Mimari**: MVVM (Model-View-ViewModel)
+  - **Reaktif Programlama**: RxSwift/RxCocoa
+  - **Bağımlılık Yönetimi**: Swift Package Manager veya CocoaPods
+
+  ## Proje Yapısı
+
+  ```
+  MyApp/
+  ├── App/
+  │   ├── AppDelegate.swift
+  │   ├── SceneDelegate.swift
+  │   └── Info.plist
+  ├── Models/
+  │   ├── User.swift
+  │   ├── Product.swift
+  │   └── APIResponse.swift
+  ├── Views/
+  │   ├── Controllers/
+  │   │   ├── HomeViewController.swift
+  │   │   ├── ProfileViewController.swift
+  │   │   └── BaseViewController.swift
+  │   ├── Custom/
+  │   │   ├── CustomButton.swift
+  │   │   ├── CustomTextField.swift
+  │   │   └── LoadingView.swift
+  │   └── Cells/
+  │       ├── UserTableViewCell.swift
+  │       └── ProductCollectionViewCell.swift
+  ├── ViewModels/
+  │   ├── HomeViewModel.swift
+  │   ├── ProfileViewModel.swift
+  │   └── BaseViewModel.swift
+  ├── Services/
+  │   ├── NetworkService.swift
+  │   ├── AuthService.swift
+  │   ├── CacheService.swift
+  │   └── UserDefaultsService.swift
+  ├── Repositories/
+  │   ├── UserRepository.swift
+  │   └── ProductRepository.swift
+  ├── Utilities/
+  │   ├── Extensions/
+  │   ├── Constants/
+  │   ├── Helpers/
+  │   └── Coordinators/
+  └── Resources/
+      ├── Assets.xcassets
+      ├── Localizable.strings
+      └── Storyboards/
+  ```
+
+  ## MVVM Mimari Yönergeleri
+
+  ### Model
+  - JSON ayrıştırması için `Codable` kullanın
+  - Gerektiğinde `Equatable` uygulayın
+  - Modelleri mümkün olduğunda değişmez tutun
+  - Basit veri kapsayıcıları için struct kullanın
+
+  ```swift
+  struct User: Codable, Equatable {
+      let id: Int
+      let name: String
+      let email: String
+      let profileImageURL: String?
+      
+      private enum CodingKeys: String, CodingKey {
+          case id, name, email
+          case profileImageURL = "profile_image_url"
+      }
+  }
+  ```
+
+  ### View (UIViewController)
+  - View controller'ları hafif tutun
+  - Yalnızca UI ile ilgili mantığı ele alın
+  - RxSwift kullanarak ViewModel'lere bağlanın
+  - Retain cycle'lardan kaçınmak için weak referans kullanın
+
+  ```swift
+  class HomeViewController: UIViewController {
+      @IBOutlet weak var tableView: UITableView!
+      
+      private let viewModel = HomeViewModel()
+      private let disposeBag = DisposeBag()
+      
+      override func viewDidLoad() {
+          super.viewDidLoad()
+          setupUI()
+          bindViewModel()
+      }
+      
+      private func bindViewModel() {
+          viewModel.users
+              .bind(to: tableView.rx.items(cellIdentifier: "UserCell")) { _, user, cell in
+                  // Configure cell
+              }
+              .disposed(by: disposeBag)
+          
+          viewModel.isLoading
+              .bind(to: loadingIndicator.rx.isAnimating)
+              .disposed(by: disposeBag)
+      }
+  }
+  ```
+
+  ### ViewModel
+  - Veri bağlama için RxSwift subject'lerini kullanın
+  - İş mantığı ve veri dönüşümünü işleyin
+  - View'ın abone olması için observable'ları açığa çıkarın
+  - Giriş/Çıkış modelini uygulayın
+
+  ```swift
+  class HomeViewModel {
+      // MARK: - Inputs
+      let refreshTrigger = PublishSubject<Void>()
+      let loadMoreTrigger = PublishSubject<Void>()
+      
+      // MARK: - Outputs
+      let users: Observable<[User]>
+      let isLoading: Observable<Bool>
+      let error: Observable<Error>
+      
+      private let userRepository: UserRepositoryProtocol
+      private let disposeBag = DisposeBag()
+      
+      init(userRepository: UserRepositoryProtocol = UserRepository()) {
+          self.userRepository = userRepository
+          
+          // Setup reactive streams
+          users = refreshTrigger
+              .startWith(())
+              .flatMapLatest { [unowned self] in
+                  self.userRepository.getUsers()
+                      .catchErrorJustReturn([])
+              }
+              .share(replay: 1)
+          
+          isLoading = Observable.merge(
+              refreshTrigger.map { true },
+              users.map { _ in false }
+          )
+          .startWith(false)
+          
+          error = userRepository.getUsers()
+              .materialize()
+              .compactMap { $0.error }
+      }
+  }
+  ```
+
+  ## RxSwift En İyi Uygulamaları
+
+  ### Bağlama Yönergeleri
+  - Bellek sızıntılarını önlemek için her zaman `disposed(by: disposeBag)` kullanın
+  - Retain cycle'lardan kaçınmak için closure'larda `weak self` kullanın
+  - UI bağlaması için `bind(to:)` yerine `drive()` tercih edin
+  - Pahalı işlemler için `share(replay: 1)` kullanın
+
+  ### Hata Yönetimi
+  ```swift
+  userRepository.getUsers()
+      .observe(on: MainScheduler.instance)
+      .catch { error in
+          self.handleError(error)
+          return Observable.empty()
+      }
+      .bind(to: tableView.rx.items)
+      .disposed(by: disposeBag)
+  ```
+
+  ### RxSwift ile Ağ İşlemleri
+  ```swift
+  protocol NetworkServiceProtocol {
+      func request<T: Codable>(_ endpoint: Endpoint) -> Observable<T>
+  }
+
+  class NetworkService: NetworkServiceProtocol {
+      func request<T: Codable>(_ endpoint: Endpoint) -> Observable<T> {
+          return Observable.create { observer in
+              let task = URLSession.shared.dataTask(with: endpoint.request) { data, response, error in
+                  if let error = error {
+                      observer.onError(error)
+                      return
+                  }
+                  
+                  guard let data = data else {
+                      observer.onError(NetworkError.noData)
+                      return
+                  }
+                  
+                  do {
+                      let result = try JSONDecoder().decode(T.self, from: data)
+                      observer.onNext(result)
+                      observer.onCompleted()
+                  } catch {
+                      observer.onError(error)
+                  }
+              }
+              
+              task.resume()
+              
+              return Disposables.create {
+                  task.cancel()
+              }
+          }
+      }
+  }
+  ```
+
+  ## Kod Stil Yönergeleri
+
+  ### Adlandırma Kuralları
+  - Açıklayıcı değişken ve fonksiyon adları kullanın
+  - Swift adlandırma kurallarını izleyin (camelCase)
+  - Protocol'ler için anlamlı ön ekler kullanın (ör. `UserRepositoryProtocol`)
+  - Kod organizasyonu için `MARK:` yorumları kullanın
+
+  ### Bellek Yönetimi
+  - Temsilciler ve closure'lar için `weak` referanslar kullanın
+  - RxSwift aboneliklerinin uygun şekilde silinmesini uygulayın
+  - `unowned` yalnızca referansın nil olmayacağından emin olduğunuzda kullanın
+
+  ### UI Yapılandırması
+  - Yeniden kullanılabilir UI bileşenleri oluşturun
+  - UI kurulumu için extension'lar kullanın
+  - Uygulama genelinde tutarlı stil uygulayın
+
+  ```swift
+  extension UIButton {
+      func applyPrimaryStyle() {
+          backgroundColor = .systemBlue
+          setTitleColor(.white, for: .normal)
+          layer.cornerRadius = 8
+          titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+      }
+  }
+  ```
+
+  ## Test Yönergeleri
+  - ViewModel'ler için unit test yazın
+  - Reaktif akışları test etmek için RxTest kullanın
+  - Repository'ler ve service'leri mock'layın
+  - Hata senaryolarını test edin
+
+  ```swift
+  class HomeViewModelTests: XCTestCase {
+      var viewModel: HomeViewModel!
+      var mockRepository: MockUserRepository!
+      var scheduler: TestScheduler!
+      
+      override func setUp() {
+          super.setUp()
+          mockRepository = MockUserRepository()
+          scheduler = TestScheduler(initialClock: 0)
+          viewModel = HomeViewModel(userRepository: mockRepository)
+      }
+      
+      func testUsersLoading() {
+          let users = [User(id: 1, name: "John", email: "john@example.com")]
+          mockRepository.usersToReturn = users
+          
+          let result = scheduler.start {
+              self.viewModel.users
+          }
+          
+          XCTAssertEqual(result.events.count, 1)
+          XCTAssertEqual(result.events.first?.value.element, users)
+      }
+  }
+  ```
+
+  ## Bağımlılıklar ve Kütüphaneler
+  - **RxSwift/RxCocoa**: Reaktif programlama
+  - **Alamofire + RxAlamofire**: Ağ işlemleri (isteğe bağlı)
+  - **Kingfisher**: Görsel yükleme ve önbellekleme
+  - **SnapKit**: Auto Layout (isteğe bağlı)
+
+  SOLID ilkelerine her zaman uyduğunuzu, kodunuzu test edilebilir tuttuğunuzu ve Model, View ve ViewModel katmanları arasında sorunların ayrılığını koruduğunuzu unutmayın.
+
+  # .cursorrules-mvvm-rxswift_2
+
+  # iOS Swift MVVM + RxSwift Genel Kuralları
+
+  Siz, MVVM mimarisi ve RxSwift'e uzmanlaşmış uzman bir iOS Swift geliştiricisiniz. Apple'ın en son yönergelerine ve Swift en iyi uygulamalarına uyarak temiz, bakımlanabilir ve test edilebilir kod yazın.
+
+  ## Temel Stack
+  - **Dil**: Swift 5.8+
+  - **UI Framework**: UIKit
+  - **Mimari**: MVVM (Model-View-ViewModel)
+  - **Reaktif Framework**: RxSwift + RxCocoa
+  - **Minimum Dağıtım**: iOS 13.0+
+
+  ## Genel Proje Yapısı
+
+  ```
+  App/
+  ├── Models/
+  │   ├── User.swift
+  │   ├── APIResponse.swift
+  │   └── CoreDataModels/
+  ├── ViewModels/
+  │   ├── HomeViewModel.swift
+  │   ├── ProfileViewModel.swift
+  │   └── BaseViewModel.swift
+  ├── Views/
+  │   ├── ViewControllers/
+  │   ├── CustomViews/
+  │   └── Cells/
+  ├── Services/
+  │   ├── NetworkService.swift
+  │   ├── AuthService.swift
+  │   └── DataService.swift
+  ├── Repositories/
+  │   └── UserRepository.swift
+  ├── Extensions/
+  │   ├── UIView+Rx.swift
+  │   └── Observable+Extensions.swift
+  ├── Utilities/
+  │   ├── Constants.swift
+  │   └── Helpers/
+  └── Resources/
+  ```
+
+  ## MVVM Uygulama Desenleri
+
+  ### 1. Model Katmanı
+  Modelleri basit ve veri temsiliyetine odaklanmış tutun.
+
+  ```swift
+  struct User: Codable, Equatable {
+      let id: Int
+      let name: String
+      let email: String
+      let avatar: URL?
+  }
+
+  struct APIResponse<T: Codable>: Codable {
+      let data: T
+      let success: Bool
+      let message: String?
+  }
+
+  enum LoadingState {
+      case idle
+      case loading
+      case loaded
+      case error(Error)
+  }
+  ```
+
+  ### 2. ViewModel Deseni
+  Sorunların açık ayrılığı için Giriş/Çıkış modelini kullanın.
+
+  ```swift
+  protocol ViewModelType {
+      associatedtype Input
+      associatedtype Output
+      
+      func transform(input: Input) -> Output
+  }
+
+  final class UserListViewModel: ViewModelType {
+      private let userRepository: UserRepositoryProtocol
+      private let disposeBag = DisposeBag()
+      
+      struct Input {
+          let viewDidLoad: Observable<Void>
+          let refresh: Observable<Void>
+          let selection: Observable<IndexPath>
+      }
+      
+      struct Output {
+          let users: Driver<[User]>
+          let loading: Driver<Bool>
+          let error: Driver<String?>
+          let selectedUser: Driver<User?>
+      }
+      
+      init(userRepository: UserRepositoryProtocol) {
+          self.userRepository = userRepository
+      }
+      
+      func transform(input: Input) -> Output {
+          let activityTracker = ActivityIndicator()
+          let errorTracker = ErrorTracker()
+          
+          let users = Observable.merge(input.viewDidLoad, input.refresh)
+              .flatMapLatest { [unowned self] in
+                  self.userRepository.fetchUsers()
+                      .trackActivity(activityTracker)
+                      .trackError(errorTracker)
+                      .catchErrorJustReturn([])
+              }
+              .asDriver(onErrorJustReturn: [])
+          
+          let loading = activityTracker.asDriver()
+          
+          let error = errorTracker
+              .map { $0.localizedDescription }
+              .asDriver(onErrorJustReturn: nil)
+          
+          let selectedUser = input.selection
+              .withLatestFrom(users.asObservable()) { indexPath, users in
+                  users[safe: indexPath.row]
+              }
+              .asDriver(onErrorJustReturn: nil)
+          
+          return Output(
+              users: users,
+              loading: loading,
+              error: error,
+              selectedUser: selectedUser
+          )
+      }
+  }
+  ```
+
+  ### 3. View Controller Uygulaması
+  View controller'ları UI bağlaması ve kullanıcı etkileşimine odaklanmış tutun.
+
+  ```swift
+  final class UserListViewController: UIViewController {
+      @IBOutlet private weak var tableView: UITableView!
+      @IBOutlet private weak var refreshButton: UIButton!
+      
+      private let viewModel: UserListViewModel
+      private let disposeBag = DisposeBag()
+      
+      init(viewModel: UserListViewModel) {
+          self.viewModel = viewModel
+          super.init(nibName: nil, bundle: nil)
+      }
+      
+      required init?(coder: NSCoder) {
+          fatalError("init(coder:) has not been implemented")
+      }
+      
+      override func viewDidLoad() {
+          super.viewDidLoad()
+          setupUI()
+          bindViewModel()
+      }
+      
+      private func bindViewModel() {
+          let input = UserListViewModel.Input(
+              viewDidLoad: rx.viewDidLoad.asObservable(),
+              refresh: refreshButton.rx.tap.asObservable(),
+              selection: tableView.rx.itemSelected.asObservable()
+          )
+          
+          let output = viewModel.transform(input: input)
+          
+          output.users
+              .drive(tableView.rx.items(cellIdentifier: "UserCell")) { _, user, cell in
+                  if let userCell = cell as? UserTableViewCell {
+                      userCell.configure(with: user)
+                  }
+              }
+              .disposed(by: disposeBag)
+          
+          output.loading
+              .drive(onNext: { [weak self] isLoading in
+                  self?.updateLoadingState(isLoading)
+              })
+              .disposed(by: disposeBag)
+          
+          output.error
+              .compactMap { $0 }
+              .drive(onNext: { [weak self] error in
+                  self?.showError(message: error)
+              })
+              .disposed(by: disposeBag)
+          
+          output.selectedUser
+              .compactMap { $0 }
+              .drive(onNext: { [weak self] user in
+                  self?.navigateToUserDetail(user)
+              })
+              .disposed(by: disposeBag)
+      }
+  }
+  ```
+
+  ### 4. Repository Deseni
+  Veri kaynaklarını soyutlayın ve reaktif arayüzler sağlayın.
+
+  ```swift
+  protocol UserRepositoryProtocol {
+      func fetchUsers() -> Observable<[User]>
+      func fetchUser(id: Int) -> Observable<User>
+      func updateUser(_ user: User) -> Observable<User>
+  }
+
+  final class UserRepository: UserRepositoryProtocol {
+      private let networkService: NetworkServiceProtocol
+      private let localService: LocalDataServiceProtocol
+      
+      init(
+          networkService: NetworkServiceProtocol,
+          localService: LocalDataServiceProtocol
+      ) {
+          self.networkService = networkService
+          self.localService = localService
+      }
+      
+      func fetchUsers() -> Observable<[User]> {
+          return networkService.request(.users)
+              .map { (response: APIResponse<[User]>) in response.data }
+              .do(onNext: { [weak self] users in
+                  self?.localService.save(users)
+              })
+              .catch { [weak self] _ in
+                  self?.localService.fetchUsers() ?? Observable.just([])
+              }
+      }
+      
+      func fetchUser(id: Int) -> Observable<User> {
+          return networkService.request(.user(id: id))
+              .map { (response: APIResponse<User>) in response.data }
+      }
+      
+      func updateUser(_ user: User) -> Observable<User> {
+          return networkService.request(.updateUser(user))
+              .map { (response: APIResponse<User>) in response.data }
+      }
+  }
+  ```
+
+  ## RxSwift En İyi Uygulamaları
+
+  ### 1. Bellek Yönetimi
+  ```swift
+  // Her zaman abonelikleri silin
+  .disposed(by: disposeBag)
+
+  // Closure'larda weak self kullanın
+  .subscribe(onNext: { [weak self] value in
+      self?.handleValue(value)
+  })
+
+  // Referansın varlığından emin olduğunuzda unowned kullanın
+  .flatMap { [unowned self] in
+      self.processData()
+  }
+  ```
+
+  ### 2. UI Bağlaması
+  ```swift
+  // UI bağlaması için Driver kullanın (ana thread, hata yok)
+  viewModel.data.asDriver()
+      .drive(tableView.rx.items)
+      .disposed(by: disposeBag)
+
+  // Tek seferlik olaylar için Signal kullanın
+  viewModel.showAlert.asSignal()
+      .emit(onNext: { message in
+          // Show alert
+      })
+      .disposed(by: disposeBag)
+  ```
+
+  ### 3. Hata Yönetimi
+  ```swift
+  // Merkezi hata izlemesi
+  class ErrorTracker: SharedSequenceConvertibleType {
+      typealias SharingStrategy = DriverSharingStrategy
+      
+      private let _subject = PublishSubject<Error>()
+      
+      func trackError<O: ObservableConvertibleType>(from source: O) -> Observable<O.Element> {
+          return source.asObservable().do(onError: onError)
+      }
+      
+      func asSharedSequence() -> SharedSequence<SharingStrategy, Error> {
+          return _subject.asObservable().asDriver(onErrorRecover: { _ in .empty() })
+      }
+      
+      func asObservable() -> Observable<Error> {
+          return _subject.asObservable()
+      }
+      
+      private func onError(_ error: Error) {
+          _subject.onNext(error)
+      }
+  }
+
+  // Yükleme durumları için activity indicator
+  class ActivityIndicator: SharedSequenceConvertibleType {
+      typealias Element = Bool
+      typealias SharingStrategy = DriverSharingStrategy
+      
+      private let _lock = NSRecursiveLock()
+      private let _subject = BehaviorSubject(value: false)
+      private let _loading: SharedSequence<SharingStrategy, Bool>
+      
+      init() {
+          _loading = _subject.asObservable()
+              .distinctUntilChanged()
+              .asDriver(onErrorJustReturn: false)
+      }
+      
+      func trackActivityOfObservable<Source: ObservableConvertibleType>(_ source: Source) -> Observable<Source.Element> {
+          return source.asObservable()
+              .do(onNext: { _ in
+                  self.sendStopLoading()
+              }, onError: { _ in
+                  self.sendStopLoading()
+              }, onCompleted: {
+                  self.sendStopLoading()
+              }, onSubscribe: subscribed)
+      }
+      
+      private func subscribed() {
+          _lock.lock()
+          _subject.onNext(true)
+          _lock.unlock()
+      }
+      
+      private func sendStopLoading() {
+          _lock.lock()
+          _subject.onNext(false)
+          _lock.unlock()
+      }
+      
+      func asSharedSequence() -> SharedSequence<SharingStrategy, Element> {
+          return _loading
+      }
+  }
+  ```
+
+  ### 4. Network Service
+  ```swift
+  protocol NetworkServiceProtocol {
+      func request<T: Codable>(_ endpoint: APIEndpoint) -> Observable<T>
+  }
+
+  final class NetworkService: NetworkServiceProtocol {
+      private let session: URLSession
+      
+      init(session: URLSession = .shared) {
+          self.session = session
+      }
+      
+      func request<T: Codable>(_ endpoint: APIEndpoint) -> Observable<T> {
+          return Observable.create { observer in
+              let request = endpoint.asURLRequest()
+              
+              let task = self.session.dataTask(with: request) { data, response, error in
+                  if let error = error {
+                      observer.onError(NetworkError.connectionError(error))
+                      return
+                  }
+                  
+                  guard let data = data else {
+                      observer.onError(NetworkError.noData)
+                      return
+                  }
+                  
+                  do {
+                      let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                      observer.onNext(decodedObject)
+                      observer.onCompleted()
+                  } catch {
+                      observer.onError(NetworkError.decodingError(error))
+                  }
+              }
+              
+              task.resume()
+              
+              return Disposables.create {
+                  task.cancel()
+              }
+          }
+      }
+  }
+
+  enum NetworkError: Error {
+      case connectionError(Error)
+      case noData
+      case decodingError(Error)
+  }
+
+  enum APIEndpoint {
+      case users
+      case user(id: Int)
+      case updateUser(User)
+      
+      func asURLRequest() -> URLRequest {
+          // Implementation details
+          var request = URLRequest(url: url)
+          request.httpMethod = method.rawValue
+          return request
+      }
+  }
+  ```
+
+  ## Kullanışlı Extension'lar
+
+  ```swift
+  // Observable extension'ları
+  extension Observable {
+      func trackActivity(_ activityIndicator: ActivityIndicator) -> Observable<Element> {
+          return activityIndicator.trackActivityOfObservable(self)
+      }
+      
+      func trackError(_ errorTracker: ErrorTracker) -> Observable<Element> {
+          return errorTracker.trackError(from: self)
+      }
+  }
+
+  // Array güvenli subscript
+  extension Array {
+      subscript(safe index: Int) -> Element? {
+          return indices.contains(index) ? self[index] : nil
+      }
+  }
+
+  // UITableView reachBottom
+  extension Reactive where Base: UIScrollView {
+      var reachedBottom: Observable<Void> {
+          return contentOffset
+              .flatMap { [weak base] contentOffset -> Observable<Void> in
+                  guard let scrollView = base else { return Observable.empty() }
+                  
+                  let visibleHeight = scrollView.frame.height - scrollView.contentInset.top - scrollView.contentInset.bottom
+                  let y = contentOffset.y + scrollView.contentInset.top
+                  let threshold = max(0.0, scrollView.contentSize.height - visibleHeight)
+                  
+                  return y > threshold ? Observable.just(()) : Observable.empty()
+              }
+      }
+  }
+  ```
+
+  ## RxTest ile Test Etme
+
+  ```swift
+  import XCTest
+  import RxTest
+  import RxSwift
+  @testable import YourApp
+
+  class UserListViewModelTests: XCTestCase {
+      var viewModel: UserListViewModel!
+      var mockRepository: MockUserRepository!
+      var scheduler: TestScheduler!
+      var disposeBag: DisposeBag!
+      
+      override func setUp() {
+          super.setUp()
+          scheduler = TestScheduler(initialClock: 0)
+          mockRepository = MockUserRepository()
+          viewModel = UserListViewModel(userRepository: mockRepository)
+          disposeBag = DisposeBag()
+      }
+      
+      func testViewDidLoadFetchesUsers() {
+          // Given
+          let users = [User(id: 1, name: "John", email: "john@test.com", avatar: nil)]
+          mockRepository.usersToReturn = users
+          
+          let viewDidLoad = scheduler.createHotObservable([.next(10, ())])
+          let refresh = scheduler.createHotObservable([Recorded<Event<Void>>]())
+          let selection = scheduler.createHotObservable([Recorded<Event<IndexPath>>]())
+          
+          let input = UserListViewModel.Input(
+              viewDidLoad: viewDidLoad.asObservable(),
+              refresh: refresh.asObservable(),
+              selection: selection.asObservable()
+          )
+          
+          let output = viewModel.transform(input: input)
+          let result = scheduler.start { output.users.asObservable() }
+          
+          // Then
+          XCTAssertEqual(result.events.count, 1)
+          XCTAssertEqual(result.events.first?.value.element, users)
+      }
+  }
+
+  class MockUserRepository: UserRepositoryProtocol {
+      var usersToReturn: [User] = []
+      
+      func fetchUsers() -> Observable<[User]> {
+          return Observable.just(usersToReturn)
+      }
+      
+      func fetchUser(id: Int) -> Observable<User> {
+          return Observable.just(usersToReturn.first(where: { $0.id == id })!)
+      }
+      
+      func updateUser(_ user: User) -> Observable<User> {
+          return Observable.just(user)
+      }
+  }
+  ```
+
+  ## Kod Yönergeleri
+
+  ### Adlandırma Kuralları
+  - ViewModel'ler: `FeatureViewModel`
+  - ViewController'lar: `FeatureViewController`
+  - Repository'ler: `FeatureRepository`
+  - Service'ler: `FeatureService`
+
+  ### Dosya Organizasyonu
+  - Türe göre değil, özelliğe göre gruplandırın
+  - Anlamlı klasör adları kullanın
+  - İlgili dosyaları birlikte tutun
+
+  ### Mimari Kuralları
+  - ViewModel'ler UIKit'i import etmemelidir
+  - View'lar iş mantığı içermemelidir
+  - Test edilebilirlik için bağımlılık enjeksiyonunu kullanın
+  - Ağ ve yerel veri endişelerini ayırın
+
+  ### RxSwift Desenleri
+  - ViewModel'ler için Giriş/Çıkış modelini kullanın
+  - UI bağlaması için Driver/Signal tercih edin
+  - Her zaman abonelikleri silin
+  - Yükleme durumları için ActivityIndicator kullanın
+  - Uygun hata yönetimini uygulayın
+
+  Hatırla: Basit, test edilebilir ve bakımlanabilir tut. Reaktif akışlar ve açık sorun ayrılığına odaklan.
 ---
 
 # .cursorrules-mvvm-rxswift

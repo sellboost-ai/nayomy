@@ -2,6 +2,7 @@
 name: "nextjs-material-ui-tailwind-css-cursorrules-prompt"
 clean_name: "Next.js Material UI Tailwind CSS Cursorrules Prompt"
 description: "Cursor rules for Next.js development with Material UI and Tailwind CSS integration."
+description_tr: "Next.js geliştirmesi için Cursor rules'ları, Material UI ve Tailwind CSS entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,64 @@ path: "rules/nextjs-material-ui-tailwind-css-cursorrules-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-material-ui-tailwind-css-cursorrules-prompt.mdc"
 body_length: 1478
 file_extension: ".mdc"
+body_tr: |-
+  Bu proje Portfolio2 olarak adlandırılmıştır
+
+  Next.Js üzerine kurulu olup, tailwindcss, materialui, shadcn/ui ve aceternityui içermektedir
+
+  Projeniz adı nedir? portfolio2
+
+  TypeScript kullanmak ister misiniz? Evet
+
+  ESLint kullanmak ister misiniz? Hayır
+
+  Tailwind CSS kullanmak ister misiniz? Evet
+
+  `src/` dizinini kullanmak ister misiniz? Evet
+
+  App Router kullanmak ister misiniz? (önerilir) Evet
+
+  Varsayılan import alias'ını (@/) özelleştirmek ister misiniz? Hayır
+
+  Hangi import alias'ını yapılandırmak istersiniz? @/
+
+  Bağımlılıkların listesi
+
+  ```json
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "^6.3.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.18",
+    "@mui/material": "^5.15.18",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@prisma/client": "^5.14.0",
+    "autoprefixer": "^10.4.19",
+    "bcryptjs": "^2.4.3",
+    "ckeditor5": "^41.4.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.5",
+    "init": "^0.1.2",
+    "next": "^14.2.3",
+    "next-auth": "^4.24.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "shadcn-ui": "^0.8.0",
+    "styled-components": "^6.1.11",
+    "tailwind-merge": "^2.3.0"
+  },
+
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8.4.38",
+    "prisma": "^5.14.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  }
+  ```
 ---
 
 Ce projet s'appel Portfolio2

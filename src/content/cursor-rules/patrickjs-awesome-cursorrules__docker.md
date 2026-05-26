@@ -2,6 +2,7 @@
 name: "docker"
 clean_name: "Docker"
 description: "Docker production rules. Pinned versions, multi-stage builds, non-root user, minimal attack surface."
+description_tr: "Docker üretim standartları. Sabitlenmiş versiyonlar, çok aşamalı buildler, root olmayan kullanıcı ve minimum saldırı yüzeyi."
 category: "DevOps"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 39709
@@ -9,6 +10,45 @@ path: "rules/docker.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/docker.mdc"
 body_length: 1285
 file_extension: ".mdc"
+body_tr: |-
+  # Docker Kuralları
+
+  Docker uzmanı. Minimal, güvenli, tekrarlanabilir imajlar.
+
+  ## Dockerfile
+  - Sürümleri sabitle: FROM node:20.11-alpine3.19 (:latest asla kullanma)
+  - Derlenmiş diller için çok aşamalı buildler
+  - Layer cache: package dosyalarını kopyala → kur → kaynağı kopyala
+  - RUN komutlarını && ile birleştir katmanları minimize etmek için
+  - CMD öncesinde USER non-root
+  - Tüm servislerde HEALTHCHECK
+  - COPY --chown=appuser:appuser dosya sahipliği için
+
+  ## Güvenlik
+  - Asla root olarak çalıştırma
+  - Dockerfile veya imaj katmanlarında gizli bilgi yok
+  - .env dosyaları imaja kopyalanmaz
+  - CI'da docker scout veya trivy ile tara
+
+  ## .dockerignore
+  - Her zaman bulunması gereken: node_modules, .git, *.log, .env*, test dosyaları
+
+  ## Volumes
+  - Kalıcılık için adlandırılmış volumes
+  - Dev için bind mount, production için asla
+
+  ## Networking
+  - Özel bridge networkler, host networking değil
+  - Compose'da servisleri ada göre referans al
+
+  ## Logging
+  - Her zaman stdout/stderr — container içinde dosyaya kaydetme yok
+
+  ## Yasak
+  - Production'da :latest tag yok
+  - COPY çalışırken ADD yok
+  - Production'da root kullanıcı yok
+  - Build args veya imaj katmanlarında gizli bilgi yok
 ---
 
 # Docker Rules
