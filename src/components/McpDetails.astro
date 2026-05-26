@@ -48,7 +48,7 @@ const { category, repo, stars, url, license, language, npm_id, pypi_id, docker_i
     {body_length != null && body_length > 0 && (
       <div class="dl-row">
         <dt>{t('skill.length')}</dt>
-        <dd>{body_length.toLocaleString()} chars</dd>
+        <dd>{body_length.toLocaleString()} {t('skill.chars')}</dd>
       </div>
     )}
   </dl>

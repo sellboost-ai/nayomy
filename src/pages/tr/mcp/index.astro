@@ -37,7 +37,7 @@ try {
     <div class="container">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>{t('hero.badge')} · {total} sunucu indekslendi</span>
+        <span>{t('hero.badge')} · {total} {t('home.servers_indexed')}</span>
       </div>
       <h1>
         {t('mcp.title')}<br />
@@ -46,7 +46,7 @@ try {
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="num">{total}</div>
-          <div class="label">Sunucu</div>
+          <div class="label">{t('mcp.servers_label')}</div>
         </div>
         <div class="hero-stat">
           <div class="num">{cats}</div>
@@ -70,7 +70,7 @@ try {
     </div>
 
     <div class="section-header">
-      <h2 class="section-title">En Popüler MCP Sunucuları</h2>
+      <h2 class="section-title">{t('home.top_mcp')}</h2>
       <span class="section-count">{t('home.viewall')} {total}</span>
     </div>
     <div class="grid">

@@ -23,17 +23,17 @@ const homePath = lang === 'tr' ? '/tr' : '/';
     <div class="nav-links">
       <a href={homePath} class="nav-link">{t('nav.skills')}</a>
       <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class="nav-link">{t('nav.mcp')}</a>
-      <a href="#" class="nav-link">Marketplaces</a>
-      <a href="#" class="nav-link">Docs</a>
-      <a href="#" class="nav-link">Changelog</a>
+      <a href="#" class="nav-link">{t('nav.marketplaces')}</a>
+      <a href="#" class="nav-link">{t('nav.docs')}</a>
+      <a href="#" class="nav-link">{t('nav.changelog')}</a>
     </div>
 
     <div class="nav-actions">
-      <div class="lang-pill" role="group" aria-label="Language">
+      <div class="lang-pill" role="group" aria-label={t('nav.language')}>
         <a href={enUrl} class:list={['', { active: lang === 'en' }]}>EN</a>
         <a href={trUrl} class:list={['', { active: lang === 'tr' }]}>TR</a>
       </div>
-      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">◐</button>
+      <button class="icon-btn" id="themeToggle" title={t('nav.toggle_theme')} aria-label={t('nav.toggle_theme')}>◐</button>
       <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener" class="cta cta-ghost">GitHub</a>
     </div>
   </div>
