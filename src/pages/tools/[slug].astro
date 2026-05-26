@@ -1,0 +1,209 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolLogo from '../../components/ToolLogo.astro';
+import ToolDetails from '../../components/ToolDetails.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => ({
+    params: { slug: tool.data.slug },
+    props: { tool },
+  }));
+}
+
+type Props = { tool: CollectionEntry<'tools'> };
+const { tool } = Astro.props;
+
+const all = await getCollection('tools');
+const alternatives = (tool.data.alternatives ?? [])
+  .map((s) => all.find((x) => x.data.slug === s))
+  .filter((x): x is CollectionEntry<'tools'> => !!x);
+
+const { Content } = await render(tool);
+
+const seoTitle = `${tool.data.name} — ${tool.data.category} · nayomy`;
+const seoDesc = tool.data.tagline.length > 155 ? tool.data.tagline.slice(0, 154) + '…' : tool.data.tagline;
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} ogType="article">
+  <div class="container detail-outer">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/tools">{t('tools.title')}</a>
+      <span class="sep">/</span>
+      <a href="#">{tool.data.category}</a>
+      <span class="sep">/</span>
+      <span class="crumb-current">{tool.data.name}</span>
+    </nav>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+
+        <header class="tool-hero">
+          <ToolLogo name={tool.data.name} color={tool.data.color} size={72} />
+          <div class="tool-hero-text">
+            <div class="tool-hero-meta">
+              <span class="cat-badge">{tool.data.category}</span>
+              <span class="maker">{tool.data.maker}</span>
+            </div>
+            <h1 class="tool-title">{tool.data.name}</h1>
+            <p class="tool-tagline">{tool.data.tagline}</p>
+            <a class="visit-btn" href={tool.data.website} target="_blank" rel="noopener noreferrer">
+              {t('tools.visit')} {tool.data.name} →
+            </a>
+          </div>
+        </header>
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        {alternatives.length > 0 && (
+          <section class="alt-section">
+            <h2 class="section-label">{t('tools.alternatives')}</h2>
+            <div class="alt-grid">
+              {alternatives.map((alt) => (
+                <a class="alt-card" href={`/tools/${alt.data.slug}/`}>
+                  <ToolLogo name={alt.data.name} color={alt.data.color} size={40} />
+                  <div class="alt-text">
+                    <div class="alt-name">{alt.data.name}</div>
+                    <div class="alt-tagline">{alt.data.tagline}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <aside class="detail-side">
+        <ToolDetails lang={lang} tool={tool} />
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .detail-outer { padding-top: 28px; padding-bottom: 80px; }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--ink-3); margin-bottom: 28px;
+  }
+  .breadcrumb a { color: var(--ink-3); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--ink); }
+  .breadcrumb .sep { color: var(--ink-4); }
+  .breadcrumb .crumb-current { color: var(--ink-2); }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 48px;
+    align-items: start;
+  }
+  .detail-side { position: sticky; top: 80px; }
+
+  .tool-hero {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding-bottom: 28px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tool-hero-text { flex: 1; min-width: 0; }
+  .tool-hero-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .cat-badge {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    font-weight: 600; padding: 3px 8px; background: var(--bg-subtle);
+    border: 1px solid var(--line); border-radius: 4px; color: var(--ink-3);
+  }
+  .maker { font-size: 12px; color: var(--ink-4); font-family: 'Geist Mono', monospace; }
+  .tool-title {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 700;
+    letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 10px;
+  }
+  .tool-tagline { font-size: 16px; color: var(--ink-3); line-height: 1.6; margin-bottom: 18px; }
+  .visit-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--ink); color: var(--bg);
+    padding: 9px 16px; border-radius: 7px;
+    font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: opacity 0.12s;
+  }
+  .visit-btn:hover { opacity: 0.85; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--ink-3);
+    margin: 40px 0 16px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .prose { font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
+  .prose :global(h2) {
+    font-size: 20px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink);
+    margin: 36px 0 14px;
+  }
+  .prose :global(h2:first-child) { margin-top: 4px; }
+  .prose :global(h3) { font-size: 15px; font-weight: 600; color: var(--ink); margin: 24px 0 10px; }
+  .prose :global(p) { margin: 0 0 14px; }
+  .prose :global(ul), .prose :global(ol) { padding-left: 22px; margin: 0 0 16px; }
+  .prose :global(li) { margin-bottom: 5px; }
+  .prose :global(a) {
+    color: var(--ink); text-decoration: underline;
+    text-decoration-color: var(--line-strong); text-underline-offset: 2px;
+  }
+  .prose :global(a:hover) { text-decoration-color: var(--ink); }
+  .prose :global(strong) { color: var(--ink); font-weight: 600; }
+  .prose :global(code) {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 12.5px; background: var(--bg-subtle);
+    border: 1px solid var(--line); border-radius: 3px;
+    padding: 1px 5px; color: var(--ink);
+  }
+  .prose :global(table) {
+    width: 100%; border-collapse: collapse;
+    font-size: 13.5px; margin: 12px 0 18px;
+  }
+  .prose :global(th), .prose :global(td) {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+  }
+  .prose :global(th) { background: var(--bg-subtle); font-weight: 600; color: var(--ink); }
+
+  .alt-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .alt-grid { grid-template-columns: 1fr; } }
+  .alt-card {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s;
+  }
+  .alt-card:hover { border-color: var(--line-strong); background: var(--bg); transform: translateY(-1px); }
+  .alt-text { flex: 1; min-width: 0; }
+  .alt-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .alt-tagline {
+    font-size: 12.5px; color: var(--ink-3); line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  @media (max-width: 1023px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+    .detail-side { position: static; }
+  }
+  @media (max-width: 640px) {
+    .tool-hero { flex-direction: column; gap: 16px; }
+    .tool-title { font-size: 28px; }
+  }
+</style>

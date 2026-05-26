@@ -62,4 +62,64 @@ const cursorRules = defineCollection({
   }),
 });
 
-export const collections = { skills, mcp, 'cursor-rules': cursorRules };
+const toolModel = z.object({
+  name: z.string(),
+  description: z.string().optional(),
+  description_tr: z.string().optional(),
+  context: z.string().optional(),
+  price_input: z.number().optional(),
+  price_output: z.number().optional(),
+});
+
+const toolPricingTier = z.object({
+  name: z.string(),
+  name_tr: z.string().optional(),
+  price: z.string(),
+  highlights: z.array(z.string()).optional().default([]),
+  highlights_tr: z.array(z.string()).optional().default([]),
+});
+
+const toolEcosystem = z.object({
+  type: z.string(),
+  label: z.string(),
+  label_tr: z.string().optional(),
+  url: z.string(),
+  count: z.number().optional(),
+  note: z.string().optional(),
+  note_tr: z.string().optional(),
+});
+
+const tools = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/tools' }),
+  schema: z.object({
+    name: z.string(),
+    slug: z.string(),
+    tagline: z.string(),
+    tagline_tr: z.string().optional(),
+    maker: z.string(),
+    maker_url: z.string().optional(),
+    website: z.string(),
+    category: z.string(),
+    category_tr: z.string().optional(),
+    type: z.enum(['chat', 'code', 'visual', 'audio', 'video', 'search']),
+    launched: z.string(),
+    pricing_tier: z.enum(['free', 'free-paid', 'paid']),
+    price_min: z.number().optional().default(0),
+    price_max: z.number().optional(),
+    color: z.string().optional(),
+    models: z.array(toolModel).optional().default([]),
+    pricing: z.array(toolPricingTier).optional().default([]),
+    capabilities: z.array(z.string()).optional().default([]),
+    capabilities_tr: z.array(z.string()).optional().default([]),
+    strengths: z.array(z.string()).optional().default([]),
+    strengths_tr: z.array(z.string()).optional().default([]),
+    weaknesses: z.array(z.string()).optional().default([]),
+    weaknesses_tr: z.array(z.string()).optional().default([]),
+    ecosystem: z.array(toolEcosystem).optional().default([]),
+    alternatives: z.array(z.string()).optional().default([]),
+    sources: z.array(z.string()).optional().default([]),
+    body_tr: z.string().optional(),
+  }),
+});
+
+export const collections = { skills, mcp, 'cursor-rules': cursorRules, tools };

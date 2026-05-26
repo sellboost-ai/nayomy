@@ -1,0 +1,147 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  tool: CollectionEntry<'tools'>;
+}
+
+const { lang, tool } = Astro.props;
+const t = useTranslations(lang);
+const { maker, maker_url, website, category, category_tr, type, launched, pricing_tier, price_min, price_max, models } = tool.data;
+const displayCategory = lang === 'tr' && category_tr ? category_tr : category;
+const hostFromWebsite = (() => { try { return new URL(website).hostname; } catch { return website; } })();
+const priceRange = pricing_tier === 'free'
+  ? 'Free'
+  : pricing_tier === 'paid'
+    ? `$${price_min}${price_max && price_max !== price_min ? `–${price_max}` : ''}/mo`
+    : `Free + $${price_min || 0}${price_max ? `–${price_max}` : ''}/mo`;
+---
+
+<aside class="tool-details">
+  <h3 class="details-heading">{t('tools.details')}</h3>
+
+  <dl class="details-list">
+    <div class="dl-row">
+      <dt>{t('tools.maker')}</dt>
+      <dd>
+        {maker_url
+          ? <a href={maker_url} target="_blank" rel="noopener noreferrer" class="mono-link">{maker}</a>
+          : <span>{maker}</span>}
+      </dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('tools.website')}</dt>
+      <dd>
+        <a href={website} target="_blank" rel="noopener noreferrer" class="mono-link">{hostFromWebsite}</a>
+      </dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('skill.category')}</dt>
+      <dd><span class="cat-pill">{displayCategory}</span></dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('tools.type')}</dt>
+      <dd><code class="mono-small">{type}</code></dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('tools.launched')}</dt>
+      <dd>{launched}</dd>
+    </div>
+    <div class="dl-row">
+      <dt>{t('tools.pricing')}</dt>
+      <dd>{priceRange}</dd>
+    </div>
+    {models.length > 0 && (
+      <div class="dl-row">
+        <dt>Models</dt>
+        <dd>{models.length}</dd>
+      </div>
+    )}
+  </dl>
+
+  <a href={website} target="_blank" rel="noopener noreferrer" class="visit-btn">
+    {t('tools.open_website')} →
+  </a>
+</aside>
+
+<style>
+  .tool-details {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .details-heading {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .details-list { margin-bottom: 14px; }
+  .dl-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .dl-row:last-child { border-bottom: none; }
+  .dl-row dt {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-4);
+  }
+  .dl-row dd { color: var(--ink-2); }
+  .cat-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .mono-link {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-2);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .mono-link:hover { color: var(--ink); text-decoration: underline; }
+  .mono-small {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .visit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 9px 12px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.12s;
+    margin-top: 4px;
+  }
+  .visit-btn:hover { opacity: 0.85; }
+</style>
