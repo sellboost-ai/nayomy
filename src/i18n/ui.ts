@@ -3,7 +3,7 @@ export const defaultLang = 'en' as const;
 export const ui = {
   en: {
     'nav.skills':       'Claude Skills',
-    'nav.cursor':       'Cursor',
+    'nav.cursor':       'Cursor Rules',
     'nav.marketplaces': 'Marketplaces',
     'nav.docs':         'Docs',
     'nav.changelog':    'Changelog',
@@ -54,7 +54,7 @@ export const ui = {
     'skill.path':          'Path',
     'skill.open_github':   'View on GitHub',
     'skill.more_in':       'More in',
-    'nav.mcp':             'MCP',
+    'nav.mcp':             'MCP Servers',
     'mcp.servers_label':   'Servers',
     'mcp.title':           'MCP Servers',
     'mcp.tagline':         'Model Context Protocol servers — bridge Claude and other AIs to external systems',
@@ -96,7 +96,7 @@ export const ui = {
   },
   tr: {
     'nav.skills':       "Claude Skill'leri",
-    'nav.cursor':       'Cursor',
+    'nav.cursor':       'Cursor Rules',
     'nav.marketplaces': 'Pazaryerleri',
     'nav.docs':         'Dokümanlar',
     'nav.changelog':    'Değişiklikler',
@@ -147,7 +147,7 @@ export const ui = {
     'skill.path':          'Yol',
     'skill.open_github':   "GitHub'da görüntüle",
     'skill.more_in':       'Daha fazla:',
-    'nav.mcp':             'MCP',
+    'nav.mcp':             'MCP Sunucuları',
     'mcp.servers_label':   'Sunucu',
     'mcp.title':           'MCP Sunucuları',
     'mcp.tagline':         "Model Context Protocol sunucuları — Claude ve diğer AI'ları dış sistemlere bağlar",
