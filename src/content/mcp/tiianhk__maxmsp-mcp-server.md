@@ -1,77 +1,13 @@
 ---
 name: "tiianhk/MaxMSP-MCP-Server"
 description: "A coding agent for Max (Max/MSP/Jitter), which is a visual programming language for music and multimedia."
-description_tr: "Max için kodlama ajanı olup, müzik ve multimedya için tasarlanmış görsel bir programlama dilidir."
-category: "Coding Agents"
+category: "Other"
 repo: "tiianhk/MaxMSP-MCP-Server"
 stars: 222
 url: "https://github.com/tiianhk/MaxMSP-MCP-Server"
 body_length: 2925
 license: "MIT"
 language: "Max"
-body_tr: |-
-  **Not:** ersatzben ve BenCello tarafından hazırlanan genişletilmiş bir versiyon şurada bulunabilir: [https://github.com/ersatzben/maxmsp-mcp](https://github.com/ersatzben/maxmsp-mcp)
-
-  # MaxMSP-MCP Server
-
-  Bu proje, LLM'lerin Max patch'lerini doğrudan anlayabilmesi ve oluşturabilmesi için [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP) protokolünü kullanır.
-
-  ### Anlama: LLM'nin Max Patch'i Açıklaması
-
-  ![img](https://raw.githubusercontent.com/tiianhk/MaxMSP-MCP-Server/HEAD/assets/understand.gif)
-  [Video bağlantısı](https://www.youtube.com/watch?v=YKXqS66zrec). Açıklama: açıklanan patch [buradan](https://github.com/jeffThompson/MaxMSP_TeachingSketches/blob/master/02_MSP/07%20Ring%20Modulation.maxpat) indirilmiştir. Orijinal dosyadaki metin açıklamaları silinmiştir.
-
-  ### Oluşturma: LLM'nin FM Synthesizer Yapması
-
-  ![img](https://raw.githubusercontent.com/tiianhk/MaxMSP-MCP-Server/HEAD/assets/generate.gif)
-  Sentezlenen sesleri dinleyebileceğiniz [tam videoyu](https://www.youtube.com/watch?v=Ns89YuE5-to) izleyin.
-
-  LLM ajanı, her bir objenin resmi dokümantasyonuna ve ayrıca mevcut patch ve subpatch pencereleri içindeki objelere erişebilir; bu da objeleri bulma ve açıklama, hata ayıklama ve kendi eylemlerini doğrulama konusunda yardımcı olur.
-
-  ## Kurulum  
-
-  ### Ön Gereksinimler  
-
-   - Python 3.8 veya daha yeni  
-   - [uv package manager](https://github.com/astral-sh/uv)  
-   - Max 9 veya daha yeni (çünkü bazı scriptler Javascript V8 motorunu gerektirir), Max 8 veya daha eski versiyonlarda henüz test etmedik.  
-
-  ### MCP sunucusunu kurma
-
-  1. uv'yi yükleyin:
-  ```
-  # macOS ve Linux'ta:
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-  # Windows'ta:
-  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-  ```
-  2. Bu depoyu klonlayın ve dizinine gidin:
-  ```
-  git clone https://github.com/tiianhk/MaxMSP-MCP-Server.git
-  cd MaxMSP-MCP-Server
-  ```
-  3. Yeni bir environment başlatın ve python bağımlılıklarını yükleyin:
-  ```
-  uv venv
-  source .venv/bin/activate
-  uv pip install -r requirements.txt
-  ```
-  4. MCP sunucusunu bir MCP istemcisine bağlayın (LLM'leri barındıran):
-  ```
-  # Claude:
-  python install.py --client claude
-  # veya Cursor:
-  python install.py --client cursor
-  ```
-  Diğer istemcileri kullanmak için ([listeyi](https://modelcontextprotocol.io/clients) kontrol edin), indirip yapılandırma dosyası yolunu [buraya](https://github.com/tiianhk/MaxMSP-MCP-Server/blob/main/install.py#L6-L13) manuel olarak ekleyip `python install.py --client {your_client_name}` komutunu çalıştırarak bağlanmanız gerekir.
-
-  ### Max patch'e kurulum  
-
-  `MaxMSP_Agent/demo.maxpat` dosyasını kullanın veya kopyalayın. İlk sekmede, [npm](https://github.com/npm/cli) yüklü olduğunu doğrulamak için `script npm version` mesajına tıklayın. Ardından gerekli bağımlılıkları yüklemek için `script npm install` öğesine tıklayın. Ajanı erişmek için ikinci sekmeye geçin. Python ile iletişim başlatmak için `script start` öğesine tıklayın. Bağlantı kurulduktan sonra, patch içinde objeleri açıklatmak, değiştirmek veya oluşturmak için LLM arayüzü ile etkileşim kurabilirsiniz.
-
-  ## Sorumluluk Reddi
-
-  Bu, üçüncü taraf bir uygulamadır ve Cycling '74 tarafından yapılmamıştır.
 ---
 
 **Note:** An extended version by ersatzben and BenCello can be found at: [https://github.com/ersatzben/maxmsp-mcp](https://github.com/ersatzben/maxmsp-mcp)

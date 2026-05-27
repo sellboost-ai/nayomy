@@ -2,58 +2,13 @@
 name: "codequality"
 clean_name: "Codequality"
 description: "Code Quality Guidelines"
-description_tr: "Kod Kalitesi Yönergeleri"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/codequality.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/codequality.mdc"
 body_length: 1442
 file_extension: ".mdc"
-body_tr: |-
-  # Kod Kalitesi Yönergeleri
-
-  ## Bilgileri Doğrulayın
-  Bilgileri sunmadan önce her zaman doğrulayın. Açık kanıt olmaksızın varsayım yapmayın veya spekülasyon yapmayın.
-
-  ## Dosya-Dosya Değişiklikleri
-  Değişiklikleri dosya dosya yapın ve hataları fark etmem için bana şans verin.
-
-  ## Özür Yok
-  Asla özür kullanmayın.
-
-  ## Anlama Geri Bildirimi Yok
-  Yorumlar veya dokümantasyonda anlama hakkında geri bildirim vermekten kaçının.
-
-  ## Boşluk Önerileri Yok
-  Boşluk değişiklikleri önermeyin.
-
-  ## Özet Yok
-  Yapılan değişiklikleri özetlemeyin.
-
-  ## İcad Yok
-  Açıkça talep edilen dışında değişiklik icat etmeyin.
-
-  ## Gereksiz Onay Yok
-  İçerikte zaten sağlanan bilgilerin doğrulanmasını istemeyin.
-
-  ## Mevcut Kodu Koruyun
-  İlgisiz kodu veya işlevselliği silmeyin. Mevcut yapıları korumaya dikkat edin.
-
-  ## Tek Blok Düzenlemeler
-  Aynı dosya için birden fazla adım talimatı veya açıklamalar yerine tüm düzenlemeleri tek bir blokta sağlayın.
-
-  ## İmplementasyon Kontrolü Yok
-  Kullanıcıdan sağlanan bağlamda görünür olan implementasyonları doğrulamasını istemeyin.
-
-  ## Gereksiz Güncelleme Yok
-  Hiçbir gerçek değişiklik gerekmediğinde dosyalara güncelleme veya değişiklik önermeyin.
-
-  ## Gerçek Dosya Bağlantıları Sağlayın
-  Her zaman gerçek dosyalara bağlantılar sağlayın, x.md değil.
-
-  ## Mevcut Implementasyon Yok
-  Açıkça talep edilmediği sürece mevcut implementasyonu göstermeyin veya tartışmayın.
 ---
 
 # Code Quality Guidelines

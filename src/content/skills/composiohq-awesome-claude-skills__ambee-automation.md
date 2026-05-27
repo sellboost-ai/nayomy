@@ -1,10 +1,9 @@
 ---
 name: "ambee-automation"
 description_en: "Automate Ambee tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Ambee görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemalar için her zaman önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ambee-automation/SKILL.md"
 path: "composio-skills/ambee-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP Aracılığıyla Ambee Otomasyonu
-
-  Composio'nun Ambee toolkit'ini Rube MCP aracılığıyla kullanarak Ambee operasyonlarını otomatikleştirin.
-
-  **Toolkit dokümantasyonu**: [composio.dev/toolkits/ambee](https://composio.dev/toolkits/ambee)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir olmalı)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Ambee bağlantısı ve `ambee` toolkit'i
-  - Her zaman mevcut tool şemalarını almak için önce `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: MCP sunucu konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekli değil — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS` öğesini `ambee` toolkit'iyle çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme bağlantısını izleyin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Keşfi
-
-  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Ambee operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Mevcut Tool'ları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Ambee task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["ambee"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Tool'ları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanlarını asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: Boş olsa bile (`{}`) `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin
-  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
-  - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yöntem |
-  |-----------|----------|
-  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Ambee'ye özgü use case |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `ambee` toolkit'i |
-  | Çalıştır | Keşfedilen tool slug'larıyla `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `schemaRef` ile tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Ambee Automation via Rube MCP

@@ -1,8 +1,7 @@
 ---
 name: "wanaku-ai/wanaku"
 description: "The Wanaku MCP Router is a SSE-based MCP server that provides an extensible routing engine that allows integrating your enterprise systems with AI agents."
-description_tr: "Wanaku MCP Router, SSE tabanlı bir MCP sunucusu olup, kurumsal sistemlerinizi AI ajanlarıyla entegre etmenizi sağlayan genişletilebilir bir routing motoru sunar."
-category: "Other Tools and Integrations"
+category: "Other"
 repo: "wanaku-ai/wanaku"
 stars: 113
 url: "https://github.com/wanaku-ai/wanaku"
@@ -10,85 +9,6 @@ body_length: 3396
 license: "Apache-2.0"
 language: "Java"
 homepage: "https://wanaku.ai"
-body_tr: |-
-  # Wanaku - Her şeyi birleştiren bir MCP Router
-
-  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-  [![Build](https://img.shields.io/github/actions/workflow/status/wanaku-ai/wanaku/build.yml?branch=main)](https://github.com/wanaku-ai/wanaku/actions)
-  [![Release](https://img.shields.io/github/v/release/wanaku-ai/wanaku)](https://github.com/wanaku-ai/wanaku/releases)
-
-  Wanaku MCP Router, [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tarafından desteklenen yapay zeka uygulamaları için bir routerdir.
-
-  Bu protokol, uygulamaların LLM'lere nasıl bağlam sağladığını standardize eden açık bir protokoldür.
-
-  Proje adı, Güney Amerika'ya özgü bir devekuşungillerden olan [Guanaco](https://en.wikipedia.org/wiki/Guanaco) kelimesinin kökünden gelir.
-
-  ## Temel Özellikler
-
-  - **Birleştirilmiş Erişim** - AI ajanları için merkezi routing ve kaynak yönetimi
-  - **MCP-to-MCP Köprüsü** - Diğer MCP sunucuları için gateway veya proxy görevi görebilir
-  - **Kapsamlı Bağlantı** - 300+ Apache Camel bileşeninden yararlanarak entegrasyon sağlar
-  - **Varsayılan Olarak Güvenli** - Keycloak aracılığıyla yerleşik authentication ve authorization (isteğe bağlı — auth olmadan çalışabilir)
-  - **Kubernetes Doğal** - OpenShift ve Kubernetes dağıtımları için birinci sınıf destek
-  - **Genişletilebilir Mimari** - Özel tool ve kaynak sağlayıcıları eklemeyi kolaylaştırır
-  - **Çoklu Namespace Desteği** - Tool ve kaynakları izole namespace'ler arasında organize edin
-
-  ## Hızlı Başlangıç
-
-  [![Getting Started With Wanaku](https://img.youtube.com/vi/-fuNAo2j4SA/0.jpg)](https://www.youtube.com/watch?v=-fuNAo2j4SA)
-
-  ### Wanaku CLI Kurulumu
-
-  > **Not:** Wanaku'yu çalıştırmak için Java 21 veya üstü gereklidir.
-
-  ```shell
-  # JBang aracılığıyla kur (Java 21+ gerekli)
-  jbang app install wanaku@wanaku-ai/wanaku
-
-  # Veya releases sayfasından en son binary'i indir
-  # https://github.com/wanaku-ai/wanaku/releases
-  ```
-
-  ### Temel Kullanım
-
-  ```shell
-  # Wanaku router'ına kimlik doğrulaması yap
-  wanaku auth login --url http://localhost:8080
-
-  # Mevcut tool'ları listele
-  wanaku tools list
-
-  # Yeni bir tool ekle
-  wanaku tools add --uri http://example.com/api --service http
-
-  # Mevcut kaynakları listele
-  wanaku resources list
-  ```
-
-  Tüm kurulum ve konfigürasyon talimatları için [Kullanım Kılavuzu](docs/usage.md)'na bakın.
-
-  ## Belgeler
-
-  Çoğu kullanıcı için **[Wanaku Belgeleri](https://wanaku.ai/docs/)** web sitesi önerilen başlangıç noktasıdır. Kararlı sürümler için kurulum, konfigürasyon ve kullanımı kapsar.
-
-  Aşağıdaki belgeler proje üzerinde çalışan geliştiriciler için hazırlanmıştır ve yayınlanmamış özellikler veya devam eden değişiklikleri içerebilir:
-
-  - **[Kullanım Kılavuzu](docs/usage.md)** - Kurulum, dağıtım ve CLI kullanımı
-  - **[Mimari](docs/architecture.md)** - Sistem mimarisi ve bileşenleri
-  - **[Derleme](docs/building.md)** - Projeyi derle ve paketele
-  - **[Katkıda Bulunma](CONTRIBUTING.md)** - Katkı yönergeleri
-  - **[Konfigürasyon](docs/configurations.md)** - Konfigürasyon referansı
-  - **[Güvenlik](SECURITY.md)** - Güvenlik politikası ve en iyi uygulamalar
-
-  ## Topluluk
-
-  - [GitHub Issues](https://github.com/wanaku-ai/wanaku/issues) - Bug raporları ve özellik istekleri
-  - [Discussions](https://github.com/wanaku-ai/wanaku/discussions) - Soru sorun ve fikirlerinizi paylaşın
-  - [Örnekler](https://github.com/wanaku-ai/wanaku-examples) - Örnek yetenekler ve entegrasyonlar
-
-  ## Lisans
-
-  Bu proje Apache 2.0 Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 # Wanaku - A MCP Router that connects everything

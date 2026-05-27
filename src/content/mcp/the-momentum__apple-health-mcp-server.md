@@ -1,93 +1,13 @@
 ---
 name: "the-momentum/apple-health-mcp-server"
 description: "An MCP server that provides access to exported data from Apple Health. Data analytics included."
-description_tr: "Apple Health'ten dışa aktarılan verilere erişim sağlayan ve veri analitikleri içeren bir MCP sunucusu."
-category: "Biology Medicine and Bioinformatics"
+category: "Other"
 repo: "the-momentum/apple-health-mcp-server"
 stars: 194
 url: "https://github.com/the-momentum/apple-health-mcp-server"
 body_length: 5275
 license: "MIT"
 language: "Python"
-body_tr: |-
-  <a name="readme-top"></a>
-
-  <div align="center">
-    
-    <h1>Apple Health MCP Server</h1>
-    <p><strong>Apple Health Verilerini Keşfetme</strong></p>
-
-    [![Bize Ulaşın](https://img.shields.io/badge/Bize%20Ulaşın-AFF476.svg?style=for-the-badge&logo=mail&logoColor=black)](mailto:hello@themomentum.ai?subject=Apple%20Health%20MCP%20Server%20Inquiry)
-    [![Momentum'u Ziyaret Edin](https://img.shields.io/badge/Momentum'u%20Ziyaret%20Edin-1f6ff9.svg?style=for-the-badge&logo=safari&logoColor=white)](https://themomentum.ai)
-    [![MIT Lisansı](https://img.shields.io/badge/License-MIT-636f5a.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
-
-    <a href="https://glama.ai/mcp/servers/@the-momentum/apple-health-mcp-server">
-      
-    </a>
-  </div>
-
-  > [!NOTE]
-  > **Bu proje [Open Wearables](https://github.com/the-momentum/open-wearables)'e dönüştü** - birden fazla cihazdan giyilebilir sağlık verilerini birleştirmek için kendi barındırılan platform (Apple Health dahil). Open Wearables ayrıca bir MCP sunucusu ve manuel XML dışa aktarma ihtiyacını ortadan kaldıran sürekli Apple Health veri senkronizasyonu için bir uygulamacı sağlar. Kontrol edin: [github.com/the-momentum/open-wearables](https://github.com/the-momentum/open-wearables)
-
-  ---
-  Apple Health verilerinizi MCP'yi destekleyen herhangi bir LLM ile bağlayın. Verilerinizle konuşun ve kişiselleştirilmiş içgörüler elde edin.
-
-  ## 💡 Demo
-
-  Bu demo, Claude'un `apple-health-mcp-server`'ı kullanarak verilerinizle ilgili soruları nasıl yanıtladığını gösterir. Demo'dan örnek sorular:
-  - Apple Health verilerimizi analiz etmeme yardımcı olmanızı istiyorum. Veri türlerini analiz ederek başlayalım - hangi verilerin mevcut olduğunu ve ne kadarının olduğunu kontrol edin.
-  - Son hafta içindeki aktivitelerim hakkında bana ne söyleyebilirsiniz? Günlük istatistiklerim nasıl görünüyordu?
-  - Lütfen Temmuz ve Haziran aylarındaki koşu antrenmanlarımı özetleyin. İlginç bir şey görüyor musunuz?
-
-  https://github.com/user-attachments/assets/93ddbfb9-6da9-42c1-9872-815abce7e918
-
-
-  Denemeyi istiyorsunuz? **[🚀 Başlangıç](docs/getting-started.md)**
-
-  ## 🌟 Apple Health MCP Server Neden Kullanılmalı?
-
-   - **🧩 Verilerinizi her yere uydurun**: bu yazılımı kullanarak Apple cihazlarından dışa aktarılan verileri herhangi bir DBMS'ye aktarabilirsiniz, temel importer zaten uzantılara hazırdır
-   - **🎯 Karmaşık veri erişimini basitleştirin**: veri yapısını bilmenize veya SQL gibi herhangi bir yapılandırılmış sorgu dili kullanmanıza gerek yok, doğal dil ile basit erişim sağlanır
-   - **🔍︎ Gizli eğilimleri bulun**: otomatik olarak oluşturulan sorguları kullanabilen bir geçit olarak LLM'yi kullanın; bu, eğilimleri manuel olarak algılamak için çok kolay değildir
-
-  ## ✨ Temel Özellikler
-
-  - **🚀 FastMCP Framework**: Yüksek performanslı MCP sunucusu yetenekleri için FastMCP üzerinde oluşturulmuş
-  - **🍏 Apple Health Veri Keşfi**: Apple Health XML dışa aktarmalarını içe aktarın, ayrıştırın ve analiz edin
-  - **🔎 Güçlü Arama & Filtreleme**: Doğal dil ve gelişmiş parametreler kullanarak sağlık kayıtlarını sorgulayın ve filtreleyin
-  - **📦 Elasticsearch, ClickHouse veya DuckDB Entegrasyonu**: Sağlık verilerini ölçekte verimli bir şekilde indeksleyin ve arayın
-  - **🛠️ Modüler MCP Araçları**: Yapı analizi, kayıt araması, türe dayalı çıkarma ve daha fazlası için araçlar
-  - **📈 Veri Özetleri & Eğilimler**: Sağlık verilerinizden istatistikler ve eğilim analizleri oluşturun
-  - **🐳 Container'a Hazır**: Kolay dağıtım ve ölçeklendirme için Docker desteği
-  - **🔧 Yapılandırılabilir**: Kapsamlı ```.env``` tabanlı konfigürasyon seçenekleri
-
-  ## 📚 Dokümantasyon
-
-  - **[🚀 Başlangıç](docs/getting-started.md)** - Tam kurulum rehberi
-  - **[🔍 Hakkında](docs/about.md)** - Detaylı açıklama & mimari
-  - **[🔧 Konfigürasyon](docs/configuration.md)** - Ortam değişkenleri ve ayarlar
-  - **[🛠️ MCP Araçları](docs/mcp-tools.md)** - Tüm mevcut araçlar
-  - **[🗺️ Yol Haritası](docs/roadmap.md)** - Yaklaşan özellikler ve yol haritası
-
-  **Yardıma mı ihtiyacınız var?** Kullanım durumları veya uygulama konusunda rehberlik mi arıyorsunuz? [GitHub tartışma forumunda](https://github.com/the-momentum/apple-health-mcp-server/discussions) sorularınızı sormaktan çekinmeyin! Orada ayrıca ilginç kullanım durumları, ipuçları ve topluluk içgörülerini bulacaksınız.
-
-  ## 👥 Katkıda Bulunanlar
-
-  <a href="https://github.com/the-momentum/apple-health-mcp-server/graphs/contributors">
-    
-  </a>
-
-  <p align="right">(<a href="#readme-top">başa dön</a>)</p>
-
-  ## 💼 Momentum Hakkında
-  Bu proje, sağlık teknolojisini daha güvenli, birlikte çalışabilir ve AI'ye hazır hale getirdiğimiz Momentum'un açık kaynaklı ekosisteminin bir parçasıdır. Amacımız HealthTech ekiplerine FHIR gibi standartları güvenli ve verimli bir şekilde benimsemelerine yardımcı olmaktır. Biz sağlık AI geliştirme uzmanlarıyız ve FT1000, Deloitte Fast 50 ve Forbes tarafından, sonraki nesil sağlık yeniliklerini güçlendiren ölçeklenebilir, HIPAA uyumlu çözümler oluşturduğumuz için tanınmışız.
-
-  📖 Deneyimlerimizden öğrenmek ister misiniz? Görüşlerimizi okuyun → <a href="https://www.themomentum.ai/blog">themomentum.ai/blog</a>. 
-  İlgilendiniz mi? <a href="http://themomentum.ai/lets-talk">Konuşalım</a>!
-
-  <div align="center">
-    <p><em>❤️ ile <a href="https://themomentum.ai">Momentum</a> tarafından oluşturulmuş • AI ile sağlık veri yönetimini dönüştürüyor</em></p>
-  </div>
 ---
 
 <a name="readme-top"></a>

@@ -1,27 +1,14 @@
 ---
 name: "base/base-mcp"
 description: "Base Network integration for onchain tools, allowing interaction with Base Network and Coinbase API for wallet management, fund transfers, smart contracts, and DeFi operations"
-description_tr: "Base Network entegrasyonu ile onchain araçları kullanarak Base Network ve Coinbase API üzerinden cüzdan yönetimi, fon transferi, smart contract ve DeFi işlemlerini gerçekleştirebilirsiniz."
-category: "Finance & Fintech"
+category: "Other"
 repo: "base/base-mcp"
-stars: 346
+stars: 347
 url: "https://github.com/base/base-mcp"
 body_length: 518
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/base-mcp"
-body_tr: |-
-  # base-mcp [DEPRECATED]
-
-  > **Bu repository arşivlenmiştir ve artık bakımı yapılmamaktadır.**
-
-  Base MCP sunucusu değiştirilmiştir. Base üzerinde AI ajanları oluşturmak için en son araçlar, dokümentasyon ve hızlı başlangıç rehberleri için şu adresi ziyaret edin:
-
-  - **Docs:** https://docs.base.org/ai-agents
-  - **Quickstart (Payments):** https://docs.base.org/ai-agents/quickstart/payments
-  - **Quickstart (Trading):** https://docs.base.org/ai-agents/quickstart/trading
-
-  `base-mcp` npm paketi deprecated durumdadır. `npx base-mcp` kullanmayın veya `npm install base-mcp` kurmayın.
 ---
 
 # base-mcp [DEPRECATED]

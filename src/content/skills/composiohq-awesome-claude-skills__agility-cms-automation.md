@@ -1,10 +1,9 @@
 ---
 name: "agility-cms-automation"
 description_en: "Automate Agility CMS tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) aracılığıyla Agility CMS görevlerini otomatikleştirin. Güncel şemalar için her zaman önce tools'u araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/agility-cms-automation/SKILL.md"
 path: "composio-skills/agility-cms-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Agility CMS Otomasyonu Rube MCP ile
-
-  Composio'nun Agility CMS araç seti aracılığıyla Rube MCP ile Agility CMS işlemlerini otomatikleştirin.
-
-  **Araç seti belgeleri**: [composio.dev/toolkits/agility_cms](https://composio.dev/toolkits/agility_cms)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut olmalıdır)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Agility CMS bağlantısı `agility_cms` araç seti ile
-  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: İstemci yapılandırmanıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin mevcut olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS` çağırın `agility_cms` araç seti ile
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Keşfi
-
-  Workflowları çalıştırmadan önce her zaman mevcut toolları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Agility CMS operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Çekirdek Workflow Deseni
-
-  ### Adım 1: Mevcut Toolları Keşfet
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Agility CMS task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Et
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["agility_cms"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Toolları Çalıştır
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanları asla hardcode etmeyin
-  - **Bağlantıyı kontrol et**: Toolları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory`yi ekleyin, boş olsa bile (`{}`)
-  - **Session yeniden kullanım**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflowlar için yeni olanlar oluşturun
-  - **Pagination**: Yanıtlar için pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Tool bulma | `RUBE_SEARCH_TOOLS` ile Agility CMS'e özel use case |
-  | Bağlanma | `RUBE_MANAGE_CONNECTIONS` ile `agility_cms` araç seti |
-  | Çalıştırma | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (schemaRef ile toollar için) |
-
-  ---
-  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Agility CMS Automation via Rube MCP

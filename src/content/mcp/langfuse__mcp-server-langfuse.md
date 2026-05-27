@@ -1,8 +1,7 @@
 ---
 name: "langfuse/mcp-server-langfuse"
 description: "MCP server to access and manage LLM application prompts created with Langfuse) Prompt Management."
-description_tr: "Langfuse ile oluşturulan LLM uygulama promptlarına erişim sağlayan ve yönetim yapan MCP server."
-category: "Developer Tools"
+category: "Other"
 repo: "langfuse/mcp-server-langfuse"
 stars: 167
 url: "https://github.com/langfuse/mcp-server-langfuse"
@@ -10,112 +9,6 @@ body_length: 3354
 license: "MIT"
 language: "TypeScript"
 homepage: "https://langfuse.com"
-body_tr: |-
-  # Langfuse Prompt Management MCP Server
-
-  [Model Context Protocol](https://github.com/modelcontextprotocol) (MCP) Server için [Langfuse Prompt Management](https://langfuse.com/docs/prompts/get-started). Bu server, Model Context Protocol aracılığıyla Langfuse promptlarınıza erişmenizi ve yönetmenizi sağlar.
-
-  ## Demo
-
-  Langfuse Prompts MCP'nin Claude Desktop'ta hızlı demosu (_açıklamalar için sesi açın_):
-
-  https://github.com/user-attachments/assets/61da79af-07c2-4f69-b28c-ca7c6e606405
-
-  ## Özellikler
-
-  ### MCP Prompt
-
-  Bu server, prompt keşfi ve alınması için [MCP Prompts spesifikasyonunu](https://modelcontextprotocol.io/docs/concepts/prompts) uygular.
-
-  - `prompts/list`: Kullanılabilir tüm promptları listele
-
-    - İsteğe bağlı cursor tabanlı pagination
-    - Prompt adlarını ve gerekli argümanlarını döndürür, sınırlama: tüm argümanlar isteğe bağlı olarak kabul edilir ve Langfuse'de değişkenlerin spesifikasyonu olmadığı için açıklamalar dahil değildir
-    - Birden fazla sayfa varsa pagination için sonraki cursor'u içerir
-
-  - `prompts/get`: Belirli bir prompt'ı al
-
-    - Langfuse promptlarını (text ve chat) MCP prompt objelerine dönüştürür
-    - Sağlanan değişkenlerle prompt'u derler
-
-  ### Tools
-
-  Prompt yeteneğini desteklemeyen diğer MCP istemcileriyle uyumluluğu artırmak için, server ayrıca MCP Prompts işlevselliğini çoğaltan tool'lar da dışa aktarır.
-
-  - `get-prompts`: Kullanılabilir promptları listele
-
-    - Pagination için isteğe bağlı `cursor` parametresi
-    - Prompt'ları ve argümanlarını içeren bir liste döndürür
-
-  - `get-prompt`: Belirli bir prompt'ı al ve derle
-    - Gerekli `name` parametresi: Alınacak prompt'un adı
-    - İsteğe bağlı `arguments` parametresi: Prompt değişkenleriyle JSON objesi
-
-  ## Geliştirme
-
-  ```bash
-  npm install
-
-  # mevcut dosyayı derle
-  npm run build
-
-  # mcp inspector'da test et
-  npx @modelcontextprotocol/inspector node ./build/index.js
-  ```
-
-  ## Kullanım
-
-  ### Adım 1: Derle
-
-  ```bash
-  npm install
-  npm run build
-  ```
-
-  ### Adım 2: Server'ı MCP server'larınıza ekleyin:
-
-  #### Claude Desktop
-
-  `claude_desktop_config.json` dosyasını düzenleyerek Claude for Desktop'ı yapılandırın
-
-  ```json
-  {
-    "mcpServers": {
-      "langfuse": {
-        "command": "node",
-        "args": ["<absolute-path>/build/index.js"],
-        "env": {
-          "LANGFUSE_PUBLIC_KEY": "your-public-key",
-          "LANGFUSE_SECRET_KEY": "your-secret-key",
-          "LANGFUSE_BASEURL": "https://cloud.langfuse.com"
-        }
-      }
-    }
-  }
-  ```
-
-  Ortam değişkenlerini gerçek Langfuse API anahtarlarınızla değiştirdiğinizden emin olun. Server şimdi Claude Desktop'ta kullanılabilir olacak.
-
-  #### Cursor
-
-  Cursor'a yeni server ekleyin:
-
-  - Name: `Langfuse Prompts`
-  - Type: `command`
-  - Command:
-    ```bash
-    LANGFUSE_PUBLIC_KEY="your-public-key" LANGFUSE_SECRET_KEY="your-secret-key" LANGFUSE_BASEURL="https://cloud.langfuse.com" node absolute-path/build/index.js
-    ```
-
-  ## Sınırlamalar
-
-  MCP Server bir çalışma aşamasında olup bazı sınırlamalara sahiptir:
-
-  - Yalnızca Langfuse'de `production` etiketi olan promptlar döndürülür
-  - Tüm argümanlar isteğe bağlı olarak kabul edilir ve Langfuse'de değişkenlerin spesifikasyonu olmadığı için açıklamalar dahil değildir
-  - List işlemleri, argümanları çıkarmak için arka planda her prompt'u ayrı ayrı getirmeyi gerektirir, bu işe yarar ancak verimli değildir
-
-  Katkılar memnuniyetle karşılanır! Herhangi bir öneriniz veya geri bildiriminiz varsa lütfen bir issue açın veya PR gönderin ([repo](https://github.com/langfuse/mcp-server-langfuse)).
 ---
 
 # Langfuse Prompt Management MCP Server

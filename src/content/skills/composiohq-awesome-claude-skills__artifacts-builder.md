@@ -1,10 +1,9 @@
 ---
 name: "artifacts-builder"
 description_en: "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts."
-description_tr: "Claude.ai için React, Tailwind CSS ve shadcn/ui gibi modern frontend teknolojilerini kullanarak karmaşık, çok bileşenli HTML artifact'ları oluşturmak için tasarlanmış araç seti. State management, routing veya shadcn/ui bileşenleri gerektiren karmaşık artifact'lar için kullanın - basit tek dosyalı HTML/JSX artifact'ları için değil."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/artifacts-builder/SKILL.md"
 path: "artifacts-builder/SKILL.md"
 is_collection: false
@@ -13,75 +12,6 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Artifacts Builder
-
-  Güçlü frontend claude.ai artifact'ları oluşturmak için şu adımları izleyin:
-  1. `scripts/init-artifact.sh` kullanarak frontend repo'sunu initialize edin
-  2. Oluşturulan kodu düzenleyerek artifact'ınızı geliştirin
-  3. Tüm kodu `scripts/bundle-artifact.sh` kullanarak tek bir HTML dosyasına paketleyin
-  4. Artifact'ı kullanıcıya gösterin
-  5. (Opsiyonel) Artifact'ı test edin
-
-  **Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui
-
-  ## Tasarım & Stil Kılavuzu
-
-  ÇOK ÖNEMLİ: Genellikle "AI slop" olarak adlandırılan şeyden kaçınmak için, aşırı ortalanmış layoutlar, mor gradientler, tekdüze yuvarlatılmış köşeler ve Inter fontunu kullanmaktan kaçının.
-
-  ## Hızlı Başlangıç
-
-  ### Adım 1: Projeyi Initialize Edin
-
-  Yeni bir React projesi oluşturmak için initialization scriptini çalıştırın:
-  ```bash
-  bash scripts/init-artifact.sh <project-name>
-  cd <project-name>
-  ```
-
-  Bu, şu özelliklere sahip tam yapılandırılmış bir proje oluşturur:
-  - ✅ React + TypeScript (Vite aracılığıyla)
-  - ✅ Tailwind CSS 3.4.1 shadcn/ui tema sistemiyle
-  - ✅ Path alias'ları (`@/`) yapılandırılmış
-  - ✅ 40+ shadcn/ui bileşeni önceden yüklenmiş
-  - ✅ Tüm Radix UI bağımlılıkları dahil
-  - ✅ Bundling için Parcel yapılandırılmış (.parcelrc aracılığıyla)
-  - ✅ Node 18+ uyumluluğu (Vite versiyonunu otomatik olarak algılar ve sabitler)
-
-  ### Adım 2: Artifact'ınızı Geliştirin
-
-  Artifact'ı oluşturmak için oluşturulan dosyaları düzenleyin. Rehberlik için aşağıda **Yaygın Geliştirme Görevleri**'ne bakın.
-
-  ### Adım 3: Tek HTML Dosyasına Paketleyin
-
-  React uygulamasını tek bir HTML artifact'ına paketlemek için:
-  ```bash
-  bash scripts/bundle-artifact.sh
-  ```
-
-  Bu, tüm JavaScript, CSS ve bağımlılıkları içinde barındıran kendi kendine yeterli bir artifact olan `bundle.html` dosyası oluşturur. Bu dosya doğrudan Claude sohbetlerinde bir artifact olarak paylaşılabilir.
-
-  **Gereksinimler**: Projenizin kök dizininde bir `index.html` dosyası olması gerekir.
-
-  **Script'in yaptıkları**:
-  - Bundling bağımlılıklarını yükler (parcel, @parcel/config-default, parcel-resolver-tspaths, html-inline)
-  - Path alias desteği ile `.parcelrc` config'i oluşturur
-  - Parcel ile derler (kaynak haritaları olmadan)
-  - Tüm asset'leri html-inline kullanarak tek HTML'ye gömülü hale getirir
-
-  ### Adım 4: Artifact'ı Kullanıcı ile Paylaşın
-
-  Son olarak, paketlenmiş HTML dosyasını sohbette kullanıcı ile paylaşın, böylece artifact olarak görüntüleyebilsinler.
-
-  ### Adım 5: Artifact'ı Test Etme/Görselleştirme (Opsiyonel)
-
-  Not: Bu tamamen opsiyonel bir adımdır. Yalnızca gerekli veya istenirse gerçekleştirin.
-
-  Artifact'ı test etmek/görselleştirmek için mevcut araçları kullanın (diğer Skills'ler veya Playwright veya Puppeteer gibi yerleşik araçlar dahil). Genel olarak, istek ile bitmiş artifact'ın görülebilmesi arasında gecikme eklemediği için artifact'ı önceden test etmekten kaçının. Gerekirse veya sorunlar ortaya çıkarsa, artifact'ı sunduktan sonra test edin.
-
-  ## Referans
-
-  - **shadcn/ui bileşenleri**: https://ui.shadcn.com/docs/components
 ---
 
 # Artifacts Builder

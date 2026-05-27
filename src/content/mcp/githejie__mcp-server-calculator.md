@@ -1,80 +1,13 @@
 ---
 name: "githejie/mcp-server-calculator"
 description: "This server enables LLMs to use calculator for precise numerical calculations"
-description_tr: "Bu sunucu, LLM'lerin hassas matematiksel hesaplamalar için hesap makinesi kullanmasını sağlar."
-category: "Other Tools and Integrations"
+category: "Other"
 repo: "githejie/mcp-server-calculator"
 stars: 148
 url: "https://github.com/githejie/mcp-server-calculator"
 body_length: 1472
 license: "MIT"
 language: "Python"
-body_tr: |-
-  # Calculator MCP Server
-
-  Model Context Protocol sunucusu hesaplama için. Bu sunucu, LLM'lerin hassas sayısal hesaplamalar için calculator kullanmasını sağlar.
-
-  ### Kullanılabilir Araçlar
-
-  - `calculate` - Verilen ifadeyi hesaplar/değerlendirir.
-    - `expression` (string, gerekli): Hesaplanacak ifade
-
-  ## Kurulum
-
-  ### uv Kullanarak (önerilen)
-
-  [`uv`](https://docs.astral.sh/uv/) kullanırken özel kurulum gerekmez. 
-  *mcp-server-calculator* uygulamasını doğrudan çalıştırmak için [`uvx`](https://docs.astral.sh/uv/guides/tools/) kullanacağız.
-
-  ```bash
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-  ```
-
-  ### PIP Kullanarak
-
-  Alternatif olarak `mcp-server-calculator` uygulamasını pip aracılığıyla kurabilirsiniz:
-
-  ```bash
-  pip install mcp-server-calculator
-  ```
-
-  Kurulumdan sonra, bunu script olarak çalıştırabilirsiniz:
-
-  ```bash
-  python -m mcp_server_calculator
-  ```
-
-  ## Yapılandırma
-
-  ### uv Kullanarak (önerilen)
-
-  Bunu MCP client ayarlarınıza ekleyin:
-
-  ```json
-  "mcpServers": {
-    "calculator": {
-      "command": "uvx",
-      "args": ["mcp-server-calculator"]
-    }
-  }
-  ```
-
-  ### PIP Kullanarak
-
-  Alternatif olarak bunu MCP client ayarlarınıza ekleyin:
-
-  ```json
-  "mcpServers": {
-    "calculator": {
-      "command": "python",
-      "args": ["-m", "mcp_server_calculator"]
-    }
-  }
-  ```
-
-  ## Lisans
-
-  mcp-server-calculator MIT Lisansı altında lisanslanmıştır. Bu, yazılımı MIT Lisansının şartları ve koşullarına tabi olarak kullanma, değiştirme ve dağıtma özgürlüğü vermeniz anlamına gelir. Daha fazla ayrıntı için lütfen proje deposundaki LICENSE dosyasına bakın.
 ---
 
 # Calculator MCP Server

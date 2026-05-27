@@ -1,139 +1,14 @@
 ---
 name: "PrefectHQ/fastmcp"
 description: "A high-level framework for building MCP servers in Python"
-description_tr: "Python'da MCP sunucuları oluşturmak için yüksek seviyeli bir framework."
-category: "Other Tools and Integrations"
+category: "Other"
 repo: "PrefectHQ/fastmcp"
-stars: 25331
+stars: 25338
 url: "https://github.com/PrefectHQ/fastmcp"
 body_length: 6920
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://gofastmcp.com"
-body_tr: |-
-  <div align="center">
-
-  <!-- omit in toc -->
-
-  <picture>
-    <source width="550" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PrefectHQ/fastmcp/main/docs/assets/brand/f-watercolor-waves-4-dark.png">
-    <source width="550" media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PrefectHQ/fastmcp/main/docs/assets/brand/f-watercolor-waves-4.png">
-    
-  </picture>
-
-  # FastMCP 🚀
-
-  <strong>Hızlı hareket et ve şeyler yap.</strong>
-
-  *Yapımında 💙 [Prefect](https://www.prefect.io/)*
-
-  [![Docs](https://img.shields.io/badge/docs-gofastmcp.com-blue)](https://gofastmcp.com)
-  [![Discord](https://img.shields.io/badge/community-discord-5865F2?logo=discord&logoColor=white)](https://discord.gg/uu8dJCgttd)
-  [![PyPI - Version](https://img.shields.io/pypi/v/fastmcp.svg)](https://pypi.org/project/fastmcp)
-  [![Tests](https://github.com/PrefectHQ/fastmcp/actions/workflows/run-tests.yml/badge.svg)](https://github.com/PrefectHQ/fastmcp/actions/workflows/run-tests.yml)
-  [![License](https://img.shields.io/github/license/PrefectHQ/fastmcp.svg)](https://github.com/PrefectHQ/fastmcp/blob/main/LICENSE)
-
-  <a href="https://trendshift.io/repositories/13266" target="_blank"></a>
-  </div>
-
-  ---
-
-  [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) LLM'leri araçlara ve verilere bağlar. FastMCP, prototipten üretime geçmek için ihtiyacınız olan her şeyi sağlar:
-
-  ```python
-  from fastmcp import FastMCP
-
-  mcp = FastMCP("Demo 🚀")
-
-  @mcp.tool
-  def add(a: int, b: int) -> int:
-      """Add two numbers"""
-      return a + b
-
-  if __name__ == "__main__":
-      mcp.run()
-  ```
-
-  ## FastMCP Neden Kullanmalı
-
-  Etkili bir MCP uygulaması geliştirmek göründüğünden daha zordur. FastMCP tüm işleri halleder. Bir araçı Python fonksiyonuyla tanımlayın ve şema, doğrulama ve dokümantasyon otomatik olarak oluşturulur. Bir URL ile sunucuya bağlanın ve transport müzakeresi, kimlik doğrulama ve protokol yaşam döngüsü sizin için yönetilir. Siz mantığınıza odaklanın, MCP kısmı işe yarar: **FastMCP ile en iyi uygulamalar yerleşiktir.**
-
-  **Bu yüzden FastMCP, MCP ile çalışmak için standart çerçevedir.** FastMCP 1.0, 2024 yılında resmi MCP Python SDK'sına dahil edilmiştir. Günümüzde, aktif olarak bakımı yapılan standalone proje günde bir milyon kez indirilmekte ve tüm dillerdeki MCP sunucularının %70'i FastMCP'nin bir versiyonu tarafından desteklenmektedir.
-
-  FastMCP üç sütun üzerine kuruludur:
-
-  <table>
-  <tr>
-  <td align="center" valign="top" width="33%">
-  <a href="https://gofastmcp.com/servers/server">
-
-  <br /><strong>Sunucular</strong>
-  </a>
-  <br />Araçları, kaynakları ve istemleri LLM'lere sunun.
-  </td>
-  <td align="center" valign="top" width="33%">
-  <a href="https://gofastmcp.com/apps/overview">
-
-  <br /><strong>Uygulamalar</strong>
-  </a>
-  <br />Araçlarınıza konuşma içinde doğrudan oluşturulan etkileşimli UI'ler verin.
-  </td>
-  <td align="center" valign="top" width="33%">
-  <a href="https://gofastmcp.com/clients/client">
-
-  <br /><strong>İstemciler</strong>
-  </a>
-  <br />Herhangi bir MCP sunucusuna bağlanın — yerel veya uzak, programatik veya CLI.
-  </td>
-  </tr>
-  </table>
-
-  **[Sunucular](https://gofastmcp.com/servers/server)** Python fonksiyonlarınızı MCP uyumlu araçlar, kaynaklar ve istemler içinde sarar. **[İstemciler](https://gofastmcp.com/clients/client)** tam protokol desteğiyle herhangi bir sunucuya bağlanır. **[Uygulamalar](https://gofastmcp.com/apps/overview)** da araçlarınıza konuşma içinde doğrudan oluşturulan etkileşimli UI'ler sağlar.
-
-  İnşa etmeye hazır mısınız? [Kurulum rehberi](https://gofastmcp.com/getting-started/installation) ile başlayın veya doğrudan [hızlı başlangıç](https://gofastmcp.com/getting-started/quickstart) bölümüne atlayın.
-
-  ## FastMCP'yi Horizon ile üretimde çalıştırın
-
-  FastMCP, MCP sunucuları geliştirmenin standart yoludur. **[Prefect Horizon](https://www.prefect.io/horizon?utm_source=github&utm_medium=readme&utm_campaign=readme_horizon&utm_content=readme_body)** bunları güvenli bir şekilde çalıştırmak için kurumsal MCP gateway'idir.
-
-  FastMCP ekibi tarafından built, Horizon dünyanın en popüler MCP çerçevesini sevk ettiğimizde öğrendiğimiz en iyi uygulamaları paketler.
-
-  FastMCP sunucularını GitHub'dan branch önizlemeleri ve anında rollback ile yayınlayın. Şirketinizin kullandığı her MCP'nin özel bir kayıt defteri oluşturun. SSO ve tool seviyesi RBAC ile erişimi güvence altına alın. MCP yığının tamamı arasında denetim günlükleri, gözlemlenebilirlik ve yönetim elde edin. Onaylanan araçları takımlar ve ajanlar için amaçlı uç noktalar içinde yeniden karıştırın.
-
-  FastMCP ile başlayın. [Horizon ile ölçeklendir →](https://www.prefect.io/horizon?utm_source=github&utm_medium=readme&utm_campaign=readme_horizon&utm_content=readme_cta)
-
-  ## Kurulum
-
-  FastMCP'yi [uv](https://docs.astral.sh/uv/) ile kurmanızı tavsiye ediyoruz:
-
-  ```bash
-  uv pip install fastmcp
-  ```
-
-  Doğrulama ve güncelleme dahil olmak üzere tam kurulum talimatları için [**Kurulum Rehberi**](https://gofastmcp.com/getting-started/installation) bölümüne bakın.
-
-  **Yükseltiliyor musunuz?** Biz rehberlerimiz var:
-  - [FastMCP v2'den yükseltme](https://gofastmcp.com/getting-started/upgrading/from-fastmcp-2)
-  - [MCP Python SDK'dan yükseltme](https://gofastmcp.com/getting-started/upgrading/from-mcp-sdk)
-  - [Düşük seviye SDK'dan yükseltme](https://gofastmcp.com/getting-started/upgrading/from-low-level-sdk)
-
-  > [!NOTE]
-  > FastMCP 3.2 veya öncesinden `pip` yükseltmesinden sonra `import fastmcp` başarısız olursa, `pip install --force-reinstall fastmcp` çalıştırın. Bunun neden olduğunu öğrenmek için [Sorun Giderme](https://gofastmcp.com/getting-started/installation#troubleshooting) bölümüne bakın (`uv` etkilenmez).
-
-  ## 📚 Dokümantasyon
-
-  FastMCP'nin tam dokümantasyonu **[gofastmcp.com](https://gofastmcp.com)** adresinde mevcuttur ve detaylı rehberler, API referansları ve ileri desenleri içerir.
-
-  Dokümantasyon ayrıca [llms.txt formatında](https://llmstxt.org/) da mevcuttur, bu LLM'lerin kolayca tüketebileceği basit bir markdown standardıdır:
-
-  - [`llms.txt`](https://gofastmcp.com/llms.txt) temelde bir site haritası olup, dokümantasyondaki tüm sayfaları listeler.
-  - [`llms-full.txt`](https://gofastmcp.com/llms-full.txt) tüm dokümantasyonu içerir. Bunun LLM'nizin bağlam penceresini aşabileceğini unutmayın.
-
-  **Topluluk:** Diğer FastMCP geliştiricileriyle bağlantı kurmak ve yaptıklarınızı paylaşmak için [Discord sunucumuza](https://discord.gg/uu8dJCgttd) katılın.
-
-  ## Katkı Sağlamak
-
-  Katkıları bekliyoruz! Kurulum talimatları, test gereksinimleri ve PR yönergeleri için [Katkı Rehberi](https://gofastmcp.com/development/contributing) bölümüne bakın.
 ---
 
 <div align="center">
@@ -158,7 +33,7 @@ body_tr: |-
 [![Tests](https://github.com/PrefectHQ/fastmcp/actions/workflows/run-tests.yml/badge.svg)](https://github.com/PrefectHQ/fastmcp/actions/workflows/run-tests.yml)
 [![License](https://img.shields.io/github/license/PrefectHQ/fastmcp.svg)](https://github.com/PrefectHQ/fastmcp/blob/main/LICENSE)
 
-<a href="https://trendshift.io/repositories/13266" target="_blank"></a>
+<a href="https://trendshift.io/repositories/21461" target="_blank"></a>
 </div>
 
 ---

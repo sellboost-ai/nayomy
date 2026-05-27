@@ -1,32 +1,13 @@
 ---
 name: "aliyun/alibabacloud-tablestore-mcp-server"
 description: "MCP service for Tablestore, features include adding documents, semantic search for documents based on vectors and scalars, RAG-friendly, and serverless."
-description_tr: "Tablestore için MCP servisi, belge ekleme, vektör ve skaler tabanlı anlamsal arama, RAG uyumluluğu ve serverless mimarisi sunuyor."
-category: "Databases"
+category: "Other"
 repo: "aliyun/alibabacloud-tablestore-mcp-server"
 stars: 156
 url: "https://github.com/aliyun/alibabacloud-tablestore-mcp-server"
 body_length: 937
 license: "Apache-2.0"
 language: "Java"
-body_tr: |-
-  # [Tablestore](https://www.aliyun.com/product/ots) MCP sunucuları.
-
-  ## Uygulama Listesi
-
-  ## 1. Java
-  1. [Başlangıç Örneği: tablestore-java-mcp-server](https://github.com/aliyun/alibabacloud-tablestore-mcp-server/blob/master/tablestore-java-mcp-server/README.md)
-  2. [MCP Mimarisi Temelinde Bilgi Tabanı Soru-Cevap Sistemi: tablestore-java-mcp-server-rag](https://github.com/aliyun/alibabacloud-tablestore-mcp-server/blob/master/tablestore-java-mcp-server-rag/README.md)
-     - Günümüzde en yaygın AI uygulamalarından biri olan soru-cevap sistemini uygulayarak, özel bilgi tabanı üzerinden soru sorma ve cevaplama işlevini destekler. Bilgi tabanı oluşturma ve RAG konularında bazı optimizasyonlar yapılmıştır.
-
-  ## 2. Python 
-  1. [Başlangıç Örneği: tablestore-python-mcp-server](https://github.com/aliyun/alibabacloud-tablestore-mcp-server/blob/master/tablestore-python-mcp-server/README.md)
-  1. [Mem0-OpenMemory-MCP: tablestore-python-mem0-mcp-server](https://github.com/aliyun/alibabacloud-tablestore-mcp-server/blob/master/tablestore-python-mem0-mcp-server/README.md)
-
-
-  ## Teknik Destek
-
-  Lütfen DingTalk açık grubumuzda katılın ve biz sizinle birlikte AI teknolojisini tartışalım. DingTalk grup numarası: 36165029092
 ---
 
 # [Tablestore](https://www.aliyun.com/product/ots) MCP servers.

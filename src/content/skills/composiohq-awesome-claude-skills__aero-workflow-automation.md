@@ -1,10 +1,9 @@
 ---
 name: "aero-workflow-automation"
 description_en: "Automate Aero Workflow tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) ile Aero Workflow görevlerini otomatikleştirin. Her zaman güncel şemaları için önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/aero-workflow-automation/SKILL.md"
 path: "composio-skills/aero-workflow-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP aracılığıyla Aero Workflow Otomasyonu
-
-  Composio'nun Aero Workflow araç seti aracılığıyla Rube MCP üzerinden Aero Workflow işlemlerini otomatikleştirin.
-
-  **Araç seti dokümantasyonu**: [composio.dev/toolkits/aero_workflow](https://composio.dev/toolkits/aero_workflow)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Aero Workflow bağlantısı ve `aero_workflow` araç seti
-  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısı yapın
-
-  ## Kurulum
-
-  **Rube MCP'yi edinin**: MCP sunucu yapılandırmanıza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu doğrulayın
-  2. `aero_workflow` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağrısı yapın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Keşfi
-
-  Workflow'ları çalıştırmadan önce her zaman mevcut araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Aero Workflow operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Mevcut Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Aero Workflow task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["aero_workflow"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'ları veya argümanları asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa da (`{}`)
-  - **Session yeniden kullanımı**: Bir workflow içinde session ID'leri yeniden kullanın. Yeni workflow'lar için yenileri oluşturun
-  - **Pagination**: Yanıtlarda pagination token'ları kontrol edin ve tam olana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bulun | Aero Workflow'a özgü use case ile `RUBE_SEARCH_TOOLS` |
-  | Bağlan | `aero_workflow` araç seti ile `RUBE_MANAGE_CONNECTIONS` |
-  | Çalıştır | Keşfedilmiş tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
-  | Tam şema | `schemaRef` olan araçlar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Aero Workflow Automation via Rube MCP

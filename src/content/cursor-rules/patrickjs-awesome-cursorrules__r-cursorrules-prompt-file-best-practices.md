@@ -2,124 +2,13 @@
 name: "r-cursorrules-prompt-file-best-practices"
 clean_name: "R Cursorrules Prompt File Best Practices"
 description: "Cursor rules for R development with best practices integration."
-description_tr: "R geliştirme için Cursor kuralları ve best practices entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/r-cursorrules-prompt-file-best-practices.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/r-cursorrules-prompt-file-best-practices.mdc"
 body_length: 7914
 file_extension: ".mdc"
-body_tr: |-
-  # R Programlama Asistanı
-
-  R'da programlama yaparken en iyi uygulamaları kullandığınızdan emin olun:
-
-  ## Proje Yapısı ve Dosya Organizasyonu
-  - Projeleri net dizinlere organize edin: 'R/' (scriptler), 'data/' (ham ve işlenmiş), 'output/' (sonuçlar, grafikler), 'docs/' (raporlar). R paketleri için 'inst/' kullanın; paket olmayan projeler için 'assets/' düşünün.
-  - Her proje için çalışma dizinlerini ve ayarları yönetmek üzere 'Rproj' dosyası kullanın.
-  - Yeniden kullanılabilir fonksiyonlar oluşturun ve bunları 'R/' klasörü altındaki ayrı script dosyalarında tutun.
-  - Kodu ve sonuçları birleştiren yeniden üretilebilir raporlar için RMarkdown veya Quarto kullanın. Quarto mevcutsa ve kuruluysa tercih edin.
-  - Ham verileri değişmez tutun; işlenmiş verilerle sadece 'data/processed/' içinde çalışın.
-  - Bağımlılık yönetimi ve yeniden üretilebilirlik için 'renv' kullanın. Tüm bağımlılıklar yüklü, senkronize ve kilitli olmalıdır.
-  - Tüm projeleri Git ile sürüm kontrolüne alın ve açık commit mesajları kullanın.
-  - Dosya adları için tutarlı snake_case kullanın. Dosya adları çok uzun olmamalıdır.
-  - Gereksiz bağımlılıklardan kaçının. Bir görev base R kullanılarak nispeten kolay bir şekilde yapılabiliyorsa, base R kullanın ve diğer paketleri sadece gerekli olduğunda aktarın (örn. ölçülebilir olarak daha hızlı, daha güçlü veya daha az kod satırı).
-
-  ## Paket Yapısı
-  - R projesi bir R paketiyse, paket içinde kullanılan bağımlılıkları 'DESCRIPTION' dosyasında belirtin. Tüm bağımlılıkların sürüm numarası belirtilmelidir (örn: R6 (>= 2.6.1))
-  - R projesi bir R paketiyse, 'LICENSE' dosyasının mevcut olduğundan emin olun.
-  - R projesi bir R paketiyse, paketin geliştirme değişikliklerini izleyen 'NEWS.md' dosyasının mevcut olduğundan emin olun.
-  - R projesi bir R paketiyse, paket içinde kullanılan her harici dosyanın 'inst' klasörü içinde kaydedildiğinden emin olun. Dosyayı okumak 'system.file' fonksiyonu kullanılarak yapılmalıdır.
-  - R projesi bir R paketiyse, yeni fonksiyonları test etmeden önce her zaman 'devtools::load_all' kullanın.
-  - R projesi bir R paketiyse, paketin sorun olmadığından emin olmak için 'devtools::check()' çalıştırın. Notlar tamam; uyarılardan ve hatalardan kaçının.
-  - R projesi bir R paketiyse, fonksiyonları roxygen2 kullanarak belgelendirin. Gerekli belgelendirmeyi (.Rd dosyaları) ve 'NAMESPACE' dosyasını oluşturmak için 'devtools::document()' kullanın.
-
-  ## Adlandırma Kuralları
-  - snake_case: değişkenler ve fonksiyonlar (örn. `total_sales`, `clean_data()`).
-  - UpperCamelCase: R6, S3, S4, S7 sınıf adları için (örn. `LinearModel`).
-  - SCREAMING_SNAKE_CASE: sabitler ve global seçenekler için (örn. `MAX_ITERATIONS`).
-  - Belirsiz adlardan kaçının (örn. `id` yerine `customer_id` kullanın).
-  - Fonksiyon adları için fiiller kullanın (örn. `plot_data`, `calculate_mean`).
-  - R tarafından zaten atanmış fonksiyon veya değişken adlarından kaçının, örneğin 'sd' - zaten R'de bir fonksiyondur. Bir başka örnek 'data' olabilir.
-  - R6 sınıflarıyla çalışırken, her zaman özel yöntemlerin ve alanların başına '.' koyun. Bir yöntemin örneği '.get_data()' olur ve 'private$.get_data()' olarak kullanılır.
-      
-  ## Kodlama Stili
-  - [tidyverse stil kılavuzunu](https://style.tidyverse.org/) izleyin.
-  - Operatörler etrafında boşluk kullanın (`a + b`, `a+b` değil).
-  - Okunabilirlik için satır uzunluğunu <= 80 karakter tutun.
-  - Tutarlı girinti kullanın (2 boşluk tercih edilir).
-  - Satır içi yorumlar ve bölüm başlıkları için '#' kullanın. Sadece gerektiğinde yorum yapın (örn. açıklama gereken karmaşık kod). Kod kendi kendini açıklamalıdır.
-  - Uzun scriptler yerine modüler, yeniden kullanılabilir fonksiyonlar yazın.
-  - Performans için açık döngüler yerine vektörleştirilmiş işlemleri tercih edin.
-  - Her zaman eksik değerleri açık şekilde işleyin (`na.rm = TRUE`, `is.na()`).
-  - Daha sonra doldurulacak boş bir nesne oluştururken, mümkün olduğunda türü ve uzunluğu önceden tahsis edin (örn. 'x <- character(length = 100)' yerine 'x <- c()').
-  - Değişken ataması için her zaman <- kullanın, 'R6' sınıflarıyla çalışırken hariç. 'R6' sınıfları içindeki yöntemler '=' kullanılarak atanır.
-  - Bir paketten bir fonksiyona referans verirken her zaman '::' söz dizimini kullanın, örneğin 'dplyr::select'
-  - String interpolasyonu için 'paste0' veya 'paste' yerine her zaman 'glue::glue' kullanın.
-      
-  ## Performans ve Optimizasyon
-  - Darboğazları belirlemek için kodu `profvis` ile profilleyin.
-  - Açık döngüler yerine vektörleştirilmiş fonksiyonları ve apply ailesini ('apply', 'lapply', 'sapply', 'vapply', 'mapply', 'tapply') veya 'purrr' tercih edin. Döngü kullanırken, türü ve belleği önceden tahsis edin.
-  - Performans kritik olduğunda ve veri belleğe sığabildiğinde büyük veri setleri için 'data.table' kullanın.
-  - CSV okurken, kod tabanına bağlı olarak 'data.table::fread' veya 'readr::read_csv' tercih edin. Kod tabanı tidyverse odaklıysa 'readr' tercih edin; aksi halde 'data.table' kullanın.
-
-  - Veri belleğin dışında olduğunda 'duckdb' kullanın.
-  - Gereksiz yere büyük nesneleri kopyalamaktan kaçının; mümkün olduğunda referansları kullanın.
-      
-  ## Test ve Doğrulama
-  - `testthat` ile birim testleri yazın.
-  - Tutarlı sonuçlar için yeniden üretilebilir rastgele tohumlar kullanın (`set.seed()`).
-  - Edge case'ler (boş girişler, eksik değerler, aykırı değerler) ile fonksiyonları test edin.
-  - Paket geliştirmesi için R CMD check veya `devtools::check()` kullanın.
-      
-  ## Yeniden Üretilebilirlik
-  - Kodu ve sonuçları birleştiren yeniden üretilebilir raporlar için RMarkdown veya Quarto kullanın. Quarto zaten mevcutsa ve kuruluysa tercih edin.
-  - `sessionInfo()` veya `sessioninfo::session_info()` ile oturum bilgisini yakalar.
-  - Paket sürümlerini `renv` ile sabitleyin.
-  - Scriptleri, verileri ve sonuçları sürüm kontrolüne alın.
-  - Tüm analiz adımlarını README veya rapor dosyalarında belgelendirin.
-      
-  ## İşbirliği ve Belgelendirme
-  - Fonksiyonlar ve paketler için roxygen2 kullanarak docstring yazın.
-  - Proje hedefleri, kurulum talimatları ve kullanım ile açık bir README tutun.
-  - Feature geliştirmesi için açıklayıcı commit mesajları ve dalları kullanın.
-  - Sonuçları HTML/PDF raporları veya panolar aracılığıyla paylaşın (Shiny, flexdashboard).
-  - Açıklık için kodu açıklayın, ancak kendi kendini açıklayan değişken ve fonksiyon adlarını tercih edin.
-  - Proje geliştirme yaşam döngüsünü izlemek için NEWS.md kullanın.
-      
-  ## Shiny — Uygulama Yapısı ve Modüller
-  - Kapsülleme, yeniden kullanılabilirlik ve test edilebilirlik için Shiny modüllerini (`moduleServer`, `NS()`) kullanın.
-  - Her modül küçük sorumluluklara sahip olmalıdır: UI, server (reaktif girdiler/çıktılar) ve birim testi için yardımcı fonksiyonlar.
-  - UI kodunu bildirimsel ve veri işleme mantığından ayrı tutun.
-  - Oturum kapsamlı durum için `session$userData` veya oturum başına `reactiveValues` kullanın, global değişkenler değil.
-  - Statik varlıklar için `www/` kullanın (JS/CSS/görüntüler), Shiny tarafından otomatik olarak sunulur.
-  - 'UIOutput' ve 'renderUI' kullanmaktan kaçının çünkü reaktivite mantığını daha karmaşık hale getirirler. Sadece gerekli olduğunda kullanın.
-      
-  ## İleri Uygulamalar
-  - Karmaşık nesneler için S3/S4/S7 veya R6 sınıflarını kullanın. Bağlama bağlı olarak seçin ancak R6 için hafif bir tercih vardır.
-  - Projeler arasında yeniden kullanılabilir kod için özel paketler yazın.
-  - Yeniden üretilebilir işlem hatları için iş akışlarını `targets` ile otomatikleştirin.
-  - Dağıtım için ortamları Docker ile konteynerleştirin.
-  - R projelerini test etmek ve dağıtmak için CI/CD (GitHub Actions, GitLab CI) kullanın.
-    
-  ## Bağımlılıklar
-  Bağımlılıklara güvenirken aşağıdaki paketleri tercih edin:
-  - purrr 'list' nesneleri manipülasyonu ve fonksiyonel programlama için
-  - shiny web uygulaması geliştirmesi için
-  - 'data.table' veya 'dplyr' bellek içinde veri manipülasyonu için
-  - 'data.table' veya 'dplyr' verimli veri aktarımı için (CSV/TSV, vb.).
-  - 'parquet' dosyalarıyla çalışırken 'arrow'
-  - belleğin dışında veri setleriyle çalışırken 'duckdb'
-  - çizim için 'ggplot2'
-  - girdilerin onaylanması için 'checkmate'
-  - kullanıcı mesajlarını göstermek için 'cli'
-  - string interpolasyonu için 'glue'
-  - paralel bilgi işlem için 'mirai'
-  - etkileşimli çizim için 'plotly'
-  - bağımlılık yönetimi için 'renv'
-  - 'json' ile çalışmak için 'jsonlite'. JSON nesnesi büyükse 'yyjsonr' kullanın.
-  - R projesinde C++ kodu entegre etmek için 'Rcpp'
 ---
 
 You are an R programming assistant, make sure to use the best practices when programming in R:

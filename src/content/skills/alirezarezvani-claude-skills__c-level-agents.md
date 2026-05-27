@@ -1,10 +1,9 @@
 ---
 name: "c-level-agents"
 description_en: "Founder-mode executive team. 8 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) and 17 /cs:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /cs:* commands, or when orchestrating multi-role decisions."
-description_tr: "Kurucu odaklı yönetici takımı. 8 cs-* C-suite ajanı (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) ve 17 /cs:* slash command ile zorlayıcı soru ofis saatleri, çok rollu yönetim kurulu görüşmeleri, stratejik sprint pipeline'ı ve meta routing'i destekler. Kurucu sanal bir yönetici takımına ihtiyaç duyduğunda, /cs:* command'lerini çağırdığında veya çok rollu kararları koordine ederken kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 16292
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/c-level-agents/SKILL.md"
 path: ".gemini/skills/c-level-agents/SKILL.md"
 is_collection: false
@@ -13,108 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # c-level-agents — Kurucu Modu Yönetim Kurulu
-
-  Slash komutları ve persona ajanları aracılığıyla sunulan sanal C-suite.
-
-  ## Anahtar Kelimeler
-
-  kurucu modu, sanal c-suite, yönetim ekibi, boardroom, ofis saatleri, CFO incelemesi, CMO incelemesi, stratejik sprint, karar günlüğü, çapraz model fikir birliği, persona ajanları, chief of staff, zorlayıcı sorular
-
-  ## Bu Plugin'in Sağladıkları
-
-  ### 8 cs-* Ajanı (`agents/` içinde)
-
-  Her ajan mevcut bir c-level becerisini sarmaladığı ve şu özellikleri ekler:
-  - Belirgin bir bilişsel ses (sayısal şüpheci, anlatı-öncelikli, vb.)
-  - Role özgü zorlayıcı sorular
-  - Beceri Python araçlarına bağlı iş akışı orkestrasyonu
-  - Çıktı şablonu: Bottom Line → Ne → Neden → Nasıl Hareket Edilir → Senin Kararın
-
-  Ses özellikleri için `../references/persona-voices.md` dosyasına bakın.
-
-  ### 17 /cs:* Slash Komutu (`skills/` içinde)
-
-  **Zorlayıcı-soru ofis saatleri (8):**
-  - `/cs:office-hours` — YC tarzı 6 soruluk danışma
-  - `/cs:cfo-review` — birim ekonomileri, para kaynağı, seyreltme
-  - `/cs:cmo-review` — ICP, CAC geri dönüşü, konumlandırma
-  - `/cs:cpo-review` — RICE, JTBD, North Star, PMF
-  - `/cs:cro-review` — pipeline kapsama, kazanma oranı, NRR
-  - `/cs:cto-review` — mimari risk, ölçekleme kenarı
-  - `/cs:ciso-review` — tehdit modeli, etki alanı, uyumluluk
-  - `/cs:gc-review` — sözleşmeler, IP, düzenleyici, şart sayfaları
-
-  **Stratejik sprint pipeline (5):**
-  - `/cs:brief` → `/cs:boardroom` → `/cs:decide` → `/cs:execute` → `/cs:post-mortem`
-
-  **Meta + güvenlik (4):**
-  - `/cs:founder-mode` — uygun C-role'e otomatik yönlendir
-  - `/cs:onboard` — kurucu görüşmesi → `company-context.md`
-  - `/cs:cross-eval` — çok-model fikir birliği
-  - `/cs:freeze` — bir karar üzerinde soğutma kilidi
-
-  ## Hızlı Başlangıç
-
-  ```
-  /cs:onboard                          # önce şirket bağlamını doldur
-  /cs:office-hours "VP Sales kiralamak üzere miyiz?"
-  /cs:founder-mode "para kaynağı baskısı"   # otomatik olarak CFO'ya yönlendir
-  /cs:boardroom briefs/pricing-v3.md   # tam panel
-  ```
-
-  ## Mimari
-
-  ```
-  Kullanıcı sorusu
-     │
-     ├─ Tek-rol? → cs-{role}-advisor ajanı
-     │                     ↓
-     │                  /cs:{role}-review komutu (zorlayıcı Sorular)
-     │                     ↓
-     │                  Beceri araçları + referanslar
-     │                     ↓
-     │                  Bottom Line + Memorandum
-     │
-     └─ Çok-rol?  → /cs:boardroom
-                          ↓
-                       6 aşamalı müzakere (Aşama 2 izolasyonu)
-                          ↓
-                       /cs:decide → decision-logger (iki katmanlı bellek)
-                          ↓
-                       /cs:execute → 90 günlük plan
-  ```
-
-  ## Entegrasyon Noktaları
-
-  - **Mevcut 28 c-level becerisi** — sarmalanmış, değiştirilmemiş
-  - **decision-logger** — her `/cs:decide` buraya yazılır
-  - **chief-of-staff** — ajanın orkestraklığını yaptığı yönlendirme katmanı
-  - **board-meeting** — `/cs:boardroom` komutunun çalıştığı protokol
-  - **llm-wiki** — isteğe bağlı kalıcı bellek köprüsü (`../references/llm-wiki-bridge.md` bkz.)
-  - **executive-mentor** — karşıt `/em:*` komutları temiz bir şekilde üstüne yığılır
-
-  ## Tasarım İlkeleri
-
-  1. **Ses başlı ve sonu kapalı, analiz tarafsızdır.**
-  2. **Yapıtlar sohbetin üzerine.** Her komut sonraki komutun tüketeceği bir Markdown yapıtı üretir.
-  3. **Boardroom'da Aşama 2 izolasyonu.** Çapraz sorgulama öncesi bağımsız düşünme.
-  4. **Zarif bozunma.** `/cs:cross-eval` Claude-only'e geri döner.
-  5. **Ücretli bağımlılık yok.** Tüm Python araçları yalnızca stdlib'dir.
-
-  ## Referanslar
-
-  - [persona-voices.md](../../references/persona-voices.md)
-  - [llm-wiki-bridge.md](../../references/llm-wiki-bridge.md)
-  - [Üst c-level CLAUDE.md](../../../CLAUDE.md)
-  - [Mevcut executive-mentor kardeş](../../../executive-mentor/)
-
-  ---
-
-  **Sürüm:** 1.0.0
-  **Son Güncelleme:** 2026-05-12
-  **Durum:** Üretimde Hazır
 ---
 
 # c-level-agents — Founder-Mode Executive Team

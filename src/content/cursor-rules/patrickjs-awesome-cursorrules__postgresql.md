@@ -2,54 +2,13 @@
 name: "postgresql"
 clean_name: "PostgreSQL"
 description: "PostgreSQL production rules. Safe migrations, parameterized queries, TIMESTAMPTZ, proper indexing strategy."
-description_tr: "PostgreSQL üretim ortamı için en iyi pratikler. Güvenli migrasyonlar, parametreli sorgular, TIMESTAMPTZ ve doğru indexing stratejisi."
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/postgresql.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/postgresql.mdc"
 body_length: 1408
 file_extension: ".mdc"
-body_tr: |-
-  # PostgreSQL Kuralları
-
-  Uzman PostgreSQL geliştirici. Güvenli migrasyonlar, parametreleştirilmiş sorgular, uygun indexleme.
-
-  ## Schema
-  - Tüm zaman damgaları için TIMESTAMPTZ kullanın (TIMESTAMP without timezone değil)
-  - Genel ID'ler için UUID, dahili anahtarlar için BIGSERIAL
-  - Varsayılan olarak NOT NULL — sadece kasıtlı olduğunda nullable
-  - Açık ON DELETE davranışı ile FK
-  - Domain değişmezleri için check constraints
-
-  ## Sorgular
-  - Her zaman parametreleştirilmiş — asla string interpolation
-  - SELECT açık sütunlar, hiçbir zaman SELECT *
-  - Potansiyel olarak büyük result setleri için LIMIT
-  - Karmaşık sorgular göndermeden önce EXPLAIN ANALYZE
-
-  ## Indexler
-  - Her FK sütununu index leyin
-  - Canlı tablolar için CREATE INDEX CONCURRENTLY kullanın (engellemeyen)
-  - Sık filtrelenen alt kümeler için partial indexes
-  - Kullanılmayan indexleri kaldırın
-
-  ## Migrasyonlar
-  - Versiyonlu dosyalar: V001__create_table.sql
-  - Büyük sütun eklemeleri: backfill ile çok adımlı
-  - Deploy etmeden önce rollback'i test edin
-
-  ## İşlemler
-  - Çok ifadeli değişiklikler için açık BEGIN/COMMIT
-  - Kaçak sorguları önlemek için statement_timeout
-  - Row locking için SELECT ... FOR UPDATE
-
-  ## Yasak
-  - SELECT * yok
-  - String-interpolated SQL yok
-  - Yoğun trafik sırasında schema değişiklikleri yok
-  - Veritabanında düz metin şifreler yok
-  - Uygulama kodunda TRUNCATE yok
 ---
 
 # PostgreSQL Rules

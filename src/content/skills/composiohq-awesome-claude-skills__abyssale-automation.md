@@ -1,10 +1,9 @@
 ---
 name: "abyssale-automation"
 description_en: "Automate Abyssale tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) ile Abyssale görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce tools'ü arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/abyssale-automation/SKILL.md"
 path: "composio-skills/abyssale-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP Aracılığıyla Abyssale Otomasyonu
-
-  Composio'nun Abyssale araç seti aracılığıyla Rube MCP üzerinden Abyssale operasyonlarını otomatikleştirin.
-
-  **Araç seti dokümantasyonu**: [composio.dev/toolkits/abyssale](https://composio.dev/toolkits/abyssale)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlantılı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Abyssale bağlantısı (`abyssale` araç seti ile)
-  - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısını yapın
-
-  ## Kurulum
-
-  **Rube MCP Alın**: `https://rube.app/mcp` adresini istemci yapılandırmanızda MCP sunucusu olarak ekleyin. API anahtarı gerekli değildir — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS` çağrısını `abyssale` araç seti ile yapın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Keşfi
-
-  Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Abyssale operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir araç slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Kullanılabilir Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Abyssale task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["abyssale"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arama yapın**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
-  - **Oturum yeniden kullanımı**: Bir workflow içinde oturum ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
-  - **Sayfalandırma**: Yanıtları sayfalandırma token'ları için kontrol edin ve tam olana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Abyssale'ye özgü use case |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `abyssale` araç seti |
-  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slug'ları |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` içeren araçlar |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Abyssale Automation via Rube MCP

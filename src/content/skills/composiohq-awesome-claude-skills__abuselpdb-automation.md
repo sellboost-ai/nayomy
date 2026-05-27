@@ -1,10 +1,9 @@
 ---
 name: "abuselpdb-automation"
 description_en: "Automate Abuselpdb tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Abuselpdb görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları görmek için her zaman araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/abuselpdb-automation/SKILL.md"
 path: "composio-skills/abuselpdb-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Abuselpdb Otomasyonu Rube MCP Aracılığıyla
-
-  Composio'nun Abuselpdb toolkit'i aracılığıyla Rube MCP üzerinden Abuselpdb operasyonlarını otomatikleştirin.
-
-  **Toolkit dokümanları**: [composio.dev/toolkits/abuselpdb](https://composio.dev/toolkits/abuselpdb)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Abuselpdb bağlantısı ve `abuselpdb` toolkit'i
-  - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısı yapın
-
-  ## Kurulum
-
-  **Rube MCP Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP server'ı olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
-  2. `RUBE_MANAGE_CONNECTIONS` çağrısı yapın ve `abuselpdb` toolkit'ini belirtin
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama bağlantısını takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
-  ## Tool Keşfi
-
-  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Abuselpdb operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Mevcut Tool'ları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Abuselpdb task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["abuselpdb"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Tool'ları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'larını veya argümanları hiçbir zaman hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
-  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
-  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamen alınana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-------|----------|
-  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Abuselpdb'ye özel use case |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `abuselpdb` toolkit'i |
-  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'larıyla |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan tool'lar için |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Abuselpdb Automation via Rube MCP

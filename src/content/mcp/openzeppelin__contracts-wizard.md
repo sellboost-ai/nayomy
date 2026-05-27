@@ -1,8 +1,7 @@
 ---
 name: "OpenZeppelin/contracts-wizard"
 description: "Interactive smart contract generator based on OpenZeppelin Contracts."
-description_tr: "OpenZeppelin Contracts üzerine inşa edilmiş, interaktif akıllı kontrat üreteci."
-category: "Developer Tools"
+category: "Other"
 repo: "OpenZeppelin/contracts-wizard"
 stars: 291
 url: "https://github.com/OpenZeppelin/contracts-wizard"
@@ -10,75 +9,6 @@ body_length: 4018
 license: "AGPL-3.0"
 language: "TypeScript"
 homepage: "https://wizard.openzeppelin.com"
-body_tr: |-
-  # [OpenZeppelin Contracts Wizard](https://wizard.openzeppelin.com)
-
-  [![Solidity NPM Package](https://img.shields.io/npm/v/@openzeppelin/wizard?color=%234e5de4&label=%40openzeppelin%2Fwizard)](https://www.npmjs.com/package/@openzeppelin/wizard)
-  [![Cairo NPM Package](https://img.shields.io/npm/v/@openzeppelin/wizard-cairo?color=%23e55233&label=%40openzeppelin%2Fwizard-cairo)](https://www.npmjs.com/package/@openzeppelin/wizard-cairo)
-  [![Stellar NPM Package](https://img.shields.io/npm/v/@openzeppelin/wizard-stellar?color=%23e55233&label=%40openzeppelin%2Fwizard-stellar)](https://www.npmjs.com/package/@openzeppelin/wizard-stellar)
-  [![Stylus NPM Package](https://img.shields.io/npm/v/@openzeppelin/wizard-stylus?color=%23e55233&label=%40openzeppelin%2Fwizard-stylus)](https://www.npmjs.com/package/@openzeppelin/wizard-stylus)
-  [![Uniswap Hooks NPM Package](https://img.shields.io/npm/v/@openzeppelin/wizard-uniswap-hooks?color=%23e55233&label=%40openzeppelin%2Fwizard-uniswap-hooks)](https://www.npmjs.com/package/@openzeppelin/wizard-uniswap-hooks)
-  [![Contracts CLI NPM Package](https://img.shields.io/npm/v/@openzeppelin/contracts-cli?label=%40openzeppelin%2Fcontracts-cli)](https://www.npmjs.com/package/@openzeppelin/contracts-cli)
-  [![Contracts MCP NPM Package](https://img.shields.io/npm/v/@openzeppelin/contracts-mcp?label=%40openzeppelin%2Fcontracts-mcp)](https://www.npmjs.com/package/@openzeppelin/contracts-mcp)
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/ca9b53e1-44eb-410d-aac7-31b2f5399b68/deploy-status)](https://app.netlify.com/sites/openzeppelin-contracts-wizard/deploys)
-
-  Contracts Wizard, OpenZeppelin Contracts bileşenlerinden etkileşimli olarak bir contract oluşturmak için tasarlanmış bir web uygulamasıdır. Oluşturmak istediğiniz contract türünü seçin, parametrelerinizi ve istediğiniz özellikleri belirleyin ve Wizard, gerekli tüm kodu oluşturacaktır. Oluşturulan kod derlenmeye ve dağıtılmaya hazırdır, aynı zamanda uygulamaya özgü mantıkla daha da özelleştirilebilecek bir başlangıç noktası olarak da hizmet edebilir.
-
-  [![](https://raw.githubusercontent.com/OpenZeppelin/contracts-wizard/HEAD/screenshot.png)](https://wizard.openzeppelin.com)
-
-  ## Kullanım
-
-  Contracts Wizard'ı https://wizard.openzeppelin.com adresinde kullanın
-
-  ## CLI
-
-  Komut satırından contract oluşturun. [CLI paketi](packages/cli/README.md) bölümüne bakın.
-
-  ## MCP Sunucuları
-
-  AI ajanlarının contract oluşturmasına izin verin. Yerel kurulum için [MCP paketi](packages/mcp/README.md) bölümüne veya barındırılan sürüm için [OpenZeppelin MCP Sunucuları](https://mcp.openzeppelin.com) bölümüne bakın.
-
-  ## TypeScript API
-
-  Kendi uygulamalarınızdan programlı olarak contract oluşturun.
-
-  Her akıllı contract dili için API belgelerine bakın:
-  - [Solidity](packages/core/solidity/README.md)
-  - [Cairo](packages/core/cairo/README.md)
-  - [Stellar](packages/core/stellar/README.md)
-  - [Stylus](packages/core/stylus/README.md)
-
-  ## Gömme
-
-  Contracts Wizard'ı sitenize gömmek için önce script etiketini ekleyin:
-
-  ```html
-  <script async src="https://wizard.openzeppelin.com/build/embed.js"></script>
-  ```
-
-  Ardından `<oz-wizard></oz-wizard>` öğesini Contracts Wizard'ın yüklenmesini istediğiniz yere body içine yerleştirin.
-
-  İsteğe bağlı olarak `data-tab` özniteliğiyle belirli bir sekmeye odaklanın, örneğin `<oz-wizard data-tab="ERC721"></oz-wizard>`.
-
-  Solidity dışındaki diller için `data-lang` özniteliğini kullanın, örneğin: `<oz-wizard data-lang="cairo"></oz-wizard>`.
-
-  ## Katkı Sağlama
-
-  Topluluktaki katkılarınızı bekliyoruz! İşte nasıl dahil olabileceğiniz:
-
-  1. Repository'i fork edin
-  2. Özellik dalınızı oluşturun
-  3. Değişikliklerinizi commit edin
-  4. Dalına push edin
-  5. Bir Pull Request oluşturun
-
-  Başlamak için iyi bir yer arıyorsanız, [burada](https://github.com/openzeppelin/contracts-wizard/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22) bir good first issue bulun veya bir bug raporu ya da özellik isteği için [bir issue açın](https://github.com/OpenZeppelin/contracts-wizard/issues/new).
-
-  Daha fazla ayrıntı için [Katkı Sağlama](CONTRIBUTING.md) kılavuzumuza bakın.
-
-  ## Lisans
-
-  Bu proje GNU Affero General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 # [OpenZeppelin Contracts Wizard](https://wizard.openzeppelin.com)

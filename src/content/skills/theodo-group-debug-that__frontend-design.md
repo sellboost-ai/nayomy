@@ -1,7 +1,6 @@
 ---
 name: "frontend-design"
 description_en: "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics."
-description_tr: "Yüksek tasarım kalitesiyle üretim seviyesinde, kendine özgü frontend arayüzleri oluşturun. Web bileşenleri, sayfalar, posterler veya uygulamalar (web siteleri, landing page'ler, dashboard'lar, React component'leri, HTML/CSS düzenleri veya herhangi bir web UI'nin stillendirilmesi gibi) geliştirme talebinde bulunduğunda bu beceriyi kullanın. Genel AI estetiğinden kaçınan yaratıcı, parlak kod ve UI tasarımı üretir."
 category: "Design"
 repo: "theodo-group/debug-that"
 stars: 156
@@ -13,43 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Bu beceri, genel "AI şlak" estetiğinden kaçınan, kendine özgü ve üretime hazır ön yüz arayüzleri oluşturmaya rehberlik eder. İstisnai estetik detaylara ve yaratıcı seçimlere dikkat ederek gerçek çalışan kod uygulayın.
-
-  Kullanıcı ön yüz gereksinimlerini sağlar: oluşturulacak bir bileşen, sayfa, uygulama veya arayüz. Amaç, hedef kitle veya teknik kısıtlamalar hakkında bağlam içerebilirler.
-
-  ## Tasarım Düşüncesi
-
-  Kod yazmadan önce, bağlamı anlayın ve CESUR bir estetik yöne bağlılık gösterin:
-  - **Amaç**: Bu arayüz hangi sorunu çözer? Onu kim kullanır?
-  - **Ton**: Bir uç seçin: acımasız minimal, maksimalist kaos, retro-futuristik, organik/doğal, lüks/rafine, oyuncu/oyuncak benzeri, editoryal/dergi, brutalist/ham, art deco/geometrik, yumuşak/pastel, endüstriyel/işlevsel vb. Seçebileceğiniz birçok stil var. Bunları ilham için kullanın ama estetik yöne sadık bir tane tasarlayın.
-  - **Kısıtlamalar**: Teknik gereksinimler (framework, performans, erişilebilirlik).
-  - **Farklılaştırma**: Bunu UNUTULMAZ kılan nedir? Biri ne hatırlayacak?
-
-  **KRİTİK**: Açık bir kavramsal yön seçin ve bunu hassasiyetle uygulayın. Cesur maksimalizm ve rafine minimalizm her ikisi de çalışır - anahtar, yoğunluk değil, kasıtlılıktır.
-
-  Sonra çalışan kod (HTML/CSS/JS, React, Vue vb.) uygulayın:
-  - Üretime hazır ve işlevsel
-  - Görsel olarak çarpıcı ve unutulmaz
-  - Net bir estetik bakış açısıyla uyumlu
-  - Her detayda titizlikle rafine edilmiş
-
-  ## Ön Yüz Estetikleri Yönergeleri
-
-  Şunlara odaklanın:
-  - **Tipografi**: Güzel, benzersiz ve ilginç yazı tipi seçin. Arial ve Inter gibi genel yazı tiplerinden kaçının; bunun yerine ön yüzün estetiğini yükselten, beklenmedik ve karakterli yazı tipi seçimlerini tercih edin. Karakteristik bir display yazı tipini rafine bir body yazı tipiyle eşleştirin.
-  - **Renk & Tema**: Uyumlu bir estetik için bağlılık gösterin. Tutarlılık için CSS değişkenleri kullanın. Baskın renkler keskin aksentlerle, çekingen renk paletlerinden daha iyi performans gösterir.
-  - **Hareket**: Efektler ve mikro-etkileşimler için animasyonlar kullanın. HTML için CSS-only çözümleri önceliklendirin. Mevcut olduğunda React için Motion kütüphanesini kullanın. Yüksek etki anlarına odaklanın: iyi düzenlenmiş bir sayfa yüküyle zaman aşamalı açılımları (animation-delay), dağılmış mikro-etkileşimlerden daha fazla memnuniyet yaratır. Kaydırma tetiklemesi ve sürpriz yapan hover durumlarını kullanın.
-  - **Mekansal Kompozisyon**: Beklenmedik düzenler. Asimetri. Örtüşme. Diyagonal akış. Grid'i kıran elemanlar. Cömert negatif alan VEYA kontrollü yoğunluk.
-  - **Arka Planlar & Görsel Detaylar**: Sabit renklere varsayılan olarak gitmek yerine atmosfer ve derinlik yaratın. Genel estetikle eşleşen bağlamsal efektler ve dokular ekleyin. Gradient meshler, gürültü dokuları, geometrik desenler, katmanlı şeffaflıklar, dramatik gölgeler, dekoratif kenarlıklar, özel imleçler ve gren kaplaması gibi yaratıcı formlar uygulayın.
-
-  Hiçbir zaman genel AI tarafından üretilen estetiğini kullanmayın; aşırı kullanılan yazı ailelerine (Inter, Roboto, Arial, sistem yazı tipleri), klişe renk şemalarına (özellikle beyaz arka fonda mor gradyenler), tahmin edilebilir düzenlere ve bileşen kalıplarına, ve bağlama özgü karakterden yoksun kurabiye kalıbı tasarıma.
-
-  Yaratıcı olarak yorumlayın ve bağlam için gerçekten tasarlanmış gibi hissettiren beklenmedik seçimler yapın. Hiçbir tasarım aynı olmamalıdır. Açık ve koyu temalar, farklı yazı tipleri, farklı estetiğin arasında değişim yapın. Nesiller arasında ortak seçimlere (örneğin Space Grotesk) ASLA yakınlaşmayın.
-
-  **ÖNEMLİ**: Uygulama karmaşıklığını estetik vizyonla eşleştirin. Maksimalist tasarımlar kapsamlı animasyonlar ve efektler içeren detaylı kod gerektirir. Minimalist veya rafine tasarımlar kısıtlama, kesinlik ve boşluk, tipografi ve ince detaylara dikkatli özen gerektirir. Zarafet, vizyonu iyi bir şekilde yürütmekten gelir.
-
-  Unutmayın: Claude olağanüstü yaratıcı çalışmalara kapasitedir. Geriye basılmayın, kutunun dışında düşünüldüğünde ve bir benzersiz vizyona tam olarak bağlılık gösterildiğinde gerçekten ne yaratılabileceğini gösterin.
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.

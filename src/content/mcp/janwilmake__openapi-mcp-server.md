@@ -1,8 +1,7 @@
 ---
 name: "janwilmake/openapi-mcp-server"
 description: "Connect any HTTP/REST API server using an Open API spec (v3)"
-description_tr: "HTTP/REST API sunucularını Open API spec (v3) kullanarak bağlayın"
-category: "Developer Tools"
+category: "Other"
 repo: "janwilmake/openapi-mcp-server"
 stars: 894
 url: "https://github.com/janwilmake/openapi-mcp-server"
@@ -10,50 +9,6 @@ body_length: 1492
 license: "MIT"
 language: "TypeScript"
 homepage: "https://openapisearch.com"
-body_tr: |-
-  # OpenAPI MCP Server
-
-  [![janwilmake/openapi-mcp-server context](https://badge.forgithub.com/janwilmake/openapi-mcp-server?excludePathPatterns=*.yaml)](https://uithub.com/janwilmake/openapi-mcp-server?excludePathPatterns=*.yaml)
-
-  Claude/Cursor için oapis.org üzerinden OpenAPI spesifikasyonlarını arama ve keşfetmeyi sağlayan bir Model Context Protocol (MCP) sunucusu.
-
-  - Demo: https://x.com/janwilmake/status/1903497808134496583
-  - HN Thread: https://news.ycombinator.com/item?id=43447278
-  - OpenAPISearch: https://github.com/janwilmake/openapisearch
-  - OAPIS: https://github.com/janwilmake/oapis
-
-  MCP, 3 adımlık bir işlem uygulanarak çalışır:
-
-  1. İhtiyacınız olan OpenAPI tanımlayıcısını belirler
-  2. Bunun basit bir dilde özetini ister
-  3. Hangi endpoint'lere ihtiyacınız olduğunu belirler ve tam olarak nasıl çalıştıklarını kontrol eder (yine basit bir dilde)
-
-  Özellikler
-
-  - Herhangi bir OpenAPI spesifikasyonunun genel görünümünü alın
-  - Belirli API işlemleri hakkında ayrıntıları alın
-  - JSON ve YAML formatları için destek
-  - Claude Desktop ve Cursor ile test edilmiştir
-
-  ## Kurulum
-
-  [![Install OpenAPI MCP Server](https://img.shields.io/badge/Install_MCP-OpenAPI%20MCP%20Server-1e3a8a?style=for-the-badge)](https://installthismcp.com/OpenAPI%20MCP%20Server?url=https%3A%2F%2Fopenapi-mcp.openapisearch.com%2Fmcp)
-
-  Diğer istemciler için MCP URL'sini kullanın: https://openapi-mcp.openapisearch.com/mcp
-
-  ## Yerel test
-
-  Önce sunucuyu çalıştırın
-
-  ```
-  wrangler dev
-  ```
-
-  Ardından MCP inspector'ı çalıştırın:
-
-  ```
-  npx @modelcontextprotocol/inspector
-  ```
 ---
 
 # OpenAPI MCP Server

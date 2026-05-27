@@ -1,10 +1,9 @@
 ---
 name: "domain-layer"
 description_en: "Instructions for electronics-specific logic and build processes: netlists, PCBs, build steps, and exporters. Use when implementing or modifying build steps, exporters, PCB generation, or BOM/netlist output."
-description_tr: "Elektronik tasarıma özgü mantık ve derleme süreçleri için kılavuz: netlistler, PCB'ler, derleme adımları ve exporterlar. Derleme adımlarını, exporterları, PCB üretimini veya BOM/netlist çıktısını uygularken veya değiştirirken kullanın."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3370
+stars: 3374
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/domain-layer/SKILL.md"
 path: ".claude/skills/domain-layer/SKILL.md"
 is_collection: false
@@ -13,59 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Domain Layer Modülü
-
-  `domain layer` (öncelikle `src/atopile/build_steps.py` ve `src/faebryk/exporters/`) elektronik donanım mühendisliğine özgü mantık ve işlemleri kapsar. Buna derlenmiş bir grafiği üretim yapıtlarına (Gerber, BOM, Pick & Place) dönüştüren build pipeline'ı dahildir.
-
-  ## Hızlı Başlangıç
-
-  Bir proje dizininden (burada `ato.yaml` bulunur) standart build pipeline'ını çalıştırın:
-
-  ```bash
-  ato build
-  ```
-
-  ## İlgili Dosyalar
-
-  - **Build Orchestration**: `src/atopile/build_steps.py`
-      - `Muster` sınıfını tanımlar (DAG tabanlı bir görev çalıştırıcı).
-      - Standart build hedeflerini kaydeder: `generate_bom`, `generate_manufacturing_data`, `update_pcb`, vb.
-  - **Build entry / app init**: `src/atopile/build.py` (`.ato` veya `.py` dosyasından app grafiği oluşturur, unit inference'ı çalıştırır)
-  - **Exporters**: `src/faebryk/exporters/`
-      - **pcb/**: KiCad PCB üretimi ve layout senkronizasyonu (`layout_sync.py`).
-      - **bom/**: Bill of Materials üretimi (`jlcpcb.py`, vb.).
-      - **netlist/**: Netlist formatlaması.
-      - **documentation/**: Datasheetler, şemalar.
-  - **Layout sync girdileri**:
-    - `src/atopile/layout.py` (`.layouts.json` modülü→layout eşlemesi üretir)
-    - `src/atopile/kicad_plugin/README.md` (plugin iş akışı özeti)
-
-  ## Bağımlılar (Çağrı Siteleri)
-
-  - **CLI (`src/atopile/cli/build.py`)**: `ato build` komutu doğrudan `build_steps.muster`'ı çağırarak pipeline'ı yürütür.
-  - **IDE/Extension**: Önizlemeler için belirli build adımlarını çağırabilir (örn. `generate_3d_render`).
-
-  ## Nasıl Çalışılır / Geliştirilebilir / Test Edilir
-
-  ### Temel Konseptler
-  - **Muster**: Görev çalıştırıcısı. Hedefler bağımlılıkları bildirir (örn. `generate_bom`, `build_design`'a bağlıdır).
-  - **Layout Sync**: Manuel PCB layout değişikliklerini korurken netlist/bileşenleri koddan güncellemek işlemidir (`update_pcb`).
-  - **Artifacts**: Build işlemi tarafından üretilen dosyalar, build dizininde depolanır.
-
-  ### Geliştirme İş Akışı
-  1.  **Config Seçeneği Ekleme**: Yeni bir build adımının konfigürasyon gerektirmesi durumunda, `atopile.config`'e ekleyin (burada kapsanmamıştır, ancak ilgilidir).
-  2.  **Yeni Exporters**: `src/faebryk/exporters/` içinde yeni bir modül oluşturun ve `build_steps.py`'de `@muster.register` kullanarak bir sarmalayıcı fonksiyon kaydettirin.
-
-  ### Test Etme
-  - **Integration Tests**: Bu katman tüm akışı düzenledığinden, `test/end_to_end/` veya `test/integration/` içindeki end-to-end veya integration testler aracılığıyla en iyi şekilde test edilir.
-  - **Manuel Doğrulama**: Örnek bir proje üzerinde `ato build` çalıştırın ve üretilen yapıtları kontrol edin (Gerbers, BOM csv).
-  - **Muster unit testleri**: `ato dev test --llm test/test_muster.py -q`
-
-  ## En İyi Uygulamalar
-  - **İdempotency**: Build adımları genel olarak idempotent olmalıdır.
-  - **Virtual Targets**: Yalnızca diğer hedefleri gruplandıran hedefler için `virtual=True` kullanın (örn. `all` veya `default`).
-  - **Layout Koruması**: Kullanıcının manuel PCB yönlendirmesinin veri kaybı riskini ortadan kaldırmak için `update_pcb` veya `layout_sync` mantığını değiştirirken çok dikkatli olun.
 ---
 
 # Domain Layer Module

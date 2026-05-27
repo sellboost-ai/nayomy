@@ -2,10 +2,9 @@
 name: "python-containerization-cursorrules-prompt-file"
 clean_name: "Python Containerization"
 description: "Cursor rules for Python development with containerization integration."
-description_tr: "Python geliştirme için Cursor kuralları, containerization entegrasyonu ile birlikte."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/python-containerization-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-containerization-cursorrules-prompt-file.mdc"
 body_length: 301

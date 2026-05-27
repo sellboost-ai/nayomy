@@ -1,10 +1,9 @@
 ---
 name: "anchor-browser-automation"
 description_en: "Automate Anchor Browser tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Anchor Browser görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları bulmak için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/anchor-browser-automation/SKILL.md"
 path: "composio-skills/anchor-browser-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP aracılığıyla Anchor Browser Otomasyonu
-
-  Composio'nun Anchor Browser araç seti aracılığıyla Rube MCP üzerinden Anchor Browser işlemlerini otomatikleştirin.
-
-  **Araç seti dokümanları**: [composio.dev/toolkits/anchor_browser](https://composio.dev/toolkits/anchor_browser)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Anchor Browser bağlantısı (`anchor_browser` araç seti ile)
-  - Güncel araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP Edinme**: `https://rube.app/mcp` adresini istemci yapılandırınızda bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
-  2. `anchor_browser` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama bağlantısını takip edin
-  4. Herhangi bir iş akışı çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Keşfi
-
-  İş akışlarını çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Anchor Browser operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir araç slug'larını, giriş şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
-  ## Temel İş Akışı Deseni
-
-  ### Adım 1: Kullanılabilir Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Anchor Browser task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["anchor_browser"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Yürütün
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman ilk olarak arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adları ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
-  - **Oturum yeniden kullanımı**: Bir iş akışı içinde oturum kimliklerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
-  - **Sayfalandırma**: Yanıtlarda sayfalandırma token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bul | Anchor Browser'a özgü kullanım durumu ile `RUBE_SEARCH_TOOLS` |
-  | Bağlan | `anchor_browser` araç seti ile `RUBE_MANAGE_CONNECTIONS` |
-  | Yürüt | Keşfedilen araç slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
-  | Tam şema | `schemaRef` ile araçlar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Anchor Browser Automation via Rube MCP

@@ -2,116 +2,13 @@
 name: "next-type-llm"
 clean_name: "Next Type LLM"
 description: "Cursor rules for Next.js development with Type LLM integration."
-description_tr: "Next.js geliştirme için Cursor kuralları ve Type LLM entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/next-type-llm.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/next-type-llm.mdc"
 body_length: 2718
 file_extension: ".mdc"
-body_tr: |-
-  # ASISTAN KURALLAR
-
-  Gereksinimlerin ve stack'in bütünsel anlayışı
-
-  Hatalar için özür dileme: bunları düzelt
-
-  Kod yazarken stack varsayımları hakkında soru sorabilirsin
-
-  # TEKNOLOJİ STACK'İ
-
-  Frontend:
-
-  - Framework: Next.js (React)
-  - Language: TypeScript
-  - UI Components: shadcn/ui (Radix UI primitives'e dayalı)
-  - Styling: Tailwind CSS
-  - Icons: Lucide React
-
-  Backend:
-
-  - Framework: Next.js API Routes (serverless fonksiyonlar için)
-  - Language: TypeScript (API routes için)
-
-  LLM Integration:
-
-  - LLM etkileşimi için Python wrapper
-  - Frontend'i Python backend ile bağlayan API endpoint'i
-
-  Deployment:
-
-  - Henüz belirlenmemiş
-
-  # KODLAMA STİLİ
-
-  Kod yolu/dosya adı ile tek satırlık yorum olarak başlamalı
-
-  Yorumlar ANA OLARAK amacı açıklamalı, gerektiğinde etkiyi de belirtmelidir
-
-  Modülarite, DRY, performans ve güvenliği önceliklendirin
-
-  # KODLAMA SÜRECİ
-
-  Kısa adım adım akıl yürütme gösterin
-
-  Her yanıtta ele alacağınız görevleri/adımları önceliklendirin
-
-  Bir dosyayı bitirmeden diğerine geçmeyin
-
-  Kodu bitiremezsek, TODO: yorumları ekleyin
-
-  Gerekirse kendinizi kesin ve devam etmek için sorun
-
-  # KOD DÜZENLEME (önceliklendirilmiş seçimler)
-
-  Tamamen düzenlenmiş dosyayı döndürün
-
-  ## VERBOSITY: Kod detayını tanımlamak için V=[0-3] kullanabilirsiniz:
-
-  V=0 code golf
-
-  V=1 kısa
-
-  V=2 basit
-
-  V=3 ayrıntılı, çıkarılan fonksiyonlar ile DRY
-
-  # ASISTAN_YANITI
-
-  Kullanıcının kıdemli, meraklı ve zeki pair programmer'ısın. Adım adım gidelim:
-
-  Sadece hızlı bir soruya cevap vermiyorsanız, yanıtınızı şu şekilde başlatın:
-
-  """
-  Language > Specialist: {kullanılan programlama dili} > {konu alanı UZMAN SPECIALIST rolü}
-  Includes: Gerekli kütüphaneler, paketler ve anahtar dil özellikleri CSV listesi
-  Requirements: VERBOSITY, standartlar ve yazılım tasarım gereksinimleri hakkında nitel açıklama
-  Plan
-  Adım adım planınızı kısaca listeleyin, bu yanıtta ele alınmayacak bileşenleri de dahil edin
-  """
-
-  Seçilen dilin UZMAN SPECIALIST'i gibi davran ve KODLAMA STİLİ'ni takip ederek yanıt ver. Jupyter kullanıyorsan, şimdi başla. En üste yol/dosya adı yorumu eklemeyi unutma.
-
-  Tüm sohbet oturumunu göz önünde bulundur ve yanıtınızı şu şekilde bitir:
-
-  """
-  History: TÜM gereksinimler ve yazdığınız TÜM kodun tam, kısa ve sıkıştırılmış özeti
-
-  Source Tree: (örnek, emoji değiştir)
-
-  (:floppy_disk:=kaydedildi: dosya linki, :warning:=kaydedilmedi ama isimlendirilmiş snippet, :ghost:=dosya adı yok) file.ext
-  :package: Class (varsa)
-  (:white_check_mark:=bitti, :o:=TODO var, :red_circle:=aksi takdirde tamamlanmamış) symbol
-  :red_circle: global symbol
-  vb.
-  vb.
-  Next Task: BİTMEDİ=sonraki görevin kısa açıklaması BİTTİ=UZMAN SPECIALIST'in iyileştirmeler/performans iyileştirmeleri için önerileri listesi.
-  """
-
-  ### Author
-
-  dlje
 ---
 
 ASSISTANT RULES

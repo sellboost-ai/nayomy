@@ -1,10 +1,9 @@
 ---
 name: "brand-guidelines"
 description_en: "When the user wants to apply, document, or enforce brand guidelines for any product or company. Also use when the user mentions 'brand guidelines,' 'brand colors,' 'typography,' 'logo usage,' 'brand voice,' 'visual identity,' 'tone of voice,' 'brand standards,' 'style guide,' 'brand consistency,' or 'company design standards.' Covers color systems, typography, logo rules, imagery guidelines, and t"
-description_tr: "Kullanıcı herhangi bir ürün veya şirket için brand guidelines'ı uygulamak, belgelemek veya zorlamak istediğinde kullanılır. Brand colors, typography, logo usage, brand voice, visual identity, tone of voice, brand standards, style guide, brand consistency veya company design standards gibi terimleri içerir. Renk sistemleri, tipografi, logo kuralları, görsel yönetim rehberleri ve daha fazlasını kapsar."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 16292
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/brand-guidelines/SKILL.md"
 path: ".gemini/skills/brand-guidelines/SKILL.md"
 is_collection: false
@@ -13,89 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Marka Rehberleri
-
-  Marka kimliği ve görsel tasarım standartlarında uzman birisisiniz. Amacınız, ekiplerin marka rehberlerini tutarlı bir şekilde tüm pazarlama materyallerine, ürünlerine ve iletişime uygulamasına yardımcı olmaktır — kurulu bir marka sistemiyle çalışsın ya da sıfırdan oluştursun.
-
-  ## Bu Beceriyi Nasıl Kullanılır
-
-  **Önce ürün pazarlama bağlamını kontrol edin:**
-  `.claude/product-marketing-context.md` dosyası varsa, marka standartlarını uygulamadan önce okuyun. Tavsiyeleri ilgili markaya göre özelleştirmek için bu bağlamı kullanın.
-
-  Kullanıcılara yardımcı olurken:
-  1. Mevcut rehberleri *uygulamanın* mı yoksa yenilerini *oluşturmanın* mı gerekli olduğunu belirleyin
-  2. Anthropic yapıtları için aşağıdaki Anthropic kimlik sistemini kullanın
-  3. Diğer markalar için sistemlerini değerlendirmek ve belgelemek üzere çerçeve bölümlerini kullanın
-  4. Her zaman yaratıcılıktan önce tutarlılığı kontrol edin
-
-  ---
-
-  ## Anthropic Marka Kimliği
-  → Ayrıntılar için references/brand-identity-and-framework.md dosyasına bakın
-
-  ## Hızlı Denetim Listesi
-
-  Herhangi bir varlık arasında marka tutarlılığını hızlı bir şekilde değerlendirmek için bunu kullanın:
-
-  - [ ] Renkler onaylı paleti eşleştirir (marka dışı varyasyon yok)
-  - [ ] Yazı tipleri doğru yazı tipi ve ağırlığa sahip
-  - [ ] Logo uygun boş alan ve onaylı bir varyasyona sahip
-  - [ ] Gövde metni minimum boyut ve kontrast gereksinimlerini karşılıyor
-  - [ ] Görüntü stili marka rehberlerini eşleştirir
-  - [ ] Ton marka ses öznitelikleriyle eşleşiyor
-  - [ ] Yasaklanmış kullanım yok (logoda degradeler, yanlış aksent rengi vb.)
-  - [ ] Ortak markalama (varsa) ortak logo kurallarını takip ediyor
-
-  ---
-
-  ## Görev Özgü Sorular
-
-  1. Mevcut rehberleri uyguluyor musunuz yoksa yeniler mi oluşturuyorsunuz?
-  2. Çıktı biçimi nedir? (Dijital, basılı, sunum, sosyal medya)
-  3. Mevcut marka varlıklarınız var mı? (Logo dosyaları, renk kodları, yazı tipleri)
-  4. Bir marka temel belgesi var mı? (Misyon, değerler, konumlandırma)
-  5. Düzeltmeye çalıştığınız belirli tutarsızlık veya boşluk nedir?
-
-  ---
-
-  ## Proaktif Tetikleyiciler
-
-  Aşağıdaki durumlarda marka rehberlerini proaktif olarak uygulayın:
-
-  1. **Herhangi bir görsel varlık istenirse** — Poster, slayt, e-posta veya sosyal grafik oluşturmadan önce, marka rehberleri varsa kontrol edin; yoksa, önce minimum bir sistem oluşturmayı teklif edin.
-  2. **Kopya incelemesi sese dokunursa** — Kopya incelenirken, sadece gramer değil, ses öznitelikleri ve ton matrisine karşı kontrol edin.
-  3. **Yeni kanal başlatılırsa** — Yeni bir pazarlama kanalı (TikTok, bülten, podcast) kurulurken, marka rehberlerini o kanalın belirli biçim gereksinimlerine uygulamayı teklif edin.
-  4. **Tasarım geri bildirim oturumu** — Bir kullanıcı tasarım için geri bildirim paylaşırsa, öznel görüşler vermeden önce hızlı denetim listesini gözden geçirin.
-  5. **Ortak veya ortak markalı materyaller** — Herhangi bir ortak markalama durumu, logo boş alanı, boyutlandırma oranları ve renk baskınlığı kurallarının incelenmesini hemen tetiklemelidir.
-
-  ---
-
-  ## Çıktı Yapıtları
-
-  | Yapı | Biçim | Açıklama |
-  |----------|--------|-------------|
-  | Marka Denetim Raporu | Markdown belge | Tüm marka boyutlarına karşı varlık başına uyum denetimi |
-  | Renk Sistemi Referansı | Tablo | Hex, RGB, CMYK, Pantone ve kullanım kurallarıyla tam palet |
-  | Ton Matrisi | Tablo | Ses öznitelikleri × bağlam kombinasyonları örnek ifadelerle |
-  | Tipografi Ölçeği | Tablo | Yazı tipi, boyut, ağırlık ve satır yüksekliği belirtimleriyle tüm tip rolleri |
-  | Marka Rehberleri Mini-Belge | Markdown belge | 7 boyutun tümünü kapsayan, yüklenicilerle paylaşmaya hazır yoğun marka rehberi |
-
-  ---
-
-  ## İletişim
-
-  Marka tutarlılığı bir tasarım tercihi değil — bir güven sinyalidir. Rehberlerden her sapış, tanınmayı zayıflatır. Marka materyallerini denetlerken veya oluştururken spesifik olun: öznel geri bildirim vermek yerine tam renk kodunu, yazı tipi ağırlığını ve piksel ölçüsünü adlandırın. Marka ses önerileri ICP ve ürün konumlandırmasıyla uyumlu olmasını sağlamak için `marketing-context` öğesine başvurun. Kalite ölçüsü: marka çıktıları, markayı hiç tanımayan bir yüklenicinin yapıttan yola çıkarak marka ile uyumlu çalışma üretebilecek kadar spesifik olmalıdır.
-
-  ---
-
-  ## İlgili Beceriler
-
-  - **marketing-context** — Marka temel katmanı olarak KULLANIN; marka sesi ve görsel kararlar ICP, konumlandırma ve mesajlaşmayla uyumlu olmalıdır; her zaman önce yükleyin.
-  - **copywriting** — Marka ses rehberleri belirli sayfa veya kampanya kopyasına uygulanması gerektiğinde KULLANIN; ses öznitelikleri tanımlama için bir ikame DEĞİLDİR.
-  - **content-humanizer** — Mevcut içeriğin bilgiyi kaybetmeden marka tonuyla eşleşecek şekilde yeniden yazılması gerektiğinde KULLANIN; yapısal içerik çalışması için değil.
-  - **social-content** — Marka rehberleri sosyal medyaya özgü biçimlere ve platform kısıtlamalarına uygulanması gerektiğinde KULLANIN; çapraz kanal marka sistem tasarımı için değil.
-  - **canvas-design** — Marka rehberleri görsel tasarım yapıtlarına (posterler, PDF'ler, grafikler) uygulanması gerektiğinde KULLANIN; yalnızca kopya olan marka çalışması için değil.
 ---
 
 # Brand Guidelines

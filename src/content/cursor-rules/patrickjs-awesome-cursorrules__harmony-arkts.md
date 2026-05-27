@@ -2,63 +2,13 @@
 name: "harmony-arkts"
 clean_name: "Harmony Arkts"
 description: "HarmonyOS ArkTS rules for components, state, resources, layout, lifecycle, and accessibility"
-description_tr: "HarmonyOS ArkTS bileşenleri, state yönetimi, kaynaklar, layout, lifecycle ve erişilebilirlik için kurallar ve en iyi uygulamalar"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/harmony-arkts.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/harmony-arkts.mdc"
 body_length: 2201
 file_extension: ".mdc"
-body_tr: |-
-  # HarmonyOS ArkTS Kuralları
-
-  ## Bileşen Yapısı
-
-  - Bileşen tanımları için `@Component` kullanın ve bileşen struct'ları için PascalCase adlandırması yapın.
-  - State deklarasyonlarını bileşenin üst kısmına yakın tutun.
-  - Lifecycle hook'larını `build()` öncesinde gruplandırın.
-  - `build()` metodunu en sona yerleştirin ve UI composition'a odaklanmış tutun.
-  - Karmaşık UI'ları daha küçük bileşenlere ayıklayın.
-
-  ## State ve Veri Akışı
-
-  - Bileşene ait state için `@State` kullanın.
-  - Üst bileşenden alt bileşene veri için `@Prop` kullanın.
-  - `@Link` yalnızca kasıtlı iki yönlü binding için kullanın.
-  - Türetilmiş değerleri metod veya computed helper'larda tutun, state'i kopyalamayın.
-  - Projenin kurulu bir app-state pattern'i olmadıkça geniş kapsamlı global state'ten kaçının.
-
-  ## Layout ve Stil
-
-  - `Column`, `Row`, `Stack`, `List` ve diğer ArkUI primitive'lerini bilinçli olarak kullanın.
-  - Layout özelliklerini (width, height, alignment, layout weight gibi) visual özelliklerinden önce gruplandırın.
-  - Kenarlar farklı olduğunda margin ve padding için object notation kullanın.
-  - Mantıksal pixel'leri tutarlı bir şekilde kullanın.
-  - Göreli boyutlar için yüzde stringlerini kullanın.
-  - Proje bunu desteklediğinde tekrar kullanılabilir spacing, renk ve typography'i resource'larda tutun.
-
-  ## Event'ler ve Lifecycle
-
-  - Event handler'lar için arrow function'lar kullanın.
-  - Event handler'ları kısa tutun ve karmaşık mantığı metod'lara devreden.
-  - Async başarısızlıklarını açıkça yönetin ve uygun yerlerde kullanıcıya yönelik hataları gösterin.
-  - Bileşen lifecycle'a gerçekten bağlı olan setup ve teardown işlemleri için lifecycle hook'larını kullanın.
-
-  ## Kaynaklar ve Erişilebilirlik
-
-  - Uygulama kaynakları için `$r()` kullanın.
-  - Resource referanslarını tutarlı bir şekilde gruplandırın.
-  - İnteraktif elemanlar için açıklayıcı label'lar ve focus handling ekleyin.
-  - Renk kontrastını ve dokunma hedefi boyutunu koruyun.
-  - Temsili cihaz boyutları ve yönelimlerinde test edin.
-
-  ## Yaygın Hatalar
-
-  - İş mantığını `build()` içinde gizlemeyin.
-  - Tek yönlü prop'lar yeterli olduğunda iki yönlü binding kullanmayın.
-  - Resource'lara ait tekrarlanan string'leri, renkleri ve boyutları hardcode etmeyin.
-  - Üretim kodunda debug `console.log` çağrılarını bırakmayın.
 ---
 
 

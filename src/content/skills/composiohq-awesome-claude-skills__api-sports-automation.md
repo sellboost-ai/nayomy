@@ -1,10 +1,9 @@
 ---
 name: "api-sports-automation"
 description_en: "Automate API Sports tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "API Sports görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemalar için her zaman önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/api-sports-automation/SKILL.md"
 path: "composio-skills/api-sports-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP ile API Sports Otomasyonu
-
-  Composio'nun API Sports toolkit'i aracılığıyla Rube MCP ile API Sports işlemlerini otomatikleştirin.
-
-  **Toolkit dokümantasyonu**: [composio.dev/toolkits/api_sports](https://composio.dev/toolkits/api_sports)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif API Sports bağlantısı ve `api_sports` toolkit'i
-  - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Edinin**: İstemci konfigürasyonunuzda MCP server'ı olarak `https://rube.app/mcp` ekleyin. API anahtarlarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
-  2. `RUBE_MANAGE_CONNECTIONS`'ı `api_sports` toolkit'i ile çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Discovery
-
-  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "API Sports operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'larını, input şemalarını, önerilen execution plan'larını ve bilinen tuzakları döndürür.
-
-  ## Ana Workflow Deseni
-
-  ### Adım 1: Mevcut Tool'ları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific API Sports task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["api_sports"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Tool'ları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Tuzaklar
-
-  - **Her zaman önce arama yapın**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanları hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
-  - **Session'ı yeniden kullanın**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
-  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar fetching'e devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Tool'ları bul | API Sports'a özgü use case ile `RUBE_SEARCH_TOOLS` |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `api_sports` toolkit'i |
-  | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `schemaRef` içeren tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # API Sports Automation via Rube MCP

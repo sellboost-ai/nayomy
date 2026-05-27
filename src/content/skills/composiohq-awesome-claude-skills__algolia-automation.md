@@ -1,10 +1,9 @@
 ---
 name: "algolia-automation"
 description_en: "Automate Algolia tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) aracılığıyla Algolia görevlerini otomatikleştirin. Her zaman güncel şemaları için tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/algolia-automation/SKILL.md"
 path: "composio-skills/algolia-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Algolia Otomasyonu Rube MCP ile
-
-  Composio'nun Algolia araç seti ile Algolia operasyonlarını Rube MCP üzerinden otomatikleştirin.
-
-  **Araç seti dokümantasyonu**: [composio.dev/toolkits/algolia](https://composio.dev/toolkits/algolia)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
-  - `RUBE_MANAGE_CONNECTIONS` ile aktif Algolia bağlantısı (`algolia` araç seti)
-  - Mevcut araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: MCP sunucu konfigürasyonunuza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS` çağırarak `algolia` araç setini seçin
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme bağlantısını takip edin
-  4. Herhangi bir iş akışını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Bulma
-
-  İş akışlarını yürütmeden önce her zaman kullanılabilir araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Algolia operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir araç slug'larını, giriş şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
-  ## Temel İş Akışı Deseni
-
-  ### Adım 1: Kullanılabilir Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Algolia task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantı Kontrolü
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["algolia"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Yürütün
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla sabit kodlamayın
-  - **Bağlantı kontrolü**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory`'i dahil edin, boş olsa bile (`{}`)
-  - **Oturum yeniden kullanımı**: Bir iş akışı içinde oturum kimliklerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
-  - **Sayfalama**: Sayfalama token'ları için yanıtları kontrol edin ve tamamlanana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-------|----------|
-  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Algolia'ya özgü kullanım durumu |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `algolia` araç seti |
-  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slug'ları |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` araçları için |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenir*
 ---
 
 # Algolia Automation via Rube MCP

@@ -1,10 +1,9 @@
 ---
 name: "ably-automation"
 description_en: "Automate Ably tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) aracılığıyla Ably görevlerini otomatikleştirin. Her zaman güncel şemaları için tools'ları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ably-automation/SKILL.md"
 path: "composio-skills/ably-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Ably Otomasyonu Rube MCP aracılığıyla
-
-  Composio'nun Ably toolkit'ini Rube MCP ile kullanarak Ably işlemlerini otomatikleştirin.
-
-  **Toolkit dokümanları**: [composio.dev/toolkits/ably](https://composio.dev/toolkits/ably)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` ile aktif Ably bağlantısı ve `ably` toolkit'i
-  - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısı yapın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: İstemci yapılandırmanıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
-  2. `RUBE_MANAGE_CONNECTIONS` çağrısı yapın ve toolkit olarak `ably` belirtin
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Bulma
-
-  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları bulun:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Ably işlemleri", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Mevcut Tool'ları Bulun
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Ably özel göreviniz"}]
-  session: {id: "mevcut_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["ably"]
-  session_id: "session_id_niz"
-  ```
-
-  ### Adım 3: Tool'ları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "ARAMA_SONUÇLARINDAN_TOOL_SLUG",
-    arguments: {/* arama sonuçlarından şema uyumlu argümanlar */}
-  }]
-  memory: {}
-  session_id: "session_id_niz"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'larını veya argümanları asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
-  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
-  - **Pagination**: Yanıtlardaki pagination token'larını kontrol edin ve tamamlanana kadar almaya devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Tool'ları bul | Ably'ye özel use case ile `RUBE_SEARCH_TOOLS` |
-  | Bağlan | Toolkit olarak `ably` ile `RUBE_MANAGE_CONNECTIONS` |
-  | Çalıştır | Bulunan tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
-  | Tam şema | `schemaRef` ile tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Ably Automation via Rube MCP

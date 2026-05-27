@@ -1,83 +1,13 @@
 ---
 name: "Rai220/think-mcp"
 description: "Enhances any agent's reasoning capabilities by integrating the think-tools, as described in Anthropic's article."
-description_tr: "Anthropic'in makalesinde açıklanan think-tools'ları entegre ederek herhangi bir agentnin akıl yürütme yeteneklerini artırır."
-category: "Other Tools and Integrations"
+category: "Other"
 repo: "Rai220/think-mcp"
 stars: 101
 url: "https://github.com/Rai220/think-mcp"
 body_length: 2490
 license: "MIT"
 language: "Python"
-body_tr: |-
-  # Think MCP Tool
-
-  Think MCP, agentic AI iş akışlarında yapılandırılmış akıl yürütme için bir "think" tool sağlayan MCP (Model Context Protocol) server uygulamasıdır. Bu proje Anthropic mühendislik makalesinden esinlenmiştir: [The "think" tool: Enabling Claude to stop and think in complex tool use situations](https://www.anthropic.com/engineering/claude-think-tool).
-
-  Referans alınan makaleye göre, think tool eklenmesi, native olarak gelişmiş akıl yürütme yeteneklerine sahip olmayan modellerde bile akıl yürütme yeteneklerini sağlayarak değerlendirme metriklerinin iyileştirilmesine yol açabilir.
-
-  ![alt text](https://raw.githubusercontent.com/Rai220/think-mcp/HEAD/tau_bench.png)
-
-  <a href="https://glama.ai/mcp/servers/@Rai220/think-mcp">
-    
-  </a>
-
-  ## "Think" tool nedir?
-  "Think" tool, bir AI acentesinin karmaşık akıl yürütme veya çok adımlı tool kullanımı sırasında duraklamasına ve açık bir düşünce kaydedicisine olanak tanır. Ortamı veya veritabanını değiştirmez, ancak düşünceyi günlüğe ekleyerek acentenin bilgileri işlemesine, geri adım atmasına veya detaylı politikalara uymasına yardımcı olur.
-
-  Bu yaklaşım özellikle şunlar için kullanışlıdır:
-  - Tool output analizi (önceki tool çağrılarının sonuçlarını işleme)
-  - Politika ağırlıklı ortamlar (yönergelerle uyumluluğu doğrulama)
-  - Sıralı karar verme (her adımın önceki adımlara dayandığı durumlar)
-
-  ## Özellikler
-  - Anthropic'in araştırmasında açıklanan "think" tool'u uygular
-  - [mcp[cli]](https://pypi.org/project/mcp/) kullanan minimal, standartlara dayalı MCP server
-  - Claude veya diğer agentic LLM'ler ile entegrasyon için hazır
-
-  ## Kullanım
-
-  ### MCP server konfigürasyonu
-  Bu MCP server'ı favoriniz olan agent'a ekleyin.
-  ```
-  "mcpServers": {
-      "think-mcp": {
-          "command": "uvx",
-          "args": ["think-mcp"],
-          "enabled": true
-      }
-  }
-  ```
-
-  ## Tool tanımı
-  "Think" tool şu şekilde tanımlanır:
-  - **Input:** `thought` (string) — Düşünülecek bir düşünce.
-  - **Behavior:** Düşünceyi yapılandırılmış akıl yürütme için günlüğe ekler.
-
-  ## Advanced mode
-  Agent'ınız için ek tool'lar ekler:
-  - criticize
-  - plan
-  - search
-
-  ```
-  "mcpServers": {
-      "think-mcp": {
-          "command": "uvx",
-          "args": ["think-mcp", "--advanced"],
-          "enabled": true,
-          "env": {
-              "TAVILY_API_KEY": ... BURAYA KENDİ TAVILY API ANAHTARINIZI YAZIN ...
-          }
-      }
-  }
-  ```
-
-  ## Referans
-  - Temel alınan: [Anthropic Engineering Blog — The "think" tool](https://www.anthropic.com/engineering/claude-think-tool)
-
-  ## Lisans
-  MIT License — bkz. [LICENSE](LICENSE)
 ---
 
 # Think MCP Tool

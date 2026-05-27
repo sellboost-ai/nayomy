@@ -1,10 +1,9 @@
 ---
 name: "anonyflow-automation"
 description_en: "Automate Anonyflow tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) üzerinden Anonyflow görevlerini otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/anonyflow-automation/SKILL.md"
 path: "composio-skills/anonyflow-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP Aracılığıyla Anonyflow Otomasyonu
-
-  Composio'nun Anonyflow araç seti aracılığıyla Rube MCP üzerinden Anonyflow işlemlerini otomatikleştirin.
-
-  **Araç seti dokümanları**: [composio.dev/toolkits/anonyflow](https://composio.dev/toolkits/anonyflow)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Anonyflow bağlantısı ve `anonyflow` araç seti
-  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Edinin**: İstemci yapılandırmanıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `anonyflow` araç setini belirtin
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Bulma
-
-  Workflow çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Anonyflow operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Kullanılabilir Tool'ları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Anonyflow task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["anonyflow"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Tool'ları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arayın**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanları hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
-  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
-  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tam bitene kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Anonyflow'a özel use case |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `anonyflow` araç seti |
-  | Çalıştır | Keşfedilen tool slug'larıyla `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan tool'lar |
-
-  ---
-  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Anonyflow Automation via Rube MCP

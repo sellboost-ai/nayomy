@@ -1,10 +1,9 @@
 ---
 name: "amazon-automation"
 description_en: "Automate Amazon tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Amazon görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/amazon-automation/SKILL.md"
 path: "composio-skills/amazon-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Amazon Otomasyonu via Rube MCP
-
-  Composio'nun Amazon araç seti aracılığıyla Rube MCP üzerinden Amazon operasyonlarını otomatikleştirin.
-
-  **Araç seti dokümantasyonu**: [composio.dev/toolkits/amazon](https://composio.dev/toolkits/amazon)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlantılı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla etkin Amazon bağlantısı ve `amazon` araç seti
-  - Güncel araç şemalarını almak için her zaman önce `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: İstemci yapılandırmanızda MCP server olarak `https://rube.app/mcp` ekleyin. API anahtarlarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS`'ı `amazon` araç seti ile çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Bulma
-
-  Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Amazon operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir araç slug'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Kullanılabilir Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Amazon task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["amazon"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arayın**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
-  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
-  - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tümü alınana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Amazon-spesifik kullanım senaryosu |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `amazon` araç seti |
-  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilmiş araç slug'larını |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef`'i olan araçlar için |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Amazon Automation via Rube MCP

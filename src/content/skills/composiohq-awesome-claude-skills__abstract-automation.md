@@ -1,10 +1,9 @@
 ---
 name: "abstract-automation"
 description_en: "Automate Abstract tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Abstract görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/abstract-automation/SKILL.md"
 path: "composio-skills/abstract-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Abstract Automation via Rube MCP
-
-  Rube MCP aracılığıyla Composio'nun Abstract toolkit'i kullanarak Abstract işlemlerini otomatikleştirin.
-
-  **Toolkit dokümantasyonu**: [composio.dev/toolkits/abstract](https://composio.dev/toolkits/abstract)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla active Abstract bağlantısı ve `abstract` toolkit'i
-  - Geçerli tool schema'larını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Al**: `https://rube.app/mcp` adresini MCP sunucusu olarak istemci konfigürasyonunuza ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu kontrol edin
-  2. `RUBE_MANAGE_CONNECTIONS` çağrısını `abstract` toolkit'i ile yapın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama bağlantısını takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Tool Discovery
-
-  Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Abstract operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut tool slug'larını, input schema'larını, önerilen execution plan'larını ve bilinen tuzakları döndürür.
-
-  ## Temel Workflow Deseni
-
-  ### Adım 1: Mevcut Tool'ları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Abstract task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["abstract"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Tool'ları Çalıştırın
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Tuzaklar
-
-  - **Her zaman arama yapın**: Tool schema'ları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'larını veya argümanlarını asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
-  - **Schema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
-  - **Session tekrarı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
-  - **Pagination**: Yanıtlardaki pagination token'larını kontrol edin ve işlem tamamlanana kadar almaya devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Tool'ları bul | Abstract'e özgü use case ile `RUBE_SEARCH_TOOLS` |
-  | Bağlan | `abstract` toolkit'i ile `RUBE_MANAGE_CONNECTIONS` |
-  | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
-  | Tam schema | `schemaRef` olan tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *[Composio](https://composio.dev) tarafından güçlendirilmiştir*
 ---
 
 # Abstract Automation via Rube MCP

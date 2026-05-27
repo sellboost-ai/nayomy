@@ -1,10 +1,9 @@
 ---
 name: "cdo-review"
 description_en: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring."
-description_tr: "/cs:cdo-review <plan> — Eğitim verisi, veri mimarisi, veri ürünleştirme veya veri ekibi işe alımı ile ilgili herhangi bir plana yönelik karar odaklı Chief Data Officer sorgusudur."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 16292
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cdo-review/SKILL.md"
 path: ".gemini/skills/cdo-review/SKILL.md"
 is_collection: false
@@ -13,128 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # /cs:cdo-review — CDO Zorlama Soruları
-
-  **Komut:** `/cs:cdo-review <plan>`
-
-  Karar odaklı CDO, veri stratejisine dokunan herhangi bir planı baskı altında test eder. Herhangi bir veri mimarisi, AI eğitim çalışması, veri ürünleştirmesi veya veri ekibi işe alımına taahhüt etmeden önce altı soru.
-
-  ## Ne Zaman Çalıştırılır
-
-  - Müşteri verilerini kullanan yeni bir ML modeli eğitim çalışmasını onaylamadan önce
-  - Çok yıllı veri altyapısı SaaS sözleşmesi imzalamadan önce (Snowflake, Databricks, Fivetran)
-  - Herhangi bir müşteri verisini ürünleştirmeden önce (benchmark raporu, embedding endpoint, lisans)
-  - Önemli bir veri ekibi işe alımından önce (veri başkanı, CDO, veri PM, ML mühendisi)
-  - M&A due diligence'den önce — sizin veya onların
-  - Kurucu "para kazanmak" kelimesini "veri" yakınında kullandığında
-
-  ## Altı CDO Sorusu
-
-  ### 1. Bu veriler hangi kararı yönlendirir?
-  **Hiçbir karar açılmazsa, neden topluyor / eğitim yapıyor / ürünleştiriyoruz?**
-  - "Daha sonra gerekebilir" bir karar değildir.
-  - "Bir hendek gibi görünüyor" bir karar değildir.
-  - Gerçek bir yanıt, bu verileri gerektiren belirli bir iş çağrısını adlandırır.
-
-  ### 2. Her kaynak için rıza kaynağı nedir?
-  **Her veri kaynağı için: köken, rıza akışı, veri sınıfı, amaçlanan kullanım.**
-  - 1st-party-TOS-only, 1st-party-explicit-opt-in'den daha zayıftır.
-  - Paket halinde TOS, maddi yeni amaçları kapsamaz (PII'de foundation modeller için eğitim).
-  - Kapsam içinde herhangi bir AI kullanım örneği varsa `ai_training_data_audit.py` çalıştırın.
-
-  ### 3. Bunu dahili olarak kim tüketiyor — ve kaç farklı işlevsel alan?
-  **Merkezi-vs-gömülü ve warehouse-vs-mesh kararlarını yönlendirir.**
-  - <5 tüketici: warehouse-only.
-  - 5-25 tüketici: lakehouse.
-  - 25+ tüketici + federe kültür: mesh.
-  - Erken mimari seçim, veri ekibi tükenmişliğinin #1 nedenidir.
-
-  ### 4. M&A due diligence etkisi nedir?
-  **Bir satın alanın yarın bu veri külliyatı hakkında sorsa, hazır mıyız?**
-  - Belgelenmiş bir anonim hale getirme süreci var mı?
-  - Müşterilerin yüzde kaçı MSA hariç tutulmıştır?
-  - Eğitim verisi provenance logları güncel mi?
-  - Üç ayda bir `data_asset_valuator.py` çalıştırın.
-
-  ### 5. Model / karar / rapor, bu kaynak olmadan yeniden eğitilebilir / yeniden çalıştırılabilir / yeniden yayınlanabilir mi?
-  **Belirli bir veri kaynağına ne kadar bağlı olduğunuzu test eder.**
-  - Evet → düşük etki alanı; rıza duruşunu daha sonra değiştirebilirsiniz.
-  - Hayır → yüksek etki alanı; kaynağa yapısal olarak taahhüt ettiniz. Daha sıkı kontrol edin.
-
-  ### 6. Hangi rol bunu açar — ve doğru sonraki işe alma mı?
-  **Yanlış işe alma (veri bilimci), doğru cevap (analytics mühendisi) 12 aylık üretkenlik kaybıdır.**
-  - Açılan kararı belirli role eşleyin.
-  - Ön koşul rollerin yerinde olduğunu doğrulayın (ML mühendisinden önce veri mühendisi, veri bilimciden önce analist).
-
-  ## İş Akışı
-
-  ```bash
-  # 1. AI eğitim denetimi (ML / AI kullanım örneği varsa)
-  python ../../../skills/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json
-
-  # 2. Mimari karar (yığını değiştiriyorsanız)
-  python ../../../skills/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json
-
-  # 3. Veri varlığı değerlemesi (ürünleştiriyorsanız veya M&A öncesi)
-  python ../../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
-  ```
-
-  ## Çıktı Formatı
-
-  ```markdown
-  # CDO İncelemesi: <plan>
-  **Tarih:** YYYY-MM-DD
-
-  ## Alınan Karar
-  [bir cümle — dört CDO kararından hangisi: training | architecture | asset | hire]
-
-  ## Eğitim Denetimi (geçerliyse)
-  - NO-GO kaynakları: N
-  - MITIGATE kaynakları: N
-  - GO kaynakları: N
-  - En önemli düzeltme: <bir satır>
-
-  ## Mimari (geçerliyse)
-  - Önerilen: WAREHOUSE / LAKEHOUSE / MESH
-  - Build-vs-buy özeti: <bir satır>
-  - Durdurma kriterleri: <ne zaman gözden geçirilecek>
-
-  ## Varlık Değeri (geçerliyse)
-  - Stratejik değer: X/10 | Hendek: STRONG / MEDIUM / WEAK
-  - M&A çarpanı: X.Xx – X.Xx ARR
-  - Önerilen ürünleştirme yolu: <ad>
-
-  ## Kurum (geçerliyse)
-  - Sonraki işe alma: <rol>
-  - Neden bu, o değil: <bir satır>
-  - Ön koşul işe almalar yerinde: evet/hayır
-
-  ## Karar
-  🟢 SHIP | 🟡 SHARPEN | 🔴 BLOCK
-
-  ## Sonraki Adımlar
-  [3 somut eylem]
-  ```
-
-  ## Yönlendirme
-
-  - `/cs:gc-review` — herhangi bir ürünleştirme veya lisans yolu için
-  - `/cs:ciso-review` — müşteri verilerine dokunan herhangi bir mimari değişiklik için
-  - `/cs:cfo-review` — build-vs-buy TCO ve M&A değerleme matematiği için
-  - `/cs:chro-review` — veri ekibi işe alımı (comp, ladder, leveling) için
-  - `/cs:decide` — kararı kaydedin
-  - `/cs:freeze 90` — çok yıllı altyapı sözleşmelerinde
-
-  ## İlgili
-
-  - Agent: [`cs-cdo-advisor`](../../agents/cs-cdo-advisor.md)
-  - Skill: [`chief-data-officer-advisor`](../../../skills/chief-data-officer-advisor/SKILL.md)
-  - Komşu: `../../../skills/general-counsel-advisor/` (sözleşmeye dayalı kısıtlamalar), `../../../skills/cto-advisor/` (mimari kapasite)
-
-  ---
-
-  **Sürüm:** 1.0.0
 ---
 
 # /cs:cdo-review — CDO Forcing Questions

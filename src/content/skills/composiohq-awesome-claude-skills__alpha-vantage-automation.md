@@ -1,10 +1,9 @@
 ---
 name: "alpha-vantage-automation"
 description_en: "Automate Alpha Vantage tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Alpha Vantage görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/alpha-vantage-automation/SKILL.md"
 path: "composio-skills/alpha-vantage-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP Aracılığıyla Alpha Vantage Otomasyonu
-
-  Composio'nun Alpha Vantage araç seti aracılığıyla Rube MCP ile Alpha Vantage işlemlerini otomatikleştirin.
-
-  **Araç seti belgeleri**: [composio.dev/toolkits/alpha_vantage](https://composio.dev/toolkits/alpha_vantage)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Alpha Vantage bağlantısı ve `alpha_vantage` araç seti
-  - Güncel araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: İstemci yapılandırmanızda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
-  2. `RUBE_MANAGE_CONNECTIONS` öğesini `alpha_vantage` araç setiyle çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
-  4. İş akışlarını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Keşfi
-
-  İş akışlarını çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Alpha Vantage operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir araç slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
-
-  ## Temel İş Akışı Deseni
-
-  ### Adım 1: Kullanılabilir Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Alpha Vantage task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["alpha_vantage"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Yürütün
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arama yapın**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan araç slugları veya argümanları asla sabit kodlamayın
-  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boşsa bile (`{}`)
-  - **Oturum yeniden kullanımı**: Bir iş akışı içinde oturum kimliklerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
-  - **Sayfalandırma**: Yanıtlarda sayfalandırma jetonlarını kontrol edin ve işlem tamamlanana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Alpha Vantage'a özel use case |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `alpha_vantage` araç seti |
-  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slugları |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` içeren araçlar |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Alpha Vantage Automation via Rube MCP

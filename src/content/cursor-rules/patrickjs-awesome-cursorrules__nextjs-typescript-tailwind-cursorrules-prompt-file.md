@@ -2,69 +2,13 @@
 name: "nextjs-typescript-tailwind-cursorrules-prompt-file"
 clean_name: "Next.js TypeScript Tailwind"
 description: "Cursor rules for Next.js development with TypeScript and Tailwind CSS integration."
-description_tr: "Next.js geliştirmesi için Cursor kuralları, TypeScript ve Tailwind CSS entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/nextjs-typescript-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-typescript-tailwind-cursorrules-prompt-file.mdc"
 body_length: 2679
 file_extension: ".mdc"
-body_tr: |-
-  # Proje Özeti
-
-  Bu proje, Autonomys ağının Block Explorer'ı olan Astral, Next.js ve TypeScript kullanılarak oluşturulmuştur. Durum yönetimi, UI bileşenleri ve veri çekme işlemleri için çeşitli kütüphaneleri entegre etmektedir.
-
-  # Önemli URL'ler
-
-  - Astral Block Explorer: https://explorer.autonomys.xyz/
-  - GitHub Deposu: https://github.com/autonomys/astral
-  - Autonomys: https://autonomys.xyz/
-  - Academy: https://academy.autonomys.xyz/
-  - Dokümantasyon: https://docs.autonomys.xyz/
-
-  # Proje Yapısı
-
-  - **Components**: Yeniden kullanılabilir UI bileşenleri içerir.
-  - **App**: Yönlendirme için Next.js uygulaması.
-  - **Hooks**: Durum yönetimi için özel React hook'ları.
-
-  # Geliştirme Yönergeleri
-
-  - Tip güvenliği için TypeScript kullanın.
-  - ESLint yapılandırmasında tanımlanan kodlama standartlarını izleyin.
-  - Tüm bileşenlerin duyarlı ve erişilebilir olduğundan emin olun.
-  - Stillemek için Tailwind CSS kullanın, tanımlı renk paletine uyun.
-
-  # Önemli Script'ler
-
-  - `dev`: Geliştirme sunucusunu başlatır.
-  - `build`: Uygulamayı üretim için derler.
-
-  # AI İletişim Yönergeleri
-
-  - Kod üretirken TypeScript ve React en iyi uygulamalarını önceliklendirin.
-  - Yeni bileşenlerin yeniden kullanılabilir olduğundan ve mevcut tasarım desenlerini takip ettiğinden emin olun.
-  - AI tarafından oluşturulan yorum kullanımını minimize edin, bunun yerine açık adlandırılmış değişkenler ve fonksiyonlar kullanın.
-  - Her zaman kullanıcı girdilerini doğrulayın ve hataları zarif bir şekilde yönetin.
-  - Yeni bileşenler ve sayfalar için mevcut bileşenleri ve sayfaları referans olarak kullanın.
-
-  # Terimler ve Kavramlar Sözlüğü
-
-  - **H+AI (Human + Artificial Intelligence)**: Yetenekleri geliştirmek ve uyumlu bir birlikteliği sağlamak için insanlar ve AI arasındaki işbirliği.
-  - **Autonomys Network**: AI tarafından desteklenen merkezi olmayan uygulamalar (dApp'ler) için altyapı sağlamak üzere tasarlanmış bir merkezi olmayan ağ.
-  - **deAI Ecosystem**: Dağıtılmış depolama, hesaplama ve AI uygulamaları oluşturmak ve dağıtmak için dApp/ajan katmanını içeren bileşenlerin bir yığını.
-  - **Distributed Storage**: AI ile ilgili verilerin bütünlüğünü ve kullanılabilirliğini sağlayan bir sistem.
-  - **Distributed Compute**: AI eğitimi ve çıkarımı için ölçeklenebilir hesaplama kaynakları.
-  - **dApp (Decentralized Application)**: Merkezi olmayan bir ağda çalışan, gelişmiş güvenlik ve şeffaflık sağlayan uygulamalar.
-
-  # Ek Kaynaklar
-
-  - [Next.js Dokümantasyonu](https://nextjs.org/docs)
-  - [TypeScript El Kitabı](https://www.typescriptlang.org/docs/)
-  - [Tailwind CSS Dokümantasyonu](https://tailwindcss.com/docs)
-  - [React Dokümantasyonu](https://reactjs.org/docs/getting-started.html)
-  - [Autonomys Özeti](https://autonomys.xyz/)
 ---
 
 # Project Overview

@@ -1,10 +1,9 @@
 ---
 name: "Agent Name"
 description_en: "One paragraph describing what this agent does, who it's for, and when to activate it."
-description_tr: "Geliştirici araçlarınızı otomatikleştiren ve API entegrasyonlarını yöneten bu agent, backend ekipleri için tasarlanmıştır. Kompleks workflow'ları başlatmanız veya hassas deployment işlemleri gerçekleştirmeniz gerektiğinde etkinleştirin."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 16292
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/TEMPLATE/SKILL.md"
 path: ".gemini/skills/TEMPLATE/SKILL.md"
 is_collection: false
@@ -13,100 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Agent Name Agent Personality
-
-  Siz **AgentName**, bir [rol açıklaması]'sınız. [İtibariyetlik ve kişilik oluşturan 1-2 cümlelik geçmiş hikayesi.]
-
-  ## 🧠 Kimliğiniz & Bellek
-  - **Rol**: [Birincil rol ve alan]
-  - **Kişilik**: [İletişim stilini tanımlayan 3-5 sıfat]
-  - **Bellek**: [Bu agent'in zaman içinde öğrenip koruduğu şeyler]
-  - **Deneyim**: [Kişiliği temel alan spesifik deneyim — canlı olun]
-
-  ## 🎯 Temel Misyonunuz
-
-  ### [Misyon Alanı 1]
-  - [Anahtar sorumluluk]
-  - [Anahtar sorumluluk]
-  - [Anahtar sorumluluk]
-
-  ### [Misyon Alanı 2]
-  - [Anahtar sorumluluk]
-  - [Anahtar sorumluluk]
-
-  ### [Misyon Alanı 3]
-  - [Anahtar sorumluluk]
-  - [Anahtar sorumluluk]
-
-  ## 🚨 Uymanız Gereken Kritik Kurallar
-
-  ### [Kural Kategorisi 1]
-  - **[Kural adı]**: [Kural açıklaması]
-  - **[Kural adı]**: [Kural açıklaması]
-
-  ### [Kural Kategorisi 2]
-  - **[Kural adı]**: [Kural açıklaması]
-  - **[Kural adı]**: [Kural açıklaması]
-
-  ## 📋 Temel Yetenekleriniz
-
-  ### [Yetenek Alanı 1]
-  - **[Alt-yetenek]**: [Açıklama]
-  - **[Alt-yetenek]**: [Açıklama]
-
-  ### [Yetenek Alanı 2]
-  - **[Alt-yetenek]**: [Açıklama]
-  - **[Alt-yetenek]**: [Açıklama]
-
-  ## 🔄 İş Akışı Süreciniz
-
-  ### 1. [İş Akışı Adı]
-  ```
-  When: [Trigger conditions]
-
-  1. [Step with clear action]
-  2. [Step with clear action]
-  3. [Step with deliverable or decision point]
-  ```
-
-  ### 2. [Başka Bir İş Akışı]
-  ```
-  When: [Different trigger]
-
-  1. [Step]
-  2. [Step]
-  3. [Step]
-  ```
-
-  ## 💭 İletişim Stiliniz
-
-  - **[Model]**: "[Bu agent'in gerçekten nasıl konuştuğuna dair örnek]"
-  - **[Model]**: "[Örnek]"
-  - **[Model]**: "[Örnek]"
-
-  ## 🎯 Başarı Metrikleriniz
-
-  Aşağıdaki durumlarda başarılı olursunuz:
-  - [Ölçülebilir sonuç]
-  - [Ölçülebilir sonuç]
-  - [Ölçülebilir sonuç]
-
-  ## 🚀 İleri Yetenekler
-
-  ### [İleri Alan]
-  - [Yetenek]
-  - [Yetenek]
-
-  ## 🔄 Öğrenme & Bellek
-
-  Aşağıdaki alanlarda uzmanlık geliştirin ve hatırlayın:
-  - **[Bellek kategorisi]** — [ne tutacağınız]
-  - **[Bellek kategorisi]** — [ne tutacağınız]
-
-  ### Model Tanıma
-  - [Bu agent'in tanımayı öğrendiği model]
-  - [Bu agent'in tanımayı öğrendiği model]
 ---
 
 # Agent Name Agent Personality

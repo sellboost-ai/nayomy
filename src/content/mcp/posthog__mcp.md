@@ -1,8 +1,7 @@
 ---
 name: "PostHog/mcp"
 description: "An MCP server for interacting with PostHog analytics, feature flags, error tracking and more."
-description_tr: "PostHog analitikleri, feature flags, hata takibi ve daha fazlasıyla etkileşim kurmak için bir MCP sunucusu."
-category: "Developer Tools"
+category: "Other"
 repo: "PostHog/mcp"
 stars: 143
 url: "https://github.com/PostHog/mcp"
@@ -10,22 +9,6 @@ body_length: 438
 license: "MIT"
 language: "TypeScript"
 homepage: "https://posthog.com/docs/model-context-protocol"
-body_tr: |-
-  # PostHog MCP
-
-  MCP server, PostHog Monorepo içine taşınmıştır - [burada](https://github.com/PostHog/posthog/tree/master/services/mcp) bulabilirsiniz.
-
-  Dokümantasyon: https://posthog.com/docs/model-context-protocol
-
-  ## MCP Server'ı Kullan
-
-  ### Hızlı kurulum
-
-  Aşağıdaki komutu çalıştırarak MCP server'ı Cursor, Claude, Claude Code, VS Code ve Zed'e otomatik olarak kurabilirsiniz:
-
-  ```
-  npx @posthog/wizard@latest mcp add
-  ```
 ---
 
 # PostHog MCP

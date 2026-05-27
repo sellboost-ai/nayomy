@@ -2,64 +2,13 @@
 name: "embedded-stm32-hal"
 clean_name: "Embedded Stm32 Hal"
 description: "Embedded C/C++ rules for MCU, STM32, HAL, interrupts, DMA, memory constraints, and hardware-focused testing"
-description_tr: "MCU, STM32, HAL, kesintiler, DMA ve bellek kısıtlamaları için gömülü C/C++ kuralları ile donanım odaklı test desteği sağlar."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/embedded-stm32-hal.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/embedded-stm32-hal.mdc"
 body_length: 2432
 file_extension: ".mdc"
-body_tr: |-
-  # Embedded MCU, STM32 ve HAL Kuralları
-
-  ## Proje Yapısı
-
-  - Board support, driver'ları, middleware, uygulama mantığını ve testleri ayrı tutun.
-  - Üretilen CubeMX veya vendor kodunu el yazısı uygulama kodundan izole edin.
-  - Hardware abstraction'ı dar arayüzler arkasında tutun, böylece mantık donanım olmadan test edilebilsin.
-  - Clock tree, pin mappings, peripheral ownership ve interrupt önceliklerini belgeleyebilir.
-
-  ## STM32 HAL ve Peripherals
-
-  - Peripheral'ları tek bir yerde initialize edin ve gizli reconfiguration'dan kaçının.
-  - HAL çağrılarından return value'ları kontrol edin ve timeout/error durumlarda handle edin.
-  - Blocking HAL çağrılarını time-critical path'lerden uzak tutun.
-  - Yüksek-throughput UART, SPI, I2C, ADC veya timer capture path'leri için uygun olduğunda DMA kullanın.
-  - DMA işlemleri için buffer ownership ve lifetime'ı belgeleyebilir.
-  - `volatile` kullanımını sadece ISR'larla veya hardware register'larla paylaşılan memory için kullanın.
-
-  ## Interrupt'lar ve Concurrency
-
-  - ISR'ları kısa ve deterministic tutun.
-  - Ağır işleri interrupt'lardan main loop'a, RTOS task'ına veya event queue'ya erteleyin.
-  - Paylaşılan veriyi critical section'lar, atomics, queue'lar veya RTOS primitive'leriyle koruyun.
-  - Interrupt'larda dynamic allocation'dan kaçının.
-  - Interrupt priority kararlarını açık hale getirin.
-
-  ## Memory ve Timing
-
-  - Proje açıkça izin vermediği sürece firmware'de heap allocation'dan kaçının.
-  - ISR'lar ve RTOS task'ları için stack usage'ını kontrol edin.
-  - Lookup table'ları `const` tutun, böylece flash'ta yer alabilsin.
-  - Hardware ile ilişkili kod için fixed-width integer type'ları kullanın.
-  - Hardware bekleme işlemleri için timeout ekleyin.
-  - Watchdog configuration'ı geç bir eklenti değil, uygulama tasarımının bir parçası olarak görün.
-
-  ## Testing ve Debugging
-
-  - Saf mantığı host build'lerinde unit test edin.
-  - Peripheral davranışı için hardware-in-the-loop test'leri kullanın.
-  - Debug build'lerinde imkansız hardware state'leri için assertion'lar ekleyin.
-  - SWD/JTAG, logic analyzer'lar ve rate limit'li serial log'ları kullanın.
-  - Fault handler'ları kullanışlı tutun: reset reason, fault register'ları ve build version'ını mümkün olduğunda capture edin.
-
-  ## Yaygın Hatalar
-
-  - Workflow değişiklikleri korumadığı sürece generated file'ları modifiye etmeyin.
-  - Hardware flag'lerine sonsuza kadar busy-wait yapmayın.
-  - DMA ve CPU arasında synchronization olmadan buffer'ları paylaşmayın.
-  - Low-power mode'lardan sonra peripheral reset state'ini varsaymayın.
 ---
 
 

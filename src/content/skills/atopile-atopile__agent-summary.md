@@ -1,10 +1,9 @@
 ---
 name: "agent-summary"
 description_en: "Generate short live progress summaries for the atopile agent from recent tool events, preambles, checklist changes, and build state. Use for ephemeral UI activity text only, never for transcript replies or autonomous reasoning."
-description_tr: "atopile agent için son araç olayları, önsözler, kontrol listesi değişiklikleri ve derleme durumundan kısa canlı ilerleme özeti oluşturun. Yalnızca geçici UI aktivite metni için kullanın, transcript yanıtları veya otonom akıl yürütme için asla kullanmayın."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3370
+stars: 3374
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/agent-summary/SKILL.md"
 path: ".claude/skills/agent-summary/SKILL.md"
 is_collection: false
@@ -13,113 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Amaç
-
-  Bu skill, aracının çalışırken "canlı" hissetmesini sağlayan hafif bir özet modeli içindir.
-
-  Plan yapmaz, akıl yürütmez veya görevi yönlendirmez.
-  Yalnızca son gerçek olayları UI için bir kısa canlı durum satırına dönüştürür.
-
-  # Girdiler
-
-  Özet oluşturucu küçük bir yapılandırılmış pencere almalıdır, örneğin:
-
-  - mevcut aşama
-  - en son model preamble'ı
-  - son 3-8 anlamlı tool olayı
-  - en son checklist delta'sı
-  - en son build/run durumu
-  - mümkün olduğunda değiştirilen dosyalar veya hedefler
-
-  Yalnızca girdi içinde mevcut olanı özetleyin.
-
-  # Çıktı Sözleşmesi
-
-  Tam olarak bir kısa ilerleme satırı döndürün.
-
-  Kurallar:
-
-  - 6-16 kelime tercih edilir
-  - bir cümle parçası, madde işareti yok, ön ek yok
-  - şimdiki zaman
-  - birinci şahıs yok
-  - kullanıcı talimatları yok
-  - soru yok
-  - girdi bunu söylemiyorsa tamamlanma hakkında iddia yok
-  - gizli iş hakkında spekülasyon yok
-  - doğrudan faydalı olmadığı sürece iç uygulama detaylarından bahsetme yok
-
-  İyi örnekler:
-
-  - `Motor sürücü paket düzenini ve pin haritalamayı inceleme`
-  - `STM32 sarmalayıcısını düzenleme ve güç kısıtlamalarını sıkılaştırma`
-  - `Yeni paket hedeflerini doğrulamak için build çalıştırma`
-  - `Build hatalarını güncellenmiş sürücü modüllerine karşı kontrol etme`
-
-  Kötü örnekler:
-
-  - `Bu sorunu nasıl çözeceğimi düşünüyorum`
-  - `Aracı neredeyse bitirdi`
-  - `Talibiniz üzerinde sıkı çalışıyorum`
-  - `Belki güç aşamasını ve muhtemelen MCU'yu da güncelleme`
-  - `Bir build çalıştırmamı ister misiniz?`
-
-  # Öncelik
-
-  En somut mevcut aktiviteyi tercih edin:
-
-  1. hata veya durdurulmuş durum
-  2. kullanıcı girdisini bekleme
-  3. aktif build veya build incelemesi
-  4. aktif dosya düzenlemeleri
-  5. parça/paket arama veya satıcı-belge araştırması
-  6. planlama veya genel inceleme
-
-  Birden fazla olay varsa, tüm tarihi değil, en son anlamlı adımı özetleyin.
-
-  # Olay Yorumlaması
-
-  Bu desenleri kullanın:
-
-  - `project_read_file`, `project_search`, `project_list_*`: inceleme veya denetleme
-  - `project_edit_file`, `project_create_*`, `project_move_path`: düzenleme veya yeniden yapılandırma
-  - `parts_search`, `parts_install`: parça seçme veya kurma
-  - `packages_search`, `packages_install`, `package_create_local`: paket oluşturma veya bağlama
-  - `web_search`: satıcı veri sayfaları, tasarım rehberleri veya uygulama notlarını kontrol etme
-  - `build_run`: build çalıştırma
-  - `build_logs_search`, `design_diagnostics`: hata veya tanılamaları inceleme
-  - checklist `doing -> done`: bir kilometre taşından diğerine geçme
-
-  Mümkün olduğunda dosya adları, paket adları, hedef adları veya alt sistem adlarını tercih edin.
-
-  # Güvenlik
-
-  Asla icat etmeyin:
-
-  - dokunulmayan dosyalar
-  - aranmayan veya kurulmayan parçalar
-  - rapor edilmeyen build sonuçları
-  - yapılmayan tasarım seçimleri
-  - olay akışı tarafından desteklenmeyen ilerleme
-
-  Girdi belirsizse, belirsiz kalın ancak yine de somut olun:
-
-  - `Mevcut proje yapısını inceleme`
-  - `Sonraki uygulama adımını planlama`
-
-  # Kullanım
-
-  Bu özet yalnızca kısa ömürlü UI durumudur.
-
-  Şunları yapmayın:
-
-  - transkripte yazma
-  - asistan sohbet mesajları oluşturma
-  - tool izlerinin yerini alma
-  - checklist güncellemelerinin yerini alma
-
-  Bu, gerçek olaylar üzerinde bir sunum katmanıdır, doğruluk kaynağı değildir.
 ---
 
 # Purpose

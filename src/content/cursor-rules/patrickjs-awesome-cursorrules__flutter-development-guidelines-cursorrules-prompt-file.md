@@ -2,63 +2,13 @@
 name: "flutter-development-guidelines-cursorrules-prompt-file"
 clean_name: "Flutter Development Guidelines"
 description: "Cursor rules for Flutter development with MVVM architecture, Riverpod state management, Material widgets, and Dart style guidelines."
-description_tr: "Flutter geliştirme için Cursor kuralları; MVVM mimarisi, Riverpod state management, Material widget'ları ve Dart stil rehberi içerir."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39709
+stars: 39720
 path: "rules/flutter-development-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-development-guidelines-cursorrules-prompt-file.mdc"
 body_length: 2424
 file_extension: ".mdc"
-body_tr: |-
-  ### Kod stili ve yapısı
-  - Özlü ve verimli kaynak kodu yazın.
-  - Okunması ve bakımı kolay olan, doğru örnekler sağlayan kaynak kod için çalışın.
-  - Kod tekrarından kaçının: widget'ları ve fonksiyonları yeniden kullanılabilir bileşenlere modülerize edin.
-  - Açıklayıcı değişken adları kullanın: `isLoading`, `hasError` gibi yardımcı fiiller içeren adlar kullanın.
-
-  ### /lib altında dizin yapısı
-  - /lib/models/: veri modelleri ve tip tanımları (Models)
-  - /lib/viewmodels/: durum yönetimi ve iş mantığı (ViewModel)
-  - /lib/views/widgets/: yeniden kullanılabilir widget'lar (View)
-  - /lib/views/screens/: ekran başına widget'lar (View)
-  - /lib/services/: API çağrıları ve veri erişimi için service sınıfları
-  - /lib/utils/: yardımcı fonksiyonlar ve sabitler
-
-  ### Adlandırma kuralları
-  - Dizinler ve dosyalar: snakeCase kullanın (örn. auth_wizard.dart).
-  - UpperCamelCase: sınıf adları/numaralandırmalar/typedef'ler/tip parametreleri vb. için kullanın.
-  - LowerCamelCase: değişkenler/fonksiyonlar/sınıf üyeleri (özellikler, metodlar) vb. için kullanılır.
-  - lowercase_with_underscores (snakeCase): dosyalar/dizinler/paketler/kütüphaneler vb. için kullanın.
-
-  ### İçe aktarma (Import)
-  - `dart:` ile başlayan içe aktarmaları önce yerleştirin (içe aktarma öneki için lowercase_with_underscores kullanın).
-  - Sonra, üçüncü taraf paketleri içe aktarın (package:).
-  - Son olarak, proje içindeki göreli yolları ve dosyaları içe aktarın.
-
-  ### Dart kullanımı
-  - Tip güvenliğinden yararlanın: tüm kodda statik yazım kullanın ve mümkün olan her yerde tip çıkarımını kullanın.
-
-  ### UI ve stil
-  - Material widget'larını kullanın.
-  - Tema oluşturmayı birleştirin: tutarlı stilleri uygulamak için ThemeData kullanın.
-
-  ### Performans optimizasyonu
-  - Durum gerekli olmadığında StatelessWidget tercih edin.
-  - Const constructor'ları kullanın: widget'lar değişmezse, derlemeleri optimize etmek için const kullanın.
-
-  ### Durum yönetimi
-  - Verimli durum yönetimini uygulamak için riverpod kullanın.
-  - Durum yönetimini ViewModel içinde yönetin ve View'e bağlayın.
-
-  ### Yazılım mimarisi
-  MVVM (Model View ViewModel) kullanın.
-
-  ### Temel kurallar
-  - Kod okunabilirliğini iyileştirmek için satırlar 80 karakteri geçmemelidir.
-  - Tüm kontrol akışı yapıları (if, for, while vb.) için süslü parantez {} kullanın.
-  - Kodu anlama ve bakım yapılmasına yardımcı olmak için proaktif olarak yorum satırları kullanın.
-  - Okunabilirliği iyileştirmek için tek tırnak kullanın, çift tırnak kullanmaktan kaçının ve tutarlı string literal'ları kullanın.
 ---
 
 ### Code style and structure

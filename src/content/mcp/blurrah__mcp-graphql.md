@@ -1,105 +1,13 @@
 ---
 name: "blurrah/mcp-graphql"
 description: "Allows the AI to query GraphQL servers"
-description_tr: "AI'nin GraphQL sunucularını sorgulamasını sağlar"
-category: "Other Tools and Integrations"
+category: "Other"
 repo: "blurrah/mcp-graphql"
 stars: 388
 url: "https://github.com/blurrah/mcp-graphql"
 body_length: 3646
 license: "MIT"
 language: "TypeScript"
-body_tr: |-
-  # mcp-graphql
-
-  [![smithery badge](https://smithery.ai/badge/mcp-graphql)](https://smithery.ai/server/mcp-graphql)
-
-  LLM'lerin GraphQL API'leriyle etkileşime girmesini sağlayan bir Model Context Protocol sunucusu. Bu implementasyon schema introspection ve query execution yetenekleri sağlayarak, modellerin GraphQL API'lerini dinamik olarak keşfetmesine ve kullanmasına olanak tanır.
-
-  <a href="https://glama.ai/mcp/servers/4zwa4l8utf"></a>
-
-  ## Kullanım
-
-  `mcp-graphql`'i doğru endpoint ile çalıştırın, otomatik olarak sorgularınızı introspect etmeye çalışacaktır.
-
-  ### Environment Variables (1.0.0'da Breaking change)
-
-  > **Not:** Version 1.0.0 itibariyle, command line argümanları environment variable'larla değiştirilmiştir.
-
-  | Environment Variable | Açıklama | Varsayılan |
-  |----------|-------------|---------|
-  | `ENDPOINT` | GraphQL endpoint URL'si | `http://localhost:4000/graphql` |
-  | `HEADERS` | Request'ler için header'ları içeren JSON string | `{}` |
-  | `ALLOW_MUTATIONS` | Mutation işlemlerini etkinleştir (varsayılan olarak devre dışı) | `false` |
-  | `NAME` | MCP sunucusunun adı | `mcp-graphql` |
-  | `SCHEMA` | Yerel GraphQL schema dosyasının yolu veya URL'si (opsiyonel) | - |
-
-  ### Örnekler
-
-  ```bash
-  # Yerel GraphQL sunucusu ile temel kullanım
-  ENDPOINT=http://localhost:3000/graphql npx mcp-graphql
-
-  # Özel header'larla kullanım
-  ENDPOINT=https://api.example.com/graphql HEADERS='{"Authorization":"Bearer token123"}' npx mcp-graphql
-
-  # Mutation işlemlerini etkinleştir
-  ENDPOINT=http://localhost:3000/graphql ALLOW_MUTATIONS=true npx mcp-graphql
-
-  # Introspection yerine yerel schema dosyası kullan
-  ENDPOINT=http://localhost:3000/graphql SCHEMA=./schema.graphql npx mcp-graphql
-
-  # URL'de hosted schema dosyası kullan
-  ENDPOINT=http://localhost:3000/graphql SCHEMA=https://example.com/schema.graphql npx mcp-graphql
-  ```
-
-  ## Kaynaklar
-
-  - **graphql-schema**: Sunucu, GraphQL schema'sını client'ların erişebileceği bir kaynak olarak ortaya çıkarır. Bu ya yerel schema dosyası, URL'de hosted schema dosyası veya introspection query'sine dayalıdır.
-
-  ## Kullanılabilir Tools
-
-  Sunucu iki ana tool sağlar:
-
-  1. **introspect-schema**: Bu tool GraphQL schema'sını alır. Schema'ya kaynak olarak erişiminiz yoksa bunu önce kullanın.
-  Bu, yerel schema dosyasını, URL'de hosted schema dosyasını veya introspection query'sini kullanır.
-
-  2. **query-graphql**: Endpoint'e karşı GraphQL query'lerini çalıştırın. Varsayılan olarak, `ALLOW_MUTATIONS` `true` olarak ayarlanmadığı sürece mutation'lar devre dışıdır.
-
-  ## Kurulum
-
-  ### Smithery ile Kurulum
-
-  GraphQL MCP Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-graphql) aracılığıyla otomatik olarak kurmak için:
-
-  ```bash
-  npx -y @smithery/cli install mcp-graphql --client claude
-  ```
-
-  ### Manuel Kurulum
-
-  Claude'a manuel olarak kurulabilir:
-  ```json
-  {
-      "mcpServers": {
-          "mcp-graphql": {
-              "command": "npx",
-              "args": ["mcp-graphql"],
-              "env": {
-                  "ENDPOINT": "http://localhost:3000/graphql"
-              }
-          }
-      }
-  }
-  ```
-
-  ## Güvenlik Hususları
-
-  Mutation'lar, bir LLM'nin veritabanınızı veya hizmet verilerinizi değiştirmesini önlemek amacıyla varsayılan olarak devre dışıdır. Production ortamlarında mutation'ları etkinleştirmeden önce dikkatlice düşünün.
-
-  ## Kendi sunucunuz için Özelleştirin
-
-  Bu, tam introspection'a izin veren ve kullanıcılarınızın her şeyi (mutation'lar dahil) yapmasına izin veren çok genel bir implementasyondur. Daha spesifik bir implementasyon gerekiyorsa, kendi MCP'nizi oluşturmanızı ve client'ların sadece belirli query alanlarını ve/veya değişkenleri girmesini kısıtlamanızı önerim. Bunu referans olarak kullanabilirsiniz.
 ---
 
 # mcp-graphql

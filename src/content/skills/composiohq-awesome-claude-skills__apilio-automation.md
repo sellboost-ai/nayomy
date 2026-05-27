@@ -1,10 +1,9 @@
 ---
 name: "apilio-automation"
 description_en: "Automate Apilio tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Apilio görevlerini Rube MCP (Composio) ile otomatikleştirin. Güncel şemaları için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/apilio-automation/SKILL.md"
 path: "composio-skills/apilio-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP Aracılığıyla Apilio Otomasyonu
-
-  Composio'nun Apilio araç seti aracılığıyla Rube MCP üzerinden Apilio işlemlerini otomatikleştirin.
-
-  **Araç seti dokümantasyonu**: [composio.dev/toolkits/apilio](https://composio.dev/toolkits/apilio)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla etkin Apilio bağlantısı ve `apilio` araç seti
-  - Mevcut araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Edinin**: MCP sunucu yapılandırmanıza `https://rube.app/mcp` adresini ekleyin. API anahtarına gerek yoktur — sadece uç noktayı ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `apilio` araç setini belirtin
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama bağlantısını takip edin
-  4. İş akışlarını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
-  ## Araç Keşfi
-
-  İş akışlarını çalıştırmadan önce her zaman mevcut araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "Apilio operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
-  ## Temel İş Akışı Deseni
-
-  ### Adım 1: Mevcut Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific Apilio task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["apilio"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Yürütün
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slug'larını veya argümanlarını asla sabit kodlamayın
-  - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterir
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
-  - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
-  - **Sayfalandırma**: Yanıtlarda sayfalandırma token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-------|----------|
-  | Araçları bulun | Apilio'ya özel kullanım durumu ile `RUBE_SEARCH_TOOLS` |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ve `apilio` araç seti |
-  | Yürüt | Keşfedilen araç slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
-  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
-  | Tam şema | `schemaRef` içeren araçlar için `RUBE_GET_TOOL_SCHEMAS` |
-
-  ---
-  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Apilio Automation via Rube MCP

@@ -1,10 +1,9 @@
 ---
 name: "-2chat-automation"
 description_en: "Automate 2chat tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "Rube MCP (Composio) ile 2chat görevlerini otomatikleştirin. Güncel şemaları bulabilmek için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/-2chat-automation/SKILL.md"
 path: "composio-skills/-2chat-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # Rube MCP aracılığıyla 2chat Otomasyonu
-
-  Composio'nun 2chat araç seti aracılığıyla Rube MCP kullanarak 2chat işlemlerini otomatikleştirin.
-
-  **Araç seti dokümantasyonu**: [composio.dev/toolkits/_2chat](https://composio.dev/toolkits/_2chat)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlanmış olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `_2chat` araç seti ile aktif 2chat bağlantısı
-  - Her zaman mevcut araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarı gerekmez — yalnızca endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt veriyorsa Rube MCP'nin kullanılabilir olduğunu doğrulayın
-  2. `_2chat` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını izleyin
-  4. Herhangi bir iş akışı çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Keşfi
-
-  İş akışlarını yürütmeden önce her zaman kullanılabilir araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "2chat operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, kullanılabilir araç slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
-
-  ## Temel İş Akışı Deseni
-
-  ### Adım 1: Kullanılabilir Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific 2chat task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["_2chat"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Yürütün
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slugları veya argümanları hiçbir zaman hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adları ve türleri kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
-  - **Oturum yeniden kullanımı**: Bir iş akışı içinde oturum kimliklerini yeniden kullanın. Yeni iş akışları için yenisini oluşturun
-  - **Sayfalandırma**: Yanıtlarda sayfalandırma tokenları kontrol edin ve tam olana kadar getirmeye devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bul | `RUBE_SEARCH_TOOLS` ile 2chat'e özgü kullanım durumu |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `_2chat` araç seti |
-  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slugları |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` araçları |
-
-  ---
-  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # 2chat Automation via Rube MCP

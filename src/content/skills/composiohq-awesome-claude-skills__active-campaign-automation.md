@@ -1,10 +1,9 @@
 ---
 name: "active-campaign-automation"
 description_en: "Automate ActiveCampaign tasks via Rube MCP (Composio). Always search tools first for current schemas."
-description_tr: "ActiveCampaign görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 62029
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/active-campaign-automation/SKILL.md"
 path: "composio-skills/active-campaign-automation/SKILL.md"
 is_collection: false
@@ -13,91 +12,6 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
-body_tr: |-
-  # ActiveCampaign Otomasyonu via Rube MCP
-
-  Composio'nun ActiveCampaign araç seti aracılığıyla Rube MCP üzerinden ActiveCampaign işlemlerini otomatikleştirin.
-
-  **Araç seti dokümentasyonu**: [composio.dev/toolkits/active_campaign](https://composio.dev/toolkits/active_campaign)
-
-  ## Ön Koşullar
-
-  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
-  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `active_campaign` araç seti ile etkin ActiveCampaign bağlantısı
-  - Güncel araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
-  ## Kurulum
-
-  **Rube MCP'yi Edinin**: İstemci konfigürasyonunda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
-  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu kontrol edin
-  2. `active_campaign` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
-  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
-  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
-  ## Araç Keşfi
-
-  İş akışlarını çalıştırmadan önce her zaman mevcut araçları keşfedin:
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "ActiveCampaign operations", known_fields: ""}]
-  session: {generate_id: true}
-  ```
-
-  Bu, mevcut araç slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
-
-  ## Temel İş Akışı Deseni
-
-  ### Adım 1: Mevcut Araçları Keşfedin
-
-  ```
-  RUBE_SEARCH_TOOLS
-  queries: [{use_case: "your specific ActiveCampaign task"}]
-  session: {id: "existing_session_id"}
-  ```
-
-  ### Adım 2: Bağlantıyı Kontrol Edin
-
-  ```
-  RUBE_MANAGE_CONNECTIONS
-  toolkits: ["active_campaign"]
-  session_id: "your_session_id"
-  ```
-
-  ### Adım 3: Araçları Yürütün
-
-  ```
-  RUBE_MULTI_EXECUTE_TOOL
-  tools: [{
-    tool_slug: "TOOL_SLUG_FROM_SEARCH",
-    arguments: {/* schema-compliant args from search results */}
-  }]
-  memory: {}
-  session_id: "your_session_id"
-  ```
-
-  ## Bilinen Sorunlar
-
-  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç sluglarını veya argümanlarını asla hardcode etmeyin
-  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumu gösterir mi diye kontrol edin
-  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
-  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
-  - **Oturum yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yeni olanlar oluşturun
-  - **Pagination**: Yanıtlarda pagination tokenları kontrol edin ve tamamlanana kadar almaya devam edin
-
-  ## Hızlı Referans
-
-  | İşlem | Yaklaşım |
-  |-----------|----------|
-  | Araçları bul | `RUBE_SEARCH_TOOLS` ile ActiveCampaign'a özgü kullanım durumu |
-  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `active_campaign` araç seti |
-  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` keşfedilen araç slugları ile |
-  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
-  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` `schemaRef` ile araçlar için |
-
-  ---
-  *Powered by [Composio](https://composio.dev)*
 ---
 
 # ActiveCampaign Automation via Rube MCP
