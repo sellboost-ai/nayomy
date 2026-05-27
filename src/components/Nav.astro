@@ -25,9 +25,9 @@ const homePath = lang === 'tr' ? '/tr' : '/';
       <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class="nav-link">{t('nav.mcp')}</a>
       <a href={lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules'} class="nav-link">{t('nav.cursor')}</a>
       <a href={lang === 'tr' ? '/tr/tools' : '/tools'} class="nav-link">{t('nav.tools')}</a>
-      <a href="#" class="nav-link">{t('nav.marketplaces')}</a>
-      <a href="#" class="nav-link">{t('nav.docs')}</a>
-      <a href="#" class="nav-link">{t('nav.changelog')}</a>
+      <a href={lang === 'tr' ? '/tr/marketplaces' : '/marketplaces'} class="nav-link">{t('nav.marketplaces')}</a>
+      <a href={lang === 'tr' ? '/tr/learn' : '/learn'} class="nav-link">{t('nav.learn')}</a>
+      <a href={lang === 'tr' ? '/tr/videos' : '/videos'} class="nav-link">{t('nav.videos')}</a>
     </div>
 
     <div class="nav-actions">
