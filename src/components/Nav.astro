@@ -11,6 +11,22 @@ const t = useTranslations(lang);
 const enUrl = getAlternateUrl(Astro.url, 'en');
 const trUrl = getAlternateUrl(Astro.url, 'tr');
 const homePath = lang === 'tr' ? '/tr' : '/';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const isHome = pathname === '/' || pathname === '/tr';
+const isActive = (path: string) => {
+  if (path === '/tr/mcp' || path === '/mcp') {
+    return pathname === path || pathname.startsWith(path + '/');
+  }
+  if (path === '/tr/cursor-rules' || path === '/cursor-rules') {
+    return pathname === path || pathname.startsWith(path + '/');
+  }
+  if (path === '/tr/tools' || path === '/tools') {
+    return pathname === path || pathname.startsWith(path + '/');
+  }
+  return pathname === path;
+};
 ---
 
 <nav>
@@ -21,13 +37,13 @@ const homePath = lang === 'tr' ? '/tr' : '/';
     </a>
 
     <div class="nav-links">
-      <a href={homePath} class="nav-link">{t('nav.skills')}</a>
-      <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class="nav-link">{t('nav.mcp')}</a>
-      <a href={lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules'} class="nav-link">{t('nav.cursor')}</a>
-      <a href={lang === 'tr' ? '/tr/tools' : '/tools'} class="nav-link">{t('nav.tools')}</a>
-      <a href={lang === 'tr' ? '/tr/marketplaces' : '/marketplaces'} class="nav-link">{t('nav.marketplaces')}</a>
-      <a href={lang === 'tr' ? '/tr/learn' : '/learn'} class="nav-link">{t('nav.learn')}</a>
-      <a href={lang === 'tr' ? '/tr/videos' : '/videos'} class="nav-link">{t('nav.videos')}</a>
+      <a href={homePath} class:list={['nav-link', { active: isHome }]}>{t('nav.skills')}</a>
+      <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/mcp' : '/mcp') }]}>{t('nav.mcp')}</a>
+      <a href={lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules') }]}>{t('nav.cursor')}</a>
+      <a href={lang === 'tr' ? '/tr/tools' : '/tools'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/tools' : '/tools') }]}>{t('nav.tools')}</a>
+      <a href={lang === 'tr' ? '/tr/marketplaces' : '/marketplaces'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/marketplaces' : '/marketplaces') }]}>{t('nav.marketplaces')}</a>
+      <a href={lang === 'tr' ? '/tr/learn' : '/learn'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/learn' : '/learn') }]}>{t('nav.learn')}</a>
+      <a href={lang === 'tr' ? '/tr/videos' : '/videos'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/videos' : '/videos') }]}>{t('nav.videos')}</a>
     </div>
 
     <div class="nav-actions">
@@ -40,6 +56,26 @@ const homePath = lang === 'tr' ? '/tr' : '/';
     </div>
   </div>
 </nav>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+  .nav-link.active {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 1px;
+  }
+</style>
 
 <script>
   const btn = document.getElementById('themeToggle');
