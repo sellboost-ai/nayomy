@@ -3,7 +3,7 @@ name: "comet-ml/opik-mcp"
 description: "Use natural language to explore LLM observability, traces, and monitoring data captured by Opik."
 category: "Other"
 repo: "comet-ml/opik-mcp"
-stars: 204
+stars: 205
 url: "https://github.com/comet-ml/opik-mcp"
 body_length: 16128
 license: "Apache-2.0"

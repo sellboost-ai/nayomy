@@ -3,7 +3,7 @@ name: "biegehydra/BifrostMCP"
 description: "Connect to VSCode ide and use semantic tools like find_usages"
 category: "Other"
 repo: "biegehydra/BifrostMCP"
-stars: 213
+stars: 214
 url: "https://github.com/biegehydra/BifrostMCP"
 body_length: 9829
 license: "AGPL-3.0"

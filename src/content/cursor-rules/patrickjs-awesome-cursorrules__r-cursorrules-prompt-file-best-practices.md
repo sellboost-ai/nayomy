@@ -4,7 +4,7 @@ clean_name: "R Cursorrules Prompt File Best Practices"
 description: "Cursor rules for R development with best practices integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/r-cursorrules-prompt-file-best-practices.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/r-cursorrules-prompt-file-best-practices.mdc"
 body_length: 7914

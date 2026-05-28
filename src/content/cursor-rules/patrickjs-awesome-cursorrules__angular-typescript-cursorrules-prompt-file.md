@@ -4,7 +4,7 @@ clean_name: "Angular TypeScript"
 description: "Cursor rules for Angular development with TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/angular-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/angular-typescript-cursorrules-prompt-file.mdc"
 body_length: 1465

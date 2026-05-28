@@ -4,7 +4,7 @@ clean_name: "Nextjs15 React19 Vercelai Tailwind"
 description: "Cursor rules for Next.js development with React 19, Vercel AI, and Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file.mdc"
 body_length: 2879

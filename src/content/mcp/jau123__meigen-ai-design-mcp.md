@@ -3,7 +3,7 @@ name: "jau123/MeiGen-AI-Design-MCP"
 description: "AI image generation & editing MCP server with 1,500+ curated prompt library, smart prompt enhancement, and multi-provider routing (local ComfyUI, MeiGen Cloud, OpenAI-compatible APIs)."
 category: "Other"
 repo: "jau123/MeiGen-AI-Design-MCP"
-stars: 1198
+stars: 1258
 url: "https://github.com/jau123/MeiGen-AI-Design-MCP"
 body_length: 16301
 license: "MIT"

@@ -4,7 +4,7 @@ clean_name: "Laravel PHP 83"
 description: "Cursor rules for Laravel development with PHP 8.3 integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/laravel-php-83-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/laravel-php-83-cursorrules-prompt-file.mdc"
 body_length: 1927

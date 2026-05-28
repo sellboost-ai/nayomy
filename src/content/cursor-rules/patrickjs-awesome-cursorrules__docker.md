@@ -4,7 +4,7 @@ clean_name: "Docker"
 description: "Docker production rules. Pinned versions, multi-stage builds, non-root user, minimal attack surface."
 category: "DevOps"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/docker.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/docker.mdc"
 body_length: 1285

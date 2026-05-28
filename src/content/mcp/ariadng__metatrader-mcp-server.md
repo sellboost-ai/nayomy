@@ -3,7 +3,7 @@ name: "ariadng/metatrader-mcp-server"
 description: "Enable AI LLMs to execute trades using MetaTrader 5 platform"
 category: "Other"
 repo: "ariadng/metatrader-mcp-server"
-stars: 300
+stars: 379
 url: "https://github.com/ariadng/metatrader-mcp-server"
 body_length: 22903
 license: "MIT"

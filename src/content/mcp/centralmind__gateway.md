@@ -3,7 +3,7 @@ name: "centralmind/gateway"
 description: "MCP and MCP SSE Server that automatically generate API based on database schema and data. Supports PostgreSQL, Clickhouse, MySQL, Snowflake, BigQuery, Supabase"
 category: "Other"
 repo: "centralmind/gateway"
-stars: 532
+stars: 531
 url: "https://github.com/centralmind/gateway"
 body_length: 12205
 license: "Apache-2.0"

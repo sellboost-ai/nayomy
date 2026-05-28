@@ -4,7 +4,7 @@ clean_name: "React Next.js UI Development Cursorrules Prompt Fil"
 description: "Cursor rules for React development with Next.js UI integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/react-nextjs-ui-development-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-nextjs-ui-development-cursorrules-prompt-fil.mdc"
 body_length: 1415

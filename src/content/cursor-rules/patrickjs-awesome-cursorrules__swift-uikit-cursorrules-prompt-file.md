@@ -4,7 +4,7 @@ clean_name: "Swift Uikit"
 description: "Cursor rules for Swift Uikit."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/swift-uikit-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/swift-uikit-cursorrules-prompt-file.mdc"
 body_length: 23392

@@ -4,7 +4,7 @@ clean_name: "Linux Nvidia Cuda Python"
 description: "Cursor rules for Linux development with NVIDIA CUDA and Python integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/linux-nvidia-cuda-python-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/linux-nvidia-cuda-python-cursorrules-prompt-file.mdc"
 body_length: 2150

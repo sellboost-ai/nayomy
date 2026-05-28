@@ -4,7 +4,7 @@ clean_name: "Python Django Best Practices Cursorrules Prompt Fi"
 description: "Cursor rules for Python Django development with best practices."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/python-django-best-practices-cursorrules-prompt-fi.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-django-best-practices-cursorrules-prompt-fi.mdc"
 body_length: 3620

@@ -3,7 +3,7 @@ name: "automation-ai-labs/mcp-link"
 description: "Seamlessly Integrate Any API with AI Agents (with OpenAPI Schema)"
 category: "Other"
 repo: "automation-ai-labs/mcp-link"
-stars: 606
+stars: 607
 url: "https://github.com/automation-ai-labs/mcp-link"
 body_length: 4212
 license: "MIT"

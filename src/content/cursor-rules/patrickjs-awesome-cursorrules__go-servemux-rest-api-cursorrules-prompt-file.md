@@ -4,7 +4,7 @@ clean_name: "Go Servemux REST API"
 description: "Cursor rules for Go development with ServeMux REST API integration."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/go-servemux-rest-api-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/go-servemux-rest-api-cursorrules-prompt-file.mdc"
 body_length: 2101

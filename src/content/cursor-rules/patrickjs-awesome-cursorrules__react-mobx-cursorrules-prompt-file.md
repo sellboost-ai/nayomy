@@ -4,7 +4,7 @@ clean_name: "React Mobx"
 description: "Cursor rules for React development with MobX integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/react-mobx-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-mobx-cursorrules-prompt-file.mdc"
 body_length: 1115

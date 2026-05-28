@@ -4,7 +4,7 @@ clean_name: "Anti Sycophancy Code Discipline"
 description: "Anti-sycophancy directives for code review and generation. Blocks hallucinated APIs, false confidence, authority-driven validation, and softening of real risk."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/anti-sycophancy-code-discipline-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/anti-sycophancy-code-discipline-cursorrules-prompt-file.mdc"
 body_length: 4206

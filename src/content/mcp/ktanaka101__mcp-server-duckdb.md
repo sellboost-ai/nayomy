@@ -3,7 +3,7 @@ name: "ktanaka101/mcp-server-duckdb"
 description: "DuckDB database integration with schema inspection and query capabilities"
 category: "Other"
 repo: "ktanaka101/mcp-server-duckdb"
-stars: 177
+stars: 176
 url: "https://github.com/ktanaka101/mcp-server-duckdb"
 body_length: 4751
 license: "MIT"

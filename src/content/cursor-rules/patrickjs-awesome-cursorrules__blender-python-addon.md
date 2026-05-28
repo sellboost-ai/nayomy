@@ -4,7 +4,7 @@ clean_name: "Blender Python Addon"
 description: "Blender Python add-on rules for operators, panels, properties, registration, testing, and API-safe scripting"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/blender-python-addon.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/blender-python-addon.mdc"
 body_length: 2491

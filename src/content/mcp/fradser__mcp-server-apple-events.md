@@ -5,7 +5,7 @@ category: "Other"
 repo: "FradSer/mcp-server-apple-events"
 stars: 122
 url: "https://github.com/FradSer/mcp-server-apple-events"
-body_length: 33267
+body_length: 35777
 license: "MIT"
 language: "TypeScript"
 ---
@@ -17,8 +17,6 @@ language: "TypeScript"
 English | [简体中文](README.zh-CN.md)
 
 A Model Context Protocol (MCP) server that provides native integration with Apple Reminders and Calendar on macOS. This server allows you to interact with Apple Reminders and Calendar Events through a standardized interface with comprehensive management capabilities.
-
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/fradser-mcp-server-apple-events-badge.png)](https://mseep.ai/app/fradser-mcp-server-apple-events)
 
 > [!NOTE]
 > **Looking ahead: [event](https://github.com/FradSer/event) — a pure Swift CLI for Apple Reminders and Calendar on macOS.**
@@ -80,7 +78,7 @@ Apple now separates Reminders and Calendar permissions into _write-only_ and _fu
 
 When the CLI detects a `notDetermined` authorization status it calls `requestFullAccessToReminders` / `requestFullAccessToEvents`, which in turn triggers macOS to show the correct prompt. If the OS ever loses track of permissions, rerun `./check-permissions.sh` to re-open the dialogs.
 
-If a Claude tool call still encounters a permission failure, the Node.js layer automatically runs a minimal AppleScript (`osascript -e 'tell application "Reminders" …'`) to surface the dialog and then retries the Swift CLI once.
+If a Claude tool call still encounters a permission failure, see *Desktop MCP clients* below for the responsible-process attribution problem and the recommended workarounds.
 
 ### Troubleshooting Calendar Read Errors
 
@@ -91,6 +89,36 @@ If you see `Failed to read calendar events`, verify Calendar is set to **Full Ca
 - Change access to **Full Calendar Access**
 
 You can also re-run `./check-permissions.sh` (it now validates both Reminders and Calendars access).
+
+### Desktop MCP clients (Claude Desktop, Codex Desktop, …)
+
+macOS attributes Reminders and Calendar access to the **responsible** process — the desktop app that launched the MCP server, not the `EventKitCLI` subprocess. For the EventKit prompt to appear, the responsible app's bundle must ship the `NSRemindersUsageDescription` / `NSCalendarsUsageDescription` keys (and on Sonoma+ the matching write-only or full-access variants). If those keys are missing, TCC refuses the request before EventKit is even reached, and the Swift CLI returns:
+
+```text
+Reminder permission denied. Unknown error
+```
+
+— even though running the same binary from Terminal works. See [issue #93](https://github.com/FradSer/mcp-server-apple-events/issues/93) for the full TCC log; Codex Desktop today ships only `NSAppleEventsUsageDescription`, which is why it hits this wall.
+
+This is a macOS-level constraint that an MCP server alone cannot resolve — the desktop client itself needs to declare those usage strings in its `Info.plist`. The workarounds below are about making the server *usable* while you wait for the upstream fix:
+
+**Reliable workaround — run the server from a terminal-based MCP client.** Codex CLI, Claude Code, and similar terminal-launched clients inherit Terminal's (or iTerm2's) own `kTCCServiceReminders` / `kTCCServiceCalendar` grant, so EventKit calls succeed without changes to this server:
+
+```bash
+# from inside Terminal / iTerm2, where the responsible app holds the EventKit grants
+codex
+# or
+claude
+```
+
+**Partial workaround — AppleScript routing (only if the desktop app already declares `NSAppleEventsUsageDescription`).** Running:
+
+```bash
+osascript -e 'tell application "Reminders" to get name of lists'
+osascript -e 'tell application "Calendar" to get name of calendars'
+```
+
+triggers an **Automation** prompt (`kTCCServiceAppleEvents`) so the responsible app can control `com.apple.reminders` and `com.apple.iCal`. This does *not* create a `kTCCServiceReminders` / `kTCCServiceCalendar` grant on its own, so a Swift CLI that calls EventKit directly will still be refused if the host bundle is missing the usage strings. It only helps if your client can fall back to AppleScript end-to-end (this server does not today).
 
 **Verification command**
 
@@ -724,19 +752,34 @@ Handles EventKit calendar events (time blocks) with CRUD capabilities.
 
 **Tool Name**: `calendar_calendars`
 
-Returns the available calendars from EventKit. This is useful before creating or updating events to confirm calendar identifiers.
+Returns the available calendars from EventKit. This is useful before creating or updating events to confirm calendar identifiers. Optional date range filters return only calendars that have events in the range and include event counts.
 
 **Actions**: `read`
 
+**Optional Parameters**:
+
+- `startDate`: Range start for scoped calendar discovery
+- `endDate`: Range end for scoped calendar discovery
+- `filterAccount`: Account name such as `"Google"` or `"Exchange"`
+
 **Main Handler Function**:
 
-- `handleReadCalendars()` - List all calendars with IDs and titles
+- `handleReadCalendars()` - List all calendars with IDs and titles, or scoped active calendars when a date range is supplied
 
 **Example Usage**
 
 ```json
 {
   "action": "read"
+}
+```
+
+```json
+{
+  "action": "read",
+  "startDate": "2026-05-04",
+  "endDate": "2026-05-11",
+  "filterAccount": "Google"
 }
 ```
 

@@ -3,7 +3,7 @@ name: "SDGLBL/mcp-claude-code"
 description: "An implementation of Claude Code capabilities using MCP, enabling AI code understanding, modification, and project analysis with comprehensive tool support."
 category: "Other"
 repo: "SDGLBL/mcp-claude-code"
-stars: 302
+stars: 301
 url: "https://github.com/SDGLBL/mcp-claude-code"
 body_length: 4988
 license: "MIT"

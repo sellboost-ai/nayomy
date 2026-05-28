@@ -3,7 +3,7 @@ name: "microsoft/playwright-mcp"
 description: "Official Microsoft Playwright MCP server, enabling LLMs to interact with web pages through structured accessibility snapshots"
 category: "Other"
 repo: "microsoft/playwright-mcp"
-stars: 33077
+stars: 33131
 url: "https://github.com/microsoft/playwright-mcp"
 body_length: 57892
 license: "Apache-2.0"

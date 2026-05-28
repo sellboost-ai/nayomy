@@ -4,7 +4,7 @@ clean_name: "Kubestellar Console"
 description: "KubeStellar Console — Multi-cluster Kubernetes dashboard development rules"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/kubestellar-console.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/kubestellar-console.mdc"
 body_length: 2311

@@ -3,7 +3,7 @@ name: "executeautomation/mcp-playwright"
 description: "An MCP server using Playwright for browser automation and webscrapping"
 category: "Other"
 repo: "executeautomation/mcp-playwright"
-stars: 5533
+stars: 5534
 url: "https://github.com/executeautomation/mcp-playwright"
 body_length: 11217
 license: "MIT"

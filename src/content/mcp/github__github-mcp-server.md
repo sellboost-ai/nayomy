@@ -3,9 +3,9 @@ name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
 category: "Other"
 repo: "github/github-mcp-server"
-stars: 30205
+stars: 30232
 url: "https://github.com/github/github-mcp-server"
-body_length: 89085
+body_length: 89262
 license: "MIT"
 language: "Go"
 ---
@@ -867,6 +867,7 @@ The following sets of tools are available:
   - `assignees`: Usernames to assign to this issue (string[], optional)
   - `body`: Issue body content (string, optional)
   - `duplicate_of`: Issue number that this issue is a duplicate of. Only used when state_reason is 'duplicate'. (number, optional)
+  - `issue_fields`: Issue field values to set or clear. Each item requires 'field_name' and exactly one of 'value', 'field_option_name', or 'delete: true'. (object[], optional)
   - `issue_number`: Issue number to update (number, optional)
   - `labels`: Labels to apply to this issue (string[], optional)
   - `method`: Write operation to perform on a single issue.

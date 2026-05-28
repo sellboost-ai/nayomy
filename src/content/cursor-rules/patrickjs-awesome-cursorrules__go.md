@@ -4,7 +4,7 @@ clean_name: "Go"
 description: "Idiomatic Go rules. Explicit error handling, interface-based design, context-first concurrency."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/go.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/go.mdc"
 body_length: 1232

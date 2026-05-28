@@ -3,7 +3,7 @@ name: "duriantaco/skylos"
 description: "Dead code detection, security scanning, and code quality analysis for Python, TypeScript, and Go. 98% recall with fewer false positives than Vulture. Includes AI-powered remediation."
 category: "Other"
 repo: "duriantaco/skylos"
-stars: 441
+stars: 442
 url: "https://github.com/duriantaco/skylos"
 body_length: 17774
 license: "Apache-2.0"

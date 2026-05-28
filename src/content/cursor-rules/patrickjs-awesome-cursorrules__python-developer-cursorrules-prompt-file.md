@@ -4,7 +4,7 @@ clean_name: "Python Developer"
 description: "Cursor rules for Python development with developer integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/python-developer-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-developer-cursorrules-prompt-file.mdc"
 body_length: 421

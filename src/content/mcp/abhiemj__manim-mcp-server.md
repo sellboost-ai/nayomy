@@ -3,7 +3,7 @@ name: "abhiemj/manim-mcp-server"
 description: "A local MCP server that generates animations using Manim."
 category: "Other"
 repo: "abhiemj/manim-mcp-server"
-stars: 594
+stars: 595
 url: "https://github.com/abhiemj/manim-mcp-server"
 body_length: 3036
 license: "MIT"

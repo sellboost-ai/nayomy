@@ -4,7 +4,7 @@ clean_name: "Ascii Simulation Game"
 description: "Cursor rules for ASCII simulation game development."
 category: "Game Dev"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/ascii-simulation-game-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ascii-simulation-game-cursorrules-prompt-file.mdc"
 body_length: 4817

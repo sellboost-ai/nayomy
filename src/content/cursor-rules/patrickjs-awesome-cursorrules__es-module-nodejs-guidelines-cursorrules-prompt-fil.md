@@ -4,7 +4,7 @@ clean_name: "Es Module Node.js Guidelines Cursorrules Prompt Fil"
 description: "Cursor rules for ES Module development with Node.js guidelines."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/es-module-nodejs-guidelines-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/es-module-nodejs-guidelines-cursorrules-prompt-fil.mdc"
 body_length: 1023

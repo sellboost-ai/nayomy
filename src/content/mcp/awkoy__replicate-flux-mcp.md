@@ -3,7 +3,7 @@ name: "awkoy/replicate-flux-mcp"
 description: "Provides the ability to generate images via Replicate's API."
 category: "Other"
 repo: "awkoy/replicate-flux-mcp"
-stars: 105
+stars: 104
 url: "https://github.com/awkoy/replicate-flux-mcp"
 body_length: 19859
 license: "MIT"

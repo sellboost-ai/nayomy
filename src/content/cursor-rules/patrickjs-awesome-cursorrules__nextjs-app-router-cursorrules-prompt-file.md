@@ -4,7 +4,7 @@ clean_name: "Next.js App Router"
 description: "Cursor rules for Next.js development with App Router integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/nextjs-app-router-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-app-router-cursorrules-prompt-file.mdc"
 body_length: 1032

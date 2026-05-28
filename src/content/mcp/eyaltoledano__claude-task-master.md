@@ -3,7 +3,7 @@ name: "eyaltoledano/claude-task-master"
 description: "AI-powered task management system for AI-driven development. Features PRD parsing, task expansion, multi-provider support (Claude, OpenAI, Gemini, Perplexity, xAI), and selective tool loading for optimized context usage."
 category: "Other"
 repo: "eyaltoledano/claude-task-master"
-stars: 27266
+stars: 27278
 url: "https://github.com/eyaltoledano/claude-task-master"
 body_length: 17401
 license: "NOASSERTION"

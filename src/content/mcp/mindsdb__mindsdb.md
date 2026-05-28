@@ -3,7 +3,7 @@ name: "mindsdb/mindsdb"
 description: "Connect and unify data across various platforms and databases with MindsDB as a single MCP server."
 category: "Other"
 repo: "mindsdb/mindsdb"
-stars: 39207
+stars: 39214
 url: "https://github.com/mindsdb/mindsdb"
 body_length: 6033
 license: "NOASSERTION"

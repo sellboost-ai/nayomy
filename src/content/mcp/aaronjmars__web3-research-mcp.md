@@ -5,7 +5,7 @@ category: "Other"
 repo: "aaronjmars/web3-research-mcp"
 stars: 157
 url: "https://github.com/aaronjmars/web3-research-mcp"
-body_length: 6656
+body_length: 6649
 license: "MIT"
 language: "TypeScript"
 ---
@@ -215,4 +215,4 @@ Parameters:
 
 ## 📄 License
 
-This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.

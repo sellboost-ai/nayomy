@@ -3,7 +3,7 @@ name: "tigranbs/mcgravity"
 description: "A proxy tool for composing multiple MCP servers into one unified endpoint. Scale your AI tools by load balancing requests across multiple MCP servers, similar to how Nginx works for web servers."
 category: "Other"
 repo: "tigranbs/mcgravity"
-stars: 97
+stars: 98
 url: "https://github.com/tigranbs/mcgravity"
 body_length: 10286
 language: "Rust"

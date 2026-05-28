@@ -3,7 +3,7 @@ name: "ivnvxd/mcp-server-odoo"
 description: "Connect AI assistants to Odoo ERP systems for business data access, record management, and workflow automation."
 category: "Other"
 repo: "ivnvxd/mcp-server-odoo"
-stars: 298
+stars: 299
 url: "https://github.com/ivnvxd/mcp-server-odoo"
 body_length: 25524
 license: "MPL-2.0"

@@ -4,7 +4,7 @@ clean_name: "SvelteKit Tailwindcss TypeScript Cursorrules Promp"
 description: "Cursor rules for SvelteKit development with Tailwind CSS and TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/sveltekit-tailwindcss-typescript-cursorrules-promp.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/sveltekit-tailwindcss-typescript-cursorrules-promp.mdc"
 body_length: 5196

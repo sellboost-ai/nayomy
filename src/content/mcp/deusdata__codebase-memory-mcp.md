@@ -3,7 +3,7 @@ name: "DeusData/codebase-memory-mcp"
 description: "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 66 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies."
 category: "Other"
 repo: "DeusData/codebase-memory-mcp"
-stars: 2739
+stars: 2762
 url: "https://github.com/DeusData/codebase-memory-mcp"
 body_length: 28873
 license: "MIT"

@@ -3,7 +3,7 @@ name: "screenpipe/screenpipe"
 description: "Local-first system capturing screen/audio with timestamped indexing, SQL/embedding storage, semantic search, LLM-powered history analysis, and event-triggered actions - enables building context-aware AI agents through a NextJS plugin ecosystem."
 category: "Other"
 repo: "screenpipe/screenpipe"
-stars: 18936
+stars: 18953
 url: "https://github.com/screenpipe/screenpipe"
 body_length: 17385
 license: "NOASSERTION"

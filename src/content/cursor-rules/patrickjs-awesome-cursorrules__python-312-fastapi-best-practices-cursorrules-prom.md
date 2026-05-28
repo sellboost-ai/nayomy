@@ -4,7 +4,7 @@ clean_name: "Python 312 FastAPI Best Practices Cursorrules Prom"
 description: "Cursor rules for Python FastAPI development with best practices."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/python-312-fastapi-best-practices-cursorrules-prom.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-312-fastapi-best-practices-cursorrules-prom.mdc"
 body_length: 1579

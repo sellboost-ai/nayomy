@@ -4,7 +4,7 @@ clean_name: "Kotlin Springboot Best Practices"
 description: "Cursor rules for Kotlin Springboot Best Practices."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/kotlin-springboot-best-practices-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/kotlin-springboot-best-practices-cursorrules-prompt-file.mdc"
 body_length: 7205

@@ -4,7 +4,7 @@ clean_name: "Github Cursorrules Prompt File Instructions"
 description: "Cursor rules for GitHub development with instructions integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/github-cursorrules-prompt-file-instructions.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/github-cursorrules-prompt-file-instructions.mdc"
 body_length: 12704

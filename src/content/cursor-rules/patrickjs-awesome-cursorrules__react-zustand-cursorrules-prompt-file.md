@@ -4,7 +4,7 @@ clean_name: "React Zustand"
 description: "React and TypeScript state management guidance for Zustand stores, selectors, middleware, persistence, and testing."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/react-zustand-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-zustand-cursorrules-prompt-file.mdc"
 body_length: 5441

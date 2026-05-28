@@ -4,7 +4,7 @@ clean_name: "Next.js Vercel TypeScript"
 description: "Cursor rules for Next.js development with Vercel and TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/nextjs-vercel-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-vercel-typescript-cursorrules-prompt-file.mdc"
 body_length: 5572

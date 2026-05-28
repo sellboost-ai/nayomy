@@ -4,7 +4,7 @@ clean_name: "Nativescript"
 description: "Cursor rules for NativeScript development."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/nativescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nativescript-cursorrules-prompt-file.mdc"
 body_length: 961

@@ -3,7 +3,7 @@ name: "mcpjungle/MCPJungle"
 description: "Self-hosted MCP Server registry for enterprise AI Agents"
 category: "Other"
 repo: "mcpjungle/MCPJungle"
-stars: 1066
+stars: 1068
 url: "https://github.com/mcpjungle/MCPJungle"
 body_length: 36295
 license: "MPL-2.0"

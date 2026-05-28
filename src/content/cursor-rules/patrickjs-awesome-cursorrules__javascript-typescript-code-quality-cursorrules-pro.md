@@ -4,7 +4,7 @@ clean_name: "JavaScript TypeScript Code Quality Cursorrules Pro"
 description: "Cursor rules for JavaScript and TypeScript development with code quality integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/javascript-typescript-code-quality-cursorrules-pro.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/javascript-typescript-code-quality-cursorrules-pro.mdc"
 body_length: 3165

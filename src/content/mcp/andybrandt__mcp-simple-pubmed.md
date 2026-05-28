@@ -3,7 +3,7 @@ name: "andybrandt/mcp-simple-pubmed"
 description: "MCP to search and read medical / life sciences papers from PubMed."
 category: "Other"
 repo: "andybrandt/mcp-simple-pubmed"
-stars: 167
+stars: 168
 url: "https://github.com/andybrandt/mcp-simple-pubmed"
 body_length: 5029
 license: "MIT"

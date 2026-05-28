@@ -3,7 +3,7 @@ name: "grafana/mcp-grafana"
 description: "Search dashboards, investigate incidents and query datasources in your Grafana instance"
 category: "Other"
 repo: "grafana/mcp-grafana"
-stars: 3054
+stars: 3060
 url: "https://github.com/grafana/mcp-grafana"
 body_length: 66431
 license: "Apache-2.0"

@@ -3,7 +3,7 @@ name: "samuelgursky/davinci-resolve-mcp"
 description: "MCP server integration for DaVinci Resolve providing powerful tools for video editing, color grading, media management, and project control"
 category: "Other"
 repo: "samuelgursky/davinci-resolve-mcp"
-stars: 1126
+stars: 1133
 url: "https://github.com/samuelgursky/davinci-resolve-mcp"
 body_length: 12441
 license: "MIT"
@@ -12,7 +12,7 @@ language: "Python"
 
 # DaVinci Resolve MCP Server
 
-[![Version](https://img.shields.io/badge/version-2.24.0-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
+[![Version](https://img.shields.io/badge/version-2.26.0-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
 [![npm](https://img.shields.io/npm/v/davinci-resolve-mcp.svg?label=npm&color=CB3837)](https://www.npmjs.com/package/davinci-resolve-mcp)
 [![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](docs/reference/api-coverage.md)
 [![Tools](https://img.shields.io/badge/MCP%20Tools-32%20(329%20full)-blue.svg)](#server-modes)

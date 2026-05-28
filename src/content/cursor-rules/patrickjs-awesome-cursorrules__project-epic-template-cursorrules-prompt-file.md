@@ -4,7 +4,7 @@ clean_name: "Project Epic Template"
 description: "Cursor rules for project development with epic template integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39742
 path: "rules/project-epic-template-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/project-epic-template-cursorrules-prompt-file.mdc"
 body_length: 9743
