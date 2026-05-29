@@ -4,7 +4,7 @@ clean_name: "Python"
 description: "Python best practices and patterns for modern software development with Flask and SQLite"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/python.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python.mdc"
 body_length: 3393

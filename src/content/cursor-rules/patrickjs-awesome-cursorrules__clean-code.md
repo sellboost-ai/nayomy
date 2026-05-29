@@ -4,7 +4,7 @@ clean_name: "Clean Code"
 description: "Guidelines for writing clean, maintainable, and human-readable code. Apply these rules when writing or reviewing code to ensure consistency and quality."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/clean-code.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/clean-code.mdc"
 body_length: 1847

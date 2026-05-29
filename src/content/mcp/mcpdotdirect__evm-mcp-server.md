@@ -3,7 +3,7 @@ name: "mcpdotdirect/evm-mcp-server"
 description: "Comprehensive blockchain services for 30+ EVM networks, supporting native tokens, ERC20, NFTs, smart contracts, transactions, and ENS resolution."
 category: "Finance & Fintech"
 repo: "mcpdotdirect/evm-mcp-server"
-stars: 377
+stars: 378
 url: "https://github.com/mcpdotdirect/evm-mcp-server"
 body_length: 26214
 license: "MIT"

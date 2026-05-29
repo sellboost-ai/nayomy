@@ -3,7 +3,7 @@ name: "vivekVells/mcp-pandoc"
 description: "MCP server for seamless document format conversion using Pandoc, supporting Markdown, HTML, PDF, DOCX (.docx), csv and more."
 category: "Workplace & Productivity"
 repo: "vivekVells/mcp-pandoc"
-stars: 540
+stars: 542
 url: "https://github.com/vivekVells/mcp-pandoc"
 body_length: 14153
 license: "MIT"

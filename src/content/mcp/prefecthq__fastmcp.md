@@ -3,7 +3,7 @@ name: "PrefectHQ/fastmcp"
 description: "A high-level framework for building MCP servers in Python"
 category: "Developer Tools"
 repo: "PrefectHQ/fastmcp"
-stars: 25338
+stars: 25373
 url: "https://github.com/PrefectHQ/fastmcp"
 body_length: 6920
 license: "Apache-2.0"

@@ -3,7 +3,7 @@ name: "Tiberriver256/mcp-server-azure-devops"
 description: "Azure DevOps integration for repository management, work items, and pipelines."
 category: "Version Control"
 repo: "Tiberriver256/mcp-server-azure-devops"
-stars: 369
+stars: 371
 url: "https://github.com/Tiberriver256/mcp-server-azure-devops"
 body_length: 12833
 license: "MIT"

@@ -3,7 +3,7 @@ name: "hashicorp/terraform-mcp-server"
 description: "The official Terraform MCP Server seamlessly integrates with the Terraform ecosystem, enabling provider discovery, module analysis, and direct Registry API integration for advanced Infrastructure as Code workflows."
 category: "Cloud Platforms"
 repo: "hashicorp/terraform-mcp-server"
-stars: 1380
+stars: 1384
 url: "https://github.com/hashicorp/terraform-mcp-server"
 body_length: 20563
 license: "MPL-2.0"

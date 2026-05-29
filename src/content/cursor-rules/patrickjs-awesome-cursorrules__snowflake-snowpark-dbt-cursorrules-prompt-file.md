@@ -4,7 +4,7 @@ clean_name: "Snowflake Snowpark Dbt"
 description: "Cursor rules for Snowpark Python (DataFrames, UDFs, stored procedures) and dbt with the Snowflake adapter."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/snowflake-snowpark-dbt-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/snowflake-snowpark-dbt-cursorrules-prompt-file.mdc"
 body_length: 6612

@@ -3,7 +3,7 @@ name: "IvanMurzak/Unity-MCP"
 description: "MCP Server for Unity Editor and for a game made with Unity"
 category: "Gaming"
 repo: "IvanMurzak/Unity-MCP"
-stars: 2908
+stars: 2933
 url: "https://github.com/IvanMurzak/Unity-MCP"
 body_length: 45119
 license: "Apache-2.0"

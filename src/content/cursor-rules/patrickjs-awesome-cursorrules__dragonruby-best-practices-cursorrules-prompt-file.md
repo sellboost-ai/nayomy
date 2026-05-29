@@ -4,7 +4,7 @@ clean_name: "Dragonruby Best Practices"
 description: "Cursor rules for DragonRuby development with best practices integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/dragonruby-best-practices-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/dragonruby-best-practices-cursorrules-prompt-file.mdc"
 body_length: 1292

@@ -4,7 +4,7 @@ clean_name: "BeefreeSDK Nocode Content Editor"
 description: "Cursor rules for embedding Beefree SDK's no-code content editors (for emails, pages, and popups) into a web application."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/beefreeSDK-nocode-content-editor-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/beefreeSDK-nocode-content-editor-cursorrules-prompt-file.mdc"
 body_length: 16561

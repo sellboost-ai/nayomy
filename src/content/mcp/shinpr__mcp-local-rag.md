@@ -3,7 +3,7 @@ name: "shinpr/mcp-local-rag"
 description: "Privacy-first document search server running entirely locally. Supports semantic search over PDFs, DOCX, TXT, and Markdown files with LanceDB vector storage and local embeddings - no API keys or cloud services required."
 category: "Knowledge & Memory"
 repo: "shinpr/mcp-local-rag"
-stars: 280
+stars: 284
 url: "https://github.com/shinpr/mcp-local-rag"
 body_length: 28568
 license: "MIT"

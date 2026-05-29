@@ -4,7 +4,7 @@ clean_name: "Next.js Seo Dev"
 description: "Cursor rules for Next.js development with SEO optimization."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/nextjs-seo-dev-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-seo-dev-cursorrules-prompt-file.mdc"
 body_length: 2196

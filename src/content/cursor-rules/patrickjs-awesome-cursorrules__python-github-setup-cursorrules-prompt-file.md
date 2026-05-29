@@ -4,7 +4,7 @@ clean_name: "Python Github Setup"
 description: "Cursor rules for Python development with GitHub setup integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/python-github-setup-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-github-setup-cursorrules-prompt-file.mdc"
 body_length: 4828

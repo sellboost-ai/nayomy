@@ -4,7 +4,7 @@ clean_name: "Cypress Integration Testing"
 description: "Cursor rules for Cypress development with integration testing."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/cypress-integration-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cypress-integration-testing-cursorrules-prompt-file.mdc"
 body_length: 6756

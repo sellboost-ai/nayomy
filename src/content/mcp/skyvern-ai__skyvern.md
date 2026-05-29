@@ -3,7 +3,7 @@ name: "Skyvern-AI/skyvern"
 description: "Automates browser-based workflows using LLMs and computer vision — navigate pages, fill forms, extract data, handle authentication, and automate any website via natural language"
 category: "Browser Automation"
 repo: "Skyvern-AI/skyvern"
-stars: 21747
+stars: 21769
 url: "https://github.com/Skyvern-AI/skyvern"
 body_length: 24860
 license: "AGPL-3.0"

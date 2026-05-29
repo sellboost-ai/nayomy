@@ -4,7 +4,7 @@ clean_name: "React Chakra UI"
 description: "Cursor rules for React development with Chakra UI integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/react-chakra-ui-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-chakra-ui-cursorrules-prompt-file.mdc"
 body_length: 1196

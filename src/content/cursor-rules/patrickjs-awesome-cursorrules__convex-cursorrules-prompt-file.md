@@ -4,7 +4,7 @@ clean_name: "Convex"
 description: "Cursor rules for Convex development with best practices."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/convex-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/convex-cursorrules-prompt-file.mdc"
 body_length: 30749

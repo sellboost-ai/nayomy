@@ -4,7 +4,7 @@ clean_name: "Shopify Theme Dev Liquid"
 description: "Best practices for Shopify theme development with Liquid, JavaScript, and CSS"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/shopify-theme-dev-liquid.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/shopify-theme-dev-liquid.mdc"
 body_length: 3916

@@ -4,7 +4,7 @@ clean_name: "Code Pair Interviews"
 description: "Cursor rules for code pair interviews development with integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/code-pair-interviews.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/code-pair-interviews.mdc"
 body_length: 2015

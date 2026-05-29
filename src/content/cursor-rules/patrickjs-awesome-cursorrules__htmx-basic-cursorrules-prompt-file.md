@@ -4,7 +4,7 @@ clean_name: "Htmx Basic"
 description: "Cursor rules for HTMX development with basic setup."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/htmx-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-basic-cursorrules-prompt-file.mdc"
 body_length: 923

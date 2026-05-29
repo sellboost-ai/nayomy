@@ -4,7 +4,7 @@ clean_name: "Medusa"
 description: "Cursor rules for Medusa."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/medusa-cursorrules.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/medusa-cursorrules.mdc"
 body_length: 1800

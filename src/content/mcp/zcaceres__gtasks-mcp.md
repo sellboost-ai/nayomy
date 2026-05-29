@@ -3,7 +3,7 @@ name: "zcaceres/gtasks-mcp"
 description: "An MCP server to Manage Google Tasks"
 category: "Workplace & Productivity"
 repo: "zcaceres/gtasks-mcp"
-stars: 135
+stars: 138
 url: "https://github.com/zcaceres/gtasks-mcp"
 body_length: 3657
 license: "MIT"

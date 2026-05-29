@@ -3,7 +3,7 @@ name: "xing5/mcp-google-sheets"
 description: "A Model Context Protocol server for interacting with Google Sheets. This server provides tools to create, read, update, and manage spreadsheets through the Google Sheets API."
 category: "Workplace & Productivity"
 repo: "xing5/mcp-google-sheets"
-stars: 874
+stars: 877
 url: "https://github.com/xing5/mcp-google-sheets"
 body_length: 32431
 license: "MIT"

@@ -3,12 +3,12 @@ name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
 category: "Developer Tools"
 repo: "CodeGraphContext/CodeGraphContext"
-stars: 3431
+stars: 3492
 url: "https://github.com/CodeGraphContext/CodeGraphContext"
 body_length: 18909
 license: "MIT"
 language: "Python"
-homepage: "https://codegraphcontext.vercel.app/"
+homepage: "https://cgc.codes"
 ---
 
 # 🏗️ CodeGraphContext (CGC)
@@ -111,7 +111,7 @@ A powerful **MCP server** and **CLI toolkit** that indexes local code into a gra
 ---
 
 ## Project Details
-- **Version:** 0.4.11
+- **Version:** 0.4.12
 - **Authors:** Shashank Shekhar Singh <shashankshekharsingh1205@gmail.com>
 - **License:** MIT License (See [LICENSE](LICENSE) for details)
 - **Website:** [CodeGraphContext](http://codegraphcontext.vercel.app/)

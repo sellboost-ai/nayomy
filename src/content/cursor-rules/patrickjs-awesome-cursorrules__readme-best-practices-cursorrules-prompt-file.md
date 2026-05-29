@@ -4,7 +4,7 @@ clean_name: "Readme Best Practices"
 description: "Cursor rules for README documentation with best practices integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/readme-best-practices-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/readme-best-practices-cursorrules-prompt-file.mdc"
 body_length: 1067

@@ -4,7 +4,7 @@ clean_name: "React Query"
 description: "Cursor rules for React development with React Query integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/react-query-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-query-cursorrules-prompt-file.mdc"
 body_length: 1133

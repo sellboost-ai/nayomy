@@ -3,7 +3,7 @@ name: "blurrah/mcp-graphql"
 description: "Allows the AI to query GraphQL servers"
 category: "Developer Tools"
 repo: "blurrah/mcp-graphql"
-stars: 388
+stars: 389
 url: "https://github.com/blurrah/mcp-graphql"
 body_length: 3646
 license: "MIT"

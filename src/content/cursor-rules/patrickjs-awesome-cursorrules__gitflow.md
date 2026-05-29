@@ -4,7 +4,7 @@ clean_name: "Gitflow"
 description: "Gitflow Workflow Rules. These rules should be applied when performing git operations."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/gitflow.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/gitflow.mdc"
 body_length: 2636

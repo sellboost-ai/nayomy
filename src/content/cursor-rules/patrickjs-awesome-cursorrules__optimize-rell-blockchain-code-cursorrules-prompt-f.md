@@ -4,7 +4,7 @@ clean_name: "Optimize Rell Blockchain Code Cursorrules Prompt F"
 description: "Cursor rules for optimization development with Rell Blockchain code integration."
 category: "Web3"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/optimize-rell-blockchain-code-cursorrules-prompt-f.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/optimize-rell-blockchain-code-cursorrules-prompt-f.mdc"
 body_length: 1603

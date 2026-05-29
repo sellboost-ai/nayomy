@@ -3,7 +3,7 @@ name: "tacticlaunch/mcp-linear"
 description: "Integrates with Linear project management system"
 category: "Workplace & Productivity"
 repo: "tacticlaunch/mcp-linear"
-stars: 134
+stars: 135
 url: "https://github.com/tacticlaunch/mcp-linear"
 body_length: 5124
 license: "MIT"

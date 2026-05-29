@@ -3,7 +3,7 @@ name: "SaseQ/discord-mcp"
 description: "A MCP server for the Discord integration. Enable your AI assistants to seamlessly interact with Discord. Enhance your Discord experience with powerful automation capabilities."
 category: "Communication"
 repo: "SaseQ/discord-mcp"
-stars: 325
+stars: 329
 url: "https://github.com/SaseQ/discord-mcp"
 body_length: 14986
 license: "MIT"

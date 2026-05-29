@@ -4,7 +4,7 @@ clean_name: "Cypress E2e Testing"
 description: "Cursor rules for Cypress development with E2E testing."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/cypress-e2e-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cypress-e2e-testing-cursorrules-prompt-file.mdc"
 body_length: 3096

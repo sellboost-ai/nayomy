@@ -3,7 +3,7 @@ name: "BurtTheCoder/mcp-virustotal"
 description: "MCP server for querying the VirusTotal API. This server provides tools for scanning URLs, analyzing file hashes, and retrieving IP address reports."
 category: "Security"
 repo: "BurtTheCoder/mcp-virustotal"
-stars: 128
+stars: 130
 url: "https://github.com/BurtTheCoder/mcp-virustotal"
 body_length: 15473
 license: "MIT"

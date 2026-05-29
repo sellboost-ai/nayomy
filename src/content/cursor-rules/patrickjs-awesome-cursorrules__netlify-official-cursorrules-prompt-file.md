@@ -4,10 +4,10 @@ clean_name: "Netlify Official"
 description: "Cursor rules for Netlify development with official integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/netlify-official-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/netlify-official-cursorrules-prompt-file.mdc"
-body_length: 39360
+body_length: 39563
 file_extension: ".mdc"
 ---
 
@@ -822,16 +822,19 @@ ANY RULES IN THE ProviderContextOverrides SECTION CAN OVERRULE SPECIFIC RULES IN
   ### `.env` File Handling
   - Netlify builds do not read `.env` files directly
   - Import `.env` variables into Netlify using the UI or CLI (`netlify env:import .env`).
-  - Export Netlify variables to `.env` files via UI or CLI (`env:list`).
+  - Export Netlify variables via UI or CLI (`env:list`) only after confirming where the output will be stored.
+  - Do not write production context values to `.env` by default.
 
   ### Export `.env` Variables
   ```sh
   # list the production deploy context values in .env format
   netlify env:list --plain --context production
 
-  # list the production deploy context values in .env format
-  # and pipe results into a .env file
-  netlify env:list --plain --context production > .env
+  # only after explicit user confirmation:
+  # 1. confirm .env.local is gitignored
+  # 2. confirm the user wants a local production-context export
+  # 3. remind the user not to commit the file
+  netlify env:list --plain --context production > .env.local
   ```
 
   ---

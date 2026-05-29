@@ -4,7 +4,7 @@ clean_name: "Alpha Skills Quant Factor Research"
 description: "Quantitative factor research skills for Cursor. Evaluate factors, run backtests, mine new alpha through natural language."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/alpha-skills-quant-factor-research.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/alpha-skills-quant-factor-research.mdc"
 body_length: 1206

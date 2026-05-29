@@ -3,9 +3,9 @@ name: "redis/mcp-redis"
 description: "The Redis official MCP Server offers an interface to manage and search data in Redis."
 category: "Databases"
 repo: "redis/mcp-redis"
-stars: 513
+stars: 517
 url: "https://github.com/redis/mcp-redis"
-body_length: 27694
+body_length: 27764
 license: "MIT"
 language: "Python"
 homepage: "https://redis.io/docs/latest/integrate/redis-mcp/"
@@ -85,7 +85,7 @@ This MCP Server provides tools to manage the data stored in Redis.
 - `list` tools with common operations to append and pop items. Useful for queues, message brokers, or maintaining a list of most recent actions.
 - `set` tools to add, remove and list set members. Useful for tracking unique values like user IDs or tags, and for performing set operations like intersection.
 - `sorted set` tools to manage data for e.g. leaderboards, priority queues, or time-based analytics with score-based ordering.
-- `pub/sub` functionality to publish messages to channels and subscribe to receive them. Useful for real-time notifications, chat applications, or distributing updates to multiple clients.
+- `pub/sub` functionality to publish messages, create stateful channel or pattern subscriptions, and read queued messages using returned subscription handles. Useful for real-time notifications, chat applications, or distributing updates to multiple clients.
 - `streams` tools to add, read, delete, create and destroy consumer groups, and acknowledge processed entries in data streams. Useful for event sourcing, activity feeds, and worker-based event processing with Redis Streams consumer groups.
 - `JSON` tools to store, retrieve, and manipulate JSON documents in Redis. Useful for complex nested data structures, document databases, or configuration management with path-based access.
 

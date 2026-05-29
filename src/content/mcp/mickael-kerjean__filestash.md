@@ -3,7 +3,7 @@ name: "mickael-kerjean/filestash"
 description: "Remote Storage Access: SFTP, S3, FTP, SMB, NFS, WebDAV, GIT, FTPS, gcloud, azure blob, sharepoint, etc."
 category: "File Systems"
 repo: "mickael-kerjean/filestash"
-stars: 14251
+stars: 14253
 url: "https://github.com/mickael-kerjean/filestash"
 body_length: 12340
 license: "AGPL-3.0"

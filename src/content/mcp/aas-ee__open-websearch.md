@@ -3,7 +3,7 @@ name: "Aas-ee/open-webSearch"
 description: "Web search using free multi-engine search (NO API KEYS REQUIRED) — Supports Bing, Baidu, DuckDuckGo, Brave, Exa, and CSDN."
 category: "Search & Data Extraction"
 repo: "Aas-ee/open-webSearch"
-stars: 1305
+stars: 1322
 url: "https://github.com/Aas-ee/open-webSearch"
 body_length: 26381
 license: "Apache-2.0"

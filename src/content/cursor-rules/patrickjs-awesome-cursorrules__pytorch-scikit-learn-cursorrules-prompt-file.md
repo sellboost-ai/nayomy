@@ -4,7 +4,7 @@ clean_name: "PyTorch Scikit Learn"
 description: "Cursor rules for PyTorch development with scikit-learn integration."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/pytorch-scikit-learn-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/pytorch-scikit-learn-cursorrules-prompt-file.mdc"
 body_length: 4956

@@ -4,7 +4,7 @@ clean_name: "Solidity React Blockchain Apps Cursorrules Prompt"
 description: "Cursor rules for Solidity development with React Blockchain apps integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/solidity-react-blockchain-apps-cursorrules-prompt-.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidity-react-blockchain-apps-cursorrules-prompt-.mdc"
 body_length: 843

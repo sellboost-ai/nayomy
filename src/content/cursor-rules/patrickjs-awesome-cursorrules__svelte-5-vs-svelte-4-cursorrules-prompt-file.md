@@ -4,7 +4,7 @@ clean_name: "Svelte 5 Vs Svelte 4"
 description: "Cursor rules for comparing Svelte 5 and Svelte 4 development."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/svelte-5-vs-svelte-4-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/svelte-5-vs-svelte-4-cursorrules-prompt-file.mdc"
 body_length: 2529

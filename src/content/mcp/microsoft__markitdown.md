@@ -3,7 +3,7 @@ name: "microsoft/markitdown"
 description: "MCP tool access to MarkItDown -- a library that converts many file formats (local or remote) to Markdown for LLM consumption."
 category: "Workplace & Productivity"
 repo: "microsoft/markitdown"
-stars: 125355
+stars: 128175
 url: "https://github.com/microsoft/markitdown"
 body_length: 15739
 license: "MIT"

@@ -3,7 +3,7 @@ name: "ArcadeData/arcadedb"
 description: "Built-in MCP server for ArcadeDB, a multi-model database (graph, document, key-value, time-series, vector) with SQL, Cypher, Gremlin, and MongoDB QL support."
 category: "Databases"
 repo: "ArcadeData/arcadedb"
-stars: 899
+stars: 903
 url: "https://github.com/ArcadeData/arcadedb"
 body_length: 14833
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ clean_name: "SvelteKit TypeScript Guide"
 description: "Cursor rules for SvelteKit development with TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/sveltekit-typescript-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/sveltekit-typescript-guide-cursorrules-prompt-file.mdc"
 body_length: 769

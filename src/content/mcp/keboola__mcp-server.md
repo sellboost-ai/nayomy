@@ -5,7 +5,7 @@ category: "Data Science"
 repo: "keboola/mcp-server"
 stars: 84
 url: "https://github.com/keboola/mcp-server"
-body_length: 21445
+body_length: 21564
 license: "MIT"
 language: "Python"
 ---
@@ -475,12 +475,13 @@ VsCode or Cursor to check the code or run tests during development.
 To run integration tests locally, use `uv run tox -e integtests`.
 NOTE: You will need to set the following environment variables:
 
-- `INTEGTEST_STORAGE_API_URL`
+- `INTEGTEST_POOL_STORAGE_API_URL`
 - `INTEGTEST_STORAGE_TOKENS`
-- `INTEGTEST_WORKSPACE_SCHEMAS`
+- `INTEGTEST_STORAGE_TOKEN_STORAGE_BRANCHES`
 
-In order to get these values, you need a dedicated Keboola project for integration tests.
-See `integtests/README.md` for detailed setup instructions and design documentation.
+In order to get these values, you need dedicated Keboola projects for integration tests.
+Each test session creates its own read-only workspace, so no workspace schema needs to be
+configured. See `integtests/README.md` for detailed setup instructions and design documentation.
 
 ### Updating `uv.lock`
 

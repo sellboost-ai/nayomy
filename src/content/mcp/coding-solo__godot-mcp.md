@@ -3,7 +3,7 @@ name: "Coding-Solo/godot-mcp"
 description: "A MCP server for interacting with the Godot game engine, providing tools for editing, running, debugging, and managing scenes in Godot projects."
 category: "Gaming"
 repo: "Coding-Solo/godot-mcp"
-stars: 3861
+stars: 3896
 url: "https://github.com/Coding-Solo/godot-mcp"
 body_length: 9076
 license: "MIT"

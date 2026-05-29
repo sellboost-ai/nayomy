@@ -3,7 +3,7 @@ name: "Rai220/think-mcp"
 description: "Enhances any agent's reasoning capabilities by integrating the think-tools, as described in Anthropic's article."
 category: "Coding Agents"
 repo: "Rai220/think-mcp"
-stars: 101
+stars: 102
 url: "https://github.com/Rai220/think-mcp"
 body_length: 2490
 license: "MIT"

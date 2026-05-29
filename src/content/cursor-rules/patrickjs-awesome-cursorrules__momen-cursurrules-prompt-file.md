@@ -4,7 +4,7 @@ clean_name: "Momen Cursurrules Prompt File"
 description: "Cursor rules for building custom frontends with Momen.app as headless BaaS with GraphQL API, actionflows, AI agents, and Stripe integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/momen-cursurrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/momen-cursurrules-prompt-file.mdc"
 body_length: 15978

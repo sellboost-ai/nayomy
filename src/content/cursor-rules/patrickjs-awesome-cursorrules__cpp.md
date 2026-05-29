@@ -4,7 +4,7 @@ clean_name: "Cpp"
 description: "Guide Cursor to write modern C++ and CMake code with clear structure, RAII, const-correctness, and safe error handling."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/cpp.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cpp.mdc"
 body_length: 5064

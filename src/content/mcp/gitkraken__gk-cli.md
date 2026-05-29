@@ -3,7 +3,7 @@ name: "gitkraken/gk-cli"
 description: "A CLI for interacting with GitKraken APIs. Includes an MCP server via gk mcp that not only wraps GitKraken APIs, but also Jira, GitHub, GitLab, and more. Works with local tools and remote services."
 category: "Version Control"
 repo: "gitkraken/gk-cli"
-stars: 404
+stars: 408
 url: "https://github.com/gitkraken/gk-cli"
 body_length: 5703
 license: "NOASSERTION"

@@ -4,7 +4,7 @@ clean_name: "Python TypeScript Guide"
 description: "Cursor rules for Python development with TypeScript guide integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/python--typescript-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python--typescript-guide-cursorrules-prompt-file.mdc"
 body_length: 1146

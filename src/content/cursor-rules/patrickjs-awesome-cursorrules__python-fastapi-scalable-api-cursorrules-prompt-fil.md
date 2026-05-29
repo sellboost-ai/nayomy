@@ -4,7 +4,7 @@ clean_name: "Python FastAPI Scalable API Cursorrules Prompt Fil"
 description: "Cursor rules for Python FastAPI development with scalable API integration."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/python-fastapi-scalable-api-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-fastapi-scalable-api-cursorrules-prompt-fil.mdc"
 body_length: 4696

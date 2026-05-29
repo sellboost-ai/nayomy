@@ -3,7 +3,7 @@ name: "zcaceres/fetch-mcp"
 description: "An MCP server to flexibly fetch JSON, text, and HTML data"
 category: "Search & Data Extraction"
 repo: "zcaceres/fetch-mcp"
-stars: 766
+stars: 768
 url: "https://github.com/zcaceres/fetch-mcp"
 body_length: 4562
 license: "MIT"

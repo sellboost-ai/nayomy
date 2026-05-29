@@ -3,7 +3,7 @@ name: "baserow/baserow"
 description: "Baserow database integration with table search, list, and row create, read, update, and delete capabilities."
 category: "Databases"
 repo: "baserow/baserow"
-stars: 4905
+stars: 4915
 url: "https://github.com/baserow/baserow"
 body_length: 5445
 license: "NOASSERTION"

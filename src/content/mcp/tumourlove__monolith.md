@@ -3,9 +3,9 @@ name: "tumourlove/monolith"
 description: "Unreal Engine 5.7 editor plugin that gives AI assistants full read/write access to Blueprints, Materials, Animation, Niagara, Config, Editor, Project Index, and Engine Source via MCP. 119 actions across 9 domains. Pure C++, embedded Streamable HTTP server, no Python bridges."
 category: "Gaming"
 repo: "tumourlove/monolith"
-stars: 127
+stars: 133
 url: "https://github.com/tumourlove/monolith"
-body_length: 6353
+body_length: 6325
 license: "MIT"
 language: "C++"
 homepage: "https://github.com/tumourlove/monolith/wiki"
@@ -27,7 +27,7 @@ Most MCP integrations for Unreal register every action as a separate tool. That 
 
 One plugin. One MCP endpoint. 23 tools instead of 1300+. The AI calls `monolith_discover()` and `monolith_guide()` when it needs to know what's available, and otherwise just hits `blueprint_query("create_asset", ...)`, `material_query("compile", ...)`, and so on.
 
-I use it daily on my own UE 5.7 horror project. It does what I need.
+I use it every day. It does what I need.
 
 ---
 

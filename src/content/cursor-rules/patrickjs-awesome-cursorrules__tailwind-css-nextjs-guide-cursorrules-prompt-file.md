@@ -4,7 +4,7 @@ clean_name: "Tailwind CSS Next.js Guide"
 description: "Cursor rules for Tailwind CSS development with Next.js integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/tailwind-css-nextjs-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/tailwind-css-nextjs-guide-cursorrules-prompt-file.mdc"
 body_length: 4566

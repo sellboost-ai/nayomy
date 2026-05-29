@@ -4,7 +4,7 @@ clean_name: "Solidjs Basic"
 description: "Cursor rules for Solid.js development with basic setup."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/solidjs-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidjs-basic-cursorrules-prompt-file.mdc"
 body_length: 1115

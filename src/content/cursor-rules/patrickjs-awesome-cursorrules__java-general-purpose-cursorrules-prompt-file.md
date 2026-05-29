@@ -4,7 +4,7 @@ clean_name: "Java General Purpose"
 description: "Cursor rules for Java General Purpose."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/java-general-purpose-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-general-purpose-cursorrules-prompt-file.mdc"
 body_length: 6499

@@ -3,7 +3,7 @@ name: "rashidazarang/airtable-mcp"
 description: "Connect AI tools directly to Airtable. Query, create, update, and delete records using natural language. Features include base management, table operations, schema manipulation, record filtering, and data migration through a standardized MCP interface."
 category: "Databases"
 repo: "rashidazarang/airtable-mcp"
-stars: 82
+stars: 83
 url: "https://github.com/rashidazarang/airtable-mcp"
 body_length: 13052
 license: "MIT"

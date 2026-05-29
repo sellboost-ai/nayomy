@@ -4,7 +4,7 @@ clean_name: "Elixir Engineer Guidelines"
 description: "Cursor rules for Elixir development with engineer guidelines."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/elixir-engineer-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/elixir-engineer-guidelines-cursorrules-prompt-file.mdc"
 body_length: 791

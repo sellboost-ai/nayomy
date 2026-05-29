@@ -3,7 +3,7 @@ name: "stippi/code-assistant"
 description: "Coding agent with basic list, read, replace_in_file, write, execute_command and web search tools. Supports multiple projects concurrently."
 category: "Coding Agents"
 repo: "stippi/code-assistant"
-stars: 164
+stars: 165
 url: "https://github.com/stippi/code-assistant"
 body_length: 13639
 license: "MIT"

@@ -3,9 +3,9 @@ name: "CoderGamester/mcp-unity"
 description: "MCP Server for Unity3d Game Engine integration for game development"
 category: "Gaming"
 repo: "CoderGamester/mcp-unity"
-stars: 1724
+stars: 1731
 url: "https://github.com/CoderGamester/mcp-unity"
-body_length: 33659
+body_length: 34362
 license: "MIT"
 language: "C#"
 ---
@@ -252,6 +252,13 @@ Installing this MCP Unity Server is a multi-step process:
 3. Click on the "Configure" button for your AI LLM client as shown in the image below
 
 ![image](https://raw.githubusercontent.com/CoderGamester/mcp-unity/HEAD/docs/configure.jpg)
+
+> **Global vs. Project configuration:**
+   > - **Configure \[Client\]** — writes to your global user config file (e.g. `~/.claude.json`). Uses an absolute path. Applies to all projects on your machine. Best for personal, single-developer setups.
+   > - **Configure \[Client\] (Project)** — writes to a `.mcp.json` file (or equivalent) in the Unity project root. Uses a relative path, so it works across machines. Intended to be committed to git and shared with the team. Best for collaborative projects or when you want the config to travel with the project.
+   >
+   > If in doubt, prefer the **(Project)** variant — the relative path is more portable and won't break if you move your project folder.
+
 
 4. Confirm the configuration installation with the given popup
 

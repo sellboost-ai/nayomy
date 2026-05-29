@@ -3,7 +3,7 @@ name: "karanb192/reddit-mcp-buddy"
 description: "Browse Reddit posts, search content, and analyze user activity without API keys. Works out-of-the-box with Claude Desktop."
 category: "Social Media"
 repo: "karanb192/reddit-mcp-buddy"
-stars: 684
+stars: 688
 url: "https://github.com/karanb192/reddit-mcp-buddy"
 body_length: 19918
 license: "MIT"

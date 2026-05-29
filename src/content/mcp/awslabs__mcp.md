@@ -3,7 +3,7 @@ name: "awslabs/mcp"
 description: "AWS MCP servers for seamless integration with AWS services and resources."
 category: "Cloud Platforms"
 repo: "awslabs/mcp"
-stars: 9137
+stars: 9148
 url: "https://github.com/awslabs/mcp"
 body_length: 190628
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ clean_name: "Playwright Defect Tracking"
 description: "Cursor rules for Playwright development with defect tracking."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/playwright-defect-tracking-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/playwright-defect-tracking-cursorrules-prompt-file.mdc"
 body_length: 4123

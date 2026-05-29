@@ -4,7 +4,7 @@ clean_name: "Node.js MongoDB Cursorrules Prompt File Tutorial"
 description: "Cursor rules for Node.js development with MongoDB integration."
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/nodejs-mongodb-cursorrules-prompt-file-tutorial.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nodejs-mongodb-cursorrules-prompt-file-tutorial.mdc"
 body_length: 2111

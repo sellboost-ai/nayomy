@@ -4,7 +4,7 @@ clean_name: "JavaScript Chrome Apis"
 description: "Cursor rules for JavaScript development with Chrome APIs integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39720
+stars: 39766
 path: "rules/javascript-chrome-apis-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/javascript-chrome-apis-cursorrules-prompt-file.mdc"
 body_length: 692
