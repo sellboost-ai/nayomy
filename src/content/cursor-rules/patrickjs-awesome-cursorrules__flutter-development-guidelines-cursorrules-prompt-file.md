@@ -4,7 +4,7 @@ clean_name: "Flutter Development Guidelines"
 description: "Cursor rules for Flutter development with MVVM architecture, Riverpod state management, Material widgets, and Dart style guidelines."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/flutter-development-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-development-guidelines-cursorrules-prompt-file.mdc"
 body_length: 2424

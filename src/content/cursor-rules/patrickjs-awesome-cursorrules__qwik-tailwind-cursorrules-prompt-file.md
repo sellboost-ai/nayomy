@@ -4,7 +4,7 @@ clean_name: "Qwik Tailwind"
 description: "Cursor rules for Qwik development with Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/qwik-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/qwik-tailwind-cursorrules-prompt-file.mdc"
 body_length: 1424

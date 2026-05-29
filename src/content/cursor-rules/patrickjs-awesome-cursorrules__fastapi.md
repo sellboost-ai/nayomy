@@ -4,7 +4,7 @@ clean_name: "FastAPI"
 description: "FastAPI best practices and patterns for building modern Python web APIs"
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/fastapi.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/fastapi.mdc"
 body_length: 2153

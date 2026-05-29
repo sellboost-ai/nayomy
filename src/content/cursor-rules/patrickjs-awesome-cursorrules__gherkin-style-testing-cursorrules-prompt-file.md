@@ -4,7 +4,7 @@ clean_name: "Gherkin Style Testing"
 description: "Cursor rules for Gherkin style testing development with integration."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/gherkin-style-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/gherkin-style-testing-cursorrules-prompt-file.mdc"
 body_length: 4206

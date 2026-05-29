@@ -4,7 +4,7 @@ clean_name: "Security Devsecops Ssdls Appsec"
 description: "Cursor rules for secure coding, secret handling, dependency hygiene, authentication, authorization, security testing, and compliance documentation."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/security-devsecops-ssdls-appsec.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/security-devsecops-ssdls-appsec.mdc"
 body_length: 2618

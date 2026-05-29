@@ -3,7 +3,7 @@ name: "XeroAPI/xero-mcp-server"
 description: "An MCP server that integrates with Xero's API, allowing for standardized access to Xero's accounting and business features."
 category: "Other"
 repo: "XeroAPI/xero-mcp-server"
-stars: 293
+stars: 294
 url: "https://github.com/XeroAPI/xero-mcp-server"
 body_length: 9351
 license: "MIT"

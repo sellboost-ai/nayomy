@@ -4,7 +4,7 @@ clean_name: "Pr Template"
 description: "Cursor rules for PR development with template integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/pr-template-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/pr-template-cursorrules-prompt-file.mdc"
 body_length: 5170

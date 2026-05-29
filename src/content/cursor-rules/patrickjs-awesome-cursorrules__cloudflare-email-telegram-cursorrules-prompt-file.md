@@ -4,10 +4,10 @@ clean_name: "Cloudflare Email Telegram"
 description: "Cursor rules for setting up email-to-Telegram forwarding via Cloudflare Email Routing and Workers using the mail2tg CLI."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/cloudflare-email-telegram-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cloudflare-email-telegram-cursorrules-prompt-file.mdc"
-body_length: 2458
+body_length: 2767
 file_extension: ".mdc"
 ---
 
@@ -27,30 +27,35 @@ Source: https://github.com/shatzibitten/mail2tg
 3. Telegram bot created via @BotFather, token copied. User has sent /start to the bot.
 4. Node.js >= 20.
 
-## Non-interactive workflow (recommended)
+## Plan-first workflow
 
 ```bash
 export CLOUDFLARE_API_TOKEN="<token>"
 export TELEGRAM_BOT_TOKEN="<bot-token>"
 
+# Replace <reviewed-version> only after reviewing the npm package and source.
 MAIL2TG_DOMAIN=example.com \
 MAIL2TG_MAILBOX=info@example.com \
-npx mail2tg init --non-interactive --json
+npx -y mail2tg@<reviewed-version> init --json
 
-npx mail2tg plan --json --non-interactive
-npx mail2tg apply --json --non-interactive
-npx mail2tg doctor --json --non-interactive
+npx -y mail2tg@<reviewed-version> plan --json
+
+# Stop here, show the plan to the user, and wait for explicit approval.
+npx -y mail2tg@<reviewed-version> apply --json
+npx -y mail2tg@<reviewed-version> doctor --json
 ```
 
 ## Interactive workflow
 
 ```bash
-npx mail2tg init
+npx -y mail2tg@<reviewed-version> init
 export CLOUDFLARE_API_TOKEN="<token>"
 export TELEGRAM_BOT_TOKEN="<bot-token>"
-npx mail2tg plan
-npx mail2tg apply
-npx mail2tg doctor
+npx -y mail2tg@<reviewed-version> plan
+
+# Stop here, show the plan to the user, and wait for explicit approval.
+npx -y mail2tg@<reviewed-version> apply
+npx -y mail2tg@<reviewed-version> doctor
 ```
 
 ## What it does

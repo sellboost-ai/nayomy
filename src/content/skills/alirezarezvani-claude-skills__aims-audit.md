@@ -3,7 +3,7 @@ name: "aims-audit"
 description_en: "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation. Use before certification stage 1, before annual internal audit cycles, or when onboarding a new AI system into an existing AIMS."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 16373
+stars: 16469
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/aims-audit/SKILL.md"
 path: ".gemini/skills/aims-audit/SKILL.md"
 is_collection: false

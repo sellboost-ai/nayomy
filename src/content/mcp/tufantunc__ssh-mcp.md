@@ -3,7 +3,7 @@ name: "tufantunc/ssh-mcp"
 description: "MCP server exposing SSH control for Linux and Windows servers via Model Context Protocol. Securely execute remote shell commands with password or SSH key authentication."
 category: "Other"
 repo: "tufantunc/ssh-mcp"
-stars: 471
+stars: 473
 url: "https://github.com/tufantunc/ssh-mcp"
 body_length: 7907
 license: "MIT"

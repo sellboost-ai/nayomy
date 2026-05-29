@@ -4,7 +4,7 @@ clean_name: "React Native Expo"
 description: "Cursor rules for React Native Expo development."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/react-native-expo-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-native-expo-cursorrules-prompt-file.mdc"
 body_length: 997

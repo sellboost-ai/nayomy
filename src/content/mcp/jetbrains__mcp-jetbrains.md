@@ -3,7 +3,7 @@ name: "JetBrains/mcp-jetbrains"
 description: "Connect to JetBrains IDE"
 category: "Other"
 repo: "JetBrains/mcp-jetbrains"
-stars: 957
+stars: 958
 url: "https://github.com/JetBrains/mcp-jetbrains"
 body_length: 5464
 license: "Apache-2.0"

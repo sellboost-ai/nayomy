@@ -4,7 +4,7 @@ clean_name: "Python FastAPI"
 description: "Cursor rules for Python Fastapi."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/python-fastapi-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-fastapi-cursorrules-prompt-file.mdc"
 body_length: 1092

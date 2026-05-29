@@ -3,7 +3,7 @@ name: "ihor-sokoliuk/mcp-searxng"
 description: "A Model Context Protocol Server for SearXNG"
 category: "Other"
 repo: "ihor-sokoliuk/mcp-searxng"
-stars: 821
+stars: 826
 url: "https://github.com/ihor-sokoliuk/mcp-searxng"
 body_length: 6435
 license: "MIT"

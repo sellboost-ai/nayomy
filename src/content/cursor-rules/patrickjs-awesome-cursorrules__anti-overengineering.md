@@ -4,7 +4,7 @@ clean_name: "Anti Overengineering"
 description: "Prevent AI over-engineering by keeping changes scoped, simple, and directly tied to the user's request"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/anti-overengineering.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/anti-overengineering.mdc"
 body_length: 584

@@ -3,7 +3,7 @@ name: "pydantic/pydantic-ai"
 description: "Run Python code in a secure sandbox via MCP tool calls."
 category: "Other"
 repo: "pydantic/pydantic-ai"
-stars: 17355
+stars: 17369
 url: "https://github.com/pydantic/pydantic-ai"
 body_length: 12994
 license: "MIT"

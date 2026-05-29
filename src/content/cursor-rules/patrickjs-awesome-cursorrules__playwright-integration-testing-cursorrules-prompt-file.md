@@ -4,7 +4,7 @@ clean_name: "Playwright Integration Testing"
 description: "Cursor rules for Playwright development with integration testing."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/playwright-integration-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/playwright-integration-testing-cursorrules-prompt-file.mdc"
 body_length: 7306

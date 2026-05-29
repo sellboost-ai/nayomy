@@ -4,7 +4,7 @@ clean_name: "Gamemaker Gml"
 description: "GameMaker Language (GML) rules for scripts, objects, events, rooms, data structures, and performance-minded game code"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/gamemaker-gml.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/gamemaker-gml.mdc"
 body_length: 2377

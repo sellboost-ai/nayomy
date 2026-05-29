@@ -4,7 +4,7 @@ clean_name: "JavaScript Astro Tailwind CSS Cursorrules Prompt F"
 description: "Cursor rules for JavaScript development with Astro and Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/javascript-astro-tailwind-css-cursorrules-prompt-f.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/javascript-astro-tailwind-css-cursorrules-prompt-f.mdc"
 body_length: 4754

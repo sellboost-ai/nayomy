@@ -4,7 +4,7 @@ clean_name: "Python Flask Json Guide"
 description: "Cursor rules for Python Flask development with JSON guide."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/python-flask-json-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-flask-json-guide-cursorrules-prompt-file.mdc"
 body_length: 746

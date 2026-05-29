@@ -4,7 +4,7 @@ clean_name: "Hol Hedera TypeScript"
 description: "Cursor rules for Hashgraph Online development with TypeScript, building AI agents on Hedera with RegistryBrokerClient."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/hol-hedera-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/hol-hedera-typescript-cursorrules-prompt-file.mdc"
 body_length: 7501

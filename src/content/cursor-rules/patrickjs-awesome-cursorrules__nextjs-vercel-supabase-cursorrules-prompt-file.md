@@ -4,7 +4,7 @@ clean_name: "Next.js Vercel Supabase"
 description: "Cursor rules for Next.js development with Vercel and Supabase integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/nextjs-vercel-supabase-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-vercel-supabase-cursorrules-prompt-file.mdc"
 body_length: 7792

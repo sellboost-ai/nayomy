@@ -3,7 +3,7 @@ name: "juspay/neurolink"
 description: "Making enterprise AI infrastructure universally accessible. Edge-first platform unifying 12 providers and 100+ models with multi-agent orchestration, HITL workflows, guardrails middleware, and context summarization."
 category: "Other"
 repo: "juspay/neurolink"
-stars: 93
+stars: 94
 url: "https://github.com/juspay/neurolink"
 body_length: 61868
 license: "MIT"

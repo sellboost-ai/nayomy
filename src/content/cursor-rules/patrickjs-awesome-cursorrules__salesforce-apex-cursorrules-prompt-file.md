@@ -4,7 +4,7 @@ clean_name: "Salesforce Apex"
 description: "Cursor rules for Salesforce development with Apex integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/salesforce-apex-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/salesforce-apex-cursorrules-prompt-file.mdc"
 body_length: 3626

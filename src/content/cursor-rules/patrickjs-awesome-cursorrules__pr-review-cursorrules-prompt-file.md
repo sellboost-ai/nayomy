@@ -4,7 +4,7 @@ clean_name: "Pr Review"
 description: "Cursor rules for focused PR reviews with severity ranking, file and line citations, and separate review angles for security, performance, tests, and architecture."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/pr-review-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/pr-review-cursorrules-prompt-file.mdc"
 body_length: 4401

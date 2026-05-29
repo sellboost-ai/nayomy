@@ -3,7 +3,7 @@ name: "ai-act-readiness"
 description_en: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 16373
+stars: 16469
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ai-act-readiness/SKILL.md"
 path: ".gemini/skills/ai-act-readiness/SKILL.md"
 is_collection: false

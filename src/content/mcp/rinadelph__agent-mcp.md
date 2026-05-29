@@ -3,7 +3,7 @@ name: "rinadelph/Agent-MCP"
 description: "A framework for creating multi-agent systems using MCP for coordinated AI collaboration, featuring task management, shared context, and RAG capabilities."
 category: "Other"
 repo: "rinadelph/Agent-MCP"
-stars: 1240
+stars: 1241
 url: "https://github.com/rinadelph/Agent-MCP"
 body_length: 29262
 license: "NOASSERTION"

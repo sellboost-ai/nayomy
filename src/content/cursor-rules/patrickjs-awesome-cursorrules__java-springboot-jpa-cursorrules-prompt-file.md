@@ -4,7 +4,7 @@ clean_name: "Java Springboot Jpa"
 description: "Cursor rules for Java development with Springboot and JPA integration."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/java-springboot-jpa-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-springboot-jpa-cursorrules-prompt-file.mdc"
 body_length: 4870

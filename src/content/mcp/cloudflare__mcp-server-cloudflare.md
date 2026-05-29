@@ -3,9 +3,9 @@ name: "cloudflare/mcp-server-cloudflare"
 description: "Integration with Cloudflare services including Workers, KV, R2, and D1"
 category: "Other"
 repo: "cloudflare/mcp-server-cloudflare"
-stars: 3789
+stars: 3794
 url: "https://github.com/cloudflare/mcp-server-cloudflare"
-body_length: 8122
+body_length: 7908
 license: "Apache-2.0"
 language: "TypeScript"
 ---
@@ -26,7 +26,6 @@ The following servers are included in this repository:
 | [**Workers Bindings server**](/apps/workers-bindings)          | Build Workers applications with storage, AI, and compute primitives                             | `https://bindings.mcp.cloudflare.com/mcp`      |
 | [**Workers Builds server**](/apps/workers-builds)              | Get insights and manage your Cloudflare Workers Builds                                          | `https://builds.mcp.cloudflare.com/mcp`        |
 | [**Observability server**](/apps/workers-observability)        | Debug and get insight into your application's logs and analytics                                | `https://observability.mcp.cloudflare.com/mcp` |
-| [**Radar server**](/apps/radar)                                | Get global Internet traffic insights, trends, URL scans, and other utilities                    | `https://radar.mcp.cloudflare.com/mcp`         |
 | [**Container server**](/apps/sandbox-container)                | Spin up a sandbox development environment                                                       | `https://containers.mcp.cloudflare.com/mcp`    |
 | [**Browser rendering server**](/apps/browser-rendering)        | Fetch web pages, convert them to markdown and take screenshots                                  | `https://browser.mcp.cloudflare.com/mcp`       |
 | [**Logpush server**](/apps/logpush)                            | Get quick summaries for Logpush job health                                                      | `https://logs.mcp.cloudflare.com/mcp`          |

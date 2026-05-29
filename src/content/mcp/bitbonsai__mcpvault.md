@@ -3,7 +3,7 @@ name: "bitbonsai/mcpvault"
 description: "Universal AI bridge for Obsidian vaults using MCP. Provides safe read/write access to notes with 11 comprehensive methods for vault operations including search, batch operations, tag management, and frontmatter handling. Works with Claude, ChatGPT, and any MCP-compatible AI assistant."
 category: "Other"
 repo: "bitbonsai/mcpvault"
-stars: 1313
+stars: 1320
 url: "https://github.com/bitbonsai/mcpvault"
 body_length: 25269
 language: "Astro"

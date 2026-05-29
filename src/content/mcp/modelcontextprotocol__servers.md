@@ -3,7 +3,7 @@ name: "modelcontextprotocol/servers"
 description: "MCP server that exercises all the features of the MCP protocol."
 category: "Other"
 repo: "modelcontextprotocol/servers"
-stars: 86369
+stars: 86436
 url: "https://github.com/modelcontextprotocol/servers"
 body_length: 24561
 license: "NOASSERTION"

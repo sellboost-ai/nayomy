@@ -4,7 +4,7 @@ clean_name: "Next.js Material UI Tailwind CSS Cursorrules Prompt"
 description: "Cursor rules for Next.js development with Material UI and Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/nextjs-material-ui-tailwind-css-cursorrules-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-material-ui-tailwind-css-cursorrules-prompt.mdc"
 body_length: 1478

@@ -4,7 +4,7 @@ clean_name: "Graphical Apps Development"
 description: "Cursor rules for graphical apps development with integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/graphical-apps-development-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/graphical-apps-development-cursorrules-prompt-file.mdc"
 body_length: 3000

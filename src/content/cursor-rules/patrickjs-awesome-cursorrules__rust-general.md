@@ -4,7 +4,7 @@ clean_name: "Rust General"
 description: "General Rust rules for safe, idiomatic application and library development"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/rust-general.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rust-general.mdc"
 body_length: 2218

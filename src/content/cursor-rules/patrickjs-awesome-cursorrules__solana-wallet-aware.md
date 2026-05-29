@@ -4,7 +4,7 @@ clean_name: "Solana Wallet Aware"
 description: "Guidelines for writing Solana-native code with wallet-security awareness, isolated signer subprocesses, MEV defense, oracle gates, and transaction safety checks"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/solana-wallet-aware.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solana-wallet-aware.mdc"
 body_length: 3438

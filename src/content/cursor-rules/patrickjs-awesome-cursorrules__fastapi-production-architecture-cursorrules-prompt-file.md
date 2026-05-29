@@ -4,7 +4,7 @@ clean_name: "FastAPI Production Architecture"
 description: "Cursor rules for FastAPI services with router/service/repository boundaries, typed provider adapters, bulkhead isolation, idempotency, and domain exceptions."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/fastapi-production-architecture-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/fastapi-production-architecture-cursorrules-prompt-file.mdc"
 body_length: 8225

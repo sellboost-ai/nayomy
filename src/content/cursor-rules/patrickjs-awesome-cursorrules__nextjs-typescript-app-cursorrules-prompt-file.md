@@ -4,7 +4,7 @@ clean_name: "Next.js TypeScript App"
 description: "Cursor rules for Next.js development with TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/nextjs-typescript-app-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-typescript-app-cursorrules-prompt-file.mdc"
 body_length: 317

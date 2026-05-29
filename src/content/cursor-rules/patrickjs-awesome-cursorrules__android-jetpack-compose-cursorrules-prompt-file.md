@@ -4,7 +4,7 @@ clean_name: "Android Jetpack Compose"
 description: "Cursor rules for Android development with Jetpack Compose integration."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/android-jetpack-compose-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/android-jetpack-compose-cursorrules-prompt-file.mdc"
 body_length: 2817

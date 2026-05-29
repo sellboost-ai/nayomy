@@ -4,7 +4,7 @@ clean_name: "Medusa"
 description: "Medusa rules and best practices. These rules should be used when building applications with Medusa."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/medusa.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/medusa.mdc"
 body_length: 1941

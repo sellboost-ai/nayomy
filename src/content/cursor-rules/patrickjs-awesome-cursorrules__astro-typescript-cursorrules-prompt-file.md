@@ -4,7 +4,7 @@ clean_name: "Astro TypeScript"
 description: "Cursor rules for Astro development with TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/astro-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/astro-typescript-cursorrules-prompt-file.mdc"
 body_length: 2594

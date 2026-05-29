@@ -3,7 +3,7 @@ name: "burningion/video-editing-mcp"
 description: "Add, Analyze, Search, and Generate Video Edits from your Video Jungle Collection"
 category: "Other"
 repo: "burningion/video-editing-mcp"
-stars: 269
+stars: 270
 url: "https://github.com/burningion/video-editing-mcp"
 body_length: 7194
 language: "Python"

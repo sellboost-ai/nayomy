@@ -3,9 +3,9 @@ name: "zinja-coder/jadx-ai-mcp"
 description: "JADX-AI-MCP is a plugin and MCP Server for the JADX decompiler that integrates directly with Model Context Protocol (MCP) to provide live reverse engineering support with LLMs like Claude."
 category: "Other"
 repo: "zinja-coder/jadx-ai-mcp"
-stars: 2165
+stars: 2178
 url: "https://github.com/zinja-coder/jadx-ai-mcp"
-body_length: 26556
+body_length: 26781
 license: "Apache-2.0"
 language: "Java"
 ---
@@ -52,6 +52,12 @@ Thanks to these wonderful people for their contributions ⭐
       <a href="https://github.com/Haicaji">
         
         <br /><sub><b>Haicaji</b></sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/mostafaNazari702">
+        
+        <br /><sub><b>Mostafa Nazari</b></sub>
       </a>
     </td>
     <td>

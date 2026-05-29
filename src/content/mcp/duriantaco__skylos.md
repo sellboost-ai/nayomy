@@ -3,9 +3,9 @@ name: "duriantaco/skylos"
 description: "Dead code detection, security scanning, and code quality analysis for Python, TypeScript, and Go. 98% recall with fewer false positives than Vulture. Includes AI-powered remediation."
 category: "Other"
 repo: "duriantaco/skylos"
-stars: 442
+stars: 443
 url: "https://github.com/duriantaco/skylos"
-body_length: 17774
+body_length: 18126
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://skylos.dev/"
@@ -194,6 +194,12 @@ Template files extend Skylos' built-in prompts; they do not replace the
 JSON-only output contract or untrusted-code safety rules. Vibe dictionary
 extensions let teams teach Skylos about local fake-auth helpers, project
 credential names, sensitive files, and network calls that must set timeouts.
+
+By default Skylos discovers `[tool.skylos]` in `pyproject.toml` by walking up
+from the scan path. To use a dedicated TOML config, pass `--config-file PATH`
+or set `SKYLOS_CONFIG_FILE`; standalone files may use either `[tool.skylos]`
+or top-level `[skylos]`. Synced Skylos Cloud policy keeps its protected
+precedence over repository-controlled config.
 
 ## Language Support
 

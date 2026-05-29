@@ -5,7 +5,7 @@ category: "Other"
 repo: "MigoXLab/dingo"
 stars: 704
 url: "https://github.com/MigoXLab/dingo"
-body_length: 24608
+body_length: 25071
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://dingo.openxlab.org.cn/"
@@ -85,6 +85,27 @@ Need a **production-grade data quality platform**? Try [Dingo SaaS](https://ding
 - 🔐 **Access Control** - JWT + Google OAuth 2.0
 - 📊 **Visual Reports** - Interactive charts, trend analysis, export features
 - 🔌 **RESTful API** - Seamless integration with existing systems
+
+<details>
+<summary><strong>SaaS — Dashboard</strong></summary>
+
+
+
+</details>
+
+<details>
+<summary><strong>SaaS — Playground</strong></summary>
+
+
+
+</details>
+
+<details>
+<summary><strong>SaaS — Evaluation output</strong></summary>
+
+
+
+</details>
 
 ### 📝 How to Get Free SaaS Code
 

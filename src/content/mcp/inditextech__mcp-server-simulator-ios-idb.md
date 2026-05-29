@@ -3,7 +3,7 @@ name: "InditexTech/mcp-server-simulator-ios-idb"
 description: "A Model Context Protocol (MCP) server that enables LLMs to interact with iOS simulators (iPhone, iPad, etc.) through natural language commands."
 category: "Other"
 repo: "InditexTech/mcp-server-simulator-ios-idb"
-stars: 305
+stars: 307
 url: "https://github.com/InditexTech/mcp-server-simulator-ios-idb"
 body_length: 12046
 license: "Apache-2.0"

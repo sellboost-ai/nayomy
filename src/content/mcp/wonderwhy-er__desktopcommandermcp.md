@@ -3,7 +3,7 @@ name: "wonderwhy-er/DesktopCommanderMCP"
 description: "A swiss-army-knife that can manage/execute programs and read/write/search/edit code and text files."
 category: "Other"
 repo: "wonderwhy-er/DesktopCommanderMCP"
-stars: 6082
+stars: 6086
 url: "https://github.com/wonderwhy-er/DesktopCommanderMCP"
 body_length: 50214
 license: "MIT"

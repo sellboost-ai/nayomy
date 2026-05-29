@@ -3,7 +3,7 @@ name: "robotmcp/ros-mcp-server"
 description: "The ROS MCP Server supports robot control by converting user-issued natural language commands into ROS or ROS2 control commands."
 category: "Other"
 repo: "robotmcp/ros-mcp-server"
-stars: 1246
+stars: 1252
 url: "https://github.com/robotmcp/ros-mcp-server"
 body_length: 4243
 license: "Apache-2.0"

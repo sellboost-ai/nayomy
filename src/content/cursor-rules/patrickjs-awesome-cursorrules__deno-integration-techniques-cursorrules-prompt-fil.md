@@ -4,7 +4,7 @@ clean_name: "Deno Integration Techniques Cursorrules Prompt Fil"
 description: "Cursor rules for Deno development with integration techniques."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/deno-integration-techniques-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/deno-integration-techniques-cursorrules-prompt-fil.mdc"
 body_length: 838

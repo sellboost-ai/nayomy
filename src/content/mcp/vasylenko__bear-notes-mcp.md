@@ -3,7 +3,7 @@ name: "vasylenko/bear-notes-mcp"
 description: "Search, read, create, and update Bear Notes directly from Claude. Local-only with complete privacy."
 category: "Other"
 repo: "vasylenko/bear-notes-mcp"
-stars: 194
+stars: 195
 url: "https://github.com/vasylenko/bear-notes-mcp"
 body_length: 13545
 license: "Apache-2.0"

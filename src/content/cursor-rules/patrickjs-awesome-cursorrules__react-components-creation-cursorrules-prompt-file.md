@@ -4,7 +4,7 @@ clean_name: "React Components Creation"
 description: "Cursor rules for React component creation and development."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/react-components-creation-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-components-creation-cursorrules-prompt-file.mdc"
 body_length: 1671

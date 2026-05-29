@@ -4,7 +4,7 @@ clean_name: "Ros Ros2"
 description: "ROS and ROS2 rules for packages, nodes, launch files, messages, services, actions, simulation, and testing"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/ros-ros2.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ros-ros2.mdc"
 body_length: 2143

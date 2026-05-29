@@ -4,7 +4,7 @@ clean_name: "Jest Unit Testing"
 description: "Cursor rules for Jest development with unit testing."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/jest-unit-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/jest-unit-testing-cursorrules-prompt-file.mdc"
 body_length: 3883

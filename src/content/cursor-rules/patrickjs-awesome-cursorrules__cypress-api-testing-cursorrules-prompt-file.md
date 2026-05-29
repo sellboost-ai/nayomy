@@ -4,7 +4,7 @@ clean_name: "Cypress API Testing"
 description: "Cursor rules for Cypress development with API testing."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/cypress-api-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cypress-api-testing-cursorrules-prompt-file.mdc"
 body_length: 3402

@@ -4,7 +4,7 @@ clean_name: "Git Conventional Commit Messages"
 description: "Cursor rules for Git development with conventional commit messages integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/git-conventional-commit-messages.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/git-conventional-commit-messages.mdc"
 body_length: 4439

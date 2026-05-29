@@ -3,7 +3,7 @@ name: "kimtaeyoon83/mcp-server-youtube-transcript"
 description: "Fetch YouTube subtitles and transcripts for AI analysis"
 category: "Other"
 repo: "kimtaeyoon83/mcp-server-youtube-transcript"
-stars: 547
+stars: 548
 url: "https://github.com/kimtaeyoon83/mcp-server-youtube-transcript"
 body_length: 5062
 license: "MIT"

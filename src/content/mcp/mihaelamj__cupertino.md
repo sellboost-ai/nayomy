@@ -3,7 +3,7 @@ name: "mihaelamj/cupertino"
 description: "Apple Documentation MCP Server. Search Apple developer docs, Swift Evolution proposals, and 600+ sample code projects with full-text search."
 category: "Other"
 repo: "mihaelamj/cupertino"
-stars: 802
+stars: 805
 url: "https://github.com/mihaelamj/cupertino"
 body_length: 32857
 license: "MIT"

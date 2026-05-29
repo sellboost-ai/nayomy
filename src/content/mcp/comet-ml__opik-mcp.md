@@ -3,15 +3,19 @@ name: "comet-ml/opik-mcp"
 description: "Use natural language to explore LLM observability, traces, and monitoring data captured by Opik."
 category: "Other"
 repo: "comet-ml/opik-mcp"
-stars: 205
+stars: 206
 url: "https://github.com/comet-ml/opik-mcp"
-body_length: 16128
+body_length: 16407
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://www.comet.com/opik/"
 ---
 
 # opik-mcp
+
+> **Migrating from the old `npx opik-mcp`?** The TypeScript server is deprecated
+> and sunsets on **2026-11-15**. Swap `npx -y opik-mcp` for **`uvx opik-mcp@latest`**
+> in your MCP client config. Full guide: [`legacy/typescript/MIGRATION.md`](./legacy/typescript/MIGRATION.md).
 
 **Model Context Protocol server for [Opik](https://www.comet.com/opik) + Ollie.**
 Plug your AI host (Claude Code, Cursor, VS Code Copilot, MCP Inspector) directly

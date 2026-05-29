@@ -4,7 +4,7 @@ clean_name: "Htmx Go Fiber"
 description: "Cursor rules for Go development with Fiber integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/htmx-go-fiber-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-go-fiber-cursorrules-prompt-file.mdc"
 body_length: 1161

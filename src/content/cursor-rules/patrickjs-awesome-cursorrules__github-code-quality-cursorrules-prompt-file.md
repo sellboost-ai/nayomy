@@ -4,7 +4,7 @@ clean_name: "Github Code Quality"
 description: "Cursor rules for GitHub development with code quality integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/github-code-quality-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/github-code-quality-cursorrules-prompt-file.mdc"
 body_length: 3492

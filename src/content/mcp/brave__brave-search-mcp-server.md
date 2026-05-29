@@ -3,7 +3,7 @@ name: "brave/brave-search-mcp-server"
 description: "Web search capabilities using Brave's Search API"
 category: "Other"
 repo: "brave/brave-search-mcp-server"
-stars: 1092
+stars: 1100
 url: "https://github.com/brave/brave-search-mcp-server"
 body_length: 18226
 license: "MIT"

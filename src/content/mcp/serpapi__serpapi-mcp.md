@@ -3,7 +3,7 @@ name: "serpapi/serpapi-mcp"
 description: "SerpApi MCP Server for Google and other search engine results. Provides multi-engine search across Google, Bing, Yahoo, DuckDuckGo, YouTube, eBay, and more with real-time weather data, stock market information, and flexible JSON response modes."
 category: "Other"
 repo: "serpapi/serpapi-mcp"
-stars: 140
+stars: 141
 url: "https://github.com/serpapi/serpapi-mcp"
 body_length: 5362
 license: "MIT"

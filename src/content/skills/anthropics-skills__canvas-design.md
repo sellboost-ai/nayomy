@@ -3,7 +3,7 @@ name: "canvas-design"
 description_en: "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations."
 category: "Document"
 repo: "anthropics/skills"
-stars: 142151
+stars: 143150
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/canvas-design/SKILL.md"
 path: "skills/canvas-design/SKILL.md"
 is_collection: false

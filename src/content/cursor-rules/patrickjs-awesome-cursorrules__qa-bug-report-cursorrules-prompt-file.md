@@ -4,7 +4,7 @@ clean_name: "Qa Bug Report"
 description: "Cursor rules for QA development with bug report integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/qa-bug-report-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/qa-bug-report-cursorrules-prompt-file.mdc"
 body_length: 5761

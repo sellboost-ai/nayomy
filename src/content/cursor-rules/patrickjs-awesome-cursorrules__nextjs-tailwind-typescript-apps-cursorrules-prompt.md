@@ -4,7 +4,7 @@ clean_name: "Next.js Tailwind TypeScript Apps Cursorrules Prompt"
 description: "Cursor rules for Next.js development with Tailwind CSS and TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39742
+stars: 39766
 path: "rules/nextjs-tailwind-typescript-apps-cursorrules-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-tailwind-typescript-apps-cursorrules-prompt.mdc"
 body_length: 1449
