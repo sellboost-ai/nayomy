@@ -1,7 +1,7 @@
----
+﻿---
 name: "sammcj/mcp-package-version"
 description: "An MCP Server to help LLMs suggest the latest stable package versions when writing code."
-category: "Other"
+category: "Developer Tools"
 repo: "sammcj/mcp-package-version"
 stars: 121
 url: "https://github.com/sammcj/mcp-package-version"

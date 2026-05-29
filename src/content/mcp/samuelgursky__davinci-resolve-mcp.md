@@ -1,7 +1,7 @@
----
+﻿---
 name: "samuelgursky/davinci-resolve-mcp"
 description: "MCP server integration for DaVinci Resolve providing powerful tools for video editing, color grading, media management, and project control"
-category: "Other"
+category: "Multimedia Process"
 repo: "samuelgursky/davinci-resolve-mcp"
 stars: 1126
 url: "https://github.com/samuelgursky/davinci-resolve-mcp"

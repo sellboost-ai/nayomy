@@ -1,7 +1,7 @@
----
+﻿---
 name: "wanaku-ai/wanaku"
 description: "The Wanaku MCP Router is a SSE-based MCP server that provides an extensible routing engine that allows integrating your enterprise systems with AI agents."
-category: "Other"
+category: "Aggregators"
 repo: "wanaku-ai/wanaku"
 stars: 113
 url: "https://github.com/wanaku-ai/wanaku"

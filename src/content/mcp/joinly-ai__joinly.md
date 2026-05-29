@@ -1,7 +1,7 @@
----
+﻿---
 name: "joinly-ai/joinly"
 description: "MCP server to interact with browser-based meeting platforms (Zoom, Teams, Google Meet). Enables AI agents to send bots to online meetings, gather live transcripts, speak text, and send messages in the meeting chat."
-category: "Other"
+category: "Communication"
 repo: "joinly-ai/joinly"
 stars: 519
 url: "https://github.com/joinly-ai/joinly"

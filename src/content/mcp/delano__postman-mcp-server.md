@@ -1,7 +1,7 @@
----
+﻿---
 name: "delano/postman-mcp-server"
 description: "Interact with Postman API"
-category: "Other"
+category: "Developer Tools"
 repo: "delano/postman-mcp-server"
 stars: 150
 url: "https://github.com/delano/postman-mcp-server"

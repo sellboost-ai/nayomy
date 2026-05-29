@@ -1,7 +1,7 @@
----
+﻿---
 name: "pydantic/pydantic-ai"
 description: "Run Python code in a secure sandbox via MCP tool calls."
-category: "Other"
+category: "Code Execution"
 repo: "pydantic/pydantic-ai"
 stars: 17332
 url: "https://github.com/pydantic/pydantic-ai"

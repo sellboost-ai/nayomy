@@ -1,7 +1,7 @@
----
+﻿---
 name: "boltmcp/boltmcp"
 description: "Enterprise-grade MCP orchestration platform to create, deploy, and manage custom MCP servers on-premises"
-category: "Other"
+category: "Aggregators"
 repo: "boltmcp/boltmcp"
 stars: 353
 url: "https://github.com/boltmcp/boltmcp"

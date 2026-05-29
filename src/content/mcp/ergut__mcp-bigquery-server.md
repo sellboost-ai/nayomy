@@ -1,7 +1,7 @@
----
+﻿---
 name: "ergut/mcp-bigquery-server"
 description: "Server implementation for Google BigQuery integration that enables direct BigQuery database access and querying capabilities"
-category: "Other"
+category: "Databases"
 repo: "ergut/mcp-bigquery-server"
 stars: 140
 url: "https://github.com/ergut/mcp-bigquery-server"

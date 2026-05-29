@@ -1,7 +1,7 @@
----
+﻿---
 name: "metorial/metorial"
 description: "Connect AI agents to 600+ integrations with a single interface - OAuth, scaling, and monitoring included"
-category: "Other"
+category: "Aggregators"
 repo: "metorial/metorial"
 stars: 3294
 url: "https://github.com/metorial/metorial"

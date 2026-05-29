@@ -1,7 +1,7 @@
----
+﻿---
 name: "chaindead/telegram-mcp"
 description: "Telegram API integration for accessing user data, managing dialogs (chats, channels, groups), retrieving messages, and handling read status"
-category: "Other"
+category: "Communication"
 repo: "chaindead/telegram-mcp"
 stars: 329
 url: "https://github.com/chaindead/telegram-mcp"

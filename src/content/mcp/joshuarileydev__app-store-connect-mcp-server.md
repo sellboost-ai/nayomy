@@ -1,7 +1,7 @@
----
+﻿---
 name: "JoshuaRileyDev/app-store-connect-mcp-server"
 description: "An MCP server to communicate with the App Store Connect API for iOS Developers"
-category: "Other"
+category: "Developer Tools"
 repo: "JoshuaRileyDev/app-store-connect-mcp-server"
 stars: 325
 url: "https://github.com/JoshuaRileyDev/app-store-connect-mcp-server"

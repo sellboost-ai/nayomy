@@ -1,7 +1,7 @@
----
+﻿---
 name: "topoteretes/cognee"
 description: "Memory manager for AI apps and Agents using various graph and vector stores and allowing ingestion from 30+ data sources."
-category: "Other"
+category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
 stars: 17523
 url: "https://github.com/topoteretes/cognee"

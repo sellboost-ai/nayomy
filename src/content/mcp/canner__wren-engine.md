@@ -1,7 +1,7 @@
----
+﻿---
 name: "Canner/wren-engine"
 description: "The Semantic Engine for Model Context Protocol(MCP) Clients and AI Agents"
-category: "Other"
+category: "Data Science"
 repo: "Canner/wren-engine"
 stars: 660
 url: "https://github.com/Canner/wren-engine"

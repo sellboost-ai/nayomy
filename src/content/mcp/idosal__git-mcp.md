@@ -1,7 +1,7 @@
----
+﻿---
 name: "idosal/git-mcp"
 description: "gitmcp.io is a generic remote MCP server to connect to ANY GitHub repository or project for documentation"
-category: "Other"
+category: "Version Control"
 repo: "idosal/git-mcp"
 stars: 8101
 url: "https://github.com/idosal/git-mcp"

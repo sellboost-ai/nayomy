@@ -1,7 +1,7 @@
----
+﻿---
 name: "jasonjmcghee/claude-debugs-for-you"
 description: "An MCP Server and VS Code Extension which enables (language agnostic) automatic debugging via breakpoints and expression evaluation."
-category: "Other"
+category: "Developer Tools"
 repo: "jasonjmcghee/claude-debugs-for-you"
 stars: 510
 url: "https://github.com/jasonjmcghee/claude-debugs-for-you"

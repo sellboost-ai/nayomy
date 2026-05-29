@@ -1,7 +1,7 @@
----
+﻿---
 name: "xzq-xu/jvm-mcp-server"
 description: "An implementation project of a JVM-based MCP (Model Context Protocol) server."
-category: "Other"
+category: "Developer Tools"
 repo: "xzq-xu/jvm-mcp-server"
 stars: 85
 url: "https://github.com/xzq-xu/jvm-mcp-server"

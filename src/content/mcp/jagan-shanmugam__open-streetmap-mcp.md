@@ -1,7 +1,7 @@
----
+﻿---
 name: "jagan-shanmugam/open-streetmap-mcp"
 description: "An OpenStreetMap MCP server with location-based services and geospatial data."
-category: "Other"
+category: "Location & Maps"
 repo: "jagan-shanmugam/open-streetmap-mcp"
 stars: 193
 url: "https://github.com/jagan-shanmugam/open-streetmap-mcp"

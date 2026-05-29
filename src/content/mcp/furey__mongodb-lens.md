@@ -1,7 +1,7 @@
----
+﻿---
 name: "furey/mongodb-lens"
 description: "MongoDB Lens: Full Featured MCP Server for MongoDB Databases"
-category: "Other"
+category: "Databases"
 repo: "furey/mongodb-lens"
 stars: 203
 url: "https://github.com/furey/mongodb-lens"

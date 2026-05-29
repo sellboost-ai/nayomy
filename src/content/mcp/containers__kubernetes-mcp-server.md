@@ -1,7 +1,7 @@
----
+﻿---
 name: "containers/kubernetes-mcp-server"
 description: "powerful Kubernetes MCP server with additional support for OpenShift. Besides providing CRUD operations for **any** Kubernetes resource, this server provides specialized tools to interact with your cluster."
-category: "Other"
+category: "Cloud Platforms"
 repo: "containers/kubernetes-mcp-server"
 stars: 1624
 url: "https://github.com/containers/kubernetes-mcp-server"

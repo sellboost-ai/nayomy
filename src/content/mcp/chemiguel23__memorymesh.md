@@ -1,7 +1,7 @@
----
+﻿---
 name: "CheMiguel23/MemoryMesh"
 description: "Enhanced graph-based memory with a focus on AI role-play and story generation"
-category: "Other"
+category: "Knowledge & Memory"
 repo: "CheMiguel23/MemoryMesh"
 stars: 342
 url: "https://github.com/CheMiguel23/MemoryMesh"

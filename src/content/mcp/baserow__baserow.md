@@ -1,7 +1,7 @@
----
+﻿---
 name: "baserow/baserow"
 description: "Baserow database integration with table search, list, and row create, read, update, and delete capabilities."
-category: "Other"
+category: "Databases"
 repo: "baserow/baserow"
 stars: 4905
 url: "https://github.com/baserow/baserow"

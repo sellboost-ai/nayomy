@@ -1,7 +1,7 @@
----
+﻿---
 name: "augmnt/augments-mcp-server"
 description: "Transform Claude Code with intelligent, real-time access to 90+ framework documentation sources. Get accurate, up-to-date code generation that follows current best practices for React, Next.js, Laravel, FastAPI, Tailwind CSS, and more."
-category: "Other"
+category: "Developer Tools"
 repo: "augmnt/augments-mcp-server"
 stars: 122
 url: "https://github.com/augmnt/augments-mcp-server"

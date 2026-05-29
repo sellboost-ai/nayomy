@@ -1,7 +1,7 @@
----
+﻿---
 name: "microsoft/playwright-mcp"
 description: "Official Microsoft Playwright MCP server, enabling LLMs to interact with web pages through structured accessibility snapshots"
-category: "Other"
+category: "Browser Automation"
 repo: "microsoft/playwright-mcp"
 stars: 33077
 url: "https://github.com/microsoft/playwright-mcp"

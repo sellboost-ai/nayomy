@@ -1,7 +1,7 @@
----
+﻿---
 name: "opgginc/opgg-mcp"
 description: "Access real-time gaming data across popular titles like League of Legends, TFT, and Valorant, offering champion analytics, esports schedules, meta compositions, and character statistics."
-category: "Other"
+category: "Gaming"
 repo: "opgginc/opgg-mcp"
 stars: 90
 url: "https://github.com/opgginc/opgg-mcp"

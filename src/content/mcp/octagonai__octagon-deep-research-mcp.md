@@ -1,7 +1,7 @@
----
+﻿---
 name: "OctagonAI/octagon-deep-research-mcp"
 description: "Lightning-Fast, High-Accuracy Deep Research Agent"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "OctagonAI/octagon-deep-research-mcp"
 stars: 91
 url: "https://github.com/OctagonAI/octagon-deep-research-mcp"

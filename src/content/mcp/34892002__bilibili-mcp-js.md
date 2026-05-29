@@ -1,7 +1,7 @@
----
+﻿---
 name: "34892002/bilibili-mcp-js"
 description: "A MCP server that supports searching for Bilibili content. Provides LangChain integration examples and test scripts."
-category: "Other"
+category: "Search & Data Extraction"
 repo: "34892002/bilibili-mcp-js"
 stars: 169
 url: "https://github.com/34892002/bilibili-mcp-js"

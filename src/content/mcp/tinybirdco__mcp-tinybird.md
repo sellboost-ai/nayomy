@@ -1,7 +1,7 @@
----
+﻿---
 name: "tinybirdco/mcp-tinybird"
 description: "An MCP server to interact with a Tinybird Workspace from any MCP client."
-category: "Other"
+category: "Databases"
 repo: "tinybirdco/mcp-tinybird"
 stars: 79
 url: "https://github.com/tinybirdco/mcp-tinybird"

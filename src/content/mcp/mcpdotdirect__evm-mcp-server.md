@@ -1,7 +1,7 @@
----
+﻿---
 name: "mcpdotdirect/evm-mcp-server"
 description: "Comprehensive blockchain services for 30+ EVM networks, supporting native tokens, ERC20, NFTs, smart contracts, transactions, and ENS resolution."
-category: "Other"
+category: "Finance & Fintech"
 repo: "mcpdotdirect/evm-mcp-server"
 stars: 377
 url: "https://github.com/mcpdotdirect/evm-mcp-server"

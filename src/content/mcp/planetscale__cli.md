@@ -1,7 +1,7 @@
----
+﻿---
 name: "planetscale/cli"
 description: "The CLI for PlanetScale Database."
-category: "Other"
+category: "Databases"
 repo: "planetscale/cli"
 stars: 650
 url: "https://github.com/planetscale/cli"

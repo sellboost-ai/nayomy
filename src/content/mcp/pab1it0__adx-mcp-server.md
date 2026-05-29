@@ -1,7 +1,7 @@
----
+﻿---
 name: "pab1it0/adx-mcp-server"
 description: "Query and analyze Azure Data Explorer databases"
-category: "Other"
+category: "Cloud Platforms"
 repo: "pab1it0/adx-mcp-server"
 stars: 54
 url: "https://github.com/pab1it0/adx-mcp-server"

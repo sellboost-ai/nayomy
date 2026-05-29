@@ -1,7 +1,7 @@
----
+﻿---
 name: "mobile-next/mobile-mcp"
 description: "MCP Server for Android/iOS application and device automation, development and app scraping. Simulator/Emulator/Physical devices like iPhone, Google Pixel, Samsung supported."
-category: "Other"
+category: "Embedded System"
 repo: "mobile-next/mobile-mcp"
 stars: 5045
 url: "https://github.com/mobile-next/mobile-mcp"

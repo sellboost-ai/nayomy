@@ -1,7 +1,7 @@
----
+﻿---
 name: "zcaceres/markdownify-mcp"
 description: "An MCP server to convert almost any file or web content into Markdown"
-category: "Other"
+category: "Workplace & Productivity"
 repo: "zcaceres/markdownify-mcp"
 stars: 2699
 url: "https://github.com/zcaceres/markdownify-mcp"

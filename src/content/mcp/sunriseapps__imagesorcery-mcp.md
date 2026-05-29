@@ -1,7 +1,7 @@
----
+﻿---
 name: "sunriseapps/imagesorcery-mcp"
 description: "ComputerVision-based sorcery of image recognition and editing tools for AI assistants."
-category: "Other"
+category: "Multimedia Process"
 repo: "sunriseapps/imagesorcery-mcp"
 stars: 313
 url: "https://github.com/sunriseapps/imagesorcery-mcp"

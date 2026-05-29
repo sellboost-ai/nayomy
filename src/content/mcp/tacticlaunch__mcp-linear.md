@@ -1,7 +1,7 @@
----
+﻿---
 name: "tacticlaunch/mcp-linear"
 description: "Integrates with Linear project management system"
-category: "Other"
+category: "Workplace & Productivity"
 repo: "tacticlaunch/mcp-linear"
 stars: 134
 url: "https://github.com/tacticlaunch/mcp-linear"

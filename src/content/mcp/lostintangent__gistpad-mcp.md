@@ -1,7 +1,7 @@
----
+﻿---
 name: "lostintangent/gistpad-mcp"
 description: "Use GitHub Gists to manage and access your personal knowledge, daily notes, and reusable prompts. This acts as a companion to https://gistpad.dev and the GistPad VS Code extension."
-category: "Other"
+category: "Version Control"
 repo: "lostintangent/gistpad-mcp"
 stars: 194
 url: "https://github.com/lostintangent/gistpad-mcp"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "abhiemj/manim-mcp-server"
 description: "A local MCP server that generates animations using Manim."
-category: "Other"
+category: "Multimedia Process"
 repo: "abhiemj/manim-mcp-server"
 stars: 594
 url: "https://github.com/abhiemj/manim-mcp-server"

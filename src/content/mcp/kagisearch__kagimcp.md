@@ -1,7 +1,7 @@
----
+﻿---
 name: "kagisearch/kagimcp"
 description: "Official Kagi Search MCP Server"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "kagisearch/kagimcp"
 stars: 396
 url: "https://github.com/kagisearch/kagimcp"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "qdrant/mcp-server-qdrant"
 description: "A Qdrant MCP server"
-category: "Other"
+category: "Databases"
 repo: "qdrant/mcp-server-qdrant"
 stars: 1411
 url: "https://github.com/qdrant/mcp-server-qdrant"

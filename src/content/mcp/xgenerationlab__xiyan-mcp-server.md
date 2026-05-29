@@ -1,7 +1,7 @@
----
+﻿---
 name: "XGenerationLab/xiyan_mcp_server"
 description: "An MCP server that supports fetching data from a database using natural language queries, powered by XiyanSQL as the text-to-SQL LLM."
-category: "Other"
+category: "Databases"
 repo: "XGenerationLab/xiyan_mcp_server"
 stars: 236
 url: "https://github.com/XGenerationLab/xiyan_mcp_server"

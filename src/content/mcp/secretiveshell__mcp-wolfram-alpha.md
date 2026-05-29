@@ -1,7 +1,7 @@
----
+﻿---
 name: "SecretiveShell/MCP-wolfram-alpha"
 description: "An MCP server for querying wolfram alpha API."
-category: "Other"
+category: "Code Execution"
 repo: "SecretiveShell/MCP-wolfram-alpha"
 stars: 75
 url: "https://github.com/SecretiveShell/MCP-wolfram-alpha"

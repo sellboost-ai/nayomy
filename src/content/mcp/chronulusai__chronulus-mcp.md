@@ -1,7 +1,7 @@
----
+﻿---
 name: "ChronulusAI/chronulus-mcp"
 description: "Predict anything with Chronulus AI forecasting and prediction agents."
-category: "Other"
+category: "Data Science"
 repo: "ChronulusAI/chronulus-mcp"
 stars: 108
 url: "https://github.com/ChronulusAI/chronulus-mcp"

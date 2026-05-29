@@ -1,7 +1,7 @@
----
+﻿---
 name: "exa-labs/exa-mcp-server"
 description: "A Model Context Protocol (MCP) server lets AI assistants like Claude use the Exa AI Search API for web searches. This setup allows AI models to get real-time web information in a safe and controlled way."
-category: "Other"
+category: "Search & Data Extraction"
 repo: "exa-labs/exa-mcp-server"
 stars: 4486
 url: "https://github.com/exa-labs/exa-mcp-server"
@@ -385,11 +385,11 @@ Use appropriate Exa `category` depending on what you need:
 - `people` → LinkedIn profiles (public data)
 - No category (`type: "auto"`) → general web results, deep dives, broader context
 
-Start with `category: "company"` for discovery, then use other categories or no category for deeper research.
+Start with `category: "Search & Data Extraction"` for discovery, then use other categories or no category for deeper research.
 
 ### Category-Specific Filter Restrictions
 
-When using `category: "company"`, these parameters cause 400 errors:
+When using `category: "Search & Data Extraction"`, these parameters cause 400 errors:
 - `includeDomains` / `excludeDomains`
 - `startPublishedDate` / `endPublishedDate`
 - `startCrawlDate` / `endCrawlDate`
@@ -400,7 +400,7 @@ When searching without a category (or with `news`), domain and date filters work
 
 ## LinkedIn
 
-Public LinkedIn via Exa: `category: "people"`, no other filters.
+Public LinkedIn via Exa: `category: "Search & Data Extraction"`, no other filters.
 Auth-required LinkedIn → use Claude in Chrome browser fallback.
 
 ## Browser Fallback
@@ -608,11 +608,11 @@ Use appropriate Exa `category` depending on what you need:
 - `news` → press mentions, interviews, speaker bios
 - No category (`type: "auto"`) → general web results, broader context
 
-Start with `category: "people"` for profile discovery, then use other categories or no category for deeper research on specific individuals.
+Start with `category: "Search & Data Extraction"` for profile discovery, then use other categories or no category for deeper research on specific individuals.
 
 ### Category-Specific Filter Restrictions
 
-When using `category: "people"`, these parameters cause errors:
+When using `category: "Search & Data Extraction"`, these parameters cause errors:
 - `startPublishedDate` / `endPublishedDate`
 - `startCrawlDate` / `endCrawlDate`
 - `includeText` / `excludeText`
@@ -623,7 +623,7 @@ When searching without a category, all parameters are available (but `includeTex
 
 ## LinkedIn
 
-Public LinkedIn via Exa: `category: "people"`, no other filters.
+Public LinkedIn via Exa: `category: "Search & Data Extraction"`, no other filters.
 Auth-required LinkedIn → use Claude in Chrome browser fallback.
 
 ## Browser Fallback
@@ -715,7 +715,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa` with `category: "financial report"`. Do NOT use other categories or tools.
+ONLY use `web_search_advanced_exa` with `category: "Search & Data Extraction"`. Do NOT use other categories or tools.
 
 ## Filter Restrictions (Critical)
 
@@ -755,7 +755,7 @@ The `financial report` category has one known restriction:
 ## Token Isolation (Critical)
 
 Never run Exa searches in main context. Always spawn Task agents:
-- Agent calls `web_search_advanced_exa` with `category: "financial report"`
+- Agent calls `web_search_advanced_exa` with `category: "Search & Data Extraction"`
 - Agent merges + deduplicates results before presenting
 - Agent returns distilled output (brief markdown or compact JSON)
 - Main context stays clean regardless of search volume
@@ -856,7 +856,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa` with `category: "research paper"`. Do NOT use other categories or tools.
+ONLY use `web_search_advanced_exa` with `category: "Search & Data Extraction"`. Do NOT use other categories or tools.
 
 ## Full Filter Support
 
@@ -896,7 +896,7 @@ The `research paper` category supports ALL available parameters:
 ## Token Isolation (Critical)
 
 Never run Exa searches in main context. Always spawn Task agents:
-- Agent calls `web_search_advanced_exa` with `category: "research paper"`
+- Agent calls `web_search_advanced_exa` with `category: "Search & Data Extraction"`
 - Agent merges + deduplicates results before presenting
 - Agent returns distilled output (brief markdown or compact JSON)
 - Main context stays clean regardless of search volume
@@ -974,7 +974,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa` with `category: "personal site"`. Do NOT use other categories or tools.
+ONLY use `web_search_advanced_exa` with `category: "Search & Data Extraction"`. Do NOT use other categories or tools.
 
 ## Full Filter Support
 
@@ -1012,7 +1012,7 @@ The `personal site` category supports ALL available parameters:
 ## Token Isolation (Critical)
 
 Never run Exa searches in main context. Always spawn Task agents:
-- Agent calls `web_search_advanced_exa` with `category: "personal site"`
+- Agent calls `web_search_advanced_exa` with `category: "Search & Data Extraction"`
 - Agent merges + deduplicates results before presenting
 - Agent returns distilled output (brief markdown or compact JSON)
 - Main context stays clean regardless of search volume

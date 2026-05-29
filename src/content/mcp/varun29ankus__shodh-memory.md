@@ -1,7 +1,7 @@
----
+﻿---
 name: "varun29ankuS/shodh-memory"
 description: "Cognitive memory for AI agents with Hebbian learning, 3-tier architecture, and knowledge graphs. Single ~15MB binary, runs offline on edge devices."
-category: "Other"
+category: "Knowledge & Memory"
 repo: "varun29ankuS/shodh-memory"
 stars: 215
 url: "https://github.com/varun29ankuS/shodh-memory"

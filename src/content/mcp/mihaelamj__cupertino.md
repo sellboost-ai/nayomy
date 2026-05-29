@@ -1,7 +1,7 @@
----
+﻿---
 name: "mihaelamj/cupertino"
 description: "Apple Documentation MCP Server. Search Apple developer docs, Swift Evolution proposals, and 600+ sample code projects with full-text search."
-category: "Other"
+category: "Developer Tools"
 repo: "mihaelamj/cupertino"
 stars: 802
 url: "https://github.com/mihaelamj/cupertino"

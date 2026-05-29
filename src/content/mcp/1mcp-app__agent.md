@@ -1,7 +1,7 @@
----
+﻿---
 name: "1mcp-app/agent"
 description: "A unified Model Context Protocol server implementation that aggregates multiple MCP servers into one."
-category: "Other"
+category: "Aggregators"
 repo: "1mcp-app/agent"
 stars: 444
 url: "https://github.com/1mcp-app/agent"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "fosdickio/binary_ninja_mcp"
 description: "A Binary Ninja plugin, MCP server, and bridge that seamlessly integrates Binary Ninja with your favorite MCP client. It enables you to automate the process of performing binary analysis and reverse engineering."
-category: "Other"
+category: "Security"
 repo: "fosdickio/binary_ninja_mcp"
 stars: 361
 url: "https://github.com/fosdickio/binary_ninja_mcp"

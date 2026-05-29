@@ -1,7 +1,7 @@
----
+﻿---
 name: "bgauryy/octocode-mcp"
 description: "AI-powered developer assistant that enables advanced research, analysis and discovery across GitHub and NPM realms in realtime."
-category: "Other"
+category: "Version Control"
 repo: "bgauryy/octocode-mcp"
 stars: 847
 url: "https://github.com/bgauryy/octocode-mcp"

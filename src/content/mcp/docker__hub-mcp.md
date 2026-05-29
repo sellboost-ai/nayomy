@@ -1,7 +1,7 @@
----
+﻿---
 name: "docker/hub-mcp"
 description: "Official MCP server to interact with Docker Hub, providing access to repositories, hub search and Docker Hardened Images"
-category: "Other"
+category: "Cloud Platforms"
 repo: "docker/hub-mcp"
 stars: 149
 url: "https://github.com/docker/hub-mcp"

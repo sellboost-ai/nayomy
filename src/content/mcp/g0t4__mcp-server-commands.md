@@ -1,7 +1,7 @@
----
+﻿---
 name: "g0t4/mcp-server-commands"
 description: "Run any command with run_command and run_script tools."
-category: "Other"
+category: "Command Line"
 repo: "g0t4/mcp-server-commands"
 stars: 225
 url: "https://github.com/g0t4/mcp-server-commands"

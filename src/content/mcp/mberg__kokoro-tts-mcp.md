@@ -1,7 +1,7 @@
----
+﻿---
 name: "mberg/kokoro-tts-mcp"
 description: "MCP Server that uses the open weight Kokoro TTS models to convert text-to-speech. Can convert text to MP3 on a local driver or auto-upload to an S3 bucket."
-category: "Other"
+category: "Multimedia Process"
 repo: "mberg/kokoro-tts-mcp"
 stars: 78
 url: "https://github.com/mberg/kokoro-tts-mcp"

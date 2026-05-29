@@ -1,7 +1,7 @@
----
+﻿---
 name: "graphlit/graphlit-mcp-server"
 description: "Ingest anything from Slack, Discord, websites, Google Drive, Linear or GitHub into a Graphlit project - and then search and retrieve relevant knowledge within an MCP client like Cursor, Windsurf or Cline."
-category: "Other"
+category: "Knowledge & Memory"
 repo: "graphlit/graphlit-mcp-server"
 stars: 376
 url: "https://github.com/graphlit/graphlit-mcp-server"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "f4ww4z/mcp-mysql-server"
 description: "Node.js-based MySQL database integration that provides secure MySQL database operations"
-category: "Other"
+category: "Databases"
 repo: "f4ww4z/mcp-mysql-server"
 stars: 160
 url: "https://github.com/f4ww4z/mcp-mysql-server"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "benborla/mcp-server-mysql"
 description: "MySQL database integration in NodeJS with configurable access controls and schema inspection"
-category: "Other"
+category: "Databases"
 repo: "benborla/mcp-server-mysql"
 stars: 1721
 url: "https://github.com/benborla/mcp-server-mysql"

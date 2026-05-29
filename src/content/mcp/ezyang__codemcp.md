@@ -1,7 +1,7 @@
----
+﻿---
 name: "ezyang/codemcp"
 description: "Coding agent with basic read, write and command line tools."
-category: "Other"
+category: "Coding Agents"
 repo: "ezyang/codemcp"
 stars: 1614
 url: "https://github.com/ezyang/codemcp"

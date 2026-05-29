@@ -1,7 +1,7 @@
----
+﻿---
 name: "eyalzh/browser-control-mcp"
 description: "An MCP server paired with a browser extension that enables LLM clients to control the user's browser (Firefox)."
-category: "Other"
+category: "Browser Automation"
 repo: "eyalzh/browser-control-mcp"
 stars: 286
 url: "https://github.com/eyalzh/browser-control-mcp"

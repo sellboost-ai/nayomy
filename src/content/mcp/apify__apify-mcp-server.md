@@ -1,7 +1,7 @@
----
+﻿---
 name: "apify/apify-mcp-server"
 description: "Use 3,000+ pre-built cloud tools, known as Actors, to extract data from websites, e-commerce, social media, search engines, maps, and more"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "apify/apify-mcp-server"
 stars: 1275
 url: "https://github.com/apify/apify-mcp-server"

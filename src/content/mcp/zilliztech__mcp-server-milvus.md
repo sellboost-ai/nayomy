@@ -1,7 +1,7 @@
----
+﻿---
 name: "zilliztech/mcp-server-milvus"
 description: "MCP Server for Milvus / Zilliz, making it possible to interact with your database."
-category: "Other"
+category: "Databases"
 repo: "zilliztech/mcp-server-milvus"
 stars: 231
 url: "https://github.com/zilliztech/mcp-server-milvus"

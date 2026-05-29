@@ -1,7 +1,7 @@
----
+﻿---
 name: "Softeria/ms-365-mcp-server"
 description: "MCP server that connects to Microsoft Office and the whole Microsoft 365 suite using Graph API (including Outlook, mail, files, Excel, calendar)"
-category: "Other"
+category: "Workplace & Productivity"
 repo: "Softeria/ms-365-mcp-server"
 stars: 736
 url: "https://github.com/Softeria/ms-365-mcp-server"

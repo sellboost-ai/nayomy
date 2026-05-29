@@ -1,7 +1,7 @@
----
+﻿---
 name: "redis/mcp-redis"
 description: "The Redis official MCP Server offers an interface to manage and search data in Redis."
-category: "Other"
+category: "Databases"
 repo: "redis/mcp-redis"
 stars: 513
 url: "https://github.com/redis/mcp-redis"

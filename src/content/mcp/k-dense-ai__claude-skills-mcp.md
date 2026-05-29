@@ -1,7 +1,7 @@
----
+﻿---
 name: "K-Dense-AI/claude-skills-mcp"
 description: "Intelligent search capabilities to let every model and client use Claude Agent Skills like native."
-category: "Other"
+category: "Developer Tools"
 repo: "K-Dense-AI/claude-skills-mcp"
 stars: 387
 url: "https://github.com/K-Dense-AI/claude-skills-mcp"

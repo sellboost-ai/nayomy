@@ -1,7 +1,7 @@
----
+﻿---
 name: "apinetwork/piapi-mcp-server"
 description: "PiAPI MCP server makes users able to generate media content with Midjourney/Flux/Kling/Hunyuan/Udio/Trellis directly from Claude or any other MCP-compatible apps."
-category: "Other"
+category: "Art & Culture"
 repo: "apinetwork/piapi-mcp-server"
 stars: 70
 url: "https://github.com/apinetwork/piapi-mcp-server"

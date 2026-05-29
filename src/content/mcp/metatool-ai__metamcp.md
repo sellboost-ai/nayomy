@@ -1,7 +1,7 @@
----
+﻿---
 name: "metatool-ai/metamcp"
 description: "MetaMCP is the one unified middleware MCP server that manages your MCP connections with GUI."
-category: "Other"
+category: "Aggregators"
 repo: "metatool-ai/metamcp"
 stars: 2351
 url: "https://github.com/metatool-ai/metamcp"

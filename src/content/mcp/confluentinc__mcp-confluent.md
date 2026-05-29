@@ -1,7 +1,7 @@
----
+﻿---
 name: "confluentinc/mcp-confluent"
 description: "Confluent integration to interact with Confluent Kafka and Confluent Cloud REST APIs."
-category: "Other"
+category: "Data Science"
 repo: "confluentinc/mcp-confluent"
 stars: 156
 url: "https://github.com/confluentinc/mcp-confluent"

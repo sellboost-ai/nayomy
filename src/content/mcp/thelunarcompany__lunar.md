@@ -1,7 +1,7 @@
----
+﻿---
 name: "TheLunarCompany/lunar"
 description: "MCPX is a production-ready, open-source gateway to manage MCP servers at scale—centralize tool discovery, access controls, call prioritization, and usage tracking to simplify agent workflows."
-category: "Other"
+category: "Aggregators"
 repo: "TheLunarCompany/lunar"
 stars: 446
 url: "https://github.com/TheLunarCompany/lunar"

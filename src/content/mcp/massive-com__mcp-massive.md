@@ -1,7 +1,7 @@
----
+﻿---
 name: "massive-com/mcp_massive"
 description: "An MCP server for Massive.com Financial Market Data"
-category: "Other"
+category: "Finance & Fintech"
 repo: "massive-com/mcp_massive"
 stars: 342
 url: "https://github.com/massive-com/mcp_massive"

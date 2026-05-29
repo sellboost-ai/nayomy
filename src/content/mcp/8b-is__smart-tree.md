@@ -1,7 +1,7 @@
----
+﻿---
 name: "8b-is/smart-tree"
 description: "AI-native directory visualization with semantic analysis, ultra-compressed formats for AI consumption, and 10x token reduction. Supports quantum-semantic mode with intelligent file categorization."
-category: "Other"
+category: "File Systems"
 repo: "8b-is/smart-tree"
 stars: 249
 url: "https://github.com/8b-is/smart-tree"

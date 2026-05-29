@@ -1,7 +1,7 @@
----
+﻿---
 name: "blazickjp/arxiv-mcp-server"
 description: "Search ArXiv research papers"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "blazickjp/arxiv-mcp-server"
 stars: 2784
 url: "https://github.com/blazickjp/arxiv-mcp-server"

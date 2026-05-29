@@ -1,7 +1,7 @@
----
+﻿---
 name: "omega-memory/omega-memory"
 description: "Persistent memory for AI coding agents with semantic search, auto-capture, cross-session learning, and intelligent forgetting. #1 on LongMemEval (95.4%)."
-category: "Other"
+category: "Knowledge & Memory"
 repo: "omega-memory/omega-memory"
 stars: 147
 url: "https://github.com/omega-memory/omega-memory"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "grafana/mcp-grafana"
 description: "Search dashboards, investigate incidents and query datasources in your Grafana instance"
-category: "Other"
+category: "Monitoring"
 repo: "grafana/mcp-grafana"
 stars: 3054
 url: "https://github.com/grafana/mcp-grafana"

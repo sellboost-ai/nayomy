@@ -1,7 +1,7 @@
----
+﻿---
 name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
-category: "Other"
+category: "Developer Tools"
 repo: "CodeGraphContext/CodeGraphContext"
 stars: 3431
 url: "https://github.com/CodeGraphContext/CodeGraphContext"

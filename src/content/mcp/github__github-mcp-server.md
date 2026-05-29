@@ -1,7 +1,7 @@
----
+﻿---
 name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
-category: "Other"
+category: "Version Control"
 repo: "github/github-mcp-server"
 stars: 30205
 url: "https://github.com/github/github-mcp-server"

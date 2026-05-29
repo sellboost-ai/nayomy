@@ -1,7 +1,7 @@
----
+﻿---
 name: "nickclyde/duckduckgo-mcp-server"
 description: "Web search using DuckDuckGo"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "nickclyde/duckduckgo-mcp-server"
 stars: 1188
 url: "https://github.com/nickclyde/duckduckgo-mcp-server"

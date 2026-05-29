@@ -1,7 +1,7 @@
----
+﻿---
 name: "elie222/inbox-zero"
 description: "An MCP server for Inbox Zero. Adds functionality on top of Gmail like finding out which emails you need to reply to or need to follow up on."
-category: "Other"
+category: "Communication"
 repo: "elie222/inbox-zero"
 stars: 11001
 url: "https://github.com/elie222/inbox-zero"

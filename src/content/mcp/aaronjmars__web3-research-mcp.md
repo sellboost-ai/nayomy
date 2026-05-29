@@ -1,7 +1,7 @@
----
+﻿---
 name: "aaronjmars/web3-research-mcp"
 description: "Deep Research for crypto - free & fully local"
-category: "Other"
+category: "Finance & Fintech"
 repo: "aaronjmars/web3-research-mcp"
 stars: 157
 url: "https://github.com/aaronjmars/web3-research-mcp"

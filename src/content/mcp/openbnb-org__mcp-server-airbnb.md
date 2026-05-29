@@ -1,7 +1,7 @@
----
+﻿---
 name: "openbnb-org/mcp-server-airbnb"
 description: "Provides tools to search Airbnb and get listing details."
-category: "Other"
+category: "Location & Maps"
 repo: "openbnb-org/mcp-server-airbnb"
 stars: 460
 url: "https://github.com/openbnb-org/mcp-server-airbnb"

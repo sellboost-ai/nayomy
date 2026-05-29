@@ -1,7 +1,7 @@
----
+﻿---
 name: "GLips/Figma-Context-MCP"
 description: "Provide coding agents direct access to Figma data to help them one-shot design implementation."
-category: "Other"
+category: "Developer Tools"
 repo: "GLips/Figma-Context-MCP"
 stars: 14884
 url: "https://github.com/GLips/Figma-Context-MCP"

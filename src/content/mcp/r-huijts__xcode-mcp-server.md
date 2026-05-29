@@ -1,7 +1,7 @@
----
+﻿---
 name: "r-huijts/xcode-mcp-server"
 description: "Xcode integration for project management, file operations, and build automation"
-category: "Other"
+category: "Developer Tools"
 repo: "r-huijts/xcode-mcp-server"
 stars: 377
 url: "https://github.com/r-huijts/xcode-mcp-server"

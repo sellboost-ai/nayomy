@@ -1,7 +1,7 @@
----
+﻿---
 name: "getsentry/sentry-mcp"
 description: "Sentry.io integration for error tracking and performance monitoring"
-category: "Other"
+category: "Monitoring"
 repo: "getsentry/sentry-mcp"
 stars: 706
 url: "https://github.com/getsentry/sentry-mcp"

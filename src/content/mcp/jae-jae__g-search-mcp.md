@@ -1,7 +1,7 @@
----
+﻿---
 name: "jae-jae/g-search-mcp"
 description: "A powerful MCP server for Google search that enables parallel searching with multiple keywords simultaneously."
-category: "Other"
+category: "Search & Data Extraction"
 repo: "jae-jae/g-search-mcp"
 stars: 266
 url: "https://github.com/jae-jae/g-search-mcp"

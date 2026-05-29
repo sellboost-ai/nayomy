@@ -1,7 +1,7 @@
----
+﻿---
 name: "video-creator/ffmpeg-mcp"
 description: "Using ffmpeg command line to achieve an mcp server, can be very convenient, through the dialogue to achieve the local video search, tailoring, stitching, playback and other functions"
-category: "Other"
+category: "Multimedia Process"
 repo: "video-creator/ffmpeg-mcp"
 stars: 134
 url: "https://github.com/video-creator/ffmpeg-mcp"

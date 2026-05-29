@@ -1,7 +1,7 @@
----
+﻿---
 name: "ahujasid/blender-mcp"
 description: "MCP server for working with Blender"
-category: "Other"
+category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
 stars: 22053
 url: "https://github.com/ahujasid/blender-mcp"

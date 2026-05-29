@@ -1,7 +1,7 @@
----
+﻿---
 name: "neondatabase/mcp-server-neon"
 description: "MCP server for interacting with Neon Management API and databases."
-category: "Other"
+category: "Databases"
 repo: "neondatabase/mcp-server-neon"
 stars: 603
 url: "https://github.com/neondatabase/mcp-server-neon"

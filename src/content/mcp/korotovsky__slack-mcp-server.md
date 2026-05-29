@@ -1,7 +1,7 @@
----
+﻿---
 name: "korotovsky/slack-mcp-server"
 description: "The most powerful MCP server for Slack Workspaces."
-category: "Other"
+category: "Communication"
 repo: "korotovsky/slack-mcp-server"
 stars: 1630
 url: "https://github.com/korotovsky/slack-mcp-server"

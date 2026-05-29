@@ -1,7 +1,7 @@
----
+﻿---
 name: "YuChenSSR/mindmap-mcp-server"
 description: "A Model Context Protocol (MCP) server for generating a beautiful interactive mindmap."
-category: "Other"
+category: "Knowledge & Memory"
 repo: "YuChenSSR/mindmap-mcp-server"
 stars: 233
 url: "https://github.com/YuChenSSR/mindmap-mcp-server"

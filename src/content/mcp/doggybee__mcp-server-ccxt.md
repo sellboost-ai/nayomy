@@ -1,7 +1,7 @@
----
+﻿---
 name: "doggybee/mcp-server-ccxt"
 description: "An MCP server for accessing real-time crypto market data and trading via 20+ exchanges using the CCXT library. Supports spot, futures, OHLCV, balances, orders, and more."
-category: "Other"
+category: "Finance & Fintech"
 repo: "doggybee/mcp-server-ccxt"
 stars: 139
 url: "https://github.com/doggybee/mcp-server-ccxt"

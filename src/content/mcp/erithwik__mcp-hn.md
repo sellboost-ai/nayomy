@@ -1,7 +1,7 @@
----
+﻿---
 name: "erithwik/mcp-hn"
 description: "An MCP server to search Hacker News, get top stories, and more."
-category: "Other"
+category: "Search & Data Extraction"
 repo: "erithwik/mcp-hn"
 stars: 74
 url: "https://github.com/erithwik/mcp-hn"

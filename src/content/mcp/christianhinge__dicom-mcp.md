@@ -1,7 +1,7 @@
----
+﻿---
 name: "ChristianHinge/dicom-mcp"
 description: "DICOM integration to query, read, and move medical images and reports from PACS and other DICOM compliant systems."
-category: "Other"
+category: "Biology Medicine and Bioinformatics"
 repo: "ChristianHinge/dicom-mcp"
 stars: 95
 url: "https://github.com/ChristianHinge/dicom-mcp"

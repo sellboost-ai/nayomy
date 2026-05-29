@@ -1,7 +1,7 @@
----
+﻿---
 name: "haris-musa/excel-mcp-server"
 description: "An Excel manipulation server providing workbook creation, data operations, formatting, and advanced features (charts, pivot tables, formulae)."
-category: "Other"
+category: "Workplace & Productivity"
 repo: "haris-musa/excel-mcp-server"
 stars: 3873
 url: "https://github.com/haris-musa/excel-mcp-server"

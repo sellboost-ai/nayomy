@@ -1,7 +1,7 @@
----
+﻿---
 name: "hannesrudolph/imessage-query-fastmcp-mcp-server"
 description: "An MCP server that provides safe access to your iMessage database through Model Context Protocol (MCP), enabling LLMs to query and analyze iMessage conversations with proper phone number validation and attachment handling"
-category: "Other"
+category: "Communication"
 repo: "hannesrudolph/imessage-query-fastmcp-mcp-server"
 stars: 78
 url: "https://github.com/hannesrudolph/imessage-query-fastmcp-mcp-server"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "vasylenko/bear-notes-mcp"
 description: "Search, read, create, and update Bear Notes directly from Claude. Local-only with complete privacy."
-category: "Other"
+category: "Knowledge & Memory"
 repo: "vasylenko/bear-notes-mcp"
 stars: 193
 url: "https://github.com/vasylenko/bear-notes-mcp"

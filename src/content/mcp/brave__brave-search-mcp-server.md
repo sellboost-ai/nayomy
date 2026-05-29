@@ -1,7 +1,7 @@
----
+﻿---
 name: "brave/brave-search-mcp-server"
 description: "Web search capabilities using Brave's Search API"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "brave/brave-search-mcp-server"
 stars: 1087
 url: "https://github.com/brave/brave-search-mcp-server"

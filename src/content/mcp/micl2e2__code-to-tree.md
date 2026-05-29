@@ -1,7 +1,7 @@
----
+﻿---
 name: "micl2e2/code-to-tree"
 description: "A single-binary MCP server that converts source code into AST, regardless of language."
-category: "Other"
+category: "Developer Tools"
 repo: "micl2e2/code-to-tree"
 stars: 83
 url: "https://github.com/micl2e2/code-to-tree"

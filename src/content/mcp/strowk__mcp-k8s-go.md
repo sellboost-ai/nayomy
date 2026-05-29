@@ -1,7 +1,7 @@
----
+﻿---
 name: "strowk/mcp-k8s-go"
 description: "Kubernetes cluster operations through MCP"
-category: "Other"
+category: "Cloud Platforms"
 repo: "strowk/mcp-k8s-go"
 stars: 382
 url: "https://github.com/strowk/mcp-k8s-go"

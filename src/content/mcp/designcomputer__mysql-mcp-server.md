@@ -1,7 +1,7 @@
----
+﻿---
 name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
-category: "Other"
+category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
 stars: 1263
 url: "https://github.com/designcomputer/mysql_mcp_server"

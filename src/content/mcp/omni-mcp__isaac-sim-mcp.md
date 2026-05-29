@@ -1,7 +1,7 @@
----
+﻿---
 name: "omni-mcp/isaac-sim-mcp"
 description: "A MCP Server and an extension enables natural language control of NVIDIA Isaac Sim, Lab, OpenUSD and etc."
-category: "Other"
+category: "Embedded System"
 repo: "omni-mcp/isaac-sim-mcp"
 stars: 171
 url: "https://github.com/omni-mcp/isaac-sim-mcp"

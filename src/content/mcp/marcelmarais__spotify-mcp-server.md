@@ -1,7 +1,7 @@
----
+﻿---
 name: "marcelmarais/spotify-mcp-server"
 description: "Control Spotify playback and manage playlists."
-category: "Other"
+category: "Multimedia Process"
 repo: "marcelmarais/spotify-mcp-server"
 stars: 351
 url: "https://github.com/marcelmarais/spotify-mcp-server"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "oraios/serena"
 description: "A fully-featured coding agent that relies on symbolic code operations by using language servers."
-category: "Other"
+category: "Coding Agents"
 repo: "oraios/serena"
 stars: 24661
 url: "https://github.com/oraios/serena"

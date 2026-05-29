@@ -1,7 +1,7 @@
----
+﻿---
 name: "automation-ai-labs/mcp-link"
 description: "Seamlessly Integrate Any API with AI Agents (with OpenAPI Schema)"
-category: "Other"
+category: "Developer Tools"
 repo: "automation-ai-labs/mcp-link"
 stars: 606
 url: "https://github.com/automation-ai-labs/mcp-link"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "TencentEdgeOne/edgeone-pages-mcp"
 description: "An MCP service for deploying HTML content to EdgeOne Pages and obtaining a publicly accessible URL."
-category: "Other"
+category: "Cloud Platforms"
 repo: "TencentEdgeOne/edgeone-pages-mcp"
 stars: 419
 url: "https://github.com/TencentEdgeOne/edgeone-pages-mcp"

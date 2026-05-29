@@ -1,7 +1,7 @@
----
+﻿---
 name: "andybrandt/mcp-simple-arxiv"
 description: "MCP for LLM to search and read papers from arXiv"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "andybrandt/mcp-simple-arxiv"
 stars: 195
 url: "https://github.com/andybrandt/mcp-simple-arxiv"

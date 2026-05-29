@@ -1,7 +1,7 @@
----
+﻿---
 name: "abrinsmead/mindpilot-mcp"
 description: "Visualizes code, architecture and other concepts as mermaid diagrams in a locally hosted web app. Just ask your agent to \"show me this in a diagram\"."
-category: "Other"
+category: "Developer Tools"
 repo: "abrinsmead/mindpilot-mcp"
 stars: 88
 url: "https://github.com/abrinsmead/mindpilot-mcp"

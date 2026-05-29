@@ -1,7 +1,7 @@
----
+﻿---
 name: "kukapay/crypto-indicators-mcp"
 description: "An MCP server providing a range of cryptocurrency technical analysis indicators and strategie."
-category: "Other"
+category: "Finance & Fintech"
 repo: "kukapay/crypto-indicators-mcp"
 stars: 123
 url: "https://github.com/kukapay/crypto-indicators-mcp"

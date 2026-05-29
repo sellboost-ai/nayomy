@@ -1,7 +1,7 @@
----
+﻿---
 name: "gannonh/firebase-mcp"
 description: "Firebase services including Auth, Firestore and Storage."
-category: "Other"
+category: "Cloud Platforms"
 repo: "gannonh/firebase-mcp"
 stars: 243
 url: "https://github.com/gannonh/firebase-mcp"

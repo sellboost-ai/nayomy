@@ -1,7 +1,7 @@
----
+﻿---
 name: "modelcontextprotocol/servers"
 description: "MCP server that exercises all the features of the MCP protocol."
-category: "Other"
+category: "Developer Tools"
 repo: "modelcontextprotocol/servers"
 stars: 86304
 url: "https://github.com/modelcontextprotocol/servers"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "utensils/mcp-nixos"
 description: "MCP server providing accurate information about NixOS packages, system options, Home Manager configurations, and nix-darwin macOS settings to prevent AI hallucinations."
-category: "Other"
+category: "Developer Tools"
 repo: "utensils/mcp-nixos"
 stars: 646
 url: "https://github.com/utensils/mcp-nixos"

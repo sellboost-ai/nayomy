@@ -1,7 +1,7 @@
----
+﻿---
 name: "pipeboard-co/meta-ads-mcp"
 description: "Meta Ads automation that just works. Trusted by 10,000+ businesses to analyze performance, test creatives, optimize spend, and scale results — simply and reliably."
-category: "Other"
+category: "Marketing"
 repo: "pipeboard-co/meta-ads-mcp"
 stars: 935
 url: "https://github.com/pipeboard-co/meta-ads-mcp"

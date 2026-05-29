@@ -1,7 +1,7 @@
----
+﻿---
 name: "cloudflare/mcp-server-cloudflare"
 description: "Integration with Cloudflare services including Workers, KV, R2, and D1"
-category: "Other"
+category: "Cloud Platforms"
 repo: "cloudflare/mcp-server-cloudflare"
 stars: 3783
 url: "https://github.com/cloudflare/mcp-server-cloudflare"

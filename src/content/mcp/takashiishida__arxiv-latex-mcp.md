@@ -1,7 +1,7 @@
----
+﻿---
 name: "takashiishida/arxiv-latex-mcp"
 description: "Get the LaTeX source of arXiv papers to handle mathematical content and equations"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "takashiishida/arxiv-latex-mcp"
 stars: 133
 url: "https://github.com/takashiishida/arxiv-latex-mcp"

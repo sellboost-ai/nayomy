@@ -1,7 +1,7 @@
----
+﻿---
 name: "zcaceres/gtasks-mcp"
 description: "An MCP server to Manage Google Tasks"
-category: "Other"
+category: "Workplace & Productivity"
 repo: "zcaceres/gtasks-mcp"
 stars: 135
 url: "https://github.com/zcaceres/gtasks-mcp"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "isaacphi/mcp-gdrive"
 description: "Model Context Protocol (MCP) Server for reading from Google Drive and editing Google Sheets."
-category: "Other"
+category: "Workplace & Productivity"
 repo: "isaacphi/mcp-gdrive"
 stars: 280
 url: "https://github.com/isaacphi/mcp-gdrive"

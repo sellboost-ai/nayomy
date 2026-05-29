@@ -1,7 +1,7 @@
----
+﻿---
 name: "hustcc/mcp-echarts"
 description: "Generate visual charts using Apache ECharts with AI MCP dynamically."
-category: "Other"
+category: "Data Science"
 repo: "hustcc/mcp-echarts"
 stars: 235
 url: "https://github.com/hustcc/mcp-echarts"

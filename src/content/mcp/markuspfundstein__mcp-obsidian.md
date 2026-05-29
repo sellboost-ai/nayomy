@@ -1,7 +1,7 @@
----
+﻿---
 name: "MarkusPfundstein/mcp-obsidian"
 description: "Interacting with Obsidian via REST API"
-category: "Other"
+category: "Knowledge & Memory"
 repo: "MarkusPfundstein/mcp-obsidian"
 stars: 3783
 url: "https://github.com/MarkusPfundstein/mcp-obsidian"

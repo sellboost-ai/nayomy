@@ -1,7 +1,7 @@
----
+﻿---
 name: "lamemind/mcp-server-multiverse"
 description: "A middleware server that enables multiple isolated instances of the same MCP servers to coexist independently with unique namespaces and configurations."
-category: "Other"
+category: "Aggregators"
 repo: "lamemind/mcp-server-multiverse"
 stars: 77
 url: "https://github.com/lamemind/mcp-server-multiverse"

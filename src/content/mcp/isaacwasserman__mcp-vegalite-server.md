@@ -1,7 +1,7 @@
----
+﻿---
 name: "isaacwasserman/mcp-vegalite-server"
 description: "Generate visualizations from fetched data using the VegaLite format and renderer."
-category: "Other"
+category: "Data Science"
 repo: "isaacwasserman/mcp-vegalite-server"
 stars: 97
 url: "https://github.com/isaacwasserman/mcp-vegalite-server"

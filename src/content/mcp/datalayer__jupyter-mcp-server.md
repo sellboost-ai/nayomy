@@ -1,7 +1,7 @@
----
+﻿---
 name: "datalayer/jupyter-mcp-server"
 description: "Model Context Protocol (MCP) Server for Jupyter."
-category: "Other"
+category: "Code Execution"
 repo: "datalayer/jupyter-mcp-server"
 stars: 1125
 url: "https://github.com/datalayer/jupyter-mcp-server"

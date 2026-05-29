@@ -1,7 +1,7 @@
----
+﻿---
 name: "pab1it0/chess-mcp"
 description: "Access Chess.com player data, game records, and other public information through standardized MCP interfaces, allowing AI assistants to search and analyze chess information."
-category: "Other"
+category: "Gaming"
 repo: "pab1it0/chess-mcp"
 stars: 74
 url: "https://github.com/pab1it0/chess-mcp"

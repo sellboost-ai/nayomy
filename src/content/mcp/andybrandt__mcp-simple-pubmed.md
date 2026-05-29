@@ -1,7 +1,7 @@
----
+﻿---
 name: "andybrandt/mcp-simple-pubmed"
 description: "MCP to search and read medical / life sciences papers from PubMed."
-category: "Other"
+category: "Biology Medicine and Bioinformatics"
 repo: "andybrandt/mcp-simple-pubmed"
 stars: 167
 url: "https://github.com/andybrandt/mcp-simple-pubmed"

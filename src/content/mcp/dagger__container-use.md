@@ -1,7 +1,7 @@
----
+﻿---
 name: "dagger/container-use"
 description: "Containerized environments for coding agents. Multiple agents can work independently, isolated in fresh containers and git branches. No conflicts, many experiments. Full execution history, terminal access to agent environments, git workflow. Any agent/model/infra stack."
-category: "Other"
+category: "Coding Agents"
 repo: "dagger/container-use"
 stars: 3801
 url: "https://github.com/dagger/container-use"

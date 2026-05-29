@@ -1,7 +1,7 @@
----
+﻿---
 name: "LaurieWired/GhidraMCP"
 description: "A Model Context Protocol server for Ghidra that enables LLMs to autonomously reverse engineer applications. Provides tools for decompiling binaries, renaming methods and data, and listing methods, classes, imports, and exports."
-category: "Other"
+category: "Security"
 repo: "LaurieWired/GhidraMCP"
 stars: 9026
 url: "https://github.com/LaurieWired/GhidraMCP"

@@ -1,7 +1,7 @@
----
+﻿---
 name: "stippi/code-assistant"
 description: "Coding agent with basic list, read, replace_in_file, write, execute_command and web search tools. Supports multiple projects concurrently."
-category: "Other"
+category: "Coding Agents"
 repo: "stippi/code-assistant"
 stars: 164
 url: "https://github.com/stippi/code-assistant"

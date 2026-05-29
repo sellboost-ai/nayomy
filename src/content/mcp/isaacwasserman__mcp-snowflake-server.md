@@ -1,7 +1,7 @@
----
+﻿---
 name: "isaacwasserman/mcp-snowflake-server"
 description: "Snowflake integration implementing read and (optional) write operations as well as insight tracking"
-category: "Other"
+category: "Databases"
 repo: "isaacwasserman/mcp-snowflake-server"
 stars: 183
 url: "https://github.com/isaacwasserman/mcp-snowflake-server"

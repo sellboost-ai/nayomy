@@ -1,7 +1,7 @@
----
+﻿---
 name: "ktanaka101/mcp-server-duckdb"
 description: "DuckDB database integration with schema inspection and query capabilities"
-category: "Other"
+category: "Databases"
 repo: "ktanaka101/mcp-server-duckdb"
 stars: 177
 url: "https://github.com/ktanaka101/mcp-server-duckdb"

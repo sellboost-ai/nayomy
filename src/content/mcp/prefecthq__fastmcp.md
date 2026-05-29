@@ -1,7 +1,7 @@
----
+﻿---
 name: "PrefectHQ/fastmcp"
 description: "A high-level framework for building MCP servers in Python"
-category: "Other"
+category: "Developer Tools"
 repo: "PrefectHQ/fastmcp"
 stars: 25338
 url: "https://github.com/PrefectHQ/fastmcp"

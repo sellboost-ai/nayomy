@@ -1,7 +1,7 @@
----
+﻿---
 name: "tumf/mcp-text-editor"
 description: "A line-oriented text file editor. Optimized for LLM tools with efficient partial file access to minimize token usage."
-category: "Other"
+category: "File Systems"
 repo: "tumf/mcp-text-editor"
 stars: 191
 url: "https://github.com/tumf/mcp-text-editor"

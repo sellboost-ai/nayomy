@@ -1,7 +1,7 @@
----
+﻿---
 name: "mhmzdev/figma-flutter-mcp"
 description: "Provide coding agents direct access to Figma data to help them write Flutter code for building apps including assets exports, widgets maintenance and full screens implementations."
-category: "Other"
+category: "Developer Tools"
 repo: "mhmzdev/figma-flutter-mcp"
 stars: 235
 url: "https://github.com/mhmzdev/figma-flutter-mcp"

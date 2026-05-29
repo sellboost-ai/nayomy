@@ -1,7 +1,7 @@
----
+﻿---
 name: "suekou/mcp-notion-server"
 description: "Interacting with Notion API"
-category: "Other"
+category: "Workplace & Productivity"
 repo: "suekou/mcp-notion-server"
 stars: 892
 url: "https://github.com/suekou/mcp-notion-server"

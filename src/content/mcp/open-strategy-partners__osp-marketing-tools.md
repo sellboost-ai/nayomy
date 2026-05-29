@@ -1,7 +1,7 @@
----
+﻿---
 name: "open-strategy-partners/osp_marketing_tools"
 description: "A suite of marketing tools from Open Strategy Partners including writing style, editing codes, and product marketing value map creation."
-category: "Other"
+category: "Marketing"
 repo: "open-strategy-partners/osp_marketing_tools"
 stars: 266
 url: "https://github.com/open-strategy-partners/osp_marketing_tools"

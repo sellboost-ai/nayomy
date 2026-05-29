@@ -1,7 +1,7 @@
----
+﻿---
 name: "mbailey/voicemode"
 description: "Complete voice interaction server supporting speech-to-text, text-to-speech, and real-time voice conversations through local microphone, OpenAI-compatible APIs, and LiveKit integration"
-category: "Other"
+category: "Multimedia Process"
 repo: "mbailey/voicemode"
 stars: 1195
 url: "https://github.com/mbailey/voicemode"

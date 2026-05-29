@@ -1,7 +1,7 @@
----
+﻿---
 name: "crystaldba/postgres-mcp"
 description: "All-in-one MCP server for Postgres development and operations, with tools for performance analysis, tuning, and health checks"
-category: "Other"
+category: "Databases"
 repo: "crystaldba/postgres-mcp"
 stars: 2805
 url: "https://github.com/crystaldba/postgres-mcp"

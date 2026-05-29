@@ -1,7 +1,7 @@
----
+﻿---
 name: "zcaceres/fetch-mcp"
 description: "An MCP server to flexibly fetch JSON, text, and HTML data"
-category: "Other"
+category: "Search & Data Extraction"
 repo: "zcaceres/fetch-mcp"
 stars: 766
 url: "https://github.com/zcaceres/fetch-mcp"

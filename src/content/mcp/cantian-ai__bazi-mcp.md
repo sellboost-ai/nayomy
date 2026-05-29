@@ -1,7 +1,7 @@
----
+﻿---
 name: "cantian-ai/bazi-mcp"
 description: "Provides comprehensive and accurate Bazi (Chinese Astrology) charting and analysis"
-category: "Other"
+category: "Art & Culture"
 repo: "cantian-ai/bazi-mcp"
 stars: 384
 url: "https://github.com/cantian-ai/bazi-mcp"
