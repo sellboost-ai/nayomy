@@ -7,13 +7,19 @@ const lang = 'en' as const;
 const t = useTranslations(lang);
 
 const skills = await getCollection('skills');
-const total  = skills.length;
-const repos  = new Set(skills.map(s => s.data.repo)).size;
-const cats   = new Set(skills.map(s => s.data.category)).size;
+const mcps = await getCollection('mcp');
+const cursors = await getCollection('cursor-rules');
+const tools = await getCollection('tools');
 
-const top12 = [...skills]
-  .sort((a, b) => b.data.stars - a.data.stars)
-  .slice(0, 12);
+const skillsTotal = skills.length;
+const mcpsTotal = mcps.length;
+const cursorsTotal = cursors.length;
+const toolsTotal = tools.length;
+
+const topSkills = [...skills].sort((a, b) => b.data.stars - a.data.stars).slice(0, 6);
+const topMcps = [...mcps].sort((a, b) => b.data.stars - a.data.stars).slice(0, 6);
+const topCursors = [...cursors].sort((a, b) => (a.data.clean_name ?? a.data.name).localeCompare(b.data.clean_name ?? b.data.name)).slice(0, 6);
+const topTools = [...tools].slice(0, 6);
 
 let updatedAt: string | undefined;
 try {
@@ -32,7 +38,7 @@ try {
     <div class="container">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>{t('hero.badge')} · {total} {t('home.skills_indexed')}</span>
+        <span>{t('hero.badge')}</span>
       </div>
       <h1>
         {t('hero.h1.line1')}<br />
@@ -40,33 +46,34 @@ try {
       </h1>
       <p>{t('hero.tagline')}</p>
       <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num">{total}</div>
-          <div class="label">{t('stats.skills')}</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">{repos}</div>
-          <div class="label">{t('stats.repos')}</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">{cats}</div>
-          <div class="label">{t('stats.cats')}</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">{t('stats.daily')}</div>
-          <div class="label">{t('stats.updates')}</div>
-        </div>
+        <a class="hero-stat" href="/skills">
+          <div class="num">{skillsTotal}</div>
+          <div class="label">Claude Skills</div>
+        </a>
+        <a class="hero-stat" href="/mcp">
+          <div class="num">{mcpsTotal}</div>
+          <div class="label">MCP Servers</div>
+        </a>
+        <a class="hero-stat" href="/cursor-rules">
+          <div class="num">{cursorsTotal}</div>
+          <div class="label">Cursor Rules</div>
+        </a>
+        <a class="hero-stat" href="/tools">
+          <div class="num">{toolsTotal}</div>
+          <div class="label">AI Tools</div>
+        </a>
       </div>
     </div>
   </section>
 
   <div class="container">
+    <!-- Claude Skills -->
     <div class="section-header">
       <h2 class="section-title">{t('home.topskills')}</h2>
-      <span class="section-count">{t('home.viewall')} {total}</span>
+      <a class="section-count" href="/skills">{t('home.viewall')} {skillsTotal} →</a>
     </div>
     <div class="grid">
-      {top12.map(skill => (
+      {topSkills.map(skill => (
         <a class="card" href={`/skill/${skill.id}`}>
           <div class="card-head">
             <h3 class="card-name">{skill.data.name}</h3>
@@ -83,25 +90,123 @@ try {
         </a>
       ))}
     </div>
+
+    <!-- MCP Servers -->
+    <div class="section-header">
+      <h2 class="section-title">{t('home.top_mcp')}</h2>
+      <a class="section-count" href="/mcp">{t('home.viewall')} {mcpsTotal} →</a>
+    </div>
+    <div class="grid">
+      {topMcps.map(s => (
+        <a class="card" href={`/mcp/${s.id}`}>
+          <div class="card-head">
+            <h3 class="card-name">{s.data.name}</h3>
+            <span class="card-cat">{s.data.category}</span>
+          </div>
+          <p class="card-desc">{s.data.description}</p>
+          <div class="card-foot">
+            <span class="card-repo">{s.data.repo}</span>
+            <div class="card-meta">
+              {s.data.language && <span class="card-lang">{s.data.language}</span>}
+              <span class="card-stars">★ {s.data.stars.toLocaleString()}</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Cursor Rules -->
+    <div class="section-header">
+      <h2 class="section-title">{t('home.top_cursor')}</h2>
+      <a class="section-count" href="/cursor-rules">{t('home.viewall')} {cursorsTotal} →</a>
+    </div>
+    <div class="grid">
+      {topCursors.map(r => (
+        <a class="card" href={`/cursor-rules/${r.id}`}>
+          <div class="card-head">
+            <h3 class="card-name">{r.data.clean_name ?? r.data.name}</h3>
+            <span class="card-cat">{r.data.category}</span>
+          </div>
+          <p class="card-desc">{r.data.description}</p>
+          <div class="card-foot">
+            <span class="card-repo">{r.data.repo}</span>
+            <div class="card-meta">
+              {r.data.file_extension && <span class="card-lang">{r.data.file_extension}</span>}
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- AI Tools -->
+    <div class="section-header">
+      <h2 class="section-title">{t('tools.top')}</h2>
+      <a class="section-count" href="/tools">{t('home.viewall')} {toolsTotal} →</a>
+    </div>
+    <div class="grid">
+      {topTools.map(tool => (
+        <a class="card" href={`/tools/${tool.id}`}>
+          <div class="card-head">
+            <h3 class="card-name">{tool.data.name}</h3>
+            <span class="card-cat">{tool.data.category}</span>
+          </div>
+          <p class="card-desc">{tool.data.tagline}</p>
+          <div class="card-foot">
+            <span class="card-repo">{tool.data.maker}</span>
+            <div class="card-meta">
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
   </div>
 </BaseLayout>
 
 <style>
+  .hero-stats {
+    display: inline-flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-elevated);
+    margin-top: 8px;
+  }
+  .hero-stat {
+    padding: 12px 24px;
+    border-right: 1px solid var(--line);
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--brand);
+  }
+  .hero-stat .label {
+    font-size: 12px;
+    color: var(--ink-4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
   .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 32px 0 16px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 20px;
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 40px 0 16px; border-bottom: 1px solid var(--line); margin-bottom: 20px;
   }
-  .section-title {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
+  .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   .section-count {
-    font-size: 13px;
-    color: var(--ink-3);
+    font-size: 13px; color: var(--ink-3); text-decoration: none;
   }
 </style>

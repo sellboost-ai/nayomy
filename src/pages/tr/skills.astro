@@ -3,31 +3,32 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { useTranslations } from '../../i18n/utils';
 
-const lang = 'en' as const;
+const lang = 'tr' as const;
 const t = useTranslations(lang);
 
-const servers = await getCollection('mcp');
-const total = servers.length;
-const cats = new Set(servers.map(s => s.data.category)).size;
+const skills = await getCollection('skills');
+const total = skills.length;
+const repos = new Set(skills.map(s => s.data.repo)).size;
+const cats = new Set(skills.map(s => s.data.category)).size;
 
-const sortedServers = [...servers].sort((a, b) => b.data.stars - a.data.stars);
+const sortedSkills = [...skills].sort((a, b) => b.data.stars - a.data.stars);
 
 const catCounts: Record<string, number> = {};
-for (const s of servers) {
+for (const s of skills) {
   catCounts[s.data.category] = (catCounts[s.data.category] ?? 0) + 1;
 }
 const sortedCats = Object.entries(catCounts).sort((a, b) => b[1] - a[1]);
 
 let updatedAt: string | undefined;
 try {
-  const mcpJson = (await import('../../../mcp.json', { with: { type: 'json' } })) as any;
-  updatedAt = mcpJson.default?.generated_at ?? mcpJson.generated_at;
+  const skillsJson = (await import('../../../skills.json', { with: { type: 'json' } })) as any;
+  updatedAt = skillsJson.default?.generated_at ?? skillsJson.generated_at;
 } catch (_) {}
 ---
 
 <BaseLayout
-  title="MCP Servers · Nayomy"
-  description="Model Context Protocol servers — bridge Claude and other AIs to external systems. Searchable, auto-updating catalog."
+  title="Claude Skill'leri · Nayomy"
+  description="Tüm Claude Skill'leri tek yerde — GitHub'da yayınlanmış agent skill'lerinin aranabilir, otomatik güncellenen katalogu."
   lang={lang}
   updatedAt={updatedAt}
 >
@@ -35,16 +36,20 @@ try {
     <div class="container">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>{t('hero.badge')} · {total} {t('home.servers_indexed')}</span>
+        <span>{t('hero.badge')} · {total} {t('home.skills_indexed')}</span>
       </div>
       <h1>
-        {t('mcp.title')}<br />
-        <span class="accent" style="font-size: clamp(20px, 3vw, 28px); font-weight: 400; letter-spacing: -0.01em;">{t('mcp.tagline')}</span>
+        {t('nav.skills')}<br />
+        <span class="accent" style="font-size: clamp(20px, 3vw, 28px); font-weight: 400; letter-spacing: -0.01em;">{t('hero.tagline')}</span>
       </h1>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="num">{total}</div>
-          <div class="label">{t('mcp.servers_label')}</div>
+          <div class="label">{t('stats.skills')}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">{repos}</div>
+          <div class="label">{t('stats.repos')}</div>
         </div>
         <div class="hero-stat">
           <div class="num">{cats}</div>
@@ -61,7 +66,7 @@ try {
   <div class="container">
     <div class="cat-bar" id="catBar">
       <button class="cat-pill active" data-cat="__all__">
-        All <span class="cat-count">{total}</span>
+        Hepsi <span class="cat-count">{total}</span>
       </button>
       {sortedCats.map(([cat, count]) => (
         <button class="cat-pill" data-cat={cat}>
@@ -71,23 +76,22 @@ try {
     </div>
 
     <div class="section-header">
-      <h2 class="section-title" id="resultsTitle">{t('home.top_mcp')}</h2>
-      <span class="section-count" id="resultsCount">{total} servers</span>
+      <h2 class="section-title" id="resultsTitle">{t('home.topskills')}</h2>
+      <span class="section-count" id="resultsCount">{total} skill</span>
     </div>
 
     <div class="grid" id="cardGrid">
-      {sortedServers.map(s => (
-        <a class="card" data-cat={s.data.category} href={`/mcp/${s.id}`}>
+      {sortedSkills.map(skill => (
+        <a class="card" data-cat={skill.data.category} href={`/tr/skill/${skill.id}`}>
           <div class="card-head">
-            <h3 class="card-name">{s.data.name}</h3>
-            <span class="card-cat">{s.data.category}</span>
+            <h3 class="card-name">{skill.data.name}</h3>
+            <span class="card-cat">{skill.data.category}</span>
           </div>
-          <p class="card-desc">{s.data.description}</p>
+          <p class="card-desc">{skill.data.description_tr ?? skill.data.description_en}</p>
           <div class="card-foot">
-            <span class="card-repo">{s.data.repo}</span>
+            <span class="card-repo">{skill.data.repo}</span>
             <div class="card-meta">
-              {s.data.language && <span class="card-lang">{s.data.language}</span>}
-              <span class="card-stars">★ {s.data.stars.toLocaleString()}</span>
+              <span class="card-stars">★ {skill.data.stars.toLocaleString()}</span>
               <span class="card-arrow">→</span>
             </div>
           </div>
@@ -96,7 +100,7 @@ try {
     </div>
 
     <div class="load-more-wrap">
-      <button class="load-more-btn" id="loadMoreBtn">Load more</button>
+      <button class="load-more-btn" id="loadMoreBtn">Daha fazla göster</button>
     </div>
   </div>
 </BaseLayout>
@@ -111,11 +115,16 @@ try {
     font-size: 11.5px; font-weight: 500; padding: 4px 10px;
     background: var(--bg-elevated); border: 1px solid var(--line);
     border-radius: 20px; color: var(--ink-3);
-    cursor: pointer; transition: all 0.12s; font-family: inherit;
+    cursor: pointer; transition: all 0.12s;
+    font-family: inherit;
   }
   .cat-pill:hover { border-color: var(--line-strong); color: var(--ink-2); }
-  .cat-pill.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-  .cat-pill.active .cat-count { color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); }
+  .cat-pill.active {
+    background: var(--ink); color: var(--bg); border-color: var(--ink);
+  }
+  .cat-pill.active .cat-count {
+    color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1);
+  }
   .cat-count {
     font-size: 10px; color: var(--ink-4); background: var(--bg-subtle);
     padding: 1px 5px; border-radius: 8px; font-weight: 600;
@@ -130,13 +139,26 @@ try {
 
   .card[data-hidden="true"] { display: none; }
 
-  .load-more-wrap { display: flex; justify-content: center; padding: 32px 0 80px; }
-  .load-more-btn {
-    padding: 10px 24px; border: 1px solid var(--line); background: var(--bg-elevated);
-    color: var(--ink-2); border-radius: 8px; font-family: inherit;
-    font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.12s;
+  .load-more-wrap {
+    display: flex; justify-content: center;
+    padding: 32px 0 80px;
   }
-  .load-more-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .load-more-btn {
+    padding: 10px 24px;
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    color: var(--ink-2);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .load-more-btn:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
   .load-more-btn[data-hidden="true"] { display: none; }
 </style>
 
@@ -165,7 +187,7 @@ try {
     const showing = Math.min(visibleCount, totalInFilter);
 
     if (resultsCount) {
-      resultsCount.textContent = `${totalInFilter} servers`;
+      resultsCount.textContent = `${totalInFilter} skill`;
     }
 
     if (loadMoreBtn) {

@@ -37,7 +37,7 @@ const isActive = (path: string) => {
     </a>
 
     <div class="nav-links">
-      <a href={homePath} class:list={['nav-link', { active: isHome }]}>{t('nav.skills')}</a>
+      <a href={lang === 'tr' ? '/tr/skills' : '/skills'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/skills' : '/skills') }]}>{t('nav.skills')}</a>
       <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/mcp' : '/mcp') }]}>{t('nav.mcp')}</a>
       <a href={lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules') }]}>{t('nav.cursor')}</a>
       <a href={lang === 'tr' ? '/tr/tools' : '/tools'} class:list={['nav-link', { active: isActive(lang === 'tr' ? '/tr/tools' : '/tools') }]}>{t('nav.tools')}</a>
