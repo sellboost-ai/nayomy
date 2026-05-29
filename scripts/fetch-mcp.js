@@ -194,8 +194,7 @@ async function main() {
       const description_en = yamlDesc || extractFirstParagraph(body) || repoInfo.description || '';
 
       // Category: first category_label → map to title
-      const catLabels = Array.isArray(p.category_labels) ? p.category_labels : [];
-      const firstCat = catLabels[0] ?? '';
+      const firstCat = p.category ?? '';
       const category = catMap[firstCat] ?? normalizeCategoryTitle(firstCat) ?? 'Other';
 
       // License
