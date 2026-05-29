@@ -5,16 +5,15 @@ import type { Lang } from '../i18n/utils';
 interface Props {
   lang: Lang;
 }
+
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-
 const enUrl = getAlternateUrl(Astro.url, 'en');
 const trUrl = getAlternateUrl(Astro.url, 'tr');
 const homePath = lang === 'tr' ? '/tr' : '/';
-
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-
 const isHome = pathname === '/' || pathname === '/tr';
+
 const isActive = (path: string) => {
   if (path === '/tr/mcp' || path === '/mcp') {
     return pathname === path || pathname.startsWith(path + '/');
@@ -28,7 +27,6 @@ const isActive = (path: string) => {
   return pathname === path;
 };
 ---
-
 <nav>
   <div class="container nav-inner">
     <a href={homePath} class="logo">
@@ -51,7 +49,24 @@ const isActive = (path: string) => {
         <a href={trUrl} class:list={['', { active: lang === 'tr' }]}>TR</a>
       </div>
       <button class="icon-btn" id="themeToggle" title={t('nav.toggle_theme')} aria-label={t('nav.toggle_theme')}>◐</button>
-      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener" class="cta cta-ghost">GitHub</a>
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener" class="cta cta-ghost github-btn">GitHub</a>
+      <button class="icon-btn hamburger" id="hamburgerToggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="container">
+      <a href={lang === 'tr' ? '/tr/skills' : '/skills'} class:list={['mobile-link', { active: isActive(lang === 'tr' ? '/tr/skills' : '/skills') }]}>{t('nav.skills')}</a>
+      <a href={lang === 'tr' ? '/tr/mcp' : '/mcp'} class:list={['mobile-link', { active: isActive(lang === 'tr' ? '/tr/mcp' : '/mcp') }]}>{t('nav.mcp')}</a>
+      <a href={lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules'} class:list={['mobile-link', { active: isActive(lang === 'tr' ? '/tr/cursor-rules' : '/cursor-rules') }]}>{t('nav.cursor')}</a>
+      <a href={lang === 'tr' ? '/tr/tools' : '/tools'} class:list={['mobile-link', { active: isActive(lang === 'tr' ? '/tr/tools' : '/tools') }]}>{t('nav.tools')}</a>
+      <a href={lang === 'tr' ? '/tr/learn' : '/learn'} class:list={['mobile-link', { active: isActive(lang === 'tr' ? '/tr/learn' : '/learn') }]}>{t('nav.learn')}</a>
+      <a href={lang === 'tr' ? '/tr/videos' : '/videos'} class:list={['mobile-link', { active: isActive(lang === 'tr' ? '/tr/videos' : '/videos') }]}>{t('nav.videos')}</a>
+      <a href="https://github.com/sellboost-ai/nayomy" target="_blank" rel="noopener" class="mobile-link mobile-github">GitHub</a>
     </div>
   </div>
 </nav>
@@ -71,8 +86,81 @@ const isActive = (path: string) => {
     right: 0;
     bottom: -6px;
     height: 2px;
+    background: var(--brand);
+    border-radius: 1px;
+  }
+
+  /* Hamburger button — hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 16px;
+    height: 2px;
     background: var(--ink);
     border-radius: 1px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Mobile menu panel */
+  .mobile-menu {
+    display: none;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    padding: 16px 0;
+  }
+  .mobile-menu.open {
+    display: block;
+  }
+  .mobile-link {
+    display: block;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.12s;
+  }
+  .mobile-link:last-child {
+    border-bottom: none;
+  }
+  .mobile-link.active {
+    color: var(--brand);
+    font-weight: 600;
+  }
+  .mobile-link:hover {
+    color: var(--ink);
+  }
+  .mobile-github {
+    margin-top: 8px;
+    color: var(--ink-3);
+  }
+
+  /* Responsive — hide desktop nav, show hamburger */
+  @media (max-width: 640px) {
+    .nav-links {
+      display: none;
+    }
+    .github-btn {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+    }
   }
 </style>
 
@@ -87,5 +175,14 @@ const isActive = (path: string) => {
       document.documentElement.setAttribute('data-theme', 'dark');
       localStorage.setItem('nayomy-theme', 'dark');
     }
+  });
+
+  const hamburger = document.getElementById('hamburgerToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    mobileMenu?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
   });
 </script>
