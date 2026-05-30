@@ -1,9 +1,9 @@
-﻿---
+---
 name: "MigoXLab/dingo"
 description: "MCP server for the Dingo: a comprehensive data quality evaluation tool. Server Enables interaction with Dingo's rule-based and LLM-based evaluation capabilities and rules&prompts listing."
-category: "Data Science"
+category: "Data Science Tools"
 repo: "MigoXLab/dingo"
-stars: 704
+stars: 705
 url: "https://github.com/MigoXLab/dingo"
 body_length: 25071
 license: "Apache-2.0"

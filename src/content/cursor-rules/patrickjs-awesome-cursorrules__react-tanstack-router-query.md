@@ -4,7 +4,7 @@ clean_name: "React Tanstack Router Query"
 description: "React SPA with TanStack Router v1 + TanStack Query v5 — the definitive pattern for zero-loading-spinner routing, type-safe URLs, and cache-first data"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-tanstack-router-query.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-tanstack-router-query.mdc"
 body_length: 3647

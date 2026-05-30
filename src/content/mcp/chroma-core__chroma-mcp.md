@@ -1,7 +1,7 @@
-﻿---
+---
 name: "chroma-core/chroma-mcp"
 description: "Chroma MCP server to access local and cloud Chroma instances for retrieval capabilities"
-category: "Knowledge & Memory"
+category: "Databases"
 repo: "chroma-core/chroma-mcp"
 stars: 553
 url: "https://github.com/chroma-core/chroma-mcp"

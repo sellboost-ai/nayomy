@@ -4,7 +4,7 @@ clean_name: "Go Backend Scalability"
 description: "Cursor rules for Go development with backend scalability."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/go-backend-scalability-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/go-backend-scalability-cursorrules-prompt-file.mdc"
 body_length: 5327

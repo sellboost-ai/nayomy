@@ -4,7 +4,7 @@ clean_name: "Playwright E2e Testing"
 description: "Cursor rules for Playwright development with E2E testing."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/playwright-e2e-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/playwright-e2e-testing-cursorrules-prompt-file.mdc"
 body_length: 3569

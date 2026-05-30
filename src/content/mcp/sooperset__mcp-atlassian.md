@@ -1,9 +1,9 @@
-﻿---
+---
 name: "sooperset/mcp-atlassian"
 description: "MCP server for Atlassian products (Confluence and Jira). Supports Confluence Cloud, Jira Cloud, and Jira Server/Data Center. Provides comprehensive tools for searching, reading, creating, and managing content across Atlassian workspaces."
-category: "Workplace & Productivity"
+category: "Support & Service Management"
 repo: "sooperset/mcp-atlassian"
-stars: 5294
+stars: 5301
 url: "https://github.com/sooperset/mcp-atlassian"
 body_length: 4521
 license: "MIT"

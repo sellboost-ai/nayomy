@@ -4,7 +4,7 @@ clean_name: "Flutter App Expert"
 description: "Cursor rules for Flutter development with expert integration."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/flutter-app-expert-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-app-expert-cursorrules-prompt-file.mdc"
 body_length: 2965

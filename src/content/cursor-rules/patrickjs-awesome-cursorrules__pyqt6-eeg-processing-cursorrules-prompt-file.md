@@ -4,7 +4,7 @@ clean_name: "Pyqt6 Eeg Processing"
 description: "Cursor rules for PyQt6 development with EEG processing integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/pyqt6-eeg-processing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/pyqt6-eeg-processing-cursorrules-prompt-file.mdc"
 body_length: 3158

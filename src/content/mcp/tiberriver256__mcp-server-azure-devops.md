@@ -1,4 +1,4 @@
-﻿---
+---
 name: "Tiberriver256/mcp-server-azure-devops"
 description: "Azure DevOps integration for repository management, work items, and pipelines."
 category: "Version Control"

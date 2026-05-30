@@ -1,4 +1,4 @@
-﻿---
+---
 name: "CircleCI-Public/mcp-server-circleci"
 description: "Enable AI Agents to fix build failures from CircleCI."
 category: "Developer Tools"

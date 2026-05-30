@@ -4,7 +4,7 @@ clean_name: "React Styled Components"
 description: "Cursor rules for React development with Styled Components integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-styled-components-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-styled-components-cursorrules-prompt-file.mdc"
 body_length: 1193

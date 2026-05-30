@@ -4,7 +4,7 @@ clean_name: "Netlify Official"
 description: "Cursor rules for Netlify development with official integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/netlify-official-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/netlify-official-cursorrules-prompt-file.mdc"
 body_length: 39563

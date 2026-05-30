@@ -1,9 +1,9 @@
-﻿---
+---
 name: "punkpeye/fastmcp"
 description: "A high-level framework for building MCP servers in TypeScript"
-category: "Developer Tools"
+category: "Other Tools and Integrations"
 repo: "punkpeye/fastmcp"
-stars: 3147
+stars: 3149
 url: "https://github.com/punkpeye/fastmcp"
 body_length: 64487
 license: "MIT"

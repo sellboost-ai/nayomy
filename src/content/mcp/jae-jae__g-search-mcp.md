@@ -1,4 +1,4 @@
-﻿---
+---
 name: "jae-jae/g-search-mcp"
 description: "A powerful MCP server for Google search that enables parallel searching with multiple keywords simultaneously."
 category: "Search & Data Extraction"

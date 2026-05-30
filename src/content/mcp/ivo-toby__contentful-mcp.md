@@ -1,7 +1,7 @@
-﻿---
+---
 name: "ivo-toby/contentful-mcp"
 description: "Update, create, delete content, content-models and assets in your Contentful Space"
-category: "Workplace & Productivity"
+category: "Other Tools and Integrations"
 repo: "ivo-toby/contentful-mcp"
 stars: 60
 url: "https://github.com/ivo-toby/contentful-mcp"

@@ -4,7 +4,7 @@ clean_name: "Node.js Express"
 description: "Node.js and Express.js best practices for backend development"
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/node-express.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/node-express.mdc"
 body_length: 2172

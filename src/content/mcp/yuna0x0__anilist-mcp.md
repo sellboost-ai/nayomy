@@ -1,4 +1,4 @@
-﻿---
+---
 name: "yuna0x0/anilist-mcp"
 description: "A MCP server integrating AniList API for anime and manga information"
 category: "Art & Culture"

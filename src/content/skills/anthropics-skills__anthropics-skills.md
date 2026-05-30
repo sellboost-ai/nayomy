@@ -4,7 +4,7 @@ description_en: "Anthropic's official skills repository. Production-grade skills
 description_tr: "Anthropic'in resmi skill repository'si. Prodüksiyon kalitesinde skill'ler, Apache 2.0 lisanslı."
 category: "Collection"
 repo: "anthropics/skills"
-stars: 143150
+stars: 143668
 url: "https://github.com/anthropics/skills"
 path: ""
 is_collection: true

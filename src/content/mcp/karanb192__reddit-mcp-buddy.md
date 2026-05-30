@@ -1,4 +1,4 @@
-﻿---
+---
 name: "karanb192/reddit-mcp-buddy"
 description: "Browse Reddit posts, search content, and analyze user activity without API keys. Works out-of-the-box with Claude Desktop."
 category: "Social Media"

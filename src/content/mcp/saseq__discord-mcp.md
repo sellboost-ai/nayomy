@@ -1,4 +1,4 @@
-﻿---
+---
 name: "SaseQ/discord-mcp"
 description: "A MCP server for the Discord integration. Enable your AI assistants to seamlessly interact with Discord. Enhance your Discord experience with powerful automation capabilities."
 category: "Communication"

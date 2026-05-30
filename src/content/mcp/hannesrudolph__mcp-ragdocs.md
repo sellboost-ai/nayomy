@@ -1,4 +1,4 @@
-﻿---
+---
 name: "hannesrudolph/mcp-ragdocs"
 description: "An MCP server implementation that provides tools for retrieving and processing documentation through vector search, enabling AI assistants to augment their responses with relevant documentation context"
 category: "Knowledge & Memory"

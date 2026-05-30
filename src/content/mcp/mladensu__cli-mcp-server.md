@@ -1,4 +1,4 @@
-﻿---
+---
 name: "MladenSU/cli-mcp-server"
 description: "Command line interface with secure execution and customizable security policies"
 category: "Command Line"

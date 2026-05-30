@@ -4,7 +4,7 @@ clean_name: "Rails"
 description: "Cursor rules for Rails development with basic setup."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/rails-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rails-cursorrules-prompt-file.mdc"
 body_length: 738

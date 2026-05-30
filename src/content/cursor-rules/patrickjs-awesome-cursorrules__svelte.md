@@ -4,7 +4,7 @@ clean_name: "Svelte"
 description: "Svelte best practices and patterns for modern web applications"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/svelte.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/svelte.mdc"
 body_length: 2149

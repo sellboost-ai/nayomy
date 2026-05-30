@@ -1,7 +1,7 @@
-﻿---
+---
 name: "Seym0n/tiktok-mcp"
 description: "Interact with TikTok videos"
-category: "Social Media"
+category: "Other Tools and Integrations"
 repo: "Seym0n/tiktok-mcp"
 stars: 159
 url: "https://github.com/Seym0n/tiktok-mcp"

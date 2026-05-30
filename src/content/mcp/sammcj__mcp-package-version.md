@@ -1,4 +1,4 @@
-﻿---
+---
 name: "sammcj/mcp-package-version"
 description: "An MCP Server to help LLMs suggest the latest stable package versions when writing code."
 category: "Developer Tools"

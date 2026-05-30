@@ -1,4 +1,4 @@
-﻿---
+---
 name: "txn2/kubefwd"
 description: "Kubernetes bulk port forwarding with service discovery, /etc/hosts management, traffic monitoring, and pod log streaming."
 category: "Cloud Platforms"

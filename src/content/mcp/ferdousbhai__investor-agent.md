@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ferdousbhai/investor-agent"
 description: "Yahoo Finance integration to fetch stock market data including options recommendations"
 category: "Finance & Fintech"

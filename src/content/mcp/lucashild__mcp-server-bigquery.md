@@ -1,4 +1,4 @@
-﻿---
+---
 name: "LucasHild/mcp-server-bigquery"
 description: "BigQuery database integration with schema inspection and query capabilities"
 category: "Databases"

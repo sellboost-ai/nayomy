@@ -1,4 +1,4 @@
-﻿---
+---
 name: "hloiseau/mcp-gopls"
 description: "A MCP server for interacting with Go's Language Server Protocol (gopls) and benefit from advanced Go code analysis features."
 category: "Developer Tools"

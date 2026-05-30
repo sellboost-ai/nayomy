@@ -4,7 +4,7 @@ clean_name: "Angular Novo Elements"
 description: "Cursor rules for Angular development with Novo Elements UI library."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/angular-novo-elements-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/angular-novo-elements-cursorrules-prompt-file.mdc"
 body_length: 6280

@@ -4,7 +4,7 @@ clean_name: "Solidjs Tailwind"
 description: "Cursor rules for Solid.js development with Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/solidjs-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidjs-tailwind-cursorrules-prompt-file.mdc"
 body_length: 1251

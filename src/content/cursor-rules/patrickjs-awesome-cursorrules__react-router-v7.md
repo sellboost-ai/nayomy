@@ -4,7 +4,7 @@ clean_name: "React Router V7"
 description: "React Router v7 rules for framework mode, data routers, loaders, actions, route modules, and progressive enhancement"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-router-v7.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-router-v7.mdc"
 body_length: 2284

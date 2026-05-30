@@ -1,7 +1,7 @@
-﻿---
+---
 name: "ckanthony/openapi-mcp"
 description: "OpenAPI-MCP: Dockerized MCP Server to allow your AI agent to access any API with existing api docs."
-category: "Developer Tools"
+category: "Code Execution"
 repo: "ckanthony/openapi-mcp"
 stars: 187
 url: "https://github.com/ckanthony/openapi-mcp"

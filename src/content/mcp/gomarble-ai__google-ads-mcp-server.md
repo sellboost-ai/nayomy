@@ -1,4 +1,4 @@
-﻿---
+---
 name: "gomarble-ai/google-ads-mcp-server"
 description: "MCP server acting as an interface to the Google Ads, enabling programmatic access to Google Ads data and management features."
 category: "Marketing"

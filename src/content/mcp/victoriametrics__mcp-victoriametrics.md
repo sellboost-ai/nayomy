@@ -1,4 +1,4 @@
-﻿---
+---
 name: "VictoriaMetrics/mcp-victoriametrics"
 description: "Provides comprehensive integration with your VictoriaMetrics instance APIs and documentation for monitoring, observability, and debugging tasks related to your VictoriaMetrics instances"
 category: "Monitoring"

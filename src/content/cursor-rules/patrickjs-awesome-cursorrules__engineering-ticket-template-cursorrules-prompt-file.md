@@ -4,7 +4,7 @@ clean_name: "Engineering Ticket Template"
 description: "Cursor rules for engineering development with ticket template integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/engineering-ticket-template-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/engineering-ticket-template-cursorrules-prompt-file.mdc"
 body_length: 9968

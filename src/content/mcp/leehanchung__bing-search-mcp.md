@@ -1,9 +1,9 @@
-﻿---
+---
 name: "leehanchung/bing-search-mcp"
 description: "Web search capabilities using Microsoft Bing Search API"
 category: "Search & Data Extraction"
 repo: "leehanchung/bing-search-mcp"
-stars: 79
+stars: 78
 url: "https://github.com/leehanchung/bing-search-mcp"
 body_length: 2551
 license: "MIT"

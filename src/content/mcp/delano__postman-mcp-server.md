@@ -1,4 +1,4 @@
-﻿---
+---
 name: "delano/postman-mcp-server"
 description: "Interact with Postman API"
 category: "Developer Tools"

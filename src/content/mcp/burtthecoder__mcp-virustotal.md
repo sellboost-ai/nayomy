@@ -1,4 +1,4 @@
-﻿---
+---
 name: "BurtTheCoder/mcp-virustotal"
 description: "MCP server for querying the VirusTotal API. This server provides tools for scanning URLs, analyzing file hashes, and retrieving IP address reports."
 category: "Security"

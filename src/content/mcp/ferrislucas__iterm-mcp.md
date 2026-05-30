@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ferrislucas/iterm-mcp"
 description: "A Model Context Protocol server that provides access to iTerm. You can run commands and ask questions about what you see in the iTerm terminal."
 category: "Command Line"

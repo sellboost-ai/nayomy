@@ -4,7 +4,7 @@ clean_name: "Cursorrules Cursor AI Wordpress Draft Macos Prompt"
 description: "Cursor rules for WordPress development on macOS."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt.mdc"
 body_length: 688

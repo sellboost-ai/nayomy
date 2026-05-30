@@ -1,4 +1,4 @@
-﻿---
+---
 name: "f4ww4z/mcp-mysql-server"
 description: "Node.js-based MySQL database integration that provides secure MySQL database operations"
 category: "Databases"

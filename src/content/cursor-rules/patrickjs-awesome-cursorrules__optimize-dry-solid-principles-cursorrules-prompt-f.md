@@ -4,7 +4,7 @@ clean_name: "Optimize Dry Solid Principles Cursorrules Prompt F"
 description: "Cursor rules for optimization development with DRY and SOLID principles integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/optimize-dry-solid-principles-cursorrules-prompt-f.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/optimize-dry-solid-principles-cursorrules-prompt-f.mdc"
 body_length: 775

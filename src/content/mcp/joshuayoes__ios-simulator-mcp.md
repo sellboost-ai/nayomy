@@ -1,9 +1,9 @@
-﻿---
+---
 name: "joshuayoes/ios-simulator-mcp"
 description: "A Model Context Protocol (MCP) server for interacting with iOS simulators. This server allows you to interact with iOS simulators by getting information about them, controlling UI interactions, and inspecting UI elements."
-category: "Embedded System"
+category: "Developer Tools"
 repo: "joshuayoes/ios-simulator-mcp"
-stars: 2017
+stars: 2019
 url: "https://github.com/joshuayoes/ios-simulator-mcp"
 body_length: 15860
 license: "MIT"

@@ -4,7 +4,7 @@ clean_name: "React Redux TypeScript"
 description: "Cursor rules for React development with Redux and TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-redux-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-redux-typescript-cursorrules-prompt-file.mdc"
 body_length: 1156

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "areweai/tsgram-mcp"
 description: "TSgram: Telegram + Claude with local workspace access on your phone in typescript. Read, write, and vibe code on the go!"
 category: "Communication"

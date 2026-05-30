@@ -4,7 +4,7 @@ clean_name: "Kubernetes Mkdocs Documentation Cursorrules Prompt"
 description: "Cursor rules for Kubernetes development with MkDocs documentation integration."
 category: "DevOps"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/kubernetes-mkdocs-documentation-cursorrules-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/kubernetes-mkdocs-documentation-cursorrules-prompt.mdc"
 body_length: 957

@@ -1,9 +1,9 @@
-﻿---
+---
 name: "caol64/wenyan-mcp"
 description: "Wenyan MCP Server, which lets AI automatically format Markdown articles and publish them to WeChat GZH."
-category: "Social Media"
+category: "Other Tools and Integrations"
 repo: "caol64/wenyan-mcp"
-stars: 1232
+stars: 1233
 url: "https://github.com/caol64/wenyan-mcp"
 body_length: 7044
 license: "Apache-2.0"

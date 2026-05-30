@@ -1,9 +1,9 @@
-﻿---
+---
 name: "supabase-community/supabase-mcp"
 description: "Official Supabase MCP server to connect AI assistants directly with your Supabase project and allows them to perform tasks like managing tables, fetching config, and querying data."
 category: "Databases"
 repo: "supabase-community/supabase-mcp"
-stars: 2709
+stars: 2712
 url: "https://github.com/supabase-community/supabase-mcp"
 body_length: 16221
 license: "Apache-2.0"

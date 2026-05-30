@@ -1,9 +1,9 @@
-﻿---
+---
 name: "BrowserMCP/mcp"
 description: "Automate your local Chrome browser"
 category: "Browser Automation"
 repo: "BrowserMCP/mcp"
-stars: 6580
+stars: 6582
 url: "https://github.com/BrowserMCP/mcp"
 body_length: 1506
 license: "Apache-2.0"

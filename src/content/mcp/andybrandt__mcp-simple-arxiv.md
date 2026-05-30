@@ -1,4 +1,4 @@
-﻿---
+---
 name: "andybrandt/mcp-simple-arxiv"
 description: "MCP for LLM to search and read papers from arXiv"
 category: "Search & Data Extraction"

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "radareorg/radare2-mcp"
 description: "MCP server for Radare2 disassembler. Provides AI with capability to disassemble and look into binaries for reverse engineering."
 category: "Security"

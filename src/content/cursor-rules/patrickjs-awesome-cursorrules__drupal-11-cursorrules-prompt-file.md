@@ -4,7 +4,7 @@ clean_name: "Drupal 11"
 description: "Cursor rules for Drupal 11 development."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/drupal-11-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/drupal-11-cursorrules-prompt-file.mdc"
 body_length: 7172

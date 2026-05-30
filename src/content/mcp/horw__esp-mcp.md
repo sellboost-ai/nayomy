@@ -1,4 +1,4 @@
-﻿---
+---
 name: "horw/esp-mcp"
 description: "Workflow for fixing build issues in ESP32 series chips using ESP-IDF."
 category: "Embedded System"

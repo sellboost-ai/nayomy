@@ -1,9 +1,9 @@
-﻿---
+---
 name: "brightdata/brightdata-mcp"
 description: "Discover, extract, and interact with the web - one interface powering automated access across the public internet."
 category: "Search & Data Extraction"
 repo: "brightdata/brightdata-mcp"
-stars: 2417
+stars: 2421
 url: "https://github.com/brightdata/brightdata-mcp"
 body_length: 19252
 license: "MIT"

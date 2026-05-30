@@ -1,4 +1,4 @@
-﻿---
+---
 name: "berlinbra/alpha-vantage-mcp"
 description: "Alpha Vantage API integration to fetch both stock and crypto information"
 category: "Finance & Fintech"

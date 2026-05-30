@@ -1,11 +1,11 @@
-﻿---
+---
 name: "safedep/vet"
 description: "vet-mcp checks open source packages—like those suggested by AI coding tools—for vulnerabilities and malicious code. It supports npm and PyPI, and runs locally via Docker or as a standalone binary for fast, automated vetting."
 category: "Security"
 repo: "safedep/vet"
 stars: 1059
 url: "https://github.com/safedep/vet"
-body_length: 11274
+body_length: 11481
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://safedep.io"
@@ -343,6 +343,14 @@ export VET_DISABLE_TELEMETRY=true
 vet stands on the shoulders of giants:
 
 [OSV](https://osv.dev) • [OpenSSF Scorecard](https://securityscorecards.dev/) • [SLSA](https://slsa.dev/) • [OSV-SCALIBR](https://github.com/google/osv-scalibr) • [Syft](https://github.com/anchore/syft)
+
+### Contributors
+
+Thank you to all contributors ❤️
+
+<a href="https://github.com/safedep/vet/graphs/contributors">
+  
+</a>
 
 ---
 

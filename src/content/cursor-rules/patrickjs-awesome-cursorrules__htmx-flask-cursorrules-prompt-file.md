@@ -4,7 +4,7 @@ clean_name: "Htmx Flask"
 description: "Cursor rules for HTMX development with Flask integration."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/htmx-flask-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-flask-cursorrules-prompt-file.mdc"
 body_length: 1077

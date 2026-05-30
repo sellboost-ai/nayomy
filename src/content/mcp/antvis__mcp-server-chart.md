@@ -1,9 +1,9 @@
-﻿---
+---
 name: "antvis/mcp-server-chart"
 description: "A Model Context Protocol server for generating visual charts using AntV."
-category: "Data Science"
+category: "Customer Data Platforms"
 repo: "antvis/mcp-server-chart"
-stars: 4112
+stars: 4115
 url: "https://github.com/antvis/mcp-server-chart"
 body_length: 14053
 license: "MIT"

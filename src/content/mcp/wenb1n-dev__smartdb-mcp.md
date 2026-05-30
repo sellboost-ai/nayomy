@@ -1,4 +1,4 @@
-﻿---
+---
 name: "wenb1n-dev/SmartDB_MCP"
 description: "A universal database MCP server supporting simultaneous connections to multiple databases. It provides tools for database operations, health analysis, SQL optimization, and more. Compatible with mainstream databases including MySQL, PostgreSQL, SQL Server, MariaDB, Dameng, and Oracle. Supports Streamable HTTP, SSE, and STDIO; integrates OAuth 2.0; and is designed for easy customization and extensi"
 category: "Databases"

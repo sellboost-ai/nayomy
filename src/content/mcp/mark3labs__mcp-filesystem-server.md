@@ -1,9 +1,9 @@
-﻿---
+---
 name: "mark3labs/mcp-filesystem-server"
 description: "Golang implementation for local file system access."
 category: "File Systems"
 repo: "mark3labs/mcp-filesystem-server"
-stars: 644
+stars: 645
 url: "https://github.com/mark3labs/mcp-filesystem-server"
 body_length: 5802
 license: "MIT"

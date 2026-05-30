@@ -1,4 +1,4 @@
-﻿---
+---
 name: "domdomegg/airtable-mcp-server"
 description: "Airtable database integration with schema inspection, read and write capabilities"
 category: "Databases"

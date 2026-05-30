@@ -4,7 +4,7 @@ clean_name: "React GraphQL Apollo Client"
 description: "Cursor rules for GraphQL development with Apollo Client integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-graphql-apollo-client-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-graphql-apollo-client-cursorrules-prompt-file.mdc"
 body_length: 1179

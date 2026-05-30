@@ -1,7 +1,7 @@
-﻿---
+---
 name: "ckreiling/mcp-server-docker"
 description: "Integrate with Docker to manage containers, images, volumes, and networks."
-category: "Cloud Platforms"
+category: "Developer Tools"
 repo: "ckreiling/mcp-server-docker"
 stars: 718
 url: "https://github.com/ckreiling/mcp-server-docker"

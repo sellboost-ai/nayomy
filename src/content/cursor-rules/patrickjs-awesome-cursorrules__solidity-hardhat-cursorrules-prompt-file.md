@@ -4,7 +4,7 @@ clean_name: "Solidity Hardhat"
 description: "Cursor rules for Solidity development with Hardhat integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/solidity-hardhat-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidity-hardhat-cursorrules-prompt-file.mdc"
 body_length: 5355

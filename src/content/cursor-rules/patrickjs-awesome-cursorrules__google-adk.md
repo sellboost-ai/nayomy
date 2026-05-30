@@ -4,7 +4,7 @@ clean_name: "Google Adk"
 description: "Google Agent Development Kit rules for agents, tools, sessions, memory, artifacts, evaluation, and deployment"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/google-adk.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/google-adk.mdc"
 body_length: 2293

@@ -4,7 +4,7 @@ clean_name: "Pandas Scikit Learn Guide"
 description: "Cursor rules for Pandas development with scikit-learn guide integration."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/pandas-scikit-learn-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/pandas-scikit-learn-guide-cursorrules-prompt-file.mdc"
 body_length: 2840

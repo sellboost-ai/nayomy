@@ -1,4 +1,4 @@
-﻿---
+---
 name: "mpeirone/zabbix-mcp-server"
 description: "Zabbix integration for hosts, items, triggers, templates, problems, data and more."
 category: "Monitoring"

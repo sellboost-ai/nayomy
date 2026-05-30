@@ -4,7 +4,7 @@ clean_name: "AI Agent Specialist"
 description: "Cursor rules for TypeScript, React, Node.js, clean architecture, testing, and WHY-oriented engineering guidance."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/ai-agent-specialist.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ai-agent-specialist.mdc"
 body_length: 2512

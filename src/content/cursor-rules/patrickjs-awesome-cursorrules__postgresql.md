@@ -4,7 +4,7 @@ clean_name: "PostgreSQL"
 description: "PostgreSQL production rules. Safe migrations, parameterized queries, TIMESTAMPTZ, proper indexing strategy."
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/postgresql.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/postgresql.mdc"
 body_length: 1408

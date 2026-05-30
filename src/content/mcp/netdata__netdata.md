@@ -1,9 +1,9 @@
-﻿---
+---
 name: "netdata/netdata"
 description: "Discovery, exploration, reporting and root cause analysis using all observability data, including metrics, logs, systems, containers, processes, and network connections."
 category: "Monitoring"
 repo: "netdata/netdata"
-stars: 78963
+stars: 78972
 url: "https://github.com/netdata/netdata"
 body_length: 26186
 license: "GPL-3.0"

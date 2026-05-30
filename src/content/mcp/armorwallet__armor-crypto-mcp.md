@@ -1,4 +1,4 @@
-﻿---
+---
 name: "armorwallet/armor-crypto-mcp"
 description: "MCP to interface with multiple blockchains, staking, DeFi, swap, bridging, wallet management, DCA, Limit Orders, Coin Lookup, Tracking and more."
 category: "Finance & Fintech"

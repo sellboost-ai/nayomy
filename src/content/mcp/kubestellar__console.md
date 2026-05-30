@@ -1,4 +1,4 @@
-﻿---
+---
 name: "kubestellar/console"
 description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-agent) for AI-assisted operations, real-time observability, and integrations with 20+ CNCF projects across edge and cloud clusters."
 category: "Cloud Platforms"

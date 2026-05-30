@@ -1,4 +1,4 @@
-﻿---
+---
 name: "cjo4m06/mcp-shrimp-task-manager"
 description: "A programming-focused task management system that boosts coding agents like Cursor AI with advanced task memory, self-reflection, and dependency management. ShrimpTaskManager"
 category: "Developer Tools"

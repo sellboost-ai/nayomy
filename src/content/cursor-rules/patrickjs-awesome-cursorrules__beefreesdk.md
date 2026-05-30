@@ -4,7 +4,7 @@ clean_name: "BeefreeSDK"
 description: "Guidelines and best practices for building applications with [Beefree SDK](https://docs.beefree.io/beefree-sdk), including installation, authentication, configuration, customization, and template management"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/beefreeSDK.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/beefreeSDK.mdc"
 body_length: 16768

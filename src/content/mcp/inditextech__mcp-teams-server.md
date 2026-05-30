@@ -1,4 +1,4 @@
-﻿---
+---
 name: "InditexTech/mcp-teams-server"
 description: "MCP server that integrates Microsoft Teams messaging (read, post, mention, list members and threads)"
 category: "Communication"

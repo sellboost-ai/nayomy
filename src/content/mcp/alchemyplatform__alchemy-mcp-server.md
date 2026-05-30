@@ -1,4 +1,4 @@
-﻿---
+---
 name: "alchemyplatform/alchemy-mcp-server"
 description: "Allow AI agents to interact with Alchemy's blockchain APIs."
 category: "Finance & Fintech"

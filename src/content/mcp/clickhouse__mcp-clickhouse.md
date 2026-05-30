@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ClickHouse/mcp-clickhouse"
 description: "ClickHouse database integration with schema inspection and query capabilities"
 category: "Databases"

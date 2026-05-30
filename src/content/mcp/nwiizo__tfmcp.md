@@ -1,4 +1,4 @@
-﻿---
+---
 name: "nwiizo/tfmcp"
 description: "A Terraform MCP server allowing AI assistants to manage and operate Terraform environments, enabling reading configurations, analyzing plans, applying configurations, and managing Terraform state."
 category: "Cloud Platforms"

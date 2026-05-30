@@ -1,9 +1,9 @@
-﻿---
+---
 name: "pab1it0/prometheus-mcp-server"
 description: "Query and analyze Prometheus, open-source monitoring system."
-category: "Monitoring"
+category: "Databases"
 repo: "pab1it0/prometheus-mcp-server"
-stars: 449
+stars: 450
 url: "https://github.com/pab1it0/prometheus-mcp-server"
 body_length: 8749
 license: "MIT"

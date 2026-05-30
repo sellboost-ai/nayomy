@@ -1,9 +1,9 @@
-﻿---
+---
 name: "browserbase/mcp-server-browserbase"
 description: "Automate browser interactions in the cloud (e.g. web navigation, data extraction, form filling, and more)"
 category: "Browser Automation"
 repo: "browserbase/mcp-server-browserbase"
-stars: 3359
+stars: 3361
 url: "https://github.com/browserbase/mcp-server-browserbase"
 body_length: 7707
 license: "Apache-2.0"

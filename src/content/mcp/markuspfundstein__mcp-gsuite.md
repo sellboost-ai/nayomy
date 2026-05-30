@@ -1,4 +1,4 @@
-﻿---
+---
 name: "MarkusPfundstein/mcp-gsuite"
 description: "Integration with gmail and Google Calendar."
 category: "Workplace & Productivity"

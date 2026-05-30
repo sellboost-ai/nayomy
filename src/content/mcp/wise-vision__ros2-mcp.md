@@ -1,7 +1,7 @@
-﻿---
+---
 name: "wise-vision/ros2_mcp"
 description: "MCP server for ROS2 enabling AI-driven robotics applications and services."
-category: "Embedded System"
+category: "Developer Tools"
 repo: "wise-vision/ros2_mcp"
 stars: 78
 url: "https://github.com/wise-vision/ros2_mcp"

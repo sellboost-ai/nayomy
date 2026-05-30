@@ -4,7 +4,7 @@ clean_name: "Htmx Go Basic"
 description: "Cursor rules for Go development with basic setup."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/htmx-go-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-go-basic-cursorrules-prompt-file.mdc"
 body_length: 1026

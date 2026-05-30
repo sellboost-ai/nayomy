@@ -1,4 +1,4 @@
-﻿---
+---
 name: "tinyfish-io/agentql-mcp"
 description: "MCP server that provides AgentQL's data extraction capabilities."
 category: "Search & Data Extraction"

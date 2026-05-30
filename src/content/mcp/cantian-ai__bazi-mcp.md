@@ -1,4 +1,4 @@
-﻿---
+---
 name: "cantian-ai/bazi-mcp"
 description: "Provides comprehensive and accurate Bazi (Chinese Astrology) charting and analysis"
 category: "Art & Culture"

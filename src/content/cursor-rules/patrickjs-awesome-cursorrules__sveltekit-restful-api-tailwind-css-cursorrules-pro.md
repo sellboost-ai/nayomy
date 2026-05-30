@@ -4,7 +4,7 @@ clean_name: "SvelteKit Restful API Tailwind CSS Cursorrules Pro"
 description: "Cursor rules for SvelteKit development with RESTful API and Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/sveltekit-restful-api-tailwind-css-cursorrules-pro.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/sveltekit-restful-api-tailwind-css-cursorrules-pro.mdc"
 body_length: 3533

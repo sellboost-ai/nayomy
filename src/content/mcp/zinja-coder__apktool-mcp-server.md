@@ -1,9 +1,9 @@
-﻿---
+---
 name: "zinja-coder/apktool-mcp-server"
 description: "APKTool MCP Server is a MCP server for the Apk Tool to provide automation in reverse engineering of Android APKs."
 category: "Security"
 repo: "zinja-coder/apktool-mcp-server"
-stars: 454
+stars: 456
 url: "https://github.com/zinja-coder/apktool-mcp-server"
 body_length: 11810
 license: "Apache-2.0"

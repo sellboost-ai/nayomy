@@ -1,4 +1,4 @@
-﻿---
+---
 name: "janreges/ai-distiller"
 description: "Extracts essential code structure from large codebases into AI-digestible format, helping AI agents write code that correctly uses existing APIs on the first attempt."
 category: "Developer Tools"

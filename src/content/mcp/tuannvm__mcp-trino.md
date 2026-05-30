@@ -1,9 +1,9 @@
-﻿---
+---
 name: "tuannvm/mcp-trino"
 description: "A Go implementation of a Model Context Protocol (MCP) server for Trino"
 category: "Databases"
 repo: "tuannvm/mcp-trino"
-stars: 107
+stars: 108
 url: "https://github.com/tuannvm/mcp-trino"
 body_length: 14776
 license: "MIT"

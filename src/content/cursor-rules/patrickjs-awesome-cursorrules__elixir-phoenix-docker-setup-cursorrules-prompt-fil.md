@@ -4,7 +4,7 @@ clean_name: "Elixir Phoenix Docker Setup Cursorrules Prompt Fil"
 description: "Cursor rules for Elixir development with Phoenix and Docker integration."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/elixir-phoenix-docker-setup-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/elixir-phoenix-docker-setup-cursorrules-prompt-fil.mdc"
 body_length: 2176

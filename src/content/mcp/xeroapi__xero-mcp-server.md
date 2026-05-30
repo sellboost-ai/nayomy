@@ -1,4 +1,4 @@
-﻿---
+---
 name: "XeroAPI/xero-mcp-server"
 description: "An MCP server that integrates with Xero's API, allowing for standardized access to Xero's accounting and business features."
 category: "Finance & Fintech"

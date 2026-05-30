@@ -1,4 +1,4 @@
-﻿---
+---
 name: "strowk/mcp-k8s-go"
 description: "Kubernetes cluster operations through MCP"
 category: "Cloud Platforms"

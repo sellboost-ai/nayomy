@@ -4,7 +4,7 @@ clean_name: "Solidity Foundry"
 description: "Cursor rules for Solidity development with Foundry integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/solidity-foundry-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidity-foundry-cursorrules-prompt-file.mdc"
 body_length: 7946

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "heurist-network/heurist-mesh-mcp-server"
 description: "Access specialized web3 AI agents for blockchain analysis, smart contract security auditing, token metrics evaluation, and on-chain interactions through the Heurist Mesh network. Provides comprehensive tools for DeFi analysis, NFT valuation, and transaction monitoring across multiple blockchains"
 category: "Finance & Fintech"

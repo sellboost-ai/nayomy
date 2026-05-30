@@ -4,7 +4,7 @@ clean_name: "Ankra CLI"
 description: "Ankra CLI rules and best practices for managing Kubernetes clusters via the Ankra platform"
 category: "Tools"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/ankra-cli.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ankra-cli.mdc"
 body_length: 7080

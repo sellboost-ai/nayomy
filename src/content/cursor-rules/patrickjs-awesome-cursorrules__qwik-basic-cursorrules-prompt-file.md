@@ -4,7 +4,7 @@ clean_name: "Qwik Basic"
 description: "Cursor rules for Qwik development with TypeScript and Vite integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/qwik-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/qwik-basic-cursorrules-prompt-file.mdc"
 body_length: 1279

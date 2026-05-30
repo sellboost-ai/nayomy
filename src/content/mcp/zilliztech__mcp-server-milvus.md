@@ -1,4 +1,4 @@
-﻿---
+---
 name: "zilliztech/mcp-server-milvus"
 description: "MCP Server for Milvus / Zilliz, making it possible to interact with your database."
 category: "Databases"

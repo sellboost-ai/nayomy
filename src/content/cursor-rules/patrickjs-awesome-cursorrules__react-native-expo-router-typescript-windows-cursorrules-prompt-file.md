@@ -4,7 +4,7 @@ clean_name: "React Native Expo Router TypeScript Windows"
 description: "Cursor rules for React Native Expo Router Typescript Windows."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file.mdc"
 body_length: 2717

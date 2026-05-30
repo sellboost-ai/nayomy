@@ -1,4 +1,4 @@
-﻿---
+---
 name: "xzq-xu/jvm-mcp-server"
 description: "An implementation project of a JVM-based MCP (Model Context Protocol) server."
 category: "Developer Tools"

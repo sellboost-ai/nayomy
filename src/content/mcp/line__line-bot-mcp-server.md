@@ -1,4 +1,4 @@
-﻿---
+---
 name: "line/line-bot-mcp-server"
 description: "MCP Server for Integrating LINE Official Account"
 category: "Communication"

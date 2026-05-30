@@ -1,9 +1,9 @@
-﻿---
+---
 name: "topoteretes/cognee"
 description: "Memory manager for AI apps and Agents using various graph and vector stores and allowing ingestion from 30+ data sources."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
-stars: 17578
+stars: 17587
 url: "https://github.com/topoteretes/cognee"
 body_length: 12145
 license: "Apache-2.0"
@@ -106,9 +106,9 @@ Cognee is an open-source memory control plane for your Agents that lets you inge
 
 ## Basic Usage & Feature Guide
 
-To learn more, [check out this short, end-to-end Colab walkthrough](https://colab.research.google.com/drive/1HRrzIvzcbwrESVfX76wJLKmtIg00SUga?usp=sharing) of Cognee's core features.
+To learn more, [check out this short, end-to-end Colab walkthrough](https://colab.research.google.com/drive/12Vi9zID-M3fpKpKiaqDBvkk98ElkRPWy?usp=sharing) of Cognee's core features.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1HRrzIvzcbwrESVfX76wJLKmtIg00SUga?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12Vi9zID-M3fpKpKiaqDBvkk98ElkRPWy?usp=sharing)
 
 ## Quickstart
 

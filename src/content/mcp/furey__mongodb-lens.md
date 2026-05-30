@@ -1,4 +1,4 @@
-﻿---
+---
 name: "furey/mongodb-lens"
 description: "MongoDB Lens: Full Featured MCP Server for MongoDB Databases"
 category: "Databases"

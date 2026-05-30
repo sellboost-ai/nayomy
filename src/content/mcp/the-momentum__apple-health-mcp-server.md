@@ -1,9 +1,9 @@
-﻿---
+---
 name: "the-momentum/apple-health-mcp-server"
 description: "An MCP server that provides access to exported data from Apple Health. Data analytics included."
 category: "Biology Medicine and Bioinformatics"
 repo: "the-momentum/apple-health-mcp-server"
-stars: 196
+stars: 197
 url: "https://github.com/the-momentum/apple-health-mcp-server"
 body_length: 5275
 license: "MIT"

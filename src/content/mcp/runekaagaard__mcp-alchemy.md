@@ -1,9 +1,9 @@
-﻿---
+---
 name: "runekaagaard/mcp-alchemy"
 description: "Universal SQLAlchemy-based database integration supporting PostgreSQL, MySQL, MariaDB, SQLite, Oracle, MS SQL Server and many more databases. Features schema and relationship inspection, and large dataset analysis capabilities."
 category: "Databases"
 repo: "runekaagaard/mcp-alchemy"
-stars: 404
+stars: 406
 url: "https://github.com/runekaagaard/mcp-alchemy"
 body_length: 9387
 license: "MPL-2.0"

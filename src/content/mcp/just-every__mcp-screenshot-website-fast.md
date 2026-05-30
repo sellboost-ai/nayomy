@@ -1,7 +1,7 @@
-﻿---
+---
 name: "just-every/mcp-screenshot-website-fast"
 description: "Fast screenshot capture tool optimized for Claude Vision API. Automatically tiles full pages into 1072x1072 chunks for optimal AI processing with configurable viewports and wait strategies for dynamic content."
-category: "Browser Automation"
+category: "Search & Data Extraction"
 repo: "just-every/mcp-screenshot-website-fast"
 stars: 106
 url: "https://github.com/just-every/mcp-screenshot-website-fast"

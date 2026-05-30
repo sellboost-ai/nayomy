@@ -1,9 +1,9 @@
-﻿---
+---
 name: "chigwell/telegram-mcp"
 description: "Telegram API integration for accessing user data, managing dialogs (chats, channels, groups), retrieving messages, sending messages and handling read status."
 category: "Communication"
 repo: "chigwell/telegram-mcp"
-stars: 1141
+stars: 1146
 url: "https://github.com/chigwell/telegram-mcp"
 body_length: 15822
 license: "Apache-2.0"

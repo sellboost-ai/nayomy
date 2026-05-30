@@ -1,4 +1,4 @@
-﻿---
+---
 name: "nickclyde/duckduckgo-mcp-server"
 description: "Web search using DuckDuckGo"
 category: "Search & Data Extraction"

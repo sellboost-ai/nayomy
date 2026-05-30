@@ -4,7 +4,7 @@ clean_name: "Next.js Supabase Shadcn PWA"
 description: "Cursor rules for Nextjs Supabase Shadcn Pwa."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/nextjs-supabase-shadcn-pwa-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-supabase-shadcn-pwa-cursorrules-prompt-file.mdc"
 body_length: 6569

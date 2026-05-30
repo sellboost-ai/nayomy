@@ -4,7 +4,7 @@ clean_name: "React TypeScript Next.js Node.js Cursorrules Prompt"
 description: "Cursor rules for React development with TypeScript, Next.js, and Node.js integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/react-typescript-nextjs-nodejs-cursorrules-prompt-.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-typescript-nextjs-nodejs-cursorrules-prompt-.mdc"
 body_length: 4645

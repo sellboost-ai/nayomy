@@ -1,9 +1,9 @@
-﻿---
+---
 name: "neondatabase/mcp-server-neon"
 description: "MCP server for interacting with Neon Management API and databases."
 category: "Databases"
 repo: "neondatabase/mcp-server-neon"
-stars: 604
+stars: 605
 url: "https://github.com/neondatabase/mcp-server-neon"
 body_length: 21621
 license: "MIT"

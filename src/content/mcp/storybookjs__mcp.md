@@ -1,4 +1,4 @@
-﻿---
+---
 name: "storybookjs/mcp"
 description: "Help agents automatically write and test stories for your UI components."
 category: "Developer Tools"

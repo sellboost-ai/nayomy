@@ -4,7 +4,7 @@ clean_name: "How To Documentation"
 description: "Cursor rules for how-to documentation development with integration."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/how-to-documentation-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/how-to-documentation-cursorrules-prompt-file.mdc"
 body_length: 4575

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "kadykov/mcp-openapi-schema-explorer"
 description: "Token-efficient access to OpenAPI/Swagger specs via MCP Resources."
 category: "Developer Tools"

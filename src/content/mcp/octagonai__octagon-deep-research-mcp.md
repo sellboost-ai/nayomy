@@ -1,4 +1,4 @@
-﻿---
+---
 name: "OctagonAI/octagon-deep-research-mcp"
 description: "Lightning-Fast, High-Accuracy Deep Research Agent"
 category: "Search & Data Extraction"

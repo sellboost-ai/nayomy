@@ -1,9 +1,9 @@
-﻿---
+---
 name: "sxhxliang/mcp-access-point"
 description: "Turn a web service into an MCP server in one click without making any code changes."
-category: "Developer Tools"
+category: "Aggregators"
 repo: "sxhxliang/mcp-access-point"
-stars: 173
+stars: 174
 url: "https://github.com/sxhxliang/mcp-access-point"
 body_length: 14946
 license: "MIT"

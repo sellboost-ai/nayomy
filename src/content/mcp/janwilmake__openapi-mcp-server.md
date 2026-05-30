@@ -1,4 +1,4 @@
-﻿---
+---
 name: "janwilmake/openapi-mcp-server"
 description: "Connect any HTTP/REST API server using an Open API spec (v3)"
 category: "Developer Tools"

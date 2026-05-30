@@ -1,4 +1,4 @@
-﻿---
+---
 name: "Flux159/mcp-server-kubernetes"
 description: "Typescript implementation of Kubernetes cluster operations for pods, deployments, services."
 category: "Cloud Platforms"

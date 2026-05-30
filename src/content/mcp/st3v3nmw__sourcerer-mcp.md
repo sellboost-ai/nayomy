@@ -1,4 +1,4 @@
-﻿---
+---
 name: "st3v3nmw/sourcerer-mcp"
 description: "MCP for semantic code search & navigation that reduces token waste"
 category: "Developer Tools"

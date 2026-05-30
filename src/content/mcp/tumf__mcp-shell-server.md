@@ -1,4 +1,4 @@
-﻿---
+---
 name: "tumf/mcp-shell-server"
 description: "A secure shell command execution server implementing the Model Context Protocol (MCP)"
 category: "Command Line"

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "juspay/neurolink"
 description: "Making enterprise AI infrastructure universally accessible. Edge-first platform unifying 12 providers and 100+ models with multi-agent orchestration, HITL workflows, guardrails middleware, and context summarization."
 category: "Aggregators"

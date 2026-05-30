@@ -1,7 +1,7 @@
-﻿---
+---
 name: "keboola/mcp-server"
 description: "interact with Keboola Connection Data Platform. This server provides tools for listing and accessing data from Keboola Storage API."
-category: "Data Science"
+category: "Data Platforms"
 repo: "keboola/mcp-server"
 stars: 84
 url: "https://github.com/keboola/mcp-server"

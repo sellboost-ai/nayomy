@@ -4,7 +4,7 @@ clean_name: "Plasticode Telegram API"
 description: "Cursor rules for Plasticode development with Telegram API integration."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/plasticode-telegram-api-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/plasticode-telegram-api-cursorrules-prompt-file.mdc"
 body_length: 750

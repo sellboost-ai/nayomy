@@ -1,9 +1,9 @@
-﻿---
+---
 name: "mavdol/capsule"
 description: "Run untrusted Python/JavaScript code in WebAssembly sandboxes."
 category: "Code Execution"
 repo: "mavdol/capsule"
-stars: 287
+stars: 288
 url: "https://github.com/mavdol/capsule"
 body_length: 16884
 license: "Apache-2.0"

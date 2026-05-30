@@ -1,7 +1,7 @@
-﻿---
+---
 name: "awkoy/replicate-flux-mcp"
 description: "Provides the ability to generate images via Replicate's API."
-category: "Multimedia Process"
+category: "Other Tools and Integrations"
 repo: "awkoy/replicate-flux-mcp"
 stars: 104
 url: "https://github.com/awkoy/replicate-flux-mcp"

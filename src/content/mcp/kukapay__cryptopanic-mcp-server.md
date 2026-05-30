@@ -1,4 +1,4 @@
-﻿---
+---
 name: "kukapay/cryptopanic-mcp-server"
 description: "Providing latest cryptocurrency news to AI agents, powered by CryptoPanic."
 category: "Finance & Fintech"

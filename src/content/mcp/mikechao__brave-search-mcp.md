@@ -1,9 +1,9 @@
-﻿---
+---
 name: "mikechao/brave-search-mcp"
 description: "Web, Image, News, Video, and Local Point of Interest search capabilities using Brave's Search API"
 category: "Search & Data Extraction"
 repo: "mikechao/brave-search-mcp"
-stars: 117
+stars: 118
 url: "https://github.com/mikechao/brave-search-mcp"
 body_length: 14479
 license: "GPL-3.0"

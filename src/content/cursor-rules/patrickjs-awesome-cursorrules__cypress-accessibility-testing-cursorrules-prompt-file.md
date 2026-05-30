@@ -4,7 +4,7 @@ clean_name: "Cypress Accessibility Testing"
 description: "Cursor rules for Cypress development with accessibility testing."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/cypress-accessibility-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cypress-accessibility-testing-cursorrules-prompt-file.mdc"
 body_length: 3270

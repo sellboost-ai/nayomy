@@ -1,7 +1,7 @@
-﻿---
+---
 name: "githejie/mcp-server-calculator"
 description: "This server enables LLMs to use calculator for precise numerical calculations"
-category: "Code Execution"
+category: "Other Tools and Integrations"
 repo: "githejie/mcp-server-calculator"
 stars: 148
 url: "https://github.com/githejie/mcp-server-calculator"

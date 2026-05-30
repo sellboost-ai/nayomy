@@ -4,7 +4,7 @@ clean_name: "Python LLM ML Workflow"
 description: "Cursor rules for Python LLM & ML development with workflow integration."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/python-llm-ml-workflow-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-llm-ml-workflow-cursorrules-prompt-file.mdc"
 body_length: 7205

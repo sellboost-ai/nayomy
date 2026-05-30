@@ -1,7 +1,7 @@
-﻿---
+---
 name: "SDGLBL/mcp-claude-code"
 description: "An implementation of Claude Code capabilities using MCP, enabling AI code understanding, modification, and project analysis with comprehensive tool support."
-category: "Coding Agents"
+category: "Developer Tools"
 repo: "SDGLBL/mcp-claude-code"
 stars: 301
 url: "https://github.com/SDGLBL/mcp-claude-code"

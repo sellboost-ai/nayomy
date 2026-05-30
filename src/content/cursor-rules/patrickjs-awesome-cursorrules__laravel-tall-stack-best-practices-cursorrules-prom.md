@@ -4,7 +4,7 @@ clean_name: "Laravel Tall Stack Best Practices Cursorrules Prom"
 description: "Cursor rules for Laravel development with TALL Stack best practices."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/laravel-tall-stack-best-practices-cursorrules-prom.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/laravel-tall-stack-best-practices-cursorrules-prom.mdc"
 body_length: 5168

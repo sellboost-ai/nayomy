@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ShenghaiWang/xcodebuild"
 description: "Build iOS Xcode workspace/project and feed back errors to llm."
 category: "Developer Tools"

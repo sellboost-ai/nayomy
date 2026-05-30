@@ -1,4 +1,4 @@
-﻿---
+---
 name: "1mcp-app/agent"
 description: "A unified Model Context Protocol server implementation that aggregates multiple MCP servers into one."
 category: "Aggregators"

@@ -4,7 +4,7 @@ clean_name: "Swiftui Guidelines"
 description: "Cursor rules for SwiftUI development guidelines."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/swiftui-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/swiftui-guidelines-cursorrules-prompt-file.mdc"
 body_length: 4413

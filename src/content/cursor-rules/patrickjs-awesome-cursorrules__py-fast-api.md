@@ -4,7 +4,7 @@ clean_name: "Py Fast API"
 description: "Cursor rules for Python FastAPI backend development and best practices."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/py-fast-api.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/py-fast-api.mdc"
 body_length: 3753

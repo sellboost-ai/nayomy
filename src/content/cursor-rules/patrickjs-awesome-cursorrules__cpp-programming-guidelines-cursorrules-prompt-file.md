@@ -4,7 +4,7 @@ clean_name: "Cpp Programming Guidelines"
 description: "Cursor rules for C++ development with programming guidelines integration."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/cpp-programming-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cpp-programming-guidelines-cursorrules-prompt-file.mdc"
 body_length: 4930

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "kopfrechner/gitlab-mr-mcp"
 description: "Interact seamlessly with issues and merge requests of your GitLab projects."
 category: "Version Control"

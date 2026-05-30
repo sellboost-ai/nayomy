@@ -1,7 +1,7 @@
-﻿---
+---
 name: "tevonsb/homeassistant-mcp"
 description: "Access Home Assistant data and control devices (lights, switches, thermostats, etc)."
-category: "Embedded System"
+category: "Other Tools and Integrations"
 repo: "tevonsb/homeassistant-mcp"
 stars: 573
 url: "https://github.com/tevonsb/homeassistant-mcp"

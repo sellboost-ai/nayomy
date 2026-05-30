@@ -1,7 +1,7 @@
-﻿---
+---
 name: "ttommyth/interactive-mcp"
 description: "Enables interactive LLM workflows by adding local user prompts and chat capabilities directly into the MCP loop."
-category: "Developer Tools"
+category: "Other Tools and Integrations"
 repo: "ttommyth/interactive-mcp"
 stars: 345
 url: "https://github.com/ttommyth/interactive-mcp"

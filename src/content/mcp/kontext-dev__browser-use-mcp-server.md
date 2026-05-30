@@ -1,4 +1,4 @@
-﻿---
+---
 name: "kontext-dev/browser-use-mcp-server"
 description: "browser-use packaged as an MCP server with SSE transport. includes a dockerfile to run chromium in docker + a vnc server."
 category: "Browser Automation"

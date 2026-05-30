@@ -1,4 +1,4 @@
-﻿---
+---
 name: "scrapeless-ai/scrapeless-mcp-server"
 description: "The Scrapeless Model Context Protocol service acts as an MCP server connector to the Google SERP API, enabling web search within the MCP ecosystem without leaving it."
 category: "Search & Data Extraction"

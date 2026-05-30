@@ -4,7 +4,7 @@ clean_name: "Harmony Arkts"
 description: "HarmonyOS ArkTS rules for components, state, resources, layout, lifecycle, and accessibility"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39766
+stars: 39783
 path: "rules/harmony-arkts.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/harmony-arkts.mdc"
 body_length: 2201

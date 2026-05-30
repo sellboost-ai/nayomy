@@ -1,4 +1,4 @@
-﻿---
+---
 name: "zhsama/duckduckgo-mcp-server"
 description: "This is a TypeScript-based MCP server that provides DuckDuckGo search functionality."
 category: "Search & Data Extraction"

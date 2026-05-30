@@ -1,4 +1,4 @@
-﻿---
+---
 name: "lfnovo/content-core"
 description: "Extract content from URLs, documents, videos, and audio files using intelligent auto-engine selection. Supports web pages, PDFs, Word docs, YouTube transcripts, and more with structured JSON responses."
 category: "Search & Data Extraction"

@@ -1,9 +1,9 @@
-﻿---
+---
 name: "googleapis/genai-toolbox"
 description: "Open source MCP server specializing in easy, fast, and secure tools for Databases."
 category: "Databases"
 repo: "googleapis/genai-toolbox"
-stars: 15382
+stars: 15393
 url: "https://github.com/googleapis/genai-toolbox"
 body_length: 31861
 license: "Apache-2.0"

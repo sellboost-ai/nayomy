@@ -1,4 +1,4 @@
-﻿---
+---
 name: "takumi0706/google-calendar-mcp"
 description: "An MCP server to interface with the Google Calendar API. Based on TypeScript."
 category: "Workplace & Productivity"

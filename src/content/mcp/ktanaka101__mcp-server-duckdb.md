@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ktanaka101/mcp-server-duckdb"
 description: "DuckDB database integration with schema inspection and query capabilities"
 category: "Databases"

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "pi22by7/In-Memoria"
 description: "Persistent intelligence infrastructure for agentic development that gives AI coding assistants cumulative memory and pattern learning. Hybrid TypeScript/Rust implementation with local-first storage using SQLite + SurrealDB for semantic analysis and incremental codebase understanding."
 category: "Knowledge & Memory"

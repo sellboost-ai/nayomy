@@ -1,9 +1,9 @@
-﻿---
+---
 name: "alexander-zuev/supabase-mcp-server"
 description: "Supabase MCP Server with support for SQL query execution and database exploration tools"
 category: "Databases"
 repo: "alexander-zuev/supabase-mcp-server"
-stars: 822
+stars: 823
 url: "https://github.com/alexander-zuev/supabase-mcp-server"
 body_length: 29052
 license: "Apache-2.0"
