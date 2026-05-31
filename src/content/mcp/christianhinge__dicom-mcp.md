@@ -3,7 +3,7 @@ name: "ChristianHinge/dicom-mcp"
 description: "DICOM integration to query, read, and move medical images and reports from PACS and other DICOM compliant systems."
 category: "Databases"
 repo: "ChristianHinge/dicom-mcp"
-stars: 95
+stars: 96
 url: "https://github.com/ChristianHinge/dicom-mcp"
 body_length: 6522
 license: "MIT"

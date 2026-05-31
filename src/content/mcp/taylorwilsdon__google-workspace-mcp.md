@@ -3,9 +3,9 @@ name: "taylorwilsdon/google_workspace_mcp"
 description: "Comprehensive Google Workspace MCP server with full support for Google Calendar, Drive, Gmail, and Docs, Forms, Chats, Slides and Sheets over stdio, Streamable HTTP and SSE transports."
 category: "Workplace & Productivity"
 repo: "taylorwilsdon/google_workspace_mcp"
-stars: 2512
+stars: 2518
 url: "https://github.com/taylorwilsdon/google_workspace_mcp"
-body_length: 81145
+body_length: 81545
 license: "MIT"
 language: "Python"
 homepage: "https://workspacemcp.com"
@@ -275,6 +275,7 @@ uv run main.py --transport streamable-http --tools gmail drive calendar
 | `MCP_ENABLE_OAUTH21` | | `true` to enable OAuth 2.1 multi-user support. Required for remote or shared HTTP endpoints (`--transport streamable-http`); optional for local-only legacy HTTP, which binds to `127.0.0.1` by default. |
 | `EXTERNAL_OAUTH21_PROVIDER` | | `true` for external OAuth flow with bearer tokens |
 | `WORKSPACE_MCP_STATELESS_MODE` | | `true` for stateless container-friendly operation |
+| `WORKSPACE_MCP_LOG_DIR` | | Directory for `mcp_server_debug.log` — defaults to `~/.google_workspace_mcp/logs` |
 | `GOOGLE_OAUTH_REDIRECT_URI` | | Override OAuth callback URL — default auto-constructed |
 | `OAUTH_CUSTOM_REDIRECT_URIS` | | Comma-separated additional redirect URIs |
 | `OAUTH_ALLOWED_ORIGINS` | | Comma-separated additional CORS origins |
@@ -785,10 +786,12 @@ cp .env.oauth21 .env
 | <sub>`create_drive_file`</sub> | <sub>Core</sub> | <sub>Create files or fetch from URLs</sub> |
 | <sub>`create_drive_folder`</sub> | <sub>Core</sub> | <sub>Create empty folders in Drive or shared drives</sub> |
 | <sub>`import_to_google_doc`</sub> | <sub>Core</sub> | <sub>Import files (MD, DOCX, HTML, etc.) as Google Docs</sub> |
+| <sub>`import_to_google_slides`</sub> | <sub>Core</sub> | <sub>Import presentation files (PPTX, PPT, ODP) as Google Slides</sub> |
+| <sub>`import_to_google_sheets`</sub> | <sub>Core</sub> | <sub>Import spreadsheet files (XLSX, CSV, TSV, etc.) as Google Sheets</sub> |
 | <sub>`get_drive_shareable_link`</sub> | <sub>Core</sub> | <sub>Get shareable links for a file</sub> |
 | <sub>`list_drive_items`</sub> | <sub>Extended</sub> | <sub>List folder contents or shared drives</sub> |
 | <sub>`copy_drive_file`</sub> | <sub>Extended</sub> | <sub>Copy existing files (templates) with optional renaming</sub> |
-| <sub>`update_drive_file`</sub> | <sub>Extended</sub> | <sub>Update file metadata, move between folders</sub> |
+| <sub>`update_drive_file`</sub> | <sub>Extended</sub> | <sub>Update metadata, move files, or replace Google Apps content</sub> |
 | <sub>`manage_drive_access`</sub> | <sub>Extended</sub> | <sub>Grant, update, revoke permissions, and transfer ownership</sub> |
 | <sub>`set_drive_file_permissions`</sub> | <sub>Extended</sub> | <sub>Set link sharing and file-level sharing settings</sub> |
 | <sub>`get_drive_file_permissions`</sub> | <sub>Complete</sub> | <sub>Get file metadata, parents, and permissions</sub> |

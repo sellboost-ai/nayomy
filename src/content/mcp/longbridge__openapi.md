@@ -3,7 +3,7 @@ name: "longbridge/openapi"
 description: "LongPort OpenAPI provides real-time stock market data, provides AI access analysis and trading capabilities through MCP."
 category: "Finance & Fintech"
 repo: "longbridge/openapi"
-stars: 432
+stars: 433
 url: "https://github.com/longbridge/openapi"
 body_length: 6378
 license: "Apache-2.0"

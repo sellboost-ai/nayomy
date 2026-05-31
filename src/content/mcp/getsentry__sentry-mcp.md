@@ -3,7 +3,7 @@ name: "getsentry/sentry-mcp"
 description: "Sentry.io integration for error tracking and performance monitoring"
 category: "Monitoring"
 repo: "getsentry/sentry-mcp"
-stars: 711
+stars: 712
 url: "https://github.com/getsentry/sentry-mcp"
 body_length: 8801
 license: "NOASSERTION"

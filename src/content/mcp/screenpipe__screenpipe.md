@@ -3,13 +3,16 @@ name: "screenpipe/screenpipe"
 description: "Local-first system capturing screen/audio with timestamped indexing, SQL/embedding storage, semantic search, LLM-powered history analysis, and event-triggered actions - enables building context-aware AI agents through a NextJS plugin ecosystem."
 category: "Other Tools and Integrations"
 repo: "screenpipe/screenpipe"
-stars: 18983
+stars: 18997
 url: "https://github.com/screenpipe/screenpipe"
-body_length: 18398
+body_length: 19099
 license: "NOASSERTION"
 language: "Rust"
-homepage: "https://screenpi.pe"
+homepage: "https://screenpipe.com"
 ---
+
+
+
 
 <p align="center">
    <a href ="https://screenpi.pe">
@@ -20,9 +23,17 @@ homepage: "https://screenpi.pe"
 <h1 align="center">[ screenpipe | YC S26 ]</h1>
 
 
-<p align="center">Give AI the ability to live your experience.</p>
+
+
+<p align="center">AI that knows what you've seen, said, or heard.</p>
 <p align="center">Records everything you do, say, hear 24/7, local, private, secure</p>
 
+
+
+
+<p align="center">
+<a align="center" href="https://trendshift.io/repositories/20386" target="_blank"></a>
+</p>
 
 <p align="center">
   <a href="https://screenpi.pe/onboarding" target="_blank">
@@ -51,6 +62,13 @@ homepage: "https://screenpi.pe"
 
 
 ---
+
+## news
+
+- 05/29 - **we released an [alpha version of our AI PII model](https://screenpipe.github.io/screenleak/) outperforming Google, Microsoft, and OpenAI models** on computer recording data and running at 9ms on consumer device
+- 05/14 - **we joined YC S26** 
+
+
 
 ## what is this?
 

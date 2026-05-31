@@ -3,7 +3,7 @@ name: "Snowflake-Labs/mcp"
 description: "Open-source MCP server for Snowflake from official Snowflake-Labs supports prompting Cortex Agents, querying structured & unstructured data, object management, SQL execution, semantic view querying, and more. RBAC, fine-grained CRUD controls, and all authentication methods supported."
 category: "Databases"
 repo: "Snowflake-Labs/mcp"
-stars: 288
+stars: 289
 url: "https://github.com/Snowflake-Labs/mcp"
 body_length: 29854
 license: "Apache-2.0"

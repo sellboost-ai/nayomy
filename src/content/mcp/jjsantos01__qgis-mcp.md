@@ -3,7 +3,7 @@ name: "jjsantos01/qgis_mcp"
 description: "connects QGIS Desktop to Claude AI through the MCP. This integration enables prompt-assisted project creation, layer loading, code execution, and more."
 category: "Location Services"
 repo: "jjsantos01/qgis_mcp"
-stars: 962
+stars: 963
 url: "https://github.com/jjsantos01/qgis_mcp"
 body_length: 5874
 language: "Python"

@@ -3,7 +3,7 @@ name: "rishijatia/fantasy-pl-mcp"
 description: "An MCP server for real-time Fantasy Premier League data and analysis tools."
 category: "Gaming"
 repo: "rishijatia/fantasy-pl-mcp"
-stars: 69
+stars: 70
 url: "https://github.com/rishijatia/fantasy-pl-mcp"
 body_length: 10833
 license: "MIT"

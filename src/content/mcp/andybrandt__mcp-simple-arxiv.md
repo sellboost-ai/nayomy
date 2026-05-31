@@ -3,7 +3,7 @@ name: "andybrandt/mcp-simple-arxiv"
 description: "MCP for LLM to search and read papers from arXiv"
 category: "Search & Data Extraction"
 repo: "andybrandt/mcp-simple-arxiv"
-stars: 195
+stars: 196
 url: "https://github.com/andybrandt/mcp-simple-arxiv"
 body_length: 3781
 license: "MIT"

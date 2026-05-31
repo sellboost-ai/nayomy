@@ -3,9 +3,9 @@ name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
 category: "Version Control"
 repo: "github/github-mcp-server"
-stars: 30280
+stars: 30299
 url: "https://github.com/github/github-mcp-server"
-body_length: 89938
+body_length: 90350
 license: "MIT"
 language: "Go"
 ---
@@ -98,7 +98,9 @@ Alternatively, to manually configure VS Code, choose the appropriate JSON block 
 - **[Claude Applications](/docs/installation-guides/install-claude.md)** - Installation guide for Claude Desktop and Claude Code CLI
 - **[Codex](/docs/installation-guides/install-codex.md)** - Installation guide for OpenAI Codex
 - **[Cursor](/docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
+- **[OpenCode](/docs/installation-guides/install-opencode.md)** - Installation guide for the OpenCode terminal agent
 - **[Windsurf](/docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
+- **[Zed](/docs/installation-guides/install-zed.md)** - Installation guide for Zed editor
 - **[Rovo Dev CLI](/docs/installation-guides/install-rovo-dev-cli.md)** - Installation guide for Rovo Dev CLI
 
 > **Note:** Each MCP host application needs to configure a GitHub App or OAuth App to support remote access via OAuth. Any host application that supports remote MCP servers should support the remote GitHub server with PAT authentication. Configuration details and support levels vary by host. Make sure to refer to the host application's documentation for more info.
@@ -368,7 +370,9 @@ For other MCP host applications, please refer to our installation guides:
 - **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Installation guide for Claude Code and Claude Desktop
 - **[Cursor](docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
 - **[Google Gemini CLI](docs/installation-guides/install-gemini-cli.md)** - Installation guide for Google Gemini CLI
+- **[OpenCode](docs/installation-guides/install-opencode.md)** - Installation guide for the OpenCode terminal agent
 - **[Windsurf](docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
+- **[Zed](docs/installation-guides/install-zed.md)** - Installation guide for Zed editor
 
 For a complete overview of all installation options, see our **[Installation Guides Index](docs/installation-guides)**.
 

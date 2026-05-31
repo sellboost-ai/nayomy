@@ -3,7 +3,7 @@ name: "etsd-tech/mcp-pointer"
 description: "Visual DOM element selector for agentic coding tools. Chrome extension + MCP server bridge for Claude Code, Cursor, Windsurf etc. Option+Click to capture elements."
 category: "Developer Tools"
 repo: "etsd-tech/mcp-pointer"
-stars: 578
+stars: 577
 url: "https://github.com/etsd-tech/mcp-pointer"
 body_length: 8486
 license: "MIT"
