@@ -4,7 +4,7 @@ clean_name: "HTML Tailwind CSS JavaScript Cursorrules Prompt Fi"
 description: "Cursor rules for HTML development with Tailwind CSS and JavaScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39792
+stars: 39809
 path: "rules/html-tailwind-css-javascript-cursorrules-prompt-fi.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/html-tailwind-css-javascript-cursorrules-prompt-fi.mdc"
 body_length: 1376

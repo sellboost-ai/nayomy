@@ -3,7 +3,7 @@ name: "zilliztech/mcp-server-milvus"
 description: "MCP Server for Milvus / Zilliz, making it possible to interact with your database."
 category: "Databases"
 repo: "zilliztech/mcp-server-milvus"
-stars: 231
+stars: 232
 url: "https://github.com/zilliztech/mcp-server-milvus"
 body_length: 16175
 license: "Apache-2.0"

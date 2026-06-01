@@ -3,18 +3,14 @@ name: "mihaelamj/cupertino"
 description: "Apple Documentation MCP Server. Search Apple developer docs, Swift Evolution proposals, and 600+ sample code projects with full-text search."
 category: "Developer Tools"
 repo: "mihaelamj/cupertino"
-stars: 805
+stars: 806
 url: "https://github.com/mihaelamj/cupertino"
-body_length: 38836
+body_length: 33235
 license: "MIT"
 language: "Swift"
 ---
 
 # 🍎📚 Cupertino
-
-> 🕯️ *v1.3.0 released on 2026-05-31.* Per-source database bundle + read-only databases. The unified `search.db` is split into 8 per-source databases (`apple-documentation.db`, `hig.db`, `apple-archive.db`, `swift-evolution.db`, `swift-org.db`, `swift-book.db`, `apple-sample-code.db`, `packages.db`), each shipped in rollback journal mode so it opens read-only without an `-shm` sidecar. Every query / read / serve connection now opens the databases read-only ([#1194](https://github.com/mihaelamj/cupertino/issues/1194)), so an end user cannot write or delete rows. `databaseVersion` is `1.3.0`: `cupertino setup` downloads `cupertino-databases-v1.3.0.zip` (742 MB) carrying **351,505 documents / 240,543 symbols** in `apple-documentation.db` (2.8 GB, `user_version` 18), plus `packages.db` (1.09 GB, `user_version` 5, 185 packages), `apple-sample-code.db` (192 MB, `samples_schema_version` 4), and the HIG / archive / evolution / org / book databases (all `user_version` 18). Live dashboard at <https://cupertino.aleahim.com/>. See the [v1.3.0 release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.3.0).
->
-> *v1.2.1 (2026-05-23) and v1.2.0 "ironclad" (2026-05-20) were the prior releases.* v1.2.0 was the search-quality release (rank-1 accuracy on canonical-lookup queries 52% to 92%); v1.2.1 reached [Source Independence Day](https://github.com/mihaelamj/cupertino/issues/919) (adding a content source is a composition-root-only PR) and closed the [strict-DI + standalone-portability epic](https://github.com/mihaelamj/cupertino/issues/893). Both shipped the unified `cupertino-databases-v1.2.0.zip` bundle (690 MiB, 352,712 documents). See the [v1.2.1](https://github.com/mihaelamj/cupertino/releases/tag/v1.2.1) and [v1.2.0](https://github.com/mihaelamj/cupertino/releases/tag/v1.2.0) notes.
 
 **Apple documentation CLI for humans and MCP server for AI agents**
 
@@ -25,8 +21,13 @@ Cupertino is a CLI for human developers and an MCP server for AI agents. Both su
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![PulseMCP](https://img.shields.io/badge/PulseMCP-listed-blue)](https://www.pulsemcp.com/servers/mihaelamj-cupertino)
 [![LobeHub](https://img.shields.io/badge/LobeHub-listed-purple)](https://lobehub.com/mcp/mihaelamj-cupertino)
+[![X](https://img.shields.io/badge/X-@cupertinomcp-black?logo=x)](https://x.com/cupertinomcp)
+
+Follow updates on X: [@cupertinomcp](https://x.com/cupertinomcp)
 
 ![Cupertino Demo](https://raw.githubusercontent.com/mihaelamj/cupertino/HEAD/docs/images/cupertino.gif)
+
+> **Latest:** v1.3.0 (2026-05-31) — per-source database bundle, read-only databases. [Release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.3.0) · [Project Status](#project-status) · [CHANGELOG](CHANGELOG.md)
 
 ## What is Cupertino?
 
@@ -75,7 +76,7 @@ brew install cupertino
 cupertino setup
 ```
 
-After `brew install`, you can run `cupertino search "<query>"` at the terminal, or add `cupertino serve` as an MCP server in your AI client config. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for distribution notes and the MCP client sections below for Claude, Codex, Cursor, VS Code, and other hosts.
+After `brew install`, you can run `cupertino search "<query>"` at the terminal, or add `cupertino serve` as an MCP server in your AI client config. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for distribution notes and [docs/mcp-clients.md](docs/mcp-clients.md) for per-client setup (Claude, Codex, Cursor, VS Code, Zed, Windsurf, opencode, and more).
 
 **Or build from source:**
 
@@ -245,221 +246,13 @@ claude mcp add cupertino --scope user -- $(which cupertino)
 
 This registers Cupertino globally for all your projects. Claude Code will automatically have access to Apple documentation search.
 
-### Use with OpenAI Codex
+### Use with other MCP clients
 
-If you're using [OpenAI Codex](https://github.com/openai/codex), add Cupertino with:
+Cupertino works with any MCP-capable client. Setup snippets for **OpenAI Codex, Cursor, VS Code (Copilot), GitHub Copilot for Xcode, Zed, Windsurf, and opencode** live in **[docs/mcp-clients.md](docs/mcp-clients.md)** (the Claude Desktop and Claude Code configs above are repeated there too, so it is a complete reference).
 
-```bash
-codex mcp add cupertino -- $(which cupertino) serve --no-reap
-```
+### Use as an Agent Skill (no server required)
 
-Or add directly to `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.cupertino]
-command = "/opt/homebrew/bin/cupertino"  # Homebrew on Apple Silicon
-# command = "/usr/local/bin/cupertino"   # Intel Mac or manual install
-args = ["serve", "--no-reap"]
-```
-
-> **Why `--no-reap`?** Codex spawns a fresh `cupertino serve` per tool
-> call. Without `--no-reap`, each new instance kills its predecessor as
-> a stale sibling, and the in-flight transport closes (`Transport closed`
-> error on every tool call; see #280). Claude Desktop / Cursor users
-> keep the default (reap on) so MCP-host config reloads don't leak
-> orphan servers.
->
-> Equivalent env-var form: `CUPERTINO_DISABLE_REAPER=1` in
-> `[mcp_servers.cupertino.env]`.
-
-> **Tip:** Run `which cupertino` to find your installation path.
-
-### Use with Cursor
-
-Add to `.cursor/mcp.json` in your project (or `~/.cursor/mcp.json` for global access):
-
-```json
-{
-  "mcpServers": {
-    "cupertino": {
-      "command": "/opt/homebrew/bin/cupertino",
-      "args": ["serve"]
-    }
-  }
-}
-```
-
-### Use with VS Code (GitHub Copilot)
-
-Add to `.mcp.json` in your workspace:
-
-```json
-{
-  "mcpServers": {
-    "cupertino": {
-      "type": "stdio",
-      "command": "/opt/homebrew/bin/cupertino",
-      "args": ["serve"]
-    }
-  }
-}
-```
-
-### Use with GitHub Copilot for Xcode
-
-[GitHub Copilot for Xcode](https://github.com/github/CopilotForXcode) supports MCP servers via Agent Mode. In the app, go to the **Tools** tab → **MCP** sub-tab → **MCP Configuration** → **Edit Config**, or edit `~/.config/github-copilot/xcode/mcp.json` directly:
-
-```json
-{
-  "servers": {
-    "cupertino": {
-      "type": "stdio",
-      "command": "/opt/homebrew/bin/cupertino",
-      "args": ["serve"]
-    }
-  }
-}
-```
-
-### Use with Zed
-
-Add to your Zed `settings.json`:
-
-```json
-{
-  "context_servers": {
-    "cupertino": {
-      "command": "/opt/homebrew/bin/cupertino",
-      "args": ["serve"]
-    }
-  }
-}
-```
-
-### Use with Windsurf
-
-Add to `~/.codeium/windsurf/mcp_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "cupertino": {
-      "command": "/opt/homebrew/bin/cupertino",
-      "args": ["serve"]
-    }
-  }
-}
-```
-
-### Use with opencode
-
-Add to `opencode.jsonc`:
-
-```json
-{
-  "mcp": {
-    "cupertino": {
-      "type": "local",
-      "command": ["/opt/homebrew/bin/cupertino", "serve"]
-    }
-  }
-}
-```
-
-> **Note:** All examples use `/opt/homebrew/bin/cupertino` (Homebrew on Apple Silicon). Use `/usr/local/bin/cupertino` for Intel Macs or manual installs. Run `which cupertino` to find your path.
-
-### Use as an Agent Skill (No Server Required)
-
-Cupertino can also be used as a stateless CLI skill without running an MCP server. This is useful for agents that support the [Agent Skills](https://agentskills.io) specification.
-
-**Prerequisites:**
-
-Install cupertino and download the databases first:
-```bash
-# Install via Homebrew or from source (see Installation above)
-cupertino setup
-```
-
-**Option A: Install with OpenSkills (Recommended)**
-
-[OpenSkills](https://github.com/numman-ali/openskills) is a universal skills loader that works with Claude Code, Cursor, Windsurf, Aider, and other AI coding agents.
-
-```bash
-# Install the cupertino skill from GitHub
-npx openskills install mihaelamj/cupertino
-
-# Sync to update AGENTS.md
-npx openskills sync
-```
-
-For global installation (available in all projects):
-```bash
-npx openskills install mihaelamj/cupertino --global
-```
-
-For multi-agent setups (installs to `.agent/skills/` instead of `.claude/skills/`):
-```bash
-npx openskills install mihaelamj/cupertino --universal
-```
-
-**Option B: Install as a Claude Code Plugin**
-
-Inside a Claude Code session, add the cupertino marketplace:
-```
-/plugin marketplace add mihaelamj/cupertino
-```
-
-Then enable the plugin from the marketplace.
-
-**Option C: Manual Installation**
-
-Copy the skill definition to your project or global skills directory:
-```bash
-# Clone this repo
-git clone https://github.com/mihaelamj/cupertino.git
-
-# For a single project
-mkdir -p .claude/skills/cupertino
-cp cupertino/skills/cupertino/SKILL.md .claude/skills/cupertino/
-
-# Or for global use with Claude Code
-mkdir -p ~/.claude/skills/cupertino
-cp cupertino/skills/cupertino/SKILL.md ~/.claude/skills/cupertino/
-```
-
-**How It Works:**
-
-The skill uses the CLI directly with JSON output, no server process needed:
-
-```bash
-# Search documentation
-cupertino search "SwiftUI View" --format json
-
-# Filter by source
-cupertino search "NavigationStack" --source apple-docs --format json
-cupertino search "button styles" --source samples --format json
-
-# Read a document
-cupertino read "apple-docs://swiftui/documentation_swiftui_view" --format json
-
-# List frameworks
-cupertino list-frameworks --format json
-
-# List sample projects
-cupertino list-samples --framework swiftui --format json
-```
-
-All commands support `--format json` for structured output that agents can parse.
-
-**Available Sources:**
-- `apple-docs` - Official Apple documentation (~351,505 pages indexed in v1.3.0)
-- `samples` - Apple sample code projects
-- `hig` - Human Interface Guidelines
-- `swift-evolution` - Swift Evolution proposals
-- `swift-org` - Swift.org documentation
-- `swift-book` - The Swift Programming Language book
-- `apple-archive` - Legacy programming guides
-- `packages` - Swift package documentation
+Cupertino can also run as a stateless CLI skill without an MCP server, for agents that support the [Agent Skills](https://agentskills.io) specification (install via OpenSkills, as a Claude Code plugin, or manually). Full instructions: **[docs/agent-skill.md](docs/agent-skill.md)**.
 
 ### What You Get
 
@@ -814,6 +607,8 @@ Optional sources (Swift Evolution / Swift.org / Apple Archive / HIG) are auto-de
 - **[docs/PRINCIPLES.md](docs/PRINCIPLES.md)** - Engineering principles (lossless URIs, no content lost at the door, 10x scale headroom)
 - **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Technical deep-dives (Concurrency, MCP, WKWebView testing)
 - **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Homebrew distribution and CI/CD setup
+- **[docs/mcp-clients.md](docs/mcp-clients.md)** - Per-client MCP setup (Claude, Codex, Cursor, VS Code, Zed, Windsurf, opencode, and more)
+- **[docs/agent-skill.md](docs/agent-skill.md)** - Use Cupertino as a stateless CLI Agent Skill (no server)
 - **[docs/commands/](docs/commands/)** - Command-specific documentation
 - **[docs/tools/](docs/tools/)** - MCP-tool-specific documentation
 - **[docs/roadmap-maintenance-protocol.md](docs/roadmap-maintenance-protocol.md)** - Maintainer roadmap update protocol
@@ -843,11 +638,9 @@ For development setup, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Project Status
 
-**Released:** v1.2.0 "ironclad" on 2026-05-20. `databaseVersion` is `1.2.0`; `cupertino setup` downloads the v1.2.0 bundle (352,712 documents across 420 frameworks, 0 poison rows under all 13 audit categories, schema `user_version = 18`).
+**Released:** v1.3.0 on 2026-05-31. Per-source database bundle + read-only databases: the unified `search.db` is split into 8 per-source databases, each shipped in rollback journal mode so it opens read-only without an `-shm` sidecar, and every query / read / serve connection opens read-only ([#1194](https://github.com/mihaelamj/cupertino/issues/1194)) so an end user cannot write or delete rows. `databaseVersion` is `1.3.0`; `cupertino setup` downloads `cupertino-databases-v1.3.0.zip` (742 MB) carrying 351,505 documents / 240,543 symbols in `apple-documentation.db` (2.8 GB, `user_version` 18), plus `packages.db` (1.09 GB, 185 packages), `apple-sample-code.db` (192 MB), and the HIG / archive / evolution / org / book databases. Live dashboard at <https://cupertino.aleahim.com/>; full notes in the [v1.3.0 release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.3.0) and [CHANGELOG.md](CHANGELOG.md).
 
-Headline jump from v1.1.0: **rank-1 accuracy on canonical-lookup queries went from 52% to 92%** on the 50-query Phase 1 corpus. **30 / 30 modern Swift wins on the deprecation pair corpus** (was 27 / 30). **Zero regressions across 110 paired queries.** Live dashboard at <https://cupertino.aleahim.com/>; full release write-up at `docs/release-writeup-v1.2.0.md`; harness at `scripts/eval/search-quality-phase1.py` (reproducible: two runs against the same `(binary, database)` pair produce byte-identical per-query ranks).
-
-**Previously released:** v1.1.0 on 2026-05-14 (refactor release: namespacing + Crawler extract + DI epic kickoff; 285,735 documents, schema 13). v1.0.2 on 2026-05-11 (URL canonicalization + re-indexed bundle, 277,640 documents).
+**Previously released:** v1.2.1 (2026-05-23, maintenance + [Source Independence Day](https://github.com/mihaelamj/cupertino/issues/919)) and v1.2.0 "ironclad" (2026-05-20, search-quality release: rank-1 accuracy on canonical-lookup queries 52% → 92%). Earlier: v1.1.0 (2026-05-14), v1.0.2 (2026-05-11). See [CHANGELOG.md](CHANGELOG.md) for the full history.
 
 - ✅ All core functionality working
 - ✅ 350+ test functions across 230+ test files (2,408 / 347 suites green at v1.2.0 ship)

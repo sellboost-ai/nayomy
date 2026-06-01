@@ -3,7 +3,7 @@ name: "mediar-ai/terminator"
 description: "Desktop GUI automation using accessibility APIs. Control Windows, macOS, and Linux applications without vision models or screenshots. Supports workflow recording, structured data extraction, and browser DOM inspection."
 category: "Coding Agents"
 repo: "mediar-ai/terminator"
-stars: 1503
+stars: 1507
 url: "https://github.com/mediar-ai/terminator"
 body_length: 9124
 license: "MIT"

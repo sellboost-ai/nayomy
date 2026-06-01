@@ -3,7 +3,7 @@ name: "entanglr/zettelkasten-mcp"
 description: "A Model Context Protocol (MCP) server that implements the Zettelkasten knowledge management methodology, allowing you to create, link, and search atomic notes through Claude and other MCP-compatible clients."
 category: "Knowledge & Memory"
 repo: "entanglr/zettelkasten-mcp"
-stars: 154
+stars: 155
 url: "https://github.com/entanglr/zettelkasten-mcp"
 body_length: 11598
 license: "MIT"
