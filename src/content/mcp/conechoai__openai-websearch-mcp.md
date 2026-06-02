@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ConechoAI/openai-websearch-mcp"
 description: "This is a Python-based MCP server that provides OpenAI web_search build-in tool."
 category: "Search & Data Extraction"

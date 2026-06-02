@@ -1,4 +1,4 @@
-﻿---
+---
 name: "JetBrains/mcp-jetbrains"
 description: "Connect to JetBrains IDE"
 category: "Developer Tools"

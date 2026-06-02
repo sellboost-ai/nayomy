@@ -1,9 +1,9 @@
-﻿---
+---
 name: "Flux159/mcp-server-kubernetes"
 description: "Typescript implementation of Kubernetes cluster operations for pods, deployments, services."
 category: "Cloud Platforms"
 repo: "Flux159/mcp-server-kubernetes"
-stars: 1399
+stars: 1400
 url: "https://github.com/Flux159/mcp-server-kubernetes"
 body_length: 16418
 license: "MIT"

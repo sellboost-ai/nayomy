@@ -1,28 +1,38 @@
-﻿---
+---
 name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
-stars: 1267
+stars: 1277
 url: "https://github.com/designcomputer/mysql_mcp_server"
-body_length: 4997
+body_length: 8353
 license: "MIT"
 language: "Python"
 ---
 
-![Tests](https://github.com/designcomputer/mysql_mcp_server/actions/workflows/test.yml/badge.svg)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/mysql-mcp-server)
-[![smithery badge](https://smithery.ai/badge/mysql-mcp-server)](https://smithery.ai/server/mysql-mcp-server)
-[![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/designcomputer-mysql-mcp-server)
+[![Tests](https://github.com/designcomputer/mysql_mcp_server/actions/workflows/test.yml/badge.svg)](https://github.com/designcomputer/mysql_mcp_server/actions)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/mysql-mcp-server)](https://pypi.org/project/mysql-mcp-server/)
+[![Smithery Badge](https://smithery.ai/badge/designcomputer/mysql-mcp-server)](https://smithery.ai/server/designcomputer/mysql-mcp-server)
+[![AgentAudit Safe](https://img.shields.io/badge/AgentAudit-safe-brightgreen)](https://www.agentaudit.dev/packages/mysql-mcp-server)
+[![MCPSafe](https://api.mcpsafe.io/badge/github/designcomputer/mysql_mcp_server.svg)](https://mcpsafe.io/registry/github/designcomputer/mysql_mcp_server)
 # MySQL MCP Server
 A Model Context Protocol (MCP) implementation that enables secure interaction with MySQL databases. This server component facilitates communication between AI applications (hosts/clients) and MySQL databases, making database exploration and analysis safer and more structured through a controlled interface.
 
-> **Note**: MySQL MCP Server is not designed to be used as a standalone server, but rather as a communication protocol implementation between AI applications and MySQL databases.
+> **Note**: MySQL MCP Server supports both standard input/output (STDIO) and Streamable HTTP (SSE) transport modes. The SSE mode is recommended for remote/self-hosted deployments.
+
+## Deployment options
+- **Hosted** — [Fronteir AI](https://fronteir.ai/mcp/designcomputer-mysql-mcp-server) runs the server for you; no local setup required.
+- **Local** — [Smithery](https://smithery.ai/server/designcomputer/mysql-mcp-server) installs and runs the server on your own machine.
 
 ## Features
 - List available MySQL tables as resources
 - Read table contents
 - Execute SQL queries with proper error handling
+- **Multi-database mode** (Optional `MYSQL_DATABASE`)
+- **SSE/HTTP transport support** (`MCP_TRANSPORT=sse`)
+- **SSH Tunneling support** (Contributed by [GeorgeLeex](https://github.com/GeorgeLeex))
+- **Comprehensive schema information** (Contributed by [GeorgeLeex](https://github.com/GeorgeLeex))
+- **Table data sampling** (Contributed by [GeorgeLeex](https://github.com/GeorgeLeex))
 - Secure database access through environment variables
 - Comprehensive logging
 
@@ -33,9 +43,9 @@ pip install mysql-mcp-server
 ```
 
 ### Installing via Smithery
-To install MySQL MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/mysql-mcp-server):
+To install MySQL MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/designcomputer/mysql-mcp-server):
 ```bash
-npx -y @smithery/cli install mysql-mcp-server --client claude
+npx -y @smithery/cli install designcomputer/mysql-mcp-server --client claude
 ```
 
 ## Configuration
@@ -45,8 +55,57 @@ MYSQL_HOST=localhost     # Database host
 MYSQL_PORT=3306         # Optional: Database port (defaults to 3306 if not specified)
 MYSQL_USER=your_username
 MYSQL_PASSWORD=your_password
-MYSQL_DATABASE=your_database
+MYSQL_DATABASE=your_database # Optional: Omit for multi-database mode
+
+# Advanced Configuration
+MYSQL_SSL_MODE=DISABLED  # DISABLED, REQUIRED, VERIFY_CA, VERIFY_IDENTITY
+MYSQL_CONNECT_TIMEOUT=10 # Timeout in seconds
+
+# Compatibility (Optional)
+MYSQL_CHARSET=utf8mb4
+MYSQL_COLLATION=utf8mb4_unicode_ci
+MYSQL_AUTH_PLUGIN=       # e.g., mysql_native_password for older MySQL versions
+MYSQL_USE_PURE=false     # Use pure Python implementation
+MYSQL_RAISE_ON_WARNINGS=false
+
+# SSE Transport (Optional)
+MCP_TRANSPORT=stdio      # stdio or sse
+MCP_SSE_HOST=0.0.0.0     # Listen on all interfaces (required for Docker/hosting)
+PORT=8000                # HTTP port (fallback for MCP_SSE_PORT)
+
+# SSH Tunneling (Optional)
+MYSQL_SSH_ENABLE=false   # Set to true to enable
+MYSQL_SSH_HOST=          # SSH jump host
+MYSQL_SSH_PORT=22        # SSH port
+MYSQL_SSH_USER=          # SSH username
+MYSQL_SSH_KEY_PATH=      # Path to SSH private key
+MYSQL_SSH_REMOTE_HOST=localhost # Host from the perspective of the jump host
+MYSQL_SSH_REMOTE_PORT=3306
+MYSQL_LOCAL_PORT=3330
 ```
+
+### Multi-Database Mode
+When `MYSQL_DATABASE` is not set, the server operates in multi-database mode:
+- `list_resources` returns all user databases (system databases are filtered out)
+- Use `USE <database>` in SQL queries to select a database
+- Use fully qualified table names like `mydb.mytable`
+
+## Available Tools
+
+### `execute_sql`
+Executes any standard SQL query.
+- **Arguments:** `query` (string)
+- **Features:** Supports `SELECT`, `SHOW`, `DESCRIBE`, and DML (`INSERT`, `UPDATE`, `DELETE`). DML operations are marked with a destructive hint.
+
+### `get_schema_info`
+Provides detailed metadata about database structures.
+- **Arguments:** `table_name` (optional string)
+- **Output:** Column names, types, nullability, default values, and comments.
+
+### `get_table_sample`
+Fetches a representative sample of data.
+- **Arguments:** `table_name` (string), `limit` (optional integer, max 20)
+- **Use Case:** Quickly understand data formats and content without fetching large result sets.
 
 ## Usage
 ### With Claude Desktop
@@ -74,19 +133,21 @@ Add this to your `claude_desktop_config.json`:
 }
 ```
 
+For more detailed examples and agent-specific guidance, see [MCP_USECASES.md](MCP_USECASES.md).
+
 ### With Visual Studio Code
 Add this to your `mcp.json`:
 ```json
 {
-  "servers": {
-      "mysql": {
-            "type": "stdio",
-            "command": "uvx",
-            "args": [
-                "--from",
-                "mysql-mcp-server",
-                "mysql_mcp_server"
-            ],
+  "mcpServers": {
+    "mysql": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "mysql-mcp-server",
+        "mysql_mcp_server"
+      ],
       "env": {
         "MYSQL_HOST": "localhost",
         "MYSQL_PORT": "3306",
@@ -128,10 +189,12 @@ pytest
 ```
 
 ## Security Considerations
-- Never commit environment variables or credentials
-- Use a database user with minimal required permissions
-- Consider implementing query whitelisting for production use
-- Monitor and log all database operations
+- **Identifier Validation:** Built-in protection against SQL injection via strict regex whitelisting for database and table names.
+- **Encrypted Access:** Full support for SSL/TLS and SSH Tunneling for secure remote connections.
+- **Log Privacy:** Passwords and SSH private keys are automatically masked in server logs.
+- **Least Privilege:** Always use a dedicated MySQL user with minimal required permissions.
+
+See [SECURITY.md](SECURITY.md) for a comprehensive guide on securing your deployment.
 
 ## Security Best Practices
 This MCP implementation requires database access to function. For security:

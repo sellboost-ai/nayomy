@@ -1,4 +1,4 @@
-﻿---
+---
 name: "open-strategy-partners/osp_marketing_tools"
 description: "A suite of marketing tools from Open Strategy Partners including writing style, editing codes, and product marketing value map creation."
 category: "Marketing"

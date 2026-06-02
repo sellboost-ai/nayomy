@@ -1,9 +1,9 @@
-﻿---
+---
 name: "OpenZeppelin/contracts-wizard"
 description: "Interactive smart contract generator based on OpenZeppelin Contracts."
-category: "Finance & Fintech"
+category: "Developer Tools"
 repo: "OpenZeppelin/contracts-wizard"
-stars: 291
+stars: 292
 url: "https://github.com/OpenZeppelin/contracts-wizard"
 body_length: 4018
 license: "AGPL-3.0"

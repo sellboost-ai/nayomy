@@ -1,4 +1,4 @@
-﻿---
+---
 name: "longbridge/openapi"
 description: "LongPort OpenAPI provides real-time stock market data, provides AI access analysis and trading capabilities through MCP."
 category: "Finance & Fintech"

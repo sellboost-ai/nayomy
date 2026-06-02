@@ -1,4 +1,4 @@
-﻿---
+---
 name: "erithwik/mcp-hn"
 description: "An MCP server to search Hacker News, get top stories, and more."
 category: "Search & Data Extraction"

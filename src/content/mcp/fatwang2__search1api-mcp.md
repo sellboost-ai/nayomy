@@ -1,4 +1,4 @@
-﻿---
+---
 name: "fatwang2/search1api-mcp"
 description: "Search via search1api (requires paid API key)"
 category: "Search & Data Extraction"

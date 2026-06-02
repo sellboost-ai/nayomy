@@ -1,9 +1,9 @@
-﻿---
+---
 name: "ferrislucas/iterm-mcp"
 description: "A Model Context Protocol server that provides access to iTerm. You can run commands and ask questions about what you see in the iTerm terminal."
 category: "Command Line"
 repo: "ferrislucas/iterm-mcp"
-stars: 556
+stars: 558
 url: "https://github.com/ferrislucas/iterm-mcp"
 body_length: 2942
 license: "MIT"

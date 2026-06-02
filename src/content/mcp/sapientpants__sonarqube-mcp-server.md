@@ -1,4 +1,4 @@
-﻿---
+---
 name: "sapientpants/sonarqube-mcp-server"
 description: "A Model Context Protocol (MCP) server that integrates with SonarQube to provide AI assistants with access to code quality metrics, issues, and quality gate statuses"
 category: "Developer Tools"

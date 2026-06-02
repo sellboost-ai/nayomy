@@ -1,4 +1,4 @@
-﻿---
+---
 name: "silenceper/mcp-k8s"
 description: "MCP-K8S is an AI-driven Kubernetes resource management tool that allows users to operate any resources in Kubernetes clusters through natural language interaction, including native resources (like Deployment, Service) and custom resources (CRD). No need to memorize complex commands - just describe your needs, and AI will accurately execute the corresponding cluster operations, greatly enhancing th"
 category: "Cloud Platforms"

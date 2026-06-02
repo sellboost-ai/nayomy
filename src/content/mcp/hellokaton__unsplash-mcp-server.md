@@ -1,9 +1,9 @@
-﻿---
+---
 name: "hellokaton/unsplash-mcp-server"
 description: "A MCP server for Unsplash image search."
 category: "Search & Data Extraction"
 repo: "hellokaton/unsplash-mcp-server"
-stars: 219
+stars: 221
 url: "https://github.com/hellokaton/unsplash-mcp-server"
 body_length: 3856
 license: "MIT"

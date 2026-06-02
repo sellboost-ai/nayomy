@@ -1,7 +1,7 @@
-﻿---
+---
 name: "langfuse/mcp-server-langfuse"
 description: "MCP server to access and manage LLM application prompts created with Langfuse) Prompt Management."
-category: "Monitoring"
+category: "Developer Tools"
 repo: "langfuse/mcp-server-langfuse"
 stars: 167
 url: "https://github.com/langfuse/mcp-server-langfuse"

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "reza-gholizade/k8s-mcp-server"
 description: "A Kubernetes Model Context Protocol (MCP) server that provides tools for interacting with Kubernetes clusters through a standardized interface, including API resource discovery, resource management, pod logs, metrics, and events."
 category: "Cloud Platforms"

@@ -1,9 +1,9 @@
-﻿---
+---
 name: "mem0ai/mem0-mcp"
 description: "A Model Context Protocol server for Mem0 that helps manage coding preferences and patterns, providing tools for storing, retrieving and semantically handling code implementations, best practices and technical documentation in IDEs like Cursor and Windsurf"
 category: "Knowledge & Memory"
 repo: "mem0ai/mem0-mcp"
-stars: 654
+stars: 655
 url: "https://github.com/mem0ai/mem0-mcp"
 body_length: 6908
 license: "Apache-2.0"

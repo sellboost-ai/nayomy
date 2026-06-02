@@ -1,4 +1,4 @@
-﻿---
+---
 name: "refreshdotdev/web-eval-agent"
 description: "An MCP Server that autonomously debugs web applications with browser-use browser agents"
 category: "Browser Automation"

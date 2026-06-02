@@ -1,9 +1,9 @@
-﻿---
+---
 name: "deadletterq/mcp-opennutrition"
 description: "Local MCP server for searching 300,000+ foods, nutrition facts, and barcodes from the OpenNutrition database."
-category: "Biology Medicine and Bioinformatics"
+category: "Search & Data Extraction"
 repo: "deadletterq/mcp-opennutrition"
-stars: 185
+stars: 186
 url: "https://github.com/deadletterq/mcp-opennutrition"
 body_length: 2302
 license: "MIT"

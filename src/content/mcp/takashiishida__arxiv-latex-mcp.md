@@ -1,4 +1,4 @@
-﻿---
+---
 name: "takashiishida/arxiv-latex-mcp"
 description: "Get the LaTeX source of arXiv papers to handle mathematical content and equations"
 category: "Search & Data Extraction"

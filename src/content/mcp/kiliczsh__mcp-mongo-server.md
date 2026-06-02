@@ -1,4 +1,4 @@
-﻿---
+---
 name: "kiliczsh/mcp-mongo-server"
 description: "A Model Context Protocol Server for MongoDB"
 category: "Databases"

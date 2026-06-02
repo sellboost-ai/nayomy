@@ -1,7 +1,7 @@
-﻿---
+---
 name: "lpigeon/unitree-go2-mcp-server"
 description: "The Unitree Go2 MCP Server is a server built on the MCP that enables users to control the Unitree Go2 robot using natural language commands interpreted by a LLM."
-category: "Embedded System"
+category: "Developer Tools"
 repo: "lpigeon/unitree-go2-mcp-server"
 stars: 79
 url: "https://github.com/lpigeon/unitree-go2-mcp-server"

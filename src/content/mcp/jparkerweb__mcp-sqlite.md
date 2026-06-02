@@ -1,4 +1,4 @@
-﻿---
+---
 name: "jparkerweb/mcp-sqlite"
 description: "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities."
 category: "Databases"

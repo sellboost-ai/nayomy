@@ -1,9 +1,9 @@
-﻿---
+---
 name: "vectorize-io/vectorize-mcp-server"
 description: "Vectorize MCP server for advanced retrieval, Private Deep Research, Anything-to-Markdown file extraction and text chunking."
-category: "Knowledge & Memory"
+category: "Search & Data Extraction"
 repo: "vectorize-io/vectorize-mcp-server"
-stars: 107
+stars: 108
 url: "https://github.com/vectorize-io/vectorize-mcp-server"
 body_length: 6029
 license: "MIT"

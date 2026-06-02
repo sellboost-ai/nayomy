@@ -1,4 +1,4 @@
-﻿---
+---
 name: "redleaves/context-keeper"
 description: "LLM-driven context and memory management with wide-recall + precise-reranking RAG architecture. Features multi-dimensional retrieval (vector/timeline/knowledge graph), short/long-term memory, and complete MCP support (HTTP/WebSocket/SSE)."
 category: "Knowledge & Memory"

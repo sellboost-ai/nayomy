@@ -1,9 +1,9 @@
-﻿---
+---
 name: "IBM/mcp-cli"
 description: "Yet another CLI tool for testing MCP servers"
-category: "Command Line"
+category: "Other Tools and Integrations"
 repo: "IBM/mcp-cli"
-stars: 1977
+stars: 1978
 url: "https://github.com/IBM/mcp-cli"
 body_length: 60750
 license: "Apache-2.0"

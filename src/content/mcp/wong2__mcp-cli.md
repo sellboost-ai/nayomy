@@ -1,7 +1,7 @@
-﻿---
+---
 name: "wong2/mcp-cli"
 description: "CLI tool for testing MCP servers"
-category: "Command Line"
+category: "Other Tools and Integrations"
 repo: "wong2/mcp-cli"
 stars: 436
 url: "https://github.com/wong2/mcp-cli"

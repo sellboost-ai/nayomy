@@ -1,7 +1,7 @@
-﻿---
+---
 name: "mahdin75/gis-mcp"
 description: "A Model Context Protocol (MCP) server implementation that connects Large Language Models (LLMs) to GIS operations using GIS libraries, enabling AI assistants to perform accurate geospatial operations and transformations."
-category: "Location & Maps"
+category: "Location Services"
 repo: "mahdin75/gis-mcp"
 stars: 158
 url: "https://github.com/mahdin75/gis-mcp"

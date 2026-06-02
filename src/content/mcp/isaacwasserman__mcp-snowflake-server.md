@@ -1,4 +1,4 @@
-﻿---
+---
 name: "isaacwasserman/mcp-snowflake-server"
 description: "Snowflake integration implementing read and (optional) write operations as well as insight tracking"
 category: "Databases"

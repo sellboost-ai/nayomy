@@ -1,4 +1,4 @@
-﻿---
+---
 name: "biegehydra/BifrostMCP"
 description: "Connect to VSCode ide and use semantic tools like find_usages"
 category: "Developer Tools"

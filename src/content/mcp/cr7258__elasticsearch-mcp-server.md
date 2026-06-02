@@ -1,9 +1,9 @@
-﻿---
+---
 name: "cr7258/elasticsearch-mcp-server"
 description: "MCP Server implementation that provides Elasticsearch interaction"
 category: "Databases"
 repo: "cr7258/elasticsearch-mcp-server"
-stars: 283
+stars: 285
 url: "https://github.com/cr7258/elasticsearch-mcp-server"
 body_length: 15184
 license: "Apache-2.0"

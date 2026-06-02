@@ -1,7 +1,7 @@
-﻿---
+---
 name: "aashari/mcp-server-atlassian-bitbucket"
 description: "Atlassian Bitbucket Cloud integration. Enables AI systems to interact with repositories, pull requests, workspaces, and code in real time."
-category: "Version Control"
+category: "Developer Tools"
 repo: "aashari/mcp-server-atlassian-bitbucket"
 stars: 150
 url: "https://github.com/aashari/mcp-server-atlassian-bitbucket"

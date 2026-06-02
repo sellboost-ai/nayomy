@@ -1,9 +1,9 @@
-﻿---
+---
 name: "evalstate/mcp-hfspace"
 description: "Use HuggingFace Spaces directly from Claude. Use Open Source Image Generation, Chat, Vision tasks and more. Supports Image, Audio and text uploads/downloads."
-category: "Multimedia Process"
+category: "Other Tools and Integrations"
 repo: "evalstate/mcp-hfspace"
-stars: 387
+stars: 386
 url: "https://github.com/evalstate/mcp-hfspace"
 body_length: 10750
 license: "MIT"

@@ -1,9 +1,9 @@
-﻿---
+---
 name: "ferdousbhai/investor-agent"
 description: "Yahoo Finance integration to fetch stock market data including options recommendations"
 category: "Finance & Fintech"
 repo: "ferdousbhai/investor-agent"
-stars: 329
+stars: 331
 url: "https://github.com/ferdousbhai/investor-agent"
 body_length: 912
 license: "MIT"

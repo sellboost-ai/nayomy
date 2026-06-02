@@ -1,4 +1,4 @@
-﻿---
+---
 name: "pab1it0/chess-mcp"
 description: "Access Chess.com player data, game records, and other public information through standardized MCP interfaces, allowing AI assistants to search and analyze chess information."
 category: "Gaming"

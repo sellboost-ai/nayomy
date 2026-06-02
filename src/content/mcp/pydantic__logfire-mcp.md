@@ -1,4 +1,4 @@
-﻿---
+---
 name: "pydantic/logfire-mcp"
 description: "Provides access to OpenTelemetry traces and metrics through Logfire"
 category: "Monitoring"

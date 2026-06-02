@@ -1,4 +1,4 @@
-﻿---
+---
 name: "ragieai/ragie-mcp-server"
 description: "Retrieve context from your Ragie (RAG) knowledge base connected to integrations like Google Drive, Notion, JIRA and more."
 category: "Knowledge & Memory"

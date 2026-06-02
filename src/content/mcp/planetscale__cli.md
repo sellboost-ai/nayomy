@@ -1,4 +1,4 @@
-﻿---
+---
 name: "planetscale/cli"
 description: "The CLI for PlanetScale Database."
 category: "Databases"

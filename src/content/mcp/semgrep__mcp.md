@@ -1,4 +1,4 @@
-﻿---
+---
 name: "semgrep/mcp"
 description: "Allow AI agents to scan code for security vulnerabilites using Semgrep."
 category: "Security"

@@ -1,9 +1,9 @@
-﻿---
+---
 name: "public-ui/kolibri"
 description: "Streaming KoliBri MCP server (NPM: @public-ui/mcp) delivering 200+ guaranteed accessible web component samples, specs, docs, and scenarios via hosted HTTP endpoint or local kolibri-mcp CLI."
 category: "Developer Tools"
 repo: "public-ui/kolibri"
-stars: 261
+stars: 262
 url: "https://github.com/public-ui/kolibri"
 body_length: 6464
 license: "EUPL-1.2"

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "r-huijts/xcode-mcp-server"
 description: "Xcode integration for project management, file operations, and build automation"
 category: "Developer Tools"

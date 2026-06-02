@@ -1,4 +1,4 @@
-﻿---
+---
 name: "aaronjmars/web3-research-mcp"
 description: "Deep Research for crypto - free & fully local"
 category: "Finance & Fintech"

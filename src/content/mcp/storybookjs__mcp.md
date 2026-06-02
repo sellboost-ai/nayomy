@@ -1,9 +1,9 @@
-﻿---
+---
 name: "storybookjs/mcp"
 description: "Help agents automatically write and test stories for your UI components."
 category: "Developer Tools"
 repo: "storybookjs/mcp"
-stars: 245
+stars: 247
 url: "https://github.com/storybookjs/mcp"
 body_length: 7893
 license: "MIT"
