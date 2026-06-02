@@ -3,7 +3,7 @@ name: "planetscale/cli"
 description: "The CLI for PlanetScale Database."
 category: "Databases"
 repo: "planetscale/cli"
-stars: 651
+stars: 650
 url: "https://github.com/planetscale/cli"
 body_length: 4040
 license: "Apache-2.0"

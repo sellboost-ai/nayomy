@@ -3,7 +3,7 @@ name: "takumi0706/google-calendar-mcp"
 description: "An MCP server to interface with the Google Calendar API. Based on TypeScript."
 category: "Workplace & Productivity"
 repo: "takumi0706/google-calendar-mcp"
-stars: 56
+stars: 57
 url: "https://github.com/takumi0706/google-calendar-mcp"
 body_length: 15181
 license: "MIT"

@@ -8,6 +8,7 @@ url: "https://github.com/portainer/portainer-mcp"
 body_length: 5547
 license: "MIT"
 language: "Python"
+homepage: "https://portainer.io"
 ---
 
 # Portainer MCP

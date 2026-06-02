@@ -3,27 +3,26 @@ name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
-stars: 1273
+stars: 1277
 url: "https://github.com/designcomputer/mysql_mcp_server"
-body_length: 8212
+body_length: 8353
 license: "MIT"
 language: "Python"
 ---
 
-![Tests](https://github.com/designcomputer/mysql_mcp_server/actions/workflows/test.yml/badge.svg)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/mysql-mcp-server)
-[![smithery badge](https://smithery.ai/badge/mysql-mcp-server)](https://smithery.ai/server/mysql-mcp-server)
-[![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/designcomputer-mysql-mcp-server)
-[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/designcomputer/mysql_mcp_server)](https://archestra.ai/mcp-catalog/designcomputer__mysql_mcp_server)
-[![AgentAudit Safe](https://img.shields.io/badge/AgentAudit-safe-brightgreen)](https://www.agentaudit.dev/package/mysql-mcp-server)
+[![Tests](https://github.com/designcomputer/mysql_mcp_server/actions/workflows/test.yml/badge.svg)](https://github.com/designcomputer/mysql_mcp_server/actions)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/mysql-mcp-server)](https://pypi.org/project/mysql-mcp-server/)
+[![Smithery Badge](https://smithery.ai/badge/designcomputer/mysql-mcp-server)](https://smithery.ai/server/designcomputer/mysql-mcp-server)
+[![AgentAudit Safe](https://img.shields.io/badge/AgentAudit-safe-brightgreen)](https://www.agentaudit.dev/packages/mysql-mcp-server)
 [![MCPSafe](https://api.mcpsafe.io/badge/github/designcomputer/mysql_mcp_server.svg)](https://mcpsafe.io/registry/github/designcomputer/mysql_mcp_server)
 # MySQL MCP Server
 A Model Context Protocol (MCP) implementation that enables secure interaction with MySQL databases. This server component facilitates communication between AI applications (hosts/clients) and MySQL databases, making database exploration and analysis safer and more structured through a controlled interface.
 
-> **Note**: MySQL MCP Server is not designed to be used as a standalone server, but rather as a communication protocol implementation between AI applications and MySQL databases.
+> **Note**: MySQL MCP Server supports both standard input/output (STDIO) and Streamable HTTP (SSE) transport modes. The SSE mode is recommended for remote/self-hosted deployments.
 
-## Hosted deployment
-A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/designcomputer-mysql-mcp-server).
+## Deployment options
+- **Hosted** — [Fronteir AI](https://fronteir.ai/mcp/designcomputer-mysql-mcp-server) runs the server for you; no local setup required.
+- **Local** — [Smithery](https://smithery.ai/server/designcomputer/mysql-mcp-server) installs and runs the server on your own machine.
 
 ## Features
 - List available MySQL tables as resources
@@ -44,9 +43,9 @@ pip install mysql-mcp-server
 ```
 
 ### Installing via Smithery
-To install MySQL MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/mysql-mcp-server):
+To install MySQL MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/designcomputer/mysql-mcp-server):
 ```bash
-npx -y @smithery/cli install mysql-mcp-server --client claude
+npx -y @smithery/cli install designcomputer/mysql-mcp-server --client claude
 ```
 
 ## Configuration
@@ -71,8 +70,8 @@ MYSQL_RAISE_ON_WARNINGS=false
 
 # SSE Transport (Optional)
 MCP_TRANSPORT=stdio      # stdio or sse
-MCP_SSE_HOST=127.0.0.1
-MCP_SSE_PORT=8000
+MCP_SSE_HOST=0.0.0.0     # Listen on all interfaces (required for Docker/hosting)
+PORT=8000                # HTTP port (fallback for MCP_SSE_PORT)
 
 # SSH Tunneling (Optional)
 MYSQL_SSH_ENABLE=false   # Set to true to enable

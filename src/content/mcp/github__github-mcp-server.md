@@ -3,9 +3,9 @@ name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
 category: "Version Control"
 repo: "github/github-mcp-server"
-stars: 30329
+stars: 30353
 url: "https://github.com/github/github-mcp-server"
-body_length: 90382
+body_length: 90628
 license: "MIT"
 language: "Go"
 ---
@@ -1233,7 +1233,7 @@ The following sets of tools are available:
 
 - **get_commit** - Get commit details
   - **Required OAuth Scopes**: `repo`
-  - `include_diff`: Whether to include file diffs and stats in the response. Default is true. (boolean, optional)
+  - `detail`: Level of detail to include for changed files. "none" omits stats and files entirely. "stats" (default) includes per-file metadata: filename, status, and lines-of-code counts (additions, deletions, changes), with no patch content. "full_patch" additionally includes the unified diff content for each file and can be very large. (string, optional)
   - `owner`: Repository owner (string, required)
   - `page`: Page number for pagination (min 1) (number, optional)
   - `perPage`: Results per page for pagination (min 1, max 100) (number, optional)

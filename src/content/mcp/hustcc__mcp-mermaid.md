@@ -3,7 +3,7 @@ name: "hustcc/mcp-mermaid"
 description: "Generate mermaid diagram and chart with AI MCP dynamically."
 category: "Customer Data Platforms"
 repo: "hustcc/mcp-mermaid"
-stars: 572
+stars: 573
 url: "https://github.com/hustcc/mcp-mermaid"
 body_length: 5631
 license: "MIT"
