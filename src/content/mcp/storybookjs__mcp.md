@@ -3,9 +3,9 @@ name: "storybookjs/mcp"
 description: "Help agents automatically write and test stories for your UI components."
 category: "Developer Tools"
 repo: "storybookjs/mcp"
-stars: 247
+stars: 248
 url: "https://github.com/storybookjs/mcp"
-body_length: 7893
+body_length: 9005
 license: "MIT"
 language: "TypeScript"
 ---
@@ -27,6 +27,48 @@ This monorepo contains five main packages:
 Each package has its own README with user-facing documentation. This document is for **contributors** looking to develop, test, or contribute to these packages.
 
 ## 🚀 Quick Start
+
+### Testing the Claude and Codex plugins from GitHub
+
+External testers can install the plugin marketplace directly from this repository's
+`main` branch. No local clone is required.
+
+#### Codex
+
+```bash
+codex plugin marketplace add storybookjs/mcp --ref main
+codex plugin add storybook@storybook
+```
+
+Verify the marketplace and plugin:
+
+```bash
+codex plugin marketplace list
+codex plugin list --marketplace storybook
+```
+
+#### Claude Code
+
+```bash
+claude plugin marketplace add storybookjs/mcp@main --scope user
+claude plugin install storybook@storybook --scope user
+```
+
+Verify the plugin and MCP server:
+
+```bash
+claude plugin list --json
+claude mcp list
+```
+
+`claude mcp list` should show `plugin:storybook:storybook` using the
+`@storybook/mcp-proxy` preview URL from `pkg.pr.new`.
+
+The repository intentionally keeps marketplace catalogs in two places. The root
+catalogs support GitHub installs from `storybookjs/mcp`; the package-local
+catalogs support local package development scripts. They should stay identical
+except for the relative plugin source path, and the package validation checks
+that they do.
 
 ### Prerequisites
 

@@ -4,7 +4,7 @@ clean_name: "Scala Kafka"
 description: "Cursor rules for Scala Kafka."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39818
+stars: 39837
 path: "rules/scala-kafka-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/scala-kafka-cursorrules-prompt-file.mdc"
 body_length: 4652

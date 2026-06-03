@@ -3,9 +3,9 @@ name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
 category: "Coding Agents"
 repo: "CodeGraphContext/CodeGraphContext"
-stars: 3557
+stars: 3572
 url: "https://github.com/CodeGraphContext/CodeGraphContext"
-body_length: 18984
+body_length: 19208
 license: "MIT"
 language: "Python"
 homepage: "https://cgc.codes"
@@ -318,6 +318,7 @@ codegraphcontext find pattern "Auth" --viz
     *   VS Code
     *   Cursor
     *   Windsurf
+    *   Zed
     *   Claude
     *   Gemini CLI
     *   ChatGPT Codex
@@ -325,6 +326,8 @@ codegraphcontext find pattern "Auth" --viz
     *   RooCode
     *   Amazon Q Developer
     *   Kiro
+    *   Goose
+    *   OpenCode
 
     Upon successful configuration, `codegraphcontext mcp setup` will generate and place the necessary configuration files:
     *   It creates an `mcp.json` file in your current directory for reference.
@@ -386,6 +389,10 @@ Add the following server configuration to your client's settings file (e.g., VS 
   }
 }
 ```
+
+#### OpenCode Configuration
+
+For instructions on installing and configuring MCP servers with OpenCode, see the [OpenCode MCP Guide](https://opencode.ai/docs/ko/mcp-servers/#_top).
 
 #### If installed via pipx
 

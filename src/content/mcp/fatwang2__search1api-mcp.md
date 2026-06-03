@@ -3,7 +3,7 @@ name: "fatwang2/search1api-mcp"
 description: "Search via search1api (requires paid API key)"
 category: "Search & Data Extraction"
 repo: "fatwang2/search1api-mcp"
-stars: 172
+stars: 171
 url: "https://github.com/fatwang2/search1api-mcp"
 body_length: 4732
 license: "MIT"

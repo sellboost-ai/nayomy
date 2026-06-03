@@ -3,7 +3,7 @@ name: "juehang/vscode-mcp-server"
 description: "A MCP Server that allows AI such as Claude to read from the directory structure in a VS Code workspace, see problems picked up by linter(s) and the language server, read code files, and make edits."
 category: "Coding Agents"
 repo: "juehang/vscode-mcp-server"
-stars: 369
+stars: 370
 url: "https://github.com/juehang/vscode-mcp-server"
 body_length: 12445
 license: "MIT"

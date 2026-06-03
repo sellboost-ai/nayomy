@@ -3,9 +3,9 @@ name: "kubestellar/console"
 description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-agent) for AI-assisted operations, real-time observability, and integrations with 20+ CNCF projects across edge and cloud clusters."
 category: "Cloud Platforms"
 repo: "kubestellar/console"
-stars: 109
+stars: 111
 url: "https://github.com/kubestellar/console"
-body_length: 33375
+body_length: 34123
 license: "Apache-2.0"
 language: "TypeScript"
 homepage: "https://console.kubestellar.io"
@@ -53,6 +53,14 @@ curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | 
 ```
 
 Deploy into a cluster instead with [`deploy.sh`](deploy.sh) (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). See [docs/deploy.md](docs/deploy.md) for the full flag, environment-variable, exit-code, and example reference. For Helm chart installs that should talk to an in-cluster Kagenti backend, see [Connecting Kagenti](deploy/helm/kubestellar-console/README.md#connecting-kagenti) and the [Kagenti deployment guide](docs/kagenti-deployment-guide.md) for controller/agent topology, setup steps, and troubleshooting.
+
+## Development
+
+If you want to work on the repo itself, start with these entry points:
+
+- [CLAUDE.md](CLAUDE.md) — canonical developer guide for repo structure, testing expectations, and agent rules
+- [CONTRIBUTING.md](CONTRIBUTING.md) — contribution workflow, issue/PR conventions, and inventory notes
+- [docs/README.md](docs/README.md) — index of the documentation tree, grouped by audience
 
 ## kc-agent (bridge self-hosted console to your clusters)
 
@@ -442,6 +450,7 @@ Monitor and control GitHub Actions workflows.
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `PIPELINE_REPOS` | Optional | — | Comma-separated list of GitHub repositories to monitor (format: `owner/repo,owner/repo2`) |
+| `ACMM_REPOS` | Optional | `PIPELINE_REPOS` or the built-in KubeStellar repos | Comma-separated list of GitHub repositories the ACMM scan and badge endpoints may query |
 | `GITHUB_MUTATIONS_TOKEN` | Optional | — | GitHub PAT for re-running or canceling pipeline runs (requires `workflow` scope) |
 
 ### Analytics & Telemetry
@@ -490,6 +499,7 @@ Reactive graph subscription for real-time data.
 |----------|----------|---------|-------------|
 | `VITE_DRASI_SERVER_URL` | Optional | — | DRASI server URL (build-time only) |
 | `VITE_DRASI_PLATFORM_CLUSTER` | Optional | — | DRASI platform cluster identifier (build-time only) |
+| `KC_DRASI_SERVER_ALLOWED_HOSTS` | Optional | — | Comma-separated Drasi server hosts/IPs allowed for `/api/drasi/proxy?target=server`; required to permit loopback or private hosts |
 
 ### Quick Setup Examples
 

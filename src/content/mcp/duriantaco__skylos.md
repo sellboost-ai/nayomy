@@ -3,9 +3,9 @@ name: "duriantaco/skylos"
 description: "Dead code detection, security scanning, and code quality analysis for Python, TypeScript, and Go. 98% recall with fewer false positives than Vulture. Includes AI-powered remediation."
 category: "Security"
 repo: "duriantaco/skylos"
-stars: 446
+stars: 448
 url: "https://github.com/duriantaco/skylos"
-body_length: 18126
+body_length: 18446
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://skylos.dev/"
@@ -51,7 +51,8 @@ Use Skylos when you want one command to check a repo or pull request for:
 - secrets and dependency CVEs
 - CI/CD and edge-device deployment misconfigurations
 - quality regressions such as complexity, duplicate branches, and deep nesting
-- common AI-generated code mistakes, including missing guards and fake helpers
+- common AI-generated code mistakes, including missing guards, fake helpers,
+  invented package APIs, and impossible dependency versions
 - LLM app risks such as unsafe tool use and missing output validation
 
 ## Start In 60 Seconds
@@ -126,7 +127,7 @@ Need more commands? Read the [CLI Reference](https://docs.skylos.dev/cli-referen
 | CI/CD workflows | GitHub Actions and GitLab CI dangerous triggers, unpinned actions/includes, broad tokens, OIDC misuse, cache poisoning, mutable images | reduces CI/CD supply-chain risk before release jobs run |
 | Edge deployment config | Docker Compose privileged device access, host networking, systemd root services, broad capabilities, missing sandboxing | catches repo-controlled settings that turn app bugs into device compromise |
 | Quality regressions | complexity, deep nesting, duplicate branches, long functions, inconsistent returns | keeps AI-assisted refactors from adding brittle code |
-| AI code mistakes | phantom security calls, missing decorators, unfinished stubs, disabled controls, network calls without timeouts | catches common hallucinated or incomplete code paths |
+| AI code mistakes | phantom security calls, missing decorators, unfinished stubs, disabled controls, real packages called with invented APIs, impossible npm/Go versions | catches common hallucinated or incomplete code paths before they reach review |
 | LLM app risks | unsafe tool use, prompt injection exposure, missing output validation, missing rate limits | helps teams ship AI features with guardrails |
 
 See the full [Rules Reference](https://docs.skylos.dev/rules-reference).
@@ -143,7 +144,8 @@ repo and PR checker that puts several common review checks behind one CLI.
 - **Local-first operation:** core static analysis does not require cloud upload
   or LLM calls.
 - **AI-assisted change review:** checks for removed validation, auth, logging,
-  CSRF, rate limiting, timeouts, and other guards in generated or edited code.
+  CSRF, rate limiting, timeouts, real-package API hallucinations, and other
+  guardrails in generated or edited code.
 - **Project-specific rules:** add local YAML rules and extend prompt, credential,
   sensitive-file, and timeout dictionaries from config.
 - **One command surface:** dead code, security, secrets, dependency, quality,
@@ -224,6 +226,7 @@ and scanner scope.
 |:---|:---|:---|
 | GitHub Actions | `.github/workflows/*.yml`, `.github/workflows/*.yaml`, `action.yml`, `action.yaml` | dangerous triggers, token permissions, unpinned actions, template injection, secrets, OIDC, cache, and artifact policy |
 | GitLab CI | `.gitlab-ci.yml` | mutable images, unpinned includes, literal secrets, untrusted eval, Docker-in-Docker, OIDC, cache, timeout, and runner-tag policy |
+| Dockerfile | `Dockerfile`, `Dockerfile.*`, `*.dockerfile` | dangerous `RUN` commands, remote `ADD` without checksum, and literal build `ARG` / `ENV` secrets |
 | Edge Docker Compose | `compose*.yml`, `compose*.yaml`, `docker-compose*.yml`, `docker-compose*.yaml` | privileged containers, broad host device/control mounts, GPU/device runtime, and host networking |
 | Edge systemd | `*.service` | root edge services, mutable `ExecStart` paths, missing sandboxing, broad capabilities, and broad device access |
 

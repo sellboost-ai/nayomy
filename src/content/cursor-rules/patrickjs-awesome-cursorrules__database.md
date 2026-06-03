@@ -4,7 +4,7 @@ clean_name: "Database"
 description: "Database best practices focusing on Prisma and Supabase integration"
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39818
+stars: 39837
 path: "rules/database.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/database.mdc"
 body_length: 2069

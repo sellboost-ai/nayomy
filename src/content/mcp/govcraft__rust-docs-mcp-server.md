@@ -3,7 +3,7 @@ name: "Govcraft/rust-docs-mcp-server"
 description: "Provides up-to-date documentation context for a specific Rust crate to LLMs via an MCP tool, using semantic search (embeddings) and LLM summarization."
 category: "Developer Tools"
 repo: "Govcraft/rust-docs-mcp-server"
-stars: 279
+stars: 280
 url: "https://github.com/Govcraft/rust-docs-mcp-server"
 body_length: 14059
 license: "MIT"

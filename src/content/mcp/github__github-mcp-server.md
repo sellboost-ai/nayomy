@@ -3,7 +3,7 @@ name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
 category: "Version Control"
 repo: "github/github-mcp-server"
-stars: 30353
+stars: 30384
 url: "https://github.com/github/github-mcp-server"
 body_length: 90628
 license: "MIT"

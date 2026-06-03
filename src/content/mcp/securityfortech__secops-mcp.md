@@ -3,7 +3,7 @@ name: "securityfortech/secops-mcp"
 description: "All-in-one security testing toolbox that brings together popular open source tools through a single MCP interface. Connected to an AI agent, it enables tasks like pentesting, bug bounty hunting, threat hunting, and more."
 category: "Security"
 repo: "securityfortech/secops-mcp"
-stars: 196
+stars: 197
 url: "https://github.com/securityfortech/secops-mcp"
 body_length: 6219
 license: "MIT"

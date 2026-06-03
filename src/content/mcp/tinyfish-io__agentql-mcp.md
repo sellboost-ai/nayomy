@@ -3,7 +3,7 @@ name: "tinyfish-io/agentql-mcp"
 description: "MCP server that provides AgentQL's data extraction capabilities."
 category: "Search & Data Extraction"
 repo: "tinyfish-io/agentql-mcp"
-stars: 172
+stars: 173
 url: "https://github.com/tinyfish-io/agentql-mcp"
 body_length: 5979
 license: "MIT"

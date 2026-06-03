@@ -3,7 +3,7 @@ name: "tumf/mcp-text-editor"
 description: "A line-oriented text file editor. Optimized for LLM tools with efficient partial file access to minimize token usage."
 category: "Developer Tools"
 repo: "tumf/mcp-text-editor"
-stars: 190
+stars: 191
 url: "https://github.com/tumf/mcp-text-editor"
 body_length: 11868
 license: "MIT"

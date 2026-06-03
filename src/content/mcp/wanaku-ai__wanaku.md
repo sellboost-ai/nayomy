@@ -5,7 +5,7 @@ category: "Other Tools and Integrations"
 repo: "wanaku-ai/wanaku"
 stars: 117
 url: "https://github.com/wanaku-ai/wanaku"
-body_length: 3336
+body_length: 3330
 license: "Apache-2.0"
 language: "Java"
 homepage: "https://wanaku.ai"
@@ -36,7 +36,7 @@ South America.
 
 ## Quick Start
 
-Getting started is a single command. Download the CLI from **[releases page](https://github.com/wanaku-ai/wanaku/releases)**, unpack, 
+Getting started is a single command. Download the CLI from **[releases page](https://github.com/wanaku-ai/wanaku/releases)**, unpack,
 and then just run:
 
 ```shell
@@ -57,10 +57,10 @@ The reference documentation, including the complete installation and configurati
 
 ## Documentation
 
-The **[Wanaku Documentation](https://wanaku.ai/docs/)** website contains additional documentation, covering several of 
-components that are part of the project - some of which are hosted in different repositories (i.e.: such as the 
-[Camel Integration Capability](https://github.com/wanaku-ai/camel-integration-capability/), 
-the [Java SDK](https://github.com/wanaku-ai/wanaku-capabilities-java-sdk/), etc.). 
+The **[Wanaku Documentation](https://wanaku.ai/docs/)** website contains additional documentation, covering several of
+components that are part of the project - some of which are hosted in different repositories (i.e.: such as the
+[Camel Integration Capability](https://github.com/wanaku-ai/camel-integration-capability/),
+the [Java SDK](https://github.com/wanaku-ai/wanaku-capabilities-java-sdk/), etc.).
 
 ## Community
 
@@ -68,7 +68,7 @@ the [Java SDK](https://github.com/wanaku-ai/wanaku-capabilities-java-sdk/), etc.
 - [Discussions](https://github.com/wanaku-ai/wanaku/discussions) - Ask questions and share ideas
 - [Examples](https://github.com/wanaku-ai/wanaku-examples) - Example capabilities and integrations
 
-Contributors working on the project may want to refer to the [development version of the documentation](/docs) including 
+Contributors working on the project may want to refer to the [development version of the documentation](/docs) including
 
 - [Pre-release Usage Guide](docs/usage.md) - Pre-release usage guide
 - [Architecture](docs/architecture.md) - System architecture and components
