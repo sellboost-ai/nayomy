@@ -3,7 +3,7 @@ name: "Canner/wren-engine"
 description: "The Semantic Engine for Model Context Protocol(MCP) Clients and AI Agents"
 category: "Databases"
 repo: "Canner/wren-engine"
-stars: 660
+stars: 661
 url: "https://github.com/Canner/wren-engine"
 body_length: 11385
 license: "Apache-2.0"

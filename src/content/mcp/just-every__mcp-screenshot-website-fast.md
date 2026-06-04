@@ -7,7 +7,7 @@ stars: 106
 url: "https://github.com/just-every/mcp-screenshot-website-fast"
 body_length: 10133
 license: "MIT"
-language: "JavaScript"
+language: "TypeScript"
 homepage: "https://justevery.com"
 ---
 

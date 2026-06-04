@@ -3,7 +3,7 @@ name: "kopfrechner/gitlab-mr-mcp"
 description: "Interact seamlessly with issues and merge requests of your GitLab projects."
 category: "Version Control"
 repo: "kopfrechner/gitlab-mr-mcp"
-stars: 90
+stars: 91
 url: "https://github.com/kopfrechner/gitlab-mr-mcp"
 body_length: 3720
 license: "MIT"

@@ -3,9 +3,9 @@ name: "wonderwhy-er/DesktopCommanderMCP"
 description: "A swiss-army-knife that can manage/execute programs and read/write/search/edit code and text files."
 category: "Command Line"
 repo: "wonderwhy-er/DesktopCommanderMCP"
-stars: 6103
+stars: 6106
 url: "https://github.com/wonderwhy-er/DesktopCommanderMCP"
-body_length: 50214
+body_length: 50134
 license: "MIT"
 language: "TypeScript"
 homepage: "https://desktopcommander.app/"
@@ -29,8 +29,6 @@ Work with code and text, run processes, and automate tasks, going far beyond oth
 <a href="https://glama.ai/mcp/servers/zempur9oh4">
   
 </a>
-
-## 👋 We’re hiring — come build with us: https://desktopcommander.app/careers/
 
 ## 🖥️ Try the Desktop Commander App (Beta)
 

@@ -3,9 +3,9 @@ name: "IvanMurzak/Unity-MCP"
 description: "MCP Server for Unity Editor and for a game made with Unity"
 category: "Gaming"
 repo: "IvanMurzak/Unity-MCP"
-stars: 3012
+stars: 3024
 url: "https://github.com/IvanMurzak/Unity-MCP"
-body_length: 47820
+body_length: 47926
 license: "Apache-2.0"
 language: "C#"
 homepage: "https://ai-game.dev"
@@ -211,6 +211,7 @@ Install extensions when need more tools or [create your own tools](#add-custom-t
 | Extension | Description |
 | --- | --- |
 | **[AI Animation](https://github.com/IvanMurzak/Unity-AI-Animation/)** | Set of additional tools for Unity Animations |
+| **[AI Cinemachine](https://github.com/IvanMurzak/Unity-AI-Cinemachine/)** | MCP Tools for Cinemachine |
 | **[AI ParticleSystem](https://github.com/IvanMurzak/Unity-AI-ParticleSystem/)** | Set of additional tools for Unity Particle System |
 | **[AI ProBuilder](https://github.com/IvanMurzak/Unity-AI-ProBuilder/)** | Set of additional tools for Unity ProBuilder |
 

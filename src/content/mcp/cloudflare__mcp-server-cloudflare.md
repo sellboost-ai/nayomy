@@ -3,7 +3,7 @@ name: "cloudflare/mcp-server-cloudflare"
 description: "Integration with Cloudflare services including Workers, KV, R2, and D1"
 category: "Cloud Platforms"
 repo: "cloudflare/mcp-server-cloudflare"
-stars: 3814
+stars: 3820
 url: "https://github.com/cloudflare/mcp-server-cloudflare"
 body_length: 7908
 license: "Apache-2.0"

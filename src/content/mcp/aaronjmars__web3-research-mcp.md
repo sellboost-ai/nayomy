@@ -3,7 +3,7 @@ name: "aaronjmars/web3-research-mcp"
 description: "Deep Research for crypto - free & fully local"
 category: "Finance & Fintech"
 repo: "aaronjmars/web3-research-mcp"
-stars: 157
+stars: 159
 url: "https://github.com/aaronjmars/web3-research-mcp"
 body_length: 6649
 license: "MIT"

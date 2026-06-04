@@ -3,9 +3,9 @@ name: "chopratejas/headroom"
 description: "Context compression layer for AI agents. Compresses tool outputs, logs, RAG chunks, files, and conversation history before they reach the LLM, with reversible retrieval through MCP tools."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
-stars: 7654
+stars: 10751
 url: "https://github.com/chopratejas/headroom"
-body_length: 15651
+body_length: 16615
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://headroom-docs.vercel.app/docs"
@@ -108,7 +108,7 @@ headroom proxy --port 8787              # drop-in proxy, zero code changes
 # or: from headroom import compress      # inline library
 
 # 3 — See the savings
-headroom stats
+headroom perf
 ```
 
 Granular extras: `[proxy]`, `[mcp]`, `[ml]`, `[agno]`, `[langchain]`, `[evals]`. Requires **Python 3.10+**.
@@ -147,6 +147,18 @@ Reproduce: `python -m headroom.evals suite --tier 1` · [Full benchmarks & metho
 | OpenClaw    | ●               | installs as ContextEngine plugin |
 
 Any OpenAI-compatible client works via `headroom proxy`. MCP-native: `headroom mcp install`.
+
+### GitHub Copilot CLI subscription mode
+
+Headroom can route GitHub Copilot CLI subscription traffic through the local proxy:
+
+```bash
+headroom wrap copilot --subscription -- --model gpt-4o
+```
+
+This lets Headroom intercept OpenAI-compatible Copilot CLI requests and apply the same proxy compression pipeline before forwarding to GitHub Copilot's hosted API. The wrapper resolves the account-specific Copilot API endpoint and prints it as `COPILOT_PROVIDER_API_URL=...` during launch.
+
+Platform support note: macOS auth reuse via Copilot CLI Keychain storage has been smoke-tested. Windows Credential Manager, Linux Secret Service / `secret-tool`, and Docker/CI token-injection paths are implemented or planned as auth-discovery paths, but still need real OS validation before they should be considered fully vetted. For Docker and CI, prefer passing an explicit `GITHUB_COPILOT_TOKEN` or `GITHUB_COPILOT_GITHUB_TOKEN` rather than relying on host keychain access.
 
 ## When to use · When to skip
 

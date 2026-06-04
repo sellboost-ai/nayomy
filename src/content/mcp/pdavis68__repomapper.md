@@ -3,7 +3,7 @@ name: "pdavis68/RepoMapper"
 description: "An MCP server (and command-line tool) to provide a dynamic map of chat-related files from the repository with their function prototypes and related files in order of relevance. Based on the \"Repo Map\" functionality in Aider.chat"
 category: "Coding Agents"
 repo: "pdavis68/RepoMapper"
-stars: 173
+stars: 174
 url: "https://github.com/pdavis68/RepoMapper"
 body_length: 9401
 license: "MIT"

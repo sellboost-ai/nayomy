@@ -3,7 +3,7 @@ name: "34892002/bilibili-mcp-js"
 description: "A MCP server that supports searching for Bilibili content. Provides LangChain integration examples and test scripts."
 category: "Browser Automation"
 repo: "34892002/bilibili-mcp-js"
-stars: 171
+stars: 172
 url: "https://github.com/34892002/bilibili-mcp-js"
 body_length: 2332
 license: "MIT"

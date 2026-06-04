@@ -3,7 +3,7 @@ name: "BurtTheCoder/mcp-shodan"
 description: "MCP server for querying the Shodan API and Shodan CVEDB. This server provides tools for IP lookups, device searches, DNS lookups, vulnerability queries, CPE lookups, and more."
 category: "Security"
 repo: "BurtTheCoder/mcp-shodan"
-stars: 133
+stars: 134
 url: "https://github.com/BurtTheCoder/mcp-shodan"
 body_length: 10080
 license: "MIT"

@@ -3,7 +3,7 @@ name: "st3v3nmw/sourcerer-mcp"
 description: "MCP for semantic code search & navigation that reduces token waste"
 category: "Developer Tools"
 repo: "st3v3nmw/sourcerer-mcp"
-stars: 114
+stars: 115
 url: "https://github.com/st3v3nmw/sourcerer-mcp"
 body_length: 3144
 license: "MIT"

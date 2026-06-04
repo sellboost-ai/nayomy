@@ -3,7 +3,7 @@ name: "ezyang/codemcp"
 description: "Coding agent with basic read, write and command line tools."
 category: "Coding Agents"
 repo: "ezyang/codemcp"
-stars: 1613
+stars: 1614
 url: "https://github.com/ezyang/codemcp"
 body_length: 8454
 license: "Apache-2.0"

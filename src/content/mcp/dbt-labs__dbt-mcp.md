@@ -5,7 +5,7 @@ category: "Data Platforms"
 repo: "dbt-labs/dbt-mcp"
 stars: 576
 url: "https://github.com/dbt-labs/dbt-mcp"
-body_length: 7803
+body_length: 7904
 license: "Apache-2.0"
 language: "Python"
 ---
@@ -43,6 +43,7 @@ Tools for executing and generating SQL on dbt Platform infrastructure.
 ### Semantic Layer
 
 To learn more about the dbt Semantic Layer, click [here](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl).
+- `get_dimension_values`: Gets distinct values for a dimension; option to scope to specific metrics.
 - `get_dimensions`: Gets dimensions for specified metrics.
 - `get_entities`: Gets entities for specified metrics.
 - `get_metrics_compiled_sql`: Returns compiled SQL for metrics without executing the query.
