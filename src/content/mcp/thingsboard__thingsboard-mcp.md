@@ -3,7 +3,7 @@ name: "thingsboard/thingsboard-mcp"
 description: "The ThingsBoard MCP Server provides a natural language interface for LLMs and AI agents to interact with your ThingsBoard IoT platform."
 category: "Other Tools and Integrations"
 repo: "thingsboard/thingsboard-mcp"
-stars: 96
+stars: 97
 url: "https://github.com/thingsboard/thingsboard-mcp"
 body_length: 18734
 license: "Apache-2.0"

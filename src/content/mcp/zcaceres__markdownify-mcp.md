@@ -3,7 +3,7 @@ name: "zcaceres/markdownify-mcp"
 description: "An MCP server to convert almost any file or web content into Markdown"
 category: "Data Science Tools"
 repo: "zcaceres/markdownify-mcp"
-stars: 2723
+stars: 2725
 url: "https://github.com/zcaceres/markdownify-mcp"
 body_length: 4397
 license: "MIT"

@@ -4,7 +4,7 @@ clean_name: "React"
 description: "React best practices and patterns for modern web applications"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39852
+stars: 39869
 path: "rules/react.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react.mdc"
 body_length: 2324

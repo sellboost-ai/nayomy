@@ -3,9 +3,9 @@ name: "IvanMurzak/Unity-MCP"
 description: "MCP Server for Unity Editor and for a game made with Unity"
 category: "Gaming"
 repo: "IvanMurzak/Unity-MCP"
-stars: 3024
+stars: 3035
 url: "https://github.com/IvanMurzak/Unity-MCP"
-body_length: 47926
+body_length: 48742
 license: "Apache-2.0"
 language: "C#"
 homepage: "https://ai-game.dev"
@@ -108,6 +108,8 @@ That's it. Ask your AI *"Create 3 cubes in a circle with radius 2"* and watch it
 # Skills and Tools Reference
 
 The plugin ships with 70+ built-in tools across four categories. Each tool brings AI skill. All tools are available immediately after installation — no extra configuration required. See [docs/default-mcp-tools.md](docs/default-mcp-tools.md) for the full reference with detailed descriptions.
+
+> 🧰 Browse the full MCP tools registry online: [ai-game.dev/docs/tools](https://ai-game.dev/docs/tools)
 
 <details>
   <summary>Project & Assets</summary>
@@ -212,8 +214,14 @@ Install extensions when need more tools or [create your own tools](#add-custom-t
 | --- | --- |
 | **[AI Animation](https://github.com/IvanMurzak/Unity-AI-Animation/)** | Set of additional tools for Unity Animations |
 | **[AI Cinemachine](https://github.com/IvanMurzak/Unity-AI-Cinemachine/)** | MCP Tools for Cinemachine |
+| **[AI InputSystem](https://github.com/IvanMurzak/Unity-AI-InputSystem/)** | MCP Tools for the Unity Input System |
+| **[AI Navigation](https://github.com/IvanMurzak/Unity-AI-Navigation/)** | MCP Tools for AI Navigation (NavMesh surfaces, baking, agents, links) |
 | **[AI ParticleSystem](https://github.com/IvanMurzak/Unity-AI-ParticleSystem/)** | Set of additional tools for Unity Particle System |
 | **[AI ProBuilder](https://github.com/IvanMurzak/Unity-AI-ProBuilder/)** | Set of additional tools for Unity ProBuilder |
+| **[AI Splines](https://github.com/IvanMurzak/Unity-AI-Splines/)** | MCP Tools for Unity Splines |
+| **[AI Terrain](https://github.com/IvanMurzak/Unity-AI-Terrain/)** | Set of additional tools for Unity Terrain |
+| **[AI Tilemap](https://github.com/IvanMurzak/Unity-AI-Tilemap/)** | MCP Tools for Unity 2D Tilemaps |
+| **[AI Timeline](https://github.com/IvanMurzak/Unity-AI-Timeline/)** | MCP Tools for Unity Timeline cutscenes and sequences |
 
 ![AI Game Developer — Unity SKILLS and MCP](https://github.com/IvanMurzak/Unity-MCP/blob/main/docs/img/promo/hazzard-divider.svg?raw=true)
 

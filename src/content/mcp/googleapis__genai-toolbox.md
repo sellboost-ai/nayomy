@@ -3,9 +3,9 @@ name: "googleapis/genai-toolbox"
 description: "Open source MCP server specializing in easy, fast, and secure tools for Databases."
 category: "Databases"
 repo: "googleapis/genai-toolbox"
-stars: 15472
+stars: 15483
 url: "https://github.com/googleapis/genai-toolbox"
-body_length: 31861
+body_length: 32555
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://mcp-toolbox.dev/documentation/introduction/"
@@ -254,7 +254,7 @@ To install Toolbox as a binary:
 >
 > ```sh
 > # see releases page for other versions
-> export VERSION=1.3.0
+> export VERSION=1.4.0
 > curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/linux/amd64/toolbox
 > chmod +x toolbox
 > ```
@@ -267,7 +267,7 @@ To install Toolbox as a binary:
 >
 > ```sh
 > # see releases page for other versions
-> export VERSION=1.3.0
+> export VERSION=1.4.0
 > curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/darwin/arm64/toolbox
 > chmod +x toolbox
 > ```
@@ -280,7 +280,7 @@ To install Toolbox as a binary:
 >
 > ```sh
 > # see releases page for other versions
-> export VERSION=1.3.0
+> export VERSION=1.4.0
 > curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/darwin/amd64/toolbox
 > chmod +x toolbox
 > ```
@@ -293,7 +293,7 @@ To install Toolbox as a binary:
 >
 > ```cmd
 > :: see releases page for other versions
-> set VERSION=1.3.0
+> set VERSION=1.4.0
 > curl -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v%VERSION%/windows/amd64/toolbox.exe"
 > ```
 >
@@ -305,8 +305,32 @@ To install Toolbox as a binary:
 >
 > ```powershell
 > # see releases page for other versions
-> $VERSION = "1.3.0"
+> $VERSION = "1.4.0"
 > curl.exe -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/windows/amd64/toolbox.exe"
+> ```
+>
+> </details>
+> <details>
+> <summary>Windows ARM64 (Command Prompt)</summary>
+>
+> To install Toolbox as a binary on Windows ARM64 (Command Prompt):
+>
+> ```cmd
+> :: see releases page for other versions
+> set VERSION=1.4.0
+> curl -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v%VERSION%/windows/arm64/toolbox.exe"
+> ```
+>
+> </details>
+> <details>
+> <summary>Windows ARM64 (PowerShell)</summary>
+>
+> To install Toolbox as a binary on Windows ARM64 (PowerShell):
+>
+> ```powershell
+> # see releases page for other versions
+> $VERSION = "1.4.0"
+> curl.exe -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/windows/arm64/toolbox.exe"
 > ```
 >
 > </details>
@@ -318,7 +342,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=1.3.0
+export VERSION=1.4.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -342,7 +366,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/mcp-toolbox@v1.3.0
+go install github.com/googleapis/mcp-toolbox@v1.4.0
 ```
 <!-- {x-release-please-end} -->
 

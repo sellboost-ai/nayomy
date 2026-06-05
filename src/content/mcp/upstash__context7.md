@@ -3,9 +3,9 @@ name: "upstash/context7"
 description: "Up-to-date code documentation for LLMs and AI code editors."
 category: "Knowledge & Memory"
 repo: "upstash/context7"
-stars: 56698
+stars: 56773
 url: "https://github.com/upstash/context7"
-body_length: 9657
+body_length: 9702
 license: "MIT"
 language: "TypeScript"
 homepage: "https://context7.com"
@@ -59,7 +59,7 @@ Works in two modes:
 > [!NOTE]
 > **API Key Recommended**: Get a free API key at [context7.com/dashboard](https://context7.com/dashboard) for higher rate limits.
 
-Set up Context7 for your coding agents with a single command:
+Set up Context7 for your coding agents with a single command. The `ctx7` CLI requires Node.js 18 or newer.
 
 ```bash
 npx ctx7 setup

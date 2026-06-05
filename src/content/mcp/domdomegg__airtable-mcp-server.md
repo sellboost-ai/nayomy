@@ -3,7 +3,7 @@ name: "domdomegg/airtable-mcp-server"
 description: "Airtable database integration with schema inspection, read and write capabilities"
 category: "Databases"
 repo: "domdomegg/airtable-mcp-server"
-stars: 443
+stars: 444
 url: "https://github.com/domdomegg/airtable-mcp-server"
 body_length: 10473
 license: "MIT"

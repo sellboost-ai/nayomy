@@ -3,7 +3,7 @@ name: "kagisearch/kagimcp"
 description: "Official Kagi Search MCP Server"
 category: "Search & Data Extraction"
 repo: "kagisearch/kagimcp"
-stars: 408
+stars: 409
 url: "https://github.com/kagisearch/kagimcp"
 body_length: 4975
 license: "MIT"

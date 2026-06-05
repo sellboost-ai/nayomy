@@ -3,7 +3,7 @@ name: "tiianhk/MaxMSP-MCP-Server"
 description: "A coding agent for Max (Max/MSP/Jitter), which is a visual programming language for music and multimedia."
 category: "Coding Agents"
 repo: "tiianhk/MaxMSP-MCP-Server"
-stars: 229
+stars: 228
 url: "https://github.com/tiianhk/MaxMSP-MCP-Server"
 body_length: 2925
 license: "MIT"

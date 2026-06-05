@@ -3,7 +3,7 @@ name: "MladenSU/cli-mcp-server"
 description: "Command line interface with secure execution and customizable security policies"
 category: "Command Line"
 repo: "MladenSU/cli-mcp-server"
-stars: 170
+stars: 171
 url: "https://github.com/MladenSU/cli-mcp-server"
 body_length: 7206
 license: "MIT"

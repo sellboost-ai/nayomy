@@ -3,7 +3,7 @@ name: "ChronulusAI/chronulus-mcp"
 description: "Predict anything with Chronulus AI forecasting and prediction agents."
 category: "Data Science Tools"
 repo: "ChronulusAI/chronulus-mcp"
-stars: 108
+stars: 109
 url: "https://github.com/ChronulusAI/chronulus-mcp"
 body_length: 5291
 license: "MIT"

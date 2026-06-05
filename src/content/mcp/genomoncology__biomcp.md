@@ -5,7 +5,7 @@ category: "Biology Medicine and Bioinformatics"
 repo: "genomoncology/biomcp"
 stars: 521
 url: "https://github.com/genomoncology/biomcp"
-body_length: 16538
+body_length: 16605
 license: "MIT"
 language: "Rust"
 homepage: "https://biomcp.org/"
@@ -114,11 +114,12 @@ make install
 "$HOME/.local/bin/biomcp" --version
 ```
 
-For repo-local verification, `make check` now includes the release-critical
-Python/docs contract lane (`make test-contracts`), and `make release-gate` is
-the full routine release-readiness command (`make check` plus deterministic
-`make spec-contracts`). Use `make release-live-smoke` only for opt-in live
-public-upstream confidence.
+For repo-local verification, run the standard gates directly: `make lint`,
+`make test`, and `make spec`. `make test` includes both Rust nextest and the
+Python/docs contract lane, while `make release-gate` composes `lint test spec`.
+There is no supported `make check` command. Use `make verify` only for opt-in
+live public-upstream confidence; `make release-live-smoke` remains a
+compatibility alias.
 
 ## Quick start
 
