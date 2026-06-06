@@ -3,7 +3,7 @@ name: "kiliczsh/mcp-mongo-server"
 description: "A Model Context Protocol Server for MongoDB"
 category: "Databases"
 repo: "kiliczsh/mcp-mongo-server"
-stars: 279
+stars: 280
 url: "https://github.com/kiliczsh/mcp-mongo-server"
 body_length: 2244
 license: "MIT"

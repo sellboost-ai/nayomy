@@ -3,7 +3,7 @@ name: "hiromitsusasaki/raindrop-io-mcp-server"
 description: "An integration that allows LLMs to interact with Raindrop.io bookmarks using the Model Context Protocol (MCP)."
 category: "Other Tools and Integrations"
 repo: "hiromitsusasaki/raindrop-io-mcp-server"
-stars: 73
+stars: 74
 url: "https://github.com/hiromitsusasaki/raindrop-io-mcp-server"
 body_length: 2918
 language: "TypeScript"

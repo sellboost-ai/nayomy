@@ -3,7 +3,7 @@ name: "erithwik/mcp-hn"
 description: "An MCP server to search Hacker News, get top stories, and more."
 category: "Search & Data Extraction"
 repo: "erithwik/mcp-hn"
-stars: 74
+stars: 73
 url: "https://github.com/erithwik/mcp-hn"
 body_length: 2247
 license: "MIT"

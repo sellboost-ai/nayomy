@@ -3,7 +3,7 @@ name: "narumiruna/yfinance-mcp"
 description: "An MCP server that uses yfinance to obtain information from Yahoo Finance."
 category: "Finance & Fintech"
 repo: "narumiruna/yfinance-mcp"
-stars: 150
+stars: 151
 url: "https://github.com/narumiruna/yfinance-mcp"
 body_length: 11422
 license: "MIT"

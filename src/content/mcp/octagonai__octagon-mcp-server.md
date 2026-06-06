@@ -3,19 +3,19 @@ name: "OctagonAI/octagon-mcp-server"
 description: "Octagon AI Agents to integrate private and public market data"
 category: "Finance & Fintech"
 repo: "OctagonAI/octagon-mcp-server"
-stars: 129
+stars: 130
 url: "https://github.com/OctagonAI/octagon-mcp-server"
-body_length: 15378
+body_length: 14335
 license: "MIT"
 language: "TypeScript"
 homepage: "https://octagonai.co"
 ---
 
-# Octagon: MCP for Market Data
+# Octagon: MCP for Public & Prediction Markets Intelligence
 
 [![smithery badge](https://smithery.ai/badge/@OctagonAI/octagon-mcp-server)](https://smithery.ai/server/@OctagonAI/octagon-mcp-server)
 
-![Favicon](https://octagonai.co/docs/logo.svg) The Octagon MCP server provides specialized AI-powered financial research and analysis by integrating with the Octagon Market Intelligence API, enabling users to analyze and extract insights from public filings, earnings calls, financial metrics, private market transactions, and prediction market events within Claude Desktop and other popular MCP clients.
+![Favicon](https://octagonai.co/docs/logo.svg) The Octagon MCP server provides specialized AI-powered financial research and analysis by integrating with the Octagon Market Intelligence API, enabling users to analyze and extract insights from public filings, earnings calls, financial metrics, stocks & crypto data, stock news, and prediction markets news & research within Claude Desktop and other popular MCP clients.
 
 [![Demo](https://octagonai.co/docs/financial_model_demo_fast.gif)](https://octagonai.co/docs/financial_model_demo.mp4)
 
@@ -23,8 +23,8 @@ homepage: "https://octagonai.co"
 
 ✅ `octagon-agent` orchestrates broad market intelligence analysis
 
-- Public market insights (SEC filings, transcripts, financials, stock data)
-- Private market insights (companies, funding rounds, deals, debt, investors)
+- Public market insights: SEC filings (10-K, 10-Q, 20-F, 8-K, S-1, 13-F, DEF 14A), earnings call transcripts
+- Stocks & crypto market data: stock trading, crypto trading data, news, press release, ownerships and holdings
 
 ✅ `octagon-deep-research-agent` for comprehensive deep research
 
@@ -33,7 +33,7 @@ homepage: "https://octagonai.co"
 
 ✅ Prediction market research tooling
 
-- `octagon-prediction-markets-agent` for Kalshi event research reports
+- `octagon-prediction-markets-agent` for updated research reports on each prediction markets
 - `prediction_markets_history` for structured historical market data retrieval
 
 ✅ Live Octagon documentation access
@@ -410,20 +410,6 @@ MIT
 ## Individual Specialized MCP Servers
 
 While this server provides comprehensive market intelligence combining all our specialized agents, you can also use our individual MCP servers for specific use cases:
-
-### Public Market Data Servers
-
-- **[Octagon SEC Filings MCP](https://github.com/OctagonAI/octagon-sec-filings-mcp)** - Dedicated server for SEC filings analysis
-- **[Octagon Earnings Transcripts MCP](https://github.com/OctagonAI/octagon-earnings-transcripts-mcp)** - Specialized for earnings call transcript analysis
-- **[Octagon Stock Market Data MCP](https://github.com/OctagonAI/octagon-stock-market-data-mcp)** - Focused on stock market data access
-- **[Octagon Financial Statements MCP](https://github.com/OctagonAI/octagon-financial-statements-mcp)** - Financial metrics and ratios analysis
-- **[Octagon 13F Holdings MCP](https://github.com/OctagonAI/octagon-13f-holdings-mcp)** - Institutional ownership and Form 13F filings
-
-### Private Market Data Servers
-
-- **[Octagon Private Companies MCP](https://github.com/OctagonAI/octagon-private-companies-mcp)** - Private company research and intelligence
-- **[Octagon Investors MCP](https://github.com/OctagonAI/octagon-investors-mcp)** - Investor profiles and investment strategies
-- **[Octagon Funding Data MCP](https://github.com/OctagonAI/octagon-funding-data-mcp)** - Startup funding rounds and venture capital data
 
 ### Research Tools
 

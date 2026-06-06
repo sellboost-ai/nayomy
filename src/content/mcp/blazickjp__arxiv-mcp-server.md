@@ -3,7 +3,7 @@ name: "blazickjp/arxiv-mcp-server"
 description: "Search ArXiv research papers"
 category: "Search & Data Extraction"
 repo: "blazickjp/arxiv-mcp-server"
-stars: 2824
+stars: 2827
 url: "https://github.com/blazickjp/arxiv-mcp-server"
 body_length: 16366
 license: "Apache-2.0"

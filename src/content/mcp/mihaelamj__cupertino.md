@@ -5,7 +5,7 @@ category: "Developer Tools"
 repo: "mihaelamj/cupertino"
 stars: 820
 url: "https://github.com/mihaelamj/cupertino"
-body_length: 21317
+body_length: 21558
 license: "MIT"
 language: "Swift"
 ---
@@ -26,6 +26,8 @@ Cupertino is a CLI for human developers and an MCP server for AI agents. Both su
 ![Cupertino Demo](https://raw.githubusercontent.com/mihaelamj/cupertino/HEAD/docs/images/cupertino.gif)
 
 > **Latest: v1.3.0** (2026-05-31): per-source database bundle, read-only databases. The shipped bundle carries **351,505 documents / 240,543 symbols across 420+ frameworks**. [Release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.3.0) · [CHANGELOG](CHANGELOG.md) · [Roadmap](#roadmap) · live dashboard at <https://cupertino.aleahim.com/>. Follow updates on X: [@cupertinomcp](https://x.com/cupertinomcp).
+
+> If Cupertino is useful to your work with Apple docs or AI agents, consider [sponsoring its development](https://github.com/sponsors/mihaelamj). Sponsorship helps keep releases, documentation, and the Apple/Linux tooling around it moving.
 
 ## What is Cupertino?
 

@@ -3,7 +3,7 @@ name: "kontext-dev/browser-use-mcp-server"
 description: "browser-use packaged as an MCP server with SSE transport. includes a dockerfile to run chromium in docker + a vnc server."
 category: "Browser Automation"
 repo: "kontext-dev/browser-use-mcp-server"
-stars: 823
+stars: 822
 url: "https://github.com/kontext-dev/browser-use-mcp-server"
 body_length: 6281
 license: "MIT"

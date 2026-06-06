@@ -5,7 +5,7 @@ category: "Search & Data Extraction"
 repo: "ChanMeng666/server-google-news"
 stars: 123
 url: "https://github.com/ChanMeng666/server-google-news"
-body_length: 12340
+body_length: 13071
 license: "MIT"
 language: "TypeScript"
 homepage: "https://glama.ai/mcp/servers/dbx6imq4ef"
@@ -371,3 +371,19 @@ For complete structured data, see [structured-data.json](./structured-data.json)
 ## Hosted deployment
 
 A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/chanmeng-google-news-mcp-server).
+
+
+---
+
+<!-- CHAN MENG PERSONAL BRAND -->
+<div align="center">
+  <a href="https://github.com/ChanMeng666" target="_blank">
+    
+  </a>
+
+  <p><strong>Chan Meng</strong><br/>Need a custom app like this one? I build them — let's talk.</p>
+
+  <a href="mailto:chanmeng.dev@gmail.com"></a>
+  <a href="https://github.com/ChanMeng666"></a>
+</div>
+<!-- /CHAN MENG PERSONAL BRAND -->

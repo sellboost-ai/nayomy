@@ -3,7 +3,7 @@ name: "utensils/mcp-nixos"
 description: "MCP server providing accurate information about NixOS packages, system options, Home Manager configurations, and nix-darwin macOS settings to prevent AI hallucinations."
 category: "Developer Tools"
 repo: "utensils/mcp-nixos"
-stars: 659
+stars: 660
 url: "https://github.com/utensils/mcp-nixos"
 body_length: 11234
 license: "MIT"

@@ -5,7 +5,7 @@ category: "Cloud Platforms"
 repo: "TencentCloudBase/CloudBase-AI-ToolKit"
 stars: 1030
 url: "https://github.com/TencentCloudBase/CloudBase-AI-ToolKit"
-body_length: 21135
+body_length: 21130
 license: "MIT"
 language: "TypeScript"
 homepage: "https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/"
@@ -440,7 +440,7 @@ CodeBuddy 已内置 CloudBase MCP，无需配置即可使用。
 | **云函数** | 9 个 | 创建、更新、调用、日志、触发器 |
 | **静态托管** | 5 个 | 文件上传、域名配置、网站部署 |
 | **小程序** | 7 个 | 上传、预览、构建、配置、调试 |
-| **工具支持** | 4 个 | 模板、知识库搜索、联网搜索、交互对话 |
+| **工具支持** | 3 个 | 模板、知识库搜索、交互对话 |
 
 [查看完整工具文档](doc/mcp-tools.md) | [工具规格 JSON](scripts/tools.json)
 

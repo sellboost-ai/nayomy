@@ -3,9 +3,9 @@ name: "chopratejas/headroom"
 description: "Context compression layer for AI agents. Compresses tool outputs, logs, RAG chunks, files, and conversation history before they reach the LLM, with reversible retrieval through MCP tools."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
-stars: 13260
+stars: 14774
 url: "https://github.com/chopratejas/headroom"
-body_length: 16805
+body_length: 17054
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://headroom-docs.vercel.app/docs"
@@ -136,16 +136,22 @@ Granular extras: `[proxy]`, `[mcp]`, `[ml]`, `[code]`, `[memory]`, `[relevance]`
 
 Reproduce: `python -m headroom.evals suite --tier 1` · [Full benchmarks & methodology](https://headroom-docs.vercel.app/docs/benchmarks)
 
+<a href="https://www.star-history.com/?repos=chopratejas%2Fheadroom&type=date&legend=top-left">
+ <picture>
+   
+ </picture>
+</a>
+
 ## Agent compatibility matrix
 
 | Agent       | `headroom wrap` | Notes                            |
 |-------------|:---------------:|----------------------------------|
-| Claude Code | ●               | `--memory` · `--code-graph`      |
-| Codex       | ●               | shares memory with Claude        |
-| Cursor      | ●               | prints config — paste once       |
-| Aider       | ●               | starts proxy + launches          |
-| Copilot CLI | ●               | starts proxy + launches          |
-| OpenClaw    | ●               | installs as ContextEngine plugin |
+| Claude Code | ✅              | `--memory` · `--code-graph`      |
+| Codex       | ✅              | shares memory with Claude        |
+| Cursor      | ✅              | prints config — paste once       |
+| Aider       | ✅              | starts proxy + launches          |
+| Copilot CLI | ✅              | starts proxy + launches          |
+| OpenClaw    | ✅              | installs as ContextEngine plugin |
 
 Any OpenAI-compatible client works via `headroom proxy`. MCP-native: `headroom mcp install`.
 

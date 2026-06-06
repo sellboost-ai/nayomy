@@ -3,7 +3,7 @@ name: "cswkim/discogs-mcp-server"
 description: "MCP server to interact with the Discogs API"
 category: "Art & Culture"
 repo: "cswkim/discogs-mcp-server"
-stars: 104
+stars: 105
 url: "https://github.com/cswkim/discogs-mcp-server"
 body_length: 8934
 license: "MIT"

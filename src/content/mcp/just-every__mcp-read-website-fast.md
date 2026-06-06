@@ -3,7 +3,7 @@ name: "just-every/mcp-read-website-fast"
 description: "Fast, token-efficient web content extraction for AI agents - converts websites to clean Markdown while preserving links. Features Mozilla Readability, smart caching, polite crawling with robots.txt support, and concurrent fetching."
 category: "Search & Data Extraction"
 repo: "just-every/mcp-read-website-fast"
-stars: 151
+stars: 152
 url: "https://github.com/just-every/mcp-read-website-fast"
 body_length: 6614
 license: "MIT"

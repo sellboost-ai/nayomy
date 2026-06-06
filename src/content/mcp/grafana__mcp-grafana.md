@@ -3,7 +3,7 @@ name: "grafana/mcp-grafana"
 description: "Search dashboards, investigate incidents and query datasources in your Grafana instance"
 category: "Monitoring"
 repo: "grafana/mcp-grafana"
-stars: 3107
+stars: 3108
 url: "https://github.com/grafana/mcp-grafana"
 body_length: 73763
 license: "Apache-2.0"
@@ -363,7 +363,7 @@ Scopes define the specific resources that permissions apply to. Each action requ
 | `list_pyroscope_label_names`      | Pyroscope                 | List label names matching a selector                                                                         | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
 | `list_pyroscope_label_values`     | Pyroscope                 | List label values matching a selector for a label name                                                       | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
 | `list_pyroscope_profile_types`    | Pyroscope                 | List available profile types                                                                                 | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
-| `fetch_pyroscope_profile`         | Pyroscope                 | Fetches a profile in DOT format for analysis                                                                 | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
+| `query_pyroscope`                 | Pyroscope                 | Query profiles, metrics, or both from Pyroscope                                                              | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
 | `get_assertions`                  | Asserts                   | Get assertion summary for a given entity                                                                     | Plugin-specific permissions                            | Plugin-specific scopes                              |
 | `generate_deeplink`               | Navigation                | Generate accurate deeplink URLs for Grafana resources                                                        | None (read-only URL generation)                        | N/A                                                 |
 | `get_annotations`                 | Annotations               | Fetch annotations with filters                                                                               | `annotations:read`                                     | `annotations:*` or `annotations:id:123`             |

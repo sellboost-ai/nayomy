@@ -5,7 +5,7 @@ category: "Other Tools and Integrations"
 repo: "wong2/mcp-cli"
 stars: 437
 url: "https://github.com/wong2/mcp-cli"
-body_length: 1976
+body_length: 2146
 license: "GPL-3.0"
 language: "JavaScript"
 ---
@@ -47,11 +47,15 @@ The config file has the same format as the Claude Desktop config file.
 npx @wong2/mcp-cli npx <package-name> <args>
 ```
 
+Add `--pass-env` if the server needs environment variables from your current shell.
+
 ### Run locally developed server
 
 ```bash
 npx @wong2/mcp-cli node path/to/server/index.js args...
 ```
+
+Add `--pass-env` if the server needs environment variables from your current shell.
 
 ### Connect to a running server over Streamable HTTP
 

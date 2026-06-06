@@ -3,7 +3,7 @@ name: "TheRaLabs/legion-mcp"
 description: "Universal database MCP server supporting multiple database types including PostgreSQL, Redshift, CockroachDB, MySQL, RDS MySQL, Microsoft SQL Server, BigQuery, Oracle DB, and SQLite."
 category: "Databases"
 repo: "TheRaLabs/legion-mcp"
-stars: 93
+stars: 94
 url: "https://github.com/TheRaLabs/legion-mcp"
 body_length: 11744
 license: "GPL-3.0"

@@ -3,7 +3,7 @@ name: "ckanthony/openapi-mcp"
 description: "OpenAPI-MCP: Dockerized MCP Server to allow your AI agent to access any API with existing api docs."
 category: "Code Execution"
 repo: "ckanthony/openapi-mcp"
-stars: 188
+stars: 187
 url: "https://github.com/ckanthony/openapi-mcp"
 body_length: 13923
 language: "Go"

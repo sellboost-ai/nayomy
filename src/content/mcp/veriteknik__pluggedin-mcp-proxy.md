@@ -3,7 +3,7 @@ name: "VeriTeknik/pluggedin-mcp-proxy"
 description: "A comprehensive proxy server that combines multiple MCP servers into a single interface with extensive visibility features. It provides discovery and management of tools, prompts, resources, and templates across servers, plus a playground for debugging when building MCP servers."
 category: "Aggregators"
 repo: "VeriTeknik/pluggedin-mcp-proxy"
-stars: 130
+stars: 131
 url: "https://github.com/VeriTeknik/pluggedin-mcp-proxy"
 body_length: 31769
 license: "Apache-2.0"

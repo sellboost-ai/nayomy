@@ -3,7 +3,7 @@ name: "semgrep/mcp"
 description: "Allow AI agents to scan code for security vulnerabilites using Semgrep."
 category: "Security"
 repo: "semgrep/mcp"
-stars: 668
+stars: 669
 url: "https://github.com/semgrep/mcp"
 body_length: 19025
 license: "MIT"

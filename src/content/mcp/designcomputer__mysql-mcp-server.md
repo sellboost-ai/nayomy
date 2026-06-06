@@ -3,18 +3,17 @@ name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
-stars: 1282
+stars: 1283
 url: "https://github.com/designcomputer/mysql_mcp_server"
-body_length: 8353
+body_length: 9296
 license: "MIT"
 language: "Python"
+homepage: "https://designcomputer.com"
 ---
 
 [![Tests](https://github.com/designcomputer/mysql_mcp_server/actions/workflows/test.yml/badge.svg)](https://github.com/designcomputer/mysql_mcp_server/actions)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/mysql-mcp-server)](https://pypi.org/project/mysql-mcp-server/)
-[![Smithery Badge](https://smithery.ai/badge/designcomputer/mysql-mcp-server)](https://smithery.ai/server/designcomputer/mysql-mcp-server)
 [![AgentAudit Safe](https://img.shields.io/badge/AgentAudit-safe-brightgreen)](https://www.agentaudit.dev/packages/mysql-mcp-server)
-[![MCPSafe](https://api.mcpsafe.io/badge/github/designcomputer/mysql_mcp_server.svg)](https://mcpsafe.io/registry/github/designcomputer/mysql_mcp_server)
 # MySQL MCP Server
 A Model Context Protocol (MCP) implementation that enables secure interaction with MySQL databases. This server component facilitates communication between AI applications (hosts/clients) and MySQL databases, making database exploration and analysis safer and more structured through a controlled interface.
 
@@ -30,9 +29,9 @@ A Model Context Protocol (MCP) implementation that enables secure interaction wi
 - Execute SQL queries with proper error handling
 - **Multi-database mode** (Optional `MYSQL_DATABASE`)
 - **SSE/HTTP transport support** (`MCP_TRANSPORT=sse`)
-- **SSH Tunneling support** (Contributed by [GeorgeLeex](https://github.com/GeorgeLeex))
-- **Comprehensive schema information** (Contributed by [GeorgeLeex](https://github.com/GeorgeLeex))
-- **Table data sampling** (Contributed by [GeorgeLeex](https://github.com/GeorgeLeex))
+- **SSH Tunneling support**
+- **Comprehensive schema information**
+- **Table data sampling**
 - Secure database access through environment variables
 - Comprehensive logging
 
@@ -46,6 +45,11 @@ pip install mysql-mcp-server
 To install MySQL MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/designcomputer/mysql-mcp-server):
 ```bash
 npx -y @smithery/cli install designcomputer/mysql-mcp-server --client claude
+```
+
+### Installing via Claude Code CLI
+```bash
+claude mcp add --transport stdio designcomputer-mysql_mcp_server uvx mysql_mcp_server
 ```
 
 ## Configuration
@@ -87,8 +91,8 @@ MYSQL_LOCAL_PORT=3330
 ### Multi-Database Mode
 When `MYSQL_DATABASE` is not set, the server operates in multi-database mode:
 - `list_resources` returns all user databases (system databases are filtered out)
-- Use `USE <database>` in SQL queries to select a database
-- Use fully qualified table names like `mydb.mytable`
+- Use fully qualified table names like `mydb.mytable` in SQL queries
+- **Note:** Only single SQL statements are supported. Multi-statement queries (e.g., `USE db; SELECT ...`) are not supported.
 
 ## Available Tools
 
@@ -96,16 +100,24 @@ When `MYSQL_DATABASE` is not set, the server operates in multi-database mode:
 Executes any standard SQL query.
 - **Arguments:** `query` (string)
 - **Features:** Supports `SELECT`, `SHOW`, `DESCRIBE`, and DML (`INSERT`, `UPDATE`, `DELETE`). DML operations are marked with a destructive hint.
+- **Limitation:** Single statements only. Multi-statement queries are not supported.
+- **Cross-database:** Use `database.table` notation to query any database regardless of the `MYSQL_DATABASE` setting.
 
 ### `get_schema_info`
 Provides detailed metadata about database structures.
 - **Arguments:** `table_name` (optional string)
 - **Output:** Column names, types, nullability, default values, and comments.
+- **Scope:** Only queries tables in the database set by `MYSQL_DATABASE`. Does not support `database.table` notation.
+- **Identifier rules:** Table names must contain only alphanumeric characters, underscores, and `$`.
 
 ### `get_table_sample`
 Fetches a representative sample of data.
 - **Arguments:** `table_name` (string), `limit` (optional integer, max 20)
 - **Use Case:** Quickly understand data formats and content without fetching large result sets.
+- **Scope:** Only queries tables in the database set by `MYSQL_DATABASE`. Does not support `database.table` notation.
+- **Identifier rules:** Table names must contain only alphanumeric characters, underscores, and `$`.
+
+> **Tool Scope:** `execute_sql` can query any database using `database.table` notation. `get_schema_info` and `get_table_sample` are limited to the database specified by `MYSQL_DATABASE`. If you need schema or sample data from a different database, use `execute_sql` instead (e.g., `DESCRIBE other_db.mytable`).
 
 ## Usage
 ### With Claude Desktop
@@ -184,12 +196,15 @@ python -m venv venv
 source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 # Install development dependencies
 pip install -r requirements-dev.txt
+# Copy the example config and edit with your credentials
+cp .env.example .env
+# Edit .env with your MySQL connection details
 # Run tests
 pytest
 ```
 
 ## Security Considerations
-- **Identifier Validation:** Built-in protection against SQL injection via strict regex whitelisting for database and table names.
+- **Identifier Validation:** Table and database names passed to `get_schema_info` and `get_table_sample` are validated against a strict whitelist (alphanumeric, underscore, and `$` only). Dots and special characters are rejected to prevent SQL injection.
 - **Encrypted Access:** Full support for SSL/TLS and SSH Tunneling for secure remote connections.
 - **Log Privacy:** Passwords and SSH private keys are automatically masked in server logs.
 - **Least Privilege:** Always use a dedicated MySQL user with minimal required permissions.

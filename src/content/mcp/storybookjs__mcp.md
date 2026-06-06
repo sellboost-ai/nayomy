@@ -3,7 +3,7 @@ name: "storybookjs/mcp"
 description: "Help agents automatically write and test stories for your UI components."
 category: "Developer Tools"
 repo: "storybookjs/mcp"
-stars: 248
+stars: 249
 url: "https://github.com/storybookjs/mcp"
 body_length: 9005
 license: "MIT"

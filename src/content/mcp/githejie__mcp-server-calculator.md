@@ -3,7 +3,7 @@ name: "githejie/mcp-server-calculator"
 description: "This server enables LLMs to use calculator for precise numerical calculations"
 category: "Other Tools and Integrations"
 repo: "githejie/mcp-server-calculator"
-stars: 147
+stars: 148
 url: "https://github.com/githejie/mcp-server-calculator"
 body_length: 1472
 license: "MIT"
