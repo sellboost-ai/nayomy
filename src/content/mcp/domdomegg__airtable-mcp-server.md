@@ -3,9 +3,9 @@ name: "domdomegg/airtable-mcp-server"
 description: "Airtable database integration with schema inspection, read and write capabilities"
 category: "Databases"
 repo: "domdomegg/airtable-mcp-server"
-stars: 446
+stars: 447
 url: "https://github.com/domdomegg/airtable-mcp-server"
-body_length: 10473
+body_length: 10472
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/airtable-mcp-server"
@@ -65,7 +65,7 @@ Keep the token handy, you'll need it in the next step. It should look something 
         "airtable-mcp-server"
       ],
       "env": {
-        "AIRTABLE_API_KEY": "pat123.abc123",
+        "AIRTABLE_API_KEY": "pat123.abc123"
       }
     }
   }

@@ -3,9 +3,9 @@ name: "mrexodia/ida-pro-mcp"
 description: "MCP server for IDA Pro, allowing you to perform binary analysis with AI assistants. This plugin implement decompilation, disassembly and allows you to generate malware analysis reports automatically."
 category: "Security"
 repo: "mrexodia/ida-pro-mcp"
-stars: 9140
+stars: 9163
 url: "https://github.com/mrexodia/ida-pro-mcp"
-body_length: 18166
+body_length: 18282
 license: "MIT"
 language: "Python"
 homepage: "https://plugins.hex-rays.com/mrexodia/ida-pro-mcp"
@@ -280,6 +280,7 @@ Worker controls:
 
 ## Modification Operations
 
+- `add_bookmark(addr, name, prefix)`: Add or replace the IDA bookmark at an address; set `prefix=""` for no prefix.
 - `set_comments(items)`: Set comments at address(es) in both disassembly and decompiler views.
 - `patch_asm(items)`: Patch assembly instructions at address(es).
 - `declare_type(decls)`: Declare C type(s) in the local type library.

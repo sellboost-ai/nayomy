@@ -3,7 +3,7 @@ name: "benborla/mcp-server-mysql"
 description: "MySQL database integration in NodeJS with configurable access controls and schema inspection"
 category: "Databases"
 repo: "benborla/mcp-server-mysql"
-stars: 1777
+stars: 1778
 url: "https://github.com/benborla/mcp-server-mysql"
 body_length: 27495
 license: "MIT"

@@ -3,7 +3,7 @@ name: "yangkyeongmo/mcp-server-apache-airflow"
 description: "MCP server that connects to Apache Airflow using official client."
 category: "Developer Tools"
 repo: "yangkyeongmo/mcp-server-apache-airflow"
-stars: 166
+stars: 165
 url: "https://github.com/yangkyeongmo/mcp-server-apache-airflow"
 body_length: 20009
 license: "MIT"

@@ -3,7 +3,7 @@ name: "jparkerweb/mcp-sqlite"
 description: "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities."
 category: "Databases"
 repo: "jparkerweb/mcp-sqlite"
-stars: 108
+stars: 109
 url: "https://github.com/jparkerweb/mcp-sqlite"
 body_length: 4963
 license: "MIT"
