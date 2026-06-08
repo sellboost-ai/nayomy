@@ -3,7 +3,7 @@ name: "openbnb-org/mcp-server-airbnb"
 description: "Provides tools to search Airbnb and get listing details."
 category: "Travel & Transportation"
 repo: "openbnb-org/mcp-server-airbnb"
-stars: 465
+stars: 466
 url: "https://github.com/openbnb-org/mcp-server-airbnb"
 body_length: 11531
 license: "MIT"

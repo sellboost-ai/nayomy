@@ -3,7 +3,7 @@ name: "ShenghaiWang/xcodebuild"
 description: "Build iOS Xcode workspace/project and feed back errors to llm."
 category: "Developer Tools"
 repo: "ShenghaiWang/xcodebuild"
-stars: 84
+stars: 85
 url: "https://github.com/ShenghaiWang/xcodebuild"
 body_length: 1986
 license: "MIT"

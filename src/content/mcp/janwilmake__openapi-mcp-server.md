@@ -3,7 +3,7 @@ name: "janwilmake/openapi-mcp-server"
 description: "Connect any HTTP/REST API server using an Open API spec (v3)"
 category: "Developer Tools"
 repo: "janwilmake/openapi-mcp-server"
-stars: 894
+stars: 893
 url: "https://github.com/janwilmake/openapi-mcp-server"
 body_length: 1492
 license: "MIT"

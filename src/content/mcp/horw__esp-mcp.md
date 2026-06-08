@@ -3,7 +3,7 @@ name: "horw/esp-mcp"
 description: "Workflow for fixing build issues in ESP32 series chips using ESP-IDF."
 category: "Embedded System"
 repo: "horw/esp-mcp"
-stars: 150
+stars: 151
 url: "https://github.com/horw/esp-mcp"
 body_length: 5962
 language: "Python"

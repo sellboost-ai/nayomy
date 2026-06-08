@@ -3,7 +3,7 @@ name: "ClickHouse/mcp-clickhouse"
 description: "ClickHouse database integration with schema inspection and query capabilities"
 category: "Databases"
 repo: "ClickHouse/mcp-clickhouse"
-stars: 797
+stars: 798
 url: "https://github.com/ClickHouse/mcp-clickhouse"
 body_length: 26540
 license: "Apache-2.0"

@@ -3,7 +3,7 @@ name: "lfnovo/content-core"
 description: "Extract content from URLs, documents, videos, and audio files using intelligent auto-engine selection. Supports web pages, PDFs, Word docs, YouTube transcripts, and more with structured JSON responses."
 category: "Search & Data Extraction"
 repo: "lfnovo/content-core"
-stars: 155
+stars: 156
 url: "https://github.com/lfnovo/content-core"
 body_length: 8743
 license: "MIT"

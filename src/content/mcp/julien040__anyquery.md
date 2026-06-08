@@ -3,7 +3,7 @@ name: "julien040/anyquery"
 description: "Query more than 40 apps with one binary using SQL. It can also connect to your PostgreSQL, MySQL, or SQLite compatible database. Local-first and private by design."
 category: "Aggregators"
 repo: "julien040/anyquery"
-stars: 1710
+stars: 1713
 url: "https://github.com/julien040/anyquery"
 body_length: 6042
 license: "NOASSERTION"

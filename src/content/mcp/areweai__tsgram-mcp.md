@@ -3,7 +3,7 @@ name: "areweai/tsgram-mcp"
 description: "TSgram: Telegram + Claude with local workspace access on your phone in typescript. Read, write, and vibe code on the go!"
 category: "Communication"
 repo: "areweai/tsgram-mcp"
-stars: 92
+stars: 93
 url: "https://github.com/areweai/tsgram-mcp"
 body_length: 11012
 license: "MIT"

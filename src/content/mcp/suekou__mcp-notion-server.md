@@ -3,7 +3,7 @@ name: "suekou/mcp-notion-server"
 description: "Interacting with Notion API"
 category: "Other Tools and Integrations"
 repo: "suekou/mcp-notion-server"
-stars: 897
+stars: 898
 url: "https://github.com/suekou/mcp-notion-server"
 body_length: 5319
 license: "MIT"

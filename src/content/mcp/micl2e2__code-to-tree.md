@@ -3,7 +3,7 @@ name: "micl2e2/code-to-tree"
 description: "A single-binary MCP server that converts source code into AST, regardless of language."
 category: "Coding Agents"
 repo: "micl2e2/code-to-tree"
-stars: 83
+stars: 84
 url: "https://github.com/micl2e2/code-to-tree"
 body_length: 5485
 license: "MIT"

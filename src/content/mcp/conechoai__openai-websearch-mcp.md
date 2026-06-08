@@ -3,7 +3,7 @@ name: "ConechoAI/openai-websearch-mcp"
 description: "This is a Python-based MCP server that provides OpenAI web_search build-in tool."
 category: "Search & Data Extraction"
 repo: "ConechoAI/openai-websearch-mcp"
-stars: 89
+stars: 90
 url: "https://github.com/ConechoAI/openai-websearch-mcp"
 body_length: 7356
 license: "MIT"
