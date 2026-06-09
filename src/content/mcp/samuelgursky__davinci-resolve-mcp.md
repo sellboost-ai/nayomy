@@ -3,7 +3,7 @@ name: "samuelgursky/davinci-resolve-mcp"
 description: "MCP server integration for DaVinci Resolve providing powerful tools for video editing, color grading, media management, and project control"
 category: "Art & Culture"
 repo: "samuelgursky/davinci-resolve-mcp"
-stars: 1196
+stars: 1200
 url: "https://github.com/samuelgursky/davinci-resolve-mcp"
 body_length: 12784
 license: "MIT"
@@ -15,7 +15,7 @@ language: "Python"
 [![Version](https://img.shields.io/badge/version-2.36.1-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
 [![npm](https://img.shields.io/npm/v/davinci-resolve-mcp.svg?label=npm&color=CB3837)](https://www.npmjs.com/package/davinci-resolve-mcp)
 [![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](docs/reference/api-coverage.md)
-[![Tools](https://img.shields.io/badge/MCP%20Tools-32%20(341%20full)-blue.svg)](#server-modes)
+[![Tools](https://img.shields.io/badge/MCP%20Tools-33%20(341%20full)-blue.svg)](#server-modes)
 [![Tested](https://img.shields.io/badge/Live%20Tested-98.5%25-green.svg)](docs/reference/api-coverage.md#test-results)
 [![DaVinci Resolve](https://img.shields.io/badge/DaVinci%20Resolve-18.5+-darkred.svg)](https://www.blackmagicdesign.com/products/davinciresolve)
 [![Python](https://img.shields.io/badge/python-3.10+-green.svg)](https://www.python.org/downloads/)
@@ -61,7 +61,7 @@ The command starts a localhost server and opens the control panel in your browse
 
 | Mode | Entry point | Tools | Best for |
 |------|-------------|-------|----------|
-| Compound | `src/server.py` | 32 | Default mode for most assistants. Related Resolve operations are grouped behind action parameters to keep context usage low. |
+| Compound | `src/server.py` | 33 | Default mode for most assistants. Related Resolve operations are grouped behind action parameters to keep context usage low. |
 | Full / granular | `src/server.py --full` or `src/resolve_mcp_server.py` | 341 | Power users who want one MCP tool per Resolve API method. |
 
 The compound server is recommended unless you specifically need the granular one-tool-per-method surface.

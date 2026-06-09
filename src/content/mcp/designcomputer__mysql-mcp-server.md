@@ -3,9 +3,9 @@ name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
-stars: 1284
+stars: 1287
 url: "https://github.com/designcomputer/mysql_mcp_server"
-body_length: 9296
+body_length: 11045
 license: "MIT"
 language: "Python"
 homepage: "https://designcomputer.com"
@@ -65,12 +65,15 @@ MYSQL_DATABASE=your_database # Optional: Omit for multi-database mode
 MYSQL_SSL_MODE=DISABLED  # DISABLED, REQUIRED, VERIFY_CA, VERIFY_IDENTITY
 MYSQL_CONNECT_TIMEOUT=10 # Timeout in seconds
 
+# Connection behaviour (Optional)
+MYSQL_SQL_MODE=TRADITIONAL           # SQL mode applied to the connection (default: TRADITIONAL)
+
 # Compatibility (Optional)
 MYSQL_CHARSET=utf8mb4
 MYSQL_COLLATION=utf8mb4_unicode_ci
 MYSQL_AUTH_PLUGIN=       # e.g., mysql_native_password for older MySQL versions
-MYSQL_USE_PURE=false     # Use pure Python implementation
-MYSQL_RAISE_ON_WARNINGS=false
+MYSQL_USE_PURE=false     # Force the pure-Python connector (default: false)
+MYSQL_RAISE_ON_WARNINGS=false        # Raise on SQL warnings (default: false)
 
 # SSE Transport (Optional)
 MCP_TRANSPORT=stdio      # stdio or sse
@@ -87,6 +90,18 @@ MYSQL_SSH_REMOTE_HOST=localhost # Host from the perspective of the jump host
 MYSQL_SSH_REMOTE_PORT=3306
 MYSQL_LOCAL_PORT=3330
 ```
+
+### `.env` file loading
+
+On startup the server automatically loads a `.env` file via `python-dotenv`, so for local use you can simply:
+
+```bash
+cp .env.example .env   # then edit with your credentials
+```
+
+The file is read from the **process working directory** (and parent directories), which works when you run the server yourself from the project folder.
+
+> ⚠️ **Claude Code / Claude Desktop:** these hosts launch the server from their own working directory, so the project's `.env` will **not** be found and you'll see `Missing required database configuration`. Put your `MYSQL_*` values in the `env` block of the MCP config (shown in the Usage section below) rather than relying on `.env`.
 
 ### Multi-Database Mode
 When `MYSQL_DATABASE` is not set, the server operates in multi-database mode:
@@ -107,17 +122,32 @@ Executes any standard SQL query.
 Provides detailed metadata about database structures.
 - **Arguments:** `table_name` (optional string)
 - **Output:** Column names, types, nullability, default values, and comments.
-- **Scope:** Only queries tables in the database set by `MYSQL_DATABASE`. Does not support `database.table` notation.
-- **Identifier rules:** Table names must contain only alphanumeric characters, underscores, and `$`.
+- **Cross-database:** Pass `database.table` to query a table outside `MYSQL_DATABASE`; bare names use the configured database.
+- **Identifier rules:** Names must contain only alphanumeric characters, underscores, and `$` (dots are allowed as a separator between database and table names).
 
 ### `get_table_sample`
 Fetches a representative sample of data.
 - **Arguments:** `table_name` (string), `limit` (optional integer, max 20)
 - **Use Case:** Quickly understand data formats and content without fetching large result sets.
-- **Scope:** Only queries tables in the database set by `MYSQL_DATABASE`. Does not support `database.table` notation.
-- **Identifier rules:** Table names must contain only alphanumeric characters, underscores, and `$`.
+- **Cross-database:** Pass `database.table` to sample a table outside `MYSQL_DATABASE`; bare names use the configured database.
+- **Identifier rules:** Names must contain only alphanumeric characters, underscores, and `$` (dots are allowed as a separator between database and table names).
 
-> **Tool Scope:** `execute_sql` can query any database using `database.table` notation. `get_schema_info` and `get_table_sample` are limited to the database specified by `MYSQL_DATABASE`. If you need schema or sample data from a different database, use `execute_sql` instead (e.g., `DESCRIBE other_db.mytable`).
+## Available Prompts
+
+In addition to tools, the server exposes **MCP prompts** — guided, multi-step workflows that a client can launch on demand. In Claude Code they appear as slash commands (`/mcp__<server>__<prompt>`); in Claude Desktop they appear in the prompts (`+`) menu.
+
+| Prompt | Arguments | Description |
+| --- | --- | --- |
+| `explore_database` | *(none)* | Systematically explore the database: discover available tables, inspect their schemas, sample the data, and summarize what's there. |
+| `analyze_table` | `table_name` *(required)* | Deep-dive into a specific table: retrieve its schema, sample its data, and suggest useful queries. Accepts `database.table` notation for cross-database lookups. |
+
+**Example (Claude Code):**
+```
+/mcp__mysql__explore_database
+/mcp__mysql__analyze_table customers
+```
+
+Both prompts orchestrate the existing `get_schema_info` and `get_table_sample` tools; `explore_database` also uses resource listing to enumerate tables.
 
 ## Usage
 ### With Claude Desktop
@@ -204,7 +234,7 @@ pytest
 ```
 
 ## Security Considerations
-- **Identifier Validation:** Table and database names passed to `get_schema_info` and `get_table_sample` are validated against a strict whitelist (alphanumeric, underscore, and `$` only). Dots and special characters are rejected to prevent SQL injection.
+- **Identifier Validation:** Table and database names passed to `get_schema_info` and `get_table_sample` are validated against a strict whitelist (alphanumeric, underscore, and `$` only; a single dot is allowed as a `database.table` separator). Other special characters are rejected to prevent SQL injection.
 - **Encrypted Access:** Full support for SSL/TLS and SSH Tunneling for secure remote connections.
 - **Log Privacy:** Passwords and SSH private keys are automatically masked in server logs.
 - **Least Privilege:** Always use a dedicated MySQL user with minimal required permissions.

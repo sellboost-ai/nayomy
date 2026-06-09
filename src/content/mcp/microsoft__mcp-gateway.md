@@ -3,9 +3,9 @@ name: "microsoft/mcp-gateway"
 description: "A reverse proxy and management layer for MCP servers, enabling scalable, session-aware routing and lifecycle management in Kubernetes environments."
 category: "Aggregators"
 repo: "microsoft/mcp-gateway"
-stars: 679
+stars: 680
 url: "https://github.com/microsoft/mcp-gateway"
-body_length: 29855
+body_length: 30612
 license: "MIT"
 language: "C#"
 homepage: "https://microsoft.github.io/mcp-gateway/"
@@ -185,6 +185,13 @@ For step-by-step guidance on configuring Azure Entra ID (creating `mcp.admin` an
 - Support for **Proxying Local & Remote MCP Servers**. See [examples and usage](sample-servers/mcp-proxy/README.md).
 - Stateless reverse proxy with a distributed session store (production mode).
 - Kubernetes-native deployment using StatefulSets and headless services.
+- **Management portal** (React SPA) served by the gateway itself at
+  [`/portal/`](portal/README.md) — list / create / edit / delete adapters and
+  tools, inspect status and pod logs, and exercise each MCP server with an
+  in-browser JSON-RPC test console. Authentication mirrors the API: anonymous
+  in dev mode (with an optional dev-identity switcher) and MSAL / Entra ID in
+  cloud mode, so every list call already filters down to the resources the
+  signed-in user is allowed to see.
 
 ### Tool Registration and Dynamic Routing
 
@@ -282,6 +289,7 @@ Content-Type: application/json
 
 When an agent lists `builtin:bash` / `builtin:read_file` / `builtin:write_file` in its `tools`, those built-ins run **in the gateway pod** under a per-session working directory. They are guarded by:
 
+- A scrubbed, default-deny process environment for `builtin:bash`: the spawned shell receives only a minimal allowlist (`PATH`, locale, `TERM`, `TZ`) with `HOME` / `TMPDIR` / `PWD` pinned to the session directory. The full gateway process environment is not inherited.
 - A regex denylist for clearly dangerous shell operations (`sudo`, network egress, mounts, package managers, etc.). This is *defense-in-depth*, not a sandbox.
 - 30s default / 120s max bash timeout; 16 KiB output cap per stream; 256 KiB max file size; 4 MiB total writes per session.
 - Path resolution rejects absolute paths and `..` traversal.

@@ -3,9 +3,9 @@ name: "ahujasid/blender-mcp"
 description: "MCP server for working with Blender"
 category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
-stars: 22459
+stars: 22499
 url: "https://github.com/ahujasid/blender-mcp"
-body_length: 10350
+body_length: 10255
 license: "MIT"
 language: "Python"
 ---
@@ -14,7 +14,7 @@ language: "Python"
 
 BlenderMCP connects Blender to Claude AI through the Model Context Protocol (MCP), allowing Claude to directly interact with and control Blender. This integration enables prompt assisted 3D modeling, scene creation, and manipulation.
 
-**We have no official website. Any website you see online is unofficial and has no affiliation with this project. Use them at your own risk.**
+**[Official website](https://blendermcp.org/)**
 
 [Full tutorial](https://www.youtube.com/watch?v=lCyQ717DuzQ)
 

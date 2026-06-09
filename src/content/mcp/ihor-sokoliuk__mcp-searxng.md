@@ -3,9 +3,9 @@ name: "ihor-sokoliuk/mcp-searxng"
 description: "A Model Context Protocol Server for SearXNG"
 category: "Search & Data Extraction"
 repo: "ihor-sokoliuk/mcp-searxng"
-stars: 873
+stars: 878
 url: "https://github.com/ihor-sokoliuk/mcp-searxng"
-body_length: 8048
+body_length: 8222
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/mcp-searxng"
@@ -23,6 +23,7 @@ homepage: "https://www.npmjs.com/package/mcp-searxng"
 [![Docker Pulls](https://img.shields.io/docker/pulls/isokoliuk/mcp-searxng?style=flat-square&logo=docker)](https://hub.docker.com/r/isokoliuk/mcp-searxng)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![mcp-searxng MCP server](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng/badges/score.svg)](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ihor-sokoliuk/mcp-searxng/badge)](https://scorecard.dev/viewer/?uri=github.com/ihor-sokoliuk/mcp-searxng)
 
 An [MCP server](https://modelcontextprotocol.io/introduction) that integrates the [SearXNG](https://docs.searxng.org) API, giving AI assistants web search capabilities.
 

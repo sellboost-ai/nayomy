@@ -3,7 +3,7 @@ name: "genomoncology/biomcp"
 description: "Biomedical research MCP server providing access to PubMed, ClinicalTrials.gov, and MyVariant.info."
 category: "Biology Medicine and Bioinformatics"
 repo: "genomoncology/biomcp"
-stars: 522
+stars: 523
 url: "https://github.com/genomoncology/biomcp"
 body_length: 16605
 license: "MIT"

@@ -3,9 +3,9 @@ name: "mihaelamj/cupertino"
 description: "Apple Documentation MCP Server. Search Apple developer docs, Swift Evolution proposals, and 600+ sample code projects with full-text search."
 category: "Developer Tools"
 repo: "mihaelamj/cupertino"
-stars: 821
+stars: 822
 url: "https://github.com/mihaelamj/cupertino"
-body_length: 21558
+body_length: 26475
 license: "MIT"
 language: "Swift"
 homepage: "https://cupertino.aleahim.com"
@@ -15,7 +15,7 @@ homepage: "https://cupertino.aleahim.com"
 
 **Apple documentation CLI for humans and MCP server for AI agents.**
 
-Cupertino is a CLI for human developers and an MCP server for AI agents. Both surfaces use the same local index of Apple documentation, Swift packages, sample code, Human Interface Guidelines, Swift Evolution proposals, and Swift.org pages.
+Cupertino is a CLI for human developers and an MCP server for AI agents. Both surfaces use the same local catalog of Apple documentation, Swift packages, sample code, Human Interface Guidelines, Swift Evolution proposals, and Swift.org pages.
 
 [![Swift 6.3+](https://img.shields.io/badge/Swift-6.3+-orange.svg)](https://swift.org)
 [![macOS 15+](https://img.shields.io/badge/macOS-15+-blue.svg)](https://www.apple.com/macos)
@@ -26,7 +26,7 @@ Cupertino is a CLI for human developers and an MCP server for AI agents. Both su
 
 ![Cupertino Demo](https://raw.githubusercontent.com/mihaelamj/cupertino/HEAD/docs/images/cupertino.gif)
 
-> **Latest: v1.3.0** (2026-05-31): per-source database bundle, read-only databases. The shipped bundle carries **351,505 documents / 240,543 symbols across 420+ frameworks**. [Release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.3.0) · [CHANGELOG](CHANGELOG.md) · [Roadmap](#roadmap) · live dashboard at <https://cupertino.aleahim.com/>. Follow updates on X: [@cupertinomcp](https://x.com/cupertinomcp).
+> **Latest: v1.3.0** (2026-05-31): per-source database bundle, read-only databases. The Apple documentation slice carries **351,505 documents / 240,543 symbols across 420+ frameworks**, alongside the HIG, archive, Swift Evolution, Swift.org, Swift Book, package, and sample-code DBs. [Release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.3.0) · [CHANGELOG](CHANGELOG.md) · [Roadmap](#roadmap) · live dashboard at <https://cupertino.aleahim.com/>. Follow updates on X: [@cupertinomcp](https://x.com/cupertinomcp).
 
 > If Cupertino is useful to your work with Apple docs or AI agents, consider [sponsoring its development](https://github.com/sponsors/mihaelamj). Sponsorship helps keep releases, documentation, and the Apple/Linux tooling around it moving.
 
@@ -35,10 +35,10 @@ Cupertino is a CLI for human developers and an MCP server for AI agents. Both su
 Cupertino is a local, structured documentation system for Apple platforms. It:
 
 - **Crawls** Apple Developer documentation, Swift.org, Swift Evolution proposals, Human Interface Guidelines, Apple Archive legacy guides, and Swift package metadata
-- **Indexes** everything into a fast, searchable SQLite FTS5 database with field-weighted BM25 (BM25F) ranking and AST-extracted symbol columns
+- **Indexes** everything into fast, searchable SQLite FTS5 databases with field-weighted BM25 (BM25F) ranking and AST-extracted symbol columns
 - **Runs** as a terminal CLI for developers who want fast local `search`, `read`, `doctor`, and `setup` commands
 - **Serves** the same corpus to AI agents like Claude, ChatGPT, Codex, Cursor, and Copilot via the Model Context Protocol
-- **Provides** offline access to 351,505 documentation pages / 240,543 symbols across 420+ frameworks (v1.3.0 bundle)
+- **Provides** offline access to 351,505 Apple documentation pages / 240,543 Apple-doc symbols across 420+ frameworks, plus the HIG, archive, Swift Evolution, Swift.org, Swift Book, package, and sample-code slices (v1.3.0 bundle)
 
 Why build this:
 
@@ -90,7 +90,7 @@ cupertino serve                                  # start the MCP server (also th
 
 Prefer to build the index yourself instead of downloading it? `cupertino save --remote` streams the corpus from GitHub and rebuilds locally, and `cupertino fetch --source <name>` crawls a single source from the original site. See [docs/commands/](docs/commands/) for every command, flag, and the slower self-hosted paths.
 
-### Two surfaces, one index
+### Two surfaces, one catalog
 
 A terminal search prints a human-friendly result with scores and follow-up commands:
 
@@ -155,10 +155,10 @@ Claude Desktop, OpenAI Codex, Cursor, VS Code (Copilot), GitHub Copilot for Xcod
 - **Swift Evolution** (~429 proposals) and **Swift.org** (~501 pages): GitHub- and site-based fetching in Markdown
 - **Swift package metadata**: `packages.db` ships 185 packages with full source, stars, licenses, deployment-target platforms, and authored `swift-tools-version`
 - **Apple Sample Code** (619 projects, 18,000+ indexed Swift files): fetched from Apple's CDN or the GitHub mirror, full-text searchable
-- **Apple Archive legacy guides** (~75 pages): pre-2016 conceptual docs (Core Animation, Quartz 2D, Core Text); excluded from search by default (`--include-archive`)
+- **Apple Archive legacy guides** (~368 pages in v1.3.0): pre-2016 conceptual docs (Core Animation, Quartz 2D, Core Text); included in default fan-out with a lower rank weight, or searchable alone with `--source apple-archive`
 - **Human Interface Guidelines**: Apple's design guidelines across iOS, macOS, watchOS, visionOS, and tvOS
 
-### Full-text search engine
+### Full-text search engines
 
 - **BM25F ranking**: SQLite FTS5 with field-weighted BM25 (Robertson/Zaragoza/Taylor 2004) over a 9-column index (`uri`, `source`, `framework`, `language`, `title`, `content`, `summary`, `symbols`, `symbol_components`). Title 10×, AST-extracted symbols 5×, summary 3×, framework 2×, CamelCase-split components 1.5×.
 - **AST-aware**: a Swift extractor pulls identifiers from every embedded code block and the page declaration into a `symbols` column, so a query like `Task` ranks the Swift `Task` struct above prose mentions of "task".
@@ -170,9 +170,10 @@ Claude Desktop, OpenAI Codex, Cursor, VS Code (Copilot), GitHub Copilot for Xcod
 
 - **Resources**: direct page access via `apple-docs://{framework}/{page}`, `swift-evolution://{proposal-id}`, `hig://{category}/{page}`
 - **`search`**: unified full-text search across every indexed source. Parameters: `query` (required), `source`, `framework`, `language`, `include_archive`, `limit`, and the `min_ios`/`min_macos`/`min_tvos`/`min_watchos`/`min_visionos`/`min_swift` platform filters (AND-combined; malformed values are rejected at the boundary with a clear error frame). Replaces the pre-[#239](https://github.com/mihaelamj/cupertino/issues/239) per-source tools.
-- **`list_frameworks`**, **`read_document`** (`format`: `json` for agents, `markdown` for humans)
-- **Sample-code tools**: `list_samples`, `read_sample`, `read_sample_file`
-- **AST-powered symbol tools** ([#81](https://github.com/mihaelamj/cupertino/issues/81)): `search_symbols`, `search_property_wrappers`, `search_concurrency`, `search_conformances`, `search_generics`, `get_inheritance`
+- **`list_frameworks`**, **`list_documents`**, **`list_children`**, **`read_document`** (`format`: `json` for agents, `markdown` for humans)
+- **Sample-code tools**: `list_samples`, `read_sample`, `read_sample_file`; pass `format=json` for typed project/file payloads
+- **AST-powered symbol tools** ([#81](https://github.com/mihaelamj/cupertino/issues/81)): `search_symbols`, `search_property_wrappers`, `search_concurrency`, `search_conformances`, `search_generics`, `get_inheritance`; pass `format=json` for typed symbol rows and title-bearing inheritance trees
+- **Desktop boundary**: desktop UI code consumes these backend/tool contracts. It must not open SQLite databases directly or duplicate Cupertino's read engine.
 
 See **[docs/tools/](docs/tools/)** for per-tool documentation.
 
@@ -182,95 +183,160 @@ Resumable from saved state, change-detection to skip unchanged pages, a respectf
 
 ## How it works
 
-Cupertino uses an **[ExtremePackaging](https://aleahim.com/blog/extreme-packaging/)** architecture: 49 strict-producer SPM targets across 63 source packages. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full breakdown and [`docs/package-import-contract.md`](docs/package-import-contract.md) for the strict per-target import rules.
+Cupertino uses an **[ExtremePackaging](https://aleahim.com/blog/extreme-packaging/)** architecture: 48 in-tree strict-producer SPM targets with explicit import contracts, plus the external `CupertinoDataEngine` package. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full breakdown and [`docs/package-import-contract.md`](docs/package-import-contract.md) for the strict per-target import rules.
 
-```
-Foundation tier:   SharedConstants, LoggingModels, MCPCore, MCPSharedTools, Resources
-Infrastructure:    ASTIndexer, Diagnostics, Logging (concrete, composition-root only)
-Producers:         Crawler, Core, Search, SampleIndex, Services,
-                   AppleConstraintsKit, Availability, Cleanup, and more
-Operation packs:   Distribution (setup), Diagnostics (doctor),
-                   Indexer (save), Ingest (fetch)
-MCP layer:         MCPSupport, MCPClient, SearchToolProvider
-Front doors:       CLI (cupertino), TUI (cupertino-tui)
+```mermaid
+flowchart TB
+  Foundation["Foundation tier<br/>SharedConstants · LoggingModels · MCPCore · MCPSharedTools · Resources"]
+  Infrastructure["Infrastructure<br/>ASTIndexer · Diagnostics · Logging"]
+  Producers["Strict producers<br/>Crawler · Core · Search · SampleIndex · Services<br/>AppleConstraintsKit · Availability · Cleanup · more"]
+  Operations["Operation packs<br/>Distribution setup · Diagnostics doctor · Indexer save · Ingest fetch"]
+  MCP["MCP layer<br/>MCPSupport · MCPClient · SearchToolProvider"]
+  FrontDoors["Front doors<br/>CLI cupertino · TUI cupertino-tui"]
+  External["External packages<br/>CupertinoDataKit · CupertinoDataEngine<br/>SwiftMCPCore · SwiftMCPClient"]
+
+  Foundation --> Infrastructure
+  Foundation --> Producers
+  Producers --> Operations
+  Producers --> MCP
+  Operations --> FrontDoors
+  MCP --> FrontDoors
+  External --> Producers
+  External --> MCP
 ```
 
 Data flows through three distinct phases:
 
-```
-1. Fetch   cupertino fetch --source apple-docs
-           WKWebView → Apple JSON API → JSON files on disk (~/.cupertino/docs/)
-2. Save    cupertino save --all
-           JSON → parse + AST extract → per-source SQLite FTS5 indexes
-           (~/.cupertino/apple-documentation.db, hig.db, …)
-3. Serve   cupertino serve
-           MCP server (stdio) ← JSON-RPC ← AI client
-           DocsResourceProvider + CupertinoSearchToolProvider
+```mermaid
+flowchart LR
+  Fetch["Fetch<br/>cupertino fetch --source apple-docs"]
+  Raw["Raw corpus<br/>DocC render JSON, Markdown,<br/>sample archives, package sources"]
+  Save["Save<br/>cupertino save --all"]
+  Bundle["v1.3.0 catalog bundle<br/>apple-documentation.db · hig.db · apple-archive.db<br/>swift-evolution.db · swift-org.db · swift-book.db<br/>apple-sample-code.db · packages.db"]
+  Services["Read services<br/>search · read · list · semantic tools"]
+  CLI["Terminal CLI<br/>human-readable text / JSON / markdown"]
+  MCP["MCP server<br/>typed tool responses over stdio"]
+  Agents["AI agents<br/>Claude · Codex · Cursor · Copilot · more"]
+
+  Fetch --> Raw --> Save --> Bundle --> Services
+  Services --> CLI
+  Services --> MCP --> Agents
 ```
 
 Key design principles: Swift 6.3 with 100% strict concurrency checking, value semantics and `Sendable` by default, actor isolation (`@MainActor` for WKWebView), explicit dependency injection with no singletons, and a hard separation of Crawling → Indexing → Serving.
 
 ### Published packages
 
-Cupertino factors three reusable, independently-versioned Swift packages out of the monorepo. Each is its own public repository, depended on by tag (`from: "0.1.0"`), Foundation-only, and built so an external consumer can adopt it without pulling in cupertino's engine:
+Cupertino factors reusable, independently-versioned Swift packages out of the monorepo. Each is its own public repository and is consumed by tag:
 
 | Package | Repo | What it is |
 |---|---|---|
 | **SwiftMCPCore** | [mihaelamj/SwiftMCPCore](https://github.com/mihaelamj/SwiftMCPCore) | Neutral MCP wire types (the JSON-RPC + protocol value types). Not cupertino-specific; a general MCP building block. |
 | **SwiftMCPClient** | [mihaelamj/SwiftMCPClient](https://github.com/mihaelamj/SwiftMCPClient) | Neutral, transport-injectable MCP client (`Client.MCP` seam, `MCPClient` actor, subprocess transport). Depends on SwiftMCPCore. |
-| **CupertinoDataKit** | [mihaelamj/CupertinoDataKit](https://github.com/mihaelamj/CupertinoDataKit) | Cupertino's public **read contract**: the documentation + sample-code read protocols (`Search.DocumentReading`, `Search.SymbolReading`, `Search.Database`, `Sample.Index.Reader`) plus every value type they return. Protocols + value types only, zero implementation; cupertino's engine conforms server-side, and an embedded/in-process reader (e.g. an iOS app) conforms a different implementation. Cupertino's foundation tier re-exports it (`@_exported import CupertinoDataKit`). |
+| **CupertinoDataKit** | [mihaelamj/CupertinoDataKit](https://github.com/mihaelamj/CupertinoDataKit) | Cupertino's public **read contract**: documentation/source reading, document browsing, symbol/code-intelligence reading, and sample-code reading protocols plus every value type they return. Protocols + value types only, zero implementation; cupertino's engine conforms server-side, and an embedded/in-process reader (e.g. an iOS app) conforms a different implementation. Cupertino's foundation tier re-exports it (`@_exported import CupertinoDataKit`). |
+| **CupertinoDataEngine** | [mihaelamj/CupertinoDataEngine](https://github.com/mihaelamj/CupertinoDataEngine) | Cupertino's embedded **read-only backend facade** for app clients. The engine itself conforms to the public read/browse contracts and fans out across configured source, sample, and package readers. The current v0.2.6 slice keeps the opaque `Corpus` handle and aligns current-corpus opening with release bundles: sample code is opened through the sample reader, and packages stay on `packages.db`. UI code must not know the storage files exist. |
+
+See the current [CupertinoDataEngine wiring diagram](docs/architecture/cupertino-data-engine-wiring.html) for the boundary between `CupertinoDataEngine`, in-tree `CupertinoComposition`, and downstream app clients. Mobile catalog installation is documented in [docs/design/mobile-catalog-delivery.md](docs/design/mobile-catalog-delivery.md), including app storage and the `CatalogStore` contract.
+
+```mermaid
+flowchart LR
+  subgraph Apps["Downstream app clients"]
+    Desktop["macOS / Linux desktop UI<br/>SwiftUI · AppKit · Qt"]
+    Mobile["iPhone / iPad UI<br/>UIKit · SwiftUI"]
+  end
+
+  Backend["App backend interface<br/>CupertinoDataKit contracts"]
+  Boundary["Contract boundary<br/>storage hidden from UI"]
+  Engine["CupertinoDataEngine<br/>opaque Corpus handle"]
+  Composition["CupertinoComposition<br/>cupertino-owned production wiring"]
+  Internals["Cupertino internals<br/>source, sample, package readers<br/>schema checks, storage filenames"]
+  CatalogStore["DownloadedCatalogStore<br/>free mobile catalog download"]
+  AppSupport["Application Support/Catalogs<br/>not Documents, excluded from backup"]
+
+  Desktop --> Backend
+  Mobile --> Backend
+  Backend --> Boundary --> Engine
+  Composition --> Engine
+  Engine --> Internals
+  Mobile --> CatalogStore --> AppSupport --> Engine
+  Boundary -.-> Internals
+```
 
 ## Roadmap
 
 The canonical living roadmap is [#183](https://github.com/mihaelamj/cupertino/issues/183); the diagram below tracks epic progress at a glance.
 
-Status colors:
+Status legend:
 
 ```mermaid
-flowchart TB
-  classDef done    fill:#34C759,stroke:#248A3D,color:#ffffff;
-  classDef active  fill:#0A84FF,stroke:#0060DF,color:#ffffff;
-  classDef next    fill:#FF9F0A,stroke:#C77700,color:#000000;
-  classDef partial fill:#FFD60A,stroke:#B59B00,color:#000000;
-  classDef todo    fill:#8E8E93,stroke:#636366,color:#ffffff;
-
-  subgraph Legend["Status colors"]
-    direction TB
-    L1["Shipped"]:::done ~~~ L2["In progress"]:::active ~~~ L3["Next up"]:::next ~~~ L4["Partial or blocked"]:::partial ~~~ L5["Planned"]:::todo
-  end
+flowchart LR
+  done["Done"]:::done
+  review["Review"]:::review
+  active["Active"]:::active
+  next["Next"]:::next
+  partial["Partial"]:::partial
+  todo["Todo"]:::todo
+  classDef done    fill:#34C759,color:#FFFFFF
+  classDef review  fill:#30B0C7,color:#FFFFFF
+  classDef active  fill:#007AFF,color:#FFFFFF
+  classDef next    fill:#5856D6,color:#FFFFFF
+  classDef partial fill:#FF9500,color:#FFFFFF
+  classDef todo    fill:#8E8E93,color:#FFFFFF
 ```
 
 Epic progress:
 
 ```mermaid
 flowchart TB
-  classDef done    fill:#34C759,stroke:#248A3D,color:#ffffff;
-  classDef active  fill:#0A84FF,stroke:#0060DF,color:#ffffff;
-  classDef next    fill:#FF9F0A,stroke:#C77700,color:#000000;
-  classDef partial fill:#FFD60A,stroke:#B59B00,color:#000000;
-  classDef todo    fill:#8E8E93,stroke:#636366,color:#ffffff;
-
-  subgraph InFlight["Epics in flight"]
+  subgraph Active["Active"]
     direction TB
-    E1221["#1221 recrawl (--resume in progress)"]:::active ~~~ E1036["#1036 per-source DB split"]:::partial ~~~ E191["#191 search quality + FTS"]:::partial
+    E1242["#1242 critical path"]:::active ~~~ E1262["#1262 desktop backend surface"]:::active ~~~ E1270["#1270 pre-UI readiness gate"]:::active ~~~ E1221["#1221 recrawl and resume"]:::active
   end
 
-  subgraph Next["Epics next"]
+  subgraph Partial["Partial"]
     direction TB
-    E769["#769 layer separation"]:::next
+    E1261["#1261 data engine extraction (opaque corpus shipped)"]:::partial ~~~ E1036["#1036 per-source DB split (#1061 left)"]:::partial ~~~ E191["#191 search quality and FTS"]:::partial
   end
 
-  subgraph Planned["Epics planned"]
+  subgraph Planned["Planned"]
     direction TB
-    E268["#268 MCP capability (keystone #742)"]:::todo ~~~ E266["#266 availability annotation v2"]:::todo ~~~ E190["#190 source expansion"]:::todo ~~~ E1223["#1223 declarative pluggability"]:::todo ~~~ E1222["#1222 Linux port"]:::todo ~~~ E1228["#1228 semantic + vector"]:::todo ~~~ E189["#189 TUI (dormant)"]:::todo
+    E1228["#1228 semantic and vector search"]:::todo ~~~ E1223["#1223 declarative pluggability"]:::todo ~~~ E1222["#1222 Linux port"]:::todo ~~~ E769["#769 layer separation"]:::todo ~~~ E268["#268 MCP capability expansion"]:::todo ~~~ E266["#266 availability annotation v2"]:::todo ~~~ E190["#190 source expansion"]:::todo ~~~ E189["#189 TUI internal tracker"]:::todo
   end
 
-  subgraph Shipped["Epics shipped"]
+  subgraph Closed["Closed"]
     direction TB
-    E943["#943 comprehensive query batteries"]:::done ~~~ E251["#251 unify sources + databases"]:::done
+    E1227["#1227 distribution and discoverability"]:::done ~~~ E1226["#1226 docs and DocC"]:::done ~~~ E1225["#1225 diagnostics and logging"]:::done ~~~ E1224["#1224 CLI ergonomics"]:::done ~~~ E1220["#1220 v1.3.x bug sweep"]:::done ~~~ E943["#943 query batteries"]:::done ~~~ E919["#919 source and DB pluggability"]:::done ~~~ E893["#893 producer-backend split"]:::done ~~~ E673["#673 v1.2.x ironclad"]:::done ~~~ E503["#503 package-import purification"]:::done ~~~ E495["#495 GoF protocol DI"]:::done ~~~ E381["#381 dependency injection by default"]:::done ~~~ E251["#251 unify sources and databases"]:::done
   end
 
-  InFlight ~~~ Next ~~~ Planned ~~~ Shipped
+  Active ~~~ Partial ~~~ Planned ~~~ Closed
+  classDef done    fill:#34C759,color:#FFFFFF
+  classDef review  fill:#30B0C7,color:#FFFFFF
+  classDef active  fill:#007AFF,color:#FFFFFF
+  classDef next    fill:#5856D6,color:#FFFFFF
+  classDef partial fill:#FF9500,color:#FFFFFF
+  classDef todo    fill:#8E8E93,color:#FFFFFF
+```
+
+Pre-UI readiness gate:
+
+```mermaid
+flowchart TD
+  release["#1268 current read surfaces green on main"]:::done
+  source["CupertinoDataEngine v0.2.2 source-corpus reader"]:::done
+  samples["v0.2.3 sample-reader construction"]:::done
+  packages["v0.2.3 package-reader construction"]:::done
+  bundle["v0.2.6 opaque release-corpus layout"]:::done
+  ios["iOS build proof for complete closure"]:::done
+  catalog["CatalogStoreAPI supplies opaque corpus handles"]:::done
+  embedded["Live LocalEmbeddedBackend real-corpus smoke"]:::done
+  smoke["#1269 repeatable release-corpus smoke"]:::done
+  stores["Mobile catalog install via CatalogStore"]:::next
+  ui["Begin native UI showcase work"]:::todo
+
+  release --> source --> samples --> packages --> bundle --> ios --> catalog --> embedded --> smoke --> stores --> ui
+  classDef done    fill:#34C759,color:#FFFFFF
+  classDef next    fill:#5856D6,color:#FFFFFF
+  classDef todo    fill:#8E8E93,color:#FFFFFF
 ```
 
 ## Performance
@@ -300,7 +366,7 @@ make format                 # SwiftFormat
 make lint                   # SwiftLint
 ```
 
-**Tests:** 3,095 `@Test` functions across 344 test files (493 `@Suite`s); parameterized `@Test(arguments:)` cases expand further at runtime. Built on Swift Testing (`@Test`, `@Suite`, `#expect`) with `withDependencies` for injection, spanning unit tests, integration tests (real WKWebView against real Apple docs), and formatter tests.
+**Tests:** the current full package suite reports 3,122 runtime tests across 501 suites from 351 Swift test files; parameterized `@Test(arguments:)` cases expand at runtime. Built on Swift Testing (`@Test`, `@Suite`, `#expect`) with `withDependencies` for injection, spanning unit tests, integration tests (real WKWebView against real Apple docs), and formatter tests.
 
 **Logging:** structured `os.log` under the `com.cupertino.cli` subsystem (categories: crawler, mcp, search, cli, transport, evolution, samples, package-downloader, archive, hig).
 
@@ -319,6 +385,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full build, test, and release wor
 - **[docs/PRINCIPLES.md](docs/PRINCIPLES.md)**: engineering principles (lossless URIs, no content lost at the door, 10x scale headroom)
 - **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**: technical deep-dives (concurrency, MCP, WKWebView testing)
 - **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)**: Homebrew distribution and CI/CD setup
+- **[docs/release/release-corpus-smoke.md](docs/release/release-corpus-smoke.md)**: on-demand release-corpus smoke gate for repo-built binaries
 - **[docs/mcp-clients.md](docs/mcp-clients.md)**: per-client MCP setup (Claude, Codex, Cursor, VS Code, Zed, Windsurf, opencode, and more)
 - **[docs/agent-skill.md](docs/agent-skill.md)**: use Cupertino as a stateless CLI Agent Skill (no server)
 - **[docs/commands/](docs/commands/)**: command-specific documentation (fetch, save, serve, search, doctor, and more)
@@ -332,8 +399,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full build, test, and release wor
 **Previously:** v1.2.1 (2026-05-23, maintenance + [Source Independence Day](https://github.com/mihaelamj/cupertino/issues/919)), v1.2.0 "ironclad" (2026-05-20, search-quality release: rank-1 accuracy on canonical-lookup queries 52% → 92%), v1.1.0 (2026-05-14), v1.0.2 (2026-05-11). Full history in [CHANGELOG.md](CHANGELOG.md).
 
 - ✅ All core functionality working, all production bugs resolved at ship time
-- ✅ 3,095 test functions across 344 files (493 suites)
-- ✅ 0 lint violations, Swift 6.3 with 100% strict concurrency checking
+- ✅ 3,122 runtime tests across 351 Swift test files (501 suites)
+- ⚠️ SwiftLint exits clean with 0 serious violations; warning-level lint debt and SwiftFormat drift remain in existing Swift files. Swift 6.3 with 100% strict concurrency checking.
 - ✅ Search quality measured end-to-end (Phase 1 of `docs/design/search-quality-eval.md`): single-system baselines on 7 query classes + 3 paired v1.1.0 → v1.2.0 version-diff audits, all checked into `docs/audits/`
 
 ## Contributing

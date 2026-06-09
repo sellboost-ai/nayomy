@@ -3,7 +3,7 @@ name: "wong2/mcp-cli"
 description: "CLI tool for testing MCP servers"
 category: "Other Tools and Integrations"
 repo: "wong2/mcp-cli"
-stars: 437
+stars: 438
 url: "https://github.com/wong2/mcp-cli"
 body_length: 2146
 license: "GPL-3.0"
