@@ -3,9 +3,9 @@ name: "punkpeye/fastmcp"
 description: "A high-level framework for building MCP servers in TypeScript"
 category: "Other Tools and Integrations"
 repo: "punkpeye/fastmcp"
-stars: 3180
+stars: 3184
 url: "https://github.com/punkpeye/fastmcp"
-body_length: 64487
+body_length: 66029
 license: "MIT"
 language: "TypeScript"
 ---
@@ -577,6 +577,66 @@ When creating tools that don't require parameters, you have two options:
 > [!NOTE]
 >
 > Both approaches are fully compatible with all MCP clients, including Cursor. FastMCP automatically generates the proper schema in both cases.
+
+#### Structured Tool Output
+
+Tools can declare an `outputSchema` and return structured data. FastMCP exposes that value as MCP `structuredContent`, while also returning a JSON text fallback for clients that only render text content.
+
+```typescript
+server.addTool({
+  name: "get-weather",
+  description: "Get weather for a city",
+  parameters: z.object({
+    city: z.string(),
+  }),
+  outputSchema: z.object({
+    temperature: z.number(),
+    humidity: z.number(),
+  }),
+  execute: async ({ city }) => {
+    const weather = await getWeather(city);
+
+    return {
+      temperature: weather.temperature,
+      humidity: weather.humidity,
+    };
+  },
+});
+```
+
+You can also return explicit text content and structured content together:
+
+```typescript
+server.addTool({
+  name: "get-weather",
+  description: "Get weather for a city",
+  parameters: z.object({
+    city: z.string(),
+  }),
+  outputSchema: z.object({
+    temperature: z.number(),
+    humidity: z.number(),
+  }),
+  execute: async ({ city }) => {
+    const weather = await getWeather(city);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `${city}: ${weather.temperature}F`,
+        },
+      ],
+      structuredContent: {
+        temperature: weather.temperature,
+        humidity: weather.humidity,
+      },
+    };
+  },
+});
+```
+
+When `outputSchema` is provided, FastMCP validates `structuredContent` before sending the tool result. Invalid structured output is returned to the client as a tool error instead of silently violating the advertised schema.
 
 #### Tool Authorization
 

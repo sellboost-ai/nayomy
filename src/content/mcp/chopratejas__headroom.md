@@ -3,9 +3,9 @@ name: "chopratejas/headroom"
 description: "Context compression layer for AI agents. Compresses tool outputs, logs, RAG chunks, files, and conversation history before they reach the LLM, with reversible retrieval through MCP tools."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
-stars: 19317
+stars: 20966
 url: "https://github.com/chopratejas/headroom"
-body_length: 17053
+body_length: 17075
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://headroom-docs.vercel.app/docs"
@@ -28,7 +28,7 @@ homepage: "https://headroom-docs.vercel.app/docs"
   <a href="https://app.codecov.io/gh/chopratejas/headroom"></a>
   <a href="https://pypi.org/project/headroom-ai/"></a>
   <a href="https://www.npmjs.com/package/headroom-ai"></a>
-  <a href="https://huggingface.co/chopratejas/kompress-base"></a>
+  <a href="https://huggingface.co/chopratejas/kompress-v2-base"></a>
   <a href="LICENSE"></a>
   <a href="https://headroom-docs.vercel.app/docs"></a>
 </p>
@@ -94,7 +94,7 @@ Headroom compresses everything your AI agent reads — tool outputs, logs, RAG c
 - **CacheAligner** — stabilizes prefixes so provider KV caches actually hit
 - **CCR** — stores originals locally; LLM calls `headroom_retrieve` if it needs them
 
-→ [Architecture](https://headroom-docs.vercel.app/docs/architecture) · [CCR reversible compression](https://headroom-docs.vercel.app/docs/ccr) · [Kompress-base model card](https://huggingface.co/chopratejas/kompress-base)
+→ [Architecture](https://headroom-docs.vercel.app/docs/architecture) · [CCR reversible compression](https://headroom-docs.vercel.app/docs/ccr) · [Kompress-v2-base model card](https://huggingface.co/chopratejas/kompress-v2-base)
 
 ## Get started (60 seconds)
 
@@ -296,7 +296,7 @@ Devcontainers in `.devcontainer/` (default + `memory-stack` with Qdrant & Neo4j)
 ## Community
 
 - **[Discord](https://discord.gg/yRmaUNpsPJ)** — questions, feedback, war stories.
-- **[Kompress-base on HuggingFace](https://huggingface.co/chopratejas/kompress-base)** — the model behind our text compression.
+- **[Kompress-v2-base on HuggingFace](https://huggingface.co/chopratejas/kompress-v2-base)** — the model behind our text compression.
 
 ## License
 

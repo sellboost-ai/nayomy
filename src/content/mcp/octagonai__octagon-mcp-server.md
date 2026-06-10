@@ -5,7 +5,7 @@ category: "Finance & Fintech"
 repo: "OctagonAI/octagon-mcp-server"
 stars: 130
 url: "https://github.com/OctagonAI/octagon-mcp-server"
-body_length: 14335
+body_length: 14410
 license: "MIT"
 language: "TypeScript"
 homepage: "https://octagonai.co"
@@ -338,6 +338,7 @@ More examples:
 - "Compare the price-to-earnings, price-to-sales, and EV/EBITDA ratios for the top 5 semiconductor companies."
 - "What was Anthropic's latest funding round size, valuation, and key investors?"
 - "How many investments did Andreessen Horowitz make in AI startups in the last 12 months?"
+- "What are the latest news articles for NVIDIA stock from the past week?"
 
 ### `octagon-deep-research-agent`
 

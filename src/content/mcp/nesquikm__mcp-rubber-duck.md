@@ -5,7 +5,7 @@ category: "Coding Agents"
 repo: "nesquikm/mcp-rubber-duck"
 stars: 167
 url: "https://github.com/nesquikm/mcp-rubber-duck"
-body_length: 11994
+body_length: 12673
 license: "MIT"
 language: "TypeScript"
 ---
@@ -21,6 +21,8 @@ An MCP (Model Context Protocol) server that acts as a bridge to query multiple L
 <p align="center">
   
 </p>
+
+> **Why direct provider integration?** MCP's `sampling` primitive -- a server borrowing the *host's* model -- was deprecated in the [2026-07-28 spec RC](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2577) in favor of servers integrating directly with LLM provider APIs. Rubber Duck has always worked this way (it brings its own ducks), so it's aligned with where the protocol is heading -- no migration required.
 
 ## Features
 
@@ -44,6 +46,7 @@ An MCP (Model Context Protocol) server that acts as a bridge to query multiple L
 - **Interactive UIs** -- Rich HTML panels for compare, vote, debate, and usage tools (via [MCP Apps](https://github.com/modelcontextprotocol/ext-apps))
 - **Tool Annotations** -- MCP-compliant hints for tool behavior (read-only, destructive, etc.)
 - **Structured Output** -- `outputSchema` on tools returning structured JSON for client-side validation (Cursor, VS Code/Copilot)
+- **Spec-Aligned by Design** -- connects directly to provider APIs, the path the MCP `2026-07-28` spec recommends now that server-side `sampling` is deprecated ([SEP-2577](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2577))
 
 ## Supported Providers
 

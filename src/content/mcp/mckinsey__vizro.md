@@ -3,7 +3,7 @@ name: "mckinsey/vizro"
 description: "Tools and templates to create validated and maintainable data charts and dashboards."
 category: "Data Science Tools"
 repo: "mckinsey/vizro"
-stars: 3700
+stars: 3699
 url: "https://github.com/mckinsey/vizro"
 body_length: 13710
 license: "Apache-2.0"

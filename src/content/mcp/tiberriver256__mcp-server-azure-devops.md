@@ -5,7 +5,7 @@ category: "Version Control"
 repo: "Tiberriver256/mcp-server-azure-devops"
 stars: 371
 url: "https://github.com/Tiberriver256/mcp-server-azure-devops"
-body_length: 12833
+body_length: 13407
 license: "MIT"
 language: "TypeScript"
 ---
@@ -13,6 +13,10 @@ language: "TypeScript"
 # Azure DevOps MCP Server
 
 A Model Context Protocol (MCP) server implementation for Azure DevOps, allowing AI assistants to interact with Azure DevOps APIs through a standardized protocol.
+
+> **Looking for the official server?** Microsoft maintains a product-supported Azure DevOps MCP at [microsoft/azure-devops-mcp](https://github.com/microsoft/azure-devops-mcp). If you use Azure DevOps Services (cloud), start there.
+>
+> This community server remains a good fit when you need **Azure DevOps Server (on-premises)** support — especially older versions that may not work with Microsoft's MCP — or features not yet available in the official server. See [Discussion #237](https://github.com/Tiberriver256/mcp-server-azure-devops/discussions/237) for more context.
 
 ## Overview
 

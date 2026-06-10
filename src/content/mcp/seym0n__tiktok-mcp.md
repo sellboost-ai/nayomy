@@ -3,7 +3,7 @@ name: "Seym0n/tiktok-mcp"
 description: "Interact with TikTok videos"
 category: "Other Tools and Integrations"
 repo: "Seym0n/tiktok-mcp"
-stars: 163
+stars: 165
 url: "https://github.com/Seym0n/tiktok-mcp"
 body_length: 3626
 license: "MIT"

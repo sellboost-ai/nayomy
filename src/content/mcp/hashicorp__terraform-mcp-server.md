@@ -3,9 +3,9 @@ name: "hashicorp/terraform-mcp-server"
 description: "The official Terraform MCP Server seamlessly integrates with the Terraform ecosystem, enabling provider discovery, module analysis, and direct Registry API integration for advanced Infrastructure as Code workflows."
 category: "Cloud Platforms"
 repo: "hashicorp/terraform-mcp-server"
-stars: 1397
+stars: 1398
 url: "https://github.com/hashicorp/terraform-mcp-server"
-body_length: 22746
+body_length: 22437
 license: "MPL-2.0"
 language: "Go"
 ---
@@ -24,7 +24,6 @@ automation and interaction capabilities for Infrastructure as Code (IaC) develop
 - **Workspace Operations**: Create, update, delete workspaces with support for variables, tags, and run management
 - **OTel metrics for monitoring tool usage**: Integration with open telemetry meters to track tool-call volume, latency and failures in Streamable HTTP mode. Also exposes default http server metrics when this feature is enabled
 
-> **Security Note:** At this stage, the MCP server is intended for local use only. If using the StreamableHTTP transport, always configure the MCP_ALLOWED_ORIGINS environment variable to restrict access to trusted origins only. This helps prevent DNS rebinding attacks and other cross-origin vulnerabilities.
 
 > **Security Note:** Depending on the query, the MCP server may expose certain Terraform data to the MCP client and LLM. Do not use the MCP server with untrusted MCP clients or LLMs.
 

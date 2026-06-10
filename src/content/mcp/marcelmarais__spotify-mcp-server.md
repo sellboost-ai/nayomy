@@ -3,7 +3,7 @@ name: "marcelmarais/spotify-mcp-server"
 description: "Control Spotify playback and manage playlists."
 category: "Other Tools and Integrations"
 repo: "marcelmarais/spotify-mcp-server"
-stars: 360
+stars: 362
 url: "https://github.com/marcelmarais/spotify-mcp-server"
 body_length: 17265
 language: "TypeScript"
