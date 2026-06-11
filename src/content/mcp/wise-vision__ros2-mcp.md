@@ -3,7 +3,7 @@ name: "wise-vision/ros2_mcp"
 description: "MCP server for ROS2 enabling AI-driven robotics applications and services."
 category: "Developer Tools"
 repo: "wise-vision/ros2_mcp"
-stars: 80
+stars: 81
 url: "https://github.com/wise-vision/ros2_mcp"
 body_length: 11325
 license: "MPL-2.0"

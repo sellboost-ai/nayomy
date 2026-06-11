@@ -3,9 +3,9 @@ name: "chopratejas/headroom"
 description: "Context compression layer for AI agents. Compresses tool outputs, logs, RAG chunks, files, and conversation history before they reach the LLM, with reversible retrieval through MCP tools."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
-stars: 20966
+stars: 22315
 url: "https://github.com/chopratejas/headroom"
-body_length: 17075
+body_length: 17095
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://headroom-docs.vercel.app/docs"
@@ -65,7 +65,7 @@ Headroom compresses everything your AI agent reads — tool outputs, logs, RAG c
 - **MCP server** — `headroom_compress`, `headroom_retrieve`, `headroom_stats` for any MCP client
 - **Cross-agent memory** — shared store across Claude, Codex, Gemini, auto-dedup
 - **`headroom learn`** — mines failed sessions, writes corrections to `CLAUDE.md` / `AGENTS.md`
-- **Reversible (CCR)** — originals never deleted; LLM retrieves on demand
+- **Reversible (CCR)** — originals are cached for retrieval on demand
 
 ## How it works (30 seconds)
 
@@ -172,7 +172,7 @@ Platform support note: macOS auth reuse via Copilot CLI Keychain storage has bee
 **Great fit if you…**
 - run AI coding agents daily and want savings without changing your code
 - work across multiple agents and want shared memory
-- need reversible compression — originals always retrievable via CCR
+- need reversible compression — originals are retrievable via CCR within the configured TTL
 
 **Skip it if you…**
 - only use a single provider's native compaction and don't need cross-agent memory

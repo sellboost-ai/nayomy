@@ -5,7 +5,7 @@ category: "Developer Tools"
 repo: "lpigeon/unitree-go2-mcp-server"
 stars: 80
 url: "https://github.com/lpigeon/unitree-go2-mcp-server"
-body_length: 4726
+body_length: 4504
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://github.com/lpigeon/unitree-go2-mcp-server"
@@ -18,10 +18,6 @@ homepage: "https://github.com/lpigeon/unitree-go2-mcp-server"
 <center></center>
 
 The **Unitree Go2 MCP Server** is a server built on the Model Context Protocol (MCP) that enables users to control the Unitree Go2 robot using natural language commands interpreted by a Large Language Model (LLM). These commands are translated into ROS2 instructions, allowing the robot to perform corresponding actions.
-
-<a href="https://glama.ai/mcp/servers/@lpigeon/unitree-go2-mcp-server">
-  
-</a>
 
 ## Requirements
 

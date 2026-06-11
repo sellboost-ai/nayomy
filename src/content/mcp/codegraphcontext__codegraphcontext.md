@@ -3,9 +3,9 @@ name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
 category: "Coding Agents"
 repo: "CodeGraphContext/CodeGraphContext"
-stars: 3676
+stars: 3696
 url: "https://github.com/CodeGraphContext/CodeGraphContext"
-body_length: 20829
+body_length: 20846
 license: "MIT"
 language: "Python"
 homepage: "https://cgc.codes"
@@ -24,7 +24,7 @@ homepage: "https://cgc.codes"
 - 🇯🇵 [日本語](docs/translations/README.ja.md)
 - 🇪🇸 Español (Soon)
 
-🌍 **Help translate CodeGraphContext to your language by raising an issue & PR on https://github.com/Shashankss1205/CodeGraphContext/issues!**
+🌍 **Help translate CodeGraphContext to your language by raising an issue & PR on [GitHub Issues](https://github.com/Shashankss1205/CodeGraphContext/issues)!**
 
 <p align="center">
   <br>

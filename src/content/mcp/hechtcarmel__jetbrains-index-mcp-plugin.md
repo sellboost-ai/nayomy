@@ -3,9 +3,9 @@ name: "hechtcarmel/jetbrains-index-mcp-plugin"
 description: "A JetBrains IDE plugin that exposes an MCP server, enabling AI coding assistants to leverage the IDE's indexing and refactoring capabilities (rename, safe delete, find references, call hierarchy, type hierarchy, diagnostics and more)."
 category: "Developer Tools"
 repo: "hechtcarmel/jetbrains-index-mcp-plugin"
-stars: 240
+stars: 242
 url: "https://github.com/hechtcarmel/jetbrains-index-mcp-plugin"
-body_length: 21275
+body_length: 21582
 license: "MIT"
 language: "Kotlin"
 ---
@@ -258,6 +258,8 @@ These tools work in all supported JetBrains IDEs.
 | `ide_read_file` | Read file content by path or qualified name, including library/jar sources *(disabled by default)* |
 | `ide_get_active_file` | Get the currently active file(s) in the editor with cursor position *(disabled by default)* |
 | `ide_open_file` | Open a file in the editor with optional line/column navigation *(disabled by default)* |
+| `ide_install_plugin` | Install a plugin zip into the IDE, replacing any existing version — auto-detects `build/distributions/*.zip` when no path is given *(disabled by default)* |
+| `ide_restart` | Restart the IDE — terminates the MCP connection; call after `ide_install_plugin` *(disabled by default)* |
 | `ide_refactor_rename` | Rename a symbol and update all references across the project (all languages) |
 | `ide_move_file` | Move a file to a new directory, applying language-aware reference/package updates when the IDE provides a semantic move backend |
 | `ide_reformat_code` | Reformat code using project code style with import optimization *(disabled by default)* |

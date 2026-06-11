@@ -3,7 +3,7 @@ name: "datalayer/jupyter-mcp-server"
 description: "Model Context Protocol (MCP) Server for Jupyter."
 category: "Data Science Tools"
 repo: "datalayer/jupyter-mcp-server"
-stars: 1148
+stars: 1150
 url: "https://github.com/datalayer/jupyter-mcp-server"
 body_length: 16439
 license: "BSD-3-Clause"

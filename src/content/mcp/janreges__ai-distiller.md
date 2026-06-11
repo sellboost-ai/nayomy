@@ -3,7 +3,7 @@ name: "janreges/ai-distiller"
 description: "Extracts essential code structure from large codebases into AI-digestible format, helping AI agents write code that correctly uses existing APIs on the first attempt."
 category: "Developer Tools"
 repo: "janreges/ai-distiller"
-stars: 159
+stars: 160
 url: "https://github.com/janreges/ai-distiller"
 body_length: 51702
 license: "MIT"

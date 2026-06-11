@@ -4,7 +4,7 @@ clean_name: "Rust"
 description: "Rust best practices for Solana smart contract development using Anchor framework and Solana SDK"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39937
+stars: 39955
 path: "rules/rust.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rust.mdc"
 body_length: 4230

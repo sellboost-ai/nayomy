@@ -3,7 +3,7 @@ name: "OctagonAI/octagon-mcp-server"
 description: "Octagon AI Agents to integrate private and public market data"
 category: "Finance & Fintech"
 repo: "OctagonAI/octagon-mcp-server"
-stars: 130
+stars: 131
 url: "https://github.com/OctagonAI/octagon-mcp-server"
 body_length: 14410
 license: "MIT"

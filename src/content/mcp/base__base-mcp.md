@@ -3,7 +3,7 @@ name: "base/base-mcp"
 description: "Base Network integration for onchain tools, allowing interaction with Base Network and Coinbase API for wallet management, fund transfers, smart contracts, and DeFi operations"
 category: "Finance & Fintech"
 repo: "base/base-mcp"
-stars: 346
+stars: 348
 url: "https://github.com/base/base-mcp"
 body_length: 518
 license: "MIT"

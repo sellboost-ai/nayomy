@@ -3,7 +3,7 @@ name: "VikashLoomba/MCP-Server-Playwright"
 description: "A Model Context Protocol server that provides browser automation capabilities using Playwright"
 category: "Browser Automation"
 repo: "VikashLoomba/MCP-Server-Playwright"
-stars: 294
+stars: 295
 url: "https://github.com/VikashLoomba/MCP-Server-Playwright"
 body_length: 6301
 license: "MIT"

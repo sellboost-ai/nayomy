@@ -3,7 +3,7 @@ name: "qdrant/mcp-server-qdrant"
 description: "A Qdrant MCP server"
 category: "Databases"
 repo: "qdrant/mcp-server-qdrant"
-stars: 1431
+stars: 1432
 url: "https://github.com/qdrant/mcp-server-qdrant"
 body_length: 22469
 license: "Apache-2.0"

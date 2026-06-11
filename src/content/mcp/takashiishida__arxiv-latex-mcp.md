@@ -3,7 +3,7 @@ name: "takashiishida/arxiv-latex-mcp"
 description: "Get the LaTeX source of arXiv papers to handle mathematical content and equations"
 category: "Search & Data Extraction"
 repo: "takashiishida/arxiv-latex-mcp"
-stars: 134
+stars: 135
 url: "https://github.com/takashiishida/arxiv-latex-mcp"
 body_length: 3191
 license: "MIT"
