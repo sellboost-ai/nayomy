@@ -1,13 +1,13 @@
 ---
 name: "caio-review"
-description_en: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring."
+description_en: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring. Use when shipping an AI feature without an eval set, choosing between API, fine-tune, and self-hosted, or classifying a use case under the EU AI Act."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/caio-review/SKILL.md"
 path: ".gemini/skills/caio-review/SKILL.md"
 is_collection: false
-body_length: 5531
+body_length: 5537
 has_scripts: false
 has_references: false
 has_examples: false
@@ -136,7 +136,7 @@ python ../../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py wor
 - `/cs:gc-review` — for AI vendor contracts, output liability, training-data licensing
 - `/cs:ciso-review` — for prompt injection / jailbreak / training-data poisoning threat model
 - `/cs:cfo-review` — for multi-year vendor or GPU commitment TCO
-- `/cs:chro-review` — for AI team hires (comp, ladder, leveling)
+- `cs-chro-advisor` agent — for AI team hires (comp, ladder, leveling)
 - `/cs:decide` — log the verdict
 - `/cs:freeze 60` — on multi-year AI commitments
 

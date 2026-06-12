@@ -3,9 +3,9 @@ name: "getsentry/sentry-mcp"
 description: "Sentry.io integration for error tracking and performance monitoring"
 category: "Monitoring"
 repo: "getsentry/sentry-mcp"
-stars: 724
+stars: 725
 url: "https://github.com/getsentry/sentry-mcp"
-body_length: 8801
+body_length: 8823
 license: "NOASSERTION"
 language: "TypeScript"
 homepage: "https://mcp.sentry.dev"
@@ -98,7 +98,7 @@ SENTRY_HOST=                 # For self-hosted deployments
 MCP_DISABLE_SKILLS=          # Disable specific skills (comma-separated, e.g. 'seer')
 ```
 
-**Important:** Always set `EMBEDDED_AGENT_PROVIDER` to explicitly specify your LLM provider. Auto-detection based on API keys alone is deprecated and will be removed in a future release. See [docs/embedded-agents.md](docs/embedded-agents.md) for detailed configuration options.
+**Important:** Always set `EMBEDDED_AGENT_PROVIDER` to explicitly specify your LLM provider. Auto-detection based on API keys alone is deprecated and will be removed in a future release. See [docs/operations/embedded-agents.md](docs/operations/embedded-agents.md) for detailed configuration options.
 
 #### Example MCP Configuration
 
@@ -241,8 +241,8 @@ pnpm -w run cli --access-token=TOKEN "query"
 Note: The CLI defaults to `http://localhost:5173`. Override with `--mcp-host` or set `MCP_URL` environment variable.
 
 **Comprehensive testing playbooks:**
-- **Stdio testing:** See `docs/testing-stdio.md` for complete guide on building, running, and testing the stdio implementation (IDEs, MCP Inspector)
-- **Remote testing:** See `docs/testing-remote.md` for complete guide on testing the remote server (OAuth, web UI, CLI client)
+- **Stdio testing:** See `docs/testing/stdio.md` for complete guide on building, running, and testing the stdio implementation (IDEs, MCP Inspector)
+- **Remote testing:** See `docs/testing/remote.md` for complete guide on testing the remote server (OAuth, web UI, CLI client)
 
 ## Development Notes
 

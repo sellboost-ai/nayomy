@@ -3,11 +3,11 @@ name: "ceo-advisor"
 description_en: "Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy, preparing board presentations, managing investors, developing organizational culture, making executive decisions, fundraising, or when user mentions CEO, strategic planning, board meetings, investor updates, organizational leadership, or executive strateg"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ceo-advisor/SKILL.md"
 path: ".gemini/skills/ceo-advisor/SKILL.md"
 is_collection: false
-body_length: 7430
+body_length: 7433
 has_scripts: false
 has_references: false
 has_examples: false
@@ -152,7 +152,7 @@ Explore multiple futures. For every strategic decision, generate at least 3 path
 
 ## Communication
 
-All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+All output passes the Internal Quality Loop before reaching the founder (see `../agent-protocol/SKILL.md`).
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

@@ -3,11 +3,11 @@ name: "board-deck-builder"
 description_en: "Assembles comprehensive board and investor update decks by pulling perspectives from all C-suite roles. Use when preparing board meetings, investor updates, quarterly business reviews, or fundraising narratives. Covers structure, narrative framework, bad news delivery, and common mistakes."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/board-deck-builder/SKILL.md"
 path: ".gemini/skills/board-deck-builder/SKILL.md"
 is_collection: false
-body_length: 6857
+body_length: 6956
 has_scripts: false
 has_references: false
 has_examples: false
@@ -23,9 +23,10 @@ board deck, investor update, board meeting, board pack, investor relations, quar
 
 ## Quick Start
 
-```
-/board-deck [quarterly|monthly|fundraising] [stage: seed|seriesA|seriesB]
-```
+Ask for a board deck in natural language, naming cadence and stage:
+
+> "Build a quarterly board deck — we're Series A."
+> "Draft a fundraising board deck for a seed-stage company."
 
 Provide available metrics. The builder fills gaps with explicit placeholders — never invents numbers.
 

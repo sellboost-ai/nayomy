@@ -3,7 +3,7 @@ name: "designcomputer/mysql_mcp_server"
 description: "MySQL database integration with configurable access controls, schema inspection, and comprehensive security guidelines"
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
-stars: 1294
+stars: 1295
 url: "https://github.com/designcomputer/mysql_mcp_server"
 body_length: 11045
 license: "MIT"

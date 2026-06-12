@@ -3,9 +3,9 @@ name: "ihor-sokoliuk/mcp-searxng"
 description: "A Model Context Protocol Server for SearXNG"
 category: "Search & Data Extraction"
 repo: "ihor-sokoliuk/mcp-searxng"
-stars: 887
+stars: 893
 url: "https://github.com/ihor-sokoliuk/mcp-searxng"
-body_length: 8345
+body_length: 8851
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/mcp-searxng"
@@ -23,7 +23,7 @@ homepage: "https://www.npmjs.com/package/mcp-searxng"
 [![Docker Pulls](https://img.shields.io/docker/pulls/isokoliuk/mcp-searxng?style=flat-square&logo=docker)](https://hub.docker.com/r/isokoliuk/mcp-searxng)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ihor-sokoliuk/mcp-searxng/badge)](https://scorecard.dev/viewer/?uri=github.com/ihor-sokoliuk/mcp-searxng)
-[![OpenSSF Baseline](https://www.bestpractices.dev/projects/13143/baseline)](https://www.bestpractices.dev/projects/13143)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13143/badge)](https://www.bestpractices.dev/projects/13143)
 [![mcp-searxng MCP server](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng/badges/score.svg)](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng)
 
 An [MCP server](https://modelcontextprotocol.io/introduction) that integrates the [SearXNG](https://docs.searxng.org) API, giving AI assistants web search capabilities.
@@ -99,6 +99,8 @@ AI Assistant (e.g. Claude)
     - `language` (string, optional): Language code for results (e.g., "en", "fr", "de") or "all" (default: "all")
     - `safesearch` (number, optional): Safe search filter level (0: None, 1: Moderate, 2: Strict) (default: instance setting)
     - `min_score` (number, optional): Minimum relevance score from 0.0 to 1.0. Results below this score are filtered out.
+    - `num_results` (number, optional): Maximum number of results to return, from 1 to 20. `SEARXNG_MAX_RESULTS` applies as an operator ceiling.
+    - `categories` (string, optional): Comma-separated SearXNG categories (e.g. `"news"`, `"it,science"`). Supported values: `general`, `news`, `images`, `videos`, `it`, `science`, `files`, `social media`. Default: SearXNG instance default (usually `general`).
 
 - **web_url_read**
   - Read and convert the content from a URL to markdown with advanced content extraction options
@@ -142,6 +144,8 @@ npm install -g mcp-searxng
 ```bash
 docker pull isokoliuk/mcp-searxng:latest
 ```
+
+Image signatures can be verified with Cosign — see [SECURITY.md](SECURITY.md) for instructions.
 
 ```json
 {

@@ -1,13 +1,13 @@
 ---
 name: "brief"
-description_en: "/cs:brief <topic> — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline."
+description_en: "/cs:brief <topic> — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation — e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/brief/SKILL.md"
 path: ".gemini/skills/brief/SKILL.md"
 is_collection: false
-body_length: 3361
+body_length: 3479
 has_scripts: false
 has_references: false
 has_examples: false
@@ -79,6 +79,11 @@ A single Markdown file under `~/.claude/briefs/YYYY-MM-DD-<slug>.md` with this s
 - [ ] cs-coo-advisor
 - [ ] cs-chro-advisor
 - [ ] cs-ciso-advisor
+- [ ] cs-general-counsel-advisor
+- [ ] cs-cdo-advisor
+- [ ] cs-caio-advisor
+- [ ] cs-cco-advisor
+- [ ] cs-vpe-advisor
 - [ ] cs-chief-of-staff
 
 ## Success Criteria

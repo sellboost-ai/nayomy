@@ -4,7 +4,7 @@ clean_name: "Nativescript"
 description: "NativeScript best practices and patterns for mobile applications"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39955
+stars: 39968
 path: "rules/nativescript.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nativescript.mdc"
 body_length: 3225

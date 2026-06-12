@@ -3,7 +3,7 @@ name: "claude-api"
 description_en: "|- Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE opening the target file; don't skip because it \"looks like a one-liner\" — whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us."
 category: "Development"
 repo: "anthropics/skills"
-stars: 149189
+stars: 149672
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/claude-api/SKILL.md"
 path: "skills/claude-api/SKILL.md"
 is_collection: false

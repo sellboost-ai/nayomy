@@ -3,9 +3,9 @@ name: "brightdata/brightdata-mcp"
 description: "Discover, extract, and interact with the web - one interface powering automated access across the public internet."
 category: "Search & Data Extraction"
 repo: "brightdata/brightdata-mcp"
-stars: 2445
+stars: 2446
 url: "https://github.com/brightdata/brightdata-mcp"
-body_length: 19252
+body_length: 19786
 license: "MIT"
 language: "JavaScript"
 homepage: "https://brightdata.com/"
@@ -46,8 +46,8 @@ homepage: "https://brightdata.com/"
 
   <div>
     <h3>🎉 <strong>Free Tier Available!</strong> 🎉</h3>
-    <p><strong>5,000 requests/month FREE</strong> <br/>
-    <sub>Perfect for prototyping and everyday AI workflows</sub></p>
+    <p><strong>5,000 credits/month FREE</strong> <br/>
+    <sub>No credit card required · Auto-renews monthly · Perfect for prototyping and everyday AI workflows</sub></p>
   </div>
 </div>
 
@@ -103,7 +103,7 @@ Built by [Bright Data](https://brightdata.com), the world's #1 web data platform
     <tr>
       <td align="center">✅ <strong>Works with Any LLM</strong><br/><sub>Claude, GPT, Gemini, Llama</sub></td>
       <td align="center">🛡️ <strong>Never Gets Blocked</strong><br/><sub>Enterprise-grade unblocking</sub></td>
-      <td align="center">🚀 <strong>5,000 Free Requests</strong><br/><sub>Monthly</sub></td>
+      <td align="center">🚀 <strong>5,000 Free Credits</strong><br/><sub>Monthly · No card needed</sub></td>
       <td align="center">⚡ <strong>Zero Config</strong><br/><sub>Works out of the box</sub></td>
     </tr>
   </table>
@@ -177,7 +177,7 @@ https://mcp.brightdata.com/mcp?token=YOUR_API_TOKEN_HERE
     <tr>
       <td align="center">
         <h3>$0/month</h3>
-        <p><strong>5,000 requests</strong></p>
+        <p><strong>5,000 credits</strong></p>
         <hr/>
         <p>✅ Web Search<br/>
         ✅ Scraping with Web unlocker<br/>
@@ -213,8 +213,14 @@ https://mcp.brightdata.com/mcp?token=YOUR_API_TOKEN_HERE
   </table>
 </div>
 
-> **💡 Note:** Pro mode is **not included** in the free tier and incurs
-> additional charges based on usage.
+> **💡 How the free tier works:** Your account gets **5,000 credits/month**
+> (~$7.50 value), auto-renewed on the 1st with **no credit card required**.
+> MCP requests draw from this shared pool — base tools (`search_engine`,
+> `scrape_as_markdown`, `discover`) cost **1 credit per request**, while
+> `web_data_*` tools cost **1 credit per record returned**. Unused credits
+> **don't roll over**, and when they run out requests stop (no surprise
+> charges unless you've deposited funds). Pro mode is **not included** in the
+> free tier and incurs additional charges based on usage.
 
 ---
 

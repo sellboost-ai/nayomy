@@ -3,11 +3,11 @@ name: "ai-act-readiness"
 description_en: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ai-act-readiness/SKILL.md"
 path: ".gemini/skills/ai-act-readiness/SKILL.md"
 is_collection: false
-body_length: 6809
+body_length: 6791
 has_scripts: false
 has_references: false
 has_examples: false
@@ -79,13 +79,13 @@ The EU AI Act compliance operator pressure-tests any AI system before EU deploym
 
 ```bash
 # 1. Risk classification
-python ../../ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_system_risk_classifier.py systems.json
+python ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_system_risk_classifier.py systems.json
 
 # 2. If high-risk: conformity assessment
-python ../../ra-qm-team/skills/eu-ai-act-specialist/scripts/conformity_assessment_planner.py system.json
+python ra-qm-team/skills/eu-ai-act-specialist/scripts/conformity_assessment_planner.py system.json
 
 # 3. Per-role obligation matrix
-python ../../ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py roles.json
+python ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py roles.json
 
 # 4. Cross-framework reuse (ISO 42001 etc.)
 python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json

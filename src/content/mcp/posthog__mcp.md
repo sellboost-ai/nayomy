@@ -3,7 +3,7 @@ name: "PostHog/mcp"
 description: "An MCP server for interacting with PostHog analytics, feature flags, error tracking and more."
 category: "Developer Tools"
 repo: "PostHog/mcp"
-stars: 146
+stars: 148
 url: "https://github.com/PostHog/mcp"
 body_length: 438
 license: "MIT"

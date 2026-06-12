@@ -3,7 +3,7 @@ name: "kadykov/mcp-openapi-schema-explorer"
 description: "Token-efficient access to OpenAPI/Swagger specs via MCP Resources."
 category: "Developer Tools"
 repo: "kadykov/mcp-openapi-schema-explorer"
-stars: 72
+stars: 73
 url: "https://github.com/kadykov/mcp-openapi-schema-explorer"
 body_length: 15459
 license: "MIT"

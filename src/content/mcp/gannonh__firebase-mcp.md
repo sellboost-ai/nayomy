@@ -3,7 +3,7 @@ name: "gannonh/firebase-mcp"
 description: "Firebase services including Auth, Firestore and Storage."
 category: "Databases"
 repo: "gannonh/firebase-mcp"
-stars: 244
+stars: 245
 url: "https://github.com/gannonh/firebase-mcp"
 body_length: 11107
 license: "MIT"

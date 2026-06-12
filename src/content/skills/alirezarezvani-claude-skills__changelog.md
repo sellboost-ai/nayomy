@@ -3,11 +3,11 @@ name: "changelog"
 description_en: "Generate changelogs from git history and validate conventional commits. Usage: /changelog <generate|lint> [options]"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/changelog/SKILL.md"
 path: ".gemini/skills/changelog/SKILL.md"
 is_collection: false
-body_length: 877
+body_length: 898
 has_scripts: false
 has_references: false
 has_examples: false
@@ -34,8 +34,8 @@ Generate Keep a Changelog entries from git history and validate commit message f
 ```
 
 ## Scripts
-- `engineering/changelog-generator/scripts/generate_changelog.py` — Parse commits, render changelog (`--from-tag`, `--to-tag`, `--from-ref`, `--to-ref`, `--format markdown|json`)
-- `engineering/changelog-generator/scripts/commit_linter.py` — Validate conventional commit format (`--from-ref`, `--to-ref`, `--strict`, `--format text|json`)
+- `engineering/skills/changelog-generator/scripts/generate_changelog.py` — Parse commits, render changelog (`--from-tag`, `--to-tag`, `--from-ref`, `--to-ref`, `--format markdown|json`)
+- `engineering/skills/changelog-generator/scripts/commit_linter.py` — Validate conventional commit format (`--from-ref`, `--to-ref`, `--strict`, `--format text|json`)
 
 ## Skill Reference
-→ `engineering/changelog-generator/SKILL.md`
+→ `engineering/skills/changelog-generator/SKILL.md`

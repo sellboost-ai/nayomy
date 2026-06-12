@@ -1,13 +1,13 @@
 ---
 name: "cdo-review"
-description_en: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring."
-category: "Development"
+description_en: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring. Use when validating training-data rights before model work, choosing warehouse vs lakehouse vs mesh, or valuing data assets for productization or M&A."
+category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cdo-review/SKILL.md"
 path: ".gemini/skills/cdo-review/SKILL.md"
 is_collection: false
-body_length: 4647
+body_length: 4653
 has_scripts: false
 has_references: false
 has_examples: false
@@ -122,7 +122,7 @@ python ../../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py
 - `/cs:gc-review` — for any productization or licensing path
 - `/cs:ciso-review` — for any architecture change touching customer data
 - `/cs:cfo-review` — for build-vs-buy TCO and M&A valuation math
-- `/cs:chro-review` — for data team hires (comp, ladder, leveling)
+- `cs-chro-advisor` agent — for data team hires (comp, ladder, leveling)
 - `/cs:decide` — log the verdict
 - `/cs:freeze 90` — on multi-year infrastructure contracts
 

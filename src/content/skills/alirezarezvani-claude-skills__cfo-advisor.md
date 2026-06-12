@@ -3,11 +3,11 @@ name: "cfo-advisor"
 description_en: "Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board financial packages. Use when building financial models, analyzing unit economics, planning fundraising, managing cash runway, preparing board materials, or when user mentions CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheets, or fina"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cfo-advisor/SKILL.md"
 path: ".gemini/skills/cfo-advisor/SKILL.md"
 is_collection: false
-body_length: 6501
+body_length: 6504
 has_scripts: false
 has_references: false
 has_examples: false
@@ -128,7 +128,7 @@ Work through financial logic step by step. Show all math. Be conservative in pro
 
 ## Communication
 
-All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+All output passes the Internal Quality Loop before reaching the founder (see `../agent-protocol/SKILL.md`).
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

@@ -3,11 +3,11 @@ name: "channel-economics"
 description_en: "Use when reviewing or rebalancing direct vs. partner-led channel economics — computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel ma"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 17778
+stars: 17868
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/channel-economics/SKILL.md"
 path: ".gemini/skills/channel-economics/SKILL.md"
 is_collection: false
-body_length: 11982
+body_length: 12216
 has_scripts: false
 has_references: false
 has_examples: false
@@ -84,6 +84,13 @@ Take the three reports into the quarterly channel review. The skill recommends; 
 - `scripts/channel_mix_optimizer.py` — constrained mix optimizer with sensitivity scenarios
 
 All scripts: stdlib only. `--help`, `--sample`, `--input`, `--output` work on all three. Industry tuning via `--profile {saas,api,enterprise-software,marketplace,hardware}` on the two analyzers.
+
+## Quick example
+
+```bash
+# Emits fully-loaded cost-to-serve per channel (direct vs partner-led) for the built-in sample channel data
+cd commercial/skills/channel-economics && python3 scripts/cost_to_serve_calculator.py --sample
+```
 
 ## References
 
