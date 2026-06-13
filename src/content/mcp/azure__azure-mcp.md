@@ -3,7 +3,7 @@ name: "Azure/azure-mcp"
 description: "Official Microsoft MCP server for Azure services including Storage, Cosmos DB, and Azure Monitor."
 category: "Other Tools and Integrations"
 repo: "Azure/azure-mcp"
-stars: 1217
+stars: 1218
 url: "https://github.com/Azure/azure-mcp"
 body_length: 311
 license: "MIT"

@@ -3,9 +3,9 @@ name: "ihor-sokoliuk/mcp-searxng"
 description: "A Model Context Protocol Server for SearXNG"
 category: "Search & Data Extraction"
 repo: "ihor-sokoliuk/mcp-searxng"
-stars: 893
+stars: 894
 url: "https://github.com/ihor-sokoliuk/mcp-searxng"
-body_length: 8851
+body_length: 10544
 license: "MIT"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/mcp-searxng"
@@ -53,6 +53,10 @@ Replace `YOUR_SEARXNG_INSTANCE_URL` with the URL of your SearXNG instance (e.g. 
 ## Features
 
 - **Web Search**: General queries, news, articles, with pagination.
+- **Structured Search Output**: Choose formatted text or raw SearXNG-shaped JSON with `response_format`.
+- **Direct Answers & Metadata**: Text results surface SearXNG answers, corrections, suggestions, and infoboxes before result lists.
+- **Search Suggestions**: Query autocomplete via SearXNG's `/autocompleter` endpoint.
+- **Instance Capability Discovery**: Inspect configured categories, engines, defaults, locales, and plugins from `/config`.
 - **URL Content Reading**: Advanced content extraction with pagination, section filtering, and heading extraction.
 - **Intelligent Caching**: URL content is cached with TTL (Time-To-Live) to improve performance and reduce redundant requests.
 - **Pagination**: Control which page of results to retrieve.
@@ -101,6 +105,22 @@ AI Assistant (e.g. Claude)
     - `min_score` (number, optional): Minimum relevance score from 0.0 to 1.0. Results below this score are filtered out.
     - `num_results` (number, optional): Maximum number of results to return, from 1 to 20. `SEARXNG_MAX_RESULTS` applies as an operator ceiling.
     - `categories` (string, optional): Comma-separated SearXNG categories (e.g. `"news"`, `"it,science"`). Supported values: `general`, `news`, `images`, `videos`, `it`, `science`, `files`, `social media`. Default: SearXNG instance default (usually `general`).
+    - `engines` (string, optional): Comma-separated SearXNG engine names (e.g. `"google,bing,ddg"`). Names are matched exactly when live `/config` validation is available.
+    - `response_format` (string, optional): Response format, either `"text"` for formatted agent-readable output or `"json"` for raw SearXNG JSON with filtered/sliced `results`. (default: `"text"`)
+
+- **searxng_search_suggestions**
+  - Get autocomplete suggestions for refining search queries
+  - Inputs:
+    - `query` (string): Partial or complete query to autocomplete.
+    - `language` (string, optional): Language code for suggestions (e.g., "en", "fr", "de") or "all" (default: "all")
+
+- **searxng_instance_info**
+  - Discover categories, engines, defaults, locales, and plugins exposed by the configured SearXNG instance
+  - Inputs:
+    - `includeEngines` (boolean, optional): Include enabled engine names in the response. (default: false)
+    - `includeDisabled` (boolean, optional): Include disabled engine names when `includeEngines` is true. (default: false)
+    - `category` (string, optional): Filter categories and engines to a single category name.
+    - `refresh` (boolean, optional): Bypass the process cache and fetch fresh `/config` data. (default: false)
 
 - **web_url_read**
   - Read and convert the content from a URL to markdown with advanced content extraction options

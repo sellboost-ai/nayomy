@@ -3,7 +3,7 @@ name: "mrjoshuak/godoc-mcp"
 description: "Token-efficient Go documentation server that provides AI assistants with smart access to package docs and types without reading entire source files"
 category: "Other Tools and Integrations"
 repo: "mrjoshuak/godoc-mcp"
-stars: 121
+stars: 122
 url: "https://github.com/mrjoshuak/godoc-mcp"
 body_length: 8250
 license: "MIT"

@@ -3,7 +3,7 @@ name: "frontend-design"
 description_en: "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults."
 category: "Design"
 repo: "anthropics/skills"
-stars: 149672
+stars: 150053
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/frontend-design/SKILL.md"
 path: "skills/frontend-design/SKILL.md"
 is_collection: false

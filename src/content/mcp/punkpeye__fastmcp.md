@@ -3,7 +3,7 @@ name: "punkpeye/fastmcp"
 description: "A high-level framework for building MCP servers in TypeScript"
 category: "Other Tools and Integrations"
 repo: "punkpeye/fastmcp"
-stars: 3188
+stars: 3190
 url: "https://github.com/punkpeye/fastmcp"
 body_length: 66029
 license: "MIT"

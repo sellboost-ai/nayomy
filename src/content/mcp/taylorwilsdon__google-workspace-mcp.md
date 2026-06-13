@@ -3,9 +3,9 @@ name: "taylorwilsdon/google_workspace_mcp"
 description: "Comprehensive Google Workspace MCP server with full support for Google Calendar, Drive, Gmail, and Docs, Forms, Chats, Slides and Sheets over stdio, Streamable HTTP and SSE transports."
 category: "Workplace & Productivity"
 repo: "taylorwilsdon/google_workspace_mcp"
-stars: 2660
+stars: 2664
 url: "https://github.com/taylorwilsdon/google_workspace_mcp"
-body_length: 81545
+body_length: 81939
 license: "MIT"
 language: "Python"
 homepage: "https://workspacemcp.com"
@@ -1405,6 +1405,7 @@ You also have options for:
 - Use `GOOGLE_OAUTH_REDIRECT_URI` when you only need to override the callback URL
 - The redirect URI must exactly match what's configured in your Google Cloud Console
 - Your reverse proxy must forward OAuth-related requests (`/oauth2callback`, `/oauth2/*`, `/.well-known/*`) to the MCP server
+- Do **not** set `Referrer-Policy: no-referrer` on your proxy. It makes browsers send `Origin: null` on the same-origin consent `POST`, which origin validation rejects with `{"error": "Origin not allowed"}` (logged as `Rejected HTTP request from Origin: null`) even when `WORKSPACE_EXTERNAL_URL` is correct. Use `strict-origin-when-cross-origin` (the browser default) or `same-origin` instead.
 
 <details open>
 <summary>🚀 <b>Advanced uvx Commands</b> <sub><sup>← More startup options</sup></sub></summary>

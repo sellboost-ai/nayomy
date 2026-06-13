@@ -3,7 +3,7 @@ name: "integromat/make-mcp-server"
 description: "Turn your Make scenarios into callable tools for AI assistants."
 category: "Other Tools and Integrations"
 repo: "integromat/make-mcp-server"
-stars: 160
+stars: 161
 url: "https://github.com/integromat/make-mcp-server"
 body_length: 1994
 license: "MIT"

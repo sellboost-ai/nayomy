@@ -3,7 +3,7 @@ name: "changelog-generator"
 description_en: "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, computing the next semantic version from commits, automating release notes in CI, or planning a hotfix/rollback. Examples: 'generate the chan"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 17868
+stars: 17941
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/changelog-generator/SKILL.md"
 path: ".gemini/skills/changelog-generator/SKILL.md"
 is_collection: false

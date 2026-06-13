@@ -5,7 +5,7 @@ category: "Coding Agents"
 repo: "stippi/code-assistant"
 stars: 169
 url: "https://github.com/stippi/code-assistant"
-body_length: 14730
+body_length: 15700
 license: "MIT"
 language: "Rust"
 ---
@@ -51,6 +51,30 @@ cargo build --release
 ```
 
 The binary will be available at `target/release/code-assistant`.
+
+### Building a macOS .app Bundle
+
+A self-contained `.app` bundle (with proper dock icon, Info.plist and ad-hoc
+code signature) can be built from any release binary:
+
+```bash
+# Build the binary first (per-target build, picks up the icon assets)
+cargo build --locked --release --target aarch64-apple-darwin   # Apple Silicon
+# or
+cargo build --locked --release --target x86_64-apple-darwin    # Intel
+
+# Wrap it into a .app bundle
+./scripts/bundle-macos.sh aarch64
+# Other options: x86_64, universal, --no-build (reuse the binary you just built)
+```
+
+The result lands in `target/macos-bundle/Code Assistant.app` plus a zipped copy
+ready for distribution. The script uses only stock macOS tools (`sips`,
+`iconutil`, `plutil`, `codesign`) so it requires no extra installs.
+
+The icon source is `crates/code_assistant/assets/app_icon.svg`. Re-run
+`./scripts/generate-app-icon.sh` after editing it to refresh the
+`AppIcon.icns` checked into the repo.
 
 ### Initial Setup
 
@@ -113,21 +137,21 @@ See [docs/format-on-save-feature.md](docs/format-on-save-feature.md) for detaile
 ### GUI Mode (Recommended)
 
 ```bash
-# Start with graphical interface
-code-assistant --ui
+# Start with graphical interface (default)
+code-assistant
 
 # Start GUI with initial task
-code-assistant --ui --task "Analyze the authentication system"
+code-assistant --task "Analyze the authentication system"
 ```
 
 ### Terminal Mode
 
 ```bash
-# Basic usage
-code-assistant --task "Explain the purpose of this codebase"
+# Start with terminal interface
+code-assistant --tui --task "Explain the purpose of this codebase"
 
 # With specific model
-code-assistant --task "Add error handling" --model "GPT-5"
+code-assistant --tui --task "Add error handling" --model "GPT-5"
 ```
 
 ### Working Directory Matters
@@ -138,7 +162,7 @@ The directory from which you launch `code-assistant` determines the project cont
 
 ```bash
 cd ~/workspace/my-project
-code-assistant --ui
+code-assistant
 ```
 
 Chats are **grouped by directory**, so starting a new chat from the correct project directory ensures:
