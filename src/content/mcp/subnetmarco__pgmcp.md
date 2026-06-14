@@ -3,7 +3,7 @@ name: "subnetmarco/pgmcp"
 description: "Natural language PostgreSQL queries with automatic streaming, read-only safety, and universal database compatibility."
 category: "Databases"
 repo: "subnetmarco/pgmcp"
-stars: 533
+stars: 534
 url: "https://github.com/subnetmarco/pgmcp"
 body_length: 9684
 license: "NOASSERTION"

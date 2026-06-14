@@ -3,9 +3,9 @@ name: "elie222/inbox-zero"
 description: "An MCP server for Inbox Zero. Adds functionality on top of Gmail like finding out which emails you need to reply to or need to follow up on."
 category: "Communication"
 repo: "elie222/inbox-zero"
-stars: 11221
+stars: 11247
 url: "https://github.com/elie222/inbox-zero"
-body_length: 6127
+body_length: 6213
 license: "NOASSERTION"
 language: "TypeScript"
 homepage: "https://getinboxzero.com"
@@ -34,6 +34,8 @@ homepage: "https://getinboxzero.com"
 ![Forks](https://img.shields.io/github/forks/elie222/inbox-zero?labelColor=black&style=for-the-badge&color=2563EB)
 
 <a href="https://trendshift.io/repositories/6400" target="_blank"></a>
+
+[![Sponsor](https://readme.cash/i/hg3bchcqpo.svg)](https://readme.cash/c/hg3bchcqpo)
 
 [![Vercel OSS Program](https://vercel.com/oss/program-badge.svg)](https://vercel.com/oss)
 

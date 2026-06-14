@@ -3,7 +3,7 @@ name: "portainer/portainer-mcp"
 description: "A powerful MCP server that enables AI assistants to seamlessly interact with Portainer instances, providing natural language access to container management, deployment operations, and infrastructure monitoring capabilities."
 category: "Cloud Platforms"
 repo: "portainer/portainer-mcp"
-stars: 173
+stars: 174
 url: "https://github.com/portainer/portainer-mcp"
 body_length: 8185
 license: "MIT"

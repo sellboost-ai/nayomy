@@ -3,7 +3,7 @@ name: "massive-com/mcp_massive"
 description: "An MCP server for Massive.com Financial Market Data"
 category: "Finance & Fintech"
 repo: "massive-com/mcp_massive"
-stars: 353
+stars: 355
 url: "https://github.com/massive-com/mcp_massive"
 body_length: 10056
 license: "MIT"

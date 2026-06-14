@@ -3,7 +3,7 @@ name: "business-growth-skills"
 description_en: "Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manager (health scoring, churn risk, expansion), sales-engineer (RFP analysis, competitive matrices, PoC planning), revenue-operations (pipeline, forecast accuracy, GTM efficiency), and contract-and-proposal-writer. Use when a growth/revenue request doesn't obviously match one skill and you need to pick the ri"
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 17941
+stars: 18008
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/business-growth-skills/SKILL.md"
 path: ".gemini/skills/business-growth-skills/SKILL.md"
 is_collection: false

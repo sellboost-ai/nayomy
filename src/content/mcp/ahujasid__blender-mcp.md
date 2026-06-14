@@ -3,7 +3,7 @@ name: "ahujasid/blender-mcp"
 description: "MCP server for working with Blender"
 category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
-stars: 22659
+stars: 22690
 url: "https://github.com/ahujasid/blender-mcp"
 body_length: 13397
 license: "MIT"

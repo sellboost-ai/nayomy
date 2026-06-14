@@ -3,7 +3,7 @@ name: "TencentEdgeOne/edgeone-pages-mcp"
 description: "An MCP service for deploying HTML content to EdgeOne Pages and obtaining a publicly accessible URL."
 category: "Developer Tools"
 repo: "TencentEdgeOne/edgeone-pages-mcp"
-stars: 421
+stars: 420
 url: "https://github.com/TencentEdgeOne/edgeone-pages-mcp"
 body_length: 4122
 license: "MIT"

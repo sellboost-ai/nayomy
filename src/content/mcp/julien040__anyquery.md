@@ -5,7 +5,7 @@ category: "Aggregators"
 repo: "julien040/anyquery"
 stars: 1715
 url: "https://github.com/julien040/anyquery"
-body_length: 6042
+body_length: 7421
 license: "NOASSERTION"
 language: "Go"
 homepage: "https://anyquery.dev"
@@ -24,13 +24,43 @@ homepage: "https://anyquery.dev"
 [![Go Reference](https://pkg.go.dev/badge/github.com/julien040/anyquery@v0.1.3/namespace.svg)](https://pkg.go.dev/github.com/julien040/anyquery/namespace)
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/julien040/anyquery)](https://archestra.ai/mcp-catalog/julien040__anyquery)
 
+---
+
+<p align="center">
+  <sub><i>Sponsored by</i></sub><br><br>
+  <a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=anyquery">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://cdn.julienc.me/share/atlas-cloud-logo-white.svg">
+      
+    </picture>
+  </a>
+</p>
+
+<h3 align="center">
+  <a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=anyquery">One AI API for LLMs, image &amp; video generation — 300+ models</a>
+</h3>
+
+<p align="center">
+  <sub>
+    Atlas Cloud is a full-modal AI inference platform: a single API and one account for chat completions,<br>
+    image generation, and video generation across 300+ curated models (DeepSeek, FLUX, Kling, Qwen…).<br>
+    With the <a href="https://anyquery.dev/integrations/atlascloud">Anyquery plugin</a>, you can call all of them directly from SQL.
+  </sub>
+</p>
+
+---
+
 Anyquery is a SQL query engine that allows you to run SQL queries on pretty much anything. It supports querying [files](https://anyquery.dev/docs/usage/querying-files/), [databases](https://anyquery.dev/docs/database), and [apps](https://anyquery.dev/integrations) (e.g. Apple Notes, Notion, Chrome, Todoist, etc.). It's built on top of [SQLite](https://www.sqlite.org) and uses [plugins](https://anyquery.dev/integrations) to extend its functionality.
 
 It can also connect to [LLMs](https://anyquery.dev/llm) (e.g. ChatGPT, Claude, Cursor, TypingMind, etc.) to allow them to access your data.
 
 Finally, it can act as a [MySQL server](https://anyquery.dev/docs/usage/mysql-server/), allowing you to run SQL queries from your favorite MySQL-compatible client (e.g. [TablePlus](https://anyquery.dev/connection-guide/tableplus/), [Metabase](https://anyquery.dev/connection-guide/metabase/), etc.).
 
+
+
 ![Anyquery header](https://anyquery.dev/images/release-header.png)
+
+
 
 ## Usage
 
@@ -136,6 +166,16 @@ choco install anyquery
 Anyquery is plugin-based, and you can install plugins to extend its functionality. You can install plugins from the [official registry](https://anyquery.dev/integrations) or create your own. Anyquery can also [load any SQLite extension](https://anyquery.dev/docs/usage/plugins#using-sqlite-extensions).
 
 ![Integrations](https://anyquery.dev/images/integrations_logo.png)
+
+## Sponsors
+
+Anyquery is an independent open-source project. These companies support its development:
+
+<a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=anyquery">
+  
+</a>
+
+[Become a sponsor](https://github.com/sponsors/julien040)
 
 ## License
 
