@@ -3,9 +3,9 @@ name: "topoteretes/cognee"
 description: "Memory manager for AI apps and Agents using various graph and vector stores and allowing ingestion from 30+ data sources."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
-stars: 17817
+stars: 17836
 url: "https://github.com/topoteretes/cognee"
-body_length: 12530
+body_length: 12529
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://www.cognee.ai"
@@ -72,7 +72,7 @@ Cognee is the open-source AI memory platform that gives AI agents persistent lon
 </div>
 </div>
 
-📄 Read the research paper: [Optimizing the Interface Between Knowledge Graphs and LLMs for Complex Reasoning](https://arxiv.org/abs/2505.24478) — Markovic et al., 2025 
+📄 Read the research paper: [Optimizing the Interface Between Knowledge Graphs and LLMs for Complex Reasoning](https://arxiv.org/abs/2505.24478) — Markovic et al., 2025
 
 
 ## About Cognee

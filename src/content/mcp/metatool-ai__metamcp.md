@@ -3,9 +3,9 @@ name: "metatool-ai/metamcp"
 description: "MetaMCP is the one unified middleware MCP server that manages your MCP connections with GUI."
 category: "Aggregators"
 repo: "metatool-ai/metamcp"
-stars: 2415
+stars: 2417
 url: "https://github.com/metatool-ai/metamcp"
-body_length: 24173
+body_length: 24175
 license: "MIT"
 language: "TypeScript"
 homepage: "https://docs.metamcp.com"
@@ -43,7 +43,7 @@ homepage: "https://docs.metamcp.com"
 
 For more details, consider visiting our documentation site: https://docs.metamcp.com
 
-English | [中文](./README_cn.md)
+English | [简体中文](./README_cn.md)
 ## 📋 Table of Contents <!-- omit in toc -->
 
 - [🎯 Use Cases](#-use-cases)

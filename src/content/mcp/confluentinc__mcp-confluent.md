@@ -3,7 +3,7 @@ name: "confluentinc/mcp-confluent"
 description: "Confluent integration to interact with Confluent Kafka and Confluent Cloud REST APIs."
 category: "Databases"
 repo: "confluentinc/mcp-confluent"
-stars: 159
+stars: 160
 url: "https://github.com/confluentinc/mcp-confluent"
 body_length: 34434
 license: "MIT"

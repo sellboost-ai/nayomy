@@ -3,7 +3,7 @@ name: "delano/postman-mcp-server"
 description: "Interact with Postman API"
 category: "Developer Tools"
 repo: "delano/postman-mcp-server"
-stars: 153
+stars: 154
 url: "https://github.com/delano/postman-mcp-server"
 body_length: 10518
 license: "MIT"

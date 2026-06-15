@@ -3,9 +3,9 @@ name: "mindsdb/mindsdb"
 description: "Connect and unify data across various platforms and databases with MindsDB as a single MCP server."
 category: "Aggregators"
 repo: "mindsdb/mindsdb"
-stars: 39296
+stars: 39304
 url: "https://github.com/mindsdb/mindsdb"
-body_length: 6161
+body_length: 6162
 license: "MIT"
 language: "Dockerfile"
 homepage: "https://mindsdb.com"
@@ -27,7 +27,7 @@ homepage: "https://mindsdb.com"
   </a>
 <br/>
   <p align="center">
-	<a href="https://docs.mindsdb.com">Documentation</a>
+	<a href="https://docs.mindshub.ai/">Documentation</a>
     ·
     <a href="https://mindshub.ai">Try it</a>
     ·

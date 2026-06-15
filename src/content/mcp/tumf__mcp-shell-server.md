@@ -3,7 +3,7 @@ name: "tumf/mcp-shell-server"
 description: "A secure shell command execution server implementing the Model Context Protocol (MCP)"
 category: "Command Line"
 repo: "tumf/mcp-shell-server"
-stars: 175
+stars: 176
 url: "https://github.com/tumf/mcp-shell-server"
 body_length: 6120
 license: "MIT"

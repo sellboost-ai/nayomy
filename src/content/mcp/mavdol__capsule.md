@@ -5,7 +5,7 @@ category: "Code Execution"
 repo: "mavdol/capsule"
 stars: 289
 url: "https://github.com/mavdol/capsule"
-body_length: 16884
+body_length: 16626
 license: "Apache-2.0"
 language: "Rust"
 ---
@@ -542,13 +542,6 @@ npm install && npm run build && npm link
 4. **Open** a Pull Request
 
 Need help? [Open an issue](https://github.com/capsulerun/capsule/issues)
-
-## Ecosystem
-
-| Package | Description |
-|---------|-------------|
-| [`capsule`](https://github.com/capsulerun/capsule) | Core runtime (this repository) |
-| [`capsule-bash`](https://github.com/capsulerun/bash) | Sandboxed bash interface built from capsule |
 
 ## Credits
 

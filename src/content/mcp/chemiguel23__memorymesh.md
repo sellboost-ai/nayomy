@@ -3,7 +3,7 @@ name: "CheMiguel23/MemoryMesh"
 description: "Enhanced graph-based memory with a focus on AI role-play and story generation"
 category: "Knowledge & Memory"
 repo: "CheMiguel23/MemoryMesh"
-stars: 344
+stars: 345
 url: "https://github.com/CheMiguel23/MemoryMesh"
 body_length: 18149
 license: "MIT"

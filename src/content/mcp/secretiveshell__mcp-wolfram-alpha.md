@@ -3,7 +3,7 @@ name: "SecretiveShell/MCP-wolfram-alpha"
 description: "An MCP server for querying wolfram alpha API."
 category: "Other Tools and Integrations"
 repo: "SecretiveShell/MCP-wolfram-alpha"
-stars: 75
+stars: 74
 url: "https://github.com/SecretiveShell/MCP-wolfram-alpha"
 body_length: 1881
 license: "MIT"

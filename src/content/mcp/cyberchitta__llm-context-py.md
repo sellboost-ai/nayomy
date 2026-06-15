@@ -3,7 +3,7 @@ name: "cyberchitta/llm-context.py"
 description: "Share code context with LLMs via MCP or clipboard"
 category: "File Systems"
 repo: "cyberchitta/llm-context.py"
-stars: 302
+stars: 301
 url: "https://github.com/cyberchitta/llm-context.py"
 body_length: 11800
 license: "Apache-2.0"

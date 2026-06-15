@@ -3,7 +3,7 @@ name: "ckreiling/mcp-server-docker"
 description: "Integrate with Docker to manage containers, images, volumes, and networks."
 category: "Developer Tools"
 repo: "ckreiling/mcp-server-docker"
-stars: 723
+stars: 722
 url: "https://github.com/ckreiling/mcp-server-docker"
 body_length: 5443
 license: "GPL-3.0"

@@ -3,7 +3,7 @@ name: "kubestellar/console"
 description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-agent) for AI-assisted operations, real-time observability, and integrations with 20+ CNCF projects across edge and cloud clusters."
 category: "Cloud Platforms"
 repo: "kubestellar/console"
-stars: 114
+stars: 115
 url: "https://github.com/kubestellar/console"
 body_length: 35214
 license: "Apache-2.0"

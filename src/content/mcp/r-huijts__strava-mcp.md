@@ -3,7 +3,7 @@ name: "r-huijts/strava-mcp"
 description: "A Model Context Protocol (MCP) server that connects to Strava API, providing tools to access Strava data through LLMs"
 category: "Sports"
 repo: "r-huijts/strava-mcp"
-stars: 437
+stars: 438
 url: "https://github.com/r-huijts/strava-mcp"
 body_length: 11921
 license: "MIT"

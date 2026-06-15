@@ -3,7 +3,7 @@ name: "redis/mcp-redis"
 description: "The Redis official MCP Server offers an interface to manage and search data in Redis."
 category: "Databases"
 repo: "redis/mcp-redis"
-stars: 531
+stars: 532
 url: "https://github.com/redis/mcp-redis"
 body_length: 27764
 license: "MIT"

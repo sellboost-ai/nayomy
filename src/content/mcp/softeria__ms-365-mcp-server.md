@@ -3,7 +3,7 @@ name: "Softeria/ms-365-mcp-server"
 description: "MCP server that connects to Microsoft Office and the whole Microsoft 365 suite using Graph API (including Outlook, mail, files, Excel, calendar)"
 category: "Communication"
 repo: "Softeria/ms-365-mcp-server"
-stars: 781
+stars: 783
 url: "https://github.com/Softeria/ms-365-mcp-server"
 body_length: 32890
 license: "MIT"
