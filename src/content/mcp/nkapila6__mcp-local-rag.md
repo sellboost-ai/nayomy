@@ -3,7 +3,7 @@ name: "nkapila6/mcp-local-rag"
 description: "primitive\" RAG-like web search model context protocol (MCP) server that runs locally. No APIs needed."
 category: "Search & Data Extraction"
 repo: "nkapila6/mcp-local-rag"
-stars: 125
+stars: 126
 url: "https://github.com/nkapila6/mcp-local-rag"
 body_length: 8162
 license: "MIT"

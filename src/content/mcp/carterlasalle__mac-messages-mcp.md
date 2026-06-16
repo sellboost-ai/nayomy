@@ -3,9 +3,9 @@ name: "carterlasalle/mac_messages_mcp"
 description: "An MCP server that securely interfaces with your iMessage database via the Model Context Protocol (MCP), allowing LLMs to query and analyze iMessage conversations. It includes robust phone number validation, attachment processing, contact management, group chat handling, and full support for sending and receiving messages."
 category: "Communication"
 repo: "carterlasalle/mac_messages_mcp"
-stars: 298
+stars: 297
 url: "https://github.com/carterlasalle/mac_messages_mcp"
-body_length: 9951
+body_length: 10575
 license: "MIT"
 language: "Python"
 homepage: "https://pypi.org/project/mac-messages-mcp/"
@@ -113,6 +113,17 @@ mcpb pack
 Install the generated `.mcpb` file from Claude Desktop **Settings** > **Extensions** > **Advanced settings** > **Install Extension...**.
 
 Claude Desktop, or the terminal used to package/run the extension, still needs Full Disk Access to read Messages.
+
+**Building the extension**
+
+Build the `.mcpb` with the build script:
+
+```bash
+python scripts/build_mcpb.py                  # build for the host architecture
+python scripts/build_mcpb.py --arch x86_64    # build for Intel macs
+```
+
+By default it vendors a `uv` binary into the bundle (`bin/uv`) so the extension also runs on machines without `uv` installed — that binary is architecture specific (build one `.mcpb` per arch) and downloads Python and dependencies on first launch (network required once). Pass `--no-bundle` to pack against the system `uv` instead; see `python scripts/build_mcpb.py --help` for all options.
 
 #### Option 2: Manual Config
 

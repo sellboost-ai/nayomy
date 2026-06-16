@@ -3,7 +3,7 @@ name: "docker/hub-mcp"
 description: "Official MCP server to interact with Docker Hub, providing access to repositories, hub search and Docker Hardened Images"
 category: "Developer Tools"
 repo: "docker/hub-mcp"
-stars: 155
+stars: 156
 url: "https://github.com/docker/hub-mcp"
 body_length: 12712
 license: "Apache-2.0"

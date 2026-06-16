@@ -3,9 +3,9 @@ name: "genomoncology/biomcp"
 description: "Biomedical research MCP server providing access to PubMed, ClinicalTrials.gov, and MyVariant.info."
 category: "Biology Medicine and Bioinformatics"
 repo: "genomoncology/biomcp"
-stars: 525
+stars: 526
 url: "https://github.com/genomoncology/biomcp"
-body_length: 16766
+body_length: 17062
 license: "MIT"
 language: "Rust"
 homepage: "https://biomcp.org/"
@@ -259,10 +259,10 @@ export ALPHAGENOME_API_KEY="..." # AlphaGenome variant effect prediction
 the explicit Semantic Scholar helpers all work without `S2_API_KEY`. With the
 key, BioMCP sends authenticated requests and uses a dedicated rate limit at
 1 req/sec. Without it, BioMCP uses the shared unauthenticated pool at 1 req/2sec.
-`search article --source` supports `all`, `pubtator`, `europepmc`, and
-`pubmed`. The
-default compatible article federation uses PubTator3, Europe PMC, and PubMed,
-while the S2 leg remains automatic rather than directly selectable. References
+`search article --source` supports `all`, `pubtator`, `europepmc`, `pubmed`,
+and `litsense2`. The default compatible article federation uses PubTator3,
+Europe PMC, PubMed, and automatic Semantic Scholar; use `--source litsense2`
+explicitly when you want LitSense2. References
 and recommendations can be empty for paywalled papers because of publisher
 elision in Semantic Scholar upstream coverage.
 
@@ -372,7 +372,7 @@ installed files, and legacy compatibility notes.
 `study` is BioMCP's local analysis family for downloaded cBioPortal-style datasets.
 The public entity surface handles API-backed, local-runtime, and hybrid
 discovery/detail; `study` commands work on local datasets when you need
-per-study query, cohort, survival, comparison, or co-occurrence workflows.
+per-study query, cohort, survival, comparison, or co-occurrence workflows. Per-gene queries include mutations, CNA, expression, and structural variants/fusions from local `data_sv.txt` files. Mutation summaries stay mutation-only and note when fusions/SV need `--type sv`.
 
 Use `study download` to fetch a dataset into your local study root. Set
 `BIOMCP_STUDY_DIR` when you want an explicit dataset location for reproducible
@@ -382,6 +382,7 @@ scripts and demos; if it is unset, BioMCP falls back to its default study root.
 export BIOMCP_STUDY_DIR="$HOME/.local/share/biomcp/studies"
 biomcp study download msk_impact_2017
 biomcp study query --study msk_impact_2017 --gene TP53 --type mutations --chart bar --theme dark --palette wong -o docs/blog/images/tp53-mutation-bar.svg
+biomcp study query --study msk_impact_2017 --gene RET --type sv
 ```
 
 See the [CLI reference](docs/user-guide/cli-reference.md#local-study-analytics)

@@ -3,7 +3,7 @@ name: "eat-pray-ai/yutu"
 description: "A fully functional MCP server and CLI for YouTube to automate YouTube operation"
 category: "Browser Automation"
 repo: "eat-pray-ai/yutu"
-stars: 508
+stars: 511
 url: "https://github.com/eat-pray-ai/yutu"
 body_length: 18013
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ clean_name: "Network Troubleshoot"
 description: "Systematic, safety-first network troubleshooting for developers"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40001
+stars: 40010
 path: "rules/network-troubleshoot.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/network-troubleshoot.mdc"
 body_length: 7931

@@ -3,9 +3,9 @@ name: "screenpipe/screenpipe"
 description: "Local-first system capturing screen/audio with timestamped indexing, SQL/embedding storage, semantic search, LLM-powered history analysis, and event-triggered actions - enables building context-aware AI agents through a NextJS plugin ecosystem."
 category: "Other Tools and Integrations"
 repo: "screenpipe/screenpipe"
-stars: 19317
+stars: 19326
 url: "https://github.com/screenpipe/screenpipe"
-body_length: 19717
+body_length: 19698
 license: "NOASSERTION"
 language: "Rust"
 homepage: "https://screenpipe.com"
@@ -98,7 +98,7 @@ screenpipe turns your computer into a personal AI that knows everything you've d
 
 ## install
 
-[download the desktop app](https://screenpi.pe/onboarding) — one-time purchase, all features, auto-updates
+[download the desktop app](https://screenpi.pe/onboarding) — all features, auto-updates
 
 or run the CLI:
 

@@ -3,7 +3,7 @@ name: "mpeirone/zabbix-mcp-server"
 description: "Zabbix integration for hosts, items, triggers, templates, problems, data and more."
 category: "Monitoring"
 repo: "mpeirone/zabbix-mcp-server"
-stars: 230
+stars: 231
 url: "https://github.com/mpeirone/zabbix-mcp-server"
 body_length: 6751
 license: "GPL-3.0"

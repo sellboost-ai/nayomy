@@ -3,7 +3,7 @@ name: "BurtTheCoder/mcp-maigret"
 description: "MCP server for maigret, a powerful OSINT tool that collects user account information from various public sources. This server provides tools for searching usernames across social networks and analyzing URLs."
 category: "Security"
 repo: "BurtTheCoder/mcp-maigret"
-stars: 244
+stars: 245
 url: "https://github.com/BurtTheCoder/mcp-maigret"
 body_length: 6810
 license: "MIT"

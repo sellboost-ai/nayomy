@@ -3,7 +3,7 @@ name: "chopratejas/headroom"
 description: "Context compression layer for AI agents. Compresses tool outputs, logs, RAG chunks, files, and conversation history before they reach the LLM, with reversible retrieval through MCP tools."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
-stars: 29247
+stars: 29957
 url: "https://github.com/chopratejas/headroom"
 body_length: 19355
 license: "Apache-2.0"

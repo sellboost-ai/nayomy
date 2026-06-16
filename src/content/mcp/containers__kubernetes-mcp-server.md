@@ -3,9 +3,9 @@ name: "containers/kubernetes-mcp-server"
 description: "powerful Kubernetes MCP server with additional support for OpenShift. Besides providing CRUD operations for **any** Kubernetes resource, this server provides specialized tools to interact with your cluster."
 category: "Cloud Platforms"
 repo: "containers/kubernetes-mcp-server"
-stars: 1689
+stars: 1693
 url: "https://github.com/containers/kubernetes-mcp-server"
-body_length: 53062
+body_length: 53560
 license: "Apache-2.0"
 language: "Go"
 ---
@@ -649,6 +649,12 @@ In case multi-cluster support is enabled (default) and you have access to multip
 - **vm-troubleshoot** - Generate a step-by-step troubleshooting guide for diagnosing KubeVirt VirtualMachine issues
   - `namespace` (`string`) **(required)** - The namespace of the VirtualMachine to troubleshoot
   - `name` (`string`) **(required)** - The name of the VirtualMachine to troubleshoot
+
+- **windows-golden-image** - Guides creation of a Windows golden image via the KubeVirt windows-efi-installer Tekton pipeline
+  - `winImageDownloadURL` (`string`) **(required)** - Microsoft Windows ISO download URL (must be https://)
+  - `namespace` (`string`) - Target namespace for the PipelineRun
+  - `windowsVersion` (`string`) - Windows version: 10, 11, 2k22 (default), or 2k25
+  - `pipelineVersion` (`string`) - Pipeline version (default: latest). Use specific version like 0.25.0 if needed
 
 </details>
 
