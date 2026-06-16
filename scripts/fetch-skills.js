@@ -42,6 +42,7 @@ const headers = {
 
 // Bilinen büyük skill koleksiyonu repoları
 const SEED_REPOS = [
+  // Mevcut olanlar
   "anthropics/skills",
   "ComposioHQ/awesome-claude-skills",
   "alirezarezvani/claude-skills",
@@ -52,10 +53,19 @@ const SEED_REPOS = [
   "theodo-group/debug-that",
   "hienlh/claude-skill-slack-api",
   "atopile/atopile",
+  // 2026 viral / popüler yeni eklenenler
+  "forrestchang/andrej-karpathy-skills",
+  "multica-ai/andrej-karpathy-skills",
+  "obra/superpowers",
+  "obra/skills",
+  "BehiSecc/awesome-claude-skills",
+  "GetBindu/awesome-claude-code-and-skills",
+  "chat2anyllm/awesome-claude-skills",
+  "supermemoryai/supermemory",
+  "pbakaus/impeccable",
 ];
-
 // Tek bir repo için maksimum kaç skill alınacak (spam'i önler)
-const MAX_SKILLS_PER_REPO = 60;
+const MAX_SKILLS_PER_REPO = 200;
 
 // "Manuel öne çıkanlar" — koleksiyon repolarını da kart olarak göster
 const COLLECTION_CARDS = [
