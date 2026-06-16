@@ -1,20 +1,21 @@
 /**
  * Converts skills.json → src/content/skills/[slug].md files.
- * Idempotent: clears the output directory before writing.
+ * Preserves existing Turkish translations (body_tr, description_tr).
  *
  * Slug format: {repo-slug}__{name-slug}
  *   e.g. anthropics-skills__pdf, theodo-group-debug-that__debug-that
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import yaml from 'js-yaml';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const INPUT = join(ROOT, 'skills.json');
 const OUTPUT_DIR = join(ROOT, 'src', 'content', 'skills');
 
-// ── helpers ──────────────────────────────────────────────────
+// ── helpers ──────────────────────────────────────────────────────────
 
 function slugify(str) {
   return String(str ?? '')
@@ -27,7 +28,6 @@ function makeSlug(repo, name) {
   return `${slugify(repo)}__${slugify(name)}`;
 }
 
-// Serialize a value as a YAML double-quoted string.
 function ys(value) {
   const str = String(value ?? '');
   const escaped = str
@@ -38,34 +38,87 @@ function ys(value) {
   return `"${escaped}"`;
 }
 
-// Serialize an array as a YAML flow sequence.
 function ya(arr) {
   if (!arr || arr.length === 0) return '[]';
   return '[' + arr.map(ys).join(', ') + ']';
 }
 
-// ── main ─────────────────────────────────────────────────────
+// Extract existing Turkish translations from a markdown file's frontmatter
+// using js-yaml (safer than custom regex).
+function extractTranslations(filePath) {
+  if (!existsSync(filePath)) return {};
+  try {
+    const raw = readFileSync(filePath, 'utf8');
+    const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!match) return {};
+    const fm = yaml.load(match[1]) ?? {};
+    const result = {};
+    if (fm.description_tr) result.description_tr = fm.description_tr;
+    if (fm.body_tr) result.body_tr = fm.body_tr;
+    return result;
+  } catch (e) {
+    console.warn(`⚠  Could not read translations from ${filePath}: ${e.message}`);
+    return {};
+  }
+}
+
+// Serialize a multi-line string as a YAML literal block scalar.
+function yamlLiteralBlock(value) {
+  if (!value) return '';
+  const lines = String(value).split('\n').map(line => '  ' + line);
+  return '|-\n' + lines.join('\n');
+}
+
+// ── main ─────────────────────────────────────────────────────────────
 
 const { skills } = JSON.parse(readFileSync(INPUT, 'utf8'));
 
-// Idempotent: clear output dir
+// Step 1: Read existing translations BEFORE clearing the directory
+const existingTranslations = {};
+try {
+  const existingFiles = readdirSync(OUTPUT_DIR);
+  for (const file of existingFiles) {
+    if (!file.endsWith('.md')) continue;
+    const slug = file.replace(/\.md$/, '');
+    const filePath = join(OUTPUT_DIR, file);
+    const translations = extractTranslations(filePath);
+    if (translations.description_tr || translations.body_tr) {
+      existingTranslations[slug] = translations;
+    }
+  }
+  console.log(`✓ Preserved ${Object.keys(existingTranslations).length} existing translations`);
+} catch (_) {
+  console.log(`No existing translations to preserve (dir may not exist yet)`);
+}
+
+// Step 2: Clear output dir
 try {
   readdirSync(OUTPUT_DIR).forEach(f => unlinkSync(join(OUTPUT_DIR, f)));
 } catch (_) { /* dir may not exist yet */ }
 mkdirSync(OUTPUT_DIR, { recursive: true });
 
+// Step 3: Write new content, merging in preserved translations
 let written = 0;
+let restored = 0;
 const seen = new Set();
 
 for (const skill of skills) {
   const slug = makeSlug(skill.repo, skill.name);
 
-  // Guard against duplicate slugs (shouldn't happen, but be safe)
   if (seen.has(slug)) {
     console.warn(`⚠  Duplicate slug skipped: ${slug}`);
     continue;
   }
   seen.add(slug);
+
+  // Merge in existing translations if available
+  const preserved = existingTranslations[slug] || {};
+  const description_tr = skill.description_tr || preserved.description_tr || '';
+  const body_tr = preserved.body_tr || '';
+
+  if (preserved.description_tr || preserved.body_tr) {
+    restored++;
+  }
 
   const lines = [
     '---',
@@ -73,9 +126,8 @@ for (const skill of skills) {
     `description_en: ${ys(skill.description_en ?? '')}`,
   ];
 
-  // Only emit description_tr when non-empty (schema marks it optional)
-  if (skill.description_tr) {
-    lines.push(`description_tr: ${ys(skill.description_tr)}`);
+  if (description_tr) {
+    lines.push(`description_tr: ${ys(description_tr)}`);
   }
 
   lines.push(
@@ -90,9 +142,15 @@ for (const skill of skills) {
     `has_references: ${skill.has_references === true}`,
     `has_examples: ${skill.has_examples === true}`,
     `related_files: ${ya(skill.related_files)}`,
+  );
+
+  if (body_tr) {
+    lines.push(`body_tr: ${yamlLiteralBlock(body_tr)}`);
+  }
+
+  lines.push(
     '---',
     '',
-    // Body: full SKILL.md markdown content (empty string if not fetched)
     (skill.body ?? '').trim(),
     '',
   );
@@ -102,3 +160,4 @@ for (const skill of skills) {
 }
 
 console.log(`✓ ${written} skill files written to src/content/skills/`);
+console.log(`✓ ${restored} files had translations restored`);

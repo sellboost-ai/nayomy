@@ -9,6 +9,88 @@ path: "rules/fastapi.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/fastapi.mdc"
 body_length: 2153
 file_extension: ".mdc"
+body_tr: |-
+  # FastAPI En İyi Uygulamalar
+
+  ## Proje Yapısı
+  - Uygun dizin yapısı kullanın
+  - Uygun modül organizasyonu gerçekleştirin
+  - Uygun dependency injection gerçekleştirin
+  - Route'ları domain'e göre organize edin
+  - Uygun middleware gerçekleştirin
+  - Uygun konfigürasyon yönetimi kullanın
+
+  ## API Tasarımı
+  - Uygun HTTP method'larını kullanın
+  - Uygun status code'ları gerçekleştirin
+  - Uygun request/response model'lerini kullanın
+  - Uygun validasyon gerçekleştirin
+  - Uygun hata yönetimi kullanın
+  - API'leri OpenAPI ile dokümante edin
+
+  ## Model'ler
+  - Pydantic model'lerini kullanın
+  - Uygun validasyon gerçekleştirin
+  - Uygun type hint'leri kullanın
+  - Model'leri organize tutun
+  - Uygun inheritance kullanın
+  - Uygun serialization gerçekleştirin
+
+  ## Veritabanı
+  - Uygun ORM kullanın (SQLAlchemy)
+  - Uygun migration'lar gerçekleştirin
+  - Uygun connection pooling kullanın
+  - Uygun transaction'lar gerçekleştirin
+  - Uygun query optimizasyonu kullanın
+  - Veritabanı hatalarını uygun şekilde yönetin
+
+  ## Kimlik Doğrulama
+  - Uygun JWT authentication gerçekleştirin
+  - Uygun password hashing kullanın
+  - Uygun role-based access gerçekleştirin
+  - Uygun session management kullanın
+  - Uygun OAuth2 gerçekleştirin
+  - Kimlik doğrulama hatalarını uygun şekilde yönetin
+
+  ## Güvenlik
+  - Uygun CORS gerçekleştirin
+  - Uygun rate limiting kullanın
+  - Uygun input validation gerçekleştirin
+  - Uygun security header'ları kullanın
+  - Güvenlik hatalarını uygun şekilde yönetin
+  - Uygun logging gerçekleştirin
+
+  ## Performans
+  - Uygun caching kullanın
+  - Uygun async operation'ları gerçekleştirin
+  - Uygun background task'ları kullanın
+  - Uygun connection pooling gerçekleştirin
+  - Uygun query optimizasyonu kullanın
+  - Performans metriklerini izleyin
+
+  ## Test Etme
+  - Uygun unit test'ler yazın
+  - Uygun integration test'leri gerçekleştirin
+  - Uygun test fixture'larını kullanın
+  - Uygun mocking gerçekleştirin
+  - Hata senaryolarını test edin
+  - Uygun test coverage kullanın
+
+  ## Dağıtım
+  - Uygun Docker konfigürasyonu kullanın
+  - Uygun CI/CD gerçekleştirin
+  - Uygun environment variable'larını kullanın
+  - Uygun logging gerçekleştirin
+  - Uygun monitoring kullanın
+  - Dağıtım hatalarını uygun şekilde yönetin
+
+  ## Dokümantasyon
+  - Uygun docstring'ler kullanın
+  - Uygun API dokümantasyonu gerçekleştirin
+  - Uygun type hint'leri kullanın
+  - Dokümantasyonu güncel tutun
+  - Hata senaryolarını dokümante edin
+  - Uygun versioning kullanın
 ---
 
 # FastAPI Best Practices

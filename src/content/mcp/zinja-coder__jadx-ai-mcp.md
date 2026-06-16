@@ -3,18 +3,18 @@ name: "zinja-coder/jadx-ai-mcp"
 description: "JADX-AI-MCP is a plugin and MCP Server for the JADX decompiler that integrates directly with Model Context Protocol (MCP) to provide live reverse engineering support with LLMs like Claude."
 category: "Security"
 repo: "zinja-coder/jadx-ai-mcp"
-stars: 2143
+stars: 2331
 url: "https://github.com/zinja-coder/jadx-ai-mcp"
-body_length: 26556
+body_length: 26781
 license: "Apache-2.0"
 language: "Java"
 body_tr: |-
   <div align="center">
-
+  
   # JADX-AI-MCP (Zin MCP Suite'nin Bir Parçası)
-
+  
   ⚡ Claude gibi LLM'lerle iletişim kurmak için MCP ile entegre edilmiş, tamamen otomatik MCP sunucusu + JADX eklentisi — Android APK'ları analiz edin, güvenlik açıklarını ortaya çıkarın ve zahmetsizce reverse engineering yapın.
-
+  
   ![GitHub contributors JADX-AI-MCP](https://img.shields.io/github/contributors/zinja-coder/jadx-ai-mcp)
   ![GitHub contributors JADX-MCP-SERVER](https://img.shields.io/github/contributors/zinja-coder/jadx-mcp-server)
   ![GitHub all releases](https://img.shields.io/github/downloads/zinja-coder/jadx-ai-mcp/total)
@@ -23,9 +23,9 @@ body_tr: |-
   ![Java 11+](https://img.shields.io/badge/Java-11%2B-blue)
   ![Python 3.10+](https://img.shields.io/badge/python-3%2E10%2B-blue)
   [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-
+  
   #### ⭐ Katkıda Bulunanlar
-
+  
   Bu harika insanların katkıları için teşekkürler ⭐
   <table>
     <tr align="center">
@@ -127,35 +127,35 @@ body_tr: |-
       </td>
     </tr>
   </table>
-
-
-
+  
+  
+  
   </div>
-
+  
   <!-- It is a still in early stage of development, so expects bugs, crashes and logical erros.-->
-
+  
   <!-- Standalone Plugin for [JADX](https://github.com/skylot/jadx) (Started as Fork) with Model Context Protocol (MCP) integration for AI-powered static code analysis and real-time code review and reverse engineering tasks using Claude.-->
-
-
+  
+  
   <div align="center">
       
   </div>
-
+  
   <!-- ![jadx-ai-banner.png](https://raw.githubusercontent.com/zinja-coder/jadx-ai-mcp/HEAD/docs/assets/img.png) Image generated using AI tools. -->
-
+  
   #### Belgeleri Okuyun
    - Belgeler şu anda yayında: https://jadx-ai-mcp.readthedocs.io/en/latest/
-
+  
   ---
-
+  
   ## 🤖 JADX-AI-MCP Nedir?
-
+  
   **JADX-AI-MCP**, [JADX decompiler](https://github.com/skylot/jadx) için bir eklentidir ve doğrudan [Model Context Protocol (MCP)](https://github.com/anthropic/mcp) ile entegre olarak Claude gibi LLM'ler ile **canlı reverse engineering desteği** sağlar.
-
+  
   Düşünün: "Decompile → Bağlama Duyarlı Kod İncelemesi → AI Önerileri" — hepsi gerçek zamanlı.
-
+  
   #### Üst Seviye Sıra Diyagramı
-
+  
   ```mermaid
   sequenceDiagram
   LLM CLIENT->>JADX MCP SERVER: INVOKE MCP TOOL
@@ -167,52 +167,52 @@ body_tr: |-
   JADX AI MCP PLUGIN->>JADX MCP SERVER:HTTP RESPONSE
   JADX MCP SERVER->>LLM CLIENT: MCP TOOL RESULT
   ```
-
+  
   ### Demoları İzleyin!
-
+  
   - **Hızlı analiz gerçekleştirin**
     
   https://github.com/user-attachments/assets/b65c3041-fde3-4803-8d99-45ca77dbe30a
-
+  
   - **Güvenlik açıklarını hızlı bulun**
-
+  
   https://github.com/user-attachments/assets/c184afae-3713-4bc0-a1d0-546c1f4eb57f
-
+  
   - **Çoklu AI Aracı Desteği**
-
+  
   https://github.com/user-attachments/assets/6342ea0f-fa8f-44e6-9b3a-4ceb8919a5b0
-
+  
   - **Favori LLM İstemcinizle Çalıştırın**
-
+  
   https://github.com/user-attachments/assets/b4a6b280-5aa9-4e76-ac72-a0abec73b809
-
+  
   - **APK Kaynaklarını Analiz Edin**
-
+  
   https://github.com/user-attachments/assets/f42d8072-0e3e-4f03-93ea-121af4e66eb1
-
+  
   - **JADX Kullanarak APK Hata Ayıklaması Sırasında AI Asistanınız**
-
+  
   https://github.com/user-attachments/assets/2b0bd9b1-95c1-4f32-9b0c-38b864dd6aec
-
+  
   İki araçtan oluşan bir kombinasyon:
   1. JADX-AI-MCP
   2. [JADX MCP SERVER](https://github.com/zinja-coder/jadx-mcp-server)
-
+  
   ## 🤖 JADX-MCP-SERVER Nedir?
-
+  
   **JADX MCP Server**, MCP (Model Context Protocol) aracılığıyla bir `JADX-AI-MCP` eklentisi (bkz: [jadx-ai-mcp](https://github.com/zinja-coder/jadx-ai-mcp)) ile etkileşime giren bağımsız bir Python sunucusudur. LLM'lerin decompiled Android uygulaması bağlamıyla canlı iletişim kurmasına olanak tanır.
-
+  
   ---
-
+  
   ## Zin MCP Suite'deki Diğer Projeler
    - **[APKTool-MCP-Server](https://github.com/zinja-coder/apktool-mcp-server)**
    - **[JADX-MCP-Server](https://github.com/zinja-coder/jadx-mcp-server)**
    - **[ZIN-MCP-Client](https://github.com/zinja-coder/zin-mcp-client)**
-
+  
   ## Mevcut MCP Araçları
-
+  
   Aşağıdaki MCP araçları mevcuttur:
-
+  
   - `fetch_current_class()` — Seçilen sınıfın sınıf adını ve tam kaynağını alın
   - `get_selected_text()` — Seçili metni alın
   - `get_all_classes()` — Projedeki tüm sınıfları listeleyin
@@ -244,122 +244,122 @@ body_tr: |-
   - `xrefs_to_field()` : Bir alana yapılan tüm referansları bulun (alanı erişen metodları döndürür, sayfalandırmayı destekler)
     
   ---
-
+  
   ## 🗒️ Örnek İstemler
-
+  
   🔍 Temel Kod Anlama
-
+  
       "Bu sınıf bir paragrafta ne yapıyor açıkla."
-
+  
       "Bu metodun sorumluluklarını özetle."
-
+  
       "Bu sınıfta herhangi bir obfuscation var mı?"
-
+  
       "Bu sınıfın gereksinim duyabileceği tüm Android izinlerini listele."
-
+  
   🛡️ Güvenlik Açığı Tespiti
-
+  
       "Bu metodda güvensiz API kullanımı var mı?"
-
+  
       "Bu sınıfı sabit kodlanmış sırlar veya kimlik bilgileri açısından kontrol et."
-
+  
       "Bu metod kullanıcı girdisini kullanmadan önce temizliyor mu?"
-
+  
       "Bu kod hangi güvenlik açıklarını ortaya çıkarabilir?"
-
+  
   🛠️ Reverse Engineering Yardımcıları
-
+  
       "Bu sınıfları ve metodları deobfuscate et ve okunabilir bir şeyle yeniden adlandır."
-
+  
       "Bu smali metodunun orijinal amacını çıkarabileceği var mı?"
-
+  
       "Bu sınıf hangi kütüphanelerin veya SDK'ların parçası gibi görünüyor?"
-
+  
       "Hangi sınıflar 'encryption' ile ilgili kod içeriyor?"
-
+  
   📦 Statik Analiz
-
+  
       "Bu sınıftaki tüm ağ ile ilgili API çağrılarını listele."
-
+  
       "Dosya G/Ç işlemlerini ve potansiyel risklerini belirle."
-
+  
       "Bu metod cihaz bilgisi veya KVB sızıntısı yapıyor mu?"
-
+  
   🤖 AI Kod Değişikliği
-
+  
       "Bu metodu okunabilirliği geliştirmek için refactor et."
-
+  
       "Bu koda her adımı açıklayan yorumlar ekle."
-
+  
       "Bu Java metodunu analiz için Python'da yeniden yaz."
-
+  
   📄 Dokümantasyon & Metadata
-
+  
       "Tüm metodlar için Javadoc tarzı yorumlar oluştur."
-
+  
       "Bu sınıf muhtemelen hangi pakete veya uygulama bileşenine aittir?"
-
+  
       "Android bileşen türünü (Activity, Service, vb.) tanımlayabileceği var mı?"
-
+  
   🐞 Hata Ayıklayıcı Asistanı
   ```
      "Hata ayıklayıcıdan stack frame'leri, değişkenleri ve thread'leri getir ve özet sağla"
-
+  
      "Hata ayıklayıcıdaki stack frame'lere göre, uygulamanın yürütme akışını açıkla"
-
+  
      "Değişkenlerin durumuna göre, güvenlik tehdidi var mı?"
   ```
-
+  
   ---
-
+  
   ## 🛠️ Başlayın 
-
+  
   ### 1. Releases'ten İndir: https://github.com/zinja-coder/jadx-ai-mcp/releases
-
+  
   > [!NOTE]
   >
   > Hem `jadx-ai-mcp-<version>.jar` hem de `jadx-mcp-server-<version>.zip` dosyalarını indirin.
-
-
+  
+  
   ```bash
   # 0. jadx-ai-mcp-<version>.jar ve jadx-mcp-server-<version>.zip dosyalarını indirin
   https://github.com/zinja-coder/jadx-ai-mcp/releases
-
+  
   # 1. 
   unzip jadx-ai-mcp-<version>.zip
-
+  
   ├jadx-mcp-server/
     ├── jadx_mcp.py
     ├── requirements.txt
     ├── README.md
     ├── LICENSE
-
+  
   ├jadx-ai-mcp-<version>.jar
-
+  
   # 2. Eklentiyi yükleyin
-
+  
   # Bunu iki şekilde yapabilirsiniz:
-
+  
   ## 1. Tek satır - Kabuğunuzda aşağıdaki komutu çalıştırın
   jadx plugins --install "github:zinja-coder:jadx-ai-mcp"
-
+  
   ## Yukarıdaki tek satırlık kod, eklentiyi doğrudan jadx'e yükleyecek, jadx-ai-mcp'nin .jar dosyasını indirmeye gerek yok.
   ## 2. Veya JADX-GUI kullanarak aşağıda görsellerde gösterilen adımları izleyerek yükleyebilirsiniz:
   ```
-
+  
   <div align="center">
       
   </div>
-
+  
   <div align="center">
       
   </div>
-
+  
   <div align="center">
       
   </div>
-
-
+  
+  
   ```bash
   ## 3. GUI yöntemi, .jar dosyasını indirin ve aşağıdaki görsellerde gösterilen adımları izleyin
   ```
@@ -370,7 +370,7 @@ body_tr: |-
   ```bash
   # 3. jadx-mcp-server dizinine gidin
   cd jadx-mcp-server
-
+  
   # 4. Bu proje bağımlılık yönetimi için pip yerine uv - https://github.com/astral-sh/uv kullanır.
       ## a. uv yükleyin (henüz yüklemediyseniz)
   curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -379,21 +379,21 @@ body_tr: |-
   source .venv/bin/activate  # veya Windows'ta .venv\Scripts\activate
       ## c. SEÇENELİ Bağımlılıkları yükleyin
   uv pip install httpx fastmcp
-
+  
   # jadx-ai-mcp ve jadx_mcp_server kurulumu tamamlandı.
   ```
-
+  
   ## 🤖 2. Claude Desktop Kullanın
-
+  
   Claude Desktop'ın MCP etkin şekilde çalıştığından emin olun.
-
+  
   Örneğin, Kali Linux için şunu kullandım: https://github.com/aaddrick/claude-desktop-debian
-
+  
   MCP sunucusunu LLM dosyasına yapılandırın ve ekleyin:
   ```bash
   nano ~/.config/Claude/claude_desktop_config.json
   ```
-
+  
   Şu yer açısından:
      - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
      - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
@@ -414,26 +414,26 @@ body_tr: |-
       }
   }
   ```
-
+  
   Değiştirin:
-
+  
   - `path/to/uv` ile `uv` yürütülebilirinin gerçek yolu
   - `path/to/jadx-mcp-server` bu depo'yu klonladığınız mutlak yolla
-
+  
   Ardından, kodu gezin ve yerleşik entegrasyon kullanarak gerçek zamanlı kod inceleme komutları aracılığıyla etkileşime geçin.
-
+  
   **VEYA**
-
+  
   veya jadx_mcp_server'ı doğrudan aşağıdaki komut kullanarak yürütülebilir olarak yükleyebilirsiniz:
-
+  
   ```
   uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
   ```
-
+  
   ve ardından mcp yapılandırmasının `command` bölümüne sadece `jadx_mcp_server` sağlayabilirsiniz.
-
+  
   ## 3. Cherry Studio Kullanın
-
+  
   MCP aracını Cherry Studio'da yapılandırmak istiyorsanız, aşağıdaki yapılandırmaya başvurabilirsiniz.
   - Tür: stdio
   - komut: uv
@@ -445,29 +445,29 @@ body_tr: |-
   jadx_mcp_server.py
   ```
   - `path/to/jadx-mcp-server` bu depo'yu klonladığınız mutlak yolla değiştirin
-
+  
   ## 4. LMStudio Kullanarak
-
+  
   JADX AI MCP Server'ı LM Studio ile de kullanabilirsiniz, mcp.json dosyasını yapılandırarak. İşte video kılavuzu.
-
+  
   https://github.com/user-attachments/assets/b4a6b280-5aa9-4e76-ac72-a0abec73b809
-
+  
   ## 5. HTTP Stream Modunda Çalıştırma
-
+  
   Ayrıca Jadx'i `jadx_mcp_server.py` ile `--http` seçeneği kullanarak HTTP Stream Modunda çalıştırabilirsiniz:
-
+  
   ```bash
   uv run jadx_mcp_server.py --http
-
+  
   VEYA
-
+  
   uv run jadx_mcp_server.py --http --port 9999
   ```
-
+  
   ### Gelişmiş CLI Seçenekleri — Bayrakları Anlama
-
+  
   **İki ayrı bağlantı** vardır ve her birinin kendi host/port'u vardır:
-
+  
   ```
   ┌─────────────┐    --host / --port     ┌──────────────────┐   --jadx-host / --jadx-port   ┌──────────────────┐
   │  LLM Client │ ◄──────────────────►   │  jadx-mcp-server │ ──────────────────────────►   │  JADX-GUI Plugin │
@@ -475,7 +475,7 @@ body_tr: |-
   │   Codex..)  │   istemciler için      │                  │   eklentisini aradığı yer   │                  │
   └─────────────┘   dinlediği yer        └──────────────────┘                               └──────────────────┘
   ```
-
+  
   | Bayrak | Varsayılan | Kontrol Ettiği |
   |------|---------|----------|
   | `--http` | kapalı | Stdio yerine HTTP taşımasını kullan |
@@ -483,35 +483,35 @@ body_tr: |-
   | `--port` | `8651` | **MCP sunucusunun dinlediği port** |
   | `--jadx-host` | `127.0.0.1` | **JADX eklentisinin bulunduğu yer** (hedef JADX-GUI makinesi) |
   | `--jadx-port` | `8650` | **JADX eklentisinin bulunduğu port** |
-
+  
   ### Kullanım Örnekleri
-
+  
   **Senaryo 1 — Aynı makinede her şey (en yaygın):**
   ```bash
   # Varsayılan: MCP sunucusu localhost:8651'de, JADX eklentisine localhost:8650'den bağlanır
   uv run jadx_mcp_server.py --http
   ```
-
+  
   **Senaryo 2 — Docker container veya WSL (MCP sunucusu ana bilgisayar ağından erişilebilir):**
   ```bash
   # MCP sunucusu konak tarafından erişilebildiği için TÜM arayüzlerde dinler
   # JADX eklentisi yine aynı makinede
   uv run jadx_mcp_server.py --http --host 0.0.0.0
   ```
-
+  
   **Senaryo 3 — JADX-GUI farklı bir makinede çalışıyor (örn. uzak VM):**
   ```bash
   # MCP sunucusu yerel olarak çalışır, ancak uzak bir makinedeki JADX eklentisine bağlanır
   uv run jadx_mcp_server.py --http --jadx-host 192.168.1.100
   ```
-
+  
   **Senaryo 4 — Tam uzak kurulum (her şey farklı makinelerde):**
   ```bash
   # MCP sunucusu 9999 portunda tüm arayüzlerde dinler
   # JADX eklentisi 192.168.1.100:8652'deki farklı bir makinede
   uv run jadx_mcp_server.py --http --host 0.0.0.0 --port 9999 --jadx-host 192.168.1.100 --jadx-port 8652
   ```
-
+  
   > [!CAUTION]
   > ### ⚠️ Güvenlik Uyarısı — Uzak Bağlama
   >
@@ -525,34 +525,34 @@ body_tr: |-
   > - `0.0.0.0` öğesine sadece **güvenilir, izole edilmiş ağlarda** bağlayın (örn. Docker köprüsü, yerel VM)
   > - MCP portuna erişimi kısıtlamak için **güvenlik duvarı** kullanın
   > - Bunun yerine **SSH tüneli** kullanmayı düşünün: `ssh -L 8651:127.0.0.1:8651 remote-host`
-
+  
   ### Stdio Modu Uyumluluğu
-
+  
   > [!NOTE]
   > **Stdio** modunda çalıştırırken (varsayılan, `--http` olmadan), tüm insan tarafından okunabilir çıktı (banner, sağlık kontrolü) **stderr'e** yazılır, **stdout'u** MCP JSON-RPC akışı için saklı tutmak için. Bu, Codex, Claude Desktop ve diğer stdio tabanlı MCP istemcileriyle uyumluluğu sağlar.
-
+  
   ## 6. JADX AI MCP Eklentisi için Özel Port ve Host Yapılandırması
-
-
-
+  
+  
+  
   1. Portu Yapılandırın: JADX AI MCP Eklentisinin dinleyeceği portu yapılandırın.
   2. Varsayılan Port: Değişiklikleri geri alın ve varsayılan port üzerinde dinleyin.
   3. Sunucuyu Yeniden Başlat: JADX AI MCP Eklentisi sunucusunu zorla yeniden başlat.
   4. Sunucu Durumu: JADX AI MCP Eklentisi sunucusunun durumunu kontrol edin.
-
+  
   Özel porta sahip çalışan JADX AI MCP Eklentisi ile bağlantı kurmak için, aşağıda gösterilen `--jadx-port` seçeneği kullanılacak:
   ```
   uv run jadx_mcp_server.py --jadx-port 8652
   ```
-
+  
   JADX AI MCP Eklentisi **farklı bir makinede** çalışıyorsa (örn. JADX uzak VM'de, MCP sunucusu yerel konaküstünde), `--jadx-host` seçeneğini kullanın:
   ```bash
   # Uzak konak üzerindeki JADX eklentisine bağlan
   uv run jadx_mcp_server.py --jadx-host 192.168.1.100 --jadx-port 8650
   ```
-
+  
   ### CLI Referansı — Bayrakları Anlama
-
+  
   **İki ayrı bağlant
 ---
 
@@ -598,6 +598,12 @@ Thanks to these wonderful people for their contributions ⭐
       <a href="https://github.com/Haicaji">
         
         <br /><sub><b>Haicaji</b></sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/mostafaNazari702">
+        
+        <br /><sub><b>Mostafa Nazari</b></sub>
       </a>
     </td>
     <td>

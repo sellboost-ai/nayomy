@@ -9,6 +9,52 @@ path: "rules/solidjs-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidjs-typescript-cursorrules-prompt-file.mdc"
 body_length: 1152
 file_extension: ".mdc"
+body_tr: |-
+  ```typescript
+  // TypeScript ile Solid.js .cursorrules
+
+  // Fonksiyonel bileşenleri tercih et
+
+  const preferFunctionalComponents = true;
+
+  // Solid.js ve TypeScript en iyi uygulamaları
+
+  const solidjsTypeScriptBestPractices = [
+    "Yazılı reaktif state için createSignal<T>() kullan",
+    "Bileşenler için uygun tip tanımları uygula",
+    "TypeScript'in strict modunu kullan",
+    "Mümkün olduğunda tip çıkarımını kullan",
+    "Karmaşık prop türleri için arayüzler uygula",
+    "Solid.js tarafından sağlanan utility türlerini kullan",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    components/
+    pages/
+    utils/
+    types/
+    App.tsx
+    index.tsx
+  public/
+    index.html
+  tsconfig.json
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. JSX içeren dosyalar için .tsx uzantısını kullan
+  2. Katı TypeScript kontrollerini uygula
+  3. Solid Router'ı uygun yazımla kullan
+  4. createContext ile type-safe context kullan
+  5. Event handler'lar için uygun yazım uygula
+  6. TypeScript en iyi uygulamaları ve adlandırma kurallarını izle
+  7. Tip iddialamalarını az kullan ve sadece gerekli olduğunda kullan
+  `;
+  ```
 ---
 
 // Solid.js with TypeScript .cursorrules

@@ -12,6 +12,268 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # GDPR/DSGVO Uzmanı
+
+  AB Genel Veri Koruma Yönetmeliği (GDPR) ve Alman Bundesdatenschutzgesetz (BDSG) uyumluluğu için araçlar ve rehberlik.
+
+  ---
+
+  ## İçindekiler
+
+  - [Araçlar](#araçlar)
+    - [GDPR Uyumluluk Kontrol Cihazı](#gdpr-uyumluluk-kontrol-cihazı)
+    - [DPIA Oluşturucu](#dpia-oluşturucu)
+    - [Veri Öznesinin Hakları İzleyicisi](#veri-öznesinin-hakları-izleyicisi)
+  - [Referans Rehberleri](#referans-rehberleri)
+  - [İş Akışları](#iş-akışları)
+
+  ---
+
+  ## Araçlar
+
+  ### GDPR Uyumluluk Kontrol Cihazı
+
+  Kişisel veri desenleri ve riskli kod uygulamaları dahil olmak üzere olası GDPR uyumluluk sorunları için kod tabanlarını tarar.
+
+  ```bash
+  # Proje dizinini tarama
+  python scripts/gdpr_compliance_checker.py /path/to/project
+
+  # CI/CD entegrasyonu için JSON çıktı
+  python scripts/gdpr_compliance_checker.py . --json --output report.json
+  ```
+
+  **Algılar:**
+  - Kişisel veri desenleri (email, telefon, IP adresleri)
+  - Özel kategori veriler (sağlık, biyometrik, din)
+  - Mali veriler (kredi kartları, IBAN)
+  - Riskli kod desenleri:
+    - Kişisel verilerin günlüğe kaydedilmesi
+    - Eksik rıza mekanizmaları
+    - Sınırsız veri saklama
+    - Şifrelenmemiş hassas veriler
+    - Devre dışı bırakılan silme işlevselliği
+
+  **Çıktı:**
+  - Uyumluluk puanı (0-100)
+  - Risk kategorisi (kritik, yüksek, orta)
+  - GDPR madde referansları ile önceliklendirilmiş öneriler
+
+  ---
+
+  ### DPIA Oluşturucu
+
+  Madde 35 gereksinimlerine uygun Veri Koruma Etki Değerlendirmesi belgesi oluşturur.
+
+  ```bash
+  # Giriş şablonunu alma
+  python scripts/dpia_generator.py --template > input.json
+
+  # DPIA raporu oluşturma
+  python scripts/dpia_generator.py --input input.json --output dpia_report.md
+  ```
+
+  **Özellikler:**
+  - Otomatik DPIA eşik değerleme
+  - İşleme özelliklerine dayalı risk tanımlaması
+  - Hukuki dayanak gereksinimleri belgesi
+  - Azaltma önerileri
+  - Markdown rapor oluşturma
+
+  **Değerlendirilen DPIA Tetikleyicileri:**
+  - Sistematik izleme (Madde 35(3)(c))
+  - Büyük ölçekli özel kategori veriler (Madde 35(3)(b))
+  - Otomatik karar alma (Madde 35(3)(a))
+  - EDPB tarafından onaylanan yüksek risk kriterleri (WP248 rev.01)
+
+  ---
+
+  ### Veri Öznesinin Hakları İzleyicisi
+
+  GDPR Maddeler 15-22 kapsamında veri öznesinin hakları taleplerini yönetir.
+
+  ```bash
+  # Yeni talep ekleme
+  python scripts/data_subject_rights_tracker.py add \
+    --type access --subject "John Doe" --email "john@example.com"
+
+  # Tüm talepleri listeleme
+  python scripts/data_subject_rights_tracker.py list
+
+  # Durumu güncelleme
+  python scripts/data_subject_rights_tracker.py status --id DSR-202601-0001 --update verified
+
+  # Uyumluluk raporu oluşturma
+  python scripts/data_subject_rights_tracker.py report --output compliance.json
+
+  # Yanıt şablonu oluşturma
+  python scripts/data_subject_rights_tracker.py template --id DSR-202601-0001
+  ```
+
+  **Desteklenen Haklar:**
+
+  | Hak | Madde | Son Tarih |
+  |-------|---------|----------|
+  | Erişim | Madde 15 | Bir ay (Madde 12(3)) |
+  | Düzeltme | Madde 16 | Bir ay (Madde 12(3)) |
+  | Silme | Madde 17 | Bir ay (Madde 12(3)) |
+  | Kısıtlama | Madde 18 | Bir ay (Madde 12(3)) |
+  | Taşınabilirlik | Madde 20 | Bir ay (Madde 12(3)) |
+  | İtiraz | Madde 21 | Bir ay (Madde 12(3)) |
+  | Otomatik kararlar | Madde 22 | Bir ay (Madde 12(3)) |
+
+  **Özellikler:**
+  - Son tarih izleme ve gecikme uyarıları
+  - Kimlik doğrulama iş akışı
+  - Yanıt şablonu oluşturma
+  - Uyumluluk raporlaması
+
+  ---
+
+  ## Referans Rehberleri
+
+  ### GDPR Uyumluluk Rehberi
+  `references/gdpr_compliance_guide.md`
+
+  Aşağıdakileri kapsayan kapsamlı uygulama rehberliği:
+  - İşleme için yasal dayanaklar (Madde 6)
+  - Özel kategori gereksinimleri (Madde 9)
+  - Veri öznesinin hakları uygulaması
+  - Hesap verebilirlik gereksinimleri (Madde 30)
+  - Uluslararası transferler (Bölüm V)
+  - İhlal bildirimi (Madde 33-34)
+
+  ### Alman BDSG Gereksinimleri
+  `references/german_bdsg_requirements.md`
+
+  Alman spesifik gereksinimler dahil:
+  - DPO atama eşiği (§ 38 BDSG - 20+ çalışan)
+  - İstihdam veri işleme (§ 26 BDSG)
+  - Video gözetleme kuralları (§ 4 BDSG)
+  - Kredi puanlama gereksinimleri (§ 31 BDSG)
+  - Eyalet veri koruma yasaları (Landesdatenschutzgesetze)
+  - Çalışma konseyi ortak belirleme hakları
+
+  ### DPIA Metodolojisi
+  `references/dpia_methodology.md`
+
+  Adım adım DPIA süreci:
+  - Eşik değerleme kriterleri
+  - EDPB tarafından onaylanan yüksek risk göstergeleri (WP248 rev.01)
+  - Risk değerlendirme metodolojisi
+  - Azaltma önlemi kategorileri
+  - DPO ve denetim otoritesi danışması
+  - Şablonlar ve kontrol listeleri
+
+  ---
+
+  ## İş Akışları
+
+  ### İş Akışı 1: Yeni İşleme Faaliyeti Değerlendirmesi
+
+  ```
+  Adım 1: Kod tabanında uyumluluk kontrol cihazını çalıştırma
+          → python scripts/gdpr_compliance_checker.py /path/to/code
+
+  Adım 2: Bulguları ve uyumluluk puanını gözden geçirme
+          → Kritik ve yüksek sorunları ele alma
+
+  Adım 3: DPIA gerekli olup olmadığını belirleme
+          → references/dpia_methodology.md eşik kriterlerini kontrol etme
+
+  Adım 4: DPIA gerekli ise, değerlendirme oluşturma
+          → python scripts/dpia_generator.py --template > input.json
+          → İşleme ayrıntılarını doldurma
+          → python scripts/dpia_generator.py --input input.json --output dpia.md
+
+  Adım 5: İşleme faaliyetleri kayıtlarında belgeleme
+  ```
+
+  ### İş Akışı 2: Veri Öznesinin Talebini İşleme
+
+  ```
+  Adım 1: Talep izleyiciye kaydetme
+          → python scripts/data_subject_rights_tracker.py add --type [type] ...
+
+  Adım 2: Kimliği doğrulama (orantılı ölçüler)
+          → python scripts/data_subject_rights_tracker.py status --id [ID] --update verified
+
+  Adım 3: Sistemlerden veri toplaması
+          → python scripts/data_subject_rights_tracker.py status --id [ID] --update in_progress
+
+  Adım 4: Yanıt oluşturma
+          → python scripts/data_subject_rights_tracker.py template --id [ID]
+
+  Adım 5: Yanıtı gönderme ve tamamlama
+          → python scripts/data_subject_rights_tracker.py status --id [ID] --update completed
+
+  Adım 6: Uyumluluğu izleme
+          → python scripts/data_subject_rights_tracker.py report
+  ```
+
+  ### İş Akışı 3: Alman BDSG Uyumluluk Kontrolü
+
+  ```
+  Adım 1: DPO'nun gerekli olup olmadığını belirleme
+          → 20+ çalışan kişisel veriler otomatik olarak işleme
+          → VEYA işleme DPIA gerektirir
+          → VEYA iş veri transferi/pazar araştırması içerir
+
+  Adım 2: Çalışanlar dahil edilmişse, § 26 BDSG'yi gözden geçirme
+          → Çalışan verilerine yönelik yasal dayanağı belgeleme
+          → Çalışma konseyi gereksinimlerini kontrol etme
+
+  Adım 3: Video gözetleme varsa, § 4 BDSG'ye uyumluluk
+          → İşaret yerleştirme
+          → Gerekçeyi belgeleme
+          → Saklama süresi sınırlandırma
+
+  Adım 4: DPO'yu denetim otoritesine kaydetme
+          → references/german_bdsg_requirements.md bölümünde otorite listesini görme
+  ```
+
+  ---
+
+  ## Temel GDPR Kavramları
+
+  ### Yasal Dayanaklar (Madde 6)
+
+  - **Rıza**: Pazarlama, haber bültenleri, analitik (serbestçe verilmiş, özel, bilinçli olmalı)
+  - **Sözleşme**: Sipariş yerine getirme, hizmet sunumu
+  - **Yasal yükümlülük**: Vergi kayıtları, istihdam yasası
+  - **Meşru menfaatler**: Sahtekarlık önleme, güvenlik (denge testi gerekli)
+
+  ### Özel Kategori Veriler (Madde 9)
+
+  Açık rıza veya Madde 9(2) istisnası gereklidir:
+  - Sağlık verisi
+  - Biyometrik veriler
+  - Irk/etnik köken
+  - Politik görüşler
+  - Dini inanançlar
+  - Sendika üyeliği
+  - Genetik veriler
+  - Cinsel yönelim
+
+  ### Veri Öznesinin Hakları
+
+  Tüm haklar alındıktan sonra **bir ay içinde** yerine getirilmelidir (Madde 12(3)). Son tarih takvim ayı üzerinden, 30 günlük olmayan bir şekilde çalışır ve karmaşık veya çok sayıda talep için **iki ek ay** uzatılabilir — veri öznesine ilk ay içinde uzatma hakkında bilgi verilmelidir (nedenler ile):
+  - **Erişim**: Veri ve işleme bilgisinin kopyasını sağlama
+  - **Düzeltme**: Hatalı verileri düzeltme
+  - **Silme**: Verileri silme (yasal yükümlülükler için istisnalar)
+  - **Kısıtlama**: Sorunlar çözüldüğü sürece işleme sınırlandırma
+  - **Taşınabilirlik**: Verileri makine tarafından okunabilir formatta sağlama
+  - **İtiraz**: Meşru menfaatlere dayalı işlemeyi durdurma
+
+  ### Alman BDSG Eklentileri
+
+  | Konu | BDSG Bölümü | Temel Gereklilik |
+  |-------|--------------|-----------------|
+  | DPO eşiği | § 38 | 20+ çalışan = zorunlu DPO |
+  | İstihdam | § 26 | Detaylı çalışan veri kuralları |
+  | Video | § 4 | İşaret ve orantılılık |
+  | Puanlama | § 31 | Açıklanabilir algoritmalar |
 ---
 
 # GDPR/DSGVO Expert

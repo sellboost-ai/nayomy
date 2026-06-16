@@ -12,6 +12,161 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: ["spec-document-reviewer-prompt.md", "visual-companion.md"]
+body_tr: |-
+  # Fikirleri Tasarımlara Dönüştürme
+
+  Fikirlerinizi doğal işbirlikçi diyalog aracılığıyla tam gelişmiş tasarım ve spesifikasyonlara dönüştürmeye yardımcı olun.
+
+  Mevcut proje bağlamını anlamakla başlayın, ardından fikri iyileştirmek için birer birer sorular sorun. Ne inşa ettiğinizi anladığınızda, tasarımı sunun ve kullanıcı onayını alın.
+
+  <HARD-GATE>
+  Tasarımı sunup kullanıcı tarafından onaylanana kadar HİÇBİR uygulama becerisi kullanmayın, kod yazmayın, proje oluşturmayın veya uygulama eylemi almayın. Bu, algılanan basitliğine bakılmaksızın HER proje için geçerlidir.
+  </HARD-GATE>
+
+  ## Anti-Pattern: "Bu Tasarım İçin Çok Basit"
+
+  Her proje bu süreci takip eder. Bir yapılacaklar listesi, tek işlevli bir araç, bir config değişikliği — hepsi. "Basit" projeler, incelenmemiş varsayımların en fazla israf yaptığı yerlerdir. Tasarım kısa olabilir (gerçekten basit projeler için birkaç cümle), ama bunu MUTLAKA sunmalı ve onay almalısınız.
+
+  ## Kontrol Listesi
+
+  Bu öğelerin her biri için bir görev oluşturmalı ve bunları sırasıyla tamamlamalısınız:
+
+  1. **Proje bağlamını keşfedin** — dosyaları, dokümanları, son commitleri kontrol edin
+  2. **Görsel yardımcıyı tam zamanında sunun** — başlangıçta değil. Bir soru görsel olarak anlatıldığından daha net gösterilecekse, o zaman sunun (kendi mesajında); onay verildiğinde tarayıcı sekmesi sizin için açılır. Hiçbir görsel soru ortaya çıkmazsa, asla sunmayın. Aşağıda Görsel Yardımcı bölümüne bakın.
+  3. **Açıklayıcı soruları sorun** — birer birer, amaç/kısıtlamalar/başarı kriterlerini anlayın
+  4. **2-3 yaklaşım önerin** — trade-offlar ve tavsiyenizle
+  5. **Tasarımı sunun** — karmaşıklığına göre bölümlendirilmiş, her bölümden sonra kullanıcı onayı alın
+  6. **Tasarım dokümanı yazın** — `docs/superpowers/specs/YYYY-MM-DD-<konu>-design.md` dosyasına kaydedin ve commit edin
+  7. **Spec öz incelemesi** — yer tutucu, çelişki, belirsizlik, kapsam için hızlı satır içi kontrol (aşağıya bakın)
+  8. **Kullanıcı yazılı speci inceler** — devam etmeden önce spec dosyasını incelemesini isteyebilir
+  9. **Uygulamaya geçiş** — writing-plans becerisini çağırarak uygulama planı oluşturun
+
+  ## Süreç Akışı
+
+  ```dot
+  digraph brainstorming {
+      "Proje bağlamını keşfedin" [shape=box];
+      "Açıklayıcı soruları sorun" [shape=box];
+      "2-3 yaklaşım önerin" [shape=box];
+      "Tasarım bölümlerini sunun" [shape=box];
+      "Kullanıcı tasarımı onaylıyor?" [shape=diamond];
+      "Tasarım dokümanı yazın" [shape=box];
+      "Spec öz incelemesi\n(satır içi düzelt)" [shape=box];
+      "Kullanıcı speci inceliyor?" [shape=diamond];
+      "writing-plans becerisini çağırın" [shape=doublecircle];
+
+      "Proje bağlamını keşfedin" -> "Açıklayıcı soruları sorun";
+      "Açıklayıcı soruları sorun" -> "2-3 yaklaşım önerin";
+      "2-3 yaklaşım önerin" -> "Tasarım bölümlerini sunun";
+      "Tasarım bölümlerini sunun" -> "Kullanıcı tasarımı onaylıyor?";
+      "Kullanıcı tasarımı onaylıyor?" -> "Tasarım bölümlerini sunun" [label="hayır, revize et"];
+      "Kullanıcı tasarımı onaylıyor?" -> "Tasarım dokümanı yazın" [label="evet"];
+      "Tasarım dokümanı yazın" -> "Spec öz incelemesi\n(satır içi düzelt)";
+      "Spec öz incelemesi\n(satır içi düzelt)" -> "Kullanıcı speci inceliyor?";
+      "Kullanıcı speci inceliyor?" -> "Tasarım dokümanı yazın" [label="değişiklik istendi"];
+      "Kullanıcı speci inceliyor?" -> "writing-plans becerisini çağırın" [label="onaylandı"];
+  }
+  ```
+
+  **Terminal durumu writing-plans'ı çağırmaktır.** frontend-design, mcp-builder veya başka bir uygulama becerisini çağırmayın. Brainstorming'den sonra çağıracağınız TEK beceri writing-plans'tır.
+
+  ## Süreç
+
+  **Fikri anlama:**
+
+  - Önce mevcut proje durumunu kontrol edin (dosyalar, dokümanlar, son commitler)
+  - Ayrıntılı sorular sormadan önce, kapsamı değerlendirin: eğer istek birden fazla bağımsız alt sistemi tanımlıyorsa (örneğin, "sohbet, dosya depolama, ödeme ve analitik içeren bir platform oluştur"), bunu hemen işaretleyin. Önce ayrıştırılması gereken bir proje için detayları iyileştirmeyle vakit harcamayın.
+  - Proje tek bir spec için çok büyükse, kullanıcıya alt projelere ayrıştırılmasında yardımcı olun: bağımsız parçalar nelerdir, nasıl ilişkilidir, hangi sırayla oluşturulmalıdır? Ardından ilk alt projeyi normal tasarım akışından geçirin. Her alt proje kendi spec → plan → uygulama döngüsüne sahiptir.
+  - Uygun şekilde kapsamlı projeler için, fikri iyileştirmek için birer birer sorular sorun
+  - Mümkün olduğunda çoktan seçmeli soruları tercih edin, ama açık uçlu da sorun
+  - İleti başına yalnızca bir soru — bir konu daha fazla keşif gerektiriyorsa, birden fazla soruya bölün
+  - Odaklanın: amaç, kısıtlamalar, başarı kriterleri
+
+  **Yaklaşımları keşfetme:**
+
+  - Trade-offlarla birlikte 2-3 farklı yaklaşım önerin
+  - Seçenekleri, tavsiyeniz ve sebeplendinize ilişkin açıklamalarla samimi bir şekilde sunun
+  - Tavsiyeli seçenekle başlayın ve neden olduğunu açıklayın
+
+  **Tasarımı sunma:**
+
+  - Ne inşa ettiğinizi anladığınıza inanıyorsanız, tasarımı sunun
+  - Her bölümü karmaşıklığına göre ölçekleyin: basit ise birkaç cümle, nüanslı ise 200-300 kelimeye kadar
+  - Her bölümden sonra sorun, şimdiye kadar doğru görünüyor mu
+  - Kapsar: mimari, bileşenler, veri akışı, hata işleme, test
+  - Bir şey mantıklı gelmezse açıklığa kavuşturmaya hazır olun
+
+  **İzolasyon ve açıklık için tasarım:**
+
+  - Sistemi, her biri bir açık amaca sahip olan, iyi tanımlanmış arabirimler aracılığıyla iletişim kuran ve bağımsız olarak anlaşılabilen ve test edilebilen daha küçük birimlere bölün
+  - Her birim için şu soruları cevaplayabilmelisiniz: ne yapar, nasıl kullanırsınız, neye bağlıdır?
+  - Birinin iç işleyişini okumadan bir birimin ne yaptığını anlayabilir mi? Tüketicileri bozmadan içişleyişi değiştirebilir misiniz? Değilse, sınırlara çalışma gerekir.
+  - Daha küçük, iyi sınırlandırılmış birimler, sizin için çalışmayı da kolaylaştırır — bir kez bağlamda tutabileceğiniz kod hakkında daha iyi düşünürsünüz ve dosyalar odaklanmışken düzenlemeler daha güvenilirdir. Bir dosya büyüdüğünde, bu genellikle çok fazla şey yaptığının bir sinyalidir.
+
+  **Mevcut kod tabanlarında çalışma:**
+
+  - Değişiklik önermeden önce mevcut yapıyı keşfedin. Mevcut desenleri takip edin.
+  - Mevcut kodun bu çalışmayı etkileyen sorunları varsa (örneğin, çok büyümüş bir dosya, belirsiz sınırlar, karmaşık sorumluluklar), tasarımın bir parçası olarak hedefli iyileştirmeleri dahil edin — iyi bir geliştirici içinde çalıştığı kodu nasıl iyileştirirse.
+  - İlgisiz refactoring önermeyin. Mevcut amacı hizmet etmeye odaklanın.
+
+  ## Tasarımdan Sonra
+
+  **Dokümantasyon:**
+
+  - Doğrulanmış tasarımı (spec) `docs/superpowers/specs/YYYY-MM-DD-<konu>-design.md` dosyasına yazın
+    - (Spec konumu için kullanıcı tercihleri bu varsayılanı geçersiz kılar)
+  - Mevcut ise elements-of-style:writing-clearly-and-concisely becerisini kullanın
+  - Tasarım dokümanını git'e commit edin
+
+  **Spec Öz Incelemesi:**
+  Spec dokümanını yazdıktan sonra taze gözlerle bakın:
+
+  1. **Yer tutucu taraması:** Herhangi bir "TBD", "TODO", eksik bölüm veya belirsiz gereksinim? Düzeltin.
+  2. **İç tutarlılık:** Bölümler birbirleriyle çelişiyor mu? Mimari, özellik açıklamalarıyla eşleşiyor mu?
+  3. **Kapsam kontrolü:** Bu, tek bir uygulama planı için yeterince odaklanmış mı, yoksa ayrıştırılması gerekir mi?
+  4. **Belirsizlik kontrolü:** Herhangi bir gereksinim iki farklı şekilde yorumlanabilir mi? Öyleyse birini seçin ve açık yapın.
+
+  Sorunları satır içi düzeltin. Yeniden incelemeye gerek yoktur — düzeltin ve ilerleyin.
+
+  **Kullanıcı İnceleme Kapısı:**
+  Spec inceleme döngüsü geçtikten sonra, devam etmeden önce yazılı speci incelemesini isteyebilir:
+
+  > "Spec yazılmış ve `<yol>` dosyasına commit edilmiştir. Lütfen inceleyiniz ve uygulama planını yazmaya başlamadan önce değişiklik isteyip istemediğinizi bize bildirin."
+
+  Kullanıcının yanıtını bekleyin. Değişiklik isterse, yapın ve spec inceleme döngüsünü yeniden çalıştırın. Kullanıcı onayladığında devam edin.
+
+  **Uygulama:**
+
+  - writing-plans becerisini çağırarak detaylı bir uygulama planı oluşturun
+  - Başka bir beceri çağırmayın. writing-plans sonraki adımdır.
+
+  ## Temel İlkeler
+
+  - **Birer birer soru** — Birden fazla soruyla boğmayın
+  - **Çoktan seçmeli tercih** — Açık uçludan daha kolay cevaplamak
+  - **YAGNI acımasızca uygulanır** — Tüm tasarımlardan gereksiz özellikleri kaldırın
+  - **Alternatifleri keşfedin** — Her zaman yerleşmeden önce 2-3 yaklaşım önerin
+  - **Artımlı doğrulama** — Tasarımı sunun, devam etmeden onay alın
+  - **Esnek olun** — Bir şey mantıklı gelmezse geri döne ve açıklığa kavuşturun
+
+  ## Görsel Yardımcı
+
+  Brainstorming sırasında mockupları, diyagramları ve görsel seçenekleri göstermek için tarayıcı tabanlı bir yardımcı. Bir mod olarak değil araç olarak kullanılabilir. Yardımcıyı kabul etmek, görsel işleme fayda sağlayan sorular için mevcut olduğu anlamına gelir; bu, HER sorunun tarayıcıdan geçtiği anlamına gelmez.
+
+  **Yardımcıyı sunma (tam zamanında):** Baştan sunmayın. Bir soru görsel olarak anlatıldığından daha net gösterilecekse beklemeye devam edin — gerçek mockup / mizanpaj / diyagram sorusu, yalnızca UI *konusu* değil. İlk kez olduğunda, o zaman kendi mesajında sunun:
+  > "Bu sonraki kısım göstermeyle daha kolay olabilir — tarayıcı sekmesinde ilerledikçe mockuplar, diyagramlar ve karşılaştırmalar hazırlayabilirim. Hala yenidir ve token açısından yoğun olabilir. İsteseler mi? Sizin için açarım."
+
+  **Bu teklif KENDİ MESAJI OLMALI.** Yalnızca teklif — açıklayıcı soru, özet veya başka içerik yok. Kullanıcının yanıtını bekleyin. Kabul ederse sunucuyu `--open` ile başlatın, böylece tarayıcıları ilk ekrana otomatik olarak açılır. Reddettiği takdirde, metne devam edin ve yeniden sunmayın, kullanıcı ortaya atana kadar.
+
+  **Soru başına karar:** Kullanıcı kabul ettikten sonra bile, HER SORU için tarayıcı veya terminali kullanıp kullanmayacağınıza karar verin. Test: **Kullanıcı bunu okuduğundan daha iyi görsel olarak anlardı mı?**
+
+  - **Tarayıcıyı kullanın** — görsel olan içerik için mockuplar, tel çerçeveler, mizanpaj karşılaştırmaları, mimari diyagramlar, yan yana görsel tasarımlar
+  - **Terminali kullanın** — metin olan içerik için gereksinimler soruları, kavramsal seçimler, trade-off listeleri, A/B/C/D metin seçenekleri, kapsam kararları
+
+  Bir UI konusuna ilişkin bir soru otomatik olarak görsel soru değildir. "Bu bağlamda kişilik ne demek?" konseptüel bir sorudur — terminali kullanın. "Hangi sihirbaz mizanpajı daha iyi çalışır?" görsel bir sorudur — tarayıcıyı kullanın.
+
+  Eğer yardımcıya ikna edilirlerse, devam etmeden önce ayrıntılı rehberi okuyun:
+  `skills/brainstorming/visual-companion.md`
 ---
 
 # Brainstorming Ideas Into Designs

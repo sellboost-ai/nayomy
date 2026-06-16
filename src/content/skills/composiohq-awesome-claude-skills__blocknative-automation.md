@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Blocknative Otomasyonu Rube MCP ile
+
+  Composio'nun Blocknative araç seti aracılığıyla Rube MCP üzerinden Blocknative işlemlerini otomatikleştirin.
+
+  **Araç seti dokümantasyonu**: [composio.dev/toolkits/blocknative](https://composio.dev/toolkits/blocknative)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` ile aktif Blocknative bağlantısı, `blocknative` araç seti ile
+  - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: `https://rube.app/mcp` adresini istemci konfigürasyonunuzda bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
+  2. `blocknative` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Blocknative operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Araçları Keşfet
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Blocknative task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Et
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["blocknative"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Yürüt
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş bile olsa (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Sayfalandırma**: Yanıtları sayfalandırma token'ları açısından kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Blocknative'e özgü use case |
+  | Bağlantı kur | `RUBE_MANAGE_CONNECTIONS` ile `blocknative` araç seti |
+  | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` içeren araçlar |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Blocknative Automation via Rube MCP

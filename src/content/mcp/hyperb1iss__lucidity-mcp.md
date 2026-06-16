@@ -3,7 +3,7 @@ name: "hyperb1iss/lucidity-mcp"
 description: "Enhance AI-generated code quality through intelligent, prompt-based analysis across 10 critical dimensions from complexity to security vulnerabilities"
 category: "Monitoring"
 repo: "hyperb1iss/lucidity-mcp"
-stars: 85
+stars: 86
 url: "https://github.com/hyperb1iss/lucidity-mcp"
 body_length: 7526
 license: "Apache-2.0"
@@ -11,25 +11,25 @@ language: "Python"
 homepage: "https://hyperbliss.tech"
 body_tr: |-
   # ✨ Lucidity MCP 🔍
-
+  
   <div align="center">
-
+  
   [![Python 3.13+](https://img.shields.io/badge/python-3.13+-9D00FF.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
   [![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge)](LICENSE)
   [![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge)](docs/plan.md)
   [![Code Style](https://img.shields.io/badge/code_style-ruff-00FFFF.svg?style=for-the-badge)](https://github.com/astral-sh/ruff)
   [![Type Check](https://img.shields.io/badge/type_check-mypy-FFBF00.svg?style=for-the-badge)](https://mypy.readthedocs.io/en/stable/)
-
+  
   **Kodda Netlik, Yaratımda Güven**
-
+  
   </div>
-
+  
   Lucidity, Model Context Protocol (MCP) sunucusu olarak, yapay zeka tarafından oluşturulan kodun kalitesini akıllı, prompt tabanlı analiz yoluyla geliştirmek için tasarlanmıştır. AI kodlama asistanlarına yapılandırılmış rehberlik sağlayarak, Lucidity yaygın kalite sorunlarını belirlemek ve çözmek, böylece daha temiz, bakımı kolay ve daha sağlam kod elde etmek yardımcı olur.
-
+  
   Commit etmeden önce, Lucidity'ye değişiklikleri analiz etmesini söyleyin, kendinizi bir kâbus cehennemine "vibe coding" yaparak sürüklemeyin! 😱 💥 🚫
-
+  
   ## 💫 Özellikler
-
+  
   - 🔮 **Kapsamlı Sorun Algılaması** - Karmaşıklıktan güvenlik açıklarına kadar 10 kritik kalite boyutunu kapsar
   - 🔄 **Bağlamsal Analiz** - Değişiklikleri orijinal kodla karşılaştırarak istenmeyen değişiklikleri tanımlar
   - 🌐 **Dil Agnostik** - AI asistanının anladığı herhangi bir programlama diliyle çalışır
@@ -40,66 +40,66 @@ body_tr: |-
   - 🧩 **Genişletilebilir Framework** - Yeni sorun türleri ekleme veya analiz kriterlerini ayarlama kolaylığı
   - 🔀 **Esnek Transport** - Terminal tabanlı etkileşim için stdio ve ağ tabanlı iletişim için SSE destekler
   - 🔄 **Git Bilgisi** - Git diff'ten doğrudan değişiklikleri analiz eder, ön commit incelemeler için ideal
-
+  
   ## 🚀 Kurulum
-
+  
   ```bash
   # Repository'yi clone edin
   git clone https://github.com/hyperbliss/lucidity-mcp.git
   cd lucidity-mcp
-
+  
   # UV ile sanal ortam kurun
   uv venv .venv
   source .venv/bin/activate  # Windows'ta: .venv\Scripts\activate
-
+  
   # UV ile bağımlılıkları yükleyin
   uv sync
   ```
-
+  
   ## 📋 Ön Koşullar
-
+  
   - Python 3.13 veya daha yüksek
   - Git (kod değişikliklerini analiz etmek için)
   - UV paket yöneticisi (bağımlılık yönetimi için önerilir)
-
+  
   ## 🔮 Hızlı Başlangıç
-
+  
   ### Lucidity sunucusunu çalıştırın
-
+  
   ```bash
   # Stdio transport ile başlatın (terminal kullanımı için)
   lucidity-mcp
-
+  
   # SSE transport ile başlatın (ağ kullanımı için)
   lucidity-mcp --transport sse --host 127.0.0.1 --port 6969
-
+  
   # Debug logging ile çalıştırın
   lucidity-mcp --debug
-
+  
   # Dosya logging ile çalıştırın
   lucidity-mcp --log-file lucidity.log
   ```
-
+  
   ### AI Asistanlarla Kullanım
-
+  
   1. Lucidity'yi SSE modunda başlatın:
-
+  
      ```bash
      lucidity-mcp --transport sse
      ```
-
+  
   2. AI asistanınızı MCP protokol URI'sı kullanarak bağlayın:
-
+  
      ```
      sse://localhost:6969/sse
      ```
-
+  
   3. AI şimdi kod kalitesi geri bildirimi almak için `analyze_changes` tool'unu çağırabilir!
-
+  
   ## 🧠 Analiz Boyutları
-
+  
   Lucidity, kodu 10 kritik kalite boyutuna göre analiz eder:
-
+  
   1. **Gereksiz Karmaşıklık** - Aşırı karmaşık algoritmaları, aşırı soyutlamaları ve kafa karıştırıcı mantığı tanımlar
   2. **Kötü Soyutlamalar** - Sızıntılı veya uygunsuz soyutlamaları ve belirsiz endişe ayrımlarını tespit eder
   3. **İstenmeyen Kod Silme** - Kritik işlevselliğin veya doğrulamanın yanlışlıkla kaldırılmasını yakalar
@@ -110,11 +110,11 @@ body_tr: |-
   8. **Kod Tekrarı** - Yeniden düzenlenmesi gereken tekrarlanan mantık veya işlevselliği bulur
   9. **Eksik Hata İşleme** - Eksik veya yetersiz exception handling'i fark eder
   10. **Test Kapsamı Boşlukları** - Kritik işlevsellik için eksik testleri tanımlar
-
+  
   ## 📊 Örnek AI Asistanı Sorguları
-
+  
   Lucidity'ye bağlı bir AI asistanı ile bu sorguları deneyin:
-
+  
   - "Son git değişikliklerimin kod kalitesini analiz et"
   - "JavaScript değişikliklerinde güvenlik açıklarını kontrol et"
   - "Python kodum en iyi uygulamaları takip ettiğinden emin ol"
@@ -125,51 +125,51 @@ body_tr: |-
   - "Son commit'imde halüsinasyon API çağrılarını bul"
   - "Hata işlemem tam ve sağlam mı?"
   - "Yeni özelliğimde test kapsamı boşlukları var mı?"
-
+  
   ## 🛠️ Mevcut MCP Tool'ları
-
+  
   ### Tools
-
+  
   - `analyze_changes` - MCP aracılığıyla analiz için git değişikliklerini hazırlar
     - Parametreler:
       - `workspace_root`: Workspace/git repository'nin kök dizini
       - `path`: Analiz edilecek isteğe bağlı belirli dosya yolu
-
+  
   ## 💻 Geliştirme
-
+  
   Lucidity, bağımlılık yönetimi ve geliştirme iş akışları için UV kullanır. UV, hızlı ve güvenilir bir Python paket yöneticisi ve resolver'ıdır.
-
+  
   ```bash
   # Bağımlılıkları güncelleyin
   uv sync
-
+  
   # Testleri çalıştırın
   pytest
-
+  
   # Linting çalıştırın
   ruff check .
-
+  
   # Tür kontrolü çalıştırın
   mypy .
   ```
-
+  
   ## 🔧 Logging Davranışı
-
+  
   Lucidity, transport'a bağlı olarak logging'i farklı şekilde işler:
-
+  
   - **SSE transport**: Tam konsol logging etkinleştirilir
   - **Stdio transport with --log-file**: Tüm loglar dosyaya gider, konsol devre dışı bırakılır
   - **Stdio transport without --log-file**: Sadece uyarılar ve hatalar stderr'e gider, bilgi logları devre dışı bırakılır
-
+  
   Bu, stdio iletişiminin stdout'ta log görünmesi nedeniyle bozulmamasını sağlar.
-
+  
   ## 🎛️ Komut Satırı Seçenekleri
-
+  
   ```
   usage: lucidity-mcp [-h] [--debug] [--host HOST] [--port PORT] [--transport {stdio,sse}]
                   [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [--verbose]
                   [--log-file LOG_FILE]
-
+  
   options:
     -h, --help            show this help message and exit
     --debug               Debug logging'i etkinleştir
@@ -182,11 +182,11 @@ body_tr: |-
     --verbose             HTTP istekleri için verbose logging'i etkinleştir
     --log-file LOG_FILE   Log dosyasının yolu (stdio transport için gerekli)
   ```
-
+  
   ## 🤝 Katkıda Bulunma
-
+  
   Katkılar hoşlanır! Lütfen bir Pull Request göndermekten çekinmeyin.
-
+  
   1. Repository'yi fork edin
   2. Özellik dalınızı oluşturun (`git checkout -b feature/amazing-feature`)
   3. Geliştirme ortamınızı UV ile kurun
@@ -195,19 +195,19 @@ body_tr: |-
   6. Değişiklikleri commit edin (`git commit -m 'Add some amazing feature'`)
   7. Dala push edin (`git push origin feature/amazing-feature`)
   8. Bir Pull Request açın
-
+  
   ## 📝 Lisans
-
+  
   Bu proje Apache License 2.0 altında lisanslanmıştır - detaylar için LICENSE dosyasına bakın.
-
+  
   ---
-
+  
   <div align="center">
-
+  
   [Stefanie Jane 🌠](https://github.com/hyperb1iss) tarafından oluşturuldu
-
+  
   Lucidity'i yararlı bulursanız, [bana bir Monster Ultra Violet ⚡️ alın](https://ko-fi.com/hyperb1iss)
-
+  
   </div>
 ---
 

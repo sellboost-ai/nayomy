@@ -11,13 +11,13 @@ language: "Go"
 homepage: "https://www.npmjs.com/package/@strowk/mcp-k8s"
 body_tr: |-
   <h4 align="center">Kubernetes'e bağlanan Golang tabanlı MCP sunucusu</h4>
-
+  
   <h1 align="center">
      
      <br/>
      MCP K8S Go
   </h1>
-
+  
   <p align="center">
     <a href="#features">Özellikler</a> ⚙
     <a href="#browse-with-inspector">Inspector ile Göz Atın</a> ⚙
@@ -25,7 +25,7 @@ body_tr: |-
     <a href="https://github.com/strowk/mcp-k8s-go/blob/main/CONTRIBUTING.md">Katkıda Bulunun ↗</a> ⚙
     <a href="https://modelcontextprotocol.io">MCP Hakkında ↗</a>
   </p>
-
+  
   <p align="center">
       <a href="https://github.com/strowk/mcp-k8s-go/actions/workflows/dependabot/dependabot-updates"></a>
       <a href="https://github.com/strowk/mcp-k8s-go/actions/workflows/test.yaml"></a>
@@ -35,11 +35,11 @@ body_tr: |-
       <a href="https://goreportcard.com/report/github.com/strowk/mcp-k8s-go"></a>
       <a href="https://github.com/strowk/mcp-k8s-go/blob/main/LICENSE"></a>
   </p>
-
+  
   ## Özellikler
-
+  
   MCP 💬 prompt 🗂️ resource 🤖 tool 
-
+  
   - 🗂️🤖 Kubernetes context'lerini listeleyin
   - 💬🤖 Kubernetes namespace'lerini listeleyin
   - 🤖 Herhangi bir Kubernetes kaynağını listeleyin, alın, oluşturun ve değiştirin
@@ -49,64 +49,64 @@ body_tr: |-
   - 🤖 Kubernetes event'lerini alın
   - 🤖 Kubernetes pod log'larını alın
   - 🤖 Kubernetes pod'unda komut çalıştırın
-
+  
   ## Inspector ile Göz Atın
-
+  
   En son yayınlanan versiyonu Inspector ile kullanmak için şu komutu çalıştırabilirsiniz:
-
+  
   ```bash
   npx @modelcontextprotocol/inspector npx @strowk/mcp-k8s
   ```
-
+  
   ## Claude ile Kullanın
-
+  
   <details><summary><b>
   Demo Kullanımı
   </b></summary>
-
+  
   Aşağıdaki Claude Desktop sohbeti, belirli bir context'i resource olarak seçtikten sonra kube-system namespace'inde pod log'larında hataları kontrol etmesi istenen örneği göstermektedir:
-
+  
   ![Claude Desktop](https://raw.githubusercontent.com/strowk/mcp-k8s-go/HEAD/docs/images/claude-desktop-logs.png)
-
+  
   </details>
-
+  
   Bu MCP sunucusunu Claude Desktop (veya başka herhangi bir client) ile kullanmak için hangi kurulum yöntemini seçeceğinize karar vermeniz gerekebilir.
-
+  
   Birden fazla seçeneğiniz vardır:
-
+  
   |              | <a href="#using-smithery">Smithery</a> | <a href="#using-mcp-get">mcp-get</a> | <a href="#prebuilt-from-npm">Önceden derlenmiş NPM</a> | <a href="#from-github-releases">Github'da Önceden derlenmiş</a> | <a href="#building-from-source">Kaynak kodundan</a> | <a href="#using-docker">Docker Kullanarak</a> |
   | ------------ | -------------------------------------- | ------------------------------------ | ---------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------- |
   | Claude Kurulumu | Otomatik                                   | Otomatik                                 | Manuel                                         | Manuel                                                  | Manuel                                           | Manuel                                   |
   | Ön Koşul | Node.js                                | Node.js                              | Node.js                                        | Hiçbiri                                                    | Golang                                           | Docker                                   |
-
+  
   ### Smithery Kullanarak
-
+  
   MCP K8S Go'yu Claude Desktop'a [Smithery](https://smithery.ai/server/@strowk/mcp-k8s) aracılığıyla otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install @strowk/mcp-k8s --client claude
   ```
-
+  
   ### mcp-get Kullanarak
-
+  
   MCP K8S Go'yu Claude Desktop'a [mcp-get](https://mcp-get.com/packages/%40strowk%2Fmcp-k8s) aracılığıyla otomatik olarak kurmak için:
-
+  
   ```bash
   npx @michaellatman/mcp-get@latest install @strowk/mcp-k8s
   ```
-
+  
   ### Önceden derlenmiş ikili dosyalarla Manuel Kurulum
-
+  
   #### NPM'den Önceden Derlenmiş
-
+  
   npm yüklüyse ve önceden derlenmiş ikili dosyaları kullanmak istiyorsanız bunu kullanın:
-
+  
   ```bash
   npm install -g @strowk/mcp-k8s
   ```
-
+  
   Ardından `mcp-k8s --version` komutunu çalıştırarak versiyonu kontrol edin ve bu yüklü versiyonu yazdırırsa, `claude_desktop_config.json` dosyasına konfigürasyon eklemeye devam edebilirsiniz:
-
+  
   ```json
   {
     "mcpServers": {
@@ -117,15 +117,15 @@ body_tr: |-
     }
   }
   ```
-
+  
   , veya herhangi bir client ile `npx` kullanarak:
-
+  
   ```bash
   npx @strowk/mcp-k8s
   ```
-
+  
   Örneğin Claude için:
-
+  
   ```json
   {
     "mcpServers": {
@@ -138,13 +138,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### GitHub Releases'tan
-
+  
   [GitHub releases](https://github.com/strowk/mcp-k8s-go/releases) sayfasına gidin ve platformunuz için en son release'i indirin.
-
+  
   Arşivi açın, içinde `mcp-k8s-go` adlı ikili dosya olacaktır, bu dosyayı PATH'inize bir yere koyun ve ardından `claude_desktop_config.json` dosyasına aşağıdaki konfigürasyonu ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -155,18 +155,18 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Kaynak Kodundan Derleme
-
+  
   Bu projeyi derlemek için Golang yüklü olması gerekir:
-
+  
   ```bash
   go get github.com/strowk/mcp-k8s-go
   go install github.com/strowk/mcp-k8s-go
   ```
-
+  
   , ardından `claude_desktop_config.json` dosyasına aşağıdaki konfigürasyonu ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -177,21 +177,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Docker Kullanarak
-
+  
   Bu sunucu 0.3.1-beta.2 release'inden itibaren Docker Hub'da derlenmiş ve yayınlanmakta, linux/amd64 ve linux/arm64 mimarileri için çok mimarili imajlar mevcuttur.
-
+  
   En son tag'ı örneğin şöyle kullanabilirsiniz:
-
+  
   ```bash
   docker run -i -v ~/.kube/config:/home/nonroot/.kube/config --rm mcpk8s/server:latest
   ```
-
+  
   Windows kullanıcıları en azından Git Bash'te `~/.kube/config` yerine `//c/Users/<username>/.kube/config` ile değiştirmek gerekebilir.
-
+  
   Claude için:
-
+  
   ```json
   {
     "mcpServers": {
@@ -209,23 +209,23 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Ortam Değişkenleri ve Komut Satırı Seçenekleri
-
+  
   MCP sunucusu tarafından kullanılan ortam değişkenleri:
-
+  
   - `KUBECONFIG`: Kubernetes yapılandırma dosyanızın yolu (isteğe bağlı, varsayılan olarak ~/.kube/config)
-
+  
   Desteklenen komut satırı seçenekleri:
-
+  
   - `--allowed-contexts=<ctx1,ctx2,...>`: Kullanıcıların erişebileceği Kubernetes context'lerinin virgülle ayrılmış listesi. Belirtilmezse, tüm context'lere izin verilir.
   - `--readonly`: Cluster'a değişiklik yazabilen tüm tool'ları devre dışı bırakır
   - `--help`: Yardım bilgisini görüntüle
   - `--version`: Sürüm bilgisini görüntüle
   - `--mask-secrets`: Çıktıda secret'ları maskelyin (varsayılan: true). Maskelemeyi devre dışı bırakmak için `--mask-secrets=false` kullanın
-
+  
   Örneğin Claude Desktop'u yapılandırıyorsanız, `claude_desktop_config.json` dosyasına aşağıdaki konfigürasyonu ekleyebilirsiniz:
-
+  
   ```json
   {
       "mcpServers": {
@@ -239,7 +239,7 @@ body_tr: |-
       }
   }
   ```
-
+  
   , bu yalnızca `dev` ve `prod` context'lerinin kullanılmasına izin verir ve cluster'a değişiklik yazabilen tüm tool'ları devre dışı bırakır.
 ---
 

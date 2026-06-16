@@ -3,37 +3,37 @@ name: "HagaiHen/facebook-mcp-server"
 description: "Integrates with Facebook Pages to enable direct management of posts, comments, and engagement metrics through the Graph API for streamlined social media management."
 category: "Social Media"
 repo: "HagaiHen/facebook-mcp-server"
-stars: 160
+stars: 167
 url: "https://github.com/HagaiHen/facebook-mcp-server"
 body_length: 6515
 license: "MIT"
 language: "Python"
 body_tr: |-
   # Facebook MCP Server
-
+  
   Bu proje, Facebook Graph API'sini kullanarak Facebook Sayfasında etkileşimleri otomatikleştiren ve yöneten bir **MCP sunucusudur**. Yazı oluşturma, yorumları yönetme, yazı öngörülerini alma ve negatif geri bildirimi filtreleme araçlarını sunarak Claude veya diğer LLM tabanlı ajanlarla entegrasyon için hazırdır.
-
+  
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/HagaiHen/facebook-mcp-server)](https://archestra.ai/mcp-catalog/hagaihen__facebook-mcp-server)
   <a href="https://glama.ai/mcp/servers/@HagaiHen/facebook-mcp-server">
     
   </a>
-
+  
   ---
-
+  
   ## 🤖 Bu Nedir?
-
+  
   Bu MCP, doğrudan bir Facebook Sayfasına bağlanan ve yaygın API işlemlerini LLM-dostça fonksiyonlar olarak soyutlayan yapay zeka tarafından çağrılabilir araçlar takımı sağlar.
-
+  
   ### ✅ Faydalar
-
+  
   - **Sosyal medya yöneticilerini** moderasyon ve analitiği otomatikleştirmeye güçlendirir.
   - **Claude Desktop veya herhangi bir Agent istemcisiyle** sorunsuz şekilde entegre olur.
   - Facebook içeriğini doğal dilden ince kontrol sağlar.
-
+  
   ---
-
+  
   ## 📦 Özellikler
-
+  
   | Araç                             | Açıklama                                                         |
   |----------------------------------|---------------------------------------------------------------------|
   | `post_to_facebook`               | Bir ileti ile yeni bir Facebook yazısı oluşturun.                          |
@@ -70,48 +70,48 @@ body_tr: |-
   | `get_post_permalink`             | Bir yazının permalink URL'sini alın.                            |
   | `get_scheduled_posts`            | Sayfa üzerindeki tüm planlanan (yayınlanmamış) yazıları listeleyin.         |
   | `get_page_info`                  | Genişletilmiş sayfa ayrıntılarını alın (ad, hakkında, kategori, website). |
-
+  
   ---
-
+  
   ## 🚀 Kurulum ve Yükleme
-
+  
   ### 1. Depoyu Klonlayın
-
+  
   ```bash
   git clone https://github.com/your-org/facebook-mcp-server.git
   cd facebook-mcp-server
   ```
-
+  
   ### 2. 🛠️ Yükleme
-
+  
   Hızlı Python paket yöneticisi uv kullanarak bağımlılıkları yükleyin:
   Eğer uv henüz yüklü değilse, şunu çalıştırın:
   ```bash
   curl -Ls https://astral.sh/uv/install.sh | bash
   ```
-
+  
   uv yüklendikten sonra, proje bağımlılıklarını yükleyin:
   ```bash
   uv pip install -r requirements.txt
   ```
-
+  
   ### 3. Ortamı Ayarlayın
-
+  
   Kök dizinde bir .env dosyası oluşturun ve Facebook Sayfası kimlik bilgilerinizi ekleyin. 
   Bunları https://developers.facebook.com/tools/explorer adresinden alabilirsiniz
-
+  
   ```bash
   FACEBOOK_ACCESS_TOKEN=your_facebook_page_access_token
   FACEBOOK_PAGE_ID=your_page_id
   ```
-
+  
   ## 🧩 Claude Desktop ile Kullanım
   FacebookMCP'yi Claude'da ayarlamak için:
-
+  
   1. Claude'u açın.
   2. Ayarlar → Geliştirici → Yapılandırmayı Düzenle'ye gidin.
   3. Açılan yapılandırma dosyasında aşağıdaki girişi ekleyin:
-
+  
   ```bash
   "FacebookMCP": {
     "command": "uv",
@@ -127,20 +127,20 @@ body_tr: |-
     ]
   }
   ```
-
+  
   ---
-
+  
   ## ✅ Başlamaya Hazırsınız!
-
+  
   Hepsi bu — Facebook MCP sunucunuz artık tam olarak yapılandırılmış ve Claude Desktop'u güçlendirmeye hazırdır. Artık yazı oluşturabilir, moderasyon yapabilir ve tüm etkileşimi doğal dil komutlarıyla ölçebilirsiniz!
-
+  
   ---
-
+  
   ## 🤝 Katkıda Bulunun
-
+  
   Katkılar, sorunlar ve özellik istekleri memnuniyetle karşılanır!  
   Depoyu forklayın ve bir pull request gönderin.
-
+  
   - Bir branch oluşturun: `git checkout -b feature/YourFeature`
   - Değişikliklerinizi commit edin: `git commit -m 'feat: add new feature'`
   - Branch'e push edin: `git push origin feature/YourFeature`

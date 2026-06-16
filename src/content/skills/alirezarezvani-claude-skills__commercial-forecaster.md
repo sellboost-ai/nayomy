@@ -12,6 +12,148 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # commercial-forecaster
+
+  ## Amaç
+
+  Ticari liderler için tahmin anında üç soruya yanıt vermek:
+
+  1. **Commit / best-case / pipe-only rakamı nedir?** (Açıklanan varsayımlarla 3-kademeli bookings tahmini)
+  2. **Hangi cohort'lar sızıyor ve konsolide NRR sızıntıyı mı gizliyor?** (cohort başına NRR/GRR projeksiyonu)
+  3. **Hangi funnel aşamaları güvenilir, hangisi istatistiksel gürültü?** (aşama başına coefficient-of-variation güven bandı)
+
+  Skill **üç tahmin rakamı + açık varsayım bloğu** önerir. CRO rakamı sunar, board varsayımları görür, tiyatro biter.
+
+  ## Ne zaman kullanılır
+
+  - Quarterly bookings tahmini board'a sunmak için
+  - CFO'nun "commit nedir, best-case nedir, pipe-only nedir" soracağı QBR tahminini hazırlarken
+  - Cohort retention verisini kullanarak sonraki 4-8 quarter için ARR projekte ederken
+  - Konsolide NRR rakamının sızıntılı bir son cohort'u gizlediğinden şüphelenirken
+  - Pipeline-coverage azalıyor ve hangi aşamaların hâlâ güvenilir olduğunu bilmek gerektiğinde
+  - "Tek bir rakam" istendiğinde ve varsayımları ortaya çıkaran yapılandırılmış cevaba ihtiyaç duyduğunda
+
+  **Şu durumlar için kullanmayın:**
+  - Backward-looking finansal kapanış + raporlama → `finance/financial-analysis`
+  - Stratejik finansal planlama (multi-year, scenario, fundraise) → `c-level-advisor/cfo-advisor`
+  - "VP Sales kiralamak mı gerekir?" / territory tasarımı / comp plan → `c-level-advisor/cro-advisor`
+  - Fiyatlandırma → sibling `pricing-strategist` (zaten belirli fiyatlardaki revenue'yu projekte eder)
+  - Deal başına discount onayı → sibling `deal-desk`
+
+  ## İş Akışı
+
+  ### Adım 1 — Pipeline + cohort + geçmiş conversion verisi alımı
+
+  `assets/forecast_intake_template.md` dosyasını doldurun (≈ 20 dk). Şunları içerir: opportunity listesi (stage/amount/close-date/age/last-activity); son 4Q ve 12Q'taki stage-to-stage conversion geçmişi; cohort başına ARR + quarterly retention + expansion verisi; 12 quarter'lık conversion geçmişine sahip funnel aşama adları.
+
+  ### Adım 2 — 3-kademeli bookings tahminini çalıştırın
+
+  ```
+  scripts/bookings_forecaster.py --input intake.json --profile saas --output markdown
+  ```
+
+  Üç rakam çıktısı — **commit**, **best-case**, **pipe-only** — her biri uygulanan conversion rate'i, kullanılan veri penceresini (last-4Q vs. last-12Q weighted 70/30) ve time-to-close probability adjustment'ını içerir. Commit ile pipe-only arasındaki varyans pipeline-risk göstergesi olarak ortaya konur.
+
+  **Varsayım bloğu zorunludur.** Onu kaldırırsan tahmin tiyatroya döner.
+
+  ### Adım 3 — Cohort-level ARR'yi projekte et
+
+  ```
+  scripts/cohort_arr_projector.py --input intake.json --output markdown
+  ```
+
+  Cohort başına NRR + GRR'yi projeksiyon horizonu üzerinde hesaplar. NRR'si sürü ortalamasından düşüş gösteren herhangi bir cohort'u işaretler — bunlar konsolide rakam 2-3 quarter boyunca gizleyecek ve ardından topline'da ortaya çıkacak sızıntılı cohort'lardır.
+
+  Çıktı konsolide NRR/GRR траектörü + cohort heatmap'i + sızıntılı cohort uyarısını içerir.
+
+  ### Adım 4 — Aşama başına funnel güvenini puanla
+
+  ```
+  scripts/funnel_confidence_scorer.py --input intake.json --output markdown
+  ```
+
+  Aşama başına: ortalama conversion %, standart sapma, coefficient of variation (CoV = StDev / Mean), güven bandı (HIGH < 10%, MEDIUM 10-25%, LOW 25-50%, VERY LOW > 50%). Aşama başına tedavi önerir: extend-data-window, treat-as-soft-floor veya commit-quality.
+
+  ### Adım 5 — Tahmin deck'ini hazırla
+
+  3-kademeli bookings rakamı + cohort heatmap'i + funnel güvenini QBR / board deck'ine koy. **Varsayım bloğu rakamla aynı slide'a gider.** Slide tek bir rakam ve varsayım bloğu yoksa, slide tiyatrodur.
+
+  ## Script'ler
+
+  - `scripts/bookings_forecaster.py` — 3-kademeli bookings tahmini (commit / best-case / pipe-only) açıklanan conversion-rate + data-window + weighting bloğu ile
+  - `scripts/cohort_arr_projector.py` — cohort başına NRR/GRR projeksiyonu horizon üzerinde, sızıntılı cohort uyarısı ile
+  - `scripts/funnel_confidence_scorer.py` — aşama başına CoV-tabanlı güven bandları, tedavi önerisi ile
+
+  Tüm script'ler: stdlib only. `--help` ve `--sample` üçünün tümünde çalışır.
+
+  ## Kaynaklar
+
+  - `references/saas_forecasting_canon.md` — Skok, Tunguz, OpenView, BVP, Pacific Crest/KeyBanc, ProfitWell, Patrick Campbell
+  - `references/cohort_analysis_canon.md` — Andrew Chen (a16z), Brian Balfour, Skok, Ramanujam, OpenView, Lenny Rachitsky, Reforge
+  - `references/forecast_anti_patterns.md` — McKinsey, Tunguz, OpenView, MIT Sloan, Bain, Forrester, Pacific Crest
+
+  ## Varsayımlar
+
+  - **Geçmiş conversion prior'dır, truth değildir.** Son 4Q %70 ağırlık, son 12Q %30 ağırlık. Blend rejim değişimini (son dönem yavaşlama) yakalar tek quarter'a overfitting yapmaz. Window + weighting her çıktıda yer alır.
+  - **Varsayım bloğu olmayan tahmin tiyatrodur.** Bu skill'in sert kuralıdır. CLI varsayım blokunu çıkarmayı reddeder.
+  - **Cohort ayrıştırması sızıntıyı konsolide rakam ortaya çıkmadan 2-3 quarter önce ortaya çıkarır.** Per-cohort breakdown olmadan NRR raporlamak sızıntıyı gizler.
+  - **CoV (coefficient of variation) aşama güveni için doğru disiplindir.** Ortalama conversion %40 stdev %4 (CoV %10) olan aşama HIGH güvendir; ortalama %40 stdev %20 (CoV %50%) çok LOW'dur. Aynı ortalama çok farklı güvenilirliği maskeleyebilir.
+  - **Industry profile prior'ları ayarlar, truth'ı değil.** Profile aşama-conversion rate'lerini endüstriye göre kaydırır; geçmiş veri'n override eder.
+  - **Skill üç rakam ve varsayım bloku yayınlar.** CRO commit rakamını seçer, trade-off'u sahiplenir ve board'a varyansı anlatır.
+
+  ## Anti-patternler
+
+  - **Güven bandı olmayan tek-rakam tahmin.** Board "rakam"ı ister; disiplin üç rakamı adlandırılmış varsayımlarla sunmaktır. Bkz. `forecast_anti_patterns.md`.
+  - **Son 12-quarter conversion'u kör kullanmak.** Son dönem yavaşlamasını gizler. Son 4Q ve 12Q üzerinde %70/30 blend bunu düzeltir.
+  - **Cohort ayrıştırması olmadan NRR raporlamak.** Konsolide rakam düz olabilir iken son cohort %15 sızıntı yapabilir; sızıntı topline'da 2-3 quarter sonra ortaya çıkar. Her zaman ayrıştır.
+  - **Best-case'i commit olarak kabul etmek.** CFO seni yer. Best-case < %50 time-to-close olasılığı olan weighted-stage opp'ler içerir; commit sadece commit-grade aşamaları içerir.
+  - **Varsayım blokunu gizlemek.** Skill reddeder; manuel olarak kaldırırsan tiyatroyu senin sahibin.
+  - **Sızıntılı cohort uyarısı yok.** `cohort_arr_projector.py` bir cohort'u işaretler ve sen deck'te flag'i bastırırsan, sızıntı sonraki quarter'ı sahibi olur.
+  - **Late-stage opp age'i göz ardı etmek.** 180 gündür "verbal" olan bir deal commit değildir. Bookings forecaster kendi otomatik olarak stalled opp'leri downweight eder; elle re-up etme.
+  - **Pipeline-coverage kontrolü yok.** Endüstri başparmak kuralı: forecast > pipeline ÷ 3 anti-pattern'dir. Tool oran ortaya koymaz; ona saygı duy.
+
+  ## Farklı olan
+
+  - **`finance/financial-analysis`** — backward-looking finansal kapanış, GAAP/IFRS raporlaması, variance vs. budget. commercial-forecaster forward-looking pipeline math'ıdır.
+  - **`c-level-advisor/cfo-advisor`** — stratejik multi-year finansal planlama, fundraise senaryoları, runway. commercial-forecaster CFO'ya bir input'tur, strateji değildir.
+  - **`c-level-advisor/cro-advisor`** — stratejik CRO yargısı: "VP Sales kiralamak mı gerekir?", territory tasarımı, comp plan, sales engineer ne zaman ekleyelim. commercial-forecaster CRO'nun kullandığı math'tir; cro-advisor CRO'nun uyguladığı yargıdır.
+  - **sibling `pricing-strategist`** — fiyatı belirler (model + range). commercial-forecaster *bu fiyatlarda revenue'yu projekte eder*. Pricing önce gelir; tahmin sonra.
+  - **sibling `deal-desk`** — deal başına puanlama + discount onayı routing. commercial-forecaster deal-desk'in günlük işlettiği pipeline'ı toplar.
+
+  ## Zorla-soru kütüphanesi (Matt Pocock grill disiplini)
+
+  `/cs:grill-commercial` tarafından veya orchestrator tarafından teker teker yürütülür. Tavsiye edilen cevap + canon citation soru başına. Asla paketlenmez.
+
+  1. **"Ne conversion rate kullanıyorsun ve last-4Q mü yoksa last-12Q mü?"**
+     Tavsiye: %70/30 blend (son 4Q %70 ağırlık, son 12Q %30 ağırlık). Sadece last-12Q son dönem yavaşlamasını gizler; sadece last-4Q tek kötü quarter'a overfitting yapar.
+     Canon: Tomasz Tunguz (Theory Ventures) — tahmin çalışmaları single-window conversion tahminlerinin rejim değişimini ~3-quarter lag'de kaçırdığını gösterir.
+
+  2. **"Pipeline coverage ratio'nun nedir ve commit'in pipeline ÷ 3'ün üstünde mi?"**
+     Tavsiye: 3x coverage SaaS-endüstri tabanıdır; 3x altı commit'in yapısal olarak desteklenmedigi anlamına gelir.
+     Canon: Pacific Crest / KeyBanc SaaS Survey — top-quartile SaaS şirketleri committed bookings'e karşı 3.0-4.5x pipeline coverage koruyor.
+
+  3. **"Sadece konsolide değil cohort başına NRR gösterebilir misin?"**
+     Tavsiye: hiçbir zaman konsolide NRR'yi per-cohort breakdown olmadan raporlama. Sızıntılı cohort'lar ortalamalarda gizlenir.
+     Canon: Patrick Campbell (ProfitWell) + David Skok — cohort-driven retention ayrıştırması sızıntıları konsolide NRR hareket etmeden 2-3 quarter önce ortaya çıkarır.
+
+  4. **"Son 12 quarter'da her aşamanın conversion rate'inin varyansı (CoV) nedir?"**
+     Tavsiye: CoV < %10 → commit-grade; %10-25 → moderate; %25-50 → soft floor only; > %50 → bu aşamayı tahmin için kullanma.
+     Canon: MIT Sloan tahmin araştırması / Hyndman & Athanasopoulos (*Forecasting: Principles and Practice*) — input serisindeki CoV tahmin doğruluğunu ortalamadan daha güvenilir şekilde öngörür.
+
+  5. **"Her late-stage opp ne kadar süredir late-stage'de?"**
+     Tavsiye: stage-age > 2x median stage-duration → stalled olarak kabul et, commit'ten çıkar, pipe-only'de tut.
+     Canon: David Skok (*For Entrepreneurs*) — stage-age'ye göre stalled-opp tanımlanması top-decile SaaS pipeline'larında #1 tahmin hijyeni uygulamasıdır.
+
+  6. **"Best-case tahmin'in pipe-only'nin %30'u içinde mi?"**
+     Tavsiye: best-case < pipe-only'nin %50'si ise aşama-conversion varsayımlar'ın pesimisttir ve sandbagging yapıyorsun; best-case > pipe-only'nin %80'i ise hockey-sticking yapıyorsun.
+     Canon: McKinsey tahmin bias araştırması + OpenView SaaS benchmark'leri — çoğu takım iki başarısızlık modundan birinde çalışır: sandbagging (commit << earnings) veya hockey-sticking (commit >> earnings).
+
+  7. **"Board slide'daki rakama hangi varsayım bloğu eşlik ediyor?"**
+     Tavsiye: board slide'da her tahmin rakamı (a) conversion rate'i, (b) data window'u, (c) weighting seçimini, (d) pipeline-coverage oranını adlandır. Varsayım bloğu yok = slide tiyatrodur.
+     Canon: Bain & Company commercial-forecasting pratikleri + Forrester pipeline-coverage araştırması — açıklanmayan-varsayım tahmini açıklanan-varsayım tahmininden 2.3x daha yüksek variance'a sahiptir.
+
+  Derinlikten ilerle. 1-3'ü kilitle, sonra 4-7'yi aç. 7'nin tümüne cevap verdikten sonra `bookings_forecaster.py` → `cohort_arr_projector.py` → `funnel_confidence_scorer.py` sırasıyla çağır.
 ---
 
 # commercial-forecaster

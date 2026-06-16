@@ -9,6 +9,54 @@ path: "rules/nextjs.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs.mdc"
 body_length: 1740
 file_extension: ".mdc"
+body_tr: |-
+  # Next.js En İyi Uygulamaları
+
+  ## Proje Yapısı
+  - App Router dizin yapısını kullanın
+  - Rota özgü bileşenleri `app` dizinine yerleştirin
+  - Paylaşılan bileşenleri `components` dizinine yerleştirin
+  - Yardımcı işlevleri ve araçları `lib` dizinine yerleştirin
+  - Dizinler için küçük harfler ve tire kullanın (örn. `components/auth-wizard`)
+
+  ## Bileşenler
+  - Varsayılan olarak Server Components kullanın
+  - İstemci bileşenlerini 'use client' ile açıkça işaretleyin
+  - İstemci bileşenlerini Suspense ile fallback'i birlikte sarın
+  - Kritik olmayan bileşenler için dinamik yüklemeyi kullanın
+  - Uygun error boundaries uygulayın
+  - Statik içeriği ve arayüzleri dosya sonuna yerleştirin
+
+  ## Performans
+  - Resimleri optimize edin: WebP formatını kullanın, veri boyutlandırın, lazy loading uygulayın
+  - 'useEffect' ve 'setState' kullanımını minimize edin
+  - Mümkün olduğunda Server Components (RSC) tercih edin
+  - Kritik olmayan bileşenler için dinamik yüklemeyi kullanın
+  - Uygun önbellek stratejileri uygulayın
+
+  ## Veri Getirme
+  - Mümkün olduğunda veri getirme için Server Components kullanın
+  - Veri getirme için uygun hata işlemesi uygulayın
+  - Uygun önbellek stratejileri kullanın
+  - Yükleme ve hata durumlarını uygun şekilde yönetin
+
+  ## Yönlendirme
+  - App Router kurallarını kullanın
+  - Rotalar için uygun yükleme ve hata durumlarını uygulayın
+  - Dinamik rotaları uygun şekilde kullanın
+  - Gerektiğinde parallel rotaları yönetin
+
+  ## Formlar ve Doğrulama
+  - Form doğrulaması için Zod kullanın
+  - Uygun sunucu tarafı doğrulaması uygulayın
+  - Form hatalarını uygun şekilde yönetin
+  - Form gönderimi sırasında yükleme durumlarını gösterin
+
+  ## Durum Yönetimi
+  - İstemci tarafı durumunu minimize edin
+  - React Context'i seyrek olarak kullanın
+  - Mümkün olduğunda sunucu durumunu tercih edin
+  - Uygun yükleme durumlarını uygulayın
 ---
 
 # Next.js Best Practices

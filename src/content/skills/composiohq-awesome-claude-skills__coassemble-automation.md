@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Coassemble Otomasyonu
+
+  Composio'nun Coassemble araç seti aracılığıyla Rube MCP ile Coassemble işlemlerini otomatikleştirin.
+
+  **Araç seti dokümentasyonu**: [composio.dev/toolkits/coassemble](https://composio.dev/toolkits/coassemble)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Coassemble bağlantısı ve `coassemble` araç seti
+  - Mevcut araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi edinin**: MCP sunucu konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu kontrol edin
+  2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `coassemble` araç setini belirtin
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme bağlantısını izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  İş akışlarını yürütmeden önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Coassemble operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Coassemble task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["coassemble"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Yürütün
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE gösterdiğini doğrulayın
+  - **Şema uygunluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
+  - **Sayfalandırma**: Yanıtlarda sayfalandırma tokenlarını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Coassemble'a özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `coassemble` araç seti |
+  | Yürüt | Keşfedilen araç slug'larıyla `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `schemaRef` içeren araçlar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Coassemble Automation via Rube MCP

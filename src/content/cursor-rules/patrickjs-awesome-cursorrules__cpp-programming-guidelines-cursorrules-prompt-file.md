@@ -9,6 +9,135 @@ path: "rules/cpp-programming-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cpp-programming-guidelines-cursorrules-prompt-file.mdc"
 body_length: 4930
 file_extension: ".mdc"
+body_tr: |-
+  # C++ Programlama Yönergeleri
+
+  ## Temel İlkeler
+
+  - Tüm kod ve dokümantasyon için İngilizce kullanın.
+  - Her zaman her değişkenin ve fonksiyonun türünü açıkça belirtin (parametreler ve dönüş değeri).
+  - Gerekli türleri ve sınıfları oluşturun.
+  - Ortak sınıfları ve metodları belgelemek için Doxygen stil yorumları kullanın.
+  - Bir fonksiyon içinde boş satır bırakmayın.
+  - Tek tanım kuralına (ODR) uyun.
+
+  ## Adlandırma Kuralları
+
+  - Sınıflar ve yapılar için PascalCase kullanın.
+  - Değişkenler, fonksiyonlar ve metodlar için camelCase kullanın.
+  - Sabitler ve makrolar için ALL_CAPS kullanın.
+  - Dosya ve dizin adları için snake_case kullanın.
+  - Ortam değişkenleri için UPPERCASE kullanın.
+  - Sihirli sayılardan kaçının ve sabitler tanımlayın.
+  - Her fonksiyonu bir fiil ile başlatın.
+  - Boolean değişkenler için fiiller kullanın. Örnek: isLoading, hasError, canDelete, vb.
+  - Kısaltmalar yerine tam sözcükler kullanın ve doğru yazımı sağlayın.
+    - Standart kısaltmalar hariç (API, URL, vb.)
+    - İyi bilinen kısaltmalar hariç:
+      - döngüler için i, j, k
+      - hatalar için err
+      - bağlamlar için ctx
+      - istek/cevap parametreleri için req, res
+
+  ## Fonksiyonlar
+
+  - Tek bir amaca sahip kısa fonksiyonlar yazın. 20 talimatdan az.
+  - Fonksiyonları bir fiil ve başka bir şey ile adlandırın.
+  - Boolean döndürüyorsa, isX veya hasX, canX vb. kullanın.
+  - Hiçbir şey döndürmüyorsa (void), executeX veya saveX vb. kullanın.
+  - Blok iç içe geçişini şu yollarla önleyin:
+    - Erken kontroller ve dönüşler.
+    - Yardımcı fonksiyonlara çıkarma.
+  - Fonksiyon iç içe geçişini önlemek için standart kütüphane algoritmalarını (std::for_each, std::transform, std::find, vb.) kullanın.
+  - Basit işlemler için lambda fonksiyonları kullanın.
+  - Basit olmayan işlemler için adlandırılmış fonksiyonlar kullanın.
+  - Null veya nullptr kontrolü yerine varsayılan parametre değerlerini kullanın.
+  - Struct veya sınıflar kullanarak fonksiyon parametrelerini azaltın.
+    - Birden fazla parametreyi geçmek için bir nesne kullanın.
+    - Birden fazla sonucu döndürmek için bir nesne kullanın.
+    - Giriş argümanları ve çıktı için gerekli türleri bildirin.
+  - Tek bir soyutlama seviyesi kullanın.
+
+  ## Veri
+
+  - İlkel türleri kötüye kullanmayın ve verileri bileşik türlerde kapsülleyin.
+  - Fonksiyonlarda veri validasyonundan kaçının ve dahili validasyona sahip sınıflar kullanın.
+  - Veriler için değişmezliği tercih edin.
+  - Değişmeyen veriler için const kullanın.
+  - Derleme zamanı sabitleri için constexpr kullanın.
+  - Muhtemelen null olan değerler için std::optional kullanın.
+
+  ## Sınıflar
+
+  - SOLID ilkelerine uyun.
+  - Kalıtım yerine bileşimi tercih edin.
+  - Arayüzleri soyut sınıflar veya konseptler olarak bildirin.
+  - Tek bir amaca sahip küçük sınıflar yazın.
+    - 200 talimatdan az.
+    - 10'dan az ortak metod.
+    - 10'dan az özellik.
+  - Kaynak yönetimi için Beş Kuralını (veya Sıfır Kuralını) kullanın.
+  - Üye değişkenleri özel yapın ve gerektiğinde getter/setter sağlayın.
+  - Üye fonksiyonları için const-correctness kullanın.
+
+  ## İstisnalar
+
+  - Beklemediğiniz hataları işlemek için istisnalar kullanın.
+  - Bir istisna yakalaıyorsanız, bunun için olmalıdır:
+    - Beklenen bir sorunu düzeltin.
+    - Bağlam ekleyin.
+    - Aksi takdirde, bir genel işleyici kullanın.
+  - Beklenen başarısızlıklar için std::optional, std::expected veya hata kodlarını kullanın.
+
+  ## Bellek Yönetimi
+
+  - Ham işaretçiler yerine akıllı işaretçileri (std::unique_ptr, std::shared_ptr) tercih edin.
+  - RAII (Resource Acquisition Is Initialization) ilkelerini kullanın.
+  - Uygun kaynak yönetimi ile bellek sızıntılarından kaçının.
+  - C stili diziler yerine std::vector ve diğer standart kapsayıcıları kullanın.
+
+  ## Test Etme
+
+  - Testler için Arrange-Act-Assert kuralına uyun.
+  - Test değişkenlerini açık şekilde adlandırın.
+  - Şu kuralı izleyin: inputX, mockX, actualX, expectedX, vb.
+  - Her ortak fonksiyon için birim testler yazın.
+  - Bağımlılıkları simüle etmek için test double'ları kullanın.
+    - Yürütülmesi pahalı olmayan üçüncü taraf bağımlılıkları hariç.
+  - Her modül için entegrasyon testleri yazın.
+  - Given-When-Then kuralına uyun.
+
+  ## Proje Yapısı
+
+  - Modüler mimarisini kullanın
+  - Kodu mantıksal dizinlere organize edin:
+    - başlık dosyaları için include/
+    - kaynak dosyaları için src/
+    - test dosyaları için test/
+    - kütüphaneler için lib/
+    - dokümantasyon için doc/
+  - CMake veya benzeri derleme sistemi kullanın.
+  - Arayüzü (.h) uygulamadan (.cpp) ayırın.
+  - Kodu mantıksal olarak organize etmek için namespace'ler kullanın.
+  - Temel bileşenler için bir core namespace oluşturun.
+  - Yardımcı fonksiyonlar için bir utils namespace oluşturun.
+
+  ## Standart Kütüphane
+
+  - Mümkün olduğunca C++ Standart Kütüphanesini kullanın.
+  - C stili dizeler yerine std::string tercih edin.
+  - Koleksiyonlar için std::vector, std::map, std::unordered_map, vb. kullanın.
+  - Modern tür güvenliği için std::optional, std::variant, std::any kullanın.
+  - Dosya işlemleri için std::filesystem kullanın.
+  - Zamana ilişkin işlemler için std::chrono kullanın.
+
+  ## Eşzamanlılık
+
+  - Thread güvenliği için std::thread, std::mutex, std::lock_guard kullanın.
+  - İş parçacığı tabanlı paralelizm yerine görev tabanlı paralelizmi tercih edin.
+  - Atomik işlemler için std::atomic kullanın.
+  - Uygun senkronizasyon ile veri yarışlarından kaçının.
+  - Gerektiğinde thread güvenli veri yapılarını kullanın.
 ---
 
 # C++ Programming Guidelines

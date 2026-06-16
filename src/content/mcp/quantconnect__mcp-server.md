@@ -3,7 +3,7 @@ name: "QuantConnect/mcp-server"
 description: "A Dockerized Python MCP server that bridges your local AI (e.g., Claude Desktop, etc) with the QuantConnect API—empowering you to create projects, backtest strategies, manage collaborators, and deploy live-trading workflows directly via natural-language prompts."
 category: "Finance & Fintech"
 repo: "QuantConnect/mcp-server"
-stars: 75
+stars: 76
 url: "https://github.com/QuantConnect/mcp-server"
 body_length: 42339
 license: "Apache-2.0"
@@ -12,24 +12,24 @@ homepage: "https://www.quantconnect.com/mcp"
 body_tr: |-
   # Bu depo şimdilik kullanımdan kaldırılmıştır - MCP'mizi kullanmanın tercih edilen yolu VSCode'a gömülü olandır.
   # Bkz. https://www.quantconnect.com/docs/v2/ai-assistance/mcp-server/key-concepts
-
-
-
-
-
+  
+  
+  
+  
+  
   # QuantConnect MCP Server
   QuantConnect MCP Server, yapay zeka sistemleri (Claude ve OpenAI o3 Pro gibi) için bulut platformumuzla etkileşim kurmaya yarayan bir köprüdür. MCP'miz sayesinde yapay zeka, API aracılığıyla projelerinizi güncelleme, stratejiler yazma, backtesting yapma ve stratejileri canlı ticarete dağıtma gibi görevleri sizin adınıza gerçekleştirebilir.
-
+  
   Bu, QuantConnect ekibi tarafından yönetilen QuantConnect'in RESMİ MCP uygulamasıdır. Kodunuzun ve API token'larınızın güvenliğini sağlamak için resmi versiyonu kullanmanızı tavsiye ederiz. Uygulamamız test edilmiş ve platformlar arası kolay dağıtım için dockerize edilmiştir.
-
+  
   ## Başlarken
   Yerel MCP istemcilerini (Claude Desktop gibi) QC MCP Server'a bağlamak için şu adımları izleyin:
-
+  
   1. [Docker Desktop](https://docs.docker.com/desktop/) yükleyin ve açın.
   2. [Claude Desktop](https://claude.ai/download) yükleyin ve açın.
   3. Claude Desktop'ta **File > Settings > Developer > Edit Config** öğesine tıklayın.
   4. Aşağıdaki `quantconnect` yapılandırmasını eklemek için `claude_desktop_config.json` dosyasını düzenleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -54,25 +54,25 @@ body_tr: |-
     }
   }
   ```
-
+  
     Kullanıcı kimliğinizi ve API token'ınızı almak için bkz. [API Token İste](https://www.quantconnect.com/docs/v2/cloud-platform/community/profile#09-Request-API-Token).
-
+  
     MCP server'ımız çoklu platform desteğine sahiptir. Seçenekler Intel/AMD çipler için `linux/amd64` ve ARM çipler (örneğin Apple'ın M serisi çipler) için `linux/arm64` şeklindedir.
-
+  
     Aynı anda birden fazla agent çalıştırıyorsanız, istek kaynağını kaydetmek için her agent için `AGENT_NAME` ortam değişkenine benzersiz bir değer ayarlayın.
-
+  
   5. Claude Desktop'u yeniden başlatın.
-
+  
      Claude Desktop otomatik olarak Docker Hub'dan MCP server'ımızı indirir ve buna bağlanır.
-
+  
   Tüm MCP istemcilerini ve destekledikleri özellikleri görmek için MCP belgelerinde [Feature Support Matrix](https://modelcontextprotocol.io/clients#feature-support-matrix) sayfasına bakın.
-
+  
   Docker image'ını güncel tutmak için terminalde Docker Hub'dan en son MCP server'ı çekin.
   ```
   docker pull quantconnect/mcp-server
   ```
   ARM çipiniz varsa, `--platform linux/arm64` seçeneğini ekleyin.
-
+  
   ## Mevcut Araçlar (64)
   | Bu Server'ın Sağladığı Araçlar | Kısa Tanım |
   | -------- | ------- |
@@ -143,395 +143,395 @@ body_tr: |-
    --- 
   ## Araç Detayları
   **Araç:** `read_account`
-
+  
   Kuruluş hesap durumunu okuyun.
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `create_project`
-
+  
   Varsayılan kuruluşunuzda yeni bir proje oluşturun.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `name` | `string`  | Proje adı. |
   | `language` | `string`  | Kullanılacak programlama dili. |
   | `organizationId` | `string` *isteğe bağlı* | Projenin oluşturulacağı kuruluş. Bir değer sağlamazsanız, tercih ettiğiniz kuruluş olarak varsayılan ayarlanır. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapmaz.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek efektler yaratır.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `read_project`
-
+  
   Bir projenin veya yakın zamanda kullanılan bir dizi projenin ayrıntılarını listeleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer` *isteğe bağlı* | Okunacak projenin kimliği. |
   | `start` | `integer` *isteğe bağlı* | Getirilecek projelerin başlangıç (kapsamlı, sıfır tabanlı) dizini. Bu özelliği sağlarsanız, proje kimliği özelliğini atlayın. |
   | `end` | `integer` *isteğe bağlı* | Getirilecek projelerin son (hariç) dizini. Bu özelliği sağlarsanız, proje kimliği özelliğini atlayın. |
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `list_projects`
-
+  
   Tüm projelerin ayrıntılarını listeleyin.
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `update_project`
-
+  
   Bir projenin adını veya açıklamasını güncelleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyanın ait olduğu proje kimliği. |
   | `name` | `string` *isteğe bağlı* | Proje için yeni ad. |
   | `description` | `string` *isteğe bağlı* | Proje için yeni açıklama. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `delete_project`
-
+  
   Projeyi silin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Silinecek projenin kimliği. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `create_project_collaborator`
-
+  
   Bir projeye işbirlikçi ekleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | İşbirlikçinin ekleneceği projenin kimliği. |
   | `collaboratorUserId` | `string`  | Eklenecek işbirlikçinin kullanıcı kimliği. |
   | `collaborationLiveControl` | `boolean`  | Canlı algoritmaları dağıtma ve durdurma hakkı verir. |
   | `collaborationWrite` | `boolean`  | Kodu düzenleme hakkı verir. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapmaz.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `read_project_collaborators`
-
+  
   Bir projedeki tüm işbirlikçileri listeleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | İşbirlikçilerin okunacağı projenin kimliği. |
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `update_project_collaborator`
-
+  
   Bir projede işbirlikçi bilgilerini güncelleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | İşbirlikçinin bulunduğu projenin kimliği. |
   | `collaboratorUserId` | `string`  | Güncellenecek işbirlikçinin kullanıcı kimliği. |
   | `liveControl` | `boolean`  | Canlı algoritmaları dağıtma ve durdurma hakkı verir. |
   | `write` | `boolean`  | Kodu düzenleme hakkı verir. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `delete_project_collaborator`
-
+  
   İşbirlikçiyi projeden kaldırın.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | İşbirlikçinin kaldırılacağı projenin kimliği. |
   | `collaboratorId` | `string`  | Kaldırılacak işbirlikçinin kullanıcı kimliği. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `lock_project_with_collaborators`
-
+  
   Projeyi düzenleyebilmeniz için kilitleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Düzenlenecek projenin kimliği. |
   | `codeSourceId` | `string`  | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `read_project_nodes`
-
+  
   Bir projenin mevcut ve seçilen node'larını okuyun.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Node'ların atıfta bulunduğu projenin kimliği. |
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `update_project_nodes`
-
+  
   Verilen node'ların etkin durumunu true olarak güncelleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Node'ların atıfta bulunduğu proje kimliği. |
   | `nodes` | `array` *isteğe bağlı* | Projenin kullanabileceği node kimliklerinin listesi. Bu özelliği atlarsanız veya boş bir liste geçerseniz, en iyi node backtest, research ve canlı ticaret için otomatik olarak seçilecektir. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapmaz.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `create_compile`
-
+  
   Eşzamansız olarak bir proje için derleme işi isteği oluşturun.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Derlenecek projenin kimliği. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapmaz.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek efektler yaratır.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `read_compile`
-
+  
   Derleme paketi işi sonucunu okuyun.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Derleme isteğinde bulunan projenin kimliği. |
   | `compileId` | `string`  | Oluşturma isteği sırasında döndürülen derleme kimliği. |
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `create_file`
-
+  
   Verilen projeye dosya ekleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyanın ekleneceği projenin kimliği. |
   | `name` | `string`  | Yeni dosyanın adı. |
   | `content` | `string` *isteğe bağlı* | Yeni dosyanın içeriği. |
   | `codeSourceId` | `string` *isteğe bağlı* | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapmaz.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `read_file`
-
+  
   Bir projeden dosya okuyun veya dosya adı belirtilmemişse projedeki tüm dosyaları okuyun.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyayı içeren projenin kimliği. |
   | `name` | `string` *isteğe bağlı* | Okunacak dosyanın adı. |
   | `codeSourceId` | `string` *isteğe bağlı* | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `update_file_name`
-
+  
   Dosyanın adını güncelleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyayı içeren projenin kimliği. |
   | `name` | `string`  | Dosyanın geçerli adı. |
   | `newName` | `string`  | Dosyanın yeni adı. |
   | `codeSourceId` | `string` *isteğe bağlı* | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `update_file_contents`
-
+  
   Dosyanın içeriğini güncelleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyayı içeren projenin kimliği. |
   | `name` | `string`  | Güncellenecek dosyanın adı. |
   | `content` | `string`  | Dosyanın yeni içeriği. |
   | `codeSourceId` | `string` *isteğe bağlı* | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `patch_file`
-
+  
   Bir projedeki dosyaya yama (unified diff) uygulayın.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyayı içeren projenin kimliği. |
   | `patch` | `string`  | **unified diff formatında** yama dizesi (`git diff` tarafından oluşturulan gibi). Projede bir veya daha fazla dosyaya uygulanacak değişiklikleri belirtir. |
   | `codeSourceId` | `string` *isteğe bağlı* | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `delete_file`
-
+  
   Projede dosya silin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Dosyayı içeren projenin kimliği. |
   | `name` | `string`  | Silinecek dosyanın adı. |
   | `codeSourceId` | `string` *isteğe bağlı* | İsteği oluşturan ortamın adı. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapabilir.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek etkiye sahip değildir.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `create_backtest`
-
+  
   Yeni bir backtest isteği oluşturun ve backtest kimliğini alın.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Backtestlenecek projenin kimliği. |
   | `compileId` | `string`  | Backtestlenecek proje için derleme kimliği. |
   | `backtestName` | `string`  | Yeni backtest için ad. |
   | `parameters` | `object` *isteğe bağlı* | Backtest için kullanılacak parametreler. |
-
+  
   *Bu araç ortamını değiştirir.*
-
+  
   *Bu araç yıkıcı güncellemeler yapmaz.*
-
+  
   *Bu aracı aynı bağımsız değişkenlerle tekrar tekrar çağırmak ek efektler yaratır.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `read_backtest`
-
+  
   Bir backtestin sonuçlarını okuyun.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Backtest'i içeren projenin kimliği. |
   | `backtestId` | `string`  | Okunacak backtest'in kimliği. |
-
+  
   *Bu araç ortamını değiştirmez.*
-
+  
   *Bu araç harici varlıklarla etkileşim kurabilir.*
-
+  
   ---
   **Araç:** `list_backtests`
-
+  
   Proje için tüm backtestleri listeleyin.
-
+  
   | Parameter | Tür | Açıklama |
   | -------- | ------- | ------- |
   | `projectId` | `integer`  | Bir veya daha fazla backtest okunacak projenin kimliği. |

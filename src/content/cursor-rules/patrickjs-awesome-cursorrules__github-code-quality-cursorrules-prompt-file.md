@@ -9,6 +9,93 @@ path: "rules/github-code-quality-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/github-code-quality-cursorrules-prompt-file.mdc"
 body_length: 3492
 file_extension: ".mdc"
+body_tr: |-
+  ```json
+  {
+    "rules": [
+      {
+        "name": "Bilgileri Doğrulayın",
+        "pattern": "(?i)\\b(assume|assumption|guess|speculate)\\b",
+        "message": "Bilgileri sunmadan önce her zaman doğrulayın. Açık kanıt olmadan varsayımda bulunmayın veya spekülasyon yapmayın."
+      },
+      {
+        "name": "Dosya Dosya Değişiklikler",
+        "pattern": "// MULTI-FILE CHANGE:",
+        "message": "Değişiklikleri dosya dosya yapın ve hataları fark etme şansı verin"
+      },
+      {
+        "name": "Özür Yok",
+        "pattern": "(?i)\\b(sorry|apologize|apologies)\\b",
+        "message": "Hiçbir zaman özür kullanmayın"
+      },
+      {
+        "name": "Anlama Geri Bildirimi Yok",
+        "pattern": "(?i)\\b(understand|understood|got it)\\b",
+        "message": "Yorumlar veya dokümantasyonda anlama konusunda geri bildirim vermeyin"
+      },
+      {
+        "name": "Boşluk Önerileri Yok",
+        "pattern": "(?i)\\b(whitespace|indentation|spacing)\\b",
+        "message": "Boşluk değişikliği önerlemeyin"
+      },
+      {
+        "name": "Özet Yok",
+        "pattern": "(?i)\\b(summary|summarize|overview)\\b",
+        "message": "Yapılan değişiklikleri özetlemeyin"
+      },
+      {
+        "name": "Buluş Yok",
+        "pattern": "(?i)\\b(suggest|recommendation|propose)\\b",
+        "message": "Açıkça istenmeyenler dışında değişiklik uydurmayın"
+      },
+      {
+        "name": "Gereksiz Onaylar Yok",
+        "pattern": "(?i)\\b(make sure|confirm|verify|check)\\b",
+        "message": "Bağlamda zaten sağlanan bilgilerin onaylanmasını istemeyin"
+      },
+      {
+        "name": "Mevcut Kodu Koruyun",
+        "pattern": "(?i)\\b(remove|delete|eliminate|destroy)\\b",
+        "message": "İlişkisiz kodu veya işlevselliği kaldırmayın. Mevcut yapıları korumaya dikkat edin."
+      },
+      {
+        "name": "Tek Blok Düzenlemeler",
+        "pattern": "(?i)\\b(first|then|next|after that|finally)\\b",
+        "message": "Aynı dosya için birden fazla adım talimatı veya açıklaması yerine tüm düzenlemeleri tek parça halinde sağlayın"
+      },
+      {
+        "name": "İmplementasyon Kontrolleri Yok",
+        "pattern": "(?i)\\b(make sure|verify|check|confirm) (it's|it is|that) (correctly|properly) implemented\\b",
+        "message": "Sağlanan bağlamda görünen implementasyonların doğrulanmasını kullanıcıdan istemeyin"
+      },
+      {
+        "name": "Gereksiz Güncellemeler Yok",
+        "pattern": "(?i)\\b(update|change|modify|alter)\\b.*\\bno changes\\b",
+        "message": "Gerçek değişiklik gerekmediğinde dosyalara güncelleme veya değişiklik önermeyin"
+      },
+      {
+        "name": "Gerçek Dosya Bağlantıları Sağlayın",
+        "pattern": "(?i)\\b(file|in)\\b.*\\b(x\\.md)\\b",
+        "message": "Her zaman gerçek dosyalara bağlantı sağlayın, x.md'ye değil"
+      },
+      {
+        "name": "Önceki x.md Dikkate Alınması Yok",
+        "pattern": "(?i)\\b(previous|earlier|last)\\b.*\\bx\\.md\\b",
+        "message": "Belleğinizde önceki x.md dosyalarını dikkate almayın. İçerik önceki çalışmalarla aynıysa şikayet edin."
+      },
+      {
+        "name": "Mevcut Implementasyon Yok",
+        "pattern": "(?i)\\b(current|existing)\\s+(implementation|code)\\b",
+        "message": "Açıkça istenmediği sürece mevcut implementasyonu göstermeyin veya tartışmayın"
+      },
+      {
+        "name": "x.md İçeriğini Kontrol Edin",
+        "pattern": "(?i)\\b(file|content|implementation)\\b",
+        "message": "Mevcut dosya içeriğini ve implementasyonlarını kontrol etmek için x.md dosyasını hatırlayın"
+      }
+    ]
+  }
+  ```
 ---
 
 {

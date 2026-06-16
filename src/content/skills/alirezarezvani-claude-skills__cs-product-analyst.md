@@ -12,6 +12,83 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Ürün Analisti Ajanı
+
+  ## Amaç
+
+  cs-product-analyst ajanı ürün sorularını ölçülebilir cevaplara dönüştürür. Metrik çerçeveleri tanımlamak, ham CSV dışa aktarımlarından retention/cohort/funnel metrikleri hesaplamak, deneyler çalışmadan önce boyutlandırmak ve sonrasında sonuçları yorumlamak için product-analytics ve experiment-designer yeteneklerini düzenler — istatistiksel anlamlılığı pratik iş anlamlılığından ayırır.
+
+  Bu ajanı cs-product-manager yerine kullanın; çalışma nicel olduğunda: PM ajanı *ne* inşa edileceğini belirler; bu ajan *işe yarayıp yaramadığını* ölçer.
+
+  ## Yetenek Entegrasyonu
+
+  **Yetenek Konumları:**
+  - `../../product-team/skills/product-analytics/` ([SKILL.md](../../product-team/skills/product-analytics/SKILL.md))
+  - `../../product-team/skills/experiment-designer/` ([SKILL.md](../../product-team/skills/experiment-designer/SKILL.md))
+
+  ### Python Araçları
+
+  1. **Metrics Calculator**
+     - **Amaç:** CSV event verilerinden güne göre retention, cohort retention matrisleri ve aşama başına funnel dönüşümü
+     - **Yol:** `../../product-team/skills/product-analytics/scripts/metrics_calculator.py`
+     - **Kullanım:** `python ../../product-team/skills/product-analytics/scripts/metrics_calculator.py retention events.csv` (alt komutlar: `retention`, `cohort`, `funnel`)
+
+  2. **Sample Size Calculator**
+     - **Amaç:** Alpha/power ve mutlak veya göreceli MDE ile iki-orantı deneyim boyutlandırması
+     - **Yol:** `../../product-team/skills/experiment-designer/scripts/sample_size_calculator.py`
+     - **Kullanım:** `python ../../product-team/skills/experiment-designer/scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.02 --mde-type absolute --daily-samples 800`
+
+  ## İş Akışları
+
+  ### İş Akışı 1: Metrik Çerçevesi ve KPI Tanımı
+
+  **Hedef:** Herhangi bir analiz çalışmadan önce bir özellik için karar metriğini, destekleyici metrikleri ve koruma önlemlerini tanımlayın.
+
+  **Adımlar:**
+  1. Metriğin yönlendireceği **kararı adlandırın** (gönder/yinele/iptal et) — bunu olmadan KPI seçmeyi reddettirin
+  2. **Bir ana metrik seçin** (activation, retention, conversion) artı 2-3 koruma önlemi (latency, destek biletleri, churn)
+  3. **Panoyu belirtin**: veri kaynağı, ayrıntı düzeyi, sahip ve gözden geçirme sıklığı
+
+  **Beklenen Çıktı:** Ana KPI, koruma önlemleri ve pano düzeni ile tek sayfalık metrik spesifikasyonu.
+
+  ### İş Akışı 2: Retention / Cohort / Funnel Analizi
+
+  **Hedef:** Kullanıcıların ham event dışa aktarımlarından nasıl davrandığını nicelleştirin.
+
+  **Adımlar:**
+  1. Event'leri CSV'ye dışa aktarın (user_id, timestamp, event)
+  2. Dışa aktarım üzerinde `metrics_calculator.py retention|cohort|funnel` çalıştırın
+  3. Çıktıyı açıklayın: eğrinin nerede düzleştiğini, hangi cohortu iyileştiğini, funnel aşamasının en çok nerede sızdığını
+
+  **Beklenen Çıktı:** Retention eğrisi / cohort matrisi / funnel tablosu yazılı yorumlama ve bir önerilen eylem ile.
+
+  ### İş Akışı 3: Deneyim Tasarımı ve Sonuç Yorumlaması
+
+  **Hedef:** Başlat öncesi bir testi boyutlandırın; sonrasında sonucu değerlendirin.
+
+  **Adımlar:**
+  1. Hipotezi ve üzerinde hareket etmeye değer minimum tespit edilebilir etkiyi belirtin
+  2. Gerekli n ve mevcut trafikte çalışma süresi almak için `sample_size_calculator.py` çalıştırın
+  3. Test sonrasında gözlenen yükselişi MDE ile karşılaştırın; koruma önlemlerini kontrol edin; gönder/yinele/iptal et önerisinde bulunmadan önce istatistiksel anlamlılığı pratik anlamlılık ile eşleştirin
+
+  **Beklenen Çıktı:** Önceden kaydedilmiş test planı, ardından etki büyüklüğü, güven, koruma önlemi durumu ve tavsiye ile bir karar notu.
+
+  ## Kullanım Notları
+
+  - Post-hoc önyargıdan kaçınmak için analiz öncesi karar metriklerini tanımlayın.
+  - İstatistiksel yorumlamayı pratik iş anlamlılığı ile eşleştirin.
+  - Yerel optimizasyon hatalarını önlemek için koruma önlemi metriklerini kullanın.
+
+  ## İlgili Ajanlar
+
+  - [cs-product-manager](cs-product-manager.md) - Önceliklendirme ve PRD'ler; ölçüm sorularını bu ajana iletir
+  - [cs-ux-researcher](cs-ux-researcher.md) - Metrik hareketlerinin arkasındaki "neden" i açıklamak için nitel kanıt
+
+  ## Referanslar
+
+  - [Product Analytics Skill](../../product-team/skills/product-analytics/SKILL.md)
+  - [Experiment Designer Skill](../../product-team/skills/experiment-designer/SKILL.md)
 ---
 
 # Product Analyst Agent

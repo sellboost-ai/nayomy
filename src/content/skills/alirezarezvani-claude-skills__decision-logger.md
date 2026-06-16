@@ -12,6 +12,148 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Karar Günlüğü
+
+  İki katmanlı bellek sistemi. Katman 1 her şeyi depolar. Katman 2 yalnızca kurucunun onayladığı kısımları depolar. Gelecekteki toplantılar Katman 2'yi okur — bu, geçmiş tartışmalardan kaynaklanan hayali fikir birliğinin yeni müzakerelere sızmasını engeller.
+
+  ## Anahtar Kelimeler
+  karar günlüğü, bellek, onaylı kararlar, aksiyon maddeleri, kurul notları, /cs:decisions, /cs:review, çakışma tespiti, DO_NOT_RESURFACE
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  python scripts/decision_tracker.py --demo             # Örnek çıktıyı görmek için
+  python scripts/decision_tracker.py --summary          # Özet + gecikmiş olanlar
+  python scripts/decision_tracker.py --overdue          # Süresini geçmiş aksiyonlar
+  python scripts/decision_tracker.py --conflicts        # Çelişki tespiti
+  python scripts/decision_tracker.py --owner "CTO"      # Sahibine göre filtrele
+  python scripts/decision_tracker.py --search "pricing" # Kararlarda ara
+  ```
+
+  ---
+
+  ## Komutlar
+
+  | Komut | Etki |
+  |---------|--------|
+  | `/cs:decisions` | Son 10 onaylı karar |
+  | `/cs:decisions --all` | Tam tarihçe |
+  | `/cs:decisions --owner CMO` | Sahibine göre filtrele |
+  | `/cs:decisions --topic pricing` | Anahtar kelimeyle ara |
+  | `/cs:review` | 7 gün içinde teslim edilecek aksiyon maddeleri |
+  | `/cs:review --overdue` | Süresini geçmiş maddeler |
+
+  ---
+
+  ## İki Katmanlı Mimari
+
+  Depolama, kanonik iki katmanlı karar belleğini izler (bkz. `../agent-protocol/SKILL.md` → "Decision Memory (Canonical Layout)") — `/cs:decide` ile yazılan aynı düzen.
+
+  ### Katman 1 — Ham Transkriptler
+  **Konum:** `~/.claude/decisions/raw/YYYY-MM-DD-<slug>.md`
+  - Tam Phase 2 agent katkıları, Phase 3 kritiği, Phase 4 sentezi
+  - Tüm tartışmalar, reddedilen argümanlar dahil
+  - **Asla otomatik yüklenmez.** Yalnızca kurucunun açık talebi üzerine.
+  - 90 gün sonra arşivle → `~/.claude/decisions/raw/archive/YYYY/`
+
+  ### Katman 2 — Onaylı Kararlar
+  **Konum:** `~/.claude/decisions/approved/` — karar başına bir kayıt (`YYYY-MM-DD-<slug>.md`) artı append-only indeksi `decisions.md`
+  - YALNIZCA kurucunun onayladığı kararlar, aksiyon maddeleri, kullanıcı düzeltmeleri
+  - **Her kurul toplantısının Phase 1'inde otomatik yüklenir**
+  - Append-only. Kararlar hiçbir zaman silinmez — yalnızca geçersiz kılınır.
+  - Phase 5'ten sonra Chief of Staff tarafından yönetilir. Asla agent tarafından yazılmaz.
+
+  Geçiş: önceki sürümlerden eski `memory/board-meetings/` klasörü mevcut olabilir; tarih için okuyun ama tüm yeni girişleri `~/.claude/decisions/` klasörüne yazın.
+
+  ---
+
+  ## Karar Girdisi Biçimi
+
+  ```markdown
+  ## [YYYY-MM-DD] — [GÜNDEM MADDESİ BAŞLIĞI]
+
+  **Karar:** [Ne kararlaştırıldığının bir açık ifadesi.]
+  **Sahip:** [Bir kişi veya rol — yürütmeden sorumlu.]
+  **Deadline:** [YYYY-MM-DD]
+  **İnceleme:** [YYYY-MM-DD]
+  **Gerekçe:** [Neden bu, alternatifler üzerinde. 1-2 cümle.]
+
+  **Kullanıcı Geçersiz Kılması:** [Kurucu agent önerisini değiştirdiyse — ne ve neden. Uygulanmıyorsa boş bırakın.]
+
+  **Reddedilen:**
+  - [Öneri] — [neden] [DO_NOT_RESURFACE]
+
+  **Aksiyon Maddeleri:**
+  - [ ] [Aksiyon] — Sahip: [isim] — Bitiş: [YYYY-MM-DD] — İnceleme: [YYYY-MM-DD]
+
+  **Geçersiz Kılar:** [Aynı konuyla ilgili önceki karar tarihi, varsa]
+  **Tarafından Geçersiz Kılındı:** [Daha sonra geçersiz kılınırsa geriye dönük olarak doldurulur]
+  **Ham transkript:** ~/.claude/decisions/raw/[DATE]-<slug>.md
+  ```
+
+  ---
+
+  ## Çakışma Tespiti
+
+  Günlüğe kaydetmeden önce, Chief of Staff şunları kontrol eder:
+  1. **DO_NOT_RESURFACE ihlalleri** — yeni karar reddedilen bir öneriye eşleşir
+  2. **Konu çelişkileri** — aynı konu hakkında iki etkin karar farklı sonuçlarla
+  3. **Sahip çatışmaları** — aynı aksiyon farklı kararlarda farklı insanlara atanmış
+
+  Bir çakışma bulunduğunda:
+  ```
+  ⚠️ KARAR ÇAKIŞMASI
+  Yeni: [metin]
+  Çakışan: [TARİH] — [mevcut metin]
+
+  Seçenekler: (1) Eskisini geçersiz kıl  (2) Birleştir  (3) Kurucuya ertele
+  ```
+
+  **DO_NOT_RESURFACE uygulaması:**
+  ```
+  🚫 ENGELLENDI: "[Öneri]" [TARİH] tarihinde reddedildi. Neden: [neden].
+  Yeniden açmak için: kurucu açıkça "[konuyu] [TARİH] tarihinden aç" demelidir.
+  ```
+
+  ---
+
+  ## Günlüğe Kaydetme İş Akışı (Phase 5 Sonrası)
+
+  1. Kurucu sentezi onaylar
+  2. Katman 1 ham transkriptini yaz → `~/.claude/decisions/raw/YYYY-MM-DD-<slug>.md`
+  3. `~/.claude/decisions/approved/decisions.md` dosyasında çakışmaları kontrol et
+  4. Çakışmaları ortaya çıkar → kurucunun çözümünü bekle
+  5. Onaylı kaydı `~/.claude/decisions/approved/YYYY-MM-DD-<slug>.md` dosyasına yaz ve indekse `decisions.md` ekle
+  6. Onayla: kararlar günlüğe kaydedildi, aksiyonlar izlendi, DO_NOT_RESURFACE bayrakları eklendi
+
+  ---
+
+  ## Aksiyonları Tamamlı Olarak İşaretleme
+
+  ```markdown
+  - [x] [Aksiyon] — Sahip: [isim] — Tamamlandı: [TARİH] — Sonuç: [bir cümle]
+  ```
+
+  Tamamlanan öğeleri asla silmeyin. Tarihçe, kayıttır.
+
+  ---
+
+  ## Dosya Yapısı
+
+  ```
+  ~/.claude/decisions/
+  ├── raw/YYYY-MM-DD-<slug>.md        # Katman 1: toplantı başına tam transkript
+  ├── raw/archive/YYYY/               # 90 gün sonra ham dosyalar
+  ├── approved/YYYY-MM-DD-<slug>.md   # Katman 2: onaylı karar başına bir kayıt
+  └── approved/decisions.md           # Katman 2 indeksi: append-only, kurucunun onayladığı
+  ```
+
+  ---
+
+  ## Referanslar
+  - `templates/decision-entry.md` — alan kurallarıyla tek giriş şablonu
+  - `scripts/decision_tracker.py` — CLI parser, gecikmiş izleyici, çakışma dedektörü
 ---
 
 # Decision Logger

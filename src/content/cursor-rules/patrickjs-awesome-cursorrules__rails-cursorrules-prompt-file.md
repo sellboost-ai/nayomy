@@ -9,6 +9,16 @@ path: "rules/rails-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rails-cursorrules-prompt-file.mdc"
 body_length: 738
 file_extension: ".mdc"
+body_tr: |-
+  Rails 8 Geliştirme Yönergeleri
+
+  - Rails komut satırı generator'lerini el yazısı boilerplate'ten önceliklendirin.
+  - Yerel geliştirme için `bin/dev` kullanın ve önemli değişikliklerden sonra logları kontrol edin.
+  - Uygun yerlerde Solid Queue, Solid Cache, Solid Cable, Propshaft ve Kamal için Rails 8 kurallarını takip edin.
+  - Controller'ları RESTful ve odaklanmış tutun; karmaşık iş mantığı için service object'leri kullanın.
+  - PostgreSQL, uygun indexler, connection pooling ve güvenli migration'ları kullanın.
+  - Model'ler, controller'lar ve integration flow'ları için Minitest coverage yazın.
+  - Standart Rails interaktivitesi için Hotwire ve npm tarafından yönetilen JavaScript gerekli olduğunda Vite kullanın.
 ---
 
 Rails 8 Development Guidelines

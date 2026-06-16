@@ -3,7 +3,7 @@ name: "mickael-kerjean/filestash"
 description: "Remote Storage Access: SFTP, S3, FTP, SMB, NFS, WebDAV, GIT, FTPS, gcloud, azure blob, sharepoint, etc."
 category: "File Systems"
 repo: "mickael-kerjean/filestash"
-stars: 14247
+stars: 14308
 url: "https://github.com/mickael-kerjean/filestash"
 body_length: 12340
 license: "AGPL-3.0"
@@ -11,23 +11,23 @@ language: "Go"
 homepage: "https://www.filestash.app/"
 body_tr: |-
   ![screenshot](https://raw.githubusercontent.com/mickael-kerjean/filestash_images/master/.assets/photo.jpg)
-
+  
   # Bu nedir?
-
+  
   <p>
       Depolama-agnostik bir Dropbox benzeri dosya yöneticisi olarak başladı ve her depolama protokolü ile çalışır: <a href="https://www.filestash.app/ftp-client.html">FTP</a>, <a href="https://www.filestash.app/ssh-file-transfer.html">SFTP</a>, <a href="https://www.filestash.app/s3-browser.html">S3</a>, <a href="https://www.filestash.app/smb-client.html">SMB</a>, <a href="https://www.filestash.app/webdav-client.html">WebDAV</a>, IPFS ve <a href="https://www.filestash.app/docs/plugin/#storage">20'nin üzerinde daha fazlası</a>.
   </p>
-
+  
   <p>
       Dünyanın en iyi dosya yönetim platformu olmak istediğimiz şeye dönüştü; burada evrenin temel gerçekleri olmayan her şey bir plugin'de yaşar. Diğer platformlar "al ya da bırak" iken, bizimkisi size sağlam bir çekirdek ve görüşleri ele almak için bir plugin sistemi sunuyor. Gereksinimler ne kadar derin olursa olsun, tek sınır teknik değil, kendi yaratıcılığınız olacaktır.
   </p>
-
+  
   <p>
       <a href="http://demo.filestash.app"></a>
   </p>
-
+  
   # Temel Özellikler
-
+  
   <ul>
       <li><a href="#vision--philosophy">Plugin Odaklı Mimari</a>: önemli olan her şey bir plugin'dir, <a href="https://www.filestash.app/docs/plugin/">ekosisteme</a> göz atın ya da <a href="https://www.filestash.app/docs/guide/plugin-development.html?origin=github">kendi plugin'inizi oluşturun</a>. Bu yaklaşımla, gereksiz yük ve şişkinlik olmadan tam olarak ihtiyacınız olanı alırsınız.</li>
       <li>Evrensel Erişim: web client'i verilerinize erişmenin sadece bir yoludur (gerçi harika bir yoldur, vanilla JS'de özel olarak tasarlanmıştır). <a href="https://www.filestash.app/docs/api/#api">API'ler</a> ve <a href="https://www.filestash.app/docs/guide/storage-gateway.html?origin=github">Geçitler</a> verilerinizi <a href="https://www.filestash.app/docs/guide/sftp-gateway.html?origin=github">SFTP</a>, S3, FTP, WebDAV, <a href="https://www.filestash.app/docs/guide/mcp-gateway.html?origin=github">MCP</a> ve AS2 gibi protokoller üzerinden de sunmanızı sağlar.</li>
@@ -60,19 +60,19 @@ body_tr: |-
       <li><a href="https://www.filestash.app/docs/guide/search.html">Arama</a>, <a href="https://www.filestash.app/features/smart-folder.html">akıllı klasörler</a> ve OCR'ler için yapay zeka özellikleri.</li>
       <li>... ve çok daha fazla <sub>çok <sub>daha fazla (versiyonlama, denetim, genel site, virüsten koruma, kota, sohbet, chromecast desteği, isteğe bağlı video transcoding, paylaşılan bağlantıları ağ sürücüsü olarak bağlama, ....)</sub></sub><br> Genel bir kural olarak, sorununuz dosyaları içeriyorsa, biz zaten <a href="https://www.filestash.app/docs/plugin/">bir plugin'e sahip</a> ya da bunun için bir plugin yapabiliriz</li>
   </ul>
-
-
+  
+  
   # Başlangıç
-
+  
   Filestash'i kurmak için [Başlangıç](https://www.filestash.app/docs/?origin=github) rehberine gidin. Plugin'lerden yararlanmak istiyorsanız [envanteri](https://www.filestash.app/docs/plugin/?origin=github) ziyaret edin ya da [kendi plugin'lerinizi geliştirme](https://www.filestash.app/docs/guide/plugin-development.html?origin=github) hakkında bilgi edinin.
-
+  
   Dosya yönetimi sorununuzda rehberlik ve uzman yardım istiyorsanız, [bir çağrı rezerve edin](https://www.filestash.app/tunnel/demo/?origin=github) ve Filestash'in sizin için doğru platform olup olmadığını anlamaya çalışalım.
-
-
+  
+  
   # Vizyon & Felsefe
-
+  
   Hedefimiz basittir: **şimdiye kadar yapılan en iyi dosya yönetim platformunu inşa etmek. Nokta.** Ama "en iyi" farklı insanlar için farklı şeyler anlamına gelir, bu yüzden her şeyi plugin'leyebilir hale getirdik. Çekirdek arayüzleri tanımlar, plugin'ler bunları uygular. Bizim uygulamadan anlaşmazlığınız mı var? Kendi uygulamanızı yazın. Evrenin temel gerçekleri olmayan ve tartışmayı kışkırtabilecek her şey bir plugin'de yaşar. Temel özelliklerde listelenen her parça, başka bir implementasyonla değiştirebileceğiniz ya da tamamen kaldırabileceğiniz bir plugin'dir.
-
+  
   Diyelim ki mevcut FTP sunucunuzun üzerinde kullanıcılarınıza Dropbox benzeri bir deneyim verme istiyorsunuz ([HN'de Dropbox lansmanı sırasında FTP adamı](https://news.ycombinator.com/item?id=9224) hatırlayın). <a href="https://github.com/mickael-kerjean/filestash/tree/master/server/plugin/plg_backend_ftp">FTP plugin'i</a> yapması gereken tek şey bu arayüzü uygulamaktır:
   ```go
   type IBackend interface {
@@ -84,28 +84,28 @@ body_tr: |-
   	Mv(from string, to string) error                 // bir şeyi yeniden adlandır
   	Save(path string, file io.Reader) error          // dosya kaydet
   	Touch(path string) error                         // dosya oluştur
-
+  
   	// 2 diğer yöntemi atlamış durumdayım; biri bağlantı yeniden kullanımını etkinleştirmek için,
   	// diğeri login formunun nasıl görünmesi gerektiğini belirtmek için.
   }
   ```
-
+  
   Filestash'in her temel bileşeni için uygulayabileceğiniz arayüzler vardır: depolamadan kimlik doğrulamaya, <a href="https://www.filestash.app/docs/guide/authorization.html">yetkilendirmeye</a>, özel uygulamalara, <a href="https://www.filestash.app/docs/guide/search.html">aramaya</a>, küçük resim oluşturmaya, frontend yamasına, middleware'e, endpoint oluşturmaya ve [plugin geliştirme rehberinde](https://www.filestash.app/docs/guide/plugin-development.html) belgelenen birkaç diğerine.
-
+  
   Şu anda örneğinizde neyin kurulu olduğunu görmek için [/about](https://demo.filestash.app/about) bölümüne gidin. Plugin'lerin envanteri [burada belgelenmiştir](https://www.filestash.app/docs/plugin/)
-
-
+  
+  
   # Destek
-
+  
   - Ticari Kullanıcılar → [destek sözleşmesi](https://www.filestash.app/pricing/?origin=github)
   - Bireyler için:
     - [#filestash](https://kiwiirc.com/nextclient/#irc://irc.libera.chat/#filestash?nick=guest??) IRC'de (libera.chat)
     - Bitcoin: `3LX5KGmSmHDj5EuXrmUvcg77EJxCxmdsgW`
     - [Open Collective](https://opencollective.com/filestash)
-
-
+  
+  
   # Kaynakça
-
+  
   Filestash şunların omuzlarında durmaktadır: [katkıda bulunanlar](https://github.com/mickael-kerjean/filestash/graphs/contributors), [harika kütüphaneler](https://github.com/mickael-kerjean/filestash/blob/master/go.mod) geliştiren insanlar, bir sürü C malzemesi ([C standart kütüphanesi](https://imgs.xkcd.com/comics/dependency.png), [libjpeg](https://libjpeg-turbo.org/), [libpng](https://www.libpng.org/pub/png/libpng.html), [libgif](https://giflib.sourceforge.net/), [libraw](https://www.libraw.org/about) ve çok daha fazlası), [fontawesome](https://fontawesome.com), [material](https://material.io/icons/), gerçek cihazlarda test yapabilmemiz için [Browser stack](https://www.browserstack.com/), ve Nebraska'dan ve diğer yerlerden Filestash'in üzerinde oturduğu kritik parçaları şükransız bir şekilde yönetmiş olan çok sayıda kişi:
 ---
 

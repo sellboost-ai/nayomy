@@ -12,20 +12,20 @@ body_tr: |-
   <a href="https://glama.ai/mcp/servers/@mberg/kokoro-tts-mcp">
     
   </a>
-
+  
   ## Kokoro Metin Konuşmaya (TTS) MCP Sunucusu
-
+  
   Kokoro Metin Konuşmaya MCP sunucusu, S3'e yükleme seçeneği ile .mp3 dosyaları oluşturur.
-
+  
   Kullanılan: https://huggingface.co/spaces/hexgrad/Kokoro-TTS
-
+  
   ## Yapılandırma
-
+  
   * Yerel bir depo olarak klonlayın.
   * [Kokoro Onnx Ağırlıkları](https://github.com/thewh1teagle/kokoro-onnx) için [kokoro-v1.0.onnx](https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx) ve [voices-v1.0.bin](https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin) dosyalarını indirin ve aynı depo içinde saklayın.
-
+  
   Aşağıdakileri MCP yapılandırmalarınıza ekleyin. Kendi değerlerinizle güncelleyin.
-
+  
   ```
     "kokoro-tts-mcp": {
         "command": "uv",
@@ -48,21 +48,21 @@ body_tr: |-
         } 
       }
   ```
-
+  
   ### ffmpeg Kurulumu
-
+  
   Bu, .wav dosyalarını .mp3 dosyalarına dönüştürmek için gereklidir.
-
+  
   Mac için:
-
+  
   ``` 
   brew install ffmpeg
   ```
-
+  
   Yerel olarak çalıştırmak için bu değerleri .env dosyanıza ekleyin. env.example dosyasına bakın ve .env dosyasına kopyalayın, kendi değerlerinizle değiştirin.
-
+  
   ### Desteklenen Ortam Değişkenleri
-
+  
   - `AWS_ACCESS_KEY_ID`: AWS erişim anahtarı kimliği
   - `AWS_SECRET_ACCESS_KEY`: AWS gizli erişim anahtarı
   - `AWS_S3_BUCKET_NAME`: S3 bucket adı
@@ -80,72 +80,72 @@ body_tr: |-
   - `TTS_VOICE`: TTS istemcisi için varsayılan ses (varsayılan: af_heart)
   - `TTS_SPEED`: TTS istemcisi için varsayılan hız (varsayılan: 1.0)
   - `TTS_LANGUAGE`: TTS istemcisi için varsayılan dil (varsayılan: en-us)
-
+  
   ## Sunucuyu Yerel Olarak Çalıştırma
-
+  
   Tercih edilen yöntem UV kullanmaktır
   ```
   uv run mcp-tts.py
   ```
-
-
+  
+  
   ## TTS İstemcisini Kullanma
-
+  
   `mcp_client.py` script'i sunucuya TTS istekleri göndermenize izin verir. Aşağıdaki şekilde kullanılabilir:
-
+  
   ### Bağlantı Ayarları
-
+  
   Sunucu ve istemci aynı makinede çalışırken:
   - Sunucu `0.0.0.0` (tüm arayüzler) veya `127.0.0.1` (sadece localhost) adresine bağlanmalıdır
   - İstemci `localhost` veya `127.0.0.1` adresine bağlanmalıdır
-
-
+  
+  
   ### Temel Kullanım
-
+  
   ```bash
   python mcp_client.py --text "Hello, world!"
   ```
-
+  
   ### Metni Dosyadan Okuma
-
+  
   ```bash
   python mcp_client.py --file my_text.txt
   ```
-
+  
   ### Ses ve Hızı Özelleştirme
-
+  
   ```bash
   python mcp_client.py --text "Hello, world!" --voice "en_female" --speed 1.2
   ```
-
+  
   ### S3 Yüklemesini Devre Dışı Bırakma
-
+  
   ```bash
   python mcp_client.py --text "Hello, world!" --no-s3
   ```
-
+  
   ### Komut Satırı Seçenekleri
-
+  
   ```bash
   python mcp_client.py --help
   ```
-
+  
   ## MP3 Dosya Yönetimi
-
+  
   TTS sunucusu, yerel olarak depolanan ve isteğe bağlı olarak S3'e yüklenen MP3 dosyaları oluşturur. Bu dosyaların nasıl yönetildiğini yapılandırabilirsiniz:
-
+  
   ### Yerel Depolama
-
+  
   - MP3 dosyalarının nerede depolandığını belirtmek için `.env` dosyanızda `MP3_FOLDER` seçeneğini ayarlayın
   - Dosyalar otomatik olarak silinmediği sürece bu klasörde tutulur
-
+  
   ### Otomatik Temizleme
-
+  
   - Dosyaları belirtilen gün sayısından daha eski olduğunda otomatik olarak silmek için `MP3_RETENTION_DAYS=30` (veya herhangi bir sayı) ayarlayın
   - Başarılı S3 yüklemesinden hemen sonra yerel dosyaları silmek için `DELETE_LOCAL_AFTER_S3_UPLOAD=true` ayarlayın
-
+  
   ### S3 Entegrasyonu
-
+  
   - `S3_ENABLED=true` veya `DISABLE_S3=true` ile S3 yüklemelerini etkinleştirin/devre dışı bırakın
   - `.env` dosyasında AWS kimlik bilgilerini ve bucket ayarlarını yapılandırın
   - S3 yüklemeleri, istemcinin `--no-s3` seçeneği kullanılarak istek başına devre dışı bırakılabilir

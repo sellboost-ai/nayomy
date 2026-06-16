@@ -3,7 +3,7 @@ name: "ato"
 description_en: "Authoritative ato authoring and review skill: language reference, stdlib, design patterns, and end-to-end board design workflow."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3370
+stars: 3406
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/ato/SKILL.md"
 path: ".claude/skills/ato/SKILL.md"
 is_collection: false
@@ -14,29 +14,29 @@ has_examples: false
 related_files: []
 body_tr: |-
   # 1. Uçtan Uca Tasarım Süreci
-
+  
   Bu, atopile'de bir board tasarlamak için kanonik dizidir. Hızlı ilerleyin, yapıyı temiz tutun ve planlama durumunu birden fazla tur üzerine yaymaktan kaçının (tasarım bunu gerçekten gerektirmedikçe).
-
+  
   ## Adım 1: Mimariye Taslak Çizin
-
+  
   Kullanıcı niyetini hemen ato koduna dönüştürün. Temiz, yüksek seviyeli bir mimarinin başlayın ve yalnızca çözülmemiş gerçek kararlar olduğunda toplu tasarım sorularını sorun.
-
+  
   Odaklanın:
-
+  
   - Sistemin ne yapması gerektiği
   - Ana fonksiyonel bloklar
   - Önemli arayüzler ve gerilim domains
   - Boyut, maliyet, güç veya üretim üzerinde anahtar kısıtlamalar
   - Kullanıcı tarafından zaten sabitlenmiş parçalar veya protokoller
-
+  
   > **Araçlar:** Birden çok çözülmemiş kararı bir kere toplamak için `design_questions` kullanın. Tanımadığınız domains veya bileşenleri araştırmanız gerekirse mimariyi kilitlemeden önce `web_search` kullanın.
-
+  
   Kapı: spec `.ato` dosyası var, module hiyerarşisi, arayüz bağlantıları, docstrings içinde gereksinimler ve formal kısıtlamalar.
-
+  
   ## Adım 2: Spec'i Yazın
-
+  
   Spec, yüksek abstraksiyon seviyesinde tasarım dosyasıdır. Uygularken gerçek bileşenleri ve kablolama doldurursunuz. Dosya büyür; yapı aynı kalır.
-
+  
   **Ana ilkeler:**
   - **İyi adlandırma** — modules'ı sistem içindeki rollerine göre adlandırın, implementasyon topolojisine göre değil (bkz. Bölüm 1.1).
   - **Module sınırları** üst seviyede duplication'ı önlemek için ortak işlevselliği kapsüllemeliydir.
@@ -45,130 +45,130 @@ body_tr: |-
   - **Gereksinimler** sahibi module'nin docstring'inde `Requirements:` bölümü altında yakalanmalıdır.
   - **Formal kısıtlamalar** ekleyin `assert` ile gerilim, akım, frekans sınırları için.
   - **Module'leri** arayüz seviyesinde (`~`) birbirine bağlayın. Pin'ları henüz bağlamayın.
-
+  
   **Adım adım:**
-
+  
   1. **İsteği subsistems'e bölün.** Her fonksiyonel blok bir `module` olur — güç, MCU, sensörler, iletişim, IO, vb.
   2. **Module sınırlarında arayüzleri tanımlayın.** Module'lerin nasıl bağlandığını bildirmek için stdlib arayüzlerini kullanın.
   3. **Gereksinimler docstring'lerde yakalanmalıdır.** Sahibi module'nin docstring'ine `Requirements:` bölümü ekleyin.
   4. **Formal kısıtlamalar** ekleyin `assert` ile gerilim, akım, frekans sınırları için.
   5. **Module'leri** arayüz seviyesinde (`~`) birbirine bağlayın.
   6. **Bir kontrol listesi** oluşturun, öğeleri requirement ID'lerine bağlayın.
-
+  
   **Örnek spec:**
-
+  
   ```ato
   import ElectricPower
   import I2C
   import SPI
   import ElectricLogic
-
+  
   module SensorBoard:
       """
       # Environmental Sensor Board
-
+  
       Pil güçlü sensör nodu, sıcaklık, nem ve
       basınç ölçümü, BLE iletişim ve USB-C şarjı.
-
+  
       ## Requirements
       - R1: BLE bağlantısı — BLE 5.0 ile nRF52840
       - R2: Çevresel ölçüm — sıcaklık/nem/basınç için BME280
       - R3: USB-C şarjı — 5V USB-C girişi ve charge IC
       - R4: Board boyutu — 25mm x 30mm max
-
+  
       ## Anahtar Kararlar
       - BLE + düşük güç için nRF52840
       - sıcaklık/nem/basınç için BME280
-
+  
       """
-
+  
       # ── Mimari ──────────────────────────────────────
       power = new PowerSupply
       mcu = new MCU
       sensors = new EnvironmentalSensor
       comms = new Radio
-
+  
       # Arayüz seviyesi kablolama (henüz pin değil)
       power.rail_3v3 ~ mcu.power
       power.rail_3v3 ~ sensors.power
       mcu.i2c ~ sensors.i2c
       mcu.spi ~ comms.spi
-
+  
       # ── Kısıtlamalar ───────────────────────────────────────
       assert power.usb_in.voltage within 4.5V to 5.5V
       assert power.rail_3v3.voltage within 3.3V +/- 5%
-
+  
   module PowerSupply:
       """
       USB-C girişi, charge controller, LDO regülasyonu.
-
+  
       ## Requirements
       - R5: Pil şarjı — termal koruma ile LiPo charge IC
       """
-
+  
       usb_in = new ElectricPower
       battery = new ElectricPower
       rail_3v3 = new ElectricPower
-
+  
   module MCU:
       """nRF52840 kristal, decoupling ve debug header ile."""
       power = new ElectricPower
       i2c = new I2C
       spi = new SPI
-
+  
   module EnvironmentalSensor:
       """BME280 çevresel sensörü."""
       power = new ElectricPower
       i2c = new I2C
-
+  
   module Radio:
       """BLE anten uyumu ve RF front end."""
       spi = new SPI
   ```
-
+  
   **Bu adım için anahtar kurallar:**
   - Module isimleri finaldir — `PowerSupply` implementasyonun tamamında `PowerSupply` kalır. "Spec" ile soneklemek MAY.
   - Gereksinimler tüm üst seviye değil, sahibi module'nin docstring'ine yerleştirilmelidir.
   - Docstring'leri özet, gereksinimler ve önemli kararlar için kullanın.
   - Çözülmemiş planlama durumunu tasarım dosyasında gerekli olmaktan daha uzun tutmayın; `design_questions` ile açık soruları topla ve cevaplar geldikten sonra implementasyonu devam ettir.
-
+  
   > **Araçlar:** `stdlib_list` / `stdlib_get_item` özel tanımlamadan önce mevcut arayüzleri ve bileşenleri kontrol edin. Benzer sistemler için referans tasarımlar bulmak için `examples_search` / `examples_read_ato` kullanın.
-
+  
   Kapı: mimari implementasyon için yeterince tutarlıdır. Birden çok açık tasarım kararı varsa, bunları `design_questions` ile toplayın ve cevaplar geldikten sonra devam edin.
-
+  
   ## Adım 3: Açık Kararları Çözün
-
+  
   Kullanıcıya mevcut mimayi ve çözülmemiş gerçek kararları sunun:
-
+  
   - Module'leri ve sorumlulukları listeleyin.
   - Module'ler arasında arayüz bağlantılarını gösterin.
   - Yapılan anahtar kararları veya trade-off'ları vurgulayın.
   - Varsayımları veya alternatif seçeneklerin olduğu alanları çıkarın.
-
+  
   Birden çok tur üzerinde takip soruları akıtmak yerine, çözülmemiş kararları toplamak için `design_questions` kullanın. Ardından cevapları doğrudan spec'e dahil edin ve implementasyonu devam ettirin.
-
+  
   Kapı: anahtar açık sorular çözüldü veya makul varsayılanlar seçildi.
-
+  
   ## Adım 4: Detaylı Tasarımı Uygulayın
-
+  
   Şimdi spec'i gerçek bileşenler, kablolama ve kısıtlamalar ile doldurun. Bu adım paket araması, parça seçimi ve detaylı kablolama kapsar.
-
+  
   ### 4a: Mevcut paketleri bulun
-
+  
   Sıfırdan inşa etmeden önce atopile paket registry'sinde arayın.
-
+  
   > **Araçlar:** `packages_search` → `packages_install` → `package_ato_read` genel arayüzü incelemek için. Ayrıca yerleşik modules için `stdlib_list` kontrol edin.
-
+  
   - Yeni bir driver module yazmaktan çok iyi test edilmiş bir paketi yeniden kullanmayı tercih edin.
-
+  
   ### 4b: Yok olduğunda yerel paketler oluşturun
-
+  
   `packages_search` gerekli IC, konnektör veya module için eşleşme döndürmediğinde, **yerel driver paketi oluşturun** yerine pes edin veya kullanıcıdan bir bulmasını isteyin.
-
+  
   > **Araçlar:** `parts_search` → `web_search` (aileleri karşılaştırmak, vendor datasheet/design guide incelemek, topolojiyi doğrulamak ve referans devreleri bulmak için) → `parts_install(create_package=true)` → `project_read_file` (oluşturulan wrapper paketi incelemek için) → `project_edit_file` (wrapper'ı yerinde iyileştirmek için) → `workspace_list_targets` (iç içe paket targetleri keşfetmek için).
-
+  
   **Adım adım tarif:**
-
+  
   1. **Parçayı bulun**: LCSC bileşenini bulmak için `parts_search` kullanın (örn. `parts_search("LAN8742A")`).
   2. **Parça ailesini araştırın gerektiğinde**: Uygulama notları, ortak referans devreler, aile karşılaştırmaları veya seçilen topolojinin standart ve sağlam olduğunun doğrulanması için parçayı kilitlemeden önce `web_search` kullanın.
   3. **Yerel paket olarak kurun**: LCSC ID ile `parts_install` ve `create_package=true` kullanın. Bu raw parçayı kurar ve `packages/` altında kanonik yeniden kullanılabilir wrapper paketi oluşturur.
@@ -191,54 +191,54 @@ body_tr: |-
   7. **Target'leri keşfedin**: Paket oluşturulduktan sonra `workspace_list_targets` çalıştırın, otomatik olarak ortaya çıkarılan paket target'lerini incelemek için.
   8. **İçeri aktarın ve kullanın** yerel paketi `packages/<PartName>/<PartName>.ato` adresinden doğrudan üst seviye tasarımda.
   9. **Paket çalışmasını delegate edin** gerekirse: Paket projesi varsa ve bağımsız olarak inşa edilebiliyorsa, bir paket uzmanı wrapper'ı iyileştirirken siz üst seviye entegrasyon üzerinde devam etmek için `package_agent_spawn(project_path="packages/<PartName>", goal=..., comments=...)` kullanın.
-
+  
   **Örnek: oluşturulan yerel I2C mux wrapper'ı iyileştirme**
-
+  
   `packages/<PartName>/<PartName>.ato` altındaki oluşturulan paket dosyası, iyileştirmeniz gereken wrapper'dır. İthal ettiği raw parça bileşeni davranışı düzenlemek için bir yer değildir.
-
+  
   ```ato
   #pragma experiment("BRIDGE_CONNECT")
-
+  
   import ElectricPower
   import ElectricLogic
   import I2C
   import Capacitor
   import Resistor
-
+  
   from "parts/Texas_Instruments_TCA9548APWR/Texas_Instruments_TCA9548APWR.ato" import Texas_Instruments_TCA9548APWR_package
-
+  
   module TI_TCA9548A:
       # Genel arayüzler
       power = new ElectricPower
       assert power.voltage within 1.65V to 5.5V
-
+  
       i2c = new I2C
       reset = new ElectricLogic
-
+  
       # Otomatik oluşturulan paket bileşenini örnekleştirin
       package = new Texas_Instruments_TCA9548APWR_package
-
+  
       # Güç bağlantıları
       power.hv ~ package.VCC
       power.lv ~ package.GND
-
+  
       # I2C — .line ve .reference aracılığıyla bağlayın
       i2c.sda.line ~ package.SDA
       i2c.scl.line ~ package.SCL
       i2c.sda.reference ~ power
       i2c.scl.reference ~ power
-
+  
       # Decoupling — seri yol için bridge connect (~>) kullanın
       decoup_100n = new Capacitor
       decoup_100n.capacitance = 100nF +/- 20%
       decoup_100n.package = "0402"
       power.hv ~> decoup_100n ~> power.lv
-
+  
       decoup_2u2 = new Capacitor
       decoup_2u2.capacitance = 2.2uF +/- 20%
       decoup_2u2.package = "0402"
       power.hv ~> decoup_2u2 ~> power.lv
-
+  
       # Pullup ile Reset
       reset.line ~ package.nRESET
       reset.reference ~ power
@@ -247,7 +247,7 @@ body_tr: |-
       reset_pullup.package = "0402"
       reset.line ~> reset_pullup ~> reset.reference.hv
   ```
-
+  
   **Anahtar kurallar:**
   - Her zaman ilk `parts_install` — kurulmamış bir parçaya hiçbir zaman başvurmayın.
   - IC'ler ve diğer yeniden kullanılabilir sarılı parçalar için `parts_install(create_package=true)` tercih edin.
@@ -267,13 +267,13 @@ body_tr: |-
   - `~>` kullanıyorsanız `#pragma experiment("BRIDGE_CONNECT")` ekleyin.
   - IC'ye özel pin kablolama'yı module içinde tutun; yalnızca soyut arayüzleri ortaya çıkarın.
   - Kullanıcı'ya paket'i kendisi oluşturmasını söylemek için bu adımı atlamayın ve siz de atlamayın. Bu core agent yetkinliğidir.
-
+  
   ### 4c: Parça seçimi
-
+  
   Mümkün olduğunda generics + kısıtlamalar kullanarak bileşenleri seçin.
-
+  
   > **Araçlar:** Belirli IC'ler/konektörler için `parts_search` / `parts_install`. Vendor datasheetleri, hardware design rehberleri, uygulama notları ve alternatif parçalar için `web_search`.
-
+  
   - Otomatik seçim için stdlib generics (`Resistor`, `Capacitor`, `Inductor`, `Diode`, `LED`, `Fuse`) değer + paket kısıtlamaları ile kullanın. Kilitli parçalar yerine generics'leri tercih edin.
   - `parts_search`'ü yalnızca belirli bir parça gerektiğinde (IC, konnektör, özel bileşen) kullanın.
   - Aday aileleri karşılaştırmanız, önerilen implementasyon modelini onaylamanız veya katı bir referans devre/uygulama notu bulmanız gerektiğinde bir parçayı kilitlemeden önce `web_search` kullanın.
@@ -286,25 +286,25 @@ body_tr: |-
     - module üzerinde doğrudan birkaç named stdlib alanı
   - Yalnızca stdlib veya basit composition'ın zaten kapsadığı gerçek yeniden kullanılabilir bir protokol/sınırı temsil ettiğinde özel arayüz tanımlayın.
   - Paket wrapper'larını genel tutun. Tasarıma özgü gruplama ve rol adlandırması `main.ato` veya paket katmanının üzerindeki proje module'lerine aittir.
-
+  
   ### 4d: Detaylı kablolama ve kısıtlamalar
-
+  
   Bağlantı, kısıtlamalar ve denklemler ekleyin, tasarımı tamamlayın.
-
+  
   - Module'leri `~` kullanarak arayüzler aracılığıyla bağlayın (veya bridge/seri yollar için `~>`).
   - Tüm anahtar elektriksel özellikler için parametre kısıtlamaları (`assert ... within ...`) ekleyin.
   - Bölüm 4 desenlerine göre decoupling, pullup'lar ve koruma ekleyin.
-
+  
   Kapı: tasarım tamamlandı — tüm module'ler kablolama, tüm kısıtlamalar beyan edildi, tüm arayüzler bağlı. Her bileşen kısıtlı generic veya açıkça seçilmiş parçadır.
-
+  
   ## Adım 5: İnşa Edin
-
+  
   Her şey geçene kadar iteratif olarak inşa ve sorunları düzeltin. **Önce submodule'leri inşa edin** (varsa) — tam inşaadan önce küçük parçaları çalıştırmak çok daha kolaydır.
-
+  
   ### 5a: İnşa + düzeltme döngüsü
-
+  
   > **Araçlar:** `workspace_list_targets` → `build_run` → `build_logs_search` (`log_levels`/`stage` tarafından filtre) → sessiz hatalar için `design_diagnostics`. Kısıt durumunu incelemek ve parça seçimini doğrulamak için `report_variables` ve `report_bom` kullanın.
-
+  
   - Yerel paketler oluşturduktan/kurduktan sonra ilk `workspace_list_targets` çalıştırın, böylece hangi paket target'lerinin zaten otomatik olarak var olduğunu bilirsiniz.
   - Tasarımı makul submodule'lere bölün ve bunları daha küçük target'leri daha önce inşa edin. Bu default doğrulama döngüsüdür.
   - Tekrarlanan tam tasarım inşalarından çok daha hızlı geri bildirim alabilmeniz için wrapper/paket target'lerini paralel olarak da inşa edin.
@@ -316,27 +316,27 @@ body_tr: |-
   - Sessiz hatalar için `design_diagnostics` kullanın.
   - Bölüm 5 troubleshooting'i kullanarak sorunları düzeltin.
   - Inşa temiz bir şekilde geçene kadar tekrarlayın.
-
+  
   ## Adım 6: Özet
-
+  
   > **Araçlar:** Özet hazırlarken parts listesi için `report_bom` ve kısıt özeti için `report_variables` kullanın.
-
+  
   Inşa bittiğinde, kullanıcıya özet verin:
-
+  
   - **Ne inşa edildi** — module'leri, anahtar bileşenleri ve arayüzleri listeleyin.
   - **Blocker'lar veya sorunlar** — karşılaşılan sorunları ve nasıl çözüldüğünü (veya kalıp kalıyorsa) belirtin.
   - **Sonraki adımlar için öneriler** — kullanıcının sonra ne yapmak isteyebileceği (örn. yerleşimi gözden geçirme, board sipariş etme, özellikler ekleme, DRC çalıştırma).
-
+  
   Kapı: kullanıcı net bir özet aldı ve tasarımın durumunu biliyor.
-
+  
   ---
-
+  
   ## 1.1 Module Adlandırması
-
+  
   Module'leri sistem blok diyagramında labelleştireceğiniz şekilde adlandırın — **sistem içindeki rolüne** göre, implementasyon topolojisine göre değil. `Subsystem`, `Unit`, `Block`, veya `Section` gibi genel sonekleri kaçının.
-
+  
   **İyi isimler:**
-
+  
   - `PowerSupply` — giriş koruması, regülasyon ve dağıtım
   - `PowerInput` — konnektör, ters polarite koruması ve bulk decoupling
   - `BatteryCharger` — charge IC, sense resistors ve durum çıkışı

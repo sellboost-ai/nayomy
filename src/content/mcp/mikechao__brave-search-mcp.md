@@ -3,35 +3,35 @@ name: "mikechao/brave-search-mcp"
 description: "Web, Image, News, Video, and Local Point of Interest search capabilities using Brave's Search API"
 category: "Search & Data Extraction"
 repo: "mikechao/brave-search-mcp"
-stars: 117
+stars: 119
 url: "https://github.com/mikechao/brave-search-mcp"
-body_length: 11720
+body_length: 14479
 license: "GPL-3.0"
 language: "TypeScript"
 body_tr: |-
   # Brave Search MCP Server
-
+  
   Brave Search API'sini entegre eden bir MCP Server uygulaması; Web Arama, Yerel İlgi Noktaları Arama, Video Arama, Resim Arama, Haber Arama ve LLM Bağlam Arama yetenekleri sağlar
-
+  
   <a href="https://glama.ai/mcp/servers/@mikechao/brave-search-mcp">
     
   </a>
-
+  
   ## Barındırılan Dağıtım
-
+  
   Barındırılan bir dağıtım [Fronteir AI](https://fronteir.ai/mcp/mikechao-brave-search-mcp) üzerinde mevcuttur.
-
+  
   ## Özellikler
-
+  
   - **Web Arama**: Web üzerinde normal arama yapın
   - **Resim Arama**: Web üzerinde resim arayın
   - **Haber Arama**: Web üzerinde haber arayın
   - **Video Arama**: Web üzerinde video arayın
   - **Yerel İlgi Noktaları Arama**: Yerel fiziksel konumları, işletmeleri, restoranları, hizmetleri vb. arayın
   - **LLM Bağlam Arama**: Okuma ve kaynakları sentezlemek için optimize edilmiş tam web sayfası içeriğini getirin ve çıkartın
-
+  
   ## Araçlar
-
+  
   - **brave_web_search**
     - Brave'in API'sini kullanarak web aramaları gerçekleştirin
     - Girdiler:
@@ -45,13 +45,13 @@ body_tr: |-
           - pm: Son 31 gün içinde keşfedildi.
           - py: Son 365 gün içinde keşfedildi
           - YYYY-MM-DDtoYYYY-MM-DD: Özel tarih aralığı (örn. 2022-04-01to2022-07-30)
-
+  
   - **brave_image_search**
     - Sorguyla ilgili web'den resim alın
     - Girdiler:
       - `query` (string): İnternette resim aranacak terim
       - `count` (number, opsiyonel): Döndürülecek resim sayısı (maks 50, varsayılan 10)
-
+  
   - **brave_news_search**
     - Web üzerinde haber arayın
     - Girdiler:
@@ -65,7 +65,7 @@ body_tr: |-
           - pm: Son 31 gün içinde keşfedildi.
           - py: Son 365 gün içinde keşfedildi
           - YYYY-MM-DDtoYYYY-MM-DD: Özel tarih aralığı (örn. 2022-04-01to2022-07-30)
-
+  
   - **brave_local_search**
     - Yerel işletmeleri, hizmetleri ve ilgi noktalarını arayın
     - Konum sonucu bulunamazsa ilk sayfada brave_web_search'e geri döner
@@ -73,7 +73,7 @@ body_tr: |-
       - `query` (string): Yerel arama terimi
       - `count` (number, opsiyonel): Döndürülecek sonuç sayısı (maks 20, varsayılan 5)
       - `offset` (number, opsiyonel, varsayılan 0): Sayfalandırma için sıfırdan başlayan offset (maks 9)
-
+  
   - **brave_video_search**
     - Web üzerinde video arayın
     - Girdiler:
@@ -87,7 +87,7 @@ body_tr: |-
           - pm: Son 31 gün içinde keşfedildi.
           - py: Son 365 gün içinde keşfedildi
           - YYYY-MM-DDtoYYYY-MM-DD: Özel tarih aralığı (örn. 2022-04-01to2022-07-30)
-
+  
   - **brave_llm_context_search**
     - AI ajanları, LLM temellendirmesi ve RAG pipeline'ları için optimize edilmiş önceden çıkartılmış web içeriği.
     - `compact` modda Brave'in `balanced` bağlam eşik modunu kullanır ve `full` modda Brave alaka filtreleştirilmesini devre dışı bırakır.
@@ -103,9 +103,9 @@ body_tr: |-
       - `responseMode` (enum, opsiyonel, varsayılan `compact`): `compact`, Brave'in `balanced` alaka filtreleştirilmesini artı yerel kod parçası filtreleştirilmesi/kesimesini uygular. `full`, Brave'in alaka filtreleştirilmesini devre dışı bırakır ve ham kod parçalarını yerel filtreleştirilme veya kesiş olmadan döndürür.
       - `maxSnippetChars` (number, opsiyonel, varsayılan 400): Compact modda kod parçası başına maksimum karakter. Minimum 80, maksimum 4000.
       - `maxOutputChars` (number, opsiyonel, varsayılan 8000): Compact modda yaklaşık maksimum seri hale getirilmiş yanıt boyutu. Minimum 1000, maksimum 100000.
-
+  
   ## OpenAI Apps & MCP Apps Desteği
-
+  
   <p align="center">
     <a href="https://www.youtube.com/watch?v=Z5KiC00gBVE">
       
@@ -113,161 +113,161 @@ body_tr: |-
     <br>
     <a href="https://www.youtube.com/watch?v=Z5KiC00gBVE"><em>▶️ Demo videoyu izlemek için tıklayın</em></a>
   </p>
-
+  
   Bu MCP Server'da [OpenAI Apps](https://developers.openai.com/apps-sdk/) ve [MCP Apps](https://modelcontextprotocol.io/docs/extensions/apps) desteği bulunmaktadır. Her araç için UI modu etkinleştirildiğinde, modelin bağlamına neyin ekleneceğini kontrol etmenize izin veren ilgili bir UI widget'ı bulunmaktadır. [ChatGPT ile kullanım bölümündeki](#usage-with-chatgpt) yönergelere bakın.
-
+  
   ## Yapılandırma
-
+  
   ### API Anahtarı Alma
-
+  
   1. [Brave Search API hesabına](https://brave.com/search/api/) kaydolun
   2. Bir plan seçin
   3. API anahtarınızı [geliştirici panodan](https://api.search.brave.com/app/keys) oluşturun
-
+  
   ### Streamable HTTP modu
-
+  
   Varsayılan olarak MCP server'ı stdio modunda çalışır.
-
+  
   ```bash
   BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp
   ```
-
+  
   Streamable HTTP modunu etkinleştirmek için:
-
+  
   ```bash
   BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http
   ```
-
+  
   Varsayılan olarak server 3001 portunda dinler.
   URL:
-
+  
   ```
   http://0.0.0.0:3001/mcp
   ```
-
+  
   ### Ortam değişkenleri
-
+  
   HTTP modunda çalışırken, aşağıdaki ortam değişkenleri desteklenmektedir:
-
+  
   - `BRAVE_API_KEY` (gerekli): Brave Search API anahtarı.
   - `PORT` (opsiyonel): HTTP port'u (varsayılan: `3001`).
   - `HOST` (opsiyonel): Bağlanacak arayüz (varsayılan: `0.0.0.0`).
   - `ALLOWED_HOSTS` (opsiyonel): Host başlığı doğrulaması için izin verilen ana bilgisayar adlarının virgülle ayrılmış listesi.
     - Örnek: `ALLOWED_HOSTS=localhost,127.0.0.1,my-app.ngrok-free.app`
     - Yalnızca ana bilgisayar adlarını kullanın (şema/yol yok), örn. `my-app.ngrok-free.app` değil `https://my-app.ngrok-free.app/mcp`
-
+  
   Örnekler:
-
+  
   ```bash
   # Yalnızca yerel
   HOST=127.0.0.1 ALLOWED_HOSTS=localhost,127.0.0.1 BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http
   ```
-
+  
   ```bash
   # ngrok tüneli ile yerel
   HOST=127.0.0.1 ALLOWED_HOSTS=localhost,127.0.0.1,my-app.ngrok-free.app BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http --ui
   ```
-
+  
   ### ChatGPT ile Kullanım
-
+  
   Brave Search MCP Server, ChatGPT'nin web UI'sı ile kullanılabilir. Birkaç adım gerekir.
-
+  
   #### 1. ChatGPT'de Geliştirici Modunu Etkinleştirin
-
+  
   Ayarlar → Uygulamalar → Gelişmiş ayarlar → Geliştirici modu
-
+  
   Ek talimatlar [burada](https://platform.openai.com/docs/guides/developer-mode)
-
+  
   #### 2. Brave Search MCP'yi HTTP modu ve UI modunda çalıştırın
-
+  
   ```bash
   BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http --ui
   ```
-
+  
   #### 3. MCP Server'ı ChatGPT'ye açığa çıkarmak için yerel bir tünel oluşturun
-
+  
   [ngrok](https://ngrok.com/) ile kaydolun ve yapılandırın, ücretsiz plan işe yarar.
-
+  
   ```bash
   ngrok http 3001
   ```
-
+  
   Yönlendirme URL'sini not edin.
-
+  
   ```bash
   ...
   Forwarding                    https://john-joe-asdf.ngrok-free.dev -> http://localhost:3001
   ...
   ```
-
+  
   #### 4. Brave Search MCP'yi ChatGPT'ye Connector olarak Ekleyin
-
+  
   [ChatGPT Apps ayarlarını](https://chatgpt.com/#settings/Connectors) açın
-
+  
   Uygulamalar'a tıklayın
-
+  
   Uygulama Oluştur'a tıklayın
-
+  
   3. adımdaki URL'yi MCP Server URL'si olarak kullanarak formu doldurun, ancak `/mcp` ekleyin.
-
+  
   ```
   https://john-joe-asdf.ngrok-free.dev/mcp
   ```
-
+  
   Kimlik Doğrulama için 'Kimlik Doğrulama Yok'u seçin
-
+  
   'Anladım ve devam etmek istiyorum' kutusu işaretli olmalıdır
-
+  
   Sonra Oluştur'a tıklayın.
-
+  
   #### 5. Brave Search MCP Server'ını Kullanma
-
+  
   ChatGPT UI'sında '+' düğmesine tıklayın, '...daha fazla'a kaydırın, yeni oluşturulan Brave Search uygulamasını seçin ve sorgunuzu girin.
-
+  
   ### Claude Code ile Kullanım
-
+  
   [Claude Code](https://claude.ai/code) kullanıcıları için bu komutu çalıştırın:
-
+  
   **Windows:**
-
+  
   ```bash
   claude mcp add-json brave-search '{"command":"cmd","args":["/c","npx","-y","brave-search-mcp"],"env":{"BRAVE_API_KEY":"YOUR_API_KEY_HERE"}}'
   ```
-
+  
   **Linux/macOS:**
-
+  
   ```bash
   claude mcp add-json brave-search '{"command":"npx","args":["-y","brave-search-mcp"],"env":{"BRAVE_API_KEY":"YOUR_API_KEY_HERE"}}'
   ```
-
+  
   `YOUR_API_KEY_HERE` yerine gerçek Brave Search API anahtarınızı yazın.
-
+  
   ### Claude Desktop ile Kullanım
-
+  
   #### MCP Bundle (MCPB)
-
+  
   1. [Sürümler](https://github.com/mikechao/brave-search-mcp/releases) sayfasından `mcpb` dosyasını indirin
   2. Claude Desktop ile açın
      veya
      Dosya → Ayarlar → Uzantılar'a gidin ve .mcpb dosyasını pencereye sürükleyerek yükleyin
-
+  
   #### Docker
-
+  
   1. Repo'yu klonlayın
   2. Repo kökünden imajı oluşturun
-
+  
   ```bash
   docker build -t brave-search-mcp:latest -f apps/brave-search-mcp/Dockerfile .
   ```
-
+  
   3. HTTP modu istiyorsanız doğrudan çalıştırın:
-
+  
   ```bash
   docker run --rm -p 3001:3001 -e BRAVE_API_KEY="YOUR_API_KEY_HERE" brave-search-mcp:latest --http
   ```
-
+  
   4. Stdio modu için bunu `claude_desktop_config.json` dosyasına ekleyin:
-
+  
   ```json
   {
     "mcp-servers": {
@@ -288,11 +288,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### NPX
-
+  
   Bunu `claude_desktop_config.json` dosyasına ekleyin:
-
+  
   ```json
   {
     "mcp-servers": {
@@ -309,11 +309,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### LibreChat ile Kullanım
-
+  
   Bunu librechat.yaml dosyasına ekleyin
-
+  
   ```yaml
   brave-search:
     command: sh
@@ -321,18 +321,18 @@ body_tr: |-
       - -c
       - BRAVE_API_KEY=API KEY npx -y brave-search-mcp
   ```
-
+  
   ## Katkıda Bulunma
-
+  
   Katkılar hoşlanır! Geliştirme kurulumu, monorepo yapısı ve sürüm talimatları için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
   UI derleme workflow detayları, giriş noktası orkestratörü dahil olmak üzere [UI Build Orchestrator](CONTRIBUTING.md#ui-build-orchestrator) bölümüne bakın.
-
+  
   ## Feragatname
-
+  
   Bu kütüphane Brave Software ile resmi olarak ilişkili değildir. Brave Search API'sinin ve MCP Server'ının üçüncü taraf bir uygulamasıdır.
-
+  
   ## Lisans
-
+  
   Bu proje GNU General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 
@@ -343,10 +343,6 @@ An MCP Server implementation that integrates the [Brave Search API](https://brav
 <a href="https://glama.ai/mcp/servers/@mikechao/brave-search-mcp">
   
 </a>
-
-## Hosted deployment
-
-A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/mikechao-brave-search-mcp).
 
 ## Features
 
@@ -451,7 +447,7 @@ There is now support for [OpenAI Apps](https://developers.openai.com/apps-sdk/) 
 2. Choose a plan
 3. Generate your API key [from the developer dashboard](https://api.search.brave.com/app/keys)
 
-### Streamable HTTP mode
+### Runtime modes
 
 By default the MCP server runs in stdio mode.
 
@@ -472,16 +468,35 @@ The URL is:
 http://0.0.0.0:3001/mcp
 ```
 
-### Environment variables
+There are two configuration modes:
 
-When running in HTTP mode, the following environment variables are supported:
+- Env mode: `BRAVE_MCP_CONFIG` is unset. Feature toggles come from environment variables exactly as in previous releases.
+- File mode: `BRAVE_MCP_CONFIG=/path/to/config.toml` is set. The TOML file becomes the single source of truth for feature settings, and overlapping feature env vars are ignored with warnings.
+
+### Environment-only settings
+
+These settings are always read from the process environment, regardless of mode:
 
 - `BRAVE_API_KEY` (required): Brave Search API key.
 - `PORT` (optional): HTTP port (default: `3001`).
 - `HOST` (optional): Interface to bind to (default: `0.0.0.0`).
-- `ALLOWED_HOSTS` (optional): Comma-separated list of allowed hostnames for Host header validation.
+- `BRAVE_MCP_CONFIG` (optional): Absolute or relative path to a TOML config file for feature settings.
+
+### Env mode feature settings
+
+When `BRAVE_MCP_CONFIG` is not set, these feature env vars are supported:
+
+- `ALLOWED_HOSTS` (HTTP mode only): Comma-separated list of allowed hostnames for Host header validation.
   - Example: `ALLOWED_HOSTS=localhost,127.0.0.1,my-app.ngrok-free.app`
   - Use hostnames only (no scheme/path), e.g. `my-app.ngrok-free.app` not `https://my-app.ngrok-free.app/mcp`
+- `BRAVE_MCP_POLICY_FILE`: JSON policy file path.
+- `BRAVE_MCP_POLICY_REDACT`: `true` to redact matched text instead of blocking it.
+- `BRAVE_MCP_REQUEST_LIMIT`: Positive integer request cap.
+- `BRAVE_MCP_WINDOW_SECONDS`: Non-negative integer rolling window size.
+- `BRAVE_MCP_COOLDOWN_SECONDS`: Non-negative integer cooldown after the limit is exceeded.
+- `BRAVE_MCP_AUDIT_LOG`: `true` to emit audit logs.
+- `BRAVE_MCP_AUDIT_LOG_RAW`: `true` to include raw query text in audit logs.
+- `BRAVE_MCP_REQUIRE_JUSTIFICATION`: `true` to reject tool calls without a `justification` string.
 
 Examples:
 
@@ -493,6 +508,71 @@ HOST=127.0.0.1 ALLOWED_HOSTS=localhost,127.0.0.1 BRAVE_API_KEY="your_key_here" n
 ```bash
 # Local with ngrok tunnel
 HOST=127.0.0.1 ALLOWED_HOSTS=localhost,127.0.0.1,my-app.ngrok-free.app BRAVE_API_KEY="your_key_here" npx -y brave-search-mcp --http --ui
+```
+
+### File mode (`BRAVE_MCP_CONFIG`)
+
+When `BRAVE_MCP_CONFIG` is set, the file controls feature configuration, including the HTTP host allowlist.
+
+```toml
+[auth]
+httpApiKey = "sk-..."
+requireAuth = true
+callerId = "team-a"
+
+[auth.jwt]
+jwksUri = "https://idp.example.com/.well-known/jwks.json"
+audience = "brave-search-mcp"
+clockSkewSeconds = 30
+
+[auth.oauth]
+issuer = "https://idp.example.com"
+audience = "brave-search-mcp"
+clientId = "client-123"
+clientSecret = "super-secret"
+verifyStrategy = "jwks"
+
+[audit]
+enabled = true
+logRaw = false
+hmacSecret = "audit-secret"
+
+[policy]
+file = "/etc/brave-mcp/policy.json"
+redact = false
+
+[guardrail]
+requestLimit = 100
+windowSeconds = 60
+cooldownSeconds = 10
+requireJustification = false
+
+[server]
+allowedHosts = [
+  "localhost",
+  "127.0.0.1",
+  "my-app.ngrok-free.app",
+]
+```
+
+Notes:
+
+- `BRAVE_API_KEY`, `PORT`, and `HOST` remain environment-only even in file mode.
+- If you set overlapping feature env vars such as `BRAVE_MCP_REQUEST_LIMIT` or `ALLOWED_HOSTS` alongside `BRAVE_MCP_CONFIG`, startup warns that they are being ignored.
+- Unknown TOML keys also emit warnings so typos like `[guardrails]` are visible before you debug runtime behavior.
+
+To validate a config file without starting the server, use the packaged entrypoint after building the app workspace:
+
+```bash
+pnpm -C apps/brave-search-mcp run build
+node apps/brave-search-mcp/dist/index.js --check-config ./apps/brave-search-mcp/test/fixtures/config.valid.toml
+```
+
+To run the built local entrypoint in file mode:
+
+```bash
+pnpm -C apps/brave-search-mcp run build
+BRAVE_API_KEY="your_key_here" BRAVE_MCP_CONFIG="$PWD/apps/brave-search-mcp/test/fixtures/config.valid.toml" node apps/brave-search-mcp/dist/index.js --http
 ```
 
 ### Usage with ChatGPT

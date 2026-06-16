@@ -3,60 +3,60 @@ name: "tevonsb/homeassistant-mcp"
 description: "Access Home Assistant data and control devices (lights, switches, thermostats, etc)."
 category: "Other Tools and Integrations"
 repo: "tevonsb/homeassistant-mcp"
-stars: 572
+stars: 574
 url: "https://github.com/tevonsb/homeassistant-mcp"
 body_length: 17210
 license: "Apache-2.0"
 language: "TypeScript"
 body_tr: |-
   # Home Assistant için Model Context Protocol Sunucusu
-
+  
   Sunucu, yerel bir Home Assistant örneğine erişimi bir LLM uygulaması ile paylaşmak için MCP protokolünü kullanır.
-
+  
   Home Assistant örneğiniz ve Dil Öğrenme Modelleri (LLM'ler) arasında güçlü bir köprü, Model Context Protocol (MCP) aracılığıyla akıllı ev cihazlarınızı doğal dil ile kontrol etme ve izleme olanağı sunar. Bu sunucu, cihaz kontrolünden sistem yönetimine kadar tüm Home Assistant ekosistemini yönetmek için kapsamlı bir API sağlar.
-
+  
   ![License](https://img.shields.io/badge/license-MIT-blue.svg)
   ![Node.js](https://img.shields.io/badge/node-%3E%3D20.10.0-green.svg)
   ![Docker Compose](https://img.shields.io/badge/docker-compose-%3E%3D1.27.0-blue.svg)
   ![NPM](https://img.shields.io/badge/npm-%3E%3D7.0.0-orange.svg)
   ![TypeScript](https://img.shields.io/badge/typescript-%5E5.0.0-blue.svg)
   ![Test Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)
-
+  
   ## Özellikler
-
+  
   - 🎮 **Cihaz Kontrolü**: Herhangi bir Home Assistant cihazını doğal dil ile kontrol edin
   - 🔄 **Gerçek Zamanlı Güncellemeler**: Server-Sent Events (SSE) ile anında güncellemeler alın
   - 🤖 **Otomasyon Yönetimi**: Otomasyonları oluşturun, güncelleyin ve yönetin
   - 📊 **Durum İzleme**: Cihaz durumlarını takip edin ve sorgulayın
   - 🔐 **Güvenli**: Token tabanlı kimlik doğrulama ve hız sınırlaması
   - 📱 **Mobil Uyumlu**: HTTP destekleyen herhangi bir istemci ile çalışır
-
+  
   ## SSE ile Gerçek Zamanlı Güncellemeler
-
+  
   Sunucu, Home Assistant örneğinizden gerçek zamanlı güncellemeler sağlayan güçlü bir Server-Sent Events (SSE) sistemi içerir. Bu sayede şunları yapabilirsiniz:
-
+  
   - 🔄 Herhangi bir cihazın durum değişikliklerini anında alın
   - 📡 Otomasyon tetikleyicilerini ve yürütmelerini izleyin
   - 🎯 Belirli alan adlarına veya varlıklara abone olun
   - 📊 Servis çağrılarını ve betik yürütmelerini takip edin
-
+  
   ### Hızlı SSE Örneği
-
+  
   ```javascript
   const eventSource = new EventSource(
     'http://localhost:3000/subscribe_events?token=YOUR_TOKEN&domain=light'
   );
-
+  
   eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data);
     console.log('Update received:', data);
   };
   ```
-
+  
   SSE sistemi hakkında tam belgeler için [SSE_API.md](docs/SSE_API.md) dosyasını inceleyin.
-
+  
   ## İçindekiler
-
+  
   - [Ana Özellikler](#ana-özellikler)
   - [Ön Koşullar](#ön-koşullar)
   - [Kurulum](#kurulum)
@@ -75,9 +75,9 @@ body_tr: |-
   - [Katkıda Bulunma](#katkıda-bulunma)
   - [Kaynaklar](#kaynaklar)
   - [Lisans](#lisans)
-
+  
   ## Ana Özellikler
-
+  
   ### Temel İşlevsellik 🎮
   - **Akıllı Cihaz Kontrolü**
     - 💡 **Işıklar**: Parlaklık, renk sıcaklığı, RGB renk
@@ -90,7 +90,7 @@ body_tr: |-
     - 🔒 **Kilitler**: Kilit açma/kilitleme kontrolü
     - 🧹 **Elektrikli Süpürgeler**: Başlatma, durdurma, temele dönüş
     - 📹 **Kameralar**: Hareket algılama, anlık görüntüler
-
+  
   ### Sistem Yönetimi 🛠️
   - **Eklenti Yönetimi**
     - Mevcut eklentileri listeleyin
@@ -98,7 +98,7 @@ body_tr: |-
     - Eklentileri başlatın/durdurun/yeniden başlatın
     - Sürüm yönetimi
     - Yapılandırma erişimi
-
+  
   - **Paket Yönetimi (HACS)**
     - Home Assistant Community Store entegrasyonu
     - Birden fazla paket türü desteği:
@@ -109,7 +109,7 @@ body_tr: |-
       - NetDaemon uygulamaları
     - Sürüm kontrolü ve güncellemeler
     - Depo yönetimi
-
+  
   - **Otomasyon Yönetimi**
     - Otomasyonları oluşturun ve düzenleyin
     - Gelişmiş yapılandırma seçenekleri:
@@ -120,23 +120,23 @@ body_tr: |-
     - Mevcut otomasyonları çoğaltın ve değiştirin
     - Otomasyon kurallarını etkinleştirin/devre dışı bırakın
     - Otomasyonu manuel olarak tetikleyin
-
+  
   ### Mimari Özellikler 🏗️
   - **Akıllı Organizasyon**
     - Alan ve kat tabanlı cihaz gruplandırması
     - Durum izleme ve sorgulaması
     - Akıllı bağlam farkındalığı
     - Geçmiş veri erişimi
-
+  
   - **Sağlam Mimari**
     - Kapsamlı hata işleme
     - Durum doğrulaması
     - Güvenli API entegrasyonu
     - TypeScript tür güvenliği
     - Geniş test kapsamı
-
+  
   ## Ön Koşullar
-
+  
   - **Node.js** 20.10.0 veya üstü
   - **NPM** paket yöneticisi
   - **Docker Compose** konteynerizasyon için
@@ -144,33 +144,33 @@ body_tr: |-
   - Home Assistant uzun süreli erişim token'ı ([Token nasıl alınır](https://community.home-assistant.io/t/how-to-get-long-lived-access-token/162159))
   - Paket yönetimi özellikleri için **HACS** yüklü
   - Eklenti yönetimi için **Supervisor** erişimi
-
+  
   ## Kurulum
-
+  
   ### Temel Kurulum
-
+  
   ```bash
   # Deposu klonlayın
   git clone https://github.com/tevonsb/homeassistant-mcp.git
   cd homeassistant-mcp
-
+  
   # Bağımlılıkları yükleyin
   npm install
-
+  
   # Projeyi derleyin
   npm run build
   ```
-
+  
   ### Docker Kurulumu (Önerilir)
-
+  
   Proje, kolay dağıtım ve farklı platformlar arasında tutarlı ortamlar için Docker desteği içerir.
-
+  
   1. **Deposu klonlayın:**
       ```bash
       git clone https://github.com/tevonsb/homeassistant-mcp.git
       cd homeassistant-mcp
       ```
-
+  
   2. **Ortamı yapılandırın:**
       ```bash
       cp .env.example .env
@@ -181,48 +181,48 @@ body_tr: |-
       HASS_HOST=http://homeassistant.local:8123
       HASS_TOKEN=your_home_assistant_token
       HASS_SOCKET_URL=ws://homeassistant.local:8123/api/websocket
-
+  
       # Sunucu Yapılandırması
       PORT=3000
       NODE_ENV=production
       DEBUG=false
       ```
-
+  
   3. **Docker Compose ile derleyin ve çalıştırın:**
       ```bash
       # Konteyner'ları derleyin ve başlatın
       docker compose up -d
-
+  
       # Günlükleri görüntüleyin
       docker compose logs -f
-
+  
       # Servisi durdurun
       docker compose down
       ```
-
+  
   4. **Kurulumu doğrulayın:**
       Sunucu şimdi `http://localhost:3000` adresinde çalışıyor olmalıdır. Health endpoint'i `http://localhost:3000/health` adresinde kontrol edebilirsiniz.
-
+  
   5. **Uygulamayı güncelleyin:**
       ```bash
       # En son değişiklikleri çekin
       git pull
-
+  
       # Konteyner'ları yeniden derleyin ve başlatın
       docker compose up -d --build
       ```
-
+  
   #### Docker Yapılandırması
-
+  
   Docker kurulumu aşağıdakileri içerir:
   - Optimal görüntü boyutu için çok aşamalı derleme
   - Konteyner izleme için sağlık kontrolleri
   - Ortam yapılandırması için birim bağlama
   - Başarısızlıkta otomatik konteyner yeniden başlatma
   - API erişimi için açılan port 3000
-
+  
   #### Docker Compose Ortam Değişkenleri
-
+  
   Tüm ortam değişkenleri `.env` dosyasında yapılandırılabilir. Aşağıdaki değişkenler desteklenir:
   - `HASS_HOST`: Home Assistant örneğinizin URL'si
   - `HASS_TOKEN`: Home Assistant için uzun süreli erişim token'ı
@@ -230,37 +230,37 @@ body_tr: |-
   - `PORT`: Sunucu port'u (varsayılan: 3000)
   - `NODE_ENV`: Ortam (production/development)
   - `DEBUG`: Debug modunu etkinleştir (true/false)
-
+  
   ## Yapılandırma
-
+  
   ### Ortam Değişkenleri
-
+  
   ```env
   # Home Assistant Yapılandırması
   HASS_HOST=http://homeassistant.local:8123  # Home Assistant örneğinizin URL'si
   HASS_TOKEN=your_home_assistant_token       # Uzun süreli erişim token'ı
   HASS_SOCKET_URL=ws://homeassistant.local:8123/api/websocket  # WebSocket URL'si
-
+  
   # Sunucu Yapılandırması
   PORT=3000                # Sunucu port'u (varsayılan: 3000)
   NODE_ENV=production     # Ortam (production/development)
   DEBUG=false            # Debug modunu etkinleştir
-
+  
   # Test Yapılandırması
   TEST_HASS_HOST=http://localhost:8123  # Test örneği URL'si
   TEST_HASS_TOKEN=test_token           # Test token'ı
   ```
-
+  
   ### Yapılandırma Dosyaları
-
+  
   1. **Geliştirme**: `.env.example` dosyasını `.env.development` olarak kopyalayın
   2. **Üretim**: `.env.example` dosyasını `.env.production` olarak kopyalayın
   3. **Test**: `.env.example` dosyasını `.env.test` olarak kopyalayın
-
+  
   ### Claude Desktop'a (veya diğer istemcilere) Ekleme
-
+  
   Yeni Home Assistant MCP sunucusunu kullanmak için Claude Desktop'ı istemci olarak ekleyebilirsiniz. Aşağıdaki yapılandırmayı ekleyin. Bunun MCP'yi claude içinde çalıştıracağını ve Docker yöntemi ile çalışmayacağını unutmayın.
-
+  
   ```
   {
     "homeassistant": {
@@ -276,15 +276,15 @@ body_tr: |-
       }
     }
   }
-
+  
   ```
-
-
-
+  
+  
+  
   ## API Referansı
-
+  
   ### Cihaz Kontrolü
-
+  
   #### Ortak Entity Kontrolleri
   ```json
   {
@@ -293,7 +293,7 @@ body_tr: |-
     "entity_id": "light.living_room"
   }
   ```
-
+  
   #### Işık Kontrolü
   ```json
   {
@@ -305,9 +305,9 @@ body_tr: |-
     "rgb_color": [255, 0, 0]
   }
   ```
-
+  
   ### Eklenti Yönetimi
-
+  
   #### Mevcut Eklentileri Listeleyin
   ```json
   {
@@ -315,7 +315,7 @@ body_tr: |-
     "action": "list"
   }
   ```
-
+  
   #### Eklenti Yükleyin
   ```json
   {
@@ -325,7 +325,7 @@ body_tr: |-
     "version": "5.6.0"
   }
   ```
-
+  
   #### Eklenti Durumunu Yönetin
   ```json
   {
@@ -334,9 +334,9 @@ body_tr: |-
     "slug": "core_configurator"
   }
   ```
-
+  
   ### Paket Yönetimi
-
+  
   #### HACS Paketlerini Listeleyin
   ```json
   {
@@ -345,7 +345,7 @@ body_tr: |-
     "category": "integration"  // veya "plugin", "theme", "python_script", "appdaemon", "netdaemon"
   }
   ```
-
+  
   #### Paket Yükleyin
   ```json
   {
@@ -356,9 +356,9 @@ body_tr: |-
     "version": "1.32.0"
   }
   ```
-
+  
   ### Otomasyon Yönetimi
-
+  
   #### Otomasyon Oluşturun
   ```json
   {
@@ -386,7 +386,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### Otomasyonu Çoğaltın
   ```json
   {
@@ -395,17 +395,17 @@ body_tr: |-
     "automation_id": "automation.motion_light"
   }
   ```
-
+  
   ### Temel İşlevler
-
+  
   #### Durum Yönetimi
   ```http
   GET /api/state
   POST /api/state
   ```
-
+  
   Sistemin mevcut durumunu yönetir.
-
+  
   **Örnek İstek:**
   ```json
   POST /api/state
@@ -417,14 +417,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### Bağlam Güncellemeleri
   ```http
   POST /api/context
   ```
-
+  
   Mevcut bağlamı yeni bilgiler ile günceller.
-
+  
   **Örnek İstek:**
   ```json
   POST /api/context
@@ -435,16 +435,16 @@ body_tr: |-
     "activity": "cooking"
   }
   ```
-
+  
   ### İşlem Endpoint'leri
-
+  
   #### İşlemi Yürütün
   ```http
   POST /api/action
   ```
-
+  
   Belirtilen işlemi verilen parametreler ile yürütür.
-
+  
   **Örnek İstek:**
   ```json
   POST /api/action
@@ -456,14 +456,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### Toplu İşlemler
   ```http
   POST /api/actions/batch
   ```
-
+  
   Birden fazla işlemi sırayla yürütür.
-
+  
   **Örnek İstek:**
   ```json
   POST /api/actions/batch
@@ -484,16 +484,16 @@ body_tr: |-
     ]
   }
   ```
-
+  
   ### Sorgulama İşlevleri
-
+  
   #### Kullanılabilir İşlemleri Alın
   ```http
   GET /api/actions
   ```
-
+  
   Tüm kullanılabilir işlemlerin listesini döndürür.
-
+  
   **Örnek Yanıt:**
   ```json
   {
@@ -511,14 +511,14 @@ body_tr: |-
     ]
   }
   ```
-
+  
   #### Bağlam Sorgusu
   ```http
   GET /api/context?type=current
   ```
-
+  
   Bağlam bilgilerini alır.
-
+  
   **Örnek Yanıt:**
   ```json
   {
@@ -530,28 +530,28 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### WebSocket Olayları
-
+  
   Sunucu, WebSocket bağlantıları aracılığıyla gerçek zamanlı güncellemeleri destekler.
-
+  
   ```javascript
   // İstemci tarafı bağlantı örneği
   const ws = new WebSocket('ws://localhost:3000/ws');
-
+  
   ws.onmessage = (event) => {
     const data = JSON.parse(event.data);
     console.log('Received update:', data);
   };
   ```
-
+  
   #### Desteklenen Olaylar
-
+  
   - `state_change`: Sistem durumu değiştiğinde yayınlanır
   - `context_update`: Bağlam güncellendiğinde yayınlanır
   - `action_executed`: İşlem tamamlandığında yayınlanır
   - `error`: Bir hata oluştuğunda yayınlanır
-
+  
   **Örnek Olay Verileri:**
   ```json
   {
@@ -567,18 +567,18 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Hata İşleme
-
+  
   Tüm endpoint'ler standart HTTP durum kodlarını döndürür:
-
+  
   - 200: Başarılı
   - 400: Kötü İstek
   - 401: Yetkisiz
   - 403: Yasak
   - 404: Bulunamadı
   - 500: İç Sunucu Hatası
-
+  
   **Hata Yanıtı Biçimi:**
   ```json
   {
@@ -591,16 +591,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Hız Sınırlaması
-
+  
   API, kötüye kullanımı önlemek için hız sınırlaması uygular:
-
+  
   - Normal endpoint'ler için IP başına dakika başına 100 istek
   - WebSocket bağlantıları için IP başına dakika başına 1000 istek
-
+  
   Hız sınırı aşıldığında, sunucu şunu döndürür:
-
+  
   ```json
   {
     "error": {
@@ -610,16 +610,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Örnek Kullanım
-
+  
   #### curl Kullanma
   ```bash
   # Mevcut durumu alın
   curl -X GET \
     http://localhost:3000/api/state \
     -H 'Authorization: ApiKey your_api_key_here'
-
+  
   # İşlemi yürütün
   curl -X POST \
     http://localhost:3000/api/action \
@@ -633,7 +633,7 @@ body_tr: |-
       }
     }'
   ```
-
+  
   #### JavaScript Kullanma
   ```javascript
   // İşlemi yürütün
@@ -657,67 +657,67 @@ body_tr: |-
     console.log('Action result:', data);
   }
   ```
-
+  
   ## Geliştirme
-
+  
   ```bash
   # Sıcak yükleme ile geliştirme modu
   npm run dev
-
+  
   # Projeyi derleyin
   npm run build
-
+  
   # Üretim modu
   npm run start
-
+  
   # Testleri çalıştırın
   npx jest --config=jest.config.cjs
-
+  
   # Kapsama ile testleri çalıştırın
   npx jest --coverage
-
+  
   # Kodu lint'leyin
   npm run lint
-
+  
   # Kodu biçimlendir
   npm run format
   ```
-
+  
   ## Sorun Giderme
-
+  
   ### Sık Karşılaşılan Sorunlar
-
+  
   1. **Node.js Sürümü (`toSorted is not a function`)**
      - **Çözüm:** Node.js 20.10.0+ sürümüne güncelleyin
      ```bash
      nvm install 20.10.0
      nvm use 20.10.0
      ```
-
+  
   2. **Bağlantı Sorunları**
      - Home Assistant'ın çalışıp çalışmadığını doğrulayın
      - `HASS_HOST` erişimini kontrol edin
      - Token izinlerini doğrulayın
      - Gerçek zamanlı güncellemeler için WebSocket bağlantısını sağlayın
-
+  
   3. **Eklenti Yönetimi Sorunları**
      - Supervisor erişimini doğrulayın
      - Eklenti uyumluluğunu kontrol edin
      - Sistem kaynaklarını doğrulayın
-
+  
   4. **HACS Entegrasyon Sorunları**
      - HACS yüklemesini doğrulayın
      - HACS entegrasyon durumunu kontrol edin
      - Depo erişimini doğrulayın
-
+  
   5. **Otomasyon Sorunları**
      - Varlık kullanılabilirliğini doğrulayın
      - Tetikleyici koşullarını kontrol edin
      - Servis çağrılarını doğrulayın
      - Yürütme günlüklerini izleyin
-
+  
   ## Proje Durumu
-
+  
   ✅ **Tamamlandı**
   - Entity, Floor ve Area erişimi
   - Cihaz kontrolü (Işıklar, İklim, Perdeler, Anahtarlar, Kontaklar)
@@ -732,7 +732,7 @@ body_tr: |-
   - Ortam değişkeni yönetimi
   - Home Assistant API entegrasyonu
   - Proje belgelendirmesi
-
+  
   🚧 **Devam Ediyor**
   - Gerçek zamanlı güncellemeler için WebSocket uygulaması
   - Gelişmiş güvenlik özellikleri
@@ -746,26 +746,26 @@ body_tr: |-
   - Gelişmiş macOS entegrasyonu
   - Tür güvenliği iyileştirmeleri
   - Test kapsamı genişletilmesi
-
+  
   ## Katkıda Bulunma
-
+  
   1. Depoyu fork edin
   2. Bir feature branch oluşturun
   3. Değişikliklerinizi gerçekleştirin
   4. Yeni işlevler için testler ekleyin
   5. Tüm testlerin geçtiğinden emin olun
   6. Bir pull request gönderin
-
+  
   ## Kaynaklar
-
+  
   - [MCP Belgeleri](https://modelcontextprotocol.io/introduction)
   - [Home Assistant Dokümanları](https://www.home-assistant.io)
   - [HA REST API](https://developers.home-assistant.io/docs/api/rest)
   - [HACS Belgeleri](https://hacs.xyz)
   - [TypeScript Belgeleri](https://www.typescriptlang.org/docs)
-
+  
   ## Lisans
-
+  
   MIT Lisansı - Ayrıntılar için [LICENSE](LICENSE) dosyasını inceleyin
 ---
 

@@ -3,7 +3,7 @@ name: "utensils/mcp-nixos"
 description: "MCP server providing accurate information about NixOS packages, system options, Home Manager configurations, and nix-darwin macOS settings to prevent AI hallucinations."
 category: "Developer Tools"
 repo: "utensils/mcp-nixos"
-stars: 646
+stars: 676
 url: "https://github.com/utensils/mcp-nixos"
 body_length: 11234
 license: "MIT"
@@ -11,7 +11,7 @@ language: "Python"
 homepage: "https://mcp-nixos.io/"
 body_tr: |-
   # MCP-NixOS - Çünkü AI'ınız Paket Adlarını Yanıltmamalı
-
+  
   [![CI](https://github.com/utensils/mcp-nixos/actions/workflows/ci.yml/badge.svg)](https://github.com/utensils/mcp-nixos/actions/workflows/ci.yml)
   [![codecov](https://codecov.io/gh/utensils/mcp-nixos/graph/badge.svg?token=kdcbgvq4Bh)](https://codecov.io/gh/utensils/mcp-nixos)
   [![PyPI](https://img.shields.io/pypi/v/mcp-nixos.svg)](https://pypi.org/project/mcp-nixos/)
@@ -19,15 +19,15 @@ body_tr: |-
   [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
   ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/utensils/mcp-nixos?utm_source=oss&utm_medium=github&utm_campaign=utensils%2Fmcp-nixos&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
   [![Built with Claude](https://img.shields.io/badge/Built%20with-Claude-D97757?logo=claude&logoColor=white)](https://claude.ai)
-
+  
   ## Hızlı Başlangıç
-
+  
   **🚨 Nix/NixOS Gerekli Değil!** Herhangi bir sistemde çalışır - Windows, macOS, Linux. Sadece API'leri sorguluyorsunuz.
-
+  
   ### Seçenek 1: uvx (Önerilen)
-
+  
   [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=nixos&config=eyJjb21tYW5kIjoidXZ4IG1jcC1uaXhvcyJ9)
-
+  
   ```json
   {
     "mcpServers": {
@@ -38,11 +38,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Seçenek 2: Nix
-
+  
   [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=nixos&config=eyJjb21tYW5kIjoibml4IHJ1biBnaXRodWI6dXRlbnNpbHMvbWNwLW5peG9zIC0tIn0%3D)
-
+  
   ```json
   {
     "mcpServers": {
@@ -53,11 +53,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Seçenek 3: Docker
-
+  
   [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=nixos&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItLXJtIiwiLWkiLCJnaGNyLmlvL3V0ZW5zaWxzL21jcC1uaXhvcyJdfQ%3D%3D)
-
+  
   ```json
   {
     "mcpServers": {
@@ -68,48 +68,48 @@ body_tr: |-
     }
   }
   ```
-
+  
   Şimdi AI'ınızın gerçek NixOS verileri varken tahminde bulunması yok. Hoşgeldiniz.
-
+  
   ### Seçenek 4: HTTP (Uzak MCP)
-
+  
   FastMCP bu serveri bir URL'de HTTP üzerinden çalıştırmayı destekler (MCP endpoint varsayılan olarak `/mcp`'dir).
-
+  
   ```bash
   # HTTP MCP serverini http://127.0.0.1:8000/mcp adresinde çalıştır
   MCP_NIXOS_TRANSPORT=http MCP_NIXOS_HOST=127.0.0.1 MCP_NIXOS_PORT=8000 mcp-nixos
   ```
-
+  
   STDIO (varsayılan):
-
+  
   ```bash
   MCP_NIXOS_TRANSPORT=stdio mcp-nixos
   ```
-
+  
   Özel yol:
-
+  
   ```bash
   MCP_NIXOS_TRANSPORT=http MCP_NIXOS_PATH=/api/mcp mcp-nixos
   ```
-
+  
   Stateless HTTP (istemci başına session state'i devre dışı bırakır):
-
+  
   ```bash
   MCP_NIXOS_TRANSPORT=http MCP_NIXOS_STATELESS_HTTP=1 mcp-nixos
   ```
-
+  
   ### Seçenek 5: Pi Coding Agent
-
+  
   [Pi](https://www.npmjs.com/package/@mariozechner/pi-coding-agent) natively MCP konuşmaz. İki desteklenen yol:
-
+  
   **A. pi-mcp-adapter (önerilen — MCP konuşur, tek kaynak):**
-
+  
   ```bash
   pi install npm:pi-mcp-adapter
   ```
-
+  
   Sonra `~/.pi/agent/mcp.json`'e ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -121,13 +121,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   **B. Proje-yerel extension (klonla + çalıştır):** bu repo `.pi/extensions/mcp-nixos.ts` içerir, klonlanan repo'da `pi` çalıştırdığınızda otomatik yüklenir. İsteğe bağlı: editor tip çözümü için `cd .pi && npm install`. Pi bunu her iki şekilde de çalıştırır.
-
+  
   ## Bu Nedir?
-
+  
   Şunlar hakkında doğru, gerçek zamanlı bilgi sağlayan MCP serveri:
-
+  
   - **NixOS paketleri** - gerçekten var olan 130K+ paket
   - **NixOS seçenekleri** - sisteminizi yapılandırmanın 23K+ yolu
   - **Home Manager** - dotfile meraklıları için 5K+ seçenek
@@ -140,21 +140,21 @@ body_tr: |-
   - **Paket sürümleri** - [NixHub.io](https://www.nixhub.io) üzerinden commit hash'leri olan geçmiş sürümler
   - **Binary cache durumu** - cache.nixos.org'da paketlerin önbelleğe alınıp alınmadığını download büyüklükleriyle kontrol edin
   - **Yerel flake inputları** - Nix store'dan doğrudan sabitlenmiş flake bağımlılıklarını keşfedin (Nix gerekir)
-
+  
   ## Araçlar
-
+  
   Sadece iki tane. 17 aracı 2'ye birleştirdik çünkü AI'ınızın context window'u sonsuz değil.
-
+  
   **Toplam ~1.030 token.** Hepsi bu. Diğer MCP serverları context'i Black Friday'miş gibi hoplayıp atarken, biz köşede minimalist çay içiyoruz. AI'ınız NixOS süper güçlerini şişkin olmadan alır.
-
+  
   ### `nix` - Birleşik Query Aracı
-
+  
   Hepsine hakim bir araç:
-
+  
   ```text
   nix(action, query, source, type, channel, limit)
   ```
-
+  
   | Action | Ne yapar |
   |--------|----------|
   | `search` | Paketleri, seçenekleri, programları veya flake'leri ara |
@@ -164,7 +164,7 @@ body_tr: |-
   | `channels` | Mevcut NixOS kanallarını listele |
   | `flake-inputs` | Nix store'dan yerel flake inputlarını keşfet |
   | `cache` | Paketlerin binary cache durumunu kontrol et |
-
+  
   | Source | Ne sorgular |
   |--------|-------------|
   | `nixos` | Paketler, seçenekler, programlar |
@@ -177,138 +177,138 @@ body_tr: |-
   | `wiki` | NixOS Wiki makaleleri (wiki.nixos.org) |
   | `nix-dev` | Resmi Nix belgeleri (nix.dev) |
   | `nixhub` | Paket metadatası ve store yolları (nixhub.io) |
-
+  
   **Örnekler:**
-
+  
   ```python
   # NixOS paketlerini ara
   nix(action="search", query="firefox", source="nixos", type="packages")
-
+  
   # Paket bilgisini al
   nix(action="info", query="firefox", source="nixos", type="package")
-
+  
   # Home Manager seçeneklerini ara
   nix(action="search", query="git", source="home-manager")
-
+  
   # Darwin seçeneklerine göz at
   nix(action="options", source="darwin", query="system.defaults")
-
+  
   # Nixvim seçeneklerini ara
   nix(action="search", query="telescope", source="nixvim")
-
+  
   # Nixvim seçenek bilgisini al
   nix(action="info", query="plugins.telescope.enable", source="nixvim")
-
+  
   # FlakeHub'da ara
   nix(action="search", query="nixpkgs", source="flakehub")
-
+  
   # FlakeHub flake bilgisini al
   nix(action="info", query="NixOS/nixpkgs", source="flakehub")
-
+  
   # Noogle'da Nix function'larını ara
   nix(action="search", query="mapAttrs", source="noogle")
-
+  
   # Noogle function bilgisini al
   nix(action="info", query="lib.attrsets.mapAttrs", source="noogle")
-
+  
   # Noogle function kategorilerine göz at
   nix(action="options", source="noogle", query="lib.strings")
-
+  
   # NixOS Wiki'de ara
   nix(action="search", query="nvidia", source="wiki")
-
+  
   # Wiki sayfa bilgisini al
   nix(action="info", query="Flakes", source="wiki")
-
+  
   # nix.dev belgelerde ara
   nix(action="search", query="packaging tutorial", source="nix-dev")
-
+  
   # NixHub'da paket metadatası ara
   nix(action="search", query="nodejs", source="nixhub")
-
+  
   # NixHub'dan ayrıntılı paket bilgisini al (lisans, homepage, store yolları)
   nix(action="info", query="python", source="nixhub")
-
+  
   # Binary cache durumunu kontrol et
   nix(action="cache", query="hello")
-
+  
   # Belirli sürüm için cache'i kontrol et
   nix(action="cache", query="python", version="3.12.0")
-
+  
   # Belirli sistem için cache'i kontrol et
   nix(action="cache", query="firefox", system="x86_64-linux")
-
+  
   # İstatistik al
   nix(action="stats", source="nixos", channel="stable")
-
+  
   # Yerel flake inputlarını listele (Nix gerekir)
   nix(action="flake-inputs", type="list")
-
+  
   # Flake input'ta dosyalara göz at
   nix(action="flake-inputs", type="ls", query="nixpkgs:pkgs/by-name")
-
+  
   # Flake input'tan dosya oku
   nix(action="flake-inputs", type="read", query="nixpkgs:flake.nix")
   ```
-
+  
   ### `nix_versions` - Paket Sürüm Geçmişi
-
+  
   Nixpkgs commit hash'leriyle geçmiş sürümleri bulun. Output şunları içerir:
   - Paket metadatası (lisans, homepage, programlar) mevcut olduğunda
   - Sürüm başına platform kullanılabilirliği (Linux/macOS)
   - Tekrarlanabilir derlemeler için Nixpkgs commit hash
   - Nix expression'ları için attribute path
-
+  
   ```python
   nix_versions(package, version, limit)
   ```
-
+  
   **Örnekler:**
-
+  
   ```python
   # Son sürümleri metadatalarıyla listele
   nix_versions(package="python", limit=5)
-
+  
   # Belirli sürümü bul
   nix_versions(package="nodejs", version="20.0.0")
   ```
-
+  
   ## Kurulum
-
+  
   **Nix yüklü olmanız GEREKMİYOR.** Python çalışan herhangi bir yerde çalışır.
-
+  
   ```bash
   # Doğrudan çalıştır (kurulum yok)
   uvx mcp-nixos
-
+  
   # Veya kur
   pip install mcp-nixos
   ```
-
+  
   Nix kullanıcıları için:
-
+  
   ```bash
   nix run github:utensils/mcp-nixos
   nix profile install github:utensils/mcp-nixos
   ```
-
+  
   ### Deklaratif Kurulum (NixOS / Home Manager / nix-darwin)
-
+  
   mcp-nixos [nixpkgs](https://search.nixos.org/packages?channel=unstable&show=mcp-nixos&query=mcp-nixos)'de mevcuttur:
-
+  
   ```nix
   # NixOS (configuration.nix)
   environment.systemPackages = [ pkgs.mcp-nixos ];
-
+  
   # Home Manager (home.nix)
   home.packages = [ pkgs.mcp-nixos ];
-
+  
   # nix-darwin (darwin-configuration.nix)
   environment.systemPackages = [ pkgs.mcp-nixos ];
   ```
-
+  
   Veya sağlanan overlay ile doğrudan flake'i kullanın:
-
+  
   ```nix
   # flake.nix
   {
@@ -316,7 +316,7 @@ body_tr: |-
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
       mcp-nixos.url = "github:utensils/mcp-nixos";
     };
-
+  
     outputs = { self, nixpkgs, mcp-nixos, ... }: {
       # Örnek: NixOS yapılandırması
       nixosConfigurations.myhost = nixpkgs.lib.nixosSystem {
@@ -326,7 +326,7 @@ body_tr: |-
           environment.systemPackages = [ pkgs.mcp-nixos ];
         }];
       };
-
+  
       # Örnek: Home Manager bağımsız
       homeConfigurations.myuser = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
@@ -340,9 +340,9 @@ body_tr: |-
     };
   }
   ```
-
+  
   ## Geliştirme
-
+  
   ```bash
   nix develop          # Dev shell'e gir
   nix build            # Paketi derle
@@ -351,9 +351,9 @@ body_tr: |-
   ruff format .        # Format
   mypy mcp_nixos/      # Type check
   ```
-
+  
   ## Teşekkürler
-
+  
   - **[NixHub.io](https://www.nixhub.io)** - Paket sürüm geçmişi
   - **[search.nixos.org](https://search.nixos.org)** - Resmi NixOS araması
   - **[FlakeHub](https://flakehub.com)** - Determinate Systems tarafından Flake registry
@@ -361,13 +361,13 @@ body_tr: |-
   - **[Noogle](https://noogle.dev)** - Nix function arama motoru
   - **[NuschtOS](https://github.com/NuschtOS/search)** - Nixvim desteğini destekleyen statik option arama altyapısı
   - **[Nixvim](https://github.com/nix-community/nixvim)** - Nix için Neovim yapılandırma framework'ü
-
+  
   ## Lisans
-
+  
   MIT - Paylaşmak seviyeyi gösteriyor.
-
+  
   ---
-
+  
   *James Brink tarafından oluşturdu. Nix'in tadını çıkaran coşku tarafından korunmaktadır.*
 ---
 

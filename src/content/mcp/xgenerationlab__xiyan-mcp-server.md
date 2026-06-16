@@ -27,13 +27,13 @@ body_tr: |-
   🤖 <a href="https://modelscope.cn/collections/XiYanSQL-Models-4483337b614241" >ModelScope</a> |
   🌕 <a href="https://bailian.console.aliyun.com/xiyan">析言GBI</a> 
   <br />
-
+  
   <a href="https://arxiv.org/abs/2411.08599"></a>
   <a href="https://opensource.org/licenses/Apache-2.0">
     
   </a>
   <a href="https://pepy.tech/projects/xiyan-mcp-server"></a>
-
+  
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/XGenerationLab/xiyan_mcp_server)](https://archestra.ai/mcp-catalog/xgenerationlab__xiyan_mcp_server)
     <a href="https://smithery.ai/server/@XGenerationLab/xiyan_mcp_server"></a>
   <a href="https://github.com/XGenerationLab/xiyan_mcp_server" target="_blank">
@@ -44,10 +44,10 @@ body_tr: |-
   <a href="https://github.com/XGenerationLab/xiyan_mcp_server/blob/main/imgs/dinggroup_out.png">Ding Group钉钉群</a>｜ 
   <a href="https://weibo.com/u/2540915670" target="_blank">Weibo'da beni takip edin</a>
   </p>
-
-
+  
+  
   ## İçindekiler
-
+  
   - [Özellikler](#özellikler)
   - [Ön İzleme](#ön-İzleme)
     - [Mimari](#mimari)
@@ -71,8 +71,8 @@ body_tr: |-
     - [Cursor](#cursor)
   - [Çalışmıyor](#çalışmıyor)
   - [Atıf](#atıf)
-
-
+  
+  
   ## Özellikler
   - 🌐 [XiYanSQL](https://github.com/XGenerationLab/XiYan-SQL) aracılığıyla doğal dil ile verileri getirin
   - 🤖 Genel LLM'leri (GPT, qwenmax), Text-to-SQL SOTA modelini destekleyin
@@ -80,56 +80,56 @@ body_tr: |-
   - 📝 MySQL ve PostgreSQL'i destekleyin
   - 🖱️ Mevcut tabloları kaynak olarak listeleyin
   - 🔧 Tablo içeriklerini okuyun
-
+  
   ## Ön İzleme
   ### Mimari
   Bu sunucuyu projenize entegre etmenin iki yolu vardır, aşağıda gösterildiği gibi:
   Sol taraf varsayılan mod olan uzak moddur. XiYanSQL-qwencoder-32B modelini hizmet sağlayıcısından erişmek için bir API anahtarı gerektirir (bkz. [Yapılandırma](#yapılandırma)).
   Diğer mod, daha güvenli olan yerel moddur. API anahtarı gerektirmez.
-
+  
   ![architecture.png](https://raw.githubusercontent.com/XGenerationLab/xiyan_mcp_server/HEAD/imgs/architecture.png)
   ### En İyi uygulama ve raporlar
-
+  
   ["Tek satır kod yazmadan MCP + Modelscope API-Inference kullanarak yerel veri asistanı oluşturun"](https://mp.weixin.qq.com/s/tzDelu0W4w6t9C0_yYRbHA)
-
+  
   ["Xiyan MCP on Modelscope"](https://modelscope.cn/headlines/article/1142)
-
+  
   ### MCPBench Üzerinde Değerlendirme
   Aşağıdaki şekil, MCPBench ölçütü tarafından ölçülen XiYan MCP sunucusunun performansını göstermektedir. XiYan MCP sunucusu, hem MySQL MCP sunucusu hem de PostgreSQL MCP sunucusuna kıyasla üstün performans göstererek 2-22 yüzde puanı öncü durumdadır. Ayrıntılı deney sonuçları [MCPBench](https://github.com/modelscope/MCPBench) ve ["MCP Sunucuları Değerlendirme Raporu"](https://arxiv.org/abs/2504.11094) raporunda bulunabilir.
-
+  
   ![exp_mcpbench.png](https://raw.githubusercontent.com/XGenerationLab/xiyan_mcp_server/HEAD/imgs/exp_mcpbench.png)
-
+  
   ### Araçlar Ön İzlemesi
    - ``get_data`` aracı, bir veritabanından veri almak için doğal dil arayüzü sağlar. Bu sunucu, girdi doğal dilini yerleşik bir model kullanarak SQL'e dönüştürecek ve veritabanını çağırarak sorgu sonuçlarını döndürecektir.
-
+  
    - ``{dialect}://{table_name}`` kaynağı, belirli bir table_name belirtildiğinde model referansı için veritabanından örnek verilerin bir kısmını elde etmeyi sağlar.
   - ``{dialect}://`` kaynağı mevcut veritabanlarının adlarını listeler
-
+  
   ## Kurulum
   ### pip'ten Kurulum
-
+  
   Python 3.11+ gereklidir.
   Sunucuyu pip aracılığıyla kurabilirsiniz ve en son sürümü kurulacaktır:
-
+  
   ```shell
   pip install xiyan-mcp-server
   ```
-
+  
   Kaynaktan geliştirme sürümünü kurmak istiyorsanız, github'dan kaynak koddan kurabilirsiniz:
   ```shell
   pip install git+https://github.com/XGenerationLab/xiyan_mcp_server.git
   ```
-
+  
   ### Smithery.ai'den Kurulum
   Bkz. [@XGenerationLab/xiyan_mcp_server](https://smithery.ai/server/@XGenerationLab/xiyan_mcp_server)
-
+  
   Tam olarak test edilmemiş.
-
+  
   ## Yapılandırma
-
+  
   Sunucuyu yapılandırmak için bir YAML yapılandırma dosyasına ihtiyacınız vardır.
   config_demo.yml'de varsayılan bir yapılandırma dosyası sağlanmıştır ve şöyle görünür:
-
+  
   ```yaml
   mcp:
     transport: "stdio"
@@ -144,7 +144,7 @@ body_tr: |-
     password: ""
     database: ""
   ```
-
+  
   ### MCP Yapılandırması
   Taşıma protokolünü ``stdio`` veya ``sse`` olarak ayarlayabilirsiniz.
   #### STDIO
@@ -163,19 +163,19 @@ body_tr: |-
   ```
   Varsayılan port `8000`'dir. Gerekirse portu değiştirebilirsiniz.
   Varsayılan günlük seviyesi `ERROR`'dir. Daha ayrıntılı bilgi için günlük seviyesini `INFO` olarak ayarlamanızı öneririz.
-
+  
   ``debug``, ``host``, ``sse_path``, ``message_path`` gibi diğer yapılandırmalar da özelleştirilebilir, ancak normalde bunları değiştirmeniz gerekmez.
-
+  
   ### LLM Yapılandırması
   ``Name`` kullanılacak modelin adıdır, ``key`` modelin API anahtarıdır, ``url`` modelin API url'sidir. Aşağıdaki modelleri destekliyoruz.
-
+  
   | sürümler | genel LLM'ler (GPT, qwenmax) | Modelscope tarafından SOTA modeli | Dashscope tarafından SOTA modeli | Yerel LLM'ler |
   |----------|-------------------------------|--------------------------------------------|-----------------------------------------------------------|-----------------------|
   | açıklama | temel, kullanımı kolay | en iyi performans, istikrarlı, tavsiye edilir | en iyi performans, deneme için | yavaş, yüksek güvenlik |
   | isim | resmi model adı (ör. gpt-3.5-turbo, qwen-max) | XGenerationLab/XiYanSQL-QwenCoder-32B-2412 | xiyansql-qwencoder-32b | xiyansql-qwencoder-3b |
   | anahtar | hizmet sağlayıcısının API anahtarı (ör. OpenAI, Alibaba Cloud) | modelscope'un API anahtarı | e-posta aracılığıyla API anahtarı | "" |
   | url | hizmet sağlayıcısının endpoint'i (ör. "https://api.openai.com/v1") | https://api-inference.modelscope.cn/v1/ | https://xiyan-stream.biz.aliyun.com/service/api/xiyan-sql | http://localhost:5090 |
-
+  
   #### Genel LLM'ler
   Genel LLM'leri kullanmak istiyorsanız, örneğin gpt3.5, bunu doğrudan şöyle yapılandırabilirsiniz:
   ```yaml
@@ -185,7 +185,7 @@ body_tr: |-
     url: "https://api.openai.com/v1"
   database:
   ```
-
+  
   Alibaba'dan Qwen'i kullanmak istiyorsanız, örneğin Qwen-max, aşağıdaki yapılandırmayı kullanabilirsiniz:
   ```yaml
   model:
@@ -198,8 +198,8 @@ body_tr: |-
   XiYanSQL-qwencoder-32B (https://github.com/XGenerationLab/XiYanSQL-QwenCoder) modelini tavsiye ediyoruz; bu, text-to-sql'de SOTA modelidir, bkz. [Bird benchmark](https://bird-bench.github.io/).
   Modeli kullanmanın iki yolu vardır. Her ikisinden birini kullanabilirsiniz.
   (1) [Modelscope](https://www.modelscope.cn/models/XGenerationLab/XiYanSQL-QwenCoder-32B-2412), (2) Alibaba Cloud DashScope.
-
-
+  
+  
   ##### (1) Modelscope sürümü
   Modelscope'dan API-inference'ın bir ``key``'ini almanız gerekiyor, https://www.modelscope.cn/docs/model-service/API-Inference/intro
   Daha sonra aşağıdaki yapılandırmayı kullanabilirsiniz:
@@ -209,11 +209,11 @@ body_tr: |-
     key: ""
     url: "https://api-inference.modelscope.cn/v1/"
   ```
-
+  
   Daha fazla bilgi için [model açıklamasını](https://www.modelscope.cn/models/XGenerationLab/XiYanSQL-QwenCoder-32B-2412) okuyun.
-
+  
   ##### (2) Dashscope sürümü
-
+  
   Modeli Alibaba Cloud DashScope'a dağıttık, bu nedenle aşağıdaki ortam değişkenlerini ayarlamanız gerekir:
   ``key`` almak için bana e-postanızı gönderin. (godot.lzl@alibaba-inc.com)
   E-postada lütfen aşağıdaki bilgileri ekleyin:
@@ -224,29 +224,29 @@ body_tr: |-
   ```
   E-postanıza göre size bir ``key`` göndereceğiz. Ve yml dosyasında ``key``'i doldurabilisiniz.
   ``key`` 1 ay veya 200 sorgu veya diğer yasal kısıtlamalarla sona erecektir.
-
-
+  
+  
   ```yaml
   model:
     name: "xiyansql-qwencoder-32b"
     key: "KEY"
     url: "https://xiyan-stream.biz.aliyun.com/service/api/xiyan-sql"
   ```
-
+  
   Not: bu model hizmeti yalnızca deneme içindir, bunu üretimde kullanmanız gerekiyorsa, lütfen bizimle iletişime geçin.
-
+  
   ##### (3) Yerel sürüm
   Alternatif olarak, [XiYanSQL-qwencoder-32B](https://github.com/XGenerationLab/XiYanSQL-QwenCoder) modelini kendi sunucunuza dağıtabilirsiniz.
   Daha fazla bilgi için [Yerel Model](src/xiyan_mcp_server/local_model/README.md) dosyasına bakın.
-
-
+  
+  
   ### Veritabanı Yapılandırması
   ``host``, ``port``, ``user``, ``password``, ``database`` veritabanının bağlantı bilgileridir.
-
+  
   Yerel veya herhangi bir uzak veritabanını kullanabilirsiniz. Şimdi MySQL ve PostgreSQL'i destekliyoruz (yakında daha fazla diyalekt).
-
+  
   #### MySQL
-
+  
   ```yaml
   database:
     host: "localhost"
@@ -270,23 +270,23 @@ body_tr: |-
     password: ""
     database: ""
   ```
-
+  
   PostgreSQL için ``dialect`` değerinin ``postgresql`` olması gerektiğini unutmayın.
   ## Başlatma
-
+  
   ### Sunucu Başlatması
-
+  
   `sse` ile sunucu başlatmak istiyorsanız, aşağıdaki komutu bir terminalde çalıştırmanız gerekir:
   ```shell
   YML=path/to/yml python -m xiyan_mcp_server
   ```
   Daha sonra tarayıcınızda http://localhost:8000/sse hakkında bilgi görmüş olmalısınız. (Varsayılan olarak, mcp sunucunuz başka bir host/port üzerinde çalışıyorsa değiştirin)
-
+  
   Aksi takdirde, `stdio` aktarım protokolünü kullanıyorsanız, genellikle MCP sunucusu komutunu terminalde başlatmak yerine belirli mcp uygulamasında bildirirsiniz.
   Ancak gerekirse bu komutla hata ayıklama yapabilirsiniz.
-
+  
   ### İstemci Ayarı
-
+  
   #### Claude Desktop
   Claude Desktop yapılandırma dosyanızda bunu ekleyin, bkz. <a href="https://github.com/XGenerationLab/xiyan_mcp_server/blob/main/imgs/claude_desktop.jpg">Claude Desktop yapılandırma örneği</a>
   ```json
@@ -306,12 +306,12 @@ body_tr: |-
   }
   ```
   **Lütfen buradaki Python komutunun Python yürütülebilir dosyasının tam yolu olması gerektiğini (`/xxx/python`) unutmayın; aksi takdirde Python yorumlayıcısı bulunamaz. Bu yolu `which python` komutu kullanarak belirleyebilirsiniz. Aynı durum diğer uygulamalar için de geçerlidir.**
-
+  
   Claude Desktop şu anda SSE aktarım protokolünü desteklemiyor.
-
+  
   #### Cline
   [Claude Desktop](#claude-desktop) gibi yapılandırmayı hazırlayın
-
+  
   #### Goose
   `stdio` kullanıyorsanız, yapılandırmaya aşağıdaki komutu ekleyin, bkz. <a href="https://github.com/XGenerationLab/xiyan_mcp_server/blob/main/imgs/goose.jpg">Goose yapılandırma örneği</a>
   ```shell
@@ -320,7 +320,7 @@ body_tr: |-
   Aksi takdirde, `sse` kullanıyorsanız Türünü `SSE` olarak değiştirin ve endpoint'i `http://127.0.0.1:8000/sse` olarak ayarlayın
   #### Cursor
   Aşağıdakine benzer komutu kullanın.
-
+  
   `stdio` için:
   ```json
   {
@@ -348,8 +348,8 @@ body_tr: |-
     }
   }
   ```
-
-
+  
+  
   #### Witsy
   Komuta aşağıdakileri ekleyin:
   ```shell
@@ -357,27 +357,27 @@ body_tr: |-
   ```
   Bir env ekleyin: anahtar YML'dir ve değer yml dosyanızın yoludur.
   Bkz. <a href="https://github.com/XGenerationLab/xiyan_mcp_server/blob/main/imgs/witsy.jpg">Witsy yapılandırma örneği</a>
-
-
+  
+  
   ## Bize Ulaşın:
   Araştırmamız veya ürünlerimiz hakkında ilgileniyorsanız, lütfen bizimle iletişime geçmekten çekinmeyin.
-
+  
   #### İletişim Bilgileri:
-
+  
   Yifu Liu, zhencang.lyf@alibaba-inc.com
-
+  
   #### DingTalk Grubuna Katılın
-
+  
   <a href="https://github.com/XGenerationLab/XiYan-SQL/blob/main/xiyansql_dingding.png">Ding Group钉钉群</a>
-
-
+  
+  
   ## Diğer İlgili Bağlantılar
-
+  
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/xgenerationlab-xiyan-mcp-server-badge.png)](https://mseep.ai/app/xgenerationlab-xiyan-mcp-server)
-
-
-
-
+  
+  
+  
+  
   ## Atıf
   Çalışmamız faydalı bulduysa, lütfen bizi alıntı yapmaktan çekinmeyin.
   ```bibtex

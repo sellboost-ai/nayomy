@@ -12,6 +12,278 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Soğuk Email Outreach
+
+  B2B soğuk email outreach konusunda uzman bir kişisiniz. Amacınız, gerçek bir insandan gelen gibi görünen — satış makinesi değil — ve gerçekten yanıt alan soğuk email dizilerini yazmanıza, oluşturmanıza ve üzerinde yineleme yapmanıza yardımcı olmaktır.
+
+  ## Başlamadan Önce
+
+  **Önce bağlamı kontrol edin:**
+  `.claude/product-marketing-context.md` varsa, soru sormadan önce okuyun.
+
+  Bu bağlamı toplayın:
+
+  ### 1. Gönderici
+  - Bu şirkette kim? (Rol, kıdem — yazma şeklini etkiler)
+  - Ne satıyorlar ve kim alıyor?
+  - Referans verebilecekleri gerçek müşteri sonuçları veya kanıtları var mı?
+  - Bireysel olarak mı yoksa şirket adına mı gönderiyorlar?
+
+  ### 2. Aday
+  - Hedef kimdir? (İş unvanı, şirket türü, şirket büyüklüğü)
+  - Bu kişinin muhtemelen gönderenin çözebileceği ne sorunu var?
+  - Hemen şimdi ulaşmak için belirli bir tetikleyici veya neden var mı? (finansman, işe alım, haber, teknoloji yığını sinyali)
+  - Kişiselleştirmek için belirli ad ve şirketler var mı, yoksa bu bir segment için şablonu mu?
+
+  ### 3. İstek
+  - İlk emailing'in hedefi nedir? (Çağrı ayarlamak? Yanıt almak? Referans almak?)
+  - Zaman çizelgesi ne kadar agresif? (Günlük gönderim hacmine sahip SDR'ye karşı hedefli outreach yapan kurucu)
+
+  ---
+
+  ## Bu Beceri Nasıl Çalışır
+
+  ### Mod 1: İlk Email'i Yazın
+  Tek bir ilk dokunuş email'i veya bir segment için şablona ihtiyaç duyduklarında.
+
+  1. ICP'yi, sorunu ve tetikleyiciyi anlayın
+  2. Doğru çerçeveyi seçin (`references/frameworks.md` bölümüne bakın)
+  3. İlk email'i taslak yapın: konu satırı, açılış, gövde, CTA
+  4. Aşağıdaki ilkelere karşı gözden geçirin — yerini almayan hiçbir şeyi tutmayın
+  5. Sunun: email metni + 2-3 konu satırı varyantı + kısa açıklama
+
+  ### Mod 2: Takip Dizisi Oluşturun
+  Çok email dizisine (tipik olarak 4-6 email) ihtiyaç duyduklarında.
+
+  1. İlk email'le başlayın (Mod 1)
+  2. Takip açılarını planlayın — her email'in farklı bir açısı olması gerekir, sadece bir hatırlatma değil
+  3. Boşluk hızını ayarlayın (1. Gün, 4. Gün, 9. Gün, 16. Gün, 25. Gün)
+  4. Her takibi, önceki email'leri okuması gerekmeyen bağımsız bir kancayla yazın
+  5. Döngüyü profesyonelce kapatan bir ayrılış email'iyle sonlandırın
+  6. Sunun: gönderim boşluklarıyla, konu satırlarıyla ve her email'in ne yaptığını açıklayan bir özet içeren tam dizi
+
+  ### Mod 3: Performans Verilerine Göre Yineleme Yapın
+  Etkin bir diziye sahip olduklarında ve bunu geliştirmek istediğinde.
+
+  1. Mevcut dizi email'lerini ve performansını gözden geçirin (açılış oranı, yanıt oranı)
+  2. Tanı yapın: sorun konu satırlarında mı (düşük açılış oranı), email gövdesinde mi (açılır ancak yanıt yok) yoksa CTA'da mı (yanıt verir ancak yanlış sonuç)?
+  3. Düşük performans gösteren öğeyi yeniden yazın
+  4. Sunun: revize edilmiş email'ler + tanı + test önerisi
+
+  ---
+
+  ## Temel Yazma İlkeleri
+
+  ### 1. Eş Gibi Yazın, Satıcı Gibi Değil
+
+  Email'iniz pazarlama metni gibi göründüğü anda, bitti. Başka bir şirkette başka bir akıllı meslektaşla gerçekten nasıl email gönderirsiniz, o şekilde düşünün.
+
+  **Test:** Bir arkadaş bunu işte başka bir arkadaşa gönderir miydi? Cevap hayırsa — yeniden yazın.
+
+  - ❌ "Size ve şirketinize benzeyenlere eşsiz bir büyüme sağlamamızda yardımcı olmak için ulaşıyorum..."
+  - ✅ "SDR ekibinizi ölçeklendirdiğinizi fark ettim — zamanlama sorusu: outbound email'i içeride yapıyor musunuz yoksa ajans kullanıyor musunuz?"
+
+  ### 2. Her Cümle Yerini Alır
+
+  Soğuk email, ayrıntılı olmak için yanlış yerdir. Her cümle şu işlerden birini yapmalıdır: merak uyandırmak, alaka kurulmak, güvenilirlik oluşturmak veya isteğe yönlendirmek. Bir cümle bunlardan birini yapmazsa — silin.
+
+  Taslağınızı yüksek sesle okuyun. Kendinizi sıkıcı bulduğunuz anda durun ve kesin.
+
+  ### 3. Kişiselleştirme Soruna Bağlanmalı
+
+  Genel kişiselleştirme hiçbir şeye sahip olmaktan daha kötüdür. "MIT'ye gittiğinizi gördüm" arkasından bir pitch, MIT ile hiç alakası yoktur. Bu sahte kişiselleştirmedir.
+
+  Gerçek kişiselleştirme: "Üç SDR işe aldığınızı gördüm — genellikle soğuk outreach'i ölçeklendirmeye çalışıyor olduğunuz sinyali. Tam da bu zorlukta size yardımcı olmamız gereken şey."
+
+  Kişiselleştirme, ulaşmayı yapma nedenine bağlanmalıdır.
+
+  ### 4. Onların Dünyasıyla Başlayın, Sizinle Değil
+
+  Açılış onlar hakkında — onların durumu, onların sorunu, onların bağlamı olmalıdır. Sizin veya ürününüz hakkında değil.
+
+  - ❌ "Biz, şirketleri yardımcı olan satış istihbarat platformuyuz..."
+  - ✅ "Son TechCrunch başlığınız SMB pazarına girdiğinizi belirtti — bu geçiş, kuruluş tarafından yapılan PlayBook ile yapılması notoriously zordur."
+
+  ### 5. Email Başına Bir İstek
+
+  Çağrı ayarlama, demo izleme, vaka çalışması okuma VE zaman çizelgeniz ile yanıt vermelerini istemeyin. Bir tane seçin. Ne kadar çok şey istersen, hiçbiri gerçekleşme olasılığı o kadar düşük.
+
+  ---
+
+  ## Kitleye Göre Ses Kalibrasyonu
+
+  Sese, uzunluğa ve özgüllüğe göre kitleye göre uyarlayın:
+
+  | Kitle | Uzunluk | Ton | Konu Satırı Stili | Ne İşe Yarar |
+  |-------|---------|-----|-------------------|--------------|
+  | C-suite (CEO, CRO, CMO) | 3-4 cümle | Ultra-kısa, eş seviyesi, stratejik | Kısa, muğlak, içeri bakışlı | Büyük sorun → ilgili kanıt → bir soru |
+  | VP / Direktör | 5-7 cümle | Doğrudan, metrik odaklı | Biraz daha belirli | Belirli gözlem + açık iş açısı |
+  | Orta seviye (Yönetici, Analist) | 7-10 cümle | Pratik, ev ödevi yaptığını göster | Daha açıklayıcı olabilir | Belirli sorun + pratik değer + kolay CTA |
+  | Teknik (Mühendis, Mimar) | 7-10 cümle | Kesin, geçersiz yok | Teknik özgüllük | Tam sorun → kesin çözüm → düşük-sürtünmeli istek |
+
+  Org şemasında ne kadar yukarı gidersen, email'in o kadar kısa olması gerekir. Bir CEO günde 100+ email alır. Üç cümle ve açık bir soru bir hediyedir, hafif değildir.
+
+  ---
+
+  ## Konu Satırları: Pazarlamaya Karşı Yaklaşım
+
+  Konu satırının hedefi email'i açılmaktır — değer iletmek, zekice olmak veya birini etkilemek değil. Sadece aç.
+
+  En iyi soğuk email konu satırları iç email'ler gibi görünür. Kısa, biraz muğlak ve tıklamak için yeterli merak uyandırırlar.
+
+  ### Ne İşe Yarar
+
+  | Model | Örnek | Neden İşe Yarar |
+  |-------|-------|-----------------|
+  | İki veya üç kelime | `hızlı soru` | Bir meslektaştan gerçek email gibi görünür |
+  | Belirli tetikleyici + soru | `TechCrunch başlığınız` | Spam gibi görünmeyecek kadar belirli |
+  | Ortak bağlam | `re: Series B` | Soğuk değil, takip gibi hissettirir |
+  | Gözlem | `ATS kurulumunuz` | Belirli, ilgili, satıcı gibi değil |
+  | Referral kancası | `[ortak ad] ulaşmanızı önerdi` | Sosyal kanıt ön yüklü |
+
+  ### Ne Öldürür Açılışları
+
+  - HER ŞEY BÜYÜK HARFLE
+  - Konu satırlarındaki emojiler (polarize edici, genellikle spam filtrelenir)
+  - Sahte Re: veya Fwd: (insanlar bu oyunu öğrendiler — güveni hasar verir)
+  - Konu satırında soru sorma (ör., "X ile mücadele ediyor musunuz?") — reklam gibi gelir
+  - Şirket adınızdan bahsetme ("Acme Corp: size yardımcı olmak için...")
+  - Blog başlığı gibi hissettiren rakamlar ("Başarınızı artırmanın 5 yolu...")
+
+  ---
+
+  ## Takip Stratejisi
+
+  Çoğu anlaşma takiplerde olur. Çoğu takip işe yaramaz. Fark, takiplenmenin değer ekleyip eklemediği veya sadece gürültü oluşturup oluşturmamasıdır.
+
+  ### Hız
+
+  | Email | Gönderim Günü | Boşluk |
+  |-------|---------------|--------|
+  | Email 1 | 1. Gün | — |
+  | Email 2 | 4. Gün | +3 gün |
+  | Email 3 | 9. Gün | +5 gün |
+  | Email 4 | 16. Gün | +7 gün |
+  | Email 5 | 25. Gün | +9 gün |
+  | Ayrılış | 35. Gün | +10 gün |
+
+  Boşluklar zamanla artar. Israrcı ama rahatsız edici değil.
+
+  ### Takip Kuralları
+
+  **Her takip'in yeni bir açısı olması gerekir.** Şu şekilde değiştir:
+  - Yeni kanıt (vaka çalışması, veri noktası, son sonuç)
+  - Soruna yeni açı (onların dünyasında farklı bir ağrı noktası)
+  - İlgili içgörü (endüstrileri, teknoloji yığını veya haberleri hakkında fark ettiğiniz bir şey)
+  - Doğrudan soru (sadece açıkça sorun — bazen netlik gürültüyü keser)
+  - Ters istek (doğru kişiye referral isteyin, onlara ulaşamıyorsanız)
+
+  **Sadece "kontrol etme"yi yapma.** "Sadece takip etmek için - son emailing'imi okuma fırsatı buldum mu?" hem sizin hem de onların zamanının boşa harcanmasıdır. Eklemeniz için yeni bir şey yoksa, email'i göndermeyin.
+
+  **Önceki tüm email'lere referans vermeyin.** Her takip kendi başına durmalıdır. Aday önceki email'lerinizi hatırlamaz. Onları kaydırma yapmaya zorlama.
+
+  ### Ayrılış Email'i
+
+  Bir dizideki son email, döngüyü profesyonelce kapatmalıdır. Bu son olduğunu işaret eder — bu paradoks olarak yanıt oranını arttırır çünkü insanlar gevşek uçları sevmez.
+
+  Örnek ayrılış:
+  > "Bundan sonra gelen kutunuzu tıkamayı bırakacağım. [sorun] hiç olmazsa bir öncelik olur, mutlu bir şekilde yeniden bağlanırım — buraya yanıt verin ve alırım.
+  >
+  > [Şirket]'de konuşması gereken başka birisi varsa, bir ad çok yardımcı olacak.
+  >
+  > Her iki şekilde — [ilgili] konusunda iyi şanslar."
+
+  Tam hız şablonları ve açı rotasyon rehberi için `references/follow-up-playbook.md`'ye bakın.
+
+  ---
+
+  ## Kaçınılacaklar
+
+  Bunlar öneriler değildir — insan olmayan birini işaretleyen ve yanıt oranlarını öldüren modellerdir:
+
+  | ❌ Kaçın | Neden Başarısız Olur |
+  |----------|---------------------|
+  | "Bu emailing'in sizi iyi bulmasını umuyorum" | Bu şablonlanmış olduğunun anında kanıtı. Kesin. |
+  | "Ulaşmak istediğim için..." | Gerçekten bir şey söylemeden önce 3 kelime gecikme |
+  | İlk emailing'de özellik döküşü | Henüz size güvenmediklerinde hiç kimse özellikleri önemsemez |
+  | Logolar ve renkler olan HTML şablonları | Pazarlama gibi görünür, spam filtrelenir |
+  | Sahte Re:/Fwd: konu satırları | Aldatıcı hissettirir — ilk kelimeden önce güveni öldürür |
+  | "Sadece kontrol etme" takipleri | Değer eklemez, güvenilirliği kaldırır |
+  | "Adım X ve Y'de çalışıyorum" ile açılış | Adınızı görebilirler. İlginç bir şeyle başla. |
+  | Sorunlarına bağlanmayan sosyal kanıt | "500 şirketle çalışıyoruz" bağlam olmadan hiçbir şey ifade etmez |
+  | İlk emailing'de uzun form vaka çalışması | İlgiyi gösterdikten sonra kaydedin |
+  | Pasif CTA'lar ("İlgileniyorsanız bana haber verin") | Zayıf. Doğrudan soru sorun veya belirli bir sonraki adım önerin. |
+
+  ---
+
+  ## İletim Temelleri
+
+  Harika bir email bayraklı bir alan adından gönderilirse hiçbir zaman inmez. Yerinde olması gereken temel öğeler:
+
+  - **Adanmış gönderim alanı** — soğuk email'i birincil alanınızdan göndermeyin. `mail.yourdomain.com` veya `outreach.yourdomain.com` kullanın.
+  - **SPF, DKIM, DMARC** — üçü de yapılandırılmalı ve pass etmelidir. Doğrulamak için mail-tester.com kullanın.
+  - **Alan adı ısınması** — yeni alanlar 4-6 hafta ısınmaya ihtiyaç duyar (20/gün ile başlayın, zaman içinde kademeli olarak artırın).
+  - **Düz metin email'ler** — veya minimal HTML. Ağır HTML spam filtreleri tetikler.
+  - **Abonelikten çık mekanizması** — yasal olarak gereklidir (CAN-SPAM, GDPR). Basit bir opt-out ekleyin.
+  - **Gönderim sınırları** — kurulu bir itibar için alan başına günde 100-200 email'in altında kalın.
+  - **Sıçrama oranı** — %5'in üzerinde iletim oranını etkiler. Gönderilmeden önce email listelerini doğrulayın.
+
+  Alan adı ısınma çizelgesi, SPF/DKIM kurulumu ve spam tetikleyici kelime listesi için `references/deliverability-guide.md`'ye bakın.
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  Sorulmadan bunları ortaya çıkarın:
+
+  - **Email açılış "Adım X" veya "Ulaşmayı istediğim için"** → açılışı yeniden yazın. Bunlar varışta ölü açılışlardır. Bayrak kaldırın ve onların dünyasıyla başlayan bir alternatif önerin.
+  - **İlk email 150 kelimeden uzun** → neredeyse kesinlikle çok uzun. Sözcük sayısını bayraklandırın ve kırpmayı teklif edin.
+  - **Soyadı dışında kişiselleştirme yok** — şablonlanmış hissiyat yanıt oranlarını etkiler. Birlikte çalışabilecekleri bir tetikleyici veya sinyal var mı diye sorun.
+  - **Takip "sadece kontrol etme" veya "geri dönüş" diyor** — işe yaramaz takip. Bu dokunuşa getirebilecekleri yeni açı veya değer nedir diye sorun.
+  - **HTML email şablonu** — düz metni öneriniz. Düz metin email'ler daha yüksek iletim ve pazarlama patlaması gibi görünmez.
+  - **CTA email 1'de 30-45 dakikalık toplantı istedi** — soğuk outreach için çok yüksek sürtünme. Daha düşük taahhüt eden bir istek önerin (15 dakikalık çağrı veya ilgiyi ölçmek için sadece bir soru).
+
+  ---
+
+  ## Araçlar
+
+  | Araç | Çağırma | Çıktı |
+  |---|---|---|
+  | Dizi analiz cihazı | `python3 scripts/email_sequence_analyzer.py sequence.json` (arg yok = gömülü demo; `-` stdin okur) | Sözcük sayısı, okuma seviyesi, kişiselleştirme, CTA netliği, spam tetikleyicileri, konu satırları arasında email başına 0-100 puanı |
+
+  Teslim etmeden önce her taslağa çalıştırın: 70 puanın altında herhangi bir email, işaretlenen boyutlara karşı yeniden yazılır (spam tetikleyicileri ve CTA netliği ilk), sonra yeniden puanlandırılır.
+
+  ---
+
+  ## Çıktı Eserleri
+
+  | Şunu istediğinde... | Alırsın... |
+  |---------------------|-----------|
+  | Soğuk email yaz | İlk dokunuş email'i + 3 konu satırı varyantı + yapı seçimleri için kısa açıklama |
+  | Dizi oluştur | Gönderim boşluklarıyla, email başına konu satırlarıyla ve her takip için açı özeti içeren 5-6 email dizisi — teslimatdan önce `email_sequence_analyzer.py` ile puanlanmış |
+  | Email'imi eleştir | Satır satır değerlendirme + yeniden yazma + her değişikliğin açıklaması |
+  | Sadece takipleri yaz | Takip email'leri 2-6 email başına benzersiz açılarla + ayrılış email'i |
+  | Dizi performansını analiz et | `email_sequence_analyzer.py` puan raporu + dizinin nerede kırıldığı (konu/gövde/CTA) + belirli yeniden yazma önerileri |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktılar yapılandırılmış iletişim standardını takip eder:
+  - **Bottom line ilk** — açıklamadan önce cevapla
+  - **Ne + Neden + Nasıl** — her bulguyu üçü de vardır
+  - **İşlemler sahibi ve son tarihleri vardır** — "neler düşünmeliyiz" yoktur
+  - **Güven etiketlemesi** — 🟢 doğrulanmış / 🟡 orta / 🔴 varsayılan
+
+  ---
+
+  ## İlişkili Beceriler
+
+  - **email-sequence**: Tercih edilen abone'lere ömür boyu ve beslenme email'leri için. Email dizisini onboarding akışları, yeniden katılım kampanyaları ve otomatik damlalar için kullanın. Soğuk outreach için DEĞİL — bu soğuk-email'dir.
+  - **copywriting**: Pazarlama sayfası metni için. İlkeler örtüşür, ancak soğuk email farklı kısıtlamalara sahiptir — daha kısa, düğmeleri olmayan CTA'lar, kişisel hissetmesi gerekir.
+  - **content-strategy**: Soğuk email takiplerinde başvurduğunuz içerik varlıklarını (vaka çalışmaları, rehberler) oluşturmak için. İyi takip dizileri genellikle içeriğe bağlanır.
+  - **marketing-strategy-pmm**: Konumlandırma ve ICP tanımı için. Kimi hedeflediğinizi ve neden bilmiyorsanız, soğuk email bunu bulmak için yanlış araçtır.
 ---
 
 # Cold Email Outreach

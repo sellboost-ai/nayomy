@@ -3,17 +3,17 @@ name: "mindsdb/mindsdb"
 description: "Connect and unify data across various platforms and databases with MindsDB as a single MCP server."
 category: "Aggregators"
 repo: "mindsdb/mindsdb"
-stars: 39207
+stars: 39316
 url: "https://github.com/mindsdb/mindsdb"
-body_length: 6033
-license: "NOASSERTION"
-language: "Python"
+body_length: 6703
+license: "MIT"
+language: "Makefile"
 homepage: "https://mindsdb.com"
 body_tr: |-
   <a name="readme-top"></a>
-
-
-
+  
+  
+  
   <div align="center">
     <a href="https://pypi.org/project/MindsDB/" target="_blank">
       
@@ -24,7 +24,7 @@ body_tr: |-
     <a href="https://hub.docker.com/r/mindsdb/mindsdb" target="_blank">
     
     </a>
-
+  
     <p align="center">
       <a href="https://mindshub.ai">Dene</a>
       ·
@@ -33,22 +33,22 @@ body_tr: |-
       <a href="https://mindsdb.com/joincommunity?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Community Slack</a>
     </p>
   </div>
-
+  
   ---
-
+  
   ## MINDS PLATFORM 
-
+  
   Minds Platform, geliştirilmiş Yapay Zeka için açık bir temel oluşturmaya adanmıştır ve gerçekten kontrol edebilecekleri, genişletebilecekleri ve her yerde (VPC, on-prem veya Cloud) dağıtabilecekleri AI sistemleri arayan geliştiriciler, işletmeler ve bireyler için tasarlanmıştır.
-
+  
   Faydalı AI sistemlerinin iki temel yeteneğe ihtiyaç duyduğuna inanıyoruz: anlamlı işlemleri özerk olarak gerçekleştirme yeteneği **(Otomasyon)** ve doğru bilgileri bulma ve alma yeteneği **(Semantic Search)**. Ürünlerimiz bu iki temel etrafında tasarlanmıştır: 
-
+  
   * [Minds Anton](https://github.com/mindsdb/anton) - Herhangi türde işi tamamlayabilen kendini geliştiren **Otomasyon** Agent. Neye ihtiyacınız olduğunu düz dilde söyleyin ve o oradan devam eder - raporlar oluşturur, verileri organize eder, e-postalar gönderir, API'ları çağırır, panolar oluşturur, görevleri planlar vb. 
-
+  
   * [Minds Query Engine](https://github.com/mindsdb/engine) - **Semantic Search** query engine, yüzlerce yapılandırılmış ve yapılandırılmamış veri kaynağından büyük miktardaki verileri indexlemek ve organize etmek için kullanılır.
-
-
+  
+  
   # KULLANIM DURUMLAR
-
+  
   | Kullanım Durumu | Çözüm |
   |---|---|
   | Otomatik raporlama, yinelenen workflow'lar ve operasyonel görev yürütümü | **Anton** |
@@ -58,21 +58,21 @@ body_tr: |-
   | Satış, destek, finans ve mühendislik takımları için AI operasyon asistanları | **Anton** |
   | Hafıza, erişim, akıl yürütme ve yürütmeyi birleştiren büyük ölçekli Enterprise AI sistemleri | **Anton + Query Engine** |
   ---
-
+  
   # HER YERDE DAĞITIM
-
+  
   Minds Platform, aşağıdakiler arasında esnek dağıtım için tasarlanmıştır:
-
+  
   - Cloud
   - VPC
   - On-Prem
   - Hava Yalıtımlı Ortamlar
   - Hibrit Altyapı
-
+  
   Altyapınız, modelleriniz, izinleriniz ve verileriniz üzerinde tam kontrol sahibi olun.
-
+  
   ## 🫴 Yardım ve destek
-
+  
   Bir sorgu ile mi takılıp kaldınız? Bir hata mı buldunuz? Buradayız yardımcı olmak için.
   <table style="width:100%; border-collapse:collapse;">
     <tr>
@@ -100,32 +100,32 @@ body_tr: |-
       </td>
     </tr>
   </table>
-
+  
   **Güvenlik Notu:** Bir güvenlik açığı bulursanız, lütfen halkaya açık bir issue açmayın. Raporlama talimatları için <a href="https://github.com/mindsdb/mindsdb/security">güvenlik politikamıza</a> bakın.
-
+  
   ## 🤝 Minds Platform'a Katkıda Bulunun
-
+  
   Minds Platform açık kaynaktır ve katkılar memnuniyetle karşılanır! Pull requestler aracılığıyla veya hataları raporlamak, yeni özellikler veya geliştirmeler önermek için issue açarak kod değişiklikleri sunabilirsiniz.
-
-
+  
+  
   **Nasıl katkıda bulunabilirsiniz**
-
+  
   - Ayarlamak için <a href="https://docs.mindsdb.com/contribute/contribute?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">katkı rehberini</a> okuyun.
   - <a href="https://github.com/mindsdb/mindsdb/issues">Açık issue'lere</a> göz atın.
   - <a href="https://mindsdb.com/joincommunity">Slack</a>'deki #contributors kanalına katılın.
   - <a href="https://mindsdb.com/community?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Topluluk ödülleri ve programlarını</a> keşfedin.
-
+  
   <div align="center">
-
+  
   <strong>Top 100 katkıcılarımız</strong>
-
+  
   <a href="https://github.com/mindsdb/mindsdb/graphs/contributors">
-
+  
   </a>
   	
   [contrib.rocks](https://contrib.rocks) ile yapıldı
   </div>
-
+  
   ## 📚 Kaynaklar
   - <a href="https://docs.mindsdb.com?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Dokümantasyon</a>
   - <a href="https://mindsdb.com/blog?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Blog</a>
@@ -149,8 +149,10 @@ body_tr: |-
   <a href="https://hub.docker.com/r/mindsdb/mindsdb" target="_blank">
   
   </a>
-
+<br/>
   <p align="center">
+	<a href="https://docs.mindshub.ai/">Documentation</a>
+    ·
     <a href="https://mindshub.ai">Try it</a>
     ·
     <a href="https://mindsdb.com/contact?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Contact us for a demo</a>
@@ -159,32 +161,66 @@ body_tr: |-
   </p>
 </div>
 
+
+
+
+
+
+# MINDS-COWORK PLATFORM 
+
+Minds Platform is dedicated to building a general-purpose AI designed for knowledge workers — creators, strategists, and operators — and individuals seeking AI systems they can truly control to help them get work done, with full flexibility to extend and deploy anywhere (VPC, on-prem, or cloud).
+
+
+
+## USE CASES
+
+
+**For every knowledge worker**
+- **Automate** any repetitive multi-step task that involves reading and writing (reports, monitoring, workflows)
+- **Build** internal AI tools/artifacts without engineering and deploy to your team (apps, decks, docs, analyses)
+
 ---
 
-## MINDS PLATFORM 
+## GET STARTED
 
-Minds Platform is dedicated to building an open foundation for frontier Artificial Intelligence, designed for developers, businesses, and individuals seeking AI systems they can truly control, extend and deploy anywhere (VPC, on-prem or Cloud).
+### Desktop App:
+Simplest way to use this is the latest build App, available on web or desktop:
 
-We believe useful AI systems require two fundamental capabilities: the ability to perform meaningful actions autonomously **(Automation)** and the ability to find and retrieve the right information **(Semantic Search)**. Our products are designed around these two foundations: 
+- **web**: Click [here to register/login](https://mindshub.ai) the Minds-cowork app, packaged and ready for you in one click.
 
-* [Minds Anton](https://github.com/mindsdb/anton) - Self-improving **Automation** Agent that can get any type of work done. Tell it what you need in plain language and it takes it from there - creating reports, organizing data, sending emails, calling APIs, building dashboards, scheduling tasks, etc. 
+- **macOS**: Click [here to download](https://downloads.mindsdb.com/anton/mac/anton-latest.pkg) the Minds-cowork for MacOS.
 
-* [Minds Query Engine](https://github.com/mindsdb/engine) - **Semantic Search** query engine, used to index and organize large amounts of data from hundreds of structured and unstructured datasources.
+- **Windows**: Click [here to download](https://downloads.mindsdb.com/anton/windows/anton-latest.exe) the Minds-cowork for Windows.
+ 
 
+### Build from source:
+**1. Clone the repository**
+```bash
+git clone --recurse-submodules https://github.com/mindsdb/minds-platform.git
+cd minds-platform
+```
 
-# USE CASES
+**2. Install dependencies**
+```bash
+make setup
+```
 
-| Use Case | Solution |
+**3. Run**
+
+| Mode | Command |
 |---|---|
-| Automated reporting, recurring workflows, and operational task execution | **Anton** |
-| Embeddable conversational business intelligence | **Query Engine** |
-| Search across large knowledge bases; documents, tickets, etc | **Query Engine** |
-| Search and Analyze data across large knowledge bases; documents, tickets, etc | **Anton +  Query Engine** |
-| AI operations assistants for sales, support, finance, and engineering teams | **Anton** |
-| Large scale Enterprise AI systems combining memory, retrieval, reasoning, and execution | **Anton + Query Engine** |
+| Desktop app (Electron) with hot reload | `make dev` |
+| Web app in browser with hot reload | `make dev-web` |
+| Production build | `make build` |
+| Package for macOS | `make dist-mac` |
+| Package for Windows | `make dist-win` |
+| Wipe all local installs + data (fresh start) | `make flush` |
+
+> **Reset to a clean slate:** `make flush` uninstalls the local runtime (the `cowork-server` uv tool and the `backend/*/.venv`s) **and** deletes app state in `~/.anton` (provider keys) and `~/.cowork` (database, hermes, projects). Use it to test the from-scratch install flow or recover from a broken install. ⚠️ This deletes your conversations and saved keys. It prompts for confirmation; pass `FORCE=1` to skip it. The next `make setup` or app launch reinstalls everything.
+
 ---
 
-# DEPLOY ANYWHERE
+## DEPLOY ANYWHERE
 
 Minds Platform is designed for flexible deployment across:
 

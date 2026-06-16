@@ -3,7 +3,7 @@ name: "longbridge/openapi"
 description: "LongPort OpenAPI provides real-time stock market data, provides AI access analysis and trading capabilities through MCP."
 category: "Finance & Fintech"
 repo: "longbridge/openapi"
-stars: 432
+stars: 437
 url: "https://github.com/longbridge/openapi"
 body_length: 6378
 license: "Apache-2.0"
@@ -11,19 +11,19 @@ language: "Rust"
 homepage: "https://open.longbridge.com"
 body_tr: |-
   # Longbridge OpenAPI SDK
-
+  
   [![](https://img.shields.io/crates/v/longbridge.svg)](https://crates.io/crates/longbridge) [![Go project version](https://badge.fury.io/go/github.com%2Flongbridge%2Fopenapi-go.svg)](https://badge.fury.io/go/github.com%2Flongbridge%2Fopenapi-go) [![PyPI version](https://badge.fury.io/py/longbridge.svg)](https://badge.fury.io/py/longbridge) [![npm version](https://badge.fury.io/js/longbridge.svg)](https://badge.fury.io/js/longbridge) [![Maven Central](https://img.shields.io/maven-central/v/io.github.longbridge/openapi-sdk)](https://search.maven.org/artifact/io.github.longbridge/openapi-sdk)
-
-
+  
+  
   Longbridge OpenAPI, araştırma ve geliştirme yeteneklerine sahip yatırımcılar için programlı alım satım ve fiyat teklifi arayüzleri sağlar ve kendi yatırım stratejilerine dayalı ticaret veya fiyat teklifi stratejisi analiz araçları oluşturmalarına yardımcı olur. İşlevler aşağıdaki kategorilere ayrılır:
-
+  
   - Trading - Siparişleri oluşturma, değiştirme, iptal etme, bugünün/geçmiş siparişleri ve işlem detaylarını sorgulama, vb.
   - Quotes - Gerçek zamanlı fiyat teklifleri, geçmiş fiyat tekliflerinin elde edilmesi, vb.
   - Portfolio - Hesap varlıklarının, pozisyonların, fonların gerçek zamanlı sorgulanması
   - Gerçek zamanlı abonelik - Gerçek zamanlı fiyat teklifleri ve sipariş durum değişiklikleri için push bildirimleri sağlar
-
+  
   **Bu depo aşağıdaki ana bileşenleri içerir:**
-
+  
   | İsim                        | Dokümantasyon                                                              | Açıklama                                       |
   |-----------------------------|-----------------------------------------------------------------------|---------------------------------------------------|
   | [Rust](rust/README.md)      | [Doc](https://longbridge.github.io/openapi/rust/longbridge/index.html) | Rust için Longbridge OpenAPI `(>= 1.89.0)`           |
@@ -34,10 +34,10 @@ body_tr: |-
   | [C++](cpp/README.md)        | [Doc](https://longbridge.github.io/openapi/cpp/index.html)           | C++ için Longbridge OpenAPI `(>= C++17)`              |
   | Go                          |                                                                       | https://github.com/longbridge/openapi-go         |
   | [MCP](mcp/README.md)        |                                                                       | Longbridge OpenAPI için bir MCP sunucu uygulaması |
-
-
+  
+  
   ## Context Türleri
-
+  
   | Context | Açıklama |
   |---------|-------------|
   | `QuoteContext` | Gerçek zamanlı fiyat teklifleri, mum grafikler, opsiyonlar, garantiler, izleme listeleri, push abonelikleri |
@@ -51,17 +51,17 @@ body_tr: |-
   | `AlertContext` | Fiyat uyarısı yönetimi (ekleme/etkinleştirme/devre dışı bırakma/silme) |
   | `DCAContext` | Ortalama maliyet düşürme planı yönetimi |
   | `SharelistContext` | Topluluk hisse listesi yönetimi |
-
+  
   ## Hızlı Başlangıç
-
+  
   Yukarıdaki tablodan bir dil SDK'sını seçin ve kurulum ile ilk isteği için README'sini takip edin. Tam referans dokümanlar: https://longbridge.github.io/openapi
-
+  
   ## SDK Dokümantasyonu
-
+  
   https://longbridge.github.io/openapi
-
+  
   ## Sorun Giderme
-
+  
   - Ortam değişkenleri etkili olmuyor
     - macOS/Linux: `export ...` yalnızca geçerli shell oturumunu etkiler.
     - Windows: `setx ...` etkili olması için yeni bir terminal/oturum açılması gerekir.
@@ -76,56 +76,56 @@ body_tr: |-
   - Hata Ayıklama
     - `LONGBRIDGE_LOG_PATH` aracılığıyla logları etkinleştirin.
     - Fiyat teklifleri bağlanırsa ancak boş görünüyorsa, açılan fiyat teklifi paketlerini doğrulamak için `LONGBRIDGE_PRINT_QUOTE_PACKAGES=true` tutun.
-
+  
   ## Minimal Doğrulama
-
+  
   Ortamınız / kimlik bilgilerinizin doğru olup olmadığından emin değilseniz, yerleşik HTTP istemci örnekleriyle başlayın.
-
+  
   - Python:
-
+  
     ```bash
     python examples/python/http_client.py
     ```
-
+  
   - Node.js:
-
+  
     ```bash
     node examples/nodejs/http_client.js
     ```
-
+  
   - Rust:
-
+  
     ```bash
     cargo run --manifest-path examples/rust/Cargo.toml -p http_client
     ```
-
+  
   - Java (örnek modülü dizininden):
-
+  
     ```bash
     cd examples/java/http_client
     mvn -q -DskipTests package
     mvn -q -DskipTests exec:java
     ```
-
+  
   - C/C++:
     - `examples/c/http_client/main.c` ve `examples/cpp/http_client/main.cpp` dosyalarındaki kaynakları kullanın.
     - Derleme talimatları toolchain'inize bağlıdır; ilgili dil SDK README'sine bakın.
-
+  
   Beklenen sonuçlar:
-
+  
   - Kimlik bilgileri geçerliyse ve ağ ulaşılabilirse, HTTP çağrısı JSON döndürür.
   - 401/403 döndürürse, `LONGBRIDGE_APP_KEY`, `LONGBRIDGE_APP_SECRET`, `LONGBRIDGE_ACCESS_TOKEN` değerlerinizi kontrol edin.
   - Zaman aşımına uğrarsa / bağlanamazsa, proxy/güvenlik duvarını ve endpoint ortam değişkenlerinizi kontrol edin.
-
+  
   ## Kaynaklar
-
+  
   - [Longbridge OpenAPI](https://open.longbridge.com/en/)
   - [Longbridge OpenAPI Dokümanları](https://open.longbridge.com/en/docs)
-
+  
   ## Lisans
-
+  
   Aşağıdakilerden herhangi biri kapsamında lisanslanmıştır
-
+  
   * Apache License, Version 2.0, ([LICENSE-APACHE](./LICENSE-APACHE) veya http://www.apache.org/licenses/LICENSE-2.0)
   * MIT lisansı ([LICENSE-MIT](./LICENSE-MIT) veya http://opensource.org/licenses/MIT) seçiminize göre.
 ---

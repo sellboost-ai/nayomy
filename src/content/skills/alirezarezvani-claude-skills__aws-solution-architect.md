@@ -3,7 +3,7 @@ name: "aws-solution-architect"
 description_en: "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/aws-solution-architect/SKILL.md"
 path: ".gemini/skills/aws-solution-architect/SKILL.md"
 is_collection: false
@@ -14,17 +14,17 @@ has_examples: false
 related_files: []
 body_tr: |-
   # AWS Çözüm Mimarı
-
+  
   Startuplar için ölçeklenebilir, uygun maliyetli AWS mimarileri tasarlayın ve altyapı-kod şablonları kullanın.
-
+  
   ---
-
+  
   ## İş Akışı
-
+  
   ### Adım 1: Gereksinimler Toplayın
-
+  
   Uygulama spesifikasyonlarını toplayın:
-
+  
   ```
   - Uygulama türü (web uygulaması, mobil backend, veri pipeline, SaaS)
   - Beklenen kullanıcı sayısı ve saniyede istek sayısı
@@ -33,17 +33,17 @@ body_tr: |-
   - Uygunluk gereksinimleri (GDPR, HIPAA, SOC 2)
   - Kullanılabilirlik gereksinimleri (SLA, RPO/RTO)
   ```
-
+  
   ### Adım 2: Mimariyi Tasarlayın
-
+  
   Desen önerilerini almak için mimari tasarımcısını çalıştırın:
-
+  
   ```bash
   python scripts/architecture_designer.py --input requirements.json
   ```
-
+  
   **Örnek çıktı:**
-
+  
   ```json
   {
     "recommended_pattern": "serverless_web",
@@ -53,37 +53,37 @@ body_tr: |-
     "cons": ["Cold starts", "15-min Lambda limit", "Eventual consistency"]
   }
   ```
-
+  
   Önerilen desenler arasından seçim yapın:
   - **Serverless Web**: S3 + CloudFront + API Gateway + Lambda + DynamoDB
   - **Event-Driven Microservices**: EventBridge + Lambda + SQS + Step Functions
   - **Three-Tier**: ALB + ECS Fargate + Aurora + ElastiCache
   - **GraphQL Backend**: AppSync + Lambda + DynamoDB + Cognito
-
+  
   Ayrıntılı desen özellikleri için `references/architecture_patterns.md` dosyasına bakın.
-
+  
   **Doğrulama kontrol noktası:** Önerilen desen, ekibin operasyonel olgunluk seviyesi ve uygunluk gereksinimlerine uygun olduğunu onayladıktan sonra Adım 3'e geçin.
-
+  
   ### Adım 3: IaC Şablonları Oluşturun
-
+  
   Seçilen desen için altyapı-kod oluşturun:
-
+  
   ```bash
   # Serverless yığını (CloudFormation)
   python scripts/serverless_stack.py --app-name my-app --region us-east-1
   ```
-
+  
   **Örnek CloudFormation YAML çıktısı (temel serverless kaynakları):**
-
+  
   ```yaml
   AWSTemplateFormatVersion: '2010-09-09'
   Transform: AWS::Serverless-2016-10-31
-
+  
   Parameters:
     AppName:
       Type: String
       Default: my-app
-
+  
   Resources:
     ApiFunction:
       Type: AWS::Serverless::Function
@@ -104,7 +104,7 @@ body_tr: |-
             Properties:
               Path: /{proxy+}
               Method: ANY
-
+  
     DataTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -120,20 +120,20 @@ body_tr: |-
           - AttributeName: sk
             KeyType: RANGE
   ```
-
+  
   > API Gateway, Cognito, IAM rolleri ve CloudWatch logging dahil olmak üzere tam şablonlar `serverless_stack.py` tarafından oluşturulur ve `references/architecture_patterns.md` dosyasında da mevcuttur.
-
+  
   **Örnek CDK TypeScript code parçacığı (three-tier deseni):**
-
+  
   ```typescript
   import * as ecs from 'aws-cdk-lib/aws-ecs';
   import * as ec2 from 'aws-cdk-lib/aws-ec2';
   import * as rds from 'aws-cdk-lib/aws-rds';
-
+  
   const vpc = new ec2.Vpc(this, 'AppVpc', { maxAzs: 2 });
-
+  
   const cluster = new ecs.Cluster(this, 'AppCluster', { vpc });
-
+  
   const db = new rds.ServerlessCluster(this, 'AppDb', {
     engine: rds.DatabaseClusterEngine.auroraPostgres({
       version: rds.AuroraPostgresEngineVersion.VER_15_2,
@@ -142,17 +142,17 @@ body_tr: |-
     scaling: { minCapacity: 0.5, maxCapacity: 4 },
   });
   ```
-
+  
   ### Adım 4: Maliyetleri İnceleyin
-
+  
   Tahmini maliyetleri ve optimizasyon fırsatlarını analiz edin:
-
+  
   ```bash
   python scripts/cost_optimizer.py --resources current_setup.json --monthly-spend 2000
   ```
-
+  
   **Örnek çıktı:**
-
+  
   ```json
   {
     "current_monthly_usd": 2000,
@@ -164,45 +164,45 @@ body_tr: |-
     "total_potential_savings_usd": 815
   }
   ```
-
+  
   Çıktı şunları içerir:
   - Servise göre aylık maliyet dağılımı
   - Doğru boyutlandırma önerileri
   - Savings Plans fırsatları
   - Potansiyel aylık tasarruflar
-
+  
   ### Adım 5: Dağıtın
-
+  
   Oluşturulan altyapıyı dağıtın:
-
+  
   ```bash
   # CloudFormation
   aws cloudformation create-stack \
     --stack-name my-app-stack \
     --template-body file://template.yaml \
     --capabilities CAPABILITY_IAM
-
+  
   # CDK
   cdk deploy
-
+  
   # Terraform
   terraform init && terraform apply
   ```
-
+  
   ### Adım 6: Doğrulayın ve Hataları Yönetin
-
+  
   Dağıtımı doğrulayın ve izleme ayarlayın:
-
+  
   ```bash
   # Yığın durumunu kontrol edin
   aws cloudformation describe-stacks --stack-name my-app-stack
-
+  
   # CloudWatch alarmları ayarlayın
   aws cloudwatch put-metric-alarm --alarm-name high-errors ...
   ```
-
+  
   **Stack oluşturma başarısız olursa:**
-
+  
   1. Hata nedenini kontrol edin:
      ```bash
      aws cloudformation describe-stack-events \
@@ -219,66 +219,66 @@ body_tr: |-
      # Yeniden dağıtın
      aws cloudformation create-stack ...
      ```
-
+  
   **Yaygın hata nedenleri:**
   - IAM izin hataları → `--capabilities CAPABILITY_IAM` ve rol güven ilkelerini doğrulayın
   - Kaynak sınırı aşıldı → Service Quotas konsolundan kota artışı talep edin
   - Geçersiz şablon sözdizimi → dağıtmadan önce `aws cloudformation validate-template --template-body file://template.yaml` komutunu çalıştırın
-
+  
   ---
-
+  
   ## Araçlar
-
+  
   ### architecture_designer.py
-
+  
   Gereksinimler temelinde mimari desenler oluşturur.
-
+  
   ```bash
   python scripts/architecture_designer.py --input requirements.json --output design.json
   ```
-
+  
   **Giriş:** Uygulama türü, ölçek, bütçe, uygunluk gereksinimleri içeren JSON
   **Çıktı:** Önerilen desen, service yığını, maliyet tahmini, artılar/eksiler
-
+  
   ### serverless_stack.py
-
+  
   Serverless CloudFormation şablonları oluşturur.
-
+  
   ```bash
   python scripts/serverless_stack.py --app-name my-app --region us-east-1
   ```
-
+  
   **Çıktı:** Aşağıdakileri içeren üretim hazırı CloudFormation YAML:
   - API Gateway + Lambda
   - DynamoDB tablosu
   - Cognito kullanıcı havuzu
   - En az yetki ilkesi olan IAM rolleri
   - CloudWatch logging
-
+  
   ### cost_optimizer.py
-
+  
   Maliyetleri analiz eder ve optimizasyonlar önerir.
-
+  
   ```bash
   python scripts/cost_optimizer.py --resources inventory.json --monthly-spend 5000
   ```
-
+  
   **Çıktı:** Aşağıdakiler için öneriler:
   - Boş kaynakların kaldırılması
   - Instance doğru boyutlandırması
   - Ayrılmış kapasite satın alımları
   - Depolama katmanı dönüşümleri
   - NAT Gateway alternatifleri
-
+  
   ---
-
+  
   ## Hızlı Başlangıç
-
+  
   ### MVP Mimarisi (< $100/ay)
-
+  
   ```
   Soru: "Mobil uygulama için 1000 kullanıcıyla serverless MVP backend tasarlayın"
-
+  
   Sonuç:
   - API için Lambda + API Gateway
   - Veri için DynamoDB pay-per-request
@@ -286,12 +286,12 @@ body_tr: |-
   - Statik varlıklar için S3 + CloudFront
   - Tahmini: $20-50/ay
   ```
-
+  
   ### Ölçeklendirme Mimarisi ($500-2000/ay)
-
+  
   ```
   Soru: "50k kullanıcılı SaaS platformu için ölçeklenebilir mimari tasarlayın"
-
+  
   Sonuç:
   - Containerized API için ECS Fargate
   - İlişkisel veriler için Aurora Serverless
@@ -300,14 +300,14 @@ body_tr: |-
   - CI/CD için CodePipeline
   - Multi-AZ dağıtımı
   ```
-
+  
   ### Maliyet Optimizasyonu
-
+  
   ```
   Soru: "AWS kurulumumu %30 oranında maliyet düşürmek için optimize edin. Şu anki harcama: $3000/ay"
-
+  
   Sağlayın: Mevcut kaynak envanteri (EC2, RDS, S3, vb.)
-
+  
   Sonuç:
   - Boş kaynak tanımlanması
   - Doğru boyutlandırma önerileri
@@ -315,12 +315,12 @@ body_tr: |-
   - Depolama yaşam döngüsü ilkeleri
   - Hedef tasarruf: $900/ay
   ```
-
+  
   ### IaC Oluşturma
-
+  
   ```
   Soru: "Otomatik ölçeklendirmeli three-tier web uygulaması için CloudFormation oluşturun"
-
+  
   Sonuç:
   - Genel/özel alt ağlar olan VPC
   - HTTPS'li ALB
@@ -328,13 +328,13 @@ body_tr: |-
   - Okuma kopyaları olan Aurora
   - Güvenlik grupları ve IAM rolleri
   ```
-
+  
   ---
-
+  
   ## Giriş Gereksinimleri
-
+  
   Mimari tasarım için bu ayrıntıları sağlayın:
-
+  
   | Gereksinim | Açıklama | Örnek |
   |-------------|----------|---------|
   | Uygulama türü | Ne inşa ettiğiniz | SaaS platformu, mobil backend |
@@ -343,9 +343,9 @@ body_tr: |-
   | Ekip bağlamı | Boyut, AWS deneyimi | 3 geliştirici, ara seviye |
   | Uygunluk | Düzenleyici gereksinimler | HIPAA, GDPR, SOC 2 |
   | Kullanılabilirlik | Çalışma süresi gereksinimleri | 99.9% SLA, 1sa RPO |
-
+  
   **JSON Formatı:**
-
+  
   ```json
   {
     "application_type": "saas_platform",
@@ -358,32 +358,32 @@ body_tr: |-
     "availability_sla": "99.9%"
   }
   ```
-
+  
   ---
-
+  
   ## Çıktı Formatları
-
+  
   ### Mimari Tasarım
-
+  
   - Desen önerisi ve mantığı
   - Servise yığını diyagramı (ASCII)
   - Aylık maliyet tahmini ve ödünleşimler
-
+  
   ### IaC Şablonları
-
+  
   - **CloudFormation YAML**: Üretim hazırı SAM/CFN şablonları
   - **CDK TypeScript**: Type-safe altyapı kodu
   - **Terraform HCL**: Multi-cloud uyumlu yapılandırmalar
-
+  
   ### Maliyet Analizi
-
+  
   - Mevcut harcama dağılımı ve optimizasyon önerileri
   - Öncelik eylemi listesi (yüksek/orta/düşük) ve uygulama kontrol listesi
-
+  
   ---
-
+  
   ## Referans Belgelendirmesi
-
+  
   | Belge | İçerik |
   |----------|--------|
   | `references/architecture_patterns.md` | 6 desen: serverless, microservices, three-tier, veri işleme, GraphQL, multi-region |

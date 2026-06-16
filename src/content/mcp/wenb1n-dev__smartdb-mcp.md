@@ -3,7 +3,7 @@ name: "wenb1n-dev/SmartDB_MCP"
 description: "A universal database MCP server supporting simultaneous connections to multiple databases. It provides tools for database operations, health analysis, SQL optimization, and more. Compatible with mainstream databases including MySQL, PostgreSQL, SQL Server, MariaDB, Dameng, and Oracle. Supports Streamable HTTP, SSE, and STDIO; integrates OAuth 2.0; and is designed for easy customization and extensi"
 category: "Databases"
 repo: "wenb1n-dev/SmartDB_MCP"
-stars: 82
+stars: 85
 url: "https://github.com/wenb1n-dev/SmartDB_MCP"
 body_length: 12241
 license: "MIT"
@@ -12,19 +12,19 @@ body_tr: |-
   [![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](README-zh.md)
   [![English](https://img.shields.io/badge/English-Click-yellow)](README.md)
   [![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/wenb1n-dev-smartdb-mcp)
-
-
-
-
+  
+  
+  
+  
   # SmartDB
-
+  
   SmartDB, Model Context Protocol (MCP) sunucu arayüzünü uygulayan evrensel bir veritabanı ağ geçididir. Bu ağ geçidi, MCP uyumlu istemcilerin farklı veritabanlarına bağlanmasını ve keşfetmesini sağlar.
-
+  
   Benzer ürünlerle karşılaştırıldığında, SmartDB yalnızca temel veritabanı bağlantısı ve keşif yetenekleri sağlamakla kalmaz, aynı zamanda OAuth 2.0 kimlik doğrulaması, sağlık kontrolleri, SQL optimizasyonu ve index sağlık tespiti gibi ileri özellikler ekleyerek veritabanı yönetimini ve bakımını daha güvenli ve akıllı hale getirir.
-
-
-
-
+  
+  
+  
+  
   ## Şu Anda Desteklenen Veritabanları
   | Veritabanı   | Destek | Açıklama              |
   |------------|--------|--------------------------|
@@ -33,7 +33,7 @@ body_tr: |-
   | Oracle     | √ | Oracle 12+               |
   | SQL Server | √ | Microsoft SQL Server 2012+ |
   | Dameng     | √ | Dameng 8.0+              |
-
+  
   ## Tool Listesi
   | Tool Adı | Açıklama                                                                                                                                                                                   |
   |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,14 +45,14 @@ body_tr: |-
   | get_db_version | Veritabanı sürüm sorgu aracı                                                                                                                                                                   |
   | sql_creator | Farklı veritabanı türlerine göre ilgili SQL sorgu ifadeleri oluşturan SQL sorgu oluşturma aracı                                                                                 |
   | sql_optimize | Yürütme planları, tablo yapısı bilgileri, tablo veri hacmi ve tablo indexlerine göre uzman optimizasyon önerileri sağlayan profesyonel bir SQL performans optimizasyon aracı   | 
-
+  
   ## Kullanım
-
+  
   ### Ortam Yapılandırma Dosyası Açıklaması
   ```bash
   # Veritabanı yapılandırma dosyası yolu
   DATABASE_CONFIG_FILE=/Volumes/SmartDB/src/config/database_config.json
-
+  
   #========OAuth2========
   # OAuth2 client ID
   CLIENT_ID=smart_db_client_id
@@ -70,7 +70,7 @@ body_tr: |-
   OAUTH_USER_PASSWORD=wenb1n
   ```
   Not: oauth yapılandırmasında client ID ve anahtarı ayarlarsanız, önceki kodda static/config dosyasındaki karşılık gelen yapılandırmayı da değiştirin
-
+  
   ### Veritabanı Bağlantısı Yapılandırması Açıklaması
   ```json
   {
@@ -131,11 +131,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   * Veritabanı Bağlantısı Parametre Açıklaması
-
+  
   Aşağıdaki tablo, veritabanı bağlantısı yapılandırma dosyasındaki her parametrenin anlamını ve kullanımını detaylı olarak açıklar:
-
+  
   | Parametre | Zorunlu | Tür | Açıklama |
   |-----------|---------|------|-------------|
   | host | Evet | string | Veritabanı sunucusu adresi |
@@ -149,14 +149,14 @@ body_tr: |-
   | pool_recycle | Evet | integer | Bağlantı havuzu geri dönüştürme süresi (saniye) |
   | pool_timeout | Evet | integer | Bağlantı havuzu zaman aşımı süresi (saniye) |
   | type | Evet | string | Veritabanı türü, örneğin "mysql", "postgresql", "oracle", "mssqlserver" |
-
+  
   * Belirli Veritabanları İçin Ek Parametreler
-
+  
   | Parametre | Veritabanı Türü | Zorunlu | Tür | Açıklama |
   |-----------|---------------|---------|------|-------------|
   | schema | PostgreSQL, SQL Server | Hayır | string | Veritabanı şeması |
   | service_name | Oracle | Hayır | string | Oracle hizmet adı |
-
+  
   * role izin kontrol yapılandırma öğeleri ve karşılık gelen veritabanı izinleri: readonly (salt okunur), read/write (okuma/yazma), administrator (yönetici)
   ```
       "readonly": ["SELECT", "SHOW", "DESCRIBE", "EXPLAIN"],  # salt okunur izin
@@ -164,50 +164,50 @@ body_tr: |-
       "admin": ["SELECT", "SHOW", "DESCRIBE", "EXPLAIN", "INSERT", "UPDATE", "DELETE", 
                "CREATE", "ALTER", "DROP", "TRUNCATE"]  # yönetici izni
   ```
-
+  
   * Not
-
+  
   "default" varsayılan veritabanı bağlantısı yapılandırmasıdır ve yapılandırılması gereklidir. Diğer veritabanı yapılandırmaları gerektiğinde eklenmelidir.
-
+  
   ## pip yükleme ve yapılandırması
-
+  
   ```bash
   pip install SmartDB-MCP
-
+  
   Parametre açıklaması
   --mode: iletim modu ("stdio", "sse", "streamablehttp")
   --envfile ortam değişkeni dosyasının yolu
   --oauth oauth kimlik doğrulamasını etkinleştir (şu anda yalnızca "streamablehttp" modunda desteklenir)
-
+  
   Başlat komutu:
    smartdb --envfile=/Volumes/config/.env --oauth=true
-
-
+  
+  
   ```
-
+  
   ## Docker Başlatma
-
+  
   ### Hızlı Başlangıç
-
+  
   #### 1. Hizmet Oluştur ve Başlat
-
+  
   ```bash
   # docker-compose kullanarak hizmet başlat
   docker-compose up -d
-
+  
   # Hizmet durumunu kontrol et
   docker-compose ps
-
+  
   # Günlükleri görüntüle
   docker-compose logs -f smartdb
   ```
-
+  
   #### 2. Manuel Image Oluşturma
-
+  
   ```bash
   # Image oluştur
   docker build -t smartdb-mcp:latest .
-
+  
   # Container'ı çalıştır
   docker run -d \
     --name smartdb-mcp-server \
@@ -220,15 +220,15 @@ body_tr: |-
     -v $(pwd)/logs:/app/logs \
     smartdb-mcp:latest
   ```
-
+  
   ## Kod Başlatması
-
+  
   ### Yerel Geliştirme Streamable Http Modu
-
+  
   - uv kullanarak hizmet başlat
-
+  
   MCP istemci araçlarınıza (cursor, cline vb.) aşağıdaki içeriği ekleyin.
-
+  
   MCP JSON aşağıdaki gibidir:
   ```json
   {
@@ -243,25 +243,25 @@ body_tr: |-
     }
   }
   ```
-
+  
   Başlat komutu:
   ```bash
   # Bağımlılıkları indir
   uv sync
-
+  
   # Başlat
   uv run -m core.server
-
+  
   # Özel env dosyası konumu
   uv run -m core.server --envfile /path/to/.env
   ```
-
+  
   ### Yerel Geliştirme SSE Modu
-
+  
   - uv kullanarak hizmet başlat
-
+  
   MCP istemci araçlarınıza (cursor, cline vb.) aşağıdaki içeriği ekleyin.
-
+  
   MCP JSON aşağıdaki gibidir:
   ```json
   {
@@ -275,23 +275,23 @@ body_tr: |-
     }
   }
   ```
-
+  
   Başlat komutu:
   ```bash
   # Bağımlılıkları indir
   uv sync
-
+  
   # Başlat
   uv run -m core.server --mode sse
-
+  
   # Özel env dosyası konumu
   uv run -m core.server --mode sse --envfile /path/to/.env
   ```
-
+  
   ### Yerel Geliştirme STDIO Modu
-
+  
   MCP istemci araçlarınıza (cursor, cline vb.) aşağıdaki içeriği ekleyin.
-
+  
   MCP JSON aşağıdaki gibidir:
   ```json
   {
@@ -319,22 +319,22 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## OAuth 2.0 Kimlik Doğrulama Desteği
-
+  
   1. Kimlik doğrulama hizmetini başlat. Varsayılan olarak, yerleşik OAuth 2.0 şifre modu kimlik doğrulamasını kullanır. Env dosyasında kendi kimlik doğrulama hizmeti adresinizi değiştirebilirsiniz.
   ```bash
   uv run -m core.server --oauth=true
   ```
-
+  
   2. Kimlik doğrulama hizmetine http://localhost:3000/login adresinden erişin. Varsayılan hesap ve şifre env dosyasında yapılandırılmıştır.
-
-
-
+  
+  
+  
   3. Token'ı kopyalayın ve istek başlığına ekleyin, örneğin:
-
-
-
+  
+  
+  
   ```json
   {
     "mcpServers": {
@@ -351,20 +351,20 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Kullanım Örnekleri
   1. Varsayılan bağlantı havuzunun tablo verilerini sorgula
-
-
+  
+  
   2. Diğer bağlantı havuzunun tablo verilerini sorgula
-
-
+  
+  
   3. Diğer bağlantı havuzlarından ve diğer veritabanlarından tablo verilerini sorgula
-
-
+  
+  
   4. Veritabanı sağlık durumunu sorgula
-
-
+  
+  
   5. SQL Optimize et
 ---
 

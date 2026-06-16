@@ -9,6 +9,202 @@ path: "rules/ankra-cli.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ankra-cli.mdc"
 body_length: 7080
 file_extension: ".mdc"
+body_tr: |-
+  # Ankra CLI En İyi Uygulamalar
+
+  Ankra, Kubernetes küme yönetim platformudur. CLI'sı (`ankra`), kuruluşları, kümeleri, eklentileri, yığınları, Helm sürümlerini, kimlik bilgilerini ve token'ları terminalden yönetmenizi sağlar.
+
+  ## Kimlik Doğrulama ve Yapılandırma
+
+  - Önce kimlik doğrulaması yapın: `ankra login`
+  - Varsayılan yapılandırma `~/.ankra.yaml` konumunda bulunur; `--config <path>` ile geçersiz kılın
+  - API taban URL'sini `--base-url` veya `ANKRA_BASE_URL` ile geçersiz kılın
+  - API token'ını `--token` veya `ANKRA_API_TOKEN` aracılığıyla sağlayın (CI'da env var tercih edin)
+  - Güvenli bir şekilde çıkış yapın: `ankra logout`
+
+  ```yaml
+  # ~/.ankra.yaml örneği
+  base_url: https://api.ankra.io
+  token: ${ANKRA_API_TOKEN}
+  ```
+
+  ## Kuruluş Yönetimi
+
+  ```bash
+  ankra org list                          # Erişilebilir kuruluşları listele
+  ankra org switch <org-name>             # Aktif kuruluşu değiştir
+  ankra org create <name>                 # Yeni kuruluş oluştur
+  ankra org invite <email>                # Geçerli kuruluşa kullanıcı davet et
+  ankra org members                       # Geçerli kuruluşun üyelerini listele
+  ```
+
+  ## Küme Yaşam Döngüsü
+
+  ```bash
+  ankra cluster list                      # Kuruluştaki tüm kümeleri listele
+  ankra cluster select <name>             # Aktif küme context'ini ayarla
+  ankra cluster info                      # Aktif küme hakkında detayları göster
+  ankra cluster provision                 # Yeni küme sağla
+  ankra cluster deprovision               # Kümesağlamayı kaldır (sil)
+  ankra cluster reconcile                 # Kümeyi istenen duruma eşitle
+  ankra delete cluster <name>             # Adlandırılmış kümeyi sil
+  ```
+
+  - Yıkıcı işlemlerden önce daima `ankra cluster info` çalıştırın
+  - Yapılandırma değişiklikleri sonrasında durumun doğru olduğunu varsaymadan önce `ankra cluster reconcile` kullanın
+
+  ## Eklentiler
+
+  ```bash
+  ankra cluster addons list               # Yüklü eklentileri listele
+  ankra cluster addons available          # Yüklenebilir eklentileri listele
+  ankra cluster addons settings <addon>   # Eklenti için geçerli ayarları göster
+  ankra cluster addons update <addon>     # Eklenti yapılandırmasını güncelle
+  ankra cluster addons uninstall <addon>  # Eklentiyi kaldır
+  ```
+
+  ## Yığınlar (Uygulama Yığınları)
+
+  ```bash
+  ankra cluster stacks list               # Kümedeki yığınları listele
+  ankra cluster stacks create <name>      # Yeni yığın oluştur
+  ankra cluster stacks delete <name>      # Yığını sil
+  ankra cluster stacks rename <old> <new> # Yığını yeniden adlandır
+  ankra cluster stacks clone <src> <dst>  # Yığını kopyala
+  ankra cluster stacks history <name>     # Yığın değişim geçmişini görüntüle
+  ```
+
+  - Çalışan bir yığını çoğaltırken `create` yerine `clone` tercih edin
+  - Geri almadan önce ne değiştiğini anlamak için `history` kontrol edin
+
+  ## Manifestler ve İşlemler
+
+  ```bash
+  ankra cluster manifests list            # Dağıtılan manifestleri listele
+  ankra cluster operations list           # Devam eden veya son işlemleri listele
+  ankra cluster operations cancel <id>    # Çalışan işlemi iptal et
+  ```
+
+  ## Küme Aracısı
+
+  ```bash
+  ankra cluster agent status              # Aracı durumunu kontrol et
+  ankra cluster agent token               # Aracı bootstrap token'ını al
+  ankra cluster agent upgrade             # Küme içi aracıyı güncelle
+  ```
+
+  - Küme komutları yanıt vermiyorsa `agent status` çalıştırın
+  - Güvenlik için aracı token'ını periyodik olarak döndürün
+
+  ## Helm
+
+  ```bash
+  ankra cluster helm releases             # Kümede Helm sürümlerini listele
+  ankra cluster helm uninstall <release>  # Helm sürümünü kaldır
+  ankra helm registries                   # Yapılandırılmış Helm registry'lerini listele
+  ankra helm credentials                  # Helm registry kimlik bilgilerini listele
+  ```
+
+  ## Hetzner Cloud Kümeleri
+
+  ```bash
+  ankra cluster hetzner create            # Hetzner tabanlı küme oluştur
+  ankra cluster hetzner scale             # Küme düğüm sayısını ölçekle
+  ankra cluster hetzner upgrade           # Kubernetes sürümünü güncelle
+  ankra cluster hetzner workers           # İşçi düğüm gruplarını yönet
+  ankra cluster hetzner node-group        # Düğüm grubu yönetimi
+  ```
+
+  ## Grafikleri
+
+  ```bash
+  ankra charts list                       # Mevcut grafikleri listele
+  ankra charts search <term>              # Grafikleri ara
+  ankra charts info <chart>               # Ayrıntılı grafik bilgisi
+  ```
+
+  ## Kimlik Bilgileri
+
+  ```bash
+  ankra credentials list                              # Depolanan kimlik bilgilerini listele
+  ankra credentials get <name>                        # Kimlik bilgisini al
+  ankra credentials validate <name>                   # Kimlik bilgisini doğrula
+  ankra credentials delete <name>                     # Kimlik bilgisini sil
+  ankra credentials hetzner --name <n> --token <t>   # Hetzner API token'ını sakla
+  ankra credentials ovh ...                           # OVH kimlik bilgilerini sakla
+  ankra credentials upcloud ...                       # UpCloud kimlik bilgilerini sakla
+  ```
+
+  - Kimlik bilgilerini asla kaynak denetimine göndermyin; `ANKRA_API_TOKEN` env var kullanın
+  - Oluşturma sonrasında kimlik bilgilerini hemen doğrulayın: `ankra credentials validate <name>`
+
+  ## Token'lar (API Token'ları)
+
+  ```bash
+  ankra tokens list                       # API token'larını listele
+  ankra tokens create --name <name>       # Yeni API token'ı oluştur
+  ankra tokens revoke <id>                # Token'ı iptal et (kayıt tutar)
+  ankra tokens delete <id>                # Token'ı kalıcı olarak sil
+  ```
+
+  ## AI Sorun Giderme
+
+  ```bash
+  ankra chat                              # AI destekli sorun giderme oturumu başlat
+  ```
+
+  Belirsiz hatalarla karşılaştığınızda `ankra chat` kullanın — bağlamsal rehberlik sağlar.
+
+  ## Global Bayraklar
+
+  | Bayrak | Env Var | Açıklama |
+  |------|---------|-------------|
+  | `--base-url <url>` | `ANKRA_BASE_URL` | API taban URL'sini geçersiz kıl |
+  | `--token <token>` | `ANKRA_API_TOKEN` | API kimlik doğrulama token'ı |
+  | `--config <path>` | — | Yapılandırma dosyası yolu (varsayılan `~/.ankra.yaml`) |
+
+  ## Betik Yazma ve Otomasyon İpuçları
+
+  - CI boru hatlarında `ANKRA_API_TOKEN` dışa aktarın; token'ları asla kodla gömmeyin
+  - Env var enjeksiyonu mümkün olmayan tek seferlik betikler için `--token` kullanın
+  - Betiklerde küme kapsamlı komutlardan önce `ankra cluster select` zincirleyin
+  - Yapılandırılmış işlem mevcut olduğunda çıktıyı JSON işleme için `jq` aracılığıyla yönlendirin
+  - Async işlem tamamlanmasını CI'da yoklamak için `ankra cluster operations list` kullanın
+  - Ankra CLI kullanabilen shell betiklerine `set -euo pipefail` ekleyin
+
+  ## Yaygın İş Akışları
+
+  ### Yeni bir Hetzner kümesi sağla ve yapılandır
+
+  ```bash
+  ankra login
+  ankra org switch my-org
+  ankra cluster hetzner create
+  ankra cluster select my-new-cluster
+  ankra cluster agent status
+  ankra cluster addons available
+  ankra cluster addons update some-addon
+  ankra cluster reconcile
+  ```
+
+  ### Grafiklerdeki yığınları dağıt
+
+  ```bash
+  ankra cluster select my-cluster
+  ankra charts search my-app
+  ankra charts info my-app
+  ankra cluster stacks create my-stack
+  ankra cluster manifests list
+  ```
+
+  ### Kimlik bilgilerini güvenli bir şekilde döndür
+
+  ```bash
+  ankra tokens create --name ci-token-new
+  # CI sırrını yeni token ile güncelle
+  ankra tokens revoke <old-token-id>
+  ankra credentials validate my-cloud-cred
+  ```
 ---
 
 # Ankra CLI Best Practices

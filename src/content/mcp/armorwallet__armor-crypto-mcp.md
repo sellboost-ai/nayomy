@@ -3,7 +3,7 @@ name: "armorwallet/armor-crypto-mcp"
 description: "MCP to interface with multiple blockchains, staking, DeFi, swap, bridging, wallet management, DCA, Limit Orders, Coin Lookup, Tracking and more."
 category: "Finance & Fintech"
 repo: "armorwallet/armor-crypto-mcp"
-stars: 182
+stars: 181
 url: "https://github.com/armorwallet/armor-crypto-mcp"
 body_length: 4307
 license: "GPL-3.0"
@@ -11,7 +11,7 @@ language: "Python"
 body_tr: |-
   # Armor Crypto MCP
   *Alfa Test sürümü 0.1.24*
-
+  
   AI Ajanlarını Crypto ekosistemiyle entegre etmek için tek bir kaynak. Buna Cüzdan oluşturma ve yönetimi, swaplar, transferler, DCA, stop loss ve take profit gibi event tabanlı işlemler ve çok daha fazlası dahildir. Armor MCP, Alfa'da Solana'yı destekler ve Beta'ya geçtiğinde Ethereum, Base, Avalanche, Bitcoin, Sui, Berachain, megaETH, Optimism, Ton, BNB ve Arbitrum dahil olmak üzere bir düzineden fazla blockchain destekleyecektir. Armor'un MCP'sini kullanarak, tüm kripto dünyasını AI Ajanınıza birleşik mantık ve eksiksiz bir araç seti ile getirebilirsiniz.
          
   ![Armor MCP](https://armor-assets-repository.s3.nl-ams.scw.cloud/MCP_sm.png)
@@ -22,25 +22,25 @@ body_tr: |-
   <br />
   <br />
   # Özellikler
-
+  
   🧠 AI Doğal
-
+  
   📙 Cüzdan Yönetimi
-
+  
   🔃 Swaplar
-
+  
   🌈 Uzmanlaşmış İşlemler (DCA, Stop Loss vb.)
-
+  
   ⛓️ Çok-chain
-
+  
   ↔️ Zincirler arası işlemler
-
+  
   🥩 Staking
-
+  
   🤖 Agentic çerçevelere hızlı entegrasyon
-
+  
   👫 Sosyal Duyarlılık
-
+  
   🔮 Tahmin
   <br />
   <br />
@@ -51,25 +51,25 @@ body_tr: |-
   <br />
   <br />
   <br />
-
+  
   # Gereksinimler
-
+  
   ### 1. Python'un yüklü olduğundan emin olun
   <br />
-
+  
   ### 2. `uv` yükleyin
   *Linux / Windows*
-
+  
   ```sh
   pip install uv
   ```
   *Mac*
-
+  
   ```sh
   brew install uv
   ```
   <br />
-
+  
   ### 3. Claude Desktop veya AI Ajanınız MCP'yi çalıştıracaktır
   Ayrıntılar için [Kullanım & Konfigürasyon](#kullanım--konfigürasyon) bölümüne bakın.
   <br />
@@ -77,11 +77,11 @@ body_tr: |-
   <br />
   <br />
   <br />
-
+  
   # Alfa Testi
-
+  
   Şu anda ön-alfa aşamasındayız ve Claude Desktop, Cline, Cursor, n8n vb. gibi çeşitli ajanlar ve agentic çerçevelerin yeteneklerini test ediyoruz.
-
+  
   ## Mevcut Özellikler & Araçlar
   - Cüzdan Yönetimi
       - Gruplandırma & Organizasyon
@@ -95,16 +95,16 @@ body_tr: |-
   - Token Arama ve Trend Token'ları
   - Doğru Analiz için İstatistiksel Hesaplayıcı
   - Solana blockchain'ini destekler
-
+  
   ## Çok Yakında Gelecek
   - Daha Fazla Blockchain Desteği
   - Minting
   - Armor Ajanları Araç Olarak (veya A2A)
-
+  
   ## MCP Kurulumu
   Şu anda API Anahtarı almak için Armor NFT'sine sahip olmanız gerekir.
   Bunu [buradan](https://codex.armorwallet.ai/) alın
-
+  
   ## Kullanım & Konfigürasyon
   Armor MCP'yi ajanınızla kullanmak için aşağıdaki konfigürasyona ihtiyacınız vardır, `<PUT-YOUR-KEY-HERE>` yerine API anahtarınızı yazın:
   ```json
@@ -126,7 +126,7 @@ body_tr: |-
   <br />
   <br />
   <br />
-
+  
   # Claude Desktop'ta Kullanım
   1. Geliştirici Modu etkinleştirilmiş olmalıdır
   2. Claude Desktop'ın pencerenin sol üstündeki Dosya Menüsünü açın.
@@ -135,14 +135,14 @@ body_tr: |-
   5. Konfigürasyon dosyasında, yukarıdaki `armor-wallet-mcp` bölümünü ekleyin
   6. Yer tutucuyu API anahtarınızla değiştirdiğinizden emin olun
   7. Dosyayı kaydedin ve Claude Desktop'ta yeni bir Sohbet başlatın
-
+  
   ## Cline'de Kullanım
   1. VSCode'daki sol paneldeki Cline sekmesinde `MCP Servers` düğmesine tıklayın
   2. Sol panelin alt kısmına kaydırın ve `Configure MCP Servers` düğmesine tıklayın
   3. Konfigürasyon dosyasında, yukarıdaki `armor-wallet-mcp` bölümünü ekleyin
   4. Yer tutucuyu API anahtarınızla değiştirdiğinizden emin olun
   5. Dosyayı kaydedin, `MCP Servers` sekmesi altında `Done` düğmesine tıklayın ve Cline ile sohbet etmeye başlayın
-
+  
   ## n8n'de Kullanım
   1. n8n uygulamasını açın
   2. Ekranın sol altında, kullanıcı adınızın yanındaki `...` düğmesine tıklayın ve `Settings` düğmesine tıklayın
@@ -161,9 +161,9 @@ body_tr: |-
   <br />
   <br />
   <br />
-
+  
   # Armor MCP Kullanımı
-
+  
   Armor MCP'yi [burada](https://github.com/armorwallet/armor-crypto-mcp/blob/main/README_prompts.md) kurduğunuzda, başlamak için kullanabileceğiniz bazı promptlar bulunmaktadır
   <br />
   <br />

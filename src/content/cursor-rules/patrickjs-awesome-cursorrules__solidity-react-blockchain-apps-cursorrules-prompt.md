@@ -9,6 +9,15 @@ path: "rules/solidity-react-blockchain-apps-cursorrules-prompt-.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidity-react-blockchain-apps-cursorrules-prompt-.mdc"
 body_length: 843
 file_extension: ".mdc"
+body_tr: |-
+  Solidity React Blockchain Uygulamaları Yönergeleri
+
+  - Açık visibility, erişim kontrolü ve net NatSpec dokümantasyonu ile güvenli Solidity smart contract'larına öncelik verin.
+  - Slither, Mythril ve property-based testler gibi yerleşik güvenlik araçlarını kritik contract davranışları için kullanın.
+  - Ownership, erişim kontrolü, multisig ve timelock gibi yaygın primitifler için OpenZeppelin contract'larını tercih edin.
+  - Storage layout, function visibility ve gereksiz yazma işlemlerini inceleyerek gazı kasıtlı olarak optimize edin.
+  - Production-grade contract'lar için pull-payment pattern'ları, event logging ve savunmacı hata yönetimini kullanın.
+  - Web3 frontend kodunu, wallet'lar, provider'lar ve transaction'larla etkileşim kurarken type-safe ve açık tutun.
 ---
 
 Solidity React Blockchain Apps Guidelines

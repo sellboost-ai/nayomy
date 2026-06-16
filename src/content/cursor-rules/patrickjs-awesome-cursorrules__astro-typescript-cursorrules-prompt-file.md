@@ -9,6 +9,95 @@ path: "rules/astro-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/astro-typescript-cursorrules-prompt-file.mdc"
 body_length: 2594
 file_extension: ".mdc"
+body_tr: |-
+  ```json
+  {
+    "rules": {
+      "commit_message_guidelines": {
+        "description": "Konvansiyonel commit mesajları oluşturmak için yönergeler.",
+        
+        "format": {
+          "description": "Konvansiyonel commits spesifikasyonunu kullanan commit mesajları için format.",
+          "body": "[opsiyonel scope]: \n\n[opsiyonel body]\n\n[opsiyonel footer(s)]"
+        },
+        
+        "enabled": true,
+        
+        "rules": [
+          {
+            "description": "Her zaman küçük harflerle yazılmış bir type ve opsiyonel scope ile konvansiyonel commit önerin."
+          },
+          {
+            "description": "Commit mesajını kısa tutun ve 60 karakterin içinde kalın."
+          },
+          {
+            "description": "Commit mesajının terminal'e yapıştırılmaya hazır olduğundan emin olun, başka bir düzenleme gerekmez."
+          },
+          {
+            "description": "Tam commit komutunu sağlayın, sadece mesaj değil."
+          }
+        ],
+        
+        "examples": [
+          {
+            "prompt": "<diff_context> /commit",
+            "response": "git commit -m 'feat: add responsive navbar with TailwindCSS'"
+          }
+        ]
+      },
+      
+      "development_guidelines": {
+        "description": "Astro, TypeScript ve TailwindCSS ile kod geliştirmek için yönergeler.",
+        
+        "enabled": true,
+        
+        "rules": [
+          {
+            "description": "Katı TypeScript ayarlarını uygulayın, proje genelinde tür güvenliğini sağlayın."
+          },
+          {
+            "description": "Tüm stil için TailwindCSS kullanın, utility-first yaklaşımını göz önünde bulundurun."
+          },
+          {
+            "description": "Astro bileşenlerinin modüler, yeniden kullanılabilir olduğundan ve net bir sorumluluk ayrımı sağladığından emin olun."
+          }
+        ]
+      },
+      
+      "coding_style": {
+        "description": "Tutarlı kodlama stilini korumak için yönergeler.",
+        
+        "enabled": true,
+        
+        "rules": [
+          {
+            "description": "Kod, tek satırlık bir yorum olarak path/dosya adı ile başlamalıdır."
+          },
+          {
+            "description": "Yorumlar etkiyi değil, amacı açıklamalıdır."
+          },
+          {
+            "description": "Modülarite, DRY prensipleri ve performansı önceliklendirin."
+          }
+        ]
+      },
+      
+      "custom_slash_commands": {
+        "description": "Özel slash komutları.",
+        
+        "enabled": true,
+        
+        "commands": [
+          {
+            "name": "/commit",
+            "description": "Konvansiyonel commits spesifikasyonunu kullanan bir Git commit mesajı oluşturun.",
+            "enabled": true
+          }
+        ]
+      }
+    }
+  }
+  ```
 ---
 
 {

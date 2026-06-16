@@ -12,6 +12,215 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Feature Flags Mimarı
+
+  Feature flag'ler için uçtan uca disiplin: sınıflandırma, yayınlama, kademeli artış ve kullanımdan kaldırma. Çoğu takım flag'leri tek kullanımlık `if`-ifadeleri olarak ele alır; bu beceri onları ölçülebilir borç içeren kontrollü bir yaşam döngüsü olarak ele alır.
+
+  ## Ne zaman kullanılır
+
+  - Yeni bir flag eklemek ve bir yayın planına ihtiyaç duyduğunuzda
+  - Bir kod tabanında eski veya sahipsiz flag'ler için denetim yaparken
+  - Bir flag sağlayıcısı seçerken (LaunchDarkly vs GrowthBook vs Statsig vs Unleash vs Flipt vs kendi çözümü)
+  - Riskli bir yayın için kill-switch yolu tasarlarken
+  - Yayın dondurmasından önce flag borcunu temizlerken
+  - Bir özelliğin flag'in arkasında yayınlanıp yayınlanmaması gerektiğini gözden geçirirken
+
+  ## Temel ilke: flag'ler `if` değil, bir yaşam döngüsüdür
+
+  ```
+  request → design → ship → ramp → cleanup → archive
+  ```
+
+  Temizlemeyi atlayan flag'ler borç haline gelir: ölü dallar, eski varsayılanlar, test edilmeyen kod yolları, sınırsız etki alanı. Bu becerinin üç script'i yaşam döngüsünü zorlar.
+
+  ## Hızlı başlangıç
+
+  ```bash
+  # 1. Depo'da flag borcunu denetle
+  python scripts/flag_debt_scanner.py --repo . --max-age-days 90
+
+  # 2. Yeni bir flag için kademeli yayın planla
+  python scripts/rollout_planner.py --population 100000 --target-percent 100 --duration-days 14 --strategy ring
+
+  # 3. Her flag'in belgelenmiş bir kill switch'i olduğunu doğrula
+  python scripts/kill_switch_audit.py --repo . --flag-doc docs/feature-flags.md
+  ```
+
+  ## 4 flag tipi (taksonomi)
+
+  Farklı flag türlerinin farklı yaşam süreleri ve sahipleri vardır. Yanlış sınıflandırma borç oluşturur.
+
+  | Tip | Amaç | Tipik lifespan | Sahip | Temizleme tetikleyicisi |
+  |---|---|---|---|---|
+  | **Release** | Tamamlanmamış özelikleri üretimde gizle | günler–haftalar | Mühendislik | %100 yayın ulaşıldı |
+  | **Experiment** | A/B test varyantları | haftalar | Ürün/Pazarlama | Test tamamlandı; kazanan seçildi |
+  | **Operational** | Circuit breaker'lar, performans toggle'ları, kill switch'ler | aylar–yıllar | Mühendislik/SRE | Otoscaling/özellik kullanımdan kaldırma ile değiştirildi |
+  | **Permission** | Kullanıcı/hesap/plan başına yetkilendirmeler | yıllar (kalıcı) | Ürün | Plan/rol kaldırıldı |
+
+  Yalnızca Release ve Experiment flag'leri borç-tarayıcı izleme listesinde olmalıdır. Operational ve Permission flag'leri tasarım gereği uzun ömürlüdür. Karar ağacı için `references/flag_taxonomy.md` bölümüne bakınız.
+
+  ## 3 Python aracı
+
+  Hepsi sadece stdlib'i kullanır. `--help` ile çalıştırın.
+
+  ### `flag_debt_scanner.py`
+
+  `--max-age-days` parametresinden daha eski olan ve düşük kullanımı olan flag'leri bulur, temizleme adaylarını gösterir.
+
+  ```bash
+  python scripts/flag_debt_scanner.py --repo . --max-age-days 90 --format text
+  python scripts/flag_debt_scanner.py --repo . --max-age-days 60 --format json > debt.json
+  ```
+
+  **Algılama sezgisi:**
+  1. `--repo` için yaygın flag-çağrı modellerine uyan kod referanslarını yürütün:
+     - `flag("...")`, `isFlagEnabled("...")`, `featureFlag("...")`, `getFlag("...")`
+     - `client.variation("...", ...)`, `unleash.isEnabled("...")`, `growthbook.feature("...")`
+  2. Her benzersiz flag tanımlayıcı için, onu tanıtan en eski commit'i bulun (`git log --diff-filter=A -S <name>`).
+  3. Flag'i BORÇ olarak işaretleyin eğer `--max-age-days` dan daha uzun süre önce tanıtıldıysa VE ≤`--min-uses` yerlerde kullanıldıysa.
+
+  Flag adı, gün cinsinden yaş, dosya referansları, önerilen eylem çıkar. JSON modu CI-dostu'dur.
+
+  ### `rollout_planner.py`
+
+  Nüfus boyutu, hedef yüzde, süre ve strateji'den aşamalı bir yayın programı oluşturur.
+
+  ```bash
+  python scripts/rollout_planner.py --population 100000 --target-percent 100 --duration-days 14 --strategy ring
+  python scripts/rollout_planner.py --population 50000 --target-percent 25 --duration-days 7 --strategy linear
+  python scripts/rollout_planner.py --population 1000000 --target-percent 100 --duration-days 30 --strategy log
+  ```
+
+  **Stratejiler:**
+  - `ring`: %1 → %5 → %25 → %50 → %100, eşit aralıklı. Riskli yayınlar için varsayılan.
+  - `linear`: günlük sabit oran. Orta risk için varsayılan.
+  - `log`: erken hızlı, kuyruk yavaş. Güvenle düşük riskli yayınlar için varsayılan.
+  - `cohort`: adlandırılmış kohort tarafından (internal → beta → free → paid → all).
+
+  Her aşama için tarih, yüzde, beklenen kullanıcı sayısı, iptal kriterleri ve doğrulama adımı içeren markdown tablo çıkar.
+
+  ### `kill_switch_audit.py`
+
+  Koddaki keşfedilen flag'leri, her birinin yazılı bir kill switch yoluna sahip olduğunu doğrulamak için belgelemediklerine karşı çapraz referans verir.
+
+  ```bash
+  python scripts/kill_switch_audit.py --repo . --flag-doc docs/feature-flags.md
+  python scripts/kill_switch_audit.py --repo . --flag-doc runbooks/flags.md --format json
+  ```
+
+  **Ne kontrol eder:**
+  1. Her koddaki keşfedilen flag'in `--flag-doc` içinde bir girişi var
+  2. Her giriş şunları bildirir: sahip, tip, kill-switch tetikleyicisi, izleme panosu
+  3. Belgesi eksik olan flag'leri (FAIL) veya eksik alanları (WARN) rapor eder
+
+  Herhangi bir yeni flag yayınlanmadan önce ön-birleştirme kapısı olarak kullanın.
+
+  ## Sağlayıcı seçici (5 + DIY)
+
+  | Sağlayıcı | En iyi | Fiyatlandırma modeli | Kilitlenme riski | OSS seçeneği |
+  |---|---|---|---|---|
+  | **LaunchDarkly** | Kurumsal, karmaşık hedefleme, denetim/uyum | MAU başına, pahalı | Yüksek | Hayır |
+  | **GrowthBook** | Orta pazar, A/B test odaklı, OSS-dostu | MAU başına + OSS | Düşük | Evet (kendi sunucu) |
+  | **Statsig** | Büyüme/ürün takımları, ileri deney | Ücretsiz tier + MAU başına | Orta | Hayır |
+  | **Unleash** | OSS-öncelikli, kendi sunucu, geliştirici-dostu | OSS + Kurumsal | Düşük | Evet |
+  | **Flipt** | Hafif, k8s-native, basit ihtiyaçlar | Yalnızca OSS | Yok | Evet |
+  | **DIY** | <100 flag, hedefleme yok, tam kontrol | Yok | Yok | N/A |
+
+  Karar kuralları:
+  - <50 flag + hedefleme yok → config dosyası veya env vars ile DIY
+  - Analitik + deney gerekir → Statsig veya GrowthBook
+  - Uyum/SOC2 denetim günlükleri gerekli → LaunchDarkly
+  - Kendi sunucu gerekli (veri yer bulunduğu / hava boşluğu) → Unleash veya Flipt
+  - Detay için `references/provider_comparison.md` bölümüne bakınız.
+
+  ## İş akışları
+
+  ### İş akışı 1: Flag'in arkasında yeni bir özellik yayınla
+
+  ```
+  1. Sınıflandır: 4 flag türünden hangisi?
+     → Release (mühendislik çalışması için en yaygın)
+  2. Yayın planını tasarlamak için rollout_planner.py'yi çalıştır
+  3. Kod yazmadan önce docs/feature-flags.md'ye flag girişi ekle:
+     - ad, sahip, tip, kill-switch tetikleyicisi, dashboard URL
+  4. Flag ile kodu yaz
+  5. kill_switch_audit.py'yi çalıştır — birleştirmeden önce geçmeli
+  6. %0'da yayınla; kill switch'in çalıştığını doğrula
+  7. Yayın programını yürüt; iptal kriterleri karşılanırsa iptal et
+  8. %100 için 7+ gün: flag'i kaldır, ölü dalı sil, doc girişini arşivle
+  ```
+
+  ### İş akışı 2: Üç aylık flag temizliği
+
+  ```
+  1. flag_debt_scanner.py --repo . --max-age-days 90 > debt.md çalıştır
+  2. Her işaretlenen öğe için:
+     a. %100'e ulaştığını doğrula (veya öldürüldü)
+     b. Onu tanıtan issue/PR'yi bul; sahibi kaldırılmasını kabul et doğrula
+     c. Ölü dalları sil; flag config'i kaldır
+     d. kill_switch_audit.py'yi çalıştır — şimdi bir flag daha az göstermelidir
+  3. CHANGELOG'u güncelle: "N eski flag kaldırıldı"
+  ```
+
+  ### İş akışı 3: Sağlayıcı seç
+
+  ```
+  1. Flag sayısını tahmin et (mevcut + 12 aylık projeksiyon)
+  2. Gerekli özellikler:
+     - Hedefleme kuralları (kullanıcı, hesap, coğrafi konum, %)?
+     - A/B test + istatistik?
+     - Denetim günlüğü / SOC2?
+     - Kendi sunucu / veri yer bulunduğu?
+  3. Fiyatlandırma bütçesi (MAU * MAU başına maliyet)
+  4. provider_comparison.md karar ağacına bakın
+  5. İmzalamadan önce 30 günlük kanıt kavramı oluştur
+  ```
+
+  ### İş akışı 4: Kill switch tasarla
+
+  ```
+  1. Arıza modlarını belirle:
+     - Gecikme ani artışı (hangi eşik?)
+     - Hata oranı ani artışı (hangi eşik?)
+     - İşletme metriği gerileme (hangi eşik?)
+  2. Her birini bir iptal'e bağla:
+     - Manuel: dashboard bağlantısı + on-call playbook
+     - Otomatik: uyarı eşiği flag'i %0'a geri döndürür
+  3. Üretim yayınından ÖNCESİ kill switch'i hazırlama ortamında test et
+  4. Flag-doc'da belge; kill_switch_audit.py'yi geçir
+  ```
+
+  ## Referanslar
+
+  - `references/flag_taxonomy.md` — 4 tip, karar ağacı, sahiplik, lifespan
+  - `references/provider_comparison.md` — LaunchDarkly / GrowthBook / Statsig / Unleash / Flipt / DIY değiş tokuşlar
+  - `references/rollout_strategies.md` — ring / linear / log / cohort / geo, iptal kriterleri, izleme
+  - `references/flag_lifecycle.md` — request → design → ship → ramp → cleanup → archive
+
+  ## Slash komutu
+
+  `/flag-cleanup` — Mevcut depo'da tam temizleme iş akışını çalıştır: borcu tara, kaldırma planı oluştur, kill switch'leri denetle.
+
+  ## Varlık şablonları
+
+  - `assets/flag_request_template.md` — yeni flag istekleri için doldurma formu (ad, sahip, tip, kill switch, yayın planı)
+
+  ## Anti-kalıplar
+
+  - **`if (FLAG_FOO)` 50 yerde kalıcı flag** — Permission flag'i olmalı, runtime config ile, Release flag değil
+  - **Sahibi olmayan flag** — orijinal mühendis ayrıldığında, hiç kimse onu temizlemez
+  - **Kill switch belgelenmeyen** — özellik kırıldığında, hiç kimse nasıl devre dışı bırakılacağını bilmez
+  - **6 ay çalışan A/B test** — kazananı seç; süresiz çalıştırma borçtur
+  - **Kozmetik değişiklikler için flag'ler** — flag ile değil, yayınla gönder
+
+  ## Doğrulanabilir başarı
+
+  Bu beceriyi kullanan bir takım şunları başarmalıdır:
+  - Yeni flag'lerin %100'ü birleştirme zamanında `kill_switch_audit.py`'yi geçer
+  - `flag_debt_scanner.py --max-age-days 90` depo genelinde ≤5 eski flag döndürür
+  - Her flag'in belgelenmiş bir sahibi, tipi ve kill switch'i vardır
+  - Release flag'i retire etme ortalama süresi: %100 yayından sonra <60 gün
 ---
 
 # Feature Flags Architect

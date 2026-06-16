@@ -12,6 +12,198 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Chief Data Officer Danışmanı
+
+  Startup CDO'ları ve CDO'su olmayan kurucular için stratejik veri liderliği. **Dört karar, anket yok:**
+
+  1. **Bu verileri modelimizi eğitmek için kullanabilir miyiz?** — origin × onay × kullanım durumu matrisi
+  2. **Warehouse, lakehouse veya mesh — ve neyi yapmalı vs satın almalıyız?** — stage-driven mimari
+  3. **Müşteri verilerimizin değeri nedir?** — stratejik değer + M&A çarpanı + ürünleştirme yolları
+  4. **Sonra hangi veri rolünü işe alalım?** — stage-to-role haritası, merkezi-vs-dağıtılmış tetikleyici
+
+  Bu beceri **taktik veri mühendisliğini kapsamaz**. Schema tasarımı, gözlemlenebilirlik, sorgu optimizasyonu, RAG veya ML platform uygulaması için `engineering/database-designer/`, `engineering/observability-designer/`, `engineering/data-quality-auditor/`, `engineering/sql-database-assistant/`, `engineering/rag-architect/`, `engineering/llm-cost-optimizer/` bölümlerine bakın.
+
+  ## Anahtar Sözcükler
+
+  CDO, chief data officer, AI eğitim verisi, onay kaynağı, eğitim hakları, GDPR Madde 6 yasal temel, GDPR Madde 22, AB AI Act yüksek risk, ePrivacy, telif hakkı adil kullanım, hiQ v. LinkedIn, kazınan veri, sentetik veri, veri ürünü, data mesh, lakehouse, medallion mimarisi, dbt, Snowflake, BigQuery, Databricks, Fivetran, Airbyte, reverse ETL, feature store, müşteri verisi varlık, veri para kazanma, veri ürünleştirme, anonimleştirme, k-anonimite, diferansiyel gizlilik, M&A veri due diligence, veri org, analytics engineer, data engineer, data scientist, data product manager, merkezi vs dağıtılmış, hub and spoke
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  # Veri kaynaklarını AI eğitimi uygunluğu için denetle
+  python scripts/ai_training_data_audit.py                              # gömülü örneği kullanır
+  python scripts/ai_training_data_audit.py path/to/sources.json
+
+  # Veri mimarisini seç + yapmalı-vs-satın-almalı + sıralamayı belirle
+  python scripts/data_product_strategy_picker.py                        # gömülü Series A SaaS kullanır
+  python scripts/data_product_strategy_picker.py path/to/profile.json
+
+  # Müşteri veri koleksiyonunu değerle + ürünleştirme uygunluğu
+  python scripts/data_asset_valuator.py                                 # gömülü B2B örneğini kullanır
+  python scripts/data_asset_valuator.py path/to/corpus.json
+  ```
+
+  ## Temel Sorular (önce bunları sorun)
+
+  - **Bu veriler hangi kararı yönlendirir?** (Yoksa neden toplayıyoruz?)
+  - **Eğitmek istediğimiz her kaynağın onay kaynağı nedir?** (TOS-only, açık opt-in ile aynı değildir.)
+  - **İç veri tüketicileri kimdir ve kaç farklı domain'i kapsar?** (Merkezi-vs-dağıtılmış ve warehouse-vs-mesh belirler.)
+  - **M&A senaryosunda verilerimiz bir hendek mi yoksa yükümlülük mü?** (MSA'daki müşteri hariç tutmalar cevabı çevirebilir.)
+  - **Analytics engineer mi yoksa data scientist mi işe almalıyız?** (Farklı sorunları çözerler; kurucular karıştırırlar.)
+  - **Herhangi bir dış paylaşımdan önce anonimleştirme denetimi yaptık mı?** (k-anonimite ≥ 5 taban, tavana kadar değil.)
+
+  ## Temel Sorumluluklar
+
+  ### 1. AI Eğitim Verisi Hakları
+
+  2026'da her startup'ın karşılaştığı soru: **müşteri verilerini modelimizi eğitmek için kullanabilir miyiz?**
+
+  Cevap nadiren ikili şey. Üç bağımsız boyuta bağlıdır:
+
+  | Boyut | Değerler |
+  |---|---|
+  | **Origin** | 1st-party-explicit-opt-in / 1st-party-TOS-only / partner-licensed / kazınan / sentetik |
+  | **Veri sınıfı** | Anonim toplam / davranışsal / PII / 3rd-party içerik / düzenlenmiş (PHI, PCI, çocuklar) |
+  | **Kullanım durumu** | İçi-ürün kişileştirme / modelimizi fine-tune et / foundation model eğit / dış paylaşım |
+
+  Her kombinasyon GO / MITIGATE / NO-GO üretir. **Çalıştır** `ai_training_data_audit.py` kaynaklardan oluşan JSON envanterinde.
+
+  Tam matris + GDPR Md. 6 yasal temel karar ağacı + AB AI Act yüksek risk tetikleyicileri için `references/ai_training_data_rights.md` bölümüne bakın.
+
+  ### 2. Veri Ürünü Stratejisi
+
+  **Mimari seçim (warehouse vs lakehouse vs mesh) tercih-driven değil stage-driven:**
+
+  - **Sadece warehouse** (Snowflake / BigQuery / Postgres): ≤5 veri tüketicisi, <2TB, ML kullanım durumu yok
+  - **Lakehouse** (warehouse + object storage, genellikle Databricks veya Snowflake-with-Iceberg): 5–25 veri tüketicisi, 2TB–1PB, 1–3 ML kullanım durumu
+  - **Data mesh**: 25+ veri tüketicisi 4+ domain'de, federe sahiplik kültürü yerinde
+
+  **Yapmalı-vs-satın-almalı katman başına karar verilir:**
+
+  | Katman | Satın al eğer değilse | Sadece yap eğer |
+  |---|---|---|
+  | Storage / warehouse | Asla yapma | (Veri infra şirketi misin) |
+  | ELT / ingest | Asla yapma | Kaynak Fivetran/Airbyte tarafından desteklenmiyor |
+  | Modeling (dbt) | Her zaman yap | Bu senin IP'n |
+  | BI / dashboards | Satın al <100 tüketici | Müşteriler için gömülü analitik |
+  | Feature store | Erteле 3+ prod modeline kadar | Sonra Tecton/Hopsworks yap VEYA satın al |
+  | ML platform | Erteле 5+ prod modeline kadar | Sonra SageMaker/Vertex/Databricks satın al |
+
+  **Çalıştır** `data_product_strategy_picker.py` stage-spesifik tavsiye için. Her mimari için durdurma kriterleri ve yapmalı-vs-satın-almalı karar ağacı için `references/data_product_strategy.md` bölümüne bakın.
+
+  ### 3. B2B Müşteri-Verisi-Varlık
+
+  **Kayma:** Series B+ de, müşteri verisi artık sadece operasyonel değil — aşağıdakiler olabilecek bir varlık:
+  - Savunulabilirlik hendek (çoğaltmak yıl müşteri kohortunu gerektirir)
+  - M&A çarpanı (stratejik alıcılar için ARR'de 1.2x–2x kaldırım)
+  - Doğrudan gelir akışı (anonimleştirilmiş sektör karşılaştırmaları, embedding endpoint'leri, lisanslama)
+
+  Ama **yükümlülük** de olabilir:
+  - 47/380 müşteri MSA hariç tutmalarıyla ürünleştirme yasal olarak imkansız
+  - Anonimleştirme denetimleri genellikle tolere edilebilir eşikler üzerinde re-identification riski ortaya çıkarır
+  - Düzenleyici maruz kalma lineer olarak ürünleştirmeyle artar (GDPR Md. 28 işlemciler vs Md. 26 ortak kontrolörleri)
+
+  **Çalıştır** `data_asset_valuator.py` corpus karakteristikleriyle stratejik değer skoru + ürünleştirme yolları + riske ayarlanmış değer almak için.
+
+  Değerleme framework, M&A due diligence prep kontrol listesi ve kontraktual kısıt denetim deseni için `references/customer_data_as_asset.md` bölümüne bakın.
+
+  ### 4. Veri Ekibi Org Evrimi
+
+  **Yanlış soru:** "Data scientist işe alsak mı?"
+  **Doğru soru:** "Veri nedeniyle hangi karar alamıyoruz ve hangi rol bu sorunu çözer?"
+
+  Stage-to-role haritası (B2B SaaS baseline):
+
+  | Stage | İlk işe alma | Sonra | Sonra |
+  |---|---|---|---|
+  | Pre-seed / seed | Founder-as-analyst (SQL + spreadsheets) | — | — |
+  | Series A | Analyst | Analytics engineer (dbt) | — |
+  | Series B | Data engineer | Senior analyst (GTM'de gömülü) | Data PM (3+ ekip veri ihtiyaçsa) |
+  | Growth | Manager of analytics | ML engineer (model core ise) | Head of Data |
+  | Late-stage | Head of Data → CDO | Specialized: BI, MLE, DPO | Federe sahipler domain başına (mesh) |
+
+  **Merkezi-vs-dağıtılmış tetikleyici:** 3+ fonksiyonel alan (sales, marketing, product, ops, CS) haftalık bespoke veri ihtiyacında, merkezi ekip darboğaz olur. Bir işe alma krizi haline gelmeden hub-and-spoke (merkezi platform + dağıtılmış analistler) ye taşıyın.
+
+  `references/data_team_org_evolution.md` bölümüne bakın.
+
+  ## İş Akışları
+
+  ### İş Akışı 1: AI Eğitim Kararı (1 saat)
+  **Hedef:** Belirli bir veri kaynağının belirli bir kullanım durumunu eğitip eğitemedene karar verin.
+
+  ```bash
+  # 1. sources.json oluştur veri kaynağı başına bir giriş
+  # 2. Denetimi çalıştır
+  python scripts/ai_training_data_audit.py sources.json
+  # 3. Her MITIGATE için: sahip ata + çözüm
+  # 4. Her NO-GO için: yasal günlüğe durdurma nedeni belge
+  # 5. cs-general-counsel-advisor ile en iyi 3 çözüm öğesiyle çapraz kontrol
+  # 6. /cs:decide aracılığıyla günlüğe kaydet
+  ```
+
+  ### İş Akışı 2: Mimari Karar (1 gün)
+  **Hedef:** Warehouse / lakehouse / mesh seç ve sonraki 12 ay için yapmalı-vs-satın-almalı bölümü belirle.
+
+  ```bash
+  python scripts/data_product_strategy_picker.py profile.json
+  # cs-cto-advisor ile mühendislik kapasitesinde çapraz kontrol
+  # cs-cfo-advisor ile 3 yıllık TCO'da çapraz kontrol
+  # /cs:decide aracılığıyla günlüğe kaydet; multi-yıl SaaS sözleşmesi imzalanırsa /cs:freeze 90 düşün
+  ```
+
+  ### İş Akışı 3: M&A Hazırlığı için Veri Varlığı Değerlendirmesi (3 gün)
+  **Hedef:** Veri koleksiyonunu değerle ve due diligence'e hazırlan.
+
+  1. Koleksiyonu envanter et: boyut, tazelik, dışluluk, müşteri çakışması, kontraktual kısıtlamalar
+  2. `data_asset_valuator.py` çalıştır
+  3. `customer_data_as_asset.md` de M&A due diligence prep kontrol listesini çalıştır
+  4. Kontraktual hariç tutmaları cs-general-counsel-advisor'a yeniden yapılandırma planı için sun
+  5. Ürünleştirme yoluna karar ver (benchmark raporu / embedding endpoint'i / doğrudan lisans)
+  6. /cs:decide aracılığıyla günlüğe kaydet
+
+  ### İş Akışı 4: Veri Ekibi Yol Haritası (1 hafta)
+  **Hedef:** İşletme kararlarına uyumlu sonraki 18 ayın veri işe almalarını oluştur.
+
+  1. İş verilerden kaynaklanarak alamadığı ya da çözümsüz analiz nedeniyle 5 karar listele
+  2. Her kararı kilitini açan role eşle
+  3. İşe almalar sıra (bir zaman bir rol, sonraki öncesi ramp)
+  4. cs-chro-advisor ile comp bantları ve leveling'de çapraz kontrol
+  5. Merkezi-vs-dağıtılmış tetikleyici tarihini belirle
+
+  ## Çıktı Standartları (cs-cdo-advisor aracılığıyla çağrıldığında)
+
+  ```
+  **Özet:** [bir cümle — karar ve gerekçe]
+  **Karar:** [4 çerçeveden biri]
+  **Kanıt:** [sayılar, sıfatlar değil]
+  **Hareket:** [3 somut sonraki adım]
+  **Sizin Kararınız:** [sadece kurucunun yapabileceği çağrı]
+  ```
+
+  ## Bitişik Beceriler
+
+  - `c-level-advisor/skills/cto-advisor/` — mimari kapasite, ölçekleme uçurumları
+  - `c-level-advisor/skills/ciso-advisor/` — veri güvenliği, ürünleştirilmiş veri için tehdit modelleme
+  - `c-level-advisor/skills/general-counsel-advisor/` — kontraktual kısıtlamalar, DPA, eğitim verisi hakları
+  - `c-level-advisor/skills/cfo-advisor/` — yapmalı-vs-satın-almalı TCO, M&A değerleme matematik
+  - `c-level-advisor/skills/chro-advisor/` — veri ekibi işe alma, leveling, comp
+  - `engineering/skills/database-designer/` — taktik schema tasarımı
+  - `engineering/skills/rag-architect/` — taktik AI/RAG uygulaması
+  - `engineering/llm-cost-optimizer/` — model maliyet yönetimi
+
+  ## Referanslar
+
+  - [ai_training_data_rights.md](references/ai_training_data_rights.md) — Eğitim hakları matrisi + GDPR Md. 6 / AB AI Act karar ağacı
+  - [data_product_strategy.md](references/data_product_strategy.md) — Warehouse / lakehouse / mesh durdurma kriterleri + yapmalı-vs-satın-almalı karar ağacı
+  - [customer_data_as_asset.md](references/customer_data_as_asset.md) — Değerleme framework + M&A due diligence hazırlık + ürünleştirme yolları
+  - [data_team_org_evolution.md](references/data_team_org_evolution.md) — Stage-to-role haritası + merkezi-vs-dağıtılmış tetikleyici
+
+  ---
+
+  **Sürüm:** 1.0.0
+  **Durum:** Production Ready
+  **Uyarı:** Eğitim verisi hakları, veri ürünleştirmesi veya M&A veri due diligence'ine dokunan kararlar nitelikli avukatı içermelidir. Bu beceri kararları ve takasları ortaya koymaktadır — yasal incelemeyi yerine almaz.
 ---
 
 # Chief Data Officer Advisor

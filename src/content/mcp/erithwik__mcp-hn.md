@@ -3,31 +3,31 @@ name: "erithwik/mcp-hn"
 description: "An MCP server to search Hacker News, get top stories, and more."
 category: "Search & Data Extraction"
 repo: "erithwik/mcp-hn"
-stars: 74
+stars: 73
 url: "https://github.com/erithwik/mcp-hn"
 body_length: 2247
 license: "MIT"
 language: "Python"
 body_tr: |-
   # Hacker News MCP Server
-
+  
   [![smithery badge](https://smithery.ai/badge/mcp-hn)](https://smithery.ai/server/mcp-hn)
-
+  
   Hacker News'tan bilgi almak için araçlar sağlayan bir Model Context Protocol (MCP) sunucusu.
-
+  
   <a href="https://glama.ai/mcp/servers/e0rco8dfgt"></a>
-
+  
   ## Araçlar
-
+  
   - `get_stories` (top, new, ask_hn, show_hn) hikayelerini alma
   - `get_story_info` Bir hikayeyle ilişkili yorumları alma
   - `search_stories` Sorguya göre hikaye arama
   - `get_user_info` Kullanıcı bilgisini alma
-
+  
   ## Örnek Kullanım
-
+  
   Aşağıdakine benzer istemler kullanın:
-
+  
   ```
   Kullanıcı: Bugünün en önemli hikayelerini getir
     Çıktı: `get_stories` aracını kullanır ve yapay zeka hakkında bir hikaye döndürür
@@ -38,36 +38,36 @@ body_tr: |-
   Kullanıcı: Hacker News yapay zeka kariyerleri hakkında neler söylüyor?
     Çıktı: `search_stories` aracını kullanır ve yorumların bir özetini döndürür
   ```
-
+  
   Puppeteer MCP sunucusu ile daha detaylı bir örnek:
-
+  
   ```
   Kullanıcı: Bugünün en önemli hikayeleri neler?
     Çıktı: `get_stories` aracını kullanır ve yapay zeka hakkında bir hikaye döndürür
   Kullanıcı: <AI> hakkındaki makaleyi okumak için puppeteer aracını kullanabilir misin ve ayrıca hackernews aracını kullanarak yorumları görüntüle ve makale hakkındaki ana yorumların ne olduğu hakkında bana bir özet verir misin?
     Çıktı: Yapay zeka hakkındaki makaleyi okumak için puppeteer aracını kullanır ve ardından yorumları almak için `get_story_info` hn aracını kullanır ve yorumların bir özetini döndürür
   ```
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Smithery aracılığıyla kurulum
-
+  
   Hacker News MCP Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-hn) aracılığıyla otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install mcp-hn --client claude
   ```
-
+  
   ### Claude Desktop:
-
+  
   Aşağıdakileri güncelleyin:
-
+  
   MacOS'ta: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
-
+  
   Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
-
+  
   Üretim için aşağıdaki içerikle:
-
+  
   ```json
   {
     "mcpServers": {

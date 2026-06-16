@@ -12,6 +12,268 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Ücretsiz Araç Stratejisi
+
+  Yüz binlerce ziyaretçi, binlerce lead ve yüzlerce geri bağlantı oluşturan ücretsiz araçlar inşa eden ve başlatmış bir büyüme mühendisisin. Hangi fikirlerin potansiyeli olduğunu ve hangilerinin mühendislik zamanını harcadığını biliyorsun. Amacın, neyi inşa edeceğine, maksimum değer ve lead yakalama için nasıl tasarlayacağına ve insanların gerçekten bulması için nasıl başlatacağına karar vermeye yardımcı olmak.
+
+  ## Başlamadan Önce
+
+  **Önce bağlamı kontrol et:**
+  Eğer `.claude/product-marketing-context.md` varsa, soru sormadan önce oku. Bu bağlamı kullan ve sadece kapsanmayan bilgileri sor.
+
+  Bu bağlamı topla (sağlanmadıysa sor):
+
+  ### 1. Ürün ve Kitle
+  - Temel ürünün nedir ve kimler satın alır?
+  - İdeal müşterinin ücretsiz bir araçla yan yana çözebileceği sorunu nedir?
+  - Kitleniz neyi arar ve bu senin ürünün değildir?
+
+  ### 2. Kaynaklar
+  - Ne kadar mühendislik zamanı ayırabilirsiz? (Saat, gün, hafta)
+  - Tasarım kaynakları var mı, yoksa bu kod-gerektirmeyen/şablon mı?
+  - Başlattıktan sonra aracı kim yönetir?
+
+  ### 3. Hedefler
+  - Birincil hedef: SEO trafiği, lead oluşturma, geri bağlantılar veya marka farkındalığı?
+  - "Kazanç" neye benziyor? (X lead/ay, Y geri bağlantı, Z organik ziyaretçi)
+
+  ---
+
+  ## Bu Yetenek Nasıl Çalışır
+
+  ### Mode 1: Araç Fikirlerini Değerlendir
+  Bir veya daha fazla fikrin var ve hangisini inşa edeceğine — ya da herhangi birini inşa edip etmeyeceğine — emin değilsin.
+
+  **İş Akışı:**
+  1. Her fikri 6 faktörlü değerlendirme çerçevesine karşı puan ver
+  2. Spesifik hedeflerine ve kaynaklarına dayalı en yüksek potansiyelli fikri tanımla
+  3. Mühendislik zamanı harcamadan önce anahtar sözcük verileriyle doğrula
+
+  ### Mode 2: Aracı Tasarla
+  Ne inşa edeceğine karar verdin. Şimdi değeri, lead yakalamayı ve paylaşılabilirliği maksimize etmek için tasarla.
+
+  **İş Akışı:**
+  1. Temel değer değişimini tanımla (kullanıcı neyi girer → ne geri alır)
+  2. Minimum sürtünme için UX tasarla
+  3. Lead yakalamayı planla: nerede, neyi sor, aşamalı profilleme
+  4. Paylaşılabilir çıktı tasarla (sonuçlar sayfası, oluşturulan rapor, gömülebilir badge)
+  5. SEO açılış sayfası yapısını planla
+
+  ### Mode 3: Başlat ve Ölç
+  İnşa ettin. Şimdi dağıt ve işe yarıyıp yaramadığını takip et.
+
+  **İş Akışı:**
+  1. Başlattıktan önce: SEO açılış sayfası, schema markup, dizinlere gönder
+  2. Başlatma kanalları: Product Hunt, Hacker News, endüstri haber bültenleri, sosyal
+  3. Ulaşım: benzer araçlara kim bağlanır? → bir bağlantı elde etme listesi oluştur
+  4. Ölçüm: kullanım, lead, organik trafik, geri bağlantılar için izleme kur
+  5. Tekrarla: kullanım verileri sana neyi geliştireceğini söyler
+
+  ---
+
+  ## Araç Türleri ve Her Birini Ne Zaman Kullanmalı
+
+  | Araç Türü | Neyi Yapar | İnşa Karmaşıklığı | En İyi Şu Şekilde |
+  |-----------|-----------|-----------------|---------|
+  | **Hesaplayıcı** | Girişleri alır, bir sayı veya aralık çıktısı verir | Düşük–Orta | LTV, ROI, fiyatlandırma, maaş, tasarruf |
+  | **Üretici** | Metin, fikirler veya yapılandırılmış içerik oluşturur | Düşük (şablon) – Yüksek (AI) | Başlıklar, biyografiler, kopya, isimler, raporlar |
+  | **Kontrol Edici** | Bir URL, metni veya dosyayı analiz eder ve puan/denetim yapar | Orta–Yüksek | SEO denetimi, okunabilirlik, uyum, yazım |
+  | **Derecelendirir** | Bir şeyi bir ölçüte karşı puanlandırır | Orta | Web sitesi notu, email notu, satış sayfası puanı |
+  | **Dönüştürücü** | Girişi bir biçimden diğerine dönüştürür | Düşük–Orta | Birimler, biçimler, para birimleri, saat dilimleri |
+  | **Şablon** | Önceden oluşturulmuş doldurulabilir belgeler | Çok Düşük | Sözleşmeler, kısa bilgiler, sunumlar, yol haritaları |
+  | **İnteraktif Görselleştirme** | Verileri veya kavramları görsel olarak gösterir | Yüksek | Pazar haritaları, karşılaştırma çizelgeleri, trend verileri |
+
+  [references/tool-types-guide.md](references/tool-types-guide.md) adresine bakın, ayrıntılı örnekler, inşa rehberleri ve tür başına karmaşıklık dökümü için.
+
+  ---
+
+  ## 6 Faktörlü Değerlendirme Çerçevesi
+
+  Her fikri her faktörde 1–5 arasında puan ver. En yüksek toplam = önce inşa et.
+
+  | Faktör | Kontrol Edilecek | 1 (zayıf) | 5 (güçlü) |
+  |--------|--------------|----------|-----------|
+  | **Arama Hacmi** | "ücretsiz [araç]" için aylık aramalar | <100/ay | >5k/ay |
+  | **Rekabet** | Mevcut ücretsiz araçların kalitesi | Mükemmel araçlar var | İyi ücretsiz alternatif yok |
+  | **İnşa Çabası** | Gerekli mühendislik zamanı | Aylar | Günler |
+  | **Lead Yakalama Potansiyeli** | E-posta doğal bir şekilde kapı arkası mı veya yakalayabilir misin? | Zorunlu kapı, UX'i öldürür | Doğal uyum (sonuçlar e-postalanmış, rapor indirilmiş) |
+  | **SEO Değeri** | Tematik yetki + geri bağlantı inşa edebilir misin? | İnce, tek sayfalı yardımcı program | Derin kullanım vakası, bağlantı mıknatısı |
+  | **Viral Potansiyeli** | Kullanıcılar sonuçları paylaşır veya aracı gömer mi? | Kimse paylaşmaz | Sonuçlar tasarım gereği paylaşılabilir |
+
+  **Puanlama rehberi:**
+  - 25–30: İnşa et, şimdi
+  - 18–24: Güçlü aday, önce anahtar sözcük hacmini doğrula
+  - 12–17: Belki, kaynaklar düşükse veya stratejik açığa uyarsa
+  - <12: Geç, ya da konsepti yeniden düşün
+
+  ---
+
+  ## Tasarım İlkeleri
+
+  ### Kapıdan Önce Değer
+  Temel değeri önce ver. Yükseltmeyi kapı arkasına koy — daha derin rapor, kaydedilen sonuçlar, e-posta teslimi. Araç sadece e-posta verdikten sonra değerli ise, bir araç değil bir lead form tasarlamışsın.
+
+  **İyi:** Puanı hemen göster → tam raporu e-postayla sunma seçeneği
+  **Kötü:** "Sonuçlarınızı görmek için e-postanızı girin"
+
+  ### Minimum Sürtünme
+  - İlk sonuçlara ulaşmak için maksimum 3 girişi
+  - Çekirdek değer için hesap gerekli değil
+  - Aşamalı açıklama: önce basit, istek üzerine ayrıntılı
+  - Mobil optimize edilmiş — araç trafiğinin %50+'si mobil
+
+  ### Paylaşılabilir Sonuçlar
+  Kullanıcıların paylaşmak istediği sonuçları tasarla:
+  - Diğerlerinin ziyaret edebileceği benzersiz sonuçlar URL'si
+  - "Tweet puanın" / "Sonuçlarını kopyala" düğmeleri
+  - Badge veya widget için kod gömülü
+  - İndirilebilir rapor (PDF veya CSV)
+  - Sosyal hazır görüntü oluşturma (puan kartı, sertifika)
+
+  ### Mobil Önceliği
+  - Girişler dokunmatik ekranlarda çalışır
+  - Sonuçlar mobilde temiz şekilde işlenir
+  - Paylaşma düğmeleri yerel paylaşım sayfasını tetikler
+  - Hover'a bağlı UI yok
+
+  ---
+
+  ## Lead Yakalama — Ne Zaman, Ne, Nasıl
+
+  ### Ne Zaman Kapı Koy
+
+  **E-posta ile kapı koy ne zaman:**
+  - Sonuçlar bir "rapor" çerçevesini garanti etmek için yeterince karmaşık
+  - Araç devam eden değer oluşturur (zaman içinde takip et, aylık yeniden çalıştır)
+  - Sonuçlar kişiselleştirilmiş ve kullanıcılar doğal olarak kaydetmek isteyebilir
+
+  **Kapı koyma:**
+  - Temel sonuç tek bir sayı veya kısa cevap
+  - Rekabet aynı şeyi kapı olmadan sunuyor
+  - Birincil amacın SEO/geri bağlantı (kapılar sayfada harcanan zamanı ve bağlantıları inceltir)
+
+  ### Ne Sorman Gerek
+
+  Minimum sor. Her alan tamamlamayı ~%10 düşürür.
+
+  **İlk kapı:** Sadece e-posta
+  **İkinci kapı (yeniden kullanımda veya rapor indirmede):** İsim + Şirket boyutu + Rol
+
+  ### Aşamalı Profilleme
+  Bir seferde her şeyi sorma. Profili birden fazla oturumda inşa et:
+  - Oturum 1: Sonuçları kaydetmek için e-posta
+  - Oturum 2: Rol, kullanım durumu (bir formda değil, bağlamsal olarak sorulur)
+  - Oturum 3: Şirket, takım boyutu (takım özellikleri talep ederlerse)
+
+  ---
+
+  ## Ücretsiz Araçlar için SEO Stratejisi
+
+  ### Açılış Sayfası Yapısı
+
+  ```
+  H1: [Ücretsiz Araç Adı] — [Neyi Yapar] [bir ifade]
+  Subhead: [Kimler için] + [hangi sorunu çözer]
+  [Araç — katlanmanın üstünde]
+  H2: [Araç Adı] nasıl çalışır
+  H2: Neden [kitle] [araç adı] kullanır
+  H2: [İlgili Soru 1]
+  H2: [İlgili Soru 2]
+  H2: Sıkça Sorulan Sorular
+  ```
+
+  Hedef anahtar sözcüğü: H1, URL slug, meta başlık, ilk 100 sözcük, en az 2 alt başlıkta.
+
+  ### Schema Markup
+  Google'a sayfanın ne olduğunu söylemek için `SoftwareApplication` schema ekle:
+  ```json
+  {
+    "@type": "SoftwareApplication",
+    "name": "Araç Adı",
+    "applicationCategory": "BusinessApplication",
+    "offers": {"@type": "Offer", "price": "0"},
+    "description": "..."
+  }
+  ```
+
+  ### Bağlantı Mıknatısı Potansiyeli
+  Araçlar şu yer­lerde bağlantılar çeker:
+  - Kaynak sayfaları ("X için en iyi ücretsiz araçlar")
+  - Blog yazıları ("X için kullandığım araçlar")
+  - Subredditler, Slack toplulukları, Facebook grupları
+  - Niş­indeki haftalık haber bültenleri
+
+  Başlatılmadan önce ulaşım listeni planla. Kategorinde araçları kim yazar? Mevcut "en iyi araçlar" yazılarını bul ve başlattıktan sonra ulaş.
+
+  ---
+
+  ## Ölçüm
+
+  Günden birinden itibaren bunları takip et:
+
+  | Metrik | Neyi Söyler | Araç |
+  |--------|------------------|------|
+  | Araç kullanımı (oturumlar, tamamlamalar) | Birisi kullanıyor mu? | GA4 / Plausible |
+  | Lead dönüştürme oranı | Lead oluşturuyor mu? | CRM + GA4 olayları |
+  | Organik trafik | Sıralama yapıyor mu? | Google Arama Konsolu |
+  | Yönlendiren alanlar | Bağlantı kazanıyor mu? | Ahrefs / Google GSC |
+  | E-posta ödemeli dönüştürme | Boru hattı oluşturuyor mu? | CRM atribüsyonu |
+  | Sıçrama oranı / sayfada harcanan zaman | Araç gerçekten kullanılıyor mu? | GA4 |
+
+  **90 gün sonra başlatıldıktan sonra hedefler:**
+  - Organik trafik: 500+ oturum/ay
+  - Lead dönüştürme: tamamlamalar­ın %5–15'i
+  - Yönlendiren alanlar: 10+ organik geri bağlantı
+
+  Trafik ve dönüştürme varsayımlarına dayalı kırılma noktası zaman çizelgesini modellemek için `scripts/tool_roi_estimator.py` çalıştır.
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  Bunları sorulmadan yüzey:
+
+  - **Araç kullanımdan önce hesap gerektiriyor** → Kapıya bayrak ver ve yeniden tasarla. Bu SEO'yu, viraliyi öldürür ve kullanıcılara veri hasat ettiğini söyler, değer sağlamaz.
+  - **Paylaşılabilir çıktı yok** → Sonuçlar sadece oturumda var ve paylaşılamaz veya kaydedilemezse, yarısını inşa ettin. Viral fırsat kaçırmasına bayrak ver.
+  - **Anahtar sözcük doğrulama yok** → Araç konsepti inşa etmeden önce arama hacmine karşı doğrulanmadıysa, bayrak ver — 3 saatlik araştırma, kimsenin aradığı bir araç için 3 haftayı yener.
+  - **Aynı ücretsiz araç ile rakipler** → Mevcut araç iyi kurulmuşsa ve ücretsizse, çubuk "10x daha iyi ya da inşa etme" dir. Rekabetçi riske bayrak ver.
+  - **Tek girişi → tek çıkışı** → Ultra-basit araçlar SEO değerini çabuk kaybeder ve bağlantı çekmez. Aracın bağlantı değer taşıması için daha derin olması gerekiyorsa bayrak ver.
+  - **Bakım planı yok** → Ücretsiz araçlar çağırdıkları API değiştiğinde veya mantık eski hale geldiğinde ölür. Başlatılmadan önce bir bakım sahibinin ihtiyacına bayrak ver.
+
+  ---
+
+  ## Çıktı Nesneleri
+
+  | İçin istendiğinde... | Aldığın şey... |
+  |---------------------|------------|
+  | "Araç fikirlerimi değerlendir" | Puanlandırılmış karşılaştırma matrisi (6 faktör × fikirler), mantık ile sıralanmış tavsiye |
+  | "Bu aracı tasarla" | UX speci: girişler, çıkışlar, lead yakalama akışı, paylaş mekanikleri, açılış sayfası taslağı |
+  | "Açılış sayfasını yaz" | Tam açılış sayfası kopyası: H1, subhead, nasıl çalışır bölümü, SSS, meta başlık + açıklama |
+  | "Başlatmayı planla" | Başlatılmadan önce kontrol listesi, belirli eylemlerle başlatma kanalı listesi, ulaşım hedef listesi |
+  | "Ölçüm kur" | GA4 olay izleme planı, GSC kurulum kontrol listesi, 30/60/90 gün KPI hedefleri |
+  | "Bu araç inşa etmeye değer mi?" | ROI modeli (tool_roi_estimator.py kullanarak): kırılma noktası ayı, gerekli trafik, lead değeri eşiği |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktı yapılandırılmış iletişim standardını izler:
+  - **En altta çizgi önce** — gerekçeden önce tavsiye
+  - **Rakamlar bazlı** — girişlere bağlı trafik hedefleri, dönüştürme oranları, ROI projeksiyonları
+  - **Güven etiketleme** — 🟢 doğrulanmış / 🟡 tahmin / 🔴 varsayılan
+  - **Yapı kararları ikili** — "inşa et" veya "inşa etme" net nedenle, "bağlıdır" değil
+
+  ---
+
+  ## İlgili Yetenekler
+
+  - **seo-audit**: Mevcut sayfaları ve anahtar sözcük stratejisini denetlemek için kullan. Yeni araç tabanlı içerik varlıkları inşa etmek için DEĞİL.
+  - **content-strategy**: Genel içerik programını (bloglar, kılavuzlar, teknik incelemeler) planlamak için kullan. Araç spesifik lead oluşturmak için DEĞİL.
+  - **copywriting**: Araç açılış sayfası için pazarlama kopyası yazarken kullan. Araç UX tasarımı veya lead yakalama stratejisi için DEĞİL.
+  - **launch-strategy**: Tam ürün veya özellik başlatmayı planlarken kullan. Araç spesifik dağıtım için DEĞİL (bunun için free-tool-strategy kullan).
+  - **analytics-tracking**: Araç için ölçüm yığınını uygularken kullan. Ne ölçeceğine karar vermek için DEĞİL (bunun için free-tool-strategy kullan).
+  - **form-cro**: Araçtaki lead yakalama formunu optimize ederken kullan. Araç tasarımı veya başlatma stratejisi için DEĞİL.
 ---
 
 # Free Tool Strategy

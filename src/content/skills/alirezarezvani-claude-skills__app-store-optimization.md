@@ -3,7 +3,7 @@ name: "app-store-optimization"
 description_en: "App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, generating metadata suggestions, and improving app visibility on Apple App Store and Google Play Store. Use when the user asks about ASO, app store rankings, app metadata, app titles and descriptions, app store listings, app visibility, or mobile app marketing on iOS or Android. Supports keyword research "
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/app-store-optimization/SKILL.md"
 path: ".gemini/skills/app-store-optimization/SKILL.md"
 is_collection: false
@@ -14,15 +14,15 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Uygulama Mağazası Optimizasyonu (ASO)
-
+  
   ---
-
+  
   ## Anahtar Kelime Araştırması İş Akışı
-
+  
   Uygulama mağazası görünürlüğünü artıran anahtar kelimeleri keşfedin ve değerlendirin.
-
+  
   ### İş Akışı: Anahtar Kelime Araştırması Yürütün
-
+  
   1. Hedef kitleyi ve temel uygulama işlevlerini tanımlayın:
      - Birincil kullanım durumu (uygulama hangi sorunu çözer)
      - Hedef kullanıcı demografisi
@@ -46,18 +46,18 @@ body_tr: |-
   6. Anahtar kelimeleri meta veri konumlarına eşleyin
   7. İzleme için anahtar kelime stratejisini belgelendirin
   8. **Doğrulama:** Anahtar kelimeler puanlandı; yerleşim eşlendi; rakip marka adları dahil edilmedi; iOS anahtar kelime alanında çoğul formlar yok
-
+  
   ### Anahtar Kelime Değerlendirme Kriterleri
-
+  
   | Faktör | Ağırlık | Yüksek Puan Göstergeleri |
   |--------|---------|-------------------------|
   | Uygunluk | 35% | Temel uygulama işlevini açıklar |
   | Hacim | 25% | 10.000+ aylık arama |
   | Rekabet | 25% | İlk 10 uygulamanın ortalama puanı <4.5 |
   | Dönüşüm | 15% | İşlemsel niyet ("en iyi X uygulaması") |
-
+  
   ### Anahtar Kelime Yerleşim Önceliği
-
+  
   | Konum | Arama Ağırlığı |
   |-------|----------------|
   | Uygulama Başlığı | En Yüksek |
@@ -65,17 +65,17 @@ body_tr: |-
   | Anahtar Kelime Alanı (iOS) | Yüksek |
   | Kısa Açıklama (Android) | Yüksek |
   | Tam Açıklama | Orta |
-
+  
   Bkz: [references/keyword-research-guide.md](references/keyword-research-guide.md)
-
+  
   ---
-
+  
   ## Meta Veri Optimizasyonu İş Akışı
-
+  
   Arama sıralaması ve dönüşümü iyileştirmek için uygulama mağazası listeleme öğelerini optimize edin.
-
+  
   ### İş Akışı: Uygulama Meta Verilerini Optimize Edin
-
+  
   1. Mevcut meta verileri platform sınırlarına karşı denetleyin:
      - Başlık karakter sayısı ve anahtar kelime varlığı
      - Alt başlık/kısa açıklama kullanımı
@@ -102,9 +102,9 @@ body_tr: |-
   6. Her alan için karakter sayısını doğrulayın
   7. Anahtar kelime yoğunluğunu hesaplayın (hedef %2-3 birincil)
   8. **Doğrulama:** Tüm alanlar karakter sınırları içinde; birincil anahtar kelime başlıkta; anahtar kelime yığını yok (>%5); doğal dil korundu
-
+  
   ### Platform Karakter Sınırları
-
+  
   | Alan | Apple App Store | Google Play Store |
   |------|-----------------|-------------------|
   | Başlık | 30 karakter | 50 karakter |
@@ -114,40 +114,40 @@ body_tr: |-
   | Promosyon Metni | 170 karakter | Yok |
   | Tam Açıklama | 4.000 karakter | 4.000 karakter |
   | Yenilikleri | 4.000 karakter | 500 karakter |
-
+  
   ### Açıklama Yapısı
-
+  
   ```
   PARAGRAF 1: Hook (50-100 sözcük)
   ├── Kullanıcı sorununu ele alın
   ├── Ana değer önerisini belirtin
   └── Birincil anahtar kelimeyi dahil edin
-
+  
   PARAGRAF 2-3: Özellikler (100-150 sözcük)
   ├── En iyi 5 özellik ve faydaları
   ├── Taranabilirlik için madde işaretleri
   └── İkincil anahtar kelimeler doğal olarak entegre
-
+  
   PARAGRAF 4: Sosyal Kanıt (50-75 sözcük)
   ├── İndirme sayısı veya puan
   ├── Basın bahsedişi veya ödüller
   └── Kullanıcı testimonialları özeti
-
+  
   PARAGRAF 5: Harekete Geçirici Çağrı (25-50 sözcük)
   ├── Net sonraki adım
   └── Güvence (ücretsiz deneme, kaydolmaya gerek yok)
   ```
-
+  
   Bkz: [references/platform-requirements.md](references/platform-requirements.md)
-
+  
   ---
-
+  
   ## Rakip Analizi İş Akışı
-
+  
   Anahtar kelime boşluklarını ve konumlandırma fırsatlarını belirlemek için üst rakipleri analiz edin.
-
+  
   ### İş Akışı: Rakip ASO Stratejisini Analiz Edin
-
+  
   1. İlk 10 rakibi tanımlayın:
      - Doğrudan rakipler (aynı temel işlev)
      - Dolaylı rakipler (çakışan kitle)
@@ -173,9 +173,9 @@ body_tr: |-
      - Yaygın şikayet temaları
   7. Konumlandırma fırsatlarını belgelendirin
   8. **Doğrulama:** 10+ rakip analiz edildi; anahtar kelime matrisi tamamlandı; boşluklar hacim tahminleri ile tanımlandı; görsel denetim belgelendi
-
+  
   ### Rakip Analizi Matrisi
-
+  
   | Analiz Alanı | Veri Noktaları |
   |--------------|----------------|
   | Anahtar Kelimeler | Başlık anahtar kelimeleri, açıklama sıklığı |
@@ -183,24 +183,24 @@ body_tr: |-
   | Görseller | Simge stili, ekran görüntüsü sayısı/stili |
   | Puanlar | Ortalama puan, toplam sayı, hız |
   | İncelemeler | En iyi övgü, en iyi şikayetler |
-
+  
   ### Boşluk Analizi Şablonu
-
+  
   | Fırsat Türü | Örnek | İşlem |
   |------------|--------|--------|
   | Anahtar kelime boşluğu | "alışkanlık takip" (%40 kapsama) | Anahtar kelime alanına ekle |
   | Özellik boşluğu | Rakip uyumlu ögesi eksik | Ekran görüntülerinde vurgula |
   | Görsel boşluğu | İlk 5'te video yok | Uygulama önizlemesi oluştur |
   | Mesajlaşma boşluğu | Hiç biri "ücretsiz"i bahsetmez | Ücretsiz konumlandırmayı test et |
-
+  
   ---
-
+  
   ## Uygulama Lansmanı İş Akışı
-
+  
   Maksimum başlangıç görünürlüğü için yapılandırılmış bir lansmanı yürütün.
-
+  
   ### İş Akışı: Uygulamayı Mağazalara Yayınlayın
-
+  
   1. Ön lansmanı hazırlayın (4 hafta öncesinde):
      - Anahtar kelimeleri ve meta verileri sonlandırın
      - Tüm görsel varlıkları hazırlayın
@@ -228,9 +228,9 @@ body_tr: |-
      - İlk meta veri güncellemesini planlayın
   7. İlk güncellemeyi planlayın (lansmanından 2 hafta sonra)
   8. **Doğrulama:** Uygulama mağazalarda canlı; analytics izleme; 24 saat içinde inceleme yanıtları; indirme hızı belgelendi; ilk güncelleme zamanlandı
-
+  
   ### Ön Lansmanı Kontrol Listesi
-
+  
   | Kategori | Öğeler |
   |----------|--------|
   | Meta Veri | Başlık, alt başlık, açıklama, anahtar kelimeler |
@@ -239,26 +239,26 @@ body_tr: |-
   | Teknik | Uygulama ikili, imzalama sertifikaları |
   | Analytics | SDK entegrasyonu, olay izleme |
   | Pazarlama | Basın kiti, sosyal içerik, e-posta hazır |
-
+  
   ### Lansmanı Zamanlaması Özellikleri
-
+  
   | Faktör | Tavsiye |
   |--------|---------|
   | Haftanın Günü | Salı-Çarşamba (hafta sonlarından kaçının) |
   | Günün Saati | Hedef pazar saat diliminde sabah |
   | Mevsimsel | Alakalı kategori mevsimlerine uyumlu |
   | Rekabet | Büyük rakip lansmanı tarihleri |
-
+  
   Bkz: [references/aso-best-practices.md](references/aso-best-practices.md)
-
+  
   ---
-
+  
   ## A/B Test İş Akışı
-
+  
   Dönüşüm oranlarını iyileştirmek için meta veri ve görsel öğeleri test edin.
-
+  
   ### İş Akışı: A/B Test Çalıştırın
-
+  
   1. Test öğesini seçin (etkiye göre önceliklendirin):
      - Simge (en yüksek etki)
      - Ekran görüntüsü 1 (yüksek etki)
@@ -287,9 +287,9 @@ body_tr: |-
      - İstatistiksel anlamlılığı kontrol edin
      - Öğrenmeler belgelendirin
   8. **Doğrulama:** Tek değişken test edildi; örnek boyutu yeterli; anlamlılığa ulaşıldı (%95); sonuçlar belgelendi; kazanan uygulandı
-
+  
   ### A/B Test Önceliklendirmesi
-
+  
   | Öğe | Dönüşüm Etkisi | Test Karmaşıklığı |
   |-----|----------------|-------------------|
   | Uygulama Simgesi | %10-25 artış olası | Orta (tasarım gerekli) |
@@ -297,119 +297,119 @@ body_tr: |-
   | Başlık | %5-15 artış olası | Düşük |
   | Kısa Açıklama | %5-10 artış olası | Düşük |
   | Video | %10-20 artış olası | Yüksek |
-
+  
   ### Örnek Boyutu Hızlı Başvurusu
-
+  
   | Taban DÖ | Gereken İzlenimler (varyant başına) |
   |----------|-------------------------------------|
   | %1 | 31.000 |
   | %2 | 15.500 |
   | %5 | 6.200 |
   | %10 | 3.100 |
-
+  
   ### Test Belgeleme Şablonu
-
+  
   ```
   TEST KİMLİĞİ: ASO-2025-001
   ÖĞER: Uygulama Simgesi
   HİPOTEZ: Daha cesur renkli bir simge dönüşümü %10 oranında artıracak
   BAŞLANGIÇ TARİHİ: [Tarih]
   BİTİŞ TARİHİ: [Tarih]
-
+  
   SONUÇLAR:
   ├── Kontrol DÖ: %4,2
   ├── Uygulama DÖ: %4,8
   ├── Artış: +%14,3
   ├── Anlamlılık: %97
   └── Karar: Uygulamayı uygula
-
+  
   ÖĞRENMELER:
   - Cesur renkler bu kategoride opak tonlara üstün gelir
   - Sonraki test için ekran görüntüsü arka planlarına uygula
   ```
-
+  
   ---
-
+  
   ## Ön ve Sonra Örnekleri
-
+  
   ### Başlık Optimizasyonu
-
+  
   **Üretkenlik Uygulaması:**
-
+  
   | Sürüm | Başlık | Analiz |
   |-------|--------|--------|
   | Ön | "MyTasks" | Anahtar kelime yok, yalnızca marka (8 karakter) |
   | Sonra | "MyTasks - Todo List & Planner" | Birincil + ikincil anahtar kelimeler (29 karakter) |
-
+  
   **Fitness Uygulaması:**
-
+  
   | Sürüm | Başlık | Analiz |
   |-------|--------|--------|
   | Ön | "FitTrack Pro" | Genel değiştirici (12 karakter) |
   | Sonra | "FitTrack: Workout Log & Gym" | Kategori anahtar kelimeleri (27 karakter) |
-
+  
   ### Alt Başlık Optimizasyonu (iOS)
-
+  
   | Sürüm | Alt Başlık | Analiz |
   |-------|-----------|--------|
   | Ön | "Get Things Done" | Belirsiz, anahtar kelime yok |
   | Sonra | "Daily Task Manager & Planner" | İki anahtar kelime, fayda açık |
-
+  
   ### Anahtar Kelime Alanı Optimizasyonu (iOS)
-
+  
   **Ön (Verimsiz - 89 karakter, 8 anahtar kelime):**
   ```
   task manager, todo list, productivity app, daily planner, reminder app
   ```
-
+  
   **Sonra (Optimize - 97 karakter, 14 anahtar kelime):**
   ```
   task,todo,checklist,reminder,organize,daily,planner,schedule,deadline,goals,habit,widget,sync,team
   ```
-
+  
   **İyileştirmeler:**
   - Virgülden sonra boşluk kaldırıldı (+8 karakter)
   - Yinelemeler kaldırıldı (task manager → task)
   - Çoğul formlar kaldırıldı (reminders → reminder)
   - Başlıkta bulunan sözcükler kaldırıldı
   - Daha fazla alakalı anahtar kelime eklendi
-
+  
   ### Açıklamanın Başlangıcı
-
+  
   **Ön:**
   ```
   MyTasks, meşgul profesyonellerin günlük etkinliklerini organize etmesine
   ve üretkenliği artırmasına yardımcı olmak için tasarlanmış kapsamlı bir
   görev yönetimi çözümüdür.
   ```
-
+  
   **Sonra:**
   ```
   Kaçırılan son tarihler konusunda endişelenmeyin. MyTasks her görevi, hatırlatmayı
   ve projeyi tek bir yerde tutar—böylece hatırlamak yerine yapmanıza odaklanabilirsiniz.
   500.000'den fazla profesyonel tarafından güvenilir.
   ```
-
+  
   **İyileştirmeler:**
   - Kullanıcı sorunuyla başlıyor
   - Spesifik fayda (genel "üretkenliği artırma" değil)
   - Sosyal kanıt dahil
   - Anahtar kelimeler doğal, yığılmış değil
-
+  
   ### Ekran Görüntüsü Başlığı Gelişimi
-
+  
   | Sürüm | Başlık | Sorun |
   |-------|--------|-------|
   | Ön | "Task List Feature" | Özellik odaklı, pasif |
   | Daha İyi | "Create Task Lists" | İşlem fiili, ama hala özellik |
   | En İyi | "Never Miss a Deadline" | Fayda odaklı, duygusal |
-
+  
   ---
-
+  
   ## Araçlar ve Referanslar
-
+  
   ### Komut Dosyaları
-
+  
   | Script | Amaç | Kullanım |
   |--------|------|---------|
   | [keyword_analyzer.py](scripts/keyword_analyzer.py) | Anahtar kelimeleri hacim ve rekabet açısından analiz edin | `python keyword_analyzer.py --keywords "todo,task,planner"` |
@@ -420,25 +420,25 @@ body_tr: |-
   | [review_analyzer.py](scripts/review_analyzer.py) | İnceleme duygusu ve temalarını analiz edin | `python review_analyzer.py --app-id com.example.app` |
   | [launch_checklist.py](scripts/launch_checklist.py) | Platform özgü lansmanı kontrol listesi oluşturun | `python launch_checklist.py --platform ios` |
   | [localization_helper.py](scripts/localization_helper.py) | Çok dilinde meta veriyi yönetin | `python localization_helper.py --locales "en,es,de,ja"` |
-
+  
   ### Referanslar
-
+  
   | Belge | İçerik |
   |-------|--------|
   | [platform-requirements.md](references/platform-requirements.md) | iOS ve Android meta veri özellikleri, görsel varlık gereksinimleri |
   | [aso-best-practices.md](references/aso-best-practices.md) | Optimizasyon stratejileri, puan yönetimi, lansmanı taktikleri |
   | [keyword-research-guide.md](references/keyword-research-guide.md) | Araştırma metodolojisi, değerlendirme çerçevesi, izleme |
-
+  
   ### Varlıklar
-
+  
   | Şablon | Amaç |
   |--------|------|
   | [aso-audit-template.md](assets/aso-audit-template.md) | Uygulama mağazası listeleri için yapılandırılmış denetim kontrol listesi |
-
+  
   ---
-
+  
   ## Platform Notları
-
+  
   | Platform / Kısıtlama | Davranış / Etki |
   |----------------------|-----------------|
   | iOS anahtar kelime değişiklikleri | Uygulama sunumu gerektirir |
@@ -447,36 +447,36 @@ body_tr: |-
   | Android anahtar kelime alanı | Yok — bunun yerine açıklama kullanın |
   | Anahtar kelime hacim verisi | Yalnızca tahminler; resmi kaynak yok |
   | Rakip verisi | Yalnızca genel listeler |
-
+  
   **Bu beceriyi kullanmayın:** web uygulamaları (web SEO kullanın), kurumsal/dahili uygulamalar, TestFlight'ta yalnızca betalar, ücretli reklam stratejisi.
-
+  
   ---
-
+  
   ## İlgili Beceriler
-
+  
   | Beceri | Entegrasyon Noktası |
   |--------|-------------------|
   | [content-creator](../content-creator/) | Uygulama açıklaması yazısı |
   | [marketing-demand-acquisition](../marketing-demand-acquisition/) | Lansmanı promosyon kampanyaları |
   | [marketing-strategy-pmm](../marketing-strategy-pmm/) | Pazar girişi planlaması |
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   - **Başlıkta anahtar kelime optimizasyonu yok** → Uygulama başlığı #1 sıralama faktörüdür. En iyi anahtar kelimeyi dahil edin.
   - **Ekran görüntüleri değer göstermiyor** → Ekran görüntüleri bir hikaye anlatmalı, kullanıcı arayüzünü göstermemeli.
   - **Puan stratejisi yok** → 4.0 yıldızın altı dönüşümü öldürür. Uygulama içi puan istemlerini uygulayın.
   - **Açıklama anahtar kelime yığını** → Anahtar kelime yığını ile doğal dil daha iyi sonuç verir.
-
+  
   ## Çıkış Eserleri
-
+  
   | Talep ettiğiniz şey | Alacağınız şey |
   |--------------------|----------------|
   | "ASO denetimi" | Öncelikli düzeltmelerle tam uygulama mağazası listeleme denetimi |
   | "Anahtar kelime araştırması" | Anahtar kelime listesi, arama hacmi ve zorluk puanları ile |
   | "Listelemeyi optimize et" | Yeniden yazılmış başlık, alt başlık, açıklama, anahtar kelime alanı |
-
+  
   ## İletişim
-
+  
   Tüm çıktılar kalite doğrulamasından geçer:
   - Kendi doğrulama: kaynak atıf, varsayım denetimi, güven puanlaması
   - Çıktı formatı: Özet → Ne (güven ile) → Neden → Nasıl Hareket Edin

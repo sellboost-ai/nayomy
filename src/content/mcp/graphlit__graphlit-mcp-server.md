@@ -3,7 +3,7 @@ name: "graphlit/graphlit-mcp-server"
 description: "Ingest anything from Slack, Discord, websites, Google Drive, Linear or GitHub into a Graphlit project - and then search and retrieve relevant knowledge within an MCP client like Cursor, Windsurf or Cline."
 category: "Knowledge & Memory"
 repo: "graphlit/graphlit-mcp-server"
-stars: 376
+stars: 375
 url: "https://github.com/graphlit/graphlit-mcp-server"
 body_length: 11951
 license: "MIT"
@@ -12,35 +12,35 @@ homepage: "https://www.graphlit.com"
 body_tr: |-
   [![npm version](https://badge.fury.io/js/graphlit-mcp-server.svg)](https://badge.fury.io/js/graphlit-mcp-server)
   [![smithery badge](https://smithery.ai/badge/@graphlit/graphlit-mcp-server)](https://smithery.ai/server/@graphlit/graphlit-mcp-server)
-
+  
   # Graphlit Platformu için Model Context Protocol (MCP) Sunucusu
-
+  
   ## Genel Bakış
-
+  
   Model Context Protocol (MCP) Sunucusu, MCP istemcileri ile Graphlit servisi arasında entegrasyonu sağlar. Bu belge kurulum sürecini açıklar ve istemciyi kullanmanın temel bir örneğini sunar.
-
+  
   Slack, Discord, web siteleri, Google Drive, e-posta, Jira, Linear veya GitHub'dan herhangi bir şeyi Graphlit projesine alın - ve ardından Cursor, Windsurf, Goose veya Cline gibi bir MCP istemcisinde ilgili bilgileri arayın ve alın.
-
+  
   Graphlit projeniz, tüm geliştirici ve ürün yönetimi araçlarınız arasında aranabilir ve RAG'a hazır bir bilgi tabanı olarak işlev görür.
-
+  
   Belgeler (PDF, DOCX, PPTX, vb.) ve HTML web sayfaları alındığında Markdown'a dönüştürülecektir. Ses ve video dosyaları alındığında transkribe edilecektir.
-
+  
   Web tarama ve web araması, Firecrawl, Exa vb. gibi diğer araçları ayrıca entegre etmeye gerek kalmadan MCP araçları olarak yerleşiktir.
-
+  
   MCP Sunucusu kullanım durumları ve özellikleri hakkında daha fazla bilgiyi [blogumuzda](https://www.graphlit.com/blog/graphlit-mcp-server) okuyabilirsiniz.
-
+  
   Goose MCP istemcisi ile Graphlit MCP Sunucusu'nu kullanma hakkında [YouTube videosunu](https://www.youtube.com/watch?v=Or-QqonvcAs&t=4s) izleyin.
-
+  
   MCP Sunucusu kullanımı hakkında sorularınız varsa, [Discord](https://discord.gg/ygFmfjy3Qx) topluluğumuza katılın ve #mcp kanalına yazın.
-
+  
   <a href="https://glama.ai/mcp/servers/fscrivteod">
     
   </a>
-
+  
   ## Araçlar
-
+  
   ### Alma
-
+  
   - İçerik Sorgula
   - Koleksiyonları Sorgula
   - Feed'leri Sorgula
@@ -48,22 +48,22 @@ body_tr: |-
   - İlgili Kaynakları Al
   - Benzer Resimleri Al
   - Resmi Görsel Olarak Tanımla
-
+  
   ### RAG
-
+  
   - LLM Konuşmasını İstemle
-
+  
   ### Çıkarım
-
+  
   - Metinden Yapılandırılmış JSON Çıkart
-
+  
   ### Yayımlama
-
+  
   - Ses Olarak Yayımla (ElevenLabs Audio)
   - Resim Olarak Yayımla (OpenAI Image Generation)
-
+  
   ### Alım
-
+  
   - Dosyalar
   - Web Sayfaları
   - Mesajlar
@@ -72,9 +72,9 @@ body_tr: |-
   - Sorunlar
   - Metin
   - Bellek (Kısa Vadeli)
-
+  
   ### Veri Bağlayıcıları
-
+  
   - Microsoft Outlook e-postası
   - Google Mail
   - Notion
@@ -93,23 +93,23 @@ body_tr: |-
   - Discord
   - Twitter/X
   - Podcast'ler (RSS)
-
+  
   ### Web
-
+  
   - Web Taraması
   - Web Araması (Podcast Araması dahil)
   - Web Haritalama
   - Sayfanın Ekran Görüntüsü
-
+  
   ### Bildirimler
-
+  
   - Slack
   - E-posta
   - Webhook
   - Twitter/X
-
+  
   ### İşlemler
-
+  
   - Projeyi Yapılandır
   - Koleksiyon Oluştur
   - Koleksiyona İçerik Ekle
@@ -120,9 +120,9 @@ body_tr: |-
   - Konuşma(ları) Sil
   - Feed Tamamlandı mı?
   - İçerik Tamamlandı mı?
-
+  
   ### Numaralandırmalar
-
+  
   - Slack Kanallarını Listele
   - Microsoft Teams Ekiplerini Listele
   - Microsoft Teams Kanallarını Listele
@@ -137,9 +137,9 @@ body_tr: |-
   - Discord Kanallarını Listele
   - Google Takvimlerini Listele
   - Microsoft Takvimlerini Listele
-
+  
   ## Kaynaklar
-
+  
   - Proje
   - İçerik
   - Feed'ler
@@ -147,38 +147,38 @@ body_tr: |-
   - İş Akışları
   - Konuşmalar
   - Spesifikasyonlar
-
+  
   ## Ön Koşullar
-
+  
   Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
-
+  
   - Sisteminizde Node.js yüklü (önerilen sürüm 18.x veya daha yüksek).
   - [Graphlit Platformu](https://portal.graphlit.dev)'nda API ayarları panosuna erişim izni olan etkin bir hesap.
-
+  
   ## Yapılandırma
-
+  
   Graphlit MCP Sunucusu, kimlik doğrulama ve yapılandırma için ayarlanacak ortam değişkenlerini destekler:
-
+  
   - `GRAPHLIT_ENVIRONMENT_ID`: Ortam ID'niz.
   - `GRAPHLIT_ORGANIZATION_ID`: Kuruluş ID'niz.
   - `GRAPHLIT_JWT_SECRET`: JWT token'ını imzalamak için JWT secret'ınız.
-
+  
   Bu değerleri [Graphlit Platformu](https://portal.graphlit.dev)'nun API ayarları panosunda bulabilirsiniz.
-
+  
   ## Kurulum
-
+  
   ### VS Code Aracılığıyla Kurulum
-
+  
   Hızlı kurulum için aşağıdaki tek tıklama kurulum düğmelerinden birini kullanın:
-
+  
   [![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=graphlit&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22organization_id%22%2C%22description%22%3A%22Graphlit%20Organization%20ID%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22environment_id%22%2C%22description%22%3A%22Graphlit%20Environment%20ID%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22jwt_secret%22%2C%22description%22%3A%22Graphlit%20JWT%20Secret%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22graphlit-mcp-server%22%5D%2C%22env%22%3A%7B%22GRAPHLIT_ORGANIZATION_ID%22%3A%22%24%7Binput%3Aorganization_id%7D%22%2C%22GRAPHLIT_ENVIRONMENT_ID%22%3A%22%24%7Binput%3Aenvironment_id%7D%22%2C%22GRAPHLIT_JWT_SECRET%22%3A%22%24%7Binput%3Ajwt_secret%7D%22%7D%7D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=graphlit&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22organization_id%22%2C%22description%22%3A%22Graphlit%20Organization%20ID%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22environment_id%22%2C%22description%22%3A%22Graphlit%20Environment%20ID%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22jwt_secret%22%2C%22description%22%3A%22Graphlit%20JWT%20Secret%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22graphlit-mcp-server%22%5D%2C%22env%22%3A%7B%22GRAPHLIT_ORGANIZATION_ID%22%3A%22%24%7Binput%3Aorganization_id%7D%22%2C%22GRAPHLIT_ENVIRONMENT_ID%22%3A%22%24%7Binput%3Aenvironment_id%7D%22%2C%22GRAPHLIT_JWT_SECRET%22%3A%22%24%7Binput%3Ajwt_secret%7D%22%7D%7D&quality=insiders)
-
+  
   Manuel kurulum için aşağıdaki JSON bloğunu VS Code'daki User Settings (JSON) dosyanıza ekleyin. Bunu `Ctrl + Shift + P` tuşlarına basıp `Preferences: Open User Settings (JSON)` yazarak yapabilirsiniz.
-
+  
   İsteğe bağlı olarak, çalışma alanınızda `.vscode/mcp.json` adlı bir dosyaya ekleyebilirsiniz. Bu, yapılandırmayı başkalarıyla paylaşmanıza olanak sağlayacaktır.
-
+  
   > `.vscode/mcp.json` dosyasında `mcp` anahtarının gerekli olmadığını unutmayın.
-
+  
   ```json
   {
     "mcp": {
@@ -216,17 +216,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Windsurf Aracılığıyla Kurulum
-
+  
   graphlit-mcp-server'ı Windsurf IDE uygulamasına kurmak için Cline NPX kullanmalıdır:
-
+  
   ```bash
   npx -y graphlit-mcp-server
   ```
-
+  
   mcp_config.json dosyanız şunun gibi yapılandırılmalıdır:
-
+  
   ```
   {
       "mcpServers": {
@@ -245,17 +245,17 @@ body_tr: |-
       }
   }
   ```
-
+  
   ### Cline Aracılığıyla Kurulum
-
+  
   graphlit-mcp-server'ı Cline IDE uygulamasına kurmak için Cline NPX kullanmalıdır:
-
+  
   ```bash
   npx -y graphlit-mcp-server
   ```
-
+  
   cline_mcp_settings.json dosyanız şunun gibi yapılandırılmalıdır:
-
+  
   ```
   {
       "mcpServers": {
@@ -274,17 +274,17 @@ body_tr: |-
       }
   }
   ```
-
+  
   ### Cursor Aracılığıyla Kurulum
-
+  
   graphlit-mcp-server'ı Cursor IDE uygulamasına kurmak için Cursor NPX kullanmalıdır:
-
+  
   ```bash
   npx -y graphlit-mcp-server
   ```
-
+  
   mcp.json dosyanız şunun gibi yapılandırılmalıdır:
-
+  
   ```
   {
       "mcpServers": {
@@ -303,19 +303,19 @@ body_tr: |-
       }
   }
   ```
-
+  
   ### Smithery Aracılığıyla Kurulum
-
+  
   graphlit-mcp-server'ı [Smithery](https://smithery.ai/server/@graphlit/graphlit-mcp-server) aracılığıyla Claude Desktop için otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install @graphlit/graphlit-mcp-server --client claude
   ```
-
+  
   ### Manuel Kurulum
-
+  
   Graphlit MCP Sunucusu'nu herhangi bir MCP istemci uygulamasında kullanmak için:
-
+  
   ```
   {
       "mcpServers": {
@@ -334,10 +334,10 @@ body_tr: |-
       }
   }
   ```
-
+  
   İsteğe bağlı olarak, Slack, Google Email ve Notion gibi veri bağlayıcıları için kimlik bilgilerini yapılandırabilirsiniz.
   Yalnızca GRAPHLIT_ORGANIZATION_ID, GRAPHLIT_ENVIRONMENT_ID ve GRAPHLIT_JWT_SECRET gereklidir.
-
+  
   ```
   {
       "mcpServers": {
@@ -367,19 +367,19 @@ body_tr: |-
       }
   }
   ```
-
+  
   NOT: Windows'ta 'npx' çalıştırırken, npx'i komut isteminden açıkça çağırmanız gerekebilir.
-
+  
   ```
   "command": "C:\\Windows\\System32\\cmd.exe /c npx"
   ```
-
+  
   ## Destek
-
+  
   Lütfen [Graphlit API Belgelerine](https://docs.graphlit.dev/) bakınız.
-
+  
   Graphlit MCP Sunucusu hakkında destek için, lütfen [GitHub Issue](https://github.com/graphlit/graphlit-mcp-server/issues) gönderiniz.
-
+  
   Graphlit Platformu hakkında daha fazla destek için, lütfen [Discord](https://discord.gg/ygFmfjy3Qx) topluluğumuza katılınız.
 ---
 

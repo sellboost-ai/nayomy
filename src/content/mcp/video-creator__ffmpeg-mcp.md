@@ -11,11 +11,11 @@ language: "Python"
 body_tr: |-
   # FFmpeg-MCP
   FFmpeg komut satırını kullanarak bir MCP sunucusu oluşturun, çok uygun olabilir, diyalog aracılığıyla yerel video arama, kesme, birleştirme, oynatma ve diğer işlevleri gerçekleştirin
-
+  
   <a href="https://glama.ai/mcp/servers/@video-creator/ffmpeg-mcp">
     
   </a>
-
+  
   ## Desteklenen Araçlar
   Sunucu aşağıdaki araçları uygular: <br/>
   - `find_video_path`
@@ -52,7 +52,7 @@ body_tr: |-
     total_frames (int): Çıkarılacak maksimum kare sayısı. 0 olarak ayarlanırsa sınır yoktur<br/>
   <br/>
   Daha fazla özellik yakında geliyor
-
+  
   ## Kurulum Prosedürü
   1. Projeyi İndir
   ```
@@ -60,7 +60,7 @@ body_tr: |-
   cd ffmpeg-mcp
   uv sync
   ```
-
+  
   2. Cline'de Yapılandırma
   ```
   {
@@ -82,7 +82,7 @@ body_tr: |-
   }
   ```
   Not: args içindeki değer: `/Users/XXX/Downloads/ffmpeg` yerine gerçek indirilen ffmpeg-mcp dizinini yazmanız gerekir
-
+  
   ## Desteklenen Platformlar
   Şu anda yalnızca macos platformları desteklenmektedir; ARM64 veya x86_64 dahil
 ---

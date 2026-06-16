@@ -3,31 +3,31 @@ name: "agent-protocol"
 description_en: "Inter-agent communication protocol for C-suite agent teams. Defines invocation syntax, loop prevention, isolation rules, and response formats. Use when C-suite agents need to query each other, coordinate cross-functional analysis, or run board meetings with multiple agent roles."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/agent-protocol/SKILL.md"
 path: ".gemini/skills/agent-protocol/SKILL.md"
 is_collection: false
-body_length: 13174
+body_length: 15483
 has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
 body_tr: |-
   # Aracı Protokolü
-
+  
   C-suite aracılarının birbirleriyle nasıl iletişim kurduğu. Kaosun, döngülerin ve dairesel akıl yürütmenin önüne geçen kurallar.
-
+  
   ## Anahtar Sözcükler
   agent protocol, inter-agent communication, agent invocation, agent orchestration, multi-agent, c-suite coordination, agent chain, loop prevention, agent isolation, board meeting protocol
-
+  
   ## Çağrı Söz Dizimi
-
+  
   Herhangi bir aracı başka bir aracıyı sorgulayabilir:
-
+  
   ```
   [INVOKE:role|question]
   ```
-
+  
   **Örnekler:**
   ```
   [INVOKE:cfo|Q3'te 5 mühendis işe almanın yanma oranı etkisi nedir?]
@@ -35,13 +35,13 @@ body_tr: |-
   [INVOKE:chro|Senior mühendisler için tipik işe alım süresi ne kadardır?]
   [INVOKE:cro|Sonraki 90 günde pipeline'ımız nasıl görünüyor?]
   ```
-
+  
   **Geçerli roller:** `ceo`, `cfo`, `cro`, `cmo`, `cpo`, `cto`, `chro`, `coo`, `ciso`
-
+  
   ## Yanıt Formatı
-
+  
   Çağrılan aracılar şu yapıyı kullanarak yanıt verirler:
-
+  
   ```
   [RESPONSE:role]
   Temel bulgu: [bir satır — asıl cevap]
@@ -53,7 +53,7 @@ body_tr: |-
   Uyarı: [bir satır — bunu yanlış yapan nedir]
   [/RESPONSE]
   ```
-
+  
   **Örnek:**
   ```
   [RESPONSE:cfo]
@@ -66,83 +66,83 @@ body_tr: |-
   Uyarı: 3 aylık ramp ve gelir yörüngesinde değişiklik olmadığını varsayıyor.
   [/RESPONSE]
   ```
-
+  
   ## Döngü Önleme (Katı Kurallar)
-
+  
   Bu kurallar koşulsuz olarak uygulanır. İstisna yok.
-
+  
   ### Kural 1: Kendi Kendini Çağırma Yok
   Bir aracı kendisini çağıramaz.
   ```
   ❌ CFO → [INVOKE:cfo|...] — BLOKLANDı
   ```
-
+  
   ### Kural 2: Maksimum Derinlik = 2
   Zincirler A→B→C şeklinde gidebilir. Üçüncü adım bloklanır.
   ```
   ✅ CRO → CFO → COO (derinlik 2)
   ❌ CRO → CFO → COO → CHRO (derinlik 3 — BLOKLANDı)
   ```
-
+  
   ### Kural 3: Dairesel Çağrı Yok
   Aracı A, aracı B'yi çağırdıysa, B aynı zincirde A'yı çağıramaz.
   ```
   ✅ CRO → CFO → CMO
   ❌ CRO → CFO → CRO (dairesel — BLOKLANDı)
   ```
-
+  
   ### Kural 4: Zincir İzleme
   Her çağrı kendi çağrı zincirini taşır. Format:
   ```
   [CHAIN: cro → cfo → coo]
   ```
   Aracılar başka bir çağrı yapmadan önce bu zinciri kontrol ederler.
-
+  
   **Bloklanınca:** Çağrı yapmak yerine bunu döndürün:
   ```
   [BLOCKED: cfo çağrılamıyor — cro→cfo zincirinde dairesel çağrı tespit edildi]
   Kullanılan varsayım: [aracının yaptığı açık varsayım]
   ```
-
+  
   ## İzolasyon Kuralları
-
+  
   ### Yönetim Kurulu Toplantısı Faz 2 (Bağımsız Analiz)
   **Çağrıya izin verilmez.** Her rol çapraz kirlenme öncesinde bağımsız görüş oluşturur.
   - Neden: sabitlenme ve grup düşüncesini önlemek
   - Süre: tüm Faz 2 analiz döneminde
   - Bir aracının başka bir rolün verisine ihtiyacı varsa: açık varsayım belirt, `[ASSUMPTION: ...]` ile işaretle
-
+  
   ### Yönetim Kurulu Toplantısı Faz 3 (Eleştirmen Rolü)
   Executive Mentor diğer rollerin çıktılarına **referans verebilir** ama **çağıramaz**.
   - Neden: eleştiri yeni veri talepleriyle bağımsız olmalı
   - İzin verilir: "CFO'nun projeksiyonu X varsayıyor, bu CRO'nun pipeline verisine aykırı"
   - İzin verilmez: kritik fazda `[INVOKE:cfo|...]`
-
+  
   ### Yönetim Kurulu Toplantıları Dışında
   Çağrılar yukarıdaki döngü önleme kurallarına tabi olarak serbestçe yapılabilir.
-
+  
   ## Çağırma vs Varsayım Yapma
-
+  
   **Çağır:**
   - Soru, sahip olmadığınız alan ve bağlamına özgü veri gerektiriyorsa
   - Buradaki bir hata tavsiyeyi önemli ölçüde değiştirilebilir
   - Soru doğası gereği işlev kaynaklıysa (ör. işe almanın hem bütçeye hem de kapasiteye etkisi)
-
+  
   **Varsayım yap:**
   - Veriler yönsel açıdan net ve kesinlik kritik değilse
   - Faz 2 izolasyonundasın (her zaman varsayım yap, asla çağırma)
   - Zincir zaten derinlik 2'de
   - Soru ana analizine kıyasla küçükse
-
+  
   **Varsayım yaparken her zaman belirt:**
   ```
   [ASSUMPTION: tipik Seri A yanma profiline göre runway ~12 ay — CFO ile doğrulanmadı]
   ```
-
+  
   ## Çatışma Çözümü
-
+  
   İki çağrılan aracı çelişkili cevaplar verdiğinde:
-
+  
   1. **Çatışmayı açıkça işaretle:**
      ```
      [CONFLICT: CFO 14 aylık runway tahmin ediyor; CRO pipeline'ın %80'ini kapanacağını bekliyor → 18+ aylar anlamına geliyor]
@@ -152,18 +152,18 @@ body_tr: |-
      - Olasılıksal: güven puanlarına göre ağırlıklandır
      - Eskalasyon: insan kararına sunun
   3. **Sessizce birini asla seçme** — çatışmayı kullanıcıya dokümante et.
-
+  
   ## Yayın Modeli (Kriz / CEO)
-
+  
   CEO, tüm rollara aynı anda yayın yapabilir:
   ```
   [BROADCAST:all|Fon toplayışını ıskaladığımız takdirde etkisi ne olur?]
   ```
-
+  
   Yanıtlar bağımsız olarak gelir (başka bir aracının yanıtını görmeden kendi yanıtını oluşturur). Tümü yanıtladıktan sonra topla.
-
+  
   ## Hızlı Referans
-
+  
   | Kural | Davranış |
   |------|----------|
   | Kendi kendini çağırma | ❌ Her zaman bloklanır |
@@ -173,42 +173,42 @@ body_tr: |-
   | Faz 3 eleştirisi | ❌ Yalnızca referans, çağrı yok |
   | Çatışma | ✅ Dokümante et, gizleme |
   | Varsayım | ✅ Her zaman `[ASSUMPTION: ...]` ile açık |
-
+  
   ## İç Kalite Döngüsü (kurucu kurula gelmeden önce)
-
+  
   Hiçbir rol, bu doğrulama döngüsünden geçmeden kurucu'ya sunulmaz. Kurucu polished, doğrulanmış çıktı görür — ilk taslaklar değil.
-
+  
   ### Adım 1: Öz-Doğrulama (her rol, her zaman)
-
+  
   Sunmadan önce, her rol bu iç kontrol listesini çalıştırır:
-
+  
   ```
   ÖZ-DOĞRULAMA KONTROL LİSTESİ:
   □ Kaynak Atfı — Her veri noktası nereden geldi?
     ✅ "ARR $2.1M (CRO pipeline raporundan, Q4 aktüeller)"
     ❌ "ARR yaklaşık $2M" (kaynak yok, muğlak)
-
+  
   □ Varsayım Denetimi — Neyi varsayıyorum, neyi doğruladım?
     Her varsayımı etiketle: [VERIFIED: veri karşı kontrol edildi] veya [ASSUMED: doğrulanmadı]
     Bulgularının >%50'si ASSUMED ise → düşük güveni işaretle
-
+  
   □ Güven Puanı — Her bulgudan ne kadar eminim?
     🟢 Yüksek: doğrulanmış veri, kurulan kalıp, çoklu kaynaklar
     🟡 Orta: tek kaynak, makul çıkarım, biraz belirsizlik
     🔴 Düşük: varsayıma dayalı, sınırlı veri, ilk kez yapılan analiz
-
+  
   □ Çelişki Kontrolü — Bu bilinen bağlamla çelişir mi?
     Şirket bağlamı.md ve karar günlüğündeki son kararları kontrol et
     Geçmiş bir karar ile çelişirse → açıkça işaretle
-
+  
   □ "Peki Ne Olmuş?" Testi — Her bulgunun bir iş sonucu mu var?
     "Peki ne olmuş?" sorusuna bir cümle ile cevap veremezsen → çıkar
   ```
-
+  
   ### Adım 2: Eş Doğrulama (işlev kaynakları arası doğrulama)
-
+  
   Tavsiyenin başka bir rolün alanını etkilemesi durumunda, o rol sunmadan önce doğrulama yapar.
-
+  
   | Tavsiyeniz ... içeriyorsa | Doğrula ... ile | Kontrol ... |
   |-------------------------------------|-------------------|---------------|
   | Mali rakamlar veya bütçe | CFO | Matematik, runway etkisi, bütçe gerçekliği |
@@ -219,7 +219,7 @@ body_tr: |-
   | Müşteri'ye yönelik değişiklikler | CRO + CPO | Churn riski, ürün yol haritası çakışması |
   | Güvenlik veya uyum iddiaları | CISO | Gerçek duruş, düzenleme gereksinimleri |
   | Pazar veya konumlandırma iddiaları | CMO | Veri desteği, rekabetçi gerçeklik |
-
+  
   **Eş doğrulama formatı:**
   ```
   [PEER-VERIFY:cfo]
@@ -228,23 +228,23 @@ body_tr: |-
   İşaretlendi: 🔴 Toplam komp projeksiyonunda hisse maliyeti eksik
   [/PEER-VERIFY]
   ```
-
+  
   **Eş doğrulama atla:**
   - İşlev kaynakları arası etki olmaksızın tek alan sorusu
   - Zaman duyarlı proaktif uyarı (uyarı gönder, sonra doğrula)
   - Kurucu açıkça hızlı bir görüş istedi
-
+  
   ### Adım 3: Eleştirmen Ön Kontrolü (yüksek paydalar sadece)
-
+  
   **Geri döndürülemez, yüksek maliyetli veya şirketin başına belası olabilecek** kararlar için Executive Mentor kurucu'yu görmeden önce ön kontrol yapar.
-
+  
   **Ön kontrol tetikleyicileri:**
   - Kalan runway'in >%20'sini harcamayı içerir
   - Ekibin >%30'unu etkiler (işten çıkarma, yeniden örgütlenme)
   - Şirket stratejisini veya yönünü değiştirir
   - Harici taahhütleri içerir (fon toplayış koşulları, ortaklıklar, M&A)
   - Tüm rollerin anlaştığı her tavsiye (şüpheli fikir birliği)
-
+  
   **Ön kontrol çıktısı:**
   ```
   [CRITIC-SCREEN]
@@ -254,157 +254,157 @@ body_tr: |-
   Devam et: ✅ Not edilmiş risklerle | ⚠️ [spesifik boşluğu] ele aldıktan sonra | 🔴 Yeniden düşün
   [/CRITIC-SCREEN]
   ```
-
+  
   ### Adım 4: Kurs Düzeltmesi (kurucu geri bildirimi sonrası)
-
+  
   Döngü teslimatla bitmez. Kurucu yanıt verdikten sonra:
-
+  
   ```
   KURUCU GERİ BİLDİRİM DÖNGÜSÜ:
   1. Kurucu onaylar → karar kaydet (Katman 2), işlemi ata
   2. Kurucu değiştirir → analiz ve düzeltmelerle güncelle, değiştirilen parçaları yeniden doğrula
   3. Kurucu reddeder → reddi kaydet DO_NOT_RESURFACE ile, NEDEN'i anla
   4. Kurucu takip sorusu sorar → belirli noktada analiz derinleştir, yeniden doğrula
-
+  
   KARAR SONRASI İNCELEME (30/60/90 gün):
   - Tavsiye doğru muydu?
   - Neyi kaçırdık?
   - Şirket bağlamı.md'i öğrendiğimizle güncelle
   - Yanlış olursa → dersi kaydet, gelecek analizi ayarla
   ```
-
+  
   ### Paydalar Tarafından Doğrulama Seviyesi
-
+  
   | Paydalar | Öz-Doğrula | Eş-Doğrula | Eleştirmen Ön Kontrolü |
   |--------|-------------|-------------|-------------------|
   | Düşük (bilgilendirme) | ✅ Gerekli | ❌ Atla | ❌ Atla |
   | Orta (operasyonel) | ✅ Gerekli | ✅ Gerekli | ❌ Atla |
   | Yüksek (stratejik) | ✅ Gerekli | ✅ Gerekli | ✅ Gerekli |
   | Kritik (geri döndürülemez) | ✅ Gerekli | ✅ Gerekli | ✅ Gerekli + yönetim kurulu |
-
+  
   ### Çıktı Biçiminde Değişiklikler
-
+  
   Doğrulanmış çıktı güven ve kaynak bilgisi ekler:
-
+  
   ```
   ALTI ÇIZILI ÖZETİ
   [Cevap] — Güven: 🟢 Yüksek
-
+  
   NEDIR
   • [Bulgu 1] [VERIFIED: Q4 aktüeller] 🟢
   • [Bulgu 2] [VERIFIED: CRO pipeline verileri] 🟢  
   • [Bulgu 3] [ASSUMED: endüstri kıyaslamalarına dayalı] 🟡
-
+  
   EŞ-DOĞRULANMIŞ: CFO (matematik ✅), CTO (zaman çizelgesi ⚠️ Q3'e ayarlanmış)
   ```
-
+  
   ---
-
+  
   ## Kullanıcı İletişim Standardı
-
+  
   C-suite'in kurucu'ya tüm çıktısı BİR format takip eder. İstisna yok. Kurucu karar vericisi — sonuçları verin, süreci değil.
-
+  
   ### Standart Çıktı (tek rol yanıtı)
-
+  
   ```
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+  
   📊 [ROLE] — [Konu]
-
+  
   ALTI ÇIZILI ÖZETİ
   [Bir cümle. Cevap. Önsöz yok.]
-
+  
   NEDIR
   • [Bulgu 1 — en kritik]
   • [Bulgu 2]
   • [Bulgu 3]
   (Maks 5 madde. Daha fazla gerekirse → referans dok.)
-
+  
   NEDEN BU ÖNEMLİ
   [1-2 cümle. İş etkisi. Teori değil — sonuç.]
-
+  
   NASIL HAREKET ET
   1. [İşlem] → [Sahibi] → [Son tarih]
   2. [İşlem] → [Sahibi] → [Son tarih]
   3. [İşlem] → [Sahibi] → [Son tarih]
-
+  
   ⚠️ RİSKLER (varsa)
   • [Risk + onu tetikleyen şey]
-
+  
   🔑 SİZİN KARAR (gerekirse)
   Seçenek A: [Açıklama] — [Takas]
   Seçenek B: [Açıklama] — [Takas]
   Tavsiye: [Hangisi ve neden, bir cümlede]
-
+  
   📎 AYRINTI: [derin dalış için referans dok veya script çıktısı]
-
+  
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   ```
-
+  
   ### Proaktif Uyarı (talep edilmemiş — bağlam tarafından tetiklendi)
-
+  
   ```
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+  
   🚩 [ROLE] — Proaktif Uyarı
-
+  
   NOTI ALDIM
   [Bunu tetikleyen — belirli, muğlak değil]
-
+  
   NEDEN ÖNEMLİ
   [İş sonucu yoksa — dolar, zaman veya risk olarak]
-
+  
   TAVSİYE EDİLEN İŞLEM
   [Tamamen neyi yapacak, kim yapacak, ne zaman]
-
+  
   ACİLİYET: 🔴 Bugün harekete geç | 🟡 Bu hafta | ⚪ Sonraki gözden geçirme
-
+  
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   ```
-
+  
   ### Yönetim Kurulu Toplantısı Çıktısı (çok rol sentezi)
-
+  
   ```
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+  
   📋 YÖNETİM KURULU TOPLANTISI — [Tarih] — [Gündem Konusu]
-
+  
   KARAR GEREKLİ
   [Kararı bir cümleyle çerçevele]
-
+  
   PERSPEKTİFLER
     CEO: [bir satırlık pozisyon]
     CFO: [bir satırlık pozisyon]
     CRO: [bir satırlık pozisyon]
     [... yalnızca katkıda bulunan roller]
-
+  
   NEREDE ANLAŞIYORLAR
   • [Fikir birliği noktası 1]
   • [Fikir birliği noktası 2]
-
+  
   NEREDE ANLAŞMIYORLAR
   • [Çatışma] — CEO X diyor, CFO Y diyor
   • [Çatışma] — CRO X diyor, CPO Y diyor
-
+  
   ELEŞTİRMEN GÖRÜŞÜ (Executive Mentor)
   [Başka kimse söylememiş rahatsız edici gerçek]
-
+  
   TAVSİYE EDİLEN KARAR
   [Net tavsiye ve gerekçe]
-
+  
   İŞ MADDELERİ
   1. [İşlem] → [Sahibi] → [Son tarih]
   2. [İşlem] → [Sahibi] → [Son tarih]
   3. [İşlem] → [Sahibi] → [Son tarih]
-
+  
   🔑 SİZİN ÇAĞRI
   [Tavsiyeyi reddetsem seçenekler]
-
+  
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   ```
-
+  
   ### İletişim Kuralları (vazgeçilmez)
-
+  
   1. **Alttaki satır önce.** Her zaman. Kurucu'nun zamanı en kıt kaynaktır.
   2. **Sonuçlar ve kararlar sadece.** Süreç anlatısı yok ("Önce analiz ettim..."). Sesli düşünme yok.
   3. **Ne + Neden + Nasıl.** Her bulgu NE olduğunu, NEDEN önemli olduğunu (iş etkisi) ve NASIL hareket edileceğini açıklar.
@@ -415,7 +415,7 @@ body_tr: |-
   8. **Riskler somuttur.** "Risk olabilir" değil — "X olursa, Y bozulur, $Z'ye mal olur."
   9. **Açıklama olmaksızın jargon yok.** Bir terim kullanırsan, ilk kullanımda açıkla.
   10. **Sessizlik bir seçenektir.** Rapor edecek bir şey yoksa, güncellemeler uydurmayın.
-
+  
   ## Referans
   - `references/invocation-patterns.md` — örneklerle yaygın işlev kaynakları arası kalıplar
 ---
@@ -443,7 +443,15 @@ Any agent can query another using:
 [INVOKE:cro|What does our pipeline look like for the next 90 days?]
 ```
 
-**Valid roles:** `ceo`, `cfo`, `cro`, `cmo`, `cpo`, `cto`, `chro`, `coo`, `ciso`
+**Valid roles:** `ceo`, `cfo`, `cro`, `cmo`, `cpo`, `cto`, `chro`, `coo`, `ciso`, `gc`, `cdo`, `caio`, `cco`, `vpe`
+
+| Role token | Advisor skill |
+|---|---|
+| `gc` | general-counsel-advisor (legal, contracts, term sheets) |
+| `cdo` | chief-data-officer-advisor (data strategy, training-data rights) |
+| `caio` | chief-ai-officer-advisor (AI strategy, evals, AI risk) |
+| `cco` | chief-customer-officer-advisor (retention, customer success) |
+| `vpe` | vpe-advisor (engineering delivery, DORA, eng hiring) |
 
 ## Response Format
 
@@ -569,6 +577,26 @@ CEO can broadcast to all roles simultaneously:
 
 Responses come back independently (no agent sees another's response before forming its own). Aggregate after all respond.
 
+## Decision Memory (Canonical Layout)
+
+All C-suite skills and `/cs:*` commands read and write decisions in **one** place — the two-layer model owned by `/cs:decide` and the decision-logger skill:
+
+```
+~/.claude/decisions/
+├── raw/YYYY-MM-DD-<slug>.md        # Layer 1 — full transcripts/deliberations (never auto-loaded)
+├── raw/archive/YYYY/               # Raw files after 90 days
+├── approved/YYYY-MM-DD-<slug>.md   # Layer 2 — one founder-approved decision record per file
+└── approved/decisions.md           # Layer 2 index — append-only log of approved decisions
+```
+
+**Rules:**
+- **Layer 1 (raw)** stores everything, including rejected arguments. Reference only — never feeds future sessions automatically.
+- **Layer 2 (approved)** stores only founder-approved decisions. This is what board meetings, `/cs:office-hours`, and `/cs:founder-mode` load. Prevents hallucinated consensus.
+- Writers: `/cs:decide` and the Chief of Staff (post board-meeting Phase 5). Individual role agents never write decisions directly.
+- decision-logger, chief-of-staff, and board-meeting all use this layout. Their SKILL.md files link here rather than defining their own paths.
+
+**Migration:** earlier versions used `memory/board-meetings/` (decision-logger, board-meeting) and `~/.claude/decision-log.md` (chief-of-staff); read those for history if present, but write all new entries to `~/.claude/decisions/`.
+
 ## Quick Reference
 
 | Rule | Behavior |
@@ -626,6 +654,11 @@ When a recommendation impacts another role's domain, that role validates BEFORE 
 | Customer-facing changes | CRO + CPO | Churn risk, product roadmap conflict |
 | Security or compliance claims | CISO | Actual posture, regulation requirements |
 | Market or positioning claims | CMO | Data backing, competitive reality |
+| Legal exposure, contracts, term sheets | GC | Clause risk, IP ownership, regulatory triggers |
+| Data rights, training-data provenance | CDO | Consent basis, GDPR Art. 6, data-asset impact |
+| AI model claims, eval results, AI risk | CAIO | Eval coverage, hallucination SLO, EU AI Act tier |
+| Retention, churn, customer-health claims | CCO | GRR/NRR decomposition, churn root cause |
+| Delivery timelines, eng throughput | VPE | DORA metrics, cycle-time reality, team capacity |
 
 **Peer validation format:**
 ```

@@ -9,6 +9,88 @@ path: "rules/svelte.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/svelte.mdc"
 body_length: 2149
 file_extension: ".mdc"
+body_tr: |-
+  # Svelte En İyi Uygulamaları
+
+  ## Bileşen Yapısı
+  - Bileşenleri küçük ve odaklanmış tutun
+  - Uygun TypeScript entegrasyonu kullanın
+  - Uygun props tiplemesi uygulayın
+  - Uygun event dispatching kullanın
+  - Markup'ı temiz ve okunabilir tutun
+  - Uygun slot implementasyonu kullanın
+
+  ## Reaktivite
+  - Uygun reactive declarations kullanın
+  - Uygun stores uygulayın
+  - Uygun reactive statements kullanın
+  - Derived values'ı uygun şekilde yönetin
+  - Uygun lifecycle functions kullanın
+  - Uygun bindings uygulayın
+
+  ## State Yönetimi
+  - Uygun Svelte stores kullanın
+  - Stores'ları modüler tutun
+  - Uygun derived stores kullanın
+  - Uygun actions uygulayın
+  - Async state'i uygun şekilde yönetin
+  - Uygun store subscriptions kullanın
+
+  ## Performans
+  - Uygun component lazy loading kullanın
+  - Uygun transitions uygulayın
+  - Uygun animations kullanın
+  - Gereksiz reaktiviteden kaçının
+  - Uygun event forwarding kullanın
+  - Uygun key blocks uygulayın
+
+  ## Routing
+  - Routing için SvelteKit kullanın
+  - Uygun layouts uygulayın
+  - Uygun route parameters kullanın
+  - Loading states'i uygun şekilde yönetin
+  - Uygun error pages uygulayın
+  - Uygun navigation methods kullanın
+
+  ## Formlar
+  - Uygun form bindings kullanın
+  - Uygun validation uygulayın
+  - Form submission'ı uygun şekilde yönetin
+  - Uygun loading states gösterin
+  - Uygun error handling kullanın
+  - Uygun form reset uygulayın
+
+  ## TypeScript Entegrasyonu
+  - Uygun component types kullanın
+  - Uygun prop types uygulayın
+  - Uygun event types kullanın
+  - Uygun type inference'ı yönetin
+  - Uygun store types kullanın
+  - Uygun action types uygulayın
+
+  ## Testing
+  - Uygun unit tests yazın
+  - Uygun component tests uygulayın
+  - Uygun testing libraries kullanın
+  - Stores'ı uygun şekilde test edin
+  - Uygun mocking uygulayın
+  - Async operations'ı test edin
+
+  ## En İyi Uygulamalar
+  - Svelte style guide'ı takip edin
+  - Uygun naming conventions kullanın
+  - Bileşenleri organize tutun
+  - Uygun error handling uygulayın
+  - Uygun event handling kullanın
+  - Karmaşık mantığı document edin
+
+  ## Build ve Tooling
+  - Development için Vite kullanın
+  - Uygun build setup'ı yapılandırın
+  - Uygun environment variables kullanın
+  - Uygun code splitting uygulayın
+  - Uygun asset handling kullanın
+  - Uygun optimization'ı yapılandırın
 ---
 
 # Svelte Best Practices

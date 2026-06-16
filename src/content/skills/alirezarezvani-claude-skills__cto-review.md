@@ -12,6 +12,119 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:cto-review — CTO Zorlama Soruları
+
+  **Komut:** `/cs:cto-review <plan>`
+
+  Mimarisi ve mühendislik ölçeklendirme kararlarını stres testine tabi tutar. Bir sonraki ölçeklendirme sınırına çarpmadan önce onu ortaya çıkarmak için altı soru.
+
+  ## Ne Zaman Çalıştırılır
+
+  - Büyük bir mimari değişikliği onaylamadan önce
+  - Mühendislik takımını iki katına çıkarmadan önce
+  - Build-vs-buy kararı > 100K$/yıl olmadan önce
+  - Bir sistem güvenilirlik stresi gösteriyorsa (SLO'lar kaçırılıyorsa)
+  - Yeni bir platform / dil / veritabanına bağlanmadan önce
+
+  ## Altı CTO Sorusu
+
+  ### 1. Ölçeklendirme Sınırı
+  **Mevcut mimari, kullanıcı / istek / veri hacmi açısından nerede kırılır?**
+  - Spesifik olun. "Birincil DB yazma işlemleri doygunlaştığı için mevcut yükün 10 katında kırılır."
+  - Eğer bilmiyorsanız, karar vermeden önce bir yük testi çalıştırın.
+
+  ### 2. Teknik Borç Envanteri
+  **En üst teknik borç kalemi nedir, haftalık olarak ne mal oluyor ve ne zaman engelleme haline gelir?**
+  ```bash
+  python ../../../skills/cto-advisor/scripts/tech_debt_analyzer.py
+  ```
+
+  ### 3. Takım Ölçeklendirmesi
+  **Her açık pozisyon için, ramp-up süresi ve katkı modeli nedir?**
+  ```bash
+  python ../../../skills/cto-advisor/scripts/team_scaling_calculator.py
+  ```
+
+  ### 4. Build vs Buy
+  **Bunu neden satın almak yerine inşa ediyoruz — ve her birinin 3 yıllık TCO'su nedir?**
+  - Eğer "kontrol istiyoruz" veya "o kadar zor değil" ise — itiraz edin.
+  - Eğer cevap "bu bizim temel rekabet avantajımız" ise, inşa edin.
+
+  ### 5. SLO / Güvenilirlik
+  **Bu sistem için SLO'lar nedir ve mevcut hata bütçesi tüketimi nedir?**
+  - SLO olmadan güvenilirlik tradeoff'larını tartışamazsınız.
+  - SLO tasarımı için `engineering/slo-architect` bölümüne bakın.
+
+  ### 6. Güvenlik & Uyum Yüzeyi
+  **Bu ne ortaya koymaktadır ve cs-ciso-advisor onay verdi mi?**
+  - Mimari kararlar uyum kararlarıdır.
+  - Commit'ten önce cs-ciso-advisor'ı dâhil edin.
+
+  ## İş Akışı
+
+  1. Teknik borç analizcisini + takım ölçeklendirme hesaplayıcısını çalıştırın
+  2. Ölçeklendirme sınırı hipotezini açıkça tanımlayın
+  3. Güvenlik etkileri açısından cs-ciso-advisor ile çapraz kontrol yapın
+  4. Kararı uygulayın
+
+  ## Çıktı Formatı
+
+  ```markdown
+  # CTO İncelemesi: <plan>
+  **Tarih:** YYYY-MM-DD
+
+  ## Ölçeklendirme Sınırı
+  - Mevcut kapasite: <metrik>
+  - Kırılma noktası: <metrik>
+  - Boşluk: Mevcut büyüme hızında X ay
+
+  ## Teknik Borç
+  - En üst kalemi: <açıklama>
+  - Haftalık maliyet: $X veya N mühendis-saati
+  - Engelleme tarihi tahmini: <tarih>
+
+  ## Takım
+  - Açık pozisyon: N
+  - Ortalama ramp-up: X ay
+  - Katkı modeli: <pairing / squad / area>
+
+  ## Build vs Buy
+  - 3 yıllık build TCO: $X
+  - 3 yıllık buy TCO: $X
+  - Stratejik uyum: <core / context>
+  - Karar: BUILD | BUY
+
+  ## Güvenilirlik
+  - SLO tanımlı: evet / hayır
+  - Hata bütçesi tüketimi: X% (hedef < Y%)
+
+  ## Güvenlik
+  - cs-ciso onayı: ✅ / ❌
+
+  ## Karar
+  🟢 SHIP | 🟡 SHARPEN | 🔴 BLOCK
+
+  ## Sonraki Adımlar
+  [3 somut eylem]
+  ```
+
+  ## Yönlendirme
+
+  - `/cs:ciso-review` — veri yüzeyi değişirse zorunlu
+  - `/cs:cfo-review` — build-vs-buy > 100K$ için
+  - `/cs:execute` — üç aylık plan
+  - `/cs:boardroom` — mimari pivotlar için
+
+  ## İlgili
+
+  - Agent: [`cs-cto-advisor`](../../../../agents/c-level/cs-cto-advisor.md)
+  - Skill: [`cto-advisor`](../../../skills/cto-advisor/SKILL.md)
+  - SLO: `../../../../engineering/slo-architect/`
+
+  ---
+
+  **Sürüm:** 1.0.0
 ---
 
 # /cs:cto-review — CTO Forcing Questions

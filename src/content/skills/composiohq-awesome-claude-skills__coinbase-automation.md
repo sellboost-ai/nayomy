@@ -12,6 +12,110 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Coinbase Otomasyonu
+
+  Coinbase işlemlerini otomatikleştirin; kripto para cüzdanlarını listeleme, cüzdan koleksiyonları arasında sayfalama ve portföy verilerini alma dahil.
+
+  **Toolkit dokümantasyonu:** [composio.dev/toolkits/coinbase](https://composio.dev/toolkits/coinbase)
+
+  ---
+
+  ## Kurulum
+
+  Bu skill, `https://rube.app/mcp` adresinde bağlı olan **Rube MCP sunucusu** gerektirir.
+
+  Herhangi bir tool çalıştırmadan önce, `coinbase` toolkit için aktif bir bağlantının var olduğundan emin olun. Aktif bağlantı yoksa, `RUBE_MANAGE_CONNECTIONS` aracılığıyla bir bağlantı başlatın.
+
+  ---
+
+  ## Temel İş Akışları
+
+  ### 1. Tüm Cüzdanları Listele
+
+  Coinbase'den sayfalama desteğiyle tüm cüzdanları alın.
+
+  **Tool:** `COINBASE_LIST_WALLETS`
+
+  **Ana Parametreler:**
+  - `limit` -- Sayfa başına sonuç (1--100, varsayılan: 25)
+  - `order` -- Sıralama düzeni: `"asc"` (artan) veya `"desc"` (azalan, varsayılan)
+  - `starting_after` -- İleri sayfalama için cursor: önceki sayfadaki son cüzdanın ID'si
+  - `ending_before` -- Geri sayfalama için cursor: önceki sayfadaki ilk cüzdanın ID'si
+
+  **Örnek (ilk sayfa):**
+  ```
+  Tool: COINBASE_LIST_WALLETS
+  Arguments:
+    limit: 50
+    order: "desc"
+  ```
+
+  **Örnek (sonraki sayfa):**
+  ```
+  Tool: COINBASE_LIST_WALLETS
+  Arguments:
+    limit: 50
+    order: "desc"
+    starting_after: "wallet_abc123_last_id_from_prev_page"
+  ```
+
+  ---
+
+  ### 2. Tüm Cüzdanlar Arasında Sayfalama
+
+  Eksiksiz bir cüzdan envanterini almak için sayfalar arasında yineleme yapın.
+
+  **Adımlar:**
+  1. İstenilen `limit` ve `order` ile `COINBASE_LIST_WALLETS` çağırın
+  2. Yanıt daha fazla sonuç içeriyorsa, döndürülen son cüzdanın ID'sini not alın
+  3. `COINBASE_LIST_WALLETS` çağırın ve `starting_after` parametresini bu son cüzdan ID'sine ayarlayın
+  4. Başka sonuç döndürülmeyene kadar tekrarlayın
+
+  ---
+
+  ### 3. Cüzdan Portföyünü Denetle
+
+  Portföy analizi ve raporlama için cüzdan verilerini alın.
+
+  **Adımlar:**
+  1. Sayfa başına sonuçları maksimize etmek için `limit: 100` ile `COINBASE_LIST_WALLETS` çağırın
+  2. Her sayfadaki cüzdan bakiyeleri ve metaverilerini toplayın
+  3. Eksiksiz portföy görünümü için tüm sayfalar arasında verileri toplayın
+
+  ---
+
+  ### 4. Cüzdan Değişikliklerini İzle
+
+  Yeni eklemeler veya değişiklikleri tespit etmek için periyodik olarak cüzdanları listeleyin.
+
+  **Adımlar:**
+  1. En yeni cüzdanları ilk olarak almak için `order: "desc"` ile `COINBASE_LIST_WALLETS` çağırın
+  2. Yeni girişleri tanımlamak için daha önce depolanan cüzdan ID'leriyle karşılaştırın
+  3. Sürekli izleme için periyodik denetimleri planlayın
+
+  ---
+
+  ## Bilinen Tuzaklar
+
+  | Tuzak | Detay |
+  |-------|-------|
+  | **Sayfalama gerekli** | Cüzdan listeleri sayfalanmıştır. Cursor tabanlı sayfalamayı (`starting_after`/`ending_before`) kullanarak her zaman ek sayfaları kontrol edin. |
+  | **Limit sınırları** | `limit` parametresi 1--100 aralığını kabul eder. Bu aralığın dışındaki değerler hatalara neden olur. Varsayılan 25'tir. |
+  | **Cursor tabanlı sayfalama** | Sayfa numaraları yerine cüzdan ID'lerini cursor olarak kullanır. Sayfalar arasında gezinmek için her yanıttan son/ilk cüzdan ID'sini çıkarmalısınız. |
+  | **CDP SDK kapsamı** | Bu tool, Coinbase CDP SDK'sını kullanır. Kullanılabilir işlemler, bağlantı kurulumu sırasında verilen API anahtarı izinlerine bağlıdır. |
+
+  ---
+
+  ## Hızlı Referans
+
+  | Tool Slug | Açıklama |
+  |-----------|----------|
+  | `COINBASE_LIST_WALLETS` | Sayfalamaya sahip kripto para cüzdanlarını listele |
+
+  ---
+
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Coinbase Automation

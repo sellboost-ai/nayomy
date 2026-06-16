@@ -10,21 +10,21 @@ license: "MIT"
 language: "Python"
 body_tr: |-
   # MCP Text Editor Server
-
+  
   [![codecov](https://codecov.io/gh/tumf/mcp-text-editor/branch/main/graph/badge.svg?token=52D51U0ZUR)](https://codecov.io/gh/tumf/mcp-text-editor)
   [![smithery badge](https://smithery.ai/badge/mcp-text-editor)](https://smithery.ai/server/mcp-text-editor)
   [![Glama MCP Server](https://glama.ai/mcp/servers/k44dnvso10/badge)](https://glama.ai/mcp/servers/k44dnvso10)
-
+  
   Model Context Protocol (MCP) sunucusu, standardlaştırılmış bir API üzerinden satır odaklı metin dosyası düzenleme yetenekleri sağlar. LLM araçları için optimize edilmiş, token kullanımını en aza indirmek için verimli kısmi dosya erişimi.
-
+  
   ## Claude.app Kullanıcıları için Hızlı Başlangıç
-
+  
   Bu editörü Claude.app ile kullanmak için aşağıdaki konfigürasyonu eklemeniz gerekmektedir:
-
+  
   ```shell
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
-
+  
   ```json
   {
     "mcpServers": {
@@ -37,13 +37,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Genel Bakış
-
+  
   MCP Text Editor Server, istemci-sunucu mimarisinde güvenli ve verimli satır tabanlı metin dosyası işlemlerini kolaylaştırmak için tasarlanmıştır. Model Context Protocol'ü uygular, güçlü çakışma algılama ve çözümü ile güvenilir dosya düzenlemesi sağlar. Satır odaklı yaklaşım, senkronize dosya erişimi gerektiren uygulamalar için ideal hale getiriyor; örneğin işbirlikçi düzenleme araçları, otomatik metin işleme sistemleri veya birden fazla işlemin metin dosyalarını güvenli bir şekilde değiştirmesi gereken her senaryo. Kısmi dosya erişim yeteneği, LLM tabanlı araçlar için özellikle değerlidir çünkü yalnızca gerekli dosya bölümlerini yükleyerek token tüketimini azaltmaya yardımcı olur.
-
+  
   ### Ana Faydalar
-
+  
   - Satır tabanlı düzenleme işlemleri
   - Satır aralığı belirtimlerinde token-verimli kısmi dosya erişimi
   - LLM araç entegrasyonu için optimize edilmiş
@@ -51,9 +51,9 @@ body_tr: |-
   - Atomik çok dosyalı işlemler
   - Özel hata türleri ile sağlam hata işleme
   - Kapsamlı kodlama desteği (utf-8, shift_jis, latin1, vb.)
-
+  
   ## Özellikler
-
+  
   - Satır odaklı metin dosyası düzenleme ve okuma
   - LLM uygulamalarında token kullanımını en aza indirmek için akıllı kısmi dosya erişimi
   - Satır aralığı belirtimi ile metin dosyası içeriğini al
@@ -64,98 +64,98 @@ body_tr: |-
   - Birden fazla dosya operasyonları desteği
   - Hash tabanlı doğrulama ile eşzamanlı düzenlemelerin düzgün işlenmesi
   - Büyük dosyaların bellek-verimli işlenmesi
-
+  
   ## Gereksinimler
-
+  
   - Python 3.11 veya daha yükseği
   - POSIX uyumlu işletim sistemi (Linux, macOS, vb.) veya Windows
   - Metin dosyası işlemleri için yeterli disk alanı
   - Okuma/yazma işlemleri için dosya sistemi izinleri
-
+  
   1. Python 3.11+ yükleyin
-
+  
   ```bash
   pyenv install 3.11.6
   pyenv local 3.11.6
   ```
-
+  
   2. uv (önerilen) veya pip yükleyin
-
+  
   ```bash
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
-
+  
   3. Sanal ortam oluşturun ve bağımlılıkları yükleyin
-
+  
   ```bash
   uv venv
   source .venv/bin/activate  # Windows'ta: .venv\Scripts\activate
   uv pip install -e ".[dev]"
   ```
-
+  
   ## Gereksinimler
-
+  
   - Python 3.13+
   - POSIX uyumlu işletim sistemi (Linux, macOS, vb.) veya Windows
   - Okuma/yazma işlemleri için dosya sistemi izinleri
-
+  
   ## Kurulum
-
+  
   ### uvx ile Çalıştırın
-
+  
   ```bash
   uvx mcp-text-editor
   ```
-
+  
   ### Smithery Üzerinden Kurulum
-
+  
   Text Editor Server'ı Claude Desktop'a [Smithery](https://smithery.ai/server/mcp-text-editor) üzerinden otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install mcp-text-editor --client claude
   ```
-
+  
   ### Manuel Kurulum
-
+  
   1. Python 3.13+ yükleyin
-
+  
   ```bash
   pyenv install 3.13.0
   pyenv local 3.13.0
   ```
-
+  
   2. uv (önerilen) veya pip yükleyin
-
+  
   ```bash
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
-
+  
   3. Sanal ortam oluşturun ve bağımlılıkları yükleyin
-
+  
   ```bash
   uv venv
   source .venv/bin/activate  # Windows'ta: .venv\Scripts\activate
   uv pip install -e ".[dev]"
   ```
-
+  
   ## Kullanım
-
+  
   Sunucuyu başlatın:
-
+  
   ```bash
   python -m mcp_text_editor
   ```
-
+  
   ### MCP Tools
-
+  
   Sunucu, metin dosyası manipülasyonu için birkaç araç sağlar:
-
+  
   #### get_text_file_contents
-
+  
   Bir veya daha fazla metin dosyasının içeriğini satır aralığı belirtimi ile alın.
-
+  
   **Tek Aralık İsteği:**
-
+  
   ```json
   {
     "file_path": "path/to/file.txt",
@@ -164,9 +164,9 @@ body_tr: |-
     "encoding": "utf-8"  // İsteğe bağlı, varsayılan utf-8
   }
   ```
-
+  
   **Birden Fazla Aralık İsteği:**
-
+  
   ```json
   {
     "files": [
@@ -187,15 +187,15 @@ body_tr: |-
     ]
   }
   ```
-
+  
   Parametreler:
   - `file_path`: Metin dosyasının yolu
   - `line_start`/`start`: Başlanacak satır numarası (1 tabanlı)
   - `line_end`/`end`: Bitecek satır numarası (kapsayıcı, dosyanın sonu için null)
   - `encoding`: Dosya kodlaması (varsayılan: "utf-8"). Metin dosyasının kodlamasını belirtin (örneğin, "shift_jis", "latin1")
-
+  
   **Tek Aralık Yanıtı:**
-
+  
   ```json
   {
     "contents": "Dosya içeriği",
@@ -206,9 +206,9 @@ body_tr: |-
     "file_size": 1024
   }
   ```
-
+  
   **Birden Fazla Aralık Yanıtı:**
-
+  
   ```json
   {
     "file1.txt": [
@@ -241,13 +241,13 @@ body_tr: |-
     ]
   }
   ```
-
+  
   #### patch_text_file_contents
-
+  
   Sağlam hata işleme ve çakışma algılama ile metin dosyalarına patch'ler uygulayın. Tek bir işlemde birden fazla dosyayı düzenlemeyi destekler.
-
+  
   **İstek Formatı:**
-
+  
   ```json
   {
     "files": [
@@ -273,7 +273,7 @@ body_tr: |-
     ]
   }
   ```
-
+  
   Önemli Notlar:
   1. Düzenlemeden önce her zaman get_text_file_contents kullanarak mevcut hash ve range_hash'ı alın
   2. Patch'ler satır numarası kaymalarını doğru şekilde işlemek için aşağıdan yukarıya uygulanır
@@ -281,9 +281,9 @@ body_tr: |-
   4. Satır numaraları 1 tabanlıdır
   5. `end: null` dosyanın sonuna içerik eklemek için kullanılabilir
   6. Dosya kodlaması, get_text_file_contents içinde kullanılan kodlamaya uymalıdır
-
+  
   **Başarılı Yanıt:**
-
+  
   ```json
   {
     "file1.txt": {
@@ -292,9 +292,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **İpuçlarını İçeren Hata Yanıtı:**
-
+  
   ```json
   {
     "file1.txt": {
@@ -305,21 +305,21 @@ body_tr: |-
     }
   }
   ```
-
+  
       "result": "error",
       "reason": "Content hash mismatch - file was modified",
       "hash": "current-hash",
       "content": "Current file content"
-
+  
     }
   }
-
+  
   ```
-
+  
   ### Yaygın Kullanım Deseni
-
+  
   1. Mevcut içeriği ve hash'ı alın:
-
+  
   ```python
   contents = await get_text_file_contents({
       "files": [
@@ -330,9 +330,9 @@ body_tr: |-
       ]
   })
   ```
-
+  
   2. Dosya içeriğini düzenleyin:
-
+  
   ```python
   result = await edit_text_file_contents({
       "files": [
@@ -351,9 +351,9 @@ body_tr: |-
       ]
   })
   ```
-
+  
   3. Çakışmaları işleyin:
-
+  
   ```python
   if result["file.txt"]["result"] == "error":
       if "hash mismatch" in result["file.txt"]["reason"]:
@@ -361,9 +361,9 @@ body_tr: |-
           # Yeni içerik alın ve tekrar deneyin
           pass
   ```
-
+  
   ### Hata İşleme
-
+  
   Sunucu çeşitli hata durumlarını işler:
   - Dosya bulunamadı
   - İzin hataları
@@ -372,78 +372,78 @@ body_tr: |-
   - Çakışan patch'ler
   - Kodlama hataları (dosya belirtilen kodlamaya çözülemezse)
   - Satır numarası sınırı dışında
-
+  
   ## Güvenlik Önerileri
-
+  
   - Dosya Yolu Doğrulaması: Sunucu, dizin geçiş saldırılarını önlemek için tüm dosya yollarını doğrular
   - Erişim Kontrolü: Yetkili dizinlere erişimi kısıtlamak için uygun dosya sistemi izinleri ayarlanmalıdır
   - Hash Doğrulaması: Tüm dosya değişiklikleri, yarış koşullarını önlemek için SHA-256 hash'ları kullanılarak doğrulanır
   - Giriş Sanitasyonu: Tüm kullanıcı girdileri düzgün şekilde temizlenir ve doğrulanır
   - Hata İşleme: Hassas bilgiler hata mesajlarında açığa çıkarılmaz
-
+  
   ## Sorun Giderme
-
+  
   ### Yaygın Sorunlar
-
+  
   1. İzin Reddedildi
      - Dosya ve dizin izinlerini kontrol edin
      - Sunucu işleminin gerekli okuma/yazma erişimi olduğundan emin olun
-
+  
   2. Hash Uyuşmazlığı ve Range Hash Hataları
      - Dosya başka bir işlem tarafından değiştirildi
      - Değiştirilen içerik değişti
      - Yeni hash'ları almak için get_text_file_contents çalıştırın
-
+  
   3. Kodlama Sorunları
      - Dosya kodlamasının belirtilen kodlamaya uyduğunu doğrulayın
      - Yeni dosyalar için utf-8 kullanın
      - Dosyalardaki BOM işaretlerini kontrol edin
-
+  
   4. Bağlantı Sorunları
      - Sunucunun çalıştığını ve erişilebilir olduğunu doğrulayın
      - Ağ yapılandırması ve güvenlik duvarı ayarlarını kontrol edin
-
+  
   5. Performans Sorunları
      - Büyük dosyalar için daha küçük satır aralıkları kullanmayı düşünün
      - Sistem kaynaklarını (bellek, disk alanı) izleyin
      - Dosya türü için uygun kodlama kullanın
-
+  
   ## Geliştirme
-
+  
   ### Kurulum
-
+  
   1. Repository'yi klonlayın
   2. Python sanal ortamı oluşturun ve etkinleştirin
   3. Geliştirme bağımlılıklarını yükleyin: `uv pip install -e ".[dev]"`
   4. Testleri çalıştırın: `make all`
-
+  
   ### Kod Kalitesi Araçları
-
+  
   - Ruff linting için
   - Black kod formatlaması için
   - isort import sıralaması için
   - mypy tip kontrolü için
   - pytest-cov test kapsamı için
-
+  
   ### Test Etme
-
+  
   Testler `tests` dizininde bulunur ve pytest ile çalıştırılabilir:
-
+  
   ```bash
   # Tüm testleri çalıştır
   pytest
-
+  
   # Kapsam raporu ile testleri çalıştır
   pytest --cov=mcp_text_editor --cov-report=term-missing
-
+  
   # Belirli test dosyasını çalıştır
   pytest tests/test_text_editor.py -v
   ```
-
+  
   Mevcut test kapsamı: 90%
-
+  
   ### Proje Yapısı
-
+  
   ```
   mcp-text-editor/
   ├── mcp_text_editor/
@@ -456,33 +456,33 @@ body_tr: |-
   ├── tests/               # Test dosyaları
   └── pyproject.toml       # Proje yapılandırması
   ```
-
+  
   ## Lisans
-
+  
   MIT
-
+  
   ## Katkı
-
+  
   1. Repository'yi fork edin
   2. Bir özellik dalı oluşturun
   3. Değişikliklerinizi yapın
   4. Testleri ve kod kalitesi kontrollerini çalıştırın
   5. Pull request gönderin
-
+  
   ### Tip İpuçları
-
+  
   Bu proje, kodun tamamında Python tip ipuçlarını kullanır. Lütfen herhangi bir katkının bunu koruduğundan emin olun.
-
+  
   ### Hata İşleme
-
+  
   Tüm hata durumları uygun şekilde işlenmelidir ve anlamlı hata mesajları döndürmelidir. Sunucu, geçersiz giriş veya dosya işlemleri nedeniyle hiçbir zaman çökmemelidir.
-
+  
   ### Test Etme
-
+  
   Yeni özellikler uygun testleri içermelidir. Mevcut test kapsamını korumaya veya geliştirmeye çalışın.
-
+  
   ### Kod Stili
-
+  
   Tüm kod Black ile formatlanmalı ve Ruff linting'ini geçmelidir. İmport sıralaması isort tarafından işlenmelidir.
 ---
 

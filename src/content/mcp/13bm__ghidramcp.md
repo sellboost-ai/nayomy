@@ -3,21 +3,21 @@ name: "13bm/GhidraMCP"
 description: "MCP server for integrating Ghidra with AI assistants. This plugin enables binary analysis, providing tools for function inspection, decompilation, memory exploration, and import/export analysis via the Model Context Protocol."
 category: "Security"
 repo: "13bm/GhidraMCP"
-stars: 115
+stars: 122
 url: "https://github.com/13bm/GhidraMCP"
 body_length: 14588
 license: "Apache-2.0"
 language: "Java"
 body_tr: |-
   # GhidraMCP
-
+  
   [![Build](https://github.com/13bm/GhidraMCP/actions/workflows/build.yml/badge.svg)](https://github.com/13bm/GhidraMCP/actions/workflows/build.yml)
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-
+  
   Ghidra'yı [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) aracılığıyla 70 adet ters-mühendislik aracını AI asistanlarına sunan bir Ghidra uzantısı. Bir binary dosyasını Ghidra'da açın, eklentiyi etkinleştirin ve Claude'u (veya herhangi bir MCP istemcisini) fonksiyonları decompile etme, sembolleri yeniden adlandırma, kodu açıklama ekleme, güvenlik açıklarını arama ve daha fazlasını yapmasına izin verin.
-
+  
   ## Mimari
-
+  
   ```
    AI Client (Claude Desktop / CLI)
           |  stdio + MCP JSON-RPC
@@ -30,11 +30,11 @@ body_tr: |-
           v
      Ghidra Program API
   ```
-
+  
   **Ghidra eklentisi** (Java), Ghidra içinde bir TCP sunucusu başlatır ve **Go bridge** binary dosyasını otomatik olarak başlatır. Bridge, AI istemcisine MCP üzerinden JSON-RPC iletişimi kurar ve çağrıları 4 baytlık uzunluk ön ekli JSON-RPC çerçevelemesiyle yerel bir TCP soketine iletir. İsteğe bağlı API anahtarı kimlik doğrulaması TCP kanalını korur.
-
+  
   ## Özellikler
-
+  
   - **70 MCP aracı** -- query, mutation, analiz, malware triage, IoT/embedded güvenlik, yapı yönetimi, async decompilation ve çoklu örnek desteği kapsamında
   - **Kolay kurulum** -- eklenti bridge'i otomatik olarak başlatır; MCP istemcinizi yapılandırmak için **MCP > Settings > Write to Claude Config** kullanın
   - **Platformlar arası** -- Linux x86_64, Windows x86_64, macOS x86_64 ve macOS ARM64 için önceden derlenmiş bridge binary dosyaları
@@ -44,29 +44,29 @@ body_tr: |-
   - **Bağlantı yeniden deneme** -- Ghidra yeniden başlarsa veya bağlantı koparsA bridge otomatik olarak yeniden bağlanır
   - **Pagination** -- büyük sonuç kümeleri (functions, strings, imports, ...) güvenli artımlı alma için `offset`/`limit` desteği
   - **CI/CD** -- otomatik derlemeler, Go + Java testleri, Ghidra entegrasyon testleri ve yeni bir Ghidra versiyonu çıktığında otomatik release
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Ön Koşullar
-
+  
   - [Ghidra](https://ghidra-sre.org/) 12.0.3+
   - Java 21+
   - MCP uyumlu bir AI istemcisi ([Claude Desktop](https://claude.ai/download), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), vb.)
-
+  
   ### Kurulum
-
+  
   1. En son release ZIP dosyasını [Releases](https://github.com/13bm/GhidraMCP/releases) sayfasından indirin
   2. Ghidra'da: **File > Install Extensions > "+" > ZIP dosyasını seçin**
   3. Ghidra'yı yeniden başlatın
-
+  
   ### Etkinleştirme
-
+  
   1. Bir proje ve bir program (binary) açın
   2. **File > Configure > GhidraMCP -- MCPServerPlugin'i işaretleyin**
   3. Eklenti TCP sunucusunu otomatik olarak başlatır (varsayılan `localhost:8765`) ve bridge'i başlatır
-
+  
   Claude Desktop'ı yapılandırmak için **MCP > Settings** açın ve **Write to Claude Config**'e tıklayın. Diğer MCP istemcileri için **Copy to Clipboard**'a tıklayın ve bunu istemci yapılandırmanıza ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -77,9 +77,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Bir API anahtarı ayarladıysanız, `env` bloğuna ekleyin (eklenti bunu otomatik olarak yapar):
-
+  
   ```json
   {
     "mcpServers": {
@@ -93,17 +93,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   Ayrıca Ghidra'dan snippet'i alabilirsiniz: **MCP > Copy MCP Config** (panoya kopyalar).
-
+  
   ## Araçlar
-
+  
   > **Parametreler, türler ve örneklerle tam başvuru:** **[TOOLS.md](TOOLS.md)**
-
+  
   Aşağıdaki tablolar hızlı bir genel bakış sunar. Detaylı parametre dokümantasyonu için [TOOLS.md](TOOLS.md) dosyasına bakın.
-
+  
   ### Query (1-21)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `list_functions` | Giriş noktaları, boyutları, dönüş türleriyle tüm fonksiyonları listeleyin |
@@ -126,9 +126,9 @@ body_tr: |-
   | `get_program_info` | Program metadatası (arch, compiler, format, vb.) |
   | `get_memory_map` | Segment izinleriyle bellek düzeni |
   | `get_variables` | Bir fonksiyon için parametreler ve locals |
-
+  
   ### Mutation (22-38)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `rename_function` | Bir fonksiyonu ada göre yeniden adlandırın |
@@ -149,9 +149,9 @@ body_tr: |-
   | `set_calling_convention` | Bir fonksiyon için calling convention ayarlayın |
   | `set_image_base` | Image base adresini ayarlayın |
   | `set_memory_permissions` | Bellek bloku izinlerini değiştirin |
-
+  
   ### Gelişmiş Analiz (39-45)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `patch_bytes` | Bir adresteki ham byte'ları yamayın |
@@ -161,9 +161,9 @@ body_tr: |-
   | `generate_call_graph` | Hiyerarşik call graph oluşturun |
   | `identify_crypto_patterns` | Crypto implementasyonlarını algılayın |
   | `find_obfuscated_strings` | Obfuscate edilmiş string'leri bulun |
-
+  
   ### Malware Analizi (46-53)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `search_bytes` | Byte pattern'leri arayın |
@@ -174,9 +174,9 @@ body_tr: |-
   | `add_external_function` | Harici fonksiyon referansı ekleyin |
   | `get_pe_info` | PE header detayları |
   | `get_elf_info` | ELF header detayları |
-
+  
   ### IoT / Embedded Güvenlik (54-59)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `create_memory_block` | Bir bellek bloku oluşturun |
@@ -185,25 +185,25 @@ body_tr: |-
   | `find_rop_gadgets` | ROP gadget'larını bulun |
   | `detect_control_flow_flattening` | Control-flow flattening'i algılayın |
   | `mark_code_coverage` | Kod coverage bölgelerini işaretleyin |
-
+  
   ### Utility (60-62)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `get_bookmarks` | Bookmark'leri listeleyin (isteğe bağlı adrese göre) |
   | `list_equates` | Tüm equate'leri listeleyin |
   | `ping` | Bağlantı sağlık kontrolü |
-
+  
   ### Çoklu Örnek (63)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `list_ghidra_instances` | 8765-8774 portlarını çalışan Ghidra örnekleri için tarayın |
-
+  
   Tüm araçlar, çağrıları belirli bir Ghidra örneğine yönlendirmek için isteğe bağlı `target_port` parametresini kabul eder. Bu, ayrı Ghidra pencerelerinde açılan birden fazla binary dosyasıyla aynı anda çalışmanıza olanak tanır.
-
+  
   ### Yapı Yönetimi (64-68)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `get_structure` | Bir structure'ın tüm detaylarını alın (fields, offsets, types) |
@@ -211,20 +211,20 @@ body_tr: |-
   | `edit_structure` | Bir structure'a field ekleyin, değiştirin, silin, değiştirin veya temizleyin |
   | `rename_structure` | Mevcut bir structure'ı yeniden adlandırın |
   | `delete_structure` | Bir structure veri türünü silin |
-
+  
   ### Async Decompilation (69-70)
-
+  
   | Tool | Açıklama |
   |------|----------|
   | `decompile_function_async` | Büyük bir fonksiyonun async decompilation'ını başlatın (task ID döndürür) |
   | `get_decompile_result` | Task ID'sine göre async decompilation sonucunu poll'layın |
-
+  
   Async decompilation, decompile etmesi 30+ saniye alabilen büyük fonksiyonlar için faydalıdır. İstemci decompilation'ı başlatabilir, diğer işleri devam ettirebilir ve sonucu daha sonra poll'layabilir.
-
+  
   ## Yapılandırma
-
+  
   Eklenti ayarlarını Ghidra'nın kullanıcı ayarları dizininde `GhidraMCP.properties` dosyasında depolar:
-
+  
   | Özellik | Varsayılan | Açıklama |
   |---------|-----------|---------|
   | `port` | `8765` | Java sunucusu için TCP portu |
@@ -232,65 +232,65 @@ body_tr: |-
   | `api_key` | *(boş)* | Bridge kimlik doğrulaması için paylaşılan gizli |
   | `auto_start` | `true` | Eklenti yüklendiğinde sunucuyu başlatın |
   | `bridge_enabled` | `true` | Go bridge binary dosyasını otomatik olarak başlatın |
-
+  
   ### Ayarlar İletişim Kutusu
-
+  
   Tüm özellikleri GUI aracılığıyla yapılandırmak için Ghidra menüsünde **MCP > Settings** açın. İletişim kutusu şunları içerir:
-
+  
   - Port, localhost binding, API anahtarı, auto-start ve bridge enabled için düzenlenebilir alanlar
   - Kriptografik olarak rastgele 32 karakterli bir API anahtarı oluşturmak için **Generate** düğmesi
   - GhidraMCP'yi Claude Desktop'ın `claude_desktop_config.json` dosyasına birleştirmek için **Write to Claude Config** düğmesi
   - Manuel kurulum için MCP config JSON snippet'ini panoya kopyalamak üzere **Copy to Clipboard** düğmesi
   - API anahtarı olmadan uzaktan erişimi etkinleştirirseniz güvenlik uyarısı
   - Sunucu çalışırken kaydetmek istiyorsanız otomatik yeniden başlatma istemi
-
+  
   Değişiklikler OK'a tıkladığınızda diske kaydedilir. Ayrıca özellikleri dosyasını iletişim kutusunda gösterilen yolda doğrudan düzenleyebilirsiniz.
-
+  
   `auto_start` `false` ise, sunucuyu Ghidra menüsünden **MCP > Toggle Server** seçerek el ile başlatın.
-
+  
   > **Not:** `bridge_enabled` ayarı, bridge binary dosyasında hata ayıklayan veya TCP'ye doğrudan konuşan özel bir MCP istemcisi olan geliştiriciler için ileri seviyelerde kullanılır. Çoğu kullanıcı bunu etkin tutmalıdır.
-
+  
   ## Güvenlik
-
+  
   Varsayılan olarak TCP sunucusu **yalnızca localhost'a** bağlanır ve **API anahtarı yoktur**, bu da yerel tek kullanıcılı kullanım için uygundur. Daha sıkı kurulumlar için:
-
+  
   ### API Anahtarı Kimlik Doğrulaması
-
+  
   1. **MCP > Settings** açın ve rastgele bir anahtar oluşturmak için **Generate**'ye tıklayın (veya kendi anahtarınızı yazın)
   2. Kaydetmek için OK'a tıklayın -- bridge, sonraki başlamada anahtarı otomatik olarak alır
   3. Bağlantıda, bridge diğer çağrılardan önce anahtarla bir `authenticate` isteği gönderir
   4. Sunucu kimlik doğrulama başarılı olana kadar tüm auth dışı istekleri reddeder
   5. **3 başarısız denemeden** sonra sunucu bağlantıyı sonlandırır
-
+  
   API anahtarı bridge'e `GHIDRA_API_KEY` ortam değişkeni aracılığıyla iletilir (CLI flag'i olarak değil) ve işlem argüman listesinde sızıntıyı önlemek için. Bridge'i el ile çalıştırırken ortam değişkenini ayarlayın:
-
+  
   ```bash
   # Linux/macOS
   export GHIDRA_API_KEY="your-key-here"
   ./mcp_bridge --host localhost --port 8765
-
+  
   # Windows (PowerShell)
   $env:GHIDRA_API_KEY = "your-key-here"
   .\mcp_bridge.exe --host localhost --port 8765
   ```
-
+  
   Bir API anahtarı ayarlandığında, Ayarlar iletişim kutusundaki **Write to Claude Config** ve **Copy to Clipboard** düğmeleri otomatik olarak anahtarı `env` bloğuna ekler.
-
+  
   ### Localhost Binding
-
+  
   `localhost_only=true` (varsayılan) ile sunucu yalnızca `127.0.0.1`'den bağlantıları kabul eder. Uzaktan erişime ihtiyacınız varsa `false` olarak ayarlayın (örn. headless sunucu üzerinde Ghidra), ancak **localhost'un ötesine port açarken her zaman bir API anahtarı kullanın**.
-
+  
   ### Uzaktan / Headless Kurulum
-
+  
   GhidraMCP, başka bir makinede çalışan AI istemcilerine hizmet verebilir. Bu, Ghidra bir headless analiz sunucusunda çalışırken AI istemcisi başka bir yerde çalışıyorsa faydalıdır.
-
+  
   1. **MCP > Settings** açın
   2. Uzaktan bağlantıları kabul etmek için **Localhost Only**'nin işaretini kaldırın
   3. Bir API anahtarı oluşturmak için **Generate**'ye tıklayın (uzaktan erişim için her zaman birini kullanın)
   4. OK'a tıklayın ve sunucuyu yeniden başlatın
-
+  
   Uzak makinede, MCP istemcisini Ghidra host'una işaret edecek şekilde yapılandırın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -304,71 +304,71 @@ body_tr: |-
     }
   }
   ```
-
+  
   > **Uyarı:** Sunucuyu localhost'un ötesine açarken her zaman bir API anahtarı kullanın. Kimlik doğrulama olmadan, porta ulaşabilen herkesA Ghidra API'sine tam erişime sahiptir.
-
+  
   ## Kaynaktan Derleme
-
+  
   ```bash
   git clone https://github.com/13bm/GhidraMCP.git
   cd GhidraMCP
   ```
-
+  
   ### Go bridge'i derleyin
-
+  
   ```bash
   cd mcp-bridge
   go build -o mcp_bridge .
   cd ..
   ```
-
+  
   ### Ghidra uzantısını derleyin
-
+  
   ```bash
   export GHIDRA_INSTALL_DIR=/path/to/ghidra
   gradle buildExtension
   ```
-
+  
   Uzantı ZIP dosyası `dist/` dizininde olacaktır.
-
+  
   ### Testleri çalıştırın
-
+  
   ```bash
   # Go testleri
   cd mcp-bridge && go test ./... -v && cd ..
-
+  
   # Java unit + integration testleri (headless Linux'ta Xvfb gereklidir)
   xvfb-run gradle test -PGHIDRA_INSTALL_DIR=$GHIDRA_INSTALL_DIR
   ```
-
+  
   ## CI/CD
-
+  
   Proje, otomatik derlemeler ve release'ler için GitHub Actions'ı kullanır:
-
+  
   - **`build.yml`** -- `master` branch'e push/PR ve tag'ler üzerinde tetiklenir. Go testlerini çalıştırır, bridge'i 4 platform için çapraz derler, Xvfb altında Java unit + Ghidra entegrasyon testlerini çalıştırır, uzantı ZIP'ini derler ve `v*` tag'lerinde GitHub Releases oluşturur.
   - **`check-ghidra-release.yml`** -- Günlük çalışır. Yeni Ghidra release'lerini algılar, bir version-bump PR açar, GitHub App aracılığıyla otomatik olarak onaylar ve tüm testler geçerse otomatik olarak birleştirir.
-
+  
   ## Katkıda Bulunma
-
+  
   Katkılar hoş karşılanır! Lütfen issue açın veya pull request gönderin.
-
+  
   1. Repository'yi fork'layın
   2. Bir feature branch oluşturun: `git checkout -b feature/my-feature`
   3. Değişikliklerinizi commit'leyin
   4. Push'layın ve Pull Request açın
-
+  
   ## Lisans
-
+  
   [Apache License 2.0](LICENSE)
-
+  
   ## Teşekkürler
-
+  
   - [NSA / Ghidra](https://github.com/NationalSecurityAgency/ghidra)
   - [Model Context Protocol](https://modelcontextprotocol.io/)
   - [mcp-go](https://github.com/mark3labs/mcp-go) -- Go MCP SDK
-
+  
   ---
-
+  
   *GhidraMCP, NSA veya Ghidra projesiyle bağlantılı değildir ve onaylanmamıştır.*
 ---
 

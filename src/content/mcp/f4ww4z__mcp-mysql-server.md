@@ -3,7 +3,7 @@ name: "f4ww4z/mcp-mysql-server"
 description: "Node.js-based MySQL database integration that provides secure MySQL database operations"
 category: "Databases"
 repo: "f4ww4z/mcp-mysql-server"
-stars: 160
+stars: 162
 url: "https://github.com/f4ww4z/mcp-mysql-server"
 body_length: 4363
 license: "MIT"
@@ -12,32 +12,32 @@ body_tr: |-
   # @f4ww4z/mcp-mysql-server
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/f4ww4z/mcp-mysql-server)](https://archestra.ai/mcp-catalog/f4ww4z__mcp-mysql-server)
   [![smithery badge](https://smithery.ai/badge/@f4ww4z/mcp-mysql-server)](https://smithery.ai/server/@f4ww4z/mcp-mysql-server)
-
+  
   Model Context Protocol sunucusu, MySQL veritabanı operasyonları sağlar. Bu sunucu, AI modellerinin MySQL veritabanlarıyla standartlaştırılmış bir arayüz üzerinden etkileşim kurmasını sağlar.
-
+  
   <a href="https://glama.ai/mcp/servers/qma33al6ie"></a>
-
+  
   ## Kurulum
-
+  
   ### Smithery Üzerinden Kurulum
-
+  
   MySQL Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/@f4ww4z/mcp-mysql-server) aracılığıyla otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install @f4ww4z/mcp-mysql-server --client claude
   ```
-
+  
   ### Manuel Kurulum
   ```bash
   npx @f4ww4z/mcp-mysql-server
   ```
-
+  
   ## Yapılandırma
-
+  
   Sunucu, MCP ayarları yapılandırma dosyanızda aşağıdaki ortam değişkenlerinin ayarlanmasını gerektirir:
-
+  
   > önerilen kullanım
-
+  
   ```json
   {
     "mcpServers": {
@@ -48,7 +48,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   ```json
   {
     "mcpServers": {
@@ -66,11 +66,11 @@ body_tr: |-
   }
   ```
   ## codex 
-
+  
   ### mac
-
+  
   `~/.codex/config.toml` dosyasında
-
+  
   ```toml
   [mcp_servers.mcp-mysql-server]
   command = "npx"
@@ -80,11 +80,11 @@ body_tr: |-
     "mysql://user:password@127.0.0.1:3306/database"
   ]
   ```
-
+  
   ### windows
-
+  
   `%USERPROFILE%\.codex\config.toml` dosyasında
-
+  
   ```toml
   [mcp_servers.mcp-mysql-server]
   command = "npx"
@@ -94,20 +94,20 @@ body_tr: |-
     "mysql://user:password@127.0.0.1:3306/database"
   ]
   ```
-
-
+  
+  
   ## Evals çalıştırma
-
+  
   Evals paketi bir mcp client yükler ve ardından index.ts dosyasını çalıştırır, bu nedenle testler arasında yeniden derleme yapmanıza gerek yoktur. npx komutunu önek yaparak ortam değişkenlerini yükleyebilirsiniz. Tam belgelendirme [burada](https://www.mcpevals.io/docs) bulunabilir.
-
+  
   ```bash
   OPENAI_API_KEY=your-key  npx mcp-eval src/evals/evals.ts src/index.ts
   ```
   ## Kullanılabilir Araçlar
-
+  
   ### 1. connect_db
   Sağlanan kimlik bilgilerini kullanarak MySQL veritabanına bağlantı kurun.
-
+  
   ```typescript
   use_mcp_tool({
     server_name: "mysql",
@@ -120,10 +120,10 @@ body_tr: |-
     }
   });
   ```
-
+  
   ### 2. query
   SELECT sorgularını isteğe bağlı hazırlanmış statement parametreleriyle yürütün.
-
+  
   ```typescript
   use_mcp_tool({
     server_name: "mysql",
@@ -134,10 +134,10 @@ body_tr: |-
     }
   });
   ```
-
+  
   ### 3. execute
   INSERT, UPDATE veya DELETE sorgularını isteğe bağlı hazırlanmış statement parametreleriyle yürütün.
-
+  
   ```typescript
   use_mcp_tool({
     server_name: "mysql",
@@ -148,10 +148,10 @@ body_tr: |-
     }
   });
   ```
-
+  
   ### 4. list_tables
   Bağlı veritabanındaki tüm tabloları listeleyin.
-
+  
   ```typescript
   use_mcp_tool({
     server_name: "mysql",
@@ -159,10 +159,10 @@ body_tr: |-
     arguments: {}
   });
   ```
-
+  
   ### 5. describe_table
   Belirli bir tablonun yapısını alın.
-
+  
   ```typescript
   use_mcp_tool({
     server_name: "mysql",
@@ -172,36 +172,36 @@ body_tr: |-
     }
   });
   ```
-
+  
   ## Özellikler
-
+  
   - Otomatik temizleme ile güvenli bağlantı yönetimi
   - Query parametreleri için hazırlanmış statement desteği
   - Kapsamlı hata yönetimi ve doğrulama
   - TypeScript desteği
   - Otomatik bağlantı yönetimi
-
+  
   ## Güvenlik
-
+  
   - SQL injection'ı önlemek için hazırlanmış ifadeleri kullanır
   - Ortam değişkenleri aracılığıyla güvenli parola yönetimini destekler
   - Yürütülmeden önce sorguları doğrular
   - İşlem tamamlandığında bağlantıları otomatik olarak kapatır
-
+  
   ## Hata Yönetimi
-
+  
   Sunucu, yaygın sorunlar için ayrıntılı hata mesajları sağlar:
   - Bağlantı hataları
   - Geçersiz sorgular
   - Eksik parametreler
   - Veritabanı hataları
-
+  
   ## Katkıda Bulunma
-
+  
   Katkılar hoş karşılanır! Lütfen https://github.com/f4ww4z/mcp-mysql-server adresine bir Pull Request göndermekten çekinmeyin.
-
+  
   ## Lisans
-
+  
   MIT
 ---
 

@@ -3,78 +3,78 @@ name: "stippi/code-assistant"
 description: "Coding agent with basic list, read, replace_in_file, write, execute_command and web search tools. Supports multiple projects concurrently."
 category: "Coding Agents"
 repo: "stippi/code-assistant"
-stars: 164
+stars: 171
 url: "https://github.com/stippi/code-assistant"
-body_length: 13639
+body_length: 15700
 license: "MIT"
 language: "Rust"
 body_tr: |-
   # Code Assistant
-
+  
   [![CI](https://github.com/stippi/code-assistant/actions/workflows/build.yml/badge.svg)](https://github.com/stippi/code-assistant/actions/workflows/build.yml)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/stippi/code-assistant)](https://archestra.ai/mcp-catalog/stippi__code-assistant)
-
+  
   Rust'ta inşa edilmiş, otonom kod analizi ve modifikasyonu için komut satırı ve grafik arayüzler sağlayan bir AI coding assistant.
-
+  
   ## Ana Özellikler
-
+  
   **Multi-Modal Tool Execution**: Farklı LLM yeteneklerine uyum sağlar ve yerel function calling, XML-tarzı etiketler ve triple-caret blokları içeren takılabilir tool invocation modları sayesinde çeşitli AI sağlayıcıları arasında uyumluluğu garanti eder.
-
+  
   **Real-Time Streaming Interface**: Gelişmiş streaming işlemcileri, LLM'den akan tool invocation'ları ayrıştırır ve görüntüler. Güvenli olmayan tool kombinasyonlarını engellemek için akıllı filtreleme sağlar.
-
+  
   **Session-Based Project Management**: Her chat session belirli bir projeye bağlıdır ve kalıcı state, working memory ve ek destek ile draft mesajları korur.
-
+  
   **Multiple Interface Options**: Zed'in GPUI framework'ü üzerine inşa edilmiş modern GUI, geleneksel terminal arayüzü veya Claude Desktop gibi MCP istemcileriyle entegrasyonun headless MCP server modu arasından seçim yapın.
-
+  
   **Agent Client Protocol (ACP) Support**: [Agent Client Protocol](https://agentclientprotocol.com/) standardıyla tam uyumlu, [Zed](https://zed.dev) gibi ACP-uyumlu editörlerle sorunsuz entegrasyonı sağlar. Kurulum talimatları için Zed'in [özel agent ekleme](https://zed.dev/docs/ai/external-agents#add-custom-agents) belgelerine bakın.
-
+  
   **Session Compaction**: Context alanı bitmeden önce, agent bir session özeti oluşturur ve çalışmaya devam eder.
-
+  
   **Auto-Loaded Repository Guidance**: Proje kökünden `AGENTS.md` (veya `CLAUDE.md` yedekleme) dosyasını otomatik olarak assistant'ın sistem bağlamına dahil eder ve davranışı repo'ya özel talimatlarla hizalar.
-
+  
   ## Kurulum
-
+  
   ```bash
   # macOS veya Linux üzerinde, rustup aracılığıyla Rust tool chain'i kurun:
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
+  
   # Linux üzerinde, libxkbcommon‑dev ve libxkbcommon‑x11‑dev paketlerini kurun
-
+  
   # macOS üzerinde, metal tool chain'e ihtiyacınız vardır:
   xcodebuild -downloadComponent MetalToolchain
-
+  
   # Ardından repo'yu clone edin ve derleyin:
   git clone https://github.com/stippi/code-assistant
   cd code-assistant
   cargo build --release
   ```
-
+  
   Binary `target/release/code-assistant` adresinde kullanılabilir olacaktır.
-
+  
   ### İlk Kurulum
-
+  
   Derlemeden sonra konfigürasyon dosyalarınızı oluşturun:
-
+  
   ```bash
   # Config dizini oluştur
   mkdir -p ~/.config/code-assistant
-
+  
   # Örnek konfigürasyonları kopyala
   cp providers.example.json ~/.config/code-assistant/providers.json
   cp models.example.json ~/.config/code-assistant/models.json
-
+  
   # API key'lerinizi eklemek için dosyaları düzenleyin
   # Environment variable'ları ayarlayın veya JSON dosyalarını doğrudan güncelleyin
   export ANTHROPIC_API_KEY="sk-ant-..."
   export OPENAI_API_KEY="sk-..."
   ```
-
+  
   Ayrıntılı kurulum talimatları için [Configuration](#configuration) bölümüne bakın.
-
+  
   ## Proje Konfigürasyonu
-
+  
   Mevcut projeleri tanımlamak için `~/.config/code-assistant/projects.json` oluşturun:
-
+  
   ```jsonc
   {
     "code-assistant": {
@@ -91,86 +91,86 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Format-on-Save Özelliği
-
+  
   _İsteğe bağlı_ `format_on_save` alanı, modifikasyonlardan sonra dosyaların otomatik biçimlendirilmesine izin verir. Dosya desenlerini (glob sözdizimi kullanarak) shell komutlarıyla eşleştirir:
   - Glob desenlerine uyan dosyalar, assistant tarafından değiştirildikten sonra otomatik olarak biçimlendirilir
   - Tool parametreleri, biçimlendirilmiş içeriği yansıtmak üzere güncellenir ve LLM'nin mental modelini senkronize tutar
   - Bu, auto-formatting nedeniyle oluşan edit çakışmalarını önler
-
+  
   Ayrıntılı dokumentasyon için [docs/format-on-save-feature.md](docs/format-on-save-feature.md) dosyasına bakın.
-
+  
   **Önemli Notlar:**
   - Bu konfigürasyonda olmayan bir klasörden başlatırken, geçici bir proje otomatik olarak oluşturulur
   - Assistant'ın mevcut projeye (geçici olanlar da dahil) ve yapılandırılmış tüm projelere erişimi vardır
   - Her chat session kalıcı olarak ilk projesine ve klasörüne bağlıdır - bu daha sonra değiştirilemez
   - Tool sözdizimi (native/xml/caret) da session oluşturma sırasında sabitlenir
-
+  
   ## Kullanım
-
+  
   ### GUI Modu (Önerilir)
-
+  
   ```bash
   # Grafik arayüzü ile başlat
   code-assistant --ui
-
+  
   # Başlangıç görevi ile GUI'yi başlat
   code-assistant --ui --task "Kimlik doğrulama sistemini analiz et"
   ```
-
+  
   ### Terminal Modu
-
+  
   ```bash
   # Temel kullanım
   code-assistant --task "Bu kod tabanının amacını açıkla"
-
+  
   # Belirli model ile
   code-assistant --task "Hata işleme ekle" --model "GPT-5"
   ```
-
+  
   ### Çalışma Dizini Önemli
-
+  
   `code-assistant`'ı başlattığınız dizin, session'ınızın proje bağlamını belirler. Assistant, çalışma dizininizi (PWD) hangi kod tabanı üzerinde çalıştığınızı anlamak için kullanır - dosya işlemleri, aramaları ve tool yürütmesini bu dizine kapsamlandırır.
-
+  
   **En iyi pratik:** `code-assistant`'ı başlatmadan önce her zaman projenizin kök dizinine `cd` yapın.
-
+  
   ```bash
   cd ~/workspace/my-project
   code-assistant --ui
   ```
-
+  
   Sohbetler **dizin tarafından gruplandırılır**, bu nedenle doğru proje dizininden yeni bir sohbet başlatmak şunları sağlar:
   - Assistant'ın doğru dosya bağlamı vardır ve kod tabanınızda gezinebilir
   - Konuşma geçmişiniz proje başına organize kalır
   - O projeden `AGENTS.md` veya `CLAUDE.md` rehber dosyaları otomatik olarak yüklenir
-
+  
   Farklı bir proje üzerinde çalışmanız gerekirse, mevcut bir session'ı başka bir yerden yeniden kullanmak yerine o projenin dizininden yeni bir sohbet açın.
-
+  
   ### MCP Server Modu
-
+  
   ```bash
   code-assistant server
   ```
-
+  
   ### ACP Agent Modu
-
+  
   ```bash
   # ACP-uyumlu agent olarak çalıştır
   code-assistant acp
-
+  
   # Belirli model ile
   code-assistant acp --model "Claude Sonnet 4.5"
   ```
-
+  
   ACP modu, [Agent Client Protocol](https://agentclientprotocol.com/) destekleyen editörlerle entegrasyonu sağlar; örneğin [Zed](https://zed.dev). ACP modunda çalışırken, code-assistant stdin/stdout üzerinden JSON-RPC aracılığıyla iletişim kurar ve bekleyen mesajlar, real-time streaming ve uygun izin işleme ile tool yürütmesi gibi özellikleri destekler.
-
+  
   ## Konfigürasyon
-
+  
   ### Model Konfigürasyonu
-
+  
   Code-assistant, LLM sağlayıcılarını ve modellerini yönetmek için iki JSON konfigürasyon dosyası kullanır:
-
+  
   **`~/.config/code-assistant/providers.json`** - Sağlayıcı kimlik bilgileri ve uç noktalarını yapılandırın:
   ```json
   {
@@ -191,7 +191,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **`~/.config/code-assistant/models.json`** - Mevcut modelleri tanımlayın:
   ```json
   {
@@ -222,40 +222,40 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Environment Variable Substitution**: API key'lerine başvurmak için sağlayıcı konfigürasyonlarında `${VAR_NAME}` kullanın.
-
+  
   **Tam Örnekler**: Tüm desteklenen sağlayıcılarla (Anthropic, OpenAI, Ollama, SAP AI Core, Vertex AI, Groq, Cerebras, MistralAI, OpenRouter) tam konfigürasyon örnekleri için [`providers.example.json`](providers.example.json) ve [`models.example.json`](models.example.json) dosyalarına bakın.
-
+  
   ### Tool Konfigürasyonu
-
+  
   Bazı tools, işlevsellik görmek için harici API key'lerine ihtiyaç duyar. Bunları `~/.config/code-assistant/tools.json` dosyasında yapılandırın:
-
+  
   ```json
   {
     "perplexity_api_key": "${PERPLEXITY_API_KEY}"
   }
   ```
-
+  
   **Kullanılabilir Tool Ayarları**:
   - `perplexity_api_key` - AI destekli web araması için `perplexity_ask` toolunu etkinleştirir
-
+  
   Gerekli konfigürasyonu olmayan tools, assistant tarafından kullanılabilir olmayacaktır.
-
+  
   **Mevcut Modelleri Listele**:
   ```bash
   # Yapılandırılmış tüm modelleri gör
   code-assistant --list-models
-
+  
   # Yapılandırılmış tüm sağlayıcıları gör
   code-assistant --list-providers
   ```
-
+  
   <details>
   <summary>Claude Desktop Entegrasyonu (MCP)</summary>
-
+  
   Claude Desktop ayarlarında yapılandırın (**Developer** sekmesi → **Edit Config**):
-
+  
   ```jsonc
   {
     "mcpServers": {
@@ -269,14 +269,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary>Zed Editor Entegrasyonu (ACP)</summary>
-
+  
   Zed ayarlarında yapılandırın:
-
+  
   ```json
   {
     "agent_servers": {
@@ -290,29 +290,29 @@ body_tr: |-
     }
   }
   ```
-
+  
   `providers.json` ve `models.json` dosyalarınızın belirttiğiniz model ile yapılandırıldığından emin olun. Agent, tam ACP desteği ile Zed'in assistant panelinde görünecektir.
-
+  
   Ayrıntılı kurulum talimatları için [Zed'in özel agent ekleme belgelerine](https://zed.dev/docs/ai/external-agents#add-custom-agents) bakın.
   </details>
-
+  
   <details>
   <summary>Gelişmiş Seçenekler</summary>
-
+  
   **Tool Syntax Modları**:
   - `--tool-syntax native`: Sağlayıcının yerleşik tool calling'ini kullan (en güvenilir, ancak parametrelerin streaming'i sağlayıcıya bağlıdır)
   - `--tool-syntax xml`: Parametrelerin streaming'i için XML-tarzı etiketler
   - `--tool-syntax caret`: Token verimliliği ve parametrelerin streaming'i için triple-caret blokları
-
+  
   **Session Kaydı**:
   ```bash
   # Session'ı kaydet (yalnızca Anthropic)
   code-assistant --record session.json --model "Claude Sonnet 4.5" --task "Veritabanı sorgularını optimize et"
-
+  
   # Session'ı oynat
   code-assistant --playback session.json --fast-playback
   ```
-
+  
   **Diğer Seçenekler**:
   - `--model <name>`: models.json dosyasından model belirtin (mevcut seçenekleri görmek için `--list-models` kullanın)
   - `--continue-task`: Önceki session state'inden devam et
@@ -321,26 +321,26 @@ body_tr: |-
   - `--sandbox-network`: `--sandbox-mode workspace-write` ile birleştirildiğinde, sandbox içinde giden ağ erişimine izin ver
   - `--verbose` / `-v`: Ayrıntılı günlüğü etkinleştir (daha fazla verbosity için birden çok kez kullanın)
   </details>
-
+  
   ## Mimari Vurgular
-
+  
   Code-assistant birkaç yenilikçi mimari kararı içerir:
-
+  
   **Adaptive Tool Syntax**: Hedef LLM'nin yeteneklerine bağlı olarak farklı sistem istekleri ve streaming işlemcilerini otomatik olarak oluşturur. Aynı çekirdek mantığın farklı function calling desteğine sahip sağlayıcılar arasında çalışmasını sağlar.
-
+  
   **Smart Tool Filtering**: Dosyaları okumadan önce düzenlemeyi denemeyi engeller gibi mantıksal hataları önleyen gerçek zamanlı tool invocation analizi. Güvenli olmayan kombinasyonlar algılandığında yanıtları mid-stream'de kesebilir.
-
+  
   **Multi-Threaded Streaming**: Tool invocation'ların gerçek zamanlı ayrıştırılmasını işleyen, UI güncellemelerini duyarlı tutan ve birden fazla chat session'ında uygun state yönetimini sağlayan sofistike async mimarisi.
-
+  
   ## Katkı Sağlama
-
+  
   Katkılar hoşlanır! Kod tabanı, async Rust, AI agent mimarisi ve cross-platform UI geliştirmeyle ilgili gelişmiş modelleri gösterir.
-
+  
   ## Yol Haritası
-
+  
   Bu bölüm gerçekten bir yol haritası değildir, çünkü öğeler belirli bir düzende değildir.
   Aşağıda, muhtemelen sonraki odak olacak bazı konular vardır.
-
+  
   - **Block Replacing in Changed Files**: Bir tool use bloğunu stream ederken, LLM'nin `replace_in_file` kullanmaya çalıştığını ve oldukça erken hangi dosyada olduğunu zaten biliyoruz.
     Ayrıca bu dosyanın LLM'nin onu son okumasından beri değiştirildiğini bilirsek, uygun bir hata mesajı ile girişimi engelleyebiliriz.
   - **Compact Tool Use Failures**: LLM geçersiz bir tool call ürettiğinde veya uyumsuz bir search block ürettiğinde, başarısız girişimi mesaj geçmişinden çıkararak token'lar tasarruf edebilmeliyiz.
@@ -397,6 +397,30 @@ cargo build --release
 ```
 
 The binary will be available at `target/release/code-assistant`.
+
+### Building a macOS .app Bundle
+
+A self-contained `.app` bundle (with proper dock icon, Info.plist and ad-hoc
+code signature) can be built from any release binary:
+
+```bash
+# Build the binary first (per-target build, picks up the icon assets)
+cargo build --locked --release --target aarch64-apple-darwin   # Apple Silicon
+# or
+cargo build --locked --release --target x86_64-apple-darwin    # Intel
+
+# Wrap it into a .app bundle
+./scripts/bundle-macos.sh aarch64
+# Other options: x86_64, universal, --no-build (reuse the binary you just built)
+```
+
+The result lands in `target/macos-bundle/Code Assistant.app` plus a zipped copy
+ready for distribution. The script uses only stock macOS tools (`sips`,
+`iconutil`, `plutil`, `codesign`) so it requires no extra installs.
+
+The icon source is `crates/code_assistant/assets/app_icon.svg`. Re-run
+`./scripts/generate-app-icon.sh` after editing it to refresh the
+`AppIcon.icns` checked into the repo.
 
 ### Initial Setup
 
@@ -459,21 +483,21 @@ See [docs/format-on-save-feature.md](docs/format-on-save-feature.md) for detaile
 ### GUI Mode (Recommended)
 
 ```bash
-# Start with graphical interface
-code-assistant --ui
+# Start with graphical interface (default)
+code-assistant
 
 # Start GUI with initial task
-code-assistant --ui --task "Analyze the authentication system"
+code-assistant --task "Analyze the authentication system"
 ```
 
 ### Terminal Mode
 
 ```bash
-# Basic usage
-code-assistant --task "Explain the purpose of this codebase"
+# Start with terminal interface
+code-assistant --tui --task "Explain the purpose of this codebase"
 
 # With specific model
-code-assistant --task "Add error handling" --model "GPT-5"
+code-assistant --tui --task "Add error handling" --model "GPT-5"
 ```
 
 ### Working Directory Matters
@@ -484,7 +508,7 @@ The directory from which you launch `code-assistant` determines the project cont
 
 ```bash
 cd ~/workspace/my-project
-code-assistant --ui
+code-assistant
 ```
 
 Chats are **grouped by directory**, so starting a new chat from the correct project directory ensures:
@@ -542,6 +566,19 @@ The code-assistant uses two JSON configuration files to manage LLM providers and
 **`~/.config/code-assistant/models.json`** - Define available models:
 ```json
 {
+  "Claude Opus 4.7 (Adaptive Thinking)": {
+    "provider": "anthropic",
+    "id": "claude-opus-4-7",
+    "config": {
+      "max_tokens": 64000,
+      "thinking": {
+        "type": "adaptive"
+      },
+      "output_config": {
+        "effort": "high"
+      }
+    }
+  },
   "Claude Sonnet 4.5 (Thinking)": {
     "provider": "anthropic",
     "id": "claude-sonnet-4-5",
@@ -569,6 +606,16 @@ The code-assistant uses two JSON configuration files to manage LLM providers and
   }
 }
 ```
+
+**Note on Claude Opus 4.7+ extended thinking**: Starting with Claude Opus 4.7, Anthropic
+no longer accepts the manual `thinking: { type: "enabled", budget_tokens: N }` form
+(it returns a 400 error). These models require *adaptive* thinking, where depth is
+controlled via the `output_config.effort` parameter (`low`, `medium`, `high`, `xhigh`,
+`max`). code-assistant detects Opus 4.7+ model IDs (`claude-opus-4-7`,
+`claude-opus-4-8`, `claude-opus-latest`) and emits the correct request shape by default.
+You can override the effort level (or any other field) via the model's `config` block,
+as shown in the example above. See Anthropic's [extended thinking](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking)
+and [effort](https://docs.anthropic.com/en/docs/build-with-claude/effort) docs for details.
 
 **Environment Variable Substitution**: Use `${VAR_NAME}` in provider configs to reference environment variables for API keys.
 

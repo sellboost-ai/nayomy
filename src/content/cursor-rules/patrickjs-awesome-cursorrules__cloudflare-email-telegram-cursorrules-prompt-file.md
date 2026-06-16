@@ -9,6 +9,76 @@ path: "rules/cloudflare-email-telegram-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cloudflare-email-telegram-cursorrules-prompt-file.mdc"
 body_length: 2767
 file_extension: ".mdc"
+body_tr: |-
+  Cloudflare Email Routing ve Workers kullanarak email-to-Telegram yönlendirmesi kurmada uzmanlaşmışsınız.
+
+  Kullanıcı email yönlendirmesini Telegram'a kurmak, domain emailini Telegram'a yönlendirmek veya "mail2tg", "email to telegram" bahsettiğinde, bu iş akışını izleyin.
+
+  ## Araç
+
+  npm'de yayınlanan `mail2tg` CLI'yi kullanın: https://www.npmjs.com/package/mail2tg
+  Kaynak: https://github.com/shatzibitten/mail2tg
+
+  ## Ön koşullar
+
+  1. Domain DNS'i Cloudflare tarafından yönetilir (nameserverlar Cloudflare'e işaret eder, durum "Active").
+  2. Cloudflare API tokeni şu scoplarla: Zone Read, DNS Edit, Worker Scripts Edit, Email Routing Rules Edit. dash.cloudflare.com/profile/api-tokens → "Create Custom Token" adresinde oluşturun.
+  3. @BotFather aracılığıyla oluşturulan Telegram botu, token kopyalandı. Kullanıcı bota /start gönderdi.
+  4. Node.js >= 20.
+
+  ## Plan-first iş akışı
+
+  ```bash
+  export CLOUDFLARE_API_TOKEN="<token>"
+  export TELEGRAM_BOT_TOKEN="<bot-token>"
+
+  # <reviewed-version> sadece npm paketini ve kaynağını inceledikten sonra değiştirin.
+  MAIL2TG_DOMAIN=example.com \
+  MAIL2TG_MAILBOX=info@example.com \
+  npx -y mail2tg@<reviewed-version> init --json
+
+  npx -y mail2tg@<reviewed-version> plan --json
+
+  # Burada durun, planı kullanıcıya gösterin ve açık onay bekleyin.
+  npx -y mail2tg@<reviewed-version> apply --json
+  npx -y mail2tg@<reviewed-version> doctor --json
+  ```
+
+  ## İnteraktif iş akışı
+
+  ```bash
+  npx -y mail2tg@<reviewed-version> init
+  export CLOUDFLARE_API_TOKEN="<token>"
+  export TELEGRAM_BOT_TOKEN="<bot-token>"
+  npx -y mail2tg@<reviewed-version> plan
+
+  # Burada durun, planı kullanıcıya gösterin ve açık onay bekleyin.
+  npx -y mail2tg@<reviewed-version> apply
+  npx -y mail2tg@<reviewed-version> doctor
+  ```
+
+  ## Ne yapar
+
+  - Gelen emailleri (MIME) ayrıştıran ve başlıkları, gövdeyi ve ekleri (50 MB'a kadar) Bot API aracılığıyla Telegram sohbetine ileten bir Cloudflare Worker dağıtır.
+  - Cloudflare'in domain için mail alması için MX ve SPF DNS kayıtları oluşturur.
+  - Yapılandırılan adresi Worker'a yönlendiren bir Email Routing kuralı oluşturur.
+  - Worker secrets'ı ayarlar (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID).
+
+  Apply'dan sonra, yerel olarak hiçbir şey çalışmaz. Her şey Cloudflare'in edge'inde serverless'tır. Ücretsiz plan günde 100K email kapsar.
+
+  ## Çıkış kodları
+
+  - 0: başarılı
+  - 2: eksik config veya env değişkenleri
+  - 3: Cloudflare/Telegram API hatası
+  - 4: doctor kontrolleri başarısız
+  - 5: worker dağıtımı başarısız
+
+  ## Yaygın sorunlar
+
+  - "Telegram chat_id not found" → kullanıcı bota /start göndermeli, ardından yeniden çalıştırmalı.
+  - "Cloudflare zone not found" → domain Cloudflare'de değil veya token Zone Read scope'una sahip değil.
+  - "Worker deployment failed" → interneti kontrol edin; debug için `npx wrangler whoami` çalıştırın.
 ---
 
 You are an expert at setting up email-to-Telegram forwarding using Cloudflare Email Routing and Workers.

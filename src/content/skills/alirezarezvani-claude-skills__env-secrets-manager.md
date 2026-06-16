@@ -12,6 +12,262 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Env & Secrets Manager
+
+  **Tier:** POWERFUL
+  **Category:** Engineering
+  **Domain:** Security / DevOps / Configuration Management
+
+  ---
+
+  ## Genel Bakış
+
+  Yerel geliştirme ve üretim iş akışları arasında ortam değişkeni hijyeni ve sır güvenliğini yönetin. Bu beceri pratik denetimi, sürüklenme farkındalığı ve rotasyon hazırlığına odaklanır.
+
+  ## Temel Yetenekler
+
+  - `.env` ve `.env.example` yaşam döngüsü rehberliği
+  - Depo çalışma ağaçları için sır sızıntısı algılaması
+  - Olası kimlik bilgileri için önem derecesine dayalı bulgular
+  - Rotasyon ve içerme için operasyonel işaretçiler
+  - CI denetimleri için entegrasyona hazır çıktılar
+
+  ---
+
+  ## Ne Zaman Kullanılır
+
+  - env/config dosyalarına dokunmuş commit'leri göndermeden önce
+  - Güvenlik denetimleri ve olay önceliklendirmesi sırasında
+  - Güvenli env kurallarını gereken yeni katkıda bulunanları ekleme sırasında
+  - Bariz hardcoded sırlarının olmadığını doğrularken
+
+  ---
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  # Depoyu sır sızıntıları için tarayın
+  python3 scripts/env_auditor.py /path/to/repo
+
+  # CI boru hatları için JSON çıktısı
+  python3 scripts/env_auditor.py /path/to/repo --json
+  ```
+
+  ---
+
+  ## Önerilen İş Akışı
+
+  1. Depo köküne `scripts/env_auditor.py` çalıştırın.
+  2. Öncelikle `critical` ve `high` bulguları ele alın.
+  3. Gerçek kimlik bilgilerini döndürün ve açığa çıkan değerleri kaldırın.
+  4. `.env.example` ve `.gitignore` dosyalarını gerektiği gibi güncelleyin.
+  5. Pre-commit/CI sır tarama kapılarını ekleyin veya sıkılaştırın.
+
+  ---
+
+  ## Referans Belgeler
+
+  - `references/validation-detection-rotation.md`
+  - `references/secret-patterns.md`
+
+  ---
+
+  ## Yaygın Tuzaklar
+
+  - `.env.example` dosyasında gerçek değerleri commit etmek
+  - Bir sistemi döndürmek fakat aşağı yön tüketicileri kaçırmak
+  - Hata ayıklama veya olay tepkisi sırasında sırları günlüğe kaydetmek
+  - Şüpheli sızıntıları doğrulamadan düşük aciliyet olarak değerlendirmek
+
+  ## En İyi Uygulamalar
+
+  1. Üretim gerçek kaynağı olarak bir sır yöneticisi kullanın.
+  2. Geliştirme env dosyalarını yerel tutun ve gitignore'da tutun.
+  3. Merge'den önce CI'de algılamayı zorunlu kılın.
+  4. Kimlik bilgisi rotasyonundan hemen sonra uygulama yollarını yeniden test edin.
+
+  ---
+
+  ## Bulut Sır Deposu Entegrasyonu
+
+  Üretim uygulamaları asla `.env` dosyalarından veya container görüntülerine gömülü ortam değişkenlerinden sırları okumamalıdır. Bunun yerine adanmış bir sır deposu kullanın.
+
+  ### Sağlayıcı Karşılaştırması
+
+  | Sağlayıcı | En İyi Kullanım | Temel Özellik |
+  |----------|----------|-------------|
+  | **HashiCorp Vault** | Çoklu bulut / hibrit | Dinamik sırlar, politika motoru, takılabilir arka uçlar |
+  | **AWS Secrets Manager** | AWS-native iş yükleri | Native Lambda/ECS/EKS entegrasyonu, otomatik RDS rotasyonu |
+  | **Azure Key Vault** | Azure-native iş yükleri | Yönetilen HSM, Azure AD RBAC, sertifika yönetimi |
+  | **GCP Secret Manager** | GCP-native iş yükleri | IAM tabanlı erişim, otomatik çoğaltma, sürümleme |
+
+  ### Seçim Rehberliği
+
+  - **Tek bulut sağlayıcısı** — bulut-native sır yöneticisini kullanın. IAM ile sıkı bir şekilde entegre olur, operasyonel yükü azaltır ve öz barındırmaktan daha az maliyetlidir.
+  - **Çoklu bulut veya hibrit** — HashiCorp Vault kullanın. Ortamlar arasında tekdüzen bir API sağlar ve otomatik olarak süresi dolan dinamik sır oluşturmayı destekler (veritabanı kimlik bilgileri, bulut IAM anahtarları).
+  - **Kubernetes ağır** — External Secrets Operator'u yukarıdaki herhangi bir arka uç ile birleştirin ve sırları hardcoded yapmadan K8s `Secret` nesnelerine senkronize edin.
+
+  ### Uygulama Erişim Desenleri
+
+  1. **SDK/API çekme** — uygulama startup'ta veya talep üzerine sağlayıcı SDK'sı aracılığıyla sır getirir.
+  2. **Sidecar enjeksiyonu** — bir sidecar container'ı (örneğin, Vault Agent) sırları paylaşılan bir birime yazar veya ortam değişkenleri olarak enjekte eder.
+  3. **Init container** — bir Kubernetes init container'ı ana container'ı başlamadan önce sırları getirir.
+  4. **CSI driver** — sırlar Secrets Store CSI Driver'ı aracılığıyla dosya sistemi birimi olarak bağlanır.
+
+  > **Çapraz referans:** Üretim kasa altyapısı desenleri, HA dağıtımı ve olağanüstü durum kurtarma prosedürleri için `engineering/secrets-vault-manager` dosyasına bakın.
+
+  ---
+
+  ## Sır Rotasyon İş Akışı
+
+  Eski sırlar bir sorumluluğudur. Rotasyon, bir kimlik bilgisi sızsa dahi yararlı ömrünün sınırlı olmasını sağlar.
+
+  ### Faz 1: Algılama
+
+  - Sır deposu meta verilerinde sır oluşturma ve sona erme tarihlerini takip edin.
+  - Sona ermeden 30, 14 ve 7 gün öncesinde uyarılar ayarlayın.
+  - Kayıtlı rotasyon tarihi olmayan sırları işaretlemek için `scripts/env_auditor.py` kullanın.
+
+  ### Faz 2: Rotasyon
+
+  1. **Oluşturun** yeni bir kimlik bilgisi (API anahtarı, veritabanı şifresi, sertifika).
+  2. **Dağıtın** yeni kimlik bilgisini tüm tüketicilere (uygulamalar, hizmetler, boru hatları) paralel olarak.
+  3. **Doğrulayın** her tüketicinin yeni kimlik bilgisini kullanarak kimlik doğrulama yapabilmesini.
+  4. **İptal edin** eski kimlik bilgisini yalnızca tüm tüketicilerin sağlıklı olduğu doğrulandıktan sonra.
+  5. **Güncelleyin** meta verileri yeni rotasyon zaman damgası ve sonraki rotasyon tarihi ile.
+
+  ### Faz 3: Otomasyon
+
+  - **AWS Secrets Manager** — RDS, Redshift ve DocumentDB için yerleşik Lambda tabanlı rotasyonu kullanın.
+  - **HashiCorp Vault** — TTL'ler ile dinamik sırları yapılandırın; kimlik bilgileri talep üzerine oluşturulur ve otomatik olarak süresi dolar.
+  - **Azure Key Vault** — rotasyon işlevlerini tetiklemek için Event Grid bildirimlerini kullanın.
+  - **GCP Secret Manager** — rotasyon mantığı için Cloud Functions'a bağlı Pub/Sub bildirimlerini kullanın.
+
+  ### Acil Durum Rotasyon Kontrol Listesi
+
+  Bir sırın sızıntısı doğrulandığında:
+
+  1. **Derhal iptal edin** sağlayıcı düzeyinde tehlikeli kimlik bilgisini.
+  2. Yeni bir kimlik bilgisi oluşturun ve tüm tüketicilere dağıtın.
+  3. Açıklık penceresi sırasında yetkisiz kullanım için erişim günlüklerini denetleyin.
+  4. Git geçmişi, CI günlükleri ve yapıt kayıtları için sızıntılı değeri tarayın.
+  5. Kapsam, zaman çizelgesi ve düzeltme adımlarını belgelendiren bir olay raporu dosyalayın.
+  6. Tekrarlanmasını önlemek için algılama kontrolleri gözden geçirin ve sıkılaştırın.
+
+  ---
+
+  ## CI/CD Sır Enjeksiyonu
+
+  CI/CD boru hatlarındaki sırlar, günlüklerde, yapıtlarda veya pull request bağlamlarında açığa çıkmaktan kaçınmak için dikkatli bir şekilde ele alınmalıdır.
+
+  ### GitHub Actions
+
+  - **Depo sırları** veya **ortam sırları** kullanın `${{ secrets.SECRET_NAME }}` aracılığıyla.
+  - Uzun süreli erişim anahtarları yerine **OIDC federasyonunu** tercih edin (`aws-actions/configure-aws-credentials` ile `role-to-assume`).
+  - Gerekli gözden geçirenlerle ortam sırları üretim dağıtımları için onay kapıları ekler.
+  - GitHub otomatik olarak günlüklerdeki sırları maskelemekle birlikte, gizli değerlerde `echo` veya `toJSON()` kullanmaktan kaçının.
+
+  ### GitLab CI
+
+  - Sırları **CI/CD değişkenleri** olarak `masked` ve `protected` bayraklarının etkin olduğu şekilde depolayın.
+  - Değerleri GitLab'da depolamadan dinamik sır enjeksiyonu için **HashiCorp Vault entegrasyonunu** kullanın (`secrets:vault`).
+  - Değişkenleri belirli ortamlara kapsam içine alın (`production`, `staging`) en az yetki ilkesini uygulamak için.
+
+  ### Evrensel Desenler
+
+  - **Asla echo veya yazdırmayın** boru hattı çıktısındaki gizli değerleri, hata ayıklama için bile.
+  - **Kısa ömürlü jetonlar** kullanın (OIDC, STS AssumeRole) mümkün olan her yerde statik kimlik bilgileri yerine.
+  - **PR erişimini kısıtlayın** — fork'lar veya güvenilmeyen dallardan tetiklenen boru hatlarına sırlar sunmayın.
+  - **CI sırlarını döndürün** uygulama sırları ile aynı takvim üzerinde; boru hattı kimlik bilgileri de saldırı vektörleridir.
+  - **Boru hattı günlüklerini** periyodik olarak denetleyin maskelemenin kaçırdığı olabilecek tesadüfi sır açığı için.
+
+  ---
+
+  ## Pre-Commit Sır Algılaması
+
+  Sırları version control'e ulaşmadan yakalamak en uygun maliyetli savunmadır. İki leading aracı bu alanı kapsar.
+
+  ### gitleaks
+
+  ```toml
+  # .gitleaks.toml — minimal configuration
+  [extend]
+  useDefault = true
+
+  [[rules]]
+  id = "custom-internal-token"
+  description = "Internal service token pattern"
+  regex = '''INTERNAL_TOKEN_[A-Za-z0-9]{32}'''
+  secretGroup = 0
+  ```
+
+  - Yükle: `brew install gitleaks` veya GitHub releases'ten indir.
+  - Pre-commit hook: `gitleaks git --pre-commit --staged`
+  - Baseline taraması: `gitleaks detect --source . --report-path gitleaks-report.json`
+  - `.gitleaksignore` dosyasında yanlış pozitifler yönet (satır başına bir parmak izi).
+
+  ### detect-secrets
+
+  ```bash
+  # Baseline oluştur
+  detect-secrets scan --all-files > .secrets.baseline
+
+  # Pre-commit hook (pre-commit framework aracılığıyla)
+  # .pre-commit-config.yaml
+  repos:
+    - repo: https://github.com/Yelp/detect-secrets
+      rev: v1.5.0
+      hooks:
+        - id: detect-secrets
+          args: ['--baseline', '.secrets.baseline']
+  ```
+
+  - Kuruluşa özel desenler için **custom plugins** destekler.
+  - Denetim iş akışı: `detect-secrets audit .secrets.baseline` etkileşimli olarak gerçek/yanlış pozitifler işaretler.
+
+  ### Yanlış Pozitif Yönetimi
+
+  - `.gitleaksignore` veya `.secrets.baseline` dosyasını version control'de tutun böylece tüm takım istisnalar paylaşır.
+  - Güvenlik denetimleri sırasında yanlış pozitif listelerini gözden geçirin — desenler zaman içinde gerçek sızıntıları maskeleye bilir.
+  - Dosyaları geniş bir şekilde göz ardı etmek yerine regex desenlerini sıkılaştırmayı tercih edin.
+
+  ---
+
+  ## Denetim Günlüğü
+
+  Hangi sırın kime ne zaman erişildiğini bilmek olay araştırması ve uyum için kritiktir.
+
+  ### Bulut-Native Denetim İzleri
+
+  | Sağlayıcı | Hizmet | Neler Yakalar |
+  |----------|---------|-----------------|
+  | **AWS** | CloudTrail | Her `GetSecretValue`, `DescribeSecret`, `RotateSecret` API çağrısı |
+  | **Azure** | Activity Log + Diagnostic Logs | Key Vault erişim olayları, çağıran kimliği ve IP dahil |
+  | **GCP** | Cloud Audit Logs | Secret Manager'ın veri erişim günlükleri principal ve zaman damgası ile |
+  | **Vault** | Audit Backend | Tam istek/yanıt günlüğü (dosya, syslog veya socket arka ucu) |
+
+  ### Uyarı Stratejisi
+
+  - Beklenen kümedışı IP aralıklarından veya hizmet hesaplarından **erişimde uyar**.
+  - Zaman penceresinde N'den fazla sırın erişilmesi (**toplu sır okumalarında**) uyarı.
+  - Hiçbir CI/CD boru hattının çalışmadığı dağıtım pencereleri dışında **erişimde** uyarı.
+  - Denetim günlüklerini SIEM'inize (Splunk, Datadog, Elastic) besleyin diğer güvenlik olayları ile korelasyon için.
+  - Denetim günlüklerini erişim sertifikasyonunun bir parçası olarak üç ayda bir gözden geçirin.
+
+  ---
+
+  ## Çapraz Referanslar
+
+  Bu beceri env hijyeni ve sır algılamasını kapsar. İlgili alanların daha derin kapsamı için bkz:
+
+  | Beceri | Yol | İlişki |
+  |-------|------|-------------|
+  | **Secrets Vault Manager** | `engineering/secrets-vault-manager` | Üretim kasa altyapısı, HA dağıtımı, DR |
+  | **Senior SecOps** | `engineering/senior-secops` | Güvenlik operasyonları perspektifi, olay tepkisi |
+  | **CI/CD Pipeline Builder** | `engineering/ci-cd-pipeline-builder` | Boru hattı mimarisi, sır enjeksiyonu desenleri |
+  | **Infrastructure as Code** | `engineering/infrastructure-as-code` | Terraform/Pulumi sır arka ucu yapılandırması |
+  | **Container Orchestration** | `engineering/container-orchestration` | Kubernetes sır bağlanması, sealed secrets |
 ---
 
 # Env & Secrets Manager

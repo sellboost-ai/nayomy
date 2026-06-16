@@ -3,61 +3,61 @@ name: "YuChenSSR/mindmap-mcp-server"
 description: "A Model Context Protocol (MCP) server for generating a beautiful interactive mindmap."
 category: "Developer Tools"
 repo: "YuChenSSR/mindmap-mcp-server"
-stars: 233
+stars: 234
 url: "https://github.com/YuChenSSR/mindmap-mcp-server"
 body_length: 10210
 license: "MIT"
 language: "Python"
 body_tr: |-
   # Mindmap MCP Server
-
+  
   <p align="center">
     
   </p>
-
+  
   Markdown içeriğini etkileşimli zihni haritalarına dönüştürmek için Model Context Protocol (MCP) sunucusu.
-
-
-
+  
+  
+  
   ## Kurulum
-
+  
   ```bash
   pip install mindmap-mcp-server
   ```
-
+  
   Veya `uvx` kullanarak:
-
+  
   ```bash
   uvx mindmap-mcp-server
   ```
   Veya `docker` kullanarak daha güvenli ve kolay.
-
+  
   ## Dikkat
-
+  
   Üç kurulum yöntemi macOS ve Linux'ta başarıyla test edilmiştir. 
-
+  
   Windows kullanıcıları bu MCP için `npx` ile sorun yaşıyorsanız, Docker yöntemini kullanmayı düşünün. Alternatif olarak, Visual Studio Code kullanıyorsanız, ["Markmap"](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) uzantısı, komut satırı araçlarında gezinmekten daha basit bir çözüm sunabilir.
-
+  
   ---
-
+  
   Çözülmemiş sorunlar yaşıyorsanız, bu MCP sunucusunu kullanmak yerine benim son sistem istemini Mindmap Asistanı olarak kullanabilirsiniz.
-
+  
   <details>  
   <summary>Bu MCP sunucusunu kullanmak yerine sistem istemini kullanma</summary>   
-
+  
   ```
   You are a specialized assistant that generates HTML code for interactive markdown-based mind maps (markmaps). When a user sends you content, respond with a complete HTML document that displays their content as a markmap visualization.
   If artifact tool is turned on, you can use the artifact.
-
+  
   Follow these requirements:
   1. Use the markmap-autoloader library (version 0.18 or latest stable version)
   2. Format the HTML exactly according to the template below
   3. Replace the demo content in the template with the user's content, preserving their hierarchical structure
   4. Maintain the markmap configuration options (maxWidth: 300, colorFreezeLevel: 2)
   5. If the user doesn't provide markdown formatting (# for headings), format their content appropriately with main topics using # and subtopics using ##
-
+  
   Template to follow:
-
+  
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -81,21 +81,21 @@ body_tr: |-
             maxWidth: 300
             colorFreezeLevel: 2
           ---
-
+  
           # markmap
-
+  
           ## Links
-
+  
           - <https://markmap.js.org/>
           - [GitHub](https://github.com/markmap/markmap)
-
+  
           ## Related
-
+  
           - [coc-markmap](https://github.com/markmap/coc-markmap)
           - [gatsby-remark-markmap](https://github.com/markmap/gatsby-remark-markmap)
-
+  
           ## Features
-
+  
           - links
           - **inline** ~~text~~ *styles*
           - multiline
@@ -115,27 +115,27 @@ body_tr: |-
     
   2. HTML dosyasını zihni harita olarak render edin:
   ![system_prompt_render](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-05-20/qv4ActvFaphc64oA.png)
-
+  
   </details>
-
+  
   ---
-
+  
   ## Ön Koşullar
-
+  
   Bu paket, `python` veya `uvx` komutunu kullanarak sunucuyu çalıştırırken Node.js'nin yüklü olmasını gerektirir.
-
-
-
+  
+  
+  
   ## Kullanım
-
+  
   ### Claude Desktop veya diğer MCP istemcileriyle
-
+  
   Bu sunucuyu `claude_desktop_config.json` dosyanıza ekleyin:
-
+  
   <details>
    
    <summary>`uvx` kullanarak:</summary>
-
+  
   ```json
   {
     "mcpServers": {
@@ -146,11 +146,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   veya  
-
+  
   önerilen:
-
+  
   ```json
   {
     "mcpServers": {
@@ -161,29 +161,29 @@ body_tr: |-
     }
   }
   ```
-
+  
   zihni harita içeriğinin dönüş türünü belirtmek için `--return-type` kullanırız, ihtiyacınıza göre `html` veya `filePath` seçebilirsiniz.   
   `html` zihni haritanın tüm HTML içeriğini döndürecek ve bunu yapay zeka istemcinizin ürünlerinde önizleyebilirsiniz; 
-
+  
   ![return_html_content](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-20/qAEimhwZJDQ3NBLs.png)
-
+  
   ![html_preview](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-21/SujqY2L5lhWSHWvi.png)
-
-
+  
+  
   `filePath` zihni haritayı bir dosyaya kaydedecek ve dosya yolunu döndürecektir, bunu tarayıcınızda açabilirsiniz. **Token'lerinizi tasarruf edebilir**!
-
+  
   ![generate_file](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-20/WDqlWhsoiAYpLmBF.png)
-
+  
   ![file_to_open](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-20/jfRIDc5mfvNtKykC.png) 
-
+  
   </details>
-
+  
   <details>
   <summary>`python` kullanarak:</summary>
-
+  
   Bu depo'daki [belirli bir Python dosyasını](https://github.com/YuChenSSR/mindmap-mcp-server/blob/main/mindmap_mcp_server/server.py) kullanma:
-
-
+  
+  
   ```json
   {
     "mcpServers": {
@@ -196,7 +196,7 @@ body_tr: |-
   ```
     
   veya   
-
+  
   ```json
   {
     "mcpServers": {
@@ -208,21 +208,21 @@ body_tr: |-
   }
   ```
   zihni harita içeriğinin dönüş türünü belirtmek için `--return-type` kullanırız, ihtiyacınıza göre `html` veya `filePath` seçebilirsiniz. Daha fazla ayrıntı için `uvx` kullanımına bakın.
-
+  
   </details>
-
+  
   <details>
-
+  
   <summary>`docker` kullanarak:</summary>
-
+  
   Öncelikle image'i çekin:
-
+  
   ```bash
   docker pull ychen94/mindmap-converter-mcp
   ```
-
+  
   İkinci olarak, sunucuyu ayarlayın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -234,7 +234,7 @@ body_tr: |-
   }
   ```
   ⚠️ `/path/to/output/folder` yerine sisteminizdeki zihni haritaları kaydetmek istediğiniz gerçek bir yol yazın, macOS'ta `/Users/username/Downloads` veya Windows'ta `C:\\Users\\username\\Downloads` gibi.
-
+  
   **Docker konteynerinde sağlanan araçlar**
   Sunucu aşağıdaki MCP araçlarını sağlar:
   1. **markdown-to-mindmap-content**  
@@ -252,11 +252,11 @@ body_tr: |-
   	•	toolbar (boolean, isteğe bağlı): Araç çubuğunu gösterilip gösterilmeyeceği (varsayılan: true)  
   **En iyi kullanım**: Karmaşık zihni haritalar için veya iş akışınızı kesintiye uğratmadan daha sonra kullanmak için **token'lerinizi tasarruf** etmek istediğinizde.  
   html dosyasını tarayıcıda açarak zihni haritayı görüntüleyebilirsiniz. Ayrıca dosyayı iş akışınızı kesintiye uğratmadan tarayıcıda açmak için [iterm-mcp-server](https://github.com/ferrislucas/iterm-mcp) veya diğer terminal MCP sunucularını kullanabilirsiniz.  
-
+  
   </details>
-
+  
   ### Sorun Giderme 
-
+  
   **Dosya Bulunamadı**  
   Zihni harita dosyanız erişilemez durumda ise:  
   	1	Bir volume'ü Docker konteynerine doğru şekilde bağladığınızı kontrol edin  
@@ -271,27 +271,27 @@ body_tr: |-
   	1	Yapılandırma değişikliklerinden sonra Claude Desktop'ı yeniden başlatın  
   	2	Bağlantı hataları için Claude günlüklerini kontrol edin  
   	3	Docker'ın çalışıyor olduğunu doğrulayın  
-
+  
   **Gelişmiş Kullanım  
   Diğer MCP İstemcileriyle Kullanma**  
   Bu sunucu, yalnızca Claude Desktop değil, MCP uyumlu herhangi bir istemciyle çalışır. Sunucu Model Context Protocol (MCP) sürüm 1.0 belirtimini uygular.  
-
-
-
-
+  
+  
+  
+  
   ## Özellikler  
-
+  
   Bu sunucu, `markmap-cli` kütüphanesini kullanarak Markdown içeriğini zihni haritalarına dönüştürmek için bir araç sağlar:  
-
+  
   - Markdown'ı etkileşimli zihni harita HTML'sine dönüştürün  
   - Çevrimdışı kullanıma uygun zihni haritalar oluşturma seçeneği  
   - Araç çubuğunu gizleme seçeneği  
   - HTML içeriği veya dosya yolu döndürün  
-
+  
   ## Örnek  
-
+  
   Claude'da şunları sorabilirsiniz:
-
+  
   1. 
   "**aşağıdaki markdown kodu için bir zihni harita verin, zihni harita aracını kullanarak:**
   ```
@@ -310,10 +310,10 @@ body_tr: |-
   ### User Testing
   ```
   "
-
-
+  
+  
   Zihni haritayı bir dosyaya kaydetmek ve ardından iTerm MCP sunucusunu kullanarak tarayıcıda açmak istiyorsanız:   
-
+  
   2. 
   "**aşağıdaki markdown input_code için bir zihni harita verin zihni harita aracını kullanarak,
   daha sonra, oluşturulan html dosyasını açmak için iterm'i kullanın.
@@ -322,34 +322,34 @@ body_tr: |-
   markdown içeriği
   ```
   "
-
-
+  
+  
   3.
   "**Bir filin buzdolabına konulması sürecini düşün ve bir zihni harita sağla. Bunu terminalle aç.**"
-
+  
   <details>
   	
   <summary>sonucu gör</summary>
   	
   ![aiworkflow](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-22/QUjGnpmUcPfd3lBI.png)
-
+  
   ![mindmapinbrowser](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-22/w7DZ4shFhLoQZruq.png)
-
+  
    </details>
-
+  
    
   **ve daha fazlası**
-
-
+  
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır.
   Daha fazla ayrıntı için lütfen [bu proje deposundaki](https://github.com/YuChenSSR/mindmap-mcp-server) LICENSE dosyasını inceleyin  
    
   ---
    
   Bu proje sizin için yararlı olduysa, lütfen ona bir Star ⭐️ vermeyi düşünün
-
+  
   Teknolojinin ilerlemesi genel nüfusu sömürmek yerine tüm bireylere fayda sağlamalıdır.
 ---
 

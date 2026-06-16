@@ -3,20 +3,20 @@ name: "xpaysh/awesome-x402"
 description: "Curated directory of x402 payment protocol resources, MCP servers, and tools for HTTP 402-based USDC payments on Base, Arbitrum, and other EVM chains."
 category: "Finance & Fintech"
 repo: "xpaysh/awesome-x402"
-stars: 222
+stars: 234
 url: "https://github.com/xpaysh/awesome-x402"
 body_length: 148935
 license: "CC0-1.0"
 homepage: "https://www.x402.org/"
 body_tr: |-
   # Awesome X402 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-
+  
   > ⚡ **Nihai x402 Kaynak Merkezi** - HTTP 402 kullanarak internet-native ödemeler oluşturmak için ihtiyacınız olan her şey. AI ajanlar, API'ler ve mikro ödemeler için ideal. Ödeme duvarları oluşturun, hizmetleri monetize edin ve kripto/USDC ile otonom ajan ödemelerini etkinleştirin. Sıfır ücret, 2 saniye uzlaşması.
-
+  
   [![GitHub stars](https://img.shields.io/github/stars/xpaysh/awesome-x402?style=social)](https://github.com/xpaysh/awesome-x402)
-
+  
   ## İçerik
-
+  
   - [🎯 Hızlı Başlangıç - x402 Şampiyonu Olun](#-hızlı-başlangıç---x402-şampiyonu-olun)
   - [📚 Resmi Kaynaklar](#-resmi-kaynaklar)
   - [📖 Protokol Dokümantasyonu](#-protokol-dokümantasyonu)
@@ -42,30 +42,30 @@ body_tr: |-
   - [🔗 İlgili Protokoller](#-ilgili-protokoller)
   - [🤝 Katkıda Bulunmak](#-katkıda-bulunmak)
   - [Awesome Listeleri](#awesome-listeleri)
-
+  
   x402 protokolü, HTTP 402 "Ödeme Gerekli" durum kodu kullanarak anında Blockchain ödemelerine izin verir. Bu, x402'yi öğrenmek ve ajan ödemelerinin geleceğini oluşturmak için tam kılavuzunuzdur.
-
+  
   🚀 **5 dakikada yapı oluşturmaya başlayın** | ⚡ **2 saniye uzlaşması** | 💰 **Base üzerinde USDC**
-
+  
   ---
-
+  
   ## 🎯 Hızlı Başlangıç - x402 Şampiyonu Olun
-
+  
   **x402'ye yeni misiniz?** Ustalığa gitmek için bu yolu izleyin:
-
+  
   1. [5 Dakikalık Hızlı Başlangıç](https://docs.cdp.coinbase.com/x402/quickstart-for-sellers) - İlk ödemenizi kabul edin.
   2. Stack'inizi Seçin - Dil/çerçevenizi bulun.
   3. Bir Örneği Kopyalayın - Hemen çalıştırabileceğiniz çalışan kod.
   4. Topluluğa Katılın - Diğer geliştiricilerden yardım alın.
-
+  
   **AI Ajanları için:** Claude/diğer ajanların otonom ödemeler yapmasını etkinleştirmek için [MCP Entegrasyonu](#model-context-protocol-mcp) ile başlayın.
-
+  
   ---
-
+  
   ## 📚 Resmi Kaynaklar
-
+  
   x402 protokol bakımcılarından temel kaynaklar.
-
+  
   - [x402 Protokol Spesifikasyonu](https://github.com/coinbase/x402) - Coinbase tarafından resmi açık kaynak protokol uygulaması.
   - [x402 Vakfı](https://x402.org) - Protokol vakfı web sitesi, genel bakış ve dokümantasyon ile.
   - [x402 Teknik İnceleme](https://x402.org/x402-whitepaper.pdf) - Protokol mimarisi hakkında teknik derinlemesine bilgi.
@@ -73,64 +73,64 @@ body_tr: |-
   - [Protokol Spesifikasyonları](https://github.com/coinbase/x402/tree/main/specs) - Ayrıntılı teknik spesifikasyonlar.
     - [Ödeme Şemaları](https://github.com/coinbase/x402/tree/main/specs/schemes) - Farklı ödeme akışı türleri.
     - [EVM Uygulaması](https://github.com/coinbase/x402/blob/main/specs/schemes/exact/scheme_exact_evm.md) - Ethereum Sanal Makinesi özellikleri.
-
+  
   ## 📖 Protokol Dokümantasyonu
-
+  
   x402'yi anlamak ve uygulamak için gerekli dokümantasyon.
-
+  
   - [x402 Nasıl Çalışır](https://docs.cdp.coinbase.com/x402/how-it-works) - Şemalarla birlikte tam ödeme akışı açıklaması.
   - [Ödeme Gereksinimleri Şeması](https://github.com/coinbase/x402#payment-requirements) - Ödeme istekleri için JSON yapısı.
   - [Ödeme Yükü Biçimi](https://github.com/coinbase/x402#payment-payload) - İstemci ödeme gönderimi biçimi.
   - [Doğrulama ve Uzlaşma](https://github.com/coinbase/x402#verification-and-settlement) - Ödeme doğrulama süreci.
   - [EIP-3009 TransferWithAuthorization](https://eips.ethereum.org/EIPS/eip-3009) - x402 tarafından kullanılan gazlı transfer standardı.
   - [HTTP 402 Durum Kodu](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402) - Uzun süredir uyuyan HTTP durumu.
-
+  
   ## 🚀 Hızlı Başlama Rehberleri
-
+  
   Dakikalar içinde x402'yi kullanmaya başlayın.
-
+  
   - 5 Dakikalık Satıcılar için Hızlı Başlangıç - İlk ödemenizi kabul edin.
   - [Alıcı/İstemci Kurulumu](https://docs.cdp.coinbase.com/x402/quickstart-buyers) - Otomatik ödemeler yapın.
   - [Tek Satır Entegrasyonu](https://github.com/coinbase/x402/tree/main/examples) - Ödeme middleware'i tek kod satırına ekleyin.
   - [Base Sepolia Testnet Kurulumu](https://docs.cdp.coinbase.com/x402/network-support) - Test USDC alın ve test etmeye başlayın.
   - Üretim Dağıtım Kontrol Listesi - Base mainnet'e canlı gidin.
-
+  
   ## ⚙️ Protokol Uygulamaları
-
+  
   x402 protokolünün resmi ve topluluk uygulamaları.
-
+  
   ### Go
-
+  
   - [coinbase/x402](https://github.com/coinbase/x402/tree/main/go) ⭐ **Resmi** - Eksiksiz Go uygulaması.
     - Temel protokol türleri ve yardımcı programlar
     - Ödeme doğrulama ve uzlaşma mantığı
     - Çoklu zincir desteği (Base, Base Sepolia, Ethereum, Solana)
-
+  
   ### TypeScript/JavaScript
-
+  
   - [x402-typescript](https://github.com/coinbase/x402/tree/main/typescript) ⭐ **Resmi** - Eksiksiz TypeScript uygulaması.
     - Temel protokol türleri ve yardımcı programlar
     - Ödeme doğrulama ve uzlaşma mantığı
     - Çoklu zincir desteği (Base, Base Sepolia, Ethereum, Solana)
   - [x402-data-api](https://github.com/155143783/x402-data-api) - HTTP 402 mikro ödeme veri API'si, Base zinciri USDC ödemeleri ile. 16 geliştirici veri aracı, email doğrulaması, DNS arama, WHOIS, SSL kontrolü ve IP coğrafi konumu ile x402 ödeme entegrasyonu.
-
+  
   - [x402-express](https://github.com/coinbase/x402/tree/main/examples/typescript/servers/express) - Express.js middleware örneği.
   - [hive-rosetta](https://www.npmjs.com/package/hive-rosetta) ⭐ **Topluluk** - Açık EIP-3009 `transferWithAuthorization` imzalayan. Sıfır ethers/web3 bağımlılığı, yalnızca primitivler EIP-712. `{scheme: 'exact', network: 'eip155:8453', payload: {authorization, signature}}` tel şekli döndürür. PyPI'de aynı paket adı. ([GitHub](https://github.com/srotzin/hive-rosetta))
-
+  
   ### Python
-
+  
   - [x402](https://pypi.org/project/x402/) ⭐ **Resmi** - PyPI'de Python SDK.
     - FastAPI middleware entegrasyonu
     - Otomatik ödeme yapan requests oturumu
     - Ödeme gereksinimi oluşturma
-
+  
   - [ag402](https://github.com/AetherCore-Dev/ag402) ⭐ **Topluluk** - x402 kullanan AI ajanları için ödeme katmanı. Herhangi bir API'yi veya MCP sunucusunu USDC ödeme duvarı (`ag402 serve`) ile sarın, ya da ajanlar otomatik olarak ödeme yapsınlar (`ag402 run`). Solana USDC, ~0.5s uzlaşma, koruma altında olmayan, 648+ test. [Glama](https://glama.ai/mcp/servers/AetherCore-Dev/ag402-mcp)
-
+  
   - [x402-pay](https://pypi.org/project/x402-pay/) - Herhangi bir x402 API'yi bir API anahtarı ile çağırın. İstekleri ödemeyi gerçekleştiren bir broker üzerinden yönlendirir. httpx tabanlı, doğrudan ödemeler için isteğe bağlı cüzdan modu. ([GitHub](https://github.com/bartonguestier1725-collab/x402-pay))
   - [hive-rosetta](https://pypi.org/project/hive-rosetta/) ⭐ **Topluluk** - Node `hive-rosetta` imzalayan'ın doğrudan bağlantı noktası. Her iki dil arasında bayt özdeş EIP-712 özeti. `{scheme, network, payload}` döndürür, CDP `/verify` ve `/settle` ile eşleşen. ([GitHub](https://github.com/srotzin/hive-rosetta))
-
+  
   ### Rust
-
+  
   - [x402-rs](https://github.com/x402-rs/x402-rs) ⭐ **Topluluk** - Üretim-kalite Rust uygulaması.
     - Axum middleware
     - Reqwest istemci sarmalayıcısı
@@ -138,14 +138,14 @@ body_tr: |-
     - Çoklu zincir desteği
   - x402-axum - Axum web framework entegrasyonu.
   - x402-reqwest - Reqwest HTTP istemci sarmalayıcısı.
-
-
+  
+  
   ## 🏭 Üretim Uygulamaları
-
+  
   x402'yi üretim ortamında kanıtlanmış ölçek ve işlem hacimleri ile kullanan gerçek şirketler.
-
+  
   ### Yüksek Hacimli Üretim Dağıtımları
-
+  
   - [Arch Tools](https://archtools.dev) - 58 üretim API aracı, AI ajanları için x402 ödemeleri yerleşik. Web scraping, AI oluşturma, kripto verileri, OCR, tarayıcı otoması, MCP uyumlu. Patent bekleyen ajan kimliği. 15+ zincir desteklenmiştir. ([GitHub](https://github.com/Deesmo/Arch-AI-Tools))
   - [PayAPI Market](https://payapi.market) - x402 tarafından desteklenen API'ler için ilk pazaryeri. 10 API, 65 bitiş noktası: UK emlak verileri, email doğrulaması, şirket zenginleştirmesi, posta kodu araması, döviz/kripto oranları, ekran görüntüleri, DNS zekası, web scraping, IP coğrafi konumu, QR kodları. Base üzerinde istek başına $0.001–$0.01 USDC. MCP sunucusu keşfi. ([GitHub](https://github.com/chetparker/x402-marketplace))
   - [Rug Munch Intelligence](https://x402.rugmunch.io) - 117 MCP aracı + 19 REST API bitiş noktası kripto verileri için: DexScreener, Birdeye, GMGN, Arkham, Nansen, Dune, Jupiter, DeFiLlama, ve daha fazlası. Çağrı başına $0.001-$0.02 USDC. Çok zincirli (Base + Solana), ücretsiz deneme (IP başına 1 çağrı), OpenAPI speci, API anahtarı yok, kayıt yok. ([Keşif](https://x402.rugmunch.io/.well-known/x402) | [OpenAPI](https://x402.rugmunch.io/openapi.json) | [MCP Kataloğu](https://x402.rugmunch.io/mcp) | [Solana](https://x402-sol.rugmunch.io/.well-known/x402) | [GitHub](https://github.com/Rug-Munch-Media-LLC/))
@@ -156,18 +156,18 @@ body_tr: |-
   - [Cloudflare Workers](https://workers.cloudflare.com) - 300+ veri merkezinde ölçekte küresel dağıtılmış ödeme doğrulamasını sunan x402 entegrasyonu ile kenar bilgi işlem platformu.
   - [GigSoul AI Research Agent](https://gig-x402-api.jayson-be1.workers.dev) - 23 bitiş noktası AI araştırma API'si danışmanlar için: SEC dosyaları, kazanç çağrıları, rekabet analizi, pazar araştırması ve belge zekası. Çağrı başına $0.01 USDC, Base mainnet üzerinde. Cüzdan: x2b6c16fb557291b98222a570526ff2430848b723. ([OpenAPI](https://gig-x402-api.jayson-be1.workers.dev/openapi.json) | [.well-known/x402.json](https://gig-x402-api.jayson-be1.workers.dev/.well-known/x402.json))
   - [Zuluworks AI — Sovereign Shaka PQC-Shield Factory](https://api.zuluworksai.com) - Cloudflare Workers üzerinde otonom A2A fabrikası, Base L2 üzerinde x402 USDC aracılığıyla 5 kuantum sonrası sertleştirilmiş ajan hizmetini satmak: `quantum-shield` ($0.10, ML-KEM-768 PQC tüneli — NIST FIPS 203), `kya` ($0.01, ajan güven puanlaması), `browser-rendering` ($0.03, başsız tarayıcı çıkarması), `memory` ($0.05, PQC bilgi endeksi üzerinde anlamsal çağırma), `workers-ai` ($0.02, Llama 3.1 çıkarımı). Tüm uzlaşma, Bazaar indeksleme için Coinbase CDP kolaylaştırıcısı üzerinden yönlendirilir. ([Ajan Kartı](https://api.zuluworksai.com/.well-known/agent.json) | [Bazaar Manifesti](https://api.zuluworksai.com/.well-known/x402-bazaar.json) | [MCP](https://api.zuluworksai.com/.well-known/mcp.json) | [Sitemap](https://api.zuluworksai.com/sitemap.xml))
-
+  
   ### Üretim Başarı Metrikleri
-
+  
   **Temel Performans Göstergeleri:**
   - 10.5M+ işlem - AIsa kümülatif ağ hacmi
   - 500K+ haftalık işlem - Ekosistem genelinde ödeme aktivitesi
   - $180M+ pazar değeri - Birleşik ekosistem değerlemesi
   - 2 saniye uzlaşma - Ortalama üretim ödeme sonluluk süresi
   - 10,000%+ büyüme - Yıl-yıl işlem hacmi artışı
-
+  
   ### Çoklu Zincir Üretim Desteği
-
+  
   | Zincir       | Durum       | Kolaylaştırıcılar              | Uzlaşma        | Üretim Örnekleri      |
   | ------------ | ----------- | ----------------------------- | --------------- | --------------------- |
   | Base         | Üretim      | Coinbase CDP, Cloudflare      | Anında (2s)     | AIsa, Bitget, thirdweb|
@@ -176,11 +176,11 @@ body_tr: |-
   | Solana       | Üretim      | Topluluk                      | Anında (<1s)    | Yüksek frekans ticaret|
   | BNB Chain    | Üretim      | Pieverse                      | Anında (2s)     | Oyunlar, NFT'ler      |
   | Radius       | Üretim      | Topluluk                      | Anında (<1s)    | Mikro ödemeler        |
-
+  
   ### Veri ve Sosyal API'ler
   - [Pyrimid](https://pyrimid.ai) - x402 tarzı USDC ödemeleri için Base üzerinde ajan ticaret protokolü. Yerleşik satıcı/ürün kayıt defteri, ödeme yönlendiricisi, bağlı kuruluş atamı, MCP bitiş noktası ve ajan-keşfedilebilir ücretli hizmetler için canlı katalog API'si. Güncel mainnet kanıtı: 3 satıcı, 8 zincir ürünü, 4 yönlendirilen test ödemesi. ([Katalog](https://pyrimid.ai/api/v1/catalog)) ([MCP](https://pyrimid.ai/api/mcp)) ([Beceri](https://pyrimid.ai/skill.md))
   - **[Polybot Arb Intelligence](https://github.com/packrvnner/polybot-arb-api)** — Gerçek zamanlı çapraz platform tahmin pazarı arb verileri (Polymarket+Kalshi+Myriad). x402 USDC, Base üzerinde. [Canlı API](https://governments-ruth-distribution-breaks.trycloudflare.com/free/market-pulse)
-
+  
   - [Aigregator](https://x402.aigregator.com) - REST API ve MCP sunucusu üzerinden 5,336+ AI aracı hakkında yapılandırılmış veri. Ara, karşılaştır ve araç profillerini al. Base üzerinde USDC mikro ödemeleri. ([MCP Sunucusu](https://x402.aigregator.com/mcp))
   - [Xquik](https://xquik.com) - 7 MPP/x402 kullandığı ödeme uç noktası ile gerçek zamanlı X (Twitter) veri API'si — tweet arama, tweet araştırması, kullanıcı arama, takipçi kontrolü, makale çıkarma, medya indirme ve trendler. Hesap veya abonelik gerekli değildir. ([GitHub](https://github.com/Xquik-dev/tweetclaw)) ([npm](https://www.npmjs.com/package/@xquik/tweetclaw)) ([MCP Sunucusu](https://xquik.com/mcp))
   - [agentsvc.io](https://agentsvc.io) - Base üzerinde x402 USDC mikro ödemeleri aracılığıyla AI ajanları için 20 yardımcı program aracı. Araçlar: `ip-lookup`, `dns-lookup`, `qr-code`, `exchange-rates`, `email-validate`, `ssl-check`, `phone-validate`, `weather`, `translate`, `whois`, `crypto-prices`, `stock-prices`, `geocode`, `web-search`, `news-search`, `pdf-extract`, `screenshot`, `webpage-reader`, `html-to-pdf`, `ocr`. Çağrı başına $0.001–$0.008 USDC. API anahtarı yok, kayıt yok. Otomatik keşif: [/.well-known/agent-services.json](https://agentsvc.io/.well-known/agent-services.json) | [Katalog](https://agentsvc.io/api/v1/services) | [OpenAPI](https://agentsvc.io/api/openapi.json) | [MCP Sunucusu](https://agentsvc.io/mcp-server.mjs) | ([GitHub](https://github.com/jakobautomation/agentsvc-mcp))

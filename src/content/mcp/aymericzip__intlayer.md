@@ -3,7 +3,7 @@ name: "aymericzip/intlayer"
 description: "A MCP Server that enhance your IDE with AI-powered assistance for Intlayer i18n / CMS tool: smart CLI access, access to the docs."
 category: "Command Line"
 repo: "aymericzip/intlayer"
-stars: 744
+stars: 767
 url: "https://github.com/aymericzip/intlayer"
 body_length: 29507
 license: "Apache-2.0"
@@ -15,17 +15,17 @@ body_tr: |-
       
     </a>
   </p>
-
+  
   <h1 align="center">
     <strong>Bileşen başına i18n</strong>
   </h1>
-
+  
   <h2 align="center">
     <strong>AI destekli çeviri. Görsel Editör. Çok dilli CMS.</strong>
   </h2>
-
+  
   <br />
-
+  
   <p align="center">
     <a href="https://intlayer.org/doc/concept/content" rel="">Dokümanlar</a> •
     <a href="https://intlayer.org/doc/environment/nextjs" rel="">Next.js</a> •
@@ -41,24 +41,24 @@ body_tr: |-
     <a href="https://github.com/aymericzip/intlayer/commits/main" target="_blank" rel="noopener noreferrer nofollow">
     </a>
   </p>
-
+  
   ![Watch the video](https://github.com/aymericzip/intlayer/blob/main/docs/assets/demo_video.gif)
-
+  
   <a href="https://intlayer.org/doc/concept/content" rel="">
     
   </a>
-
+  
   ## Intlayer nedir?
-
+  
   Çoğu i18n kütüphanesi ya çok karmaşık, ya çok katı veya modern framework'ler için tasarlanmamıştır.
-
+  
   Intlayer, web ve mobil uygulamalar için **modern i18n çözümüdür**.  
   Framework'ten bağımsız, **AI destekli** ve ücretsiz **CMS & görsel editör** içerir.
-
+  
   **Yerel başına içerik dosyaları**, **TypeScript otomatik tamamlama**, **tree-shakable sözlükler** ve **CI/CD entegrasyonu** ile Intlayer uluslararasılaştırmayı **daha hızlı, daha temiz ve daha akıllı** hale getirir.
-
+  
   ## Intlayer'ın temel faydaları:
-
+  
   | Özellik                                                                                                                                             | Açıklama                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
   | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   |                           | **Çapraz Framework Desteği**<br><br>Intlayer, Next.js, React, Vite, Vue.js, Nuxt, Preact, Express ve daha fazlası dahil olmak üzere tüm ana framework'ler ve kütüphanelerle uyumludur.                                                                                                                                                                                                                                                                                                |
@@ -80,41 +80,41 @@ body_tr: |-
   |                     | **VSCode Uzantısı**<br><br>Intlayer, içeriğinizi ve çevirilerinizi yönetmenize, sözlüklerinizi oluşturmanıza, içeriğinizi çevirmenize ve daha fazlasını yapmanıza yardımcı olmak için bir VSCode uzantısı sağlar. <br><br> - [VSCode Uzantısı](https://intlayer.org/doc/vs-code-extension)                                                                                                                                                                                                                |
   |                     | **Birlikte Çalışabilirlik**<br><br>react-i18next, next-i18next, next-intl, react-intl, vue-i18n ile birlikte çalışabilirlik sağlar. <br><br> - [Intlayer ve react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer ve next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer ve next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer ve vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) |
   |                            | **Performans & Ölçünleme**<br><br>Performansı artırmak ve çözümü olabildiğince hafif tutmak için gelişmiş tree-shaking ve dinamik yükleme kullanır. <br><br> - [Performans & Ölçünleme](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                              |
-
+  
   ---
-
+  
   ## 📦 Kurulum
-
+  
   Intlayer ile yolculuğunuza bugün başlayın ve uluslararasılaştırma için daha sorunsuz, daha güçlü bir yaklaşım deneyimleyin.
-
+  
   <a href="https://intlayer.org/doc/concept/content" rel="">
     
   </a>
-
+  
   ```bash
   npm install intlayer react-intlayer
   ```
-
+  
   ⚡ Hızlı Başlangıç (Next.js)
-
+  
   ```ts
   // intlayer.config.ts
   import { Locales, type IntlayerConfig } from "intlayer";
-
+  
   const config: IntlayerConfig = {
     internationalization: {
       locales: [Locales.ENGLISH, Locales.FRENCH, Locales.SPANISH],
       defaultLocale: Locales.ENGLISH,
     },
   };
-
+  
   export default config;
   ```
-
+  
   ```ts
   // app/home.content.ts
   import { t, type Dictionary } from "intlayer";
-
+  
   const content = {
     key: "home",
     content: {
@@ -125,35 +125,35 @@ body_tr: |-
       }),
     },
   } satisfies Dictionary;
-
+  
   export default content;
   ```
-
+  
   ```tsx
   // app/page.tsx
   import { useIntlayer } from "react-intlayer";
-
+  
   const HomePage = () => {
     const { title } = useIntlayer("home");
-
+  
     return <h1>{title}</h1>;
   };
   ```
-
+  
   <a href="https://intlayer.org/doc/environment/nextjs"> Tam kılavuzu alın → </a>
-
+  
   ## 🎥 YouTube'da canlı öğretici
-
+  
   [![How to Internationalize your application using Intlayer](https://i.ytimg.com/vi/e_PPG7PTqGU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDtyJ4uYotEjl12nZ_gZKZ_kjEgOQ)](https://youtu.be/e_PPG7PTqGU?si=GyU_KpVhr61razRw)
-
+  
   <a href="https://intlayer.org/doc/concept/content" rel="">
     
   </a>
-
+  
   ## İçindekiler
-
+  
   Intlayer ile başlamak ve projelerinize entegre etmeyi öğrenmek için kapsamlı dokümantasyonumuzu keşfedin.
-
+  
   <details open>
   <summary style="font-size:16px; font-weight:bold;">📘 Başlangıç</summary>
   <ul>
@@ -161,7 +161,7 @@ body_tr: |-
     <li><a href="https://intlayer.org/doc" rel=''>Giriş</a></li>
   </ul>
   </details>
-
+  
   <details>
   <summary style="font-size:16px; font-weight:bold;">⚙️ Konsept</summary>
   <ul>
@@ -169,7 +169,7 @@ body_tr: |-
     <li><a href="https://intlayer.org/doc/concept/configuration" rel=''>Konfigürasyon</a></li>
     <li><a href="https://intlayer.org/doc/concept/cli" rel=''>Intlayer CLI</a></li>
     <li><a href="https://intlayer.org/doc/compiler" rel=''>Derleyici</a></li>
-
+  
     <li><a href="https://intlayer.org/doc/concept/editor" rel=''>Intlayer Editörü</a></li>
     <li><a href="https://intlayer.org/doc/concept/cms" rel=''>Intlayer CMS</a></li>
     <li><a href="https://intlayer.org/doc/concept/content" rel=''>Sözlük</a>
@@ -187,7 +187,7 @@ body_tr: |-
     </li>
   </ul>
   </details>
-
+  
   <details open>
   <summary style="font-size:16px; font-weight:bold;">🌐 Ortam</summary>
   <ul>
@@ -218,7 +218,7 @@ body_tr: |-
         <li><a href="https://intlayer.org/doc/environment/astro/lit" rel=''>Lit</a></li>
       </ul>
     </li>
-
+  
     <li><a href="https://intlayer.org/doc/environment/react-native-and-expo" rel=''>React Native</a></li>
     <li><a href="https://intlayer.org/doc/environment/vite-and-svelte" rel=''>Vite + Svelte</a></li>
     <li><a href="https://intlayer.org/doc/environment/sveltekit" rel=''>SvelteKit</a></li>
@@ -239,7 +239,7 @@ body_tr: |-
     </li>
   </ul>
   </details>
-
+  
   <details>
   <summary style="font-size:16px; font-weight:bold;">📊 Ölçünleme</summary>
   <ul>
@@ -250,7 +250,7 @@ body_tr: |-
     <li><a href="https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/svelte.md" rel=''>Svelte</a></li>
   </ul>
   </details>
-
+  
   <details>
   <summary style="font-size:16px; font-weight:bold;">📰 Blog</summary>
   <ul>
@@ -261,22 +261,22 @@ body_tr: |-
     <li><a href="https://intlayer.org/blog/intlayer-with-next-intl" rel=''>Intlayer ve next-intl</a></li>
   </ul>
   </details>
-
+  
   ## Çok dilli içerik yönetim sistemi
-
+  
   Sadece i18n kütüphanesi değil, Intlayer tam bir **çok dilli içerik yönetim sistemi**dır. Ücretsiz tam bir CMS [app.intlayer.org](https://app.intlayer.org) adresinde mevcuttur.
-
+  
   Intlayer, **geliştiricileri**, **içerik yazarlarını** ve **AI ajanlarını** çok dilli web siteleri zahmetsizce oluşturmak ve bakımını yapmak için tek bir iş akışında birleştirir. Intlayer aşağıdaki yığını tek bir çözümle değiştirir:
-
+  
   - i18n çözümleri (ör. `i18next`, `next-intl`, `vue-i18n`)
   - TMS'ler (Translation Management Systems) (ör. Crowdin, Phrase, Lokalise)
   - Özellik bayrakları
   - Headless CMS'ler (ör. Contentful, Strapi, Sanity)
-
+  
   ![CMS Preview](https://github.com/aymericzip/intlayer/blob/main/docs/assets/CMS.png?raw=true)
-
+  
   ## 🌐 Diğer dillerde Readme
-
+  
   <p align="center">
     <a href="https://github.com/aymericzip/intlayer/blob/main/readme.md">English</a> •
     <a href="https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/readme.md">简体中文</a> •
@@ -293,17 +293,17 @@ body_tr: |-
     <a href="https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/readme.md">हिन्दी</a> •
     <a href="https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/readme.md">Türkçe</a>
   </p>
-
+  
   ## 🤝 Topluluk
-
+  
   Intlayer topluluğun tarafından ve için inşa edilmiş ve sizin görüşünüzü merak ediyoruz!
-
+  
   - Bir öneriniz mi var? [Bir issue açın](https://github.com/aymericzip/intlayer/issues)
   - Bir hata mı buldunuz veya iyileştirme mi? [Bir PR gönderin](https://github.com/aymericzip/intlayer/pulls)
   - Yardıma mı ihtiyacınız var veya bağlantı kurmak mı istiyorsunuz? [Discord'umuza katılın](https://discord.gg/7uxamYVeCk)
-
+  
   Bizi şu yerlerden de takip edebilirsiniz:
-
+  
     <div>
       <br/>
       <p align="center">

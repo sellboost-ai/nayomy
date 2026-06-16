@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Asin Data API Otomasyonu Rube MCP Aracılığıyla
+
+  Asin Data API işlemlerini Composio'nun Asin Data API araç seti aracılığıyla Rube MCP ile otomatikleştirin.
+
+  **Araç seti belgeleri**: [composio.dev/toolkits/asin_data_api](https://composio.dev/toolkits/asin_data_api)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` ile `asin_data_api` araç seti aracılığıyla aktif Asin Data API bağlantısı
+  - Her zaman geçerli tool şemalarını almak için `RUBE_SEARCH_TOOLS` ilk olarak çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Edinin**: İstemci yapılandırmanızda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` öğesini `asin_data_api` araç seti ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Discovery
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları bulun:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Asin Data API operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'larını, input şemalarını, önerilen execution planlarını ve bilinen tuzakları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Asin Data API task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["asin_data_api"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Tuzaklar
+
+  - **Her zaman ilk olarak arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanlarını hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanma**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar fetching'i devam ettirin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` Asin Data API'ye özgü use case ile |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` `asin_data_api` araç seti ile |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` keşfedilmiş tool slug'ları ile |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` `run_composio_tool()` ile |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` `schemaRef` olan araçlar için |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Asin Data API Automation via Rube MCP

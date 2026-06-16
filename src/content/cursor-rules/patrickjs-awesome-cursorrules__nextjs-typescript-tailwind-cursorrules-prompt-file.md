@@ -9,6 +9,61 @@ path: "rules/nextjs-typescript-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-typescript-tailwind-cursorrules-prompt-file.mdc"
 body_length: 2679
 file_extension: ".mdc"
+body_tr: |-
+  # Proje Özeti
+
+  Bu proje, Autonomys ağının Block Explorer'ı olan Astral, Next.js ve TypeScript kullanılarak oluşturulmuştur. State management, UI bileşenleri ve veri getirme için çeşitli kütüphaneleri entegre etmektedir.
+
+  # Ana URL'ler
+
+  - Astral Block Explorer: https://explorer.autonomys.xyz/
+  - GitHub Deposu: https://github.com/autonomys/astral
+  - Autonomys: https://autonomys.xyz/
+  - Academy: https://academy.autonomys.xyz/
+  - Dokümantasyon: https://docs.autonomys.xyz/
+
+  # Proje Yapısı
+
+  - **Components**: Yeniden kullanılabilir UI bileşenlerini içerir.
+  - **App**: Yönlendirme için Next.js uygulaması.
+  - **Hooks**: State management için custom React hook'ları.
+
+  # Geliştirme Yönergeleri
+
+  - Type safety için TypeScript kullanın.
+  - ESLint konfigürasyonunda tanımlanan kodlama standartlarını izleyin.
+  - Tüm bileşenlerin responsive ve accessible olmasını sağlayın.
+  - Stil için Tailwind CSS kullanın, tanımlı renk paletine uyun.
+
+  # Önemli Script'ler
+
+  - `dev`: Geliştirme sunucusunu başlatır.
+  - `build`: Uygulamayı production için derler.
+
+  # AI İnteraksiyon Yönergeleri
+
+  - Kod üretirken TypeScript ve React best practice'lerini önceliklendirin.
+  - Yeni bileşenlerin yeniden kullanılabilir olmasını ve mevcut tasarım desenlerini izlemesini sağlayın.
+  - AI tarafından oluşturulan yorumların kullanımını en aza indirin, bunun yerine açık şekilde adlandırılmış değişkenler ve fonksiyonlar kullanın.
+  - Her zaman kullanıcı girdilerini doğrulayın ve hataları zarif bir şekilde işleyin.
+  - Yeni bileşen ve sayfalar için referans olarak mevcut bileşenleri ve sayfaları kullanın.
+
+  # Terimler ve Kavramlar Sözlüğü
+
+  - **H+AI (Human + Artificial Intelligence)**: Yetenekleri artırmak ve uyumlu bir koexistence sağlamak için insanlar ve AI arasındaki işbirliği.
+  - **Autonomys Network**: AI destekli merkezi olmayan uygulamalar (dApp'ler) için altyapı sağlamak üzere tasarlanmış merkezi olmayan bir ağ.
+  - **deAI Ekosistemi**: Dağıtılmış depolama, compute ve AI uygulamaları oluşturmak ve dağıtmak için dApp/agent katmanını içeren bileşenlerin bir yığını.
+  - **Distributed Storage**: AI ile ilgili verilerin bütünlüğünü ve kullanılabilirliğini sağlayan bir sistem.
+  - **Distributed Compute**: AI eğitimi ve çıkarımı için ölçeklenebilir hesaplama kaynakları.
+  - **dApp (Decentralized Application)**: Merkezi olmayan bir ağ üzerinde çalışan, geliştirilmiş güvenlik ve şeffaflık sağlayan uygulamalar.
+
+  # Ek Kaynaklar
+
+  - [Next.js Dokümantasyonu](https://nextjs.org/docs)
+  - [TypeScript El Kitabı](https://www.typescriptlang.org/docs/)
+  - [Tailwind CSS Dokümantasyonu](https://tailwindcss.com/docs)
+  - [React Dokümantasyonu](https://reactjs.org/docs/getting-started.html)
+  - [Autonomys Özeti](https://autonomys.xyz/)
 ---
 
 # Project Overview

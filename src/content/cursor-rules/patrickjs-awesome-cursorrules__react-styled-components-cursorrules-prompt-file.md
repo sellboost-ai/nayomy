@@ -9,6 +9,49 @@ path: "rules/react-styled-components-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-styled-components-cursorrules-prompt-file.mdc"
 body_length: 1193
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // React + Styled Components .cursorrules
+
+  // Fonksiyonel componentleri hooks ile kullan
+
+  const preferFunctionalComponents = true;
+
+  // Styled Components en iyi uygulamaları
+
+  const styledComponentsBestPractices = [
+    "Daha iyi debugging için styled-components/macro kullan",
+    "ThemeProvider kullanarak global theme uygula",
+    "Yeniden kullanılabilir styled componentler oluştur",
+    "Dinamik styling için props kullan",
+    "Gerektiğinde css`` gibi CSS helper fonksiyonlarını kullan",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    components/
+      styled/
+    styles/
+      theme.js
+      globalStyles.js
+    pages/
+    utils/
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. Styled componentler için uygun adlandırma kurallarını kullan (örn. StyledButton)
+  2. Tutarlı bir theme sistemi uygula
+  3. Tüm styling ihtiyaçları için CSS-in-JS kullan
+  4. Sık kullanılan props için styled-components' attrs metodunu kullan
+  5. Styled-components için uygun TypeScript desteği uygula
+  6. Şartlı styling için uygun olduğunda css prop'unu kullan
+  7. En iyi uygulamalar için styled-components dokümantasyonunu takip et
+  `;
+  ```
 ---
 
 // React + Styled Components .cursorrules

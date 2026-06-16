@@ -3,7 +3,7 @@ name: "weibaohui/kom"
 description: "Provides MCP multi-cluster Kubernetes management and operations. It can be integrated as an SDK into your own project and includes nearly 50 built-in tools covering common DevOps and development scenarios. Supports both standard and CRD resources."
 category: "Cloud Platforms"
 repo: "weibaohui/kom"
-stars: 147
+stars: 148
 url: "https://github.com/weibaohui/kom"
 body_length: 44192
 license: "MIT"
@@ -11,18 +11,18 @@ language: "Go"
 homepage: "https://github.com/weibaohui/kom"
 body_tr: |-
   # Kom - Kubernetes Operations Manager
-
+  
   [English](README_en.md) | [中文](README.md)
   [![kom](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://github.com/weibaohui/kom/blob/master/LICENSE)
   [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fweibaohui%2Fkom.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fweibaohui%2Fkom?ref=badge_shield)
-
-
+  
+  
   ## Giriş
-
+  
   `kom` Kubernetes işlemleri için bir araçtır; SDK seviyesinde kubectl ve client-go kullanım kapsüllemesidir.
   Kubernetes kaynaklarını yönetmek için bir dizi işlev sağlar; kaynak oluşturma, güncelleme, silme ve alma işlemleri dahildir. Bu proje, Kubernetes kaynak türlerinin çeşitli işlemlerini destekler ve özel kaynak tanımlarını (CRD) işleyebilir.
   `kom` kullanarak, kaynaklarda CRUD işlemleri, günlük alma ve POD içi dosya işlemleri gibi işlemleri kolayca gerçekleştirebilir, hatta SQL sorguları kullanarak k8s kaynaklarını sorgulayabilir ve yönetebilirsiniz.
-
+  
   ## **Özellikler**
   1. Basit ve kullanışlı: kom oluşturma, güncelleme, silme, alma, listeleme ve dahası dahil olmak üzere zengin işlevler sağlar; hem yerleşik kaynaklar hem de CRD kaynakları için işlemler vardır.
   2. Çoklu küme desteği: RegisterCluster aracılığıyla birden fazla Kubernetes kümesini kolayca yönetebilirsiniz, AWS EKS kümelerini destekler.
@@ -36,19 +36,19 @@ body_tr: |-
   10. SQL ile k8s kaynaklarını sorgula. select * from pod where metadata.namespace='kube-system' or metadata.namespace='default' order by  metadata.creationTimestamp desc 
   11. Sorgu önbelleği desteği; yüksek frekans, toplu sorgulama senaryolarında, önbellek sona erme süresini ayarlayabilir, sorgu performansını iyileştirin. Liste filtre koşulları önbellekten etkilenmez.
   12. Prometheus sorgusu desteği; küme içi Prometheus hizmeti veya harici Prometheus adresi aracılığıyla izleme verisi sorgulanır, anlık ve aralık sorgularını destekler, birden fazla sonuç ayrıştırma yöntemi sağlar.
-
-
-
+  
+  
+  
   ## Örnek Program
   **k8m** kom ve amis tabanlı hafif bir Kubernetes yönetim aracıdır; tek dosya, çoklu platform mimarisi desteği.
   1. **İndir**: [https://github.com/weibaohui/k8m](https://github.com/weibaohui/k8m) adresinden en son sürümü indirin.
   2. **Çalıştır**: `./k8m` komutu kullanarak başlatın, [http://127.0.0.1:3618](http://127.0.0.1:3618) adresine erişin.
-
-
-
-
+  
+  
+  
+  
   ## Kurulum
-
+  
   ```bash
   import (
       "github.com/weibaohui/kom"
@@ -68,9 +68,9 @@ body_tr: |-
   	// Diğer mantık
   }
   ```
-
+  
   ## Kullanım Örnekleri
-
+  
   ### 0. Çoklu Küme k8s MCP Desteği
   Stdio ve sse iki modunu destekler
   Çoklu tools desteği. Herhangi bir kaynağın sorgulama listesi silme tanımlaması işlemleri ve POD günlük okuma işlemleri dahildir.
@@ -78,9 +78,9 @@ body_tr: |-
   ```go
   // Bir satırlık kod MCP Server başlatır
   mcp.RunMCPServer("kom mcp server", "0.0.1", 9096)
-
-
-
+  
+  
+  
   ```
   #### 2. Derle
   ```shell
@@ -103,8 +103,8 @@ body_tr: |-
   ```
   Bu noktada, derlenen ikili dosya stdio modu olarak kullanılabilir.
   http://IP:9096/sse modu, sse modu olarak kullanılabilir.
-
-
+  
+  
   #### 4. MCP araçlarına entegre edin
   Stdio\sse iki tür entegrasyon yolunu destekler.
   MCP araç entegrasyonuna uygun; Cursor, Claude Desktop (yalnızca stdio modunu destekler), Windsurf vb., ayrıca bu yazılımların UI işlem arayüzü kullanarak ekleyebilirsiniz.
@@ -128,9 +128,9 @@ body_tr: |-
       }
   }
   ```
-
+  
   ####  MCP Araç Listesi (59 adet)
-
+  
   | Kategori                   | Metot                                | Açıklama                                              |
   | -------------------------- | ------------------------------------ | ----------------------------------------------------- |
   | **Küme Yönetimi (1)**      | `list_k8s_clusters`                  | Tüm kayıtlı Kubernetes kümelerini listele             |
@@ -192,14 +192,14 @@ body_tr: |-
   |                            | `get_k8s_storageclass_pv_count`      | StorageClass altındaki PV sayısını al                 |
   | **YAML Yönetimi (2)**      | `apply_k8s_yaml`                     | YAML ile Kubernetes kaynağı oluştur veya güncelle     |
   |                            | `delete_k8s_yaml`                    | YAML ile Kubernetes kaynağını sil                     |
-
+  
   #### Başlatma Komutu
   ```go
   mcp.RunMCPServer("kom mcp server", "0.0.1", 3619)
   ```
    
   #### AI Araç Entegrasyonu
-
+  
   ##### Claude Desktop
   1. Claude Desktop ayar panelini açın
   2. API yapılandırma alanında MCP Server adresini ekleyin
@@ -215,24 +215,24 @@ body_tr: |-
     }
   }
   ```
-
+  
   ##### Cursor
   1. Cursor ayar arayüzüne girin
   2. Uzantı hizmeti yapılandırma seçeneğini bulun
   3. Sse, stdio iki türü destekler. Sse yönteminde http://localhost:9096/sse yazın, stdio yönteminde kom dosya konumunu yazın.
-
+  
   ##### Windsurf
   1. Yapılandırma merkezine erişin
   2. API sunucu adresini ayarlayın
   3. Sse, stdio iki türü destekler. Sse yönteminde http://localhost:9096/sse yazın, stdio yönteminde kom dosya konumunu yazın.
-
+  
   #### cherry studio
   1. Sol alt köşedeki ayarları tıklatın
   2. MCP sunucusu tıklatın
   3. Sunucu ekle'yi tıklatın
   4. Sse, stdio iki türü destekler. Sse yönteminde http://localhost:9096/sse yazın, stdio yönteminde kom dosya konumunu yazın.
-
-
+  
+  
   ### 1. Çoklu Küme Yönetimi
   #### Çoklu Kümeleri Kaydet
   ```go
@@ -253,20 +253,20 @@ body_tr: |-
       Region:          "us-east-1",  // AWS bölgesi
       ClusterName:     "k8m",        // EKS küme adı
   }
-
+  
   // AWS EKS kümesini kaydet
   _, err := kom.Clusters().RegisterAWSCluster(config)
   if err != nil {
       fmt.Printf("EKS kümesi kayıt başarısız: %v", err)
       return
   }
-
+  
   // Kayıtlı EKS kümesini kullan
   var pods []corev1.Pod
   clusterID := fmt.Sprintf("%s-%s", config.Region, config.ClusterName) // Küme ID formatı: {Region}-{ClusterName}
   err = kom.Cluster(clusterID).Resource(&corev1.Pod{}).Namespace("kube-system").List(&pods).Error
   ```
-
+  
   **AWS EKS Küme Kayıt Açıklaması:**
   - `AccessKey`: AWS erişim anahtarı ID
   - `SecretAccessKey`: AWS gizli erişim anahtarı  
@@ -295,7 +295,7 @@ body_tr: |-
   var pods []corev1.Pod
   err = kom.Cluster("orb").Resource(&corev1.Pod{}).Namespace("kube-system").List(&pods).Error
   ```
-
+  
   ### 2. Yerleşik Kaynak Nesnelerinin CRUD ve Watch Örneği
   Bir Deployment nesnesi tanımlayın ve kom aracılığıyla kaynak işlemleri gerçekleştirin.
   ```go
@@ -423,7 +423,7 @@ body_tr: |-
   }
   go func() {
   	defer watcher.Stop()
-
+  
   	for event := range watcher.ResultChan() {
   		err := kom.DefaultCluster().Tools().ConvertRuntimeObjectToTypedObject(event.Object, &pod)
   		if err != nil {
@@ -449,7 +449,7 @@ body_tr: |-
   err := kom.DefaultCluster().Resource(&item).Namespace("default").Name("nginx").Describe(&item).Error
   fmt.Printf("describeResult: %s", describeResult)
   ```
-
+  
   ### 3. YAML Oluştur, Güncelle, Sil
   ```go
   yaml := `apiVersion: v1

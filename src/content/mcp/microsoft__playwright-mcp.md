@@ -3,46 +3,46 @@ name: "microsoft/playwright-mcp"
 description: "Official Microsoft Playwright MCP server, enabling LLMs to interact with web pages through structured accessibility snapshots"
 category: "Browser Automation"
 repo: "microsoft/playwright-mcp"
-stars: 33046
+stars: 33995
 url: "https://github.com/microsoft/playwright-mcp"
-body_length: 57892
+body_length: 59469
 license: "Apache-2.0"
 language: "TypeScript"
 homepage: "https://www.npmjs.com/package/@playwright/mcp"
 body_tr: |-
   ## Playwright MCP
-
+  
   Model Context Protocol (MCP) sunucusu; [Playwright](https://playwright.dev) kullanarak tarayıcı otomasyonu yetenekleri sağlar. Bu sunucu, LLM'lerin ekran görüntülerine veya görsel olarak ayarlanmış modellere ihtiyaç duymadan yapılandırılmış erişilebilirlik anlık görüntüleri aracılığıyla web sayfalarıyla etkileşim kurmasını sağlar.
-
+  
   ### Playwright MCP vs Playwright CLI
-
+  
   Bu paket Playwright için MCP arayüzü sağlar. **Kodlama ajanı** kullanıyorsanız, bunun yerine [CLI+SKILLS](https://github.com/microsoft/playwright-cli) kullanmanın faydalı olabileceğini unutmayın.
-
+  
   - **CLI**: Modern **kodlama ajanları** giderek artan bir şekilde MCP yerine CLI tabanlı iş akışlarını SKILL olarak ortaya koymayı tercih etmektedir. Çünkü CLI çağrıları daha token verimlidir: büyük araç şemaları ve ayrıntılı erişilebilirlik ağaçlarını model bağlamına yüklemeyi önleyerek, ajanların özel amaçlı komutlar aracılığıyla hareket etmesini sağlar. Bu, CLI + SKILL'leri sınırlı bağlam pencereleri içinde tarayıcı otomasyonunu büyük kod tabanları, testler ve muhakeme ile dengelemesi gereken yüksek verimli kodlama ajanları için daha uygun hale getirir.<br>**[Playwright CLI with SKILLS](https://github.com/microsoft/playwright-cli) hakkında daha fazla bilgi alın**.
-
+  
   - **MCP**: MCP, kalıcı durum, zengin iç görü ve sayfa yapısı üzerinde yinelemeli muhakeme gerektiren özelleştirilmiş ajansal döngüler için uygun kalır. Örneğin keşifsel otomasyon, kendi kendini iyileştiren testler veya token maliyet endişelerinin sürekli tarayıcı bağlamını korumasının ağır bastığı uzun süreli otonom iş akışları.
-
+  
   ### Ana Özellikler
-
+  
   - **Hızlı ve hafif**. Pixel tabanlı girdi yerine Playwright'ın erişilebilirlik ağacını kullanır.
   - **LLM dostu**. Görsel modellere ihtiyaç yok, tamamen yapılandırılmış veriler üzerinde çalışır.
   - **Deterministik araç uygulaması**. Ekran görüntüsü tabanlı yaklaşımlarda yaygın olan belirsizliği önler.
-
+  
   ### Gereksinimler
   - Node.js 18 veya daha yeni
   - VS Code, Cursor, Windsurf, Claude Desktop, Goose, Junie veya başka herhangi bir MCP istemcisi
-
+  
   <!--
   // Generate using:
   node utils/generate-links.js
   -->
-
+  
   ### Başlangıç
-
+  
   İlk olarak, Playwright MCP sunucusunu istemciniz ile kurun.
-
+  
   **Standart yapılandırma** çoğu araçta çalışır:
-
+  
   ```js
   {
     "mcpServers": {
@@ -55,14 +55,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   [](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522playwright%2522%252C%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522%2540playwright%252Fmcp%2540latest%2522%255D%257D) [](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522playwright%2522%252C%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522%2540playwright%252Fmcp%2540latest%2522%255D%257D)
-
+  
   <details>
   <summary>Amp</summary>
-
+  
   Amp VS Code uzantısı ayarları ekranından veya settings.json dosyanızı güncelleyerek ekleyin:
-
+  
   ```json
   "amp.mcpServers": {
     "playwright": {
@@ -73,22 +73,22 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Amp CLI Kurulumu:**
-
+  
   Aşağıdaki `amp mcp add` komutu ile ekleyin
-
+  
   ```bash
   amp mcp add playwright -- npx @playwright/mcp@latest
   ```
-
+  
   </details>
-
+  
   <details>
   <summary>Antigravity</summary>
-
+  
   Antigravity ayarları veya yapılandırma dosyanızı güncelleyerek ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -101,35 +101,35 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary>Claude Code</summary>
-
+  
   Playwright MCP sunucusunu eklemek için Claude Code CLI'yi kullanın:
-
+  
   ```bash
   claude mcp add playwright npx @playwright/mcp@latest
   ```
   </details>
-
+  
   <details>
   <summary>Claude Desktop</summary>
-
+  
   MCP yükleme [kılavuzunu](https://modelcontextprotocol.io/quickstart/user) takip edin, yukarıdaki standart yapılandırmayı kullanın.
-
+  
   </details>
-
+  
   <details>
   <summary>Cline</summary>
-
+  
   [MCP Sunucularını Yapılandırma](https://docs.cline.bot/mcp/configuring-mcp-servers) bölümündeki talimatları izleyin
-
+  
   **Örnek: Yerel Kurulum**
-
+  
   [`cline_mcp_settings.json`](https://docs.cline.bot/mcp/configuring-mcp-servers#editing-mcp-settings-files) dosyanıza aşağıdakileri ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -146,41 +146,41 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary>Codex</summary>
-
+  
   Playwright MCP sunucusunu eklemek için Codex CLI'yi kullanın:
-
+  
   ```bash
   codex mcp add playwright npx "@playwright/mcp@latest"
   ```
-
+  
   Alternatif olarak, yapılandırma dosyası `~/.codex/config.toml` oluşturun veya düzenleyin ve şunu ekleyin:
-
+  
   ```toml
   [mcp_servers.playwright]
   command = "npx"
   args = ["@playwright/mcp@latest"]
   ```
-
+  
   Daha fazla bilgi için [Codex MCP belgelerine](https://github.com/openai/codex/blob/main/codex-rs/config.md#mcp_servers) bakın.
-
+  
   </details>
-
+  
   <details>
   <summary>Copilot</summary>
-
+  
   Playwright MCP sunucusunu etkileşimli olarak eklemek için Copilot CLI'yi kullanın:
-
+  
   ```bash
   /mcp add
   ```
-
+  
   Alternatif olarak, yapılandırma dosyası `~/.copilot/mcp-config.json` oluşturun veya düzenleyin ve şunu ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -197,69 +197,69 @@ body_tr: |-
     }
   }
   ```
-
+  
   Daha fazla bilgi için [Copilot CLI belgelerine](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) bakın.
-
+  
   </details>
-
+  
   <details>
   <summary>Cursor</summary>
-
+  
   #### Yüklemek için düğmeye tıklayın:
-
+  
   [](https://cursor.com/en/install-mcp?name=Playwright&config=eyJjb21tYW5kIjoibnB4IEBwbGF5d3JpZ2h0L21jcEBsYXRlc3QifQ%3D%3D)
-
+  
   #### Veya manuel olarak yükleyin:
-
+  
   `Cursor Settings` -> `MCP` -> `Add new MCP Server` adresine gidin. İstediğiniz gibi adlandırın, `command` türünü `npx @playwright/mcp@latest` komutu ile kullanın. Yapılandırmayı doğrulayabilir veya `Edit` düğmesine tıklayarak komuta argümanlar ekleyebilirsiniz.
-
+  
   </details>
-
+  
   <details>
   <summary>Factory</summary>
-
+  
   Playwright MCP sunucusunu eklemek için Factory CLI'yi kullanın:
-
+  
   ```bash
   droid mcp add playwright "npx @playwright/mcp@latest"
   ```
-
+  
   Alternatif olarak, Factory droid içinde `/mcp` yazarak MCP sunucularını yönetmek için etkileşimli bir UI açın.
-
+  
   Daha fazla bilgi için [Factory MCP belgelerine](https://docs.factory.ai/cli/configuration/mcp) bakın.
-
+  
   </details>
-
+  
   <details>
   <summary>Gemini CLI</summary>
-
+  
   MCP yükleme [kılavuzunu](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#configure-the-mcp-server-in-settingsjson) takip edin, yukarıdaki standart yapılandırmayı kullanın.
-
+  
   </details>
-
+  
   <details>
   <summary>Goose</summary>
-
+  
   #### Yüklemek için düğmeye tıklayın:
-
+  
   [![Goose'ta Yükle](https://block.github.io/goose/img/extension-install-dark.svg)](https://block.github.io/goose/extension?cmd=npx&arg=%40playwright%2Fmcp%40latest&id=playwright&name=Playwright&description=Interact%20with%20web%20pages%20through%20structured%20accessibility%20snapshots%20using%20Playwright)
-
+  
   #### Veya manuel olarak yükleyin:
-
+  
   `Advanced settings` -> `Extensions` -> `Add custom extension` adresine gidin. İstediğiniz gibi adlandırın, `STDIO` türünü kullanın ve `command` öğesini `npx @playwright/mcp` olarak ayarlayın. "Add Extension"e tıklayın.
   </details>
-
+  
   <details>
   <summary>Junie</summary>
-
+  
   Junie CLI'de Playwright MCP sunucusunu eklemek için:
-
+  
   1. `/mcp` yazın
   2. Yeni bir MCP sunucusu eklemek için `Ctrl+A` tuşuna basın
   3. Listeden **Playwright**'ı seçin
-
+  
   Alternatif olarak, `.junie/mcp/mcp.json` dosyasına ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -273,18 +273,18 @@ body_tr: |-
     }
   }
   ```
-
+  
   Daha fazla bilgi için [Junie MCP yapılandırması belgelerine](https://junie.jetbrains.com/docs/junie-cli-mcp-configuration.html) bakın.
-
+  
   </details>
-
+  
   <details>
   <summary>Kiro</summary>
-
+  
   [![Kiro'ya Ekle](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=playwright&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40playwright%2Fmcp%40latest%22%5D%7D)
-
+  
   MCP Sunucuları [belgelerine](https://kiro.dev/docs/mcp/) bakın. Örneğin `.kiro/settings/mcp.json` dosyasında:
-
+  
   ```json
   {
     "mcpServers": {
@@ -298,24 +298,24 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   <details>
   <summary>LM Studio</summary>
-
+  
   #### Yüklemek için düğmeye tıklayın:
-
+  
   [![LM Studio'ya MCP Server playwright'ı Ekle](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=playwright&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJAcGxheXdyaWdodC9tY3BAbGF0ZXN0Il19)
-
+  
   #### Veya manuel olarak yükleyin:
-
+  
   Sağ kenar çubuğunda `Program` -> `Install` -> `Edit mcp.json` adresine gidin. Yukarıdaki standart yapılandırmayı kullanın.
   </details>
-
+  
   <details>
   <summary>opencode</summary>
-
+  
   MCP Sunucuları [belgelerine](https://opencode.ai/docs/mcp-servers/) bakın. Örneğin `~/.config/opencode/opencode.json` dosyasında:
-
+  
   ```json
   {
     "$schema": "https://opencode.ai/config.json",
@@ -330,42 +330,42 @@ body_tr: |-
       }
     }
   }
-
+  
   ```
   </details>
-
+  
   <details>
   <summary>Qodo Gen</summary>
-
+  
   VSCode veya IntelliJ'de [Qodo Gen](https://docs.qodo.ai/qodo-documentation/qodo-gen) sohbet panelini açın → Daha fazla araç bağla → + Yeni MCP ekle → Yukarıdaki standart yapılandırmayı yapıştırın.
-
+  
   <code>Save</code> düğmesine tıklayın.
   </details>
-
+  
   <details>
   <summary>VS Code</summary>
-
+  
   #### Yüklemek için düğmeye tıklayın:
-
+  
   [](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522playwright%2522%252C%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522%2540playwright%252Fmcp%2540latest%2522%255D%257D) [](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522playwright%2522%252C%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522%2540playwright%252Fmcp%2540latest%2522%255D%257D)
-
+  
   #### Veya manuel olarak yükleyin:
-
+  
   MCP yükleme [kılavuzunu](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server) takip edin, yukarıdaki standart yapılandırmayı kullanın. VS Code CLI'yi kullanarak da Playwright MCP sunucusunu yükleyebilirsiniz:
-
+  
   ```bash
   # VS Code için
   code --add-mcp '{"name":"playwright","command":"npx","args":["@playwright/mcp@latest"]}'
   ```
-
+  
   Kurulumdan sonra, Playwright MCP sunucusu VS Code'da GitHub Copilot ajanınız ile kullanım için hazır olacaktır.
   </details>
-
+  
   <details>
   <summary>Warp</summary>
-
+  
   `Settings` -> `AI` -> `Manage MCP Servers` -> `+ Add` adresine gidin ve [bir MCP Sunucusu ekleyin](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server). Yukarıdaki standart yapılandırmayı kullanın.
-
+  
   Alternatif olarak, Warp isteminde `/add-mcp` slash komutunu kullanın ve yukarıdaki standart yapılandırmayı yapıştırın:
   ```js
   {
@@ -379,22 +379,22 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary>Windsurf</summary>
-
+  
   Windsurf MCP [belgelerine](https://docs.windsurf.com/windsurf/cascade/mcp) bakın. Yukarıdaki standart yapılandırmayı kullanın.
-
+  
   </details>
-
+  
   ### Yapılandırma
-
+  
   Playwright MCP sunucusu aşağıdaki argümanları destekler. Bunlar yukarıdaki JSON yapılandırmasında `"args"` listesinin bir parçası olarak sağlanabilir:
-
+  
   <!--- Options generated by update-readme.js -->
-
+  
   | Seçenek | Açıklama |
   |--------|-------------|
   | --allowed-hosts <hosts...> | bu sunucunun hizmet sunabileceği ana bilgisayarların virgülle ayrılmış listesi. Sunucunun bağlı olduğu ana bilgisayara varsayılan olarak ayarlanır. Ana bilgisayar kontrolünü devre dışı bırakmak için '*' iletilir.<br>*env* `PLAYWRIGHT_MCP_ALLOWED_HOSTS` |
@@ -440,31 +440,31 @@ body_tr: |-
   | --user-agent <ua string> | kullanıcı aracısı dizesini belirt<br>*env* `PLAYWRIGHT_MCP_USER_AGENT` |
   | --user-data-dir <path> | kullanıcı veri dizininin yolu. Belirtilmemişse, geçici bir dizin oluşturulacaktır.<br>*env* `PLAYWRIGHT_MCP_USER_DATA_DIR` |
   | --viewport-size <size> | tarayıcı görünüm alanı boyutunu piksel cinsinden belirt, örneğin "1280x720"<br>*env* `PLAYWRIGHT_MCP_VIEWPORT_SIZE` |
-
+  
   <!--- End of options generated section -->
-
+  
   ### Kullanıcı profili
-
+  
   Playwright MCP'yi düzenli bir tarayıcı gibi kalıcı bir profille (varsayılan), test oturumları için yalıtılmış bağlamlarında veya tarayıcı uzantısını kullanarak mevcut tarayıcınıza bağlanarak çalıştırabilirsiniz.
-
+  
   **Kalıcı profil**
-
+  
   Tüm oturum açmış bilgiler kalıcı profilde depolanır, istiyorsanız çevrimdışı durumu temizlemek için oturumlar arasında silebilirsiniz.
   Kalıcı profil aşağıdaki konumlarda bulunur ve bunu `--user-data-dir` argümanı ile geçersiz kılabilirsiniz.
-
+  
   ```bash
   # Windows
   %USERPROFILE%\AppData\Local\ms-playwright\mcp-{channel}-{workspace-hash}
-
+  
   # macOS
   - ~/Library/Caches/ms-playwright/mcp-{channel}-{workspace-hash}
-
+  
   # Linux
   - ~/.cache/ms-playwright/mcp-{channel}-{workspace-hash}
   ```
-
+  
   `{workspace-hash}`, MCP istemcisinin çalışma alanı köküne göre türetilir, bu nedenle farklı projeler otomatik olarak ayrı profiller alır.
-
+  
   > [!IMPORTANT]
   > Kalıcı bir profil aynı anda yalnızca bir tarayıcı örneği tarafından kullanılabilir, bu nedenle aynı çalışma alanını paylaşan eş zamanlı MCP istemcileri çakışacaktır. Birden fazla istemciyi paralel olarak çalıştırmak için, her
 ---
@@ -883,6 +883,7 @@ Playwright MCP server supports following arguments. They can be provided in the 
 | --image-responses <mode> | whether to send image responses to the client. Can be "allow" or "omit", Defaults to "allow".<br>*env* `PLAYWRIGHT_MCP_IMAGE_RESPONSES` |
 | --no-sandbox | disable the sandbox for all process types that are normally sandboxed.<br>*env* `PLAYWRIGHT_MCP_NO_SANDBOX` |
 | --output-dir <path> | path to the directory for output files.<br>*env* `PLAYWRIGHT_MCP_OUTPUT_DIR` |
+| --output-max-size <bytes> | Threshold for evicting old output files, in bytes.<br>*env* `PLAYWRIGHT_MCP_OUTPUT_MAX_SIZE` |
 | --output-mode <mode> | whether to save snapshots, console messages, network logs to a file or to the standard output. Can be "file" or "stdout". Default is "stdout".<br>*env* `PLAYWRIGHT_MCP_OUTPUT_MODE` |
 | --port <port> | port to listen on for SSE transport.<br>*env* `PLAYWRIGHT_MCP_PORT` |
 | --proxy-bypass <bypass> | comma-separated domains to bypass proxy, for example ".com,chromium.org,.domain.com"<br>*env* `PLAYWRIGHT_MCP_PROXY_BYPASS` |
@@ -1049,9 +1050,13 @@ npx @playwright/mcp@latest --config path/to/config.json
     cdpTimeout?: number;
 
     /**
-     * Remote endpoint to connect to an existing Playwright server.
+     * Remote endpoint to connect to an existing Playwright server. May be a
+     * WebSocket URL string, or a [ConnectOptions] object that mirrors the
+     * `connectOptions` shape used by the test runner. When passed as an object,
+     * `exposeNetwork`, `headers`, `slowMo`, and `timeout` are forwarded to the
+     * underlying connect call.
      */
-    remoteEndpoint?: string;
+    remoteEndpoint?: string | playwright.ConnectOptions & { endpoint: string };
 
     /**
      * Paths to TypeScript files to add as initialization scripts for Playwright page.
@@ -1120,6 +1125,11 @@ npx @playwright/mcp@latest --config path/to/config.json
    * The directory to save output files.
    */
   outputDir?: string;
+
+  /**
+   * Threshold for evicting old output files, in bytes.
+   */
+  outputMaxSize?: number;
 
   console?: {
     /**
@@ -1854,6 +1864,25 @@ http.createServer(async (req, res) => {
     - `title` (string): Chapter title
     - `description` (string, optional): Chapter description
     - `duration` (number, optional): Duration in milliseconds to show the chapter card
+  - Read-only: **true**
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
+- **browser_video_hide_actions**
+  - Title: Hide action overlays
+  - Description: Stop annotating actions performed on the page.
+  - Parameters: None
+  - Read-only: **true**
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
+- **browser_video_show_actions**
+  - Title: Show action overlays
+  - Description: Annotate subsequent actions performed on the page with a callout that names the action and highlights the target element. Useful while video recording or screencasting.
+  - Parameters:
+    - `duration` (number, optional): How long each action annotation stays on screen, in milliseconds. Defaults to 500.
+    - `position` (string, optional): Where to place the action title relative to the page. Defaults to top-right.
+    - `cursor` (string, optional): Cursor decoration for pointer actions. "pointer" (default) animates a mouse pointer from the previous action point to the next one; "none" disables the cursor decoration.
   - Read-only: **true**
 
 </details>

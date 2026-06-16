@@ -10,101 +10,101 @@ license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # CCXT MCP Server
-
-
-
+  
+  
+  
   ![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)
   [![MCP Standard](https://img.shields.io/badge/MCP-Standard-green.svg)](https://www.modelcontextprotocol.org/)
   [![CCXT](https://img.shields.io/badge/CCXT-4.0.0-orange.svg)](https://github.com/ccxt/ccxt)
   [![smithery badge](https://smithery.ai/badge/@doggybee/mcp-server-ccxt)](https://smithery.ai/server/@doggybee/mcp-server-ccxt)
-
+  
   MCP (Model Context Protocol) ve CCXT kullanarak yüksek performanslı kripto para borsası entegrasyonu.
-
+  
   ## Özellikler
-
+  
   - 🚀 **Borsa Desteği**: 20+ kripto para borsasına bağlanır
   - 🔃 **Pazar Türleri**: Spot, futures, swap piyasaları ve daha fazlasını destekler
   - 🔧 **Proxy Yapılandırması**: Borsalara proxy üzerinden erişim seçenekleri
   - 📊 **Hızlı & Güvenilir**: Optimize edilmiş caching ve rate limiting
   - 🌐 **MCP Standardı**: Claude ve GPT gibi LLM'ler ile MCP aracılığıyla uyumlu
-
+  
   ## CCXT MCP Server Entegrasyon Mimarisi
-
+  
   ![CCXT MCP Server Integration Architecture](https://raw.githubusercontent.com/doggybee/mcp-server-ccxt/HEAD/docs/images/mcp-integration.svg)
-
+  
   CCXT MCP Server, Model Context Protocol aracılığıyla dil modellerini kripto para borsalarına bağlar. LLM'lerin birleştirilmiş bir API üzerinden gerçek zamanlı pazar verilerine erişmesini ve birden fazla borsa arasında işlem yapmasını sağlayan bir köprü görevi görür.
-
+  
   Mimari şu bileşenleri içerir:
   - İstek gönderen LLM istemcileri (Claude ve diğer MCP uyumlu modeller)
   - İletişimi standartlaştıran Model Context Protocol (MCP)
   - İstekleri işleyen ve borsa etkileşimlerini yöneten CCXT MCP Server
   - Borsa API'lerine birleştirilmiş erişim sağlayan CCXT Library
   - Birden fazla kripto para borsasına bağlantılar
-
+  
   ## CCXT MCP Server Kod Mimarisi
-
+  
   ![CCXT MCP Server Code Architecture](https://raw.githubusercontent.com/doggybee/mcp-server-ccxt/HEAD/docs/images/code-architecture.svg)
-
+  
   Server, daha iyi bakım ve genişletilebilirlik için üç ana modüle ayrılmıştır:
-
+  
   - **Exchange**: Borsa örneklerini, kimlik bilgilerini ve sembol doğrulamasını yönetir
   - **Utils**: Caching, rate limiting ve logging işlevselliği sağlar
   - **Tools**: Borsa etkileşimi için MCP tools ve resources uygular
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Smithery Üzerinden Kurulum
-
+  
   [Smithery](https://smithery.ai/server/@doggybee/mcp-server-ccxt) aracılığıyla mcp-server-ccxt'i Claude Desktop'a otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install @doggybee/mcp-server-ccxt --client claude
   ```
-
+  
   ### NPM Paketi (Önerilen)
-
+  
   CCXT MCP Server'ı npm'den kurabilirsiniz:
-
+  
   ```bash
   # Global olarak kur
   npm install -g @mcpfun/mcp-server-ccxt
-
+  
   # Server'ı başlat
   mcp-server-ccxt
   ```
-
+  
   Veya doğrudan çalıştırın:
-
+  
   ```bash
   npx @mcpfun/mcp-server-ccxt
   ```
-
+  
   ### Manuel Kurulum
-
+  
   Alternatif olarak, repository'yi klonlayıp derleyebilirsiniz:
-
+  
   ```bash
   # Repository'yi klonla
   git clone https://github.com/doggybee/mcp-server-ccxt.git
   cd mcp-server-ccxt
-
+  
   # Bağımlılıkları yükle
   npm install
-
+  
   # Server'ı derle
   npm run build
-
+  
   # Server'ı başlat
   npm start
   ```
-
+  
   ## Yapılandırma
-
+  
   1. Bir ortam dosyası oluşturun
      ```bash
      cp .env.example .env
      ```
-
+  
   2. `.env` dosyasını düzenleyerek API anahtarlarınızı ekleyin
      ```
      # Varsayılan borsa (opsiyonel)
@@ -128,27 +128,27 @@ body_tr: |-
      # PROXY_USERNAME=
      # PROXY_PASSWORD=
      ```
-
+  
   ## Kullanım
-
+  
   > **Not**: MCP iletişiminde herhangi bir sorunla karşılaşırsanız, çözümler için [Sorun Giderme Rehberi](docs/troubleshooting.md)'ne bakınız.
-
+  
   ### Server'ı Çalıştırma
-
+  
   Server'ı başlatın:
-
+  
   ```bash
   # Global olarak npm ile kurulduysa
   mcp-server-ccxt
-
+  
   # Manuel olarak kurulduysa
   npm start
   ```
-
+  
   ### Claude for Desktop ile Kullanım
-
+  
   1. Server'ı `claude_desktop_config.json` dosyanıza ekleyin:
-
+  
   npm ile global olarak kurulduysa:
   ```json
   {
@@ -159,7 +159,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   Manuel olarak kurulduysa:
   ```json
   {
@@ -173,36 +173,36 @@ body_tr: |-
     }
   }
   ```
-
+  
   2. Claude for Desktop'ı yeniden başlatın
-
+  
   ### Başka Bir Projede Modül Olarak Kullanım
-
+  
   Bu paketi kendi Node.js projelerinizde bir modül olarak da kullanabilirsiniz:
-
+  
   ```javascript
   // CCXT MCP Server'ı içe aktar
   import '@mcpfun/mcp-server-ccxt';
-
+  
   // Server, içe aktarıldığında otomatik olarak başlar
   // Ortam değişkenleri aracılığıyla yapılandırabilirsiniz
   ```
-
+  
   ## Örnek Sorgular
-
+  
   MCP server ile kullanabileceğiniz bazı örnek sorgular:
-
+  
   - "Bitcoin'in Binance'deki güncel fiyatı nedir?"
   - "Coinbase'de ETH/USDT için emir defterini göster"
   - "Binance'de BTC/USDT için son 24 mum için 1 saatlik OHLCV verilerini al"
   - "SOL/USDT fiyatını farklı borsalar arasında karşılaştır"
   - "Binance'deki mevcut bakiyem nedir?" (API anahtarları gereklidir)
   - "Kraken'de 0.1 ETH için pazar alış emri ver" (API anahtarları gereklidir)
-
+  
   ## Mevcut Tools
-
+  
   ### Public API Tools
-
+  
   - `list-exchanges`: Tüm kullanılabilir kripto para borsalarını listele
   - `get-ticker`: Bir ticaret çifti için güncel ticker bilgisini al
   - `batch-get-tickers`: Birden fazla ticaret çifti için ticker bilgisini bir seferde al
@@ -216,9 +216,9 @@ body_tr: |-
   - `get-positions`: Açık pozisyon bilgisini al
   - `get-open-orders`: Tüm açık emirleri al
   - `get-order-history`: Emir geçmişini al
-
+  
   ### Private API Tools (API anahtarları gereklidir)
-
+  
   - `account-balance`: Bir kripto para borsasından hesap bakiyenizi al
   - `place-market-order`: Bir borsada pazar emri ver
   - `place-limit-order`: Bir borsada limit emri ver
@@ -229,9 +229,9 @@ body_tr: |-
   - `place-futures-market-order`: Futures pazar emirleri ver
   - `place-futures-limit-order`: Futures limit emirleri ver
   - `transfer-funds`: Hesaplar arasında fon transfer et (örn. spot'tan futures'a)
-
+  
   ### Yapılandırma & Utility Tools
-
+  
   - `cache-stats`: CCXT cache istatistiklerini al
   - `clear-cache`: CCXT cache'i temizle
   - `set-log-level`: Log seviyesini ayarla
@@ -240,67 +240,67 @@ body_tr: |-
   - `set-market-type`: Varsayılan pazar türünü ayarla
   - `set-default-exchange`: Varsayılan borsayı değiştir
   - `system-info`: Sistem ve ortam bilgisini al
-
+  
   ## Performans Optimizasyonları
-
+  
   MCP-CCXT, yüksek performans sağlamak için çeşitli optimizasyonlar içerir:
-
+  
   1. **LRU Caching Sistemi**:
      - Farklı veri türleri için farklı TTL'ler
      - Ticker verisi: 10 saniye
      - Emir defteri verisi: 5 saniye
      - Pazar verisi: 1 saat
-
+  
   2. **Uyarlanabilir Rate Limiting**:
      - İstek oranlarını borsa yanıtlarına göre otomatik olarak ayarlar
      - Hatalar için exponential backoff uygular
      - Borsa başına eşzamanlı istekleri yönetir
-
+  
   3. **Borsa Bağlantı Yönetimi**:
      - Borsa örneklerinin etkili başlatılması
      - Uygun hata işleme ve yeniden denemeler
-
+  
   ## Güvenlik En İyi Uygulamaları
-
+  
   ### API Anahtarı Güvenliği
-
+  
   1. **Özel API Anahtarları Oluşturun**:
      - Farklı uygulamalar/amaçlar için ayrı API anahtarları oluşturun
      - API anahtarlarını farklı hizmetler veya uygulamalar arasında asla yeniden kullanmayın
-
+  
   2. **API Anahtarı İzinlerini Sınırlandırın**:
      - Yalnızca ihtiyacınız olan izinleri etkinleştirin (örn. pazar verileri için salt okunur)
      - Yalnızca işlem işlevselliğine ihtiyaç duyarsanız para çekme izinlerini devre dışı bırakın
      - Bilinen IP'lere erişimi kısıtlamak için uygun olduğunda IP whitelist kullanın
-
+  
   3. **Güvenli Depolama**:
      - API anahtarlarını asla sürüm kontrol sistemlerine commit etmeyin
      - API anahtarlarını ortam değişkenlerinde veya güvenli bir kasa içinde saklayın
      - `.gitignore` ile git'ten hariç tutulan `.env` dosyalarını kullanın
-
+  
   ## Risk Sorumluluk Reddi
-
+  
   Bu yazılım yalnızca bilgilendirme amacıyla sağlanmaktadır. Bu yazılımı kripto para borsalarıyla etkileşim kurmak için kullanmak önemli riskleri içerir:
-
+  
   - **Mali Risk**: Kripto para ticareti kayıp riski içerir
   - **API Güvenliği**: API anahtarlarınızın uygun izin sınırlamaları olduğundan emin olun
   - **Yatırım Tavsiyesi Değildir**: Bu araç yatırım tavsiyesi sağlamaz
   - **Garanti Yok**: Yazılım, herhangi bir tür garanti olmaksızın "olduğu gibi" sağlanır
-
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE.txt](LICENSE.txt) dosyasına bakınız.
-
+  
   ## Telif Hakkı ve Atıf
-
+  
   Bu proje CCXT library'sini (https://github.com/ccxt/ccxt) kullanır:
-
+  
   ```
   Copyright (c) 2016-2024 CCXT developers
   ```
-
+  
   CCXT, MIT Lisansı altında yayınlanır ve lisans aşağıdaki gibidir:
-
+  
   ```
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -308,10 +308,10 @@ body_tr: |-
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-
+  
   The above copyright notice and this permission notice shall be included in all
   copies or substantial portions of the Software.
-
+  
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -320,9 +320,9 @@ body_tr: |-
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
   ```
-
+  
   ---
-
+  
   Sorunlar, özellik istekleri veya katkılar için lütfen [GitHub repository](https://github.com/doggybee/mcp-server-ccxt)'sine ziyaret edin.
 ---
 

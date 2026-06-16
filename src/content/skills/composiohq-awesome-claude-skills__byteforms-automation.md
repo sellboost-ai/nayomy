@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Byteforms Otomasyonu Rube MCP Aracılığıyla
+
+  Composio'nun Byteforms araç seti aracılığıyla Rube MCP üzerinden Byteforms işlemlerini otomatikleştirin.
+
+  **Araç seti belgeleri**: [composio.dev/toolkits/byteforms](https://composio.dev/toolkits/byteforms)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlantılı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Byteforms bağlantısı ve `byteforms` araç seti
+  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrılmalıdır
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: MCP sunucu konfigürasyonunuzda `https://rube.app/mcp` adresini ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin mevcut olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağrısını `byteforms` araç setiyle yapın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Discovery
+
+  Workflowları çalıştırmadan önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Byteforms operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Byteforms task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["byteforms"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'larını veya argümanlarını asla sabitlemeyin
+  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösteriyor olduğunu doğrulayın
+  - **Şema uyumu**: Arama sonuçlarından tam alan adları ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: Workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtları pagination tokenları için kontrol edin ve tamamlanana kadar fetch etmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|----------|
+  | Araçları bul | Byteforms'a özgü use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `byteforms` araç seti |
+  | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` ile toollar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *Destekleyen [Composio](https://composio.dev)*
 ---
 
 # Byteforms Automation via Rube MCP

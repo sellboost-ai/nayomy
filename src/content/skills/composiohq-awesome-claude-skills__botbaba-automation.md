@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Botbaba Otomasyonu
+
+  Composio'nun Botbaba toolkit'ini Rube MCP aracılığıyla kullanarak Botbaba işlemlerini otomatikleştirin.
+
+  **Toolkit dokümentasyonu**: [composio.dev/toolkits/botbaba](https://composio.dev/toolkits/botbaba)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlanmış olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Botbaba bağlantısı ve `botbaba` toolkit'i
+  - Güncel tool schema'larını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi alın**: `https://rube.app/mcp` adresini MCP sunucusu olarak istemci yapılandırmanıza ekleyin. API anahtarları gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini onaylayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS`'ı `botbaba` toolkit'iyle çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme bağlantısını izleyin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
+
+  ## Tool Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Botbaba operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'ları, input schema'larını, önerilen execution plan'larını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Kullanılabilir Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Botbaba task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["botbaba"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arama yapın**: Tool schema'ları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'ları veya argümanları sabit kodlamayın
+  - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösteriyor mu diye doğrulayın
+  - **Schema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
+  - **Sayfalama**: Yanıtlarda sayfalama token'larını kontrol edin ve tam olana kadar getirmeyi devam ettirin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-------|---------|
+  | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Botbaba'ya özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `botbaba` toolkit'i |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam schema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan tool'lar için |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Botbaba Automation via Rube MCP

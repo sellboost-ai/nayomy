@@ -3,28 +3,28 @@ name: "genomoncology/biomcp"
 description: "Biomedical research MCP server providing access to PubMed, ClinicalTrials.gov, and MyVariant.info."
 category: "Biology Medicine and Bioinformatics"
 repo: "genomoncology/biomcp"
-stars: 515
+stars: 526
 url: "https://github.com/genomoncology/biomcp"
-body_length: 16538
+body_length: 17062
 license: "MIT"
 language: "Rust"
 homepage: "https://biomcp.org/"
 body_tr: |-
   # BioMCP
-
+  
   Bir binary. Bir gramer. Zaten güvendiğiniz biyomedikal kaynaklardan kanıt.
-
+  
   ## Açıklama
-
+  
   BioMCP, usual biyomedikal veri karışıklığını ortadan kaldırır: bir sorgu, normalde
   farklı API'ler, tanımlayıcılar ve arama alışkanlıklarının arkasında yaşayan
   kaynaklara ulaşır. Araştırmacılar, klinisyenler ve ajanlar, her kaynak için iş
   akışını yeniden oluşturmadan arama, odaklama ve pivot yapmak için aynı komut
   dilbilgisini kullanır. Canlı genel veriler artı yerel çalışma analitiğinin
   tamamında kompakt, kanıta yönelik sonuçlar elde edersiniz.
-
+  
   ## Özellikler
-
+  
   - **Literatürde arama yapın:** `search article` PubTator3 ve Europe PMC'de
     yayılır, PMID/PMCID/DOI tanımlayıcılarını kaldırır ve filtreleriniz
     desteklediğinde Semantic Scholar ayağı ekleyebilir.
@@ -42,40 +42,40 @@ body_tr: |-
   - **Zenginleştirin ve toplu işle:** `biomcp enrich` için en üst düzey g:Profiler
     zenginleştirmesi ve `biomcp batch` için bir komutta 10'a kadar odaklanmış `get`
     çağrısı kullanın.
-
+  
   ## Kurulum
-
+  
   ### Binary kurulumu
-
+  
   ```bash
   curl -fsSL https://biomcp.org/install.sh | bash
   ```
-
+  
   ### PyPI araç kurulumu
-
+  
   ```bash
   uv tool install biomcp-cli
   # veya: pip install biomcp-cli
   ```
-
+  
   Bu, `biomcp` binary'sini PATH'ınıza kurar.
-
+  
   ### Claude Desktop uzantısı (.mcpb)
-
+  
   Ortamınız için bu yol kullanılabilir olduğunda Claude Desktop'taki Anthropic
   Directory'den BioMCP'yi kurun. Yerel/manuel kurulumlar için, aşağıdaki JSON MCP
   yapılandırmasını kullanın.
-
+  
   ### Beceri yükleme
-
+  
   Ajan dizininize kılavuzlu araştırma iş akışlarını kurun:
-
+  
   ```bash
   biomcp skill install ~/.claude --force
   ```
-
+  
   ### MCP istemcileri
-
+  
   ```json
   {
     "mcpServers": {
@@ -86,42 +86,42 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Uzak HTTP sunucusu
-
+  
   Paylaşılan veya uzak dağıtımlar için:
-
+  
   ```bash
   biomcp serve-http --host 127.0.0.1 --port 8080
   ```
-
+  
   Uzak istemciler `http://127.0.0.1:8080/mcp` adresine bağlanır. Probe rotaları
   `GET /health`, `GET /readyz` ve `GET /` dir.
-
+  
   Çalıştırılabilir demo:
-
+  
   ```bash
   uv run --script examples/streamable-http/streamable_http_client.py
   ```
-
+  
   Yeni başlayanlar için kılavuz için [Uzak HTTP Sunucusu](https://biomcp.org/getting-started/remote-http/) bölümüne bakın.
-
+  
   ### Kaynaktan
-
+  
   ```bash
   make install
   "$HOME/.local/bin/biomcp" --version
   ```
-
+  
   Repo-yerel doğrulama için, `make check` artık release-kritik Python/docs kontratı
   şeritini (`make test-contracts`) içerir ve `make release-gate`, tam rutin release-readiness
   komutudur (`make check` artı belirleyici `make spec-contracts`). `make release-live-smoke`
   yalnızca opt-in canlı public-upstream güveni için kullanın.
-
+  
   ## Hızlı başlangıç
-
+  
   30 saniye altında ilk faydalı sorgu:
-
+  
   ```bash
   uv tool install biomcp-cli
   biomcp health --apis-only
@@ -130,9 +130,9 @@ body_tr: |-
   biomcp search all --gene BRAF --disease melanoma  # unified cross-entity discovery
   biomcp get gene BRAF pathways hpa
   ```
-
+  
   ## Komut dilbilgisi
-
+  
   ```text
   search <entity> [filters]    → discovery
   suggest <question>           → playbook routing for how-to questions
@@ -143,12 +143,12 @@ body_tr: |-
   batch <entity> <id1,id2,...> → parallel gets
   search all [slot filters]    → counts-first cross-entity orientation
   ```
-
+  
   ## Varlıklar ve kaynaklar
-
+  
   Aşağıdaki 13 satırlı tablo, genel varlık yüzeyidir; bireysel satırlar canlı API'ler,
   yerel runtime verisi veya hibrit kaynak kaplamalarını kullanabilir.
-
+  
   | Varlık | BioMCP tarafından kullanılan Upstream sağlayıcılar | Örnek |
   |--------|---------------------------------------------------|---------|
   | gene | MyGene.info, UniProt, Reactome, QuickGO, STRING, GTEx, Human Protein Atlas, DGIdb, ClinGen, NIH Reporter, DisGeNET, GTR-backed diagnostics pivot | `biomcp get gene BRAF pathways hpa` |
@@ -164,13 +164,13 @@ body_tr: |-
   | pgx | CPIC, PharmGKB | `biomcp get pgx CYP2D6 recommendations` |
   | gwas | GWAS Catalog | `biomcp search gwas --trait "type 2 diabetes"` |
   | phenotype | Monarch Initiative (HPO semantic similarity) | `biomcp search phenotype "HP:0001250"` |
-
+  
   ## Cross-entity yardımcılar
-
+  
   Filtreleri yeniden oluşturmadan ilgili varlıklar arasında pivot yapın.
-
+  
   Bir yardımcı ile bir taze arama kullanma zamanı için [cross-entity pivot kılavuzuna](docs/how-to/cross-entity-pivots.md) bakın.
-
+  
   ```bash
   biomcp variant trials "BRAF V600E" --limit 5
   biomcp variant articles "BRAF V600E"
@@ -193,21 +193,21 @@ body_tr: |-
   biomcp article references 22663011 --limit 3
   biomcp article recommendations 22663011 --limit 3
   ```
-
+  
   ## Gen-seti zenginleştirme
-
+  
   ```bash
   biomcp enrich BRAF,KRAS,NRAS --limit 10
   ```
-
+  
   En üst düzey `biomcp enrich` **g:Profiler** kullanır. Diğer varlık görünümleri
   içindeki gen zenginleştirme bölümleri, bu destekli kaynak olduğunda hala
   **Enrichr**'ye başvurur.
-
+  
   ## Bölümler ve aşamalı ifşa
-
+  
   Her `get` komutu odaklanmış çıktı için seçilebilir bölümleri destekler:
-
+  
   ```bash
   biomcp get gene BRAF                    # summary card
   biomcp get gene BRAF pathways           # add pathway section
@@ -215,7 +215,7 @@ body_tr: |-
   biomcp get gene BRAF hpa                # protein tissue expression + localization
   biomcp get gene BRAF civic interactions # multiple sections
   biomcp get gene BRAF all                # standard sections; diagnostics/funding stay opt-in
-
+  
   biomcp get variant "BRAF V600E" clinvar population conservation
   biomcp get article 22663011 tldr
   biomcp get drug pembrolizumab label targets civic approvals
@@ -225,17 +225,17 @@ body_tr: |-
   biomcp get diagnostic GTR000006692.3 regulatory
   biomcp get trial NCT02576665 eligibility locations outcomes
   ```
-
+  
   JSON modunda, `get` yanıtları bir sonraki olası takip adımları için
   `_meta.next_commands` ve bölüm düzeyinde soy bilgisi için `_meta.section_sources`
   ortaya koymaktadır. `batch ... --json`, aynı metadata şekliyle per-varlık nesneleri
   döndürür.
-
+  
   ## API anahtarları
-
+  
   Çoğu komut kimlik bilgileri olmadan çalışır. İsteğe bağlı anahtarlar oran
   limitlerini iyileştirir veya isteğe bağlı zenginleştirmeleri kilit açar:
-
+  
   ```bash
   export NCBI_API_KEY="..."        # PubTator, PubMed/efetch, PMC OA, NCBI ID converter
   export S2_API_KEY="..."          # Optional Semantic Scholar auth; dedicated quota at 1 req/sec
@@ -244,7 +244,7 @@ body_tr: |-
   export ONCOKB_TOKEN="..."        # OncoKB variant helper
   export ALPHAGENOME_API_KEY="..." # AlphaGenome variant effect prediction
   ```
-
+  
   `search article`, `get article`, `article batch`, `get article ... tldr` ve
   açık Semantic Scholar yardımcılarının tümü `S2_API_KEY` olmadan çalışır. Anahtarla,
   BioMCP kimlik doğrulamalı istekler gönderir ve 1 req/sn'de bir özel oran sınırı
@@ -254,132 +254,132 @@ body_tr: |-
   ve PubMed kullanırken, S2 bacağı doğrudan seçilebilir yerine otomatik kalır.
   Yayıncı elision nedeniyle Semantic Scholar upstream kapsamında paywalled
   makaleler için başvurular ve öneriler boş olabilir.
-
+  
   ## Yapılandırma
-
+  
   ### Claude Desktop uzantısı ayarları
-
+  
   Dizin paketi yalnızca ilk gözden geçiren yüzü inşa için gerekli isteğe bağlı
   ayarları ortaya koymaktadır:
-
+  
   | Claude Desktop alanı | Runtime env var | Amaç |
   |----------------------|-----------------|---------|
   | OncoKB Token | `ONCOKB_TOKEN` | `biomcp variant oncokb "<gene> <variant>"` terapisi ve düzey kanıtını etkinleştirir |
   | DisGeNET API Anahtarı | `DISGENET_API_KEY` | Gen ve hastalık araştırmalarında puanlanan DisGeNET bölümlerini etkinleştirir |
   | Semantic Scholar API Anahtarı | `S2_API_KEY` | Makale TLDR, alıntı, başvuru ve tavsiye yardımcıları için güvenilirliği iyileştirir |
-
+  
   İlk dizin inşası yalnızca bu üç isteğe bağlı ayarı ortaya koymaktadır. Gelişmiş
   CLI-yalnızca env vars, [API Anahtarları](docs/getting-started/api-keys.md) adresinde
   genel BioMCP CLI yolu için belgelenir.
-
+  
   ## Kullanım Örnekleri
-
+  
   ### Genel cross-entity genel bakış
-
+  
   **Kullanıcı istemi:** Bana melanomada BRAF'ın düşük gürültülü bir genel bakışını ver.
-
+  
   **Beklenen araç çağrısı:** `biomcp search all --gene BRAF --disease melanoma --counts-only`
-
+  
   **Beklenen davranış:** Uzun detay tablolarını dökmek yerine bir sonraki komutu
   yönlendiren cross-entity sayıları özeti döndürür.
-
+  
   **Beklenen çıktı:** En yüksek verimi sağlayan varlık takip adımları için
   ölçüyle ilk başlayana geri bildirim ve önerilen sonraki komutlar.
-
+  
   ### Genel varyant kanıtı
-
+  
   **Kullanıcı istemi:** BRAF V600E için ClinVar anlamlılığını ve popülasyon sıklığını özetleyin.
-
+  
   **Beklenen araç çağrısı:** `biomcp get variant "BRAF V600E" clinvar population`
-
+  
   **Beklenen davranış:** Odaklanmış varyant kartını, ClinVar bölümünü ve
   popülasyon-frekans verilerini bir salt okunur çağrıda alır.
-
+  
   **Beklenen çıktı:** Varyant özeti, ClinVar anlamlılık ayrıntıları ve gnomAD
   popülasyon frekansları.
-
+  
   ### Kimlik doğrulamalı OncoKB örneği
-
+  
   **Kullanıcı istemi:** BRAF V600E için OncoKB terapisi kanıtını gösterin.
-
+  
   **Beklenen araç çağrısı:** `biomcp variant oncokb "BRAF V600E"`
-
+  
   **Beklenen davranış:** Yapılandırıldığında `ONCOKB_TOKEN` kullanır ve aksi
   takdirde eksik kimlik bilgisi hakkında yardımcı rehberlik döndürür.
-
+  
   **Beklenen çıktı:** `ONCOKB_TOKEN` ayarlandığında terapisi ve düzey kanıtı veya
   ayarlanmadığında açık bir kurulum ipucu.
-
+  
   ### Kimlik doğrulamalı DisGeNET örneği
-
+  
   **Kullanıcı istemi:** TP53 için puanlanan DisGeNET ilişkilerini gösterin.
-
+  
   **Beklenen araç çağrısı:** `biomcp get gene TP53 disgenet`
-
+  
   **Beklenen davranış:** Puanlanan gen-hastalık ilişki bölümünü almak için
   `DISGENET_API_KEY` kullanır.
-
+  
   **Beklenen çıktı:** `DISGENET_API_KEY` yapılandırıldığında kanıt sayıları ve
   puanlarla sıralanmış hastalık-ilişki tablosu.
-
+  
   ## Gizlilik Politikası
-
+  
   BioMCP telemetri, analitiği veya uzak günlük yüklemesini eklemez. [https://biomcp.org/policies/](https://biomcp.org/policies/) adresinde tam gizlilik
   bildirisini gözden geçirin.
-
+  
   ## Multi-worker dağıtımı
-
+  
   BioMCP oran sınırı işlem-yereldir. Birçok eşzamanlı çalışan için, bir paylaşılan
   Streamable HTTP `biomcp serve-http` uç noktasını çalıştırın, böylece tüm çalışanlar
   tek bir sınırlayıcı bütçeyi paylaşır:
-
+  
   ```bash
   biomcp serve-http --host 0.0.0.0 --port 8080
   ```
-
+  
   Uzak istemciler `http://<host>:8080/mcp` adresine bağlanmalıdır. Hafif işlem
   sondaları `GET /health`, `GET /readyz` ve `GET /` adreslerinde mevcuttur.
-
+  
   ## Beceriler
-
+  
   BioMCP, gezinilebilir bir binary-içi katalog yerine bir gömülü ajan kılavuzu
   sevk eder. Doğru çalışılmış örneğe ihtiyacınız olduğunda `biomcp suggest
   "<question>"` kullanın, ardından yerel iş akışı referans kopyalarına istediğinizde
   gömülü BioMCP kılavuzunu okuması veya ajan dizininize yüklemesi için
   `biomcp skill` kullanın:
-
+  
   ```bash
   biomcp suggest "Is variant rs113488022 pathogenic in melanoma?"
   biomcp skill
   biomcp skill install ~/.claude --force
   ```
-
+  
   Desteklenen kurulum hedefleri, yüklenen dosyalar ve eski uyum notaları için
   [Beceriler](docs/getting-started/skills.md) bölümüne bakın.
-
+  
   ## Yerel çalışma analitiği
-
+  
   `study`, indirilen cBioPortal tarzı veri setleri için BioMCP'nin yerel analiz
   ailesidir. Genel varlık yüzeyi API-destekli, yerel-runtime ve hibrit
   discovery/detail işler; `study` komutları, per-çalışma sorgusu, kohort,
   hayatta kalma, karşılaştırma veya birlikte oluşum iş akışlarına ihtiyaç
   duyduğunuzda yerel veri setler üzerinde çalışır.
-
+  
   Bir veri setini yerel çalışma köküne getirmek için `study download` kullanın.
   Tekrarlanabilir betikler ve demolar için açık bir veri seti konumu istediğinizde
   `BIOMCP_STUDY_DIR` ayarlayın; ayarlanmadığında, BioMCP varsayılan çalışma
   köküne geri döner.
-
+  
   ```bash
   export BIOMCP_STUDY_DIR="$HOME/.local/share/biomcp/studies"
   biomcp study download msk_impact_2017
   biomcp study query --study msk_impact_2017 --gene TP53 --type mutations --chart bar --theme dark --palette wong -o docs/blog/images/tp53-mutation-bar.svg
   ```
-
+  
   Tam `study` komut ailesi ve veri seti ön koşulları için [CLI başvurusu](docs/user-guide/cli-reference.md#local-study-analytics) bölümüne bakın.
-
+  
   ## Ops
-
+  
   ```bash
   biomcp version                            # show version and build info
   biomcp health                             # inspect API connectivity plus local DDInter/EMA/cache readiness
@@ -388,15 +388,15 @@ body_tr: |-
   biomcp update --allow-missing-checksum    # UNSAFE: install when a release checksum sidecar is missing
   biomcp uninstall                          # remove biomcp from ~/.local/bin
   ```
-
+  
   ## Destek
-
+  
   - GitHub issues: <https://github.com/genomoncology/biomcp/issues>
   - Sorun giderme: [docs/troubleshooting.md](docs/troubleshooting.md)
   - Tam dokümantasyon: <https://biomcp.org/>
-
+  
   ## Dokümantasyon
-
+  
   - [Başlangıç](docs/getting-started/installation.md)
   - [Tümünü Ara İş Akışı](docs/how-to/search-all-workflow.md)
   - [BioASQ Kıyaslaması](docs/reference/bioasq-benchmark.md)
@@ -406,30 +406,30 @@ body_tr: |-
   - [Veri Kaynakları](docs/reference/data-sources.md)
   - [Hızlı Başvuru](docs/reference/quick-reference.md)
   - [Sorun Giderme](docs/troubleshooting.md)
-
+  
   ## Alıntı
-
+  
   BioMCP'yi araştırmada kullanıyorsanız, [`CITATION.cff`](CITATION.cff) aracılığıyla
   alıntılayın. GitHub ayrıca bu dosya mevcut olduğunda havuz kenar çubuğunda
   `Cite this repository` ortaya koymaktadır.
-
+  
   ## Veri Kaynakları ve Lisanslama
-
+  
   BioMCP MIT-lisanslıdır. Veri setlerini satın almak veya yansıtmak yerine upstream
   sağlayıcılara karşı isteğe bağlı sorgular gerçekleştirir, ancak upstream şartları
   alınan sonuçların yeniden kullanımını yönetir.
-
+  
   Bazı sağlayıcılar tamamen açık, bazı BioMCP özellikleri kayıt veya API anahtarları
   gerektirir ve bazı sorgulanabilir kaynaklar hala belirli yeniden kullanım
   sınırlamalarını zorlayır. İki en büyük uyarı KEGG (akademik ve akademik olmayan
   kullanımı ayırır) ve COSMIC'tir (BioMCP, lisanslama modeli doğrudan açık integrasyon
   ile uyumsuz olduğundan dolaylı tutar).
-
+  
   Per-kaynak ayrışması için [Kaynak Lisanslama ve Şartları](docs/reference/source-licensing.md)
   ve kurulum adımları ile kayıt bağlantıları için [API Anahtarları](docs/getting-started/api-keys.md) kullanın.
-
+  
   ## Lisans
-
+  
   MIT
 ---
 
@@ -536,11 +536,12 @@ make install
 "$HOME/.local/bin/biomcp" --version
 ```
 
-For repo-local verification, `make check` now includes the release-critical
-Python/docs contract lane (`make test-contracts`), and `make release-gate` is
-the full routine release-readiness command (`make check` plus deterministic
-`make spec-contracts`). Use `make release-live-smoke` only for opt-in live
-public-upstream confidence.
+For repo-local verification, run the standard gates directly: `make lint`,
+`make test`, and `make spec`. `make test` includes both Rust nextest and the
+Python/docs contract lane, while `make release-gate` composes `lint test spec`.
+There is no supported `make check` command. Use `make verify` only for opt-in
+live public-upstream confidence; `make release-live-smoke` remains a
+compatibility alias.
 
 ## Quick start
 
@@ -570,8 +571,10 @@ search all [slot filters]    → counts-first cross-entity orientation
 
 ## Entities and sources
 
-The 13-row table below is the public entity surface; individual rows may use
-live APIs, local runtime data, or hybrid source overlays.
+The tables below distinguish detail-card entities from search-only surfaces so
+agents do not synthesize unsupported `get` commands.
+
+### Gettable entities
 
 | Entity | Upstream providers used by BioMCP | Example |
 |--------|-----------------------------------|---------|
@@ -586,6 +589,11 @@ live APIs, local runtime data, or hybrid source overlays.
 | protein | UniProt, InterPro, STRING, ComplexPortal, PDB, AlphaFold | `biomcp get protein P15056 complexes` |
 | adverse-event | OpenFDA FAERS/MAUDE/recalls plus CDC WONDER VAERS aggregate vaccine search | `biomcp search adverse-event --drug pembrolizumab` |
 | pgx | CPIC, PharmGKB | `biomcp get pgx CYP2D6 recommendations` |
+
+### Search-only entities
+
+| Entity | Upstream providers used by BioMCP | Example |
+|--------|-----------------------------------|---------|
 | gwas | GWAS Catalog | `biomcp search gwas --trait "type 2 diabetes"` |
 | phenotype | Monarch Initiative (HPO semantic similarity) | `biomcp search phenotype "HP:0001250"` |
 
@@ -673,10 +681,10 @@ export ALPHAGENOME_API_KEY="..." # AlphaGenome variant effect prediction
 the explicit Semantic Scholar helpers all work without `S2_API_KEY`. With the
 key, BioMCP sends authenticated requests and uses a dedicated rate limit at
 1 req/sec. Without it, BioMCP uses the shared unauthenticated pool at 1 req/2sec.
-`search article --source` supports `all`, `pubtator`, `europepmc`, and
-`pubmed`. The
-default compatible article federation uses PubTator3, Europe PMC, and PubMed,
-while the S2 leg remains automatic rather than directly selectable. References
+`search article --source` supports `all`, `pubtator`, `europepmc`, `pubmed`,
+and `litsense2`. The default compatible article federation uses PubTator3,
+Europe PMC, PubMed, and automatic Semantic Scholar; use `--source litsense2`
+explicitly when you want LitSense2. References
 and recommendations can be empty for paywalled papers because of publisher
 elision in Semantic Scholar upstream coverage.
 
@@ -786,7 +794,7 @@ installed files, and legacy compatibility notes.
 `study` is BioMCP's local analysis family for downloaded cBioPortal-style datasets.
 The public entity surface handles API-backed, local-runtime, and hybrid
 discovery/detail; `study` commands work on local datasets when you need
-per-study query, cohort, survival, comparison, or co-occurrence workflows.
+per-study query, cohort, survival, comparison, or co-occurrence workflows. Per-gene queries include mutations, CNA, expression, and structural variants/fusions from local `data_sv.txt` files. Mutation summaries stay mutation-only and note when fusions/SV need `--type sv`.
 
 Use `study download` to fetch a dataset into your local study root. Set
 `BIOMCP_STUDY_DIR` when you want an explicit dataset location for reproducible
@@ -796,6 +804,7 @@ scripts and demos; if it is unset, BioMCP falls back to its default study root.
 export BIOMCP_STUDY_DIR="$HOME/.local/share/biomcp/studies"
 biomcp study download msk_impact_2017
 biomcp study query --study msk_impact_2017 --gene TP53 --type mutations --chart bar --theme dark --palette wong -o docs/blog/images/tp53-mutation-bar.svg
+biomcp study query --study msk_impact_2017 --gene RET --type sv
 ```
 
 See the [CLI reference](docs/user-guide/cli-reference.md#local-study-analytics)

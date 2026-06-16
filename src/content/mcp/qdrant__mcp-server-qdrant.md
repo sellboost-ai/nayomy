@@ -3,7 +3,7 @@ name: "qdrant/mcp-server-qdrant"
 description: "A Qdrant MCP server"
 category: "Databases"
 repo: "qdrant/mcp-server-qdrant"
-stars: 1411
+stars: 1435
 url: "https://github.com/qdrant/mcp-server-qdrant"
 body_length: 22469
 license: "Apache-2.0"
@@ -11,22 +11,22 @@ language: "Python"
 homepage: "https://qdrant.tech"
 body_tr: |-
   # mcp-server-qdrant: Bir Qdrant MCP sunucusu
-
+  
   [![smithery badge](https://smithery.ai/badge/mcp-server-qdrant)](https://smithery.ai/protocol/mcp-server-qdrant)
-
+  
   > [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction), LLM uygulamaları ile harici veri kaynakları ve araçları arasında sorunsuz entegrasyon sağlayan açık bir protokoldür. İster AI destekli bir IDE oluşturuyor olun, ister bir sohbet arayüzünü geliştiriyor olun, ister özel AI iş akışları oluşturuyor olun, MCP, LLM'leri ihtiyaç duydukları bağlam ile bağlamak için standartlaştırılmış bir yol sağlar.
-
+  
   Bu depo, [Qdrant](https://qdrant.tech/) (bir vektör arama motoru) için MCP sunucusu oluşturmanın bir örneğidir.
-
+  
   ## Genel Bakış
-
+  
   Qdrant vektör arama motorunda anıları saklama ve alma işlemleri için resmi bir Model Context Protocol sunucusu.
   Qdrant veritabanının üstünde anlamsal bir bellek katmanı olarak çalışır.
-
+  
   ## Bileşenler
-
+  
   ### Araçlar
-
+  
   1. `qdrant-store`
      - Qdrant veritabanında bilgi saklama
      - Giriş:
@@ -42,14 +42,14 @@ body_tr: |-
        - `collection_name` (string): Bilginin saklanacağı koleksiyonun adı. Bu alan, varsayılan koleksiyon adı yoksa gereklidir.
                                      Varsayılan koleksiyon adı varsa, bu alan etkin değildir.
      - Döndürülen: Qdrant veritabanında depolanan bilgiler ayrı mesajlar olarak
-
+  
   ## Ortam Değişkenleri
-
+  
   Yapılandırma ortam değişkenleri aracılığıyla yapılır. Tek komut satırı argümanı `--transport`, [taşıma protokolünü](#transport-protokolleri) seçmek için kullanılır.
-
+  
   > [!NOTE]
   > `QDRANT_URL` ve `QDRANT_LOCAL_PATH` değişkenlerini aynı anda sağlayamazsınız.
-
+  
   | Ad                       | Açıklama                                                            | Varsayılan Değer                                                  |
   |--------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------|
   | `QDRANT_URL`             | Qdrant sunucusunun URL'si                                           | Hiçbiri                                                            |
@@ -62,12 +62,12 @@ body_tr: |-
   | `TOOL_FIND_DESCRIPTION`  | Bulma aracı için özel açıklama                                      | [`settings.py`](src/mcp_server_qdrant/settings.py) içinde varsayılan değeri gözüne |
   | `QDRANT_SEARCH_LIMIT`    | Arama sonuçlarından döndürülecek maksimum sonuç sayısı              | `10`                                                              |
   | `QDRANT_READ_ONLY`       | Salt okunur modu etkinleştir (`qdrant-store` aracını devre dışı bırakır) | `false`                                                           |
-
+  
   ### FastMCP Ortam Değişkenleri
-
+  
   `mcp-server-qdrant` FastMCP'ye dayandığından, tüm FastMCP ortam değişkenlerini de destekler. En
   önemli olanlar aşağıda listelenmiştir:
-
+  
   | Ortam Değişkeni                            | Açıklama                                                        | Varsayılan Değer |
   |--------------------------------------------|-----------------------------------------------------------------|------------------|
   | `FASTMCP_LOG_LEVEL`                        | Günlük kaydı seviyesini ayarlayın (DEBUG, INFO, WARNING, ERROR, CRITICAL) | `INFO`           |
@@ -78,59 +78,59 @@ body_tr: |-
   | `FASTMCP_SERVER_ON_DUPLICATE_TOOLS`        | Yinelenen araçlar için davranış (warn, error, replace, ignore)   | `warn`           |
   | `FASTMCP_SERVER_ON_DUPLICATE_PROMPTS`      | Yinelenen istemler için davranış (warn, error, replace, ignore)  | `warn`           |
   | `FASTMCP_SERVER_DEPENDENCIES`              | Sunucu ortamında yüklenecek bağımlılık listesi                   | `[]`             |
-
+  
   > [!NOTE]
   > Sunucuya özgü ayarlar `FASTMCP_SERVER_` ön ekini kullanır. Bu gelecek sürümlerde değişebilir.
-
+  
   ## Kurulum
-
+  
   ### uvx kullanarak
-
+  
   [`uvx`](https://docs.astral.sh/uv/guides/tools/#running-tools) kullanılırken *mcp-server-qdrant*'ı doğrudan çalıştırmak için belirli bir kurulum yapılması gerekmez.
-
+  
   ```shell
   QDRANT_URL="http://localhost:6333" \
   COLLECTION_NAME="my-collection" \
   EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2" \
   uvx mcp-server-qdrant
   ```
-
+  
   #### Taşıma Protokolleri
-
+  
   Sunucu, `--transport` bayrağı kullanılarak belirtilen farklı taşıma protokollerini destekler:
-
+  
   ```shell
   QDRANT_URL="http://localhost:6333" \
   COLLECTION_NAME="my-collection" \
   uvx mcp-server-qdrant --transport sse
   ```
-
+  
   Desteklenen taşıma protokolleri:
-
+  
   - `stdio` (varsayılan): Standart giriş/çıkış taşıması, yalnızca yerel MCP istemcileri tarafından kullanılabilir
   - `sse`: Server-Sent Events taşıması, uzak istemciler için mükemmel
   - `streamable-http`: Akışı yapılabilir HTTP taşıması, uzak istemciler için mükemmel, SSE'den daha yeni
-
+  
   Belirtilmezse varsayılan taşıma `stdio`'dur.
-
+  
   SSE taşıması kullanıldığında, sunucu belirtilen portta dinlemeye başlayacak ve gelen bağlantıları bekleyecektir. Varsayılan
   port 8000'dir, ancak `FASTMCP_SERVER_PORT` ortam değişkeni kullanılarak değiştirilebilir.
-
+  
   ```shell
   QDRANT_URL="http://localhost:6333" \
   COLLECTION_NAME="my-collection" \
   FASTMCP_SERVER_PORT=1234 \
   uvx mcp-server-qdrant --transport sse
   ```
-
+  
   ### Docker kullanarak
-
+  
   MCP sunucusunu oluşturmak ve çalıştırmak için bir Dockerfile mevcuttur:
-
+  
   ```bash
   # Konteyner oluştur
   docker build -t mcp-server-qdrant .
-
+  
   # Konteyner çalıştır
   docker run -p 8000:8000 \
     -e FASTMCP_SERVER_HOST="0.0.0.0" \
@@ -139,22 +139,22 @@ body_tr: |-
     -e COLLECTION_NAME="your-collection" \
     mcp-server-qdrant
   ```
-
+  
   > [!TIP]
   > `FASTMCP_SERVER_HOST="0.0.0.0"` ayarlandığını lütfen unutmayın; bu, sunucunun tüm ağ arayüzlerinde dinlemesi için gereklidir. Docker konteynerinde sunucu çalıştırırken bu gereklidir.
-
+  
   ### Smithery aracılığıyla kurulum
-
+  
   Qdrant MCP Server'ı [Smithery](https://smithery.ai/protocol/mcp-server-qdrant) aracılığıyla Claude Desktop'a otomatik olarak kurmak için:
-
+  
   ```bash
   npx @smithery/cli install mcp-server-qdrant --client claude
   ```
-
+  
   ### Claude Desktop'ın manuel yapılandırması
-
+  
   Bu sunucuyu Claude Desktop uygulaması ile kullanmak için, `claude_desktop_config.json` dosyasının "mcpServers" bölümüne aşağıdaki yapılandırmayı ekleyin:
-
+  
   ```json
   {
     "qdrant": {
@@ -169,9 +169,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Yerel Qdrant modu için:
-
+  
   ```json
   {
     "qdrant": {
@@ -185,21 +185,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   Bu MCP sunucusu, belirtilen adda bir koleksiyon yoksa otomatik olarak oluşturacaktır.
-
+  
   Varsayılan olarak, sunucu anıları kodlamak için `sentence-transformers/all-MiniLM-L6-v2` embedding modelini kullanacaktır.
   Şu anda, yalnızca [FastEmbed](https://qdrant.github.io/fastembed/) modelleri desteklenmektedir.
-
+  
   ## Diğer araçlar için destek
-
+  
   Bu MCP sunucusu, herhangi bir MCP uyumlu istemci ile kullanılabilir. Örneğin, bunu
   [Cursor](https://docs.cursor.com/context/model-context-protocol) ve [VS Code](https://code.visualstudio.com/docs) ile kullanabilirsiniz; bunlar Model Context Protocol için yerleşik destek sağlar.
-
+  
   ### Cursor/Windsurf ile kullanım
-
+  
   Bu MCP sunucusunu, araç açıklamalarını özelleştirerek Cursor veya Windsurf için bir kod arama aracı olarak çalışacak şekilde yapılandırabilirsiniz:
-
+  
   ```bash
   QDRANT_URL="http://localhost:6333" \
   COLLECTION_NAME="code-snippets" \
@@ -214,38 +214,38 @@ body_tr: |-
   Use this when you need to find existing code snippets for reuse or reference." \
   uvx mcp-server-qdrant --transport sse # SSE taşımasını etkinleştir
   ```
-
+  
   Cursor/Windsurf'te, bu çalışan sunucuya SSE taşıma protokolü kullanarak işaret ederek MCP sunucusunu ayarlarınızda yapılandırabilirsiniz. Cursor'a bir MCP sunucusu eklemenin açıklaması [Cursor
   dokumentasyonunda](https://docs.cursor.com/context/model-context-protocol#adding-an-mcp-server-to-cursor) bulunabilir. Cursor/Windsurf'ü yerel olarak çalıştırıyorsanız, aşağıdaki URL'yi kullanabilirsiniz:
-
+  
   ```
   http://localhost:8000/sse
   ```
-
+  
   > [!TIP]
   > Cursor/Windsurf'ü MCP sunucusuna bağlamak için SSE taşımasını tercih edilen yol olarak öneriyoruz; uzak bağlantıları destekleyebilir. Bu, sunucuyu takımınızla paylaşmayı veya bulut ortamında kullanmayı kolaylaştırır.
-
+  
   Bu yapılandırma, Qdrant MCP sunucusunu aşağıdakileri yapabilen özel bir kod arama aracına dönüştürür:
-
+  
   1. Kod parçacıkları, dokümantasyon ve uygulama ayrıntılarını depolama
   2. Anlamsal aramayanında ilgili kod örneklerini alma
   3. Geliştiricilerin belirli uygulamaları veya kullanım deseni bulmasına yardımcı olma
-
+  
   Veritabanını, kod parçacıklarının doğal dil açıklamalarını (`information` parametresinde) gerçek kod ile birlikte (`metadata.code` özelliğinde) saklayarak ve ardından aradığınız şeyi açıklayan doğal dil sorguları kullanarak arama yaparak doldurabileceğiniz.
-
+  
   > [!NOTE]
   > Yukarıda sağlanan araç açıklamaları örnektir ve belirli kullanım durumunuz için özelleştirilmesi gerekebilir. Tanımları, takımınızın iş akışına ve depolamak ve almak istediğiniz belirli kod parçacığı türlerine daha iyi uyacak şekilde ayarlamayı düşünün.
-
+  
   **`mcp-server-qdrant`'ı başarıyla yüklediyseniz ancak Cursor ile çalışamıyorsanız, MCP araçlarının aracı her zaman yeni bir kod parçacığı ürettiğinde kullanılmasını sağlamak için lütfen [Cursor kurallarını](https://docs.cursor.com/context/rules-for-ai) oluşturmayı düşünün.** Kuralları belirli dosya türleriyle çalışacak şekilde sınırlandırabilir; böylece MCP sunucusu dokümantasyon veya diğer içerik türleri için kullanılmaz.
-
+  
   ### Claude Code ile kullanım
-
+  
   Bu MCP sunucusunu Claude Code'a bağlayarak mevcut kod tabanınız üzerinde anlamsal aramanın yeteneklerini geliştireyebilirsiniz.
-
+  
   #### mcp-server-qdrant'ı kurma
-
+  
   1. MCP sunucusunu Claude Code'a ekleyin:
-
+  
       ```shell
       # Kod araması için yapılandırılan mcp-server-qdrant'ı ekle
       claude mcp add code-search \
@@ -256,40 +256,40 @@ body_tr: |-
       -e TOOL_FIND_DESCRIPTION="Search for relevant code snippets using natural language. The 'query' parameter should describe the functionality you're looking for." \
       -- uvx mcp-server-qdrant
       ```
-
+  
   2. Sunucunun eklendiğini doğrulayın:
-
+  
       ```shell
       claude mcp list
       ```
-
+  
   #### Claude Code'da Anlamsal Kod Aramasını Kullanma
-
+  
   `TOOL_STORE_DESCRIPTION` ve `TOOL_FIND_DESCRIPTION` içinde belirtilen araç açıklamaları, Claude Code'u MCP sunucusunun nasıl kullanılacağı konusunda rehberlik eder. Yukarıda sağlananlar örnektir ve belirli kullanım durumunuz için özelleştirilmesi gerekebilir. Ancak, Claude Code zaten şunları yapabilmelidir:
-
+  
   1. Kod parçacıklarını açıklamalarla depolamak için `qdrant-store` aracını kullanma.
   2. Doğal dil kullanarak ilgili kod parçacıklarını aramak için `qdrant-find` aracını kullanma.
-
+  
   ### MCP sunucusunu geliştirme modunda çalıştırma
-
+  
   MCP sunucusu, `mcp dev` komutu kullanılarak geliştirme modunda çalıştırılabilir. Bu, sunucuyu başlatacak ve tarayıcınızda MCP inspector'u açacaktır.
-
+  
   ```shell
   COLLECTION_NAME=mcp-dev fastmcp dev src/mcp_server_qdrant/server.py
   ```
-
+  
   ### VS Code ile kullanım
-
+  
   Tek tıklamalı kurulum için aşağıdaki kurulum düğmelerinden birine tıklayın:
-
+  
   [![Install with UVX in VS Code](https://img.shields.io/badge/VS_Code-UVX-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=qdrant&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22mcp-server-qdrant%22%5D%2C%22env%22%3A%7B%22QDRANT_URL%22%3A%22%24%7Binput%3AqdrantUrl%7D%22%2C%22QDRANT_API_KEY%22%3A%22%24%7Binput%3AqdrantApiKey%7D%22%2C%22COLLECTION_NAME%22%3A%22%24%7Binput%3AcollectionName%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantUrl%22%2C%22description%22%3A%22Qdrant+URL%22%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantApiKey%22%2C%22description%22%3A%22Qdrant+API+Key%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22collectionName%22%2C%22description%22%3A%22Collection+Name%22%7D%5D) [![Install with UVX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-UVX-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=qdrant&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22mcp-server-qdrant%22%5D%2C%22env%22%3A%7B%22QDRANT_URL%22%3A%22%24%7Binput%3AqdrantUrl%7D%22%2C%22QDRANT_API_KEY%22%3A%22%24%7Binput%3AqdrantApiKey%7D%22%2C%22COLLECTION_NAME%22%3A%22%24%7Binput%3AcollectionName%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantUrl%22%2C%22description%22%3A%22Qdrant+URL%22%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantApiKey%22%2C%22description%22%3A%22Qdrant+API+Key%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22collectionName%22%2C%22description%22%3A%22Collection+Name%22%7D%5D&quality=insiders)
-
+  
   [![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Docker-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=qdrant&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-p%22%2C%228000%3A8000%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22QDRANT_URL%22%2C%22-e%22%2C%22QDRANT_API_KEY%22%2C%22-e%22%2C%22COLLECTION_NAME%22%2C%22mcp-server-qdrant%22%5D%2C%22env%22%3A%7B%22QDRANT_URL%22%3A%22%24%7Binput%3AqdrantUrl%7D%22%2C%22QDRANT_API_KEY%22%3A%22%24%7Binput%3AqdrantApiKey%7D%22%2C%22COLLECTION_NAME%22%3A%22%24%7Binput%3AcollectionName%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantUrl%22%2C%22description%22%3A%22Qdrant+URL%22%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantApiKey%22%2C%22description%22%3A%22Qdrant+API+Key%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22collectionName%22%2C%22description%22%3A%22Collection+Name%22%7D%5D) [![Install with Docker in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Docker-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=qdrant&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-p%22%2C%228000%3A8000%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22QDRANT_URL%22%2C%22-e%22%2C%22QDRANT_API_KEY%22%2C%22-e%22%2C%22COLLECTION_NAME%22%2C%22mcp-server-qdrant%22%5D%2C%22env%22%3A%7B%22QDRANT_URL%22%3A%22%24%7Binput%3AqdrantUrl%7D%22%2C%22QDRANT_API_KEY%22%3A%22%24%7Binput%3AqdrantApiKey%7D%22%2C%22COLLECTION_NAME%22%3A%22%24%7Binput%3AcollectionName%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantUrl%22%2C%22description%22%3A%22Qdrant+URL%22%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22qdrantApiKey%22%2C%22description%22%3A%22Qdrant+API+Key%22%2C%22password%22%3Atrue%7D%2C%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22collectionName%22%2C%22description%22%3A%22Collection+Name%22%7D%5D&quality=insiders)
-
+  
   #### Manuel kurulum
-
+  
   VS Code'unda Kullanıcı Ayarları (JSON) dosyasına aşağıdaki JSON bloğunu ekleyin. Bunu `Ctrl + Shift + P` tuşlarına basarak ve `Preferences: Open User Settings (JSON)` yazarak yapabilirsiniz.
-
+  
   ```json
   {
     "mcp": {
@@ -325,9 +325,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Veya Docker'ı tercih ediyorsanız, bunun yerine bu yapılandırmayı ekleyin:
-
+  
   ```json
   {
     "mcp": {
@@ -372,7 +372,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   Alternatif olarak, çalışma alanınızda aşağıdaki içeriğe sahip bir `.vscode/mcp.json` dosyası olu
 ---
 

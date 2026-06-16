@@ -3,49 +3,49 @@ name: "kukapay/crypto-indicators-mcp"
 description: "An MCP server providing a range of cryptocurrency technical analysis indicators and strategie."
 category: "Finance & Fintech"
 repo: "kukapay/crypto-indicators-mcp"
-stars: 123
+stars: 126
 url: "https://github.com/kukapay/crypto-indicators-mcp"
 body_length: 9965
 license: "MIT"
 language: "JavaScript"
 body_tr: |-
   # Crypto Indicators MCP Server
-
+  
   Bir dizi kripto para teknik analiz göstergesi ve stratejisi sağlayan MCP sunucusu, AI ticaret ajanlarının pazar trendlerini verimli bir şekilde analiz etmesine ve sağlam nicel stratejiler geliştirmesine olanak tanır.
-
+  
   Daha fazla kripto para ile ilgili MCP sunucuları için bkz. [Kukapay MCP servers](https://github.com/kukapay/kukapay-mcp-servers).
-
+  
   [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   [![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
   ![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
-
+  
   ## Özellikler
-
+  
   - **Teknik Göstergeler**: Trend, momentum, volatilite ve hacim kategorilerinde 50+ gösterge.
   - **Ticaret Stratejileri**: Sinyal çıktısı veren ilgili stratejiler: `-1` (SAT), `0` (BEKLE), `1` (AL).
   - **Esnek Veri Kaynağı**: Varsayılan olarak Binance'a ayarlanmış, herhangi bir `ccxt` destekli exchange'e yapılandırılabilir.
   - **Modüler Tasarım**: Göstergeler ve stratejiler kolay bakım için kategorize edilmiştir.
-
+  
   ## Kurulum
-
+  
   ### Ön Koşullar
-
+  
   - [Node.js](https://nodejs.org/) (v18.x veya daha yüksek)
   - npm (v8.x veya daha yüksek)
-
+  
   ### Adımlar
-
+  
   1. **Depoyu Klonlayın**:
      ```bash
      git clone https://github.com/kukapay/crypto-indicators-mcp.git
      cd crypto-indicators-mcp
      ```
-
+  
   2. **Bağımlılıkları Kurun**:
      ```bash
      npm install
      ```
-
+  
   3. **MCP İstemcisini Yapılandırın**:
      Bu sunucuyu Claude Desktop gibi bir MCP istemcisiyle kullanmak için aşağıdakini yapılandırma dosyanıza (veya eşdeğerine) ekleyin:
      ```json
@@ -61,9 +61,9 @@ body_tr: |-
         }
       }   
       ```
-
+  
   ## Kullanılabilir Araçlar
-
+  
   ### Trend Göstergeleri
   - `calculate_absolute_price_oscillator`: Trend gücünü belirlemek için iki EMA arasındaki farkı ölçer (APO).
   - `calculate_aroon`: Yüksek/düşük fiyat uç noktalarını kullanarak trend değişikliklerini ve gücünü tanımlar (Aroon).
@@ -89,7 +89,7 @@ body_tr: |-
   - `calculate_typical_price`: Dengeli trend görünümü için yüksek, düşük ve kapanış fiyatlarını ortalaması.
   - `calculate_volume_weighted_moving_average`: Trend gücü için hacmi hareketli ortalamalara dahil eder (VWMA).
   - `calculate_vortex`: Gerçek aralığı kullanarak trend yönü ve gücünü tanımlar (Vortex).
-
+  
   ### Momentum Göstergeleri
   - `calculate_awesome_oscillator`: Orta hat çaprazlamalarını kullanarak pazar momentumunu ölçer (AO).
   - `calculate_chaikin_oscillator`: Birikme/dağılım momentumunu izler (CMO).
@@ -100,7 +100,7 @@ body_tr: |-
   - `calculate_relative_strength_index`: Momentum aracılığıyla aşırı alım/satım koşullarını tanımlar (RSI).
   - `calculate_stochastic_oscillator`: Momentum sinyalleri için kapanış fiyatlarını aralıklarla karşılaştırır (STOCH).
   - `calculate_williams_r`: Momentum'u son yüksek-düşük aralıklarına göre ölçer (Williams %R).
-
+  
   ### Volatilite Göstergeleri
   - `calculate_acceleration_bands`: Dinamik volatilite bantlarıyla fiyat hareketini çerçeveler (AB).
   - `calculate_average_true_range`: Fiyat aralıklarına dayalı pazar volatilitesini ölçer (ATR).
@@ -113,7 +113,7 @@ body_tr: |-
   - `calculate_projection_oscillator`: Volatiliteyi öngörülen fiyatlara göre değerlendirir (PO).
   - `calculate_true_range`: Volatilite analizi için günlük fiyat aralığını hesaplar (TR).
   - `calculate_ulcer_index`: Aşağı yönlü volatiliteyi ve düşüşleri ölçer (UI).
-
+  
   ### Hacim Göstergeleri
   - `calculate_accumulation_distribution`: Fiyat trendlerini doğrulamak için hacim akışını izler (AD).
   - `calculate_chaikin_money_flow`: Hacim ile alış/satış baskısını ölçer (CMF).
@@ -124,7 +124,7 @@ body_tr: |-
   - `calculate_on_balance_volume`: Fiyat hareketlerini tahmin etmek için hacmi biriktirir (OBV).
   - `calculate_volume_price_trend`: Trend doğrulaması için hacim ve fiyatı birleştirir (VPT).
   - `calculate_volume_weighted_average_price`: Fiyatları hacim ile ağırlıklandırılmış olarak ortalaması (VWAP).
-
+  
   ### Trend Stratejileri
   - `calculate_absolute_price_oscillator_strategy`: APO çaprazlamalarından alış/satış sinyalleri oluşturur (APO Stratejisi).
   - `calculate_aroon_strategy`: Aroon çaprazlamalarını kullanarak trend tersine dönüş sinyalleri (Aroon Stratejisi).
@@ -136,7 +136,7 @@ body_tr: |-
   - `calculate_typical_price_strategy`: Tipik fiyat trendlerinden sinyaller oluşturur.
   - `calculate_volume_weighted_moving_average_strategy`: VWMA çaprazlamalarına dayalı sinyaller yayınlar (VWMA Stratejisi).
   - `calculate_vortex_strategy`: Vortex çaprazlamalarıyla trend yönü sinyalleri (Vortex Stratejisi).
-
+  
   ### Momentum Stratejileri
   - `calculate_momentum_strategy`: Momentum yönüne dayalı sinyaller yayınlar.
   - `calculate_awesome_oscillator_strategy`: AO çaprazlamalarıyla momentum kaymalarını sinyal eder (AO Stratejisi).
@@ -144,12 +144,12 @@ body_tr: |-
   - `calculate_rsi2_strategy`: RSI eşikleriyle aşırı alım/satımı sinyal eder (RSI Stratejisi).
   - `calculate_stochastic_oscillator_strategy`: Sinyaller için stokastik çaprazlamalarını kullanır (STOCH Stratejisi).
   - `calculate_williams_r_strategy`: Williams %R ile momentum tersine dönüş sinyalleri (Williams %R Stratejisi).
-
+  
   ### Volatilite Stratejileri
   - `calculate_acceleration_bands_strategy`: Hızlanma bantlarıyla kırılma sinyalleri (AB Stratejisi).
   - `calculate_bollinger_bands_strategy`: Bollinger Bant ihlallerinden sinyaller yayınlar (BB Stratejisi).
   - `calculate_projection_oscillator_strategy`: PO ile volatilite kaymaları sinyal eder (PO Stratejisi).
-
+  
   ### Hacim Stratejileri
   - `calculate_chaikin_money_flow_strategy`: CMF ile hacim baskısını sinyal eder (CMF Stratejisi).
   - `calculate_ease_of_movement_strategy`: EMV trendlerine dayalı sinyaller yayınlar (EMV Stratejisi).
@@ -157,35 +157,35 @@ body_tr: |-
   - `calculate_money_flow_index_strategy`: MFI ile aşırı alım/satımı sinyal eder (MFI Stratejisi).
   - `calculate_negative_volume_index_strategy`: NVI değişiklikleriyle trendleri sinyal eder (NVI Stratejisi).
   - `calculate_volume_weighted_average_price_strategy`: VWAP çaprazlamalarından sinyaller yayınlar (VWAP Stratejisi).
-
+  
   ## Kullanım Örnekleri
-
+  
   ### Örnek 1: MACD Göstergesini Hesaplayın
-
+  
   **Giriş (Doğal Dil İstemi)**:
   ```
   BTC/USDT için 1 saatlik zaman diliminde MACD'yi hızlı dönem 12, yavaş dönem 26, sinyal dönem 9 ve 100 veri noktası ile hesapla.
   ```
-
+  
   **Çıkış**:
   ```
   {"macd": [...], "signal": [...], "histogram": [...]}
   ```
-
+  
   ### Örnek 2: RSI Stratejisini Hesaplayın
-
+  
   **Giriş (Doğal Dil İstemi)**:
   ```
   ETH/USDT için 4 saatlik zaman diliminde RSI strateji sinyallerini 14 dönem ve 50 veri noktasıyla ver.
   ```
-
+  
   **Çıkış**:
   ```
   [-1, 0, 1, 0, ...]
   ```
-
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 

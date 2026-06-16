@@ -3,27 +3,27 @@ name: "line/line-bot-mcp-server"
 description: "MCP Server for Integrating LINE Official Account"
 category: "Communication"
 repo: "line/line-bot-mcp-server"
-stars: 590
+stars: 598
 url: "https://github.com/line/line-bot-mcp-server"
 body_length: 8920
 license: "Apache-2.0"
 language: "TypeScript"
 body_tr: |-
   [Türkçe sürüm README'si burada](README.ja.md)
-
+  
   # LINE Bot MCP Server
-
+  
   [![npmjs](https://badge.fury.io/js/%40line%2Fline-bot-mcp-server.svg)](https://www.npmjs.com/package/@line/line-bot-mcp-server)
-
+  
   [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) sunucu uygulaması, LINE Messaging API'sini entegre ederek bir AI Ajanını LINE Resmi Hesabına bağlar.
-
+  
   ![](https://raw.githubusercontent.com/line/line-bot-mcp-server/HEAD/assets/demo.png)
-
+  
   > [!NOTE]
   > Bu depo önizleme sürümü olarak sağlanmaktadır. Deneysel amaçlar için sunulsa da, lütfen tam işlevsellik veya kapsamlı destek içermeyebileceğinin farkında olun.
-
+  
   ## Araçlar
-
+  
   1. **push_text_message**
      - LINE üzerinden bir kullanıcıya basit bir metin mesajı gönderin.
      - **Girdiler:**
@@ -84,33 +84,33 @@ body_tr: |-
           - `location`: Mevcut konumu göndermek için
           - `richmenuswitch`: Başka bir rich menüye geçmek için
           - `clipboard`: Metni panoya kopyalamak için
-
+  
   12. **get_follower_ids**
       - LINE Resmi Hesabını arkadaş olarak ekleyen kullanıcıların kullanıcı ID'lerinin listesini alın. Bu, manuel olarak hazırlamadan mesaj göndermek için kullanıcı ID'leri elde etmenizi sağlar.
       - **Girdiler:**
         - `start` (string?): Sonraki kullanıcı ID'leri dizisini almak için devam jetonu. Önceki yanıtın `next` özelliğinde döndürülür.
         - `limit` (number?): Tek bir istekte alınacak maksimum kullanıcı ID'si sayısı.
-
+  
   ## Kurulum (npx Kullanarak)
-
+  
   gereksinimler:
   - Node.js v22 veya üstü
-
+  
   ### Adım 1: LINE Resmi Hesabı Oluşturun
-
+  
   Bu MCP sunucusu bir LINE Resmi Hesabı kullanır. Eğer hesabınız yoksa, lütfen [bu talimatları](https://developers.line.biz/en/docs/messaging-api/getting-started/#create-oa) izleyerek oluşturun.
-
+  
   Eğer zaten bir LINE Resmi Hesabınız varsa, lütfen [bu talimatları](https://developers.line.biz/en/docs/messaging-api/getting-started/#using-oa-manager) izleyerek LINE Resmi Hesabınız için Messaging API'sini etkinleştirin.
-
+  
   ### Adım 2: AI Ajanını Yapılandırın
-
+  
   Lütfen Claude Desktop veya Cline gibi bir AI Ajanj için aşağıdaki konfigürasyonu ekleyin.
-
+  
   Ortam değişkenlerini veya argümanları şu şekilde ayarlayın:
-
+  
   - `CHANNEL_ACCESS_TOKEN`: (gerekli) Channel Access Token. Bunu [bu talimatları](https://developers.line.biz/en/docs/basics/channel-access-token/#long-lived-channel-access-token) izleyerek doğrulayabilirsiniz.
   - `DESTINATION_USER_ID`: (isteğe bağlı) Alıcının varsayılan kullanıcı ID'si. Eğer Tool'ün girdisi `userId` içermiyorsa, `DESTINATION_USER_ID` gereklidir. Bunu [bu talimatları](https://developers.line.biz/en/docs/messaging-api/getting-user-ids/#get-own-user-id) izleyerek doğrulayabilirsiniz.
-
+  
   ```json
   {
     "mcpServers": {
@@ -128,42 +128,42 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Kurulum (Docker Kullanarak)
-
+  
   ### Adım 1: LINE Resmi Hesabı Oluşturun
-
+  
   Bu MCP sunucusu bir LINE Resmi Hesabı kullanır. Eğer hesabınız yoksa, lütfen [bu talimatları](https://developers.line.biz/en/docs/messaging-api/getting-started/#create-oa) izleyerek oluşturun.
-
+  
   Eğer zaten bir LINE Resmi Hesabınız varsa, lütfen [bu talimatları](https://developers.line.biz/en/docs/messaging-api/getting-started/#using-oa-manager) izleyerek LINE Resmi Hesabınız için Messaging API'sini etkinleştirin.
-
-
+  
+  
   ### Adım 2: line-bot-mcp-server görüntüsünü oluşturun
-
+  
   Bu depoyu klonlayın:
-
+  
   ```
   git clone git@github.com:line/line-bot-mcp-server.git
   ```
-
+  
   Docker görüntüsünü oluşturun:
-
+  
   ```
   docker build -t line/line-bot-mcp-server .
   ```
-
+  
   ### Adım 3: AI Ajanını Yapılandırın
-
+  
   Lütfen Claude Desktop veya Cline gibi bir AI Ajanj için aşağıdaki konfigürasyonu ekleyin.
-
+  
   Ortam değişkenlerini veya argümanları şu şekilde ayarlayın:
-
+  
   - `mcpServers.args`: (gerekli) `line-bot-mcp-server` yolu.
   - `CHANNEL_ACCESS_TOKEN`: (gerekli) Channel Access Token. Bunu [bu talimatları](https://developers.line.biz/en/docs/basics/channel-access-token/#long-lived-channel-access-token) izleyerek doğrulayabilirsiniz.
   - `DESTINATION_USER_ID`: (isteğe bağlı) Alıcının varsayılan kullanıcı ID'si. Eğer Tool'ün girdisi `userId` içermiyorsa, `DESTINATION_USER_ID` gereklidir.
   Bunu [bu talimatları](https://developers.line.biz/en/docs/messaging-api/getting-user-ids/#get-own-user-id) izleyerek doğrulayabilirsiniz.
-
-
+  
+  
   ```json
   {
     "mcpServers": {
@@ -187,49 +187,49 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## İnceleme ile Yerel Geliştirme
-
+  
   Sunucuyu yerel olarak test etmek ve hata ayıklamak için MCP Inspector'ı kullanabilirsiniz.
-
+  
   ### Ön Koşullar
-
+  
   1. Depoyu klonlayın:
   ```bash
   git clone git@github.com:line/line-bot-mcp-server.git
   cd line-bot-mcp-server
   ```
-
+  
   2. Bağımlılıkları yükleyin:
   ```bash
   npm install
   ```
-
+  
   3. Projeyi oluşturun:
   ```bash
   npm run build
   ```
-
+  
   ### Inspector'ı Çalıştırın
-
+  
   Projeyi oluşturduktan sonra, MCP Inspector'ı başlatabilirsiniz:
-
+  
   ```bash
   npx @modelcontextprotocol/inspector node dist/index.js \
     -e CHANNEL_ACCESS_TOKEN="YOUR_CHANNEL_ACCESS_TOKEN" \
     -e DESTINATION_USER_ID="YOUR_DESTINATION_USER_ID"
   ```
-
+  
   Bu, LINE Bot MCP Server araçlarıyla etkileşim kurabileceğiniz ve işlevselliklerini test edebileceğiniz MCP Inspector arayüzünü başlatacaktır.
-
+  
   ## Sürüm Oluşturma
-
+  
   Bu proje anlamsal sürüm oluşturmaya saygı gösterir
-
+  
   Bkz. http://semver.org/
-
+  
   ## Katkıda Bulunma
-
+  
   Katkı sağlamadan önce lütfen [CONTRIBUTING](./CONTRIBUTING.md) dosyasını kontrol edin.
 ---
 

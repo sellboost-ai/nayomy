@@ -3,53 +3,53 @@ name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
 category: "Version Control"
 repo: "github/github-mcp-server"
-stars: 30193
+stars: 30742
 url: "https://github.com/github/github-mcp-server"
-body_length: 89001
+body_length: 91611
 license: "MIT"
 language: "Go"
 body_tr: |-
   [![Go Report Card](https://goreportcard.com/badge/github.com/github/github-mcp-server)](https://goreportcard.com/report/github.com/github/github-mcp-server)
-
+  
   # GitHub MCP Server
-
+  
   GitHub MCP Server, GitHub platformunu AI araçlarına doğrudan bağlar. Bu, AI ajanlarına, asistanlara ve sohbet botlarına depoları ve kod dosyalarını okuma, sorunları ve PR'ları yönetme, kodu analiz etme ve iş akışlarını otomatikleştirme yeteneği sağlar. Tümü doğal dil etkileşimleri aracılığıyla.
-
+  
   ### Kullanım Senaryoları
-
+  
   - Depo Yönetimi: Herhangi bir depoda kod göz atma ve sorgulama, dosya arama, commit'leri analiz etme ve proje yapısını anlama.
   - Sorun ve PR Otomasyonu: Sorunları ve pull request'leri oluşturma, güncelleme ve yönetme. AI'nın bug triage'ı, kod değişikliklerini gözden geçirmesi ve proje panolarını yönetmesine izin verin.
   - CI/CD ve İş Akışı İstihbaratı: GitHub Actions iş akışı çalışmalarını izleme, derleme hatalarını analiz etme, yayınları yönetme ve geliştirme hattınız hakkında içgörü edinme.
   - Kod Analizi: Güvenlik bulgularını inceleme, Dependabot uyarılarını gözden geçirme, kod desenlerini anlama ve kod tabanınız hakkında kapsamlı içgörü edinme.
   - Takım İşbirliği: Tartışmalara erişme, bildirimleri yönetme, takım etkinliğini analiz etme ve takımınız için süreçleri kolaylaştırma.
-
+  
   AI araçlarını GitHub bağlamı ve yeteneklerine bağlamak isteyen geliştiriciler için tasarlandı; basit doğal dil sorgularından karmaşık çok adımlı ajan iş akışlarına kadar.
-
+  
   ---
-
+  
   ## Uzak GitHub MCP Server
-
+  
   [![VS Code'da Kur](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D) [![VS Code Insiders'da Kur](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D&quality=insiders)
-
+  
   Uzak GitHub MCP Server, GitHub tarafından barındırılır ve çalışmaya başlamanın en kolay yöntemini sağlar. MCP ana bilgisayarınız uzak MCP sunucularını desteklemiyorsa endişelenmeyin! Bunun yerine [GitHub MCP Server'ın yerel versiyonunu](https://github.com/github/github-mcp-server?tab=readme-ov-file#local-github-mcp-server) kullanabilirsiniz.
-
+  
   ### Ön Koşullar
-
+  
   1. Uzak sunucu desteğine sahip uyumlu MCP ana bilgisayarı (VS Code 1.101+, Claude Desktop, Cursor, Windsurf, vb.)
   2. Etkinleştirilen herhangi bir [politika](https://github.com/github/github-mcp-server/blob/main/docs/policies-and-governance.md)
-
+  
   ### VS Code'da Kur
-
+  
   Hızlı kurulum için yukarıdaki tek tıklamalı kurulum düğmelerinden birini kullanın. Bu akışı tamamladıktan sonra Agent modunu (Copilot Chat metin girdisinin yanında bulunan) açın ve sunucu başlayacaktır. [VS Code 1.101](https://code.visualstudio.com/updates/v1_101) veya [daha yeni](https://code.visualstudio.com/updates) bir sürümü kullandığınızdan emin olun.
-
+  
   Alternatif olarak, VS Code'u manuel olarak yapılandırmak için aşağıdaki örneklerden uygun JSON bloğunu seçin ve ana bilgisayar yapılandırmanıza ekleyin:
-
+  
   <table>
   <tr><th>OAuth Kullanarak</th><th>GitHub PAT Kullanarak</th></tr>
   <tr><th align=left colspan=2>VS Code (sürüm 1.101 veya üzeri)</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -60,10 +60,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -85,13 +85,13 @@ body_tr: |-
     ]
   }
   ```
-
+  
   </td>
   </tr>
   </table>
-
+  
   ### Diğer MCP Ana Bilgisayarlarında Kur
-
+  
   - **[Copilot CLI](/docs/installation-guides/install-copilot-cli.md)** - GitHub Copilot CLI için kurulum kılavuzu
   - **[Diğer IDE'lerde GitHub Copilot](/docs/installation-guides/install-other-copilot-ides.md)** - JetBrains, Visual Studio, Eclipse ve Xcode'da GitHub Copilot kurulumu
   - **[Claude Uygulamaları](/docs/installation-guides/install-claude.md)** - Claude Desktop ve Claude Code CLI için kurulum kılavuzu
@@ -99,26 +99,26 @@ body_tr: |-
   - **[Cursor](/docs/installation-guides/install-cursor.md)** - Cursor IDE için kurulum kılavuzu
   - **[Windsurf](/docs/installation-guides/install-windsurf.md)** - Windsurf IDE için kurulum kılavuzu
   - **[Rovo Dev CLI](/docs/installation-guides/install-rovo-dev-cli.md)** - Rovo Dev CLI için kurulum kılavuzu
-
+  
   > **Not:** Her MCP ana bilgisayar uygulaması, OAuth aracılığıyla uzak erişimi desteklemek için bir GitHub App veya OAuth App yapılandırması gereklidir. Uzak MCP sunucularını destekleyen herhangi bir ana bilgisayar uygulaması, PAT kimlik doğrulamasına sahip uzak GitHub sunucusunu desteklemelidir. Yapılandırma ayrıntıları ve destek seviyeleri ana bilgisayara göre değişir. Daha fazla bilgi için ana bilgisayar uygulamasının belgelerine bakın.
-
+  
   ### Yapılandırma
-
+  
   #### Araç seti yapılandırması
-
+  
   Uzak sunucu yapılandırması, araç setleri, başlıklar ve gelişmiş kullanım hakkında tam ayrıntılar için [Uzak Sunucu Belgelerine](docs/remote-server.md) bakın. Bu dosya, uzak GitHub MCP Server'ı VS Code ve diğer MCP ana bilgisayarlarında bağlama, özelleştirme ve kurma konusunda kapsamlı yönergeler ve örnekler sağlar.
-
+  
   Araç seti belirtilmediğinde, [varsayılan araç setleri](#default-toolset) kullanılır.
-
+  
   #### Insiders Modu
-
+  
   > **Yeni özellikleri erkenden deneyin!** Uzak sunucu, yeni özelliklere ve deneysel araçlara erken erişim sağlayan bir insiders versiyonu sunmaktadır.
-
+  
   <table>
   <tr><th>URL Yolu Kullanarak</th><th>Başlık Kullanarak</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -129,10 +129,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -146,21 +146,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   </tr>
   </table>
-
+  
   Daha fazla ayrıntı ve örnek için [Uzak Sunucu Belgelerine](docs/remote-server.md#insiders-mode) ve mevcut olanların tam listesi için [Insiders Özellikleri](docs/insiders-features.md) sayfasına bakın.
-
+  
   #### GitHub Enterprise
-
+  
   ##### Veri yerleşimi ile GitHub Enterprise Cloud (ghe.com)
-
+  
   GitHub Enterprise Cloud ayrıca uzak sunucuyu kullanabilir.
-
+  
   `https://octocorp.ghe.com` için GitHub PAT jetonu ile örnek:
-
+  
   ```
   {
       ...
@@ -174,67 +174,67 @@ body_tr: |-
       ...
   }
   ```
-
+  
   > **Not:** VS Code ve GitHub Copilot ile Veri Yerleşimi ile GitHub Enterprise kullanırken, VS Code ayarlarınızı GitHub Enterprise örneğinize işaret etmek için de yapılandırmanız gerekir - [VS Code'dan Kimlik Doğrula](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom) sayfasına bakın
-
+  
   ##### GitHub Enterprise Server
-
+  
   GitHub Enterprise Server, uzak sunucu barındırmasını desteklemez. Lütfen yerel sunucu yapılandırmasından [GitHub Enterprise Server ve Veri Yerleşimi ile Enterprise Cloud (ghe.com)](#github-enterprise-server-and-enterprise-cloud-with-data-residency-ghecom) sayfasına bakın.
-
+  
   ---
-
+  
   ## Yerel GitHub MCP Server
-
+  
   [![VS Code'da Docker ile Kur](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D) [![VS Code Insiders'da Docker ile Kur](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D&quality=insiders)
-
+  
   ### Ön Koşullar
-
+  
   1. Sunucuyu bir konteyner'da çalıştırmak için [Docker](https://www.docker.com/) kurulu olması gerekir.
   2. Docker kurulduktan sonra, Docker'ın çalıştığından emin olmanız gerekir. Docker image'ı `ghcr.io/github/github-mcp-server` adresinde mevcuttur. Image halka açıktır; pull işleminde hata alırsanız, süresi dolmuş bir token'ınız olabilir ve `docker logout ghcr.io` yapmanız gerekebilir.
   3. Son olarak [GitHub Kişisel Erişim Jetonu Oluşturmanız](https://github.com/settings/personal-access-tokens/new) gerekir.
   MCP sunucusu, GitHub API'larının çoğunu kullanabilir, bu nedenle AI araçlarınıza verilmesi konusunda kendini rahat hissettiğiniz izinleri etkinleştirin (erişim token'ları hakkında daha fazla bilgi için lütfen [belgelerine](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) bakın).
-
+  
   <details><summary><b>PAT'ları Güvenli Bir Şekilde İşleme</b></summary>
-
+  
   ### Ortam Değişkenleri (Önerilir)
-
+  
   GitHub PAT'inizi güvenli tutmak ve farklı MCP ana bilgisayarlarında yeniden kullanılabilir hale getirmek için:
-
+  
   1. **PAT'inizi ortam değişkenlerinde saklayın**
-
+  
      ```bash
      export GITHUB_PAT=your_token_here
      ```
-
+  
      Veya bir `.env` dosyası oluşturun:
-
+  
      ```env
      GITHUB_PAT=your_token_here
      ```
-
+  
   2. **`.env` dosyanızı koruyun**
-
+  
      ```bash
      # .gitignore'a ekleyin yanlışlıkla commit'leri önlemek için
      echo ".env" >> .gitignore
      ```
-
+  
   3. **Token'i yapılandırmalarda referans verin**
-
+  
      ```bash
      # CLI kullanımı
      claude mcp update github -e GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PAT
-
+  
      # Yapılandırma dosyalarında (desteklendiğinde)
      "env": {
        "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_PAT"
      }
      ```
-
+  
   > **Not**: Ortam değişkeni desteği ana bilgisayar uygulaması ve IDE'ye göre değişir. Bazı uygulamalar (Windsurf gibi) yapılandırma dosyalarında sabit kod yazılmış token'ler gerektirir.
-
+  
   ### Token Güvenliği En İyi Uygulamaları
-
+  
   - **Minimum kapsamlar**: Yalnızca gerekli izinleri verin
     - `repo` - Depo işlemleri
     - `read:packages` - Docker image'ı erişimi
@@ -243,20 +243,20 @@ body_tr: |-
   - **Düzenli rotasyon**: Token'leri periyodik olarak güncelleyin
   - **Asla commit etmeyin**: Token'leri version kontrolünün dışında tutun
   - **Dosya izinleri**: Token'ler içeren yapılandırma dosyalarına erişimi kısıtlayın
-
+  
     ```bash
     chmod 600 ~/.your-app/config.json
     ```
-
+  
   </details>
-
+  
   ### GitHub Enterprise Server ve Veri Yerleşimi ile Enterprise Cloud (ghe.com)
-
+  
   `--gh-host` bayrağı ve `GITHUB_HOST` ortam değişkeni, GitHub Enterprise Server veya Veri Yerleşimi ile GitHub Enterprise Cloud için ana bilgisayar adını ayarlamak üzere kullanılabilir.
-
+  
   - GitHub Enterprise Server için, ana bilgisayar adını `https://` URI şeması ile önek ekleyin, aksi takdirde `http://` varsayılan olur ve GitHub Enterprise Server bunu desteklemez.
   - Veri Yerleşimi ile GitHub Enterprise Cloud için, ana bilgisayar adı olarak `https://YOURSUBDOMAIN.ghe.com` kullanın.
-
+  
   ``` json
   "github": {
       "command": "docker",
@@ -276,19 +276,19 @@ body_tr: |-
       }
   }
   ```
-
+  
   ## Kurulum
-
+  
   ### GitHub Copilot on VS Code'da Kur
-
+  
   Hızlı kurulum için yukarıdaki tek tıklamalı kurulum düğmelerinden birini kullanın. Bu akışı tamamladıktan sonra Agent modunu (Copilot Chat metin girdisinin yanında bulunan) açın ve sunucu başlayacaktır.
-
+  
   VS Code'un [ajan modu belgelerine](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) bakın MCP sunucu araçlarını kullanma hakkında daha fazla bilgi için.
-
+  
   Diğer IDE'lerde GitHub Copilot'a (JetBrains, Visual Studio, Eclipse, vb.) Kur
-
+  
   Aşağıdaki JSON bloğunu IDE'nin MCP ayarlarına ekleyin.
-
+  
   ```json
   {
     "mcp": {
@@ -319,13 +319,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   İsteğe bağlı olarak, çalışma alanınızda `.vscode/mcp.json` adında bir dosyaya benzer bir örnek (yani mcp anahtarı olmadan) ekleyebilirsiniz. Bu, yapılandırmayı aynı formatı kabul eden diğer ana bilgisayar uygulamaları ile paylaşmanıza izin verir.
-
+  
   <details>
   <summary><b>MCP anahtarı olmayan örnek JSON bloğu</b></summary>
   <br>
-
+  
   ```json
   {
     "inputs": [
@@ -354,28 +354,28 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   ### Diğer MCP Ana Bilgisayarlarında Kur
-
+  
   Diğer MCP ana bilgisayar uygulamaları için lütfen kurulum kılavuzlarımıza bakın:
-
+  
   - **[Copilot CLI](docs/installation-guides/install-copilot-cli.md)** - GitHub Copilot CLI için kurulum kılavuzu
   - **[Diğer IDE'lerde GitHub Copilot](/docs/installation-guides/install-other-copilot-ides.md)** - JetBrains, Visual Studio, Eclipse ve Xcode'da GitHub Copilot kurulumu
   - **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Claude Code ve Claude Desktop için kurulum kılavuzu
   - **[Cursor](docs/installation-guides/install-cursor.md)** - Cursor IDE için kurulum kılavuzu
   - **[Google Gemini CLI](docs/installation-guides/install-gemini-cli.md)** - Google Gemini CLI için kurulum kılavuzu
   - **[Windsurf](docs/installation-guides/install-windsurf.md)** - Windsurf IDE için kurulum kılavuzu
-
+  
   Tüm kurulum seçeneklerine genel bir bakış için, lütfen **[Kurulum Kılavuzları İndeksine](docs/installation-guides)** bakın.
-
+  
   > **Not:** Yerel MCP sunucularını destekleyen herhangi bir ana bilgisayar uygulaması, yerel GitHub MCP sunucusuna erişebilmelidir. Ancak, belirli yapılandırma süreci, söz dizimi ve entegrasyonun stabilitesi ana bilgisayar uygulamasına göre değişir. Çoğu yukarıdaki örneklere benzer bir format izleyebilirken, bu garantili değildir. Doğru MCP yapılandırma söz dizimi ve kurulum süreci için lütfen ana bilgisayar uygulamanızın belgelerine bakın.
-
+  
   ### Kaynaktan Derle
-
+  
   Docker'ınız yoksa, `cmd/github-mcp-server` dizininde `go build` kullanarak ikili dosyayı derleyebilir ve `GITHUB_PERSONAL_ACCESS_TOKEN` ortam değişkeni token'ize ayarlanmış şekilde `github-mcp-server stdio` komutunu kullanabilirsiniz. Derlemenin çıkış konumunu belirtmek için `-o` bayrağını kullanın. Sunucunuzu, derlenmiş yürütülebilir dosyayı `command` olarak kullanacak şekilde yapılandırmalısınız. Örneğin:
-
+  
   ```JSON
   {
     "mcp": {
@@ -391,90 +391,90 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### CLI Yardımcı Programları
-
+  
   `github-mcp-server` ikili dosyası, sunucuyu hata ayıklama ve keşfetme konusunda yardımcı olan birkaç CLI alt komutu içerir.
-
+  
   - `github-mcp-server tool-search "<query>"` araçları ada, açıklamaya ve giriş parametre adlarına göre arar. Daha fazla eşleşme döndürmek için `--max-results` kullanın.
   Örnek (renk çıktısı TTY gerektirir; Docker'da çalıştırırken `docker run -t` (veya `-it`) kullanın):
   ```bash
   docker run -it --rm ghcr.io/github/github-mcp-server tool-search "issue" --max-results 5
   github-mcp-server tool-search "issue" --max-results 5
   ```
-
+  
   ## Araç Yapılandırması
-
+  
   GitHub MCP Server, `--toolsets` bayrağı aracılığıyla belirli işlevsellik gruplarını etkinleştirme veya devre dışı bırakma destekler. Bu, AI araçlarına hangi GitHub API yeteneklerinin kullanılabilir olduğunu kontrol etmenize izin verir. Yalnızca ihtiyaç duyduğunuz araç setlerini etkinleştirmek, LLM'nin araç seçimine yardımcı olabilir ve bağlam boyutunu azaltabilir.
-
+  
   _Araç setleri araçlarla sınırlı değildir. İlgili MCP Kaynakları ve İstemler de uygulanabilir yerlerde dahil edilir._
-
+  
   Araç seti belirtilmediğinde, [varsayılan araç setleri](#default-toolset) kullanılır.
-
+  
   > **Örnekler arıyor? mısınız?** Minimal kurulumlar, salt okunur mod ve araçları araç setleriyle birleştirme gibi yaygın tarifler için [Server Yapılandırma Kılavuzuna](./docs/server-configuration.md) bakın.
-
+  
   #### Araç Setlerini Belirtme
-
+  
   LLM'nin kullanabileceğini istediğiniz araç setlerini belirtmek için, bir izin listesini iki şekilde geçebilirsiniz:
-
+  
   1. **Komut Satırı Argümanı Kullanarak**:
-
+  
      ```bash
      github-mcp-server --toolsets repos,issues,pull_requests,actions,code_security
      ```
-
+  
   2. **Ortam Değişkeni Kullanarak**:
-
+  
      ```bash
      GITHUB_TOOLSETS="repos,issues,pull_requests,actions,code_security" ./github-mcp-server
      ```
-
+  
   Ortam değişkeni `GITHUB_TOOLSETS`, her ikisi de sağlanırsa komut satırı argümanından öncelik alır.
-
+  
   #### Bireysel Araçları Belirtme
-
+  
   Ayrıca `--tools` bayrağını kullanarak belirli araçları yapılandırabilirsiniz. Araçlar bağımsız olarak veya ince taneli kontrol için araç setleriyle birleştirilmiş olarak kullanılabilir.
-
+  
   1. **Komut Satırı Argümanı Kullanarak**:
-
+  
      ```bash
      github-mcp-server --tools get_file_contents,issue_read,create_pull_request
      ```
-
+  
   2. **Ortam Değişkeni Kullanarak**:
-
+  
      ```bash
      GITHUB_TOOLS="get_file_contents,issue_read,create_pull_request" ./github-mcp-server
      ```
-
+  
   3. **Araç Setleriyle Birleştirme** (kümülatif):
-
+  
      ```bash
      github-mcp-server --toolsets repos,issues --tools get_gist
      ```
-
+  
      Bu, `repos` ve `issues` araç setlerinden tüm araçları, plus `get_gist` kaydettirir.
-
+  
   **Önemli Notlar:**
-
+  
   - Araçlar ve araç setleri birlikte kullanılabilir
   - Salt okunur mod önceliğe sahiptir: yazma araçları `--read-only` ayarlanırsa, `--tools` aracılığıyla açıkça istense bile atlanır
   - Araç adları tam olarak eşleşmelidir (ör. `get_file_contents`, `getFileContents` değil). Geçersiz araç adları sunucunun başlangıçta bir hata mesajı ile başarısız olmasına neden olur
   - Araçlar yeniden adlandırıldığında, eski adlar geriye dönük uyumluluk için takma ad olarak korunur. Ayrıntılar için [Araç Yeniden Adlandırma](docs/tool-renaming.md) sayfasına bakın.
-
+  
   ### Docker ile Araç Setlerini Kullanma
-
+  
   Docker kullanırken, araç setlerini ortam değişkenleri olarak geçebilirsiniz:
-
+  
   ```bash
   docker run -i --rm \
     -e GITHUB_PERSONAL_ACCESS_TOKEN=<your-token> \
     -e GITHUB_TOOLSETS="repos,issues,pull_requests,actions,code_security" \
     ghcr.io/github/github-mcp-server
   ```
-
+  
   ### Docker ile Araçları Kullanma
-
+  
   Docker kullanırken, belirli araçları ortam değişkenleri olarak
 ---
 
@@ -498,7 +498,7 @@ Built for developers who want to connect their AI tools to GitHub context and ca
 
 ## Remote GitHub MCP Server
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D) [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D&quality=insiders)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D) [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D&quality=insiders) [![Install in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Server-C16FDE?style=flat-square&logo=visualstudio&logoColor=white)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22github%22%2C%22gallery%22%3Atrue%2C%22url%22%3A%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D)
 
 The remote GitHub MCP Server is hosted by GitHub and provides the easiest method for getting up and running. If your MCP host does not support remote MCP servers, don't worry! You can use the [local version of the GitHub MCP Server](https://github.com/github/github-mcp-server?tab=readme-ov-file#local-github-mcp-server) instead.
 
@@ -566,7 +566,9 @@ Alternatively, to manually configure VS Code, choose the appropriate JSON block 
 - **[Claude Applications](/docs/installation-guides/install-claude.md)** - Installation guide for Claude Desktop and Claude Code CLI
 - **[Codex](/docs/installation-guides/install-codex.md)** - Installation guide for OpenAI Codex
 - **[Cursor](/docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
+- **[OpenCode](/docs/installation-guides/install-opencode.md)** - Installation guide for the OpenCode terminal agent
 - **[Windsurf](/docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
+- **[Zed](/docs/installation-guides/install-zed.md)** - Installation guide for Zed editor
 - **[Rovo Dev CLI](/docs/installation-guides/install-rovo-dev-cli.md)** - Installation guide for Rovo Dev CLI
 
 > **Note:** Each MCP host application needs to configure a GitHub App or OAuth App to support remote access via OAuth. Any host application that supports remote MCP servers should support the remote GitHub server with PAT authentication. Configuration details and support levels vary by host. Make sure to refer to the host application's documentation for more info.
@@ -654,7 +656,7 @@ GitHub Enterprise Server does not support remote server hosting. Please refer to
 
 ## Local GitHub MCP Server
 
-[![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D) [![Install with Docker in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D&quality=insiders)
+[![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D) [![Install with Docker in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D&quality=insiders) [![Install with Docker in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Server-C16FDE?style=flat-square&logo=visualstudio&logoColor=white)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22github%22%2C%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%7D)
 
 ### Prerequisites
 
@@ -692,7 +694,7 @@ To keep your GitHub PAT secure and reusable across different MCP hosts:
 
    ```bash
    # CLI usage
-   claude mcp update github -e GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PAT
+   claude mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
 
    # In config files (where supported)
    "env": {
@@ -836,7 +838,9 @@ For other MCP host applications, please refer to our installation guides:
 - **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Installation guide for Claude Code and Claude Desktop
 - **[Cursor](docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
 - **[Google Gemini CLI](docs/installation-guides/install-gemini-cli.md)** - Installation guide for Google Gemini CLI
+- **[OpenCode](docs/installation-guides/install-opencode.md)** - Installation guide for the OpenCode terminal agent
 - **[Windsurf](docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
+- **[Zed](docs/installation-guides/install-zed.md)** - Installation guide for Zed editor
 
 For a complete overview of all installation options, see our **[Installation Guides Index](docs/installation-guides)**.
 
@@ -1193,8 +1197,8 @@ The following sets of tools are available:
 - **list_dependabot_alerts** - List dependabot alerts
   - **Required OAuth Scopes**: `security_events`
   - **Accepted OAuth Scopes**: `repo`, `security_events`
+  - `after`: Cursor for pagination. Use the cursor from the previous response. (string, optional)
   - `owner`: The owner of the repository. (string, required)
-  - `page`: Page number for pagination (min 1) (number, optional)
   - `perPage`: Results per page for pagination (min 1, max 100) (number, optional)
   - `repo`: The name of the repository. (string, required)
   - `severity`: Filter dependabot alerts by severity (string, optional)
@@ -1231,7 +1235,7 @@ The following sets of tools are available:
 
 - **get_discussion_comments** - Get discussion comments
   - **Required OAuth Scopes**: `repo`
-  - `after`: Cursor for pagination. Use the endCursor from the previous page's PageInfo for GraphQL APIs. (string, optional)
+  - `after`: Cursor for pagination. Use the cursor from the previous response. (string, optional)
   - `discussionNumber`: Discussion Number (number, required)
   - `includeReplies`: When true, each top-level comment will include its replies nested within it (up to 100 replies per comment, which is the GitHub API maximum). Defaults to false. (boolean, optional)
   - `owner`: Repository owner (string, required)
@@ -1245,7 +1249,7 @@ The following sets of tools are available:
 
 - **list_discussions** - List discussions
   - **Required OAuth Scopes**: `repo`
-  - `after`: Cursor for pagination. Use the endCursor from the previous page's PageInfo for GraphQL APIs. (string, optional)
+  - `after`: Cursor for pagination. Use the cursor from the previous response. (string, optional)
   - `category`: Optional filter by discussion category ID. If provided, only discussions with this category are listed. (string, optional)
   - `direction`: Order direction. (string, optional)
   - `orderBy`: Order discussions by field. If provided, the 'direction' also needs to be provided. (string, optional)
@@ -1302,7 +1306,7 @@ The following sets of tools are available:
 
 <summary><picture><source media="(prefers-color-scheme: dark)" srcset="pkg/octicons/icons/issue-opened-dark.png"><source media="(prefers-color-scheme: light)" srcset="pkg/octicons/icons/issue-opened-light.png"></picture> Issues</summary>
 
-- **add_issue_comment** - Add comment to issue
+- **add_issue_comment** - Add comment to issue or pull request
   - **Required OAuth Scopes**: `repo`
   - `body`: Comment content (string, required)
   - `issue_number`: Issue number to comment on (number, required)
@@ -1330,7 +1334,7 @@ The following sets of tools are available:
   - `perPage`: Results per page for pagination (min 1, max 100) (number, optional)
   - `repo`: The name of the repository (string, required)
 
-- **issue_write** - Create or update issue
+- **issue_write** - Create or update issue/pull request
   - **Required OAuth Scopes**: `repo`
   - `assignees`: Usernames to assign to this issue (string[], optional)
   - `body`: Issue body content (string, optional)
@@ -1357,7 +1361,7 @@ The following sets of tools are available:
 
 - **list_issues** - List issues
   - **Required OAuth Scopes**: `repo`
-  - `after`: Cursor for pagination. Use the endCursor from the previous page's PageInfo for GraphQL APIs. (string, optional)
+  - `after`: Cursor for pagination. Use the cursor from the previous response. (string, optional)
   - `direction`: Order direction. If provided, the 'orderBy' also needs to be provided. (string, optional)
   - `labels`: Filter by labels (string[], optional)
   - `orderBy`: Order issues by field. If provided, the 'direction' also needs to be provided. (string, optional)
@@ -1508,22 +1512,26 @@ The following sets of tools are available:
   - `project_number`: The project's number. Required for 'list_project_fields', 'list_project_items', and 'list_project_status_updates' methods. (number, optional)
   - `query`: Filter/query string. For list_projects: filter by title text and state (e.g. "roadmap is:open"). For list_project_items: advanced filtering using GitHub's project filtering syntax. (string, optional)
 
-- **projects_write** - Modify GitHub Project items
+- **projects_write** - Manage GitHub Projects
   - **Required OAuth Scopes**: `project`
   - `body`: The body of the status update (markdown). Used for 'create_project_status_update' method. (string, optional)
+  - `field_name`: The name of the iteration field (e.g. 'Sprint'). Required for 'create_iteration_field' method. (string, optional)
   - `issue_number`: The issue number (use when item_type is 'issue' for 'add_project_item' method). Provide either issue_number or pull_request_number. (number, optional)
   - `item_id`: The project item ID. Required for 'update_project_item' and 'delete_project_item' methods. (number, optional)
   - `item_owner`: The owner (user or organization) of the repository containing the issue or pull request. Required for 'add_project_item' method. (string, optional)
   - `item_repo`: The name of the repository containing the issue or pull request. Required for 'add_project_item' method. (string, optional)
   - `item_type`: The item's type, either issue or pull_request. Required for 'add_project_item' method. (string, optional)
+  - `iteration_duration`: Duration in days for iterations of the field (e.g. 7 for weekly, 14 for bi-weekly). Required for 'create_iteration_field' method. (number, optional)
+  - `iterations`: Custom iterations for 'create_iteration_field' method. Only set this when you need iterations with varying durations, breaks between them, or specific titles. Otherwise omit it: GitHub auto-creates three iterations of 'iteration_duration' days starting on 'start_date', which is the right choice for most cases. (object[], optional)
   - `method`: The method to execute (string, required)
   - `owner`: The project owner (user or organization login). The name is not case sensitive. (string, required)
-  - `owner_type`: Owner type (user or org). If not provided, will be automatically detected. (string, optional)
-  - `project_number`: The project's number. (number, required)
+  - `owner_type`: Owner type (user or org). Required for 'create_project' method. If not provided for other methods, will be automatically detected. (string, optional)
+  - `project_number`: The project's number. Required for all methods except 'create_project'. (number, optional)
   - `pull_request_number`: The pull request number (use when item_type is 'pull_request' for 'add_project_item' method). Provide either issue_number or pull_request_number. (number, optional)
-  - `start_date`: The start date of the status update in YYYY-MM-DD format. Used for 'create_project_status_update' method. (string, optional)
+  - `start_date`: Start date in YYYY-MM-DD format. Used for 'create_project_status_update' and 'create_iteration_field' methods. (string, optional)
   - `status`: The status of the project. Used for 'create_project_status_update' method. (string, optional)
   - `target_date`: The target date of the status update in YYYY-MM-DD format. Used for 'create_project_status_update' method. (string, optional)
+  - `title`: The project title. Required for 'create_project' method. (string, optional)
   - `updated_field`: Object consisting of the ID of the project field to update and the new value for the field. To clear the field, set value to null. Example: {"id": 123456, "value": "New Value"}. Required for 'update_project_item' method. (object, optional)
 
 </details>
@@ -1562,6 +1570,7 @@ The following sets of tools are available:
   - `maintainer_can_modify`: Allow maintainer edits (boolean, optional)
   - `owner`: Repository owner (string, required)
   - `repo`: Repository name (string, required)
+  - `reviewers`: GitHub usernames or ORG/team-slug team reviewers to request reviews from (string[], optional)
   - `title`: PR title (string, required)
 
 - **list_pull_requests** - List pull requests
@@ -1594,10 +1603,11 @@ The following sets of tools are available:
      2. get_diff - Get the diff of a pull request.
      3. get_status - Get combined commit status of a head commit in a pull request.
      4. get_files - Get the list of files changed in a pull request. Use with pagination parameters to control the number of results returned.
-     5. get_review_comments - Get review threads on a pull request. Each thread contains logically grouped review comments made on the same code location during pull request reviews. Returns threads with metadata (isResolved, isOutdated, isCollapsed) and their associated comments. Use cursor-based pagination (perPage, after) to control results.
-     6. get_reviews - Get the reviews on a pull request. When asked for review comments, use get_review_comments method. Use with pagination parameters to control the number of results returned.
-     7. get_comments - Get comments on a pull request. Use this if user doesn't specifically want review comments. Use with pagination parameters to control the number of results returned.
-     8. get_check_runs - Get check runs for the head commit of a pull request. Check runs are the individual CI/CD jobs and checks that run on the PR.
+     5. get_commits - Get the list of commits on a pull request. Use with pagination parameters to control the number of results returned.
+     6. get_review_comments - Get review threads on a pull request. Each thread contains logically grouped review comments made on the same code location during pull request reviews. Returns threads with metadata (isResolved, isOutdated, isCollapsed) and their associated comments. Use cursor-based pagination (perPage, after) to control results.
+     7. get_reviews - Get the reviews on a pull request. When asked for review comments, use get_review_comments method. Use with pagination parameters to control the number of results returned.
+     8. get_comments - Get comments on a pull request. Use this if user doesn't specifically want review comments. Use with pagination parameters to control the number of results returned.
+     9. get_check_runs - Get check runs for the head commit of a pull request. Check runs are the individual CI/CD jobs and checks that run on the PR.
      (string, required)
   - `owner`: Repository owner (string, required)
   - `page`: Page number for pagination (min 1) (number, optional)
@@ -1635,7 +1645,7 @@ The following sets of tools are available:
   - `owner`: Repository owner (string, required)
   - `pullNumber`: Pull request number to update (number, required)
   - `repo`: Repository name (string, required)
-  - `reviewers`: GitHub usernames to request reviews from (string[], optional)
+  - `reviewers`: GitHub usernames or ORG/team-slug team reviewers to request reviews from (string[], optional)
   - `state`: New state (string, optional)
   - `title`: New title (string, optional)
 
@@ -1675,7 +1685,7 @@ The following sets of tools are available:
   - `description`: Repository description (string, optional)
   - `name`: Repository name (string, required)
   - `organization`: Organization to create the repository in (omit to create in your personal account) (string, optional)
-  - `private`: Whether repo should be private (boolean, optional)
+  - `private`: Whether the repository should be private. Defaults to true (private) when omitted. (boolean, optional)
 
 - **delete_file** - Delete file
   - **Required OAuth Scopes**: `repo`
@@ -1693,7 +1703,7 @@ The following sets of tools are available:
 
 - **get_commit** - Get commit details
   - **Required OAuth Scopes**: `repo`
-  - `include_diff`: Whether to include file diffs and stats in the response. Default is true. (boolean, optional)
+  - `detail`: Level of detail to include for changed files. "none" omits stats and files entirely. "stats" (default) includes per-file metadata: filename, status, and lines-of-code counts (additions, deletions, changes), with no patch content. "full_patch" additionally includes the unified diff content for each file and can be very large. (string, optional)
   - `owner`: Repository owner (string, required)
   - `page`: Page number for pagination (min 1) (number, optional)
   - `perPage`: Results per page for pagination (min 1, max 100) (number, optional)

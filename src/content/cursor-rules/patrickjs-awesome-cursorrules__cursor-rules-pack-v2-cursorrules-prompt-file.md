@@ -9,6 +9,36 @@ path: "rules/cursor-rules-pack-v2-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cursor-rules-pack-v2-cursorrules-prompt-file.mdc"
 body_length: 2646
 file_extension: ".mdc"
+body_tr: |-
+  # Cursor Rules Pack v2 — Örnek Kurallar
+  # 7 üretim ortamında test edilmiş kural, tam 50 kuraldan oluşan paketten
+  # Tam paket: https://oliviacraftlat.gumroad.com/l/wyaeil
+
+  ## Kural 1 — Bağımlılık Disiplini
+  Yeni bir npm paketi önerisinde bulunmadan önce: (1) ne yaptığını bir cümleyle açıklayın, (2) aktif olarak bakım görüp görmediğini kontrol edin (son yayın < 6 ay önce), (3) bunu 30 satırdan az kodla bağımlılık olmadan uygulayıp uygulayamayacağımızı doğrulayın. Daha az, iyi bakım görmüş paketleri tercih edin. 20 satırdan az kodla yapılabilecek bir görev için hiçbir zaman bağımlılık eklemeyin.
+
+  ## Kural 2 — Açık Hata Yönetimi
+  Her zaman async işlemleri try/catch ile sarın. Hataları sessizce yok saymayın. Result pattern kullanarak veya typed hatalar fırlatarak yazılı hata nesneleri döndürün. Hataları bağlamla logla: `logger.error('[FunctionName] description', { error, context })`. UI bileşenlerinde her zaman kullanıcıya yönelik hata durumlarını sağlayın.
+
+  ## Kural 3 — Yorum Politikası
+  Önce kendini açıklayan kod yazın. Yalnızca şu durumlarda yorum ekleyin: (1) açık olmayan business logic — NE değil, NEDEN açıklayın, (2) geçici çözümler — geçici çözümün neden var olduğunu açıklayın ve issue bağlantısı verin, (3) karmaşık algoritmalar — algoritma adını referans verin. Kodun açıkça yaptığını asla yorumlamayın.
+
+  ## Kural 4 — State Yönetimi Hiyerarşisi
+  Bu state hiyerarşisine kesinlikle uyun:
+  - URL state → filtreler, pagination, arama (useSearchParams)
+  - React state → yalnızca UI, geçici (useState)
+  - Zustand → bileşenler arası app state
+  - React Query → tüm server state
+  Zustand'ı server verilerini önbelleğe almak için kullanmayın — bu React Query'nin işi. Redux'a başvurmayın.
+
+  ## Kural 5 — Paralel Veri Getirme
+  Bağımsız veri getirme işlemlerini tanımlayın ve paralelize edin. İşlemler bağımsız olduğunda sırayla await yapmayın — `Promise.all` kullanın. Sırayla await yapıyorken, sekansı zorlayan bağımlılığı açıklayan bir yorum ekleyin.
+
+  ## Kural 6 — Webhook Güvenliği
+  Gelen webhooklar için: imzayı handler'ın ilk 3 satırında doğrulayın — geçersizse hemen reddedin. HTTP 200 ile 5 saniye içinde yanıt verin — işlemeyi bir background job'a devrederek başlayın. İşlemeden önce raw webhook olayını saklayın. Olay kimliğini kullanarak idempotency uygulayın.
+
+  ## Kural 7 — Veritabanı Sorgusu Güvenliği
+  Hiçbir zaman tam veritabanı kayıtlarını istemciye döndürmeyin — ihtiyaç duyulan alanları tam olarak belirtmek için `select` kullanın. Bu, yanlışlıkla parola hash'lerini, sıfırlama tokenlarını, iç flagları ve diğer hassas alanları açığa çıkarmayı önler. 50'den fazla satır döndürebilecek sorgular için her zaman pagination ekleyin (take/skip veya cursor tabanlı).
 ---
 
 # Cursor Rules Pack v2 — Sample Rules

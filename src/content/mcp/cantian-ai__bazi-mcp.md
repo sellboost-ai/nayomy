@@ -3,70 +3,70 @@ name: "cantian-ai/bazi-mcp"
 description: "Provides comprehensive and accurate Bazi (Chinese Astrology) charting and analysis"
 category: "Art & Culture"
 repo: "cantian-ai/bazi-mcp"
-stars: 382
+stars: 391
 url: "https://github.com/cantian-ai/bazi-mcp"
 body_length: 9537
 license: "ISC"
 language: "TypeScript"
 body_tr: |-
   # Bazı MCP (八字 MCP) - Cantian AI
-
+  
   [![smithery badge](https://smithery.ai/badge/@cantian-ai/bazi-mcp)](https://smithery.ai/server/@cantian-ai/bazi-mcp)
   [![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/453ac410-d93a-45fb-8563-7d3cccfbe956)
-
+  
   **Bazi MCP** ile hassas Bazı içgörülerine ulaşın - ilk AI destekli Bazı hesaplayıcı. GPT ve DeepSeek gibi mevcut yapay zeka falcılık araçlarındaki hataları düzeltmek için tasarlanan MCP'miz, kişilik analizi, kader tahmini ve daha fazlası için güvenilir Bazı verileri sunar.
-
+  
   ### Neden Bazi MCP?
-
+  
   - **Doğru Bazı Hesaplamaları**: Kapsamlı Bazı bilgisi sağlayın.
   - **AI Agent Entegrasyonu**: AI ajanlarını hassas Bazı verileriyle güçlendirin.
   - **Topluluk Odaklı**: Çin metafiziğini ilerleterek meraklılarla katılın.
-
+  
   GPT Store'daki popüler [_Chinese Bazi Fortune Teller_](https://chatgpt.com/g/g-67c3f7b74d148191a2167f44fd13412d-chinese-bazi-fortune-teller-can-tian-ba-zi-suan-ming-jing-zhun-pai-pan-jie-du) GPT'sinden kaynaklanan bu proje, **Cantian AI** ile entegre edilmiştir ([cantian.ai](https://cantian.ai)). Bazı uygulayıcılarını ve AI meraklılarını işbirliği yapmaya, içgörü paylaşmaya ve açık kaynak topluluğumuza katkı sağlamaya davet ediyoruz.
-
+  
   ### Katılın
-
+  
   - **İletişim**: [support@cantian.ai](mailto:support@cantian.ai)
-
+  
   ## 中文
-
+  
   **八字 MCP**是参天 AI 推出的首个面向玄学领域的 MCP，针对 GPT 和 DeepSeek 等算命工具常出现的排盘错误，提供精准的八字数据，助力性格分析、命运预测等应用。
-
+  
   ### 八字 MCP 亮点
-
+  
   - **精准排盘**：提供全面的八字排盘信息。
   - **AI 赋能**：为 AI 智能体提供可靠八字服务。
   - **社区共建**：欢迎命理爱好者参与交流与开发。
-
+  
   项目源于 GPT Store 热门应用[_Chinese Bazi Fortune Teller_](https://chatgpt.com/g/g-67c3f7b74d148191a2167f44fd13412d-chinese-bazi-fortune-teller-can-tian-ba-zi-suan-ming-jing-zhun-pai-pan-jie-du)，现已融入**参天 AI**平台 ([cantian.ai](https://cantian.ai))。我们诚邀命理研究者与 AI 开发者加入，共同推动中国传统文化的传承与创新。
-
+  
   ### 联系我们
-
+  
   - **邮箱**：[support@cantian.ai](mailto:support@cantian.ai)
   - **微信**：
-
+  
     
-
+  
   ## Ön Koşullar ｜ Prerequisite
-
+  
   Node.js 22 sürümü veya üzeri.
-
+  
   Node.js 22 or above.
-
+  
   ## Başlayın ｜ Start
-
+  
   ### Streamable HTTP ile Başlatın ｜ Start by Streamable HTTP transport
-
+  
   ```shell
   npm start
   ```
-
+  
   ### Stdio ile Başlatın ｜ Start by Stdio transport
-
+  
   AI uygulamasını yapılandırın (örneğin Claude Desktop).
-
+  
   Configure AI application (e.g. Claude Desktop).
-
+  
   ```json
   {
     "mcpServers": {
@@ -77,46 +77,46 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Smithery Üzerinden Yükleme
-
+  
   bazi-mcp'yi [Smithery](https://smithery.ai/server/@cantian-ai/bazi-mcp) aracılığıyla Claude Desktop'a otomatik olarak yüklemek için:
-
+  
   ```bash
   npx -y @smithery/cli install @cantian-ai/bazi-mcp --client claude
   ```
-
+  
   ## Araçlar Listesi ｜ Tools
-
+  
   ### getBaziDetail
-
+  
   > Verilen Gregoryen veya Çin takvimi zamanına göre Bazı bilgilerini hesaplayın.
   > Calculate the Bazi results based on the solar/lunar datetime.
-
+  
   #### Parametreler ｜ Arguments
-
+  
   - solarDatetime: `String`
-
+  
     > ISO formatında Gregoryen takvimi saati. Örnek: `2000-05-15T12:00:00+08:00`.  
     > Solar datetime in ISO format. Example: `2000-05-15T12:00:00+08:00`.
-
+  
   - lunarDatetime: `String`
-
+  
     > Çin takvimi saati. Örnek: `2000-05-15 12:00:00`.  
     > Lunar datetime. Example: `2000-05-15 12:00:00`.
-
+  
   - gender: `Number`
-
+  
     > Cinsiyet. İsteğe bağlı. 0 - Kadın, 1 - Erkek. Varsayılan 1.  
     > Gender. Optional. 0 for female, 1 for male. 1 by default.
-
+  
   - eightCharProviderSect： `Number`
-
+  
     > Erken/geç saat yapılandırması. İsteğe bağlı. 1 - 23:00-23:59 günün gövdesi ertesi gün için, 2 - 23:00-23:59 günün gövdesi bugün için. Varsayılan 2.
     > Configuration for eight char provider. Optional. 1 for meaning the day stem of 23:00-23:59 is for tomorrow, 2 for meaning the day stem of 23:00-23:59 is for today. 2 by default.
-
+  
   #### Sonuç Örneği ｜ Result example
-
+  
   ```json
   {
     "性别": "男",
@@ -409,39 +409,39 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### getSolarTimes
-
+  
   > Verilen Bazı'ya dayalı olarak olası Gregoryen takvimi saati listesini döndürün.
   > Return a list of possible solar calendar datetime based on the given Bazi.
-
+  
   #### Parametreler ｜ Arguments
-
+  
   - bazi: `String`
-
+  
     > Bazı, her sütun boşlukla ayrılmış.
     > Bazi, with each pillar separated by a space.
-
+  
   #### Sonuç Örneği ｜ Result example
-
+  
   ```json
   ["1758-07-29 14:00:00", "1818-07-15 14:00:00", "1998-07-31 14:00:00"]
   ```
-
+  
   ### getChineseCalendar
-
+  
   > Belirtilen Gregoryen takvimi saati (varsayılan olarak bugün) için Çin takvimi bilgilerini alın.
   > Get chinese calendar information for the specified solar calendar date (default is today).
-
+  
   #### Parametreler ｜ Arguments
-
+  
   - solarDatetime
-
+  
     > ISO formatında Gregoryen takvimi saati. Örnek: `2000-05-15T12:00:00+08:00`.  
     > Solar datetime in ISO format. Example: `2000-05-15T12:00:00+08:00`.
-
+  
   #### Sonuç Örneği ｜ Result example
-
+  
   ```json
   {
     "公历": "2025年5月7日 星期三",
@@ -462,7 +462,7 @@ body_tr: |-
     "忌": ""
   }
   ```
-
+  
   **Anahtar Kelimeler**: Bazi MCP, Bazi AI Agent, Fengshui AI Agent, Bazi Calculator MCP, Bazi Calculator AI, Cantian AI
 ---
 

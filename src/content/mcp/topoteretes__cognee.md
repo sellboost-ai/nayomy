@@ -3,9 +3,9 @@ name: "topoteretes/cognee"
 description: "Memory manager for AI apps and Agents using various graph and vector stores and allowing ingestion from 30+ data sources."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
-stars: 17513
+stars: 17856
 url: "https://github.com/topoteretes/cognee"
-body_length: 12145
+body_length: 12529
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://www.cognee.ai"
@@ -14,11 +14,11 @@ body_tr: |-
     <a href="https://github.com/topoteretes/cognee">
       
     </a>
-
+  
     <br />
-
+  
     Cognee - Ajanlarınızın Arkasındaki Beyin
-
+  
     <p align="center">
     <a href="https://www.youtube.com/watch?v=8hmqS2Y5RVQ&t=13s">Demo</a>
     .
@@ -32,8 +32,8 @@ body_tr: |-
     .
     <a href="https://github.com/topoteretes/cognee-community">Topluluk Eklentileri & Eklentiler</a>
     </p>
-
-
+  
+  
     [![GitHub forks](https://img.shields.io/github/forks/topoteretes/cognee.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/topoteretes/cognee/network/)
     [![GitHub stars](https://img.shields.io/github/stars/topoteretes/cognee.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/topoteretes/cognee/stargazers/)
     [![GitHub commits](https://badgen.net/github/commits/topoteretes/cognee)](https://GitHub.com/topoteretes/cognee/commit/)
@@ -42,15 +42,15 @@ body_tr: |-
     [![License](https://img.shields.io/github/license/topoteretes/cognee?colorA=00C586&colorB=000000)](https://github.com/topoteretes/cognee/blob/main/LICENSE)
     [![Contributors](https://img.shields.io/github/contributors/topoteretes/cognee?colorA=00C586&colorB=000000)](https://github.com/topoteretes/cognee/graphs/contributors)
     <a href="https://github.com/sponsors/topoteretes"></a>
-
+  
   <p>
     <a href="https://trendshift.io/repositories/13955" target="_blank" style="display:inline-block;">
       
     </a>
   </p>
-
+  
   Cognee, AI ajanlarına verilerinizin, kararlarınızın ve iş akışlarınızın paylaşılan, gelişen bir hafızasını vererek, bağlam içinde hatırlayabilmelerini, bağlantı kurabilmelerini ve harekete geçebilmelerini sağlar.
-
+  
     <p align="center">
     🌐 Mevcut Diller
     :
@@ -64,188 +64,188 @@ body_tr: |-
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=ru">Русский</a> |
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=zh">中文</a>
     </p>
-
-
+  
+  
   <div style="text-align: center">
     
   </div>
   </div>
-
-
-
-
+  
+  
+  
+  
   ## Cognee Hakkında
-
+  
   Cognee, Ajanlarınız için açık kaynaklı bir memory kontrol düzlemidir ve her formatta veya yapıda veri alıp, doğru bağlamı sağlamak için sürekli öğrenir. Embeddings, grafikler ve bilişsel bilim yaklaşımlarını birleştirerek, belgelerinizin anlam açısından aranabilir ve ilişkiler açısından bağlantılı olmasını sağlar.
-
+  
   :star: _Daha fazla geliştiriciyi hedeflemize ulaştırmamıza ve cognee topluluğunu büyütmemize yardımcı olun. Bu depoyu yıldızlayın!_
-
+  
   :books: _Kurulum ve yapılandırma için [detaylı dokümentasyonumuzu](https://docs.cognee.ai/getting-started/installation#environment-configuration) kontrol edin._
-
+  
   :crab: _OpenClaw eklentiniz için kullanılabilir — [cognee-openclaw](https://www.npmjs.com/package/@cognee/cognee-openclaw)_
-
+  
   ✴️ _Claude Code eklentiniz için kullanılabilir — [claude-code-plugin](https://github.com/topoteretes/cognee-integrations/tree/main/integrations/claude-code)_
-
-
-
+  
+  
+  
   ### Cognee Neden Kullanmalı:
-
+  
   - Kolayca Şirket Beynini İnşa Edin - çeşitli kaynaklardan gelen verileri tek bir yerde birleştirin ve Ajanları alan bilginizle güçlendirin
   - Bilgi altyapısı — birleşik veri alımı, graph/vector arama, yerel çalıştırma, ontoloji temelleştirme, multimodal
   - Kalıcı ve Öğrenme Yapan Ajanlar - geri bildirimleri öğrenin, bağlam yönetimi, ajanlararası bilgi paylaşımı
   - Güvenilir ve İtibarlı Ajanlar - ajan kullanıcı/kiracı yalıtımı, izlenebilirlik, OTEL collector, denetim özellikleri
-
+  
   ### Ürün Özellikleri
-
+  
   <p align="center">
     
   </p>
-
+  
   ## Temel Kullanım & Özellik Rehberi
-
+  
   Daha fazla bilgi için, [Cognee'nin temel özellikleriyle ilgili bu kısa, uçtan uca Colab kılavuzunu](https://colab.research.google.com/drive/1HRrzIvzcbwrESVfX76wJLKmtIg00SUga?usp=sharing) kontrol edin.
-
+  
   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1HRrzIvzcbwrESVfX76wJLKmtIg00SUga?usp=sharing)
-
+  
   ## Hızlı Başlangıç
-
+  
   Cognee'yi sadece birkaç satırda kodla deneyelim.
-
+  
   ### Ön Koşullar
-
+  
   - Python 3.10 ila 3.14
-
+  
   ### Adım 1: Cognee'yi Kurun
-
+  
   Cognee'yi **pip**, **poetry**, **uv** veya tercih ettiğiniz Python paket yöneticisiyle kurabilirsiniz.
-
+  
   ```bash
   uv pip install cognee
   ```
-
+  
   ### Adım 2: LLM'i Yapılandırın
   ```python
   import os
   os.environ["LLM_API_KEY"] = "YOUR OPENAI_API_KEY"
   ```
   Alternatif olarak, [şablonumuzu](https://github.com/topoteretes/cognee/blob/main/.env.template) kullanarak bir `.env` dosyası oluşturun.
-
+  
   Diğer LLM sağlayıcılarını entegre etmek için [LLM Sağlayıcı Dokümentasyonumuza](https://docs.cognee.ai/setup-configuration/llm-providers) bakın.
-
+  
   ### Adım 3: Pipeline'ı Çalıştırın
-
+  
   Cognee'nin API'si size dört işlem sunar — `remember`, `recall`, `forget` ve `improve`:
-
+  
   ```python
   import cognee
   import asyncio
-
-
+  
+  
   async def main():
       # Bilgi grafiğinde kalıcı olarak saklayın (add + cognify + improve'ı çalıştırır)
       await cognee.remember("Cognee belgeleri AI hafızasına dönüştürür.")
-
+  
       # Oturum belleğinde saklayın (hızlı cache, arka planda grafiğe senkronize olur)
       await cognee.remember("Kullanıcı ayrıntılı açıklamaları tercih ediyor.", session_id="chat_1")
-
+  
       # Otomatik yönlendirme ile sorgula (en iyi arama stratejisini otomatik olarak seçer)
       results = await cognee.recall("Cognee ne yapar?")
       for result in results:
           print(result)
-
+  
       # Önce oturum belleğini sorgula, gerekirse grafiğe geç
       results = await cognee.recall("Kullanıcı ne tercih ediyor?", session_id="chat_1")
       for result in results:
           print(result)
-
+  
       # İşiniz bittiğinde sil
       await cognee.forget(dataset="main_dataset")
-
-
+  
+  
   if __name__ == '__main__':
       asyncio.run(main())
-
+  
   ```
-
+  
   ### Cognee CLI'ı Kullanın
-
+  
   ```bash
   cognee-cli remember "Cognee belgeleri AI hafızasına dönüştürür."
-
+  
   cognee-cli recall "Cognee ne yapar?"
-
+  
   cognee-cli forget --all
   ```
-
+  
   Yerel UI'yi açmak için şunu çalıştırın:
   ```bash
   cognee-cli -ui
   ```
-
+  
   ## AI Ajanlarıyla Kullanın
-
+  
   ### Claude Code
-
+  
   Claude Code'a oturumlar arasında kalıcı hafıza vermek için [Cognee hafıza eklentisini](https://github.com/topoteretes/cognee-integrations/tree/main/integrations/claude-code) kurun. Eklenti, hook'lar aracılığıyla tool çağrılarını otomatik olarak oturum belleğine yakalar ve oturum sonunda kalıcı bilgi grafiğine senkronize eder.
-
+  
   **Kurulum:**
-
+  
   ```bash
   # cognee'yi kurun
   pip install cognee
-
+  
   # Yapılandırın
   export LLM_API_KEY="your-openai-key"
-
+  
   # Eklentiyi klonlayın
   git clone https://github.com/topoteretes/cognee-integrations.git
-
+  
   # Bunu etkinleştirin (kalıcı kullanım için ~/.zshrc'ye ekleyin)
   claude --plugin-dir ./cognee-integrations/integrations/claude-code
   ```
-
+  
   Veya yerel olarak çalıştırmak yerine Cognee Cloud'a bağlanın:
-
+  
   ```bash
   export COGNEE_SERVICE_URL="https://your-instance.cognee.ai"
   export COGNEE_API_KEY="ck_..."
   ```
-
+  
   Eklenti, Claude Code'un yaşam döngüsüne bağlanır — `SessionStart` hafızayı başlatır, `PostToolUse` eylemleri yakalar, `UserPromptSubmit` ilgili bağlamı enjekte eder, `PreCompact` bağlam sıfırlamalarında hafızayı korur ve `SessionEnd` oturum verilerini kalıcı grafiğe köprü kurar.
-
+  
   ### Cognee Cloud'a Bağlanın
-
+  
   Herhangi bir Python ajanı yönetilen bir Cognee örneğine işaretleyin — tüm SDK çağrıları buluta yönlendirilir:
-
+  
   ```python
   import cognee
-
+  
   await cognee.serve(url="https://your-instance.cognee.ai", api_key="ck_...")
-
+  
   await cognee.remember("önemli bağlam")
   results = await cognee.recall("ne oldu?")
-
+  
   await cognee.disconnect()
   ```
-
+  
   ## Örnekler
-
+  
   [`examples/`](examples/) klasöründe daha fazla örneğe göz atın — demolar, rehberler, özel pipeline'lar ve veritabanı yapılandırmaları.
-
+  
   **Kullanım Durumu 1 — Müşteri Destek Ajanı**
-
+  
   ```python
   Amaç: Müşteri sorunlarını finans, destek ve ürün geçmişi arasındaki kişisel verilerini kullanarak çözün.
-
+  
   Kullanıcı: "Faturamı yanlış görünüyor ve sorun hala çözülmedi."
-
+  
   Cognee takip eder: geçmiş etkileşimler, başarısız eylemler, çözülmüş vakalar, ürün geçmişi
-
+  
   # Ajan yanıtı:
   Ajan: "Geçen ay çözülen 2 benzer fatura vakası buldum.
           Sorun, ödeme ve fatura sistemleri arasında bir senkronizasyon gecikmesinden
           kaynaklanıyordu — hesabınıza bir düzeltme uygulandı."
-
+  
   # Arka planda ne olur:
   - Çeşitli şirket kanallarından veri kaynaklarını birleştirir
   - Etkileşim zaman çizelgesini yeniden oluşturur ve sonuçları takip eder
@@ -253,21 +253,21 @@ body_tr: |-
   - En iyi çözüm stratejisine eşler
   - Ajanın aynı hatayı asla tekrarlamaması için yürütmeden sonra hafızayı günceller
   ```
-
+  
   **Kullanım Durumu 2 — Uzman Bilgi Damıtılması (SQL Copilot)**
-
+  
   ```python
   Amaç: Genç analistlerin, uzman düzeyindeki sorguları, desenleri ve akıl yürütmeyi yeniden kullanarak görevleri çözmelerine yardım edin.
-
+  
   Kullanıcı: "Bu veri seti için müşteri akışkanlığını nasıl hesaplayabilirim?"
-
+  
   Cognee takip eder: uzman SQL sorguları, iş akışı desenleri, şema yapıları, başarılı uygulamalar
-
+  
   # Ajan yanıtı:
   Ajan: "Kıdemli analistlerin benzer bir tutma sorgusunu nasıl çözdüklerini gösteren kod işte.
           Cognee şemanızı bilinen bir yapıya eşleştirdi ve uzmanın mantığını
           veri setinize uyarladı."
-
+  
   # Arka planda ne olur:
   - Uzman SQL sorguları ve iş akışlarından desenleri çıkarır ve saklar
   - Geçerli şemayı daha önce görülen yapılara eşler
@@ -275,11 +275,11 @@ body_tr: |-
   - Uzman akıl yürütmeyi geçerli bağlama uyarlar
   - Genç analistlerin yakın uzman düzeyinde performans göstermesi için belleği yeni başarılı desenlerle günceller
   ```
-
+  
   ## Cognee'yi Dağıtın
-
+  
   Tam olarak yönetilen bir deneyim için [Cognee Cloud](https://www.cognee.ai) kullanın veya aşağıdaki 1-tıkla dağıtım yapılandırmalarından biriyle kendi sunucunuzda barındırın.
-
+  
   | Platform | En İyi Için | Komut |
   |----------|----------|---------|
   | **Cognee Cloud** | Yönetilen hizmet, bakılacak altyapı yok | [Kaydol](https://www.cognee.ai) veya `await cognee.serve()` |
@@ -288,27 +288,27 @@ body_tr: |-
   | **Fly.io** | Edge dağıtımı, kalıcı ciltler | `bash distributed/deploy/fly-deploy.sh` |
   | **Render** | Yönetilen Postgres ile basit PaaS | Render'a dağıt düğmesi |
   | **Daytona** | Bulut sanal ortamları (SDK veya CLI) | `distributed/deploy/daytona_sandbox.py` sayfasını görmek için |
-
+  
   Dağıtım scriptleri, çalışan yapılandırmaları ve ek ayrıntılar için [`distributed/`](distributed/) klasörüne bakın.
-
+  
   ## Son Haberler
-
+  
   [![Watch Demo](https://img.youtube.com/vi/8hmqS2Y5RVQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=8hmqS2Y5RVQ&t=13s)
-
-
+  
+  
   ## Topluluk & Destek
-
+  
   ### Katkıda Bulunun
   Topluluğun katkılarına hoş geldiniz! Sizin girdileri Cognee'yi herkes için daha iyi kılmaya yardımcı olur. Başlamak için [`CONTRIBUTING.md`](CONTRIBUTING.md)'ye bakın.
-
+  
   ### Davranış Kuralları
-
+  
   Kapsayıcı ve saygılı bir topluluk oluşturmaya kararlıyız. Yönergeler için [Davranış Kurallarımızı](https://github.com/topoteretes/cognee/blob/main/CODE_OF_CONDUCT.md) okuyun.
-
+  
   ## Araştırma & Atıf
-
+  
   Kısa süre önce LLM akıl yürütmesi için bilgi grafiklerini optimize etme konusunda bir araştırma makalesi yayınladık:
-
+  
   ```bibtex
   @misc{markovic2025optimizinginterfaceknowledgegraphs,
         title={Optimizing the Interface Between Knowledge Graphs and LLMs for Complex Reasoning},
@@ -329,7 +329,7 @@ body_tr: |-
 
   <br />
 
-  Cognee - The Brain behind your Agents
+  Cognee - The Open-Source AI Memory Platform for Agents
 
   <p align="center">
   <a href="https://www.youtube.com/watch?v=8hmqS2Y5RVQ&t=13s">Demo</a>
@@ -361,10 +361,10 @@ body_tr: |-
   </a>
 </p>
 
-Cognee gives AI agents a shared, improving memory of your data, decisions, and workflows so they can recall, connect, and act with context.
+Cognee is the open-source AI memory platform that gives AI agents persistent long-term memory across sessions. Ingest data in any format, build a self-hosted knowledge graph, and let every agent recall, connect, and act with full context
 
   <p align="center">
-  🌐 Available Languages
+  🌐 This README is also available in:
   :
   <!-- Keep these links. Translations will automatically update with the README. -->
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=de">Deutsch</a> |
@@ -383,14 +383,12 @@ Cognee gives AI agents a shared, improving memory of your data, decisions, and w
 </div>
 </div>
 
-
+📄 Read the research paper: [Optimizing the Interface Between Knowledge Graphs and LLMs for Complex Reasoning](https://arxiv.org/abs/2505.24478) — Markovic et al., 2025
 
 
 ## About Cognee
 
-Cognee is an open-source memory control plane for your Agents that lets you ingest data in any format or structure and continuously learns to provide the right context. It combines embeddings, graphs and cognitive science approaches to make your documents both searchable by meaning and connected by relationships as they change and evolve.
-
-
+Cognee is an open-source AI memory platform for AI Agents. Ingest data in any format, and Cognee continuously builds a self-hosted knowledge graph that gives your agents persistent long-term memory across sessions. Cognee combines vector embeddings, graph reasoning, and cognitive-science-grounded ontology generation to make documents both searchable by meaning and connected by relationships that evolve as your knowledge does.
 
 :star: _Help us reach more developers and grow the cognee community. Star this repo!_
 
@@ -417,9 +415,9 @@ Cognee is an open-source memory control plane for your Agents that lets you inge
 
 ## Basic Usage & Feature Guide
 
-To learn more, [check out this short, end-to-end Colab walkthrough](https://colab.research.google.com/drive/1HRrzIvzcbwrESVfX76wJLKmtIg00SUga?usp=sharing) of Cognee's core features.
+To learn more, [check out this short, end-to-end Colab walkthrough](https://colab.research.google.com/drive/12Vi9zID-M3fpKpKiaqDBvkk98ElkRPWy?usp=sharing) of Cognee's core features.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1HRrzIvzcbwrESVfX76wJLKmtIg00SUga?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12Vi9zID-M3fpKpKiaqDBvkk98ElkRPWy?usp=sharing)
 
 ## Quickstart
 

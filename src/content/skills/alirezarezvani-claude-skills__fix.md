@@ -12,6 +12,112 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Başarısız veya Değişken Testleri Düzeltme
+
+  Playwright testinin başarısız olduğu veya aralıklı olarak geçtiği durumları sistematik bir sınıflandırma kullanarak tanılayın ve düzeltin.
+
+  ## Giriş
+
+  `$ARGUMENTS` şunları içerir:
+  - Bir test dosyası yolu: `e2e/login.spec.ts`
+  - Bir test adı: `"should redirect after login"`
+  - Bir açıklama: `"the checkout test fails in CI but passes locally"`
+
+  ## Adımlar
+
+  ### 1. Hatayı Yeniden Oluşturun
+
+  Hatayı yakalamak için testi çalıştırın:
+
+  ```bash
+  npx playwright test <file> --reporter=list
+  ```
+
+  Test geçerse, muhtemelen değişkendir. Burn-in çalıştırın:
+
+  ```bash
+  npx playwright test <file> --repeat-each=10 --reporter=list
+  ```
+
+  Hâlâ geçerse, paralel çalışanlarla deneyin:
+
+  ```bash
+  npx playwright test --fully-parallel --workers=4 --repeat-each=5
+  ```
+
+  ### 2. Trace'i Yakalayın
+
+  Tam tracing ile çalıştırın:
+
+  ```bash
+  npx playwright test <file> --trace=on --retries=0
+  ```
+
+  Trace çıktısını okuyun. Trace dosyalarını analiz etmek için `/debug` kullanın.
+
+  ### 3. Hatayı Kategorize Edin
+
+  Bu beceri dizininden `flaky-taxonomy.md` dosyasını yükleyin.
+
+  Her başarısız test dört kategoriden birine düşer:
+
+  | Kategori | Semptom | Tanı |
+  |---|---|---|
+  | **Zamanlama/Async** | Her yerde aralıklı olarak başarısız olur | `--repeat-each=20` yerel olarak yeniden üretir |
+  | **Test Yalıtımı** | Suite içinde başarısız, tek başına geçer | `--workers=1 --grep "test name"` geçer |
+  | **Ortam** | CI'da başarısız, yerel olarak geçer | CI vs yerel ekran görüntüleri/trace'leri karşılaştırın |
+  | **Altyapı** | Rastgele, herhangi bir desen yok | Hata browser dahili bileşenlerine referans verir |
+
+  ### 4. Hedefli Düzeltme Uygulayın
+
+  **Zamanlama/Async:**
+  - `waitForTimeout()` yerine web-first assertions kullanın
+  - Eksik Playwright çağrılarına `await` ekleyin
+  - Assert etmeden önce belirli network yanıtlarını bekleyin
+  - Elemanlarla etkileşimde bulunmadan önce `toBeVisible()` kullanın
+
+  **Test Yalıtımı:**
+  - Testler arasında mutable paylaşılan state'i kaldırın
+  - API veya fixtures aracılığıyla test başına test verisi oluşturun
+  - Test verisi için benzersiz tanımlayıcılar (zaman damgaları, rastgele stringler) kullanın
+  - Database state sızıntılarını kontrol edin
+
+  **Ortam:**
+  - Yerel ve CI arasında viewport boyutlarını eşleştirin
+  - Ekran görüntülerinde font rendering farklarını hesaba katın
+  - CI ortamıyla eşleştirmek için yerel olarak `docker` kullanın
+  - Saat dilimi bağımlı assertionları kontrol edin
+
+  **Altyapı:**
+  - Yavaş CI koşucuları için timeout'ı artırın
+  - CI config'ine retry'ları ekleyin (`retries: 2`)
+  - Browser OOM'u kontrol edin (paralel çalışanları azaltın)
+  - Browser bağımlılıklarının yüklü olduğundan emin olun
+
+  ### 5. Düzeltmeyi Doğrulayın
+
+  Kararlılığı onaylamak için testi 10 kez çalıştırın:
+
+  ```bash
+  npx playwright test <file> --repeat-each=10 --reporter=list
+  ```
+
+  Hepsi 10'u geçmeli. Birisi başarısız olursa, adım 3'e dönün.
+
+  ### 6. Yeniden Oluşmayı Önleyin
+
+  Öneriniz:
+  - Henüz yoksa `retries: 2` ile CI'a ekleyin
+  - Config'te `trace: 'on-first-retry'` etkinleştirin
+  - Düzeltme desenini projenin test kuralları dokümantasyonuna ekleyin
+
+  ## Çıktı
+
+  - Root cause kategorisi ve spesifik sorun
+  - Uygulanan düzeltme (diff ile)
+  - Doğrulama sonucu (10/10 geçer)
+  - Yeniden oluşmayı önleme önerisi
 ---
 
 # Fix Failing or Flaky Tests

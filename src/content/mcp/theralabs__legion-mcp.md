@@ -3,7 +3,7 @@ name: "TheRaLabs/legion-mcp"
 description: "Universal database MCP server supporting multiple database types including PostgreSQL, Redshift, CockroachDB, MySQL, RDS MySQL, Microsoft SQL Server, BigQuery, Oracle DB, and SQLite."
 category: "Databases"
 repo: "TheRaLabs/legion-mcp"
-stars: 92
+stars: 94
 url: "https://github.com/TheRaLabs/legion-mcp"
 body_length: 11744
 license: "GPL-3.0"
@@ -11,17 +11,17 @@ language: "Python"
 homepage: "https://thelegionai.com/"
 body_tr: |-
   # Multi-Database MCP Server (Legion AI tarafından)
-
+  
   Legion Query Runner ile veritabanlarındaki verilere erişmenize ve sorgu yapmanıza yardımcı olan, Model Context Protocol (MCP) Python SDK'sı entegrasyonlu bir sunucudur.
-
+  
   # Start Generation Here
   Bu araç [Legion AI](https://thelegionai.com/) tarafından sağlanmaktadır. Tam özellikli ve tam güçlü yapay zeka veri analitik aracını kullanmak için lütfen siteyi ziyaret edin. Desteklemesini istediğiniz bir veritabanı varsa bize e-posta gönderin.
   # End Generation Here
-
+  
   ## Veritabanı MCP Neden Seçilmeli
-
+  
   Veritabanı MCP, diğer veritabanı erişim çözümlerinden birkaç zorlayıcı nedenle öne çıkmaktadır:
-
+  
   - **Birleşik Çok Veritabanı Arayüzü**: PostgreSQL, MySQL, SQL Server ve diğer veritabanlarına tek bir tutarlı API üzerinden bağlanın - her veritabanı türü için farklı istemci kütüphaneleri öğrenmenize gerek yoktur.
   - **Yapay Zeka Hazır Entegrasyon**: Model Context Protocol (MCP) aracılığıyla yapay zeka asistanı etkileşimleri için özel olarak tasarlanmış, doğal dil veritabanı işlemlerini etkinleştirir.
   - **Sıfır Yapılandırma Şema Keşfi**: Veritabanı şemalarını manuel yapılandırma veya eşleme olmadan otomatik olarak keşfeder ve ortaya çıkarır.
@@ -29,11 +29,11 @@ body_tr: |-
   - **Güvenli Kimlik Bilgisi Yönetimi**: Veritabanı kimlik doğrulama detaylarını güvenli bir şekilde işler, kimlik bilgilerini uygulama kodundan ayırır.
   - **Basit Dağıtım**: LangChain, FastAPI ve diğerleri gibi modern yapay zeka geliştirme ortamlarıyla minimal kurulum ile çalışır.
   - **Genişletilebilir Tasarım**: Belirli kullanım durumları için işlevselliği geliştirmek üzere kolayca özel araçlar ve istemler ekleyin.
-
+  
   İster veritabanı erişimine ihtiyaç duyan yapay zeka ajanları oluşturuyor olun ister birden çok veritabanına birleşik bir arayüz istemiş olun, Veritabanı MCP geliştirme süresini ve karmaşıklığını önemli ölçüde azaltan akamçalı bir çözüm sağlar.
-
+  
   ## Özellikler
-
+  
   - Çok veritabanı desteği - aynı anda birden çok veritabanına bağlanın
   - Legion Query Runner aracılığıyla veritabanı erişimi
   - Yapay zeka asistanları için Model Context Protocol (MCP) desteği
@@ -42,9 +42,9 @@ body_tr: |-
   - Sorgu yürütme ve sonuç işleme
   - Ortam değişkenleri, komut satırı argümanları veya MCP ayarları JSON üzerinden esnek yapılandırma
   - Çok veritabanı kurulumları için kullanıcı tarafından yönlendirilen veritabanı seçimi
-
+  
   ## Desteklenen Veritabanları
-
+  
   | Veritabanı | DB_TYPE kodu |
   |----------|--------------|
   | PostgreSQL | pg |
@@ -56,42 +56,42 @@ body_tr: |-
   | Big Query | bigquery |
   | Oracle DB | oracle |
   | SQLite | sqlite |
-
+  
   Legion Query Runner kütüphanesini konektör olarak kullanıyoruz. Daha fazla bilgi için [api dokümanlarına](https://theralabs.github.io/legion-database/docs/category/query-runners) bakabilirsiniz.
-
+  
   ## MCP Nedir?
-
+  
   Model Context Protocol (MCP), yapay zeka uygulamalarında bağlamı korumanın bir spesifikasyonudur. Bu sunucu [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)'sını kullanarak:
-
+  
   - Veritabanı işlemlerini yapay zeka asistanları için araçlar olarak ortaya çıkarır
   - Veritabanı şemaları ve meta verilerini kaynaklar olarak sağlar
   - Veritabanı işlemleri için yararlı istemler oluşturur
   - Veritabanları ile durum bilgili etkileşimleri etkinleştirir
-
+  
   ## Kurulum & Yapılandırma
-
+  
   ### Gerekli Parametreler
-
+  
   Tek veritabanı yapılandırması için:
   - **DB_TYPE**: Veritabanı türü kodu (yukarıdaki tabloya bakın)
   - **DB_CONFIG**: Veritabanı bağlantısı için JSON yapılandırma dizesi
-
+  
   Çok veritabanı yapılandırması için:
   - **DB_CONFIGS**: Her biri içeren bir JSON dizisi:
     - **db_type**: Veritabanı türü kodu
     - **configuration**: Veritabanı bağlantı yapılandırması
     - **description**: Veritabanının okunabilir bir açıklaması
-
+  
   Yapılandırma formatı veritabanı türüne göre değişir. Veritabanına özel yapılandırma detayları için [API dokümanlarına](https://theralabs.github.io/legion-database/docs/category/query-runners) bakın.
-
+  
   ### Kurulum Yöntemleri
-
+  
   #### Seçenek 1: UV Kullanma (Önerilen)
-
+  
   [`uv`](https://docs.astral.sh/uv/) kullanırken, belirli bir kurulum gerekli değildir. *database-mcp*'yi doğrudan çalıştırmak için [`uvx`](https://docs.astral.sh/uv/guides/tools/) kullanacağız.
-
+  
   **UV Yapılandırma Örneği (Tek Veritabanı):**
-
+  
   ```json
   DB_TYPE ve DB_CONFIG'i bağlantı bilgileriniz ile değiştirin.
   {
@@ -111,9 +111,9 @@ body_tr: |-
       }
   }
   ```
-
+  
   **UV Yapılandırma Örneği (Birden Çok Veritabanı):**
-
+  
   ```json
   {
       "mcpServers": {
@@ -131,17 +131,17 @@ body_tr: |-
       }
   }
   ```
-
+  
   #### Seçenek 2: PIP Kullanma
-
+  
   pip üzerinden kurun:
-
+  
   ```bash
   pip install database-mcp
   ```
-
+  
   **PIP Yapılandırma Örneği (Tek Veritabanı):**
-
+  
   ```json
   {
     "mcpServers": {
@@ -159,71 +159,71 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Sunucuyu Çalıştırma
-
+  
   ### Üretim Modu
-
+  
   ```bash
   python mcp_server.py
   ```
-
+  
   ### Yapılandırma Yöntemleri
-
+  
   #### Ortam Değişkenleri (Tek Veritabanı)
-
+  
   ```bash
   export DB_TYPE="pg"  # veya mysql, postgresql, vb.
   export DB_CONFIG='{"host":"localhost","port":5432,"user":"username","password":"password","dbname":"database_name"}'
   uv run src/database_mcp/mcp_server.py
   ```
-
+  
   #### Ortam Değişkenleri (Birden Çok Veritabanı)
-
+  
   ```bash
   export DB_CONFIGS='[{"id":"pg_main","db_type":"pg","configuration":{"host":"localhost","port":5432,"user":"username","password":"password","dbname":"database_name"},"description":"PostgreSQL Database"},{"id":"mysql_users","db_type":"mysql","configuration":{"host":"localhost","port":3306,"user":"root","password":"pass","database":"mysql"},"description":"MySQL Database"}]'
   uv run src/database_mcp/mcp_server.py
   ```
-
+  
   Bir ID belirtmezseniz, sistem otomatik olarak veritabanı türü ve açıklamasına göre bir tane oluşturacaktır:
-
+  
   ```bash
   export DB_CONFIGS='[{"db_type":"pg","configuration":{"host":"localhost","port":5432,"user":"username","password":"password","dbname":"database_name"},"description":"PostgreSQL Database"},{"db_type":"mysql","configuration":{"host":"localhost","port":3306,"user":"root","password":"pass","database":"mysql"},"description":"MySQL Database"}]'
   # ID'ler "pg_postgres_0" ve "my_mysqldb_1" gibi şeyler olarak oluşturulacak
   uv run src/database_mcp/mcp_server.py
   ```
-
+  
   #### Komut Satırı Argümanları (Tek Veritabanı)
-
+  
   ```bash
   python mcp_server.py --db-type pg --db-config '{"host":"localhost","port":5432,"user":"username","password":"password","dbname":"database_name"}'
   ```
-
+  
   #### Komut Satırı Argümanları (Birden Çok Veritabanı)
-
+  
   ```bash
   python mcp_server.py --db-configs '[{"id":"pg_main","db_type":"pg","configuration":{"host":"localhost","port":5432,"user":"username","password":"password","dbname":"database_name"},"description":"PostgreSQL Database"},{"id":"mysql_users","db_type":"mysql","configuration":{"host":"localhost","port":3306,"user":"root","password":"pass","database":"mysql"},"description":"MySQL Database"}]'
   ```
-
+  
   Her veritabanı için `id` alanını kullanarak özel ID'ler belirtebileceğinizi veya sistemin bunları veritabanı türü ve açıklamasına göre oluşturmasına izin verebileceğinizi unutmayın.
-
+  
   ## Çok Veritabanı Desteği
-
+  
   Birden çok veritabanına bağlanırken, her sorgu için hangi veritabanının kullanılacağını belirtmeniz gerekir:
-
+  
   1. Mevcut veritabanlarını ID'leriyle görmek için `list_databases` aracını kullanın
   2. Veritabanlarının şema detaylarını görmek için `get_database_info` kullanın
   3. Tüm veritabanları arasında bir tablo bulmak için `find_table` kullanın
   4. `execute_query`, `get_table_columns` vb. araçlara `db_id` parametresini sağlayın
-
+  
   Veritabanı bağlantıları dahili olarak `DbConfig` nesnelerinin bir sözlüğü olarak yönetilir ve her veritabanının benzersiz bir ID'si vardır. Şema bilgisi, her tablo adını ve sütun bilgisini içeren bir tablo nesneleri listesi olarak temsil edilir.
-
+  
   `select_database` istemi kullanıcıları veritabanı seçim süreci aracılığıyla yönlendirir.
-
+  
   ## Şema Temsili
-
+  
   Veritabanı şemaları tablo nesnelerinin bir listesi olarak temsil edilir ve her tablo sütunları hakkında bilgi içerir:
-
+  
   ```json
   [
     {
@@ -245,19 +245,19 @@ body_tr: |-
     }
   ]
   ```
-
+  
   Bu temsil, tablo ve sütun bilgilerine programlı olarak erişmeyi kolay kılırken temiz bir hiyerarşik yapı tutar.
-
+  
   ## Ortaya Çıkarılan MCP Yetenekleri
-
+  
   ### Kaynaklar
-
+  
   | Kaynak | Açıklama |
   |----------|-------------|
   | `resource://schema/{database_id}` | Bir veya tüm yapılandırılmış veritabanlarının şemalarını alın |
-
+  
   ### Araçlar
-
+  
   | Araç | Açıklama |
   |------|-------------|
   | `execute_query` | Bir SQL sorgusu yürütün ve sonuçları markdown tablosu olarak döndürün |
@@ -270,41 +270,41 @@ body_tr: |-
   | `find_table` | Belirli bir tablonun hangi veritabanında olduğunu bulun |
   | `describe_table` | Sütun adları ve türleri dahil olmak üzere bir tablonun ayrıntılı açıklamasını alın |
   | `get_table_sample` | Bir tablodaki verinin bir örneğini alın |
-
+  
   `execute_query`, `get_table_columns` vb. gibi tüm veritabanına özgü araçlar, hangi veritabanının kullanılacağını belirtmek için `db_id` parametresi gerektirir.
-
+  
   ### İstemler
-
+  
   | İstem | Açıklama |
   |--------|-------------|
   | `sql_query` | Veritabanına karşı bir SQL sorgusu oluşturun |
   | `explain_query` | Bir SQL sorgusunun ne yaptığını açıklayın |
   | `optimize_query` | Daha iyi performans için bir SQL sorgusunu optimize edin |
   | `select_database` | Kullanıcıya hangi veritabanını kullanacağını seçmesinde yardımcı olun |
-
+  
   ## Geliştirme
-
+  
   ### MCP Inspector Kullanma
-
+  
   inspektörü başlatmak için bunu çalıştırın
   ```bash
   npx @modelcontextprotocol/inspector uv run src/database_mcp/mcp_server.py
   ```
-
+  
   ardından komut giriş alanında şuna benzer bir şey ayarlayın
   ```
   run src/database_mcp/mcp_server.py --db-type pg --db-config '{"host":"localhost","port":5432,"user":"username","password":"password","dbname":"database_name"}'
   ```
-
+  
   ### Test Etme
-
+  
   ```bash
   uv pip install -e ".[dev]"
   pytest
   ```
-
+  
   ### Yayımlama
-
+  
   ```bash
   # Derleme yapılarını temizleyin
   rm -rf dist/ build/ 
@@ -315,9 +315,9 @@ body_tr: |-
   # PyPI'ye yükleyin
   uv run python -m twine upload dist/*
   ```
-
+  
   ## Lisans
-
+  
   Bu depo GPL lisansı altında lisanslanmıştır
 ---
 

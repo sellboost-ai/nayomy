@@ -9,6 +9,56 @@ path: "rules/qwik-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/qwik-tailwind-cursorrules-prompt-file.mdc"
 body_length: 1424
 file_extension: ".mdc"
+body_tr: |-
+  ```markdown
+  // Qwik.js with Tailwind CSS (TypeScript ve Vite dahil) .cursorrules
+
+  // İşlevsel bileşenleri tercih edin
+
+  const preferFunctionalComponents = true;
+
+  // Qwik.js ve Tailwind CSS en iyi uygulamaları
+
+  const qwikTailwindBestPractices = [
+    "Tembel yüklenen fonksiyonlar için $ sonekini kullanın",
+    "Reaktif state için useSignal() kullanın",
+    "Stil için Tailwind CSS sınıflarını uygulayın",
+    "Yeniden kullanılabilir stiller için CSS dosyalarında @apply yönergesini kullanın",
+    "Tailwind'in responsive sınıflarını kullanarak responsive tasarım uygulayın",
+    "Özelleştirme için Tailwind'in yapılandırma dosyasını kullanın",
+    "Tip güvenliği için TypeScript'ten yararlanın",
+    "Geliştirme için Vite'nin hızlı HMR'ını kullanın",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    components/
+    routes/
+    global.css
+    root.tsx
+    entry.ssr.tsx
+  public/
+  tailwind.config.js
+  postcss.config.js
+  vite.config.ts
+  tsconfig.json
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. Tüm .ts ve .tsx dosyaları için TypeScript kullanın
+  2. Üretim derlemeleri için uygun Tailwind CSS temizlemesi uygulayın
+  3. Uygun olduğunda yönlendirme için Qwik City kullanın
+  4. Özel stiller için Tailwind'in @layer yönergesini kullanın
+  5. Tailwind'in dark değişkenini kullanarak dark mode uygulayın
+  6. Hem Qwik hem de Tailwind adlandırma kurallarını izleyin
+  7. Sunucu tarafı kod yürütmesi için server$ kullanın
+  8. Optimize edilmiş derlemeler için Vite eklentilerinden yararlanın
+  `;
+  ```
 ---
 
 // Qwik.js with Tailwind CSS (TypeScript and Vite included) .cursorrules

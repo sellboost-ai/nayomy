@@ -3,7 +3,7 @@ name: "antvis/mcp-server-chart"
 description: "A Model Context Protocol server for generating visual charts using AntV."
 category: "Customer Data Platforms"
 repo: "antvis/mcp-server-chart"
-stars: 4102
+stars: 4164
 url: "https://github.com/antvis/mcp-server-chart"
 body_length: 14053
 license: "MIT"
@@ -11,17 +11,17 @@ language: "TypeScript"
 homepage: "https://github.com/antvis/mcp-server-chart"
 body_tr: |-
   # MCP Server Chart 
-
+  
   Model Context Protocol sunucusu [AntV](https://github.com/antvis/) kullanarak grafikler oluşturmak için. Bu mcp sunucusunu _grafik oluşturma_ ve _veri analizi_ için kullanabiliriz.
-
+  
   ![](https://badge.mcpx.dev?type=server "MCP Server") [![build](https://github.com/antvis/mcp-server-chart/actions/workflows/build.yml/badge.svg)](https://github.com/antvis/mcp-server-chart/actions/workflows/build.yml) [![npm Version](https://img.shields.io/npm/v/@antv/mcp-server-chart.svg)](https://www.npmjs.com/package/@antv/mcp-server-chart) [![npm License](https://img.shields.io/npm/l/@antv/mcp-server-chart.svg)](https://www.npmjs.com/package/@antv/mcp-server-chart) [![codecov](https://codecov.io/gh/antvis/mcp-server-chart/graph/badge.svg?token=7R98VGO5GL)](https://codecov.io/gh/antvis/mcp-server-chart) [![smithery installations badge](https://smithery.ai/badge/antvis/mcp-server-chart)](https://smithery.ai/servers/antvis/mcp-server-chart) ![Visitors](https://hitscounter.dev/api/hit?url=https://github.com/antvis/mcp-server-chart&label=Visitors&icon=graph-up&color=%23dc3545&message=&style=flat&tz=UTC)
-
-
-
+  
+  
+  
   Bu, grafik oluşturma özelliklerini sağlayan TypeScript tabanlı bir MCP sunucusudur. MCP araçları aracılığıyla çeşitli grafik türleri oluşturmanıza olanak tanır. Bunu [Dify](https://marketplace.dify.ai/plugins/antv/visualization) uygulamasında da kullanabilirsiniz.
-
+  
   ## 📋 İçindekiler
-
+  
   - [✨ Özellikler](#-özellikler)
   - [🤖 Kullanım](#-kullanım)
   - [🎨 Yetenek Kullanımı](#-yetenek-kullanımı)
@@ -36,13 +36,13 @@ body_tr: |-
   - [🎛️ Araç Filtreleme](#%EF%B8%8F-araç-filtreleme)
   - [🔨 Geliştirme](#-geliştirme)
   - [📄 Lisans](#-lisans)
-
+  
   ## ✨ Özellikler
-
+  
   Şu anda 26+ grafik desteklenmektedir.
-
-
-
+  
+  
+  
   1. `generate_area_chart`: `alan` grafiği oluşturun, sürekli bağımsız değişken altında verilerin eğilimini göstermek için kullanılır, genel veri eğilimlerinin gözlemlenmesine izin verir.
   1. `generate_bar_chart`: `çubuk` grafiği oluşturun, farklı kategoriler arasında değerleri karşılaştırmak için kullanılır, yatay karşılaştırmalar için uygun.
   1. `generate_boxplot_chart`: `boxplot` oluşturun, veri dağılımını, medyanı, dörttebirlikler ve aykırı değerleri göstermek için kullanılır.
@@ -69,14 +69,14 @@ body_tr: |-
   1. `generate_violin_chart`: `keman` grafiği oluşturun, veri dağılımını göstermek için kullanılır, boxplot'lar ve yoğunluk grafiklerinin özelliklerini birleştirerek veri dağılımının daha ayrıntılı bir görünümünü sağlar.
   1. `generate_word_cloud_chart`: `kelime bulutu` oluşturun, metinsel verilerde kelime sıklığını göstermek için kullanılır, yazı tipi boyutları her kelimenin sıklığını gösterir.
   1. `generate_spreadsheet`: Tablosal verileri göstermek için bir `elektronik tablo` veya pivot tablo oluşturun. 'rows' veya 'values' alanları sağlandığında, pivot tablo (çapraz tabülasyon) olarak işlenir; aksi takdirde normal bir tablo olarak işlenir.
-
+  
   > [!NOTE]
   > Yukarıdaki coğrafi görselleştirme grafik oluşturma aracı [AMap hizmetini](https://lbs.amap.com/) kullanır ve şu anda yalnızca Çin içinde harita oluşturmayı destekler.
-
+  
   ## 🤖 Kullanım
-
+  
   Claude, VSCode, [Cline](https://cline.bot/mcp-marketplace), Cherry Studio, Cursor gibi `Masaüstü Uygulaması` ile kullanmak için aşağıdaki MCP sunucusu yapılandırmasını ekleyin. Mac sisteminde:
-
+  
   ```json
   {
     "mcpServers": {
@@ -87,9 +87,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Windows sisteminde:
-
+  
   ```json
   {
     "mcpServers": {
@@ -100,72 +100,72 @@ body_tr: |-
     }
   }
   ```
-
+  
   Ayrıca [aliyun](https://bailian.console.aliyun.com/?tab=mcp#/mcp-market/detail/antv-visualization-chart), [modelscope](https://www.modelscope.cn/mcp/servers/@antvis/mcp-server-chart), [glama.ai](https://glama.ai/mcp/servers/@antvis/mcp-server-chart), [smithery.ai](https://smithery.ai/servers/@antvis/mcp-server-chart) veya HTTP, SSE Protokolü ile diğer platformlarda kullanabilirsiniz.
-
+  
   ## 🎨 Yetenek Kullanımı
-
+  
   Yetenek desteği olan bir AI IDE kullanıyorsanız (örneğin **Claude Code**), en iyi grafik türünü otomatik olarak seçip görselleştirme oluşturmak için `chart-visualization` yeteneğini kullanabilirsiniz.
-
+  
   Yeteneği şu adresten ekleyebilirsiniz [https://github.com/antvis/chart-visualization-skills](https://github.com/antvis/chart-visualization-skills):
-
+  
   ```bash
   npx skills add antvis/chart-visualization-skills
   ```
-
+  
   Daha sonra verilerinizi sağlayın veya istediğiniz görselleştirmeyi açıklayın. Yetenek akıllıca 25+ grafik türünden seçim yapacak ve grafiği sizin için oluşturacaktır.
-
+  
   ## 🚰 SSE veya Streamable transport ile çalıştırın
-
+  
   ### Doğrudan çalıştırın
-
+  
   Paketi genel olarak yükleyin.
-
+  
   ```bash
   npm install -g @antv/mcp-server-chart
   ```
-
+  
   Sunucuyu tercih ettiğiniz transport seçeneği ile çalıştırın:
-
+  
   ```bash
   # SSE transport için (varsayılan endpoint: /sse)
   mcp-server-chart --transport sse
-
+  
   # Özel endpoint ile Streamable transport için
   mcp-server-chart --transport streamable
   ```
-
+  
   Daha sonra sunucuya şu adresten erişebilirsiniz:
-
+  
   - SSE transport: `http://localhost:1122/sse`
   - Streamable transport: `http://localhost:1122/mcp`
-
+  
   ### Docker dağıtımı
-
+  
   Docker dizinine girin.
-
+  
   ```bash
   cd docker
   ```
-
+  
   Docker-compose kullanarak dağıtın.
-
+  
   ```bash
   docker compose up -d
   ```
-
+  
   Daha sonra sunucuya şu adresten erişebilirsiniz:
-
+  
   - SSE transport: `http://localhost:1123/sse`
   - Streamable transport: `http://localhost:1122/mcp`
-
+  
   ## 🎮 CLI Seçenekleri
-
+  
   MCP sunucusunu çalıştırırken aşağıdaki CLI seçeneklerini de kullanabilirsiniz. CLI'yi `-H` ile çalıştırarak komut seçeneklerini görebilirsiniz.
-
+  
   ```plain
   MCP Server Chart CLI
-
+  
   Options:
     --transport, -t  Taşıma protokolünü belirtin: "stdio", "sse" veya "streamable" (varsayılan: "stdio")
     --host, -h       SSE veya streamable transport için ana bilgisayarı belirtin (varsayılan: localhost)
@@ -175,19 +175,19 @@ body_tr: |-
                      - Streamable için: varsayılan "/mcp"
     --help, -H       Bu yardım mesajını göster
   ```
-
+  
   ## ⚙️ Ortam Değişkenleri
-
+  
   | Değişken             | Açıklama                                                     | Varsayılan                                   | Örnek                                         |
   | -------------------- | :----------------------------------------------------------- | -------------------------------------------- | --------------------------------------------- |
   | `VIS_REQUEST_SERVER` | Özel dağıtım için özel grafik oluşturma hizmeti URL'si      | `https://antv-studio.alipay.com/api/gpt-vis` | `https://your-server.com/api/chart`           |
   | `SERVICE_ID`         | Grafik oluşturma kayıtları için hizmet tanımlayıcısı         | -                                            | `your-service-id-123`                         |
   | `DISABLED_TOOLS`     | Devre dışı bırakılacak araç adlarının virgülle ayrılmış listesi | -                                            | `generate_fishbone_diagram,generate_mind_map` |
-
+  
   ### 📠 Özel Dağıtım
-
+  
   `MCP Server Chart` varsayılan olarak ücretsiz bir grafik oluşturma hizmeti sağlar. Özel dağıtım ihtiyacı olan kullanıcılar `VIS_REQUEST_SERVER` kullanarak kendi grafik oluşturma hizmetlerini özelleştirebilirler.
-
+  
   ```json
   {
     "mcpServers": {
@@ -201,29 +201,29 @@ body_tr: |-
     }
   }
   ```
-
+  
   Özel bir ortamda HTTP hizmeti dağıtmak için AntV'nin [GPT-Vis-SSR](https://github.com/antvis/GPT-Vis/tree/main/bindings/gpt-vis-ssr) projesini kullanabilir ve ardından URL adresini `VIS_REQUEST_SERVER` env aracılığıyla geçirebilirsiniz.
-
+  
   - **Yöntem**: `POST`
   - **Parametre**: `GPT-Vis-SSR` uygulamasına geçirilecektir. Örneğin, `{ "type": "line", "data": [{ "time": "2025-05", "value": 512 }, { "time": "2025-06", "value": 1024 }] }`.
   - **Dönüş**: HTTP hizmetinin dönüş nesnesi.
     - **success**: `boolean` Grafik görüntüsü başarıyla oluşturuldu mu.
     - **resultObj**: `string` Grafik görüntüsü URL'si.
     - **errorMessage**: `string` `success = false` olduğunda hata mesajını döndür.
-
+  
   > [!NOTE]
   > Özel dağıtım çözümü şu anda 3 aracı içeren coğrafi görselleştirme grafik oluşturmayı desteklemez: `geographic-district-map`, `geographic-path-map`, `geographic-pin-map`.
-
+  
   ### 🗺️ Kayıt Oluşturun
-
+  
   Varsayılan olarak, kullanıcıların sonuçları kendileri kaydetmeleri gerekir, ancak biz ayrıca grafik oluşturma kayıtlarını görmek için bir hizmet sağlarız; bu, kullanıcıların kendilerine bir hizmet tanımlayıcısı oluşturup yapılandırmasını gerektirir.
-
+  
   Mini uygulamayı açmak için Alipay ile tarayın ve kişisel bir hizmet tanımlayıcısı oluşturun (aşağıda "Benim" menüsüne tıklayın, "Hizmetlerim" sayfasına girin, "Oluştur" düğmesine tıklayın ve başarı sonrasında "Kopyala" düğmesine tıklayın):
-
-
-
+  
+  
+  
   Ardından, MCP sunucusu yapılandırmasına `SERVICE_ID` ortam değişkenini eklemeniz gerekir. Örneğin, Mac için yapılandırma aşağıdaki gibidir (Windows sistemleri için sadece `env` değişkenini ekleyin):
-
+  
   ```json
   {
     "mcpServers": {
@@ -237,15 +237,15 @@ body_tr: |-
     }
   }
   ```
-
+  
   MCP Server yapılandırmasını güncelledikten sonra, AI istemci uygulamanızı yeniden başlatmanız ve MCP Server'ı başarıyla başlattığınız ve bağlandığınızı kontrol etmeniz gerekir. Daha sonra haritayı yeniden oluşturmayı deneyebilirsiniz. Oluşturma başarılı olduktan sonra, mini uygulamanın "Haritalarım" sayfasına giderek harita oluşturma kayıtlarınızı görebilirsiniz.
-
-
-
+  
+  
+  
   ### 🎛️ Araç Filtreleme
-
+  
   `DISABLED_TOOLS` ortam değişkenini kullanarak belirli grafik oluşturma araçlarını devre dışı bırakabilirsiniz. Bu, bazı araçların MCP istemciniz ile uyumluluk sorunları olması veya kullanılabilir işlevselliği sınırlamak istediğinizde yararlıdır.
-
+  
   ```json
   {
     "mcpServers": {
@@ -259,43 +259,43 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Filtreleme için kullanılabilir araç adları** Bkz. [✨ Özellikler](#-özellikler).
-
+  
   ## 🔨 Geliştirme
-
+  
   Bağımlılıkları yükleyin:
-
+  
   ```bash
   npm install
   ```
-
+  
   Sunucuyu derleyin:
-
+  
   ```bash
   npm run build
   ```
-
+  
   MCP sunucusunu başlatın:
-
+  
   ```bash
   npm run start
   ```
-
+  
   MCP sunucusunu SSE transport ile başlatın:
-
+  
   ```bash
   node build/index.js -t sse
   ```
-
+  
   MCP sunucusunu Streamable transport ile başlatın:
-
+  
   ```bash
   node build/index.js -t streamable
   ```
-
+  
   ## 📄 Lisans
-
+  
   MIT@[AntV](https://github.com/antvis).
 ---
 

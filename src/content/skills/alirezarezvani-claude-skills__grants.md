@@ -12,6 +12,282 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Hibeler — NIH Finansman İstihbaratı
+
+  > **Taşınabilirlik:** `bash_tool` (RePORTER POST için curl), Node.js ile `docx` paketi ve Consensus MCP bağlantısı gerektirir. Claude Code CLI'de yerel olarak çalışır. Claude.ai'de Code Execution + Consensus MCP ile iş akışı desteklenir ancak daha yavaştır.
+
+  > **Kapsam: Yalnızca NIH.** NIH dışı finansörler (PCORI, DOD CDMRP, VA, vakıflar) kapsam dışıdır ve giriş aşamasında işaretlenir.
+
+  Araştırma fikri olan klinik araştırmacı için düzenlenebilir `.docx` formatında stratejik NIH finansman genel görünümü üretin. Çıktı araştırma konumlandırması analizi, enstitü haritalaması, hedefli hibe keşfi ve araştırmacının editör, mentorleriyle paylaşabilecekleri stratejik öneriler içerir.
+
+  ## Agent Bütünlük Kuralları (Research-Pack Konvansiyonu)
+
+  Miras alınan; PR #657 denetimi başına kelime kelime kilitli.
+
+  - **Yürütme disiplini.** Bir adım sonuç alındığında tamamlanmış olur. Consensus çağrıları **sıralı, 1+ sn duraksamalı**. RePORTER çağrıları sıralı.
+  - **Veri kaynağı.** Yalnızca bu oturumdaki araç çağrılarının döndürdüğünü say. Hiçbir zaman eğitim bilgisiyle tamamlama yapma. Eğitim bilgisi `[Consensus/RePORTER'dan değil — referans bilgi]` olarak etiketlenir ve sayımlardan hariç tutulur.
+  - **Sayımlar ve atıf.** Gönderilen sorgular / gösterilen sonuçlar / alıntılanan sonuçlar — üç ayrı sayı, asla karıştırma. Alıntılanan her makalenin bu oturumdaki erişilebilir URL'si vardır.
+  - **Hata işleme.** Başarısızlık durumunda → 3sn bekle → bir kez yeniden dene → günlük. 3 araç arasında ardışık 3 başarısızlık: durdur, araştırmacıyı uyar, eksik olanları açıkla. Asla sessizce atla.
+  - **Şeffaflık.** DOCX'te Denetim Günlüğü bölümü. Belgede olduğu gibi sohbet özetinde de aynı standartlar.
+
+  [`references/reporter_post_patterns.md`](references/reporter_post_patterns.md) adresinde RePORTER POST kanonik + plan katmanı tespiti için bkz.
+
+  ## Faz 1: Grill-Me Giriş (6 zorlayıcı soru, teker teker)
+
+  ### S1 (kök) — Araştırma fikri
+
+  > **Araştırma fikrini 2–3 cümlede açıklayın. Soru nedir, yeni olan nedir ve klinik alaka nedir? Muğlak cevaplar ("sağlık için AI", "hastalık X için biyobelirteçler") reddedilecektir — spesifiklik için ısrar edin.**
+  >
+  > *Neden soruyorum:* Beş Consensus araması (kurulu / riskler / mevcut yaklaşımlar / bitişik yöntemler / boşluklar) kesin bir araştırma fikrini gerektirir. Muğlak fikirler muğlak boşluk alıntıları ve işe yaramaz konumlandırma anlatımı üretir.
+
+  Muğlak cevapları reddet. Kullanıcı çok geniş ise örneklerle bir kez yeniden sor.
+
+  ### S2 (S1'e bağlı) — Kariyer aşaması
+
+  > **Kariyer aşaması — birini seçin:**
+  >
+  > 1. Doktora öncesi (Doktora öğrencisi, T32 stajyeri)
+  > 2. Doktora sonrası araştırmacı (F32, K99 adayı)
+  > 3. Erken kariyer (K-award adayı, ilk R01)
+  > 4. Bağımsız araştırmacı (birden fazla R01, kuruluş laboratoruvarı)
+  > 5. Kıdemli PI (R35, P-serisi, U01 liderliği)
+  >
+  > *Neden soruyorum:* Kariyer aşaması mekanizma önerilerini filtreler. Stajyerler için F-serisi, erken kariyer için K-serisi, bağımsız olanlar için R-serisi. Yanlış aşama seçimi finanse edilemeyen mekanizma önerileri üretir.
+
+  Zorlayıcı seçim.
+
+  ### S3 (S2'ye bağlı) — Ön veri durumu
+
+  > **Ön veri — birini seçin:**
+  >
+  > 1. Hiçbiri (de novo proje, henüz pilot veri yok)
+  > 2. Pilot veri (erken bulgular, tek site)
+  > 3. Güçlü ön veri (multi-deney, R01 ölçeğine hazır)
+  > 4. Doğrulanmış ve hazır (çok siteli, yayın hazırlığı)
+  >
+  > *Neden soruyorum:* Ön veri durumu mekanizma bütçesini yönlendirir. Veri yok → R03 / R21 pilot kapsamı. Güçlü ön veri → R01 / U01 çok siteli ölçek. Uyumsuzluk rekabetçi olmayan başvurular üretir.
+
+  ### S4 (S2'ye bağlı) — Ortam
+
+  > **Araştırma ortamı — birini seçin:**
+  >
+  > 1. R01 uygun (NIH temel fonlaması olan araştırma yoğun enstitü)
+  > 2. Orta kademe (bölgesel akademik tıp merkezi, mütevazı NIH portföyü)
+  > 3. Kaynak sınırlı (küçük enstitü, minimal NIH temel fonu)
+  > 4. Endüstri-işbirlikçi (akademik + endüstri ortaklığı)
+  >
+  > *Neden soruyorum:* Ortam, kapsam gerçekçiliğini (çok siteli U01 R01 uygun gerektirir) ve hangi mekanizma kategorilerinin rekabetçi olduğunu etkiler (R15 özellikle kaynak sınırlılığı hedefler).
+
+  ### S5 (S1'e bağlı) — Sunuş tavrı
+
+  > **Sunuş tavrı — birini seçin:**
+  >
+  > 1. Yeni başvuru (ilk sunuş, önceki inceleme yok)
+  > 2. Yeniden sunuş (inceleyici yanıtları gereken A1)
+  > 3. Keşif (henüz sunup sunmayacağına karar vermedim)
+  >
+  > *Neden soruyorum:* Yeniden sunuşlar DOCX'te inceleyici yanıt rehberliğine ihtiyaç duyar (Bölüm 7). Yeni uygulamalar bunu atlar. Keşif vurguyu strateji üzerinden peyzaja kaydırır.
+
+  ### S6 (S1'e bağlı) — Bilinen enstitü hedefleri
+
+  > **Zaten belirli NIH enstitülerini düşünüyor musunuz? İsim listesi verin (NCI / NHLBI / NIMH / NINDS / NIDDK / vb.) ya da "tercih yok — doğru olanları bulun" deyin.**
+  >
+  > *Neden soruyorum:* Enstitü hipoteziniz varsa, onu RePORTER verilerine karşı doğruluğunu kontrol edeceğim. Yoksa, enstitü sayımından bitişik çalışmayı finanse eden ilk 3 enstitüyü ortaya çıkaracağım.
+
+  "Tercih yok" yaygın durum olarak kabul et.
+
+  **Durdurma koşulu:** S6'dan sonra taahhüt ve Faz 2A'yı başlat. Faz 2A başladıktan sonra asla giriş tekrar açma.
+
+  ## Faz 2A: Araştırma Konumlandırması (5 Consensus araması)
+
+  Sıralı olarak 1 s/sn çalıştır. Her arama bir konumlandırma yönünü karşılık gelir:
+
+  1. **Kurulu** — `"<araştırma fikri>" kurulu kanıt` — bilinen nedir
+  2. **Riskler** — `"<konu>" mortalite VEYA yük VEYA maliyet VEYA prevalans` — neden önemli
+  3. **Mevcut Yaklaşımlar** — `"<konu>" mevcut tedavi VEYA standart bakım VEYA yaklaşım` — sanat durumu
+  4. **Bitişik Yöntemler** — `"<ilişkili teknik>" <konuya> uygulanmış` — metodolojik olanaklar
+  5. **Boşluklar** — `"<konu>" sınırlamalar VEYA cevaplanmamış VEYA gelecek yönler VEYA zorluk` — boşluk sinyalleri
+
+  Her biri için `scripts/citation_tracker.py --action record_consensus_search` kullan. Plan katmanı ilk yanıttan algılanır.
+
+  **Sentez:** her yön için 2-3 alıntı yapılabilir bulgu ayıkla (Bölüm 2 boşluk alıntıları olur). "Alan X'i kurmuştur (refs), ancak Y yanıtlanmamıştır (refs)" desenini kullanan Önem/İnovasyon dili taslağı.
+
+  ## Faz 2B: Enstitü Haritalaması + Hibe Keşfi (RePORTER POST)
+
+  RePORTER **yalnızca POST**. `bash_tool` + `curl` kullan — hiçbir zaman `web_fetch` kullanma.
+
+  ### Dinamik mali yıl penceresi
+
+  Çalışma zamanında `scripts/fiscal_year_calculator.py` aracılığıyla hesapla. Varsayılan: mevcut FY + 3 önceki. Federal FY 1 Ekim'de başlar, bu nedenle:
+
+  ```bash
+  python scripts/fiscal_year_calculator.py --output json
+  # Döndürür: {"current_fy": 2026, "window": [2023, 2024, 2025, 2026]}
+  ```
+
+  ### Dar (AND) arama — doğrudan örtüşmeyi bulur
+
+  ```bash
+  curl -X POST 'https://api.reporter.nih.gov/v2/projects/search' \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "criteria": {
+        "fiscal_years": [2023, 2024, 2025, 2026],
+        "include_active_projects": true,
+        "advanced_text_search": {
+          "operator": "AND",
+          "search_field": "all",
+          "search_text": "<anahtar terim 1> <anahtar terim 2>"
+        }
+      },
+      "limit": 50,
+      "include_fields": ["project_num", "project_title", "agency_ic_admin", "study_section", "fiscal_year", "principal_investigators", "abstract_text"]
+    }'
+  ```
+
+  ### Geniş (OR) arama — bitişik çalışmayı bulur
+
+  ```bash
+  curl -X POST 'https://api.reporter.nih.gov/v2/projects/search' \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "criteria": {
+        "fiscal_years": [2023, 2024, 2025, 2026],
+        "advanced_text_search": {
+          "operator": "OR",
+          "search_field": "all",
+          "search_text": "<terim> <eşanlamlı> <ilişkili kavram>"
+        }
+      },
+      "limit": 50
+    }'
+  ```
+
+  ### Enstitü sayımı + çalışma bölümü sıralaması
+
+  RePORTER yanıtlarından sonra:
+  - `agency_ic_admin` sayımı (enstitü kodu: NCI, NHLBI, NIMH, vb.) → ilk 3 fon enstitüsü
+  - `study_section` sayımı → ilk 2 çalışma bölümü (uygulamaların inceleme için gittiği yer)
+
+  ### NOSI keşfi
+
+  RePORTER yanıtlarını `NOT-*` fırsat numaraları için ayrıştır. Her biri için:
+
+  ```bash
+  # NOSI'ler tahmin edilebilir URL'lerde yaşar:
+  # https://grants.nih.gov/grants/guide/notice-files/NOT-<ENSTİTÜ>-<YIL>-<NUMARA>.html
+  web_fetch <url>
+  ```
+
+  Getirme başarısız olursa: `[NOSI {numara} — getirme başarısız, dahil edilmedi]` günlüğe al, devam et.
+
+  ## Mekanizma Eşleştirmesi (Kapsam Farkı)
+
+  SADECE kariyer aşaması değil. Kariyer aşaması **+** proje kapsamı **+** ön veri mekanizma önerisini yönlendirir.
+
+  `scripts/mechanism_matcher.py` kullan:
+
+  ```bash
+  python scripts/mechanism_matcher.py \
+    --career-stage "early_career" \
+    --prelim-data "pilot" \
+    --environment "r01_eligible" \
+    --scope "single_site" \
+    --output json
+  # Mekanizma kısa listesini mantıkla döndürür
+  ```
+
+  Tam matris için [`references/nih_mechanism_matching.md`](references/nih_mechanism_matching.md) adresine bkz.
+
+  ## Faz 3: DOCX Üretimi
+
+  Node.js + `docx` kütüphanesi aracılığıyla 9 bölüm. Tam spec için [`references/docx_9_sections.md`](references/docx_9_sections.md) adresine bkz.
+
+  1. **Yönetici Özeti** — başlık + kariyer aşaması + ortam + 3-4 anahtar bulgu madde
+  2. **Araştırma Konumlandırması** — 3-5 boşluk alıntısı (italik, satır içi Consensus alıntıları) + 2-3 paragraf konumlandırma anlatımı + destek kanıt tablosu
+  3. **Hedef Enstitüler** — sıralama tablosu (enstitü, pencere içinde proje sayısı, fikirle % eşleşme) + 2-3 cümle yorumu
+  4. **Hibe Fırsatları** — kalın NOSI çağrı varsa. Hiperlink FOA'lar + hibe başına kapsam/bütçe uygunluğu paragrafı ile ilk 3 hibe tablosu
+  5. **Finanse Edilmiş Örtüşme** — ilk 5 proje tablosu (PI, project_num, IC, yıl, RePORTER'e hiperlink) + farklılaştırma paragrafı
+  6. **Çalışma Bölümleri** — sıralama tablosu + en iyi eşleşme yorumu
+  7. **Stratejik Öneriler ve Sonraki Adımlar** — 3-4 numaralandırılmış öneriler + **zorunlu program memuru önerisi** + sunuş zaman çizelgesi notu + (yeniden sunuş S5=2 ise) inceleyici yanıt rehberliği + kapanış paragrafı
+  8. **Referanslar** — numaralandırılmış bibliyografi, Consensus'e hiperlink
+  9. **Denetim Günlüğü** — Consensus aramaları tablosu, plan katmanı notu, RePORTER aramaları tablosu, NOSI getirmeleri tablosu, özet istatistikleri, araç kısıtlamaları notu, başarısız adımlar
+
+  ### Stil
+
+  Arial 12pt gövde, lacivert başlıklar (#1a3a5c), açık mavi tablo başlıkları (#e8f0f8), kehribar NOSI çağrısı. `ExternalHyperlink` desenleri:
+  - Makale alıntıları: `https://consensus.app/papers/...`
+  - FOA bağlantıları: `https://grants.nih.gov/grants/guide/...`
+  - RePORTER projeleri: `https://reporter.nih.gov/project-details/<id>`
+
+  ## Zorunlu Program Memuru Tavsiyesi
+
+  Her zaman Bölüm 7'de dahil et:
+
+  > **Önerilen sonraki adım: {üst enstitü} adresindeki program memuru ile iletişime geçin.** Personel sayfasını https://www.nih.gov/institutes-nih/list-nih-institutes-centers-offices adresinde bulun → {enstitü} → Program Memurları. Hazırla: 1 sayfalık belirli hedefler + CV'niz + uyum hakkında 3 spesifik soru. E-posta konusu: "Ön-başvuru danışması: <konu>".
+
+  Bu, herhangi bir başvurucu için sunulan en değerli tavsiyedir. Asla atla.
+
+  ## Sunuş Zaman Çizelgesi (DOCX Bölüm 7'ye Gömülü)
+
+  | Mekanizma | Standart giriş tarihleri |
+  |---|---|
+  | R01, R21, R03 | 5 Şub, 5 Haz, 5 Eki |
+  | K-award'lar (K01, K08, K23, K99) | 12 Şub, 12 Haz, 12 Eki |
+  | R34, R61/R33 | 16 Şub, 16 Haz, 16 Eki |
+  | F31, F32 | 8 Nis, 8 Ağu, 8 Ara |
+
+  ## Faz 4: Sunum
+
+  - DOCX'i `<output-dir>/grants_<topic-slug>_<YYYY-MM-DD>.docx` adresinde kaydet
+  - Sohbet özeti: dosya yolu + denetim sayıları + plan katmanı + enstitü hedefleri hakkında karar
+  - Doğrula: `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` ile zip bütünlüğünü kontrol et (çıktı yok = bozulmamış), ardından gerekli bölümlerin mevcut olduğunu onaylayın
+
+  ## Araçlar
+
+  | Betik | Rol |
+  |---|---|
+  | `scripts/citation_tracker.py` | Üç sayı denetimi (Consensus gönderilen/gösterilen/alıntılanan + RePORTER projeleri/alıntılanan) `~/.grants_sessions/<session>.json` adresinde |
+  | `scripts/fiscal_year_calculator.py` | Mevcut FY + 3-önceki pencere. Çalışma zamanında hesaplanır, asla sabit kodlanmaz. |
+  | `scripts/mechanism_matcher.py` | Kariyer aşaması × kapsam × ön veri → mekanizma önerisi kısa listesi |
+
+  ## Referanslar
+
+  - [`references/nih_mechanism_matching.md`](references/nih_mechanism_matching.md) — kariyer aşaması × kapsam × ön veri → mekanizma kanonik (7+ kaynak)
+  - [`references/reporter_post_patterns.md`](references/reporter_post_patterns.md) — RePORTER curl POST şablonları + plan katmanı tespiti (7+ kaynak)
+  - [`references/docx_9_sections.md`](references/docx_9_sections.md) — 9 bölüm .docx spec + teknik gereksinimler (7+ kaynak)
+
+  ## Hata İşleme
+
+  | Başarısızlık | Davranış |
+  |---|---|
+  | Consensus hız sınırı tetiklendi | 3sn bekle, bir kez yeniden dene, günlüğe al; hala başarısız ise araştırmacıyı uyar |
+  | Consensus bir yön için 0 döndürür | Açıkça yüzeyine çıkar; asla eğitim bilgisiyle doldurma yapma |
+  | Consensus plan katmanı sınırı algılandı | Katmanı günlüğe al, denetim loguna not düş, araştırmacıya yüzeyine çıkar |
+  | RePORTER POST hata döndürür | 3sn sonra bir kez yeniden dene; hala başarısız ise günlüğe al ve devam et |
+  | RePORTER dar araması <5 döndürür | Belgele; geniş OR telafi etmeli; düşük sayı yüzeyine çıkar |
+  | NOSI getirmesi başarısız | `[NOSI {n} — getirme başarısız]` günlüğe al, devam et |
+  | 3 ardışık araç başarısızlığı | Durdur, araştırmacıyı eksik olanın açıklaması ile uyar |
+  | DOCX üretimi başarısız | Ham verileri JSON olarak kaydet, araştırmacı çalışmasını kaybetmesin diye |
+
+  ## Reddedilecek Anti-Desenler
+
+  - Consensus çağrılarını paralelleştirme (hız sınırı tetikleyecek)
+  - RePORTER için `web_fetch` kullanma (POST-only — `web_fetch` GET'dir)
+  - Sabit kodlanmış mali yıl değerleri
+  - Sadece kariyer aşamasına dayanan mekanizma önerileri (kapsam da dikkate almalı)
+  - İnce yön sonuçlarını sessizce eğitim bilgisiyle doldurma yapma
+  - Denetim logunu atla
+  - Program memuru tavsiyesini atla
+  - "Bulunan kağıtlar"ı "gösterilen kağıtlar"a ve "alıntılanan kağıtlar"a karıştırma
+  - Getirme başarısız olduğunda NOSI detayları oluşturma
+
+  ---
+
+  **Sürüm:** 1.0.0
+  **Kaynak spec:** [`megaprompts/08-grants-megaprompt.md`](../../../../megaprompts/08-grants-megaprompt.md)
+  **Yapı deseni:** Yol B (doğrudan dönüştürme). Pulse + litreview'in Research-pack kardeşi.
 ---
 
 # Grants — NIH Funding Intelligence

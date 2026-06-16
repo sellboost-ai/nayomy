@@ -3,7 +3,7 @@ name: "docx"
 description_en: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images"
 category: "Document"
 repo: "anthropics/skills"
-stars: 140618
+stars: 151641
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/docx/SKILL.md"
 path: "skills/docx/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # DOCX oluşturma, düzenleme ve analiz
-
+  
   ## Genel Bakış
-
+  
   Bir .docx dosyası, XML dosyalarını içeren bir ZIP arşividir.
-
+  
   ## Hızlı Referans
-
+  
   | Görev | Yaklaşım |
   |------|----------|
   | İçeriği oku/analiz et | `pandoc` veya ham XML için arşivden çıkar |
   | Yeni belge oluştur | `docx-js` kullan - aşağıda Yeni Belge Oluşturma bölümünü gör |
   | Mevcut belgeyi düzenle | Arşivden çıkar → XML'i düzenle → yeniden paketle - aşağıda Mevcut Belgeleri Düzenleme bölümünü gör |
-
+  
   ### .doc'u .docx'e Dönüştürme
-
+  
   Eski `.doc` dosyaları düzenlenmeden önce dönüştürülmelidir:
-
+  
   ```bash
   python scripts/office/soffice.py --headless --convert-to docx document.doc
   ```
-
+  
   ### İçeriği Okuma
-
+  
   ```bash
   # İzlenen değişikliklerle metin çıkarma
   pandoc --track-changes=all document.docx -o output.md
-
+  
   # Ham XML erişimi
   python scripts/office/unpack.py document.docx unpacked/
   ```
-
+  
   ### Görüntülere Dönüştürme
-
+  
   ```bash
   python scripts/office/soffice.py --headless --convert-to pdf document.docx
   pdftoppm -jpeg -r 150 document.pdf page
   ```
-
+  
   ### İzlenen Değişiklikleri Kabul Etme
-
+  
   Tüm izlenen değişiklikleri kabul eden temiz bir belge üretmek için (LibreOffice gerektirir):
-
+  
   ```bash
   python scripts/accept_changes.py input.docx output.docx
   ```
-
+  
   ---
-
+  
   ## Yeni Belgeler Oluşturma
-
+  
   JavaScript ile .docx dosyaları oluştur, ardından doğrula. Kurulum: `npm install -g docx`
-
+  
   ### Kurulum
   ```javascript
   const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, ImageRun,
@@ -75,19 +75,19 @@ body_tr: |-
           TabStopType, TabStopPosition, Column, SectionType,
           TableOfContents, HeadingLevel, BorderStyle, WidthType, ShadingType,
           VerticalAlign, PageNumber, PageBreak } = require('docx');
-
+  
   const doc = new Document({ sections: [{ children: [/* content */] }] });
   Packer.toBuffer(doc).then(buffer => fs.writeFileSync("doc.docx", buffer));
   ```
-
+  
   ### Doğrulama
   Dosyayı oluşturduktan sonra doğrula. Doğrulama başarısız olursa, arşivden çıkar, XML'i düzenle ve yeniden paketle.
   ```bash
   python scripts/office/validate.py doc.docx
   ```
-
+  
   ### Sayfa Boyutu
-
+  
   ```javascript
   // KRİTİK: docx-js varsayılan olarak A4'tür, US Letter değildir
   // Tutarlı sonuçlar için sayfa boyutunu her zaman açıkça ayarla
@@ -104,14 +104,14 @@ body_tr: |-
     children: [/* content */]
   }]
   ```
-
+  
   **Yaygın sayfa boyutları (DXA birimleri, 1440 DXA = 1 inç):**
-
+  
   | Kağıt | Genişlik | Yükseklik | İçerik Genişliği (1" kenar boşluğu) |
   |-------|----------|-----------|-----------------------------------|
   | US Letter | 12,240 | 15,840 | 9,360 |
   | A4 (varsayılan) | 11,906 | 16,838 | 9,026 |
-
+  
   **Yatay yönelim:** docx-js genişlik/yüksekliği dahili olarak değiştirir, bu nedenle portré boyutlarını geçir ve değişimi kendisine yaptır:
   ```javascript
   size: {
@@ -121,11 +121,11 @@ body_tr: |-
   },
   // İçerik genişliği = 15840 - sol kenar boşluğu - sağ kenar boşluğu (uzun kenarı kullanır)
   ```
-
+  
   ### Stiller (Yerleşik Başlıkları Geçersiz Kıl)
-
+  
   Varsayılan font olarak Arial kullan (evrensel olarak desteklenir). Okunabilirlik için başlıkları siyah tut.
-
+  
   ```javascript
   const doc = new Document({
     styles: {
@@ -147,14 +147,14 @@ body_tr: |-
     }]
   });
   ```
-
+  
   ### Listeler (ASLA Unicode işaretleri kullanma)
-
+  
   ```javascript
   // ❌ YANLIŞ - hiçbir zaman işaret karakterlerini manuel olarak ekleme
   new Paragraph({ children: [new TextRun("• Item")] })  // YANLIŞ
   new Paragraph({ children: [new TextRun("\u2022 Item")] })  // YANLIŞ
-
+  
   // ✅ DOĞRU - LevelFormat.BULLET ile numaralandırma config kullan
   const doc = new Document({
     numbering: {
@@ -176,22 +176,22 @@ body_tr: |-
       ]
     }]
   });
-
+  
   // ⚠️ Her referans BAĞIMSIZ numaralandırma oluşturur
   // Aynı referans = devam eder (1,2,3 sonra 4,5,6)
   // Farklı referans = yeniden başlar (1,2,3 sonra 1,2,3)
   ```
-
+  
   ### Tablolar
-
+  
   **KRİTİK: Tablolar çift genişlik gerektirir** - hem tabloda `columnWidths` hem de her hücrede `width` ayarla. Her ikisi olmadan, tablolar bazı platformlarda yanlış render olur.
-
+  
   ```javascript
   // KRİTİK: Tutarlı rendering için her zaman tablo genişliğini ayarla
   // KRİTİK: Siyah arka planları önlemek için ShadingType.CLEAR (SOLID değil) kullan
   const border = { style: BorderStyle.SINGLE, size: 1, color: "CCCCCC" };
   const borders = { top: border, bottom: border, left: border, right: border };
-
+  
   new Table({
     width: { size: 9360, type: WidthType.DXA }, // Her zaman DXA kullan (yüzdeler Google Docs'ta bozulur)
     columnWidths: [4680, 4680], // Tablo genişliğine toplamı olmalı (DXA: 1440 = 1 inç)
@@ -210,27 +210,27 @@ body_tr: |-
     ]
   })
   ```
-
+  
   **Tablo genişliği hesaplaması:**
-
+  
   Her zaman `WidthType.DXA` kullan — `WidthType.PERCENTAGE` Google Docs'ta bozulur.
-
+  
   ```javascript
   // Tablo genişliği = columnWidths toplamı = içerik genişliği
   // 1" kenar boşluğu olan US Letter: 12240 - 2880 = 9360 DXA
   width: { size: 9360, type: WidthType.DXA },
   columnWidths: [7000, 2360]  // Tablo genişliğine toplamı olmalı
   ```
-
+  
   **Genişlik kuralları:**
   - **Her zaman `WidthType.DXA` kullan** — hiçbir zaman `WidthType.PERCENTAGE` (Google Docs ile uyumsuz)
   - Tablo genişliği `columnWidths` toplamına eşit olmalı
   - Hücre `width` karşılık gelen `columnWidth` ile eşleşmeli
   - Hücre `margins` dahili dolgudur - içerik alanını azaltır, hücre genişliğine eklenmez
   - Tam genişlik tabloları için: içerik genişliğini kullan (sayfa genişliği eksi sol ve sağ kenar boşlukları)
-
+  
   ### Görseller
-
+  
   ```javascript
   // KRİTİK: type parametresi GEREKLI
   new Paragraph({
@@ -242,19 +242,19 @@ body_tr: |-
     })]
   })
   ```
-
+  
   ### Sayfa Sonları
-
+  
   ```javascript
   // KRİTİK: PageBreak bir Paragraph içinde olmalı
   new Paragraph({ children: [new PageBreak()] })
-
+  
   // Veya pageBreakBefore kullan
   new Paragraph({ pageBreakBefore: true, children: [new TextRun("New page")] })
   ```
-
+  
   ### Köprüler
-
+  
   ```javascript
   // Harici bağlantı
   new Paragraph({
@@ -263,7 +263,7 @@ body_tr: |-
       link: "https://example.com",
     })]
   })
-
+  
   // Dahili bağlantı (yer işareti + referans)
   // 1. Hedefte yer işareti oluştur
   new Paragraph({ heading: HeadingLevel.HEADING_1, children: [
@@ -275,9 +275,9 @@ body_tr: |-
     anchor: "chapter1",
   })]})
   ```
-
+  
   ### Dipnotlar
-
+  
   ```javascript
   const doc = new Document({
     footnotes: {
@@ -296,9 +296,9 @@ body_tr: |-
     }]
   });
   ```
-
+  
   ### Tab Duraklarını
-
+  
   ```javascript
   // Metni aynı satırda sağa hizala (örn. başlığın karşısında tarih)
   new Paragraph({
@@ -308,7 +308,7 @@ body_tr: |-
     ],
     tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
   })
-
+  
   // Nokta lideri (örn. TOC stili)
   new Paragraph({
     children: [
@@ -324,9 +324,9 @@ body_tr: |-
     ],
   })
   ```
-
+  
   ### Çok Sütunlu Düzenler
-
+  
   ```javascript
   // Eşit genişlik sütunları
   sections: [{
@@ -340,7 +340,7 @@ body_tr: |-
     },
     children: [/* içerik doğal olarak sütunlar arasında akar */]
   }]
-
+  
   // Özel genişlik sütunları (equalWidth false olmalı)
   sections: [{
     properties: {
@@ -355,18 +355,18 @@ body_tr: |-
     children: [/* content */]
   }]
   ```
-
+  
   `type: SectionType.NEXT_COLUMN` kullanarak yeni bir bölümle sütun sonunu zorla.
-
+  
   ### İçindekiler Tablosu
-
+  
   ```javascript
   // KRİTİK: Başlıklar YALNIZCA HeadingLevel kullanmalı - özel stiller yok
   new TableOfContents("Table of Contents", { hyperlink: true, headingStyleRange: "1-3" })
   ```
-
+  
   ### Üstbilgiler/Altbilgiler
-
+  
   ```javascript
   sections: [{
     properties: {
@@ -383,9 +383,9 @@ body_tr: |-
     children: [/* content */]
   }]
   ```
-
+  
   ### docx-js için Kritik Kurallar
-
+  
   - **Sayfa boyutunu açıkça ayarla** - docx-js varsayılan olarak A4'tür; ABD belgeleri için US Letter (12240 x 15840 DXA) kullan
   - **Yatay: portré boyutlarını geçir** - docx-js genişlik/yüksekliği dahili olarak değiştirir; kısa kenarı `width`, uzun kenarı `height` olarak geçir ve `orientation: PageOrientation.LANDSCAPE` ayarla
   - **Hiçbir zaman `\n` kullanma** - ayrı Paragraph öğeleri kullan
@@ -401,27 +401,27 @@ body_tr: |-
   - **TOC yalnızca HeadingLevel gerektirir** - başlık paragraflarında özel stiller yok
   - **Yerleşik stilleri geçersiz kıl** - tam ID'leri kullan: "Heading1", "Heading2", vb.
   - **`outlineLevel` ekle** - TOC için gerekli (H1 için 0, H2 için 1, vb.)
-
+  
   ---
-
+  
   ## Mevcut Belgeleri Düzenleme
-
+  
   **3 adımın tümünü sırasıyla takip et.**
-
+  
   ### Adım 1: Arşivden Çıkar
   ```bash
   python scripts/office/unpack.py document.docx unpacked/
   ```
   XML'i çıkarır, güzel bastırır, bitişik çalıştırmaları birleştirir ve akıllı tırnak işaretlerini XML varlıklarına dönüştürür (`&#x201C;` vb.) böylece düzenlemeyi hayatta kalırlar. `--merge-runs false` kullanarak çalıştırma birleştirmesini atla.
-
+  
   ### Adım 2: XML'i Düzenle
-
+  
   `unpacked/word/` içindeki dosyaları düzenle. Desenler için aşağıdaki XML Referansını bak.
-
+  
   **İzlenen değişiklikler ve yorumlar için "Claude"'u yazar olarak kullan**, kullanıcı açıkça farklı bir ad kullanmasını talep etmediği sürece.
-
+  
   **Dize değişimi için Edit aracını doğrudan kullan. Python betikleri yazma.** Betikler gereksiz karmaşıklık getiri. Edit aracı tam olarak neyin değiştirildiğini gösterir.
-
+  
   **KRİTİK: Yeni içerik için akıllı tırnak işaretleri kullan.** Apostrof veya tırnak işareti içeren metin eklerken, akıllı tırnak işaretleri üretmek için XML varlıklarını kullan:
   ```xml
   <!-- Profesyonel tipografi için bu varlıkları kullan -->
@@ -433,7 +433,7 @@ body_tr: |-
   | `&#x2019;` | ' (sağ tek / apostrof) |
   | `&#x201C;` | " (sol çift) |
   | `&#x201D;` | " (sağ çift) |
-
+  
   **Yorum ekleme:** Birden çok XML dosyası arasında ortak şeyleri işlemek için `comment.py` kullan (metin önceden kaçıştırılmış XML olmalı):
   ```bash
   python scripts/comment.py unpacked/ 0 "Comment text with &amp; and &#x2019;"
@@ -441,53 +441,53 @@ body_tr: |-
   python scripts/comment.py unpacked/ 0 "Text" --author "Custom Author"  # özel yazar adı
   ```
   Ardından document.xml'e işaretçiler ekle (XML Referansında Yorumlar bölümüne bak).
-
+  
   ### Adım 3: Paketle
   ```bash
   python scripts/office/pack.py unpacked/ output.docx --original document.docx
   ```
   Otomatik onarımla doğrular, XML'i sıkıştırır ve DOCX oluşturur. Doğrulamayı atlamak için `--validate false` kullan.
-
+  
   **Otomatik onarım şunları düzeltir:**
   - `durableId` >= 0x7FFFFFFF (geçerli ID'yi yeniden oluşturur)
   - `<w:t>` üzerinde `xml:space="preserve"` eksik (boşluk ile)
-
+  
   **Otomatik onarım şunları düzeltmez:**
   - Biçimsiz XML, geçersiz öğe iç içe geçmesi, eksik ilişkiler, şema ihlalleri
-
+  
   ### Yaygın Tuzaklar
-
+  
   - **Tüm `<w:r>` öğelerini değiştir**: İzlenen değişiklikleri eklerken, tüm `<w:r>...</w:r>` bloğunu kardeş olarak `<w:del>...<w:ins>...` ile değiştir. İzlenen değişim etiketlerini bir çalıştırmanın içine enjekte etme.
   - **`<w:rPr>` biçimlendirmesini koru**: Orijinal çalıştırmanın `<w:rPr>` bloğunu kalın, yazı tipi boyutu vb.'yi korumak için izlenen değişim çalıştırmalarına kopyala.
-
+  
   ---
-
+  
   ## XML Referansı
-
+  
   ### Şema Uyumluluğu
-
+  
   - **`<w:pPr>`'de element sırası**: `<w:pStyle>`, `<w:numPr>`, `<w:spacing>`, `<w:ind>`, `<w:jc>`, `<w:rPr>` en sonda
   - **Boşluk**: Başında/sonunda boşluk olan `<w:t>` için `xml:space="preserve"` ekle
   - **RSID'ler**: 8 basamaklı on altılık olmalı (örn. `00AB1234`)
-
+  
   ### İzlenen Değişiklikler
-
+  
   **Ekleme:**
   ```xml
   <w:ins w:id="1" w:author="Claude" w:date="2025-01-01T00:00:00Z">
     <w:r><w:t>inserted text</w:t></w:r>
   </w:ins>
   ```
-
+  
   **Silme:**
   ```xml
   <w:del w:id="2" w:author="Claude" w:date="2025-01-01T00:00:00Z">
     <w:r><w:delText>deleted text</w:delText></w:r>
   </w:del>
   ```
-
+  
   **`<w:del>` içinde**: `<w:t>` yerine `<w:delText>` ve `<w:instrText>` yerine `<w:delInstrText>` kullan.
-
+  
   **Minimal düzenlemeler** - yalnızca neyin değiştiğini işaretle:
   ```xml
   <!-- "30 gün"ü "60 gün"e değiştir -->
@@ -500,7 +500,7 @@ body_tr: |-
   </w:ins>
   <w:r><w:t> days.</w:t></w:r>
   ```
-
+  
   **Tüm paragrafları/liste öğelerini silme** - bir paragraftaki TÜM içeriği kaldırırken, paragraf işaretini de sil, böylece sonraki paragrafla birleşir. `<w:pPr><w:rPr>` içine `<w:del/>` ekle:
   ```xml
   <w:p>
@@ -516,7 +516,7 @@ body_tr: |-
   </w:p>
   ```
   `<w:pPr><w:rPr>` içinde `<w:del/>` olmadan, değişiklikleri kabul etmek boş bir paragraf/liste öğesi bırakır.
-
+  
   **Başka bir yazarın eklemesini reddet** - silmeyi eklemenin içine yerleştir:
   ```xml
   <w:ins w:author="Jane" w:id="5">
@@ -525,7 +525,7 @@ body_tr: |-
     </w:del>
   </w:ins>
   ```
-
+  
   **Başka bir yazarın silinmesini geri yükle** - silmenin sonuna ekleme ekle (onların silinmesini değiştirme):
   ```xml
   <w:del w:author="Jane" w:id="5">
@@ -535,13 +535,13 @@ body_tr: |-
     <w:r><w:t>deleted text</w:t></w:r>
   </w:ins>
   ```
-
+  
   ### Yorumlar
-
+  
   `comment.py` çalıştırdıktan sonra (Adım 2'ye bak), document.xml'e işaretçiler ekle. Yanıtlar için `--parent` bayrağı kullan ve işaretçileri üst öğenin içine yerleştir.
-
+  
   **KRİTİK: `<w:commentRangeStart>` ve `<w:commentRangeEnd>` `<w:r>`'nin kardeşi, hiçbir zaman içinde değil.**
-
+  
   ```xml
   <!-- Yorum işaretçileri w:p'nin doğrudan çocukları, hiçbir zaman w:r içinde değil -->
   <w:commentRangeStart w:id="0"/>
@@ -551,7 +551,7 @@ body_tr: |-
   <w:r><w:t> more text</w:t></w:r>
   <w:commentRangeEnd w:id="0"/>
   <w:r><w:rPr><w:rStyle w:val="CommentReference"/></w:rPr><w:commentReference w:id="0"/></w:r>
-
+  
   <!-- Yanıt 1 iç içe olan yorum 0 -->
   <w:commentRangeStart w:id="0"/>
     <w:commentRangeStart w:id="1"/>

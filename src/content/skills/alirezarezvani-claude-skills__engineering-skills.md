@@ -12,6 +12,78 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Mühendislik Takımı Yetenekleri
+
+  Temel mühendislik, güvenlik, AI/ML/Veri ve uzmanlaşmış araçlara organize edilmiş 32 üretime hazır mühendislik becerisi.
+
+  ## Hızlı Başlangıç
+
+  ### Claude Code
+  ```
+  /read engineering-team/skills/senior-fullstack/SKILL.md
+  ```
+
+  ### Codex CLI
+  ```bash
+  npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
+  ```
+
+  ## Yeteneklere Genel Bakış
+
+  ### Temel Mühendislik (13 beceri)
+
+  | Beceri | Klasör | Odak Noktası |
+  |--------|--------|-------|
+  | Senior Architect | `senior-architect/` | Sistem tasarımı, mimari patterns |
+  | Senior Frontend | `senior-frontend/` | React, Next.js, TypeScript, Tailwind |
+  | Senior Backend | `senior-backend/` | API tasarımı, veritabanı optimizasyonu |
+  | Senior Fullstack | `senior-fullstack/` | Proje scaffold, kod kalitesi |
+  | Senior QA | `senior-qa/` | Test oluşturma, kapsama analizi |
+  | Senior DevOps | `senior-devops/` | CI/CD, infrastructure, containerlar |
+  | Senior SecOps | `senior-secops/` | Güvenlik operasyonları, zafiyet yönetimi |
+  | Code Reviewer | `code-reviewer/` | PR incelemesi, kod kalitesi analizi |
+  | Senior Security | `senior-security/` | Tehdit modellemesi, STRIDE, penetrasyon testi |
+  | AWS Solution Architect | `aws-solution-architect/` | Serverless, CloudFormation, maliyet optimizasyonu |
+  | MS365 Tenant Manager | `ms365-tenant-manager/` | Microsoft 365 yönetimi |
+  | TDD Guide | `tdd-guide/` | Test-driven development akışları |
+  | Tech Stack Evaluator | `tech-stack-evaluator/` | Teknoloji karşılaştırması, TCO analizi |
+
+  ### AI/ML/Veri (5 beceri)
+
+  | Beceri | Klasör | Odak Noktası |
+  |--------|--------|-------|
+  | Senior Data Scientist | `senior-data-scientist/` | İstatistiksel modelleme, deneymentasyon |
+  | Senior Data Engineer | `senior-data-engineer/` | Pipeline'lar, ETL, veri kalitesi |
+  | Senior ML Engineer | `senior-ml-engineer/` | Model deployment, MLOps, LLM entegrasyonu |
+  | Senior Prompt Engineer | `senior-prompt-engineer/` | Prompt optimizasyonu, RAG, ajanlar |
+  | Senior Computer Vision | `senior-computer-vision/` | Nesne deteksiyonu, segmentasyon |
+
+  ### Uzmanlaşmış Araçlar (5 beceri)
+
+  | Beceri | Klasör | Odak Noktası |
+  |--------|--------|-------|
+  | Playwright Pro | `playwright-pro/` | E2E testing (9 alt-beceri) |
+  | Self-Improving Agent | `self-improving-agent/` | Bellek kurasyonu (5 alt-beceri) |
+  | Stripe Integration | `stripe-integration-expert/` | Ödeme entegrasyonu, webhook'lar |
+  | Incident Commander | `incident-commander/` | Olay yanıt akışları |
+  | Email Template Builder | `email-template-builder/` | HTML email oluşturma |
+
+  ## Python Araçları
+
+  30+ script, tümü stdlib-only. Doğrudan çalıştırın:
+
+  ```bash
+  python3 <skill>/scripts/<tool>.py --help
+  ```
+
+  pip install gerekmez. Script'ler demo modu için gömülü örnekler içerir.
+
+  ## Kurallar
+
+  - Yalnızca ihtiyacınız olan belirli SKILL.md dosyasını yükleyin — tüm 32'sini toplu yüklemeyin
+  - Python araçlarını analiz ve scaffold için kullanın, manuel yargı için değil
+  - Tool kullanım örnekleri ve akışları için CLAUDE.md dosyasını kontrol edin
 ---
 
 # Engineering Team Skills

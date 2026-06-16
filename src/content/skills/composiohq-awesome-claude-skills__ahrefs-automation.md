@@ -3,7 +3,7 @@ name: "Ahrefs Automation"
 description_en: "Automate SEO research with Ahrefs -- analyze backlink profiles, research keywords, track domain metrics history, audit organic rankings, and perform batch URL analysis through the Composio Ahrefs integration."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 64852
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ahrefs-automation/SKILL.md"
 path: "composio-skills/ahrefs-automation/SKILL.md"
 is_collection: false
@@ -14,32 +14,32 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Ahrefs Otomasyonu
-
+  
   Claude Code'dan doğrudan **Ahrefs** SEO analitiklerini çalıştırın. Backlink profillerini analiz edin, anahtar kelimeleri araştırın, domain authority'yi zaman içinde izleyin, organik anahtar kelime sıralamalarını denetleyin ve terminalinizi terk etmeden birden fazla URL'yi toplu olarak analiz edin.
-
+  
   **Toolkit dokümantasyonu:** [composio.dev/toolkits/ahrefs](https://composio.dev/toolkits/ahrefs)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   1. Composio MCP sunucusunu konfigürasyonunuza ekleyin:
      ```
      https://rube.app/mcp
      ```
   2. İstendiğinde Ahrefs hesabınızı bağlayın. Agent bir authentication linki sağlayacaktır.
   3. Çoğu tool bir `target` (domain veya URL) ve bir `country` kodu (ISO 3166-1 alpha-2) gerektirir. Bazıları ayrıca `YYYY-MM-DD` formatında bir `date` gerektirir.
-
+  
   ---
-
+  
   ## Temel İş Akışları
-
+  
   ### 1. Site Explorer Metrikleri
-
+  
   Backlink sayıları, yönlendiren domain'ler, organik anahtar kelime sıralamaları ve trafik tahminleri dahil olmak üzere bir domain için kapsamlı SEO metrikleri alın.
-
+  
   **Tool:** `AHREFS_RETRIEVE_SITE_EXPLORER_METRICS`
-
+  
   Ana parametreler:
   - `target` (gerekli) -- analiz edilecek domain veya URL
   - `date` (gerekli) -- metrik tarihi `YYYY-MM-DD` formatında
@@ -47,37 +47,37 @@ body_tr: |-
   - `mode` -- kapsam: `exact`, `prefix`, `domain` veya `subdomains` (varsayılan)
   - `protocol` -- `both`, `http` veya `https`
   - `volume_mode` -- `monthly` veya `average`
-
+  
   Örnek prompt: *"example.com için Ahrefs site metriklerini bugünün tarihi itibariyle US'de al"*
-
+  
   ---
-
+  
   ### 2. Tarihsel Metrikleri İzleme
-
+  
   Trend analizi ve rekabetçi kıyaslama için bir domain'in SEO metriklerinin zaman içinde nasıl değiştiğini izleyin.
-
+  
   **Tools:** `AHREFS_RETRIEVE_SITE_EXPLORER_METRICS_HISTORY`, `AHREFS_DOMAIN_RATING_HISTORY`
-
+  
   Tam metrik geçmişi için:
   - `target` (gerekli) -- izlenecek domain
   - `date_from` (gerekli) -- başlangıç tarihi `YYYY-MM-DD` formatında
   - `date_to` -- bitiş tarihi
   - `history_grouping` -- `daily`, `weekly` veya `monthly` (varsayılan)
   - `select` -- `date,org_cost,org_traffic,paid_cost,paid_traffic` gibi sütunlar
-
+  
   Domain Rating (DR) geçmişi için:
   - `target` (gerekli), `date_from` (gerekli), `date_to`, `history_grouping`
-
+  
   Örnek prompt: *"example.com için son bir yıl boyunca aylık Domain Rating geçmişini göster"*
-
+  
   ---
-
+  
   ### 3. Backlink Analizi
-
+  
   Kaynak URL'ler, anchor metni, link nitelikleri ve yönlendiren domain metrikleri dahil olmak üzere kapsamlı bir backlink listesi alın.
-
+  
   **Tool:** `AHREFS_FETCH_ALL_BACKLINKS`
-
+  
   Ana parametreler:
   - `target` (gerekli) -- domain veya URL
   - `select` (gerekli) -- virgülle ayrılmış sütunlar (örn. `url_from,url_to,anchor,domain_rating_source,first_seen_link`)
@@ -86,39 +86,39 @@ body_tr: |-
   - `mode` -- `exact`, `prefix`, `domain` veya `subdomains`
   - `history` -- `live`, `since:YYYY-MM-DD` veya `all_time`
   - `where` -- `is_dofollow`, `domain_rating_source`, `anchor` gibi sütunlarda zengin filtre ifadeleri
-
+  
   Örnek prompt: *"example.com'a en iyi 100 dofollow backlink'i anchor metni ve yönlendiren DR ile al"*
-
+  
   ---
-
+  
   ### 4. Anahtar Kelime Araştırması
-
+  
   Anahtar kelime genel bakış metriklerini alın ve içerik stratejisi için eşleşen anahtar kelime varyasyonlarını keşfedin.
-
+  
   **Tools:** `AHREFS_EXPLORE_KEYWORDS_OVERVIEW`, `AHREFS_EXPLORE_MATCHING_TERMS_FOR_KEYWORDS`
-
+  
   Anahtar kelime genel bakışı için:
   - `select` (gerekli) -- döndürülecek sütunlar (hacim, zorluk, CPC, vb.)
   - `country` (gerekli) -- ISO ülke kodu
   - `keywords` -- virgülle ayrılmış anahtar kelime listesi
   - `where` -- hacim, zorluk, intent vb. ile filtrele
-
+  
   Eşleşen terimler için:
   - `select` (gerekli) ve `country` (gerekli)
   - `keywords` -- virgülle ayrılmış başlangıç anahtar kelimeleri
   - `match_mode` -- `terms` (herhangi bir sırada) veya `phrase` (tam sırada)
   - `terms` -- `all` veya `questions` (yalnızca soru formatı anahtar kelimeler)
-
+  
   Örnek prompt: *"'project management' için anahtar kelime varyasyonlarını hacim ve zorluk ile US'de bul"*
-
+  
   ---
-
+  
   ### 5. Organik Anahtar Kelimeler Denetimi
-
+  
   Bir domain'in organik aramada sıralandığı anahtar kelimeleri konum izleme ve tarihsel karşılaştırma ile görün.
-
+  
   **Tool:** `AHREFS_RETRIEVE_ORGANIC_KEYWORDS`
-
+  
   Ana parametreler:
   - `target` (gerekli) -- domain veya URL
   - `country` (gerekli) -- ISO ülke kodu
@@ -127,29 +127,29 @@ body_tr: |-
   - `date_compared` -- önceki bir tarihe karşı karşılaştır
   - `where` -- `keyword`, `volume`, `best_position`, intent bayrakları vb. üzerinde zengin filtre ifadeleri
   - `limit` (varsayılan 1000), `order_by`
-
+  
   Örnek prompt: *"example.com'un US'de ilk 10'da sıralandığı tüm organik anahtar kelimeleri göster"*
-
+  
   ---
-
+  
   ### 6. Toplu URL Analizi
-
+  
   Rakipler veya site bölümleri arasında SEO metriklerini karşılaştırmak için aynı anda 100'e kadar URL veya domain'i analiz edin.
-
+  
   **Tool:** `AHREFS_BATCH_URL_ANALYSIS`
-
+  
   Ana parametreler:
   - `targets` (gerekli) -- `url`, `mode` (`exact`/`prefix`/`domain`/`subdomains`) ve `protocol` (`both`/`http`/`https`) içeren nesne dizisi
   - `select` (gerekli) -- sütun tanımlayıcılarının dizisi
   - `country` -- ISO ülke kodu
   - `output` -- `json` veya `php`
-
+  
   Örnek prompt: *"competitor1.com, competitor2.com ve competitor3.com için SEO metriklerini karşılaştır"*
-
+  
   ---
-
+  
   ## Bilinen Tuzaklar
-
+  
   - **Sütun seçimi gereklidir:** Çoğu Ahrefs tool'u, döndürülecek sütunları belirten bir `select` parametresi gerektirir. Bunu atlamak veya geçersiz sütun adları kullanmak hatalara neden olur. Her tool'un geçerli tanımlayıcıları için response şemasına bakın.
   - **Tarih formatı tutarlılığı:** Tarihler `YYYY-MM-DD` formatında olmalıdır. Bazı tarihsel endpoint'ler verileri tam tarih yerine `history_grouping` ile ayarlanan ayrıntı düzeyinde döndürür.
   - **API birim maliyetleri değişir:** Farklı sütunlar farklı birim miktarları tüketir. Şemada "(5 units)" veya "(10 units)" ile işaretlenen sütunlar daha pahalıdır. `traffic`, `refdomains_source` veya `difficulty` gibi pahalı sütunlar talep ederken API kullanımını izleyin.
@@ -157,11 +157,11 @@ body_tr: |-
   - **Filtre ifadeleri karmaşıktır:** `where` parametresi standart SQL değil, Ahrefs'in filtre ifadesi sözdizimini kullanır. Desteklenen filtre türleri ve değer formatları için her tool'un şemasındaki sütun açıklamalarına bakın.
   - **Kullanım dışı offset parametresi:** `offset` parametresi 31 Mayıs 2024'te kullanım dışı bırakıldı. Cursor tabanlı pagination kullanın veya `limit`'i ayarlayın.
   - **Mode kapsamı önemli ölçüde etkiler:** `mode`'u `subdomains` (varsayılan) olarak ayarlamak tüm subdomainleri içerir; bu, `domain` veya `exact` ile karşılaştırıldığında sonuç sayısını dramatik şekilde artırabilir.
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | Tool Slug | Açıklama |
   |---|---|
   | `AHREFS_RETRIEVE_SITE_EXPLORER_METRICS` | Bir domain/URL için geçerli SEO metrikleri |
@@ -178,9 +178,9 @@ body_tr: |-
   | `AHREFS_RETRIEVE_SITE_EXPLORER_KEYWORDS_HISTORY` | Tarihsel anahtar kelime sıralaması verileri |
   | `AHREFS_RETRIEVE_TOP_PAGES_FROM_SITE_EXPLORER` | SEO metriklerine göre en iyi performans gösteren sayfalar |
   | `AHREFS_GET_SERP_OVERVIEW` | Belirli anahtar kelimeler için SERP genel bakışı |
-
+  
   ---
-
+  
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 

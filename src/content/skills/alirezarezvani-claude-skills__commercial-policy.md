@@ -12,6 +12,147 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # commercial-policy
+
+  ## Amaç
+
+  **Katılım kurallarını** tasarlayın — liste fiyatından indirimler konusunda Deal Desk ve AE'lerin çalıştığı yapıtı. Üç belirleyici araç:
+
+  1. `discount_matrix_builder.py` — 4 boyutlu bir matris kurar (ARR bandı × sözleşme uzunluğu × ödeme koşulları × stratejik değer seviyesi), her hücre mevcut kazanma oranı + NRR verilerine dayanan onaylanmış indirim bandını ve bir onaylatı seviyesini (AE / Müdür / Direktör / VP / CFO) taşır.
+  2. `exception_router.py` — indirim talebinin matris dışına düştüğünde bunu adlandırılmış onaylayıcı zincirine yönlendirir, gerekli telafi taahhütlerini ekler (çok yıllı ön ödeme + adlandırılmış genişleme yolu + referans taahhütü + MSA sıkılaştırma), makine tarafından okunabilir denetim izi meta verisi üretir ve son çeyrekte 3+ benzer istisna gelirse öncül riski işaretler.
+  3. `policy_linter.py` — matrisin yönetim kusurlarını kontrol eder: onaylayıcı ters çevirme, band ters çevirme, marj tabanı ihlali, kapsama boşlukları, sıçrama kenarları, tanımsız stratejik seviyeler, tutarsız marj tabanları, zayıf veri desteği.
+
+  Çıktı, **politikanın kendisidir** (matris + istisna akışı + lint raporu), bunu anlaşma başına uygulanması değil.
+
+  ## Ne zaman kullanılır
+
+  - Yeni bir Head of Commercial veya Head of Deal Desk şirketin ilk resmi ticari politikasını yazıyor
+  - Mevcut matris 6 aydan eski ve marj incelemelerinde indirim kayması gösteriliyor
+  - Temsilciler "Maria geçen çeyrekte Acme'de %28 onayladı" diye alıntı yapıyorsa ve öncül döngüsünü kırmanız gerekiyorsa
+  - Çeyrek içi istisna sayısı artıyor ve matris bandlarının yanlış fiyatlandırıldığını düşünüyorsanız
+  - CFO marj tabanını sıkılaştırdı ve matris yeni kısıtlamaya karşı yeniden oluşturulması gerekiyorsa
+  - Bir board / yönetici "neden bu kadar indirim yapıyoruz?" diye soruyorsa ve veri tabanlı savunulabilir bir politikaya ihtiyacınız varsa
+
+  **Bu beceriyi kullanMAYIN:**
+  - Belirli bir anlaşmayı onaylamak için — bu `commercial/skills/deal-desk`
+  - Fiyatlandırma modelini + liste fiyatını ayarlamak için — bu `commercial/skills/pricing-strategist`
+  - Teklif / SOW / MSA metni yazmak için — bu `business-growth/contract-and-proposal-writer`
+  - Stratejik "ne zaman VP Satış işe alıyoruz" kararını vermek için — bu `c-level-advisor/cro-advisor`
+
+  ## İş Akışı
+
+  1. **Mevcut indirim dağılımını denetleyin.** CRM'den son 4 çeyreğin kapatılan kazanılmış + kapatılan kayıpları alın. `assets/policy_design_template.md` dosyasını doldurun (~20 dakika). Anlaşma başına şunları yakala: `arr`, `discount_pct`, `term_months`, `payment_terms_days`, `strategic_value`, `win_lost`, `nrr_12mo`.
+
+  2. **Veri destekli matris tasarlayın.** `scripts/discount_matrix_builder.py --input policy_intake.json --profile {saas|enterprise-software|api|marketplace|services}` komutunu çalıştırın. Çıktı, onaylanmış indirim bandı + onaylayıcı seviyesi + marj tabanı + gözlemlenen kazanma oranı + her hücre için gözlemlenen NRR içeren 4 boyutlu bir matrirstir. `n < 5` gözlemlenen anlaşmaya sahip hücreler `THIN` olarak işaretlenir.
+
+  3. **İstisna akışını tasarlayın.** Yapıyı görmek için `scripts/exception_router.py --sample` komutunu çalıştırın. Her istisna ciddiyeti bandı (0-5 puan fazla, 5-10, 10-20, 20+) için, yönlendirici gerekli telafi taahhütlerini uygular. Akışı politika belgelerinizde kodlayın; yönlendirici operasyonel uygulama haline gelir.
+
+  4. **Matrisi lint edin.** `scripts/policy_linter.py --input matrix.json` komutunu çalıştırın. BLOCKER / MAJOR / MINOR arasında 10 lint kuralı üzerinde sıralı bir bulgular raporu alın. Matrisi AE'lere yayınlamadan önce her BLOCKER'ı çözün.
+
+  5. **Yayınla + üç aylık inceleme.** Matrisi sürümlü bir yapıt olarak yayınla. Yeni 4 çeyreklik yuvarlanmış anlaşma küpüne karşı her çeyrek başında oluşturucuyu ve linter'ı yeniden çalıştırın. Gözlemlenen NRR < `target_nrr` olan hücreler inceleme için işaretlenir.
+
+  ## Scriptler
+
+  | Script | Amaç | Sektör profilleri |
+  |---|---|---|
+  | `scripts/discount_matrix_builder.py` | Onaylayıcı seviyeleri + marj tabanları ile 4 boyutlu veri destekli matris | saas, enterprise-software, api, marketplace, services |
+  | `scripts/exception_router.py` | Telafi taahhütleri + denetim izi ile istisna isteklerini yönlendir | n/a (matris tarafından yönlendirilir) |
+  | `scripts/policy_linter.py` | Matris üzerinde 10 kuralı lint geçişi | n/a (profiller arasında belirleyici) |
+
+  Üçü de: yalnızca stdlib, `--help`, `--sample`, `--input <json>`, `--output {markdown,json}`.
+
+  ## Referanslar
+
+  - `references/discount_governance_canon.md` — İndirim yönetimi kanıt tabanı: OpenView Partners kıyaslamaları, David Skok (For Entrepreneurs) indirim matematiği, Tomasz Tunguz indirim dağılımı, Bessemer State of the Cloud, KeyBanc Capital Markets SaaS Anketi, Bridge Group AE-tazminat araştırması, RevOps Co-op oyun kitapları, Forrester deal-desk araştırması. 8 kaynak.
+  - `references/policy_design_canon.md` — Politika olarak yapıt tasarımı: SaaStr (Jason Lemkin), Winning by Design (Jacco van der Kooij) ticari disiplin hakkında, Forrester deal-desk olgunluk araştırması, MIT Sloan teşvik sistemi oyunlaştırması, McKinsey ticari politika etkinliği, Bain *Pricing Power*, Salesforce CPQ uygulama kılavuzları. 7 kaynak.
+  - `references/policy_anti_patterns.md` — Kaynaklı çalışmalar + karşı önlemler + lint kuralı eşlemesi ile 8 adlandırılmış anti-desen: politika ayarlar öncül, veri desteği yok, telafi taahhütü yok, onaylayıcı/marj uyuşmazlığı, denetim izi yok, sıçrama kenarları, tanımsız "stratejik değer", üç aylık inceleme yok. 8 kaynak.
+
+  ## Varsayımlar
+
+  - Beceri **fiyatlandırma modelinin ve liste fiyatının zaten var olduğunu** varsayar (via `commercial/skills/pricing-strategist` aracılığıyla ayarlanır). Commercial-policy **listeyi indirimler** yönetir — liste ayarlamaz.
+  - CFO `min_margin_pct` kısıtlamasına sahiptir (marj tabanı). CRO / Head of Deal Desk `max_discount_pct_without_exception` kısıtlamasına sahiptir (band üst sınırı). Beceri tasarımla gereği bu girdileri ayrı tutar (Bain *Pricing Power* uyarınca — sorumluluğu karıştırma politika kaymasının en sık nedenidir).
+  - Sektör profilleri geçerli band genişlikleri içerir. İçinde kendine özgü ekonomiler olan şirketler giriş JSON aracılığıyla geçersiz kılma sağlamalıdır.
+  - Matris veri destekli ancak **veri tarafından yönlendirilmiş değildir**: band kısıtlamalar + profil tarafından ayarlanır; gözlemlenen veriler hücrenin performans gösterip göstermediğini söyleyen açıklamadır. Gözlemlenen NRR < hedef ise, bu **band'i incelemek** için bir sinyaldir, daha derin indirim yapmaya devam etmek değildir.
+  - "Stratejik değer" seviyeleri (`logo`, `expansion`, `lighthouse`) yalnızca somut testlerle tanımlanırsa yararlıdır. Lint kuralı L06 bunu uygular.
+  - Bu bir politika tasarım becerisidir, bir anlaşma onay becerisi değildir. Hiçbir zaman "onayla" demez — deal-desk'in sonra uyguladığı matris + istisna akışını üretir.
+
+  ## Anti-desenler
+
+  - **İndirim bandlarını veri desteği olmadan ayarlamak.** "VP Satış bunu bir Slack başlığında savundu" veri desteği değildir. Band için kazanma oranı ve NRR gösteremiyorsanız, band retorikdir. (`data_backing` hücre başına + lint L08 tarafından yakalandı.)
+  - **Öncülün politikayı belirlemesine izin vermek.** "Maria geçen çeyrekte Acme'de %28 onayladı" band değil — politikayı kırmayan istisnadır. `exception_router.py` son çeyrekte 3+ benzer istisnaları **matrisin yanlış olduğunun** sinyali olarak işaretler, anlaşma değil. (Anti-desen AP-1.)
+  - **Telafi taahhütü olmadan istisnaları onaylamak.** Karşılıksız indirim bir sızıntıdır (Winning by Design). Her istisna ciddiyeti bandı vazgeçilmez taahhütler gerektirir. (`exception_router.COMPENSATING_LIBRARY`.)
+  - **Yuvarlanmış ARR eşiklerinde sıçrama kenarları.** Hard $100K eşiği 2 çeyrek içinde anlaşma boyutu oyunlaştırmasını üretir (MIT Sloan ajans teorisi). Gradyenti yumuşaklaştırın. (Lint L05.)
+  - **Tanımsız bir catch-all olarak "stratejik değer".** "Stratejik" tanımsızsa, bir çeyrek içinde %60 anlaşmalar stratejik olarak işaretlenecek ve matris ölü. Somut testlerle tanımlayın. (Lint L06.)
+  - **Üç aylık inceleme yok.** Pazarlar değişir; 12 ay değişmeyen matrisler yanlış fiyatlandırılır. Her çeyrek başında oluşturucuyu ve linter'ı yeniden çalıştırın. (Anti-desen AP-8.)
+  - **CFO ve CRO sorumluluklarını karıştırmak.** CFO marj tabanına sahiptir; CRO band üst sınırına sahiptir. Aynı sorumlu sahip = tazminat aldıkları şeye karşı öngörülebilir drift (Bain *Pricing Power*).
+  - **Yayınlamadan önce lint geçişini atlamak.** BLOCKER bulguları (onaylayıcı ters çevirme, marj tabanı ihlali, ters çevirilen bandlar) politikayı imzalanamaz hale getirir. Lint kapı, son işlem incelemesi değil.
+
+  ## Farklı
+
+  | İlişkili | Kapsam | Fark |
+  |---|---|---|
+  | `commercial/skills/deal-desk` | Politikayı **bir kez bir anlaşmaya uygula** | Commercial-policy **politikanın kendisini tasarla**. Deal-desk matrisi tüketir; commercial-policy üretir. |
+  | `commercial/skills/pricing-strategist` | Fiyatlandırma **modelini** (kişi başı / kullanım / değer / katmanlı) + **liste fiyatını** ayarla | Commercial-policy **listeyi indirimler**. Pricing-strategist menüyü ayarlar; commercial-policy menünün indirim disiplinini yönetir. |
+  | `c-level-advisor/cro-advisor` | Stratejik CRO hüküm ("ne zaman VP Satış işe alıyoruz?", "hareketi ürün liderliği mi yoksa satış liderliği mi?") | Stratejik, operasyonel değil. Commercial-policy, CRO'nun sipariş ettiği yapıttır; CRO hükmü değildir. |
+  | `c-level-advisor/cfo-advisor` | Marj tabanı + birim-ekonomi hükmü | CFO `min_margin_pct`'yi commercial-policy'ye giriş olarak sağlar. Commercial-policy **CFO'nun kısıtlamasını** hücre başına marj tabanları olarak işletmeleştirir. |
+  | `business-growth/contract-and-proposal-writer` | Teklif/SOW/MSA **metni** yaz | Commercial-policy yapılandırılmış matris + denetim izi JSON çıkarır, müşteri tarafından görülen metni değil. |
+
+  ## Zorla soru kitaplığı (Matt Pocock grill disiplini)
+
+  Beceri çalıştırılmadan önce `/cs:grill-commercial` tarafından veya Commercial orkestratörü tarafından birer birer yürütüldü. Soru başına önerilen cevap + kanon alıntı. Asla paketlenmiş değil.
+
+  1. **"Son 4 çeyrekte gözlemlenen indirim dağılımınız nedir — ve medyan mevcut matrisinizin içinde mi yoksa dışında mı?"**
+     Önerilen: herhangi bir band tasarlamadan önce küpü çekin. Gözlemlenen medyan matris dışındaysa, matris retorikdir.
+     Kanon: OpenView SaaS Kıyaslamaları; RevOps Co-op oyun kitapları. Anti-desen AP-2.
+
+  2. **"Mevcut 'maksimum indirim' bandınızdaki anlaşmalar için kazanma oranı VE 12 aylık NRR nedir?"**
+     Önerilen: her ikisi, biri değil. Yüksek kazanma oranı ancak düşük NRR olan band logolar satın alır ve sızıntılı kova tutunması. Tunguz kıyaslamaları: üst NRR çeyrek şirketleri alt çeyrekten 6 puan daha az indirim.
+     Kanon: Tomasz Tunguz; Bessemer State of the Cloud.
+
+  3. **"Şirkette marj tabanına kim sahiptir, VE indirim band üst sınırına kim sahiptir — aynı kişi mi?"**
+     Önerilen: CFO tabanı sahip; CRO/Head of Deal Desk cap sahip. Aynı sahip = tazminat aldıkları şeye karşı drift.
+     Kanon: Bain *Pricing Power* — sorumluluk ayrılması yapısal düzeltmedir. Anti-desen AP-4.
+
+  4. **"Mevcut politikanızda 'stratejik değer' somut testlerle mi tanımlıdır, yoksa sıfatlarla mı?"**
+     Önerilen: somut testler. "2026 hedef listesinde ilk 20 adlandırılmış hesap" bir testtir; "önemli müşteri" değildir.
+     Kanon: SaaStr (Lemkin); Forrester deal-desk araştırması. Lint kuralı L06. Anti-desen AP-7.
+
+  5. **"Matris maksimumunuzun üzerindeki istisnalar için hangi telafi taahhütleri gereklidir — ve onaylayıcı imzalamadan önce yazılı mıdır?"**
+     Önerilen: minimum çok yıllı ön ödeme + adlandırılmış genişleme yolu; daha derin istisnalar referans taahhütü + MSA sıkılaştırma + yönetici sponsor gerektirir.
+     Kanon: Winning by Design (van der Kooij); McKinsey B2B fiyatlandırma çalışmaları. Anti-desen AP-3.
+
+  6. **"Son çeyrekte aynı tür istisna 3+ kez onaylandı mı — ve eğer öyleyse matris yanlış mı?"**
+     Önerilen: 3+ benzer istisna band yanlış fiyatlandırıldığı anlamına gelir. Matrisi yeniden kurun; istisnaları onaylamaya devam etmeyin.
+     Kanon: OpenView indirim drift çalışmaları; `exception_router._precedent_risk`. Anti-desen AP-1.
+
+  7. **"Matrisi önceki 4 çeyreğin verilerine karşı en son ne zaman çalıştırdınız?"**
+     Önerilen: üç aylık. Yıllık inceleme çok yavaş; disiplinli kohort üç aylık olarak revize eder.
+     Kanon: OpenView kıyaslamaları; RevOps Co-op. Anti-desen AP-8.
+
+  8. **"Son çeyrekteki her istisna için makine tarafından okunabilir denetim izi kaydı var mı — yoksa onay Slack ve e-postada mı?"**
+     Önerilen: CPQ veya eşdeğerde yapılandırılmış kayıt. Slack/e-posta onayları 2. yıl yenileme müzakereleri sağlamazlar.
+     Kanon: Salesforce CPQ en iyi uygulamalar; Forrester deal-desk olgunluk araştırması. Anti-desen AP-5.
+
+  Derinlik öncelikle yürüyün. 1-4'ü kilitle 5-8'i açmadan önce. 8'in tamamı yanıtlandıktan sonra `discount_matrix_builder.py` → `policy_linter.py` → `exception_router.py --sample` sırayla çağır politika yapıtını üretmek için.
+
+  ## Hızlı örnekler
+
+  ```bash
+  # Matrisi tasarla
+  python3 scripts/discount_matrix_builder.py --sample
+  python3 scripts/discount_matrix_builder.py --input policy_intake.json --profile saas --output json > matrix.json
+
+  # Matrisi lint et
+  python3 scripts/policy_linter.py --sample
+  python3 scripts/policy_linter.py --input matrix.json
+
+  # İstisna akışını yürü
+  python3 scripts/exception_router.py --sample
+  python3 scripts/exception_router.py --input request.json --output json
+  ```
+
+  Örnek matris **FAIL** olarak lint eder: 4 BLOCKER + 6 MAJOR + 2 MINOR — tasarım gereği her kural yolunu çalıştırmak için. Gerçek bir politika alımı PASS veya PASS_WITH_WARNINGS olarak lint etmelidir. Örnek istisna (bir $320K logo anlaşması üzerine %42) AE → Satış Müdürü → Direktör → VP Satış'a 3 gerekli telafi taahhütü ile yönlendir (çok yıllı 36ay, ön ödeme, adlandırılmış genişleme yolu).
 ---
 
 # commercial-policy

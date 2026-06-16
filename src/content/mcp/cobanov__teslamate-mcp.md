@@ -3,20 +3,20 @@ name: "cobanov/teslamate-mcp"
 description: "A Model Context Protocol (MCP) server that provides access to your TeslaMate database, allowing AI assistants to query Tesla vehicle data and analytics."
 category: "Travel & Transportation"
 repo: "cobanov/teslamate-mcp"
-stars: 127
+stars: 129
 url: "https://github.com/cobanov/teslamate-mcp"
 body_length: 7159
 license: "MIT"
 language: "Python"
 body_tr: |-
   <div align="center">
-
+  
   # TeslaMate MCP Server
-
-
-
+  
+  
+  
   Bir [Model Context Protocol](https://modelcontextprotocol.io/) sunucusu; [TeslaMate](https://github.com/teslamate-org/teslamate) PostgreSQL veritabanınızı MCP-uyumlu AI istemcilerine (Claude Desktop, Cursor, vb.) stdio veya streamable HTTP üzerinden sunar.
-
+  
   [![CI](https://github.com/cobanov/teslamate-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/cobanov/teslamate-mcp/actions/workflows/ci.yml)
   [![Release](https://img.shields.io/github/v/release/cobanov/teslamate-mcp?logo=github&sort=semver)](https://github.com/cobanov/teslamate-mcp/releases)
   [![GHCR](https://img.shields.io/badge/ghcr.io-cobanov%2Fteslamate--mcp-2496ED?logo=docker)](https://github.com/cobanov/teslamate-mcp/pkgs/container/teslamate-mcp)
@@ -24,11 +24,11 @@ body_tr: |-
   [![License](https://img.shields.io/github/license/cobanov/teslamate-mcp)](LICENSE)
   [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
   [![Archestra Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/cobanov/teslamate-mcp)](https://archestra.ai/mcp-catalog/cobanov__teslamate-mcp)
-
+  
   </div>
-
+  
   ## Özellikler
-
+  
   - **20 araç** — 18 önceden tanımlı analiz sorgusu (batarya, şarj, sürüş, verimlilik, konumlar) artı `run_sql` ve `get_database_schema`
   - **6 prompt** — batarya sağlığı, sürüş özeti, şarj davranışı, anomali avı, hava durumu verimliliği ve hızlı durum raporu için tek tıklamalı iş akışları
   - **2 kaynak** — `teslamate://queries` ve `teslamate://queries/{name}` araç çağırmadan katalog taraması için
@@ -37,14 +37,14 @@ body_tr: |-
   - **İki taşıma, bir ikili** — yerel istemciler için `teslamate-mcp stdio`, uzak için `teslamate-mcp http`
   - **Bearer-token kimlik doğrulaması** zamanlama-güvenli karşılaştırma ile; yaşamasını kontrol etmek için `/health` probu
   - **`Decimal → float` JSON serileştirmesi** — dil modelleri sayıları görmek için, dizeler değil
-
+  
   ## Gereksinimler
-
+  
   - TeslaMate zaten PostgreSQL'e karşı çalışıyor
   - Yerel kurulum için Python 3.11+ veya uzak dağıtım için Docker
-
+  
   ## Kurulum
-
+  
   ```bash
   git clone https://github.com/cobanov/teslamate-mcp.git
   cd teslamate-mcp
@@ -52,24 +52,24 @@ body_tr: |-
   # .env dosyasını düzenleyin — en azından DATABASE_URL'yi ayarlayın
   uv sync
   ```
-
+  
   ## CLI
-
+  
   `teslamate-mcp` konsol betiğinin dört alt komutu vardır:
-
+  
   ```bash
   teslamate-mcp stdio                          # yerel (Cursor / Claude Desktop)
   teslamate-mcp http [--host] [--port]         # uzak (HTTP / SSE)
   teslamate-mcp gen-token                      # AUTH_TOKEN değeri üret
   teslamate-mcp list-tools                     # tanı: kayıtlı araçları listele
   ```
-
+  
   `python -m teslamate_mcp <alt-komut>` da çalışır.
-
+  
   ## Yerel kullanım (stdio)
-
+  
   MCP istemcinizi stdio sunucusunu başlatacak şekilde yapılandırın. Cursor veya Claude Desktop için örnek:
-
+  
   ```json
   {
     "mcpServers": {
@@ -80,27 +80,27 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Uzak kullanım (Docker)
-
+  
   ```bash
   cp env.example .env
   # DATABASE_URL'yi ve ideal olarak AUTH_TOKEN'ı ayarlayın
   docker compose up -d
   ```
-
+  
   MCP endpoint'i `http://localhost:8888/mcp` adresindedir ve yaşamasını kontrol etmek için bir probe `http://localhost:8888/health` adresinde sunulur.
-
+  
   Önceden derlenmiş çok-mimarilı bir görüntü (`linux/amd64`, `linux/arm64`) her etiketlenmiş sürümde GHCR'ye yayınlanır:
-
+  
   ```bash
   docker run --rm -e DATABASE_URL=... -p 8888:8888 ghcr.io/cobanov/teslamate-mcp:latest
   ```
-
+  
   ## Yapılandırma
-
+  
   Tüm ayarlar ortam değişkenlerinden okunur (`.env` desteklenir). Yalnızca `DATABASE_URL` gereklidir.
-
+  
   | Değişken                | Varsayılan  | Notlar                                                      |
   |-------------------------|-------------|-------------------------------------------------------------|
   | `DATABASE_URL`          | _gerekli_   | `postgresql://user:pass@host:5432/teslamate`                |
@@ -113,59 +113,59 @@ body_tr: |-
   | `CUSTOM_SQL_ROW_LIMIT`  | `1000`      | `run_sql` bir tane sağlamadığında enjekte edilen LIMIT       |
   | `LOG_LEVEL`             | `INFO`      | Standart Python günlük seviyesi                             |
   | `DEBUG`                 | `false`     | Starlette hata ayıklama modu (üretimde kapalı tutun)        |
-
+  
   Bir bearer token oluşturun:
-
+  
   ```bash
   uv run teslamate-mcp gen-token
   ```
-
+  
   ## Mevcut araçlar
-
+  
   ### Önceden tanımlı (18)
-
+  
   **Araç:** `get_basic_car_information`, `get_current_car_status`, `get_software_update_history`
-
+  
   **Batarya ve sağlık:** `get_battery_health_summary`, `get_battery_degradation_over_time`, `get_daily_battery_usage_patterns`, `get_tire_pressure_weekly_trends`
-
+  
   **Sürüş:** `get_monthly_driving_summary`, `get_daily_driving_patterns`, `get_longest_drives_by_distance`, `get_total_distance_and_efficiency`, `get_drive_summary_per_day`
-
+  
   **Verimlilik:** `get_efficiency_by_month_and_temperature`, `get_average_efficiency_by_temperature`, `get_unusual_power_consumption`
-
+  
   **Şarj ve konum:** `get_charging_by_location`, `get_all_charging_sessions_summary`, `get_most_visited_locations`
-
+  
   ### Özel (2)
-
+  
   - `get_database_schema` — geçerli TeslaMate şeması (sütun başına bir satır)
   - `run_sql(query)` — özel bir `SELECT` veya `WITH … SELECT` yürütün
-
+  
   ## Yeni bir sorgu ekleme
-
+  
   1. `src/teslamate_mcp/queries/your_query.sql` dosyasına bir SELECT ekleyin.
   2. Kardeş `your_query.toml` dosyasını ekleyin:
-
+  
      ```toml
      name = "get_your_data"
      description = "Bunun ne döndürdüğü."
      ```
-
+  
   3. Sunucuyu yeniden başlatın. Kayıt otomatik olarak alır.
-
+  
   ## Geliştirme
-
+  
   ```bash
   uv sync                          # geliştirme bağımlılıklarıyla yükle
   uv run ruff check src tests      # lint
   uv run ruff format src tests     # biçimlendir
   uv run pytest                    # testler (Docker yok ise Docker tabanlı entegrasyon testleri atlanır)
   ```
-
+  
   ## Lisans
-
+  
   MIT — [LICENSE](LICENSE) dosyasına bakın.
-
+  
   ## Öne çıkanlarda
-
+  
   <a href="https://mseep.ai/app/cobanov-teslamate-mcp">
     
   </a>

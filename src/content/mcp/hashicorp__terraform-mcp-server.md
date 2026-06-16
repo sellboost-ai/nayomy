@@ -3,43 +3,43 @@ name: "hashicorp/terraform-mcp-server"
 description: "The official Terraform MCP Server seamlessly integrates with the Terraform ecosystem, enabling provider discovery, module analysis, and direct Registry API integration for advanced Infrastructure as Code workflows."
 category: "Cloud Platforms"
 repo: "hashicorp/terraform-mcp-server"
-stars: 1380
+stars: 1431
 url: "https://github.com/hashicorp/terraform-mcp-server"
-body_length: 20563
+body_length: 22437
 license: "MPL-2.0"
 language: "Go"
 body_tr: |-
   #  Terraform MCP Sunucusu
-
+  
   Terraform MCP Sunucusu, [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) 
   sunucusu olup Terraform Registry API'leriyle sorunsuz entegrasyon sağlayarak, Altyapı Kod Olarak (IaC) 
   geliştirme için gelişmiş otomasyon ve etkileşim yetenekleri sunar.
-
+  
   ## Özellikler
-
+  
   - **Çift Transport Desteği**: Stdio ve StreamableHTTP transportları yapılandırılabilir uç noktalarla
   - **Terraform Registry Entegrasyonu**: Sağlayıcılar, modüller ve politikalar için genel Terraform Registry API'leriyle doğrudan entegrasyon
   - **HCP Terraform & Terraform Enterprise Desteği**: Tam workspace yönetimi, organizasyon/proje listeleme ve özel registry erişimi
   - **Workspace İşlemleri**: Değişkenler, etiketler ve run yönetimine destek ile workspace'ler oluşturun, güncelleyin, silin
   - **OTel metrikleri araç kullanımını izlemek için**: Açık telemetri meterleriyle entegrasyon, StreamableHTTP modunda araç çağrı hacmini, gecikmeyi ve başarısızlıkları izler. Bu özellik etkinleştirildiğinde varsayılan http sunucusu metriklerini de sunar
-
+  
   > **Güvenlik Notu:** Bu aşamada MCP sunucusu yalnızca yerel kullanım için tasarlanmıştır. StreamableHTTP transportunu kullanıyorsanız, erişimi yalnızca güvenilen kaynaklar ile sınırlamak için her zaman MCP_ALLOWED_ORIGINS ortam değişkenini yapılandırın. Bu, DNS rebinding saldırılarını ve diğer cross-origin açıklarını önlemeye yardımcı olur.
-
+  
   > **Güvenlik Notu:** Sorguya bağlı olarak MCP sunucusu belirli Terraform verilerini MCP istemcisine ve LLM'ye maruz bırakabilir. MCP sunucusunu güvenilmeyen MCP istemcileri veya LLM'ler ile kullanmayın.
-
+  
   > **Yasal Notu:** Üçüncü taraf MCP İstemcisi/LLM kullanımınız yalnızca söz konusu MCP/LLM'nin kullanım şartlarına tabidir ve IBM, bu tür üçüncü taraf araçların performansından sorumlu değildir. IBM, üçüncü taraf MCP İstemcileri/LLM'ler için tüm garantileri ve sorumluluğu açıkça reddetmektedir ve bu tür üçüncü taraf araçlar tarafından neden olunan sorunları çözmek için destek sağlayamayabilir.
-
+  
   > **Dikkat:**  MCP sunucusu tarafından sağlanan çıktılar ve öneriler dinamik olarak oluşturulur ve sorguya, modele ve bağlı MCP istemcisine göre değişebilir. Kullanıcılar, uygulamadan önce tüm çıktıları/önerileri kuruluşlarının güvenlik en iyi uygulamaları, maliyet verimlilik hedefleri ve uyum gereksinimleriyle uyumlu olduğundan emin olmak için kapsamlı bir şekilde gözden geçirmelidir.
-
+  
   ## Ön Koşullar
-
+  
   1. Sunucuyu konteynerleştirilmiş ortamda kullanmak için [Docker](https://www.docker.com/)'ın kurulu ve çalışır durumda olduğundan emin olun.
   1. Model Context Protocol (MCP)'yi destekleyen bir yapay zeka asistanı yükleyin.
-
+  
   ## Komut Satırı Seçenekleri
-
+  
   **Ortam Değişkenleri:**
-
+  
   | Değişken | Açıklama | Varsayılan |
   |----------|----------|-----------|
   | `TFE_ADDRESS` | HCP Terraform veya TFE adresi | `"https://app.terraform.io"` |
@@ -65,35 +65,35 @@ body_tr: |-
   | `OTEL_METRICS_SERVICE_NAME` | Metriklerin kaynağını belirler (örn. "terraform-mcp-server") | `terraform-mcp-server` |
   | `OTEL_METRICS_EXPORT_INTERVAL` | Metrik fluslarının sıklığını kontrol eder | `2` |
   | `OTEL_METRICS_ENDPOINT` | OTel Collector'ın veya backend'in URL'si | `localhost:4318` |
-
-
+  
+  
   ```bash
   # Stdio modu
   terraform-mcp-server stdio [--log-file /path/to/log] [--log-level info] [--log-format text] [--toolsets <toolsets>] [--tools <tools>]
-
+  
   # StreamableHTTP modu
   terraform-mcp-server streamable-http [--transport-port 8080] [--transport-host 127.0.0.1] [--mcp-endpoint /mcp] [--log-file /path/to/log] [--log-level info] [--log-format text] [--toolsets <toolsets>] [--tools <tools>]
   ```
-
+  
   ## Talimatlar
-
+  
   MCP sunucusunun varsayılan talimatları `cmd/terraform-mcp-server/instructions.md` dosyasında yer almaktadır; bu talimatlar kuruluşunuzun Terraform uygulamaları için uygun görünmüyorsa veya MCP sunucusu yanlış yanıtlar üretiyorsa, lütfen bunları kendi talimatlarınızla değiştirin ve container'ı veya binary'yi yeniden derleyin. Böyle bir talimat örneği `instructions/example-mcp-instructions.md` konumunda yer almaktadır.
-
+  
   `AGENTS.md` temelde kodlama ajanları için README'ler gibi davranır: yapay zeka kodlama ajanlarının projeniz üzerinde çalışmasına yardımcı olmak için bağlam ve talimatlar sağlamaya yönelik adanmış, öngörülebilir bir yer. Bir `AGENTS.md` dosyası farklı kodlama ajanlarıyla çalışır. Böyle bir talimat örneği `instructions/example-AGENTS.md` konumunda yer almaktadır; bunu kullanmak için Terraform yapılandırmalarınızın bulunduğu dizine `AGENTS.md` adında bir dosya commit'leyin.
-
+  
   ## Kurulum
-
+  
   ### Visual Studio Code ile Kullanım
-
+  
   Aşağıdaki JSON bloğunu VS Code'daki Kullanıcı Ayarları (JSON) dosyasına ekleyin. Bunu `Ctrl + Shift + P` tuşlarına basıp `Preferences: Open User Settings (JSON)` yazarak yapabilirsiniz.
-
+  
   VS Code'un [agent modu dokümantasyonu](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)nda MCP sunucusu araçlarını kullanma hakkında daha fazla bilgi.
-
+  
   <table>
   <tr><th>Sürüm 0.3.0+ veya daha yüksek</th><th>Sürüm 0.2.3 veya daha düşük</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "mcp": {
@@ -129,7 +129,7 @@ body_tr: |-
   ```
   </td>
   <td>
-
+  
   ```json
   {
     "mcp": {
@@ -147,18 +147,18 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   </tr>
   </table>
-
+  
   İsteğe bağlı olarak, çalışma alanınızda `.vscode/mcp.json` adlı bir dosyaya benzer bir örnek (yani mcp anahtarı olmadan) ekleyebilirsiniz. Bu, konfigürasyonu diğerleriyle paylaşmanıza izin verecektir.
-
+  
   <table>
   <tr><th>Sürüm 0.3.0+ veya daha yüksek</th><th>Sürüm 0.2.3 veya daha düşük</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -190,10 +190,10 @@ body_tr: |-
     ]
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -212,20 +212,20 @@ body_tr: |-
   </td>
   </tr>
   </table>
-
-
+  
+  
   [](https://vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22terraform%22%2C%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22hashicorp%2Fterraform-mcp-server%22%5D%7D)
   [](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22terraform%22%2C%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22hashicorp%2Fterraform-mcp-server%22%5D%7D)
-
+  
   ### Cursor ile Kullanım
-
+  
   Bunu Cursor konfigürasyonunuza (`~/.cursor/mcp.json`) veya Ayarlar → Cursor Ayarları → MCP üzerinden ekleyin:
-
+  
   <table>
   <tr><th>Sürüm 0.3.0+ veya daha yüksek</th><th>Sürüm 0.2.3 veya daha düşük</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "mcpServers": {
@@ -243,10 +243,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "servers": {
@@ -265,20 +265,20 @@ body_tr: |-
   </td>
   </tr>
   </table>
-
+  
   <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=terraform&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJoYXNoaWNvcnAvdGVycmFmb3JtLW1jcC1zZXJ2ZXIiXX0%3D">
     
   </a>
-
+  
   ### Claude Desktop / Amazon Q Developer / Kiro CLI ile Kullanım
-
+  
   Claude Desktop'ta MCP sunucusu araçlarını kullanma hakkında daha fazla bilgi için [kullanıcı dokümantasyonuna](https://modelcontextprotocol.io/quickstart/user) bakın. [Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/qdev-mcp.html) ve [Kiro CLI](https://kiro.dev/docs/mcp/)'de MCP sunucusu kullanma hakkında daha fazla bilgi edinin.
-
+  
   <table>
   <tr><th>Sürüm 0.3.0+ veya daha yüksek</th><th>Sürüm 0.2.3 veya daha düşük</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "mcpServers": {
@@ -296,10 +296,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "mcpServers": {
@@ -318,53 +318,53 @@ body_tr: |-
   </td>
   </tr>
   </table>
-
+  
   ### Claude Code ile Kullanım
-
+  
   Claude Code'da MCP sunucusu araçlarını kullanma ve ekleme hakkında daha fazla bilgi için [kullanıcı dokümantasyonuna](https://docs.claude.com/en/docs/claude-code/mcp) bakın.
-
+  
   - Yerel (`stdio`) Transport
-
+  
   ```sh
   claude mcp add terraform -s user -t stdio -- docker run -i --rm hashicorp/terraform-mcp-server
   ```
-
+  
   - Uzak (`streamable-http`) Transport
-
+  
   ```sh
   # Sunucuyu çalıştır (örnek)
   docker run -p 8080:8080 --rm -e TRANSPORT_MODE=streamable-http -e TRANSPORT_HOST=0.0.0.0 hashicorp/terraform-mcp-server
-
+  
   # Claude Code'a ekle
   claude mcp add --transport http terraform http://localhost:8080/mcp
   ```
-
+  
   ### Gemini uzantıları ile Kullanım
-
+  
   Güvenlik için, kimlik bilgilerinizi hardcode etmeyin; HCP Terraform veya Terraform Enterprise kimlik bilgilerini depolamak için `~/.gemini/.env` oluşturun veya güncelleyin (burada ~ ev veya proje dizininizdir)
-
+  
   ```
   # ~/.gemini/.env
   TFE_ADDRESS=your_tfe_address_here
   TFE_TOKEN=your_tfe_token_here
   ```
-
+  
   Uzantıyı yükleyin ve Gemini'yi çalıştırın
-
+  
   ```
   gemini extensions install https://github.com/hashicorp/terraform-mcp-server
   gemini
   ```
-
+  
   ### Bob IDE / Shell ile Kullanım
-
+  
   Bob IDE veya Shell'de MCP sunucusu araçlarını kullanma ve ekleme hakkında daha fazla bilgi için [Bob'da MCP Kullanımı](https://bob.ibm.com/docs/ide/configuration/mcp/mcp-in-bob) bölümüne bakın.
-
+  
   <table>
   <tr><th>Sürüm 0.3.0+ veya daha yüksek</th><th>Sürüm 0.2.3 veya daha düşük</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "mcpServers": {
@@ -383,10 +383,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "mcpServers": {
@@ -403,30 +403,30 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   </tr>
   </table>
-
+  
   ## Kaynaktan Yükleme
-
+  
   En son release sürümünü kullanın:
-
+  
   ```console
   go install github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
   ```
-
+  
   main branch'ini kullanın:
-
+  
   ```console
   go install github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@main
   ```
-
+  
   <table>
   <tr><th>Sürüm 0.3.0+ veya daha yüksek</th><th>Sürüm 0.2.3 veya daha düşük</th></tr>
   <tr valign=top>
   <td>
-
+  
   ```json
   {
     "mcp": {
@@ -442,10 +442,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   </td>
   <td>
-
+  
   ```json
   {
     "mcp": {
@@ -461,47 +461,47 @@ body_tr: |-
   </td>
   </tr>
   </table>
-
+  
   ## Docker İmajını Yerel Olarak Derleme
-
+  
   Sunucuyu kullanmadan önce Docker imajını yerel olarak derlemeniz gerekir:
-
+  
   1. Depoyu klonlayın:
   ```bash
   git clone https://github.com/hashicorp/terraform-mcp-server.git
   cd terraform-mcp-server
   ```
-
+  
   2. Docker imajını derleyin:
   ```bash
   make docker-build
   ```
-
+  
   3. Bu, aşağıdaki konfigürasyonda kullanabileceğiniz yerel bir Docker imajı oluşturacaktır.
-
+  
   ```bash
   # Stdio modunda çalıştır
   docker run -i --rm terraform-mcp-server:dev
-
+  
   # streamable-http modunda çalıştır
   docker run -p 8080:8080 --rm -e TRANSPORT_MODE=streamable-http -e TRANSPORT_HOST=0.0.0.0 terraform-mcp-server:dev
-
+  
   # Araçları filtrele (isteğe bağlı)
   docker run -i --rm terraform-mcp-server:dev --toolsets=registry,terraform
   docker run -i --rm terraform-mcp-server:dev --tools=search_providers,get_provider_details
   ```
-
+  
   > **Not:** Docker'da çalıştırırken, container'ın dışından bağlantılara izin vermek için `TRANSPORT_HOST=0.0.0.0` ayarlamalısınız.
-
+  
   4. (İsteğe bağlı) Http modunda bağlantıyı test edin
-
+  
   ```bash
   # Bağlantıyı test et
   curl http://localhost:8080/health
   ```
-
+  
   5. Bunu yapay zeka asistanınızda aşağıdaki gibi kullanabilirsiniz:
-
+  
   ```json
   {
     "mcpServers": {
@@ -517,81 +517,81 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Mevcut Araçlar
-
+  
   [Mevcut araçları burada kontrol edin :link:](https://developer.hashicorp.com/terraform/docs/tools/mcp-server/reference#available-tools)
-
+  
   ## Mevcut Kaynaklar
-
+  
   [Mevcut kaynakları burada kontrol edin :link:](https://developer.hashicorp.com/terraform/docs/tools/mcp-server/reference#available-tools)
-
+  
   ## Mevcut Metrikler
-
+  
   İki tür metrik toplanmaktadır.
   İlk olarak, HTTP mux'u otelhttp.NewHandler(...) ile kaplayarak standart HTTP sunucusu metrikleri eklenir. Bu, aşağıdakileri yayarlar:
-
+  
   1. http.server.request.body.size
   2. http.server.response.body.size
   3. http.server.request.duration
-
+  
   İkincisi, MCP sunucusu MCP hooks'ları (BeforeCallTool / AfterCallTool) kullanarak araç yürütme etrafında özel araç metrikleri kaydeder. Bunlar aşağıdakileri yayarlar:
-
+  
   1. mcp_tool_calls_total
   2. mcp_tool_errors_total
   3. mcp_tool_duration_seconds
-
-
+  
+  
   ### Araç Filtreleme
-
+  
   `--toolsets` (gruplar) veya `--tools` (bireysel) kullanarak hangi araçların kullanılabilir olduğunu kontrol edin:
-
+  
   ```bash
   # Araç gruplarını etkinleştir (varsayılan: registry)
   terraform-mcp-server --toolsets=registry,terraform
-
+  
   # Yalnızca belirli araçları etkinleştir
   terraform-mcp-server --tools=search_providers,get_provider_details,list_workspaces
   ```
-
+  
   Mevcut araç setleri: `registry`, `registry-private`, `terraform`, `all`, `default`. Bireysel araç adları için `pkg/toolsets/mapping.go` dosyasına bakın. Her iki bayrağı birlikte kullanamaz.
-
+  
   ## Transport Desteği
-
+  
   Terraform MCP Sunucusu birden fazla transport protokolünü destekler:
-
+  
   ### 1. Stdio Transport (Varsayılan)
   JSON-RPC mesajlarını kullanarak standart giriş/çıkış iletişimi. Yerel geliştirme ve MCP istemcileriyle doğrudan entegrasyon için idealdir.
-
+  
   ### 2. StreamableHTTP Transport
   Hem doğrudan HTTP isteklerini hem de Sunucu Tarafından Gönderilen Olayları (SSE) akışlarını destekleyen modern HTTP tabanlı transport. Bu, uzak/dağıtılmış kurulumlar için önerilen transporttur.
-
+  
   **Özellikler:**
   - **Uç Nokta**: `http://{hostname}:8080/mcp`
   - **Sağlık Kontrolü**: `http://{hostname}:8080/health`
   - **Ortam Konfigürasyonu**: HTTP transportunu etkinleştirmek için `TRANSPORT_MODE=http` veya `TRANSPORT_PORT=8080` ayarlayın
-
+  
   ## Oturum Modları
-
+  
   Terraform MCP Sunucusu, StreamableHTTP transportu kullanılırken iki oturum modunu destekler:
-
+  
   - **Stateful Modu (Varsayılan)**: İstekler arasında oturum durumunu koruyarak bağlam duyarlı işlemleri sağlar.
   - **Stateless Modu**: Her istek, oturum durumunu korumadan bağımsız olarak işlenir; bu, yüksek kullanılabilirlik dağıtımları veya yük dengeleyicileri kullanırken kullanışlı olabilir.
-
+  
   Stateless modunu etkinleştirmek için ortam değişkenini ayarlayın:
   ```bash
   export MCP_SESSION_MODE=stateless
   ```
-
+  
   ## Sorun Giderme
-
+  
   ### Kurumsal Proxy / TLS Denetimi (Zscaler, vb.)
-
+  
   Kurumsal TLS denetimi yapan bir proxy'nin arkasındaysanız (Zscaler Internet Access gibi), sertifika hataları görebilirsiniz:
   ```
   tls: failed to verify certificate: x509: certificate signed by unknown authority
   ```
-
+  
   **Çözüm: Kurumsal CA sertifikanızı container'a bağlayın:**
   ```bash
   docker run -i --rm \
@@ -599,7 +599,7 @@ body_tr: |-
     -e SSL_CERT_FILE=/etc/ssl/certs/corporate-ca.pem \
     hashicorp/terraform-mcp-server:0.5.2
   ```
-
+  
   MCP istemci konfigürasyonları için:
   ```json
   {
@@ -619,9 +619,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Alternatif: Binary'yi doğrudan çalıştırın**
-
+  
   Docker'ın ortamınızda izin verilmemesi
 ---
 
@@ -639,7 +639,6 @@ automation and interaction capabilities for Infrastructure as Code (IaC) develop
 - **Workspace Operations**: Create, update, delete workspaces with support for variables, tags, and run management
 - **OTel metrics for monitoring tool usage**: Integration with open telemetry meters to track tool-call volume, latency and failures in Streamable HTTP mode. Also exposes default http server metrics when this feature is enabled
 
-> **Security Note:** At this stage, the MCP server is intended for local use only. If using the StreamableHTTP transport, always configure the MCP_ALLOWED_ORIGINS environment variable to restrict access to trusted origins only. This helps prevent DNS rebinding attacks and other cross-origin vulnerabilities.
 
 > **Security Note:** Depending on the query, the MCP server may expose certain Terraform data to the MCP client and LLM. Do not use the MCP server with untrusted MCP clients or LLMs.
 
@@ -722,7 +721,7 @@ More about using MCP server tools in VS Code's [agent mode documentation](https:
           "--rm",
           "-e", "TFE_TOKEN=${input:tfe_token}",
           "-e", "TFE_ADDRESS=${input:tfe_address}",
-          "hashicorp/terraform-mcp-server:0.5.2"
+          "hashicorp/terraform-mcp-server:1.0.0"
         ]
       }
     },
@@ -786,7 +785,7 @@ Optionally, you can add a similar example (i.e. without the mcp key) to a file c
         "--rm",
         "-e", "TFE_TOKEN=${input:tfe_token}",
         "-e", "TFE_ADDRESS=${input:tfe_address}",
-        "hashicorp/terraform-mcp-server:0.5.2"
+        "hashicorp/terraform-mcp-server:1.0.0"
       ]
     }
   },
@@ -853,7 +852,7 @@ Add this to your Cursor config (`~/.cursor/mcp.json`) or via Settings → Cursor
         "--rm",
         "-e", "TFE_ADDRESS=<<PASTE_TFE_ADDRESS_HERE>>",
         "-e", "TFE_TOKEN=<<PASTE_TFE_TOKEN_HERE>>",
-        "hashicorp/terraform-mcp-server:0.5.2"
+        "hashicorp/terraform-mcp-server:1.0.0"
       ]
     }
   }
@@ -906,7 +905,7 @@ More about using MCP server tools in Claude Desktop [user documentation](https:/
         "--rm",
         "-e", "TFE_ADDRESS=<<PASTE_TFE_ADDRESS_HERE>>",
         "-e", "TFE_TOKEN=<<PASTE_TFE_TOKEN_HERE>>",
-        "hashicorp/terraform-mcp-server:0.5.2"
+        "hashicorp/terraform-mcp-server:1.0.0"
       ]
     }
   }
@@ -992,7 +991,7 @@ More about using and adding MCP servers tools in Bob IDE or Shell [Using MCP in 
         "--rm",
         "-e", "TFE_ADDRESS=<<PASTE_TFE_ADDRESS_HERE>>",
         "-e", "TFE_TOKEN=<<PASTE_TFE_TOKEN_HERE>>",
-        "hashicorp/terraform-mcp-server:0.5.2"
+        "hashicorp/terraform-mcp-server:1.0.0"
       ],
       "disabled": false
     }
@@ -1198,6 +1197,60 @@ To enable stateless mode, set the environment variable:
 ```bash
 export MCP_SESSION_MODE=stateless
 ```
+
+## Token Passthrough for Centralized Deployments
+
+When running the MCP server centrally (StreamableHTTP mode) for multiple users, each user can pass their own Terraform token via HTTP headers for RBAC enforcement. This allows a single server instance to serve multiple users with different permissions.
+
+### Supported Headers
+
+| Header | Description |
+|--------|-------------|
+| `TFE_TOKEN` | Terraform API token |
+| `Authorization: Bearer <token>` | Alternative method using standard Bearer auth |
+| `TFE_ADDRESS` | Override the Terraform address (blocked when server token is set via env) |
+| `TFE_SKIP_TLS_VERIFY` | Skip TLS verification for the request |
+
+### Example: curl
+
+```bash
+# Using TFE_TOKEN header
+curl -X POST http://localhost:8080/mcp \
+  -H "Content-Type: application/json" \
+  -H "TFE_TOKEN: your-user-token" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize",...}'
+
+# Using Authorization Bearer header
+curl -X POST http://localhost:8080/mcp \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-user-token" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize",...}'
+```
+
+### Security Considerations
+
+- **TFE_ADDRESS override is blocked** when the server has `TFE_TOKEN` set via environment variable. This prevents attackers from redirecting requests to a malicious server that could harvest tokens.
+- **Never pass tokens in query parameters** - the server will reject such requests with a 400 error.
+- Always use TLS (`MCP_TLS_CERT_FILE`/`MCP_TLS_KEY_FILE`) when deploying centrally to protect tokens in transit.
+- Configure `MCP_ALLOWED_ORIGINS` to restrict which clients can connect.
+
+### Centralized Deployment Example
+
+```bash
+# Start server centrally (no token set server-side)
+docker run -p 8080:8080 \
+  -e TRANSPORT_MODE=streamable-http \
+  -e TRANSPORT_HOST=0.0.0.0 \
+  -e TFE_ADDRESS=https://tfe.company.com \
+  -e MCP_TLS_CERT_FILE=/certs/server.pem \
+  -e MCP_TLS_KEY_FILE=/certs/server-key.pem \
+  -e MCP_ALLOWED_ORIGINS=https://ide.company.com \
+  -v /path/to/certs:/certs \
+  hashicorp/terraform-mcp-server:1.0.0
+```
+
+Users then connect with their individual tokens passed via headers, enabling per-user RBAC enforcement.
+
 ## Troubleshooting
 
 ### Corporate Proxy / TLS Inspection (Zscaler, etc.)
@@ -1212,7 +1265,7 @@ tls: failed to verify certificate: x509: certificate signed by unknown authority
 docker run -i --rm \
   -v /path/to/corporate-ca.pem:/etc/ssl/certs/corporate-ca.pem \
   -e SSL_CERT_FILE=/etc/ssl/certs/corporate-ca.pem \
-  hashicorp/terraform-mcp-server:0.5.2
+  hashicorp/terraform-mcp-server:1.0.0
 ```
 
 For MCP client configurations:
@@ -1228,7 +1281,7 @@ For MCP client configurations:
         "-v", "/path/to/corporate-ca.pem:/etc/ssl/certs/corporate-ca.pem",
         "-e", "SSL_CERT_FILE=/etc/ssl/certs/corporate-ca.pem",
         "-e", "TFE_TOKEN=<>",
-        "hashicorp/terraform-mcp-server:0.5.2"
+        "hashicorp/terraform-mcp-server:1.0.0"
       ]
     }
   }

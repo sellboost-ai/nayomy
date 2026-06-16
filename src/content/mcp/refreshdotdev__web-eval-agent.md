@@ -3,7 +3,7 @@ name: "refreshdotdev/web-eval-agent"
 description: "An MCP Server that autonomously debugs web applications with browser-use browser agents"
 category: "Browser Automation"
 repo: "refreshdotdev/web-eval-agent"
-stars: 1241
+stars: 1240
 url: "https://github.com/refreshdotdev/web-eval-agent"
 body_length: 7011
 license: "Apache-2.0"
@@ -11,62 +11,62 @@ language: "Python"
 homepage: "https://www.operative.sh/mcp"
 body_tr: |-
   # ⚠️ PROJE SONLANDIRILMIŞTIR ⚠️
-
+  
   ## Bu proje durdurulmuştur. Yeni bir şey inşa ediyoruz [withrefresh.com](https://withrefresh.com)
-
+  
   ---
-
+  
   # 🚀 operative.sh web-eval-agent MCP Server
-
+  
   > *Kodlama aracısının kendisini hata ayıklamasını sağla, senin daha önemli işlerin var.*
-
+  
   ![Demo](https://raw.githubusercontent.com/refreshdotdev/web-eval-agent/HEAD/demo.gif)
-
-
-
+  
+  
+  
   ## 🔥 Hata Ayıklamayı Güçlendir
-
+  
   [operative.sh](https://www.operative.sh/mcp)'un MCP Server'ı, tarayıcı kullanımı destekli bir aracıyı başlatarak web uygulamalarını doğrudan kod editöründe otonom olarak çalıştırmanızı ve hata ayıklamanızı sağlar.
-
+  
   ## ⚡ Özellikler
-
+  
   - 🌐 **Web uygulamanızda gezinin** - BrowserUse kullanarak (operative backend ile 2x daha hızlı)
   - 📊 **Ağ trafiğini yakalayın** - istekler akıllıca filtrelenerek bağlam penceresine döndürülür
   - 🚨 **Konsol hatalarını toplayın** - logları ve hataları yakalar
   - 🤖 **Otonom hata ayıklama** - Cursor aracısı, yazdığı kodun end-to-end olarak beklendiği gibi çalışıp çalışmadığını test etmek için web QA aracısı mcp server'ını çağırır.
-
+  
   ## 🧰 MCP Tool Referansı
-
+  
   | Tool | Amaç |
   |------|---------|
   | `web_eval_agent` | 🤖 Tarayıcıyı yönlendiren, ekran görüntüleri, konsol ve ağ loglarını yakalayan ve zengin UX raporu döndüren otomatik UX değerlendirici. |
   | `setup_browser_state` | 🔒 Etkileşimli (headless olmayan) bir tarayıcı açar, böylece bir kez oturum açabilir; kaydedilen çerezler/local-storage sonraki `web_eval_agent` çalıştırmalarında yeniden kullanılır. |
-
+  
   **Önemli argümanlar**
-
+  
   * `web_eval_agent`
     * `url` **(gerekli)** – çalışan uygulamanın adresi (ör. `http://localhost:3000`)
     * `task` **(gerekli)** – neyi test edeceğinizin doğal dil tanımı ("kayıt akışını tamamlayın ve UX sorunlarını not edin")
     * `headless_browser` *(opsiyonel, varsayılan `false`)* – tarayıcı penceresini gizlemek için `true` olarak ayarlayın
-
+  
   * `setup_browser_state`
     * `url` *(opsiyonel)* – önce açılacak sayfa (login ekranına doğrudan gitmek için kullanışlı)
-
+  
   Bu araçları doğrudan IDE sohbetinizden tetikleyebilirsiniz, örneğin:
-
+  
   ```bash
   Evaluate my app at http://localhost:3000 – run web_eval_agent with the task "Try the full signup flow and report UX issues".
   ```
-
+  
   ## 🏁 Hızlı Başlangıç
-
+  
   ### Tek Tıkla Entegrasyon ile Kolay Kurulum
   1. [API anahtarınızı alın (ücretsiz)](https://www.operative.sh/mcp) - API anahtarınızı oluştururken şunu göreceksiniz:
      - Anında Cursor yüklemesi için deeplink ile **"Add to Cursor"** düğmesi
      - API anahtarınız otomatik olarak dahil edilen **Önceden doldurulmuş Claude Code komutu**
-
+  
   ### Manuel Kurulum (macOS/Linux)
-
+  
   1. Ön koşullar (genellikle gerekli değildir):
    - brew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
    - npm: (`brew install npm`)
@@ -83,28 +83,28 @@ body_tr: |-
   ```bash
   Test my app on http://localhost:3000. Use web-eval-agent.
   ```
-
+  
   ## 🛠️ Manuel Kurulum
   1. operative.sh/mcp adresinden API anahtarınızı alın
   2. [uv'yi yükleyin](https://docs.astral.sh/uv/#highlights)
-
+  
   ```bash
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
-
+  
   3. UV yükledikten sonra ortam değişkenlerini kaynak alın
-
+  
   Mac
   ```
   source ~/.zshrc
   ```
-
+  
   Linux 
   ```
   source ~/.bashrc 
   ```
   4. Playwright'ı yükleyin:
-
+  
   ```bash
   npm install -g chromium playwright && uvx --with playwright playwright install --with-deps
   ```
@@ -114,7 +114,7 @@ body_tr: |-
   ## 🔃 Güncelleme 
   - `uv cache clean`
   - MCP server'ı yenile 
-
+  
   ```json 
       "web-eval-agent": {
         "command": "uvx",
@@ -131,7 +131,7 @@ body_tr: |-
       }
   ```
   ## [Operative Discord Server](https://discord.gg/ryjCnf9myb)
-
+  
   ## 🛠️ Manuel Kurulum (Mac + Cursor/Cline/Windsurf) 
   1. operative.sh/mcp adresinden API anahtarınızı alın
   2. [uv'yi yükleyin](https://docs.astral.sh/uv/#highlights)
@@ -144,9 +144,9 @@ body_tr: |-
   ```
   4. Aşağıdaki JSON'ı ilgili kod editörünüze API anahtarı ile ekleyin 
   5. Kod editörünüzü yeniden başlatın
-
+  
   ## Manuel Kurulum (Windows + Cursor/Cline/Windsurf)  
-
+  
   Bunu geliştiriyoruz, herhangi bir sorunla karşılaşırsanız lütfen bir issue açın! 
   1. Bunu kod editörünüzün terminalinde yapın 
   2. `curl -LSf https://operative.sh/install.sh -o install.sh && bash install.sh && rm install.sh`
@@ -154,22 +154,22 @@ body_tr: |-
   4. uv yükleyin `(curl -LsSf https://astral.sh/uv/install.sh | sh)`
   5. `uvx --from git+https://github.com/Operative-Sh/web-eval-agent.git playwright install`
   6. Kod editörünüzü yeniden başlatın 
-
-
+  
+  
   ## 🚨 Sorunlar 
   - Güncellemeler kod editörlerine ulaşmıyor, en son sürüm için güncelleyin veya yeniden yükleyin: En son sürüm için `uv cache clean` çalıştırın 
   - Herhangi bir sorun varsa bu repo'da veya discord'da bir Issue açmaktan çekinmeyin!
   - 5/5 - değişiklikleri olmayan statik uygulamalar screencasting yapılmıyordu, düzeltildi! Düzeltmeyi almak için `uv clean` + yeniden başlat
-
+  
   ## Changelog 
   - 4/29 - Agent overlay güncellemesi - tarayıcıda aracı çalıştırmasını duraklat/oynat/durdur
-
+  
   ## 📋 Örnek MCP Server Çıktı Raporu
-
+  
   ```text
   📊 Web Evaluation Report for http://localhost:5173 complete!
   📝 Task: Test the API-key deletion flow by navigating to the API Keys section, deleting a key, and judging the UX.
-
+  
   🔍 Agent Steps
     📍 1. Navigate → http://localhost:5173
     📍 2. Click     "Login"        (button index 2)
@@ -180,18 +180,18 @@ body_tr: |-
     📍 7. Click     "Delete"       (button index 10)
     📍 8. Click     "Delete"       (confirm index 3)
   🏁 Flow tested successfully – UX felt smooth and intuitive.
-
+  
   🖥️ Console Logs (10)
     1. [debug] [vite] connecting…
     2. [debug] [vite] connected.
     3. [info]  Download the React DevTools …
        …
-
+  
   🌐 Network Requests (10)
     1. GET /src/pages/SleepingMasks.tsx                   304
     2. GET /src/pages/MCPRegistryRegistry.tsx             304
        …
-
+  
   ⏱️ Chronological Timeline
     01:16:23.293 🖥️ Console [debug] [vite] connecting…
     01:16:23.303 🖥️ Console [debug] [vite] connected.
@@ -202,14 +202,14 @@ body_tr: |-
     01:17:47.038 🤖 📋 Conclusion repeated above
   👁️  See the "Operative Control Center" dashboard for live logs.
   ```
-
+  
   ## Yıldız Geçmişi
-
+  
   [![Star History Chart](https://api.star-history.com/svg?repos=Operative-Sh/web-eval-agent&type=Date)](https://www.star-history.com/#Operative-Sh/web-eval-agent&Date)
-
-
+  
+  
   ---
-
+  
   <3 ile [operative.sh](https://www.operative.sh) tarafından yapılmıştır
 ---
 

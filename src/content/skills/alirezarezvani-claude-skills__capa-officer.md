@@ -1,26 +1,26 @@
 ---
 name: "capa-officer"
-description_en: "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use for CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
+description_en: "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/capa-officer/SKILL.md"
 path: ".gemini/skills/capa-officer/SKILL.md"
 is_collection: false
-body_length: 14082
+body_length: 15300
 has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
 body_tr: |-
   # CAPA Müdürü
-
+  
   Kalite Yönetim Sistemleri içinde Düzeltici ve Önleyici Faaliyet (CAPA) yönetimi, sistematik temel neden analizi, faaliyet uygulaması ve etkinlik doğrulamasına odaklanmıştır.
-
+  
   ---
-
+  
   ## İçindekiler
-
+  
   - [CAPA Araştırması İş Akışı](#capa-araştırması-iş-akışı)
   - [Temel Neden Analizi](#temel-neden-analizi)
   - [Düzeltici Faaliyet Planlaması](#düzeltici-faaliyet-planlaması)
@@ -28,13 +28,13 @@ body_tr: |-
   - [CAPA Metrikleri ve Raporlama](#capa-metrikleri-ve-raporlama)
   - [Referans Dokümantasyon](#referans-dokümantasyon)
   - [Araçlar](#araçlar)
-
+  
   ---
-
+  
   ## CAPA Araştırması İş Akışı
-
+  
   Başlangıçtan kapanışa kadar sistematik CAPA araştırması yürütün:
-
+  
   1. Tetikleyici olayı objektif kanıtlarla belgeleyin
   2. Önem değerlendirmesi yapın ve CAPA gerekçesini belirleyin
   3. İlgili uzmanlıkla araştırma ekibi oluşturun
@@ -43,9 +43,9 @@ body_tr: |-
   6. Destekleyici kanıtlarla temel nedenleri belirleyin
   7. Düzeltici ve önleyici faaliyetler geliştirin
   8. **Doğrulama:** Temel neden tüm semptomları açıklar; eğer ortadan kaldırılırsa, sorun tekrar ortaya çıkmazdı
-
+  
   ### CAPA Gerekçesi Belirlenmesi
-
+  
   | Tetikleyici Türü | CAPA Gerekli | Kriterler |
   |--------------|---------------|----------|
   | Müşteri şikayeti (güvenlik) | Evet | Hasta/kullanıcı güvenliğini içeren herhangi bir şikayet |
@@ -56,17 +56,17 @@ body_tr: |-
   | Uyumsuzluk (izole) | Değerlendir | Ağırlık ve riske göre |
   | Harici denetim bulgusu | Evet | Tüm Büyük ve Küçük bulgular |
   | Trend analizi | Değerlendir | Trend önemine göre |
-
+  
   ### Araştırma Ekibi Bileşimi
-
+  
   | CAPA Ağırlığı | Gerekli Ekip Üyeleri |
   |---------------|----------------------|
   | Kritik | CAPA Müdürü, Süreç Sahibi, KA Müdürü, Konu Uzmanı, Yönetim Temsilcisi |
   | Büyük | CAPA Müdürü, Süreç Sahibi, Konu Uzmanı |
   | Küçük | CAPA Müdürü, Süreç Sahibi |
-
+  
   ### Kanıt Toplama Kontrol Listesi
-
+  
   - [ ] Sorun açıklaması spesifik detaylarla (ne, nerede, ne zaman, kim, ne kadar)
   - [ ] Soruna yol açan olayların zaman çizelgesi
   - [ ] İlgili kayıtlar ve dokümantasyon
@@ -74,15 +74,15 @@ body_tr: |-
   - [ ] Fotoğraflar veya fiziksel kanıt (varsa)
   - [ ] İlgili şikayetler, uyumsuzluklar veya önceki CAPA'lar
   - [ ] Süreç parametreleri ve spesifikasyonları
-
+  
   ---
-
+  
   ## Temel Neden Analizi
-
+  
   Sorun karakteristiklerine göre uygun RCA metodolojisini seçin ve uygulayın.
-
+  
   ### RCA Metodoloji Seçimi Karar Ağacı
-
+  
   ```
   Sorun güvenlik açısından kritik mi veya sistem güvenilirliği içeriyor mu?
   ├── Evet → FAULT TREE ANALYSIS (HATA AĞACI ANALİZİ) KULLANıN
@@ -93,68 +93,68 @@ body_tr: |-
           ├── 3-6 faktör (karmaşık, sistematik) → FISHBONE DIAGRAM (BALIK KILÇIĞI DİYAGRAMI) KULLANıN
           └── Bilinmiyor/proaktif değerlendirme → FMEA KULLANıN
   ```
-
+  
   ### 5 Neden Analizi
-
+  
   Kullanın: Tek nedene sahip sorunlar doğrusal nedensellikle, net başarısızlık noktası ile süreç sapmaları.
-
+  
   **Şablon:**
-
+  
   ```
   SORUN: [Açık, spesifik açıklama]
-
+  
   NEDEN 1: [Sorun] neden ortaya çıktı?
   ÇÜNKÜ: [Birinci seviye neden]
   KANIT: [Destekleyici veri]
-
+  
   NEDEN 2: [Birinci seviye neden] neden ortaya çıktı?
   ÇÜNKÜ: [İkinci seviye neden]
   KANIT: [Destekleyici veri]
-
+  
   NEDEN 3: [İkinci seviye neden] neden ortaya çıktı?
   ÇÜNKÜ: [Üçüncü seviye neden]
   KANIT: [Destekleyici veri]
-
+  
   NEDEN 4: [Üçüncü seviye neden] neden ortaya çıktı?
   ÇÜNKÜ: [Dördüncü seviye neden]
   KANIT: [Destekleyici veri]
-
+  
   NEDEN 5: [Dördüncü seviye neden] neden ortaya çıktı?
   ÇÜNKÜ: [Temel neden]
   KANIT: [Destekleyici veri]
   ```
-
+  
   **Örnek - Kalibrasyonu Süresi Geçmiş:**
-
+  
   ```
   SORUN: pH metre (EQ-042) kalibrasyonu 2 ay süresi geçmiş olarak bulundu
-
+  
   NEDEN 1: Kalibrasyonun süresi neden geçmişti?
   ÇÜNKÜ: Ekipman kalibrasyon planına eklenmemişti
   KANIT: Kalibrasyon planı incelendi, EQ-042 listede yok
-
+  
   NEDEN 2: Neden plana eklenmemişti?
   ÇÜNKÜ: Ekipman satın alındığında plan güncellenmedi
   KANIT: Satın alma tarihi 2023-06-15, plan tarihi 2023-01-01
-
+  
   NEDEN 3: Neden plan güncellenme zamanında güncellenmedi?
   ÇÜNKÜ: Ekipman satın alma sırasında plan güncellenmesini gerektiren bir süreç yok
   KANIT: SOP-EQ-001 incelendi, böyle bir gereklilik yok
-
+  
   NEDEN 4: Neden böyle bir gereklilik yok?
   ÇÜNKÜ: Prosedür ekipman izleme merkezileştirilmeden önce yazıldı
   KANIT: SOP son revizyon 2019, ekipman sistemi 2021'de uygulandı
-
+  
   NEDEN 5: Neden prosedür güncellenmedi?
   ÇÜNKÜ: Periyodik inceleme orijinal prosedür oluşturulduktan sonra uygulanan yeni sistemlerle uyumluluğu değerlendirmedi
   KANIT: Yeni ekipman sistemi ile yapılan karşılaştırma belgelenmedi
-
+  
   TEMEL NEDEN: Prosedür inceleme süreci, orijinal prosedür oluşturulduktan sonra 
   örgüt tarafından uygulanan sistemlerle uyumluluğu değerlendirememiştir.
   ```
-
+  
   ### Balık Kılçığı Diyagramı Kategorileri (6M)
-
+  
   | Kategori | Odak Alanları | Tipik Nedenler |
   |----------|-------------|----------------|
   | Man (İnsan) | Eğitim, yetkinlik, iş yükü | Yetenek eksikliği, yorgunluk, iletişim |
@@ -163,25 +163,25 @@ body_tr: |-
   | Material (Malzeme) | Spesifikasyonlar, tedarikçiler, depolama | Spec dışı, degradasyon, kontaminasyon |
   | Measurement (Ölçüm) | Kalibrasyon, metodlar, yorumlama | Enstrüman hatası, yanlış metod |
   | Mother Nature (Çevre) | Sıcaklık, nem, temizlik | Çevresel sapılmalar |
-
+  
   Tam yöntem detayları ve şablonları için `references/rca-methodologies.md` dosyasına bakın.
-
+  
   ### Temel Neden Doğrulaması
-
+  
   Faaliyet planlamasına geçmeden önce temel nedeni doğrulayın:
-
+  
   - [ ] Temel neden objektif kanıtlarla doğrulanabilir
   - [ ] Temel neden ortadan kaldırılırsa, sorun tekrar ortaya çıkmazdı
   - [ ] Temel neden organizasyon kontrolü altındadır
   - [ ] Temel neden gözlenen tüm semptomları açıklar
   - [ ] Diğer önemli nedenler ele alınmamış değildir
-
+  
   ---
-
+  
   ## Düzeltici Faaliyet Planlaması
-
+  
   Belirlenen temel nedenleri ele alan etkin faaliyetler geliştirin:
-
+  
   1. Acil çevreleme faaliyetlerini tanımlayın
   2. Temel nedeni hedefleyen düzeltici faaliyetler geliştirin
   3. Benzer süreçler için önleyici faaliyetleri tanımlayın
@@ -190,24 +190,24 @@ body_tr: |-
   6. Başarı kriterlerini ve doğrulama yöntemini tanımlayın
   7. CAPA faaliyet planında belgeleyin
   8. **Doğrulama:** Faaliyetler doğrudan temel nedeni ele alır; başarı kriterleri ölçülebilirdir
-
+  
   ### Faaliyet Türleri
-
+  
   | Tür | Amaç | Zaman Çizelgesi | Örnek |
   |------|---------|----------|---------|
   | Çevreleme | Acil etkiyi durdur | 24-72 saat | Etkilenen ürünü karantinaya al |
   | Düzeltme | Spesifik oluşumu düzelt | 1-2 hafta | Etkilenen öğeleri yeniden işle veya değiştir |
   | Düzeltici | Temel nedeni ortadan kaldır | 30-90 gün | Prosedürü revize et, kontroller ekle |
   | Önleyici | Diğer alanlarda önle | 60-120 gün | Çözümü benzer süreçlere genişlet |
-
+  
   ### Faaliyet Plan Bileşenleri
-
+  
   ```
   FAALIYET PLANI ŞABLONU
-
+  
   CAPA Numarası: [CAPA-XXXX]
   Temel Neden: [Belirlenen temel neden]
-
+  
   FALİYET 1: [Spesifik faaliyet açıklaması]
   - Tür: [ ] Çevreleme [ ] Düzeltme [ ] Düzeltici [ ] Önleyici
   - Sorumlu: [Ad, Unvan]
@@ -215,24 +215,24 @@ body_tr: |-
   - Kaynaklar: [Gerekli kaynaklar]
   - Başarı Kriterleri: [Ölçülebilir sonuç]
   - Doğrulama Yöntemi: [Başarı nasıl doğrulanacak]
-
+  
   FALİYET 2: [Spesifik faaliyet açıklaması]
   ...
-
+  
   UYGULAMA ZAMANÇİZELGESİ:
   Hafta 1: [Mil Taşı]
   Hafta 2: [Mil Taşı]
   Hafta 4: [Mil Taşı]
   Hafta 8: [Mil Taşı]
-
+  
   ONAY:
   CAPA Sahibi: _____________ Tarih: _______
   Süreç Sahibi: _____________ Tarih: _______
   KA Müdürü: _____________ Tarih: _______
   ```
-
+  
   ### Faaliyet Etkinlik Göstergeleri
-
+  
   | Gösterge | Hedef | Uyarı İşareti |
   |-----------|--------|------------|
   | Faaliyet kapsamı | Temel nedeni tamamen ele al | Yalnızca semptomları tedavi et |
@@ -240,13 +240,13 @@ body_tr: |-
   | Zaman çizelgesi | Agresif ama ulaşılabilir | Tamamlanma tarihi yok veya gerçekçi olmayan |
   | Kaynaklar | Tanımlanmış ve ayrılan | Belirtilmemiş |
   | Sürdürülebilirlik | Kalıcı çözüm | Geçici çözüm |
-
+  
   ---
-
+  
   ## Etkinlik Doğrulaması
-
+  
   Düzeltici faaliyetlerin amaçlanan sonuçları elde etip etmediğini doğrulayın:
-
+  
   1. Yeterli uygulama dönemi bekleme (minimum 30-90 gün)
   2. Uygulama sonrası veriler toplayın
   3. Uygulama öncesi tabanla karşılaştırın
@@ -255,17 +255,17 @@ body_tr: |-
   6. Doğrulama kanıtlarını belgeleyin
   7. CAPA etkinliğini belirleyin
   8. **Doğrulama:** Tüm kriterler objektif kanıtlarla karşılanır; tekrar gözlenmez
-
+  
   ### Doğrulama Zaman Çizelgesi Yönergeleri
-
+  
   | CAPA Ağırlığı | Bekleme Dönemi | Doğrulama Penceresi |
   |---------------|-------------|---------------------|
   | Kritik | 30 gün | Uygulamadan 30-90 gün sonra |
   | Büyük | 60 gün | Uygulamadan 60-180 gün sonra |
   | Küçük | 90 gün | Uygulamadan 90-365 gün sonra |
-
+  
   ### Doğrulama Yöntemleri
-
+  
   | Yöntem | Kullanım | Gerekli Kanıt |
   |--------|----------|----------------|
   | Veri trend analizi | Ölçülebilir sorunlar | Uygulama öncesi/sonrası karşılaştırması, trend grafikleri |
@@ -273,9 +273,9 @@ body_tr: |-
   | Kayıt incelemesi | Dokümantasyon sorunları | Örnek kayıtlar, uyum oranı |
   | Test/muayene | Ürün kalitesi sorunları | Test sonuçları, geçme/başarısızlık verileri |
   | Görüşme/gözlem | Eğitim sorunları | Görüşme notları, gözlem kayıtları |
-
+  
   ### Etkinlik Belirlenmesi
-
+  
   ```
   Doğrulama dönemi boyunca tekrar oluştu mu?
   ├── Evet → CAPA ETKİNSİZ (temel nedeni yeniden araştırın)
@@ -285,17 +285,17 @@ body_tr: |-
           ├── Küçük boşluk → Doğrulamayı genişletin veya gerekçeyle kabul edin
           └── Önemli boşluk → CAPA ETKİNSİZ (faaliyetleri revize edin)
   ```
-
+  
   Ayrıntılı prosedürler için `references/effectiveness-verification-guide.md` dosyasına bakın.
-
+  
   ---
-
+  
   ## CAPA Metrikleri ve Raporlama
-
+  
   CAPA programı performansını anahtar göstergeler aracılığıyla izleyin.
-
+  
   ### Anahtar Performans Göstergeleri
-
+  
   | Metrik | Hedef | Hesaplama |
   |--------|--------|----------|
   | CAPA döngü süresi | <60 gün ortalaması | (Kapanış Tarihi - Açılış Tarihi) / CAPA Sayısı |
@@ -303,18 +303,18 @@ body_tr: |-
   | Birinci Kez Etkinlik | >%90 | İlk doğrulamada Etkin / Toplam Doğrulanan |
   | Tekrar Oranı | <%5 | Tekrarlayan Sorunlar / Toplam Kapatılan CAPA'lar |
   | Araştırma Kalitesi | %100 | Doğrulanan Temel Nedenler / Toplam CAPA'lar |
-
+  
   ### Yaşlandırma Analizi Kategorileri
-
+  
   | Yaş Kategorisi | Durum | Gerekli Faaliyet |
   |------------|--------|------------------|
   | 0-30 gün | Yolunda | İlerlemeyi izle |
   | 31-60 gün | İzleme | Gecikmeler için gözden geçir |
   | 61-90 gün | Uyarı | Yönetimi eskalate et |
   | >90 gün | Kritik | Yönetim müdahalesi gerekli |
-
+  
   ### Yönetim İnceleme Girdileri
-
+  
   Aylık CAPA durum raporu şunları içerir:
   - Ağırlık ve duruma göre Açık CAPA sayısı
   - Sahibiyle süresi geçmiş CAPA listesi
@@ -322,15 +322,15 @@ body_tr: |-
   - Etkinlik oranı trendleri
   - Kaynak analizi (şikayetler, denetimler, uyumsuzluklar)
   - İyileştirme önerileri
-
+  
   ---
-
+  
   ## Referans Dokümantasyon
-
+  
   ### Temel Neden Analizi Metodolojileri
-
+  
   `references/rca-methodologies.md` şunları içerir:
-
+  
   - Metodoloji seçimi karar ağacı
   - 5 Neden analizi şablonu ve örneği
   - Balık kılçığı diyagramı kategorileri ve şablonu
@@ -338,38 +338,38 @@ body_tr: |-
   - İnsan kaynaklı nedenler için İnsan Faktörleri Analizi
   - Proaktif risk değerlendirmesi için FMEA
   - Hibrit yaklaşım kılavuzu
-
+  
   ### Etkinlik Doğrulama Kılavuzu
-
+  
   `references/effectiveness-verification-guide.md` şunları içerir:
-
+  
   - Doğrulama planlama gereksinimleri
   - Doğrulama yöntemi seçimi
   - Etkinlik kriterleri tanımı (SMART)
   - Ağırlığa göre kapanış gereksinimleri
   - Etkin olmayan CAPA süreci
   - Dokümantasyon şablonları
-
+  
   ---
-
+  
   ## Araçlar
-
+  
   ### CAPA İzleyicisi
-
+  
   ```bash
   # CAPA durum raporu oluştur
   python scripts/capa_tracker.py --capas capas.json
-
+  
   # Manuel giriş için etkileşimli mod
   python scripts/capa_tracker.py --interactive
-
+  
   # Entegrasyon için JSON çıktısı
   python scripts/capa_tracker.py --capas capas.json --output json
-
+  
   # Örnek veri dosyası oluştur
   python scripts/capa_tracker.py --sample > sample_capas.json
   ```
-
+  
   Hesaplar ve rapor eder:
   - Özet metrikler (açık, kapalı, süresi geçmiş, döngü süresi, etkinlik)
   - Durum dağılımı
@@ -377,9 +377,9 @@ body_tr: |-
   - Zaman dilimlerine göre yaşlandırma raporu
   - Süresi geçmiş CAPA listesi
   - Eylem planı önerileri
-
+  
   ### Örnek CAPA Girdisi
-
+  
   ```json
   {
     "capas": [
@@ -399,20 +399,20 @@ body_tr: |-
     ]
   }
   ```
-
+  
   ---
-
+  
   ## Yasal Gereklilikler
-
+  
   ### ISO 13485:2016 Madde 8.5
-
+  
   | Alt-madde | Gereklilik | Anahtar Faaliyetler |
   |------------|-------------|----------------|
   | 8.5.2 Düzeltici Faaliyet | Uyumsuzluğun nedenini ortadan kaldır | Uyumsuzluk incelemesi, neden belirleme, faaliyet değerlendirmesi, uygulama, etkinlik incelemesi |
   | 8.5.3 Önleyici Faaliyet | Potansiyel uyumsuzluğu ortadan kaldır | Trend analizi, neden belirleme, faaliyet değerlendirmesi, uygulama, etkinlik incelemesi |
-
+  
   ### FDA 21 CFR 820.100
-
+  
   Gerekli CAPA öğeleri:
   - Düzeltici ve önleyici faaliyet uygulamak için prosedürler
   - Kalite veri kaynaklarını analiz etme (şikayetler, uyumsuzluklar, denetimler, hizmet kayıtları)
@@ -420,9 +420,9 @@ body_tr: |-
   - Tekrarının önlenmesi ve düzeltilmesi için gerekli faaliyetleri belirleme
   - Faaliyetlerin etkin olduğunu ve cihaza olumsuz etki yapmadığını doğrulama
   - Yönetim incelemesi için ilgili bilgileri sunma
-
+  
   ### Yaygın FDA 483 Gözlemleri
-
+  
   | Gözlem | Temel Neden Şablonu |
   |-------------|-------------------|
   | Tekrarlayan sorun için CAPA başlatılmadı | Trend analizi yapılmadı |
@@ -829,9 +829,11 @@ Calculates and reports:
 | 8.5.2 Corrective Action | Eliminate cause of nonconformity | NC review, cause determination, action evaluation, implementation, effectiveness review |
 | 8.5.3 Preventive Action | Eliminate potential nonconformity | Trend analysis, cause determination, action evaluation, implementation, effectiveness review |
 
-### FDA 21 CFR 820.100
+### FDA CAPA authority — ISO 13485 §8.5.2/8.5.3 under the QMSR (legacy QSR 820.100, historical)
 
-Required CAPA elements:
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** FDA's Quality Management System Regulation (QMSR) final rule (89 FR 7496) amended 21 CFR Part 820 to **incorporate ISO 13485:2016 by reference** and removed the legacy QSR subsection structure. The CAPA section number **820.100 no longer exists in the CFR** — it is retained below only as a familiar index. The current FDA authority for CAPA is **ISO 13485:2016 §8.5.2 (corrective action) and §8.5.3 (preventive action)** (see clause table above), with complaint-handling additions in retained **21 CFR 820.35**. Cite the ISO 13485 clauses — not 820.100 — in current compliance documentation.
+
+CAPA elements required under ISO 13485 §8.5.2/§8.5.3 (legacy QSR 820.100, historical):
 - Procedures for implementing corrective and preventive action
 - Analyzing quality data sources (complaints, NCs, audits, service records)
 - Investigating cause of nonconformities
@@ -847,3 +849,5 @@ Required CAPA elements:
 | Root cause analysis superficial | Inadequate investigation training |
 | Effectiveness not verified | No verification procedure |
 | Actions do not address root cause | Symptom treatment vs. cause elimination |
+
+> **Decision discipline:** The tools in this skill structure investigations and track CAPA status — they do not certify CAPA closure or compliance. CAPA effectiveness conclusions and closure decisions are yours to make and must be reviewed and signed off by the named CAPA owner and Quality function; route regulatory-classification questions (e.g., reportability, 21 CFR 803 MDR, recall under 21 CFR 806) to Regulatory Affairs.

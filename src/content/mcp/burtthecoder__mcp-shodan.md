@@ -3,7 +3,7 @@ name: "BurtTheCoder/mcp-shodan"
 description: "MCP server for querying the Shodan API and Shodan CVEDB. This server provides tools for IP lookups, device searches, DNS lookups, vulnerability queries, CPE lookups, and more."
 category: "Security"
 repo: "BurtTheCoder/mcp-shodan"
-stars: 131
+stars: 137
 url: "https://github.com/BurtTheCoder/mcp-shodan"
 body_length: 10080
 license: "MIT"
@@ -11,46 +11,46 @@ language: "TypeScript"
 homepage: "https://registry.modelcontextprotocol.io"
 body_tr: |-
   # Shodan MCP Server
-
+  
   [![smithery badge](https://smithery.ai/badge/@burtthecoder/mcp-shodan)](https://smithery.ai/server/@burtthecoder/mcp-shodan)
   [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io)
-
+  
   [Shodan API](https://shodan.io) ve [Shodan CVEDB](https://cvedb.shodan.io) sorgulama için bir Model Context Protocol (MCP) sunucusu. Bu sunucu, IP keşfi, DNS işlemleri, güvenlik açığı takibi ve cihaz bulma dahil olmak üzere Shodan'ın ağ zekası ve güvenlik hizmetlerine kapsamlı erişim sağlar. Tüm araçlar kolay analiz ve entegrasyon için yapılandırılmış, biçimlendirilmiş çıkış sağlar.
-
+  
   ## Hızlı Başlangıç (Önerilen)
-
+  
   ### Claude Code ile Yükleme
-
+  
   ```bash
   claude mcp add --transport stdio --env SHODAN_API_KEY=your-shodan-api-key shodan -- npx -y @burtthecoder/mcp-shodan
   ```
-
+  
   ### Codex CLI ile Yükleme
-
+  
   ```bash
   codex mcp add shodan --env SHODAN_API_KEY=your-shodan-api-key -- npx -y @burtthecoder/mcp-shodan
   ```
-
+  
   ### Gemini CLI ile Yükleme
-
+  
   ```bash
   gemini mcp add -e SHODAN_API_KEY=your-shodan-api-key shodan npx -y @burtthecoder/mcp-shodan
   ```
-
+  
   ### Smithery ile Yükleme
-
+  
   Shodan Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/@burtthecoder/mcp-shodan) aracılığıyla otomatik olarak yüklemek için:
-
+  
   ```bash
   npx -y @smithery/cli install @burtthecoder/mcp-shodan --client claude
   ```
-
+  
   ### Manuel Yükleme
   1. Sunucuyu npm aracılığıyla global olarak yükleyin:
   ```bash
   npm install -g @burtthecoder/mcp-shodan
   ```
-
+  
   2. Claude Desktop yapılandırma dosyanıza ekleyin:
   ```json
   {
@@ -64,17 +64,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   Yapılandırma dosyası konumu:
   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-
+  
   3. Claude Desktop'ı yeniden başlatın
-
+  
   ## Alternatif Kurulum (Kaynak Kodundan)
-
+  
   Kaynak kodundan çalıştırmayı veya kodu değiştirmeyi tercih ederseniz:
-
+  
   1. Klonlayın ve derleyin:
   ```bash
   git clone https://github.com/BurtTheCoder/mcp-shodan.git
@@ -82,7 +82,7 @@ body_tr: |-
   npm install
   npm run build
   ```
-
+  
   2. Claude Desktop yapılandırmanıza ekleyin:
   ```json
   {
@@ -97,16 +97,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Özellikler
-
+  
   - **Ağ Keşfi**: IP adresleri hakkında açık portlar, hizmetler ve güvenlik açıkları dahil olmak üzere ayrıntılı bilgi sorgulayın
   - **DNS İşlemleri**: Etki alanları ve IP adresleri için ileri ve ters DNS aramaları
   - **Güvenlik Açığı İstihbaratı**: Ayrıntılı güvenlik açığı bilgileri, CPE aramaları ve ürüne özgü CVE takibi için Shodan'ın CVEDB'sine erişim
   - **Cihaz Bulma**: İnternet'e bağlı cihazların Shodan veritabanında gelişmiş filtreleme ile arama
-
+  
   ## Araçlar
-
+  
   ### 1. IP Arama Aracı
   - Ad: `ip_lookup`
   - Açıklama: Coğrafi konum, açık portlar, çalışan hizmetler, SSL sertifikaları, ana bilgisayar adları ve varsa bulut sağlayıcı detayları dahil olmak üzere bir IP adresi hakkında kapsamlı bilgi alın
@@ -119,7 +119,7 @@ body_tr: |-
     * Bulut sağlayıcı detayları (varsa)
     * İlişkili ana bilgisayar adları ve etki alanları
     * Etiketler
-
+  
   ### 2. Shodan Arama Aracı
   - Ad: `shodan_search`
   - Açıklama: Shodan'ın İnternet'e bağlı cihazlar veritabanında arama yapın
@@ -135,7 +135,7 @@ body_tr: |-
       - Hizmet detayları
       - Web sunucusu bilgileri
       - İlişkili ana bilgisayar adları ve etki alanları
-
+  
   ### 3. CVE Arama Aracı
   - Ad: `cve_lookup`
   - Açıklama: Shodan'ın CVEDB'sinden ayrıntılı güvenlik açığı bilgisini sorgulayın
@@ -152,7 +152,7 @@ body_tr: |-
       - Fidye yazılımı ilişkileri
     * Etkilenen ürünler (CPE'ler)
     * Referanslar
-
+  
   ### 4. DNS Arama Aracı
   - Ad: `dns_lookup`
   - Açıklama: Shodan'ın DNS hizmetini kullanarak etki alanı adlarını IP adreslerine çözün
@@ -161,7 +161,7 @@ body_tr: |-
   - Döndürülen değerler:
     * Ana bilgisayar adlarını IP'lere eşleştiren DNS çözümlemeleri
     * Toplam aramaların ve sorgulanan ana bilgisayar adlarının özeti
-
+  
   ### 5. Ters DNS Arama Aracı
   - Ad: `reverse_dns_lookup`
   - Açıklama: IP adreslerine ilişkili ana bilgisayar adlarını bulmak için ters DNS aramaları yapın
@@ -170,7 +170,7 @@ body_tr: |-
   - Döndürülen değerler:
     * IP'leri ana bilgisayar adlarına eşleştiren ters DNS çözümlemeleri
     * Toplam aramaların ve sonuçların özeti
-
+  
   ### 6. CPE Arama Aracı
   - Ad: `cpe_lookup`
   - Açıklama: Ürün adına göre Ortak Platform Numaralandırması (CPE) girişlerini arayın
@@ -182,7 +182,7 @@ body_tr: |-
   - Döndürülen değerler:
     * count doğru olduğunda: Eşleşen CPE'lerin toplam sayısı
     * count yanlış olduğunda: Sayfalandırma detayları ile CPE'lerin listesi
-
+  
   ### 7. Ürün Başına CVE'ler Aracı
   - Ad: `cves_by_product`
   - Açıklama: Belirli ürünleri veya CPE'leri etkileyen güvenlik açıklarını arayın
@@ -207,29 +207,29 @@ body_tr: |-
       - Ciddiyet puanları
       - Etki değerlendirmeleri
       - Referanslar
-
+  
   ## Gereksinimler
-
+  
   - Node.js (v20 veya daha yeni)
   - Geçerli bir [Shodan API Anahtarı](https://account.shodan.io/)
-
+  
   ## Sorun Giderme
-
+  
   ### API Anahtarı Sorunları
-
+  
   API anahtarı ile ilgili hatalar görürseniz (ör: "Request failed with status code 401"):
-
+  
   1. API anahtarınızı doğrulayın:
      - [Hesap ayarlarınızdan](https://account.shodan.io/) geçerli bir Shodan API anahtarı olmalıdır
      - Anahtarın işlem için yeterli kredi/izinleri olduğundan emin olun
      - Yapılandırmada anahtarın etrafındaki fazla boşluk veya tırnak işaretlerini kontrol edin
      - Anahtarın SHODAN_API_KEY ortam değişkeninde doğru şekilde ayarlandığını doğrulayın
-
+  
   2. Yaygın Hata Kodları:
      - 401 Yetkisiz: Geçersiz API anahtarı veya kimlik doğrulama eksik
      - 402 Ödeme Gerekli: Sorgu kredisi tükendi
      - 429 Çok Fazla İstek: Oran sınırı aşıldı
-
+  
   3. Yapılandırma Adımları:
      a. API anahtarınızı [Shodan Hesabından](https://account.shodan.io/) alın
      b. Yapılandırma dosyanıza ekleyin:
@@ -247,7 +247,7 @@ body_tr: |-
         ```
      c. Yapılandırma dosyasını kaydedin
      d. Claude Desktop'ı yeniden başlatın
-
+  
   4. Anahtarınızı Test Etme:
      - Önce basit bir sorgu deneyin (ör: "google.com" için dns_lookup)
      - Kredi durumu için [Shodan hesap panelinizi](https://account.shodan.io/) kontrol edin
@@ -255,28 +255,28 @@ body_tr: |-
        ```bash
        curl "https://api.shodan.io/dns/resolve?hostnames=google.com&key=your-api-key"
        ```
-
+  
   ### Modül Yükleme Sorunları
-
+  
   Modül yükleme hataları görürseniz:
   1. Global yükleme için: Hızlı Başlangıçta gösterilen basit yapılandırmayı kullanın
   2. Kaynak yüklemesi için: Node.js v18 veya daha yeni sürümü kullandığınızdan emin olun
-
+  
   ## Geliştirme
-
+  
   Projeyi derleyin:
   ```bash
   npm install
   npm run build
   ```
-
+  
   FastMCP'nin yerleşik dev aracı ile etkileşimli olarak test edin:
   ```bash
   npx fastmcp dev build/index.js
   ```
-
+  
   ## Hata İşleme
-
+  
   Sunucu aşağıdakiler için kapsamlı hata işleme içerir:
   - Geçersiz API anahtarları
   - Oran sınırlama
@@ -286,26 +286,26 @@ body_tr: |-
   - Geçersiz CPE arama parametreleri
   - Geçersiz tarih formatları
   - Birbirini dışlayan parametre doğrulaması
-
+  
   ## Sürüm Geçmişi
-
+  
   - v1.0.22: [Resmi MCP Kayıt Defteri](https://registry.modelcontextprotocol.io)'ne yayınlandı — `server.json` manifest eklendi, Claude Code, Codex ve Gemini CLI için CLI yükleme desteği eklendi
   - v1.1.0: Ham `@modelcontextprotocol/sdk`'dan [FastMCP](https://github.com/punkpeye/fastmcp)'ye geçiş — modüler araç dosyaları, otomatik şema doğrulaması, basitleştirilmiş hata işleme
   - v1.0.12: Ters DNS araması eklendi ve çıkış biçimlendirmesi iyileştirildi
   - v1.0.7: CVE'leri Ürüne Göre Arama işlevselliği eklendi ve güvenlik açıkları aracı cve_lookup olarak yeniden adlandırıldı
   - v1.0.6: Gelişmiş CVE aramaları için CVEDB entegrasyonu ve CPE arama işlevselliği eklendi
   - v1.0.0: Temel işlevsellik ile ilk yayın
-
+  
   ## Katkı Sağlama
-
+  
   1. Deposu fork'layın
   2. Bir özellik dalı oluşturun (`git checkout -b feature/amazing-feature`)
   3. Değişikliklerinizi commitleyin (`git commit -m 'Add amazing feature'`)
   4. Dala push yapın (`git push origin feature/amazing-feature`)
   5. Pull Request açın
-
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 

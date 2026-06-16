@@ -3,7 +3,7 @@ name: "berlinbra/alpha-vantage-mcp"
 description: "Alpha Vantage API integration to fetch both stock and crypto information"
 category: "Finance & Fintech"
 repo: "berlinbra/alpha-vantage-mcp"
-stars: 96
+stars: 97
 url: "https://github.com/berlinbra/alpha-vantage-mcp"
 body_length: 19985
 license: "MIT"
@@ -11,13 +11,13 @@ language: "Python"
 body_tr: |-
   # Alpha Vantage MCP Sunucusu
   [![smithery badge](https://smithery.ai/badge/@berlinbra/alpha-vantage-mcp)](https://smithery.ai/server/@berlinbra/alpha-vantage-mcp)
-
+  
   Ücretsiz [Alpha Vantage API](https://www.alphavantage.co/documentation/) aracılığıyla finansal pazar verilerine gerçek zamanlı erişim sağlayan bir Model Context Protocol (MCP) sunucusu. Bu sunucu, hisse senedi teklifleri ve şirket bilgilerini almak için standartlaştırılmış bir arayüz uygular.
-
+  
   <a href="https://glama.ai/mcp/servers/0wues5td08"></a>
-
+  
   # Özellikler
-
+  
   - Fiyat, hacim ve değişim verileriyle gerçek zamanlı hisse senedi teklifleri
   - Sektör, endüstri ve pazar değeri gibi ayrıntılı şirket bilgileri
   - Alış/satış fiyatlarıyla gerçek zamanlı kripto para borsası kurları
@@ -28,27 +28,27 @@ body_tr: |-
   - Özelleştirilebilir zaman ufuklarıyla yaklaşan kazanç takvimi
   - Yıllık ve üç aylık raporlar içeren tarihi kazanç verileri
   - Yerleşik hata işleme ve oran sınırı yönetimi
-
+  
   ## Kurulum
-
+  
   ### Claude Desktop Kullanımı
-
+  
   #### Docker Aracılığıyla Kurulum
-
+  
   - Repository'yi klonlayın ve Claude masaüstü istemciniz tarafından kullanılacak yerel bir görüntü oluşturun
-
+  
   ```sh
   cd alpha-vantage-mcp
   docker build -t mcp/alpha-vantage .
   ```
-
+  
   - `claude_desktop_config.json` dosyasını aşağıdakiyle eşleşecek şekilde değiştirin, `REPLACE_API_KEY` yerine gerçek API anahtarınızı yazın:
-
+  
    > `claude_desktop_config.json` yolu
    >
    > - MacOS'ta: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
    > - Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
-
+  
   ```json
   {
     "mcpServers": {
@@ -68,19 +68,19 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### Smithery Aracılığıyla Kurulum
-
+  
   Alpha Vantage MCP Server'ı Claude Desktop için otomatik olarak [Smithery](https://smithery.ai/server/@berlinbra/alpha-vantage-mcp) aracılığıyla kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install @berlinbra/alpha-vantage-mcp --client claude
   ```
-
+  
   <summary> <h3> Geliştirme/Yayınlanmamış Sunucu Yapılandırması <h3> </summary>
-
+  
   <details>
-
+  
   ```json
   {
    "mcpServers": {
@@ -101,30 +101,30 @@ body_tr: |-
   ```
           
   </details>
-
+  
   #### Paketleri yükleyin
-
+  
   ```
   uv install -e .
   ```
-
+  
   #### Çalıştırma
-
+  
   Claude istemcisini json dosyası aracılığıyla MCP aracı ile bağladıktan ve paketleri yükledikten sonra, Claude sunucunun MCP araçlarını görebilmelidir:
-
+  
   Sunucuyu aşağıdaki komutla kendiniz çalıştırabilirsiniz:
   alpha-vantage-mcp repository'sinde: 
   ```
   uv run src/alpha_vantage_mcp/server.py
   ```
-
+  
   inspector ile
   ```
   * npx @modelcontextprotocol/inspector uv --directory /Users/{INSERT_USER}/YOUR/PATH/TO/alpha-vantage-mcp run src/alpha_vantage_mcp/server.py `
   ```
-
+  
   ## Mevcut Araçlar
-
+  
   Sunucu on iki aracı uygular:
   - `get-stock-quote`: Belirli bir şirket için en son hisse senedi teklifini alın
   - `get-company-info`: Belirli bir şirket için hisse senedi ile ilgili bilgileri alın
@@ -138,9 +138,9 @@ body_tr: |-
   - `get-crypto-monthly`: Bir kripto para için aylık zaman serisi verilerini alın
   - `get-earnings-calendar`: Şirketler için yaklaşan kazanç takvimi verilerini alın
   - `get-historical-earnings`: Belirli bir şirket için tarihi kazanç verilerini alın
-
+  
   ### get-stock-quote
-
+  
   **Input Şeması:**
   ```json
   {
@@ -150,22 +150,22 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   AAPL için hisse senedi teklifi:
-
+  
   Fiyat: $198.50
   Değişim: $2.50 (+1.25%)
   Hacim: 58942301
   Yüksek: $199.62
   Düşük: $197.20
   ```
-
+  
   ### get-company-info
-
+  
   Verilen sembol için ayrıntılı şirket bilgilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -175,11 +175,11 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   AAPL için şirket bilgileri:
-
+  
   İsim: Apple Inc
   Sektör: Teknoloji
   Endüstri: Tüketici Elektronikleri
@@ -188,11 +188,11 @@ body_tr: |-
   Borsa: NASDAQ
   Para Birimi: USD
   ```
-
+  
   ### get-crypto-exchange-rate
-
+  
   Ek pazar verileriyle gerçek zamanlı kripto para borsası kurlarını alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -207,11 +207,11 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   BTC/USD için kripto para borsası kuru:
-
+  
   Gönderen: Bitcoin (BTC)
   Alan: United States Dollar (USD)
   Borsası Kuru: 43521.45000
@@ -219,11 +219,11 @@ body_tr: |-
   Alış Fiyatı: 43521.00000
   Satış Fiyatı: 43522.00000
   ```
-
+  
   ### get-time-series
-
+  
   İsteğe bağlı tarih filtrelemeyle günlük zaman serisi (OHLCV) verilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -258,7 +258,7 @@ body_tr: |-
   ```
   AAPL için Zaman Serisi Verileri (Son Yenileme: 2024-12-17 16:00:00):
   (En son 5 veri noktası gösteriliyor)
-
+  
   Tarih: 2024-12-16
   Açılış: $195.09
   Yüksek: $197.68
@@ -274,12 +274,12 @@ body_tr: |-
   Hacim: 48,320,567
   ---
   ```
-
+  
   **Örnek Yanıt (Tarih Aralığı Filtreleme):**
   ```
   AAPL için Zaman Serisi Verileri (Son Yenileme: 2024-12-17 16:00:00):
   Tarih Aralığı: 2024-12-01 ile 2024-12-07 (5 veri noktası)
-
+  
   Tarih: 2024-12-06
   Açılış: $191.25
   Yüksek: $193.80
@@ -295,13 +295,13 @@ body_tr: |-
   Hacim: 47,892,345
   ---
   ```
-
+  
   ### get-realtime-options
-
+  
   İsteğe bağlı Yunanca hesaplaması ve sözleşme filtrelemesiyle gerçek zamanlı opsiyon zinciri verilerini alır.
-
+  
   **⚠️ PREMIUM ABONE GEREKLI**: Bu endpoint, 600 istek/dakika veya 1200 istek/dakika planıyla Alpha Vantage Premium gerektirir. Standart 75 istek/dakika planı ve ücretsiz hesaplar gerçek pazar verileri yerine yer tutucu/demo verileri alacaktır. Çoğu kullanım durumu için, tüm API anahtar seviyeleriyle çalışan `get-historical-options` kullanmayı düşünün.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -326,14 +326,14 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   AAPL için Gerçek Zamanlı Opsiyon Verileri
   Son Güncelleme: 2025-01-21 16:00:00
-
+  
   === Vade: 2025-01-24 ===
-
+  
   Strike: $220.0 (CALL)
   Son: $5.25
   Alış: $5.10
@@ -347,7 +347,7 @@ body_tr: |-
   Vega: 0.45
   Rho: 0.12
   ---
-
+  
   Strike: $220.0 (PUT)
   Son: $1.85
   Alış: $1.80
@@ -362,13 +362,13 @@ body_tr: |-
   Rho: -0.08
   ---
   ```
-
+  
   **Not**: Yukarıdaki örnek, yalnızca Alpha Vantage Premium 600+ istek/dakika planlarında mevcut olan gerçek pazar verilerini göstermektedir. Ücretsiz hesapları veya 75 istek/dakika planları olan kullanıcılar yer tutucu verileri ("XXYYZZ" gibi semboller, "2099-99-99" gibi tarihler) görecek ve bunun yerine `get-historical-options` kullanmalıdır.
-
+  
   ### get-historical-options
-
+  
   Belirli sözleşmeleri bulmak için gelişmiş filtreleme ve sıralama özellikleriyle tarihi opsiyon zinciri verilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -425,13 +425,13 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt (Temel):**
   ```
   AAPL için Tarihi Opsiyon Verileri (2024-02-20):
   Durum: başarılı
   156 sözleşme bulundu, sıralama: strike (asc)
-
+  
   Sözleşme Detayları:
   Sözleşme Kimliği: AAPL240315C00190000
   Vade: 2024-03-15
@@ -451,14 +451,14 @@ body_tr: |-
     Rho: 0.25
   ---
   ```
-
+  
   **Örnek Yanıt (Filtrelenmiş):**
   ```
   MSTR için Tarihi Opsiyon Verileri (2024-02-20):
   Durum: başarılı
   Filtreler: Vade: 2026-01-16, Strike: min $400 - max $600, Tür: call
   3 sözleşme bulundu, sıralama: strike (asc)
-
+  
   Sözleşme Detayları:
   Sözleşme Kimliği: MSTR260116C00000500
   Vade: 2026-01-16
@@ -471,11 +471,11 @@ body_tr: |-
   Açık Faiz: 1234
   ---
   ```
-
+  
   ### get-etf-profile
-
+  
   Temel metrikler, sektör dağılımı ve en iyi varlıklar içeren kapsamlı ETF profil bilgilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -485,13 +485,13 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   QQQ için ETF profili:
-
+  
   ETF Profili
-
+  
   Temel Bilgiler:
   Net Varlıklar: $352,700,000,000
   Net Gider Oranı: 0.200%
@@ -499,7 +499,7 @@ body_tr: |-
   Temettü Verimi: 0.50%
   Başlangıç Tarihi: 1999-03-10
   Kaldıraçlı: HAYIR
-
+  
   Sektör Dağılımı:
   BİLGİ TEKNOLOJİSİ: 51.9%
   İLETİŞİM HİZMETLERİ: 15.4%
@@ -511,7 +511,7 @@ body_tr: |-
   MALZEMELER: 1.3%
   ENERJİ: 0.5%
   MALİYE: 0.4%
-
+  
   En İyi Varlıklar:
    1. NVDA - NVIDIA CORP: 9.80%
    2. MSFT - MICROSOFT CORP: 8.85%
@@ -523,16 +523,16 @@ body_tr: |-
    8. TSLA - TESLA INC: 2.66%
    9. GOOGL - ALPHABET INC CLASS A: 2.49%
   10. COST - COSTCO WHOLESALE CORP: 2.49%
-
+  
   ... ve 92 daha fazla varlık
-
+  
   Toplam Varlıklar: 102
   ```
-
+  
   ### get-crypto-daily
-
+  
   Bir kripto para için günlük zaman serisi verilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -547,15 +547,15 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   SOL'un USD'deki günlük kripto para zaman serisi:
-
+  
   Solana (SOL) için Günlük Zaman Serisi
   Pazar: United States Dollar (USD)
   Son Yenileme: 2025-04-17 00:00:00 UTC
-
+  
   Tarih: 2025-04-17
   Açılış: 131.31000000 USD
   Yüksek: 131.67000000 USD
@@ -571,11 +571,11 @@ body_tr: |-
   Hacim: 1764240.04195810
   ---
   ```
-
+  
   ### get-crypto-weekly
-
+  
   Bir kripto para için haftalık zaman serisi verilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -590,15 +590,15 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   SOL'un USD'deki haftalık kripto para zaman serisi:
-
+  
   Solana (SOL) için Haftalık Zaman Serisi
   Pazar: United States Dollar (USD)
   Son Yenileme: 2025-04-17 00:00:00 UTC
-
+  
   Tarih: 2025-04-17
   Açılış: 128.32000000 USD
   Yüksek: 136.00000000 USD
@@ -614,11 +614,11 @@ body_tr: |-
   Hacim: 18015328.38860037
   ---
   ```
-
+  
   ### get-crypto-monthly
-
+  
   Bir kripto para için aylık zaman serisi verilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -633,15 +633,15 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt:**
   ```
   SOL'un USD'deki aylık kripto para zaman serisi:
-
+  
   Solana (SOL) için Aylık Zaman Serisi
   Pazar: United States Dollar (USD)
   Son Yenileme: 2025-04-17 00:00:00 UTC
-
+  
   Tarih: 2025-04-17
   Açılış: 124.51000000 USD
   Yüksek: 136.18000000 USD
@@ -657,11 +657,11 @@ body_tr: |-
   Hacim: 42360395.75443056
   ---
   ```
-
+  
   ### get-earnings-calendar
-
+  
   Özelleştirilebilir zaman ufuklarıyla ve sıralama özellikleriyle şirketlerin yaklaşan kazanç takvimi verilerini alır.
-
+  
   **Input Şeması:**
   ```json
   {
@@ -695,13 +695,13 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Örnek Yanıt (Varsayılan - En Son Önce):**
   ```
   Kazanç takvimi (12month):
-
+  
   Yaklaşan Kazanç Takvimi (reportDate desc'e göre sıralanmış):
-
+  
   Şirket: NVDA - NVIDIA Corp
   Rapor Tarihi: 2025-08-15
   Mali Yıl Sonu: 2025-07-31

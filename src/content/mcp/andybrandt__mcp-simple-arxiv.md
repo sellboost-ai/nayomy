@@ -3,24 +3,24 @@ name: "andybrandt/mcp-simple-arxiv"
 description: "MCP for LLM to search and read papers from arXiv"
 category: "Search & Data Extraction"
 repo: "andybrandt/mcp-simple-arxiv"
-stars: 195
+stars: 196
 url: "https://github.com/andybrandt/mcp-simple-arxiv"
 body_length: 3781
 license: "MIT"
 language: "Python"
 body_tr: |-
   # mcp-simple-arxiv
-
+  
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/andybrandt/mcp-simple-arxiv)](https://archestra.ai/mcp-catalog/andybrandt__mcp-simple-arxiv)
   [![smithery badge](https://smithery.ai/badge/mcp-simple-arxiv)](https://smithery.ai/server/mcp-simple-arxiv)
   [![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/dc95dba9-149a-4eaa-bf08-36e0cb0f3a5a)
-
+  
   ArXiv makaleleri API'si aracılığıyla erişim sağlayan bir MCP sunucusu.
-
+  
   <a href="https://glama.ai/mcp/servers/p38q3nagwb"></a>
-
+  
   ## Özellikler
-
+  
   Bu sunucu LLM istemcilerinin (Claude Desktop gibi) şunları yapmasına izin verir:
   - arXiv üzerinde başlık ve özet içeriğine göre bilimsel makaleleri arayın
   - Arama sonuçlarını gönderim tarihi aralığına göre filtreleyiniz
@@ -30,33 +30,33 @@ body_tr: |-
   - Tam makale metnini Markdown olarak alınız (PDF'den dönüştürülmüş)
   - Kullanılabilir makale formatlarına (PDF/HTML) bağlantıları erişiniz
   - arXiv konu kategorilerine göz atınız ve arama yapınız
-
+  
   Web sürümünü kullanmak için bu konektörü Claude.ai'ya ekleyin https://mcp.andybrandt.net/arxiv .
   Ayrıca yerel olarak kurup kullanabilirsiniz.
-
+  
   ## Kurulum ve Dağıtım
-
+  
   Bu sunucu iki modda çalıştırılabilir: masaüstü istemcileri için yerel bir `stdio` sunucusu olarak veya ağa erişilebilir bir web sunucusu olarak.
-
+  
   ### Smithery Aracılığıyla Kurulum
-
+  
   Simple Arxiv'i Claude Desktop'a otomatik olarak [Smithery](https://smithery.ai/server/mcp-simple-arxiv) aracılığıyla kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install mcp-simple-arxiv --client claude
   ```
-
+  
   ### Manuel Kurulum
   ```bash
   pip install mcp-simple-arxiv
   ```
-
+  
   ## Claude Desktop ile Kullanım
-
+  
   Bu konfigürasyonu `claude_desktop_config.json` dosyanıza ekleyin:
-
+  
   (Mac OS)
-
+  
   ```json
   {
     "mcpServers": {
@@ -67,9 +67,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   (Windows sürümü):
-
+  
   ```json
   {
     "mcpServers": {
@@ -83,41 +83,41 @@ body_tr: |-
     }
   }
   ```
-
+  
   Claude Desktop'ı yeniden başlattıktan sonra, aşağıdaki yetenekler kullanılabilir olacaktır:
-
+  
   ### Makaleleri Arama
-
+  
   Claude'dan şöyle sorgular kullanarak makaleleri aramasını isteyebilirsiniz:
   ```
   Can you search arXiv for recent papers about large language models?
   ```
-
+  
   LLM, sonuçları gönderim tarihi, güncelleme tarihi veya ilgiye göre sıralayabilir:
   ```
   Search arXiv for papers about transformers, sorted by relevance.
   ```
-
+  
   Tarih filtrelemesi belirli dönemlere odaklanmanızı sağlar:
   ```
   Find papers about quantum computing published in 2024.
   Search for recent machine learning papers from the last 6 months.
   ```
-
+  
   Arama sonuçları şunları içerir:
   - Eşleşen toplam makale sayısı (örneğin, "15.234 toplam sonuç bulundu, ilk 10 gösteriliyor")
   - Makale başlığı, yazarları ve arXiv ID'si
   - Kategoriler (birincil ve ek)
   - Yayın tarihi
   - Özet önizlemesi
-
+  
   ### Makale Ayrıntılarını Alma
-
+  
   Bir makale ID'sine sahip olduktan sonra, daha fazla ayrıntı isteyebilirsiniz:
   ```
   Can you show me the details for paper 2103.08220?
   ```
-
+  
   Bu şunları döndürecektir:
   - Tam makale başlığı
   - Yazarlar
@@ -125,28 +125,28 @@ body_tr: |-
   - Dergi referansı (varsa)
   - Makale özeti
   - Kullanılabilir formatlara bağlantılar (PDF/HTML)
-
-
+  
+  
   *Web dağıtımı için [WEB_DEPLOYMENT.md](WEB_DEPLOYMENT.md) dosyasına bakınız*.
-
+  
   ## Geliştirme
-
+  
   Geliştirme için kurmak:
   ```bash
   git clone https://github.com/andybrandt/mcp-simple-arxiv
   cd mcp-simple-arxiv
   pip install -e .
   ```
-
+  
   ### arXiv API Yönergeleri
-
+  
   Bu sunucu arXiv API kullanım yönergelerine uyar:
   - Maksimum 3 saniyede 1 istek oranına sınırlandırma
   - Aynı anda tek bağlantı
   - Uygun hata işleme ve yeniden deneme mantığı
-
+  
   ## Lisans
-
+  
   MIT
 ---
 

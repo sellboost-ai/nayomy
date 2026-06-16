@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Coinmarketcap Otomasyonu via Rube MCP
+
+  Composio'nun Coinmarketcap araç seti aracılığıyla Rube MCP üzerinden Coinmarketcap işlemlerini otomatikleştirin.
+
+  **Araç seti dokümantasyonu**: [composio.dev/toolkits/coinmarketcap](https://composio.dev/toolkits/coinmarketcap)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS mevcut)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Coinmarketcap bağlantısı (`coinmarketcap` araç seti ile)
+  - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısı yapın
+
+  ## Kurulum
+
+  **Rube MCP'yi Al**: `https://rube.app/mcp` adresini istemci yapılandırmanıza MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin mevcut olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağrısı yapın (`coinmarketcap` araç seti ile)
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow'u çalıştırmadan önce bağlantı durumunun ACTIVE gösterdiğini doğrulayın
+
+  ## Araç Bulma
+
+  Workflow'ları çalıştırmadan önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Coinmarketcap operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slug'larını, input şemalarını, önerilen execution planlarını ve bilinen tuzakları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Coinmarketcap task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["coinmarketcap"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Tuzaklar
+
+  - **Her zaman önce arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` 'ın ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` (Coinmarketcap'a özel use case ile) |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` (`coinmarketcap` araç seti ile) |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` (keşfedilmiş araç slug'ları ile) |
+  | Toplu işlem | `RUBE_REMOTE_WORKBENCH` (`run_composio_tool()` ile) |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (`schemaRef` olan araçlar için) |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Coinmarketcap Automation via Rube MCP

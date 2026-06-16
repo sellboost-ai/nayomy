@@ -3,74 +3,74 @@ name: "OctagonAI/octagon-mcp-server"
 description: "Octagon AI Agents to integrate private and public market data"
 category: "Finance & Fintech"
 repo: "OctagonAI/octagon-mcp-server"
-stars: 128
+stars: 132
 url: "https://github.com/OctagonAI/octagon-mcp-server"
-body_length: 12690
+body_length: 14410
 license: "MIT"
 language: "TypeScript"
 homepage: "https://octagonai.co"
 body_tr: |-
   # Octagon: Pazar Verileri için MCP
-
+  
   [![smithery badge](https://smithery.ai/badge/@OctagonAI/octagon-mcp-server)](https://smithery.ai/server/@OctagonAI/octagon-mcp-server)
-
+  
   ![Favicon](https://docs.octagonagents.com/logo.svg) Octagon MCP sunucusu, Octagon Market Intelligence API'si ile entegre edilerek yapay zeka destekli finansal araştırma ve analiz sağlar. Kullanıcıların halka açık dosyaları, earnings çağrılarını, finansal metrikleri, özel pazar işlemlerini ve tahmin pazar olaylarını Claude Desktop ve diğer popüler MCP istemcileri içinde analiz etmesine ve içgörü çıkarmasına olanak tanır.
-
+  
   [![Demo](https://docs.octagonagents.com/financial_model_demo_fast.gif)](https://docs.octagonagents.com/financial_model_demo.mp4)
-
+  
   ## Araçlar
-
+  
   ✅ `octagon-agent` geniş pazar zekası analizini yönetir
-
+  
   - Halka açık pazar içgörüleri (SEC dosyaları, transkriptler, finansal veriler, hisse senedi verileri)
   - Özel pazar içgörüleri (şirketler, finansman turları, anlaşmalar, borç, yatırımcılar)
-
+  
   ✅ `octagon-deep-research-agent` kapsamlı derinlemesine araştırma için
-
+  
   - Yatırım araştırması soruları için çoklu kaynak sentezi
   - Güncel, kaynaklar arası tematik analiz için en uygun
-
+  
   ✅ Tahmin pazar araştırması araçları
-
+  
   - `octagon-prediction-markets-agent` Kalshi event araştırma raporları için
   - `prediction_markets_history` yapılandırılmış tarihsel pazar verileri alma için
-
+  
   ## Octagon API Anahtarınızı Alın
-
+  
   Octagon MCP'yi kullanmak için:
-
+  
   1. [Octagon](https://app.octagonai.co/signup/?redirectToAfterSignup=https://app.octagonai.co/api-keys) adresinde ücretsiz bir hesap oluşturun
   2. Oturum açtıktan sonra, sol menüden **API Keys** bölümüne gidin
   3. Yeni bir API anahtarı oluşturun
   4. Bu API anahtarını yapılandırmanızda `OCTAGON_API_KEY` değeri olarak kullanın
-
+  
   ## Ön Koşullar
-
+  
   Octagon MCP'yi kurmadan veya çalıştırmadan önce, sisteminizde `npx` (Node.js ve npm ile birlikte gelir) kurulu olması gerekir.
-
+  
   ### Mac (macOS)
-
+  
   1. **Homebrew'i kurun** (henüz yoksa):
      ```bash
      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
      ```
   2. **Node.js'yi kurun (npm ve npx dahil):**
-
+  
      ```bash
      brew install node
      ```
-
+  
      Bu, Node.js, npm ve npx'in en son sürümünü kuracaktır.
-
+  
   3. **Kurulumu doğrulayın:**
      ```bash
      node -v
      npm -v
      npx -v
      ```
-
+  
   ### Windows
-
+  
   1. **Node.js yükleyicisini indirin:**
      - [https://nodejs.org/](https://nodejs.org/) adresine gidin ve Windows için LTS sürümünü indirin.
   2. **Yükleyiciyi çalıştırın** ve istemleri izleyin. Bu, Node.js, npm ve npx'i kuracaktır.
@@ -81,19 +81,19 @@ body_tr: |-
      npm -v
      npx -v
      ```
-
+  
   Üçünün de sürüm numaralarını görürseniz, aşağıdaki kurulum adımlarına devam etmeye hazırsınız.
-
+  
   ## Kurulum
-
+  
   ### Claude Desktop'ta Çalıştırma
-
+  
   Octagon MCP'yi Claude Desktop için yapılandırmak üzere:
-
+  
   1. Claude Desktop'ı açın
   2. Settings > Developer > Edit Config bölümüne gidin
   3. Aşağıdakini `claude_desktop_config.json` dosyasına ekleyin (`your-octagon-api-key` yerine Octagon API anahtarınızı koyun):
-
+  
   ```json
   {
     "mcpServers": {
@@ -107,16 +107,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   4. Değişikliklerin etkili olması için Claude'u yeniden başlatın
-
+  
   ### Cursor'da Çalıştırma
-
+  
   Cursor Desktop'ı yapılandırma 🖥️
   Not: Cursor sürümü 0.45.6+ gerekir
-
+  
   Octagon MCP'yi Cursor'da yapılandırmak için:
-
+  
   1. Cursor Ayarlarını açın
   2. Features > MCP Servers bölümüne gidin
   3. "+ Add New MCP Server" butonuna tıklayın
@@ -124,85 +124,85 @@ body_tr: |-
      - Name: "octagon-mcp" (veya tercih ettiğiniz ad)
      - Type: "command"
      - Command: `env OCTAGON_API_KEY=your-octagon-api-key npx -y octagon-mcp`
-
+  
   > Windows kullanıyorsanız ve sorunla karşılaşırsanız, `cmd /c "set OCTAGON_API_KEY=your-octagon-api-key && npx -y octagon-mcp"` komutunu deneyin
-
+  
   `your-octagon-api-key` yerine Octagon API anahtarınızı koyun.
-
+  
   Ekledikten sonra, MCP sunucu listesini yenileyin ve yeni araçları görmek için. Composer Agent, uygun olduğunda Octagon MCP'yi otomatik olarak kullanacak, ancak yatırım araştırması ihtiyaçlarınızı açıklayarak açıkça isteyebilirsiniz. Composer'a Command+L (Mac) ile erişin, gönder düğmesinin yanındaki "Agent"i seçin ve sorgunuzu girin.
-
+  
   ### npx ile Çalıştırma
-
+  
   ```bash
   env OCTAGON_API_KEY=your_octagon_api_key npx -y octagon-mcp
   ```
-
+  
   ### Manuel Kurulum
-
+  
   ```bash
   npm install -g octagon-mcp
   ```
-
+  
   ## Dokümantasyon
-
+  
   Octagon ajanlarını kullanma hakkında kapsamlı dokümantasyon için lütfen resmi dokümantasyonumuzu ziyaret edin:
   [https://docs.octagonagents.com](https://docs.octagonagents.com)
-
+  
   Dokümantasyon şunları içerir:
-
+  
   - Detaylı API referansları
   - Agent'a özgü sorgu yönergeleri
   - Örnekler ve kullanım durumları
   - Yatırım araştırması için en iyi uygulamalar
-
+  
   En son barındırılan MCP istemci kurulum kılavuzu için bkz:
-
+  
   - [Octagon MCP Server Guide](https://docs.octagonagents.com/guide/mcp-server.html)
-
+  
   ## Mevcut Araçlar
-
+  
   MCP sunucusu şu anda aşağıdaki araçları gösterir:
-
+  
   ### `octagon-agent`
-
+  
   Halka açık ve özel pazar zekası analizini yönetir.
-
+  
   **Parametreler**
-
+  
   - `prompt` (string, required): doğal dil araştırma isteği.
   - `conversation` (string, optional): önceki `octagon-agent` thread'ini devam ettirmek için mevcut Octagon conversation ID'si. İlk turda bunu atlayın.
   - `newConversation` (boolean, optional): `true` ise, etkin session/thread anchor için yeni bir Octagon thread'i başlatır. Claude Desktop gibi üst katman hostlar'ında yeni bir sohbetin ilk turunda önerilir.
-
+  
   **Thread'li kullanım**
-
+  
   `octagon-agent`, Octagon conversation thread'ini ileten tek MCP aracıdır. Bu, durum bilgili bir araçtır ve oturum sürekliliğini bekler. MCP, oturum/thread durumunu bu sırayla çözer:
-
+  
   1. MCP taşıması gerçekten sağladığında, MCP taşıma oturumu kimliği için depolanan conversation
   2. sunucu tarafından yönetilen varsayılan `stdio` oturumu için depolanan conversation
   3. açık `conversation` o çağrı için etkin oturum conversation'ını geçersiz kılabilir
-
+  
   Bu paket şu anda `stdio` MCP sunucusu olarak çalışır. `stdio` modunda, sunucu çağrılar arasında sürekliliği sağlamak için otomatik olarak bir işlem-yerel oturum oluşturur. Claude Desktop veya Cursor gibi çoğu yerel host, bu nedenle `octagon-agent`'ı temel follow-up davranışı için herhangi bir ekstra thread alanı sağlamadan kullanabilir.
-
+  
   Üst katman host bir çağrının yeni bir görünür sohbetin ilk turunu olduğunu bildiğinde, `newConversation: true` geçmelidir. Bu, çağrıdan önce etkin MCP oturum ankorunun depolanan Octagon thread'ini açıkça temizler, bu da bir `stdio` hostunun birden fazla görünür sohbet arasında aynı uzun ömürlü MCP işlemini yeniden kullanması durumunda eski sürekliliği önler.
-
+  
   Bu, aşağıdaki kalıplardan herhangi birini kullanabileceğiniz anlamına gelir:
-
+  
   1. İlk çağrı: yalnızca `prompt` gönderin
   2. MCP hostunun taşıma oturumu sürekliliğini koruyun veya varsayılan stdio oturumuna güvenin
   3. İkinci çağrı: şunlardan biri:
      - aynı MCP oturumunda yeni `prompt` gönderin veya
      - aynı stdio MCP işlemini kullanmaya devam edin veya
      - açıkça önceki `conversation`'ı geçin
-
+  
   Taşıma oturumu kimliği, standartlara uygun durum bilgili MCP taşımaları için kurallı sürekliliğin temel öğesidir. Yerel `stdio` kullanımı için, sunucu tarafından yönetilen işlem oturumu varsayılan sürekliliği sağlar.
-
+  
   Oturum kimliği ve Octagon conversation kimliği farklı kavramlardır:
-
+  
   - MCP oturum kimliği, araç çağrıları arasında sunucu tarafındaki sürekliliği kontrol eder
   - Octagon `conversation` o oturumdaki etkin Octagon thread'ini kontrol eder
-
+  
   MCP sonucu yanıtı `content`'te tutarak, orchestrator'lar için yapılandırılmış metadata'yı `structuredContent`'te döndürür:
-
+  
   ```json
   {
     "model": "octagon-agent",
@@ -216,163 +216,163 @@ body_tr: |-
     }
   }
   ```
-
+  
   Açık taşıma örneği:
-
+  
   ```json
   {
     "prompt": "AAPL",
     "conversation": "conv_123"
   }
   ```
-
+  
   Yeni görünür sohbet örneği:
-
+  
   ```json
   {
     "prompt": "Analyze Apple",
     "newConversation": true
   }
   ```
-
+  
   Açık yenileme örneği:
-
+  
   ```json
   {
     "prompt": "Start a fresh Octagon thread for this chat",
     "newConversation": true
   }
   ```
-
+  
   **Durum bilgili araç politikası**
-
+  
   - `octagon-agent`: durum bilgili, kullanılabilir bir sürekliliğin ankorunu kullanır. `stdio` hostlarında, açık `conversation` sağlamadıkça varsayılan olarak sunucu tarafından yönetilen işlem oturumudur
   - diğer MCP araçları: stateless (durumsuz) ve oturum sürekliliği olmadan çalışabilir
-
+  
   Örnek:
-
+  
   ```text
   Compare NVIDIA and AMD on latest quarterly revenue growth, margins, and management commentary.
   ```
-
+  
   Daha fazla örnek:
-
+  
   - "Amazon'un Q4 2023'teki gelir ve net gelir rakamları nelerdi?"
   - "Tesla'nın son 3 yıldaki Ar-Ge harcama trendlerini analiz edin."
   - "NVIDIA'nın CEO'su son earnings çağrısında yapay zeka çip talebine ilişkin ne tür rehberlik sağladı?"
   - "Top 5 yarı iletken şirketi için fiyat-kazanç, fiyat-satış ve EV/EBITDA oranlarını karşılaştırın."
   - "Anthropic'in en son finansman tur boyutu, değerlemesi ve kilit yatırımcıları nelerdi?"
   - "Andreessen Horowitz son 12 ayda yapay zeka startuplarına kaç yatırım yaptı?"
-
+  
   ### `octagon-deep-research-agent`
-
+  
   Kapsamlı çoklu kaynak derinlemesine araştırma ve sentezi gerçekleştirir.
-
+  
   **Parametreler**
-
+  
   - `prompt` (string, required): doğal dil araştırma isteği.
-
+  
   Örnek:
-
+  
   ```text
   Research the impact of lower interest rates on late-stage private software valuations over the next 12 months.
   ```
-
+  
   Daha fazla örnek:
-
+  
   - "Extract all data fields from zillow.com/san-francisco-ca/"
   - "Research the financial impact of Apple's privacy changes on digital advertising companies' revenue and margins"
   - "Retrieve historical Bitcoin price data from 2023 and analyze the price volatility trends"
   - "Analyze the competitive dynamics in the EV charging infrastructure market"
-
+  
   ### `octagon-prediction-markets-agent`
-
+  
   Kalshi tahmin pazar olayları için araştırma raporları üretir.
-
+  
   **Parametreler**
-
+  
   - `prompt` (string, required): doğal dil araştırma isteği.
   - `cache` (boolean, optional): agent variant yönlendirmesini kontrol eder.
     - atlanmış: `prediction-markets-agent`
     - `false`: `prediction-markets-agent:refresh`
     - `true`: `prediction-markets-agent:cache`
-
+  
   Örnek:
-
+  
   ```text
   Generate a report for the Kalshi market https://kalshi.com/markets/kxbtcy/btc-price-range-eoy/kxbtcy-27jan0100
   ```
-
+  
   ### `prediction_markets_history`
-
+  
   İsteğe bağlı pagination ve zaman filtreleriyle bir tahmin pazar olayı sembolü için tarihsel verileri alır.
-
+  
   **Parametreler**
-
+  
   - `event_ticker` (string, required)
   - `limit` (number, optional)
   - `cursor` (string, optional)
   - `captured_from` (string, optional)
   - `captured_to` (string, optional)
   - `include_analysis` (boolean, optional; true olduğunda, analiz sütunları talep eder)
-
+  
   Örnek:
-
+  
   ```text
   Fetch historical data for the Kalshi event https://kalshi.com/markets/kxbtcy/btc-price-range-eoy/kxbtcy-27jan0100
   ```
-
+  
   ## Sorun Giderme
-
+  
   1. **API Anahtarı Sorunları**: Octagon API anahtarınızın ortam veya yapılandırma dosyasında doğru şekilde ayarlandığından emin olun.
   2. **Bağlantı Sorunları**: Octagon API'si ile bağlantının düzgün çalıştığından emin olun.
   3. **Hız Sınırlaması**: Rate limiting hataları yaşarsanız, isteklerinizin sıklığını azaltın.
-
+  
   ## Lisans
-
+  
   MIT
-
+  
   ## Bireysel Uzmanlaştırılmış MCP Sunucuları
-
+  
   Bu sunucu tüm uzmanlaştırılmış ajanlarımızı birleştiren kapsamlı pazar zekası sağlarken, belirli kullanım durumları için bireysel MCP sunucularımızı da kullanabilirsiniz:
-
+  
   ### Halka Açık Pazar Verileri Sunucuları
-
+  
   - **[Octagon SEC Filings MCP](https://github.com/OctagonAI/octagon-sec-filings-mcp)** - SEC dosyaları analizi için özel sunucu
   - **[Octagon Earnings Transcripts MCP](https://github.com/OctagonAI/octagon-earnings-transcripts-mcp)** - Earnings call transkripti analizi için uzmanlaştırılmış
   - **[Octagon Stock Market Data MCP](https://github.com/OctagonAI/octagon-stock-market-data-mcp)** - Hisse senedi pazar verileri erişimine odaklanmış
   - **[Octagon Financial Statements MCP](https://github.com/OctagonAI/octagon-financial-statements-mcp)** - Finansal metrikleri ve oranları analizi
   - **[Octagon 13F Holdings MCP](https://github.com/OctagonAI/octagon-13f-holdings-mcp)** - Kurumsal sahiplik ve Form 13F dosyaları
-
+  
   ### Özel Pazar Verileri Sunucuları
-
+  
   - **[Octagon Private Companies MCP](https://github.com/OctagonAI/octagon-private-companies-mcp)** - Özel şirket araştırması ve zekası
   - **[Octagon Investors MCP](https://github.com/OctagonAI/octagon-investors-mcp)** - Yatırımcı profilleri ve yatırım stratejileri
   - **[Octagon Funding Data MCP](https://github.com/OctagonAI/octagon-funding-data-mcp)** - Startup finansman turları ve risk sermayesi verileri
-
+  
   ### Araştırma Araçları
-
+  
   - **[Octagon Deep Research MCP](https://github.com/OctagonAI/octagon-deep-research-mcp)** - Kapsamlı araştırma ve web scraping yetenekleri
-
+  
   ---
-
+  
   ⭐ Faydalı bulursanız bu repo'ya yıldız verin!
 ---
 
-# Octagon: MCP for Market Data
+# Octagon: MCP for Public & Prediction Markets Intelligence
 
 [![smithery badge](https://smithery.ai/badge/@OctagonAI/octagon-mcp-server)](https://smithery.ai/server/@OctagonAI/octagon-mcp-server)
 
-![Favicon](https://docs.octagonagents.com/logo.svg) The Octagon MCP server provides specialized AI-powered financial research and analysis by integrating with the Octagon Market Intelligence API, enabling users to analyze and extract insights from public filings, earnings calls, financial metrics, private market transactions, and prediction market events within Claude Desktop and other popular MCP clients.
+![Favicon](https://octagonai.co/docs/logo.svg) The Octagon MCP server provides specialized AI-powered financial research and analysis by integrating with the Octagon Market Intelligence API, enabling users to analyze and extract insights from public filings, earnings calls, financial metrics, stocks & crypto data, stock news, and prediction markets news & research within Claude Desktop and other popular MCP clients.
 
-[![Demo](https://docs.octagonagents.com/financial_model_demo_fast.gif)](https://docs.octagonagents.com/financial_model_demo.mp4)
+[![Demo](https://octagonai.co/docs/financial_model_demo_fast.gif)](https://octagonai.co/docs/financial_model_demo.mp4)
 
 ## Tools
 
 ✅ `octagon-agent` orchestrates broad market intelligence analysis
 
-- Public market insights (SEC filings, transcripts, financials, stock data)
-- Private market insights (companies, funding rounds, deals, debt, investors)
+- Public market insights: SEC filings (10-K, 10-Q, 20-F, 8-K, S-1, 13-F, DEF 14A), earnings call transcripts
+- Stocks & crypto market data: stock trading, crypto trading data, news, press release, ownerships and holdings
 
 ✅ `octagon-deep-research-agent` for comprehensive deep research
 
@@ -381,8 +381,13 @@ body_tr: |-
 
 ✅ Prediction market research tooling
 
-- `octagon-prediction-markets-agent` for Kalshi event research reports
+- `octagon-prediction-markets-agent` for updated research reports on each prediction markets
 - `prediction_markets_history` for structured historical market data retrieval
+
+✅ Live Octagon documentation access
+
+- `octagon-docs-search`, `octagon-docs-read`, `octagon-docs-list`, and `octagon-docs-refresh`
+- MCP resources for `octagon-docs://catalog`, `octagon-docs://status`, and `octagon-docs://page/{target}`
 
 ## Get Your Octagon API Key
 
@@ -495,7 +500,7 @@ npm install -g octagon-mcp
 ## Documentation
 
 For comprehensive documentation on using Octagon agents, please visit our official documentation at:
-[https://docs.octagonagents.com](https://docs.octagonagents.com)
+[https://octagonai.co/docs/](https://octagonai.co/docs/)
 
 The documentation includes:
 
@@ -506,11 +511,80 @@ The documentation includes:
 
 For the latest hosted MCP client setup guide, see:
 
-- [Octagon MCP Server Guide](https://docs.octagonagents.com/guide/mcp-server.html)
+- [Octagon MCP Server Guide](https://octagonai.co/docs/guide/mcp-server)
+- [Octagon Claude Plugin Guide](https://octagonai.co/docs/guide/claude-plugin)
+- [Octagon Agents Guide](https://octagonai.co/docs/guide/agents/)
+
+This MCP server also exposes the live docs corpus directly to MCP clients. Documentation access is fetched from the public Octagon docs LLM entry point at `https://octagonai.co/docs/llms.txt`; it does not use or transmit `OCTAGON_API_KEY`.
 
 ## Available Tools
 
 The MCP server currently exposes the following tools:
+
+### Documentation Tools
+
+These tools expose live Octagon docs inside the MCP session. They work even before `OCTAGON_API_KEY` is configured, which makes them useful for setup, troubleshooting, and discovering the right Octagon agent or API workflow.
+
+#### `octagon-docs-list`
+
+Lists live docs sections and pages from the Octagon docs corpus.
+
+**Parameters**
+
+- `section` (string, optional): filter by docs section.
+- `source` (`docs`, `site`, or `all`, optional): defaults to the docs corpus.
+- `limit` (number, optional): maximum entries to return.
+
+#### `octagon-docs-search`
+
+Searches the Octagon API, agent, MCP, and plugin docs with source URLs and optional snippets.
+
+**Parameters**
+
+- `query` (string, required): search query.
+- `section` (string, optional): filter by docs section.
+- `source` (`docs`, `site`, or `all`, optional): defaults to the docs corpus.
+- `limit` (number, optional): maximum results to return.
+- `includeSnippets` (boolean, optional): include matched snippets in results.
+
+Example:
+
+```text
+Search Octagon docs for Claude plugin connector setup.
+```
+
+#### `octagon-docs-read`
+
+Reads one docs page or section as Markdown by title, URL, path, or catalog id.
+
+**Parameters**
+
+- `target` (string, required): docs title, URL, path, or catalog id.
+- `source` (`docs`, `site`, or `all`, optional): defaults to the docs corpus.
+- `maxChars` (number, optional): maximum Markdown characters to return.
+- `preferCachedContent` (boolean, optional): use the indexed docs corpus when available.
+
+Example:
+
+```text
+Read the Octagon MCP server guide.
+```
+
+#### `octagon-docs-refresh`
+
+Refreshes the in-memory docs catalog from the live LLM-friendly docs endpoints.
+
+**Parameters**
+
+- `includeSite` (boolean, optional): also refresh the broader `https://octagonai.co/llms.txt` site index.
+
+### Documentation Resources
+
+Clients that support MCP resources can also browse:
+
+- `octagon-docs://catalog`: normalized live docs catalog.
+- `octagon-docs://status`: cache state, source endpoints, and refresh metadata.
+- `octagon-docs://page/{target}`: one docs page or section as Markdown.
 
 ### `octagon-agent`
 
@@ -612,6 +686,7 @@ More examples:
 - "Compare the price-to-earnings, price-to-sales, and EV/EBITDA ratios for the top 5 semiconductor companies."
 - "What was Anthropic's latest funding round size, valuation, and key investors?"
 - "How many investments did Andreessen Horowitz make in AI startups in the last 12 months?"
+- "What are the latest news articles for NVIDIA stock from the past week?"
 
 ### `octagon-deep-research-agent`
 
@@ -684,20 +759,6 @@ MIT
 ## Individual Specialized MCP Servers
 
 While this server provides comprehensive market intelligence combining all our specialized agents, you can also use our individual MCP servers for specific use cases:
-
-### Public Market Data Servers
-
-- **[Octagon SEC Filings MCP](https://github.com/OctagonAI/octagon-sec-filings-mcp)** - Dedicated server for SEC filings analysis
-- **[Octagon Earnings Transcripts MCP](https://github.com/OctagonAI/octagon-earnings-transcripts-mcp)** - Specialized for earnings call transcript analysis
-- **[Octagon Stock Market Data MCP](https://github.com/OctagonAI/octagon-stock-market-data-mcp)** - Focused on stock market data access
-- **[Octagon Financial Statements MCP](https://github.com/OctagonAI/octagon-financial-statements-mcp)** - Financial metrics and ratios analysis
-- **[Octagon 13F Holdings MCP](https://github.com/OctagonAI/octagon-13f-holdings-mcp)** - Institutional ownership and Form 13F filings
-
-### Private Market Data Servers
-
-- **[Octagon Private Companies MCP](https://github.com/OctagonAI/octagon-private-companies-mcp)** - Private company research and intelligence
-- **[Octagon Investors MCP](https://github.com/OctagonAI/octagon-investors-mcp)** - Investor profiles and investment strategies
-- **[Octagon Funding Data MCP](https://github.com/OctagonAI/octagon-funding-data-mcp)** - Startup funding rounds and venture capital data
 
 ### Research Tools
 

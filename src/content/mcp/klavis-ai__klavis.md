@@ -3,7 +3,7 @@ name: "Klavis-AI/klavis"
 description: "Extract and convert YouTube video information."
 category: "Other Tools and Integrations"
 repo: "Klavis-AI/klavis"
-stars: 5746
+stars: 5749
 url: "https://github.com/Klavis-AI/klavis"
 body_length: 7075
 license: "Apache-2.0"
@@ -15,19 +15,19 @@ body_tr: |-
       
     </picture>
   </div>
-
+  
   <div align="center">
-
+  
   [![Dokümantasyon](https://img.shields.io/badge/Dokümantasyon-📖-green)](https://www.klavis.ai/docs)
   [![Website](https://img.shields.io/badge/Website-🌐-purple)](https://www.klavis.ai)
   [![Discord](https://img.shields.io/badge/Discord-Katıl-7289DA?logo=discord&logoColor=white)](https://discord.gg/p7TuTEcssn)
-
+  
   <a href="https://www.producthunt.com/products/strata-2?embed=true&utm_source=badge-top-post-badge&utm_medium=badge&utm_source=badge-strata&#0045;2" target="_blank"></a>
-
+  
   </div>
-
+  
   ## 🎯 Çözümünüzü Seçin
-
+  
   <div align="center">
     <table>
       <tr>
@@ -73,69 +73,69 @@ body_tr: |-
       </tr>
     </table>
   </div>
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Seçenek 1: Bulutta barındırılan - [klavis.ai](https://www.klavis.ai)
-
+  
   [Hızlı başlangıç rehberi →](https://www.klavis.ai/docs/quickstart)
-
+  
   ### Seçenek 2: Kendi sunucunuzda barındırın
-
+  
   ```bash
   # Herhangi bir MCP Entegrasyonu çalıştırın
   docker pull ghcr.io/klavis-ai/github-mcp-server:latest
   docker run -p 5000:5000 ghcr.io/klavis-ai/github-mcp-server:latest
-
+  
   # Açık Kaynak Strata'yı yerel olarak yükleyin
   pipx install strata-mcp
   strata add --type stdio playwright npx @playwright/mcp@latest
   ```
-
+  
   ### Seçenek 3: SDK
-
+  
   ```python
   # Python SDK
   from klavis import Klavis
   from klavis.types import McpServerName
-
+  
   klavis = Klavis(api_key="your-key")
-
+  
   # Strata instance'ı oluşturun
   strata = klavis_client.mcp_server.create_strata_server(
       user_id="user123",
       servers=[McpServerName.GMAIL, McpServerName.SLACK],
   )
-
+  
   # Veya bireysel MCP sunucularını kullanın
   gmail = klavis.mcp_server.create_server_instance(
       server_name=McpServerName.GMAIL,
       user_id="user123",
   )
   ```
-
+  
   ```typescript
   // TypeScript SDK
   import { KlavisClient, McpServerName } from 'klavis';
-
+  
   const klavis = new KlavisClient({ apiKey: 'your-api-key' });
-
+  
   // Strata instance'ı oluşturun
   const strata = await klavis.mcpServer.createStrataServer({
       userId: "user123",
       servers: [Klavis.McpServerName.Gmail, Klavis.McpServerName.Slack],
   });
-
+  
   // Veya bireysel MCP sunucularını kullanın
   const gmail = await klavis.mcpServer.createServerInstance({
       serverName: McpServerName.GMAIL,
       userId: "user123"
   });
   ```
-
+  
   ### Seçenek 4: REST API
-
-
+  
+  
   ```bash
   # Strata sunucusu oluşturun
   curl -X POST "https://api.klavis.ai/v1/mcp-server/strata" \
@@ -145,7 +145,7 @@ body_tr: |-
       "user_id": "user123",
       "servers": ["GMAIL", "SLACK"]
     }'
-
+  
   # Bireysel MCP sunucusu oluşturun
   curl -X POST "https://api.klavis.ai/v1/mcp-server/instance" \
     -H "Authorization: Bearer your-api-key" \
@@ -155,17 +155,17 @@ body_tr: |-
       "user_id": "user123"
     }'
   ```
-
-
+  
+  
   ## Kaynaklar
-
+  
   - 📖 [Dokümantasyon](https://www.klavis.ai/docs)
   - 💬 [Discord Topluluğu](https://discord.gg/p7TuTEcssn)
   - 🐛 [Sorunları Bildirin](https://github.com/klavis-ai/klavis/issues)
   - 🌐 [Klavis AI Website](https://www.klavis.ai)
-
+  
   ---
-
+  
   <div align="center">
     <p><strong>Klavis Ekibi tarafından ❤️ ile yapılmıştır</strong></p>
   </div>

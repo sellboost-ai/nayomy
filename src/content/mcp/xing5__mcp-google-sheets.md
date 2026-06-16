@@ -3,7 +3,7 @@ name: "xing5/mcp-google-sheets"
 description: "A Model Context Protocol server for interacting with Google Sheets. This server provides tools to create, read, update, and manage spreadsheets through the Google Sheets API."
 category: "Databases"
 repo: "xing5/mcp-google-sheets"
-stars: 874
+stars: 909
 url: "https://github.com/xing5/mcp-google-sheets"
 body_length: 32431
 license: "MIT"
@@ -12,38 +12,38 @@ body_tr: |-
   <div align="center">
     <!-- Main Title Link -->
     <b>mcp-google-sheets</b>
-
+  
     <!-- Description Paragraph -->
     <p align="center">
       <i>AI Asistanınızın Google Sheets'e Giden Kapısı! </i>📊
     </p>
-
+  
   [![PyPI - Version](https://img.shields.io/pypi/v/mcp-google-sheets)](https://pypi.org/project/mcp-google-sheets/)
   [![PyPI Downloads](https://static.pepy.tech/badge/mcp-google-sheets)](https://pepy.tech/projects/mcp-google-sheets)
   ![GitHub License](https://img.shields.io/github/license/xing5/mcp-google-sheets)
   ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/xing5/mcp-google-sheets/release.yml)
   </div>
-
+  
   ---
-
+  
   ## 🤔 Bu nedir?
-
+  
   `mcp-google-sheets`, herhangi bir MCP uyumlu istemci (Claude Desktop gibi) ile Google Sheets API arasında bir köprü görevi gören Python tabanlı bir MCP sunucusudur. Tanımlanmış bir araç seti kullanarak Google Elektronik Tablolarınızla etkileşim kurmanızı, yapay zeka tarafından yönlendirilen güçlü otomasyon ve veri manipülasyonu iş akışlarını etkinleştirmenizi sağlar.
-
+  
   ---
-
+  
   ## 🚀 Hızlı Başlangıç (`uvx` Kullanarak)
-
+  
   Sunucu temelde tek satırda çalışır: `uvx mcp-google-sheets@latest`. 
-
+  
   Bu komut, en son kodu otomatik olarak indirecek ve çalıştıracaktır. **Her zaman `@latest` kullanmanızı önerilir** böylece en yeni sürümü en son özellikler ve hata düzeltmeleriyle elde edersiniz.
-
+  
   _Aşağıda kullanılan kimlikler hakkında daha fazla bilgi için [Kimlik Referans Kılavuzu](#-kimlik-referans-kılavuzu)na bakınız._
-
+  
   1.  **☁️ Ön Koşul: Google Cloud Kurulumu**
       *   Google Cloud Platform kimlik bilgilerini yapılandırmanız ve gerekli API'leri etkinleştirmeniz **gerekir**. Çok güvenli bir şekilde **Hizmet Hesabı** kullanmanız şiddetle tavsiye edilir.
       *   ➡️ Aşağıdaki [**Ayrıntılı Google Cloud Platform Kurulumu**](#-google-cloud-platform-kurulumu-ayrıntılı) kılavuzuna geçin.
-
+  
   2.  **🐍 `uv` Yükleyin**
       *   `uvx`, hızlı bir Python paket yükleyicisi ve çözücüsü olan `uv`'nin bir parçasıdır. Henüz yüklemediyseniz yükleyin:
           ```bash
@@ -55,7 +55,7 @@ body_tr: |-
           # pip install uv
           ```
           *Gerekirse `uv` öğesini PATH'inize eklemek için yükleyici çıktısındaki talimatları izleyin.*
-
+  
   3.  **🔑 Temel Ortam Değişkenlerini Ayarlayın (Hizmet Hesabı Önerilir)**
       *   Sunucuya nasıl kimlik doğrulaması yapacağını söylemeniz gerekir. Terminal'de şu değişkenleri ayarlayın:
       *   **(Linux/macOS)**
@@ -75,7 +75,7 @@ body_tr: |-
           $env:DRIVE_FOLDER_ID = "YOUR_DRIVE_FOLDER_ID"
           ```
       *   ➡️ Diğer seçenekler (OAuth, `CREDENTIALS_CONFIG`) için [**Ayrıntılı Kimlik Doğrulama & Ortam Değişkenleri**](#-kimlik-doğrulama--ortam-değişkenleri-ayrıntılı) bölümüne bakınız.
-
+  
   4.  **🏃 Sunucuyu Çalıştırın!**
       *   `uvx`, `mcp-google-sheets`'in en son sürümünü otomatik olarak indirecek ve çalıştıracaktır:
           ```bash
@@ -84,41 +84,41 @@ body_tr: |-
       *   Sunucu başlayacak ve hazır olduğunu belirten günlükleri yazdıracaktır.
       *   
       *   > **💡 Pro İpucu:** En yeni sürümü hata düzeltmeleri ve özelliklerle aldığınızdan emin olmak için her zaman `@latest` kullanın. `@latest` olmadan, `uvx` önbelleğe alınmış eski bir sürümü kullanabilir.
-
+  
   5.  **🔌 MCP İstemcinizi Bağlayın**
       *   İstemcinizi (ör. Claude Desktop) çalışan sunucuya bağlanacak şekilde yapılandırın.
       *   Kullandığınız istemciye bağlı olarak, istemci sunucuyu sizin için başlatabileceğinden 4. adıma ihtiyaç duymayabilirsiniz. Ancak her şeyin düzgün ayarlandığından emin olmak için 4. adımı test etmek iyi bir uygulamadır.
       *   ➡️ Örnekler için [**Claude Desktop ile Kullanım**](#-claude-desktop-ile-kullanım) bölümüne bakınız.
-
+  
   6.  **⚡ İsteğe Bağlı: Araç Filtrelemesini Etkinleştirin (Bağlam Kullanımını Azaltın)**
       *   Varsayılan olarak, tüm 19 araç etkindir (~13K token). Bağlam kullanımını azaltmak için yalnızca ihtiyacınız olan araçları etkinleştirin.
       *   ➡️ Ayrıntılar için [**Araç Filtreleme**](#-araç-filtreleme-bağlam-kullanımını-azaltın) bölümüne bakınız.
-
+  
   Hazırsınız! MCP istemciniz aracılığıyla komut vermeye başlayın.
-
+  
   ---
-
+  
   ## ✨ Temel Özellikler
-
+  
   *   **Sorunsuz Entegrasyon:** Doğrudan Google Drive & Google Sheets API'lerine bağlanır.
   *   **Kapsamlı Araçlar:** Geniş bir işlem yelpazesi sunar (CRUD, listeleme, toplu işlem, paylaşma, biçimlendirme vb.).
   *   **Esnek Kimlik Doğrulama:** **Hizmet Hesaplarını (önerilir)**, OAuth 2.0'ı ve ortam değişkenleri aracılığıyla doğrudan kimlik bilgilerini destekler.
   *   **Kolay Dağıtım:** `uvx` ile anında çalıştırın (sıfır kurulum hissi) veya geliştirme için `uv` kullanarak klonlayın.
   *   **Yapay Zeka İçin Hazır:** MCP uyumlu istemcilerle kullanım için tasarlanmış, doğal dil elektronik tablo etkileşimini sağlar.
   *   **Araç Filtreleme:** `--include-tools` veya `ENABLED_TOOLS` ortam değişkeni ile yalnızca ihtiyacınız olan araçları etkinleştirerek bağlam penceresi kullanımını azaltın.
-
+  
   ---
-
+  
   ## 🎯 Araç Filtreleme (Bağlam Kullanımını Azaltın)
-
+  
   **Sorun:** Varsayılan olarak, bu MCP sunucusu tüm 19 aracı ortaya koymakta, herhangi bir konuşmaya başlamadan önce ~13.000 token tüketmektedir. Yalnızca birkaç aracı ihtiyacınız varsa, bu değerli bağlam penceresi alanını boşa harcar.
-
+  
   **Çözüm:** Yalnızca gerçekten kullandığınız araçları etkinleştirmek için araç filtrelemesini kullanın.
-
+  
   ### Araç Filtrelemesini Nasıl Etkinleştireceğiniz
-
+  
   Araçları şu seçeneklerden biriyle filtreleyebilirsiniz:
-
+  
   1. **Komut satırı argümanı** `--include-tools`:
      ```json
      {
@@ -137,7 +137,7 @@ body_tr: |-
        }
      }
      ```
-
+  
   2. **Ortam değişkeni** `ENABLED_TOOLS`:
      ```json
      {
@@ -153,17 +153,17 @@ body_tr: |-
        }
      }
      ```
-
+  
   ### Kullanılabilir Araç Adları
-
+  
   Filtreleme sırasında, bu tam araç adlarını kullanın (virgülle ayrılmış, boşluksuz):
-
+  
   **En Yaygın Araçlar (önerilen alt küme):**
   - `get_sheet_data` - Elektronik tablolardan oku
   - `update_cells` - Elektronik tablolara yaz
   - `list_spreadsheets` - Elektronik tabloları bul
   - `list_sheets` - Sekmelerde gezin
-
+  
   **Tüm Kullanılabilir Araçlar:**
   - `add_columns`
   - `add_rows`
@@ -184,19 +184,19 @@ body_tr: |-
   - `search_spreadsheets`
   - `share_spreadsheet`
   - `update_cells`
-
+  
   **Not:** `--include-tools` veya `ENABLED_TOOLS` belirtilmezse, tüm araçlar etkindir (varsayılan davranış).
-
+  
   ---
-
+  
   ## 🛠️ Kullanılabilir Araçlar & Kaynaklar
-
+  
   Bu sunucu, Google Sheets ile etkileşim kurmak için aşağıdaki araçları ortaya koymaktadır:
-
+  
   _Aşağıda kullanılan kimlikler hakkında daha fazla bilgi için [Kimlik Referans Kılavuzu](#-kimlik-referans-kılavuzu)na bakınız._
-
+  
   *(Giriş parametreleri aksi belirtilmedikçe genellikle dizelerdir)*
-
+  
   *   **`list_spreadsheets`**: Yapılandırılmış Drive klasöründeki (Hizmet Hesabı) veya kullanıcı tarafından erişilebilen (OAuth) elektronik tabloları listeler.
       *   `folder_id` (isteğe bağlı dize): Aramada kullanılacak Google Drive klasör kimliği. URL'sinden alın. Belirtilmezse, yapılandırılmış varsayılan klasörü veya 'My Drive'ı arar.
       *   _Döndürür:_ Nesne listesi `[{id: string, title: string}]`
@@ -281,34 +281,34 @@ body_tr: |-
       *   `width` (isteğe bağlı tam sayı, varsayılan `600`): Grafiğin piksel cinsinden genişliği.
       *   `height` (isteğe bağlı tam sayı, varsayılan `400`): Grafiğin piksel cinsinden yüksekliği.
       *   _Döndürür:_ Başarı durumu, grafik kimliği ve işlem ayrıntılarını içeren sonuç nesnesi.
-
+  
   **MCP Kaynakları:**
-
+  
   *   **`spreadsheet://{spreadsheet_id}/info`**: Google Elektronik Tablosu hakkında temel meta verileri alın.
       *   _Döndürür:_ Elektronik tablo bilgisine sahip JSON dizesi.
-
+  
   ---
-
+  
   ## ☁️ Google Cloud Platform Kurulumu (Ayrıntılı)
-
+  
   Bu kurulum sunucuyu çalıştırmadan **önce gereklidir**.
-
+  
   1.  **GCP Projesi Oluşturun/Seçin:** [Google Cloud Konsolu](https://console.cloud.google.com/)'na gidin.
   2.  **API'leri Etkinleştirin:** "APIs & Services" -> "Library" sekmesine gidin. Ara ve etkinleştirin:
       *   `Google Sheets API`
       *   `Google Drive API`
   3.  **Kimlik Bilgilerini Yapılandırın:** Aşağıda bir kimlik doğrulama yöntemi seçmeniz gerekir (Hizmet Hesabı önerilir).
-
+  
   ---
-
+  
   ## 🔑 Kimlik Doğrulama & Ortam Değişkenleri (Ayrıntılı)
-
+  
   Sunucu, Google API'lerine erişmek için kimlik bilgilerine ihtiyaç duyar. Bir yöntem seçin:
-
+  
   _Aşağıda kullanılan kimlikler hakkında daha fazla bilgi için [Kimlik Referans Kılavuzu](#-kimlik-referans-kılavuzu)na bakınız._
-
+  
   ### Yöntem A: Hizmet Hesabı (Sunucular/Otomasyon İçin Önerilir) ✅
-
+  
   *   **Neden?** Başsız (tarayıcı gerekmez), güvenli, sunucu ortamları için idealdir. Kolayca süresi dolmaz.
   *   **Adımlar:**
       1.  **Hizmet Hesabı Oluşturun:** GCP Konsolu -> "IAM & Admin" -> "Service Accounts" sekmesinde.

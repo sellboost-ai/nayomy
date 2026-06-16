@@ -12,6 +12,115 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:ciso-review — CISO Zorlama Soruları
+
+  **Komut:** `/cs:ciso-review <plan>`
+
+  Risk-paranoyak tehdit-modelleyici. Müşteri verilerine veya uyum kapsamına dokunacak herhangi bir production değişikliğinden önce altı soru.
+
+  ## Ne Zaman Çalıştırılır
+
+  - PII / PHI / cardholder verilerine dokunacak herhangi bir sistemi deploy etmeden önce
+  - Veri erişimi olan yeni bir vendor imzalamadan önce
+  - Uyum denetiminden önce (SOC 2, ISO 27001, HIPAA, GDPR)
+  - Güven sınırlarını geçen herhangi bir mimari karardan önce
+  - Herhangi bir yakın kaçış olayından sonra
+
+  ## Altı CISO Sorusu
+
+  ### 1. Tehdit Modeli
+  **Bu sistem için STRIDE tehdit modeli nedir ve en olası tehdit hangisidir?**
+  - Spoofing, Tampering, Repudiation, Info Disclosure, DoS, Elevation of Privilege.
+  - Olasılık × etki ile en iyi 3'ü seçin.
+
+  ### 2. Patlaması Yarıçapı
+  **Bu tamamen tehlikeye atılırsa, hangi veriler açığa çıkar ve kaç kullanıcı etkilenir?**
+  - En kötü durum düz İngilizce olarak.
+  - FAIR tabanlı ALE aracılığıyla dolar cinsinden nicelendirin.
+
+  ### 3. Algılama
+  **Hangi sinyaller uzlaşmayı gösterir ve tetiklenmelerine kadar ne kadar süre geçer (MTTD)?**
+  - Yalnızca loglar algılama değildir.
+  - Algılama kuralını, alert'i ve on-call'ı tanımlayın.
+
+  ### 4. Yanıt
+  **Bu senaryo için bir IR runbook'u var mı ve tabletop testi yapıldı mı?**
+  - Runbook yoksa: ship etmeden önce bir tane oluşturun.
+  - Test edilmemişse: ship etmeden önce tabletop yapın.
+
+  ### 5. Düzenleyici Pencere
+  **Bu senaryo oluşursa regülatör bildirim penceresinin süresi nedir?**
+  - GDPR: 72h. HIPAA: 60d. Eyalet ihlal yasaları değişir.
+  - Müşteri iletişim şablonunu önceden yazın.
+
+  ### 6. Vendor ve Tedarik Zinciri
+  **Hangi üçüncü taraf vendorlar kapsam dahilindedir ve güvenlik durumları nedir?**
+  - Subprocessor listesi güncel mi?
+  - DPA'lar yerinde mi?
+  - Vendor başına son güvenlik incelemesi?
+
+  ## İş Akışı
+
+  ```bash
+  python ../../../skills/ciso-advisor/scripts/risk_quantifier.py
+  python ../../../skills/ciso-advisor/scripts/compliance_tracker.py
+  ```
+
+  ## Çıktı Biçimi
+
+  ```markdown
+  # CISO Review: <plan>
+  **Date:** YYYY-MM-DD
+
+  ## Threat Model
+  - Top threat: <STRIDE category> — <description>
+  - Likelihood: H/M/L | Impact: H/M/L
+  - ALE: $X / year
+
+  ## Blast Radius
+  - Data exposed (worst case): <description>
+  - Users affected: N
+  - Estimated cost: $X
+
+  ## Detection
+  - MTTD target: X hours
+  - Current MTTD: X hours
+  - Detection rule: <name>
+
+  ## Response
+  - IR runbook: ✅ / ❌
+  - Last tabletop: <date>
+
+  ## Regulatory
+  - Frameworks in scope: SOC 2 / ISO 27001 / HIPAA / GDPR
+  - Notification window: X hours/days
+
+  ## Vendors
+  - New vendors added: N
+  - DPAs signed: N / N
+  - Security reviews complete: N / N
+
+  ## Verdict
+  🟢 SHIP | 🟡 MITIGATE THEN SHIP | 🔴 BLOCK
+  ```
+
+  ## Yönlendirme
+
+  - `/cs:cto-review` — mimari uyum
+  - `/cs:gc-review` — DPA, düzenleyici etkileri
+  - `/cs:decide` — risk kabulünü kaydedin
+  - `/cs:boardroom` — KRİTİK riskler için
+
+  ## İlgili
+
+  - Agent: [`cs-ciso-advisor`](../../agents/cs-ciso-advisor.md)
+  - Skill: [`ciso-advisor`](../../../skills/ciso-advisor/SKILL.md)
+  - Compliance: `../../../../ra-qm-team/`
+
+  ---
+
+  **Sürüm:** 1.0.0
 ---
 
 # /cs:ciso-review — CISO Forcing Questions

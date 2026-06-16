@@ -12,6 +12,97 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Test Kapsamı Boşluklarını Analiz Et
+
+  Uygulamadaki tüm test edilebilir yüzeyleri haritalayın ve test edilenler ile eksik olanları belirleyin.
+
+  ## Adımlar
+
+  ### 1. Uygulama Yüzeyini Haritalayın
+
+  `Explore` alt aracısını kullanarak kataloğu oluşturun:
+
+  **Rotalar/Sayfalar:**
+  - Rota tanımlarını tarayın (Next.js `app/`, React Router config, Vue Router, vb.)
+  - Tüm kullanıcı yüzeyüne açık sayfaları yollarıyla listeleyin
+
+  **Bileşenler:**
+  - Etkileşimli bileşenleri tanımlayın (formlar, modallar, açılır menüler, tablolar)
+  - Karmaşık durum mantığına sahip bileşenleri not alın
+
+  **API Uç Noktaları:**
+  - API rota dosyalarını veya arka uç denetleyicilerini tarayın
+  - Tüm uç noktaları yöntemleriyle listeleyin
+
+  **Kullanıcı Akışları:**
+  - Kritik yolları tanımlayın: kimlik doğrulama, ödeme, başlangıç, temel özellikler
+  - Çok adımlı iş akışlarını haritalayın
+
+  ### 2. Mevcut Testleri Haritalayın
+
+  Tüm `*.spec.ts` / `*.spec.js` dosyalarını tarayın:
+
+  - Hangi sayfaların/rotaların kapsandığını çıkarın (`page.goto()` çağrılarına göre)
+  - Hangi bileşenlerin test edildiğini çıkarın (konum kullanımına göre)
+  - Hangi API uç noktalarının simüle edildiğini veya çağrıldığını çıkarın
+  - Alan başına test sayısını sayın
+
+  ### 3. Kapsama Matrisini Oluşturun
+
+  ```
+  ## Kapsama Matrisi
+
+  | Alan | Rota | Testler | Durum |
+  |---|---|---|---|
+  | Auth | /login | 5 | ✅ Kapsanmış |
+  | Auth | /register | 0 | ❌ Eksik |
+  | Auth | /forgot-password | 0 | ❌ Eksik |
+  | Dashboard | /dashboard | 3 | ⚠️ Kısmi (hata durumları yok) |
+  | Settings | /settings | 0 | ❌ Eksik |
+  | Checkout | /checkout | 8 | ✅ Kapsanmış |
+  ```
+
+  ### 4. Boşlukları Önceliklendirin
+
+  Kapsanmayan alanları iş etkisine göre sıralayın:
+
+  1. **Kritik** — kimlik doğrulama, ödeme, temel özellikler → önce test edin
+  2. **Yüksek** — kullanıcı yüzeyüne açık CRUD, arama, navigasyon
+  3. **Orta** — ayarlar, tercihler, uç durumlar
+  4. **Düşük** — statik sayfalar, hakkında, şartlar
+
+  ### 5. Test Planı Önerileri
+
+  Her boşluk için önerilerde bulunun:
+  - Gereken test sayısı
+  - `templates/` klasöründen hangi şablonun kullanılacağı
+  - Tahmini çaba (hızlı/orta/karmaşık)
+
+  ```
+  ## Önerilen Test Planı
+
+  ### Öncelik 1: Kritik
+  1. /register (4 test) — auth/registration şablonunu kullanın — hızlı
+  2. /forgot-password (3 test) — auth/password-reset şablonunu kullanın — hızlı
+
+  ### Öncelik 2: Yüksek
+  3. /settings (4 test) — settings/ şablonlarını kullanın — orta
+  4. Dashboard hata durumları (2 test) — dashboard/data-loading şablonunu kullanın — hızlı
+  ```
+
+  ### 6. Otomatik Üret (İsteğe Bağlı)
+
+  Kullanıcıya sorun: "İlk N boşluk için testler üretilsin mi? [Evet/Hayır/Belirli olanları seç]"
+
+  Evet ise, önerilen şablonla her boşluk için `/pw:generate` çağırın.
+
+  ## Çıktı
+
+  - Kapsama matrisi (tablo biçimi)
+  - Kapsama yüzdesi tahmini
+  - Çaba tahminleriyle önceliklendirilmiş boşluk listesi
+  - Eksik testleri otomatik üretme seçeneği
 ---
 
 # Analyze Test Coverage Gaps

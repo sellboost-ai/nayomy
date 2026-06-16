@@ -3,38 +3,38 @@ name: "34892002/bilibili-mcp-js"
 description: "A MCP server that supports searching for Bilibili content. Provides LangChain integration examples and test scripts."
 category: "Browser Automation"
 repo: "34892002/bilibili-mcp-js"
-stars: 169
+stars: 173
 url: "https://github.com/34892002/bilibili-mcp-js"
 body_length: 2332
 license: "MIT"
 language: "JavaScript"
 body_tr: |-
   # Bilibili MCP
-
+  
   [![English](https://img.shields.io/badge/English-Click-yellow)](README-en.md)
   [![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](README.md)
   [![日本語](https://img.shields.io/badge/日本語-クリック-青)](README-ja.md)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/34892002/bilibili-mcp-js)](https://archestra.ai/mcp-catalog/34892002__bilibili-mcp-js)
-
+  
   ## Giriş
   Bu, Model Context Protocol (MCP) tabanlı bir Bilibili video arama sunucusudur. Sunucu, kullanıcıların Bilibili'de video içeriğini aramasına olanak tanıyan basit API arayüzü sağlar. LangChain çağrı örnekleri ve test komut dosyaları sunar.
-
+  
   ## Teşekkürler
   - LangChain örnek kodu [mcp-langchain-ts-client](https://github.com/isaacwasserman/mcp-langchain-ts-client) adresinden alınmıştır
-
+  
   ## Özellikler
   - Bilibili video içeriği özet listesi arama
   - Bilibili popüler içeriğini alma (kapsamlı popüler, başlangıç seviyesi, sıralamalar, siteler arası müzik sıralaması)
   - Bilibili video ayrıntı bilgilerini alma (BV numarası veya AV numarası destekler)
   - UP sahibi bilgisini alma (temel bilgiler, takipçi sayısı, takip sayısı vb.)
   - Anime takvimi (zaman aralığındaki anime yayın bilgileri)
-
+  
   ## Sistem Gereksinimleri
   - Node.js >= 20.12.0
   ## AI Aracı Kullanım Yapılandırması
   Trae örneğiyle
   ![](https://raw.githubusercontent.com/34892002/bilibili-mcp-js/HEAD/imgs/config.png)
-
+  
   ## npm paketi
   [HQHC](https://github.com/HQHC) tarafından yayınlanan npm paketi için teşekkürler
   ```json
@@ -62,7 +62,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Hızlı Başlangıç
   > Langchain örneğini çalıştırmak için lütfen llm modelini yapılandırın ve .\example.ts dosyasını düzenleyin.
   ```javascript
@@ -75,9 +75,9 @@ body_tr: |-
     },
   });
   ```
-
+  
   bun:
-
+  
   ```bash
   # Bağımlılıkları yükle
   bun i
@@ -94,9 +94,9 @@ body_tr: |-
   bun build:bun
   bun example.ts
   ```
-
+  
   npm:
-
+  
   ```bash
   # Bağımlılıkları yükle
   npm i
@@ -113,13 +113,13 @@ body_tr: |-
   npm run build
   node dist/example.js
   ```
-
+  
   ## Ekran Görüntüleri
   ![](https://raw.githubusercontent.com/34892002/bilibili-mcp-js/HEAD/imgs/test-01.png)
   ![](https://raw.githubusercontent.com/34892002/bilibili-mcp-js/HEAD/imgs/test-02.png)
-
+  
   ## Barındırılan Dağıtım
-
+  
   Barındırılan dağıtım [Fronteir AI](https://fronteir.ai/mcp/34892002-bilibili-mcp-js) adresinde mevcuttur.
 ---
 

@@ -10,37 +10,37 @@ license: "MIT"
 language: "Python"
 body_tr: |-
   # Heurist Mesh MCP Server
-
+  
   ![mesh-2](https://github.com/user-attachments/assets/da67c0e6-0709-4f28-ab82-8abfc0c0734c)
-
+  
   [Heurist Mesh](https://github.com/heurist-network/heurist-agent-framework/tree/main/mesh) API'lerine bağlanan bir Model Context Protocol (MCP) sunucusu - Web3 zekasına açılan kapınız.
-
+  
   **[Heurist Mesh](https://mesh.heurist.ai)**, AI ajanları için beceri pazarıdır. Genel amaçlı AI modelleri Web3 hakkında uzmanlaşmış bilgiye sahip değildir ve sıklıkla doğru sonuçlar vermede başarısız olur. Heurist Mesh, kripto analitikleri konusunda uzman olan 30+ uzmanlaşmış AI ajanı sağlayarak, AI uygulamalarınıza ihtiyaç duyduğu Web3 uzmanlığını sunmaktadır.
-
+  
   <a href="https://glama.ai/mcp/servers/@heurist-network/heurist-mesh-mcp-server">
     
   </a>
-
+  
   ## Özellikler
   - **Web3 Zekasına Geçit**: MCP aracılığıyla 30+ uzmanlaşmış kripto analitik ajanına erişim
   - **AI için Optimize Edilmiş**: AI ajanları için optimize edilmiş giriş/çıkış formatları - daha az tool çağrısı, daha az token kullanımı
   - Hem SSE hem de stdio transport'larını destekler
   - Claude, Cursor, Claude Desktop ve diğer MCP uyumlu arayüzlerle çalışır
   - Birden fazla hizmete erişmek için tek bir API anahtarı kullanın (CoinGecko, DexScreener, Twitter analitikleri ve daha fazlası)
-
+  
   ## 🔥 Yeni: Ajanlarınızı Özelleştirin ve İsteğe Bağlı Yönetilen MCP Sunucuları Oluşturun
   Kişiselleştirilmiş bir swarm oluşturmak için [Heurist Mesh Console](https://mesh.heurist.ai/console)'u kullanabilirsiniz!
-
+  
   ## Barındırılan SSE Uç Noktası
   Barındırılan SSE uç noktası https://mesh.heurist.xyz/mcp/sse adresinde sağlanmaktadır. **Kimlik doğrulaması gereklidir** - bir [Heurist API anahtarına](https://dev-api-form.heurist.ai/) ihtiyacınız vardır (ücretsiz kredi için "claude" davet kodunu kullanın).
-
+  
   API anahtarınızı şu şekilde sağlayın:
   - `X-HEURIST-API-KEY` header'ı (önerilir)
   - `Authorization: Bearer <your-api-key>` header'ı
   - `api_key` query parametresi
-
+  
   Bu uç nokta, kapsamlı Web3 zekası için önerilen ajanlardan araçları içerir:
-
+  
   | Ajan | Açıklama |
   |-------|-------------|
   | `TokenResolverAgent` | Adresi/sembolü/adı ile token bulun, normalleştirilmiş profiller ve en iyi DEX havuzlarını döndürün |
@@ -50,35 +50,35 @@ body_tr: |-
   | `FundingRateAgent` | Binance funding oranları, açık pozisyon ve spot-vadeli işlem fırsatları |
   | `AIXBTProjectInfoAgent` | Trending proje bilgileri, temel analiz ve pazar özeti |
   | `ZerionWalletAnalysisAgent` | EVM cüzdan token ve NFT varlıkları analizi |
-
+  
   Bu paylaşımlı bir sunucu olup performansı dengesiz olabilir. Üretim kullanımı için kendi sunucunuzu barındırmanızı veya adanmış sunucu oluşturmak için [Heurist Mesh Console](https://mesh.heurist.ai/console)'u kullanmanızı öneririz.
-
+  
   Cursor doğrudan SSE sunucularına erişebilir. Claude Desktop kullanıcıları için, SSE sunucusuna bağlanmak üzere [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy) kurulumunu öneririz.
-
+  
   ## Ön Koşullar
-
+  
   - Python 3.10 veya üzeri
   - UV paket yöneticisi (önerilir)
   - VEYA Docker
   - [Heurist API anahtarı alın](https://docs.heurist.ai/protocol-overview/credits) veya "claude" davet koduyla [ücretsiz API kredileri talep edin](https://dev-api-form.heurist.ai/)
-
+  
   ## Kurulum
   ### UV Kullanarak (Önerilir)
   ```bash
   # Depoyu klonlayın
   git clone https://github.com/heurist-network/heurist-mesh-mcp-server.git
   cd heurist-mesh-mcp-server
-
+  
   # Paketi yükleyin
   uv pip install -e .
   ```
-
+  
   ### Docker Kullanarak
   ```bash
   # Depoyu klonlayın
   git clone https://github.com/heurist-network/heurist-mesh-mcp-server.git
   cd heurist-mesh-mcp-server
-
+  
   # Docker image'ını oluşturun
   docker build -t mesh-tool-server .
   ```
@@ -123,9 +123,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   `/path/to/heurist-mesh-mcp-server` yerine deponun gerçek yolunu ve `your-api-key-here` yerine Heurist API anahtarınızı yazın.
-
+  
   ### Seçenek 2: SSE Transport ile Çalıştırın (Cursor için)
   #### `.env` Dosyasında Ortam Değişkenlerini Ayarlama
   ```bash
@@ -141,13 +141,13 @@ body_tr: |-
   docker run -p 8000:8000 -e PORT=8000 mesh-tool-server
   ```
   Ardından, Cursor'da MCP Sunucusu URL'sini ekleyin: **http://0.0.0.0:8000/sse**
-
+  
   ## Kullanılabilir Araçlar
   Tüm 30+ kullanılabilir ajanları ve araçlarını görmek için https://mesh.heurist.ai/metadata.json veya https://mesh.heurist.ai/console adresini ziyaret edin.
-
+  
   ## Önerilen Araçlar
   Önerilen ajanlarımızdan bu araçlar, çoğu Web3 zeka kullanım durumlarını kapsar:
-
+  
   | Araç Adı | Açıklama | Ajan |
   |-----------|-------------|-------|
   | token_search | Adresi, sembolü, adı veya CoinGecko ID'si ile token bulun | TokenResolverAgent |
@@ -166,7 +166,7 @@ body_tr: |-
   | get_market_summary | AIXBT'den AI pazar özetini alın | AIXBTProjectInfoAgent |
   | fetch_wallet_tokens | EVM cüzdan token varlıklarını alın | ZerionWalletAnalysisAgent |
   | fetch_wallet_nfts | EVM cüzdan NFT varlıklarını alın | ZerionWalletAnalysisAgent |
-
+  
   ## Desteklenen Ajanları Özelleştirme
   Sunucu, önceden tanımlanmış bir dizi önerilen ajan ile gelir. Hangi ajanların kullanılabilir olacağını değiştirmek için:
   1. `server.py` dosyasını açın ve `Config` sınıfını bulun.
@@ -183,7 +183,7 @@ body_tr: |-
       # Gerekli olduğu kadar daha fazla ajan ekleyin
   ]
   ```
-
+  
   ## Lisans
   Bu MCP sunucusu MIT Lisansı altında lisanslanmıştır. Bu, MIT Lisansı'nın şartları ve koşullarına tabi olarak yazılımı serbestçe kullanma, değiştirme ve dağıtma hakkı verdiği anlamına gelir.
 ---

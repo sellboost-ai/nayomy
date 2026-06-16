@@ -3,7 +3,7 @@ name: "GLips/Figma-Context-MCP"
 description: "Provide coding agents direct access to Figma data to help them one-shot design implementation."
 category: "Developer Tools"
 repo: "GLips/Figma-Context-MCP"
-stars: 14881
+stars: 15127
 url: "https://github.com/GLips/Figma-Context-MCP"
 body_length: 4182
 license: "MIT"
@@ -16,7 +16,7 @@ body_tr: |-
       
     </picture>
   </a>
-
+  
   <div align="center">
     <h1>Framelink MCP for Figma</h1>
     <h3>Kodlama aracınıza Figma verilerinize erişim izni verin.<br/>Tasarımları herhangi bir framework'te tek seferde uygulayın.</h3>
@@ -34,42 +34,42 @@ body_tr: |-
       
     </a>
   </div>
-
+  
   <br/>
-
+  
   [Cursor](https://cursor.sh/) ve diğer yapay zeka destekli kodlama araçlarına bu [Model Context Protocol](https://modelcontextprotocol.io/introduction) sunucusu ile Figma dosyalarınıza erişim izni verin.
-
+  
   Cursor'un Figma tasarım verilerine erişimi olduğunda, ekran görüntüsü yapıştırmak gibi alternatif yöntemlere kıyasla tasarımları **çok daha iyi** bir şekilde tek seferde doğru uygulayabilir.
-
+  
   <h3><a href="https://www.framelink.ai/docs/quickstart?utm_source=github&utm_medium=referral&utm_campaign=readme">Hızlı başlangıç talimatlarını görün →</a></h3>
-
+  
   ## Demo
-
+  
   [Cursor'da Figma tasarım verilerini kullanarak bir UI oluşturma demosunu izleyin](https://youtu.be/6G9yb-LrEqg)
-
+  
   [![Watch the video](https://img.youtube.com/vi/6G9yb-LrEqg/maxresdefault.jpg)](https://youtu.be/6G9yb-LrEqg)
-
+  
   ## Nasıl çalışır
-
+  
   1. IDE'nizin chat penceresini açın (örneğin Cursor'da agent modu).
   2. Bir Figma dosyası, frame veya grup bağlantısını yapıştırın.
   3. Cursor'a Figma dosyası ile bir şey yapmasını söyleyin — örneğin tasarımı uygulayın.
   4. Cursor, Figma'dan ilgili metadata'yı alacak ve kodunuzu yazmak için kullanacaktır.
-
+  
   Bu MCP sunucusu özellikle Cursor ile kullanım için tasarlanmıştır. [Figma API](https://www.figma.com/developers/api)'den yanıt vermeden önce, cevabı basitleştirir ve çevirir, böylece modele sadece en ilgili layout ve styling bilgileri sağlanır.
-
+  
   Modele sağlanan bağlam miktarını azaltmak, yapay zekanın daha doğru olmasına ve yanıtların daha ilgili olmasına yardımcı olur.
-
+  
   ## Başlarken
-
+  
   Birçok kod editörü ve diğer yapay zeka istemcileri MCP sunucularını yönetmek için bir yapılandırma dosyası kullanır.
-
+  
   `figma-developer-mcp` sunucusu, yapılandırma dosyanıza aşağıdakini ekleyerek yapılandırılabilir.
-
+  
   > NOT: Bu sunucuyu kullanmak için bir Figma erişim token'ı oluşturmanız gerekir. Figma API erişim token'ı oluşturmaya ilişkin talimatlar [burada](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens) bulunabilir.
-
+  
   ### MacOS / Linux
-
+  
   ```json
   {
     "mcpServers": {
@@ -80,9 +80,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Windows
-
+  
   ```json
   {
     "mcpServers": {
@@ -93,17 +93,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   Veya `env` alanında `FIGMA_API_KEY` ve `PORT` değerlerini ayarlayabilirsiniz.
-
+  
   Framelink MCP for Figma'yı yapılandırma hakkında daha fazla bilgiye ihtiyacınız varsa, [Framelink belgelerine](https://www.framelink.ai/docs/quickstart?utm_source=github&utm_medium=referral&utm_campaign=readme) bakın.
-
+  
   ## Star History
-
+  
   <a href="https://star-history.com/#GLips/Figma-Context-MCP"></a>
-
+  
   ## Daha Fazlasını Öğrenin
-
+  
   Framelink MCP for Figma basit ama güçlüdür. [Framelink](https://framelink.ai?utm_source=github&utm_medium=referral&utm_campaign=readme) sitesinde daha fazlasını öğrenerek en iyi şekilde yararlanın.
 ---
 

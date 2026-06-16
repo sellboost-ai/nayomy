@@ -12,6 +12,143 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # clinical-research
+
+  Prospective clinical çalışma DESIGN: endpoints, örnek boyutu / güç, ve phase-gate uygulanabilirlik. Her çıktı, **belirtilen varsayımlarla bir tahmindir** ve **adı geçen bir insan sahibine** yönlendirilir. Bu beceri hiçbir zaman klinik tavsiye gerçeği olarak vermez ve hiçbir zaman bir biyoistatistikçi veya düzenleyici işler yerine geçmez.
+
+  ## Amaç
+
+  R&D klinik ekipleri, medical monitorlar ve biyoistatistik fonksiyonları *bir-hipotezimiz-var* ile *submission-için-hazır-bir-protokolümüz-var* arasındaki andaki anı yaşarlar. Bu beceri üç en zor tasarım kararını yapılandırır:
+
+  Üç deterministik araç:
+
+  1. `sample_size_estimator.py` — İki kollu **ortalamalar** (Cohen's d), **oranlar** (normal yaklaşım) ve **survival** (Schoenfeld events) için kapalı-form güç / örnek-boyutu. Dropout için şişirir. Bir "ESTIMATE — biyoistatistikçi ile doğrulayın" başlığı yazdırır.
+  2. `endpoint_selector.py` — Aday endpointleri 5 ağırlıklı boyut (klinik alaka, ölçülebilirlik, düzenleyici kabul, değişime duyarlılık, yük) üzerinde puanlar ve her birini **PRIMARY / KEY-SECONDARY / EXPLORATORY** olarak sınıflandırır. Doğrulanmamış surrogate endpointleri cezalandırır.
+  3. `phase_gate_scorer.py` — Bir çalışma planını recruitment uygulanabilirliği, endpoint hazırlığı, istatistiksel güç, operasyonel karmaşıklık ve bütçe uyumluluğu üzerinde 0-100 arasında puanlar; **GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO** artı imzalaması gereken adı geçen sahipleri döndürür.
+
+  ## Ne zaman kullanacaksınız
+
+  Bu beceriyi şu durumlarda çağırın:
+
+  - Bir primary endpoint seçiyorsunuz ve bunu surrogate-endpoint incelemesine karşı savunmanız gerekiyor.
+  - Bir protokol özeti için savunulabilir bir ilk örnek-boyutu tahminine ihtiyacınız var.
+  - Bir çalışma planı, phase-gate incelemesinden önce uygulanabilirlik okuması gerekiyor.
+  - Uygun popülasyon ve siteler göz önüne alındığında planlanan kaydın uygulanabilir olup olmadığını test etmek istiyorsunuz.
+
+  **Bu beceriyi ŞU DURUMLARDA KULLANMAYIN**: düzenleyici bir submission hazırlamak veya klinik değerlendirme raporu (bunun yerine `ra-qm-team` kullanın), hibe bulmak veya konumlandırmak (bunun yerine `research/grants` kullanın), canlı ürün A/B deneyi tasarlamak (bunun yerine `product-team/experiment-designer` kullanın) veya bir biyoistatistikçinin son örnek-boyutu gerekçesinin yerini almak.
+
+  ## İş Akışı
+
+  1. **Özeti taslaklandırın** — `assets/protocol_synopsis_template.md` dosyasını doldurun (amaçlar, tasarım, popülasyon, endpointler, istatistiksel plan yer tutucu, imzalaması gereken sahipler).
+  2. **Endpointi seçin** — `endpoint_selector.py --input endpoints.json --profile {drug|device|biologic|diagnostic|digital-therapeutic}` komutunu çalıştırın. Sınıflandırma + surrogate bayraklarını okuyun. >1 primary ise, multiplicity kontrol planlayın.
+  3. **Örnek boyutunu tahmin edin** — `sample_size_estimator.py --design {means|proportions|survival} ...` komutunu çalıştırın. Effect/difference/HR'ı yayınlanmış veya anchor-tabanlı bir kaynağa izleyin; dropout için şişirin.
+  4. **Uygulanabilirliği puanlayın** — `phase_gate_scorer.py --input study.json --profile <same> --phase {1|2|3|4}` komutunu çalıştırın. Verdict + blockerlar + adı geçen sahipleri okuyun.
+  5. **İmza için yönlendirin** — Özet + tahminleri gate paketine toplayın. Paket **bir tavsiyedir**; bir biyoistatistikçi, medical monitor ve düzenleyici sahibi imzalar.
+
+  ## Scriptler
+
+  | Script | Amaç | Profiller |
+  |---|---|---|
+  | `scripts/sample_size_estimator.py` | Ortalamalar, oranlar, survival için güç / örnek-boyutu | n/a (tasarım-driven) |
+  | `scripts/endpoint_selector.py` | 5-boyutlu endpoint puanlaması + sınıflandırma + surrogate bayrağı | drug, device, biologic, diagnostic, digital-therapeutic |
+  | `scripts/phase_gate_scorer.py` | Uygulanabilirlik 0-100 + GO/GO-WITH-CONDITIONS/REDESIGN/NO-GO + sahipler | drug, device, biologic, diagnostic, digital-therapeutic |
+
+  Üçü de: stdlib-only, `--help`, `--sample`, `--output {human,json}`.
+
+  ## Onboarding & özelleştirme
+
+  Başlamadan **önce bir kez** onboarding anketini çalıştırın — varsayılanlarınızı ve adı geçen sahipleri yakalar, böylece bu becerinin her aracı önceden yapılandırılır. Özelleştirme konudur: cevaplar aslında araç davranışını değiştirir.
+
+  ```bash
+  python3 scripts/onboard.py            # interactive (also: --defaults, --set key=value, --reset)
+  python3 scripts/onboard.py --show     # see the questions + current effective config
+  ```
+
+  Cevaplar `~/.config/research-ops/clinical-research.json` (global) veya `./.research-ops/clinical-research.json` (`--scope project`) dosyasında kaydedilir ve `config_loader.py` tarafından otomatik olarak okunur. Varsayılan geliştirme-alanı **profile**, varsayılan **alpha / power / dropout** ve çıktılarda yazdırılan adı geçen **biostatistician / medical monitor / regulatory owner** ayarlarını belirlerler. CLI bayrakları her zaman kaydedilen konfigürasyonu geçersiz kılar; `RESEARCH_OPS_NO_CONFIG=1` tamamen yoksayar.
+
+  **Yedi soru:** geliştirme alanı · alpha · power · dropout · biyoistatistikçi · medical monitor · düzenleyici sahibi.
+
+  ## autoresearch ile optimize edin (opt-in)
+
+  Bu beceri, `engineering/autoresearch-agent` için **izole, opt-in** bir köprü ile birlikte gelir. Yalnızca "optimize" / "bir loop çalıştır" dediğinizde, bir autoresearch deneyi bu becerinin kendi uygulanabilirlik skoruna karşı iteratif olarak bir çalışma planını iyileştirir. `scripts/ar_evaluator.py` ground-truth değerlendiricidir; `feasibility_composite: <0-100>` yazdırır (daha yüksek daha iyidir).
+
+  ```bash
+  /ar:setup --domain custom --name trial-feasibility \
+    --target study.json \
+    --eval "python3 ar_evaluator.py --target study.json" \
+    --metric feasibility_composite --direction higher
+  /ar:loop custom/trial-feasibility
+  ```
+
+  İzole: sabit bağımlılık yok — autoresearch yalnızca talepte çalışır ve loop `study.json` düzenler, hiçbir zaman değerlendiriciyi (kilitli ground truth) değiştirmez.
+
+  ## Referanslar
+
+  - `references/study_design_canon.md` — ICH E8(R1) genel hususlar; ICH E9 + E9(R1) estimand eki; CONSORT 2010; SPIRIT 2013; FDA Multiple Endpoints kılavuzu (2022).
+  - `references/endpoint_and_power.md` — Cohen *Statistical Power Analysis*; Schoenfeld (1983) survival örnek boyutu; FDA Surrogate Endpoint Tablosu / BEST sözlüğü; FDA PRO kılavuzu (2009); Chow, Shao & Wang *Sample Size Calculations in Clinical Research*.
+  - `references/trial_operations.md` — ICH E6(R2/R3) GCP; TransCelerate risk-based monitoring; FDA RBM kılavuzu; CTTI recruitment en iyi uygulamaları; site-feasibility puanlaması literatürü.
+
+  ## Varsayımlar
+
+  - Örnek-boyutu formülleri yerleşik z-tablosu ile normal yaklaşımlar kullanır. Bunlar ilk-geçiş **tahminleridir**; bir biyoistatistikçi son gerekçeyi üretir (ve simülasyon, adaptif tasarımlar veya tam yöntemler kullanabilir).
+  - Endpoint skoreri, `--profile` aracılığıyla geliştirme alanı başına *geleneksel* düzenleyici öncülleri uygular. Şirket- veya endikasyon-spesifik öncelik, öncülü geçersiz kılar.
+  - Phase-gate skoreri, bir profil hasta başına maliyet karşılaştırması pişirir; varsayılanı geçersiz kılmak için gerçek bir bütçe geçin.
+  - Doğrulanmamış bir surrogate, birincil bir endpointi bağlayamaz — scorer bunu bir ceza ile zorlar.
+
+  ## Anti-paternler
+
+  - **Bir güç tahminini gerçek olarak sunmak.** Her çıktı, imzalaması gereken adı geçen bir sahibi olan bir tahmindir.
+  - **Bir kolaylık effect sizesi için güç vermek.** Effect, yönetebileceğiniz n için değil, yayınlanmış veya anchor-tabanlı MCID'ye izlenmelidir.
+  - **Doğrulanmamış bir surrogate üzerinde primary'yi bağlamak.** Surrogate endpointler endikasyon için doğrulama kanıtı gerektirir.
+  - **Multiplicity'i görmezden gelmek.** Birden fazla primary endpoint, önceden belirtilen alpha tahsisini gerektirir.
+  - **Dropout şişirmesini atlamak.** Ham n çalışmayı küçültür; 1/(1 − dropout) ile şişirin.
+
+  ## Farklı olan
+
+  | Sibling / komşu | Kapsam | Fark |
+  |---|---|---|
+  | `ra-qm-team` | ISO 13485 QMS, ISO 14971 risk, EU MDR teknik docslar + klinik değerlendirme, FDA 510(k)/PMA/De Novo/QSR submission | Bu **submissiondır**; clinical-research **çalışmayı** önceden tasarlar |
+  | `research/grants` | NIH fon keşfi + konumlandırma | Bu **fonu bulur**; bu **çalışmayı tasarlar** |
+  | `product-team/experiment-designer` | Canlı ürün A/B hipotezi + örnek boyutu | Bu **ürün deneyi**dir; bu **klinik deneme**dir |
+  | `research-finance` (sibling) | R&D program bütçesi + burn | Bu **programı finanse eder**; bu **çalışmayı** kapsamlandırır |
+
+  ## Hızlı örnekler
+
+  ```bash
+  python3 scripts/sample_size_estimator.py --sample
+  python3 scripts/sample_size_estimator.py --design proportions --p1 0.30 --p2 0.45 --dropout 0.15
+  python3 scripts/endpoint_selector.py --sample
+  python3 scripts/phase_gate_scorer.py --sample --output json
+  ```
+
+  Örnek, doğrulanmamış bir serum-sitokin surrogateı (primary olamaz) doğru şekilde bayraklandırır ve PASI-75'i PRIMARY endpoint olarak sıralar; phase-gate örneği, adı geçen sahibi zinciri içeren bir verdict döndürür.
+
+  ## Forcing-question library (Matt Pocock grill disiplini)
+
+  Birer birer `/cs:grill-research-ops` veya orchestrator tarafından yürütüldü. Soru başına önerilen cevap + canon alıntısı. Asla paketlenmiş değildir.
+
+  1. **"Primary endpointiniz bir klinik sonuç mu yoksa surrogate — ve eğer surrogate ise, FDA'nın doğrulanan tablosunda var mı?"**
+     Önerilen: clinical outcome, surrogate bu endikasyon için doğrulanmış olmadıkça.
+     Canon: FDA Surrogate Endpoint Tablosu; BEST (Biomarkers, EndpointS, and other Tools) sözlüğü.
+
+  2. **"Güç için minimal klinik olarak önemli fark nedir — ve bu sayı nereden geldi?"**
+     Önerilen: yayınlanmış veya anchor-tabanlı MCID, alıntılanmış; hiçbir zaman kolaylık effect sizesi.
+     Canon: ICH E9; Cohen *Statistical Power Analysis*.
+
+  3. **"Hangi dropout oranını varsayıyorsunuz ve örnek boyutu bunun için şişirildi mi?"**
+     Önerilen: n'yi 1/(1 − dropout) ile şişirin, haklı bir oran kullanarak.
+     Canon: Chow, Shao & Wang; ICH E9(R1).
+
+  4. **"Tek primary endpoint mi yoksa birden fazla — ve eğer birden fazla ise, multiplicity kontrol nedir?"**
+     Önerilen: alpha tahsisini önceden belirtin (hiyerarşik / Bonferroni).
+     Canon: FDA Multiple Endpoints kılavuzu (2022).
+
+  5. **"Adı geçen biostatistician / medical monitor / regulatory owner bu özeti imzalayan kimdir?"**
+     Önerilen: şimdi adını söyleyin — bu çıktı bir protokol değil, bir tavsiyedir.
+     Canon: ICH E6(R2) GCP roller & sorumluluklar.
+
+  Derinlik-önce yürüyün. 1-2 kilitlendi, ardından 3-5'i açın. Tümü yanıtlandıktan sonra, `endpoint_selector.py` → `sample_size_estimator.py` → `phase_gate_scorer.py` komutunu çağırın.
 ---
 
 # clinical-research

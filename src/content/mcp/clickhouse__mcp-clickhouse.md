@@ -3,32 +3,32 @@ name: "ClickHouse/mcp-clickhouse"
 description: "ClickHouse database integration with schema inspection and query capabilities"
 category: "Databases"
 repo: "ClickHouse/mcp-clickhouse"
-stars: 785
+stars: 802
 url: "https://github.com/ClickHouse/mcp-clickhouse"
 body_length: 26540
 license: "Apache-2.0"
 language: "Python"
 body_tr: |-
   # ClickHouse MCP Server
-
+  
   [![PyPI - Version](https://img.shields.io/pypi/v/mcp-clickhouse)](https://pypi.org/project/mcp-clickhouse)
-
+  
   ClickHouse için bir MCP sunucusu.
-
+  
   <a href="https://glama.ai/mcp/servers/yvjy4csvo1"></a>
-
+  
   ## Özellikler
-
+  
   ### ClickHouse Araçları
-
+  
   * `run_query`
     * ClickHouse kümenizde SQL sorguları çalıştırın.
     * Input: `query` (string): Çalıştırılacak SQL sorgusu.
     * Sorgular varsayılan olarak salt okunur modda çalışır (`CLICKHOUSE_ALLOW_WRITE_ACCESS=false`), ancak gerekirse yazma izinleri açıkça etkinleştirilebilir.
-
+  
   * `list_databases`
     * ClickHouse kümenizde tüm veritabanlarını listeleyin.
-
+  
   * `list_tables`
     * Bir veritabanındaki tabloları sayfalandırma ile listeleyin.
     * Gerekli input: `database` (string).
@@ -41,63 +41,63 @@ body_tr: |-
       * `tables`: Mevcut sayfa için tablo nesnelerinin dizisi.
       * `next_page_token`: Sonraki sayfayı getirmek için bu değeri geri iletilir veya daha fazla tablo yoksa `null`.
       * `total_tables`: Sağlanan filtreleri eşleştiren tabloların toplam sayısı.
-
+  
   ### chDB Araçları
-
+  
   * `run_chdb_select_query`
     * [chDB](https://github.com/chdb-io/chdb) gömülü ClickHouse engine'ini kullanarak SQL sorguları çalıştırın.
     * Input: `query` (string): Çalıştırılacak SQL sorgusu.
     * ETL işlemleri olmadan çeşitli kaynaklardan (dosyalar, URL'ler, veritabanları) doğrudan sorgu verilerini alın.
     * İsteğe bağlı `chdb` extra'sını gerektirir: `pip install 'mcp-clickhouse[chdb]'`
-
+  
   ### Health Check Endpoint
-
+  
   HTTP veya SSE transport ile çalıştırırken, `/health` adresinde bir health check endpoint mevcuttur. Bu endpoint:
   - Sunucu sağlıklı ise ve ClickHouse'a bağlanabilirse `200 OK` döndürür (body: `OK`)
   - Sunucu ClickHouse'a bağlanamıyorsa `503 Service Unavailable` ve genel bir hata mesajı döndürür
-
+  
   Endpoint, orchestrator probe'larının (örneğin Kubernetes liveness/readiness, load balancer'lar) kimlik bilgileri olmadan erişebilmesi için kasıtlı olarak kimlik doğrulamadan muaftır. Response body, backend sürüm dizelerini veya hata ayrıntılarını sızmamak için kasıtlı olarak minimum düzeyde tutulmuştur; hata ayıklamayı sunucu logları aracılığıyla yapın.
-
+  
   Örnek:
   ```bash
   curl http://localhost:8000/health
   # Response: OK
   ```
-
+  
   ## Güvenlik
-
+  
   ### HTTP/SSE Transport'lar için Kimlik Doğrulama
-
+  
   HTTP veya SSE transport kullanıldığında, kimlik doğrulama **varsayılan olarak gereklidir**. `stdio` transport (varsayılan) sadece standart input/output üzerinden iletişim kurduğundan kimlik doğrulama gerektirmez.
-
+  
   Üç kimlik doğrulama modu desteklenir. Birini seçin:
-
+  
   | Modu                       | Ne Zaman Kullanılır                       | Çevre Değişkeni                                                                                        |
   |----------------------------|-------------------------------------------|------------------------------------------------------------------------------------------------|
   | Statik bearer token        | Basit dağıtımlar, dahili hizmetler     | `CLICKHOUSE_MCP_AUTH_TOKEN`                                                                    |
   | OAuth / OIDC (via FastMCP) | Azure Entra, Google, GitHub, WorkOS, vb. | `FASTMCP_SERVER_AUTH=<provider-class-path>` (+ provider'a özel `FASTMCP_SERVER_AUTH_*` değişkenler) |
   | Devre Dışı                 | Yalnızca lokal geliştirme                    | `CLICKHOUSE_MCP_AUTH_DISABLED=true`                                                            |
-
+  
   HTTP/SSE transport'ları için bunlardan hiçbiri yapılandırılmamışsa başlatma başarısız olur.
-
+  
   #### Kimlik Doğrulamayı Ayarlama
-
+  
   1. Güvenli bir token oluşturun (herhangi bir random string olabilir):
      ```bash
      # uuidgen kullanarak (macOS/Linux)
      uuidgen
-
+  
      # openssl kullanarak
      openssl rand -hex 32
      ```
-
+  
   2. Sunucuyu token ile yapılandırın:
      ```bash
      export CLICKHOUSE_MCP_AUTH_TOKEN="your-generated-token"
      ```
-
+  
   3. MCP client'ınızı token'ı isteklere dahil etmek için yapılandırın:
-
+  
      HTTP/SSE transport'ı ile Claude Desktop için:
      ```json
      {
@@ -111,43 +111,43 @@ body_tr: |-
        }
      }
      ```
-
+  
      Not: `/health` endpoint'i kasıtlı olarak kimlik doğrulamadan muaftır ([Health Check Endpoint](#health-check-endpoint) yukarıya bakın). Bearer-token auth'ın aslında kimlik doğrulamadan geçmiş istekleri reddettiğini doğrulamak için, MCP endpoint'inin kendisine örneğin MCP Inspector ile veya `/mcp`'ye JSON-RPC isteği göndererek `Authorization` header'ı ile ve olmadan erişin ve kimlik doğrulamadan geçmiş çağrının `401` döndürdüğünü doğrulayın.
-
+  
   #### FastMCP üzerinden OAuth / OIDC
-
+  
   Üretim dağıtımları için kimlik sağlayıcılar (Azure Entra, Google, GitHub, WorkOS, vb.) ile, statik token kullanmak yerine kimlik doğrulamayı [FastMCP'nin yerleşik auth provider'larına](https://gofastmcp.com/servers/auth) devredin. `FASTMCP_SERVER_AUTH`'ı bir FastMCP auth provider'ının **tam sınıf yoluna** ve provider'a özel `FASTMCP_SERVER_AUTH_*` değişkenlerine ayarlayın ve `CLICKHOUSE_MCP_AUTH_TOKEN`'ı ayarlanmamış bırakın.
-
+  
   Örnek (Azure Entra):
-
+  
   ```bash
   export FASTMCP_SERVER_AUTH=fastmcp.server.auth.providers.azure.AzureProvider
   export FASTMCP_SERVER_AUTH_AZURE_TENANT_ID="<tenant-id>"
   export FASTMCP_SERVER_AUTH_AZURE_CLIENT_ID="<client-id>"
   export FASTMCP_SERVER_AUTH_AZURE_CLIENT_SECRET="<client-secret>"
   ```
-
+  
   Tüm provider'lar ve bunların gerekli çevre değişkenlerinin listesi için [FastMCP dokümantasyonuna](https://gofastmcp.com/servers/auth) bakın.
-
+  
   #### Geliştirme Modu (Kimlik Doğrulamayı Devre Dışı Bırakma)
-
+  
   Yalnızca lokal geliştirme ve test için kimlik doğrulamayı devre dışı bırakabilirsiniz:
   ```bash
   export CLICKHOUSE_MCP_AUTH_DISABLED=true
   ```
-
+  
   **UYARI:** Bunu yalnızca lokal geliştirme için kullanın. Sunucu herhangi bir ağa açık olduğunda kimlik doğrulamayı devre dışı bırakmayın.
-
+  
   ## Yapılandırma
-
+  
   Bu MCP sunucusu hem ClickHouse'u hem de chDB'yi destekler. İhtiyaçlarınıza bağlı olarak birini veya her ikisini de etkinleştirebilirsiniz.
-
+  
   1. Claude Desktop yapılandırma dosyasını açın:
      * macOS'ta: `~/Library/Application Support/Claude/claude_desktop_config.json`
      * Windows'ta: `%APPDATA%/Claude/claude_desktop_config.json`
-
+  
   2. Aşağıdakileri ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -176,11 +176,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   Çevre değişkenlerini kendi ClickHouse hizmetinizi gösterecek şekilde güncelleyin.
-
+  
   Veya [ClickHouse SQL Playground](https://sql.clickhouse.com/) ile denemek istiyorsanız, aşağıdaki yapılandırmayı kullanabilirsiniz:
-
+  
   ```json
   {
     "mcpServers": {
@@ -208,9 +208,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   chDB (gömülü ClickHouse engine) için aşağıdaki yapılandırmayı ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -233,9 +233,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ClickHouse ve chDB'yi aynı anda etkinleştirebilirsiniz:
-
+  
   ```json
   {
     "mcpServers": {
@@ -265,19 +265,19 @@ body_tr: |-
     }
   }
   ```
-
+  
   3. `uv` komutu girdisini bulun ve bunu `uv` yürütülebilirinin mutlak yolu ile değiştirin. Bu, sunucu başlatılırken `uv`'nin doğru sürümünün kullanılmasını sağlar. Mac'te, `which uv` kullanarak bu yolu bulabilirsiniz.
-
+  
   4. Claude Desktop'ı yeniden başlatın ve değişiklikleri uygulayın.
-
+  
   ### İsteğe Bağlı Yazma Erişimi
-
+  
   Varsayılan olarak, bu MCP salt okunur sorguları zorunlu kılar, böylece keşif sırasında hatasız mutasyonlar gerçekleşemez. DDL veya INSERT/UPDATE ifadelerine izin vermek için `CLICKHOUSE_ALLOW_WRITE_ACCESS` çevre değişkenini `true` olarak ayarlayın. ClickHouse örneğinin kendisi yazmaları engellerse sunucu salt okunur modu zorunlu tutmaya devam eder.
-
+  
   ### Yıkıcı İşlem Koruması
-
+  
   Yazma erişimi etkinleştirilmiş olsa bile (`CLICKHOUSE_ALLOW_WRITE_ACCESS=true`), yıkıcı işlemler (DROP TABLE, DROP DATABASE, DROP VIEW, DROP DICTIONARY, TRUNCATE TABLE) güvenlik için ek bir opt-in flag'i gerektirir. Bu, AI keşfi sırasında hatasız veri silmeyi engeller.
-
+  
   Yıkıcı işlemleri etkinleştirmek için her iki flag'ı de ayarlayın:
   ```json
   "env": {
@@ -285,32 +285,32 @@ body_tr: |-
     "CLICKHOUSE_ALLOW_DROP": "true"
   }
   ```
-
+  
   Bu iki katmanlı yaklaşım, hatasız drop'ların çok zor olmasını sağlar:
   - **Yazma işlemleri** (INSERT, UPDATE, CREATE) `CLICKHOUSE_ALLOW_WRITE_ACCESS=true` gerektirir
   - **Yıkıcı işlemler** (DROP, TRUNCATE) ek olarak `CLICKHOUSE_ALLOW_DROP=true` gerektirir
-
+  
   ### uv Olmadan (Sistem Python Kullanarak) Çalıştırma
-
+  
   Sistem Python yüklemesini uv yerine kullanmayı tercih ederseniz, paketi PyPI'den yükleyebilir ve doğrudan çalıştırabilirsiniz:
-
+  
   1. Paketi pip kullanarak yükleyin:
      ```bash
      python3 -m pip install mcp-clickhouse
      ```
-
+  
      chDB desteğini de yüklemek için:
      ```bash
      python3 -m pip install 'mcp-clickhouse[chdb]'
      ```
-
+  
      En son sürüme yükseltmek için:
      ```bash
      python3 -m pip install --upgrade mcp-clickhouse
      ```
-
+  
   2. Claude Desktop yapılandırmasını Python'u doğrudan kullanmak için güncelleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -334,9 +334,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Alternatif olarak, kurulu script'i doğrudan kullanabilirsiniz:
-
+  
   ```json
   {
     "mcpServers": {
@@ -356,26 +356,26 @@ body_tr: |-
     }
   }
   ```
-
+  
   Not: Python yürütülebiliri veya `mcp-clickhouse` script'i sistem PATH'inizde değilse tam yolunu kullanın. Yolları şu şekilde bulabilirsiniz:
   - Python yürütülebiliri için `which python3`
   - Kurulu script için `which mcp-clickhouse`
-
+  
   ## Özel Middleware
-
+  
   Kaynak kodu değiştirmeden MCP sunucusuna özel middleware ekleyebilirsiniz. FastMCP, MCP protokol mesajlarını (tool çağrıları, resource okumaları, prompt'lar, vb.) engelleme ve işleme yapmanıza izin veren bir middleware sistemi sağlar.
-
+  
   ### Nasıl Kullanılır
-
+  
   1. `Middleware` genişleten ve bir `setup_middleware(mcp)` fonksiyonu içeren middleware sınıflarıyla bir Python modülü oluşturun:
-
+  
   ```python
   # my_middleware.py
   import logging
   from fastmcp.server.middleware import Middleware, MiddlewareContext, CallNext
-
+  
   logger = logging.getLogger("my-middleware")
-
+  
   class LoggingMiddleware(Middleware):
       """Tüm tool çağrılarını kaydedin."""
       
@@ -385,14 +385,14 @@ body_tr: |-
           result = await call_next(context)
           logger.info(f"Tool {tool_name} completed")
           return result
-
+  
   def setup_middleware(mcp):
       """MCP sunucusuna middleware kaydedin."""
       mcp.add_middleware(LoggingMiddleware())
   ```
-
+  
   2. `MCP_MIDDLEWARE_MODULE` çevre değişkenini modül adına (.py uzantısı olmadan) ayarlayın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -409,27 +409,27 @@ body_tr: |-
     }
   }
   ```
-
+  
   3. Middleware modülünüzün Python'un import yolunda bulunduğundan emin olun (örneğin, MCP sunucusunun çalıştığı aynı dizinde veya bir paket olarak kurulu).
-
+  
   ### Örnek Middleware
-
+  
   `example_middleware.py` adında örnek bir middleware modülü sağlanmıştır ve yaygın kalıpları gösterir:
   - Tüm MCP isteklerini kaydetme
   - Tool çağrılarını özel olarak kaydetme
   - İstek işlem süresini ölçme
-
+  
   Örneği kullanmak için:
   ```json
   "env": {
     "MCP_MIDDLEWARE_MODULE": "example_middleware"
   }
   ```
-
+  
   ### Middleware Yetenekleri
-
+  
   `Middleware` taban sınıfı, farklı MCP işlemleri için hook'lar sağlar:
-
+  
   - `on_message(context, call_next)` - Tüm mesajlar için çağrılır
   - `on_request(context, call_next)` - Tüm istekler için çağrılır
   - `on_notification(context, call_next)` - Tüm bildirimler için çağrılır
@@ -440,74 +440,74 @@ body_tr: |-
   - `on_list_resources(context, call_next)` - Resource'lar listelendiğinde çağrılır
   - `on_list_resource_templates(context, call_next)` - Resource şablonları listelendiğinde çağrılır
   - `on_list_prompts(context, call_next)` - Prompt'lar listelendiğinde çağrılır
-
+  
   Her hook, mesajı ve metadata'yı içeren bir `MiddlewareContext` nesnesi alır ve pipeline'ı devam ettirmek için bir `call_next` fonksiyonu alır.
-
+  
   ### Context Durumu Aracılığıyla Dinamik Client Yapılandırması
-
+  
   Middleware, `CLIENT_CONFIG_OVERRIDES_KEY` context durumu anahtarını kullanarak istek başına ClickHouse client yapılandırmasını geçersiz kılabilir. Sunucu bu overrides'ları çevre değişkenlerinden alınan taban yapılandırma ile birleştirir.
-
+  
   ```python
   from fastmcp.server.dependencies import get_context
   from mcp_clickhouse.mcp_server import CLIENT_CONFIG_OVERRIDES_KEY
-
+  
   ctx = get_context()
   ctx.set_state(CLIENT_CONFIG_OVERRIDES_KEY, {
       "connect_timeout": 60,
       "send_receive_timeout": 120
   })
   ```
-
+  
   Bu, dinamik timeout ayarlamaları, kiracı'ya özel yönlendirme veya kullanıcı başına bağlantı ayarları gibi gelişmiş use case'leri etkinleştirir.
-
+  
   ## Geliştirme
-
+  
   1. `test-services` dizininde `docker compose up -d` çalıştırarak ClickHouse kümesini başlatın.
-
+  
   2. Depo kökünün `.env` dosyasına aşağıdaki değişkenleri ekleyin.
-
+  
   *Not: Bu bağlamda `default` kullanıcısının kullanımı yalnızca lokal geliştirme amaçlarıyla yapılmaktadır.*
-
+  
   ```bash
   CLICKHOUSE_HOST=localhost
   CLICKHOUSE_PORT=8123
   CLICKHOUSE_USER=default
   CLICKHOUSE_PASSWORD=clickhouse
   ```
-
+  
   3. Bağımlılıkları yüklemek için `uv sync` çalıştırın. `uv`'yi yüklemek için [buradaki](https://docs.astral.sh/uv/) talimatları izleyin. Sonra `source .venv/bin/activate` yapın.
-
+  
   4. MCP Inspector ile kolay test etmek için `fastmcp dev mcp_clickhouse/mcp_server.py` çalıştırarak MCP sunucusunu başlatın.
-
+  
   5. HTTP transport ve health check endpoint'i ile test etmek için:
      ```bash
      # Geliştirme için kimlik doğrulamayı devre dışı bırakın
      CLICKHOUSE_MCP_SERVER_TRANSPORT=http CLICKHOUSE_MCP_AUTH_DISABLED=true python -m mcp_clickhouse.main
-
+  
      # Veya kimlik doğrulama ile (önce bir token oluşturun)
      CLICKHOUSE_MCP_SERVER_TRANSPORT=http CLICKHOUSE_MCP_AUTH_TOKEN="your-token" python -m mcp_clickhouse.main
-
+  
      # Sonra başka bir terminalde:
      curl http://localhost:8000/health
      ```
-
+  
   ### Çevre Değişkenleri
-
+  
   ClickHouse ve chDB bağlantılarını yapılandırmak için aşağıdaki çevre değişkenleri kullanılır:
-
+  
   #### ClickHouse Değişkenleri
-
+  
   ##### Gerekli Değişkenler
-
+  
   * `CLICKHOUSE_HOST`: ClickHouse sunucunuzun hostname'i
   * `CLICKHOUSE_USER`: Kimlik doğrulama için kullanıcı adı
   * `CLICKHOUSE_PASSWORD`: Kimlik doğrulama için parola
-
+  
   > [!CAUTION]
   > MCP veritabanı kullanıcısını, veritabanınıza bağlanan herhangi bir dış client gibi ele almak ve yalnızca işleyişi için gerekli minimum yetkiler vermek önemlidir. Varsayılan veya yönetim kullanıcılarının kullanılması her zaman kesinlikle kaçınılmalıdır.
-
+  
   ##### İsteğe Bağlı Değişkenler
-
+  
   * `CLICKHOUSE_PORT`: ClickHouse sunucunuzun port numarası
     * Varsayılan: HTTPS etkinse `8443`, devre dışı bırakılırsa `8123`
     * Genellikle standart olmayan bir port kullanılmadıkça ayarlanmaya gerek yoktur

@@ -12,6 +12,40 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /financial-health
+
+  Mali tabloları analiz edin, değerleme modelleri oluşturun, bütçe sapmalarını değerlendirin ve tahminler oluşturun.
+
+  ## Kullanım
+
+  ```
+  /financial-health ratios <financial_data.json> [--format json|text]
+  /financial-health dcf <valuation_data.json> [--format json|text]
+  /financial-health budget <budget_data.json> [--format json|text]
+  /financial-health forecast <forecast_data.json> [--format json|text]
+  ```
+
+  ## Örnekler
+
+  ```
+  /financial-health ratios quarterly_financials.json --format json
+  /financial-health dcf acme_valuation.json
+  /financial-health budget q1_budget.json --format json
+  /financial-health forecast revenue_history.json
+  ```
+
+  ## Scriptler
+  - `finance/skills/financial-analyst/scripts/ratio_calculator.py` — Karlılık, likidite, kaldıraç, verimlilik, değerleme oranları
+  - `finance/skills/financial-analyst/scripts/dcf_valuation.py` — DCF işletme ve öz sermaye değerlemesi, duyarlılık analizi
+  - `finance/skills/financial-analyst/scripts/budget_variance_analyzer.py` — Fiili vs bütçe vs önceki yıl sapması analizi
+  - `finance/skills/financial-analyst/scripts/forecast_builder.py` — Sürücü tabanlı gelir tahmini ve senaryo modelleme
+
+  ## Beceri Referansı
+  → `finance/skills/financial-analyst/SKILL.md`
+
+  ## İlgili Komutlar
+  - `/saas-health` — SaaS'a özgü metrikler (ARR, MRR, churn, CAC, LTV, Quick Ratio)
 ---
 
 # /financial-health

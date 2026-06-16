@@ -3,45 +3,45 @@ name: "eat-pray-ai/yutu"
 description: "A fully functional MCP server and CLI for YouTube to automate YouTube operation"
 category: "Browser Automation"
 repo: "eat-pray-ai/yutu"
-stars: 460
+stars: 511
 url: "https://github.com/eat-pray-ai/yutu"
-body_length: 17261
+body_length: 18013
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://yutu.ifor.dev"
 body_tr: |-
   ![Yutu](https://raw.githubusercontent.com/eat-pray-ai/yutu/HEAD/assets/yutu.svg)
-
+  
   # `yutu`
-
+  
   [![Static Badge](https://img.shields.io/badge/gitmoji-%F0%9F%98%BF%F0%9F%90%B0%F0%9F%90%A7%E2%9D%A4%EF%B8%8F%E2%80%8D%F0%9F%A9%B9-love?style=flat-square&labelColor=%23EDD1CC&color=%23FF919F)](https://gitmoji.dev)
   [![Go Report Card](https://goreportcard.com/badge/github.com/eat-pray-ai/yutu?style=flat-square)](https://goreportcard.com/report/github.com/eat-pray-ai/yutu)
   [![GitHub License](https://img.shields.io/github/license/eat-pray-ai/yutu?style=flat-square)](https://github.com/eat-pray-ai/yutu?tab=Apache-2.0-1-ov-file)
   [![Go Reference](https://pkg.go.dev/badge/github.com/eat-pray-ai/yutu?style=flat-square)](https://pkg.go.dev/github.com/eat-pray-ai/yutu)
   [![Go Coverage](https://github.com/eat-pray-ai/yutu/wiki/coverage.svg)](https://raw.githack.com/wiki/eat-pray-ai/yutu/coverage.html)
-
+  
   [![GitHub Repo stars](https://img.shields.io/github/stars/eat-pray-ai/yutu?style=flat-square&logo=github)](https://github.com/eat-pray-ai/yutu/stargazers)
   [![GitHub Downloads](https://img.shields.io/github/downloads/eat-pray-ai/yutu/total?style=flat-square)](https://github.com/eat-pray-ai/yutu/releases/latest)
   [![GitHub Actions build Status](https://img.shields.io/github/actions/workflow/status/eat-pray-ai/yutu/publish.yml?style=flat-square&logo=githubactions)](https://github.com/eat-pray-ai/yutu/actions/workflows/publish.yml)
   [![GitHub Actions CodeQL Status](https://img.shields.io/github/actions/workflow/status/eat-pray-ai/yutu/codeql.yml?style=flat-square&logo=githubactions&label=CodeQL)](https://github.com/eat-pray-ai/yutu/actions/workflows/codeql.yml)
   [![GitHub Actions test Status](https://img.shields.io/github/actions/workflow/status/eat-pray-ai/yutu/test.yml?style=flat-square&logo=githubactions&label=test)](https://github.com/eat-pray-ai/yutu/actions/workflows/test.yml)
   [![LINUX DO](https://raw.githubusercontent.com/eat-pray-ai/yutu/HEAD/assets/linuxdo_flat-square.svg)](https://linux.do/tag/2234-tag/2234)
-
+  
   [![GitHub Release](https://img.shields.io/github/v/release/eat-pray-ai/yutu?sort=semver&style=flat-square&logo=go)](https://github.com/eat-pray-ai/yutu/releases/latest)
   [![Homebrew Formula Version](https://img.shields.io/homebrew/v/yutu?style=flat-square&logo=homebrew)](https://formulae.brew.sh/formula/yutu)
   [![WinGet Package Version](https://img.shields.io/winget/v/eat-pray-ai.yutu?style=flat-square&label=%F0%9F%93%A6%20winget
   )](https://winstall.app/apps/eat-pray-ai.yutu)
   [![npm Version](https://img.shields.io/npm/v/%40eat-pray-ai/yutu?style=flat-square&logo=npm)](https://www.npmjs.com/package/@eat-pray-ai/yutu)
-
+  
   [![YouTube CLI, MCP server, Skill and Agent - AI-powered toolkit that grows YouTube channel on autopilot | Product
   Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1138118&theme=light)](https://www.producthunt.com/products/yutu?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-youtube-cli-mcp-server-skill-and-agent)
-
+  
   `yutu`, YouTube'u otomatikleştirmek için bir CLI, MCP sunucusu ve AI ajanıdır — videoları yükleme ve optimize etmekten yorum, çalma listeleri ve kanal markası yönetimine kadar — daha az manuel çaba ile daha fazla görüntülenme, daha yüksek tıklama oranları ve daha güçlü izleyici katılımı elde etmenizi sağlar. [中文文档](./README_zh.md)
-
+  
   [![mcp demo](https://raw.githubusercontent.com/eat-pray-ai/yutu/HEAD/assets/mcp-demo.gif)](https://asciinema.org/a/wXIHU4ciFBAKrHfaFNkMoIs12)
-
+  
   ## İçindekiler
-
+  
   - [Ön Koşullar](#ön-koşullar)
   - [Kurulum](#kurulum)
   - [Agent](#agent)
@@ -50,11 +50,11 @@ body_tr: |-
   - [Kullanım](#kullanım)
   - [Özellikler](#özellikler)
   - [Katkıda Bulunma](#katkıda-bulunma)
-
+  
   ## Ön Koşullar
-
+  
   [Google Cloud Platform](https://console.cloud.google.com/) üzerinde bir hesap gereklidir. Aşağıdakileri ayarlayın:
-
+  
   1. **GCP Projesi Oluşturun** ve `APIs & Services -> Enable APIs and services` altında bu API'leri etkinleştirin:
      - [YouTube Data API v3](https://console.cloud.google.com/apis/api/youtube.googleapis.com/overview) (Gerekli)
      - [YouTube Analytics API](https://console.cloud.google.com/apis/api/youtubeanalytics.googleapis.com/overview) (İsteğe bağlı)
@@ -82,7 +82,7 @@ body_tr: |-
      ```bash
      yutu auth --credential client_secret.json
      ```
-
+  
      YouTube erişimini vermek için bir tarayıcı penceresi açılacaktır. İzin verdikten sonra, bir token `youtube.token.json` dosyasına kaydedilir.
      ```json
      {
@@ -93,22 +93,22 @@ body_tr: |-
        "expires_in": 3599
      }
      ```
-
+  
   Varsayılan olarak, `yutu` geçerli dizinden `client_secret.json` ve `youtube.token.json` dosyalarını okuyacaktır. `--credential/-c` ve `--cacheToken/-t` bayrakları yalnızca `auth` alt komutu altında kullanılabilir. Tüm alt komutlarda varsayılan yolu değiştirmek için bu ortam değişkenlerini ayarlayın.
-
+  
   ### Global Ortam Değişkenleri
-
+  
   | Değişken           | Açıklama                                     | Varsayılan                |
   |--------------------|----------------------------------------------|--------------------------|
   | `YUTU_CREDENTIAL`  | OAuth istemci sırrının yolu, base64 veya JSON | `client_secret.json`      |
   | `YUTU_CACHE_TOKEN` | Önbelleğe alınan OAuth tokeninin yolu, base64 veya JSON | `youtube.token.json`      |
   | `YUTU_ROOT`        | Dosya çözümleme için kök dizin              | Geçerli çalışma dizini    |
   | `YUTU_LOG_LEVEL`   | Log seviyesi: `DEBUG`, `INFO`, `WARN`, `ERROR` | `INFO`                    |
-
+  
   ## Kurulum
-
+  
   `yutu`'yu [sürümler sayfasından](https://github.com/eat-pray-ai/yutu/releases/latest) doğrudan indirebilir veya tercih ettiğiniz yöntemi kullanabilirsiniz.
-
+  
   - [GitHub Actions](#github-actions)
   - [Node.js](#nodejs)
   - [Docker](#docker)
@@ -117,83 +117,83 @@ body_tr: |-
   - [macOS](#macos)
   - [Windows](#windows)
   - [Kurulumun Doğrulanması](#kurulumun-doğrulanması)
-
+  
   ### GitHub Actions
-
+  
   Yutu için kullanılabilir iki action vardır, biri genel amaçlı, diğeri YouTube'a video yükleme için kullanılır. Daha fazla bilgi için [youtube-action](https://github.com/eat-pray-ai/youtube-action) ve [youtube-uploader](https://github.com/eat-pray-ai/youtube-uploader) sayfalarına bakın.
-
+  
   ### Node.js
-
+  
   ```shell
   ❯ npm i -g @eat-pray-ai/yutu
   ```
-
+  
   ### Docker
-
+  
   ```shell
   ❯ docker pull ghcr.io/eat-pray-ai/yutu:latest
   ❯ docker run --rm ghcr.io/eat-pray-ai/yutu:latest
   # client_secret.json dosyasının geçerli dizinde olduğundan emin olun
   ❯ docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/app -p 8216:8216 ghcr.io/eat-pray-ai/yutu:latest
   ```
-
+  
   ### Gopher
-
+  
   ```shell
   ❯ go install github.com/eat-pray-ai/yutu@latest
   ```
-
+  
   ### Linux
-
+  
   ```shell
   ❯ curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/scripts/install.sh | bash
   ```
-
+  
   ### macOS
-
+  
   [Homebrew🍺](https://brew.sh/) kullanarak `yutu`'yu yükleyin (önerilir) veya shell script'ini çalıştırın.
-
+  
   ```shell
   ❯ brew install yutu
-
+  
   # veya
   ❯ curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/scripts/install.sh | bash
   ```
-
+  
   ### Windows
-
+  
   ```shell
   ❯ winget install yutu
   ```
-
+  
   ### Kurulumun Doğrulanması
-
+  
   İlişkili şifreli olarak imzalanmış attestations kullanarak `yutu`'nun bütünlüğünü ve kökenini doğrulayın.
-
+  
   ```shell
   # Docker
   ❯ gh attestation verify oci://ghcr.io/eat-pray-ai/yutu:latest --repo eat-pray-ai/yutu
-
+  
   # Linux ve macOS (shell script kullanılarak kurulmuşsa)
   ❯ gh attestation verify $(which yutu) --repo eat-pray-ai/yutu
-
+  
   # Windows
   ❯ gh attestation verify $(where.exe yutu.exe) --repo eat-pray-ai/yutu
   ```
-
+  
   ## Agent
-
+  
   `yutu`, YouTube iş akışlarını otomatikleştirmek için bir agent modu sağlar. Sistem, merkezi bir orkestratörün görevleri uzmanlaşmış agentlere devretti ği çok agentalı bir mimariye sahiptir:
-
+  
   | Agent            | Rol                                                                    | Yetenekler                                                                                                      |
   |------------------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
   | **Orchestrator** | Tüm iş akışını koordine eder, strateji planlar ve alt agentlere devredilir | YouTube büyüme stratejisi, SEO optimizasyonu, görev yönlendirmesi                                            |
   | **Retrieval**    | YouTube ve web'den veri toplar (salt okunur)                          | Videoları/kanalları/çalma listelerini/yorumları/altyazıları/abonelikleri/üyeleri listele/ara; Google Search |
   | **Modifier**     | YouTube içeriği oluşturur ve günceller                                | Videoları yükle, çalma listesi oluştur, meta veri güncelle, yorum yap, küçük resim ayarla, altyazı yönetimi  |
   | **Destroyer**    | Yıkıcı işlemleri ekstra dikkatle yürütür                              | Videoları/çalma listelerini/yorumları/altyazıları/abonelikleri/kanal bölümlerini/filigranları sil            |
-
+  
   Şu anda, agent modu aktif geliştirilmekte ve yalnızca aşağıdaki ortam değişkenleri ayarlanmış Google'ın Gemini modellerini desteklemektedir:
-
+  
   ```shell
   ❯ export YUTU_ADVANCED_MODEL=google:gemini-3.1-pro-preview
   ❯ export YUTU_LITE_MODEL=google:gemini-3-flash-preview
@@ -202,11 +202,11 @@ body_tr: |-
   ❯ export GOOGLE_GEMINI_BASE_URL=https://generativelanguage.googleapis.com/
   ❯ export YUTU_AGENT_INSTRUCTION=Özel talimatlarınız
   ```
-
+  
   `YUTU_ADVANCED_MODEL` orkestratör agent tarafından kullanılırken, `YUTU_LITE_MODEL` diğer tüm agentler tarafından kullanılır. Her ikisi de `provider:modelName` biçimini kullanır (yalnızca `google` desteklenir). Yalnızca biri ayarlanırsa, diğeri varsayılan olarak aynı değere sahip olur.
-
+  
   ### Agent Ortam Değişkenleri
-
+  
   | Değişken                     | Açıklama                                          | Gerekli                                                  |
   |------------------------------|---------------------------------------------------|----------------------------------------------------------|
   | `YUTU_ADVANCED_MODEL`        | Orkestratör agent modeli (biçim: `provider:modelName`) | `YUTU_ADVANCED_MODEL` veya `YUTU_LITE_MODEL`'den en az biri |
@@ -217,9 +217,9 @@ body_tr: |-
   | `YUTU_RETRIEVAL_INSTRUCTION` | Retrieval agent için özel talimatlar             | Hayır                                                    |
   | `YUTU_MODIFIER_INSTRUCTION`  | Modifier agent için özel talimatlar              | Hayır                                                    |
   | `YUTU_DESTROYER_INSTRUCTION` | Destroyer agent için özel talimatlar             | Hayır                                                    |
-
+  
   Daha sonra ayrıntılı kullanım için aşağıdaki komutu çalıştırın:
-
+  
   ```
   ❯ yutu agent --help
   ❯ yutu agent --args "help"
@@ -228,18 +228,18 @@ body_tr: |-
   # web modu üç alt başlatıcı ile: api, a2a ve webui
   ❯ yutu agent --args "web api a2a webui"
   ```
-
+  
   ## MCP Sunucusu
-
+  
   [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=yutu&config=%7B%22type%22%3A%20%22stdio%22%2C%22command%22%3A%20%22yutu%22%2C%22args%22%3A%20%5B%22mcp%22%5D%2C%22env%22%3A%20%7B%22YUTU_CREDENTIAL%22%3A%20%22%2Fabsolute%2Fpath%2Fto%2Fclient_secret.json%22%2C%22YUTU_CACHE_TOKEN%22%3A%20%22%2Fabsolute%2Fpath%2Fto%2Fyoutube.token.json%22%7D%7D)
   [![Install in Cursor](https://cursor.com/deeplink/mcp-install-light.svg)](https://cursor.com/install-mcp?name=yutu&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnl1dHUlMjBtY3AlMjIlMkMlMjJlbnYlMjIlM0ElN0IlMjJZVVRVX0NSRURFTlRJQUwlMjIlM0ElMjIlMkZhYnNvbHV0ZSUyRnBhdGglMkZ0byUyRmNsaWVudF9zZWNyZXQuanNvbiUyMiUyQyUyMllVVFVfQ0FDSEVfVE9LRU4lMjIlM0ElMjIlMkZhYnNvbHV0ZSUyRnBhdGglMkZ0byUyRnlvdXR1YmUudG9rZW4uanNvbiUyMiU3RCU3RA%3D%3D)
-
+  
   [MCP server](https://modelcontextprotocol.io/introduction) olarak, `yutu` [Claude Desktop](https://modelcontextprotocol.io/quickstart/user), [VS Code](https://code.visualstudio.com/) veya [Cursor](https://docs.cursor.com/) gibi MCP istemcilerinde kullanılabilir ve sohbet benzeri bir arayüzde YouTube kaynaklarıyla etkileşim kurmanızı sağlar.
-
+  
   `yutu`'yu MCP sunucusu olarak kullanmadan önce, `yutu`'nun kurulu olduğundan (bkz. [Kurulum](#kurulum) bölümü) ve geçerli `client_secret.json` ve `youtube.token.json` dosyalarına sahip olduğunuzdan emin olun (bkz. [Ön Koşullar](#ön-koşullar) bölümü).
-
+  
   Yukarıdaki ilgili rozeti tıklayarak veya MCP istemcinize aşağıdaki yapılandırmayı el ile ekleyerek VS Code veya Cursor'a `yutu`'yu MCP sunucusu olarak ekleyebilirsiniz. `YUTU_CREDENTIAL` ve `YUTU_CACHE_TOKEN` değerlerini yerel makinenizde doğru yollarla değiştirmeyi unutmayın.
-
+  
   ```json
   {
     "yutu": {
@@ -255,33 +255,33 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Beceriler
-
+  
   `yutu`, YouTube etki alanı bilgisi, yaygın iş akışları ve SEO en iyi uygulamalarıyla AI agentlarını genişleten birleştirilmiş bir [beceri](https://opencode.ai/docs/skills) sağlar — videolar, çalma listeleri, yorumlar, kanallar, altyazılar, abonelikler ve daha fazlasını kapsar.
-
+  
   ```shell
   ❯ npx skills add https://github.com/eat-pray-ai/yutu/tree/main/skills/youtube
   ```
-
+  
   Desteklenen işlemlerin tam listesi için [skills/youtube/SKILL.md](skills/youtube/SKILL.md) dosyasına bakın.
-
+  
   ## Kullanım
-
+  
   ```shell
   ❯ yutu        
   yutu, YouTube'un hemen hemen tüm kaynaklarını manipüle edebilecek tam işlevli bir MCP sunucusu ve CLI'dır.
-
+  
   Ortam değişkenleri:
     YUTU_CREDENTIAL    OAuth istemci sırrının yolu/base64/JSON (varsayılan: client_secret.json)
     YUTU_CACHE_TOKEN   Önbelleğe alınan OAuth tokeninin yolu/base64/JSON (varsayılan: youtube.token.json)
     YUTU_ROOT          Dosya çözümleme için kök dizin (varsayılan: geçerli çalışma dizini)
     YUTU_LOG_LEVEL     Log seviyesi: DEBUG, INFO, WARN, ERROR (varsayılan: INFO)
-
+  
   Kullanım:
     yutu [bayraklar]
     yutu [komut]
-
+  
   Kullanılabilir Komutlar:
     activity               YouTube'daki aktiviteleri yönetin
     agent                  YouTube iş akışlarını otomatikleştirmek için ajanı başlatın
@@ -311,23 +311,23 @@ body_tr: |-
     videoAbuseReportReason YouTube video istismar raporu nedenlerini yönetin
     videoCategory          YouTube video kategorilerini yönetin
     watermark              YouTube filigranlarını yönetin
-
+  
   Bayraklar:
     -h, --help   Yardım için
-
+  
   Bir komut hakkında daha fazla bilgi için "yutu [komut] --help" komutunu kullanın.
   ```
-
+  
   ## Özellikler
-
+  
   Daha fazla bilgi için [FEATURES.md](docs/FEATURES.md) dosyasına bakın.
-
+  
   ## Katkıda Bulunma
-
+  
   Daha fazla bilgi için [CONTRIBUTING.md](docs/CONTRIBUTING.md) dosyasına bakın.
-
+  
   ## Star Geçmişi
-
+  
   [![Star History Chart](https://api.star-history.com/svg?repos=eat-pray-ai/yutu&type=Date)](https://star-history.com/#eat-pray-ai/yutu&Date)
 ---
 
@@ -430,26 +430,24 @@ By default, `yutu` will read `client_secret.json` and `youtube.token.json` from 
 
 You can download `yutu` from [releases page](https://github.com/eat-pray-ai/yutu/releases/latest) directly, or use the following methods as you prefer.
 
-- [GitHub Actions](#github-actions)
-- [Node.js](#nodejs)
-- [Docker](#docker)
-- [Gopher](#gopher)
-- [Linux](#linux)
-- [macOS](#macos)
-- [Windows](#windows)
-- [Verifying Installation](#verifying-installation)
-
-### GitHub Actions
+<details>
+<summary>GitHub Actions</summary>
 
 There are two actions available for yutu, one is for general purpose and the other is for uploading video to YouTube. Refer to [youtube-action](https://github.com/eat-pray-ai/youtube-action) and [youtube-uploader](https://github.com/eat-pray-ai/youtube-uploader) for more information.
 
-### Node.js
+</details>
+
+<details>
+<summary>Node.js</summary>
 
 ```shell
 ❯ npm i -g @eat-pray-ai/yutu
 ```
 
-### Docker
+</details>
+
+<details>
+<summary>Docker</summary>
 
 ```shell
 ❯ docker pull ghcr.io/eat-pray-ai/yutu:latest
@@ -458,19 +456,28 @@ There are two actions available for yutu, one is for general purpose and the oth
 ❯ docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/app -p 8216:8216 ghcr.io/eat-pray-ai/yutu:latest
 ```
 
-### Gopher
+</details>
+
+<details>
+<summary>Gopher</summary>
 
 ```shell
 ❯ go install github.com/eat-pray-ai/yutu@latest
 ```
 
-### Linux
+</details>
+
+<details>
+<summary>Linux</summary>
 
 ```shell
 ❯ curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/scripts/install.sh | bash
 ```
 
-### macOS
+</details>
+
+<details>
+<summary>macOS</summary>
 
 Install `yutu` using [Homebrew🍺](https://brew.sh/)(recommended), or run the shell script.
 
@@ -481,13 +488,19 @@ Install `yutu` using [Homebrew🍺](https://brew.sh/)(recommended), or run the s
 ❯ curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/scripts/install.sh | bash
 ```
 
-### Windows
+</details>
+
+<details>
+<summary>Windows</summary>
 
 ```shell
 ❯ winget install yutu
 ```
 
-### Verifying Installation
+</details>
+
+<details>
+<summary>Verifying Installation</summary>
 
 Verify the integrity and provenance of `yutu` using its associated cryptographically signed attestations.
 
@@ -501,6 +514,8 @@ Verify the integrity and provenance of `yutu` using its associated cryptographic
 # Windows
 ❯ gh attestation verify $(where.exe yutu.exe) --repo eat-pray-ai/yutu
 ```
+
+</details>
 
 ## Agent
 
@@ -553,14 +568,52 @@ Then run the following command for detail usage:
 
 ## MCP Server
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=yutu&config=%7B%22type%22%3A%20%22stdio%22%2C%22command%22%3A%20%22yutu%22%2C%22args%22%3A%20%5B%22mcp%22%5D%2C%22env%22%3A%20%7B%22YUTU_CREDENTIAL%22%3A%20%22%2Fabsolute%2Fpath%2Fto%2Fclient_secret.json%22%2C%22YUTU_CACHE_TOKEN%22%3A%20%22%2Fabsolute%2Fpath%2Fto%2Fyoutube.token.json%22%7D%7D)
-[![Install in Cursor](https://cursor.com/deeplink/mcp-install-light.svg)](https://cursor.com/install-mcp?name=yutu&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnl1dHUlMjBtY3AlMjIlMkMlMjJlbnYlMjIlM0ElN0IlMjJZVVRVX0NSRURFTlRJQUwlMjIlM0ElMjIlMkZhYnNvbHV0ZSUyRnBhdGglMkZ0byUyRmNsaWVudF9zZWNyZXQuanNvbiUyMiUyQyUyMllVVFVfQ0FDSEVfVE9LRU4lMjIlM0ElMjIlMkZhYnNvbHV0ZSUyRnBhdGglMkZ0byUyRnlvdXR1YmUudG9rZW4uanNvbiUyMiU3RCU3RA%3D%3D)
-
-As a [MCP server](https://modelcontextprotocol.io/introduction), `yutu` can be used in MCP clients like [Claude Desktop](https://modelcontextprotocol.io/quickstart/user), [VS Code](https://code.visualstudio.com/) or [Cursor](https://docs.cursor.com/), which allows you to interact with YouTube resources in a chat-like interface.
-
 Before using `yutu` as an MCP server, make sure `yutu` is installed(see [Installation](#installation) section), and you have a valid `client_secret.json` and `youtube.token.json` files(refer to [Prerequisites](#prerequisites) section).
 
-You can add `yutu` as a MCP server in VS Code or Cursor by clicking corresponding badge above, or add the following configuration manually to your MCP client. Remember to replace the values of `YUTU_CREDENTIAL` and `YUTU_CACHE_TOKEN` with correct paths on your local machine.
+You can add `yutu` as an MCP server in VS Code or Cursor by clicking corresponding badge, or use the CLI commands below for your preferred tool.
+
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_YUTU-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=yutu&config=%7B%22type%22%3A%20%22stdio%22%2C%22command%22%3A%20%22yutu%22%2C%22args%22%3A%20%5B%22mcp%22%5D%2C%22env%22%3A%20%7B%22YUTU_CREDENTIAL%22%3A%20%22%2Fabsolute%2Fpath%2Fto%2Fclient_secret.json%22%2C%22YUTU_CACHE_TOKEN%22%3A%20%22%2Fabsolute%2Fpath%2Fto%2Fyoutube.token.json%22%7D%7D)
+[![Install in Cursor](https://cursor.com/deeplink/mcp-install-light.svg)](https://cursor.com/install-mcp?name=yutu&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnl1dHUlMjBtY3AlMjIlMkMlMjJlbnYlMjIlM0ElN0IlMjJZVVRVX0NSRURFTlRJQUwlMjIlM0ElMjIlMkZhYnNvbHV0ZSUyRnBhdGglMkZ0byUyRmNsaWVudF9zZWNyZXQuanNvbiUyMiUyQyUyMllVVFVfQ0FDSEVfVE9LRU4lMjIlM0ElMjIlMkZhYnNvbHV0ZSUyRnBhdGglMkZ0byUyRnlvdXR1YmUudG9rZW4uanNvbiUyMiU3RCU3RA%3D%3D)
+
+<details>
+<summary>Claude Code</summary>
+
+```shell
+# Stdio mode
+❯ claude mcp add -e YUTU_CREDENTIAL=/absolute/path/to/client_secret.json \
+  -e YUTU_CACHE_TOKEN=/absolute/path/to/youtube.token.json \
+  yutu -- yutu mcp
+
+# HTTP mode (start the server first: yutu mcp --mode http --auth)
+❯ claude mcp add --transport http \
+  --client-id YOUR_CLIENT_ID.apps.googleusercontent.com \
+  --client-secret \
+  yutu http://localhost:8216/mcp
+```
+
+</details>
+
+<details>
+<summary>Codex</summary>
+
+```shell
+# Stdio mode
+❯ codex mcp add --env YUTU_CREDENTIAL=/absolute/path/to/client_secret.json \
+  --env YUTU_CACHE_TOKEN=/absolute/path/to/youtube.token.json \
+  yutu -- yutu mcp
+
+# HTTP mode (start the server first: yutu mcp --mode http --auth)
+❯ codex mcp add --url http://localhost:8216/mcp \
+  --oauth-client-id YOUR_CLIENT_ID.apps.googleusercontent.com \
+  yutu
+```
+
+</details>
+
+<details>
+<summary>Manual Configuration (VS Code, Cursor, OpenCode, etc.)</summary>
+
+Add the following to your MCP settings. Remember to replace the values of `YUTU_CREDENTIAL` and `YUTU_CACHE_TOKEN` with correct paths on your local machine.
 
 ```json
 {
@@ -577,6 +630,8 @@ You can add `yutu` as a MCP server in VS Code or Cursor by clicking correspondin
   }
 }
 ```
+
+</details>
 
 ## Skills
 

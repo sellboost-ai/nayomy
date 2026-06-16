@@ -9,6 +9,55 @@ path: "rules/harmony-arkts.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/harmony-arkts.mdc"
 body_length: 2201
 file_extension: ".mdc"
+body_tr: |-
+  # HarmonyOS ArkTS Kuralları
+
+  ## Bileşen Yapısı
+
+  - Bileşen tanımları için `@Component` kullanın ve bileşen struct'ları için PascalCase kullanın.
+  - State deklarasyonlarını bileşenin üst kısmında tutun.
+  - Lifecycle hook'larını `build()` öncesinde gruplandırın.
+  - `build()` metodunu en sona yerleştirin ve UI composition'a odaklanmış tutun.
+  - Karmaşık UI'ları daha küçük bileşenlere ayırın.
+
+  ## State ve Veri Akışı
+
+  - Bileşene ait state için `@State` kullanın.
+  - Parent'tan child'a veri akışı için `@Prop` kullanın.
+  - `@Link` sadece kasıtlı iki yönlü binding için kullanın.
+  - Türetilmiş değerleri method'lar veya computed helper'lar içinde tutun, state'i kopyalamayın.
+  - Projede yerleşik bir app-state pattern'ı olmadıkça geniş global state'den kaçının.
+
+  ## Layout ve Styling
+
+  - `Column`, `Row`, `Stack`, `List` ve diğer ArkUI primitive'lerini bilinçli olarak kullanın.
+  - Layout özellikleri (width, height, alignment, layout weight) gibi özellikleri görsel özelliklerin öncesinde gruplandırın.
+  - Kenarlar farklı olduğunda margin ve padding için object notation kullanın.
+  - Logical pixel'ları tutarlı olarak kullanın.
+  - Göreli boyutlar için percentage string'ler kullanın.
+  - Proje desteklediğinde yeniden kullanılabilir spacing, color ve typography'yi resource'da tutun.
+
+  ## Event'ler ve Lifecycle
+
+  - Event handler'ları için arrow function'lar kullanın.
+  - Event handler'ları kısa tutun ve kompleks logic'i method'lara devredin.
+  - Async hataları açıkça ele alın ve kullanıcıya yönelik hataları uygun yerlerde gösterin.
+  - Lifecycle hook'larını gerçekten component lifecycle'a bağlı olan setup ve teardown için kullanın.
+
+  ## Kaynaklar ve Erişilebilirlik
+
+  - App resource'ları için `$r()` kullanın.
+  - Resource referanslarını tutarlı olarak gruplandırın.
+  - Interactive element'lere descriptive label'lar ve focus handling ekleyin.
+  - Color contrast ve touch target size'ını koruyun.
+  - Temsili cihaz boyutları ve yönelimleri üzerinde test edin.
+
+  ## Yaygın Hatalar
+
+  - Business logic'i `build()` içinde gizlemeyin.
+  - Tek yönlü prop'lar yeterli olduğunda iki yönlü binding kullanmayın.
+  - Resource'da olması gereken tekrarlanan string'ler, color'lar ve dimension'ları hardcode etmeyin.
+  - Production code'da debug `console.log` çağrılarını bırakmayın.
 ---
 
 

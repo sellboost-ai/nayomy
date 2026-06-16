@@ -12,6 +12,166 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Ashby Automation
+
+  Claude Code'dan doğrudan Ashby ATS işe alım operasyonlarınızı otomatikleştirin. Adaylar oluşturun, iş ilanları yayınlayın, başvuruları yönetin, mülakat takvimlerini görüntüleyin ve yetenek hattınızda arama yapın -- terminali terk etmeden.
+
+  **Toolkit dokümanları:** [composio.dev/toolkits/ashby](https://composio.dev/toolkits/ashby)
+
+  ---
+
+  ## Kurulum
+
+  1. Claude Code konfigürasyonunuza Rube MCP sunucusunu URL ile ekleyin: `https://rube.app/mcp`
+  2. İstendiğinde, sağlanan bağlantı üzerinden Ashby hesabınızda kimlik doğrulayın
+  3. Doğal dil kullanarak işe alım iş akışlarınızı otomatikleştirmeye başlayın
+
+  ---
+
+  ## Temel İş Akışları
+
+  ### 1. Adayları Yönetin
+
+  Adaylar oluşturun, listeleyin, arayın, güncelleyin ve detaylı aday bilgilerini alın.
+
+  **Tools:** `ASHBY_CREATE_CANDIDATE`, `ASHBY_LIST_CANDIDATES`, `ASHBY_SEARCH_CANDIDATES`, `ASHBY_GET_CANDIDATE_INFO`, `ASHBY_UPDATE_CANDIDATE`
+
+  ```
+  Create a candidate named "Jane Smith" with email jane@example.com and LinkedIn profile https://linkedin.com/in/janesmith
+  ```
+
+  `ASHBY_CREATE_CANDIDATE` için önemli parametreler:
+  - `name` (gerekli) -- adayın tam adı
+  - `email` -- birincil e-posta adresi
+  - `phoneNumber`, `linkedInUrl`, `githubUrl`, `websiteUrl` -- iletişim/sosyal profiller
+
+  `ASHBY_SEARCH_CANDIDATES` için önemli parametreler:
+  - `email` -- tam e-posta eşleştirmesi
+  - `name` -- kısmi ad eşleştirmesi
+
+  `ASHBY_LIST_CANDIDATES` için önemli parametreler:
+  - `perPage` (maks 100) / `cursor` -- sayfalandırma
+  - `syncToken` -- son senkronizasyondan beri yapılan artımlı güncellemeler için
+
+  ### 2. İş İlanları Oluşturun ve Listeleyin
+
+  Yeni iş pozisyonları yayınlayın ve mevcut pozisyonları inceleyin.
+
+  **Tools:** `ASHBY_CREATE_JOB`, `ASHBY_LIST_JOBS`, `ASHBY_GET_JOB_INFO`
+
+  ```
+  Create a new "Senior Software Engineer" job in team dept-123 at location loc-456 with brand brand-789
+  ```
+
+  `ASHBY_CREATE_JOB` için önemli parametreler:
+  - `title` (gerekli) -- iş başlığı
+  - `teamId` (gerekli) -- departman/takım ID (bölümleri listele)
+  - `locationId` (gerekli) -- ofis konumu ID (konumları listele)
+  - `brandId` (gerekli) -- işveren markası ID (markaları listele)
+  - `defaultInterviewPlanId` -- işi başvurular için açmak için gerekli
+  - `jobTemplateId` -- şablondan önceden doldur
+
+  `ASHBY_LIST_JOBS` için önemli parametreler:
+  - `perPage` (maks 100) / `cursor` / `syncToken` -- sayfalandırma ve artımlı senkronizasyon
+
+  **Not:** Yeni oluşturulan işler "Taslak" durumunda başlar. İşi açmak/yayınlamak için bir `defaultInterviewPlanId` ayarlamanız gerekir.
+
+  ### 3. Başvuruları Yönetin
+
+  Adayları işlere bağlamak ve ilerlemeyi takip etmek için başvurular oluşturun.
+
+  **Tools:** `ASHBY_CREATE_APPLICATION`, `ASHBY_LIST_APPLICATIONS`
+
+  ```
+  Apply candidate cand-abc123 to job job-xyz789 with source src-referral
+  ```
+
+  `ASHBY_CREATE_APPLICATION` için önemli parametreler:
+  - `candidateId` (gerekli) -- mevcut bir adayın UUID'si
+  - `jobId` (gerekli) -- mevcut bir işin UUID'si
+  - `sourceId` -- başvuru kaynağının UUID'si (LinkedIn, Referans, vb.)
+  - `creditedToUserId` -- kredi verilecek işe alım danışmanı/referans kişinin UUID'si
+  - `interviewStageId` -- doğrudan belirli bir aşamaya yerleştir (varsayılan olarak ilk aşama)
+
+  `ASHBY_LIST_APPLICATIONS` için önemli parametreler:
+  - `perPage` (maks 100) / `cursor` / `syncToken` -- sayfalandırma ve artımlı senkronizasyon
+
+  ### 4. Mülakat Takvimlerini Görüntüleyin
+
+  Zamanlanan mülakatları zaman, mülakatçı ve aday detayları ile listeleyin.
+
+  **Tool:** `ASHBY_LIST_INTERVIEW_SCHEDULES`
+
+  ```
+  Show me all upcoming interview schedules
+  ```
+
+  Önemli parametreler:
+  - `perPage` (maks 100) / `cursor` -- sayfalandırma
+  - `syncToken` -- değişen takvimler için artımlı senkronizasyon
+
+  ### 5. Aday Notları
+
+  Adaylar hakkında iç notları, gözlemleri ve işe alım danışmanı yorumlarını görüntüleyin.
+
+  **Tool:** `ASHBY_LIST_CANDIDATE_NOTES`
+
+  ```
+  Show me all notes for candidate cand-abc123
+  ```
+
+  - İşe alım danışmanları ve işe alım ekip üyeleri tarafından eklenen tüm notları alır
+  - Mülakat geri bildirimi ve iç değerlendirmeleri gözden geçirmek için kullanışlıdır
+
+  ### 6. Pipeline Raporlaması
+
+  İşe alım pipeline raporları oluşturmak için listeleme araçlarını birleştirin.
+
+  **Tools:** `ASHBY_LIST_CANDIDATES`, `ASHBY_LIST_APPLICATIONS`, `ASHBY_LIST_JOBS`
+
+  ```
+  List all applications to see the current state of our hiring pipeline
+  ```
+
+  - Artımlı veri alımı için `syncToken` kullanın (tekrarlanan raporlar için etkili)
+  - Tam pipeline görünürlüğü için aday, başvuru ve iş verilerini birleştirin
+  - Tam veri setleri için `cursor` ile tüm sonuçlar arasında sayfalandırın
+
+  ---
+
+  ## Bilinen Tuzaklar
+
+  - **İşler Taslak'ta başlar:** `ASHBY_CREATE_JOB` aracılığıyla oluşturulan yeni işler "Taslak" durumunda başlar ve bir `defaultInterviewPlanId` ayarlanıp iş açılana kadar başvuruları kabul edemez.
+  - **İşler için dört zorunlu alan:** `ASHBY_CREATE_JOB` `title`, `teamId`, `locationId` ve `brandId` gerektirir. Geçerli ID'leri bulmak için bölümleri, konumları ve markaları listele endpoint'lerini kullanın.
+  - **Başvurudan önce aday:** Başvuru oluşturmadan önce bir aday mevcut olmalıdır. Daima adayı önce oluşturun veya bulun, sonra başvuruyu oluşturun.
+  - **İmleç tabanlı sayfalandırma:** Tüm liste endpoint'leri `perPage` (maks 100) ve `cursor` ile imleç tabanlı sayfalandırma kullanır. İsteğe bağlı sayfalara atlayamazsınız -- sırayla yinelenmelisiniz.
+  - **Verimlilik için `syncToken`:** Yalnızca değişen kayıtları almak için önceki yanıtlardan `syncToken` kullanın. Bu tekrarlanan iş akışları için API çağrılarını dramatik olarak azaltır.
+  - **Her yerde UUID formatı:** Tüm ID'ler (adaylar, işler, başvurular, aşamalar) UUID'dir. Kötü biçimlendirilmiş ID'ler geçirme 400 hataları döndürür.
+  - **Arama sınırlamaları:** `ASHBY_SEARCH_CANDIDATES` tam e-posta eşleştirmesi veya kısmi ad eşleştirmesini destekler, ancak birleşik sorgular veya diğer alanları desteklemez. Daha geniş aramalar için `ASHBY_LIST_CANDIDATES` ile sayfalandırmayı kullanın.
+
+  ---
+
+  ## Hızlı Başvuru
+
+  | Tool Slug | Açıklama |
+  |---|---|
+  | `ASHBY_CREATE_CANDIDATE` | Yeni bir aday oluştur (`name` gerekli) |
+  | `ASHBY_LIST_CANDIDATES` | Sayfalandırma ve senkronizasyon ile tüm adayları listele |
+  | `ASHBY_SEARCH_CANDIDATES` | E-posta veya ada göre adayları ara |
+  | `ASHBY_GET_CANDIDATE_INFO` | Adayın tam detaylarını al (`candidateId` gerekli) |
+  | `ASHBY_UPDATE_CANDIDATE` | Aday profil bilgisini güncelle |
+  | `ASHBY_LIST_CANDIDATE_NOTES` | Aday için iç notları listele |
+  | `ASHBY_CREATE_JOB` | İş açılışı oluştur (`title`, `teamId`, `locationId`, `brandId` gerekli) |
+  | `ASHBY_LIST_JOBS` | Sayfalandırma ve senkronizasyon ile tüm işleri listele |
+  | `ASHBY_GET_JOB_INFO` | ID'ye göre iş detaylarını al |
+  | `ASHBY_CREATE_APPLICATION` | Bir adayı işe başvur (`candidateId`, `jobId` gerekli) |
+  | `ASHBY_LIST_APPLICATIONS` | Sayfalandırma ve senkronizasyon ile tüm başvuruları listele |
+  | `ASHBY_LIST_INTERVIEW_SCHEDULES` | Zamanlanan mülakatları sayfalandırma ile listele |
+
+  ---
+
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Ashby Automation

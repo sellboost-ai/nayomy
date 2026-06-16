@@ -3,24 +3,24 @@ name: "Snowflake-Labs/mcp"
 description: "Open-source MCP server for Snowflake from official Snowflake-Labs supports prompting Cortex Agents, querying structured & unstructured data, object management, SQL execution, semantic view querying, and more. RBAC, fine-grained CRUD controls, and all authentication methods supported."
 category: "Databases"
 repo: "Snowflake-Labs/mcp"
-stars: 288
+stars: 291
 url: "https://github.com/Snowflake-Labs/mcp"
 body_length: 29854
 license: "Apache-2.0"
 language: "Python"
 body_tr: |-
   # [KULLANIM DIŞI] Snowflake Cortex AI Model Context Protocol (MCP) Sunucusu
-
+  
   > [!CAUTION]
   > **Bu proje kullanım dışıdır ve artık bakımı yapılmamaktadır.** Lütfen resmi [Snowflake MCP Sunucusu](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp)'na geçiş yapınız. Resmi sunucu aktif olarak geliştirilmekte, Snowflake tarafından tam desteklenmekte ve yeni özellikler eklemeye devam etmektedir.
-
+  
   Bu topluluk MCP sunucusu daha önce Snowflake Cortex AI, nesne yönetimi ve SQL orkestrasyonu için araçlar sağlamıştır. Artık desteklenmemektedir. Tüm yeni ve mevcut kullanım durumları için lütfen bunun yerine resmi [Snowflake MCP Sunucusu](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp)'nu kullanınız.
-
+  
   ---
-
+  
   <details>
   <summary>Eski dokümantasyon (yalnızca referans için)</summary>
-
+  
   MCP sunucusu aşağıdaki yetenekleri desteklemekteydi:
   - **[Cortex Search](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)**: Snowflake'deki yapılandırılmamış verileri, özellikle Retrieval Augmented Generation (RAG) uygulamalarında kullanılan şekilde sorgulayın.
   - **[Cortex Analyst](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst)**: Zengin anlamsal modelleme yoluyla Snowflake'deki yapılandırılmış verileri sorgulayın.
@@ -28,28 +28,28 @@ body_tr: |-
   - **Nesne Yönetimi**: Oluşturma, silme, güncelleme ve daha fazlası gibi Snowflake'nin en yaygın nesnelerine karşı temel işlemler gerçekleştirin.
   - **SQL Yürütme**: Kullanıcı tarafından yapılandırılan izinler tarafından yönetilen LLM tarafından oluşturulan SQL'i çalıştırın.
   - **[Semantic View Sorgulaması](https://docs.snowflake.com/en/user-guide/views-semantic/overview)**: Snowflake Semantic Views'ı keşfedin ve sorgulayın
-
+  
   # Başlangıç
-
+  
   ## Servis Yapılandırması
-
+  
   Tüm araçları yönlendirmek için basit bir konfigürasyon dosyası kullanılır. [services/configuration.yaml](services/configuration.yaml) adresinde bir örnek görebilir ve aşağıda bir şablon bulunmaktadır. Bu konfigürasyon dosyasının yolu sunucuya iletilecek ve içeriği başlangıçta MCP sunucusu araçlarını oluşturmak için kullanılacaktır.
-
+  
   **Cortex Hizmetleri**
-
+  
   Birçok Cortex Agent, Search ve Analyst hizmeti eklenebilir. İdeal açıklamalar hem oldukça açıklayıcı hem de birbirini dışlayan niteliktedir.
   Yalnızca açıkça listelenen Cortex hizmetleri MCP istemcisinde araç olarak kullanılabilir.
-
+  
   **Diğer Hizmetler**
-
+  
   Diğer hizmetler [nesne yönetimi](object-management), [sorgu yürütme](sql-execution) ve [semantic view kullanımı](semantic-view-querying) için araçlar içerir.
   Bu araç grupları, konfigürasyon dosyasının `other_services` bölümünde True olarak ayarlanarak etkinleştirilebilir.
-
+  
   **SQL Statement İzinleri**
-
+  
   `sql_statement_permissions` bölümü, yalnızca Snowflake nesnelerini değiştirme erişimi olan herhangi bir araç aracılığıyla onaylı bildirimlerin yürütülmesini sağlar.
   Liste SQL ifade türlerini içerir. True ile işaretlenenler izin verilen, False ile işaretlenenler izin verilmeyenler olup, her ifade türünün örnekleri için lütfen [SQL Yürütme](#sql-yürütme) bölümüne bakınız.
-
+  
   ```
   agent_services: # Tüm Cortex Agent hizmetlerini listeleyin
     - service_name: <service_name>
@@ -107,28 +107,28 @@ body_tr: |-
     - Update: True
     - Use: True
   ```
-
+  
   > [!NOTE]
   > Konfigürasyon dosyasının önceki sürümleri her Cortex Search hizmeti için sütunların ve limit'in açık değerlerini belirtmeyi desteklemekteydi. Bunun yerine, bunlar artık yalnızca kullanıcı istemine dayalı olarak dinamiktir. Belirtilmemişse, bir search hizmetinin varsayılan search_columns 10'luk bir limit ile döndürülecektir.
-
+  
   ## Snowflake'e Bağlanma
-
+  
   MCP sunucusu, tüm kimlik doğrulama ve bağlantı yöntemleri için [Snowflake Python Connector](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect)'ı kullanır. **Kapsamlı kimlik doğrulama seçenekleri ve en iyi uygulamalar için lütfen resmi Snowflake dokümantasyonuna bakınız.**
-
+  
   **MCP sunucusu, bağlantı parametrelerine geçilen belirtilen role (role parametresi geçilmişse) veya kullanıcının varsayılan role'ü (role geçilmemişse) atanan RBAC izinlerini onurlandırır.**
-
+  
   Bağlantı parametreleri CLI argümanları ve/veya çevre değişkenleri olarak iletilabilir. Sunucu, Snowflake Python Connector'da bulunan tüm kimlik doğrulama yöntemlerini destekler:
-
+  
   - Kullanıcı adı/şifre kimlik doğrulaması
   - Key pair kimlik doğrulaması
   - OAuth kimlik doğrulaması
   - Single Sign-On (SSO)
   - Multi-factor authentication (MFA)
-
+  
   ### Bağlantı Parametreleri
-
+  
   Bağlantı parametreleri CLI argümanları ve/veya çevre değişkenleri olarak iletilebilir:
-
+  
   | Parametre | CLI Argümanları | Çevre Değişkeni | Açıklama |
   |-----------|--------------|---------------------|-------------|
   | Account | --account | SNOWFLAKE_ACCOUNT | Hesap tanımlayıcısı (örn. xy12345.us-east-1) |
@@ -144,61 +144,61 @@ body_tr: |-
   | Private Key Password | --private-key-file-pwd | SNOWFLAKE_PRIVATE_KEY_FILE_PWD | Şifrelenmiş private key için şifre |
   | Authenticator | --authenticator | - | Kimlik doğrulama türü (varsayılan: snowflake) |
   | Connection Name | --connection-name | - | connections.toml (veya config.toml) dosyasından bağlantı adı |
-
+  
   > [!WARNING]
   > **Kaldırma Bildirimi**: CLI argümanları `--account-identifier` ve `--pat`, ayrıca çevre değişkeni `SNOWFLAKE_PAT`, kaldırılmıştır ve gelecek bir sürümde kaldırılacaktır. Lütfen bunun yerine `--account` ve `--password` (veya `SNOWFLAKE_ACCOUNT` ve `SNOWFLAKE_PASSWORD`) kullanınız.
-
+  
   # Transport Yapılandırması
-
+  
   MCP sunucusu birden fazla transport mekanizmasını destekler. MCP transport'ları hakkında ayrıntılı bilgi için [FastMCP Transport Protocols](https://gofastmcp.com/deployment/running-server#transport-protocols) bölümüne bakınız.
-
+  
   | Transport | Açıklama | Kullanım Durumu |
   |-----------|-------------|----------|
   | `stdio` | Standart input/output (varsayılan) | Yerel geliştirme, MCP istemcisi entegrasyonu |
   | `sse` (eski) | Server-Sent Events | Streaming uygulamaları |
   | `streamable-http` | Streamable HTTP transport | Container dağıtımları, uzak sunucular |
-
+  
   ## Kullanım
-
+  
   ```bash
   # Varsayılan stdio transport
   uvx snowflake-labs-mcp --service-config-file config.yaml
-
+  
   # Özel endpoint ile HTTP transport
   uvx snowflake-labs-mcp --service-config-file config.yaml --transport streamable-http --endpoint /my-endpoint
-
+  
   # Container'lar için (port 9000 üzerinde streamable-http kullanır)
   uvx snowflake-labs-mcp --service-config-file config.yaml --transport streamable-http --endpoint /snowflake-mcp
   ```
-
+  
   ## Transport Özelleştirmeleri
   `sse` ve `streamable-http` transport'ları için mevcut olan sunucu özelleştirmeleri:
-
+  
   | Parametre | CLI Argümanı | Çevre Değişkeni | Varsayılan |
   |-----------|--------------|---------------------|------------------|
   | Host | --server-host | SNOWFLAKE_MCP_HOST | "0.0.0.0"
   | Port | --port | SNOWFLAKE_MCP_PORT | 9000
   | Endpoint | --endpoint | SNOWFLAKE_MCP_ENDPOINT | /mcp
   | Debug Logging | --verbose | SNOWFLAKE_MCP_VERBOSE | false
-
+  
   Örnek:
   ```bash
   export SNOWFLAKE_MCP_ENDPOINT="/my-mcp"
   uvx snowflake-labs-mcp --service-config-file config.yaml --transport streamable-http
   ```
-
+  
   # MCP İstemcileri ile Kullanım
-
+  
   MCP sunucusu istemci-agnostiktir ve MCP araçları ve (isteğe bağlı) kaynaklar için temel işlevselliği destekleyen çoğu MCP İstemcisi ile çalışır. Aşağıda yerel yükleme örnekleri bulunmaktadır. Container dağıtımlarına bağlanmak için [MCP İstemcilerini Container'lara Bağlama](#mcp-İstemcilerini-containerlar-a-bağlama) bölümüne bakınız.
-
+  
   ## [Claude Desktop](https://support.anthropic.com/en/articles/10065433-installing-claude-for-desktop)
-
+  
   Bu sunucuyu Claude Desktop ile MCP İstemcisi olarak entegre etmek için, uygulamanızın sunucu konfigürasyonunun aşağıdakini ekleyin. Varsayılan olarak, bu şu konumdadır:
   - macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
   - Windows: %APPDATA%\Claude\claude_desktop_config.json
-
+  
   Hizmet konfigürasyon dosyasının yolunu ayarlayın ve bağlantı yönteminizi yapılandırın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -215,9 +215,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## [Cursor](https://www.cursor.com/)
-
+  
   Cursor'da MCP sunucusunu, Cursor'u açıp Settings -> Cursor Settings -> MCP'ye giderek kaydettirin. Aşağıdakini ekleyin:
   ```json
   {
@@ -235,17 +235,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   MCP sunucusunu sohbetde bağlam olarak ekleyin.
-
-
-
+  
+  
+  
   Cursor sunucusu sorunlarını gidermek için, Output panelini açıp açılır menüden Cursor MCP'yi seçerek günlükleri görüntüleyin.
-
+  
   ## [fast-agent](https://fast-agent.ai/)
-
+  
   `fastagent.config.yaml` MCP sunucusu bölümünü konfigürasyon dosyası yolu ve bağlantı adı ile güncelleyin:
-
+  
   ```yaml
   # MCP Sunucuları
   mcp:
@@ -254,16 +254,16 @@ body_tr: |-
               command: "uvx"
               args: ["snowflake-labs-mcp", "--service-config-file", "<path_to_file>/tools_config.yaml", "--connection-name", "default"]
   ```
-
-
-
+  
+  
+  
   ## Microsoft Visual Studio Code + GitHub Copilot
-
+  
   Ön koşullar, ortam kurulumu, adım adım kılavuz ve talimatlar için lütfen bu [blog](https://medium.com/snowflake/build-a-natural-language-data-assistant-in-vs-code-with-copilot-mcp-and-snowflake-cortex-ai-04a22a3b0f17) yazısına bakınız.
-
-
-
-
+  
+  
+  
+  
   ## [Codex](https://github.com/openai/codex)
   MCP sunucusunu codex'te kaydettirin, `~/.codex/config.toml` dosyasına aşağıdakini ekleyerek
   ```toml
@@ -278,22 +278,22 @@ body_tr: |-
   ]
   ```
   Düzenledikten sonra, snowflake mcp, terminaldeki `codex mcp list` çıktısında görünmelidir.
-
+  
   # Container Dağıtımı
-
+  
   MCP sunucusunu uzak erişim veya üretim ortamları için container olarak dağıtın. Bu kılavuz, hem Docker hem de Docker Compose dağıtımları için adım adım talimatlar sağlar.
-
+  
   ## Docker Dağıtımı
-
+  
   Docker kullanarak MCP sunucusunu dağıtmak için bu adımları izleyin:
-
+  
   ### Adım 1: Konfigürasyon Dosyasını Hazırlayın
   MCP konfigürasyonu için bir dizin oluşturun ve şablonu kopyalayın:
   ```bash
   mkdir -p ${HOME}/.mcp/
   cp services/configuration.yaml ${HOME}/.mcp/tools_config.yaml
   ```
-
+  
   ### Adım 2: Hizmetleri Yapılandırın
   Konfigürasyon dosyasını ortamınızla eşleştirmek için düzenleyin:
   ```bash
@@ -301,23 +301,23 @@ body_tr: |-
   # Hizmet adlarını, veritabanı/şema referanslarını güncelleyin ve istediğiniz özellikleri etkinleştirin
   nano ${HOME}/.mcp/tools_config.yaml
   ```
-
+  
   ### Adım 3: Container Image'ı Oluşturun
   Sağlanan Dockerfile'dan Docker image'ını oluşturun:
   ```bash
   docker build -f docker/server/Dockerfile -t mcp-server-snowflake .
   ```
-
+  
   ### Adım 4: Çevre Değişkenlerini Ayarlayın
   Snowflake bağlantı parametrelerinizi yapılandırın. Aşağıdaki kimlik doğrulama yöntemlerinden birini seçin:
-
+  
   **Kullanıcı Adı/Şifre Kimlik Doğrulaması:**
   ```bash
   export SNOWFLAKE_ACCOUNT=<your_account>
   export SNOWFLAKE_USER=<your_username>
   export SNOWFLAKE_PASSWORD=<your_password>
   ```
-
+  
   **Key Pair Kimlik Doğrulaması:**
   ```bash
   export SNOWFLAKE_ACCOUNT=<your_account>
@@ -325,10 +325,10 @@ body_tr: |-
   export SNOWFLAKE_PRIVATE_KEY="$(cat <path_to_private_key.p8>)"
   export SNOWFLAKE_PRIVATE_KEY_FILE_PWD=<your_key_password>
   ```
-
+  
   ### Adım 5: Container'ı Çalıştırın
   Konfigürasyon ve çevre değişkenleriniz ile container'ı başlatın:
-
+  
   **Kullanıcı Adı/Şifre Kimlik Doğrulaması İçin:**
   ```bash
   docker run -d \
@@ -340,7 +340,7 @@ body_tr: |-
     -v ${HOME}/.mcp/tools_config.yaml:/app/services/tools_config.yaml:ro \
     mcp-server-snowflake
   ```
-
+  
   **Key Pair Kimlik Doğrulaması İçin:**
   ```bash
   docker run -d \
@@ -353,38 +353,38 @@ body_tr: |-
     -v ${HOME}/.mcp/tools_config.yaml:/app/services/tools_config.yaml:ro \
     mcp-server-snowflake
   ```
-
+  
   ### Adım 6: Dağıtımı Doğrulayın
   Container'ın çalıştığından ve erişilebilir olduğundan emin olun:
   ```bash
   # Container durumunu kontrol edin
   docker ps
-
+  
   # Container günlüklerini kontrol edin
   docker logs mcp-server-snowflake
-
+  
   # Endpoint'i test edin (MCP sunucusu bilgisini döndürmelidir)
   curl http://localhost:9000/snowflake-mcp
   ```
-
+  
   ## Docker Compose Dağıtımı
-
+  
   Docker Compose kullanarak basitleştirilmiş bir dağıtım için bu adımları izleyin:
-
+  
   ### Adım 1: Konfigürasyon Dosyasını Hazırlayın
   Konfigürasyon dizini oluşturun ve şablonu kopyalayın:
   ```bash
   mkdir -p ${HOME}/.mcp/
   cp services/configuration.yaml ${HOME}/.mcp/tools_config.yaml
   ```
-
+  
   ### Adım 2: Hizmetleri Yapılandırın
   Konfigürasyon dosyasını ortamınızla eşleştirmek için düzenleyin:
   ```bash
   # Hizmet konfigürasyonlarını gerektiği şekilde güncelleyin
   nano ${HOME}/.mcp/tools_config.yaml
   ```
-
+  
   ### Adım 3: Çevre Değişkenlerini Ayarlayın
   Snowflake bağlantı parametrelerinizi yapılandırın:
   ```bash
@@ -396,34 +396,34 @@ body_tr: |-
   # export SNOWFLAKE_PRIVATE_KEY="$(cat <path_to_private_key.p8>)"
   # export SNOWFLAKE_PRIVATE_KEY_FILE_PWD=<your_key_password>
   ```
-
+  
   ### Adım 4: Hizmetleri Başlatın
   Docker Compose kullanarak container'ı başlatın:
   ```bash
   docker-compose up -d
   ```
-
+  
   ### Adım 5: Dağıtımı Doğrulayın
   Hizmetlerin çalıştığından emin olun:
   ```bash
   # Hizmet durumunu kontrol edin
   docker-compose ps
-
+  
   # Günlükleri görüntüleyin
   docker-compose logs
-
+  
   # Endpoint'i test edin
   curl http://localhost:9000/snowflake-mcp
   ```
-
+  
   ## MCP İstemcilerini Container'lara Bağlama
-
+  
   MCP sunucunuz container'da çalıştıktan sonra, çeşitli MCP istemcilerini buna bağlayabilirsiniz. Bağlantı konfigürasyonu tüm istemciler arasında aynıdır - yalnızca konfigürasyon biçimi farklıdır.
-
+  
   **Bağlantı URL'si Biçimi:**
   - Yerel dağıtım: `http://localhost:9000/snowflake-mcp`
   - Uzak dağıtım: `http://<hostname>:<port>/snowflake-mcp`
-
+  
   ### Claude Desktop
   `claude_desktop_config.json` dosyanıza bunu ekleyin:
   ```json
@@ -435,7 +435,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Cursor
   Cursor'daki MCP ayarlarınıza bunu ekleyin (Settings -> Cursor Settings -> MCP):
   ```json
@@ -447,7 +447,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### fast-agent
   `fastagent.config.yaml` dosyanıza bunu ekleyin:
   ```yaml
@@ -457,31 +457,31 @@ body_tr: |-
           mcp-server-snowflake:
               url: "http://localhost:9000/snowflake-mcp"
   ```
-
+  
   **Notlar:**
   - Uzak dağıtımlar için `localhost:9000` yerine sunucunuzun hostname'i ve port'unu yazın
   - Firewall'unuzun port 9000'de (veya yapılandırdığınız port'ta) bağlantılara izin verdiğinden emin olun
   - Üretim dağıtımları için HTTPS ve uygun kimlik doğrulama kullanmayı düşünün
-
+  
   # Cortex Hizmetleri
-
+  
   Konfigürasyon dosyasının `agent_services` bölümündeki Cortex Agent (in `agent_services` section), Cortex Search (in `search_services` section) ve Cortex Analyst (in `analyst_services` section) örnekleri araçlar olarak sunulacaktır. Bu tür araçları hariç tutmak için bu bölümleri boş bırakın.
-
+  
   MCP sunucusunda yalnızca Cortex Agent nesneleri desteklenir. Yani, yalnızca Snowflake'de önceden yapılandırılan Cortex Agent nesneleri araç olarak kullanılabilir. Daha fazla ayrıntı için [Cortex Agent Run API](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-run#streaming-responses) bölümüne bakınız.
-
+  
   Tüm hizmetlerin hizmet adı, veritabanı, şema vb. için doğru bağlam adlarına sahip olduğundan emin olun. İdeal açıklamalar hem oldukça açıklayıcı hem de birbirini dışlayan niteliktedir.
-
+  
   Analyst hizmetlerindeki `semantic_model` değeri, tam nitelikli bir semantic view VEYA Snowflake stage'deki semantic YAML dosyası olmalıdır:
   - Semantic view için: `MY_DATABASE.MY_SCHEMA.MY_SEMANTIC_VIEW`
   - Semantic YAML dosyası için: `@MY_DATABASE.MY_SCHEMA.MY_STAGE/my_semantic_file.yaml` (**`@` işaretine dikkat edin.**)
-
+  
   # Nesne Yönetimi
-
+  
   MCP sunucusu, temel operasyon yönetimini yerine getirmek için dar kapsamlı düzinelerce araç içerir. Gelişmiş nesne yönetimi için Snowsight'ı doğrudan kullanmanız önerilir.
-
+  
   MCP sunucusu şu anda aşağıdaki nesne türlerini **oluşturma**, **silme**, **oluşturma veya değiştirme**, **açıklama** ve **listeleme** işlemlerini desteklemektedir.
   **Bu araçları etkinleştirmek için, konfigürasyon dosyasında `other_services` altında `object_manager` öğesini True olarak ayarlayın.**
-
+  
   ```
   - Database
   - Schema
@@ -494,7 +494,7 @@ body_tr: |-
   - User
   - Image Repository
   ```
-
+  
   Lütfen bu araçların, konfigüras
 ---
 

@@ -9,18 +9,18 @@ body_length: 1727
 language: "Python"
 body_tr: |-
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/isaacwasserman-mcp-vegalite-server-badge.png)](https://mseep.ai/app/isaacwasserman-mcp-vegalite-server)
-
+  
   # Veri Görselleştirme MCP Sunucusu
   [![smithery badge](https://smithery.ai/badge/mcp-server-vegalite)](https://smithery.ai/server/mcp-server-vegalite)
-
+  
   ## Genel Bakış
   Vega-Lite sözdizimini kullanarak veri görselleştirmek için LLM'ye bir arayüz sağlayan Model Context Protocol (MCP) sunucusu uygulaması.
-
+  
   ## Bileşenler
-
+  
   ### Tools
   Sunucu iki temel aracı sunmaktadır:
-
+  
   - `save_data`
      - Bir veri agregasyonu tablosunu sunucuya kaydedin ve daha sonra görselleştirmek için kullanın
      - Giriş:
@@ -33,9 +33,9 @@ body_tr: |-
        - `data_name` (string): Görselleştirilecek veri tablosunun adı
        - `vegalite_specification` (string): Vega-Lite spesifikasyonunu temsil eden JSON string
      - Döndürülen değer: `--output_type` değeri `text` olarak ayarlanmışsa, veriler içeren tam Vega-Lite spesifikasyonunu içeren ek bir `artifact` anahtarı ile birlikte başarı mesajı döndürür. `--output_type` değeri `png` olarak ayarlanmışsa, MPC `ImageContent` konteynerini kullanarak görselleştirmenin base64 kodlanmış PNG görüntüsünü döndürür.
-
+  
   ## Claude Desktop ile Kullanım
-
+  
   ```python
   # Sunucuyu claude_desktop_config.json dosyanıza ekleyin
   {

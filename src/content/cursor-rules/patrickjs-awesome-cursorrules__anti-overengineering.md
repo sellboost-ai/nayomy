@@ -9,6 +9,14 @@ path: "rules/anti-overengineering.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/anti-overengineering.mdc"
 body_length: 584
 file_extension: ".mdc"
+body_tr: |-
+  # Aşırı Mühendislik Yapma
+
+  Sadece istenen şeyleri değiştir. En basit çözüm önce. Emin değilsen, sor.
+
+  İstenmeyen kodu değiştirme, somut bir ihtiyaç olmaksızın soyutlama ekleme, gereksiz bağımlılıklar içe aktarma, küçük değişiklikler için tüm dosyaları yeniden yazma veya imkansız senaryolar için hata işleme ekleme.
+
+  Teslimatın öncesi: sadece istenen kodu değiştirdiğini doğrula, daha basit yaklaşımları kontrol et, istenmeyen dosyalara dokunulmadığını onayla.
 ---
 
 # Anti-Over-Engineering

@@ -3,9 +3,9 @@ name: "brightdata/brightdata-mcp"
 description: "Discover, extract, and interact with the web - one interface powering automated access across the public internet."
 category: "Search & Data Extraction"
 repo: "brightdata/brightdata-mcp"
-stars: 2408
+stars: 2450
 url: "https://github.com/brightdata/brightdata-mcp"
-body_length: 19252
+body_length: 19786
 license: "MIT"
 language: "JavaScript"
 homepage: "https://brightdata.com/"
@@ -14,14 +14,14 @@ body_tr: |-
     <a href="https://brightdata.com/ai/mcp-server">
       
     </a>
-
+  
     <h1>Web MCP</h1>
     
     <p>
       <strong>🌐 AI'nize gerçek zamanlı web süper güçleri verin</strong><br/>
       <i>LLM'leri engellenmeden canlı web'e sorunsuzca bağlayın</i>
     </p>
-
+  
     <p>
       <a href="https://www.npmjs.com/package/@brightdata/mcp">
         
@@ -33,7 +33,7 @@ body_tr: |-
         
       </a>
     </p>
-
+  
     <p>
       <a href="#-quick-start">Hızlı Başlangıç</a> •
       <a href="#-features">Özellikler</a> •
@@ -42,16 +42,16 @@ body_tr: |-
       <a href="#-documentation">Belgeler</a> •
       <a href="#-support">Destek</a>
     </p>
-
+  
     <div>
       <h3>🎉 <strong>Ücretsiz Katman Mevcut!</strong> 🎉</h3>
       <p><strong>Aylık 5.000 istek ÜCRETSİZ</strong> <br/>
       <sub>Prototipleme ve günlük AI iş akışları için mükemmel</sub></p>
     </div>
   </div>
-
+  
     <br/>
-
+  
     <div align="center">
       <h3>YENİ: Code Tool grubu - Kodlama Ajanınızın En İyi Arkadaşı</h3>
       <p><strong>AI ajanınızdan doğrudan npm ve PyPI paket verilerine anında erişim.</strong></p>
@@ -68,7 +68,7 @@ body_tr: |-
       </table>
       <p><code>GROUPS="code"</code> &nbsp;·&nbsp; Claude Code, Cursor, Windsurf ve herhangi bir MCP destekli kodlama ajanı için ideal araç</p>
     </div>
-
+  
     <div align="center">
       <h3>GEO ve AI Marka Görünürlüğü Araçları</h3>
       <p><strong>ChatGPT, Grok ve Perplexity'nin markanız hakkında ne söylediğini görün.</strong></p>
@@ -86,17 +86,17 @@ body_tr: |-
       </table>
       <p><code>GROUPS="geo"</code> &nbsp;·&nbsp; Herhangi bir MCP uyumlu ajanla çalışır</p>
     </div>
-
-
-
+  
+  
+  
   ---
-
+  
   ## 🌟 Özet
-
+  
   **Web MCP**, AI asistanlarına gerçek web yetenekleri vermenin kapınızdır. Artık güncellenmiş olmayan yanıtlar yok, artık "gerçek zamanlı bilgilere erişemiyorum" diye söylemek yok — sadece sorunsuzca çalışan, güvenilir web erişimi.
-
+  
   [Bright Data](https://brightdata.com) tarafından oluşturulan, dünyanın #1 web veri platformu, bu MCP sunucusu AI'nızın hiçbir zaman engellenmediğini, hız sınırlandırılmadığını veya CAPTCHA sunulmadığını garantiler.
-
+  
   <div align="center">
     <table>
       <tr>
@@ -107,11 +107,11 @@ body_tr: |-
       </tr>
     </table>
   </div>
-
+  
   ---
-
+  
   ## 🎯 Kimleri İçin Mükemmel
-
+  
   - 🔍 **Gerçek Zamanlı Araştırma** - Geçerli fiyatları, haberleri ve canlı verileri alın
   - 🛍️ **E-ticaret İstihbaratı** - Ürünleri, fiyatları ve kullanılabilirliği izleyin  
   - 📊 **Pazar Analizi** - Rakipleri ve endüstri trendlerini takip edin
@@ -120,33 +120,33 @@ body_tr: |-
   - 🧠 **GEO ve Marka Görünürlüğü** - ChatGPT, Grok ve Perplexity'nin markanızı nasıl algıladığını görün
   - 📝 **İçerik Oluşturma** - Yazı yazmak için güncel bilgilere erişin
   - 🎓 **Akademik Araştırma** - Çeşitli kaynaklardan verileri verimli bir şekilde toplayın
-
+  
   ---
-
+  
   ## ⚡ Hızlı Başlangıç
-
+  
   **Yapılandırma sihirbazını kullanın:** 
-
+  
   ![GIF for day2](https://github.com/user-attachments/assets/b3917553-6cf9-4264-bc7a-9b8b74df0a17)
-
-
+  
+  
   <summary><b>📡 Hosted sunucumuzu kullanın - Kuruluma gerek yok!</b></summary>
-
+  
   Sıfır kurulum isteyen kullanıcılar için mükemmel. Bu URL'yi MCP istemcinize eklemeniz yeterlidir:
-
+  
   ```
   https://mcp.brightdata.com/mcp?token=YOUR_API_TOKEN_HERE
   ```
-
+  
   **Claude Desktop'ta Kurulum:**
   1. Gidin: Settings → Connectors → Add custom connector
   2. Ad: `Bright Data Web`
   3. URL: `https://mcp.brightdata.com/mcp?token=YOUR_API_TOKEN`
   4. "Add" (Ekle) tıklayın ve bitti! ✨
-
-
+  
+  
   <summary><b>Makinenizde yerel olarak çalıştırın</b></summary>
-
+  
   ```json
   {
     "mcpServers": {
@@ -160,12 +160,12 @@ body_tr: |-
     }
   }
   ```
-
-
+  
+  
   ---
-
+  
   ## 🚀 Fiyatlandırma ve Modlar
-
+  
   <div align="center">
     <table>
       <tr>
@@ -211,14 +211,14 @@ body_tr: |-
       </tr>
     </table>
   </div>
-
+  
   > **💡 Not:** Pro mod **ücretsiz katmanda dahil değildir** ve
   > kullanıma dayalı ek ücret içerir.
-
+  
   ---
-
+  
   ## 🧠 Gelişmiş Tool Seçimi
-
+  
   - `GROUPS` seçilmiş tool paketlerini etkinleştirir. Virgülle ayrılmış grup
     ID'leri kullanın örneğin `ecommerce,browser`.
   - `TOOLS` seçilen gruplara açık tool adları ekler.
@@ -227,8 +227,8 @@ body_tr: |-
   - Temel araçlar her zaman etkindir: `search_engine`, `search_engine_batch`,
     `scrape_as_markdown`, `scrape_batch`, `discover`.
   - Grup ID `custom` ayrılmıştır; özel seçimler için `TOOLS` kullanın.
-
-
+  
+  
   <table>
     <tr>
       <th align="left">Grup ID</th>
@@ -306,9 +306,9 @@ body_tr: |-
       <code>extract</code></td>
     </tr>
   </table>
-
+  
   ### Claude Desktop örneği
-
+  
   ```json
   {
     "mcpServers": {
@@ -324,12 +324,12 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Kodlama ajanı örneği (Claude Code / Cursor / Windsurf)
-
+  
   Kodlama ajanınıza gerçek zamanlı paket istihbaratı verin — en son sürümler, README'ler,
   bağımlılıklar ve npm ve PyPI'den scraping yapmadan meta veriler:
-
+  
   ```json
   {
     "mcpServers": {
@@ -344,13 +344,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   ---
-
+  
   ## ✨ Özellikler
-
+  
   ### 🔥 Temel Yetenekler
-
+  
   <table>
     <tr>
       <td>🔍 <b>Akıllı Web Arama</b><br/>AI için optimize edilmiş Google kalitesi sonuçlar</td>
@@ -365,9 +365,9 @@ body_tr: |-
       <td>⚡ <b>Yıldırım Hızı</b><br/>Minimum gecikme için optimize edilmiş</td>
     </tr>
   </table>
-
+  
   ### 🎯 Çalışan Örnek Sorgular
-
+  
   ```yaml
   ✅ "Tesla'nın şu anki hisse senedi fiyatı nedir?"
   ✅ "Tokyo'da şu anda en yüksek puanlı restoranları bul"
@@ -377,43 +377,43 @@ body_tr: |-
   ✅ "npm'de express'in en son sürümü nedir?"
   ✅ "langchain-brightdata PyPI paketinin README'sini al"
   ```
-
+  
   ---
-
+  
   ## 🎬 Demolar
-
+  
   > **Not:** Bu videolar eski sürümleri göstermektedir. Yeni demolar yakında! 🎥
-
+  
   <details>
   <summary><b>Demo Videolarını Görüntüle</b></summary>
-
+  
   ### Temel Web Arama Demosu
   https://github.com/user-attachments/assets/59f6ebba-801a-49ab-8278-1b2120912e33
-
+  
   ### İleri Scraping Demosu
   https://github.com/user-attachments/assets/61ab0bee-fdfa-4d50-b0de-5fab96b4b91d
-
+  
   [📺 YouTube'da daha fazla öğretici →](https://github.com/brightdata-com/brightdata-mcp/blob/main/examples/README.md)
-
+  
   </details>
-
+  
   ---
-
+  
   ## 🔧 Mevcut Araçlar
-
+  
   ### ⚡ Hızlı Mod Araçları (Varsayılan - Ücretsiz)
-
+  
   | Araç | Açıklama | Kullanım Durumu |
   |------|----------|-----------------|
   | 🔍 `search_engine` | AI tarafından optimize edilmiş sonuçlarla web arama | Araştırma, gerçek denetim, güncel olaylar |
   | 📄 `scrape_as_markdown` | Herhangi bir web sayfasını temiz markdown'a dönüştür | İçerik çıkarımı, dokümantasyon |
   | 🎯 `discover` | Niyete dayalı alaka puanlaması ile AI sıralı web arama | Derinlemesine araştırma, RAG pipeline'ları, rekabet analizi |
-
+  
   ### 💎 Pro Mod Araçları (60+ Araç)
-
+  
   <details>
   <summary><b>Tüm Pro araçlarını görmek için tıklayın</b></summary>
-
+  
   | Kategori | Araçlar | Açıklama |
   |----------|---------|----------|
   | **Browser Kontrolü** | `scraping_browser.*` | Tam browser otomasyonu |
@@ -421,28 +421,28 @@ body_tr: |-
   | **E-ticaret** | Ürün scrapers'ları | Amazon, eBay, Walmart verileri |
   | **Sosyal Medya** | Sosyal scrapers'ları | Twitter, LinkedIn, Instagram |
   | **Haritalar ve Yerel** | Konum araçları | Google Haritalar, işletme verileri |
-
+  
   [📚 Tam tool belgelerine göz atın →](https://github.com/brightdata-com/brightdata-mcp/blob/main/assets/Tools.md)
-
+  
   </details>
-
+  
   ---
-
+  
   ## 🎮 Hemen Deneyin!
-
+  
   ### 🧪 Online Playground
   Herhangi bir kurulum olmadan Web MCP'yi deneyin:
-
+  
   <div align="center">
     <a href="https://brightdata.com/ai/playground-chat">
       
     </a>
   </div>
-
+  
   ---
-
+  
   ## 🔧 Yapılandırma
-
+  
   ### Temel Kurulum
   ```json
   {
@@ -457,7 +457,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### İleri Yapılandırma
   ```json
   {
@@ -477,9 +477,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Ortam Değişkenleri
-
+  
   | Değişken | Açıklama | Varsayılan | Örnek |
   |----------|----------|-----------|--------|
   | `API_TOKEN` | Bright Data API token'ı (gerekli) | - | `your-token-here` |
@@ -492,16 +492,16 @@ body_tr: |-
   | `BASE_MAX_RETRIES` | Geçici hatalar için temel araçlar için maksimum retry sayısı (0-3) | `0` | `1`, `3` |
   | `GROUPS` | Virgülle ayrılmış tool grup ID'leri | - | `ecommerce,browser` |
   | `TOOLS` | Virgülle ayrılmış bireysel tool adları | - | `extract,scrape_as_html` |
-
+  
   **Notlar:**
   - `POLLING_TIMEOUT` web_data_* araçlarının sonuçları bekledikleri süreyi kontrol eder. Her saniye = 1 polling denemesi.
   - Düşük değerler (örn. 300) yavaş veri koleksiyonlarında daha hızlı başarısız olur.
   - Yüksek değerler (örn. 1200) karmaşık scraping görevleri için daha fazla zaman sağlar.
-
+  
   ---
-
+  
   ## 📚 Belgeler
-
+  
   <div align="center">
     <table>
       <tr>
@@ -528,51 +528,51 @@ body_tr: |-
       </tr>
     </table>
   </div>
-
+  
   ---
-
+  
   ## 🚨 Yaygın Sorunlar ve Çözümler
-
+  
   <details>
   <summary><b>🔧 Sorun Giderme Rehberi</b></summary>
-
+  
   ### ❌ "spawn npx ENOENT" Hatası
   **Çözüm:** Node.js'i kurun veya node'a tam yolunu kullanın:
   ```json
   "command": "/usr/local/bin/node"  // macOS/Linux
   "command": "C:\\Program Files\\nodejs\\node.exe"  // Windows
   ```
-
+  
   ### ⏱️ Karmaşık Siteler Üzerinde Timeout'lar
   **Çözüm:** İstemci ayarlarında timeout'u 180'e artırın
-
+  
   ### 🔑 Kimlik Doğrulama Sorunları
   **Çözüm:** API token'ınızın geçerli olduğundan ve uygun izinlere sahip olduğundan emin olun
-
+  
   ### 📡 Uzak Sunucu Bağlantısı
   **Çözüm:** İnternet bağlantınızı ve firewall ayarlarınızı kontrol edin
-
+  
   [Daha fazla sorun giderme →](https://github.com/brightdata-com/brightdata-mcp#troubleshooting)
-
+  
   </details>
-
+  
   ---
-
+  
   ## 🤝 Katkıda Bulunmak
-
+  
   Katkılarınızı seviyoruz! İşte yardım edebilileceğiniz yollar:
-
+  
   - 🐛 [Hataları bildirin](https://github.com/brightdata-com/brightdata-mcp/issues)
   - 💡 [Özellikler önerileri yapın](https://github.com/brightdata-com/brightdata-mcp/issues)
   - 🔧 [PR gönderin](https://github.com/brightdata-com/brightdata-mcp/pulls)
   - ⭐ Bu repo'yu yıldızlayın!
-
+  
   Lütfen [Bright Data'nın kodlama standartlarını](https://brightdata.com/dna/js_code) takip edin.
-
+  
   ---
-
+  
   ## 📞 Destek
-
+  
   <div align="center">
     <table>
       <tr>
@@ -597,15 +597,15 @@ body_tr: |-
       </tr>
     </table>
   </div>
-
+  
   ---
-
+  
   ## 📜 Lisans
-
+  
   MIT © [Bright Data Ltd.](https://brightdata.com)
-
+  
   ---
-
+  
   <div align="center">
     <p>
       <strong>Oluşturan ❤️</strong><br/>
@@ -652,8 +652,8 @@ body_tr: |-
 
   <div>
     <h3>🎉 <strong>Free Tier Available!</strong> 🎉</h3>
-    <p><strong>5,000 requests/month FREE</strong> <br/>
-    <sub>Perfect for prototyping and everyday AI workflows</sub></p>
+    <p><strong>5,000 credits/month FREE</strong> <br/>
+    <sub>No credit card required · Auto-renews monthly · Perfect for prototyping and everyday AI workflows</sub></p>
   </div>
 </div>
 
@@ -709,7 +709,7 @@ Built by [Bright Data](https://brightdata.com), the world's #1 web data platform
     <tr>
       <td align="center">✅ <strong>Works with Any LLM</strong><br/><sub>Claude, GPT, Gemini, Llama</sub></td>
       <td align="center">🛡️ <strong>Never Gets Blocked</strong><br/><sub>Enterprise-grade unblocking</sub></td>
-      <td align="center">🚀 <strong>5,000 Free Requests</strong><br/><sub>Monthly</sub></td>
+      <td align="center">🚀 <strong>5,000 Free Credits</strong><br/><sub>Monthly · No card needed</sub></td>
       <td align="center">⚡ <strong>Zero Config</strong><br/><sub>Works out of the box</sub></td>
     </tr>
   </table>
@@ -783,7 +783,7 @@ https://mcp.brightdata.com/mcp?token=YOUR_API_TOKEN_HERE
     <tr>
       <td align="center">
         <h3>$0/month</h3>
-        <p><strong>5,000 requests</strong></p>
+        <p><strong>5,000 credits</strong></p>
         <hr/>
         <p>✅ Web Search<br/>
         ✅ Scraping with Web unlocker<br/>
@@ -819,8 +819,14 @@ https://mcp.brightdata.com/mcp?token=YOUR_API_TOKEN_HERE
   </table>
 </div>
 
-> **💡 Note:** Pro mode is **not included** in the free tier and incurs
-> additional charges based on usage.
+> **💡 How the free tier works:** Your account gets **5,000 credits/month**
+> (~$7.50 value), auto-renewed on the 1st with **no credit card required**.
+> MCP requests draw from this shared pool — base tools (`search_engine`,
+> `scrape_as_markdown`, `discover`) cost **1 credit per request**, while
+> `web_data_*` tools cost **1 credit per record returned**. Unused credits
+> **don't roll over**, and when they run out requests stop (no surprise
+> charges unless you've deposited funds). Pro mode is **not included** in the
+> free tier and incurs additional charges based on usage.
 
 ---
 

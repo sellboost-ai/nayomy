@@ -12,6 +12,173 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rekabetçi Analiz
+
+  **Seviye:** GÜÇLÜ  
+  **Kategori:** Ürün Ekibi  
+  **Alan:** Rekabetçi İstihbarat, Ürün Stratejisi, Pazar Analizi
+
+  ---
+
+  ## Kullanım Zamanları
+
+  - Bir ürün stratejisi veya yol haritası oturumundan önce
+  - Bir rakip büyük bir özellik veya fiyatlandırma değişikliği başlattığında
+  - Üç aylık rekabetçi inceleme
+  - Savaş kartı verilerine ihtiyaç duyduğunuz bir satış sunumundan önce
+  - Yeni bir pazar segmentine girdiğinizde
+
+  ---
+
+  ## Analiz İş Akışı
+
+  Eksiksiz bir analiz üretmek için şu adımları sırasıyla izleyin:
+
+  1. **Rakipleri tanımlayın** — Analiz etmek için 2–4 rakip listeleyin. Birincil odağın hangisi olduğunu onaylayın.
+  2. **Veri toplayın** — Ham sinyalleri her rakip için en az 3 kaynaktan (web sitesi, incelemeler, iş ilanları, SEO, sosyal medya) toplamak için `references/data-collection-guide.md` kullanın.  
+     _Doğrulama kontrol noktası: Devam etmeden önce fiyatlandırma verilerine, en az 20 incelemeye ve her rakip için iş ilanı sayılarına sahip olduğunuzu onaylayın._
+  3. **Rubrik kullanarak puanlayın** — Aşağıdaki 12 boyutlu rubriği uygulayarak her rakip ve kendi ürününüz için sayısal bir puan kartı oluşturun.  
+     _Doğrulama kontrol noktası: Her boyutun bir puanı ve en az bir destekleyici kanıt notu olmalıdır._
+  4. **Çıktılar oluşturun** — `references/analysis-templates.md` içindeki şablonları doldurun (Özellik Matrisi, Fiyatlandırma Analizi, SWOT, Konumlandırma Haritası, UX Denetimi).
+  5. **Eylem planı oluşturun** — Bulguları Eylem Öğeleri şablonuna çevirin (hızlı kazançlar / orta vadeli / stratejik).
+  6. **Paydaşlar için hazırlayın** — 3–5. adımlardan elde edilen çıktıları kullanarak Paydaş Sunumunu birleştirin.
+
+  ---
+
+  ## Veri Toplama Rehberi
+
+  > Her kaynak için tam çalıştırılabilir komut dosyaları `references/data-collection-guide.md` içindedir. Aşağıda nelerin yakalanacağının özeti vardır.
+
+  ### 1. Web Sitesi Analizi
+
+  Yakalanacak önemli şeyler:
+  - Fiyatlandırma katmanları ve fiyat noktaları
+  - Katman başına özellik listeleri
+  - Birincil CTA ve mesajlaşma
+  - Örnek çalışmalar / müşteri logoları (ICP sinyalleri)
+  - Entegrasyon logoları
+  - Güven sinyalleri (sertifikalar, uyum rozetleri)
+
+  ### 2. Uygulama Mağazası İncelemeleri
+
+  İnceleme duygu kategorileri:
+  - **Övgü** → kullanıcıların sevdiği şeyler (savunun / güçlendirin)
+  - **Özellik istekleri** → karşılanmamış ihtiyaçlar (fırsat boşlukları)
+  - **Hatalar** → kalite sinyalleri
+  - **UX şikayetleri** → onları yeneceğiniz sürtünme noktaları
+
+  **Örnek Uygulama Mağazası sorgusu (iTunes Search API):**
+  ```
+  GET https://itunes.apple.com/search?term=<competitor_name>&entity=software&limit=1
+  # trackId'yi çıkartın, sonra:
+  GET https://itunes.apple.com/rss/customerreviews/id=<trackId>/sortBy=mostRecent/json?l=en&limit=50
+  ```
+  İnceleme metni için `entry[].content.label` ve yıldız derecelendirmesi için `entry[].im:rating.label` ayrıştırın.
+
+  ### 3. İş İlanları (Ekip Büyüklüğü ve Teknoloji Yığını Sinyalleri)
+
+  İş ilanlarından sinyaller:
+  - **Mühendislik hacmi** → ölçeklendirme vs. konsolidasyonu
+  - **Spesifik teknoloji anlatımları** → yığın (React/Vue, Postgres/Mongo, AWS/GCP)
+  - **Satış/Müşteri Hizmetleri oranı** → ürün liderliğine karşı satış liderliği hareketi
+  - **Veri/ML rolleri** → gelecekteki yapay zeka özellikleri
+  - **Uyum rolleri** → düzenleyici genişleme
+
+  ### 4. SEO Analizi
+
+  Yakalanacak SEO sinyalleri:
+  - En iyi 20 organik anahtar kelime (niyet: bilgisel / navigasyonel / ticari)
+  - Alan Yetkilisi / arka bağlantı sayısı
+  - Blog yayın sıklığı ve konuları
+  - Hangi sayfaların sıralaması olduğu (ürün sayfaları vs. blog vs. dokümanlar)
+
+  ### 5. Sosyal Medya Duyarlılığı
+
+  Twitter/X API v2, Reddit veya LinkedIn aracılığıyla son anlatımları yakalayın. Yinelenen övgü, şikayetler ve özellik isteklerini arayın. API sorgu örnekleri için `references/data-collection-guide.md` bölümüne bakın.
+
+  ---
+
+  ## Puanlama Rubriği (12 Boyut, 1-5)
+
+  | # | Boyut | 1 (Zayıf) | 3 (Orta) | 5 (Sınıf En İyi) |
+  |---|-----------|----------|-------------|-------------------|
+  | 1 | **Özellikler** | Sadece çekirdek, birçok boşluk | Güçlü kapsam | Kapsamlı + eşsiz |
+  | 2 | **Fiyatlandırma** | Kafa karıştırıcı / fazla fiyatlandırılmış | Pazar oranı, net | Şeffaf, esnek, adil |
+  | 3 | **UX** | Kafa karıştırıcı, yüksek sürtünme | İşlevsel | Hoş, minimum sürtünme |
+  | 4 | **Performans** | Yavaş, güvenilmez | Kabul edilebilir | Hızlı, yüksek çalışma süresi |
+  | 5 | **Dokümanlar** | Sınırlı, eski | Düzgün kapsam | Kapsamlı, aranabilir |
+  | 6 | **Destek** | Yalnızca e-posta, yavaş | Sohbet + e-posta | 24/7, harika yanıt |
+  | 7 | **Entegrasyonlar** | 0-5 entegrasyon | 6-25 | 26+ veya derin ekosistem |
+  | 8 | **Güvenlik** | Hiç anlatılmayan | SOC2 iddiası | SOC2 Tip II, ISO 27001 |
+  | 9 | **Ölçeklenebilirlik** | Kurumsal katman yok | Orta pazar hazır | Kurumsal seviye |
+  | 10 | **Marka** | Genel, unutulmaz değil | Düzgün konumlandırma | Güçlü, farklılaştırılmış |
+  | 11 | **Topluluk** | Yok | Forum / Slack | Aktif, canlı topluluk |
+  | 12 | **İnovasyon** | Son yayınlar yok | Üç aylık | Sık, anlamlı |
+
+  **Örnek tamamlanan satır** (Rakip: Acme Corp, Boyut 3 – UX):
+
+  | Boyut | Acme Corp Puanı | Kanıt |
+  |-----------|----------------|---------|
+  | UX | 2 | Uygulama Mağazası incelemeleri "kafa karıştırıcı navigasyon"dan bahseder (38 belirtme); onboarding TTFV'den önce 7 adım gerektirir; onboarding sihirbazı yok; kaydolmada kredi kartı gerekli. |
+
+  Bu deseni her rakip için tüm 12 boyuta uygulayın.
+
+  ---
+
+  ## Şablonlar
+
+  > Tam şablon markdown `references/analysis-templates.md` içindedir. Aşağıda kısaltılmış referans vardır.
+
+  ### Özellik Karşılaştırma Matrisi
+
+  Satırlar: çekirdek özellikler, fiyatlandırma katmanları, platform yetenekleri (web, iOS, Android, API).  
+  Sütunlar: ürününüz + 3 adede kadar rakip.  
+  Her hücreyi 1–5 arasında puanlayın. Toplamı 60'tan çıkartın.  
+  **Puan efsanesi:** 5=Sınıf en iyi, 4=Güçlü, 3=Orta, 2=Ortalamanın altında, 1=Zayıf/Eksik
+
+  ### Fiyatlandırma Analizi
+
+  Rakip başına yakalayın: model türü (kişi başı / kullanım tabanlı / sabit oran / ücretsiz), giriş/orta/kurumsal fiyat noktaları, ücretsiz deneme uzunluğu.  
+  Özetleyin: fiyat lideri, değer lideri, premium konumlandırma, konumunuz ve 2–3 fiyatlandırma fırsat madde.
+
+  ### SWOT Analizi
+
+  Her rakip için: Güçlü Yönler, Zayıf Yönler, Bizim için Fırsatlar, Bize karşı Tehditler başına 3–5 madde. Her maddeyi bir veri sinyaline (inceleme alıntısı, iş ilanı sayısı, fiyatlandırma sayfası, vb.) bağlayın.
+
+  ### Konumlandırma Haritası
+
+  2x2 eksenler (örn., Basit ↔ Karmaşık / Düşük Değer ↔ Yüksek Değer). Her rakibi ve ürününüzü yerleştirin. Kabarcık boyutu = pazar payı veya finansman. ASCII ve düzenlenebilir sürümler için `references/analysis-templates.md` bölümüne bakın.
+
+  ### UX Denetim Kontrol Listesi
+
+  Onboarding: TTFV (dakika), aktivasyona kadar adımlar, kredi kartı gerekli, onboarding sihirbazı kalitesi.  
+  Ana iş akışları: adımlar, sürtünme noktaları, karşılaştırmalı puan (sizinki vs. onlarınki).  
+  Mobil: iOS/Android derecelendirmeler, özellik parity'si, en iyi şikayet ve övgü.  
+  Navigasyon: genel arama, klavye kısayolları, uygulama içi yardım.
+
+  ### Eylem Öğeleri
+
+  | Ufuk | Çaba | Örnekler |
+  |---------|--------|---------|
+  | Hızlı kazançlar (0–4 hafta) | Düşük | İnceleme rozetleri ekleyin, karşılaştırma açılış sayfası yayımlayın |
+  | Orta vadeli (1–3 ay) | Orta | Ücretsiz katman başlatın, onboarding TTFV'yi iyileştirin, en iyi istenen entegrasyonu ekleyin |
+  | Stratejik (3–12 ay) | Yüksek | Yeni pazara girin, API v2'yi oluşturun, SOC2 Tip II'yi elde edin |
+
+  ### Paydaş Sunumu (7 slayt)
+
+  1. **Yönetici Özeti** — Tehdit seviyesi (DÜŞÜK/ORTA/YÜKSEK/KRİTİK), en iyi güçlü yön, en iyi fırsat, önerilen eylem
+  2. **Pazar Konumu** — 2x2 konumlandırma haritası
+  3. **Özellik Puan Kartı** — 12 boyutlu radar veya tablo, toplam puanlar
+  4. **Fiyatlandırma Analizi** — Karşılaştırma tablosu + önemli bulgu
+  5. **UX Vurgular** — Daha iyi yaptıkları (3 madde) vs. kazandığımız yerler (3 madde)
+  6. **Müşteri Sesi** — En iyi 3 inceleme şikayeti (alıntı veya parafraze)
+  7. **Bizim Eylem Planımız** — Hızlı kazançlar, orta vadeli, stratejik öncelikler; Ham veriler içeren ek
+
+  ## İlişkili Beceriler
+
+  - **Ürün Stratejisti** (`product-team/product-strategist/`) — Rekabetçi içgörüler OKR ve strateji planlamasını besler
+  - **Açılış Sayfası Oluşturucu** (`product-team/landing-page-generator/`) — Rekabetçi konumlandırma açılış sayfası mesajlaşmasını bilgilendirir
 ---
 
 # Competitive Teardown

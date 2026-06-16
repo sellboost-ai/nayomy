@@ -3,7 +3,7 @@ name: "Aas-ee/open-webSearch"
 description: "Web search using free multi-engine search (NO API KEYS REQUIRED) — Supports Bing, Baidu, DuckDuckGo, Brave, Exa, and CSDN."
 category: "Search & Data Extraction"
 repo: "Aas-ee/open-webSearch"
-stars: 1304
+stars: 1430
 url: "https://github.com/Aas-ee/open-webSearch"
 body_length: 26381
 license: "Apache-2.0"
@@ -11,24 +11,24 @@ language: "TypeScript"
 homepage: "https://open-web-search.vercel.app/mcp"
 body_tr: |-
   <div align="center">
-
+  
   # Open-WebSearch
-
+  
   [![ModelScope](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Aas-ee/3af09e0f4c7821fb2e9acb96483a5ff0/raw/badge.json&color=%23de5a16)](https://www.modelscope.cn/mcp/servers/Aasee1/open-webSearch)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/Aas-ee/open-webSearch)](https://archestra.ai/mcp-catalog/aas-ee__open-websearch)
   [![smithery badge](https://smithery.ai/badge/@Aas-ee/open-websearch)](https://smithery.ai/server/@Aas-ee/open-websearch)
   ![Version](https://img.shields.io/github/v/release/Aas-ee/open-websearch)
   ![License](https://img.shields.io/github/license/Aas-ee/open-websearch)
   ![Issues](https://img.shields.io/github/issues/Aas-ee/open-websearch)
-
+  
   **[🇨🇳 中文](./README-zh.md) | 🇺🇸 English**
-
+  
   </div>
-
+  
   `open-websearch` bir MCP sunucusu, CLI ve yerel daemon sağlar ve ayrıca API anahtarı olmadan canlı web araması ve içerik alımı için beceri rehberli agent iş akışlarıyla eşleştirilebilir.
-
+  
   ## Özellikler
-
+  
   - Çok motorlu sonuçlarla web araması
       - bing
       - baidu
@@ -49,9 +49,9 @@ body_tr: |-
       - csdn
       - github (README dosyaları)
       - genel HTTP(S) sayfa / Markdown içeriği
-
+  
   ## Doğru Yolu Seçin
-
+  
   - `MCP`
     - `open-websearch` uygulamasını Claude Desktop, Cherry Studio, Cursor veya başka bir MCP istemcisine bağlamak istediğinizde en iyisidir.
   - `CLI`
@@ -60,116 +60,116 @@ body_tr: |-
     - Yeniden kullanılabilir uzun süreli yerel HTTP hizmeti istediğinizde, `status`, `GET /health` ve `POST /search` / `POST /fetch-*` değerlerini ortaya çıkarmak en iyisidir. `open-websearch serve` ile açıkça başlatın ve `open-websearch status` ile kontrol edin.
   - `Skill`
     - Kurulum ve kullanım için agent'e yönelik rehberlik katmanı olarak en iyisidir. Bir skill, MCP, CLI veya yerel daemon yerine geçmez; tipik olarak CLI ve/veya yerel daemon ile birlikte çalışarak bir agent'in en küçük çalışan yolu keşfetmesine, etkinleştirmesine ve kullanmasına yardımcı olur.
-
+  
   ## Bir Skill ile Kullanım
-
+  
   Önce agent'iniz için `open-websearch` skill'ini yükleyin:
-
+  
   ```bash
   npx skills add https://github.com/Aas-ee/open-webSearch --skill open-websearch
   ```
-
+  
   İlk kullanımda, skill tipik olarak bu yolu izler: kullanılabilir bir `open-websearch` yolunun zaten var olup olmadığını algıla, yoksa kurulum/etkinleştirme rehberini sağla, yeteneğin etkin olduğunu doğrula ve yalnızca daha sonra en küçük çalışan yol aracılığıyla arama veya getirme işlemine devam et.
-
+  
   Mevcut ortam kurulumu veya etkinleştirmeyi otomatik olarak tamamlayamıyorsa, agent'in önce yerel daemon'u açıkça başlatmasını sağlayabilirsiniz:
-
+  
   ```bash
   open-websearch serve
   open-websearch status
   ```
-
+  
   Yükleme proxy ayarlarını çalışma zamanı proxy ayarlarından ayrı tutun:
-
+  
   - Yükleme proxy / mirror
     - Skill veya agent `open-websearch`, `playwright` veya diğer npm paketlerini yüklerken bunu kullanın.
     - Kısıtlı ağlarda, npm'ye özgü bayraklar veya npm yapılandırması sıklıkla jenerik shell proxy değişkenlerinden daha iyi çalışır, örneğin:
-
+  
   ```bash
   npm --proxy http://127.0.0.1:7890 --https-proxy http://127.0.0.1:7890 install -g open-websearch
   ```
-
+  
   - Çalışma zamanı proxy
     - Daemon zaten yüklü olduğunda ve canlı `search` / `fetch` işlemini gerçekleştirmek üzereyken bunu kullanın.
     - Bu, `serve` başladıktan sonra `open-websearch` ağ trafiğini etkiler, örneğin:
-
+  
   ```bash
   USE_PROXY=true PROXY_URL=http://127.0.0.1:7890 open-websearch serve
   ```
-
+  
   Agent yalnızca npm proxy ayarlarıyla paket yükleme adımını geçebiliyorsa, ancak başlatıldıktan sonra canlı arama/getirme işlemi de bir proxy gerektiriyorsa, bunlar iki ayrı yapılandırma adımıdır ve ayrı ayrı işlenmelidir.
-
+  
   ## CLI ve Yerel Daemon
-
+  
   CLI tek seferlik yürütme içindir. Yerel daemon, daha düşük başlangıç ağırlığı ile tekrarlanan çağrılar için uzun süreli yerel HTTP hizmetidir. `open-websearch serve` açık daemon başlatma komutu olarak ve `open-websearch status` açık daemon durum komutu olarak kullanın.
-
+  
   `search` ve `fetch-web` gibi action komutları, mevcut olduğunda önce varsayılan yerel daemon'u deneyin. `--daemon-url` geçirirseniz, bu daemon yolu açık hale gelir ve doğrudan yürütmeye sessiz fallback devre dışı bırakılır.
-
+  
   Önce derleyin:
-
+  
   ```bash
   npm run build
   ```
-
+  
   Yerel daemon'u başlatın:
-
+  
   ```bash
   npm run serve
   # global olarak yüklü: open-websearch serve
   ```
-
+  
   Durumu kontrol edin:
-
+  
   ```bash
   npm run status -- --json
   # global olarak yüklü: open-websearch status --json
   ```
-
+  
   Tek seferlik yerel CLI araması çalıştırın:
-
+  
   ```bash
   npm run search:cli -- "open web search" --json
   ```
-
+  
   Notlar:
   - Bare `open-websearch` MCP sunucusu uyumluluk giriş noktasıdır, agent otomasyonu için önerilen daemon başlatma komutu değildir.
   - İçerik çıkarımı için önce arama yapmayı ve daha sonra daha spesifik bir sonuç sayfasını getirmeyi tercih edin. Bazı ana sayfalar ve JS yoğun açılış sayfaları, `fetch-web` aracılığıyla okunabilir makale metni gösteremeyebilir.
-
+  
   Yerel daemon HTTP API'si (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`) için [docs/http-api.md](docs/http-api.md) bakınız.
-
+  
   ## TODO
   - ~~Bing~~ (zaten desteklenmiyor), ~~DuckDuckGo~~ (zaten desteklenmiyor), ~~Exa~~ (zaten desteklenmiyor), ~~Brave~~ (zaten desteklenmiyor), ~~Sogou~~ (zaten desteklenmiyor), Google ve diğer arama motorları desteği
   - Daha fazla blog, forum ve sosyal platform desteği
   - Makale içeriği çıkarımını optimize edin, daha fazla siteler için destek ekleyin
   - ~~GitHub README getirme desteği~~ (zaten desteklenmiyor)
-
+  
   ## Kurulum Kılavuzu
-
+  
   `open-websearch` uygulamasını MCP sunucusu olarak kullanıyorsanız, aşağıdaki MCP odaklı kuruluma devam edin.
-
+  
   ### NPX Hızlı Başlangıç (Önerilir)
-
+  
   Başlamak için en hızlı yol:
-
+  
   ```bash
   # Temel kullanım
   npx open-websearch@latest
-
+  
   # Çevre değişkenleriyle (Linux/macOS)
   DEFAULT_SEARCH_ENGINE=duckduckgo ENABLE_CORS=true npx open-websearch@latest
-
+  
   # Windows PowerShell
   $env:DEFAULT_SEARCH_ENGINE="duckduckgo"; $env:ENABLE_CORS="true"; npx open-websearch@latest
-
+  
   # Windows CMD
   set MODE=stdio && set DEFAULT_SEARCH_ENGINE=duckduckgo && npx open-websearch@latest
-
+  
   # Platformlar arası (cross-env gereklidir, yerel geliştirme için kullanılır)
   npm install -g open-websearch
   npx cross-env DEFAULT_SEARCH_ENGINE=duckduckgo ENABLE_CORS=true open-websearch
   ```
-
+  
   **Çevre Değişkenleri:**
-
+  
   | Değişken | Varsayılan | Seçenekler | Açıklama |
   |----------|----------|----------|----------|
   | `ENABLE_CORS` | `false` | `true`, `false` | CORS'u etkinleştir |
@@ -196,91 +196,91 @@ body_tr: |-
   | `MCP_TOOL_FETCH_GITHUB_NAME` | `fetchGithubReadme` | Geçerli MCP tool adı | GitHub README getirme aracı için özel ad |
   | `MCP_TOOL_FETCH_JUEJIN_NAME` | `fetchJuejinArticle` | Geçerli MCP tool adı | Juejin makale getirme aracı için özel ad |
   | `MCP_TOOL_FETCH_WEB_NAME` | `fetchWebContent` | Geçerli MCP tool adı | Jenerik web/Markdown getirme aracı için özel ad |
-
+  
   **Yaygın yapılandırmalar:**
   ```bash
   # Kısıtlı bölgeler için proxy'yi etkinleştir
   USE_PROXY=true PROXY_URL=http://127.0.0.1:7890 npx open-websearch@latest
-
+  
   # Yalnızca hedef bir web sitesinin bozuk sertifika zincirine sahip olması durumunda
   FETCH_WEB_INSECURE_TLS=true npx open-websearch@latest
-
+  
   # İstek ilk, sonra mevcutsa Playwright'a fallback
   SEARCH_MODE=auto npx open-websearch@latest
-
+  
   # Force request-only Bing araması
   SEARCH_MODE=request npx open-websearch@latest
-
+  
   # Tam yapılandırma
   DEFAULT_SEARCH_ENGINE=duckduckgo ENABLE_CORS=true USE_PROXY=true PROXY_URL=http://127.0.0.1:7890 PORT=8080 npx open-websearch@latest
   ```
-
+  
   Tarayıcı geliştirilmiş Bing fallback opt-in'dir. Yayınlanan paket artık Playwright'ı paketlemiyor. Aşağıdaki kurulumlardan biriyle manuel olarak etkinleştirin:
-
+  
   1. Tam yerel Playwright kurulumu:
   ```bash
   npm install playwright
   npx playwright install chromium
   SEARCH_MODE=auto npx open-websearch@latest
   ```
-
+  
   2. Mevcut bir tarayıcı binary'sini ince bir istemciyle yeniden kullan:
   ```bash
   npm install playwright-core
   PLAYWRIGHT_PACKAGE=playwright-core PLAYWRIGHT_EXECUTABLE_PATH=/path/to/chromium SEARCH_MODE=auto npx open-websearch@latest
   ```
-
+  
   3. Makinede başka yerde zaten mevcut olan bir Playwright paketini yeniden kullan:
   ```bash
   PLAYWRIGHT_MODULE_PATH=/absolute/path/to/node_modules/playwright SEARCH_MODE=playwright npx open-websearch@latest
   ```
-
+  
   4. Mevcut uzak tarayıcıya bağlan:
   ```bash
   npm install playwright-core
   PLAYWRIGHT_PACKAGE=playwright-core PLAYWRIGHT_WS_ENDPOINT=ws://127.0.0.1:3000/ SEARCH_MODE=auto npx open-websearch@latest
   ```
-
+  
   5. Yerel Chrome/Chromium oturumunu CDP üzerinden yeniden kullan:
   ```bash
   npm install playwright-core
-
+  
   # Önce hata ayıklama portu ile Chrome/Chromium'u başlat
   chrome --remote-debugging-port=9222 --user-data-dir=/tmp/open-websearch-chrome
-
+  
   # Sonra CDP üzerinden bağlan
   PLAYWRIGHT_PACKAGE=playwright-core PLAYWRIGHT_CDP_ENDPOINT=http://127.0.0.1:9222 SEARCH_MODE=auto npx open-websearch@latest
   ```
   Bu, kendi oturum açmış veya önceden doğrulanan tarayıcı oturumunuzu yeniden kullanmak istediğinizde en pratik kurulumdur.
-
+  
   Windows PowerShell örneği:
   ```powershell
   npm install playwright-core
-
+  
   & "$env:LOCALAPPDATA\Google\Chrome\Application\chrome.exe" `
     --remote-debugging-port=9222 `
     --user-data-dir="$env:TEMP\open-websearch-chrome"
-
+  
   $env:PLAYWRIGHT_PACKAGE="playwright-core"
   $env:PLAYWRIGHT_CDP_ENDPOINT="http://127.0.0.1:9222"
   $env:SEARCH_MODE="auto"
   npx open-websearch@latest
   ```
-
+  
   Modu davranış:
   - `request`: yalnızca request tabanlı Bing scraping'ini kullanır
   - `auto`: request'i ilk deneyin ve yalnızca request başarısız olduğunda ve manuel olarak erişilebilir bir Playwright client'ı + tarayıcısı varsa Playwright'a fallback yapın
   - `playwright`: Playwright'ı zorlar ve yapılandırılan Playwright client'ı veya tarayıcı hedefi kullanılamadığında hata verir
-
+  
   Notlar:
   - `PLAYWRIGHT_MODULE_PATH` `PLAYWRIGHT_PACKAGE` değerinden önce gelir
   - `PLAYWRIGHT_WS_ENDPOINT` `PLAYWRIGHT_CDP_ENDPOINT` değerinden önce gelir
   - Uzak endpoint'ler `PLAYWRIGHT_EXECUTABLE_PATH` ve yerel proxy başlatma bayraklarını yoksayar
   - Playwright mevcut olduğunda, engellenen CSDN/Zhihu makale getirmeleri ve jenerik web getirmeleri de tarayıcı tarafından alınan cookies'lerle yeniden denemeler yapabilir
   - Playwright olmadan, `fetchWebContent` yalnızca request yoluna kalır. Genel sayfalar hala çalışabilir, ancak tarayıcı cookies'leri veya tarayıcı tarafından işlenen HTML'si gerektiren sayfalar başarısız olabilir.
-
+  
   ### Yerel Kurulum
-
+  
   1. Bu deposunu klonlayın veya indirin
   2. Bağımlılıkları yükleyin:
   ```bash
@@ -292,7 +292,7 @@ body_tr: |-
   npm run build
   ```
   4. Sunucuyu MCP yapılandırmanıza ekleyin:
-
+  
   **Cherry Studio:**
   ```json
   {
@@ -307,7 +307,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **VSCode (Claude Dev Extension):**
   ```json
   {
@@ -327,7 +327,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Claude Desktop:**
   ```json
   {
@@ -343,7 +343,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **NPX Komut Satırı Yapılandırması:**
   ```json
   {
@@ -362,7 +362,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   Windows NPX yapılandırması:
   ```json
   {
@@ -384,7 +384,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   Proxy ve TLS notları:
   - open-websearch artık Axios çevre proxy otomatik algılamasını içinde devre dışı bırakır ve yalnızca açık `USE_PROXY` + `PROXY_URL` yolunu kullanır.
   - `USE_PROXY=true` olduğunda, tüm Axios tabanlı ağ istekleri yapılandırılan `PROXY_URL` yolunu izler, doğrudan istekleri çevre proxy davranışı ile karıştırmak yerine.
@@ -393,7 +393,7 @@ body_tr: |-
   - Eğer ana makine zaten `HTTP_PROXY` veya `HTTPS_PROXY` ayarladıysa, bunlar artık sunucunun dahili istek davranışını geçersiz kılmayacaktır.
   - Sitenin eksik bir ara CA'sı olması durumunda Windows'ta `NODE_EXTRA_CA_CERTS` yapılandırmayı tercih edin.
   - `FETCH_WEB_INSECURE_TLS=true` yalnızca son çare olarak `fetchWebContent` için kullanın, çünkü TLS doğrulamasını zayıflatır.
-
+  
   **Cherry Studio için Yerel STDIO Yapılandırması (Windows):**
   ```json
   {
@@ -410,22 +410,22 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Docker Dağıtımı
-
+  
   Docker Compose kullanarak hızlı dağıtım:
-
+  
   ```bash
   docker-compose up -d
   ```
-
+  
   Veya Docker'ı doğrudan kullanın:
   ```bash
   docker run -d --name web-search -p 3000:3000 -e ENABLE_CORS=true -e CORS_ORIGIN=* ghcr.io/aas-ee/open-web-search:latest
   ```
-
+  
   Çevre değişkeni yapılandırması:
-
+  
   | Değişken | Varsayılan | Seçenekler | Açıklama |
   |----------|----------|----------|----------|
   | `ENABLE_CORS` | `false` | `true`, `false` | CORS'u etkinleştir |
@@ -435,7 +435,7 @@ body_tr: |-
   | `PROXY_URL` | `http://127.0.0.1:7890` | Geçerli herhangi bir URL | Proxy sunucusu URL'si |
   | `FAKE_IP_CIDRS` | boş | Virgülle ayrılmış CIDR listesi | Bu CIDR'lerdeki DNS cevaplarını sentetik fake-IP sonuçları olarak değerlendir ve özel ağ DNS cevapları olarak engelleme. Sabit özel/yerel hedefler ve diğer özel ağ DNS cevapları engellemeye devam eder |
   | `PORT` | `3000` | 1-65535 | Sunucu portu |
-
+  
   Daha sonra MCP client'ınızda yapılandırın:
   ```json
   {
@@ -459,15 +459,15 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Kullanım Kılavuzu
-
+  
   Sunucu altı aracı sağlar: `search`, `fetchLinuxDoArticle`, `fetchCsdnArticle`, `fetchGithubReadme`, `fetchJuejinArticle` ve `fetchWebContent`.
-
+  
   Yerel daemon HTTP API'si (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`) için [docs/http-api.md](docs/http-api.md) bakınız.
-
+  
   ### search Aracı Kullanımı
-
+  
   ```typescript
   {
     "query": string,        // Arama sorgusu
@@ -476,7 +476,7 @@ body_tr: |-
     "searchMode": string    // İsteğe bağlı: request, auto veya playwright (şu anda yalnızca Bing'i etkiler)
   }
   ```
-
+  
   Kullanım örneği:
   ```typescript
   use_mcp_tool({
@@ -489,7 +489,7 @@ body_tr: |-
     }
   })
   ```
-
+  
   Yanıt örneği:
   ```json
   [
@@ -502,17 +502,17 @@ body_tr: |-
     }
   ]
   ```
-
+  
   ### fetchCsdnArticle Aracı Kullanımı
-
+  
   CSDN blog makalelerinin tam içeriğini getirmek için kullanılır.
-
+  
   ```typescript
   {
     "url": string    // search aracı kullanılarak CSDN arama sonuçlarından URL
   }
   ```
-
+  
   Kullanım örneği:
   ```
 ---

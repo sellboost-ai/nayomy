@@ -9,6 +9,197 @@ path: "rules/snowflake-snowpark-dbt-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/snowflake-snowpark-dbt-cursorrules-prompt-file.mdc"
 body_length: 6612
 file_extension: ".mdc"
+body_tr: |-
+  ```markdown
+  // Snowflake Snowpark Python & dbt
+  // Snowpark Python geliştirme ve Snowflake adaptörü ile dbt için uzman rehberlik
+
+  Snowpark Python (Snowflake'in sunucu tarafı Python API'si) ve dbt-snowflake adaptörü konusunda uzmansınız. Her iki aracı kullanarak production-grade veri dönüştürme pipeline'ları oluşturursunuz.
+
+  // ═══════════════════════════════════════════
+  // SNOWPARK PYTHON
+  // ═══════════════════════════════════════════
+
+  // Snowpark, Python'u Snowflake warehouse'larında sunucu tarafında çalıştırır. Veriler Snowflake'i hiçbir zaman terk etmez.
+  // Temel abstraksiyonlar: Session, DataFrame, UDF, UDTF, UDAF, Stored Procedure.
+
+  // Session
+  ```python
+  from snowflake.snowpark import Session
+  import os
+  session = Session.builder.configs({
+      "account": os.environ["SNOWFLAKE_ACCOUNT"],
+      "user": os.environ["SNOWFLAKE_USER"],
+      "password": os.environ["SNOWFLAKE_PASSWORD"],
+      "role": "my_role", "warehouse": "my_wh", "database": "my_db", "schema": "my_schema"
+  }).create()
+  ```
+
+  // DataFrame API — Lazy evaluation, collect()/show() üzerinde yürütülen query plan oluşturur.
+  ```python
+  df = session.table("customers")
+  df_filtered = df.filter(df["region"] == "US").select("name", "email", "revenue")
+  df_agg = df.group_by("region").agg(sum("revenue").alias("total_revenue"))
+  df_agg.show()
+  ```
+
+  // Temel operasyonlar: .filter(), .select(), .group_by().agg(), .join(), .sort(),
+  // .with_column(), .drop(), .distinct(), .limit(), .union_all(), .flatten(),
+  // .write.save_as_table()
+
+  // Scalar UDFs
+  ```python
+  from snowflake.snowpark.functions import udf
+  @udf(name="normalize_email", replace=True)
+  def normalize_email(email: str) -> str:
+      return email.strip().lower() if email else None
+  ```
+
+  // Vektörleştirilmiş UDFs (ML inference için 10-100x daha hızlı):
+  ```python
+  import pandas as pd
+  @udf(name="predict_score", packages=["scikit-learn", "pandas"], replace=True)
+  def predict_score(features: pd.Series) -> pd.Series:
+      import pickle, sys
+      model = pickle.load(open(sys.path[0] + "/model.pkl", "rb"))
+      return pd.Series(model.predict(features.values.reshape(-1, 1)))
+  ```
+
+  // UDTFs (giriş başına birden fazla satır döndürür):
+  ```python
+  class Tokenizer:
+      def process(self, text: str):
+          for token in text.split():
+              yield (token,)
+
+  tokenize = session.udtf.register(Tokenizer,
+      output_schema=StructType([StructField("token", StringType())]),
+      input_types=[StringType()], name="tokenize", replace=True)
+  ```
+
+  // Stored Procedures (sunucu tarafı multi-step mantık):
+  ```python
+  from snowflake.snowpark.functions import sproc
+  @sproc(name="daily_etl", replace=True, packages=["snowflake-snowpark-python"])
+  def daily_etl(session: Session) -> str:
+      raw = session.table("raw_events")
+      cleaned = raw.filter(raw["event_type"].is_not_null())
+      cleaned.write.mode("overwrite").save_as_table("cleaned_events")
+      return f"Processed {cleaned.count()} rows"
+  ```
+
+  // Üçüncü Taraf Paketler: session.add_packages("pandas", "scikit-learn==1.3.0", "xgboost")
+  // Dosya Erişimi: statik dosyalar için session.add_import("@my_stage/model.pkl").
+  // Snowflake üzerinde pandas (veri hareketi yok):
+  //   import modin.pandas as pd; import snowflake.snowpark.modin.plugin
+  //   df = pd.read_snowflake("my_table")
+
+  // ═══════════════════════════════════════════
+  // DBT WITH SNOWFLAKE ADAPTER
+  // ═══════════════════════════════════════════
+
+  // Kurulum: pip install dbt-snowflake
+  // profiles.yml:
+  ```yaml
+  my_project:
+    target: dev
+    outputs:
+      dev:
+        type: snowflake
+        account: myaccount
+        user: myuser
+        password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+        role: transformer
+        database: analytics
+        warehouse: transforming
+        schema: public
+        threads: 4
+  ```
+
+  // Materializasyonlar: view, table, incremental, ephemeral, dynamic_table
+
+  // dbt'de Dynamic Tables:
+  // {{ config(materialized='dynamic_table', snowflake_warehouse='transforming', target_lag='1 hour') }}
+  // SELECT customer_id, SUM(amount) AS lifetime_value FROM {{ ref('stg_orders') }} GROUP BY 1
+
+  // Incremental Modeller:
+  ```jinja
+  {{
+    config(
+      materialized='incremental',
+      unique_key='event_id',
+      incremental_strategy='merge',
+      on_schema_change='sync_all_columns'
+    )
+  }}
+  SELECT * FROM {{ ref('stg_events') }}
+  {% if is_incremental() %}
+    WHERE event_timestamp > (SELECT MAX(event_timestamp) FROM {{ this }})
+  {% endif %}
+  ```
+
+  // Snowflake'e Özgü Konfigürasyonlar:
+  // cluster_by=['col1', 'col2']  — Clustering (sadece büyük tablolar için)
+  // transient=true               — Fail-safe yok (daha düşük depolama maliyeti)
+  // query_tag='finance_daily'    — Workload attribution
+  // copy_grants=true             — Değiştirmede erişimi koru
+  // snowflake_warehouse='lg_wh'  — Model başına warehouse geçersiz kılması
+  // secure=true                  — Güvenli viewlar
+
+  // Kaynaklar (models/staging/_sources.yml):
+  ```yaml
+  sources:
+    - name: raw
+      database: raw_db
+      schema: jaffle_shop
+      tables:
+        - name: customers
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 12, period: hour}
+            error_after: {count: 24, period: hour}
+  ```
+
+  // Test Etme (schema.yml):
+  ```yaml
+  models:
+    - name: stg_customers
+      columns:
+        - name: customer_id
+          tests: [unique, not_null]
+  ```
+
+  // Temel Komutlar:
+  // dbt run, dbt test, dbt build (sırayla çalıştır+test), dbt compile
+  // dbt run --select my_model+  (model + downstream)
+  // dbt run --select +my_model  (model + upstream)
+  // dbt source freshness, dbt docs generate && dbt docs serve
+
+  // Özel schema makrosu (macros/generate_schema_name.sql):
+  ```jinja
+  {% macro generate_schema_name(custom_schema_name, node) %}
+    {% if custom_schema_name %}{{ custom_schema_name | trim }}{% else %}{{ target.schema }}{% endif %}
+  {% endmacro %}
+  ```
+
+  // En İyi Uygulamalar
+  - ML inference için vektörleştirilmiş UDF'leri (pandas) tercih edin — scalar UDF'lerden çok daha hızlıdır.
+  - Production UDF'leri ve stored procedure'larda paket versiyonlarını sabitleyin.
+  - Yeniden kullanılabilir Python pipeline'larında DataFrame API'yi raw SQL string'lerinin yerine kullanın.
+  - Staging modellerini (stg_*) yeniden adlandırma/type-casting için, mart modellerini işletme tabloları için kullanın.
+  - Fact tablolar için incremental, near-real-time için dynamic_table kullanın.
+  - Incremental modellerde on_schema_change='sync_all_columns' ayarlayın.
+  - İzin sorunlarından kaçınmak için copy_grants=true kullanın. Seçici yürütme için modelları tag'leyin.
+  - dbt çalıştırmaları ve analyst sorguları için ayrı warehouse'lar kullanın.
+
+  // Anti-Patternler
+  - Büyük DataFrame'leri client'e collect() etmeyin — sunucu tarafında işleyin.
+  - Satırlar üzerinde Python döngüleri kullanmayın — DataFrame operasyonlarını veya vektörleştirilmiş UDF'leri kullanın.
+  - {% if is_incremental() %} koruması olmadan {{ this }} kullanmayın.
+  - Küçük tablolarda (< 1TB) cluster_by ayarlamayın.
+  - Materialize='table' seçeneğini her şey için kullanmayın — viewlar ücretsizdir.
+  - Database/schema'yı hardcode etmeyin — {{ ref() }} ve {{ source() }} kullanın.
+  ```
 ---
 
 // Snowflake Snowpark Python & dbt

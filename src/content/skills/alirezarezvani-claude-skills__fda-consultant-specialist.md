@@ -12,6 +12,313 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # FDA Danışmanı Uzmanı
+
+  Tıbbi cihaz üreticileri için FDA yasal danışmanlığı; gönderim yolları, Kalite Yönetim Sistemi Yönetmeliği (QMSR, 21 CFR Bölüm 820 — eski adıyla QSR), HIPAA uyumluluğu ve cihaz siber güvenliği gereksinimlerini kapsar.
+
+  ## İçindekiler
+
+  - [FDA Yolu Seçimi](#fda-yolu-seçimi)
+  - [510(k) Gönderim Süreci](#510k-gönderim-süreci)
+  - [QMSR Uyumluluğu (eski adıyla QSR)](#qmsr-uyumluluğu-eski-adıyla-qsr)
+  - [Tıbbi Cihazlar için HIPAA](#tıbbi-cihazlar-için-hipaa)
+  - [Cihaz Siber Güvenliği](#cihaz-siber-güvenliği)
+  - [Kaynaklar](#kaynaklar)
+
+  ---
+
+  ## FDA Yolu Seçimi
+
+  Cihaz sınıflandırması ve yordamcı (predicate) mevcudiyetine göre uygun FDA yasal yolunu belirleyin.
+
+  ### Karar Alma Çerçevesi
+
+  ```
+  Yordamcı cihaz var mı?
+  ├── EVET → Maddi eşdeğer mi?
+  │   ├── EVET → 510(k) Yolu
+  │   │   ├── Tasarım değişikliği yok → Kısaltılmış 510(k)
+  │   │   ├── Yalnızca üretim → Özel 510(k)
+  │   │   └── Tasarım/performans → Geleneksel 510(k)
+  │   └── HAYIR → PMA veya De Novo
+  └── HAYIR → Yeni cihaz mı?
+      ├── Düşük-orta risk → De Novo
+      └── Yüksek risk (Sınıf III) → PMA
+  ```
+
+  ### Yollar Karşılaştırması
+
+  | Yol | Ne Zaman Kullanılır | Süre | Kullanıcı Ücreti (2024 Mali Yılı) |
+  |-----|---------------------|------|-----------------------------------|
+  | 510(k) Geleneksel | Yordamcı var, tasarım değişiklikleri | 90 gün | $21.760 (2024 Mali Yılı) |
+  | 510(k) Özel | Yalnızca üretim değişiklikleri | 30 gün | $21.760 (2024 Mali Yılı) |
+  | 510(k) Kısaltılmış | Rehber/standart uyumluluğu | 30 gün | $21.760 (2024 Mali Yılı) |
+  | De Novo | Yeni, düşük-orta risk | 150 gün | $134.676 (2024 Mali Yılı) |
+  | PMA | Sınıf III, yordamcı yok | 180+ gün | $425.000+ (2024 Mali Yılı) |
+
+  > Kullanıcı ücretleri MDUFA altında yıllık olarak belirlenir. Bütçe planlama yapmadan önce fda.gov adresinde cari mali yıl ücretlerini doğrulayın (MDUFA kullanıcı ücreti tarifesi); küçük işletme oranları farklıdır.
+
+  ### Gönderim Öncesi Strateji
+
+  1. Ürün kodunu ve sınıflandırmasını belirleyin
+  2. 510(k) veritabanında yordamcıları arayın
+  3. Maddi eşdeğerlik uygulanabilirliğini değerlendirin
+  4. FDA için Q-Sub sorularını hazırlayın
+  5. Gerekirse Gönderim Öncesi toplantı planlayın
+
+  **Referans:** Yol karar matrislerini ve gönderim gereksinimlerini görmek için [fda_submission_guide.md](references/fda_submission_guide.md) dosyasına bakınız.
+
+  ---
+
+  ## 510(k) Gönderim Süreci
+
+  ### İş Akışı
+
+  ```
+  Aşama 1: Planlama
+  ├── Adım 1: Yordamcı cihaz(ları) belirleyin
+  ├── Adım 2: Hedeflenen kullanım ve teknolojiyi karşılaştırın
+  ├── Adım 3: Test gereksinimlerini belirleyin
+  └── Kontrol Noktası: Maddi eşdeğerlik argümanı uygulanabilir mi?
+
+  Aşama 2: Hazırlık
+  ├── Adım 4: Performans testini tamamlayın
+  ├── Adım 5: Cihaz açıklamasını hazırlayın
+  ├── Adım 6: Maddi eşdeğerlik karşılaştırmasını belgelendirin
+  ├── Adım 7: Etiketlemeyi tamamlayın
+  └── Kontrol Noktası: Tüm gerekli bölümler tamamlandı mı?
+
+  Aşama 3: Gönderim
+  ├── Adım 8: Gönderim paketini hazırlayın
+  ├── Adım 9: eSTAR üzerinden gönderin
+  ├── Adım 10: Kabul bildirimini takip edin
+  └── Kontrol Noktası: Gönderim kabul edildi mi?
+
+  Aşama 4: İnceleme
+  ├── Adım 11: İnceleme durumunu izleyin
+  ├── Adım 12: AI taleplerini yanıtlayın
+  ├── Adım 13: Karar alın
+  └── Doğrulama: Maddi eşdeğerlik mektubu alındı mı?
+  ```
+
+  ### Gerekli Bölümler (21 CFR 807.87)
+
+  | Bölüm | İçerik |
+  |-------|--------|
+  | Ön Yazı | Gönderim türü, cihaz kimliği, iletişim bilgileri |
+  | Form 3514 | CDRH ön-pazar incelemesi kapak sayfası |
+  | Cihaz Açıklaması | Fiziksel açıklama, çalışma prensipleri |
+  | Kullanım Göstergesi | Form 3881, hasta popülasyonu, kullanım ortamı |
+  | Maddi Eşdeğerlik Karşılaştırması | Yordamcı ile yan yana karşılaştırma |
+  | Performans Testleri | Bench, biyouyumluluk, elektriksel güvenlik |
+  | Yazılım Belgelendirmesi | Risk seviyesi, tehdit analizi (IEC 62304) |
+  | Etiketleme | Kullanım Talimatları, paket etiketleri, uyarılar |
+  | 510(k) Özeti | Gönderimin halka açık özeti |
+
+  ### Yaygın RTA Sorunları
+
+  | Sorun | Önleme |
+  |-------|--------|
+  | Eksik kullanıcı ücreti | Gönderimden önce ödemeyi doğrulayın |
+  | Eksik Form 3514 | Tüm alanları gözden geçirin, imza sağlayın |
+  | Yordamcı tanımlanmadı | FDA veritabanında K-numarasını doğrulayın |
+  | Yetersiz maddi eşdeğerlik karşılaştırması | Tüm teknolojik özellikleri ele alın |
+
+  ---
+
+  ## QMSR Uyumluluğu (eski adıyla QSR)
+
+  Tıbbi cihaz üreticileri için Kalite Yönetim Sistemi Yönetmeliği (QMSR) gereksinimleri, 21 CFR Bölüm 820 altında.
+
+  > **QMSR geçişi (2026-02-02 tarihinde yürürlüğe giriş):** FDA'nın QMSR nihai kuralı (89 FR 7496), 21 CFR Bölüm 820'yi **ISO 13485:2016 referansını içerecek** şekilde değiştirmiş ve eski QSR alt bölüm yapısını (820.20–820.198) kaldırmıştır. Bu alt bölüm numaraları **tarihseldir** ve artık CFR'de mevcut değildir; karşılık gelen gereksinimler şimdi ISO 13485:2016 maddelerinden ve tutulan/yeniden numaralandırılan 820.10 bölümlerinden (gereksinimler, ISO 13485 içerme dahil), 820.35 (kayıtlar) ve 820.45 (cihaz etiketleme ve paketleme kontrolleri) akışından gelmektedir. 21 CFR Bölümler 801, 803, 806 ve 830 değişmemiştir. Aşağıdaki eski QSR numaraları yalnızca tanıdık bir indeks olarak tutulur, her biri mevcut ISO 13485 maddesine eşlenir.
+
+  ### Önemli Kalite Alt Sistemleri (eski QSR indeksi → mevcut ISO 13485:2016 maddesi)
+
+  | Eski QSR Bölümü (tarihsel, 2026 öncesi) | Başlık | QMSR altında mevcut otorite | Odak Noktası |
+  |----------------------------------------|--------|------------------------------|--------------|
+  | 820.20 | Yönetim Sorumluluğu | ISO 13485 §5.1, 5.5, 5.6 | Kalite politikası, org yapısı, yönetim incelemesi |
+  | 820.30 | Tasarım Kontrolleri | ISO 13485 §7.3 | Giriş, çıkış, inceleme, doğrulama, validasyon |
+  | 820.40 | Belge Kontrolleri | ISO 13485 §4.2.4 | Onay, dağıtım, değişiklik kontrolü |
+  | 820.50 | Satın Alma Kontrolleri | ISO 13485 §7.4 | Tedarikçi yeterliliği, satın alma verisi |
+  | 820.70 | Üretim Kontrolleri | ISO 13485 §6.3, 6.4, 7.5 | Proses validasyonu, çevre kontrolleri |
+  | 820.100 | CAPA | ISO 13485 §8.5.2, 8.5.3 | Temel neden analizi, düzeltici eylemler |
+  | 820.181 | Cihaz Ana Kaydı | ISO 13485 §4.2.3 (tıbbi cihaz dosyası) + 21 CFR 820.35 | Spesifikasyonlar, prosedürler, kabul kriterleri |
+
+  ### Tasarım Kontrolleri İş Akışı (ISO 13485 §7.3; eski QSR 820.30)
+
+  ```
+  Adım 1: Tasarım Girişi
+  └── Kullanıcı ihtiyaçlarını, hedeflenen kullanımı, yasal gereksinimleri yakalayın
+      Doğrulama: Girdiler gözden geçirilip onaylandı mı?
+
+  Adım 2: Tasarım Çıkışı
+  └── Spesifikasyonlar, çizimler, yazılım mimarisi oluşturun
+      Doğrulama: Çıktılar girdilere izlenebilir mi?
+
+  Adım 3: Tasarım İncelemesi
+  └── Her faz kilometre taşında incelemeler gerçekleştirin
+      Doğrulama: İnceleme kayıtları imzalanmış mı?
+
+  Adım 4: Tasarım Doğrulaması
+  └── Spesifikasyonlara karşı test gerçekleştirin
+      Doğrulama: Tüm testler kabul kriterlerini geçti mi?
+
+  Adım 5: Tasarım Validasyonu
+  └── Cihazın gerçek kullanım koşullarında kullanıcı ihtiyaçlarını karşıladığını doğrulayın
+      Doğrulama: Validasyon raporu onaylandı mı?
+
+  Adım 6: Tasarım Transferi
+  └── DMR tamamlı olarak üretime yayınlayın
+      Doğrulama: Transfer kontrol listesi tamamlandı mı?
+  ```
+
+  ### CAPA Süreci (ISO 13485 §8.5.2/8.5.3; eski QSR 820.100)
+
+  1. **Belirle**: Uyumsuzluğu veya potansiyel sorunu belgelendirin
+  2. **Araştır**: Temel neden analizi gerçekleştirin (5 Neden, Balık Kılçığı)
+  3. **Planla**: Düzeltici/önleyici eylemleri tanımlayın
+  4. **Uygula**: Eylemleri yürütün, belgelendirmeyi güncelleyin
+  5. **Doğrula**: Uygulamanın tamamlandığını doğrulayın
+  6. **Etkinlik**: Tekrarlanmanın olmadığını izleyin (30-90 gün)
+  7. **Kapat**: Yönetim onayı ve kapatma
+
+  **Referans:** Tarihsel QSR yapısının tam QMSR/ISO 13485:2016 madde eşlemesi ile ilgili bilgiler için [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) dosyasına bakınız.
+
+  ---
+
+  ## Tıbbi Cihazlar için HIPAA
+
+  Korunan Sağlık Bilgilerini (PHI) oluşturan, depolayan, ileten veya erişen cihazlar için HIPAA gereksinimleri.
+
+  ### Uygulanabilirlik
+
+  | Cihaz Türü | HIPAA Uygulanır |
+  |-----------|-----------------|
+  | Bağımsız teşhis cihazı (veri aktarımı yok) | Hayır |
+  | Hasta verisi ileten bağlı cihaz | Evet |
+  | EHR entegrasyonlu cihaz | Evet |
+  | Hasta bilgisini depolayan SaMD | Evet |
+  | Wellness uygulaması (tanı yok) | Yalnızca PHI depoluyorsa |
+
+  ### Gerekli Koruma Önlemleri
+
+  ```
+  İdari (§164.308)
+  ├── Güvenlik sorumlusunun ataması
+  ├── Risk analizi ve yönetimi
+  ├── İş gücü eğitimi
+  ├── İncident yanıt prosedürleri
+  └── İş ortağı anlaşmaları
+
+  Fiziksel (§164.310)
+  ├── Tesis erişim kontrolleri
+  ├── İş istasyonu güvenliği
+  └── Cihaz imha prosedürleri
+
+  Teknik (§164.312)
+  ├── Erişim kontrolleri (benzersiz kimlikler, otomatik çıkış)
+  ├── Denetim kontrolleri (günlükleme)
+  ├── Bütünlük kontrolleri (checksumlar, hash'ler)
+  ├── Kimlik doğrulaması (MFA önerilir)
+  └── Aktarım güvenliği (TLS 1.2+)
+  ```
+
+  ### Risk Değerlendirmesi Adımları
+
+  1. ePHI işleyen tüm sistemleri envanterleyin
+  2. Veri akışlarını belgelendirin (toplama, depolama, aktarım)
+  3. Tehditleri ve güvenlik açıklarını belirleyin
+  4. Olabilirlik ve etkisini değerlendirin
+  5. Risk seviyelerini belirleyin
+  6. Kontrolleri uygulayın
+  7. Kalan riski belgelendirin
+
+  **Referans:** Uygulama kontrol listeleri ve BAA şablonları için [hipaa_compliance_framework.md](references/hipaa_compliance_framework.md) dosyasına bakınız.
+
+  ---
+
+  ## Cihaz Siber Güvenliği
+
+  Bağlı tıbbi cihazlar için FDA siber güvenliği gereksinimleri.
+
+  ### Pazar Öncesi Gereksinimler
+
+  | Eleman | Açıklama |
+  |--------|----------|
+  | Tehdit Modeli | STRIDE analizi, saldırı ağaçları, güven sınırları |
+  | Güvenlik Kontrolleri | Kimlik doğrulaması, şifreleme, erişim kontrolü |
+  | SBOM | Yazılım Malzeme Listesi (CycloneDX veya SPDX) |
+  | Güvenlik Testleri | Penetrasyon testleri, güvenlik açığı taraması |
+  | Güvenlik Açığı Planı | Açıklama süreci, yama yönetimi |
+
+  ### Cihaz Katmanı Sınıflandırması
+
+  **Katman 1 (Daha Yüksek Risk):**
+  - Ağa/internete bağlanır
+  - Siber güvenlik olayı hastalara zarar verebilir
+
+  **Katman 2 (Standart Risk):**
+  - Diğer tüm bağlı cihazlar
+
+  ### Pazar Sonrası Yükümlülükleri
+
+  1. NVD ve ICS-CERT'te güvenlik açıklarını izleyin
+  2. Cihaz bileşenleri için uygulanabilirliği değerlendirin
+  3. Yamalar geliştirin ve test edin
+  4. Müşterilerle iletişim kurun
+  5. Rehberliğe göre FDA'ya rapor edin
+
+  ### Koordineli Güvenlik Açığı Açıklaması
+
+  ```
+  Araştırmacı Raporu
+      ↓
+  Onay (48 saat)
+      ↓
+  İlk Değerlendirme (5 gün)
+      ↓
+  Yama Geliştirme
+      ↓
+  Koordineli Halka Açık Açıklama
+  ```
+
+  **Referans:** SBOM format örnekleri ve tehdit modeli şablonları için [device_cybersecurity_guidance.md](references/device_cybersecurity_guidance.md) dosyasına bakınız.
+
+  ---
+
+  ## Kaynaklar
+
+  ### scripts/
+
+  | Script | Amaç |
+  |--------|------|
+  | `fda_submission_tracker.py` | 510(k)/PMA/De Novo gönderim kilometre taşlarını ve zaman çizelgelerini takip edin |
+  | `qsr_compliance_checker.py` | KYS belgelendirmesini ISO 13485:2016'ya eşlenen eski QSR kontrol listesine karşı değerlendirin (QMSR) |
+  | `hipaa_risk_assessment.py` | Tıbbi cihaz yazılımında HIPAA koruma önlemlerini değerlendirin |
+
+  ### references/
+
+  | Dosya | İçerik |
+  |-------|--------|
+  | `fda_submission_guide.md` | 510(k), De Novo, PMA gönderim gereksinimleri ve kontrol listeleri |
+  | `qsr_compliance_requirements.md` | QMSR/ISO 13485:2016 eşlemesi, uygulama şablonları ile eski QSR yapısı |
+  | `hipaa_compliance_framework.md` | HIPAA Güvenlik Kuralı koruma önlemleri ve BAA gereksinimleri |
+  | `device_cybersecurity_guidance.md` | FDA siber güvenliği gereksinimleri, SBOM, tehdit modeli |
+  | `fda_capa_requirements.md` | CAPA süreci, temel neden analizi, etkinlik doğrulaması |
+
+  ### Kullanım Örnekleri
+
+  ```bash
+  # FDA gönderim durumunu takip edin
+  python scripts/fda_submission_tracker.py /path/to/project --type 510k
+
+  # KYS belgelendirmesini değerlendirin (eski QSR bölüm anahtarları, QMSR altında ISO 13485 ile eşlendi)
+  python scripts/qsr_compliance_checker.py /path/to/project --section 820.30  # eski kontrol listesi anahtarı = ISO 13485 §7.3 (tasarım & geliştirme)
+
+  # HIPAA risk değerlendirmesi çalıştırın
+  python scripts/hipaa_risk_assessment.py /path/to/project --category technical
+  ```
 ---
 
 # FDA Consultant Specialist

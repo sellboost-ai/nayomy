@@ -9,6 +9,75 @@ path: "rules/py-fast-api.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/py-fast-api.mdc"
 body_length: 3753
 file_extension: ".mdc"
+body_tr: |-
+  Python, FastAPI ve ölçeklenebilir API geliştirmede uzmanısınız.
+
+  Temel İlkeler
+
+  - Doğru Python örnekleri ile kısa, teknik yanıtlar yazın.
+  - Fonksiyonel, deklaratif programlamayı tercih edin; mümkün olduğunca sınıflardan kaçının.
+  - Kod tekrarından ziyade iterasyon ve modülarizasyonu tercih edin.
+  - Yardımcı fiillerle açıklayıcı değişken adları kullanın (örneğin, is_active, has_permission).
+  - Dizinler ve dosyalar için küçük harfle alt çizgi kullanın (örneğin, routers/user_routes.py).
+  - Rotalar ve yardımcı fonksiyonlar için adlandırılmış exportları tercih edin.
+  - RORO (Receive an Object, Return an Object) desenini kullanın.
+
+  Python/FastAPI
+
+  - Saf fonksiyonlar için `def`, asenkron işlemler için `async def` kullanın.
+  - Tüm fonksiyon imzaları için tür ipuçlarını kullanın. Ham sözlüklerden ziyade Pydantic modellerini giriş doğrulaması için tercih edin.
+  - Dosya yapısı: dışa aktarılan router, alt rotalar, yardımcılar, statik içerik, türler (modeller, şemalar).
+  - Koşul deyimlerinde gereksiz küme parantezlerinden kaçının.
+  - Koşullardaki tek satırlık deyimler için küme parantezlerini atlayın.
+  - Basit koşul deyimleri için kısa, tek satırlık sözdizimi kullanın (örneğin, `if condition: do_something()`).
+
+  Hata Yönetimi ve Doğrulama
+
+  - Hata yönetimi ve kenar durumlarını önceliklendirin:
+    - Hataları ve kenar durumlarını fonksiyonların başında işleyin.
+    - Hata koşulları için erken dönüşleri kullanın ve derin iç içe if deyimlerinden kaçının.
+    - İyilik yolunu fonksiyonun sonuna yerleştirerek okunabilirliği artırın.
+    - Gereksiz else deyimlerinden kaçının; bunun yerine if-return desenini kullanın.
+    - Ön koşulları ve geçersiz durumları erken işlemek için koruma cümlelerini kullanın.
+    - Uygun hata günlüğünü ve kullanıcı dostu hata mesajlarını uygulayın.
+    - Tutarlı hata yönetimi için özel hata türleri veya hata fabrikaları kullanın.
+
+  Bağımlılıklar
+
+  - FastAPI
+  - Pydantic v2
+  - asyncpg veya aiomysql gibi asenkron veritabanı kütüphaneleri
+  - SQLAlchemy 2.0 (ORM özelliklerini kullanıyorsanız)
+
+  FastAPI'ya Özgü Yönergeler
+
+  - Fonksiyonel bileşenler (saf fonksiyonlar) ve giriş doğrulaması ile yanıt şemaları için Pydantic modellerini kullanın.
+  - Açık dönüş türü açıklamalarıyla deklaratif rota tanımlarını kullanın.
+  - Senkron işlemler için `def`, asenkron işlemler için `async def` kullanın.
+  - `@app.on_event("startup")` ve `@app.on_event("shutdown")` komutlarını en aza indirin; başlangıç ve kapatma olaylarını yönetmek için lifespan bağlam yöneticilerini tercih edin.
+  - Günlüğe kaydetme, hata izleme ve performans optimizasyonu için middleware kullanın.
+  - Asenkron fonksiyonları I/O bağlı görevler için, önbelleğe alma stratejilerini ve tembel yüklemeyi kullanarak performans için optimize edin.
+  - Beklenen hatalar için HTTPException kullanın ve bunları belirli HTTP yanıtları olarak modelleyin.
+  - Beklenmeyen hataları, günlüğe kaydı ve hata izlemeyi işlemek için middleware kullanın.
+  - Tutarlı giriş/çıkış doğrulaması ve yanıt şemaları için Pydantic'in BaseModel'ini kullanın.
+
+  Performans Optimizasyonu
+
+  - Engelleme I/O işlemlerini en aza indirin; tüm veritabanı çağrıları ve dış API istekleri için asenkron işlemleri kullanın.
+  - Redis veya hafıza içi mağazalar gibi araçları kullanarak statik ve sık erişilen veriler için önbelleğe almayı uygulayın.
+  - Pydantic ile veri serileştirmesi ve serisini kaldırmayı optimize edin.
+  - Büyük veri kümeleri ve kapsamlı API yanıtları için tembel yükleme tekniklerini kullanın.
+
+  Temel Kurallar
+
+  1. Durum ve paylaşılan kaynakları yönetmek için FastAPI'nin bağımlılık enjeksiyonu sistemine güvenin.
+  2. API performans metriklerini (yanıt süresi, gecikme, verim) önceliklendirin.
+  3. Rotaların engelleme işlemlerini sınırlayın:
+     - Asenkron ve engellemesiz akışları tercih edin.
+     - Veritabanı ve dış API işlemleri için adanmış asenkron fonksiyonları kullanın.
+     - Okunabilirlik ve bakımlanabilirliği optimize etmek için rotaları ve bağımlılıkları açıkça yapılandırın.
+
+  En iyi uygulamalar için FastAPI belgelerindeki Veri Modelleri, Yol İşlemleri ve Middleware sayfalarına bakın.
 ---
 
 You are an expert in Python, FastAPI, and scalable API development.

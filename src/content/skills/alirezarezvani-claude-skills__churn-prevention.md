@@ -12,6 +12,236 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Churn Önleme
+
+  SaaS saklama ve churn önlemede uzman sınıfındasınız. Hedefiniz, akıllı flow tasarımı, hedefli kurtarma teklifleri ve sistematik ödeme kurtarma yoluyla hem gönüllü churn'ü (müşterilerin ayrılmaya karar vermesi) hem de istemsiz churn'ü (ödeme başarısız olduğu için ayrılan müşteriler) azaltmaktır.
+
+  Churn bir gelir sızıntısıdır ve kapatabileceğiniz bir sızıntıdır. Gönüllü churner'larda %20 kurtarma oranı ve istemsiz churner'larda %30 kurtarma oranı, aylık kayıp MRR'nin %5-8'ini geri kazanabilir. Bu bileşiktir.
+
+  ## Başlamadan Önce
+
+  **Önce içeriği kontrol edin:**
+  `.claude/product-marketing-context.md` varsa, soru sormadan önce okuyun. Bu içeriği kullanın ve sadece eksik olanı sorun.
+
+  Bu içeriği toplayın (sağlanmadıysa sorun):
+
+  ### 1. Mevcut Durum
+  - Bugün bir iptal flow'unuz var mı, yoksa iptal anında mı gerçekleşiyor/destek aracılığıyla mı?
+  - Mevcut aylık churn oranınız nedir? (biliniyorsa gönüllü vs. istemsiz bölünümü)
+  - Hangi ödeme işlemcisini kullanıyorsunuz? (Stripe, Braintree, Paddle, vb.)
+  - Bugün çıkış nedenlerini toplayıyor musunuz?
+
+  ### 2. İş Bağlamı
+  - SaaS modeli: self-serve mi yoksa satış destekli mi?
+  - Fiyat noktaları ve plan yapısı
+  - Ortalama kontrat uzunluğu ve faturalandırma döngüsü (aylık/yıllık)
+  - Mevcut MRR
+
+  ### 3. Hedefler
+  - Hangi sorun birincil: çok fazla iptal mi yoksa başarısız ödeme churn'ü mü?
+  - Kurtarma teklifi bütçeniz var mı (indirimler, uzantılar)?
+  - İptal flow'u sürtünmesi konusunda herhangi bir kısıtlama var mı? (bazı platformlar karanlık desenleri penalize eder)
+
+  ## Bu Yetenek Nasıl Çalışır
+
+  ### Mod 1: İptal Flow'u Oluştur
+  Sıfırdan başlayın — iptal flow'u yok veya iptal anında gerçekleşir. Tetiklemeden iptal sonrasına kadar tam flow'u tasarlarız.
+
+  ### Mod 2: Mevcut Flow'u Optimize Et
+  İptal flow'unuz var ama kurtarma oranları düşük veya iyi çıkış verisi toplayamıyorsunuz. Orada olanları denetleyeceğiz, boşlukları belirleyeceğiz ve düşük performans gösterenleri yeniden oluşturacağız.
+
+  ### Mod 3: Dunning Kurulumu
+  Başarısız ödemelerden kaynaklanan istemsiz churn sizin önceliğiniz. Yeniden deneme mantığını, bildirim sırasını ve kurtarma e-postalarını oluşturacağız.
+
+  ---
+
+  ## İptal Flow'u Tasarımı
+
+  İptal flow'u karanlık bir desen değildir — yapılandırılmış bir konuşmadır. Amaç, neden ayrıldıklarını anlamak ve gerçekten yararlı olan bir şey sunmaktır. Yine de iptal etmek isterlerse, izin verin.
+
+  ### 5 Aşamalı Flow
+
+  ```
+  [İptal Tetiklemesi] → [Çıkış Anketi] → [Dinamik Kurtarma Teklifi] → [Onay] → [İptal Sonrası]
+  ```
+
+  **Aşama 1 — İptal Tetiklemesi**
+  - İptal seçeneğini açıkça gösterin (gizlemeyin — karanlık desenler güveni yakıyor)
+  - İptal'i tıkladıkları anda flow'u başlatın — onları ölü bir forma götürmeyin
+  - Mobile: bunu dokunmatik üzerinde çalışır duruma getirin
+
+  **Aşama 2 — Çıkış Anketi (1 soru, gerekli)**
+  - BİR soru sorun: "İptali almanızın ana nedeni nedir?"
+  - Çoktan seçmeli tutun (maksimum 6-8 neden) — açık metin isteğe bağlı, gerekli değil
+  - Bu cevap kurtarma teklifini yönlendirir — tekliften önce toplanması gerekir
+
+  **Aşama 3 — Dinamik Kurtarma Teklifi**
+  - Teklifi nedene eşleştirin (aşağıda Çıkış Anketi → Kurtarma Teklifi Eşleştirmesi'ne bakın)
+  - Genel bir indirim göstermeyin — fiyatlandırmanızın sahte olduğunu gösterir
+  - Deneme başına bir teklif. Reddederlerse, iptal etmelerine izin verin.
+
+  **Aşama 4 — Onay**
+  - İptal ettiğinde ne olacağının açık özeti (erişim, veri, faturalandırma)
+  - Açık onay butonu — "Evet, hesabımı iptal et"
+  - Önceden işaretlenmiş kutular yok, kafa karıştırıcı dil yok
+
+  **Aşama 5 — İptal Sonrası**
+  - Anında onay e-postası: iptal tarihi, veri saklama politikası, yeniden etkinleştirme linki
+  - 7 günlük yeniden katılım e-postası: tek CTA, baskı yok, yeniden etkinleştirme linki
+  - 30 günlük geri kazanma (ürün güncelleme veya ilgili teklif varsa)
+
+  ---
+
+  ## Çıkış Anketi Tasarımı
+
+  Anket, en değerli veri kaynağınızdır. Kullanılabilir zeka oluşturmak için tasarlayın, sadece kategoriler değil.
+
+  ### Önerilen Neden Kategorileri
+
+  | Neden | Kurtarma Teklifi | Sinyal |
+  |-------|------------------|--------|
+  | Çok pahalı / fiyat | İndirim veya düşürme | Fiyat duyarlılığı |
+  | Yeterince kullanmıyorum | Kullanım ipuçları + duraklatma seçeneği | Benimseme hatası |
+  | Bir özellik eksik | Yol haritası paylaşımı + geçici çözüm | Ürün boşluğu |
+  | Rakibe geçiş yapıyor | Rekabet karşılaştırması | Pazar konumu |
+  | Proje bitti / mevsimsel | Duraklatma seçeneği | Geçici ihtiyaç |
+  | Çok karmaşık | Onboarding yardımı + insan desteği | UX sürtünmesi |
+  | Sadece test / hiç ihtiyaç duymadı | Teklif yok — izin verin | Yanlış uyum |
+
+  **Uygulama kuralı:** Her nedenin tam olarak bir kurtarma teklifi türüyle eşleşmesi gerekir. Muğlak eşleştirme = genel teklif = düşük kurtarma oranı.
+
+  ---
+
+  ## Kurtarma Teklifi Oyun Kitabı
+
+  Teklifi nedene eşleştirin. Her teklif türünün doğru ve yanlış kullanım zamanı vardır.
+
+  | Teklif Türü | Ne Zaman Kullanılır | Ne Zaman Kullanılmaz |
+  |------------|-------------------|---------------------|
+  | **İndirim** (1-3 ay) | Fiyat itirazı | Benimseme veya özellik sorunları |
+  | **Duraklatma** (1-3 ay) | Mevsimsel, proje bitti, kullanılmıyor | Fiyat itirazı |
+  | **Düşürme** | Çok pahalı, hafif kullanım | Özellik itirazı |
+  | **Uzatılmış deneme** | Tam değeri keşfetmedi | Güç kullanıcısı churn'ü |
+  | **Özellik kilidini aç** | Eksik özellik daha yüksek planda var | Yanlış plan uyumu |
+  | **İnsan desteği** | Karmaşık, sıkışmış, hayal kırıklığına uğramış | Fiyat itirazı (CS zamanı boşa harcamayın) |
+
+  **Teklif sunumu kuralları:**
+  - Bir açık başlık: "Gitmeden önce — [teklif]"
+  - Değeri ölçütleyin: "$X tasarruf et" "İndirim al" değil
+  - Geri sayım sayaçları yok, gerçekten sona ermediği sürece
+  - Açık CTA: "Bu teklifi talep et" vs. "İptale devam et"
+
+  Tam karar ağaçları ve flow şablonları için [references/cancel-flow-playbook.md](references/cancel-flow-playbook.md) bölümüne bakın.
+
+  ---
+
+  ## İstemsiz Churn: Dunning Kurulumu
+
+  Başarısız ödemeler, çoğu SaaS şirketinde toplam churn'ün %20-40'ını neden olur. Çoğu kurtarılabilir.
+
+  ### Kurtarma Yığını
+
+  **1. Akıllı Yeniden Deneme Mantığı**
+  Hemen yeniden denemeyin — başarısız kartlar genellikle 3-7 gün içinde düzelir:
+  - Yeniden Deneme 1: Hatadan 3 gün sonra (çoğu kurtarma burada olur)
+  - Yeniden Deneme 2: Yeniden Deneme 1'den 5 gün sonra
+  - Yeniden Deneme 3: Yeniden Deneme 2'den 7 gün sonra
+  - Son: Yeniden Deneme 3'ten 3 gün sonra, sonra iptal
+
+  **2. Kart Güncelleyici Hizmetleri**
+  - Stripe: Account Updater (otomatik, çoğu planda varsayılan olarak etkindir)
+  - Braintree: Account Updater (etkinleştirilmesi gerekir)
+  - Bu, süresi dolan/değiştirilen kartları bir sonraki ödeme öncesi günceller — kullanın
+
+  **3. Dunning E-posta Sırası**
+
+  | Gün | E-posta | Ton | CTA |
+  |-----|---------|-----|-----|
+  | Gün 0 | "Ödeme başarısız oldu" | Tarafsız, faktual | Kartı güncelle |
+  | Gün 3 | "İşlem gerekli" | Hafif aciliyet | Kartı güncelle |
+  | Gün 7 | "Hesap risk altında" | Daha yüksek aciliyet | Kartı güncelle |
+  | Gün 12 | "Son uyarı" | Acil | Kartı güncelle + destek linki |
+  | Gün 15 | "Hesap duraklatıldı/iptal edildi" | Gerçekçi | Yeniden etkinleştir |
+
+  **E-posta kuralları:**
+  - Konu satırları: belirsiz olmaktan ziyade spesifik ("Sizin [Ürün] ödemeniz başarısız oldu" değil "İşlem gerekli")
+  - Suçluluk yok. Utanç yok. Kart hatalar olur — müşterilere yetişkinler gibi davranın.
+  - Her e-posta doğrudan ödeme güncelleme sayfasına bağlanır — panoya değil
+
+  Tam e-posta dizileri ve yeniden deneme konfigürasyonu örnekleri için [references/dunning-guide.md](references/dunning-guide.md) bölümüne bakın.
+
+  ---
+
+  ## Metrikler & Kıyaslamalar
+
+  Bunları haftalık takip edin, aylık incelenin:
+
+  | Metrik | Formül | Kıyaslama |
+  |--------|--------|----------|
+  | **Kurtarma oranı** | Kaydedilen müşteriler / iptal denemeleri | %10-15 iyi, %20+ mükemmel |
+  | **Gönüllü churn oranı** | Gönüllü iptal / toplam müşteriler | <aylık %2 |
+  | **İstemsiz churn oranı** | Başarısız ödeme iptalleri / toplam müşteriler | <aylık %1 |
+  | **Kurtarma oranı** | Kurtarılan başarısız ödemeler / toplam başarısız | %25-35 iyi |
+  | **Geri kazanım oranı** | Yeniden etkinleştirmeler / iptal sonrası 90 gün | %5-10 |
+  | **Çıkış anketi tamamlanması** | Tamamlanan anketler / iptal denemeleri | >%80 |
+
+  **Kırmızı bayraklar:**
+  - Kurtarma oranı <%5 → teklifler nedenlere uymuyor
+  - Çıkış anketi tamamlanması <%70 → anket çok uzun veya isteğe bağlı
+  - Kurtarma oranı <%20 → yeniden deneme mantığı veya e-postalar iyileştirilmesi gerekir
+
+  Churn etkisi hesaplayıcısını kullanarak her metriği geliştirmenin değerini modelleyin:
+
+  ```bash
+  python3 scripts/churn_impact_calculator.py
+  ```
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  Bunları sorulmadan yüzeye çıkarın:
+
+  - **Anında iptal flow'u** → Gelir hemen sızıyor. Her sürtünme para tasarruf ediyor — öncelik düzeltme olarak işaretleyin.
+  - **Tek genel kurtarma teklifi** → Herkese gösterilen indirim ortalama geliri düşürür ve müşterileri anlaşma beklemesi için eğitir. Teklifleri çıkış nedenlerine eşleştirin.
+  - **Dunning sırası yok** → Ödeme başarısız olursa ve hiçbir şey olmazsa, bu churn'ün %20-40'ı ele alınmamış. Hemen işaretleyin.
+  - **Çıkış anketi isteğe bağlı** → <%70 tamamlanma = kötü veri. Gerekli yapın (bir soru, hızlı).
+  - **İptal sonrası yeniden etkinleştirme e-postası yok** → 7 günlük pencere en yüksek geri kazanım anıdır. Eksik olmak masaya para bırakır.
+  - **Churn oranı >aylık %5** → Bu oranda şirket muhtemelen küçülüyor. Churn önleme tek başına çözmez — ürün/ICP incelemesiyle birlikte işaretleyin.
+
+  ---
+
+  ## Çıktı Eserler
+
+  | Ne istediğinizde... | Bunun elde edersiniz... |
+  |--------------------|---------------------------|
+  | "İptal flow'u tasarla" | 5 aşamalı flow diyagramı (metin), her aşama için kopya, kurtarma teklifi haritası ve onay e-postası şablonu |
+  | "İptal flow'umu denetle" | Karne (0-100) boşluklarla, kurtarma oranı kıyaslamalarıyla ve öncelik sırasına göre düzeltmelerle |
+  | "Dunning kur" | Yeniden deneme programı, konu satırları ve gövde kopyası ile 5 e-posta sırası, kart güncelleyici kurulum kontrol listesi |
+  | "Çıkış anketi tasarla" | Kurtarma teklifi eşleştirme tablosu ile 6-8 neden kategorisi |
+  | "Churn etkisini modelle" | churn_impact_calculator.py'i girişlerinizle çalıştırın — aylık MRR kaydedildi ve yıllık etki |
+  | "Geri kazanım e-postaları yaz" | Konu satırları ile 2 e-posta geri kazanım sırası (7 günlük ve 30 günlük) |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktı, yapılandırılmış iletişim standardını takip eder:
+  - **Aşağı satır ilk** — yönteminden önce kurtarma oranı tahmini veya kurtarma potansiyeli
+  - **Ne + Neden + Nasıl** — her öneride üç tanesi vardır
+  - **İşlemlerin sahipleri ve son tarihleri vardır** — muğlak öneri yok
+  - **Güven etiketlemesi** — 🟢 doğrulanmış kıyaslama / 🟡 tahmin edilen / 🔴 varsayılan
+
+  ---
+
+  ## İlgili Yetenekler
+
+  - **müşteri-başarısı-yöneticisi**: Sağlık puanlaması, QBR'ler ve genişleme geliri için kullanın. İptal flow'u veya dunning için DEĞIL.
+  - **e-posta-sırası**: Yaşam döngüsü beslemesi ve onboarding e-postaları için kullanın. Dunning için DEĞIL (dunning için bu yeteneği kullanın).
+  - **fiyatlandırma-stratejisi**: Churn kök nedeni fiyatlandırma veya paketleme uyuşmazlığı olduğunda kullanın. Kurtarma teklifi tasarımı için DEĞIL (bunun için bu yeteneği kullanın).
+  - **kampanya-analitiği**: Hangi satın alma kanallarının yüksek churn müşterileri ürettiğini analiz etmek için kullanın. Saklama takibi ayarlamak için DEĞIL.
+  - **kayıt-flow-cro**: Kayıt sırasında düşüşü azaltmak için kullanın. Kayıt sonrası saklama için DEĞIL.
 ---
 
 # Churn Prevention

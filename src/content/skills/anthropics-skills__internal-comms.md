@@ -3,7 +3,7 @@ name: "internal-comms"
 description_en: "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.)."
 category: "Business"
 repo: "anthropics/skills"
-stars: 140618
+stars: 151641
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/internal-comms/SKILL.md"
 path: "skills/internal-comms/SKILL.md"
 is_collection: false
@@ -22,11 +22,11 @@ body_tr: |-
   - Liderlik güncellemeleri
   - Proje güncellemeleri
   - Olay raporları
-
+  
   ## Bu beceriyi nasıl kullanacaksınız
-
+  
   Herhangi bir iç iletişim yazmak için:
-
+  
   1. **İletişim türünü tanımlayın** istekten
   2. **`examples/` dizininden uygun rehber dosyasını yükleyin**:
       - `examples/3p-updates.md` - İlerleme/Planlar/Sorunlar takım güncellemeleri için
@@ -34,9 +34,9 @@ body_tr: |-
       - `examples/faq-answers.md` - Sık sorulan soruları yanıtlamak için
       - `examples/general-comms.md` - Yukarıdakilerden hiçbirine açıkça uymayan diğer her şey için
   3. **O dosyadaki belirli talimatları izleyin** biçimlendirme, ton ve içerik toplama konusunda
-
+  
   İletişim türü mevcut rehberlerin hiçbiriyle eşleşmiyorsa, istenen format hakkında açıklama veya daha fazla bağlam isteyin.
-
+  
   ## Anahtar Kelimeler
   3P güncellemeleri, şirket bülteni, şirket iletişimi, haftalık güncelleme, SSS, sık sorulan sorular, güncellemeler, iç iletişim
 ---

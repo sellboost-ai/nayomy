@@ -9,6 +9,334 @@ body_length: 19355
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://headroom-docs.vercel.app/docs"
+body_tr: |-
+  <div align="center"><pre>
+    ██╗  ██╗███████╗ █████╗ ██████╗ ██████╗  ██████╗  ██████╗ ███╗   ███╗
+    ██║  ██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║
+    ███████║█████╗  ███████║██║  ██║██████╔╝██║   ██║██║   ██║██╔████╔██║
+    ██╔══██║██╔══╝  ██╔══██║██║  ██║██╔══██╗██║   ██║██║   ██║██║╚██╔╝██║
+    ██║  ██║███████╗██║  ██║██████╔╝██║  ██║╚██████╔╝╚██████╔╝██║ ╚═╝ ██║
+    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝
+                    AI ajanları için bağlam sıkıştırma katmanı
+  </pre></div>
+
+  <p align="center"><strong>60–95% daha az token · library · proxy · MCP · 6 algoritma · yerel-öncelikli · tersine çevrilebilir</strong></p>
+
+  <p align="center">
+    <a href="https://github.com/chopratejas/headroom/actions/workflows/ci.yml"></a>
+    <a href="https://app.codecov.io/gh/chopratejas/headroom"></a>
+    <a href="https://pypi.org/project/headroom-ai/"></a>
+    <a href="https://www.npmjs.com/package/headroom-ai"></a>
+    <a href="https://huggingface.co/chopratejas/kompress-v2-base"></a>
+    <a href="LICENSE"></a>
+    <a href="https://headroom-docs.vercel.app/docs"></a>
+  </p>
+
+  <p align="center">
+    <a href="https://headroom-docs.vercel.app/docs">Dokümanlar</a> ·
+    <a href="#get-started-60-seconds">Kurulum</a> ·
+    <a href="#proof">Kanıt</a> ·
+    <a href="#agent-compatibility-matrix">Ajanlar</a> ·
+    <a href="https://discord.gg/yRmaUNpsPJ">Discord</a> ·
+    <a href="llms.txt">llms.txt</a> ·
+    <a href="ENTERPRISE.md">Kurumsal</a>
+  </p>
+
+  <p align="center"><sub>
+    <b>AI ajanları / LLM'ler:</b> <a href="llms.txt"><code>/llms.txt</code></a> dosyasını okuyun ya da <a href="https://headroom-docs.vercel.app/llms.txt">canlı indeksi</a> / <a href="https://headroom-docs.vercel.app/llms-full.txt">tam doküman blobunu</a> getirin.
+  </sub></p>
+
+  ---
+  <p align="center"><a href="https://trendshift.io/repositories/20881" target="_blank"></a></p>
+
+  Headroom, AI ajanınızın okuduğu her şeyi — tool çıktılarını, logları, RAG parçalarını, dosyaları ve konuşma geçmişini — LLM'e ulaşmadan önce sıkıştırır. Aynı cevaplar, çok daha az token.
+
+  <p align="center">
+    
+    <br/><sub>Canlı: 10.144 → 1.260 token — aynı FATAL bulundu.</sub>
+  </p>
+
+  ## Ne yapar
+
+  - **Library** — Python veya TypeScript'te `compress(messages)`, herhangi bir uygulamaya inline yerleştir
+  - **Proxy** — `headroom proxy --port 8787`, sıfır kod değişikliği, herhangi bir dil
+  - **Agent wrap** — `headroom wrap claude|codex|cursor|aider|copilot` tek komutla
+  - **MCP server** — `headroom_compress`, `headroom_retrieve`, `headroom_stats` herhangi bir MCP istemcisi için
+  - **Cross-agent memory** — Claude, Codex, Gemini arasında paylaşılan depo, otomatik dedup
+  - **`headroom learn`** — başarısız oturumları inceler, `CLAUDE.md` / `AGENTS.md` dosyasına düzeltmeler yazar
+  - **Tersine çevrilebilir (CCR)** — orijinalleri istendiğinde retrieval için önbelleğe alır
+
+  ## Nasıl çalışır (30 saniye)
+
+  ```
+   Ajanınız / uygulamanız
+     (Claude Code, Cursor, Codex, LangChain, Agno, Strands, kendi kodunuz…)
+          │   promptlar · tool çıktıları · loglar · RAG sonuçları · dosyalar
+          ▼
+      ┌────────────────────────────────────────────────────┐
+      │  Headroom   (yerel olarak çalışır — veriniz burada kalır)  │
+      │  ────────────────────────────────────────────────  │
+      │  CacheAligner  →  ContentRouter  →  CCR            │
+      │                    ├─ SmartCrusher   (JSON)        │
+      │                    ├─ CodeCompressor (AST)         │
+      │                    └─ Kompress-base  (metin, HF)   │
+      │                                                    │
+      │  Cross-agent memory  ·  headroom learn  ·  MCP     │
+      └────────────────────────────────────────────────────┘
+          │   sıkıştırılmış prompt  +  retrieval tool
+          ▼
+   LLM sağlayıcısı  (Anthropic · OpenAI · Bedrock · …)
+  ```
+
+  - **ContentRouter** — içerik türünü algılar, doğru compressor'ı seçer
+  - **SmartCrusher / CodeCompressor / Kompress-base** — JSON, AST veya metin sıkıştırır
+  - **CacheAligner** — prefixleri stabilize eder böylece sağlayıcı KV cache'leri gerçekten hit eder
+  - **CCR** — orijinalleri yerel olarak saklar; LLM'e ihtiyacı varsa `headroom_retrieve` çağırır
+
+  → [Mimari](https://headroom-docs.vercel.app/docs/architecture) · [CCR tersine çevrilebilir sıkıştırma](https://headroom-docs.vercel.app/docs/ccr) · [Kompress-v2-base model kartı](https://huggingface.co/chopratejas/kompress-v2-base)
+
+  ## Başlayın (60 saniye)
+
+  ```bash
+  # 1 — Kurun
+  pip install "headroom-ai[all]"          # Python
+  npm install headroom-ai                 # Node / TypeScript
+
+  # 2 — Modunuzu seçin
+  headroom wrap claude                    # bir coding ajanını wrap et
+  headroom proxy --port 8787              # drop-in proxy, sıfır kod değişikliği
+  # veya: from headroom import compress   # inline library
+
+  # 3 — Tasarruflara bakın
+  headroom perf
+  ```
+
+  Detaylı ekstralar: `[proxy]`, `[mcp]`, `[ml]`, `[code]`, `[memory]`, `[relevance]`, `[image]`, `[agno]`, `[langchain]`, `[evals]`, `[pytorch-mps]` (Apple-GPU hafıza-embedder offload — `HEADROOM_EMBEDDER_RUNTIME=pytorch_mps` ayarla). **Python 3.10+** gerektirir.
+
+  ## Kanıt
+
+  **Gerçek agent iş yükleri üzerine tasarruflar:**
+
+  | İş yükü                        | Önce  | Sonra  | Tasarruf |
+  |--------------------------------|------:|-------:|--------:|
+  | Kod arama (100 sonuç)          | 17.765|  1.408 | **92%** |
+  | SRE olay hata ayıklaması       | 65.694|  5.118 | **92%** |
+  | GitHub issue sınıflandırması   | 54.174| 14.761 | **73%** |
+  | Kod tabanı keşfi               | 78.502| 41.254 | **47%** |
+
+  **Standart benchmark'lerde doğruluk korunur:**
+
+  | Benchmark  | Kategori | N   | Başlangıç | Headroom | Delta      |
+  |------------|----------|----:|----------:|----------:|------------|
+  | GSM8K      | Matematik | 100 |     0.870 |    0.870 | **±0.000** |
+  | TruthfulQA | Faktsal   | 100 |     0.530 |    0.560 | **+0.030** |
+  | SQuAD v2   | QA       | 100 |         — |  **97%** | 19% sıkıştırma |
+  | BFCL       | Araçlar  | 100 |         — |  **97%** | 32% sıkıştırma |
+
+  Çoğalt: `python -m headroom.evals suite --tier 1` · [Tam benchmark'ler & metodoloji](https://headroom-docs.vercel.app/docs/benchmarks)
+
+  <a href="https://www.star-history.com/?repos=chopratejas%2Fheadroom&type=date&legend=top-left">
+   <picture>
+     
+   </picture>
+  </a>
+
+  ## Agent uyumluluğu matrisi
+
+  | Ajan        | `headroom wrap` | Notlar                           |
+  |-------------|:---------------:|----------------------------------|
+  | Claude Code | ✅              | `--memory` · `--code-graph`      |
+  | Codex       | ✅              | Claude ile hafıza paylaşır       |
+  | Cursor      | ✅              | yapılandırmayı yazdırır — bir kez yapıştır |
+  | Aider       | ✅              | proxy başlatır + başlatır        |
+  | Copilot CLI | ✅              | proxy başlatır + başlatır        |
+  | OpenClaw    | ✅              | ContextEngine plugin olarak yükler |
+
+  Herhangi bir OpenAI-uyumlu istemci `headroom proxy` aracılığıyla çalışır. MCP-native: `headroom mcp install`.
+
+  ### GitHub Copilot CLI abonelik modu
+
+  Headroom, GitHub Copilot CLI abonelik trafiğini yerel proxy aracılığıyla yönlendirebilir:
+
+  ```bash
+  headroom copilot-auth login
+  headroom wrap copilot --subscription -- --model gpt-4o
+  ```
+
+  Bu, Headroom'un OpenAI-uyumlu Copilot CLI isteklerini kesmesine ve GitHub Copilot'un barındırılan API'sine iletmeden önce aynı proxy sıkıştırma boru hattını uygulamasına izin verir. Wrapper, Headroom'un yeniden kullanılabilir GitHub OAuth token'ını Copilot'un kısa ömürlü API token'ı ile değiştirir ve başlatma sırasında upstream endpoint'i `COPILOT_PROVIDER_API_URL=...` olarak yazdırır.
+
+  `headroom copilot-auth login`, Headroom'a özgü bir Copilot OAuth token'ı depolar.
+  Bu, Copilot hesap metadatasını okuyabilen ancak yine de Copilot'un token-exchange
+  endpoint'i tarafından reddedebilecek genel GitHub veya Copilot CLI token'larına güvenmeyi önler.
+
+  GitHub Enterprise Server veya özel-domain Copilot dağıtımları için,
+  başlatmadan önce dağıtım etki alanını ayarlayın:
+
+  ```bash
+  export GITHUB_COPILOT_ENTERPRISE_DOMAIN=ghe.example.com
+  ```
+
+  `github.com/enterprises/your-enterprise` gibi GitHub.com Enterprise Cloud URL'leri için,
+  bir enterprise-domain geçersiz kılması ayarlamayın. Headroom, GitHub'ın normal
+  token-exchange endpoint'ini ve oturum açan hesap için advertised Copilot API endpoint'ini kullanır.
+
+  Platform destek notu: macOS auth yeniden kullanımı Copilot CLI Keychain depolama aracılığıyla smoke-test edilmiştir. Windows Credential Manager, Linux Secret Service / `secret-tool` ve Docker/CI token-injection yolları auth-discovery yolları olarak uygulanmış veya planlanmıştır, ancak tam olarak onaylanmış kabul edilmeden önce gerçek OS doğrulamasına ihtiyaç duyarlar. Docker ve CI için, host keychain erişimine güvenmek yerine açık bir `GITHUB_COPILOT_TOKEN` veya `GITHUB_COPILOT_GITHUB_TOKEN` geçmeyi tercih edin.
+
+  ## Ne zaman kullanılır · Ne zaman atlanır
+
+  **Eğer şunları yapıyorsanız harika bir seçim…**
+  - her gün AI coding ajanları çalıştırıyor ve kodunuzu değiştirmeden tasarruf istiyorsunuz
+  - birden fazla ajan arasında çalışıyor ve paylaşılan hafıza istiyorsunuz
+  - tersine çevrilebilir sıkıştırmaya ihtiyacınız var — orijinalleri yapılandırılmış TTL içinde CCR aracılığıyla alabilirsiniz
+
+  **Atlayın eğer…**
+  - sadece tek bir sağlayıcının yerel sıkıştırmasını kullanıyor ve cross-agent hafızaya ihtiyacınız yoksa
+  - yerel işlemlerin çalışamadığı sandboxed bir ortamda çalışıyorsanız
+
+  <details>
+  <summary><b>İntegrasyonlar — Headroom'u herhangi bir stack'e yerleştir</b></summary>
+
+  | Kurulumunuz             | Bağlanın                                                             |
+  |--------------------------|------------------------------------------------------------------|
+  | Herhangi bir Python app   | `compress(messages, model=…)`                                    |
+  | Herhangi bir TypeScript app | `await compress(messages, { model })`                            |
+  | Anthropic / OpenAI SDK | `withHeadroom(new Anthropic())` · `withHeadroom(new OpenAI())`   |
+  | Vercel AI SDK          | `wrapLanguageModel({ model, middleware: headroomMiddleware() })` |
+  | LiteLLM                | `litellm.callbacks = [HeadroomCallback()]`                       |
+  | LangChain              | `HeadroomChatModel(your_llm)`                                    |
+  | Agno                   | `HeadroomAgnoModel(your_model)`                                  |
+  | Strands                | [Strands rehberi](https://headroom-docs.vercel.app/docs/strands)  |
+  | ASGI apps              | `app.add_middleware(CompressionMiddleware)`                      |
+  | Multi-agent            | `SharedContext().put / .get`                                     |
+  | MCP clients            | `headroom mcp install`                                           |
+
+  </details>
+
+  <details>
+  <summary><b>İçinde neler var</b></summary>
+
+  - **SmartCrusher** — evrensel JSON: dicts dizileri, iç içe nesneler, karışık türler.
+  - **CodeCompressor** — Python, JS, Go, Rust, Java, C++ için AST-farkındır.
+  - **Kompress-base** — HuggingFace modelimiz, agentic izleri üzerinde eğitildi.
+  - **Görüntü sıkıştırması** — eğitilmiş ML router aracılığıyla 40–90% indirim.
+  - **CacheAligner** — prefixleri stabilize eder böylece Anthropic/OpenAI KV cache'leri hit eder.
+  - **IntelligentContext** — öğrenilen önem ile puan tabanlı bağlam uydurmak.
+  - **CCR** — tersine çevrilebilir sıkıştırma; LLM talep halinde orijinalleri alır.
+  - **Cross-agent memory** — paylaşılan depo, agent provenance, otomatik dedup.
+  - **SharedContext** — multi-agent iş akışları arasında sıkıştırılmış bağlam geçişi.
+  - **`headroom learn`** — Claude, Codex, Gemini için plugin-tabanlı başarısızlık madenciliği.
+
+  </details>
+
+  <details>
+  <summary><b>Pipeline iç işleyişi</b></summary>
+
+  Headroom, `compress()`, SDK ve proxy arasında bir sabit request yaşam döngüsü ortaya koyar:
+
+  `Setup` → `Pre-Start` → `Post-Start` → `Input Received` → `Input Cached` → `Input Routed` → `Input Compressed` → `Input Remembered` → `Pre-Send` → `Post-Send` → `Response Received`
+
+  - **Transforms** işi yapar: CacheAligner, ContentRouter, SmartCrusher, CodeCompressor, Kompress-base, IntelligentContext / RollingWindow.
+  - **Pipeline extensions** yaşam döngüsü aşamalarını gözlemler veya özelleştirir `on_pipeline_event(...)` aracılığıyla.
+  - **Compression hooks** kanonik yaşam döngüsünün yanında ek bir extension dikiş olarak oturur.
+  - **Proxy extensions** ASGI middleware, rotalar ve başlangıç politikası için sunucu/uygulama integrasyon dikiş olarak kalır.
+
+  Sağlayıcı ve tool-specific davranış `headroom/providers/` altında yaşar böylece core orchestration yaşam döngüsü, sıralama ve politika üzerine odaklanır.
+
+  - **CLI/tool slices**: `headroom/providers/claude`, `copilot`, `codex`, `openclaw`
+  - **Provider runtime slices**: `headroom/providers/claude`, `gemini`, artı `headroom/providers/registry.py` içinde paylaşılan backend/runtime dispatch
+  - **Core dosyalar orchestration-first kalır**: `wrap.py`, `client.py`, `cli/proxy.py` ve `proxy/server.py` sağlayıcı-spesifik env şekillendirme, API hedef normalizasyonu, backend seçimi ve transport dispatch'e devret.
+
+  </details>
+
+  ## Kurulum
+
+  ```bash
+  pip install "headroom-ai[all]"          # Python, her şey
+  npm install headroom-ai                 # TypeScript / Node
+  docker pull ghcr.io/chopratejas/headroom:latest
+  ```
+
+  Detaylı ekstralar: `[proxy]`, `[mcp]`, `[ml]` (Kompress-base), `[code]`, `[memory]`, `[relevance]`, `[image]`, `[agno]`, `[langchain]`, `[evals]`, `[pytorch-mps]` (Apple-GPU hafıza-embedder offload — `HEADROOM_EMBEDDER_RUNTIME=pytorch_mps` ayarla). **Python 3.10+** gerektirir.
+
+  `pipx` kullanıyor musunuz? Desteklenen bir yorumlamacıyı açıkça seçin:
+
+  ```bash
+  pipx install --python python3.13 "headroom-ai[all]"
+  ```
+
+  → [Kurulum rehberi](https://headroom-docs.vercel.app/docs/installation) — Docker etiketleri, kalıcı hizmet, PowerShell, devcontainers.
+
+  ### Kurumsal / SSL-inceleme ortamları
+
+  `pip install "headroom-ai[all]"` `CERTIFICATE_VERIFY_FAILED` ile başarısız olursa
+  (`unable to get local issuer certificate`), ağınız **SSL incelemesi** kullanıyor — bir şirket tarafından verilen CA sunan MITM proxy'si. Build backend'i (`maturin`) `rustup`'ı TLS stack'inizin güvenmediği bir bağlantı üzerinden indirir. **Rust'ı önce kurun** böylece build onu getirmez:
+
+  ```bash
+  # macOS / Linux
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && rustup default stable
+  # Windows
+  winget install Rustlang.Rustup && rustup default stable
+  ```
+
+  Shell'inizi yeniden başlatın, sonra `pip install "headroom-ai[all]"`. Önceden derlenmiş bir wheel, mevcut olduğu yerlerde Rust build'ini tamamen önler: `pip install --only-binary headroom-ai headroom-ai`.
+
+  İki runtime asset'i TLS üzerinden alınır; bloke edilerlerse, kurumsal CA'nız aracılığıyla güvenin `REQUESTS_CA_BUNDLE` / `SSL_CERT_FILE` / `CURL_CA_BUNDLE`:
+
+  - **`cdn.pyke.io`** — Rust core'u için ONNX Runtime'ı. Alternatif olarak onu `ORT_STRATEGY=system` ve `ORT_LIB_LOCATION=/path/to/onnxruntime` ile önceden sağlayın.
+  - **`huggingface.co`** — `kompress-base` sıkıştırma modeli. Önceden indirin ve `HF_HUB_OFFLINE=1` ile çalıştırın, veya `HF_ENDPOINT`'i güvenilir bir aynaya ayarlayın.
+
+  Sıkıştırma devre dışı bırakılarak çalıştırma (saf gateway) hiçbir asset gerektiremez.
+
+  ## headroom learn
+
+  <p align="center">
+    
+  </p>
+
+  `headroom learn` — başarısız oturumları inceler, `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` dosyasına düzeltmeler yazar.
+
+  ## Dokümanlar
+
+  | Buradan başlayın                                                              | Daha derin                                                                         |
+  |-------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+  | [Hızlı başlangıç](https://headroom-docs.vercel.app/docs/quickstart)           | [Mimari](https://headroom-docs.vercel.app/docs/architecture)                       |
+  | [Proxy](https://headroom-docs.vercel.app/docs/proxy)                          | [Sıkıştırma nasıl çalışır](https://headroom-docs.vercel.app/docs/how-compression-works) |
+  | [MCP araçları](https://headroom-docs.vercel.app/docs/mcp)                    | [CCR — tersine çevrilebilir sıkıştırma](https://headroom-docs.vercel.app/docs/ccr) |
+  | [Hafıza](https://headroom-docs.vercel.app/docs/memory)                        | [Cache optimizasyonu](https://headroom-docs.vercel.app/docs/cache-optimization)    |
+  | [Başarısızlık öğrenmesi](https://headroom-docs.vercel.app/docs/failure-learning) | [Benchmark'ler](https://headroom-docs.vercel.app/docs/benchmarks)                 |
+  | [Yapılandırma](https://headroom-docs.vercel.app/docs/configuration)           | [Sınırlamalar](https://headroom-docs.vercel.app/docs/limitations)                 |
+
+  ## Karşılaştırma
+
+  Headroom **yerel olarak** çalışır, **her** içerik türünü kapsar, her büyük framework ile çalışır ve **tersine çevrilebilir**.
+
+  |                                                                              | Kapsam                                          | Dağıtım                            | Yerel | Tersine Çevrilebilir |
+  |------------------------------------------------------------------------------|------------------------------------------------|------------------------------------|:-----:|:----------:|
+  | **Headroom**                                                                 | Tüm bağlam — araçlar, RAG, loglar, dosyalar, geçmiş | Proxy · library · middleware · MCP | Evet   | Evet        |
+  | [RTK](https://github.com/rtk-ai/rtk)                                        | CLI komut çıktıları                            | CLI wrapper                        | Evet   | Hayır         |
+  | [lean-ctx](https://github.com/yvgude/lean-ctx)                               | CLI komutları, MCP araçları, editor kuralları   | CLI wrapper · MCP                  | Evet   | Hayır         |
+  | [Compresr](https://compresr.ai), [Token Co.](https://thetokencompany.ai)    | API'lerine gönderilen metin                    | Barındırılan API çağrısı           | Hayır    | Hayır         |
+  | OpenAI Sıkıştırması                                                         | Konuşma geçmişi                                | Sağlayıcı-native                   | Hayır    | Hayır         |
+
+  > **Atıf.** Headroom, shell-output yeniden yazması için mükemmel [RTK](https://github.com/rtk-ai/rtk) binary'si ile birlikte gelir — `git show --short`, scoped `ls`, özetlenmiş yükleyiciler. RTK takımına çok teşekkür; onların araçı stack'imizin first-class bir parçasıdır ve Headroom onun akışında her şeyi sıkıştırır. Headroom ayrıca [lean-ctx](https://github.com/yvgude/lean-ctx) kullanabilir seçilen CLI bağlam aracı olarak; `headroom wrap ...` çalıştırmadan önce `HEADROOM_CONTEXT_TOOL=lean-ctx` ayarlayın.
+
+  ## Katkı
+
+  ```bash
+  git clone https://github.com/chopratejas/headroom.git && cd headroom
+  uv sync --extra dev && uv run pytest
+  ```
+
+  Devcontainers `.devcontainer/` içinde (default + `memory-stack` ile Qdrant & Neo4j). [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+
+  ## Topluluk
+
+  - **[Discord](https://discord.gg/yRmaUNpsPJ)** — sorular, geri bildirim, savaş hikayeleri.
+  - **[HuggingFace'de Kompress-v2-base](https://huggingface.co/chopratejas/kompress-v2-base)** — metin sıkıştırmanın arkasındaki model.
+
+  ## Lisans
+
+  Apache 2.0 — [LICENSE](LICENSE) dosyasına bakın.
 ---
 
 <div align="center"><pre>

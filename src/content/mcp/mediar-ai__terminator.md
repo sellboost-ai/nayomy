@@ -3,7 +3,7 @@ name: "mediar-ai/terminator"
 description: "Desktop GUI automation using accessibility APIs. Control Windows, macOS, and Linux applications without vision models or screenshots. Supports workflow recording, structured data extraction, and browser DOM inspection."
 category: "Coding Agents"
 repo: "mediar-ai/terminator"
-stars: 1496
+stars: 1532
 url: "https://github.com/mediar-ai/terminator"
 body_length: 9124
 license: "MIT"
@@ -11,7 +11,7 @@ language: "Rust"
 homepage: "https://t8r.tech/"
 body_tr: |-
   ![Demo](https://github.com/user-attachments/assets/b33212a6-7bd1-4654-b658-8a2f9a3a8b77)
-
+  
   <p align="center">
     <a href="https://cdn.crabnebula.app/download/mediar/mediar/latest/platform/windows-x86_64">
       
@@ -21,7 +21,7 @@ body_tr: |-
       
     </a>
   </p>
-
+  
   <p align="center">
     <a href="https://t8r.tech">
       
@@ -39,7 +39,7 @@ body_tr: |-
       
     </a>
   </p>
-
+  
   <p align="center">
     <a href="https://github.com/mediar-ai/terminator/blob/main/terminator-mcp-agent/README.md#quick-install">
       
@@ -51,18 +51,18 @@ body_tr: |-
       
     </a>
   </p>
-
+  
   ## Masaüstünüzü kontrol eden Computer Use MCP
-
+  
   AI asistanlarına (Claude, Cursor, VS Code, vb.) masaüstünüzü kontrol etme ve herhangi bir uygulamada görevleri otomatikleştirme yeteneği verin.
-
+  
   **Claude Code (tek satır):**
   ```bash
   claude mcp add terminator "npx -y terminator-mcp-agent@latest"
   ```
-
+  
   **Diğer istemciler (Cursor, VS Code, Windsurf, vb.):**
-
+  
   MCP config dosyanıza ekleyin:
   ```json
   {
@@ -78,52 +78,52 @@ body_tr: |-
     }
   }
   ```
-
+  
   Ayrıntılı kurulum talimatları için [MCP Agent README](https://github.com/mediar-ai/terminator/tree/main/terminator-mcp-agent) dosyasına bakın.
-
+  
   ### Neden Terminator MCP?
-
+  
   - **Tarayıcı oturumunuzu kullanır** - yeniden giriş yapmanıza gerek yok, tüm çerezleri ve kimlik doğrulama bilgilerini korur
   - **İmleci veya klavyeyi ele almaz** - arka planda çalışır ve çalışmanızı kesintiye uğratmaz
   - **Tüm boyutlarda çalışır** - pikseller, DOM ve Accessibility tree maksimum güvenilirlik için
-
+  
   ### Kullanım Örnekleri
-
+  
   - GCP'de yeni bir instance oluştur, CLI kullanarak ona bağlan
   - Vercel'deki logları kontrol et, en sık görülen hataları bul
   - Uygulamamın yeni özelliklerini son commitlere göre test et
-
+  
   ## Yenilikler
-
+  
   - 01/09/26 - Mediar IDE (Windows otomasyonu için Cursor) genel erişimde - [şimdi indir](https://cdn.crabnebula.app/download/mediar/mediar/latest/platform/windows-x86_64)
   - 10/30 Genel alfa sürümü canlı - [Windows otomasyonu için Cursor](https://www.mediar.ai)
   - 09/26 Terminator, [Cohere Labs podcast](https://www.youtube.com/watch?v=cfQxlk8KNmY) içinde yer aldı, [slaytları da kontrol edin](https://092025-cohere.mediar.ai/)
   - 08/25 Büyük sürüm — YAML workflow'larında NodeJS SDK, tarayıcıda JS çalıştırma, OS event kayıt → MCP'de YAML oluşturma ve daha fazlası
   - 08/25 [Her masaüstüne yapay zeka eli vermek için 2,8 milyon dolar topladık](https://x.com/louis030195/status/1948745185178914929)
-
+  
   ## Neden Terminator
-
+  
   ### Geliştiriciler İçin
-
+  
   - Herhangi bir masaüstü uygulaması veya tarayıcıda çalışan otomasyonlar oluşturun
   - ChatGPT Agents, Claude, Perplexity Comet, BrowserBase, BrowserUse'den 100x daha hızlı çalışır (deterministik, CPU hızı, AI recovery ile)
   - Çoğu bilgisayar kullanımı abartılı ürünün aksine >%95 başarı oranı
   - MIT lisanslı — çatallayın, gönderin, kilit yok
-
+  
   Bunu, workflow'ları deterministik kod olarak önceden eğiterek ve yalnızca kurtarma gerektiğinde AI'yı çağırarak başarıyoruz.
-
+  
   ### Ekipler İçin
-
+  
   [Genel beta workflow builder'ımız](https://www.mediar.ai) + yönetilen hosting:
-
+  
   - İşlemleri kaydedin, haritalayın ve teknik beceri olmadan workflow'u uygulayın
   - >%95 başarı oranı ile AI'yı çalıştırmaya dağıtın, yüzlerce Windows VM'yi yönetmeden
   - Eski RPA karmaşıklığı, uygulama ve bakım maliyeti olmadan tekrarlayan işleri öldürün
-
+  
   ## Özellik Desteği
-
+  
   Terminator şu anda **yalnızca Windows** desteklemektedir. macOS ve Linux desteklenmez.
-
+  
   | Özellik                      | Windows | macOS | Linux | Notlar                                               |
   | ---------------------------- | :-----: | :---: | :---: | ---------------------------------------------------- |
   | **Temel Otomasyon**          |         |       |       |                                                      |
@@ -144,39 +144,39 @@ body_tr: |-
   | KV (`@mediar-ai/kv`)         |   Evet  |  Hayır |  Hayır | `npm i @mediar-ai/kv`                                |
   | MCP (`terminator-mcp-agent`) |   Evet  |  Hayır |  Hayır | `npx -y terminator-mcp-agent --add-to-app [app]`     |
   | Rust (`terminator-rs`)       |   Evet  |  Hayır |  Hayır | `cargo add terminator-rs`                            |
-
+  
   **Açıklama:**
-
+  
   - **Evet**: Desteklenir - Özellik kararlı ve iyi test edilmiştir.
   - **Kısmi**: Kısmi / Deneysel - Özellik geliştirme aşamasındadır ve sınırlamaları olabilir.
   - **Hayır**: Bu platformda kullanılamaz.
-
+  
   ## Accessibility Öğelerini İnceleme Yöntemi (örn. `name:Seven`)
-
+  
   Güvenilir seçiciler oluşturmak için (örn. `name:Seven`, `role:Button`, `window:Calculator`), Windows Accessibility Tree'yi incelemeniz gerekir:
-
+  
   ### Windows
-
+  
   - **Araç:** [Accessibility Insights for Windows](https://accessibilityinsights.io/downloads/)
   - **Alternatif:** [Inspect.exe](https://learn.microsoft.com/en-us/windows/win32/winauto/inspect-objects) (Windows SDK ile birlikte gelir)
   - **Kullanım:** İncelemek istediğiniz uygulamayı açın → Accessibility Insights'ı başlatın → UI tree'yi keşfetmek için fareyi gezdirin veya klavye navigasyonunu kullanın (Name, Role, ControlType, AutomationId).
-
+  
   > Bu araçlar Terminator seçicilerinde kullanılan `Name`, `Role`, `ControlType` ve diğer metaveriyi gösterir.
-
+  
   ### Platform Desteği
-
+  
   | Platform | CLI | MCP Agent | Otomasyon | Kurulum Yöntemi |
   |----------|:---:|:---------:|:----------:|-----------------|
   | Windows  | Evet | Evet      | Evet       | npm/bunx        |
-
+  
   **Not:** Terminator şu anda yalnızca Windows desteklemektedir. macOS ve Linux desteği mevcut değildir.
-
+  
   ## Sorun Giderme
-
+  
   Ayrıntılı sorun giderme, hata ayıklama ve MCP server logları için [bize mesaj gönderin](https://www.mediar.ai/).
-
+  
   ## Katkıda Bulunma
-
+  
   Katkılar memnuniyetle karşılanır! İstekleri ve pull request'leri göndermekten çekinmeyin. Birçok bölüm deneyseldir ve yardımınız değerlidir.
 ---
 

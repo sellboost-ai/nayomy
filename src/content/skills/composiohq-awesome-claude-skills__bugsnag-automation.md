@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Bugsnag Otomasyonu via Rube MCP
+
+  Composio'nun Bugsnag araç seti aracılığıyla Rube MCP üzerinden Bugsnag işlemlerini otomatikleştirin.
+
+  **Araç seti dokümanları**: [composio.dev/toolkits/bugsnag](https://composio.dev/toolkits/bugsnag)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir olmalıdır)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `bugsnag` araç seti ile aktif Bugsnag bağlantısı
+  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP Alın**: `https://rube.app/mcp` adresini istemci yapılandırmanıza MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `bugsnag` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Keşfi
+
+  Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Bugsnag operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool sluglarını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel Workflow Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfet
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Bugsnag task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Et
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["bugsnag"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştır
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool sluglarını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol et**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarındaki tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Sayfalama**: Yanıtlarda sayfalama tokenlarını kontrol edin ve tam bitene kadar almaya devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | Bugsnag'a özgü use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlan | `bugsnag` araç seti ile `RUBE_MANAGE_CONNECTIONS` |
+  | Çalıştır | Keşfedilen tool slugları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` olan araçlar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Bugsnag Automation via Rube MCP

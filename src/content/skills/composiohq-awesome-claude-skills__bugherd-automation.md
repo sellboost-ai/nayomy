@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Bugherd Otomasyonu via Rube MCP
+
+  Composio'nun Bugherd araç seti aracılığıyla Rube MCP üzerinden Bugherd operasyonlarını otomatikleştirin.
+
+  **Araç seti dokümantasyonu**: [composio.dev/toolkits/bugherd](https://composio.dev/toolkits/bugherd)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Bugherd bağlantısı ve `bugherd` araç seti
+  - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısını yapın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: `https://rube.app/mcp` adresini istemci yapılandırmanızda bir MCP sunucusu olarak ekleyin. API anahtarlarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin mevcut olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` komutunu `bugherd` araç seti ile çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için dönen auth bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  İş akışlarını yürütmeden önce mevcut araçları her zaman keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Bugherd operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç sluglarını, input şemalarını, önerilen yürütme planlarını ve bilinen tuzakları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Bugherd task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["bugherd"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştırın
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Tuzaklar
+
+  - **Her zaman önce ara**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç sluglarını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` komutunun ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir iş akışında session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
+  - **Sayfalandırma**: Yanıtlardaki sayfalandırma tokenlarını kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | Operation | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Bugherd'e özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `bugherd` araç seti |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slugları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan araçlar için |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Bugherd Automation via Rube MCP

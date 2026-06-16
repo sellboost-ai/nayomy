@@ -9,6 +9,552 @@ path: "rules/beefreeSDK-nocode-content-editor-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/beefreeSDK-nocode-content-editor-cursorrules-prompt-file.mdc"
 body_length: 16561
 file_extension: ".mdc"
+body_tr: |-
+  # Beefree SDK Yönergeleri
+  [Beefree SDK](https://docs.beefree.io/beefree-sdk) ile uygulama geliştirmek için yönergeler ve en iyi uygulamalar; kurulum, kimlik doğrulama, yapılandırma, özelleştirme ve şablon yönetimini içerir.
+
+  ## Kurulum Yönergeleri
+
+  ### Paket Kurulumu
+  - Beefree SDK paketini npm veya yarn kullanarak yükleyin:
+    ```bash
+    npm install @beefree.io/sdk
+    # or
+    yarn add @beefree.io/sdk
+    ```
+
+  ### Bağımlılıklar
+  - Beefree SDK aşağıdaki temel bağımlılıkları gerektirir:
+    ```json
+    {
+      "dependencies": {
+        "@beefree.io/sdk": "^9.0.2-fix-optional-url-config.0",
+        "axios": "^1.10.0",
+        "express": "^5.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.0"
+      }
+    }
+    ```
+
+  ### Ortam Kurulumu
+  - Beefree kimlik bilgilerinizi içeren `.env` dosyasını proje köküne oluşturun:
+    ```env
+    BEE_CLIENT_ID=your_client_id_here
+    BEE_CLIENT_SECRET=your_client_secret_here
+    ```
+
+  ## Kimlik Doğrulama Yönergeleri
+
+  ### Proxy Sunucu Kurulumu
+  - Kimlik bilgilerinizi korumak için DAIMA bir proxy sunucu kullanın
+  - Kimlik doğrulamayı işlemek için bir proxy sunucu dosyası oluşturun (ör. `proxy-server.js`):
+    ```javascript
+    import express from 'express';
+    import cors from 'cors';
+    import axios from 'axios';
+    import dotenv from 'dotenv';
+
+    dotenv.config();
+
+    const app = express();
+    const PORT = 3001;
+
+    app.use(cors());
+    app.use(express.json());
+
+    const BEE_CLIENT_ID = process.env.BEE_CLIENT_ID;
+    const BEE_CLIENT_SECRET = process.env.BEE_CLIENT_SECRET;
+
+    // V2 Auth Endpoint
+    app.post('/proxy/bee-auth', async (req, res) => {
+      try {
+        const { uid } = req.body;
+        
+        const response = await axios.post(
+          'https://auth.getbee.io/loginV2',
+          {
+            client_id: BEE_CLIENT_ID,
+            client_secret: BEE_CLIENT_SECRET,
+            uid: uid || 'demo-user'
+          },
+          { headers: { 'Content-Type': 'application/json' } }
+        );
+        
+        res.json(response.data);
+      } catch (error) {
+        console.error('Auth error:', error.message);
+        res.status(500).json({ error: 'Failed to authenticate' });
+      }
+    });
+
+    app.listen(PORT, () => {
+      console.log(`Proxy server running on http://localhost:${PORT}`);
+    });
+    ```
+
+  ### Kimlik Doğrulama Süreci
+  - V2 kimlik doğrulama uç noktasını kullanın: `https://auth.getbee.io/loginV2`
+  - TÜMLÜGÜ API yanıtını Beefree SDK'ya geçirin, sadece token'ı değil
+  - Örnek kimlik doğrulama çağrısı:
+    ```typescript
+    const token = await fetch('http://localhost:3001/proxy/bee-auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ uid: 'demo-user' })
+    }).then(res => res.json());
+    ```
+
+  ## Konteyner Kurulum Yönergeleri
+
+  ### HTML Konteyneri
+  - Beefree SDK için özel bir konteyner öğesi oluşturun:
+    ```html
+    <div id="beefree-sdk-container"></div>
+    ```
+
+  ### CSS Şekillendirmesi
+  - Konteynerı uygun şekilde gösterilmesini sağlamak için şekillendirin:
+    ```css
+    #beefree-sdk-container {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      height: 600px;
+      width: 90%;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    ```
+
+  ### React Konteyneri
+  - React uygulamaları için, aşağıdaki kod parçacığı ref'leri kullanarak konteyner yönetiminin bir örneğini gösterir:
+    ```typescript
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    return (
+      <div
+        id="beefree-react-demo"
+        ref={containerRef}
+        style={{
+          height: '600px',
+          width: '90%',
+          margin: '20px auto',
+          border: '1px solid #ddd',
+          borderRadius: '8px'
+        }}
+      />
+    );
+    ```
+
+  ## Yapılandırma Yönergeleri
+
+  ### Gerekli Yapılandırma Parametreleri
+  - DAIMA yapılandırmanıza `container` parametresini dahil edin:
+    ```typescript
+    const beeConfig = {
+      container: 'beefree-sdk-container', // Gerekli
+      language: 'en-US'
+    };
+    ```
+
+  ### İsteğe Bağlı Yapılandırma Parametreleri
+  - SDK'nızı isteğe bağlı parametrelerle özelleştirin:
+    ```typescript
+    const beeConfig = {
+      container: 'beefree-sdk-container', // Gerekli
+      language: 'en-US',
+      specialLinks: [
+        {
+          type: "unsubscribe",
+          label: "Unsubscribe",
+          link: "http://[unsubscribe]/",
+        },
+        {
+          type: "subscribe",
+          label: "Subscribe",
+          link: "http://[subscribe]/",
+        },
+      ],
+      mergeTags: [
+        {
+          name: "First Name",
+          value: "[first_name]",
+        },
+        {
+          name: "Last Name",
+          value: "[last_name]",
+        },
+        {
+          name: "Email",
+          value: "[email]",
+        },
+      ]
+    };
+    ```
+
+  ### Callback Fonksiyonları
+  - Uygun işlevsellik için temel callback fonksiyonlarını uygulayın:
+    ```typescript
+    const beeConfig = {
+      container: 'beefree-sdk-container',
+      onSave: function (jsonFile, htmlFile) {
+        console.log("Template saved:", jsonFile);
+        // Özel kaydetme mantığını buraya uygulayın
+      },
+      onAutoSave: function (jsonFile) {
+        console.log("Auto-saving template...");
+        localStorage.setItem("email.autosave", jsonFile);
+      },
+      onSend: function (htmlFile) {
+        console.log("Email ready to send:", htmlFile);
+        // Özel gönderme mantığını buraya uygulayın
+      },
+      onError: function (errorMessage) {
+        console.error("Beefree SDK error:", errorMessage);
+        // Hataları uygun şekilde işleyin
+      }
+    };
+    ```
+
+  ## SDK İlklendirilmesi Yönergeleri
+
+  ### Temel İlklendirilme
+  - Beefree SDK'yı uygun hata işleme ile ilklendirin:
+    ```typescript
+    async function initializeBeefree(authResponse) {
+      try {
+        const bee = new BeefreeSDK(authResponse);
+        bee.start(beeConfig, {});
+        console.log('Beefree SDK initialized successfully');
+      } catch (error) {
+        console.error('Failed to initialize Beefree SDK:', error);
+      }
+    }
+    ```
+
+  ### React Entegrasyonu
+  - React uygulamaları için, aşağıdaki kod parçacığı ilklendirilme için useEffect kullanmanın bir örneğini gösterir:
+    ```typescript
+    useEffect(() => {
+      async function initializeEditor() {
+        const beeConfig = {
+          container: 'beefree-react-demo',
+          language: 'en-US',
+          onSave: (pageJson: string, pageHtml: string, ampHtml: string | null, templateVersion: number, language: string | null) => {
+            console.log('Saved!', { pageJson, pageHtml, ampHtml, templateVersion, language });
+          },
+          onError: (error: unknown) => {
+            console.error('Error:', error);
+          }
+        };
+
+        const token = await fetch('http://localhost:3001/proxy/bee-auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ uid: 'demo-user' })
+        }).then(res => res.json());
+
+        const bee = new BeefreeSDK(token);
+        bee.start(beeConfig, {});
+      }
+
+      initializeEditor();
+    }, []);
+    ```
+
+  ## Şablon Yükleme Yönergeleri
+
+  ### Şablonları Yükleme
+  - Mevcut şablonları yüklemek için `start()` metodunu şablon verileriyle kullanın:
+    ```typescript
+    // localStorage'dan şablon yükleyin
+    const selectedTemplate = JSON.parse(localStorage.getItem('currentEmailData'));
+    
+    if (selectedTemplate) {
+      beefreeSDKInstance.start(selectedTemplate);
+      console.log('Loaded template from localStorage');
+    } else {
+      // Boş şablonla başlayın
+                beefreeSDKInstance.start();
+            console.log('Started with empty template');
+    }
+    ```
+
+  ### Şablon Depolaması
+  - Test sırasında kalıcılık için şablonları localStorage'da depolayın:
+    ```typescript
+    // Şablon verilerini kaydedin
+    localStorage.setItem('currentEmailData', JSON.stringify(templateData));
+    localStorage.setItem('currentEmailName', emailName);
+    
+    // Şablon verilerini yükleyin
+    const emailData = localStorage.getItem('currentEmailData');
+    const emailName = localStorage.getItem('currentEmailName');
+    ```
+
+  ### Otomatik Kaydetme İşlevi
+  - Veri kaybını önlemek için otomatik kaydetmeyi uygulayın:
+    ```typescript
+    onAutoSave: function (jsonFile) {
+      console.log("Auto-saving template...");
+      localStorage.setItem("email.autosave", jsonFile);
+    }
+    ```
+
+  ## HTML İthalatı Yönergeleri
+
+  ### HTML İthalatçı API'si
+  - Mevcut HTML şablonlarını Beefree SDK formatına dönüştürmek için HTML İthalatçı API'sini kullanın
+  - API uç noktası: `https://api.getbee.io/v1/conversion/html-to-json`
+  - Referans: [HTML İthalatçı API Belgeleri](https://docs.beefree.io/beefree-sdk/apis/html-importer-api/import-html)
+
+  ### İthalatı İşlemi
+  - HTML şablonlarını Beefree SDK'nın yerel JSON formatına dönüştürün:
+    ```javascript
+    const response = await fetch('https://api.getbee.io/v1/conversion/html-to-json', {
+      method: 'POST',
+      headers: {
+        "Authorization": "Bearer Enter Dev Console API Key as Bearer token",
+        "Content-Type": "text/html"
+      },
+      body: "<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>"
+    }); 
+    const data = await response.json();
+    ```
+
+  ### İthalatı Yapılan Şablonları Yükleme
+  - İthalatı yapılan şablonları Beefree SDK'ya yükleyin:
+    ```typescript
+    const importedTemplate = await importHtmlTemplate(htmlContent);
+    beefreeSDK.start(importedTemplate);
+    ```
+
+  ## Hata İşleme Yönergeleri
+
+  ### onError Callback'i
+  - SDK hatalarını işlemek için DAIMA `onError` callback'ini uygulayın:
+    ```typescript
+    onError: function (errorMessage) {
+      console.error("Beefree SDK error:", errorMessage);
+      // Kullanıcı dostu hata mesajı görüntüleyin
+      document.getElementById('beefree-sdk-container').innerHTML = 
+        '<div class="error">Error loading Beefree SDK: ' + errorMessage.message + '</div>';
+    }
+    ```
+
+  ### Kimlik Doğrulama Hatası İşleme
+  - Kimlik doğrulama başarısızlıklarını duyarlı bir şekilde işleyin:
+    ```typescript
+    function getBeeToken(callback) {
+      fetch('/api/beefree/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ uid: beeConfig.uid })
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Auth failed: ' + response.status);
+        return response.json();
+      })
+      .then(data => {
+        callback(data);
+      })
+      .catch(error => {
+        console.error('Error getting Beefree token:', error);
+        document.getElementById('beefree-sdk-container').innerHTML = 
+          '<div class="error">Failed to authenticate with Beefree. Please check your credentials and try again.</div>';
+      });
+    }
+    ```
+
+  ## Şablon Değişikliği İzleme Yönergeleri
+
+  ### Mesaj Değişikliklerini İzleme
+  - Son kullanıcılar tarafından yapılan değişiklikleri izlemek için şablon değişikliği izlemesini uygulayın
+  - Referans: [Mesaj Değişikliklerini İzleme Belgeleri](https://docs.beefree.io/beefree-sdk/getting-started/tracking-message-changes)
+
+  ### Değişiklik Algılama
+  - Şablon değişikliklerini izlemek için `onChange` callback'ini kullanın:
+    ```typescript
+    onChange: function (jsonFile, response) {
+    console.log('json', jsonFile);
+    console.log('response', response);
+      },
+    ```
+
+  ## Özelleştirme Yönergeleri
+
+  ### Arayüz Özelleştirmesi
+  Beefree SDK görünümünü aşağıdakilerle özelleştirin:
+  - [Özelleştirilmiş Temalar](https://docs.beefree.io/beefree-sdk/other-customizations/appearance/themes)
+  - [Özel CSS](https://docs.beefree.io/beefree-sdk/other-customizations/appearance/custom-css) 
+
+  ### Dil Özelleştirmesi
+  - Uluslararasılaştırma için dili ayarlayın:
+    ```typescript
+    const beeConfig = {
+      container: 'beefree-sdk-container',
+      language: 'en-US', // veya 'es-ES', 'fr-FR', vb.
+    };
+    ```
+
+  ### Merge Etiketleri ve Özel Bağlantılar
+  - E-posta kişiselleştirmesi için merge etiketlerini ve özel bağlantıları yapılandırın:
+    ```typescript
+    const beeConfig = {
+      container: 'beefree-sdk-container',
+      mergeTags: [
+        { name: "First Name", value: "[first_name]" },
+        { name: "Last Name", value: "[last_name]" },
+        { name: "Email", value: "[email]" },
+        { name: "Company", value: "[company]" }
+      ],
+      specialLinks: [
+        { type: "unsubscribe", label: "Unsubscribe", link: "http://[unsubscribe]/" },
+        { type: "subscribe", label: "Subscribe", link: "http://[subscribe]/" },
+        { type: "webview", label: "View in Browser", link: "http://[webview]/" }
+      ]
+    };
+    ```
+  ### Diğer Özelleştirmeler
+  Olası özelleştirmelerin kapsamlı bir referansı için resmi [Beefree SDK teknik belgelerine](https://docs.beefree.io/beefree-sdk) bakın.  
+
+  ## En İyi Uygulamalar
+
+  ### Performans Optimizasyonu
+  - Beefree SDK'yı yalnızca uygulamanızda gerçekten ihtiyaç duyulduğunda ilklendirin.
+  - SDK kaynakları artık gerekli olmadığında düzgün bir şekilde temizleyin (ör. gezinme veya editörü kapatırken).
+  - Uygulama çökmelerini veya beklenmedik davranışları önlemek için hataları duyarlı bir şekilde işleyin.
+
+  ### Güvenlik
+  - Beefree SDK istemci kimlik bilgilerinizi **asla** ön uç veya genel kodda açıklamayın.
+  - Kimlik doğrulama ve hassas işlemleri işlemek için her zaman güvenli bir arka uç veya proxy sunucusu kullanın.
+  - Güvenlik açıklarını önlemek için SDK'ya geçirmeden önce tüm kullanıcı girdilerini doğrulayın ve temizleyin.
+
+  ### Kullanıcı Deneyimi
+  - SDK ilklendirilirken veya işlemler gerçekleştirirken uygun yükleme göstergelerini gösterin.
+  - Bir sorun ortaya çıkarsa, kullanıcılara net ve yararlı hata mesajları görüntüleyin.
+  - Veri kaybını önlemek için otomatik kaydetme veya ilerleme izlemesini uygulayın.
+
+  ### Kod Organizasyonu
+  - Daha iyi bakım için SDK yapılandırmasını ilklendirilme ve iş mantığından ayrı tutun.
+  - Kod güvenliğini ve netliğini iyileştirmek için mümkün olduğunda güçlü yazı (ör. TypeScript veya benzeri) kullanın.
+  - Kullandığınız teknoloji yığını veya çerçeve ne olursa olsun, tüm entegrasyonda sağlam hata işlemesini sağlayın.
+
+  ## Örnekler
+
+  ### Tam React Bileşeni
+  Tam proje için [beefree-react-demo](https://github.com/BeefreeSDK/beefree-react-demo) adresine bakın.
+  ```typescript
+  import { useEffect, useRef } from 'react';
+  import BeefreeSDK from '@beefree.io/sdk';
+
+  export default function BeefreeEditor() {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      async function initializeEditor() {
+        const beeConfig = {
+          container: 'beefree-react-demo',
+          language: 'en-US',
+          onSave: (pageJson: string, pageHtml: string, ampHtml: string | null, templateVersion: number, language: string | null) => {
+            console.log('Saved!', { pageJson, pageHtml, ampHtml, templateVersion, language });
+          },
+          onError: (error: unknown) => {
+            console.error('Error:', error);
+          }
+        };
+
+        const token = await fetch('http://localhost:3001/proxy/bee-auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ uid: 'demo-user' })
+        }).then(res => res.json());
+
+        const bee = new BeefreeSDK(token);
+        bee.start(beeConfig, {});
+      }
+
+      initializeEditor();
+    }, []);
+
+    return (
+      <div
+        id="beefree-react-demo"
+        ref={containerRef}
+        style={{
+          height: '600px',
+          width: '90%',
+          margin: '20px auto',
+          border: '1px solid #ddd',
+          borderRadius: '8px'
+        }}
+      />
+    );
+  }
+  ```
+
+  ### Tam HTML Uygulaması
+  Tam proje için Beefree SDK [multiple-versions-concept](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/tree/main/multiple-versions-concept) adresine bakın.
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Beefree SDK - Email Builder</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <style type="text/css">
+        #beefree-sdk-container {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="beefree-sdk-container"></div>
+      <!-- Bundle the official @beefree.io/sdk package and expose BeefreeSDK from your app entrypoint. -->
+      <script type="text/javascript">
+        const beeConfig = {
+              container: 'beefree-sdk-container',
+      uid: 'demo-user-' + Date.now(),
+      language: 'en-US',
+          onSave: function (jsonFile, htmlFile) {
+            console.log("Template saved:", jsonFile);
+          },
+          onError: function (errorMessage) {
+            console.error("Beefree SDK error:", errorMessage);
+          }
+        };
+
+        function getBeeToken(callback) {
+          fetch('/api/beefree/auth', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ uid: beeConfig.uid })
+          })
+          .then(response => response.json())
+          .then(data => callback(data))
+          .catch(error => {
+            console.error('Error getting Beefree token:', error);
+          });
+        }
+
+        function initializeBeefree(authResponse) {
+          const bee = new BeefreeSDK(authResponse);
+          bee.start(beeConfig, {});
+        }
+
+        getBeeToken(initializeBeefree);
+      </script>
+    </body>
+  </html>
+  ```
 ---
 
 # Beefree SDK Guidelines

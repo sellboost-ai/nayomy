@@ -9,6 +9,98 @@ path: "rules/nodejs-mongodb-cursorrules-prompt-file-tutorial.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nodejs-mongodb-cursorrules-prompt-file-tutorial.mdc"
 body_length: 2111
 file_extension: ".mdc"
+body_tr: |-
+  Tech Stack:
+
+  Backend: Node.js with Express.js
+
+  Database: MongoDB with Mongoose ODM
+
+  Frontend: React.js (yönetici paneli gerekirse)
+
+  Authentication: JSON Web Tokens (JWT)
+
+  Version Control: Git
+
+  Deployment: Docker (opsiyonel)
+
+  Kullanıcı Gereksinimlerinde Kesinlik:
+
+  Belirtilen kullanıcı akışına ve oyun kurallarına kesinlikle uyun.
+
+  Strateji: 
+
+  Pick gönderim işlemini özetleyin ve API endpoint'ini ile business logic'i pseudocode'da özetleyin.
+
+  Pseudocode ile Stratejik Planlama:
+
+  Her özelliği detaylı pseudocode ile başlatın.
+
+  Örnek: Haftalık puanlama işlemi için pseudocode sağlayın, oyun sonucu girişinden entry durum güncellemelerine kadar adımları detaylandırarak.
+
+  Kod Kalitesi:
+
+  RESTful API best practices'ını takip ederek güvenli ve verimli kod sağlayın.
+
+  Uygun hata işleme ve input doğrulaması uygulayın.
+
+  Kullanıcı Akışı:
+
+  Kullanıcılar mevcut Pools'a göz atar
+
+  Pool başına 3 adede kadar Request gönderir
+
+  Requests için ödeme tamamlanır
+
+  Admin, Requests'i onaylar/reddeder
+
+  Onaylanan Requests, Entries haline gelir
+
+  Entry Yönetimi:
+
+  Her kullanıcı Pool başına 3 adede kadar Entry'ye sahip olabilir
+
+  Entries 1, 2, 3 olarak numaralandırılır
+
+  Picks, her Entry için ayrı ayrı yapılır ve izlenir
+
+  Pick Yönetimi:
+
+  Kullanıcılar her Entry için ayrı ayrı Picks yaparlar
+
+  Picks, deadline'a kadar güncellenebilir (oyun başlangıcı veya pick'in yapıldığı haftanın Pazar günü saat 13:00)
+
+  Puanlama ve Sıralama:
+
+  Oyunlar tamamlandıktan sonra Picks puanlanır
+
+  Kazanış: Entry bir sonraki haftaya ilerler
+
+  Kayıp: Entry Pool'dan elenir
+
+  Her Entry, Pool standings'te ayrı ayrı sıralanır
+
+  Sonuçlar ve Standings:
+
+  Kullanıcılar, her Entry için Picks/puanları ayrı ayrı görüntüler
+
+  Pool standings, tüm Entries'i gösterir (User başına birden fazla olabilir)
+
+  Pool üyeleri puanlamadan sonra tüm Picks'leri görüntüleyebilir
+
+  Temel Uygulama Noktaları:
+
+  Requests'i Pool başına User başına 3 ile sınırlayın
+
+  Requests ve Entries'i ayrı ayrı izleyin (1, 2, 3 olarak numaralandırılmış)
+
+  Request model'de payment status izlemesini uygulayın
+
+  Entry'yi yalnızca admin onayından ve ödeme tamamlandıktan sonra oluşturun
+
+  Requests'i yönetmek ve onaylamak için Admin arayüzü
+
+  State geçişlerini uygulayın (Request: pending -> approved -> Entry created)
 ---
 
 Tech Stack:

@@ -3,18 +3,18 @@ name: "ferdousbhai/investor-agent"
 description: "Yahoo Finance integration to fetch stock market data including options recommendations"
 category: "Finance & Fintech"
 repo: "ferdousbhai/investor-agent"
-stars: 329
+stars: 336
 url: "https://github.com/ferdousbhai/investor-agent"
 body_length: 912
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # investor-agent
-
+  
   Uzun vadeli yatırımcılar için finansal araştırma MCP sunucusu.
-
+  
   ## Kurulum
-
+  
   ```json
   {
     "mcpServers": {
@@ -25,9 +25,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Araçlar
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `get_stock_info` | Hisse senedi temelleri — fiyat, finansal veriler, kazançlar, sahiplik, analist derecelendirmeleri, profil |
@@ -37,17 +37,17 @@ body_tr: |-
   | `earnings_calendar` | NASDAQ'dan yaklaşan kazanç raporları |
   | `fear_greed_index` | CNN borsa veya kripto Fear & Greed indeksi |
   | `technical_indicator` | SMA, EMA, RSI, MACD veya Bollinger Bands |
-
+  
   ## Geliştirme
-
+  
   ```bash
   pnpm install
   pnpm run test
   pnpm run typecheck
   ```
-
+  
   ## Lisans
-
+  
   MIT
 ---
 

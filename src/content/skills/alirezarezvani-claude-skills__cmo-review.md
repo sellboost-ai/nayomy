@@ -12,6 +12,103 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:cmo-review — CMO Zorlama Soruları
+
+  **Komut:** `/cs:cmo-review <plan>`
+
+  Anlatı-odaklı stratejist konumlandırmayı taktikleri tartışmadan önce sınaya sokar.
+
+  ## Ne Zaman Çalıştırılır
+
+  - Herhangi bir yeni kampanya başlatmadan önce
+  - Konumlandırma, slogan veya kategori değiştirmeden önce
+  - Pazarlama bütçesinin > %10'unu yeni bir kanala tahsis etmeden önce
+  - Önemli bir PR anından önce (fon haberleştirmesi, ürün lansmanı)
+  - Pipeline katkısı düştüğünde
+
+  ## Altı CMO Sorusu
+
+  ### 1. ICP (Bir Gerçek Kişi)
+  **ICP'nizdeki bir gerçek kişiyi adlandırın. Şirketi, ünvanı, günlük ne yaptığı, neyi sevmediği.**
+  - Persona ≠ ICP. ICP gerçektir.
+  - Bir kişi adlandıramazsanız, ICP yeterince keskin değildir.
+
+  ### 2. JTBD
+  **Müşteri bu ürünü hangi işi yapmak için işe alıyor ve bugün alternatif olarak ne kullanıyor?**
+  - Müşteri tarafından yüksek sesle söylenecek bir cümle.
+  - "Elektronik tablolar kullanıyoruz" geçerli bir alternatiftir. "Hiç birini kullanmıyoruz" da öyle.
+
+  ### 3. Konumlandırma Açıklaması
+  **Bir cümle: [ICP] için, [işe] ihtiyaç duyan, biz [kategori]'yiz, [ayırt edici özellik] var, [alternatif]'ten farklı olarak.**
+  - Bu başlık. Her şey buradan kademeli.
+  - Bir cümleye sığmazsa, henüz konumlandırma değildir.
+
+  ### 4. Dağıtım Kanalı
+  **Müşteri adınızı ilk nerede duyuyor — ve bu aşamada inbound mu outbound mu?**
+  - Kanalı, niyeti ve ilk iletişime giden yolu adlandırın.
+  - PLG, satış odaklı, içerik odaklı, ortaklık odaklı — bir birincil seçin.
+
+  ### 5. CAC Geri Ödeme
+  **Kanal başına: CAC nedir, geri ödeme kaç aydır ve iyileşiyor mu?**
+  - Bir kanalın geri ödeme süresi > 18 ay ise, bu kanal değildir — hobbidir.
+
+  ### 6. Marka Savunulabilirliği
+  **Yarın iyi finanse edilmiş bir rakip mesajlaşmanızı kopyalasa, hangisi hala sizin?**
+  - Kategori konumu, kurucunun pazar uyumu, müşteri sevgisi, dağıtım kilidi — birini adlandırın.
+
+  ## İş Akışı
+
+  1. **Modelleri çalıştırın:**
+     ```bash
+     python ../../../skills/cmo-advisor/scripts/marketing_budget_modeler.py
+     python ../../../skills/cmo-advisor/scripts/growth_model_simulator.py
+     ```
+  2. **Altı soruyu yazılı olarak cevaplayın.**
+  3. **Kararı uygulayın:**
+     - 🟢 YEŞİL — hikaye keskin, kanal karışımı sağlam
+     - 🟡 SARI — ölçeklendirmeden önce konumlandırmayı keskinleştirin
+     - 🔴 KIRMIZI — konumlandırma bozuk; harcama yapmayın
+
+  ## Çıktı Biçimi
+
+  ```markdown
+  # CMO İncelemesi: <plan>
+  **Tarih:** YYYY-MM-DD
+
+  ## Konumlandırma
+  Tek cümlelik açıklama: <burada>
+
+  ## ICP
+  - Adlandırılmış persona: <ad, ünvan, şirket>
+  - JTBD: <bir cümle onların sözleriyle>
+
+  ## Kanal Karışımı
+  - Birincil: <kanal> | CAC $X | Geri Ödeme Ym
+  - İkincil: <kanal> | CAC $X | Geri Ödeme Ym
+
+  ## Karar
+  🟢 / 🟡 / 🔴
+
+  ## Sonraki Adımlar
+  [3 somut eylem]
+  ```
+
+  ## Yönlendirme
+
+  - `/cs:cro-review` — pipeline katkısı kontrolü
+  - `/cs:cpo-review` — ürün ↔ konumlandırma uyumlaştırması
+  - `/cs:decide` — kararı kaydedin
+
+  ## İlgili
+
+  - Agent: [`cs-cmo-advisor`](../../agents/cs-cmo-advisor.md)
+  - Skill: [`cmo-advisor`](../../../skills/cmo-advisor/SKILL.md)
+  - Execution domain: `../../../../marketing-skill/`
+
+  ---
+
+  **Sürüm:** 1.0.0
 ---
 
 # /cs:cmo-review — CMO Forcing Questions

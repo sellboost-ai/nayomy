@@ -3,32 +3,32 @@ name: "ahujasid/blender-mcp"
 description: "MCP server for working with Blender"
 category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
-stars: 22034
+stars: 22825
 url: "https://github.com/ahujasid/blender-mcp"
-body_length: 10076
+body_length: 13397
 license: "MIT"
 language: "Python"
 body_tr: |-
   # BlenderMCP - Blender Model Context Protocol Entegrasyonu
-
+  
   BlenderMCP, Blender'ı Claude AI'a Model Context Protocol (MCP) aracılığıyla bağlayarak Claude'un Blender ile doğrudan etkileşim kurmasını ve kontrolünü sağlar. Bu entegrasyon, isteme dayalı 3D modelleme, sahne oluşturma ve manipülasyonunu mümkün kılar.
-
+  
   **Resmi bir web sitemiz yoktur. İnternette gördüğünüz herhangi bir web sitesi gayriresmi olup bu projeyle hiçbir bağlantısı yoktur. Bunları kendi sorumluluğunuzda kullanın.**
-
+  
   [Tam eğitim](https://www.youtube.com/watch?v=lCyQ717DuzQ)
-
+  
   ### Topluluğa Katılın
-
+  
   Geri bildirim verin, ilham alın ve MCP üzerinde geliştirmeler yapın: [Discord](https://discord.gg/z5apgR8TFU)
-
+  
   ### Destekçiler
-
+  
   [CodeRabbit](https://www.coderabbit.ai/)
-
+  
   **Tüm destekçiler:**
-
+  
   [Bu projeyi destekleyin](https://github.com/sponsors/ahujasid)
-
+  
   ## Mevcut sürüm (1.5.5)
   - Hunyuan3D desteği eklendi
   - Sahneyi daha iyi anlamak için Blender viewport ekran görüntülerini görüntüleyin
@@ -37,37 +37,37 @@ body_tr: |-
   - Hyper3D Rodin kullanarak 3D modelleri oluşturmak için destek
   - Blender MCP'yi uzak bir bilgisayarda çalıştırın
   - Yürütülen araçlar için telemetri (tamamen anonim)
-
+  
   ### Yeni bir sürümü yükleme (mevcut kullanıcılar)
   - Yeni başlayanlar doğrudan Kuruluma gidebilir. Mevcut kullanıcılar için aşağıdaki noktalara bakın
   - En son addon.py dosyasını indirin ve eskisinin yerine koyun, ardından Blender'a ekleyin
   - MCP sunucusunu Claude'dan silin ve tekrar ekleyin, böylece yolunuzda olabilirsiniz!
-
-
+  
+  
   ## Özellikler
-
+  
   - **Çift yönlü iletişim**: Claude AI'ı soket tabanlı sunucu aracılığıyla Blender'a bağlayın
   - **Nesne manipülasyonu**: Blender'da 3D nesneler oluşturun, değiştirin ve silin
   - **Malzeme kontrolü**: Malzemeleri ve renkleri uygulayın ve değiştirin
   - **Sahne inceleme**: Mevcut Blender sahnesinin ayrıntılı bilgisini alın
   - **Kod yürütme**: Claude'dan Blender'da rastgele Python kodu çalıştırın
-
+  
   ## Bileşenler
-
+  
   Sistem iki ana bileşenden oluşur:
-
+  
   1. **Blender Eklentisi (`addon.py`)**: Blender içinde bir soket sunucusu oluşturan ve komutları almak ve yürütmek için bir Blender eklentisi
   2. **MCP Sunucusu (`src/blender_mcp/server.py`)**: Model Context Protocol'u uygulayan ve Blender eklentisine bağlanan bir Python sunucusu
-
+  
   ## Kurulum
-
-
+  
+  
   ### Ön Koşullar
-
+  
   - Blender 3.0 veya daha yeni
   - Python 3.10 veya daha yeni
   - uv paket yöneticisi: 
-
+  
   **Mac'teyseniz, lütfen uv'yi şu şekilde yükleyin**
   ```bash
   brew install uv
@@ -82,30 +82,30 @@ body_tr: |-
   $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
   [Environment]::SetEnvironmentVariable("Path", "$userPath;$localBin", "User")
   ```
-
+  
   Aksi takdirde kurulum talimatları kendi web sitelerinde bulunur: [uv'yi yükle](https://docs.astral.sh/uv/getting-started/installation/)
-
+  
   **⚠️ UV yüklemeden önce devam etmeyin**
-
+  
   ### Ortam Değişkenleri
-
+  
   Aşağıdaki ortam değişkenleri Blender bağlantısını yapılandırmak için kullanılabilir:
-
+  
   - `BLENDER_HOST`: Blender soket sunucusu için host adresi (varsayılan: "localhost")
   - `BLENDER_PORT`: Blender soket sunucusu için port numarası (varsayılan: 9876)
-
+  
   Örnek:
   ```bash
   export BLENDER_HOST='host.docker.internal'
   export BLENDER_PORT=9876
   ```
-
+  
   ### Claude for Desktop Entegrasyonu
-
+  
   [Kurulum talimatlarını izleyin](https://www.youtube.com/watch?v=neoK_WMq92g) (uv'nin zaten yüklenmiş olduğunu varsayarak)
-
+  
   Claude > Ayarlar > Geliştirici > Yapılandırmayı Düzenle > claude_desktop_config.json adresine gidin ve aşağıdakini ekleyin:
-
+  
   ```json
   {
       "mcpServers": {
@@ -120,24 +120,24 @@ body_tr: |-
   ```
   <details>
   <summary>Claude Code</summary>
-
+  
   Blender MCP sunucusunu eklemek için Claude Code CLI'ı kullanın:
-
+  
   ```bash
   claude mcp add blender uvx blender-mcp
   ```
   </details>
-
+  
   ### Cursor entegrasyonu
-
+  
   [![MCP Sunucusunu Yükle](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/link/mcp%2Finstall?name=blender&config=eyJjb21tYW5kIjoidXZ4IGJsZW5kZXItbWNwIn0%3D)
-
+  
   Mac kullanıcıları için Ayarlar > MCP adresine gidin ve aşağıdakini yapıştırın
-
+  
   - Genel sunucu olarak kullanmak için "yeni genel MCP sunucusu ekle" düğmesini kullanın ve yapıştırın
   - Projeye özgü sunucu olarak kullanmak için projenin kökünde `.cursor/mcp.json` dosyası oluşturun ve yapıştırın
-
-
+  
+  
   ```json
   {
       "mcpServers": {
@@ -150,9 +150,9 @@ body_tr: |-
       }
   }
   ```
-
+  
   Windows kullanıcıları için Ayarlar > MCP > Sunucu Ekle adresine gidin, aşağıdaki ayarlarla yeni bir sunucu ekleyin:
-
+  
   ```json
   {
       "mcpServers": {
@@ -167,57 +167,57 @@ body_tr: |-
       }
   }
   ```
-
+  
   [Cursor kurulum videosu](https://www.youtube.com/watch?v=wgWsJshecac)
-
+  
   **⚠️ MCP sunucusunun yalnızca bir örneğini çalıştırın (Cursor veya Claude Desktop'ta), ikisini birden değil**
-
+  
   ### Visual Studio Code Entegrasyonu
-
+  
   _Ön Koşullar_: Devam etmeden önce [Visual Studio Code](https://code.visualstudio.com/) yüklü olduğundan emin olun.
-
+  
   [![VS Code'a Yükle](https://img.shields.io/badge/VS_Code-Install_blender--mcp_server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=ffffff)](vscode:mcp/install?%7B%22name%22%3A%22blender-mcp%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22blender-mcp%22%5D%7D)
-
+  
   ### Blender Eklentisini Yükleme
-
+  
   1. Bu repo'dan `addon.py` dosyasını indirin
   2. Blender'ı açın
   3. Düzen > Tercihler > Eklentiler adresine gidin
   4. "Yükle..." seçeneğine tıklayın ve `addon.py` dosyasını seçin
   5. "Interface: Blender MCP" seçeneğinin yanındaki kutuyu işaretleyerek eklentiyi etkinleştirin
-
-
+  
+  
   ## Kullanım
-
+  
   ### Bağlantıyı Başlatma
   ![Kenar çubuğunda BlenderMCP](https://raw.githubusercontent.com/ahujasid/blender-mcp/HEAD/assets/addon-instructions.png)
-
+  
   1. Blender'da 3D Görünüm kenar çubuğuna gidin (görünür değilse N tuşuna basın)
   2. "BlenderMCP" sekmesini bulun
   3. API'lerinden varlıklar istiyorsanız Poly Haven onay kutusunu açın (isteğe bağlı)
   4. "Claude'a Bağlan" seçeneğine tıklayın
   5. MCP sunucusunun terminalinde çalıştığından emin olun
-
+  
   ### Claude ile Kullanım
-
+  
   Config dosyası Claude'da ayarlandığında ve eklenti Blender'da çalışırken, Blender MCP için araçları içeren çekiç simgesini görürsünüz.
-
+  
   ![Kenar çubuğunda BlenderMCP](https://raw.githubusercontent.com/ahujasid/blender-mcp/HEAD/assets/hammer-icon.png)
-
+  
   #### Yetenekler
-
+  
   - Sahne ve nesne bilgilerini alın 
   - Şekilleri oluşturun, silin ve değiştirin
   - Nesnelere malzeme uygulayın veya oluşturun
   - Blender'da herhangi bir Python kodu çalıştırın
   - [Poly Haven](https://polyhaven.com/) aracılığıyla doğru modelleri, varlıkları ve HDRI'leri indirin
   - [Hyper3D Rodin](https://hyper3d.ai/) aracılığıyla yapay zeka tarafından oluşturulan 3D modelleri
-
-
+  
+  
   ### Örnek Komutlar
-
+  
   Claude'dan isteyebileceğiniz şeylere örnekler:
-
+  
   - "Altın bir kapı koruyan bir ejderhası olan bir zindanda düşük poli bir sahne oluştur" [Demo](https://www.youtube.com/watch?v=DqgKuLYUv00)
   - "Poly Haven'dan HDRI'ler, dokular ve kayalar ve bitki örtüsü gibi modelleri kullanarak bir plaj havası oluştur" [Demo](https://www.youtube.com/watch?v=I29rn92gkC4)
   - Bir referans görüntüsü verin ve bundan bir Blender sahnesini oluşturun [Demo](https://www.youtube.com/watch?v=FDRb03XPiRo)
@@ -227,48 +227,48 @@ body_tr: |-
   - "Bir küre oluştur ve onu küpün üzerine koy"
   - "Aydınlatmayı bir stüdyo gibi yap"
   - "Kamerayı sahneye doğrult ve izometrik yap"
-
+  
   ## Hyper3D entegrasyonu
-
+  
   Hyper3D'nin ücretsiz deneme anahtarı, günde sınırlı sayıda modeli oluşturmanıza izin verir. Günlük sınıra ulaşılırsa, bir sonraki günün sıfırlanmasını bekleyebilir veya hyper3d.ai ve fal.ai'den kendi anahtarınızı alabilirsiniz.
-
+  
   ## Sorun Giderme
-
+  
   - **Bağlantı sorunları**: Blender eklentisi sunucusunun çalıştığından ve MCP sunucusunun Claude'da yapılandırıldığından emin olun, terminalinde uvx komutunu çalıştırmayın. Bazen ilk komut geçmeyebilir ancak bundan sonra çalışmaya başlar.
   - **Zaman aşımı hataları**: İsteklerinizi basitleştirmeyi veya bunları daha küçük adımlara bölmeyi deneyin
   - **Poly Haven entegrasyonu**: Claude bazen hatasız davranabilir
   - **Kapatıp yeniden açmayı denediniz mi?**: Hala bağlantı hatalarıyla karşılaşıyorsanız, hem Claude'u hem de Blender sunucusunu yeniden başlatmayı deneyin
-
-
+  
+  
   ## Teknik Ayrıntılar
-
+  
   ### İletişim Protokolü
-
+  
   Sistem TCP soketleri üzerinde basit bir JSON tabanlı protokol kullanır:
-
+  
   - **Komutlar** `type` ve isteğe bağlı `params` içeren JSON nesneleri olarak gönderilir
   - **Yanıtlar** `status` ve `result` veya `message` içeren JSON nesneleridir
-
+  
   ## Sınırlamalar ve Güvenlik Konuları
-
+  
   - `execute_blender_code` aracı Blender'da rastgele Python kodu çalıştırmaya izin verir, bu güçlü olabilir ancak potansiyel olarak tehlikeli olabilir. Üretim ortamlarında dikkatle kullanın. HER ZAMAN bunu kullanmadan önce çalışmanızı kaydedin.
   - Poly Haven, modelleri, dokuları ve HDRI görüntülerini indirmeyi gerektirir. Bunu kullanmak istemiyorsanız, Blender'daki onay kutusunu kapatın. 
   - Karmaşık işlemler daha küçük adımlara bölünmesi gerekebilir
-
-
+  
+  
   #### Telemetri Kontrolü
-
+  
   BlenderMCP, aracı geliştirmeye yardımcı olmak için anonim kullanım verilerini toplar. Telemetriyi iki şekilde kontrol edebilirsiniz:
-
+  
   1. **Blender'da**: Düzen > Tercihler > Eklentiler > Blender MCP adresine gidin ve telemetri onay kutusu'nun işaretini kaldırın
      - Onay ile (işaretli): Anonim hale getirilmiş istemler, kod parçacıkları ve ekran görüntülerini toplar
      - Onay olmadan (işaretsiz): Yalnızca minimal anonim kullanım verilerini toplar (araç adları, başarı/başarısızlık, süre)
-
+  
   2. **Ortam Değişkeni**: Şunu çalıştırarak tüm telemetriyi tamamen devre dışı bırakın:
   ```bash
   DISABLE_TELEMETRY=true uvx blender-mcp
   ```
-
+  
   Veya MCP yapılandırmanıza ekleyin:
   ```json
   {
@@ -283,16 +283,16 @@ body_tr: |-
       }
   }
   ```
-
+  
   Tüm telemetri verileri tamamen anonim hale getirilir ve yalnızca BlenderMCP'yi iyileştirmek için kullanılır.
-
-
+  
+  
   ## Katkıda Bulunma
-
+  
   Katkılar hoş karşılanır! Lütfen bir Pull Request göndermekten çekinmeyin.
-
+  
   ## Feragatname
-
+  
   Bu, Blender tarafından yapılmayan üçüncü taraf bir entegrasyon. [Siddharth](https://x.com/sidahuj) tarafından yapılmıştır
 ---
 
@@ -300,7 +300,7 @@ body_tr: |-
 
 BlenderMCP connects Blender to Claude AI through the Model Context Protocol (MCP), allowing Claude to directly interact with and control Blender. This integration enables prompt assisted 3D modeling, scene creation, and manipulation.
 
-**We have no official website. Any website you see online is unofficial and has no affiliation with this project. Use them at your own risk.**
+**[Official website](https://blendermcp.org/)**
 
 [Full tutorial](https://www.youtube.com/watch?v=lCyQ717DuzQ)
 
@@ -316,7 +316,10 @@ Give feedback, get inspired, and build on top of the MCP: [Discord](https://disc
 
 [Support this project](https://github.com/sponsors/ahujasid)
 
-## Current version(1.5.5)
+## Highlights
+
+For the current version and changelog, see the [releases page](https://github.com/ahujasid/blender-mcp/releases).
+
 - Added Hunyuan3D support
 - View screenshots for Blender viewport to better understand the scene
 - Search and download Sketchfab models
@@ -325,7 +328,7 @@ Give feedback, get inspired, and build on top of the MCP: [Discord](https://disc
 - Run Blender MCP on a remote host
 - Telemetry for tools executed (completely anonymous)
 
-### Installating a new version (existing users)
+### Installing a new version (existing users)
 - For newcomers, you can go straight to Installation. For existing users, see the points below
 - Download the latest addon.py file and replace the older one, then add it to Blender
 - Delete the MCP server from Claude and add it back again, and you should be good to go!
@@ -372,7 +375,46 @@ $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
 
 Otherwise installation instructions are on their website: [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 
+**Linux:** install uv with `curl -LsSf https://astral.sh/uv/install.sh | sh` (it lands in `~/.local/bin`; open a new shell so it's on your PATH). On every OS, use uv's **official installer above — not `pip install uv`**, which may not create the `uvx` command and can hide uv inside an environment your client can't see.
+
 **⚠️ Do not proceed before installing UV**
+
+### Make your client find uvx
+
+MCP clients started from a GUI (Claude Desktop, Cursor, VS Code from the Dock/Start menu) do **not** inherit your terminal's PATH, so a bare `"command": "uvx"` can fail with **`spawn uvx ENOENT`** even though `uvx` works in your terminal. If that happens:
+
+- Find uvx's full path — `which uvx` (macOS/Linux) or `where uvx` (Windows) — and use it as `"command"`, e.g. `/opt/homebrew/bin/uvx` or `C:\Users\<you>\.local\bin\uvx.exe`.
+- On Windows you can instead wrap it: `"command": "cmd", "args": ["/c", "uvx", "blender-mcp"]`.
+- After any PATH or config change, **fully quit and relaunch** the client (Windows: quit from the system tray, not just the window; macOS: Cmd-Q).
+
+### Pin the Python version (avoid conda / pyenv / version conflicts)
+
+uv chooses which Python runs the server. On machines with conda (auto-activated base), pyenv, or asdf — or with a newer CPython release that some dependencies do not have wheels for yet — uv can grab an interpreter that makes installation fail. Pin Python 3.11 and prefer uv-managed interpreters to avoid using whatever is on your PATH:
+
+```json
+{
+    "mcpServers": {
+        "blender": {
+            "command": "uvx",
+            "args": ["--python", "3.11", "blender-mcp"],
+            "env": { "UV_PYTHON_PREFERENCE": "only-managed" }
+        }
+    }
+}
+```
+
+`--python 3.11` still satisfies this package's `requires-python >=3.10`, and `UV_PYTHON_PREFERENCE=only-managed` keeps uv from selecting conda, pyenv, asdf, or system Python first. (The repo's `.python-version` is only a hint for contributors and does **not** affect `uvx`.) If a previous failed attempt keeps replaying after a fix, clear the cache: `uv cache clean blender-mcp && uvx --refresh blender-mcp`.
+
+### If uv won't work: install without uv
+
+On locked-down machines you can skip uvx entirely with [`pipx`](https://pipx.pypa.io), then point your client at the installed command:
+
+```bash
+pipx install blender-mcp
+pipx ensurepath          # then restart your shell / client
+```
+
+Use the resulting absolute path as `"command"` (find it with `which blender-mcp` / `where blender-mcp`) and omit `args`.
 
 ### Environment Variables
 
@@ -465,6 +507,24 @@ _Prerequisites_: Make sure you have [Visual Studio Code](https://code.visualstud
 
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_blender--mcp_server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=ffffff)](vscode:mcp/install?%7B%22name%22%3A%22blender-mcp%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22blender-mcp%22%5D%7D)
 
+### OpenCode integration
+
+```json
+{
+  "mcp": {
+    "blender-mcp": {
+      "type": "local",
+      "command": ["uvx", "blender-mcp"],
+      "enabled": true,
+      "environment": {
+        "BLENDER_HOST": "localhost",
+        "BLENDER_PORT": "9876"
+      }   
+    }
+  }
+}
+```
+
 ### Installing the Blender Addon
 
 1. Download the `addon.py` file from this repo
@@ -518,6 +578,27 @@ Here are some examples of what you can ask Claude to do:
 ## Hyper3D integration
 
 Hyper3D's free trial key allows you to generate a limited number of models per day. If the daily limit is reached, you can wait for the next day's reset or obtain your own key from hyper3d.ai and fal.ai.
+
+## Persistent API credentials
+
+BlenderMCP supports persistent credentials via Blender Add-on Preferences:
+
+`Edit -> Preferences -> Add-ons -> Blender MCP`
+
+You can store these values there so they survive Blender restarts:
+
+- Sketchfab API Key
+- Hyper3D API Key
+- Hunyuan3D SecretId / SecretKey
+- Hunyuan3D API URL
+
+For headless setups or CI, credentials can also be injected by environment variables:
+
+- `BLENDERMCP_SKETCHFAB_API_KEY`
+- `BLENDERMCP_HYPER3D_API_KEY`
+- `BLENDERMCP_HUNYUAN3D_SECRET_ID`
+- `BLENDERMCP_HUNYUAN3D_SECRET_KEY`
+- `BLENDERMCP_HUNYUAN3D_API_URL`
 
 ## Troubleshooting
 

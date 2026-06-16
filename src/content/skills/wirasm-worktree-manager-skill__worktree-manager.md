@@ -3,7 +3,7 @@ name: "worktree-manager"
 description_en: "Create, manage, and cleanup git worktrees with Claude Code agents across all projects. USE THIS SKILL when user says \"create worktree\", \"spin up worktrees\", \"new worktree for X\", \"worktree status\", \"cleanup worktrees\", \"sync worktrees\", or wants parallel development branches. Also use when creating PRs from a worktree branch (to update registry with PR number). Handles worktree creation, dependenc"
 category: "Development"
 repo: "Wirasm/worktree-manager-skill"
-stars: 131
+stars: 133
 url: "https://github.com/Wirasm/worktree-manager-skill/blob/HEAD/.claude/skills/SKILL.md"
 path: ".claude/skills/SKILL.md"
 is_collection: false
@@ -14,13 +14,13 @@ has_examples: false
 related_files: ["config.json"]
 body_tr: |-
   # Global Worktree Manager
-
+  
   Tüm projelerde git worktrees kullanarak paralel geliştirmeyi yönetin ve Claude Code ajanlarıyla çalışın. Her worktree, farklı bir dalda yer alan ve merkezi olarak `~/tmp/worktrees/` konumunda depolanan izole bir repo kopyasıdır.
-
+  
   **ÖNEMLİ**: Sen (Claude) tüm işlemleri standart araçlar (jq, git, bash) kullanarak manuel olarak gerçekleştirebilirsin. Scriptler yardımcıdır, gereklilik değildir. Eğer bir script başarısız olursa, bu dokümanda açıklanan manuel işlemlere geri dön.
-
+  
   ## Bu Beceri Ne Zaman Aktivize Olur
-
+  
   **Tetikleme ifadeleri:**
   - "X, Y, Z için worktrees oluştur"
   - "A, B, C özellikleri için 3 worktree oluştur"
@@ -32,11 +32,11 @@ body_tr: |-
   - "X worktreesinde ajan başlat"
   - "worktrees senkronize et" / "worktree registry senkronize et"
   - "PR oluştur" (worktree içindeyken - registry'yi PR numarasıyla güncelle)
-
+  
   ---
-
+  
   ## Dosya Konumları
-
+  
   | Dosya | Amaç |
   |------|---------|
   | `~/.claude/worktree-registry.json` | **Global registry** - tüm projelerdeki tüm worktrees'i izler |
@@ -44,14 +44,14 @@ body_tr: |-
   | `~/.claude/skills/worktree-manager/scripts/` | **Yardımcı scriptler** - isteğe bağlı, her şeyi manuel yapabilirsin |
   | `~/tmp/worktrees/` | **Worktree depolaması** - tüm worktrees burada yaşar |
   | `.claude/worktree.json` (proje başına) | **Proje konfigürasyonu** - isteğe bağlı özel ayarlar |
-
+  
   ---
-
+  
   ## Temel Konseptler
-
+  
   ### Merkezi Worktree Depolaması
   Tüm worktrees `~/tmp/worktrees/<project-name>/<branch-slug>/` altında yaşar
-
+  
   ```
   ~/tmp/worktrees/
   ├── obsidian-ai-agent/
@@ -61,28 +61,28 @@ body_tr: |-
   └── another-project/
       └── feature-dark-mode/
   ```
-
+  
   ### Branch Slug Konvansiyonu
   Dal adları dosya sistemi güvenliği için `/` yerine `-` konularak slug haline getirilir:
   - `feature/auth` → `feature-auth`
   - `fix/login-bug` → `fix-login-bug`
   - `feat/user-profile` → `feat-user-profile`
-
+  
   **Manuel slug haline getir:** `echo "feature/auth" | tr '/' '-'` → `feature-auth`
-
+  
   ### Port Tahsis Kuralları
   - **Global pool**: 8100-8199 (toplam 100 port)
   - **Worktree başına**: 2 port tahsis edilir (API + frontend desenleri için)
   - **Global olarak benzersiz**: Portlar projelerde çatışmaları önlemek için global olarak izlenir
   - **Kullanmadan önce kontrol et**: Portu sistem tarafından kullanılmadığından emin ol: `lsof -i :<port>`
-
+  
   ---
-
+  
   ## Global Registry
-
+  
   ### Konum
   `~/.claude/worktree-registry.json`
-
+  
   ### Şema
   ```json
   {
@@ -110,9 +110,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Alan Açıklamaları
-
+  
   **Worktree girdisi alanları:**
   | Alan | Tür | Açıklama |
   |------|-----|---------|
@@ -129,41 +129,41 @@ body_tr: |-
   | `task` | string\|null | Ajan için görev açıklaması |
   | `prNumber` | number\|null | İlişkili PR numarası varsa |
   | `status` | string | `active`, `orphaned`, veya `merged` |
-
+  
   **Port pool alanları:**
   | Alan | Tür | Açıklama |
   |------|-----|---------|
   | `start` | number | Pool'daki ilk port (varsayılan: 8100) |
   | `end` | number | Pool'daki son port (varsayılan: 8199) |
   | `allocated` | number[] | Şu anda tahsis edilen portlar |
-
+  
   ### Manuel Registry İşlemleri
-
+  
   **Tüm registry'yi oku:**
   ```bash
   cat ~/.claude/worktree-registry.json | jq '.'
   ```
-
+  
   **Tüm worktrees'i listele:**
   ```bash
   cat ~/.claude/worktree-registry.json | jq '.worktrees[]'
   ```
-
+  
   **Belirli proje için worktrees'i listele:**
   ```bash
   cat ~/.claude/worktree-registry.json | jq '.worktrees[] | select(.project == "my-project")'
   ```
-
+  
   **Tahsis edilen portları al:**
   ```bash
   cat ~/.claude/worktree-registry.json | jq '.portPool.allocated'
   ```
-
+  
   **Dal'a göre worktree bul (kısmi eşleşme):**
   ```bash
   cat ~/.claude/worktree-registry.json | jq '.worktrees[] | select(.branch | contains("auth"))'
   ```
-
+  
   **Manuel worktree girdisi ekle:**
   ```bash
   TMP=$(mktemp)
@@ -183,28 +183,28 @@ body_tr: |-
     "status": "active"
   }]' ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
   ```
-
+  
   **Tahsis edilen pool'a portlar ekle:**
   ```bash
   TMP=$(mktemp)
   jq '.portPool.allocated += [8100, 8101] | .portPool.allocated |= unique | .portPool.allocated |= sort_by(.)' \
     ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
   ```
-
+  
   **Worktree girdisini sil:**
   ```bash
   TMP=$(mktemp)
   jq 'del(.worktrees[] | select(.project == "my-project" and .branch == "feature/auth"))' \
     ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
   ```
-
+  
   **Pool'dan portları serbest bırak:**
   ```bash
   TMP=$(mktemp)
   jq '.portPool.allocated = (.portPool.allocated | map(select(. != 8100 and . != 8101)))' \
     ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
   ```
-
+  
   **Boş registry başlat (eksikse):**
   ```bash
   mkdir -p ~/.claude
@@ -219,19 +219,19 @@ body_tr: |-
   }
   EOF
   ```
-
+  
   ---
-
+  
   ## Manuel Port Tahsis
-
+  
   `scripts/allocate-ports.sh` başarısız olursa, portları manuel tahsis et:
-
+  
   **Adım 1: Şu anda tahsis edilen portları al**
   ```bash
   ALLOCATED=$(cat ~/.claude/worktree-registry.json | jq -r '.portPool.allocated[]' | sort -n)
   echo "Currently allocated: $ALLOCATED"
   ```
-
+  
   **Adım 2: İlk mevcut portu bul (tahsis listesinde DEĞİL VE sistem tarafından kullanılmıyor)**
   ```bash
   for PORT in $(seq 8100 8199); do
@@ -245,18 +245,18 @@ body_tr: |-
     fi
   done
   ```
-
+  
   **Adım 3: Tahsis edilen pool'a ekle**
   ```bash
   TMP=$(mktemp)
   jq '.portPool.allocated += [8100] | .portPool.allocated |= unique | .portPool.allocated |= sort_by(.)' \
     ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
   ```
-
+  
   ---
-
+  
   ## Sen (Claude) Neler Yaparsin vs Scriptler Neler Yapar
-
+  
   | Görev | Script Mevcut | Manuel Geri Dönüş |
   |-------|---------------|------------------|
   | Proje adını belirle | Hayır | `git remote get-url origin` veya `basename $(pwd)` parse et |
@@ -270,20 +270,20 @@ body_tr: |-
   | Ajanı terminalde başlat | `scripts/launch-agent.sh` | Manuel (aşağıya bak) |
   | Durumu göster | `scripts/status.sh` | `cat ~/.claude/worktree-registry.json \| jq ...` |
   | Worktree'yi temizle | `scripts/cleanup.sh` | Manuel (Temizleme bölümüne bak) |
-
+  
   ---
-
+  
   ## İş Akışları
-
+  
   ### 1. Ajanlarla Birden Fazla Worktree Oluştur
-
+  
   **Kullanıcı söyler:** "3 worktree oluştur: feature/auth, feature/payments, fix/login-bug"
-
+  
   **Sen yaparsın (alt ajanlarla paralel hale getirebilirsin):**
-
+  
   ```
   HER DAL İÇİN (paralel çalıştırabilir):
-
+  
   1. KURULUM
      a. Proje adını al:
         PROJECT=$(basename $(git remote get-url origin 2>/dev/null | sed 's/\.git$//') 2>/dev/null || basename $(pwd))
@@ -293,88 +293,88 @@ body_tr: |-
         BRANCH_SLUG=$(echo "feature/auth" | tr '/' '-')
      d. Worktree yolunu belirle:
         WORKTREE_PATH=~/tmp/worktrees/$PROJECT/$BRANCH_SLUG
-
+  
   2. PORTLARI TAHSIS ET
      Seçenek A (script): ~/.claude/skills/worktree-manager/scripts/allocate-ports.sh 2
      Seçenek B (manuel): 8100-8199 aralığından 2 kullanılmayan portu bul, registry'ye ekle
-
+  
   3. WORKTREE OLUŞTUR
      mkdir -p ~/tmp/worktrees/$PROJECT
      git worktree add $WORKTREE_PATH -b $BRANCH
      # Dal zaten varsa -b bayrağını çıkar
-
+  
   4. KAYDEDILMEMIŞ KAYNAKLARI KOPYALA
      cp -r .agents $WORKTREE_PATH/ 2>/dev/null || true
      cp .env.example $WORKTREE_PATH/.env 2>/dev/null || true
-
+  
   5. BAĞIMLILIKLARI KUR
      cd $WORKTREE_PATH
      # Tespit et ve çalıştır: npm install / uv sync / vb.
-
+  
   6. DOĞRULA (sunucuyu başlat, health check, durdur)
      a. Tahsis edilen portla sunucuyu başlat
      b. Bekle ve health kontrol et: curl -sf http://localhost:$PORT/health
      c. Sunucuyu durdur
      d. BAŞARISIZ OLURSA: hatayı raporla ama diğer worktrees'le devam et
-
+  
   7. GLOBAL REGISTRY'YE KAYDIT ET
      Seçenek A (script): ~/.claude/skills/worktree-manager/scripts/register.sh ...
      Seçenek B (manuel): ~/.claude/worktree-registry.json'u jq ile güncelle
-
+  
   8. AJANICI BAŞLAT
      Seçenek A (script): ~/.claude/skills/worktree-manager/scripts/launch-agent.sh $WORKTREE_PATH "task"
      Seçenek B (manuel): Terminali manuel aç, cd yap, claude çalıştır
-
+  
   TÜM TAMAMLANDIKTAN SONRA:
   - Kullanıcıya özet tablosu raporla
   - Herhangi bir hatayı detaylarıyla not et
   ```
-
+  
   ### 2. Durumu Kontrol Et
-
+  
   **Script ile:**
   ```bash
   ~/.claude/skills/worktree-manager/scripts/status.sh
   ~/.claude/skills/worktree-manager/scripts/status.sh --project my-project
   ```
-
+  
   **Manuel:**
   ```bash
   # Tüm worktrees
   cat ~/.claude/worktree-registry.json | jq -r '.worktrees[] | "\(.project)\t\(.branch)\t\(.ports | join(","))\t\(.status)\t\(.task // "-")"'
-
+  
   # Geçerli proje için
   PROJECT=$(basename $(git remote get-url origin 2>/dev/null | sed 's/\.git$//'))
   cat ~/.claude/worktree-registry.json | jq -r ".worktrees[] | select(.project == \"$PROJECT\") | \"\(.branch)\t\(.ports | join(\",\"))\t\(.status)\""
   ```
-
+  
   ### 3. Ajanı Manuel Başlat
-
+  
   `launch-agent.sh` başarısız olursa:
-
+  
   **Ghostty için:**
   ```bash
   open -na "Ghostty.app" --args -e fish -c "cd '$WORKTREE_PATH' && claude"
   ```
-
+  
   **iTerm2 için:**
   ```bash
   osascript -e 'tell application "iTerm2" to create window with default profile' \
     -e 'tell application "iTerm2" to tell current session of current window to write text "cd '"$WORKTREE_PATH"' && claude"'
   ```
-
+  
   **tmux için:**
   ```bash
   tmux new-session -d -s "wt-$PROJECT-$BRANCH_SLUG" -c "$WORKTREE_PATH" "fish -c 'claude'"
   ```
-
+  
   ### 4. Worktree'yi Temizle
-
+  
   **Script ile:**
   ```bash
   ~/.claude/skills/worktree-manager/scripts/cleanup.sh my-project feature/auth --delete-branch
   ```
-
+  
   **Manuel temizleme:**
   ```bash
   # 1. Registry'den worktree bilgisini al
@@ -382,43 +382,43 @@ body_tr: |-
   WORKTREE_PATH=$(echo "$ENTRY" | jq -r '.worktreePath')
   PORTS=$(echo "$ENTRY" | jq -r '.ports[]')
   REPO_PATH=$(echo "$ENTRY" | jq -r '.repoPath')
-
+  
   # 2. Portlardaki işlemleri öldür
   for PORT in $PORTS; do
     lsof -ti:"$PORT" | xargs kill -9 2>/dev/null || true
   done
-
+  
   # 3. Worktree'yi kaldır
   cd "$REPO_PATH"
   git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
   git worktree prune
-
+  
   # 4. Registry'den kaldır
   TMP=$(mktemp)
   jq 'del(.worktrees[] | select(.project == "my-project" and .branch == "feature/auth"))' \
     ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
-
+  
   # 5. Portları serbest bırak
   TMP=$(mktemp)
   for PORT in $PORTS; do
     jq ".portPool.allocated = (.portPool.allocated | map(select(. != $PORT)))" \
       ~/.claude/worktree-registry.json > "$TMP" && mv "$TMP" ~/.claude/worktree-registry.json
   done
-
+  
   # 6. İsteğe bağlı dal sil
   git branch -D feature/auth
   git push origin --delete feature/auth
   ```
-
+  
   ### 5. Worktree'den PR Oluştur
-
+  
   Bir worktree dalından PR oluştururken, registry'yi PR numarasıyla güncelle:
-
+  
   ```bash
   # gh pr create başarılı olduktan sonra, PR numasını al
   BRANCH=$(git branch --show-current)
   PR_NUM=$(gh pr view --json number -q '.number')
-
+  
   # Registry'yi PR numarasıyla güncelle
   if [ -n "$PR_NUM" ] && [ -f ~/.claude/worktree-registry.json ]; then
       TMP=$(mktemp)
@@ -427,30 +427,30 @@ body_tr: |-
       echo "Updated worktree registry with PR #$PR_NUM"
   fi
   ```
-
+  
   Bu, `cleanup.sh --merged`'in PR'ları birleştirdikten sonra otomatik olarak worktrees'leri bulması ve temizlemesini sağlar.
-
+  
   ### 6. Registry'yi Senkronize Et
-
+  
   Registry'yi gerçek worktrees ve PR durumu ile uzlaştır:
-
+  
   ```bash
   # Durumu kontrol et (değişiklik yapma)
   ~/.claude/skills/worktree-manager/scripts/sync.sh
-
+  
   # Otomatik olarak sorunları düzelt (eksik girişleri kaldır, PR numaralarını güncelle)
   ~/.claude/skills/worktree-manager/scripts/sync.sh --fix
-
+  
   # Sessiz modu (sadece sorunları göster)
   ~/.claude/skills/worktree-manager/scripts/sync.sh --quiet
   ```
-
+  
   ---
-
+  
   ## Paket Yöneticisi Tespiti
-
+  
   Öncelik sırasına göre lockfiles kontrol ederek tespit et:
-
+  
   | Dosya | Paket Yöneticisi | Kurulum Komutu |
   |------|-----|---------|
   | `bun.lockb` | bun | `bun install` |
@@ -462,7 +462,7 @@ body_tr: |-
   | `requirements.txt` | pip | `pip install -r requirements.txt` |
   | `go.mod` | go | `go mod download` |
   | `Cargo.toml` | cargo | `cargo build` |
-
+  
   **Tespit mantığı:**
   ```bash
   cd $WORKTREE_PATH
@@ -477,27 +477,27 @@ body_tr: |-
   elif [ -f "Cargo.toml" ]; then cargo build
   fi
   ```
-
+  
   ---
-
+  
   ## Dev Sunucu Tespiti
-
+  
   Bu sırayla dev komutlarını ara:
-
+  
   1. **docker-compose.yml / compose.yml**: `docker-compose up -d` veya `docker compose up -d`
   2. **package.json scripts**: `dev`, `start:dev`, `serve` ara
   3. **uvicorn ile Python**: `uv run uvicorn app.main:app --port $PORT`
   4. **Flask ile Python**: `flask run --port $PORT`
   5. **Go**: `go run .`
-
+  
   **Port enjeksiyonu**: Çoğu sunucu `PORT` env var'ını veya `--port` bayrağını kabul eder
-
+  
   ---
-
+  
   ## Projeye Özgü Konfigürasyon (İsteğe Bağlı)
-
+  
   Projeler özel ayarlar için `.claude/worktree.json` sağlayabilir:
-
+  
   ```json
   {
     "ports": {
@@ -513,18 +513,18 @@ body_tr: |-
     "copyDirs": [".agents", ".env.example", "data/fixtures"]
   }
   ```
-
+  
   Bu dosya varsa, ayarlarını kullan. Değilse, otomatik tespit et.
-
+  
   ---
-
+  
   ## Paralel Worktree Oluşturma
-
+  
   Birden fazla worktree oluştururken, paralelleştirme için alt ajanları kullan:
-
+  
   ```
   Kullanıcı: "feature/a, feature/b, feature/c için worktrees oluştur"
-
+  
   Sen:
   1. TÜM worktrees için portları önceden tahsis et (toplam 6 port)
   2. 3 alt ajan başlat, worktree başına bir tane
@@ -537,40 +537,40 @@ body_tr: |-
   4. Tüm alt ajanlardan sonuçları topla
   5. Herhangi bir hatanın not edildiği birleştirilmiş özet raporla
   ```
-
+  
   ---
-
+  
   ## Güvenlik Yönergeleri
-
+  
   1. **Temizlemeden önce**, PR durumunu kontrol et:
      - PR birleştirildi → her şeyi temizlemek güvenli
      - PR açık → kullanıcıyı uyar, devam etmeden önce onayla
      - PR yok → gönderilmemiş iş hakkında uyar
-
+  
   2. **Dalları silmeden önce**, şunları kontrol et:
      - PR birleştirilmedi mi
      - PR yok mu
      - Worktree kaydedilmemiş değişikliklere mi sahip
-
+  
   3. **Port çatışmaları**: Port, worktree dışı bir işlem tarafından kullanılıyorsa, farklı port seç
-
+  
   4. **Yetim worktrees**: Orijinal repo silinmişse, durumda `orphaned` olarak işaretle
-
+  
   5. **Maksimum worktrees**: 100 portluk pool ve worktree başına 2 portla, ~50 eş zamanlı worktree mümkün
-
+  
   ---
-
+  
   ## Script Referansı
-
+  
   Scriptler `~/.claude/skills/worktree-manager/scripts/` konumundadır
-
+  
   ### allocate-ports.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/allocate-ports.sh <count>
   # Döner: boşlukla ayrılmış port numaraları (ör. "8100 8101")
   # Otomatik olarak registry'yi günceller
   ```
-
+  
   ### register.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/register.sh \
@@ -581,56 +581,56 @@ body_tr: |-
     "$HOME/tmp/worktrees/my-project/feature-auth" \
     "/path/to/repo" "8100,8101" "OAuth uygula"
   ```
-
+  
   ### launch-agent.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/launch-agent.sh <worktree-path> [task]
   # Yeni terminal penceresi açar (varsayılan olarak Ghostty) Claude Code ile
   ```
-
+  
   ### status.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/status.sh [--project <name>]
   # Tüm worktrees'leri göster, veya projeye göre filtrele
   ```
-
+  
   ### cleanup.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/cleanup.sh <project> <branch> [--delete-branch]
   # Portları öldür, worktree'yi kaldır, registry'yi güncelle
   # --delete-branch aynı zamanda yerel ve uzak git dallarını da kaldırır
-
+  
   # Veya birleştirilen TÜM worktrees'leri bir kerede temizle:
   ~/.claude/skills/worktree-manager/scripts/cleanup.sh --merged [--delete-branch]
   # Birleştirilen PR'lara sahip tüm worktrees'leri bulur ve temizler
   ```
-
+  
   ### sync.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/sync.sh [--quiet] [--fix]
   # Registry'yi gerçek worktrees ve PR durumuyla uzlaştır
   # --quiet: Yalnızca sorunları göster, OK girişleri gösterme
   # --fix: Otomatik olarak eksik girişleri kaldır ve PR numaralarını/durumunu güncelle
-
+  
   # Örnek: Hiçbir şey değiştirmeden durumu kontrol et
   ~/.claude/skills/worktree-manager/scripts/sync.sh
-
+  
   # Örnek: Registry sorunlarını otomatik düzelt
   ~/.claude/skills/worktree-manager/scripts/sync.sh --fix
   ```
-
+  
   ### release-ports.sh
   ```bash
   ~/.claude/skills/worktree-manager/scripts/release-ports.sh <port1> [port2] ...
   # Portları pool'a geri serbest bırak
   ```
-
+  
   ---
-
+  
   ## Beceri Konfigürasyonu
-
+  
   Konum: `~/.claude/skills/worktree-manager/config.json`
-
+  
   ```json
   {
     "terminal": "ghostty",

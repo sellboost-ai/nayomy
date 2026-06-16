@@ -3,22 +3,22 @@ name: "reza-gholizade/k8s-mcp-server"
 description: "A Kubernetes Model Context Protocol (MCP) server that provides tools for interacting with Kubernetes clusters through a standardized interface, including API resource discovery, resource management, pod logs, metrics, and events."
 category: "Cloud Platforms"
 repo: "reza-gholizade/k8s-mcp-server"
-stars: 159
+stars: 166
 url: "https://github.com/reza-gholizade/k8s-mcp-server"
 body_length: 31076
 license: "MIT"
 language: "Go"
 body_tr: |-
   # Kubernetes MCP Sunucusu
-
+  
   Kubernetes kümelerine standartlaştırılmış bir arayüz üzerinden etkileşim kurma araçları sağlayan bir Kubernetes Model Context Protocol (MCP) sunucusu.
-
+  
   ## Barındırılan dağıtım
-
+  
   [Fronteir AI](https://fronteir.ai/mcp/reza-gholizade-k8s-mcp-server) üzerinde barındırılan bir dağıtım mevcuttur.
-
+  
   ## Özellikler
-
+  
   - **API Kaynağı Keşfi**: Kubernetes kümenizde mevcut olan tüm API kaynaklarını alın.
   - **Kaynak Listeleme**: İsteğe bağlı ad alanı ve etiket filtrelemesi ile herhangi bir türde kaynakları listeleyin.
   - **Kaynak Detayları**: Belirli Kubernetes kaynakları hakkında detaylı bilgi alın.
@@ -33,40 +33,40 @@ body_tr: |-
   - **Esnek Yapılandırma**: Farklı Kubernetes içerikleri ve kaynak kapsamlarını destekler.
   - **Çoklu Modlar**: CLI araçları için `stdio` modu, web uygulamaları için `sse` modu veya `streamable-http` modu, ve kümedeki değişiklikleri devre dışı bırakmak için `--readonly` modu kullanın.
   - **Güvenlik**: Docker kapsayıcılarında arttırılmış güvenlik için root olmayan kullanıcı olarak çalışır.
-
+  
   ## Ön Koşullar
-
+  
   - Go 1.23 veya daha yeni
   - Kubernetes kümesine erişim
   - `kubectl` uygun küme erişimi ile yapılandırılmış
-
+  
   ## Kurulum
-
+  
   1.  **Depoyu klonlayın:**
       ```bash
       git clone https://github.com/reza-gholizade/k8s-mcp-server.git
       cd k8s-mcp-server
       ```
-
+  
   2.  **Bağımlılıkları yükleyin:**
       ```bash
       go mod download
       ```
-
+  
   3.  **Sunucuyu derleyin:**
       ```bash
       go build -o k8s-mcp-server main.go
       ```
-
+  
   ## Kullanım
-
+  
   ### Sunucuyu Başlatma
-
+  
   Sunucu üç modda çalışabilir, komut satırı bayrakları veya ortam değişkenleri aracılığıyla yapılandırılabilir.
-
+  
   #### Stdio Modu (CLI entegrasyonları için)
   Bu mod standart girdi/çıktı kullanarak iletişim kurar.
-
+  
   ```bash
   ./k8s-mcp-server --mode stdio
   ```
@@ -74,10 +74,10 @@ body_tr: |-
   ```bash
   SERVER_MODE=stdio ./k8s-mcp-server
   ```
-
+  
   #### SSE Modu (web uygulamaları için)
   Bu mod Server-Sent Events desteği ile bir HTTP sunucusu başlatır.
-
+  
   Varsayılan (8080 portu):
   ```bash
   ./k8s-mcp-server --mode sse
@@ -92,7 +92,7 @@ body_tr: |-
   ```
   #### Streamable-HTTP Modu (web uygulamaları için)
   Bu mod, MCP özelliklerine uygun olarak streamable-http taşıma desteği ile bir HTTP sunucusu başlatır.
-
+  
   Varsayılan (8080 portu):
   ```bash
   ./k8s-mcp-server --mode streamable-http
@@ -105,41 +105,41 @@ body_tr: |-
   ```bash
   SERVER_MODE=streamable-http SERVER_PORT=9090 ./k8s-mcp-server
   ```
-
+  
   Sunucu `http://localhost:8080/mcp` adresinde kullanılabilir olacaktır (veya belirttiğiniz port).
-
+  
   Mod belirtilmezse, varsayılan olarak 8080 portunda SSE olarak ayarlanır.
-
+  
   ### Kubernetes Kimlik Doğrulaması
-
+  
   Sunucu birden fazla kimlik doğrulama yöntemini destekler ve aşağıdaki öncelik sırasında denenirler:
-
+  
   #### 1. Ortam Değişkeninden Kubeconfig İçeriği
-
+  
   `KUBECONFIG_DATA` ortam değişkeni aracılığıyla kubeconfig dosyasının tamamını sağlayabilirsiniz:
-
+  
   ```bash
   export KUBECONFIG_DATA="$(cat ~/.kube/config)"
   ./k8s-mcp-server
   ```
-
+  
   Bu, dosyaları monte etmekten kaçınmak istediğinizde veya dosya erişiminin kısıtlı olduğu ortamlarda çalışırken kullanışlıdır.
-
+  
   #### 2. API Sunucusu URL'si ve Token'ı
-
+  
   Kubernetes API sunucusu URL'si ve bearer token kullanarak kimlik doğrulaması yapabilirsiniz:
-
+  
   ```bash
   export KUBERNETES_SERVER="https://kubernetes.example.com:6443"
   export KUBERNETES_TOKEN="your-bearer-token-here"
   ./k8s-mcp-server
   ```
-
+  
   TLS yapılandırması için isteğe bağlı ortam değişkenleri:
   - `KUBERNETES_CA_CERT`: CA sertifikası içeriği (base64 kodlanmış veya PEM formatı)
   - `KUBERNETES_CA_CERT_PATH`: CA sertifikası dosyasının yolu
   - `KUBERNETES_INSECURE`: TLS doğrulamasını atlamak için `"true"` olarak ayarlayın (üretim için önerilmez)
-
+  
   CA sertifikası ile örnek:
   ```bash
   export KUBERNETES_SERVER="https://kubernetes.example.com:6443"
@@ -147,13 +147,13 @@ body_tr: |-
   export KUBERNETES_CA_CERT_PATH="/path/to/ca.crt"
   ./k8s-mcp-server
   ```
-
+  
   #### 3. Küme İçi Kimlik Doğrulaması (Service Account)
-
+  
   Kubernetes kümesi içinde çalışırken, sunucu `/var/run/secrets/kubernetes.io/serviceaccount/token` adresinden hizmet hesabı token'ını otomatik olarak algılar ve kullanır. Bu, sunucuyu bir pod olarak küme içinde çalıştırmak için önerilen yöntemdir.
-
+  
   **Örnek Dağıtım:**
-
+  
   ```yaml
   apiVersion: v1
   kind: ServiceAccount
@@ -214,48 +214,48 @@ body_tr: |-
               - name: SERVER_PORT
                 value: "8080"
   ```
-
+  
   #### 4. Kubeconfig Dosya Yolu (Varsayılan)
-
+  
   Yukarıdaki yöntemlerden hiçbiri mevcut değilse, sunucu bir kubeconfig dosyasını kullanmaya döner:
-
+  
   - `--kubeconfig` bayrağı (eğer uygulanmışsa) veya `KUBECONFIG` ortam değişkeni aracılığıyla sağlanan yolu kullanır
   - Hiçbiri belirtilmemişse `~/.kube/config` dosyasına döner
-
+  
   ```bash
   # Varsayılan ~/.kube/config kullanın
   ./k8s-mcp-server
-
+  
   # Özel kubeconfig yolunu kullanın
   export KUBECONFIG=/path/to/your/kubeconfig
   ./k8s-mcp-server
   ```
-
+  
   **Not:** Sunucu mevcut ortam değişkenlerine ve dosya sistemi temelinde hangi kimlik doğrulama yönteminin kullanılacağını otomatik olarak algılar. Kimlik doğrulama yöntemini açıkça yapılandırmanız gerekmez - yukarıda listelenen öncelik sırasına göre ilk kullanılabilir yöntemi kullanacaktır.
-
+  
   #### Salt Okunur Modu
-
+  
   Sunucu, tüm yazma işlemlerini devre dışı bırakan ve Kubernetes kümenizi değişiklik riski olmadan keşfetme ve izleme konusunda daha güvenli bir yol sağlayan salt okunur bir modu destekler.
-
+  
   `--read-only` bayrağı ile salt okunur modu etkinleştirin:
-
+  
   ```bash
   ./k8s-mcp-server --read-only
   ```
-
+  
   Salt okunur modu herhangi bir sunucu modunda birleştirebilirsiniz:
-
+  
   ```bash
   # stdio modu ile salt okunur
   ./k8s-mcp-server --mode stdio --read-only
-
+  
   # SSE modu ile salt okunur
   ./k8s-mcp-server --mode sse --read-only
-
+  
   # streamable-http modu ile salt okunur
   ./k8s-mcp-server --mode streamable-http --read-only
   ```
-
+  
   Salt okunur modu etkinleştirildiğinde, aşağıdaki araçlar devre dışı bırakılır:
   - `createResource` (Kubernetes kaynağı oluşturma/güncellemeler)
   - `helmInstall` (Helm grafik yüklemeleri)
@@ -263,100 +263,100 @@ body_tr: |-
   - `helmUninstall` (Helm grafik kaldırmaları)
   - `helmRollback` (Helm sürümü geri almaları)
   - `helmRepoAdd` (Helm depo eklemeleri)
-
+  
   Kaynakları listeleme, günlükleri alma, metrikleri görüntüleme ve Helm sürümlerini inceleme dahil diğer tüm salt okunur işlemler kullanılabilir kalır.
-
+  
   #### Araç Kategori Bayrakları
   Bu bayrakları kullanarak araç kategorilerini seçici olarak devre dışı bırakabilirsiniz:
-
+  
   **Kubernetes Araçlarını Devre Dışı Bırakın:**
   ```bash
   ./k8s-mcp-server --no-k8s
   ```
-
+  
   **Helm Araçlarını Devre Dışı Bırakın:**
   ```bash
   ./k8s-mcp-server --no-helm
   ```
-
+  
   **Diğer bayraklarla birleştirin:**
   ```bash
   # Yalnızca Kubernetes araçları ile salt okunur modu (Helm yok)
   ./k8s-mcp-server --read-only --no-helm
-
+  
   # Yalnızca Helm araçları ile salt okunur modu (Kubernetes yok)
   ./k8s-mcp-server --read-only --no-k8s
-
+  
   # Yalnızca Kubernetes araçları ile SSE modu
   ./k8s-mcp-server --mode sse --no-helm
-
+  
   ```
-
+  
   **Not:** Her ikisi birlikte `--no-k8s` ve `--no-helm` kullanamazsınız, çünkü bu kullanılabilir araç olmadığını sonuçlandırır. Her iki bayrak sağlanırsa sunucu bir hatayla çıkacaktır.
-
+  
   `--no-k8s` etkinleştirildiğinde, tüm Kubernetes araçları devre dışı bırakılır:
   - `getAPIResources`, `listResources`, `getResource`, `describeResource`
   - `getPodsLogs`, `getNodeMetrics`, `getPodMetrics`, `getEvents`
   - `createResource` (salt okunur modda değilse)
-
+  
   `--no-helm` etkinleştirildiğinde, tüm Helm araçları devre dışı bırakılır:
   - `helmList`, `helmGet`, `helmHistory`, `helmRepoList`
   - `helmInstall`, `helmUpgrade`, `helmUninstall`, `helmRollback`, `helmRepoAdd` (salt okunur modda değilse)
-
+  
   ### Docker İmajını Kullanma
-
+  
   Sunucuyu Docker Hub'dan önceden derlenen Docker imajını kullanarak da çalıştırabilirsiniz.
-
+  
   1.  **İmajı çekin:**
       ```bash
       docker pull ginnux/k8s-mcp-server:latest
       ```
       `latest` yerine belirli bir sürüm etiketi (örneğin, `1.0.0`) yazabilirsiniz.
-
+  
   2.  **Konteyner'i çalıştırın:**
-
+  
       **Not:** Sunucu birden fazla kimlik doğrulama yöntemini destekler. Kubeconfig dosyasını monte edebilir (aşağıda gösterildiği gibi) veya kimlik doğrulaması için ortam değişkenlerini kullanabilirsiniz ([Kubernetes Kimlik Doğrulaması](#kubernetes-kimlik-doğrulaması) bölümüne bakın).
-
+  
       *   **SSE Modu (imajın varsayılan davranışı):**
           ```bash
           docker run -p 8080:8080 -v ~/.kube/config:/home/appuser/.kube/config:ro ginnux/k8s-mcp-server:latest
           ```
           Bu, konteynerün 8080 portunu ana makinenizdeki 8080 portuna eşler ve Kubernetes yapılandırmanızı salt okunur olarak root olmayan kullanıcının giriş dizinine monte eder. Sunucu `http://localhost:8080` adresinde kullanılabilir olacaktır. İmaj varsayılan olarak 8080 portunda `sse` modu ile çalışır.
-
+  
       *   **Streamable-HTTP Modu:**
           ```bash
           docker run -p 8080:8080 -v ~/.kube/config:/home/appuser/.kube/config:ro ginnux/k8s-mcp-server:latest --mode streamable-http
           ```
           Bu, sunucuyu streamable-http modunda çalıştırır. Sunucu `http://localhost:8080/mcp` adresinde kullanılabilir olacaktır.
-
+  
       *   **Stdio Modu:**
           ```bash
           docker run -i --rm -v ~/.kube/config:/home/appuser/.kube/config:ro ginnux/k8s-mcp-server:latest --mode stdio
           ```
           `-i` bayrağı etkileşimli stdio iletişimi için önemlidir. `--rm` çıkıştan sonra konteyner'i temizler.
-
+  
       *   **SSE Modu için Özel Port:**
           ```bash
           docker run -p 9090:9090 -v ~/.kube/config:/home/appuser/.kube/config:ro ginnux/k8s-mcp-server:latest --mode sse --port 9090
           ```
-
+  
       *   **Streamable-HTTP Modu için Özel Port:**
           ```bash
           docker run -p 9090:9090 -v ~/.kube/config:/home/appuser/.kube/config:ro ginnux/k8s-mcp-server:latest --mode streamable-http --port 9090
           ```
-
+  
       *   **Alternatif: Tüm .kube dizinini monte edin:**
           ```bash
           docker run -p 8080:8080 -v ~/.kube:/home/appuser/.kube:ro ginnux/k8s-mcp-server:latest
           ```
-
+  
       *   **Kimlik doğrulaması için ortam değişkenleri kullanma (dosya monte etme gerekmez):**
           ```bash
           # Ortam değişkeninden kubeconfig içeriği kullanma
           docker run -p 8080:8080 \
             -e KUBECONFIG_DATA="$(cat ~/.kube/config)" \
             ginnux/k8s-mcp-server:latest
-
+  
           # Veya API sunucusu URL'si ve token kullanma
           docker run -p 8080:8080 \
             -e KUBERNETES_SERVER="https://kubernetes.example.com:6443" \
@@ -365,11 +365,11 @@ body_tr: |-
             -v /path/to/ca.crt:/path/to/ca.crt:ro \
             ginnux/k8s-mcp-server:latest
           ```
-
+  
   #### Docker Compose ile Kullanma
-
+  
   Bir `docker-compose.yml` dosyası oluşturun:
-
+  
   **Seçenek 1: Kubeconfig dosyası kullanma (geleneksel yöntem):**
   ```yaml
   version: '3.8'
@@ -394,7 +394,7 @@ body_tr: |-
         retries: 3
         start_period: 10s
   ```
-
+  
   **Seçenek 2: Ortam değişkenleri kullanma (dosya monte etme yok):**
   ```yaml
   version: '3.8'
@@ -419,23 +419,23 @@ body_tr: |-
         retries: 3
         start_period: 10s
   ```
-
+  
   **Not:** Salt okunur modu etkinleştirmek için, Seçenek 1'de gösterildiği gibi `command` geçersiz kılmasını kullanın. Stdio modu için, 'ports'u ayarlamanız, 'stdin_open: true' ve 'tty: true' eklemeniz ve potansiyel olarak komutu geçersiz kılmanız gerekebilir.
-
+  
   Sonra başlatın:
   ```bash
   docker compose up -d
   ```
   Günlükleri görmek için: `docker compose logs -f k8s-mcp-server`.
-
+  
   #### Güvenlik Hususları
-
+  
   Docker imajı, arttırılmış güvenlik için root olmayan bir kullanıcı (`appuser` UID 1001 ile) olarak çalışır:
   - Uygulama ikilisi `/usr/local/bin/k8s-mcp-server` adresinde bulunur
   - Kubeconfig, `/home/appuser/.kube/config` adresine monte edilmelidir
   - Konteyner durumunu izlemek için sistem durumu kontrolleri etkindir
   - Konteyner, minimal bağımlılıklar içerir (yalnızca ca-certificates ve curl)
-
+  
   #### API Çağrıları Yapma (SSE/Streamable-HTTP Modu)
   Sunucu SSE veya streamable-http modunda çalışırken, HTTP endpoint'ine JSON-RPC çağrıları yapabilirsiniz:
   ```bash
@@ -452,22 +452,22 @@ body_tr: |-
     }
   }' http://localhost:8080/
   ```
-
+  
   Sistem durumunu da kontrol edebilirsiniz:
   ```bash
   curl -f http://localhost:8080/
   ```
-
+  
   ### Kullanılabilir Araçlar
-
+  
   #### 1. `getAPIResources`
-
+  
   Kubernetes kümesindeki tüm kullanılabilir API kaynaklarını alır.
-
+  
   **Parametreler:**
   - `includeNamespaceScoped` (boolean, isteğe bağlı): Ad alanı kapsamlı kaynakları dahil edilip edilmeyeceği (varsayılan true).
   - `includeClusterScoped` (boolean, isteğe bağlı): Küme kapsamlı kaynakları dahil edilip edilmeyeceği (varsayılan true).
-
+  
   **Örnek:**
   ```json
   {
@@ -483,16 +483,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 2. `listResources`
-
+  
   Belirli kaynak türüne ait tüm örnekleri listeler.
-
+  
   **Parametreler:**
   - `Kind` (string, gerekli): Listelenecek kaynağın türü (örneğin, "Pod", "Deployment").
   - `namespace` (string, isteğe bağlı): Kaynakları listeleyeceğiniz ad alanı. Atlanırsa, ad alanı kapsamlı kaynaklar için tüm ad alanları arasında listeler (RBAC'a tabi).
   - `labelSelector` (string, isteğe bağlı): Etiket seçicisine göre kaynakları filtreleyin (örneğin, "app=nginx,env=prod").
-
+  
   **Örnek:**
   ```json
   {
@@ -509,16 +509,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 3. `getResource`
-
+  
   Belirli bir kaynak hakkında detaylı bilgiler alır.
-
+  
   **Parametreler:**
   - `kind` (string, gerekli): Alınacak kaynağın türü (örneğin, "Pod", "Deployment").
   - `name` (string, gerekli): Alınacak kaynağın adı.
   - `namespace` (string, isteğe bağlı): Kaynağın ad alanı (ad alanı kapsamlı kaynaklar için gerekli).
-
+  
   **Örnek:**
   ```json
   {
@@ -535,16 +535,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 4. `describeResource`
-
+  
   Kubernetes kümesinde bir kaynağı açıklar, `kubectl describe` benzeri.
-
+  
   **Parametreler:**
   - `Kind` (string, gerekli): Açıklanacak kaynağın türü (örneğin, "Pod", "Deployment").
   - `name` (string, gerekli): Açıklanacak kaynağın adı.
   - `namespace` (string, isteğe bağlı): Kaynağın ad alanı (ad alanı kapsamlı kaynaklar için gerekli).
-
+  
   **Örnek:**
   ```json
   {
@@ -561,18 +561,18 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 5. `getPodsLogs`
-
+  
   Belirli bir pod'un günlüklerini alır.
-
+  
   **Parametreler:**
   - `Name` (string, gerekli): Pod'un adı.
   - `namespace` (string, gerekli): Pod'un ad alanı.
   - `containerName` (string, isteğe bağlı): Pod içindeki belirli kapsayıcı adı. Atlanırsa:
       - Pod'un bir kapsayıcısı varsa, günlükleri alınır.
       - Pod'un birden fazla kapsayıcısı varsa, tüm kapsayıcılardan günlükler alınır ve birleştirilir.
-
+  
   **Örnek:**
   ```json
   {
@@ -589,14 +589,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 6. `getNodeMetrics`
-
+  
   Belirli bir düğüm için kaynak kullanım metriklerini alır.
-
+  
   **Parametreler:**
   - `Name` (string, gerekli): Düğümün adı.
-
+  
   **Örnek:**
   ```json
   {
@@ -611,15 +611,15 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 7. `getPodMetrics`
-
+  
   Belirli bir pod için CPU ve Bellek metriklerini alır.
-
+  
   **Parametreler:**
   - `namespace` (string, gerekli): Pod'un ad alanı.
   - `podName` (string, gerekli): Pod'un adı.
-
+  
   **Örnek:**
   ```json
   {
@@ -635,11 +635,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### 8. `getEvents`
-
+  
   Belirli bir ad alanı veya kaynak için olayları alır.
-
+  
   **Parametreler:**
   - `namespace` (string, isteğe bağlı): Ol
 ---

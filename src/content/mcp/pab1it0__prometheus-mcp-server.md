@@ -3,41 +3,41 @@ name: "pab1it0/prometheus-mcp-server"
 description: "Query and analyze Prometheus, open-source monitoring system."
 category: "Databases"
 repo: "pab1it0/prometheus-mcp-server"
-stars: 446
+stars: 474
 url: "https://github.com/pab1it0/prometheus-mcp-server"
 body_length: 8749
 license: "MIT"
 language: "Python"
 body_tr: |-
   # Prometheus MCP Server
-
+  
   [![GitHub Container Registry](https://img.shields.io/badge/ghcr.io-pab1it0%2Fprometheus--mcp--server-blue?logo=docker)](https://github.com/users/pab1it0/packages/container/package/prometheus-mcp-server)
   [![Helm Chart](https://img.shields.io/badge/helm%20chart-ghcr.io-blue?logo=helm)](https://github.com/pab1it0/prometheus-mcp-server/pkgs/container/charts%2Fprometheus-mcp-server)
   [![GitHub Release](https://img.shields.io/github/v/release/pab1it0/prometheus-mcp-server)](https://github.com/pab1it0/prometheus-mcp-server/releases)
   [![Codecov](https://codecov.io/gh/pab1it0/prometheus-mcp-server/branch/main/graph/badge.svg)](https://codecov.io/gh/pab1it0/prometheus-mcp-server)
   ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
   [![License](https://img.shields.io/github/license/pab1it0/prometheus-mcp-server)](https://github.com/pab1it0/prometheus-mcp-server/blob/main/LICENSE)
-
+  
   AI asistanlarına Prometheus metriklerinizi sorgulama gücünü verin.
-
+  
   Prometheus metriklerinize ve sorgularınıza standartlaştırılmış MCP arayüzleri aracılığıyla erişim sağlayan bir [Model Context Protocol][mcp] (MCP) sunucusu. AI asistanlarının PromQL sorguları çalıştırmasına ve metrik verilerinizi analiz etmesine olanak tanır.
-
+  
   [mcp]: https://modelcontextprotocol.io
-
+  
   ## Başlangıç
-
+  
   ### Önkoşullar
-
+  
   - Ortamınızdan erişilebilir Prometheus sunucusu
   - MCP uyumlu istemci (Claude Desktop, VS Code, Cursor, Windsurf, vb.)
-
+  
   ### Kurulum Yöntemleri
-
+  
   <details>
   <summary><b>Claude Desktop</b></summary>
-
+  
   Claude Desktop yapılandırmanıza ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -59,22 +59,22 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   <details>
   <summary><b>Claude Code</b></summary>
-
+  
   Claude Code CLI aracılığıyla yükleyin:
-
+  
   ```bash
   claude mcp add prometheus --env PROMETHEUS_URL=http://your-prometheus:9090 -- docker run -i --rm -e PROMETHEUS_URL ghcr.io/pab1it0/prometheus-mcp-server:latest
   ```
   </details>
-
+  
   <details>
   <summary><b>VS Code / Cursor / Windsurf</b></summary>
-
+  
   İlgili IDE'deki MCP ayarlarına ekleyin:
-
+  
   ```json
   {
     "prometheus": {
@@ -94,35 +94,35 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   <details>
   <summary><b>Docker Desktop</b></summary>
-
+  
   Prometheus MCP sunucusunu çalıştırmanın en kolay yolu Docker Desktop üzerindedir:
-
+  
   <a href="https://hub.docker.com/open-desktop?url=https://open.docker.com/dashboard/mcp/servers/id/prometheus/config?enable=true">
     
   </a>
-
+  
   1. **MCP Kataloğu Aracılığıyla**: [Docker Hub'da Prometheus MCP Server](https://hub.docker.com/mcp/server/prometheus/overview) sayfasını ziyaret edin ve yukarıdaki düğmeyi tıklayın
-
+  
   2. **MCP Toolkit Aracılığıyla**: Docker Desktop'ın MCP Toolkit uzantısını kullanarak sunucuyu keşfedin ve yükleyin
-
+  
   3. Ortam değişkenlerini kullanarak bağlantınızı yapılandırın (aşağıdaki Yapılandırma Seçeneklerine bakın)
-
+  
   </details>
-
+  
   <details>
   <summary><b>Manuel Docker Kurulumu</b></summary>
-
+  
   Docker ile doğrudan çalıştırın:
-
+  
   ```bash
   # Ortam değişkenleri ile
   docker run -i --rm \
     -e PROMETHEUS_URL="http://your-prometheus:9090" \
     ghcr.io/pab1it0/prometheus-mcp-server:latest
-
+  
   # Kimlik doğrulaması ile
   docker run -i --rm \
     -e PROMETHEUS_URL="http://your-prometheus:9090" \
@@ -131,21 +131,21 @@ body_tr: |-
     ghcr.io/pab1it0/prometheus-mcp-server:latest
   ```
   </details>
-
+  
   <details>
   <summary><b>Helm Chart (Kubernetes)</b></summary>
-
+  
   OCI registry'deki Helm chart kullanarak Kubernetes'e dağıtın:
-
+  
   ```bash
   helm install prometheus-mcp-server \
     oci://ghcr.io/pab1it0/charts/prometheus-mcp-server \
     --version 1.0.0 \
     --set prometheus.url="http://prometheus:9090"
   ```
-
+  
   Kimlik doğrulaması ile:
-
+  
   ```bash
   helm install prometheus-mcp-server \
     oci://ghcr.io/pab1it0/charts/prometheus-mcp-server \
@@ -154,21 +154,21 @@ body_tr: |-
     --set auth.username="admin" \
     --set auth.password="secret"
   ```
-
+  
   Özel values dosyası ile:
-
+  
   ```bash
   helm install prometheus-mcp-server \
     oci://ghcr.io/pab1it0/charts/prometheus-mcp-server \
     --version 1.0.0 \
     -f values.yaml
   ```
-
+  
   Tüm kullanılabilir yapılandırma seçenekleri için [chart values](charts/prometheus-mcp-server/values.yaml) dosyasına bakın.
   </details>
-
+  
   ### Yapılandırma Seçenekleri
-
+  
   | Değişken | Açıklama | Gerekli |
   |----------|----------|---------|
   | `PROMETHEUS_URL` | Prometheus sunucunuzun URL'si | Evet |
@@ -188,9 +188,9 @@ body_tr: |-
   | `PROMETHEUS_MCP_STATELESS_HTTP` | Çok replica desteği için stateless HTTP modunu etkinleştirin | Hayır (varsayılan: False) |
   | `PROMETHEUS_CUSTOM_HEADERS` | JSON string olarak özel headers | Hayır |
   | `TOOL_PREFIX` | Tüm tool adları için önek (örneğin, `staging` sonucu `staging_execute_query` ile verir). Cursor'da farklı ortamları hedefleyen birden fazla örnek çalıştırmak için kullanışlıdır | Hayır |
-
+  
   ## Kullanılabilir Araçlar
-
+  
   | Araç | Kategori | Açıklama |
   | --- | --- | --- |
   | `health_check` | Sistem | Konteyner izleme ve durum doğrulaması için health check endpoint'i |
@@ -199,11 +199,11 @@ body_tr: |-
   | `list_metrics` | Discovery | Pagination ve filtreleme desteği ile Prometheus'taki tüm kullanılabilir metrikleri listeleyin |
   | `get_metric_metadata` | Discovery | Bir metrik veya isteğe bağlı filtreleme ile toplu metadata alın |
   | `get_targets` | Discovery | Tüm scrape target'ları hakkında bilgi alın |
-
+  
   Araçlar listesi yapılandırılabilir olduğundan, MCP istemcisine hangi araçları sunmak istediğinizi seçebilirsiniz. Bu, belirli işlevselliği kullanmıyorsanız veya context window'ı çok fazla kullanmak istemiyorsanız yararlıdır.
-
+  
   ## Özellikler
-
+  
   - Prometheus'a karşı PromQL sorguları çalıştırın
   - Metrikleri keşfet ve araştır
     - Kullanılabilir metrikleri listeleyin
@@ -216,49 +216,49 @@ body_tr: |-
     - Ortam değişkenlerinden Bearer token auth
   - Docker konteynerizasyon desteği
   - AI asistanları için etkileşimli araçlar sağlayın
-
+  
   ## Geliştirme
-
+  
   Katkılar memnuniyetle karşılanır! Başlamak, kod standartları ve pull request süreci hakkında ayrıntılı bilgi için lütfen [Katkı Rehberi](CONTRIBUTING.md)'ne bakın.
-
+  
   Bu proje bağımlılıkları yönetmek için [`uv`](https://github.com/astral-sh/uv) kullanır. Platformunuz için talimatları izleyerek `uv`'yi yükleyin:
-
+  
   ```bash
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
-
+  
   Daha sonra sanal bir ortam oluşturabilir ve bağımlılıkları şu şekilde yükleyebilirsiniz:
-
+  
   ```bash
   uv venv
   source .venv/bin/activate  # Unix/macOS üzerinde
   .venv\Scripts\activate     # Windows üzerinde
   uv pip install -e .
   ```
-
+  
   ### Test
-
+  
   Proje, işlevselliği sağlayan ve regressyonları önlemeye yardımcı olan kapsamlı bir test paketini içerir.
-
+  
   Testleri pytest ile çalıştırın:
-
+  
   ```bash
   # Geliştirme bağımlılıklarını yükleyin
   uv pip install -e ".[dev]"
-
+  
   # Testleri çalıştırın
   pytest
-
+  
   # Kapsam raporu ile çalıştırın
   pytest --cov=src --cov-report=term-missing
   ```
-
+  
   Yeni özellikler eklerken, lütfen karşılık gelen testleri de ekleyin.
-
+  
   ## Lisans
-
+  
   MIT
-
+  
   ---
 ---
 

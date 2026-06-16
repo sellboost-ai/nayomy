@@ -12,6 +12,171 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: ["plan-document-reviewer-prompt.md"]
+body_tr: |-
+  # Planlar Yazma
+
+  ## Genel Bakış
+
+  Mühendisinin kod tabanımız hakkında sıfır bağlamı olduğunu ve şüpheli zevki olduğunu varsayarak kapsamlı uygulama planları yazın. Bilmeleri gereken her şeyi belgeleyin: her görev için hangi dosyalara dokunacakları, kod, test, kontrol etmeleri gereken belgeler, nasıl test edecekleri. Planın tamamını yönetilebilir görevler olarak sunun. DRY. YAGNI. TDD. Sık commit'ler.
+
+  Yetenekli bir geliştirici olduklarını varsayın, ancak araç setimiz veya problem alanımız hakkında neredeyse hiçbir şey bilmediklerini varsayın. İyi test tasarımı konusunda çok bilgili olmadıklarını varsayın.
+
+  **Başında Duyur:** "Uygulama planını oluşturmak için writing-plans skill'ini kullanıyorum."
+
+  **Bağlam:** İzole bir worktree'de çalışıyorsanız, bu çalışma zamanında `superpowers:using-git-worktrees` skill'i aracılığıyla oluşturulmuş olmalıdır.
+
+  **Planları Kaydet:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+  - (Kullanıcı tercihlerine göre plan konumu bu varsayılanı geçersiz kılabilir)
+
+  ## Kapsam Kontrolü
+
+  Spec birden fazla bağımsız alt sistemi kapsıyorsa, beyin fırtınası sırasında alt-proje spec'lerine bölünmüş olmalıdır. Bölünmediyse, bunu ayrı planlara bölmeyi öneriniz — alt sistem başına bir plan. Her plan kendi başına çalışan, test edilebilir yazılım üretmelidir.
+
+  ## Dosya Yapısı
+
+  Görevleri tanımlamadan önce, hangi dosyaların oluşturulacağını veya değiştirileceğini ve her birinin ne sorumlu olduğunu eşleştirin. Burası ayrıştırma kararlarının kilitlendiği yerdir.
+
+  - Açık sınırları ve iyi tanımlanmış arayüzleri olan tasarım birimleri. Her dosyanın bir açık sorumluluğu olmalıdır.
+  - Bir defada bağlamınızda tutabileceğiniz kod hakkında en iyi şekilde akıl yürütürsünüz, ve düzenlemeleriniz dosyalar odaklandığında daha güvenilir olur. Çok fazlasını yapan büyük dosyaları küçük, odaklanmış dosyalarla değişterin.
+  - Birlikte değişen dosyalar birlikte yaşamalıdır. Teknik katman tarafından değil, sorumluluk tarafından bölün.
+  - Var olan kod tabanlarında, belirlenmiş desenleri takip edin. Kod tabanı büyük dosyalar kullanıyorsa, tek taraflı olarak yeniden yapılandırmayın — ancak değiştirdiğiniz bir dosya üstü kapalı hale geldiyse, plana bir bölme dahil etmek makuldür.
+
+  Bu yapı, görev ayrıştırmasını bilgilendirir. Her görev bağımsız olarak anlamlı olan kendi içinde yeterli değişiklikler üretmelidir.
+
+  ## Doğru Boyutta Görev
+
+  Bir görev kendi test döngüsünü taşıyan ve taze bir gözden geçiren kapısına değer olan en küçük birimdir. Görev sınırlarını çizerken: kurulum, konfigürasyon, iskele oluşturma ve dokümantasyon adımlarını çıktısına ihtiyaç duyan görevin içine katlayın; bir gözden geçiren bir görevi anlamlı bir şekilde reddedebilirken komşusunu onaylayabileceği yerlerde sadece bölün. Her görev bağımsız olarak test edilebilir bir çıktı ile sona erer.
+
+  ## Yönetilebilir Görev Parçalılığı
+
+  **Her adım bir işlem (2-5 dakika):**
+  - "Başarısız testi yazın" - adım
+  - "Başarısız olduğundan emin olmak için çalıştırın" - adım
+  - "Testi geçirmek için minimal kodu uygulayın" - adım
+  - "Testleri çalıştırın ve geçtiğinden emin olun" - adım
+  - "Commit" - adım
+
+  ## Plan Belgesi Başlığı
+
+  **Her plan BU başlıkla başlamalıdır:**
+
+  ```markdown
+  # [Özellik Adı] Uygulama Planı
+
+  > **Agentic workers için:** GEREKLI ALT-SKİLL: superpowers:subagent-driven-development (önerilir) veya superpowers:executing-plans kullanın. Adımlar izleme için checkbox (`- [ ]`) sözdizimini kullanır.
+
+  **Hedef:** [Bu yapının ne olduğunu açıklayan bir cümle]
+
+  **Mimari:** [Yaklaşım hakkında 2-3 cümle]
+
+  **Teknoloji Yığını:** [Önemli teknolojiler/kütüphaneler]
+
+  ## Küresel Kısıtlamalar
+
+  [Spec'in proje çapında gereksinimleri — sürüm tabanları, bağımlılık sınırları,
+  adlandırma ve kopya kuralları, platform gereksinimleri — tam değerlerle
+  spec'ten kelime kelime kopyalanmış, her biri bir satır. Her görevin
+  gereksinimleri bu bölümü örtülü olarak içerir.]
+
+  ---
+  ```
+
+  ## Görev Yapısı
+
+  ````markdown
+  ### Görev N: [Bileşen Adı]
+
+  **Dosyalar:**
+  - Oluştur: `exact/path/to/file.py`
+  - Değiştir: `exact/path/to/existing.py:123-145`
+  - Test: `tests/exact/path/to/test.py`
+
+  **Arayüzler:**
+  - Kullanır: [bu görevin önceki görevlerden kullandığı şey — tam imzalar]
+  - Üretir: [daha sonraki görevlerin güvendiği şey — tam fonksiyon adları, parametre
+    ve dönüş türleri. Bir görevin uygulayıcısı sadece kendi görevini görür; bu
+    blok komşu görevlerin kullandığı adları ve türleri nasıl öğreneceklerini açıklar.]
+
+  - [ ] **Adım 1: Başarısız test yazın**
+
+  ```python
+  def test_specific_behavior():
+      result = function(input)
+      assert result == expected
+  ```
+
+  - [ ] **Adım 2: Başarısız olduğunu doğrulamak için test çalıştırın**
+
+  Çalıştır: `pytest tests/path/test.py::test_name -v`
+  Beklenen: BAŞARISIZ "function not defined" ile
+
+  - [ ] **Adım 3: Minimal uygulama yazın**
+
+  ```python
+  def function(input):
+      return expected
+  ```
+
+  - [ ] **Adım 4: Geçtiğini doğrulamak için test çalıştırın**
+
+  Çalıştır: `pytest tests/path/test.py::test_name -v`
+  Beklenen: BAŞARILI
+
+  - [ ] **Adım 5: Commit**
+
+  ```bash
+  git add tests/path/test.py src/path/file.py
+  git commit -m "feat: add specific feature"
+  ```
+  ````
+
+  ## Yer Tutucu Yok
+
+  Her adım mühendisinin ihtiyaç duyduğu gerçek içeriği içermelidir. Bunlar **plan başarısızlıklarıdır** — asla yazma:
+  - "TBD", "TODO", "daha sonra uygula", "detayları doldur"
+  - "Uygun hata işleme ekle" / "doğrulama ekle" / "kenar durumları işle"
+  - "Yukarıdakiler için testler yazın" (gerçek test kodu olmadan)
+  - "Görev N'ye benzer" (kodu tekrar edin — mühendis görevleri ters sırayla okuyor olabilir)
+  - Kodu göstermeden yapılması gereken şeyi açıklayan adımlar (kod adımları için kod blokları gerekli)
+  - Hiçbir görevde tanımlanmayan tiplere, fonksiyonlara veya yöntemlere referanslar
+
+  ## Hatırla
+  - Her zaman tam dosya yolları
+  - Her adımda tam kod — bir adım kodu değiştirirse, kodu göster
+  - Beklenen çıktı ile tam komutlar
+  - DRY, YAGNI, TDD, sık commit'ler
+
+  ## Kendi Kendine İnceleme
+
+  Tam planı yazdıktan sonra, spec'e taze gözlerle bakın ve planı buna karşı kontrol edin. Bu kendin çalıştırdığın bir kontrol listesidir — alt ajan gönderisi değil.
+
+  **1. Spec kapsamı:** Spec'teki her bölümü/gereksinimi hızlı geçerek oku. Onu uygulayan bir görev gösterebilir misin? Boşlukları listele.
+
+  **2. Yer tutucu taraması:** Planında kırmızı bayraklarını ara — "Yer Tutucu Yok" bölümünün desenlerinden herhangi biri. Düzelt.
+
+  **3. Tür tutarlılığı:** Daha sonraki görevlerde kullandığın tipler, yöntem imzaları ve mülk adları önceki görevlerde tanımlanmış olanlara karşılık geliyor mu? Task 3'te `clearLayers()` olarak çağrılan ancak Task 7'de `clearFullLayers()` olarak çağrılan bir fonksiyon bir hatadır.
+
+  Sorunlar bulursan, satır içinde düzelt. Yeniden incelemeye gerek yok — sadece düzelt ve devam et. Bir spec gereksinimi bulursan görev olmasa, görevi ekle.
+
+  ## Yürütme El Değiştirme
+
+  Planı kaydettikten sonra, yürütme seçeneği sun:
+
+  **"Plan tamamlandı ve `docs/superpowers/plans/<filename>.md` adresine kaydedildi. İki yürütme seçeneği:**
+
+  **1. Subagent-Tarafından Yönetilen (önerilir)** - Her görev için taze bir subagent gönderir, görevler arasında gözden geçiri, hızlı yineleme
+
+  **2. Satır İçi Yürütme** - Bu oturumda executing-plans kullanarak görevleri yürüt, kontrol noktalarıyla toplu yürütme
+
+  **Hangi yaklaşım?"**
+
+  **Subagent-Tarafından Yönetilen seçilirse:**
+  - **GEREKLI ALT-SKİLL:** superpowers:subagent-driven-development kullan
+  - Görev başına taze subagent + iki aşamalı gözden geçirme
+
+  **Satır İçi Yürütme seçilirse:**
+  - **GEREKLI ALT-SKİLL:** superpowers:executing-plans kullan
+  - Gözden geçirme kontrol noktalarıyla toplu yürütme
 ---
 
 # Writing Plans

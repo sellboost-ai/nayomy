@@ -3,7 +3,7 @@ name: "weibaohui/k8m"
 description: "Provides MCP multi-cluster Kubernetes management and operations, featuring a management interface, logging, and nearly 50 built-in tools covering common DevOps and development scenarios. Supports both standard and CRD resources."
 category: "Cloud Platforms"
 repo: "weibaohui/k8m"
-stars: 822
+stars: 844
 url: "https://github.com/weibaohui/k8m"
 body_length: 8940
 license: "MIT"
@@ -14,22 +14,22 @@ body_tr: |-
   <div align="center">
   <h1>K8M</h1>
   </div>
-
+  
   <div align=center>
    
   [![weibaohui%2Fk8m | Trendshift](https://trendshift.io/api/badge/repositories/14095)](https://trendshift.io/repositories/14095)
-
+  
   </div>
-
+  
   <div align=center>
    
   ![GitHub Repo Stars](https://img.shields.io/github/stars/weibaohui/k8m)
   ![GitHub Repo Forks](https://img.shields.io/github/forks/weibaohui/k8m)
-
+  
   </div>
-
+  
   <div align=center>
-
+  
    [![License MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://github.com/weibaohui/k8m/blob/master/LICENSE)
    [![Go Report Card](https://goreportcard.com/badge/github.com/weibaohui/k8m)](https://goreportcard.com/report/github.com/weibaohui/k8m)
   ![GitHub Release](https://img.shields.io/github/v/release/weibaohui/k8m)
@@ -38,20 +38,20 @@ body_tr: |-
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/weibaohui/k8m)](https://archestra.ai/mcp-catalog/weibaohui__k8m)
   [![zread](https://img.shields.io/badge/Ask_Zread-_.svg?style=plastic&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff)](https://zread.ai/weibaohui/k8m)
   ![Repobeats analytics image](https://repobeats.axiom.co/api/embed/9fde094e5c9a1d4c530e875864ee7919b17d0690.svg)
-
+  
   </div>
-
-
+  
+  
   [English](README_en.md) | [中文](README.md)
-
-
-
+  
+  
+  
   **k8m** yapay zeka tarafından yönlendirilen, Kubernetes kümesi yönetimini basitleştirmek için tasarlanmış hafif bir Mini Kubernetes AI Dashboard kontrol paneli aracıdır. AMIS tabanlı olup, [`kom`](https://github.com/weibaohui/kom) aracılığıyla Kubernetes API istemcisi olarak çalışır. **k8m** Qwen2.5-Coder-7B yerleşik ve deepseek-ai/DeepSeek-R1-Distill-Qwen-7B modeli etkileşim özelliğini destekler; ayrıca kendi özel büyük dilini modeli (ollama dahil) entegre edebilirsiniz.
-
-
+  
+  
   # Hızlı Deneyim
   Bu proje cnb çevrimiçi erişim adresi [k8m](https://cnb.cool/znb/qifei/-/tree/main/letsfly/justforfun/k8m) sağlar
-
+  
   1. Bu projeyi fork ettikten sonra,
   1. Depo sağ üst köşesindeki 🛫起飞 düğmesine tıklayın,
   1. Bulut IDE seçin,
@@ -62,21 +62,21 @@ body_tr: |-
   1. Oluşturulan yönlendirme adresine tıklayın, k8m giriş sayfasını açın
   1. Kullanıcı adı şifresi girin: k8m k8m .
   1. 🛫
-
+  
    
-
+  
   ![](https://raw.githubusercontent.com/weibaohui/k8m/HEAD/../../../public/k8m.webp)
-
+  
   ### Belgeler
-
+  
   - Ayrıntılı yapılandırma ve kullanım talimatları için [belgelendirme](docs/README.md) bölümüne bakın.
   - Değişiklik günlüğü için [değişiklik günlüğüne](CHANGELOG.md) bakın.
   - [Geliştirme Tasarım Belgesi-Chinese](https://zread.ai/weibaohui/k8m)
   - [Geliştirme Tasarım Belgesi-English](https://deepwiki.com/weibaohui/k8m)
-
-
+  
+  
   ### Ana Özellikler
-
+  
   - **Mini Tasarım**: Tüm işlevler tek bir yürütülebilir dosyada birleştirilmiştir, dağıtım kolay ve kullanımı basittir.
   - **Basit Kullanım**: Kullanıcı dostu arayüz ve sezgisel işlem akışı, Kubernetes yönetimini daha kolay hale getirir. Standart k8s, aws eks, k3s, kind, k0s ve diğer küme türlerini destekler.
   - **Yüksek Performans**: Backend Golang ile oluşturulmuş, frontend Baidu AMIS tabanlı, yüksek kaynak kullanım verimliği ve hızlı yanıt süresi garantilenir.
@@ -97,14 +97,14 @@ body_tr: |-
   - **Çapraz Platform Desteği**: Linux, macOS ve Windows ile uyumlu, x86, ARM gibi birden fazla mimariyı destekler, multi-platform kusursuz çalışmayı sağlar.
   - **Çok Veritabanı Desteği**: SQLite, MySql, PostgreSql gibi birden fazla veritabanını destekler.
   - **Tamamen Açık Kaynak**: Tüm kaynak kodları açık, kısıtlama yok, serbestçe özelleştir ve genişlet, ticari kullanım yapılabilir.
-
+  
   **k8m**'ün tasarım felsefesi "AI odaklı, hafif verimli, karmaşıklığı sadeleştirmek"tir; geliştirici ve operasyon personelinin hızlı başlamasını ve Kubernetes kümesini kolayca yönetmesini sağlar.
-
+  
   ![](https://github.com/user-attachments/assets/0951d6c1-389c-49cb-b247-84de15b6ec0e)
-
-
+  
+  
   ## **Çalıştırma**
-
+  
   1. **İndir**: [GitHub release](https://github.com/weibaohui/k8m/releases) adresinden en son sürümü indirin.
   2. **Çalıştır**: `./k8m` komutu kullanarak başlatın, [http://127.0.0.1:3618](http://127.0.0.1:3618) adresine erişin.
   3. **Giriş Kullanıcı Adı Şifresi**:
@@ -112,7 +112,7 @@ body_tr: |-
       - Şifre: `k8m`
       - Çevrimiçi olduktan sonra kullanıcı adı şifresi değiştirmeyi, iki faktörlü doğrulamayı etkinleştirmeyi unutmayın.
   4. **Parametreler**:
-
+  
   ```shell
   Usage of ./k8m:
         --enable-temp-admin                Geçici yönetici hesabı yapılandırmasını etkinleştirip etkinleştirmeyeceğini belirtir, varsayılan olarak kapalı
@@ -132,9 +132,9 @@ body_tr: |-
     -p, --port int                         Dinleme portu (default 3618)
     -v, --v Level                          klog günlük seviyesi (default 2)
   ```
-
+  
   Ayrıca docker-compose (tavsiye edilir) aracılığıyla doğrudan başlatabilirsiniz:
-
+  
   ```yaml
   services:
     k8m:
@@ -148,82 +148,82 @@ body_tr: |-
       volumes:
         - ./data:/app/data
   ```
-
+  
   Başlatıldıktan sonra, `3618` portuna erişin, varsayılan kullanıcı: `k8m`, varsayılan şifre `k8m`.
   Çevrimiçi ortamda hızlı bir şekilde deneyim yapmak isterseniz, erişebilirsiniz: [k8m](https://cnb.cool/znb/qifei/-/tree/main/letsfly/justforfun/k8m)
-
-
+  
+  
   ## Container k8s Kümesi Modunda Çalıştırma
-
+  
   Küçük bir k8s kümesi yüklemek için [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/) veya [MiniKube](https://minikube.sigs.k8s.io/docs/start/) kullanın
-
+  
   ## KinD Yöntemi
-
+  
   * KinD Kubernetes kümesi oluşturun
-
+  
   ```
   brew install kind
   ```
-
+  
   * Yeni bir Kubernetes kümesi oluşturun:
-
+  
   ```
   kind create cluster --name k8sgpt-demo
   ```
-
+  
   ## k8m'yi Kümeye Dağıtarak Deneyime
-
+  
   ### Kurulum Betiği
-
+  
   ```docker
   kubectl apply -f https://raw.githubusercontent.com/weibaohui/k8m/refs/heads/main/deploy/k8m.yaml
   ```
-
+  
   * Erişim:
     Varsayılan olarak nodePort açık, lütfen 31999 portuna erişin. Veya Ingress'i kendiniz yapılandırın
     http://NodePortIP:31999
-
+  
   ## Üretim Dağıtımında Lider-Yedek Seçim Eklentisini Etkinleştir, Dikkat Edilecek Noktalar
-
+  
   - Service tanımında tek örnek çalıştırılırsa `k8m.io/role: leader` etiketi `eklemeyin`, eklenirse normal erişim sağlanamaz.
   - Service tanımında birden fazla örnek çalıştırılırsa `k8m.io/role: leader` etiketi `eklemeli`, aksi takdirde geçiş yapılmaz.
   - Birden fazla örnek çalıştırılan yaml aşağıdaki gibidir:
   ```docker
   kubectl apply -f https://raw.githubusercontent.com/weibaohui/k8m/refs/heads/main/deploy/k8m-ms.yaml
   ```
-
-
+  
+  
   ## **ChatGPT Yapılandırma Kılavuzu**
-
+  
   ### Yerleşik GPT
-
+  
   v0.0.8 sürümünden itibaren yerleşik GPT yer alacak, yapılandırma gerekmez.
   Kendi GPT'nizi kullanmak isterseniz, aşağıdaki belgelere bakın.
-
+  
   - [Kendi Barındırılan/Özel Büyük Model Desteği](docs/use-self-hosted-ai.md) - Kendi Barındırılan Modeli Nasıl Kullanacağınız
   - [Ollama Yapılandırması](docs/ollama.md) - Ollama Büyük Modeli Nasıl Yapılandıracağınız.
-
+  
   ### **ChatGPT Durumu Hata Ayıklaması**
-
+  
   Parametre ayarladıktan sonra yine de etkili olmazsa, daha fazla hata ayıklama bilgisi almak için `./k8m -v 6` kullanmayı deneyin.
   Aşağıdaki bilgileri çıkacak, günlükleri görüntülerek ChatGPT'nin etkinleştirilip etkinleştirilmediğini doğrulayın.
     
-
-
-
+  
+  
+  
   ## Geliştirme Hata Ayıklaması
-
+  
   Yerel ortamda geliştirme ve hata ayıklama yapmak istiyorsanız, lütfen önce yerel frontend yapılandırmasını bir kez çalıştırın, dist dizinini otomatik olarak oluşturmak için. Bu proje ikili gömme kullandığından, dist olmadan frontend hata verecektir.
-
+  
   #### Adım 1 Frontend Derlemesi
-
+  
   ```bash 
   cd ui
   pnpm run build
   ```
-
+  
   #### Arka Uç Derlemesini Hata Ayıkla
-
+  
   ```bash
   #Bağımlılıkları indir
   go mod tidy
@@ -233,38 +233,38 @@ body_tr: |-
   go run *.go 
   # localhost:3618 portunu dinle
   ```
-
+  
   #### Frontend Sıcak Yükleme
-
+  
   ```bash
   cd ui
   pnpm run dev
   #Vite hizmeti localhost:3000 portunda dinlenir
   #Vite arka uç erişimini 3618 portuna yönlendirir
   ```
-
+  
   http://localhost:3000 adresine erişin
-
+  
   ### YARDIM & DESTEK
-
+  
   Herhangi bir sorunuz veya ek yardıma ihtiyacınız varsa, lütfen benimle iletişime geçin!
-
+  
   ### Özel Teşekkürler
-
+  
   [zhaomingcheng01](https://github.com/zhaomingcheng01): Çok yüksek kalitede öneriler sundu, k8m'nin kullanılabilirliğine olağanüstü katkı sağladı~
-
+  
   [La0jin](https://github.com/La0jin): Çevrimiçi kaynaklar ve bakım sağladı, k8m'nin gösterim efektini büyük ölçüde iyileştirdi
-
+  
   [eryajf](https://github.com/eryajf): Bize çok kullanışlı github actions sağladı, k8m'ye otomatik sürüm yayını, yapı, yayın vb. işlevleri ekledi
-
-
-
+  
+  
+  
   ## Barındırılan Dağıtım
-
+  
   Barındırılan dağıtım [Fronteir AI](https://fronteir.ai/mcp/weibaohui-k8m) adresinde mevcuttur.
-
+  
   ## Benimle İletişim Kurun Feishu Grubu
-
+  
   ![输入图片说明](https://foruda.gitee.com/images/1774880015525784725/4fd67005_77493.png "屏幕截图")
   ```
 ---

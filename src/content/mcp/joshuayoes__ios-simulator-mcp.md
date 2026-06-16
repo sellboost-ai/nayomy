@@ -3,51 +3,51 @@ name: "joshuayoes/ios-simulator-mcp"
 description: "A Model Context Protocol (MCP) server for interacting with iOS simulators. This server allows you to interact with iOS simulators by getting information about them, controlling UI interactions, and inspecting UI elements."
 category: "Developer Tools"
 repo: "joshuayoes/ios-simulator-mcp"
-stars: 2012
+stars: 2053
 url: "https://github.com/joshuayoes/ios-simulator-mcp"
 body_length: 15860
 license: "MIT"
 language: "JavaScript"
 body_tr: |-
   # iOS Simulator MCP Server
-
+  
   [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=ios-simulator&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsImlvcy1zaW11bGF0b3ItbWNwIl19) [![NPM Version](https://img.shields.io/npm/v/ios-simulator-mcp)](https://www.npmjs.com/package/ios-simulator-mcp)
-
+  
   iOS simülatörleriyle etkileşim kurmak için bir Model Context Protocol (MCP) sunucusu. Bu sunucu, iOS simülatörleri hakkında bilgi alarak, UI etkileşimlerini kontrol ederek ve UI öğelerini inceleyerek simülatörlerle etkileşim kurmanızı sağlar.
-
+  
   > **Güvenlik Uyarısı**: 1.3.3'ten önceki sürümlerdeki komut enjeksiyonu açıkları giderilmiştir. Lütfen v1.3.3 veya daha yeni sürüme güncelleyin. Ayrıntılar için [SECURITY.md](SECURITY.md) dosyasına bakın.
-
+  
   https://github.com/user-attachments/assets/453ebe7b-cc93-4ac2-b08d-0f8ac8339ad3
-
+  
   ## 🌟 Öne Çıkan Yayınlar
-
+  
   Bu proje çeşitli yayınlarda ve kaynaklarda öne çıkarılmış ve bahsedilmiştir:
-
+  
   - [Claude Code Best Practices makalesi](https://www.anthropic.com/engineering/claude-code-best-practices#:~:text=Write%20code%2C%20screenshot%20result%2C%20iterate) - Anthropic'in mühendislik bloğundaki en iyi uygulamalar
   - [React Native Newsletter Issue 187](https://us3.campaign-archive.com/?u=78d9e37a94fa0b522939163d4&id=656ed2c2cf#:~:text=iOS%20Simulator%20MCP%20Server) - En popüler React Native topluluk haber bülteninde öne çıkarılmış
   - [Mobile Automation Newsletter - #56](https://testableapple.com/newsletter/56/#:~:text=iOS-,iOS%20Simulator%20MCP,-%F0%9F%8E%99%EF%B8%8F%20Joshua%20Yoes) - Mobil test ve otomasyon kaynakları hakkında uzun süredir yayınlanan bir haber bülteninde öne çıkarılmış
   - [punkeye/awesome-mcp-server listesi](https://github.com/punkpeye/awesome-mcp-servers) - En popüler curated awesome MCP sunucuları koleksiyonlarından birinde listelenmektedir
-
+  
   ## Araçlar
-
+  
   ### `get_booted_sim_id`
-
+  
   **Açıklama:** Şu anda açılı iOS simülatörünün ID'sini alır
-
+  
   **Parametreler:** Parametre Yok
-
+  
   ### `open_simulator`
-
+  
   **Açıklama:** iOS Simulator uygulamasını açar
-
+  
   **Parametreler:** Parametre Yok
-
+  
   ### `ui_describe_all`
-
+  
   **Açıklama:** iOS Simulator'da tüm ekran için erişilebilirlik bilgilerini açıklar
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -57,13 +57,13 @@ body_tr: |-
     udid?: string;
   }
   ```
-
+  
   ### `ui_tap`
-
+  
   **Açıklama:** iOS Simulator'da ekrana dokunur
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -81,13 +81,13 @@ body_tr: |-
     y: number;
   }
   ```
-
+  
   ### `ui_type`
-
+  
   **Açıklama:** iOS Simulator'a metin girer
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -102,13 +102,13 @@ body_tr: |-
     text: string;
   }
   ```
-
+  
   ### `ui_swipe`
-
+  
   **Açıklama:** iOS Simulator'da ekran üzerinde kaydırma hareketi yapar
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -132,13 +132,13 @@ body_tr: |-
     delta?: number;
   }
   ```
-
+  
   ### `ui_describe_point`
-
+  
   **Açıklama:** iOS Simulator'un ekranında verilen koordinatlardaki erişilebilirlik öğesini döndürür
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -152,13 +152,13 @@ body_tr: |-
     y: number;
   }
   ```
-
+  
   ### `ui_find_element`
-
+  
   **Açıklama:** Erişilebilirlik ağacında arama yapar ve verilen kriterlere uygun öğeleri döndürür
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /** Arama dizeleri dizisi. Herhangi bir dize AXLabel veya AXUniqueId ile eşleşirse öğe eşleşir */
@@ -176,13 +176,13 @@ body_tr: |-
     udid?: string;
   }
   ```
-
+  
   ### `ui_view`
-
+  
   **Açıklama:** Geçerli simülatör görünümünün sıkıştırılmış ekran görüntüsünün görüntü içeriğini alır
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -192,13 +192,13 @@ body_tr: |-
     udid?: string;
   }
   ```
-
+  
   ### `screenshot`
-
+  
   **Açıklama:** iOS Simulator'un ekran görüntüsünü alır
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -216,13 +216,13 @@ body_tr: |-
     mask?: "ignored" | "alpha" | "black";
   }
   ```
-
+  
   ### `record_video`
-
+  
   **Açıklama:** simctl'i doğrudan kullanarak iOS Simulator'ın bir video kaydını alır
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -242,19 +242,19 @@ body_tr: |-
     force?: boolean;
   }
   ```
-
+  
   ### `stop_recording`
-
+  
   **Açıklama:** killall kullanarak simülatör video kaydını durdurur
-
+  
   **Parametreler:** Parametre Yok
-
+  
   ### `install_app`
-
+  
   **Açıklama:** iOS Simulator'a bir uygulama paketi (.app veya .ipa) yükler
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -266,13 +266,13 @@ body_tr: |-
     app_path: string;
   }
   ```
-
+  
   ### `launch_app`
-
+  
   **Açıklama:** Bundle tanımlayıcısı kullanarak iOS Simulator'da bir uygulamayı başlatır
-
+  
   **Parametreler:**
-
+  
   ```typescript
   {
     /**
@@ -288,11 +288,11 @@ body_tr: |-
     env?: Record<string, string>;
   }
   ```
-
+  
   **Notlar:** Ortam değişkenleri `SIMCTL_CHILD_` kullanılarak geçirilir çünkü `simctl launch` tüm Xcode sürümlerinde `--env/--envs` desteklemez.
-
+  
   **Örnek:**
-
+  
   ```json
   {
     "bundle_id": "com.example.app",
@@ -303,99 +303,99 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## 💡 Kullanım Durumu: MCP Tool Çağrıları ile QA Adımı
-
+  
   Bu MCP sunucusu, Model Context Protocol (MCP) istemcisi ile entegre olan yapay zeka asistanlarının tool çağrılarını yaparak Kalite Güvence görevlerini gerçekleştirmesine olanak sağlar. Bu, özelliklerin uygulanmasından hemen sonra UI tutarlılığını ve doğru davranışı sağlamaya yardımcı olmak için faydalıdır.
-
+  
   ### Nasıl Kullanılır
-
+  
   Bir özellik uygulamasından sonra, MCP istemci ortamındaki yapay zeka asistanına mevcut araçları kullanmasını söyleyin. Örneğin, Cursor'ın agent modunda, UI etkileşimlerini hızlıca doğrulamak ve belgelemek için aşağıda verilen istemi kullanabilirsiniz.
-
+  
   ### Örnek İstemler
-
+  
   - **UI Öğelerini Doğrulayın:**
-
+  
     ```
     Geçerli ekrandaki tüm erişilebilirlik öğelerini doğrulayın
     ```
-
+  
   - **Metin Girişini Onaylayın:**
-
+  
     ```
     Metin giriş alanına "QA Test" girin ve girişin doğru olduğunu onaylayın
     ```
-
+  
   - **Dokunma Tepkisini Kontrol Edin:**
-
+  
     ```
     x=250, y=400 koordinatlarına dokunun ve beklenen öğenin tetiklendiğini doğrulayın
     ```
-
+  
   - **Kaydırma Eylemini Doğrulayın:**
-
+  
     ```
     x=150, y=600'den x=150, y=100'e kaydırma yapın ve doğru davranışı onaylayın
     ```
-
+  
   - **Detaylı Öğe Kontrolü:**
-
+  
     ```
     x=300, y=350 konumundaki UI öğesini açıklayın ve uygun etiketleme ve işlevselliği sağlayın
     ```
-
+  
   - **AI Ajanınıza Simülatör Ekranını Gösterin:**
-
+  
     ```
     Geçerli simülatör ekranını görüntüleyin
     ```
-
+  
   - **Ekran Görüntüsü Alın:**
-
+  
     ```
     Geçerli simülatör ekranının ekran görüntüsünü alın ve my_screenshot.png dosyasına kaydedin
     ```
-
+  
   - **Video Kaydı:**
-
+  
     ```
     Simülatör ekranının bir video kaydını başlatın (varsayılan çıkış dizinine kaydedilir, bu `~/Downloads` dir; `IOS_SIMULATOR_MCP_DEFAULT_OUTPUT_DIR` tarafından geçersiz kılınmadıkça)
     ```
-
+  
   - **Kaydı Durdur:**
-
+  
     ```
     Geçerli simülatör ekranı kaydını durdurun
     ```
-
+  
   - **Uygulamayı Yükle:**
-
+  
     ```
     path/to/MyApp.app konumundaki uygulamayı simülatöre yükleyin
     ```
-
+  
   - **Uygulamayı Başlat:**
     ```
     Simülatörede Safari uygulamasını (com.apple.mobilesafari) başlatın
     ```
-
+  
   ## Ön Koşullar
-
+  
   - Node.js
   - macOS (iOS simülatörleri yalnızca macOS'ta kullanılabilir olduğundan)
   - [Xcode](https://developer.apple.com/xcode/resources/) ve iOS simülatörleri yüklenmiş
   - Facebook [IDB](https://fbidb.io/) aracı [(kurulum rehberine bakın)](https://fbidb.io/docs/installation)
-
+  
   ## Kurulum
-
+  
   Bu bölüm, iOS Simulator MCP sunucusunu farklı Model Context Protocol (MCP) istemcileriyle entegre etmek için talimatlar sağlar.
-
+  
   ### Cursor ile Kurulum
-
+  
   Cursor, MCP sunucularını `~/.cursor/mcp.json` dosyasında bulunan yapılandırma dosyası aracılığıyla yönetir.
-
+  
   #### Seçenek 1: NPX Kullanma (Önerilen)
-
+  
   1.  Cursor MCP yapılandırma dosyasını düzenleyin. Sık sık Cursor'dan doğrudan açabilir veya şu gibi bir komut kullanabilirsiniz:
       ```bash
       # Varsayılan editörle aç (veya 'code', 'vim', vb. kullan)
@@ -417,9 +417,9 @@ body_tr: |-
       ```
       JSON yapısının geçerli olduğundan emin olun, özellikle `mcpServers` zaten varsa.
   3.  Değişikliklerin etkili olması için Cursor'u yeniden başlatın.
-
+  
   #### Seçenek 2: Yerel Geliştirme
-
+  
   1.  Bu depoyu klonlayın:
       ```bash
       git clone https://github.com/joshuayoes/ios-simulator-mcp
@@ -448,21 +448,21 @@ body_tr: |-
       ```
       **Önemli:** `/full/path/to/your/` öğesini `ios-simulator-mcp` deposunu klonladığınız mutlak yolla değiştirin.
   6.  Değişikliklerin etkili olması için Cursor'u yeniden başlatın.
-
+  
   ### Claude Code ile Kurulum
-
+  
   Claude Code CLI, `claude mcp` komutlarını kullanarak veya yapılandırma dosyalarını doğrudan düzenleyerek MCP sunucularını yönetebilir. Claude Code MCP yapılandırması hakkında daha fazla ayrıntı için [resmi belgelere](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) bakın.
-
+  
   #### Seçenek 1: NPX Kullanma (Önerilen)
-
+  
   1.  `claude mcp add` komutunu kullanarak sunucuyu ekleyin:
       ```bash
       claude mcp add ios-simulator npx ios-simulator-mcp
       ```
   2.  Gerekli olursa çalışan Claude Code oturumlarını yeniden başlatın.
-
+  
   #### Seçenek 2: Yerel Geliştirme
-
+  
   1.  Cursor'un "Yerel Geliştirme" adımlarında 1-3 adımlarında açıklandığı gibi bu depoyu klonlayın, bağımlılıkları yükleyin ve projeyi derleyin.
   2.  `claude mcp add` komutunu kullanarak sunucuyu ekleyin, yerel derlemelerinize işaret edin:
       ```bash
@@ -470,19 +470,19 @@ body_tr: |-
       ```
       **Önemli:** `/full/path/to/your/` öğesini `ios-simulator-mcp` deposunu klonladığınız mutlak yolla değiştirin.
   3.  Gerekli olursa çalışan Claude Code oturumlarını yeniden başlatın.
-
+  
   ## Yapılandırma
-
+  
   ### Ortam Değişkenleri
-
+  
   | Değişken                               | Açıklama                                                                                                                                                                                             | Örnek                                    |
   | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
   | `IOS_SIMULATOR_MCP_FILTERED_TOOLS`     | Kaydedilmekten filtrelenecek araç adlarının virgülle ayrılmış bir listesi.                                                                                                                           | `screenshot,record_video,stop_recording` |
   | `IOS_SIMULATOR_MCP_DEFAULT_OUTPUT_DIR` | Ekran görüntüleri ve video kayıtları gibi çıkış dosyaları için varsayılan bir dizin belirtir. Ayarlanmamışsa `~/Downloads` kullanılacaktır. Ajanınız dosya sistemine sınırlı erişime sahipse kullanışlıdır. | `~/Code/awesome-project/tmp`             |
   | `IOS_SIMULATOR_MCP_IDB_PATH`           | IDB yürütülebilirine özel bir yol belirtir. Ayarlanmamışsa `idb` kullanılacaktır (PATH'inizde olduğu varsayılarak). IDB'nin standart olmayan bir konumda kurulması halinde yararlıdır.                  | `~/bin/idb` veya `/usr/local/bin/idb`    |
-
+  
   #### Yapılandırma Örneği
-
+  
   ```json
   {
     "mcpServers": {
@@ -498,17 +498,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## MCP Kayıt Sunucusu Listeleri
-
+  
   <a href="https://glama.ai/mcp/servers/@joshuayoes/ios-simulator-mcp">
     
   </a>
-
+  
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/joshuayoes-ios-simulator-mcp-badge.png)](https://mseep.ai/app/joshuayoes-ios-simulator-mcp)
-
+  
   ## Lisans
-
+  
   MIT
 ---
 

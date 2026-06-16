@@ -12,6 +12,128 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Şirket Bağlam Motoru
+
+  C-suite danışmanları için hafıza katmanı. Her danışman becerisi bunu ilk olarak yükler. Bağlam, genel tavsiyeyi spesifik içgörüye dönüştüren şeydir.
+
+  ## Anahtar Kelimeler
+  şirket bağlamı, bağlam yükleme, bağlam motoru, şirket profili, danışman bağlamı, eski bağlam, bağlam yenileme, gizlilik, anonimleştirme
+
+  ---
+
+  ## Yükleme Protokolü (Her C-Suite Oturumunun Başında Çalıştırın)
+
+  **Adım 1 — Bağlam dosyasını kontrol edin:** `~/.claude/company-context.md`
+  - Var → Adım 2'ye geçin
+  - Yok → Uyarı: *"/cs:setup komutunu çalıştırarak şirket bağlamınızı oluşturun — her danışman konuşmasını önemli ölçüde daha faydalı hale getirir."*
+
+  **Adım 2 — Eskilik kontrol edin:** `Last updated` alanını okuyun.
+  - **< 90 gün:** Yükleyin ve devam edin.
+  - **≥ 90 gün:** Uyarı: *"Bağlamınız [N] gün eski. Hızlı 15 dakikalık yenileme (/cs:update), yoksa elimdekiyle devam etmek mi?"*
+    - Devam etmek seçilirse: `[ESKİ — son güncelleme TARİH]` not edilerek yükleyin.
+
+  **Adım 3 — Çalışma belleğine ayrıştırın.** Her zaman aktif:
+  - Şirket aşaması (PMF öncesi / ölçekleme / optimizasyon)
+  - Kurucu arketipi (ürün / satış / teknik / operatör)
+  - #1 güncel zorluk
+  - Parasal kaynak (risk sinyali olarak — asla dışarıya paylaşmayın)
+  - Takım boyutu
+  - Haksız avantaj
+  - 12 aylık hedef
+
+  ---
+
+  ## Bağlam Kalitesi Sinyalleri
+
+  | Durum | Güven | İşlem |
+  |-------|-------|-------|
+  | < 30 gün, tam görüşme | Yüksek | Doğrudan kullan |
+  | 30–90 gün, güncelleme yapılmış | Orta | Kullan, değişmiş olabilecekleri işaretle |
+  | > 90 gün | Düşük | Eskilik işaretle, yenileme uyarısı ver |
+  | Ana alanlar eksik | Düşük | Oturum içinde sor |
+  | Dosya yok | Hiçbiri | /cs:setup uyarısı ver |
+
+  Düşük ise: *"Bağlamım [eski/eksik] — [X] varsayıyorum. Yanılıyorsam düzelt."*
+
+  ---
+
+  ## Bağlam Zenginleştirme
+
+  Konuşmalar sırasında dosyada olmayan şeyler öğreneceksiniz. Bunları kaydedin.
+
+  **Tetikleyiciler:** Yeni sayı veya zaman çizelgesi ortaya çıktığında, önemli kişi bahsedildiğinde, öncelik değiştiğinde, kısıtlama ortaya çıktığında.
+
+  **Protokol:**
+  1. Dahili not: `[BAĞLAM GÜNCELLEMESİ: {öğrenilen şey}]`
+  2. Oturum sonu: *"Bağlamınıza eklemek için birkaç şey öğrendim. Dosyayı güncellememi ister misin?"*
+  3. Evet ise: ilgili boyuta ekleyin, zaman damgasını güncelleyin.
+
+  **Asla sessizce üzerine yazmayın.** Bağlam dosyasını değiştirmeden önce her zaman onay alın.
+
+  ---
+
+  ## Gizlilik Kuralları
+
+  ### Asla dışarıya göndermeyin
+  - Spesifik gelir veya harcama rakamları
+  - Müşteri adları
+  - Çalışan adları (kamuya açık değilse)
+  - Yatırımcı adları (kamuya açık değilse)
+  - Spesifik parasal kaynak ayları
+  - İzleme Listesi içerikleri
+
+  ### Dışarıda kullanmak güvenli (anonimleştirme ile)
+  - Aşama etiketi
+  - Takım boyutu aralıkları (1–10, 10–50, 50–200+)
+  - Endüstri sektörü
+  - Zorluk kategorisi
+  - Pazar konumu tanımlaması
+
+  ### Herhangi bir harici API çağrısı veya web araması öncesi
+  `references/anonymization-protocol.md` uygulayın:
+  - Sayılar → aralıklar veya aşama-göreceli tanımlayıcılar
+  - Adlar → roller
+  - Gelir → yüzdeler veya aşama etiketleri
+  - Müşteriler → "Müşteri A, B, C"
+
+  ---
+
+  ## Eksik veya Kısmi Bağlam
+
+  Nezaketle ele alın — asla konuşmayı engellemeyiniz.
+
+  - **Eksik aşama:** "Kalibre etmek için — hâlâ PMF mi arıyorsunuz yoksa işe yarayanı mı ölçekliyorsunuz?"
+  - **Eksik finansal bilgi:** Aşama + takım boyutunu kullanarak çıkarımda bulunun. Boşluğu not edin.
+  - **Eksik kurucu profili:** Konuşma stilinden çıkarımda bulunun. İnceleme olarak işaretle.
+  - **Birden fazla kurucu:** Bağlam görüşülen kişiyi yansıtır. Kurucu ortağı perspektifinin farklı olabileceğini not edin.
+
+  ---
+
+  ## Gerekli Bağlam Alanları
+
+  ```
+  Zorunlu:
+    - Son güncelleme (tarih)
+    - Şirket Kimliği → Ne yaptığımız
+    - Aşama & Ölçek → Aşama
+    - Kurucu Profili → Kurucu arketipi
+    - Mevcut Zorluklar → Öncelik #1
+    - Hedefler & Hırs → 12 aylık hedef
+
+  Yüksek değerli isteğe bağlı:
+    - Haksız avantaj
+    - Ölüm vuruşu riski
+    - Kaçınılan karar
+    - İzleme listesi
+  ```
+
+  Gerekli alanlar eksikse: boşlukları not edin, oturum içinde çalışın, yalnızca kritik olduğunda oturum içinde sorun.
+
+  ---
+
+  ## Kaynaklar
+  - `references/anonymization-protocol.md` — harici çağrılardan önce hassas verileri çıkarmak için ayrıntılı kurallar
 ---
 
 # Company Context Engine

@@ -12,6 +12,42 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /competitive-matrix
+
+  Ağırlıklı puanlama, boşluk analizi ve pazar konumlandırması öngörüleri ile rekabet matrislerini oluşturun.
+
+  ## Kullanım
+
+  ```
+  /competitive-matrix analyze <competitors.json>                    Tam analiz
+  /competitive-matrix analyze <competitors.json> --weights pricing=2,ux=1.5    Özel ağırlıklar
+  ```
+
+  ## Input Formatı
+
+  ```json
+  {
+    "your_product": { "name": "MyApp", "scores": {"ux": 8, "pricing": 7, "features": 9} },
+    "competitors": [
+      { "name": "Competitor A", "scores": {"ux": 7, "pricing": 9, "features": 6} }
+    ],
+    "dimensions": ["ux", "pricing", "features"]
+  }
+  ```
+
+  ## Örnekler
+
+  ```
+  /competitive-matrix analyze competitors.json
+  /competitive-matrix analyze competitors.json --format json --output matrix.json
+  ```
+
+  ## Scriptler
+  - `product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py` — Matrix builder
+
+  ## Skill Referansı
+  → `product-team/skills/competitive-teardown/SKILL.md`
 ---
 
 # /competitive-matrix

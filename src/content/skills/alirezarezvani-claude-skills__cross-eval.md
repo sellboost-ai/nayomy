@@ -12,6 +12,117 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /cs:cross-eval — Çok Modelli Fikir Birliği
+
+  **Komut:** `/cs:cross-eval <memo-or-brief>`
+
+  Aynı notu birden fazla model sağlayıcısından geçirir ve farklılıkları uzlaştırır. **Yüksek riskli, geri alınamaz kararlar** için kullanın; tek model bias'ı çok maliyetli olduğunda: M&A, büyük finansman turları, işten çıkarmalar, stratejik dönüşümler, düzenleme taahhütleri.
+
+  gstack'ın `/codex` çapraz inceleme deseni uyarlanmıştır; **kod PR'leri** yerine **iş notları** için genelleştirilmiştir.
+
+  ## Ne Zaman Çalıştırılır
+
+  - Bir term sheet imzalamadan önce
+  - Bir işten çıkarma duyurusu yapmadan önce
+  - Düzenlü bir pazara bağlanmadan önce
+  - Kararını geri almak şirketin 6 aydan fazla zamanına mal olacak her karar öncesinde
+  - Yönetim kurulu oyu bölümlü veya ciddi bir muhalefet olduğunda
+
+  ## Kullanılan Modeller (zarif bozulma)
+
+  Komut, kullanılabilir her modeli sırayla çağırmaya çalışır:
+
+  1. **Claude** (birincil, her zaman kullanılabilir) — yönetim kurulunun yerel sesi
+  2. **Codex / OpenAI** (`OPENAI_API_KEY` veya `codex` CLI kullanılabilirse)
+  3. **Gemini** (`GEMINI_API_KEY` veya `gemini` CLI kullanılabilirse)
+
+  Yalnızca Claude kullanılabilirse, komut **ters sistem istemlerinde Claude-only modu** çalıştırır ve çıktıyı net şekilde tek model olarak etiketler.
+
+  ## İş Akışı
+
+  1. Notu / özeti oku
+  2. Kullanılabilir model CLI'ları / API anahtarları için ortamı sonda
+  3. Her kullanılabilir model için:
+     - Notu bu istem ön ekiyle gönder:
+       > "Bağımsız C-suite gözlemcisisiniz. Aşağıdaki, başka bir şirketin yönetim kurulundan gelen bir yönetim kurulu notu. İlk 3 endişeyi, ilk 3 desteği ve oyunuzu (ONAYLA / REDDET / ERTEL) belirleyin. Saygı çerçevesinde katılmayın — notu'nun akıl yürütmesi kanıtlanana kadar kusurlu olduğunu varsayın."
+  4. Üç bağımsız inceleme topla
+  5. Uzlaştır: nerede fikir birliği içindeler? Nerede ayrışıyorlar?
+  6. Farklılıkları kurucuya yönelik sorular olarak ortaya çıkar
+
+  ## Çıktı Formatı
+
+  `~/.claude/cross-eval/YYYY-MM-DD-<slug>.md` dizinine kaydedilir:
+
+  ```markdown
+  # Cross-Eval: <memo title>
+  **Date:** YYYY-MM-DD
+  **Memo reviewed:** <link>
+  **Models invoked:** Claude / Codex / Gemini (or noted fallbacks)
+
+  ## Vote Tally
+  | Model | Vote | Confidence |
+  |---|---|---|
+  | Claude | APPROVE | High |
+  | Codex | DEFER | Med |
+  | Gemini | APPROVE | Low |
+
+  ## Consensus Concerns (≥2 models flagged)
+  1. <concern> — flagged by Claude + Codex
+  2. <concern> — flagged by all 3
+
+  ## Divergent Concerns (1 model flagged)
+  - <Codex only:> <concern> — worth a second look
+  - <Gemini only:> <concern> — likely noise, but check
+
+  ## Consensus Supports (≥2 models endorsed)
+  1. <support>
+  2. <support>
+
+  ## Recommendation
+  - 🟢 GO if 2+ models APPROVE and no CRITICAL concerns from any model
+  - 🟡 PAUSE if any model is DEFER or any concern is CRITICAL
+  - 🔴 STOP if 2+ models REJECT
+
+  ## Open Questions for Founder
+  1. <question raised by divergence>
+  2. <question raised by divergence>
+  ```
+
+  ## Neden Bu Önemli
+
+  Tek model tavsiyelerinin sistematik bias'ları vardır. Claude yararlı olmaya eğilimlidir ve riski hafife alabilir. Codex (OpenAI), gelişen pazar ve düzenleme konularında daha temkinlidir. Gemini, teknik ölçek iddialarında daha temkinlidir. Anlaşmazlık sinyal'dir, gürültü değil.
+
+  Bu, **geri alınamaz olmadan önce emniyet ağı** — dış hukuk müşaviri yerine veya gerçek bir yönetim kurulu değildir.
+
+  ## Zarif Bozulma
+
+  Yalnızca Claude kullanılabilirse:
+
+  ```markdown
+  **Models available:** Claude only
+  **Mode:** ADVERSARIAL — 3 bağımsız Claude geçişini farklı sistem istemli olarak çalıştırma:
+    1. Standard reviewer
+    2. Devil's advocate (3 kritik endişe bulmalı)
+    3. Steelman (onaylamak için 3 en güçlü nedeni bulmalı)
+
+  Bu, doğru çok modelli'den daha zayıftır. Sonucu tahmine dayalı olarak görün, kesin değil.
+  ```
+
+  ## Yönlendirme
+
+  - `/cs:decide` — fikir birliği ONAYLA ise
+  - `/cs:freeze` — fikir birliği ERTEL ise
+  - `/cs:boardroom` (yeniden çalıştır) — fikir birliği REDDET ise
+
+  ## İlgili
+
+  - Beceriler: [`board-meeting`](../../../skills/board-meeting/SKILL.md), [`executive-mentor`](../../../executive-mentor/)
+  - İlham: gstack'ın `/codex` çapraz inceleme deseni (iş notlarına uyarlanmış)
+
+  ---
+
+  **Sürüm:** 1.0.0
 ---
 
 # /cs:cross-eval — Multi-Model Consensus

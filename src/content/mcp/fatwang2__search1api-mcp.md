@@ -10,31 +10,31 @@ license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # Search1API MCP Server
-
+  
   [中文文档](./README_zh.md)
-
+  
   [Search1API](https://www.search1api.com/?utm_source=mcp) için resmi MCP sunucusu — web araması, haberler, crawling ve daha fazlası tek bir API'de.
-
+  
   ## API Anahtarınızı Alın
-
+  
   1. [Search1API](https://www.search1api.com/?utm_source=mcp) adresinde kayıt olun
   2. Dashboard'dan API anahtarınızı alın
-
+  
   ## Hızlı Başlangıç (Uzak MCP)
-
+  
   Kurulum gerekli değildir. MCP istemcinizi uzak URL ve API anahtarınız ile yapılandırmanız yeterlidir.
-
+  
   ### Kimlik Doğrulama
-
+  
   İki yöntem desteklenir — istemcinizin desteklediği herhangi birini kullanın:
-
+  
   | Yöntem | Format |
   |--------|--------|
   | Authorization Header | `Authorization: Bearer YOUR_SEARCH1API_KEY` |
   | URL Query Parameter | `https://mcp.search1api.com/mcp?apiKey=YOUR_SEARCH1API_KEY` |
-
+  
   ### Claude Desktop
-
+  
   ```json
   {
     "mcpServers": {
@@ -47,17 +47,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Claude.ai (Web)
-
+  
   Settings > Connectors > Add custom connector:
-
+  
   ```
   https://mcp.search1api.com/mcp?apiKey=YOUR_SEARCH1API_KEY
   ```
-
+  
   ### Cursor
-
+  
   ```json
   {
     "mcpServers": {
@@ -70,9 +70,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### VS Code
-
+  
   ```json
   {
     "servers": {
@@ -86,16 +86,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Claude Code
-
+  
   ```bash
   claude mcp add --transport http search1api https://mcp.search1api.com/mcp \
     --header "Authorization: Bearer YOUR_SEARCH1API_KEY"
   ```
-
+  
   ### Windsurf
-
+  
   ```json
   {
     "mcpServers": {
@@ -105,20 +105,20 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Agent Skill
-
+  
   Agent Skill [search1api-cli](https://github.com/fatwang2/search1api-cli) adresine taşınmıştır. Şu komutla yükleyin:
-
+  
   ```bash
   npm install -g search1api-cli
   npx skills add fatwang2/search1api-cli
   ```
-
+  
   ## Yerel Mod (stdio)
-
+  
   Sunucuyu yerel olarak çalıştırmayı tercih ederseniz, npx kullanın — klonlama gerekli değildir:
-
+  
   ```json
   {
     "mcpServers": {
@@ -132,12 +132,12 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Araçlar
-
+  
   ### search
   Search1API kullanarak web'de arama yapın.
-
+  
   | Parametre | Gerekli | Varsayılan | Açıklama |
   |-----------|---------|------------|----------|
   | `query` | Evet | - | Arama sorgusu |
@@ -147,10 +147,10 @@ body_tr: |-
   | `include_sites` | Hayır | [] | Dahil edilecek siteler |
   | `exclude_sites` | Hayır | [] | Hariç tutulacak siteler |
   | `time_range` | Hayır | - | day, month, year |
-
+  
   ### news
   Haber makalelerinde arama yapın.
-
+  
   | Parametre | Gerekli | Varsayılan | Açıklama |
   |-----------|---------|------------|----------|
   | `query` | Evet | - | Arama sorgusu |
@@ -160,38 +160,38 @@ body_tr: |-
   | `include_sites` | Hayır | [] | Dahil edilecek siteler |
   | `exclude_sites` | Hayır | [] | Hariç tutulacak siteler |
   | `time_range` | Hayır | - | day, month, year |
-
+  
   ### crawl
   Bir URL'den içerik çıkartın.
-
+  
   | Parametre | Gerekli | Açıklama |
   |-----------|---------|----------|
   | `url` | Evet | Crawl edilecek URL |
-
+  
   ### sitemap
   Bir URL'den tüm ilgili bağlantıları alın.
-
+  
   | Parametre | Gerekli | Açıklama |
   |-----------|---------|----------|
   | `url` | Evet | Sitemap alınacak URL |
-
+  
   ### reasoning
   DeepSeek R1 ile derin düşünme ve karmaşık problem çözme.
-
+  
   | Parametre | Gerekli | Açıklama |
   |-----------|---------|----------|
   | `content` | Evet | Soru veya problem |
-
+  
   ### trending
   Popüler platformlardan trend olan konuları alın.
-
+  
   | Parametre | Gerekli | Varsayılan | Açıklama |
   |-----------|---------|------------|----------|
   | `search_service` | Evet | - | github, hackernews |
   | `max_results` | Hayır | 10 | Öğe sayısı |
-
+  
   ## Sürüm Geçmişi
-
+  
   - v0.3.0: Streamable HTTP üzerinden uzak MCP desteği; oturum başına API anahtar kimlik doğrulaması
   - v0.2.0: LibreChat entegrasyonu için fallback `.env` desteği
   - v0.1.8: X (Twitter) ve Reddit arama servisleri
@@ -203,9 +203,9 @@ body_tr: |-
   - v0.1.2: Sitemap
   - v0.1.1: Web crawling
   - v0.1.0: İlk sürüm
-
+  
   ## Lisans
-
+  
   MIT
 ---
 

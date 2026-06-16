@@ -3,14 +3,14 @@ name: "alexei-led/k8s-mcp-server"
 description: "A lightweight yet robust server that empowers AI assistants to securely execute Kubernetes CLI commands (kubectl, helm, istioctl, and argocd) using Unix pipes in a safe Docker environment with multi-architecture support."
 category: "Cloud Platforms"
 repo: "alexei-led/k8s-mcp-server"
-stars: 210
+stars: 211
 url: "https://github.com/alexei-led/k8s-mcp-server"
 body_length: 10379
 license: "MIT"
 language: "Python"
 body_tr: |-
   # K8s MCP Server
-
+  
   [![CI Status](https://github.com/alexei-led/k8s-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/alexei-led/k8s-mcp-server/actions/workflows/ci.yml)
   [![Release Status](https://github.com/alexei-led/k8s-mcp-server/actions/workflows/release.yml/badge.svg)](https://github.com/alexei-led/k8s-mcp-server/actions/workflows/release.yml)
   [![codecov](https://codecov.io/gh/alexei-led/k8s-mcp-server/graph/badge.svg?token=eCaXPJ0olS)](https://codecov.io/gh/alexei-led/k8s-mcp-server)
@@ -18,19 +18,19 @@ body_tr: |-
   [![Image Size](https://ghcr-badge.egpl.dev/alexei-led/k8s-mcp-server/size?color=%2344cc11&tag=latest&label=image+size&trim=)](https://github.com/alexei-led/k8s-mcp-server/pkgs/container/k8s-mcp-server)
   [![Python Version](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+  
   K8s MCP Server, [Anthropic'in Model Context Protocol (MCP)](https://www.anthropic.com/news/introducing-mcp) uygulaması olan Docker tabanlı bir sunucudur. Claude'un Kubernetes CLI araçlarını (`kubectl`, `istioctl`, `helm`, `argocd`) güvenli, konteynerleştirilmiş bir ortamda çalıştırmasını sağlar.
-
+  
   ## Demo: WordPress Uygulaması Dağıtma ve Sorun Giderme
-
+  
   **Oturum 1:** k8s-mcp-server ve Helm CLI kullanarak claude-demo namespace'inde bir WordPress uygulaması dağıtma, ardından MariaDB StatefulSet'ini sıfıra ölçekleyerek kasıtlı olarak kırma.
-
+  
   **Oturum 2:** k8s-mcp-server kullanarak bozuk WordPress sitesini kubectl komutlarıyla teşhis etme, veritabanı eksikliğini belirleme ve StatefulSet'i ölçeklendirerek ingress erişimini yapılandırma aracılığıyla düzeltme oturumu.
-
+  
   [Demo](https://private-user-images.githubusercontent.com/1898375/428398164-5ddce5bc-ec92-459b-a506-5d4442618a81.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDMzNDE0OTEsIm5iZiI6MTc0MzM0MTE5MSwicGF0aCI6Ii8xODk4Mzc1LzQyODM5ODE2NC01ZGRjZTViYy1lYzkyLTQ1OWItYTUwNi01ZDQ0NDI2MThhODEubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDMzMCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTAzMzBUMTMyNjMxWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YmUyNDExMGUzOGRlN2QxNWViMzhhOTE4Y2U1ZmRjMTQxYTI0OGNlNTFjNTRlMjFjNmQ3NTNhNGFmODNkODIzMSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.hwKERwuQRXxHEYJ9d_fQ__XL1gj8l76nO6Yy6M4Uov8)
-
+  
   ## Nasıl Çalışır
-
+  
   ```mermaid
   flowchart LR
       A[User] --> |Asks K8s question| B[Claude]
@@ -40,23 +40,23 @@ body_tr: |-
       C --> |Returns formatted results| B
       B --> |Analyzes & explains| A
   ```
-
+  
   Claude, kullanıcılara şu şekillerde yardımcı olabilir:
   - Karmaşık Kubernetes kavramlarını açıklama
   - Kümenize karşı komutlar çalıştırma
   - Sorunları giderme
   - İyileştirmeler önerme
   - Kubernetes manifest'leri oluşturma
-
+  
   ## Claude Desktop ile Hızlı Başlangıç
-
+  
   Claude'u Kubernetes kümeleriniz ile 2 dakikadan kısa sürede çalışır hale getirin:
-
+  
   1. **Claude Desktop yapılandırma dosyanızı oluşturun veya güncelleyin**:
      - **macOS**: `$HOME/Library/Application Support/Claude/claude_desktop_config.json` dosyasını düzenleyin
      - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json` dosyasını düzenleyin
      - **Linux**: `$HOME/.config/Claude/claude_desktop_config.json` dosyasını düzenleyin
-
+  
      ```json
      {
        "mcpServers": {
@@ -74,53 +74,53 @@ body_tr: |-
        }
      }
      ```
-
+  
   2. **Claude Desktop'u yeniden başlatın**
      - Yeniden başlattıktan sonra, giriş alanının sağ alt köşesinde Araçlar simgesini (🔨) göreceksiniz
      - Bu, Claude'un artık MCP sunucusu aracılığıyla K8s araçlarına erişebildiğini gösterir
-
+  
   3. **Claude Desktop'ta K8s araçlarını doğrudan kullanmaya başlayın**:
      - "Mevcut olan Kubernetes context'leri neler?"
      - "Default namespace'indeki tüm pod'ları göster"
      - "Nginx'in 3 replika'sı ile bir deployment oluştur:1.21"
      - "Prod namespace'indeki 'database' StatefulSet'imde neyin yanlış olduğunu açıkla"
      - "Bitnami/wordpress chart'ını Helm ile dağıt ve service türünü LoadBalancer olarak ayarla"
-
+  
   > **Not**: Claude Desktop, K8s komutlarını otomatik olarak MCP sunucusu aracılığıyla yönlendirir ve Claude arayüzünü terk etmeden kümeleriniz hakkında doğal bir konuşma sağlar.
-
+  
   > **Bulut Sağlayıcıları**: AWS EKS, GKE veya Azure AKS için ek yapılandırma gerekecektir. [Bulut Sağlayıcısı Desteği](./docs/cloud-providers.md) kılavuzuna bakın.
-
+  
   ## Özellikler
-
+  
   - **Birden Fazla Kubernetes Aracı**: `kubectl`, `helm`, `istioctl` ve `argocd` tek bir konteynerde
   - **Bulut Sağlayıcıları**: AWS EKS, Google GKE ve Azure AKS için yerel destek
   - **Güvenlik**: Non-root kullanıcı olarak çalışır ve katı command doğrulaması vardır
   - **Command Piping**: `jq`, `grep` ve `sed` gibi yaygın Unix araçları için destek
   - **Kolay Yapılandırma**: Özelleştirme için basit ortam değişkenleri
-
+  
   ## Transport Protokolleri
-
+  
   Sunucu, `K8S_MCP_TRANSPORT` aracılığıyla yapılandırılan üç transport protokolünü destekler:
-
+  
   | Transport | Açıklama | Varsayılan |
   |-----------|---------|---------|
   | `stdio` | Standart I/O (Claude Desktop varsayılanı) | Evet |
   | `streamable-http` | HTTP transport (uzak/web istemcileri için önerilen, MCP spec 2025-11-25) | Hayır |
   | `sse` | Server-Sent Events (kullanımdan kaldırıldı, bunun yerine `streamable-http` kullanın) | Hayır |
-
+  
   Streamable HTTP transport kullanma örneği:
-
+  
   ```bash
   docker run --rm -p 8000:8000 \
     -v ~/.kube:/home/appuser/.kube:ro \
     -e K8S_MCP_TRANSPORT=streamable-http \
     ghcr.io/alexei-led/k8s-mcp-server:latest
   ```
-
+  
   > **Not**: Docker'da HTTP transport'ları çalıştırırken, sunucu uygun port eşlemesi için otomatik olarak `0.0.0.0`'a bağlanır. Docker dışında `127.0.0.1`'e bağlanır.
-
+  
   ## Belgeler
-
+  
   - [Başlangıç Kılavuzu](./docs/getting-started.md) - Ayrıntılı kurulum talimatları
   - [Bulut Sağlayıcısı Desteği](./docs/cloud-providers.md) - EKS, GKE ve AKS yapılandırması
   - [Desteklenen Araçlar](./docs/supported-tools.md) - Tüm dahil CLI araçlarının tam listesi
@@ -129,11 +129,11 @@ body_tr: |-
   - [Claude Entegrasyonu](./docs/claude-integration.md) - Ayrıntılı Claude Desktop kurulumu
   - [Mimari](./docs/architecture.md) - Sistem mimarisi ve bileşenleri
   - [Ayrıntılı Spesifikasyon](./docs/spec.md) - Tam teknik spesifikasyon
-
+  
   ## Kullanım Örnekleri
-
+  
   Bağlandıktan sonra Claude'dan doğal dil kullanarak Kubernetes görevlerine yardımcı olmasını isteyebilirsiniz:
-
+  
   ```mermaid
   flowchart TB
       subgraph "Temel Komutlar"
@@ -160,15 +160,15 @@ body_tr: |-
           D3["Depo'um için bir ArgoCD uygulaması oluştur"]
       end
   ```
-
+  
   Claude, amacınızı anlayabilir ve talebinize göre uygun kubectl, helm, istioctl veya argocd komutlarını çalıştırabilir. Daha sonra çıktıyı basit terimlerle açıklayabilir veya sorunları gidermenize yardımcı olabilir.
-
+  
   ## Gelişmiş Claude Desktop Yapılandırması
-
+  
   Kubernetes iş akışınızı optimize etmek için Claude Desktop'u yapılandırın:
-
+  
   ### Belirli Kümeleri ve Namespace'leri Hedefleme
-
+  
   ```json
   {
     "mcpServers": {
@@ -186,9 +186,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### AWS EKS Kümelerine Bağlanma
-
+  
   ```json
   {
     "mcpServers": {
@@ -206,9 +206,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Google GKE Kümelerine Bağlanma
-
+  
   ```json
   {
     "mcpServers": {
@@ -226,9 +226,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Azure AKS Kümelerine Bağlanma
-
+  
   ```json
   {
     "mcpServers": {
@@ -245,9 +245,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Permissive Güvenlik Modu
-
+  
   ```json
   {
     "mcpServers": {
@@ -263,11 +263,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   > Ayrıntılı güvenlik yapılandırma seçenekleri için [Güvenlik Belgelerine](./docs/security.md) bakın.
-
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 

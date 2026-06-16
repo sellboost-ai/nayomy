@@ -3,7 +3,7 @@ name: "alchemy-automation"
 description_en: "Automate Alchemy tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 61753
+stars: 64852
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/alchemy-automation/SKILL.md"
 path: "composio-skills/alchemy-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP aracılığıyla Alchemy Otomasyonu
-
+  
   Composio'nun Alchemy araç seti üzerinden Rube MCP aracılığıyla Alchemy işlemlerini otomatikleştirin.
-
+  
   **Araç seti dokümanları**: [composio.dev/toolkits/alchemy](https://composio.dev/toolkits/alchemy)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Alchemy bağlantısı (`alchemy` araç seti ile)
   - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısını yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS`'un yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS`'ı `alchemy` araç seti ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman mevcut toolları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Alchemy operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Toolları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Alchemy task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["alchemy"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Toolları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce ara**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağrısı yapılmadan tool slugları veya argümanları hiçbir zaman sabit kodlamayın
   - **Bağlantıyı kontrol edin**: Toolları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durum gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarındaki tam alan adları ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini dahil edin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Sayfalandırma**: Yanıtlarda sayfalandırma tokenlarını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Toolları bul | `RUBE_SEARCH_TOOLS` ile Alchemy'ye özel use case |
@@ -94,7 +94,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slugları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` sahip toollar için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

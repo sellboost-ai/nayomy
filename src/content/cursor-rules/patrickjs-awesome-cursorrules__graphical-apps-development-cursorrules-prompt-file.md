@@ -9,6 +9,43 @@ path: "rules/graphical-apps-development-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/graphical-apps-development-cursorrules-prompt-file.mdc"
 body_length: 3000
 file_extension: ".mdc"
+body_tr: |-
+  # Proje Özeti
+
+  Pyllments, potansiyel olarak döngüsel bir graf içinde Elements zincirleme yaparak grafik ve API tabanlı LLM uygulamaları oluşturmak için bir Python kütüphanesidir. Elements ve Payloads, Components türüdür. Bir Component, bir Model ve Views'ten oluşur. Model, temel verileri ve mantığı işlerken, Views, Model ile etkileşim kurmak için kullanılan interaktif UI'yi görüntülemek için kullanılan UI bileşenleridir.
+
+  Bir Element, belirli bir işlevden sorumlu bir Component türüdür. Örneğin, bir Element LLM sağlayıcılarına çağrılar yaparak LLM seçimini ve üretimini işleyebilir. Başka bir Element sohbet arayüzünü işleyebilir; Model sohbet mesajı geçmişini depolayabilir ve Views, sohbet arayüzü ile etkileşim kurmak için kullanılan metin kutuları ve düğmeler olabilir. Elements, Ports aracılığıyla diğer Elements'e bağlanmak üzere tasarlanmıştır. Elements'i bir araya bağlamak için gereken her şey, bir Element'in çıkış portunu başka bir Element'in giriş portuna bağlamaktır. Her çıkış portu, bağlandığı sınırsız sayıda giriş portuna sahip olabilir ve her giriş portu, bağlandığı sınırsız sayıda çıkış portuna sahip olabilir. Portlar, çıkış portunun konu (subject) ve giriş portunun gözlemci (observer) olduğu bir observer pattern'i izler. Konu, Element içinde ayarladığımız belirli bir event tetiklendiğinde gözlemcileri bilgilendirir.
+
+  Bir giriş ve çıkış portunu bağlamak için, aynı Payload türünü gönderen ve alan bir şekilde kurulması gerekir. Payload da Model'i ve görüntü mantığından sorumlu views'i olan bir Component'dir. Elements, payload'ları alabilir ve UI için views oluşturmak amacıyla Payload'ın metotlarını kullanabilir. Gönderen Element, verileri Payload'a paketlemekten sorumludur.
+
+  Şu anda bunu tam teşekküllü bir framework haline getirmek üzerinde çalışıyorum.
+
+  # Proje Organizasyonu
+
+  İşte bireysel bir element'in dosya yapısına bir örnek:
+
+  chat_interface:
+    - __init__.py
+    - chat_interface_element.py
+    - chat_interface_model.py
+    - css:
+      - buttons.css
+      - column.css
+      - input.css
+
+  # Kullanılan Temel Kütüphaneler
+
+  - Panel, görselleştirme katmanını oluşturmak ve GUI'yi çalıştırmak için kullanılır. Views, Python ve CSS ile şekillendirilebilen Panel nesnelerinden oluşur.
+  - Param, parametre doğrulama, varsayılan değerler, kısıtlamalar ve özellikle reaktivite (değişiklikleri yakalamak için event handler'lar ayarlama) işleyen parametreler oluşturmaya yardımcı olan parametreleştirilmiş sınıflar oluşturmak için kullanılır.
+  - Langchain, LLM iş akışlarını dahil etmeye ilişkin belirli işlevlerden sorumludur.
+
+  # Geliştirme Öncelikleri
+
+  Pyllments kodu, geliştirici dostu olmaya öncelik verilir; genişletilebilirlik ve modülerlik birinci sınıf vatandaştır. Elements, temiz ve sezgisel arayüzlerle özelleştirilebilir olmalıdır. Geliştirici ihtiyaçlarına bağlı olarak yeni elementler oluşturmak da kolay olmalıdır.
+
+  # Dokümantasyon
+
+  Docstring'ler NumPy/SciPy stilini kullanmalıdır.
 ---
 
 # Project Synopsis

@@ -12,6 +12,315 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Dossier — Karar Verme Aşaması Varlık Araştırması
+
+  > **Taşınabilirlik:** `WebSearch` + `WebFetch`, Node.js `docx` paketi ve isteğe bağlı `bash_tool` + `curl` (ücretsiz API'lar: SEC EDGAR, GitHub, ProPublica) gerektirir. BYOK MCP'ler (LinkedIn, Crunchbase, Apollo, Pitchbook, SimilarWeb) isteğe bağlı iyileştirmelerdir. Claude Code CLI'de yerel olarak çalışır.
+
+  ## Jenerik Olmayan Çerçeveleme — Ayırt Edici Özellik
+
+  Bu beceri **hipotez testlemesiyle birlikte karar verme aşaması varlık araştırmasıdır**. "Bana Microsoft hakkında bilgi ver" olmayı **reddeder**. Her çağrı, kullanıcıyı önceden hipotezlerini ortaya koymaya zorlar (S4) böylece dossier onu *test eder* ve doğrulayıp doğrulamaz.
+
+  Kullanım durumu şekli:
+
+  > "Pazartesi Microsoft'a pitch yapıyorum. Hipotezim: AI harcamalarını birinci taraf Foundry platformunda birleştiriyorlar. Doğrula veya çürüt, ve bulduklarıma bağlı üç konuşma çıkış noktası ver."
+
+  **DEĞİL:**
+
+  > "Bana Microsoft hakkında bilgi ver."
+
+  Zorlayıcı S4 — hipotez sorusu — jenerik olmayan ankardir. Atlarsan dossier Wikipedia özeti üretir.
+
+  Kanonik referans için [`references/hypothesis_testing_discipline.md`](references/hypothesis_testing_discipline.md) sayfasına bak.
+
+  ## Ajan Bütünlüğü Kuralları (Research-Pack Konvansiyonu)
+
+  PR #657 denetimi başına sözcüğü sözcüğüne kilitlenmiştir.
+
+  - **Yürütme disiplini.** Sıralı arama çağrıları. WebSearch + WebFetch'in Consensus'tan daha gevşek hız sınırları vardır fakat yine de 1 soru/sn görgü kuralı uygulanır. Bir sonraki çağrıdan önce yanıt alındığını onaylayın.
+  - **Kaynak disiplini.** Yalnızca bu oturum içindeki araç çağrılarından döndürülen kaynakları alıntılayın. Wikipedia / eğitim bilgisi `[Arka Plan — alıntı yapmadan önce doğrulayın]` olarak etiketlenir ve birincil bulgular sayısından hariç tutulur.
+  - **Üç sayım takibi.** Gönderilen sorgular / alınan kaynaklar / alıntılanan kaynaklar. Artı dossiere özgü **katman başına döküm** (birincil / ikincil / üçüncül). Denetim günlüğünde yüzeylendirilir.
+  - **Yeniden deneme politikası.** Başarısızlık → 3s bekle → bir kez daha dene → günlüğe kaydet. 3 ardışık başarısızlıktan sonra: dur, kullanıcıyı uyar.
+  - **Kaynak güvenilirlik katmanı.** Her alıntı etiketlenir birincil (resmi, SEC, mahkeme belgeleri) / ikincil (ana akım haber, ticari basın) / üçüncül (bloglar, forumlar). DOCX her bayrakta katmanı yüzeylendirir.
+
+  ## Faz 1: Sorgu-Beni Alımı (6 zorlayıcı soru, birer birer)
+
+  ### S1 (kök) — Varlık kimliği
+
+  > **Varlık kimliği nedir? Tam adı verin ve eğer şirketse web sitesi veya LinkedIn URL'si verin. Kişi ise, LinkedIn URL'si veya benzersiz tanımlayıcı verin (şirket bağlantısı + rol).**
+  >
+  > *Neden soruyorum:* Belirsizlikten kurtulmak. 47 John Smith var. "Atlas" adında üç şirket var. Araştırmak için spesifik bir varlığa ihtiyacım var.
+
+  Kullanıcı sadece bir ad verirse, ikinci bir tanımlayıcı isteyerek devam et. **Belirsiz adlara ilişkin ilerlemeyi reddet.**
+
+  ### S2 (S1'e bağlı) — Varlık tipi
+
+  > **Bu varlık ne tür? Birini seç: kişi / şirket / kar amacı gütmeyen kuruluş / devlet kurumu / diğer.**
+  >
+  > *Neden soruyorum:* Farklı kaynak matrisleri geçerlidir. Kişiler için LinkedIn, GitHub, Scholar, haberler kontrol ederim; şirketler için SEC EDGAR (kamu şirketiyse), Crunchbase, haberler, teknoloji kuruluşları için GitHub kontrol ederim; kar amacı gütmeyen kuruluşlar için ProPublica'daki Form 990'ları kontrol ederim.
+
+  Zorlayıcı seçim. "Diğer" tek satırlık açıklama gerektirir.
+
+  ### S3 (S2'ye bağlı) — Amaç
+
+  > **Neye hazırlanıyorsun? Birini seç:**
+  >
+  > 1. Satış toplantısı / ortaklık pitch'i
+  > 2. Yatırım durum tespiti
+  > 3. Satın alma durum tespiti
+  > 4. Gazeteciliğe / durum tespitine
+  > 5. İş mülakatı hazırlığı
+  > 6. Rekabet istihbaratı
+  > 7. Kişisel kontrol (tarih, işe alım, iş ortağı)
+  > 8. Diğer (belirt)
+  >
+  > *Neden soruyorum:* Amaç açıyı, derinliği ve kırmızı bayrak hassasiyetini belirler. Satış hazırlığı konuşma çıkış noktaları gerektirir. Yatırım durum tespiti traction sinyalleri gerektirir. Kişisel kontrol dikkatli hassasiyet sınırları gerektirir.
+
+  ### S4 (S3'e bağlı) — **Hipotez — ZORUNLU**
+
+  > **Önceden hipotezin nedir? Bu varlık hakkında zaten ne inanıyorsun ve doğrulamak ya da çürütmek istediğin şey nedir?**
+  >
+  > *Neden soruyorum:* Bu kritik sorudur. Zaten düşündüğün şeyi sadece doğrulayan bir dossier değersizdir. Hipotezini önceden belirterek, onu *çürütecek* kanıtları ve destekleyecek kanıtları arayabilir ve gerçekten kullanabileceğin bir sonuç verebilirim.
+  >
+  > Örnekler:
+  > - "Microsoft AI harcamalarını birinci taraf Foundry'de birleştiriyor inanıyorum. Doğrula veya çürüt."
+  > - "CEO'nun fazla başında olduğunu düşünüyorum — çok TAM konuşması, traction yok. Test et."
+  > - "Bu kar amacı gütmeyen kuruluşun genel giderleri şüpheli olduğuna inanıyorum. 990'ları kontrol et."
+  > - "Bu kişi CTO rolünü üstlenmek için yeterince teknik olduğunu düşünüyorum. Doğrula."
+
+  **ZORUNLU.** Kullanıcı "Birinin yok" derse, **bir kez** ters çevir: "O zaman tahmin et. Daha sonra güncelleyebileceğin bir konumu kabul et. Dossier test etmek için hipotezin olması gerekir, yoksa jenerik bir profil ve sana karar vermekte yardımcı olmaz."
+
+  Hala reddedilirse: örtülü hipotez "bulabileceğim en şaşırtıcı şey nedir?" ile geri dön ve **denetim günlüğünde fallback'i bayrakla.**
+
+  Bu soru **jenerik olmayan ankardir**. Atlarsan beceri Wikipedia özeti haline gelir.
+
+  ### S5 (S3'e bağlı) — Derinlik
+
+  > **Zaman ufku: 5 dakikalık özet mi yoksa 15 dakikalık karar verme aşaması dossier mi?**
+  >
+  > *Neden soruyorum:* Özet modu ~10 aramayla sınırlıdır ve ağ + itibar geçişlerini atlar. Karar verme aşaması her bölümde daha derinde gider. Bu karara ne kadar yatırımın var olduğuna göre seç.
+
+  Zorlayıcı seçim.
+
+  ### S6 (yalnızca S3 ∈ {gazeteciliğe, kişisel kontrol} ise sorulur) — Hassasiyetler
+
+  > **Hariç tutulacak hassas bir şey var mı? Örneğin, kişisel tıbbi, aile ayrıntıları, siyasi tarih veya kapalı konular?**
+  >
+  > *Neden soruyorum:* Bazı araştırma bağlamlarında etik kısıtlamalar vardır. Yüzeylendir olacağı şeyden daha iyi bilmek isterdim.
+
+  Satış/yatırım/satın alma/rekabet istihbaratı için atla (düşük hassasiyet); gazeteciliğe/kişisel kontrol için sor (yüksek hassasiyet).
+
+  **Durdurma koşulu:** S6'dan sonra (veya daha erken bağımlılık atlamalarıyla), taahhüt et ve Faz 2'ye başla. Faz 2 başladıktan sonra asla alımı yeniden aç.
+
+  ## Faz 2: Varlık Belirsizliği Giderme
+
+  Faz 3'ten önce varlığı spesifik bir varlığa çöz:
+
+  - Kişiler için: LinkedIn URL'sini onaylayın VEYA (işveren + rol + şehir)
+  - Şirketler için: domain'i onaylayın VEYA (yasal isim + kuruluş yargı alanı)
+  - Kar amacı gütmeyen kuruluşlar için: EIN'i onaylayın VEYA (yasal isim + devlet)
+  - Devlet kurumları için: resmi .gov URL'sini onaylayın
+
+  S1 geri bildirimi sonrasında hala belirsiz ise: **dur ve belirsizliği gidertici tanımlayıcılarla S1'i yeniden sor.** İlerlemeyi reddet.
+
+  ## Faz 3: Kaynak Matrisi Seçimi
+
+  S2 varlık tipi tarafından yönlendirilir. Tam kanonik için [`references/subject_type_source_matrix.md`](references/subject_type_source_matrix.md) sayfasına bak.
+
+  ### Kişi
+
+  - LinkedIn (manual fetch veya LinkedIn MCP BYOK ise)
+  - Kişisel web sitesi
+  - Twitter/X (hız sınırlı; zarif degrade)
+  - GitHub (teknik varlık ise)
+  - Google Scholar (akademik ise)
+  - Haberler (WebSearch + WebFetch)
+  - Konferans konuşması transkriptleri, podcast'ler (WebSearch)
+
+  ### Şirket
+
+  - Resmi web sitesi (hakkında, liderlik, haberler, kariyer)
+  - SEC EDGAR (ücretsiz API; 10-K, 10-Q, 8-K kamu şirketleri için)
+  - Crunchbase ücretsiz katmanı (veya Crunchbase MCP BYOK ise)
+  - Haberler (WebSearch + WebFetch)
+  - GitHub (teknoloji kuruluşları için)
+  - Glassdoor + Comparably (duygu; kaşıma engellenirse zarif degrade)
+  - LinkedIn şirket sayfası
+
+  ### Kar Amacı Gütmeyen Kuruluş
+
+  - ProPublica Kar Amacı Gütmeyen Kuruluş Gezgini (ücretsiz; Form 990'lar)
+  - Resmi web sitesi
+  - Haberler
+  - GuideStar (erişilebilir ise)
+
+  ### Devlet Kurumu
+
+  - Resmi .gov siteleri
+  - Haberler
+  - ProPublica (federal ajanslar için)
+
+  Ödenen MCP bağlıysa (Apollo, Pitchbook, SimilarWeb), kullan ama bulguları **BYOK-kaynaklı** olarak denetim günlüğünde işaretle.
+
+  ## Faz 4: Hipotez Odaklı Arama
+
+  Her Faz 4 araması sınıflandırılmalıdır:
+
+  - **Destekleyici kanıt** (hipotezi doğrular), VEYA
+  - **Çürütücü kanıt** (hipotezi çürütecek)
+
+  **≥%30 arama bütçesi çürütücü sorgulara ayrılmıştır.** `scripts/disconfirming_evidence_balance.py` aracılığıyla uygulanır.
+
+  "Microsoft AI harcamalarını Foundry'de birleştiriyor" hipotezi örneği:
+
+  - **Destekleyici:** "Microsoft Foundry benimseme 2026", "Microsoft AI altyapısı birleştirme"
+  - **Çürütücü:** "Microsoft OpenAI anlaşması yeniden müzakere", "Microsoft AI satıcı çeşitlendirme", "Microsoft üçüncü taraf model ortaklıkları 2026"
+
+  Bu dossier'ı **karar verme aşaması** değil doğrulama önyargılı haline getirir.
+
+  Her arama için:
+  - `citation_tracker.py` aracılığıyla sınıflandırmayla birlikte kaydet (destekleyici / çürütücü)
+  - `source_tier_classifier.py` aracılığıyla her sonuç URL'sine kaynak katmanı uygula
+
+  ## Faz 5: 12 Aylık Aktivite Zaman Çizelgesi
+
+  Aktivite zaman çizelgesi için varsayılan 12 aylık pencere; temeli için daha derinde.
+
+  Kategoriler:
+  - Haberler (satın almalar, işe alımlar, ayrılışlar, ürün lansman)
+  - Fonlama turları / finansal olaylar
+  - Tartışmalar / yasal olaylar
+  - Kamu açıklamaları / strateji kaymalar
+
+  Ters kronolojik. Her giriş köprülü + katmanlanmış.
+
+  ## Faz 6: Ağ + İtibar Sinyalleri
+
+  ### Ağ
+
+  - **Şirketler:** yatırımcılar (içeri/dışarı), müşteriler (adlandırılmış), ortaklar
+  - **Kişiler:** kurucu ortaklar, danışmanlar, mentorlar, işverenler, yönetim kurulu rolleri
+  - **Kar amacı gütmeyen kuruluşlar:** işverenler, yönetim kurulu, liderlik
+
+  5-10 giriş, **hipotezle alakalılık** tarafından sıralanmış.
+
+  ### İtibar
+
+  - Haberlerden duygu (son 12 ay)
+  - Şirketler için Glassdoor (genel derecelendirme + 3 temsilci yorum)
+  - Kişiler için akran sözü
+  - Uyarı: itibar verisi gürültülüdür; katmanlı tutun
+
+  ## Faz 7: Kırmızı Bayrak Geçişi
+
+  Yüzeylendir fakat dramatikleştirme:
+
+  - Davalar (mahkeme belgeleri → birincil katman)
+  - Düzenleyici işlemler (SEC, DOJ, ajans işlemleri → birincil)
+  - Sıradan ayrılışlar (90 gün içinde kilit personel çıkışları)
+  - Finansal sinyaller (10-K'lerdeki devam endişesi notları → birincil)
+  - İtibar saldırıları (süregelen olumsuz kapsama → ikincil)
+
+  **Her bayrak katmanlanmıştır.** Katman DOCX'te her bayrakla yanında görünür.
+
+  ## Faz 8: Konuşma Çıkış Noktası Üretimi
+
+  3-5 spesifik çıkış noktası **gerçek bulgularla** bağlı, jenerik konuşma noktaları değil.
+
+  Kanonik için [`references/conversation_hook_quality.md`](references/conversation_hook_quality.md) sayfasına bak.
+
+  | ❌ Jenerik | ✅ Bulguyla bağlı |
+  |---|---|
+  | "Yol haritası hakkında sor" | "Son [X] satın alması - dikey Y'ye yatırım yaptıklarını gösteriyor. Önerilen çerçeve: 'Duydum [X] duyurusundan — Y'deki yol haritanız nasıl değişiyor?'" |
+  | "İşe alım hakkında sor" | "Mühendislik VP'leri 3 hafta önce ayrıldı (LinkedIn). Önerilen çerçeve: '[ad] hareket ettiğini gördüm — mühendislik liderlik planı nedir?'" |
+  | "Değerleri hakkında konuş" | "Geçen hafta fiyatlandırma sayfasını güncellediler (resmi site). Önerilen çerçeve: 'Fiyatlandırma tazelemesini gördüm — neyi tetikledi?'" |
+
+  Her çıkış noktası:
+  - **Çıkış noktası** (bir cümle)
+  - **Bağlandığı bulgu** (köprülü + katman)
+  - **Önerilen çerçeve** (kullanıcının uyarlayabileceği sözcüğü sözcüğüne ifade)
+
+  ## Faz 9: DOCX Üretimi (9 Bölüm)
+
+  Node.js + `docx` kütüphanesi aracılığıyla.
+
+  1. **Yönetici Özeti** — bir paragraf: kim oldukları + neden önemli olduğu + **hipotez kararı** (DESTEKLENMİŞ / KISMİ DESTEK / ÇÜRÜTÜLMÜŞ / BELİRSİZ) + bilinmesi gereken 3 şey maddeleri.
+  2. **Kimlik Faktleri Tablosu** — kuruluş/doğum, konum, boyut/aşama, mevcut rol, kilit bağlantıları. Tüm hücreler kaynaklı; hover metni katmanı.
+  3. **Hipotez Testi** — kullanıcının hipotezi sözcüğü sözcüğüne belirtilmiş. Destekleyici kanıt (köprülü alıntılarla 3-5 madde). Çürütücü kanıt (köprülü alıntılarla 3-5 madde). Karar paragrafı (ağırlığı açıklayan 2-3 cümle).
+  4. **12 Aylık Aktivite Zaman Çizelgesi** — Haberler, finansman, işe alım, ayrılışlar, ürün lansman, tartışmalar. Ters kronolojik. Her giriş köprülü.
+  5. **Ağ Sinyalleri** — İşbirlikçiler / yatırımcılar / ortaklar. 5-10 giriş, hipotezle alakalılığa göre sıralanmış.
+  6. **İtibar Sinyalleri** — Haberlerden duygu, şirketler için Glassdoor, kişiler için akran sözü. Uyarı: itibar verisi gürültülüdür.
+  7. **Kırmızı Bayraklar + Gizli Desenler** — Davalar, düzenleyici işlemler, sıradan ayrılışlar, finansal sinyaller, itibar saldırıları. Katmanlanmış.
+  8. **Konuşma Çıkış Noktaları** — 3-5 bulgularla bağlı spesifik çıkış noktası. Her biri: çıkış noktası + bulgu + önerilen çerçeve.
+  9. **Kaynak İzlenebilirliği + Denetim Günlüğü** — Katmanla birlikte kaynak başına liste. Arama özeti tablosu (#, sorgu, sınıflandırma, alınan kaynaklar, alıntılanan kaynaklar). Üç sayım + katman başına sayımlar. Başarısız aramalar. BYOK-MCP kullanım bayrağı.
+
+  ### Stil
+
+  Arial 12pt gövde, navy başlıklar (#1a3a5c), açık mavi tablo başlıkları (#e8f0f8), kırmızı kırmızı bayrak açılır, yeşil konuşma çıkış noktası açılır.
+
+  ### Köprü desenleri
+
+  ```js
+  new ExternalHyperlink({
+    link: "https://...",
+    children: [new TextRun({ text: title, style: "Hyperlink" })],
+  });
+  ```
+
+  ## Faz 10: Teslim
+
+  - Kaydet: `<output-dir>/dossier_<entity-slug>_<YYYY-MM-DD>.docx`
+  - Sohbet özeti: dosya yolu + **hipotez kararı** + denetim sayımları + katman döküm + kullanılan BYOK MCP'ler (varsa)
+  - Doğrula: `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` ile zip bütünlüğünü kontrol et (çıkış yok = sağlam), ardından gerekli bölümlerin mevcut olduğunu doğrula
+
+  ## Araç Takımı
+
+  | Betik | Rol |
+  |---|---|
+  | `scripts/citation_tracker.py` | Üç sayım denetimi + destekleyici/çürütücü sınıflandırması + kaynak katmanı etiketlemesi `~/.dossier_sessions/<session>.json` konumuna |
+  | `scripts/disconfirming_evidence_balance.py` | Çürütücü sorgulara ≥%30 arama bütçesi ayrıldığını doğrula; önyargılı ise uyar |
+  | `scripts/source_tier_classifier.py` | URL → birincil / ikincil / üçüncül sınıflandırması domain sezgiselliği aracılığıyla |
+
+  ## Referanslar
+
+  - [`references/hypothesis_testing_discipline.md`](references/hypothesis_testing_discipline.md) — ≥%30 kuralı + karar verme aşaması vs ansiklopedik (7+ kaynaklar)
+  - [`references/subject_type_source_matrix.md`](references/subject_type_source_matrix.md) — kişi/şirket/kar amacı gütmeyen kuruluş/devlet kaynak matrisleri (7+ kaynaklar)
+  - [`references/conversation_hook_quality.md`](references/conversation_hook_quality.md) — bulgularla bağlı çıkış noktası disiplini (7+ kaynaklar)
+
+  ## Hata Yönetimi
+
+  | Hata | Davranış |
+  |---|---|
+  | Varlık adı belirsiz | İlerlemeyi reddet. Belirsizliği gidertici tanımlayıcılarla S1'i yeniden sor. |
+  | Kullanıcı hipotez belirtmeyi reddeder | Bir kez geri çevir. Hala reddedilirse, örtülü "bulabileceğim en şaşırtıcı şey nedir?" hipoteziyle geri dön. Denetim günlüğünde bayrakla. |
+  | Varlığın sıfır kamu ayak izi | Açıkça yüzeylendir. Farklı ad veya erken aşama öner. Uydurma. |
+  | LinkedIn kaşıması engellendi | Denetim günlüğünde not et; WebSearch'e geri dön; kullanıcıdan manuel doğrulamasını öner. |
+  | SEC EDGAR başarısız | Bir kez yeniden dene. Hala başarısız ise, "kamu dosyaları alınamadı" not et ve devam et. |
+  | Duygu verisi seyrek | İtibar bölümünü "sınırlı kamu sinyali" olarak işaretle; eğitimden çıkarım yapma. |
+  | Hassas konu yüzeylenirse (S6 dışlaması) | DOCX'ten hariç tut. Sohbette not et (DOCX'te değil) ki kullanıcı dışlamanın onurlandığını bilsin. |
+  | 3 ardışık araç başarısızlığı | Dur, kullanıcıyı uyar, şimdiye kadar topladığını paylaş. |
+  | DOCX üretimi başarısız | Ham veriyi JSON fallback olarak kaydet. |
+
+  ## Reddetmesi Gereken Anti Desenler
+
+  - S4 hipotezi zorlamadan dossier üretmek
+  - <30% arama bütçesini çürütücü kanıta ayırmak
+  - Alım sorularını topla
+  - Belirsiz varlık adlarını kabul etmek
+  - Jenerik konuşma çıkış noktaları ("yol haritası hakkında sor")
+  - Kırmızı bayrakları dramatikleştirmek (katmanlı tutun, editoryal yapmayın)
+  - Bayraklarda kaynak güvenilirlik katmanını atlamak
+  - LinkedIn kapalı ise ya da kaşıma engellendi ise kapsama uydurma
+  - BYOK-MCP verisini denetim günlüğünde bayraklamadan kullanmak
+  - S6'da kullanıcının hariç tuttuğu hassas konuları dahil etmek
+  - Çürütücü kanıtları göz ardı etmeden "DESTEKLENMİŞ" kararı
+  - Denetim günlüğünde BYOK MCP'ler kullanılmadan bayraklanmamak
+
+  ---
+
+  **Versiyon:** 1.0.0
+  **Kaynak spec:** [`megaprompts/12-dossier-megaprompt.md`](../../../../megaprompts/12-dossier-megaprompt.md)
+  **İnşa deseni:** Path B (doğrudan dönüştürme). Research-pack eşi, hipotez-test varyantı.
 ---
 
 # Dossier — Decision-Grade Entity Research

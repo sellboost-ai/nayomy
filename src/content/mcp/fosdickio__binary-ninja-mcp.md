@@ -3,50 +3,50 @@ name: "fosdickio/binary_ninja_mcp"
 description: "A Binary Ninja plugin, MCP server, and bridge that seamlessly integrates Binary Ninja with your favorite MCP client. It enables you to automate the process of performing binary analysis and reverse engineering."
 category: "Security"
 repo: "fosdickio/binary_ninja_mcp"
-stars: 359
+stars: 387
 url: "https://github.com/fosdickio/binary_ninja_mcp"
 body_length: 20726
 license: "GPL-3.0"
 language: "Python"
 body_tr: |-
   # Binary Ninja MCP
-
+  
   Bu repository, Binary Ninja'nın yeteneklerini sevdiğiniz LLM istemcisiyle sorunsuzca entegre etmeyi sağlayan bir Binary Ninja eklentisi, MCP sunucusu ve bridge içerir.
-
+  
   ![Binary Ninja MCP Logo](https://raw.githubusercontent.com/fosdickio/binary_ninja_mcp/HEAD/images/logo-small.png)
-
+  
   ## Özellikler
-
+  
   - Binary Ninja ve MCP istemcileri arasında sorunsuz, gerçek zamanlı entegrasyon
   - AI yardımıyla geliştirilmiş tersi mühendislik iş akışı
   - Her MCP istemcisi için destek (Cline, Claude desktop, Roo Code, vb.)
   - Birden fazla binary açın ve aktif hedefi otomatik olarak değiştirin
-
+  
   ## Örnekler
-
+  
   ### CTF Zorluk Çözme
-
+  
   [YouTube'daki bu demo videosunu](https://www.youtube.com/watch?v=0ffMHH39L_M) kontrol edin; bu video CTF zorluk çözmek için eklentiyi kullanır.
-
+  
   ## Bileşenler
-
+  
   Bu repository iki ayrı bileşen içerir:
-
+  
   1. Binary Ninja'nın yeteneklerini HTTP endpoint'leri aracılığıyla sunan MCP sunucusu sağlayan bir Binary Ninja eklentisi. Bu, MCP protokolünü uygulayan herhangi bir istemciyle kullanılabilir.
   2. Favori MCP istemcinizi Binary Ninja MCP sunucusuna bağlayan ayrı bir MCP bridge bileşeni.
-
+  
   ## Ön Koşullar
-
+  
   - [Binary Ninja](https://binary.ninja/)
   - Python 3.12+
   - MCP istemcisi (otomatik kurulum desteğine sahip olanlar aşağıda listelenmiştir)
-
+  
   ## Kurulum
-
+  
   ### MCP İstemcisi
-
+  
   MCP istemcilerinin otomatik kurulum yapabilmesi için Binary Ninja MCP'yi yüklemeden önce MCP istemcisini yükleyin. Şu anda bu MCP istemcileri için otomatik kurulumu destekliyoruz:
-
+  
       1. Cline (tavsiye edilir)
       2. Roo Code
       3. Claude Desktop (tavsiye edilir)
@@ -54,45 +54,45 @@ body_tr: |-
       5. Windsurf
       6. Claude Code
       7. LM Studio
-
+  
   ### Eklenti Kurulumu
-
+  
   MCP istemcisi yüklendikten sonra, MCP sunucusunu Binary Ninja Plugin Manager aracılığıyla veya manuel olarak yükleyebilirsiniz. Her iki yöntem de MCP istemcilerinin otomatik kurulumunu destekler.
-
+  
   MCP istemciniz ayarlanmamışsa, önce onu yükleyin ve ardından eklentiyi yeniden yüklemeyi deneyin.
-
+  
   #### Binary Ninja Plugin Manager
-
+  
   Eklentiyi Binary Ninja'nın Plugin Manager'ı aracılığıyla yükleyebilirsiniz (`Plugins > Manage Plugins`).
-
+  
   ![Plugin Manager](https://raw.githubusercontent.com/fosdickio/binary_ninja_mcp/HEAD/images/plugin-manager-listing.png)
-
+  
   #### Manuel Kurulum
-
+  
   Eklentiyi manuel olarak yüklemek için bu repository, [Binary Ninja eklentileri klasörüne](https://docs.binary.ninja/guide/plugins.html) kopyalanabilir.
-
+  
   ### [İsteğe bağlı] MCP İstemcisinin Manuel Kurulumu
-
+  
   *Desteklenen bir MCP istemcisi kullanırsanız ve kurulum adımlarını takip ederseniz bunu manuel olarak kurmanız GEREKMEz.*
-
+  
   MCP istemci girişlerini komut satırından da yönetebilirsiniz:
-
+  
   ```bash
   python scripts/mcp_client_installer.py --install    # desteklenen MCP istemcileri otomatik kurulumu
   python scripts/mcp_client_installer.py --uninstall  # girdileri kaldırın ve `.mcp_auto_setup_done` dosyasını silin
   python scripts/mcp_client_installer.py --config     # genel bir JSON config snippet'i yazdırın
   ```
-
+  
   #### npm Paketi Kullanarak (Tavsiye Edilir)
-
+  
   MCP istemcisini kurmak için önerilen yol resmi npm paketini kullanmaktır:
-
+  
   ```bash
   npx -y binary-ninja-mcp
   ```
-
+  
   MCP istemcileri için şu konfigürasyonu kullanın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -103,9 +103,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Veya global olarak yüklenirse:
-
+  
   ```json
   {
     "mcpServers": {
@@ -116,11 +116,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### Python Bridge Kullanarak (Eski)
-
+  
   Diğer MCP istemcileri için Python bridge'i doğrudan kullanın:
-
+  
   ```json
   {
       "mcpServers": {
@@ -133,28 +133,28 @@ body_tr: |-
       }
   }
   ```
-
+  
   Not: `/ABSOLUTE/PATH/TO`'yu proje dizininizin gerçek mutlak yolu ile değiştirin. Sanal ortamın Python yorumlayıcısı, yüklü bağımlılıklara erişmek için kullanılmalıdır.
-
+  
   ## Kullanım
-
+  
   1. Binary Ninja'yı açın ve bir binary yükleyin
   2. Sol alt köşede gösterilen düğmeye tıklayın
   3. MCP istemciniz aracılığıyla kullanmaya başlayın
-
+  
   Artık açık olan binary (veya binary'ler) hakkında LLM'leri sorgulamaya başlayabilirsiniz. Örnek istekler:
-
+  
   ### CTF Zorlukları
-
+  
   ```txt
   You're the best CTF player in the world. Please solve this reversing CTF challenge in the <folder_name> folder using Binary Ninja. Rename ALL the function and the variables during your analyzation process (except for main function) so I can better read the code. Write a python solve script if you need. Also, if you need to create struct or anything, please go ahead. Reverse the code like a human reverser so that I can read the decompiled code that analyzed by you.
   ```
-
+  
   ### Malware Analizi
-
+  
   ```txt
   Your task is to analyze an unknown file which is currently open in Binary Ninja. You can use the existing MCP server called "binary_ninja_mcp" to interact with the Binary Ninja instance and retrieve information, using the tools made available by this server. In general use the following strategy:
-
+  
   - Start from the entry point of the code
   - If this function call others, make sure to follow through the calls and analyze these functions as well to understand their context
   - If more details are necessary, disassemble or decompile the function and add comments with your findings
@@ -168,11 +168,11 @@ body_tr: |-
   - At the end, create a report with your findings.
   - Based only on these findings, make an assessment on whether the file is malicious or not.
   ```
-
+  
   ## Desteklenen Yetenekler
-
+  
   Aşağıdaki tablo, kullanılabilir MCP fonksiyonlarını listeler:
-
+  
   | Fonksiyon                                                            | Açıklama                                                                                                     |
   | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
   | `decompile_function`                                                 | Adına göre belirli bir fonksiyonu decompile edin ve HLIL benzeri kod adreslerle döndürün.                    |
@@ -229,9 +229,9 @@ body_tr: |-
   | `set_function_comment`                                               | Bir fonksiyon için comment ayarlayın.                                                                        |
   | `set_function_prototype(name_or_address, prototype)`                 | Bir fonksiyonun prototipi'ni ada veya adrese göre ayarlayın.                                                 |
   | `patch_bytes(address, data, save_to_file)`                           | Bir adreste ham byte'ları patch edin (byte seviyesi, assembly değil). Bytecode sağlayarak tüm talimatlara patch yapın. Adres: hex (örneğin, "0x401000") veya ondalık. Veri: hex string (örneğin, "90 90"). `save_to_file` (varsayılan True) diske kaydeder ve macOS'te yeniden imzalar. |
-
+  
   Çağrılabilen HTTP endpoint'leri listesi:
-
+  
   - `/allStrings`: Tek bir yanıtta tüm string'ler.
   - `/formatValue?address=<addr>&text=<value>&size=<n>`: Bir değeri dönüştürün ve bir adreste comment ayarlayın.
   - `/getXrefsTo?address=<addr>`: Adrese xref'ler (kod+veri).
@@ -263,46 +263,46 @@ body_tr: |-
       - `mapping`: `old->new` JSON nesnesi
       - `pairs`: kompakt string `old1:new1,old2:new2`
             Öğe başına sonuçlar ve toplamlar döndürün. Sıra korunur; sonraki çiftler önceki yeni adlara başvurabilir.
-
+  
   ## Geliştirme
-
+  
   ### Kod Kalitesi
-
+  
   Bu proje [Ruff](https://docs.astral.sh/ruff/) kullanır linting ve formatting için. Konfigürasyon `ruff.toml` içindedir.
-
+  
   #### Ruff'ı Manuel Olarak Çalıştırma
-
+  
   Sorunları denetleyin:
   ```bash
   ruff check .
   ```
-
+  
   Sorunları otomatik düzeltin:
   ```bash
   ruff check --fix .
   ```
-
+  
   Formatting sorunlarını denetleyin:
   ```bash
   ruff format --check .
   ```
-
+  
   Kodu biçimlendirin:
   ```bash
   ruff format .
   ```
-
+  
   #### GitHub Actions
-
+  
   Bir GitHub Action iş akışı (`.github/workflows/lint-format.yml`) Ruff'ı otomatik olarak çalıştırır:
-
+  
   - `main` dalına her push'ta
   - `main` dalını hedef alan her pull request'te
-
+  
   İş akışı linting hatası veya formatting sorunu varsa başarısız olur, CI'de kod kalitesini sağlar.
-
+  
   ## Katkı Yapma
-
+  
   Katkılar hoş karşılanır. Lütfen çekinmeden bir pull request gönderin.
 ---
 

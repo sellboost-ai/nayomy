@@ -9,6 +9,42 @@ path: "rules/htmx-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-basic-cursorrules-prompt-file.mdc"
 body_length: 923
 file_extension: ".mdc"
+body_tr: |-
+  // HTMX Temel Kurulumu .cursorrules
+
+  // HTMX en iyi uygulamaları
+
+  const htmxBestPractices = [
+    "GET istekleri için hx-get kullanın",
+    "POST istekleri için hx-post uygulayın",
+    "Özel olaylar için hx-trigger kullanın",
+    "İçeriğin nasıl değiştirileceğini kontrol etmek için hx-swap kullanın",
+    "İçeriğin nereye değiştirileceğini belirtmek için hx-target uygulayın",
+    "Yükleme göstergeleri için hx-indicator kullanın",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    templates/
+    static/
+      css/
+      js/
+    app.py
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. Semantik HTML5 öğeleri kullanın
+  2. Uygun CSRF koruması uygulayın
+  3. Gerektiğinde HTMX uzantılarını kullanın
+  4. Tam sayfa navigasyonu için hx-boost kullanın
+  5. Uygun hata işlemesini uygulayın
+  6. Aşamalı iyileştirme ilkelerine uyun
+  7. Sunucu tarafı şablonlama (ör. Jinja2, Handlebars) kullanın
+  `;
 ---
 
 // HTMX Basic Setup .cursorrules

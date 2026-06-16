@@ -9,6 +9,42 @@ path: "rules/react-components-creation-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-components-creation-cursorrules-prompt-file.mdc"
 body_length: 1671
 file_extension: ".mdc"
+body_tr: |-
+  # Cursor Kuralları
+
+  ## React bileşeni gerektiğinde
+
+  1. Bileşenin amacını, işlevselliğini ve tasarımını dikkatlice değerlendirin
+
+  2. Yavaş düşünün, adım adım ilerleyin ve mantığınızı açıklayın
+
+  3. Aşağıdaki konumlardan herhangi birinde benzer bir bileşen olup olmadığını kontrol edin
+     1. packages/ui/src/components
+     2. apps/spa/src/components
+
+  4. Yoksa, bileşen için ayrıntılı bir prompt oluşturun ve şunları ekleyin:
+     - Bileşen adı ve amacı
+     - İstenen props ve türleri
+     - Herhangi bir özel stil veya davranış gereksinimi
+     - Tailwind CSS kullanımından bahsetme
+     - TypeScript kullanım talebini
+
+  5. Prompt'u URL encode edin.
+
+  6. Şu formatta tıklanabilir bir bağlantı oluşturun:
+     [ComponentName](https://v0.dev/chat?q={encoded_prompt})
+
+  7. Oluşturduktan sonra, bileşeni proje yapısına uyacak şekilde uyarlayın:
+     - İçe aktar
+       - ortak shadcn/ui bileşenlerini <ui_package_alias>@repo/ui/components/ui/</ui_package_alias> konumundan
+       - uygulamaya özgü bileşenleri <app_package_alias>@/components</app_package_alias> konumundan
+     - Mevcut bileşen desenlerimizi takip ettiğinden emin olun
+     - Gerekli özel mantık veya state yönetimi ekleyin
+
+  Örnek prompt şablonu:
+  "Create a React component named {ComponentName} using TypeScript and Tailwind CSS. It should {description of functionality}. Props should include {list of props with types}. The component should {any specific styling or behavior notes}. Please provide the full component code."
+
+  <ui_package_path> ve <app_package_alias> gibi yer tutucuları projenizde kullanılan gerçek değerlerle değiştirmeyi unutmayın.
 ---
 
 # Cursor Rules

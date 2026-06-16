@@ -12,6 +12,441 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # E-Posta Şablonu Oluşturucu
+
+  **Tier:** POWERFUL  
+  **Category:** Engineering Team  
+  **Domain:** İşlemsel E-Posta / İletişim Altyapısı
+
+  ---
+
+  ## Genel Bakış
+
+  Tam işlemsel e-posta sistemleri oluşturun: React Email şablonları, sağlayıcı entegrasyonu, ön izleme sunucusu, i18n desteği, koyu mod, spam optimizasyonu ve analitik izleme. Resend, Postmark, SendGrid veya AWS SES için üretime hazır kod çıktısı alın.
+
+  ---
+
+  ## Temel Yetenekler
+
+  - React Email şablonları (hoş geldiniz, doğrulama, parola sıfırlama, fatura, bildirim, özet)
+  - Maksimum e-posta istemci uyumluluğu için MJML şablonları
+  - Birleşik gönderme arayüzü ile multi-sağlayıcı desteği
+  - Sıcak yenileme ile yerel ön izleme sunucusu
+  - Yazılan çeviri anahtarları ile i18n/yerelleştirme
+  - Medya sorguları kullanarak koyu mod desteği
+  - Spam puanı optimizasyonu kontrol listesi
+  - UTM parametreleri ile açma/tıklama izleme
+
+  ---
+
+  ## Ne Zaman Kullanılır
+
+  - Yeni bir ürün için işlemsel e-posta kurulumu
+  - Eski e-posta sisteminden geçiş
+  - Yeni e-posta türleri ekleme (fatura, özet, bildirim)
+  - E-posta teslimatı sorunlarını ayıklama
+  - E-posta şablonları için i18n uygulama
+
+  ---
+
+  ## Proje Yapısı
+
+  ```
+  emails/
+  ├── components/
+  │   ├── layout/
+  │   │   ├── email-layout.tsx       # Marka başlığı/altbilgisi ile temel düzen
+  │   │   └── email-button.tsx       # CTA düğme bileşeni
+  │   ├── partials/
+  │   │   ├── header.tsx
+  │   │   └── footer.tsx
+  ├── templates/
+  │   ├── welcome.tsx
+  │   ├── verify-email.tsx
+  │   ├── password-reset.tsx
+  │   ├── invoice.tsx
+  │   ├── notification.tsx
+  │   └── weekly-digest.tsx
+  ├── lib/
+  │   ├── send.ts                    # Birleşik gönderme fonksiyonu
+  │   ├── providers/
+  │   │   ├── resend.ts
+  │   │   ├── postmark.ts
+  │   │   └── ses.ts
+  │   └── tracking.ts                # UTM + analitik
+  ├── i18n/
+  │   ├── en.ts
+  │   └── de.ts
+  └── preview/                       # Dev ön izleme sunucusu
+      └── server.ts
+  ```
+
+  ---
+
+  ## Temel E-Posta Düzeni
+
+  ```tsx
+  // emails/components/layout/email-layout.tsx
+  import {
+    Body, Container, Head, Html, Img, Preview, Section, Text, Hr, Font
+  } from "@react-email/components"
+
+  interface EmailLayoutProps {
+    preview: string
+    children: React.ReactNode
+  }
+
+  export function EmailLayout({ preview, children }: EmailLayoutProps) {
+    return (
+      <Html lang="en">
+        <Head>
+          <Font
+            fontFamily="Inter"
+            fallbackFontFamily="Arial"
+            webFont={{ url: "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2", format: "woff2" }}
+            fontWeight={400}
+            fontStyle="normal"
+          />
+          {/* Koyu mod stileri */}
+          <style>{`
+            @media (prefers-color-scheme: dark) {
+              .email-body { background-color: #0f0f0f !important; }
+              .email-container { background-color: #1a1a1a !important; }
+              .email-text { color: #e5e5e5 !important; }
+              .email-heading { color: #ffffff !important; }
+              .email-divider { border-color: #333333 !important; }
+            }
+          `}</style>
+        </Head>
+        <Preview>{preview}</Preview>
+        <Body className="email-body" style={styles.body}>
+          <Container className="email-container" style={styles.container}>
+            {/* Başlık */}
+            <Section style={styles.header}>
+              <Img src="https://yourapp.com/logo.png" width={120} height={40} alt="MyApp" />
+            </Section>
+            
+            {/* İçerik */}
+            <Section style={styles.content}>
+              {children}
+            </Section>
+            
+            {/* Altbilgi */}
+            <Hr style={styles.divider} />
+            <Section style={styles.footer}>
+              <Text style={styles.footerText}>
+                MyApp Inc. · 123 Main St · San Francisco, CA 94105
+              </Text>
+              <Text style={styles.footerText}>
+                <a href="{{unsubscribe_url}}" style={styles.link}>Abonelikten Çık</a>
+                {" · "}
+                <a href="https://yourapp.com/privacy" style={styles.link}>Gizlilik Politikası</a>
+              </Text>
+            </Section>
+          </Container>
+        </Body>
+      </Html>
+    )
+  }
+
+  const styles = {
+    body: { backgroundColor: "#f5f5f5", fontFamily: "Inter, Arial, sans-serif" },
+    container: { maxWidth: "600px", margin: "0 auto", backgroundColor: "#ffffff", borderRadius: "8px", overflow: "hidden" },
+    header: { padding: "24px 32px", borderBottom: "1px solid #e5e5e5" },
+    content: { padding: "32px" },
+    divider: { borderColor: "#e5e5e5", margin: "0 32px" },
+    footer: { padding: "24px 32px" },
+    footerText: { fontSize: "12px", color: "#6b7280", textAlign: "center" as const, margin: "4px 0" },
+    link: { color: "#6b7280", textDecoration: "underline" },
+  }
+  ```
+
+  ---
+
+  ## Hoş Geldiniz E-Postası
+
+  ```tsx
+  // emails/templates/welcome.tsx
+  import { Button, Heading, Text } from "@react-email/components"
+  import { EmailLayout } from "../components/layout/email-layout"
+
+  interface WelcomeEmailProps {
+    name: "string"
+    confirmUrl: string
+    trialDays?: number
+  }
+
+  export function WelcomeEmail({ name, confirmUrl, trialDays = 14 }: WelcomeEmailProps) {
+    return (
+      <EmailLayout preview={`Welcome to MyApp, ${name}! Confirm your email to get started.`}>
+        <Heading style={styles.h1}>MyApp'e Hoş Geldiniz, {name}!</Heading>
+        <Text style={styles.text}>
+          Sizi aramızda görmekten mutluyuz. MyApp'in sunduğu her şeyi keşfetmek için {trialDays} gününüz var — kredi kartı gerekmez.
+        </Text>
+        <Text style={styles.text}>
+          Öncelikle hesabınızı etkinleştirmek için e-posta adresinizi onaylayın:
+        </Text>
+        <Button href={confirmUrl} style={styles.button}>
+          E-Posta Adresini Onayla
+        </Button>
+        <Text style={styles.hint}>
+          Düğme çalışmıyor mu? Bu bağlantıyı tarayıcınıza kopyalayın ve yapıştırın:
+          <br />
+          <a href={confirmUrl} style={styles.link}>{confirmUrl}</a>
+        </Text>
+        <Text style={styles.text}>
+          Onayladıktan sonra şunları yapabilirsiniz:
+        </Text>
+        <ul style={styles.list}>
+          <li>İlk projenizi 2 dakikada bağlayın</li>
+          <li>Takımınızı davet edin (3 üyeye kadar ücretsiz)</li>
+          <li>Slack bildirimlerini ayarlayın</li>
+        </ul>
+      </EmailLayout>
+    )
+  }
+
+  export default WelcomeEmail
+
+  const styles = {
+    h1: { fontSize: "28px", fontWeight: "700", color: "#111827", margin: "0 0 16px" },
+    text: { fontSize: "16px", lineHeight: "1.6", color: "#374151", margin: "0 0 16px" },
+    button: { backgroundColor: "#4f46e5", color: "#ffffff", borderRadius: "6px", fontSize: "16px", fontWeight: "600", padding: "12px 24px", textDecoration: "none", display: "inline-block", margin: "8px 0 24px" },
+    hint: { fontSize: "13px", color: "#6b7280" },
+    link: { color: "#4f46e5" },
+    list: { fontSize: "16px", lineHeight: "1.8", color: "#374151", paddingLeft: "20px" },
+  }
+  ```
+
+  ---
+
+  ## Fatura E-Postası
+
+  ```tsx
+  // emails/templates/invoice.tsx
+  import { Row, Column, Section, Heading, Text, Hr, Button } from "@react-email/components"
+  import { EmailLayout } from "../components/layout/email-layout"
+
+  interface InvoiceItem { description: string; amount: number }
+
+  interface InvoiceEmailProps {
+    name: "string"
+    invoiceNumber: string
+    invoiceDate: string
+    dueDate: string
+    items: InvoiceItem[]
+    total: number
+    currency: string
+    downloadUrl: string
+  }
+
+  export function InvoiceEmail({ name, invoiceNumber, invoiceDate, dueDate, items, total, currency = "USD", downloadUrl }: InvoiceEmailProps) {
+    const formatter = new Intl.NumberFormat("en-US", { style: "currency", currency })
+
+    return (
+      <EmailLayout preview={`Invoice ${invoiceNumber} - ${formatter.format(total / 100)}`}>
+        <Heading style={styles.h1}>Fatura #{invoiceNumber}</Heading>
+        <Text style={styles.text}>Merhaba {name},</Text>
+        <Text style={styles.text}>İşte MyApp'den faturanız. Devam eden desteğiniz için teşekkürler.</Text>
+
+        {/* Fatura Meta Bilgisi */}
+        <Section style={styles.metaBox}>
+          <Row>
+            <Column><Text style={styles.metaLabel}>Fatura Tarihi</Text><Text style={styles.metaValue}>{invoiceDate}</Text></Column>
+            <Column><Text style={styles.metaLabel}>Son Ödeme Tarihi</Text><Text style={styles.metaValue}>{dueDate}</Text></Column>
+            <Column><Text style={styles.metaLabel}>Ödenmesi Gereken Tutar</Text><Text style={styles.metaValueLarge}>{formatter.format(total / 100)}</Text></Column>
+          </Row>
+        </Section>
+
+        {/* Satır Öğeleri */}
+        <Section style={styles.table}>
+          <Row style={styles.tableHeader}>
+            <Column><Text style={styles.tableHeaderText}>Açıklama</Text></Column>
+            <Column><Text style={{ ...styles.tableHeaderText, textAlign: "right" }}>Tutar</Text></Column>
+          </Row>
+          {items.map((item, i) => (
+            <Row key={i} style={i % 2 === 0 ? styles.tableRowEven : styles.tableRowOdd}>
+              <Column><Text style={styles.tableCell}>{item.description}</Text></Column>
+              <Column><Text style={{ ...styles.tableCell, textAlign: "right" }}>{formatter.format(item.amount / 100)}</Text></Column>
+            </Row>
+          ))}
+          <Hr style={styles.divider} />
+          <Row>
+            <Column><Text style={styles.totalLabel}>Toplam</Text></Column>
+            <Column><Text style={styles.totalValue}>{formatter.format(total / 100)}</Text></Column>
+          </Row>
+        </Section>
+
+        <Button href={downloadUrl} style={styles.button}>PDF Faturayı İndir</Button>
+      </EmailLayout>
+    )
+  }
+
+  export default InvoiceEmail
+
+  const styles = {
+    h1: { fontSize: "24px", fontWeight: "700", color: "#111827", margin: "0 0 16px" },
+    text: { fontSize: "15px", lineHeight: "1.6", color: "#374151", margin: "0 0 12px" },
+    metaBox: { backgroundColor: "#f9fafb", borderRadius: "8px", padding: "16px", margin: "16px 0" },
+    metaLabel: { fontSize: "12px", color: "#6b7280", fontWeight: "600", textTransform: "uppercase" as const, margin: "0 0 4px" },
+    metaValue: { fontSize: "14px", color: "#111827", margin: 0 },
+    metaValueLarge: { fontSize: "20px", fontWeight: "700", color: "#4f46e5", margin: 0 },
+    table: { width: "100%", margin: "16px 0" },
+    tableHeader: { backgroundColor: "#f3f4f6", borderRadius: "4px" },
+    tableHeaderText: { fontSize: "12px", fontWeight: "600", color: "#374151", padding: "8px 12px", textTransform: "uppercase" as const },
+    tableRowEven: { backgroundColor: "#ffffff" },
+    tableRowOdd: { backgroundColor: "#f9fafb" },
+    tableCell: { fontSize: "14px", color: "#374151", padding: "10px 12px" },
+    divider: { borderColor: "#e5e5e5", margin: "8px 0" },
+    totalLabel: { fontSize: "16px", fontWeight: "700", color: "#111827", padding: "8px 12px" },
+    totalValue: { fontSize: "16px", fontWeight: "700", color: "#111827", textAlign: "right" as const, padding: "8px 12px" },
+    button: { backgroundColor: "#4f46e5", color: "#fff", borderRadius: "6px", padding: "12px 24px", fontSize: "15px", fontWeight: "600", textDecoration: "none" },
+  }
+  ```
+
+  ---
+
+  ## Birleşik Gönderme Fonksiyonu
+
+  ```typescript
+  // emails/lib/send.ts
+  import { Resend } from "resend"
+  import { render } from "@react-email/render"
+  import { WelcomeEmail } from "../templates/welcome"
+  import { InvoiceEmail } from "../templates/invoice"
+  import { addTrackingParams } from "./tracking"
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
+
+  type EmailPayload =
+    | { type: "welcome"; props: Parameters<typeof WelcomeEmail>[0] }
+    | { type: "invoice"; props: Parameters<typeof InvoiceEmail>[0] }
+
+  export async function sendEmail(to: string, payload: EmailPayload) {
+    const templates = {
+      welcome: { component: WelcomeEmail, subject: "MyApp'e Hoş Geldiniz — e-postanızı onaylayın" },
+      invoice: { component: InvoiceEmail, subject: `MyApp'den Fatura` },
+    }
+
+    const template = templates[payload.type]
+    const html = render(template.component(payload.props as any))
+    const trackedHtml = addTrackingParams(html, { campaign: payload.type })
+
+    const result = await resend.emails.send({
+      from: "MyApp <hello@yourapp.com>",
+      to,
+      subject: template.subject,
+      html: trackedHtml,
+      tags: [{ name: "email-type", value: payload.type }],
+    })
+
+    return result
+  }
+  ```
+
+  ---
+
+  ## Ön İzleme Sunucusu Kurulumu
+
+  ```typescript
+  // package.json scripts
+  {
+    "scripts": {
+      "email:dev": "email dev --dir emails/templates --port 3001",
+      "email:build": "email export --dir emails/templates --outDir emails/out"
+    }
+  }
+
+  // Çalıştır: npm run email:dev
+  // Açılır: http://localhost:3001
+  // Tüm şablonları canlı ön izleme ve sıcak yenileme ile gösterir
+  ```
+
+  ---
+
+  ## i18n Desteği
+
+  ```typescript
+  // emails/i18n/en.ts
+  export const en = {
+    welcome: {
+      preview: (name: string) => `Welcome to MyApp, ${name}!`,
+      heading: (name: string) => `Welcome to MyApp, ${name}!`,
+      body: (days: number) => `You've got ${days} days to explore everything.`,
+      cta: "Confirm Email Address",
+    },
+  }
+
+  // emails/i18n/de.ts
+  export const de = {
+    welcome: {
+      preview: (name: string) => `Willkommen bei MyApp, ${name}!`,
+      heading: (name: string) => `Willkommen bei MyApp, ${name}!`,
+      body: (days: number) => `Du hast ${days} Tage Zeit, alles zu erkunden.`,
+      cta: "E-Mail-Adresse bestätigen",
+    },
+  }
+
+  // Şablonda kullanım
+  import { en, de } from "../i18n"
+  const t = locale === "de" ? de : en
+  ```
+
+  ---
+
+  ## Spam Puanı Optimizasyonu Kontrol Listesi
+
+  - [ ] Gönderici alanı SPF, DKIM ve DMARC kayıtları ile yapılandırılmıştır
+  - [ ] Gönderilen adres kendi alanınızı kullanır (gmail.com/hotmail.com değil)
+  - [ ] Konu satırı 50 karakterden kısa, TÜMÜ BÜYÜK DEĞİL, "ÜCRETSİZ!!!" yok
+  - [ ] Metin-görüntü oranı: en az %60 metin
+  - [ ] HTML ile birlikte düz metin sürümü dahil
+  - [ ] Her pazarlama e-postasında abonelikten çık bağlantısı (CAN-SPAM, GDPR)
+  - [ ] URL kısaltıcı yok — tam marka bağlantıları kullanın
+  - [ ] Konu satırında kırmızı bayrak sözcükleri yok: "garantili", "risksiz", "sınırlı zaman teklifi"
+  - [ ] E-posta başına tek CTA — 5 farklı düğme yok
+  - [ ] Her görüntüde görüntü alt metni
+  - [ ] HTML doğrulanır — kırık etiket yok
+  - [ ] Mail-Tester.com ile ilk gönderimden önce test edin (hedef: 9+/10)
+
+  ---
+
+  ## Analitik İzleme
+
+  ```typescript
+  // emails/lib/tracking.ts
+  interface TrackingParams {
+    campaign: string
+    medium?: string
+    source?: string
+  }
+
+  export function addTrackingParams(html: string, params: TrackingParams): string {
+    const utmString = new URLSearchParams({
+      utm_source: params.source ?? "email",
+      utm_medium: params.medium ?? "transactional",
+      utm_campaign: params.campaign,
+    }).toString()
+
+    // E-postadaki tüm bağlantılara UTM parametreleri ekleyin
+    return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
+      const separator = url.includes("?") ? "&" : "?"
+      return `href="${url}${separator}${utmString}"`
+    })
+  }
+  ```
+
+  ---
+
+  ## Yaygın Tuzaklar
+
+  - **Satır içi stiller gerekli** — çoğu e-posta istemcisi `<head>` stillerini şeritler; React Email bunu ele alır
+  - **Maksimum genişlik 600px** — daha geniş bir şey Gmail mobil sürümünde kırılır
+  - **Flexbox/grid yok** — CSS grid değil, react-email'den `<Row>` ve `<Column>` kullanın
+  - **Koyu mod medya sorguları** — satır içi stilləri geçersiz kılmak için `!important` kullanmalıdır
+  - **Düz metin eksik** — tüm ana sağlayıcıların düz metin alanı vardır; her zaman doldurun
+  - **İşlemsel vs pazarlama** — teslimatı korumak için ayrı gönderme alanları/IP'leri kullanın
 ---
 
 # Email Template Builder

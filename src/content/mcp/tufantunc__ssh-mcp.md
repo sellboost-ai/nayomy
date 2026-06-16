@@ -3,14 +3,14 @@ name: "tufantunc/ssh-mcp"
 description: "MCP server exposing SSH control for Linux and Windows servers via Model Context Protocol. Securely execute remote shell commands with password or SSH key authentication."
 category: "Command Line"
 repo: "tufantunc/ssh-mcp"
-stars: 470
+stars: 503
 url: "https://github.com/tufantunc/ssh-mcp"
 body_length: 7907
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # SSH MCP Sunucusu
-
+  
   [![NPM Version](https://img.shields.io/npm/v/ssh-mcp)](https://www.npmjs.com/package/ssh-mcp)
   [![Downloads](https://img.shields.io/npm/dm/ssh-mcp)](https://www.npmjs.com/package/ssh-mcp)
   [![Node Version](https://img.shields.io/node/v/ssh-mcp)](https://nodejs.org/)
@@ -19,13 +19,13 @@ body_tr: |-
   [![GitHub Forks](https://img.shields.io/github/forks/tufantunc/ssh-mcp?style=social)](https://github.com/tufantunc/ssh-mcp/forks)
   [![Build Status](https://github.com/tufantunc/ssh-mcp/actions/workflows/publish.yml/badge.svg)](https://github.com/tufantunc/ssh-mcp/actions)
   [![GitHub issues](https://img.shields.io/github/issues/tufantunc/ssh-mcp)](https://github.com/tufantunc/ssh-mcp/issues)
-
+  
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/tufantunc/ssh-mcp)](https://archestra.ai/mcp-catalog/tufantunc__ssh-mcp)
-
+  
   **SSH MCP Sunucusu**, Linux ve Windows sistemleri için SSH kontrolünü açığa çıkaran ve LLM'lerin ile diğer MCP istemcilerinin SSH aracılığıyla shell komutlarını güvenli bir şekilde yürütmesini sağlayan yerel bir Model Context Protocol (MCP) sunucusudur.
-
+  
   ## İçerik
-
+  
   - [Hızlı Başlangıç](#hızlı-başlangıç)
   - [Özellikler](#özellikler)
   - [Kurulum](#kurulum)
@@ -33,31 +33,31 @@ body_tr: |-
   - [Test](#test)
   - [Sorumluluk Reddi](#sorumluluk-reddi)
   - [Destek](#destek)
-
+  
   ## Hızlı Başlangıç
-
+  
   - [Yükleyin](#kurulum) SSH MCP Sunucusu
   - [Yapılandırın](#configuration) SSH MCP Sunucusu
   - [Kurun](#istemci-kurulumu) MCP İstemcinizi (örn. Claude Desktop, Cursor, vb)
   - Doğal dil aracılığıyla Linux veya Windows sunucunuzda uzak shell komutlarını çalıştırın
-
+  
   ## Özellikler
-
+  
   - SSH yeteneklerini açığa çıkaran MCP uyumlu sunucu
   - Linux ve Windows sistemlerinde uzak shell komutlarını çalıştırma
   - Şifre veya SSH anahtarı aracılığıyla güvenli kimlik doğrulama
   - TypeScript ve resmi MCP SDK ile oluşturulmuş
   - **Yapılandırılabilir zaman aşımı koruması** otomatik işlem iptal edilmesi ile
   - **Zarif zaman aşımı işleme** - bağlantıları kapatmadan önce asılı kalmış işlemleri öldürmeyi dener
-
+  
   ### Araçlar
-
+  
   - `exec`: Uzak sunucuda shell komutu çalıştır
     - **Parametreler:**
       - `command` (gerekli): Uzak SSH sunucusunda çalıştırılacak shell komutu
       - `description` (opsiyonel): Bu komutun ne yapacağına dair isteğe bağlı açıklama (yorum olarak eklenir)
     - **Zaman Aşımı Yapılandırması:**
-
+  
   - `sudo-exec`: Shell komutunu sudo yükseltme ile çalıştır
     - **Parametreler:**
       - `command` (gerekli): Sudo kullanarak root olarak çalıştırılacak shell komutu
@@ -75,9 +75,9 @@ body_tr: |-
       - Maksimum komut karakterleri `--maxChars` aracılığıyla yapılandırılır
       - Varsayılan: `1000`
       - Sınır yok modu: `--maxChars=none` veya herhangi bir `<= 0` değeri ayarlayın (örn. `--maxChars=0`)
-
+  
   ## Kurulum
-
+  
   1. **Depoyu klonlayın:**
      ```bash
      git clone https://github.com/tufantunc/ssh-mcp.git
@@ -87,15 +87,15 @@ body_tr: |-
      ```bash
      npm install
      ```
-
+  
   ## İstemci Kurulumu
-
+  
   IDE'nizi veya Cursor, Windsurf, Claude Desktop gibi LLM'nizi bu MCP Sunucusunu kullanacak şekilde yapılandırabilirsiniz.
-
+  
   **Gerekli Parametreler:**
   - `host`: Linux veya Windows sunucusunun Hostname'i veya IP'si
   - `user`: SSH kullanıcı adı
-
+  
   **İsteğe Bağlı Parametreler:**
   - `port`: SSH portu (varsayılan: 22)
   - `password`: SSH şifresi (veya anahtar tabanlı kimlik doğrulama için `key` kullanın)
@@ -105,8 +105,8 @@ body_tr: |-
   - `timeout`: Komut yürütme zaman aşımı (milisaniye cinsinden) (varsayılan: 60000ms = 1 dakika)
   - `maxChars`: `command` girişi için izin verilen maksimum karakter (varsayılan: 1000). Sınırı devre dışı bırakmak için `none` veya `0` kullanın.
   - `disableSudo`: `sudo-exec` aracını tamamen devre dışı bırakmak için bayrak. Sudo erişimi gerekli olmadığında veya kullanılamadığında faydalıdır.
-
-
+  
+  
   ```commandline
   {
       "mcpServers": {
@@ -128,90 +128,90 @@ body_tr: |-
       }
   }
   ```
-
+  
   ### Claude Code
-
+  
   Bu MCP sunucusunu Claude Code'a `claude mcp add` komutu kullanarak ekleyebilirsiniz. Bu, Claude Code için önerilen yöntemdir.
-
+  
   **Temel Kurulum:**
-
+  
   ```bash
   claude mcp add --transport stdio ssh-mcp -- npx -y ssh-mcp -- --host=YOUR_HOST --user=YOUR_USER --password=YOUR_PASSWORD
   ```
-
+  
   **Kurulum Örnekleri:**
-
+  
   **Şifre Kimlik Doğrulama ile:**
   ```bash
   claude mcp add --transport stdio ssh-mcp -- npx -y ssh-mcp -- --host=192.168.1.100 --port=22 --user=admin --password=your_password
   ```
-
+  
   **SSH Anahtarı Kimlik Doğrulama ile:**
   ```bash
   claude mcp add --transport stdio ssh-mcp -- npx -y ssh-mcp -- --host=example.com --user=root --key=/path/to/private/key
   ```
-
+  
   **Özel Zaman Aşımı ve Sınır Yok Karakter Modu ile:**
   ```bash
   claude mcp add --transport stdio ssh-mcp -- npx -y ssh-mcp -- --host=192.168.1.100 --user=admin --password=your_password --timeout=120000 --maxChars=none
   ```
-
+  
   **Sudo ve Su Desteği ile:**
   ```bash
   claude mcp add --transport stdio ssh-mcp -- npx -y ssh-mcp -- --host=192.168.1.100 --user=admin --password=your_password --sudoPassword=sudo_pass --suPassword=root_pass
   ```
-
+  
   **Kurulum Kapsamları:**
-
+  
   Sunucu eklerken kapsamı belirtebilirsiniz:
-
+  
   - **Yerel kapsam** (varsayılan): Geçerli projede kişisel kullanım için
     ```bash
     claude mcp add --transport stdio ssh-mcp --scope local -- npx -y ssh-mcp -- --host=YOUR_HOST --user=YOUR_USER --password=YOUR_PASSWORD
     ```
-
+  
   - **Proje kapsamı**: Takımınızla `.mcp.json` dosyası aracılığıyla paylaşın
     ```bash
     claude mcp add --transport stdio ssh-mcp --scope project -- npx -y ssh-mcp -- --host=YOUR_HOST --user=YOUR_USER --password=YOUR_PASSWORD
     ```
-
+  
   - **Kullanıcı kapsamı**: Tüm projelerinizde kullanılabilir
     ```bash
     claude mcp add --transport stdio ssh-mcp --scope user -- npx -y ssh-mcp -- --host=YOUR_HOST --user=YOUR_USER --password=YOUR_PASSWORD
     ```
-
-
+  
+  
   **Kurulumu Doğrulayın:**
-
+  
   Sunucuyu ekledikten sonra Claude Code'u yeniden başlatın ve Cascade'den bir komut çalıştırmasını isteyin:
   ```
   "Can you run 'ls -la' on the remote server?"
   ```
-
+  
   Claude Code'da MCP hakkında daha fazla bilgi için [resmi belgelere](https://docs.claude.com/en/docs/claude-code/mcp) bakın.
-
+  
   ## Test
-
+  
   Bu MCP Sunucusunun görsel hata ayıklaması için [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) kullanabilirsiniz.
-
+  
   ```sh
   npm run inspect
   ```
-
+  
   ## Sorumluluk Reddi
-
+  
   SSH MCP Sunucusu [MIT Lisansı](./LICENSE) altında sağlanmaktadır. Kendi sorumluluğunuzda kullanın. Bu proje, herhangi bir SSH veya MCP sağlayıcısı tarafından bağlı değildir veya onaylanmamıştır.
-
+  
   ## Katkıda Bulunma
-
+  
   Katkılara açığız! Daha fazla bilgi için lütfen [Katkı Kılavuzumuza](./CONTRIBUTING.md) bakın.
-
+  
   ## Davranış Kuralları
-
+  
   Bu proje, herkes için hoş bir ortam sağlamak amacıyla [Davranış Kurallarına](./CODE_OF_CONDUCT.md) uyar.
-
+  
   ## Destek
-
+  
   SSH MCP Sunucusu'nun faydalı olduğunu düşünüyorsanız depoyu yıldızlamayı veya katkıda bulunmayı düşünün! Pull istekleri ve geri bildirimler hoş geldiniz.
 ---
 

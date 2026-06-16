@@ -3,7 +3,7 @@ name: "yangkyeongmo/mcp-server-apache-airflow"
 description: "MCP server that connects to Apache Airflow using official client."
 category: "Developer Tools"
 repo: "yangkyeongmo/mcp-server-apache-airflow"
-stars: 165
+stars: 166
 url: "https://github.com/yangkyeongmo/mcp-server-apache-airflow"
 body_length: 20009
 license: "MIT"
@@ -11,24 +11,24 @@ language: "Python"
 homepage: "https://pypi.org/project/mcp-server-apache-airflow/"
 body_tr: |-
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yangkyeongmo-mcp-server-apache-airflow-badge.png)](https://mseep.ai/app/yangkyeongmo-mcp-server-apache-airflow)
-
+  
   # mcp-server-apache-airflow
-
+  
   [![smithery badge](https://smithery.ai/badge/@yangkyeongmo/mcp-server-apache-airflow)](https://smithery.ai/server/@yangkyeongmo/mcp-server-apache-airflow)
   ![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-server-apache-airflow)
-
+  
   Apache Airflow için bir Model Context Protocol (MCP) sunucu uygulaması. MCP istemcileriyle sorunsuz entegrasyon sağlar. Bu proje, Model Context Protocol aracılığıyla Apache Airflow ile etkileşim kurmanın standartlaştırılmış bir yolunu sunar.
-
+  
   <a href="https://glama.ai/mcp/servers/e99b6vx9lw">
     
   </a>
-
+  
   ## Hakkında
-
+  
   Bu proje, Apache Airflow'un REST API'sini sarmalayan bir [Model Context Protocol](https://modelcontextprotocol.io/introduction) sunucusu uygular ve MCP istemcilerinin Airflow ile standartlaştırılmış bir şekilde etkileşim kurmasını sağlar. Uyumluluk ve bakımlanabilirliği sağlamak için resmi Apache Airflow istemci kütüphanesini kullanır.
-
+  
   ## Özellik Uygulama Durumu
-
+  
   | Özellik                          | API Yolu                                                                                      | Durum |
   | -------------------------------- | --------------------------------------------------------------------------------------------- | ------ |
   | **DAG Yönetimi**         |                                                                                               |        |
@@ -112,40 +112,40 @@ body_tr: |-
   | İthalatı Hatası Detaylarını Al         | `/api/v1/importErrors/{import_error_id}`                                                    | ✅     |
   | Sağlık Durumunu Al                | `/api/v1/health`                                                                            | ✅     |
   | Sürümü Al                      | `/api/v1/version`                                                                           | ✅     |
-
+  
   ## Kurulum
-
+  
   ### Bağımlılıklar
-
+  
   Bu proje resmi Apache Airflow istemci kütüphanesine (`apache-airflow-client`) bağlıdır. Bu paketi yüklediğinizde otomatik olarak yüklenecektir.
-
+  
   ### Ortam Değişkenleri
-
+  
   Aşağıdaki ortam değişkenlerini ayarlayın:
-
+  
   ```
   AIRFLOW_HOST=<your-airflow-host>        # İsteğe bağlı, varsayılan http://localhost:8080
   AIRFLOW_API_VERSION=v1                  # İsteğe bağlı, varsayılan v1
   READ_ONLY=true                          # İsteğe bağlı, salt okunur modu etkinleştirir (true/false, varsayılan false)
   ```
-
+  
   #### Kimlik Doğrulama
-
+  
   Aşağıdaki kimlik doğrulama yöntemlerinden birini seçin:
-
+  
   **Temel Kimlik Doğrulama (varsayılan):**
   ```
   AIRFLOW_USERNAME=<your-airflow-username>
   AIRFLOW_PASSWORD=<your-airflow-password>
   ```
-
+  
   **JWT Token Kimlik Doğrulaması:**
   ```
   AIRFLOW_JWT_TOKEN=<your-jwt-token>
   ```
-
+  
   JWT token almak için Airflow'un kimlik doğrulama endpoint'ini kullanabilirsiniz:
-
+  
   ```bash
   ENDPOINT_URL="http://localhost:8080"  # Airflow endpoint'iniz ile değiştirin
   curl -X 'POST' \
@@ -153,13 +153,13 @@ body_tr: |-
     -H 'Content-Type: application/json' \
     -d '{ "username": "<your-username>", "password": "<your-password>" }'
   ```
-
+  
   > **Not**: JWT token ve temel kimlik doğrulama bilgilerinin her ikisi de sağlanırsa, JWT token öncelik kazanır.
-
+  
   ### Claude Desktop ile Kullanım
-
+  
   `claude_desktop_config.json` dosyanıza ekleyin:
-
+  
   **Temel Kimlik Doğrulama:**
   ```json
   {
@@ -176,7 +176,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **JWT Token Kimlik Doğrulaması:**
   ```json
   {
@@ -192,9 +192,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Salt okunur mod için (güvenlik açısından tavsiye edilir):
-
+  
   **Temel Kimlik Doğrulama:**
   ```json
   {
@@ -212,7 +212,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **JWT Token Kimlik Doğrulaması:**
   ```json
   {
@@ -228,9 +228,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   `uv` kullanarak alternatif yapılandırma:
-
+  
   **Temel Kimlik Doğrulama:**
   ```json
   {
@@ -252,7 +252,7 @@ body_tr: |-
     }
   }
   ```
-
+  
   **JWT Token Kimlik Doğrulaması:**
   ```json
   {
@@ -273,21 +273,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   `/path/to/mcp-server-apache-airflow` yerine depoyu klonladığınız gerçek yolu yazın.
-
+  
   ### API Gruplarını Seçme
-
+  
   `--apis` flag'ini ayarlayarak kullanmak istediğiniz API gruplarını seçebilirsiniz.
-
+  
   ```bash
   uv run mcp-server-apache-airflow --apis dag --apis dagrun
   ```
-
+  
   Varsayılan olarak tüm API'ler kullanılır.
-
+  
   İzin verilen değerler:
-
+  
   - config
   - connections
   - dag
@@ -303,132 +303,132 @@ body_tr: |-
   - taskinstance
   - variable
   - xcom
-
+  
   ### Salt Okunur Mod
-
+  
   `--read-only` flag'ini kullanarak veya `READ_ONLY=true` ortam değişkenini ayarlayarak sunucuyu salt okunur modda çalıştırabilirsiniz. Bu mod yalnızca okuma işlemleri (GET istekleri) yapan araçları ortaya çıkaracak ve kaynakları oluşturan, güncelleyen veya silen araçları dışlayacaktır.
-
+  
   Komut satırı flag'ini kullanarak:
   ```bash
   uv run mcp-server-apache-airflow --read-only
   ```
-
+  
   Ortam değişkenini kullanarak:
   ```bash
   READ_ONLY=true uv run mcp-server-apache-airflow
   ```
-
+  
   Salt okunur modda, sunucu yalnızca şu gibi araçları ortaya çıkaracaktır:
   - DAG'ları, DAG çalıştırmalarını, görevleri, değişkenleri, bağlantıları vb. listeleme
   - Belirli kaynakların ayrıntılarını alma
   - Yapılandırmaları ve izleme bilgilerini okuma
   - Bağlantıları test etme (zararlı olmayan)
-
+  
   DAG'ları, değişkenleri, bağlantıları oluşturma, güncelleme, silme, DAG çalıştırmalarını tetikleme vb. gibi yazma işlemleri salt okunur modda kullanılamayacaktır.
-
+  
   Salt okunur modu API grup seçimiyle birleştirebilirsiniz:
-
+  
   ```bash
   uv run mcp-server-apache-airflow --read-only --apis dag --apis variable
   ```
-
+  
   ### Manuel Yürütme
-
+  
   Sunucuyu manuel olarak da çalıştırabilirsiniz:
-
+  
   ```bash
   make run
   ```
-
+  
   `make run` aşağıdaki seçenekleri kabul eder:
-
+  
   Seçenekler:
-
+  
   - `--port`: SSE için dinlenecek port (varsayılan: 8000)
   - `--transport`: Transport türü (stdio/sse/http, varsayılan: stdio)
-
+  
   Veya SSE sunucusunu doğrudan çalıştırabilirsiniz, aynı parametreleri kabul eder:
-
+  
   ```bash
   make run-sse
   ```
-
+  
   Ayrıca, hizmeti aşağıdaki komut gibi `uv` kullanarak doğrudan başlatabilirsiniz:
-
+  
   ```bash
   uv run src --transport http --port 8080
   ```
-
+  
   ### Smithery üzerinden Kurulum
-
+  
   Apache Airflow MCP Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/@yangkyeongmo/mcp-server-apache-airflow) üzerinden otomatik olarak yüklemek için:
-
+  
   ```bash
   npx -y @smithery/cli install @yangkyeongmo/mcp-server-apache-airflow --client claude
   ```
-
+  
   ## Geliştirme
-
+  
   ### Geliştirme Ortamını Kurma
-
+  
   1. Depoyu klonlayın:
   ```bash
   git clone https://github.com/yangkyeongmo/mcp-server-apache-airflow.git
   cd mcp-server-apache-airflow
   ```
-
+  
   2. Geliştirme bağımlılıklarını yükleyin:
   ```bash
   uv sync --dev
   ```
-
+  
   3. Ortam değişkenleri için bir `.env` dosyası oluşturun (geliştirme için isteğe bağlı):
   ```bash
   touch .env
   ```
-
+  
   > **Not**: Testleri çalıştırmak için ortam değişkenlerine ihtiyaç yoktur. `AIRFLOW_HOST` geliştirme ve test amaçları için `http://localhost:8080` olarak varsayılan olur.
-
+  
   ### Testleri Çalıştırma
-
+  
   Proje pytest için aşağıdaki komutlarla kullanılabilir:
-
+  
   ```bash
   # Tüm testleri çalıştır
   make test
   ```
-
+  
   ### Kod Kalitesi
-
+  
   ```bash
   # Linting'i çalıştır
   make lint
-
+  
   # Kod biçimlendirmesini çalıştır
   make format
   ```
-
+  
   ### Sürekli Entegrasyon
-
+  
   Proje, GitHub Actions iş akışını (`.github/workflows/test.yml`) içerir ve otomatik olarak:
-
+  
   - Python 3.10, 3.11 ve 3.12'de testleri çalıştırır
   - ruff kullanarak linting kontrolleri yürütür
   - `main` dalına her push ve pull request'te çalışır
-
+  
   CI pipeline'ı, herhangi bir değişiklik birleştirilmeden önce kod kalitesini ve desteklenen Python versiyonları arasında uyumluluğu sağlar.
-
+  
   ## Katkı
-
+  
   Katkılar memnuniyetle karşılanır! Lütfen özgürce bir Pull Request göndermekten çekinmeyin.
-
+  
   Paket, `pyproject.toml` dosyasındaki project.version güncellendiğinde otomatik olarak PyPI'ye yayınlanır.
   Sürümlendirme için semver'ı izleyin.
-
+  
   Lütfen çekirdek mantığa yapılan değişiklikleri uygulamak için PR'e sürüm güncellemesi dahil edin.
-
+  
   ## Lisans
-
+  
   [MIT Lisansı](LICENSE)
 ---
 

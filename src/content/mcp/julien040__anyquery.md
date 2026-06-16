@@ -3,17 +3,17 @@ name: "julien040/anyquery"
 description: "Query more than 40 apps with one binary using SQL. It can also connect to your PostgreSQL, MySQL, or SQLite compatible database. Local-first and private by design."
 category: "Aggregators"
 repo: "julien040/anyquery"
-stars: 1702
+stars: 1716
 url: "https://github.com/julien040/anyquery"
-body_length: 6042
+body_length: 7421
 license: "NOASSERTION"
 language: "Go"
 homepage: "https://anyquery.dev"
 body_tr: |-
   # Anyquery
-
+  
   </img>
-
+  
   ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/julien040/anyquery/total)
   ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/julien040/anyquery)
   [![Documentation](https://img.shields.io/badge/documentation-blue)](https://anyquery.dev)
@@ -22,86 +22,86 @@ body_tr: |-
   [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.anyquery.dev%2Fv0%2Fquery%2F&query=%24.queries_count&style=flat&label=Queries%20from%20the%20hub&cacheSeconds=3600&link=https%3A%2F%2Fanyquery.dev%2Fqueries)](https://anyquery.dev/queries)
   [![Go Reference](https://pkg.go.dev/badge/github.com/julien040/anyquery@v0.1.3/namespace.svg)](https://pkg.go.dev/github.com/julien040/anyquery/namespace)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/julien040/anyquery)](https://archestra.ai/mcp-catalog/julien040__anyquery)
-
+  
   Anyquery, hemen hemen her şey üzerinde SQL sorguları çalıştırmanıza olanak tanıyan bir SQL query engine'dir. [Dosyaları](https://anyquery.dev/docs/usage/querying-files/), [veritabanlarını](https://anyquery.dev/docs/database) ve [uygulamaları](https://anyquery.dev/integrations) (örn. Apple Notes, Notion, Chrome, Todoist, vb.) sorgulamayı destekler. [SQLite](https://www.sqlite.org) üzerine inşa edilmiştir ve işlevselliğini genişletmek için [plugin'ler](https://anyquery.dev/integrations) kullanır.
-
+  
   Ayrıca [LLM'lere](https://anyquery.dev/llm) (örn. ChatGPT, Claude, Cursor, TypingMind, vb.) bağlanabilir ve onların verilerinize erişmesine izin verir.
-
+  
   Son olarak, [MySQL sunucusu](https://anyquery.dev/docs/usage/mysql-server/) olarak hareket edebilir ve favori MySQL uyumlu istemcinizden SQL sorguları çalıştırmanıza olanak tanır (örn. [TablePlus](https://anyquery.dev/connection-guide/tableplus/), [Metabase](https://anyquery.dev/connection-guide/metabase/), vb.).
-
+  
   ![Anyquery header](https://anyquery.dev/images/release-header.png)
-
+  
   ## Kullanım
-
+  
   ### LLM Bağlantısı
-
+  
   LLM'ler, [Model Context Protocol (MCP)](https://anyquery.dev/docs/reference/commands/anyquery_mcp) kullanarak Anyquery'ye bağlanabilir. Bu protokol, bunu destekleyen LLM'ler için bağlam sağlar. MCP sunucusunu aşağıdaki komutla başlatabilirsiniz:
-
+  
   ```bash
   # LLM istemcisi tarafından başlatılacak
   anyquery mcp --stdio
   # HTTP ve SSE tüneli kullanarak bağlanmak için
   anyquery mcp --host 127.0.0.1 --port 8070
   ```
-
+  
   Function calling'i destekleyen istemcilere de bağlanabilirsiniz (örn. ChatGPT, TypingMind). Daha fazla bilgi için belgelerdeki her bir [bağlantı kılavuzuna](https://anyquery.dev/integrations#llm) bakın.
-
+  
   ```bash
   # Komut tarafından döndürülen kimliği kopyalayın ve LLM istemcisine yapıştırın (örn. ChatGPT, TypingMind)
   anyquery gpt
   ```
-
+  
   ![5ire example](https://anyquery.dev/images/docs/llm/5ire-final.png)
-
+  
   ### SQL Sorguları Çalıştırma
-
+  
   [Belgelerde](https://anyquery.dev/docs/usage/running-queries) Anyquery ile sorguları nasıl çalıştıracağınız hakkında ayrıntılı talimatlar bulunmaktadır.
   Ama hızlı bir örnek görelim. Terminal'inize `anyquery` yazarak shell modunu açın. Ardından aşağıdaki sorguyu çalıştırın:
-
+  
   ![Anyquery SQL examples](https://anyquery.dev/images/anyquery_examples.sql.png)
-
+  
   Ayrıca `anyquery server` komutuyla MySQL sunucusunu başlatabilir ve favori MySQL uyumlu istemcinizle bağlanabilirsiniz.
-
+  
   ```bash
   anyquery server &
   mysql -u root -h 127.0.0.1 -P 8070
   ```
-
+  
   ## Kurulum
-
+  
   [Belgelerde](https://anyquery.dev/docs/#installation) sisteminize Anyquery'yi nasıl yükleyeceğiniz hakkında ayrıntılı talimatlar bulunmaktadır. Anyquery'yi Homebrew, APT, YUM/DNF, Scoop, Winget ve Chocolatey'den yükleyebilirsiniz. Ayrıca [releases sayfasından](https://github.com/julien040/anyquery/releases) binary'yi indirebilirsiniz.
-
+  
   ### Homebrew
-
+  
   ```zsh
   brew install anyquery
   ```
   <!-- 
   ### Snap
-
+  
   ```bash
   sudo snap install anyquery
   ``` -->
   ### ARCH LINUX (AUR)
-
+  
   ```bash
   # yay gibi bir AUR helper kullanarak yükleyin
   yay -S anyquery-git
-
+  
   # paru
   paru -S anyquery-git
   ```
-
+  
   ### APT
-
+  
   ```bash
   echo "deb [trusted=yes] https://apt.julienc.me/ /" | sudo tee /etc/apt/sources.list.d/anyquery.list
   sudo apt update
   sudo apt install anyquery
   ```
-
+  
   ### YUM/DNF
-
+  
   ```bash
   echo "[anyquery]
   name=Anyquery
@@ -110,43 +110,43 @@ body_tr: |-
   gpgcheck=0" | sudo tee /etc/yum.repos.d/anyquery.repo
   sudo dnf install anyquery
   ```
-
+  
   ### Scoop
-
+  
   ```powershell
   scoop bucket add anyquery https://github.com/julien040/anyquery-scoop
   scoop install anyquery
   ```
-
+  
   ### Winget
-
+  
   ```powershell
   winget install JulienCagniart.anyquery
   ```
-
+  
   ### Chocolatey
-
+  
   ```powershell
   choco install anyquery
   ```
-
+  
   ## Plugin'ler
-
+  
   Anyquery plugin tabanlıdır ve işlevselliğini genişletmek için plugin'ler yükleyebilirsiniz. Plugin'leri [resmi kayıttan](https://anyquery.dev/integrations) yükleyebilir veya kendi plugin'lerinizi oluşturabilirsiniz. Anyquery ayrıca [herhangi bir SQLite extension'ını](https://anyquery.dev/docs/usage/plugins#using-sqlite-extensions) yükleyebilir.
-
+  
   ![Integrations](https://anyquery.dev/images/integrations_logo.png)
-
+  
   ## Lisans
-
+  
   Anyquery, core engine için AGPLv3 lisansı altında lisanslanmıştır. RPC kütüphanesi MIT lisansı altında lisanslanmıştır, böylece herkes plugin'leri farklı projelerde yeniden kullanabilir.
-
+  
   Plugin'ler AGPL lisansına tabi değildir. Her plugin'in kendi lisansı vardır ve telif hakkı plugin yazarına aittir.
   Daha fazla bilgi için [LICENSE](https://github.com/julien040/anquery/blob/main/LICENSE.md) dosyasına bakın.
-
+  
   ## Katkıda Bulunma
-
+  
   Anyquery'ye katkıda bulunmak istiyorsanız, lütfen [katkıda bulunma kılavuzunu](https://anyquery.dev/docs/developers/project/contributing) okuyun. Şu anda sadece küçük katkıları kabul ediyorum, ancak herhangi bir öneriye veya geri bildirime açığım.
-
+  
   [Mimarı](https://anyquery.dev/docs/developers/project/architecture/) belgesinde proje hakkında kısa bir genel bakış alabilirsiniz.
 ---
 
@@ -163,13 +163,43 @@ body_tr: |-
 [![Go Reference](https://pkg.go.dev/badge/github.com/julien040/anyquery@v0.1.3/namespace.svg)](https://pkg.go.dev/github.com/julien040/anyquery/namespace)
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/julien040/anyquery)](https://archestra.ai/mcp-catalog/julien040__anyquery)
 
+---
+
+<p align="center">
+  <sub><i>Sponsored by</i></sub><br><br>
+  <a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=anyquery">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://cdn.julienc.me/share/atlas-cloud-logo-white.svg">
+      
+    </picture>
+  </a>
+</p>
+
+<h3 align="center">
+  <a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=anyquery">One AI API for LLMs, image &amp; video generation — 300+ models</a>
+</h3>
+
+<p align="center">
+  <sub>
+    Atlas Cloud is a full-modal AI inference platform: a single API and one account for chat completions,<br>
+    image generation, and video generation across 300+ curated models (DeepSeek, FLUX, Kling, Qwen…).<br>
+    With the <a href="https://anyquery.dev/integrations/atlascloud">Anyquery plugin</a>, you can call all of them directly from SQL.
+  </sub>
+</p>
+
+---
+
 Anyquery is a SQL query engine that allows you to run SQL queries on pretty much anything. It supports querying [files](https://anyquery.dev/docs/usage/querying-files/), [databases](https://anyquery.dev/docs/database), and [apps](https://anyquery.dev/integrations) (e.g. Apple Notes, Notion, Chrome, Todoist, etc.). It's built on top of [SQLite](https://www.sqlite.org) and uses [plugins](https://anyquery.dev/integrations) to extend its functionality.
 
 It can also connect to [LLMs](https://anyquery.dev/llm) (e.g. ChatGPT, Claude, Cursor, TypingMind, etc.) to allow them to access your data.
 
 Finally, it can act as a [MySQL server](https://anyquery.dev/docs/usage/mysql-server/), allowing you to run SQL queries from your favorite MySQL-compatible client (e.g. [TablePlus](https://anyquery.dev/connection-guide/tableplus/), [Metabase](https://anyquery.dev/connection-guide/metabase/), etc.).
 
+
+
 ![Anyquery header](https://anyquery.dev/images/release-header.png)
+
+
 
 ## Usage
 
@@ -275,6 +305,16 @@ choco install anyquery
 Anyquery is plugin-based, and you can install plugins to extend its functionality. You can install plugins from the [official registry](https://anyquery.dev/integrations) or create your own. Anyquery can also [load any SQLite extension](https://anyquery.dev/docs/usage/plugins#using-sqlite-extensions).
 
 ![Integrations](https://anyquery.dev/images/integrations_logo.png)
+
+## Sponsors
+
+Anyquery is an independent open-source project. These companies support its development:
+
+<a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=anyquery">
+  
+</a>
+
+[Become a sponsor](https://github.com/sponsors/julien040)
 
 ## License
 

@@ -9,6 +9,284 @@ path: "rules/flutter-riverpod-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-riverpod-cursorrules-prompt-file.mdc"
 body_length: 7573
 file_extension: ".mdc"
+body_tr: |-
+  # AI Asistanı Teknik Talimatları
+
+  Gelişmiş problem çözme yeteneklerine sahip bir AI asistanısınız. Bu talimatları izleyerek görevleri verimli ve doğru bir şekilde gerçekleştirin.
+
+  Öncelikle kullanıcıdan aldığınız talimatları onaylayın:
+
+  <instructions>
+  {{instructions}}
+  </instructions>
+
+  Lütfen bu talimatlara dayalı olarak aşağıdaki süreci devam ettirin:
+
+  ---
+
+  ## 1. Talimat Analizi ve Planlama
+
+  <Task Analysis>
+  - Ana görevleri kısaca özetleyin
+  - Belirtilen teknoloji stack'ini gözden geçirin ve bu kısıtlamalar içinde uygulama yöntemlerini değerlendirin  
+    **Not: Teknoloji stack'inde listelenen sürümleri onay olmadan değiştirmeyin**
+  - Temel gereksinimleri ve kısıtlamaları belirleyin
+  - Olası zorlukları listeleyin
+  - Görev yürütme için adım adım detaylı adımları numaralandırın
+  - Bu adımlar için optimal yürütme sırasını belirleyin
+
+  ### Yinelenen Uygulamayı Önleme
+
+  Uygulamadan önce doğrulayın:
+  - Benzer işlevselliğin varlığı
+  - Aynı veya benzer adlara sahip fonksiyonlar veya bileşenler
+  - Yinelenen API endpoint'leri
+  - Paylaşılabilecek süreçlerin tanımlanması
+
+  Bu bölüme yeterince zaman ayırın çünkü sonraki tüm süreci rehberlik eder. Kapsamlı ve detaylı analiz yapın.
+  </Task Analysis>
+
+  ---
+
+  ## 2. Görev Yürütme
+
+  - Belirlenen adımları sırayla uygulayın
+  - Her adımı tamamladıktan sonra ilerlemeyi kısaca bildirin
+  - Uygulama sırasında aşağıdakilere dikkat edin:
+    - Uygun dizin yapısına uyum
+    - Adlandırma kurallarında tutarlılık
+    - Paylaşılan süreçlerin uygun yerleştirilmesi
+
+  ---
+
+  ## 3. Kalite Kontrol ve Sorun Çözme
+
+  - Her görevin yürütme sonuçlarını hızlı bir şekilde doğrulayın
+  - Hatalar veya tutarsızlıklar oluşursa, aşağıdaki süreçle çözün:
+    a. Sorun izolasyonu ve neden tanımlaması (log analizi, hata ayıklama bilgisi doğrulanması)
+    b. Karşı önlemler oluşturma ve uygulama
+    c. Düzeltme sonrası işlem doğrulanması
+    d. Hata ayıklama günlüğü onaylanması ve analizi
+
+  - Doğrulama sonuçlarını aşağıdaki formatta kaydedin:
+    a. Doğrulama maddeleri ve beklenen sonuçlar
+    b. Gerçek sonuçlar ve sapmalar
+    c. Gerekli karşı önlemler (varsa)
+
+  ---
+
+  ## 4. Son Onaylama
+
+  - Tüm görevler tamamlandığında bütün teslim edilebilir öğeyi değerlendirin
+  - Orijinal talimatlara uygunluğu doğrulayın ve gerekirse ayarlamalar yapın
+  - Uygulanan işlevlerde yineleme olmadığını doğrulayan son onaylama gerçekleştirin
+
+  ---
+
+  ## 5. Sonuçlar Raporu
+
+  Lütfen final sonuçları aşağıdaki formatta raporlayın:
+
+  markdown
+  # Yürütme Sonuçları Raporu
+
+  ## Özet
+
+  [Genel özet açıklaması]
+
+  ## Yürütülen Adımlar
+
+  1. [Adım 1 açıklama ve sonuçlar]
+  2. [Adım 2 açıklama ve sonuçlar]
+  ...
+
+  ## Final Teslim Edilebilirler
+
+  [Teslim edilebilir öğelerin detayları, varsa linkler]
+
+  ## Sorun Çözümü (varsa)
+
+  - Karşılaşılan sorunlar ve yanıtlar
+  - Gelecek değerlendirmeler
+
+  ## Notlar & İyileştirme Önerileri
+
+  - [İyileştirme için gözlemleri veya önerileri listeleyin]
+
+  ---
+
+  ## Önemli Notlar
+
+  - Çalışmaya başlamadan önce her zaman belirsiz noktaları onaylayın
+  - Ortaya çıkan tüm önemli kararları bildirin ve onay alın
+  - Beklenmedik sorunları hemen bildirin ve çözüm önerileri sunun
+  - **Açıkça talimat verilmeyen değişiklikler yapmayın.** Değişiklikler gerekli görünüyorsa, önce bunları öneriler olarak raporlayın ve sadece onay aldıktan sonra uygulayın
+  - **UI/UX tasarım değişiklikleri (layout, renkler, fontlar, boşluklar vb.) yasaklanmıştır** - onay alınan justifikasyon sunulduktan sonra hariç
+  - **Teknoloji stack'inde listelenen sürümleri keyfi olarak değiştirmeyin** (API'ler, frameworkler, kütüphaneler vb.). Değişiklikler gerekli ise, nedenini açık bir şekilde açıklayın ve herhangi bir değişiklik yapmadan önce onay bekleyin
+
+  ---
+
+  # Teknoloji Stack
+
+  ## Çekirdek Teknolojiler
+
+  - **AI Model: GPT-4**
+
+  ## Frontend
+
+  - Flutter: ^3.22.0
+
+  ### Durum Yönetimi
+
+  - Riverpod: ^2.6.1
+
+  ## BaaS
+
+  - Firebase
+
+  ---
+
+  ## Proje Yapısı
+
+  Lütfen aşağıdaki dizin yapısını izleyerek uygulayın:
+
+  lib/features/products/
+  ├── data/
+  │   ├── models/
+  │   │   ├── product_dto.dart
+  │   │   └── product_category_dto.dart
+  │   └── product_repository.dart
+  ├── presentation/
+  │   ├── screens/
+  │   │   ├── product_list_screen.dart
+  │   │   └── product_details_screen.dart
+  │   ├── controllers/
+  │   │   └── product_list_controller.dart
+  │   ├── widgets/
+  │       └── product_card.dart
+  ├── domain/
+  │   ├── models/
+  │   │   ├── product.dart
+  │   │   └── product_category.dart
+  │   └── get_products_use_case.dart
+  └── shared/
+      └── models/
+          └── address.dart
+
+  ## Yerleştirme Kuralları
+
+  ### Flutter Proje Yapısı Yerleştirme Kuralları
+
+  Bu belge, önerilen Flutter proje yapısı içindeki dosya ve klasörlerin yerleştirilmesi kurallarını, ölçeklenebilirlik, bakım yapılabilirlik ve Clean Architecture ilkelerine uyum odağında belirtir.
+
+  #### Üst Düzey Yapı
+
+  lib/
+  ├── features/
+  ├── models/
+  ├── providers/
+  ├── routes/
+  ├── core/
+  ├── app.dart
+  └── main.dart
+
+  *   **lib/**: Tüm Dart kodlarını içerir.
+  *   **features/**: Özelliğe özgü kod.
+  *   **models/**: Global modeller (seyrek kullanılmalıdır).
+  *   **providers/**: Global providers (kullanımı minimize edilmelidir).
+  *   **routes/**: Uygulama navigasyonu.
+  *   **core/**: Çekirdek uygulama mantığı (ağ, hatalar, DI).
+  *   **app.dart**: Root widget.
+  *   **main.dart**: Giriş noktası.
+
+  #### features/ Yapısı
+
+  lib/features/
+  └── <feature_name>/
+  ├── data/
+  │   ├── models/
+  │   └── <feature_name>_repository.dart
+  ├── presentation/
+  │   ├── screens/
+  │   ├── controllers/
+  │   ├── widgets/
+  ├── domain/
+  │   ├── models/
+  │   └── <feature_name>.dart
+  ├── use_cases/
+  └── shared/
+  └── models/
+
+  *   **<feature_name>/**: Bir özellik (ör. kimlik doğrulama, ürünler).
+  *   **data/**: Veri erişimi.
+      *   **models/**: Veri Transfer Nesneleri (DTO'lar).
+      *   **<feature_name>_repository.dart**: Veri erişim mantığı.
+  *   **presentation/**: Arayüz.
+      *   **screens/**: UI ekranları (<feature_name>_<screen_name>_screen.dart).
+      *   **controllers/**: Durum yönetimi (<feature_name>_controller.dart).
+      *   **widgets/**: Özelliğe özgü widget'lar (<widget_name>.dart).
+  *   **domain/**: İş mantığı.
+      *   **models/**: Domain modelleri.
+      *   **<feature_name>.dart**: Ana varlık.
+  *   **use_cases/**: Kullanıcı etkileşimleri (<use_case_name>.dart).
+  *   **shared/models/**: *İlgili* özellikler arasında paylaşılan modeller.
+
+  #### shared/ (Üst Düzey) Yapısı
+
+  lib/shared/
+  ├── providers/
+  ├── widgets/
+  ├── models/
+  └── services/
+
+  *   **providers/**: *İlişkisiz* özellikler arasında paylaşılan providers.
+  *   **widgets/**: *İlişkisiz* özellikler arasında paylaşılan widget'lar.
+  *   **models/**: *İlişkisiz* özellikler arasında paylaşılan modeller (dikkatli kullanın).
+  *   **services/**: Yardımcı sınıflar.
+
+  #### models/ (Üst Düzey) Yapısı
+
+  lib/models/
+  └── <model_name>.dart
+
+  *   Global modeller (seyrek kullanılmalıdır).
+
+  #### providers/ (Üst Düzey) Yapısı
+
+  lib/providers/
+  └── <provider_name>.dart
+
+  *   Global providers (kullanımı minimize edilmelidir).
+
+  #### core/ Yapısı
+
+  lib/core/
+  ├── network/
+  │   └── api_client.dart
+  ├── errors/
+  │   └── exceptions.dart
+  └── di/
+  └── injection.dart
+
+  *   **network/**: Ağ kodları.
+  *   **errors/**: Hata yönetimi.
+  *   **di/**: Bağımlılık enjeksiyonu.
+
+  ## Adlandırma Kuralları
+
+  *   **Dosyalar:** snake_case (ör. product_list_screen.dart).
+  *   **Sınıflar:** PascalCase (ör. ProductListScreen).
+  *   **Değişkenler/Fonksiyonlar:** camelCase (ör. productList).
+
+  ## Temel İlkeler
+
+  *   **Özellik İzolasyonu:** Bağımsız özellik kodu.
+  *   **Sorunların Ayrılması:** Veri, mantık ve UI'yi ayırın.
+  *   **Tek Sorumluluk:** Her sınıf/dosya için bir amaç.
+  *   **DRY:** Kod tekrarından kaçının.
+  *   **Özellik Düzeyini Tercih Edin:** Özellik düzeyinde yerleştirmeyi öncelikle kullanın.
+
+  Görevleri yürütürken lütfen yukarıdaki içeriğe uyun.
 ---
 
 # AI Assistant Technical Instructions

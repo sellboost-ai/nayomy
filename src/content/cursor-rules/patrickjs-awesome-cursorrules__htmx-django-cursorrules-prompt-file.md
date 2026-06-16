@@ -9,6 +9,51 @@ path: "rules/htmx-django-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-django-cursorrules-prompt-file.mdc"
 body_length: 1206
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // HTMX ile Django .cursorrules
+
+  // HTMX ve Django en iyi uygulamaları
+
+  const htmxDjangoBestPractices = [
+    "Django'nun template sistemini HTMX özellikleriyle kullanın",
+    "Form işleme için Django formlarını uygulayın",
+    "Django'nun URL yönlendirme sisteminden yararlanın",
+    "HTMX yanıtları için Django'nun sınıf tabanlı görünümlerini kullanın",
+    "Veritabanı işlemleri için Django ORM'den yararlanın",
+    "İstek/yanıt işleme için Django'nun middleware'inden yararlanın",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  project_name/
+    app_name/
+      templates/
+      static/
+        css/
+        js/
+      models.py
+      views.py
+      urls.py
+    project_name/
+      settings.py
+      urls.py
+  manage.py
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. Django'nun template etiketlerini HTMX özellikleriyle kullanın
+  2. Django'nun yerleşik özellikleriyle uygun CSRF koruması uygulayın
+  3. HTMX'e özel yanıtlar için Django'nun HttpResponse'undan yararlanın
+  4. HTMX istekleri için Django'nun form doğrulamasını kullanın
+  5. Uygun hata işleme ve günlüğe kaydetme uygulayın
+  6. Proje yapısı için Django'nun en iyi uygulamalarını izleyin
+  7. Statik varlıkları yönetmek için Django'nun staticfiles uygulamasını kullanın
+  `;
+  ```
 ---
 
 // HTMX with Django .cursorrules

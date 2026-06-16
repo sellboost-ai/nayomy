@@ -3,51 +3,51 @@ name: "Govcraft/rust-docs-mcp-server"
 description: "Provides up-to-date documentation context for a specific Rust crate to LLMs via an MCP tool, using semantic search (embeddings) and LLM summarization."
 category: "Developer Tools"
 repo: "Govcraft/rust-docs-mcp-server"
-stars: 278
+stars: 281
 url: "https://github.com/Govcraft/rust-docs-mcp-server"
 body_length: 14059
 license: "MIT"
 language: "Rust"
 body_tr: |-
   # Rust Docs MCP Server
-
+  
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+  
   ⭐ **Bu projeyi beğendiniz mi? Lütfen
   [depoyu yıldızlayın](https://github.com/Govcraft/rust-docs-mcp-server)
   GitHub'da desteğinizi göstermek ve güncellemeleri almak için!** ⭐
-
+  
   ## Motivasyon
-
+  
   Modern yapay zeka destekli kod editörleri (Cursor, Cline, Roo Code vb.) kod
   yapısını ve sözdizimini anlamada mükemmeldir, ancak hızla gelişen kütüphaneler
   ve framework'ler, özellikle de cratelar sık sık güncellenen Rust ekosisteminde
   oldukça zorlanabilirler. Eğitim verilerinin kesme tarihi, en son API'ler
   hakkında bilgi eksikliği anlamına gelebilir ve bu da yanlış veya eski kod
   önerileriyle sonuçlanır.
-
+  
   Bu MCP sunucusu, belirli bir Rust crate'i için güncel, odaklanmış bir bilgi
   kaynağı sağlayarak bu sorunu çözer. Bu sunucunun bir örneğini bir crate için
   çalıştırarak (örn. `serde`, `tokio`, `reqwest`), LLM kod asistanınıza
   (`query_rust_docs`) o crate ile ilgili kod yazarken kullanabileceği bir araç
   sağlarsınız.
-
+  
   Bu aracı kullanmak için talimatlandırıldığında, LLM crate'in API'si veya
   kullanımı hakkında spesifik sorular sorabilir ve doğrudan _mevcut_
   belgelerinden türetilmiş yanıtlar alabilir. Bu, oluşturulan kodun doğruluğunu
   ve alaka düzeyini önemli ölçüde artırır, manuel düzeltme ihtiyacını azaltır
   ve geliştirmeyi hızlandırır.
-
+  
   Bu sunucunun birden fazla örneği eş zamanlı olarak çalıştırılabilir, bu da LLM
   asistanının bir kodlama oturumu sırasında birkaç farklı crate'in belgelerine
   erişmesine olanak tanır.
-
+  
   Bu sunucu belirtilen bir Rust crate'i için belgeleri alır, içerik için
   gömülü vektörler oluşturur ve crate hakkında sorulara belgelendirme bağlamına
   dayalı olarak yanıt vermek için bir MCP aracı sağlar.
-
+  
   ## Özellikler
-
+  
   - **Hedeflenen Belgeler:** Sunucu örneği başına tek bir Rust crate'e odaklanır.
   - **Özellik Desteği:** Belgelendirme oluşturma için gerekli crate özelliklerini
     belirtmeye izin verir.
@@ -61,21 +61,21 @@ body_tr: |-
     sonraki başlatmaları hızlandırır.
   - **MCP Entegrasyonu:** Stdio üzerinden standart bir MCP sunucusu olarak
     çalışır, araçlar ve kaynaklar sunar.
-
+  
   ## Ön Koşullar
-
+  
   - **OpenAI API Anahtarı:** Gömülü vektörler oluşturmak ve yanıtları özetlemek
     için gereklidir. Sunucu bu anahtarı `OPENAI_API_KEY` ortam değişkeninde
     bekler. (Sunucu ayrıca crate bağımlılıklarını indirmek ve OpenAI API'si ile
     iletişim kurmak için ağ erişimine ihtiyaç duyar).
-
+  
   ## Kurulum
-
+  
   Önerilen kurulum yöntemi, işletim sisteminiz için önceden derlenmiş ikili
   dosyasını
   [GitHub Releases sayfasından](https://github.com/Govcraft/rust-docs-mcp-server/releases)
   indirmektir.
-
+  
   1. [Releases sayfasına](https://github.com/Govcraft/rust-docs-mcp-server/releases)
      gidin.
   2. Sisteminiz için uygun arşivi indirin (Windows için `.zip`, Linux/macOS için
@@ -84,12 +84,12 @@ body_tr: |-
      çıkarın.
   4. İkili dosyayı sisteminizin `PATH` ortam değişkenine dahil olan bir dizine
      yerleştirin (örn. `/usr/local/bin`, `~/bin`).
-
+  
   ### Kaynaktan Derleme (Alternatif)
-
+  
   Kaynaktan derlemek istiyorsanız, [Rust Toolchain](https://rustup.rs/) yüklü
   olması gerekir.
-
+  
   1. **Depoyu klonlayın:**
      ```bash
      git clone https://github.com/Govcraft/rust-docs-mcp-server.git
@@ -99,16 +99,16 @@ body_tr: |-
      ```bash
      cargo build --release
      ```
-
+  
   ## Kullanım
-
+  
   **Yeni Cratelar için Önemli Not:**
-
+  
   Sunucuyu ilk kez bir crate ile kullanırken (veya yeni bir sürüm/özellik seti
   ile), belgeleri indirmesi ve gömülü vektörler oluşturması gerekir. Bu işlem,
   özellikle kapsamlı belgelendirmeye sahip cratelar için uzun sürebilir ve etkin
   internet bağlantısı ile OpenAI API anahtarı gerektirir.
-
+  
   Yeni bir crate yapılandırmasını AI kod editörünüze (Roo Code, Cursor vb.)
   eklemeden _önce_ sunucuyu doğrudan komut satırından bir kez çalıştırmanız
   önerilir. Bu, ilk gömülü vektör oluşturmanın ve önbelleğe almanın tamamlanmasına
@@ -116,43 +116,43 @@ body_tr: |-
   "MCP Server listening on stdio"), onu kapatabilirsiniz (Ctrl+C). Sonraki
   başlatmalar, kod editörü tarafından başlatılanlar da dahil olmak üzere,
   önbelleğe alınan verileri kullanır ve çok daha hızlı başlar.
-
+  
   ### Sunucuyu Çalıştırma
-
+  
   Sunucu komut satırından başlatılır ve hedef crate için **Package ID
   Specification** gerektirir. Bu spesifikasyon Cargo tarafından kullanılan biçimi
   izler (örn. `crate_name`, `crate_name@version_req`). Tam spesifikasyon
   ayrıntıları için bkz. `man cargo-pkgid` veya
   [Cargo belgelendirmesi](https://doc.rust-lang.org/cargo/reference/pkgid-spec.html).
-
+  
   İsteğe bağlı olarak, gerekli crate özelliklerini `-F` veya `--features`
   bayrağını kullanarak belirtebilirsiniz, arkasından virgülle ayrılmış özellik
   listesi. Bu, `cargo doc` başarılı olması için belirli özellikler etkinleştirilmesi
   gereken cratelar için gereklidir (örn. çalışma zamanı özelliği gerektiren
   `async-stripe` gibi).
-
+  
   ```bash
   # API anahtarını ayarlayın (gerçek anahtarınızla değiştirin)
   export OPENAI_API_KEY="sk-..."
-
+  
   # Örnek: serde'nin en son 1.x sürümü için sunucuyu çalıştırın
   rustdocs_mcp_server "serde@^1.0"
-
+  
   # Örnek: reqwest'in belirli bir sürümü için sunucuyu çalıştırın
   rustdocs_mcp_server "reqwest@0.12.0"
-
+  
   # Örnek: tokio'nun en son sürümü için sunucuyu çalıştırın
   rustdocs_mcp_server tokio
-
+  
   # Örnek: async-stripe için sunucuyu çalıştırın, gerekli runtime özelliğini etkinleştirin
   rustdocs_mcp_server "async-stripe@0.40" -F runtime-tokio-hyper-rustls
-
+  
   # Örnek: birden fazla özellik içeren başka bir crate için sunucuyu çalıştırın
   rustdocs_mcp_server "some-crate@1.2" --features feat1,feat2
   ```
-
+  
   Belirli bir crate sürümü _ve özellik seti_ için ilk çalıştırmada, sunucu:
-
+  
   1. `cargo doc` kullanarak crate belgelendirmesini indirir (belirtilen özellikler
      ile).
   2. HTML belgelendirmesini ayrıştırır.
@@ -164,15 +164,15 @@ body_tr: |-
   4. Belgelendirme içeriğini ve gömülü vektörleri önbelleğe alır, böylece maliyet
      tekrar oluşmaz.
   5. MCP sunucusunu başlatır.
-
+  
   Aynı crate sürümü _ve özellik seti_ için sonraki çalıştırmalar verileri
   önbellekten yükler, başlangıcı çok daha hızlı hale getirir.
-
+  
   ### MCP Etkileşimi
-
+  
   Sunucu, Model Context Protocol kullanarak standart giriş/çıkış (stdio) üzerinden
   iletişim kurar. Aşağıdakileri sunar:
-
+  
   - **Araç: `query_rust_docs`**
     - **Açıklama:** Sunucunun başlatıldığı belirli Rust crate'i için belgelendirmeyi
       semantik arama ve LLM özetleme kullanarak sorgulayın.
@@ -206,24 +206,24 @@ body_tr: |-
         "id": 1
       }
       ```
-
+  
   - **Kaynak: `crate://<crate_name>`**
     - **Açıklama:** Bu sunucu örneğinin yapılandırıldığı Rust crate'in adını sağlar.
     - **URI:** `crate://<crate_name>` (örn. `crate://serde`, `crate://reqwest`)
     - **İçerik:** Crate adını içeren düz metin.
-
+  
   - **Günlüklendirme:** Sunucu bilgilendirici günlükleri (başlangıç iletileri, sorgu
     işleme adımları) MCP istemcisine `logging/message` bildirimleri aracılığıyla
     geri gönderir.
-
+  
   ### Örnek İstemci Yapılandırması (Roo Code)
-
+  
   Roo Code gibi MCP istemcilerini, her biri farklı bir crate'i hedefleyen bu
   sunucunun birden fazla örneğini çalıştıracak şekilde yapılandırabilirsiniz.
   Roo Code'un `mcp_settings.json` dosyası için `reqwest` ve `async-stripe` için
   sunucuları yapılandıran bir örnek kod parçası aşağıdadır (`async-stripe` için
   eklenen özellikler argümanını not edin):
-
+  
   ```json
   {
     "mcpServers": {
@@ -254,20 +254,20 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Not:**
-
+  
   - `/path/to/your/rustdocs_mcp_server` yerine sisteminizde derlenmiş ikili
     dosyasının gerçek yolunu yazın (PATH'te yoksa).
   - `YOUR_OPENAI_API_KEY_HERE` yerine gerçek OpenAI API anahtarınızı yazın.
   - Anahtarlar (`rust-docs-reqwest`, `rust-docs-async-stripe`) Roo Code içinde
     sunucu örneklerini tanımlamak için seçtiğiniz isteğe bağlı isimlerdir.
-
+  
   ### Örnek İstemci Yapılandırması (Claude Desktop)
-
+  
   Claude Desktop kullanıcıları için sunucuyu MCP ayarlarında yapılandırabilirsiniz.
   `serde` ve `async-stripe` için sunucuları yapılandıran bir örnek:
-
+  
   ```json
   {
     "mcpServers": {
@@ -288,9 +288,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Not:**
-
+  
   - `rustdocs_mcp_server` sistemin PATH'inde olduğundan emin olun veya tam yol
     sağlayın (örn. `/path/to/your/rustdocs_mcp_server`).
   - Anahtarlar (`rust-docs-serde`, `rust-docs-async-stripe-rt`) sunucu
@@ -301,9 +301,9 @@ body_tr: |-
     Roo Code gibi sunucu başına ortam değişkenlerini doğrudan desteklemeyebilir.
   - Örnek `async-stripe` gibi belirli özellikler gerektiren cratelar için `-F`
     argümanını nasıl ekleyeceğini gösterir.
-
+  
   ### Önbelleğe Alma
-
+  
   - **Konum:** Önbelleğe alınan belgeler ve gömülü vektörler XDG veri
     dizininde depolanır, genellikle
     `~/.local/share/rustdocs-mcp-server/<crate_name>/<sanitized_version_req>/<features_hash>/embeddings.bin`
@@ -315,9 +315,9 @@ body_tr: |-
   - **Yeniden Oluşturma:** Önbellek dosyası eksikse, bozuksa veya dekodasyon
     yapılamıyorsa, sunucu belgeleri ve gömülü vektörleri otomatik olarak yeniden
     oluşturur.
-
+  
   ## Nasıl Çalışır
-
+  
   1. **Başlatma:** `clap` kullanarak komut satırından crate spesifikasyon ve
      isteğe bağlı özellikleri ayrıştırır.
   2. **Önbellek Kontrolü:** Belirli crate, sürüm gereksinimi ve özellik seti için
@@ -353,20 +353,20 @@ body_tr: |-
        aracılığıyla `gpt-4o-mini-2024-07-18` modeline gönderir.
      - LLM soruyu _yalnızca_ sağlanan bağlama dayalı olarak cevaplamaya talimatlandırılır.
      - LLM'nin yanıtını MCP istemcisine döndürür.
-
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır.
-
+  
   Telif Hakkı (c) 2025 Govcraft
-
+  
   ## Sponsor
-
+  
   Govcraft tek kişilik bir işletmedir—kurumsal destek yok, yatırımcı yok, sadece
   ben faydalı araçlar yapıyorum. Bu proje size yardımcı olursa,
   [sponsorluk](https://github.com/sponsors/Govcraft) çalışmaların devam etmesini
   sağlar.
-
+  
   [![GitHub'da Sponsor Olun](https://img.shields.io/badge/Sponsor-%E2%9D%A4-%23db61a2?logo=GitHub)](https://github.com/sponsors/Govcraft)
 ---
 

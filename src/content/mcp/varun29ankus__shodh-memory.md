@@ -3,9 +3,9 @@ name: "varun29ankuS/shodh-memory"
 description: "Cognitive memory for AI agents with Hebbian learning, 3-tier architecture, and knowledge graphs. Single ~15MB binary, runs offline on edge devices."
 category: "Knowledge & Memory"
 repo: "varun29ankuS/shodh-memory"
-stars: 215
+stars: 219
 url: "https://github.com/varun29ankuS/shodh-memory"
-body_length: 15043
+body_length: 16625
 license: "Apache-2.0"
 language: "Rust"
 homepage: "https://www.shodh-memory.com"
@@ -13,11 +13,11 @@ body_tr: |-
   <p align="center">
     
   </p>
-
+  
   <h1 align="center">Shodh-Memory</h1>
-
+  
   <p align="center"><b>AI ajanları ve robotlar için kalıcı bilişsel hafıza. Önemli olanı hatırla, gereksizi unut, kullanımla daha akıllı hale gel.</b></p>
-
+  
   <p align="center">
     <a href="https://github.com/varun29ankuS/shodh-memory/actions"></a>
     <a href="https://registry.modelcontextprotocol.io/v0/servers?search=shodh"></a>
@@ -30,19 +30,19 @@ body_tr: |-
     <a href="LICENSE"></a>
     <a href="https://discord.gg/HrpzXqTtEp"></a>
   </p>
-
+  
   ---
-
+  
   <p align="center">
     
   </p>
-
+  
   AI ajanları her oturumda her şeyi unutur. Robotlar misyon arasında bağlamı kaybeder. Hataları tekrarlar, desenleri kaçırır ve her etkileşimi ilk kez yapar.
-
+  
   Shodh-Memory bunu çözer. Gerçekten öğrenen kalıcı bir hafızadır — sık kullandığın anılar bulunması daha kolay hale gelir, eski alakasız bağlam otomatik solup gider ve bir şeyi hatırlamak ilgili şeyleri geri getirir. Chat ajanları (MCP/HTTP), robotlar (Zenoh/ROS2) ve edge cihazları için çalışır. API anahtarı yok. Bulut yok. Dış veritabanı yok. Tek binary.
-
+  
   ## Neden mem0 / Cognee / Zep Kullanmayasınız ki?
-
+  
   | | **Shodh** | **mem0** | **Cognee** | **Zep** |
   |---|---|---|---|---|
   | Hafıza eklemek için LLM çağrıları | **0** | 2+ per add | 3+ per cognify | 2+ per episode |
@@ -53,13 +53,13 @@ body_tr: |-
   | Tamamen çevrimdışı çalışır | **Evet** | Hayır | Hayır | Hayır |
   | Robotik / ROS2 yerel desteği | **Evet** (Zenoh) | Hayır | Hayır | Hayır |
   | Binary boyutu | **~17MB** | pip install + API anahtarları | pip install + API anahtarları + Neo4j | Sadece bulut |
-
+  
   Diğer her hafıza sistemi zekayı LLM API çağrılarına devreder — bu yüzden yavaş, pahalı ve çevrimdışı çalışamaz. Shodh algoritmik zekayı kullanır: yerel embeddings, matematiksel decay, öğrenilmiş bağlantılar. Döngüde LLM yok.
-
+  
   ## Başlayalım
-
+  
   ### Birleştirilmiş CLI
-
+  
   ```bash
   # GitHub Releases'ten indir (veya brew tap varun29ankuS/shodh-memory && brew install shodh-memory)
   shodh init          # İlk kurulum — config oluşturur, API anahtarı oluşturur, AI modeli indirir
@@ -69,36 +69,36 @@ body_tr: |-
   shodh status        # Server sağlığını kontrol et
   shodh doctor        # Sorunları teşhis et
   ```
-
+  
   Tek binary, tüm işlevsellik. Docker yok, API anahtarı yok, dış bağımlılık yok.
-
+  
   ### Claude Code
-
+  
   ```bash
   # 1. MCP serverini ekle (backend binary'yi otomatik indirir)
   claude mcp add shodh-memory -- npx -y @shodh/memory-mcp
-
+  
   # 2. Otomatik hafıza yakalamayı etkinleştir (isteğe bağlı ama tavsiye edilir)
   npx @shodh/memory-mcp setup-hooks
   ```
-
+  
   Adım 1 Claude'a kalıcı hafıza araçları verir. Adım 2, her oturumdan bağlamı otomatik olarak yakalayan [Claude Code hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) kurar — hafızalar sormanda ortaya çıkar.
-
+  
   <details>
   <summary>Veya Docker ile (production / paylaşılan sunucular için)</summary>
-
+  
   ```bash
   # 1. Serverini başlat
   docker run -d -p 3030:3030 -v shodh-data:/data varunshodh/shodh-memory
-
+  
   # 2. Claude Code'a ekle
   claude mcp add shodh-memory -- npx -y @shodh/memory-mcp
   ```
   </details>
-
+  
   <details>
   <summary>Cursor / Claude Desktop config</summary>
-
+  
   ```json
   {
     "mcpServers": {
@@ -109,65 +109,65 @@ body_tr: |-
     }
   }
   ```
-
+  
   Yerel kullanım için API anahtarı gerekmez — otomatik olarak oluşturulur. Uzak sunucular için `"env": { "SHODH_API_KEY": "your-key" }` ekle.
   </details>
-
+  
   ### Python
-
+  
   ```bash
   pip install shodh-memory
   ```
-
+  
   ```python
   from shodh_memory import Memory
-
+  
   memory = Memory(storage_path="./my_data")
   memory.remember("User prefers dark mode", memory_type="Decision")
   results = memory.recall("user preferences", limit=5)
   ```
-
+  
   ### Rust
-
+  
   ```toml
   [dependencies]
   shodh-memory = "0.1"
   ```
-
+  
   ```rust
   use shodh_memory::{MemorySystem, MemoryConfig};
-
+  
   let memory = MemorySystem::new(MemoryConfig::default())?;
   memory.remember("user-1", "User prefers dark mode", MemoryType::Decision, vec![])?;
   let results = memory.recall("user-1", "user preferences", 5)?;
   ```
-
+  
   ### Docker
-
+  
   ```bash
   docker run -d -p 3030:3030 -v shodh-data:/data varunshodh/shodh-memory
   ```
-
+  
   ## Ne Yapar
-
+  
   ```
   Bir hafızayı sık kullanırsan  →  bulunması daha kolay hale gelir (Hebbian learning)
   Bir hafızayı kullanmayı bırakırsan →  zamanla solup gider (activation decay)
   Bir hafızayı hatırlarsın   →  ilgili hafızalar da ortaya çıkar (spreading activation)
   Bir bağlantı kullanılırsa    →  kalıcı hale gelir (long-term potentiation)
   ```
-
+  
   Kaputun altında, hafızalar üç katman arasında akar:
-
+  
   ```
   Çalışan Hafıza ──overflow──▶ Oturum Hafızası ──importance──▶ Uzun Vadeli Hafıza
      (100 item)                  (100 MB)                      (RocksDB)
   ```
-
+  
   Bu [Cowan's working memory model](https://doi.org/10.1177/0963721409359277) ve [Wixted's memory decay research](https://doi.org/10.1111/j.1467-9280.2004.00687.x) temeline dayanır. Sinirbilim bir hile değil — sistemin sadece veri biriktirmek yerine kullanımla neden iyileştiğinin nedeni budur.
-
+  
   ## Performans
-
+  
   | İşlem | Gecikme |
   |-------|---------|
   | Hafıza saklama (API yanıtı) | <200ms |
@@ -176,77 +176,77 @@ body_tr: |-
   | Tag arama | ~1ms |
   | Entity lookup | 763ns |
   | Graph traversal (3-hop) | 30µs |
-
+  
   Tek binary. GPU gerekli değil. Content-hash dedup, özdeş hafızaların asla iki kez depolanmadığını sağlar.
-
+  
   ## TUI Dashboard
-
+  
   ```bash
   shodh tui
   ```
-
+  
   <p align="center">
     
   </p>
-
+  
   <p align="center"><i>Anlamsal hatırlama hibrit aramayla — ilgililik puanları, hafıza katmanları ve aktivite akışı</i></p>
-
+  
   <p align="center">
     
   </p>
-
+  
   <p align="center"><i>GTD görev yönetimi — projeler, yapılacaklar, yorumlar ve nedensel köken</i></p>
-
+  
   ## 37 MCP Aracı
-
+  
   Claude, Cursor ve diğer MCP istemcilerine sunulan araçların tam listesi:
-
+  
   <details>
   <summary>Hafıza</summary>
-
+  
   `remember` · `recall` · `proactive_context` · `context_summary` · `list_memories` · `read_memory` · `forget`
   </details>
-
+  
   <details>
   <summary>Yapılacaklar (GTD)</summary>
-
+  
   `add_todo` · `list_todos` · `update_todo` · `complete_todo` · `delete_todo` · `reorder_todo` · `list_subtasks` · `add_todo_comment` · `list_todo_comments` · `update_todo_comment` · `delete_todo_comment` · `todo_stats`
   </details>
-
+  
   <details>
   <summary>Projeler</summary>
-
+  
   `add_project` · `list_projects` · `archive_project` · `delete_project`
   </details>
-
+  
   <details>
   <summary>Hatırlatmalar</summary>
-
+  
   `set_reminder` · `list_reminders` · `dismiss_reminder`
   </details>
-
+  
   <details>
   <summary>Sistem</summary>
-
+  
   `memory_stats` · `verify_index` · `repair_index` · `token_status` · `reset_token_session` · `consolidation_report` · `backup_create` · `backup_list` · `backup_verify` · `backup_restore` · `backup_purge`
   </details>
-
+  
   ## REST API
-
+  
   `http://localhost:3030` üzerinde 160+ endpoint. Tüm `/api/*` endpoint'leri `X-API-Key` başlığı gerektirir.
-
+  
   [Tam API referansı →](https://www.shodh-memory.com/docs/api)
-
+  
   <details>
   <summary>Hızlı örnekler</summary>
-
+  
   ```bash
   # Hafıza saklama
   curl -X POST http://localhost:3030/api/remember \
     -H "Content-Type: application/json" \
     -H "X-API-Key: your-key" \
     -d '{"user_id": "user-1", "content": "User prefers dark mode", "memory_type": "Decision"}'
-
+  
   # Hafızaları arama
   curl -X POST http://localhost:3030/api/recall \
     -H "Content-Type: application/json" \
@@ -254,23 +254,23 @@ body_tr: |-
     -d '{"user_id": "user-1", "query": "user preferences", "limit": 5}'
   ```
   </details>
-
+  
   ## Robotik & ROS2
-
+  
   Shodh-Memory sadece chat ajanları için değil. Robotlar için kalıcı hafızadır — Spot, drone'lar, humanoidler, ROS2 veya Zenoh çalıştıran herhangi bir sistem. Bulut yok, güç döngülerini kurtarır, ödüllerden öğrenir, Zenoh'yu yerel olarak konuşur.
-
+  
   ```bash
   # Zenoh transport'unu etkinleştir (--features zenoh ile derle)
   SHODH_ZENOH_ENABLED=true SHODH_ZENOH_LISTEN=tcp/0.0.0.0:7447 shodh server
-
+  
   # ROS2 robotları zenoh-bridge-ros2dds veya rmw_zenoh aracılığıyla bağlan — kod değişikliği yok
   ros2 run zenoh_bridge_ros2dds zenoh_bridge_ros2dds
   ```
-
+  
   Tam kurulum ve örnekler için [Robotik Hızlı Başlangıç](docs/robotics-quickstart.md) bölümüne bakın.
-
+  
   **Robotlar Zenoh üzerinden neler yapabilir:**
-
+  
   | İşlem | Key Expression | Açıklama |
   |-------|--------------|----------|
   | Hatırla | `shodh/{user_id}/remember` | GPS, yerel konum, başlık, sensor verisi, misyon bağlamı ile saklama |
@@ -278,14 +278,14 @@ body_tr: |-
   | Stream | `shodh/{user_id}/stream/sensor` | Çıkarma pipeline aracılığıyla yüksek frekanslı sensor verisini otomatik hatırla |
   | Misyon | `shodh/{user_id}/mission/start` | Misyon sınırlarını izle, missionlar arasında aranabilir |
   | Filo | `shodh/fleet/**` | Zenoh liveliness tokenları aracılığıyla otomatik peer discovery |
-
+  
   Her robot anahtar segmenti olarak kendi `user_id`'sini kullanır (ör. `shodh/spot-1/remember`). `robot_id` filo gruplandırması için isteğe bağlı payload alanıdır.
-
+  
   Her Experience 26 robotiğe özgü alanı taşır: `geo_location`, `local_position`, `heading`, `sensor_data`, `robot_id`, `mission_id`, `action_type`, `reward`, `terrain_type`, `nearby_agents`, `decision_context`, `action_params`, `outcome_type`, `confidence`, hata/anomi izlemesi, kurtarma eylemleri ve tahmin öğrenmesi.
-
+  
   <details>
   <summary>Zenoh remember örneği (robot hafıza yayınlama)</summary>
-
+  
   ```json
   {
     "user_id": "spot-1",
@@ -303,10 +303,10 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   <details>
   <summary>Zenoh mekansal recall örneği (robot yakın hafızaları sorgulamak)</summary>
-
+  
   ```json
   {
     "user_id": "spot-1",
@@ -319,17 +319,17 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   <details>
   <summary>Ortam değişkenleri</summary>
-
+  
   ```bash
   SHODH_ZENOH_ENABLED=true                # Zenoh transport'unu etkinleştir
   SHODH_ZENOH_MODE=peer                   # peer | client | router
   SHODH_ZENOH_LISTEN=tcp/0.0.0.0:7447    # Listen endpoint'leri
   SHODH_ZENOH_CONNECT=tcp/1.2.3.4:7447   # Connect endpoint'leri
   SHODH_ZENOH_PREFIX=shodh               # Key expression öneki
-
+  
   # ROS2 topic'lerine otomatik abone ol (zenoh-bridge-ros2dds üzerinden)
   SHODH_ZENOH_AUTO_TOPICS='[
     {"key_expr": "rt/spot1/status", "user_id": "spot-1", "mode": "sensor"},
@@ -337,18 +337,18 @@ body_tr: |-
   ]'
   ```
   </details>
-
+  
   ROS2 Kilted (rmw_zenoh), PX4 drone'ları, Boston Dynamics Spot, humanoidler — Zenoh veya ROS2 DDS konuşan her şeyle çalışır.
-
+  
   ## Platform Desteği
-
+  
   Linux x86_64 · Linux ARM64 · macOS Apple Silicon · macOS Intel · Windows x86_64
-
+  
   ## Production Dağıtımı
-
+  
   <details>
   <summary>Ortam değişkenleri</summary>
-
+  
   ```bash
   SHODH_ENV=production              # Production modu
   SHODH_API_KEYS=key1,key2,key3     # Virgülle ayrılmış API anahtarları
@@ -360,10 +360,10 @@ body_tr: |-
   SHODH_CORS_ORIGINS=https://app.example.com
   ```
   </details>
-
+  
   <details>
   <summary>TLS ile Docker Compose</summary>
-
+  
   ```yaml
   services:
     shodh-memory:
@@ -376,7 +376,7 @@ body_tr: |-
         - shodh-data:/data
       networks:
         - internal
-
+  
     caddy:
       image: caddy:latest
       ports:
@@ -385,43 +385,43 @@ body_tr: |-
         - ./Caddyfile:/etc/caddy/Caddyfile
       networks:
         - internal
-
+  
   volumes:
     shodh-data:
-
+  
   networks:
     internal:
   ```
   </details>
-
+  
   <details>
   <summary>Reverse proxy (Nginx / Caddy)</summary>
-
+  
   Server varsayılan olarak `127.0.0.1`'e bağlanır. Ağ dağıtımları için bir reverse proxy'nin arkasına yerleştir:
-
+  
   ```caddyfile
   memory.example.com {
       reverse_proxy localhost:3030
   }
   ```
   </details>
-
+  
   ## Topluluk
-
+  
   | Proje | Açıklama | Yazar |
   |-------|----------|-------|
   | [SHODH on Cloudflare](https://github.com/doobidoo/shodh-cloudflare) | Cloudflare Workers'ta edge-native uygulama | [@doobidoo](https://github.com/doobidoo) |
-
+  
   ## Referanslar
-
+  
   [1] Cowan, N. (2010). The Magical Mystery Four. *Current Directions in Psychological Science*. [2] Magee & Grienberger (2020). Synaptic Plasticity Forms and Functions. *Annual Review of Neuroscience*. [3] Subramanya et al. (2019). DiskANN. *NeurIPS 2019*.
-
+  
   ## Lisans
-
+  
   Apache 2.0
-
+  
   ---
-
+  
   <p align="center">
     <a href="https://registry.modelcontextprotocol.io/v0/servers?search=shodh">MCP Registry</a> · <a href="https://hub.docker.com/r/varunshodh/shodh-memory">Docker Hub</a> · <a href="https://pypi.org/project/shodh-memory/">PyPI</a> · <a href="https://www.npmjs.com/package/@shodh/memory-mcp">npm</a> · <a href="https://crates.io/crates/shodh-memory">crates.io</a> · <a href="https://www.shodh-memory.com">Docs</a>
   </p>
@@ -433,7 +433,7 @@ body_tr: |-
 
 <h1 align="center">Shodh-Memory</h1>
 
-<p align="center"><b>Persistent cognitive memory for AI agents and robots. Remembers what matters, forgets what doesn't, gets smarter with use.</b></p>
+<p align="center"><b>Persistent cognitive memory for AI agents and robots — with no LLM in the loop. Remembers what matters, forgets what doesn't, gets smarter with use.</b></p>
 
 <p align="center">
   <a href="https://github.com/varun29ankuS/shodh-memory/actions"></a>
@@ -456,7 +456,7 @@ body_tr: |-
 
 AI agents forget everything between sessions. Robots lose context between missions. They repeat mistakes, miss patterns, and treat every interaction like the first one.
 
-Shodh-Memory fixes this. It's persistent memory that actually learns — memories you use often become easier to find, old irrelevant context fades automatically, and recalling one thing brings back related things. Works for chat agents (MCP/HTTP), robots (Zenoh/ROS2), and edge devices. No API keys. No cloud. No external databases. One binary.
+Shodh-Memory fixes this. It's persistent memory that actually learns — memories you use often become easier to find, old irrelevant context fades automatically, and recalling one thing brings back related things. Works for chat agents (MCP/HTTP), robots (Zenoh/ROS2), and edge devices. No API keys. No cloud. No external databases. **No LLM in the loop.** One binary.
 
 ## Why Not Just Use mem0 / Cognee / Zep?
 
@@ -471,7 +471,19 @@ Shodh-Memory fixes this. It's persistent memory that actually learns — memorie
 | Robotics / ROS2 native | **Yes** (Zenoh) | No | No | No |
 | Binary size | **~17MB** | pip install + API keys | pip install + API keys + Neo4j | Cloud only |
 
-Every other memory system delegates intelligence to LLM API calls — that's why they're slow, expensive, and can't work offline. Shodh uses algorithmic intelligence: local embeddings, mathematical decay, learned associations. No LLM in the loop.
+Every other memory system delegates intelligence to LLM API calls — that's why they're slow, expensive, and can't work offline.
+
+## No LLM in the Loop
+
+Storing a memory makes **zero LLM calls**. Recalling makes **zero LLM calls**. Entity extraction, relation typing, knowledge-graph construction, causal tracing, ranking, decay, consolidation — all of it runs locally as algorithms, not API round-trips:
+
+- **Local embeddings** — MiniLM (22MB, INT8) via ONNX Runtime, on-device semantic search
+- **Local NER** — TinyBERT (14MB, INT8) extracts people, places, organizations from every memory
+- **Typed relation extraction without an LLM** — directed lexical cues + exemplar-matched semantic typing build a typed knowledge graph (`LocatedIn`, `WorksAt`, `Causes`…) from plain text
+- **Causal lineage** — "what was the root cause of X?" is answered by walking typed causal edges backward through the graph, not by asking a model
+- **Mathematical memory dynamics** — Hebbian strengthening, exponential→power-law decay, spreading activation, long-term potentiation
+
+What that buys you: **fully offline** operation, **millisecond** latency instead of multi-second API calls, **zero inference cost** at any scale, **deterministic, testable** behavior, and **data that never leaves the machine**. Your agent's LLM does the reasoning — its memory doesn't need one.
 
 ## Get Started
 
@@ -842,3 +854,5 @@ Apache 2.0
 <p align="center">
   <a href="https://registry.modelcontextprotocol.io/v0/servers?search=shodh">MCP Registry</a> · <a href="https://hub.docker.com/r/varunshodh/shodh-memory">Docker Hub</a> · <a href="https://pypi.org/project/shodh-memory/">PyPI</a> · <a href="https://www.npmjs.com/package/@shodh/memory-mcp">npm</a> · <a href="https://crates.io/crates/shodh-memory">crates.io</a> · <a href="https://www.shodh-memory.com">Docs</a>
 </p>
+
+<sub><i>Keywords: LLM-free memory · no LLM in the loop · local-first AI memory · offline agent memory · persistent memory for AI agents · long-term memory for LLM agents · MCP memory server · Claude Code memory · knowledge graph memory · hybrid vector + graph search · causal lineage · Hebbian learning · memory decay · edge AI memory · robotics memory · ROS2 / Zenoh robot memory · air-gapped RAG alternative</i></sub>

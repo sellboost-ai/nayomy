@@ -3,7 +3,7 @@ name: "autoresearch-agent"
 description_en: "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headli"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/autoresearch-agent/SKILL.md"
 path: ".gemini/skills/autoresearch-agent/SKILL.md"
 is_collection: false
@@ -14,17 +14,17 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Autoresearch Agent
-
+  
   > Siz uyursunuz. Agent deneyler. Siz uyanınca sonuçlar hazır.
-
+  
   [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) tarafından esinlenen özerk deneyim döngüsü. Agent bir dosyayı düzenler, sabit bir değerlendirme çalıştırır, iyileştirmeleri tutar, başarısızlıkları atar ve sonsuza kadar döngüye devam eder.
-
+  
   Bir tahmin değil — elli ölçülü deneme, bileşik.
-
+  
   ---
-
+  
   ## Slash Komutları
-
+  
   | Komut | Ne yapıyor |
   |---------|-------------|
   | `/ar:setup` | Yeni bir deneyim etkileşimli olarak ayarla |
@@ -32,30 +32,30 @@ body_tr: |-
   | `/ar:loop` | Yapılandırılabilir aralıkla özerk döngü başlat (10m, 1h, daily, weekly, monthly) |
   | `/ar:status` | Dashboard ve sonuçları göster |
   | `/ar:resume` | Duraklatılmış deneyimi devam ettir |
-
+  
   ---
-
+  
   ## Bu Skill Ne Zaman Etkinleşir
-
+  
   Kullanıcıdan bu desenleri tanı:
-
+  
   - "Bunu daha hızlı / küçük / iyi yap"
   - "[dosya]'yı [metrik] için optimize et"
   - "[başlıklar / copy / promptlar]'ımı geliştir"
   - "Deneyleri gece çalıştır"
   - "[Metrik]'i X'ten Y'ye çıkarmak istiyorum"
   - Herhangi bir istek: optimize et, benchmark, geliştir, deneyim döngüsü, autoresearch
-
+  
   Kullanıcı hedef dosya + başarı ölçüsü tanımlarsa → bu skill geçerlidir.
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   ### İlk Sefer — Deneyim Oluştur
-
+  
   Setup scriptini çalıştır. Kullanıcı deneylerin nerede yaşayacağına karar verir:
-
+  
   **Proje seviyesi** (repo içinde, git-izlenen, takım ile paylaşılabilir):
   ```bash
   python scripts/setup_experiment.py \
@@ -67,7 +67,7 @@ body_tr: |-
     --direction lower \
     --scope project
   ```
-
+  
   **Kullanıcı seviyesi** (kişisel, `~/.autoresearch/` içinde):
   ```bash
   python scripts/setup_experiment.py \
@@ -80,13 +80,13 @@ body_tr: |-
     --evaluator llm_judge_content \
     --scope user
   ```
-
+  
   `--scope` flag'i `.autoresearch/`'ın nerede yaşayacağını belirler:
   - `project` (varsayılan) → `.autoresearch/` repo kökünde. Deneyim tanımları git-izlenir. Sonuçlar gitignore edilir.
   - `user` → `~/.autoresearch/` home dizininde. Her şey kişisel.
-
+  
   ### Setup Ne Oluşturur
-
+  
   ```
   .autoresearch/
   ├── config.yaml                        ← Global ayarlar
@@ -97,15 +97,15 @@ body_tr: |-
       ├── results.tsv                    ← Deneyim günlüğü (gitignore)
       └── evaluate.py                    ← Değerlendirme scripti (--evaluator kullanıldıysa)
   ```
-
+  
   **results.tsv sütunları:** `commit | metric | status | description`
   - `commit` — kısa git hash
   - `metric` — float değeri veya çöküşler için "N/A"
   - `status` — keep | discard | crash
   - `description` — ne değişti veya neden çöktü
-
+  
   ### Domainler
-
+  
   | Domain | Kullanım Alanları |
   |--------|-----------|
   | `engineering` | Kod hızı, bellek, bundle boyutu, test geçiş oranı, derleme zamanı |
@@ -113,17 +113,17 @@ body_tr: |-
   | `content` | Makale yapısı, SEO açıklamaları, okunabilirlik, CTR |
   | `prompts` | Sistem promptları, chatbot tonu, agent talimatları |
   | `custom` | Ölçülebilir metrik ile diğer her şey |
-
+  
   ### Eğer `program.md` Zaten Varsa
-
+  
   Kullanıcı kendi `program.md`'sini yazmış olabilir. Deneyim dizininde bulunursa, oku. Template'i geçersiz kılar. Sadece eksikleri sor.
-
+  
   ---
-
+  
   ## Agent Protokolü
-
+  
   Siz döngüsünüz. Scriptler kurulum ve değerlendirmeyi yönetir — siz yaratıcı işi yönetirsiniz.
-
+  
   ### Başlamadan Önce
   1. `.autoresearch/{domain}/{name}/config.cfg` oku:
      - `target` — düzenleyeceğiniz dosya
@@ -134,7 +134,7 @@ body_tr: |-
   2. Strateji, kısıtlamalar ve ne yapabileceğiniz/yapamayacağınız için `program.md`'yi oku
   3. Deneyim geçmişi için `results.tsv`'yi oku (sütunlar: commit, metric, status, description)
   4. Deneyim dalını checkout et: `git checkout autoresearch/{domain}/{name}`
-
+  
   ### Her Iterasyon
   1. results.tsv'yi gözden geçir — ne işe yaradı? Ne başarısız oldu? Ne denenilmedi?
   2. Hedef dosyaya BİR değişiklik kararlaştır. Deneyim başına bir değişken.
@@ -143,56 +143,56 @@ body_tr: |-
   5. Değerlendir: `python scripts/run_experiment.py --experiment {domain}/{name} --single`
   6. Çıktıyı oku — KEEP, DISCARD veya CRASH yazacak metrik değeriyle
   7. 1. adıma git
-
+  
   ### Script Ne Yönetir (Siz Değil)
   - Eval komutunu timeout ile çalıştırma
   - Eval çıktısından metriği ayrıştırma
   - Önceki en iyisiyle karşılaştırma
   - Başarısızlıkta commit'i geri alma (`git reset --hard HEAD~1`)
   - Sonucu results.tsv'ye kaydetme
-
+  
   ### Deneyimi Başlatma
-
+  
   ```bash
   # Tek iterasyon (agent bunu tekrar tekrar çağırır)
   python scripts/run_experiment.py --experiment engineering/api-speed --single
-
+  
   # Kuru çalışma (başlamadan önce setup'ı test et)
   python scripts/run_experiment.py --experiment engineering/api-speed --dry-run
   ```
-
+  
   ### Strateji Yükseltme
   - Çalışma 1-5: Düşük asılı meyveler (açık iyileştirmeler, basit optimizasyonlar)
   - Çalışma 6-15: Sistematik keşif (bir parametreyi bir seferde değişir)
   - Çalışma 16-30: Yapısal değişiklikler (algoritma değişimleri, mimari kaymaları)
   - Çalışma 30+: Radikal deneyler (tamamen farklı yaklaşımlar)
   - 20+ çalışmada iyileştirme yoksa: program.md Strategy bölümünü güncelle
-
+  
   ### Kendi Kendini Geliştirme
   Her 10 deneyin ardından, desenler için results.tsv'yi gözden geçir. program.md'nin Strategy bölümünü öğrendiklerinizle güncelleyin (ör. "önbellek değişiklikleri %5-10 tarafından tutarlı olarak iyileştirir", "refactoring denemeleri metriği hiçbir zaman iyileştirmez"). Gelecek iterasyonlar bu birikmiş bilgiden faydalanır.
-
+  
   ### Durma
   - Kullanıcı tarafından kesilene, bağlam sınırı ulaşılana veya program.md'deki hedef karşılanana kadar çalıştır
   - Durmadan önce: results.tsv'nin güncel olduğundan emin ol
   - Bağlam sınırında: sonraki oturum devam edebilir — results.tsv ve git günlüğü devam eder
-
+  
   ### Kurallar
-
+  
   - **Deneyim başına bir değişiklik.** Bir anda 5 şeyi değiştirme. Ne işe yaradığını bilemezsin.
   - **Basitlik kriteri.** Küçük bir iyileştirme çirkin karmaşıklık eklemiyorsa değer yoktur. Eşit performans daha basit kod ile bir kazanç. Aynı sonuçları alan kodu kaldırmak en iyi sonuçtur.
   - **Evaluatörü hiçbir zaman değiştirme.** `evaluate.py` temel gerçekliktir. Değiştirmek tüm karşılaştırmaları geçersiz kılar. Bunu yapıyorsanız sert duru.
   - **Timeout.** Bir çalışma zaman bütçesinin 2.5× aşarsa, durdur ve çöküş olarak işle.
   - **Çöküş yönetimi.** Typo veya eksik import ise, düzelt ve yeniden çalıştır. Fikir temelden kırılmışsa, geri al, "crash" kaydet, devam et. 5 ardışık çöküş → duraklat ve uyar.
   - **Yeni dependency yok.** Sadece projede zaten mevcut olanı kullan.
-
+  
   ---
-
+  
   ## Evaluatörler
-
+  
   Hazır kullanılabilir değerlendirme scriptleri. Setup sırasında `--evaluator` ile deneyim dizinine kopyalanır.
-
+  
   ### Ücretsiz Evaluatörler (API maliyeti yok)
-
+  
   | Evaluatör | Metrik | Kullanım Alanı |
   |-----------|--------|----------|
   | `benchmark_speed` | `p50_ms` (lower) | Function/API yürütme zamanı |
@@ -200,26 +200,26 @@ body_tr: |-
   | `test_pass_rate` | `pass_rate` (higher) | Test paketi geçiş yüzdesi |
   | `build_speed` | `build_seconds` (lower) | Derleme/Docker inşa zamanı |
   | `memory_usage` | `peak_mb` (lower) | Yürütme sırasında pik bellek |
-
+  
   ### LLM Judge Evaluatörler (aboneliğinizi kullanır)
-
+  
   | Evaluatör | Metrik | Kullanım Alanı |
   |-----------|--------|----------|
   | `llm_judge_content` | `ctr_score` 0-10 (higher) | Başlıklar, titler, açıklamalar |
   | `llm_judge_prompt` | `quality_score` 0-100 (higher) | Sistem promptları, agent talimatları |
   | `llm_judge_copy` | `engagement_score` 0-10 (higher) | Sosyal mesajlar, reklam copy, emailler |
-
+  
   LLM hakimleri, kullanıcının zaten çalıştırdığı CLI tool'u çağırır (Claude, Codex, Gemini). Değerlendirme prompt'u `evaluate.py` içinde kilitlidir — agent onu değiştiremez. Bu agentin kendi evaluatörünü oyunla kaçırmasını engeller.
-
+  
   Kullanıcının mevcut aboneliği maliyeti kapsar:
   - Claude Code Max → değerlendirme için sınırsız Claude çağrıları
   - Codex CLI (ChatGPT Pro) → sınırsız Codex çağrıları
   - Gemini CLI (ücretsiz tier) → ücretsiz değerlendirme çağrıları
-
+  
   ### Özel Evaluatörler
-
+  
   Yerleşik evaluatör uygunsa, kullanıcı kendi `evaluate.py`'sini yazar. Tek gereklilik: `metric_name: value` yazdırmalı stdout'a.
-
+  
   ```python
   #!/usr/bin/env python3
   # Benim özel evaluatörüm — DENEYIM BAŞLADIKTAN SONRA DEĞİŞTİRME
@@ -228,29 +228,29 @@ body_tr: |-
   # Ayrıştır ve çıktı
   print(f"my_metric: {parse_score(result.stdout)}")
   ```
-
+  
   ---
-
+  
   ## Sonuçları Görüntüleme
-
+  
   ```bash
   # Tek deneyim
   python scripts/log_results.py --experiment engineering/api-speed
-
+  
   # Bir domaindeki tüm deneyimler
   python scripts/log_results.py --domain engineering
-
+  
   # Cross-deneyim dashboard
   python scripts/log_results.py --dashboard
-
+  
   # Dışa aktarma formatları
   python scripts/log_results.py --experiment engineering/api-speed --format csv --output results.csv
   python scripts/log_results.py --experiment engineering/api-speed --format markdown --output results.md
   python scripts/log_results.py --dashboard --format markdown --output dashboard.md
   ```
-
+  
   ### Dashboard Çıktısı
-
+  
   ```
   DOMAIN          EXPERIMENT          RUNS  KEPT  BEST         Δ FROM START  STATUS
   engineering     api-speed            47    14   185ms        -76.9%        active
@@ -258,19 +258,19 @@ body_tr: |-
   marketing       medium-ctr           31    11   8.4/10       +68.0%        active
   prompts         support-tone         15     6   82/100       +46.4%        done
   ```
-
+  
   ### Dışa Aktarma Formatları
-
+  
   - **TSV** — varsayılan, tab ayrılmış (spreadsheet ile uyumlu)
   - **CSV** — virgül ayrılmış, uygun alıntılama ile
   - **Markdown** — biçimlendirilmiş tablo, GitHub/docs'ta okunabilir
-
+  
   ---
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   Sorulmadan bunları işaretle:
-
+  
   - **Değerlendirme komutu işe yaramıyor** → Başlamadan önce test et. Bir kez çalıştır, çıktıyı doğrula.
   - **Hedef dosya git'te değil** → `git init && git add . && git commit -m 'initial'` önce yap.
   - **Metrik yönü belirsiz** → Sor: lower mı yoksa higher mı daha iyi? Başlamadan bilmeli.
@@ -278,31 +278,31 @@ body_tr: |-
   - **Agent evaluate.py'yi değiştiriyor** → Sert duru. Bu tüm karşılaştırmaları geçersiz kılar.
   - **5 ardışık çöküş** → Döngüyü duraklat. Kullanıcıyı uyar. Döngü yakmaya devam etme.
   - **20+ çalışmada iyileştirme yok** → Stratejiyi program.md'de değiştirmeyi veya farklı bir yaklaşım denemesini öner.
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   ### Tek satır (herhangi bir tool)
   ```bash
   git clone https://github.com/alirezarezvani/claude-skills.git
   cp -r claude-skills/engineering/autoresearch-agent ~/.claude/skills/
   ```
-
+  
   ### Multi-tool kurulum
   ```bash
   ./scripts/convert.sh --skill autoresearch-agent --tool codex|gemini|cursor|windsurf|openclaw
   ```
-
+  
   ### OpenClaw
   ```bash
   clawhub install cs-autoresearch-agent
   ```
-
+  
   ---
-
+  
   ## İlişkili Skilllar
-
+  
   - **self-improving-agent** — bir agentin kendi bellek/kurallarını zaman içinde geliştir. Yapılandırılmış deneyim döngüleri için DEĞİL.
   - **senior-ml-engineer** — ML mimarisi kararları. Tamamlayıcı — ilk tasarım için kullan, sonra optimizasyon için autoresearch.
   - **tdd-guide** — test-driven development. Tamamlayıcı — testler değerlendirme fonksiyonu olabilir.

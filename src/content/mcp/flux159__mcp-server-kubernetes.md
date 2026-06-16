@@ -3,7 +3,7 @@ name: "Flux159/mcp-server-kubernetes"
 description: "Typescript implementation of Kubernetes cluster operations for pods, deployments, services."
 category: "Cloud Platforms"
 repo: "Flux159/mcp-server-kubernetes"
-stars: 1399
+stars: 1434
 url: "https://github.com/Flux159/mcp-server-kubernetes"
 body_length: 16418
 license: "MIT"
@@ -11,7 +11,7 @@ language: "TypeScript"
 homepage: "https://www.npmjs.com/package/mcp-server-kubernetes"
 body_tr: |-
   # MCP Server Kubernetes
-
+  
   [![CI](https://github.com/Flux159/mcp-server-kubernetes/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/mcp-server-kubernetes/actions/workflows/ci.yml)
   [![Language](https://img.shields.io/github/languages/top/Flux159/mcp-server-kubernetes)](https://github.com/yourusername/mcp-server-kubernetes)
   [![Bun](https://img.shields.io/badge/runtime-bun-orange)](https://bun.sh)
@@ -23,46 +23,46 @@ body_tr: |-
   [![Last Commit](https://img.shields.io/github/last-commit/Flux159/mcp-server-kubernetes)](https://github.com/Flux159/mcp-server-kubernetes/commits/main)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/Flux159/mcp-server-kubernetes)](https://archestra.ai/mcp-catalog/flux159__mcp-server-kubernetes)
   [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Flux159/mcp-server-kubernetes)
-
+  
   <p align="center">
     
   </p>
-
+  
   Bir Kubernetes kümesine bağlanabilen ve onu yönetebilen MCP Server'ı. Kubeconfig'i öncelik sırasına göre birden fazla kaynaktan yüklemeyi destekler.
-
+  
   https://github.com/user-attachments/assets/f25f8f4e-4d04-479b-9ae0-5dac452dd2ed
-
+  
   <a href="https://glama.ai/mcp/servers/w71ieamqrt"></a>
-
+  
   ## Kurulum & Kullanım
-
+  
   ### Ön Koşullar
-
+  
   Bu MCP server'ını herhangi bir araçla kullanmadan önce şunlara sahip olduğunuzdan emin olun:
-
+  
   1. kubectl yüklü ve PATH'inizde olmalı
   2. Yapılandırılmış context'lere sahip geçerli bir kubeconfig dosyası
   3. kubectl için yapılandırılmış bir Kubernetes kümesine erişim (örn. minikube, Rancher Desktop, GKE, vb.)
   4. Helm v3 yüklü ve PATH'inizde olmalı (Tiller gerekli değildir). Helm kullanmayı planlamıyorsanız isteğe bağlı.
-
+  
   Kümenize bağlanıp bağlanamadığınızı kontrol etmek için bir terminalde `kubectl get pods` komutunu çalıştırabilirsiniz.
-
+  
   Varsayılan olarak, server kubeconfig'i `~/.kube/config` konumundan yükler. Ek kimlik doğrulama seçenekleri için (ortam değişkenleri, özel yollar, vb.), [ADVANCED_README.md](ADVANCED_README.md) dosyasına bakın.
-
+  
   ### Claude Code
-
+  
   Built-in komutunu kullanarak MCP server'ını Claude Code'a ekleyin:
-
+  
   ```bash
   claude mcp add kubernetes -- npx mcp-server-kubernetes
   ```
-
+  
   Bu otomatik olarak server'ı Claude Code MCP ayarlarında yapılandıracaktır.
-
+  
   ### Claude Desktop
-
+  
   Claude Desktop yapılandırma dosyanıza aşağıdaki yapılandırmayı ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -73,22 +73,22 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Claude Desktop Connector via mcpb
-
+  
   MCP Server Kubernetes ayrıca [mcpb](https://github.com/anthropics/mcpb) (eski adı dxt) uzantısı olarak da mevcuttur. Claude Desktop'ta Ayarlar (`Mac'te Cmd+,`) -> Uzantılar -> Uzantılara Gözat bölümüne gidip mcp-server-kubernetes'i bulun ve yükleyin. kubectl komut satırı ve kubeconfig'inizi otomatik olarak yükleyecek ve kullanacaktır.
-
+  
   Manuel olarak kurmak için, en son [Release](https://github.com/Flux159/mcp-server-kubernetes/releases) bölümüne gidip .mcpb dosyasını indirebilirsiniz.
-
+  
   ### VS Code
-
+  
   [![Install Kubernetes MCP in VS Code](https://img.shields.io/badge/Install%20Kubernetes%20MCP%20in%20VS%20Code-blue?logo=visualstudiocode)](vscode:mcp/install?%7B%22name%22%3A%20%22kubernetes%22%2C%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22mcp-server-kubernetes%22%5D%7D)
-
+  
   VS Code entegrasyonu için, Model Context Protocol'ü destekleyen uzantılarla bu server'ı kullanabilirsiniz:
-
+  
   1. Uyumlu bir MCP uzantısını yükleyin (Claude Dev veya benzeri MCP istemcileri gibi)
   2. Uzantıyı bu server'ı kullanacak şekilde yapılandırın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -100,11 +100,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Cursor
-
+  
   Cursor, MCP server'larını AI entegrasyonu aracılığıyla destekler. Server'ı Cursor MCP yapılandırmanıza ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -115,41 +115,41 @@ body_tr: |-
     }
   }
   ```
-
+  
   Server otomatik olarak mevcut kubectl context'ine bağlanacaktır. AI asistanına pod'larınızı listelemesini veya test deployment'ı oluşturmasını isteyerek bağlantıyı doğrulayabilirsiniz.
-
+  
   ## mcp-chat ile Kullanım
-
+  
   [mcp-chat](https://github.com/Flux159/mcp-chat) MCP server'ları ile etkileşim kurmak için bir CLI sohbet istemcisidir. Kubernetes server'ı ile etkileşim kurmak için kullanabilirsiniz.
-
+  
   ```shell
   npx mcp-chat --server "npx mcp-server-kubernetes"
   ```
-
+  
   Alternatif olarak, yukarıdaki mevcut Claude Desktop yapılandırma dosyanızı geçebilirsiniz (Linux doğru yolu geçmelidir):
-
+  
   Mac:
-
+  
   ```shell
   npx mcp-chat --config "~/Library/Application Support/Claude/claude_desktop_config.json"
   ```
-
+  
   Windows:
-
+  
   ```shell
   npx mcp-chat --config "%APPDATA%\Claude\claude_desktop_config.json"
   ```
-
+  
   ## Gemini CLI
-
+  
   [Gemini CLI](https://geminicli.com/) MCP server'larını uzantılar olarak yüklemenize izin verir. Bir shell'den bu repo'ya işaret ederek uzantıyı yükleyin:
-
+  
   ```shell
   gemini extensions install https://github.com/Flux159/mcp-server-kubernetes
   ```
-
+  
   ## Özellikler
-
+  
   - [x] Kubernetes kümesine bağlanma
   - [x] Kaynakları yönetmek için birleştirilmiş kubectl API
     - `kubectl_get` ile kaynakları alın veya listeleyin
@@ -189,49 +189,49 @@ body_tr: |-
     - Yapılandırılabilir sampling stratejileri
     - Zengin span özellikleri (tool adı, süre, K8s context, hatalar)
     - Ayrıntılar için [docs/OBSERVABILITY.md](docs/OBSERVABILITY.md) bölümüne bakın
-
+  
   ## Gözlenebilirlik
-
+  
   MCP Kubernetes server'ı kapsamlı gözlenebilirlik için isteğe bağlı **OpenTelemetry entegrasyonu** içerir. Bu özellik varsayılan olarak devre dışıdır ve ortam değişkenleri veya Helm yapılandırması aracılığıyla etkinleştirilebilir.
-
+  
   ### Hızlı Başlangıç
-
+  
   Ortam değişkenleriyle gözlenebilirliği etkinleştirin:
-
+  
   ```bash
   export ENABLE_TELEMETRY=true
   export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
-
+  
   npx mcp-server-kubernetes
   ```
-
+  
   ### Nelerin İzlendiği
-
+  
   - **Tüm tool çağrıları**: kubectl_get, kubectl_apply, kubectl_logs, vb.
   - **Çalışma süresi**: Her işlemin ne kadar sürdüğü
   - **Başarı/başarısızlık durumu**: Otomatik hata izlemesi
   - **Kubernetes context**: Namespace, context, kaynak türü
   - **Zengin metadata**: Host, process ve özel özellikler
-
+  
   ### Desteklenen Backend'ler
-
+  
   Herhangi bir OTLP uyumlu backend ile çalışır:
   - **Jaeger** (açık kaynak)
   - **Grafana Tempo** (açık kaynak)
   - **Grafana Cloud** (ticari)
   - **Datadog**, **New Relic**, **Honeycomb**, **Lightstep**, **AWS X-Ray**
-
+  
   ### Yapılandırma
-
+  
   Aşağıdaki ayarlar dahil kapsamlı belgeler için **[docs/OBSERVABILITY.md](docs/OBSERVABILITY.md)** bölümüne bakın:
   - Yapılandırma seçenekleri
   - Dağıtım örnekleri (Kubernetes, Helm, Claude Code)
   - Sampling stratejileri
   - Üretim en iyi uygulamaları
   - Sorun giderme kılavuzu
-
+  
   ### Jaeger ile Örnek
-
+  
   ```bash
   # Jaeger'ı başlatın
   docker run -d --name jaeger \
@@ -239,66 +239,66 @@ body_tr: |-
     -p 16686:16686 \
     -p 4317:4317 \
     jaegertracing/all-in-one:latest
-
+  
   # Telemetry'i etkinleştirin
   export ENABLE_TELEMETRY=true
   export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
   export OTEL_TRACES_SAMPLER=always_on
-
+  
   # Server'ı çalıştırın
   npx mcp-server-kubernetes
-
+  
   # İzlemeleri görüntüleyin: http://localhost:16686
   ```
-
+  
   ## Prompt'lar
-
+  
   MCP Kubernetes server'ı yaygın tanı işlemleri konusunda yardımcı olmak için özel prompt'lar içerir.
-
+  
   ### /k8s-diagnose Prompt'u
-
+  
   Bu prompt Kubernetes pod'ları için sistematik bir sorun giderme akışı sunmuştur. İlgili pod'ları tanımlamak için bir `keyword` ve araştırmayı daraltmak için isteğe bağlı bir `namespace` kabul eder.
   Prompt'un çıktısı sorun giderme akışında size rehberlik edecek, sorunları tanımlamak, kanıt toplamak ve iyileştirme adımlarını önermek için yönergeler sağlayacaktır.
-
+  
   ## Yerel Geliştirme
-
+  
   [bun'ın yüklü](https://bun.sh/docs/installation) olduğundan emin olun. Repo'yu klonlayın ve bağımlılıkları yükleyin:
-
+  
   ```bash
   git clone https://github.com/Flux159/mcp-server-kubernetes.git
   cd mcp-server-kubernetes
   bun install
   ```
-
+  
   ### Geliştirme İş Akışı
-
+  
   1. Server'ı geliştirme modunda başlatın (dosya değişikliklerini izleyin):
-
+  
   ```bash
   bun run dev
   ```
-
+  
   2. Unit test'lerini çalıştırın:
-
+  
   ```bash
   bun run test
   ```
-
+  
   3. Projeyi derleyin:
-
+  
   ```bash
   bun run build
   ```
-
+  
   4. [Inspector](https://github.com/modelcontextprotocol/inspector) ile Yerel Test
-
+  
   ```bash
   npx @modelcontextprotocol/inspector node dist/index.js
   # Terminal'de Inspector bağlantısı için diğer yönergeleri izleyin
   ```
-
+  
   5. Claude Desktop ile yerel test
-
+  
   ```json
   {
     "mcpServers": {
@@ -309,29 +309,29 @@ body_tr: |-
     }
   }
   ```
-
+  
   6. [mcp-chat](https://github.com/Flux159/mcp-chat) ile yerel test
-
+  
   ```bash
   bun run chat
   ```
-
+  
   ## Katkıda Bulunma
-
+  
   Ayrıntılar için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
-
+  
   ## Gelişmiş
-
+  
   ### Yıkıcı Olmayan Mod
-
+  
   Server'ı tüm yıkıcı işlemleri devre dışı bırakan yıkıcı olmayan modda çalıştırabilirsiniz (pod'ları silin, deployment'ları silin, namespace'leri silin, vb.):
-
+  
   ```shell
   ALLOW_ONLY_NON_DESTRUCTIVE_TOOLS=true npx mcp-server-kubernetes
   ```
-
+  
   Yıkıcı olmayan mod ile Claude Desktop yapılandırması için:
-
+  
   ```json
   {
     "mcpServers": {
@@ -345,40 +345,40 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Yıkıcı Olmayan Modda Mevcut Komutlar
-
+  
   Tüm salt okunur ve kaynak oluşturma/güncelleme işlemleri kullanılabilir kalır:
-
+  
   - Kaynak Bilgisi: `kubectl_get`, `kubectl_describe`, `kubectl_logs`, `explain_resource`, `list_api_resources`
   - Kaynak Oluşturma/Değiştirme: `kubectl_apply`, `kubectl_create`, `kubectl_scale`, `kubectl_patch`, `kubectl_rollout`
   - Helm İşlemleri: `install_helm_chart`, `upgrade_helm_chart`, `helm_template_apply`, `helm_template_uninstall`
   - Bağlantı: `port_forward`, `stop_port_forward`
   - Context Yönetimi: `kubectl_context`
-
+  
   ### Yıkıcı Olmayan Modda Devre Dışı Bırakılan Komutlar
-
+  
   Aşağıdaki yıkıcı işlemler devre dışıdır:
-
+  
   - `kubectl_delete`: Herhangi bir Kubernetes kaynağını silme
   - `uninstall_helm_chart`: Helm chart'larını kaldırma
   - `cleanup`: Yönetilen kaynakların temizlenmesi
   - `cleanup_pods`: Sorunlu pod'ları temizleme
   - `node_management`: Node yönetimi işlemleri (node'ları drain edebilir)
   - `kubectl_generic`: Genel kubectl komut erişimi (yıkıcı işlemler içerebilir)
-
+  
   Ek gelişmiş özellikler için, [ADVANCED_README.md](ADVANCED_README.md) dosyasına ve ayrıca `helm_install`, `helm_template_apply`, node yönetimi ve pod temizliği hakkında spesifik bilgiler için [docs](https://github.com/Flux159/mcp-server-kubernetes/tree/main/docs) klasörüne bakın.
-
+  
   ## Mimari
-
+  
   Devin tarafından oluşturulan daha derinlemesine bir mimari genel bakış için bu [DeepWiki bağlantısına](https://deepwiki.com/Flux159/mcp-server-kubernetes) bakın.
-
+  
   Bu bölüm MCP Kubernetes server'ının yüksek düzey mimarisini açıklar.
-
+  
   ### İstek Akışı
-
+  
   Aşağıdaki sıra diyagramı isteklerin sistem aracılığıyla nasıl aktığını göstermektedir:
-
+  
   ```mermaid
   sequenceDiagram
       participant Client
@@ -388,17 +388,17 @@ body_tr: |-
       participant Handler as Request Handler
       participant K8sManager as KubernetesManager
       participant K8s as Kubernetes API
-
+  
       Note over Transport: StdioTransport or<br>SSE Transport
-
+  
       Client->>Transport: Send Request
       Transport->>Server: Forward Request
-
+  
       alt Tools Request
           Server->>Filter: Filter available tools
           Note over Filter: Remove destructive tools<br>if in non-destructive mode
           Filter->>Handler: Route to tools handler
-
+  
           alt kubectl operations
               Handler->>K8sManager: Execute kubectl operation
               K8sManager->>K8s: Make API call
@@ -409,7 +409,7 @@ body_tr: |-
               Handler->>K8sManager: Set up port forwarding
               K8sManager->>K8s: Make API call
           end
-
+  
           K8s-->>K8sManager: Return result
           K8sManager-->>Handler: Process response
           Handler-->>Server: Return tool result
@@ -421,31 +421,31 @@ body_tr: |-
           K8sManager-->>Handler: Format response
           Handler-->>Server: Return resource data
       end
-
+  
       Server-->>Transport: Send Response
       Transport-->>Client: Return Final Response
   ```
-
+  
   Devin tarafından oluşturulan daha derinlemesine bir mimari genel bakış için bu [DeepWiki bağlantısına](https://deepwiki.com/Flux159/mcp-server-kubernetes) bakın.
-
+  
   ## Yeni sürüm yayınlama
-
+  
   [Sürümler sayfasına](https://github.com/Flux159/mcp-server-kubernetes/releases) gidin, "Yeni Sürümü Taslaklayın"ı tıklayın, "Etiket Seç"i tıklayın ve "v{major}.{minor}.{patch}" semver formatını kullanarak yeni bir sürüm numarası yazarak yeni bir etiket oluşturun. Ardından sürüm başlığını "Release v{major}.{minor}.{patch}" olarak yazın ve gerekirse açıklamayı/değişiklikleri ekleyin ve "Sürümü Yayınla"yı tıklayın.
-
+  
   Bu yeni bir etiket oluşturacak ve cd.yml workflow'u aracılığıyla yeni bir sürüm derlemesini tetikleyecektir. Başarıyla tamamlandıktan sonra yeni sürüm [npm](https://www.npmjs.com/package/mcp-server-kubernetes) üzerinde yayınlanacaktır. Package.json sürümünü manuel olarak güncellemeye gerek yoktur, çünkü workflow otomatik olarak package.json dosyasındaki sürüm numarasını güncelleyecek ve main'e bir commit gönderecektir.
-
+  
   ## Planlanmayan
-
+  
   Kümeleri kubectx'e ekleme.
-
+  
   ## Yıldız Tarihi
-
+  
   [![Star History Chart](https://api.star-history.com/svg?repos=Flux159/mcp-server-kubernetes&type=Date)](https://www.star-history.com/#Flux159/mcp-server-kubernetes&Date)
-
+  
   ## 🖊️ Atıf
-
+  
   Bu repo'yu yararlı bulursanız lütfen atıf yapın:
-
+  
   ```
   @software{Patel_MCP_Server_Kubernetes_2024,
   author = {Patel, Paras and Sonwalkar, Suyog},

@@ -14,29 +14,29 @@ has_examples: false
 related_files: ["html2pptx.md", "ooxml.md"]
 body_tr: |-
   # PPTX oluşturma, düzenleme ve analiz
-
+  
   ## Genel Bakış
-
+  
   Kullanıcı sizi bir .pptx dosyasının içeriğini oluşturma, düzenleme veya analiz etmeyi isteyebilir. .pptx dosyası, esasen okuyabileceğiniz veya düzenleyebileceğiniz XML dosyalarını ve diğer kaynakları içeren bir ZIP arşividir. Farklı görevler için farklı araçlar ve iş akışları mevcuttur.
-
+  
   ## İçeriği okuma ve analiz etme
-
+  
   ### Metin ayıklama
   Yalnızca bir sunumun metin içeriğini okumanız gerekiyorsa, belgeyi markdown'a dönüştürmelisiniz:
-
+  
   ```bash
   # Belgeyi markdown'a dönüştür
   python -m markitdown path-to-file.pptx
   ```
-
+  
   ### Ham XML erişimi
   Ham XML erişimine ihtiyaç duyduğunuz durumlar: açıklamalar, konuşmacı notları, slayt düzenleri, animasyonlar, tasarım öğeleri ve karmaşık biçimlendirme. Bu özelliklerin herhangi biri için, bir sunumu açmanız ve ham XML içeriğini okumanız gerekir.
-
+  
   #### Dosya açma
   `python ooxml/scripts/unpack.py <office_file> <output_dir>`
-
+  
   **Not**: unpack.py betiği, proje kökü göreceli olarak `skills/pptx/ooxml/scripts/unpack.py` konumunda bulunur. Betik bu yolda mevcut değilse, `find . -name "unpack.py"` kullanarak konumunu bulun.
-
+  
   #### Temel dosya yapıları
   * `ppt/presentation.xml` - Ana sunum metadata'sı ve slayt referansları
   * `ppt/slides/slide{N}.xml` - Bireysel slayt içeriği (slide1.xml, slide2.xml, vb.)
@@ -46,43 +46,43 @@ body_tr: |-
   * `ppt/slideMasters/` - Ana slayt şablonları
   * `ppt/theme/` - Tema ve stil bilgisi
   * `ppt/media/` - Görseller ve diğer medya dosyaları
-
+  
   #### Tipografi ve renk ayıklama
   **Taklit etmek için bir örnek tasarım verildiğinde**: Aşağıdaki yöntemleri kullanarak sunumun tipografisi ve renklerini her zaman önce analiz edin:
   1. **Tema dosyasını okuyun**: Renkler için `ppt/theme/theme1.xml` dosyasını kontrol edin (`<a:clrScheme>`) ve yazı tipleri (`<a:fontScheme>`)
   2. **Örnek slayt içeriğini inceleyin**: Gerçek yazı tipi kullanımı (`<a:rPr>`) ve renkler için `ppt/slides/slide1.xml` dosyasını inceleyin
   3. **Kalıpları arayın**: Tüm XML dosyaları arasında renk (`<a:solidFill>`, `<a:srgbClr>`) ve yazı tipi referansları bulmak için grep kullanın
-
+  
   ## Yeni bir PowerPoint sunumu oluşturma **şablon olmadan**
-
+  
   Sıfırdan yeni bir PowerPoint sunumu oluştururken, HTML slytlarını doğru konumlandırma ile PowerPoint'e dönüştürmek için **html2pptx** iş akışını kullanın.
-
+  
   ### Tasarım İlkeleri
-
+  
   **KRİTİK**: Herhangi bir sunum oluşturmadan önce içeriği analiz edin ve uygun tasarım öğelerini seçin:
   1. **Konu başlığını düşünün**: Bu sunum ne hakkında? Hangi ton, endüstri veya ruh durumu önerir?
   2. **Markalaştırmayı kontrol edin**: Kullanıcı bir şirket/kuruluş belirtiyorsa, onların marka renklerini ve kimliğini göz önünde bulundurun
   3. **Paleti içeriğe uyarlayın**: İçeriği yansıtan renkler seçin
   4. **Yaklaşımınızı belirtin**: Kod yazmadan önce tasarım seçimlerinizi açıklayın
-
+  
   **Gereksinimler**:
   - ✅ Kod yazmadan önce içeriğe dayalı tasarım yaklaşımınızı belirtin
   - ✅ Yalnızca web-güvenli yazı tipleri kullanın: Arial, Helvetica, Times New Roman, Georgia, Courier New, Verdana, Tahoma, Trebuchet MS, Impact
   - ✅ Boyut, ağırlık ve renk aracılığıyla net görsel hiyerarşi oluşturun
   - ✅ Okunabilirliği sağlayın: güçlü kontrast, uygun şekilde boyutlandırılmış metin, temiz hizalama
   - ✅ Tutarlı olun: kalıpları, aralığı ve görsel dili slytlar arasında tekrarlayın
-
+  
   #### Renk Paleti Seçimi
-
+  
   **Yaratıcı bir şekilde renk seçimi**:
   - **Varsayılanların ötesini düşünün**: Bu spesifik konu için hangi renkler gerçekten uyuyor? Otopilot seçimlerinden kaçının.
   - **Çoklu açılardan düşünün**: Konu, endüstri, ruh durumu, enerji seviyesi, hedef kitle, marka kimliği (belirtilmişse)
   - **Cesur olun**: Beklenmedik kombinasyonları deneyin - bir sağlık sunumu yeşil olmak zorunda değildir, finans lacivert olmak zorunda değildir
   - **Paletiinizi oluşturun**: Birlikte çalışan 3-5 renk seçin (baskın renkler + destekleyici tonlar + vurgu)
   - **Kontrastı sağlayın**: Metin arka planlar üzerinde net bir şekilde okunabilir olmalıdır
-
+  
   **Örnek renk paletleri** (yaratıcılığınızı tetiklemek için bunları kullanın - birini seçin, uyarlayın veya kendinizinkini oluşturun):
-
+  
   1. **Klasik Mavi**: Derin lacivert (#1C2833), şist grisi (#2E4053), gümüş (#AAB7B8), ekru beyaz (#F4F6F6)
   2. **Teal & Mercan**: Teal (#5EA8A7), derin teal (#277884), mercan (#FE4447), beyaz (#FFFFFF)
   3. **Cesur Kırmızı**: Kırmızı (#C0392B), parlak kırmızı (#E74C3C), turuncu (#F39C12), sarı (#F1C40F), yeşil (#2ECC71)
@@ -101,9 +101,9 @@ body_tr: |-
   16. **Vintage Toprak Tonları**: Hardal (#E3B448), adaçayı (#CBD18F), orman yeşili (#3A6B35), krem (#F4F1DE)
   17. **Kıyı Gülü**: Eski gül (#AD7670), kunduz (#B49886), kabuk beyazı (#F3ECDC), kül grisi (#BFD5BE)
   18. **Turuncu & Turkuaz**: Açık turuncu (#FC993E), gri turkuaz (#667C6F), beyaz (#FCFCFC)
-
+  
   #### Görsel Detaylar Seçenekleri
-
+  
   **Geometrik Desenler**:
   - Yatay yerine köşegen bölüm ayırıcıları
   - Asimetrik sütun genişlikleri (30/70, 40/60, 25/75)
@@ -111,14 +111,14 @@ body_tr: |-
   - Görseller için dairesel/altıgen çerçeveler
   - Köşelerde üçgensel vurgu şekilleri
   - Derinlik için örtüşen şekiller
-
+  
   **Kenarlık & Çerçeve Uygulamaları**:
   - Kalın tek renkli kenarlıklar (10-20pt) sadece bir tarafta
   - Zıt renklerle çift çizgi kenarlıklar
   - Tam çerçeveler yerine köşe parantezleri
   - L şekilli kenarlıklar (üst+sol veya alt+sağ)
   - Başlıkların altında çizgi vurgusu (3-5pt kalın)
-
+  
   **Tipografi Uygulamaları**:
   - Uç boyut kontrasti (72pt başlıklar vs 11pt gövde)
   - Geniş harf aralığı ile tümü büyük harfli başlıklar
@@ -126,7 +126,7 @@ body_tr: |-
   - Veri/istatistik/teknik içerik için monospace (Courier New)
   - Yoğun bilgi için daraltılmış yazı tipleri (Arial Narrow)
   - Vurgu için anahatlandırılmış metin
-
+  
   **Grafik & Veri Stillemesi**:
   - Tek vurgu rengi ile anahtar veriler için monokrom grafikler
   - Dikey yerine yatay çubuk grafikler
@@ -134,7 +134,7 @@ body_tr: |-
   - Minimal ızgara çizgileri veya hiçbiri
   - Öğelerin doğrudan üzerinde veri etiketleri (göstergeler yok)
   - Önemli metrikler için aşırı büyük sayılar
-
+  
   **Düzen İnovasyonları**:
   - Metin örtüşme ile tam kapalı görseller
   - Navigasyon/bağlam için kenar sütunu (20-30% genişlik)
@@ -142,20 +142,20 @@ body_tr: |-
   - Z deseni veya F deseni içerik akışı
   - Renkli şekiller üzerinde kayan metin kutuları
   - Dergi stili çok sütunlu düzenler
-
+  
   **Arka Plan Uygulamaları**:
   - Slytın %40-60'ını kaplayan katı renk blokları
   - Gradyan dolgular (yalnızca dikey veya çapraz)
   - Bölünmüş arka planlar (iki renk, çapraz veya dikey)
   - Kenardan kenara renk bantları
   - Tasarım öğesi olarak negatif alan
-
+  
   ### Düzen İpuçları
   **Grafikler veya tablolar içeren slytlar oluştururken:**
   - **İki sütunlu düzen (TERCİH EDİLEN)**: Tam genişlikte bir başlık kullanın, ardından aşağıda iki sütun - bir sütunda metin/bullet'ler ve diğerinde öne çıkan içerik. Bu daha iyi denge sağlar ve grafikleri/tabloları daha okunabilir hale getirir. Eşit olmayan sütun genişlikleri (örn. 40%/60% bölünme) ile flexbox kullanarak her içerik türü için alanı optimize edin.
   - **Tam slayt düzeni**: Öne çıkan içeriğin (grafik/tablo) maksimum etki ve okunabilirlik için tüm slyytı kaplamasına izin verin
   - **ASLa düşey yığınlamayın**: Grafikleri/tabloları tek bir sütundaki metnin altına yerleştirmeyin - bu kötü okunabilirlik ve düzen sorunlarına neden olur
-
+  
   ### İş Akışı
   1. **ZORUNLU - TÜM DOSYAYI OKU**: [`html2pptx.md`](html2pptx.md) dosyasını başından sonuna kadar tamamen okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.** Sunum oluşturmaya devam etmeden önce ayrıntılı sözdizimi, kritik biçimlendirme kuralları ve en iyi uygulamaları öğrenin.
   2. Uygun boyutlarla her slayt için bir HTML dosyası oluşturun (örn. 16:9 için 720pt × 405pt)
@@ -176,29 +176,29 @@ body_tr: |-
        - **Kontrast sorunları**: Metin ve arka planlar arasında yetersiz kontrast
      - Sorun bulunursa, HTML kenar boşluğu/aralığı/renkleri ayarlayın ve sunumu yeniden oluşturun
      - Tüm slytlar görsel olarak doğru olana kadar tekrarlayın
-
+  
   ## Mevcut bir PowerPoint sunumunu düzenleme
-
+  
   Mevcut bir PowerPoint sunumundaki slytları düzenlerken, ham Office Open XML (OOXML) formatı ile çalışmanız gerekir. Bu, .pptx dosyasını açmayı, XML içeriğini düzenlemeyi ve yeniden paketlemeyi içerir.
-
+  
   ### İş Akışı
   1. **ZORUNLU - TÜM DOSYAYI OKU**: [`ooxml.md`](ooxml.md) dosyasını (~500 satır) başından sonuna kadar tamamen okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.** Herhangi bir sunum düzenlemesinden önce OOXML yapısı ve düzenleme iş akışları hakkında tam bilgi edinin.
   2. Sunumu açın: `python ooxml/scripts/unpack.py <office_file> <output_dir>`
   3. XML dosyalarını düzenleyin (özellikle `ppt/slides/slide{N}.xml` ve ilgili dosyalar)
   4. **KRİTİK**: Her düzenlemeden sonra hemen doğrulayın ve devam etmeden önce herhangi bir doğrulama hatasını düzeltin: `python ooxml/scripts/validate.py <dir> --original <file>`
   5. Son sunumu paketleyin: `python ooxml/scripts/pack.py <input_directory> <office_file>`
-
+  
   ## Yeni bir PowerPoint sunumu oluşturma **şablon kullanarak**
-
+  
   Mevcut bir şablonun tasarımını takip eden bir sunum oluştururken, şablon slytlarını düzenlemeden önce kopyalayıp yeniden düzenlemeniz gerekir.
-
+  
   ### İş Akışı
   1. **Şablon metnini ayıklayın VE görsel küçük resim ızgarası oluşturun**:
      * Metni ayıklayın: `python -m markitdown template.pptx > template-content.md`
      * `template-content.md` dosyasını okuyun: Şablon sunumunun içeriğini anlamak için tüm dosyayı okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.**
      * Küçük resim ızgaraları oluşturun: `python scripts/thumbnail.py template.pptx`
      * Daha fazla ayrıntı için [Küçük Resim Izgaraları Oluşturma](#küçük-resim-ızgaraları-oluşturma) bölümüne bakın
-
+  
   2. **Şablonu analiz edin ve envanteri bir dosyaya kaydedin**:
      * **Görsel Analiz**: Slayt düzenlerini, tasarım kalıplarını ve görsel yapıyı anlamak için küçük resim ızgaralarını gözden geçirin
      * `template-inventory.md` konumunda bir şablon envanteri dosyası oluşturun ve kaydedin:
@@ -206,7 +206,7 @@ body_tr: |-
        # Şablon Envanteri Analizi
        **Toplam Slytlar: [sayı]**
        **ÖNEMLİ: Slytlar 0 tabanlıdır (ilk slayt = 0, son slayt = sayı-1)**
-
+  
        ## [Kategori Adı]
        - Slayt 0: [Düzen kodu mevcutsa] - Açıklama/amaç
        - Slayt 1: [Düzen kodu] - Açıklama/amaç
@@ -219,7 +219,7 @@ body_tr: |-
        - Slayt grupları arasında tasarım tutarlılığı
        - Görsel hiyerarşi ve yapı
      * Bu envanter dosyası sonraki adımda uygun şablonları seçmek için ZORUNLUDUR
-
+  
   3. **Şablon envanterine dayalı sunum taslağı oluşturun**:
      * 2. adımdan kullanılabilir şablonları gözden geçirin.
      * İlk slayt için bir giriş veya başlık şablonu seçin. Bu, ilk şablonlardan biri olmalıdır.
@@ -250,7 +250,7 @@ body_tr: |-
             54,  # Slayt 54'ü kullanın (F2: Kapanış + Metin)
         ]
         ```
-
+  
   4. **`rearrange.py` kullanarak slytları çoğaltın, yeniden düzenleyin ve silin**:
      * Yeni sunumu istenen sırada slytlar ile oluşturmak için `scripts/rearrange.py` betiğini kullanın:
        ```bash
@@ -259,14 +259,14 @@ body_tr: |-
      * Betik, tekrarlanan slytları çoğaltmayı, kullanılmayan slytları silmeyi ve otomatik olarak yeniden düzenlemeyi yönetir
      * Slayt indeksleri 0 tabanlıdır (ilk slayt 0, ikinci 1, vb.)
      * Aynı slayt indeksi o slyytı çoğaltmak için birden fazla kez görünebilir
-
+  
   5. **`inventory.py` betiğini kullanarak TÜM metni ayıklayın**:
      * **Envanter ayıklamayı çalıştırın**:
        ```bash
        python scripts/inventory.py working.pptx text-inventory.json
        ```
      * **text-inventory.json dosyasını okuyun**: Tüm şekilleri ve özelliklerini anlamak için tüm dosyayı okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.**
-
+  
      * Envanter JSON yapısı:
         ```json
           {
@@ -299,7 +299,7 @@ body_tr: |-
             }
           }
         ```
-
+  
      * Temel özellikler:
        - **Slytlar**: "slide-0", "slide-1", vb. olarak adlandırılmıştır
        - **Şekiller**: Görsel konumuna göre sıralanır (yukarıdan aşağıya, soldan sağa) "shape-0", "shape-1", vb. olarak
@@ -310,7 +310,7 @@ body_tr: |-
        - **Aralık**: `space_before`, `space_after` ve `line_spacing` puan cinsinden (yalnızca ayarlandığında eklenmiştir)
        - **Renkler**: RGB için `color` (örn. "FF0000"), tema renkleri için `theme_color` (örn. "DARK_1")
        - **Özellikler**: Yalnızca varsayılandan farklı değerler çıktıya dahil edilmiştir
-
+  
   6. **Yer değiştirilecek metni oluşturun ve verileri bir JSON dosyasına kaydedin**
      Önceki
 ---

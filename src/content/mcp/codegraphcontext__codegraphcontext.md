@@ -3,17 +3,17 @@ name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
 category: "Coding Agents"
 repo: "CodeGraphContext/CodeGraphContext"
-stars: 3417
+stars: 3746
 url: "https://github.com/CodeGraphContext/CodeGraphContext"
-body_length: 18909
+body_length: 20893
 license: "MIT"
 language: "Python"
-homepage: "https://codegraphcontext.vercel.app/"
+homepage: "https://cgc.codes"
 body_tr: |-
   # 🏗️ CodeGraphContext (CGC)
-
+  
   **Kod depolarını AI ajanları için sorgulanabilir bir grafa dönüştürün.**
-
+  
   🌐 **Diller:**
   - 🇬🇧 [English](README.md)
   - 🇨🇳 [中文](README.zh-CN.md)
@@ -22,9 +22,9 @@ body_tr: |-
   - 🇷🇺 [Русский](README.ru-RU.md)
   - 🇯🇵 日本語 (Yakında)
   - 🇪🇸 Español (Yakında)
-
+  
   🌍 **CodeGraphContext'i dilinize çevirmek için lütfen https://github.com/Shashankss1205/CodeGraphContext/issues adresinde bir issue ve PR açın!**
-
+  
   <p align="center">
     <br>
     <b>Derin kod grafikleri ile AI context arasındaki boşluğu kapatın.</b>
@@ -75,12 +75,12 @@ body_tr: |-
       
     </a>
   </p>
-
-
+  
+  
   Yerel kodu bir grafik veritabanına indexleyen güçlü bir **MCP sunucusu** ve **CLI araç takımı**. AI asistanları ve geliştiricilere context sağlar. Bunu kapsamlı kod analizi için bağımsız bir CLI olarak kullanabilir veya AI destekli kod anlama için MCP yoluyla favori AI IDE'nize bağlayabilirsiniz.
-
+  
   ---
-
+  
   ## 📍 Hızlı Navigasyon
   * [🚀 Hızlı Başlangıç](#hızlı-başlangıç) 
   * [🌐 Desteklenen Programlama Dilleri](#desteklenen-programlama-dilleri) 
@@ -88,53 +88,53 @@ body_tr: |-
   * [🤖 MCP Sunucusu](#-mcp-sunucusu-modu-için) 
   * [🗄️ Veritabanı Seçenekleri](#veritabanı-seçenekleri)
   * [🔬 SCIP indexing (isteğe bağlı)](#scip-indexing-isteğe-bağlı)
-
+  
   ---
-
+  
   ## ✨ CGC Deneyimi
-
-
+  
+  
   ### 👨🏻‍💻 Kurulum ve CLI
   > Pip ile saniyeler içinde kurun ve kod grafı analizi için güçlü bir CLI'ı açın.
   ![Kurun ve CLI'ı hemen açın](https://github.com/CodeGraphContext/CodeGraphContext/blob/main/images/install&cli.gif)
-
-
+  
+  
   ### 🛠️ Saniyeler İçinde Indexleme
   > CLI akıllıca tree-sitter düğümlerinizi grafiği oluşturmak için ayrıştırır.
   ![MCP istemcisini kullanarak indexleme](https://github.com/CodeGraphContext/CodeGraphContext/blob/main/images/Indexing.gif)
-
+  
   ### 🤖 AI Asistanınızı Güçlendirme
   > Doğal dili kullanarak MCP aracılığıyla karmaşık çağrı zincirlerini sorgulayın.
   ![MCP sunucusunu kullanma](https://github.com/CodeGraphContext/CodeGraphContext/blob/main/images/Usecase.gif)
-
+  
   ---
-
+  
   ## Proje Detayları
   - **Sürüm:** 0.4.11
   - **Yazarlar:** Shashank Shekhar Singh <shashankshekharsingh1205@gmail.com>
   - **Lisans:** MIT License (Detaylar için [LICENSE](LICENSE) adresine bakın)
   - **Web Sitesi:** [CodeGraphContext](http://codegraphcontext.vercel.app/)
-
+  
   ---
-
+  
   ## 👨‍💻 Geliştirici
   **CodeGraphContext** tarafından oluşturulan ve aktif olarak yönetilen:
-
+  
   **Shashank Shekhar Singh**  
   - 📧 Email: [shashankshekharsingh1205@gmail.com](mailto:shashankshekharsingh1205@gmail.com)
   - 🐙 GitHub: [@Shashankss1205](https://github.com/Shashankss1205)
   - 🔗 LinkedIn: [Shashank Shekhar Singh](https://www.linkedin.com/in/shashank-shekhar-singh-a67282228/)
   - 🌐 Web Sitesi: [codegraphcontext.vercel.app](https://codegraphcontext.vercel.app/)
-
+  
   *Katkılar ve geri bildirim her zaman hoş geldiniz! Sorular, öneriler veya işbirliği fırsatları için bizimle iletişime geçmekten çekinmeyin.*
-
+  
   ---
-
+  
   ## Yıldız Tarihi
   [![Star History Chart](https://api.star-history.com/svg?repos=CodeGraphContext/CodeGraphContext&type=Date)](https://www.star-history.com/#CodeGraphContext/CodeGraphContext&Date)
-
+  
   ---
-
+  
   ## Özellikler
   -   **Kod Indexleme:** Kodu analiz eder ve bileşenlerinin bir bilgi grafiği oluşturur.
   -   **İlişki Analizi:** Çağıranlar, çağrılanlar, sınıf hiyerarşileri, çağrı zincirleri ve daha fazlası için sorgulama yapın.
@@ -144,14 +144,14 @@ body_tr: |-
   -   **Çift Mod:** Geliştiriciler için bağımsız bir **CLI araç takımı** ve AI ajanları için bir **MCP sunucusu** olarak çalışır.
   -   **Çok Dil Desteği:** 20 programlama dili için tam destek.
   -   **Esnek Veritabanı Backend'i:** FalkorDB Lite (Varsayılan), KuzuDB, LadybugDB, FalkorDB Remote, Nornic DB, veya Neo4j (tüm platformlar Docker/native aracılığıyla).
-
-
+  
+  
   ---
-
+  
   ## Desteklenen Programlama Dilleri
-
+  
   CodeGraphContext aşağıdaki diller için kapsamlı ayrıştırma ve analiz sağlar:
-
+  
   | | Dil | | Dil | | Dil |
   | :--- | :--- | :--- | :--- | :--- | :--- |
   | 🐍 | **Python** | 📜 | **JavaScript** | 🔷 | **TypeScript** |
@@ -161,15 +161,15 @@ body_tr: |-
   | 🎯 | **Dart** | 🐪 | **Perl** | 🌙 | **Lua** |
   | 🚀 | **Scala** | λ | **Haskell** | 💧 | **Elixir** |
   | ⚛️ | **TSX** | | | | |
-
+  
   Her dil ayrıştırıcısı, kapsamlı bir kod grafiği oluşturmak için fonksiyonları, sınıfları, metodları, parametreleri, kalıtım ilişkilerini, fonksiyon çağrılarını ve importları çıkarır.
-
+  
   ---
-
+  
   ## Veritabanı Seçenekleri
-
+  
   CodeGraphContext, ortamınıza uygun birden fazla grafik veritabanı backend'ini destekler:
-
+  
   | Özellik | KuzuDB | LadybugDB | FalkorDB Lite | Neo4j / Nornic DB |
   | :--- | :--- | :--- | :--- | :--- |
   | **Tipik varsayılan** | **Standart Varsayılan** (gömülü, KuzuDB tarafından güçlendirilmiş) | **Uzmanlaştırılmış Gömülü** (Kuzu'ya benzer) | **Unix** (Python 3.12+, `falkordblite` çalıştığında) | Açıkça yapılandırıldığında |
@@ -179,35 +179,35 @@ body_tr: |-
   | **Gereksinim**| `pip install kuzu` | `pip install ladybug` | `pip install falkordblite` | Neo4j Sunucusu / Docker / Nornic Cloud |
   | **Hız** | ⚡ Aşırı Hızlı | ⚡ Hızlı | 🚀 Ölçeklenebilir |
   | **Kalıcılık**| Evet (diske) | Evet (diske) | Evet (diske) |
-
+  
   ---
-
+  
   ## SCIP indexing (isteğe bağlı)
-
+  
   CGC yapılandırmanızda (`~/.codegraphcontext/.env`) `SCIP_INDEXER=true` olduğunda, bazı diller Tree-sitter buluşsal yöntemlerinin tek başına sağlayabileceğinden daha doğru çağrılar ve kalıtım için harici **SCIP** indexleyicileri kullanır.
-
+  
   **C ve C++** bir **`compile_commands.json`** dosyası gerektiren **scip-clang** kullanır (bir [JSON derlemesi veritabanı](https://clang.llvm.org/docs/JSONCompilationDatabase.html)): çeviri birimi başına bir giriş gerçek derleyici komutunun yanında (include yolları, `-D` tanımları, `-std`, vb.). Olmadan, scip-clang çalıştırılamaz; CGC bir uyarı kaydeder ve **Tree-sitter'a geri döner** o repo için. Dosyayı oluşturmanın tipik yolları: **CMake** `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` ile veya gerçek yapınızı **[Bear](https://github.com/rizsotto/Bear)** ile sarın (ör. `bear -- make`). CGC ayrıca `build/` ve `cmake-build-*/` altında o dosyadaki adını arar.
-
+  
   **C#** **scip-dotnet** (Roslyn) kullanır; normal bir **`.csproj` / `.sln`** ve başarılı bir restore gerekir—`compile_commands.json` gerekli değildir.
-
+  
   SCIP, **hangi grafik veritabanından** bağımsızdır (Kuzu, Neo4j, vb.); aynı bayrak tüm backend'ler için geçerlidir.
-
+  
   ---
-
+  
   ## Tarafından Kullanılıyor
-
+  
   CodeGraphContext zaten geliştiriciler ve projeler tarafından şunlar için keşfediliyor:
-
+  
   - **AI asistanlarında statik kod analizi**
   - **Projelerin grafik tabanlı görselleştirilmesi**
   - **Ölü kod ve karmaşıklık tespiti**
-
+  
   _CodeGraphContext'i projenizde kullanıyorsanız, bir PR açmaktan ve burada eklemekten çekinmeyin! 🚀_
-
+  
   ---
-
+  
   ## Bağımlılıklar
-
+  
   - `neo4j>=5.15.0`
   - `watchdog>=3.0.0`
   - `stdlibs>=2023.11.18`
@@ -226,85 +226,85 @@ body_tr: |-
   - `uvicorn>=0.22.0`
   - `requests>=2.28.0`
   - `protobuf>=3.20,<3.21`
-
+  
   **Not:** Python 3.10-3.14 desteklenir.
-
+  
   ---
-
+  
   ### 🚀 Kurulum & Hızlı Başlangıç
-
+  
   1.  **Araç takımını kurun:**
       ```bash
       pip install codegraphcontext
       ```
-
+  
   2.  **Sorun Giderme (Komut Bulunamadı):**
       `codegraphcontext` komutu bulunamazsa, bu tek satırlık düzeltmeyi çalıştırın:
       ```bash
       curl -sSL https://raw.githubusercontent.com/CodeGraphContext/CodeGraphContext/main/scripts/post_install_fix.sh | bash
       ```
-
+  
   3.  **Veritabanı Kurulumu (Otomatik):**
       CodeGraphContext varsayılan olarak gömülü bir grafik veritabanı kullanır.
       - **FalkorDB Lite:** Varsayılan backend.
       - **KuzuDB:** Platformlar arası gömülü backend.
       - **Neo4j:** Harici sunucu kullanmak için `codegraphcontext neo4j setup` komutunu çalıştırın.
-
+  
   ---
-
+  
   ### CLI Araç Takımı Modu İçin
-
+  
   **CLI komutlarıyla hemen kullanmaya başlayın:**
   ```bash
   # Geçerli dizininizi indexleyin
   codegraphcontext index .
-
+  
   # Tüm indexlenmiş depoları listeleyin
   codegraphcontext list
-
+  
   # Bir fonksiyonu kimin çağırdığını analiz edin
   codegraphcontext analyze callers my_function
-
+  
   # Karmaşık kodu bulun
   codegraphcontext analyze complexity --threshold 10
-
+  
   # Ölü kodu bulun
   codegraphcontext analyze dead-code
-
+  
   # Canlı değişiklikleri izleyin (isteğe bağlı)
   codegraphcontext watch .
-
+  
   # Tüm komutları göreceğiniz
   codegraphcontext help
   ```
-
+  
     **Tüm komutlar ve kullanım senaryoları için tam [CLI Komutları Kılavuzuna](docs/CLI_COMPLETE_REFERENCE.md) bakın.**
-
+  
   ### 🎨 Premium İnteraktif Görselleştirme
   CodeGraphContext, kodunuzun etkileyici etkileşimli bilgi grafiklerini oluşturabilir. Statik diyagramların aksine, bunlar premium web tabanlı araştırmacılarıdır:
-
+  
   - **Premium Estetik**: Dark mode, glassmorphism ve modern tipografi (Outfit/JetBrains Mono).
   - **İnteraktif İnceleme**: Sembol bilgisi, dosya yolları ve bağlam içeren ayrıntılı bir yan panel açmak için herhangi bir düğüme tıklayın.
   - **Hızlı Arama**: Belirli sembolleri anında bulmak için grafik aracılığıyla canlı arama.
   - **Akıllı Düzenler**: Karmaşık ilişkileri okunabilir hale getiren kuvvet yönelimli ve hiyerarşik düzenler.
   - **Sıfır Bağımlılık Görüntüleme**: Herhangi bir modern tarayıcıda çalışan bağımsız HTML dosyaları.
-
+  
   ```bash
   # Fonksiyon çağrılarını görselleştirin
   codegraphcontext analyze calls my_function --viz
-
+  
   # Sınıf hiyerarşilerini keşfedin
   codegraphcontext analyze tree MyClass --viz
-
+  
   # Arama sonuçlarını görselleştirin
   codegraphcontext find pattern "Auth" --viz
   ```
-
-
+  
+  
   ---
-
+  
   ### 🤖 MCP Sunucusu Modu İçin
-
+  
   **AI asistanınızı CodeGraphContext kullanacak şekilde yapılandırın:**
   1.  **Kurulum:** IDE/AI asistanınızı yapılandırmak için MCP kurulum sihirbazını çalıştırın:
       
@@ -323,47 +323,47 @@ body_tr: |-
       *   RooCode
       *   Amazon Q Developer
       *   Kiro
-
+  
       Başarılı yapılandırmanın ardından, `codegraphcontext mcp setup` gerekli yapılandırma dosyalarını oluşturacak ve yerleştirecektir:
       *   Referans için geçerli dizininizde bir `mcp.json` dosyası oluşturur.
       *   Veritabanı kimlik bilgilerinizi `~/.codegraphcontext/.env`'de güvenli bir şekilde depolar.
       *   Seçilen IDE/CLI'ın ayarlar dosyasını güncelleştir (ör. `.claude.json` veya VS Code'ın `settings.json`).
-
+  
   2.  **Başlat:** MCP sunucusunu başlat:    
       ```bash
       codegraphcontext mcp start
       ```
-
+  
   3.  **Kullan:** Şimdi AI asistanınız aracılığıyla doğal dil kullanarak kod tabanınızla etkileşim kurun! Aşağıdaki örneklere bakın.
-
+  
   ---
-
+  
   ## Dosyaları Yoksayma (`.cgcignore`)
-
+  
   Proje kökünüzde bir `.cgcignore` dosyası oluşturarak CodeGraphContext'e belirli dosya ve dizinleri yoksaymasını söyleyebilirsiniz. Bu dosya `.gitignore` ile aynı söz dizimini kullanır.
-
+  
   **Örnek `.cgcignore` dosyası:**
   ```
   # Derleme yapılarını yoksayın
   /build/
   /dist/
-
+  
   # Bağımlılıkları yoksayın
   /node_modules/
   /vendor/
-
+  
   # Günlükleri yoksayın
   *.log
   ```
-
+  
   ---
-
+  
   ## MCP İstemci Yapılandırması
-
+  
   `codegraphcontext mcp setup` komutu IDE/CLI'nızı otomatik olarak yapılandırmaya çalışır. Otomatik kurulumunu kullanmamayı seçerseniz veya aracınız desteklenmiyorsa, bunu el ile yapılandırabilirsiniz.
-
+  
   İstemcinizin ayarlar dosyasına (ör. VS Code'ın `settings.json` veya `.claude.json`) aşağıdaki sunucu yapılandırmasını ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -384,9 +384,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### Pipx aracılığıyla kurulduysa
-
+  
   CodeGraphContext'i `pipx` kullanarak kurdıysanız, bunun yerine aşağıdaki yapılandırmayı kullanın:
   ```json
   {
@@ -410,77 +410,77 @@ body_tr: |-
     }
   }
   ```
-
+  
   ---
-
+  
   ## Doğal Dil Etkileşim Örnekleri
-
+  
   Sunucu çalıştıktan sonra, AI asistanınız aracılığıyla düz İngilizce kullanarak etkileşim kurabilirsiniz. İşte söyleyebileceğiniz şeylerden bazı örnekler:
-
+  
   ### Dosyaları Indexleme ve İzleme
-
+  
   -   **Yeni bir projeyi indexlemek için:**
       -   "Lütfen `/path/to/my-project` dizinindeki kodu indexleyin."
       VEYA
       -   "Projesi `~/dev/my-other-project`'de kod grafiğine ekle."
-
-
+  
+  
   -   **Canlı değişiklikler için bir dizini izlemeye başlamak için:**
       -   "Değişiklikler için `/path/to/my-active-project` dizinini izle."
       VEYA
       -   "`~/dev/main-app`'de çalıştığım proje için kod grafiğini güncel tut."
-
+  
       Bir dizini izlemek istediğinizde, sistem aynı anda iki işlem gerçekleştirir:
       1.  O dizindeki tüm kodu indexlemek için tam bir tarama başlatır. Bu işlem arka planda çalışır ve ilerlemeyi izlemek için bir `job_id` alırsınız.
       2.  Grafiği gerçek zamanlı olarak güncel tutmak için dizini dosya değişiklikleri için izlemeye başlar.
-
+  
       Bu, sisteme basitçe bir dizini izlemesini söyleyerek başlayabileceğiniz ve hem ilk indexlemenin hem de süregelen güncellemelerin otomatik olarak işleneceği anlamına gelir.
-
+  
   ### Kodu Sorgulama ve Anlama
-
+  
   -   **Kodun nerede tanımlandığını bulma:**
       -   "`process_payment` fonksiyonu nerede?"
       -   "`User` sınıfını bul benim için."
       -   "'veritabanı bağlantısı' ile ilgili herhangi bir kodu göster."
-
+  
   -   **İlişkiler ve etkiyi analiz etme:**
       -   "`get_user_by_id` fonksiyonunu hangi diğer fonksiyonlar çağırıyor?"
       -   "`calculate_tax` fonksiyonunu değiştirirsem, kodun hangi diğer kısımları etkilenecek?"
       -   "`BaseController` sınıfının kalıtım hiyerarşisini göster."
       -   "`Order` sınıfının hangi metodları var?"
-
+  
   -   **Bağımlılıkları keşfetme:**
       -   "Hangi dosyalar `requests` kitaplığını import ediyor?"
       -   "`render` metodunun tüm uygulamalarını bul."
-
+  
   -   **Gelişmiş Çağrı Zinciri ve Bağımlılık İzleme (Yüzlerce Dosyaya Yayılan):**
       CodeGraphContext karmaşık yürütme akışlarını ve bağımlılıkları geniş kod tabanları arasında izlemede mükemmeldir. Grafik veritabanlarının gücünden yararlanarak, bir fonksiyonun birden fazla soyutlama katmanı aracılığıyla veya çok sayıda dosya arasında çağrıldığı zaman bile doğrudan ve dolaylı çağırıcıları ve çağrılanları tanımlayabilir. Bu şu durumlar için çok değerlidir:
       -   **Etki Analizi:** Çekirdek bir fonksiyonda yapılacak değişikliğin tam dalgalanma etkisini anlayın.
       -   **Hata Ayıklama:** Bir giriş noktasından belirli bir hatasına kadar yürütme yolunu izleyin.
       -   **Kod Anlama:** Büyük bir sistemin farklı bölümlerinin nasıl etkileşim kurduğunu kavrayın.
-
+  
       -   "`main` fonksiyonundan `process_data`'ya kadar tam çağrı zincirini göster."
       -   "`validate_input`'u doğrudan veya dolaylı olarak çağıran tüm fonksiyonları bul."
       -   "`initialize_system`'in sonunda çağırdığı tüm fonksiyonlar nelerdir?"
       -   "`DatabaseManager` modülünün bağımlılıklarını izle."
-
+  
   -   **Kod Kalitesi ve Bakım:**
       -   "Bu projede ölü veya kullanılmayan bir kod var mı?"
       -   "`src/utils.py` içinde `process_data` fonksiyonunun döngüsel karmaşıklığını hesapla."
       -   "Kod tabanında en karmaşık 5 fonksiyonu bul."
-
+  
   -   **Depo Yönetimi:**
       -   "Şu anda indexlenmiş tüm depoları listele."
       -   "`/path/to/old-project`'de indexlenmiş depoyu sil."
-
+  
   ---
-
+  
   ## Katkıda Bulunma
-
+  
   Katkılar hoş geldiniz! 🎉  
   Ayrıntılı yönergeler için lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
   Yeni özellikler, entegrasyonlar veya iyileştirmeler için fikirleriniz varsa, bir [issue](https://github.com/CodeGraphContext/CodeGraphContext/issues) açın veya bir Pull Request gönderin.
-
+  
   Tartışmalara katılın ve CodeGraphContext'in geleceğini şekillendirmeye yardımcı olun.
 ---
 
@@ -490,14 +490,14 @@ body_tr: |-
 
 🌐 **Languages:**
 - 🇬🇧 [English](README.md)
-- 🇨🇳 [中文](README.zh-CN.md)
-- 🇰🇷 [한국어](README.kor.md)
-- 🇺🇦 [Українська](README.uk.md)
-- 🇷🇺 [Русский](README.ru-RU.md)
-- 🇯🇵 日本語 (Soon)
+- 🇨🇳 [中文](docs/translations/README.zh-CN.md)
+- 🇰🇷 [한국어](docs/translations/README.kor.md)
+- 🇺🇦 [Українська](docs/translations/README.uk.md)
+- 🇷🇺 [Русский](docs/translations/README.ru-RU.md)
+- 🇯🇵 [日本語](docs/translations/README.ja.md)
 - 🇪🇸 Español (Soon)
 
-🌍 **Help translate CodeGraphContext to your language by raising an issue & PR on https://github.com/Shashankss1205/CodeGraphContext/issues!**
+🌍 **Help translate CodeGraphContext to your language by raising an issue & PR on [GitHub Issues](https://github.com/Shashankss1205/CodeGraphContext/issues)!**
 
 <p align="center">
   <br>
@@ -556,7 +556,9 @@ A powerful **MCP server** and **CLI toolkit** that indexes local code into a gra
 ---
 
 ## 📍 Quick Navigation
-* [🚀 Quick Start](#quick-start) 
+* [🚀 Quick Start](#-installation--quick-start) 
+* [📋 Prerequisites](#-prerequisites)
+* [🏃 How to Run the Project Locally](#-how-to-run-the-project-locally)
 * [🌐 Supported Programming Languages](#supported-programming-languages) 
 * [🛠️ CLI Toolkit](#for-cli-toolkit-mode) 
 * [🤖 MCP Server](#-for-mcp-server-mode) 
@@ -584,7 +586,7 @@ A powerful **MCP server** and **CLI toolkit** that indexes local code into a gra
 ---
 
 ## Project Details
-- **Version:** 0.4.11
+- **Version:** 0.5.1
 - **Authors:** Shashank Shekhar Singh <shashankshekharsingh1205@gmail.com>
 - **License:** MIT License (See [LICENSE](LICENSE) for details)
 - **Website:** [CodeGraphContext](http://codegraphcontext.vercel.app/)
@@ -612,11 +614,11 @@ A powerful **MCP server** and **CLI toolkit** that indexes local code into a gra
 ## Features
 -   **Code Indexing:** Analyzes code and builds a knowledge graph of its components.
 -   **Relationship Analysis:** Query for callers, callees, class hierarchies, call chains and more.
--   **Pre-indexed Bundles:** Load famous repositories instantly with `.cgc` bundles - no indexing required! ([Learn more](docs/BUNDLES.md))
--   **Live File Watching:** Watch directories for changes and automatically update the graph in real-time (`codegraphcontext watch`).
+-   **Pre-indexed Bundles:** Load famous repositories instantly with `.cgc` bundles - no indexing required! ([Learn more](docs/docs/guides/bundles.md))
+-   **Live File Watching:** Watch directories for changes and automatically update the graph in real-time (`cgc watch`).
 -   **Interactive Setup:** A user-friendly command-line wizard for easy setup.
 -   **Dual Mode:** Works as a standalone **CLI toolkit** for developers and as an **MCP server** for AI agents.
--   **Multi-Language Support:** Full support for 20 programming languages.
+-   **Multi-Language Support:** Full support for 23 programming languages.
 -   **Flexible Database Backend:** FalkorDB Lite (Default), KuzuDB, LadybugDB, FalkorDB Remote, Nornic DB, or Neo4j (all platforms via Docker/native).
 
 
@@ -629,12 +631,13 @@ CodeGraphContext provides comprehensive parsing and analysis for the following l
 | | Language | | Language | | Language |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 🐍 | **Python** | 📜 | **JavaScript** | 🔷 | **TypeScript** |
-| ☕ | **Java** | 🏗️ | **C / C++** | #️⃣ | **C#** |
-| 🐹 | **Go** | 🦀 | **Rust** | 💎 | **Ruby** |
-| 🐘 | **PHP** | 🍎 | **Swift** | 🎨 | **Kotlin** |
-| 🎯 | **Dart** | 🐪 | **Perl** | 🌙 | **Lua** |
-| 🚀 | **Scala** | λ | **Haskell** | 💧 | **Elixir** |
-| ⚛️ | **TSX** | | | | |
+| ☕ | **Java** | 🔵 | **C** | ➕ | **C++** |
+| #️⃣ | **C#** | 🐹 | **Go** | 🦀 | **Rust** |
+| 💎 | **Ruby** | 🐘 | **PHP** | 🍎 | **Swift** |
+| 🎨 | **Kotlin** | 🎯 | **Dart** | 🐪 | **Perl** |
+| 🌙 | **Lua** | 🚀 | **Scala** | λ | **Haskell** |
+| 💧 | **Elixir** | 📜 | **Emacs Lisp (elisp)** | 🌐 | **HTML** |
+| 🎨 | **CSS** | ⚛️ | **TSX** | | |
 
 Each language parser extracts functions, classes, methods, parameters, inheritance relationships, function calls, and imports to build a comprehensive code graph.
 
@@ -646,7 +649,7 @@ CodeGraphContext supports multiple graph database backends to suit your environm
 
 | Feature | KuzuDB | LadybugDB | FalkorDB Lite | Neo4j / Nornic DB |
 | :--- | :--- | :--- | :--- | :--- |
-| **Typical default** | **Standard Default** (embedded, powered by KuzuDB) | **Specialized Embedded** (similar to Kuzu) | **Unix** (Python 3.12+, when `falkordblite` works) | When explicitly configured |
+| **Typical default** | Cross-platform fallback when FalkorDB Lite is unavailable | Optional embedded backend | **Default on Unix** (Python 3.12+, when `falkordblite` is installed) | When explicitly configured via `cgc config db` |
 | **Setup** | Zero-config / Embedded | Zero-config / Embedded | Zero-config / In-process | Docker / External |
 | **Platform** | **All (Windows Native, macOS, Linux)** | **All (Windows Native, macOS, Linux)** | Unix-only (Linux/macOS/WSL) | All Platforms |
 | **Use Case** | Desktop, IDE, Local development | Custom research projects | Specialized Unix development | Enterprise, Massive graphs |
@@ -693,8 +696,8 @@ _If you’re using CodeGraphContext in your project, feel free to open a PR and 
 - `tree-sitter-language-pack>=0.6.0` (not installed on Python 3.13)
 - `pyyaml`
 - `pathspec>=0.12.1`
-- `falkordb>=0.1.0`
-- `falkordblite>=0.1.0` (Unix only)
+- `falkordb>=1.0,<1.6`
+- `falkordblite>=0.7,<0.10` (Unix only, Python 3.12+)
 - `kuzu` (KuzuDB engine)
 - `fastapi>=0.100.0`
 - `uvicorn>=0.22.0`
@@ -725,6 +728,84 @@ _If you’re using CodeGraphContext in your project, feel free to open a PR and 
     - **Neo4j:** Run `codegraphcontext neo4j setup` to use an external server.
 
 ---
+
+## 📋 Prerequisites
+
+Before installing CodeGraphContext, ensure you have:
+
+* Python 3.10 or later
+* pip package manager
+* Git (optional, for cloning repositories)
+
+Verify your Python installation:
+
+```bash
+python --version
+```
+
+---
+
+## 🚀 Step-by-Step Setup Guide
+
+### Step 1: Install CodeGraphContext
+
+```bash
+pip install codegraphcontext
+```
+
+This command installs CodeGraphContext and all required dependencies.
+
+### Step 2: Verify Installation
+
+```bash
+codegraphcontext --help
+```
+
+If the command displays the available CLI commands, the installation was successful.
+
+### Step 3: Database Setup
+
+CodeGraphContext automatically uses an embedded database by default, so no additional configuration is required for most users.
+
+---
+
+## 🏃 How to Run the Project Locally
+
+### Index a Repository
+
+```bash
+codegraphcontext index .
+```
+
+This scans the current project and creates a searchable code graph.
+
+### View Indexed Repositories
+
+```bash
+codegraphcontext list
+```
+
+Displays all repositories currently indexed by CodeGraphContext.
+
+### Analyze Code
+
+```bash
+codegraphcontext analyze dead-code
+```
+
+Finds potentially unused code in the indexed repository.
+
+---
+
+## ✅ Verify Everything Works
+
+After indexing a repository, run:
+
+```bash
+codegraphcontext list
+```
+
+If the command executes successfully and displays indexed repositories, your setup is complete and CodeGraphContext is ready to use.
 
 ### For CLI Toolkit Mode
 
@@ -790,6 +871,7 @@ codegraphcontext find pattern "Auth" --viz
     *   VS Code
     *   Cursor
     *   Windsurf
+    *   Zed
     *   Claude
     *   Gemini CLI
     *   ChatGPT Codex
@@ -797,6 +879,8 @@ codegraphcontext find pattern "Auth" --viz
     *   RooCode
     *   Amazon Q Developer
     *   Kiro
+    *   Goose
+    *   OpenCode
 
     Upon successful configuration, `codegraphcontext mcp setup` will generate and place the necessary configuration files:
     *   It creates an `mcp.json` file in your current directory for reference.
@@ -858,6 +942,10 @@ Add the following server configuration to your client's settings file (e.g., VS 
   }
 }
 ```
+
+#### OpenCode Configuration
+
+For instructions on installing and configuring MCP servers with OpenCode, see the [OpenCode MCP Guide](https://opencode.ai/docs/ko/mcp-servers/#_top).
 
 #### If installed via pipx
 
@@ -952,7 +1040,7 @@ Once the server is running, you can interact with it through your AI assistant u
 ## Contributing
 
 Contributions are welcome! 🎉  
-Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+Please see our [CONTRIBUTING.md](.github/CONTRIBUTING.md) for detailed guidelines.
 If you have ideas for new features, integrations, or improvements, open an [issue](https://github.com/CodeGraphContext/CodeGraphContext/issues) or submit a Pull Request.
 
 Join discussions and help shape the future of CodeGraphContext.

@@ -3,53 +3,53 @@ name: "InditexTech/mcp-server-simulator-ios-idb"
 description: "A Model Context Protocol (MCP) server that enables LLMs to interact with iOS simulators (iPhone, iPad, etc.) through natural language commands."
 category: "Developer Tools"
 repo: "InditexTech/mcp-server-simulator-ios-idb"
-stars: 304
+stars: 306
 url: "https://github.com/InditexTech/mcp-server-simulator-ios-idb"
 body_length: 12046
 license: "Apache-2.0"
 language: "TypeScript"
 body_tr: |-
   # 📱 iOS Simulator için MCP Sunucusu
-
+  
   [![MCP Server](https://glama.ai/mcp/servers/@InditexTech/mcp-server-simulator-ios-idb/badge)](https://glama.ai/mcp/servers/@InditexTech/mcp-server-simulator-ios-idb)
-
+  
   Large Language Models'in (LLM) doğal dil komutları aracılığıyla iOS simülatörleriyle etkileşime girmesini sağlayan bir Model Context Protocol (MCP) sunucusu.
-
+  
   ## ℹ️ Genel Bakış
-
+  
   Bu MCP sunucusu, Large Language Models (LLM'ler) ile iOS simülatörleri arasında bir köprü sağlayarak doğal dil komutları aracılığıyla kapsamlı kontrol imkanı sunar. İşte yapabilecekleri:
-
+  
   Ayrıntılı kullanım için Kurulum kılavuzu ve Desteklenen Komutlar bölümlerine bakın. Bu sunucuyu doğrudan MCP entegrasyonu veya bağımsız bir kütüphane olarak kullanabilirsiniz.
-
+  
   Bileşenlerin nasıl çalıştığını ve iOS simülatörlerinin doğal dil kontrolünü nasıl etkinleştirdiğini anlamak için Mimari bölümüne göz atın.
-
+  
   ![demo](https://raw.githubusercontent.com/InditexTech/mcp-server-simulator-ios-idb/HEAD/demo/demo.gif)
-
+  
   ### 🎮 Simülatör Kontrolü
   - Simülatör oturumları oluşturma ve yönetme
   - Simülatörü başlatma, kapatma ve durumunu izleme
   - Mevcut ve çalışan simülatörleri listeleme
   - Simülatör penceresine odaklanma
-
+  
   ### 📱 Uygulama Yönetimi
   - iOS uygulamalarını kurma ve yönetme
   - Uygulamaları başlatma, durdurma ve kaldırma
   - Uygulama durumlarını izleme ve kurulumları doğrulama
   - Uygulama izinlerini ve konfigürasyonlarını işleme
-
+  
   ### 🖱️ UI Etkileşimi ve Test
   - Simülatör UI'ı ile etkileşime girme
   - Dokunma, kaydırma ve düğme basma işlemleri gerçekleştirme
   - Metin ve anahtar dizileri girme
   - UI testleri için erişilebilirlik öğelerine erişim
   - UI etkileşimlerinin videosunu kaydetme
-
+  
   ### 🛠️ Geliştirme ve Hata Ayıklama
   - Ekran görüntüleri ve sistem günlüklerini yakalama
   - Uygulamaların gerçek zamanlı hata ayıklaması
   - Kilitlenme günlüklerini izleme ve analiz etme
   - Dinamik kütüphaneleri kurma ve uygulama verilerini yönetme
-
+  
   ### ⚡ İleri Özellikler
   - Ek işlevler şunları içerir:
     - Konum simülasyonu
@@ -57,66 +57,66 @@ body_tr: |-
     - URL şeması işleme
     - Kişi veritabanı yönetimi
     - Keychain işlemleri
-
+  
   Ayrıntılı kullanım için Kurulum kılavuzu ve Desteklenen Komutlar bölümlerine bakın. Bu sunucuyu doğrudan MCP entegrasyonu veya bağımsız bir kütüphane olarak kullanabilirsiniz.
-
+  
   Bileşenlerin nasıl çalıştığını ve iOS simülatörlerinin doğal dil kontrolünü nasıl etkinleştirdiğini anlamak için Mimari bölümüne göz atın.
-
+  
   ## 📋 Gereksinimler
-
+  
   - **macOS**: iOS simülatör desteği için gereklidir
   - **Node.js**: v14.0.0 veya üstü
   - **Homebrew**: Bağımlılıkları yüklemek için gereklidir
   - **XCode**: iOS simülatörleri yüklü halde
-
+  
   ## 🚀 Kurulum
-
+  
   Bu sunucuyu kurmanın en kolay yolu Cline aracılığıyladır:
-
+  
   1. Basitçe Cline'a sorun:
   ```
   Add this mcp to cline https://github.com/InditexTech/mcp-server-simulator-ios-idb
   ```
-
+  
   2. Cline kurulum sürecini otomatik olarak yönetecek, bağımlılık yönetimi ve konfigürasyonu dahil.
-
+  
   Alternatif olarak, manuel olarak kurabilirsiniz:
-
+  
   ```bash
   # Depoyu klonlayın
   git clone https://github.com/InditexTech/mcp-server-simulator-ios-idb.git
   cd mcp-server-simulator-ios-idb
-
+  
   # Python sanal ortamı oluşturun ve etkinleştirin
   python3 -m venv venv
   source venv/bin/activate  # Unix/macOS üzerinde
-
+  
   # Bağımlılıkları yükleyin
   npm install
-
+  
   # Projeyi derleyin
   npm run build
-
+  
   # Projeyi başlatın
   npm start
-
+  
   # Testleri çalıştırın
   npm test
   ```
-
+  
   Kurulum işlemi otomatik olarak:
   1. macOS üzerinde çalışıp çalışmadığını kontrol eder
   2. idb-companion'ı Homebrew aracılığıyla kurar
   3. fb-idb'yi sanal ortamda pip aracılığıyla kurar
-
+  
   Not: Sunucuyu kullanırken sanal ortamı etkin tuttuğunuzdan emin olun. Terminal pencerenizi kapatıp daha sonra geri dönerseniz, `npm start` komutunu çalıştırmadan önce `source venv/bin/activate` komutuyla sanal ortamı yeniden etkinleştirmeniz gerekir.
-
+  
   ## 🔌 MCP Entegrasyonu
-
+  
   Bu sunucuyu Claude veya diğer LLM asistanları ile kullanmak için:
-
+  
   1. Sunucuyu Claude Desktop'taki MCP ayarlarınıza ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -128,9 +128,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   2. LLM artık iOS simülatörlerini kontrol etmek için doğal dil komutlarını kullanabilir:
-
+  
   ```
   create a simulator session with iPhone 14
   install app /path/to/my-app.ipa
@@ -138,16 +138,16 @@ body_tr: |-
   tap at 100, 200
   take a screenshot
   ```
-
+  
   ## 📚 Kütüphane Olarak Kullanım
-
+  
   Bu paketi kendi projelerinizde bir kütüphane olarak da kullanabilirsiniz:
-
+  
   ### 🔰 Temel Kullanım
-
+  
   ```typescript
   import { createMCPServer } from 'mcp-server-simulator-ios-idb';
-
+  
   async function main() {
     // MCP sunucusunun bir örneğini oluşturun
     const { orchestrator } = createMCPServer();
@@ -165,14 +165,14 @@ body_tr: |-
     const screenshotResult = await orchestrator.processInstruction('take screenshot');
     console.log(`Screenshot saved at: ${screenshotResult.data}`);
   }
-
+  
   main().catch(console.error);
   ```
-
+  
   ### 🚀 İleri Kullanım
-
+  
   Ayrıca bileşenleri doğrudan kullanabilirsiniz:
-
+  
   ```typescript
   import { 
     IDBManager, 
@@ -181,23 +181,23 @@ body_tr: |-
     ParserToOrchestrator,
     OrchestratorToIDB
   } from 'mcp-server-simulator-ios-idb';
-
+  
   // Örnekleri oluşturun
   const idbManager = new IDBManager();
   const parser = new NLParser();
   const orchestrator = new MCPOrchestrator(parser, idbManager);
-
+  
   // Bileşenleri doğrudan kullanın
   const sessionId = await idbManager.createSimulatorSession({
     deviceName: 'iPhone 12',
     platformVersion: '15.0'
   });
-
+  
   await idbManager.tap(sessionId, 100, 200);
   ```
-
+  
   ## 🏗️ Proje Yapısı
-
+  
   ```
   mcp-server-simulator-ios-idb/
   ├── src/                      # Kaynak kodu
@@ -212,11 +212,11 @@ body_tr: |-
   ├── package.json            # Proje konfigürasyonu
   └── tsconfig.json          # TypeScript konfigürasyonu
   ```
-
+  
   ## 🎯 Desteklenen Komutlar
-
+  
   NLParser aşağıdaki doğal dil komutlarını destekler:
-
+  
   ### 🎮 Simülatör Yönetimi
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
@@ -228,7 +228,7 @@ body_tr: |-
   | Simülatörü kapat | Simülatörü kapatır | "shutdown simulator 5A321B8F-4D85-4267-9F79-2F5C91D142C2" |
   | Simülatöre odaklan | Simülatör penceresini öne getirir | "focus simulator", "bring simulator to front" |
   | Simülatör oturumlarını listele | Etkin simülatör oturumlarını listeler | "list simulator sessions", "show active sessions" |
-
+  
   ### 📱 Uygulama Yönetimi
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
@@ -238,7 +238,7 @@ body_tr: |-
   | Uygulamayı kaldır | Uygulamayı kaldırır | "uninstall app com.example.app" |
   | Uygulamaları listele | Kurulu uygulamaları listeler | "list apps", "show installed apps" |
   | Uygulama kurulu mu kontrol et | Uygulamanın kurulu olup olmadığını kontrol eder | "is app com.example.app installed" |
-
+  
   ### 🖱️ UI Etkileşimi
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
@@ -248,13 +248,13 @@ body_tr: |-
   | Metin gir | Metin yazar | "input text Hello World" |
   | Tuşa bas | Kod ile tuşa basar | "press key 4" |
   | Tuş dizisi bas | Bir dizi tuşa basar | "press key sequence 4 5 6" |
-
+  
   ### ♿ Erişilebilirlik
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
   | Öğeleri tanımla | Tüm erişilebilirlik öğelerini listeler | "describe all elements", "show accessibility elements" |
   | Noktayı tanımla | Koordinatlardaki öğeyi tanımlar | "describe point 100, 200", "what's at 150, 300" |
-
+  
   ### 📸 Yakalama ve Günlükler
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
@@ -262,21 +262,21 @@ body_tr: |-
   | Video kaydet | Ekran etkinliğini kaydeder | "record video /path/output.mp4" |
   | Kaydı durdur | Video kaydını durdurur | "stop recording", "stop video recording" |
   | Günlükleri al | Sistem veya uygulama günlüklerini alır | "get logs", "get logs for com.example.app" |
-
+  
   ### 🐛 Hata Ayıklama
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
   | Hata ayıklamayı başlat | Hata ayıklama oturumunu başlatır | "debug app com.example.app", "start debug com.example.app" |
   | Hata ayıklamayı durdur | Hata ayıklama oturumunu durdurur | "stop debug", "terminate debug session" |
   | Hata ayıklama durumu | Hata ayıklama oturumunun durumunu alır | "debug status", "show debug info" |
-
+  
   ### 💥 Kilitlenme Günlükleri
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
   | Kilitlenme günlüklerini listele | Mevcut kilitlenme günlüklerini listeler | "list crash logs", "show crash logs" |
   | Kilitlenme günlüğünü göster | Kilitlenme günlüğü içeriğini gösterir | "show crash log crash_2023-01-01" |
   | Kilitlenme günlüklerini sil | Kilitlenme günlüklerini siler | "delete crash logs", "clear crash logs" |
-
+  
   ### 🔧 Ek Komutlar
   | Komut | Açıklama | Örnek |
   |-------|----------|-------|
@@ -287,27 +287,27 @@ body_tr: |-
   | Medya ekle | Kamera fotoğraf akışına medya ekler | "add media /path/to/image.jpg" |
   | İzin onayla | Uygulama izinlerini onaylar | "approve permissions com.example.app photos camera" |
   | Kişileri güncelle | Kişiler veritabanını günceller | "update contacts /path/to/contacts.sqlite" |
-
+  
   Arayüz, idb CLI aracında bulunan tüm komutları destekleyerek iOS simülatör otomasyonu için kapsamlı bir işlem seti sağlar.
-
+  
   ## 🔍 Mimari
-
+  
   Sunucu üç ana bileşenden oluşur:
-
+  
   1. **IDBManager**: iOS simülatörleriyle idb aracılığıyla doğrudan etkileşime giren düşük seviye bileşen.
   2. **NLParser**: Doğal dil talimatlarını yorumlayan ve bunları yapılandırılmış komutlara dönüştüren bileşen.
   3. **MCPOrchestrator**: Parser ve IDBManager arasındaki etkileşimleri koordine eden merkezi bileşen.
-
+  
   Bu bileşenler adaptörler aracılığıyla bağlanır:
   - **ParserToOrchestrator**: Parser sonuçlarını orkestratör komutlarına dönüştürür.
   - **OrchestratorToIDB**: Orkestratör komutlarını IDBManager çağrılarına çevirir.
-
+  
   ## 🔌 MCP Entegrasyonu
-
+  
   Bu sunucuyu Model Context Protocol ile kullanmak için:
-
+  
   1. Sunucuyu MCP ayarlarınıza ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -319,9 +319,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   2. LLM uygulamanızda sunucuya bağlanın:
-
+  
   ```typescript
   const result = await useMcpTool({
     serverName: "ios-simulator",
@@ -331,13 +331,13 @@ body_tr: |-
     }
   });
   ```
-
+  
   ## 🙏 Teşekkürler
-
+  
   Bu proje, temel iOS simülatör kontrol yeteneklerini sağlayan [facebook/idb](https://github.com/facebook/idb) olmadan mümkün olmayacaktı. idb projesi üzerindeki bu kadar güçlü ve güvenilir bir araç oluşturmak ve sürdürmek için Facebook/Meta ekibine ve tüm katkıda bulunanlar öğesine şükranlarımızı sunuyoruz.
-
+  
   ## 📄 Lisans
-
+  
   Bu araç Apache-2.0 koşulları altında açık kaynak olarak mevcuttur.
 ---
 

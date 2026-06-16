@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Cloudconvert Otomasyonu Rube MCP Aracılığıyla
+
+  Composio'nun Cloudconvert toolkit'ini Rube MCP aracılığıyla kullanarak Cloudconvert işlemlerini otomatikleştirin.
+
+  **Toolkit dokümentasyonu**: [composio.dev/toolkits/cloudconvert](https://composio.dev/toolkits/cloudconvert)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir olmalı)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Cloudconvert bağlantısı ve `cloudconvert` toolkit'i
+  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi Alın**: `https://rube.app/mcp` adresini MCP sunucusu olarak istemci konfigürasyonunuza ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt verdiğini onaylayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `RUBE_MANAGE_CONNECTIONS` çağrısını `cloudconvert` toolkit'i ile yapın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
+
+  ## Tool Keşfi
+
+  İş akışlarını çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Cloudconvert operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, kullanılabilir tool slug'ları, input şemaları, önerilen execution planlarını ve bilinen sorunları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Kullanılabilir Tool'ları Keşfet
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Cloudconvert task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantı Kontrolü
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["cloudconvert"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Çalıştır
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanları asla hardcode etmeyin
+  - **Bağlantı kontrolü**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Oturum yeniden kullanımı**: Bir iş akışı içinde oturum ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
+  - **Pagination**: Yanıtları pagination token'ları açısından kontrol edin ve tamamlanana kadar getirmeye devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool bulma | Cloudconvert'e özgü use case ile `RUBE_SEARCH_TOOLS` |
+  | Bağlanma | `RUBE_MANAGE_CONNECTIONS` ile `cloudconvert` toolkit'i |
+  | Çalıştırma | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
+  | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
+  | Tam şema | `schemaRef` olan tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
+
+  ---
+  *Powered by [Composio](https://composio.dev)*
 ---
 
 # Cloudconvert Automation via Rube MCP

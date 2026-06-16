@@ -9,6 +9,49 @@ path: "rules/htmx-go-fiber-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-go-fiber-cursorrules-prompt-file.mdc"
 body_length: 1161
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // HTMX ile Go ve Fiber .cursorrules
+
+  // HTMX, Go ve Fiber en iyi uygulamaları
+
+  const htmxGoFiberBestPractices = [
+    "Sunucu tarafı şablonları için Fiber'ın HTML rendering'ini kullanın",
+    "HTMX istekleri için Fiber'ın routing sistemini uygulayın",
+    "İstek işleme için Fiber'ın middleware'ini kullanın",
+    "API yanıtları için Fiber'ın JSON metodlarını kullanın",
+    "Fiber'ın hata yönetimi ile uygun hata işlemeyi uygulayın",
+    "Kaynaklar için Fiber'ın statik dosya sunumunu kullanın",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  cmd/
+    main.go
+  internal/
+    handlers/
+    models/
+    templates/
+  static/
+    css/
+    js/
+  go.mod
+  go.sum
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. HTMX istekleri için routing'de Fiber'ın App.Get/Post/vb. metodlarını kullanın
+  2. Fiber middleware'i ile CSRF koruması uygulayın
+  3. HTMX'e özgü başlıkları işlemek için Fiber'ın Context'ini kullanın
+  4. Sunucu tarafı rendering için Fiber'ın template engine'ini kullanın
+  5. Fiber'ın Logger middleware'i ile uygun logging'i uygulayın
+  6. Proje yapısı için Fiber'ın en iyi uygulamalarını izleyin
+  7. Yapılandırma için ortam değişkenlerini kullanın
+  `;
+  ```
 ---
 
 // HTMX with Go and Fiber .cursorrules

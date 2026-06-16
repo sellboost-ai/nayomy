@@ -3,44 +3,44 @@ name: "dbt-labs/dbt-mcp"
 description: "Official MCP server for dbt (data build tool) providing integration with dbt Core/Cloud CLI, project metadata discovery, model information, and semantic layer querying capabilities."
 category: "Data Platforms"
 repo: "dbt-labs/dbt-mcp"
-stars: 568
+stars: 577
 url: "https://github.com/dbt-labs/dbt-mcp"
-body_length: 7803
+body_length: 7904
 license: "Apache-2.0"
 language: "Python"
 body_tr: |-
   # dbt MCP Server
   [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11137/badge)](https://www.bestpractices.dev/projects/11137)
-
+  
   Bu MCP (Model Context Protocol) sunucusu dbt ile etkileşim kurmak için çeşitli araçlar sağlar. Bu MCP sunucusunu, AI ajanlarına dbt Core, dbt Fusion ve dbt Platform'daki projenizin bağlamını sağlamak için kullanabilirsiniz.
-
+  
   Daha fazla bilgi edinmek için [buradaki](https://docs.getdbt.com/docs/dbt-ai/about-mcp) belgelerimizi okuyun. [Bu](https://docs.getdbt.com/blog/introducing-dbt-mcp-server) blog yazısı dbt MCP sunucusu ile neler mümkün olduğu hakkında daha fazla detay sağlar.
-
+  
   ## Deneysel MCP Bundle
-
+  
   Her sürümle birlikte deneysel bir Model Context Protocol Bundle (`dbt-mcp.mcpb`) yayınlıyoruz; böylece MCPB tarafından desteklenen istemciler bu sunucuyu ek kurulum olmadan içe aktarabilir. Bundle'ı en son sürüm varlıklarından indirin ve Anthropic'in [`mcpb` CLI](https://github.com/modelcontextprotocol/mcpb) belgelerini izleyerek yükleyin veya inceleyin.
-
+  
   ## Geri Bildirim
-
+  
   Yorumlarınız veya sorularınız varsa, bir GitHub Issue oluşturun veya [community Slack](https://www.getdbt.com/community/join-the-community) kanalımızda `#tools-dbt-mcp` kanalına katılın.
-
-
+  
+  
   ## Mimari
-
+  
   dbt MCP sunucusu mimarisi, ajanınızın çeşitli araçlara bağlanmasını sağlar.
-
+  
   ![dbt MCP sunucusunun mimari diyagramı](https://raw.githubusercontent.com/dbt-labs/dbt-mcp/refs/heads/main/docs/d2.png)
-
+  
   ## Araçlar
-
+  
   ### SQL
-
+  
   dbt Platform altyapısında SQL yürütmek ve oluşturmak için araçlar.
   - `execute_sql`: dbt Platform altyapısında Semantic Layer desteğiyle SQL yürütür.
   - `text_to_sql`: Proje bağlamını kullanarak doğal dilden SQL oluşturur.
-
+  
   ### Semantic Layer
-
+  
   dbt Semantic Layer hakkında daha fazla bilgi edinmek için [buraya](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl) tıklayın.
   - `get_dimensions`: Belirtilen metrikler için boyutları alır.
   - `get_entities`: Belirtilen metrikler için varlıkları alır.
@@ -48,9 +48,9 @@ body_tr: |-
   - `list_metrics`: Tanımlanmış tüm metrikleri alır.
   - `list_saved_queries`: Kaydedilmiş tüm sorguları alır.
   - `query_metrics`: Filtreleme ve gruplama seçenekleriyle metrik sorgularını yürütür.
-
+  
   ### Discovery
-
+  
   dbt Discovery API hakkında daha fazla bilgi edinmek için [buraya](https://docs.getdbt.com/docs/dbt-cloud-apis/discovery-api) tıklayın.
   - `get_all_macros`: Makroları alır; pakete göre filtreleme veya yalnızca paket adlarını döndürme seçeneği.
   - `get_all_models`: Tüm modellerin adını ve açıklamasını alır.
@@ -72,9 +72,9 @@ body_tr: |-
   - `get_source_details`: Sütunlar ve tazelik içeren kaynak ayrıntılarını alır.
   - `get_test_details`: Belirli bir test için ayrıntıları alır.
   - `search`: [Alpha] dbt projesi genelinde kaynakları arar (genel olarak kullanılamaz).
-
+  
   ### dbt CLI
-
+  
   İstemcinizin MCP araçları aracılığıyla dbt komutlarını kullanabilmesine izin vermek, veri modellerinizi, kaynaklarınızı ve warehouse nesnelerinizi değiştirebilir. Yalnızca istemciye güveniyorsanız ve potansiyel etkiyi anladıysanız devam edin.
   - `build`: DAG sırasında modelleri, testleri, snapshot'ları ve seed'leri yürütür.
   - `clone`: Belirtilen durumdan seçilen düğümleri hedef şema(lara) klonlar.
@@ -87,9 +87,9 @@ body_tr: |-
   - `run`: Modelleri yürütür ve bunları veritabanında materyalize eder.
   - `show`: Veritabanına karşı SQL yürütür ve sonuçları döndürür.
   - `test`: Veri ve model bütünlüğünü doğrulamak için testleri çalıştırır.
-
+  
   ### Admin API
-
+  
   dbt Administrative API hakkında daha fazla bilgi edinmek için [buraya](https://docs.getdbt.com/docs/dbt-cloud-apis/admin-cloud-api) tıklayın.
   - `cancel_job_run`: Çalışan bir işi iptal eder.
   - `get_job_details`: Tetikleyiciler, zamanlama ve dbt komutları dahil iş yapılandırmasını alır.
@@ -101,44 +101,44 @@ body_tr: |-
   - `list_projects`: dbt Platform hesabındaki tüm projeleri listeler.
   - `retry_job_run`: Başarısız bir iş çalışmasını yeniden dener.
   - `trigger_job_run`: Bir iş çalışmasını tetikler; git dalını, şemayı veya diğer ayarları geçersiz kılma seçeneği.
-
+  
   ### dbt Codegen
-
+  
   Bu araçlar, dbt proje dosyaları için yapı kodu oluşturmayı otomatikleştirmeye yardımcı olur.
   - `generate_model_yaml`: Sütunlarla model YAML'ı oluşturur; yukarı akış açıklamalarını devralma seçeneği.
   - `generate_source`: Veritabanı şemalarını inceleyerek kaynak YAML'ı oluşturur; sütunları dahil etme seçeneği.
   - `generate_staging_model`: Bir kaynak tablosundan hazırlık modeli SQL'i oluşturur.
-
+  
   ### dbt LSP
-
+  
   Fusion motoru aracılığıyla gelişmiş SQL derlemesi ve sütun düzeyinde soy analizi için araçlar.
   - `fusion.compile_sql`: dbt Platform üzerinden proje bağlamında SQL'i derler.
   - `fusion.get_column_lineage`: dbt Platform üzerinden sütun düzeyinde soy ağacını izler.
   - `get_column_lineage`: Yerel olarak sütun düzeyinde soy ağacını izler (dbt Labs VSCE aracılığıyla dbt-lsp gerektirir).
-
+  
   ### Product Docs
-
+  
   docs.getdbt.com adresindeki resmi dbt belgelerinde arama yapmak ve içerik getirmek için araçlar.
   - `get_product_doc_pages`: Yol veya URL'ye göre bir veya daha fazla docs.getdbt.com sayfasının tam Markdown içeriğini getirir.
   - `search_product_docs`: docs.getdbt.com'da bir sorguyla eşleşen sayfaları arar; başlıkları, URL'leri ve açıklamalarını alaka sırasına göre döndürür. Tam içeriği getirmek için get_product_doc_pages kullanın.
-
+  
   ### MCP Server Metadata
-
+  
   Bu araçlar, MCP sunucusunun kendisi hakkında bilgiler sağlar.
   - `get_mcp_server_branch`: Çalışan dbt MCP sunucusunun mevcut git dalını döndürür.
   - `get_mcp_server_version`: dbt MCP sunucusunun mevcut sürümünü döndürür.
-
-
+  
+  
   ## Örnekler
-
+  
   Genellikle dbt MCP sunucusunu Claude veya Cursor gibi bir ajan ürününe bağlayacaksınız. Ancak kendi ajanınızı oluşturmakla ilgileniyorsanız, başlamak için [örnekler dizinini](https://github.com/dbt-labs/dbt-mcp/tree/main/examples) kontrol edin.
-
+  
   ## Bağımlılıklar
-
+  
   Bağımlılıklar belirli sürümlere sabitlenmiş ve otomatik olarak güncellenmez. Yalnızca güvenlikle ilgili bağımlılık güncellemeleri otomatikleştirilmiş pull request'ler aracılığıyla sunulur.
-
+  
   ## Katkı
-
+  
   Nasıl katılacağınız hakkında talimatlar için `CONTRIBUTING.md` dosyasını okuyun!
 ---
 
@@ -175,6 +175,7 @@ Tools for executing and generating SQL on dbt Platform infrastructure.
 ### Semantic Layer
 
 To learn more about the dbt Semantic Layer, click [here](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl).
+- `get_dimension_values`: Gets distinct values for a dimension; option to scope to specific metrics.
 - `get_dimensions`: Gets dimensions for specified metrics.
 - `get_entities`: Gets entities for specified metrics.
 - `get_metrics_compiled_sql`: Returns compiled SQL for metrics without executing the query.

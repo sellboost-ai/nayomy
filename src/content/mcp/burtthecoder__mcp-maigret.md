@@ -3,7 +3,7 @@ name: "BurtTheCoder/mcp-maigret"
 description: "MCP server for maigret, a powerful OSINT tool that collects user account information from various public sources. This server provides tools for searching usernames across social networks and analyzing URLs."
 category: "Security"
 repo: "BurtTheCoder/mcp-maigret"
-stars: 241
+stars: 245
 url: "https://github.com/BurtTheCoder/mcp-maigret"
 body_length: 6810
 license: "MIT"
@@ -11,70 +11,70 @@ language: "JavaScript"
 body_tr: |-
   # Maigret MCP Server
   [![smithery badge](https://smithery.ai/badge/mcp-maigret)](https://smithery.ai/server/mcp-maigret)
-
+  
   [maigret](https://github.com/soxoj/maigret) için bir Model Context Protocol (MCP) sunucusu. Maigret, çeşitli açık kaynaklardan kullanıcı hesap bilgilerini toplayan güçlü bir OSINT aracıdır. Bu sunucu, kullanıcı adlarını sosyal ağlar arasında aramak ve URL'leri analiz etmek için araçlar sağlar. [Claude Desktop](https://claude.ai) gibi MCP uyumlu uygulamalarla sorunsuz entegrasyon için tasarlanmıştır.
-
+  
   <a href="https://glama.ai/mcp/servers/knnpcz651x"></a>
-
-
+  
+  
   ## ⚠️ Uyarı
-
+  
   Bu araç, meşru OSINT araştırması amaçları için tasarlanmıştır. Lütfen:
   - Yalnızca genel olarak erişilebilir bilgileri arayın
   - Gizliliğe ve veri koruma yasalarına saygı gösterin
   - Aranan platformların hizmet şartlarına uyun
   - Sorumlu ve etik şekilde kullanın
   - Bazı sitelerin otomatik aramaları sınırlandırabileceğini veya engelleyebileceğini unutmayın
-
+  
   ## Güvenlik
-
+  
   Bu sunucu, komut enjeksiyonu saldırılarını önlemek için birkaç güvenlik önlemi uygulamaktadır:
-
+  
   ### Giriş Doğrulaması
   - **Kullanıcı adları**: Yalnızca alfanümerik karakterler, alt çizgiler, tireler ve noktalar izin verilir (maksimum 100 karakter)
   - **URL'ler**: Geçerli HTTP/HTTPS URL'leri olmalı ve shell meta karakterleri içermemelidir
   - **Etiketler**: Yalnızca alfanümerik karakterler, alt çizgiler ve tireler izin verilir
-
+  
   ### Güvenli Komut Yürütme
   - Shell interpolasyonunu önlemek için `execFile()` yerine `exec()` kullanır
   - Tüm komut argümanları dizi olarak iletilir, birleştirilmiş dizeler değil
   - Docker komutları shell yorumu olmadan yürütülür
-
+  
   ### Güvenlik Sorunlarını Bildirme
   Bir güvenlik açığı keşfederseniz, lütfen bir issue açarak veya maintainer'larla doğrudan iletişime geçerek bildirin. Güvenliği ciddiye alıyoruz ve hızlı bir şekilde yanıt vereceğiz.
-
+  
   ## Gereksinimler
-
+  
   - Node.js (v18 veya sonrası)
   - Docker
   - Docker Desktop yüklü macOS, Linux veya Windows
   - Reports dizinine yazma erişimi
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Smithery Aracılığıyla Kurulum
-
+  
   Maigret'i Claude Desktop için [Smithery](https://smithery.ai/server/mcp-maigret) aracılığıyla otomatik olarak kurmak için:
-
+  
   ```bash
   npx -y @smithery/cli install mcp-maigret --client claude
   ```
-
+  
   ### Manuel Kurulum
   1. Docker'ı yükleyin:
      - macOS: [Docker Desktop](https://www.docker.com/products/docker-desktop) yükleyin
      - Linux: [Docker Engine kurulum kılavuzunu](https://docs.docker.com/engine/install/) izleyin
-
+  
   2. Sunucuyu npm aracılığıyla global olarak yükleyin:
   ```bash
   npm install -g mcp-maigret
   ```
-
+  
   3. Bir reports dizini oluşturun:
   ```bash
   mkdir -p /path/to/reports/directory
   ```
-
+  
   4. Claude Desktop yapılandırma dosyanıza ekleyin:
   ```json
   {
@@ -88,17 +88,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   Yapılandırma dosyası konumu:
   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-
+  
   5. Claude Desktop'ı yeniden başlatın
-
+  
   ## Alternatif Kurulum (Kaynaktan)
-
+  
   Kaynaktan çalıştırmayı tercih ediyorsanız veya kodu değiştirmeniz gerekiyorsa:
-
+  
   1. Klonlayın ve oluşturun:
   ```bash
   git clone <repository_url>
@@ -106,7 +106,7 @@ body_tr: |-
   npm install
   npm run build
   ```
-
+  
   2. Claude Desktop yapılandırmanıza ekleyin:
   ```json
   {
@@ -121,17 +121,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Özellikler
-
+  
   - **Kullanıcı Adı Araması**: Yüzlerce sosyal ağ ve websitesi arasında kullanıcı adı arayın
   - **URL Analizi**: URL'leri ayrıştırarak bilgi çıkarın ve ilişkili kullanıcı adlarını arayın
   - **Birden Fazla Çıktı Formatı**: txt, html, pdf, json, csv ve xmind formatları için destek
   - **Site Filtreleme**: Aramaları site etiketlerine göre filtreleyin (örneğin, photo, dating, us)
   - **Docker Tabanlı**: Ortamlar arasında güvenilir ve tutarlı yürütme
-
+  
   ## Araçlar
-
+  
   ### 1. Kullanıcı Adı Araması Aracı
   - Ad: `search_username`
   - Açıklama: Sosyal ağlar ve siteler arasında kullanıcı adı arayın
@@ -140,7 +140,7 @@ body_tr: |-
     * `format` (isteğe bağlı, varsayılan: "pdf"): Çıktı formatı (txt, html, pdf, json, csv, xmind)
     * `use_all_sites` (isteğe bağlı, varsayılan: false): En iyi 500 yerine tüm kullanılabilir siteleri kullanın
     * `tags` (isteğe bağlı): Siteleri filtrelemek için etiketler dizisi (alfanümerik, alt çizgiler, tireler)
-
+  
   Örnek:
   ```json
   {
@@ -150,14 +150,14 @@ body_tr: |-
     "tags": ["photo"]
   }
   ```
-
+  
   ### 2. URL Analizi Aracı
   - Ad: `parse_url`
   - Açıklama: URL'yi ayrıştırarak bilgi çıkarın ve ilişkili kullanıcı adlarını arayın
   - Parametreler:
     * `url` (zorunlu): Analiz edilecek URL
     * `format` (isteğe bağlı, varsayılan: "pdf"): Çıktı formatı (txt, html, pdf, json, csv, xmind)
-
+  
   Örnek:
   ```json
   {
@@ -165,40 +165,40 @@ body_tr: |-
     "format": "txt"
   }
   ```
-
+  
   ## Sorun Giderme
-
+  
   ### Docker Sorunları
-
+  
   1. Docker'ın yüklü ve çalışır durumda olduğunu doğrulayın:
   ```bash
   docker --version
   docker ps
   ```
-
+  
   2. Docker izinlerini kontrol edin:
      - Kullanıcınızın Docker komutlarını çalıştırma izni olduğundan emin olun
      - Linux'ta, kullanıcınızı docker grubuna ekleyin: `sudo usermod -aG docker $USER`
-
+  
   ### Reports Dizini Sorunları
-
+  
   1. Reports dizinini doğrulayın:
      - MAIGRET_REPORTS_DIR'de belirtilen dizin mevcut olmalıdır
      - Kullanıcınızın bu dizine yazma izni olmalıdır
      - İzinleri kontrol edin: `ls -la /path/to/reports/directory`
-
+  
   2. Yaygın yapılandırma hataları:
      - Eksik MAIGRET_REPORTS_DIR ortam değişkeni
      - Dizin yok
      - Yanlış izinler
      - Yolda sondaki eğik çizgiler
-
+  
   3. Herhangi bir sorunu düzelttikten sonra:
      - Yapılandırma dosyasını kaydedin
      - Claude Desktop'ı yeniden başlatın
-
+  
   ## Hata Mesajları
-
+  
   - "Docker is not installed or not running": Docker'ı yükleyin ve Docker daemon'ını başlatın
   - "MAIGRET_REPORTS_DIR environment variable must be set": Ortam değişkenini yapılandırmanıza ekleyin
   - "Error creating reports directory": Dizin izinlerini ve yolunu kontrol edin
@@ -206,17 +206,17 @@ body_tr: |-
   - "Invalid username": Kullanıcı adı geçersiz karakterler içeriyor. Yalnızca alfanümerik, alt çizgiler, tireler ve noktaları kullanın
   - "Invalid URL": URL yanlış biçimlendirilmiş veya yasak karakterler içeriyor
   - "Invalid tag": Etiket geçersiz karakterler içeriyor. Yalnızca alfanümerik, alt çizgiler ve tirehleri kullanın
-
+  
   ## Katkıda Bulunma
-
+  
   1. Repoyu fork edin
   2. Bir feature branch'i oluşturun (`git checkout -b feature/amazing-feature`)
   3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
   4. Branch'e push edin (`git push origin feature/amazing-feature`)
   5. Pull Request açın
-
+  
   ## Lisans
-
+  
   Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
 ---
 

@@ -9,6 +9,55 @@ path: "rules/flutter-development-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-development-guidelines-cursorrules-prompt-file.mdc"
 body_length: 2424
 file_extension: ".mdc"
+body_tr: |-
+  ### Kod stili ve yapısı
+  - Özlü ve verimli kaynak kodu yazın.
+  - Okunması ve bakımı kolay olan kaynak kodu hedefleyin ve doğru örnekler sağlayın.
+  - Kod tekrarından kaçının: widget'ları ve fonksiyonları yeniden kullanılabilir bileşenlere modülerize edin.
+  - Açıklayıcı değişken adları kullanın: `isLoading`, `hasError` gibi yardımcı fiiller içeren adlar kullanın.
+
+  ### /lib altındaki dizin yapısı
+  - /lib/models/: veri modelleri ve tür tanımları (Models)
+  - /lib/viewmodels/: durum yönetimi ve iş mantığı (ViewModel)
+  - /lib/views/widgets/: yeniden kullanılabilir widget'lar (View)
+  - /lib/views/screens/: ekran başına widget'lar (View)
+  - /lib/services/: API çağrıları ve veri erişimi için servis sınıfları
+  - /lib/utils/: yardımcı fonksiyonlar ve sabitler
+
+  ### Adlandırma kuralları
+  - Dizinler ve dosyalar: snakeCase kullanın (örn. auth_wizard.dart).
+  - UpperCamelCase: sınıf adları/enumlar/typedef'ler/tür parametreleri vb. için kullanın.
+  - lowerCamelCase: değişkenler/fonksiyonlar/sınıf üyeleri (özellikler, metotlar) vb. için kullanılır.
+  - lowercase_with_underscores (snakeCase): dosyalar/dizinler/paketler/kütüphaneler vb. için.
+
+  ### İçe aktarma (Import)
+  - `dart:` ile başlayan içe aktarmaları önce yerleştirin (içe aktarma öneki için lowercase_with_underscores kullanın).
+  - Daha sonra üçüncü taraf paketleri içe aktarın (package:).
+  - Son olarak, projedeki göreli yolları ve dosyaları içe aktarın.
+
+  ### Dart kullanımı
+  - Tür güvenliğinden yararlanın: tüm kodda statik yazımı kullanın ve mümkün olduğunda tür çıkarımını kullanın.
+
+  ### UI ve stil
+  - Material widget'ları kullanın.
+  - Tema birliğini sağlayın: tutarlı stiller uygulamak için ThemeData kullanın.
+
+  ### Performans optimizasyonu
+  - Durum gerekli olmadığında StatelessWidget'ı tercih edin.
+  - const yapıcılardan yararlanın: widget'lar değişmezse, oluşturmaları optimize etmek için const kullanın.
+
+  ### Durum yönetimi
+  - Verimli durum yönetimini uygulamak için riverpod kullanın.
+  - ViewModel içinde durumu yönetin ve View'a bağlayın.
+
+  ### Yazılım mimarisi
+  MVVM (Model View ViewModel) kullanın.
+
+  ### Temel kurallar
+  - Kod okunabilirliğini artırmak için satırlar 80 karakteri geçmemelidir.
+  - Tüm kontrol akış yapıları (if, for, while vb.) için süslü parantez {} kullanın.
+  - Kodun anlaşılmasına ve bakımına yardımcı olmak için proaktif olarak yorum satırı kullanın.
+  - Tek tırnak kullanın, çift tırnak kullanmaktan kaçının ve okunabilirliği artırmak için tutarlı string değişmezleri kullanın.
 ---
 
 ### Code style and structure

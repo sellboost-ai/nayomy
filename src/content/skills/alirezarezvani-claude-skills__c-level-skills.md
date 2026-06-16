@@ -12,6 +12,39 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # C-Level Advisory Bundle — Index
+
+  Bu bir danışman değildir; bundle indeksidir. Neyin var olduğunu ve nereden başlayacağınızı söyler; aşağıdaki beceriler işi yapar.
+
+  ## Buradan Başlayın
+
+  1. **Onboard** — `cs-onboard` becerisi kurucu röportajını çalıştırır (`/cs:setup`, 7 boyut, ~45 dk) ve `~/.claude/company-context.md` dosyasını yazar. Üç ayda bir `/cs:update` ile yenileyin. Bu, her danışmanın okuduğu kanonik bağlam şemasıdır.
+  2. **Sor** — `chief-of-staff` becerisi herhangi bir soruyu doğru danışmana(lara) yönlendirir. Routing matrisi için 14 rolün tümünü görebilirsiniz.
+  3. **Büyük kararlar** — `board-meeting` becerisi **6 aşamalı** bir müzakereyi çalıştırır: (1) bağlam toplama → (2) bağımsız katkılar (izole) → (3) eleştirmen analizi → (4) sentez → (5) kurucu incelemesi (tam durdurma) → (6) karar çıkarma. `/cs:boardroom` aracılığıyla c-level-agents eklentisinde çağrılır.
+  4. **Bellek** — kararlar kanonik iki katmanlı düzende yer alır `~/.claude/decisions/{raw,approved}/` (bkz. `../agent-protocol/SKILL.md` → "Decision Memory (Canonical Layout)").
+
+  ## Bundle'ın İçeriği (33 beceri)
+
+  **14 C-suite rolü + eleştirmen (15):** ceo-advisor, cfo-advisor, cto-advisor, coo-advisor, cpo-advisor, cmo-advisor, cro-advisor, ciso-advisor, chro-advisor, general-counsel-advisor, chief-data-officer-advisor, chief-ai-officer-advisor, chief-customer-officer-advisor, vpe-advisor — artı executive-mentor eleştirmeni (kardeş eklenti).
+
+  **Orkestrasyonu (6):** cs-onboard, chief-of-staff, board-meeting, decision-logger, agent-protocol, context-engine.
+
+  **Kesişen konular (6):** board-deck-builder, scenario-war-room, competitive-intel, org-health-diagnostic, ma-playbook, intl-expansion.
+
+  **Kültür ve işbirliği (6):** culture-architect, company-os, founder-coach, strategic-alignment, change-management, internal-narrative.
+
+  Artı bu indeks (1). Bundle genelinde 37 stdlib-only Python aracı ve 68 referans doküman.
+
+  ## Routing Hızlı Referansı
+
+  Tam matris `../chief-of-staff/SKILL.md` ve `../chief-of-staff/references/routing-matrix.md` dosyasında. Birincil roller: CFO (sermaye/harcama), CRO (pipeline/satış), CMO (konumlandırma), CPO (roadmap/PMF), CTO (mimari), COO (ops/OKRs), CHRO (insan kaynakları), CISO (güvenlik), GC (sözleşmeler/term sheets), CDO (veri stratejisi/training-data hakları), CAIO (AI stratejisi/evals), CCO (elde tutma/GRR), VPE (teslimat/DORA), CEO (yön). Multi-domain veya geri dönülemez → board meeting.
+
+  ## İlgili Katmanlar
+
+  - `../../c-level-agents/` — 13 cs-* persona ajanı + bu beceriler üzerine 21 `/cs:*` slash komutu
+  - `../../executive-mentor/` — `/em:*` eleştirmen komutları
+  - `../../CLAUDE.md` — tam mimari diyagram ve entegrasyon kılavuzu
 ---
 
 # C-Level Advisory Bundle — Index

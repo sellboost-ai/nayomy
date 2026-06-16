@@ -12,6 +12,40 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Finance Skills — Router
+
+  Bu plugin **2 finance skill** içerir (bu router, `finance/skills/` altındaki 3. klasördür). Her skill bağımsızdır.
+
+  ## Routing tablosu
+
+  | Request signals | Skill | Path |
+  |---|---|---|
+  | Oran analizi, DCF valuasyon, bütçe varyansı, driver-tabanlı tahminler | financial-analyst | `skills/financial-analyst/` |
+  | ARR/MRR, churn, CAC/LTV, NRR, quick ratio, SaaS benchmark'ları | saas-metrics-coach | `skills/saas-metrics-coach/` |
+
+  Her ikisi de eşleşirse (ör. "SaaS şirketimi değerle"), kullanıcıya statement-level analiz (financial-analyst) mi yoksa SaaS operating metrics (saas-metrics-coach) mi istediğini sorun.
+
+  ## Hızlı başlangıç
+
+  ```bash
+  # Example: route a statement-analysis request
+  cat finance/skills/financial-analyst/SKILL.md
+  python3 finance/skills/financial-analyst/scripts/ratio_calculator.py --help
+
+  # Or a SaaS metrics request
+  python3 finance/skills/saas-metrics-coach/scripts/metrics_calculator.py --help
+  ```
+
+  ## İlgili (ayrı paket, bu bundle'da değil)
+
+  - `finance/business-investment-advisor/` — investment thesis değerlendirmesi, ROI modeling (prompt-only skill, ayrı nested plugin)
+  - Root komutları `/financial-health` ve `/saas-health` bu skill'lerin script'lerini sarmalamaktadır.
+
+  ## Kurallar
+
+  - Tam olarak bir skill'e route edin, ardından o skill'in workflow'unu takip edin. Bu router kendi araçlarını göndermiyor.
+  - Financial output'ları her zaman kullanıcının kaynak verilerine karşı doğrulayın; output'lar analiz desteğidir, yatırım tavsiyesi değildir.
 ---
 
 # Finance Skills — Router

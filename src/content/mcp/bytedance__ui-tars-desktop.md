@@ -3,7 +3,7 @@ name: "bytedance/UI-TARS-desktop"
 description: "Browser automation capabilities using Puppeteer, both support local and remote browser connection."
 category: "Browser Automation"
 repo: "bytedance/UI-TARS-desktop"
-stars: 35310
+stars: 36511
 url: "https://github.com/bytedance/UI-TARS-desktop"
 body_length: 16142
 license: "Apache-2.0"
@@ -13,17 +13,17 @@ body_tr: |-
   <picture>
     
   </picture>
-
+  
   <br/>
-
+  
   ## Giriş
-
+  
   English | [简体中文](./README.zh-CN.md)
-
+  
   [![](https://trendshift.io/api/badge/repositories/13584)](https://trendshift.io/repositories/13584)
-
+  
   <b>TARS<sup>\*</sup></b> bir Multimodal AI Agent stack'idir, şu anda iki proje sunmaktadır: [Agent TARS](#agent-tars) ve [UI-TARS-desktop](#ui-tars-desktop):
-
+  
   <table>
     <thead>
       <tr>
@@ -59,12 +59,12 @@ body_tr: |-
       </tr>
     </tbody>
   </table>
-
+  
   ## İçindekiler
-
+  
   <!-- START doctoc generated TOC please keep comment here to allow auto update -->
   <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
+  
   - [Haberler](#haberler)
   - [Agent TARS](#agent-tars)
     - [Vitrin](#vitrin)
@@ -78,22 +78,22 @@ body_tr: |-
   - [Katkı Sağlama](#katkı-sağlama)
   - [Lisans](#lisans)
   - [Alıntı](#alıntı)
-
+  
   <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
+  
   ## Haberler
-
+  
   - **\[2025-11-05\]** 🎉 [Agent TARS CLI v0.3.0](https://github.com/bytedance/UI-TARS-desktop/releases/tag/v0.3.0) sürümünün yayınlanmasından heyecan duyuyoruz! Bu sürüm birden fazla araç (shell komutları, çok dosyalı yapılandırılmış görüntü) için streaming desteği, araç çağrıları ve derin düşünme için zamanlamalar istatistikleriyle çalışma zamanı ayarları, veri akışı izleme ve hata ayıklama için Event Stream Viewer'ı getirmektedir. Ayrıca, izole edilmiş tüm-bir-arada araçlar yürütme ortamı olarak [AIO agent Sandbox](https://github.com/agent-infra/sandbox) için özel destek sunmaktadır.
   - **\[2025-06-25\]** Agent TARS Beta ve Agent TARS CLI yayınladık - [Agent TARS Beta'ya Giriş](https://agent-tars.com/blog/2025-06-25-introducing-agent-tars-beta.html), insan benzeri görev tamamlamaya daha yakın bir çalışma biçimini keşfetmeyi amaçlayan multimodal AI agent'i, zengin multimodal yetenekler (GUI Agent, Vision gibi) ve çeşitli gerçek dünya araçlarıyla kusursuz entegrasyon aracılığıyla sunulmaktadır.
   - **\[2025-06-12\]** - 🎁 UI-TARS Desktop v0.2.0 sürümünün yayınlanmasından dolayı büyük heyecan duyuyoruz! Bu güncelleme iki güçlü yeni özellik getirmektedir: **Uzak Bilgisayar Operatörü** ve **Uzak Tarayıcı Operatörü**—tamamen ücretsiz. Yapılandırma gerekmez: herhangi bir bilgisayarı veya tarayıcıyı uzaktan kontrol etmek için tıklamanız yeterlidir ve benzersiz bir rahatlık ve zeka seviyesi deneyimleyin.
   - **\[2025-04-17\]** - 🎉 Yeniden tasarlanmış Agent UI'ye sahip yeni UI-TARS Desktop uygulaması v0.1.0 sürümünün yayınlanmasından dolayı büyük heyecan duyuyoruz. Uygulama, bilgisayar deneyimini geliştirmekte, yeni tarayıcı işletim özelliklerini tanıtmakta ve geliştirilmiş performans ve hassas kontrol için [gelişmiş UI-TARS-1.5 modelini](https://seed-tars.com/1.5) desteklemektedir.
   - **\[2025-02-20\]** - 📦 [UI TARS SDK](./docs/sdk.md) tanıtıldı, GUI automation agent'leri oluşturmak için güçlü bir platformlar arası araç seti sunmaktadır.
   - **\[2025-01-23\]** - 🚀 Çin versiyonunda **[Bulut Dağıtımı](./docs/deployment.md#cloud-deployment)** bölümünü güncelledik: [GUI模型部署教程](https://bytedance.sg.larkoffice.com/docx/TCcudYwyIox5vyxiSDLlgIsTgWf#U94rdCxzBoJMLex38NPlHL21gNb) ModelScope platformı ile ilgili yeni bilgiler ile. Artık dağıtım için ModelScope platformunu kullanabilirsiniz.
-
+  
   <br>
-
+  
   ## Agent TARS
-
+  
   <p>
       <a href="https://npmjs.com/package/@agent-tars/cli?activeTab=readme"></a>
       <a href="https://npmcharts.com/compare/@agent-tars/cli?minimal=true"></a>
@@ -103,21 +103,21 @@ body_tr: |-
       <a href="https://applink.larkoffice.com/client/chat/chatter/add_by_link?link_token=deen76f4-ea3c-4964-93a3-78f126f39651"></a>
       <a href="https://deepwiki.com/bytedance/UI-TARS-desktop"></a>
   </p>
-
+  
   <b>Agent TARS</b> genel amaçlı bir multimodal AI Agent stack'idir ve GUI Agent ile Vision'ın gücünü terminalinize, bilgisayarınıza, tarayıcınıza ve ürününüze getirmektedir. <br> <br>
   Temel olarak <a href="https://agent-tars.com/guide/basic/cli.html" target="_blank">CLI</a> ve <a href="https://agent-tars.com/guide/basic/web-ui.html" target="_blank">Web UI</a> ile kullanım için tasarlanmıştır.
   Son teknoloji multimodal LLM'ler ve çeşitli gerçek dünya <a href="https://agent-tars.com/guide/basic/mcp.html" target="_blank">MCP</a> araçlarıyla kusursuz entegrasyon aracılığıyla insan benzeri görev tamamlamaya daha yakın bir workflow sağlamayı amaçlamaktadır.
-
+  
   ### Vitrin
-
+  
   ```
   Lütfen San Jose'den New York'a 1 Eylül'de en erken uçuşu ve 6 Eylül'de en son dönüş uçuşunu Priceline'da rezerve etmeye yardımcı olun
   ```
-
+  
   https://github.com/user-attachments/assets/772b0eef-aef7-4ab9-8cb0-9611820539d8
-
+  
   <br>
-
+  
   <table>
     <thead>
       <tr>
@@ -144,36 +144,36 @@ body_tr: |-
       </tr>
     </tbody>
   </table>
-
+  
   Daha fazla kullanım örneği için lütfen [#842](https://github.com/bytedance/UI-TARS-desktop/issues/842) konusunu inceleyin.
-
+  
   ### Temel Özellikler
-
+  
   - 🖱️ **Tek Tıkla Kullanıma Hazır CLI** - Hem **başlı** [Web UI](https://agent-tars.com/guide/basic/web-ui.html) hem de **başsız** [sunucu](https://agent-tars.com/guide/advanced/server.html) [yürütülmesini](https://agent-tars.com/guide/basic/cli.html) desteklemektedir.
   - 🌐 **Hibrit Tarayıcı Agent** - [GUI Agent](https://agent-tars.com/guide/basic/browser.html#visual-grounding), [DOM](https://agent-tars.com/guide/basic/browser.html#dom) veya hibrit stratejisini kullanarak tarayıcıları kontrol edin.
   - 🔄 **Event Stream** - Protokol odaklı Event Stream, [Bağlam Mühendisliği](https://agent-tars.com/beta#context-engineering) ve [Agent UI](https://agent-tars.com/blog/2025-06-25-introducing-agent-tars-beta.html#easy-to-build-applications)'ni yönlendirir.
   - 🧰 **MCP Entegrasyonu** - Kernel MCP üzerine kurulmuş ve gerçek dünya araçlarına bağlanmak için [MCP Sunucuları](https://agent-tars.com/guide/basic/mcp.html) monte etmeyi de desteklemektedir.
-
+  
   ### Hızlı Başlangıç
-
+  
   ```bash
   # `npx` ile başlatın.
   npx @agent-tars/cli@latest
-
+  
   # Genel olarak kurun, Node.js >= 22 gereklidir
   npm install @agent-tars/cli@latest -g
-
+  
   # Tercih ettiğiniz model sağlayıcı ile çalıştırın
   agent-tars --provider volcengine --model doubao-1-5-thinking-vision-pro-250428 --apiKey your-api-key
   agent-tars --provider anthropic --model claude-3-7-sonnet-latest --apiKey your-api-key
   ```
-
+  
   Ayrıntılı kurulum talimatları için kapsamlı [Hızlı Başlangıç](https://agent-tars.com/guide/get-started/quick-start.html) kılavuzunu ziyaret edin.
-
+  
   ### Dokümantasyon
-
+  
   > 🌟 **Agent TARS Evreni'ni Keşfedin** 🌟
-
+  
   <table>
     <thead>
       <tr>
@@ -239,19 +239,19 @@ body_tr: |-
       </tr>
     </tbody>
   </table>
-
+  
   <br/>
   <br/>
   <br/>
-
+  
   ## UI-TARS Desktop
-
+  
   <p align="center">
     
   </p>
-
+  
   UI-TARS Desktop, [UI-TARS](https://github.com/bytedance/UI-TARS) ve Seed-1.5-VL/1.6 serisi modeller tarafından yönlendirilen yerel bilgisayarınız için yerel bir GUI agent'idir.
-
+  
   <div align="center">
   <p>
           &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2501.12326">Makale</a> &nbsp&nbsp
@@ -262,43 +262,43 @@ body_tr: |-
   🖥️ Masaüstü Uygulaması &nbsp&nbsp
   | &nbsp&nbsp 👓 <a href="https://github.com/web-infra-dev/midscene">Midscene (tarayıcıda kullanın)</a> &nbsp&nbsp
   </p>
-
+  
   </div>
-
+  
   ### Vitrin
-
+  
   <!-- // FIXME: Choose only two demo, one local computer and one remote computer showcase. -->
-
+  
   |                                                       Talimat                                                        |                                              Yerel Operatör                                              |                                             Uzak Operatör                                              |
   | :-------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
   | Lütfen VS Code'un otomatik kaydetme özelliğini açmaya ve VS Code ayarlarında AutoSave işlemlerini 500 milisaniye geciktirmeye yardımcı olun. | <video src="https://github.com/user-attachments/assets/e0914ce9-ad33-494b-bdec-0c25c1b01a27" height="300" /> | <video src="https://github.com/user-attachments/assets/01e49b69-7070-46c8-b3e3-2aaaaec71800" height="300" /> |
   |                     UI-TARS-Desktop projesinin GitHub'daki en son açık sorununu kontrol etmeye yardımcı olabilir misiniz?                     | <video src="https://github.com/user-attachments/assets/3d159f54-d24a-4268-96c0-e149607e9199" height="300" /> | <video src="https://github.com/user-attachments/assets/072fb72d-7394-4bfa-95f5-4736e29f7e58" height="300" /> |
-
+  
   ### Özellikler
-
+  
   - 🤖 Vision-Language Model tarafından desteklenen doğal dil kontrolü
   - 🖥️ Ekran görüntüsü ve görsel tanıma desteği
   - 🎯 Hassas fare ve klavye kontrolü
   - 💻 Platformlar arası destek (Windows/MacOS/Tarayıcı)
   - 🔄 Gerçek zamanlı geri bildirim ve durum görüntüsü
   - 🔐 Özel ve güvenli - tamamen yerel işleme
-
+  
   ### Hızlı Başlangıç
-
+  
   Bkz. [Hızlı Başlangıç](./docs/quick-start.md)
-
+  
   ## Katkı Sağlama
-
+  
   Bkz. [CONTRIBUTING.md](./CONTRIBUTING.md).
-
+  
   ## Lisans
-
+  
   Bu proje Apache Lisansı 2.0 altında lisanslanmıştır.
-
+  
   ## Alıntı
-
+  
   Makalemizi ve kodunu araştırmanızda kullanışlı bulursanız, lütfen bir yıldız :star: ve alıntı :pencil: vermeyi düşünün
-
+  
   ```BibTeX
   @article{qin2025ui,
     title={UI-TARS: Pioneering Automated GUI Interaction with Native Agents},

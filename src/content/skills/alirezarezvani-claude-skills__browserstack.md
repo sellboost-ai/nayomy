@@ -3,7 +3,7 @@ name: "browserstack"
 description_en: ">- Run tests on BrowserStack. Use when user mentions \"browserstack\", \"cross-browser\", \"cloud testing\", \"browser matrix\", \"test on safari\", \"test on firefox\", or \"browser compatibility\"."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/browserstack/SKILL.md"
 path: ".gemini/skills/browserstack/SKILL.md"
 is_collection: false
@@ -14,35 +14,35 @@ has_examples: false
 related_files: []
 body_tr: |-
   # BrowserStack Entegrasyonu
-
+  
   Playwright testlerini BrowserStack'in bulut grid'inde çalıştırarak tarayıcı ve cihaz testlemesi yapın.
-
+  
   ## Ön Koşullar
-
+  
   Ortam değişkenleri ayarlanmalıdır:
   - `BROWSERSTACK_USERNAME` — BrowserStack kullanıcı adınız
   - `BROWSERSTACK_ACCESS_KEY` — erişim anahtarınız
-
+  
   Ayarlanmadıysa, kullanıcıya [browserstack.com/accounts/settings](https://www.browserstack.com/accounts/settings) adresinden nasıl alacaklarını gösterin ve durdurun.
-
+  
   ## Yetenekler
-
+  
   ### 1. BrowserStack için Yapılandırma
-
+  
   ```
   /pw:browserstack setup
   ```
-
+  
   Adımlar:
   1. Mevcut `playwright.config.ts` dosyasını kontrol edin
   2. BrowserStack bağlantı seçeneklerini ekleyin:
-
+  
   ```typescript
   // playwright.config.ts dosyasına ekleyin
   import { defineConfig } from '@playwright/test';
-
+  
   const isBS = !!process.env.BROWSERSTACK_USERNAME;
-
+  
   export default defineConfig({
     // ... mevcut konfigürasyon
     projects: isBS ? [
@@ -96,15 +96,15 @@ body_tr: |-
     ],
   });
   ```
-
+  
   3. npm script ekleyin: `"test:e2e:cloud": "npx playwright test --project='chrome@*' --project='firefox@*' --project='webkit@*'"`
-
+  
   ### 2. Testleri BrowserStack'ta Çalıştırın
-
+  
   ```
   /pw:browserstack run
   ```
-
+  
   Adımlar:
   1. Kimlik bilgilerinin ayarlandığını doğrulayın
   2. BrowserStack projeleriyle testleri çalıştırın:
@@ -115,13 +115,13 @@ body_tr: |-
      ```
   3. Yürütmeyi izleyin
   4. Tarayıcı başına sonuçları raporlayın
-
+  
   ### 3. Build Sonuçlarını Alın
-
+  
   ```
   /pw:browserstack results
   ```
-
+  
   Adımlar:
   1. `browserstack_get_builds` MCP aracını çağırın
   2. En son build'in oturumlarını alın
@@ -132,31 +132,31 @@ body_tr: |-
      - Video URL'si
      - Log URL'leri
   4. Özet tablo olarak formatleyin
-
+  
   ### 4. Kullanılabilir Tarayıcıları Kontrol Edin
-
+  
   ```
   /pw:browserstack browsers
   ```
-
+  
   Adımlar:
   1. `browserstack_get_browsers` MCP aracını çağırın
   2. Playwright uyumlu tarayıcıları filtreleyin
   3. Kullanılabilir tarayıcı/işletim sistemi kombinasyonlarını görüntüleyin
-
+  
   ### 5. Yerel Testleme
-
+  
   ```
   /pw:browserstack local
   ```
-
+  
   Localhost veya güvenlik duvarının arkasındaki staging için testleme:
   1. BrowserStack Local'i yükleyin: `npm install -D browserstack-local`
   2. Konfigürasyona yerel tunnel ekleyin
   3. Kurulum talimatlarını sağlayın
-
+  
   ## Kullanılan MCP Araçları
-
+  
   | Araç | Ne Zaman |
   |---|---|
   | `browserstack_get_plan` | Hesap limitlerini kontrol edin |
@@ -166,9 +166,9 @@ body_tr: |-
   | `browserstack_get_session` | Oturum ayrıntılarını alın (video, loglar) |
   | `browserstack_update_session` | Geçti/başarısız olarak işaretleyin |
   | `browserstack_get_logs` | Metin/network loglarını alın |
-
+  
   ## Çıktı
-
+  
   - Tarayıcılar arası test sonuçları tablosu
   - Tarayıcı başına geçti/başarısız durumu
   - Video/ekran görüntüleri için BrowserStack dashboard'ına bağlantılar

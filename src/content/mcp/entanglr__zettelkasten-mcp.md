@@ -3,33 +3,33 @@ name: "entanglr/zettelkasten-mcp"
 description: "A Model Context Protocol (MCP) server that implements the Zettelkasten knowledge management methodology, allowing you to create, link, and search atomic notes through Claude and other MCP-compatible clients."
 category: "Knowledge & Memory"
 repo: "entanglr/zettelkasten-mcp"
-stars: 153
+stars: 156
 url: "https://github.com/entanglr/zettelkasten-mcp"
 body_length: 11598
 license: "MIT"
 language: "Python"
 body_tr: |-
   # Zettelkasten MCP Server
-
+  
   Zettelkasten bilgi yönetimi metodolojisini uygulayan bir Model Context Protocol (MCP) sunucusu. Claude ve diğer MCP uyumlu istemciler aracılığıyla atomik notlar oluşturmanızı, bağlantı kurmanızı, keşfetmenizi ve sentezlemenizi sağlar.
-
+  
   ## Zettelkasten Nedir?
-
+  
   Zettelkasten yöntemi, Alman sosyolog Niklas Luhmann tarafından geliştirilen bir bilgi yönetimi sistemidir. Luhmann bu sistemi kullanarak 70'ten fazla kitap ve yüzlerce makale üretmiştir. Üç temel prensipten oluşur:
-
+  
   1. **Atomiklik**: Her not tam olarak bir fikir içerir ve bilginin ayrı bir birimi olarak işlev görür
   2. **Bağlantılılık**: Notlar birbirine bağlanarak bir bilgi ağı oluşturur ve fikirler arasında anlamlı ilişkiler kurulur
   3. **Ortaya Çıkış**: Ağ büyüdükçe, bireysel notlar oluşturulurken belirgin olmayan yeni desenler ve içgörüler ortaya çıkar
-
+  
   Zettelkasten yaklaşımını güçlü kılan şey, birden fazla şekilde keşif yapma imkanı sunmasıdır:
-
+  
   - **Dikey keşif**: Bir konu alanı içindeki bağlantıları takip ederek belirli konulara daha derin inin.
   - **Yatay keşif**: Etki alanları aşan bağlantıları takip ederek farklı alanlar arasında beklenmedik ilişkiler keşfedin.
-
+  
   Bu yapı, nottan nota düşünce izlerini takip ederken serendipitous keşifler için zemin hazırlar ve aynı zamanda her bilgi parçasını benzersiz kimliği aracılığıyla kolayca erişilebilir tutar. Luhmann sistemini "ikinci beyin" veya "iletişim ortağı" olarak adlandırmıştır - bu dijital uygulama modern teknoloji aracılığıyla benzer faydalar sağlamayı amaçlar.
-
+  
   ## Özellikler
-
+  
   - Benzersiz zaman damgası tabanlı ID'lerle atomik notlar oluşturma
   - Bir bilgi grafiği oluşturmak için notları çift yönlü olarak bağlama
   - Kategorik organizasyon için notları etiketleme
@@ -38,15 +38,15 @@ body_tr: |-
   - MCP aracılığıyla Claude ile entegrasyon için yapay zeka destekli bilgi yönetimi
   - Çift depolama mimarisi (aşağıya bakınız)
   - Basitleştirilmiş mimari için senkron işletim modeli
-
+  
   ## Örnekler
-
+  
   - Bilgi oluşturma: [Zettelkasten yöntemi hakkında küçük bir Zettelkasten bilgi ağı](https://github.com/entanglr/zettelkasten-mcp/discussions/5)
-
+  
   ## Not Türleri
-
+  
   Zettelkasten MCP sunucusu farklı not türlerini destekler:
-
+  
   |Tür|İşleyici|Açıklama|
   |---|---|---|
   |**Geçici notlar**|`fleeting`|Fikirleri yakalamak için hızlı, geçici notlar|
@@ -54,11 +54,11 @@ body_tr: |-
   |**Kalıcı notlar**|`permanent`|İyi formüle edilmiş, uzun ömürlü notlar|
   |**Yapı notları**|`structure`|Diğer notları organize eden indeks veya ana hat notları|
   |**Hub notları**|`hub`|Zettelkasten'e ana konularda giriş noktaları|
-
+  
   ## Bağlantı Türleri
-
+  
   Zettelkasten MCP sunucusu, notlar arasında anlamlı bağlantılar oluşturan kapsamlı bir semantik bağlama sistemi kullanır. Her bağlantı türü belirli bir ilişkiyi temsil eder ve zengin, çok boyutlu bir bilgi grafiği oluşturmaya olanak tanır.
-
+  
   | Birincil Bağlantı Türü | Ters Bağlantı Türü | İlişki Açıklaması |
   |---|---|---|
   | `reference` | `reference` | Basit referans (simetrik ilişki) |
@@ -68,107 +68,107 @@ body_tr: |-
   | `questions` | `questioned_by` | Bir not diğeri hakkında sorular sorar |
   | `supports` | `supported_by` | Bir not diğerine kanıt sağlar |
   | `related` | `related` | Genel ilişki (simetrik ilişki) |
-
+  
   ## İstemi (Prompting)
-
+  
   Maksimum etkinlik için, LLM'ye bilgi işleme, Zettelkasten notlarınızı keşfetme veya sentezleme görevleri verirken bir sistem istemi ("proje talimatları"), proje bilgisi ve uygun bir sohbet istemi kullanmanızı öneriz. Bu havuzun `docs` dizini başlamanız için gerekli dosyaları içerir:
-
+  
   ### Sistem istemi
-
+  
   Birini seçin:
-
+  
   - [system-prompt.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/prompts/system/system-prompt.md)
   - [system-prompt-with-protocol.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/prompts/system/system-prompt-with-protocol.md)
-
+  
   ### Proje bilgisi
-
+  
   Son kullanıcılar için:
-
+  
   - [zettelkasten-methodology-technical.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/project-knowledge/user/zettelkasten-methodology-technical.md)
   - [link-types-in-zettelkasten-mcp-server.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/project-knowledge/user/link-types-in-zettelkasten-mcp-server.md)
   - (projenizle ilgili daha fazla bilgi)
-
+  
   ### Sohbet İstemleri
-
+  
   - [chat-prompt-knowledge-creation.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/prompts/chat/chat-prompt-knowledge-creation.md)
   - [chat-prompt-knowledge-creation-batch.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/prompts/chat/chat-prompt-knowledge-creation-batch.md)
   - [chat-prompt-knowledge-exploration.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/prompts/chat/chat-prompt-knowledge-exploration.md)
   - [chat-prompt-knowledge-synthesis.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/prompts/chat/chat-prompt-knowledge-synthesis.md)
-
+  
   ### Proje bilgisi (geliştirici)
-
+  
   Geliştirici ve katkıda bulunanlar için:
-
+  
   - [Example - A simple MCP server.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/project-knowledge/dev/Example%20-%20A%20simple%20MCP%20server%20that%20exposes%20a%20website%20fetching%20tool.md)
   - [MCP Python SDK-README.md](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/project-knowledge/dev/MCP%20Python%20SDK-README.md)
   - [llms-full.txt](https://github.com/entanglr/zettelkasten-mcp/blob/main/docs/project-knowledge/dev/llms-full.txt)
-
+  
   NB: İsteğe bağlı olarak [repomix](https://github.com/yamadashy/repomix) gibi bir araçla kaynak kodu ekleyin.
-
+  
   ## Depolama Mimarisi
-
+  
   Bu sistem çift depolama yaklaşımı kullanır:
-
+  
   1. **Markdown Dosyaları**: Tüm notlar, meta veriler için YAML ön materyali ile birlikte insan tarafından okunabilir Markdown dosyaları olarak depolanır. Bu dosyalar **doğru kaynaktır** ve şunlar yapılabilir:
      - Herhangi bir metin düzenleyicide doğrudan düzenlenme
      - Versiyon kontrolü altına alınma (Git, vb.)
      - Standart dosya yedekleme prosedürleri kullanılarak yedekleme
      - Diğer metin dosyaları gibi paylaşılma veya aktarılma
-
+  
   2. **SQLite Veritabanı**: Şunları sağlayan bir indeksleme katmanı olarak işlev görür:
      - Verimli sorgulama ve arama işlemlerine olanak tanır
      - Claude'un bilgi grafiğini hızlı bir şekilde geçmesine olanak tanır
      - Bağlantı geçişini hızlandırmak için ilişki bilgilerini korur
      - Gerektiğinde Markdown dosyalarından otomatik olarak yeniden oluşturulur
-
+  
   Markdown dosyalarını sistem dışında doğrudan düzenlerseniz, veritabanını güncellemek için `zk_rebuild_index` aracını çalıştırmanız gerekir. Veritabanının kendisi istediğiniz zaman silinebilir - Markdown dosyalarınızdan yeniden oluşturulacaktır.
-
+  
   ## Kurulum
-
+  
   ```bash
   # Depoyu klonla
   git clone https://github.com/entanglr/zettelkasten-mcp.git
   cd zettelkasten-mcp
-
+  
   # uv ile sanal ortam oluştur
   uv venv
   source .venv/bin/activate  # Windows'ta: .venv\Scripts\activate
-
+  
   # Bağımlılıkları yükle
   uv add "mcp[cli]"
-
+  
   # Geliştirici bağımlılıklarını yükle
   uv sync --all-extras
   ```
-
+  
   ## Yapılandırma
-
+  
   Örneği kopyalayarak proje köküne bir `.env` dosyası oluşturun:
-
+  
   ```bash
   cp .env.example .env
   ```
-
+  
   Daha sonra dosyayı düzenleyerek bağlantı parametrelerinizi yapılandırın.
-
+  
   ## Kullanım
-
+  
   ### Sunucuyu Başlatma
-
+  
   ```bash
   python -m zettelkasten_mcp.main
   ```
-
+  
   Veya açık yapılandırma ile:
-
+  
   ```bash
   python -m zettelkasten_mcp.main --notes-dir ./data/notes --database-path ./data/db/zettelkasten.db
   ```
-
+  
   ### Claude Desktop'a Bağlanma
-
+  
   Claude Desktop'ınıza aşağıdaki yapılandırmayı ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -187,11 +187,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Mevcut MCP Araçları
-
+  
   Tüm araçlara daha iyi organizasyon için `zk_` öneki eklenmiştir:
-
+  
   | Araç | Açıklama |
   |---|---|
   | `zk_create_note` | Başlık, içerik ve isteğe bağlı etiketlerle yeni bir not oluştur |
@@ -208,9 +208,9 @@ body_tr: |-
   | `zk_find_orphaned_notes` | Hiçbir bağlantısı olmayan notları bul |
   | `zk_list_notes_by_date` | Notları oluşturulma/güncelleme tarihine göre listele |
   | `zk_rebuild_index` | Veritabanı indeksini Markdown dosyalarından yeniden oluştur |
-
+  
   ## Proje Yapısı
-
+  
   ```
   zettelkasten-mcp/
   ├── src/
@@ -226,47 +226,47 @@ body_tr: |-
   ├── .env.example          # Ortam değişkeni şablonu
   └── README.md
   ```
-
+  
   ## Testler
-
+  
   Zettelkasten MCP'nin modelden MCP sunucu uygulamasına kadar uygulamanın tüm katmanlarını kapsayan kapsamlı test paketi.
-
+  
   ### Testleri Nasıl Çalıştıracağınız
-
+  
   Proje kök dizininden şunu çalıştırın:
-
+  
   #### pytest'i doğrudan kullanma
   ```bash
   python -m pytest -v tests/
   ```
-
+  
   #### UV kullanma
   ```bash
   uv run pytest -v tests/
   ```
-
+  
   #### Kapsam raporu ile
   ```bash
   uv run pytest --cov=zettelkasten_mcp --cov-report=term-missing tests/
   ```
-
+  
   #### Belirli bir test dosyasını çalıştırma
   ```bash
   uv run pytest -v tests/test_models.py
   ```
-
+  
   #### Belirli bir test sınıfını çalıştırma
   ```bash
   uv run pytest -v tests/test_models.py::TestNoteModel
   ```
-
+  
   #### Belirli bir test fonksiyonunu çalıştırma
   ```bash
   uv run pytest -v tests/test_models.py::TestNoteModel::test_note_validation
   ```
-
+  
   ### Tests Dizin Yapısı
-
+  
   ```
   tests/
   ├── conftest.py - Tüm testler için ortak fixture'lar
@@ -278,17 +278,17 @@ body_tr: |-
   ├── test_semantic_links.py - Semantik bağlammanın testleri
   └── test_zettel_service.py - Zettel hizmetinin testleri
   ```
-
+  
   ## Önemli Uyarı
-
+  
   **⚠️ KENDİ RİSKİNİZDE KULLANIN**: Bu yazılım deneyseldir ve hiçbir garantisi olmaksızın olduğu gibi sağlanmaktadır. Veri bütünlüğünü sağlamak için çaba gösterilmiş olsa da, veri kaybı veya bozulmasına yol açabilecek hatalar içerebilir. Notlarınızı düzenli olarak yedekleyin ve önemli bilgilerle test ederken dikkatli olun.
-
+  
   ## Kredi Verilmesi Gereken Yerlere
-
+  
   Bu MCP sunucusu, Claude'un yardımıyla oluşturulmuştur. Claude, bu projenin atomik düşüncelerini tutarlı bir bilgi grafiğinde organize etmesine yardımcı oldu. İyi bir Zettelkasten sistemi gibi, Claude aksi takdirde izole kalabilecek fikirler arasındaki noktaları birleştirdi. Ancak Luhmann'ın kağıt tabanlı sisteminden farklı olarak, Claude etkili olmak için 90.000 index karta ihtiyaç duymadı.
-
+  
   ## Lisans
-
+  
   MIT Lisansı
 ---
 

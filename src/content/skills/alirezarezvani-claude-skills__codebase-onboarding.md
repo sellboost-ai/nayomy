@@ -12,6 +12,86 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Kod Tabanı Katılım Süreci
+
+  **Seviye:** POWERFUL  
+  **Kategori:** Engineering  
+  **Alan:** Documentation / Developer Experience
+
+  ---
+
+  ## Genel Bakış
+
+  Bir kod tabanını analiz edin ve mühendisler, teknik liderler ve yükleniciler için katılım belgeleri oluşturun. Bu beceri hızlı bilgi toplama ve tekrarlanabilir katılım çıktıları için optimize edilmiştir.
+
+  ## Temel Yetenekler
+
+  - Repository sinyallerinden mimari ve stack keşfi
+  - Yeni katkıda bulunanlar için anahtar dosya ve config envanteri
+  - Yerel kurulum ve yaygın görev rehberi oluşturma
+  - Kitleye uygun belgelendirme çerçevesi
+  - Hata ayıklama ve katkı kontrol listesi iskeletlendirmesi
+
+  ---
+
+  ## Ne Zaman Kullanılır
+
+  - Yeni bir takım üyesi veya yüklenicinin katılımı sırasında
+  - Büyük refactoring işlemlerinden sonra eski proje docsunu yeniden oluştururken
+  - İç devir belgelendirmesi hazırlarken
+  - Hizmetler için standartlaştırılmış bir katılım paketi oluştururken
+
+  ---
+
+  ## Hızlı Başlangıç
+
+  ```bash
+  # 1) Kod tabanı bilgilerini toplayın
+  python3 scripts/codebase_analyzer.py /path/to/repo
+
+  # 2) Makine tarafından okunabilir çıktıyı dışa aktarın
+  python3 scripts/codebase_analyzer.py /path/to/repo --json
+
+  # 3) Katılım docsunu taslaklamak için şablonu kullanın
+  # Bkz. references/onboarding-template.md
+  ```
+
+  ---
+
+  ## Önerilen İş Akışı
+
+  1. Hedef repository'ye karşı `scripts/codebase_analyzer.py` çalıştırın.
+  2. Anahtar sinyalleri yakalayın: dosya sayıları, algılanan diller, config dosyaları, üst düzey yapı.
+  3. `references/onboarding-template.md` dosyasındaki katılım şablonunu doldurun.
+  4. Çıktı derinliğini kitleye göre ayarlayın:
+     - Junior: kurulum + güvenli yönergeler
+     - Senior: mimari + operasyonel endişeler
+     - Yüklenici: sınırlı sahiplik + entegrasyon sınırları
+
+  ---
+
+  ## Katılım Belge Şablonu
+
+  Detaylı şablon ve bölüm örnekleri şu yerlerde bulunur:
+  - `references/onboarding-template.md`
+  - `references/output-format-templates.md`
+
+  ---
+
+  ## Yaygın Tuzaklar
+
+  - Temiz bir ortamda kurulum komutlarını doğrulamadan docs yazma
+  - Mimari derinlemesine incelemelerini yüklenici odaklı docslar içine karıştırma
+  - Sorun giderme ve doğrulama adımlarını atma
+  - Katılım docsunun mevcut repo durumundan uzaklaşmasına izin verme
+
+  ## En İyi Yöntemler
+
+  1. Kurulum talimatlarını yürütülebilir ve zamana bağlı tutun.
+  2. Anahtar mimari kararların "neden" ini belgeleyin.
+  3. Docsları davranış değişiklikleriyle aynı PR'de güncelleyin.
+  4. Katılım docslarını tek seferlik çıktılar değil, canlı operasyonel varlıklar olarak değerlendirin.
 ---
 
 # Codebase Onboarding

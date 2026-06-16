@@ -9,6 +9,115 @@ path: "rules/gitflow.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/gitflow.mdc"
 body_length: 2636
 file_extension: ".mdc"
+body_tr: |-
+  # Gitflow İş Akışı Kuralları
+
+  ## Ana Dallar
+
+  ### main (veya master)
+  - Üretime hazır kodu içerir
+  - Asla doğrudan main'e commit yapılmaz
+  - Yalnızca şu dallardan merge kabul eder:
+    - hotfix/* dalları
+    - release/* dalları
+  - Her merge'den sonra sürüm numarasıyla etiketlenmelidir
+
+  ### develop
+  - Ana geliştirme dalı
+  - En son teslim edilen geliştirme değişikliklerini içerir
+  - Feature dalları için kaynak dal
+  - Asla doğrudan develop'a commit yapılmaz
+
+  ## Destekleyici Dallar
+
+  ### feature/*
+  - Branş kaynağı: develop
+  - Geri merge: develop
+  - İsimlendirme kuralı: feature/[issue-id]-descriptive-name
+  - Örnek: feature/123-user-authentication
+  - PR oluşturmadan önce develop ile güncel olmalıdır
+  - Merge'den sonra silinmelidir
+
+  ### release/*
+  - Branş kaynağı: develop
+  - Geri merge: 
+    - main
+    - develop
+  - İsimlendirme kuralı: release/vX.Y.Z
+  - Örnek: release/v1.2.0
+  - Yalnızca hata düzeltmeleri, dokümantasyon ve yayın ile ilgili görevler
+  - Yeni özellik yok
+  - Merge'den sonra silinmelidir
+
+  ### hotfix/*
+  - Branş kaynağı: main
+  - Geri merge:
+    - main
+    - develop
+  - İsimlendirme kuralı: hotfix/vX.Y.Z
+  - Örnek: hotfix/v1.2.1
+  - Yalnızca acil üretim düzeltmeleri için
+  - Merge'den sonra silinmelidir
+
+  ## Commit Mesajları
+
+  - Format: `type(scope): description`
+  - Tipler:
+    - feat: Yeni özellik
+    - fix: Hata düzeltme
+    - docs: Dokümantasyon değişiklikleri
+    - style: Biçimlendirme, eksik noktalı virgül vb.
+    - refactor: Kod yeniden yapılandırması
+    - test: Test ekleme
+    - chore: Bakım görevleri
+
+  ## Sürüm Kontrolü
+
+  ### Semantik Sürümlendirme
+  - MAJOR sürümü uyumsuz API değişiklikleri için
+  - MINOR sürümü geriye dönük uyumlu işlevsellik için
+  - PATCH sürümü geriye dönük uyumlu hata düzeltmeleri için
+
+  ## Pull Request Kuralları
+
+  1. Tüm değişiklikler Pull Request'ler aracılığıyla yapılmalıdır
+  2. Gerekli onaylar: minimum 1
+  3. CI kontrolleri geçmelidir
+  4. Korunan dallara (main, develop) doğrudan commit yok
+  5. Merge'den önce dal güncel olmalıdır
+  6. Merge'den sonra dal silinmelidir
+
+  ## Dal Koruma Kuralları
+
+  ### main & develop
+  - Pull request incelemesi gereklidir
+  - Durum kontrollerinin geçmesi gereklidir
+  - Dalların güncel olması gereklidir
+  - Yöneticiler kısıtlamalara dahil edilmiştir
+  - Force push yok
+  - Silme yok
+
+  ## Yayın Süreci
+
+  1. Develop'dan release dalı oluşturun
+  2. Sürüm numaralarını güncelleyin
+  3. Yayın ile ilgili sorunları düzeltin
+  4. Main'e PR oluşturun
+  5. Main'e merge'den sonra:
+     - Yayını etiketleyin
+     - Develop'a geri merge yapın
+     - Release dalını silin
+
+  ## Hotfix Süreci
+
+  1. Main'den hotfix dalı oluşturun
+  2. Sorunu düzeltin
+  3. Patch sürümünü güncelleyin
+  4. Main'e PR oluşturun
+  5. Main'e merge'den sonra:
+     - Yayını etiketleyin
+     - Develop'a geri merge yapın
+     - Hotfix dalını silin
 ---
 
 # Gitflow Workflow Rules

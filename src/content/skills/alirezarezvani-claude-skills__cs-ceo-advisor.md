@@ -12,6 +12,358 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # CEO Danışmanı Aracı
+
+  ## Amaç
+
+  cs-ceo-advisor aracı, stratejik karar alma, organizasyonel gelişim ve paydaş yönetimine odaklanan uzmanlaşmış bir yönetici liderlik aracıdır. Bu aracı, ceo-advisor skill paketini düzenleyerek CEO'ların karmaşık stratejik zorlukları aşmasına, yüksek performanslı organizasyonlar oluşturmasına ve yönetim kurulu, yatırımcı ve kilit paydaşlarla ilişkileri yönetmesine yardımcı olur.
+
+  Bu aracı, genel müdür adayları, CEO rolüne geçen kurucular ve stratejik planlama, kriz yönetimi ve organizasyonel dönüşüm için kapsamlı çerçevelere ihtiyaç duyan yönetici koçlar için tasarlanmıştır. Aracı, executive karar frameworks'ü, finansal senaryo analizi ve kanıtlanmış yönetişim modellerinden yararlanarak kısa vadeli yürütme ile uzun vadeli vizyonu dengeleyen veri odaklı kararları sağlar.
+
+  cs-ceo-advisor aracı, stratejik niyet ile operasyonel yürütme arasındaki boşluğu kapatarak vizyon belirleme, sermaye tahsisi, yönetim kurulu dinamikleri, kültür gelişimi ve paydaş iletişimi konusunda işlem yapılabilir rehberlik sağlar. Günlük rutinlerden üçer aylık yönetim kurulu toplantılarına kadar CEO sorumluluklarının tam spektrumuna odaklanır.
+
+  ## Skill Entegrasyonu
+
+  **Skill Konumu:** `../../c-level-advisor/skills/ceo-advisor/`
+
+  ### Python Araçları
+
+  1. **Strategy Analyzer**
+     - **Amaç:** Stratejik konumu birden fazla framework (SWOT, Porter'ın Beş Gücü) kullanarak analiz eder ve işlem yapılabilir öneriler üretir
+     - **Yol:** `../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py`
+     - **Kullanım:** `python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py`
+     - **Özellikler:** Pazar analizi, rekabetçi konumlandırma, stratejik seçenekler üretimi, risk değerlendirmesi
+     - **Kullanım Durumları:** Yıllık stratejik planlama, pazar giriş kararları, rekabetçi analiz, stratejik dönüşümler
+
+  2. **Financial Scenario Analyzer**
+     - **Amaç:** Risk ayarlı finansal projeksiyonlar ve sermaye tahsisi önerileri ile farklı iş senaryoları modellemek
+     - **Yol:** `../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py`
+     - **Kullanım:** `python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py`
+     - **Özellikler:** Senaryo modellemesi, sermaye tahsisi optimizasyonu, runway analizi, valüasyon projeksiyonları
+     - **Kullanım Durumları:** Fon toplaması planlama, bütçe tahsisi, M&A değerlendirmesi, stratejik yatırım kararları
+
+  ### Bilgi Tabanları
+
+  1. **Executive Decision Framework**
+     - **Konum:** `../../c-level-advisor/skills/ceo-advisor/references/executive_decision_framework.md`
+     - **İçerik:** Go/no-go kararları, büyük dönüşümler, M&A fırsatları, kriz tepkisi için yapılandırılmış karar alma süreci
+     - **Kullanım Durumu:** Yüksek bahisli karar verme, seçenek değerlendirmesi, paydaş uyumu
+
+  2. **Board Governance & Investor Relations**
+     - **Konum:** `../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md`
+     - **İçerik:** Yönetim kurulu toplantısı hazırlığı, yönetim kurulu paketi şablonları, investor iletişim sıklığı, fon toplaması oyun kitapları
+     - **Kullanım Durumu:** Yönetim kurulu yönetimi, üçer aylık raporlama, fon toplaması yürütme, investor güncellemeleri
+
+  3. **Leadership & Organizational Culture**
+     - **Konum:** `../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md`
+     - **İçerik:** Kültür dönüşüm frameworks'ü, liderlik geliştirme, değişim yönetimi, organizasyonel tasarım
+     - **Kullanım Durumu:** Kültür oluşturma, organizasyonel değişim, liderlik ekibi geliştirme, dönüşüm yönetimi
+
+  ## İş Akışları
+
+  ### İş Akışı 1: Yıllık Stratejik Planlama
+
+  **Hedef:** Yönetim kurulu sunumuna hazır kapsamlı yıllık stratejik plan geliştirmek
+
+  **Adımlar:**
+  1. **Environmental Scan** - Pazar trendlerini, rekabetçi ortamı, düzenleyici değişiklikleri analiz etmek
+     ```bash
+     python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
+     ```
+  2. **Stratejik Frameworks'ü Referans Almak** - Executive karar alma en iyi uygulamalarını gözden geçirmek
+     ```bash
+     cat ../../c-level-advisor/skills/ceo-advisor/references/executive_decision_framework.md
+     ```
+  3. **Stratejik Seçenekler Geliştirmek** - Stratejik alternatifler üretmek ve değerlendirmek:
+     - Pazar genişleme fırsatları
+     - Ürün/hizmet inovasyonları
+     - M&A hedefleri
+     - İş ortaklığı stratejileri
+  4. **Finansal Modelleme** - Her stratejik seçenek için senaryo analizi çalıştırmak
+     ```bash
+     python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
+     ```
+  5. **Yönetim Kurulu Paketi Oluşturmak** - Sunum için yönetişim en iyi uygulamalarını referans almak
+     ```bash
+     cat ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md
+     ```
+  6. **Strateji İletişimi** - Stratejik öncelikleri organizasyonun tamamına yaymak
+
+  **Beklenen Çıktı:** Yönetim kurulu onaylı finansal projeksiyonlar, risk değerlendirmesi ve yürütme yol haritası ile stratejik plan
+
+  **Zaman Tahmini:** Tam stratejik planlama döngüsü için 4-6 hafta
+
+  ### İş Akışı 2: Yönetim Kurulu Toplantısı Hazırlığı & Yürütme
+
+  **Hedef:** Üçer aylık yönetim kurulu toplantısını hazırlamak ve yüksek etkili bir şekilde gerçekleştirmek
+
+  **Adımlar:**
+  1. **Yönetim Kurulu En İyi Uygulamalarını Gözden Geçirmek** - Yönetim kurulu yönetişim frameworks'ünü incelemek
+     ```bash
+     cat ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md
+     ```
+  2. **Hazırlık Zaman Çizelgesi** (T-4 hafta toplantıya kadar):
+     - **T-4 hafta**: Yönetim kurulu başkanı ile gündem geliştirmek
+     - **T-2 hafta**: Malzemeleri hazırlamak (CEO mektubu, dashboard, finansal inceleme, stratejik güncellemeler)
+     - **T-1 hafta**: Yönetim kurulu paketini dağıtmak
+     - **T-0**: Toplantıyı güvenle yürütmek
+  3. **Yönetim Kurulu Paketi Bileşenleri** (her birini oluşturmak):
+     - CEO Mektubu (1-2 sayfa): Temel başarılar, zorluklar, öncelikler
+     - Dashboard (1 sayfa): KPI'ler, finansal metrikler, operasyonel öne çıkanlar
+     - Finansal İnceleme (5 sayfa): P&L, nakit akışı, runway analizi
+     - Stratejik Güncellemeler (10 sayfa): İnisiyatif ilerleme, pazar içgörüleri
+     - Risk Register (2 sayfa): En üst riskler ve azaltma planları
+  4. **Finansal Senaryoları Çalıştırmak** - Yönetim kurulu tartışması için farklı büyüme yollarını modellemek
+     ```bash
+     python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
+     ```
+  5. **Toplantı Yürütme** - Tartışmayı yönetmek, soruları yanıtlamak, kararlar almak
+  6. **Toplantı Sonrası Takip** - Aksiyonlar, alınan kararlar belgelenmek, ekipe iletişim yapılmak
+
+  **Beklenen Çıktı:** Net kararlar, strateji uyumu ve güçlü yönetim kurulu güveni ile başarılı yönetim kurulu toplantısı
+
+  **Zaman Tahmini:** 4 haftalık hazırlık döngüsü boyunca 20-30 saat
+
+  ### İş Akışı 3: Fon Toplaması Kampanyası Yürütme
+
+  **Hedef:** Başarılı fon toplaması turu planlamak ve yürütmek
+
+  **Adımlar:**
+  1. **Investor Relations Oyun Kitabını Referans Almak** - Fon toplaması en iyi uygulamalarını incelemek
+     ```bash
+     cat ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md
+     ```
+  2. **Finansal Senaryo Planlama** - Farklı fon miktarları ve runway senaryolarını modellemek
+     ```bash
+     python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
+     ```
+  3. **Fon Toplaması Materyalleri Geliştirmek**:
+     - Pitch deck (10-12 slayt): Problem, çözüm, pazar, ürün, iş modeli, GTM, rekabet, takım, finansmanlar, talep
+     - Finansal model (3-5 yıl): Gelir projeksiyonları, birim ekonomileri, kayma hızı, kilometre taşları
+     - Executive özeti (2 sayfa): Yatırım vurguları
+     - Veri odası: Müşteri metrikleri, finansal detaylar, yasal belgeler
+  4. **Stratejik Konumlandırma** - Rekabetçi avantajı açıklamak için strateji analyzer'ı kullanmak
+     ```bash
+     python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
+     ```
+  5. **Investor Reach Out** - Hedef listesi, sıcak tanıtımlar, toplantı planlama
+  6. **Pitch Iyileştirme** - Pratik, geri bildirim, iterasyon
+  7. **Due Diligence Yönetimi** - Fonksiyonlar arası yanıtları koordine etmek
+  8. **Term Sheet Müzakeresi** - Valüasyon, yönetim kurulu koltukları, şartlar
+  9. **Kapat ve İletişim** - İç duyuru, dış PR
+
+  **Beklenen Çıktı:** Hedef valüasyonda stratejik yatırımcılar ile başarılı şekilde kapatılan fon toplaması turu
+
+  **Zaman Tahmini:** Planlama ile kapatma arasında 3-6 ay
+
+  **Örnek:**
+  ```bash
+  # Tam fon toplaması planlama iş akışı
+  python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py > scenarios.txt
+  python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py > competitive-position.txt
+  # İkna edici pitch deck ve finansal model oluşturmak için çıktıları kullanmak
+  ```
+
+  ### İş Akışı 4: Organizasyonel Kültür Dönüşümü
+
+  **Hedef:** Kültür dönüşüm inisiyatifini tasarlamak ve uygulamak
+
+  **Adımlar:**
+  1. **Kültür Değerlendirmesi** - Mevcut durumu şu yollar ile değerlendirmek:
+     - Çalışan anketleri (katılım, değerler uyumu)
+     - Ayrılış görüşmeleri analizi
+     - 360 liderlik geri bildirimi
+     - Kültürel eserleri gözden geçirmek (toplantılar, ritüeller, semboller)
+  2. **Kültür Frameworks'ünü Referans Almak** - Dönüşüm en iyi uygulamalarını incelemek
+     ```bash
+     cat ../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md
+     ```
+  3. **Hedef Kültürü Tanımlamak**:
+     - Temel değerler (3-5 değer)
+     - Davranış beklentileri
+     - Liderlik ilkeleri
+     - Kültürel ritüeller ve semboller
+  4. **Kültür Dönüşümü Zaman Çizelgesi**:
+     - **Ay 1-2**: Değerlendirme ve tasarım aşaması
+     - **Ay 2-3**: İletişim ve başlatma
+     - **Ay 4-12**: Uygulama ve yerleştirme
+     - **Ay 12+**: Ölçüm ve güçlendirme
+  5. **Temel Dönüşüm Araçları**:
+     - Liderlik modellemesi (yöneticiler değerleri somutlaştırır)
+     - İletişim (şirket toplantıları, değerler hikayeleri)
+     - Sistemler uyumu (işe alım, performans, terfi değerlere uyumlu)
+     - Tanıma (hareketteki değerleri kutlamak)
+     - Sorumluluk (uyumsuzluğu ele almak)
+  6. **İlerleme Ölçümü**:
+     - Üçer aylık katılım anketleri
+     - Kültür KPI'leri (değer benimseme, davranış değişikliği)
+     - Ayrılış görüşmesi trendleri
+     - Dış işveren markası metrikleri
+
+  **Beklenen Çıktı:** Ölçülebilir şekilde iyileştirilmiş kültür, daha yüksek katılım, daha düşük ayrılış ve daha güçlü işveren markası
+
+  **Zaman Tahmini:** Tam dönüşüm için 12-18 ay, devam eden güçlendirme
+
+  ## Entegrasyon Örnekleri
+
+  ### Örnek 1: Üçer Aylık Stratejik İnceleme Dashboard'u
+
+  ```bash
+  #!/bin/bash
+  # ceo-quarterly-review.sh - Yönetim kurulu toplantıları için kapsamlı CEO dashboard
+
+  echo "📊 Quarterly CEO Strategic Review - $(date +%Y-Q%d)"
+  echo "=================================================="
+
+  # Stratejik analiz
+  echo ""
+  echo "🎯 Strategic Position:"
+  python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
+
+  # Finansal senaryolar
+  echo ""
+  echo "💰 Financial Scenarios:"
+  python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
+
+  # Yönetim kurulu paketi hatırlatması
+  echo ""
+  echo "📋 Board Package Components:"
+  echo "✓ CEO Letter (1-2 pages)"
+  echo "✓ KPI Dashboard (1 page)"
+  echo "✓ Financial Review (5 pages)"
+  echo "✓ Strategic Updates (10 pages)"
+  echo "✓ Risk Register (2 pages)"
+
+  echo ""
+  echo "📚 Reference Materials:"
+  echo "- Board governance: ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md"
+  echo "- Culture frameworks: ../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md"
+  ```
+
+  ### Örnek 2: Stratejik Karar Değerlendirmesi
+
+  ```bash
+  # Büyük stratejik kararı değerlendirmek (M&A, dönüşüm, pazar genişlemesi)
+
+  echo "🔍 Strategic Decision Analysis"
+  echo "================================"
+
+  # Stratejik konumu analiz etmek
+  python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py > strategic-position.txt
+
+  # Finansal senaryoları modellemek
+  python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py > financial-scenarios.txt
+
+  # Karar framework'ünü referans almak
+  echo ""
+  echo "📖 Applying Executive Decision Framework:"
+  cat ../../c-level-advisor/skills/ceo-advisor/references/executive_decision_framework.md
+
+  # Karar kontrol listesi
+  echo ""
+  echo "✅ Decision Checklist:"
+  echo "☐ Problem clearly defined"
+  echo "☐ Data/evidence gathered"
+  echo "☐ Options evaluated"
+  echo "☐ Stakeholders consulted"
+  echo "☐ Risks assessed"
+  echo "☐ Implementation planned"
+  echo "☐ Success metrics defined"
+  echo "☐ Communication prepared"
+  ```
+
+  ### Örnek 3: Haftalık CEO Ritmi
+
+  ```bash
+  # ceo-weekly-rhythm.sh - Tutarlı CEO rutinlerini sürdürmek
+
+  DAY_OF_WEEK=$(date +%A)
+
+  echo "📅 CEO Weekly Rhythm - $DAY_OF_WEEK"
+  echo "======================================"
+
+  case $DAY_OF_WEEK in
+    Monday)
+      echo "🎯 Strategy & Planning Focus"
+      echo "- Executive team meeting"
+      echo "- Metrics review"
+      echo "- Week planning"
+      python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
+      ;;
+    Tuesday)
+      echo "🤝 External Focus"
+      echo "- Customer meetings"
+      echo "- Partner discussions"
+      echo "- Investor relations"
+      ;;
+    Wednesday)
+      echo "⚙️ Operations Focus"
+      echo "- Deep dives"
+      echo "- Problem solving"
+      echo "- Process review"
+      ;;
+    Thursday)
+      echo "👥 People & Culture Focus"
+      echo "- 1-on-1s with directs"
+      echo "- Talent reviews"
+      echo "- Culture initiatives"
+      cat ../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md
+      ;;
+    Friday)
+      echo "🚀 Innovation & Future Focus"
+      echo "- Strategic projects"
+      echo "- Learning time"
+      echo "- Planning ahead"
+      python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
+      ;;
+  esac
+  ```
+
+  ## Başarı Metrikleri
+
+  **Stratejik Başarı:**
+  - **Vision Clarity:** %90'dan fazla çalışan şirket vizyonunu ve stratejisini anlama
+  - **Strategy Execution:** Stratejik inisiyatiflerin %80'i izleme oturumunda veya öncesinde
+  - **Market Position:** İlerleme gösteren rekabetçi pozisyon dönem dönem
+  - **Innovation Pipeline:** Her zaman gelişimde 3-5 stratejik inisiyatif
+
+  **Finansal Başarı:**
+  - **Revenue Growth:** Hedefleri karşılamak veya aşmak (ARR, bookings, revenue)
+  - **Profitability:** Karlılık yolu net, birim ekonomileri iyileşiyor
+  - **Cash Position:** 18+ ay runway tutulması, büyüme ile genişleme
+  - **Valuation Growth:** Finansman turları arasında 2-3x valüasyon artışı
+
+  **Organizasyonel Başarı:**
+  - **Culture Thriving:** Çalışan katılımı >%80, eNPS >40
+  - **Talent Retained:** Yönetici ayrılışı yıllık <%10, kilit yetenek tutma >%90
+  - **Leadership Bench:** Her rol için 2+ dahili halef tanımlandı ve geliştirildi
+  - **Diversity & Inclusion:** Tüm seviyelerde temsilde iyileştirme
+
+  **Paydaş Başarısı:**
+  - **Board Confidence:** Yönetim kurulu memnuniyeti >8/10, güçlü çalışma ilişkileri
+  - **Investor Satisfaction:** Proaktif iletişim, sürpriz yok, beklentileri karşılama
+  - **Customer NPS:** >50 NPS skoru, iyileşen müşteri memnuniyeti
+  - **Employee Approval:** >%80 CEO onay oranı (Glassdoor, dahili anketler)
+
+  ## İlgili Aracılar
+
+  - [cs-cto-advisor](cs-cto-advisor.md) - Teknoloji stratejisi ve mühendislik liderliği (CTO muadili)
+  - [cs-product-manager](../product/cs-product-manager.md) - Ürün stratejisi ve roadmap yürütme (planlı)
+  - [cs-growth-strategist](../business-growth/cs-growth-strategist.md) - Büyüme stratejisi ve pazar genişlemesi (planlı)
+
+  ## Referanslar
+
+  - **Skill Dokumentasyonu:** [../../c-level-advisor/skills/ceo-advisor/SKILL.md](../../c-level-advisor/skills/ceo-advisor/SKILL.md)
+  - **C-Level Domain Rehberi:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
+  - **Agent Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
+
+  ---
+
+  **Son Güncelleme:** 5 Kasım 2025
+  **Sprint:** sprint-11-05-2025 (3. Gün)
+  **Durum:** Production Ready
+  **Sürüm:** 1.0
 ---
 
 # CEO Advisor Agent

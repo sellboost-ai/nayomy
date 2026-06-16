@@ -3,77 +3,77 @@ name: "gomarble-ai/facebook-ads-mcp-server"
 description: "MCP server acting as an interface to the Facebook Ads, enabling programmatic access to Facebook Ads data and management features."
 category: "Marketing"
 repo: "gomarble-ai/facebook-ads-mcp-server"
-stars: 326
+stars: 329
 url: "https://github.com/gomarble-ai/facebook-ads-mcp-server"
 body_length: 7346
 license: "MIT"
 language: "Python"
 body_tr: |-
   # Facebook/Meta Ads MCP Server
-
+  
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/gomarble-ai/facebook-ads-mcp-server)](https://archestra.ai/mcp-catalog/gomarble-ai__facebook-ads-mcp-server)
   [![smithery badge](https://smithery.ai/badge/@gomarble-ai/facebook-ads-mcp-server)](https://smithery.ai/server/@gomarble-ai/facebook-ads-mcp-server)
-
+  
   Bu proje, Meta Ads'e arayüz görevi gören bir MCP sunucusu sağlayarak Meta Ads verilerine ve yönetim özelliklerine programatik erişim sağlar.
-
+  
   <video controls width="1920" height="512" src="https://github.com/user-attachments/assets/c4a76dcf-cf5d-4a1d-b976-08165e880fe4">Tarayıcınız video etiketini desteklemez.</video>
-
+  
   ## Kolay Tek Tıklamayla Kurulum
-
+  
   Daha basit bir kurulum deneyimi için hazır kurulum programları sunuyoruz:
-
+  
   👉 **Kurulum programını indir -** [https://gomarble.ai/mcp](https://gomarble.ai/mcp)
-
+  
   ## Yardım ve güncellemeler için toplulukumuza katılın
-
+  
   👉 **Slack Topluluğu -** [AI in Ads](https://join.slack.com/t/ai-in-ads/shared_invite/zt-36hntbyf8-FSFixmwLb9mtEzVZhsToJQ)
-
+  
   ## Google ads mcp server'ı da deneyin
-
+  
   👉 **Google Ads MCP -** [Google Ads MCP](https://github.com/gomarble-ai/google-ads-mcp-server)
-
+  
   ### Ne Yapar
-
+  
   - MCP sunucusunu yerel olarak yükler ve yapılandırır
   - Environment kurulumunu otomatik olarak yönetir
   - Meta token kimlik doğrulaması için sorular sorar (isteğe bağlı)
   - Meta access token sağlanmazsa, sizin adınıza token oluşturmak için GoMarble'ın sunucusuna bağlanır
-
+  
   ### Önemli Feragatname
-
+  
   Bu kurulum **gerektirmez** Meta Developer Access Token'ını manuel olarak almanızı.
-
+  
   Bunun yerine, **GoMarble'ın sunucusuna güvenli bir şekilde bağlanarak sizin adınıza token oluşturur**.
   GoMarble, token'ınızı **depolamaz** — MCP sunucusuyla kullanılmak üzere yerel olarak makinenizde kaydedilir.
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   ### Ön Gereksinimler
-
+  
   *   Python 3.10+
   *   `requirements.txt` dosyasında listelenen bağımlılıklar
-
-
-
+  
+  
+  
   1.  **(İsteğe Bağlı ama Önerilir) Sanal Ortam Oluşturun ve Etkinleştirin:**
       ```bash
       python3 -m venv venv
       source venv/bin/activate  # Windows'ta `venv\Scripts\activate` kullanın
       ```
-
+  
       Sanal ortam kullanmak proje bağımlılıklarını temiz bir şekilde yönetmeye yardımcı olur[[Kaynak]](https://docs.python.org/3/tutorial/venv.html).
   2.  **Bağımlılıkları Yükleyin:**
       ```bash
       pip install -r requirements.txt
       ```
   3.  **Meta Access Token Alın:** Gerekli izinlere (örn. `ads_read`) sahip bir Meta User Access Token güvenli hale getirin. Bunu Meta Developer portalı aracılığıyla oluşturabilirsiniz. [Bu bağlantıyı](https://elfsight.com/blog/how-to-get-facebook-access-token/) takip edin.
-
+  
   ### MCP İstemcileriyle Kullanım (örn. Cursor, Claude Desktop)
-
+  
   Bu sunucuyu MCP uyumlu bir istemciyle entegre etmek için, `YOUR_META_ACCESS_TOKEN` yerine gerçek token'ınızı yazarak ve gerekirse `server.py` yolunu ayarlayarak aşağıdakine benzer bir konfigürasyon ekleyin.
-
+  
   ```json
   {
     "mcpServers": {
@@ -96,21 +96,21 @@ body_tr: |-
   }
   ```
   Konfigürasyonda güncelleme yaptıktan sonra MCP İstemci uygulamasını yeniden başlatın.
-
+  
   *(Not: Windows'ta, kurulumunuza bağlı olarak komut yapısını ayarlamanız veya `cmd /k` kullanmanız gerekebilir.)*
-
+  
   ### Sunucuyu Hata Ayıklama
-
+  
   `server.py` dosyasını çalıştırarak access token'ı `--fb-token` argümanı aracılığıyla sağlayın.
-
+  
   ```bash
   python server.py --fb-token YOUR_META_ACCESS_TOKEN
   ```
-
+  
   ### Kullanılabilir MCP Araçları
-
+  
   Bu MCP sunucusu META Ads nesneleri ve verileriyle etkileşim kurmak için araçlar sağlar:
-
+  
   | Araç Adı                        | Açıklama                                                 |
   | ------------------------------- | -------------------------------------------------------- |
   | **Hesap ve Nesne Okuma**        |                                                          |
@@ -138,25 +138,25 @@ body_tr: |-
   | **Aktivite/Değişiklik Geçmişi** |                                                          |
   | `get_activities_by_adaccount`   | Reklam hesabı için değişiklik geçmişini alır.            |
   | `get_activities_by_adset`       | Reklam seti için değişiklik geçmişini alır.              |
-
+  
   *(Not: Çoğu araç `fields`, `filtering`, `limit`, pagination, tarih aralıkları vb. gibi ek parametreleri destekler. Her araç için tam argüman listesi ve açıklaması için `server.py` içindeki detaylı docstring'lere bakın.)*
-
+  
   *(Not: Meta access token'ınızın süresi dolarsa, yeni bir tane oluşturmanız ve araçları kullanmaya devam etmek için MCP İstemcisinin konfigürasyon dosyasını yeni token'la güncelleştirmeniz gerekir.)*
-
+  
   ### Bağımlılıklar
-
+  
   *   [mcp](https://pypi.org/project/mcp/) (>=1.6.0)
   *   [requests](https://pypi.org/project/requests/) (>=2.32.3)
-
+  
   ### Lisans
   Bu proje MIT Lisansı altında lisanslanmıştır.
-
+  
   ---
-
+  
   ## Smithery Aracılığıyla Yükleme
-
+  
   Facebook Ads Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/@gomarble-ai/facebook-ads-mcp-server) aracılığıyla otomatik olarak yüklemek için:
-
+  
   ```bash
   npx -y @smithery/cli install @gomarble-ai/facebook-ads-mcp-server --client claude
   ```

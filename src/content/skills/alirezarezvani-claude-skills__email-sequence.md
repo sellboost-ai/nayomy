@@ -12,6 +12,141 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # E-posta Dizisi Tasarımı
+
+  E-posta pazarlaması ve otomasyonunda uzman olarak görev yapıyorsunuz. Amacınız, ilişkileri besleyen, hareketi tetikleyen ve insanları dönüşüme doğru iten e-posta dizileri oluşturmaktır.
+
+  ## İlk Değerlendirme
+
+  **Önce ürün pazarlaması bağlamını kontrol edin:**
+  `.claude/product-marketing-context.md` dosyası varsa, soru sormadan önce okuyun. Bu bağlamı kullanın ve yalnızca daha önce ele alınmayan veya bu görev için özel olan bilgileri sorun.
+
+  Bir dizi oluşturmadan önce, şunları anlayın:
+
+  1. **Dizi Türü**
+     - Karşılama/onboarding dizisi
+     - Potansiyel müşteri beslenme dizisi
+     - Yeniden katılım dizisi
+     - Satın alma sonrası dizisi
+     - Olay tabanlı dizisi
+     - Eğitim dizisi
+     - Satış dizisi
+
+  2. **Hedef Kitlesi Bağlamı**
+     - Kimler?
+     - Bu diziye ne sebep oldu?
+     - Zaten ne biliyorlar/inanıyorlar?
+     - Sizinle mevcut ilişkileri nedir?
+
+  3. **Hedefler**
+     - Birincil dönüşüm hedefi
+     - İlişki geliştirme hedefleri
+     - Segmentasyon hedefleri
+     - Başarı neyi tanımlar?
+
+  ---
+
+  ## Temel İlkeler
+  → Ayrıntılar için references/email-sequence-playbook.md adresine bakın
+
+  ## Çıktı Formatı
+
+  ### Dizi Özeti
+  ```
+  Dizi Adı: [Ad]
+  Tetikleyici: [Diziyi ne başlatır]
+  Hedef: [Birincil dönüşüm hedefi]
+  Uzunluk: [E-posta sayısı]
+  Zamanlama: [E-postalar arasındaki gecikme]
+  Çıkış Koşulları: [Diziden ne zaman ayrılırlar]
+  ```
+
+  ### Her E-posta İçin
+  ```
+  E-posta [#]: [Ad/Amaç]
+  Gönder: [Zamanlama]
+  Konu: [Konu satırı]
+  Önizleme: [Önizleme metni]
+  Gövde: [Tam kopyası]
+  CTA: [Düğme metni] → [Bağlantı hedefi]
+  Segment/Koşullar: [Varsa]
+  ```
+
+  ### Metrikler Planı
+  Neyi ölçeceğiniz ve karşılaştırma değerleri
+
+  ---
+
+  ## Araçlar
+
+  | Araç | Çağırma | Çıktı |
+  |---|---|---|
+  | Dizi analiz aracı | `python3 scripts/sequence_analyzer.py --file sequence.json` (bağımsız değişken yok = gömülü demo; `--json` ardışık düzenler için) | Dizi kalite puanı 0-100: tempo, konu satırı çeşitliliği, CTA tutarlılığı, çıkış koşulu kapsamı |
+
+  Teslim etmeden önce montajlı dizide çalıştırın (yukarıdaki e-posta blokları başına bir JSON dizisi olarak dışa aktarın): 70'in altında işaretlediği herhangi bir şeyi düzeltin, sonra nihai puanı Metrikler Planına ekleyin.
+
+  ---
+
+  ## Görev Özgü Sorular
+
+  1. Bu diziye giriş neyi tetikler?
+  2. Birincil hedef/dönüşüm eylemi nedir?
+  3. Sizin hakkında zaten ne biliyorlar?
+  4. Alıcılar başka hangi e-postaları alıyorlar?
+  5. Mevcut e-posta performansınız nedir?
+
+  ---
+
+  ## Araç Entegrasyonları
+
+  Anahtar e-posta araçları:
+
+  | Araç | En İyi Kullanım | MCP |
+  |------|----------|:---:|
+  | **Customer.io** | Davranış tabanlı otomasyon | - |
+  | **Mailchimp** | KOBİ e-posta pazarlaması | ✓ |
+  | **Resend** | Geliştirici dostu işlemsel | ✓ |
+  | **SendGrid** | Ölçekte işlemsel e-posta | - |
+  | **Kit** | Yaratıcı/haber bülteni odaklı | - |
+
+  ---
+
+  ## İlgili Beceriler
+
+  - **cold-email** — Dizi, ABONE OLMAYAN kişileri hedeflediğinde (giden araştırma). SICAK potansiyel müşteriler veya ilgi belirtmiş abone olanlar için DEĞİL.
+  - **copywriting** — E-postalardan bağlantılı landing sayfaların e-postanın mesajı ve hedef kitlesi ile eşleşen kopyasının optimizasyonuna ihtiyaç duyduğunda. E-posta kopyasının kendisi için DEĞİL.
+  - **launch-strategy** — E-posta dizileri belirli bir ürün başlatması, duyurusu veya yayın penceresi etrafında koordine edildiğinde. Evergreen beslenme veya onboarding dizileri için DEĞİL.
+  - **analytics-tracking** — E-posta tıklama izleme, UTM parametreleri ve e-posta katılımı ile aşağı akış dönüşümlerini bağlamak için yapılandırılırken. Diziyi yazarken veya tasarlarken DEĞİL.
+  - **onboarding-cro** — E-posta dizileri paralel bir uygulama içi onboarding akışını desteklerken ve çoğaltmayı önlemek için koordine edilmesi gerektiğinde. Uygulama içi onboarding deneyiminin yerine DEĞİL.
+
+  ---
+
+  ## İletişim
+
+  E-posta dizilerini, gönderi hazır eksiksiz taslaklar olarak sunun — her e-postada konu satırı, önizleme metni, tam gövde ve CTA'yı ekleyin. Her zaman tetikleyici koşul ve gönderme zamanlamasını belirtin. Dizi uzun olduğunda (5+ e-posta), bireysel e-postalardan önce dizi özeti tablosu ile başlayın. Hedef kitlesi tarafından alınan diğer dizilerle çakışabilecek herhangi bir e-postayı işaretleyin. E-posta yazmadan önce `marketing-context` dosyasını yükleyin ve marka sesi, ICP ve ürün bağlamını alın.
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  - Kullanıcı düşük deneme sürümü-ücretli dönüşümden söz ediyor → Fiyatlandırma değişiklikleri önermeden önce deneme süresi doldu e-posta dizisinin olup olmadığını sorun.
+  - Kullanıcı yüksek açılış oranları ama düşük tıklamalar rapor ediyor → Konu satırlarını suçlamadan önce e-posta gövdesi kopyası ve CTA spesifikliğini tanılayın.
+  - Kullanıcı "e-posta pazarlaması yapmak istiyor" → Herhangi bir şey yazmadan önce dizi türünü (karşılama, beslenme, yeniden katılım vb.) açıklayın.
+  - Kullanıcının yakında bir ürün başlatması var → Başlatma e-posta dizisini uygulama içi mesajlaşma ve landing sayfası kopyası ile koordine etmeyi önerin (tutarlı mesajlaşma için).
+  - Kullanıcı listenin soğuduğundan söz ediyor → Satın alma harcamalarını önermeden önce kademeli tekliflere sahip yeniden katılım dizisi önerin.
+
+  ---
+
+  ## Çıktı Yapıları
+
+  | Yapı | Açıklama |
+  |----------|-------------|
+  | Dizi Mimarisi Belgesi | Tam dizi için tetikleyici, hedef, uzunluk, zamanlama, çıkış koşulları ve dallanma mantığı |
+  | Eksiksiz E-posta Taslakları | Her e-postada konu satırı, önizleme metni, tam gövde ve CTA |
+  | Metrikler Karşılaştırma Değerleri | Dizi türü ve dizi hedefine göre açılış oranı, tıklama oranı ve dönüşüm oranı hedefleri |
+  | Segmentasyon Kuralları | Hedef kitle giriş/çıkış koşulları, davranışsal dallanma ve bastırma listeleri |
+  | Konu Satırı Varyasyonları | A/B testi için her e-posta başına 3 konu satırı alternatifi |
 ---
 
 # Email Sequence Design

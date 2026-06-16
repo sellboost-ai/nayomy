@@ -3,7 +3,7 @@ name: "campaign-analytics"
 description_en: "Analyzes campaign performance with multi-touch attribution, funnel conversion analysis, and ROI calculation for marketing optimization. Use when analyzing marketing campaigns, ad performance, attribution models, conversion rates, or calculating marketing ROI, ROAS, CPA, and campaign metrics across channels."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 16160
+stars: 18266
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/campaign-analytics/SKILL.md"
 path: ".gemini/skills/campaign-analytics/SKILL.md"
 is_collection: false
@@ -14,17 +14,17 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Kampanya Analitikleri
-
+  
   Üretim sınıfı kampanya performans analizi, çok-temas atribüsyon modellemesi, huni dönüşüm analizi ve ROI hesaplaması. Üç Python CLI aracı, yalnızca standart kütüphane kullanan — hiç harici bağımlılık yok, API çağrısı yok, ML modeli yok — belirleyici, tekrarlanabilir analitik sağlar.
-
+  
   ---
-
+  
   ## Giriş Gereksinimleri
-
+  
   Tüm scriptler, pozisyonel giriş argümanı olarak bir JSON dosyası kabul eder. Tam örnekler için `assets/sample_campaign_data.json` dosyasına bakınız.
-
+  
   ### Attribution Analyzer
-
+  
   ```json
   {
     "journeys": [
@@ -41,9 +41,9 @@ body_tr: |-
     ]
   }
   ```
-
+  
   ### Funnel Analyzer
-
+  
   ```json
   {
     "funnel": {
@@ -52,9 +52,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Campaign ROI Calculator
-
+  
   ```json
   {
     "campaigns": [
@@ -71,93 +71,93 @@ body_tr: |-
     ]
   }
   ```
-
+  
   ### Giriş Doğrulaması
-
+  
   Scriptleri çalıştırmadan önce, JSON'unuzun geçerli olduğunu ve beklenen şemaya uyduğunu doğrulayın. Sık karşılaşılan hatalar:
-
+  
   - **Eksik gerekli anahtarlar** (örn. `journeys`, `funnel.stages`, `campaigns`) → script açıklayıcı bir `KeyError` ile çıkış yapar
   - **Huni verilerinde uyumsuz dizi uzunlukları** (`stages` ve `counts` aynı uzunlukta olmalıdır) → `ValueError` oluşturur
   - **ROI verilerinde sayısal olmayan parasal değerler** → `TypeError` oluşturur
-
+  
   JSON söz dizimini herhangi bir scripte geçirmeden önce doğrulamak için `python -m json.tool your_file.json` komutunu kullanın.
-
+  
   ---
-
+  
   ## Çıkış Formatları
-
+  
   Tüm scriptler `--format` bayrağı aracılığıyla iki çıkış formatını destekler:
-
+  
   - `--format text` (varsayılan): İnceleme için insan tarafından okunabilir tablolar ve özetler
   - `--format json`: İntegrasyonlar ve işlem hatları için makine tarafından okunabilir JSON
-
+  
   ---
-
+  
   ## Tipik Analiz İş Akışı
-
+  
   Tam bir kampanya incelemesi için, üç scripti sırasıyla çalıştırın:
-
+  
   ```bash
   # Adım 1 — Attribution: hangi kanalların dönüşümleri sürüklediğini anlayın
   python scripts/attribution_analyzer.py campaign_data.json --model time-decay
-
+  
   # Adım 2 — Funnel: müşterilerin dönüşüme giden yolda nerede düştüğünü belirleyin
   python scripts/funnel_analyzer.py funnel_data.json
-
+  
   # Adım 3 — ROI: kârlılığı hesaplayın ve endüstri standartlarıyla karşılaştırın
   python scripts/campaign_roi_calculator.py campaign_data.json
   ```
-
+  
   En iyi performans gösteren kanalları belirlemek için atribüsyon sonuçlarını kullanın, ardından bu kanalların segmentlerine odaklanarak huni analizi yapın ve son olarak bütçe yeniden dağıtımını öncekilendirmek için ROI metriklerini doğrulayın.
-
+  
   ---
-
+  
   ## Nasıl Kullanılır
-
+  
   ### Attribution Analysis
-
+  
   ```bash
   # Tüm 5 atribüsyon modelini çalıştırın
   python scripts/attribution_analyzer.py campaign_data.json
-
+  
   # Belirli bir modeli çalıştırın
   python scripts/attribution_analyzer.py campaign_data.json --model time-decay
-
+  
   # İşlem hattı entegrasyonu için JSON çıktısı
   python scripts/attribution_analyzer.py campaign_data.json --format json
-
+  
   # Özel time-decay half-life (varsayılan: 7 gün)
   python scripts/attribution_analyzer.py campaign_data.json --model time-decay --half-life 14
   ```
-
+  
   ### Funnel Analysis
-
+  
   ```bash
   # Temel huni analizi
   python scripts/funnel_analyzer.py funnel_data.json
-
+  
   # JSON çıktısı
   python scripts/funnel_analyzer.py funnel_data.json --format json
   ```
-
+  
   ### Campaign ROI Calculation
-
+  
   ```bash
   # Tüm kampanyalar için ROI metriklerini hesaplayın
   python scripts/campaign_roi_calculator.py campaign_data.json
-
+  
   # JSON çıktısı
   python scripts/campaign_roi_calculator.py campaign_data.json --format json
   ```
-
+  
   ---
-
+  
   ## Scriptler
-
+  
   ### 1. attribution_analyzer.py
-
+  
   Dönüşüm kredisini pazarlama kanalları arasında tahsis etmek için beş endüstri standardı atribüsyon modelini uygular:
-
+  
   | Model | Açıklama | En İyi Kullanım Alanı |
   |-------|----------|----------|
   | First-Touch | İlk etkileşime %100 kredi | Marka farkındalık kampanyaları |
@@ -165,20 +165,20 @@ body_tr: |-
   | Linear | Tüm temaslar için eşit kredi | Dengeli çok kanal değerlendirmesi |
   | Time-Decay | Son temaslar için daha fazla kredi | Kısa satış döngüleri |
   | Position-Based | 40/20/40 bölünmesi (ilk/orta/son) | Tam huni pazarlaması |
-
+  
   ### 2. funnel_analyzer.py
-
+  
   Darboğazları ve optimizasyon fırsatlarını belirlemek için dönüşüm hunilerini analiz eder:
-
+  
   - Aşamadan aşamaya dönüşüm oranları ve düşüş yüzdeleri
   - Otomatik darboğaz tanımlaması (en büyük mutlak ve göreli düşüşler)
   - Genel huni dönüşüm oranı
   - Birden çok segment sağlandığında segment karşılaştırması
-
+  
   ### 3. campaign_roi_calculator.py
-
+  
   Endüstri karşılaştırması ile kapsamlı ROI metriklerini hesaplar:
-
+  
   - **ROI**: Yatırım kârı yüzdesi
   - **ROAS**: Reklam harcaması kâr oranı
   - **CPA**: Kazanım başına maliyet
@@ -187,21 +187,21 @@ body_tr: |-
   - **CTR**: Tıklama oranı
   - **CVR**: Dönüşüm oranı (müşteri adayından müşteriye)
   - Endüstri karşılaştırmalarına karşı düşük performans gösteren kampanyaları işaretler
-
+  
   ---
-
+  
   ## Referans Kılavuzları
-
+  
   | Kılavuz | Konum | Amaç |
   |--------|--------|---------|
   | Attribution Models Guide | `references/attribution-models-guide.md` | 5 model hakkında derin dalış, formüller, artıları/eksileri, seçim kriterleri |
   | Campaign Metrics Benchmarks | `references/campaign-metrics-benchmarks.md` | Kanal ve sektöre göre endüstri karşılaştırmaları; CTR, CPC, CPM, CPA, ROAS |
   | Funnel Optimization Framework | `references/funnel-optimization-framework.md` | Aşamaya göre optimizasyon stratejileri, yaygın darboğazlar, en iyi uygulamalar |
-
+  
   ---
-
+  
   ## En İyi Uygulamalar
-
+  
   1. **Birden çok atribüsyon modeli kullanın** -- Kanal değerini üçgenlemek için en az 3 modeli karşılaştırın; hiçbir tek model tam öykü anlatmaz.
   2. **Uygun lookback pencereleri ayarlayın** -- Time-decay half-life değerini ortalama satış döngüsü uzunluğunuza göre ayarlayın.
   3. **Hunilerinizi segmentleyin** -- Performans sürücülerini belirlemek için segmentleri (kanal, kohort, coğrafya) karşılaştırın.
@@ -209,20 +209,20 @@ body_tr: |-
   5. **ROI analizini düzenli aralıklarla çalıştırın** -- Aktif kampanyalar için haftalık, stratejik inceleme için aylık.
   6. **Tüm maliyetleri dahil edin** -- Doğru ROI için medya harcamasının yanı sıra yaratıcı, araç ve işçilik maliyetlerini hesaba katın.
   7. **A/B testlerini kesin şekilde belirtin** -- Sağlanan şablonu kullanarak istatistiksel geçerliliği ve açık karar kriterlerini sağlayın.
-
+  
   ---
-
+  
   ## Sınırlamalar
-
+  
   - **İstatistiksel anlamlılık testi yok** -- Scriptler yalnızca tanımlayıcı metrikler sağlar; p-değeri hesaplamaları harici araçlar gerektirir.
   - **Yalnızca standart kütüphane** -- Gelişmiş istatistiksel kütüphaneler yok. Çoğu kampanya boyutu için uygun ancak 100K'yi aşan yolculuklarda optimize edilmemiş.
   - **Çevrimdışı analiz** -- Scriptler statik JSON anlık görüntülerini analiz eder; gerçek zamanlı veri bağlantısı veya API entegrasyonu yok.
   - **Tek para birimi** -- Tüm parasal değerlerin aynı para biriminde olduğu varsayılır; para birimi dönüştürme desteği yok.
   - **Basitleştirilmiş time-decay** -- Yapılandırılabilir half-life tabanlı üstel azalış; hafta içi/hafta sonu veya mevsimsel desenleri hesaba katmaz.
   - **Cihazlar arası izleme yok** -- Atribüsyon sağlanan yolculuk verilerine olduğu gibi işlenir; cihazlar arası kimlik çözümlemesi akış üstünde ele alınmalıdır.
-
+  
   ## İlgili Beceriler
-
+  
   - **analytics-tracking**: İzlemeyi ayarlamak için. Veri analiz etmek için DEĞİL (bu bu beceridir).
   - **ab-test-setup**: Analitiklerin ortaya çıkardığı şeyleri test etmek için deneyleri tasarlamak.
   - **marketing-ops**: İçgörüleri doğru yürütme becerisine yönlendirmek için.

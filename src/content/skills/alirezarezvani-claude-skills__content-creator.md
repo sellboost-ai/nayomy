@@ -12,6 +12,50 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # İçerik Yaratıcısı → Yönlendirildi
+
+  > **Bu beceri iki uzman beceriye bölünmüştür.** Amacınıza uygun olanı kullanın:
+
+  | Yapmak istediğiniz... | Bunun yerine kullanın |
+  |----------------|-----------------|
+  | **Yazın** bir blog yazısı, makale veya rehber | [content-production](../content-production/) |
+  | **Planlayın** ne tür içerik oluşturacağınızı, konu kümeleri, takvim | [content-strategy](../content-strategy/) |
+  | **Analiz edin** marka sesini | [content-production](../content-production/) (içerir `brand_voice_analyzer.py`) |
+  | **Optimize edin** mevcut içeriğin SEO'sunu | [content-production](../content-production/) (içerir `seo_optimizer.py`) |
+  | **Oluşturun** sosyal medya içeriği | [social-content](../social-content/) |
+
+  ## Değişikliğin Nedeni
+
+  Orijinal `content-creator` her şeyi yapmaya çalışıyordu: planlama, yazı yazma, SEO, sosyal medya, marka sesi. Bu da onu her işte biraz yetenekli, hiçbirinde uzman olmayan bir araç haline getiriyordu. Uzman beceriler her işi daha iyi yapıyor:
+
+  - **content-production** — Tam pipeline: araştırma → brief → taslak → optimize → yayınla. Orijinal content-creator'dan tüm Python araçlarını içerir.
+  - **content-strategy** — Stratejik planlama: konu kümeleri, anahtar kelime araştırması, içerik takvimi, önceliklendirme çerçeveleri.
+
+  ## Proaktif Tetikleyiciler
+
+  - **Kullanıcı "content creator" sorduğunda** → content-production'a yönlendir (en muhtemel amaç yazı yazmaktır).
+  - **Kullanıcı "content plan" veya "ne yazmalıyım" sorduğunda** → content-strategy'ye yönlendir.
+
+  ## Çıktı Yapıtları
+
+  | Şunu istediğinizde... | Yönlendirilen... |
+  |---------------------|-------------|
+  | "Blog yazısı yaz" | content-production |
+  | "İçerik takvimi" | content-strategy |
+  | "Marka sesi analizi" | content-production (`brand_voice_analyzer.py`) |
+  | "SEO optimizasyonu" | content-production (`seo_optimizer.py`) |
+
+  ## İletişim
+
+  Bu bir yönlendirme becerisidir. Kullanıcıyı doğru uzmanmana yönlendir — isteği burada işlemeye çalışma.
+
+  ## İlgili Beceriler
+
+  - **content-production**: Tam içerik yürütme pipeline'ı (halef).
+  - **content-strategy**: İçerik planlama ve konu seçimi (halef).
+  - **content-humanizer**: AI içeriğini gerçekçi ses çıkarması için son işleme.
+  - **marketing-context**: Her iki halifin okuduğu temel bağlam.
 ---
 
 # Content Creator → Redirected

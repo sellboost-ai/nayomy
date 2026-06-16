@@ -9,6 +9,53 @@ path: "rules/react-router-v7.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-router-v7.mdc"
 body_length: 2284
 file_extension: ".mdc"
+body_tr: |-
+  # React Router v7 Kuralları
+
+  ## Route Modülleri
+
+  - Route modüllerini route UI'ı, loader verisi, actionlar, metadata ve error boundary'leri için sınır olarak kullanın.
+  - Route modüllerini küçük tutun; paylaşılan UI'ı componentlere ve yeniden kullanılabilir veri erişimini servislere taşıyın.
+  - Proje framework modu için yapılandırıldığında dosya tabanlı routing'i tercih edin.
+  - Paylaşılan layoutlar ve kademeli açılım için iç içe rotaları kullanın.
+  - Kurtarılabilir route hatalarına karşı route'a özgü `ErrorBoundary` componentlerini export edin.
+
+  ## Veri Yükleme
+
+  - Render'dan önce kullanılabilir olması gereken route verisi için loader'ları kullanın.
+  - Loader'ları deterministik ve yan etkisiz tutun.
+  - Loader sınırında parametreleri ve arama parametrelerini doğrulayın.
+  - Yazılı veriler döndürün ve componentlerde fetch mantığını tekrarlamak yerine route hook'ları aracılığıyla tüketin.
+  - Deferred veya streaming desenlerini yalnızca algılanan performansı iyileştirdiğinde kullanın.
+
+  ## Mutasyonlar
+
+  - Route mutasyonları ve form gönderileri için action'ları kullanın.
+  - Aşamalı geliştirme için `Form`, `useFetcher` ve `useSubmit`'i tercih edin.
+  - Mutasyonlardan sonra etkilenen loader verilerini yeniden doğrulayın.
+  - Doğrulama hatalarını genel istisnalar yerine yazılı action verisi olarak ele alın.
+  - Sunucu tarafı sırlarını ve ayrıcalıklı işlemleri client actionlarından uzak tutun.
+
+  ## Navigasyon ve Durum
+
+  - Paylaşılabilir durumu URL parametreleri veya arama parametrelerinde saklayın.
+  - Geçici UI durumunu componentlere yerel tutun.
+  - İyimser veya yüklenen UI göstermek için bekleme navigasyon durumunu kullanın.
+  - Route loader'larına ait veriler için global durum kullanmaktan kaçının.
+
+  ## TypeScript ve Test Etme
+
+  - Loader ve action dönüş değerlerini yazın.
+  - Route loader'ları, actionlar, doğrulama hatalarını ve error boundary'leri için test'ler ekleyin.
+  - Kritik form ve navigasyon akışları için entegrasyon testleri kullanın.
+  - Route-service sınırında ağ ve kalıcılığı mock'layın.
+
+  ## Yaygın Hatalar
+
+  - `useEffect`'te loader fetch'lerini tekrarlamayın.
+  - Loader'larda veri mutasyonu yapılmasın.
+  - Route hatalarını tek bir genel uygulama seviyesi catch-all'nin arkasına gizlemeyin.
+  - Auth kontrolleri yalnızca componentlere koymayın, loader verisi korunduğunda.
 ---
 
 

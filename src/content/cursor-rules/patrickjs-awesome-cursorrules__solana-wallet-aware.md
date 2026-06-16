@@ -9,6 +9,56 @@ path: "rules/solana-wallet-aware.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solana-wallet-aware.mdc"
 body_length: 3438
 file_extension: ".mdc"
+body_tr: |-
+  # Solana Cüzdan-Uyumlu Kodlama
+
+  Solana on-chain veya off-chain kod yazarken, bu cüzdan-güvenliği ve işlem-güvenliği kurallarını uygulayın.
+
+  ## Cüzdan mimarisi
+
+  - Ham özel anahtarı hiçbir zaman `.env`, config dosyalarında veya kaynak kodda saklamayın. Parola türetilmiş anahtarla şifreleyin (HKDF-SHA256 + AES-256-GCM, veya `eth-account`'ın scrypt V3 keystore'u, veya `libsodium`'in sealed-box'ı).
+  - $1k+ ölçekte üç katmanlı cüzdan bölümlemesi kullanın: **hot** (bot-imzalama, AUM'nin ≤%10'u), **warm** (kurucu telefonda manuel dolum tamponu, ~%30), **cold** (donanım cüzdan veya Squads 2-of-2 multisig, ~%60, ≥6 ay dokunulmaz).
+  - Hot cüzdanı yakılabilir olarak değerlendirin. Dev makinedeki `.env` dosyasına hiç değen her anahtar sonsuza dek tehlikeli hale gelir.
+  - İmzalayıcıyı yalnızca iki yeteneğe sahip bir alt işlemde izole edin: (a) önceden oluşturulmuş bir işlemi yerel Unix socket / stdin üzerinden alması, (b) imza döndürmesi. Ağ erişimi yok, program-kapsamı yükseltmesi yok, açık program ID allowlist'i.
+
+  ## Solana'da MEV savunması
+
+  - Swapları asla genel mempool'a yayınlamayın. Her zaman Jito bundle'larını kullanın, bundle başına bir tip ile (10k lamports ile başlayın, beklenen kâr ile ölçeklendirin).
+  - Bir oracle kapısı ekleyin: Jupiter'ın alıntı fiyatı Pyth'in spot fiyatından > %0.5 sapıyorsa işlemi reddedin. Eşiği 1 dakikalık gerçekleşmiş volatilite ile dinamik olarak güncelleyin.
+  - Likidite yetersizliği blocklist'i tutun: en derin havuzun < $1M TVL'si olan herhangi bir token'ı atlayın (kontrol etmek için GeckoTerminal veya Birdeye API'sini kullanın).
+  - Limit stili siparişler için, kendi bileşiminizi yapıştırmak yerine Jupiter'ın limit-order programını (yerleşik MEV koruması) tercih edin.
+
+  ## Program-ID allowlist deseni
+
+  Bir imzalayıcı oluştururken, botunuzun çağırabileceği program ID'lerinin listesini hard-code edin. İmzasını attığınız herhangi bir işlemi reddedin; bu işlemin talimatları allowlist dışındaki bir programa dokunuyorsa. Solana trading botu için minimum olarak:
+
+  ```
+  const ALLOWED_PROGRAMS = new Set([
+    "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",  // Jupiter v6
+    "opnb2LAfJYbRMAHHvqjCwQxanZn7ReEHp1k81EohpZb",  // OpenBook v2
+    "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",  // SPL Token
+    "ComputeBudget111111111111111111111111111111",  // Compute budget
+    // DEX ID'lerinizi buraya ekleyin — HİÇBİR ZAMAN bilinmeyen programları eklemeyin
+  ]);
+  ```
+
+  ## İşlem-güvenliği değişmezleri
+
+  HERHANGİ bir işleme imza atmadan önce:
+  - Her talimatı ayrı ayrı deserialize + kontrol edin. Parsing olmadan opak "signTransaction(bytes)" yok.
+  - İşlem başına VE 24 saatlik kayan pencerede maksimum SOL çıkışını zorunlu kılın (harcama-cap devre kesici).
+  - Blockhash'in tazeliği kontrol edin (slot yaşı < 150 ya da işlem sona eriş olasılığı yüksek).
+  - Compute bütçesi ≤ 200k CU varsayılan; daha yüksek için açık opt-in'i gerekli kılın.
+
+  ## Simülasyon kapısı
+
+  Cüzdan-otomasyonu kodunu simülasyondan canlı imzalamaya taşımayın; kullanıcı açıkça bunu onaylayana ve uygulama imzalayıcı hatası, RPC hatası, eski blockhash'ler, reddedilen allowlist girişleri ve harcama-cap uygulaması için hata-enjeksiyon testlerini geçene kadar.
+
+  ## Operasyonel güvenlik
+
+  - Dağıtım kimlik bilgilerini, cüzdan anahtarlarını, RPC kimlik bilgilerini ve izleme token'larını kaynak kontrolünden uzak tutun.
+  - İmzalayıcı kullanılabilirliği, eski blockhash'ler, RPC hata oranı ve işlem başarısızlık oranı için sistem durumu kontrolleri ekleyin.
+  - Harcama kaplarını, program allowlist'lerini veya compute-unit sınırlarını yükseltmeden önce açık manuel onay yolunu gerekli kılın.
 ---
 
 # Solana Wallet-Aware Coding

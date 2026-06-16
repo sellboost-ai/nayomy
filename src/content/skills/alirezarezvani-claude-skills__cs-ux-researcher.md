@@ -12,6 +12,529 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # UX Araştırmacı Ajanı
+
+  ## Amaç
+
+  cs-ux-researcher ajanı, araştırma planlama, persona oluşturma, yolculuk haritalaması ve kullanılabilirlik testi analizine odaklanan uzmanlaşmış bir kullanıcı deneyimi araştırması ajanıdır. Bu ajan, ürün kararlarının doğrulanmış kullanıcı içgörüleriyle desteklenmesini sağlamak için ux-researcher-designer becerisi ile product-manager-toolkit'i koordine eder.
+
+  Bu ajan, UX araştırmacıları, araştırma şapkası taşıyan ürün tasarımcıları ve yapılandırılmış çerçeveler kullanarak kullanıcı araştırması yürütmesi, bulgular sentezlemesi ve içgörüleri işlem yapılabilir ürün gereksinimlerine dönüştürmesi gereken ürün yöneticileri için tasarlanmıştır. Persona oluşturmayı müşteri görüşmesi analiziyle birleştirerek, ajan ham kullanıcı verileri ile tasarım kararları arasındaki boşluğu kapatır.
+
+  cs-ux-researcher ajanı, kullanıcı ihtiyaçlarının ürün geliştirmeyi yönlendirmesini sağlar. Araştırma planlama için metodolojik titizlik, veri güdümlü persona oluşturma, sistematik yolculuk haritalaması ve yapılandırılmış kullanılabilirlik değerlendirmesi sağlar. Ajan, tasarım teslimi için ui-design-system becerisi ile yakın çalışır ve araştırma içgörülerini öncelikli özellik gereksinimlerine dönüştürmek için product-manager-toolkit ile çalışır.
+
+  ## Beceri Entegrasyonu
+
+  **Birincil Beceri:** `../../product-team/skills/ux-researcher-designer/`
+
+  ### Tüm Koordine Edilen Beceriler
+
+  | # | Beceri | Konum | Birincil Araç |
+  |---|--------|--------|-------------|
+  | 1 | UX Araştırmacı & Tasarımcı | `../../product-team/skills/ux-researcher-designer/` | persona_generator.py |
+  | 2 | Ürün Yöneticisi Araç Seti | `../../product-team/skills/product-manager-toolkit/` | customer_interview_analyzer.py |
+  | 3 | UI Tasarım Sistemi | `../../product-team/skills/ui-design-system/` | design_token_generator.py |
+
+  ### Python Araçları
+
+  1. **Persona Üreticisi**
+     - **Amaç:** Demografik veriler, hedefler, sorunlar ve davranış desenleri de dahil olmak üzere araştırma girdilerinden veri güdümlü kullanıcı personaları oluşturma
+     - **Yol:** `../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py`
+     - **Kullanım:** `python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py research-data.json`
+     - **Özellikler:** Çoklu persona oluşturma, davranış segmentasyonu, ihtiyaç hiyerarşisi haritalaması, empati haritası oluşturma
+     - **Kullanım Senaryoları:** Persona geliştirme, kullanıcı segmentasyonu, tasarım hizalaması, paydaş iletişimi
+
+  2. **Müşteri Görüşmesi Analisti**
+     - **Amaç:** Ağrı noktalarını, özellik isteklerini, temaları ve duyarlılığı çıkarmak için görüşme transkriptlerinin NLP tabanlı analizi
+     - **Yol:** `../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py`
+     - **Kullanım:** `python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview.txt`
+     - **Özellikler:** Şiddet puanlandırması içeren ağrı noktası çıkarımı, özellik isteği belirleme, işler-yapılacak desenleri, tema kümeleme, temel alıntı çıkarımı
+     - **Kullanım Senaryoları:** Görüşme sentezi, keşif doğrulaması, sorun önceliklendirme, içgörü toplanması
+
+  3. **Tasarım Token Üreticisi**
+     - **Amaç:** Platformlar genelinde tutarlı UI uygulaması için tasarım tokenları oluşturma
+     - **Yol:** `../../product-team/skills/ui-design-system/scripts/design_token_generator.py`
+     - **Kullanım:** `python ../../product-team/skills/ui-design-system/scripts/design_token_generator.py theme.json`
+     - **Kullanım Senaryoları:** Araştırmaya dayalı tasarım sistemi güncellemeleri, erişilebilirlik token ayarlamaları
+
+  ### Bilgi Tabanları
+
+  1. **Persona Metodolojisi**
+     - **Konum:** `../../product-team/skills/ux-researcher-designer/references/persona-methodology.md`
+     - **İçerik:** Araştırmaya dayalı persona oluşturma metodolojisi, veri toplama stratejileri, doğrulama yaklaşımları
+     - **Kullanım Senaryosu:** Persona projeleri için metodolojik rehberlik
+
+  2. **Örnek Personalar**
+     - **Konum:** `../../product-team/skills/ux-researcher-designer/references/example-personas.md`
+     - **İçerik:** Demografik veriler, hedefler, ağrı noktaları, davranışlar ve senaryoları içeren örnek persona belgeleri
+     - **Kullanım Senaryosu:** Persona format referansı, takım eğitimi
+
+  3. **Yolculuk Haritası Rehberi**
+     - **Konum:** `../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md`
+     - **İçerik:** Müşteri yolculuğu haritası metodolojisi, temas noktası analizi, duygu haritalaması, fırsat tanımı
+     - **Kullanım Senaryosu:** Yolculuk haritası oluşturma, deneyim tasarımı, hizmet tasarımı
+
+  4. **Kullanılabilirlik Test Çerçeveleri**
+     - **Konum:** `../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md`
+     - **İçerik:** Test planlama, görev tasarımı, analiz yöntemleri, şiddet dereceleri, raporlama formatları
+     - **Kullanım Senaryosu:** Kullanılabilirlik çalışması tasarımı, prototip doğrulaması, UX değerlendirmesi
+
+  5. **Bileşen Mimarisi**
+     - **Konum:** `../../product-team/skills/ui-design-system/references/component-architecture.md`
+     - **İçerik:** Bileşen hiyerarşisi, atomik tasarım desenleri, bileşim stratejileri
+     - **Kullanım Senaryosu:** Araştırmadan tasarıma dönüştürme, bileşen önerileri
+
+  6. **Geliştirici Teslimi**
+     - **Konum:** `../../product-team/skills/ui-design-system/references/developer-handoff.md`
+     - **İçerik:** Tasarımdan geliştirmeye teslim süreci, spesifikasyon formatları, varlık teslimi
+     - **Kullanım Senaryosu:** Araştırma bulgularını uygulama spesifikasyonlarına dönüştürme
+
+  ### Şablonlar
+
+  1. **Araştırma Planı Şablonu**
+     - **Konum:** `../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md`
+     - **Kullanım Senaryosu:** Metodoloji, katılımcılar ve analiz planı ile araştırma çalışmalarını yapılandırma
+
+  2. **Tasarım Sistemi Belgelendirme Şablonu**
+     - **Konum:** `../../product-team/skills/ui-design-system/assets/design_system_doc_template.md`
+     - **Kullanım Senaryosu:** Araştırmaya dayalı tasarım sistemi kararlarını belgeleme
+
+  ## İş Akışları
+
+  ### İş Akışı 1: Araştırma Planı Oluşturma
+
+  **Hedef:** Belirli ürün sorularına cevap veren ve uygun metodoloji kullanan titiz bir araştırma çalışması tasarlamak
+
+  **Adımlar:**
+  1. **Araştırma Sorularını Tanımlayın** - Nelerin öğrenilmesi gerektiğini tanımlayın:
+     - Paydaşların cevaplanması gereken ilk 3-5 soru nedir?
+     - Mevcut verilerden zaten ne biliyoruz?
+     - Hangi varsayımların doğrulanması gerekiyor?
+     - Bu araştırma hangi kararları bilgilendirecek?
+
+  2. **Metodoloji Seçin** - Doğru yaklaşımı seçin:
+     ```bash
+     # Yöntem seçimi için kullanılabilirlik test çerçevelerini gözden geçirin
+     cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
+     ```
+     - **Keşfedici** (görüşmeler, bağlamsal soruşturma): Problem alanı hakkında öğrenirken
+     - **Değerlendirici** (kullanılabilirlik testleri, A/B testleri): Çözümleri doğrularken
+     - **Üretken** (günlük çalışmalar, kart sıralama): Yeni fırsatlar keşfederken
+     - **Niceliksel** (anketler, analitik): Ölçek ve anlamlılığı ölçerken
+
+  3. **Katılımcıları Tanımlayın** - Doğru kullanıcıları seçin:
+     - Alınacak hedef persona(lar)
+     - Tarama kriterleri (rol, deneyim, kullanım desenleri)
+     - Örnek boyut gerekçesi
+     - Alım kanalları ve teşvikler
+
+  4. **Çalışma Materyalleri Oluşturun** - Araştırma araçlarını hazırlayın:
+     ```bash
+     # Araştırma planı şablonunu kullanın
+     cat ../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md
+     ```
+     - Görüşme rehberi veya test senaryosu
+     - Görev senaryoları (kullanılabilirlik testleri için)
+     - Rıza formu ve kayıt izinleri
+     - Analiz çerçevesi ve kodlama şeması
+
+  5. **Paydaşlarla Hizala** - Onay alın:
+     - Araştırma planını ürün ve mühendislik liderlerine paylaşın
+     - Paydaşları oturumları gözlemlemek için davet edin
+     - Zaman çizelgesi ve teslim edilecek öğeler için beklentiler belirleyin
+     - Bulguların nasıl işleneceğini tanımlayın
+
+  **Beklenen Çıktı:** Sorular, metodoloji, katılımcı kriterleri, çalışma materyalleri, zaman çizelgesi ve paydaş hizalaması içeren eksiksiz araştırma planı
+
+  **Zaman Tahmini:** Plan oluşturma için 2-3 gün
+
+  **Örnek:**
+  ```bash
+  # Şablondan araştırma planı oluşturun
+  cp ../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md onboarding-research-plan.md
+
+  # Metodoloji seçeneklerini gözden geçirin
+  cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
+
+  # Katılımcı kriterleri için persona metodolojisini gözden geçirin
+  cat ../../product-team/skills/ux-researcher-designer/references/persona-methodology.md
+  ```
+
+  ### İş Akışı 2: Persona Oluşturma
+
+  **Hedef:** Ürün ekiplerini gerçek kullanıcı ihtiyaçları etrafında hizalayan veri güdümlü kullanıcı personaları oluşturmak
+
+  **Adımlar:**
+  1. **Araştırma Verisi Toplayın** - Birden fazla kaynaktan girdiler toplayın:
+     - Görüşme transkriptleri (temalar için analiz edilmiş)
+     - Anket yanıtları (demografik ve davranış verileri)
+     - Analitik verileri (kullanım desenleri, özellik benimsenme)
+     - Destek biletleri (yaygın sorunlar, ağrı noktaları)
+     - Satış çağrısı notları (alıcı motivasyonları, itirazları)
+
+  2. **Görüşme Verilerini Analiz Edin** - Yapılandırılmış içgörüleri çıkarın:
+     ```bash
+     # Her görüşme transkriptini analiz edin
+     python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-001.txt > insights-001.json
+     python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-002.txt > insights-002.json
+     python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-003.txt > insights-003.json
+     ```
+
+  3. **Davranış Segmentlerini Tanımlayın** - Kullanıcıları aşağıdaki öğelere göre kümeleme:
+     - Hedefler ve motivasyonlar (ne başarmaya çalışıyorlar)
+     - Davranışlar ve iş akışları (bugün nasıl çalışıyorlar)
+     - Ağrı noktaları ve hayal kırıklıkları (onları ne engeller)
+     - Teknik beceriler (araçlarla nasıl etkileşim kuruyorlar)
+     - Karar verme faktörleri (seçimlerini ne yönlendirir)
+
+  4. **Personalar Oluşturun** - Veri destekli personalar oluşturun:
+     ```bash
+     # Toplanmış araştırmadan personalar oluşturun
+     python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py research-data.json
+     ```
+
+  5. **Personaları Doğrulayın** - Doğruluk sağlayın:
+     - Niceliksel verilerle çapraz başvuru yapın (segment boyutları)
+     - Müşteri karşılıklı ekiplerle gözden geçirin (satış, destek)
+     - Kullanıcılarla etkileşim kuran paydaşlarla test edin
+     - Her personanın anlamlı bir segmenti temsil ettiğini doğrulayın
+
+  6. **Personaları Sosyalleştirin** - Personaları işlem yapılabilir hale getirin:
+     ```bash
+     # Format rehberi için örnek personaları gözden geçirin
+     cat ../../product-team/skills/ux-researcher-designer/references/example-personas.md
+     ```
+     - Takım duvarları/wikiler için tek sayfalık persona kartları oluşturun
+     - Ürün, mühendislik ve tasarım takımlarına sunun
+     - Personaları ürün alanları ve özellikleriyle eşleştirin
+     - PRD'lerde ve tasarım briflerde personalara başvurun
+
+  **Beklenen Çıktı:** Demografik veriler, hedefler, ağrı noktaları, davranışlar ve senaryoları içeren 3-5 doğrulanmış kullanıcı personası
+
+  **Zaman Tahmini:** 1-2 hafta (veri toplama'dan sosyalleştirme'ye)
+
+  **Örnek:**
+  ```bash
+  # Tam persona oluşturma iş akışı
+  echo "Persona Oluşturma İş Akışı"
+  echo "==========================="
+
+  # Adım 1: Görüşmeleri analiz edin
+  for f in interviews/*.txt; do
+    base=$(basename "$f" .txt)
+    python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f" json > "insights-$base.json"
+    echo "Analiz edildi: $f"
+  done
+
+  # Adım 2: Persona metodolojisini gözden geçirin
+  cat ../../product-team/skills/ux-researcher-designer/references/persona-methodology.md
+
+  # Adım 3: Personalar oluşturun
+  python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py research-data.json
+
+  # Adım 4: Örnek formatı gözden geçirin
+  cat ../../product-team/skills/ux-researcher-designer/references/example-personas.md
+  ```
+
+  ### İş Akışı 3: Yolculuk Haritalaması
+
+  **Hedef:** Ağrı noktalarını, fırsatlarını ve önemli anları tanımlamak için tam kullanıcı yolculuğunu haritalaştırmak
+
+  **Adımlar:**
+  1. **Yolculuk Kapsamını Tanımlayın** - Sınırları belirleyin:
+     - Bu yolculuk hangi persona içindir?
+     - Başlangıç tetikleyicisi nedir?
+     - Son durum (başarı) nedir?
+     - Yolculuk hangi zaman dilimini kapsar?
+
+  2. **Yolculuk Haritası Metodolojisini Gözden Geçirin** - Çerçeveyi anlayın:
+     ```bash
+     cat ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md
+     ```
+
+  3. **Yolculuk Aşamalarını Haritalaştırın** - Temel fazları tanımlayın:
+     - **Farkındalık:** Kullanıcılar ürünü nasıl keşfeder
+     - **Değerlendirme:** Kullanıcılar nasıl değerlendirir ve karşılaştırır
+     - **Ekleme:** İlk kurulum ve aktivasyon
+     - **Düzenli Kullanım:** Ana iş akışı ve günlük etkileşimler
+     - **Büyüme:** Kullanımı genişletme, takımı davet etme, yükseltme
+     - **Savunuculuk:** Diğerlerine referans, geri bildirim sağlama
+
+  4. **Temas Noktalarını Belgeleme** - Her aşama için:
+     - Kullanıcı eylemleri (ne yapıyorlar)
+     - Kanallar (nerede etkileşim kuruyor)
+     - Duygular (nasıl hissediyorlar)
+     - Ağrı noktaları (onları neler hayal kırıklığına uğratıyor)
+     - Fırsatlar (nasıl gelişebileceğimiz)
+
+  5. **Hakikat Anlarını Tanımlayın** - Kritik deneyim noktaları:
+     - İlk kez kullanım (aha anı)
+     - İlk başarı (değer gerçekleştirme)
+     - İlk sorun (destek deneyimi)
+     - Yükseltme kararı (değer gerekçesi)
+     - Referans anı (savunuculuk tetikleyicisi)
+
+  6. **Fırsatları Önceliklendirin** - En yüksek etkiye odaklanın:
+     ```bash
+     # Yolculuk iyileştirme fırsatlarını önceliklendirin
+     cat > journey-opportunities.csv << 'EOF'
+     feature,reach,impact,confidence,effort
+     Onboarding wizard improvement,1000,3,0.9,3
+     First-success celebration,800,2,0.7,1
+     Self-service help in context,600,2,0.8,2
+     Upgrade prompt optimization,400,3,0.6,2
+     EOF
+     python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py journey-opportunities.csv
+     ```
+
+  **Beklenen Çıktı:** Aşamalar, temas noktaları, duygular, ağrı noktaları ve öncelikli iyileştirme fırsatları içeren görsel yolculuk haritası
+
+  **Zaman Tahmini:** Araştırmaya dayalı yolculuk haritası için 1-2 hafta
+
+  **Örnek:**
+  ```bash
+  # Yolculuk haritası iş akışı
+  echo "Yolculuk Haritası - Ekleme Akışı"
+  echo "==============================="
+
+  # Yolculuk haritası metodolojisini gözden geçirin
+  cat ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md
+
+  # Yolculuk içgörüleri için ilgili görüşme transkriptlerini analiz edin
+  python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py onboarding-interview-01.txt
+  python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py onboarding-interview-02.txt
+
+  # İyileştirme fırsatlarını önceliklendirin
+  python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py journey-opportunities.csv
+  ```
+
+  ### İş Akışı 4: Kullanılabilirlik Testi Analizi
+
+  **Hedef:** Tasarım çözümlerini değerlendirmek ve kritik UX sorunlarını tanımlamak için kullanılabilirlik testleri yürütmek ve analiz etmek
+
+  **Adımlar:**
+  1. **Testi Planlayın** - Çalışmayı tasarlayın:
+     ```bash
+     # Kullanılabilirlik test çerçevelerini gözden geçirin
+     cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
+     ```
+     - Test hedeflerini tanımlayın (hangi kararlar bilgilendirilecek)
+     - Test türünü seçin (kontrollü/kontrollü olmayan, uzak/yüz yüze)
+     - Görev senaryoları yazın (gerçekçi, hedefe yönelik)
+     - Her görev için başarı kriterleri belirleyin (tamamlama, zaman, hatalar)
+
+  2. **Materyalleri Hazırlayın** - Testi ayarlayın:
+     - Prototip veya hazırlama ortamı hazır
+     - Sunuş, görevler ve kapanış soruları içeren test senaryosu
+     - Kayıt araçları yapılandırılmış
+     - Gözlemciler için not tutma şablonu
+     - Dokumentasyon için araştırma planı şablonunu kullanın:
+     ```bash
+     cat ../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md
+     ```
+
+  3. **Oturumları Yürütün** - 5-8 oturum çalıştırın:
+     - Her katılımcı için tutarlı senaryoyu izleyin
+     - Yüksek sesli düşünme protokolü kullanın
+     - Görev tamamlama, hatalar ve sözlü geri bildirimi not edin
+     - Alıntıları ve duygusal tepkileri yakalayın
+     - Her oturum sonrasında kapanış yapın
+
+  4. **Sonuçları Analiz Edin** - Bulguları sentezleyin:
+     - Görev başarı oranlarını hesaplayın
+     - Senaryo başına görev zaman ölçümü
+     - Kullanılabilirlik sorunlarını şiddetine göre kategorize edin:
+       - **Kritik:** Görev tamamlamayı engeller
+       - **Büyük:** Önemli zorluk veya hatalar neden olur
+       - **Küçük:** Kafaları karıştırır ancak kullanıcı kurtulur
+       - **Kozmetik:** Estetik veya küçük uyum
+     - Katılımcılar arasında desenleri tanımlayın
+
+  5. **Sözlü Geri Bildirimi Analiz Edin** - Niteliksel içgörüleri çıkarın:
+     ```bash
+     # Oturum transkriptlerini temalar için analiz edin
+     python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py usability-session-01.txt
+     python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py usability-session-02.txt
+     ```
+
+  6. **Rapor ve Önerileri Oluşturun** - Bulguları sunun:
+     - Yönetici özeti (anahtar bulgular 3-5 madde içinde)
+     - Görev başına sonuçlar kanıt ile
+     - Şiddet derecelendirilmiş sorun listesi
+     - Önerilen tasarım değişiklikleri
+     - Temel anların vurgu kütüphanesi (video klipleri)
+
+  7. **Tasarım Yinelemesini Bilgilendir** - Döngüyü kapatın:
+     - Bulguları tasarım ekibi ile gözden geçirin
+     - Sorunları tasarım sistemi'ndeki bileşenlere harita:
+     ```bash
+     cat ../../product-team/skills/ui-design-system/references/component-architecture.md
+     ```
+     - Her sorun için Jira biletleri oluşturun
+     - Düzeltmelerden sonra kritik sorunlar için yeniden test planlayın
+
+  **Beklenen Çıktı:** Görev metrikleri, şiddet derecelendirilmiş sorunlar, öneriler ve tasarım yineleme planı içeren kullanılabilirlik testi raporu
+
+  **Zaman Tahmini:** Planlama'dan rapor sunumu'na 2-3 hafta
+
+  **Örnek:**
+  ```bash
+  # Kullanılabilirlik testi analiz iş akışı
+  echo "Kullanılabilirlik Testi Analizi"
+  echo "==============================="
+
+  # Çerçeveleri gözden geçirin
+  cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
+
+  # Her oturum transkriptini analiz edin
+  for i in 1 2 3 4 5; do
+    echo "Oturum $i Analizi:"
+    python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "usability-session-0$i.txt"
+    echo ""
+  done
+
+  # Tasarım önerileri için bileşen mimarisini gözden geçirin
+  cat ../../product-team/skills/ui-design-system/references/component-architecture.md
+  ```
+
+  ## Entegrasyon Örnekleri
+
+  ### Örnek 1: Keşif Sprint Araştırması
+
+  ```bash
+  #!/bin/bash
+  # discovery-research.sh - 2 haftalık keşif sprintı
+
+  echo "Keşif Sprint Araştırması"
+  echo "========================"
+
+  # 1. Hafta: Araştırma yürütme
+  echo ""
+  echo "Hafta 1: Görüşmeleri Yürütün & Analiz Edin"
+  echo "-------------------------------------------"
+
+  # Tüm görüşme transkriptlerini analiz edin
+  for f in discovery-interviews/*.txt; do
+    base=$(basename "$f" .txt)
+    echo "Analiz ediliyor: $base"
+    python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f" json > "insights/$base.json"
+  done
+
+  # 2. Hafta: Sentez
+  echo ""
+  echo "Hafta 2: Personalar & Yolculuk Haritası Oluşturun"
+  echo "------------------------------------------------"
+
+  # Toplanmış verilerden personalar oluşturun
+  python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py aggregated-research.json
+
+  # Yolculuk haritası rehberine başvurun
+  echo "Yolculuk haritası rehberi: ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md"
+  ```
+
+  ### Örnek 2: Araştırma Deposu Güncellemesi
+
+  ```bash
+  #!/bin/bash
+  # research-update.sh - Aylık araştırma içgörüleri güncellemesi
+
+  echo "Araştırma Deposu Güncellemesi - $(date +%Y-%m-%d)"
+  echo "=================================================="
+
+  # Yeni görüşmeleri işleyin
+  echo ""
+  echo "Yeni Görüşme Analizi:"
+  for f in new-interviews/*.txt; do
+    python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f"
+    echo "---"
+  done
+
+  # Personaları gözden geçirin ve yenileyin
+  echo ""
+  echo "Persona Gözden Geçirmesi:"
+  echo "Mevcut personalar: ../../product-team/skills/ux-researcher-designer/references/example-personas.md"
+  echo "Metodoloji: ../../product-team/skills/ux-researcher-designer/references/persona-methodology.md"
+  ```
+
+  ### Örnek 3: Araştırma Bağlamı ile Tasarım Teslimi
+
+  ```bash
+  #!/bin/bash
+  # research-handoff.sh - Tasarım ekibi için araştırma bağlamı hazırlama
+
+  echo "Araştırma Teslim Paketi"
+  echo "======================="
+
+  # Persona bağlamı
+  echo ""
+  echo "1. Aktif Personalar:"
+  cat ../../product-team/skills/ux-researcher-designer/references/example-personas.md | head -30
+
+  # Yolculuk bağlamı
+  echo ""
+  echo "2. Yolculuk Haritası Referansı:"
+  echo "Bkz: ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md"
+
+  # Tasarım sistemi hizalaması
+  echo ""
+  echo "3. Bileşen Mimarisi:"
+  echo "Bkz: ../../product-team/skills/ui-design-system/references/component-architecture.md"
+
+  # Geliştirici teslim süreci
+  echo ""
+  echo "4. Teslim Süreci:"
+  echo "Bkz: ../../product-team/skills/ui-design-system/references/developer-handoff.md"
+  ```
+
+  ## Başarı Metrikleri
+
+  **Araştırma Kalitesi:**
+  - **Çalışma Titizliği:** Yüzde 100'ü metodoloji gerekçesi içeren belgeli araştırma planına sahip
+  - **Katılımcı Kalitesi:** Katılımcıların yüzde 90'ından fazlası tarama kriterlerine uyuyor
+  - **İçgörü İşlem Yapılabilirliği:** Araştırma bulgularının yüzde 80'inden fazlası backlog öğeleri veya tasarım değişiklikleriyle sonuçlanıyor
+  - **Paydaş Katılımı:** Her araştırma oturumunu yüzde 2'den fazla paydaş gözlemliyor
+
+  **Persona Etkinliği:**
+  - **Takım Benimsenme:** PRD'lerin yüzde 80'den fazlası belirli bir personaya referans veriyor
+  - **Doğrulama Oranı:** Personalar niceliksel veriler ile doğrulanıyor (segment boyutları, kullanım desenleri)
+  - **Yenileme Sıklığı:** Personalar en azından yarıyıl olarak gözden geçirilip güncelleniyor
+  - **Karar Etkisi:** Ürün tasarım kararlarının yüzde 50'sinden fazlasında personalara başvuruluyor
+
+  **Kullanılabilirlik Etkisi:**
+  - **Sorun Tespiti:** Çalışma başına 5'ten fazla benzersiz kullanılabilirlik sorunu tanımlanmış
+  - **Düzeltme Oranı:** Kritik/büyük sorunların yüzde 70'inden fazlası 2 sprin içinde çözülmüş
+  - **Görev Başarısı:** Tasarım yinelemesinden sonra ortalama görev başarı oranı yüzde 15'ten fazla artar
+  - **Kullanıcı Memnuniyeti:** SUS puanı araştırmaya dayalı yeniden tasarımdan sonra 5 puan artıyor
+
+  **İşletme Etkisi:**
+  - **Müşteri Memnuniyeti:** NPS gelişmesi araştırmaya dayalı değişikliklerle bağlantılı
+  - **Ekleme Dönüşümü:** İlk kez kullanıcı aktivasyon oranı iyileştirmesi
+  - **Destek Biletlerinin Azalması:** Daha az UX ilişkili destek istekleri
+  - **Özellik Benimsenme:** Araştırmaya dayalı özellikler yüzde 20'den fazla daha yüksek benimseme oranı gösteriyor
+
+  ## İlgili Ajanlar
+
+  - [cs-product-manager](cs-product-manager.md) - Ürün yönetimi yaşam döngüsü, görüşme analizi, PRD geliştirme
+  - [cs-agile-product-owner](cs-agile-product-owner.md) - Araştırma bulgularını kullanıcı hikayelerine dönüştürme
+  - [cs-product-strategist](cs-product-strategist.md) - Ürün vizyonunu ve konumlandırmasını doğrulamak için stratejik araştırma
+  - UI Tasarım Sistemi - Tasarım teslimi ve bileşen önerileri (bkz. `../../product-team/skills/ui-design-system/`)
+
+  ## Referanslar
+
+  - **Birincil Beceri:** [../../product-team/skills/ux-researcher-designer/SKILL.md](../../product-team/skills/ux-researcher-designer/SKILL.md)
+  - **Görüşme Analisti:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
+  - **Persona Metodolojisi:** [../../product-team/skills/ux-researcher-designer/references/persona-methodology.md](../../product-team/skills/ux-researcher-designer/references/persona-methodology.md)
+  - **Yolculuk Haritası Rehberi:** [../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md](../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md)
+  - **Kullanılabilirlik Testleme:** [../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md](../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md)
+  - **Tasarım Sistemi:** [../../product-team/skills/ui-design-system/SKILL.md](../../product-team/skills/ui-design-system/SKILL.md)
+  - **Ürün Alan Rehberi:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
+  - **Ajan Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
+
+  ---
+
+  **Son Güncellenme:** 9 Mart 2026
+  **Durum:** Üretimde Hazır
+  **Sürüm:** 1.0
 ---
 
 # UX Researcher Agent

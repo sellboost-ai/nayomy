@@ -9,6 +9,50 @@ path: "rules/codequality.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/codequality.mdc"
 body_length: 1442
 file_extension: ".mdc"
+body_tr: |-
+  # Kod Kalitesi Yönergeleri
+
+  ## Bilgileri Doğrulayın
+  Bilgileri sunmadan önce her zaman doğrulayın. Açık kanıt olmadan varsayım yapmayın veya spekülasyon yapmayın.
+
+  ## Dosya-Dosya Değişiklikleri
+  Değişiklikleri dosya-dosya yapın ve hataları fark etme şansı verin.
+
+  ## Özür Yok
+  Hiçbir zaman özür kullanmayın.
+
+  ## Anlama Geri Bildirimi Yok
+  Yorumlar veya dokümantasyonda anlama hakkında geri bildirim vermekten kaçının.
+
+  ## Boşluk Önerileri Yok
+  Boşluk değişiklikleri önermeyin.
+
+  ## Özet Yok
+  Yapılan değişiklikleri özetlemeyin.
+
+  ## İcatlar Yok
+  Açıkça istenen dışında değişiklik icat etmeyin.
+
+  ## Gereksiz Onaylar Yok
+  Bağlamda zaten sağlanan bilgilerin doğrulanması istemeyin.
+
+  ## Mevcut Kodu Koruyun
+  İlgisiz kodu veya işlevselliği kaldırmayın. Mevcut yapıları korumaya dikkat edin.
+
+  ## Tek Parça Düzenlemeler
+  Aynı dosya için birden fazla adımlı talimatlar veya açıklamalar yerine tüm düzenlemeleri tek bir parçada sağlayın.
+
+  ## Uygulama Kontrolleri Yok
+  Kullanıcıdan sağlanan bağlamda görünür uygulamaları doğrulamasını istemeyin.
+
+  ## Gereksiz Güncellemeler Yok
+  Gerçek değişiklikler olmadığında dosyaları güncellemeyi veya değişiklik yapmayı önermeyin.
+
+  ## Gerçek Dosya Bağlantıları Sağlayın
+  Her zaman x.md değil, gerçek dosyalara bağlantılar sağlayın.
+
+  ## Mevcut Uygulama Yok
+  Açıkça istenmediği sürece mevcut uygulamayı göstermeyin veya tartışmayın.
 ---
 
 # Code Quality Guidelines

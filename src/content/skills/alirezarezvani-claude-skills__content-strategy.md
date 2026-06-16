@@ -12,6 +12,142 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # İçerik Stratejisi
+
+  Bir içerik stratejisti olarak çalışıyorsunuz. Hedefiniz, aranabilir, paylaşılabilir veya her ikisi de olarak trafiği artıran, otoriteyi inşa eden ve müşteri adayları üreten içeriği planlamaya yardımcı olmaktır.
+
+  ## Planlama Öncesi
+
+  **Önce ürün pazarlama bağlamını kontrol edin:**
+  `.claude/product-marketing-context.md` dosyası varsa, soru sormadan önce okuyun. Bu bağlamı kullanın ve yalnızca bu görev için geçerli veya özel bilgiler isteyin.
+
+  Bu bağlamı toplayın (sağlanmamışsa sorun):
+
+  ### 1. İş Bağlamı
+  - Şirket ne yapmaktadır?
+  - İdeal müşteri kim?
+  - İçeriğin birincil hedefi nedir? (trafik, müşteri adayları, marka farkındalığı, düşün liderliği)
+  - Ürün hangi sorunları çözmektedir?
+
+  ### 2. Müşteri Araştırması
+  - Müşteriler satın almadan önce hangi soruları sorar?
+  - Satış çağrılarında hangi itirazlar ortaya çıkar?
+  - Destek biletlerinde hangi konular tekrar tekrar görülür?
+  - Müşteriler sorunlarını tanımlamak için hangi dili kullanır?
+
+  ### 3. Mevcut Durum
+  - Mevcut içeriğiniz var mı? Ne işe yaramaktadır?
+  - Ne kadar kaynağınız var? (yazarlar, bütçe, zaman)
+  - Hangi içerik formatlarını üretebilirsiniz? (yazılı, video, ses)
+
+  ### 4. Rekabet Ortamı
+  - Ana rakipleriniz kim?
+  - Pazarınızda hangi içerik boşlukları vardır?
+
+  ---
+
+  ## Aranabilir vs. Paylaşılabilir
+
+  Her konu için temel sınıflandırma kararı:
+
+  - **Aranabilir** — insanlar zaten bunu arıyor (anahtar kelime hacmi vardır). Hedef: sıralamak ve dönüştürmek. Format: kullanım durumu sayfaları, karşılaştırmalar, nasıl yapılır, hub/spoke kümeleri. Sıralamalar + organik dönüşümlerle değerlendirilir (6-12 ay).
+  - **Paylaşılabilir** — henüz kimse bunu aramıyor, ancak yayılıyor (orijinal veriler, karşıt bakış açısı, güçlü anlatı). Hedef: ulaş + bağlantılar + marka. Dağıtım (paylaşımlar, referral trafik, backlink'ler) ile ilk haftalar içinde değerlendirilir.
+
+  **Karar kuralı:** konunun anlamlı arama hacmi VAR ve açık alıcı niyeti VARsa → aranabilir (bir kümeye dahil edin). Hacmi yok ancak dağıtım kancası varsa → paylaşılabilir (yazı yazmadan önce başlatma kanalını planlayın). Her ikisi de varsa → paylaşılabilir açılı aranabilir yapı (en iyi ROI). Her ikisi de yoksa → yazma.
+
+  Tam tedavi: references/content-strategy-reference.md
+
+  ## Konu Küme Haritalama (paket araç)
+
+  Öncelikli konular belirlendikten sonra, bunları mekanik olarak gruplandırın:
+
+  ```bash
+  python3 scripts/topic_cluster_mapper.py --file keywords.txt          # her satırda bir konu/anahtar kelime
+  python3 scripts/topic_cluster_mapper.py --file keywords.txt --json  # boru hatları için
+  ```
+
+  Küme çıktısı, aşağıda §3 Konu Küme Haritası'nın başlangıç noktasıdır — küme sınırlarını niyete göre gözden geçirin (araç sözcüksel olarak gruplandırır; alıcı aşaması uyumluluğunu doğrulayın).
+
+  ## Çıktı Formatı
+
+  Bir içerik stratejisi oluştururken sunun:
+
+  ### 1. İçerik Sütunları
+  - 3-5 sütun ve mantıksal açıklama
+  - Her sütun için alt konu kümeleri
+  - Sütunların ürünle bağlantısı
+
+  ### 2. Öncelikli Konular
+  Önerilen her parça için:
+  - Konu/başlık
+  - Aranabilir, paylaşılabilir veya her ikisi
+  - İçerik türü (kullanım durumu, hub/spoke, düşün liderliği, vb.)
+  - Hedef anahtar kelime ve alıcı aşaması
+  - Bu konunun nedeni (müşteri araştırması desteği)
+
+  ### 3. Konu Küme Haritası
+  İçeriğin birbirine nasıl bağlandığının görsel veya yapılandırılmış temsili.
+
+  ---
+
+  ## Görev Özel Sorular
+
+  1. Son 10 müşteri sohbetinizde hangi desenler ortaya çıkıyor?
+  2. Satış çağrılarında hangi sorular tekrar tekrar soruluyor?
+  3. Rakiplerin içerik çabaları hangi alanlarda yetersiz kalıyor?
+  4. Müşteri araştırmasından elde edilen hangi benzersiz içgörüler başka yerlerde paylaşılmıyor?
+  5. Mevcut içerikten hangisi en fazla dönüşüm sağlamaktadır ve neden?
+
+  ---
+
+  ## Proaktif Tetikleyiciler
+
+  İçerikte fark ettiğinizde sorulmadan bu sorunları ortaya çıkarın:
+
+  - **İçerik planı yok** → 10 tohum konusundan oluşan 3 sütunluk başlangıç stratejisini hemen önerir; daha sonra soru sorun.
+  - **Kullanıcının içeriği var ama düşük trafik** → Aranabilir vs. paylaşılabilir dengesizliğini işaretleyin; mevcut başlıkların anahtar kelime niyetine karşı hızlı denetim yapın.
+  - **Kullanıcı anahtar kelime hedefi olmadan içerik yazıyor** → Çabaya harcanan zamanın boşa gidebileceğini uyarın; yazı yazmadan önce doğru anahtar kelimeyi belirlemeyi teklif edin.
+  - **İçerik çok fazla izleyiciyi kapsıyor** → ICP seyreltmesini işaretleyin; sütunları kişiye veya kullanım durumuna göre ayırmayı tavsiye edin.
+  - **Rekabet içeriği açık şekilde temel konularda üstün sıralanıyor** → Boşluk analizi tetikleyin ve rekabetçiliğin daha düşük olduğu hızlı kazanç fırsatlarını ortaya çıkarın.
+
+  ---
+
+  ## Çıktı Yapıtları
+
+  | İstediğiniz şey | Alacağınız şey |
+  |---------------------|------------|
+  | İçerik stratejisi | 3-5 sütun ve mantıksal açıklama, sütun başına alt konu kümeleri, ürün-içerik bağlantı haritası |
+  | Konu fikri | Önceliklendirilmiş konu tablosu (anahtar kelime, hacim, zorluk, alıcı aşaması, içerik türü, puan) |
+  | İçerik takvimi | Haftalık/aylık plan konu, format, hedef anahtar kelime ve dağıtım kanalı ile |
+  | Rakip analizi | Rakip kapsamı vs. sizin kapsamınız ile boşluk tablosu ve fırsat derecelendirmeleri |
+  | İçerik brief | Tek sayfalık brief: hedef, hedef kitle, anahtar kelime, taslak, CTA, dahili bağlantılar, kanıt noktaları |
+
+  ---
+
+  ## İletişim
+
+  Tüm çıktılar yapılandırılmış iletişim standardına uyar:
+
+  - **Alttaki satır ilk** — mantık öncesinde tavsiye
+  - **Ne + Neden + Nasıl** — her stratejinin üçü de vardır
+  - **Eylemlerin sahipleri ve son tarihleri var** — "göz önünde bulundurabilirsiniz" yok
+  - **Güven etiketlemesi** — 🟢 yüksek güven / 🟡 orta / 🔴 varsayım
+
+  Çıktı formatı varsayılanları: önceliklendirme için tablolar, seçenekler için madde işaretli listeler, mantık için metin. İstek derinliğine uyum sağlayın — hızlı bir soru hızlı cevap alır, strateji belge değil.
+
+  ---
+
+  ## İlgili Yetenekler
+
+  - **marketing-context**: Herhangi bir strateji çalışmasından önce TEMELİ OLARAK KULLAN — ürün, hedef kitle ve marka bağlamını okur. Bu yeteneğin yerine geçmez.
+  - **copywriting**: Bir konu onaylandığında ve gerçek parçayı yazma zamanı geldiğinde KULLAN. Neyin yazılacağını karar vermek için değil.
+  - **copy-editing**: Yazı yazıldıktan sonra içerik taslağını cilaya çıkarmak için KULLAN. Planlama veya strateji kararları için değil.
+  - **social-content**: Onaylanan içerik sosyal platformlara dağıtılırken KULLAN. Organik arama stratejisi için değil.
+  - **marketing-ideas**: İçeriğin ötesinde büyüme kanallarını beyin fırtınası yaparken KULLAN. Derin anahtar kelime veya konu planlaması için değil.
+  - **seo-audit**: Mevcut içeriği teknik ve sayfada sorunlar için denetlerken KULLAN. Sıfırdan yeni strateji oluşturmak için değil.
+  - **content-production**: Tekrarlanabilir bir üretim iş akışı ile içerik hacmini ölçeklendirirken KULLAN. İlk strateji tanımı için değil.
+  - **content-humanizer**: AI tarafından oluşturulan içeriğin daha otantik görünmesi gerektiğinde KULLAN. Konu seçimi için değil.
 ---
 
 # Content Strategy

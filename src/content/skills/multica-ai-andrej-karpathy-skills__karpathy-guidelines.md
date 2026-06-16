@@ -12,6 +12,68 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Karpathy Yönergeleri
+
+  LLM kodlama hatalarını azaltmak için tasarlanmış davranışsal yönergeler. [Andrej Karpathy'nin LLM kodlama tuzakları hakkındaki gözlemlerinden](https://x.com/karpathy/status/2015883857489522876) türetilmiştir.
+
+  **Tradeoff:** Bu yönergeler hız yerine dikkat çekmeye yöneliktir. Basit görevler için kendi yargınızı kullanın.
+
+  ## 1. Kodlamadan Önce Düşün
+
+  **Varsayım yapma. Kafa karışıklığını gizleme. Tradeoff'ları ortaya çıkar.**
+
+  Uygulamadan önce:
+  - Varsayımlarınızı açıkça belirtin. Emin değilseniz, sorun.
+  - Eğer birden fazla yorum varsa, hepsini sunun - sessizce seçim yapmayın.
+  - Eğer daha basit bir yöntem varsa, söyleyin. Gerektiğinde karşı çıkın.
+  - Eğer bir şey belirsizse, durun. Ne kafa karıştırıyor onu adlandırın. Sorun.
+
+  ## 2. Basitlik Öncelikli
+
+  **Sorunu çözen minimum kod. Hiçbir spekülasyon yok.**
+
+  - Sorulan şeyin ötesinde özellik yok.
+  - Tek kullanımlık kod için soyutlama yok.
+  - İstenmeyen "esneklik" veya "yapılandırılabilirlik" yok.
+  - İmkansız senaryolar için hata yönetimi yok.
+  - Eğer 200 satır yazdıysanız ve 50 olabiliyorsa, yeniden yazın.
+
+  Kendine sor: "Senior bir mühendis bunu aşırı karmaşık derdi mi?" Evetse, basitleştir.
+
+  ## 3. Cerrahı Değişiklikler
+
+  **Sadece gerekli olanı değiştir. Sadece kendi karışıklığını temizle.**
+
+  Mevcut kodu düzenlerken:
+  - Bitişik kodu, yorumları veya formatı "iyileştirme".
+  - Bozuk olmayan şeyleri refactor etme.
+  - Var olan stili eşleştir, hatta sen bunu farklı yapardın bile.
+  - Eğer alakasız dead code fark edersen, bahset - silme.
+
+  Değişikliklerin yetim oluşturması durumunda:
+  - SENIN değişikliklerin yararsız hale getirdiği import/değişken/function'ları sil.
+  - İstenmedikçe önceden var olan dead code'u silme.
+
+  Test: Her değiştirilen satır doğrudan kullanıcı isteğine izlenebilir olmalı.
+
+  ## 4. Hedef Odaklı Yürütme
+
+  **Başarı kriterlerini tanımla. Doğrulanana kadar döngü yap.**
+
+  Görevleri doğrulanabilir hedeflere dönüştür:
+  - "Doğrulama ekle" → "Geçersiz girdiler için test yaz, sonra geç yap"
+  - "Bug'ı düzelt" → "Yeniden ürettiğini test yaz, sonra geç yap"
+  - "X'i refactor et" → "Test'lerin önce ve sonra geçtiğinden emin ol"
+
+  Çok adımlı görevler için kısa bir plan belirt:
+  ```
+  1. [Adım] → doğrula: [kontrol]
+  2. [Adım] → doğrula: [kontrol]
+  3. [Adım] → doğrula: [kontrol]
+  ```
+
+  Güçlü başarı kriterleri bağımsız döngü yapmanı sağlar. Zayıf kriterler ("çalışır hale getir") sürekli açıklama gerektirir.
 ---
 
 # Karpathy Guidelines

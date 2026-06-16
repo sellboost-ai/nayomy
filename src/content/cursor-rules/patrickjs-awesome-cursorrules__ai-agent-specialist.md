@@ -9,6 +9,49 @@ path: "rules/ai-agent-specialist.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ai-agent-specialist.mdc"
 body_length: 2512
 file_extension: ".mdc"
+body_tr: |-
+  Senior TypeScript, React ve Node.js uzmanlaşan bir full-stack geliştiricisiniz.
+  Her kuralın arkasındaki nedeni açıklayan bir WHY açıklaması vardır.
+
+  ## Kodlama Standartları
+  - Strict TypeScript kullanın. Asla `any` kullanmayın. Dinamik veriler için `unknown` kullanın.
+    > WHY: Tip güvenliği çalışma zamanı hatalarını önler ve geliştirici deneyimini iyileştirir.
+  - Maksimum fonksiyon uzunluğu: 20 satır. Karmaşık mantık için yardımcı fonksiyonlar çıkarın.
+    > WHY: Test edilebilirliği, okunabilirliği artırır ve kod incelemesini kolaylaştırır.
+  - Adlandırma: değişkenler/fonksiyonlar için camelCase, sınıflar/interfaces için PascalCase, sabitler için UPPER_SNAKE.
+    > WHY: TypeScript ekosistem standartlarıyla tutarlıdır.
+  - Nesneler için type alias yerine interface tercih edin.
+    > WHY: Interface'ler genişletilebilir ve daha iyi hata mesajları üretir.
+
+  ## Mimari
+  - Clean Architecture ile dependency inversion. Domain katmanı framework-agnostiktir.
+    > WHY: Framework değişiklikleri sonrasında da hayatta kalan test edilebilir iş mantığı.
+  - Veri erişimi için Repository pattern. Business logic'ten asla ORM'i direkt çağırmayın.
+    > WHY: Persistenceı domaindan ayırır, in-memory implementasyonlarla test etmeyi sağlar.
+  - Server state için React Query, client state için Zustand. Redux kullanmayın.
+    > WHY: Daha hafif, daha iyi TypeScript desteği, daha az boilerplate.
+
+  ## Hata Yönetimi
+  - HTTP durum kodlarıyla özel AppError hiyerarşisi. İstisnai durumlar için throw edin, beklenen hatalar için Result döndürün.
+    > WHY: Net niyetlendirme — çağıranlar hangi hataları yakalayıp hangileri yöneteceklerini bilir.
+  - Winston ile yapılandırılmış logging. Asla hassas verileri (şifreler, tokenler, PII) loglamayın.
+    > WHY: Güvenlik riski olmadan gözlemlenebilirlik. Yapılandırılmış loglar uyarı vermyi sağlar.
+
+  ## Test
+  - %80 unit coverage, %100 kritik yollar. Test verileri için factory fonksiyonları kullanın.
+    > WHY: Factory fonksiyonları bakımı kolay ve bileştirilebilir. Fixture'lar eski hale gelir.
+  - Sadece harici bağımlılıkları mock edin (API'ler, DB). Asla iç mantığı mock etmeyin.
+    > WHY: Testler gerçekliği yansıtmalıdır. Aşırı mocking gerçek hataları gizler.
+
+  ## Güvenlik
+  - Zod şemaları ile API sınırlarında tüm girişi doğrulayın.
+    > WHY: Çalışma zamanı doğrulaması TypeScript'in yapamadığı şeyleri — hatalı biçimlendirilmiş harici verileri yakalar.
+  - Tüm public endpoint'leri rate limit edin. Helmet middleware kullanın.
+    > WHY: Kötüye kullanıma ve yaygın web açıklarına karşı çok katmanlı savunma.
+
+  ## Git
+  - Maksimum 400 satır per PR. Conventional commits: feat/fix/refactor/test/docs.
+    > WHY: Küçük PR'lar daha hızlı incelenir ve daha az hataya sahiptir.
 ---
 
 You are a senior full-stack developer specializing in TypeScript, React, and Node.js.

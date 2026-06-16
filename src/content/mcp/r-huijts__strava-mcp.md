@@ -3,70 +3,70 @@ name: "r-huijts/strava-mcp"
 description: "A Model Context Protocol (MCP) server that connects to Strava API, providing tools to access Strava data through LLMs"
 category: "Sports"
 repo: "r-huijts/strava-mcp"
-stars: 417
+stars: 439
 url: "https://github.com/r-huijts/strava-mcp"
-body_length: 11472
+body_length: 11921
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # Strava MCP Server
-
+  
   **AI'nizi kullanarak Strava verilerinizle konuşun.**
-
+  
   Claude'u Strava hesabınıza bağlayın ve düz İngilizcede sorular sorun: "Bu ay ne kadar koştum?", "Son bisiklet turumu analiz et" veya "En hızlı segmentlerimi göster."
-
+  
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/r-huijts-strava-mcp-badge.png)](https://mseep.ai/app/r-huijts-strava-mcp)
-
+  
   <a href="https://glama.ai/mcp/servers/@r-huijts/strava-mcp">
     
   </a>
-
+  
   ---
-
+  
   ## Bununla Ne Yapabilirsiniz?
-
+  
   Bağlandıktan sonra, Claude'a tüm Strava verilerinize erişimi olan bir arkadaş gibi konuşun:
-
+  
   ### 🏃 İlerlemenizi Takip Edin
   > "Bu ay kaç kilometre koştum?"
   > 
   > "Ocak ile Aralık arasında koşu istatistiklerimi karşılaştır"
   > 
   > "Şimdiye kadar en uzun bisiklet turumun ne?"
-
+  
   ### 📊 Antrenmanlarınızı Analiz Edin
   > "Son bisiklet antrenmanımı parçala - güç, kalp atış hızı ve kadansı göster"
   > 
   > "Dün koşuşum sırasında kalp atış hızı bölgelerim nasıl görünüyordu?"
   > 
   > "Interval antrenmanımda her tur için ortalama tempom ne?"
-
+  
   ### 🗺️ Rotaları ve Segmentleri Keşfedin
   > "Central Park'ın yakınında en popüler bisiklet segmentleri neler?"
   > 
   > "Yıldızlı segmentlerimi göster"
   > 
   > "Pazar sabahı rotamı GPX dosyası olarak dışa aktar"
-
+  
   ### 🏆 Antrenörlük İçgörüleri Alın
   > "Bu haftaki antrenman yükümü analiz et"
   > 
   > "Mevcut fitness'im geçen ay ile nasıl kıyaslanıyor?"
   > 
   > "Bu yıl bisiklet performansımın bir özetini ver"
-
+  
   ---
-
+  
   ## Hızlı Başlangıç (3 Adım)
-
+  
   ### Adım 1: Claude Desktop'a Ekleyin
-
+  
   Claude Desktop konfigürasyon dosyanızı açın:
   - **Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json`
   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
+  
   Dosyaya bunu ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -77,59 +77,59 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Adım 1 (alternatif): Claude Code'a Ekleyin
-
+  
   Bu MCP server'ı claude code'a aşağıdaki komutla ekleyebilirsiniz:
-
+  
   ```
   claude mcp add --transport stdio strava -- npx @r-huijts/strava-mcp-server
   ```
-
+  
   Başarılı kurulumu aşağıdaki gibi doğrulayabilirsiniz:
-
+  
   ```
   % claude mcp list
   Checking MCP server health...
-
+  
   strava: npx @r-huijts/strava-mcp-server - ✓ Connected
   ```
-
+  
   ### Adım 2: Claude Desktop'ı Yeniden Başlatın
-
+  
   Yeni konfigürasyonu yüklemek için Claude Desktop'ı kapatıp yeniden açın.
-
+  
   ### Adım 3: Strava Hesabınızı Bağlayın
-
+  
   Claude'a basitçe şunu söyleyin:
-
+  
   > **"Connect my Strava account"** (Strava hesabımı bağla)
-
+  
   Bir tarayıcı penceresi açılacak. Strava API kimlik bilgilerinizi girin, uygulamayı yetkilendirin ve bitti!
-
+  
   **Hepsi bu!** Aktiviteleriniz hakkında soru sormaya başlayın.
-
+  
   ---
-
+  
   ## Strava Hesabınızı Bağlama
-
+  
   ### İlk Kez Kurulum
-
+  
   "Connect my Strava account" dediğinizde işte ne olur:
-
+  
   1. **Bir tarayıcı penceresi açılır** - kurulum sayfasını gösterir
   2. **Strava API kimlik bilgilerinizi girin** (Client ID ve Client Secret)
   3. **"Continue to Strava"'ya tıklayın** - Strava'ya yönlendirileceksiniz
   4. **Uygulamayı Strava'da yetkilendirin**
   5. **Başarı mesajını görün** - tarayıcıyı kapatabilirsiniz
   6. **Bitti!** Claude bağlı olduğunuzu doğrular
-
+  
   Kimlik bilgileriniz `~/.config/strava-mcp/config.json` dosyasına yerel olarak kaydedilir ve oturumlar arasında kalıcı olur.
-
+  
   ### Strava API Kimlik Bilgilerinizi Almak
-
+  
   Ücretsiz bir Strava API uygulaması oluşturmanız gerekir (tek seferlik kurulum):
-
+  
   1. [strava.com/settings/api](https://www.strava.com/settings/api) adresine gidin
   2. "Create an App"a tıklayın (veya mevcut uygulamanızı görüntüleyin)
   3. Formu doldurun:
@@ -138,33 +138,33 @@ body_tr: |-
      - **Website**: Herhangi bir şey olabilir (örneğin, `http://localhost`)
      - **Authorization Callback Domain**: `localhost` olmalı
   4. **Client ID** ve **Client Secret**'ı kopyalayın
-
+  
   Hepsi bu! Bunu sadece bir kez yapmanız gerekir.
-
+  
   ### Bağlantınızı Yönetme
-
+  
   - **Durumu kontrol edin**: "Am I connected to Strava?" (Strava'ya bağlı mıyım?)
   - **Yeniden bağlayın**: "Connect my Strava account" (kullanmak için `force: true`)
   - **Bağlantıyı kesin**: "Disconnect my Strava account" (Strava hesabımı çıkar)
-
+  
   ---
-
+  
   ## Kurulum Seçenekleri
-
+  
   ### Seçenek A: Sadece Kullanın (Önerilen)
-
+  
   Kurulum gerekli değil! Hızlı Başlangıç'taki `npx` komutu en son sürümü otomatik olarak indirir ve çalıştırır.
-
+  
   ### Seçenek B: Küresel Olarak Yükleyin
-
+  
   Eğer bir kez yüklememeyi tercih ederseniz:
-
+  
   ```bash
   npm install -g @r-huijts/strava-mcp-server
   ```
-
+  
   Ardından Claude config'inizi güncelleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -174,22 +174,22 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Not:** Paket adı `@r-huijts/strava-mcp-server` olsa da, geriye dönük uyumluluk için çalıştırılabilir adı `strava-mcp-server` kalır.
-
+  
   ### Seçenek C: Kaynaktan Derleyin
-
+  
   Kodu değiştirmek isteyen geliştiriciler için:
-
+  
      ```bash
      git clone https://github.com/r-huijts/strava-mcp.git
      cd strava-mcp
      npm install
      npm run build
      ```
-
+  
   Ardından Claude'u yerel derlemesine işaret edin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -200,13 +200,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   ---
-
+  
   ## Örnek Konuşmalar
-
+  
   ### Sabah Check-in
-
+  
   > **Siz**: Bu haftada egzersiz için ne yaptım?
   >
   > **Claude**: Strava'daki bu haftanın aktivitelerine baktığımızda şunları tamamladınız:
@@ -215,9 +215,9 @@ body_tr: |-
   > - Cumartesi: 10km koşu (52:30)
   > 
   > Toplam: 3 aktivite içinde 60,2km. Harika tutarlılık!
-
+  
   ### Antrenman Analizi
-
+  
   > **Siz**: Son bisiklet antrenmanımı detaylı olarak analiz et
   >
   > **Claude**: İşte dün "Evening Loop" turununuzun analizi:
@@ -238,9 +238,9 @@ body_tr: |-
   > - Bölge 4+ saati: 23 dakika
   > 
   > Güç-kalp atış hızı oranınız iyi aerobik verimliliği gösteriyor...
-
+  
   ### Yeni Rotalar Bulma
-
+  
   > **Siz**: Boulder, Colorado'nun yakınında zorlu bisiklet tırmanışları bul
   >
   > **Claude**: Boulder'ın yakınında popüler tırmanış segmentleri:
@@ -250,13 +250,13 @@ body_tr: |-
   > 3. **Left Hand Canyon** - 8,1km, %4,5 ort. gradient
   > 
   > Bunlardan herhangi birini yıldızlamak istiyorum musunuz böylece daha sonra kolayca bulabilirsiniz?
-
+  
   ---
-
+  
   ## Mevcut Araçlar
-
+  
   ### Hesap ve Profil
-
+  
   | Ne sorabilirsiniz | Ne yapar |
   |------------------|----------|
   | "Connect my Strava account" | Strava'yı Claude'a bağlar |
@@ -264,9 +264,9 @@ body_tr: |-
   | "Get my Strava profile" | Profil bilgilerinizi gösterir |
   | "What shoes do I have?" | Ayakkabılarınız ve kullanım mesafesini listeler |
   | "What are my training zones?" | KA ve güç bölgelerinizi gösterir |
-
+  
   ### Aktiviteler
-
+  
   | Ne sorabilirsiniz | Ne yapar |
   |------------------|----------|
   | "Show my recent activities" | Son antrenmanlarınızı listeler |
@@ -275,17 +275,17 @@ body_tr: |-
   | "Show the laps from my last run" | Tur-tur analiz |
   | "Get heart rate data from my ride" | Zaman serisi antrenman verileri (optimize sıkıştırılmış format) |
   | "Show photos from my hike" | Aktivite fotoğrafları |
-
+  
   ### İstatistikler ve İlerleme
-
+  
   | Ne sorabilirsiniz | Ne yapar |
   |------------------|----------|
   | "What are my running stats?" | YTD ve tüm zamanlar toplamları |
   | "How far have I cycled this year?" | Aktivite toplamları türe göre |
   | "What's my longest ride?" | Kişisel rekorlar |
-
+  
   ### Segmentler
-
+  
   | Ne sorabilirsiniz | Ne yapar |
   |------------------|----------|
   | "Show my starred segments" | Favori segmentleriniz |
@@ -293,68 +293,68 @@ body_tr: |-
   | "Get details on segment 12345" | Segment bilgisi ve liderlik tablosu |
   | "Star this segment" | Favori olarak kaydet |
   | "Show my efforts on [segment]" | Bir segmentteki denemeleriniz |
-
+  
   ### Rotalar
-
+  
   | Ne sorabilirsiniz | Ne yapar |
   |------------------|----------|
   | "List my saved routes" | Oluşturduğunuz rotalar |
   | "Get details for my [route name]" | Rota bilgisi |
   | "Export [route] as GPX" | GPS cihazları için indir |
   | "Export [route] as TCX" | GPS cihazları için indir |
-
+  
   ### Kulüpler
-
+  
   | Ne sorabilirsiniz | Ne yapar |
   |------------------|----------|
   | "What clubs am I in?" | Strava kulüplerini listeler |
-
+  
   ---
-
+  
   ## Sorun Giderme
-
+  
   ### "Connect my Strava account" tarayıcı açmıyor
-
+  
   - Claude Desktop'ın MCP server'ı çalıştırdığından emin olun (Claude'da hataları kontrol edin)
   - Claude Desktop'ı yeniden başlatmayı deneyin
   - Port 8111'in bir firewall tarafından engellenmediğini kontrol edin
-
+  
   ### "Authentication failed" veya "Invalid token"
-
+  
   - Token'ınız süresi bitmiş olabilir - "Connect my Strava account" deyin yeniden bağlanmak için
   - Strava API uygulamanızın [strava.com/settings/api](https://www.strava.com/settings/api) adresinde hala etkin olduğundan emin olun
-
+  
   ### "Missing credentials" hatası
-
+  
   - OAuth akışını tamamlamanız gerekir - "Connect my Strava account" deyin
   - Ortam değişkenlerini kullanıyorsanız, 4'ünün tümünün ayarlandığından emin olun (Geliştirici bölümüne bakın)
-
+  
   ### Claude Strava araçlarını görmüyor
-
+  
   - `claude_desktop_config.json`'inizin geçerli JSON olduğundan emin olun (trailing commas yok!)
   - Config değişiklikleri yaptıktan sonra Claude Desktop'ı yeniden başlatın
   - Hata mesajleri için Claude'un geliştirici konsolunu kontrol edin
-
+  
   ### Paket adı değişikliğinden sonra JSONRPC.ProtocolTransportError
-
+  
   `@r-huijts/strava-mcp-server`'a güncelledikten sonra JSONRPC hatası alıyorsanız:
-
+  
   1. **npx cache'i temizleyin**: Terminal'de `rm -rf ~/.npm/_npx` çalıştırın
   2. **Config'i doğrulayın** - `@r-huijts/strava-mcp-server` kullanıyor (eski `strava-mcp-server` değil)
   3. **Claude Desktop'ı tamamen yeniden başlatın** (kapat ve yeniden aç)
   4. **Manuel test edin**: `npx -y @r-huijts/strava-mcp-server` çalıştırın - "Starting Strava MCP Server v1.2.1..." görmelisiniz
-
+  
   ---
-
+  
   ## Geliştiriciler İçin
-
+  
   <details>
   <summary>Teknik detayları görmek için tıklayın</summary>
-
+  
   ### Ortam Değişkenleri
-
+  
   Tarayıcı tabanlı kimlik doğrulama yerine ortam değişkenlerini ayarlayabilirsiniz:
-
+  
   | Değişken | Açıklama |
   |----------|----------|
   | `STRAVA_CLIENT_ID` | Strava Application Client ID'niz |
@@ -362,54 +362,54 @@ body_tr: |-
   | `STRAVA_ACCESS_TOKEN` | OAuth access token |
   | `STRAVA_REFRESH_TOKEN` | OAuth refresh token |
   | `ROUTE_EXPORT_PATH` | GPX/TCX dışa aktarmaları için dizin |
-
+  
   ### Token Yenileme
-
+  
   Server, süresi dolmuş token'ları otomatik olarak yeniler. Yeni token'lar hem `process.env` hem de `~/.config/strava-mcp/config.json` dosyasına kaydedilir.
-
+  
   ### Config Önceliği
-
+  
   1. Ortam değişkenleri (en yüksek)
   2. `~/.config/strava-mcp/config.json`
   3. Yerel `.env` dosyası
-
+  
   ### Derleme ve Test
-
+  
   ```bash
   npm install
   npm run build
   npm test
   ```
-
+  
   ### Aktivite Akışları Optimizasyonu
-
+  
   `get-activity-streams` aracı, varsayılan olarak sıkıştırılmış bir format kullanır ve yük boyutunu ~70-80% azaltır:
-
+  
   - **Sıkıştırılmış format** (varsayılan): Meta verili ham diziler, ~70-80% daha küçük, LLM işleme için ideal
   - **Ayrıntılı format**: İnsan tarafından okunabilir nesneler ve biçimlendirilmiş değerler (geriye dönük uyumlu)
   - **Akıllı chunking**: Büyük aktiviteler otomatik olarak ~50KB parçalara ayrılır
   - **İsteğe bağlı downsampling**: Çok büyük veri setlerini anahtar özellikleri korurken azaltabilir
-
+  
   Sıkıştırılmış format, LLM'lerin ham sayısal verileri anlaması için kapsamlı meta veriler (birimler, açıklamalar, istatistikler) içerir.
-
+  
   ### API Referansı
-
+  
   Server, Model Context Protocol (MCP) uygular ve Strava API v3 için 25 araç ortaya çıkarır. Uygulama ayrıntıları için `src/tools/` dizinindeki kaynak koda bakın.
-
+  
   ### Katkı Sağlama
-
+  
   Katkılar hoş geldindir! Lütfen bir Pull Request gönderin.
-
+  
   </details>
-
+  
   ---
-
+  
   ## Lisans
-
+  
   MIT License - ayrıntılar için LICENSE dosyasına bakın.
-
+  
   ---
-
+  
   **Sorular?** [GitHub](https://github.com/r-huijts/strava-mcp/issues) üzerinde bir issue açın.
 ---
 
@@ -665,6 +665,7 @@ Then point Claude to your local build:
 |------------------|--------------|
 | "Connect my Strava account" | Links your Strava to Claude |
 | "Check my Strava connection" | Shows connection status |
+| "Disconnect my Strava account" | Unlinks Strava and clears stored tokens |
 | "Get my Strava profile" | Shows your profile info |
 | "What shoes do I have?" | Lists your shoes and usage distance |
 | "What are my training zones?" | Shows HR and power zones |
@@ -712,6 +713,18 @@ Then point Claude to your local build:
 | What you can ask | What it does |
 |------------------|--------------|
 | "What clubs am I in?" | Lists your Strava clubs |
+
+### Workouts
+
+| What you can ask | What it does |
+|------------------|--------------|
+| "Turn this workout into a Zwift file" | Formats a workout plan into a structured file (currently Zwift `.zwo`) |
+
+### Server
+
+| What you can ask | What it does |
+|------------------|--------------|
+| "What version is the Strava server?" | Shows the MCP server version and metadata |
 
 ---
 

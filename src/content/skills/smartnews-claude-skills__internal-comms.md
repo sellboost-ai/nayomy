@@ -22,11 +22,11 @@ body_tr: |-
   - Liderlik güncellemeleri
   - Proje güncellemeleri
   - Olay raporları
-
+  
   ## Bu beceriyi nasıl kullanmalı
-
+  
   Herhangi bir dahili iletişim yazmak için:
-
+  
   1. **İletişim türünü belirleyin** istekten
   2. **`examples/` dizininden uygun kılavuz dosyasını yükleyin**:
       - `examples/3p-updates.md` - İlerleme/Planlar/Sorunlar takım güncellemeleri için
@@ -34,9 +34,9 @@ body_tr: |-
       - `examples/faq-answers.md` - Sık sorulan soruları cevaplamak için
       - `examples/general-comms.md` - Yukarıdakilerden hiçbiriyle açıkça eşleşmeyen diğer her şey için
   3. **O dosyada yer alan spesifik talimatları izleyin** biçimlendirme, ton ve içerik toplama için
-
+  
   İletişim türü mevcut kılavuzlardan herhangi biriyle eşleşmiyorsa, istenen format hakkında açıklama veya daha fazla bağlam isteyin.
-
+  
   ## Anahtar Kelimeler
   3P güncellemeleri, şirket bülteni, şirket iletişimi, haftalık güncelleme, SSS, sık sorulan sorular, güncellemeler, dahili iletişim
 ---

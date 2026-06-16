@@ -3,7 +3,7 @@ name: "jparkerweb/mcp-sqlite"
 description: "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities."
 category: "Databases"
 repo: "jparkerweb/mcp-sqlite"
-stars: 107
+stars: 110
 url: "https://github.com/jparkerweb/mcp-sqlite"
 body_length: 4963
 license: "MIT"
@@ -12,23 +12,23 @@ homepage: "https://www.npmjs.com/package/mcp-sqlite"
 body_tr: |-
   # 🐇 MCP SQLite Server
   Bu, kapsamlı SQLite veritabanı etkileşim yetenekleri sağlayan bir Model Context Protocol (MCP) sunucusudur.
-
+  
   ![cursor-settings](https://raw.githubusercontent.com/jparkerweb/mcp-sqlite/refs/heads/main/.readme/mcp-sqlite.jpg)
-
+  
   #### Tarafından sürdürülüyor
   <a href="https://www.equilllabs.com">
     
   </a>
-
+  
   ## Özellikler
   - Tam CRUD işlemleri (Create, Read, Update, Delete)
   - Veritabanı keşfi ve introspection
   - Özel SQL sorgularını çalıştırma
-
+  
   ## Kurulum
-
+  
   IDE'nizin MCP Server ayarlarında komutu tanımlayın:
-
+  
   örneğin `Cursor`:
   ```json
   {
@@ -44,7 +44,7 @@ body_tr: |-
       }
   }
   ```
-
+  
   örneğin `VSCode`:
   ```json
   {
@@ -61,19 +61,19 @@ body_tr: |-
       }
   }
   ```
-
+  
   ![cursor-settings](https://raw.githubusercontent.com/jparkerweb/mcp-sqlite/refs/heads/main/.readme/cursor-mcp-settings.jpg)
-
+  
   Veritabanı yolu bir argument olarak sağlanmalıdır.
-
+  
   ## Kullanılabilir Tools
-
+  
   ### Veritabanı Bilgileri
-
+  
   #### db_info
-
+  
   Bağlı veritabanı hakkında detaylı bilgi alın.
-
+  
   Örnek:
   ```json
   {
@@ -84,11 +84,11 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### list_tables
-
+  
   Veritabanındaki tüm tabloları listeleyin.
-
+  
   Örnek:
   ```json
   {
@@ -99,14 +99,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### get_table_schema
-
+  
   Bir tablonun schema'sı hakkında detaylı bilgi alın.
-
+  
   Parametreler:
   - `tableName` (string): Tablo adı
-
+  
   Örnek:
   ```json
   {
@@ -119,17 +119,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### CRUD İşlemleri
-
+  
   #### create_record
-
+  
   Bir tabloya yeni bir kayıt ekleyin.
-
+  
   Parametreler:
   - `table` (string): Tablo adı
   - `data` (object): Kayıt verisi anahtar-değer çiftleri olarak
-
+  
   Örnek:
   ```json
   {
@@ -147,17 +147,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### read_records
-
+  
   İsteğe bağlı filtreleme ile bir tablodan kayıtları sorgulayın.
-
+  
   Parametreler:
   - `table` (string): Tablo adı
   - `conditions` (object, isteğe bağlı): Filtre koşulları anahtar-değer çiftleri olarak
   - `limit` (number, isteğe bağlı): Döndürülecek maksimum kayıt sayısı
   - `offset` (number, isteğe bağlı): Atlanacak kayıt sayısı
-
+  
   Örnek:
   ```json
   {
@@ -175,16 +175,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### update_records
-
+  
   Belirtilen koşulları sağlayan bir tablodaki kayıtları güncelleyin.
-
+  
   Parametreler:
   - `table` (string): Tablo adı
   - `data` (object): Yeni değerler anahtar-değer çiftleri olarak
   - `conditions` (object): Filtre koşulları anahtar-değer çiftleri olarak
-
+  
   Örnek:
   ```json
   {
@@ -203,15 +203,15 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### delete_records
-
+  
   Belirtilen koşulları sağlayan bir tablodaki kayıtları silin.
-
+  
   Parametreler:
   - `table` (string): Tablo adı
   - `conditions` (object): Filtre koşulları anahtar-değer çiftleri olarak
-
+  
   Örnek:
   ```json
   {
@@ -227,17 +227,17 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### Özel Sorgular
-
+  
   #### query
-
+  
   Bağlı SQLite veritabanına karşı özel bir SQL sorgusu çalıştırın.
-
+  
   Parametreler:
   - `sql` (string): Çalıştırılacak SQL sorgusu
   - `values` (array, isteğe bağlı): Sorguda kullanılacak parametre değerlerinin dizisi
-
+  
   Örnek:
   ```json
   {
@@ -251,14 +251,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## İle oluşturuldu
-
+  
   - [Model Context Protocol SDK](https://github.com/modelcontextprotocol/typescript-sdk)
   - [sqlite3](https://github.com/TryGhost/node-sqlite3)
-
+  
   ---
-
+  
   ## Takdir
   Bu kütüphaneyi beğendiyseniz lütfen çalışmalarımı desteklemek için bana bir bahşiş göndermeyi düşünün 😀
   ### [🍵 buradan bahşiş gönder](https://ko-fi.com/jparkerweb)

@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP ile Backendless Otomasyonu
+
+  Composio'nun Backendless araç seti üzerinden Rube MCP ile Backendless işlemlerini otomatikleştirin.
+
+  **Araç seti dökümanları**: [composio.dev/toolkits/backendless](https://composio.dev/toolkits/backendless)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla etkin Backendless bağlantısı ve `backendless` araç seti
+  - Güncel araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
+
+  ## Kurulum
+
+  **Rube MCP'yi alın**: MCP sunucu yapılandırmanızda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarı gerekli değildir — uç noktayı eklemeniz yeterlidir, geri kalanı otomatik çalışır.
+
+  1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
+  2. `backendless` araç seti ile `RUBE_MANAGE_CONNECTIONS` çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme bağlantısını takip edin
+  4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Araç Keşfi
+
+  İş akışlarını çalıştırmadan önce her zaman mevcut araçları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Backendless işlemleri", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen tuzakları döndürür.
+
+  ## Temel İş Akışı Deseni
+
+  ### Adım 1: Mevcut Araçları Keşfet
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "sizin spesifik Backendless göreviniz"}]
+  session: {id: "mevcut_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Et
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["backendless"]
+  session_id: "sizin_session_id"
+  ```
+
+  ### Adım 3: Araçları Çalıştır
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "ARAMA_SONUCUNDAN_TOOL_SLUG",
+    arguments: {/* arama sonuçlarından şema uyumlu argümanlar */}
+  }]
+  memory: {}
+  session_id: "sizin_session_id"
+  ```
+
+  ## Bilinen Tuzaklar
+
+  - **Her zaman önce ara**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
+  - **Bağlantıyı kontrol et**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'in ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa da (`{}`)
+  - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
+  - **Pagination**: Yanıtları pagination token'ları açısından kontrol edin ve tamamlanana kadar almaya devam edin
+
+  ## Hızlı Başvuru
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Araçları bul | `RUBE_SEARCH_TOOLS` ile Backendless'e özgü use case |
+  | Bağlan | `RUBE_MANAGE_CONNECTIONS` ile `backendless` araç seti |
+  | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilmiş araç slug'ları |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` alanına sahip araçlar |
+
+  ---
+  *[Composio](https://composio.dev) tarafından sunulmaktadır*
 ---
 
 # Backendless Automation via Rube MCP

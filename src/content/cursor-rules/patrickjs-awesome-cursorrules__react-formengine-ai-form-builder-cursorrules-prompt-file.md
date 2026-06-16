@@ -9,6 +9,141 @@ path: "rules/react-formengine-ai-form-builder-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-formengine-ai-form-builder-cursorrules-prompt-file.mdc"
 body_length: 6422
 file_extension: ".mdc"
+body_tr: |-
+  # FormEngine — React için AI Form Builder
+
+  Bir ekran görüntüsü, PDF, HTML veya metin açıklamasından üretime hazır React formları oluşturun. Çıktı, doğrulanmış bir FormEngine JSON şeması artı çalıştırılabilir bir App.tsx'dir — tek kullanımlık JSX değil, taşınabilir veri.
+
+  Varsayılan hedef: `@react-form-builder/core` aracılığıyla FormEngine Core (MIT, ücretsiz)
+  + `@react-form-builder/components-rsuite` (veya Material UI / Mantine).
+
+  Kaynak depo: https://github.com/lukinov/ai-form-builder
+
+  ## Her zaman ürettikleriniz
+
+  1. `form.json` — normalleştirilmiş bir FormEngine şeması, hedef UI kütüphanesinden bileşen türlerinin gerçek listesine karşı doğrulanmış.
+  2. `App.tsx` — şemayı içe aktaran ve `<FormViewer>` aracılığıyla render eden çalıştırılabilir bir React dosyası.
+  3. Kısa bir doğrulama raporu (Screen kökü, benzersiz anahtarlar, yalnızca düzen `css`, gizli HTML markup yok, geçerli doğrulama kuralı anahtarları).
+  4. Kurulum komutu + kullanıcının görsel olarak ince ayar yapabilmesi için ücretsiz Online FormBuilder bağlantısı
+     (https://formbuilder.formengine.io).
+
+  ## Sert kurallar — asla ihlal etmeyin
+
+  ### Şema değişmezleri
+
+  - Kök `type: "Screen"` dir (`"Form"` değil).
+  - Her bileşen düğümünün `key` (ağaç içinde benzersiz), `type` (seçilen kütüphanede var olmalı) ve genellikle `props` vardır.
+  - **Her prop değeri sarılmıştır:** `"label": { "value": "Email" }` —
+  asla `"label": "Email"` değil.
+  - Doğrulamalar, Screen kökü değil, verilere sahip olan alan bileşeni üzerinde `schema.validations` altında yer alır.
+  - Doğru tooltip/error türlerini kullanın:
+    - RSuite: `RsTooltip` / `RsErrorMessage`
+    - MUI: `MuiTooltip` / `MuiErrorWrapper`
+    - Mantine: `MtTooltip` / `MtErrorWrapper`
+
+  ### Düzen vs. stil
+
+  - `css` ve `wrapperCss` **yalnızca düzen** içindir — flex, grid, box-model,
+  margin, padding, gap, width/height, alignment. **Asla** renk, yazı tipi,
+  background, border, shadow, radius, opacity, transform.
+  - Görsel stil, App.tsx içindeki UI kütüphanesinin tema sağlayıcısına ait
+  (`<CustomProvider>` / `<ThemeProvider>` / `<MantineProvider>`).
+  - Eski `style` alanı **yasaktır** — `css` / `wrapperCss` kullanın.
+  - Şekil `{ "any": { "object": { "<layout-key>": "<value>" } } }`,
+  hiçbir zaman düz CSS string değil.
+  - App.tsx'in yanında eşlik eden `.css` dosyası yok. Kök `className` yok. `<style>` blokları yok. `styled-components` yok.
+
+  ### Yalnızca düz metin dizileri
+
+  Herhangi bir prop içindeki her dize düz metindir. **Hiçbir yerde hiçbir HTML markup türü yok** — `<h1>`, `<p>`, `<strong>`, `<small>`, `<br>`, `style="..."`, `class="..."`, `<style>` bloğu yok. Bölüm başlıklarını ve yapıyı bileşenlerle (`header` prop ile `RsCard`, `RsHeader`, `RsDivider`) ifade edin — gömülü HTML değil.
+
+  ### Doğrulama kuralı anahtarları — yalnızca Zod seti
+
+  Geçerli anahtarlar: `required`, `nonEmpty`, `min`, `max`, `length`, `email`,
+  `url`, `uuid`, `ip`, `datetime`, `regex`, `includes`, `startsWith`,
+  `endsWith`, `lessThan`, `moreThan`, `integer`, `multipleOf`, `truthy`,
+  `falsy`. **`minLength` / `maxLength` yoktur** — `args.limit` ile `min` / `max` kullanın.
+
+  ## UI kütüphane varsayılanları
+
+  - **Varsayılan olarak RSuite kullanın.** Referans kütüphane; çok adımlı formlar için `RsWizard` dahil olmak üzere en geniş bileşen seti.
+  - Kullanıcı MUI, Material'dan bahsettiğinde veya projesi MUI'de olduğunda **Material UI**.
+  - Kullanıcı Mantine'den bahsettiğinde veya Mantine'ye özgü bir bileşene ihtiyaç duyduğunda **Mantine** (renk seçici, zengin tarih seçiciler, segmentli kontrol).
+
+  Seçimi yanıtın ilk cümlesinde açıkça belirtin.
+
+  ## Yaygın yeniden adlandırmalar — her zaman doğru adı yayınlayın
+
+  | Yanlış | Doğru |
+  |---|---|
+  | `Form` | `Screen` |
+  | `RsForm` | `RsCard` veya `RsContainer` |
+  | `RsSelectPicker` | `RsDropdown` |
+  | `RsRadio` | `RsRadioGroup` |
+  | `RsTextarea` | `RsTextArea` (büyük A) |
+  | `RsInputNumber` | `RsNumberFormat` |
+  | `RsUpload` | `RsUploader` |
+  | `MtDatePickerSingle` | `MtDatePicker` |
+  | `MtTextField` | `MtTextInput` |
+
+  ## Yan yana alanlar
+
+  `display: flex` ile `RsContainer` ve `wrapperCss.any.object.flex: "1"` ile children kullanın. RSuite'nin FlexboxGrid/Stack adaptörü yok — `RsContainer` üzerinde flex mekanizmadır.
+
+  ## Bölüm başlıkları
+
+  `header` prop ile `RsCard` veya `RsHeader` kullanın — `RsStaticContent` `content` dizileri içine gömülü `<h1>` / `<h2>` asla.
+
+  ## Koşullu render etme
+
+  `renderWhen: { "jsCode": "data.X === Y" }` kullanın ve doğrulamalar da koşullu olmalıysa `validateWhen` ile eşleştirin.
+
+  ## App.tsx — minimal başlangıç
+
+  Yalnızca kütüphanenin stil sayfasını içe aktarın. Tema, kütüphanenin sağlayıcısı aracılığıyla. Eşlik eden CSS yok. Kök className yok. Düzen düzeyinde satır içi stiller
+  (`maxWidth`, `margin`, `padding`) sarmalayıcı `<div>` üzerinde sorun değil.
+
+  ```tsx
+  import "rsuite/dist/rsuite.min.css";
+  import { FormViewer, BiDi } from "@react-form-builder/core";
+  import { view } from "@react-form-builder/components-rsuite";
+  import formJson from "./form.json";
+
+  const getForm = () => JSON.stringify(formJson);
+
+  export default function App() {
+    return (
+      <div style={{ maxWidth: 720, margin: "40px auto", padding: 16 }}>
+        <FormViewer
+          view={view}
+          getForm={getForm}
+          onFormDataChange={(d) => console.log(d)}
+          biDi={BiDi.LTR}
+        />
+      </div>
+    );
+  }
+  ```
+
+  ## Ücretsiz vs. ticari — MIT tarafında kalın
+
+  FormEngine **Core** MIT ve ücretsizdir. Designer ve bazı Premium bileşenler (Signature, DataGrid, Rich Text, QR Code, Google Maps) ticaridir. Kullanıcı açıkça talep etmedikçe Premium bileşen türlerini yayınlamayın. Kişileri görsel düzenleme için ücretsiz Online FormBuilder'a yönlendirin
+  (https://formbuilder.formengine.io).
+
+  ## Yanıt şekli
+
+  Açılış paragrafı (kütüphane + alan sayısı) → `form.json` → `App.tsx` →
+  doğrulama kontrol listesi → kurulum komutu → "Online FormBuilder'da görsel olarak ince ayar yapın" bağlantısı → FormEngine Core docsuna 3 sonraki adım bağlantısı.
+
+  ## Referans
+
+  - FormEngine Core docsları: https://formengine.io/documentation/formengine-core/
+  - Forms JSON referansı: https://formengine.io/documentation/formengine-core/forms-json/
+  - Doğrulama: https://formengine.io/documentation/formengine-core/validation/
+  - Koşullu render etme: https://formengine.io/documentation/formengine-core/conditional-rendering/
+  - Online FormBuilder: https://formbuilder.formengine.io
+  - llms-full.txt (tam makine tarafından okunabilir docslar): https://formengine.io/documentation/llms-full.txt
+  - Bu kural için kaynak depo: https://github.com/lukinov/ai-form-builder
 ---
 
 # FormEngine — AI Form Builder for React

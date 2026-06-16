@@ -10,15 +10,15 @@ license: "Apache-2.0"
 language: "Go"
 body_tr: |-
   # MKP - Kubernetes için Model Kontext Protocol Sunucusu
-
+  
   <p align="center">
     
   </p>
-
+  
   MKP, Kubernetes için bir Model Context Protocol (MCP) sunucusudur ve LLM tabanlı uygulamaların Kubernetes kümeleriyle etkileşim kurmasını sağlar. MCP protokolü aracılığıyla Kubernetes kaynaklarını listeleme ve uygulama araçları sunar.
-
+  
   ## Özellikler
-
+  
   - Kubernetes API sunucusu tarafından desteklenen kaynakları listeleme
   - Küme kaynaklarını listeleme
   - Ad alanı kaynaklarını listeleme
@@ -28,112 +28,112 @@ body_tr: |-
   - Timeout kontrolü ile pod'larda komut yürütme
   - API Machinery'nin unstructured istemcisini kullanarak genel ve takılabilir uygulama
   - Aşırı API çağrılarına karşı koruma için yerleşik hız sınırlaması
-
+  
   ## Neden MKP?
-
+  
   MKP, Kubernetes için bir Model Context Protocol sunucusu olarak çeşitli önemli avantajlar sunar:
-
+  
   ### Yerel Go Uygulaması
-
+  
   - Kubernetes'in kendisiyle aynı dil ile inşa edilmiş
   - Sunucu uygulamaları için mükemmel performans özellikleri
   - Güçlü tür güvenliği ve eşzamanlılık desteği
   - Kubernetes kütüphaneleriyle sorunsuz entegrasyon
-
+  
   ### Doğrudan API Entegrasyonu
-
+  
   - Dış bağımlılıklar olmadan Kubernetes API machinery'sini doğrudan kullanır
   - kubectl, helm veya diğer CLI araçlarına bağımlılık yok
   - Kubernetes API sunucusuyla doğrudan iletişim kurar
   - Azaltılmış yüke ve geliştirilmiş güvenilirliğe sahiptir
-
+  
   ### Evrensel Kaynak Desteği
-
+  
   - Unstructured istemci aracılığıyla herhangi bir Kubernetes kaynak türüyle çalışır
   - Sert kodlanmış kaynak şemaları veya özel işleyicilere ihtiyaç yoktur
   - Özel Kaynak Tanımlarını (CRD'ler) otomatik olarak destekler
   - Yeni Kubernetes kaynakları için geleceğe dayanıklıdır
-
+  
   ### Minimalist Tasarım
-
+  
   - Temel Kubernetes kaynak işlemleri üzerinde odaklanır
   - Temiz, bakımı yapılabilir kod tabanı ve açık sorumluluğun ayrılması
   - Hafif ve minimal bağımlılıkları vardır
   - Anlaşılması, genişletilmesi ve katkı sağlanması kolaydır
-
+  
   ### Üretim Hazır Mimarisi
-
+  
   - Üretim ortamlarında güvenilirlik ve performans için tasarlanmış
   - Uygun hata işleme ve kaynak yönetimi
   - Aşırı API çağrılarına karşı koruma için yerleşik hız sınırlaması
   - Kapsamlı birim testleriyle test edilebilir tasarım
   - Kubernetes geliştirme en iyi uygulamalarını izler
-
+  
   ## Ön Koşullar
-
+  
   - Go 1.24 veya daha yeni
   - Kubernetes kümesi ve kubeconfig
   - Görevleri çalıştırmak için [Task](https://taskfile.dev/)
-
+  
   ## Kurulum
-
+  
   1. Depoyu klonlayın:
-
+  
      ```bash
      git clone https://github.com/StacklokLabs/mkp.git
      cd mkp
      ```
-
+  
   2. Bağımlılıkları yükleyin:
-
+  
      ```bash
      task install
      ```
-
+  
   3. Sunucuyu derleyin:
-
+  
      ```bash
      task build
      ```
-
+  
   ## Kullanım
-
+  
   ### Sunucuyu çalıştırma
-
+  
   Sunucuyu varsayılan kubeconfig ile çalıştırmak için:
-
+  
   ```bash
   task run
   ```
-
+  
   Sunucuyu belirli bir kubeconfig ile çalıştırmak için:
-
+  
   ```bash
   KUBECONFIG=/path/to/kubeconfig task run-with-kubeconfig
   ```
-
+  
   Sunucuyu belirli bir port üzerinde çalıştırmak için:
-
+  
   ```bash
   MCP_PORT=9091 task run
   ```
-
+  
   ## ToolHive ile Çalıştırma
-
+  
   MKP, [ToolHive](https://github.com/stacklok/toolhive) kullanılarak bir Model Context Protocol (MCP) sunucusu olarak çalıştırılabilir; bu da MCP sunucularının dağıtımını ve yönetimini basitleştirir.
-
+  
   MKP'yi ToolHive UI, CLI veya Kubernetes operatörü ile kurmaya ilişkin ayrıntılı talimatlar için [ToolHive belgelerine](https://docs.stacklok.com/toolhive/guides-mcp/k8s) bakın.
-
+  
   ### MCP Araçları
-
+  
   MKP sunucusu aşağıdaki MCP araçlarını sağlar:
-
+  
   #### get_resource
-
+  
   Bir Kubernetes kaynağı veya alt kaynağı getirir.
-
+  
   Parametreler:
-
+  
   - `resource_type` (gerekli): Getirilecek kaynak türü (küme veya ad alanı)
   - `group`: API grubu (örn. apps, networking.k8s.io)
   - `version` (gerekli): API sürümü (örn. v1, v1beta1)
@@ -142,9 +142,9 @@ body_tr: |-
   - `name` (gerekli): Getirilecek kaynağın adı
   - `subresource`: Getirilecek alt kaynak (örn. status, scale, logs)
   - `parameters`: İstek için isteğe bağlı parametreler (aşağıdaki örneklere bakın)
-
+  
   Örnek:
-
+  
   ```json
   {
     "name": "get_resource",
@@ -159,9 +159,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Parametrelerle belirli bir konteynerden logları getirme örneği:
-
+  
   ```json
   {
     "name": "get_resource",
@@ -182,9 +182,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Pod logları için mevcut parametreler:
-
+  
   - `container`: Hangi konteynerden logları getireceğini belirt
   - `previous`: Önceki konteyner örneğinden logları al (true/false)
   - `sinceSeconds`: Yalnızca saniye cinsinden göreceli bir süre kadar yeni logları döndür
@@ -192,19 +192,19 @@ body_tr: |-
   - `timestamps`: Her satıra zaman damgası ekle (true/false)
   - `limitBytes`: Döndürülecek maksimum bayt sayısı
   - `tailLines`: Logların sonundan döndürülecek satır sayısı
-
+  
   Varsayılan olarak, pod logları LLM'nin bağlam penceresini bunaltmamak için son 100 satır ve 32KB ile sınırlanır. Bu varsayılanlar yukarıdaki parametreler kullanılarak geçersiz kılınabilir.
-
+  
   Düzenli kaynaklar için mevcut parametreler:
-
+  
   - `resourceVersion`: Belirtildiğinde, kaynağı bu belirli sürümdeki halini gösterir
-
+  
   #### list_resources
-
+  
   Belirli bir türde Kubernetes kaynaklarını listeler.
-
+  
   Parametreler:
-
+  
   - `resource_type` (gerekli): Listelenecek kaynak türü (küme veya ad alanı)
   - `group`: API grubu (örn. apps, networking.k8s.io)
   - `version` (gerekli): API sürümü (örn. v1, v1beta1)
@@ -214,13 +214,13 @@ body_tr: |-
   - `include_annotations`: Çıkışta ek açıklamaları dahil etip etmeyeceği (varsayılan: true)
   - `exclude_annotation_keys`: Çıkıştan hariç tutulacak ek açıklama anahtarları listesi (\* ile joker karakterleri destekler)
   - `include_annotation_keys`: Çıkışta dahil edilecek ek açıklama anahtarları listesi (belirtilirse, yalnızca bunlar dahil edilir)
-
+  
   ##### Ek Açıklama Filtrelemesi
-
+  
   `list_resources` aracı, meta veri çıktı boyutunu kontrol etmek ve büyük ek açıklamalarla (GPU düğümü ek açıklamaları gibi) kesilme sorunlarını önlemek için güçlü ek açıklama filtreleme yetenekleri sağlar.
-
+  
   **Temel Kullanım:**
-
+  
   ```json
   {
     "name": "list_resources",
@@ -233,9 +233,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Belirli ek açıklamaları hariç tut (GPU düğümleri için yararlı):**
-
+  
   ```json
   {
     "name": "list_resources",
@@ -251,9 +251,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Yalnızca belirli ek açıklamaları dahil et:**
-
+  
   ```json
   {
     "name": "list_resources",
@@ -267,9 +267,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Maksimum performans için ek açıklamaları tamamen devre dışı bırak:**
-
+  
   ```json
   {
     "name": "list_resources",
@@ -283,30 +283,30 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Ek Açıklama Filtreleme Kuralları:**
-
+  
   - Varsayılan olarak, büyük yapılandırma verilerini önlemek için `kubectl.kubernetes.io/last-applied-configuration` hariç tutulur
   - `exclude_annotation_keys`, `*` kullanarak joker karakter modellerini destekler (örn. `nvidia.com/*` tüm NVIDIA ek açıklamalarını hariç tutar)
   - `include_annotation_keys` belirtildiğinde, bunu önceliklendirir ve yalnızca bu ek açıklamalar dahil edilir
   - `include_annotations: false` ayarlamak, çıkıştan tüm ek açıklamaları tamamen kaldırır
   - Joker karakter desenleri yalnızca anahtarın sonunda `*` destekler (örn. `nvidia.com/*`)
-
+  
   #### apply_resource
-
+  
   Bir Kubernetes kaynağını uygular (oluşturur veya günceller).
-
+  
   Parametreler:
-
+  
   - `resource_type` (gerekli): Uygulanacak kaynak türü (küme veya ad alanı)
   - `group`: API grubu (örn. apps, networking.k8s.io)
   - `version` (gerekli): API sürümü (örn. v1, v1beta1)
   - `resource` (gerekli): Kaynak adı (örn. deployments, services)
   - `namespace`: Ad alanı (ad alanı kaynakları için gerekli)
   - `manifest` (gerekli): Kaynak manifestosu
-
+  
   Örnek:
-
+  
   ```json
   {
     "name": "apply_resource",
@@ -355,13 +355,13 @@ body_tr: |-
     }
   }
   ```
-
+  
   #### post_resource
-
+  
   Bir Kubernetes kaynağı veya alt kaynağına gönderme yapır; özellikle pod'larda komut yürütmek için yararlıdır.
-
+  
   Parametreler:
-
+  
   - `resource_type` (gerekli): Gönderme yapılacak kaynak türü (küme veya ad alanı)
   - `group`: API grubu (örn. apps, networking.k8s.io)
   - `version` (gerekli): API sürümü (örn. v1, v1beta1)
@@ -371,9 +371,9 @@ body_tr: |-
   - `subresource`: Gönderme yapılacak alt kaynak (örn. exec)
   - `body` (gerekli): Kaynağa gönderilecek gövde
   - `parameters`: İstek için isteğe bağlı parametreler
-
+  
   Pod'da komut yürütme örneği:
-
+  
   ```json
   {
     "name": "post_resource",
@@ -393,21 +393,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   Pod exec için `body` aşağıdaki alanları destekler:
-
+  
   - `command` (gerekli): Yürütülecek komut; string veya string dizisi olarak belirtilir
   - `container` (isteğe bağlı): Komutun yürütüleceği konteyner adı (ilk konteyner için varsayılan)
   - `timeout` (isteğe bağlı): Saniye cinsinden timeout (varsayılan 15 saniye, maksimum 60 saniye)
-
+  
   Timeout'lar hakkında not:
-
+  
   - Varsayılan timeout: Belirtilmezse 15 saniye
   - Maksimum timeout: 60 saniye (daha büyük değerler sınırlanır)
   - Timeout'u aşan komutlar sonlandırılır ve timeout hatası döndürür
-
+  
   Yanıt stdout, stderr ve herhangi bir hata mesajı içerir:
-
+  
   ```json
   {
     "apiVersion": "v1",
@@ -426,129 +426,129 @@ body_tr: |-
     }
   }
   ```
-
+  
   ### MCP Kaynakları
-
+  
   MKP sunucusu, MCP kaynakları aracılığıyla Kubernetes kaynaklarına erişim sağlar. Kaynak URI'leri aşağıdaki biçimleri izler:
-
+  
   - Küme kaynakları: `k8s://clustered/{group}/{version}/{resource}/{name}`
   - Ad alanı kaynakları: `k8s://namespaced/{namespace}/{group}/{version}/{resource}/{name}`
-
+  
   ### Yapılandırma
-
+  
   #### Taşıma Protokolü
-
+  
   MKP, MCP sunucusu için iki taşıma protokolünü destekler:
-
+  
   - **Streamable HTTP**: Çoğu kullanım durumu için uygun olan varsayılan taşıma protokolü
   - **SSE (Server-Sent Events)**: Eski taşıma protokolü; esas olarak eski istemcilerle uyumluluk için
-
+  
   Taşıma protokolünü CLI bayrağı veya ortam değişkeni kullanarak yapılandırabilirsiniz:
-
+  
   ```bash
   # CLI bayrağı kullanılarak
   ./build/mkp-server --transport=sse
-
+  
   # Ortam değişkeni kullanılarak
   MCP_TRANSPORT=sse ./build/mkp-server
-
+  
   # Varsayılan (Streamable HTTP)
   ./build/mkp-server
   ```
-
+  
   `MCP_TRANSPORT` ortam değişkeni, MKP bu ortamda çalıştırıldığında ToolHive tarafından otomatik olarak ayarlanır.
-
+  
   #### Kaynak Keşfini Kontrol Etme
-
+  
   Varsayılan olarak, MKP tüm Kubernetes kaynaklarını MCP kaynakları olarak sunar; bu LLM'ler için yararlı bağlam sağlar. Ancak, çok sayıda kaynağa sahip büyük kümelerde, bu LLM'nin bağlam alanında önemli yer tüketebilir.
-
+  
   Bu davranışı `--serve-resources` bayrağını kullanarak devre dışı bırakabilirsiniz:
-
+  
   ```bash
   # Küme kaynaklarını sunmadan çalıştır
   ./build/mkp-server --serve-resources=false
-
+  
   # Küme kaynaklarını sunmadan belirli bir kubeconfig ile çalıştır
   ./build/mkp-server --kubeconfig=/path/to/kubeconfig --serve-resources=false
   ```
-
+  
   Kaynak keşfi devre dışı bırakıldığında bile, MCP araçları (`get_resource`, `list_resources`, `apply_resource`, `delete_resource` ve `post_resource`) tam işlevseldir ve Kubernetes kümenizle etkileşim kurmanızı sağlar.
-
+  
   #### Yazma İşlemlerini Etkinleştirme
-
+  
   Varsayılan olarak, MKP salt okunur modda çalışır; bu, küme üzerinde yazma işlemlerine izin vermediği anlamına gelir; yani `apply_resource`, `delete_resource` ve `post_resource` araçları mevcut olmayacaktır. `--read-write` bayrağını kullanarak yazma işlemlerini etkinleştirebilirsiniz:
-
+  
   ```bash
   # Yazma işlemleri etkinleştirilmiş olarak çalıştır
   ./build/mkp-server --read-write=true
-
+  
   # Belirli bir kubeconfig ve yazma işlemleri etkinleştirilmiş olarak çalıştır
   ./build/mkp-server --kubeconfig=/path/to/kubeconfig --read-write=true
   ```
-
+  
   ### Hız Sınırlaması
-
+  
   MKP, sunucuyu aşırı API çağrılarından korumak için yerleşik bir hız sınırlaması mekanizması içerir; bu, AI ajanlarıyla kullanıldığında özellikle önemlidir. Hız sınırlayıcısı bir token kova algoritması kullanır ve işlem türüne göre farklı sınırlar uygular:
-
+  
   - Okuma işlemleri (list_resources, get_resource): dakikada 120 istek
   - Yazma işlemleri (apply_resource, delete_resource): dakikada 30 istek
   - Diğer işlemler için varsayılan: dakikada 60 istek
-
+  
   Hız sınırları istemci oturumu başına uygulanır; bu da birden fazla istemci arasında adil kaynak tahsisi sağlar. Hız sınırlaması özelliği komut satırı bayrağı aracılığıyla etkinleştirilebilir veya devre dışı bırakılabilir:
-
+  
   ```bash
   # Hız sınırlaması etkinleştirilmiş olarak çalıştır (varsayılan)
   ./build/mkp-server
-
+  
   # Hız sınırlaması devre dışı bırakılmış olarak çalıştır
   ./build/mkp-server --enable-rate-limiting=false
   ```
-
+  
   Hız sınırları ortam değişkenleri aracılığıyla özelleştirilebilir:
-
+  
   - `MKP_RATE_LIMIT_DEFAULT`: Varsayılan hız sınırı (varsayılan: 60)
   - `MKP_RATE_LIMIT_READ`: Okuma işlemleri hız sınırı (varsayılan: 120)
   - `MKP_RATE_LIMIT_WRITE`: Yazma işlemleri hız sınırı (varsayılan: 30)
-
+  
   ```bash
   # Özel hız sınırları ile çalıştır
   MKP_RATE_LIMIT_READ=200 MKP_RATE_LIMIT_WRITE=50 ./build/mkp-server
   ```
-
+  
   ## Geliştirme
-
+  
   ### Testleri çalıştırma
-
+  
   ```bash
   task test
   ```
-
+  
   ### Kodu biçimlendirme
-
+  
   ```bash
   task fmt
   ```
-
+  
   ### Kodu linting
-
+  
   ```bash
   task lint
   ```
-
+  
   ### Bağımlılıkları güncelleme
-
+  
   ```bash
   task deps
   ```
-
+  
   ## Katkıda Bulunma
-
+  
   Bu MCP sunucusuna katkıda bulunmaya hoş geldiniz! Katkıda bulunmak istiyorsanız, başlamak hakkında ayrıntılar için [CONTRIBUTING kılavuzunu](./CONTRIBUTING.md) inceleyin.
-
+  
   Bir hata bulursanız veya bir özellik isteğiniz varsa, lütfen depoda [bir sorun açın](https://github.com/StacklokLabs/mkp/issues) veya bizim [topluluk Discord sunucumuzda](https://discord.gg/stacklok) `#mcp-servers` kanalında bize katılın.
-
+  
   ## Lisans
-
+  
   Bu proje Apache v2 Lisansı altında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakın.
 ---
 

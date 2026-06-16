@@ -9,6 +9,49 @@ path: "rules/htmx-go-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/htmx-go-basic-cursorrules-prompt-file.mdc"
 body_length: 1026
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // HTMX ile Go (Temel Kurulum) .cursorrules
+
+  // HTMX ve Go en iyi uygulamaları
+
+  const htmxGoBestPractices = [
+    "html/template kullanarak sunucu tarafı renderlamayı kullan",
+    "HTMX isteklerini işlemek için http.HandlerFunc uygula",
+    "Gerekirse routing için gorilla/mux kullan",
+    "JSON yanıtları için encoding/json kullan",
+    "Uygun hata işlemesi ve günlüğe kaydetmeyi uygula",
+    "Request iptallemesi ve timeout'lar için context kullan",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  cmd/
+    main.go
+  internal/
+    handlers/
+    models/
+    templates/
+  static/
+    css/
+    js/
+  go.mod
+  go.sum
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. HTMX özellikleriyle birlikte semantik HTML5 öğelerini kullan
+  2. Uygun CSRF koruması uygula
+  3. Gerektiğinde HTMX uzantılarını kullan
+  4. Tam sayfa navigasyonu için hx-boost kullan
+  5. Go'nun idiyomatik hata işlemesini takip et
+  6. Sunucu için zarif kapatmayı uygula
+  7. Bağımlılık yönetimi için Go modüllerini kullan
+  `;
+  ```
 ---
 
 // HTMX with Go (Basic Setup) .cursorrules

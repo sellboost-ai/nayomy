@@ -3,50 +3,50 @@ name: "roychri/mcp-server-asana"
 description: "This Model Context Protocol server implementation of Asana allows you to talk to Asana API from MCP Client such as Anthropic's Claude Desktop Application, and many more."
 category: "Other Tools and Integrations"
 repo: "roychri/mcp-server-asana"
-stars: 139
+stars: 142
 url: "https://github.com/roychri/mcp-server-asana"
 body_length: 25544
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # Asana için MCP Server
-
+  
   [![npm version](https://badge.fury.io/js/%40roychri%2Fmcp-server-asana.svg)](https://www.npmjs.com/package/@roychri/mcp-server-asana)
-
+  
   Bu Model Context Protocol server uygulaması Asana'nın, Anthropic'in Claude
   Desktop Application'ı gibi MCP Client'larından Asana API'si ile iletişim kurmanıza
   olanak sağlar ve daha pek çok araçla çalışır.
-
+  
   MCP hakkında daha fazla bilgi:
    - https://www.anthropic.com/news/model-context-protocol
    - https://modelcontextprotocol.io/introduction
    - https://github.com/modelcontextprotocol
-
+  
   <a href="https://glama.ai/mcp/servers/ln1qzdhwmc"></a>
-
+  
   ## Ortam Değişkenleri
-
+  
   - `ASANA_ACCESS_TOKEN`: (Gerekli) Asana erişim tokenınız
   - `READ_ONLY_MODE`: (İsteğe bağlı) Tüm yazma işlemlerini devre dışı bırakmak için 'true' olarak ayarlayın. Bu modda:
     - Asana verilerini değiştiren araçlar (oluştur, güncelle, sil) devre dışı bırakılır
     - `create-task` prompt devre dışı bırakılır
     - Yalnızca okuma işlemleri kullanılabilir
     Bu, test etme veya Asana çalışma alanınızda hiçbir değişiklik yapılmadığından emin olmak istediğinizde faydalıdır.
-
+  
   ## Kullanım
-
+  
   Seçtiğiniz yapay zeka aracında (ör: Claude Desktop) Asana görevleri, projeleri, çalışma alanları ve/veya yorumlar hakkında bir şey sorun. "Asana" sözcüğünü kullanmak, LLM'nin doğru aracı seçme olasılığını artıracaktır.
-
+  
   Örnek:
-
+  
   > Sprint 30 projemizde kaç tane tamamlanmamış asana görevimiz var?
-
+  
   Başka bir örnek:
-
+  
   ![Claude Desktop Örneği](https://raw.githubusercontent.com/roychri/mcp-server-asana/main/mcp-server-asana-claude-example.png)
-
+  
   ## Araçlar
-
+  
   1. `asana_list_workspaces`
       * Asana'daki tüm mevcut çalışma alanlarını listeleyin
       * İsteğe bağlı giriş:

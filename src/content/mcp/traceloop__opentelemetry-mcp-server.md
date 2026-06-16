@@ -3,30 +3,30 @@ name: "traceloop/opentelemetry-mcp-server"
 description: "An MCP server for connecting to any OpenTelemetry backend (Datadog, Grafana, Dynatrace, Traceloop, etc.)."
 category: "Developer Tools"
 repo: "traceloop/opentelemetry-mcp-server"
-stars: 189
+stars: 191
 url: "https://github.com/traceloop/opentelemetry-mcp-server"
 body_length: 22847
 license: "Apache-2.0"
 language: "Python"
 body_tr: |-
   # OpenTelemetry MCP Sunucusu
-
+  
   [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
   [![PyPI](https://img.shields.io/pypi/v/opentelemetry-mcp)](https://pypi.org/project/opentelemetry-mcp/)
   [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
-
+  
   **LLM izlerini AI yardımı ile sorgula ve analiz et.** Claude'a pahalı API çağrılarını bulmayı, hataları debug etmeyi, model performansını karşılaştırmayı ya da token kullanımını izlemeyi sor—hepsi IDE'nin içinden.
-
+  
   OpenTelemetry trace backend'lerine (Jaeger, Tempo, Traceloop) bağlanan bir MCP (Model Context Protocol) sunucusu; OpenLLMetry semantic conventions aracılığıyla LLM observability'si için özel destek sunar.
-
+  
   **Aksiyon halinde gör:**
-
+  
   https://github.com/user-attachments/assets/e2106ef9-0a58-4ba0-8b2b-e114c0b8b4b9
-
+  
   ---
-
+  
   ## İçindekiler
-
+  
   - [Hızlı Başlangıç](#hızlı-başlangıç)
   - [Kurulum](#kurulum)
   - [Özellikler](#özellikler)
@@ -37,13 +37,13 @@ body_tr: |-
   - [Sorun Giderme](#sorun-giderme)
   - [Geliştirme](#geliştirme)
   - [Destek](#destek)
-
+  
   ---
-
+  
   ## Hızlı Başlangıç
-
+  
   **Kurulum gerekmez!** İstemcinizi sunucuyu doğrudan PyPI'dan çalıştıracak şekilde yapılandır:
-
+  
   ```json
   // claude_desktop_config.json'a ekle:
   {
@@ -59,9 +59,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   Ya da `uvx` kullan (alternatif):
-
+  
   ```json
   {
     "mcpServers": {
@@ -76,42 +76,42 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Hepsi bu kadar!** Claude'a sor: _"Son bir saatten hatalar içeren izleri göster"_
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   ### Son Kullanıcılar İçin (Önerilir)
-
+  
   ```bash
   # Kurulum olmadan çalıştır (önerilir)
   pipx run opentelemetry-mcp --backend jaeger --url http://localhost:16686
-
+  
   # Veya uvx ile
   uvx opentelemetry-mcp --backend jaeger --url http://localhost:16686
   ```
-
+  
   Bu yaklaşım:
-
+  
   - ✅ Her zaman en son sürümü kullanır
   - ✅ Global kurulum gerekmez
   - ✅ İzole ortam otomatik olarak
   - ✅ Tüm platformlarda çalışır
-
+  
   ### İstemci Başına Entegrasyon
-
+  
   <details>
   <summary><b>Claude Desktop</b></summary>
-
+  
   MCP sunucusunu Claude Desktop yapılandırma dosyanızda yapılandır:
-
+  
   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
+  
   **pipx kullanarak (önerilir):**
-
+  
   ```json
   {
     "mcpServers": {
@@ -126,9 +126,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **uvx kullanarak (alternatif):**
-
+  
   ```json
   {
     "mcpServers": {
@@ -143,9 +143,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Traceloop backend'i için:**
-
+  
   ```json
   {
     "mcpServers": {
@@ -161,14 +161,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   <details>
   <summary>pipx yerine repository kullanıyor musun?</summary>
-
+  
   Klonlanan repository ile yerel geliştirme yapıyorsan, bu yapılandırmalardan birini kullan:
-
+  
   **Seçenek 1: Wrapper script'i (kolay backend değiştirme)**
-
+  
   ```json
   {
     "mcpServers": {
@@ -178,9 +178,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Seçenek 2: UV doğrudan (birden fazla backend'i için)**
-
+  
   ```json
   {
     "mcpServers": {
@@ -200,36 +200,36 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   </details>
-
+  
   <details>
   <summary><b>Claude Code</b></summary>
-
+  
   Claude Code, Claude Desktop'ta yapılandırılmış MCP sunucuları ile çalışır. Yukarıda yapılandırıldıktan sonra, Claude Code CLI ile sunucuyu kullanabilirsin:
-
+  
   ```bash
   # Sunucunun mevcut olduğunu doğrula
   claude-code mcp list
-
+  
   # Claude Code'u OpenTelemetry izlerine erişim ile kullan
   claude-code "Show me traces with errors from the last hour"
   ```
-
+  
   </details>
-
+  
   <details>
   <summary><b>Codeium (Windsurf)</b></summary>
-
+  
   1. Windsurf'ü aç
   2. **Settings → MCP Servers**'a git
   3. **Add New MCP Server** tıkla
   4. Bu yapılandırmayı ekle:
-
+  
   **pipx kullanarak (önerilir):**
-
+  
   ```json
   {
     "opentelemetry-mcp": {
@@ -242,9 +242,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **uvx kullanarak (alternatif):**
-
+  
   ```json
   {
     "opentelemetry-mcp": {
@@ -257,10 +257,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   <details>
   <summary>Bunun yerine repository kullanıyor musun?</summary>
-
+  
   ```json
   {
     "opentelemetry-mcp": {
@@ -278,21 +278,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   </details>
-
+  
   <details>
   <summary><b>Cursor</b></summary>
-
+  
   1. Cursor'u aç
   2. **Settings → MCP**'ye git
   3. **Add new MCP Server** tıkla
   4. Bu yapılandırmayı ekle:
-
+  
   **pipx kullanarak (önerilir):**
-
+  
   ```json
   {
     "opentelemetry-mcp": {
@@ -305,9 +305,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **uvx kullanarak (alternatif):**
-
+  
   ```json
   {
     "opentelemetry-mcp": {
@@ -320,10 +320,10 @@ body_tr: |-
     }
   }
   ```
-
+  
   <details>
   <summary>pipx yerine repository kullanıyor musun?</summary>
-
+  
   ```json
   {
     "opentelemetry-mcp": {
@@ -341,18 +341,18 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   </details>
-
+  
   <details>
   <summary><b>Gemini CLI</b></summary>
-
+  
   MCP sunucusunu Gemini CLI yapılandırma dosyanızda yapılandır (`~/.gemini/config.json`):
-
+  
   **pipx kullanarak (önerilir):**
-
+  
   ```json
   {
     "mcpServers": {
@@ -367,9 +367,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **uvx kullanarak (alternatif):**
-
+  
   ```json
   {
     "mcpServers": {
@@ -384,16 +384,16 @@ body_tr: |-
     }
   }
   ```
-
+  
   Sonra Gemini CLI'ı izleri ile kullan:
-
+  
   ```bash
   gemini "Analyze token usage for gpt-4 requests today"
   ```
-
+  
   <details>
   <summary>Bunun yerine repository kullanıyor musun?</summary>
-
+  
   ```json
   {
     "mcpServers": {
@@ -413,52 +413,52 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   </details>
-
+  
   **_Ön koşullar:_**
-
+  
   - Python 3.11 veya daha yüksek
   - [pipx](https://pipx.pypa.io/) veya [uv](https://github.com/astral-sh/uv) kurulu
-
+  
   <details>
   <summary><b>İsteğe bağlı: Küresel olarak kur</b></summary>
-
+  
   Komutu küresel olarak yüklemeyi tercih ediyorsan:
-
+  
   ```bash
   # pipx ile kur
   pipx install opentelemetry-mcp
-
+  
   # Doğrula
   opentelemetry-mcp --help
-
+  
   # Güncelle
   pipx upgrade opentelemetry-mcp
   ```
-
+  
   Veya pip ile:
-
+  
   ```bash
   pip install opentelemetry-mcp
   ```
-
+  
   </details>
-
+  
   ## Özellikler
-
+  
   ### Temel Yetenekler
-
+  
   - **🔌 Birden Fazla Backend Desteği** - Jaeger, Grafana Tempo veya Traceloop'a bağlan
   - **🤖 LLM-Odaklı Tasarım** - AI uygulaması izlerini analiz etmek için özel araçlar
   - **🔍 İleri Filtreleme** - Güçlü operatörlere sahip generic filtre sistemi
   - **📊 Token Analitikleri** - Model ve hizmetler arasında LLM token kullanımını izle ve topla
   - **⚡ Hızlı ve Tür-Güvenli** - Async Python ve Pydantic doğrulaması ile yapılmıştır
-
+  
   ### Araçlar
-
+  
   | Araç                       | Açıklama                        | Kullanım Durumu                    |
   | -------------------------- | ------------------------------- | ---------------------------------- |
   | `search_traces`            | İleri filtrelerle iz ara        | Belirli istekleri veya desenleri bul |
@@ -471,9 +471,9 @@ body_tr: |-
   | `get_llm_model_stats`      | Model performansı istatistiklerini al | Model verimini karşılaştır |
   | `get_llm_expensive_traces` | En yüksek token kullanımını bul | Maliyetleri optimize et            |
   | `get_llm_slow_traces`      | En yavaş işlemleri bul          | Performansı iyileştir              |
-
+  
   ### Backend Destek Matrisi
-
+  
   | Özellik          | Jaeger | Tempo | Traceloop |
   | ---------------- | :----: | :---: | :-------: |
   | İzleri ara       |   ✓    |   ✓   |     ✓     |
@@ -482,58 +482,58 @@ body_tr: |-
   | Token izleme     |   ✓    |   ✓   |     ✓     |
   | Hata izleri      |   ✓    |   ✓   |     ✓     |
   | LLM araçları     |   ✓    |   ✓   |     ✓     |
-
+  
   <sub>\* Jaeger, span arama için `service_name` parametresi gerektirir</sub>
-
+  
   ### Geliştiriciler İçin
-
+  
   Projeye katkıda bulunuyorsan veya yerel değişiklikler yapmak istiyorsan:
-
+  
   ```bash
   # Repository'i klonla
   git clone https://github.com/traceloop/opentelemetry-mcp-server.git
   cd opentelemetry-mcp-server
-
+  
   # UV ile bağımlılıkları kur
   uv sync
-
+  
   # Veya pip ile development modunda kur
   uv pip install -e ".[dev]"
   ```
-
+  
   ---
-
+  
   ## Yapılandırma
-
+  
   ### Desteklenen Backend'ler
-
+  
   | Backend       | Tür         | URL Örneği                      | Notlar                       |
   | ------------- | ----------- | ------------------------------- | ---------------------------- |
   | **Jaeger**    | Yerel       | `http://localhost:16686`        | Popüler açık kaynak seçenek  |
   | **Tempo**     | Yerel/Bulut | `http://localhost:3200`         | Grafana'nın trace backend'i  |
   | **Traceloop** | Bulut       | `https://api.traceloop.com`     | API anahtarı gerektirir      |
-
+  
   ### Hızlı Yapılandırma
-
+  
   **Seçenek 1: Ortam Değişkenleri** (.env dosyası oluştur - bkz. [.env.example](.env.example))
-
+  
   ```bash
   BACKEND_TYPE=jaeger
   BACKEND_URL=http://localhost:16686
   ```
-
+  
   **Seçenek 2: CLI Argümanları** (ortam değişkenlerini geçersiz kıl)
-
+  
   ```bash
   opentelemetry-mcp --backend jaeger --url http://localhost:16686
   opentelemetry-mcp --backend traceloop --url https://api.traceloop.com --api-key YOUR_KEY
   ```
-
+  
   > **Yapılandırma Önceliği:** CLI argümanları > Ortam değişkenleri > Varsayılanlar
-
+  
   <details>
   <summary><b>Tüm Yapılandırma Seçenekleri</b></summary>
-
+  
   | Değişken               | Tür     | Varsayılan | Açıklama                                       |
   | ---------------------- | ------- | ---------- | ---------------------------------------------- |
   | `BACKEND_TYPE`         | string  | `jaeger`   | Backend türü: `jaeger`, `tempo` veya `traceloop` |
@@ -542,125 +542,125 @@ body_tr: |-
   | `BACKEND_TIMEOUT`      | integer | `30`       | İstek zaman aşımı (saniye)                     |
   | `LOG_LEVEL`            | string  | `INFO`     | Logging seviyesi: `DEBUG`, `INFO`, `WARNING`, `ERROR` |
   | `MAX_TRACES_PER_QUERY` | integer | `100`      | Sorgu başına maksimum izler (1-1000)           |
-
+  
   **Tam `.env` örneği:**
-
+  
   ```bash
   # Backend yapılandırması
   BACKEND_TYPE=jaeger
   BACKEND_URL=http://localhost:16686
-
+  
   # İsteğe bağlı: API anahtarı (esas olarak Traceloop için)
   BACKEND_API_KEY=
-
+  
   # İsteğe bağlı: İstek zaman aşımı (varsayılan: 30s)
   BACKEND_TIMEOUT=30
-
+  
   # İsteğe bağlı: Logging seviyesi
   LOG_LEVEL=INFO
-
+  
   # İsteğe bağlı: Sorgu başına maksimum izler (varsayılan: 100)
   MAX_TRACES_PER_QUERY=100
   ```
-
+  
   </details>
-
+  
   <details>
   <summary><b>Backend'e Özel Kurulum</b></summary>
-
+  
   ### Jaeger
-
+  
   ```bash
   BACKEND_TYPE=jaeger
   BACKEND_URL=http://localhost:16686
   ```
-
+  
   ### Grafana Tempo
-
+  
   ```bash
   BACKEND_TYPE=tempo
   BACKEND_URL=http://localhost:3200
   ```
-
+  
   ### Traceloop
-
+  
   ```bash
   BACKEND_TYPE=traceloop
   BACKEND_URL=https://api.traceloop.com
   BACKEND_API_KEY=your_api_key_here
   ```
-
+  
   > **Not:** API anahtarı proje bilgisini içerir. Backend, `"default"` proje slug'ı kullanır ve Traceloop gerçek proje/ortamı API anahtarından çözer.
-
+  
   </details>
-
+  
   ---
-
+  
   ## Kullanım
-
+  
   ### start_locally.sh ile Hızlı Başlangıç (Önerilir)
-
+  
   Sunucuyu çalıştırmanın en kolay yolu:
-
+  
   ```bash
   ./start_locally.sh
   ```
-
+  
   Bu script tüm yapılandırmayı yönetir ve sunucuyu stdio modunda başlatır (Claude Desktop entegrasyonu için mükemmel). Backend'i değiştirmek için, basitçe script'i düzenle ve tercih ettiğin backend'i aç.
-
+  
   ### Manuel Çalıştırma
-
+  
   İleri kullanım durumları veya özel yapılandırmalar için, sunucuyu manuel olarak çalıştırabilirsin.
-
+  
   #### stdio Transport (Claude Desktop için)
-
+  
   MCP sunucusunu yerel/Claude Desktop entegrasyonu için stdio transport'u ile başlat:
-
+  
   ```bash
   # pipx/pip ile kurulduysa
   opentelemetry-mcp
-
+  
   # Klonlanan repository'den UV ile çalıştırıyorsa
   uv run opentelemetry-mcp
-
+  
   # Backend geçersiz kılması ile (pipx/pip)
   opentelemetry-mcp --backend jaeger --url http://localhost:16686
-
+  
   # UV ile
   uv run opentelemetry-mcp --backend jaeger --url http://localhost:16686
   ```
-
+  
   #### HTTP Transport (Ağ Erişimi için)
-
+  
   MCP sunucusunu uzaktan erişim için HTTP/SSE transport'u ile başlat:
-
+  
   ```bash
   # pipx/pip ile kurulduysa
   opentelemetry-mcp --transport http
-
+  
   # Klonlanan repository'den UV ile çalıştırıyorsa
   uv run opentelemetry-mcp --transport http
-
+  
   # Özel host ve port belirt (pipx/pip)
   opentelemetry-mcp --transport http --host 127.0.0.1 --port 9000
-
+  
   # UV ile
   uv run opentelemetry-mcp --transport http --host 127.0.0.1 --port 9000
   ```
-
+  
   HTTP sunucusu varsayılan olarak `http://localhost:8000/sse` adresinde erişilebilir olacak.
-
+  
   **Transport Kullanım Durumları:**
-
+  
   - **stdio transport**: Yerel kullanım, Claude Desktop entegrasyonu, tek işlem
   - **HTTP transport**: Uzaktan erişim, birden fazla istemci, ağ dağıtımı, örnek uygulamalar
-
+  
   ## Araçlar Referansı
-
+  
   ### 1. search_traces
-
+  
   Esnek filtreleme ile izleri ara:
-
+  
   ```python
   {
     "service_name": "my-app",
@@ -673,9 +673,9 @@ body_tr: |-
     "limit": 50
   }
   ```
-
+  
   **Parametreler:**
-
+  
   - `service_name` - Hizmete göre filtrele
   - `operation_name` - İşleme göre filtrele
   - `start_time` / `end_time` - ISO 8601 zaman damgaları
@@ -685,30 +685,30 @@ body_tr: |-
   - `has_error` - Hata durumuna göre filtrele
   - `tags` - Özel etiket filtreleri
   - `limit` - Maksimum sonuç (1-1000, varsayılan: 100)
-
+  
   **Döner:** Token sayıları ile iz özeti listesi
-
+  
   ### 2. get_trace
-
+  
   Tüm span'ları ve OpenLLMetry özniteliklerini içeren tam iz detaylarını al:
-
+  
   ```python
   {
     "trace_id": "abc123def456"
   }
   ```
-
+  
   **Döner:** Şunları içeren tam iz ağacı:
-
+  
   - Tüm span'lar ve öznitelikler
   - LLM span'ları için ayrıştırılmış OpenLLMetry verileri
   - Span başına token kullanımı
   - Hata bilgisi
-
+  
   ### 3. get_llm_usage
-
+  
   Toplu token kullanımı metriklerini al:
-
+  
   ```python
   {
     "start_time": "2024-01-01T00:00:00Z",
@@ -718,28 +718,28 @@ body_tr: |-
     "limit": 1000
   }
   ```
-
+  
   **Döner:** Şunları içeren toplu metrikler:
-
+  
   - Toplam prompt/completion/toplam token'lar
   - Modele göre dağılım
   - Hizmete göre dağılım
   - İstek sayıları
-
+  
   ### 4. list_services
-
+  
   Mevcut tüm hizmetleri listele:
-
+  
   ```python
   {}
   ```
-
+  
   **Döner:** Hizmet adlarının listesi
-
+  
   ### 5. find_errors
-
+  
   Hata içeren izleri bul:
-
+  
   ```python
   {
     "start_time": "2024-01-01T00:00:00Z",
@@ -747,22 +747,22 @@ body_tr: |-
     "limit": 50
   }
   ```
-
+  
   **Döner:** Şunları içeren hata izleri:
-
+  
   - Hata mesajları ve türleri
   - Stack trace'ler (kısaltılmış)
   - LLM'ye özel hata bilgisi
   - Hata span detayları
-
+  
   ## Örnek Sorgular
-
+  
   ### Pahalı OpenAI İşlemlerini Bul
-
+  
   **Doğal Dil:** _"Son bir saatten 5 saniyeden daha uzun süren OpenAI izlerini göster"_
-
+  
   **Tool Çağrısı:** `search_traces`
-
+  
   ```json
   {
     "service_name": "my-app",
@@ -772,9 +772,9 @@ body_tr: |-
     "limit": 20
   }
   ```
-
+  
   **Yanıt:**
-
+  
   ```json
   {
     "traces": [
@@ -790,15 +790,15 @@ body_tr: |-
     "count": 1
   }
   ```
-
+  
   ---
-
+  
   ### Model Başına Token Kullanımını Analiz Et
-
+  
   **Doğal Dil:** _"Bugün her model için kaç token kullandık?"_
-
+  
   **Tool Çağrısı:** `get_llm_usage`
-
+  
   ```json
   {
     "start_time": "2024-01-15T00:00:00Z",
@@ -806,9 +806,9 @@ body_tr: |-
     "service_name": "my-app"
   }
   ```
-
+  
   **Yanıt:**
-
+  
   ```json
   {
     "summary": {
@@ -829,15 +829,15 @@ body_tr: |-
     }
   }
   ```
-
+  
   ---
-
+  
   ### Hata İçeren İzleri Bul
-
+  
   **Doğal Dil:** _"Son bir saatten tüm hataları göster"_
-
+  
   **Tool Çağrısı:** `find_errors`
-
+  
   ```json
   {
     "start_time": "2024-01-15T14:00:00Z",
@@ -845,9 +845,9 @@ body_tr: |-
     "limit": 10
   }
   ```
-
+  
   **Yanıt:**
-
+  
   ```json
   {
     "errors": [
@@ -862,35 +862,35 @@ body_tr: |-
     "count": 1
   }
   ```
-
+  
   ---
-
+  
   ### Model Performansını Karşılaştır
-
+  
   **Doğal Dil:** _"GPT-4 ve Claude arasında performans farkı nedir?"_
-
+  
   **Tool Çağrısı 1:** gpt-4 için `get_llm_model_stats`
-
+  
   ```json
   {
     "model_name": "gpt-4",
     "start_time": "2024-01-15T00:00:00Z"
   }
   ```
-
+  
   **Tool Çağrısı 2:** claude-3-opus için `get_llm_model_stats`
-
+  
   ```json
   {
     "model_name": "claude-3-opus-20240229",
     "start_time": "2024-01-15T00:00:00Z"
   }
   ```
-
+  
   ---
-
+  
   ### Yüksek Token Kullanımını Araştır
-
+  
   **Doğal Dil:** _"Bugün hangi istekler en
 ---
 

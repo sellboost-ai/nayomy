@@ -9,6 +9,16 @@ path: "rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt.mdc"
 body_length: 688
 file_extension: ".mdc"
+body_tr: |-
+  Bu proje PressThat olarak adlandırılmaktadır.
+
+  PressThat, WordPress web sitenize bağlanan ve taslak yazıları görüntülemek için kullanılan bir sistem tepsisi uygulamasıdır.
+
+  Uygulamayı ilk kez yükledikten sonra, web sitenizin ayrıntılarıyla yapılandırmanız gerekir. Bu, kullanıcının WordPress web sitesi URL'sini, kullanıcı adını ve oluşturulan bir Uygulama Şifresini sağlamasını gerektirir.
+
+  Kullanıcılar, WordPress kontrol panelinde "Kullanıcılar -> Profil" sayfasının en altında bir Uygulama Şifresi oluşturabilir. Bu şifre benzersizdir ve istediğiniz zaman kolayca iptal edilebilir.
+
+  Yeni kullanıcı deneyiminin (NUX) nasıl çalışacağına dair hızlı bir akış aşağıdadır:
 ---
 
 This project is called PressThat.

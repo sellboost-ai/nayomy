@@ -12,6 +12,80 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # /code-to-prd
+
+  Frontend kodbase'ini kapsamlı bir Ürün Gereksinimler Dokümanı'na (PRD) tersine mühendisle.
+
+  ## Kullanım
+
+  ```bash
+  /code-to-prd                    # Mevcut projeyi analiz et
+  /code-to-prd ./src              # Belirli dizini analiz et
+  /code-to-prd /path/to/project   # Harici projeyi analiz et
+  ```
+
+  ## Neler Yapar
+
+  1. **Tara** — Framework, route'lar, API'ler, enum'lar ve proje yapısını tespit etmek için `codebase_analyzer.py` çalıştır
+  2. **İskelet Oluştur** — `prd/` dizini, README.md, sayfa şablonları ve ek dosyaları oluşturmak için `prd_scaffolder.py` çalıştır
+  3. **Analiz Et** — Her sayfayı Phase 2 iş akışı takip ederek geç: alanlar, etkileşimler, API bağımlılıkları, sayfa ilişkileri
+  4. **Üret** — Tüm sayfalar, enum sözlüğü, API envanteri ve sayfa ilişki haritası ile final PRD'yi oluştur
+
+  ## Adımlar
+
+  ### Adım 1: Analiz Et
+
+  Proje yolunu belirle (varsayılan: mevcut dizin). Frontend analyzer'ı çalıştır:
+
+  ```bash
+  python3 {skill_path}/scripts/codebase_analyzer.py {project_path} -o .code-to-prd-analysis.json
+  ```
+
+  Bulguların özetini göster: framework, sayfa sayısı, API sayısı, enum sayısı.
+
+  ### Adım 2: İskelet Oluştur
+
+  PRD dizin iskeletini oluştur:
+
+  ```bash
+  python3 {skill_path}/scripts/prd_scaffolder.py .code-to-prd-analysis.json -o prd/
+  ```
+
+  ### Adım 3: Doldur
+
+  Envantterdeki her sayfa için SKILL.md Phase 2 iş akışını takip et:
+  - Sayfanın component dosyalarını oku
+  - Alanları, etkileşimleri, API bağımlılıklarını, sayfa ilişkilerini dokumente et
+  - İlgili `prd/pages/` şablonunu doldur
+
+  Büyük projeler için (>15 sayfa) 3-5 sayfadan oluşan gruplar halinde çalış. Her grubun ardından kullanıcıdan onay isteyiniz.
+
+  ### Adım 4: Sonlandır
+
+  Ek dosyalarını tamamla:
+  - `prd/appendix/enum-dictionary.md` — bulunan tüm enum'lar ve durum kodları
+  - `prd/appendix/api-inventory.md` — konsolide API referansı
+  - `prd/appendix/page-relationships.md` — navigasyon ve veri bağlantısı haritası
+
+  Geçici analiz dosyasını temizle:
+  ```bash
+  rm .code-to-prd-analysis.json
+  ```
+
+  ## Çıktı
+
+  Şunları içeren `prd/` dizini:
+  - `README.md` — sistem özeti, modül haritası, sayfa envanteri
+  - `pages/*.md` — her sayfa için alanlar, etkileşimler, API'ler içeren bir dosya
+  - `appendix/*.md` — enum sözlüğü, API envanteri, sayfa ilişkileri
+
+  ## Skill Referansı
+
+  - `product-team/code-to-prd/skills/code-to-prd/SKILL.md`
+  - `product-team/code-to-prd/skills/code-to-prd/scripts/codebase_analyzer.py`
+  - `product-team/code-to-prd/skills/code-to-prd/scripts/prd_scaffolder.py`
+  - `product-team/code-to-prd/skills/code-to-prd/references/prd-quality-checklist.md`
 ---
 
 # /code-to-prd

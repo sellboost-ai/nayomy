@@ -3,31 +3,31 @@ name: "thingsboard/thingsboard-mcp"
 description: "The ThingsBoard MCP Server provides a natural language interface for LLMs and AI agents to interact with your ThingsBoard IoT platform."
 category: "Other Tools and Integrations"
 repo: "thingsboard/thingsboard-mcp"
-stars: 96
+stars: 98
 url: "https://github.com/thingsboard/thingsboard-mcp"
 body_length: 18734
 license: "Apache-2.0"
 language: "Java"
 body_tr: |-
   # ThingsBoard MCP Server
-
+  
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/thingsboard/mcp-server/blob/master/LICENSE)
   [![Docker](https://img.shields.io/docker/v/thingsboard/mcp?label=Docker%20Hub&sort=semver)](https://hub.docker.com/r/thingsboard/mcp)
   [![Java](https://img.shields.io/badge/Java-17%2B-orange)](https://github.com/thingsboard/mcp-server)
-
+  
   AI ajanlarını [ThingsBoard](https://thingsboard.io) IoT platformunuza [Model Context Protocol (MCP)](https://modelcontextprotocol.io) aracılığıyla bağlayın. Cihazları sorgulayın, varlıkları yönetin, telemetri analiz edin ve operasyonları otomatikleştirin — hepsi doğal dil ile.
-
+  
   Claude Desktop, Cursor, VS Code Copilot, Claude Code ve tüm MCP uyumlu istemciler ile çalışır.
-
+  
   ## Hızlı Başlangıç
-
+  
   ThingsBoard örneğine ([Cloud](https://thingsboard.cloud), [EU Cloud](https://eu.thingsboard.cloud), [self-hosted CE/PE](https://thingsboard.io/docs/user-guide/install/installation-options/), veya [Edge](https://thingsboard.io/docs/user-guide/install/edge/installation-options/)) ve API anahtarına (ThingsBoard 4.3+) veya kullanıcı adı/parola bilgisine ihtiyacınız vardır.
-
+  
   <details open>
   <summary><b>Claude Desktop</b></summary>
-
+  
   `claude_desktop_config.json` dosyanıza ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -42,14 +42,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary><b>Cursor</b></summary>
-
+  
   `~/.cursor/mcp.json` (genel) veya `.cursor/mcp.json` (proje) dosyasına ekleyin:
-
+  
   ```json
   {
     "mcpServers": {
@@ -64,14 +64,14 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary><b>VS Code Copilot</b></summary>
-
+  
   VS Code `settings.json` veya `.vscode/mcp.json` dosyasına ekleyin:
-
+  
   ```json
   {
     "mcp": {
@@ -88,26 +88,26 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   <details>
   <summary><b>Claude Code</b></summary>
-
+  
   ```bash
   claude mcp add thingsboard \
     -e THINGSBOARD_URL=https://thingsboard.cloud \
     -e THINGSBOARD_API_KEY=YOUR_API_KEY \
     -- docker run -i --rm -e THINGSBOARD_URL -e THINGSBOARD_API_KEY thingsboard/mcp
   ```
-
+  
   </details>
-
+  
   <details>
   <summary><b>SSE Modu (HTTP tabanlı herhangi bir MCP istemci)</b></summary>
-
+  
   Sunucuyu başlatın:
-
+  
   ```bash
   docker run --rm -p 8000:8000 \
     -e THINGSBOARD_URL=https://thingsboard.cloud \
@@ -116,26 +116,26 @@ body_tr: |-
     -e SPRING_WEB_APPLICATION_TYPE=servlet \
     thingsboard/mcp
   ```
-
+  
   Ardından MCP istemcinizi `http://localhost:8000/sse` adresine yönlendirin.
-
+  
   </details>
-
+  
   > **Eski kimlik doğrulama**: ThingsBoard sürümünüz 4.3'ten eski ise, `THINGSBOARD_API_KEY` yerine `THINGSBOARD_USERNAME` ve `THINGSBOARD_PASSWORD` kullanın.
-
+  
   ## Neler Yapabilirsiniz
-
+  
   Doğal dil ile soru sorun ve ThingsBoard örneğinizden yapılandırılmış sonuçlar alın:
-
+  
   | | |
   |---|---|
   | **Cihazları ve varlıkları sorgulayın** | **Zaman serileri verilerini analiz edin** |
   | ![Get My Devices](https://raw.githubusercontent.com/thingsboard/thingsboard-mcp/HEAD/images/get_my_devices_example.png) | ![Analyze Data](https://raw.githubusercontent.com/thingsboard/thingsboard-mcp/HEAD/images/analyze_data_example.png) |
   | **Telemetri oluşturun ve kaydedin** | **Anomali analizi yapın** |
   | ![Generate Data](https://raw.githubusercontent.com/thingsboard/thingsboard-mcp/HEAD/images/generate_sample_data_example.png) | ![Analysis Result](https://raw.githubusercontent.com/thingsboard/thingsboard-mcp/HEAD/images/analyze_result_example.png) |
-
+  
   **120+ araç**, 10 araç grubunda:
-
+  
   - **Cihazlar** — oluşturma, güncelleme, silme, listeleme, ad/tür/grup ile arama
   - **Varlıklar** — CRUD, kiracı/müşteri tarafından listeleme, arama
   - **Müşteriler** — CRUD, listeleme, başlık ile arama
@@ -146,43 +146,43 @@ body_tr: |-
   - **OTA Paketleri** — yükleme, indirme, cihazlara firmware/yazılım atama
   - **Varlık Grupları** (PE) — grupları yönetme, varlık atama/kaldırma
   - **Varlık Verisi Sorgusu** — öznitelik/telemetri filtreleri ile tüm varlık türlerinde karmaşık filtrelenmiş sorgular
-
+  
   ## Kurulum
-
+  
   ### Docker (Önerilen)
-
+  
   ```bash
   docker pull thingsboard/mcp
   ```
-
+  
   Docker görüntüsü iki transport modunu destekler:
-
+  
   - **STDIO** (varsayılan) — sunucuyu alt işlem olarak başlatan istemciler için (Claude Desktop, Cursor, vb.)
   - **SSE** — HTTP üzerinden bağlanan istemciler için
-
+  
   Kullanım örnekleri için [Hızlı Başlangıç](#hızlı-başlangıç) bölümüne bakın.
-
+  
   ### İkili Dosyayı İndir
-
+  
   ```bash
   wget https://github.com/thingsboard/mcp-server/releases/download/v2.1.0/thingsboard-mcp-server-2.1.0.jar
   ```
-
+  
   Şu şekilde çalıştırın:
-
+  
   ```bash
   # STDIO modu
   java -jar thingsboard-mcp-server-2.1.0.jar
-
+  
   # SSE modu
   java -Dspring.ai.mcp.server.stdio=false -Dspring.main.web-application-type=servlet -jar thingsboard-mcp-server-2.1.0.jar
   ```
-
+  
   <details>
   <summary><b>İkili istemci yapılandırması</b></summary>
-
+  
   Docker yerine JAR dosyasını kullanıyorsanız, `claude_desktop_config.json` dosyasında şunu kullanın:
-
+  
   ```json
   {
     "mcpServers": {
@@ -197,24 +197,24 @@ body_tr: |-
     }
   }
   ```
-
+  
   </details>
-
+  
   ### Kaynaktan Derle
-
+  
   Java 17+ ve Maven 3.6+ gereklidir.
-
+  
   ```bash
   git clone https://github.com/thingsboard/mcp-server.git
   cd mcp-server
   mvn clean install -DskipTests
   java -jar target/thingsboard-mcp-server-2.1.0.jar
   ```
-
+  
   ## Yapılandırma
-
+  
   ### Ortam Değişkenleri
-
+  
   | Değişken | Açıklama | Varsayılan |
   |----------|----------|-----------|
   | `THINGSBOARD_URL` | ThingsBoard örneğinizin temel URL'si | *gerekli* |
@@ -228,10 +228,10 @@ body_tr: |-
   | `SPRING_WEB_APPLICATION_TYPE` | STDIO için `none`, SSE için `servlet` | `none` |
   | `SPRING_AI_MCP_SERVER_SSE_ENDPOINT` | SSE endpoint yolu | `/sse` |
   | `SPRING_AI_MCP_SERVER_SSE_MESSAGE_ENDPOINT` | SSE mesaj endpoint yolu | `/mcp/message` |
-
+  
   <details>
   <summary><b>İleri: bağlantı ve günlükleme</b></summary>
-
+  
   | Değişken | Açıklama | Varsayılan |
   |----------|----------|-----------|
   | `THINGSBOARD_CONNECTION_MAX_RETRIES` | Maksimum bağlantı yeniden deneme girişimleri | `3` |
@@ -243,13 +243,13 @@ body_tr: |-
   | `LOG_LEVEL_TOOL_RESPONSE` | Araç yanıtı günlük seviyesi | `info` |
   | `LOGGING_PATTERN_CONSOLE` | Logback konsol deseni | `%d{yyyy-MM-dd HH:mm:ss} \| %-5level \| %logger{1} \| %msg%n` |
   | `LOGGING_CONSOLE_TARGET` | Günlük çıktısı hedefi | `System.err` |
-
+  
   </details>
-
+  
   ### Araç Grupları
-
+  
   Sunucu **120+ araç** ortaya koymaktadır ve bu, bazı istemcilerin context limitlerini aşabilir. İhtiyacınız olmayan grupları devre dışı bırakın:
-
+  
   | Değişken | Grup | Araçlar | Varsayılan |
   |----------|------|---------|-----------|
   | `THINGSBOARD_TOOLS_EDQ` | Varlık Verisi Sorgusu + Kılavuzlar | 40 | `true` |
@@ -262,9 +262,9 @@ body_tr: |-
   | `THINGSBOARD_TOOLS_CUSTOMER` | Müşteriler | 7 | `true` |
   | `THINGSBOARD_TOOLS_USER` | Kullanıcılar | 9 | `true` |
   | `THINGSBOARD_TOOLS_GROUP` | Varlık Grupları (Sadece PE) | 10 | `true` |
-
+  
   **Örnek** — sınırlı context'i olan istemciler için ~50 araça indirgeyin:
-
+  
   ```json
   {
     "env": {
@@ -275,12 +275,12 @@ body_tr: |-
     }
   }
   ```
-
+  
   ## Mevcut Araçlar
-
+  
   <details>
   <summary><b>Cihaz Araçları (11)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `createOrUpsertDevice` | Bir cihazı ad ile oluşturun veya güncelleyin. Çoğu cihaz görevi için birincil araç. |
@@ -294,12 +294,12 @@ body_tr: |-
   | `getUserDevices` **(PE)** | Geçerli kullanıcı için mevcut cihazların sayfasını döndürür. |
   | `getDevicesByIds` | Cihazları id'lerine göre alın. |
   | `getDevicesByEntityGroupId` **(PE)** | Belirtilen varlık grubundaki cihazların sayfasını döndürür. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Varlık Araçları (8)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveAsset` | Varlık nesnesini oluşturun veya güncelleyin. |
@@ -310,12 +310,12 @@ body_tr: |-
   | `getCustomerAssets` | Müşteriye atanmış varlıkların sayfasını döndürür. |
   | `getUserAssets` **(PE)** | Geçerli kullanıcı için mevcut varlıkların sayfasını döndürür. |
   | `getAssetsByEntityGroupId` **(PE)** | Belirtilen varlık grubundaki varlıkların sayfasını döndürür. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Müşteri Araçları (7)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveCustomer` | Müşteri nesnesini oluşturun veya güncelleyin. |
@@ -325,12 +325,12 @@ body_tr: |-
   | `getTenantCustomer` | Müşteriyi başlığa göre alın. |
   | `getUserCustomers` **(PE)** | Kullanıcı için mevcut müşterilerin sayfasını döndürür. |
   | `getCustomersByEntityGroupId` **(PE)** | Belirtilen varlık grubundaki müşterilerin sayfasını döndürür. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Kullanıcı Araçları (9)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveUser` | Kullanıcı nesnesini oluşturun veya güncelleyin. |
@@ -342,12 +342,12 @@ body_tr: |-
   | `getAllCustomerUsers` **(PE)** | Geçerli kiracı için tüm müşteri kullanıcılarının sayfasını döndürür. |
   | `getUsersForAssign` | Alarmaya atanabilecek kullanıcıları döndürür. |
   | `getUsersByEntityGroupId` **(PE)** | Belirtilen varlık grubundaki kullanıcıların sayfasını döndürür. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Alarm Araçları (9)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveAlarm` | Alarm nesnesini oluşturun veya güncelleyin. |
@@ -359,12 +359,12 @@ body_tr: |-
   | `getAllAlarms` | Geçerli kullanıcı sahibi için alarmların sayfasını alın. |
   | `getHighestAlarmSeverity` | Originator tarafından en yüksek alarm önem düzeyini alın. |
   | `getAlarmTypes` | Benzersiz alarm türlerini alın. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>OTA Araçları (11)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveOtaPackageInfo` | OTA paketi bilgisini oluşturun veya güncelleyin. |
@@ -378,12 +378,12 @@ body_tr: |-
   | `assignOtaPackageToDeviceProfile` | OTA paketini bir cihaz profiline atayın veya temizleyin. |
   | `countByDeviceProfileAndEmptyOtaPackage` | Atanmış OTA paketi olmayan cihazları sayın. |
   | `deleteOtaPackage` | OTA paketini id ile silin. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>İlişki Araçları (8)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveRelation` | İlişki oluşturun veya güncelleyin. |
@@ -394,12 +394,12 @@ body_tr: |-
   | `findByFromWithRelationType` | Bir varlıktan gelen ilişkileri tür ile filtreleyerek bulun. |
   | `findInfoByTo` | Bir varlığa gelen ilişkileri bulun (varlık adlarını içerir). |
   | `findByToWithRelationType` | Bir varlığa gelen ilişkileri tür ile filtreleyerek bulun. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Telemetri Araçları (11)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `getAttributeKeys` | Bir varlık için tüm öznitelik anahtarlarını alın. |
@@ -413,12 +413,12 @@ body_tr: |-
   | `saveEntityAttributesV2` | Varlık özniteliklerini kaydedin. |
   | `saveEntityTelemetry` | Varlık telemetri verilerini kaydedin. |
   | `saveEntityTelemetryWithTTL` | TTL ile varlık telemetri verilerini kaydedin. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Varlık Grubu Araçları — Sadece PE (10)</b></summary>
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `saveEntityGroup` | Varlık grubu oluşturun veya güncelleyin. |
@@ -431,14 +431,14 @@ body_tr: |-
   | `getEntityGroupsByIds` | Varlık gruplarını id'lerine göre alın. |
   | `addEntitiesToEntityGroup` | Varlıkları bir gruba ekleyin. |
   | `removeEntitiesFromEntityGroup` | Varlıkları bir gruptan çıkarın. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Varlık Verisi Sorgu Araçları (19)</b></summary>
-
+  
   Tüm varlık türlerinde karmaşık filtrelenmiş sorgular. Varlık alanları, öznitelikler ve anahtar filtreleri ile en son telemetri destekler.
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `findEntityDataBySingleEntityFilter` | Bir varlık için id ile veri bulun. |
@@ -460,14 +460,14 @@ body_tr: |-
   | `findEntityDataByEntityViewSearchQueryFilter` | İlişkili varlık görünümlerini bulun. |
   | `findEntityDataByApiUsageStateFilter` | API kullanım verilerini bulun. |
   | `findEntityDataByEdgeQueryFilter` | İlişkili edge'leri bulun. |
-
+  
   </details>
-
+  
   <details>
   <summary><b>Varlık Sayma Sorgu Araçları (18)</b></summary>
-
+  
   Filtrelere uygun varlıkları sayın. Varlık Verisi Sorgusu ile aynı filtre türleri.
-
+  
   | Araç | Açıklama |
   |------|----------|
   | `countBySingleEntityFilter` | Tek varlık id'ye göre sayın. |

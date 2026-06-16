@@ -12,6 +12,91 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Rube MCP Aracılığıyla Browserhub Otomasyonu
+
+  Composio'nun Browserhub toolkit'ini Rube MCP aracılığıyla kullanan Browserhub işlemlerini otomatikleştirin.
+
+  **Toolkit dokümantasyonu**: [composio.dev/toolkits/browserhub](https://composio.dev/toolkits/browserhub)
+
+  ## Ön Koşullar
+
+  - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
+  - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Browserhub bağlantısı ve `browserhub` toolkit'i
+  - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısını yapın
+
+  ## Kurulum
+
+  **Rube MCP Alın**: MCP sunucu konfigürasyonunuza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
+
+  1. `RUBE_SEARCH_TOOLS`'un yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
+  2. `RUBE_MANAGE_CONNECTIONS`'ı `browserhub` toolkit'iyle çağırın
+  3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
+  4. Herhangi bir iş akışını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
+
+  ## Tool Bulma
+
+  İş akışlarını yürütmeden önce her zaman mevcut tool'ları keşfedin:
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "Browserhub operations", known_fields: ""}]
+  session: {generate_id: true}
+  ```
+
+  Bu, mevcut tool slug'ları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
+
+  ## Ana İş Akışı Deseni
+
+  ### Adım 1: Mevcut Tool'ları Keşfedin
+
+  ```
+  RUBE_SEARCH_TOOLS
+  queries: [{use_case: "your specific Browserhub task"}]
+  session: {id: "existing_session_id"}
+  ```
+
+  ### Adım 2: Bağlantıyı Kontrol Edin
+
+  ```
+  RUBE_MANAGE_CONNECTIONS
+  toolkits: ["browserhub"]
+  session_id: "your_session_id"
+  ```
+
+  ### Adım 3: Tool'ları Yürütün
+
+  ```
+  RUBE_MULTI_EXECUTE_TOOL
+  tools: [{
+    tool_slug: "TOOL_SLUG_FROM_SEARCH",
+    arguments: {/* schema-compliant args from search results */}
+  }]
+  memory: {}
+  session_id: "your_session_id"
+  ```
+
+  ## Bilinen Sorunlar
+
+  - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'ları veya argümanları asla sabitlemeyin
+  - **Bağlantıyı kontrol edin**: Tool'ları yürütmeden önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
+  - **Şema uyumluluğu**: Arama sonuçlarından tam alan adları ve türlerini kullanın
+  - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
+  - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
+  - **Sayfalama**: Yanıtları sayfalama token'ları için kontrol edin ve tamamlanana kadar getirmeyi devam edin
+
+  ## Hızlı Referans
+
+  | İşlem | Yaklaşım |
+  |-----------|----------|
+  | Tool bulma | `RUBE_SEARCH_TOOLS`'u Browserhub'a özgü use case ile kullanın |
+  | Bağlantı | `RUBE_MANAGE_CONNECTIONS`'ı `browserhub` toolkit'iyle kullanın |
+  | Yürütme | `RUBE_MULTI_EXECUTE_TOOL`'u keşfedilen tool slug'larıyla kullanın |
+  | Toplu işlemler | `RUBE_REMOTE_WORKBENCH`'i `run_composio_tool()` ile kullanın |
+  | Tam şema | `RUBE_GET_TOOL_SCHEMAS`'ı `schemaRef` içeren tool'lar için kullanın |
+
+  ---
+  *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 
 # Browserhub Automation via Rube MCP

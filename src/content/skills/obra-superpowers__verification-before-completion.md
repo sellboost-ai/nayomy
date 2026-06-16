@@ -12,6 +12,141 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Tamamlamadan Önce Doğrulama
+
+  ## Genel Bakış
+
+  Doğrulama yapmadan çalışmanın tamamlandığını iddia etmek dürüstlük değil, verimlilikten değildir.
+
+  **Temel ilke:** Daima kanıt, ardından iddia.
+
+  **Bu kuralın metnine aykırı olmak, ruhuna aykırı olmaktır.**
+
+  ## Demir Kanun
+
+  ```
+  TAZE DOĞRULAMA KANITI OLMADAN HİÇBİR TAMAMLANMA İDDİASI YOK
+  ```
+
+  Bu mesajdaki doğrulama komutunu çalıştırmadıysanız, başarılı olduğunu iddia edemezsiniz.
+
+  ## Geçit Fonksiyonu
+
+  ```
+  Herhangi bir durum iddia etmeden veya memnuniyet ifade etmeden ÖNCE:
+
+  1. TANIMLAMA: Hangi komut bu iddiayı kanıtlar?
+  2. ÇALIŞTIRMA: TÜÜN komutunu çalıştırın (taze, eksiksiz)
+  3. OKUMA: Tüm çıktı, çıkış kodu kontrol, hata sayısını say
+  4. DOĞRULAMA: Çıktı iddiayı doğruluyor mu?
+     - HAYIR: Gerçek durumu kanıtla birlikte belirt
+     - EVET: İddiayı kanıtla birlikte belirt
+  5. ANCAK SONRA: Hak talebinde bulun
+
+  Herhangi bir adımı atlama = yalan söyleme, doğrulama yapmama
+  ```
+
+  ## Yaygın Başarısızlıklar
+
+  | İddia | Gerekli | Yeterli Değil |
+  |-------|---------|---------------|
+  | Testler geçiyor | Test komut çıktısı: 0 hata | Önceki çalıştırma, "geçmesi gerekir" |
+  | Linter temiz | Linter çıktısı: 0 hata | Kısmi kontrol, ekstrapol |
+  | Build başarılı | Build komutu: çıkış 0 | Linter geçti, loglar iyi görünüyor |
+  | Bug düzeltildi | Orijinal semptom testi: geçiyor | Kod değiştirildi, düzeltildi varsayıldı |
+  | Regresyon testi çalışıyor | Kırmızı-yeşil döngüsü doğrulandı | Test bir kere geçiyor |
+  | Agent tamamladı | VCS diff değişiklikleri gösteriyor | Agent "başarı" raporuyor |
+  | Gereksinimler karşılandı | Satır satır kontrol listesi | Testler geçti |
+
+  ## Kırmızı Bayraklar - DUR
+
+  - "Gerekir", "muhtemelen", "gibi görünüyor" kullanımı
+  - Doğrulama öncesi memnuniyeti ifade etme ("Harika!", "Mükemmel!", "Bitti!", vb.)
+  - Doğrulama yapmadan commit/push/PR yapmak üzere
+  - Agent başarı raporlarına güvenmek
+  - Kısmi doğrulamaya dayanmak
+  - "Sadece bu sefer" düşünmek
+  - Yorgun olmak ve işi bitirmek istenmek
+  - **Doğrulama çalıştırılmadan başarıyı ifade eden HERHANGI bir ifade**
+
+  ## Rasyonalizasyon Önleme
+
+  | Bahane | Gerçek |
+  |--------|--------|
+  | "Şu an çalışması gerekir" | DOĞRULAMAYI ÇALIŞTIR |
+  | "Eminim" | Emin olma ≠ kanıt |
+  | "Sadece bu sefer" | İstisna yok |
+  | "Linter geçti" | Linter ≠ derleyici |
+  | "Agent başarı dedi" | Bağımsız olarak doğrula |
+  | "Yorgunum" | Yorgunluk ≠ bahane |
+  | "Kısmi kontrol yeterli" | Kısmi hiçbir şeyi kanıtlamaz |
+  | "Farklı kelimeler, kural uygulanmaz" | Ruh harften önce gelir |
+
+  ## Anahtar Desenler
+
+  **Testler:**
+  ```
+  ✅ [Test komutunu çalıştır] [Gör: 34/34 geçti] "Tüm testler geçiyor"
+  ❌ "Şu an geçmesi gerekir" / "Doğru görünüyor"
+  ```
+
+  **Regresyon testleri (TDD Kırmızı-Yeşil):**
+  ```
+  ✅ Yaz → Çalıştır (geçti) → Düzeltmeyi geri al → Çalıştır (BAŞARISIZ OLMALI) → Geri yükle → Çalıştır (geçti)
+  ❌ "Regresyon testi yazdım" (kırmızı-yeşil doğrulaması olmadan)
+  ```
+
+  **Build:**
+  ```
+  ✅ [Build çalıştır] [Gör: çıkış 0] "Build geçiyor"
+  ❌ "Linter geçti" (linter derlemeyi kontrol etmez)
+  ```
+
+  **Gereksinimler:**
+  ```
+  ✅ Planı yeniden oku → Kontrol listesi oluştur → Her birini doğrula → Boşlukları veya tamamlamayı rapor et
+  ❌ "Testler geçti, aşama tamamlandı"
+  ```
+
+  **Agent delegasyonu:**
+  ```
+  ✅ Agent başarı raporuyor → VCS diff kontrol → Değişiklikleri doğrula → Gerçek durumu rapor et
+  ❌ Agent raporuna güven
+  ```
+
+  ## Neden Önemli?
+
+  24 başarısızlık belleğinden:
+  - İnsan ortağın "Sana inanmıyorum" dedi - güven kırıldı
+  - Tanımlanmamış fonksiyonlar gönderildi - çöker
+  - Eksik gereksinimler gönderildi - eksik özellikler
+  - Yanlış tamamlamaya harcanan zaman → yeniden yönlendir → yeniden çalış
+  - İhlal: "Dürüstlük temel bir değerdir. Yalan söylersen, yerine konursun."
+
+  ## Ne Zaman Uygulanır
+
+  **Şundan ÖNCE HER ZAMAN:**
+  - HERHANGI bir başarı/tamamlanma iddiası varyasyonu
+  - HERHANGI bir memnuniyet ifadesi
+  - HERHANGI bir iş durumu hakkında olumlu ifade
+  - Commit, PR oluşturma, görev tamamlama
+  - Sonraki göreve geçme
+  - Agentlara delegasyon
+
+  **Kural şunlara uygulanır:**
+  - Tam ifadeler
+  - Parafrazar ve eşanlamlılar
+  - Başarı imaları
+  - HERHANGI bir tamamlanma/doğruluk öneren iletişim
+
+  ## Özet
+
+  **Doğrulama için kısayol yok.**
+
+  Komutu çalıştır. Çıktıyı oku. SONRA sonucu iddia et.
+
+  Bu müzakere edilemez.
 ---
 
 # Verification Before Completion

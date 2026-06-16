@@ -14,16 +14,16 @@ has_examples: true
 related_files: []
 body_tr: |-
   # Web Uygulaması Testi
-
+  
   Yerel web uygulamalarını test etmek için native Python Playwright betikleri yazın.
-
+  
   **Mevcut Yardımcı Betikler**:
   - `scripts/with_server.py` - Server yaşam döngüsünü yönetir (birden fazla sunucuyu destekler)
-
+  
   **Her zaman betikleri `--help` ile çalıştırın** kullanımı görmek için. Kaynak kodunu okumayın, önce betiği çalıştırmayı deneyin ve özelleştirilmiş bir çözümün kesinlikle gerekli olduğunu bulana kadar. Bu betikler çok büyük olabilir ve konteks pencerenizi kirleterek boşa harcayabilir. Doğrudan black-box betikleri olarak çağrılmak için vardırlar, konteks pencerenize dahil edilmek için değil.
-
+  
   ## Karar Ağacı: Yaklaşımınızı Seçme
-
+  
   ```
   Kullanıcı görevi → Statik HTML mi?
       ├─ Evet → Seçicileri tanımlamak için HTML dosyasını doğrudan oku
@@ -40,16 +40,16 @@ body_tr: |-
               3. İşlenmiş durumdan seçicileri tanımlayın
               4. Keşfedilen seçicilerle işlemleri gerçekleştirin
   ```
-
+  
   ## Örnek: with_server.py Kullanımı
-
+  
   Sunucu başlatmak için önce `--help` çalıştırın, ardından yardımcıyı kullanın:
-
+  
   **Tek sunucu:**
   ```bash
   python scripts/with_server.py --server "npm run dev" --port 5173 -- python your_automation.py
   ```
-
+  
   **Birden fazla sunucu (ör. backend + frontend):**
   ```bash
   python scripts/with_server.py \
@@ -57,11 +57,11 @@ body_tr: |-
     --server "cd frontend && npm run dev" --port 5173 \
     -- python your_automation.py
   ```
-
+  
   Bir otomasyon betiği oluşturmak için yalnızca Playwright mantığı ekleyin (sunucular otomatik olarak yönetilir):
   ```python
   from playwright.sync_api import sync_playwright
-
+  
   with sync_playwright() as p:
       browser = p.chromium.launch(headless=True) # Her zaman chromium'u headless modda başlat
       page = browser.new_page()
@@ -70,35 +70,35 @@ body_tr: |-
       # ... otomasyon mantığınız
       browser.close()
   ```
-
+  
   ## Keşif-Sonra-İşlem Deseni
-
+  
   1. **İşlenmiş DOM'u inceleyin**:
      ```python
      page.screenshot(path='/tmp/inspect.png', full_page=True)
      content = page.content()
      page.locator('button').all()
      ```
-
+  
   2. **İnceleme sonuçlarından seçicileri tanımlayın**
-
+  
   3. **Keşfedilen seçicileri kullanarak işlemleri gerçekleştirin**
-
+  
   ## Yaygın Hata
-
+  
   ❌ **Yapma** - Dinamik uygulamalarda `networkidle` beklemeden DOM'u incele
   ✅ **Yap** - İncelemeden önce `page.wait_for_load_state('networkidle')` bekle
-
+  
   ## En İyi Uygulamalar
-
+  
   - **Paketlenmiş betikleri black box olarak kullanın** - Bir görev gerçekleştirmek için `scripts/` içinde mevcut olan betiklerin birinin yardımcı olup olamayacağını düşünün. Bu betikler konteks penceresini kirletmeden yaygın, karmaşık iş akışlarını güvenilir bir şekilde işler. Kullanımı görmek için `--help` kullanın, ardından doğrudan çağırın.
   - Synchronous betikler için `sync_playwright()` kullanın
   - İşini bitirdiğinde her zaman tarayıcıyı kapat
   - Açıklayıcı seçiciler kullanın: `text=`, `role=`, CSS seçicileri veya ID'ler
   - Uygun beklemeleri ekle: `page.wait_for_selector()` veya `page.wait_for_timeout()`
-
+  
   ## Referans Dosyaları
-
+  
   - **examples/** - Yaygın desenleri gösteren örnekler:
     - `element_discovery.py` - Sayfadaki düğmeleri, bağlantıları ve girdileri keşfetme
     - `static_html_automation.py` - Yerel HTML için file:// URL'lerini kullanma

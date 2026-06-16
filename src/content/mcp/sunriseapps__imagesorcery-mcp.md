@@ -3,7 +3,7 @@ name: "sunriseapps/imagesorcery-mcp"
 description: "ComputerVision-based sorcery of image recognition and editing tools for AI assistants."
 category: "Multimedia Process"
 repo: "sunriseapps/imagesorcery-mcp"
-stars: 313
+stars: 318
 url: "https://github.com/sunriseapps/imagesorcery-mcp"
 body_length: 26439
 license: "MIT"
@@ -12,21 +12,21 @@ homepage: "https://imagesorcery.net"
 body_tr: |-
   # 🪄 ImageSorcery MCP
   **ComputerVision tabanlı 🪄 yerel görüntü tanıma ve düzenleme araçlarının AI asistanları için sihir**
-
+  
   Resmi website: [imagesorcery.net](https://imagesorcery.net?utm_source=readme)
-
+  
   [![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT) [![MCP](https://img.shields.io/badge/Protocol-MCP-lightgrey)](https://github.com/microsoft/mcp)
   [![Claude](https://img.shields.io/badge/Works_with-Claude-orange)](https://claude.ai) [![Cursor](https://img.shields.io/badge/Works_with-Cursor-white)](https://cursor.so) [![Cline](https://img.shields.io/badge/Works_with-Cline-purple)](https://github.com/ClineLabs/cline)
   [![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/2620351a-15b1-4840-a93a-cbdbd23a6944) [![PyPI Downloads](https://static.pepy.tech/badge/imagesorcery-mcp)](https://pepy.tech/projects/imagesorcery-mcp)
-
+  
   <a href="https://glama.ai/mcp/servers/@sunriseapps/imagesorcery-mcp">
     
   </a>
-
+  
   ## ✅ ImageSorcery MCP ile
-
+  
   `🪄 ImageSorcery` AI asistanlarını güçlü görüntü işleme yetenekleriyle donatır:
-
+  
   - ✅ Görüntüleri hassasiyetle kırpın, yeniden boyutlandırın ve döndürün
   - ✅ Arka planı kaldırın
   - ✅ Görüntülere metin ve şekiller çizin
@@ -35,26 +35,26 @@ body_tr: |-
   - ✅ OCR ile görüntülerden metin çıkarın
   - ✅ Nesne algılama, OCR ve daha fazlası için geniş bir yelpazedeki önceden eğitilmiş modelleri kullanın
   - ✅ Bütün bunları **yerel olarak** yapın, görüntülerinizi hiçbir sunucuya göndermeden
-
+  
   Yapay zekanızdan görüntü görevleriyle yardım etmesini istemeniz yeterli:
-
+  
   > "copy photos with pets from folder `photos` to folder `pets`"
   ![Copying pets](https://i.imgur.com/wsaDWbf.gif)
-
+  
   > "Find a cat at the photo.jpg and crop the image in a half in height and width to make the cat be centered"
   ![Centerizing cat](https://i.imgur.com/tD0O3l6.gif)
   😉 _**İpucu:** Dosyalarınıza tam yol kullanın"._
-
+  
   > "Enumerate form fields on this `form.jpg` with `foduucom/web-form-ui-field-detection` model and fill the `form.md` with a list of described fields"
   ![Numerate form fields](https://i.imgur.com/1SNGfaP.gif)
   😉 _**İpucu:** Modeli ve güven düzeyini belirtin"._
-
+  
   😉 _**İpucu:** Doğru aracı kullanacağından emin olmak için "use imagesorcery" ekleyin"._
-
+  
   Aracınız hedefi başarmak için aşağıda listelenen birden fazla aracı birleştirecektir.
-
+  
   ## 🛠️ Kullanılabilir Araçlar
-
+  
   | Araç | Açıklama | Örnek İstem |
   |------|----------|-----------|
   | `blur` | OpenCV kullanarak bir görüntünün belirtilen dikdörtgen veya çokgen alanlarını bulanıklaştırır. Sağlanan alanları ters çevirebilir, örneğin arka planı bulanıklaştırmak için. | "Blur the area from (150, 100) to (250, 200) with a blur strength of 21 in my image 'test_image.png' and save it as 'output.png'" |
@@ -74,57 +74,57 @@ body_tr: |-
   | `overlay` | Bir görüntüyü diğerinin üzerine yerleştirir, saydamlığı işler | "Overlay 'logo.png' on top of 'background.jpg' at position (10, 10)" |
   | `resize` | OpenCV kullanarak bir görüntüyü yeniden boyutlandırır | "Resize my image 'photo.jpg' to 800x600 pixels and save it as 'resized_photo.jpg'" |
   | `rotate` | imutils.rotate_bound fonksiyonunu kullanarak bir görüntüyü döndürür | "Rotate my image 'photo.jpg' by 45 degrees and save it as 'rotated_photo.jpg'" |
-
+  
   😉 _**İpucu:** Her araç için ayrıntılı bilgi ve kullanım talimatları `/src/imagesorcery_mcp/tools/README.md` dosyasında bulunabilir._
-
+  
   ## 📚 Kullanılabilir Kaynaklar
-
+  
   | Kaynak URI | Açıklama | Örnek İstem |
   |-----------|----------|-----------|
   | `models://list` | Modeller dizinindeki tüm kullanılabilir modelleri listeler | "Which models are available in ImageSorcery?" |
-
+  
   😉 _**İpucu:** Her kaynak için ayrıntılı bilgi ve kullanım talimatları `/src/imagesorcery_mcp/resources/README.md` dosyasında bulunabilir._
-
+  
   ## 💬 Kullanılabilir İstemler
-
+  
   | İstem Adı | Açıklama | Örnek Kullanım |
   |-----------|----------|----------------|
   | `remove-background` | AI'ı nesne algılama ve maskeleme araçlarını kullanarak kapsamlı bir arka plan kaldırma iş akışı yönlendirir | "Use the remove-background prompt to remove the background from my photo 'portrait.jpg', keeping only the person" |
-
+  
   😉 _**İpucu:** Her istem için ayrıntılı bilgi ve kullanım talimatları `/src/imagesorcery_mcp/prompts/README.md` dosyasında bulunabilir._
-
+  
   ## 🚀 Başlangıç
-
+  
   ### Gereksinimler
-
+  
   - `Python 3.10` veya üstü
   - `pipx` (önerilir) - kolay kurulum ve sanal ortam yönetimi için
   - `ffmpeg`, `libsm6`, `libxext6`, `libgl1-mesa-glx` - OpenCV için gerekli sistem kütüphaneleri
   - `Claude.app`, `Cline` veya başka bir MCP istemcisi
-
+  
   <details>
   <summary>Sanal ortamlar (örneğin Docker)</summary>
-
+  
   Bu bağımlılıklar genellikle OpenCV kurulumunun bir parçasıdır ve ayrı kurulum gerektirmez. Ancak Docker gibi bazı sanal ortamlarda eksik olabilirler.
-
+  
   **Ubuntu/Debian sistemleri için:**
   ```bash
   sudo apt-get update && sudo apt-get install -y ffmpeg libsm6 libxext6 libgl1-mesa-glx
   ```
-
+  
   **Docker konteynerları için:**
   Dockerfile'ınıza bu satırı ekleyin:
   ```dockerfile
   RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6 libgl1-mesa-glx
   ```
   </details>
-
+  
   ### Kurulum
-
+  
   ![ImageSorcery Demo](https://i.imgur.com/pRfTlHV.gif)
   <details>
   <summary>Cline için LLM-INSTALL.md'yi kopyala-yapıştır yapın</summary>
-
+  
   ```md
   1.  Buna ait aracı varsa MCP dokümantasyonunu yükleyin. Size *MCP-yapılandırma dosyası* yolunu ve diğer gerekli talimatları verecektir.
   2.  `pipx install imagesorcery-mcp` komutunu çalıştırın
@@ -136,53 +136,53 @@ body_tr: |-
   7.  Kurulum ve yapılandırmanın tamamlandığını belirterek tamamlamaya çalışın.
   ```
   </details>
-
+  
   #### Yöntem 1: pipx Kullanma (Önerilir)
-
+  
   `pipx` ImageSorcery MCP'yi kurmanın önerilen yoludur çünkü sanal ortam oluşturmayı ve yönetimini otomatik olarak işler, kurulum sürecini çok daha basit hale getirir.
-
+  
   <details>
   <summary>0.  pipx Yükleyin (henüz yüklü değilse):</summary>
-
+  
   0.  **pipx Yükleyin (henüz yüklü değilse):**
       ```bash
       # macOS'ta Homebrew ile:
       brew install pipx
-
+  
       # Ubuntu/Debian'da:
       sudo apt update && sudo apt install pipx
-
+  
       # Diğer sistemlerde pip ile:
       pip install --user pipx
       pipx ensurepath
       ```
   </details>
-
+  
   1.  **pipx ile ImageSorcery MCP'yi yükleyin:**
       ```bash
       pipx install imagesorcery-mcp
       ```
-
+  
   2.  **Kurulum sonrası betiği çalıştırın:**
       Bu adım çok önemlidir. Gerekli modelleri indirir ve `clip` Python paketini GitHub'dan yüklemeyi dener.
       ```bash
       imagesorcery-mcp --post-install
       ```
-
+  
   #### Yöntem 2: Manuel Sanal Ortam (Plan B)
-
+  
   <details>
   <summary>Eğer pipx sisteminiz için çalışmazsa, el ile sanal ortam oluşturabilirsiniz</summary>
-
+  
   Özellikle `clip` paketinin (kurulum sonrası betiği tarafından yüklenen) güvenilir kurulumu için, `uv venv` yerine Python'un yerleşik `venv` modülünü kullanmanız **şiddetle önerilir**.
-
+  
   1.  **Sanal ortam oluşturun ve etkinleştirin:**
       ```bash
       python -m venv imagesorcery-mcp
       source imagesorcery-mcp/bin/activate  # Linux/macOS için
       # source imagesorcery-mcp\Scripts\activate    # Windows için
       ```
-
+  
   2.  **Paketi etkinleştirilen sanal ortama yükleyin:**
       `pip` veya `uv pip` kullanabilirsiniz.
       ```bash
@@ -190,35 +190,35 @@ body_tr: |-
       # VEYA, venv'ye yükleme için uv'yi tercih ederseniz:
       # uv pip install imagesorcery-mcp
       ```
-
+  
   3.  **Kurulum sonrası betiği çalıştırın:**
       Bu adım çok önemlidir. Gerekli modelleri indirir ve `clip` Python paketini GitHub'dan etkin sanal ortama yüklemeyi dener.
       ```bash
       imagesorcery-mcp --post-install
       ```
-
+  
   **Not:** Bu yöntemi kullanırken, MCP istemcisi yapılandırmasında yürütülebilir dosyaya tam yol sağlamanız gerekecektir (örneğin, `/full/path/to/venv/bin/imagesorcery-mcp`).
   </details>
-
+  
   #### Ek Notlar
   <details>
   <summary>Kurulum sonrası betiği ne yapar?</summary>
-
+  
   `imagesorcery-mcp --post-install` betiği aşağıdaki eylemleri gerçekleştirir:
-
+  
   - **Geçerli dizinde `config.toml` yapılandırma dosyası oluşturur** ve kullanıcıların varsayılan araç parametrelerini özelleştirmesine izin verir.
   - `models` dizini oluşturur (genellikle sanal ortamınızın site-packages dizini içinde veya küresel olarak yüklü ise kullanıcıya özgü bir konum) ve önceden eğitilmiş modelleri depolamak için.
   - İlk `models/model_descriptions.json` dosyasını orada oluşturur.
   - `detect` aracı tarafından gerekli olan varsayılan YOLO modellerini (`yoloe-11l-seg-pf.pt`, `yoloe-11s-seg-pf.pt`, `yoloe-11l-seg.pt`, `yoloe-11s-seg.pt`) bu `models` dizinine indirir.
   - **`clip` Python paketini** Ultralytics'in GitHub deposundan doğrudan etkin Python ortamına yüklemeyi dener. Bu, `find` aracındaki metin istemi işlevselliği için gereklidir.
   - `find` aracı tarafından gerekli CLIP model dosyasını `models` dizinine indirir.
-
+  
   Bu işlemi istediğiniz zaman çalıştırarak varsayılan modelleri geri yükleyebilir ve `clip` yüklemesini yeniden deneyebilirsiniz.
   </details>
-
+  
   <details>
   <summary>`uv` kullanıcıları için Önemli Notlar (<code>uv venv</code> ve <code>uvx</code>)</summary>
-
+  
   -   **`uv venv` ile sanal ortam oluşturma:**
       Testlere göre, `uv venv` ile oluşturulan sanal ortamlar `imagesorcery-mcp --post-install` betiğinin `clip` paketini GitHub'dan otomatik olarak yüklemesine izin veren şekilde `pip` içermeyebilir (kurulum adımı sırasında "No module named pip" hatası ile sonuçlanabilir).
       **`uv venv` kullanmayı seçerseniz:**
@@ -230,16 +230,16 @@ body_tr: |-
           ```
       3.  `imagesorcery-mcp --post-install` komutunu çalıştırın. Bu modelleri indirecek ancak `clip` Python paketini yüklemeyi başaramayabilir.
       Kurulum sonrası betiği aracılığıyla otomatik `clip` yüklemesi için `python -m venv` (yukarıdaki 1. adımda açıklandığı gibi) sanal ortam oluşturmanın önerilen yöntemidir.
-
+  
   -   **`uvx imagesorcery-mcp --post-install` kullanma:**
       Kurulum sonrası betiğini doğrudan `uvx` ile çalıştırmak (örneğin, `uvx imagesorcery-mcp --post-install`) muhtemelen `clip` Python paketini yüklemeyi başaramayacaktır. Bunun nedeni, `uvx` tarafından oluşturulan geçici ortamın tipik olarak betiğin kullanabileceği şekilde `pip`'e sahip olmamasıdır. Modeller indirilecek ancak `clip` paketi bu komutla yüklenmeyecektir.
       `uvx` kullanarak ana `imagesorcery-mcp` sunucusunu çalıştırmayı düşünüyorsanız ve `clip` işlevselliğine ihtiyaç duyuyorsanız, `clip` paketinin `uvx`'in bulabileceği erişilebilir bir Python ortamına yüklü olmasını sağlamanız veya `imagesorcery-mcp` kurulumunu `python -m venv` ile oluşturulan kalıcı bir ortama yüklemeyi düşünmelisiniz.
   </details>
-
+  
   ## ⚙️ MCP istemcisini yapılandırın
-
+  
   Bu ayarları MCP istemcinize ekleyin.
-
+  
   **pipx kurulumu için (önerilir):**
   ```json
   "mcpServers": {
@@ -251,7 +251,7 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Manuel venv kurulumu için:**
   ```json
   "mcpServers": {
@@ -265,7 +265,7 @@ body_tr: |-
   ```
   <details>
   <summary>Sunucuyu HTTP modunda kullanıyorsanız, istemcinizi HTTP endpoint'ine bağlanacak şekilde yapılandırın:</summary>
-
+  
   ```json
   "mcpServers": {
       "imagesorcery-mcp": {
@@ -277,10 +277,10 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   <details>
   <summary>Windows için</summary>
-
+  
   **pipx kurulumu için (önerilir):**
   ```json
   "mcpServers": {
@@ -292,7 +292,7 @@ body_tr: |-
       }
   }
   ```
-
+  
   **Manuel venv kurulumu için:**
   ```json
   "mcpServers": {
@@ -305,44 +305,44 @@ body_tr: |-
   }
   ```
   </details>
-
+  
   ## 📦 Ek Modeller
-
+  
   Bazı araçlar `models` dizininde kullanılabilir olması gereken belirli modeller gerektirir:
-
+  
   ```bash
   # detect aracı için modelleri indirin
   download-yolo-models --ultralytics yoloe-11l-seg
   download-yolo-models --huggingface ultralytics/yolov8:yolov8m.pt
   ```
-
+  
   <details>
   <summary>Model Açıklamaları Hakkında</summary>
-
+  
   Modelleri indirirken, betik otomatik olarak `models/model_descriptions.json` dosyasını günceller:
-
+  
   - Ultralytics modelleri için: Açıklamalar `src/imagesorcery_mcp/scripts/create_model_descriptions.py`'de önceden tanımlanmıştır ve her modelin amacı, boyutu ve özellikleri hakkında ayrıntılı bilgiler içerir.
-
+  
   - Hugging Face modelleri için: Açıklamalar otomatik olarak Hugging Face Hub'daki model kartından çıkarılır. Betik, model dizinindeki model adını veya açıklamanın ilk satırını kullanmaya çalışır.
-
+  
   Modelleri indirdikten sonra, `models/model_descriptions.json`'deki açıklamaları kontrol etmeniz ve modellerin yetenekleri ve kullanım durumları hakkında daha doğru veya ayrıntılı bilgi sağlamak için bunları ayarlamanız önerilir.
   </details>
-
+  
   ### Sunucuyu Çalıştırma
-
+  
   ImageSorcery MCP sunucusu farklı modlarda çalıştırılabilir:
   - `STDIO` - varsayılan
   - `Streamable HTTP` - web tabanlı dağıtımlar için
   - `Server-Sent Events (SSE)` - SSE'ye güvenen web tabanlı dağıtımlar için
-
+  
   <details>
   <summary>Farklı modlar hakkında:</summary>
-
+  
   1. **STDIO Modu (Varsayılan)** - Yerel MCP istemcileri için standart moddur:
      ```bash
      imagesorcery-mcp
      ```
-
+  
   2. **Streamable HTTP Modu** - Web tabanlı dağıtımlar için:
      ```bash
      imagesorcery-mcp --transport=streamable-http
@@ -352,39 +352,39 @@ body_tr: |-
      ```bash
      imagesorcery-mcp --transport=streamable-http --host=0.0.0.0 --port=4200 --path=/custom-path
      ```
-
+  
   Kullanılabilir taşıma seçenekleri:
   - `--transport`: "stdio" (varsayılan), "streamable-http" veya "sse" arasında seçim yapın
   - `--host`: HTTP tabanlı taşımalar için ana bilgisayar belirtin (varsayılan: 127.0.0.1)
   - `--port`: HTTP tabanlı taşımalar için bağlantı noktası belirtin (varsayılan: 8000)
   - `--path`: HTTP tabanlı taşımalar için endpoint yolu belirtin (varsayılan: /mcp)
   </details>
-
+  
   ## 🔐 Dosya Erişim Kısıtlamaları
-
+  
   Varsayılan olarak, ImageSorcery MCP dosya yollarını kısıtlamaz. Araçları belirli dizinlerle sınırlamak için `IMAGESORCERY_AVAILABLE_PATHS` öğesini bir veya daha fazla izin verilen dizine ayarlayın.
-
+  
   Platform yol listesi ayırıcısını kullanın (Linux/macOS'ta `:`, Windows'ta `;`). Virgülle ayrılan değerler de kabul edilir.
-
+  
   ```bash
   IMAGESORCERY_AVAILABLE_PATHS="/home/user/images:/home/user/output" imagesorcery-mcp
   ```
-
+  
   Bu değişken ayarlandığında, `path` adlı veya `_path` ile biten tüm araç argümanları izin verilen dizinlerden birinin içinde çözülmelidir. Göreceli yollar, `..` ve `~` karşılaştırmadan önce normalleştirilir. Sembolik bağlantılar çözümlenmez, bu nedenle izin verilen dizinler içine yerleştirilen bağlantılar erişilebilir kalır.
-
+  
   ## 🔒 Gizlilik & Telemetri
-
+  
   Gizliliğinize saygı duyuyoruz. ImageSorcery MCP yerel olarak çalışacak şekilde tasarlanmış ve görüntüleriniz ile verileriniz makinenizde kalacaktır.
-
+  
   Hangi özelliklerin en popüler olduğunu anlamamıza ve hataları daha hızlı düzeltmemize yardımcı olmak için opsiyonel, anonim telemetri ekledik.
-
+  
   -   **Varsayılan olarak devre dışıdır.** Etkinleştirmek için açıkça katılmanız gerekir.
   -   **Topladığımız veriler:** Anonim kullanım verileri; kullanılan özellikler (örneğin, `crop`, `detect`), uygulama sürümü, işletim sistemi türü (örneğin, 'linux', 'win32') ve araç hataları.
   -   **Toplamadığımız veriler:** Herhangi bir kişisel veya hassas bilgi toplamıyoruz. Buna görüntü verileri, dosya yolları, IP adresleri veya diğer kişisel kimlik bilgileri dahildir.
   -   **Etkinleştirme/Devre Dışı Bırakma:** `config.toml` dosyanızın `[telemetry]` bölümünde `enabled = true` veya `enabled = false` ayarını yaparak telemetriyi kontrol edebilirsiniz.
-
+  
   ## ⚙️ Sunucuyu Yapılandırma
-
+  
   Sunucu, geçerli dizinde `config.toml` dosyası kullanılarak yapılandırılabilir. Dosya, varsayılan değerlerle kurulum sırasında otomatik olarak oluşturulur. Bu dosyada varsayılan araç parametrelerini özelleştirebilirsiniz.
 ---
 

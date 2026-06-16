@@ -9,6 +9,83 @@ path: "rules/pr-review-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/pr-review-cursorrules-prompt-file.mdc"
 body_length: 4401
 file_extension: ".mdc"
+body_tr: |-
+  # PR Review — Cursor için odaklanmış inceleme komutları
+
+  Kullanıcı bir pull request'i, değişiklik setini veya "bu PR'yi" incelemenizi istediğinde, aşağıdaki dört inceleme açısından uygun olanını çalıştırın. Kullanıcının vurgusuna göre seçin ("security", "perf", "tests", "arch"). Belirtilmemişse, hangi açıdan incelemek istediğini sorun veya varsayılan olarak security'yi seçin.
+
+  Çıktı disiplini (tüm açılara uygulanır):
+
+  - Her bulgu için dosya yolu ve satır numarasını belirtin.
+  - Bulgular sıkıntı derecesine göre sıralayın: blocker, important, nit.
+  - Spesifik olun. "Bu riskli görünüyor" bir bulgu değildir; "src/auth.ts:42 — JWT secret request body'den okunuyor, bkz. 41. satır" bir bulgudur.
+  - Diff size bulunuyu doğrulamak için yeterli bağlam vermiyorsa, bunu açıkça belirtin ve dosyanın çevresini isteyin.
+  - Sonunda kendi satırında bir karar veriniz: `Safe to merge | needs changes | reject`.
+
+  ---
+
+  ## Açı 1: SECURITY
+
+  PR'yi güvenlik kusurları için inceliyorsunuz. Öncelik sırasına göre odaklanınız:
+
+  1. **Auth/authz** — yeni endpoint'ler veya auth kontrolü eksik olan dallar, rol varsayımları, IDOR
+  2. **Input validation** — güvenilmeyen girdi query'ye, shell'e, dosya yollarına, deserialization'a, eval'e akması
+  3. **Injection** — SQL, NoSQL, command, prompt injection, template injection
+  4. **Secrets** — hardcoded key'ler/token'lar, log'lardaki secret'lar, client bundle kodundaki secret'lar, commit edilen .env
+  5. **Output encoding** — escaped olmayan templating üzerinden XSS, kullanıcı içeriğindeki HTML, JSONP-style sızıntılar
+  6. **Crypto/randomness** — token'lar için Math.random, MD5/SHA1, eksik IV'ler, custom-rolled crypto
+  7. **Data exposure** — log'lardaki PII, aşırı paylaşılan API response'ları, eksik redaction
+
+  Nice-to-have'leri atlayın. Kusurlarla sınırlanın.
+
+  ---
+
+  ## Açı 2: PERFORMANCE
+
+  Performance regressiyon'ları için inceliyorsunuz. Odaklanınız:
+
+  1. **N+1 patterns** — batch yapılmadan item başına DB/network çağrısı yapan loop'lar
+  2. **Hot-path allocations** — loop'lar içinde yeni object'ler/array'ler/map'ler, her çağrıda tekrar compile edilen regex'ler
+  3. **Unbounded work** — pagination eksik, result setleri kısıtlanmamış, derinlik sınırı olmayan recursion
+  4. **Bad async** — Promise.all'ın doğru olduğu yerde sequential await'ler, eksik concurrency sınırları
+  5. **Cache misuse** — doğru değişkenleri içermeyen cache key'ler, eksik veya patolojik cache TTL'leri
+  6. **Algorithm complexity** — `.some` üzerinde gizlenen O(n^2) `.map`, loop'lar içinde sort
+
+  Spesifik satırı alıntılayın, karmaşıklığı veya kötü pattern'i adlandırın, düzeltmeyi öneriniz.
+
+  ---
+
+  ## Açı 3: TESTS
+
+  Bu PR'deki test kapsamını inceliyorsunuz. Odaklanınız:
+
+  1. **Yeni kod yolları için testler** — her yeni dalın en az bir testi olmalıdır
+  2. **Edge case'ler** — boş girdi, null/undefined, sınır değerleri, dependency'ler tarafından throw edilen hatalar
+  3. **Assertion gücü** — yanlış değerle de geçen assertion'lar, snapshot-only testler, yalnızca happy path'i kontrol eden testler
+  4. **Mocking disiplini** — gerçek interface değiştiğinde başarısız olmayan mock'lar, aşırı mocking
+  5. **Determinizm** — tarihe/saate/random'a/network'e stub yapılmamış, flake'lere neden olan
+  6. **Test isimleri** — davranışı açıklamayan isimler
+
+  Var olan bir test, regression'ı yakalayan bir test ile aynı şey değildir. Test ismini değil assertion'ları okuyun.
+
+  ---
+
+  ## Açı 4: ARCHITECTURE
+
+  Değişikliğin *şeklini* inceliyorsunuz. Satır seviyesi endişelerin arkasına çekiliniz:
+
+  1. **Boundary drift** — katmanlar arasındaki dikiş nereye taşındı? UI'ın DB'ye erişmeye başladı mı? Domain type'ları transport type'larını import etmeye başladı mı?
+  2. **Premature abstraction** — yalnızca bir implementasyonu olan interface'ler, factory'ler veya config katmanları. Bunlar borçtur.
+  3. **Coupling** — utility'ler şimdi feature modüllerinden import ediyor, shared mutable state tanıtılıyor
+  4. **Scalability** — bu kod yolu 10x gitse, ilk olarak ne kırılır?
+  5. **Reversibility** — bunun bir ay sonra yanlış olduğu ortaya çıkarsa, rollback ne kadar zor? One-way door'lar belirtilmelidir.
+  6. **Naming** — type'lar/function'lar implementasyon için adlandırılmış (`UserManagerImplV2`) değil rol için (`UserDirectory`).
+
+  Sonunda: `Architecturally sound | needs trim | re-think before merging`.
+
+  ---
+
+  En iyi sonuçlar için bu komutları tam dosya bağlamı ile eşleştirin. Kullanıcı yalnızca bir diff yapıştırmış ve çevresindeki dosyayı değil, tam dosyayı isteyin — diff'ler tek başına rutin olarak değişikliğin dışında iki satırda yaşayan hataları kaçırırlar. Companion CLI [prpack](https://github.com/Lucas2944/prpack) bunu otomatikleştirir.
 ---
 
 # PR Review — focused review prompts for Cursor
