@@ -3,7 +3,7 @@ name: "weibaohui/kom"
 description: "Provides MCP multi-cluster Kubernetes management and operations. It can be integrated as an SDK into your own project and includes nearly 50 built-in tools covering common DevOps and development scenarios. Supports both standard and CRD resources."
 category: "Cloud Platforms"
 repo: "weibaohui/kom"
-stars: 147
+stars: 148
 url: "https://github.com/weibaohui/kom"
 body_length: 44192
 license: "MIT"

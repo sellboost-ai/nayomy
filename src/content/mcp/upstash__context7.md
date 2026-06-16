@@ -3,7 +3,7 @@ name: "upstash/context7"
 description: "Up-to-date code documentation for LLMs and AI code editors."
 category: "Knowledge & Memory"
 repo: "upstash/context7"
-stars: 57393
+stars: 57462
 url: "https://github.com/upstash/context7"
 body_length: 9702
 license: "MIT"

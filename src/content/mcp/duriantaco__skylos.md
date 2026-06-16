@@ -5,7 +5,7 @@ category: "Security"
 repo: "duriantaco/skylos"
 stars: 453
 url: "https://github.com/duriantaco/skylos"
-body_length: 20151
+body_length: 20767
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://skylos.dev/"
@@ -206,6 +206,16 @@ extra_phantom_decorators = ["tenant_admin_required"]
 extra_credential_names = ["tenant_signing_secret"]
 extra_network_timeout_calls = ["vendor_sdk.fetch"]
 
+[tool.skylos.dead_code]
+entrypoints = []
+
+[[tool.skylos.dead_code.entrypoints]]
+type = "method"
+name = ["create", "pre_hook", "post_hook"]
+parent = { name = "Main", base_classes = ["Application"] }
+path = "src/**"
+reason = "project framework lifecycle hook"
+
 [tool.skylos.contribution]
 collect_local_signals = false
 contribute_public_corpus = false
@@ -217,6 +227,11 @@ Template files extend Skylos' built-in prompts; they do not replace the
 JSON-only output contract or untrusted-code safety rules. Vibe dictionary
 extensions let teams teach Skylos about local fake-auth helpers, project
 credential names, sensitive files, and network calls that must set timeouts.
+Dead-code entrypoints let teams mark proprietary framework classes, lifecycle
+methods, and decorator-registered functions as live using precise rules for
+type, name, path, decorators, base classes, and parent classes.
+Rules must include a symbol selector such as `name`, `decorators`,
+`base_classes`, or `parent`; `path` and `module` only narrow the match.
 Contribution signals are off by default; when enabled, Skylos records local
 structural accept/dismiss/learn events under `.skylos/contribution/` without raw
 source.

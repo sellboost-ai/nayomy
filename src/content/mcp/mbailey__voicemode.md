@@ -5,10 +5,10 @@ category: "Text-to-Speech"
 repo: "mbailey/voicemode"
 stars: 1226
 url: "https://github.com/mbailey/voicemode"
-body_length: 6069
+body_length: 6045
 license: "MIT"
 language: "Python"
-homepage: "https://getvoicemode.com/"
+homepage: "https://voicemode.dev"
 ---
 
 # VoiceMode
@@ -218,7 +218,7 @@ export VOICEMODE_SAVE_AUDIO=true
 - [Kokoro Setup](docs/guides/kokoro-setup.md) - Local text-to-speech
 - [Development Setup](docs/tutorials/development-setup.md) - Contributing guide
 
-Full documentation: [voice-mode.readthedocs.io](https://voice-mode.readthedocs.io)
+Full documentation: [voicemode.dev](https://voicemode.dev)
 
 ## Links
 

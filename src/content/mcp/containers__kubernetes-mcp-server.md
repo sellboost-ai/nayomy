@@ -3,9 +3,9 @@ name: "containers/kubernetes-mcp-server"
 description: "powerful Kubernetes MCP server with additional support for OpenShift. Besides providing CRUD operations for **any** Kubernetes resource, this server provides specialized tools to interact with your cluster."
 category: "Cloud Platforms"
 repo: "containers/kubernetes-mcp-server"
-stars: 1687
+stars: 1689
 url: "https://github.com/containers/kubernetes-mcp-server"
-body_length: 50650
+body_length: 53062
 license: "Apache-2.0"
 language: "Go"
 ---
@@ -599,6 +599,46 @@ In case multi-cluster support is enabled (default) and you have access to multip
 - **cluster-health-check** - Perform comprehensive health assessment of Kubernetes/OpenShift cluster
   - `namespace` (`string`) - Optional namespace to limit health check scope (default: all namespaces)
   - `check_events` (`string`) - Include recent warning/error events (true/false, default: true)
+
+</details>
+
+<details>
+
+<summary>kiali</summary>
+
+- **mesh-list-applications** - List applications in the mesh namespaces
+  - `namespace` (`string`) - Optional namespace to filter applications (default: all namespaces)
+
+- **list-istio-config** - List Istio configuration resources in the mesh namespaces
+  - `namespace` (`string`) - Optional namespace to filter Istio configuration (default: all namespaces)
+
+- **mesh-list-namespaces** - List all namespaces with their sidecar injection status and Istio labels
+
+- **mesh-list-services** - List services in the mesh namespaces
+  - `namespace` (`string`) - Optional namespace to filter services (default: all namespaces)
+
+- **mesh-list-workloads** - List workloads in the mesh namespaces
+  - `namespace` (`string`) - Optional namespace to filter workloads (default: all namespaces)
+
+- **mesh-health-check** - Perform a comprehensive health assessment of the Istio service mesh including control plane and data plane status
+  - `namespace` (`string`) - Optional namespace to focus the health check on (default: all namespaces)
+
+- **mesh-topology** - Show the mesh topology including control plane components and cluster connectivity
+
+- **traffic-topology** - Analyze the service mesh traffic topology showing service dependencies, traffic flow, and communication patterns
+  - `namespaces` (`string`) **(required)** - Comma-separated list of namespaces to include in the graph, or 'all' to include all accessible mesh namespaces
+
+- **service-troubleshoot** - Investigate service errors using logs, traces, and Istio configuration to identify root causes
+  - `namespace` (`string`) **(required)** - Namespace where the service is deployed
+  - `service` (`string`) **(required)** - Name of the service to troubleshoot
+  - `workload` (`string`) - Optional workload or pod name to fetch logs from (if omitted, uses the service name)
+
+- **trace-analysis** - Investigate distributed traces for a service to identify latency bottlenecks, error sources, and slow spans
+  - `namespace` (`string`) **(required)** - Namespace where the service is deployed
+  - `service` (`string`) **(required)** - Name of the service to investigate traces for
+
+- **istio-config-review** - Review and validate Istio configuration in a namespace, checking for misconfigurations and best practice violations
+  - `namespace` (`string`) **(required)** - Namespace to review Istio configuration for
 
 </details>
 

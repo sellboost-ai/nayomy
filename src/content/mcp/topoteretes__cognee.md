@@ -3,7 +3,7 @@ name: "topoteretes/cognee"
 description: "Memory manager for AI apps and Agents using various graph and vector stores and allowing ingestion from 30+ data sources."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
-stars: 17836
+stars: 17843
 url: "https://github.com/topoteretes/cognee"
 body_length: 12529
 license: "Apache-2.0"

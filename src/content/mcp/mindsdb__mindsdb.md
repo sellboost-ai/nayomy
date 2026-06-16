@@ -3,11 +3,11 @@ name: "mindsdb/mindsdb"
 description: "Connect and unify data across various platforms and databases with MindsDB as a single MCP server."
 category: "Aggregators"
 repo: "mindsdb/mindsdb"
-stars: 39304
+stars: 39311
 url: "https://github.com/mindsdb/mindsdb"
-body_length: 6162
+body_length: 6703
 license: "MIT"
-language: "Dockerfile"
+language: "Makefile"
 homepage: "https://mindsdb.com"
 ---
 
@@ -90,6 +90,9 @@ make setup
 | Production build | `make build` |
 | Package for macOS | `make dist-mac` |
 | Package for Windows | `make dist-win` |
+| Wipe all local installs + data (fresh start) | `make flush` |
+
+> **Reset to a clean slate:** `make flush` uninstalls the local runtime (the `cowork-server` uv tool and the `backend/*/.venv`s) **and** deletes app state in `~/.anton` (provider keys) and `~/.cowork` (database, hermes, projects). Use it to test the from-scratch install flow or recover from a broken install. ⚠️ This deletes your conversations and saved keys. It prompts for confirmation; pass `FORCE=1` to skip it. The next `make setup` or app launch reinstalls everything.
 
 ---
 

@@ -4,7 +4,7 @@ clean_name: "Fortran"
 description: "Modern Fortran rules for scientific computing, modules, explicit interfaces, kind parameters, memory safety, and testing"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39989
+stars: 40001
 path: "rules/fortran.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/fortran.mdc"
 body_length: 3007

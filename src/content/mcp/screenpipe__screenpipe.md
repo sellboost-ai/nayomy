@@ -3,9 +3,9 @@ name: "screenpipe/screenpipe"
 description: "Local-first system capturing screen/audio with timestamped indexing, SQL/embedding storage, semantic search, LLM-powered history analysis, and event-triggered actions - enables building context-aware AI agents through a NextJS plugin ecosystem."
 category: "Other Tools and Integrations"
 repo: "screenpipe/screenpipe"
-stars: 19299
+stars: 19317
 url: "https://github.com/screenpipe/screenpipe"
-body_length: 19932
+body_length: 19717
 license: "NOASSERTION"
 language: "Rust"
 homepage: "https://screenpipe.com"
@@ -247,9 +247,6 @@ screenpipe runs as an MCP server, allowing AI assistants to query your screen hi
 
 ### Developer API
 Full REST API running on localhost (default port 3030). Endpoints for searching screen content, audio, frames. Raw SQL access to the underlying SQLite database. JavaScript/TypeScript SDK available.
-
-### Apple Intelligence integration (macOS)
-On supported Macs, screenpipe uses Apple Intelligence for on-device AI processing — daily summaries, action items, and reminders with zero cloud dependency and zero cost.
 
 ## Privacy and security
 

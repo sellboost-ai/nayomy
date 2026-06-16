@@ -3,9 +3,9 @@ name: "github/github-mcp-server"
 description: "Official GitHub server for integration with repository management, PRs, issues, and more."
 category: "Version Control"
 repo: "github/github-mcp-server"
-stars: 30689
+stars: 30714
 url: "https://github.com/github/github-mcp-server"
-body_length: 91448
+body_length: 91500
 license: "MIT"
 language: "Go"
 ---
@@ -1216,7 +1216,7 @@ The following sets of tools are available:
   - `description`: Repository description (string, optional)
   - `name`: Repository name (string, required)
   - `organization`: Organization to create the repository in (omit to create in your personal account) (string, optional)
-  - `private`: Whether repo should be private (boolean, optional)
+  - `private`: Whether the repository should be private. Defaults to true (private) when omitted. (boolean, optional)
 
 - **delete_file** - Delete file
   - **Required OAuth Scopes**: `repo`

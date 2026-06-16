@@ -5,7 +5,7 @@ category: "Databases"
 repo: "confluentinc/mcp-confluent"
 stars: 160
 url: "https://github.com/confluentinc/mcp-confluent"
-body_length: 34434
+body_length: 34621
 license: "MIT"
 language: "TypeScript"
 ---
@@ -140,7 +140,7 @@ CP clusters frequently sit behind an internal CA.
 If you see TLS handshake failures against the broker or Schema Registry, point Node at your CA bundle when starting the server:
 
 ```bash
-NODE_EXTRA_CA_CERTS=/path/to/internal-ca.pem npm run start -- --config path/to/config.yaml
+NODE_EXTRA_CA_CERTS=/path/to/internal-ca.pem pnpm run start -- --config path/to/config.yaml
 ```
 
 ### End-to-end smoke test
@@ -152,11 +152,11 @@ The matching integration tests are tagged `@cp` and live next to their handlers 
 docker compose -f docker-compose.cp-test.yml up -d
 # Wait ~30s for Kafka + SR to become ready, then:
 CP_KAFKA_USERNAME=mcp CP_KAFKA_PASSWORD=mcp-secret \
-  npm run test:integration -- --tags-filter=@cp
+  pnpm run test:integration -- --tags-filter=@cp
 docker compose -f docker-compose.cp-test.yml down -v
 ```
 
-The tests skip cleanly when those env vars are unset, so `npm run test:unit` and a default `npm run test:integration` against your real Confluent Cloud account are unaffected if you don't have the docker stack running.
+The tests skip cleanly when those env vars are unset, so `pnpm run test:unit` and a default `pnpm run test:integration` against your real Confluent Cloud account are unaffected if you don't have the docker stack running.
 
 ## Getting Started
 
@@ -192,8 +192,8 @@ npx @confluentinc/mcp-confluent --init-config
 3. **Start the Server:** You can run the MCP server in one of two ways:
    - **From source:** Follow the instructions in the [Contributing Guide](CONTRIBUTING.md) to build and run the server from source.
      This typically involves:
-     - Installing dependencies (`npm install`)
-     - Building the project (`npm run build` or `npm run dev`)
+     - Installing dependencies (`pnpm install`)
+     - Building the project (`pnpm run build` or `pnpm run dev`)
    - **With npx:** You can start the server directly using npx, no build required:
 
      ```bash
@@ -216,8 +216,8 @@ The full configuration reference — YAML schema, every service block, env-var i
 
 > **Compatibility note.** This release ships full parity between YAML (`-c config.yaml`) and the legacy env-var path (`-e config.env`) for a single connection.
 > The env-var-only path will emit a startup warning in a near-future release and be removed a release or two later.
-> Multi-connection support (next release) will be YAML-only.
-> See [CONFIGURATION.md → Two paths, one configuration](CONFIGURATION.md#two-paths-one-configuration).
+> Defining multiple connections (or none) is YAML-only — the env-var path can express only a single connection.
+> See [CONFIGURATION.md → Two paths, one configuration](CONFIGURATION.md#two-paths-one-configuration) and [CONFIGURATION.md → Multiple connections (and zero connections)](CONFIGURATION.md#multiple-connections-and-zero-connections).
 
 ### Prerequisites & setup for Tableflow commands
 

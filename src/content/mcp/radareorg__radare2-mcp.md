@@ -3,7 +3,7 @@ name: "radareorg/radare2-mcp"
 description: "MCP server for Radare2 disassembler. Provides AI with capability to disassemble and look into binaries for reverse engineering."
 category: "Security"
 repo: "radareorg/radare2-mcp"
-stars: 252
+stars: 253
 url: "https://github.com/radareorg/radare2-mcp"
 body_length: 7116
 license: "MIT"

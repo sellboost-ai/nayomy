@@ -3,9 +3,9 @@ name: "googleapis/genai-toolbox"
 description: "Open source MCP server specializing in easy, fast, and secure tools for Databases."
 category: "Databases"
 repo: "googleapis/genai-toolbox"
-stars: 15620
+stars: 15628
 url: "https://github.com/googleapis/genai-toolbox"
-body_length: 32555
+body_length: 32705
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://mcp-toolbox.dev/documentation/introduction/"
@@ -108,7 +108,7 @@ You can use the Toolbox in any MCP-compatible IDE or client (e.g., Gemini CLI, G
 
 2. Set the appropriate environment variables to connect, see the [Prebuilt Tools Reference](https://mcp-toolbox.dev/documentation/configuration/prebuilt-configs/).
 
-When you run Toolbox with a `--prebuilt=<database>` flag, you instantly get access to standard tools to interact with that database. 
+When you run Toolbox with a `--prebuilt=<database>` flag, you instantly get access to standard tools to interact with that database. You can also specify a specific toolset using the `--prebuilt=<database>/<toolset>` syntax (e.g., `--prebuilt=postgres/data` to only load SQL tools). 
 
 Supported databases currently include:
 - **Google Cloud:** AlloyDB, BigQuery, Cloud SQL (PostgreSQL, MySQL, SQL Server), Spanner, Firestore, Knowledge Catalog (formerly known as Dataplex).

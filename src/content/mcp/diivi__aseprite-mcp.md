@@ -3,7 +3,7 @@ name: "diivi/aseprite-mcp"
 description: "MCP server using the Aseprite API to create pixel art"
 category: "Art & Culture"
 repo: "diivi/aseprite-mcp"
-stars: 203
+stars: 204
 url: "https://github.com/diivi/aseprite-mcp"
 body_length: 14096
 license: "MIT"

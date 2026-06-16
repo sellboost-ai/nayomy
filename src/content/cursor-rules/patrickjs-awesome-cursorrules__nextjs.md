@@ -4,7 +4,7 @@ clean_name: "Next.js"
 description: "Next.js with TypeScript and Tailwind UI best practices"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 39989
+stars: 40001
 path: "rules/nextjs.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs.mdc"
 body_length: 1740
