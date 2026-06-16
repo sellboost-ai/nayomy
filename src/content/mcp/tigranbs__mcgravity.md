@@ -7,6 +7,352 @@ stars: 97
 url: "https://github.com/tigranbs/mcgravity"
 body_length: 10286
 language: "Rust"
+body_tr: |-
+  # McGravity
+
+  <div align="center">
+    
+  </div>
+
+  **AI destekli kodlama için hızlı, kararlı bir TUI.**
+
+  McGravity, AI kodlama araçlarını (Claude Code, Codex, Gemini) sıkı bir geri bildirim döngüsünde yönetir: **küçük görevleri planlayın → birer birer yürütün → gözden geçirin → yeniden planlayın**. Muazzam bir istemi dökmek ve en iyisini umut etmek yerine, McGravity işinizi doğrulanması kolay ve düzeltilmesi basit olan atomik parçalara böler.
+
+  ```
+  +------------------------------------------------------------+
+  | McGravity                                    [Claude Code] |
+  +--------------------------- Output -------------------------+
+  | > Planning complete                                        |
+  | > Executing task-001.md...                                 |
+  | + Created src/auth/login.rs                                |
+  | + Updated src/main.rs                                      |
+  +------------------------------------------------------------+
+  | Iteration #1 | Executing | task-001.md                    |
+  +------------------------------------------------------------+
+  | [##########-----] 1/3 tasks                                |
+  +--------------------------- Task ---------------------------+
+  | Add user authentication with JWT tokens.                   |
+  | Reference @src/auth/ for existing patterns.                |
+  +------------------------------------------------------------+
+  | [Esc] Cancel  [Ctrl+S] Settings                            |
+  +------------------------------------------------------------+
+  ```
+
+  ## Nasıl Çalışır
+
+  McGravity sürekli bir iyileştirme döngüsü çalıştırır:
+
+  ```mermaid
+  flowchart LR
+      A[Your Task] --> B[Plan]
+      B --> C[Execute]
+      C --> D{Done?}
+      D -->|More work needed| B
+      D -->|Complete| E[Finished]
+  ```
+
+  ## Hızlı Başlangıç
+
+  ### 1. McGravity Yükleyin
+
+  ```bash
+  # bun, npm, pnpm, yarn, vb.
+  npm install -g mcgravity
+  ```
+
+  ### 2. Bir AI CLI Yükleyin
+
+  McGravity'nin en az bir AI kodlama aracının yüklü olması gerekir:
+
+  | Araç            | Yükleme Komutu                         | Dokümantasyon                                |
+  | --------------- | -------------------------------------- | -------------------------------------------- |
+  | **Claude Code** | `npm install -g @anthropic-ai/claude-code` | [claude.ai/code](https://claude.ai/code)     |
+  | **Codex**       | `npm install -g @openai/codex`         | [openai.com/codex](https://openai.com/codex) |
+  | **Gemini CLI**  | `npm install -g @google/gemini-cli`    | [ai.google.dev](https://ai.google.dev)       |
+
+  ### 3. McGravity Çalıştırın
+
+  ```bash
+  cd your-project
+  mcgravity
+  ```
+
+  İlk çalıştırmada, McGravity kullanılabilir AI araçlarını algılayacak ve planlama ve yürütme için hangisini kullanmak istediğinizi soracaktır.
+
+  ### 4. Görevinizi Açıklayın
+
+  Neleri inşa etmek veya düzeltmek istediğinizi yazın:
+
+  ```
+  Add a /health endpoint that returns JSON with status and uptime.
+  Check @src/routes/ for existing patterns.
+  ```
+
+  Akışı başlatmak için `Enter` tuşuna basın.
+
+  ## Kurulum Seçenekleri
+
+  ### Kurulum Betiği (Önerilir)
+
+  Kurulum betiği işletim sisteminizi ve mimarinizi otomatik olarak algılar:
+
+  ```bash
+  # bun, npm, pnpm, yarn, vb.
+  npm install -g mcgravity
+  ```
+
+  ### GitHub Sürümleri
+
+  [GitHub Sürümleri](https://github.com/tigranbs/mcgravity/releases) sayfasından platformunuza uygun son sürümü indirin, çıkartın ve PATH'e ekleyin.
+
+  ### Kaynaktan Derleme
+
+  ```bash
+  git clone https://github.com/tigranbs/mcgravity.git
+  cd mcgravity
+  cargo install --path .
+  ```
+
+  ## Kullanım Kılavuzu
+
+  ### Görev Açıklamaları Yazma
+
+  İyi görev açıklamaları özgüldür ve ilgili dosyalara başvurur:
+
+  ```
+  Add input validation to the user registration form.
+  - Email must be valid format
+  - Password minimum 8 characters
+  - Show error messages inline
+  Check @src/components/RegisterForm.tsx for the component.
+  ```
+
+  **İpuçları:**
+
+  - Neyi istediğiniz hakkında özgül olun
+  - `@` işaretiyle dosyalara başvurun
+  - Kabul kriterleri listeleyin
+  - Sınırlamalardan bahsedin (örn. "yeni bağımlılıklar eklemeyin")
+
+  ### @ Dosya Başvuruları
+
+  `@` yazın ve ardından dosya adı yazarak projenizde arayın:
+
+  ```
+  Update @src/config.ts to add the new API endpoint.
+  ```
+
+  - **Bulanık arama**: `@config` dosyası `src/config.ts` için arar
+  - **Navigasyon**: `Yukarı/Aşağı` veya `j/k` tuşlarını kullanarak seçin
+  - **Ekleme**: `Tab` veya `Enter` tuşuna basarak yolu ekleyin
+  - **İptal**: `Esc` tuşuna basarak kapatın
+
+  `.gitignore` desenleriyle eşleşen dosyalar önerilerden dışlanır.
+
+  ### Slash Komutları
+
+  Bir satırın başında `/` yazarak kullanılabilir komutları görebilirsiniz:
+
+  | Komut       | Açıklama                              |
+  | ----------- | ------------------------------------- |
+  | `/settings` | Ayarlar panelini aç                   |
+  | `/clear`    | Görev, çıktı ve yapılacaklar dosyalarını temizle |
+  | `/exit`     | McGravity'den çık                     |
+
+  ### Ayarlar
+
+  Ayarları açmak için `Ctrl+S` tuşlarına basın:
+
+  | Ayar                | Seçenekler         | Açıklama                        |
+  | ------------------- | ------------------ | ------------------------------- |
+  | **Planlama Modeli** | Claude, Codex, Gemini | Görevleri bölen AI aracı |
+  | **Yürütme Modeli**  | Claude, Codex, Gemini | Görevleri uygulayan AI aracı |
+  | **Enter Davranışı** | Gönder / Yeni Satır | `Enter` tuşunun giriş alanında ne yaptığı |
+  | **Maks Yinelemeler** | 1, 3, 5, 10, Sınırsız | Kaç plan→yürüt döngüsü |
+
+  Ayarlar otomatik olarak `.mcgravity/settings.json` dosyasına kaydedilir.
+
+  ## Tuş Bağlamaları
+
+  ### Global
+
+  | Tuş     | İşlem                                |
+  | ------- | ------------------------------------ |
+  | `Ctrl+S` | Ayarları aç                          |
+  | `Ctrl+C` | Çık                                  |
+  | `Esc`    | Çalışan akışı iptal et / Boşken çık |
+
+  ### Metin Girdisi
+
+  | Tuş           | İşlem                                      |
+  | ------------- | ------------------------------------------ |
+  | `Enter`       | Görev gönder (varsayılan) veya yeni satır (yapılandırılmışsa) |
+  | `Ctrl+Enter`  | Her zaman gönder                           |
+  | `Ctrl+J`      | Her zaman yeni satır ekle (tüm terminallerde çalışır) |
+  | `Shift+Enter` | Yeni satır ekle                            |
+  | `@`           | Dosya araması aç                           |
+  | `/`           | Komut menüsünü aç (satırın başında)        |
+
+  ### Çıktı Paneli
+
+  | Tuş               | İşlem             |
+  | ----------------- | ----------------- |
+  | `Ctrl+Yukarı/Aşağı` | Çıktıyı kaydır    |
+  | `PageUp/PageDown` | Sayfa kaydırma    |
+  | `Ctrl+Home/End`   | Başına/Sonuna git |
+
+  ### Ayarlar Paneli
+
+  | Tuş                | İşlem           |
+  | ------------------ | --------------- |
+  | `Yukarı/Aşağı` veya `j/k` | Seçenekleri gez |
+  | `Enter` veya `Boşluk` | Seçimi değiştir |
+  | `Esc` veya `q`       | Ayarları kapat  |
+
+  ### Akış Ayrıntılı Olarak
+
+  ```mermaid
+  flowchart TD
+      subgraph Input
+          A[Write task description]
+      end
+
+      subgraph Planning["Planning Phase"]
+          B[AI reads your codebase]
+          C[AI creates atomic task files]
+          B --> C
+      end
+
+      subgraph Execution["Execution Phase"]
+          D[Pick next task file]
+          E[AI implements the task]
+          F[Move to done folder]
+          D --> E --> F
+      end
+
+      subgraph Review["Review Cycle"]
+          G{More tasks?}
+          H{More work needed?}
+      end
+
+      A --> B
+      C --> G
+      G -->|Yes| D
+      G -->|No| I[Complete]
+      F --> G
+      G -->|All done| H
+      H -->|Yes| B
+      H -->|No| I
+  ```
+
+  **Neden bu yaklaşım?**
+
+  1. **Odaklanmış AI**: Her aşamanın tek bir görevi vardır. Planlayıcı yalnızca planlar. Yürütücü yalnızca yürütür.
+  2. **Atomik görevler**: Küçük, doğrulanabilir değişiklikler. Gözden geçirmesi kolay, bir şey yanlış giderse düzeltmesi basit.
+  3. **Yerleşik bağlam**: Tamamlanan görevler sonraki planlama döngüsünü bilgilendirir, bu nedenle AI ne yapılmış olduğunu bilir.
+  4. **Kontrol edilebilir**: `Esc` tuşuyla istediğiniz zaman iptal edin. Maks yinelemeleri ayarlayın. Her döngüden sonra gözden geçirin.
+
+  ## Dosya Yapısı (McGravity tarafından oluşturulur)
+
+  McGravity, projenizde bir `.mcgravity/` klasörü oluşturur:
+
+  ```
+  .mcgravity/
+  ├── settings.json      # Tercihleriniz
+  ├── task.md            # Mevcut görev + tamamlanmış görev başvuruları
+  └── todo/
+      ├── task-001.md    # Beklemede olan görev (planlayıcı tarafından oluşturulur)
+      ├── task-002.md    # Beklemede olan görev
+      └── done/
+          └── task-001.md    # Tamamlanmış görev (arşivlendi)
+  ```
+
+  ### Görev Dosyaları
+
+  Her görev dosyası şunları içerir:
+
+  ```markdown
+  # Task 001: Add health endpoint
+
+  ## Objective
+
+  Create a /health endpoint returning JSON status.
+
+  ## Implementation Steps
+
+  1. Create route handler in src/routes/health.rs
+  2. Return JSON with status and uptime fields
+  3. Register route in src/main.rs
+
+  ## Reference Files
+
+  - src/routes/mod.rs - Add module export
+  - src/main.rs - Register route
+
+  ## Acceptance Criteria
+
+  - [ ] GET /health returns 200
+  - [ ] Response includes "status" and "uptime" fields
+  ```
+
+  ## Sorun Giderme
+
+  ### Hiçbir AI aracı algılanmadı
+
+  McGravity en az bir AI CLI aracı gerektirir. Biri yükleyin:
+
+  ```bash
+  npm install -g @anthropic-ai/claude-code  # Claude Code
+  npm install -g @openai/codex               # Codex
+  npm install -g @google/gemini-cli          # Gemini
+  ```
+
+  Ardından McGravity'yi yeniden başlatın.
+
+  ### Tuşlar beklendiği gibi çalışmıyor
+
+  Bazı terminaller değiştirici tuşları doğru şekilde bildirmez. Deneyin:
+
+  - Yeni satırlar için `Ctrl+J` kullanın (her yerde çalışır)
+  - Navigasyon için `j/k` tuşlarını ok tuşları yerine kullanın
+
+  Terminalinizin ne gönderdiğini görmek için hata ayıklama modunu etkinleştirin:
+
+  ```bash
+  MCGRAVITY_DEBUG_KEYS=1 mcgravity
+  ```
+
+  ### Çok satırlı giriş
+
+  Yeni satırlar eklemenin birkaç yöntemi:
+
+  | Yöntem           | Nasıl                                    |
+  | ---------------- | ---------------------------------------- |
+  | `Ctrl+J`         | Tüm terminallerde çalışır                |
+  | `Shift+Enter`    | Standart (iPad'de çalışmayabilir)        |
+  | `\` sonra `Enter` | Ters eğik çizgi kaçması                 |
+  | Ayarlar          | "Enter Davranışı"nı "Yeni Satır" olarak ayarlayın |
+
+  ### Akış ilerlemeyecek
+
+  1. Çıktı panelinde hata mesajlarını kontrol edin
+  2. AI CLI'nizin kimlik doğrulaması yapıldığını doğrulayın (`claude --help`, `codex --help`)
+  3. Hata ayıklama için maks yinelemeleri 1'e düşürmüştry
+  4. `Esc` tuşuyla iptal edin ve daha basit bir görev deneyin
+
+  ## Gizlilik
+
+  McGravity, AI CLI araçlarını makinenizde yerel olarak çalıştırır. Kodunuzu, API anahtarlarınızı asla toplamaz, saklamaz veya iletmez. Kimlik doğrulamasını doğrudan kullandığınız AI CLI araçlarında yapılandırın.
+
+  ## Lisans
+
+  MIT
+
+  ---
+
+  **Rust + Ratatui ile inşa edildi** - [@tigranbs](https://github.com/tigranbs)
+
+  [Sorun Bildirin](https://github.com/tigranbs/mcgravity/issues) · [Sürümler](https://github.com/tigranbs/mcgravity/releases)
 ---
 
 # McGravity

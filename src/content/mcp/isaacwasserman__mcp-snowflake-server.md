@@ -8,6 +8,256 @@ url: "https://github.com/isaacwasserman/mcp-snowflake-server"
 body_length: 7000
 license: "GPL-3.0"
 language: "Python"
+body_tr: |-
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/isaacwasserman-mcp-snowflake-server-badge.png)](https://mseep.ai/app/isaacwasserman-mcp-snowflake-server)
+
+  # Snowflake MCP Server
+  ---
+
+  ## Genel Bakış
+
+  Snowflake ile veritabanı etkileşimi sağlayan bir Model Context Protocol (MCP) sunucu uygulaması. Bu sunucu, SQL sorguları çalıştırmaya ve veri insights ile schema bağlamını kaynaklar olarak sunmaya olanak tanır.
+
+  ---
+
+  ## Bileşenler
+
+  ### Kaynaklar
+
+  - **`memo://insights`**  
+    Bulunan veri insights'larını bir araya getiren sürekli güncellenen bir memo.  
+    `append_insight` aracı aracılığıyla yeni insights eklendiğinde otomatik olarak güncellenir.
+
+  - **`context://table/{table_name}`**  
+    (Ön yükleme etkinleştirilirse) Sütunlar ve açıklamalar dahil olmak üzere tabloya özgü schema özetleri, bireysel kaynaklar olarak sunulur.
+
+  ---
+
+  ### Araçlar
+
+  Sunucu aşağıdaki araçları sunar:
+
+  #### Sorgu Araçları
+
+  - **`read_query`**  
+    Veritabanından veri okumak için `SELECT` sorguları yürütün.  
+    **Giriş:**
+
+    - `query` (string): Yürütülecek `SELECT` SQL sorgusu  
+      **Döndürür:** Sorgu sonuçları nesne dizisi olarak
+
+  - **`write_query`** (`--allow-write` ile etkinleştirilir)  
+    `INSERT`, `UPDATE` veya `DELETE` sorguları yürütün.  
+    **Giriş:**
+
+    - `query` (string): SQL değişiklik sorgusu  
+      **Döndürür:** Etkilenen satır sayısı veya onay
+
+  - **`create_table`** (`--allow-write` ile etkinleştirilir)  
+    Veritabanında yeni tablolar oluşturun.  
+    **Giriş:**
+    - `query` (string): `CREATE TABLE` SQL ifadesi  
+      **Döndürür:** Tablo oluşturmanın onayı
+
+  #### Schema Araçları
+
+  - **`list_databases`**  
+    Snowflake örneğindeki tüm veritabanlarını listeleyin.  
+    **Döndürür:** Veritabanı adları dizisi
+
+  - **`list_schemas`**  
+    Belirli bir veritabanındaki tüm schemaları listeleyin.  
+    **Giriş:**
+
+    - `database` (string): Veritabanı adı  
+      **Döndürür:** Schema adları dizisi
+
+  - **`list_tables`**  
+    Belirli bir veritabanı ve schemamdaki tüm tabloları listeleyin.  
+    **Giriş:**
+
+    - `database` (string): Veritabanı adı
+    - `schema` (string): Schema adı  
+      **Döndürür:** Tablo metaveri dizisi
+
+  - **`describe_table`**  
+    Belirli bir tablo için sütun bilgilerini görüntüleyin.  
+    **Giriş:**
+    - `table_name` (string): Tam nitelikli tablo adı (`database.schema.table`)  
+      **Döndürür:** Adlar, türler, null kabiliyeti, varsayılanlar ve açıklamalar içeren sütun tanımları dizisi
+
+  #### Analiz Araçları
+
+  - **`append_insight`**  
+    Memo kaynağına yeni veri insights ekleyin.  
+    **Giriş:**
+    - `insight` (string): Analizden keşfedilen veri insight'ı  
+      **Döndürür:** Insight eklemenin onayı  
+      **Etki:** `memo://insights` kaynağının güncellenmesini tetikler
+
+  ---
+
+  ## Claude Desktop ile Kullanım
+
+  ### Smithery aracılığıyla Yükleme
+
+  Snowflake Server'ı Claude Desktop için [Smithery](https://smithery.ai/server/mcp_snowflake_server) aracılığıyla otomatik olarak yüklemek için:
+
+  ```bash
+  npx -y @smithery/cli install mcp_snowflake_server --client claude
+  ```
+
+  ---
+
+  ### UVX aracılığıyla Yükleme
+
+  #### Geleneksel Yapılandırma (Bireysel Parametreler)
+
+  ```json
+  "mcpServers": {
+    "snowflake_pip": {
+      "command": "uvx",
+      "args": [
+        "--python=3.12",  // İsteğe bağlı: Python sürümü <=3.12 belirtin
+        "mcp_snowflake_server",
+        "--account", "your_account",
+        "--warehouse", "your_warehouse",
+        "--user", "your_user",
+        "--password", "your_password",
+        "--role", "your_role",
+        "--database", "your_database",
+        "--schema", "your_schema"
+        // İsteğe bağlı: "--private_key_path", "your_private_key_absolute_path"
+        // İsteğe bağlı: "--allow_write"
+        // İsteğe bağlı: "--log_dir", "/absolute/path/to/logs"
+        // İsteğe bağlı: "--log_level", "DEBUG"/"INFO"/"WARNING"/"ERROR"/"CRITICAL"
+        // İsteğe bağlı: "--exclude_tools", "{tool_name}", ["{other_tool_name}"]
+      ]
+    }
+  }
+  ```
+
+  #### TOML Yapılandırması (Önerilen)
+
+  ```json
+  "mcpServers": {
+    "snowflake_production": {
+      "command": "uvx",
+      "args": [
+        "--python=3.12",
+        "mcp_snowflake_server",
+        "--connections-file", "/path/to/snowflake_connections.toml",
+        "--connection-name", "production"
+        // İsteğe bağlı: "--allow_write"
+        // İsteğe bağlı: "--log_dir", "/absolute/path/to/logs"
+        // İsteğe bağlı: "--log_level", "DEBUG"/"INFO"/"WARNING"/"ERROR"/"CRITICAL"
+        // İsteğe bağlı: "--exclude_tools", "{tool_name}", ["{other_tool_name}"]
+      ]
+    },
+    "snowflake_staging": {
+      "command": "uvx",
+      "args": [
+        "--python=3.12",
+        "mcp_snowflake_server",
+        "--connections-file", "/path/to/snowflake_connections.toml",
+        "--connection-name", "staging"
+      ]
+    }
+  }
+  ```
+
+  ---
+
+  ### Yerel Olarak Yükleme
+
+  1. [Claude AI Desktop Uygulaması](https://claude.ai/download)'nı yükleyin
+
+  2. `uv` yükleyin:
+
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+  3. Snowflake kimlik bilgileriniz ile bir `.env` dosyası oluşturun:
+
+  ```bash
+  SNOWFLAKE_USER="xxx@your_email.com"
+  SNOWFLAKE_ACCOUNT="xxx"
+  SNOWFLAKE_ROLE="xxx"
+  SNOWFLAKE_DATABASE="xxx"
+  SNOWFLAKE_SCHEMA="xxx"
+  SNOWFLAKE_WAREHOUSE="xxx"
+  SNOWFLAKE_PASSWORD="xxx"
+  SNOWFLAKE_PASSWORD="xxx"
+  SNOWFLAKE_PRIVATE_KEY_PATH=/absolute/path/key.p8
+  # Alternatif olarak, dış tarayıcı kimlik doğrulamasını kullanın:
+  # SNOWFLAKE_AUTHENTICATOR="externalbrowser"
+  ```
+
+  4. [İsteğe bağlı] Veritabanları, schemaları veya tabloları dışlama modelleri ayarlamak için `runtime_config.json` dosyasını değiştirin.
+
+  5. Yerel olarak test edin:
+
+  ```bash
+  uv --directory /absolute/path/to/mcp_snowflake_server run mcp_snowflake_server
+  ```
+
+  6. Sunucuyu `claude_desktop_config.json` dosyasına ekleyin:
+
+  #### Geleneksel Yapılandırma (Ortam Değişkenlerini Kullanma)
+
+  ```json
+  "mcpServers": {
+    "snowflake_local": {
+      "command": "/absolute/path/to/uv",
+      "args": [
+        "--python=3.12",  // İsteğe bağlı
+        "--directory", "/absolute/path/to/mcp_snowflake_server",
+        "run", "mcp_snowflake_server"
+        // İsteğe bağlı: "--allow_write"
+        // İsteğe bağlı: "--log_dir", "/absolute/path/to/logs"
+        // İsteğe bağlı: "--log_level", "DEBUG"/"INFO"/"WARNING"/"ERROR"/"CRITICAL"
+        // İsteğe bağlı: "--exclude_tools", "{tool_name}", ["{other_tool_name}"]
+      ]
+    }
+  }
+  ```
+
+  #### TOML Yapılandırması (Önerilen)
+
+  ```json
+  "mcpServers": {
+    "snowflake_local": {
+      "command": "/absolute/path/to/uv",
+      "args": [
+        "--python=3.12",
+        "--directory", "/absolute/path/to/mcp_snowflake_server",
+        "run", "mcp_snowflake_server",
+        "--connections-file", "/absolute/path/to/snowflake_connections.toml",
+        "--connection-name", "development"
+        // İsteğe bağlı: "--allow_write"
+        // İsteğe bağlı: "--log_dir", "/absolute/path/to/logs"
+        // İsteğe bağlı: "--log_level", "DEBUG"/"INFO"/"WARNING"/"ERROR"/"CRITICAL"
+        // İsteğe bağlı: "--exclude_tools", "{tool_name}", ["{other_tool_name}"]
+      ]
+    }
+  }
+  ```
+
+  ---
+
+  ## Notlar
+
+  - Varsayılan olarak, **yazma işlemleri devre dışıdır**. `--allow-write` ile açıkça etkinleştirin.
+  - Sunucu, dışlama modelleri aracılığıyla belirli veritabanlarını, schemaları veya tabloları filtrelemeyı destekler.
+  - Ön yükleme etkinleştirilirse sunucu ek tablo başına bağlam kaynakları sunar.
+  - `append_insight` aracı `memo://insights` kaynağını dinamik olarak günceller.
+
+  ---
+
+  ## Lisans
+
+  MIT
 ---
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/isaacwasserman-mcp-snowflake-server-badge.png)](https://mseep.ai/app/isaacwasserman-mcp-snowflake-server)

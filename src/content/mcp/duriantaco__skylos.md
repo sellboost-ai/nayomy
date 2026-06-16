@@ -3,12 +3,320 @@ name: "duriantaco/skylos"
 description: "Dead code detection, security scanning, and code quality analysis for Python, TypeScript, and Go. 98% recall with fewer false positives than Vulture. Includes AI-powered remediation."
 category: "Security"
 repo: "duriantaco/skylos"
-stars: 455
+stars: 441
 url: "https://github.com/duriantaco/skylos"
-body_length: 20767
+body_length: 17327
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://skylos.dev/"
+body_tr: |-
+  <div align="center">
+      
+      <h1>Skylos</h1>
+      <h3>Açık kaynak, yerel-öncelikli ölü kod, güvenlik sorunları, sırlar, kalite gerillemeleri ve AI kodu hataları için merge öncesi kontroller.</h3>
+  </div>
+
+  ![Lisans: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+  [![codecov](https://codecov.io/gh/duriantaco/skylos/branch/main/graph/badge.svg)](https://codecov.io/gh/duriantaco/skylos)
+  ![PyPI - Python Sürümü](https://img.shields.io/pypi/pyversions/skylos)
+  [![PyPI sürümü](https://img.shields.io/pypi/v/skylos)](https://pypi.org/project/skylos/)
+  ![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/oha.skylos-vscode-extension)
+  [![Astronomer Trust](https://img.shields.io/badge/Astronomer%20Trust-A-brightgreen?style=flat&logo=github&logoColor=white)](#star-authenticity-audit)
+  [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/Ftn9t9tErf)
+
+  [Web Sitesi](https://skylos.dev) |
+  [Dokümanlar](https://docs.skylos.dev) |
+  [Repo Haritası](https://duriantaco.github.io/skylos/repo-map/) |
+  [Hızlı Başlangıç](https://docs.skylos.dev/quick-start) |
+  [GitHub Action](./action.yml) |
+  [VS Code Uzantısı](./editors/vscode/README.md) |
+  [Gerçek Dünya Sonuçları](./REAL_WORLD_RESULTS.md) |
+  [Kıyaslamalar](./BENCHMARK.md) |
+  [Yol Haritası](./ROADMAP.md) |
+  [Katkı Sağlama](./CONTRIBUTING.md)
+
+  **English** | [Deutsch](./docs/i18n/README.de.md) | [简体中文](./docs/i18n/README.zh-CN.md) | [Çeviriler](./docs/i18n/README.md)
+
+  ## Skylos Nedir?
+
+  Skylos, Python, TypeScript, JavaScript, Java, Go, PHP, Rust, Dart, C#, Shell ve deployment config için açık kaynak statik analiz CLI aracıdır. Varsayılan olarak yerel çalışır ve ayrıca CI/CD PR kapısı olarak da kullanılabilir.
+
+  Şu durumlar için bir repo veya pull request'i kontrol etmek istediğinizde Skylos kullanın:
+
+  - ölü kod ve kullanılmayan dosyalar
+  - güvenlik kusurları ve tehlikeli veri akışları
+  - sırlar ve bağımlılık CVE'leri
+  - CI/CD ve edge-cihaz deployment yanlış konfigürasyonları
+  - karmaşıklık, duplicate dallar ve derin iç içelik gibi kalite gerillemeleri
+  - eksik korumaları ve sahte yardımcıları içeren yaygın AI tarafından üretilen kod hataları
+  - güvenli olmayan tool kullanımı ve eksik çıktı doğrulaması gibi LLM uygulaması riskleri
+
+  ## 60 Saniyede Başlayın
+
+  ```bash
+  pip install skylos
+  skylos .
+  ```
+
+  Varsayılan tarama ölü koda odaklanır. Güvenlik, sırlar, kalite ve bağımlılık kontrollerini `-a` ile ekleyin:
+
+  ```bash
+  skylos . -a
+  ```
+
+  Eşikler, görmezden gelenler, şablon hooks ve vibe sözlüğü uzantılarıyla bir proje config'i oluşturun:
+
+  ```bash
+  skylos init
+  ```
+
+  Başlangıç yerel rule pack'i oluşturun:
+
+  ```bash
+  skylos rules init
+  skylos rules validate .skylos/rules/local.yml
+  skylos rules list --json
+  skylos rules list cross --json
+  skylos rules list --packs --json
+  skylos cache stats
+  ```
+
+  Bir GitHub Actions PR kapısı oluşturun:
+
+  ```bash
+  skylos cicd init
+  git add .github/workflows/skylos.yml
+  git commit -m "Add Skylos CI gate"
+  git push
+  ```
+
+  Daha fazla komut mı gerekiyor? [CLI Referansını](https://docs.skylos.dev/cli-reference) okuyun.
+
+  ## Yaygın İş Akışları
+
+  | Hedef | Komut | Elde Ettikleriniz | Daha Fazla Bilgi |
+  |:---|:---|:---|:---|
+  | İlk ölü-kod taraması | `skylos .` | Kullanılmayan fonksiyonlar, sınıflar, importlar, dosyalar ve framework entrypoint hatalarını bulur | [Ölü kod dokümanları](https://docs.skylos.dev/dead-code-detection) |
+  | Güvenlik ve kalite denetimi | `skylos . -a` | Tehlikeli akış, sırlar, bağımlılık, config ve kalite kontrolleri ekler | [Güvenlik dokümanları](https://docs.skylos.dev/security-analysis) |
+  | PR kapısı | `skylos cicd init` | Annotation'lar ve başarısızlık eşikleriyle bir GitHub Actions workflow'u oluşturur | [CI/CD rehberi](https://docs.skylos.dev/ci-cd) |
+  | Okunabilir terminal raporu | `skylos . --format pretty` | Bulguları dosya başına gruplandırır, şiddet rozetleri, snippet'ler ve kopyalanabilir `file:line` konumlarıyla | [CLI çıktı modları](./docs/cli-output.md) |
+  | Seçilebilir terminal triyajı | `skylos . --tui` | Klavye kontrollü kategori listesi, bulgu listesi ve detay panelini açar | [CLI çıktı modları](./docs/cli-output.md) |
+  | IDE/test-script çıktısı | `skylos --format concise src/test.py` | Yalnızca `file:line` bulgularını yazdırır ve bulgular olduğunda sıfır olmayan exit olur | [CLI Referansı](https://docs.skylos.dev/cli-reference) |
+  | Değişen-satır incelemesi | `skylos . -a --diff origin/main` | Bulguları eski borçtan ziyade aktif işe odaklanır | [Kalite kapısı dokümanları](https://docs.skylos.dev/quality-gate) |
+  | Runtime destekli ölü-kod kontrolü | `skylos . --trace` | Dinamik-kod yanlış pozitiflerini azaltmak için runtime izlerini kullanır | [Smart tracing](https://docs.skylos.dev/smart-tracing) |
+  | Yerel rule pack | `skylos rules init` | Projeye özgü güvenlik ve kalite kontrolleri için YAML rule'ları iskele oluşturur | [Özel rule'lar](https://docs.skylos.dev/custom-rules) |
+  | AI destekli inceleme | `skylos agent scan .` | Statik analiz artı isteğe bağlı LLM incelemesi ve düzeltme önerileri | [AI özellikleri](https://docs.skylos.dev/ai-features) |
+  | LLM uygulaması savunması | `skylos defend .` | OWASP LLM risklerine eşlenen eksik AI uygulaması güvenlik önlemlerini bulur | [AI savunması](https://docs.skylos.dev/ai-defense) |
+  | Teknik borç triyajı | `skylos debt .` | Sıcak noktaları ve borç trendlerini sıralar | [Teknik borç](https://docs.skylos.dev/technical-debt) |
+
+  ## Skylos Neyi Yakalar
+
+  | Kategori | Örnekler | Neden Önemli |
+  |:---|:---|:---|
+  | Ölü kod | kullanılmayan fonksiyonlar, sınıflar, importlar, paket entrypoint'leri, route handler'ları | dinamik framework'leri kırmadan bakım maliyetini azaltır |
+  | Güvenlik kusurları | SQL enjeksiyonu, XSS, SSRF, path traversal, command injection, unsafe deserialization | exploitable akışları kodun main'e ulaşmadan önce yakalar |
+  | Sırlar | API anahtarları, tokenlar, özel credentials, yüksek entropi stringler | credentials'ların commit'ler ve PR'lar üzerinden sızmasını önler |
+  | CI/CD workflow'ları | GitHub Actions ve GitLab CI tehlikeli tetikleyiciler, sabitlemeyen action'lar/include'lar, geniş tokenlar, OIDC yanlış kullanımı, cache poisoning, mutable image'lar | CI/CD supply-chain riskini release job'ları çalışmadan önce azaltır |
+  | Edge deployment config | Docker Compose ayrıcalıklı cihaz erişimi, host networking, systemd root servisleri, geniş yetenekler, eksik sandboxing | repo kontrolü altındaki ayarları app bug'larını cihaz kompromisine dönüştüren yakalanır |
+  | Kalite gerillemeleri | karmaşıklık, derin iç içelik, duplicate dallar, uzun fonksiyonlar, tutarsız return'ler | AI destekli refactor'ların kırılgan kod eklemesini önler |
+  | AI kod hataları | phantom güvenlik çağrıları, eksik decorators, tamamlanmamış stub'lar, devre dışı kontroller, timeout olmayan network çağrıları | yaygın halüsine edilmiş veya tamamlanmamış kod yollarını yakalar |
+  | LLM uygulaması riskleri | güvenli olmayan tool kullanımı, prompt enjeksiyonu maruziyeti, eksik çıktı doğrulaması, eksik rate limit'ler | ekiplerin AI özelliklerini güvenlik önlemleriyle sevk etmesine yardımcı olur |
+
+  Tam [Rules Referansını](https://docs.skylos.dev/rules-reference) görün.
+
+  ## Skylos Nasıl Uygun
+
+  Skylos, her uzmanlaşmış scanner'ın yerine geçmez. Birkaç yaygın inceleme kontrolünü bir CLI'nin arkasına koyan yerel-öncelikli repo ve PR kontrol aracıdır.
+
+  - **Framework farkında ölü kod tespiti:** FastAPI, Django, Flask, pytest, SQLAlchemy, Next.js, React, paket entrypoint'leri ve yaygın plugin pattern'leri.
+  - **PR odaklı çıktı:** diff taraması, CI eşikleri, GitHub annotation'ları ve mevcut bulgular için baseline'lar.
+  - **Yerel-öncelikli operasyon:** temel statik analiz, bulut yüklemesi veya LLM çağrıları gerektirmez.
+  - **AI destekli değişim incelemesi:** üretilen veya düzenlenen kodda kaldırılan doğrulama, auth, logging, CSRF, rate limiting, timeout'lar ve diğer korumaları kontrol eder.
+  - **Projeye özgü rule'lar:** yerel YAML rule'ları ekleyin ve config'ten prompt, credential, sensitive-file ve timeout sözlüklerini genişletin.
+  - **Tek komut arayüzü:** ölü kod, güvenlik, sırlar, bağımlılık, kalite, teknik borç, agent incelemesi ve AI savunması komutları aynı CLI'ı paylaşır.
+
+  ## Kurulum Seçenekleri
+
+  ```bash
+  # Temel statik analiz
+  pip install skylos
+
+  # LLM destekli agent workflow'ları
+  pip install "skylos[llm]"
+
+  # Tüm yayınlanan isteğe bağlı ekstralar
+  pip install "skylos[all]"
+  ```
+
+  Container image'ı:
+
+  ```bash
+  docker pull ghcr.io/duriantaco/skylos:latest
+  docker run --rm -v "$PWD":/work -w /work ghcr.io/duriantaco/skylos:latest . --json --no-provenance
+  ```
+
+  Kaynak kurulumları, container kullanımı ve isteğe bağlı bağımlılıklar için [Kurulumu](https://docs.skylos.dev/installation) görün.
+
+  ## Şablonları ve Vibe Kontrolleri Yapılandırın
+
+  `skylos init` çalıştırarak bu bölümleri `pyproject.toml`a ekleyin:
+
+  ```toml
+  [tool.skylos.templates]
+  # security = ".skylos/templates/security.md"
+  # quality = ".skylos/templates/quality.md"
+  # security_audit = ".skylos/templates/security_audit.md"
+  # review = ".skylos/templates/review.md"
+
+  [tool.skylos.vibe]
+  extra_phantom_names = ["verify_enterprise_auth"]
+  extra_phantom_decorators = ["tenant_admin_required"]
+  extra_credential_names = ["tenant_signing_secret"]
+  extra_network_timeout_calls = ["vendor_sdk.fetch"]
+  ```
+
+  Şablon dosyaları Skylos'un yerleşik promptlarını genişletir; JSON-yalnızca çıktı kontratını veya güvenilir olmayan kod güvenlik kurallarını değiştirmezler. Vibe sözlüğü uzantıları, ekiplerin Skylos'u yerel sahte-auth yardımcıları, proje credential adları, sensitive dosyaları ve timeout ayarlaması gereken network çağrıları hakkında öğretmelerini sağlar.
+
+  ## Dil Desteği
+
+  | Dil | Ölü Kod | Güvenlik | Kalite | Notlar |
+  |:---|:---:|:---:|:---:|:---|
+  | Python | Evet | Evet | Evet | en güçlü kapsama; framework farkında statik analiz ve isteğe bağlı tracing |
+  | TypeScript / JavaScript | Evet | Evet | Evet | Tree-sitter parsing, package graph reachability, framework conventions |
+  | Java | Evet | Evet | Evet | Tree-sitter parsing ve yapılandırılmış güvenlik-akış analizi |
+  | Go | Evet | Kısmi | Kısmi | ölü-kod ve seçilmiş güvenlik benchmark kapsamı |
+  | PHP | Evet | Evet | Kısmi | PHP parser kapsamı artı taint-stili güvenlik sink'leri ve kaynakları |
+  | Rust | Evet | Evet | Kısmi | Rust parser kapsamı artı güvenlik sink/kaynak kontrolleri |
+  | Dart | Evet | Evet | Kısmi | Dart parser kapsamı artı seçilmiş güvenlik sink'leri ve kaynakları |
+  | C# | Evet | Evet | Kısmi | C# sembol kapsamı artı seçilmiş ASP.NET, process, SQL, HTTP ve file sink'ler |
+  | Shell | Hayır | Evet | Kısmi | command injection, SSRF ve path traversal için shell-script güvenlik kontrolleri |
+
+  Rule aileleri ve scanner kapsamı için [Rules Referansını](https://docs.skylos.dev/rules-reference) görün.
+
+  ## Config ve Deployment Desteği
+
+  | Yüzey | Dosyalar | Güvenlik Kapsamı |
+  |:---|:---|:---|
+  | GitHub Actions | `.github/workflows/*.yml`, `.github/workflows/*.yaml`, `action.yml`, `action.yaml` | tehlikeli tetikleyiciler, token izinleri, sabitlemeyen action'lar, şablon injection'ı, sırlar, OIDC, cache ve artifact policy'si |
+  | GitLab CI | `.gitlab-ci.yml` | mutable image'lar, sabitlemeyen include'lar, literal sırlar, güvenilir olmayan eval, Docker-in-Docker, OIDC, cache, timeout ve runner-tag policy'si |
+  | Edge Docker Compose | `compose*.yml`, `compose*.yaml`, `docker-compose*.yml`, `docker-compose*.yaml` | ayrıcalıklı container'lar, geniş host cihaz/kontrol mount'ları, GPU/cihaz runtime'ı ve host networking'i |
+  | Edge systemd | `*.service` | root edge servisleri, mutable `ExecStart` yolları, eksik sandboxing, geniş yetenekler ve geniş cihaz erişimi |
+
+  ## Kıyaslama Snapshot'ı
+
+  Skylos, ölü kod, güvenlik, kalite ve agent incelemesi için kontrol edilmiş regresyon kıyaslamalarına sahiptir. Bunlar katı regresyon kapıları olup, herhangi bir aracın evrensel olarak en yeni çağda olduğunun geniş kanıtı değildir.
+
+  | Suite | Mevcut Skylos Sonucu | Baseline |
+  |:---|:---|:---|
+  | Ölü kod regresyonu | 16 case, TP=36 FP=0 FN=0 TN=59, skor 100.0 | Ruff skor 62.67; Vulture son yerel rerun'da kurulu değil |
+  | Güvenlik regresyonu | 56 case, TP=35 FP=0 FN=0 TN=23, skor 100.0 | Bandit skor 47.14 Python uygulanabilir case'ler üzerinde |
+  | Kalite regresyonu | 13 case, skor 100.0 | yalnızca regresyon kapısı |
+  | Agent incelemesi | 25 case, skor 100.0 | yalnızca regresyon kapısı |
+
+  Donmuş `golden-v0.2` öne çıkanları:
+
+  | Donmuş Suite | Skylos Sonucu | Uyarı |
+  |:---|:---|:---|
+  | Ölü kod tohumlanan dev | genel skor 96.28; TS/JS/Go/Java skor 100.0; Python skor 93.33 | Python kalıntıları etiket-inceleme öğeleridir |
+  | Güvenlik tohumlanan dev | genel skor 96.52; bir Python `urljoin` yanlış pozitifiyle tam recall | etiket gözden geçirilmelidir |
+  | OWASP Java güvenlik dev | TP=105 FP=0 FN=15 TN=120, skor 94.37 | request-wrapper, LDAP, XPath ve property weak-hash boşlukları kalır |
+  | Kalite tohumlanan dev | TP=1 FP=0 FN=0 TN=1, skor 100.0 | yalnızca bir tohumlanan case |
+
+  Metodoloji, komutlar, rekabet eden satırlar ve uyarılar için [BENCHMARK.md](./BENCHMARK.md)'i görün.
+
+  ## Proje Kanıtı
+
+  Skylos destekli ölü-kod temizleme PR'ları
+  [Black](https://github.com/psf/black/pull/5041),
+  [NetworkX](https://github.com/networkx/networkx/pull/8572),
+  [Optuna](https://github.com/optuna/optuna/pull/6547),
+  [mitmproxy](https://github.com/mitmproxy/mitmproxy/pull/8136),
+  [pypdf](https://github.com/py-pdf/pypdf/pull/3685),
+  [beets](https://github.com/beetbox/beets/pull/6473) ve
+  [Flagsmith](https://github.com/Flagsmith/flagsmith/pull/6953) projeleriyle merge edilmiştir. Bunlar kabul edilen temizleme PR'ları olup, proje onaylamaları değildir. [Gerçek Dünya Sonuçlarını](./REAL_WORLD_RESULTS.md) görün.
+
+  <a id="star-authenticity-audit"></a>
+
+  26 Nisan 2026'da yerel Astronomer taraması 420 stargazer'ı hesapladı ve **genel güven: A** döndürdü. StarGuard ayrıca **düşük sahte-star riski** bildirdi.
+
+  ## İntegrasyonlar
+
+  | İntegrasyon | Link | Amaç |
+  |:---|:---|:---|
+  | GitHub Action | [GitHub Action](./action.yml) | PR kapıları, annotation'lar ve CI zorlaması |
+  | VS Code uzantısı | [VS Code uzantısı](./editors/vscode/README.md) | editör içinde bulgular ve AI destekli düzeltmeler |
+  | MCP server'ı | [MCP setup](https://docs.skylos.dev/mcp-server) | Skylos taramalarını AI agent'leri ve coding asistan'larına maruz bırakın |
+  | Docker image'ı | [Kurulum](https://docs.skylos.dev/installation) | Skylos'u yerel Python kurulumu olmadan çalıştırın |
+  | Skylos Cloud | [Cloud workflow'u](https://docs.skylos.dev/cloud-workflow) | isteğe bağlı yükleme ve dashboard workflow'ları |
+
+  CLI'den bir GitHub Actions workflow'u oluşturun:
+
+  ```bash
+  skylos cicd init --upload
+  skylos cicd init --upload --scan-path apps/api
+  ```
+
+  Oluşturulan yükleme workflow'u GitHub OIDC kullanır, PR head commit/branch metadata'sını gönderir ve `--scan-path` aracılığıyla monorepo alt projelerini destekler.
+
+  ## Doküman Haritası
+
+  | İhtiyaç | Bunu Okuyun |
+  |:---|:---|
+  | Kurulum seçenekleri, kaynak kurulum ve Docker | [Kurulum](https://docs.skylos.dev/installation) |
+  | İlk tarama ve temel workflow'lar | [Hızlı Başlangıç](https://docs.skylos.dev/quick-start) |
+  | CLI komutları, flag'ler ve örnekler | [CLI Referansı](https://docs.skylos.dev/cli-reference) |
+  | CLI çıktı modları, güzel raporlar ve TUI kontrolleri | [CLI Çıktı Modları](./docs/cli-output.md) |
+  | CI setup, PR kapıları, annotation'lar ve branch koruması | [CI/CD](https://docs.skylos.dev/ci-cd) |
+  | Ölü-kod davranışı ve framework farkındalığı | [Ölü Kod Tespiti](https://docs.skylos.dev/dead-code-detection) |
+  | Güvenlik taraması ve taint analizi | [Güvenlik Analizi](https://docs.skylos.dev/security-analysis) |
+  | Rule ID ön ekleri ve ürün terminolojisi | [Rule Sözlüğü](./dictionary.md) |
+  | Agent tarama, doğrulama, düzeltme ve model setup'ı | [AI Özellikleri](https://docs.skylos.dev/ai-features) |
+  | AI savunması kontrolleri ve LLM güvenlik önlemleri | [AI Savunması](https://docs.skylos.dev/ai-defense) |
+  | MCP server'ı setup'ı | [MCP Server'ı](https://docs.skylos.dev/mcp-server) |
+  | Gerçek dünya merge edilmiş temizleme PR'ları | [Gerçek Dünya Sonuçları](./REAL_WORLD_RESULTS.md) |
+  | Baseline'lar, filtreleme, bastırma ve whitelist'ler | [Konfigürasyon](https://docs.skylos.dev/configuration) |
+  | Smart tracing | [Smart Tracing](https://docs.skylos.dev/smart-tracing) |
+  | Rule aileleri ve dil desteği | [Rules Referansı](https://docs.skylos.dev/rules-reference) |
+  | Bulut yüklemeleri ve dashboard akışı | [CLI to Dashboard](https://docs.skylos.dev/cloud-workflow) |
+  | VS Code uzantısı | [VS Code Uzantısı](https://docs.skylos.dev/vscode) |
+  | Kıyaslamalar ve metodoloji | [BENCHMARK.md](./BENCHMARK.md) |
+  | Güvenlik politikası | [SECURITY.md](./SECURITY.md) |
+  | Release süreci | [RELEASE_WORKFLOW.md](./RELEASE_WORKFLOW.md) |
+  | Katkı öncelikleri | [ROADMAP.md](./ROADMAP.md) |
+  | Katkı Sağlama | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+
+  ## Sık Sorulan Sorular
+
+  **Skylos, Bandit, Semgrep, CodeQL veya Vulture'ün yerine geçer mi?**
+
+  Hayır. Skylos onlarla yan yana çalışabilir. Framework farkında ölü-kod sinyali, PR gating, AI çağı regresyon kontrolleri ve ölü kod, güvenlik, sırlar ve kalite arasında birleşik workflow'a odaklanır.
+
+  **Skylos bir LLM gerektiriyor mu?**
+
+  Hayır. Temel statik analiz API anahtarları olmadan yerel çalışır. LLM özellikleri `skylos[llm]` ve agent komutları aracılığıyla isteğe bağlıdır.
+
+  **Bunu yalnızca değişen kod üzerinde kullanabilir miyim?**
+
+  Evet. `skylos . -a --diff origin/main` yerel olarak kullanın veya CI kapılarını yeni bulgulara odaklanacak şekilde yapılandırın.
+
+  **Bilinçli dinamik kodu nasıl ele almalıyım?**
+
+  Baseline'lar, whitelist'ler, satır içi bastırmalar veya runtime tracing kullanın. [Konfigürasyon dokümanlarını](https://docs.skylos.dev/configuration) ve [smart tracing dokümanlarını](https://docs.skylos.dev/smart-tracing) görün.
+
+  ## Katkı Sağlama ve Destek
+
+  - Güvenlik sorunlarını [SECURITY.md](./SECURITY.md) aracılığıyla bildirin.
+  - Minimal repro'larla bug'lar ve yanlış-pozitif raporları açın.
+  - Yararlı katkı alanları için [ROADMAP.md](./ROADMAP.md) kontrol edin.
+  - Bir pull request göndermeden önce [CONTRIBUTING.md](./CONTRIBUTING.md) okuyun.
+  - Proje kalitesi ve kapı beklentileri için [QUALITY.md](./QUALITY.md)'yi görün.
+  - Topluluk desteği için [Discord](https://discord.gg/Ftn9t9tErf)'a katılın.
+
+  ## Lisans
+
+  Skylos, [Apache License 2.0](./LICENSE) altında lisanslanmıştır.
+
+  <!-- mcp-name: io.github.duriantaco/skylos -->
 ---
 
 <div align="center">
@@ -41,7 +349,7 @@ homepage: "https://skylos.dev/"
 ## What Is Skylos?
 
 Skylos is an open-source static analysis CLI for Python, TypeScript,
-JavaScript, Java, Go, Kotlin, PHP, Rust, Dart, C#, Shell, and deployment config. It
+JavaScript, Java, Go, PHP, Rust, Dart, C#, Shell, and deployment config. It
 runs locally by default and can also be used as a CI/CD PR gate.
 
 Use Skylos when you want one command to check a repo or pull request for:
@@ -51,8 +359,7 @@ Use Skylos when you want one command to check a repo or pull request for:
 - secrets and dependency CVEs
 - CI/CD and edge-device deployment misconfigurations
 - quality regressions such as complexity, duplicate branches, and deep nesting
-- common AI-generated code mistakes, including missing guards, fake helpers,
-  invented package APIs, and impossible dependency versions
+- common AI-generated code mistakes, including missing guards and fake helpers
 - LLM app risks such as unsafe tool use and missing output validation
 
 ## Start In 60 Seconds
@@ -67,12 +374,6 @@ dependency checks with `-a`:
 
 ```bash
 skylos . -a
-```
-
-Verify a changed file or range before an agent hands it to review:
-
-```bash
-skylos verify . --file src/app.py --range 40:75 --project-context
 ```
 
 Create a project config with thresholds, ignores, template hooks, and vibe
@@ -114,15 +415,10 @@ Need more commands? Read the [CLI Reference](https://docs.skylos.dev/cli-referen
 | Readable terminal report | `skylos . --format pretty` | Groups findings by file with severity badges, snippets, and copyable `file:line` locations | [CLI output modes](./docs/cli-output.md) |
 | Selectable terminal triage | `skylos . --tui` | Opens a keyboard-driven category list, finding list, and detail pane | [CLI output modes](./docs/cli-output.md) |
 | IDE/test-script output | `skylos --format concise src/test.py` | Prints only `file:line` findings and exits non-zero when findings exist | [CLI Reference](https://docs.skylos.dev/cli-reference) |
-| In-loop AI-code verification | `skylos verify . --file src/app.py --range 40:75` | Returns narrow JSON for hallucinated helpers, unfinished code, stale references, disabled controls, and API/dependency hallucinations | [AI features](https://docs.skylos.dev/ai-features) |
 | Changed-lines review | `skylos . -a --diff origin/main` | Keeps findings focused on active work instead of legacy debt | [Quality gate docs](https://docs.skylos.dev/quality-gate) |
 | Runtime-assisted dead-code check | `skylos . --trace` | Uses runtime traces to reduce dynamic-code false positives | [Smart tracing](https://docs.skylos.dev/smart-tracing) |
 | Local rule pack | `skylos rules init` | Scaffolds YAML rules for project-specific security and quality checks | [Custom rules](https://docs.skylos.dev/custom-rules) |
-| Security agent quick scan | `skylos agent security-quick .` | One-shot LLM security audit; compatibility alias for `skylos agent scan . --security` | [AI features](https://docs.skylos.dev/ai-features) |
-| Security agent deep scan | `skylos agent security-deep .` | Three-stage security workflow with threat-model context, static threat traces, discovery/validation, and remediation handoff | [AI features](https://docs.skylos.dev/ai-features) |
 | AI-assisted review | `skylos agent scan .` | Static analysis plus optional LLM review and fix suggestions | [AI features](https://docs.skylos.dev/ai-features) |
-| Verification-backed remediation | `skylos agent scan . --fix` | Re-scans fixed security findings and records proof-test metadata for supported fixes | [AI features](https://docs.skylos.dev/ai-features) |
-| MCP agent verification | `verify_change` MCP tool | Lets Claude, Cursor, and other MCP clients verify an edited file/range with the same schema as `skylos verify` | [MCP server](https://docs.skylos.dev/mcp-server) |
 | LLM app defense | `skylos defend .` | Finds missing AI app guardrails mapped to OWASP LLM risks | [AI defense](https://docs.skylos.dev/ai-defense) |
 | Technical debt triage | `skylos debt .` | Ranks hotspots and debt trends | [Technical debt](https://docs.skylos.dev/technical-debt) |
 
@@ -136,7 +432,7 @@ Need more commands? Read the [CLI Reference](https://docs.skylos.dev/cli-referen
 | CI/CD workflows | GitHub Actions and GitLab CI dangerous triggers, unpinned actions/includes, broad tokens, OIDC misuse, cache poisoning, mutable images | reduces CI/CD supply-chain risk before release jobs run |
 | Edge deployment config | Docker Compose privileged device access, host networking, systemd root services, broad capabilities, missing sandboxing | catches repo-controlled settings that turn app bugs into device compromise |
 | Quality regressions | complexity, deep nesting, duplicate branches, long functions, inconsistent returns | keeps AI-assisted refactors from adding brittle code |
-| AI code mistakes | phantom security calls, missing decorators, unfinished stubs, disabled controls, real packages called with invented APIs, impossible npm/Go versions | catches common hallucinated or incomplete code paths before they reach review |
+| AI code mistakes | phantom security calls, missing decorators, unfinished stubs, disabled controls, network calls without timeouts | catches common hallucinated or incomplete code paths |
 | LLM app risks | unsafe tool use, prompt injection exposure, missing output validation, missing rate limits | helps teams ship AI features with guardrails |
 
 See the full [Rules Reference](https://docs.skylos.dev/rules-reference).
@@ -153,14 +449,7 @@ repo and PR checker that puts several common review checks behind one CLI.
 - **Local-first operation:** core static analysis does not require cloud upload
   or LLM calls.
 - **AI-assisted change review:** checks for removed validation, auth, logging,
-  CSRF, rate limiting, timeouts, real-package API hallucinations, and other
-  guardrails in generated or edited code.
-- **Agent-loop verification:** `skylos verify` and MCP `verify_change` return
-  versioned JSON for only AI-code trust findings, so coding agents can
-  self-correct before a human sees the change.
-- **Verification-backed remediation:** security fixes are checked by re-running
-  analysis, and supported findings can include targeted regression-test proof
-  metadata.
+  CSRF, rate limiting, timeouts, and other guards in generated or edited code.
 - **Project-specific rules:** add local YAML rules and extend prompt, credential,
   sensitive-file, and timeout dictionaries from config.
 - **One command surface:** dead code, security, secrets, dependency, quality,
@@ -205,42 +494,12 @@ extra_phantom_names = ["verify_enterprise_auth"]
 extra_phantom_decorators = ["tenant_admin_required"]
 extra_credential_names = ["tenant_signing_secret"]
 extra_network_timeout_calls = ["vendor_sdk.fetch"]
-
-[tool.skylos.dead_code]
-entrypoints = []
-
-[[tool.skylos.dead_code.entrypoints]]
-type = "method"
-name = ["create", "pre_hook", "post_hook"]
-parent = { name = "Main", base_classes = ["Application"] }
-path = "src/**"
-reason = "project framework lifecycle hook"
-
-[tool.skylos.contribution]
-collect_local_signals = false
-contribute_public_corpus = false
-structural_signatures_only = true
-include_source = false
 ```
 
 Template files extend Skylos' built-in prompts; they do not replace the
 JSON-only output contract or untrusted-code safety rules. Vibe dictionary
 extensions let teams teach Skylos about local fake-auth helpers, project
 credential names, sensitive files, and network calls that must set timeouts.
-Dead-code entrypoints let teams mark proprietary framework classes, lifecycle
-methods, and decorator-registered functions as live using precise rules for
-type, name, path, decorators, base classes, and parent classes.
-Rules must include a symbol selector such as `name`, `decorators`,
-`base_classes`, or `parent`; `path` and `module` only narrow the match.
-Contribution signals are off by default; when enabled, Skylos records local
-structural accept/dismiss/learn events under `.skylos/contribution/` without raw
-source.
-
-By default Skylos discovers `[tool.skylos]` in `pyproject.toml` by walking up
-from the scan path. To use a dedicated TOML config, pass `--config-file PATH`
-or set `SKYLOS_CONFIG_FILE`; standalone files may use either `[tool.skylos]`
-or top-level `[skylos]`. Synced Skylos Cloud policy keeps its protected
-precedence over repository-controlled config.
 
 ## Language Support
 
@@ -265,7 +524,6 @@ and scanner scope.
 |:---|:---|:---|
 | GitHub Actions | `.github/workflows/*.yml`, `.github/workflows/*.yaml`, `action.yml`, `action.yaml` | dangerous triggers, token permissions, unpinned actions, template injection, secrets, OIDC, cache, and artifact policy |
 | GitLab CI | `.gitlab-ci.yml` | mutable images, unpinned includes, literal secrets, untrusted eval, Docker-in-Docker, OIDC, cache, timeout, and runner-tag policy |
-| Dockerfile | `Dockerfile`, `Dockerfile.*`, `*.dockerfile` | dangerous `RUN` commands, remote `ADD` without checksum, and literal build `ARG` / `ENV` secrets |
 | Edge Docker Compose | `compose*.yml`, `compose*.yaml`, `docker-compose*.yml`, `docker-compose*.yaml` | privileged containers, broad host device/control mounts, GPU/device runtime, and host networking |
 | Edge systemd | `*.service` | root edge services, mutable `ExecStart` paths, missing sandboxing, broad capabilities, and broad device access |
 
@@ -281,7 +539,6 @@ tool is universally state of the art.
 | Security regression | 56 cases, TP=35 FP=0 FN=0 TN=23, score 100.0 | Bandit score 47.14 on Python-applicable cases |
 | Quality regression | 13 cases, score 100.0 | regression gate only |
 | Agent review | 25 cases, score 100.0 | regression gate only |
-| AI-code defect regression | curated verifier cases for hallucinated references, package APIs, and dependency versions | run `python scripts/ai_code_defect_benchmark.py` |
 
 Frozen `golden-v0.2` highlights:
 

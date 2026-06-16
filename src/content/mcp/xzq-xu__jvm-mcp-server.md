@@ -8,6 +8,259 @@ url: "https://github.com/xzq-xu/jvm-mcp-server"
 body_length: 7549
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # JVM MCP Server
+
+  <p align="center">
+    
+    
+    
+  </p>
+
+  [English](README.md) | [中文](README_zh.md)
+
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/xzq-xu-jvm-mcp-server-badge.png)](https://mseep.ai/app/xzq-xu-jvm-mcp-server)
+
+
+  Native JDK araçlarına dayanan hafif bir JVM izleme ve tanılama MCP (Multi-Agent Communication Protocol) sunucu uygulaması. AI ajanlarına Arthas gibi üçüncü taraf araçlar gerektirmeden Java uygulamalarını izleme ve analiz etme konusunda güçlü yetenekler sağlar.
+
+  <a href="https://glama.ai/mcp/servers/@xzq-xu/jvm-mcp-server">
+    
+  </a>
+
+  ## Barındırılan dağıtım
+
+  Barındırılan bir dağıtım [Fronteir AI](https://fronteir.ai/mcp/xzq-xu-jvm-mcp-server) üzerinde mevcuttur.
+
+  ## Özellikler
+
+  - **Sıfır Bağımlılık**: Yalnızca native JDK araçlarını kullanır (jps, jstack, jmap, vb.)
+  - **Hafif**: Agent tabanlı çözümlere kıyasla minimal kaynak tüketimi
+  - **Yüksek Uyumluluk**: Tüm Java sürümleri ve platformlarında çalışır
+  - **Non-Intrusive**: Hedef uygulamalarda hiçbir değişiklik gerekmez
+  - **Güvenli**: Yalnızca JDK tarafından onaylanmış araç ve komutları kullanır
+  - **Uzak İzleme**: SSH aracılığıyla yerel ve uzak JVM izlemesini destekler
+
+  ## Temel Yetenekler
+
+  ### Temel İzleme
+  - Java işlem listesi ve tanımlama
+  - JVM temel bilgileri alma
+  - Bellek kullanımı izleme
+  - Thread bilgisi ve stack trace analizi
+  - Sınıf yükleme istatistikleri
+  - Detaylı sınıf yapısı bilgileri
+
+  ### Gelişmiş Özellikler
+  - Method çağrı yolu analizi
+  - Sınıf decompilasyonu
+  - Method arama ve inceleme
+  - Method çağrısı izleme
+  - Logger seviyesi yönetimi
+  - Sistem kaynakları dashboard
+
+  ## Sistem Gereksinimleri
+
+  - Python 3.6+
+  - JDK 8+
+  - Linux/Unix/Windows OS
+  - SSH erişimi (uzak izleme için)
+
+  ## Kurulum
+
+  ### uv kullanarak (Önerilir)
+
+  ```bash
+  # Eğer kurulu değilse uv yükleyin
+  curl -LsSf https://astral.sh/uv/install.sh | sh  # Linux/macOS
+  # veya
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"  # Windows
+
+  # Paketi yükleyin
+  uv pip install jvm-mcp-server
+  ```
+
+  ### pip kullanarak
+
+  ```bash
+  pip install jvm-mcp-server
+  ```
+
+  ### Kaynaktan
+
+  ```bash
+  # Deposunu klonlayın
+  git clone https://github.com/your-repo/jvm-mcp-server.git
+  cd jvm-mcp-server
+
+  # uv kullanarak (önerilir)
+  uv venv  # Sanal ortam oluşturun
+  uv sync  # Bağımlılıkları yükleyin
+
+  # Veya geliştirme modunda yükleyin
+  uv pip install -e .
+  ```
+
+  ## Hızlı Başlangıç
+
+  ### Sunucuyu Başlatma
+
+  #### uv kullanarak (Önerilir)
+
+  ```bash
+  # Yerel mod
+  uv run jvm-mcp-server
+
+  # Uzak mod için ortam değişkenleri dosyası kullanarak
+  uv run --env-file .env jvm-mcp-server
+
+  # Belirli dizinde
+  uv --directory /path/to/project run --env-file .env jvm-mcp-server
+  ```
+
+  #### uvx kullanarak
+
+  ```bash
+  # Yerel mod
+  uvx run jvm-mcp-server
+
+  # Ortam değişkenleriyle
+  uvx run --env-file .env jvm-mcp-server
+  ```
+
+  #### Python ile doğrudan
+
+  ```python
+  from jvm_mcp_server import JvmMcpServer
+
+  # Yerel mod
+  server = JvmMcpServer()
+  server.run()
+
+  # Uzak mod (ortam değişkenleriyle)
+  # SSH_HOST, SSH_PORT, SSH_USER, SSH_PASSWORD veya SSH_KEY ayarlayın
+  import os
+  os.environ['SSH_HOST'] = 'user@remote-host'
+  os.environ['SSH_PORT'] = '22'
+  server = JvmMcpServer()
+  server.run()
+  ```
+
+  ### MCP Yapılandırması ile Kullanım
+
+  ```json
+  {
+    "mcpServers": {
+      "jvm-mcp-server": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "/path/to/jvm-mcp-server",
+          "run",
+          "--env-file",
+          "/path/to/jvm-mcp-server/.env",
+          "jvm-mcp-server"
+        ]
+      }
+    }
+  }
+  ```
+
+  ## Mevcut Araçlar
+
+  JVM-MCP-Server, JVM izleme ve tanılaması için kapsamlı bir araç seti sağlar:
+
+  - `list_java_processes`: Tüm Java işlemlerini listele
+  - `get_thread_info`: Belirli bir işlem için thread bilgisi al
+  - `get_jvm_info`: JVM temel bilgilerini al
+  - `get_memory_info`: Bellek kullanımı bilgisini al
+  - `get_stack_trace`: Thread stack trace bilgisini al
+  - `get_class_info`: Yapı dahil ayrıntılı sınıf bilgisini al
+  - `get_stack_trace_by_method`: Method çağrı yolunu al
+  - `decompile_class`: Sınıf kaynak kodunu decompile et
+  - `search_method`: Sınıflarda method ara
+  - `watch_method`: Method çağrılarını izle
+  - `get_logger_info`: Logger bilgisini al
+  - `set_logger_level`: Logger seviyelerini ayarla
+  - `get_dashboard`: Sistem kaynakları dashboard'ını al
+  - `get_jcmd_output`: JDK jcmd komutlarını çalıştır
+  - `get_jstat_output`: JDK jstat komutlarını çalıştır
+
+  Her araç hakkında detaylı dokumentasyon için bkz. [Mevcut Araçlar](./doc/available_tools.md).
+
+  ## Mimari
+
+  JVM-MCP-Server modüler bir mimari üzerine inşa edilmiştir:
+
+  1. **Komut Katmanı**: JDK native komutlarını sarmalanır
+  2. **Executor Katmanı**: Yerel ve uzak komut yürütülmesini yönetir
+  3. **Formatter Katmanı**: Komut çıktısını işler ve biçimlendirir
+  4. **MCP Arayüzü**: FastMCP protokolü aracılığıyla işlevselliği sunar
+
+  ### Temel Bileşenler
+
+  - `BaseCommand`: Tüm komutlar için soyut temel sınıf
+  - `CommandExecutor`: Komut yürütülmesi arayüzü (yerel ve uzak)
+  - `OutputFormatter`: Komut çıktısını biçimlendirme arayüzü
+  - `JvmMcpServer`: Tüm araçları kaydeden ana sunucu sınıfı
+
+  ## Geliştirme Durumu
+
+  Proje aktif geliştirme aşamasındadır. Mevcut ilerleme için [Native_TODO.md](Native_TODO.md) bölümüne bakın.
+
+  ### Tamamlanan
+  - Temel mimari ve komut framework
+  - Temel komutlar uygulaması (jps, jstack, jmap, jinfo, jcmd, jstat)
+  - Sınıf bilgisi alma sistemi
+  - MCP araç parametre tipi uyumluluk düzeltmeleri
+
+  ### Devam Eden
+  - Caching mekanizması
+  - Method tracing
+  - Performans izleme
+  - Hata işleme iyileştirmeleri
+
+  ## Katkı Sağlama
+
+  Katkılar hoşlanmaktadır! Lütfen bir Pull Request göndermekten çekinmeyin.
+
+  1. Deposunu fork edin
+  2. Özellik dalınızı oluşturun (`git checkout -b feature/amazing-feature`)
+  3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
+  4. Dalı push edin (`git push origin feature/amazing-feature`)
+  5. Bir Pull Request açın
+
+  ## Lisans
+
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+
+  ## Teşekkürler
+
+  - JDK araçları dokumentasyonu
+  - FastMCP protokolü spesifikasyonu
+  - Katkıda bulunanlar ve test ediciler
+
+  ## İzin Gereksinimleri
+
+  Bazı JVM tanılama komutları (jstack, jmap, jinfo, jcmd, vb.) hedef JVM işlemine bağlanmak için yeterli izinler gerektirir. İzin hatalarıyla karşılaşırsanız, aşağıdaki çözümleri deneyin:
+
+  ### Yaygın Hatalar
+
+  - `Permission denied`: Yeterli izin yok
+  - `Unable to open socket file`: JVM işlemine bağlanılamıyor
+  - `No such process`: İşlem mevcut değil veya çıkış yaptı
+
+  ### Çözümler
+
+  1. **sudo ile çalıştırın** (önerilir): `sudo uv run jvm-mcp-server`
+  2. **Hedef Java işlemiyle aynı kullanıcı olarak çalıştırın**: Java işleminin kullanıcı ID'sini kontrol edin ve bu kullanıcı olarak çalıştırın
+  3. **JDK'ye experimental attach izni ekleyin**: JVM başlatma argümanlarına ekleyin:
+     ```
+     -XX:+AllowRedefinitionToAddDeleteMethods
+     ```
+  4. **Docker'da**: Konteynerın yeterli izinlere sahip olduğundan emin olun (--privileged veya /proc mount)
+
+  Not: `list_java_processes` jps komutunu kullanır ve özel izinler gerektirmez. Diğer komutlar yukarıdaki çözümlere göre yapılandırılması gerekebilir.
 ---
 
 # JVM MCP Server

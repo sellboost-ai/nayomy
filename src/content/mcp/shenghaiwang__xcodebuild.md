@@ -8,6 +8,80 @@ url: "https://github.com/ShenghaiWang/xcodebuild"
 body_length: 1986
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # xcodebuild MCP Server
+
+  iOS workspace/project oluşturmak için Model Context Protocol sunucusu. Visual Studio Code'da Cline veya Roo Code gibi uzantılarla iOS projeleriyle kesintisiz bir iş akışı sağlar.
+
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/ShenghaiWang/xcodebuild)](https://archestra.ai/mcp-catalog/shenghaiwang__xcodebuild)
+  <a href="https://glama.ai/mcp/servers/5ibnbzxmql">
+    
+  </a>
+
+  ### Mevcut Araçlar
+
+  - `build` - iOS Xcode workspace/project oluştur
+      - `folder` (string, gerekli): iOS Xcode workspace/project dosyasının bulunduğu klasörün tam yolu
+  - `test` - iOS Xcode workspace/project için test çalıştır
+      - `folder` (string, gerekli): iOS Xcode workspace/project dosyasının bulunduğu klasörün tam yolu
+
+  ## Kurulum
+
+
+  ### uv kullanarak (önerilir)
+
+  [`uv`](https://docs.astral.sh/uv/) kullanırken özel bir kurulum gerekmez. *mcpxcodebuild*'i doğrudan çalıştırmak için [`uvx`](https://docs.astral.sh/uv/guides/tools/) kullanacağız.
+
+  ### PIP Kullanarak
+
+  Alternatif olarak `mcpxcodebuild`'i pip aracılığıyla yükleyebilirsiniz:
+
+  ```
+  pip install mcpxcodebuild
+  ```
+
+  Kurulumdan sonra, bunu script olarak çalıştırabilirsiniz:
+
+  ```
+  python -m  mcpxcodebuild
+  ```
+
+  ## Yapılandırma
+
+  ### Claude.app için Yapılandırma
+
+  Claude ayarlarınıza ekleyin:
+
+  <details>
+  <summary>uvx kullanarak</summary>
+
+  ```json
+  "mcpServers": {
+    "mcpxcodebuild": {
+      "command": "uvx",
+      "args": ["mcpxcodebuild"]
+    }
+  }
+  ```
+  </details>
+
+  <details>
+  <summary>pip yüklemesi kullanarak</summary>
+
+  ```json
+  "mcpServers": {
+    "mcpxcodebuild": {
+      "command": "python",
+      "args": ["-m", "mcpxcodebuild"]
+    }
+  }
+  ```
+  </details>
+
+
+  ## Lisans
+
+  xcodebuild MCP aracı MIT Lisansı altında lisanslanmıştır. Bu, MIT Lisansının şartları ve koşullarına tabi olarak yazılımı özgürce kullanma, değiştirme ve dağıtma hakkına sahip olduğunuz anlamına gelir. Daha fazla ayrıntı için lütfen proje deposundaki LICENSE dosyasına bakınız.
 ---
 
 # xcodebuild MCP Server

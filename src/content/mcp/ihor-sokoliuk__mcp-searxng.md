@@ -3,32 +3,259 @@ name: "ihor-sokoliuk/mcp-searxng"
 description: "A Model Context Protocol Server for SearXNG"
 category: "Search & Data Extraction"
 repo: "ihor-sokoliuk/mcp-searxng"
-stars: 906
+stars: 814
 url: "https://github.com/ihor-sokoliuk/mcp-searxng"
-body_length: 10925
+body_length: 6435
 license: "MIT"
 language: "TypeScript"
-homepage: "https://www.npmjs.com/package/mcp-searxng"
+body_tr: |-
+  # SearXNG MCP Server
+
+  Bir [MCP server](https://modelcontextprotocol.org/introduction), [SearXNG](https://docs.searxng.org) API'sini entegre eder ve yapay zeka asistanlarına web arama yetenekleri sağlar.
+
+  [![https://nodei.co/npm/mcp-searxng.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/mcp-searxng.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mcp-searxng)
+
+  [![https://badgen.net/docker/pulls/isokoliuk/mcp-searxng](https://badgen.net/docker/pulls/isokoliuk/mcp-searxng)](https://hub.docker.com/r/isokoliuk/mcp-searxng)
+
+  <a href="https://glama.ai/mcp/servers/0j7jjyt7m9"></a>
+
+  ## Hızlı Başlangıç
+
+  MCP client yapılandırmanıza ekleyin (örneğin `claude_desktop_config.json`):
+
+  ```json
+  {
+    "mcpServers": {
+      "searxng": {
+        "command": "npx",
+        "args": ["-y", "mcp-searxng"],
+        "env": {
+          "SEARXNG_URL": "YOUR_SEARXNG_INSTANCE_URL"
+        }
+      }
+    }
+  }
+  ```
+
+  `YOUR_SEARXNG_INSTANCE_URL` yerine SearXNG örneğinizin URL'sini yazın (örneğin `https://search.example.com`).
+
+  ## Özellikler
+
+  - **Web Arama**: Genel sorgular, haberler, makaleler ve sayfalandırma.
+  - **URL İçeriği Okuma**: Sayfalandırma, bölüm filtreleme ve başlık çıkarma ile geliştiş içerik çıkarma.
+  - **Akıllı Önbellekleme**: URL içeriği TTL (Time-To-Live) ile önbelleğe alınır ve performansı iyileştirir, gereksiz istekleri azaltır.
+  - **Sayfalandırma**: Hangi sonuç sayfasının alınacağını kontrol edin.
+  - **Zaman Filtreleme**: Sonuçları zaman aralığına göre filtreleyin (gün, ay, yıl).
+  - **Dil Seçimi**: Sonuçları tercih edilen dile göre filtreleyin.
+  - **Güvenli Arama**: Arama sonuçları için içerik filtreleme seviyesini kontrol edin.
+
+  ## Nasıl Çalışır
+
+  `mcp-searxng` bağımsız bir MCP server'ıdır — yapay zeka asistanının web arama için bağlandığı ayrı bir Node.js işlemidir. Herhangi bir SearXNG örneğini HTTP JSON API'si aracılığıyla sorgular.
+
+  > **SearXNG plugin'i değildir:** Bu proje, yerel SearXNG plugin'i olarak yüklenemez. `SEARXNG_URL` ayarlayarak mevcut herhangi bir SearXNG örneğine işaret edin.
+
+  ```
+  Yapay Zeka Asistanı (örneğin Claude)
+          │  MCP protokolü
+          ▼
+    mcp-searxng  (bu proje — Node.js işlemi)
+          │  HTTP JSON API  (SEARXNG_URL)
+          ▼
+    SearXNG örneği
+  ```
+
+  ## Araçlar
+
+  - **searxng_web_search**
+    - Sayfalandırma ile web araması yapın
+    - Girdiler:
+      - `query` (string): Arama sorgusu. Bu dize harici arama hizmetlerine iletilir.
+      - `pageno` (number, isteğe bağlı): Arama sayfası numarası, 1'den başlar (varsayılan 1)
+      - `time_range` (string, isteğe bağlı): Sonuçları zaman aralığına göre filtreleyin - biri: "day", "month", "year" (varsayılan: hiçbiri)
+      - `language` (string, isteğe bağlı): Sonuçlar için dil kodu (örneğin, "en", "fr", "de") veya "all" (varsayılan: "all")
+      - `safesearch` (number, isteğe bağlı): Güvenli arama filtresi seviyesi (0: Hiçbiri, 1: Orta, 2: Sıkı) (varsayılan: örnek ayarı)
+
+  - **web_url_read**
+    - Gelişmiş içerik çıkarma seçenekleri ile bir URL'den içerik okuyun ve markdown'a dönüştürün
+    - Girdiler:
+      - `url` (string): Getirip işlenecek URL
+      - `startChar` (number, isteğe bağlı): İçerik çıkarma için başlangıç karakter konumu (varsayılan: 0)
+      - `maxLength` (number, isteğe bağlı): Döndürülecek maksimum karakter sayısı
+      - `section` (string, isteğe bağlı): Belirli bir başlık altında içerik çıkarın (başlık metnini arar)
+      - `paragraphRange` (string, isteğe bağlı): Belirli paragraf aralıklarını döndürün (örneğin, '1-5', '3', '10-')
+      - `readHeadings` (boolean, isteğe bağlı): Tam içerik yerine yalnızca başlıkların listesini döndürün
+
+  ## Kurulum
+
+  <details>
+  <summary>NPM (global kurulum)</summary>
+
+  ```bash
+  npm install -g mcp-searxng
+  ```
+
+  ```json
+  {
+    "mcpServers": {
+      "searxng": {
+        "command": "mcp-searxng",
+        "env": {
+          "SEARXNG_URL": "YOUR_SEARXNG_INSTANCE_URL"
+        }
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary>Docker</summary>
+
+  **Önceden oluşturulmuş görüntü:**
+
+  ```bash
+  docker pull isokoliuk/mcp-searxng:latest
+  ```
+
+  ```json
+  {
+    "mcpServers": {
+      "searxng": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-e", "SEARXNG_URL",
+          "isokoliuk/mcp-searxng:latest"
+        ],
+        "env": {
+          "SEARXNG_URL": "YOUR_SEARXNG_INSTANCE_URL"
+        }
+      }
+    }
+  }
+  ```
+
+  Ek ortam değişkenleri iletmek için `args`'a `-e VAR_NAME` ekleyin ve değişkeni `env`'a ekleyin.
+
+  **Yerel olarak derleyin:**
+
+  ```bash
+  docker build -t mcp-searxng:latest -f Dockerfile .
+  ```
+
+  Yukarıdaki aynı yapılandırmayı kullanın, `isokoliuk/mcp-searxng:latest` yerine `mcp-searxng:latest` yazın.
+
+  </details>
+
+  <details>
+  <summary>Docker Compose</summary>
+
+  `docker-compose.yml`:
+
+  ```yaml
+  services:
+    mcp-searxng:
+      image: isokoliuk/mcp-searxng:latest
+      stdin_open: true
+      environment:
+        - SEARXNG_URL=YOUR_SEARXNG_INSTANCE_URL
+        # Gerektiğinde isteğe bağlı değişkenler ekleyin — bkz. CONFIGURATION.md
+  ```
+
+  MCP client yapılandırması:
+
+  ```json
+  {
+    "mcpServers": {
+      "searxng": {
+        "command": "docker-compose",
+        "args": ["run", "--rm", "mcp-searxng"]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary>HTTP Taşıması</summary>
+
+  Varsayılan olarak server STDIO kullanır. HTTP modunu etkinleştirmek için `MCP_HTTP_PORT` ayarlayın:
+
+  ```json
+  {
+    "mcpServers": {
+      "searxng-http": {
+        "command": "mcp-searxng",
+        "env": {
+          "SEARXNG_URL": "YOUR_SEARXNG_INSTANCE_URL",
+          "MCP_HTTP_PORT": "3000"
+        }
+      }
+    }
+  }
+  ```
+
+  **Uç noktalar:** `POST/GET/DELETE /mcp` (MCP protokolü), `GET /health` (sağlık kontrolü)
+
+  **Bunu deneyin:**
+
+  ```bash
+  MCP_HTTP_PORT=3000 SEARXNG_URL=http://localhost:8080 mcp-searxng
+  curl http://localhost:3000/health
+  ```
+
+  </details>
+
+  ## Yapılandırma
+
+  `SEARXNG_URL` ortam değişkenini SearXNG örneğiniz URL'sine ayarlayın. Diğer tüm değişkenler isteğe bağlıdır.
+
+  Tam ortam değişkeni referansı: [CONFIGURATION.md](CONFIGURATION.md)
+
+  ## Sorun Giderme
+
+  ### SearXNG'den 403 Forbidden
+
+  SearXNG örneğinizin muhtemelen JSON format devre dışıdır. `settings.yml` dosyasını düzenleyin (genellikle `/etc/searxng/settings.yml`):
+
+  ```yaml
+  search:
+    formats:
+      - html
+      - json
+  ```
+
+  SearXNG'yi yeniden başlatın (`docker restart searxng`) ardından doğrulayın:
+
+  ```bash
+  curl 'http://localhost:8080/search?q=test&format=json'
+  ```
+
+  Bir JSON yanıtı almalısınız. Değilse, dosyanın doğru şekilde monte edildiğini ve YAML girintisinin geçerli olduğunu onaylayın.
+
+  Ayrıca bkz: [SearXNG settings docs](https://docs.searxng.org/admin/settings/settings.html) · [tartışma](https://github.com/searxng/searxng/discussions/1789)
+
+  ## Katkıda Bulunma
+
+  Bkz. [CONTRIBUTING.md](CONTRIBUTING.md)
+
+  ## Lisans
+
+  MIT — ayrıntılar için [LICENSE](LICENSE) dosyasını inceleyin.
 ---
 
-<div align="center">
-
-# 🔍 SearXNG MCP Server
-
-**Private web search for AI assistants — connect any SearXNG instance to Claude, Cursor, and more.**
-
-[![GitHub Stars](https://img.shields.io/github/stars/ihor-sokoliuk/mcp-searxng?style=flat-square&logo=github&label=stars)](https://github.com/ihor-sokoliuk/mcp-searxng/stargazers)
-[![npm version](https://img.shields.io/npm/v/mcp-searxng?style=flat-square&logo=npm)](https://www.npmjs.com/package/mcp-searxng)
-[![npm downloads](https://img.shields.io/npm/dm/mcp-searxng?style=flat-square&logo=npm&label=downloads%2Fmo)](https://www.npmjs.com/package/mcp-searxng)
-[![Docker Pulls](https://img.shields.io/docker/pulls/isokoliuk/mcp-searxng?style=flat-square&logo=docker)](https://hub.docker.com/r/isokoliuk/mcp-searxng)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ihor-sokoliuk/mcp-searxng/badge)](https://scorecard.dev/viewer/?uri=github.com/ihor-sokoliuk/mcp-searxng)
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13143/badge)](https://www.bestpractices.dev/projects/13143)
-[![mcp-searxng MCP server](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng/badges/score.svg)](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng)
+# SearXNG MCP Server
 
 An [MCP server](https://modelcontextprotocol.io/introduction) that integrates the [SearXNG](https://docs.searxng.org) API, giving AI assistants web search capabilities.
 
-</div>
+[![https://nodei.co/npm/mcp-searxng.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/mcp-searxng.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mcp-searxng)
+
+[![https://badgen.net/docker/pulls/isokoliuk/mcp-searxng](https://badgen.net/docker/pulls/isokoliuk/mcp-searxng)](https://hub.docker.com/r/isokoliuk/mcp-searxng)
+
+<a href="https://glama.ai/mcp/servers/0j7jjyt7m9"></a>
 
 ## Quick Start
 
@@ -48,33 +275,17 @@ Add to your MCP client configuration (e.g. `claude_desktop_config.json`):
 }
 ```
 
-Replace `YOUR_SEARXNG_INSTANCE_URL` with the URL of your SearXNG instance (e.g. `https://searxng.example.com`).
+Replace `YOUR_SEARXNG_INSTANCE_URL` with the URL of your SearXNG instance (e.g. `https://search.example.com`).
 
 ## Features
 
 - **Web Search**: General queries, news, articles, with pagination.
-- **Structured Search Output**: Choose formatted text or raw SearXNG-shaped JSON with `response_format`.
-- **Direct Answers & Metadata**: Text results surface SearXNG answers, corrections, suggestions, and infoboxes before result lists.
-- **Search Suggestions**: Query autocomplete via SearXNG's `/autocompleter` endpoint.
-- **Instance Capability Discovery**: Inspect configured categories, engines, defaults, locales, and plugins from `/config`.
 - **URL Content Reading**: Advanced content extraction with pagination, section filtering, and heading extraction.
 - **Intelligent Caching**: URL content is cached with TTL (Time-To-Live) to improve performance and reduce redundant requests.
 - **Pagination**: Control which page of results to retrieve.
-- **Time Filtering**: Filter results by time range (day, week, month, year).
+- **Time Filtering**: Filter results by time range (day, month, year).
 - **Language Selection**: Filter results by preferred language.
 - **Safe Search**: Control content filtering level for search results.
-- **Relevance Filtering**: Filter out low-scoring search results with `min_score`.
-
-## Why mcp-searxng?
-
-| | Brave MCP | Exa MCP | Firecrawl MCP | **mcp-searxng** |
-|--|:---------:|:-------:|:-------------:|:---------------:|
-| Web Search | ✓ | ✓ | ✓ | ✓ |
-| Read URL | ✗ | ✓ | ✓ | ✓ |
-| Pagination | ✗ | ✗ | ✓ | ✓ |
-| Self-hosted | ✗ | ✗ | Partial | ✓ |
-| Privacy | ✗ | ✗ | ✗ | ✓ |
-| Free / No API key | ✗ | ✗ | ✗ | ✓ |
 
 ## How It Works
 
@@ -99,28 +310,9 @@ AI Assistant (e.g. Claude)
   - Inputs:
     - `query` (string): The search query. This string is passed to external search services.
     - `pageno` (number, optional): Search page number, starts at 1 (default 1)
-    - `time_range` (string, optional): Filter results by time range - one of: "day", "week", "month", "year" (default: none)
+    - `time_range` (string, optional): Filter results by time range - one of: "day", "month", "year" (default: none)
     - `language` (string, optional): Language code for results (e.g., "en", "fr", "de") or "all" (default: "all")
     - `safesearch` (number, optional): Safe search filter level (0: None, 1: Moderate, 2: Strict) (default: instance setting)
-    - `min_score` (number, optional): Minimum relevance score from 0.0 to 1.0. Results below this score are filtered out.
-    - `num_results` (number, optional): Maximum number of results to return, from 1 to 20. `SEARXNG_MAX_RESULTS` applies as an operator ceiling.
-    - `categories` (string, optional): Comma-separated SearXNG categories (e.g. `"news"`, `"it,science"`). When live `/config` is available, values are trimmed and normalized case-insensitively to the instance's canonical category names; unknown values are rejected with available categories listed. If `/config` is unavailable, values are forwarded as-is with a warning. Default: SearXNG instance default.
-    - `engines` (string, optional): Comma-separated SearXNG engine names (e.g. `"google,bing,ddg"`, `"semantic scholar"`). When live `/config` is available, values are trimmed and normalized case-insensitively to canonical engine names, including engines disabled by default; unknown values are rejected with available engines listed. If `/config` is unavailable, values are forwarded as-is with a warning.
-    - `response_format` (string, optional): Response format, either `"text"` for formatted agent-readable output or `"json"` for raw SearXNG JSON with filtered/sliced `results`. (default: `"text"`)
-
-- **searxng_search_suggestions**
-  - Get autocomplete suggestions for refining search queries
-  - Inputs:
-    - `query` (string): Partial or complete query to autocomplete.
-    - `language` (string, optional): Language code for suggestions (e.g., "en", "fr", "de") or "all" (default: "all")
-
-- **searxng_instance_info**
-  - Discover categories, engines, defaults, locales, and plugins exposed by the configured SearXNG instance
-  - Inputs:
-    - `includeEngines` (boolean, optional): Include enabled engine names in the response. (default: false)
-    - `includeDisabled` (boolean, optional): Include disabled engine names when `includeEngines` is true. (default: false)
-    - `category` (string, optional): Filter categories and engines to a single category name.
-    - `refresh` (boolean, optional): Bypass the process cache and fetch fresh `/config` data. (default: false)
 
 - **web_url_read**
   - Read and convert the content from a URL to markdown with advanced content extraction options
@@ -164,8 +356,6 @@ npm install -g mcp-searxng
 ```bash
 docker pull isokoliuk/mcp-searxng:latest
 ```
-
-Image signatures can be verified with Cosign — see [SECURITY.md](SECURITY.md) for instructions.
 
 ```json
 {
@@ -289,16 +479,6 @@ See also: [SearXNG settings docs](https://docs.searxng.org/admin/settings/settin
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=ihor-sokoliuk%2Fmcp-searxng&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ihor-sokoliuk/mcp-searxng&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ihor-sokoliuk/mcp-searxng&type=date&legend=top-left" />
-   
- </picture>
-</a>
 
 ## License
 

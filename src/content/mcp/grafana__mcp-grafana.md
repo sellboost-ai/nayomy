@@ -3,11 +3,296 @@ name: "grafana/mcp-grafana"
 description: "Search dashboards, investigate incidents and query datasources in your Grafana instance"
 category: "Monitoring"
 repo: "grafana/mcp-grafana"
-stars: 3155
+stars: 3053
 url: "https://github.com/grafana/mcp-grafana"
-body_length: 77378
+body_length: 66431
 license: "Apache-2.0"
 language: "Go"
+body_tr: |-
+  # Grafana MCP sunucusu
+
+  [![Unit Tests](https://github.com/grafana/mcp-grafana/actions/workflows/unit.yml/badge.svg)](https://github.com/grafana/mcp-grafana/actions/workflows/unit.yml)
+  [![Integration Tests](https://github.com/grafana/mcp-grafana/actions/workflows/integration.yml/badge.svg)](https://github.com/grafana/mcp-grafana/actions/workflows/integration.yml)
+  [![E2E Tests](https://github.com/grafana/mcp-grafana/actions/workflows/e2e.yml/badge.svg)](https://github.com/grafana/mcp-grafana/actions/workflows/e2e.yml)
+  [![Go Reference](https://pkg.go.dev/badge/github.com/grafana/mcp-grafana.svg)](https://pkg.go.dev/github.com/grafana/mcp-grafana)
+  [![MCP Catalog](https://archestra.ai/mcp-catalog/api/badge/quality/grafana/mcp-grafana)](https://archestra.ai/mcp-catalog/grafana__mcp-grafana)
+
+  Grafana için bir [Model Context Protocol][mcp] (MCP) sunucusu.
+
+  Bu, Grafana örneğinize ve çevreleyen ekosisteme erişim sağlar.
+
+  ## Hızlı Başlangıç
+
+  [uv](https://docs.astral.sh/uv/getting-started/installation/) gereklidir. Aşağıdakileri MCP istemci yapılandırmanıza ekleyin (örn. Claude Desktop, Cursor):
+
+  ```json
+  {
+    "mcpServers": {
+      "grafana": {
+        "command": "uvx",
+        "args": ["mcp-grafana"],
+        "env": {
+          "GRAFANA_URL": "http://localhost:3000",
+          "GRAFANA_SERVICE_ACCOUNT_TOKEN": "<your service account token>"
+        }
+      }
+    }
+  }
+  ```
+
+  Grafana Cloud için `GRAFANA_URL` değerini örneğinizin URL'si ile değiştirin (örn. `https://myinstance.grafana.net`). Docker, binary ve Helm dahil daha fazla kurulum seçeneği için [Kullanım](#usage) bölümüne bakın.
+
+  ## Gereksinimler
+
+  - **Grafana sürüm 9.0 veya üstü** tam işlevsellik için gereklidir. Bazı özellikler, özellikle veri kaynağı ile ilgili işlemler, eksik API endpoint'leri nedeniyle önceki sürümlerle düzgün çalışmayabilir.
+
+  ## Özellikler
+
+  _Aşağıdaki özellikler şu anda MCP sunucusunda mevcuttur. Bu liste yalnızca bilgi amaçlıdır ve gelecekteki özellikler hakkında bir yol haritası veya taahhüt oluşturmaz._
+
+  ### Panolar
+
+  - **Panolar arayın:** Başlık veya diğer meta verilere göre panoları bulun
+  - **Panoyu UID ile alın:** Benzersiz tanımlayıcıyı kullanarak tam pano ayrıntılarını alın. _Uyarı: Büyük panolar önemli ölçüde kontekst penceresi alanı tüketebilir._
+  - **Pano özetini alın:** Başlık, panel sayısı, panel türleri, değişkenler ve meta veri dahil olmak üzere tam JSON olmadan pano hakkında kompakt bir genel bakış elde edin ve kontekst penceresi kullanımını en aza indirin
+  - **Pano özelliğini alın:** JSONPath ifadelerini kullanarak pano parçalarını çıkarın (örn. `$.title`, `$.panels[*].title`) yalnızca gerekli verileri alın ve kontekst penceresi tüketimini azaltın
+  - **Panoyu güncelleyin veya oluşturun:** Mevcut panoları değiştirin veya yenilerini oluşturun. _Uyarı: Tam pano JSON gerekli olup büyük miktarda kontekst penceresi alanı tüketebilir._
+  - **Panoyu yamalayın:** Tam JSON gerektirmeden pano üzerinde belirli değişiklikleri uygulayın, hedeflenen değişiklikler için kontekst penceresi kullanımını önemli ölçüde azaltın
+  - **Panel sorguları ve veri kaynağı bilgisini alın:** Bir panodaki her panelden başlık, sorgu dizesi ve veri kaynağı bilgilerini (UID ve tür dahil, varsa) alın
+
+  ### Panel Sorgusu Çalıştır
+
+  > **Not:** Panel sorgusu çalıştırma araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `runpanelquery` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **Panel sorgusu çalıştırın:** Pano panelinin sorgusu özel zaman aralıkları ve değişken geçersiz kılmaları ile çalıştırın.
+
+  #### Kontekst Penceresi Yönetimi
+
+  Pano araçları artık kontekst penceresi kullanımını etkili bir şekilde yönetmek için birkaç strateji içerir ([issue #101](https://github.com/grafana/mcp-grafana/issues/101)):
+
+  - **Pano genel bakışı ve değişiklik planlaması için `get_dashboard_summary` kullanın**
+  - **Yalnızca belirli pano parçalarına ihtiyaç duyduğunuzda `get_dashboard_property` öğesini JSONPath ile kullanın**
+  - **`get_dashboard_by_uid` kullanmaktan kaçının** tam pano JSON'ı özellikle gerekli olmadığı sürece
+
+  ### Veri Kaynakları
+
+  - **Veri kaynağı bilgilerini listeleyin ve alın:** Yapılandırılan tüm veri kaynaklarını görüntüleyin ve her biri hakkında ayrıntılı bilgiler alın.
+    - _Desteklenen veri kaynağı türleri: Prometheus, Loki, ClickHouse, CloudWatch, Elasticsearch, OpenSearch, Snowflake, Athena._
+
+  ### Sorgu Örnekleri
+
+  > **Not:** Sorgu örneği araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `examples` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **Sorgu örneklerini alın:** Sorgu söz dizimini öğrenmek için farklı veri kaynağı türleri için örnek sorguları alın.
+
+  ### Prometheus Sorgulaması
+
+  - **Prometheus sorgula:** PromQL sorgularını (hem anında hem de aralık metrik sorguları destekler) Prometheus veri kaynakları arasında çalıştırın.
+  - **Prometheus meta verilerini sorgula:** Prometheus veri kaynaklarından metrik meta verileri, metrik adları, etiket adları ve etiket değerlerini alın.
+  - **Histogram yüzdelikleri sorgula:** histogram_quantile kullanarak histogram yüzdelik değerlerini (p50, p90, p95, p99) hesaplayın.
+
+  ### Loki Sorgulaması
+
+  - **Loki günlüklerini ve metriklerini sorgula:** Loki veri kaynakları arasında LogQL kullanarak hem günlük sorguları hem de metrik sorguları çalıştırın.
+  - **Loki meta verilerini sorgula:** Loki veri kaynaklarından etiket adları, etiket değerleri ve akış istatistiklerini alın.
+  - **Loki desenlerini sorgula:** Ortak günlük yapılarını ve anormalliklerini tanımlamak için Loki tarafından tespit edilen günlük desenleri alın.
+
+  ### InfluxDB Sorgulaması
+
+  > **Not:** InfluxDB araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `influxdb` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **InfluxDB sorgula:** InfluxQL (v1.x) veya Flux (v2.x) kullanarak InfluxDB veri kaynakları arasında sorgular çalıştırın. Lehçe, veri kaynağı yapılandırmasından çıkarılır veya `dialect` parametresi aracılığıyla açıkça ayarlanabilir.
+
+  ### ClickHouse Sorgulaması
+
+  > **Not:** ClickHouse araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `clickhouse` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **ClickHouse tablolarını listeleyin:** Bir ClickHouse veritabanındaki tüm tabloları satır sayıları ve boyutları ile listeleyin.
+  - **Tablo şemasını tanımlayın:** Bir ClickHouse tablosu için sütun adları, türleri ve meta verileri alın.
+  - **ClickHouse sorgula:** Grafana makro ve değişken ikame desteği ile SQL sorguları çalıştırın.
+
+  ### CloudWatch Sorgulaması
+
+  > **Not:** CloudWatch araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `cloudwatch` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **CloudWatch ad alanlarını listeleyin:** Kullanılabilir AWS CloudWatch ad alanlarını keşfedin.
+  - **CloudWatch metriklerini listeleyin:** Belirli bir ad alanında kullanılabilir metrikleri listeleyin.
+  - **CloudWatch boyutlarını listeleyin:** Metrik sorguları filtrelemek için boyutlar alın.
+  - **CloudWatch sorgula:** Zaman aralığı desteği ile CloudWatch metrik sorguları çalıştırın.
+
+  ### Graphite Sorgulaması
+
+  > **Not:** Graphite araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `graphite` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **Graphite sorgula:** Graphite render API sorgularını Graphite veri kaynağı arasında çalıştırın.
+  - **Graphite metriklerini listeleyin:** Graphite metrik yollarını göz atın ve keşfedin.
+  - **Graphite etiketlerini listeleyin:** Kullanılabilir Graphite etiketlerini ve etiket değerlerini listeleyin.
+  - **Graphite yoğunluğunu sorgula:** Belirli bir desen için Graphite metrik yoğunluğunu sorgulayın.
+
+  ### Athena Sorgulaması
+
+  > **Not:** Athena araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `athena` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **Athena kataloglarını listeleyin:** Kullanılabilir veri kataloglarını (örn. AwsDataCatalog, Iceberg bağlayıcıları) keşfedin.
+  - **Athena veritabanlarını listeleyin:** Bir Athena kataloğunda veritabanları listeleyin.
+  - **Athena tablolarını listeleyin:** Bir Athena veritabanında tabloları listeleyin.
+  - **Athena tablosunu tanımlayın:** Bir Athena tablosu için sütun adlarını alın.
+  - **Athena sorgula:** Makro ikame, limit zorlama ve şablon değişkeni desteği ile Grafana aracılığıyla Amazon Athena arasında SQL sorguları çalıştırın.
+
+  ### Snowflake Sorgulaması
+
+  > **Not:** Snowflake araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `snowflake` değerini `--enabled-tools` bayrağına ekleyin.
+
+  Sorgular Grafana'nın Snowflake veri kaynağı (Grafana Enterprise eklentisi `grafana-snowflake-datasource`) aracılığıyla gider, bu nedenle kimlik doğrulama Grafana'da veri kaynağı yapılandırması tarafından yönetilir — kimlik bilgileri hiçbir zaman MCP sunucusu tarafından görülmez. Bu, ClickHouse araçları için kullanılan model ile aynıdır.
+
+  - **Snowflake tablolarını listeleyin:** `INFORMATION_SCHEMA.TABLES` aracılığıyla tabloları keşfedin (veritabanı, şema, tür, satır sayısı ve boyut dahil). İsteğe bağlı veritabanı/şema filtreleri.
+  - **Tablo şemasını tanımlayın:** Bir Snowflake tablosu için sütun adları, veri türleri, null olabilirlik, varsayılanlar ve açıklamaları alın.
+  - **Snowflake sorgula:** Makro ve değişken ikame desteği ile SQL sorguları çalıştırın. Snowflake'in olay tablolarını (örn. `SNOWFLAKE.TELEMETRY.EVENTS`) günlükler ve izler için sorgulamak veya herhangi bir kullanıcı tablosunu sorgulamak için kullanışlı.
+    - Desteklenen makrolar: `$__timeFilter(column)`, `$__timeFrom`, `$__timeTo`, `$__from`, `$__to` (Unix ms), `$__interval` (saniye), `$__interval_ms` ve `${varname}` şablon değişkeni ikamesi için.
+
+  ### Elasticsearch/OpenSearch Sorgulaması
+
+  > **Not:** Elasticsearch/OpenSearch araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `elasticsearch` değerini `--enabled-tools` bayrağına ekleyin.
+
+  - **Elasticsearch/OpenSearch sorgula:** Lucene sorgu söz dizimini veya Elasticsearch Query DSL kullanarak Elasticsearch veya OpenSearch veri kaynakları arasında arama sorguları çalıştırın. Zaman aralığına göre filtrelemeyi ve günlükleri, metrikleri veya herhangi bir dizinlenmiş veriyi almayı destekler. Dizin, ID, kaynak alanları ve isteğe bağlı ilgi puanı ile belgeleri döndürür.
+
+  ### Olaylar
+
+  - **Olayları ara, oluşturun ve güncelleyin:** Grafana Incident'te olayları yönetin, arayın, oluşturun ve etkinlikler ekleyin.
+
+  ### Sift Araştırmaları
+
+  - **Sift araştırmalarını listeleyin:** Sift araştırmalarının listesini alın, limit parametresi desteği ile.
+  - **Sift araştırması alın:** UUID'sine göre belirli bir Sift araştırması alın.
+  - **Sift analizlerini alın:** Bir Sift araştırmasından belirli bir analizi alın.
+  - **Günlüklerdeki hata modellerini bulun:** Sift kullanarak Loki günlüklerinde yükseltilmiş hata modellerini tespit edin.
+  - **Yavaş istekleri bulun:** Sift'i kullanarak yavaş istekleri tespit edin (Tempo).
+
+  ### Uyarı Verme
+
+  - **Uyarı kuralı bilgilerini listeleyin ve alın:** Grafana'da uyarı kurallarını ve bunların durumlarını (ateşleme/normal/hata/vb.) görüntüleyin. Grafana tarafından yönetilen kuralları ve Prometheus veya Loki veri kaynaklarından veri kaynağı tarafından yönetilen kuralları destekler.
+  - **Uyarı kuralları oluşturun ve güncelleyin:** Yeni uyarı kuralları oluşturun veya mevcut olanları değiştirin.
+  - **Uyarı kurallarını silin:** UID'ye göre uyarı kurallarını kaldırın.
+  - **Uyarı yönlendirmesini yönetin:** Bildirim ilkelerini, iletişim noktalarını ve zaman aralıklarını görüntüleyin. Grafana tarafından yönetilen iletişim noktalarını ve dış Alertmanager veri kaynakları (Prometheus Alertmanager, Mimir, Cortex) alıcılarını destekler.
+
+  ### Grafana OnCall
+
+  - **Çizelgeleri listeleyin ve yönetin:** Grafana OnCall'da nöbetçi çizelgelerini görüntüleyin ve yönetin.
+  - **Vardiya ayrıntılarını alın:** Belirli nöbetçi vardiyaları hakkında ayrıntılı bilgiler alın.
+  - **Mevcut nöbetçi kullanıcılarını alın:** Bir çizelge için şu anda nöbetçi olan kullanıcıları görün.
+  - **Takımları ve kullanıcıları listeleyin:** Tüm OnCall takımlarını ve kullanıcılarını görüntüleyin.
+  - **Uyarı gruplarını listeleyin:** Grafana OnCall'dan uyarı gruplarını çeşitli kriterler (durum, entegrasyon, etiketler ve zaman aralığı) dahil olmak üzere görüntüleyin ve filtreleyin.
+  - **Uyarı grubu ayrıntılarını alın:** Belirli bir uyarı grubu hakkında ID'sine göre ayrıntılı bilgiler alın.
+
+  ### Yönetici
+
+  > **Not:** Yönetici araçları **varsayılan olarak devre dışıdır**. Bunları etkinleştirmek için `--enabled-tools` bayrağına `admin` değerini ekleyin.
+  - **Takımları listeleyin:** Grafana'da yapılandırılan tüm takımları görüntüleyin.
+  - **Kullanıcıları listeleyin:** Grafana'da bir kuruluştaki tüm kullanıcıları görüntüleyin.
+  - **Tüm rolleri listeleyin:** Tüm Grafana rollerini, devredilecek roller için isteğe bağlı filtre ile listeleyin.
+  - **Rol ayrıntılarını alın:** UID'ye göre belirli bir Grafana rolü ayrıntılarını alın.
+  - **Bir rol için atamalar listeleyin:** Bir role atanan tüm kullanıcıları, takımları ve hizmet hesaplarını listeleyin.
+  - **Kullanıcılar için rolleri listeleyin:** Bir veya daha fazla kullanıcıya atanan tüm rolleri listeleyin.
+  - **Takımlar için rolleri listeleyin:** Bir veya daha fazla takıma atanan tüm rolleri listeleyin.
+  - **Kaynak için izinleri listeleyin:** Belirli bir kaynak (pano, veri kaynağı, klasör vb.) için tanımlanan tüm izinleri listeleyin.
+  - **Grafana kaynağını tanımlayın:** Bir kaynak türü için kullanılabilir izinleri ve atama yeteneklerini listeleyin.
+
+  ### Gezinti
+
+  - **Derin bağlantılar oluşturun:** LLM URL tahminine güvenmek yerine Grafana kaynakları için doğru derin bağlantı URL'leri oluşturun.
+    - **Pano bağlantıları:** UID'lerini kullanarak panolara doğrudan bağlantılar oluşturun (örn. `http://localhost:3000/d/dashboard-uid`)
+    - **Panel bağlantıları:** viewPanel parametresi ile pano içindeki belirli panellere bağlantılar oluşturun (örn. `http://localhost:3000/d/dashboard-uid?viewPanel=5`)
+    - **Explore bağlantıları:** Önceden yapılandırılan veri kaynakları ile Grafana Explore bağlantıları oluşturun (örn. `http://localhost:3000/explore?left={"datasource":"prometheus-uid"}`)
+    - **Zaman aralığı desteği:** Bağlantılara zaman aralığı parametreleri ekleyin (`from=now-1h&to=now`)
+    - **Özel parametreler:** Pano değişkenleri veya yenileme aralıkları gibi ek sorgu parametrelerini ekleyin
+
+  ### Ek Açıklamalar
+
+  - **Ek Açıklamaları Alın:** Filtreler ile ek açıklamaları sorgulayın. Zaman aralığı, pano UID, etiketler ve eşleşme modunu destekler.
+  - **Ek Açıklama Oluşturun:** Bir pano veya panelde yeni bir ek açıklama oluşturun.
+  - **Graphite Ek Açıklaması Oluşturun:** Graphite formatı (`what`, `when`, `tags`, `data`) kullanarak ek açıklamalar oluşturun.
+  - **Ek Açıklamayı Güncelleyin:** Mevcut bir ek açıklamanın tüm alanlarını değiştirin (tam güncelleme).
+  - **Ek Açıklamayı Yamalayın:** Bir ek açıklamanın yalnızca belirli alanlarını güncelleyin (kısmi güncelleme).
+  - **Ek Açıklama Etiketlerini Alın:** Mevcut ek açıklama etiketlerini isteğe bağlı filtreleme ile listeleyin.
+
+  ### Render Etme
+
+  - **Panel veya pano görüntüsü alın:** Grafana pano panelini veya tam panoyu PNG görüntüsü olarak render edin. Raporlar, uyarılar veya sunumlar için kullanmak üzere görüntüyü base64 kodlanmış veri olarak döndürür. Boyutları, zaman aralığı, temayı, ölçeği ve pano değişkenlerini özelleştirmeyi destekler.
+    - _Not: [Grafana Image Renderer](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/) hizmetinin kurulu ve yapılandırılmış olması gerekir._
+
+  Araçlar listesi yapılandırılabilir, bu nedenle MCP istemcisine hangi araçları kullanılabilir hale getirmek istediğinizi seçebilirsiniz.
+  Bu, belirli işlevselliği kullanmıyorsanız veya kontekst penceresinin çok fazla alanını kaplayacağını istemiyorsanız yararlıdır.
+  Bir araç kategorisini devre dışı bırakmak için sunucu başlatırken `--disable-<category>` bayrağını kullanın. Örneğin, OnCall araçlarını devre dışı bırakmak için `--disable-oncall` değerini, veya gezinti derin bağlantı oluşturmayı devre dışı bırakmak için `--disable-navigation` değerini kullanın.
+
+
+  #### RBAC İzinleri
+
+  Her araç düzgün çalışabilmesi için belirli RBAC izinleri gerektirir. MCP sunucusu için bir hizmet hesabı oluştururken, kullanmayı planladığınız araçlara göre gerekli izinlere sahip olduğundan emin olun. Listelenen izinler minimum gerekli eylemlerdir - kullanım durumunuza bağlı olarak uygun kapsamlar (örn. `datasources:*`, `dashboards:*`, `folders:*`) da gerekebilir.
+
+  İpucu: Grafana RBAC'ye aşina değilseniz veya birçok ayrıntılı kapsamı yapılandırmak yerine daha hızlı, daha basit bir kurulum istiyorsanız, hizmet hesabına `Editor` gibi yerleşik bir rol atayabilirsiniz. `Editor` rolü, MCP sunucusu işlemlerinin çoğunu işlemesine izin verecek geniş okuma/yazma erişimi sağlar; el ile uygulanan kapsamlardan daha az ayrıntılıdır (ve dolayısıyla daha az kısıtlayıcıdır), bu nedenle bunu yalnızca kolaylık en az ayrıcalık erişiminden daha önemli olduğunda kullanın.
+
+  **Not:** Grafana Incident ve Sift araçları ince tanecikli RBAC izinleri yerine temel Grafana rollerini kullanır:
+  - **Viewer rolü:** Salt okunur işlemler için gereklidir (olayları listeleyin, araştırmaları alın)
+  - **Editor rolü:** Yazma işlemleri için gereklidir (olayları oluşturun, araştırmaları değiştirin)
+
+  Grafana RBAC hakkında daha fazla bilgi için [resmi belgelendirme](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/) sayfasına bakın.
+
+  #### RBAC Kapsamları
+
+  Kapsamlar, izinlerin geçerli olduğu belirli kaynakları tanımlar. Her eylem hem uygun izin hem de kapsam kombinasyonu gerektirir.
+
+  **Yaygın Kapsam Desenleri:**
+
+  - **Geniş erişim:** Kuruluş çapında erişim için `*` joker kartlarını kullanın
+
+    - `datasources:*` - Tüm veri kaynaklarına erişim
+    - `dashboards:*` - Tüm panolara erişim
+    - `folders:*` - Tüm klasörlere erişim
+    - `teams:*` - Tüm takımlara erişim
+
+  - **Sınırlı erişim:** Erişimi ayrı kaynaklar ile sınırlamak için belirli UID'ler veya ID'ler kullanın
+    - `datasources:uid:prometheus-uid` - Yalnızca belirli bir Prometheus veri kaynağına erişim
+    - `dashboards:uid:abc123` - UID `abc123` olan panoye yalnızca erişim
+    - `folders:uid:xyz789` - UID `xyz789` olan klasöre yalnızca erişim
+    - `teams:id:5` - ID `5` olan takıma yalnızca erişim
+    - `global.users:id:123` - ID `123` olan kullanıcıya yalnızca erişim
+
+  **Örnekler:**
+
+  - **Tam MCP sunucusu erişimi:** Tüm araçlar için geniş izinler verin
+
+    ```
+    datasources:* (datasources:read, datasources:query)
+    dashboards:* (dashboards:read, dashboards:create, dashboards:write)
+    folders:* (pano oluşturma ve uyarı kuralları için)
+    teams:* (teams:read)
+    global.users:* (users:read)
+    ```
+
+  - **Sınırlı veri kaynağı erişimi:** Yalnızca belirli Prometheus ve Loki örneklerini sorgulayın
+
+    ```
+    datasources:uid:prometheus-prod (datasources:query)
+    datasources:uid:loki-prod (datasources:query)
+    ```
+
+  - **Pano özel erişimi:** Yalnızca belirli panoları okuyun
+    ```
+    dashboards:uid:monitoring-dashboard (dashboards:read)
+    dashboards:uid:alerts-dashboard (dashboards:read)
+    ```
+
+  ### Araçlar
+
+  | Araç                              | Kategori    | Açıklama                                                         | Gerekli RBAC İzinleri               | Gerekli Kapsamlar                                     |
+  | --------------------------------- | ----------- | ------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
+  | `list_teams`                      | Admin       | Tüm takımları listeleyin                                                      | `teams:read`                            | `teams:*` veya `teams:id:1`                           |
+  | `list_users_by_org`               | Admin       | Bir kuruluştaki tüm kullanıcıları listeleyin                                   | `users:read`                            | `global.users:*` veya `global.users:id:123`           |
+  | `list_all_roles`          | Admin    | Tüm Grafana rollerini listeleyin                              | `roles:read`              | `roles:*`                         |
+  | `get_role_details`        | Admin    | Bir Grafana rolü ayrıntılarını alın                      | `roles:read`              | `roles:uid:editor`                |
+  | `get_role_assignments`    | Admin    | Bir rol için atamalar listeleyin                         | `roles:read`              | `roles:uid:editor`                |
+  | `list_user_roles`         | Admin    | Kullanıcılar için rolleri listeleyin                                | `roles:read`              | `global.users:id:123`             |
+  | `list_team_roles`         | Admin    | Takımlar için roll
 ---
 
 # Grafana MCP server
@@ -157,12 +442,6 @@ Queries go through Grafana's Snowflake datasource (Grafana Enterprise plugin `gr
 
 - **Query Elasticsearch/OpenSearch:** Execute search queries against Elasticsearch or OpenSearch datasources using either Lucene query syntax or Elasticsearch Query DSL. Supports filtering by time range and retrieving logs, metrics, or any indexed data. Returns documents with their index, ID, source fields, and optional relevance score.
 
-### Quickwit Querying
-
-> **Note:** Quickwit tools are **disabled by default**. To enable them, add `quickwit` to your `--enabled-tools` flag.
-
-- **Query Quickwit:** Execute search queries against Quickwit datasources using Lucene query syntax or partial Elasticsearch-compatible Query DSL. Supports filtering by time range and retrieving logs or other indexed documents. Returns documents with their index, ID, source fields, and optional relevance score.
-
 ### Incidents
 
 - **Search, create, and update incidents:** Manage incidents in Grafana Incident, including searching, creating, and adding activities to incidents.
@@ -222,22 +501,10 @@ Queries go through Grafana's Snowflake datasource (Grafana Enterprise plugin `gr
 - **Patch Annotation:** Update only specific fields of an annotation (partial update).
 - **Get Annotation Tags:** List available annotation tags with optional filtering.
 
-### Snapshots
-
-- **List snapshots:** List dashboard snapshots with optional query and limit filters.
-- **Get snapshot:** Retrieve snapshot metadata and dashboard payload by snapshot key.
-- **Create snapshot:** Create a dashboard snapshot from a full dashboard payload, with optional expiration and external snapshot options.
-- **Delete snapshot:** Delete a snapshot by snapshot key.
-
 ### Rendering
 
-- **Get panel or dashboard image:** Render a Grafana dashboard panel or full dashboard as a PNG image. Returns the image as base64 encoded data for use in reports, alerts, or presentations. Supports customizing dimensions, time range, theme, scale, and dashboard variables. Also supports rendering not-yet-applied dashboards from a provisioning repository branch (e.g. a git-sync PR preview) via the optional `provisioningPreview` parameter.
+- **Get panel or dashboard image:** Render a Grafana dashboard panel or full dashboard as a PNG image. Returns the image as base64 encoded data for use in reports, alerts, or presentations. Supports customizing dimensions, time range, theme, scale, and dashboard variables.
   - _Note: Requires the [Grafana Image Renderer](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/) service to be installed and configured._
-
-### Provisioning
-
-- **List provisioning repositories:** List provisioning repositories configured for this Grafana instance (e.g. git-sync sources), returning each repository's slug along with its source URL, branch, path, sync state, and health.
-- **Validate provisioning file:** Dry-run-apply a file from a provisioning repository at a given branch or commit. Returns whether it would be accepted, the resource action (create/update), the target resource type, and any structured validation errors — the same admission surface Grafana's PR commenter uses.
 
 The list of tools is configurable, so you can choose which tools you want to make available to the MCP client.
 This is useful if you don't use certain functionality or if you don't want to take up too much of the context window.
@@ -304,93 +571,86 @@ Scopes define the specific resources that permissions apply to. Each action requ
 
 ### Tools
 
-| Tool                              | Category                  | Description                                                                                                  | Required RBAC Permissions                              | Required Scopes                                     |
-| --------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------------- |
-| `list_teams`                      | Admin                     | List all teams                                                                                               | `teams:read`                                           | `teams:*` or `teams:id:1`                           |
-| `list_users_by_org`               | Admin                     | List all users in an organization                                                                            | `users:read`                                           | `global.users:*` or `global.users:id:123`           |
-| `list_all_roles`                  | Admin                     | List all Grafana roles                                                                                       | `roles:read`                                           | `roles:*`                                           |
-| `get_role_details`                | Admin                     | Get details for a Grafana role                                                                               | `roles:read`                                           | `roles:uid:editor`                                  |
-| `get_role_assignments`            | Admin                     | List assignments for a role                                                                                  | `roles:read`                                           | `roles:uid:editor`                                  |
-| `list_user_roles`                 | Admin                     | List roles for users                                                                                         | `roles:read`                                           | `global.users:id:123`                               |
-| `list_team_roles`                 | Admin                     | List roles for teams                                                                                         | `roles:read`                                           | `teams:id:7`                                        |
-| `get_resource_permissions`        | Admin                     | List permissions for a resource                                                                              | `permissions:read`                                     | `dashboards:uid:abcd1234`                           |
-| `get_resource_description`        | Admin                     | Describe a Grafana resource type                                                                             | `permissions:read`                                     | `dashboards:*`                                      |
-| `search_dashboards`               | Search                    | Search for dashboards                                                                                        | `dashboards:read`                                      | `dashboards:*` or `dashboards:uid:abc123`           |
-| `get_dashboard_by_uid`            | Dashboard                 | Get a dashboard by uid                                                                                       | `dashboards:read`                                      | `dashboards:uid:abc123`                             |
-| `update_dashboard`                | Dashboard                 | Update or create a new dashboard                                                                             | `dashboards:create`, `dashboards:write`                | `dashboards:*`, `folders:*` or `folders:uid:xyz789` |
-| `get_dashboard_panel_queries`     | Dashboard                 | Get panel title, queries, datasource UID and type from a dashboard                                           | `dashboards:read`                                      | `dashboards:uid:abc123`                             |
-| `run_panel_query`                 | RunPanelQuery*            | Execute one or more dashboard panel queries                                                                  | `dashboards:read`, `datasources:query`                 | `dashboards:uid:*`, `datasources:uid:*`             |
-| `get_dashboard_property`          | Dashboard                 | Extract specific parts of a dashboard using JSONPath expressions                                             | `dashboards:read`                                      | `dashboards:uid:abc123`                             |
-| `get_dashboard_summary`           | Dashboard                 | Get a compact summary of a dashboard without full JSON                                                       | `dashboards:read`                                      | `dashboards:uid:abc123`                             |
-| `list_datasources`                | Datasources               | List datasources                                                                                             | `datasources:read`                                     | `datasources:*`                                     |
-| `get_datasource`                  | Datasources               | Get a datasource by UID or name                                                                              | `datasources:read`                                     | `datasources:uid:prometheus-uid`                    |
-| `get_query_examples`              | Examples*                 | Get example queries for a datasource type                                                                    | `datasources:read`                                     | `datasources:*`                                     |
-| `query_prometheus`                | Prometheus                | Execute a query against a Prometheus datasource                                                              | `datasources:query`                                    | `datasources:uid:prometheus-uid`                    |
-| `list_prometheus_metric_metadata` | Prometheus                | List metric metadata                                                                                         | `datasources:query`                                    | `datasources:uid:prometheus-uid`                    |
-| `list_prometheus_metric_names`    | Prometheus                | List available metric names                                                                                  | `datasources:query`                                    | `datasources:uid:prometheus-uid`                    |
-| `list_prometheus_label_names`     | Prometheus                | List label names matching a selector                                                                         | `datasources:query`                                    | `datasources:uid:prometheus-uid`                    |
-| `list_prometheus_label_values`    | Prometheus                | List values for a specific label                                                                             | `datasources:query`                                    | `datasources:uid:prometheus-uid`                    |
-| `query_prometheus_histogram`      | Prometheus                | Calculate histogram percentile values                                                                        | `datasources:query`                                    | `datasources:uid:prometheus-uid`                    |
-| `list_incidents`                  | Incident                  | List incidents in Grafana Incident                                                                           | Viewer role                                            | N/A                                                 |
-| `create_incident`                 | Incident                  | Create an incident in Grafana Incident                                                                       | Editor role                                            | N/A                                                 |
-| `add_activity_to_incident`        | Incident                  | Add an activity item to an incident in Grafana Incident                                                      | Editor role                                            | N/A                                                 |
-| `get_incident`                    | Incident                  | Get a single incident by ID                                                                                  | Viewer role                                            | N/A                                                 |
-| `query_loki_logs`                 | Loki                      | Query and retrieve logs using LogQL (either log or metric queries)                                           | `datasources:query`                                    | `datasources:uid:loki-uid`                          |
-| `list_loki_label_names`           | Loki                      | List all available label names in logs                                                                       | `datasources:query`                                    | `datasources:uid:loki-uid`                          |
-| `list_loki_label_values`          | Loki                      | List values for a specific log label                                                                         | `datasources:query`                                    | `datasources:uid:loki-uid`                          |
-| `query_loki_stats`                | Loki                      | Get statistics about log streams                                                                             | `datasources:query`                                    | `datasources:uid:loki-uid`                          |
-| `query_loki_patterns`             | Loki                      | Query detected log patterns to identify common structures                                                    | `datasources:query`                                    | `datasources:uid:loki-uid`                          |
-| `analyze_loki_labels`             | Loki                      | Audit a Loki label strategy (live or static) and optionally diagnose query performance                       | `datasources:query`                                    | `datasources:uid:loki-uid`                          |
-| `suggest_loki_alloy_label_config` | Config                    | Generate an Alloy `loki.process` snippet enforcing approved labels                                           | N/A                                                    | N/A                                                 |
-| `query_influxdb`                  | InfluxDB                  | Query InfluxDB using InfluxQL (v1) or Flux (v2)                                                              | `datasources:query`                                    | `datasources:uid:influxdb-uid`                      |
-| `list_clickhouse_tables`          | ClickHouse*               | List tables in a ClickHouse database                                                                         | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `describe_clickhouse_table`       | ClickHouse*               | Get table schema with column types                                                                           | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `query_clickhouse`                | ClickHouse*               | Execute SQL queries with macro substitution                                                                  | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `list_cloudwatch_namespaces`      | CloudWatch*               | List available AWS CloudWatch namespaces                                                                     | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `list_cloudwatch_metrics`         | CloudWatch*               | List metrics in a namespace                                                                                  | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `list_cloudwatch_dimensions`      | CloudWatch*               | List dimensions for a metric                                                                                 | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `query_cloudwatch`                | CloudWatch*               | Execute CloudWatch metric queries                                                                            | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `list_athena_catalogs`            | Athena*                   | List available Athena data catalogs                                                                          | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `list_athena_databases`           | Athena*                   | List databases in an Athena catalog                                                                          | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `list_athena_tables`              | Athena*                   | List tables in an Athena database                                                                            | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `describe_athena_table`           | Athena*                   | Get column names for an Athena table                                                                         | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `query_athena`                    | Athena*                   | Execute SQL queries with macro substitution                                                                  | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `query_elasticsearch`             | Elasticsearch/OpenSearch* | Query Elasticsearch or OpenSearch using Lucene syntax or Query DSL                                           | `datasources:query`                                    | `datasources:uid:datasource-uid`                    |
-| `query_quickwit`                  | Quickwit*                 | Query Quickwit using Lucene syntax or Query DSL                                                              | `datasources:query`                                    | `datasources:uid:quickwit-uid`                      |
-| `list_snowflake_tables`           | Snowflake*                | List tables in a Snowflake database/schema via INFORMATION_SCHEMA                                            | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `describe_snowflake_table`        | Snowflake*                | Get table schema (column types, nullability, defaults, comments)                                             | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `query_snowflake`                 | Snowflake*                | Execute SQL queries with macro/variable substitution                                                         | `datasources:query`                                    | `datasources:uid:*`                                 |
-| `alerting_manage_rules`           | Alerting                  | Manage alert rules (list, get, versions, create, update, delete)                                             | `alert.rules:read` + `alert.rules:write` for mutations | `folders:*` or `folders:uid:alerts-folder`          |
-| `alerting_manage_routing`         | Alerting                  | Manage notification policies, contact points, and time intervals                                             | `alert.notifications:read`                             | Global scope                                        |
-| `list_oncall_schedules`           | OnCall                    | List schedules from Grafana OnCall                                                                           | `grafana-oncall-app.schedules:read`                    | Plugin-specific scopes                              |
-| `get_oncall_shift`                | OnCall                    | Get details for a specific OnCall shift                                                                      | `grafana-oncall-app.schedules:read`                    | Plugin-specific scopes                              |
-| `get_current_oncall_users`        | OnCall                    | Get users currently on-call for a specific schedule                                                          | `grafana-oncall-app.schedules:read`                    | Plugin-specific scopes                              |
-| `list_oncall_teams`               | OnCall                    | List teams from Grafana OnCall                                                                               | `grafana-oncall-app.user-settings:read`                | Plugin-specific scopes                              |
-| `list_oncall_users`               | OnCall                    | List users from Grafana OnCall                                                                               | `grafana-oncall-app.user-settings:read`                | Plugin-specific scopes                              |
-| `list_alert_groups`               | OnCall                    | List alert groups from Grafana OnCall with filtering options                                                 | `grafana-oncall-app.alert-groups:read`                 | Plugin-specific scopes                              |
-| `get_alert_group`                 | OnCall                    | Get a specific alert group from Grafana OnCall by its ID                                                     | `grafana-oncall-app.alert-groups:read`                 | Plugin-specific scopes                              |
-| `get_sift_investigation`          | Sift                      | Retrieve an existing Sift investigation by its UUID                                                          | Viewer role                                            | N/A                                                 |
-| `get_sift_analysis`               | Sift                      | Retrieve a specific analysis from a Sift investigation                                                       | Viewer role                                            | N/A                                                 |
-| `list_sift_investigations`        | Sift                      | Retrieve a list of Sift investigations with an optional limit                                                | Viewer role                                            | N/A                                                 |
-| `find_error_pattern_logs`         | Sift                      | Finds elevated error patterns in Loki logs.                                                                  | Editor role                                            | N/A                                                 |
-| `find_slow_requests`              | Sift                      | Finds slow requests from the relevant tempo datasources.                                                     | Editor role                                            | N/A                                                 |
-| `list_pyroscope_label_names`      | Pyroscope                 | List label names matching a selector                                                                         | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
-| `list_pyroscope_label_values`     | Pyroscope                 | List label values matching a selector for a label name                                                       | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
-| `list_pyroscope_profile_types`    | Pyroscope                 | List available profile types                                                                                 | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
-| `query_pyroscope`                 | Pyroscope                 | Query profiles, metrics, or both from Pyroscope                                                              | `datasources:query`                                    | `datasources:uid:pyroscope-uid`                     |
-| `get_assertions`                  | Asserts                   | Get assertion summary for a given entity                                                                     | Plugin-specific permissions                            | Plugin-specific scopes                              |
-| `generate_deeplink`               | Navigation                | Generate accurate deeplink URLs for Grafana resources                                                        | None (read-only URL generation)                        | N/A                                                 |
-| `get_annotations`                 | Annotations               | Fetch annotations with filters                                                                               | `annotations:read`                                     | `annotations:*` or `annotations:id:123`             |
-| `create_annotation`               | Annotations               | Create a new annotation (standard or Graphite format)                                                        | `annotations:write`                                    | `annotations:*`                                     |
-| `update_annotation`               | Annotations               | Update specific fields of an annotation (partial update)                                                     | `annotations:write`                                    | `annotations:*`                                     |
-| `get_annotation_tags`             | Annotations               | List annotation tags with optional filtering                                                                 | `annotations:read`                                     | `annotations:*`                                     |
-| `list_snapshots`                  | Snapshot                  | List dashboard snapshots with optional query and limit filters                                               | `dashboards:read`                                      | `dashboards:*` or `dashboards:uid:abc123`           |
-| `get_snapshot`                    | Snapshot                  | Get snapshot metadata and dashboard payload by snapshot key                                                  | `dashboards:read`                                      | `dashboards:*` or `dashboards:uid:abc123`           |
-| `create_snapshot`                 | Snapshot                  | Create a dashboard snapshot from a full dashboard payload                                                    | `dashboards:write`                                     | `dashboards:*` or `dashboards:uid:abc123`           |
-| `delete_snapshot`                 | Snapshot                  | Delete a dashboard snapshot by snapshot key                                                                  | `dashboards:write`                                     | `dashboards:*` or `dashboards:uid:abc123`           |
-| `get_panel_image`                 | Rendering                 | Render a stored dashboard or panel — or a provisioning preview from a repository branch — as a PNG image     | `dashboards:read`                                      | `dashboards:uid:abc123`                             |
-| `list_provisioning_repositories`  | Provisioning              | List provisioning repositories (e.g. git-sync sources) with their source URL, branch, sync state, and health | `provisioning.repositories:read`                       | N/A                                                 |
-| `validate_provisioning_file`      | Provisioning              | Dry-run-apply a file from a provisioning repository and report admission validation errors                   | `provisioning.repositories:read`                       | N/A                                                 |
+| Tool                              | Category    | Description                                                         | Required RBAC Permissions               | Required Scopes                                     |
+| --------------------------------- | ----------- | ------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
+| `list_teams`                      | Admin       | List all teams                                                      | `teams:read`                            | `teams:*` or `teams:id:1`                           |
+| `list_users_by_org`               | Admin       | List all users in an organization                                   | `users:read`                            | `global.users:*` or `global.users:id:123`           |
+| `list_all_roles`          | Admin    | List all Grafana roles                              | `roles:read`              | `roles:*`                         |
+| `get_role_details`        | Admin    | Get details for a Grafana role                      | `roles:read`              | `roles:uid:editor`                |
+| `get_role_assignments`    | Admin    | List assignments for a role                         | `roles:read`              | `roles:uid:editor`                |
+| `list_user_roles`         | Admin    | List roles for users                                | `roles:read`              | `global.users:id:123`             |
+| `list_team_roles`         | Admin    | List roles for teams                                | `roles:read`              | `teams:id:7`                      |
+| `get_resource_permissions`| Admin    | List permissions for a resource                     | `permissions:read`        | `dashboards:uid:abcd1234`         |
+| `get_resource_description`| Admin    | Describe a Grafana resource type                    | `permissions:read`        | `dashboards:*`                    |
+| `search_dashboards`               | Search      | Search for dashboards                                               | `dashboards:read`                       | `dashboards:*` or `dashboards:uid:abc123`           |
+| `get_dashboard_by_uid`            | Dashboard   | Get a dashboard by uid                                              | `dashboards:read`                       | `dashboards:uid:abc123`                             |
+| `update_dashboard`                | Dashboard   | Update or create a new dashboard                                    | `dashboards:create`, `dashboards:write` | `dashboards:*`, `folders:*` or `folders:uid:xyz789` |
+| `get_dashboard_panel_queries`     | Dashboard   | Get panel title, queries, datasource UID and type from a dashboard  | `dashboards:read`                       | `dashboards:uid:abc123`                             |
+| `run_panel_query`                 | RunPanelQuery* | Execute one or more dashboard panel queries                       | `dashboards:read`, `datasources:query`  | `dashboards:uid:*`, `datasources:uid:*`             |
+| `get_dashboard_property`          | Dashboard   | Extract specific parts of a dashboard using JSONPath expressions    | `dashboards:read`                       | `dashboards:uid:abc123`                             |
+| `get_dashboard_summary`           | Dashboard   | Get a compact summary of a dashboard without full JSON              | `dashboards:read`                       | `dashboards:uid:abc123`                             |
+| `list_datasources`                | Datasources | List datasources                                                    | `datasources:read`                      | `datasources:*`                                     |
+| `get_datasource`                  | Datasources | Get a datasource by UID or name                                     | `datasources:read`                      | `datasources:uid:prometheus-uid`                    |
+| `get_query_examples`              | Examples*   | Get example queries for a datasource type                           | `datasources:read`                      | `datasources:*`                                     |
+| `query_prometheus`                | Prometheus  | Execute a query against a Prometheus datasource                     | `datasources:query`                     | `datasources:uid:prometheus-uid`                    |
+| `list_prometheus_metric_metadata` | Prometheus  | List metric metadata                                                | `datasources:query`                     | `datasources:uid:prometheus-uid`                    |
+| `list_prometheus_metric_names`    | Prometheus  | List available metric names                                         | `datasources:query`                     | `datasources:uid:prometheus-uid`                    |
+| `list_prometheus_label_names`     | Prometheus  | List label names matching a selector                                | `datasources:query`                     | `datasources:uid:prometheus-uid`                    |
+| `list_prometheus_label_values`    | Prometheus  | List values for a specific label                                    | `datasources:query`                     | `datasources:uid:prometheus-uid`                    |
+| `query_prometheus_histogram`      | Prometheus  | Calculate histogram percentile values                               | `datasources:query`                     | `datasources:uid:prometheus-uid`                    |
+| `list_incidents`                  | Incident    | List incidents in Grafana Incident                                  | Viewer role                             | N/A                                                 |
+| `create_incident`                 | Incident    | Create an incident in Grafana Incident                              | Editor role                             | N/A                                                 |
+| `add_activity_to_incident`        | Incident    | Add an activity item to an incident in Grafana Incident             | Editor role                             | N/A                                                 |
+| `get_incident`                    | Incident    | Get a single incident by ID                                         | Viewer role                             | N/A                                                 |
+| `query_loki_logs`                 | Loki        | Query and retrieve logs using LogQL (either log or metric queries)  | `datasources:query`                     | `datasources:uid:loki-uid`                          |
+| `list_loki_label_names`           | Loki        | List all available label names in logs                              | `datasources:query`                     | `datasources:uid:loki-uid`                          |
+| `list_loki_label_values`          | Loki        | List values for a specific log label                                | `datasources:query`                     | `datasources:uid:loki-uid`                          |
+| `query_loki_stats`                | Loki        | Get statistics about log streams                                    | `datasources:query`                     | `datasources:uid:loki-uid`                          |
+| `query_loki_patterns`             | Loki        | Query detected log patterns to identify common structures           | `datasources:query`                     | `datasources:uid:loki-uid`                          |
+| `analyze_loki_labels`             | Loki        | Audit a Loki label strategy (live or static) and optionally diagnose query performance | `datasources:query`                     | `datasources:uid:loki-uid`                          |
+| `suggest_loki_alloy_label_config` | Config      | Generate an Alloy `loki.process` snippet enforcing approved labels  | N/A                                     | N/A                                                 |
+| `query_influxdb`                  | InfluxDB    | Query InfluxDB using InfluxQL (v1) or Flux (v2)                     | `datasources:query`                     | `datasources:uid:influxdb-uid`                      |
+| `list_clickhouse_tables`          | ClickHouse* | List tables in a ClickHouse database                                | `datasources:query`                     | `datasources:uid:*`                                 |
+| `describe_clickhouse_table`       | ClickHouse* | Get table schema with column types                                  | `datasources:query`                     | `datasources:uid:*`                                 |
+| `query_clickhouse`                | ClickHouse* | Execute SQL queries with macro substitution                         | `datasources:query`                     | `datasources:uid:*`                                 |
+| `list_cloudwatch_namespaces`      | CloudWatch* | List available AWS CloudWatch namespaces                            | `datasources:query`                     | `datasources:uid:*`                                 |
+| `list_cloudwatch_metrics`         | CloudWatch* | List metrics in a namespace                                         | `datasources:query`                     | `datasources:uid:*`                                 |
+| `list_cloudwatch_dimensions`      | CloudWatch* | List dimensions for a metric                                        | `datasources:query`                     | `datasources:uid:*`                                 |
+| `query_cloudwatch`                | CloudWatch* | Execute CloudWatch metric queries                                   | `datasources:query`                     | `datasources:uid:*`                                 |
+| `list_athena_catalogs`            | Athena*     | List available Athena data catalogs                                 | `datasources:query`                     | `datasources:uid:*`                                 |
+| `list_athena_databases`           | Athena*     | List databases in an Athena catalog                                 | `datasources:query`                     | `datasources:uid:*`                                 |
+| `list_athena_tables`              | Athena*     | List tables in an Athena database                                   | `datasources:query`                     | `datasources:uid:*`                                 |
+| `describe_athena_table`           | Athena*     | Get column names for an Athena table                                | `datasources:query`                     | `datasources:uid:*`                                 |
+| `query_athena`                    | Athena*     | Execute SQL queries with macro substitution                         | `datasources:query`                     | `datasources:uid:*`                                 |
+| `query_elasticsearch`             | Elasticsearch/OpenSearch* | Query Elasticsearch or OpenSearch using Lucene syntax or Query DSL | `datasources:query`                     | `datasources:uid:datasource-uid`                    |
+| `list_snowflake_tables`           | Snowflake*  | List tables in a Snowflake database/schema via INFORMATION_SCHEMA   | `datasources:query`                     | `datasources:uid:*`                                 |
+| `describe_snowflake_table`        | Snowflake*  | Get table schema (column types, nullability, defaults, comments)    | `datasources:query`                     | `datasources:uid:*`                                 |
+| `query_snowflake`                 | Snowflake*  | Execute SQL queries with macro/variable substitution                | `datasources:query`                     | `datasources:uid:*`                                 |
+| `alerting_manage_rules`           | Alerting    | Manage alert rules (list, get, versions, create, update, delete)    | `alert.rules:read` + `alert.rules:write` for mutations | `folders:*` or `folders:uid:alerts-folder` |
+| `alerting_manage_routing`         | Alerting    | Manage notification policies, contact points, and time intervals    | `alert.notifications:read`              | Global scope                                        |
+| `list_oncall_schedules`           | OnCall      | List schedules from Grafana OnCall                                  | `grafana-oncall-app.schedules:read`     | Plugin-specific scopes                              |
+| `get_oncall_shift`                | OnCall      | Get details for a specific OnCall shift                             | `grafana-oncall-app.schedules:read`     | Plugin-specific scopes                              |
+| `get_current_oncall_users`        | OnCall      | Get users currently on-call for a specific schedule                 | `grafana-oncall-app.schedules:read`     | Plugin-specific scopes                              |
+| `list_oncall_teams`               | OnCall      | List teams from Grafana OnCall                                      | `grafana-oncall-app.user-settings:read` | Plugin-specific scopes                              |
+| `list_oncall_users`               | OnCall      | List users from Grafana OnCall                                      | `grafana-oncall-app.user-settings:read` | Plugin-specific scopes                              |
+| `list_alert_groups`               | OnCall      | List alert groups from Grafana OnCall with filtering options        | `grafana-oncall-app.alert-groups:read`  | Plugin-specific scopes                              |
+| `get_alert_group`                 | OnCall      | Get a specific alert group from Grafana OnCall by its ID            | `grafana-oncall-app.alert-groups:read`  | Plugin-specific scopes                              |
+| `get_sift_investigation`          | Sift        | Retrieve an existing Sift investigation by its UUID                 | Viewer role                             | N/A                                                 |
+| `get_sift_analysis`               | Sift        | Retrieve a specific analysis from a Sift investigation              | Viewer role                             | N/A                                                 |
+| `list_sift_investigations`        | Sift        | Retrieve a list of Sift investigations with an optional limit       | Viewer role                             | N/A                                                 |
+| `find_error_pattern_logs`         | Sift        | Finds elevated error patterns in Loki logs.                         | Editor role                             | N/A                                                 |
+| `find_slow_requests`              | Sift        | Finds slow requests from the relevant tempo datasources.            | Editor role                             | N/A                                                 |
+| `list_pyroscope_label_names`      | Pyroscope   | List label names matching a selector                                | `datasources:query`                     | `datasources:uid:pyroscope-uid`                     |
+| `list_pyroscope_label_values`     | Pyroscope   | List label values matching a selector for a label name              | `datasources:query`                     | `datasources:uid:pyroscope-uid`                     |
+| `list_pyroscope_profile_types`    | Pyroscope   | List available profile types                                        | `datasources:query`                     | `datasources:uid:pyroscope-uid`                     |
+| `fetch_pyroscope_profile`         | Pyroscope   | Fetches a profile in DOT format for analysis                        | `datasources:query`                     | `datasources:uid:pyroscope-uid`                     |
+| `get_assertions`                  | Asserts     | Get assertion summary for a given entity                            | Plugin-specific permissions             | Plugin-specific scopes                              |
+| `generate_deeplink`               | Navigation  | Generate accurate deeplink URLs for Grafana resources               | None (read-only URL generation)         | N/A                                                 |
+| `get_annotations`                 | Annotations | Fetch annotations with filters                                      | `annotations:read`                      | `annotations:*` or `annotations:id:123`             |
+| `create_annotation`               | Annotations | Create a new annotation (standard or Graphite format)               | `annotations:write`                     | `annotations:*`                                     |
+| `update_annotation`               | Annotations | Update specific fields of an annotation (partial update)            | `annotations:write`                     | `annotations:*`                                     |
+| `get_annotation_tags`             | Annotations | List annotation tags with optional filtering                        | `annotations:read`                      | `annotations:*`                                     |
+| `get_panel_image`                 | Rendering   | Render a dashboard panel or full dashboard as a PNG image           | `dashboards:read`                       | `dashboards:uid:abc123`                             |
 
 _* Disabled by default. Add category to `--enabled-tools` to enable._
 
@@ -418,7 +678,7 @@ The `mcp-grafana` binary supports various command-line flags for configuration:
 - `--session-idle-timeout-minutes`: Session idle timeout in minutes. Sessions with no activity for this duration are automatically reaped - default: `30`. Set to `0` to disable session reaping. Only relevant for SSE and streamable-http transports.
 
 **Tool Configuration:**
-- `--enabled-tools`: Comma-separated list of enabled categories - default: all categories except `admin`, `athena`, `clickhouse`, `cloudwatch`, `elasticsearch`, `examples`, `graphite`, `quickwit`, `runpanelquery`, and `snowflake`. To enable disabled categories, add them to the list (e.g., `"search,datasource,...,snowflake"`)
+- `--enabled-tools`: Comma-separated list of enabled categories - default: all categories except `admin`, `athena`, `clickhouse`, `cloudwatch`, `elasticsearch`, `examples`, `graphite`, `runpanelquery`, and `snowflake`. To enable disabled categories, add them to the list (e.g., `"search,datasource,...,snowflake"`)
 - `--max-loki-log-limit`: Maximum number of log lines returned per `query_loki_logs` call - default: `100`. Note: Set this at least 1 below Loki's server-side `max_entries_limit_per_query` to allow truncation detection (the tool requests `limit+1` internally to detect if more data exists).
 - `--disable-search`: Disable search tools
 - `--disable-datasource`: Disable datasource tools
@@ -427,7 +687,6 @@ The `mcp-grafana` binary supports various command-line flags for configuration:
 - `--disable-write`: Disable write tools (create/update operations)
 - `--disable-loki`: Disable loki tools
 - `--disable-elasticsearch`: Disable elasticsearch and opensearch tools
-- `--disable-quickwit`: Disable quickwit tools
 - `--disable-influxdb`: Disable InfluxDB tools
 - `--disable-alerting`: Disable alerting tools
 - `--disable-dashboard`: Disable dashboard tools
@@ -438,7 +697,6 @@ The `mcp-grafana` binary supports various command-line flags for configuration:
 - `--disable-pyroscope`: Disable pyroscope tools
 - `--disable-navigation`: Disable navigation tools
 - `--disable-rendering`: Disable rendering tools (panel/dashboard image export)
-- `--disable-snapshot`: Disable snapshot tools
 - `--disable-cloudwatch`: Disable CloudWatch tools
 - `--disable-examples`: Disable query examples tools
 - `--disable-clickhouse`: Disable ClickHouse tools
@@ -446,7 +704,6 @@ The `mcp-grafana` binary supports various command-line flags for configuration:
 - `--disable-runpanelquery`: Disable run panel query tools
 - `--disable-graphite`: Disable Graphite tools
 - `--disable-athena`: Disable Athena tools
-- `--disable-provisioning`: Disable provisioning tools
 
 ### Read-Only Mode
 
@@ -480,10 +737,6 @@ When `--disable-write` is enabled, the following write operations are disabled:
 - `find_error_pattern_logs` (creates investigations)
 - `find_slow_requests` (creates investigations)
 
-**Snapshot Tools:**
-- `create_snapshot`
-- `delete_snapshot`
-
 All read operations remain available, allowing you to query dashboards, run PromQL/LogQL queries, list resources, and retrieve data.
 
 **Client TLS Configuration (for Grafana connections):**
@@ -506,28 +759,6 @@ This MCP server works with both local Grafana instances and Grafana Cloud. For G
    Tip: If you're not comfortable configuring fine-grained RBAC scopes, a simpler (but less restrictive) option is to assign the built-in `Editor` role to the service account. This grants broad read/write access that covers most MCP server operations — use it when convenience outweighs strict least-privilege requirements.
 
    > **Note:** The environment variable `GRAFANA_API_KEY` is deprecated and will be removed in a future version. Please migrate to using `GRAFANA_SERVICE_ACCOUNT_TOKEN` instead. The old variable name will continue to work for backward compatibility but will show deprecation warnings.
-
-#### Reading the service account token from a file
-
-Instead of passing the token inline via `GRAFANA_SERVICE_ACCOUNT_TOKEN`, you can point `GRAFANA_SERVICE_ACCOUNT_TOKEN_FILE` at a file path that contains the token. The file is read fresh on every request, so rotated tokens are picked up automatically without restarting the server.
-
-This is particularly useful in Kubernetes, where a Secret mounted as a volume is updated in place when the underlying Secret changes (typically within ~1 minute). Combined with the per-request client cache — which is keyed on the token value — a rotated token transparently produces a new client with no pod restart and no downtime:
-
-```yaml
-env:
-  - name: GRAFANA_SERVICE_ACCOUNT_TOKEN_FILE
-    value: /var/run/secrets/grafana/token
-volumeMounts:
-  - name: grafana-token
-    mountPath: /var/run/secrets/grafana
-    readOnly: true
-volumes:
-  - name: grafana-token
-    secret:
-      secretName: grafana-mcp-token
-```
-
-Surrounding whitespace (including a trailing newline) is trimmed from the file contents. If both `GRAFANA_SERVICE_ACCOUNT_TOKEN` and `GRAFANA_SERVICE_ACCOUNT_TOKEN_FILE` are set, the inline token takes precedence.
 
 ### Multi-Organization Support
  

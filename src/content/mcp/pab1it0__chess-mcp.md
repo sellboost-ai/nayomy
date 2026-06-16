@@ -8,6 +8,142 @@ url: "https://github.com/pab1it0/chess-mcp"
 body_length: 3930
 license: "MIT"
 language: "Python"
+body_tr: |-
+  # Chess.com MCP Sunucusu
+
+  Chess.com'un Yayınlanan Veri API'si için bir [Model Context Protocol][mcp] (MCP) sunucusu.
+
+  Bu, Chess.com oyuncu verilerine, oyun kayıtlarına ve diğer halka açık bilgilere standart MCP arayüzleri aracılığıyla erişim sağlar ve yapay zeka asistanlarının satranç bilgilerini aramasına ve analiz etmesine olanak tanır.
+
+  https://github.com/user-attachments/assets/3b33361b-b604-465c-9f6a-3699b6907757
+
+  [mcp]: https://modelcontextprotocol.io/introduction/introduction
+
+  ## Özellikler
+
+  - [x] Oyuncu profilleri, istatistikleri ve oyun kayıtlarına erişim
+  - [x] Oyunları tarih ve oyuncuya göre arama
+  - [x] Oyuncunun çevrimiçi durumunu kontrol etme
+  - [x] Kulüpler ve unvanlı oyuncuların bilgilerini alma
+  - [x] Kimlik doğrulaması gerekmez (Chess.com'un genel API'sini kullanır)
+  - [x] Docker konteynerizasyon desteği
+  - [x] Yapay zeka asistanları için etkileşimli araçlar sağlama
+
+  Araçlar listesi yapılandırılabilir, bu nedenle MCP istemcisinde hangi araçların kullanılabileceğini seçebilirsiniz.
+
+  ## Kullanım
+
+  ### Docker (Önerilen)
+
+  chess-mcp'yi [Claude Desktop](https://claude.ai/desktop) ile çalıştırmanın en kolay yolu Docker kullanmaktır. Docker yüklü değilse, bunu [Docker'ın resmi web sitesinden](https://www.docker.com/get-started/) alabilirsiniz.
+
+
+  Claude Desktop config dosyanızı düzenleyin:
+  * Mac: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  * Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+  * Linux: `~/.config/Claude/claude_desktop_config.json`
+
+  Ardından aşağıdaki yapılandırmayı ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "chess": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "pab1it0/chess-mcp"
+        ]
+      }
+    }
+  }
+  ```
+
+  ### UV ile Çalıştırma
+
+  Alternatif olarak, sunucuyu doğrudan UV kullanarak çalıştırabilirsiniz. Claude Desktop config dosyanızı düzenleyin (konumlar yukarıda listelenmiştir) ve sunucu yapılandırmasını ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "chess": {
+        "command": "uv",
+        "args": [
+          "--directory",
+          "<chess-mcp dizinine giden tam yol>",
+          "run",
+          "src/chess_mcp/main.py"
+        ]
+      }
+    }
+  }
+  ```
+
+  > Not: [Claude Desktop](https://claude.ai/desktop)'ta `Error: spawn uv ENOENT` hatası görürseniz, `uv`'nin tam yolunu belirtmeniz veya yapılandırmada `NO_UV=1` ortam değişkenini ayarlamanız gerekebilir.
+
+  ## Geliştirme
+
+  Katkılar hoş karşılanır! Herhangi bir öneriniz veya iyileştirmeniz varsa lütfen bir konu açın veya pull request gönderin.
+
+  Bu proje bağımlılıkları yönetmek için [`uv`](https://github.com/astral-sh/uv) kullanır. Platformunuza yönelik talimatları izleyerek `uv`'yi yükleyin:
+
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+  Daha sonra bir sanal ortam oluşturabilir ve bağımlılıkları yükleyebilirsiniz:
+
+  ```bash
+  uv venv
+  source .venv/bin/activate  # Unix/macOS üzerinde
+  .venv\Scripts\activate     # Windows üzerinde
+  uv pip install -e .
+  ```
+
+  ### Test
+
+  Proje işlevselliği sağlayan ve regresyonları önlemeye yardımcı olan bir test paketini içerir.
+
+  Testleri pytest ile çalıştırın:
+
+  ```bash
+  # Geliştirme bağımlılıklarını yükleyin
+  uv pip install -e ".[dev]"
+
+  # Testleri çalıştırın
+  pytest
+
+  # Kapsam raporu ile çalıştırın
+  pytest --cov=src --cov-report=term-missing
+  ```
+
+  ## Kullanılabilir Araçlar
+
+  ### Oyuncu Bilgileri
+  - `get_player_profile` - Chess.com'dan oyuncu profili al
+  - `get_player_stats` - Chess.com'dan oyuncu istatistiklerini al
+  - `is_player_online` - Oyuncunun şu anda Chess.com'da çevrimiçi olup olmadığını kontrol et
+  - `get_titled_players` - Chess.com'dan unvanlı oyunculara ilişkin liste al
+
+  ### Oyunlar
+  - `get_player_current_games` - Chess.com'da oyuncunun devam eden oyunlarını al
+  - `get_player_games_by_month` - Chess.com'dan belirli bir ay için oyuncunun oyunlarını al
+  - `get_player_game_archives` - Chess.com'da bir oyuncu için mevcut aylık oyun arşivlerinin listesini al
+  - `download_player_games_pgn` - Chess.com'dan belirli bir aydaki tüm oyunlar için PGN dosyalarını indir
+
+  ### Kulüpler
+  - `get_club_profile` - Chess.com'da bir kulübün bilgilerini al
+  - `get_club_members` - Chess.com'da bir kulübün üyelerini al
+
+  ## Lisans
+
+  MIT
+
+  ---
+
+  [mcp]: https://modelcontextprotocol.io
 ---
 
 # Chess.com MCP Server

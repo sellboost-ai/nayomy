@@ -3,12 +3,390 @@ name: "DeusData/codebase-memory-mcp"
 description: "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 66 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies."
 category: "Developer Tools"
 repo: "DeusData/codebase-memory-mcp"
-stars: 3992
+stars: 2730
 url: "https://github.com/DeusData/codebase-memory-mcp"
-body_length: 35158
+body_length: 28873
 license: "MIT"
 language: "C"
 homepage: "https://deusdata.github.io/codebase-memory-mcp/"
+body_tr: |-
+  # codebase-memory-mcp
+
+  [![GitHub Release](https://img.shields.io/github/v/release/DeusData/codebase-memory-mcp?style=flat&color=blue)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
+  [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+  [![CI](https://img.shields.io/github/actions/workflow/status/DeusData/codebase-memory-mcp/dry-run.yml?label=CI)](https://github.com/DeusData/codebase-memory-mcp/actions/workflows/dry-run.yml)
+  [![Tests](https://img.shields.io/badge/tests-2812_passing-brightgreen)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Languages](https://img.shields.io/badge/languages-155-orange)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Agents](https://img.shields.io/badge/agents-11-purple)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Pure C](https://img.shields.io/badge/pure_C-zero_dependencies-blue)](https://github.com/DeusData/codebase-memory-mcp)
+  [![Platform](https://img.shields.io/badge/macOS_%7C_Linux_%7C_Windows-supported-lightgrey)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
+  [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/DeusData/codebase-memory-mcp/badge)](https://scorecard.dev/viewer/?uri=github.com/DeusData/codebase-memory-mcp)
+  [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
+  [![VirusTotal](https://img.shields.io/badge/VirusTotal-0%2F72_engines-brightgreen?logo=virustotal)](https://www.virustotal.com/gui/file/7e6624b345f994afb901475e9120881241f125dfecd36772b5ade8e73485daf9/detection)
+  [![arXiv](https://img.shields.io/badge/arXiv-2603.27277-b31b1b?logo=arxiv)](https://arxiv.org/abs/2603.27277)
+
+  **AI kodlama ajanları için en hızlı ve en verimli kod istihbarat motoru.** Ortalama bir repository'yi milisaniyeler içinde tam olarak indeksler, Linux kernel'ını (28M LOC, 75K dosya) 3 dakikada indeksler. Yapısal sorguları 1ms altında yanıtlar. macOS, Linux ve Windows için tek bir statik binary olarak gemi halinde gelir — indirin, `install` çalıştırın, bitti.
+
+  [tree-sitter](https://tree-sitter.github.io/tree-sitter/) AST analizi aracılığıyla tüm 155 dilde yüksek kaliteli parsing, Go, C, C++, ve TypeScript / JavaScript / JSX / TSX için LSP tarzı hibrit tip resolution ile geliştirilmiş (daha fazla dil yakında) — function'lar, class'lar, call chain'ler, HTTP route'ları ve cross-service link'lerinden oluşan kalıcı bir knowledge graph üretir. 14 MCP tool'u. Sıfır dependency. 11 kodlama ajanı arasında plug and play.
+
+  > **Araştırma** — Bu projenin tasarımı ve benchmark'ları, [*Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP*](https://arxiv.org/abs/2603.27277) (arXiv:2603.27277) preprint'inde açıklanmaktadır. 31 gerçek dünya repository'si arasında değerlendirilmiştir: %83 cevap kalitesi, %90 daha az token, dosya-dosya keşfine kıyasla %2.1 daha az tool çağrısı.
+
+  > **Güvenlik & Güven** — Bu tool'u codebase'inizi okur ve agent konfigürasyon dosyalarınıza yazar. Bu ne için tasarlanmış olduğudur. Çalıştırmadan önce audit yapmayı tercih ederseniz, [tam kaynak kod burada](https://github.com/DeusData/codebase-memory-mcp) — her release binary imzalanmış, kontrol toplamı alınmış ve 70+ antivirus motoru tarafından taranmıştır. Tüm işlem %100 yerel olarak gerçekleşir; kodunuz makinenizi hiçbir zaman terk etmez. Bir güvenlik sorunu mu buldunuz? Bilmek istiyoruz — bkz. [SECURITY.md](SECURITY.md). Güvenlik bizim için Öncelik #1'dir.
+
+  <p align="center">
+    
+    <br>
+    <em>Yerleşik 3D graph görselleştirmesi (UI varyantı) — localhost:9749 adresinde knowledge graph'ınızı keşfedin</em>
+  </p>
+
+  ## Neden codebase-memory-mcp
+
+  - **Aşırı indeksleme hızı** — Linux kernel'ı (28M LOC, 75K dosya) 3 dakikada. RAM-first pipeline: LZ4 compression, in-memory SQLite, fused Aho-Corasick pattern matching. İndeksleme sonrası hafıza serbest bırakılır.
+  - **Plug and play** — macOS (arm64/amd64), Linux (arm64/amd64) ve Windows (amd64) için tek statik binary. Docker yok, runtime dependency yok, API anahtarı yok. İndir → `install` → agent'ı yeniden başlat → bitti.
+  - **155 dil** — Vendored tree-sitter grammars binary'de derlenmiştir. Yüklenecek bir şey yok, kırılacak bir şey yok.
+  - **120x daha az token** — 5 yapısal sorgu: ~3.400 token, dosya-dosya arama yoluyla ~412.000 token'a karşı. Bir graph sorgusu düzine grep/read cycle'ını değiştirir.
+  - **11 agent, bir komut** — `install` otomatik olarak Claude Code, Codex CLI, Gemini CLI, Zed, OpenCode, Antigravity, Aider, KiloCode, VS Code, OpenClaw ve Kiro'yu algılar — her biri için MCP giriş'lerini, instruction dosyalarını ve pre-tool hook'larını yapılandırır.
+  - **Yerleşik graph görselleştirmesi** — `localhost:9749` adresinde 3D interaktif UI.
+  - **Infrastructure-as-code indeksleme** — Dockerfile'lar, Kubernetes manifest'leri ve Kustomize overlay'leri cross-reference'larla graph node'ları olarak indekslenmiş. Kubernetes kind'ları için `Resource` node'ları, Kustomize overlay'leri için `Module` node'ları, referenced resource'lara `IMPORTS` edge'leriyle.
+  - **14 MCP tool'u** — search, trace, architecture, impact analysis, Cypher sorguları, dead code detection, cross-service HTTP linking, ADR management, ve daha fazlası.
+
+  ## Hızlı Başlangıç
+
+  **Tek satırlık yükleme** (macOS / Linux):
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash
+  ```
+
+  Graph görselleştirmesi UI'ı ile:
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash -s -- --ui
+  ```
+
+  **Windows** (PowerShell):
+  ```powershell
+  # 1. Installer'ı indirin
+  Invoke-WebRequest -Uri https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.ps1 -OutFile install.ps1
+
+  # 2. (İsteğe bağlı ama önerilen) Script'i inceleyin
+  notepad install.ps1
+
+  # 3. Çalıştırın
+  .\install.ps1
+
+  ```
+
+  Seçenekler: `--ui` (graph görselleştirmesi), `--skip-config` (sadece binary, agent kurulumu yok), `--dir=<path>` (özel konum).
+
+  Kodlama agent'ınızı yeniden başlatın. **"Index this project"** deyin — bitti.
+
+  <details>
+  <summary>Manuel yükleme</summary>
+
+  1. **İndirin** platformunuzun arşivini [en son release](https://github.com/DeusData/codebase-memory-mcp/releases/latest)'dan:
+     - `codebase-memory-mcp-<os>-<arch>.tar.gz` (macOS/Linux) veya `.zip` (Windows) — standart
+     - `codebase-memory-mcp-ui-<os>-<arch>.tar.gz` / `.zip` — graph görselleştirmesi ile
+
+  2. **Çıkarın ve kurun** (her arşiv `install.sh` veya `install.ps1` içerir):
+
+     macOS / Linux:
+     ```bash
+     tar xzf codebase-memory-mcp-*.tar.gz
+     ./install.sh
+     ```
+
+     Windows (PowerShell):
+     ```powershell
+     Expand-Archive codebase-memory-mcp-windows-amd64.zip -DestinationPath .
+     .\install.ps1
+     ```
+
+  3. **Yeniden başlatın** kodlama agent'ınızı.
+
+  `install` komutu otomatik olarak macOS karantina özniteliklerini kaldırır ve binary'i ad-hoc imzalar — manuel `xattr`/`codesign` gerekmez.
+  </details>
+
+  `install` komutu otomatik olarak tüm kurulu kodlama ajanlarını algılar ve her biri için MCP server giriş'lerini, instruction dosyalarını, skill'leri ve pre-tool hook'larını yapılandırır.
+
+  ### Graph Görselleştirmesi UI'ı
+
+  `ui` varyantını indirdiyseniz:
+
+  ```bash
+  codebase-memory-mcp --ui=true --port=9749
+  ```
+
+  Tarayıcınızda `http://localhost:9749` adresini açın. UI, MCP sunucusu ile birlikte arka plan thread'i olarak çalışır — agent'ınız bağlandığında mevcut olur.
+
+  ### Otomatik İndeksleme
+
+  MCP oturumu başlangıcında otomatik indekslemeyi etkinleştirin:
+
+  ```bash
+  codebase-memory-mcp config set auto_index true
+  ```
+
+  Etkinleştirildiğinde, yeni project'ler ilk bağlantıda otomatik olarak indekslenmiş olur. Daha önce indekslenen project'ler, devam eden git tabanlı değişiklik tespit etme için arka plan izleyici'ye kaydedilir. Yapılandırılabilir dosya sınırı: `config set auto_index_limit 50000`.
+
+  ### Güncellemeleri Takip Etmek
+
+  ```bash
+  codebase-memory-mcp update
+  ```
+
+  MCP sunucusu ayrıca başlangıçta güncellemeleri kontrol eder ve ilk tool çağrısında yeni bir release mevcut olduğunu bildiririm.
+
+  ### Kaldırın
+
+  ```bash
+  codebase-memory-mcp uninstall
+  ```
+
+  Tüm agent konfigurasyonlarını, skill'leri, hook'ları ve instruction'ları kaldırır. Binary veya SQLite database'lerini kaldırmaz.
+
+  ## Özellikler
+
+  ### Graph & analiz
+  - **Mimarı genel bakış**: `get_architecture` tek bir çağrıda diller, paketler, entry point'ler, route'lar, hotspot'lar, sınırlar, katmanlar ve kümeleri döndürür
+  - **Mimarı Karar Kayıtları**: `manage_adr` oturumlar arasında mimarı kararları kalıcı kılar
+  - **Louvain community detection**: Çağrı edge'lerini kümeleyerek fonksiyonel modülleri keşfeder
+  - **Git diff impact mapping**: `detect_changes` commit edilmemiş değişiklikleri etkilenen symbol'lara eşler ve risk sınıflandırması yapar
+  - **Call graph**: Function çağrılarını dosyalar ve paketler arasında çözer (import-aware, type-inferred)
+  - **Dead code detection**: Sıfır çağıranı olan function'ları bulur, entry point'ler hariç
+  - **Cypher benzeri sorgular**: `MATCH (f:Function)-[:CALLS]->(g) WHERE f.name = 'main' RETURN g.name`
+
+  ### Arama
+  - **Semantic search** (`semantic_query`): tüm graph üzerinde vector arama, bundled Nomic `nomic-embed-code` embedding'leri tarafından desteklenen (40K token'lar, 768d int8) binary'ye derlenmiş — API anahtarı yok, Ollama yok, Docker yok. 11 sinyal kombineli puanlama (TF-IDF, RRI, API/Type/Decorator imzaları, AST profilleri, data flow, Halstead-lite, MinHash, modül yakınlığı, graph diffusion).
+  - **BM25 full-text arama** SQLite FTS5 aracılığıyla `cbm_camel_split` tokenizer'ı ile (camelCase / snake_case aware)
+  - **Yapısal arama** (`search_graph`): regex ad desenleri, label filtreleri, min/max derece, dosya kapsamı
+  - **Code arama** (`search_code`): indekslenmiş dosyaların üzerine graph-augmented grep
+
+  ### Cross-service linking
+  - **HTTP** route ↔ call-site eşleme güven puanlaması ile
+  - **gRPC, GraphQL, tRPC** service tespit etme, protobuf Route çıkarımı ile
+  - **Channel detection** (`EMITS` / `LISTENS_ON`) Socket.IO, EventEmitter ve 8 dil arasında genel pub-sub desenleri için constant resolution ile
+
+  ### Cross-repo intelligence
+  - **`CROSS_*` edge'ler** aynı store altında indekslenmiş node'ları birden fazla repo arasında bağlar
+  - **Multi-galaxy 3D UI layout** cross-repo mimarı görselleştirmesi için
+  - **Cross-repo mimarı özeti** indekslenmiş fleet'te service'ler, route'lar ve dependency'leri birleştiren
+
+  ### Edge türleri (seçili)
+  - `CALLS`, `IMPORTS`, `DEFINES`, `IMPLEMENTS`, `INHERITS`
+  - `HTTP_CALLS`, `ASYNC_CALLS` (cross-service)
+  - `EMITS`, `LISTENS_ON` (kanallar)
+  - `DATA_FLOWS` arg-to-param eşlemesi + field access chain'leri ile
+  - `SIMILAR_TO` (MinHash + LSH near-clone tespit etme, Jaccard puanlanmış)
+  - `SEMANTICALLY_RELATED` (vocabulary-mismatch, same-language, skor ≥ 0.80)
+
+  ### İndeksleme pipeline'ı
+  - **155 vendored tree-sitter grammars** binary'ye derlenmiş
+  - **Genel paket / modül resolution** — `@myorg/pkg`, `github.com/foo/bar`, `use my_crate::foo` gibi bare specifier'lar manifest taraması aracılığıyla çözülür (`package.json`, `go.mod`, `Cargo.toml`, `pyproject.toml`, `composer.json`, `pubspec.yaml`, `pom.xml`, `build.gradle`, `mix.exs`, `*.gemspec`)
+  - **Infrastructure-as-code indeksleme** — Dockerfile'lar, Kubernetes manifest'leri, Kustomize overlay'leri graph node'ları olarak
+  - **LSP tarzı hibrit typ resolution** Go, C, C++ ve TypeScript / JavaScript / JSX / TSX için (daha fazla dil yakında) — tsserver / typescript-go'nun typ resolution algoritmaların clean-room reimplementasyonu (parameter binding, return-type inference, generic substitution, JSX component dispatch, düz JS dosyaları için JSDoc inference)
+  - **RAM-first pipeline**: LZ4 compression, in-memory SQLite, sonunda tek dump. Sonrasında hafıza serbest bırakılır.
+
+  ### Dağıtım & operasyon
+  - **Tek statik binary, sıfır altyapı**: SQLite-backed, `~/.cache/codebase-memory-mcp/`'ye kalıcı
+  - **Otomatik-sync**: Arka plan izleyici dosya değişikliklerini algılar ve otomatik olarak yeniden indeksler
+  - **Route node'ları**: REST endpoint'ler birinci sınıf graph varlığıdır
+  - **CLI modu**: `codebase-memory-mcp cli search_graph '{"name_pattern": ".*Handler.*"}'`
+  - **Uygun**: npm, PyPI, Homebrew, Scoop, Winget, Chocolatey, AUR, `go install`
+
+  ## Team-Shared Graph Artifact
+
+  Tek bir sıkıştırılmış dosyayı repo'nuzda commit edin ve takım arkadaşlarınız yeniden indekslemeyi atlasın.
+
+  `.codebase-memory/graph.db.zst` kaynak'ın yanında yaşayan knowledge graph'ının zstd-compressed snapshot'ıdır. İndekslediğinizde, artifact yazılır veya yenilenir; takım arkadaşınız repo'yu klonladığında ve `codebase-memory-mcp`'yi ilk kez çalıştırdığında, artifact sıkıştırması açılır ve incremental indeksleme yerel diff'lerini doldurur.
+
+  - **Format**: SQLite database, index'ler çıkarılmış, `VACUUM INTO` ile compact edilmiş, ardından zstd 1.5.7 ile sıkıştırılmış (tipik 8–13:1 oranı)
+  - **İki katman**:
+    - **Best** (`zstd -9` + index çıkarma + `VACUUM INTO`) — açık `index_repository` üzerinde yazılmış
+    - **Fast** (`zstd -3`) — düşük gecikme incremental güncellemeler için izleyici tarafından yazılmış
+  - **Bootstrap**: yerel DB yoksa ancak artifact mevcutsa, `index_repository` önce artifact'ı alır, ardından incremental indekslemeyi çalıştırır — tam yeniden indeksleme maliyetini önler
+  - **Merge zahmeti yok**: `.gitattributes` satırı `merge=ours` ile ilk dışarı aktarım üzerinde otomatik olarak oluşturulur, bu nedenle eşzamanlı düzenlemeler binary artifact'ında conflict üretmez
+  - **İsteğe bağlı**: istediğiniz sürece commit edilmez. Herkesin sıfırdan yeniden indeksleme yapmasını tercih ederseniz `.codebase-memory/` öğesini `.gitignore`'a ekleyin.
+
+  Sonuç, graphify'ın `graphify-out/` dizini ile ruh halinde benzerdir, ancak explicit iki katmanı dışarı aktarım, integriteyi kontrol etme alma ve sıfır merge freksiyonu ile tek sıkıştırılmış dosya olarak.
+
+  ## Nasıl Çalışır
+
+  codebase-memory-mcp bir **yapısal analiz arka ucu** — knowledge graph'ı oluşturur ve sorgular. Bir LLM **içermez**. Bunun yerine, MCP istemcinize (Claude Code veya herhangi bir MCP-compatible agent) güvenilir.
+
+  ```
+  Siz: "ProcessOrder'ı kim çağırıyor?"
+
+  Agent çağırır: trace_call_path(function_name="ProcessOrder", direction="inbound")
+
+  codebase-memory-mcp: graph sorgusunu yürütür, yapılandırılmış sonuçları döndürür
+
+  Agent: çağrı chain'ını düz İngilizce'de sunumu
+  ```
+
+  **Neden built-in LLM yok?** Diğer code graph tool'ları doğal dil → graph sorgusu çevirisi için bir LLM gömürler. Bu ek API anahtarları, ek maliyet ve yapılandırılacak başka bir model anlamına gelir. MCP ile, zaten konuştuğunuz agent *sorgu çevirici*'dir.
+
+  ## Performans
+
+  Apple M3 Pro üzerinde Benchmark:
+
+  | Operasyon | Zaman | Notlar |
+  |-----------|-------|--------|
+  | **Linux kernel tam indeksleme** | **3 dak** | 28M LOC, 75K dosya → 2.1M node, 4.9M edge |
+  | Linux kernel hızlı indeksleme | 1m 12s | 1.88M node |
+  | Django tam indeksleme | ~6s | 49K node, 196K edge |
+  | Cypher sorgusu | <1ms | İlişki traversal |
+  | Ad araması (regex) | <10ms | SQL LIKE pre-filtering |
+  | Dead code tespit etme | ~150ms | Derece filtrelemesi ile tam graph taraması |
+  | Trace çağrı yolu (depth=5) | <10ms | BFS traversal |
+
+  **RAM-first pipeline**: Tüm indeksleme bellek içinde çalışır (LZ4 HC sıkıştırılmış okuma, in-memory SQLite, sonunda tek dump). İndeksleme tamamlandıktan sonra hafıza OS'a geri bırakılır.
+
+  **Token verimliliği**: Beş yapısal sorgu codebase-memory-mcp aracılığıyla ~3.400 token'a karşı dosya-dosya grep keşfi aracılığıyla ~412.000 token tüketti — **%99.2 azalma**.
+
+  ## Yükleme
+
+  ### Önceden Derlenmiş Binary'ler
+
+  | Platform | Standart | Graph UI ile |
+  |----------|----------|--------------|
+  | macOS (Apple Silicon) | `codebase-memory-mcp-darwin-arm64.tar.gz` | `codebase-memory-mcp-ui-darwin-arm64.tar.gz` |
+  | macOS (Intel) | `codebase-memory-mcp-darwin-amd64.tar.gz` | `codebase-memory-mcp-ui-darwin-amd64.tar.gz` |
+  | Linux (x86_64) | `codebase-memory-mcp-linux-amd64.tar.gz` | `codebase-memory-mcp-ui-linux-amd64.tar.gz` |
+  | Linux (ARM64) | `codebase-memory-mcp-linux-arm64.tar.gz` | `codebase-memory-mcp-ui-linux-arm64.tar.gz` |
+  | Windows (x86_64) | `codebase-memory-mcp-windows-amd64.zip` | `codebase-memory-mcp-ui-windows-amd64.zip` |
+
+  Her release `checksums.txt` ile SHA-256 hash'lerini içerir. Tüm binary'ler statik olarak bağlanmış — shared library dependency'leri yok.
+
+  > **Windows notu**: SmartScreen imzasız yazılım için uyarı gösterebilir. **"More info"** → **"Run anyway"** üzerine tıklayın. `checksums.txt` ile integriteyi doğrulayın.
+
+  ### Kurulum Script'leri
+
+  <details>
+  <summary>Otomatik indirme + yükleme</summary>
+
+  **macOS / Linux:**
+
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/scripts/setup.sh | bash
+  ```
+
+  **Windows (PowerShell):**
+
+  ```powershell
+  irm https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/scripts/setup-windows.ps1 | iex
+  ```
+
+  </details>
+
+  ### AUR (Arch Linux)
+
+  ```bash
+  yay -S codebase-memory-mcp-bin
+  ```
+
+  ```bash
+  paru -S codebase-memory-mcp-bin
+  ```
+
+  `codebase-memory-mcp-bin` paketi şu adreste mevcuttur: https://aur.archlinux.org/packages/codebase-memory-mcp-bin
+
+  ### Claude Code'da Yükleyin
+
+  ```
+  Siz: "Bu MCP sunucusunu yükleyin: https://github.com/DeusData/codebase-memory-mcp"
+  ```
+
+  ### Kaynak'tan Derleyin
+
+  <details>
+  <summary>Ön koşullar: C compiler + zlib</summary>
+
+  | Gereksinim | Kontrol | Yükleyin |
+  |-----------|---------|---------|
+  | **C compiler** (gcc veya clang) | `gcc --version` veya `clang --version` | macOS: `xcode-select --install`, Linux: `apt install build-essential` |
+  | **C++ compiler** | `g++ --version` veya `clang++ --version` | Yukarıdakiyle aynı |
+  | **zlib** | — | macOS: included, Linux: `apt install zlib1g-dev` |
+  | **Git** | `git --version` | Çoğu sistemde önceden yüklenmiş |
+
+  </details>
+
+  ```bash
+  git clone https://github.com/DeusData/codebase-memory-mcp.git
+  cd codebase-memory-mcp
+  scripts/build.sh                    # standart binary
+  scripts/build.sh --with-ui          # graph görselleştirmesi ile
+  # Binary'i: build/c/codebase-memory-mcp adresinde
+  ```
+
+  ### Manuel MCP Konfigürasyonu
+
+  <details>
+  <summary>Install komutunu kullanmamayı tercih ederseniz</summary>
+
+  `~/.claude/.mcp.json` (global) veya project `.mcp.json`'a ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "codebase-memory-mcp": {
+        "command": "/path/to/codebase-memory-mcp",
+        "args": []
+      }
+    }
+  }
+  ```
+
+  Agent'ınızı yeniden başlatın. `/mcp` ile doğrulayın — 14 tool'u olan `codebase-memory-mcp` görmeli siniz.
+
+  </details>
+
+  ## Multi-Agent Desteği
+
+  `install` tüm kurulu ajanları otomatik olarak algılar ve yapılandırır:
+
+  | Agent | MCP Konfigürasyonu | Talimatlar | Hook'lar |
+  |-------|------------------|-----------|---------|
+  | Claude Code | `.claude/.mcp.json` | 4 Skill | PreToolUse (Grep/Glob graph augment, non-blocking) |
+  | Codex CLI | `.codex/config.toml` | `.codex/AGENTS.md` | — |
+  | Gemini CLI | `.gemini/settings.json` | `.gemini/GEMINI.md` | BeforeTool (grep reminder) |
+  | Zed | `settings.json` (JSONC) | — | — |
+  | OpenCode | `opencode.json` | `AGENTS.md` | — |
+  | Antigravity | `mcp_config.json` | `AGENTS.md` | — |
+  | Aider | — | `CONVENTIONS.md` | — |
+  | KiloCode | `mcp_settings.json` | `~/.kilocode/rules/` | — |
+  | VS Code | `Code/User/mcp.json` | — | — |
+  | OpenClaw | `openclaw.json` | — | — |
+  | Kiro | `.kiro/settings/mcp.json` | — | — |
+
+  **Hook'lar yapısal olarak non-blocking** (çıkış kodu 0, her hata yolu).
+  Claude Code için, `PreToolUse` hook'u `Grep`/`Glob` seçer (asla `Read` değil —
+  `Read` gating, read-before-edit invariant'ını kırar) ve arama token'u
+  indekslenmiş symbol'larla eşleştiğinde, bunları `search_graph` aracılığıyla
+  `additionalContext` olarak enjekte eder, böylece agent normal arama
+  sonuçları ile birlikte yapılandırılmış context'i alır. Gemini CLI için,
+  `BeforeTool` kısa bir reminder yazdırır.
+  Yüklenen Claude shim dosyası mevcut yükleme'ler ile geriye doğru uyumluluk
+  için `cbm-code-discovery-gate` olarak adlandırılır; legacy ad'a rağmen asla
+  gate'lemez ve asla block etmez.
+
+  ## CLI Modu
+
+  Her MCP tool'u komut satırından çağrılabilir:
+
+  ```bash
+  codebase-memory-mcp cli index_repository '{"repo_path": "/path/to/repo"}'
+  codebase-memory-mcp cli search_graph '{"name_pattern": ".*Handler.*", "label": "Function"}'
+  codebase-memory-mcp cli trace_call_path '{"function_name": "Search", "direction": "both"}'
+  codebase-memory-mcp cli query_graph '{"query": "MATCH (f:Function) RETURN f.name LIMIT 5"}'
+  codebase-memory-mcp cli list_projects
+  codebase-memory-mcp cli --raw search_graph '{"label": "Function"}' | jq '.results[].name'
+  ```
+
+  ## MCP Tool'ları
+
+  ### İndeksleme
+
+  | Tool | Açıklama |
+  |------|----------|
 ---
 
 # codebase-memory-mcp
@@ -16,20 +394,19 @@ homepage: "https://deusdata.github.io/codebase-memory-mcp/"
 [![GitHub Release](https://img.shields.io/github/v/release/DeusData/codebase-memory-mcp?style=flat&color=blue)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/DeusData/codebase-memory-mcp/dry-run.yml?label=CI)](https://github.com/DeusData/codebase-memory-mcp/actions/workflows/dry-run.yml)
-[![Tests](https://img.shields.io/badge/tests-5604_passing-brightgreen)](https://github.com/DeusData/codebase-memory-mcp)
-[![Languages](https://img.shields.io/badge/languages-158-orange)](https://github.com/DeusData/codebase-memory-mcp)
-[![Hybrid LSP](https://img.shields.io/badge/Hybrid_LSP-9_languages-blue)](#hybrid-lsp)
+[![Tests](https://img.shields.io/badge/tests-2812_passing-brightgreen)](https://github.com/DeusData/codebase-memory-mcp)
+[![Languages](https://img.shields.io/badge/languages-155-orange)](https://github.com/DeusData/codebase-memory-mcp)
 [![Agents](https://img.shields.io/badge/agents-11-purple)](https://github.com/DeusData/codebase-memory-mcp)
 [![Pure C](https://img.shields.io/badge/pure_C-zero_dependencies-blue)](https://github.com/DeusData/codebase-memory-mcp)
 [![Platform](https://img.shields.io/badge/macOS_%7C_Linux_%7C_Windows-supported-lightgrey)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/DeusData/codebase-memory-mcp/badge)](https://scorecard.dev/viewer/?uri=github.com/DeusData/codebase-memory-mcp)
 [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
-[![VirusTotal](https://img.shields.io/badge/VirusTotal-scanned_every_release-brightgreen?logo=virustotal)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
+[![VirusTotal](https://img.shields.io/badge/VirusTotal-0%2F72_engines-brightgreen?logo=virustotal)](https://www.virustotal.com/gui/file/7e6624b345f994afb901475e9120881241f125dfecd36772b5ade8e73485daf9/detection)
 [![arXiv](https://img.shields.io/badge/arXiv-2603.27277-b31b1b?logo=arxiv)](https://arxiv.org/abs/2603.27277)
 
 **The fastest and most efficient code intelligence engine for AI coding agents.** Full-indexes an average repository in milliseconds, the Linux kernel (28M LOC, 75K files) in 3 minutes. Answers structural queries in under 1ms. Ships as a single static binary for macOS, Linux, and Windows — download, run `install`, done.
 
-High-quality parsing through [tree-sitter](https://tree-sitter.github.io/tree-sitter/) AST analysis across all 158 languages, enhanced with [**Hybrid LSP** semantic type resolution](#hybrid-lsp) for Python, TypeScript / JavaScript / JSX / TSX, PHP, C#, Go, C, C++, Java, Kotlin, and Rust — producing a persistent knowledge graph of functions, classes, call chains, HTTP routes, and cross-service links. 14 MCP tools. Zero dependencies. Plug and play across 11 coding agents.
+High-quality parsing through [tree-sitter](https://tree-sitter.github.io/tree-sitter/) AST analysis across all 155 languages, enhanced with LSP-style hybrid type resolution for Go, C, C++, and TypeScript / JavaScript / JSX / TSX (more languages coming soon) — producing a persistent knowledge graph of functions, classes, call chains, HTTP routes, and cross-service links. 14 MCP tools. Zero dependencies. Plug and play across 11 coding agents.
 
 > **Research** — The design and benchmarks behind this project are described in the preprint [*Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP*](https://arxiv.org/abs/2603.27277) (arXiv:2603.27277). Evaluated across 31 real-world repositories: 83% answer quality, 10× fewer tokens, 2.1× fewer tool calls vs. file-by-file exploration.
 
@@ -45,7 +422,7 @@ High-quality parsing through [tree-sitter](https://tree-sitter.github.io/tree-si
 
 - **Extreme indexing speed** — Linux kernel (28M LOC, 75K files) in 3 minutes. RAM-first pipeline: LZ4 compression, in-memory SQLite, fused Aho-Corasick pattern matching. Memory released after indexing.
 - **Plug and play** — single static binary for macOS (arm64/amd64), Linux (arm64/amd64), and Windows (amd64). No Docker, no runtime dependencies, no API keys. Download → `install` → restart agent → done.
-- **158 languages** — vendored tree-sitter grammars compiled into the binary. Nothing to install, nothing that breaks.
+- **155 languages** — vendored tree-sitter grammars compiled into the binary. Nothing to install, nothing that breaks.
 - **120x fewer tokens** — 5 structural queries: ~3,400 tokens vs ~412,000 via file-by-file search. One graph query replaces dozens of grep/read cycles.
 - **11 agents, one command** — `install` auto-detects Claude Code, Codex CLI, Gemini CLI, Zed, OpenCode, Antigravity, Aider, KiloCode, VS Code, OpenClaw, and Kiro — configures MCP entries, instruction files, and pre-tool hooks for each.
 - **Built-in graph visualization** — 3D interactive UI at `localhost:9749` (optional UI binary variant).
@@ -181,10 +558,10 @@ Removes all agent configs, skills, hooks, and instructions. Does not remove the 
 - `SEMANTICALLY_RELATED` (vocabulary-mismatch, same-language, score ≥ 0.80)
 
 ### Indexing pipeline
-- **158 vendored tree-sitter grammars** compiled into the binary
+- **155 vendored tree-sitter grammars** compiled into the binary
 - **Generic package / module resolution** — bare specifiers like `@myorg/pkg`, `github.com/foo/bar`, `use my_crate::foo` resolved via manifest scanning (`package.json`, `go.mod`, `Cargo.toml`, `pyproject.toml`, `composer.json`, `pubspec.yaml`, `pom.xml`, `build.gradle`, `mix.exs`, `*.gemspec`)
 - **Infrastructure-as-code indexing** — Dockerfiles, Kubernetes manifests, Kustomize overlays as graph nodes
-- **[Hybrid LSP semantic type resolution](#hybrid-lsp)** for Python, TypeScript / JavaScript / JSX / TSX, PHP, C#, Go, C, C++, Java, Kotlin, and Rust — a lightweight C implementation of language type-resolution algorithms, structurally inspired by and compatible with major language servers including tsserver / typescript-go, pyright, gopls, Roslyn, Eclipse JDT, and rust-analyzer (parameter binding, return-type inference, generic substitution, JSX component dispatch, JSDoc inference for plain JS files, namespace + trait + late-static-binding resolution for PHP, file-scoped namespaces + records + LINQ method syntax for C#, class-hierarchy + overload + lambda resolution for Java, extension-function + scope-function resolution for Kotlin, trait-method + UFCS resolution for Rust)
+- **LSP-style hybrid type resolution** for Go, C, C++, and TypeScript / JavaScript / JSX / TSX (more languages coming) — clean-room reimplementation of tsserver / typescript-go's type resolution algorithms (parameter binding, return-type inference, generic substitution, JSX component dispatch, JSDoc inference for plain JS files)
 - **RAM-first pipeline**: LZ4 compression, in-memory SQLite, single dump at end. Memory released after.
 
 ### Distribution & operation
@@ -217,7 +594,7 @@ codebase-memory-mcp is a **structural analysis backend** — it builds and queri
 ```
 You: "what calls ProcessOrder?"
 
-Agent calls: trace_path(function_name="ProcessOrder", direction="inbound")
+Agent calls: trace_call_path(function_name="ProcessOrder", direction="inbound")
 
 codebase-memory-mcp: executes graph query, returns structured results
 
@@ -232,7 +609,7 @@ Benchmarked on Apple M3 Pro:
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| **Linux kernel full index** | **3 min** | 28M LOC, 75K files → 4.81M nodes, 7.72M edges |
+| **Linux kernel full index** | **3 min** | 28M LOC, 75K files → 2.1M nodes, 4.9M edges |
 | Linux kernel fast index | 1m 12s | 1.88M nodes |
 | Django full index | ~6s | 49K nodes, 196K edges |
 | Cypher query | <1ms | Relationship traversal |
@@ -348,11 +725,11 @@ Restart your agent. Verify with `/mcp` — you should see `codebase-memory-mcp` 
 | Agent | MCP Config | Instructions | Hooks |
 |-------|-----------|-------------|-------|
 | Claude Code | `.claude/.mcp.json` | 4 Skills | PreToolUse (Grep/Glob graph augment, non-blocking) |
-| Codex CLI | `.codex/config.toml` | `.codex/AGENTS.md` | SessionStart reminder |
-| Gemini CLI | `.gemini/settings.json` | `.gemini/GEMINI.md` | BeforeTool (grep reminder) + SessionStart reminder |
+| Codex CLI | `.codex/config.toml` | `.codex/AGENTS.md` | — |
+| Gemini CLI | `.gemini/settings.json` | `.gemini/GEMINI.md` | BeforeTool (grep reminder) |
 | Zed | `settings.json` (JSONC) | — | — |
 | OpenCode | `opencode.json` | `AGENTS.md` | — |
-| Antigravity | `.gemini/config/mcp_config.json` (shared) | `antigravity-cli/AGENTS.md` | SessionStart reminder |
+| Antigravity | `mcp_config.json` | `AGENTS.md` | — |
 | Aider | — | `CONVENTIONS.md` | — |
 | KiloCode | `mcp_settings.json` | `~/.kilocode/rules/` | — |
 | VS Code | `Code/User/mcp.json` | — | — |
@@ -364,9 +741,7 @@ For Claude Code, the `PreToolUse` hook intercepts `Grep`/`Glob` (never `Read` �
 gating `Read` breaks the read-before-edit invariant) and, when the search
 token matches indexed symbols, injects them as `additionalContext` via
 `search_graph` so the agent gets structured context alongside its normal
-search results. For Codex, Gemini CLI, and Antigravity, a `SessionStart` hook
-injects a one-line code-discovery reminder as session context (Gemini CLI also
-keeps its `BeforeTool` reminder).
+search results. For Gemini CLI, `BeforeTool` prints a short reminder.
 The installed Claude shim file is named `cbm-code-discovery-gate` for
 backward compatibility with existing installs; despite the legacy name it
 never gates and never blocks.
@@ -378,7 +753,7 @@ Every MCP tool can be invoked from the command line:
 ```bash
 codebase-memory-mcp cli index_repository '{"repo_path": "/path/to/repo"}'
 codebase-memory-mcp cli search_graph '{"name_pattern": ".*Handler.*", "label": "Function"}'
-codebase-memory-mcp cli trace_path '{"function_name": "Search", "direction": "both"}'
+codebase-memory-mcp cli trace_call_path '{"function_name": "Search", "direction": "both"}'
 codebase-memory-mcp cli query_graph '{"query": "MATCH (f:Function) RETURN f.name LIMIT 5"}'
 codebase-memory-mcp cli list_projects
 codebase-memory-mcp cli --raw search_graph '{"label": "Function"}' | jq '.results[].name'
@@ -400,7 +775,7 @@ codebase-memory-mcp cli --raw search_graph '{"label": "Function"}' | jq '.result
 | Tool | Description |
 |------|-------------|
 | `search_graph` | Structured search by label, name pattern, file pattern, degree filters. Pagination via limit/offset. |
-| `trace_path` | BFS traversal — who calls a function and what it calls (alias: `trace_call_path`). Depth 1-5. |
+| `trace_call_path` | BFS traversal — who calls a function and what it calls. Depth 1-5. |
 | `detect_changes` | Map git diff to affected symbols + blast radius with risk classification. |
 | `query_graph` | Execute Cypher-like graph queries (read-only). |
 | `get_graph_schema` | Node/edge counts, relationship patterns, property definitions per label. Run this first. |
@@ -424,17 +799,9 @@ codebase-memory-mcp cli --raw search_graph '{"label": "Function"}' | jq '.result
 
 `get_code_snippet` uses qualified names: `<project>.<path_parts>.<name>`. Use `search_graph` to discover them first.
 
-### Supported Cypher (openCypher read subset)
+### Supported Cypher Subset
 
-`query_graph` is a read-only openCypher subset:
-
-- **Clauses**: `MATCH`, `OPTIONAL MATCH`, multiple `MATCH`, `WHERE`, `WITH` (+ `WITH … WHERE`), `RETURN`, `ORDER BY`, `SKIP`, `LIMIT`, `DISTINCT`, `UNWIND`, `UNION` / `UNION ALL`, `CASE`.
-- **Patterns**: labelled nodes, label alternation `(n:A|B)`, relationship types/direction, variable-length paths `[*1..3]`, inline property maps.
-- **WHERE**: `= <> < <= > >=`, `AND/OR/XOR/NOT`, `IN`, `CONTAINS`, `STARTS WITH`, `ENDS WITH`, `IS [NOT] NULL`, regex `=~`, label test `n:Label`, and `EXISTS { (n)-[:TYPE]->() }` (single-hop existence — great for dead-code, e.g. `WHERE NOT EXISTS { (f)<-[:CALLS]-() }`).
-- **Aggregates**: `count` (+`DISTINCT`), `sum`, `avg`, `min`, `max`, `collect`.
-- **Functions**: `labels`, `type`, `id`, `keys`, `properties`; `toLower/toUpper/toString/toInteger/toFloat/toBoolean`; `size`, `length`, `trim/ltrim/rtrim`, `reverse`; `coalesce`, `substring`, `replace`, `left`, `right`.
-
-Anything outside this subset (write/`MERGE`/`CALL` clauses, unsupported functions, list/map literals, comprehensions, path functions, parameters) **fails with a clear `unsupported …` error** rather than returning empty results.
+`query_graph` supports: `MATCH` with labels and relationship types, variable-length paths, `WHERE` with comparisons/regex/CONTAINS, `RETURN` with property access and `COUNT`/`DISTINCT`, `ORDER BY`, `LIMIT`. Not supported: `WITH`, `COLLECT`, `OPTIONAL MATCH`, mutations.
 
 ## Ignoring Files
 
@@ -456,8 +823,6 @@ codebase-memory-mcp config reset auto_index              # reset to default
 | `CBM_CACHE_DIR` | `~/.cache/codebase-memory-mcp` | Override the database storage directory. All project indexes and config are stored here. |
 | `CBM_DIAGNOSTICS` | `false` | Set to `1` or `true` to enable periodic diagnostics output to `/tmp/cbm-diagnostics-<pid>.json`. |
 | `CBM_DOWNLOAD_URL` | *(GitHub releases)* | Override the download URL for updates. Used for testing or self-hosted deployments. |
-| `CBM_LOG_LEVEL` | `info` | Set the minimum log level. Accepted values (case-insensitive): `debug`, `info`, `warn`, `error`, `none` — or their numeric equivalents `0`–`4` matching the internal enum. Logs go to stderr; stdout is reserved for MCP JSON-RPC. |
-| `CBM_WORKERS` | *(detected)* | Override the parallel-indexing worker count returned by `cbm_default_worker_count`. Useful inside containers where `sysconf(_SC_NPROCESSORS_ONLN)` reports host CPUs rather than the cgroup's effective quota. Range 1–256; invalid values are ignored with a warning. |
 
 ```bash
 # Store indexes in a custom directory
@@ -492,43 +857,14 @@ SQLite databases stored at `~/.cache/codebase-memory-mcp/`. Persists across rest
 |---------|-----|
 | `/mcp` doesn't show the server | Check `.mcp.json` path is absolute. Restart agent. Test: `echo '{}' \| /path/to/binary` should output JSON. |
 | `index_repository` fails | Pass absolute path: `index_repository(repo_path="/absolute/path")` |
-| `trace_path` returns 0 results | Use `search_graph(name_pattern=".*PartialName.*")` first to find the exact name. |
+| `trace_call_path` returns 0 results | Use `search_graph(name_pattern=".*PartialName.*")` first to find the exact name. |
 | Queries return wrong project results | Add `project="name"` parameter. Use `list_projects` to see names. |
 | Binary not found after install | Add to PATH: `export PATH="$HOME/.local/bin:$PATH"` |
 | UI not loading | Ensure you downloaded the `ui` variant and ran `--ui=true`. Check `http://localhost:9749`. |
 
-## Hybrid LSP
-
-**Semantic type resolution beyond tree-sitter.**
-
-Tree-sitter alone gives a syntactic AST. That handles naming, structure, and call sites well, but it can't tell you that `user.profile.display_name()` resolves to `Profile.display_name` declared three modules away — tree-sitter doesn't track imports, generics, inheritance, or stdlib types.
-
-codebase-memory-mcp ships a **lightweight C implementation of language type-resolution algorithms, structurally inspired by and compatible with major language servers** (tsserver / typescript-go, pyright, gopls, Roslyn, Eclipse JDT, rust-analyzer), embedded directly into the static binary. No language server process, no per-project setup, no API key. We call this layer **Hybrid LSP**: it runs alongside tree-sitter on every parse and refines `CALLS`, `USAGE`, and `RESOLVED_CALLS` edges with type information, so the resulting graph mirrors what an IDE "Go to Definition" would resolve.
-
-**Languages with full Hybrid LSP:**
-
-| Language | What it handles |
-|----------|-----------------|
-| **Python** *(new in v0.7.0)* | imports + dotted submodule walks, dataclasses, `Self` return types, generics, `@property`, `match/case` class patterns, SQLAlchemy 2.0 `Mapped[T]`, Pydantic `BaseModel`, `typing.Annotated` / `ClassVar` / `Final` / `InitVar`, async/await, classmethod/staticmethod, narrowing (`isinstance` / `is not None` / walrus), `typing.cast` / `assert_type`, common stdlib (logging, pathlib, json, functools). Target ~95% resolution on idiomatic code. |
-| **TypeScript / JavaScript / JSX / TSX** | generics, JSX component dispatch, JSDoc inference for plain JS, `.d.ts` declarations, module re-exports, method chaining via return-type propagation, per-file overlay chained to a shared cross-file registry |
-| **PHP** *(new in v0.7.0)* | namespaces, traits, late-static-binding, PHPDoc inference, parameter binding, return-type inference |
-| **C#** *(new in v0.7.0)* | global usings, file-scoped namespaces, records (incl. C# 12 primary constructors), LINQ method syntax, `async Task<T>` / `ValueTask<T>` unwrap, generic methods, `this` / `base` dispatch, `var` inference, common BCL stdlib |
-| **Go** *(sharpened in v0.7.0)* | pre-built per-package cross-file registry, generics, embedded structs, interface satisfaction, package-aware import resolution |
-| **C / C++** *(sharpened in v0.7.0)* | pre-built per-language cross-file registry shared across C and C++; C side handles macros + `typedef` chains + header-vs-source linking; C++ side handles templates, namespaces, `auto` inference, and method resolution via class hierarchy |
-| **Java** *(new in v0.8.0)* | imports (single-type, on-demand, static), class hierarchies with `this` / `super` dispatch, generics, annotations, overload matching by arity and parameter types, lambdas / method references bound to functional interfaces, field-type inference, common JDK stdlib |
-| **Kotlin** *(new in v0.8.0)* | imports + same-package resolution, classes / objects / companion objects, extension functions, data classes, nullable-type unwrapping, scope functions (`let` / `apply` / `run` / `also` / `with`), infix calls, common stdlib |
-| **Rust** *(new in v0.8.0)* | `use` declarations + module paths, `impl` blocks and trait methods, struct fields, generics with trait bounds, operator-trait desugaring, derive-macro method synthesis, UFCS static paths, common std prelude |
-
-**Two-layer architecture:**
-
-1. **Tree-sitter pass** — fast, syntactic, runs for every one of the 158 languages. Extracts definitions, calls, imports.
-2. **Hybrid LSP pass** — type-aware, runs above the tree-sitter pass per-language. Refines call edges using the import graph plus a per-file or pre-built cross-file definition registry. Languages without a Hybrid LSP pass yet fall back to textual resolution, so you always get *some* answer.
-
-The result is a knowledge graph accurate enough to drive `trace_path` across packages, inheritance hierarchies, and stdlib calls — without paying for a language server process per project.
-
 ## Language Support
 
-158 languages, all parsed via vendored tree-sitter grammars compiled into the binary. Benchmarked against 64 real open-source repositories (78 to 49K nodes):
+155 languages, all parsed via vendored tree-sitter grammars compiled into the binary. Benchmarked against 64 real open-source repositories (78 to 49K nodes):
 
 | Tier | Score | Languages |
 |------|-------|-----------|
@@ -553,7 +889,7 @@ src/
   traces/             Runtime trace ingestion
   ui/                 Embedded HTTP server + 3D graph visualization
   foundation/         Platform abstractions (threads, filesystem, logging, memory)
-internal/cbm/         Vendored tree-sitter grammars (158 languages) + AST extraction engine
+internal/cbm/         Vendored tree-sitter grammars (155 languages) + AST extraction engine
 ```
 
 ## Security
@@ -567,15 +903,15 @@ Every release binary is verified through a multi-layer pipeline before publicati
 - **CodeQL SAST** — blocks release pipeline if any open alerts remain
 - **Zero runtime dependencies** — no transitive supply chain; all libraries vendored at compile time
 
-### v0.7.0 VirusTotal scans
+### v0.6.1 VirusTotal scans
 
 | Binary | SHA-256 | VirusTotal |
 |--------|---------|-----------|
-| `linux-amd64` | `8e12bb2d6ead7f20a6d3...` | [0/72 ✅](https://www.virustotal.com/gui/file/8e12bb2d6ead7f20a6d3bf2be1e51f978c38acce810f0734f510d134b039d152/detection) |
-| `linux-arm64` | `10f7136bfbf3950c6b2a...` | [0/72 ✅](https://www.virustotal.com/gui/file/10f7136bfbf3950c6b2a1a950bbf85e88b97ee55ab00b4dfbc2a5e9c2ede8672/detection) |
-| `darwin-arm64` | `7062a7408906344bf4f8...` | [0/72 ✅](https://www.virustotal.com/gui/file/7062a7408906344bf4f835e9580048af85d12dd2b7cec0edf869df93ad9a0592/detection) |
-| `darwin-amd64` | `28c6d640e1a0ac7bfcab...` | [0/72 ✅](https://www.virustotal.com/gui/file/28c6d640e1a0ac7bfcab5094c2186eced5264a20dcdffcb4455a1b28c5df2171/detection) |
-| `windows-amd64` | `9c3ddcf78368fd4fa891...` | [0/72 ✅](https://www.virustotal.com/gui/file/9c3ddcf78368fd4fa89156a553641bf1e03640b4fb6dd29a12c84aa5bc98cd86/detection) |
+| `linux-amd64` | `7e6624b345f994afb901...` | [0/72 ✅](https://www.virustotal.com/gui/file/7e6624b345f994afb901475e9120881241f125dfecd36772b5ade8e73485daf9/detection) |
+| `linux-arm64` | `ac2498c45235c1bf37f8...` | [0/72 ✅](https://www.virustotal.com/gui/file/ac2498c45235c1bf37f8ef611bdb55c2e615fd445f7045708d7fdf2f9bda5e89/detection) |
+| `darwin-arm64` | `3e72c8cb364c431d99f1...` | [0/72 ✅](https://www.virustotal.com/gui/file/3e72c8cb364c431d99f183a15152db448075b150c755c9bd383fa785875c85d2/detection) |
+| `darwin-amd64` | `7836878876c8956f6413...` | [0/72 ✅](https://www.virustotal.com/gui/file/7836878876c8956f64132864f3122dab8766a26b21f5ae77d89d48f58a7a8219/detection) |
+| `windows-amd64` | `d773be23ed0823d58677...` | [0/72 ✅](https://www.virustotal.com/gui/file/d773be23ed0823d58677453029160486becb495642cca2a81bc14f099353c46b/detection) |
 
 Scan links for every release are also included in the GitHub Release notes automatically.
 

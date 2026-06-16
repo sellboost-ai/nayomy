@@ -8,6 +8,126 @@ url: "https://github.com/andybrandt/mcp-simple-pubmed"
 body_length: 5029
 license: "MIT"
 language: "Python"
+body_tr: |-
+  [![MseeP Badge](https://mseep.net/pr/andybrandt-mcp-simple-pubmed-badge.jpg)](https://mseep.ai/app/andybrandt-mcp-simple-pubmed)
+
+  # MCP Simple PubMed
+  [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/andybrandt/mcp-simple-pubmed)](https://archestra.ai/mcp-catalog/andybrandt__mcp-simple-pubmed)
+  [![smithery badge](https://smithery.ai/badge/mcp-simple-pubmed)](https://smithery.ai/server/mcp-simple-pubmed)
+
+  Entrez API aracılığıyla PubMed makalelerine erişim sağlayan bir MCP sunucusu.
+
+  <a href="https://glama.ai/mcp/servers/5wlfb8i6bj"></a>
+
+  ## Özellikler
+
+  ### Tools
+  - **PubMed Ara** - Anahtar kelimeler, MeSH terimleri, yazar adları, tarih aralıkları ve Boolean operatörleri kullanarak veritabanında arama yapın
+  - **Tam Metni Al** - Kullanılabilir olduğunda tam metni indirin (PubMed Central'daki açık erişim makaleleri için)
+  - **Özetlere Erişin** - Resource URI'leri aracılığıyla makale özetlerini ve meta verilerini alın
+
+  ### Prompts (v0.1.14'te Yeni)
+  MCP Prompts, etkili PubMed aramaları oluşturmanıza yardımcı olur:
+
+  - **Sistematik Derleme Araması** - Sistematik derslemeler için MeSH terimleri, eş anlamlılar ve tarih filtreleri içeren kapsamlı arama stratejileri oluşturun
+  - **PICO Araması** - PICO çerçevesini (Popülasyon, Müdahale, Karşılaştırma, Sonuç) kullanarak klinik soru aramaları oluşturun
+  - **Yazar Araması** - Belirli bir yazar tarafından yapılan tüm yayınları uygun ad formatlaması ile bulun
+
+  Bu promptlar, AI'nin optimize edilmiş PubMed sorguları oluşturmasını rehberlik eder ve kapsamlı literatür aramaları yapılmasını kolaylaştırır.
+
+  ### Notlar
+
+  Lütfen dikkat edin ki araç, tam metni XML'e dönüştürülmüş versiyonunu döndürür. Ancak bu, "insan tarafından okunabilir" metinden daha faydalıdır çünkü AI'lere belgenin yapısı hakkında ek bilgi verir. En azından Claude 3.5 Sonnet bunu tercih ettiğini söyledi.
+
+  Ayrıca lütfen dikkat edin ki bu araç ve muhtemelen diğer araçların bir makalenin tam metnini sunamaması, bunun mevcut olmadığı anlamına gelmeyebilir. Bu aracı test ederken, PubMed'de tam metni olmayan bir makalenin karşılaştığım ve Claude, DOI aracılığıyla aldığımız yayın URL'sine fetch kullanarak eriştiğinde "forbidden" hatası aldığı durumu yaşadım. Ancak, aynı sayfaya düzenli bir tarayıcı kullanarak erişebildim.
+
+  Başka bir deyişle, AI asistanınız bu aracı kullanarak bir makalenin tam metnini alamıyorsa, bunu düzenli bir web tarayıcısı ile manuel olarak denemeye değer.
+
+  Son olarak, bu araç tabii ki ücretli/paywalled makalelere erişim sağlayamaz. Bunları kütüphane erişimi aracılığıyla veya son çare olarak kamu tarafından finanse edilen araştırmaları açık erişim yapma çabasında olan belirli bir site aracılığıyla okuyabilirsiniz.
+
+  ## Kurulum
+
+  ### Smithery Üzerinden Kurulum
+
+  Simple PubMed'i Claude Desktop'ta otomatik olarak [Smithery](https://smithery.ai/server/mcp-simple-pubmed) aracılığıyla kurmak için:
+
+  ```bash
+  npx -y @smithery/cli install mcp-simple-pubmed --client claude
+  ```
+
+  ### Manuel Kurulum
+  ```bash
+  pip install mcp-simple-pubmed
+  ```
+
+  ## Konfigürasyon
+
+  Sunucu aşağıdaki ortam değişkenlerini gerektirir:
+
+  - `PUBMED_EMAIL`: E-posta adresiniz (NCBI tarafından zorunludur)
+  - `PUBMED_API_KEY`: Daha yüksek hız limitleri için isteğe bağlı API anahtarı
+
+  Standart hız limiti 3 istek / saniye. Tipik kullanım senaryosunda AI'nin daha fazla trafik oluşturması çok olası olmadığı için hız sınırlaması uygulanmamıştır. Buna ihtiyacınız varsa, [bir API anahtarı kaydedebilirsiniz](https://www.ncbi.nlm.nih.gov/account/) bu size 10 istek / saniye verecektir. [NCBI sayfalarında bunu okuyun](https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Usage_Guidelines_and_Requiremen).
+
+  ## Claude Desktop ile Kullanım
+
+  Claude Desktop konfigürasyonunuza ekleyin (`claude_desktop_config.json`):
+
+  (Mac OS)
+
+  ```json
+  {
+    "mcpServers": {
+      "simple-pubmed": {
+        "command": "python",
+        "args": ["-m", "mcp_simple_pubmed"],
+        "env": {
+          "PUBMED_EMAIL": "your-email@example.com",
+          "PUBMED_API_KEY": "your-api-key" 
+        }
+      }
+    }
+  }
+  ```
+
+  (Windows)
+
+  ```json
+  {
+    "mcpServers": {
+      "simple-pubmed": {
+        "command": "C:\\Users\\YOUR_USERNAME\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "args": [
+          "-m",
+          "mcp_simple_pubmed"
+        ],
+        "env": {
+          "PUBMED_EMAIL": "your-email@example.com",
+          "PUBMED_API_KEY": "your-api-key" 
+        }
+      }
+    }
+  }
+  ```
+
+  ### macOS SSL Sertifikası Düzeltmesi
+
+  Eğer macOS'ta SSL sertifikası doğrulama hataları alırsanız (örneğin `[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain`), uygun sertifika paketini kurmanız gerekir:
+
+  ```bash
+  /Applications/Python\ 3.13/Install\ Certificates.command
+  ```
+  `3.13` yerine Python sürüm numaranızı yazın. Bu script python.org'dan gelen Python kurulumlarında gelir.
+
+  Bunu Finder'dan da çalıştırabilirsiniz:
+
+  ![image](https://raw.githubusercontent.com/andybrandt/mcp-simple-pubmed/HEAD/MacOs_certificates_solution.jpg)
+
+  Eğer bu değişikliği Claude Desktop açıkken yaparsanız, değişikliğin geçerli olması için onu kapatıp yeniden başlatmanız gerekir.
+
+  ## Lisans
+
+  MIT License
 ---
 
 [![MseeP Badge](https://mseep.net/pr/andybrandt-mcp-simple-pubmed-badge.jpg)](https://mseep.ai/app/andybrandt-mcp-simple-pubmed)

@@ -3,11 +3,390 @@ name: "hechtcarmel/jetbrains-index-mcp-plugin"
 description: "A JetBrains IDE plugin that exposes an MCP server, enabling AI coding assistants to leverage the IDE's indexing and refactoring capabilities (rename, safe delete, find references, call hierarchy, type hierarchy, diagnostics and more)."
 category: "Developer Tools"
 repo: "hechtcarmel/jetbrains-index-mcp-plugin"
-stars: 252
+stars: 222
 url: "https://github.com/hechtcarmel/jetbrains-index-mcp-plugin"
-body_length: 27419
+body_length: 21275
 license: "MIT"
 language: "Kotlin"
+body_tr: |-
+  # IDE Index MCP Sunucusu
+
+  ![Build](https://github.com/hechtcarmel/jetbrains-index-mcp-plugin/workflows/Build/badge.svg)
+  [![Version](https://img.shields.io/jetbrains/plugin/v/29174.svg)](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server)
+  [![Downloads](https://img.shields.io/jetbrains/plugin/d/29174.svg)](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server)
+
+  JetBrains IDE eklentisi olup bir **MCP (Model Context Protocol) sunucusu** sunar; Claude, Codex, Cursor ve Windsurf gibi yapay zeka kodlama asistanlarının IDE'nin güçlü indexleme ve refaktoring yeteneklerinden yararlanmasını sağlar.
+
+  **Tamamen test edilmiş**: IntelliJ IDEA, PyCharm, WebStorm, GoLand, RustRover, Android Studio, PhpStorm
+  **Çalışabilir** (test edilmemiş): RubyMine, CLion, DataGrip
+
+  [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/hechtcarmel)
+
+  <!-- Plugin description -->
+  **IDE Index MCP Sunucusu**, yapay zeka kodlama asistanlarına Model Context Protocol (MCP) üzerinden IDE'nin güçlü kod zeka özelliklerine erişim imkanı sağlar.
+
+  ### Özellikler
+
+  **Çok Dil Desteği**
+  Gelişmiş araçlar mevcut eklentilere göre birden fazla dilde çalışır:
+  - **Java & Kotlin** - IntelliJ IDEA, Android Studio
+  - **Python** - PyCharm (tüm sürümler), Python eklentili IntelliJ
+  - **JavaScript & TypeScript** - WebStorm, IntelliJ Ultimate, PhpStorm
+  - **Go** - GoLand, Go eklentili IntelliJ IDEA Ultimate
+  - **PHP** - PhpStorm, PHP eklentili IntelliJ Ultimate
+  - **Rust** - RustRover, Rust eklentili IntelliJ IDEA Ultimate, CLion
+  - **Markdown** - dosya yapısında başlık anahatları; Markdown eklentisini kullanan IDE'ler için
+
+  **Evrensel Araçlar (Tüm Desteklenen JetBrains IDE'leri)**
+  - **Referansları Bul** - Proje genelinde herhangi bir sembolün tüm kullanımlarını bulun
+  - **Tanıma Git** - Sembol bildirimine gidin
+  - **Kod Tanılama** - Hataları, uyarıları ve hızlı düzeltmeleri gösterir
+  - **Index Durumu** - Kod zekasının hazır olup olmadığını kontrol edin
+  - **Dosyaları Senkronize Et** - Harici dosya değişikliklerinden sonra VFS/PSI önbelleğini zorla senkronize edin
+  - **Projeyi İnşa Et** - Yapılandırılmış hata/uyarı çıktısıyla IDE derlemesini tetikleyin (varsayılan olarak devre dışı)
+  - **Sınıf Bul** - camelCase eşleştirmesi ile sınıf/arayüz adına göre hızlı arama
+  - **Dosya Bul** - IDE'nin dosya indeksini kullanarak ada göre hızlı dosya araması
+  - **Sembol Ara** - IntelliJ Go to Symbol eşleştirmesi ile ada göre kod sembollerini bulun (varsayılan olarak devre dışı)
+  - **Metni Ara** - IDE'nin önceden oluşturulmuş kelime indeksini kullanarak metin araması
+  - **Dosya Oku** - Yol veya nitelikli ada göre dosya içeriğini okuyun; kütüphane kaynaklarını da dahil (varsayılan olarak devre dışı)
+  - **Dosyayı Aç** - Editörde dosya açın; isteğe bağlı gezinti (varsayılan olarak devre dışı)
+  - **Aktif Dosyayı Al** - İmleç konumuyla birlikte şu anda etkin editör dosyasını alın (varsayılan olarak devre dışı)
+
+  **Genişletilmiş Araçlar (Dile Duyarlı)**
+  Bu araçlar yüklü dil eklentilerine göre etkinleşir:
+  - **Tür Hiyerarşisi** - Sınıf kalıtım zincirlerini keşfedin
+  - **Çağrı Hiyerarşisi** - Metot/fonksiyon çağrı ilişkilerini izleyin
+  - **Uygulamaları Bul** - Arayüz/soyut uygulama keşfet
+  - **Üst Metodları Bul** - Metot geçersiz kılma hiyerarşisinde gezinin
+  - **Dosya Yapısı** - IDE'nin Yapı görünümü gibi hiyerarşik dosya yapısını görüntüleyin; PHP Yapı Görünümü ağaçlarını ve Markdown başlık anahatlarını dahil (varsayılan olarak devre dışı)
+
+  **Refaktoring Araçları**
+  - **Rename Refaktoring** - Otomatik ilişkili eleman yeniden adlandırması (getters/setters, geçersiz kılan metodlar) ile güvenli yeniden adlandırma - TÜM dillerde çalışır, tamamen headless
+  - **Kodu Yeniden Biçimlendir** - Proje kod stilini kullanarak yeniden biçimlendir; import optimizasyonu (varsayılan olarak devre dışı)
+  - **Güvenli Sil** - Kullanım kontrolü ile kodu kaldırın (sadece Java/Kotlin)
+  - **Java'dan Kotlin'e Dönüştürme** - Intellij'in yerleşik dönüştürücüsünü kullanarak Java'yı Kotlin'e dönüştürün (sadece Java)
+
+  ### Bu Eklentiyi Neden Kullanmalısınız?
+
+  Basit metin tabanlı kod analizinin aksine, bu eklenti yapay zeka asistanlarına şunlara erişim imkanı verir:
+  - IDE'nin AST ve indeksi aracılığıyla **gerçek anlamsal anlama**
+  - Dosyalar ve modüller arasında çalışan **çapraz proje referans çözümlemesi**
+  - Otomatik olarak dile özgü işleyicileri algılayan ve kullanan **çok dil desteği**
+  - Otomatik referans güncellemeleri ve geri alma desteğiyle **güvenli refaktoring işlemleri**
+
+  Yapay zeka destekli geliştirme iş akışları için ideal; doğruluk ve güvenliğin önemli olduğu yerler.
+  <!-- Plugin description end -->
+
+  ## İçindekiler
+
+  - [Kurulum](#kurulum)
+  - [Hızlı Başlangıç](#hızlı-başlangıç)
+  - [Topluluk İntegrasyonları](#topluluk-integrasyonları)
+  - [İstemci Yapılandırması](#istemci-yapılandırması)
+  - [Kullanılabilir Araçlar](#kullanılabilir-araçlar)
+  - [Çok Proje Desteği](#çok-proje-desteği)
+  - [Araç Penceresi](#araç-penceresi)
+  - [Hata Kodları](#hata-kodları)
+  - [Gereksinimler](#gereksinimler)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+
+  ## Kurulum
+
+  ### IDE yerleşik eklenti sistemi kullanarak
+
+  <kbd>Ayarlar/Tercihler</kbd> > <kbd>Eklentiler</kbd> > <kbd>Marketplace</kbd> > <kbd>"IDE Index MCP Server" arayın</kbd> > <kbd>Yükle</kbd>
+
+  ### JetBrains Marketplace Kullanarak
+
+  [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server) adresine gidin ve <kbd>Yükle...</kbd> düğmesini tıklayarak yükleyin.
+
+  ### Manuel Kurulum
+
+  [Son sürümü](https://plugins.jetbrains.com/plugin/29174-ide-index-mcp-server/versions) indirin ve manuel olarak yükleyin:
+  <kbd>Ayarlar/Tercihler</kbd> > <kbd>Eklentiler</kbd> > <kbd>⚙️</kbd> > <kbd>Diskten eklenti yükle...</kbd>
+
+  ## Hızlı Başlangıç
+
+  1. **Eklentiyi yükleyin** ve JetBrains IDE'nizi yeniden başlatın
+  2. **Bir proje açın** - MCP sunucusu IDE'ye özel varsayılanlarla otomatik olarak başlar:
+     - IntelliJ IDEA: `intellij-index` port **29170** üzerinde
+     - PyCharm: `pycharm-index` port **29172** üzerinde
+     - WebStorm: `webstorm-index` port **29173** üzerinde
+     - Diğer IDE'ler: Bkz. [IDE'ye Özel Varsayılanlar](#ide'ye-özel-varsayılanlar)
+  3. **Yapay zeka asistanınızı yapılandırın** - "Kodlama Aracılarına Yükle" düğmesini (en kolay) veya manuel olarak kullanın
+  4. **Araç penceresini kullanın** (alt panel: "Index MCP Sunucusu") konfigürasyonu kopyalamak veya komutları izlemek için
+  5. **Portu değiştirin** (isteğe bağlı): Araç çubuğunda "Portu değiştir, araçları devre dışı bırak" veya <kbd>Ayarlar</kbd> > <kbd>Araçlar</kbd> > <kbd>Index MCP Sunucusu</kbd> kısmını tıklayın
+
+  ### "Kodlama Aracılarına Yükle" Düğmesini Kullanma
+
+  Yapay zeka asistanınızı yapılandırmanın en kolay yolu:
+  1. "Index MCP Sunucusu" araç penceresini açın (alt panel)
+  2. Araç çubuğunun sağ tarafındaki prominent **"Kodlama Aracılarına Yükle"** düğmesini tıklayın
+  3. İki bölüm içeren bir açılır pencere görüntülenir:
+     - **Şimdi Yükle** - Claude Code CLI ve Codex CLI için: Kurulum komutunu otomatik olarak çalıştırır
+     - **Konfigürasyonu Kopyala** - Diğer istemciler için: JSON konfigürasyonunu panonuza kopyalar
+  4. "Konfigürasyonu Kopyala" istemcileri için, konfigürasyonu uygun yapılandırma dosyasına yapıştırın
+
+  ## Topluluk İntegrasyonları
+
+  - [opencode-jetbrains-index](https://github.com/ineersa/opencode-jetbrains-index) - Bu eklentiyi kullanan OpenCode için üçüncü taraf entegrasyonu
+
+  > **Sorumluluk Reddi**: Bu depo tarafımdan bakılmamaktadır. Entegrasyona özgü sorunlar ve destek için kendi issue tracker'ını kullanınız.
+
+  ## İstemci Yapılandırması
+
+  ### Claude Code (CLI)
+
+  Araç penceresinde "Kodlama Aracılarına Yükle" düğmesini kullanın veya şu komutu çalıştırın (IDE'niz için adı ve portu ayarlayın):
+
+  ```bash
+  # IntelliJ IDEA
+  claude mcp add --transport http --scope user intellij-index http://127.0.0.1:29170/index-mcp/streamable-http
+
+  # PyCharm
+  claude mcp add --transport http --scope user pycharm-index http://127.0.0.1:29172/index-mcp/streamable-http
+
+  # WebStorm
+  claude mcp add --transport http --scope user webstorm-index http://127.0.0.1:29173/index-mcp/streamable-http
+  ```
+
+  Seçenekler:
+  - `--scope user` - Tüm projeler için genel olarak ekler
+  - `--scope project` - Yalnızca geçerli projeye ekler
+
+  Kaldırmak için: `claude mcp remove <server-name>` (örn. `claude mcp remove intellij-index`)
+
+  ### Codex CLI
+
+  Araç penceresinde "Kodlama Aracılarına Yükle" düğmesini kullanın veya şu komutu çalıştırın (IDE'niz için adı ve portu ayarlayın):
+
+  ```bash
+  # IntelliJ IDEA
+  codex mcp add intellij-index --url http://127.0.0.1:29170/index-mcp/streamable-http
+
+  # PyCharm
+  codex mcp add pycharm-index --url http://127.0.0.1:29172/index-mcp/streamable-http
+
+  # WebStorm
+  codex mcp add webstorm-index --url http://127.0.0.1:29173/index-mcp/streamable-http
+  ```
+
+  Kaldırmak için: `codex mcp remove <server-name>` (örn. `codex mcp remove intellij-index`)
+
+  ### Cursor
+
+  Proje kökünüzde `.cursor/mcp.json` veya genel olarak `~/.cursor/mcp.json` dosyasına ekleyin (IDE'niz için adı ve portu ayarlayın):
+
+  ```json
+  {
+    "mcpServers": {
+      "intellij-index": {
+        "url": "http://127.0.0.1:29170/index-mcp/streamable-http"
+      }
+    }
+  }
+  ```
+
+  ### Windsurf
+
+  `~/.codeium/windsurf/mcp_config.json` dosyasına ekleyin (IDE'niz için adı ve portu ayarlayın):
+
+  ```json
+  {
+    "mcpServers": {
+      "intellij-index": {
+        "serverUrl": "http://127.0.0.1:29170/index-mcp/streamable-http"
+      }
+    }
+  }
+  ```
+
+  ### VS Code (Jenerik MCP)
+
+  ```json
+  {
+    "mcp.servers": {
+      "intellij-index": {
+        "url": "http://127.0.0.1:29170/index-mcp/streamable-http"
+      }
+    }
+  }
+  ```
+
+  > **Not**: Sunucu adını ve portu IDE'nizin varsayılanları ile değiştirin. Aşağıda [IDE'ye Özel Varsayılanlar](#ide'ye-özel-varsayılanlar) kısmına bakınız.
+
+  ### IDE'ye Özel Varsayılanlar
+
+  Her JetBrains IDE'nin, çatışmalar olmadan aynı anda birden fazla IDE çalıştırabilmek için benzersiz bir varsayılan port ve sunucu adı vardır:
+
+  | IDE | Sunucu Adı | Varsayılan Port |
+  |-----|-----------|-----------------|
+  | IntelliJ IDEA | `intellij-index` | 29170 |
+  | Android Studio | `android-studio-index` | 29171 |
+  | PyCharm | `pycharm-index` | 29172 |
+  | WebStorm | `webstorm-index` | 29173 |
+  | GoLand | `goland-index` | 29174 |
+  | PhpStorm | `phpstorm-index` | 29175 |
+  | RubyMine | `rubymine-index` | 29176 |
+  | CLion | `clion-index` | 29177 |
+  | RustRover | `rustrover-index` | 29178 |
+  | DataGrip | `datagrip-index` | 29179 |
+
+  > **İpucu**: Araç penceresindeki "Kodlama Aracılarına Yükle" düğmesini kullanın - IDE'niz için otomatik olarak doğru sunucu adını ve portunu kullanır.
+
+  ## Kullanılabilir Araçlar
+
+  Eklenti, kullanılabilirliğe göre düzenlenmiş **21 MCP aracı** sağlar. *(varsayılan olarak devre dışı)* işaretli araçlar <kbd>Ayarlar</kbd> > <kbd>Araçlar</kbd> > <kbd>Index MCP Sunucusu</kbd> kısmında etkinleştirilebilir.
+
+  ### Evrensel Araçlar
+
+  Bu araçlar tüm desteklenen JetBrains IDE'lerinde çalışır.
+
+  | Araç | Açıklama |
+  |------|---------|
+  | `ide_find_references` | Tüm proje genelinde bir sembolün tüm referanslarını bulun |
+  | `ide_find_definition` | Bir sembolün tanımı/bildirimi konumunu bulun |
+  | `ide_find_class` | camelCase/substring/joker eşleştirmesi ile sınıf/arayüz ada göre arayın |
+  | `ide_find_file` | IDE'nin dosya indeksini kullanarak ada göre dosya arayın |
+  | `ide_find_symbol` | IntelliJ Go to Symbol eşleştirmesi ile ad göre sembol (sınıf, metot, alan, fonksiyon) arayın *(varsayılan olarak devre dışı)* |
+  | `ide_search_text` | Bağlam filtrelemesiyle IDE'nin önceden oluşturulmuş kelime indeksini kullanarak metin araması |
+  | `ide_diagnostics` | Açık dosyalar için taze editör tanılaması veya kapalı dosyalar için genel toplu tanılama ile dosya sorunlarını analiz edin; isteğe bağlı derleme/test sonuçları; niyetler en iyi çaba temelinde |
+  | `ide_index_status` | IDE'nin dumb mode'da mı yoksa smart mode'da mı olduğunu kontrol edin |
+  | `ide_sync_files` | IDE'nin sanal dosya sistemi ve PSI önbelleğini harici dosya değişiklikleriyle senkronize etmeyi zorla |
+  | `ide_build_project` | Yapılandırılmış hatalarla IDE derleme sistemi (JPS, Gradle, Maven) kullanarak projeyi derleyin *(varsayılan olarak devre dışı)* |
+  | `ide_read_file` | Yol veya nitelikli ada göre dosya içeriğini okuyun; kütüphane/jar kaynakları dahil *(varsayılan olarak devre dışı)* |
+  | `ide_get_active_file` | İmleç konumuyla birlikte editördeki şu anda aktif dosya(ları) alın *(varsayılan olarak devre dışı)* |
+  | `ide_open_file` | Editörde dosya açın; isteğe bağlı satır/sütun gezintisi *(varsayılan olarak devre dışı)* |
+  | `ide_refactor_rename` | Bir sembolü yeniden adlandırın ve proje genelinde tüm referansları güncelleyin (tüm diller) |
+  | `ide_move_file` | Dosyayı yeni bir dizine taşıyın; IDE anlamsal taşıma arka ucu sağladığında dile duyarlı referans/paket güncellemeleri uygulayın |
+  | `ide_reformat_code` | Proje kod stilini kullanarak kodu yeniden biçimlendir; import optimizasyonu *(varsayılan olarak devre dışı)* |
+
+  ### Genişletilmiş Araçlar (Dile Duyarlı)
+
+  Bu araçlar mevcut dil eklentilerine göre etkinleşir:
+
+  | Araç | Açıklama | Diller |
+  |------|---------|--------|
+  | `ide_type_hierarchy` | Tam tür hiyerarşisini (üst tipleri ve alt tipleri) alın | Java, Kotlin, Python, JS/TS, Go, PHP, Rust |
+  | `ide_call_hierarchy` | Metot çağrısı ilişkilerini analiz edin (arayanlar veya çağrılanlar) | Java, Kotlin, Python, JS/TS, Go, PHP, Rust |
+  | `ide_find_implementations` | Bir arayüz veya soyut metotun tüm uygulamalarını bulun | Java, Kotlin, Python, JS/TS, PHP, Rust |
+  | `ide_find_super_methods` | Bir metodun geçersiz kıldığı/uyguladığı metodların tam kalıtım hiyerarşisini bulun | Java, Kotlin, Python, JS/TS, PHP |
+  | `ide_file_structure` | Hiyerarşik dosya yapısını alın (IDE'nin Yapı görünümüne benzer) *(varsayılan olarak devre dışı)* | Java, Kotlin, Python, JS/TS, PHP, Markdown |
+
+  PHP dosya yapısı desteği PHP eklentisi gerektirir ve PhpStorm veya PHP eklentisi etkin olan IntelliJ IDEA Ultimate'de mevcuttur.
+
+  ### Java'ya Özel Refaktoring Araçları
+
+  | Araç | Açıklama |
+  |------|---------|
+  | `ide_convert_java_to_kotlin` | IntelliJ'in yerleşik dönüştürücüsünü kullanarak Java dosyalarını Kotlin'e dönüştürün *(varsayılan olarak devre dışı, Java + Kotlin eklentileri gerekir)* |
+  | `ide_refactor_safe_delete` | Bir elemanı güvenli şekilde silin; önce kullanımları kontrol edin (sadece Java/Kotlin) |
+
+  > **Not**: Refaktoring araçları kaynak dosyaları değiştirir. Tüm değişiklikler <kbd>Ctrl/Cmd+Z</kbd> üzerinden geri almayı destekler.
+
+  ### IDE'ye Göre Araç Kullanılabilirliği
+
+  **Tamamen Test Edilmiş:**
+
+  | IDE | Evrensel | Gezinti | Refaktoring |
+  |-----|---------|---------|------------|
+  | IntelliJ IDEA | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat + safe delete + Java→Kotlin |
+  | Android Studio | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat + safe delete + Java→Kotlin |
+  | PyCharm | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat |
+  | WebStorm | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat |
+  | GoLand | ✓ 14 araç | ✓ 4 araç | ✓ rename + reformat |
+  | RustRover | ✓ 14 araç | ✓ 5 araç | ✓ rename + reformat |
+  | PhpStorm | ✓ 14 araç | ✓ 6 araç | ✓ rename + reformat |
+
+  **Çalışabilir (Test Edilmemiş):**
+
+  | IDE | Evrensel | Gezinti | Refaktoring |
+  |-----|---------|---------|------------|
+  | RubyMine | ✓ 14 araç | ✓ 2 Markdown aracı | ✓ rename + reformat |
+  | CLion | ✓ 14 araç | ✓ 2 Markdown aracı | ✓ rename + reformat |
+  | DataGrip | ✓ 14 araç | ✓ 2 Markdown aracı | ✓ rename + reformat |
+
+  > **Not**: Gezinti araçları dil eklentileri mevcut olduğunda etkinleşir. Markdown, yerleşik Markdown eklentisi etkinleştirildiğinde başlık araması ve dosya yapısı desteği ekler. Go ve Rust, dil semantiğinden dolayı `ide_find_super_methods` göstermez; Go `ide_find_implementations` göstermez. Rename ve reformat araçları tüm dillerde çalışır. `ide_convert_java_to_kotlin` yalnızca IntelliJ IDEA ve Android Studio'da mevcuttur, hem Java hem de Kotlin eklentilerini gerektirir ve varsayılan olarak devre dışıdır.
+
+  Parametreler ve örnekler içeren ayrıntılı araç belgeleri için [USAGE.md](USAGE.md) dosyasına bakınız.
+
+  ## Çok Proje Desteği
+
+  Tek bir IDE penceresinde birden fazla proje açık olduğunda, `project_path` parametresiyle hangi projenin kullanılacağını belirtmelisiniz:
+
+  ```json
+  {
+    "name": "ide_find_references",
+    "arguments": {
+      "project_path": "/Users/dev/myproject",
+      "file": "src/Main.kt",
+      "line": 10,
+      "column": 5
+    }
+  }
+  ```
+
+  `project_path` atlanırsa:
+  - **Tek proje açık**: Bu proje otomatik olarak kullanılır
+  - **Birden fazla proje açık**: Kullanılabilir projeler listesiyle bir hata döndürülür
+
+  ### Workspace Projeleri
+
+  Eklenti, tek bir IDE penceresinin, ayrı içerik köklerine sahip modüller olarak birden fazla alt proje içeren **workspace projelerine** destek verir. `project_path` parametresi şunları kabul eder:
+
+  - **Workspace kök** yolu
+  - **Alt proje yolu** (modül içerik kökü)
+  - Herhangi bir açık projenin **alt dizini**
+
+  Bir hata oluştuğunda, yanıt `available_projects` döndürür. Varsayılan olarak bu, yapay zeka aracılarının geçerli modül içerik köklerini keşfetmesi için workspace alt projelerini içerir. Daha küçük hata yüklemeleri istiyorsanız, eklenti ayarlarında **Hata Yanıtlarında Proje Listesi** seçeneğini **Kompakt** olarak değiştirerek yalnızca üst düzey proje köklerini döndürün.
+
+  ## Araç Penceresi
+
+  Eklenti, şunları gösteren bir "Index MCP Sunucusu" araç penceresi (alt panel) ekler:
+
+  - **Sunucu Durumu**: Sunucu URL'si ve portu ile çalıştırma göstergesi
+  - **Proje Adı**: Şu anda etkin olan proje
+  - **Komut Geçmişi**: Tüm MCP araç çağrılarının günlüğü:
+    - Zaman damgası
+    - Araç adı
+    - Durum (Başarılı/Hata/Beklemede)
+    - Parametreler ve sonuçlar (genişletilebilir)
+    - Yürütme süresi
+
+  ### Araç Penceresi İşlemleri
+
+  | İşlem | Açıklama |
+  |------|---------|
+  | Yenile | Sunucu durumunu ve komut geçmişini yenile |
+  | URL'yi Kopyala | MCP sunucu URL'sini panoya kopyala |
+  | Geçmişi Temizle | Komut geçmişini temizle |
+  | Geçmişi Dışa Aktar | Geçmişi JSON veya CSV dosyasına dışa aktar |
+  | **Kodlama Aracılarına Yükle** | MCP sunucusunu yapay zeka asistanlarına yükle (sağ taraftaki prominent düğme) |
+
+  ## Hata Kodları
+
+  ### JSON-RPC Standart Hataları
+
+  | Kod | Adı | Açıklama |
+  |-----|-----|---------|
+  | -32700 | Parse Error | JSON-RPC isteği ayrıştırılamadı |
+  | -32600 | Invalid Request | Geçersiz JSON-RPC istek biçimi |
+  | -32601 | Method Not Found | Bilinmeyen metot adı |
+  | -32602 | Invalid Params | Geçersiz veya eksik parametreler |
+  | -32603 | Internal Error | Beklenmeyen iç hata |
+
+  ### Özel MCP Hataları
+
+  | Kod | Adı | Açıklama |
+  |-----|-----|---------|
+  | -32001 | Index Not Ready | IDE dumb mode'dadır (indexleme devam ediyor) |
+  | -32002 | File Not Found | Belirtilen dosya mevcut değil |
+  | -32003 | Symbol Not Found | Belirtilen konumda sembol bulunamadı |
+  | -32004 | Refactoring Conflict | Refaktoring tamamlanamıyor (örn. ad çakışması) |
+
+  ## Ayarlar
+
+  Eklentiyi <kbd>Ayarlar</kbd> > <kbd>Araçlar</kbd> > <kbd>Index MCP Sunuc
 ---
 
 # IDE Index MCP Server
@@ -67,16 +446,6 @@ These tools activate based on installed language plugins:
 - **Safe Delete** - Remove code with usage checking (Java/Kotlin only)
 - **Java to Kotlin Conversion** - Convert Java to Kotlin using Intellij's built-in converter (Java only)
 
-**Project Lifecycle Management**
-
-When working across many projects simultaneously, idle ones consume memory unnecessarily and leave editors open for no reason. Lifecycle management automatically sleeps and wakes projects based on window focus and MCP activity — no configuration required.
-
-- **Automatic sleep/wake** - Projects move from active → background (Power Save on) → dormant (editors closed, PSI cache freed) → closed (fully unloaded), and auto-reopen transparently on the next MCP call
-- **`ide_project_status`** - Combined snapshot of every open and managed project
-- **`ide_set_project_mode`** / **`ide_get_project_modes`** - Explicit mode control
-- **`ide_release_project`** - Unenroll a project from lifecycle management
-- **`ide_lifecycle_log`** - Timestamped event log with trigger reasons, for diagnosing unexpected behaviour. The ring buffer is always active; file output enables via Help → Diagnostic Tools → Debug Log Settings
-
 ### Why Use This Plugin?
 
 Unlike simple text-based code analysis, this plugin gives AI assistants access to:
@@ -96,7 +465,6 @@ Perfect for AI-assisted development workflows where accuracy and safety matter.
 - [Client Configuration](#client-configuration)
 - [Available Tools](#available-tools)
 - [Multi-Project Support](#multi-project-support)
-- [Lifecycle Management](#lifecycle-management)
 - [Tool Window](#tool-window)
 - [Error Codes](#error-codes)
 - [Requirements](#requirements)
@@ -248,7 +616,7 @@ Each JetBrains IDE has a unique default port and server name to allow running mu
 
 ## Available Tools
 
-The plugin provides **38 MCP tools** organized by availability. Tools marked *(disabled by default)* can be enabled in <kbd>Settings</kbd> > <kbd>Tools</kbd> > <kbd>Index MCP Server</kbd>.
+The plugin provides **21 MCP tools** organized by availability. Tools marked *(disabled by default)* can be enabled in <kbd>Settings</kbd> > <kbd>Tools</kbd> > <kbd>Index MCP Server</kbd>.
 
 ### Universal Tools
 
@@ -269,11 +637,6 @@ These tools work in all supported JetBrains IDEs.
 | `ide_read_file` | Read file content by path or qualified name, including library/jar sources *(disabled by default)* |
 | `ide_get_active_file` | Get the currently active file(s) in the editor with cursor position *(disabled by default)* |
 | `ide_open_file` | Open a file in the editor with optional line/column navigation *(disabled by default)* |
-| `ide_set_power_save_mode` | Enable or disable IDE Power Save Mode — suspends background inspections while keeping the index and all code intelligence operational *(disabled by default)* |
-| `ide_close_project` | Close an open project window and free its memory — refuses to close the last open project *(disabled by default)* |
-| `ide_open_project` | Open a project by absolute path and wait until indexing completes (configurable timeout); returns immediately if already open *(disabled by default)* |
-| `ide_install_plugin` | Install a plugin zip into the IDE, replacing any existing version — auto-detects `build/distributions/*.zip` when no path is given *(disabled by default)* |
-| `ide_restart` | Restart the IDE — terminates the MCP connection; call after `ide_install_plugin` *(disabled by default)* |
 | `ide_refactor_rename` | Rename a symbol and update all references across the project (all languages) |
 | `ide_move_file` | Move a file to a new directory, applying language-aware reference/package updates when the IDE provides a semantic move backend |
 | `ide_reformat_code` | Reformat code using project code style with import optimization *(disabled by default)* |
@@ -300,34 +663,6 @@ PHP file structure support requires the PHP plugin and is available in PhpStorm 
 | `ide_refactor_safe_delete` | Safely delete an element, checking for usages first (Java/Kotlin only) |
 
 > **Note**: Refactoring tools modify source files. All changes support undo via <kbd>Ctrl/Cmd+Z</kbd>.
-
-### Project Lifecycle Management Tools
-
-`ide_project_status` is enabled by default. All other lifecycle tools are disabled by default — enable them in Settings → Tools → Index MCP Server.
-
-| Tool | Description | Default |
-|------|-------------|---------|
-| `ide_project_status` | Combined snapshot: every open project and every managed project with open/managed/mode per row | Enabled |
-| `ide_set_project_mode` | Set a project's lifecycle mode: `active`, `background`, `dormant`, or `closed` | Disabled |
-| `ide_get_project_modes` | List all managed projects and their current modes, including closed ones | Disabled |
-| `ide_set_all_project_modes` | Set all managed projects to the same mode at once (active/background/dormant) | Disabled |
-| `ide_enroll_all_projects` | Enroll every currently open project in lifecycle management | Disabled |
-| `ide_release_project` | Unenroll a project from lifecycle management | Disabled |
-| `ide_release_all_projects` | Release every managed project (including closed ones) from lifecycle management | Disabled |
-| `ide_lifecycle_log` | Query recent lifecycle events from a ring buffer; each event has a `trigger` field explaining the cause | Disabled |
-
-**Lifecycle modes** — transitions are automatic, driven by window focus and MCP activity:
-
-| Mode | Power Save | Editors | PSI Cache | Auto-transition |
-|------|-----------|---------|-----------|-----------------|
-| `active` | off | open | loaded | focus lost for N min → background |
-| `background` | on | open | loaded | N min idle → dormant |
-| `dormant` | on | closed | freed | N min idle → closed |
-| `closed` | — | — | freed | next MCP call → background (auto-reopens) |
-
-Timing thresholds are configurable in Settings. Projects enroll automatically on first MCP use and auto-reopen when an MCP tool targets a closed project — existing tools require no changes.
-
-**MCP availability guarantee:** the lifecycle manager never closes the last open managed project — it stays in `dormant` (memory mostly freed, MCP still reachable). If all projects are somehow closed (e.g., the user manually closes the last window), any MCP tool call without a `project_path` automatically reopens a managed-closed project to restore access.
 
 ### Tool Availability by IDE
 
@@ -385,25 +720,6 @@ The plugin supports **workspace projects** where a single IDE window contains mu
 
 When an error occurs, the response returns `available_projects`. By default this includes workspace sub-projects so AI agents can discover valid module content roots. If you want smaller error payloads, switch **Project list in error responses** to **Compact** in plugin settings to return only top-level project roots.
 
-## Lifecycle Management
-
-When you use the plugin across multiple projects simultaneously — common when an AI agent is working across a monorepo — open projects compete for memory even when they're not being actively used. Lifecycle management handles this automatically.
-
-Projects enroll on their first MCP tool call and are notified via balloon. From that point, transitions happen based on focus and MCP activity:
-
-1. **Focus lost** → after 2 minutes, Power Save Mode on (`background`)
-2. **No MCP calls** → after 2 more minutes, editors close and PSI cache is freed (`dormant`)
-3. **Still idle** → after 10 minutes, project window closes entirely (`closed`)
-4. **Next MCP call** → project reopens automatically, indexes, and responds normally
-
-No changes are needed in existing MCP tools — `ProjectResolver` handles the reopen transparently. The auto-reopen typically takes 5–15 seconds on first open; subsequent opens are faster.
-
-The lifecycle manager never closes the last open managed project: it stays dormant (memory mostly freed, MCP still reachable). If all projects are closed by other means, any tool call automatically reopens one managed project to restore MCP access.
-
-Use `ide_project_status` to see the current state of all projects at a glance, and `ide_lifecycle_log` to see what happened and why — useful when a project closed unexpectedly. Each log event has a `trigger` field: `timer:inactivity`, `timer:close`, `focus_gained`, `mcp_call`, `auto_open`, `user`, etc.
-
-Timing thresholds are configurable in Settings → Index MCP Server → Project Lifecycle Management.
-
 ## Tool Window
 
 The plugin adds an "Index MCP Server" tool window (bottom panel) that shows:
@@ -460,12 +776,6 @@ Configure the plugin at <kbd>Settings</kbd> > <kbd>Tools</kbd> > <kbd>Index MCP 
 | Project List in Error Responses | Expanded | Controls `available_projects` detail for invalid/missing `project_path` errors. `Expanded` includes workspace sub-projects; `Compact` returns only top-level project roots |
 | Sync External Changes | false | Sync external file changes before operations (**WARNING: significant performance impact**) |
 | Disabled Tools | 7 tools | Per-tool enable/disable toggles. Some tools are disabled by default to keep the tool list focused |
-| **Lifecycle Management** | | |
-| Enable lifecycle management | true | Master toggle for the automatic sleep/wake state machine |
-| Active → Background (minutes) | 2 | Focus-loss grace period before switching to Power Save Mode |
-| Background → Dormant (minutes) | 2 | MCP-idle time before closing editors and freeing PSI caches |
-| Dormant → Closed (minutes) | 10 | Idle time before fully closing the project window |
-| Event log buffer size | 500 | How many events `ide_lifecycle_log` retains in memory (100–10,000) |
 
 ## Requirements
 

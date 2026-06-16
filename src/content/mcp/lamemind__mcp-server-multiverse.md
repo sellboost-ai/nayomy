@@ -8,6 +8,331 @@ url: "https://github.com/lamemind/mcp-server-multiverse"
 body_length: 9216
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Multiverse MCP Server
+
+  Birden fazla aynı MCP sunucusunun izole edilmiş örneklerinin bağımsız olarak birlikte varolmasını sağlayan benzersiz ad alanları ve konfigürasyonlarla çalışan bir ara katman sunucusu.
+
+  Multiverse MCP Server, aynı MCP sunucularının çatışma olmadan eşzamanlı olarak çalışabileceği izole işletim alanları oluşturur. Her "evren" kendi konfigürasyonunu, dosya sistemi erişimini ve fonksiyon adlandırmasını korur; bu da geliştiricilerin aynı sunucu türünün birden fazla örneğini çalıştırırken farklı bağlamlar veya projeler arasında tam ayrılık sağlamasını mümkün kılar.
+
+  ## Temel Özellikler
+
+  ### Birden Fazla Örneği Çalıştırın
+  Aynı MCP sunucu türünün birden fazla örneğini bağımsız ve eşzamanlı olarak çalıştırın. Her örnek kendi izole evreninde ayrı konfigürasyonlarla çalışır. Bu şu senaryoları mümkün kılar:
+  - Farklı veritabanlarına işaret eden birden fazla MySQL sunucusu `mcp-server-mysql`
+  - Farklı Kişisel Erişim Jetonları ile birden fazla Git sunucusu `mcp-server-git`
+  - Farklı kök yollarına erişen birden fazla dosya sistemi sunucusu `mcp-server-filesystem`
+
+  ### Otomatik Sunucu Yeniden Başlatması
+  Geliştirme sırasında dosya izleme yeteneğine sahip MCP sunucunuzu kaydedin. Etkinleştirildiğinde, sunucu belirtilen dizindeki değişiklikleri otomatik olarak algılar ve zarif bir yeniden başlatma gerçekleştirerek geliştirme ve test işlemlerini sorunsuz hale getirir.
+
+  ### JSON Tabanlı Konfigürasyon Sistemi
+  Multiverse kurulumunuzu basit ve esnek bir JSON konfigürasyon formatı kullanarak tanımlayın. Her sunucu örneği kendi parametreleriyle yapılandırılabilir:
+  - Komut ve argümanları
+  - Ortam değişkenleri
+  - Yol çözümleme kuralları
+  - Dosya izleme ayarları
+
+  ## Barındırılan dağıtım
+
+  Barındırılan bir dağıtım [Fronteir AI](https://fronteir.ai/mcp/lamemind-mcp-server-multiverse) üzerinde mevcuttur.
+
+  ## Kurulum
+
+  Öncelikle, [Claude Desktop uygulamasını](https://claude.ai/download) indirip yüklediğinizden ve npm'nin kurulu olduğundan emin olun.
+
+  Ardından, `claude_desktop_config.json` dosyanıza bu girişi ekleyin
+  - Mac'te, `~/Library/Application\ Support/Claude/claude_desktop_config.json` adresinde bulunur
+  - Windows'ta, `C:\Users\<username>\AppData\Roaming\Claude\claude_desktop_config.json` adresinde bulunur
+
+  Şimdi kaç tane multiverse sunucusu çalıştırmak istediğinizi ekleyin. Örneğin, `mcp-server-multiverse`'in iki örneğini çalıştırmak istiyorsanız, biri işiniz için diğeri yan projeniz için, aşağıdaki konfigürasyonu ekleyebilirsiniz:
+
+  ```json
+  {
+    "mcpServers": {
+      "job-multiverse": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@lamemind/mcp-server-multiverse@latest",
+          "/path/to/your/job-multiverse.json"
+        ]
+      },
+      "side-project-multiverse": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@lamemind/mcp-server-multiverse@latest",
+          "/path/to/your/side-project-multiverse.json"
+        ]
+      }
+    }
+  }
+  ```
+
+  Bu konfigürasyon, Claude Desktop'ın uygulamayı başlattığınızda `mcp-server-multiverse` örneklerini otomatik olarak başlatmasını sağlar.
+
+  ![demo.png](https://raw.githubusercontent.com/lamemind/mcp-server-multiverse/HEAD/assets/demo.png)
+
+  ## Konfigürasyon Örnekleri
+
+  ### `mcp-server-mysql`'in farklı veritabanlarıyla iki izole örneği oluşturun
+
+  `job-multiverse.json` dosyanız
+  ~~~JSON
+  {
+    "serverName": "JobMultiverse",
+    "functionsPrefix": "job",
+    "servers": [
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@benborla29/mcp-server-mysql"
+        ],
+        "env": {
+          "MYSQL_HOST": "127.0.0.1",
+          "MYSQL_PORT": "3306",
+          "MYSQL_USER": "root",
+          "MYSQL_PASS": "",
+          "MYSQL_DB": "my-job-db"
+        }
+      }
+    ]
+  }
+  ~~~
+
+  `side-project-multiverse.json` dosyanız
+  ~~~JSON
+  {
+    "serverName": "SideProjectMultiverse",
+    "functionsPrefix": "side-project",
+    "servers": [
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@benborla29/mcp-server-mysql"
+        ],
+        "env": {
+          "MYSQL_HOST": "127.0.0.1",
+          "MYSQL_PORT": "3306",
+          "MYSQL_USER": "root",
+          "MYSQL_PASS": "",
+          "MYSQL_DB": "side-project-db"
+        }
+      }
+    ]
+  }
+  ~~~
+
+
+  ### `mcp-server-filesystem`'in izole örneğini oluşturun
+
+  - `mcp-server-filesystem`'in fonksiyonları `side-project` öneki ile sunulacak, örneğin `side-project_read_file`, `side-project_write_file`.
+  - Kök yol, `pathResolution` konfigürasyonu kullanılarak müşteriden (örneğin Claude Desktop) gizlenebilir.
+
+  `pathResolution`'ın isteğe bağlı olduğunu ve kök yolu müşteriden gizlemek istiyorsanız yalnızca gerekli olduğunu unutmayın.
+
+  `multiverse.json` dosyanız
+  ~~~JSON
+  {
+    "serverName": "MySideProject",
+    "functionsPrefix": "side-project",
+    "servers": [
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem@latest",
+          "/full/path/to/side-project"
+        ],
+        "pathResolution": {
+          "root": "/full/path/to/side-project",
+          "applyTo": [
+            "path",
+            "paths"
+          ]
+        }
+      }
+    ]
+  }
+  ~~~
+
+
+  ### `fileWatch` ile dosya değişikliklerinde otomatik sunucu yeniden başlatması
+
+  `multiverse.json` dosyanız
+  ~~~JSON
+  {
+    "serverName": "MySideProject",
+    "functionsPrefix": "side-project",
+    "servers": [
+      {
+        "command": "node",
+        "args": [
+          "/my-own/mcp-server/i-m-working-on/build/index.js"
+        ],
+        "fileWatch": {
+          "enabled": true,
+          "path": "/my-own/mcp-server/i-m-working-on/build/"
+        }
+      }
+    ]
+  }
+  ~~~
+
+  ### `hideFunctions` seçeneği ile belirli fonksiyonları gizleme
+
+  `hideFunctions` dizisini kullanarak sarılı sunuculardan belirli fonksiyonları seçilerek gizleyebilirsiniz. Bu, bir sunucuyu kullanmak istediğiniz ancak belirli potansiyel olarak tehlikeli veya gereksiz fonksiyonlara erişimi kısıtlamak istediğinizde kullanışlıdır.
+
+  `hideFunctions` dizisi, sarılı sunucudan gizlenecek fonksiyon adlarının bir listesini kabul eder. Bir fonksiyon gizlendiğinde:
+  - Ana MCP sunucusu ile kaydedilmez
+  - Müşteri (örneğin Claude Desktop) tarafından kullanılamaz
+  - Mevcut fonksiyonların listesinde görünmez
+
+  Bu özellik özellikle şu durumlarda kullanışlıdır:
+  - Potansiyel olarak tehlikeli fonksiyonlara erişimi kısıtlama (örneğin GitHub'ta `delete_repository`)
+  - Nadiren kullanılan fonksiyonları gizleyerek arayüzü basitleştirme
+  - Farklı sunucu örnekleri için farklı izin seviyeleri oluşturma
+
+  ~~~JSON
+  {
+    "serverName": "GitHubWithRestrictions",
+    "functionsPrefix": "github",
+    "servers": [
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github@latest"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "<your-personal-access-token>"
+        },
+        "hideFunctions": [
+          "create_repository",
+          "delete_repository",
+          "create_issue"
+        ]
+      }
+    ]
+  }
+  ~~~
+
+  Bu örnekte, GitHub sunucusu normal şekilde başlayacak ancak `create_repository`, `delete_repository` ve `create_issue` fonksiyonları gizlenecek ve müşteri tarafından kullanılamayacak olacaktır.
+
+
+  ### `enabled` bayrağı ile belirli sunucuları devre dışı bırakma
+
+  `enabled` bayrağını `false` olarak ayarlayarak belirli sunucuları JSON dosyasından kaldırmadan seçilerek devre dışı bırakabilirsiniz. Bu, geliştirme veya test sırasında sunucuları geçici olarak devre dışı bırakmak istediğinizde kullanışlıdır.
+  ~~~JSON
+  {
+    "serverName": "MySideProject",
+    "functionsPrefix": "side-project",
+    "servers": [
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem@latest",
+          "/full/path/to/side-project"
+        ],
+        "hideFunctions": [ "write_file" ]
+      },
+      {
+        "enabled": false,
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github@latest"
+        ]
+      }
+    ]
+  }
+  ~~~
+
+  Bu örnekte, ilk sunucu (dosya sistemi) başlayacak ancak `write_file` fonksiyonu gizlenmiş olacak, ikinci sunucu (GitHub) devre dışı bırakılmış ve başlatılmayacaktır.
+
+  ### `multiverse.json` dosyasının tam örneği
+
+  Bu örnek, farklı sunucu türlerinin birden fazla örneğiyle bir multiverse sunucusu oluşturmayı gösterir.
+
+  `pathResolution`'ın isteğe bağlı olduğunu ve kök yolu müşteriden gizlemek istiyorsanız yalnızca gerekli olduğunu unutmayın.
+
+  ~~~JSON
+  {
+    "serverName": "HugeProjectWithALotOfResources",
+    "functionsPrefix": "huge-project",
+    "servers": [
+      {
+        "command": "node",
+        "args": [
+          "/my-own/mcp-server/i-m-working-on/build/index.js"
+        ],
+        "fileWatch": {
+          "enabled": true,
+          "path": "/my-own/mcp-server/i-m-working-on/build/"
+        }
+      },
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem@latest",
+          "/full/path/to/huge-project"
+        ],
+        "pathResolution": {
+          "root": "/full/path/to/huge-project",
+          "applyTo": [
+            "path",
+            "paths"
+          ]
+        }
+      },
+      {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github@latest"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "<your-personal-access-token>"
+        }
+      },
+      {
+        "command": "uvx",
+        "args": [
+          "mcp-server-git",
+          "--repository",
+          "/full/path/to/huge-project"
+        ],
+        "pathResolution": {
+          "root": "/full/path/to/huge-project",
+          "applyTo": [
+            "repo_path"
+          ]
+        }
+      }
+    ]
+  }
+  ~~~
+
+  ## Yapılacaklar
+
+  - [ ] `Prompts` desteği ekleyin
+  - [ ] `Resources` desteği ekleyin
+  - [ ] Multiverse sunucularını yönetmek için bir GUI ekleyin
+
+  ## Doğrulanan Platformlar
+
+  - [x] Windows
+  - [ ] macOS
+  - [ ] Linux
+
+  ## Lisans
+
+  MIT
 ---
 
 # Multiverse MCP Server

@@ -3,12 +3,291 @@ name: "kubestellar/console"
 description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-agent) for AI-assisted operations, real-time observability, and integrations with 20+ CNCF projects across edge and cloud clusters."
 category: "Cloud Platforms"
 repo: "kubestellar/console"
-stars: 115
+stars: 109
 url: "https://github.com/kubestellar/console"
-body_length: 35214
+body_length: 18618
 license: "Apache-2.0"
 language: "TypeScript"
 homepage: "https://console.kubestellar.io"
+body_tr: |-
+  # KubeStellar Konsolu
+
+  ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/clubanderson/b9a9ae8469f1897a22d5a40629bc1e82/raw/coverage-badge.json)
+  [![ACMM](https://img.shields.io/endpoint?url=https%3A%2F%2Fconsole.kubestellar.io%2Fapi%2Facmm%2Fbadge%3Frepo%3Dkubestellar%252Fconsole%26v%3D3)](https://console.kubestellar.io/acmm?repo=kubestellar%2Fconsole)
+  [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/kubestellar/console/badge)](https://securityscorecards.dev/viewer/?uri=github.com/kubestellar/console)
+  [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12343/badge?v=2)](https://www.bestpractices.dev/projects/12343)
+  [![MTTR](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2Fclubanderson%2F4ae525a9797e8f83231ac344fcb47226%2Fraw%2Fmedian-fix.json "Mean Time to Resolution — median time from issue filed to PR merged, updated every 5 minutes")](https://github.com/kubestellar/console/issues)
+
+  AI destekli çok kümeli Kubernetes dashboard'u ve 250+ CNCF projesi için rehberli kurulum görevleri.
+
+  [Katkıda Bulunma](CONTRIBUTING.md)
+
+  ![KubeStellar Konsolu](https://raw.githubusercontent.com/kubestellar/console/HEAD/docs/images/console-screenshot.png)
+
+  ## Şimdi deneyin (kurulum gerekmez)
+
+  Konsolu değerlendirmenin en hızlı yolu **barındırılan sürüm** — Kubernetes kümesi yok, kurulum yok, yapılandırma yok. Demo verileri yerleşik:
+
+  > 👉 **[console.kubestellar.io](https://console.kubestellar.io)**
+
+  Barındırılan demo bağımsız bir vitrin: hazır demo verilerini sunar ve kasıtlı olarak yerel bir agent'a konuşmaz (`LOCAL_AGENT_HTTP_URL` Netlify derlemesinde devre dışı bırakılmıştır, bu nedenle tarayıcı dizüstü bilgisayarınızdaki kc-agent'a erişemez). UI'ı keşfetmek, görevleri taramak ve makinenize dokunmadan kartları test etmek için kullanın. **Kendi** kümelerinizle çalışmak veya AI özelliklerini kendi anahtarlarınızla kullanmak için konsolu kendi kendine barındırmanız gerekir — sonraki bölüme bakın.
+
+  ## Hangi yolu izlemeliyim?
+
+  | Yapmak istediğim | Ne yapacağım | Küme gerekli mi? | Bir şey kurmam gerekir mi? |
+  |---|---|---|---|
+  | UI'ı keşfet / ürünü değerlendir | [console.kubestellar.io](https://console.kubestellar.io) | hayır | hayır |
+  | Konsolu **benim** kümelerime bağla | [**Konsolu kendi kendine barındır**](#yerel-kurulum-kendi-kendine-barındırma) **ve** aynı makinede [**kc-agent**](#kc-agent-kendi-kendine-barındırılan-konsolu-kümelerinize-bağlayın) yükle | evet | evet (curl + kc-agent) |
+  | Konsolu kendi kendine barındır (hava geçirmez, özel OAuth, vb.) | [**Yerel kurulum**](#yerel-kurulum-kendi-kendine-barındırma) | isteğe bağlı | evet |
+  | Konsolu **bir küme içinde** çalıştır | [`deploy.sh`](deploy.sh) | evet | Helm tarzı script |
+
+  > **Not**: `kc-agent` [console.kubestellar.io](https://console.kubestellar.io) adresindeki barındırılan demo tarafından tüketilmez. **Kendi kendine barındırılan** konsolu (`localhost:8080` üzerinde çalışan) kubeconfig bağlamlarınız ve AI sağlayıcılarınızla birleştirir. Barındırılan UI'ın rahatlığı artı gerçek küme verilerinizi istiyorsanız, şu anda konsolu yerel olarak çalıştırmanız gerekir.
+
+  ## Yerel kurulum (kendi kendine barındırma)
+
+  Kendi verilerinizle çalışan bir konsola giden en hızlı yol. `start.sh` önceden derlenmiş konsol binary'sini ve önceden derlenmiş `kc-agent` indirer, her ikisini başlatır ve [http://localhost:8080](http://localhost:8080) açar:
+
+  ```bash
+  curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | bash
+  ```
+
+  Bunun yerine [`deploy.sh`](deploy.sh) ile bir kümeye dağıt (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). Kümeiçi Kagenti backend ile konuşması gereken Helm grafik yüklemeleri için [Kagenti'ye Bağlanma](deploy/helm/kubestellar-console/README.md#connecting-kagenti) başlığına bakın.
+
+  ## kc-agent (kendi kendine barındırılan konsolu kümelerinize bağlayın)
+
+  `kc-agent` **kendi kendine barındırılan** konsolu konuşan küçük bir yerel HTTP/WS daemon'u (varsayılan `http://127.0.0.1:8585`). Tarayıcıdan kubeconfig bağlamlarınıza ve AI sağlayıcılarınıza gelen istekleri iletir. [console.kubestellar.io](https://console.kubestellar.io) adresindeki barındırılan demo buna ulaşamaz (#6195) — kc-agent yalnızca kendi kendine barındırdığınızda yararlıdır.
+
+  **kc-agent gerekmez** sadece UI / demo verilerini taramak istiyorsanız — barındırılan demoyu kullanın. **`start.sh` zaten sizin için önceden derlenmiş bir kc-agent yüklüyor ve başlatıyor**, bu nedenle çoğu kullanıcının bunu hiçbir zaman manual olarak yüklemesi gerekmez. Aşağıdaki talimatlar geliştirme derlemeleri veya Homebrew formülü olmayan platformlar içindir:
+
+  **kc-agent için ön koşullar:**
+  - Bir veya daha fazla erişilebilir kümeye işaret eden kubeconfig (`kubectl get nodes` yerel olarak çalışıyor)
+  - macOS, Linux veya WSL2 ile Windows ([Windows bölümüne](#windows-wsl2) bakın)
+
+  ```bash
+  # macOS — Homebrew formülü (önceden derlenmiş)
+  brew tap kubestellar/tap && brew install kc-agent
+
+  # Linux / kaynaktan — Go 1.25+ gerektirir (go.mod ile eşleşir)
+  mkdir -p bin
+  go build -o bin/kc-agent ./cmd/kc-agent && ./bin/kc-agent
+  ```
+
+  ### kc-agent authentication (`KC_AGENT_TOKEN`)
+
+  `kc-agent` `KC_AGENT_TOKEN` üzerinden paylaşılan bir gizli dizi kabul eder. Ayarlandığında, agent'a tarayıcı ve WebSocket istekleri `Authorization: Bearer <token>` (veya gerçek bir WebSocket yükseltmesi için `?token=<token>`) sunmalıdır. Bu, diğer yerel işlemlerin `127.0.0.1:8585` adresine ulaşmasına karşı ek bir koruma katmanı istediğinizde önerilir.
+
+  - `start-dev.sh` ve `startup-oauth.sh` bir ayarlamazsanız her oturum için rastgele bir `KC_AGENT_TOKEN` otomatik olarak oluşturur.
+  - Yeniden başlatmalar arasında kararlı bir gizli dizi istiyorsanız veya `kc-agent` yi manual olarak başlatırsanız `KC_AGENT_TOKEN` kendiniz ayarlayın.
+  - `openssl rand -hex 32` ile bir tane oluşturun.
+
+  ```bash
+  export KC_AGENT_TOKEN="$(openssl rand -hex 32)"
+  ./bin/kc-agent
+  ```
+
+  Hem kendi kendine barındırılan konsol hem de `kc-agent` çalışırken, [http://localhost:8080](http://localhost:8080) açın ve yerel kümeleriniz küme seçicide görünür.
+
+  ## Windows (WSL2)
+
+  Konsol kurulum scriptleri ve `kc-agent` POSIX shell + Go, bu nedenle WSL2 içinde değişmeden çalışırlar. Native Windows (PowerShell / CMD) desteklenmez — [WSL2 yükleyin Ubuntu ile](https://learn.microsoft.com/windows/wsl/install) ve her şeyi WSL shell'den çalıştırın:
+
+  ```powershell
+  # PowerShell'de — tek seferlik kurulum
+  wsl --install -d Ubuntu
+  ```
+
+  Daha sonra Ubuntu/WSL shell'in içinden. **`start.sh` yalnızca `curl` gerektirir** — önceden derlenmiş binary'leri indirir, Go toolchain gerekmez:
+
+  ```bash
+  # Ön koşul: sadece curl
+  sudo apt-get update && sudo apt-get install -y curl
+
+  # macOS / Linux ile aynı kurulum komutu
+  curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | bash
+  ```
+
+  > **⚠️ Windows PowerShell `curl` gotcha'sı:** PowerShell'de `curl`, gerçek curl'den tamamen farklı şekilde davranan `Invoke-WebRequest` için bir takma addır. PowerShell'den endpoint'leri test etmeniz gerekiyorsa (WSL dışında), her zaman **`curl.exe`** yerine `curl` kullanın veya yerel PowerShell cmdlet'ini kullanın:
+  >
+  > ```powershell
+  > # Seçenek 1 — curl.exe kullan (Windows 10+ ile gelen gerçek curl)
+  > curl.exe -s http://localhost:8080/health
+  >
+  > # Seçenek 2 — PowerShell yerel cmdlet kullan
+  > Invoke-RestMethod http://localhost:8080/health
+  > ```
+
+  **Kaynaktan `kc-agent` derlemek ayrı bir yoldur** — yalnızca `start.sh` zaten yüklediği önceden derlenmiş binary yerine agent'ın geliştirme derlemesini istiyorsanız gereklidir. Go **1.25+** gerektirir (`go.mod` içinde sabitlenen sürüm) ve `git`. Ubuntu'nun `golang-go` paketi genellikle mevcut sürüm gerisinde kalır; son bir sürüm almak için [resmi Go kurulumu](https://go.dev/doc/install) veya `longsleep/golang-backports` PPA'sını kullanın:
+
+  ```bash
+  # add-apt-repository software-properties-common'da yaşıyor — önce kur
+  # minimal Ubuntu/WSL görüntülerinde işletilmeyen yüklü.
+  sudo apt-get update && sudo apt-get install -y software-properties-common
+  sudo add-apt-repository -y ppa:longsleep/golang-backports
+  sudo apt-get update && sudo apt-get install -y golang-1.25 git
+  git clone https://github.com/kubestellar/console.git
+  cd console
+  mkdir -p bin
+  go build -o bin/kc-agent ./cmd/kc-agent && ./bin/kc-agent
+  ```
+
+  **Windows** tarayıcınızda http://localhost:8080 açın — WSL2 `localhost` otomatik olarak iletir. [#6185](https://github.com/kubestellar/console/issues/6185) tarafından izleniyor.
+
+  ## GitHub authentication
+
+  Konsol **iki** GitHub kimlik bilgisi kullanır (#6190). Çoğu kullanıcı **hiçbir** kullanıcıya ihtiyaç duymaz — barındırılan demo herhangi bir GitHub auth olmadan çalışır.
+
+  | Kimlik bilgisi | Ne yapar | Ne zaman gereklidir |
+  |---|---|---|
+  | **GitHub OAuth App** (`GITHUB_CLIENT_ID` + `GITHUB_CLIENT_SECRET`) | `localhost:8080` adresindeki **kendi kendine barındırılan** konsolu için oturum açma | Yalnızca konsolu kendi kendine barındırırsanız VE kullanıcı oturum açmak istiyorsanız. Barındırılan demo için atlayın. |
+  | **Consolidated GitHub PAT** (a.k.a. `FeedbackGitHubToken`) | Aynı tek PAT her şeyi destekler: nightly E2E durumu, topluluk etkinliği, leaderboard widget'ları ve GitHub sorunlarını açan `/issue` sayfası | İsteğe bağlı. Bunu olmadan, `/issue` `503 Issue submission is not available` döndürür ve GitHub tarafından desteklenen dashboard widget'ları demo verilerine geri döner. |
+
+  **Başlamak için minimum**: hiçbir şey — [console.kubestellar.io](https://console.kubestellar.io) isabet edin. Yukarıdaki her şey opt-in'dir.
+
+  ### Consolidated PAT'ı ayarlanma
+
+  Bu PAT'ı sağlamanın iki eşdeğer yolu var — birini seç. Her ikisi de aynı alana yazılır (`pkg/api/handlers/feedback.go` ve `pkg/api/handlers/github_proxy.go` içindeki `FeedbackGitHubToken`), bu nedenle her ikisini ayarlamanız gerekmez:
+
+  1. **Repo kök `.env` dosyası** — başlangıçta ayarlanır, UI adımı gerekli değil:
+     ```
+     FEEDBACK_GITHUB_TOKEN=ghp_…
+     ```
+
+  2. **Settings UI** (yalnızca kendi kendine barındırılan, **admin rolü gereklidir**) — Ayarlar → GitHub Token'a gidin → yapıştırın. UI `/api/github/token` adresine POST yapar ve bu, konsol `admin` rolü üzerinde kapılıdır ve backend tarafından `~/.kc/settings.json` adresine kalıcı hale getirilir. Yeni bir kendi kendine barındırılan kurulumda, ilk kimliği doğrulanmış kullanıcı yöneticide otomatik olarak bootstrap olur, bu nedenle yerel örnekler ayarlar dışında kilitlenmez.
+
+  Barındırılan Netlify demo PAT'ı kalıcı hale getiremez — yazılabilir yerel backend'i yoktur — bu nedenle Ayarlar UI kaydı orada çalışmaz. Kendi kendine barındırma için env-var yolunu kullanın.
+
+  ### GitHub OAuth'ı ayarlama (yalnızca kendi kendine barındırılan)
+
+  Konsolu kendi kendine barındırırsanız ve oturum açmak istiyorsanız:
+
+  1. **Bir [GitHub OAuth App](https://github.com/settings/developers) oluşturun**
+     - Ana Sayfa URL'si: `http://localhost:8080`
+     - Callback URL'si: `http://localhost:8080/auth/github/callback`
+     - **Uygulamayı oluşturduktan sonra**, **Client ID**'inizi (hemen görünür) aşağı yazın ve **Client Secret** oluşturun ("Yeni istemci gizli dizi oluştur"a tıklayın)
+
+  2. **Repo'yu klonla** (henüz yapmadıysanız):
+     ```bash
+     git clone https://github.com/kubestellar/console.git
+     cd console
+     ```
+
+  3. **Repo kökünde bir `.env` dosyası oluştur** (`console/.env`):
+     ```bash
+     # GitHub OAuth App kimlik bilgileriniz ile .env dosyası oluştur
+     cat > .env << 'EOF'
+     GITHUB_CLIENT_ID=your-client-id-here
+     GITHUB_CLIENT_SECRET=your-client-secret-here
+     EOF
+     ```
+     
+     **`your-client-id-here` ve `your-client-secret-here` öğesini** GitHub OAuth App'inizden (adım 1) gerçek değerlerle değiştir.
+     
+     **⚠️ Yaygın hatalar:**
+     - **Eksik `.env` dosyası**: Konsol repo kökünde (`.env` `console/.env`) `.env` arar, ev dizininizde veya başka bir yerde değil.
+     - **Yanlış kimlik bilgileri**: Client ID ve Client Secret **tam olarak** GitHub OAuth App ayarlarınızda gösterilenle eşleşmelidir. Yazım hatalarından kaçınmak için kopyala-yapıştır.
+     - **Süresi dolan gizli dizi**: GitHub'da Client Secret'ı yeniden oluşturursan, `.env` öğesini yeni değerle güncellemelisin.
+     
+     **OAuth hatalarını giderme:**
+     - `"invalid client credentials"` → `.env` içindeki `GITHUB_CLIENT_ID` ve `GITHUB_CLIENT_SECRET` öğesinin https://github.com/settings/developers adresindeki GitHub OAuth App'iniz ile eşleştiğini doğrula
+     - `"redirect_uri_mismatch"` → GitHub OAuth App'inizdeki Callback URL'si tam olarak `http://localhost:8080/auth/github/callback` olmalıdır
+
+  4. **Konsolu başlat**:
+     ```bash
+     ./startup-oauth.sh
+     ```
+
+  http://localhost:8080 açın ve GitHub ile oturum açın. Kubernetes dağıtımları için bunun yerine `deploy.sh` adresine `--github-oauth` ilet.
+
+  ### Consolidated PAT kapsamları
+
+  Yukarıdaki hangi yolu kullanmış olursanız (env var veya Settings UI), [Personal Access Token](https://github.com/settings/tokens) **ya da** olmalı:
+  - `repo` kapsamı ile bir **klasik** PAT, **ya da**
+  - **Issues: Read & Write** *ve* **Contents: Read & Write** (`pkg/api/handlers/feedback.go:71` karşılaştırıldığında doğrulanan) hem de yanında bir **fine-grained** PAT — İçerik gereklidir, yalnızca Sorunlar değil.
+
+  ## AI yapılandırması
+
+  Konsol, uyarlanabilir kart önerileri ve görev yardımı için AI kullanabilir. AI **isteğe bağlıdır** — UI, görevler ve dashboard'lar yapılandırılan AI anahtarları olmadan çalışır (#6191).
+
+  **Önemli**: AI BYOK yalnızca **kendi kendine barındırılan** konsol üzerinde çalışır. [console.kubestellar.io](https://console.kubestellar.io) adresindeki barındırılan demo, `LOCAL_AGENT_HTTP_URL` açıkça devre dışı bırakır (`web/src/lib/constants/network.ts` dosyasında doğrulanmıştır), bu nedenle tarayıcı orada yerel agent'a ulaşamaz. Kendi AI anahtarlarınızı kullanmak için önce konsolu kendi kendine barındırın.
+
+  ### Desteklenen AI sağlayıcıları (CLI tabanlı ve yerel LLM'ler)
+
+  Konsol, küme erişimi ve tooling yetenekleri üzerinde tam kontrol sağlamak için **yerel CLI sağlayıcılarını** ve **kendi kendine barındırılan LLM'leri** kullanır. Doğrudan API-key sağlayıcıları (ham `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` veya `GOOGLE_API_KEY` gibi) **kasıtlı olarak desteklenmez** çünkü küme komutlarını yürütmek için gerekli olan yerel CLI tooling modelini atlayabilirler (bkz. `pkg/agent/registry.go:378` ve [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#L175)).
+
+  **Önerilen kurulum yolları:**
+
+  1. **CLI tabanlı agent'lar** (tam araç yürütme yetenekleriyle):
+     ```bash
+     # Claude Desktop veya claude CLI'yi yükle — https://claude.ai/download
+     # Gemini CLI'yi yükle — resmi Google AI SDK talimatlarını izle
+     # GitHub Copilot CLI'yi yükle — gh extension install github/gh-copilot
+     # Diğer CLI agent'larını yükle: codex, antigravity, goose, bob
+     
+     # kc-agent yüklü CLI agent'larını otomatik olarak algılayacak — env var gerekmez
+     ./bin/kc-agent
+     ```
+
+  2. **Yerel/kendi kendine barındırılan LLM sunucuları** (OpenAI uyumlu endpoint'ler):
+     ```bash
+     # Ollama (yerel)
+     export OLLAMA_URL=http://127.0.0.1:11434
+     export OLLAMA_MODEL=llama3.2
+     
+     # Open WebUI (kendi kendine barındırılan ağ geçidi)
+     export OPEN_WEBUI_URL=https://your-openwebui.example.com
+     export OPEN_WEBUI_API_KEY=your-key
+     export OPEN_WEBUI_MODEL=gpt-4
+     
+     # Diğer desteklenenler: llama.cpp, LocalAI, vLLM, LM Studio, Red Hat AI Inference Server
+     # Tam liste için docs/security/SECURITY-MODEL.md'ye bakın
+     
+     ./bin/kc-agent
+     ```
+
+  > **Doğrudan API anahtarları neden desteklenmez?** Agent kaydı, kasıtlı olarak upstream API-key sağlayıcılarını (Anthropic API, OpenAI API, Google Gemini API) hariç tutar çünkü küme komutlarını yürütemezler VE işletmecinin kontrolü olmayan belirli bir satıcı endpoint'ine trafiği yönlendirirler. Konsolun güvenlik modeli, `kubectl`, `helm` ve diğer tanılama komutlarını yerel olarak çalıştırabilen araç-yetenekli agent'lar gerektirir. `pkg/agent/registry.go:378-384` adresinde mantık için bkz.
+
+  > **Ayarlar → API Anahtarları modalı hakkında bir not**: Konsol UI, **Ayarlar → API Anahtarları** altında "Anahtarları Yönet" düğmesini açığa çıkarır. Bu modal, agent'ın `/settings/keys` endpoint'ine bağlıdır, ancak mevcut derlemede bu endpoint boş bir sağlayıcı listesi döndürür (`providers := []providerDef{}` `pkg/agent/server_operations.go:288` içinde) çünkü API-key tabanlı agent'lar gizlidir. Modal tasarımı gereği işlevseldir. **Bunun yerine yukarıdaki CLI tabanlı veya yerel LLM kurulum yollarını kullanın.**
+
+  **Hiçbir AI sağlayıcı yapılandırılmadığında**, AI destekli özellikler belirleyici / kural tabanlı davranışa döner. Kart önerileri, görevler ve dashboard'lar tamamen kullanılabilir kalır.
+
+  **Güvenlik modeli, hava geçirmez dağıtımlar ve yerel / kendi kendine barındırılan LLM'ler** [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md) dosyasında ele alınmıştır. Bu belgede tarayıcı, Go backend'i, kc-agent ve AI sağlayıcıları arasındaki veri akışı; konsolu harici AI erişimi olmadan çalıştırma; ve şu anda kc-agent'ın CLI tabanlı agent'larını kullanarak desteklenen kendi kendine barındırılan yol açıklanmaktadır.
+
+  ## Nasıl Çalışır
+
+  1. **Onboarding** — GitHub ile oturum açın, rol sorularına cevap verin, kişiselleştirilmiş bir dashboard alın
+  2. **Uyarlanabilir AI** — Kart etkileşimlerini izler ve odak değiştiğinde değiş tavsiyeler (Claude, OpenAI veya Gemini)
+  3. **MCP Bridge** — Küme durumunu (`kubestellar-ops` ve `kubestellar-deploy` aracılığıyla) sorgular (pod'lar, deploymentlar, olaylar, sapma, güvenlik)
+  4. **Görevler** — Ön uçuş kontrolleri, doğrulama, sorun giderme ve geri alma ile adım adım rehberli yüklemeler
+  5. **Gerçek zamanlı** — WebSocket tarafından desteklenen canlı event akışı tüm bağlı kümelerden
+
+  ## Mimari
+
+  KubeStellar web sitesinde tam [Mimari belgelerine](https://kubestellar.io/docs/console/overview/architecture) bakın.
+
+  ### İlgili Depolar
+
+  - **[console-kb](https://github.com/kubestellar/console-kb)** — 250+ CNCF projesi için rehberli yükleyiciler ve ortak Kubernetes sorunlarına çözümler
+  - **[console-marketplace](https://github.com/kubestellar/console-marketplace)** — CNCF projesi başına topluluk tarafından katkıda bulunulan izleme kartları
+  - **[kc-agent](cmd/kc-agent/)** — Tarayıcıyı kubeconfig'e bağlayan yerel agent, kodlama agent'ları (Codex, Copilot, Claude CLI) ve MCP sunucuları (`kubestellar-ops`, `kubestellar-deploy`)
+  - **[claude-plugins](https://github.com/kubestellar/claude-plugins)** — Kubernetes için Claude Code marketplace eklentileri
+  - **[homebrew-tap](https://github.com/kubestellar/homebrew-tap)** — KubeStellar araçları için Homebrew formülleri
+  - **[KubeStellar](https://kubestellar.io)** — Çok kümeli yapılandırma yönetimi
+
+  ## Kalite Güvence
+
+  Konsol geliştirmeyi hızlandırmak için AI araçları (GitHub Copilot, Claude Code) kullanır. Kalite, her PR yazardan bağımsız olarak aynı otomatik kontrolleri tetikleyen **katmanlı feedback döngüleri** aracılığıyla korunur ve süregelen izleme PR kontrolleri kaçıranları yakalar.
+
+  - **Commit'ten önce**: TypeScript derlemesi + Go derlemesi + 5 derleme sonrası güvenlik kontrolleri + lint
+  - **Birleştirmeden önce**: nil-safety, ts-null-safety, array-safety, API sözleşmesi, Playwright E2E, kapsam kapısı, TTFI performansı, CodeQL, Copilot kod incelemesi, UI/UX standartları tarayıcısı, görsel regresyon
+  - **Görsel regresyon**: Tema desteği ile Storybook hikayeler olarak belgelenen 18 UI bileşeni. Playwright, her UI bileşenlerine dokunan PR'da ekran görüntüleri yakalar ve temellerle karşılaştırır.
+  - **Birleştirmeden sonra**: Hedeflenen Playwright testleri üretim'e karşı (`console.kubestellar.io`) çalışır; hatalar orijinal sorunu yeniden açar
+  - **Sürekli**: Saatlik kapsam (12 parça), günde 4x QA, gece E2E, gece güvenlik taraması, gerçek zamanlı GA4 error tracking, UI/UX standartları gece taraması
+
+  Bir regresyon sınıfı belirlendiğinde, bir maintainer en erken olası döngüye otomatik bir kontrol ekler. [docs/AI-QUALITY-ASSURANCE.md](docs/AI-QUALITY-ASSURANCE.md) adresinde tam dökümü görün.
+
+  ## Lisans
+
+  Apache License 2.0 — [LICENSE](LICENSE) öğesine bakın.
 ---
 
 # KubeStellar Console
@@ -52,15 +331,7 @@ The quickest path to a working console with your own data. `start.sh` downloads 
 curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | bash
 ```
 
-Deploy into a cluster instead with [`deploy.sh`](deploy.sh) (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). See [docs/deploy.md](docs/deploy.md) for the full flag, environment-variable, exit-code, and example reference. For Helm chart installs that should talk to an in-cluster Kagenti backend, see [Connecting Kagenti](deploy/helm/kubestellar-console/README.md#connecting-kagenti) and the [Kagenti deployment guide](docs/kagenti-deployment-guide.md) for controller/agent topology, setup steps, and troubleshooting.
-
-## Development
-
-If you want to work on the repo itself, start with these entry points:
-
-- [CLAUDE.md](CLAUDE.md) — canonical developer guide for repo structure, testing expectations, and agent rules
-- [CONTRIBUTING.md](CONTRIBUTING.md) — contribution workflow, issue/PR conventions, and inventory notes
-- [docs/README.md](docs/README.md) — index of the documentation tree, grouped by audience
+Deploy into a cluster instead with [`deploy.sh`](deploy.sh) (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). For Helm chart installs that should talk to an in-cluster Kagenti backend, see [Connecting Kagenti](deploy/helm/kubestellar-console/README.md#connecting-kagenti).
 
 ## kc-agent (bridge self-hosted console to your clusters)
 
@@ -76,7 +347,7 @@ If you want to work on the repo itself, start with these entry points:
 # macOS — Homebrew formula (pre-built)
 brew tap kubestellar/tap && brew install kc-agent
 
-# Linux / from source — requires Go 1.26.4+ (matches go.mod)
+# Linux / from source — requires Go 1.25+ (matches go.mod)
 mkdir -p bin
 go build -o bin/kc-agent ./cmd/kc-agent && ./bin/kc-agent
 ```
@@ -128,14 +399,14 @@ curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | 
 > Invoke-RestMethod http://localhost:8080/health
 > ```
 
-**Building `kc-agent` from source is a separate path** — only needed if you want a development build of the agent rather than the prebuilt binary that `start.sh` already installs. It requires Go **1.26.4+** (the version pinned in `go.mod`) and `git`. Ubuntu's `golang-go` package usually lags the current release; use the [official Go install](https://go.dev/doc/install) or the `longsleep/golang-backports` PPA to get a recent version:
+**Building `kc-agent` from source is a separate path** — only needed if you want a development build of the agent rather than the prebuilt binary that `start.sh` already installs. It requires Go **1.25+** (the version pinned in `go.mod`) and `git`. Ubuntu's `golang-go` package usually lags the current release; use the [official Go install](https://go.dev/doc/install) or the `longsleep/golang-backports` PPA to get a recent version:
 
 ```bash
 # add-apt-repository lives in software-properties-common — install it
 # first on minimal Ubuntu/WSL images that don't ship with it.
 sudo apt-get update && sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y ppa:longsleep/golang-backports
-sudo apt-get update && sudo apt-get install -y golang-1.26 git
+sudo apt-get update && sudo apt-get install -y golang-1.25 git
 git clone https://github.com/kubestellar/console.git
 cd console
 mkdir -p bin
@@ -222,9 +493,9 @@ The console can use AI for adaptive card suggestions and mission help. AI is **o
 
 **Important**: AI BYOK only works on the **self-hosted** console. The hosted demo at [console.kubestellar.io](https://console.kubestellar.io) explicitly disables `LOCAL_AGENT_HTTP_URL` (verified in `web/src/lib/constants/network.ts`), so the browser cannot reach a local agent there. To use your own AI keys, self-host the console first.
 
-### Supported kc-agent providers (CLI-based and operator-controlled LLMs)
+### Supported AI providers (CLI-based and local LLMs)
 
-`kc-agent` uses **local CLI providers** and **operator-controlled OpenAI-compatible / self-hosted LLMs** for AI features that need cluster-aware tool execution. Raw vendor API keys such as `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GOOGLE_API_KEY` do **not** make Anthropic/OpenAI/Gemini available as mission-capable `kc-agent` providers in the current build. Those variables are documented later for backend/Stellar paths and source-level provider configuration, while `kc-agent` itself still relies on the tooling model described in [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#3-local--self-hosted-llms).
+The console uses **local CLI providers** and **self-hosted LLMs** to maintain full control over cluster access and tooling capabilities. Direct API-key providers (like raw `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_API_KEY`) are **intentionally not supported** because they bypass the local CLI tooling model required for executing cluster commands (see `pkg/agent/registry.go:378` and [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#L175)).
 
 **Recommended setup paths:**
 
@@ -256,13 +527,11 @@ The console can use AI for adaptive card suggestions and mission help. AI is **o
    ./bin/kc-agent
    ```
 
-> **Why are Anthropic/OpenAI/Gemini API keys not enough for `kc-agent`?** The agent registry intentionally excludes those upstream API-key providers because they cannot execute cluster commands AND they route traffic to a specific vendor endpoint that the operator has no control over. The console's mission and diagnostic flows require tool-capable agents that can run `kubectl`, `helm`, and other commands locally. See `pkg/agent/registry.go:378-384` for the rationale.
+> **Why are direct API keys not supported?** The agent registry intentionally excludes upstream API-key providers (Anthropic API, OpenAI API, Google Gemini API) because they cannot execute cluster commands AND they route traffic to a specific vendor endpoint that the operator has no control over. The console's security model requires tool-capable agents that can run `kubectl`, `helm`, and other diagnostic commands locally. See `pkg/agent/registry.go:378-384` for the rationale.
 
-> **What do the README API-key variables enable?** `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GOOGLE_API_KEY` are relevant to backend/Stellar provider configuration and source-level HTTP-provider support, while `GROQ_API_KEY` and `OPENROUTER_API_KEY` enable registered **chat-only** providers. None of those variables replace the CLI-based setup above when you need `kc-agent` missions or other tool-executing workflows.
+> **A note on the Settings → API Keys modal**: The console UI exposes a "Manage Keys" button under **Settings → API Keys**. This modal is wired to the agent's `/settings/keys` endpoint, but in the current build that endpoint returns an empty providers list (`providers := []providerDef{}` in `pkg/agent/server_operations.go:288`) because API-key-driven agents are hidden. The modal is non-functional by design. **Use the CLI-based or local LLM setup paths above instead.**
 
-> **A note on the Settings → API Keys modal**: The console UI exposes a "Manage Keys" button under **Settings → API Keys**. This modal is wired to the agent's `/settings/keys` endpoint, but in the current build that endpoint returns an empty providers list (`providers := []providerDef{}` in `pkg/agent/server_operations.go:288`) because API-key-driven agents are hidden there. **Use the CLI-based or local LLM setup paths above for `kc-agent` features.**
-
-**If no supported AI provider is configured**, AI-powered features fall back to deterministic / rule-based behavior. The card suggestions, missions, and dashboards remain fully usable.
+**If no AI provider is configured**, AI-powered features fall back to deterministic / rule-based behavior. The card suggestions, missions, and dashboards remain fully usable.
 
 **Security model, air-gapped deployments, and local / self-hosted LLMs** are covered in [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md). That document explains the data flow between browser, Go backend, kc-agent, and AI providers; how to run the console with no external AI access; and the currently supported self-hosted path using kc-agent's CLI-based agents.
 
@@ -273,21 +542,6 @@ The console can use AI for adaptive card suggestions and mission help. AI is **o
 3. **MCP Bridge** — Queries cluster state (pods, deployments, events, drift, security) via `kubestellar-ops` and `kubestellar-deploy`
 4. **Missions** — Step-by-step guided installs with pre-flight checks, validation, troubleshooting, and rollback
 5. **Real-time** — WebSocket-powered live event streaming from all connected clusters
-
-## Stellar (Persistent AI Operations Runtime — Alpha)
-
-**Stellar** extends the console from request/response AI interactions into a **persistent operational runtime** with mission continuity, memory, and proactive execution. It brings autonomous operations capabilities to KubeStellar with support for multi-step mission planning, long-term memory, event-driven triggers, and policy-enforced tool execution.
-
-Key capabilities:
-- **Persistent missions** — Store and re-run multi-step operational tasks (rollouts, incident response, scaling decisions)
-- **Operational memory** — Learn from incidents, postmortems, and rollout history
-- **Event-driven triggers** — Respond to Kubernetes events, Prometheus alerts, webhooks, or schedules
-- **RBAC-aware execution** — Tool runtime validates permissions before cluster actions
-- **Structured auditing** — Full audit trail of prompts, decisions, tools, and outputs
-
-**Note:** Stellar is alpha/experimental. Architecture and APIs are subject to change.
-
-For implementation details, see [docs/stellar/architecture.md](docs/stellar/architecture.md).
 
 ## Architecture
 
@@ -313,250 +567,6 @@ Console uses AI tools (GitHub Copilot, Claude Code) to accelerate development. Q
 - **Continuous**: Hourly coverage (12 shards), 4x daily QA, nightly E2E, nightly security scanning, real-time GA4 error tracking, UI/UX standards nightly scan
 
 When a regression class is identified, a maintainer adds an automated check to the earliest possible loop. See [docs/AI-QUALITY-ASSURANCE.md](docs/AI-QUALITY-ASSURANCE.md) for the full breakdown.
-
-## Environment Variables Reference
-
-The console and kc-agent use many configurable environment variables. This section provides a consolidated reference for all available options. See [.env.example](.env.example) for a complete example file with all commented defaults.
-
-### GitHub Authentication & Integration
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `GITHUB_CLIENT_ID` | ✓ (if using GitHub OAuth) | — | GitHub OAuth App Client ID. Create at https://github.com/settings/developers |
-| `GITHUB_CLIENT_SECRET` | ✓ (if using GitHub OAuth) | — | GitHub OAuth App Client Secret. Keep this secret — never commit to version control |
-| `FEEDBACK_GITHUB_TOKEN` | Optional | — | GitHub Personal Access Token (PAT) for programmatic issue creation and screenshot uploads. Can be classic (repo scope) or fine-grained (Issues + Contents read/write). Used by feedback/contribute dialog and GitHub-powered dashboard widgets |
-| `FEEDBACK_REPO_OWNER` | Optional | `kubestellar` | GitHub repository owner for feedback issue creation |
-| `FEEDBACK_REPO_NAME` | Optional | `console` | GitHub repository name for feedback issue creation |
-| `GITHUB_WEBHOOK_SECRET` | Optional | — | Secret for validating GitHub webhooks. Generate with `openssl rand -hex 32` |
-| `GITHUB_MUTATIONS_TOKEN` | Optional | — | GitHub PAT for re-running or canceling pipelines. Requires workflow scope |
-| `GITHUB_REPO` | Optional | `kubestellar/console` | GitHub repository for update checks |
-
-### Development & UI Configuration
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `DEV_MODE` | Optional | `true` | Enable development mode features and debug logging |
-| `FRONTEND_URL` | Optional | `http://localhost:5174` | Frontend base URL for backend redirects. Must match the frontend's listening URL |
-| `SKIP_ONBOARDING` | Optional | `false` | Skip the onboarding questionnaire for new users (useful for testing/demos) |
-| `VITE_DEMO_MODE` | Optional | `false` | Enable demo/preview mode with mock data (build-time only) |
-| `VITE_API_BASE_URL` | Optional | — | API base URL override for frontend backend calls. Leave empty to use same origin. Build-time only |
-| `VITE_NO_LOCAL_AGENT` | Optional | `false` | Disable local kc-agent in the frontend. Build-time only |
-| `VITE_GEOCODING_API_URL` | Optional | `https://geocoding-api.open-meteo.com/v1/search` | Geocoding API endpoint for weather card location search |
-| `VITE_GOOGLE_FONTS_API_URL` | Optional | — | Google Fonts API URL override. Build-time only |
-| `ENABLED_DASHBOARDS` | Optional | — | Comma-separated list of dashboard IDs to show in sidebar. Empty = show all. Affects display order |
-
-### Kubernetes & Cluster Configuration
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `KUBECONFIG` | Optional | `~/.kube/config` | Path to kubeconfig file for kubectl access |
-| `CLUSTER_NAME` | Optional | — | Override the cluster name displayed in the console. Auto-detected from kubeconfig if not set |
-| `NO_LOCAL_AGENT` | Optional | `false` | Suppress local kc-agent connections (for in-cluster deployments that use backend directly) |
-
-### AI API Keys — backend features and chat-only providers
-
-These variables are **not all equivalent**:
-
-- `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GOOGLE_API_KEY` document backend/Stellar and source-level HTTP-provider configuration, but they do **not** make Anthropic/OpenAI/Gemini available as mission-capable `kc-agent` providers in the current build.
-- `GROQ_API_KEY` and `OPENROUTER_API_KEY` enable registered **chat-only** providers for analysis/chat workflows; they still do not power `kc-agent` missions or other tool-executing flows.
-- For `kc-agent` tool execution, use the CLI-based or operator-controlled local/self-hosted providers described above and in [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#3-local--self-hosted-llms).
-
-Without any supported AI provider, the console falls back to deterministic/rule-based behavior.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `ANTHROPIC_API_KEY` | Optional | — | Anthropic Claude API key from https://console.anthropic.com/settings/keys |
-| `CLAUDE_MODEL` | Optional | `claude-sonnet-4-5-20250514` | Claude model selection |
-| `OPENAI_API_KEY` | Optional | — | OpenAI GPT API key from https://platform.openai.com/api-keys |
-| `OPENAI_MODEL` | Optional | `gpt-4-turbo` | OpenAI model selection |
-| `GOOGLE_API_KEY` | Optional | — | Google Gemini API key from https://makersuite.google.com/app/apikey |
-| `GEMINI_MODEL` | Optional | `gemini-2.0-flash` | Google Gemini model selection |
-| `OPENROUTER_API_KEY` | Optional | — | OpenRouter unified API key from https://openrouter.ai/keys (supports many models) |
-| `OPENROUTER_MODEL` | Optional | `openai/gpt-4o-mini` | OpenRouter model selection. See https://openrouter.ai/models for catalog |
-| `OPENROUTER_BASE_URL` | Optional | — | Custom base URL for self-hosted OpenRouter proxies |
-| `GROQ_API_KEY` | Optional | — | Groq LPU inference API key from https://console.groq.com/keys |
-| `GROQ_MODEL` | Optional | `llama-3.3-70b-versatile` | Groq model selection. See https://console.groq.com/docs/models |
-| `GROQ_BASE_URL` | Optional | — | Custom base URL for self-hosted Groq proxies |
-| `DEFAULT_AGENT` | Optional | — | Default AI provider if multiple are configured. Options: `claude`, `openai`, `gemini`, `openrouter`, `groq`. Auto-detected if not set |
-
-### Local/Self-Hosted LLM Servers
-
-Use for air-gapped deployments or local model serving without external vendor APIs.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `OLLAMA_BASE_URL` | Optional | `http://localhost:11434` | Ollama server endpoint for local LLM inference |
-| `OPEN_WEBUI_URL` | Optional | — | Open WebUI self-hosted gateway URL |
-| `OPEN_WEBUI_API_KEY` | Optional | — | Open WebUI API key for authentication |
-
-### Stellar Assistant Configuration
-
-The Stellar assistant provides intelligent operational insights. Configuration is optional.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `STELLAR_DEFAULT_PROVIDER` | Optional | `ollama` | Default provider for `/api/stellar/ask` and `/api/stellar/digest` |
-| `STELLAR_DEFAULT_MODEL` | Optional | `llama3` | Default model selection |
-| `STELLAR_WATCHER_INTERVAL` | Optional | `30s` | Polling interval for Stellar event watcher |
-| `STELLAR_QUIET_START` | Optional | — | Quiet hours start time (HH:MM format) for suppressing non-urgent alerts |
-| `STELLAR_QUIET_END` | Optional | — | Quiet hours end time (HH:MM format) |
-| `STELLAR_DIGEST_HOUR` | Optional | — | Hour of day for digest generation (0-23) |
-| `STELLAR_ENCRYPTION_KEY` | Optional | — | Encryption key for sensitive Stellar data storage |
-| `STELLAR_FALLBACK_PROVIDER` | Optional | — | Fallback provider if default is unavailable |
-
-### kc-agent Authentication & Configuration
-
-`kc-agent` is the local bridge between the console and your clusters/AI providers.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `KC_AGENT_TOKEN` | Optional | — | Shared secret for securing kc-agent WebSocket access. Generate with `openssl rand -hex 32`. If unset, `start-dev.sh` and `startup-oauth.sh` auto-generate per session |
-| `KC_DEV_MODE` | Optional | `false` | Enable kc-agent development mode with verbose logging |
-| `KC_ALLOWED_ORIGINS` | Optional | — | CORS-allowed origins for WebSocket connections (comma-separated) |
-
-### Service Discovery — KAgent & KAgenti Integration
-
-For in-cluster KAgent/KAgenti service discovery. Use controller URLs to skip discovery. For full KAgenti deployment patterns, warnings, and troubleshooting, see the [Kagenti deployment guide](docs/kagenti-deployment-guide.md).
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `KAGENT_CONTROLLER_URL` | Optional | — | Direct KAgent controller URL (skips service discovery) |
-| `KAGENT_NAMESPACE` | Optional | — | Kubernetes namespace where KAgent runs |
-| `KAGENT_SERVICE_NAME` | Optional | — | Kubernetes service name for KAgent |
-| `KAGENT_SERVICE_PORT` | Optional | — | Service port for KAgent |
-| `KAGENT_SERVICE_PROTOCOL` | Optional | `http` | Service protocol (http/https) |
-| `KAGENTI_CONTROLLER_URL` | Optional | — | Direct KAgenti controller URL (skips service discovery) |
-| `KAGENTI_AGENT_URL` | Optional | — | KAgenti agent endpoint |
-| `KAGENTI_AGENT_NAME` | Optional | — | KAgenti agent name |
-| `KAGENTI_AGENT_NAMESPACE` | Optional | — | Kubernetes namespace for KAgenti agent |
-| `KAGENTI_NAMESPACE` | Optional | — | Kubernetes namespace where KAgenti controller runs |
-| `KAGENTI_SERVICE_NAME` | Optional | — | Kubernetes service name for KAgenti |
-| `KAGENTI_SERVICE_PORT` | Optional | — | Service port for KAgenti |
-| `KAGENTI_SERVICE_PROTOCOL` | Optional | `http` | Service protocol (http/https) |
-
-### GPU Metrics & Alerting
-
-Enable GPU monitoring and set utilization thresholds.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `GPU_METRICS_ENABLED` | Optional | `false` | Enable GPU metrics collection |
-| `GPU_METRICS_DCGM_ENABLED` | Optional | `false` | Enable NVIDIA DCGM exporter scraping (requires NVIDIA GPU Operator) |
-| `GPU_METRICS_DCGM_NAMESPACE` | Optional | `gpu-operator` | Kubernetes namespace where DCGM exporter runs |
-| `GPU_METRICS_DCGM_SERVICE` | Optional | `dcgm-exporter` | Service name of the DCGM exporter |
-| `GPU_UTIL_OVER_THRESHOLD` | Optional | `90` | Alert when GPU utilization exceeds this percentage |
-| `GPU_UTIL_UNDER_THRESHOLD` | Optional | `20` | Alert when GPU utilization falls below this percentage |
-| `GPU_UTIL_POLL_INTERVAL_MS` | Optional | `1200000` | GPU metrics polling interval in milliseconds (default: 20 minutes) |
-
-### ArgoCD Integration
-
-Connect the console to an ArgoCD instance for deployment tracking and synchronization.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `ARGOCD_AUTH_TOKEN` | Optional | — | ArgoCD API authentication token. Generate via: `argocd account generate-token --account admin` |
-| `ARGOCD_SERVER_URL` | Optional | — | ArgoCD server URL for API access |
-| `ARGOCD_TLS_INSECURE` | Optional | `false` | Disable TLS certificate verification (dev/test only with self-signed certs) |
-
-### GitHub Pipelines & CI/CD
-
-Monitor and control GitHub Actions workflows.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `PIPELINE_REPOS` | Optional | — | Comma-separated list of GitHub repositories to monitor (format: `owner/repo,owner/repo2`) |
-| `ACMM_REPOS` | Optional | `PIPELINE_REPOS` or the built-in KubeStellar repos | Comma-separated list of GitHub repositories the ACMM scan and badge endpoints may query |
-| `GITHUB_MUTATIONS_TOKEN` | Optional | — | GitHub PAT for re-running or canceling pipeline runs (requires `workflow` scope) |
-
-### Analytics & Telemetry
-
-Configure analytics and measurement.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `GA4_REAL_MEASUREMENT_ID` | Optional | — | Real GA4 Measurement ID (frontend uses a decoy ID; the proxy rewrites it) |
-| `VITE_GA_MEASUREMENT_ID` | Optional | — | Frontend GA4 Measurement ID (build-time only) |
-
-### Server Configuration
-
-Core backend and network settings.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `PORT` | Optional | `8080` | Backend listening port |
-| `DATABASE_PATH` | Optional | `./console.db` | Path to SQLite database file |
-| `MAX_BODY_BYTES` | Optional | `5242880` | Global HTTP request body size limit in bytes (default: 5 MB) |
-| `WS_MAX_CONNECTIONS` | Optional | `1000` | WebSocket connection limit (prevents resource exhaustion) |
-
-### TLS Configuration
-
-Enable HTTPS/TLS for secure connections.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `TLS_ENABLED` | Optional | `false` | Enable HTTPS with TLS certificates |
-| `TLS_CERT_FILE` | Optional | — | Path to TLS certificate file (PEM format) |
-| `TLS_KEY_FILE` | Optional | — | Path to TLS private key file (PEM format) |
-
-### In-Cluster Deployment
-
-Configuration for running the console inside a Kubernetes cluster.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `POD_NAMESPACE` | Optional | — | Kubernetes namespace where console pod runs (used for self-upgrade feature) |
-
-### DRASI Integration (Experimental)
-
-Reactive graph subscription for real-time data.
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `VITE_DRASI_SERVER_URL` | Optional | — | DRASI server URL (build-time only) |
-| `VITE_DRASI_PLATFORM_CLUSTER` | Optional | — | DRASI platform cluster identifier (build-time only) |
-| `KC_DRASI_SERVER_ALLOWED_HOSTS` | Optional | — | Comma-separated Drasi server hosts/IPs allowed for `/api/drasi/proxy?target=server`; required to permit loopback or private hosts |
-
-### Quick Setup Examples
-
-**Minimal local development (no OAuth, demo user):**
-```bash
-./start-dev.sh
-```
-
-**With GitHub OAuth:**
-```bash
-cat > .env << 'EOF'
-GITHUB_CLIENT_ID=your-client-id
-GITHUB_CLIENT_SECRET=your-client-secret
-EOF
-./startup-oauth.sh
-```
-
-**With backend Anthropic credentials:**
-```bash
-cat > .env << 'EOF'
-GITHUB_CLIENT_ID=your-client-id
-GITHUB_CLIENT_SECRET=your-client-secret
-ANTHROPIC_API_KEY=your-anthropic-key
-EOF
-./startup-oauth.sh
-```
-
-This config is useful for backend/Stellar provider paths, but `kc-agent` missions still require a supported CLI-based provider or operator-controlled local/self-hosted endpoint.
-
-**With local Ollama:**
-```bash
-export OLLAMA_BASE_URL=http://localhost:11434
-./start-dev.sh
-```
-
-**With Kubernetes kubeconfig:**
-```bash
-export KUBECONFIG=~/.kube/config
-./start-dev.sh
-```
-
-For more examples and detailed setup instructions, see the [Getting Started](#local-install-self-host) and [GitHub Authentication](#github-authentication) sections above.
 
 ## License
 

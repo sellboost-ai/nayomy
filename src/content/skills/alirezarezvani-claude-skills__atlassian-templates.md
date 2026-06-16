@@ -3,15 +3,263 @@ name: "atlassian-templates"
 description_en: "Atlassian Template and Files Creator/Modifier expert for creating, modifying, and managing Jira and Confluence templates, blueprints, custom layouts, reusable components, and standardized content structures. Use when building org-wide templates, custom blueprints, page layouts, and automated content generation."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 16160
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/atlassian-templates/SKILL.md"
 path: ".gemini/skills/atlassian-templates/SKILL.md"
 is_collection: false
-body_length: 12056
+body_length: 9494
 has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Atlassian Template & Files Creator Expert
+
+  Jira ve Confluence için yeniden kullanılabilir template'ler ve dosyalar oluşturma, değiştirme ve yönetiminde uzman. Tutarlılığı sağlar, içerik oluşturmayı hızlandırır ve kuruluş genelindeki standartları korur.
+
+  ---
+
+  ## Workflows
+
+  ### Template Oluşturma Süreci
+  1. **Keşfet**: Gereksinimler anlamak için paydaşlarla görüşün
+  2. **Analiz et**: Mevcut içerik desenlerini inceleyin
+  3. **Tasarla**: Template yapısı ve placeholder'lar oluşturun
+  4. **Uygula**: Macro'lar ve formatlama ile template'i oluşturun
+  5. **Test et**: Örnek verilerle doğrulayın — yayımlamadan önce template'in preview'da doğru şekilde render edildiğini onaylayın
+  6. **Dokümante et**: Kullanım talimatlarını oluşturun
+  7. **Yayımla**: MCP aracılığıyla uygun space/projeye deploy edin (aşağıya bakınız: MCP Operations)
+  8. **Doğrula**: Deployment başarısını onaylayın; hata oluşursa önceki sürüme geri döndürün
+  9. **Eğit**: Kullanıcıları template kullanımı konusunda eğitin
+  10. **İzle**: Adopsiyon takibini yapın ve feedback toplayın
+  11. **İter**: Kullanıma dayalı olarak düzeltin
+
+  ### Template Değiştirme Süreci
+  1. **Değerlendir**: Değişiklik isteğini ve etkisini inceleyin
+  2. **Versiyonla**: Yeni sürüm oluşturun, eski versiyonu mevcut tutun
+  3. **Değiştir**: Template yapısı/içeriğini güncelleyin
+  4. **Test et**: Değişikliklerin mevcut kullanımı bozmamasını doğrulayın; yayımlamadan önce güncellenmiş template'i preview'da görüntüleyin
+  5. **Taşı**: Mevcut içerik için migration yolunu sağlayın
+  6. **İletişim kurun**: Kullanıcılara değişiklikleri duyurun
+  7. **Destek**: Kullanıcılara migration konusunda yardımcı olun
+  8. **Arşivle**: Geçişten sonra eski versiyonu kullanımdan kaldırın; eski template'in listede olmadığını ancak silinmediğini onaylayın
+
+  ### Blueprint Geliştirme
+  1. Blueprint kapsamı ve amacını tanımlayın
+  2. Multi-sayfa yapısını tasarlayın
+  3. Her bölüm için sayfa template'leri oluşturun
+  4. Sayfa oluşturma kurallarını yapılandırın
+  5. Dinamik içerik ekleyin (Jira sorguları, kullanıcı verileri)
+  6. Blueprint oluşturma akışını örnek bir space ile end-to-end test edin
+  7. Deployment'tan önce tüm macro referanslarının doğru şekilde çözümlendiğini doğrulayın
+  8. **TESLİM ET**: Atlassian Admin'e global deployment için
+
+  ---
+
+  ## Confluence Templates Kütüphanesi
+
+  Tam referans tabloları ve copy-paste-ready template yapıları için **TEMPLATES.md** dosyasına bakınız. Aşağıda bu skill'in oluşturduğu ve koruduğu standart template türleri özetlenmiştir.
+
+  ### Confluence Template Türleri
+  | Template | Amaç | Kullanılan Temel Macro'lar |
+  |----------|------|---------------------------|
+  | **Toplantı Notları** | Gündem, kararlar ve action item'ları içeren yapılandırılmış toplantı kayıtları | `{date}`, `{tasks}`, `{panel}`, `{info}`, `{note}` |
+  | **Proje Şartı** | Kuruluş düzeyinde proje kapsamı, paydaş RACI, zaman çizelgesi ve bütçe | `{panel}`, `{status}`, `{timeline}`, `{info}` |
+  | **Sprint Retrospektifi** | Agile seremonisi template'i; Neler İyi Gitti / Neler Kötü Gitti / Eylemler | `{panel}`, `{expand}`, `{tasks}`, `{status}` |
+  | **PRD** | Hedefler, user story'ler, fonksiyonel/non-fonksiyonel gereksinimler ve release planı ile feature tanımı | `{panel}`, `{status}`, `{jira}`, `{warning}` |
+  | **Karar Günlüğü** | Karar matriksi ve implementasyon takibi ile yapılandırılmış seçenek analizi | `{panel}`, `{status}`, `{info}`, `{tasks}` |
+
+  **Standart Bölümler** tüm Confluence template'lerine dahildir:
+  - Metadata (sahip, tarih, durum) ile başlık paneli
+  - Satıriçi placeholder talimatları ile açıkça etiketlenmiş içerik bölümleri
+  - `{tasks}` macro'su kullanılarak oluşturulmuş action item'ları bloğu
+  - İlgili linkler ve referanslar
+
+  ### Tam Örnek: Toplantı Notları Template'i
+
+  Aşağıda Confluence storage formatında (wiki markup) copy-paste-ready Toplantı Notları template'i bulunmaktadır:
+
+  ```
+  {panel:title=Meeting Metadata|borderColor=#0052CC|titleBGColor=#0052CC|titleColor=#FFFFFF}
+  *Date:* {date}
+  *Owner / Facilitator:* @[facilitator name]
+  *Attendees:* @[name], @[name]
+  *Status:* {status:colour=Yellow|title=In Progress}
+  {panel}
+
+  h2. Agenda
+  # [Agenda item 1]
+  # [Agenda item 2]
+  # [Agenda item 3]
+
+  h2. Discussion & Decisions
+  {panel:title=Key Decisions|borderColor=#36B37E|titleBGColor=#36B37E|titleColor=#FFFFFF}
+  * *Decision 1:* [What was decided and why]
+  * *Decision 2:* [What was decided and why]
+  {panel}
+
+  {info:title=Notes}
+  [Detailed discussion notes, context, or background here]
+  {info}
+
+  h2. Action Items
+  {tasks}
+  * [ ] [Action item] — Owner: @[name] — Due: {date}
+  * [ ] [Action item] — Owner: @[name] — Due: {date}
+  {tasks}
+
+  h2. Next Steps & Related Links
+  * Next meeting: {date}
+  * Related pages: [link]
+  * Related Jira issues: {jira:key=PROJ-123}
+  ```
+
+  > Diğer tüm template türleri (Proje Şartı, Sprint Retrospektifi, PRD, Karar Günlüğü) ve tüm Jira template'leri için tam örnekler istek üzerine oluşturulabilir veya **TEMPLATES.md** dosyasında bulunabilir.
+
+  ---
+
+  ## Jira Templates Kütüphanesi
+
+  ### Jira Template Türleri
+  | Template | Amaç | Temel Bölümler |
+  |----------|------|-----------------|
+  | **User Story** | Şu şekilde / İstiyorum / Böylece formatında feature istekleri | Acceptance Kriterleri (Given/When/Then), Design linkler, Teknik Notlar, Definition of Done |
+  | **Bug Report** | Tekrar adımları ile defekt yakalama | Environment, Tekrar Adımları, Beklenen vs Gerçek Davranış, Önem Derecesi, Geçici Çözüm |
+  | **Epic** | Yüksek düzey inisiyatif kapsamı | Vizyonu, Hedefleri, Başarı Metrikleri, Story Dağılımı, Bağımlılıklar, Zaman Çizelgesi |
+
+  **Standart Bölümler** tüm Jira template'lerine dahildir:
+  - Açık özet satırı
+  - Checkbox olarak acceptance veya başarı kriterleri
+  - İlgili issue'lar ve bağımlılıklar bloğu
+  - Definition of Done (story'ler için)
+
+  ---
+
+  ## Macro Kullanım Rehberi
+
+  **Dinamik İçerik**: Auto-güncellenebilir içerik için macro'ları kullanın (tarihler, kullanıcı mention'ları, Jira sorguları)
+  **Görsel Hiyerarşi**: Görsel ayrım oluşturmak için `{panel}`, `{info}` ve `{note}` kullanın
+  **İnteraktivite**: Uzun template'lerde daraltılabilir bölümler için `{expand}` kullanın
+  **Entegrasyon**: Canlı veriler için `{jira}` macro'su aracılığıyla Jira grafikleri ve tabloları gömün
+
+  ---
+
+  ## Atlassian MCP Entegrasyonu
+
+  **Birincil Araçlar**: Confluence MCP, Jira MCP
+
+  ### MCP Aracılığıyla Template İşlemleri
+
+  Aşağıdaki tüm MCP çağrıları Atlassian MCP server'ı tarafından beklenen kesin parametre isimlerini kullanır. Yürütmeden önce açılı parantez placeholder'larını gerçek değerlerle değiştirin.
+
+  **Confluence sayfa template'i oluşturun:**
+  ```json
+  {
+    "tool": "confluence_create_page",
+    "parameters": {
+      "space_key": "PROJ",
+      "title": "Template: Meeting Notes",
+      "body": "<storage-format template content>",
+      "labels": ["template", "meeting-notes"],
+      "parent_id": "<optional parent page id>"
+    }
+  }
+  ```
+
+  **Mevcut bir template'i güncelleyin:**
+  ```json
+  {
+    "tool": "confluence_update_page",
+    "parameters": {
+      "page_id": "<existing page id>",
+      "version": "<current_version + 1>",
+      "title": "Template: Meeting Notes",
+      "body": "<updated storage-format content>",
+      "version_comment": "v2 — added status macro to header"
+    }
+  }
+  ```
+
+  **Jira issue description template'i oluşturun (field configuration aracılığıyla):**
+  ```json
+  {
+    "tool": "jira_update_field_configuration",
+    "parameters": {
+      "project_key": "PROJ",
+      "field_id": "description",
+      "default_value": "<template markdown or Atlassian Document Format JSON>"
+    }
+  }
+  ```
+
+  **Template'i birden fazla space'e deploy edin (toplu):**
+  ```json
+  // Her hedef space key'i için tekrarlayın
+  {
+    "tool": "confluence_create_page",
+    "parameters": {
+      "space_key": "<SPACE_KEY>",
+      "title": "Template: Meeting Notes",
+      "body": "<storage-format template content>",
+      "labels": ["template"]
+    }
+  }
+  // Her create'den sonra doğrulayın:
+  {
+    "tool": "confluence_get_page",
+    "parameters": {
+      "space_key": "<SPACE_KEY>",
+      "title": "Template: Meeting Notes"
+    }
+  }
+  // Response status == 200 olduğunu ve sayfa body'sinin boş olmadığını onaylayın; sonra sonraki space'e geçin
+  ```
+
+  **Deployment sonrası doğrulama kontrol noktası:**
+  - Oluşturulan/güncellenen sayfayı alın ve macro hataları olmadan render edildiğini onaylayın
+  - `{jira}` embed'lerinin hedef Jira projesine karşı çözümlendiğini kontrol edin
+  - `{tasks}` bloklarının yayımlanmış view'da etkileşimli olduğunu onaylayın
+  - Herhangi bir kontrol başarısız olursa: önceki sürüm body'si ile `confluence_update_page` kullanılarak `version: <current + 1>` ile geri döndürün
+
+  ---
+
+  ## En İyi Uygulamalar & Yönetişim
+
+  **Kuruluş Spesifik Standartları:**
+  - Template sürümlerini sayfa başlığında sürüm notları ile takip edin
+  - Eski template'leri arşivlemeden önce `{warning}` bannerı ile işaretleyin; arşivleyin (silmeyin)
+  - Her template'den bağlantılı kullanım kılavuzlarını saklayın
+  - Quarterly review döngüsünde feedback toplayın; kullanımı sonlandırmadan önce kullanım metriklerini ekleyin
+
+  **Kalite Gates (her deployment'tan önce uygulayın):**
+  - Her bölüm için sağlanmış örnek içerik
+  - Preview'da örnek verilerle test edilmiş
+  - Değişiklik günlüğüne sürüm açıklaması eklenmiş
+  - Feedback mekanizması hazır (yorumlar etkin veya bağlı anket)
+
+  **Yönetişim Süreci**:
+  1. İstek ve gerekçelendirme
+  2. Tasarım ve gözden geçirme
+  3. Pilot kullanıcılarla test
+  4. Dokümantasyon
+  5. Onay
+  6. Deployment (MCP aracılığıyla veya manuel)
+  7. Eğitim
+  8. İzleme
+
+  ---
+
+  ## Teslim Protokolleri
+
+  Tam teslim matriksi için **HANDOFFS.md** dosyasına bakınız. Özet:
+
+  | İş Ortağı | ALIR | GÖNDERİR |
+  |-----------|------|---------|
+  | **Senior PM** | Template gereksinimleri, raporlama template'leri, yönetici formatları | Tamamlanmış template'ler, kullanım analitikleri, optimizasyon önerileri |
+  | **Scrum Master** | Sprint seremonisi ihtiyaçları, takım spesifik istekler, retro format tercihleri | Sprint'e hazır template'ler, agile seremonisi yapıları, velocity takibi template'leri |
+  | **Jira Expert** | Issue template gereksinimleri, custom field görüntüleme ihtiyaçları | Issue description template'leri, field config template'leri, JQL query template'leri |
+  | **Confluence Expert** | Space spesifik ihtiyaçlar, global template istekleri, blueprint gereksinimleri | Yapılandırılmış sayfa template'leri, blueprint yapıları, deployment planları |
+  | **Atlassian Admin** | Kuruluş genelindeki standartlar, global deployment gereksinimleri, uyum template'leri | Onay için global template'ler, kullanım raporları, uyum durumu |
 ---
 
 # Atlassian Template & Files Creator Expert
@@ -59,7 +307,7 @@ Specialist in creating, modifying, and managing reusable templates and files for
 
 ## Confluence Templates Library
 
-See `references/template-design-patterns.md` for template design patterns and `references/governance-framework.md` for the governance model. For deployment-ready storage-format markup, use the bundled scaffolder (see [Template scaffolder](#template-scaffolder-generate-storage-format-markup) below). The following summarises the standard types this skill creates and maintains.
+See **TEMPLATES.md** for full reference tables and copy-paste-ready template structures. The following summarises the standard types this skill creates and maintains.
 
 ### Confluence Template Types
 | Template | Purpose | Key Macros Used |
@@ -78,7 +326,7 @@ See `references/template-design-patterns.md` for template design patterns and `r
 
 ### Complete Example: Meeting Notes Template
 
-> **Format warning**: The example below is **legacy wiki markup** (`{panel}`, `h2.`, `{tasks}`), shown for human readability. Wiki markup is NOT Confluence storage format and **will be rejected** by `mcp__atlassian__createConfluencePage` / `updateConfluencePage`, which expect storage format (XHTML, `<ac:structured-macro>` elements) or ADF. To get the deployment-ready storage-format equivalent, run the scaffolder: `python3 scripts/template_scaffolder.py meeting-notes` (see [Template scaffolder](#template-scaffolder-generate-storage-format-markup)).
+The following is a copy-paste-ready Meeting Notes template in Confluence storage format (wiki markup):
 
 ```
 {panel:title=Meeting Metadata|borderColor=#0052CC|titleBGColor=#0052CC|titleColor=#FFFFFF}
@@ -115,7 +363,7 @@ h2. Next Steps & Related Links
 * Related Jira issues: {jira:key=PROJ-123}
 ```
 
-> Storage-format examples for the other built-in types (decision-log, runbook, project-kickoff) come from `python3 scripts/template_scaffolder.py --list`; design patterns for the remaining types (Project Charter, Sprint Retrospective, PRD) are in `references/template-design-patterns.md`.
+> Full examples for all other template types (Project Charter, Sprint Retrospective, PRD, Decision Log) and all Jira templates can be generated on request or found in **TEMPLATES.md**.
 
 ---
 
@@ -145,63 +393,82 @@ h2. Next Steps & Related Links
 
 ---
 
-## Template scaffolder — generate storage-format markup
-
-The bundled scaffolder emits **Confluence storage-format XHTML** — the exact body format `createConfluencePage`/`updateConfluencePage` accept. It is the canonical deployment path for this skill:
-
-```bash
-# List available template types (meeting-notes, decision-log, runbook, project-kickoff, custom)
-python3 scripts/template_scaffolder.py --list
-
-# Generate a template body (storage-format XHTML)
-python3 scripts/template_scaffolder.py meeting-notes
-
-# Custom template with chosen sections and macros, JSON output for programmatic use
-python3 scripts/template_scaffolder.py custom --sections "Overview,Goals,Action Items" --macros "toc,status,info" --format json
-```
-
-Consume the output: take the `CONFLUENCE STORAGE FORMAT MARKUP` block (text mode) or the markup field (JSON mode) and pass it verbatim as the `body` of `mcp__atlassian__createConfluencePage`. Apply the suggested labels via the Confluence UI afterwards (label tools are not on the MCP).
-
 ## Atlassian MCP Integration
 
-**Primary Tool**: Atlassian Remote MCP server (bundled `.mcp.json`, server key `atlassian`). Tools surface as `mcp__atlassian__<toolName>` (camelCase). **Canonical tool list**: `project-management/references/atlassian-mcp-tools.md`. Never invent tool names — if a capability isn't in that list, it is not available via MCP; route to the web UI or REST API.
+**Primary Tools**: Confluence MCP, Jira MCP
 
 ### Template Operations via MCP
 
-Obtain `cloudId` once via `mcp__atlassian__getAccessibleAtlassianResources`. Replace angle-bracket placeholders with real values; discover exact parameter names from each tool's schema at call time.
+All MCP calls below use the exact parameter names expected by the Atlassian MCP server. Replace angle-bracket placeholders with real values before executing.
 
-**Create a Confluence template page** (body from the scaffolder above):
+**Create a Confluence page template:**
+```json
+{
+  "tool": "confluence_create_page",
+  "parameters": {
+    "space_key": "PROJ",
+    "title": "Template: Meeting Notes",
+    "body": "<storage-format template content>",
+    "labels": ["template", "meeting-notes"],
+    "parent_id": "<optional parent page id>"
+  }
+}
 ```
-mcp__atlassian__createConfluencePage (cloudId, space, title="Template: Meeting Notes",
-  body=<storage-format XHTML from template_scaffolder.py>, parent page id optional)
-```
-Labels (`template`, `meeting-notes`) must be applied in the Confluence UI — there is no MCP label tool.
 
-**Update an existing template page** (read first to get the current version):
-```
-mcp__atlassian__getConfluencePage (cloudId, pageId=<existing page id>)
-mcp__atlassian__updateConfluencePage (cloudId, pageId=<id>, version=<current + 1>,
-  body=<updated storage-format content>)
+**Update an existing template:**
+```json
+{
+  "tool": "confluence_update_page",
+  "parameters": {
+    "page_id": "<existing page id>",
+    "version": "<current_version + 1>",
+    "title": "Template: Meeting Notes",
+    "body": "<updated storage-format content>",
+    "version_comment": "v2 — added status macro to header"
+  }
+}
 ```
 
-**Jira issue description templates**: there is **no MCP tool for field configuration** (`default_value` on the description field, screens, field contexts). Configure description defaults in the Jira admin UI (`Settings > Issues > Field configurations`) or via REST (`/rest/api/3/fieldconfiguration`). What MCP CAN do: create issues pre-filled with template text via `mcp__atlassian__createJiraIssue` (pass the template body as the description), and inspect required fields per issue type with `mcp__atlassian__getJiraIssueTypeMetaWithFields`.
-
-**First-class Confluence templates/blueprints** are also **not creatable via MCP** — `createConfluencePage` creates ordinary pages that serve as copy-from templates. To register a real space template, use `Space settings > Templates` in the UI.
-
-**Deploy a template page to multiple spaces (batch):**
+**Create a Jira issue description template (via field configuration):**
+```json
+{
+  "tool": "jira_update_field_configuration",
+  "parameters": {
+    "project_key": "PROJ",
+    "field_id": "description",
+    "default_value": "<template markdown or Atlassian Document Format JSON>"
+  }
+}
 ```
-# Repeat per target space:
-mcp__atlassian__createConfluencePage (cloudId, space=<target>, title="Template: Meeting Notes", body=<storage-format content>)
-# Verify each create before proceeding:
-mcp__atlassian__getConfluencePage (cloudId, pageId=<id returned by create>)
-# Assert the returned body is non-empty and contains the expected <ac:structured-macro> elements
+
+**Deploy template to multiple spaces (batch):**
+```json
+// Repeat for each target space key
+{
+  "tool": "confluence_create_page",
+  "parameters": {
+    "space_key": "<SPACE_KEY>",
+    "title": "Template: Meeting Notes",
+    "body": "<storage-format template content>",
+    "labels": ["template"]
+  }
+}
+// After each create, verify:
+{
+  "tool": "confluence_get_page",
+  "parameters": {
+    "space_key": "<SPACE_KEY>",
+    "title": "Template: Meeting Notes"
+  }
+}
+// Assert response status == 200 and page body is non-empty before proceeding to next space
 ```
 
 **Validation checkpoint after deployment:**
-- Retrieve the created/updated page via `mcp__atlassian__getConfluencePage` and assert it renders without macro errors
-- Check that Jira-macro embeds resolve against the target Jira project
-- Confirm task blocks are interactive in the published view
-- If any check fails: revert using `mcp__atlassian__updateConfluencePage` with `version: <current + 1>` and the previous version body
+- Retrieve the created/updated page and assert it renders without macro errors
+- Check that `{jira}` embeds resolve against the target Jira project
+- Confirm `{tasks}` blocks are interactive in the published view
+- If any check fails: revert using `confluence_update_page` with `version: <current + 1>` and the previous version body
 
 ---
 
@@ -233,7 +500,7 @@ mcp__atlassian__getConfluencePage (cloudId, pageId=<id returned by create>)
 
 ## Handoff Protocols
 
-Handoff summary (governance context in `references/governance-framework.md`):
+See **HANDOFFS.md** for the full handoff matrix. Summary:
 
 | Partner | Receives FROM | Sends TO |
 |---------|--------------|---------|

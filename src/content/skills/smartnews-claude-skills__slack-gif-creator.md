@@ -12,6 +12,647 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Slack GIF Yaratıcısı - Esnek Araç Seti
+
+  Slack için optimize edilmiş animasyonlu GIF'ler oluşturmak için bir araç seti. Slack'in kısıtlamaları için doğrulayıcılar, birleştirilebilir animasyon ilkelleri ve isteğe bağlı yardımcı yardımcı programlar sağlar. **Yaratıcı vizyonunuzu gerçekleştirmek için bu araçları gerektiği şekilde uygulayın.**
+
+  ## Slack'in Gereksinimleri
+
+  Slack'in GIF'ler için kullanımlarına göre belirli gereksinimleri vardır:
+
+  **İleti GIF'leri:**
+  - Maksimum boyut: ~2MB
+  - Optimal boyutlar: 480x480
+  - Tipik FPS: 15-20
+  - Renk sınırı: 128-256
+  - Süre: 2-5s
+
+  **Emoji GIF'leri:**
+  - Maksimum boyut: 64KB (kesin sınır)
+  - Optimal boyutlar: 128x128
+  - Tipik FPS: 10-12
+  - Renk sınırı: 32-48
+  - Süre: 1-2s
+
+  **Emoji GIF'leri zorlayıcıdır** - 64KB sınırı kesindir. Yardımcı stratejiler:
+  - Toplam 10-15 kareyle sınırla
+  - Maksimum 32-48 renk kullan
+  - Tasarımları basit tutun
+  - Gradyanlardan kaçın
+  - Dosya boyutunu sık sık doğrula
+
+  ## Araç Seti Yapısı
+
+  Bu araç seti üç tür araç sağlar:
+
+  1. **Doğrulayıcılar** - GIF'in Slack'in gereksinimlerini karşılayıp karşılamadığını kontrol edin
+  2. **Animasyon İlkelleri** - Hareket için birleştirilebilir yapı taşları (shake, bounce, move, kaleidoscope)
+  3. **Yardımcı Yardımcı Programlar** - Ortak ihtiyaçlar için isteğe bağlı işlevler (metin, renkler, efektler)
+
+  **Bu araçların nasıl uygulanacağında tam yaratıcı özgürlük vardır.**
+
+  ## Temel Doğrulayıcılar
+
+  GIF'in Slack'in kısıtlamalarını karşılayıp karşılamadığını kontrol etmek için bu doğrulayıcıları kullanın:
+
+  ```python
+  from core.gif_builder import GIFBuilder
+
+  # GIF'inizi oluşturduktan sonra gereksinimleri karşılayıp karşılamadığını kontrol edin
+  builder = GIFBuilder(width=128, height=128, fps=10)
+  # ... istediğiniz şekilde karelerinizi ekleyin ...
+
+  # Kaydedin ve boyutu kontrol edin
+  info = builder.save('emoji.gif', num_colors=48, optimize_for_emoji=True)
+
+  # save methodu otomatik olarak dosya sınırı aşarsa uyarı verir
+  # info dict şunları içerir: size_kb, size_mb, frame_count, duration_seconds
+  ```
+
+  **Dosya boyutu doğrulayıcısı**:
+  ```python
+  from core.validators import check_slack_size
+
+  # GIF'in boyut sınırlarını karşılayıp karşılamadığını kontrol edin
+  passes, info = check_slack_size('emoji.gif', is_emoji=True)
+  # Döndürür: (True/False, boyut detayları içeren dict)
+  ```
+
+  **Boyut doğrulayıcısı**:
+  ```python
+  from core.validators import validate_dimensions
+
+  # Boyutları kontrol edin
+  passes, info = validate_dimensions(128, 128, is_emoji=True)
+  # Döndürür: (True/False, boyut detayları içeren dict)
+  ```
+
+  **Tam doğrulama**:
+  ```python
+  from core.validators import validate_gif, is_slack_ready
+
+  # Tüm doğrulamaları çalıştırın
+  all_pass, results = validate_gif('emoji.gif', is_emoji=True)
+
+  # Veya hızlı kontrol
+  if is_slack_ready('emoji.gif', is_emoji=True):
+      print("Yüklemeye hazır!")
+  ```
+
+  ## Animasyon İlkelleri
+
+  Bunlar hareket için birleştirilebilir yapı taşlarıdır. Bunları herhangi bir nesneye herhangi bir kombinasyonda uygulayın:
+
+  ### Shake
+  ```python
+  from templates.shake import create_shake_animation
+
+  # Emoji'yi titretin
+  frames = create_shake_animation(
+      object_type='emoji',
+      object_data={'emoji': '😱', 'size': 80},
+      num_frames=20,
+      shake_intensity=15,
+      direction='both'  # or 'horizontal', 'vertical'
+  )
+  ```
+
+  ### Bounce
+  ```python
+  from templates.bounce import create_bounce_animation
+
+  # Daireyi sektirin
+  frames = create_bounce_animation(
+      object_type='circle',
+      object_data={'radius': 40, 'color': (255, 100, 100)},
+      num_frames=30,
+      bounce_height=150
+  )
+  ```
+
+  ### Spin / Rotate
+  ```python
+  from templates.spin import create_spin_animation, create_loading_spinner
+
+  # Saat yönünde dönüş
+  frames = create_spin_animation(
+      object_type='emoji',
+      object_data={'emoji': '🔄', 'size': 100},
+      rotation_type='clockwise',
+      full_rotations=2
+  )
+
+  # Sallanarak döndürme
+  frames = create_spin_animation(rotation_type='wobble', full_rotations=3)
+
+  # Yükleme spinner'ı
+  frames = create_loading_spinner(spinner_type='dots')
+  ```
+
+  ### Pulse / Heartbeat
+  ```python
+  from templates.pulse import create_pulse_animation, create_attention_pulse
+
+  # Pürüzsüz darbe
+  frames = create_pulse_animation(
+      object_data={'emoji': '❤️', 'size': 100},
+      pulse_type='smooth',
+      scale_range=(0.8, 1.2)
+  )
+
+  # Kalp atışı (çift pompa)
+  frames = create_pulse_animation(pulse_type='heartbeat')
+
+  # Emoji GIF'leri için dikkat çeken darbe
+  frames = create_attention_pulse(emoji='⚠️', num_frames=20)
+  ```
+
+  ### Fade
+  ```python
+  from templates.fade import create_fade_animation, create_crossfade
+
+  # Soldur (fade in)
+  frames = create_fade_animation(fade_type='in')
+
+  # Kayboldur (fade out)
+  frames = create_fade_animation(fade_type='out')
+
+  # İki emoji arasında çapraz soldurma
+  frames = create_crossfade(
+      object1_data={'emoji': '😊', 'size': 100},
+      object2_data={'emoji': '😂', 'size': 100}
+  )
+  ```
+
+  ### Zoom
+  ```python
+  from templates.zoom import create_zoom_animation, create_explosion_zoom
+
+  # Dramatik olarak yakınlaştır
+  frames = create_zoom_animation(
+      zoom_type='in',
+      scale_range=(0.1, 2.0),
+      add_motion_blur=True
+  )
+
+  # Uzaklaştır
+  frames = create_zoom_animation(zoom_type='out')
+
+  # Patlama zoomu
+  frames = create_explosion_zoom(emoji='💥')
+  ```
+
+  ### Explode / Shatter
+  ```python
+  from templates.explode import create_explode_animation, create_particle_burst
+
+  # Patlama
+  frames = create_explode_animation(
+      explode_type='burst',
+      num_pieces=25
+  )
+
+  # Kırılma efekti
+  frames = create_explode_animation(explode_type='shatter')
+
+  # Parçacıklara çözün
+  frames = create_explode_animation(explode_type='dissolve')
+
+  # Parçacık patlaması
+  frames = create_particle_burst(particle_count=30)
+  ```
+
+  ### Wiggle / Jiggle
+  ```python
+  from templates.wiggle import create_wiggle_animation, create_excited_wiggle
+
+  # Jello titremes
+  frames = create_wiggle_animation(
+      wiggle_type='jello',
+      intensity=1.0,
+      cycles=2
+  )
+
+  # Dalga hareketi
+  frames = create_wiggle_animation(wiggle_type='wave')
+
+  # Emoji GIF'leri için heyecanlı wiggle
+  frames = create_excited_wiggle(emoji='🎉')
+  ```
+
+  ### Slide
+  ```python
+  from templates.slide import create_slide_animation, create_multi_slide
+
+  # Soldan kaymaya başla (overshoot ile)
+  frames = create_slide_animation(
+      direction='left',
+      slide_type='in',
+      overshoot=True
+  )
+
+  # Arası kaya
+  frames = create_slide_animation(direction='left', slide_type='across')
+
+  # Birden çok nesne sırayla kaymak
+  objects = [
+      {'data': {'emoji': '🎯', 'size': 60}, 'direction': 'left', 'final_pos': (120, 240)},
+      {'data': {'emoji': '🎪', 'size': 60}, 'direction': 'right', 'final_pos': (240, 240)}
+  ]
+  frames = create_multi_slide(objects, stagger_delay=5)
+  ```
+
+  ### Flip
+  ```python
+  from templates.flip import create_flip_animation, create_quick_flip
+
+  # İki emoji arasında yatay çevirme
+  frames = create_flip_animation(
+      object1_data={'emoji': '😊', 'size': 120},
+      object2_data={'emoji': '😂', 'size': 120},
+      flip_axis='horizontal'
+  )
+
+  # Dikey çevirme
+  frames = create_flip_animation(flip_axis='vertical')
+
+  # Emoji GIF'leri için hızlı çevirme
+  frames = create_quick_flip('👍', '👎')
+  ```
+
+  ### Morph / Transform
+  ```python
+  from templates.morph import create_morph_animation, create_reaction_morph
+
+  # Çapraz soldurma morph
+  frames = create_morph_animation(
+      object1_data={'emoji': '😊', 'size': 100},
+      object2_data={'emoji': '😂', 'size': 100},
+      morph_type='crossfade'
+  )
+
+  # Ölçek morph (biri küçülürken diğeri büyür)
+  frames = create_morph_animation(morph_type='scale')
+
+  # Spin morph (3D çevirme benzeri)
+  frames = create_morph_animation(morph_type='spin_morph')
+  ```
+
+  ### Move Effect
+  ```python
+  from templates.move import create_move_animation
+
+  # Doğrusal hareket
+  frames = create_move_animation(
+      object_type='emoji',
+      object_data={'emoji': '🚀', 'size': 60},
+      start_pos=(50, 240),
+      end_pos=(430, 240),
+      motion_type='linear',
+      easing='ease_out'
+  )
+
+  # Arc hareketi (parabolik yörünge)
+  frames = create_move_animation(
+      object_type='emoji',
+      object_data={'emoji': '⚽', 'size': 60},
+      start_pos=(50, 350),
+      end_pos=(430, 350),
+      motion_type='arc',
+      motion_params={'arc_height': 150}
+  )
+
+  # Dairesel hareket
+  frames = create_move_animation(
+      object_type='emoji',
+      object_data={'emoji': '🌍', 'size': 50},
+      motion_type='circle',
+      motion_params={
+          'center': (240, 240),
+          'radius': 120,
+          'angle_range': 360  # tam daire
+      }
+  )
+
+  # Dalga hareketi
+  frames = create_move_animation(
+      motion_type='wave',
+      motion_params={
+          'wave_amplitude': 50,
+          'wave_frequency': 2
+      }
+  )
+
+  # Veya düşük seviye easing fonksiyonlarını kullanın
+  from core.easing import interpolate, calculate_arc_motion
+
+  for i in range(num_frames):
+      t = i / (num_frames - 1)
+      x = interpolate(start_x, end_x, t, easing='ease_out')
+      # Veya: x, y = calculate_arc_motion(start, end, height, t)
+  ```
+
+  ### Kaleidoscope Effect
+  ```python
+  from templates.kaleidoscope import apply_kaleidoscope, create_kaleidoscope_animation
+
+  # Tekil karenin üzerine uygula
+  kaleido_frame = apply_kaleidoscope(frame, segments=8)
+
+  # Veya animasyonlu kaleidoskop oluştur
+  frames = create_kaleidoscope_animation(
+      base_frame=my_frame,  # veya demo deseni için None
+      num_frames=30,
+      segments=8,
+      rotation_speed=1.0
+  )
+
+  # Basit ayna efektleri (daha hızlı)
+  from templates.kaleidoscope import apply_simple_mirror
+
+  mirrored = apply_simple_mirror(frame, mode='quad')  # 4 yollu ayna
+  # modes: 'horizontal', 'vertical', 'quad', 'radial'
+  ```
+
+  **İlkelleri serbestçe birleştirmek için şu desenleri izleyin:**
+  ```python
+  # Örnek: Darbe için Bounce + shake
+  for i in range(num_frames):
+      frame = create_blank_frame(480, 480, bg_color)
+
+      # Sekme hareketi
+      t_bounce = i / (num_frames - 1)
+      y = interpolate(start_y, ground_y, t_bounce, 'bounce_out')
+
+      # Darbenin üzerine shake ekle (y yere ulaştığında)
+      if y >= ground_y - 5:
+          shake_x = math.sin(i * 2) * 10
+          x = center_x + shake_x
+      else:
+          x = center_x
+
+      draw_emoji(frame, '⚽', (x, y), size=60)
+      builder.add_frame(frame)
+  ```
+
+  ## Yardımcı Yardımcı Programlar
+
+  Bunlar ortak ihtiyaçlar için isteğe bağlı yardımcılardır. **Gerektiğinde bu yardımcıları kullanın, değiştirin veya özel uygulamalarla değiştirin.**
+
+  ### GIF Builder (Montaj & Optimizasyon)
+
+  ```python
+  from core.gif_builder import GIFBuilder
+
+  # Seçtiğiniz ayarlarla builder oluşturun
+  builder = GIFBuilder(width=480, height=480, fps=20)
+
+  # Karelerinizi ekleyin (nasıl oluşturduğunuz önemli değil)
+  for frame in my_frames:
+      builder.add_frame(frame)
+
+  # Optimizasyonla kaydedin
+  builder.save('output.gif',
+               num_colors=128,
+               optimize_for_emoji=False)
+  ```
+
+  Temel özellikler:
+  - Otomatik renk nicemsemesi
+  - Kopya kare çıkarılması
+  - Slack sınırları için boyut uyarıları
+  - Emoji modu (agresif optimizasyon)
+
+  ### Metin İşleme
+
+  Emoji gibi küçük GIF'ler için metin okunabilirliği zorlayıcıdır. Ortak bir çözüm kontur eklemeyi içerir:
+
+  ```python
+  from core.typography import draw_text_with_outline, TYPOGRAPHY_SCALE
+
+  # Konturlu metin (okunabilirliği yardımcı olur)
+  draw_text_with_outline(
+      frame, "BONK!",
+      position=(240, 100),
+      font_size=TYPOGRAPHY_SCALE['h1'],  # 60px
+      text_color=(255, 68, 68),
+      outline_color=(0, 0, 0),
+      outline_width=4,
+      centered=True
+  )
+  ```
+
+  Özel metin işlemeyi uygulamak için PIL'in `ImageDraw.text()` kullanın; bu daha büyük GIF'ler için iyi çalışır.
+
+  ### Renk Yönetimi
+
+  Profesyonel görünümlü GIF'ler genellikle uyumlu renk paletleri kullanır:
+
+  ```python
+  from core.color_palettes import get_palette
+
+  # Önceden yapılmış palet alın
+  palette = get_palette('vibrant')  # veya 'pastel', 'dark', 'neon', 'professional'
+
+  bg_color = palette['background']
+  text_color = palette['primary']
+  accent_color = palette['accent']
+  ```
+
+  Renklerle doğrudan çalışmak için, RGB tuple'ları kullanın - kullanım durumu için ne işe yarıyorsa onu kullanın.
+
+  ### Görsel Efektler
+
+  Darbe anları için isteğe bağlı efektler:
+
+  ```python
+  from core.visual_effects import ParticleSystem, create_impact_flash, create_shockwave_rings
+
+  # Parçacık sistemi
+  particles = ParticleSystem()
+  particles.emit_sparkles(x=240, y=200, count=15)
+  particles.emit_confetti(x=240, y=200, count=20)
+
+  # Her kare için güncelle ve işle
+  particles.update()
+  particles.render(frame)
+
+  # Parlama efekti
+  frame = create_impact_flash(frame, position=(240, 200), radius=100)
+
+  # Şok dalgası halkaları
+  frame = create_shockwave_rings(frame, position=(240, 200), radii=[30, 60, 90])
+  ```
+
+  ### Easing Fonksiyonları
+
+  Pürüzsüz hareket doğrusal interpolasyon yerine easing kullanır:
+
+  ```python
+  from core.easing import interpolate
+
+  # Düşen nesne (hızlanır)
+  y = interpolate(start=0, end=400, t=progress, easing='ease_in')
+
+  # İnen nesne (yavaşlar)
+  y = interpolate(start=0, end=400, t=progress, easing='ease_out')
+
+  # Sekmeler
+  y = interpolate(start=0, end=400, t=progress, easing='bounce_out')
+
+  # Aşırı hareket (elastik)
+  scale = interpolate(start=0.5, end=1.0, t=progress, easing='elastic_out')
+  ```
+
+  Kullanılabilir easing'ler: `linear`, `ease_in`, `ease_out`, `ease_in_out`, `bounce_out`, `elastic_out`, `back_out` (aşırı hareket) ve `core/easing.py` içinde daha fazlası.
+
+  ### Kare Kompozisyonu
+
+  Gerekiyorsa temel çizim yardımcı programları:
+
+  ```python
+  from core.frame_composer import (
+      create_gradient_background,  # Gradyan arka planları
+      draw_emoji_enhanced,         # Emoji isteğe bağlı gölge ile
+      draw_circle_with_shadow,     # Şekiller derinlikle
+      draw_star                    # 5 köşeli yıldızlar
+  )
+
+  # Gradyan arka plan
+  frame = create_gradient_background(480, 480, top_color, bottom_color)
+
+  # Gölgeli emoji
+  draw_emoji_enhanced(frame, '🎉', position=(200, 200), size=80, shadow=True)
+  ```
+
+  ## Optimizasyon Stratejileri
+
+  GIF'iniz çok büyük olduğunda:
+
+  **İleti GIF'leri için (>2MB):**
+  1. Kareleri azaltın (daha düşük FPS veya daha kısa süre)
+  2. Renkleri azaltın (128 → 64 renk)
+  3. Boyutları azaltın (480x480 → 320x320)
+  4. Kopya kare çıkarılmasını etkinleştirin
+
+  **Emoji GIF'leri için (>64KB) - agresif olun:**
+  1. Toplam 10-12 kareyle sınırla
+  2. Maksimum 32-40 renk kullan
+  3. Gradyanlardan kaçın (katı renkler daha iyi sıkıştırılır)
+  4. Tasarımı basitleştirin (daha az eleman)
+  5. Save metodunda `optimize_for_emoji=True` kullanın
+
+  ## Örnek Birleştirme Desenleri
+
+  ### Basit Tepki (Darbe)
+  ```python
+  builder = GIFBuilder(128, 128, 10)
+
+  for i in range(12):
+      frame = Image.new('RGB', (128, 128), (240, 248, 255))
+
+      # Darbe ölçeği
+      scale = 1.0 + math.sin(i * 0.5) * 0.15
+      size = int(60 * scale)
+
+      draw_emoji_enhanced(frame, '😱', position=(64-size//2, 64-size//2),
+                         size=size, shadow=False)
+      builder.add_frame(frame)
+
+  builder.save('reaction.gif', num_colors=40, optimize_for_emoji=True)
+
+  # Doğrula
+  from core.validators import check_slack_size
+  check_slack_size('reaction.gif', is_emoji=True)
+  ```
+
+  ### Darbe ile Aksiyon (Bounce + Flash)
+  ```python
+  builder = GIFBuilder(480, 480, 20)
+
+  # Faz 1: Nesne düşer
+  for i in range(15):
+      frame = create_gradient_background(480, 480, (240, 248, 255), (200, 230, 255))
+      t = i / 14
+      y = interpolate(0, 350, t, 'ease_in')
+      draw_emoji_enhanced(frame, '⚽', position=(220, int(y)), size=80)
+      builder.add_frame(frame)
+
+  # Faz 2: Darbe + parlama
+  for i in range(8):
+      frame = create_gradient_background(480, 480, (240, 248, 255), (200, 230, 255))
+
+      # İlk karelerde parlama
+      if i < 3:
+          frame = create_impact_flash(frame, (240, 350), radius=120, intensity=0.6)
+
+      draw_emoji_enhanced(frame, '⚽', position=(220, 350), size=80)
+
+      # Metin görünür
+      if i > 2:
+          draw_text_with_outline(frame, "GOAL!", position=(240, 150),
+                                font_size=60, text_color=(255, 68, 68),
+                                outline_color=(0, 0, 0), outline_width=4, centered=True)
+
+      builder.add_frame(frame)
+
+  builder.save('goal.gif', num_colors=128)
+  ```
+
+  ### İlkelleri Birleştirme (Move + Shake)
+  ```python
+  from templates.shake import create_shake_animation
+
+  # Shake animasyonu oluştur
+  shake_frames = create_shake_animation(
+      object_type='emoji',
+      object_data={'emoji': '😰', 'size': 70},
+      num_frames=20,
+      shake_intensity=12
+  )
+
+  # Shake tetikleyen hareketli eleman oluştur
+  builder = GIFBuilder(480, 480, 20)
+  for i in range(40):
+      t = i / 39
+
+      if i < 20:
+          # Tetiklemeden önce - boş kare ve hareketli nesne ile
+          frame = create_blank_frame(480, 480, (255, 255, 255))
+          x = interpolate(50, 300, t * 2, 'linear')
+          draw_emoji_enhanced(frame, '🚗', position=(int(x), 300), size=60)
+          draw_emoji_enhanced(frame, '😰', position=(350, 200), size=70)
+      else:
+          # Tetiklemeden sonra - shake karesi kullan
+          frame = shake_frames[i - 20]
+          # Son konumdaki arabayı ekle
+          draw_emoji_enhanced(frame, '🚗', position=(300, 300), size=60)
+
+      builder.add_frame(frame)
+
+  builder.save('scare.gif')
+  ```
+
+  ## Felsefe
+
+  Bu araç seti katı tarifler değil, yapı taşları sağlar. GIF isteğiyle çalışmak için:
+
+  1. **Yaratıcı vizyonu anlayın** - Ne olmalı? Ruh hali ne olmalı?
+  2. **Animasyonu tasarlayın** - Bunu fazlara bölün (beklenti, aksiyon, tepki)
+  3. **İlkelleri gerektiğinde uygulayın** - Shake, bounce, move, efektler - serbestçe karıştırın
+  4. **Kısıtlamaları doğrulayın** - Dosya boyutunu kontrol edin, özellikle emoji GIF'leri için
+  5. **Gerekirse yineleyin** - Boyut sınırını aşarsa kareleri/renkleri azaltın
+
+  **Amaç, Slack'in teknik kısıtlamaları içinde yaratıcı özgürlüktür.**
+
+  ## Bağımlılıklar
+
+  Bu araç setini kullanmak için, zaten mevcut değilse yalnızca bu bağımlılıkları kurun:
+
+  ```bash
+  pip install pillow imageio numpy
+  ```
 ---
 
 # Slack GIF Creator - Flexible Toolkit

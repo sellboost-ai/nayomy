@@ -8,6 +8,200 @@ url: "https://github.com/YuChenSSR/multi-ai-advisor-mcp"
 body_length: 6031
 license: "MIT"
 language: "TypeScript"
+body_tr: |-
+  # Multi-Model Advisor
+  ## (锵锵四人行)
+
+  [![smithery badge](https://smithery.ai/badge/@YuChenSSR/multi-ai-advisor-mcp)](https://smithery.ai/server/@YuChenSSR/multi-ai-advisor-mcp)
+
+  Birden fazla Ollama modelini sorgulayan ve yanıtlarını birleştiren bir Model Context Protocol (MCP) sunucusu. Tek bir soruya yönelik çeşitli AI perspektifleri sunar. Bu, Claude'un birden fazla görüşü kendi bakış açısıyla birleştirerek daha kapsamlı cevaplar sağlamasına olanak tanıyan bir "danışman kurulu" yaklaşımı oluşturur.
+
+  <a href="https://glama.ai/mcp/servers/@YuChenSSR/multi-ai-advisor-mcp">
+    
+  </a>
+
+  ```mermaid
+  graph TD
+      A[Start] --> B[Worker Local AI 1 Opinion]
+      A --> C[Worker Local AI 2 Opinion]
+      A --> D[Worker Local AI 3 Opinion]
+      B --> E[Manager AI]
+      C --> E
+      D --> E
+      E --> F[Decision Made]
+  ```
+
+  ## Özellikler
+
+  - Birden fazla Ollama modelini tek bir soruyla sorgulama
+  - Her modele farklı roller/kişilikler atama
+  - Sisteminizde mevcut olan tüm Ollama modellerini görüntüleme
+  - Her model için sistem talimatlarını özelleştirme
+  - Ortam değişkenleri aracılığıyla yapılandırma
+  - Claude for Desktop ile sorunsuz entegrasyon
+
+  ## Ön Koşullar
+
+  - Node.js 16.x veya daha yüksek
+  - Ollama yüklü ve çalışır durumda (bkz. [Ollama kurulumu](https://github.com/ollama/ollama#installation))
+  - Claude for Desktop (tam danışman deneyimi için)
+
+  ## Kurulum
+
+  ### Smithery Aracılığıyla Kurulum
+
+  Multi-ai-advisor-mcp'yi Claude Desktop'a [Smithery](https://smithery.ai/server/@YuChenSSR/multi-ai-advisor-mcp) aracılığıyla otomatik olarak kurmak için:
+
+  ```bash
+  npx -y @smithery/cli install @YuChenSSR/multi-ai-advisor-mcp --client claude
+  ```
+
+  ### Manuel Kurulum
+  1. Bu depoyu klonlayın:
+     ```bash
+     git clone https://github.com/YuChenSSR/multi-ai-advisor-mcp.git 
+     cd multi-ai-advisor-mcp
+     ```
+
+  2. Bağımlılıkları yükleyin:
+     ```bash
+     npm install
+     ```
+
+  3. Projeyi derleyin:
+     ```bash
+     npm run build
+     ```
+
+  4. Gerekli Ollama modellerini yükleyin:
+     ```bash
+     ollama pull gemma3:1b
+     ollama pull llama3.2:1b
+     ollama pull deepseek-r1:1.5b
+     ```
+
+  ## Yapılandırma
+
+  Proje kökünde istediğiniz yapılandırmayla bir `.env` dosyası oluşturun:
+
+  ```
+  # Server configuration
+  SERVER_NAME=multi-model-advisor
+  SERVER_VERSION=1.0.0
+  DEBUG=true
+
+  # Ollama configuration
+  OLLAMA_API_URL=http://localhost:11434
+  DEFAULT_MODELS=gemma3:1b,llama3.2:1b,deepseek-r1:1.5b
+
+  # System prompts for each model
+  GEMMA_SYSTEM_PROMPT=You are a creative and innovative AI assistant. Think outside the box and offer novel perspectives.
+  LLAMA_SYSTEM_PROMPT=You are a supportive and empathetic AI assistant focused on human well-being. Provide considerate and balanced advice.
+  DEEPSEEK_SYSTEM_PROMPT=You are a logical and analytical AI assistant. Think step-by-step and explain your reasoning clearly.
+  ```
+
+  ## Claude for Desktop'a Bağlanma
+
+  1. Claude for Desktop yapılandırma dosyanızın konumunu bulun:
+     - MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+     - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+  2. Multi-Model Advisor MCP sunucusunu eklemek için dosyayı düzenleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "multi-model-advisor": {
+        "command": "node",
+        "args": ["/absolute/path/to/multi-ai-advisor-mcp/build/index.js"]
+      }
+    }
+  }
+  ```
+
+  3. `/absolute/path/to/` yerine proje dizininizin gerçek yolunu yazın
+
+  4. Claude for Desktop'ı yeniden başlatın
+
+  ## Kullanım
+
+  Claude for Desktop'a bağlandığınızda, Multi-Model Advisor'ı çeşitli şekillerde kullanabilirsiniz:
+
+  ### Mevcut Modelleri Listele
+
+  Sisteminizde mevcut olan tüm modelleri görebilirsiniz:
+
+  ```
+  Show me which Ollama models are available on my system
+  ```
+
+  Bu, yüklü tüm Ollama modellerini görüntüleyecek ve hangilerinin varsayılan olarak yapılandırıldığını gösterecektir.
+
+  ### Temel Kullanım
+
+  Claude'a multi-model advisor'ı kullanmasını söyleyin:
+
+  ```
+  what are the most important skills for success in today's job market, 
+  you can use gemma3:1b, llama3.2:1b, deepseek-r1:1.5b to help you 
+  ```
+
+  Claude tüm varsayılan modelleri sorgulayacak ve farklı perspektiflerine dayalı birleştirilmiş bir yanıt sağlayacaktır.
+
+  ![example](https://raw.githubusercontent.com/YuChenSSR/pics/master/imgs/2025-03-24/Q53YEwdTaeTuL6a7.png)
+
+
+
+  ## Nasıl Çalışır
+
+  1. MCP sunucusu iki araç ortaya koymaktadır:
+     - `list-available-models`: Sisteminizde bulunan tüm Ollama modellerini gösterir
+     - `query-models`: Birden fazla modeli bir soruyla sorgular
+
+  2. Claude'a multi-model advisor'ı referans alan bir soru sorduğunuzda:
+     - Claude `query-models` aracını kullanmaya karar verir
+     - Sunucu sorunuzu birden fazla Ollama modeline gönderir
+     - Her model kendi perspektifini yanıtlar
+     - Claude tüm yanıtları alır ve kapsamlı bir cevap oluşturur
+
+  3. Her modele farklı bir "kişilik" veya rol atanabilir, çeşitli perspektifleri teşvik eder.
+
+  ## Sorun Giderme
+
+  ### Ollama Bağlantı Sorunları
+
+  Sunucu Ollama'ya bağlanamıyorsa:
+  - Ollama'nın çalıştığından emin olun (`ollama serve`)
+  - .env dosyanızdaki OLLAMA_API_URL'nin doğru olduğunu kontrol edin
+  - Ollama'nın yanıt verip vermediğini doğrulamak için tarayıcıda http://localhost:11434 adresine erişmeyi deneyin
+
+  ### Model Bulunamadı
+
+  Bir model kullanılamaz olarak bildiriliyorsa:
+  - `ollama pull <model-name>` kullanarak modeli çektiğinizden emin olun
+  - `ollama list` kullanarak tam model adını doğrulayın
+  - Mevcut tüm modelleri görmek için `list-available-models` aracını kullanın
+
+  ### Claude MCP Araçlarını Göstermiyor
+
+  Araçlar Claude'da görünmüyorsa:
+  - Yapılandırmayı güncelledikten sonra Claude'u yeniden başlattığınızdan emin olun
+  - claude_desktop_config.json içindeki mutlak yolun doğru olduğunu kontrol edin
+  - Hata mesajları için Claude'un günlüklerine bakın
+
+  ### RAM yeterli değil
+
+  Bazı manager AI modelleri daha büyük modelleri seçmiş olabilir, ancak bunları çalıştıracak yeterli bellek yoktur. Daha küçük bir model belirlemeyi (bkz. [Temel Kullanım](#temel-kullanım)) veya belleği yükseltmeyi deneyebilirsiniz.
+
+  ## Lisans
+
+  MIT Lisansı
+
+  Daha fazla ayrıntı için lütfen [bu proje deposundaki](https://github.com/YuChenSSR/multi-ai-advisor-mcp) LICENSE dosyasına bakın.
+
+  ## Katkıda Bulunma
+
+  Katkılar hoş karşılanır! Lütfen bir Pull Request göndermekten çekinmeyin.
 ---
 
 # Multi-Model Advisor

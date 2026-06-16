@@ -12,6 +12,33 @@ has_scripts: false
 has_references: false
 has_examples: true
 related_files: []
+body_tr: |-
+  ## Bu beceriyi ne zaman kullanmalı
+  Dahili iletişim yazmak için bu beceriyi şu amaçlar için kullanın:
+  - 3P güncellemeleri (İlerleme, Planlar, Sorunlar)
+  - Şirket bültenleri
+  - SSS yanıtları
+  - Durum raporları
+  - Liderlik güncellemeleri
+  - Proje güncellemeleri
+  - Olay raporları
+
+  ## Bu beceriyi nasıl kullanmalı
+
+  Herhangi bir dahili iletişim yazmak için:
+
+  1. **İletişim türünü belirleyin** istekten
+  2. **`examples/` dizininden uygun kılavuz dosyasını yükleyin**:
+      - `examples/3p-updates.md` - İlerleme/Planlar/Sorunlar takım güncellemeleri için
+      - `examples/company-newsletter.md` - Şirket çapında bültenler için
+      - `examples/faq-answers.md` - Sık sorulan soruları cevaplamak için
+      - `examples/general-comms.md` - Yukarıdakilerden hiçbiriyle açıkça eşleşmeyen diğer her şey için
+  3. **O dosyada yer alan spesifik talimatları izleyin** biçimlendirme, ton ve içerik toplama için
+
+  İletişim türü mevcut kılavuzlardan herhangi biriyle eşleşmiyorsa, istenen format hakkında açıklama veya daha fazla bağlam isteyin.
+
+  ## Anahtar Kelimeler
+  3P güncellemeleri, şirket bülteni, şirket iletişimi, haftalık güncelleme, SSS, sık sorulan sorular, güncellemeler, dahili iletişim
 ---
 
 ## When to use this skill

@@ -7,6 +7,142 @@ stars: 105
 url: "https://github.com/hannesrudolph/sqlite-explorer-fastmcp-mcp-server"
 body_length: 4055
 language: "Python"
+body_tr: |-
+  [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/hannesrudolph-sqlite-explorer-fastmcp-mcp-server-badge.png)](https://mseep.ai/app/hannesrudolph-sqlite-explorer-fastmcp-mcp-server)
+
+  # SQLite Explorer MCP Server
+
+  MCP aracılığıyla SQLite veritabanlarına güvenli, salt okunur erişim sağlayan bir MCP sunucusu. Bu sunucu FastMCP framework'ü ile oluşturulmuş olup, LLM'lerin yerleşik güvenlik özellikleri ve sorgu doğrulaması ile SQLite veritabanlarını keşfetmesini ve sorgulamasını sağlar.
+
+  ## 📋 Sistem Gereksinimleri
+
+  - Python 3.6+
+  - SQLite veritabanı dosyası (ortam değişkeni aracılığıyla belirtilen yol)
+
+  ## 📦 Bağımlılıklar
+
+  Tüm gerekli bağımlılıkları yükleyin:
+
+  ```bash
+  # pip kullanarak
+  pip install -r requirements.txt
+  ```
+
+  ### Gerekli Paketler
+  - **fastmcp**: Model Context Protocol sunucuları oluşturmak için framework
+
+  Tüm bağımlılıklar kolay kurulum için `requirements.txt` dosyasında belirtilmiştir.
+
+  ## 📑 İçindekiler
+  - [Sistem Gereksinimleri](#-sistem-gereksinimleri)
+  - [Bağımlılıklar](#-bağımlılıklar)
+  - [MCP Araçları](#️-mcp-araçları)
+  - [Başlangıç](#-başlangıç)
+  - [Kurulum Seçenekleri](#-kurulum-seçenekleri)
+    - [Claude Desktop](#seçenek-1-claude-desktop-için-kurulum)
+    - [Cline VSCode Plugin](#seçenek-2-cline-vscode-plugin-için-kurulum)
+  - [Güvenlik Özellikleri](#-güvenlik-özellikleri)
+  - [Geliştirme Belgeleri](#-geliştirme-belgeleri)
+  - [Ortam Değişkenleri](#️-ortam-değişkenleri)
+
+  ## 🛠️ MCP Araçları
+
+  Sunucu LLM'lere aşağıdaki araçları sunar:
+
+  ### read_query
+  Veritabanında yerleşik güvenlik doğrulamaları ile SELECT sorgusu çalıştırın. Özellikler:
+  - Sorgu doğrulaması ve sanitizasyonu
+  - Parameter binding desteği
+  - Satır sınırı uygulaması
+  - Sonuçlar sözlük olarak formatlandı
+
+  ### list_tables 
+  Veritabanındaki tüm kullanılabilir tabloları ve adlarını listeleyin.
+
+  ### describe_table
+  Belirli bir tablo için aşağıdakileri içeren ayrıntılı schema bilgilerini alın:
+  - Sütun adları ve türleri
+  - NULL kısıtlamaları
+  - Varsayılan değerler
+  - Primary key bilgisi
+
+  ## 🚀 Başlangıç
+
+  Depoyu klonlayın:
+
+  ```bash
+  git clone https://github.com/hannesrudolph/sqlite-explorer-fastmcp-mcp-server.git
+  cd sqlite-explorer-fastmcp-mcp-server
+  ```
+
+  ## 📦 Kurulum Seçenekleri
+
+  Bu MCP sunucusunu Claude Desktop veya Cline VSCode plugin'inde kurabilirsiniz. İhtiyaçlarınıza en uygun seçeneği belirleyin.
+
+  ### Seçenek 1: Claude Desktop için Kurulum
+
+  FastMCP kullanarak kurun:
+
+  ```bash
+  fastmcp install sqlite_explorer.py --name "SQLite Explorer" -e SQLITE_DB_PATH=/path/to/db
+  ```
+
+  `/path/to/db` kısmını SQLite veritabanı dosyanızın yolu ile değiştirin.
+
+  ### Seçenek 2: Cline VSCode Plugin için Kurulum
+
+  Bu sunucuyu [Cline VSCode plugin](http://cline.bot) ile kullanmak için:
+
+  1. VSCode'da Cline plugin kenar çubuğundaki sunucu simgesine (☰) tıklayın
+  2. "Edit MCP Settings" düğmesine (✎) tıklayın
+  3. Ayarlar dosyasına aşağıdaki yapılandırmayı ekleyin:
+
+  ```json
+  {
+    "sqlite-explorer": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "fastmcp",
+        "--with",
+        "uvicorn",
+        "fastmcp",
+        "run",
+        "/path/to/repo/sqlite_explorer.py"
+      ],
+      "env": {
+        "SQLITE_DB_PATH": "/path/to/your/database.db"
+      }
+    }
+  }
+  ```
+
+  Aşağıdaki kısımları değiştirin:
+  - `/path/to/repo` - Bu depoyu klonladığınız tam yol (örn. `/Users/username/Projects/sqlite-explorer-fastmcp-mcp-server`)
+  - `/path/to/your/database.db` - SQLite veritabanı dosyanızın tam yolu
+
+  ## 🔒 Güvenlik Özellikleri
+
+  - SQLite veritabanlarına salt okunur erişim
+  - Sorgu doğrulaması ve sanitizasyonu
+  - Güvenli sorgu yürütmesi için parameter binding
+  - Satır sınırı uygulaması
+  - Temiz JSON yanıtları için ilerleme çıkışı bastırma
+
+  ## 📚 Geliştirme Belgeleri
+
+  Depo geliştirme için belge dosyaları içerir:
+
+  - `mcp-documentation.txt`: MCP sunucusu implementasyonu ve FastMCP framework kullanımı hakkında kapsamlı belge içerir.
+
+  Bu belge, özellik geliştirirken bağlam olarak görev yapar ve LLM'ler tarafından geliştirmede yardımcı olmak için kullanılabilir.
+
+  ## ⚙️ Ortam Değişkenleri
+
+  Aşağıdaki ortam değişkenleri ayarlanmalıdır:
+
+  - `SQLITE_DB_PATH`: Keşfetmek istediğiniz SQLite veritabanı dosyasının tam yolu
 ---
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/hannesrudolph-sqlite-explorer-fastmcp-mcp-server-badge.png)](https://mseep.ai/app/hannesrudolph-sqlite-explorer-fastmcp-mcp-server)

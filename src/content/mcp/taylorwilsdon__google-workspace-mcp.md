@@ -3,12 +3,411 @@ name: "taylorwilsdon/google_workspace_mcp"
 description: "Comprehensive Google Workspace MCP server with full support for Google Calendar, Drive, Gmail, and Docs, Forms, Chats, Slides and Sheets over stdio, Streamable HTTP and SSE transports."
 category: "Workplace & Productivity"
 repo: "taylorwilsdon/google_workspace_mcp"
-stars: 2694
+stars: 2483
 url: "https://github.com/taylorwilsdon/google_workspace_mcp"
-body_length: 81939
+body_length: 79203
 license: "MIT"
 language: "Python"
 homepage: "https://workspacemcp.com"
+body_tr: |-
+  <!-- mcp-name: io.github.taylorwilsdon/workspace-mcp -->
+
+  <div align="center">
+
+  # <span style="color:#cad8d9">Google Workspace MCP Sunucusu</span> 
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+  [![PyPI](https://img.shields.io/pypi/v/workspace-mcp.svg)](https://pypi.org/project/workspace-mcp/)
+  [![PyPI Downloads](https://static.pepy.tech/personalized-badge/workspace-mcp?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=pypi+downloads)](https://pepy.tech/projects/workspace-mcp)
+  [![Website](https://img.shields.io/badge/Website-workspacemcp.com-green.svg)](https://workspacemcp.com)
+
+  *Google Calendar, Drive, Gmail, Docs, Sheets, Slides, Forms, Tasks, Contacts ve Chat üzerinde tüm MCP istemcileri, AI asistanları ve geliştirici araçları aracılığıyla doğal dil kontrolü.*
+
+  *Tüm MCP istemcileri, Claude Code ve Codex gibi araçlarla kullanım için eksiksiz özellikli CLI ve Kod Modu içerir!*
+
+  **En özellik açısından eksiksiz Google Workspace MCP sunucusu**, Google'ın kendi araçlarının ve Claude ve ChatGPT ile yerleşik entegrasyonların yapamadığı şeyleri yapabilir. Uzaktan OAuth 2.1 çok kullanıcılı desteği, detaylı düzenleme araçları ve varolan herhangi bir Google Workspace aracının en kapsamlı kapsamı ile Workspace MCP ayrı bir sınıftadır. Yerel OAuth 2.1, durumsuz mod ve harici auth sunucusu desteği sunan, merkezi olarak ve güvenli bir şekilde tüm kuruluşunuz için barındırabileceğiniz tek Workspace MCP'dir!
+
+  ###### Tüm ücretsiz Google hesapları ve Google Workspace planları (Starter, Standard, Plus, Enterprise, Non Profit) için destek, Chat ve Spaces gibi genişletilmiş uygulama seçenekleriyle. <br/><br /> Özel, yönetilen bulut örneğine ilgi duyuyor musunuz? [Bu düzenlenebilir.](https://workspacemcp.com/workspace-mcp-cloud)
+
+
+  </div>
+
+  <p align="center">
+    <a href="https://workspacemcp.com/docs">
+      
+    </a><br /><a href="https://workspacemcp.com/quick-start">
+      
+    </a>
+  </p>
+
+  <div align="center">
+  <a href="https://www.pulsemcp.com/servers/taylorwilsdon-google-workspace">
+
+  </a>
+  </div>
+
+  ---
+
+  <div align="center">
+  <table>
+  <tr>
+  <td align="center">
+  <b>⚡ Başlangıç</b><br>
+  <sub>
+  <a href="#hızlı-başlangıç">Hızlı Başlangıç</a> · <a href="#ön-koşullar">Ön Koşullar</a><br>
+  <a href="#yapılandırma">Google Cloud</a> · <a href="#-kimlik-doğrulama-yapılandırması">Kimlik Bilgileri</a>
+  </sub>
+  </td>
+  <td align="center">
+  <b>🧰 Araçlar</b><br>
+  <sub>
+  <a href="#-mevcut-araçlar">Tüm Araçlar</a> · <a href="#araç-katmanları">Araç Katmanları</a><br>
+  <a href="#cli">CLI</a> · <a href="#sunucuyu-başlat">Sunucuyu Başlat</a>
+  </sub>
+  </td>
+  <td align="center">
+  <b>🔌 Bağlan</b><br>
+  <sub>
+  <a href="#hızlı-başlangıç--claude-yi-google-workspace-ye-bağla">Hızlı Başlangıç</a> · <a href="#claude-desktop-ye-bağlan">Claude Desktop</a><br>
+  <a href="#claude-code-mcp-istemci-desteği">Claude Code</a> · <a href="#vs-code-mcp-istemci-desteği">VS Code</a> · <a href="#lm-studio-ye-bağlan">LM Studio</a>
+  </sub>
+  </td>
+  <td align="center">
+  <b>🚀 Dağıt</b><br>
+  <sub>
+  <a href="#oauth-21-desteği-çok-kullanıcılı-taşıyıcı-belirteç-kimlik-doğrulaması">OAuth 2.1</a> · <a href="#durumsuz-mod-konteyner-dostu">Durumsuz</a><br>
+  <a href="#harici-oauth-21-sağlayıcısı-modu">Harici OAuth</a> · <a href="#ters-proxy-kurulumu">Ters Proxy</a>
+  </sub>
+  </td>
+  <td align="center">
+  <b>📐 Geliştir</b><br>
+  <sub>
+  <a href="#-geliştirme">Mimari</a> · <a href="#yerel-geliştirme-kurulumu">Geliş Kurulu</a><br>
+  <a href="#-güvenlik">Güvenlik</a> · <a href="#-lisans">Lisans</a>
+  </sub>
+  </td>
+  </tr>
+  </table>
+  </div>
+
+  **Uygulamada görmek:**
+  <div align="center">
+    <video width="400" src="https://github.com/user-attachments/assets/a342ebb4-1319-4060-a974-39d202329710"></video>
+  </div>
+
+  ---
+
+  ## <span style="color:#adbcbc">Genel Bakış</span>
+
+  Workspace MCP, tek en eksiksiz MCP sunucusu, tüm büyük Google Workspace hizmetlerini AI asistanları ve tüm ajan platformlarıyla entegre eden tek sunucudur. Tüm araç seti, yerel ve uzaktan örnekleri destekleyen CLI kullanımı için mevcuttur.
+
+  ## <span style="color:#adbcbc">Özellikler</span>
+
+  > **12 hizmet** &ensp;—&ensp; Gmail · Drive · Calendar · Docs · Sheets · Slides · Forms · Chat · Apps Script · Tasks · Contacts · Arama
+
+  <table>
+  <tr>
+  <td valign="top" width="50%">
+
+  **📧 Gmail** — Eksiksiz e-posta yönetimi, uçtan uca kapsam<br>
+  **📁 Drive** — Dosya işlemleri, paylaşım, izinler, Office dosyaları, PDF'ler ve görseller<br>
+  **📅 Calendar** — Gelişmiş özellikler içeren eksiksiz etkinlik yönetimi<br>
+  **📝 Docs** — Derin, detaylı düzenleme, biçimlendirme ve yorumlar<br>
+  **📊 Sheets** — Esnek hücre yönetimi, biçimlendirme ve koşullu kurallar<br>
+  **🖼️ Slides** — Sunum oluşturma, güncellemeler ve içerik manipülasyonu<br>
+  **📋 Forms** — Oluşturma, yayın ayarları ve yanıt yönetimi<br>
+  **💬 Chat** — Alan yönetimi, mesajlaşma ve tepkiler
+
+  </td>
+  <td valign="top" width="50%">
+
+  **⚡ Apps Script** — Uygulamalar arası iş akışı otomasyonu<br>
+  <sub>&ensp;Projeler · dağıtımlar · sürümler · yürütme · hata ayıklama</sub>
+
+  **✅ Tasks** — Hiyerarşi ile görev ve liste yönetimi<br>
+  **👤 Contacts** — People API'si, gruplar ve toplu işlemler<br>
+  **🔍 Özel Arama** — Programlanabilir Arama Motoru entegrasyonu
+
+  ---
+
+  **🔐 Kimlik Doğrulama ve Güvenlik**<br>
+  <sub>OAuth 2.0 & 2.1 · otomatik belirteç yenileme · çok kullanıcılı taşıyıcı belirteçler · taşıma-farkında geri çağrılar · CORS proxy</sub>
+
+  </td>
+  </tr>
+  </table>
+
+  ---
+
+  ## <span style="color:#adbcbc">Güvenlik ve Uyum</span>
+
+  <table>
+  <tr>
+  <td valign="top" width="50%">
+
+  **Güvenlik Ekipleri İçin**
+
+  Bu sunucu, kimliği doğrulanmış kullanıcı adına kendi OAuth istemci kimlik bilgilerinizi kullanarak, hiçbir yere veri göndermez, Google API'lerine göndermez. Telemetri yoktur, kullanım raporu yoktur, analitik yoktur, lisans sunucusu yoktur ve SaaS bağımlılığı yoktur. Tüm veri yolu: altyapınız → Google API'leri.
+
+  - **Tamamen açık kaynak** — her satır bu depoda denetlenebilir
+  - **Sizin OAuth istemciniz, sizin GCP projeniz** — kimlik bilgileri ortamınızı terk etmez
+  - **Kapsamları kontrol et** — salt okunur, granüler hizmet başına izinler veya tam erişim
+  - **Ağı kontrol et** — ters proxy'nin arkasında, VPC'niz içinde, kendi şartlarınızda dağıt
+  - **Üçüncü taraf hizmetleri yok** — ara sunucusu yok, belirteç geçişleri yok, barındırılan arka uç yok
+  - **Durumsuz mod** — kilitli konteyner ortamları için sıfır disk yazma
+  - **Hassas yol engelleme** — yerel dosya okumalar yönetilen ek dosyaları dizinine varsayılan olarak alınır ve `.env*` dosyaları artı `~/.ssh/` ve `~/.aws/` gibi yaygın ev dizini kimlik bilgisi depolarını bloklayan `validate_file_path()` hatta `ALLOWED_FILE_DIRS` genişletilse bile engeller
+
+  `pyproject.toml` içinde tam bağımlılık ağacı, `uv.lock` içinde sabitlenmiş.
+
+  </td>
+  <td valign="top" width="50%">
+
+  **Yasal ve Satın Alma İçin**
+
+  Bu proje [MIT lisanslı](LICENSE) — "açık çekirdek" değil, "kaynak mevcut" değil, "CLA ile ücretsiz" değil. Çift lisanslama, ticari katman özellik kapısı ve katkı lisans sözleşmesi yoktur.
+
+  - **Kısıtlama olmaksızın ticari kullanım** — ürünler yapabilir, hizmetler satabilir, dahili olarak dağıtabilir
+  - **Çatal, yerleştir, dağıt et** — MIT yalnızca atfetme gerektirir
+  - **CLA yok** — katkılar MIT altında kalır
+  - **Açıklamak için telemetri yok** — gizlilik incelemesinde bayrak koymak için hiçbir şey yok
+  - **Ağ etkileri yok** — sunucu yapılandırmadığınız hiçbir uç noktaya asla bağlanmaz
+  - **Standart bağımlılık lisansları** — MIT, Apache 2.0 ve BSD bağımlılık zinciri boyunca; copyleft yok, AGPL yok
+
+  Lisans 21 satırdır ve ne anlama geldiğini söyler.
+
+  </td>
+  </tr>
+  </table>
+
+  ---
+
+  ## Hızlı Başlangıç
+
+  > Kimlik bilgilerini ayarla → bir başlatma komutu seç → istemcinizi bağla
+
+  <div align="center">
+
+  > 💡 **Workspace MCP'de yeni misiniz?** **[İnteraktif Hızlı Başlangıç Rehberini →](https://workspacemcp.com/quick-start)** adım adım kurulum, ekran görüntüleri ve sorun giderme ipuçlarıyla kontrol edin!
+
+  </div>
+
+  <table>
+  <tr>
+  <td valign="top" width="50%">
+
+  **Gizli İstemci Hızlı Başlangıçı**
+
+  ```bash
+  # 1. Kimlik Bilgileri
+  export GOOGLE_OAUTH_CLIENT_ID="..."
+  export GOOGLE_OAUTH_CLIENT_SECRET="..."
+
+  # 2. Başlat — bir katman seç
+  uvx workspace-mcp --tool-tier core       # temel araçlar
+  uvx workspace-mcp --tool-tier extended   # çekirdek + yönetim işlemleri
+  uvx workspace-mcp --tool-tier complete   # her şey
+
+  # Veya hizmetleri manuel olarak seç
+  uv run main.py --tools gmail drive calendar
+  ```
+
+  </td>
+  <td valign="top" width="50%">
+
+  **Secretless / Genel OAuth 2.1 (PKCE) Hızlı Başlangıçı**
+
+  ```bash
+  # 1. Kimlik Bilgileri
+  export MCP_ENABLE_OAUTH21=true
+  export GOOGLE_OAUTH_CLIENT_ID="..."
+  export WORKSPACE_MCP_PORT=8000
+  export GOOGLE_OAUTH_REDIRECT_URI="http://localhost:${WORKSPACE_MCP_PORT}/oauth2callback"
+  export OAUTHLIB_INSECURE_TRANSPORT=1
+  # Genel PKCE istemcileri için GOOGLE_OAUTH_CLIENT_SECRET ayarlamayın
+  export FASTMCP_SERVER_AUTH_GOOGLE_JWT_SIGNING_KEY="$(openssl rand -hex 32)"
+
+  # 2. Başlat — OAuth 2.1 HTTP taşıması gerektirir
+  uvx workspace-mcp --transport streamable-http --tool-tier core
+  uvx workspace-mcp --transport streamable-http --tool-tier extended
+  uvx workspace-mcp --transport streamable-http --tool-tier complete
+
+  # Veya hizmetleri manuel olarak seç
+  uv run main.py --transport streamable-http --tools gmail drive calendar
+  ```
+
+  </td>
+  </tr>
+  </table>
+
+  <sub>[Kimlik bilgisi kurulumu →](#-kimlik-doğrulama-yapılandırması) · [Tüm başlatma seçenekleri →](#sunucuyu-başlat) · [Katman ayrıntıları →](#araç-katmanları)</sub>
+
+  <details open>
+  <summary><b>Ortam Değişkeni Başvurusu</b></summary>
+  <sub>
+
+  | Değişken | | Amaç |
+  |----------|:---:|---------|
+  | **🔐 Kimlik Doğrulama** | | |
+  | `GOOGLE_OAUTH_CLIENT_ID` | **gerekli** | Google Cloud'dan OAuth istemci kimliği |
+  | `GOOGLE_OAUTH_CLIENT_SECRET` | | Gizli istemciler için OAuth istemci parolası; genel OAuth 2.1 PKCE istemcileri için isteğe bağlı |
+  | `OAUTHLIB_INSECURE_TRANSPORT` | **gerekli**&ast; | Geliştirme için `1` olarak ayarla — `http://` yönlendirmesine izin ver |
+  | `USER_GOOGLE_EMAIL` | | Tek kullanıcılı auth için varsayılan e-posta |
+  | `GOOGLE_CLIENT_SECRET_PATH` | | `client_secret.json` özel yolu |
+  | `GOOGLE_MCP_CREDENTIALS_DIR` | | Kimlik bilgisi dizini — varsayılan `~/.google_workspace_mcp/credentials` |
+  | **🖥️ Sunucu** | | |
+  | `WORKSPACE_MCP_BASE_URI` | | Temel sunucu URI'si (port yok) — varsayılan `http://localhost` |
+  | `WORKSPACE_MCP_PORT` | | Dinleme portu — varsayılan `8000`. OAuth geri çağrısı portunu da kontrol eder. `PORT` env değişkeni ayarlanırsa öncelik alır. |
+  | `WORKSPACE_MCP_HOST` | | Bağlama ana bilgisayarı — varsayılan `0.0.0.0` |
+  | `WORKSPACE_MCP_TRANSPORT` | | `stdio` veya `streamable-http`; `--transport` iletilmediğinde kullanılır |
+  | `WORKSPACE_MCP_HTTP_PORT` | | Gelişmiş eski stdio yardımcı `/mcp` portu yerel `workspace-cli` erişimi için. Boş olduğunda devre dışı. Yalnızca `127.0.0.1` ile bağlanır ve yerel işlemlere erişilebilir. |
+  | `WORKSPACE_EXTERNAL_URL` | | Ters proxy kurulumları için harici URL |
+  | `WORKSPACE_ATTACHMENT_DIR` | | İndirilen ekler dizini ve varsayılan güvenilir yerel ek dizini — varsayılan `~/.workspace-mcp/attachments/` |
+  | `WORKSPACE_MCP_URL` | | CLI için uzaktan MCP uç noktası URL'si |
+  | `ALLOWED_FILE_DIRS` | | Yerel dosya okumaları için iki nokta üstü üste ayrılmış beyaz liste |
+  | **🧰 Araç Seçimi** | | |
+  | `WORKSPACE_MCP_TOOLS` | | Virgülle ayrılmış hizmetler, örn. `gmail,drive,calendar`; boş tüm hizmetleri ifade eder |
+  | `WORKSPACE_MCP_TOOL_TIER` | | `core`, `extended` veya `complete`; boş tüm araçları ifade eder |
+  | `WORKSPACE_MCP_READ_ONLY` | | Salt okunur kapsamları talep etmek ve yazma araçlarını filtrelemek için `true`, `1` veya `yes` |
+  | `WORKSPACE_MCP_PERMISSIONS` | | Alan ayrılmış `service:level` girdileri, örn. `gmail:send drive:full`; araçlar ve salt okunur ile karşılıklı olarak münhasır |
+  | **🔑 OAuth 2.1 ve Çok Kullanıcılı** | | |
+  | `MCP_ENABLE_OAUTH21` | | OAuth 2.1 çok kullanıcılı desteğini etkinleştirmek için `true` |
+  | `EXTERNAL_OAUTH21_PROVIDER` | | Taşıyıcı belirteçleri ile harici OAuth akışı için `true` |
+  | `WORKSPACE_MCP_STATELESS_MODE` | | Durumsuz konteyner dostu işletim için `true` |
+  | `GOOGLE_OAUTH_REDIRECT_URI` | | OAuth geri çağrısı URL'sini geçersiz kıl — varsayılan otomatik oluşturma |
+  | `OAUTH_CUSTOM_REDIRECT_URIS` | | Virgülle ayrılmış ek yönlendirme URI'leri |
+  | `OAUTH_ALLOWED_ORIGINS` | | Virgülle ayrılmış ek CORS kaynakları |
+  | `WORKSPACE_MCP_OAUTH_PROXY_STORAGE_BACKEND` | | `memory`, `disk` veya `valkey` — [depolama arka uçlarına](#oauth-proxy-depolama-arka-uçları) bakın |
+  | `FASTMCP_SERVER_AUTH_GOOGLE_JWT_SIGNING_KEY` | | OAuth proxy depolama için özel şifreleme anahtarı; genel OAuth 2.1 istemcileri için `GOOGLE_OAUTH_CLIENT_SECRET` atlanırken gerekli |
+  | `WORKSPACE_MCP_ALLOWED_CLIENT_REDIRECT_URIS` | | Dinamik olarak kayıtlı OAuth istemcilerinin kullanabileceği yönlendirme URI'lerinin virgülle ayrılmış beyaz listesi. Varsayılan ayarlanmamıştır (DCR başına herhangi bir URI izin verilir). FastMCP'nin glob desenlerini destekler (`*`, `*.example.com`) |
+  | **🗄️ Kimlik Bilgisi Deposu** | | |
+  | `WORKSPACE_MCP_CREDENTIAL_STORE_BACKEND` | | `local_directory` (varsayılan) veya `gcs` — [kimlik bilgisi deposu sistemine](#kimlik-bilgisi-deposu-sistemi) bakın |
+  | `WORKSPACE_MCP_CREDENTIALS_DIR` | | `local_directory` arka ucu için dizin |
+  | `GOOGLE_MCP_CREDENTIALS_DIR` | | `WORKSPACE_MCP_CREDENTIALS_DIR` için geri uyumlu takma ad |
+  | `WORKSPACE_MCP_GCS_BUCKET` | | **Arka uç `gcs` olduğunda gerekli** — GCS demet adı |
+  | `WORKSPACE_MCP_GCS_PREFIX` | | `gcs` arka ucu için isteğe bağlı nesne adı ön eki |
+  | `WORKSPACE_MCP_GCS_REQUIRE_CMEK` | | Başlangıçta bir demet varsayılan KMS anahtarını gerektirmek için `true` (ayarlanmamışsa hızlı başarısız) |
+  | **🔧 Hizmet Hesabı** | | |
+  | `GOOGLE_SERVICE_ACCOUNT_KEY_FILE` | | Hizmet hesabı JSON anahtar dosyasının yolu (etki alanı genelinde delegasyon) |
+  | `GOOGLE_SERVICE_ACCOUNT_KEY_JSON` | | Satır içi hizmet hesabı JSON anahtarı (dosyaya alternatif) |
+  | `DWD_ALLOWED_DOMAINS` | | İstek başına kimliğe bürünme için virgülle ayrılmış etki alanı beyaz listesi (isteğe bağlı) |
+  | **🔍 Özel Arama** | | |
+  | `GOOGLE_PSE_API_KEY` | | Programlanabilir Arama Motoru için API anahtarı |
+  | `GOOGLE_PSE_ENGINE_ID` | | PSE için Arama Motoru Kimliği |
+
+  &ast;Yalnızca geliştirme için gerekli. Claude Desktop, kimlik bilgilerini OS anahtarlığında güvenli bir şekilde depolar — bunları uzantı panelinde bir kez ayarla.
+
+  </sub>
+  </details>
+
+  ---
+
+  ### Hızlı Başlangıç — Claude'u Google Workspace'e Bağla
+
+  Önerilen kurulum, bir örneği çalıştırmak ve Claude'u buna bir **Bağlayıcı** aracılığıyla bağlamaktır. Tam talimatlar **[workspacemcp.com/quick-start](https://workspacemcp.com/quick-start)** adresindedir.
+
+  <div align="center">
+    <video width="832" src="https://github.com/user-attachments/assets/83cca4b3-5e94-448b-acb3-6e3a27341d3a"></video>
+  </div>
+
+  ---
+
+  ### Ön Koşullar
+
+  **Python 3.10+** · **[uv/uvx](https://github.com/astral-sh/uv)** · **OAuth 2.0 kimlik bilgileri olan Google Cloud Projesi**
+
+  GCS kimlik bilgisi deposu arka ucunu istiyorsanız, önce isteğe bağlı bağımlılığı yükleyin:
+
+  ```bash
+  uv sync --extra gcs
+  # veya
+  pip install "workspace-mcp[gcs]"
+  ```
+
+  ### Yapılandırma
+
+  <details open>
+  <summary><b>Google Cloud Kurulumu</b></summary>
+
+  1. **Proje Oluştur** — [Konsolu Aç →](https://console.cloud.google.com/) → Yeni proje oluştur
+  2. **OAuth Kimlik Bilgileri Oluştur** — API'ler ve Hizmetler → Kimlik Bilgileri → Kimlik Bilgileri Oluştur → OAuth İstemci Kimliği
+     - Genel PKCE istemcisi (hiçbir yönlendirme URI'si gerekmez) için **Masaüstü Uygulaması** veya gizli istemci için **Web Uygulaması** seç
+     - İstemci Kimliğini ve yapılandırıldıysa İstemci Parolasını indir ve not et
+  3. **API'leri Etkinleştir** — API'ler ve Hizmetler → Kitaplık, ardından her hizmeti etkinleştir:
+
+     | | | | |
+     |:--|:--|:--|:--|
+     | [Calendar](https://console.cloud.google.com/flows/enableapi?apiid=calendar-json.googleapis.com) | [Drive](https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com) | [Gmail](https://console.cloud.google.com/flows/enableapi?apiid=gmail.googleapis.com) | [Docs](https://console.cloud.google.com/flows/enableapi?apiid=docs.googleapis.com) |
+     | [Sheets](https://console.cloud.google.com/flows/enableapi?apiid=sheets.googleapis.com) | [Slides](https://console.cloud.google.com/flows/enableapi?apiid=slides.googleapis.com) | [Forms](https://console.cloud.google.com/flows/enableapi?apiid=forms.googleapis.com) | [Tasks](https://console.cloud.google.com/flows/enableapi?apiid=tasks.googleapis.com) |
+     | [Chat](https://console.cloud.google.com/flows/enableapi?apiid=chat.googleapis.com) | [People](https://console.cloud.google.com/flows/enableapi?apiid=people.googleapis.com) | [Özel Arama](https://console.cloud.google.com/flows/enableapi?apiid=customsearch.googleapis.com) | [Apps Script](https://console.cloud.google.com/flows/enableapi?apiid=script.googleapis.com) |
+
+  4. **Kimlik Bilgilerini Ayarla** — yukarıdaki [Ortam Değişkeni Başvurusuna](#hızlı-başlangıç) bakın veya:
+     ```bash
+     export GOOGLE_OAUTH_CLIENT_ID="sizin-istemci-kimliğiniz"
+     export GOOGLE_OAUTH_CLIENT_SECRET="sizin-parolanız"
+     ```
+     Genel OAuth 2.1 PKCE istemcileri için `GOOGLE_OAUTH_CLIENT_SECRET` atlanır ve bunun yerine `FASTMCP_SERVER_AUTH_GOOGLE_JWT_SIGNING_KEY` ayarlanır.
+
+  <sub>[Tam OAuth belgeleri →](https://developers.google.com/workspace/guides/auth-overview) · [Kimlik bilgisi kurulum ayrıntıları →](#-kimlik-doğrulama-yapılandırması)</sub>
+
+  </details>
+
+  ### Google Özel Arama Kurulumu
+
+  <details open>
+  <summary>◆ <b>Özel Arama Yapılandırması</b> <sub><sup>← Web arama yeteneklerini etkinleştir</sup></sub></summary>
+
+  <table>
+  <tr>
+  <td width="33%" align="center">
+
+  **1. Arama Motoru Oluştur**
+  ```text
+  programmablesearchengine.google.com
+  /controlpanel/create
+
+  → Siteleri veya tüm ağı yapılandır
+  → Motoru Kimliğini not et (cx)
+  ```
+  <sub>[Kontrol Panelini Aç →](https://programmablesearchengine.google.com/controlpanel/create)</sub>
+
+  </td>
+  <td width="33%" align="center">
+
+  **2. API Anahtarını Al**
+  ```text
+  developers.google.com
+  /custom-search/v1/overview
+
+  → Proje oluştur/seç
+  → Özel Arama API'sini etkinleştir
+  → Kimlik bilgisi oluştur (API Anahtarı)
+  ```
+  <sub>[API Anahtarı Al →](https://developers.google.com/custom-search/v1/overview)</sub>
+
+  </td>
+  <td width="34%" align="center">
+
+  **3. Değişkenleri Ayarla**
+  ```bash
+  export GOOGLE_PSE_API_KEY=\
+    "sizin-api-anahtarınız"
+  export GOOGLE_PSE_ENGINE_ID=\
+    "sizin-motor-kimliğiniz"
+  ```
+  <sub>Ortamda yapılandır</sub>
+
+  </td>
+  </tr>
+  <tr>
+  <td colspan="3">
+
+  <details open>
+  <summary>≡ <b>Hızlı Kurulum Kılavuzu</b> <sub><sup>← Adım adım talimatlar</sup></sub></summary>
+
+  **Tam Kurulum Süreci:**
+
+  1. **Arama Motoru Oluştur** - [Kontrol Panelini](https://programmablesearchengine.google.com/controlpanel/create) ziy
 ---
 
 <!-- mcp-name: io.github.taylorwilsdon/workspace-mcp -->
@@ -259,7 +658,7 @@ uv run main.py --transport streamable-http --tools gmail drive calendar
 | **🖥️ Server** | | |
 | `WORKSPACE_MCP_BASE_URI` | | Base server URI (no port) — default `http://localhost` |
 | `WORKSPACE_MCP_PORT` | | Listening port — default `8000`. Also controls the stdio-mode OAuth callback port. The `PORT` env var takes precedence if set. |
-| `WORKSPACE_MCP_HOST` | | Bind host — default `0.0.0.0` for OAuth 2.1 HTTP, `127.0.0.1` for legacy streamable HTTP. |
+| `WORKSPACE_MCP_HOST` | | Bind host — default `0.0.0.0` |
 | `WORKSPACE_MCP_TRANSPORT` | | `stdio` or `streamable-http`; used when `--transport` is not passed |
 | `WORKSPACE_MCP_HTTP_PORT` | | Advanced legacy-stdio sidecar `/mcp` port for local `workspace-cli` access. Disabled when empty. Binds to `127.0.0.1` only and is accessible to local processes. |
 | `WORKSPACE_EXTERNAL_URL` | | External URL for reverse proxy setups |
@@ -272,10 +671,9 @@ uv run main.py --transport streamable-http --tools gmail drive calendar
 | `WORKSPACE_MCP_READ_ONLY` | | `true`, `1`, or `yes` to request read-only scopes and filter write tools |
 | `WORKSPACE_MCP_PERMISSIONS` | | Space-separated `service:level` entries, e.g. `gmail:send drive:readonly`; mutually exclusive with tools and read-only |
 | **🔑 OAuth 2.1 & Multi-User** | | |
-| `MCP_ENABLE_OAUTH21` | | `true` to enable OAuth 2.1 multi-user support. Required for remote or shared HTTP endpoints (`--transport streamable-http`); optional for local-only legacy HTTP, which binds to `127.0.0.1` by default. |
+| `MCP_ENABLE_OAUTH21` | | `true` to enable OAuth 2.1 multi-user support |
 | `EXTERNAL_OAUTH21_PROVIDER` | | `true` for external OAuth flow with bearer tokens |
 | `WORKSPACE_MCP_STATELESS_MODE` | | `true` for stateless container-friendly operation |
-| `WORKSPACE_MCP_LOG_DIR` | | Directory for `mcp_server_debug.log` — defaults to `~/.google_workspace_mcp/logs` |
 | `GOOGLE_OAUTH_REDIRECT_URI` | | Override OAuth callback URL — default auto-constructed |
 | `OAUTH_CUSTOM_REDIRECT_URIS` | | Comma-separated additional redirect URIs |
 | `OAUTH_ALLOWED_ORIGINS` | | Comma-separated additional CORS origins |
@@ -458,8 +856,6 @@ uv run main.py
 
 **◆ HTTP Mode (Recommended)**
 ```bash
-export MCP_ENABLE_OAUTH21=true
-export GOOGLE_OAUTH_CLIENT_ID="..."
 uv run main.py \
   --transport streamable-http
 ```
@@ -547,8 +943,6 @@ uv run main.py --tool-tier complete  # ○ All available tools
 ```bash
 docker build -t workspace-mcp .
 docker run -p 8000:8000 -v $(pwd):/app \
-  -e MCP_ENABLE_OAUTH21=true \
-  -e GOOGLE_OAUTH_CLIENT_ID="..." \
   workspace-mcp --transport streamable-http
 
 # With tool selection via environment variables
@@ -786,12 +1180,10 @@ cp .env.oauth21 .env
 | <sub>`create_drive_file`</sub> | <sub>Core</sub> | <sub>Create files or fetch from URLs</sub> |
 | <sub>`create_drive_folder`</sub> | <sub>Core</sub> | <sub>Create empty folders in Drive or shared drives</sub> |
 | <sub>`import_to_google_doc`</sub> | <sub>Core</sub> | <sub>Import files (MD, DOCX, HTML, etc.) as Google Docs</sub> |
-| <sub>`import_to_google_slides`</sub> | <sub>Core</sub> | <sub>Import presentation files (PPTX, PPT, ODP) as Google Slides</sub> |
-| <sub>`import_to_google_sheets`</sub> | <sub>Core</sub> | <sub>Import spreadsheet files (XLSX, CSV, TSV, etc.) as Google Sheets</sub> |
 | <sub>`get_drive_shareable_link`</sub> | <sub>Core</sub> | <sub>Get shareable links for a file</sub> |
 | <sub>`list_drive_items`</sub> | <sub>Extended</sub> | <sub>List folder contents or shared drives</sub> |
 | <sub>`copy_drive_file`</sub> | <sub>Extended</sub> | <sub>Copy existing files (templates) with optional renaming</sub> |
-| <sub>`update_drive_file`</sub> | <sub>Extended</sub> | <sub>Update metadata, move files, or replace Google Apps content</sub> |
+| <sub>`update_drive_file`</sub> | <sub>Extended</sub> | <sub>Update file metadata, move between folders</sub> |
 | <sub>`manage_drive_access`</sub> | <sub>Extended</sub> | <sub>Grant, update, revoke permissions, and transfer ownership</sub> |
 | <sub>`set_drive_file_permissions`</sub> | <sub>Extended</sub> | <sub>Set link sharing and file-level sharing settings</sub> |
 | <sub>`get_drive_file_permissions`</sub> | <sub>Complete</sub> | <sub>Get file metadata, parents, and permissions</sub> |
@@ -1082,7 +1474,7 @@ uv run pytest
 ```
 
 - `uv sync --group test` installs only the testing stack if you need a slimmer environment.
-- `MCP_ENABLE_OAUTH21=true GOOGLE_OAUTH_CLIENT_ID=... uv run main.py --transport streamable-http` launches the HTTP server with your checked-out code for manual verification.
+- `uv run main.py --transport streamable-http` launches the server with your checked-out code for manual verification.
 - Ruff is part of the `dev` group because pre-push hooks call `ruff check` automatically—run it locally before committing to avoid hook failures.
 
 </details>
@@ -1116,11 +1508,7 @@ export MCP_ENABLE_OAUTH21=true
 uv run main.py --transport streamable-http
 ```
 
-If `MCP_ENABLE_OAUTH21` is not set to `true`, the server uses legacy authentication. In `streamable-http` mode, legacy authentication binds to `127.0.0.1` by default to keep cached Google credentials local. Set `WORKSPACE_MCP_HOST` explicitly only for trusted networks; use OAuth 2.1 for remote or shared HTTP deployments.
-
-Streamable HTTP requests with an `Origin` header are checked against loopback origins, `WORKSPACE_EXTERNAL_URL`, and `OAUTH_ALLOWED_ORIGINS` to reduce DNS-rebinding risk. Non-browser MCP clients that omit `Origin` are unaffected.
-
-> **vscode-webview origins**: Origins with the `vscode-webview://` scheme are scoped per-extension using the authority component (e.g. `vscode-webview://publisher.extension`). Adding a vscode-webview URI to `OAUTH_ALLOWED_ORIGINS` permits only the specific extension identified by that authority; other extensions are rejected.
+If `MCP_ENABLE_OAUTH21` is not set to `true`, the server will use legacy authentication, which is suitable for clients that do not support OAuth 2.1.
 
 <details open>
 <summary>🔐 <b>How the FastMCP GoogleProvider handles OAuth</b> <sub><sup>← Advanced OAuth 2.1 details</sup></sub></summary>
@@ -1157,7 +1545,6 @@ The server supports a stateless mode designed for containerized environments whe
 ```bash
 # Stateless mode requires OAuth 2.1 to be enabled
 export MCP_ENABLE_OAUTH21=true
-export GOOGLE_OAUTH_CLIENT_ID="..."
 export WORKSPACE_MCP_STATELESS_MODE=true
 uv run main.py --transport streamable-http
 ```
@@ -1243,7 +1630,6 @@ The server supports an external OAuth 2.1 provider mode for scenarios where auth
 ```bash
 # External OAuth provider mode requires OAuth 2.1 to be enabled
 export MCP_ENABLE_OAUTH21=true
-export GOOGLE_OAUTH_CLIENT_ID="..."
 export EXTERNAL_OAUTH21_PROVIDER=true
 uv run main.py --transport streamable-http
 ```
@@ -1349,9 +1735,7 @@ export DWD_ALLOWED_DOMAINS="corp.com,subsidiary.io"
 }
 ```
 
-*Note: Make sure to start the server with `--transport streamable-http` when using VS Code MCP. For remote or shared HTTP endpoints, see the [OAuth 2.1 note in the HTTP Mode section](#http-mode-for-debugging-or-web-interfaces).*
-
-> **Origin validation**: VS Code webview clients send a `vscode-webview://<extension-id>` origin, which is rejected by default. Add the specific origin to `OAUTH_ALLOWED_ORIGINS` (e.g. `OAUTH_ALLOWED_ORIGINS=vscode-webview://your.extension-id`) to permit it. Connections to a `localhost`/`127.0.0.1` URL are allowed without extra configuration.
+*Note: Make sure to start the server with `--transport streamable-http` when using VS Code MCP.*
 </details>
 
 ### Claude Code MCP Client Support
@@ -1363,8 +1747,6 @@ export DWD_ALLOWED_DOMAINS="corp.com,subsidiary.io"
 
 ```bash
 # Start the server in HTTP mode first
-export MCP_ENABLE_OAUTH21=true
-export GOOGLE_OAUTH_CLIENT_ID="..."
 uv run main.py --transport streamable-http
 
 # Then add to Claude Code
@@ -1405,7 +1787,6 @@ You also have options for:
 - Use `GOOGLE_OAUTH_REDIRECT_URI` when you only need to override the callback URL
 - The redirect URI must exactly match what's configured in your Google Cloud Console
 - Your reverse proxy must forward OAuth-related requests (`/oauth2callback`, `/oauth2/*`, `/.well-known/*`) to the MCP server
-- Do **not** set `Referrer-Policy: no-referrer` on your proxy. It makes browsers send `Origin: null` on the same-origin consent `POST`, which origin validation rejects with `{"error": "Origin not allowed"}` (logged as `Rejected HTTP request from Origin: null`) even when `WORKSPACE_EXTERNAL_URL` is correct. Use `strict-origin-when-cross-origin` (the browser default) or `same-origin` instead.
 
 <details open>
 <summary>🚀 <b>Advanced uvx Commands</b> <sub><sup>← More startup options</sup></sub></summary>
@@ -1422,8 +1803,6 @@ uvx workspace-mcp --tool-tier extended  # Core + additional features
 uvx workspace-mcp --tool-tier complete  # All tools
 
 # Start in HTTP mode for debugging
-export MCP_ENABLE_OAUTH21=true
-export GOOGLE_OAUTH_CLIENT_ID="..."
 uvx workspace-mcp --transport streamable-http
 ```
 </details>
@@ -1481,7 +1860,7 @@ If you need to use HTTP mode with Claude Desktop:
 }
 ```
 
-*Note: Make sure to start the server with `--transport streamable-http` when using HTTP mode. For remote or shared HTTP endpoints, also enable OAuth 2.1 with `MCP_ENABLE_OAUTH21=true` and `GOOGLE_OAUTH_CLIENT_ID`.*
+*Note: Make sure to start the server with `--transport streamable-http` when using HTTP mode.*
 
 ### First-Time Authentication
 

@@ -3,12 +3,203 @@ name: "bgauryy/octocode-mcp"
 description: "AI-powered developer assistant that enables advanced research, analysis and discovery across GitHub and NPM realms in realtime."
 category: "Developer Tools"
 repo: "bgauryy/octocode-mcp"
-stars: 863
+stars: 847
 url: "https://github.com/bgauryy/octocode-mcp"
-body_length: 14630
+body_length: 10711
 license: "MIT"
 language: "TypeScript"
 homepage: "https://octocode.ai/"
+body_tr: |-
+  # Octocode: AI için Araştırma Odaklı Geliştirme
+
+  <div align="center">
+    
+    
+    <h3>Tahmin Etmeyi Bırak. Bilmeye Başla.</h3>
+    <p><strong>AI asistanınızı Senior Staff Engineer'ın becerilerine sahip yap.</strong></p>
+    
+    <p>
+      <a href="https://octocode.ai"><strong>octocode.ai</strong></a>
+    </p>
+  </div>
+
+  ---
+
+  ## Kurulum
+
+  > **Ön Koşullar**: GitHub kimlik doğrulaması gereklidir. Bkz. [Authentication Setup](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/AUTHENTICATION_SETUP.md).
+
+  ### Önerilen: Octocode CLI
+
+  ```bash
+  npx octocode-cli install
+  ```
+
+  GitHub OAuth, MCP server kurulumu ve skills marketplace'i içeren etkileşimli kurulum sihirbazı. Etkileşimsiz kurulum için `--ide <ide>` geçirin (ör. `npx octocode-cli install --ide cursor`).
+
+  ### Alternatif Yöntemler
+
+  <details>
+  <summary><strong>Tek Tıklamayla Kurulum (Cursor)</strong></summary>
+
+  [](https://cursor.com/en/install-mcp?name=octocode&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyJvY3RvY29kZS1tY3BAbGF0ZXN0Il19)
+
+  </details>
+
+  <details>
+  <summary><strong>Manuel MCP Yapılandırması</strong></summary>
+
+  MCP yapılandırma dosyanıza ekleyin:
+
+  ```json
+  {
+    "mcpServers": {
+      "octocode": {
+        "command": "npx",
+        "args": ["octocode-mcp@latest"]
+      }
+    }
+  }
+  ```
+
+  </details>
+
+  <details>
+  <summary><strong>Research Skill (Doğrudan Kurulum)</strong></summary>
+
+  ```bash
+  npx add-skill https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-research
+  ```
+
+  </details>
+
+  ---
+
+  ## MCP Server
+
+  [Octocode MCP Server](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-mcp), AI asistanınızı koda bağlar:
+
+  - **GitHub, GitLab & Bitbucket**: Repository'lerde ara, kullanım örüntülerini bul, implementasyonları oku, PR'ları/MR'ları keşfet
+  - **Yerel Araçlar**: Kod ara (ripgrep), dizinlere göz at, yerel codebase'inde dosya bul
+  - **LSP Intelligence**: Go to Definition, Find References, Call Hierarchy — compiler düzeyinde anlama
+  - **Package Discovery**: npm/PyPI paketlerini kaynak repository'lerine çöz
+
+  https://github.com/user-attachments/assets/de8d14c0-2ead-46ed-895e-09144c9b5071
+
+  ---
+
+  ## Paketler
+
+  Bu bir yarn-workspaces monorepo'sudur. Her paketin kendi `README.md`'si vardır; tüm kurulum/referans belgeleri [`docs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs)'da bulunur ve tüm AI agent rehberleri kök [`AGENTS.md`](https://github.com/bgauryy/octocode-mcp/blob/main/AGENTS.md) dosyasında yer alır.
+
+  | Paket | Amaç |
+  |---------|---------|
+  | [`octocode-mcp`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-mcp) | MCP server — GitHub/GitLab/Bitbucket, yerel FS, LSP'de 14 araç |
+  | [`octocode-cli`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-cli) | CLI — installer, tool runner, skills marketplace |
+  | [`octocode-vscode`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-vscode) | VS Code extension — GitHub OAuth + multi-editor MCP kurulum |
+  | [`octocode-shared`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-shared) | Paylaşılan utilities — credentials, session, platform |
+  | [`octocode-security-utils`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-security-utils) | Bağımsız güvenlik utilities |
+
+  ---
+
+  ## Skills
+
+  > [Agent Skills](https://agentskills.io/what-are-skills) AI agent yeteneklerini genişletmek için hafif, açık bir formattır.
+  > Skills index: [skills/README.md](https://github.com/bgauryy/octocode-mcp/blob/main/skills/README.md)
+
+  **Araştırma & Kod Analizi**
+
+  | Skill | Ne yaptığı |
+  |-------|--------------|
+  | [**Researcher**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-researcher) | Kod arama & keşfi — yerel LSP + harici (GitHub, npm/PyPI) |
+  | [**Research**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-research) | Oturumlu, checkpoint'li, state kalıcılığı olan çok aşamalı araştırma |
+  | [**Engineer**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-engineer) | Kodu anlama, yazma, analiz etme, audit etme — AST + LSP + dependency graph |
+  | [**Brainstorming**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-brainstorming) | Kanıta dayalı fikir doğrulaması — GitHub, npm/PyPI, web paralel |
+  | [**News**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-news) | AI, geliştirici araçları, web platform, güvenlik, önemli repo'lardaki yenilikler |
+
+  **Planlama & Yazı**
+
+  | Skill | Ne yaptığı |
+  |-------|--------------|
+  | [**Plan**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-plan) | Kanıta dayalı planlama: Anlama > Araştırma > Plan > Uygulama |
+  | [**RFC Generator**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-rfc-generator) | Alternatifler, trade-off'lar ve önerilerle formal teknik kararlar |
+  | [**Doc Writer**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-documentation-writer) | 16+'dan fazla doğrulanmış doc üreten 6 aşamalı pipeline |
+  | [**Prompt Optimizer**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-prompt-optimizer) | Zayıf prompt'ları uygulanabilir agent protokollerine dönüştür |
+  | [**Agentic Flow**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/agentic-flow-best-practices) | MCP & multi-agent workflow tasarlanması/gözden geçirilmesi için düşünce çerçevesi |
+
+  **Gözden Geçirme & Eleştiri**
+
+  | Skill | Ne yaptığı |
+  |-------|--------------|
+  | [**PR Reviewer**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-pull-request-reviewer) | LSP flow tracing ile 7 alan genelinde PR & yerel kod gözden geçirmesi |
+  | [**Roast**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-roast) | Dosya:satır alıntıları ve önem seviyeleriyle acımasız kod eleştirisi |
+
+  **Derleme & Çıktı**
+
+  | Skill | Ne yaptığı |
+  |-------|--------------|
+  | [**Slides**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-slides) | 6 aşamalı tasarım akışı aracılığıyla cilalı multi-file HTML sunuları |
+  | [**Design**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-design) | Görsel dil, bileşenler, a11y'i kapsayan dinamik DESIGN.md oluşturucu |
+  | [**Chrome DevTools**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-chrome-devtools) | CDP düzeyinde tarayıcı debugging: network, console, perf, DOM, ekran görüntüleri |
+
+  **Araçlar & Kurulum**
+
+  | Skill | Ne yaptığı |
+  |-------|--------------|
+  | [**Install**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-install) | macOS ve Windows için etkileşimli adım adım Octocode installer'ı |
+  | [**CLI**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-cli) | MCP'yi bağlamadan terminalden Octocode MCP araçlarını çalıştır |
+  | [**Search Skill**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-search-skill) | Agent Skills'ı bul, değerlendir, kur, refactor et (SKILL.md formatı) |
+  | [**Stats**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-stats) | Octocode MCP kullanım istatistiklerinden yerel HTML panosu |
+
+  https://github.com/user-attachments/assets/5b630763-2dee-4c2d-b5c1-6335396723ec
+
+  ---
+
+  ## Belgeler
+
+  Tam index: **[docs/README.md](https://github.com/bgauryy/octocode-mcp/blob/main/docs/README.md)**. Tüm monorepo belgeleri [`docs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs) klasöründe bulunur — paket başına `docs/` yok.
+
+  **Docs haritası**
+  - [`docs/configuration/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/configuration) — kurulum, auth sağlayıcıları, MCP istemcileri, env/config, sorun giderme
+  - [`docs/dev/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/dev) — tool/API referansları, iş akışları, mimari, katkı, skills
+  - [`docs/specs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/specs) — tasarım özellikleri ve RFC'ler
+
+  **Kurulum**
+  - [Authentication Setup](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/AUTHENTICATION_SETUP.md) · [GitHub](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/GITHUB_SETUP_GUIDE.md) · [GitLab](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/GITLAB_SETUP_GUIDE.md) · [Bitbucket](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/BITBUCKET_SETUP_GUIDE.md)
+  - [Configuration Reference](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/CONFIGURATION_REFERENCE.md)
+  - [Using octocode-mcp with Pi](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/clients/PI_SETUP_GUIDE.md)
+
+  **Tool Referansları**
+  - [GitHub, GitLab & Bitbucket Tools](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/GITHUB_GITLAB_TOOLS_REFERENCE.md)
+  - [Local + LSP Tools](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/LOCAL_TOOLS_REFERENCE.md)
+  - [Clone & Local Workflow](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/workflows/CLONE_AND_LOCAL_TOOLS_WORKFLOW.md)
+
+  **CLI & Skills**
+  - [CLI Reference](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/CLI_REFERENCE.md)
+  - [Skills Guide](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/SKILLS_GUIDE.md) · [Skills Index](https://github.com/bgauryy/octocode-mcp/blob/main/skills/README.md)
+  - [CLI vs MCP Benchmark](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/workflows/BENCHMARK.md)
+
+  **Paylaşılan Dahiliyetler**
+  - [Shared API Reference](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/SHARED_API_REFERENCE.md) · [Credentials Architecture](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/architecture/CREDENTIALS_ARCHITECTURE.md) · [Session Persistence](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/architecture/SESSION_PERSISTENCE.md)
+
+  **İşlemler**
+  - [Troubleshooting](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/TROUBLESHOOTING.md) · [Development Guide](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/DEVELOPMENT_GUIDE.md) · [Agent Guidance (AGENTS.md)](https://github.com/bgauryy/octocode-mcp/blob/main/AGENTS.md)
+
+  ### Manifesto
+
+  **"Kod Gerçektir, Ancak Bağlam Haritadır."** -- Octocode'un arkasındaki felsefesini anlamak için [Araştırma Odaklı Geliştirme İçin Manifesto](https://github.com/bgauryy/octocode-mcp/blob/main/MANIFEST.md)'yu okuyun.
+
+  ---
+
+  ### Katkıda Bulunma
+
+  Monorepo kurulumu, test etme ve katkı yönergeleri için [Development Guide](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/DEVELOPMENT_GUIDE.md) bölümüne bakın.
+
+  ---
+
+  <div align="center">
+    <sub>AI Engineering Community için severek yapılmıştır</sub>
+  </div>
 ---
 
 # Octocode: Research Driven Development for AI
@@ -16,47 +207,29 @@ homepage: "https://octocode.ai/"
 <div align="center">
   
   
-  <h3>Research like a Senior Staff Engineer.<br/>In every codebase, in seconds.</h3>
-  <p><strong>Stop guessing.</strong> Octocode researches code <strong>locally and externally</strong>: your own workspace (ripgrep + LSP-level go-to-definition, references, call hierarchy) and the world's (GitHub repos, PRs, npm/PyPI packages), turning it into verifiable evidence your AI can search, read, and trace.</p>
-  <p>Use it as an <strong>MCP server</strong> inside your AI assistant, or as a <strong>terminal CLI</strong>.</p>
-
+  <h3>Stop Guessing. Start Knowing.</h3>
+  <p><strong>Empower your AI assistant with the skills of a Senior Staff Engineer.</strong></p>
+  
   <p>
     <a href="https://octocode.ai"><strong>octocode.ai</strong></a>
-    &nbsp;·&nbsp;
-    <a href="#-as-an-mcp-server">MCP Server</a>
-    &nbsp;·&nbsp;
-    <a href="#-as-a-cli">CLI</a>
-    &nbsp;·&nbsp;
-    <a href="#skills">Skills</a>
   </p>
 </div>
 
 ---
 
-## Two ways to run Octocode
+## Installation
 
-| | 🔌 **As an MCP Server** | 💻 **As a CLI** |
-|---|---|---|
-| **For** | Your AI assistant (Claude Code, Cursor, Claude Desktop, +13 more) | Your terminal & scripts |
-| **Install** | `npx octocode-cli install` | `brew tap bgauryy/octocode` → `brew install octocode` |
-| **You get** | 14 research tools wired into your agent | The same 14 tools, runnable from the shell |
-| **Best for** | Deep agent research, planning, PR review | Quick scripted lookups, CI, piping to other tools |
+> **Prerequisites**: GitHub authentication required. See [Authentication Setup](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/AUTHENTICATION_SETUP.md).
 
-Same engine, same tools, two surfaces. Pick one or use both.
-
-> **Prerequisites**: GitHub authentication for the GitHub-backed tools. Run `octocode login`, or see [Authentication Setup](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/AUTHENTICATION_SETUP.md).
-
----
-
-## 🔌 As an MCP Server
-
-Wire Octocode's tools into your AI assistant. The interactive installer handles GitHub OAuth, MCP server config, and the skills marketplace:
+### Recommended: Octocode CLI
 
 ```bash
 npx octocode-cli install
 ```
 
-Pass `--ide <client>` for a non-interactive install (e.g. `octocode install --ide cursor`).
+Interactive setup wizard with GitHub OAuth, MCP server installation, and skills marketplace. Pass `--ide <ide>` for non-interactive install (e.g. `npx octocode-cli install --ide cursor`).
+
+### Alternative Methods
 
 <details>
 <summary><strong>One-Click Install (Cursor)</strong></summary>
@@ -92,90 +265,18 @@ npx add-skill https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-
 
 </details>
 
+---
+
+## MCP Server
+
 The [Octocode MCP Server](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-mcp) connects your AI assistant to code:
 
-- **GitHub**: Search repositories, find usage patterns, read implementations, explore PRs
+- **GitHub, GitLab & Bitbucket**: Search repositories, find usage patterns, read implementations, explore PRs/MRs
 - **Local Tools**: Search code (ripgrep), browse directories, find files in your local codebase
-- **LSP Intelligence**: Go to Definition, Find References, Call Hierarchy (compiler-level understanding)
+- **LSP Intelligence**: Go to Definition, Find References, Call Hierarchy — compiler-level understanding
 - **Package Discovery**: Resolve npm/PyPI packages to their source repos
 
 https://github.com/user-attachments/assets/de8d14c0-2ead-46ed-895e-09144c9b5071
-
----
-
-## 💻 As a CLI
-
-The same 14 tools, straight from your terminal — no MCP server, no IDE required.
-
-### Install
-
-```bash
-# Homebrew (macOS / Linux) — recommended
-brew install bgauryy/octocode/octocode
-
-# or tap once, then use the short name
-brew tap bgauryy/octocode
-brew install octocode
-
-# npm global
-npm install -g octocode-cli
-
-# or run once, no install
-npx octocode-cli install
-```
-
-> Node is pulled in automatically by Homebrew. The installed command is **`octocode`** (not `octocode-cli`).
-
-**Verify and sign in:**
-
-```bash
-octocode --version   # → octocode v1.5.3
-octocode login       # GitHub OAuth — required for the GitHub-backed tools
-```
-
-### What you get
-
-The CLI is two things in one binary:
-
-1. **Setup wizard** — install the MCP server + skills, manage GitHub OAuth, sync configs across 15 editors
-2. **Standalone tool runner** — call any of the 14 tools, pipe JSON to other tools, use in CI
-
-### Commands
-
-| Command | What it does |
-|---------|--------------|
-| `octocode login` / `logout` | GitHub OAuth device flow (`--hostname` for Enterprise) |
-| `octocode install --ide <client>` | Configure `octocode-mcp` for an IDE/agent |
-| `octocode status` | Full health check: auth + installed MCPs + cache |
-| `octocode token` | Print the resolved GitHub token (`--source`, `--validate`) |
-| `octocode skills` | Search / install / remove / sync Agent Skills |
-| `octocode mcp` | MCP marketplace: `list` / `install` / `remove` / `status` |
-| `octocode sync` | Sync MCP configs across all IDE clients (`--dry-run`, `--status`) |
-| `octocode cache` | Inspect / clean repos, skills, logs, and tool caches |
-| `octocode tools` | List, inspect schema, or run a tool with `--queries '<json>'` |
-| `octocode instructions` | Print full MCP instructions + every tool schema |
-
-Top-level flags: `--version`/`-v`, `--help`/`-h`, `--json`/`-j`, `--agent` (agent bootstrap).
-
-### The 14 tools
-
-Run any directly with `octocode tools <name> --queries '<json>'`:
-
-| Group | Tools |
-|-------|-------|
-| GitHub | `githubSearchCode` · `githubSearchRepositories` · `githubSearchPullRequests` · `githubGetFileContent` · `githubViewRepoStructure` · `githubCloneRepo` |
-| Local | `localSearchCode` (ripgrep) · `localFindFiles` · `localGetFileContent` · `localViewStructure` |
-| LSP | `lspGotoDefinition` · `lspFindReferences` · `lspCallHierarchy` |
-| Package | `packageSearch` (npm / PyPI → source repo) |
-
-```bash
-octocode tools                                                              # list all
-octocode tools localSearchCode                                              # inspect schema
-octocode tools localSearchCode --queries '{"path":".","pattern":"TODO"}'   # run
-octocode tools githubSearchCode --queries '{"keywordsToSearch":["useState"],"owner":"facebook","repo":"react"}'
-```
-
-Supported install targets: Cursor, Claude Code, Claude Desktop, Windsurf, Zed, Trae, Antigravity, Kiro, Codex, Opencode, Gemini CLI, Goose, VS Code Cline / Roo / Continue. Full reference: [CLI Reference](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/CLI_REFERENCE.md).
 
 ---
 
@@ -185,10 +286,10 @@ This is a yarn-workspaces monorepo. Each package has its own `README.md`; all se
 
 | Package | Purpose |
 |---------|---------|
-| [`octocode-mcp`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-mcp) | MCP server: 14 tools across GitHub, local FS, LSP |
-| [`octocode-cli`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-cli) | CLI: installer, tool runner, skills marketplace |
-| [`octocode-vscode`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-vscode) | VS Code extension: GitHub OAuth + multi-editor MCP install |
-| [`octocode-shared`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-shared) | Shared utilities: credentials, session, platform |
+| [`octocode-mcp`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-mcp) | MCP server — 14 tools across GitHub/GitLab/Bitbucket, local FS, LSP |
+| [`octocode-cli`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-cli) | CLI — installer, tool runner, skills marketplace |
+| [`octocode-vscode`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-vscode) | VS Code extension — GitHub OAuth + multi-editor MCP install |
+| [`octocode-shared`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-shared) | Shared utilities — credentials, session, platform |
 | [`octocode-security-utils`](https://github.com/bgauryy/octocode-mcp/tree/main/packages/octocode-security-utils) | Standalone security utilities |
 
 ---
@@ -202,10 +303,10 @@ This is a yarn-workspaces monorepo. Each package has its own `README.md`; all se
 
 | Skill | What it does |
 |-------|--------------|
-| [**Researcher**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-researcher) | Code search & exploration: local LSP + external (GitHub, npm/PyPI) |
+| [**Researcher**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-researcher) | Code search & exploration — local LSP + external (GitHub, npm/PyPI) |
 | [**Research**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-research) | Multi-phase research with sessions, checkpoints, state persistence |
-| [**Engineer**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-engineer) | Understand, write, analyze, audit code: AST + LSP + dependency graph |
-| [**Brainstorming**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-brainstorming) | Idea validation grounded in evidence: GitHub, npm/PyPI, web in parallel |
+| [**Engineer**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-engineer) | Understand, write, analyze, audit code — AST + LSP + dependency graph |
+| [**Brainstorming**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-brainstorming) | Idea validation grounded in evidence — GitHub, npm/PyPI, web in parallel |
 | [**News**](https://github.com/bgauryy/octocode-mcp/tree/main/skills/octocode-news) | What's new in AI, dev tools, web platform, security, notable repos |
 
 **Planning & Writing**
@@ -248,20 +349,20 @@ https://github.com/user-attachments/assets/5b630763-2dee-4c2d-b5c1-6335396723ec
 
 ## Documentation
 
-Full index: **[docs/README.md](https://github.com/bgauryy/octocode-mcp/blob/main/docs/README.md)**. All monorepo documentation lives in [`docs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs) (no per-package `docs/`).
+Full index: **[docs/README.md](https://github.com/bgauryy/octocode-mcp/blob/main/docs/README.md)**. All monorepo documentation lives in [`docs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs) — no per-package `docs/`.
 
 **Docs map**
-- [`docs/configuration/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/configuration): install, auth providers, MCP clients, env/config, troubleshooting
-- [`docs/dev/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/dev): tool/API references, workflows, architecture, contributing, skills
-- [`docs/specs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/specs): design specs and RFCs
+- [`docs/configuration/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/configuration) — install, auth providers, MCP clients, env/config, troubleshooting
+- [`docs/dev/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/dev) — tool/API references, workflows, architecture, contributing, skills
+- [`docs/specs/`](https://github.com/bgauryy/octocode-mcp/tree/main/docs/specs) — design specs and RFCs
 
 **Setup**
-- [Authentication Setup](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/AUTHENTICATION_SETUP.md) · [GitHub](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/GITHUB_SETUP_GUIDE.md)
+- [Authentication Setup](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/AUTHENTICATION_SETUP.md) · [GitHub](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/GITHUB_SETUP_GUIDE.md) · [GitLab](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/GITLAB_SETUP_GUIDE.md) · [Bitbucket](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/providers/BITBUCKET_SETUP_GUIDE.md)
 - [Configuration Reference](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/CONFIGURATION_REFERENCE.md)
 - [Using octocode-mcp with Pi](https://github.com/bgauryy/octocode-mcp/blob/main/docs/configuration/clients/PI_SETUP_GUIDE.md)
 
 **Tool References**
-- [GitHub Tools](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/GITHUB_TOOLS_REFERENCE.md)
+- [GitHub, GitLab & Bitbucket Tools](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/GITHUB_GITLAB_TOOLS_REFERENCE.md)
 - [Local + LSP Tools](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/reference/LOCAL_TOOLS_REFERENCE.md)
 - [Clone & Local Workflow](https://github.com/bgauryy/octocode-mcp/blob/main/docs/dev/workflows/CLONE_AND_LOCAL_TOOLS_WORKFLOW.md)
 
@@ -278,7 +379,7 @@ Full index: **[docs/README.md](https://github.com/bgauryy/octocode-mcp/blob/main
 
 ### The Manifest
 
-**"Code is Truth, but Context is the Map."** Read the [Manifest for Research Driven Development](https://github.com/bgauryy/octocode-mcp/blob/main/MANIFEST.md) to understand the philosophy behind Octocode.
+**"Code is Truth, but Context is the Map."** -- Read the [Manifest for Research Driven Development](https://github.com/bgauryy/octocode-mcp/blob/main/MANIFEST.md) to understand the philosophy behind Octocode.
 
 ---
 
