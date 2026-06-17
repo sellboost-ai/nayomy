@@ -63,6 +63,7 @@ const SEED_REPOS = [
   "chat2anyllm/awesome-claude-skills",
   "supermemoryai/supermemory",
   "pbakaus/impeccable",
+  "mattpocock/skills",
 ];
 // Tek bir repo için maksimum kaç skill alınacak (spam'i önler)
 const MAX_SKILLS_PER_REPO = 200;
