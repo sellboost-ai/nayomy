@@ -2,7 +2,6 @@
 name: "jest-unit-testing-cursorrules-prompt-file"
 clean_name: "Jest Unit Testing"
 description: "Cursor rules for Jest development with unit testing."
-description_tr: "Jest ile unit testing yaparken kullanabileceğiniz cursor rules."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

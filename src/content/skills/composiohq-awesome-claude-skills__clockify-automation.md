@@ -4,7 +4,7 @@ description_en: "Automate time tracking workflows in Clockify -- create and mana
 description_tr: "Clockify'da zaman takibi iş akışlarını otomatikleştirin — doğal dil komutları aracılığıyla time entry'ler, workspace'ler ve kullanıcıları oluşturun ve yönetin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/clockify-automation/SKILL.md"
 path: "composio-skills/clockify-automation/SKILL.md"
 is_collection: false

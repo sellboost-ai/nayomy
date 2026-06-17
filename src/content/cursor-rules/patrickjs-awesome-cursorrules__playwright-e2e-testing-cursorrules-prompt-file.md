@@ -2,7 +2,6 @@
 name: "playwright-e2e-testing-cursorrules-prompt-file"
 clean_name: "Playwright E2e Testing"
 description: "Cursor rules for Playwright development with E2E testing."
-description_tr: "Playwright geliştirmesi için cursor rules - E2E testing ile çalışmanız için optimize edilmiş."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -2,7 +2,6 @@
 name: "java-springboot-jpa-cursorrules-prompt-file"
 clean_name: "Java Springboot Jpa"
 description: "Cursor rules for Java development with Springboot and JPA integration."
-description_tr: "Springboot ve JPA entegrasyonu ile Java geliştirme için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

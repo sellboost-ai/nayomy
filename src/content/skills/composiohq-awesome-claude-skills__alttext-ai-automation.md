@@ -4,7 +4,7 @@ description_en: "Automate Alttext AI tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) aracılığıyla Alttext AI görevlerini otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/alttext-ai-automation/SKILL.md"
 path: "composio-skills/alttext-ai-automation/SKILL.md"
 is_collection: false

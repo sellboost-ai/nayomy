@@ -2,7 +2,6 @@
 name: "harmony-arkts"
 clean_name: "Harmony Arkts"
 description: "HarmonyOS ArkTS rules for components, state, resources, layout, lifecycle, and accessibility"
-description_tr: "HarmonyOS ArkTS bileşenleri, state yönetimi, kaynaklar, layout, yaşam döngüsü ve erişilebilirlik için kurallar"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

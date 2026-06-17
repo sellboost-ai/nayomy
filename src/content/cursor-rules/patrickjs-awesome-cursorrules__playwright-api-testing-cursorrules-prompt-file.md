@@ -2,7 +2,6 @@
 name: "playwright-api-testing-cursorrules-prompt-file"
 clean_name: "Playwright API Testing"
 description: "Cursor rules for Playwright development with API testing."
-description_tr: "Playwright geliştirme ve API testi için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

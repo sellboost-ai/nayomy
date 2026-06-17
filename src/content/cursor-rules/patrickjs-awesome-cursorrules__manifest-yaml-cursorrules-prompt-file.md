@@ -2,7 +2,6 @@
 name: "manifest-yaml-cursorrules-prompt-file"
 clean_name: "Manifest Yaml"
 description: "Cursor rules for manifest development with YAML integration."
-description_tr: "Manifest geliştirme için Cursor kuralları YAML entegrasyonu ile birlikte."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

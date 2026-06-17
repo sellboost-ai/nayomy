@@ -2,7 +2,6 @@
 name: "docker"
 clean_name: "Docker"
 description: "Docker production rules. Pinned versions, multi-stage builds, non-root user, minimal attack surface."
-description_tr: "Docker production kuralları. Sabitlenmiş sürümler, multi-stage build'ler, root olmayan kullanıcı ve minimal saldırı yüzeyi."
 category: "DevOps"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

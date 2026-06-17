@@ -2,7 +2,6 @@
 name: "cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup"
 clean_name: "Cursorrules Cursor AI Next.js 14 Tailwind Seo Setup"
 description: "Cursor rules for Next.js development with Tailwind CSS and SEO optimization."
-description_tr: "Next.js geliştirmesi için Cursor rules, Tailwind CSS entegrasyonu ve SEO optimizasyonu içerir."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

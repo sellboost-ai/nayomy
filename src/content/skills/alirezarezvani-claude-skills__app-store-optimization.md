@@ -4,7 +4,7 @@ description_en: "App Store Optimization (ASO) toolkit for researching keywords, 
 description_tr: "App Store Optimization (ASO) araçları ile anahtar kelime araştırması yapın, rakip sıralamalarını analiz edin, metadata önerileri alın ve iOS ile Android uygulamalarının App Store ve Google Play Store'daki görünürlüğünü artırın. Kullanıcı ASO, uygulama derecelemeleri, uygulama metadatası, başlık ve açıklamalar, mağaza listeleri, görünürlük veya mobil uygulama pazarlaması hakkında sorular sorduğunda kullanılır."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/app-store-optimization/SKILL.md"
 path: ".gemini/skills/app-store-optimization/SKILL.md"
 is_collection: false

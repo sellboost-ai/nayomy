@@ -2,7 +2,6 @@
 name: "py-fast-api"
 clean_name: "Py Fast API"
 description: "Cursor rules for Python FastAPI backend development and best practices."
-description_tr: "Python FastAPI backend geliştirimi için cursor kuralları ve en iyi uygulamalar."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

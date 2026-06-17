@@ -2,7 +2,6 @@
 name: "python-fastapi-scalable-api-cursorrules-prompt-fil"
 clean_name: "Python FastAPI Scalable API Cursorrules Prompt Fil"
 description: "Cursor rules for Python FastAPI development with scalable API integration."
-description_tr: "Python FastAPI geliştirimi için cursor rules ve ölçeklenebilir API entegrasyonu."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

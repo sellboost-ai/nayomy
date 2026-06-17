@@ -4,7 +4,7 @@ description_en: "Operations leadership for scaling companies. Process design, OK
 description_tr: "Büyüyen şirketler için operasyonel liderlik. Süreç tasarımı, OKR yönetimi, operasyonel ritim ve ölçeklendirme stratejileri sunuyor. Operasyon tasarlarken, OKR kurulumu, süreç oluştururken, takımları ölçeklendirirken, darboğazları analiz ederken ve operasyonel verimlilik ile yürütme konularında kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/coo-advisor/SKILL.md"
 path: ".gemini/skills/coo-advisor/SKILL.md"
 is_collection: false

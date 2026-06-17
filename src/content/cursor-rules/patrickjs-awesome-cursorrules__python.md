@@ -2,7 +2,6 @@
 name: "python"
 clean_name: "Python"
 description: "Python best practices and patterns for modern software development with Flask and SQLite"
-description_tr: "Flask ve SQLite ile modern yazılım geliştirme için Python en iyi pratikleri ve tasarım desenleri."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

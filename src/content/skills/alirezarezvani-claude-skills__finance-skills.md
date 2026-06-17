@@ -4,7 +4,7 @@ description_en: "Router/index for the 2 finance skills bundled in this plugin: f
 description_tr: "Bu plugin'de yer alan 2 finans skill'i yönlendiren router/index: financial-analyst (oran analizi, DCF valuasyon, bütçe varyansı, rolling forecasts) ve saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio). Bir finans isteği belirli bir skill'e açıkça uymadığında ve doğru olanı seçmeniz gerektiğinde kullanın (örn. 'bu finansalları analiz et', 'SaaS metriklerim ne kadar sağlıklı')."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/finance-skills/SKILL.md"
 path: ".gemini/skills/finance-skills/SKILL.md"
 is_collection: false

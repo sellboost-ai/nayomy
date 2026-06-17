@@ -2,7 +2,6 @@
 name: "htmx-basic-cursorrules-prompt-file"
 clean_name: "Htmx Basic"
 description: "Cursor rules for HTMX development with basic setup."
-description_tr: "HTMX geliştirme için cursor kuralları ve temel kurulum."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

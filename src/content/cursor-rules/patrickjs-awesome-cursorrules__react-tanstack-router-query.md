@@ -2,7 +2,6 @@
 name: "react-tanstack-router-query"
 clean_name: "React Tanstack Router Query"
 description: "React SPA with TanStack Router v1 + TanStack Query v5 — the definitive pattern for zero-loading-spinner routing, type-safe URLs, and cache-first data"
-description_tr: "React SPA'nızı TanStack Router v1 ve TanStack Query v5 ile güçlendirin — yükleme göstergesi olmayan routing, type-safe URL'ler ve cache-first veri yönetimi için kesin çözüm."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

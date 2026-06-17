@@ -4,7 +4,7 @@ description_en: "/cs:freeze <decision> <days> — Lock a strategic decision for 
 description_tr: "/cs:freeze <decision> <days> — Stratejik bir kararı belirli bir süre için kilitleyerek dürtüsel geri dönüşleri önler. gstack'in iş katmanı için sunduğu güvenlik mekanizmalarını yansıtır. Baskı altında alınan geri dönülemez kararlar (örneğin işten çıkarma planı veya çok yıllı kontrat) için yürütmeden önce bekleme süresi uygulamak istediğinizde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/freeze/SKILL.md"
 path: ".gemini/skills/freeze/SKILL.md"
 is_collection: false

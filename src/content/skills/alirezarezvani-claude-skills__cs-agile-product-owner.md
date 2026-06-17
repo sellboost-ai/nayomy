@@ -4,7 +4,7 @@ description_en: "Agile product owner agent for epic breakdown, sprint planning, 
 description_tr: "Epik parçalamak, sprint planlama, backlog iyileştirme ve INVEST-uyumlu kullanıcı hikayesi oluşturmak için Agile product owner ajanı. Geliştirme ekibine iş hazırlarken—örneğin büyük bir epiki INVEST-uyumlu hikayelerle kabul kriterleri dahil parçalamak veya sprint planlamasından önce karmaşık bir backlogu iyileştirmek için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-agile-product-owner/SKILL.md"
 path: ".gemini/skills/cs-agile-product-owner/SKILL.md"
 is_collection: false

@@ -2,7 +2,6 @@
 name: "solidjs-typescript-cursorrules-prompt-file"
 clean_name: "Solidjs TypeScript"
 description: "Cursor rules for Solid.js development with TypeScript integration."
-description_tr: "Solid.js geliştirmesi için Cursor kuralları TypeScript entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

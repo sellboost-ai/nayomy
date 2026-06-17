@@ -4,7 +4,7 @@ description: "An MCP Server that autonomously debugs web applications with brows
 description_tr: "Tarayıcı kullanıcı ajanları ile web uygulamalarını otomatik olarak hata ayıklayan bir MCP Server"
 category: "Browser Automation"
 repo: "refreshdotdev/web-eval-agent"
-stars: 1240
+stars: 1241
 url: "https://github.com/refreshdotdev/web-eval-agent"
 body_length: 7011
 license: "Apache-2.0"

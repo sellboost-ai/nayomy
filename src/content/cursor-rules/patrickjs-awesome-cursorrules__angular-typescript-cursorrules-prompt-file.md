@@ -2,7 +2,6 @@
 name: "angular-typescript-cursorrules-prompt-file"
 clean_name: "Angular TypeScript"
 description: "Cursor rules for Angular development with TypeScript integration."
-description_tr: "Angular geliştirme için Cursor kuralları TypeScript entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -2,7 +2,6 @@
 name: "solidity-react-blockchain-apps-cursorrules-prompt-"
 clean_name: "Solidity React Blockchain Apps Cursorrules Prompt"
 description: "Cursor rules for Solidity development with React Blockchain apps integration."
-description_tr: "Solidity geliştirme için Cursor kuralları ve React tabanlı blockchain uygulamalarıyla entegrasyon."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

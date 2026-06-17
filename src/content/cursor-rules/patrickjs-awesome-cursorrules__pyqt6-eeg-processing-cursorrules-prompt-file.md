@@ -2,7 +2,6 @@
 name: "pyqt6-eeg-processing-cursorrules-prompt-file"
 clean_name: "Pyqt6 Eeg Processing"
 description: "Cursor rules for PyQt6 development with EEG processing integration."
-description_tr: "PyQt6 geliştirme için Cursor kuralları, EEG işleme entegrasyonu ile birlikte."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

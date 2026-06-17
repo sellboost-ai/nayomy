@@ -2,7 +2,6 @@
 name: "nextjs"
 clean_name: "Next.js"
 description: "Next.js with TypeScript and Tailwind UI best practices"
-description_tr: "Next.js ile TypeScript ve Tailwind UI en iyi pratikleri"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

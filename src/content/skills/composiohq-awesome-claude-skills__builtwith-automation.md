@@ -4,7 +4,7 @@ description_en: "Automate Builtwith tasks via Rube MCP (Composio). Always search
 description_tr: "Rube MCP (Composio) aracılığıyla Builtwith görevlerini otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/builtwith-automation/SKILL.md"
 path: "composio-skills/builtwith-automation/SKILL.md"
 is_collection: false

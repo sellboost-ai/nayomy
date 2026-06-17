@@ -4,7 +4,7 @@ description_en: "Audit datasets for completeness, consistency, accuracy, and val
 description_tr: "Veri setlerinin bütünlüğünü, tutarlılığını, doğruluğunu ve geçerliliğini denetleyin. Veri dağılımlarını profil haline getirin, anomalileri ve aykırı değerleri tespit edin, yapısal sorunları ortaya çıkarın ve uygulanabilir bir iyileştirme planı oluşturun. Kullanıcı veri kalitesini kontrol etmek, bir dataset profili çıkarmak, aykırı veya eksik değerleri bulmak ya da analiz veya model eğitiminden önce veriyi doğrulamak istediğinde kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/data-quality-auditor/SKILL.md"
 path: ".gemini/skills/data-quality-auditor/SKILL.md"
 is_collection: false

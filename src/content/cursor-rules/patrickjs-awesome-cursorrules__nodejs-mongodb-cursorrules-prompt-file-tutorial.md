@@ -2,7 +2,6 @@
 name: "nodejs-mongodb-cursorrules-prompt-file-tutorial"
 clean_name: "Node.js MongoDB Cursorrules Prompt File Tutorial"
 description: "Cursor rules for Node.js development with MongoDB integration."
-description_tr: "Node.js geliştirimi için MongoDB entegrasyonlu Cursor kuralları."
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

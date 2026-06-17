@@ -2,7 +2,6 @@
 name: "react-formengine-ai-form-builder-cursorrules-prompt-file"
 clean_name: "React Formengine AI Form Builder"
 description: "Cursor rules for generating React forms from screenshots, PDFs, HTML, or text descriptions with validated FormEngine JSON schema. Renders through RSuite, Material UI, or Mantine."
-description_tr: "Ekran görüntüsü, PDF, HTML veya metin açıklamalarından React formları oluşturmak için Cursor rules. FormEngine JSON schema ile doğrulanmış ve RSuite, Material UI veya Mantine üzerinden render edilir."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

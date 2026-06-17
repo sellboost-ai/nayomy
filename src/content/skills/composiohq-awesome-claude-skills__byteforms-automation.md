@@ -4,7 +4,7 @@ description_en: "Automate Byteforms tasks via Rube MCP (Composio). Always search
 description_tr: "Byteforms görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/byteforms-automation/SKILL.md"
 path: "composio-skills/byteforms-automation/SKILL.md"
 is_collection: false

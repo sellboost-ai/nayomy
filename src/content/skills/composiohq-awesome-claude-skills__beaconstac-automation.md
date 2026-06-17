@@ -4,7 +4,7 @@ description_en: "Automate Beaconstac tasks via Rube MCP (Composio). Always searc
 description_tr: "Beaconstac görevlerini Rube MCP (Composio) üzerinden otomatize edin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/beaconstac-automation/SKILL.md"
 path: "composio-skills/beaconstac-automation/SKILL.md"
 is_collection: false

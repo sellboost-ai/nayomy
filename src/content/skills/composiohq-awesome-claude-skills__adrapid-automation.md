@@ -4,7 +4,7 @@ description_en: "Automate Adrapid tasks via Rube MCP (Composio). Always search t
 description_tr: "Rube MCP (Composio) aracılığıyla Adrapid görevlerini otomatikleştirin. Mevcut şemaları bulmak için her zaman önce araçlar içinde arama yapınız."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/adrapid-automation/SKILL.md"
 path: "composio-skills/adrapid-automation/SKILL.md"
 is_collection: false

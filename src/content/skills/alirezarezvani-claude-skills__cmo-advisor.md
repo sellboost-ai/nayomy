@@ -4,7 +4,7 @@ description_en: "Marketing leadership for scaling companies. Brand positioning, 
 description_tr: "Büyüyen şirketler için pazarlama liderliği. Marka konumlandırması, growth model tasarımı, pazarlama bütçe tahsisi ve pazarlama organizasyonu yapılandırması sağlar. Brand stratejisi tasarımında, growth modelleri seçiminde (PLG vs sales-led vs community-led), pazarlama bütçesi tahsisinde, pazarlama ekipleri oluştururken veya CMO, brand stratejisi, growth model, CAC, LTV, channel mix ya da marketing ROI konularında kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cmo-advisor/SKILL.md"
 path: ".gemini/skills/cmo-advisor/SKILL.md"
 is_collection: false

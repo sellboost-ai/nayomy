@@ -2,7 +2,6 @@
 name: "shopify-theme-dev-liquid"
 clean_name: "Shopify Theme Dev Liquid"
 description: "Best practices for Shopify theme development with Liquid, JavaScript, and CSS"
-description_tr: "Shopify tema geliştirmede Liquid, JavaScript ve CSS ile en iyi uygulamalar"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

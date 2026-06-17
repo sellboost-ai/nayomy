@@ -4,7 +4,7 @@ description_en: "Create beautiful visual art in .png and .pdf documents using de
 description_tr: "Tasarım felsefesini kullanarak .png ve .pdf belgelerde güzel görsel sanatlar oluşturun. Kullanıcı poster, sanat eseri, tasarım veya diğer statik içerik oluşturmayı istediğinde bu beceriyi kullanmalısınız. Telif hakkı ihlallerinden kaçınmak için orijinal görsel tasarımlar oluşturun, mevcut sanatçıların çalışmalarını asla kopyalamayın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/canvas-design/SKILL.md"
 path: "canvas-design/SKILL.md"
 is_collection: false

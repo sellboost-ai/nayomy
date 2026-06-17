@@ -2,7 +2,6 @@
 name: "snowflake-data-engineering-cursorrules-prompt-file"
 clean_name: "Snowflake Data Engineering"
 description: "Cursor rules for Snowflake SQL, data pipelines (Dynamic Tables, Streams, Tasks, Snowpipe), semi-structured data, Snowflake Postgres, and cost optimization."
-description_tr: "Snowflake SQL, veri pipeline'ları (Dynamic Tables, Streams, Tasks, Snowpipe), yarı yapılandırılmış veri, Snowflake Postgres ve maliyet optimizasyonu için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

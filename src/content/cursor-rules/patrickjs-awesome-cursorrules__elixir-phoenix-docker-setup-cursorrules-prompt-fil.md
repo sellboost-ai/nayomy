@@ -2,7 +2,6 @@
 name: "elixir-phoenix-docker-setup-cursorrules-prompt-fil"
 clean_name: "Elixir Phoenix Docker Setup Cursorrules Prompt Fil"
 description: "Cursor rules for Elixir development with Phoenix and Docker integration."
-description_tr: "Elixir geliştirme için Cursor kuralları, Phoenix ve Docker entegrasyonu ile birlikte."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -4,7 +4,7 @@ description_en: "Use when designing or revising a company's commercial policy �
 description_tr: "Şirketinizin ticari politikasını tasarlarken veya güncellerken kullanın — liste fiyatından indirimler, onaylayan eşikleri, istisna akışları ve Deal Desk ile AE'lerin çalıştığı anlaşma çerçevesini yönetin. İndirim matrisini tasarlamayı (ARR bandı x dönem uzunluğu x ödeme koşulları x stratejik değer), ticari politika tasarımını, istisna politikasını, indirim yönetişimini ve onay eşiklerini kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/commercial-policy/SKILL.md"
 path: ".gemini/skills/commercial-policy/SKILL.md"
 is_collection: false

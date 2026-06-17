@@ -2,7 +2,6 @@
 name: "semiotic-react-dataviz-cursorrules-prompt-file"
 clean_name: "Semiotic React Dataviz"
 description: "Cursor rules for Semiotic data visualization library with 30+ chart types, MCP server, and AI-assisted chart generation."
-description_tr: "Semiotic veri görselleştirme kütüphanesi için cursor kuralları; 30+ grafik türü, MCP server ve yapay zeka destekli grafik oluşturma özellikleriyle birlikte geliyor."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -2,7 +2,6 @@
 name: "htmx-go-fiber-cursorrules-prompt-file"
 clean_name: "Htmx Go Fiber"
 description: "Cursor rules for Go development with Fiber integration."
-description_tr: "Go geliştirme için Cursor kuralları, Fiber entegrasyonu ile birlikte."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

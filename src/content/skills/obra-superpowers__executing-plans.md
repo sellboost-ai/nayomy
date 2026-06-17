@@ -4,7 +4,7 @@ description_en: "Use when you have a written implementation plan to execute in a
 description_tr: "Ayrı bir oturumda inceleme kontrol noktaları ile yürütülecek yazılı bir uygulama planınız olduğunda kullanın."
 category: "Development"
 repo: "obra/superpowers"
-stars: 230300
+stars: 230380
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/executing-plans/SKILL.md"
 path: "skills/executing-plans/SKILL.md"
 is_collection: false

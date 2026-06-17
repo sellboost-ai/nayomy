@@ -2,7 +2,6 @@
 name: "postgresql"
 clean_name: "PostgreSQL"
 description: "PostgreSQL production rules. Safe migrations, parameterized queries, TIMESTAMPTZ, proper indexing strategy."
-description_tr: "PostgreSQL üretim ortamı en iyi uygulamaları. Güvenli migrasyonlar, parametreli sorgular, TIMESTAMPTZ kullanımı ve doğru indexing stratejisi."
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

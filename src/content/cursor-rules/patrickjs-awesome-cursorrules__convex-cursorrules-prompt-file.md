@@ -2,7 +2,6 @@
 name: "convex-cursorrules-prompt-file"
 clean_name: "Convex"
 description: "Cursor rules for Convex development with best practices."
-description_tr: "Convex geliştirmesi için en iyi uygulamalar içeren Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

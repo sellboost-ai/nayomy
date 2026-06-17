@@ -2,7 +2,6 @@
 name: "playwright-integration-testing-cursorrules-prompt-file"
 clean_name: "Playwright Integration Testing"
 description: "Cursor rules for Playwright development with integration testing."
-description_tr: "Playwright geliştirmesi için cursor kuralları ve entegrasyon testleri."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

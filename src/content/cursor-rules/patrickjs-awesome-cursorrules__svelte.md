@@ -2,7 +2,6 @@
 name: "svelte"
 clean_name: "Svelte"
 description: "Svelte best practices and patterns for modern web applications"
-description_tr: "Svelte ile modern web uygulamaları geliştirmek için en iyi pratikler ve tasarım desenleri."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -4,7 +4,7 @@ description_en: ">- Run tests on BrowserStack. Use when user mentions \"browsers
 description_tr: "BrowserStack'te testleri çalıştırın. Kullanıcı \"browserstack\", \"cross-browser\", \"bulut testi\", \"browser matrix\", \"safari'de test et\", \"firefox'ta test et\" veya \"browser uyumluluğu\" gibi ifadeler kullandığında devreye girin."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/browserstack/SKILL.md"
 path: ".gemini/skills/browserstack/SKILL.md"
 is_collection: false

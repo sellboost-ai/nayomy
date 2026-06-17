@@ -2,7 +2,6 @@
 name: "javascript-typescript-code-quality-cursorrules-pro"
 clean_name: "JavaScript TypeScript Code Quality Cursorrules Pro"
 description: "Cursor rules for JavaScript and TypeScript development with code quality integration."
-description_tr: "JavaScript ve TypeScript geliştirme için Cursor kuralları, kod kalitesi entegrasyonu ile birlikte."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

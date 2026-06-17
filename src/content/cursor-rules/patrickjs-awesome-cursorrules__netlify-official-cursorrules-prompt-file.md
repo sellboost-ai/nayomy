@@ -2,7 +2,6 @@
 name: "netlify-official-cursorrules-prompt-file"
 clean_name: "Netlify Official"
 description: "Cursor rules for Netlify development with official integration."
-description_tr: "Netlify geliştirme için cursor kuralları ve resmi entegrasyon."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

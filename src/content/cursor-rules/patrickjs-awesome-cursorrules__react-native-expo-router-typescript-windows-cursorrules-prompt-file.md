@@ -2,7 +2,6 @@
 name: "react-native-expo-router-typescript-windows-cursorrules-prompt-file"
 clean_name: "React Native Expo Router TypeScript Windows"
 description: "Cursor rules for React Native Expo Router Typescript Windows."
-description_tr: "React Native Expo Router Typescript Windows için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

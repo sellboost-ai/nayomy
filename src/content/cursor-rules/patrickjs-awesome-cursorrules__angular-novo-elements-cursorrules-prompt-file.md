@@ -2,7 +2,6 @@
 name: "angular-novo-elements-cursorrules-prompt-file"
 clean_name: "Angular Novo Elements"
 description: "Cursor rules for Angular development with Novo Elements UI library."
-description_tr: "Angular geliştirme için Cursor kuralları ve Novo Elements UI kütüphanesi desteği."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

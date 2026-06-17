@@ -2,7 +2,6 @@
 name: "gherkin-style-testing-cursorrules-prompt-file"
 clean_name: "Gherkin Style Testing"
 description: "Cursor rules for Gherkin style testing development with integration."
-description_tr: "Gherkin stil test geliştirme ve entegrasyon için Cursor kuralları."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

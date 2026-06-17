@@ -2,7 +2,6 @@
 name: "code-pair-interviews"
 clean_name: "Code Pair Interviews"
 description: "Cursor rules for code pair interviews development with integration."
-description_tr: "Kod pair interviews geliştirme sürecinde entegrasyon için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

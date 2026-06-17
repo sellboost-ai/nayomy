@@ -2,7 +2,6 @@
 name: "cypress-integration-testing-cursorrules-prompt-file"
 clean_name: "Cypress Integration Testing"
 description: "Cursor rules for Cypress development with integration testing."
-description_tr: "Cypress geliştirmesi için cursor kuralları ve entegrasyon testleri."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

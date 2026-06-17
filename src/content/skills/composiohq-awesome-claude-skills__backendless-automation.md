@@ -4,7 +4,7 @@ description_en: "Automate Backendless tasks via Rube MCP (Composio). Always sear
 description_tr: "Rube MCP (Composio) aracılığıyla Backendless görevlerini otomatikleştirin. Her zaman güncel şemaları için ilk olarak tools'ı arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/backendless-automation/SKILL.md"
 path: "composio-skills/backendless-automation/SKILL.md"
 is_collection: false

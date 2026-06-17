@@ -2,7 +2,6 @@
 name: "cpp-programming-guidelines-cursorrules-prompt-file"
 clean_name: "Cpp Programming Guidelines"
 description: "Cursor rules for C++ development with programming guidelines integration."
-description_tr: "C++ geliştirme için cursor kuralları ve programlama rehberleri entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

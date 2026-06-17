@@ -2,7 +2,6 @@
 name: "svelte-5-vs-svelte-4-cursorrules-prompt-file"
 clean_name: "Svelte 5 Vs Svelte 4"
 description: "Cursor rules for comparing Svelte 5 and Svelte 4 development."
-description_tr: "Svelte 5 ve Svelte 4 geliştirme ortamlarını karşılaştırmak için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

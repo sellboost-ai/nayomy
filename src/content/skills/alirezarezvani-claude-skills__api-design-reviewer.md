@@ -4,7 +4,7 @@ description_en: "Comprehensive REST API design review with automated linting, br
 description_tr: "REST API tasarımınızı otomatik linting, breaking-change tespiti ve tasarım skorkaritleri ile kapsamlı şekilde gözden geçirin. Tutarsız kurallar, eksik versiyonlama ve tasarım sorunlarını API'lar yayına çıkmadan yakalar. PR'larda endpoint eklemesi/değişikliğini incelerken, mevcut API'nizi v2 migrasyonu için denetlerken veya ekibiniz için API standartları belirlerken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/api-design-reviewer/SKILL.md"
 path: ".gemini/skills/api-design-reviewer/SKILL.md"
 is_collection: false

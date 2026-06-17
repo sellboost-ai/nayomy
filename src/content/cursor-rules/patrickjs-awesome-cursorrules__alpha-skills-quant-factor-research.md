@@ -2,7 +2,6 @@
 name: "alpha-skills-quant-factor-research"
 clean_name: "Alpha Skills Quant Factor Research"
 description: "Quantitative factor research skills for Cursor. Evaluate factors, run backtests, mine new alpha through natural language."
-description_tr: "Cursor için nicel faktör araştırması yetenekleri. Faktörleri değerlendirin, backtest çalıştırın ve doğal dil kullanarak yeni alpha keşfedin."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

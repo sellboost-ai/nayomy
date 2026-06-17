@@ -4,7 +4,7 @@ description_en: "Docker and container development agent skill and plugin for Doc
 description_tr: "Docker ve container geliştirme için agent skill ve plugin olup Dockerfile optimizasyonu, docker-compose orkestrasyonu, multi-stage build'ler ve container güvenlik sağlamlaştırması sunur. Kullanıcı Dockerfile'ı optimize etmek, docker-compose konfigürasyonu oluşturmak veya iyileştirmek, multi-stage build'ler uygulamak, container güvenliğini denetlemek, image boyutunu azaltmak veya container best practice'lerini takip etmek istediğinde kullanılır. Build performansını kapsar."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/docker-development/SKILL.md"
 path: ".gemini/skills/docker-development/SKILL.md"
 is_collection: false

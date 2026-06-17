@@ -2,7 +2,6 @@
 name: "sveltekit-restful-api-tailwind-css-cursorrules-pro"
 clean_name: "SvelteKit Restful API Tailwind CSS Cursorrules Pro"
 description: "Cursor rules for SvelteKit development with RESTful API and Tailwind CSS integration."
-description_tr: "SvelteKit geliştirmesi için Cursor kuralları, RESTful API ve Tailwind CSS entegrasyonu desteğiyle."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

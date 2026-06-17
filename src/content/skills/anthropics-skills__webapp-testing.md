@@ -4,7 +4,7 @@ description_en: "Toolkit for interacting with and testing local web applications
 description_tr: "Playwright kullanarak yerel web uygulamalarını test etmek ve etkileşimde bulunmak için araç seti. Frontend işlevselliğini doğrulama, UI davranışını hata ayıklama, tarayıcı ekran görüntüleri alma ve tarayıcı loglarını görüntüleme özelliklerini destekler."
 category: "Design"
 repo: "anthropics/skills"
-stars: 151867
+stars: 151903
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/webapp-testing/SKILL.md"
 path: "skills/webapp-testing/SKILL.md"
 is_collection: false

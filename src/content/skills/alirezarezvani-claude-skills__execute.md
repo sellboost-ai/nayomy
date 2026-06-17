@@ -4,7 +4,7 @@ description_en: "/cs:execute <decision> — Generate a 90-day execution plan wit
 description_tr: "/cs:execute <decision> — Onaylanmış bir karardan 90 günlük bir uygulama planı oluşturur; haftalık milestone'lar, DRI'lar ve kontrol sıklığını belirler. Kaydedilmiş bir karar operasyonel bir plana dönüştürülmesi gerektiğinde kullanılır — örneğin, onaylanmış bir pazara giriş kararını haftalık milestone'lar ve DRI'lar ile yapılandırmak için."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/execute/SKILL.md"
 path: ".gemini/skills/execute/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description: "Extract and convert YouTube video information."
 description_tr: "YouTube video bilgilerini çıkartıp dönüştürün."
 category: "Other Tools and Integrations"
 repo: "Klavis-AI/klavis"
-stars: 5750
+stars: 5751
 url: "https://github.com/Klavis-AI/klavis"
 body_length: 7075
 license: "Apache-2.0"

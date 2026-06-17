@@ -2,7 +2,6 @@
 name: "nativescript"
 clean_name: "Nativescript"
 description: "NativeScript best practices and patterns for mobile applications"
-description_tr: "NativeScript ile mobil uygulamalar geliştirmek için en iyi uygulamalar ve tasarım desenleri"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

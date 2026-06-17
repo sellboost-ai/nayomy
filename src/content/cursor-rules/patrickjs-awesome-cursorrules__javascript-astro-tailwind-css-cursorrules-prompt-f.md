@@ -2,7 +2,6 @@
 name: "javascript-astro-tailwind-css-cursorrules-prompt-f"
 clean_name: "JavaScript Astro Tailwind CSS Cursorrules Prompt F"
 description: "Cursor rules for JavaScript development with Astro and Tailwind CSS integration."
-description_tr: "Astro ve Tailwind CSS entegrasyonu ile JavaScript geliştirmesi için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

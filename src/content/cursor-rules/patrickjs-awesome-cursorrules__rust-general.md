@@ -2,7 +2,6 @@
 name: "rust-general"
 clean_name: "Rust General"
 description: "General Rust rules for safe, idiomatic application and library development"
-description_tr: "Rust uygulamaları ve kütüphaneleri güvenli ve idiomatik şekilde geliştirmek için genel kurallar"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -4,7 +4,7 @@ description_en: "GDPR and German DSGVO compliance automation. Scans codebases fo
 description_tr: "GDPR ve Alman DSGVO uyumluluk otomasyonu. Kod tabanlarını gizlilik riskleri açısından tarar, DPIA dokümantasyonu oluşturur, veri konu hakları taleplerini Art. 12(3) bir aylık son tarihlerle takip eder. GDPR uyumluluk değerlendirmeleri, gizlilik denetimleri, veri koruma planlaması, DPIA oluşturma veya veri konu hakları (DSAR) yönetimi sırasında kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/gdpr-dsgvo-expert/SKILL.md"
 path: ".gemini/skills/gdpr-dsgvo-expert/SKILL.md"
 is_collection: false

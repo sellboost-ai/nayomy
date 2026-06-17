@@ -2,7 +2,6 @@
 name: "security-devsecops-ssdls-appsec"
 clean_name: "Security Devsecops Ssdls Appsec"
 description: "Cursor rules for secure coding, secret handling, dependency hygiene, authentication, authorization, security testing, and compliance documentation."
-description_tr: "Güvenli kodlama, gizli bilgi yönetimi, bağımlılık hijyeni, kimlik doğrulama, yetkilendirme, security testing ve uyum belgelemeleri için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

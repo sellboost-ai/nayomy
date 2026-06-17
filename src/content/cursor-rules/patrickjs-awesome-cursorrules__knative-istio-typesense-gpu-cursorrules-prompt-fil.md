@@ -2,7 +2,6 @@
 name: "knative-istio-typesense-gpu-cursorrules-prompt-fil"
 clean_name: "Knative Istio Typesense Gpu Cursorrules Prompt Fil"
 description: "Cursor rules for Knative development with Istio, Typesense, and GPU integration."
-description_tr: "Knative geliştirme için Cursor kuralları, Istio, Typesense ve GPU entegrasyonu desteği ile."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

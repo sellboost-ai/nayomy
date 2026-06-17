@@ -2,7 +2,6 @@
 name: "python-django-best-practices-cursorrules-prompt-fi"
 clean_name: "Python Django Best Practices Cursorrules Prompt Fi"
 description: "Cursor rules for Python Django development with best practices."
-description_tr: "Python Django geliştirmesi için en iyi uygulamalarla birlikte cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

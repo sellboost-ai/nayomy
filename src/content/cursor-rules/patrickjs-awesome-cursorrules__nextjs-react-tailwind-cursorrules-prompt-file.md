@@ -2,7 +2,6 @@
 name: "nextjs-react-tailwind-cursorrules-prompt-file"
 clean_name: "Next.js React Tailwind"
 description: "Cursor rules for Next.js development with React and Tailwind CSS integration."
-description_tr: "Next.js geliştirmesi için Cursor rules, React ve Tailwind CSS entegrasyonuyla birlikte gelir."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

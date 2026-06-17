@@ -4,7 +4,7 @@ description_en: "When the user wants to apply, document, or enforce brand guidel
 description_tr: "Kullanıcı herhangi bir ürün veya şirket için marka rehberi uygulamak, belgelemek veya uygulamayı istediğinde kullanılır. Marka renkleri, tipografi, logo kullanımı, marka sesi, görsel kimlik, ton, marka standartları, style guide veya şirket tasarım standartlarından söz edildiğinde de geçerlidir. Renk sistemleri, tipografi, logo kuralları, görsel yönetmelikler ve daha fazlasını kapsar."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/brand-guidelines/SKILL.md"
 path: ".gemini/skills/brand-guidelines/SKILL.md"
 is_collection: false

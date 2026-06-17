@@ -4,7 +4,7 @@ description_en: "Automate Bigpicture IO tasks via Rube MCP (Composio). Always se
 description_tr: "Bigpicture IO görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. İşlemleri başlatmadan önce her zaman araçları arayarak güncel şemaları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bigpicture-io-automation/SKILL.md"
 path: "composio-skills/bigpicture-io-automation/SKILL.md"
 is_collection: false

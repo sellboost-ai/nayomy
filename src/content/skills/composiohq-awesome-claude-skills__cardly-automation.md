@@ -4,7 +4,7 @@ description_en: "Automate Cardly tasks via Rube MCP (Composio). Always search to
 description_tr: "Cardly görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cardly-automation/SKILL.md"
 path: "composio-skills/cardly-automation/SKILL.md"
 is_collection: false

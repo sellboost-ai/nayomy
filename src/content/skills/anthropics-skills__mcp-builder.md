@@ -4,7 +4,7 @@ description_en: "Guide for creating high-quality MCP (Model Context Protocol) se
 description_tr: "MCP (Model Context Protocol) sunucuları oluşturmak için kapsamlı bir rehber; LLM'lerin iyi tasarlanmış araçlarla harici hizmetlerle etkileşim kurmasını sağlar. Python (FastMCP) veya Node/TypeScript (MCP SDK) ile harici API'ler ve servisleri entegre etmek için MCP sunucuları geliştirirken kullanın."
 category: "Design"
 repo: "anthropics/skills"
-stars: 151867
+stars: 151903
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/mcp-builder/SKILL.md"
 path: "skills/mcp-builder/SKILL.md"
 is_collection: false

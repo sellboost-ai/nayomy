@@ -2,7 +2,6 @@
 name: "network-troubleshoot"
 clean_name: "Network Troubleshoot"
 description: "Systematic, safety-first network troubleshooting for developers"
-description_tr: "Geliştiriciler için sistematik ve güvenlik odaklı ağ sorun giderme"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

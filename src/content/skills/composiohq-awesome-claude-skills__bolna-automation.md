@@ -4,7 +4,7 @@ description_en: "Automate Bolna tasks via Rube MCP (Composio). Always search too
 description_tr: "Rube MCP (Composio) ile Bolna görevlerini otomatikleştirin. Güncel şemaları için her zaman önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bolna-automation/SKILL.md"
 path: "composio-skills/bolna-automation/SKILL.md"
 is_collection: false

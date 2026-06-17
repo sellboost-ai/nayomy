@@ -2,7 +2,6 @@
 name: "momen-cursurrules-prompt-file"
 clean_name: "Momen Cursurrules Prompt File"
 description: "Cursor rules for building custom frontends with Momen.app as headless BaaS with GraphQL API, actionflows, AI agents, and Stripe integration."
-description_tr: "Momen.app'i headless BaaS olarak kullanarak GraphQL API, actionflows, AI agents ve Stripe entegrasyonu ile özel frontend'ler geliştirmek için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

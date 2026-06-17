@@ -2,7 +2,6 @@
 name: "git-conventional-commit-messages"
 clean_name: "Git Conventional Commit Messages"
 description: "Cursor rules for Git development with conventional commit messages integration."
-description_tr: "Git geliştirmesi için cursor kuralları, conventional commit messages entegrasyonu ile."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

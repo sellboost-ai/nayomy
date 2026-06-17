@@ -2,7 +2,6 @@
 name: "kotlin-springboot-best-practices-cursorrules-prompt-file"
 clean_name: "Kotlin Springboot Best Practices"
 description: "Cursor rules for Kotlin Springboot Best Practices."
-description_tr: "Kotlin Springboot en iyi uygulamaları için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

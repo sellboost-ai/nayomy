@@ -4,7 +4,7 @@ description_en: "Design GCP architectures for startups and enterprises. Use when
 description_tr: "GCP mimarileri tasarla ve startuplardan kurumsal ölçekte projeleri yönet. Google Cloud altyapısı tasarlamak, GKE veya Cloud Run'a deploy etmek, BigQuery pipeline'ları yapılandırmak, GCP maliyetlerini optimize etmek veya GCP'ye migration yapmak gerektiğinde kullan. Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery ve maliyet optimizasyonunu kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/gcp-cloud-architect/SKILL.md"
 path: ".gemini/skills/gcp-cloud-architect/SKILL.md"
 is_collection: false

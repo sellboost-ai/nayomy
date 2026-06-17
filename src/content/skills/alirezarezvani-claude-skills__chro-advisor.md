@@ -4,7 +4,7 @@ description_en: "People leadership for scaling companies. Hiring strategy, compe
 description_tr: "İnsan kaynakları ve organizasyon yönetimi çözümleri. İşe alım stratejisi, kompenzasyon tasarımı, org yapısı, şirket kültürü ve çalışan tutunumu konularında yardımcı olur. İşe alım planları oluştururken, kompenzasyon çerçeveleri tasarlarken, takımları yeniden yapılandırırken, performans yönetimi yaparken veya kültür geliştirirken kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/chro-advisor/SKILL.md"
 path: ".gemini/skills/chro-advisor/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate recruiting and hiring workflows in Ashby -- manage can
 description_tr: "Ashby'de işe alım ve özgeçmiş yönetimi iş akışlarını otomatikleştirin -- adayları, pozisyonları, başvuruları, görüşmeleri ve notları doğal dil komutlarıyla yönetin."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ashby-automation/SKILL.md"
 path: "composio-skills/ashby-automation/SKILL.md"
 is_collection: false

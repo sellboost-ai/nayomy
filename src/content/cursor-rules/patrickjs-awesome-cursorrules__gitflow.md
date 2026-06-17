@@ -2,7 +2,6 @@
 name: "gitflow"
 clean_name: "Gitflow"
 description: "Gitflow Workflow Rules. These rules should be applied when performing git operations."
-description_tr: "Gitflow Workflow Kuralları. Bu kurallar git işlemleri gerçekleştirirken uygulanmalıdır."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

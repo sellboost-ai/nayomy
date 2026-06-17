@@ -4,7 +4,7 @@ description_en: "When the user wants to plan a content strategy, decide what con
 description_tr: "Kullanıcı içerik stratejisi planlamak, oluşturulacak içeriği belirlemek veya hangi konuları kapsayacağını anlamak istediğinde kullanın. \"İçerik stratejisi\", \"ne yazmalıyım\", \"içerik fikirleri\", \"blog stratejisi\", \"konu kümeleri\" veya \"içerik planlama\" gibi ifadeler geçtiğinde de bu aracı seçin. Bireysel yazılar için copywriting, SEO odaklı analizler için seo-audit bölümüne başvurun."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/content-strategy/SKILL.md"
 path: ".gemini/skills/content-strategy/SKILL.md"
 is_collection: false

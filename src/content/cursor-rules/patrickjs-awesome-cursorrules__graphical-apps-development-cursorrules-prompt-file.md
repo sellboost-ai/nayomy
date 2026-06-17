@@ -2,7 +2,6 @@
 name: "graphical-apps-development-cursorrules-prompt-file"
 clean_name: "Graphical Apps Development"
 description: "Cursor rules for graphical apps development with integration."
-description_tr: "Grafik uygulamalar geliştirme için Cursor kuralları ve entegrasyon desteği."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

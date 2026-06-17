@@ -4,7 +4,7 @@ description_en: "Use when planning product experiments, writing testable hypothe
 description_tr: "Ürün deneylerini planlarken, test edilebilir hipotezler yazarken, örnek boyutunu tahmin ederken, testleri önceliklendirirken veya A/B test sonuçlarını pratik istatistiksel sağlam yöntemlerle yorumlarken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/experiment-designer/SKILL.md"
 path: ".gemini/skills/experiment-designer/SKILL.md"
 is_collection: false

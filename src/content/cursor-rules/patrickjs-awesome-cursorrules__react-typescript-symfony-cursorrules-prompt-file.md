@@ -2,7 +2,6 @@
 name: "react-typescript-symfony-cursorrules-prompt-file"
 clean_name: "React TypeScript Symfony"
 description: "Cursor rules for React development with TypeScript and Symfony integration."
-description_tr: "React geliştirimi için Cursor kuralları, TypeScript desteği ve Symfony entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

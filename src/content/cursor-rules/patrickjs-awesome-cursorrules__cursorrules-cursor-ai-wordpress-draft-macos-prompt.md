@@ -2,7 +2,6 @@
 name: "cursorrules-cursor-ai-wordpress-draft-macos-prompt"
 clean_name: "Cursorrules Cursor AI Wordpress Draft Macos Prompt"
 description: "Cursor rules for WordPress development on macOS."
-description_tr: "WordPress geliştirme için macOS'ta kullanılan Cursor kuralları."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

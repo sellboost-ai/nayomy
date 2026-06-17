@@ -4,7 +4,7 @@ description_en: "Automate Chatwork tasks via Rube MCP (Composio). Always search 
 description_tr: "Rube MCP (Composio) aracılığıyla Chatwork görevlerini otomatikleştirin. Her zaman güncel şemaları için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/chatwork-automation/SKILL.md"
 path: "composio-skills/chatwork-automation/SKILL.md"
 is_collection: false

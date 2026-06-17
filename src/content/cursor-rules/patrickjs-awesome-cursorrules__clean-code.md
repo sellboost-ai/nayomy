@@ -2,7 +2,6 @@
 name: "clean-code"
 clean_name: "Clean Code"
 description: "Guidelines for writing clean, maintainable, and human-readable code. Apply these rules when writing or reviewing code to ensure consistency and quality."
-description_tr: "Temiz, bakımı kolay ve anlaşılır kod yazma yönergeleri. Kod yazarken veya gözden geçirirken tutarlılık ve kaliteyi sağlamak için bu kuralları uygulayın."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

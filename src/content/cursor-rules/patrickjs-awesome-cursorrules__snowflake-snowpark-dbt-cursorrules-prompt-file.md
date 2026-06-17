@@ -2,7 +2,6 @@
 name: "snowflake-snowpark-dbt-cursorrules-prompt-file"
 clean_name: "Snowflake Snowpark Dbt"
 description: "Cursor rules for Snowpark Python (DataFrames, UDFs, stored procedures) and dbt with the Snowflake adapter."
-description_tr: "Snowpark Python (DataFrames, UDFs, stored procedures) ve dbt'nin Snowflake adapter'ı için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

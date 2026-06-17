@@ -2,7 +2,6 @@
 name: "optimize-rell-blockchain-code-cursorrules-prompt-f"
 clean_name: "Optimize Rell Blockchain Code Cursorrules Prompt F"
 description: "Cursor rules for optimization development with Rell Blockchain code integration."
-description_tr: "Rell Blockchain kod entegrasyonu ile optimizasyon geliştirmesi için Cursor kuralları."
 category: "Web3"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

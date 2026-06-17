@@ -4,7 +4,7 @@ description_en: "Automate Coinmarketcal tasks via Rube MCP (Composio). Always se
 description_tr: "Rube MCP (Composio) aracılığıyla Coinmarketcal görevlerini otomatikleştirin. Mevcut şemaları bulabilmek için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/coinmarketcal-automation/SKILL.md"
 path: "composio-skills/coinmarketcal-automation/SKILL.md"
 is_collection: false

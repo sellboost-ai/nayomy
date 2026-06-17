@@ -4,7 +4,7 @@ description_en: "Compact the current conversation into a handoff document for an
 description_tr: "Geçerli konuşmayı başka bir agentin devam ettirebilmesi için kompakt bir handoff dökümanına dönüştürün. Kullanıcı tarafından yapılandırılan bir konuma (OS temp, home folder veya per-project .handoff/) kaydedin, yazılmadan önce sırları redakte edin, sonraki oturum için beceri önerileri sunun ve SessionStart'ta en son handoff'u otomatik yükleyin. İlk çalıştırmada proje klasörünün asla karışmaması için kaydetme konumunun sorulması sağlanır."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/handoff/SKILL.md"
 path: ".gemini/skills/handoff/SKILL.md"
 is_collection: false

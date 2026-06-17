@@ -4,7 +4,7 @@ description_en: "Automate Attio CRM operations -- search records, query contacts
 description_tr: "Composio MCP entegrasyonu aracılığıyla doğal dil kullanarak Attio CRM işlemlerini otomatikleştirin -- kayıtları arayın, gelişmiş filtrelerle kişi ve şirketleri sorgulayın, notları yönetin, özellikleri listeleyin ve ilişki verileriniz içinde gezinin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/attio-automation/SKILL.md"
 path: "composio-skills/attio-automation/SKILL.md"
 is_collection: false

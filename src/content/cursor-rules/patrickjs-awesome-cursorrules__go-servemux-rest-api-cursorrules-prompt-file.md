@@ -2,7 +2,6 @@
 name: "go-servemux-rest-api-cursorrules-prompt-file"
 clean_name: "Go Servemux REST API"
 description: "Cursor rules for Go development with ServeMux REST API integration."
-description_tr: "ServeMux REST API entegrasyonu ile Go geliştirme için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

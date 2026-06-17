@@ -2,7 +2,6 @@
 name: "r-cursorrules-prompt-file-best-practices"
 clean_name: "R Cursorrules Prompt File Best Practices"
 description: "Cursor rules for R development with best practices integration."
-description_tr: "R geliştirme için Cursor kuralları ve en iyi uygulamaların entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

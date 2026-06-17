@@ -2,7 +2,6 @@
 name: "solidjs-basic-cursorrules-prompt-file"
 clean_name: "Solidjs Basic"
 description: "Cursor rules for Solid.js development with basic setup."
-description_tr: "Solid.js geliştirmesi için cursor kuralları ve temel kurulum."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

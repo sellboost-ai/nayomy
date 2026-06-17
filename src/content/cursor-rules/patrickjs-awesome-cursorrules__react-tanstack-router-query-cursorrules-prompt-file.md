@@ -2,7 +2,6 @@
 name: "react-tanstack-router-query-cursorrules-prompt-file"
 clean_name: "React Tanstack Router Query"
 description: "Cursor rules for React SPAs combining TanStack Router v1 and TanStack Query v5 for zero-loading-spinner routing and type-safe server state."
-description_tr: "TanStack Router v1 ve TanStack Query v5'i birleştiren, yükleme göstergesi olmayan routing ve tip-güvenli server state yönetimi sunan React SPA'lar için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

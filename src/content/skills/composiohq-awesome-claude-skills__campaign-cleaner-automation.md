@@ -4,7 +4,7 @@ description_en: "Automate Campaign Cleaner tasks via Rube MCP (Composio). Always
 description_tr: "Campaign Cleaner görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Geçerli şemaları kontrol etmek için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/campaign-cleaner-automation/SKILL.md"
 path: "composio-skills/campaign-cleaner-automation/SKILL.md"
 is_collection: false

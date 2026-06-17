@@ -2,7 +2,6 @@
 name: "pandas-scikit-learn-guide-cursorrules-prompt-file"
 clean_name: "Pandas Scikit Learn Guide"
 description: "Cursor rules for Pandas development with scikit-learn guide integration."
-description_tr: "Pandas geliştirme için Cursor kuralları ve scikit-learn kılavuz entegrasyonu."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

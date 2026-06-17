@@ -2,7 +2,6 @@
 name: "nextjs-seo-dev-cursorrules-prompt-file"
 clean_name: "Next.js Seo Dev"
 description: "Cursor rules for Next.js development with SEO optimization."
-description_tr: "Next.js geliştirme için Cursor kuralları, SEO optimizasyonu dahil."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

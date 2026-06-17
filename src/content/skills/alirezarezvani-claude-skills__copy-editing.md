@@ -4,7 +4,7 @@ description_en: "When the user wants to edit, review, or improve existing market
 description_tr: "Kullanıcı mevcut pazarlama metinlerini düzenlemek, gözden geçirmek veya iyileştirmek istediğinde kullanılır. Ayrıca kullanıcı 'bu metni düzenle', 'metnimi gözden geçir', 'metin geri bildirimi', 'yazım kontrolü yap', 'bunu düzelt', 'bunu daha iyi yap' veya 'metin taraması yap' dediğinde de geçerlidir. Bu beceri, pazarlama metinlerini birden fazla odaklanmış geçişle sistematik bir şekilde düzenleme yaklaşımı sağlar."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/copy-editing/SKILL.md"
 path: ".gemini/skills/copy-editing/SKILL.md"
 is_collection: false

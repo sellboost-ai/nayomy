@@ -2,7 +2,6 @@
 name: "react-graphql-apollo-client-cursorrules-prompt-file"
 clean_name: "React GraphQL Apollo Client"
 description: "Cursor rules for GraphQL development with Apollo Client integration."
-description_tr: "Apollo Client entegrasyonlu GraphQL geliştirme için cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

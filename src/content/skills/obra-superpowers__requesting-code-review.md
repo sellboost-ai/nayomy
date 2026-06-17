@@ -4,7 +4,7 @@ description_en: "Use when completing tasks, implementing major features, or befo
 description_tr: "Görevleri tamamlarken, büyük özellikleri hayata geçirirken veya merge etmeden önce çalışmanın gereksinimleri karşıladığını doğrulamak için kullanın."
 category: "Design"
 repo: "obra/superpowers"
-stars: 230300
+stars: 230380
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/requesting-code-review/SKILL.md"
 path: "skills/requesting-code-review/SKILL.md"
 is_collection: false

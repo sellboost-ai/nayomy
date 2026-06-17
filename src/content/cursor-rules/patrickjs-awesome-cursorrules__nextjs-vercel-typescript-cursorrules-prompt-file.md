@@ -2,7 +2,6 @@
 name: "nextjs-vercel-typescript-cursorrules-prompt-file"
 clean_name: "Next.js Vercel TypeScript"
 description: "Cursor rules for Next.js development with Vercel and TypeScript integration."
-description_tr: "Cursor rules için Next.js geliştirme ortamında Vercel ve TypeScript entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

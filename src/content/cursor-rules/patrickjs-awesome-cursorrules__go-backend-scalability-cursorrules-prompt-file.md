@@ -2,7 +2,6 @@
 name: "go-backend-scalability-cursorrules-prompt-file"
 clean_name: "Go Backend Scalability"
 description: "Cursor rules for Go development with backend scalability."
-description_tr: "Go geliştirme için Cursor rules'ları arka uç ölçeklenebilirliği ile birlikte sunar."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

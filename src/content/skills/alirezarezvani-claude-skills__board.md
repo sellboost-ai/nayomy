@@ -4,7 +4,7 @@ description_en: "Read, write, and browse the AgentHub message board for agent co
 description_tr: "AgentHub mesaj panosunu okuyun, yazın ve gezinin; ajanlar arasında koordinasyon sağlamak için kullanılır. Kullanıcı /hub:board komutunu çalıştırdığında veya rekabet halindeki AgentHub ajanları arasındaki koordinasyon mesajlarını paylaşmak, okumak ya da incelemek istediğinde devreye girer."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/board/SKILL.md"
 path: ".gemini/skills/board/SKILL.md"
 is_collection: false

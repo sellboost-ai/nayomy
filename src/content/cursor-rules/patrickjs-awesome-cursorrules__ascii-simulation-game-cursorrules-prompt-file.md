@@ -2,7 +2,6 @@
 name: "ascii-simulation-game-cursorrules-prompt-file"
 clean_name: "Ascii Simulation Game"
 description: "Cursor rules for ASCII simulation game development."
-description_tr: "ASCII simülasyon oyun geliştirmesi için Cursor kuralları."
 category: "Game Dev"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

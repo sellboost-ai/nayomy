@@ -2,7 +2,6 @@
 name: "nextjs-tanstack-query-cursorrules-prompt-file"
 clean_name: "Next.js Tanstack Query"
 description: "Cursor rules for Next.js App Router with TanStack Query v5, covering the HydrationBoundary pattern, Server Actions as mutations, and optimistic updates."
-description_tr: "Next.js App Router için Cursor rules, TanStack Query v5 ile birlikte HydrationBoundary pattern, Server Actions'ı mutation olarak kullanma ve optimistic updates konularını kapsayan bir kaynaktır."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

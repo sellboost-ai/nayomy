@@ -2,7 +2,6 @@
 name: "python-github-setup-cursorrules-prompt-file"
 clean_name: "Python Github Setup"
 description: "Cursor rules for Python development with GitHub setup integration."
-description_tr: "Python geliştirme için Cursor rules'ları GitHub entegrasyonu ile birlikte."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

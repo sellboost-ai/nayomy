@@ -2,7 +2,6 @@
 name: "python-llm-ml-workflow-cursorrules-prompt-file"
 clean_name: "Python LLM ML Workflow"
 description: "Cursor rules for Python LLM & ML development with workflow integration."
-description_tr: "Python LLM ve ML geliştirme için Cursor kuralları, iş akışı entegrasyonu ile."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

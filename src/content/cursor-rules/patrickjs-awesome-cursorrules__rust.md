@@ -2,7 +2,6 @@
 name: "rust"
 clean_name: "Rust"
 description: "Rust best practices for Solana smart contract development using Anchor framework and Solana SDK"
-description_tr: "Anchor framework ve Solana SDK ile Solana akıllı kontratı geliştirme için Rust en iyi uygulamaları"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

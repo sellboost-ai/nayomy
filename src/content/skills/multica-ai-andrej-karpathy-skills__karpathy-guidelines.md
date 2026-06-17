@@ -4,7 +4,7 @@ description_en: "Behavioral guidelines to reduce common LLM coding mistakes. Use
 description_tr: "LLM ile kod yazarken yaygın hataları azaltmaya yönelik davranış rehberi. Kod yazma, review veya refactoring sırasında kullanarak aşırı karmaşıklaştırmayı önleyin, hedefli değişiklikler yapın, varsayımları ortaya çıkarın ve doğrulanabilir başarı kriterlerini tanımlayın."
 category: "Design"
 repo: "multica-ai/andrej-karpathy-skills"
-stars: 177207
+stars: 177248
 url: "https://github.com/multica-ai/andrej-karpathy-skills/blob/HEAD/skills/karpathy-guidelines/SKILL.md"
 path: "skills/karpathy-guidelines/SKILL.md"
 is_collection: false

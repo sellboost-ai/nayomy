@@ -4,7 +4,7 @@ description_en: "/cs:cross-eval <memo> — Multi-model consensus on a board memo
 description_tr: "/cs:cross-eval <memo> — Bir board memo veya strateji belgesine dair multi-model konsensus. Claude + Codex + Gemini cross-review ve graceful degradation desteği. Şirketi değiştirecek pivot ya da fundraising şartları gibi kritik kararlar önce bağımsız bir sanity check yapmanız gerektiğinde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cross-eval/SKILL.md"
 path: ".gemini/skills/cross-eval/SKILL.md"
 is_collection: false

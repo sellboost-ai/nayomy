@@ -4,7 +4,7 @@ description_en: "Automate Bestbuy tasks via Rube MCP (Composio). Always search t
 description_tr: "Bestbuy görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları kontrol etmek için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bestbuy-automation/SKILL.md"
 path: "composio-skills/bestbuy-automation/SKILL.md"
 is_collection: false

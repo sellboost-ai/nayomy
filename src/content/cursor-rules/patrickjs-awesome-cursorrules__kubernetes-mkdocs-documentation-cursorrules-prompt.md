@@ -2,7 +2,6 @@
 name: "kubernetes-mkdocs-documentation-cursorrules-prompt"
 clean_name: "Kubernetes Mkdocs Documentation Cursorrules Prompt"
 description: "Cursor rules for Kubernetes development with MkDocs documentation integration."
-description_tr: "Kubernetes geliştirmesi için Cursor kuralları ve MkDocs dokümantasyon entegrasyonu."
 category: "DevOps"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

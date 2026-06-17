@@ -2,7 +2,6 @@
 name: "readme-best-practices-cursorrules-prompt-file"
 clean_name: "Readme Best Practices"
 description: "Cursor rules for README documentation with best practices integration."
-description_tr: "README belgelendirmesi için cursor kuralları ve en iyi uygulamalar entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

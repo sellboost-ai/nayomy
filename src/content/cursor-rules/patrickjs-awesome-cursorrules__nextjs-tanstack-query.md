@@ -2,7 +2,6 @@
 name: "nextjs-tanstack-query"
 clean_name: "Next.js Tanstack Query"
 description: "Next.js App Router combined with TanStack Query v5 — HydrationBoundary pattern, Server Actions as mutations, optimistic updates, and infinite scroll"
-description_tr: "Next.js App Router ile TanStack Query v5'in birleşimiyle HydrationBoundary pattern, Server Actions mutations olarak kullanımı, optimistic updates ve infinite scroll desteği."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

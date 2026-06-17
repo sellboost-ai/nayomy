@@ -4,7 +4,7 @@ description_en: "Project Manager agent for sprint planning, Jira/Confluence work
 description_tr: "Sprint planlama, Jira/Confluence iş akışları, Scrum seremonileri ve paydaş raporlaması için Proje Yöneticisi ajanı. Proje yönetimi becerilerini yönetir. Teslimat operasyonlarını çalıştırırken kullanın — örneğin Jira'da kapasite ve taşıma hesaplamaları ile sprint planlaması yapma, ya da bilet ve velocity verilerinden paydaşlar için portföy sağlık raporu oluşturma."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-project-manager/SKILL.md"
 path: ".gemini/skills/cs-project-manager/SKILL.md"
 is_collection: false

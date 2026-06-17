@@ -2,7 +2,6 @@
 name: "flutter-development-guidelines-cursorrules-prompt-file"
 clean_name: "Flutter Development Guidelines"
 description: "Cursor rules for Flutter development with MVVM architecture, Riverpod state management, Material widgets, and Dart style guidelines."
-description_tr: "Flutter geliştirme için Cursor rules seti MVVM mimarisi, Riverpod state management, Material widget'ları ve Dart stil rehberi içerir."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

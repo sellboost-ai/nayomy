@@ -2,7 +2,6 @@
 name: "pr-review-cursorrules-prompt-file"
 clean_name: "Pr Review"
 description: "Cursor rules for focused PR reviews with severity ranking, file and line citations, and separate review angles for security, performance, tests, and architecture."
-description_tr: "Cursor kuralları ile odaklanmış PR incelemelerini severity sıralaması, dosya ve satır referansları ile gerçekleştirin; güvenlik, performans, testler ve mimari için ayrı review açılarından faydalanın."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -2,7 +2,6 @@
 name: "hol-hedera-typescript-cursorrules-prompt-file"
 clean_name: "Hol Hedera TypeScript"
 description: "Cursor rules for Hashgraph Online development with TypeScript, building AI agents on Hedera with RegistryBrokerClient."
-description_tr: "Hashgraph Online geliştirmesi için Cursor kuralları, TypeScript ile Hedera üzerinde RegistryBrokerClient kullanarak AI ajanları oluşturun."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

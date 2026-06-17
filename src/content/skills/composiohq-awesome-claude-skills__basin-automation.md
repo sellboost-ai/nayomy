@@ -4,7 +4,7 @@ description_en: "Automate Basin tasks via Rube MCP (Composio). Always search too
 description_tr: "Basin görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/basin-automation/SKILL.md"
 path: "composio-skills/basin-automation/SKILL.md"
 is_collection: false

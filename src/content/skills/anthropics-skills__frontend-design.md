@@ -4,7 +4,7 @@ description_en: "Guidance for distinctive, intentional visual design when buildi
 description_tr: "Yeni UI oluştururken veya mevcut tasarımı yeniden şekillendirilirken benzersiz ve kasıtlı görsel tasarım için rehberlik sağlar. Estetik yön, tipografi ve şablon varsayılanları gibi görünmeyen seçimler yapmanıza yardımcı olur."
 category: "Design"
 repo: "anthropics/skills"
-stars: 151867
+stars: 151903
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/frontend-design/SKILL.md"
 path: "skills/frontend-design/SKILL.md"
 is_collection: false

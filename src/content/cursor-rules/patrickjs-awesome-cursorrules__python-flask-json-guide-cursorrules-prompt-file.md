@@ -2,7 +2,6 @@
 name: "python-flask-json-guide-cursorrules-prompt-file"
 clean_name: "Python Flask Json Guide"
 description: "Cursor rules for Python Flask development with JSON guide."
-description_tr: "Python Flask geliştirme için Cursor kuralları ve JSON rehberi."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

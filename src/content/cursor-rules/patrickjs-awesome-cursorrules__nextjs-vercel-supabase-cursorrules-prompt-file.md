@@ -2,7 +2,6 @@
 name: "nextjs-vercel-supabase-cursorrules-prompt-file"
 clean_name: "Next.js Vercel Supabase"
 description: "Cursor rules for Next.js development with Vercel and Supabase integration."
-description_tr: "Next.js geliştirmesi için Cursor kuralları, Vercel ve Supabase entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

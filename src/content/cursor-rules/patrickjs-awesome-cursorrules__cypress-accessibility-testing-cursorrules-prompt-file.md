@@ -2,7 +2,6 @@
 name: "cypress-accessibility-testing-cursorrules-prompt-file"
 clean_name: "Cypress Accessibility Testing"
 description: "Cursor rules for Cypress development with accessibility testing."
-description_tr: "Cypress geliştirmesi için cursor kuralları ve erişilebilirlik testleri."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

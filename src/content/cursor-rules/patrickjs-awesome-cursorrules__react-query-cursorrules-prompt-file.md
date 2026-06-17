@@ -2,7 +2,6 @@
 name: "react-query-cursorrules-prompt-file"
 clean_name: "React Query"
 description: "Cursor rules for React development with React Query integration."
-description_tr: "React Query entegrasyonlu React geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

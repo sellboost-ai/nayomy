@@ -2,7 +2,6 @@
 name: "qwik-basic-cursorrules-prompt-file"
 clean_name: "Qwik Basic"
 description: "Cursor rules for Qwik development with TypeScript and Vite integration."
-description_tr: "Qwik geliştirmesi için Cursor kuralları, TypeScript ve Vite entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

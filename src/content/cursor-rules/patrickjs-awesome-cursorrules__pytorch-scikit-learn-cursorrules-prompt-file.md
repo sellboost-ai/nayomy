@@ -2,7 +2,6 @@
 name: "pytorch-scikit-learn-cursorrules-prompt-file"
 clean_name: "PyTorch Scikit Learn"
 description: "Cursor rules for PyTorch development with scikit-learn integration."
-description_tr: "PyTorch geliştirimi için Cursor kuralları scikit-learn entegrasyonu ile."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

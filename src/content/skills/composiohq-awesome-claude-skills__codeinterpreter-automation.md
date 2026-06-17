@@ -4,7 +4,7 @@ description_en: "Automate Codeinterpreter tasks via Rube MCP (Composio). Always 
 description_tr: "Rube MCP (Composio) aracılığıyla Codeinterpreter görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/codeinterpreter-automation/SKILL.md"
 path: "composio-skills/codeinterpreter-automation/SKILL.md"
 is_collection: false

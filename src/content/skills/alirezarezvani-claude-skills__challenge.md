@@ -4,7 +4,7 @@ description_en: "Pre-mortem plan analysis. Imagine the plan failed 12 months fro
 description_tr: "Planın 12 ay sonra başarısız olduğunu hayal edip geriye doğru çalışarak zayıflıkları bulma analizi. Kaynakları tahsis etmeden önce varsayımları, bağımlılıkları ve uygulama risklerini ortaya çıkarır. Büyük kaynak yatırımı öncesinde, yönetim kurulu veya yatırımcılara sunmadan önce, geri bildirimlerin tek taraflı pozitif olduğu durumlarda veya hızlı hareket etme baskısı olduğunda kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/challenge/SKILL.md"
 path: ".gemini/skills/challenge/SKILL.md"
 is_collection: false

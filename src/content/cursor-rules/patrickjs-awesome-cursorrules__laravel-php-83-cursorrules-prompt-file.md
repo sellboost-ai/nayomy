@@ -2,7 +2,6 @@
 name: "laravel-php-83-cursorrules-prompt-file"
 clean_name: "Laravel PHP 83"
 description: "Cursor rules for Laravel development with PHP 8.3 integration."
-description_tr: "Laravel geliştirme için Cursor kuralları, PHP 8.3 entegrasyonu ile."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

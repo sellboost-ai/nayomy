@@ -2,7 +2,6 @@
 name: "github-cursorrules-prompt-file-instructions"
 clean_name: "Github Cursorrules Prompt File Instructions"
 description: "Cursor rules for GitHub development with instructions integration."
-description_tr: "GitHub geliştirmesi için Cursor kuralları ve talimatlar entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

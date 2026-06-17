@@ -2,7 +2,6 @@
 name: "htmx-go-basic-cursorrules-prompt-file"
 clean_name: "Htmx Go Basic"
 description: "Cursor rules for Go development with basic setup."
-description_tr: "Go geliştirme için cursor kuralları ve temel kurulum."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

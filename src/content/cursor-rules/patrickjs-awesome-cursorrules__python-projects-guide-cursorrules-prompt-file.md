@@ -2,7 +2,6 @@
 name: "python-projects-guide-cursorrules-prompt-file"
 clean_name: "Python Projects Guide"
 description: "Cursor rules for Python development with projects guide integration."
-description_tr: "Python geliştirme için Cursor rules'ları proje rehberi entegrasyonu ile birlikte."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

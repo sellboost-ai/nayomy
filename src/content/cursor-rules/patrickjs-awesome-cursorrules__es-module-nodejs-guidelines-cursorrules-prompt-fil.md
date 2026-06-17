@@ -2,7 +2,6 @@
 name: "es-module-nodejs-guidelines-cursorrules-prompt-fil"
 clean_name: "Es Module Node.js Guidelines Cursorrules Prompt Fil"
 description: "Cursor rules for ES Module development with Node.js guidelines."
-description_tr: "Node.js kılavuzlarıyla ES Module geliştirme için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

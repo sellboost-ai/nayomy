@@ -4,7 +4,7 @@ description_en: "Builds content engines that rank, convert, and compound. Thinks
 description_tr: "İçerik motorları inşa eder — sıralama, dönüşüm ve bileşik büyüme için optimize eder. Sistem düşünür — bireysel yazılar yerine konu kümeleri ile çalışır, her içerik değerini kanıtlar ya da silinir. İçeriğin post akışı yerine sistem gibi davranması gerektiğinde kullanın — örneğin organik trafiği sıfırdan büyütmek için konu-küme planı tasarlamak ya da editoryal takvimi gözden geçirip 90 gün sonra dönüşüm sağlamayan içeriği elemek için."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/content-strategist/SKILL.md"
 path: ".gemini/skills/content-strategist/SKILL.md"
 is_collection: false

@@ -2,7 +2,6 @@
 name: "python-fastapi-cursorrules-prompt-file"
 clean_name: "Python FastAPI"
 description: "Cursor rules for Python Fastapi."
-description_tr: "Python Fastapi için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

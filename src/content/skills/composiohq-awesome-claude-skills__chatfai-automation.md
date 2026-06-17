@@ -4,7 +4,7 @@ description_en: "Automate Chatfai tasks via Rube MCP (Composio). Always search t
 description_tr: "Chatfai görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için araçları önce aratın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/chatfai-automation/SKILL.md"
 path: "composio-skills/chatfai-automation/SKILL.md"
 is_collection: false

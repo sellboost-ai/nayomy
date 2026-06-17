@@ -4,7 +4,7 @@ description_en: "Automate Cal tasks via Rube MCP (Composio). Always search tools
 description_tr: "Cal görevlerini Rube MCP (Composio) ile otomatikleştirin. Geçerli şemaları bulmak için önce tools arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cal-automation/SKILL.md"
 path: "composio-skills/cal-automation/SKILL.md"
 is_collection: false

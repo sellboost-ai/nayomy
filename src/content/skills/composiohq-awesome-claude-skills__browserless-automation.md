@@ -4,7 +4,7 @@ description_en: "Automate Browserless tasks via Rube MCP (Composio). Always sear
 description_tr: "Rube MCP (Composio) aracılığıyla Browserless görevlerini otomatikleştirin. Güncel şemaları bulmak için önce tools aramasını yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/browserless-automation/SKILL.md"
 path: "composio-skills/browserless-automation/SKILL.md"
 is_collection: false

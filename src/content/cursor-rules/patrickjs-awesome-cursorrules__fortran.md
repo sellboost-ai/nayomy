@@ -2,7 +2,6 @@
 name: "fortran"
 clean_name: "Fortran"
 description: "Modern Fortran rules for scientific computing, modules, explicit interfaces, kind parameters, memory safety, and testing"
-description_tr: "Modern Fortran ile bilimsel hesaplama, modüller, açık arayüzler, kind parametreleri, bellek güvenliği ve test yazma kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -4,7 +4,7 @@ description_en: "Create beautiful visual art in .png and .pdf documents using de
 description_tr: ".png ve .pdf dosyalarında tasarım felsefesini kullanarak güzel görseller oluşturun. Poster, sanat eseri, tasarım veya diğer statik içerikler için bu özelliği kullanabilirsiniz. Telif hakkı ihlallerinden kaçınmak için her zaman orijinal tasarımlar yaratın, mevcut sanatçıların çalışmalarını kopya etmeyin."
 category: "Document"
 repo: "anthropics/skills"
-stars: 151867
+stars: 151903
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/canvas-design/SKILL.md"
 path: "skills/canvas-design/SKILL.md"
 is_collection: false

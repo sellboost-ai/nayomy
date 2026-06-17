@@ -2,7 +2,6 @@
 name: "aspnet-abp-cursorrules-prompt-file"
 clean_name: "Aspnet Abp"
 description: "Cursor rules for Aspnet Abp."
-description_tr: "Aspnet Abp için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

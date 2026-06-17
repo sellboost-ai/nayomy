@@ -4,7 +4,7 @@ description_en: "Inter-agent communication protocol for C-suite agent teams. Def
 description_tr: "C-suite agent ekipleri için inter-agent iletişim protokolü. Çağırma söz dizimi, döngü önleme, izolasyon kuralları ve response formatlarını tanımlar. C-suite agentlarının birbirini sorgulaması, fonksiyonlar arası analiz koordinasyonu veya birden fazla agent rolüyle board toplantıları yürütmesi gerektiğinde kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18313
+stars: 18317
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/agent-protocol/SKILL.md"
 path: ".gemini/skills/agent-protocol/SKILL.md"
 is_collection: false

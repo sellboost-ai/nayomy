@@ -2,7 +2,6 @@
 name: "playwright-accessibility-testing-cursorrules-prompt-file"
 clean_name: "Playwright Accessibility Testing"
 description: "Cursor rules for Playwright development with accessibility testing."
-description_tr: "Cursor rules for Playwright development with accessibility testing.  Playwright geliştirmesi için cursor kuralları ve erişilebilirlik testi."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

@@ -4,7 +4,7 @@ description_en: "Automate Blackboard tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) aracılığıyla Blackboard görevlerini otomatikleştirin. Güncel şemaları için her zaman önce tools'da arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/blackboard-automation/SKILL.md"
 path: "composio-skills/blackboard-automation/SKILL.md"
 is_collection: false

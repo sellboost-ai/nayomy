@@ -2,7 +2,6 @@
 name: "embedded-stm32-hal"
 clean_name: "Embedded Stm32 Hal"
 description: "Embedded C/C++ rules for MCU, STM32, HAL, interrupts, DMA, memory constraints, and hardware-focused testing"
-description_tr: "MCU, STM32, HAL, interrupt, DMA ve hafıza kısıtlamaları için gömülü C/C++ kuralları ve donanım odaklı test yöntemleri."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

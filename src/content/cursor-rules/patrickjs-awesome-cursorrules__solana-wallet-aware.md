@@ -2,7 +2,6 @@
 name: "solana-wallet-aware"
 clean_name: "Solana Wallet Aware"
 description: "Guidelines for writing Solana-native code with wallet-security awareness, isolated signer subprocesses, MEV defense, oracle gates, and transaction safety checks"
-description_tr: "Solana için wallet güvenliğini göz önünde bulundurarak, izole imzalayıcı alt işlemler, MEV koruması, oracle geçitleri ve işlem güvenlik kontrolleri ile native kod yazma kılavuzu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

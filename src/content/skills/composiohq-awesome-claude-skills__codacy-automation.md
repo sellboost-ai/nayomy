@@ -4,7 +4,7 @@ description_en: "Automate Codacy tasks via Rube MCP (Composio). Always search to
 description_tr: "Codacy görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman geçerli şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/codacy-automation/SKILL.md"
 path: "composio-skills/codacy-automation/SKILL.md"
 is_collection: false

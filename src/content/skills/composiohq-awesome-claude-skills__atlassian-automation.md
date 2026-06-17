@@ -4,7 +4,7 @@ description_en: "Automate Atlassian tasks via Rube MCP (Composio). Always search
 description_tr: "Atlassian görevlerini Rube MCP (Composio) ile otomatikleştirin. Güncel şemaları için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64919
+stars: 64934
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/atlassian-automation/SKILL.md"
 path: "composio-skills/atlassian-automation/SKILL.md"
 is_collection: false

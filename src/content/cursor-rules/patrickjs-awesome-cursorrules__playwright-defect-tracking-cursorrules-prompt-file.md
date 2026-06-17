@@ -2,7 +2,6 @@
 name: "playwright-defect-tracking-cursorrules-prompt-file"
 clean_name: "Playwright Defect Tracking"
 description: "Cursor rules for Playwright development with defect tracking."
-description_tr: "Playwright geliştirimi için cursor kuralları ve hata takibi içerir."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

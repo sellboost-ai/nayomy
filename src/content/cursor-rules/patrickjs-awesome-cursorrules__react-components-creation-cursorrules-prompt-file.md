@@ -2,7 +2,6 @@
 name: "react-components-creation-cursorrules-prompt-file"
 clean_name: "React Components Creation"
 description: "Cursor rules for React component creation and development."
-description_tr: "React bileşen oluşturma ve geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

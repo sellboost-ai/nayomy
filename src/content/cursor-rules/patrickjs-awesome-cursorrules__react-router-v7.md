@@ -2,7 +2,6 @@
 name: "react-router-v7"
 clean_name: "React Router V7"
 description: "React Router v7 rules for framework mode, data routers, loaders, actions, route modules, and progressive enhancement"
-description_tr: "React Router v7, framework mode, data router'lar, loader'lar, action'lar, route modülleri ve progressive enhancement için kuralları belirler."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
