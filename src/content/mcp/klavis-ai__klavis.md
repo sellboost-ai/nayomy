@@ -3,7 +3,7 @@ name: "Klavis-AI/klavis"
 description: "Extract and convert YouTube video information."
 category: "Other Tools and Integrations"
 repo: "Klavis-AI/klavis"
-stars: 5749
+stars: 5750
 url: "https://github.com/Klavis-AI/klavis"
 body_length: 7075
 license: "Apache-2.0"

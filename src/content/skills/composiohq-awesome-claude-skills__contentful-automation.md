@@ -3,7 +3,7 @@ name: "Contentful Automation"
 description_en: "Automate headless CMS operations in Contentful -- list spaces, retrieve space metadata, and update space configurations through the Composio Contentful integration."
 category: "Meta"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/contentful-automation/SKILL.md"
 path: "composio-skills/contentful-automation/SKILL.md"
 is_collection: false
@@ -14,102 +14,102 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Contentful Otomasyonu
-
+  
   **Contentful** headless CMS alanlarınızı doğrudan Claude Code üzerinden yönetin. Alanları listeleyin, meta verileri alın ve alan konfigürasyonlarını terminalinizi terk etmeden güncelleyin.
-
+  
   **Toolkit dokümantasyonu:** [composio.dev/toolkits/contentful](https://composio.dev/toolkits/contentful)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   1. Composio MCP sunucusunu konfigürasyonunuza ekleyin:
      ```
      https://rube.app/mcp
      ```
   2. İstendiğinde Contentful hesabınızı bağlayın. Agent bir authentication linki sağlayacaktır. Erişim tokeninizin alan yönetimi kapsamlarına sahip olduğundan emin olun.
-
+  
   ---
-
+  
   ## Ana İş Akışları
-
+  
   ### 1. Tüm Alanları Listeleyin
-
+  
   Kimliği doğrulanmış hesabınıza erişilebilir tüm Contentful alanlarını keşfedin. Bu genellikle ilk işlemdir çünkü diğer çoğu işlem bir `space_id` gerektirir.
-
+  
   **Tool:** `CONTENTFUL_LIST_SPACES`
-
+  
   Önemli parametreler:
   - `limit` (1-1000) -- döndürülecek maksimum alan sayısı (varsayılan: 100)
   - `skip` -- pagination için atlanacak alan sayısı
   - `order` -- alana göre sırala, örneğin `sys.createdAt` veya azalan sıra için `-sys.createdAt`
-
+  
   Örnek prompt: *"Tüm Contentful alanlarımı listele"*
-
+  
   ---
-
+  
   ### 2. Alan Detaylarını Alın
-
+  
   Geçerli `sys.version` dahil olmak üzere belirli bir alan için ayrıntılı meta verileri alın; bu güncelleme için gereklidir.
-
+  
   **Tool:** `CONTENTFUL_GET_SPACE`
-
+  
   Önemli parametreler:
   - `space_id` (gerekli) -- alınacak alanın ID'si (alfanümerik, 1-64 karakter)
-
+  
   Örnek prompt: *"Contentful alan abc123def için detayları al"*
-
+  
   ---
-
+  
   ### 3. Alan Adını Güncelleyin
-
+  
   Belirli bir alanın adını güncelleyin. Eşzamanlı değişiklik çatışmalarını önlemek için iyimser kilitleme amacıyla mevcut versiyon numarası gereklidir.
-
+  
   **Tool:** `CONTENTFUL_UPDATE_SPACE`
-
+  
   Önemli parametreler:
   - `space_id` (gerekli) -- güncellenecek alanın ID'si
   - `name` (gerekli) -- alan için yeni ad (1-255 karakter)
   - `version` (gerekli) -- `sys.version` öğesinden geçerli alan versiyonu (> 0 olmalıdır)
-
+  
   Örnek prompt: *"Contentful alanı abc123def olarak yeniden adlandırınız 'Production Content Hub'"*
-
+  
   ---
-
+  
   ### 4. Alan Envanterini Denetleyin
-
+  
   Alan listesini ve detay almayı birleştirerek kuruluşunuzun Contentful alanlarını denetleyin.
-
+  
   **Tools:** `CONTENTFUL_LIST_SPACES` ardından `CONTENTFUL_GET_SPACE`
-
+  
   İş Akışı:
   1. ID'leri ve adları almak için tüm alanları listeleyin
   2. Her alan için version bilgisi, oluşturma tarihleri ve meta verileri almak üzere detayları getirin
-
+  
   Örnek prompt: *"Tüm Contentful alanlarını denetleyin -- oluşturma tarihleri ve güncel versiyonları ile birlikte listeleyin"*
-
+  
   ---
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Güncelleme sırasında version çatışmaları:** `CONTENTFUL_UPDATE_SPACE`, `CONTENTFUL_GET_SPACE` öğesinden en son `sys.version` gerektirir. Okuma ve yazma işleminiz arasında başka biri alanı değiştirirse, güncelleme bir version çatışması ile başarısız olur. Güncellemeden hemen önce her zaman alanı getirin.
   - **Çok sayıda alan için pagination:** `CONTENTFUL_LIST_SPACES`, `limit` ve `skip` parametreleri kullanır. Çok sayıda alanınız olduğunda, alanları kaçırmamak için daha fazla sonuç döndürülmeyene kadar `skip` parametresini artırarak yineleyin.
   - **Kapsam sınırlamaları:** Bu araçlar yalnızca alan düzeyindeki meta verileri (adlar) yönetir. Bir alan içinde girdileri, içerik türlerini veya varlıkları oluşturamaz veya değiştiremez.
   - **Auth/izin uyuşmazlığı:** `CONTENTFUL_UPDATE_SPACE` aracılığıyla yapılan güncellemeler, tokeninizde alan yönetimi kapsamları yoksa başarısız olur; `CONTENTFUL_GET_SPACE` aracılığıyla okumalar başarılı olsa bile. Tokeninizin yazma izinlerine sahip olduğunu doğrulayın.
   - **Alan ID formatı:** `space_id` şu desene uymalıdır `^[a-zA-Z0-9-_.]{1,64}$`. Geçersiz karakterler reddedilecektir.
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | Tool Slug | Açıklama |
   |---|---|
   | `CONTENTFUL_LIST_SPACES` | Hesabınıza erişilebilir tüm alanları listeleyin |
   | `CONTENTFUL_GET_SPACE` | Tek bir alan için ayrıntılı meta verileri alın |
   | `CONTENTFUL_UPDATE_SPACE` | Bir alanın adını güncelleyin (version gereklidir) |
-
+  
   ---
-
+  
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 

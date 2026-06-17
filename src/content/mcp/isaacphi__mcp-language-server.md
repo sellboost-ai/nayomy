@@ -3,7 +3,7 @@ name: "isaacphi/mcp-language-server"
 description: "MCP Language Server helps MCP enabled clients navigate codebases more easily by giving them access to semantic tools like get definition, references, rename, and diagnostics."
 category: "Developer Tools"
 repo: "isaacphi/mcp-language-server"
-stars: 1546
+stars: 1547
 url: "https://github.com/isaacphi/mcp-language-server"
 body_length: 10213
 license: "BSD-3-Clause"

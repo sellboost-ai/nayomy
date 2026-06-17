@@ -3,7 +3,7 @@ name: "bitquery-automation"
 description_en: "Automate Bitquery tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bitquery-automation/SKILL.md"
 path: "composio-skills/bitquery-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Bitquery Otomasyonu Rube MCP ile
-
+  
   Bitquery işlemlerini Composio'nun Bitquery toolkit'i aracılığıyla Rube MCP ile otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/bitquery](https://composio.dev/toolkits/bitquery)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Bitquery bağlantısı ve `bitquery` toolkit'i
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: MCP sunucu yapılandırmanıza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS`'un yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu onaylayın
   2. `RUBE_MANAGE_CONNECTIONS` ile `bitquery` toolkit'ini çağırın
   3. Bağlantı ACTIVE değilse, setup'ı tamamlamak için döndürülen auth linkini takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
+  
   ## Tool Keşfi
-
+  
   Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Bitquery operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Bitquery task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["bitquery"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS`'u çağırmadan tool slug'larını veya argümanlarını asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'in ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Sayfalandırma**: Yanıtlarda sayfalandırma token'larını kontrol edin ve tümü bitene kadar alma işlemine devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool bulma | `RUBE_SEARCH_TOOLS` ve Bitquery'ye özel use case |
@@ -94,7 +94,7 @@ body_tr: |-
   | Çalıştırma | `RUBE_MULTI_EXECUTE_TOOL` ve keşfedilen tool slug'ları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ve `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ve `schemaRef` olan tool'lar |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

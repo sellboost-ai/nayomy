@@ -3,7 +3,7 @@ name: "baserow-automation"
 description_en: "Automate Baserow tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/baserow-automation/SKILL.md"
 path: "composio-skills/baserow-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Baserow Otomasyonu Rube MCP Üzerinden
-
+  
   Composio'nun Baserow toolkit'i aracılığıyla Rube MCP üzerinden Baserow işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümanları**: [composio.dev/toolkits/baserow](https://composio.dev/toolkits/baserow)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlanmış olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Baserow bağlantısı ve `baserow` toolkit'i
   - Her zaman güncel tool schema'larını almak için `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp`'yi MCP sunucusu olarak ekleyin. API anahtarına ihtiyaç yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS`'un yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu onaylayın
   2. `RUBE_MANAGE_CONNECTIONS`'ı `baserow` toolkit'i ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
+  
   ## Tool Keşfi
-
+  
   Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Baserow operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'larını, input schema'larını, önerilen execution plan'larını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Baserow task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["baserow"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool schema'ları değişir. `RUBE_SEARCH_TOOLS`'u çağırmadan tool slug'larını veya argument'ları asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Schema uygunluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory`'yi ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-------|----------|
   | Tool bul | `RUBE_SEARCH_TOOLS` ile Baserow'a özgü use case |
@@ -94,7 +94,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Toplu işler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam schema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef`'e sahip tool'lar için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından sunuluyor*
 ---

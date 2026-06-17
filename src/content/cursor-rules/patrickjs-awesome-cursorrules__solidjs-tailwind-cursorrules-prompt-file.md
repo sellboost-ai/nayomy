@@ -4,57 +4,11 @@ clean_name: "Solidjs Tailwind"
 description: "Cursor rules for Solid.js development with Tailwind CSS integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/solidjs-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidjs-tailwind-cursorrules-prompt-file.mdc"
 body_length: 1251
 file_extension: ".mdc"
-body_tr: |-
-  ```javascript
-  // Solid.js ve Tailwind CSS .cursorrules
-
-  // İşlevsel bileşenleri tercih et
-
-  const preferFunctionalComponents = true;
-
-  // Solid.js ve Tailwind CSS en iyi uygulamaları
-
-  const solidjsTailwindBestPractices = [
-    "Reaktif durum için createSignal() kullan",
-    "Stil oluşturmak için Tailwind CSS sınıflarını uygula",
-    "Yeniden kullanılabilir stiller için CSS dosyalarında @apply yönergesini kullan",
-    "Tailwind'in responsive sınıflarını kullanarak responsive tasarım uygula",
-    "Özelleştirme için Tailwind'in yapılandırma dosyasını kullan",
-    "Tailwind'in dark varyantını kullanarak dark mode uygula",
-  ];
-
-  // Klasör yapısı
-
-  const folderStructure = `
-  src/
-    components/
-    pages/
-    styles/
-    App.jsx
-    index.jsx
-  public/
-    index.html
-  tailwind.config.js
-  postcss.config.js
-  `;
-
-  // Ek talimatlar
-
-  const additionalInstructions = `
-  1. Bileşen şablonları için JSX kullan
-  2. Üretim derlemeleri için uygun Tailwind CSS purging uygula
-  3. Uygulanabilir olduğunda routing için Solid Router kullan
-  4. Özel stiller için Tailwind'in @layer yönergesini kullan
-  5. Utility-first CSS yaklaşımını uygula
-  6. Hem Solid.js hem de Tailwind adlandırma kurallarını izle
-  7. Daha hızlı geliştirme için JIT (Just-In-Time) modunu kullan
-  `;
-  ```
 ---
 
 // Solid.js with Tailwind CSS .cursorrules

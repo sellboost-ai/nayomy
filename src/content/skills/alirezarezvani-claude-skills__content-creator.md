@@ -3,7 +3,7 @@ name: "content-creator"
 description_en: "Deprecated redirect skill that routes legacy 'content creator' requests to the correct specialist. Use when a user invokes 'content creator', asks to write a blog post, article, guide, or brand voice analysis (routes to content-production), or asks to plan content, build a topic cluster, or create a content calendar (routes to content-strategy). Does not handle requests directly — identifies user "
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/content-creator/SKILL.md"
 path: ".gemini/skills/content-creator/SKILL.md"
 is_collection: false
@@ -14,9 +14,9 @@ has_examples: false
 related_files: []
 body_tr: |-
   # İçerik Yaratıcısı → Yönlendirildi
-
+  
   > **Bu beceri iki uzman beceriye bölünmüştür.** Amacınıza uygun olanı kullanın:
-
+  
   | Yapmak istediğiniz... | Bunun yerine kullanın |
   |----------------|-----------------|
   | **Yazın** bir blog yazısı, makale veya rehber | [content-production](../content-production/) |
@@ -24,34 +24,34 @@ body_tr: |-
   | **Analiz edin** marka sesini | [content-production](../content-production/) (içerir `brand_voice_analyzer.py`) |
   | **Optimize edin** mevcut içeriğin SEO'sunu | [content-production](../content-production/) (içerir `seo_optimizer.py`) |
   | **Oluşturun** sosyal medya içeriği | [social-content](../social-content/) |
-
+  
   ## Değişikliğin Nedeni
-
+  
   Orijinal `content-creator` her şeyi yapmaya çalışıyordu: planlama, yazı yazma, SEO, sosyal medya, marka sesi. Bu da onu her işte biraz yetenekli, hiçbirinde uzman olmayan bir araç haline getiriyordu. Uzman beceriler her işi daha iyi yapıyor:
-
+  
   - **content-production** — Tam pipeline: araştırma → brief → taslak → optimize → yayınla. Orijinal content-creator'dan tüm Python araçlarını içerir.
   - **content-strategy** — Stratejik planlama: konu kümeleri, anahtar kelime araştırması, içerik takvimi, önceliklendirme çerçeveleri.
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   - **Kullanıcı "content creator" sorduğunda** → content-production'a yönlendir (en muhtemel amaç yazı yazmaktır).
   - **Kullanıcı "content plan" veya "ne yazmalıyım" sorduğunda** → content-strategy'ye yönlendir.
-
+  
   ## Çıktı Yapıtları
-
+  
   | Şunu istediğinizde... | Yönlendirilen... |
   |---------------------|-------------|
   | "Blog yazısı yaz" | content-production |
   | "İçerik takvimi" | content-strategy |
   | "Marka sesi analizi" | content-production (`brand_voice_analyzer.py`) |
   | "SEO optimizasyonu" | content-production (`seo_optimizer.py`) |
-
+  
   ## İletişim
-
+  
   Bu bir yönlendirme becerisidir. Kullanıcıyı doğru uzmanmana yönlendir — isteği burada işlemeye çalışma.
-
+  
   ## İlgili Beceriler
-
+  
   - **content-production**: Tam içerik yürütme pipeline'ı (halef).
   - **content-strategy**: İçerik planlama ve konu seçimi (halef).
   - **content-humanizer**: AI içeriğini gerçekçi ses çıkarması için son işleme.

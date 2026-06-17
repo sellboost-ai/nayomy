@@ -3,7 +3,7 @@ name: "gc-review"
 description_en: "/cs:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/gc-review/SKILL.md"
 path: ".gemini/skills/gc-review/SKILL.md"
 is_collection: false
@@ -14,131 +14,131 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:gc-review — Genel Müşavir Zorlayıcı Soruları
-
+  
   **Komut:** `/cs:gc-review <plan>`
-
+  
   Genel Müşavir lens'i. Herhangi bir kontrat, şartlar tablosu, IP hareketi veya düzenleyici taahhüt öncesinde altı soru. Bu, gstack'in hiç sahibi olmadığı bir alan — ve tek bir kaçırılan madde bir yılın mühendislik çalışmasından daha pahalıya mal olabilir.
-
+  
   > ⚠️ **Yasal tavsiye değildir.** Bu komut, dış müşavire danışmadan önce sorulması gereken doğru soruları ortaya çıkarır. Her zaman bağlayıcı kararlar için nitelikli müşaviri görevlendir.
-
+  
   ## Ne Zaman Çalıştırılacak
-
+  
   - $100K'den fazla veya 1 yıldan fazla herhangi bir kontrat imzalamadan önce
   - Hisse senedi vermeden önce (çalışan hibe, danışman hibe)
   - Şartlar tablosu cevabından önce
   - Düzenlenmiş bir pazara girerken (sağlık, fintech, savunma)
   - Temel IP'deki herhangi bir açık kaynak lisans kararından önce
   - M&A LOI öncesinde
-
+  
   ## Altı GC Sorusu
-
+  
   ### 1. IP Mülkiyeti
   **Bu işlemde kimin tarafından oluşturulan veya paylaşılan IP'yi sahibi?**
   - İş-için-satın alma vs lisans vs ortak.
   - Çalışanlar ve yükleniciler için: yazılı IP devri yerinde mi?
   - OSS için: lisans uyumluluğu kontrol edildi mi?
-
+  
   ### 2. Sorumluluk & Tazmin
   **Sorumluluk üst sınırı nedir ve bundan hariç tutulan nedir?**
   - Standart üst sınır: 12 ay ücret.
   - İstisnalar: IP ihlali, veri ihlali, kasıtlı kötü davranış.
   - Karşılıklı tazmin tercih edilir.
-
+  
   ### 3. Veri İşleme
   **Hangi kişisel veriler söz konusudur ve DPA yerinde mi?**
   - GDPR / CCPA kapsamı?
   - Alt işlemci akış?
   - Veri ikamet gereksinimleri?
-
+  
   ### 4. Sonlandırma & Yenileme
   **Sonlandırma hakkı nedir, bildirim süresi nedir ve otomatik yenileme nedir?**
   - Kolaylık amacıyla sonlandırma vs neden.
   - Bildirim süresi (30 / 60 / 90 gün).
   - Otomatik yenileme tuzağı?
-
+  
   ### 5. Düzenleyici Yüzey
   **Bu, şirketi yeni bir düzenleyici rejime maruz bırakıyor mu?**
   - Sağlık → HIPAA.
   - Fintech → BSA/AML, eyalet para gönderici.
   - Tıbbi cihaz → FDA, MDR, ISO 13485.
   - Veri → GDPR, CCPA, eyalet ihlal yasaları.
-
+  
   ### 6. İstihdam / Hisse Senedi
   **Bu bir işe alma veya yükleniciyse: yargı, sınıflandırma, hisse senedi hibe, IP devri?**
   - Yanlış sınıflandırma riski?
   - Hisse senedi hakediş standardı (4 yıl, 1 yıl uçurum)?
   - Hızlanma tetikleyicileri?
   - 409A güncel?
-
+  
   ## İş Akışı
-
+  
   1. Kontrat / şartlar tablosunu baştan sona okuyun
   2. Altı soruyu çalıştırın
   3. Dış müşavire inceleme gerektiren ilk 3 sorunu belirleyin
   4. Kararı uygulayın
-
+  
   ## Çıktı Biçimi
-
+  
   ```markdown
   # GC İncelemesi: <plan>
   **Tarih:** YYYY-MM-DD
-
+  
   ## Belge
   - Türü: <kontrat / şartlar tablosu / hibe / DPA>
   - Karşı taraf: <ad>
   - $ değer veya kapsam: <miktar>
-
+  
   ## Sorunlar
   | # | Sorun | Risk | Tavsiye |
   |---|---|---|---|
   | 1 | <ör. sınırsız IP tazmin> | YÜKSEK | Ödenen ücretlerde sınırla, karşılıklı |
   | 2 | <ör. 5 yıllık otomatik yenileme> | ORTA | 1 yıl max, 60 günlük bildirim |
   | 3 | <ör. DPA yok, AB verisi> | YÜKSEK | İmzalamadan önce DPA iste |
-
+  
   ## Düzenleyici Tetikleyici
   - Yeni rejim tetiklendi mi? <evet/hayır>
   - Spesifik çerçeveler: <HIPAA / GDPR / vb.>
-
+  
   ## Dış Müşavir Eylem Maddeleri
   - [ ] <belirli madde 1>
   - [ ] <belirli madde 2>
   - [ ] <belirli madde 3>
-
+  
   ## Karar
   🟢 OLDUĞU GİBİ İMZALA (nadir)
   🟡 MÜZAKERE ET — ilk 3 konuda karşı teklif
   🔴 İMZALAMA — maddi risk
   ```
-
+  
   ## Yönlendirme
-
+  
   - `/cs:ciso-review` — veri ile ilgili herhangi bir kontrat için
   - `/cs:cfo-review` — 1 yıldan fazla veya gelirin %1'inden fazla herhangi bir taahhüt için
   - `/cs:decide` — dış müşavir incelemesinden sonra kararı kaydet
-
+  
   ## `general-counsel-advisor` Becerisi ile İş Akışı Entegrasyonu
-
+  
   v2.5.1'den beri, bu komut `../../../skills/general-counsel-advisor/` konumundaki tam bir beceri ile desteklenmektedir ve iki Python aracı vardır:
-
+  
   ```bash
   # Otomatik kontrat taraması (12 kurucu öldürücü desen)
   python ../../../skills/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt
-
+  
   # Şartlar tablosu puanlaması (0-100 kurucuya uygunluk)
   python ../../../skills/general-counsel-advisor/scripts/term_sheet_analyzer.py path/to/term_sheet.json
   ```
-
+  
   `cs-general-counsel-advisor` aracısı her iki aracı artı 3 referans (kontrat oyun kitabı, IP + düzenleyici, şartlar tablosu çözücü) düzenler.
-
+  
   ## İlgili
-
+  
   - Beceri: [`general-counsel-advisor`](../../../skills/general-counsel-advisor/SKILL.md) — Python araçları + referansları içeren tam beceri
   - Ajan: [`cs-general-counsel-advisor`](../../agents/cs-general-counsel-advisor.md)
   - Uyum yürütme: `../../../../ra-qm-team/`
   - Komşu: `../../../skills/ma-playbook/`
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

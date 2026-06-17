@@ -3,7 +3,7 @@ name: "breezy-hr-automation"
 description_en: "Automate Breezy HR tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/breezy-hr-automation/SKILL.md"
 path: "composio-skills/breezy-hr-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Breezy HR Otomasyonu Rube MCP Aracılığıyla
-
+  
   Composio'nun Breezy HR araç takımı üzerinden Rube MCP aracılığıyla Breezy HR operasyonlarını otomatikleştirin.
-
+  
   **Araç takımı dokümantasyonu**: [composio.dev/toolkits/breezy_hr](https://composio.dev/toolkits/breezy_hr)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlanmış olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` üzerinden `breezy_hr` araç takımıyla aktif Breezy HR bağlantısı
   - Her zaman geçerli araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısını yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Edinin**: İstemci yapılandırınızda `https://rube.app/mcp` öğesini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` öğesini `breezy_hr` araç takımıyla çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını izleyin
   4. Herhangi bir workflow'u çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Breezy HR operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Kullanılabilir Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Breezy HR task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["breezy_hr"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Yürütün
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Araç şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan asla araç slug'larını veya argümanlarını hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uygunluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tam olarak alınana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | Breezy HR'a özgü use case ile `RUBE_SEARCH_TOOLS` |
@@ -94,7 +94,7 @@ body_tr: |-
   | Yürüt | Keşfedilen araç slug'larıyla `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
   | Tam şema | `schemaRef` olan araçlar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

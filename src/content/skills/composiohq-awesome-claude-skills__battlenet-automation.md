@@ -3,7 +3,7 @@ name: "battlenet-automation"
 description_en: "Automate Battlenet tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/battlenet-automation/SKILL.md"
 path: "composio-skills/battlenet-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Battlenet Otomasyonu Rube MCP ile
-
+  
   Composio'nun Battlenet toolkit'i aracılığıyla Rube MCP üzerinden Battlenet işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/battlenet](https://composio.dev/toolkits/battlenet)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlanmış olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Battlenet bağlantısı ve `battlenet` toolkit'i
   - Daima mevcut araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısı yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi edinin**: MCP sunucusu olarak istemci yapılandırmanızda `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıtının geldiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` çağrısını `battlenet` toolkit'i ile yapın
   3. Eğer bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini izleyin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   Workflow'ları yürütmeden önce daima mevcut araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Battlenet operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Araçları Keşfet
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Battlenet task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Et
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["battlenet"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Yürüt
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Daima önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında daima `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Pagination token'ları için yanıtları kontrol edin ve tamamlanıncaya kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-------|----------|
   | Araçları bul | `RUBE_SEARCH_TOOLS` ile Battlenet'e özgü use case |
@@ -94,7 +94,7 @@ body_tr: |-
   | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilmiş araç slug'ları |
   | Toplu işlem | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` araçları için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

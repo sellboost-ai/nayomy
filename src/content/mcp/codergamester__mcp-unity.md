@@ -3,7 +3,7 @@ name: "CoderGamester/mcp-unity"
 description: "MCP Server for Unity3d Game Engine integration for game development"
 category: "Gaming"
 repo: "CoderGamester/mcp-unity"
-stars: 1774
+stars: 1776
 url: "https://github.com/CoderGamester/mcp-unity"
 body_length: 34362
 license: "MIT"

@@ -3,7 +3,7 @@ name: "subagent-driven-development"
 description_en: "Use when executing implementation plans with independent tasks in the current session"
 category: "Development"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/subagent-driven-development/SKILL.md"
 path: "skills/subagent-driven-development/SKILL.md"
 is_collection: false
@@ -14,19 +14,19 @@ has_examples: false
 related_files: ["implementer-prompt.md", "task-reviewer-prompt.md"]
 body_tr: |-
   # Alt Ajanla Yönlendirilen Geliştirme
-
+  
   Planı, her görev için taze bir uygulayıcı alt ajanı göndererek, her birinden sonra bir görev incelemesi (spec uygunluğu + kod kalitesi) ve sonunda geniş bir dal incelemesi yaparak yürütün.
-
+  
   **Alt ajanlar neden kullanılır:** Görevleri izole bağlamla uzmanlaşmış ajanlara devredersiniz. Talimatlarını ve bağlamını kesin bir şekilde hazırlayarak, onları odaklanmış ve görevde başarılı olmaları için sağlarsınız. Asla oturumunuzun bağlamını veya geçmişini devralmamalıdırlar — ihtiyaç duydukları şeyin tam olarak neresini inşa edeceğini belirtirsiniz. Bu aynı zamanda koordinasyon çalışması için kendi bağlamınızı koruyor.
-
+  
   **Temel ilke:** Görev başına taze alt ajan + görev incelemesi (spec + kalite) + geniş final inceleme = yüksek kalite, hızlı iterasyon
-
+  
   **Anlatı:** Araç çağrıları arasında en fazla bir kısa satır söyleyin — defter ve araç sonuçları kaydı taşır.
-
+  
   **Sürekli yürütme:** Görevler arasında insan ortağınızla kontrol etmek için durmayın. Plandan tüm görevleri durmadan çalıştırın. Durmanız gereken tek nedenler: Çözemeyeceğiniz BLOCKED durumu, ilerlemeyi engelleyen gerçek belirsizlik veya tüm görevler tamamlandığında. "Devam etmeli miyim?" soruları ve ilerleme özetleri onların zamanını boşa harcar — sizi planı çalıştırması için istediler, öyleyse çalıştırın.
-
+  
   ## Ne Zaman Kullanılır
-
+  
   ```dot
   digraph when_to_use {
       "Have implementation plan?" [shape=diamond];
@@ -35,7 +35,7 @@ body_tr: |-
       "subagent-driven-development" [shape=box];
       "executing-plans" [shape=box];
       "Manual execution or brainstorm first" [shape=box];
-
+  
       "Have implementation plan?" -> "Tasks mostly independent?" [label="yes"];
       "Have implementation plan?" -> "Manual execution or brainstorm first" [label="no"];
       "Tasks mostly independent?" -> "Stay in this session?" [label="yes"];
@@ -44,19 +44,19 @@ body_tr: |-
       "Stay in this session?" -> "executing-plans" [label="no - parallel session"];
   }
   ```
-
+  
   **vs. Planları Yürütme (paralel oturum):**
   - Aynı oturum (bağlam anahtarlaması yok)
   - Görev başına taze alt ajan (bağlam kirlenmesi yok)
   - Her görevden sonra inceleme (spec uygunluğu + kod kalitesi), sonunda geniş inceleme
   - Daha hızlı iterasyon (görevler arasında insan döngüsü yok)
-
+  
   ## İşlem
-
+  
   ```dot
   digraph process {
       rankdir=TB;
-
+  
       subgraph cluster_per_task {
           label="Per Task";
           "Dispatch implementer subagent (./implementer-prompt.md)" [shape=box];
@@ -68,12 +68,12 @@ body_tr: |-
           "Dispatch fix subagent for Critical/Important findings" [shape=box];
           "Mark task complete in todo list and progress ledger" [shape=box];
       }
-
+  
       "Read plan, note context and global constraints, create todos" [shape=box];
       "More tasks remain?" [shape=diamond];
       "Dispatch final code reviewer subagent (../requesting-code-review/code-reviewer.md)" [shape=box];
       "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
-
+  
       "Read plan, note context and global constraints, create todos" -> "Dispatch implementer subagent (./implementer-prompt.md)";
       "Dispatch implementer subagent (./implementer-prompt.md)" -> "Implementer subagent asks questions?";
       "Implementer subagent asks questions?" -> "Answer questions, provide context" [label="yes"];
@@ -90,64 +90,64 @@ body_tr: |-
       "Dispatch final code reviewer subagent (../requesting-code-review/code-reviewer.md)" -> "Use superpowers:finishing-a-development-branch";
   }
   ```
-
+  
   ## Uçuş Öncesi Plan İncelemesi
-
+  
   1. Görevi göndermeden önce planı çelişkiler açısından bir kez tarayın:
-
+  
   - birbirini çelişen veya planın Global Constraints'ini çelişen görevler
   - planın açıkça zorunlu kıldığı ancak inceleme rubriğinin kusur olarak ele aldığı herhangi bir şey (hiçbir şey iddia etmeyen bir test, bir logic bloğunun kelimesi kelimesine çoğaltılması)
-
+  
   Bulduğunuz her şeyi insan ortağınıza, planı onu zorunlu kılan metin yanında, her birinin ne yönettiğini sorarak — yürütme başlamadan önce, bir soruda — sunun, plan ortasında keşif başına bir kesinti değil. Tarama temizse, yorum yapılmadan devam edin. İnceleme döngüsü, yalnızca uygulamadan ortaya çıkan çelişkiler için ağ olarak kalır.
-
+  
   ## Model Seçimi
-
+  
   Her rolü işleyebilen en az güçlü modeli kullanarak maliyeti ve hızı koruyun.
-
+  
   **Mekanik uygulama görevleri** (izole fonksiyonlar, net specler, 1-2 dosya): hızlı, ucuz model kullanın. Plan iyi belirtilmişse çoğu uygulama görevi mekaniktir.
-
+  
   **Entegrasyon ve yargı görevleri** (çok dosyalı koordinasyon, pattern matching, hata ayıklama): standart model kullanın.
-
+  
   **Mimari ve tasarım görevleri**: mevcut en yetenekli modeli kullanın.
   Son dal incelemesi bunlardan biridir — oturum varsayılanında değil, mevcut en yetenekli modelde gönderin.
-
+  
   **İnceleme görevleri**: diff'in boyutu, karmaşıklığı ve riski ölçeğinde aynı yargıya sahip modeli seçin. Küçük mekanik bir diff en yetenekli modele ihtiyaç duymaz; ince bir eşzamanlılık değişikliği yapar.
-
+  
   **Bir alt ajanı gönderirken her zaman modeli açıkça belirtin.** Atlanmış model, oturumunuzun modelini devralır — çoğu zaman en yetenekli ve en pahalı — bu sessizce bu bölümü başarısız kılar.
-
+  
   **Dönüş sayısı token fiyatından daha iyidir.** Duvar saati ve bağlam maliyeti alt ajanın kaç dönüş aldığıyla ölçeklenir ve en ucuz modeller rutin olarak çok adımlı iş için 2-3× dönüş alır — genel olarak daha fazla maliyete neden olur. İnceleyenler ve nesne açıklamalarından çalışan uygulayıcılar için bir taban olarak orta seviye model kullanın. Görevin plan metni yazılacak tam kodu içerdiğinde, uygulama transkripsiyon ve testtir: bu uygulayıcı için en ucuz seviyeyi kullanın. Tek dosya mekanik düzeltmeler de en ucuz seviyeyi alır.
-
+  
   **Görev karmaşıklığı sinyalleri (uygulama görevleri):**
   - Tam spec'li 1-2 dosyaya dokunur → ucuz model
   - Entegrasyon endişeleriyle birden fazla dosyaya dokunur → standart model
   - Tasarım yargısı veya geniş codebase anlayışı gerektirir → en yetenekli model
-
+  
   ## Uygulayıcı Durumunu Yönetme
-
+  
   Uygulayıcı alt ajanları dört durumdan birini bildirirler. Her birini uygun şekilde işleyin:
-
+  
   **DONE:** İnceleme paketini oluşturun (`scripts/review-package BASE HEAD`, bu becerinin dizininden — kaydetmiş olduğunuz commit öncesi BASE'i yazıyorsa benzersiz dosya yolunu yazdırır — asla `HEAD~1` değil, bu sessizce multi-commit görevinin dışında hepsini bırakır), sonra yazdırılan yolla görev inceleyiciyi gönderin.
-
+  
   **DONE_WITH_CONCERNS:** Uygulayıcı işi tamamladı ama endişeler işaretledi. Devam etmeden önce endişeleri okuyun. Endişeler doğruluk veya kapsam hakkındaysa, gözden geçirmeden önce ele alın. Gözlemlerse (örneğin, "bu dosya büyülüyor"), not alın ve incelemesine devam edin.
-
+  
   **NEEDS_CONTEXT:** Uygulayıcının sağlanmayan bilgileri var. Eksik bağlamı sağlayın ve yeniden gönderin.
-
+  
   **BLOCKED:** Uygulayıcı görevi tamamlayamıyor. Engeli değerlendirin:
   1. Bağlam sorunu ise, daha fazla bağlam sağlayın ve aynı modelle yeniden gönderin
   2. Görev daha fazla mantık gerektirirse, daha yetenekli bir modelle yeniden gönderin
   3. Görev çok büyükse, daha küçük parçalara bölün
   4. Plan yanlışsa, insana bildirin
-
+  
   **Asla** bir yükseltmeyi yok saymayın veya aynı modeli değişiklik yapılmadan yeniden denemeye zorlamamayın. Uygulayıcı takılı olduğunu söyledi, bir şeyler değişmeli.
-
+  
   ## İnceleyici ⚠️ Öğelerini Yönetme
-
+  
   Görev inceleyici, "⚠️ Diff'ten doğrulanamıyor" öğelerini bildirebilir — değiştirilmemiş kodda yaşayan veya görevler arasında yayılan gereksinimler. Bunlar incelemenin geri kalanını bloke etmez, ancak görevi tamamlanmış olarak işaretlemeden önce her birini kendiniz çözmelisiniz: planı ve inceleyicinin eksik olduğu görev arası bağlamı tutarsınız. Bir öğeyi gerçek bir boşluk olarak onayladıysanız, başarısız spec incelemesi olarak yapın — uygulayıcıya geri gönderin ve yeniden gözden geçirin.
-
+  
   ## İnceleme Komutları Oluşturma
-
+  
   Görev başına incelemeler görev kapsamı kapılarıdır. Geniş inceleme bir kez, son dal incelemesinde gerçekleşir. Bir inceleyici şablonunu doldururken:
-
+  
   - Somut, görev özeline bir neden olmadan "tüm kullanımları kontrol et" veya "yararlı ise ırk testleri çalıştır" gibi açık uçlu direktifler eklemeyin
   - İnceleyici tarafından aynı kodda zaten çalıştırdığı testleri yeniden çalıştırmasını istemeyin — uygulayıcının raporu test kanıtını taşır
   - Bulguları inceleyici için önceden yargılamayın — asla bir inceleyiciyi belirli bir sorunu yok saymaya veya işaretlememesi için talimat vermeyin. Bir bulguyu yanlış pozitif olarak düşünürsünüz, inceleyiciyi yükseltmesine ve inceleme döngüsünde karar vermesine izin verin. Yazdığınız komut "işaretlemeyin", "X'i kusur olarak ele almayın", "en fazla Minor", "plan seçti" içeriyorsa — durun: önceden yargılıyorsunuz, genellikle kendinize bir inceleme döngüsü tasarrufu için.
@@ -159,128 +159,128 @@ body_tr: |-
   - Son dal incelemesi de bir paket alır: `scripts/review-package MERGE_BASE HEAD` çalıştırın (MERGE_BASE = dalın başladığı commit, örneğin `git merge-base main HEAD`) ve yazdırılan yolu final inceleme dispatchına ekleyin, böylece final inceleyici git komutlarıyla yeniden türetmek yerine bir dosyayı okur.
   - Her fix dispatch, uygulayıcı sözleşmesini taşır: fix alt ajanı, değişikliği kapsayan testleri yeniden çalıştırır ve sonuçları bildirir. Dispatch'e kapsayan test dosyalarının adını verin — bir satır düzeltmesinin tüm pakete ihtiyacı yoktur. Re-dispatch'in gözden geçirmeden önce, fix raporunun kapsayan testleri, çalıştırılan komutu ve çıktıyı içerdiğini onaylayın; her üçü de mevcut olduğunda yeniden-gözden geçirmeyi gönderin.
   - Final dal incelemesi bulgular döndürürse, bulgular listesi tamamı ile ONE fix alt ajanı gönderin — bulgu başına bir fixer değil. Bulgu başına fixers her bağlamı yeniden oluşturur ve paketleri yeniden çalıştırır; gerçek oturumda final-inceleme fix dalgası tüm görevlerinden daha fazla maliyete çıktı.
-
+  
   ## Dosya Handoff'ları
-
+  
   Bir dispatch komutuna yapıştırdığınız her şey — ve bir alt ajan geri yazdırdığı her şey — oturum geri kalanında ikamet eder ve her sonraki turda yeniden okunur. Yapıtları dosya olarak el değiştirin:
-
+  
   - **Görev özeti:** bir uygulayıcıyı göndermeden önce bu becerinin `scripts/task-brief PLAN_FILE N`'unu çalıştırın — görevin tam metnini benzersiz adlandırılmış bir dosyaya çıkarır ve yolu yazdırır. Briefin tek gereksinimler kaynağı kalması için dispatchi oluşturun. Dispatchınız şunları içermelidir: (1) bu görevin projede nereye sığdığına dair bir satır; (2) brief yolu, "bunu ilk oku — gereksinimlerindir, kelimesi kelimesine kullanacağınız tam değerleri" olarak tanıtılır; (3) briefin bilemeyeceği önceki görevlerden arayüzler ve kararlar; (4) briefte fark ettiğiniz belirsizliğin çözümü; (5) rapor dosyası yolu ve rapor sözleşmesi. Tam değerler (sayılar, magic string'ler, imzalar, test durumları) yalnızca brief'de görünür.
   - **Rapor dosyası:** uygulayıcının rapor dosyasını brief'in ardından adlandırın (brief `…/task-N-brief.md` → rapor `…/task-N-report.md`) ve dispatch komutuna koyun. Uygulayıcı orada tam raporu yazar ve yalnızca durum, commits, bir satırlık test özeti ve endişeleri döndürür.
   - **İnceleyici girişleri:** görev inceleyici üç yol alır — aynı brief dosyası, rapor dosyası ve inceleme paketi — artı görevi bağlayan global constraints.
   - Fix dispatches, fix raporunu (test sonuçlarıyla) aynı rapor dosyasına ekler ve kısa bir özet döndürür; yeniden incelemeler güncellenen dosyayı okur.
-
+  
   ## Dayanıklı İlerleme
-
+  
   Konuşma belleği sıkıştırmada hayatta kalmaz. Gerçek oturumlarında, yerlerini kaybeden denetçiler tamamlanmış görev dizilerini yeniden gönderdiler — gözlenen tek en pahalı hata. İlerlemeyi yalnızca yapılacaklar listesinde değil, defter dosyasında takip edin.
-
+  
   - Beceri başında, bir defter olup olmadığını kontrol edin:
     `cat "$(git rev-parse --git-path sdd)/progress.md"`. Orada tamamlanmış olarak listelenen görevler DONE'dır — onları yeniden göndermez; işaretlenmeyen ilk görevde devam edin.
   - Görev incelemesi temiz geldiğinde, aynı iletiye bir satır deftera ekleyin:
     `Task N: complete (commits <base7>..<head7>, review clean)`.
   - Defter, kurtarma haritanız: adını verdiği commits, bağlamınız artık onları oluşturmayı hatırlamıyorken bile git'te var. Sıkıştırmadan sonra, defter ve `git log`'u kendi hatırlamanız üzerinde güvenin.
-
+  
   ## Komut Şablonları
-
+  
   - [implementer-prompt.md](implementer-prompt.md) - Uygulayıcı alt ajanı gönderin
   - [task-reviewer-prompt.md](task-reviewer-prompt.md) - Görev inceleyici alt ajanı gönderin (spec uygunluğu + kod kalitesi)
   - Son dal incelemesi: superpowers:requesting-code-review'nin [code-reviewer.md](../requesting-code-review/code-reviewer.md)'ını kullanın
-
+  
   ## Örnek İş Akışı
-
+  
   ```
   You: Alt Ajan Yönlendirilen Geliştirme kullanarak bu planı yürütüyorum.
-
+  
   [Plan dosyasını bir kez okuyun: docs/superpowers/plans/feature-plan.md]
   [Tüm görevler için yapılacaklar oluşturun]
-
+  
   Task 1: Hook kurulum betiği
-
+  
   [Task 1 için task-brief çalıştırın; brief + rapor yolları + bağlamla uygulayıcıyı gönderin]
-
+  
   Implementer: "Başlamadan önce - hook kullanıcı veya sistem düzeyinde kurulmalı mı?"
-
+  
   You: "Kullanıcı düzeyi (~/.config/superpowers/hooks/)"
-
+  
   Implementer: "Anladım. Şimdi uyguluyorum..."
   [Daha sonra] Implementer:
     - install-hook komutu uygulandı
     - Testler eklendi, 5/5 geçti
     - Kendi incelemesi: --force bayrağını kaçırdığımı buldum, ekledim
     - Commit yapıldı
-
+  
   [review-package çalıştırın, yazdırılan yolla görev inceleyiciyi gönderin]
   Task reviewer: Spec ✅ - tüm gereksinimler karşılandı, fazlası yok.
     Güçlü taraflar: İyi test kapsamı, temiz. Sorunlar: Yok. Görev kalitesi: Onaylı.
-
+  
   [Task 1'i tamamlanmış olarak işaretleyin]
-
+  
   Task 2: Kurtarma modları
-
+  
   [Task 2 için task-brief çalıştırın; brief + rapor yolları + bağlamla uygulayıcıyı gönderin]
-
+  
   Implementer: [Sorular yok, ilerlemeye başlar]
   Implementer:
     - Doğrulama/onarım modları eklendi
     - 8/8 testler geçti
     - Kendi incelemesi: Hepsi iyi
     - Commit yapıldı
-
+  
   [review-package çalıştırın, yazdırılan yolla görev inceleyiciyi gönderin]
   Task reviewer: Spec ❌:
     - Eksik: İlerleme raporlaması (spec diyor "her 100 öğede rapor et")
     - Extra: --json bayrağı eklendi (talep edilmedi)
     Issues (Important): Magic number (100)
-
+  
   [Tüm bulgularla fix alt ajanı gönderin]
   Fixer: --json bayrağını kaldırdı, ilerleme raporlaması ekledi, PROGRESS_INTERVAL sabitini çıkarttı
-
+  
   [Görev inceleyici yeniden inceliyor]
   Task reviewer: Spec ✅. Görev kalitesi: Onaylı.
-
+  
   [Task 2'yi tamamlanmış olarak işaretleyin]
-
+  
   ...
-
+  
   [Tüm görevlerden sonra]
   [Final code-reviewer'ı gönderin]
   Final reviewer: Tüm gereksinimler karşılandı, birleştirmeye hazır
-
+  
   Bitti!
   ```
-
+  
   ## Avantajlar
-
+  
   **vs. Manual yürütme:**
   - Alt ajanlar TDD'yi doğal olarak izler
   - Görev başına taze bağlam (karışıklık yok)
   - Paralel-safe (alt ajanlar müdahale etmez)
   - Alt ajan sorular sorabilir (çalışmadan önce VE sırasında)
-
+  
   **vs. Planları Yürütme:**
   - Aynı oturum (handoff yok)
   - Sürekli ilerleme (bekleme yok)
   - İnceleme kontrol noktaları otomatik
-
+  
   **Verimlilik kazanları:**
   - Denetçi tam olarak neye ihtiyaç olduğunun bağlamını seçer; toplu yapıtlar dosya olarak hareket eder, yapıştırılan metin değil
   - Alt ajan tam bilgi ile önceden alır
   - Sorular çalışmadan önce ortaya çıkar (sonra değil)
-
+  
   **Kalite kapıları:**
   - Kendi incelemesi, handoff'dan önce sorunları yakalar
   - Görev incelemesi iki karar taşır: spec uygunluğu ve kod kalitesi
   - İnceleme döngüleri düzeltmelerin gerçekten çalıştığından emin olur
   - Spec uygunluğu fazlalık/eksiklik yapsını önler
   - Kod kalitesi uygulamanın iyi yapılandırılmış olduğunu sağlar
-
+  
   **Maliyeti:**
   - Daha fazla alt ajan çağrıları (uygulayıcı + inceleyici görev başına)
   - Denetçi daha fazla hazırlık yapar (tüm görevleri çıkararak)
   - İnceleme döngüleri iterasyonlar ekler
   - Ama sorunları erken yakalar (daha sonra hata ayıklamaktan daha ucuz)
-
+  
   ## Kırmızı Bayraklar
-
+  
   **Asla:**
   - Ana/master dalında açık kullanıcı izni olmadan uygulamaya başlamayın
   - Görev incelemesini atlayın veya her iki kararı eksik olan bir raporu kabul edin (spec uygunluğu VE görev kalitesi ikisi de gerekli)
@@ -296,33 +296,33 @@ body_tr: |-
   - Diff dosyası olmayan bir görev inceleyiciyi gönderin — önce oluşturun (`scripts/review-package BASE HEAD`) ve dispatch komutunda yazdırılan yolu adlandırın
   - İnceleme açık Critical/Important sorunlar varken sonraki göreve geçin
   - İlerleme defteriyle tamamlanmış bir görevi yeniden gönderin — herhangi bir sıkıştırma veya özgeçişten sonra deftere (ve `git log`) kontrol edin
-
+  
   **Alt ajan soru sorarsa:**
   - Açık ve eksiksiz cevap verin
   - Gerekirse ek bağlam sağlayın
   - Onları uygulamaya acele etmeyin
-
+  
   **İnceleyici sorunlar bulursa:**
   - Uygulayıcı (aynı alt ajan) onları düzeltir
   - İnceleyici yeniden gözden geçirir
   - Onaylanana kadar tekrarlayın
   - Re-review'ü atlamayın
-
+  
   **Alt ajan görevde başarısız olursa:**
   - Fix alt ajanını spesifik talimatlarla gönderin
   - El ile düzeltmeyi denemeyin (bağlam kirlenmesi)
-
+  
   ## Entegrasyon
-
+  
   **Gerekli iş akışı beceriler:**
   - **superpowers:using-git-worktrees** - İzole çalışma alanını sağlar (oluşturur veya mevcut olduğunu doğrular)
   - **superpowers:writing-plans** - Bu becerinin yürüttüğü planı oluşturur
   - **superpowers:requesting-code-review** - Final dal incelemesi için kod inceleme şablonu
   - **superpowers:finishing-a-development-branch** - Tüm görevlerden sonra geliştirmeyi tamamla
-
+  
   **Alt ajanların kullanması gerekir:**
   - **superpowers:test-driven-development** - Alt ajanlar her görev için TDD'yi izler
-
+  
   **Alternatif iş akışı:**
   - **superpowers:executing-plans** - Aynı oturum yürütmesi yerine paralel oturum için kullanın
 ---

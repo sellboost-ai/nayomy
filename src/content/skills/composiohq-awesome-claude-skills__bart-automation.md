@@ -3,7 +3,7 @@ name: "bart-automation"
 description_en: "Automate Bart tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bart-automation/SKILL.md"
 path: "composio-skills/bart-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP Aracılığıyla Bart Otomasyonu
-
+  
   Composio'nun Bart araç seti aracılığıyla Rube MCP üzerinden Bart işlemlerini otomatikleştirin.
-
+  
   **Araç seti dokümantasyonu**: [composio.dev/toolkits/bart](https://composio.dev/toolkits/bart)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlanmış olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla etkin Bart bağlantısı (`bart` araç seti ile)
   - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısı yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` öğesini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` öğesini `bart` araç seti ile çağırın
   3. Bağlantı ACTIVE durumunda değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Bart operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir araç slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Kullanılabilir Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Bart task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["bart"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan asla araç slugları veya argümanlarını hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` öğesini ekleyin, boş olsa bile (`{}`)
   - **Oturum yeniden kullanımı**: Bir workflow içinde oturum kimliklerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
   - **Sayfalandırma**: Yanıtları sayfalandırma tokenları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | Bart'a özgü use case ile `RUBE_SEARCH_TOOLS` |
@@ -94,7 +94,7 @@ body_tr: |-
   | Çalıştır | Keşfedilen araç slugları ile `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` with `run_composio_tool()` |
   | Tam şema | `schemaRef` olan araçlar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

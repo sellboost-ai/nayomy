@@ -3,7 +3,7 @@ name: "culture-architect"
 description_en: "Build, measure, and evolve company culture as operational behavior — not wall posters. Covers mission/vision/values workshops, values-to-behaviors translation, culture code creation, culture health assessment, and cultural rituals by stage. Use when building company values, assessing culture health, designing cultural rituals, creating culture codes, handling culture clashes, or when user mentions"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/culture-architect/SKILL.md"
 path: ".gemini/skills/culture-architect/SKILL.md"
 is_collection: false
@@ -14,39 +14,39 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Kültür Mimarı
-
+  
   Kültür söyledikleriniz değil, yaptıklarınızdır. Bu beceri kültürü bir operasyonel sistem olarak inşa eder — gözlemlenebilir davranışlar, ölçülebilir sağlık ve ölçeklenebilir ritüeller.
-
+  
   ## Anahtar Kelimeler
   kültür, şirket kültürü, değerler, misyon, vizyon, kültür kodu, kültürel ritüeller, kültür sağlığı, değerlerden davranışlara, kurucu kültürü, kültür borcu, değer taklitçiliği, kültür değerlendirmesi, kültür anketi, Netflix kültür sunusu, HubSpot kültür kodu, psikolojik güvenlik, kültürün ölçeklendirilmesi
-
+  
   ## Temel İlke
-
+  
   **Kültür = (Ödüllendirdikleriniz) + (Tolere ettikleriniz) + (Kutladıklarınız)**
-
+  
   Değerleriniz "şeffaflık" dese de kötü haberin taşıyıcılarını cezalandırıyorsanız — gerçek değeriniz "görüntü"dür. Kültür aspirasyonel değildir. Tanımlayıcıdır. İş, söylenen ile gerçek olanı arasındaki boşluğu kapatmaktır.
-
+  
   ## Çerçeveler
-
+  
   ### 1. Misyon / Vizyon / Değerler Workshop'u
-
+  
   Bunu sohbet şeklinde yürütün, kurumsal bir çıkartma olarak değil. Üç soru:
-
+  
   **Misyon** — Neden varız (para kazanmanın ötesinde)?
   - "Yarın ortadan kaysak ne kaybolurdu?"
   - Misyon şimdiki zaman. "Yaşlılarda önlenebilir düşüşleri azaltırız." Değil "sektörün lider olması..."
-
+  
   **Vizyon** — 5–10 yılda başarı neye benziyor?
   - Yanlış olmak için yeterince spesifik. "Avrupa'daki her bakım evi sistemimizi kullanıyor" "pazar liderine dönmek"ten daha iyidir.
-
+  
   **Değerler** — Hangi davranışları gerçekten modelliyoruz?
   - Gözlemlediklerinizden başlayın, iyi ses çıkaranlardan değil. "Son harika işe alımımız ne yaptı ki kimse onlardan istemedi?"
   - 3–5 ile sınırlı kalın. 5'ten fazla olunca hiçbiri bir şey ifade etmez.
-
+  
   ### 2. Değerler → Davranışlar Çevirisi
-
+  
   Bu iştir. Her değerin davranışsal tutturmaları olması lazım ya da sadece dekorasyon.
-
+  
   | Değer | Kötü versiyon | Davranışsal tuttturma |
   |-------|------------|-------------------|
   | Şeffaflık | "Açık ve dürüstüz" | "Kötü haberleri 24 saat içinde, yöneticimize de dahil, paylaşırız" |
@@ -54,13 +54,13 @@ body_tr: |-
   | Hız | "Hızlı hareket ederiz" | "€5K altı kararlar takım seviyesinde, aynı gün, onay gerekmez" |
   | Kalite | "Köşe kesmeyiz" | "Gurur duymadığımız bir şeyi sevk etmeden önce durduruız" |
   | Müşteri odaklı | "Müşteriler önceliktir" | "Herhangi bir takım üyesi bir müşteri sorununu liderliğe yükseltebilir, normal kanalları atlayarak" |
-
+  
   **Workshop alıştırması:** Değerinizi yazın. Sonra "Yeni bir işe alındığın 30. günde bu değeri gerçekten yaşadığımızı nasıl anlar?" diye sorun. Somut cevap veremezseniz — bu değer değildir, aspirasyondur.
-
+  
   ### 3. Kültür Kodu Oluşturma
-
+  
   Kültür kodu, nasıl çalıştığınızı açıklayan halka açık bir belgedir. Yanlış kişileri korkutmalı ve doğru olanları çekmelidir.
-
+  
   **Yapı:**
   1. Kimiz (misyon + bağlam)
   2. Burada kimin başarısı olur (sıfatlar değil, spesifik davranışlar)
@@ -69,25 +69,25 @@ body_tr: |-
   5. Nasıl iletişim kurarız
   6. İnsanları nasıl geliştiririz
   7. Liderlerden ne bekleriz
-
+  
   `templates/culture-code-template.md` adresinde tam bir şablon görün.
-
+  
   **Kaçınılması gereken anti-patternler:**
   - "Biz bir aileyiz" — aileler birbirlerini performans için kovmazlar
   - Sadece olumlu özellikleri listeleme — "burada kimin başarısı olmaz" bölümü bunu inandırıcı kılar
   - Aspirasyonel yerine tanımlayıcı yapmak
-
+  
   ### 4. Kültür Sağlığı Değerlendirmesi
-
+  
   Her üç ayda bir çalıştırın. 8–12 soru. Anonim. `references/culture-playbook.md` adresinde anket tasarımı görün.
-
+  
   **Ölçülecek temel alanlar:**
   1. Psikolojik güvenlik — "Bir endişe ortaya atabilir miyim korkuyla karşılaşmadan?"
   2. Netlik — "Çalışmamın şirket hedeflerine nasıl bağlandığını biliyor muyum?"
   3. Adalet — "Kararlar tutarlı ve şeffaf bir şekilde alınıyor mu?"
   4. Gelişim — "Öğreniyor ve zorlanıyor muyum?"
   5. Liderliğe güven — "Liderlik bana söyleneni inanıyor muyum?"
-
+  
   **Skor yorumlaması:**
   | Skor | İşaret | Aksiyon |
   |-------|--------|--------|
@@ -95,49 +95,49 @@ body_tr: |-
   | 65–79% | Uyarı | Spesifik gerilimi tanımla — aşırı tepki verme |
   | 50–64% | Hasarlı | Acil liderlik dikkat + spesifik düzeltmeler |
   | < 50% | Kriz | Kültür acil durumu — tüm-şirket müdahalesi |
-
+  
   ### 5. Aşamaya Göre Kültürel Ritüeller
-
+  
   Ritüeller, kültür için teslim mekanizmasıdır. 10 kişide çalışan şey 100'de çöker.
-
+  
   **Tohum aşaması (< 15 kişi)**
   - Haftalık tüm-şirket toplantısı (30 dk): şirket güncellemesi + bir başarı + bir öğrenme
   - Aylık retrospektif: ne çalışıyor, ne değil — hiyerarşi yok
   - "Varsayılan olarak şeffaf": spesifik bir neden olmadığı sürece her şeyi paylaş
-
+  
   **Erken büyüme (15–50 kişi)**
   - Üç aylık kültür anketi: ilk resmi check-in
   - Tanıma ritüeli: açık, halka açık, değerlere bağlı (sadece sonuçlara değil)
   - Onboarding buddy programı: kültürel iletim artık kasıtlı çaba gerektirir
   - Liderlik ofis saatleri: kurucu şirket katmanları ortaya çıktıkça erişilebilir kalır
-
+  
   **Ölçekleme (50–200 kişi)**
   - Kültür komitesi (HR tarafından değil, eşler tarafından yönetilir): her üç ayda bir 4–6 kişi döner
   - Değer tabanlı performans incelemesi: kültür uyumu varsayılmaz, ölçülür
   - Yönetici eğitimi: kültür şimdi takım liderlerinde yaşar veya ölür
   - Departman tüm-şirket + şirket tüm-şirket ayrı
-
+  
   **Büyük (200+ kişi)**
   - Strateji olarak kültür: sahibi ve KPI'ları olan açık yıllık kültür planı
   - Kültür için iç NPS ("Bu şirketi bir arkadaşa tavsiye eder misiniz?")
   - Altkültür yönetimi: mühendislik kültürü ≠ satış kültürü — her ikisi de şirket çekirdeğine uyum sağlamalı
-
+  
   ### 6. Kültür Anti-Patternleri
-
+  
   **Değer taklitçiliği:** Uygulamadığınız değerleri listeleme. Belirti: değerler tartışması sırasında çalışanlar gözlerini yuvarlar.
   - Düzeltme: Değer denetimi çalıştırın. "Son terfi alan kişi neyi gösterdi?" diye sorun. Değerlerinizle uyuşmazsa — gerçek değerleriniz farklı.
-
+  
   **Kültür borcu:** Zamanla kültürel ödünler birikme. "Toksik yıldız performansçıyı sonra çözeriz." Sonra bileşke.
   - Düzeltme: Kültür ihlallerine gerektiğinden daha hızlı hareket edin. Bir tolere edilen kötü davranış, on iyi davranışın inşa ettiğini yok eder.
-
+  
   **Kurucu kültürü tuzağı:** Kültür kurulundaki takımın kişiliğinde donmuş kalır. Yeni işe alımlar asimile olur ya da ayrılır.
   - Düzeltme: Değerleri ölçeklendirdikçe açıkça geliştirin. 10 kişide çalışan şey (hızlı hareket et, affedilmesi iste) 100'de yıkıcı olabilir (proses gerekli).
-
+  
   **Osmoz yoluyla kültür:** Kültürün doğal olarak iletildiğini varsay. 10 kişide böyleydi. 50'de değil.
   - Düzeltme: Kültürü bilinçli yapın. Dokümante edin. Öğretin. Ölçün. Açıkça ödüllendirin.
-
+  
   ## C-Suite ile Kültür Entegrasyonu
-
+  
   | Zaman... | Kültür Mimarı birlikte çalışır... | Şöyle ki... |
   |---------|---------------------------------|-------|
   | İşe alım dalgası | İK Müdürü | Kültür uyumu tahmin değil, ölçülü olsun |
@@ -146,24 +146,24 @@ body_tr: |-
   | Performans sorunları | İK Müdürü | Kültür uyumunu beceri açığından ayır |
   | Strateji dönüşü | CEO | Dönüşümü eski kılan değerleri/davranışları güncelle |
   | Hızlı büyüme | Tümü | Kültür seyreltilmeden önce ritüelleri ölçekle |
-
+  
   ## Kültür Mimarı'nın Sorduğu Anahtar Sorular
-
+  
   - "Kültür nedeniyle kovduğumuz son kişinin adını sayabilir misin? Ne yaptılar?"
   - "Son terfi alan çalışanınızı hangi davranış terfi ettirdi? Bu değerlerinizde var mı?"
   - "Yeni bir işe alındı 1. günde gözlemleyeceği ne, burada neyin gerçekten değerli olduğunu söyler?"
   - "Tolere ettiğimiz ama etmememiz gereken nedir? Kim bilir ve hiçbir şey yapmaz?"
   - "Berlin'deki bir takım lideri Madrid'de kültürün ne olduğunu nasıl öğrensin?"
-
+  
   ## Kırmızı Bayraklar
-
+  
   - Değerler duvarda asılı, incelemeler veya kararlardan asla bahsedilmiyor
   - Yıldız performansçılar kültürel standartlardan korunuyor
   - Kültür ritüelleri için "zamanı olmayan" liderler
   - Yeni işe alımlar kültürün "reklamdan farklı" olduğunu hissediyor
   - Kültürel kaygıları güvenli bir şekilde ortaya koymak için mekanizma yok
   - Kültür anketi sonuçları ekipe asla paylaşılmıyor
-
+  
   ## Detaylı Referanslar
   - `references/culture-playbook.md` — Netflix analizi, anket tasarımı, ritüel örnekleri, M&A oyun kitabı
   - `templates/culture-code-template.md` — Kültür kodu belge şablonu

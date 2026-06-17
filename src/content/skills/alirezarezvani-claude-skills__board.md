@@ -3,7 +3,7 @@ name: "board"
 description_en: "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/board/SKILL.md"
 path: ".gemini/skills/board/SKILL.md"
 is_collection: false

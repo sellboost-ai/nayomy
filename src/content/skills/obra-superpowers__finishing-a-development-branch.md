@@ -3,7 +3,7 @@ name: "finishing-a-development-branch"
 description_en: "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup"
 category: "Design"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/finishing-a-development-branch/SKILL.md"
 path: "skills/finishing-a-development-branch/SKILL.md"
 is_collection: false
@@ -14,224 +14,224 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Bir Geliştirme Şubesini Sonlandırma
-
+  
   ## Genel Bakış
-
+  
   Geliştirme işini sonlandırırken net seçenekler sunarak ve seçilen iş akışını gerçekleştirerek tamamlayın.
-
+  
   **Temel ilke:** Testleri doğrula → Ortamı algıla → Seçenekleri sun → Seçimi gerçekleştir → Temizle.
-
+  
   **Başlangıçta duyur:** "Bu işi tamamlamak için finishing-a-development-branch becerisini kullanıyorum."
-
+  
   ## İşlem
-
+  
   ### 1. Adım: Testleri Doğrula
-
+  
   **Seçenekleri sunmadan önce testlerin geçtiğini doğrula:**
-
+  
   ```bash
   # Projenin test paketini çalıştır
   npm test / cargo test / pytest / go test ./...
   ```
-
+  
   **Testler başarısız olursa:**
   ```
   Testler başarısız (<N> hata). Tamamlamadan önce düzeltilmeli:
-
+  
   [Hataları göster]
-
+  
   Testler geçene kadar merge/PR ile devam edilemez.
   ```
-
+  
   Dur. 2. Adıma geçme.
-
+  
   **Testler geçerse:** 2. Adıma devam et.
-
+  
   ### 2. Adım: Ortamı Algıla
-
+  
   **Seçenekleri sunmadan önce çalışma alanı durumunu belirle:**
-
+  
   ```bash
   GIT_DIR=$(cd "$(git rev-parse --git-dir)" 2>/dev/null && pwd -P)
   GIT_COMMON=$(cd "$(git rev-parse --git-common-dir)" 2>/dev/null && pwd -P)
   ```
-
+  
   Bu, hangi menüyü göstereceğini ve temizlemenin nasıl çalışacağını belirler:
-
+  
   | Durum | Menü | Temizleme |
   |-------|------|-----------|
   | `GIT_DIR == GIT_COMMON` (normal repo) | Standart 4 seçenek | Temizlenecek worktree yok |
   | `GIT_DIR != GIT_COMMON`, adlandırılmış şube | Standart 4 seçenek | Köken tabanlı (bkz. 6. Adım) |
   | `GIT_DIR != GIT_COMMON`, detached HEAD | Azaltılmış 3 seçenek (merge yok) | Temizleme yok (harici olarak yönetilen) |
-
+  
   ### 3. Adım: Temel Şubeyi Belirle
-
+  
   ```bash
   # Ortak temel şubeleri dene
   git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
   ```
-
+  
   Veya sor: "Bu şube main'den ayrıldı - doğru mu?"
-
+  
   ### 4. Adım: Seçenekleri Sun
-
+  
   **Normal repo ve adlandırılmış şube worktree — tam olarak bu 4 seçeneği sun:**
-
+  
   ```
   Uygulama tamamlandı. Ne yapmak istiyorsun?
-
+  
   1. <base-branch> adına yerel olarak birleştir
   2. Push yap ve Pull Request oluştur
   3. Şubeyi olduğu gibi tut (bunu daha sonra halledeceğim)
   4. Bu işi sil
-
+  
   Hangi seçenek?
   ```
-
+  
   **Detached HEAD — tam olarak bu 3 seçeneği sun:**
-
+  
   ```
   Uygulama tamamlandı. Detached HEAD'desin (harici olarak yönetilen çalışma alanı).
-
+  
   1. Yeni şube olarak push yap ve Pull Request oluştur
   2. Olduğu gibi tut (bunu daha sonra halledeceğim)
   3. Bu işi sil
-
+  
   Hangi seçenek?
   ```
-
+  
   **Açıklama ekleme** - seçenekleri kısa tut.
-
+  
   ### 5. Adım: Seçimi Gerçekleştir
-
+  
   #### Seçenek 1: Yerel Olarak Birleştir
-
+  
   ```bash
   # CWD güvenliği için ana repo root'u al
   MAIN_ROOT=$(git -C "$(git rev-parse --git-common-dir)/.." rev-parse --show-toplevel)
   cd "$MAIN_ROOT"
-
+  
   # Önce birleştir — herhangi bir şeyi kaldırmadan önce başarıyı doğrula
   git checkout <base-branch>
   git pull
   git merge <feature-branch>
-
+  
   # Birleştirme sonucunda testleri doğrula
   <test command>
-
+  
   # Sadece merge başarılı olduktan sonra: worktree'i temizle (6. Adım), sonra şubeyi sil
   ```
-
+  
   Sonra: Worktree'i temizle (6. Adım), sonra şubeyi sil:
-
+  
   ```bash
   git branch -d <feature-branch>
   ```
-
+  
   #### Seçenek 2: Push Yap ve PR Oluştur
-
+  
   ```bash
   # Şubeyi push yap
   git push -u origin <feature-branch>
   ```
-
+  
   **Worktree'i temizleme** — kullanıcının PR geri bildirimine göre yinelemesi için buna ihtiyacı var.
-
+  
   #### Seçenek 3: Olduğu Gibi Tut
-
+  
   Rapor et: "Şube <name> tutuldu. Worktree <path> konumunda korundu."
-
+  
   **Worktree'i temizleme.**
-
+  
   #### Seçenek 4: Sil
-
+  
   **Önce onayla:**
   ```
   Bunlar kalıcı olarak silinecek:
   - Şube <name>
   - Tüm commits: <commit-list>
   - Worktree <path> konumunda
-
+  
   Onaylamak için 'sil' yazın.
   ```
-
+  
   Tam onayı bekle.
-
+  
   Onaylanırsa:
   ```bash
   MAIN_ROOT=$(git -C "$(git rev-parse --git-common-dir)/.." rev-parse --show-toplevel)
   cd "$MAIN_ROOT"
   ```
-
+  
   Sonra: Worktree'i temizle (6. Adım), sonra şubeyi zorla sil:
   ```bash
   git branch -D <feature-branch>
   ```
-
+  
   ### 6. Adım: Çalışma Alanını Temizle
-
+  
   **Sadece Seçenek 1 ve 4 için çalışır.** Seçenek 2 ve 3 her zaman worktree'i korur.
-
+  
   ```bash
   GIT_DIR=$(cd "$(git rev-parse --git-dir)" 2>/dev/null && pwd -P)
   GIT_COMMON=$(cd "$(git rev-parse --git-common-dir)" 2>/dev/null && pwd -P)
   WORKTREE_PATH=$(git rev-parse --show-toplevel)
   ```
-
+  
   **Eğer `GIT_DIR == GIT_COMMON`:** Normal repo, temizlenecek worktree yok. Bitti.
-
+  
   **Worktree yolu `.worktrees/` veya `worktrees/` altındaysa:** Superpowers bu worktree'i oluşturdu — temizlemeyi sahipleniyoruz.
-
+  
   ```bash
   MAIN_ROOT=$(git -C "$(git rev-parse --git-common-dir)/.." rev-parse --show-toplevel)
   cd "$MAIN_ROOT"
   git worktree remove "$WORKTREE_PATH"
   git worktree prune  # Kendi kendini iyileştir: eski kayıtları temizle
   ```
-
+  
   **Aksi durumda:** Host ortamı (harness) bu çalışma alanının sahibi. Kaldırma. Platform bir çalışma alanı çıkış aracı sağlıyorsa, bunu kullan. Aksi takdirde, çalışma alanını yerinde bırak.
-
+  
   ## Hızlı Referans
-
+  
   | Seçenek | Birleştir | Push | Worktree'i Koru | Şubeyi Temizle |
   |---------|-----------|------|-----------------|----------------|
   | 1. Yerel olarak birleştir | evet | - | - | evet |
   | 2. PR oluştur | - | evet | evet | - |
   | 3. Olduğu gibi tut | - | - | evet | - |
   | 4. Sil | - | - | - | evet (zorla) |
-
+  
   ## Yaygın Hatalar
-
+  
   **Test doğrulamasını atlamak**
   - **Problem:** Bozuk kod birleştir, başarısız PR oluştur
   - **Fix:** Seçenekleri sunmadan önce daima testleri doğrula
-
+  
   **Açık uçlu sorular**
   - **Problem:** "Sonra ne yapmalıyım?" muğlak
   - **Fix:** Tam olarak 4 yapılandırılmış seçenek sun (detached HEAD için 3)
-
+  
   **Seçenek 2 için worktree'i temizlemek**
   - **Problem:** Kullanıcının PR yinelemesi için ihtiyaç duyduğu worktree'i kaldır
   - **Fix:** Sadece Seçenek 1 ve 4 için temizle
-
+  
   **Worktree kaldırmadan önce şubeyi silmek**
   - **Problem:** `git branch -d` worktree hala şubeye referans verdiği için başarısız
   - **Fix:** Önce birleştir, worktree'i kaldır, sonra şubeyi sil
-
+  
   **Worktree içinden git worktree remove çalıştırmak**
   - **Problem:** Kaldırılmakta olan worktree CWD'de olduğunda komut sessizce başarısız
   - **Fix:** Daima `git worktree remove` öncesinde ana repo root'a `cd` yap
-
+  
   **Harness'e ait worktree'leri temizlemek**
   - **Problem:** Harness'in oluşturduğu bir worktree'i kaldırmak phantom duruma neden ol
   - **Fix:** Sadece `.worktrees/` veya `worktrees/` altındaki worktree'leri temizle
-
+  
   **Discard için onay yok**
   - **Problem:** Yanlışlıkla işi sil
   - **Fix:** Yazılı "sil" onayı iste
-
+  
   ## Uyarı İşaretleri
-
+  
   **Asla:**
   - Başarısız testlerle devam etme
   - Sonuçta testleri doğrulamadan merge etme
@@ -240,7 +240,7 @@ body_tr: |-
   - Merge başarısını onaylamadan worktree'i silme
   - Oluşturmadığın worktree'leri temizleme (köken kontrolü)
   - Worktree içinden `git worktree remove` çalıştırma
-
+  
   **Her Zaman:**
   - Seçenekleri sunmadan önce testleri doğrula
   - Menüyü sunmadan önce ortamı algıla

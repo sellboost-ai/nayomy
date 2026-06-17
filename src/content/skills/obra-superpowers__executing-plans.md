@@ -3,7 +3,7 @@ name: "executing-plans"
 description_en: "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
 category: "Development"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/executing-plans/SKILL.md"
 path: "skills/executing-plans/SKILL.md"
 is_collection: false
@@ -14,56 +14,56 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Planları Yürütme
-
+  
   ## Genel Bakış
-
+  
   Planı yükle, eleştirel olarak gözden geçir, tüm görevleri gerçekleştir, tamamlandığında rapor et.
-
+  
   **Başlangıçta Duyur:** "Planı uygulamak için executing-plans becerisini kullanıyorum."
-
+  
   **Not:** İnsan ortağınıza Superpowers'ın subagent erişimi ile çok daha iyi çalıştığını söyleyin. Çalışmasının kalitesi, subagent desteğine sahip bir platformda çalıştırılması halinde önemli ölçüde daha yüksek olacaktır (Claude Code, Codex CLI, Codex App, Copilot CLI ve Gemini CLI hepsi uygun; `../using-superpowers/references/`'deki platform başına araç referanslarına bakın). Subagent'ler mevcutsa, bu beceri yerine superpowers:subagent-driven-development kullanın.
-
+  
   ## Süreç
-
+  
   ### Adım 1: Planı Yükle ve Gözden Geçir
   1. Plan dosyasını oku
   2. Eleştirel olarak gözden geçir - plan hakkında sorular veya endişeleri belirle
   3. Endişeler varsa: Başlamadan önce insan ortağınla ortaya çıkar
   4. Endişe yoksa: Plan öğeleri için yapılacaklar listesi oluştur ve devam et
-
+  
   ### Adım 2: Görevleri Yürüt
-
+  
   Her görev için:
   1. in_progress olarak işaretle
   2. Her adımı tam olarak takip et (plan küçük parçalara bölünmüştür)
   3. Belirtildiği şekilde doğrulamaları çalıştır
   4. Tamamlandı olarak işaretle
-
+  
   ### Adım 3: Geliştirmeyi Tamamla
-
+  
   Tüm görevler tamamlandıktan ve doğrulandıktan sonra:
   - Duyur: "Bu işi tamamlamak için finishing-a-development-branch becerisini kullanıyorum."
   - **GEREKLI ALT-BECERİ:** superpowers:finishing-a-development-branch kullanın
   - Testleri doğrulamak, seçenekler sunmak, seçimi yürütmek için bu beceriyi takip edin
-
+  
   ## Ne Zaman Durup Yardım İste
-
+  
   **ŞU ANDA YÜRÜTMEYI DURDUR:**
   - Bir engelle karşılaştığında (eksik bağımlılık, test başarısız, talimat belirsiz)
   - Plan başlamayı engelleyen kritik boşluklara sahip olduğunda
   - Bir talimatı anlamadığında
   - Doğrulama tekrar tekrar başarısız olduğunda
-
+  
   **Tahmin etmek yerine açıklama isteyin.**
-
+  
   ## Önceki Adımlara Ne Zaman Dönülür
-
+  
   **Gözden Geçirmeye Dön (Adım 1):**
   - İnsan ortağı planı geri bildiriminize göre güncellediğinde
   - Temel yaklaşım yeniden düşünülmesi gerektiğinde
-
+  
   **Engelleri zorlamayın** - durup isteyin.
-
+  
   ## Hatırla
   - Önce planı eleştirel olarak gözden geçir
   - Plan adımlarını tam olarak takip et
@@ -71,9 +71,9 @@ body_tr: |-
   - Plan söylediğinde becerilere başvur
   - Engelleneğinde durup tahmin etmeyin
   - Açık kullanıcı onayı olmadan asla main/master branch'inde uygulamaya başlamayın
-
+  
   ## Entegrasyon
-
+  
   **Gerekli iş akışı becerileri:**
   - **superpowers:using-git-worktrees** - İzole edilmiş çalışma alanını sağlar (bir tane oluşturur veya mevcut olanı doğrular)
   - **superpowers:writing-plans** - Bu becerinin yürüttüğü planı oluşturur

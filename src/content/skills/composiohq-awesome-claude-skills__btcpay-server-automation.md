@@ -3,7 +3,7 @@ name: "btcpay-server-automation"
 description_en: "Automate Btcpay Server tasks via Rube MCP (Composio). Always search tools first for current schemas."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/btcpay-server-automation/SKILL.md"
 path: "composio-skills/btcpay-server-automation/SKILL.md"
 is_collection: false
@@ -14,58 +14,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Btcpay Server Otomasyonu Rube MCP ile
-
+  
   Composio'nun Btcpay Server araç seti aracılığıyla Rube MCP ile Btcpay Server işlemlerini otomatikleştirin.
-
+  
   **Araç seti dokümantasyonu**: [composio.dev/toolkits/btcpay_server](https://composio.dev/toolkits/btcpay_server)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Btcpay Server bağlantısı (`btcpay_server` araç seti ile)
   - Mevcut araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Al**: İstemci konfigürasyonunda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS`'ı `btcpay_server` araç seti ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman mevcut araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Btcpay Server operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut araç slug'larını, input şemalarını, önerilen çalıştırma planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Btcpay Server task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["btcpay_server"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -75,18 +75,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce ara**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan araç slug'larını veya argümanlarını asla sabit kodlamayın
   - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yeni olanlar oluşturun
   - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | `RUBE_SEARCH_TOOLS` Btcpay Server-spesifik use case ile |
@@ -94,7 +94,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` keşfedilen araç slug'ları ile |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` `run_composio_tool()` ile |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` `schemaRef` içeren araçlar için |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

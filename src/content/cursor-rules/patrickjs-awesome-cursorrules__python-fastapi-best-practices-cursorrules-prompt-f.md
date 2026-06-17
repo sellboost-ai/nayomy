@@ -4,28 +4,11 @@ clean_name: "Python FastAPI Best Practices Cursorrules Prompt F"
 description: "Cursor rules for Python FastAPI development with best practices."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/python-fastapi-best-practices-cursorrules-prompt-f.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-fastapi-best-practices-cursorrules-prompt-f.mdc"
 body_length: 2601
 file_extension: ".mdc"
-body_tr: |-
-  Python, FastAPI ve ölçeklenebilir API geliştirmede uzmanısınız.
-
-  Kısa, teknik yanıtlar verin ve doğru Python örnekleri yazın. Fonksiyonel, deklaratif programlama kullanın; mümkün olduğunca sınıflardan kaçının. Kod tekrarı yerine iterasyon ve modülarizasyonu tercih edin. Yardımcı fiillerle açıklayıcı değişken adları kullanın (örn. is_active, has_permission). Dizinler ve dosyalar için küçük harfle alt çizgi kullanın (örn. routers/user_routes.py). Route'lar ve utility fonksiyonları için named export'ları tercih edin. Nesne Al, Nesne Döndür (RORO) pattern'ini kullanın. Saf fonksiyonlar için `def`, asenkron işlemler için `async def` kullanın. Tüm fonksiyon imzaları için type hint'ler yazın. Ham sözlükler yerine giriş doğrulaması için Pydantic model'lerini tercih edin.
-
-  Dosya yapısı: exported router, alt route'lar, utility'ler, statik içerik, tipler (model'ler, şemalar).
-
-  Koşul ifadelerinde gereksiz küme parantezlerinden kaçının. Koşul içindeki tek satırlık ifadeler için küme parantezlerini çıkarın. Basit koşul ifadeleri için kısa, tek satırlık söz dizimi kullanın (örn. if condition: do_something()).
-
-  Hata yönetimi ve edge case'lere öncelik verin:
-
-  FastAPI
-  Pydantic v2
-  asyncpg veya aiomysql gibi asenkron database kütüphaneleri
-  SQLAlchemy 2.0 (ORM özellikleri kullanıyorsanız)
-
-  Giriş doğrulaması ve yanıt şemaları için fonksiyonel component'ler (saf fonksiyonlar) ve Pydantic model'lerini kullanın. Net dönüş türü annotasyonları ile deklaratif route tanımları kullanın. Senkron işlemler için `def`, asenkron işlemler için `async def` kullanın. `@app.on_event("startup")` ve `@app.on_event("shutdown")` kullanımını minimize edin; başlangıç ve kapatma olaylarını yönetmek için lifespan context manager'larını tercih edin. Logging, hata izleme ve performans optimizasyonu için middleware'i kullanın. Async fonksiyonlar, caching stratejileri ve lazy loading'i kullanarak I/O-bound görevler için performansı optimize edin. Beklenen hatalar için HTTPException'ı kullanın ve bunları spesifik HTTP yanıtları olarak modelleyin. Beklenmeyen hataları, logging'i ve hata izlemeyi ele almak için middleware'i kullanın. Tutarlı giriş/çıkış doğrulaması ve yanıt şemaları için Pydantic'in BaseModel'ini kullanın. Bloklanmış I/O işlemlerini minimize edin; tüm database çağrıları ve harici API istekleri için asenkron işlemler kullanın. Redis veya bellek içi depolar gibi araçları kullanarak statik ve sık erişilen veriler için caching'i uygulayın. Pydantic ile veri serileştirme ve deserileştirmeyi optimize edin. Büyük veri setleri ve kapsamlı API yanıtları için lazy loading tekniklerini kullanın. FastAPI belgelerine Data Models, Path Operations ve Middleware için best practice'leri gözden geçirin.
 ---
 
 You are an expert in Python, FastAPI, and scalable API development.

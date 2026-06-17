@@ -3,7 +3,7 @@ name: "engineering-advanced-skills"
 description_en: "Index of 37 advanced engineering agent skills for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Use when browsing or choosing among the POWERFUL-tier engineering skills: agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, changelog/release automation, reliability (SLO/chaos/flags/operators), platform ops."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/engineering-advanced-skills/SKILL.md"
 path: ".gemini/skills/engineering-advanced-skills/SKILL.md"
 is_collection: false
@@ -14,23 +14,23 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Mühendislik İleri Beceriler (POWERFUL Seviyesi)
-
+  
   Karmaşık mimari, otomasyon, güvenilirlik ve platform operasyonları için 37 ileri mühendislik becerisi.
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Claude Code
   ```
   /read engineering/skills/agent-designer/SKILL.md
   ```
-
+  
   ### Codex CLI
   ```bash
   npx agent-skills-cli add alirezarezvani/claude-skills/engineering
   ```
-
+  
   ## Beceriler Özeti
-
+  
   | Beceri | Klasör | Odak |
   |-------|--------|------|
   | Agent Designer | `agent-designer/` | Multi-agent mimarisi: plan, schema-generate, evaluate |
@@ -70,11 +70,11 @@ body_tr: |-
   | SQL Database Assistant | `sql-database-assistant/` | Query optimizasyonu, 4 dialect |
   | TC Tracker | `tc-tracker/` | Task context lifecycle + handoff'lar |
   | Tech Debt Tracker | `tech-debt-tracker/` | Debt taraması → öncelik → dashboard |
-
+  
   Not: Release yönetimi `changelog-generator/` içine birleştirildi (version bumper + hotfix/rollback prosedürleri artık orada bulunmaktadır).
-
+  
   ## Kurallar
-
+  
   - Yalnızca ihtiyacınız olan spesifik SKILL.md dosyasını yükleyin
   - Bunlar ileri becerilerdir — gerektiğinde engineering-team/ core becerilerine kombinasyon ile bakın
 ---

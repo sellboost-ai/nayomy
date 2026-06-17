@@ -4,85 +4,11 @@ clean_name: "Shopify Theme Dev Liquid"
 description: "Best practices for Shopify theme development with Liquid, JavaScript, and CSS"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/shopify-theme-dev-liquid.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/shopify-theme-dev-liquid.mdc"
 body_length: 3916
 file_extension: ".mdc"
-body_tr: |-
-  # Shopify Tema Geliştirme En İyi Uygulamaları
-
-  ## Proje Yapısı
-  - Net bir **dizin yapısı** benimseyin, örneğin `sections`, `snippets`, `templates`, `assets`.
-  - **Genel modülleri** (JavaScript işlevleri gibi) ayrı dosyalara düzenleyin.
-  - **Liquid dosyalarını** kısa tutun ve tek bir sorumluluğa odaklayın, tek parça dosyalardan kaçının.
-  - Şablonları ve bölümleri **sayfa veya işlevselliğe** göre düzenleyin.
-  - Uygun **uluslararasılaştırma (i18n)** dosya yönetimini uygulayın.
-  - Stil organizasyonu için **SCSS/CSS Modules** kullanarak global kirliliği önleyin.
-
-  ## Liquid Templating
-  - `include` yerine `render` etiketini tercih edin.
-  - **Veritabanı sorgularını** döngüler içinde sınırlayarak N+1 sorunlarından kaçının.
-  - **Filtreleri** ihtiyatlı bir şekilde kullanın, özellikle karmaşık hesaplamalı olanları.
-  - Redundant hesaplamaları azaltmak için Liquid'in **önbelleğe alma mekanizmalarından** yararlanın.
-  - Karmaşık **mantık işlemeyi** doğrudan Liquid'de yapmaktan kaçının; karmaşık mantığı JavaScript'e taşıyın.
-  - Değişkenleri etkili bir şekilde tanımlamak ve yeniden kullanmak için `assign` ve `capture` kullanın.
-
-  ## JavaScript Geliştirme
-  - JS'yi modülarizey edin, **ES Modules** kullanarak import ve export işlemleri yapın.
-  - Modern JavaScript **en iyi uygulamalarını** izleyin, örneğin `const`/`let`, arrow function, vb.
-  - Doğrudan **DOM manipülasyonundan** kaçının; event delegation'ı önceliklendirin.
-  - **JavaScript performansını** optimize ederek yeniden boyama ve yeniden akışları azaltın.
-  - Bundling ve kod optimizasyonu için **Webpack/Rollup** kullanmayı düşünün.
-  - Net **yorumlar** ve **JSDoc** yazın.
-
-  ## CSS/SCSS Stil Oluşturma
-  - **BEM, OOCSS veya Utility-First CSS** gibi adlandırma kurallarına uyun.
-  - **CSS seçicilerini** optimize ederek rendering performansını geliştirin.
-  - Renkler ve yazı tipleri gibi tema konfigürasyonlarını yönetmek için **CSS değişkenleri** kullanın.
-  - Tüm cihazlar arasında tutarlı tema görünümünü sağlamak için **responsive design** uygulayın.
-  - Kullanılmayan stilleri kaldırarak **CSS dosya boyutunu** minimize edin.
-  - **SCSS mixins** ve **functions**'dan iyi bir şekilde yararlanın.
-
-  ## Bölümler ve Bloklar
-  - Yapılandırılabilir seçenekleri tanımlamak için Bölüm **Schema**'sından yararlanın.
-  - **Bölüm bağımsızlığını ve yeniden kullanılabilirliğini** koruyun.
-  - Bölümler için net **ön ayarlar** sağlayın.
-  - Bölüm esnekliğini artırmak için **Blocks** kullanın.
-  - Bölümlerin **Shopify Customizer**'da iyi bir kullanıcı deneyimi sağlamasını sağlayın.
-  - İçeriği bölümlerde hardcode etmekten kaçının; mümkün olan her zaman Schema yapılandırmalarını kullanın.
-
-  ## Performans Optimizasyonu
-  - Shopify'ın CDN'ini ve `image_url` filtresini kullanarak **görüntü yüklemesini** optimize edin.
-  - **JavaScript ve CSS dosyalarını** minimize edin.
-  - **Tarayıcı önbelleğinden** yararlanın.
-  - **HTTP isteklerinin** sayısını azaltın.
-  - **Lazy loading** kullanmayı düşünün.
-  - Google Lighthouse ve Shopify Theme Check kullanarak **tema performansını** izleyin.
-
-  ## Erişilebilirlik (A11y)
-  - Tüm etkileşimli öğelerin **klavye erişimine** sahip olduğundan emin olun.
-  - Görüntüler için anlamlı **`alt` metni** sağlayın.
-  - Doğru **HTML semantik etiketleri** kullanın.
-  - **Renk kontrastını** göz önünde bulundurun.
-  - Net **odak durumları** uygulayın.
-  - Karmaşık bileşenlerin erişilebilirliğini artırmak için **ARIA öznitelikleri** kullanın.
-
-  ## Bakım ve Ölçeklenebilirlik
-  - Net **kod yorumları** ve dokümantasyon yazın.
-  - Kod tutarlılığını korumak için **adlandırma kurallarını** izleyin.
-  - Tema işlevselliklerini düzenli olarak **test edin**.
-  - Farklı **tarayıcılar ve cihazlar** arasında uyumluluğu sağlayın.
-  - Gelecekteki **genişletilebilirliği** göz önünde bulundurun, sıkı bağlantıdan kaçının.
-  - Yerel geliştirme ve dağıtım için **Shopify CLI** kullanın.
-
-  ## Kalite ve Test
-  - Statik kod analizi için **Shopify Theme Check** kullanın.
-  - **Birim testleri** yazın (uygun olduğu yerlerde).
-  - Kapsamlı **end-to-end test** yürütün.
-  - Farklı ortamlarda test edin (yerel, geliştirme mağazası, üretim mağazası).
-  - **Uyumluluk testine** odaklanın (tarayıcılar, cihazlar, Shopify sürümleri).
-  - **Hata işleme** ve edge case'leri test edin.
 ---
 
 # Shopify Theme Development Best Practices

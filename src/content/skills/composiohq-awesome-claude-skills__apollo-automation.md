@@ -3,7 +3,7 @@ name: "Apollo Automation"
 description_en: "Automate Apollo.io lead generation -- search organizations, discover contacts, enrich prospect data, manage contact stages, and build targeted outreach lists -- using natural language through the Composio MCP integration."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/apollo-automation/SKILL.md"
 path: "composio-skills/apollo-automation/SKILL.md"
 is_collection: false
@@ -14,34 +14,34 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Apollo Otomasyonu
-
+  
   Apollo.io ile satış prospektinizi güçlendirin -- şirketleri arayın, karar alıcılarını keşfedin, kişi verilerini e-posta ve telefon numaralarıyla zenginleştirin ve satış hattı aşamalarını yönetin -- hepsi doğal dil komutlarıyla.
-
+  
   **Toolkit belgeleri:** [composio.dev/toolkits/apollo](https://composio.dev/toolkits/apollo)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   1. Composio MCP sunucusunu istemci yapılandırmanıza ekleyin:
      ```
      https://rube.app/mcp
      ```
   2. İstendiğinde Apollo.io hesabınızı bağlayın (API anahtar kimlik doğrulaması).
   3. Potansiyel müşteri arama ve lead zenginleştirmeye yönelik doğal dil komutları vermeye başlayın.
-
+  
   ---
-
+  
   ## Temel İş Akışları
-
+  
   ### 1. Kuruluşları Arama
   Ad, konum, çalışan sayısı ve endüstri anahtar kelimeleri gibi filtreleri kullanarak hedef şirketleri bulun.
-
+  
   **Tool:** `APOLLO_ORGANIZATION_SEARCH`
-
+  
   **Örnek istem:**
   > "Apollo'da Teksas'ta 50-500 çalışanı olan SaaS şirketlerini bul"
-
+  
   **Anahtar parametreler:**
   - `q_organization_name` -- Kısmi ad eşleşmesi (örn. "Apollo" matches "Apollo Inc.")
   - `organization_locations` -- Dahil edilecek merkez ofis konumları (örn. "texas", "tokyo")
@@ -49,17 +49,17 @@ body_tr: |-
   - `organization_num_employees_ranges` -- "min,max" formatında çalışan aralıkları (örn. "50,500")
   - `q_organization_keyword_tags` -- Endüstri anahtar kelimeleri (örn. "software", "healthcare")
   - `page` / `per_page` -- Sayfalandırma (sayfa başına max 100, max 500 sayfa)
-
+  
   ---
-
+  
   ### 2. Şirketlerdeki İnsanları Keşfedin
   Başlık, kıdem, konum ve şirket kriterlerine göre eşleşen insanları Apollo'nun kişi veritabanında arayın.
-
+  
   **Tool:** `APOLLO_PEOPLE_SEARCH`
-
+  
   **Örnek istem:**
   > "microsoft.com ve apollo.io'da Satış VP'lerini bul"
-
+  
   **Anahtar parametreler:**
   - `person_titles` -- İş unvanları (örn. "VP of Sales", "CTO")
   - `person_seniorities` -- Kıdem seviyeleri (örn. "director", "vp", "senior")
@@ -68,17 +68,17 @@ body_tr: |-
   - `organization_ids` -- Kuruluş Aramasından Apollo şirket kimlikleri
   - `contact_email_status` -- E-posta durumuna göre filtreleyin: "verified", "unverified", "likely to engage"
   - `page` / `per_page` -- Sayfalandırma (sayfa başına max 100)
-
+  
   ---
-
+  
   ### 3. Bireysel Kişileri Zenginleştirin
   Bir kişinin e-postası, LinkedIn URL'si veya adı + şirketi kullanarak kapsamlı veriler (e-posta, telefon, LinkedIn, şirket bilgisi) alın.
-
+  
   **Tool:** `APOLLO_PEOPLE_ENRICHMENT`
-
+  
   **Örnek istem:**
   > "Apollo.io'daki Tim Zheng'i Apollo'da zenginleştir"
-
+  
   **Anahtar parametreler (en az bir tanımlayıcı gerekli):**
   - `email` -- Kişinin e-posta adresi
   - `linkedin_url` -- Tam LinkedIn profil URL'si
@@ -86,61 +86,61 @@ body_tr: |-
   - `domain` -- Protokol olmayan basit ana bilgisayar adı (örn. "apollo.io", "https://apollo.io" değil)
   - `reveal_personal_emails` -- Kişisel e-postalar almak için true olarak ayarlayın (ekstra kredi kullanabilir)
   - `reveal_phone_number` -- Telefon numaraları için true olarak ayarlayın (webhook_url gerekli)
-
+  
   ---
-
+  
   ### 4. Toplu Olarak Potansiyel Müşterileri Zenginleştirin
   Verimli batch işleme için aynı anda 10'a kadar kişiyi zenginleştirin.
-
+  
   **Tool:** `APOLLO_BULK_PEOPLE_ENRICHMENT`
-
+  
   **Örnek istem:**
   > "Bu 5 lead'i Apollo verileriyle toplu olarak zenginleştir: [ad/e-posta listesi]"
-
+  
   **Anahtar parametreler:**
   - `details` (gerekli) -- 1-10 kişi nesnesi dizisi, her biri `email`, `linkedin_url`, `first_name`, `last_name`, `domain`, `company_name` gibi tanımlayıcılarla
   - `reveal_personal_emails` -- Kişisel e-postalar dahil et (ekstra kredi)
   - `reveal_phone_number` -- Telefon numaraları dahil et (webhook_url gerekli)
-
+  
   ---
-
+  
   ### 5. Kişi Hattı Aşamalarını Yönetin
   Mevcut aşamaları listeleyin ve kişileri satış hattınızda ilerletin.
-
+  
   **Tools:** `APOLLO_LIST_CONTACT_STAGES`, `APOLLO_UPDATE_CONTACT_STAGE`
-
+  
   **Örnek istem:**
   > "X ve Y kişilerini Apollo'da 'Qualified' aşamasına taşı"
-
+  
   **Aşamaları listeleme için anahtar parametreler:** Hiçbiri gerekli değildir.
-
+  
   **Aşamayı güncelleme için anahtar parametreler:**
   - `contact_ids` (gerekli) -- Güncellenecek kişi kimlikleri dizisi
   - `contact_stage_id` (gerekli) -- Hedef aşama kimliği (Liste Kişi Aşamalarından)
-
+  
   ---
-
+  
   ### 6. Kaydedilmiş Kişileri Oluşturun ve Arayın
   Yeni kişi kayıtları oluşturun ve mevcut Apollo kişi veritabanınızda arayın.
-
+  
   **Tools:** `APOLLO_CREATE_CONTACT`, `APOLLO_SEARCH_CONTACTS`
-
+  
   **Örnek istem:**
   > "Apollo kişilerimde Stripe'daki herkesin arasında ara"
-
+  
   **Arama için anahtar parametreler:**
   - Anahtar kelime arama, aşama kimliği filtrelemesi, sıralama seçenekleri
   - `page` / `per_page` -- Sayfalandırma
-
+  
   **Oluşturma için anahtar parametreler:**
   - `first_name`, `last_name`, `email`, `organization_name`
   - `account_id` -- Bir kuruluşa bağlantı verin
   - `contact_stage_id` -- İlk satış aşaması
-
+  
   ---
-
+  
   ## Bilinen Tuzaklar
-
+  
   - **Kuruluş alanları boş olabilir**: `APOLLO_ORGANIZATION_SEARCH` öğesinden bazı kuruluşlar eksik veya boş alan alanları döndürür. Alan adlarını doğrulamadan önce `APOLLO_ORGANIZATION_ENRICHMENT` kullanın.
   - **HTTP 403 yapılandırma sorunları anlamına gelir**: 403 yanıtı API anahtarı veya plan erişimi sorunlarını gösterir -- yeniden denemeyin. Önce kimlik bilgilerinizi veya planınızı düzeltin.
   - **İnsan araması obfüskat verileri döndürür**: `APOLLO_PEOPLE_SEARCH` tam iletişim bilgileri yerine `has_email`/`has_direct_phone` bayraklarını veya obfüskat alanları gösterebilir. Tam bilgi almak için `APOLLO_PEOPLE_ENRICHMENT` kullanın.
@@ -148,11 +148,11 @@ body_tr: |-
   - **Toplu zenginleştirme küçük batch sınırlarına sahiptir**: `APOLLO_BULK_PEOPLE_ENRICHMENT` çağrı başına yalnızca 10 öğe kabul eder. Tanımlayıcılar yetersiz olduğunda `status='success'` ile `missing_records > 0` döndürebilir -- bireysel kayıtları `APOLLO_PEOPLE_ENRICHMENT` ile yeniden deneyin.
   - **Otomatik deduplication yok**: `APOLLO_CREATE_CONTACT` çoğaltmaz. Önce `APOLLO_SEARCH_CONTACTS` ile mevcut kişileri kontrol edin.
   - **Alan adı formatı önemlidir**: Her zaman basit ana bilgisayar adları (örn. "apollo.io") kullanın, protokol önekleri ("https://") veya "www." önekeri olmadan.
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Tool Slug | Gerekli Parametreler |
   |---|---|---|
   | Kuruluşları ara | `APOLLO_ORGANIZATION_SEARCH` | Hiçbiri (isteğe bağlı filtreler) |
@@ -165,9 +165,9 @@ body_tr: |-
   | Kişi aşamasını güncelle | `APOLLO_UPDATE_CONTACT_STAGE` | `contact_ids`, `contact_stage_id` |
   | Kişi oluştur | `APOLLO_CREATE_CONTACT` | Ad + tanımlayıcılar |
   | Kişileri ara | `APOLLO_SEARCH_CONTACTS` | Hiçbiri (isteğe bağlı filtreler) |
-
+  
   ---
-
+  
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 

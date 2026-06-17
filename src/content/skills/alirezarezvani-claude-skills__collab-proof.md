@@ -3,7 +3,7 @@ name: "collab-proof"
 description_en: "Use when you want to understand what Claude contributed vs what you drove in a session. Triggers on: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/collab-proof/SKILL.md"
 path: ".gemini/skills/collab-proof/SKILL.md"
 is_collection: false
@@ -14,18 +14,18 @@ has_examples: false
 related_files: []
 body_tr: |-
   # collab-proof
-
+  
   Geliştiricinin bilinçli olarak kaydetmediği AI işbirliği kanıtlarını ortaya çıkar.
   Vela 3 katmanlı pipeline × ADHD 4 çerçeve akıl yürütme — prompt-native, sıfır bağımlılık.
-
+  
   ---
-
+  
   ## Layer 01 — Signal tespiti
-
+  
   Önce `git log --oneline -10` ve `git diff --stat HEAD~3..HEAD` komutlarını çalıştırın.
-
+  
   Bu rubriği kullanarak sinyal seviyesini sınıflandırın (en yüksek eşleşeni seçin):
-
+  
   **HIGH** → tam artifact'lar (DECISIONS.md + session-history + WORKLOG + HTML)
   - Yeni dosya oluşturuldu, VEYA
   - 4+ dosya değiştirildi, VEYA
@@ -33,7 +33,7 @@ body_tr: |-
   - Tasarım tartışması 15+ değişim sürdü, VEYA
   - **Kök neden tanısı ile hata** — konuşma hatanın NEDEN olduğunu içerir
     (sadece "X düzeltildi" değil, "hata Y'den kaynaklandı çünkü Z")
-
+  
   **BUG_FIXING özel kuralı** — dosya sayısını geçersiz kıl:
   Sadece 1 dosya değişse bile, konuşma şunları içeriyorsa HIGH olarak sınıflandırın:
   - Kök neden açıklaması ("hata şuydu...", "bu şu nedenle oldu...", "sorun şuydu...")
@@ -41,78 +41,78 @@ body_tr: |-
   - Düzeltme mantığı ("bu yaklaşımı seçtim çünkü...", "X yerine Y'yi kullandım çünkü...")
   Hatalar için dosya sayısı önemli değil — iyi tanısı konmuş tek dosyalı bir düzeltme,
   tartışması olmayan 10 dosyalı bir özellikten daha değerlidir.
-
+  
   **MEDIUM** → yalnızca WORKLOG
   - 1–3 dosya değiştirildi, kök neden tartışması yok, VEYA
   - Küçük özellik eklendi, tradeoff tartışılmadı
-
+  
   **LOW** → sessizlik, kullanıcıya "Rutin oturum — hiçbir şey kaydedilmedi." deyin
   - Kod değişikliği yok, yalnızca planlama/tartışma, VEYA
   - Tek önemsiz değişiklik, bağlam yok ("bunu değiştir", "yazım hatası düzelt", "değişkeni yeniden adlandır")
-
+  
   Kullanıcıya gösterin: `Signal: HIGH / MEDIUM / LOW — [tek satırlık sebep]`
-
+  
   ---
-
+  
   ## Layer 02 — WorkIntentClassifier
-
+  
   Konuşma bağlamı + git diff'e karşı dört çerçevenin hepsini aynı anda çalıştırın.
   Aşağıdaki rubriği kullanarak her çerçeveyi 0.0–1.0 arasında puanlayın. Sonra budama ve sınıflandırma kurallarını uygulayın.
-
+  
   ### Çerçeve puanlama rubriği
-
+  
   **Çerçeve A — Teknik** (kod değişikliği karmaşıklığı)
   - `1.0` Yeni modül/dosya oluşturuldu, karmaşık mantık eklendi (state machine, Lua script, yeni algoritma)
   - `0.5` Mevcut fonksiyon mantığı değiştirildi, basit API endpoint'i eklendi
   - `0.1` Yazım hatası düzeltmesi, yorum değişikliği, düz metin düzenleme
-
+  
   **Çerçeve B — Belirsizlik** (geliştirici şüphe sinyalleri)
   - `1.0` Kod yazılıp tamamen geri alındı, açık şüphe ifadesi ("bu doğru mu?", "çalışmıyor"), `git revert`
   - `0.5` Uygulama sırasında Claude'dan tavsiye istendi, aynı alan üzerinde 2+ revizyonlar
   - `0.0` Kesintisiz direktif yürütme — geliştirici tam olarak ne yapacağını biliyordu
-
+  
   **Çerçeve C — Fork** (karar dalı varlığı)
   - `1.0` Konuşmada iki veya daha fazla alternatif açıkça karşılaştırıldı (A vs B)
   - `0.5` Açık karşılaştırma yok ama tradeoff'dan bahsedildi (performans vs okunabilirlik)
   - `0.0` Tek standart yaklaşım uygulandı, alternatif düşünülmedi
-
+  
   **Çerçeve D — AI katkısı** (Claude'un gerçek etkisi)
   - `1.0` Claude geliştirici tarafından fark edilmeyen bir hatayı/kenar durumu belirledi ve düzeltme önerdi
   - `0.6` Claude yürütmeyi önemli ölçüde hızlandıran yapısal boilerplate/iskelet oluşturdu
   - `0.2` Claude geliştirici tarafından yönlendirilen kodu bağımsız katkı olmadan yeniden biçimlendirdi veya transkripsiyonunu yaptı
-
+  
   ---
-
+  
   ### Budama kuralı
-
+  
   0.4'ten düşük puan alan herhangi bir çerçeveyi budayın.
-
+  
   **İstisna — Yüksek Hızlı Yürütme Koruma:**
   Eğer `Frame A >= 0.8` VE `Frame D >= 0.6` ise, Frame B = 0.0 ve Frame C = 0.0 olsa bile
   budama yapmayın ve oturumu sessiz bırakmayın.
   Bu bir boilerplate-ağır FEATURE_BUILDING oturumudur. Hemen `FEATURE_BUILDING` olarak `HIGH` sinyaliyle sınıflandırın.
   Neden: hızlı hareket eden bir oturumda sıfır belirsizlik onu atılması için bir neden değil, bir özelliktir.
-
+  
   ---
-
+  
   ### Niyet sınıflandırması
-
+  
   | Kalan çerçeveler | Baskın niyet | Anlamı |
   |---|---|---|
   | A yüksek + D orta-yüksek (B, C düşük) | `FEATURE_BUILDING` | Yüksek hız özellik oluşturma, Claude iskelet yapısı |
   | B yüksek + A/D yüksek | `BUG_FIXING` veya `STUCK` | Aktif hata ayıklama veya çözülmemiş döngü |
   | C yüksek + A yüksek | `REFACTORING` veya `EXPLORING` | Mimari keşif, alternatifleri tartma |
   | Tüm çerçeveler < 0.4 | `FLOW_STATE` veya LOW | Rutin yazım, Layer 01 HIGH değilse sessiz |
-
+  
   Birden fazla niyet bağlı kalsa, en yüksek birleşik çerçeve puanı olanını seçin.
   Runner-up'ı kaydedin — oturum anlatısına ait.
-
+  
   ---
-
+  
   ### İç çıktı formatı
-
+  
   Layer 03'e geçmeden önce bu yapıya çözünleyin (kullanıcıya gösterin):
-
+  
   ```json
   {
     "frames": {
@@ -127,18 +127,18 @@ body_tr: |-
     "calibration_note": "uygulanan herhangi bir istisna kuralını açıklayan bir cümle"
   }
   ```
-
+  
   ---
-
+  
   ## Layer 03 — Çıktı
-
+  
   ### Eğer HIGH sinyal ise
-
+  
   **`DECISIONS.md`'ye ekleyin** — gerçek fork başına bir giriş (Frame C alternatiflerin var olduğunu onaylamalı):
-
+  
   ```markdown
   ## [YYYY-MM-DD] <başlık>
-
+  
   **Bağlam**: [Frame A — bu seçimi zorlayan şey]
   **Karar**: ne seçildi
   **Düşünülen alternatifler**: [Frame C — gidilmeyen yol]
@@ -151,14 +151,14 @@ body_tr: |-
   **Sinyal puanı**: HIGH
   **Sonuç**: uygulandı | beklemede | tersine çevrildi
   ```
-
+  
   Gerçek fork yoksa → hiçbir şey yazma. Kararları asla uydurma.
-
+  
   **BUG_FIXING niyeti: bunun yerine bu formatı kullanın:**
-
+  
   ```markdown
   ## [YYYY-MM-DD] <hata başlığı>
-
+  
   **Kök neden**: hatanın gerçekten ne yaptığı — sadece ne değil, NEDEN
   **Semptom**: geliştirici tarafından gözlemlenen ne
   **Düzeltme**: ne değiştirildi
@@ -172,60 +172,60 @@ body_tr: |-
   **Sinyal puanı**: HIGH
   **Sonuç**: düzeltildi | geçici çözüm | ertelendi
   ```
-
+  
   **Oluşturun `session-history/YYYY-MM-DD-HHMM.md`**:
-
+  
   ```markdown
   # Oturum [YYYY-MM-DD HH:MM]
-
+  
   **Niyet**: [sınıf] (runner-up: [sınıf varsa])
   **Sinyal**: HIGH
   **Etkin çerçeveler**: A ([puan]) / B ([puan]) / C ([puan]) / D ([puan])
-
+  
   ## Gönderilen ne
   [git log'a dayalı]
-
+  
   ## Anlaşılan ne
   [Frame B + C — akıl yürütme, tradeoff'lar, hata ayıklama — geliştiricilerin unuttukları]
-
+  
   ## Bu oturumda alınan kararlar
   [DECISIONS.md girdilerine refs]
-
+  
   ## Zorlu olduğu yerler
   [Frame B bulguları — belirsizlik, revert'ler, EXPLORING/STUCK sinyalleri]
-
+  
   ## AI katkısı özeti
   [Frame D sentezi — bir dürüst paragraf, kalibre edilmiş]
-
+  
   ## Anlaşılan sonraki adımlar
   [açıkça eksik olan ne]
   ```
-
+  
   **`WORKLOG.md`'ye ekleyin**:
   ```
   YYYY-MM-DD HH:MM | [niyet] | HIGH | D:[puan] | cache:[hit%]% | tok:[toplam] | <fiil cümlesi> — <neden önemli olduğu>
   ```
-
+  
   Alanlar:
   - `D:[puan]` — Frame D AI katkısı puanı (0.0–1.0)
   - `cache:[hit%]%` — token analizinden cache hit oranı (veri yoksa `cache:n/a`)
   - `tok:[toplam]` — bu oturum için toplam tokenlar (input + cache_read + cache_create + output, K cinsinden, örn. `45K`)
   - fiil cümlesi — ne gönderildi, git log'a dayalı
-
+  
   **Token kullanımını topla** (bash — bunu çalıştırın ve çıktıyı yakala):
   ```bash
   python3 -c "
   import json, sys
   from pathlib import Path
-
+  
   projects = Path.home() / '.claude/projects'
   files = sorted(projects.rglob('*.jsonl'), key=lambda f: f.stat().st_mtime, reverse=True)
   if not files:
       print('no_data'); sys.exit()
-
+  
   with open(files[0]) as fp:
       lines = [json.loads(l) for l in fp if l.strip()]
-
+  
   ti = to = cr = cc = 0
   turns = []
   for i, line in enumerate(lines):
@@ -243,7 +243,7 @@ body_tr: |-
                   prompt = (c if isinstance(c, str) else next((x.get('text','') for x in c if isinstance(x,dict) and x.get('type')=='text'), ''))[:80]
                   break
           turns.append((inp, prompt))
-
+  
   total = ti + cr + cc
   hit = cr / total * 100 if total else 0
   print(f'input={ti} output={to} cache_read={cr} cache_create={cc} hit={hit:.0f} turns={len(turns)}')
@@ -252,17 +252,17 @@ body_tr: |-
       print(f'top{idx+1}={tok}|{p}')
   "
   ```
-
+  
   Çıktıyı ayrıştırın ve token istatistiklerini oturum anlatısına dahil edin. Sonra:
-
+  
   **Oluşturun `session-history/YYYY-MM-DD-HHMM-proof.html`** — kendi başına yeterli bir HTML dosyası yazın. Yapı ve sınıf adları sabittir — yeniden adlandırmayın veya yeniden sıralamayın.
-
+  
   **Sabit CSS tokenları (tam olarak kullanın):**
   - Arka plan: `#0d1117`, Kart: `#161b22`, Sınır: `#30363d`
   - Font: `font-family: 'Courier New', monospace`
   - Çerçeve puan renkleri: `high` → `#3fb950`, `low` → `#f85149`, budanmış → `#8b949e`
   - AI satırı renkleri: `ai-identified` → `#a371f7`, `ai-suggested` → `#d29922`, `ai-developer` → `#3fb950`
-
+  
   **Sabit HTML yapısı (sınıf adları tam olarak eşleşmelidir):**
   ```
   <div class="header">
@@ -274,7 +274,7 @@ body_tr: |-
       <div class="signal-label">
       <div class="signal-track">
         <div class="signal-fill">             <!-- width % sinyal puanı tarafından yönlendirilir -->
-
+  
   <div class="section">                       <!-- çerçeveler -->
     <div class="section-title"> ... <span class="count">Layer 02 · ADHD tree-of-thought</span>
     <div class="frames-grid">
@@ -282,7 +282,7 @@ body_tr: |-
         <div class="frame-label">            <!-- Frame A / B / C / D -->
         <div class="frame-name">
         <div class="frame-score high|low">   <!-- puan değeri -->
-
+  
   <div class="section">                       <!-- kararlar — hiç yoksa bölümü atla -->
     <div class="section-title"> ... <span class="count">N kayıtlı</span>
     <div class="decision-card">              <!-- DECISIONS.md girdisi başına bir -->
@@ -303,7 +303,7 @@ body_tr: |-
           <div class="field-label">Sonuç</div>
           <div class="field-value">
             <span class="outcome-badge outcome-implemented|outcome-pending|outcome-reversed">
-
+  
   <div class="section">                       <!-- oturum anlatısı -->
     <div class="section-title">Oturum anlatısı</div>
     <div class="narrative-grid">
@@ -311,22 +311,22 @@ body_tr: |-
       <div class="narrative-card">           <!-- Anlaşılan ne -->
       <div class="narrative-card">           <!-- Zorlu olduğu yerler -->
       <div class="narrative-card">           <!-- Anlaşılan sonraki adımlar -->
-
+  
   <div class="section">                       <!-- AI katkısı özeti -->
     <div class="section-title">AI katkısı özeti</div>
     <div class="narrative-card">             <!-- Frame D sentezi paragrafı -->
-
+  
   <div class="section">                       <!-- token kullanımı -->
     <div class="section-title">Token kullanımı</div>
     <div class="narrative-card">             <!-- cache hit oranı çubuğu + en üst dönüşümler + optimizasyon notu -->
-
+  
   <div class="section">                       <!-- worklog kuyruğu -->
     <div class="section-title"> ... <span class="count">son N girdi</span>
     <div class="worklog-entry">              <!-- son WORKLOG satırı başına bir -->
-
+  
   <div class="footer">                        <!-- son commit hash · "Generated by collab-proof · timestamp" -->
   ```
-
+  
   HTML'i bash kullanarak yazın:
   ```bash
   cat > session-history/YYYY-MM-DD-HHMM-proof.html << 'HTMLEOF'
@@ -334,44 +334,44 @@ body_tr: |-
   ... (satır içi CSS ile tam HTML, harici kaynak yok)
   HTMLEOF
   ```
-
+  
   Yazdıktan sonra gösterin: `open session-history/YYYY-MM-DD-HHMM-proof.html`
-
+  
   ---
-
+  
   ### Eğer MEDIUM sinyal ise
-
+  
   `WORKLOG.md`'ye sadece bir satır ekleyin:
   ```
   YYYY-MM-DD HH:MM | [niyet] | MEDIUM | D:[puan] | cache:[hit%]% | tok:[toplam] | <fiil cümlesi>
   ```
-
+  
   ---
-
+  
   ### Eğer LOW sinyal ise
-
+  
   Kullanıcıya deyin: "Signal: LOW — Rutin oturum, hiçbir şey kaydedilmedi."
-
+  
   ---
-
+  
   ## Dürüstlük kuralları
-
+  
   - Konuşmada olmayan veya diff tarafından ima edilmeyen kararları asla uydurma
   - Akıl yürütme yeniden yapılandırıldığında "inferred:" öneki
   - Frame D kalibre edilmelidir — ne abartma ne de görmezden gelme
   - Tüm çerçeveler < 0.4 puan alırsa → hiçbir şey yazma
-
+  
   ---
-
+  
   ## PreCompact snapshot'ı (bağlam sıkıştırma savunması)
-
+  
   Bağlam sıkıştırması olmak üzereyken (PreCompact hook'u tarafından tetiklenen),
   bağlam kaybedilmeden önce hafif bir mid-oturum kontrol noktası çalıştırın:
-
+  
   1. Mevcut bağlamdan mevcut Layer 01 sinyal seviyesini hesapla
   2. Şimdi görünür olana karşı dört çerçevenin hepsini puanla
   3. Bir snapshot'ı `session-history/.tmp-TIMESTAMP.json`'a yaz:
-
+  
   ```json
   {
     "timestamp": "YYYY-MM-DD HH:MM:SS",
@@ -384,7 +384,7 @@ body_tr: |-
     ]
   }
   ```
-
+  
   `/collab-proof` oturum sonunda çalıştırıldığında:
   - Tüm `session-history/.tmp-*.json` dosyalarını oku
   - Çerçeve puanlarını birleştir (tüm snapshot'lar arasında çerçeve başına maksimum al)

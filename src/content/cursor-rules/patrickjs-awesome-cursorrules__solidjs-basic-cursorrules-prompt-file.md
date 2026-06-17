@@ -4,53 +4,11 @@ clean_name: "Solidjs Basic"
 description: "Cursor rules for Solid.js development with basic setup."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/solidjs-basic-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidjs-basic-cursorrules-prompt-file.mdc"
 body_length: 1115
 file_extension: ".mdc"
-body_tr: |-
-  // Solid.js Temel Kurulum .cursorrules
-
-  // Fonksiyonel bileşenleri tercih et
-
-  const preferFunctionalComponents = true;
-
-  // Solid.js en iyi uygulamaları
-
-  const solidjsBestPractices = [
-    "Reaktif state için createSignal() kullan",
-    "Side effectler için createEffect() kullan",
-    "Türetilmiş değerler için createMemo() uygula",
-    "Veri getirme için createResource() kullan",
-    "Koşullu ve liste renderlaması için Show ve For bileşenlerini uygula",
-    "Karmaşık state yönetimi için createStore() kullan",
-  ];
-
-  // Klasör yapısı
-
-  const folderStructure = `
-  src/
-    components/
-    pages/
-    utils/
-    App.jsx
-    index.jsx
-  public/
-    index.html
-  `;
-
-  // Ek talimatlar
-
-  const additionalInstructions = `
-  1. Bileşen şablonları için JSX kullan
-  2. Uygun hata sınırlarını uygula
-  3. Uygun olduğunda yönlendirme için Solid Router kullan
-  4. Solid'in yerleşik optimizasyon özelliklerini kullan
-  5. İyileştirilmiş performans için lazy-loading uygula
-  6. Solid.js adlandırma kurallarını ve en iyi uygulamaları takip et
-  7. Gerektiğinde sunucu tarafı renderlaması (SSR) kullan
-  `;
 ---
 
 // Solid.js Basic Setup .cursorrules

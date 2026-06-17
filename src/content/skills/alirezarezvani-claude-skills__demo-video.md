@@ -3,7 +3,7 @@ name: "demo-video"
 description_en: "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/demo-video/SKILL.md"
 path: ".gemini/skills/demo-video/SKILL.md"
 is_collection: false
@@ -14,72 +14,72 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Demo Video
-
+  
   Siz bir video yapımcısısınız. Slayt gösterisi yapımcısı değil. Her karenin bir görevi vardır. Her saniye bir sonrakini kazanır.
-
+  
   ## Genel Bakış
-
+  
   Tarayıcı renderlama, metinden konuşmaya dönüştürme ve video kompozisyon orkestre ederek cilalı demo videoları oluşturun. Bir video yapımcısı gibi düşünün — hikaye yayı, hız, duygu, görsel hiyerarşi. Ekran görüntülerini ve sahne açıklamalarını paylaşılabilir ürün demolarına dönüştürün.
-
+  
   ## Bu Beceriyi Ne Zaman Kullanmalı
-
+  
   - Kullanıcı demo video, ürün özeti veya özellik gösterimi oluşturmak istiyor
   - Kullanıcı animasyonlu bir sunuş, pazarlama videosu veya ürün teaser'ı istiyor
   - Kullanıcı ekran görüntülerini veya UI yakalamalarını cilalı bir videoya veya GIF'e dönüştürmek istiyor
   - Kullanıcı "video yap", "demo oluştur", "demo kaydet", "promo video" diyor
-
+  
   ## Ana İş Akışı
-
+  
   ### 1. Bir rendering modu seçin
-
+  
   Başlamadan önce, kullanılabilir araçları doğrulayın:
   - **playwright MCP mevcut mu?** — otomatik ekran görüntüleri için gerekli. Yedek: kullanıcıdan HTML dosyalarının ekran görüntülerini manuel olarak almasını isteyin.
   - **edge-tts mevcut mu?** — sesli anlatım sesi için gerekli. Yedek: narasyonu kullanıcının kaydedebileceği veya herhangi bir TTS aracı kullanabileceği metin dosyaları olarak çıktı alın.
   - **ffmpeg mevcut mu?** — kompozisyon için gerekli. Yedek: bireysel sahne görüntüleri + ses dosyaları ve kullanıcının çalıştırabileceği manuel ffmpeg komutları çıktı alın.
-
+  
   Hiçbiri mevcut değilse, HTML sahne dosyaları + `scenes.json` manifest + narasyonu betikleri üretin. Kullanıcı manual olarak veya herhangi bir video düzenleyici kullanarak kompozisyon yapabilir.
-
+  
   | Mod | Nasıl | Ne Zaman |
   |------|-------|---------|
   | **MCP Orkestrasyonu** | HTML → playwright ekran görüntüleri → edge-tts sesi → ffmpeg kompozisyon | playwright + edge-tts + ffmpeg MCP'leri tümü bağlandığında kullanın |
   | **Manuel** | HTML sahne dosyaları yazın, kullanıcının çalıştırabileceği ffmpeg komutlarını sağlayın | MCP'ler mevcut değilse kullanın |
-
+  
   ### 2. Bir hikaye yapısı seçin
-
+  
   **Klasik Demo (30-60sn):**
   Hook (3sn) -> Problem (5sn) -> Magic Moment (5sn) -> Kanıt (15sn) -> Sosyal Kanıt (4sn) -> Davet (4sn)
-
+  
   **Problem-Çözüm (20-40sn):**
   Öncesi (6sn) -> Sonrası (6sn) -> Nasıl (10sn) -> CTA (4sn)
-
+  
   **15 Saniye'lik Teaser:**
   Hook (2sn) -> Demo (8sn) -> Logo (3sn) -> Tagline (2sn)
-
+  
   ### 3. Sahneleri tasarlayın
-
+  
   **Ekran görüntüsü sağlanmamışsa:**
   - CLI/terminal araçları için: terminal tarzı koyu arka plan, monospace yazı tipi ve animasyonlu yazı efekti ile HTML sahneleri oluşturun
   - Konseptsel demolar için: renk dili ve tipografi sistemi ile metin ağırlıklı sahneleri kullanın
   - Ürün görsel ve açıklamalar yetersizse, kullanıcıdan ekran görüntüleri isteyin
-
+  
   Her sahne tam olarak BİR birincil odak noktasına sahiptir:
   - Başlık sahneleri: ürün adı
   - Problem sahneleri: acı (kırmızı, kaotik)
   - Çözüm sahneleri: sonuç (yeşil, geniş)
   - Özellik sahneleri: vurgulanan ekran görüntüsü bölgesi
   - Son sahneler: URL / CTA düğmesi
-
+  
   ### 4. Narasyonu yazın
-
+  
   - Sahne başına bir fikir. "Ve" gerekiyorsa iki sahneye ihtiyacınız vardır.
   - Fiille başlayın. "Sekmelerinizi organize edin" "Sekme organizasyonu sağlanır" değil.
   - Jargon kullanmayın. "Sekmeleriniz kendilerini organize ediyor" "AI destekli sekme kategorileştirmesi" değil.
   - Kontrast kullanın. "24 sekme. Bir tıklama. 5 grup."
-
+  
   ## Çıktı Yapıtları
-
+  
   Her video için `demo-output/` dizininde şu dosyaları üretin:
-
+  
   1. `scenes/` — sahne başına bir HTML dosyası (1920x1080 viewport)
   2. `narration/` — sahne başına bir `.txt` dosyası (edge-tts girişi için)
   3. `scenes.json` — sahneleri sırası, süreler ve narasyonu metni ile listeleyen manifest
@@ -87,24 +87,24 @@ body_tr: |-
      - Her HTML sahneyi `playwright screenshot` → `frames/`
      - Her narasyonu dosyasını `edge-tts` → `audio/`
      - Crossfade geçişleri ile `ffmpeg` concat → `output.mp4`
-
+  
   MCP'ler kullanılamıyorsa, yine de 1-3 öğelerini üretin. ffmpeg komutlarını `build.sh` içine ekleyin ve kullanıcının manuel olarak çalıştırması için.
-
+  
   ## Sahne Tasarım Sistemi
-
+  
   Tam tasarım sistemi için [references/scene-design-system.md](references/scene-design-system.md) bölümüne bakın: renk dili, animasyon zamanlaması, tipografi, HTML layout, ses seçenekleri ve hız kılavuzu.
-
+  
   ## Kalite Kontrol Listesi
-
+  
   - [ ] Videonun ses akışı vardır
   - [ ] Çözünürlük 1920x1080'dir
   - [ ] Sahneler arasında siyah kare yoktur
   - [ ] İlk 3 saniye dikkat çeker
   - [ ] Her sahnenin bir odak noktası vardır
   - [ ] Son kartda URL ve CTA vardır
-
+  
   ## Anti-Desenler
-
+  
   | Anti-Desen | Düzeltme |
   |---|---|
   | **Slayt gösterisi hızı** — her sahne aynı süre, ritim yok | Süreleri değiştirin: hook'lar 3sn, kanıt 8sn, CTA 4sn |
@@ -113,9 +113,9 @@ body_tr: |-
   | **Hikaye yayı yok** — sadece özellik listeleme | Problem -> çözüm -> kanıt yapısı kullanın |
   | **Ham ekran görüntüleri** | Her zaman yuvarlatılmış köşeler, gölgeler, koyu arka plan ekleyin |
   | **`ease` veya `linear` animasyonları kullanmak** | Spring eğrisi kullanın: `cubic-bezier(0.16, 1, 0.3, 1)` |
-
+  
   ## Çapraz Referanslar
-
+  
   - İlgili: `engineering/browser-automation` — playwright tabanlı tarayıcı iş akışları için
   - Ayrıca bkz: [framecraft](https://github.com/vaddisrinivas/framecraft) — açık kaynaklı sahne rendering ardışık düzeni
 ---

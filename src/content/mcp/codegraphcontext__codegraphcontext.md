@@ -3,7 +3,7 @@ name: "CodeGraphContext/CodeGraphContext"
 description: "An MCP server that indexes local code into a graph database to provide context to AI assistants with a graphical code visualizations for humans."
 category: "Coding Agents"
 repo: "CodeGraphContext/CodeGraphContext"
-stars: 3746
+stars: 3748
 url: "https://github.com/CodeGraphContext/CodeGraphContext"
 body_length: 20893
 license: "MIT"

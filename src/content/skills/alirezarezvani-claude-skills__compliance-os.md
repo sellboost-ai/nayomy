@@ -3,7 +3,7 @@ name: "compliance-os"
 description_en: "Compliance OS — meta-orchestrator that lets compliance teams CONFIGURE which frameworks apply, COMPUTE cross-framework control overlap, SIMULATE internal audits, and CONSOLIDATE evidence across multiple frameworks. Four decisions: (1) Given a company profile, which of the 12 supported frameworks apply (ISO 27001/13485/42001/14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR, NIST CSF 2.0, NIS2, HIPAA"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/compliance-os-bundle/SKILL.md"
 path: ".gemini/skills/compliance-os-bundle/SKILL.md"
 is_collection: false
@@ -14,110 +14,110 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Compliance OS — Meta-Orchestrator
-
+  
   Multi-framework compliance program orchestration. **Dört karar, framework başına derin dalış yok:**
-
+  
   1. **Bu şirkete hangi framework'ler uygulanır?** — `framework_selector.py` 12 desteklenen framework'ü şirket profiline (endüstri, coğrafya, AI kullanımı, tıbbi, finansal, çalışan sayısı, müşteriler, healthcare-PHI, NIS2 temel/önemli entity, US hükümet yüklenicisi) karşı sıralar ve uygulanabilir olanları bağımlılık grafiği ile döndürür
   2. **Seçilen framework'ler ne kadar üst üste gelir?** — `cross_framework_mapper.py` kontrol seviyesindeki örtüşmeyi güven derecesiyle hesaplar; birleştirilmiş kontrol matrisi + kanıt yeniden kullanım fırsatlarını çıkarır
   3. **Mock audit ne üretir?** — `audit_simulator.py` IIA beklentilerine uygun ciddiyetini dağıtımı ile 8–15 bulgu senaryosu + kontrol başına görüşme soruları üretir
   4. **Birleştirilmiş kanıt kontrol listesi nedir?** — `evidence_pool_generator.py` kanıtları etkin framework'ler arasında konsolide eder; hangi artefaktın hangi kontrolleri hangi framework'lerde tatmin ettiğini çıkarır
-
+  
   Bu beceri **DEĞİLDİR** framework başına derin dalış. Framework başına beceriler (`ra-qm-team/skills/iso42001-specialist/`, `compliance-team-eu-ai-act/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`, vb.) operasyonel işi yapar. Compliance OS bunları orchestrate eder.
-
+  
   Bu beceri **DEĞİLDİR** bağlayıcı yasal tavsiye yerine. Cross-framework eşlemeler yayınlanmış rehberliği yansıtır (ISO standartları, yönetmelikleri, EDPB/Komisyon rehberliği, IIA / AICPA profesyonel standartları). Yeni cross-walk'lar hukuk müşaviriyle gözden geçirilmelidir.
-
+  
   ## Keywords
-
+  
   compliance orchestration, multi-framework compliance, compliance OS, cross-framework mapping, control overlap, evidence pool, evidence reuse, audit simulation, mock audit, internal audit programme, GRC, governance risk compliance, framework selector, compliance program, integrated compliance, ISO 19011, IIA IPPF, AICPA AT-C, NIST CSF profile, multi-cert program, SOC 2 + ISO 27001, ISO 27001 + ISO 42001, ISO 13485 + MDR 745, AI Act + ISO 42001, GDPR + ISO 27001, compliance officer, compliance team workflow, certification readiness
-
+  
   ## Quick Start
-
+  
   ```bash
   # Decision A: Which frameworks apply for the company?
   python scripts/framework_selector.py                          # embedded mid-stage AI SaaS sample
   python scripts/framework_selector.py path/to/profile.json
-
+  
   # Decision B: Compute cross-framework overlap
   python scripts/cross_framework_mapper.py                      # embedded ISO 27001 + SOC 2 sample
   python scripts/cross_framework_mapper.py path/to/control_libs.json
-
+  
   # Decision C: Simulate an audit
   python scripts/audit_simulator.py                             # embedded ISO 27001 sample
   python scripts/audit_simulator.py path/to/audit_scope.json
-
+  
   # Decision D: Consolidate evidence checklist across frameworks
   python scripts/evidence_pool_generator.py                     # embedded 3-framework sample
   python scripts/evidence_pool_generator.py path/to/program.json
   ```
-
+  
   ## Key Questions (ask these first)
-
+  
   - **Her uygulanabilir framework'i adlandırdınız mı?** Birini unutmak audit programını daha sonra yeniden oluşturmak anlamına gelir. `framework_selector.py` çalıştırın profilinizle.
   - **Şirketiniz zaten hangi sertifika / yönetmelikleri işletmektedir?** Bu sizin yeniden kullanım ankoridir. Her yeni framework'ü buna karşı eşleştirin.
   - **Audit takvimi nedir?** Multi-framework program gözetim auditlerinin yıl boyunca istiflenmiş olması anlamına gelir — auditor bağımsızlığı + kapasitesini planlayın.
   - **Kanıt nerede saklanır?** Multi-framework programlar, kanıt bir takımın sürücüsünde bir indeks olmaksızın yaşadığında çöker. `evidence_pool_generator.py` çalıştırın yeniden kullanım fırsatlarını ortaya çıkarmak için.
   - **Framework'ler arasında yönetim incelemesi kadansı nedir?** Her framework'ün kendi yönetim incelemesi istenir, fakat tek bir entegre incelemesi (ISO Annex SL başına) tipik olarak tamamını tek bir takvim yuvası ile tatmin eder.
   - **Meta-program'ın sahibi kim?** Tek sorumlu rol yoksa, program parçalanır.
-
+  
   ## Core Responsibilities
-
+  
   ### 1. Framework Selection
-
+  
   **Framework:** şirket profili JSON → uygulanabilir framework listesi bağımlılık grafiği ile çıkış.
-
+  
   **Belirleyici mantık:**
   - Tıbbi cihaz → ISO 13485 + ISO 14971 + (EU pazarında EU MDR 745) + (US pazarında FDA QSR)
   - Müşteri yüzlü AI → ISO 42001 + EU AI Act (EU kullanıcıları varsa) + GDPR (kişisel veri varsa)
   - Kurumsal müşterileri olan B2B SaaS → SOC 2 + ISO 27001 (genellikle satın alma için gerekli)
   - EU müşterileri + kişisel veri → GDPR zorunlu
   - Yüksek düzeyde düzenlenmiş endüstri (finansal, sağlık) → ek sektörel overlaylar
-
+  
   **Çalıştırın** `framework_selector.py` karar kurallarını uygulamak için.
-
+  
   ### 2. Cross-Framework Control Mapping
-
+  
   **Framework:** her seçilen framework için kontrol kütüphanesini ayrıştırın; diğer seçilen framework'lerle örtüşmeyi hesaplayın.
-
+  
   **Her birleştirilmiş-kontrol çıkışı başına:**
   - Eşleme güven derecesi (HIGH / MEDIUM / LOW)
   - Kanıt-yeniden kullanım fırsatı (tek artefakt N kontrolü tatmin eder)
   - Framework başına alıntı
   - Framework'ler arasında yeniden kullanılabilir uygulama rehberliği
-
+  
   **En yoğun bilinen örtüşme:** ISO 27001 Annex A ↔ SOC 2 Trust Services Criteria — tarihsel olarak ~75% kontrol kapsamı paylaşılır. ISO 42001 eklemek AI-spesifik kontroller getirir; GDPR eklemek gizlilik-spesifik kontroller getirir.
-
+  
   **Çalıştırın** `cross_framework_mapper.py` framework kontrol kütüphaneleriyle.
-
+  
   ### 3. Audit Simulation
-
+  
   **Framework:** ISO 19011 + IIA IPPF standartlarına göre gerçekçi mock internal audit üretin.
-
+  
   **Per audit çıkışı:**
   - ISO 19011 tipik derinliği başına 8–15 bulgu senaryosu
   - Ciddiyeti dağıtımı: ≥ 40% observations/OFI, ≤ 15% critical/major (sağlıklı programlar için IIA beklentisi)
   - Scoped kontrol başına görüşme soruları (kontrol başına 3–5 soru)
   - Belge-inceleme istek listesi
   - Uygulanabilir yerlerde walk-through istekleri
-
+  
   **Çalıştırın** `audit_simulator.py` framework + scope ile.
-
+  
   ### 4. Evidence Pool
-
+  
   **Framework:** kanıt gerekliliklerini etkin framework'ler arasında konsolide edin; yeniden kullanım fırsatlarını tanımlayın.
-
+  
   **Çıkış:**
   - Kanıt artefaktı listesi (örn., access-review log, supplier risk register, incident log)
   - Per artefakt: tatmin ettiği (framework, control) tuples listesi
   - Yeniden kullanım-leverage skoru (artefakt A M framework'ler arasında N kontrolü tatmin eder)
   - Edinme maliyeti tahmini (üretme + bakım çabası)
-
+  
   **Çalıştırın** `evidence_pool_generator.py` program konfigürasyon ile.
-
+  
   ## Workflows
-
+  
   ### Workflow 1: Program Bootstrap (multi-framework, 4–8 hafta)
   **Hedef:** 2–4 framework'ü eş zamanlı olarak kapsayan bir compliance program kurun.
-
+  
   ```bash
   # 1. Şirket profili ile framework selector çalıştırın
   python scripts/framework_selector.py profile.json
@@ -129,10 +129,10 @@ body_tr: |-
   # 5. cs-compliance-officer agent ile cross-check yapın
   # 6. Çıkış: sahipler + tarihler ile önceliklendirilmiş program backlog
   ```
-
+  
   ### Workflow 2: Annual Audit Calendar (yıllık)
   **Hedef:** tüm uygulanabilir framework'leri kapsayan internal audit döngülerini planlayın.
-
+  
   ```bash
   # 1. Profil değiştiyse framework selector'ı yenileyin
   python scripts/framework_selector.py profile.json
@@ -143,10 +143,10 @@ body_tr: |-
   python scripts/audit_simulator.py scope.json
   # 5. Çıkış: sahipler + auditor atamaları ile entegre audit takvimi
   ```
-
+  
   ### Workflow 3: Pre-Certification Readiness (yeni framework başına, 6–12 hafta)
   **Hedef:** harici sertifikasyon audit'ine hazırlanın.
-
+  
   ```bash
   # 1. Yeni framework için gap analizi çalıştırın
   #    (ISO 42001: aims_gap_analyzer.py; ISO 27001: compliance_checker.py; SOC 2: gap_analyzer.py)
@@ -157,10 +157,10 @@ body_tr: |-
   python scripts/audit_simulator.py scope.json
   # 5. Harici auditor stage 1'den önce kalan boşlukları kapatın
   ```
-
+  
   ### Workflow 4: Evidence Pool Consolidation (üç aylık)
   **Hedef:** birleştirilmiş kanıt pool'unu taze + yeniden kullanılabilir tutun.
-
+  
   ```bash
   # 1. Evidence pool generator'ı yenileyin
   python scripts/evidence_pool_generator.py program.json
@@ -168,9 +168,9 @@ body_tr: |-
   # 3. Kanıt tazeliğini onaylayın (framework başına retention requirement içinde)
   # 4. Kanıt pool'unun kendisini audit edin (yetim kontrol yok, eski kanıt yok)
   ```
-
+  
   ## Output Standards
-
+  
   ```
   **Bottom Line:** [one sentence — multi-framework resmi + en büyük yeniden kullanım fırsatı]
   **The Decision:** [one of: framework-set | overlap-map | audit-plan | evidence-consolidation]
@@ -178,9 +178,9 @@ body_tr: |-
   **How to Act:** [sahipler + tarihlerle 3 somut sonraki adım]
   **Your Decision:** [sadece compliance officer'ın yapabileceği çağrı — hangi framework'leri izlemek, audit döngüsü önceliği, kanıt-yeniden kullanım politikası]
   ```
-
+  
   ## Adjacent Skills
-
+  
   - `ra-qm-team/skills/iso42001-specialist/` — ISO 42001 derin dalış (compliance-team-iso42001 plugin ile eşleştirilmiş)
   - `ra-qm-team/skills/eu-ai-act-specialist/` — EU AI Act derin dalış (compliance-team-eu-ai-act plugin ile eşleştirilmiş)
   - `ra-qm-team/skills/information-security-manager-iso27001/` — ISO 27001 ISMS derin dalış
@@ -192,22 +192,22 @@ body_tr: |-
   - `ra-qm-team/skills/risk-management-specialist/` — ISO 14971 derin dalış
   - `c-level-advisor/chief-ai-officer-advisor/` — Executive AI risk kararları (build-vs-buy, model selection)
   - `c-level-advisor/skills/general-counsel-advisor/` — Novel durumlar için yasal inceleme
-
+  
   ## References
-
+  
   - [compliance_os_pattern.md](references/compliance_os_pattern.md) — Meta-framework mimarisi (configure → map → simulate → consolidate → review); ne zaman kullanılır vs kullanılmaz
   - [cross_framework_overlap.md](references/cross_framework_overlap.md) — 9-framework × kontrol-ailesi örtüşme tablosu eşleme güven derecesiyle (Phase 3 `cross_framework_mapper.py` aracılığıyla 12 framework'e genişlenir)
   - [audit_simulation_methodology.md](references/audit_simulation_methodology.md) — ISO 19011 + IIA IPPF + AICPA AT-C audit-simulation ilkeleri + ciddiyeti dağıtım heuristics
   - [evidence_management.md](references/evidence_management.md) — Evidence pool tasarım + retention + tazelik + reuse-leverage scoring
   - [multi_framework_audit_playbook.md](references/multi_framework_audit_playbook.md) — 2+ framework'ler için entegre audit programı (Phase 2)
   - [evidence_artifact_reuse_index.md](references/evidence_artifact_reuse_index.md) — Tüm 12 framework'ler arasında ampirik olarak türetilmiş reuse-leverage sıralaması (Phase 3)
-
+  
   ## Phase 3 Asset: Mock Audit Scenario Library
-
+  
   `assets/mock_audit_library.json` — 12 framework'ü + 26 temayı + 4 ciddiyeti seviyesini kapsayan 205 önceden oluşturulmuş bulgu senaryosu (34 critical, 88 major, 54 minor, 29 observation). Her senaryo uygulanabilir framework'leri etiketler; framework-spesifik kontrol IDlerini çözmek için `scripts/cross_framework_mapper.py` birleştirilmiş-kontroller kataloğuna cross-reference edin. Mock audit'leri zenginleştirmek için `audit_simulator.py` input olarak, yeni internal auditorlar için bir eğitim kaynağı olarak, veya multi-framework programları arasında bulgu-desen tespiti için tohum olarak kullanın.
-
+  
   ---
-
+  
   **Version:** 1.2.0
   **Status:** Production Ready
 ---

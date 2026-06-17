@@ -3,7 +3,7 @@ name: "database-designer"
 description_en: "Use when the user asks to design database schemas, plan data migrations, optimize queries, choose between SQL and NoSQL, or model data relationships."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/database-designer/SKILL.md"
 path: ".gemini/skills/database-designer/SKILL.md"
 is_collection: false
@@ -14,13 +14,13 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Veritabanı Tasarımcısı - POWERFUL Tier Becerisi
-
+  
   ## Genel Bakış
-
+  
   Modern veritabanı sistemleri için uzman düzeyinde analiz, optimizasyon ve migration yetenekleri sağlayan kapsamlı bir veritabanı tasarım becerisi. Bu beceri, mimarlar ve geliştirici mimarların ölçeklenebilir, yüksek performanslı ve bakımlanabilir veritabanı şemaları oluşturmasına yardımcı olması için teorik ilkeleri pratik araçlarla birleştirir.
-
+  
   ## Temel Yetkinlikler
-
+  
   ### Şema Tasarımı ve Analizi
   - **Normalizasyon Analizi**: Normalizasyon seviyelerinin otomatik tespiti (1NF ile BCNF arası)
   - **Denormalizasyon Stratejisi**: Performans optimizasyonu için akıllı öneriler
@@ -28,103 +28,103 @@ body_tr: |-
   - **Constraint Analizi**: Eksik foreign key'ler, unique constraints ve null kontrolleri
   - **Adlandırma Kuralları Doğrulaması**: Tutarlı tablo ve sütun adlandırma desenleri
   - **ERD Oluşturma**: DDL'den otomatik Mermaid diyagram oluşturma
-
+  
   ### İndeks Optimizasyonu
   - **İndeks Boşluğu Analizi**: Foreign key'ler ve sorgu desenleri üzerindeki eksik indexlerin tanımlanması
   - **Composite İndeks Stratejisi**: Çok sütunlu indexler için optimal sütun sıralaması
   - **İndeks Redundansi Tespiti**: Çakışan ve kullanılmayan indexlerin ortadan kaldırılması
   - **Performans Etkisi Modellemesi**: Seçicilik tahmini ve sorgu maliyet analizi
   - **İndeks Tipi Seçimi**: B-tree, hash, partial, covering ve specialized indexler
-
+  
   ### Migration Yönetimi
   - **Sıfır Kapalı Kalma Süresi Migrationları**: Expand-contract pattern uygulaması
   - **Şema Evrimi**: Güvenli sütun ekleme, silme ve tip değiştirme
   - **Veri Migration Betikleri**: Otomatik veri dönüştürme ve doğrulama
   - **Geri Alma Stratejisi**: Doğrulama ile tam tersine çevirme yetenekleri
   - **Execution Planlama**: Bağımlılık çözümleme ile sıralı migration adımları
-
+  
   ## Araç İş Akışı (bunları çalıştırın — şemaları elle analiz etmeyin)
-
+  
   Bu beceri klasörüne göre tüm yollar; örnek girdiler `assets/` içinde.
-
+  
   ### 1. Şemayı analiz edin
-
+  
   ```bash
   python3 schema_analyzer.py --input schema.sql --generate-erd --output-format json -o analysis.json
   ```
-
+  
   SQL DDL veya JSON şemayı kabul eder (`assets/sample_schema.sql` / `sample_schema.json`). Çıktı normalizasyon bulguları, eksik constraints, adlandırma sorunları ve bir Mermaid ERD içerir — ERD'yi kullanıcıya gösterin ve optimize etmeden önce flaglanan sorunları düzeltin.
-
+  
   ### 2. Gerçek sorgu desenleri karşı indexleri optimize edin
-
+  
   ```bash
   python3 index_optimizer.py --schema assets/sample_schema.json --queries assets/sample_query_patterns.json --analyze-existing --format json -o indexes.json
   ```
-
+  
   Kullanıcının hot sorgularını önce bir query-patterns JSON'una yazın (`assets/sample_query_patterns.json`'ı kopyalayın). Çıktı, öncelik sırasına göre CREATE INDEX önerileri artı redundant-index kaldırma işlemleridir.
-
+  
   ### 3. Migration'ı oluşturun
-
+  
   ```bash
   python3 migration_generator.py --current current_schema.json --target target_schema.json --zero-downtime --format sql -o migration.sql
   ```
-
+  
   `--zero-downtime` bir expand-contract planı çıkarır; `--validate-only` SQL oluşturmadan uygulanabilirliği kontrol eder.
-
+  
   ### 4. Doğrulama döngüsü
-
+  
   *target* şemada step 1'i yeniden çalıştırın ve ilk turda bulunan sorunların gitmişliğini doğrulayın; migration'ı teslim etmeden önce `migration_generator.py --validate-only` çalıştırın.
-
+  
   ## Veritabanı Tasarım İlkeleri
   → Detaylar için references/database-design-reference.md'ye bakın
-
+  
   ## En İyi Uygulamalar
-
+  
   ### Şema Tasarımı
   1. **Anlamlı isimler kullanın**: Açık, tutarlı adlandırma kuralları
   2. **Uygun veri tiplerini seçin**: Depolama verimliliği için doğru boyutlandırılmış sütunlar
   3. **Uygun constraints tanımlayın**: Foreign key'ler, check constraints, unique indexler
   4. **Gelecek büyümesini göz önünde bulundurun**: Başından itibaren ölçek için planlayın
   5. **İlişkileri belgelendirin**: Açık foreign key ilişkileri ve iş kuralları
-
+  
   ### Performans Optimizasyonu
   1. **Stratejik olarak index atayın**: Ortak sorgu desenleri için fazla indexlemeden kapsamlı
   2. **Sorgu performansını izleyin**: Yavaş sorgulara yönelik düzenli analiz
   3. **Büyük tabloları bölün**: Sorgu performansını ve bakımını iyileştirin
   4. **Uygun isolation seviyeleri kullanın**: Tutarlılık ve performans arasında denge sağlayın
   5. **Connection pooling uygulayın**: Verimli kaynak kullanımı
-
+  
   ### Güvenlik Değerlendirmeleri
   1. **En Az Ayrıcalık İlkesi**: Minimum gerekli izinleri verin
   2. **Hassas verileri şifreleyin**: Dinlenme durumunda ve iletim sırasında
   3. **Erişim desenleri denetleyin**: Veritabanı erişimini izleyin ve kaydedin
   4. **Girdileri doğrulayın**: SQL injection saldırılarını önleyin
   5. **Düzenli güvenlik güncellemeleri**: Veritabanı yazılımını güncel tutun
-
+  
   ## Sorgu Oluşturma Desenleri
-
+  
   ### SELECT with JOINs
-
+  
   ```sql
   -- INNER JOIN: sadece eşleşen satırlar
   SELECT o.id, c.name, o.total
   FROM orders o
   INNER JOIN customers c ON c.id = o.customer_id;
-
+  
   -- LEFT JOIN: tüm sol satırlar, eşleşmeyenler için NULL
   SELECT c.name, COUNT(o.id) AS order_count
   FROM customers c
   LEFT JOIN orders o ON o.customer_id = c.id
   GROUP BY c.name;
-
+  
   -- Self-join: hiyerarşik veriler (çalışanlar/yöneticiler)
   SELECT e.name AS employee, m.name AS manager
   FROM employees e
   LEFT JOIN employees m ON m.id = e.manager_id;
   ```
-
+  
   ### Common Table Expressions (CTEs)
-
+  
   ```sql
   -- Org chart için recursive CTE
   WITH RECURSIVE org AS (
@@ -136,25 +136,25 @@ body_tr: |-
   )
   SELECT * FROM org ORDER BY depth, name;
   ```
-
+  
   ### Window Functions
-
+  
   ```sql
   -- ROW_NUMBER sayfalandırma / dedup için
   SELECT *, ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY created_at DESC) AS rn
   FROM orders;
-
+  
   -- RANK boşluklarla, DENSE_RANK boşluksuz
   SELECT name, score, RANK() OVER (ORDER BY score DESC) AS rank FROM leaderboard;
-
+  
   -- LAG/LEAD bitişik satırları karşılaştırmak için
   SELECT date, revenue,
     revenue - LAG(revenue) OVER (ORDER BY date) AS daily_change
   FROM daily_sales;
   ```
-
+  
   ### Agregasyon Desenleri
-
+  
   ```sql
   -- FILTER clause (PostgreSQL) koşullu agregasyon için
   SELECT
@@ -162,21 +162,21 @@ body_tr: |-
     COUNT(*) FILTER (WHERE status = 'active') AS active,
     AVG(amount) FILTER (WHERE amount > 0) AS avg_positive
   FROM accounts;
-
+  
   -- GROUPING SETS çok seviyeli rolluplar için
   SELECT region, product, SUM(revenue)
   FROM sales
   GROUP BY GROUPING SETS ((region, product), (region), ());
   ```
-
+  
   ---
-
+  
   ## Migration Desenleri
-
+  
   ### Up/Down Migration Betikleri
-
+  
   Her migration'ın tersine çevrilebilir bir muadili olmalıdır. Sıralama için dosyaları timestamp öneki ile adlandırın:
-
+  
   ```
   migrations/
   ├── 20260101_000001_create_users.up.sql
@@ -184,37 +184,37 @@ body_tr: |-
   ├── 20260115_000002_add_users_email_index.up.sql
   └── 20260115_000002_add_users_email_index.down.sql
   ```
-
+  
   ### Sıfır Kapalı Kalma Süresi Migrationları (Expand/Contract)
-
+  
   Kilitleme veya çalışan kodu kırmaktan kaçınmak için expand-contract patternini kullanın:
-
+  
   1. **Expand** — yeni sütun/tabel ekleyin (nullable, varsayılan ile)
   2. **Verileri migrate edin** — partiler halinde arka dolgu yapın; uygulama tarafından çift yazma
   3. **Geçiş** — uygulama yeni sütundan okur; eski yazma işlemini durdurun
   4. **Contract** — sonraki migration'da eski sütunu düşürün
-
+  
   ### Veri Backfill Stratejileri
-
+  
   ```sql
   -- Uzun süren kilit olmaktan kaçınmak için batch update
   UPDATE users SET email_normalized = LOWER(email)
   WHERE id IN (SELECT id FROM users WHERE email_normalized IS NULL LIMIT 5000);
   -- 0 satır etkilenene kadar döngüde tekrarlayın
   ```
-
+  
   ### Geri Alma Prosedürleri
-
+  
   - Production'a `up.sql`'i deployment yapmadan önce staging'de `down.sql`'i her zaman test edin
   - Geri alma penceresini kısa tutun — contract step çalıştırılmışsa, geri alma yeni forward migration gerektirir
   - İndirilemez değişiklikler için (veri ile sütunları düşürme), önce mantıksal bir yedek alın
-
+  
   ---
-
+  
   ## Performans Optimizasyonu
-
+  
   ### İndeksing Stratejileri
-
+  
   | İndeks Tipi | Kullanım Durumu | Örnek |
   |------------|----------|---------|
   | **B-tree** (default) | Eşitlik, aralık, ORDER BY | `CREATE INDEX idx_users_email ON users(email);` |
@@ -222,47 +222,47 @@ body_tr: |-
   | **GiST** | Geometry, range types, nearest-neighbor | `CREATE INDEX idx_locations ON places USING gist(coords);` |
   | **Partial** | Satır alt kümesi (boyut azalt) | `CREATE INDEX idx_active ON users(email) WHERE active = true;` |
   | **Covering** | Index-only scans | `CREATE INDEX idx_cov ON orders(customer_id) INCLUDE (total, created_at);` |
-
+  
   ### EXPLAIN Plan Okuma
-
+  
   ```sql
   EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) SELECT ...;
   ```
-
+  
   İzlenecek önemli sinyaller:
   - **Seq Scan** büyük tablolarda — eksik index
   - **Nested Loop** yüksek satır tahminleri ile — hash/merge join'i düşünün veya index ekleyin
   - **Buffers shared read** **hit**'ten çok daha yüksek — çalışma seti belleği aşıyor
-
+  
   ### N+1 Sorgu Tespiti
-
+  
   Semptomlar: uygulama satır başına bir sorgu çıkarır (örneğin, ilgili kayıtları döngüde getirme).
-
+  
   Düzeltmeler:
   - Bir round-trip'te getirmek için `JOIN` veya subquery kullanın
   - ORM eager loading (`select_related` / `includes` / `with`)
   - GraphQL resolvers için DataLoader pattern
-
+  
   ### Connection Pooling
-
+  
   | Araç | Protocol | En İyisi |
   |------|----------|----------|
   | **PgBouncer** | PostgreSQL | Transaction/statement pooling, düşük overhead |
   | **ProxySQL** | MySQL | Sorgu yönlendirmesi, read/write splitting |
   | **Built-in pool** (HikariCP, SQLAlchemy pool) | Herhangi biri | Application-level pooling |
-
+  
   **Genel kural:** Pool boyutunu `(2 * CPU cores) + disk spindles` olarak ayarlayın. Cloud SSD'ler için `2 * vCPUs`'den başlayın ve ayarlayın.
-
+  
   ### Read Replicas ve Query Yönlendirmesi
-
+  
   - Tüm `SELECT` sorgularını replica'lara yönlendirin; yazmaları primary'e
   - Replication lag'ı hesaplayın (tipik olarak async için <1s, sync için 0)
   - Kritik verileri okumadan önce lag'i tespit etmek için `pg_last_wal_replay_lsn()` kullanın
-
+  
   ---
-
+  
   ## Çok Veritabanı Karar Matrisi
-
+  
   | Kriterler | PostgreSQL | MySQL | SQLite | SQL Server |
   |----------|-----------|-------|--------|------------|
   | **En iyisi** | Kompleks sorgular, JSONB, extensions | Web uygulamaları, okuma yoğun iş yükleri | Embedded, dev/test, edge | Enterprise .NET yığınları |
@@ -270,52 +270,52 @@ body_tr: |-
   | **Replication** | Streaming, logical | Group replication, InnoDB cluster | N/A | Always On AG |
   | **Lisanslama** | Açık kaynak (PostgreSQL License) | Açık kaynak (GPL) / ticari | Public domain | Ticari |
   | **Max pratik boyut** | Multi-TB | Multi-TB | ~1 TB (single-writer) | Multi-TB |
-
+  
   **Ne zaman seçilir:**
   - **PostgreSQL** — yeni projeler için varsayılan seçim; en iyi genişletilebilirlik ve standart uygunluk
   - **MySQL** — mevcut MySQL ekosistemi; basit okuma yoğun web uygulamaları
   - **SQLite** — mobil uygulamalar, CLI araçları, unit test veritabanları, IoT/edge
   - **SQL Server** — kurumsal politika tarafından zorunlu; derin .NET/Azure entegrasyonu
-
+  
   ### NoSQL Değerlendirmeleri
-
+  
   | Veritabanı | Model | Ne Zaman Kullanılır |
   |----------|-------|----------|
   | **MongoDB** | Document | Şema esnekliği, hızlı prototip yapma, içerik yönetimi |
   | **Redis** | Key-value / cache | Session store, rate limiting, leaderboards, pub/sub |
   | **DynamoDB** | Wide-column | Serverless AWS uygulamaları, herhangi bir ölçekte tek haneli-ms latency |
-
+  
   > SQL'i varsayılan olarak kullanın. NoSQL'e yalnızca erişim deseni açıkça bundan faydalandığında başvurun.
-
+  
   ---
-
+  
   ## Sharding ve Replication
-
+  
   ### Horizontal vs Vertical Partisyon
-
+  
   - **Vertical partitioning**: Sütunları tablolar arasında bölün (örneğin, ayrı BLOB sütunları). Dar sorgular için I/O'yu azaltır.
   - **Horizontal partitioning (sharding)**: Satırları veritabanları/sunucular arasında bölün. Tek bir node veri setini tutamadığında veya throughput işlemediğinde gereklidir.
-
+  
   ### Sharding Stratejileri
-
+  
   | Strateji | Nasıl Çalışır | Avantajlar | Dezavantajlar |
   |----------|-------------|-------|------|
   | **Hash** | `shard = hash(key) % N` | Eşit dağılım | Resharding pahalı |
   | **Range** | Tarihe veya ID aralığına göre Shard | Basit, zaman serileri için iyi | En yeni shard'da sıcak noktalar |
   | **Geographic** | Kullanıcı bölgesine göre Shard | Veri yerelliği, uyumluluk | Bölgeler arası sorgular zor |
-
+  
   ### Replication Desenleri
-
+  
   | Desen | Tutarlılık | Latency | Kullanım Durumu |
   |---------|------------|---------|----------|
   | **Synchronous** | Güçlü | Daha yüksek yazma latency | Mali işlemler |
   | **Asynchronous** | Eventual | Düşük yazma latency | Okuma yoğun web uygulamaları |
   | **Semi-synchronous** | En az bir replica onaylandı | Ilımlı | Güvenlik ve hız dengesi |
-
+  
   ---
-
+  
   ## Cross-References
-
+  
   - **sql-database-assistant** — günlük SQL çalışması için sorgu yazma, optimizasyon ve debugging
   - **database-schema-designer** — ERD modellemesi, normalizasyon analizi ve şema oluşturma
   - **migration-architect** — veritabanı motorları arasında veya büyük şema revizyonlarında yer alan geniş ölçekli migration planlama

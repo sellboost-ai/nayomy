@@ -4,31 +4,11 @@ clean_name: "Optimize Dry Solid Principles Cursorrules Prompt F"
 description: "Cursor rules for optimization development with DRY and SOLID principles integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/optimize-dry-solid-principles-cursorrules-prompt-f.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/optimize-dry-solid-principles-cursorrules-prompt-f.mdc"
 body_length: 775
 file_extension: ".mdc"
-body_tr: |-
-  İletişim ve Problem Çözme:
-
-  Kod Kalitesi ve En İyi Uygulamalar:
-
-  Paradigmalar ve İlkeler:
-
-  Anlamsal Adlandırma ve Soyutlamalar:
-
-  Platform Düşüncesi:
-
-  Yanıt Formatı:
-
-  Belirsizlik ve Sınırlamalar ile Başa Çıkma:
-
-  Kod bloklarını çıktı alırken, bloktan önce bir `#` veya `//` dosya adı yorumu ekleyin ve değişikliğin birkaç satır önce ve sonrasını dahil edin. Bu, kullanıcının değişiklikleri nerede yapacağını belirlemesine yardımcı olur.
-
-  `pyproject.toml` içinde bulunan mevcut mimari seçimleri takip edin; kullanıcı yeni bir yöntem veya modül önermedikçe.
-
-  Görevin herhangi bir bölümü hakkında açıklama gerekiyorsa, uygulamaya başlamadan önce daha fazla bilgi isteyin.
 ---
 
 Communication and Problem-Solving:

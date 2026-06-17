@@ -4,61 +4,11 @@ clean_name: "Embedded Stm32 Hal"
 description: "Embedded C/C++ rules for MCU, STM32, HAL, interrupts, DMA, memory constraints, and hardware-focused testing"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/embedded-stm32-hal.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/embedded-stm32-hal.mdc"
 body_length: 2432
 file_extension: ".mdc"
-body_tr: |-
-  # Embedded MCU, STM32 ve HAL Kuralları
-
-  ## Proje Yapısı
-
-  - Board desteği, sürücüler, middleware, uygulama mantığı ve testleri ayrı tutun.
-  - Üretilen CubeMX veya vendor kodunu el yazısı uygulama kodundan izole edin.
-  - Donanım soyutlamasını dar arayüzlerin arkasına koyun, böylece mantık donanım olmadan test edilebilsin.
-  - Saat ağacı, pin eşlemeleri, çevresel sahiplik ve kesme önceliklerini belgelendirin.
-
-  ## STM32 HAL ve Çevre Birimleri
-
-  - Çevresel birimleri tek bir yerde başlatın ve gizli yeniden yapılandırmadan kaçının.
-  - HAL çağrılarından dönüş değerlerini kontrol edin ve timeout/hata durumlarını işleyin.
-  - Zaman kritik yollarda HAL çağrılarını bloke etmeyin.
-  - Uygun olduğunda yüksek verimlilik için UART, SPI, I2C, ADC veya timer yakalama yollarında DMA kullanın.
-  - DMA işlemleri için buffer sahipliğini ve ömrünü belgelendirin.
-  - `volatile` yalnızca ISR'ler veya donanım yazmaçlarıyla paylaşılan bellek için kullanın.
-
-  ## Kesintiler ve Eşzamanlılık
-
-  - ISR'leri kısa ve deterministik tutun.
-  - Ağır işleri kesintilerden ana döngüye, RTOS görevine veya olay kuyruğuna erteleyin.
-  - Paylaşılan verileri kritik bölümler, atomikler, kuyruklar veya RTOS ilkeleriyle koruyun.
-  - Kesintilerde dinamik tahsisattan kaçının.
-  - Kesme önceliği kararlarını açık hale getirin.
-
-  ## Bellek ve Zamanlama
-
-  - Proje açıkça izin vermedikçe firmware'de heap tahsisinden kaçının.
-  - ISR'ler ve RTOS görevleri için stack kullanımını kontrol edin.
-  - Arama tablolarını `const` tutun, böylece flash'ta yaşayabilsinler.
-  - Donanımla ilişkili kod için sabit genişlikli tamsayı türleri kullanın.
-  - Donanım bekleme işlemleri için timeout ekleyin.
-  - Watchdog yapılandırmasını geç ekleme değil, uygulama tasarımının parçası olarak düşünün.
-
-  ## Test Etme ve Hata Ayıklama
-
-  - Saf mantığı host derlemelerinde birim test edin.
-  - Çevresel davranış için donanım-in-the-loop testler kullanın.
-  - Hata ayıklama derlemelerinde imkansız donanım durumları için iddialar ekleyin.
-  - SWD/JTAG, mantık analizörleri ve seri günlükleri hız limitleriyle kullanın.
-  - Hata işleyicileri faydalı tutun: mümkün olduğunda reset nedenini, hata yazmaçlarını ve derleme sürümünü yakalayın.
-
-  ## Yaygın Hatalar
-
-  - İş akışı değişiklikleri korumuş olmadıkça üretilen dosyaları değiştirmeyin.
-  - Donanım bayraklarında sonsuza kadar meşgul-beklemeyin.
-  - DMA ve CPU arasında senkronizasyon olmadan buffer paylaşmayın.
-  - Düşük güç modlarından sonra çevresel reset durumunu varsaymayın.
 ---
 
 

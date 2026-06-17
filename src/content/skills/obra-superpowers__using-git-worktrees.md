@@ -3,7 +3,7 @@ name: "using-git-worktrees"
 description_en: "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback"
 category: "Design"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/using-git-worktrees/SKILL.md"
 path: "skills/using-git-worktrees/SKILL.md"
 is_collection: false
@@ -14,143 +14,143 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Git Worktrees Kullanımı
-
+  
   ## Genel Bakış
-
+  
   Çalışmanın izole bir ortamda gerçekleştirilmesini sağlayın. Platform'un native worktree araçlarını tercih edin. Native araç yoksa git worktrees'i manuel olarak kullanın.
-
+  
   **Temel ilke:** Mevcut izolasyonu algıla. Sonra native araçları kullan. Sonra git'e geri dön. Hiçbir zaman sisteme karşı çalışma.
-
+  
   **Başlangıçta ilan et:** "Git worktrees skill'ini kullanarak izole bir workspace kurmaktayım."
-
+  
   ## Adım 0: Mevcut İzolasyonu Algıla
-
+  
   **Herhangi bir şey oluşturmadan önce, zaten izole bir workspace'te olup olmadığınızı kontrol edin.**
-
+  
   ```bash
   GIT_DIR=$(cd "$(git rev-parse --git-dir)" 2>/dev/null && pwd -P)
   GIT_COMMON=$(cd "$(git rev-parse --git-common-dir)" 2>/dev/null && pwd -P)
   BRANCH=$(git branch --show-current)
   ```
-
+  
   **Submodule koruması:** `GIT_DIR != GIT_COMMON` git submodules içinde de doğrudur. "Already in a worktree" sonucuna varmadan önce, submodule içinde olmadığınızı doğrulayın:
-
+  
   ```bash
   # Bu bir yol döndürürse, bir worktree değil submodule içindesiniz — normal repo olarak ele alın
   git rev-parse --show-superproject-working-tree 2>/dev/null
   ```
-
+  
   **`GIT_DIR != GIT_COMMON` ise (ve submodule değilse):** Zaten linked worktree içindesiniz. Adım 2'ye (Project Setup) geçin. Başka bir worktree OLUŞTURMAYIN.
-
+  
   Branch durumu ile rapor edin:
   - Bir branch üzerinde: "Already in isolated workspace at `<path>` on branch `<name>`."
   - Detached HEAD: "Already in isolated workspace at `<path>` (detached HEAD, externally managed). Branch creation needed at finish time."
-
+  
   **`GIT_DIR == GIT_COMMON` ise (veya submodule içindeyse):** Normal repo checkout içindesiniz.
-
+  
   Kullanıcı talimatlarında zaten bir worktree tercihi belirtti mi? Değilse, worktree oluşturmadan önce izin isteyin:
-
+  
   > "İzole bir worktree kurmamı ister misiniz? Mevcut branch'inizi değişikliklerden korur."
-
+  
   Mevcut herhangi bir beyan edilen tercihe sorulmadan uyun. Kullanıcı rızasını reddeterse, yerinde çalışın ve Adım 2'ye geçin.
-
+  
   ## Adım 1: İzole Workspace Oluştur
-
+  
   **İki mekanizmanız var. Bu sırayla deneyin.**
-
+  
   ### 1a. Native Worktree Araçları (tercih edilen)
-
+  
   Kullanıcı izole workspace talep etmiş (Adım 0 rızası). Zaten worktree oluşturmak için bir yolunuz var mı? `EnterWorktree`, `WorktreeCreate`, `/worktree` komutu veya `--worktree` flag'i gibi adlandırılan bir araç olabilir. Varsa, kullanın ve Adım 2'ye geçin.
-
+  
   Native araçlar dizin yerleştirmesini, branch oluşturmayı ve temizliği otomatik olarak ele alır. Native araç varken `git worktree add` kullanmak, sisteminizin göremeyeceği veya yönetemeyeceği phantom state oluşturur.
-
+  
   Yalnızca Step 1a uygulanmaz ise Step 1b'ye devam edin — native worktree aracınız yoksa.
-
+  
   ### 1b. Git Worktree Fallback
-
+  
   **Yalnızca Adım 1a uygulanmaz ise bunu kullanın** — native worktree aracınız yoksa. Git kullanarak manuel olarak worktree oluşturun.
-
+  
   #### Dizin Seçimi
-
+  
   Bu öncelik sırasını izleyin. Açık kullanıcı tercihi gözlemlenen filesystem durumunu her zaman yener.
-
+  
   1. **Talimatlarınızda beyan edilmiş bir worktree dizin tercihi kontrol edin.** Kullanıcı zaten bir belirtmişse, sormadan kullanın.
-
+  
   2. **Mevcut project-local worktree dizinini kontrol edin:**
      ```bash
      ls -d .worktrees 2>/dev/null     # Tercih edilen (gizli)
      ls -d worktrees 2>/dev/null      # Alternatif
      ```
      Bulunursa, kullanın. Her ikisi varsa, `.worktrees` kazanır.
-
+  
   3. **Başka rehberlik yoksa**, project root'ta `.worktrees/` olarak varsayılan olarak ayarlayın.
-
+  
   #### Güvenlik Doğrulaması (yalnızca project-local dizinler)
-
+  
   **Worktree oluşturmadan önce dizin yok sayılmış mı DOĞRULMALI:**
-
+  
   ```bash
   git check-ignore -q .worktrees 2>/dev/null || git check-ignore -q worktrees 2>/dev/null
   ```
-
+  
   **YOKSA:** .gitignore'a ekleyin, değişikliği commit edin, sonra devam edin.
-
+  
   **Neden kritik:** Worktree içeriğini repository'ye yanlışlıkla commit etmeyi engeller.
-
+  
   #### Worktree Oluştur
-
+  
   ```bash
   # Seçilen konuma göre yolu belirle
   path="$LOCATION/$BRANCH_NAME"
-
+  
   git worktree add "$path" -b "$BRANCH_NAME"
   cd "$path"
   ```
-
+  
   **Sandbox fallback:** `git worktree add` izin hatasıyla başarısız olursa (sandbox reddi), kullanıcıya sandbox'ın worktree oluşturmayı engellediğini ve bunun yerine mevcut dizinde çalıştığınızı söyleyin. Sonra setup ve baseline testlerini yerinde çalıştırın.
-
+  
   ## Adım 2: Project Setup
-
+  
   Uygun setup'ı otomatik olarak algıla ve çalıştır:
-
+  
   ```bash
   # Node.js
   if [ -f package.json ]; then npm install; fi
-
+  
   # Rust
   if [ -f Cargo.toml ]; then cargo build; fi
-
+  
   # Python
   if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
   if [ -f pyproject.toml ]; then poetry install; fi
-
+  
   # Go
   if [ -f go.mod ]; then go mod download; fi
   ```
-
+  
   ## Adım 3: Temiz Baseline'ı Doğrula
-
+  
   Workspace'in temiz başladığından emin olmak için testleri çalıştır:
-
+  
   ```bash
   # Projeye uygun komutu kullan
   npm test / cargo test / pytest / go test ./...
   ```
-
+  
   **Testler başarısız olursa:** Hataları rapor et, devam edip etmeyeceğini veya araştırıp araştırmayacağını sor.
-
+  
   **Testler geçerse:** Hazır olduğunu rapor et.
-
+  
   ### Rapor
-
+  
   ```
   Worktree ready at <full-path>
   Tests passing (<N> tests, 0 failures)
   Ready to implement <feature-name>
   ```
-
+  
   ## Hızlı Referans
-
+  
   | Durum | İşlem |
   |-------|-------|
   | Zaten linked worktree içinde | Oluşturmayı atla (Adım 0) |
@@ -165,36 +165,36 @@ body_tr: |-
   | Oluşturmada izin hatası | Sandbox fallback, yerinde çalış |
   | Baseline sırasında testler başarısız | Hataları rapor et + sor |
   | package.json/Cargo.toml yok | Dependency kurulumunu atla |
-
+  
   ## Yaygın Hatalar
-
+  
   ### Sisteme karşı çalışma
-
+  
   - **Problem:** Platform zaten izolasyon sağlarken `git worktree add` kullanmak
   - **Çözüm:** Adım 0 mevcut izolasyonu algılar. Adım 1a native araçlara ertelenmiştir.
-
+  
   ### Algılamayı atlama
-
+  
   - **Problem:** Mevcut bir tane içinde iç içe worktree oluşturmak
   - **Çözüm:** Herhangi bir şey oluşturmadan önce her zaman Adım 0'ı çalıştırın
-
+  
   ### Yok saymayı doğrulamayı atlama
-
+  
   - **Problem:** Worktree içeriği izlenir, git status'ü kirletir
   - **Çözüm:** Her zaman project-local worktree oluşturmadan önce `git check-ignore` kullanın
-
+  
   ### Dizin konumunu varsayıp geçme
-
+  
   - **Problem:** Tutarsızlık oluşturur, proje kurallarını ihlal eder
   - **Çözüm:** Önceliği izleyin: açık talimatlar > mevcut project-local dizin > varsayılan
-
+  
   ### Başarısız testlerle devam etme
-
+  
   - **Problem:** Yeni hatalar ile önceden var olan sorunları ayırt edememe
   - **Çözüm:** Hataları rapor et, devam etmek için açık izin al
-
+  
   ## Kırmızı Bayraklar
-
+  
   **Asla:**
   - Adım 0 mevcut izolasyonu algıladığında worktree oluşturma
   - Native worktree aracınız varken `git worktree add` kullanma (ör. `EnterWorktree`). Bu #1 hatadır — varsa, kullanın.
@@ -202,7 +202,7 @@ body_tr: |-
   - Yok sayılmış olduğunu doğrulamadan worktree oluşturma (project-local)
   - Baseline test doğrulamasını atlama
   - Sorulmadan başarısız testlerle devam etme
-
+  
   **Her zaman:**
   - Önce Adım 0 algılamasını çalıştırın
   - Git fallback yerine native araçları tercih edin

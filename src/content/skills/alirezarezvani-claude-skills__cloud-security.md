@@ -3,7 +3,7 @@ name: "cloud-security"
 description_en: "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cloud-security/SKILL.md"
 path: ".gemini/skills/cloud-security/SKILL.md"
 is_collection: false
@@ -14,13 +14,13 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Bulut Güvenliği
-
+  
   IAM ayrıcalık yükseltme, genel depolama maruziyeti, ağ konfigürasyon riskleri ve altyapı-kod yanlış yapılandırmaları tespit etmek için bulut güvenlik duruşu değerlendirme becerisi. Bu, aktif bulut tehlikelemesi için olay yanıtı DEĞİLDİR (bkz. incident-response) veya uygulama güvenlik açığı taraması DEĞİLDİR (bkz. security-pen-testing) — bu, istismardan korunmak için sistematik bulut yapılandırması analizi hakkındadır.
-
+  
   ---
-
+  
   ## İçindekiler
-
+  
   - [Genel Bakış](#genel-bakış)
   - [Bulut Duruşu Kontrol Aracı](#bulut-duruşu-kontrol-aracı)
   - [IAM İlkesi Analizi](#iam-ilkesi-analizi)
@@ -31,74 +31,74 @@ body_tr: |-
   - [İş Akışları](#iş-akışları)
   - [Anti-Desenler](#anti-desenler)
   - [Çapraz Referanslar](#çapraz-referanslar)
-
+  
   ---
-
+  
   ## Genel Bakış
-
+  
   ### Bu Beceri Neler Yapar?
-
+  
   Bu beceri **bulut güvenlik duruşu yönetimi (CSPM)** için metodoloji ve araç sağlar — istismarlanabilir saldırı yüzeyini oluşturan yanlış yapılandırmalar için bulut yapılandırmalarını sistematik olarak kontrol etme. IAM ayrıcalık yükseltme yollarını, depolama genel maruziyetini, ağ aşırı izinlemesini ve altyapı kodu güvenliğini kapsar.
-
+  
   ### Diğer Güvenlik Becerilerinden Farklılık
-
+  
   | Beceri | Odak | Yaklaşım |
   |--------|------|---------|
   | **cloud-security** (bu) | Bulut yapılandırması riski | Önleyici — istismardan önce değerlendir |
   | incident-response | Aktif bulut olayları | Reaktif — onaylanmış bulut uzlaşması sınıflandır |
   | threat-detection | Davranışsal anormallikler | Proaktif — bulut günlüklerinde saldırgan aktivitesi ara |
   | security-pen-testing | Uygulama güvenlik açıkları | Saldırgan — bulunan zayıflıkları aktif olarak istismar et |
-
+  
   ### Ön Koşullar
-
+  
   IAM ilkesi belgeleri, S3 bucket konfigürasyonları ve güvenlik grubu kurallarına JSON biçiminde okuma erişimi. Sürekli izleme için bulut sağlayıcısı API'leri ile entegre edin (AWS Config, Azure Policy, GCP Security Command Center).
-
+  
   ---
-
+  
   ## Bulut Duruşu Kontrol Aracı
-
+  
   `cloud_posture_check.py` aracı üç tür kontrol çalıştırır: `iam` (ayrıcalık yükseltme), `s3` (genel erişim) ve `sg` (ağ maruziyeti). Kontrol türünü yapılandırma dosyası yapısından otomatik olarak algılar veya açık `--check` bayraklarını kabul eder.
-
+  
   ```bash
   # IAM ilkesini ayrıcalık yükseltme yolları için analiz et
   python3 scripts/cloud_posture_check.py policy.json --check iam --json
-
+  
   # S3 bucket yapılandırmasını genel erişim için değerlendir
   python3 scripts/cloud_posture_check.py bucket_config.json --check s3 --json
-
+  
   # Güvenlik grubu kurallarını açık yönetici portları için kontrol et
   python3 scripts/cloud_posture_check.py sg.json --check sg --json
-
+  
   # İnternet'e açık önem artırıcısı ile tüm kontrolleri çalıştır
   python3 scripts/cloud_posture_check.py config.json --check all \
     --provider aws --severity-modifier internet-facing --json
-
+  
   # Düzenlenmiş veri bağlamı (tüm bulgular için önem seviyesini bir seviye artırır)
   python3 scripts/cloud_posture_check.py config.json --check all \
     --severity-modifier regulated-data --json
-
+  
   # AWS CLI'dan IAM ilkesini akıt
   aws iam get-policy-version --policy-arn arn:aws:iam::123456789012:policy/MyPolicy \
     --version-id v1 | jq '.PolicyVersion.Document' | \
     python3 scripts/cloud_posture_check.py - --check iam --json
   ```
-
+  
   ### Çıkış Kodları
-
+  
   | Kod | Anlamı | Gerekli Eylem |
   |-----|--------|---------------|
   | 0 | Yüksek/kritik bulgu yok | Eylem gerekli değil |
   | 1 | Yüksek önem bulguları | 24 saat içinde düzelt |
   | 2 | Kritik bulgular | Hemen düzelt — etkin ise incident-response'a ilerlet |
-
+  
   ---
-
+  
   ## IAM İlkesi Analizi
-
+  
   IAM analizi ayrıcalık yükseltme yollarını, aşırı izinlenmiş verileri, genel principal maruziyetini ve veri sızıntısı riskini tespit eder.
-
+  
   ### Ayrıcalık Yükseltme Desenleri
-
+  
   | Desen | Önem | Anahtar Eylem Kombinasyonu | MITRE |
   |-------|------|---------------------------|-------|
   | Lambda PassRole yükseltme | Kritik | iam:PassRole + lambda:CreateFunction | T1078.004 |
@@ -111,9 +111,9 @@ body_tr: |-
   | Grup üyeliği yükseltme | Yüksek | iam:AddUserToGroup + iam:ListGroups | T1098 |
   | Şifre sıfırlama saldırısı | Yüksek | iam:UpdateLoginProfile + iam:ListUsers | T1098 |
   | Hizmet seviyesi joker | Yüksek | iam:* veya s3:* veya ec2:* | T1078.004 |
-
+  
   ### IAM Bulgu Önem Rehberi
-
+  
   | Bulgu Türü | Koşul | Önem |
   |-----------|-------|------|
   | Tam yönetici joker | Action=* Resource=* | Kritik |
@@ -123,23 +123,23 @@ body_tr: |-
   | Veri sızıntısı eylemleri | s3:GetObject, secretsmanager:GetSecretValue on * | Yüksek |
   | Hizmet joker | service:* eylem | Yüksek |
   | Adlandırılmış kaynakta veri eylemleri | Uygun kapsam | Düşük/Temiz |
-
+  
   ### En Az Ayrıcalık Önerileri
-
+  
   Her kritik veya yüksek bulgu için araç, belirli düzeltme rehberliği ile `least_privilege_suggestion` alanı çıkıştırır:
   - `Action: *` yerine adlandırılmış eylem listesi koy
   - `Resource: *` yerine belirli ARN desenleri koy
   - AWS Access Analyzer'ı gerçekten kullanılan izinleri belirlemek için kullan
   - Tehlikeli eylem kombinasyonlarını farklı güven ilkeleri ile ayrı rollere böl
-
+  
   ---
-
+  
   ## S3 Maruziyeti Değerlendirmesi
-
+  
   S3 değerlendirmesi dört boyutu kontrol eder: genel erişim blok yapılandırması, bucket ACL, bucket ilkesi principal maruziyeti ve varsayılan şifreleme.
-
+  
   ### S3 Yapılandırması Kontrol Matrisi
-
+  
   | Kontrol | Bulgu Koşulu | Önem |
   |--------|-------------|------|
   | Genel erişim blok | Dört bayraktan herhangi biri eksik/yanlış | Yüksek |
@@ -149,9 +149,9 @@ body_tr: |-
   | Varsayılan şifreleme | ServerSideEncryptionConfiguration yok | Yüksek |
   | Varsayılan şifreleme | Standart olmayan SSEAlgorithm | Orta |
   | PublicAccessBlockConfiguration yok | Durum bilinmiyor | Orta |
-
+  
   ### Önerilen S3 Taban Yapılandırması
-
+  
   ```json
   {
     "PublicAccessBlockConfiguration": {
@@ -172,25 +172,25 @@ body_tr: |-
     "ACL": "private"
   }
   ```
-
+  
   Dört genel erişim blok ayarının tamamı hem bucket seviyesinde hem de AWS hesap seviyesinde etkinleştirilmiş olmalıdır. Hesap seviyesi ayarları, her ikisi de uygulanmadığı sürece bucket seviyesi ayarları tarafından geçersiz kılınabilir.
-
+  
   ---
-
+  
   ## Güvenlik Grubu Analizi
-
+  
   Güvenlik grubu analizi, yönetici portlarını, veritabanı portlarını veya tüm trafiği internet CIDR'lerine (0.0.0.0/0, ::/0) açıktan çıkaran gelen kurallarını işaretler.
-
+  
   ### Kritik Port Maruziyeti Kuralları
-
+  
   | Port | Hizmet | Bulgu Önem | Düzeltme |
   |------|--------|-----------|----------|
   | 22 | SSH | Kritik | VPN CIDR'ye veya AWS Systems Manager Session Manager'a kısıtla |
   | 3389 | RDP | Kritik | VPN CIDR'ye veya AWS Fleet Manager'a kısıtla |
   | 0–65535 (tümü) | Tüm trafik | Kritik | Kuralı kaldır; yalnızca gerekli belirli portları ekle |
-
+  
   ### Yüksek Riskli Veritabanı Port Kuralları
-
+  
   | Port | Hizmet | Bulgu Önem | Düzeltme |
   |------|--------|-----------|----------|
   | 1433 | MSSQL | Yüksek | Uygulama katmanı SG'sinden izin ver — özel subnet'e taşı |
@@ -199,28 +199,28 @@ body_tr: |-
   | 27017 | MongoDB | Yüksek | Uygulama katmanı SG'sinden izin ver — özel subnet'e taşı |
   | 6379 | Redis | Yüksek | Uygulama katmanı SG'sinden izin ver — özel subnet'e taşı |
   | 9200 | Elasticsearch | Yüksek | Uygulama katmanı SG'sinden izin ver — özel subnet'e taşı |
-
+  
   ### Önem Değiştiricileri
-
+  
   Değerlendirilen kaynak doğrudan internet erişimine açık olduğunda (load balancer, API gateway, genel EC2) `--severity-modifier internet-facing` kullanın. Kaynak PCI, HIPAA veya GDPR düzenlemeli veriler işlediğinde `--severity-modifier regulated-data` kullanın. Her iki değiştirici de her bulgu önem seviyesini bir seviye artırır.
-
+  
   ---
-
+  
   ## IaC Güvenlik İncelemesi
-
+  
   Altyapı-kod incelemesi, dağıtımdan önce tanım zamanında yapılandırma sorunlarını yakalar.
-
+  
   ### IaC Kontrol Matrisi
-
+  
   | Araç | Kontrol Türleri | Ne Zaman Çalıştırılacak |
   |------|-----------------|------------------------|
   | Terraform | Kaynak seviyesi kontroller (aws_s3_bucket_acl, aws_security_group, aws_iam_policy_document) | Ön-plan, ön-uygula, PR kapısı |
   | CloudFormation | Şablon özellik doğrulaması (PublicAccessBlockConfiguration, SecurityGroupIngress) | Şablon linter, dağıtım kapısı |
   | Kubernetes manifesti | Container ayrıcalıkları, ağ ilkeleri, gizli maruziyeti | PR kapısı, kabul denetleyici |
   | Helm grafikleri | Kubernetes ile aynı | PR kapısı |
-
+  
   ### Terraform IAM İlkesi Örneği — Bulgu vs. Temiz
-
+  
   ```hcl
   # KÖTÜ: Kritik bulgular üretecek
   resource "aws_iam_policy" "bad_policy" {
@@ -233,7 +233,7 @@ body_tr: |-
       }]
     })
   }
-
+  
   # İYİ: En az ayrıcalık
   resource "aws_iam_policy" "good_policy" {
     policy = jsonencode({
@@ -246,73 +246,73 @@ body_tr: |-
     })
   }
   ```
-
+  
   Tam CSPM kontrol referansı: `references/cspm-checks.md`
-
+  
   ---
-
+  
   ## Bulut Sağlayıcısı Kapsama Matrisi
-
+  
   | Kontrol Türü | AWS | Azure | GCP |
   |-------------|-----|-------|-----|
   | IAM ayrıcalık yükseltme | Tam (IAM ilkeleri, güven ilkeleri, ESCALATION_COMBOS) | Kısmi (RBAC atamaları, hizmet müdürü riskleri) | Kısmi (IAM bağlamaları, iş yükü kimliği) |
   | Depolama genel erişim | Tam (S3 bucket ilkeleri, ACL'ler, genel erişim blok) | Kısmi (Blob SAS tokenleri, konteyner erişim seviyeleri) | Kısmi (GCS bucket IAM, tekdüzen bucket seviyesi erişim) |
   | Ağ maruziyeti | Tam (Güvenlik Grupları, NACL'ler, port seviyesi analiz) | Kısmi (NSG kuralları, gelen port analiz) | Kısmi (Güvenlik duvarı kuralları, VPC güvenlik duvarı) |
   | IaC taraması | Tam (Terraform, CloudFormation) | Kısmi (ARM şablonları, Bicep) | Kısmi (Dağıtım Müdürü) |
-
+  
   ---
-
+  
   ## İş Akışları
-
+  
   ### İş Akışı 1: Hızlı Duruş Kontrolü (20 Dakika)
-
+  
   Yeni sağlanan bir kaynak veya dağıtım öncesi inceleme için:
-
+  
   ```bash
   # 1. IAM ilkesi belgesini dışa aktar
   aws iam get-policy-version --policy-arn ARN --version-id v1 | \
     jq '.PolicyVersion.Document' > policy.json
   python3 scripts/cloud_posture_check.py policy.json --check iam --json
-
+  
   # 2. S3 bucket yapılandırmasını kontrol et
   aws s3api get-bucket-acl --bucket my-bucket > acl.json
   aws s3api get-public-access-block --bucket my-bucket >> bucket.json
   python3 scripts/cloud_posture_check.py bucket.json --check s3 --json
-
+  
   # 3. Açık yönetici portları için güvenlik gruplarını gözden geçir
   aws ec2 describe-security-groups --group-ids sg-123456 | \
     jq '.SecurityGroups[0]' > sg.json
   python3 scripts/cloud_posture_check.py sg.json --check sg --json
   ```
-
+  
   **Karar**: Çıkış kodu 2 = dağıtımı engelle ve düzelt. Çıkış kodu 1 = 24 saat içinde düzeltme planla.
-
+  
   ### İş Akışı 2: Tam Bulut Güvenliği Değerlendirmesi (Çok Günlük)
-
+  
   **Gün 1 — IAM ve Kimlik:**
   1. Üretim rollerine iliştirilmiş tüm IAM ilkelerini dışa aktar
   2. Her ilke üzerinde cloud_posture_check.py --check iam çalıştır
   3. Bulunan tüm ayrıcalık yükseltme yollarını harita
   4. Aşırı izinlenmiş hizmet hesaplarını ve rolleri belirle
   5. Çapraz hesap güven ilkelerini gözden geçir
-
+  
   **Gün 2 — Depolama ve Ağ:**
   1. Tüm S3 bucket'larını numaralandır ve yapılandırmaları dışa aktar
   2. Veri bucket'ları için cloud_posture_check.py --check s3 --severity-modifier regulated-data çalıştır
   3. Tüm VPC'ler için güvenlik grubu yapılandırmalarını dışa aktar
   4. İnternet'e açık kaynaklar için cloud_posture_check.py --check sg çalıştır
   5. Ağ segmentasyon boşluklarında NACL kurallarını gözden geçir
-
+  
   **Gün 3 — IaC ve Sürekli Entegrasyon:**
   1. Sürüm kontrolündeki Terraform/CloudFormation şablonlarını gözden geçir
   2. CI/CD boru hattında IaC güvenlik kapılarını kontrol et
   3. Bulguları `references/cspm-checks.md` karşısında doğrula
   4. Öncelik sırasına göre (Kritik → Yüksek → Orta) düzeltme planı oluştur
-
+  
   ### İş Akışı 3: CI/CD Güvenlik Kapısı
-
+  
   Yanlış yapılandırılmış kaynakların üretime ulaşmasını önlemek için dağıtım boru hatlarına duruş kontrolleri entegre et:
-
+  
   ```bash
   # Terraform uygularından önce IaC'ı doğrula
   terraform show -json plan.json | \
@@ -322,17 +322,17 @@ body_tr: |-
     echo "Kritik bulut güvenlik bulguları — dağıtım engelleniyor"
     exit 1
   fi
-
+  
   # Değiştirmeden önce mevcut S3 bucket'ı doğrula
   aws s3api get-bucket-policy --bucket "${BUCKET}" | jq '.Policy | fromjson' | \
     python3 scripts/cloud_posture_check.py - --check s3 \
     --severity-modifier regulated-data --json
   ```
-
+  
   ---
-
+  
   ## Anti-Desenler
-
+  
   1. **Yükseltme kombinolarını kontrol etmeden IAM analizi çalıştırma** — İzolasyon halinde bireysel yüksek riskli eylemler düşük riskli görünebilir. Tehlike kombinasyondadır: `iam:PassRole` tek başına kritik değildir ama `iam:PassRole + lambda:CreateFunction` onaylanmış bir ayrıcalık yükseltme yoludur. Her zaman tam ifadeyi analiz et, bireysel eylemleri değil.
   2. **Yalnızca bucket seviyesi genel erişim blok etkinleştirme** — AWS S3'ün hem hesap seviyesi hem de bucket seviyesi genel erişim blok ayarları vardır. Bucket seviyesi ayar hesap seviyesi ayarı geçersiz kılabilir. Her ikisi de yapılandırılmalıdır. Herhangi bir bucket açık geçersiz kılmalara sahipse yalnızca hesap seviyesi blok yetersizdir.
   3. **`--severity-modifier internet-facing` herkese açık kaynaklar için isteğe bağlı olarak ele alma** — İnternet'e açık kaynaklar dahili kaynaklardan önemli ölçüde daha yüksek maruziyete sahiptir. İnternet'e açık altyapıdaki yüksek bulgular kritik olarak ele alınmalıdır. DMZ, load balancer ve API gateway yapılandırmaları için her zaman `--severity-modifier internet-facing` uygula.
@@ -340,11 +340,11 @@ body_tr: |-
   5. **Bulguları kök neden analiz olmadan düzeltme** — Neden verildiğini anlamadan tehlikeli bir izni kaldırmak yeniden eklenmesine neden olur. Sessiz yeniden tanıtmayı önlemek için yüksek riskli her izni kaldırmadan önce iş gerekçesini dokümante et.
   6. **Hizmet hesabı aşırı izinlemesi yoksay** — Hizmet hesapları sık sık geliştirme sırasında aşırı sağlanır ve üretim için asla kesilmez. Üretimde her hizmet hesabı, kullanılmayan izinleri belirlemek ve kaldırmak için AWS Access Analyzer veya eşdeğer program karşısında denetlenmelidir.
   7. **Düzenlenmiş veri iş yükleri için önem değiştiriciler uygulamama** — Genel amaçlı bir S3 bucket'daki yüksek bulgu, PHI veya cardholder verisi içeren bucket'daki aynı bulgulardan farklıdır. Düzenlenmiş veri ortamlarında kaynakları değerlendirirken her zaman `--severity-modifier regulated-data` kullan.
-
+  
   ---
-
+  
   ## Çapraz Referanslar
-
+  
   | Beceri | İlişki |
   |--------|--------|
   | [incident-response](../incident-response/SKILL.md) | Kritik bulgular (genel S3, ayrıcalık yükseltme onaylanmış etkin) olay sınıflandırmasını tetikleyebilir |

@@ -3,7 +3,7 @@ name: "YuChenSSR/multi-ai-advisor-mcp"
 description: "A Model Context Protocol (MCP) server that queries multiple Ollama models and combines their responses, providing diverse AI perspectives on a single question."
 category: "Developer Tools"
 repo: "YuChenSSR/multi-ai-advisor-mcp"
-stars: 79
+stars: 80
 url: "https://github.com/YuChenSSR/multi-ai-advisor-mcp"
 body_length: 6031
 license: "MIT"

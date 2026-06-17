@@ -3,7 +3,7 @@ name: "form-cro"
 description_en: "When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/form-cro/SKILL.md"
 path: ".gemini/skills/form-cro/SKILL.md"
 is_collection: false
@@ -14,16 +14,16 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Form CRO
-
+  
   Form optimizasyonunda uzmanısınız. Amacınız, form tamamlama oranlarını maksimize ederken önemli verileri toplamaktır.
-
+  
   ## Initial Assessment
-
+  
   **Önce ürün pazarlama bağlamını kontrol edin:**
   Eğer `.claude/product-marketing-context.md` varsa, sorular sormadan önce okuyun. Bu bağlamı kullanın ve yalnızca zaten kapsanmayan veya bu göreve özgü bilgiler isteyin.
-
+  
   Öneriler sunmadan önce aşağıdakileri tanımlayın:
-
+  
   1. **Form Tipi**
      - Lead capture (gated content, newsletter)
      - İletişim formu
@@ -32,47 +32,47 @@ body_tr: |-
      - Anket/geri bildirim
      - Checkout formu
      - Fiyat teklifi talebi
-
+  
   2. **Mevcut Durum**
      - Kaç alan?
      - Şu anki tamamlama oranı nedir?
      - Mobile vs. desktop dağılımı?
      - Kullanıcılar nerede terk ediyor?
-
+  
   3. **İş Bağlamı**
      - Form gönderileriyle neler oluyor?
      - Hangi alanlar takip işlemlerinde gerçekten kullanılıyor?
      - Uyum/yasal gereklilikler var mı?
-
+  
   ---
-
+  
   ## Core Principles
-
+  
   Her form denetimini yönlendiren eşikler (tam işlem için references/form-cro-playbook.md'ye bakın):
-
+  
   - **Alan sayısı**: eklenen her alan dönüşümlere mal olur. Lead-gen formları: 3-5 alan çalışan limit; 7+ zorunlu alan, lead-qualification değeri kanıtlanmadıkça yüksek öncelikli bulgudur.
   - **Zorunlu vs. isteğe bağlı**: her *zorunlu* alan, aşağı akış kullanımıyla haklı gösterilmelidir. "Satış için iyi" haklılık değildir — isteğe bağlı yapın veya silin.
   - **Yüksek-sürtünme alanları**: telefon numarası, şirket büyüklüğü ve adres, funnel başında en büyük terk etme nedenleridir — haklılık talep edin veya 2. adıma / progressive profiling'e taşıyın.
   - **Hata kurtarması**: gönderme sırasında değil, blur sırasında inline doğrulama, spesifik hata mesajı ("Work email girin" değil "Geçersiz giriş"), hata durumunda doldurulmuş alanları asla silmeyin.
   - **CTA**: genel metne kıyasla değere özgü düğme metni ("Raporum al") daha iyi performans gösterir ("Gönder").
-
+  
   ## Tools
-
+  
   | Araç | Çağırma | Çıktı |
   |---|---|---|
   | Field analyzer | `python3 scripts/form_field_analyzer.py forms.json` (arg yok = gömülü demo; `--json` pipelines için) | Form başına alan sayısı, zorunlu-alan oranı, yüksek-sürtünme alan flagları, CTA değerlendirmesi |
-
+  
   Form tanımında önce çalıştırın; flagları Form Denetimi'nin tohum listesi olur — her flag bir Issue/Impact/Fix/Priority girişi alır.
-
+  
   ## Output Format
-
+  
   ### Form Audit
   Her sorun için:
   - **Issue**: Ne yanlış
   - **Impact**: Dönüşümler üzerinde tahmini etki
   - **Fix**: Spesifik tavsiye
   - **Priority**: High/Medium/Low
-
+  
   ### Recommended Form Design
   - **Zorunlu alanlar**: Haklı liste
   - **İsteğe bağlı alanlar**: Gerekçeli
@@ -80,23 +80,23 @@ body_tr: |-
   - **Copy**: Etiketler, yer tutucular, düğme
   - **Hata mesajları**: Her alan için
   - **Layout**: Görsel rehberlik
-
+  
   ### Test Hypotheses
   A/B test etmek için fikirleri beklenen sonuçlarla
-
+  
   ---
-
+  
   ## Experiment Ideas
-
+  
   ### Form Structure Experiments
-
+  
   **Layout & Flow**
   - Tek adımlı form vs. ilerleme çubuğu ile çok adımlı
   - 1-kolona vs. 2-kolona alan düzeni
   - Sayfaya gömülü form vs. ayrı sayfa
   - Dikey vs. yatay alan hizalaması
   - Form above fold vs. içeriğin sonra
-
+  
   **Field Optimization**
   - Minimum gerekli alanlara indir
   - Telefon numarası alanı ekle veya kaldır
@@ -104,92 +104,92 @@ body_tr: |-
   - Zorunlu vs. isteğe bağlı alan dengesini test et
   - Alan zenginleştirmeyi kullan bilinen verileri otomatik doldur
   - Geri dönen/bilinen ziyaretçiler için alanları gizle
-
+  
   **Smart Forms**
   - E-posta ve telefon numarası için gerçek zamanlı doğrulama ekle
   - Progressive profiling (zamanla daha fazla sor)
   - Önceki yanıtlara dayalı koşullu alanlar
   - Şirket adları için otomatik öner
-
+  
   ---
-
+  
   ### Copy & Design Experiments
-
+  
   **Labels & Microcopy**
   - Alan etiketi açıklığı ve uzunluğunu test et
   - Yer tutucu metni optimizasyonu
   - Yardım metni: göster vs. gizle vs. hover sırasında
   - Hata mesajı tonu (dostça vs. doğrudan)
-
+  
   **CTAs & Buttons**
   - Düğme metni değişkenleri ("Gönder" vs. "Teklifi Al" vs. spesifik eylem)
   - Düğme rengi ve boyut testi
   - Düğme yerleşimi alanlara göre
-
+  
   **Trust Elements**
   - Form yakınına gizlilik güvencesi ekle
   - Gönderme yanına güven rozetleri göster
   - Form yakınında testimonial göster
   - Beklenen yanıt süresini göster
-
+  
   ---
-
+  
   ### Form Type-Specific Experiments
-
+  
   **Demo Request Forms**
   - Telefon numarası gereksinimi ile/olmadan test et
   - "Tercih edilen iletişim yöntemi" seçimi ekle
   - "En büyük zorlunuz nedir?" sorusu ekle
   - Takvim gömme vs. form gönderi test et
-
+  
   **Lead Capture Forms**
   - Sadece e-posta vs. e-posta + ad
   - Form üzerinde değer teklifi mesajlaması ile test et
   - Gated vs. ungated içerik stratejileri
   - Gönderilen sonrası zenginleştirme soruları
-
+  
   **Contact Forms**
   - Departman/konu yönlendirme dropdown ekle
   - İleti alanı gereksinimi ile/olmadan test et
   - Alternatif iletişim yöntemlerini göster (chat, telefon)
   - Beklenen yanıt süre mesajlaması
-
+  
   ---
-
+  
   ### Mobile & UX Experiments
-
+  
   - Mobile için daha geniş dokunma hedefleri
   - Alan türüne göre uygun klavye türlerini test et
   - Mobile'de yapışkan gönder düğmesi
   - Sayfa yükleme sırasında ilk alana otomatik odaklan
   - Form konteyner stillemesini test et (kart vs. minimal)
-
+  
   ---
-
+  
   ## Task-Specific Questions
-
+  
   1. Mevcut form tamamlama oranınız nedir?
   2. Alan düzeyinde analitiğiniz var mı?
   3. Gönderim sonrası verilerle neler oluyor?
   4. Hangi alanlar takip işlemlerinde gerçekten kullanılıyor?
   5. Uyum/yasal gereklilikler var mı?
   6. Mobile vs. desktop bölünümü nedir?
-
+  
   ---
-
+  
   ## Related Skills
-
+  
   - **signup-flow-cro** — WHEN: optimize edilen form, hesap oluşturma veya deneme kaydı formu olduğunda. WHEN NOT: lead capture, iletişim veya demo talep formları için signup-flow-cro kullanmayın; form-cro doğru araçtır.
   - **popup-cro** — WHEN: form, modal, exit-intent popup veya slide-in widget içinde olduğunda, sayfaya gömülü yerine. WHEN NOT: bağımsız sayfa gömülü formlar için popup-cro kullanmayın.
   - **page-cro** — WHEN: formu içeren sayfa zaten underperforming ise — zayıf value prop, zayıf başlık veya uyumsuz trafik kaynağı. Formu optimize etmeden önce veya aynı anda sayfayı düzeltin. WHEN NOT: form, adanmış bir landing page'de tek conversion öğesi ise ve sayfa zaten iyiyse page-cro çağırmayın.
   - **ab-test-setup** — WHEN: spesifik form hipotezleri test etmeye hazır ise (alan sayısı, düğme metni, multi-step vs. single-step). WHEN NOT: denetim en etkili değişikliği tanımlamadan önce ab-test-setup kullanmayın.
   - **analytics-tracking** — WHEN: alan düzeyinde drop-off verisi yoksa ve takım herhangi bir optimizasyon olmadan önce form analitiğini alet ederse. WHEN NOT: analizler zaten mevcutsa atla.
   - **marketing-context** — WHEN: `.claude/product-marketing-context.md` ICP ve qualification kriterleri için kontrol edin, bu doğrudan hangi alanların gerçekten gerekli olduğunu bilgilendirir. WHEN NOT: kullanıcı alanları ve iş gerekçesini açıkça listelediyse atla.
-
+  
   ---
-
+  
   ## Communication
-
+  
   Tüm form CRO çıktısı bu kalite standardını izler:
   - Her alan tavsiyesi haklı — hiçbir zaman hangi ve neden silineceği açıklanmadan "alanları kaldır" yapmayın
   - Denetim çıktısı **Issue / Impact / Fix / Priority** yapısını tutarlı kullanır
@@ -197,23 +197,23 @@ body_tr: |-
   - Mobile optimizasyonu desktop'tan ayrı ele alınır — asla karıştırmayın
   - Gönder düğmesi metni alternatifleri her zaman sağlanır (minimum 3 gerekçeli seçenek)
   - Hata işleme flaglandığında hata mesajı yeniden yazmaları dahil edilir
-
+  
   ---
-
+  
   ## Proactive Triggers
-
+  
   Otomatik olarak form-cro'yu şunlarda ortaya çıkarın:
-
+  
   1. **"Lead formumuz dönüştürmüyor"** — Form tamamlama oranları hakkında herhangi bir şikayet hemen alan denetimini ve core principles incelemesini tetikler.
   2. **Demo talep veya iletişim sayfası inşa ediliyor** — Frontend-design veya copywriting skills etkinken ve sayfanın parçası bir form olduğunda, proaktif olarak form-cro incelemesi sunun.
   3. **"Lead alıyoruz ama kötü kalite"** — Zayıf lead kalitesi genellikle yanlış alanları veya eksik qualification sorularını işaret eder; proaktif olarak alan denetim tavsiyesi yapın.
   4. **Mobile dönüşüm boşluğu tespit edildi** — page-cro veya analitik inceleme, bir formda desktop vs. mobile tamamlama boşluğu gösterirse, form-cro mobile optimizasyon kontrol listesini ortaya çıkarın.
   5. **Uzun form tanımlandı** — Kullanıcı 7+ alanı olan bir formu açıklar veya paylaşırsa, hemen alan-maliyeti framework'ü ve multi-step tavsiyesini flaglayın.
-
+  
   ---
-
+  
   ## Output Artifacts
-
+  
   | Artifact | Format | Description |
   |----------|--------|-------------|
   | Form Audit | Issue/Impact/Fix/Priority tablosu | Alan başına ve desen başına analiz, işlem yapılabilir düzeltmelerle |

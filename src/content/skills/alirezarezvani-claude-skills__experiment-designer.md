@@ -3,7 +3,7 @@ name: "experiment-designer"
 description_en: "Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/experiment-designer/SKILL.md"
 path: ".gemini/skills/experiment-designer/SKILL.md"
 is_collection: false
@@ -14,95 +14,95 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Deney Tasarımcısı
-
+  
   Açık hipotezler ve savunulabilir kararlarla ürün deneylerini tasarlayın, önceliklendirin ve değerlendirin.
-
+  
   ## Ne Zaman Kullanılır
-
+  
   Bu beceriyi şu durumlarda kullanın:
   - A/B ve çok değişkenli deney planlaması
   - Hipotez yazımı ve başarı kriterleri tanımlaması
   - Örnek boyutu ve minimum tespit edilebilir etki planlaması
   - ICE puanlaması ile deney önceliklendirmesi
   - Ürün kararları için istatistiksel çıktıları okuma
-
+  
   ## Temel İş Akışı
-
+  
   1. Hipotezi If/Then/Because formatında yazın
   - If we change `[intervention]`
   - Then `[metric]` will change by `[expected direction/magnitude]`
   - Because `[behavioral mechanism]`
-
+  
   2. Testi çalıştırmadan önce metrikleri tanımlayın
   - Birincil metrik: tek karar metriği
   - Koruma metrikleri: kalite/risk koruması
   - İkincil metrikler: yalnızca teşhis amaçlı
-
+  
   3. Örnek boyutunu tahmin edin
   - Temel dönüşüm oranı veya temel ortalama
   - Minimum tespit edilebilir etki (MDE)
   - Anlamlılık seviyesi (alpha) ve güç
-
+  
   Kullanın:
   ```bash
   python3 scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.02 --mde-type absolute
   ```
-
+  
   4. Deneyleri ICE ile önceliklendirin
   - Impact: potansiyel kazanç
   - Confidence: kanıt kalitesi
   - Ease: maliyet/hız/karmaşıklık
-
+  
   ICE Score = (Impact * Confidence * Ease) / 10
-
+  
   5. Durdurma kurallarıyla başlatın
   - Önceden sabit örnek boyutu veya sabit süre seçin
   - Uygun yöntem olmadan tekrarlanan kontrollerden kaçının
   - Koruma metriklerini sürekli izleyin
-
+  
   6. Sonuçları yorumlayın
   - İstatistiksel anlamlılık, işletme anlamlılığı değildir
   - Nokta tahmini + güven aralığını karar eşiğiyle karşılaştırın
   - Yenilik etkilerini ve segment heterojenliğini araştırın
-
+  
   ## Hipotez Kalitesi Kontrol Listesi
-
+  
   - [ ] Açık müdahale ve kitleyi içerir
   - [ ] Ölçülebilir metrik değişimini belirtir
   - [ ] Makul nedensellik sebebini açıklar
   - [ ] Beklenen minimum etkiyi içerir
   - [ ] Başarısızlık koşulunu tanımlar
-
+  
   ## Yaygın Deney Hatalarından Kaçınma
-
+  
   - Yanlış negatif sonuçlara yol açan yetersiz güçlü testler
   - İzolasyon olmadan çok sayıda eş zamanlı değişikliği çalıştırma
   - Test sırasında hedefleme veya uygulamayı değiştirme
   - Rastgele artışlarda erken durdurma
   - Örnek oranı uyuşmazlığını ve enstrümantasyon sapmasını göz ardı etme
   - P-value'dan etkisi büyüklüğü bağlamı olmadan başarı ilan etme
-
+  
   ## İstatistiksel Yorumlama Koruma Mekanizmaları
-
+  
   - p-value < alpha, boş hipoteze karşı kanıt gösterir, garantili doğru değildir.
   - Güven aralığı sıfırı/etkisiz durumu geçerse, yönlü iddia belirsizdir.
   - Geniş aralıklar, anlamlı olsa bile düşük kesinliği gösterir.
   - İşletme etkisine bağlı pratik anlamlılık eşiklerini kullanın.
-
+  
   Bakınız:
   - `references/experiment-playbook.md`
   - `references/statistics-reference.md`
-
+  
   ## Araçlar
-
+  
   ### `scripts/sample_size_calculator.py`
-
+  
   Gerekli örnek boyutunu (varyant başına ve toplam) şunlardan hesaplar:
   - temel oran
   - MDE (mutlak veya göreceli)
   - anlamlılık seviyesi (alpha)
   - istatistiksel güç
-
+  
   Örnek:
   ```bash
   python3 scripts/sample_size_calculator.py \

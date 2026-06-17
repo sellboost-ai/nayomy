@@ -3,7 +3,7 @@ name: "karpathy-guidelines"
 description_en: "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria."
 category: "Design"
 repo: "forrestchang/andrej-karpathy-skills"
-stars: 176850
+stars: 177207
 url: "https://github.com/forrestchang/andrej-karpathy-skills/blob/HEAD/skills/karpathy-guidelines/SKILL.md"
 path: "skills/karpathy-guidelines/SKILL.md"
 is_collection: false
@@ -14,65 +14,65 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Karpathy Yönergeleri
-
+  
   LLM kodlama hatalarını azaltmak için tasarlanan davranışsal yönergeler, [Andrej Karpathy'nin LLM kodlama tuzaklarına ilişkin gözlemlerinden](https://x.com/karpathy/status/2015883857489522876) türetilmiştir.
-
+  
   **Değiş Tokuş:** Bu yönergeler hız yerine ihtiyatlılığa eğilim gösterir. Önemsiz görevler için yargı kullanın.
-
+  
   ## 1. Kodlamadan Önce Düşünün
-
+  
   **Varsayım yapmayın. Kafanızı karıştırmayı gizlemeyin. Uzlaşmaları ortaya çıkarın.**
-
+  
   Uygulamadan önce:
   - Varsayımlarınızı açıkça belirtin. Emin değilseniz sorun.
   - Birden fazla yorum varsa, bunları sunun - sessizce seçim yapmayın.
   - Daha basit bir yaklaşım varsa, bunu söyleyin. Gerekli olduğunda karşı çıkın.
   - Bir şey belirsizse dur. Neyin kafa karıştırıcı olduğunu adlandır. Sor.
-
+  
   ## 2. Önce Basitlik
-
+  
   **Sorunu çözen minimum kod. Hiçbir spekülasyon yok.**
-
+  
   - İstenmeyenlerin ötesinde hiçbir özellik.
   - Tek kullanımlık kod için abstraksiyon yok.
   - İstenmeyen "esneklik" veya "yapılandırılabilirlik" yok.
   - İmkansız senaryolar için hata işleme yok.
   - 200 satır yazarsanız ve 50 olabilirse, yeniden yazın.
-
+  
   Kendinize sorun: "Kıdemli bir mühendis bunu aşırı karmaşık dese mi?" Evet ise, basitleştirin.
-
+  
   ## 3. Cerrahî Değişiklikler
-
+  
   **Sadece gerekli olanları değiştir. Sadece kendi karışıklığını temizle.**
-
+  
   Mevcut kodu düzenlerken:
   - Bitişik kodu, yorumları veya biçimlendirmeyi "iyileştirmeyin".
   - Kırılmamış şeyleri yeniden düzenlemeyiniz.
   - Mevcut stille eşleş, farklı yaparsanız bile.
   - İlişkisiz ölü kod fark ederseniz, söyleyin - silmeyin.
-
+  
   Değişiklikleriniz yetim oluşturduğunda:
   - SENİZ değişiklikleri kullanılmayan imports/variables/functions'ları kaldırın.
   - Önceden varolan ölü kodu sorulmadıkça kaldırmayın.
-
+  
   Test: Her değiştirilmiş satır doğrudan kullanıcı talebine izlenebilir olmalıdır.
-
+  
   ## 4. Hedef Odaklı Yürütme
-
+  
   **Başarı kriterlerini tanımlayın. Doğrulanana kadar döngü yapın.**
-
+  
   Görevleri doğrulanabilir hedeflere dönüştürün:
   - "Doğrulama ekle" → "Geçersiz girdiler için testler yazın, ardından bunları geçirin"
   - "Hatayı düzelt" → "Bunu yeniden üreten bir test yazın, ardından bunu geçirin"
   - "X'i yeniden düzenle" → "Testlerin önce ve sonra geçtiğinden emin olun"
-
+  
   Çok adımlı görevler için kısa bir plan belirtin:
   ```
   1. [Adım] → doğrula: [kontrol]
   2. [Adım] → doğrula: [kontrol]
   3. [Adım] → doğrula: [kontrol]
   ```
-
+  
   Güçlü başarı kriterleri bağımsız döngü yapmanıza izin verir. Zayıf kriterler ("çalışmasını sağla") sürekli açıklama gerektiriyor.
 ---
 

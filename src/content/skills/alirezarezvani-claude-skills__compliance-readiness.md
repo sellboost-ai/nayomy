@@ -3,7 +3,7 @@ name: "compliance-readiness"
 description_en: "/cs:compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before starting a new framework, planning the annual audit calendar, or preparing for certification stage 1."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/compliance-readiness/SKILL.md"
 path: ".gemini/skills/compliance-readiness/SKILL.md"
 is_collection: false
@@ -14,119 +14,119 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:compliance-readiness — Uyum Sağlama Müdürü Zorlayıcı Soruları
-
+  
   **Komut:** `/cs:compliance-readiness <program>`
-
+  
   Multi-framework uyum sağlama müdürü, herhangi bir uyum sağlama programını baskı altında test eder. Yeni bir framework benimsemeden, denetim döngüsü planlamasından veya sertifikasyon hazırlık onayından önce altı soru.
-
+  
   ## Ne Zaman Çalıştırılır
-
+  
   - Yeni bir uyum sağlama framework'ü benimsemeden önce
   - Yıllık denetim takvimi kesinleştirilmesinden önce
   - Sertifikasyon aşama 1 hazırlık onayından önce
   - Yönetim değerlendirmesinden önce (Madde 9.3, tüm framework'ler)
   - Kanıt toplama çabası yıldan yıla %50+ artmışsa (kötü işaret)
   - Denetim %15'ten fazla kritik bulgu üretmişse
-
+  
   ## Altı Uyum Sağlama Müdürü Sorusu
-
+  
   ### 1. Her geçerli framework'ü adlandırdınız mı?
   **Framework seçici çalıştırılmadı, savunulabilir kapsam yok.**
   - `framework_selector.py` komut dosyasını şirket profiliyle çalıştırın
   - Bir framework'ü unutmak, denetim programını daha sonra yeniden oluşturmak anlamına gelir
   - Sektöre özgü ek katmanları dikkatle inceleyin (finans: NYDFS, FINMA; sağlık: HIPAA, ISO 13485; yapay zeka: ISO 42001 + EU AI Act)
-
+  
   ### 2. Framework'ler nerede örtüşüyor ve yeniden kullanım kaldıracı nedir?
   **Tek kanıt -> N kontrol = multi-framework verimliliğinin temeldir.**
   - `cross_framework_mapper.py` komut dosyasını etkinleştirilen framework'lerle çalıştırın
   - YÜKSEK güvenli eşlemeler: aynı kanıt; ORTA: mevcut + ek katman; DÜŞÜK: yeni artefakt
   - Örtüşme analizi olmadan, aynı erişim-inceleme kayıtlarını 3 kez toplayacaksınız
-
+  
   ### 3. Her artefakta kim sahip ve yeniden kullanım kaldıracı puanı nedir?
   **Sorumluluğu olmayan ortaklaşa sahiplik, eski kanıtın en yaygın nedenidir.**
   - Artefakt envanteri için `evidence_pool_generator.py` komut dosyasını çalıştırın
   - YÜKSEK kaldıraçlı artefaktlar (≥ 5 eşleme) önce inşa edilir
   - Her artefakta bir sorumlu sahibi olması gerekir
   - Eski kanıt etkili bir boşluktur — artefakt geçmişte var olsa bile
-
+  
   ### 4. Denetim takvimi nedir ve denetçi bağımsızlığı korunuyor mu?
   **Gözetim denetimleri aynı hafta yığılması kötü işaret.**
   - Framework başına denetim planı araçlarını kullanın (aims_audit_scheduler, isms_audit_scheduler, audit_schedule_optimizer)
   - Denetçi kendi çalışmasını denetleyemez (Madde 9.2, tüm ISO standartlarında)
   - Küçük takımlar için: denetçileri döndürün + ara sıra harici denetçi
-
+  
   ### 5. Simülasyon denetimi ne üretir ve ağırlık dağılımı sağlıklı mı?
   **Simülasyon denetimi yok, hazırlık sinyali yok.**
   - `audit_simulator.py` komut dosyasını framework + kapsam ile çalıştırın
   - Sağlıklı dağılım: ≥ %40 gözlem, ≤ %15 kritik
   - Tüm kritik bulgular = yıkıcı denetim VEYA gerçekten başarısız program
   - Tüm gözlem bulguları = denetim çok yüzeysel
-
+  
   ### 6. Framework'ler arasında yönetim değerlendirmesi sıklığı nedir?
   **Her framework kendi yönetim değerlendirmesini ister; entegre bir değerlendirme (Ek SL başına) 5x yönetici zamanı tasarrufu sağlar.**
   - Etkinleştirilen tüm framework'lerin Madde 9.3 girişlerini kapsayan bir üç aylık çapraz framework değerlendirmesi planlayın
   - Girdiler: risk kaydı değişiklikleri, açık uyumsuzluklar, denetim bulguları, olaylar, kayma, KPI'lar
   - Çıktılar: eylem öğeleri, kaynak kararları, kapsam ayarlamaları
-
+  
   ## İş Akışı
-
+  
   ```bash
   # 1. Framework seçimi
   python ../../skills/compliance-os/scripts/framework_selector.py profile.json
-
+  
   # 2. Cross-framework örtüşmesi
   python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
-
+  
   # 3. Kanıt havuzu konsolidasyonu
   python ../../skills/compliance-os/scripts/evidence_pool_generator.py program.json
-
+  
   # 4. Simülasyon denetimi (framework başına)
   python ../../skills/compliance-os/scripts/audit_simulator.py scope.json
   ```
-
+  
   ## Çıktı Formatı
-
+  
   ```markdown
   # Uyum Sağlama Hazırlığı: <program>
   **Tarih:** YYYY-MM-DD
-
+  
   ## Alınmakta Olan Karar
   [framework-set | audit-calendar | certification-readiness | evidence-consolidation]
-
+  
   ## Framework Seti
   - Geçerli: <liste>
   - Bağlayıcı (düzenlemeler): <sayı>
   - Sertifikalandırılabilir: <sayı>
   - Eksik bağımlılıklar: <liste>
-
+  
   ## Cross-Framework Örtüşmesi
   - Kapsam içindeki birleştirilmiş kontroller: N
   - Yüksek kaldıraçlı artefaktlar (≥ 5 eşleme): M
   - En iyi yeniden kullanım fırsatları: <top 5 artefakt>
-
+  
   ## Kanıt Havuzu
   - Katalogdaki artefaktlar: N
   - Yüksek kaldıraçlı sayısı: M
   - Eski kanıt oranı: X%
   - Sahibi olmayan artefaktlar: K
-
+  
   ## Denetim Takvimi
   - Bu yıl planlanan framework'ler: <liste>
   - Denetçi bağımsızlığı korunuyor: E/H
   - Çatışmalar: <liste>
-
+  
   ## Simülasyon Denetimi Sonuçları (framework başına)
   - <framework>: toplam bulgular N, kritik X%, gözlem Y%, sağlıklı dağılım: E/H
-
+  
   ## Karar
   🟢 HAZIR | 🟡 AŞAMA-2-ADAY | 🔴 HAZIR DEĞİL
-
+  
   ## En İyi 3 Eylem
   [3 somut sonraki adım, sahip + tarihler ile]
   ```
-
+  
   ## Yönlendirme
-
+  
   - `/cs:aims-audit` — ISO 42001'e özgü zorlayıcı sorular için
   - `/cs:ai-act-readiness` — EU AI Act'e özgü zorlayıcı sorular için
   - `/cs:ciso-review` — siber güvenlik stratejisi için
@@ -134,15 +134,15 @@ body_tr: |-
   - `/cs:gc-review` — yeni durum hukuki incelemesi için
   - `/cs:decide` — kararı kaydetmek için
   - `/cs:freeze 30` — sertifikasyon taahhütlerinde (çok yıllı finansal etki)
-
+  
   ## İlgili
-
+  
   - Ajan: [`cs-compliance-officer`](../../agents/cs-compliance-officer.md)
   - Beceri: [`compliance-os`](../compliance-os/SKILL.md)
   - Bitişik: `ra-qm-team/skills/iso42001-specialist/`, `ra-qm-team/skills/eu-ai-act-specialist/`, `ra-qm-team/skills/information-security-manager-iso27001/`, `ra-qm-team/skills/soc2-compliance/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

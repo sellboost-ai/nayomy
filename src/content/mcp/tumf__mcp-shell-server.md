@@ -5,7 +5,7 @@ category: "Command Line"
 repo: "tumf/mcp-shell-server"
 stars: 176
 url: "https://github.com/tumf/mcp-shell-server"
-body_length: 6120
+body_length: 12282
 license: "MIT"
 language: "Python"
 body_tr: |-
@@ -261,15 +261,16 @@ A secure shell command execution server implementing the Model Context Protocol 
 
 <a href="https://glama.ai/mcp/servers/rt2d4pbn22"></a>
 
-<a href="https://glama.ai/mcp/servers/rt2d4pbn22"></a>
-
 ## Features
 
-* **Secure Command Execution**: Only whitelisted commands can be executed
+* **Argv-based Command Execution**: Allowed commands run via subprocess argv without shell-string interpretation
 * **Standard Input Support**: Pass input to commands via stdin
 * **Comprehensive Output**: Returns stdout, stderr, exit status, and execution time
-* **Shell Operator Safety**: Validates commands after shell operators (; , &&, ||, |)
-* **Timeout Control**: Set maximum execution time for commands
+* **Safe Pipeline Support**: Pipelines preserve and validate argv segments instead of invoking a shell
+* **Execution Limits**: Server-side default timeout, maximum timeout, and output byte caps are enforced
+* **Contained Redirection**: `<`, `>`, and `>>` targets must stay inside the requested working directory
+* **Minimal Child Environment**: Child processes receive a small allowlisted environment instead of inheriting all server secrets
+* **Structured Audit Logging**: Success, rejection, timeout, output-cap, and process-error outcomes are logged with redaction
 
 ## MCP client setting in your Claude.app
 
@@ -322,17 +323,7 @@ code ~/Library/Application\ Support/Claude/claude_desktop_config.json
 }
 ```
 
-#### Installation
-
-### Installing via Smithery
-
-To install Shell Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/mcp-shell-server):
-
-```bash
-npx -y @smithery/cli install mcp-shell-server --client claude
-```
-
-### Manual Installation
+## Installation
 
 ### Installing via Smithery
 
@@ -346,14 +337,6 @@ npx -y @smithery/cli install mcp-shell-server --client claude
 
 ```bash
 pip install mcp-shell-server
-```
-
-### Installing via Smithery
-
-To install Shell Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/mcp-shell-server):
-
-```bash
-npx -y @smithery/cli install mcp-shell-server --client claude
 ```
 
 ## Usage
@@ -376,12 +359,62 @@ ALLOWED_COMMANDS="ls ,echo, cat"      # With spaces (using alias)
 ALLOW_COMMANDS="ls,  cat  , echo"     # Multiple spaces
 ```
 
+`ALLOW_PATTERNS` can be used for comma-separated regular expressions that match command names. Each pattern is applied with full-match semantics, so `ALLOW_PATTERNS="ls"` allows only the command name `ls` and does not allow `lsof` or `ls -la`. Patterns and command names containing whitespace or shell metacharacters are rejected; do not use `ALLOW_PATTERNS` to describe shell command strings or argument-level policies.
+
+```bash
+ALLOW_PATTERNS="python[0-9.]*,node"    # Command-name patterns only
+```
+
+Allowlisting a command name is not a sandbox for that program's own argument-level execution features. The server applies default argument hardening even when the binary is allowed: known exec-capable vectors such as `find -exec`, shell/interpreter launchers, `awk system()`, `tar --checkpoint-action=exec`, `env`, `xargs`, and git alias external commands are rejected before subprocess creation. For example, `ALLOW_COMMANDS="git"` does not permit `git -c alias.pwn=!sh -c "touch marker" pwn`; the git `alias.<name>=!<cmd>` exec form is rejected by default.
+
+### Child process environment
+
+Commands run with an isolated child environment. The server does **not** pass the full parent process environment to child commands, so unrelated variables such as API tokens, credentials, and `SECRET_TOKEN` are absent by default.
+
+By default the child environment contains only the minimal launch keys needed for command execution: `PATH` on POSIX systems, plus Windows process-launch keys when applicable (`COMSPEC`, `PATHEXT`, `SYSTEMROOT`, and `WINDIR`).
+
+Use `MCP_SHELL_CHILD_ENV_ALLOWLIST` to explicitly allow additional environment variable names to be inherited from the parent process or accepted from per-command environment overrides. The allowlist is comma-separated and uses exact environment variable names:
+
+```bash
+MCP_SHELL_CHILD_ENV_ALLOWLIST="LANG,LC_ALL,MY_TOOL_HOME" \
+ALLOW_COMMANDS="printenv,my-tool" \
+uvx mcp-shell-server
+```
+
+Only keys named in `MCP_SHELL_CHILD_ENV_ALLOWLIST` are forwarded. Secret-like names are treated defensively in logs and should not be allowlisted unless you intentionally want a child command to read that secret.
+
+### Structured audit logs
+
+Each command invocation emits one `mcp-shell-server.audit` log event named `shell_execution_audit`. Audit records cover successful execution, validation rejection before subprocess creation, timeout, output-cap termination, and process errors including subprocess creation failures.
+
+Audit metadata includes:
+
+* `timestamp`, `duration`, and `result_type`
+* command name and redacted `argv`
+* resolved working `directory`
+* redirection flags for stdin/stdout/stdout append
+* redacted per-call environment override metadata, when supplied
+* effective `timeout` and `output_limit`
+* `stdout_bytes` and `stderr_bytes`
+* `return_code` when available
+* `rejection_reason` or `error_type` where applicable
+
+Audit logs intentionally do **not** include raw stdout or stderr bodies. Secret-like argv and environment names or values containing markers such as `SECRET`, `TOKEN`, `PASSWORD`, `PASSWD`, `API_KEY`, `ACCESS_KEY`, `PRIVATE_KEY`, `KEY`, `CREDENTIAL`, or `AUTH` are replaced with `[REDACTED]`. Long non-numeric values are represented by a short SHA-256 digest instead of the raw value.
+
 ### Request Format
 
+The `directory` argument is optional. If omitted, commands run in the MCP server process current working directory (server process CWD). Relative `directory` values are resolved from that same server process CWD. This base is **not** the MCP client CWD; it is the working directory of the process that launched `mcp-shell-server`.
+
 ```python
-# Basic command execution
+# Basic command execution in the server process CWD
 {
-    "command": ["ls", "-l", "/tmp"]
+    "command": ["ls", "-l"]
+}
+
+# Command with a relative working directory resolved from the server process CWD
+{
+    "command": ["pwd"],
+    "directory": "subproject"
 }
 
 # Command with stdin input
@@ -431,11 +464,27 @@ Error response:
 
 ## Security
 
-The server implements several security measures:
+The server implements several security measures, but it is not an OS sandbox. A command-name allowlist reduces accidental exposure, but allowed binaries may still read accessible files, consume CPU, or perform behavior allowed by the operating system. For hostile workloads, run the server inside an external sandbox such as a container, VM, or OS policy boundary.
 
-1. **Command Whitelisting**: Only explicitly allowed commands can be executed
-2. **Shell Operator Validation**: Commands after shell operators (;, &&, ||, |) are also validated against the whitelist
-3. **No Shell Injection**: Commands are executed directly without shell interpretation
+1. **Command Whitelisting**: Only explicitly allowed command names or full-matching `ALLOW_PATTERNS` entries can be executed.
+2. **Default Argument Hardening**: Known exec-capable vectors such as shells/interpreters, `env`, `xargs`, `find -exec`, `awk system()`, `tar --checkpoint-action=exec`, and git external aliases are rejected by default even when the command name is allowlisted.
+3. **No Shell-String Execution**: Normal commands and pipelines are executed with `asyncio.create_subprocess_exec(*argv)`; user-controlled strings are not passed to a shell.
+4. **Contained Redirection**: Redirection paths must be relative to `directory`; absolute paths, `..` traversal, and symlink escapes are rejected before files are opened.
+5. **Environment Isolation**: Children receive a minimal environment plus names listed in `MCP_SHELL_CHILD_ENV_ALLOWLIST`. Parent secrets such as tokens are not inherited by default. Per-call `envs` values are only accepted for explicitly allowlisted names.
+6. **Execution Limits**: `MCP_SHELL_DEFAULT_TIMEOUT_SECONDS` defaults to 30 seconds, `MCP_SHELL_MAX_TIMEOUT_SECONDS` defaults to 300 seconds, and `MCP_SHELL_OUTPUT_LIMIT_BYTES` defaults to 1 MiB per captured stdout/stderr stream. Client timeouts are clamped to the server maximum; omitted timeouts receive the default. Processes that time out or exceed the output cap are terminated and reaped before an explicit timeout/output-cap error is returned.
+7. **Audit Logging**: Each invocation emits structured audit metadata for success, rejection, timeout, output cap, and process error outcomes. Secret-like argv values are redacted; stdout/stderr content is not logged.
+
+### Security-related environment variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ALLOW_COMMANDS` / `ALLOWED_COMMANDS` | empty | Comma-separated command names to allow |
+| `ALLOW_PATTERNS` | empty | Comma-separated regex patterns matched with `fullmatch()` against command names |
+| `MCP_SHELL_DEFAULT_TIMEOUT_SECONDS` | `30` | Timeout used when the client omits `timeout` |
+| `MCP_SHELL_MAX_TIMEOUT_SECONDS` | `300` | Maximum effective timeout accepted from clients |
+| `MCP_SHELL_OUTPUT_LIMIT_BYTES` | `1048576` | Maximum captured stdout/stderr bytes per process |
+| `MCP_SHELL_CHILD_ENV_ALLOWLIST` | empty | Comma-separated parent or per-call environment variables allowed in children |
+| `MCP_SHELL_SAFE_PATH` | `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin` | PATH supplied to children |
 
 ## Development
 
@@ -468,7 +517,7 @@ pytest
 |-----------|------------|----------|-----------------------------------------------|
 | command   | string[]   | Yes      | Command and its arguments as array elements   |
 | stdin     | string     | No       | Input to be passed to the command            |
-| directory | string     | No       | Working directory for command execution       |
+| directory | string     | No       | Working directory; omitted uses the server process CWD, and relative paths resolve from that server process CWD |
 | timeout   | integer    | No       | Maximum execution time in seconds             |
 
 ### Response Fields

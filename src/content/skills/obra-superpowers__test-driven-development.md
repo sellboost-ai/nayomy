@@ -3,7 +3,7 @@ name: "test-driven-development"
 description_en: "Use when implementing any feature or bugfix, before writing implementation code"
 category: "Development"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/test-driven-development/SKILL.md"
 path: "skills/test-driven-development/SKILL.md"
 is_collection: false
@@ -14,48 +14,48 @@ has_examples: false
 related_files: ["testing-anti-patterns.md"]
 body_tr: |-
   # Test-Driven Development (TDD)
-
+  
   ## Genel Bakış
-
+  
   Önce testi yazın. Başarısız olduğunu görün. Minimal kod yazarak geçirin.
-
+  
   **Temel ilke:** Testi başarısız olduğunu görmediyseniz, doğru şeyi test edip etmediğinizi bilemezsiniz.
-
+  
   **Kuralların harfini ihlal etmek, ruhunu ihlal etmektir.**
-
+  
   ## Ne Zaman Kullanılır
-
+  
   **Her Zaman:**
   - Yeni özellikler
   - Hata düzeltmeleri
   - Refactoring
   - Davranış değişiklikleri
-
+  
   **İstisnalar (insan ortağınıza sorun):**
   - Kısa ömürlü prototipler
   - Üretilen kod
   - Yapılandırma dosyaları
-
+  
   "Sadece bu kez TDD'yi atla" diye düşünüyor musunuz? Durun. Bu rasyonalizasyondur.
-
+  
   ## Demir Yasa
-
+  
   ```
   BAŞARIŞIZ BİR TEST OLMADAN ÜRETİM KODU YAZMA
   ```
-
+  
   Testen önce kod yazıldı mı? Sil. Baştan başla.
-
+  
   **Hiçbir istisna:**
   - "Referans olarak" tutma
   - Testleri yazarken "uyarla"
   - Ona bakma
   - Sil demek sil demektir
-
+  
   Testlerden temiz başla. Nokta.
-
+  
   ## Kırmızı-Yeşil-Refactor
-
+  
   ```dot
   digraph tdd_cycle {
       rankdir=LR;
@@ -65,7 +65,7 @@ body_tr: |-
       verify_green [label="Başarısını doğrula\nHepsi yeşil", shape=diamond];
       refactor [label="REFACTOR\nTemizle", shape=box, style=filled, fillcolor="#ccccff"];
       next [label="Sonraki", shape=ellipse];
-
+  
       red -> verify_red;
       verify_red -> green [label="evet"];
       verify_red -> red [label="yanlış\nbaşarısızlık"];
@@ -77,11 +77,11 @@ body_tr: |-
       next -> red;
   }
   ```
-
+  
   ### RED - Başarısız Test Yazın
-
+  
   Ne olması gerektiğini gösteren minimal bir test yazın.
-
+  
   <Good>
   ```typescript
   test('retries failed operations 3 times', async () => {
@@ -91,16 +91,16 @@ body_tr: |-
       if (attempts < 3) throw new Error('fail');
       return 'success';
     };
-
+  
     const result = await retryOperation(operation);
-
+  
     expect(result).toBe('success');
     expect(attempts).toBe(3);
   });
   ```
   Açık ad, gerçek davranış, bir şey
   </Good>
-
+  
   <Bad>
   ```typescript
   test('retry works', async () => {
@@ -114,33 +114,33 @@ body_tr: |-
   ```
   Belirsiz ad, mock'u test eder, kodu değil
   </Bad>
-
+  
   **Gereksinimler:**
   - Bir davranış
   - Açık ad
   - Gerçek kod (mocks kaçınılmaz değilse)
-
+  
   ### RED'i Doğrula - Başarısızlığını Görün
-
+  
   **ZORUNLU. Hiçbir zaman atlamayın.**
-
+  
   ```bash
   npm test path/to/test.test.ts
   ```
-
+  
   Doğrulayın:
   - Test başarısız (hata değil)
   - Başarısızlık mesajı beklenen
   - Özellik eksik olduğu için başarısız (yazım hatası değil)
-
+  
   **Test geçti mi?** Var olan davranışı test ediyorsunuz. Testi düzeltin.
-
+  
   **Test hata verdi mi?** Hatayı düzeltin, doğru başarısızlığa kadar yeniden çalıştırın.
-
+  
   ### GREEN - Minimal Kod
-
+  
   Testi geçmek için en basit kodu yazın.
-
+  
   <Good>
   ```typescript
   async function retryOperation<T>(fn: () => Promise<T>): Promise<T> {
@@ -156,7 +156,7 @@ body_tr: |-
   ```
   Sadece geçmek için yeterli
   </Good>
-
+  
   <Bad>
   ```typescript
   async function retryOperation<T>(
@@ -172,99 +172,99 @@ body_tr: |-
   ```
   Aşırı mühendislik
   </Bad>
-
+  
   Özellik eklemeyin, diğer kodu refactor etmeyin veya testin ötesine "iyileştirme" yapmayın.
-
+  
   ### GREEN'i Doğrula - Başarısını Görün
-
+  
   **ZORUNLU.**
-
+  
   ```bash
   npm test path/to/test.test.ts
   ```
-
+  
   Doğrulayın:
   - Test geçti
   - Diğer testler hala geçti
   - Çıktı temiz (hata, uyarı yok)
-
+  
   **Test başarısız mı?** Kodu düzeltin, testi değil.
-
+  
   **Diğer testler başarısız mı?** Şimdi düzeltin.
-
+  
   ### REFACTOR - Temizleyin
-
+  
   Sadece green'den sonra:
   - Tekrarı kaldırın
   - Adları iyileştirin
   - Yardımcılar çıkarın
-
+  
   Testleri yeşil tutun. Davranış eklemeyin.
-
+  
   ### Tekrarla
-
+  
   Sonraki özellik için sonraki başarısız test.
-
+  
   ## İyi Testler
-
+  
   | Kalite | İyi | Kötü |
   |--------|-----|------|
   | **Minimal** | Bir şey. Adında "ve" var mı? Ayırın. | `test('validates email and domain and whitespace')` |
   | **Açık** | Ad davranışı açıklar | `test('test1')` |
   | **Niyeti göster** | İstenilen API'yi gösterir | Kodun ne yapması gerektiğini gizler |
-
+  
   ## Sıra Neden Önemlidir
-
+  
   **"Çalıştığını doğrulamak için sonra testleri yazarım"**
-
+  
   Koddan sonra yazılan testler hemen geçer. Hemen geçmek hiçbir şey kanıtlamaz:
   - Yanlış şeyi test edebilir
   - Davranışı değil, uygulamayı test edebilir
   - Unuttuğunuz kenar durumları kaçırabilir
   - Testi başarısız olduğunu hiç görmediniz
-
+  
   Testin önce yazılması, testi başarısız görmesi ile gerçekten bir şeyi test ettiğini kanıtlarsınız.
-
+  
   **"Zaten tüm kenar durumları manuel olarak test ettim"**
-
+  
   Manuel test geçicidir. Her şeyi test ettiğinizi düşünürsünüz ama:
   - Ne test ettiğinizin kaydı yok
   - Kod değiştiğinde yeniden çalıştıramazsınız
   - Basınç altında durumları unutmak kolay
   - "Benim denediğimde çalıştı" ≠ kapsamlı
-
+  
   Otoomatik testler sistematiktir. Her seferinde aynı şekilde çalışırlar.
-
+  
   **"X saat çalışma silmek israftır"**
-
+  
   Gömülü maliyet safsatası. Zaman zaten geçti. Şimdi seçiminiz:
   - Sil ve TDD ile yeniden yaz (X daha saat, yüksek güven)
   - Tut ve sonra testler ekle (30 dakika, düşük güven, muhtemel hatalar)
-
+  
   "İsraf" güvenilmez kodu tutmaktır. Gerçek testler olmayan çalışan kod teknik borçtur.
-
+  
   **"TDD dogmatik, pragmatik olmak uyarlamayı demektir"**
-
+  
   TDD pragmatiktir:
   - Hataları commit'ten önce bulur (hata ayıklama sonrası daha hızlı)
   - Regresyonları engeller (testler kırılmayı anında yakalar)
   - Davranışı belgeler (testler kodu nasıl kullanacağınızı gösterir)
   - Refactoring'i etkinleştirir (özgürce değiştirir, testler kırılmayı yakalar)
-
+  
   "Pragmatik" kısayollar = üretimde hata ayıklama = daha yavaş.
-
+  
   **"Sonra testler aynı hedeflere ulaşır - ruh içinde, ritüel değil"**
-
+  
   Hayır. Sonra testler "bu ne yapar?" sorusunu cevaplar. Önce testler "bu ne yapmalı?" sorusunu cevaplar.
-
+  
   Sonra testler uygulamanız tarafından önyargılı. Yaptığınız şeyi test edersiniz, gerekli olanı değil. Hatırlanan kenar durumlarını, keşfedilenleri değil doğrularsınız.
-
+  
   Testler-önce kenar durumu keşfini uygulama öncesinde zorlar. Testler-sonra hatırlattığınız her şeyi doğrular (doğru olmadınız).
-
+  
   30 dakika sonra test ≠ TDD. Kapsam elde edersiniz, testlerin çalıştığını kanıtlamayı kaybedersiniz.
-
+  
   ## Yaygın Rasyonalizasyonlar
-
+  
   | Bahane | Gerçek |
   |--------|--------|
   | "Çok basit test etmek için" | Basit kod kırılır. Test 30 saniye sürer. |
@@ -278,9 +278,9 @@ body_tr: |-
   | "TDD beni yavaşlatacak" | TDD hata ayıklamadan hızlıdır. Pragmatik = testler-önce. |
   | "Manuel test daha hızlı" | Manuel kenar durumları kanıtlamaz. Her değişikliği yeniden test edeceksiniz. |
   | "Var olan kodun testleri yok" | Bunu iyileştiriyorsunuz. Var olan kod için testler ekleyin. |
-
+  
   ## Kırmızı Bayraklar - DUR ve Baştan Başla
-
+  
   - Testten önce kod
   - Uygulamadan sonra test
   - Test hemen geçti
@@ -294,13 +294,13 @@ body_tr: |-
   - "Zaten X saat harcadı, silmek israftır"
   - "TDD dogmatik, ben pragmatik davranıyorum"
   - "Bu farklı çünkü..."
-
+  
   **Tümü şu anlama gelir: Kodu silin. TDD ile baştan başlayın.**
-
+  
   ## Örnek: Hata Düzeltme
-
+  
   **Hata:** Boş email kabul edildi
-
+  
   **RED**
   ```typescript
   test('rejects empty email', async () => {
@@ -308,13 +308,13 @@ body_tr: |-
     expect(result.error).toBe('Email required');
   });
   ```
-
+  
   **RED'i Doğrula**
   ```bash
   $ npm test
   FAIL: expected 'Email required', got undefined
   ```
-
+  
   **GREEN**
   ```typescript
   function submitForm(data: FormData) {
@@ -324,20 +324,20 @@ body_tr: |-
     // ...
   }
   ```
-
+  
   **GREEN'i Doğrula**
   ```bash
   $ npm test
   PASS
   ```
-
+  
   **REFACTOR**
   Gerekirse birden çok alan için validation çıkarın.
-
+  
   ## Doğrulama Kontrol Listesi
-
+  
   İş tamamlandı olarak işaretlemeden önce:
-
+  
   - [ ] Her yeni function/method'un bir testi var
   - [ ] Uygulamadan önce her testi başarısız görmüş
   - [ ] Her test beklenen nedenden başarısız oldu (özellik eksik, yazım hatası değil)
@@ -346,38 +346,38 @@ body_tr: |-
   - [ ] Çıktı temiz (hata, uyarı yok)
   - [ ] Testler gerçek kod kullan (mocks kaçınılmaz ise)
   - [ ] Kenar durumlar ve hatalar kapsanmış
-
+  
   Tüm kutuları işaretleyemedi misiniz? TDD'yi atladınız. Baştan başlayın.
-
+  
   ## Takıldığında
-
+  
   | Problem | Çözüm |
   |---------|-------|
   | Test etme hakkında bilmiyorum | Umut edilen API'yi yazın. Assertion'ı önce yazın. İnsan ortağınıza sorun. |
   | Test çok karışık | Tasarım çok karışık. Arayüzü basitleştirin. |
   | Her şeyi mock etmek gerekir | Kod çok kuplajlı. Bağımlılık injection kullanın. |
   | Test kurulumu çok büyük | Yardımcılar çıkarın. Hala karışık? Tasarımı basitleştirin. |
-
+  
   ## Hata Ayıklama Entegrasyonu
-
+  
   Hata bulundu mu? Bunu yeniden oluşturan başarısız test yazın. TDD döngüsünü izleyin. Test düzeltmeyi kanıtlar ve regresyonu engeller.
-
+  
   Hiçbir zaman testleri olmadan hataları düzeltmeyin.
-
+  
   ## Test Anti-Desenleri
-
+  
   Mock'lar veya test yardımcıları eklerken, yaygın tuzakları önlemek için [testing-anti-patterns.md](testing-anti-patterns.md) oku:
   - Mock davranışını gerçek davranış yerine test etmek
   - Üretim sınıflarına test yalnızca yöntemleri eklemek
   - Bağımlılıkları anlamadan mock'lamak
-
+  
   ## Son Kural
-
+  
   ```
   Üretim kodu → test var ve önce başarısız oldu
   Aksi takdirde → TDD değil
   ```
-
+  
   İnsan ortağınızın izni olmadan hiçbir istisna.
 ---
 

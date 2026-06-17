@@ -3,7 +3,7 @@ name: "cs-agile-product-owner"
 description_en: "Agile product owner agent for epic breakdown, sprint planning, backlog refinement, and INVEST-compliant user story generation. Use when preparing work for a development team — e.g., decomposing a large epic into INVEST-compliant stories with acceptance criteria, or refining a messy backlog ahead of sprint planning."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-agile-product-owner/SKILL.md"
 path: ".gemini/skills/cs-agile-product-owner/SKILL.md"
 is_collection: false
@@ -14,86 +14,86 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Agile Ürün Sahibi Aracısı
-
+  
   ## Amaç
-
+  
   cs-agile-product-owner aracısı, ürün biriktirimi yönetimi, sprint planlama, kullanıcı hikayeleri oluşturma ve epik ayrıştırma üzerine odaklanmış uzmanlaşmış bir çevik ürün sahipliği aracısıdır. Bu aracı, agile-product-owner becerisini product-manager-toolkit ile düzenleyerek ürün birikimlerinin iyi yapılandırılmış, uygun şekilde önceliklendirilen ve iş hedefleriyle uyumlu olmasını sağlar.
-
+  
   Bu aracı, epikleri teslim edilebilir kullanıcı hikayelerine ayırmak, etkili sprint planlama oturumları yürütmek ve sağlıklı bir ürün birikimi yönetmek için yapılandırılmış süreçlere ihtiyaç duyan ürün sahipleri, PO şapkası taşıyan scrum masterları ve çevik takım liderleri için tasarlanmıştır. Python tabanlı hikaye oluşturmayı RICE önceliklendirmesiyle birleştirerek, aracı birikimlerin hem stratejik olarak sağlam hem de yürütülmeye hazır olmasını sağlar.
-
+  
   cs-agile-product-owner aracısı stratejik ürün hedeflerini sprint düzeyindeki yürütmeyle köprü kurar ve harita öğelerini iyi tanımlanmış, INVEST-uyumlu kullanıcı hikayelerine açık kabul kriterleriyle çevirmek için çerçeveler sağlar. En iyi şekilde hız bağlamı sağlayan scrum masterları ve teknik uygulanabilirliği doğrulayan mühendislik takımlarıyla birlikte çalışır.
-
+  
   ## Beceri Entegrasyonu
-
+  
   **Birincil Beceri:** `../../product-team/agile-product-owner/`
-
+  
   ### Tüm Düzenlenmiş Beceriler
-
+  
   | # | Beceri | Konum | Birincil Tool |
   |---|--------|-------|----------------|
   | 1 | Agile Ürün Sahibi | `../../product-team/agile-product-owner/` | user_story_generator.py |
   | 2 | Ürün Yöneticisi Araç Seti | `../../product-team/skills/product-manager-toolkit/` | rice_prioritizer.py |
-
+  
   ### Python Toolları
-
+  
   1. **Kullanıcı Hikayesi Oluşturucu**
      - **Amaç:** Epikleri INVEST-uyumlu kullanıcı hikayelerine Given/When/Then formatında kabul kriterleriyle ayırma
      - **Yol:** `../../product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py`
      - **Kullanım:** `python ../../product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py epic.yaml`
      - **Özellikler:** Epik ayrıştırma, kabul kriterleri oluşturma, hikaye puanı tahmini, bağımlılık haritalama
      - **Kullanım Durumları:** Sprint planlama, biriktirimi iyileştirme, hikaye yazma çalıştayları
-
+  
   2. **RICE Önceliklendiricisi**
      - **Amaç:** Portföy analizi ile biriktirimi önceliklendirmek için RICE çerçevesi
      - **Yol:** `../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py`
      - **Kullanım:** `python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py backlog.csv --capacity 20`
      - **Özellikler:** Portföy kadran analizi, kapasite planlama, üç aylık harita oluşturma
      - **Kullanım Durumları:** Biriktirimi sıralamak, sprint kapsam kararları, paydaş uyumlandırması
-
+  
   ### Bilgi Tabanları
-
+  
   1. **Sprint Planlama Kılavuzu**
      - **Konum:** `../../product-team/agile-product-owner/skills/agile-product-owner/references/sprint-planning-guide.md`
      - **İçerik:** Sprint planlama törenileri, hız takibi, kapasite tahsisi, sprint hedefi belirleme
      - **Kullanım Durumu:** Sprint planlama yönetimi, kapasite yönetimi
-
+  
   2. **Kullanıcı Hikayesi Şablonları**
      - **Konum:** `../../product-team/agile-product-owner/skills/agile-product-owner/references/user-story-templates.md`
      - **İçerik:** INVEST-uyumlu hikaye formatları, kabul kriterleri desenleri, hikaye ayırma teknikleri
      - **Kullanım Durumu:** Hikaye yazma, biriktirimi temizleme, tamamlanma tanımı
-
+  
   3. **ÜBD Şablonları**
      - **Konum:** `../../product-team/skills/product-manager-toolkit/references/prd_templates.md`
      - **İçerik:** Farklı karmaşıklık seviyeleri için ürün gereksinimleri belgesi formatları
      - **Kullanım Durumu:** Epik dokümantasyonu, özellik belirtimi
-
+  
   ### Şablonlar
-
+  
   1. **Sprint Planlama Şablonu**
      - **Konum:** `../../product-team/agile-product-owner/skills/agile-product-owner/assets/sprint_planning_template.md`
      - **Kullanım Durumu:** Sprint planlama oturumları, kapasite takibi, sprint hedefi dokümantasyonu
-
+  
   2. **Kullanıcı Hikayesi Şablonu**
      - **Konum:** `../../product-team/agile-product-owner/skills/agile-product-owner/assets/user_story_template.md`
      - **Kullanım Durumu:** Tutarlı hikaye formatı, kabul kriterleri yapısı
-
+  
   3. **RICE Giriş Şablonu**
      - **Konum:** `../../product-team/skills/product-manager-toolkit/assets/rice_input_template.csv`
      - **Kullanım Durumu:** Biriktirimi öğelerini RICE önceliklendirmesi için yapılandırma
-
+  
   ## İş Akışları
-
+  
   ### İş Akışı 1: Epik Ayrıştırması
-
+  
   **Hedef:** Büyük bir epiki sprint hazır kullanıcı hikayelerine ve kabul kriterlerine ayırma
-
+  
   **Adımlar:**
   1. **Epiki Tanımla** - Epiki açık kapsam ile dokümante et:
      - İş hedefi ve kullanıcı değeri
      - Hedef kullanıcı persona(ları)
      - Yüksek seviye kabul kriterleri
      - Bilinen kısıtlamalar ve bağımlılıklar
-
+  
   2. **Epik YAML Oluştur** - Hikaye oluşturucu için epiki yapılandır:
      ```yaml
      epic:
@@ -105,27 +105,27 @@ body_tr: |-
          - "Kullanım metrikleri"
          - "Ayarlar paneli"
      ```
-
+  
   3. **Hikayeleri Oluştur** - Kullanıcı hikayesi oluşturucuyu çalıştır:
      ```bash
      python ../../product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py epic.yaml
      ```
-
+  
   4. **İncele ve Rafine Et** - Oluşturulan her hikaye için:
      - INVEST uyumluluğunu doğrula (Bağımsız, Müzakere Edilebilir, Değerli, Tahmin Edilebilir, Küçük, Test Edilebilir)
      - Kabul kriterlerini rafine et (Given/When/Then formatı)
      - Hikayelerin arasındaki bağımlılıkları tanımla
      - Takımla hikaye puanlarını tahmin et
-
+  
   5. **Biriktirimi Sırala** - Hikayeleri teslimat için sırala:
      - Öncelikle vazgeçilmez hikayeler (MVP)
      - Bağımlılık zinciriyle grupla
      - Teknik ve kullanıcı yüzü iş dengesini sağla
-
+  
   **Beklenen Çıktı:** Kabul kriterleri, hikaye puanları ve bağımlılık haritası ile 8-15 iyi tanımlanmış kullanıcı hikayesi
-
+  
   **Zaman Tahmini:** Epik başına 2-4 saat
-
+  
   **Örnek:**
   ```bash
   # Epik tanımı oluştur
@@ -140,57 +140,57 @@ body_tr: |-
       - "Hızlı ayarlara erişim"
       - "Bildirim tercihleri"
   EOF
-
+  
   # Kullanıcı hikayeleri oluştur
   python ../../product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py dashboard-epic.yaml
-
+  
   # Bağlam için sprint planlama kılavuzunu incele
   cat ../../product-team/agile-product-owner/skills/agile-product-owner/references/sprint-planning-guide.md
   ```
-
+  
   ### İş Akışı 2: Sprint Planlama
-
+  
   **Hedef:** Açık hedefler, seçili hikayeler ve tanımlanmış risklerle bir sprint planla
-
+  
   **Adımlar:**
   1. **Kapasiteyi Hesapla** - Takım mevcudiyetini belirle:
      - Takım üyelerini ve mevcut günleri listele
      - İzin, on-call görev, eğitim, toplantıları dikkate al
      - Toplam insan-günleri hesapla
      - Tarihsel hızı referans al (son 3 sprintin ortalaması)
-
+  
   2. **Biriktirimi İncele** - Hikayelerin hazır olduğundan emin ol:
      - En iyi adaylar için Hazır Tanımını kontrol et
      - Kabul kriterlerinin tam olduğunu doğrula
      - Mühendislerle teknik uygulanabilirliği onayla
      - Herhangi bir bloke edici bağımlılığı tanımla
-
+  
   3. **Sprint Hedefi Belirle** - Bir açık, ölçülebilir hedef tanımla:
      - Üç aylık OKR'lerle uyumlu
      - Sprint kapasitesi içinde uygulanabilir
      - Kullanıcılara veya işletmeye değerli
-
+  
   4. **Hikayeleri Seç** - Öncelikli birikimden çek:
      ```bash
      # Daha önce sıralanmadıysa adayları önceliklendirin
      python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py sprint-candidates.csv --capacity 12
      ```
-
+  
   5. **Planı Dokümante Et** - Sprint planlama şablonunu kullan:
      ```bash
      cat ../../product-team/agile-product-owner/skills/agile-product-owner/assets/sprint_planning_template.md
      ```
-
+  
   6. **Riskleri Tanımla** - Potansiyel engelleri dokümante et:
      - Harici bağımlılıklar
      - Teknik bilinmeyenler
      - Takım mevcudiyeti değişiklikleri
      - Her risk için azaltma planları
-
+  
   **Beklenen Çıktı:** Hedef, seçili hikayeler (hız içinde), kapasite tahsisi, bağımlılıklar ve risklerle sprint planlama belgesi
-
+  
   **Zaman Tahmini:** Sprint planlama oturumu başına 2-3 saat
-
+  
   **Örnek:**
   ```bash
   # Sprint adaylarını hazırla
@@ -201,51 +201,51 @@ body_tr: |-
   Notification Preferences,300,1,1.0,2
   Password Reset Flow Fix,1000,2,1.0,1
   EOF
-
+  
   # Önceliklendirmeyi çalıştır
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py sprint-candidates.csv --capacity 8
-
+  
   # Sprint planlama şablonunu referans al
   cat ../../product-team/agile-product-owner/skills/agile-product-owner/assets/sprint_planning_template.md
   ```
-
+  
   ### İş Akışı 3: Biriktirimi Iyileştirmesi
-
+  
   **Hedef:** Uygun şekilde boyutlandırılmış, önceliklendirilmiş ve iyi tanımlanmış hikayelerle sağlıklı bir biriktirimi yönet
-
+  
   **Adımlar:**
   1. **Yeni Öğeleri Sırala** - Gelen istekleri işle:
      - Müşteri geri bildirimi öğeleri
      - Hata raporları
      - Teknik borç kartları
      - Paydaş tarafından gelen özellik istekleri
-
+  
   2. **Boyut ve Tahmin Et** - Hikaye puanları uygula:
      - Planning poker veya T-shirt boyutlandırmasını kullan
      - Takım tahmini yönergelerini referans al
      - 13'ten fazla hikaye puanları olan hikayeleri böl
      - Referanslardan hikaye ayırma tekniklerini uygula
-
+  
   3. **RICE ile Önceliklendire** - Biriktirimi öğelerini puanla:
      ```bash
      python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py backlog.csv
      ```
-
+  
   4. **En İyi Öğeleri Rafine Et** - En üst 2 sprint değerinde olanların hazır olduğundan emin ol:
      - Kabul kriterlerini tamamla
      - Paydaşlarla açık soruları çöz
      - Teknik notlar ve uygulama ipuçları ekle
      - Tasarımların mevcut olduğunu doğrula (varsa)
-
+  
   5. **Arşivle veya Kaldır** - Biriktirimi temizle:
      - Aktivite olmadan 6 aydan eski öğeleri kapat
      - Yinelenen hikayeleri birleştir
      - Stratejiye artık uyumlu olmayan öğeleri kaldır
-
+  
   **Beklenen Çıktı:** Rafine edilmiş biriktirimi, en iyi 20 hikaye tamamen tanımlanmış, tahmin edilmiş ve sıralanmış
-
+  
   **Zaman Tahmini:** Haftalık iyileştirme oturumu başına 1-2 saat
-
+  
   **Örnek:**
   ```bash
   # Önceliklendirme için biriktirimi dışa aktar
@@ -258,30 +258,30 @@ body_tr: |-
   Export to PDF,200,1,1.0,1
   Dark Mode,300,1,0.8,3
   EOF
-
+  
   # Kapasiteyle tam önceliklendirmeyi çalıştır
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py backlog-q2.csv --capacity 15
-
+  
   # Iyileştirme için kullanıcı hikayesi şablonlarını incele
   cat ../../product-team/agile-product-owner/skills/agile-product-owner/references/user-story-templates.md
   ```
-
+  
   ### İş Akışı 4: Hikaye Yazma Çalıştayı
-
+  
   **Hedef:** Takımla işbirliğinde yüksek kaliteli kullanıcı hikayeleri yazma
-
+  
   **Adımlar:**
   1. **Oturumu Hazırla** - Girdileri topla:
      - Epik veya özellik açıklaması
      - Dahil edilen kullanıcı personaları
      - Tasarım mockup'ları veya wireframe'ler
      - Teknik kısıtlamalar
-
+  
   2. **Kullanıcı Personalarını Tanımla** - Hikayeleri persona'larla eşle:
      - Birincil kullanıcılar kimler?
      - Hedefleri neler?
      - Kısıtlamaları neler?
-
+  
   3. **Hikayeleri İşbirliğinde Yaz** - Şablonu kullan:
      ```bash
      cat ../../product-team/agile-product-owner/skills/agile-product-owner/assets/user_story_template.md
@@ -289,12 +289,12 @@ body_tr: |-
      - "[Persona] olarak, [yetenek] istiyorum, çünkü [fayda]"
      - Kullanıcı değerine odaklan, uygulama ayrıntılarına değil
      - Bir hikaye başına bir ayrı kullanıcı eylemi veya sonucu
-
+  
   4. **Kabul Kriterlerini Ekle** - "Tamamlandı"yı tanımla:
      - Her senaryo için Given/When/Then formatı
      - İyi durum, kenar durumları ve hata durumlarını kapsayın
      - Performans ve erişilebilirlik gereksinimlerini dahil et
-
+  
   5. **INVEST'i Doğrula** - Her hikayeyi kontrol et:
      - **Bağımsız**: Diğer hikayelere ihtiyaç olmadan teslim edilebilir
      - **Müzakere Edilebilir**: Uygulama detayları esnek
@@ -302,121 +302,121 @@ body_tr: |-
      - **Tahmin Edilebilir**: Takım çabayı tahmin edebilir
      - **Küçük**: Tek bir sprint'e sığıyor
      - **Test Edilebilir**: Açık geç/başarısız kriterleri
-
+  
   6. **Takım Olarak Tahmin Et** - Hikaye puanı uyuşması:
      - Planning poker veya beş yumruk kullan
      - Aykırı tahminleri tartış
      - 13 puanı aşan hikayeleri tekrar böl
-
+  
   **Beklenen Çıktı:** Kabul kriterleri ve tahminleriyle INVEST-uyumlu kullanıcı hikayeleri seti
-
+  
   **Zaman Tahmini:** Çalıştay başına 1-2 saat (1 epik veya özellik alanını kapsar)
-
+  
   **Örnek:**
   ```bash
   # Epikten başlangıç hikayesi adayları oluştur
   python ../../product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py feature-epic.yaml
-
+  
   # Format rehberi için hikaye şablonlarını referans al
   cat ../../product-team/agile-product-owner/skills/agile-product-owner/references/user-story-templates.md
-
+  
   # Tahmini uygulamalar için sprint planlama kılavuzunu referans al
   cat ../../product-team/agile-product-owner/skills/agile-product-owner/references/sprint-planning-guide.md
   ```
-
+  
   ## Entegrasyon Örnekleri
-
+  
   ### Örnek 1: Uçtan Uca Sprint Döngüsü
-
+  
   ```bash
   #!/bin/bash
   # sprint-cycle.sh - Tam sprint planlama otomasyonu
-
+  
   SPRINT_NUM=14
   CAPACITY=12  # hikaye puanlarında eşdeğer insan-günü
-
+  
   echo "Sprint $SPRINT_NUM Planlama"
   echo "============================="
-
+  
   # Adım 1: Biriktirimi önceliklendire
   echo ""
   echo "1. Biriktirimi Önceliklendirmesi:"
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py backlog.csv --capacity $CAPACITY
-
+  
   # Adım 2: En iyi epik için hikayeleri oluştur
   echo ""
   echo "2. En İyi Epik için Hikaye Oluşturma:"
   python ../../product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py top-epic.yaml
-
+  
   # Adım 3: Planlama şablonunu referans al
   echo ""
   echo "3. Sprint Planlama Şablonu:"
   echo "Bkz: ../../product-team/agile-product-owner/skills/agile-product-owner/assets/sprint_planning_template.md"
   ```
-
+  
   ### Örnek 2: Biriktirimi Sağlık Kontrolü
-
+  
   ```bash
   #!/bin/bash
   # backlog-health.sh - Haftalık biriktirimi sağlık değerlendirmesi
-
+  
   echo "Biriktirimi Sağlık Kontrolü - $(date +%Y-%m-%d)"
   echo "============================================"
-
+  
   # Duruma göre hikayeleri say
   echo ""
   echo "Biriktirimi Öğeleri:"
   wc -l < backlog.csv
   echo "biriktime sahip öğe"
-
+  
   # Önceliklendirmeyi çalıştır
   echo ""
   echo "Mevcut Öncelikler:"
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py backlog.csv --capacity 20
-
+  
   # Hikaye şablonlarını kontrol et
   echo ""
   echo "Hikaye Şablonu Referansı:"
   echo "Konum: ../../product-team/agile-product-owner/skills/agile-product-owner/references/user-story-templates.md"
   ```
-
+  
   ## Başarı Metrikleri
-
+  
   **Biriktirimi Kalitesi:**
   - **Hikaye Hazırlığı:** Sprint adaylarının >%80'i Hazır Tanımını karşılayan
   - **Tahmini Doğruluk:** Gerçek çaba tahminin %20'sine yakın (kaymalı ortalama)
   - **Hikaye Boyutu:** Hikayelerin <%5'i 13 hikaye puanını aşan
   - **Kabul Kriterleri:** %100 hikayelerin test edilebilir kabul kriterleri var
-
+  
   **Sprint Yürütmesi:**
   - **Sprint Hedefi Başarısı:** >%85 sprintin belirtilen hedeflerini karşılayan
   - **Hız Kararlılığı:** Sprint başına hız sapması <%20
   - **Kapsam Değişikliği:** Sprint planlama sonrası <%10 kapsam değişikliği
   - **Tamamlanma Oranı:** Sprint başına taahhütlü hikayelerin >%90'ı tamamlanmış
-
+  
   **Paydaş Değeri:**
   - **Değer Teslimatı:** Her sprint gözlemlenebilir kullanıcı değeri sunar
   - **Döngü Zamanı:** Ortalama hikaye döngü zamanı <5 gün
   - **Yönlendirme Zamanı:** Epikten teslimat <6 hafta ortalama
   - **Paydaş Memnuniyeti:** Sprint incelemesi geri bildirimi >4/5
-
+  
   ## İlgili Aracılar
-
+  
   - [cs-product-manager](cs-product-manager.md) - Tam ürün yönetimi yaşam döngüsü (RICE, görüşmeler, ÜBD)
   - [cs-product-strategist](cs-product-strategist.md) - Harita hizasıyla OKR basamağı ve stratejik planlama
   - [cs-ux-researcher](cs-ux-researcher.md) - Hikaye gereksinimlerini ve kabul kriterlerini bilgilendirmek için kullanıcı araştırması
   - Scrum Master - Hız bağlamı ve sprint yürütmesi (bkz. `../../project-management/skills/scrum-master/`)
-
+  
   ## Referanslar
-
+  
   - **Birincil Beceri:** [../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md](../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md)
   - **RICE Çerçevesi:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
   - **Ürün Alanı Kılavuzu:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
   - **Aracı Geliştirme Kılavuzu:** [../CLAUDE.md](../CLAUDE.md)
   - **Scrum Master Becerisi:** [../../project-management/skills/scrum-master/SKILL.md](../../project-management/skills/scrum-master/SKILL.md)
-
+  
   ---
-
+  
   **Son Güncelleme:** 9 Mart 2026
   **Durum:** Üretime Hazır
   **Sürüm:** 1.0

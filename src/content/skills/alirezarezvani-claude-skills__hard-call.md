@@ -3,7 +3,7 @@ name: "hard-call"
 description_en: "/em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass is needed — e.g. choosing between a layoff and a down round, or killing a beloved product line."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/hard-call/SKILL.md"
 path: ".gemini/skills/hard-call/SKILL.md"
 is_collection: false
@@ -14,68 +14,68 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /em:hard-call — Zor Seçimlerin Çerçevesi
-
+  
   **Komut:** `/em:hard-call <decision>`
-
+  
   Sizi saat 3'te uyandıran kararlar için. Bir kurucu ortağı işten çıkarmak. Ekibin %20'sini layoff etmek. Müşterilerin sevdiği bir ürünü öldürmek. Pivot yapmak. Kapanmak.
-
+  
   Bu kararların doğru bir cevabı yok. Sahip oldukları daha az yanlış bir cevaptır. Bu çerçeve bunu bulmanıza yardımcı olur.
-
+  
   ---
-
+  
   ## Bu Kararlar Neden Zordur
-
+  
   Veriler belirsiz olduğu için değil. Çoğu zaman veriler açıktır. Zordurlar çünkü:
-
+  
   1. **Gerçek insanlar etkileniyor** — birisi işini kaybediyor, bir ilişki bitiyor, bir ekip zarar görüyor
   2. **Karardan kaçınıyorsunuz** — bu da sorunun daha kötü hale geldiği anlamına geliyor
   3. **Geri döndürülemezlik** — çoğu iş kararının aksine, bunu kolayca geri alamazsınız
   4. **Oyuna katıldınız** — doğru çağrı hakkındaki yargınız bunun hakkındaki duygularınız tarafından bulanıyor
-
+  
   Zor bir karardan ne kadar uzun kaçınırsanız, durum genellikle o kadar kötüleşir. 6 ay önce %10 kesintiye ihtiyacı olan şirket şimdi %25 kesintiye ihtiyacı vardır. Ay 4'te gerçekleşmesi gereken kurucu ortak konuşması ay 14'te gerçekleşiyor.
-
+  
   **Çoğu zor karar, geç alınan kararlardır.**
-
+  
   ---
-
+  
   ## Çerçeve
-
+  
   ### Adım 1: Geri Döndürülebilirlik Testi
-
+  
   En önemli soru ilk: **bunu geri alabilir misiniz?**
-
+  
   - **Geri döndürülebilir** — deneyin, öğrenin, ayarlayın (satıcıyı işten çıkarın, özelliği öldürün, stratejisini değiştirin)
   - **Kısmen geri döndürülebilir** — geri almak acılı ama mümkün (yeniden yapılandırma, kurucu ortak rollerini değiştirme)
   - **Geri döndürülemez** — geri alınamaz (bir kişiyi layoff etmek, müşteri lock-in'i olan bir ürünü kapatmak, hukuki bir varlığı kapatmak)
-
+  
   Geri döndürülemez kararlar için kesinlik çubuğu daha yüksektir. Harekete geçmeden önce daha fazla durum tespiti yapmalısınız. Yanılıyor olabileceğiniz için değil — onu geri alamayacağınız için.
-
+  
   **Geri döndürülebilir bir kararı geri döndürülemez gibi ele alıyorsanız, ondan kaçınıyorsunuz.**
-
+  
   ### Adım 2: 10/10/10 Çerçevesi
-
+  
   Her seçenek hakkında üç soru sorun:
-
+  
   - **Şimdi 10 dakika sonra**: Bu kararı verdikten hemen sonra nasıl hissedersiniz?
   - **10 ay sonra**: Etki ne olacak? Sorun çözülecek mi?
   - **10 yıl sonra**: Geri baktığınızda, bu doğru çağrı olmuş mu?
-
+  
   10 dakikalık his genellikle en az güvenilir rehberdir. 10 yıllık görünüş genellikle doğru çağrının gerçekte ne olduğunu netleştirir.
-
+  
   **Çoğu zor karar, 10 yılda belirgin görünür. Soru, 10 dakikalık acıya katlanıp katlanamayacağınızdır.**
-
+  
   ### Adım 3: Andy Grove Testi
-
+  
   Andy Grove'un stratejik kararlar için testi: "Yarın bizi değiştirilseydi ve yeni bir CEO gelseydi, ne yapardı?"
-
+  
   Taze bir bakış açısı, mevcut yola hiçbir duygusal yatırım yok, batık maliyet yok. Dışarıdan bakıldığında belirgin doğru çağrı nedir?
-
+  
   Cevap bir yabancıya açık ise, soru şu hale gelir: neden bunu henüz yapmadınız?
-
+  
   ### Adım 4: Paydaş Etki Haritalama
-
+  
   Her seçenek için, kimin etkilendiğini ve nasıl etkilendiğini haritalamalandırın:
-
+  
   | Paydaş | Seçenek A Etkisi | Seçenek B Etkisi | Onların Tepkisi |
   |--------|------------------|------------------|-----------------|
   | Etkilenen çalışanlar | | | |
@@ -83,44 +83,44 @@ body_tr: |-
   | Müşteriler | | | |
   | Yatırımcılar | | | |
   | Siz | | | |
-
+  
   Bu, kimseyi incinme seçeneği bulma hakkında değil — öyle bir seçenek yok. Karar vermeden önce tam resmi anlamak hakkındadır.
-
+  
   ### Adım 5: Duyuru Öncesi Testi
-
+  
   Karar vermeden önce: duyuruyu yazın. Ekibe gönderilecek email, müşteriye gönderilecek mesaj, yapacağınız konuşma.
-
+  
   **Bu duyuruyu yazamazsanız, bu kararı almaya hazır değilsiniz.**
-
+  
   Bunu yazmak sizi ne yaptığınızın gerçeğiyle yüzleştirmeye zorlar. Ayrıca, akıl yürütmenizin inceleme altında tutulup tutulmadığını da ortaya çıkarır. "Bu değişikliği yapıyoruz çünkü..." — bu cümle doğru geliyor mu?
-
+  
   ### Adım 6: İletişim Planı
-
+  
   Zor kararlar, iletişim kötü ise neredeyse her zaman daha da zorlaşır. Karar kendisi önemli değil — nasıl yapıldığı çok önemlidir.
-
+  
   Her zor çağrı için planlamanız gereken şeyler:
   - **Önce kimin bilmesi gerekiyor** (doğrudan etkilenen kişi, başka kimse olmadan önce)
   - **Onlara nasıl söyleyeceğiniz** (mümkün olduğunda yüz yüze, kişisel etkiler için asla email ile değil)
   - **Ne söyleyeceğiniz** (dürüst, doğrudan, şefkatli — bkz. `../executive-mentor/references/hard_things.md`)
   - **Ne sorabilecekleri** (her soruya hazır olun)
   - **Sonra ne geldiği** (onlara sonrasında ne olacağının açık bir resmini verin)
-
+  
   ---
-
+  
   ## Karar Özgü Çerçeveler
-
+  
   ### Kurucu Ortak İşten Çıkarma
   Tam çerçeve için bkz. `../executive-mentor/references/hard_things.md — Co-Founder Conflicts`.
-
+  
   Önce yanıtlaması gereken kilit sorular:
   - Bu bir performans sorunu mu yoksa değer/kültür sorunu mu? (Farklı konuşmalar)
   - Açık mı konuştunuz — işaret etmekle değil, doğrudan mı?
   - Cap table nasıl görünüyor ve yasal çıkarımlar neler?
   - Onlar için daha iyi bir rol var mı, yoksa bu tam bir çıkış mı?
   - Kimin bilmesi gerekiyor (kurul, ekip, yatırımcılar) ve hangi sırada?
-
+  
   **Kural:** Bunu 3 aydan fazla düşünüyorsanız, zaten cevabı biliyorsunuz. Soru ne olduğu değil, ne zaman olduğudur.
-
+  
   ### Layoff
   Kilit sorular:
   - Bu bir kerelik reset mi yoksa daha uzun bir düşüşün başlangıcı mı? (Bir reset kurtarılabilir. Seri layoff'lar kültürü öldürür.)
@@ -128,9 +128,9 @@ body_tr: |-
   - Duyuruya kimin sahip olduğu ve doğrudan ve dürüst mü?
   - Kıdem tazminatı nedir ve adil mi?
   - En iyi insanların sonrasında gitmesini nasıl önleyebilirsiniz?
-
+  
   **Kural:** Bir kez kesin, derin kesin, haysiyetle kesin. Belirsizlik açıklıktan daha kötüdür.
-
+  
   ### Pivot Yapmak
   Kilit sorular:
   - Bu gerçek bir pivot mi (yeni yön) yoksa bir optimizasyon mu (aynı yön, farklı taktik)?
@@ -138,9 +138,9 @@ body_tr: |-
   - Yeni yönün çalışacağına dair kanıtınız var mı, yoksa başarısızlıktan kaçıyor musunuz?
   - Eski vizyonu satın alan mevcut müşterilere bunu nasıl anlatıyorsunuz?
   - Bu, kurulun güvenine ne yapıyor?
-
+  
   **Kural:** Pivot'ler yeni fırsat kanıtı tarafından çekilmeli, mevcut yolun başarısızlığı tarafından itilmemelidir.
-
+  
   ### Bir Ürün Hattını Öldürmek
   Kilit sorular:
   - Şu anda kullanan müşterilere ne oluyor?
@@ -148,22 +148,22 @@ body_tr: |-
   - Bunu inşa eden insanlar ne yapar?
   - "Öldür" doğru çağrı mı yoksa "Sat" veya "Spin out" daha iyi mi?
   - Anlatım nedir — içeride ve dışarıda?
-
+  
   ---
-
+  
   ## Kaçınılmayı Test Etmek
-
+  
   Zor bir çağrıdan kaçındığınızı bilirsiniz eğer:
   - Bir aydan fazla süre boyunca bunu her hafta düşündünüz
   - Durumun kendini "çözeceğini" umuyorsunuz
   - Hiçbir zaman yeterli hissedeceğiniz daha fazla veri bekliyorsunuz
   - Konuşmayı kafanızda defalarca yaptınız ama gerçek hayatta yapmadınız
   - Etrafınızdaki diğer insanlar sorunu fark ettiler
-
+  
   **Gecikmenin maliyeti, karar maliyetinden neredeyse her zaman daha yüksektir.**
-
+  
   Bekledikçe sorun bileşir. İşi yapamayan kurucu ortak daha derinden kök salar. Ölmesi gereken ürün hattı daha fazla kaynak tüketir. Layoff edilmesi gereken kişi etrafındaki insanları etkiler.
-
+  
   Çağrıyı yapın. Açık bir şekilde yapın. Haysiyetle yapın.
 ---
 

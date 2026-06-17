@@ -4,59 +4,11 @@ clean_name: "Gamemaker Gml"
 description: "GameMaker Language (GML) rules for scripts, objects, events, rooms, data structures, and performance-minded game code"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/gamemaker-gml.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/gamemaker-gml.mdc"
 body_length: 2377
 file_extension: ".mdc"
-body_tr: |-
-  # GameMaker GML Kuralları
-
-  ## Kod Organizasyonu
-
-  - Nesne event kodunu kısa tutun ve yeniden kullanılabilir davranışları script'lere veya function'lara taşıyın.
-  - Script'ler, nesneler, sprite'lar, odalar ve globallar için açık ön ekler veya adlandırma kuralları kullanın.
-  - Kopyala-yapıştır yapılan event bloklarına tercih olarak function'ları kullanın.
-  - Create-Step-Draw sorumluluk alanlarını ayrı tutun.
-  - Başlatmayı Create'e, simülasyonu Step'e ve yalnızca render işlemlerini Draw'a koyun.
-
-  ## GML Stili
-
-  - Açıklayıcı değişken adları kullanın ve küçük döngüler dışında tek harfli adlardan kaçının.
-  - Gereksiz instance değişkenlerine tercih olarak `var` veya function kapsamlı deklarasyonları kullanan yerel değişkenleri tercih edin.
-  - Tekrarlanan tanımlayıcılar, layer adları, durumlar ve collision grupları için sabitler, enum'lar ve macro'lar kullanın.
-  - Opsiyonel instance referanslarını `instance_exists` ile kontrol edin.
-  - Global durumu minimal tutun ve dokümante edin.
-
-  ## Gameplay Mimarisi
-
-  - Oyuncu, düşman, UI ve oyun akışı durumları için sonlu durum makineleri kullanın.
-  - Collision mantığını açık ve belirlenimci tutun.
-  - Input toplama işlemini action yürütmesinden ayrı tutun.
-  - Alarm'lar, timeline'lar veya açık timer'ları tutarlı şekilde kullanın; sebep olmadan pattern'leri karıştırmayın.
-  - Save verilerini yapılandırılmış map'ler/struct'lar aracılığıyla saklayın ve save formatını versiyonlayın.
-
-  ## Performans
-
-  - Geniş `instance_find` veya her Step event'inde tekrarlanan collision taramaları gibi pahalı aramaları önleyin.
-  - Sık kullanılan asset ID'leri, layer ID'lerini ve object referanslarını güvenli olduğunda önbelleğe alın.
-  - Artık ihtiyaç duyulmayan veri yapılarını yok edin.
-  - Sık yapılan projectile'lar, particle'lar veya kısa ömürlü efektler için tahsis maliyetli hale geldiğinde object pooling kullanın.
-  - Optimize etmeden önce profil çıkarın ve hot-path kodunu basit tutun.
-
-  ## Hata Ayıklama ve Test
-
-  - Yararlı olduğunda collision box'ları, durumu, hızı ve AI kararlarını göstermek için debug overlay'leri ekleyin.
-  - İmkansız durumlar için assertion'lar veya açık guard clause'ları kullanın.
-  - Oda geçişleri, pause/resume, save/load ve controller/keyboard input'u ayrı ayrı test edin.
-  - Karmaşık mekanikler için tekrarlanabilir test odaları tutun.
-
-  ## Yaygın Hatalar
-
-  - Draw event'lerine oyun mantığı koymayın.
-  - Veri yapılarını yok etmeden oluşturmayın.
-  - Kritik davranış için oda editörü instance sırasına güvenmeyin.
-  - Magic sayısal state ID'leri hardcode etmeyin.
 ---
 
 

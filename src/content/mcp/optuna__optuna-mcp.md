@@ -3,7 +3,7 @@ name: "optuna/optuna-mcp"
 description: "Official MCP server enabling seamless orchestration of hyperparameter search and other optimization tasks with Optuna."
 category: "Data Science Tools"
 repo: "optuna/optuna-mcp"
-stars: 79
+stars: 78
 url: "https://github.com/optuna/optuna-mcp"
 body_length: 12060
 license: "MIT"

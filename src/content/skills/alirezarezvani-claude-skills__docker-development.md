@@ -3,7 +3,7 @@ name: "docker-development"
 description_en: "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance"
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/docker-development/SKILL.md"
 path: ".gemini/skills/docker-development/SKILL.md"
 is_collection: false
@@ -14,29 +14,29 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Docker Geliştirme
-
+  
   > Daha küçük imajlar. Daha hızlı derlemeler. Güvenli konteynerler. Tahmin yok.
-
+  
   Şişkin Dockerfile'ları production-grade konteynerlerine dönüştüren fikri belirlenmiş Docker iş akışı. Optimizasyon, çok aşamalı derlemeler, compose orkestrasyonu ve güvenlik sağlamlaştırmasını kapsar.
-
+  
   Docker öğreticisi değil — zamanı, alanı veya saldırı yüzeyini boşa harcamayan konteynerler oluşturma hakkında somut kararlar seti.
-
+  
   ---
-
+  
   ## Slash Komutları
-
+  
   | Komut | Ne yapar |
   |---------|-------------|
   | `/docker:optimize` | Bir Dockerfile'ı boyut, hız ve katman önbelleği için analiz eder ve optimize eder |
   | `/docker:compose` | En iyi uygulamalarla docker-compose.yml oluşturur veya iyileştirir |
   | `/docker:security` | Bir Dockerfile veya çalışan konteyner için güvenlik sorunlarını denetler |
-
+  
   ---
-
+  
   ## Bu Beceri Ne Zaman Devreye Girer
-
+  
   Kullanıcıdan gelen bu desenleri tanıyın:
-
+  
   - "Bu Dockerfile'ı optimize et"
   - "Docker derlemem yavaş"
   - "Bu proje için docker-compose oluştur"
@@ -45,71 +45,71 @@ body_tr: |-
   - "Çok aşamalı derlemeler kur"
   - "Docker en iyi uygulamaları [dil/framework] için"
   - İçeren herhangi bir istek: Dockerfile, docker-compose, konteyner, imaj boyutu, derleme önbelleği, Docker güvenliği
-
+  
   Kullanıcının bir Dockerfile'ı varsa veya birşeyi konteynerleştirmek istiyorsa → bu beceri uygulanır.
-
+  
   ---
-
+  
   ## İş Akışı
-
+  
   ### `/docker:optimize` — Dockerfile Optimizasyonu
-
+  
   1. **Mevcut durumu analiz et**
      - Dockerfile'ı oku
      - Base imaj ve boyutunu tanımla
      - Katmanları say (her RUN/COPY/ADD = 1 katman)
      - Yaygın anti-patternleri kontrol et
-
+  
   2. **Optimizasyon kontrol listesini uygula**
-
+  
      ```
      BASE IMAGE
      ├── Belirli etiketler kullan, production'da asla :latest
      ├── slim/alpine varyantlarını tercih et (debian-slim > ubuntu > debian)
      ├── CI'de yeniden üretilebilirlik için özeti sabitle: image@sha256:...
      └── Base'i çalışma zamanı ihtiyaçlarına eşle (derlenmiş ikili için python:3.12 kullanma)
-
+  
      LAYER OPTIMIZATION
      ├── İlişkili RUN komutlarını && \ ile birleştir
      ├── Katman sıraı: değişmeyen ilk (bağımlılıklar kaynak kodundan önce)
      ├── Paket yöneticisi önbelleğini aynı RUN katmanında temizle
      ├── .dockerignore kullanarak gereksiz dosyaları hariç tut
      └── Derleme bağımlılıklarını çalışma zamanı bağımlılıklarından ayır
-
+  
      BUILD CACHE
      ├── Kaynak kodundan önce bağımlılık dosyalarını COPY et (package.json, requirements.txt, go.mod)
      ├── Bağımlılıkları kod kopyasından ayrı bir katmanda kur
      ├── BuildKit önbellek bağlantılarını kullan: --mount=type=cache,target=/root/.cache
      └── Bağımlılık yüklemesinden önce COPY . . kullanmaktan kaçın
-
+  
      MULTI-STAGE BUILDS
      ├── Aşama 1: derleme (tam SDK, derleme araçları, geliştirme bağımlılıkları)
      ├── Aşama 2: çalışma zamanı (minimal base, yalnızca üretim yapıtları)
      ├── COPY --from=builder yalnızca gerekli olanları
      └── Son imaj hiçbir derleme aracı, kaynak kod veya geliştirme bağımlılığı içermemeli
      ```
-
+  
   3. **Optimize edilmiş Dockerfile oluştur**
      - Tüm ilgili optimizasyonları uygula
      - Her kararı açıklayan satır içi yorumlar ekle
      - Tahmini boyut azalmasını bildir
-
+  
   4. **Doğrula**
      ```bash
      python3 scripts/dockerfile_analyzer.py Dockerfile
      ```
-
+  
   ### `/docker:compose` — Docker Compose Konfigürasyonu
-
+  
   1. **Hizmetleri tanımla**
      - Uygulama (web, API, worker)
      - Veritabanı (postgres, mysql, redis, mongo)
      - Önbellek (redis, memcached)
      - Kuyruk (rabbitmq, kafka)
      - Ters proxy (nginx, traefik, caddy)
-
+  
   2. **Compose en iyi uygulamalarını uygula**
-
+  
      ```
      SERVICES
      ├── depends_on'u condition: service_healthy ile kullan
@@ -117,35 +117,35 @@ body_tr: |-
      ├── Kaynak sınırlarını ayarla (mem_limit, cpus)
      ├── Kalıcı veriler için adlandırılmış volume'ler kullan
      └── İmaj sürümlerini sabitle
-
+  
      NETWORKING
      ├── Açık networkler oluştur (varsayılana güvenme)
      ├── Frontend ve backend networklerini ayır
      ├── Yalnızca dış erişim gerektiren portları expose et
      └── Sadece backend networkler için internal: true kullan
-
+  
      ENVIRONMENT
      ├── Gizli bilgiler için env_file kullan, satır içinde değil
      ├── Asla .env dosyalarını commit etme (.gitignore'a ekle)
      ├── Değişken ikamesini kullan: ${VAR:-default}
      └── Tüm gerekli ortam değişkenlerini belgelendir
-
+  
      DEVELOPMENT vs PRODUCTION
      ├── Compose profilleri veya override dosyaları kullan
      ├── Geliştirme: sıcak yükleme için bind mount'lar, debug portları açık
      ├── Production: adlandırılmış volume'ler, debug portları kapalı, restart: unless-stopped
      └── docker-compose.override.yml geliştirme-yalnızca konfigürasyonu için
      ```
-
+  
   3. **Compose dosyası oluştur**
      - Healthcheck'ler, network'ler, volume'ler ile docker-compose.yml çıkart
      - Tüm gerekli değişkenleri belgelendirerek .env.example oluştur
      - Geliştirme/production profil notasyonları ekle
-
+  
   ### `/docker:security` — Konteyner Güvenlik Denetimi
-
+  
   1. **Dockerfile denetimi**
-
+  
      | Kontrol | Önem Derecesi | Çözüm |
      |-------|----------|-----|
      | Root olarak çalışıyor | Kritik | Kullanıcı oluşturduktan sonra `USER nonroot` ekle |
@@ -156,9 +156,9 @@ body_tr: |-
      | Healthcheck yok | Orta | Uygun aralıkla HEALTHCHECK ekle |
      | Ayrıcalıklı talimatlar | Yüksek | `--privileged` kullanmaktan kaçın, yetenekleri düşür |
      | Paket yöneticisi önbelleği kaldı | Düşük | Aynı RUN katmanında temizle |
-
+  
   2. **Çalışma zamanı güvenlik kontrolleri**
-
+  
      | Kontrol | Önem Derecesi | Çözüm |
      |-------|----------|-----|
      | Konteyner root olarak çalışıyor | Kritik | Dockerfile'da veya compose'da kullanıcı ayarla |
@@ -168,28 +168,28 @@ body_tr: |-
      | Host network modu | Yüksek | Bridge veya custom network kullan |
      | Hassas mount'lar | Kritik | Asla /etc, /var/run/docker.sock production'da mount etme |
      | Günlük sürücü yapılandırılmadı | Düşük | Boyut sınırlarıyla `logging:` ayarla |
-
+  
   3. **Güvenlik raporu oluştur**
      ```
      SECURITY AUDIT — [Dockerfile/Image adı]
      Date: [timestamp]
-
+  
      CRITICAL: [count]
      HIGH:     [count]
      MEDIUM:   [count]
      LOW:      [count]
-
+  
      [Ayrıntılı bulguların ve çözüm önerileri]
      ```
-
+  
   ---
-
+  
   ## Araçlar
-
+  
   ### `scripts/dockerfile_analyzer.py`
-
+  
   Dockerfile'ların statik analizi için CLI yardımcı programı.
-
+  
   **Özellikler:**
   - Katman sayısı ve optimizasyon önerileri
   - Boyut tahminleriyle base imaj analizi
@@ -197,26 +197,26 @@ body_tr: |-
   - Güvenlik sorunu bayraklandırması
   - Çok aşamalı derleme tespiti ve doğrulaması
   - JSON ve metin çıktısı
-
+  
   **Kullanım:**
   ```bash
   # Bir Dockerfile'ı analiz et
   python3 scripts/dockerfile_analyzer.py Dockerfile
-
+  
   # JSON çıktısı
   python3 scripts/dockerfile_analyzer.py Dockerfile --output json
-
+  
   # Güvenlik odağıyla analiz et
   python3 scripts/dockerfile_analyzer.py Dockerfile --security
-
+  
   # Belirli bir dizini kontrol et
   python3 scripts/dockerfile_analyzer.py path/to/Dockerfile
   ```
-
+  
   ### `scripts/compose_validator.py`
-
+  
   Docker-compose dosyalarını doğrulamak için CLI yardımcı programı.
-
+  
   **Özellikler:**
   - Hizmet bağımlılığı doğrulaması
   - Healthcheck varlığı tespiti
@@ -225,25 +225,25 @@ body_tr: |-
   - Ortam değişkeni denetimi
   - Port çakışması tespiti
   - En iyi uygulama puanlaması
-
+  
   **Kullanım:**
   ```bash
   # Bir compose dosyasını doğrula
   python3 scripts/compose_validator.py docker-compose.yml
-
+  
   # JSON çıktısı
   python3 scripts/compose_validator.py docker-compose.yml --output json
-
+  
   # Katı mod (uyarılarda başarısız ol)
   python3 scripts/compose_validator.py docker-compose.yml --strict
   ```
-
+  
   ---
-
+  
   ## Çok Aşamalı Derleme Desenleri
-
+  
   ### Desen 1: Derlenmiş Dil (Go, Rust, C++)
-
+  
   ```dockerfile
   # Derleme aşaması
   FROM golang:1.22-alpine AS builder
@@ -252,28 +252,28 @@ body_tr: |-
   RUN go mod download
   COPY . .
   RUN CGO_ENABLED=0 go build -ldflags="-s -w" -o /app/server ./cmd/server
-
+  
   # Çalışma zamanı aşaması
   FROM gcr.io/distroless/static-debian12
   COPY --from=builder /app/server /server
   USER nonroot:nonroot
   ENTRYPOINT ["/server"]
   ```
-
+  
   ### Desen 2: Node.js / TypeScript
-
+  
   ```dockerfile
   # Bağımlılıklar aşaması
   FROM node:20-alpine AS deps
   WORKDIR /app
   COPY package.json package-lock.json ./
   RUN npm ci --production=false
-
+  
   # Derleme aşaması
   FROM deps AS builder
   COPY . .
   RUN npm run build
-
+  
   # Çalışma zamanı aşaması
   FROM node:20-alpine
   WORKDIR /app
@@ -285,16 +285,16 @@ body_tr: |-
   EXPOSE 3000
   CMD ["node", "dist/index.js"]
   ```
-
+  
   ### Desen 3: Python
-
+  
   ```dockerfile
   # Derleme aşaması
   FROM python:3.12-slim AS builder
   WORKDIR /app
   COPY requirements.txt .
   RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
-
+  
   # Çalışma zamanı aşaması
   FROM python:3.12-slim
   WORKDIR /app
@@ -305,11 +305,11 @@ body_tr: |-
   EXPOSE 8000
   CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
   ```
-
+  
   ---
-
+  
   ## Base İmaj Karar Ağacı
-
+  
   ```
   Derlenmiş bir ikili mi (Go, Rust, C)?
   ├── Evet → distroless/static veya scratch
@@ -324,13 +324,13 @@ body_tr: |-
           ├── Çok sayıda → debian-slim
           └── Az sayıda → alpine + apk add
   ```
-
+  
   ---
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   Sorulmadan bunları işaretle:
-
+  
   - **Dockerfile :latest kullanıyor** → Belirli bir sürüm etiketine sabitlemeyi öner.
   - **.dockerignore yok** → Oluştur. En azından: `.git`, `node_modules`, `__pycache__`, `.env`.
   - **COPY . . bağımlılık yüklemesinden önce** → Önbellek bozulması. Bağımlılıkları ilk yüklemek için yeniden sırala.
@@ -339,31 +339,31 @@ body_tr: |-
   - **1GB'tan büyük imaj** → Çok aşamalı derleme gerekli. Production imajının bu kadar büyük olmasının bir nedeni yok.
   - **Healthcheck yok** → Bir tane ekle. Orkestratorlar (Compose, K8s) yaşam döngüsü yönetimi için ona ihtiyaç duyar.
   - **apt-get aynı katmanda temizlenmemiş** → `rm -rf /var/lib/apt/lists/*` aynı RUN'da.
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   ### Tek satırlık komut (herhangi bir araç)
   ```bash
   git clone https://github.com/alirezarezvani/claude-skills.git
   cp -r claude-skills/engineering/docker-development ~/.claude/skills/
   ```
-
+  
   ### Çok araçlı kurulum
   ```bash
   ./scripts/convert.sh --skill docker-development --tool codex|gemini|cursor|windsurf|openclaw
   ```
-
+  
   ### OpenClaw
   ```bash
   clawhub install cs-docker-development
   ```
-
+  
   ---
-
+  
   ## İlişkili Beceriler
-
+  
   - **senior-devops** — Daha geniş DevOps kapsamı (CI/CD, IaC, izleme). Tamamlayıcı — konteyner-spesifik çalışma için docker-development kullan, pipeline ve altyapı için senior-devops.
   - **senior-security** — Uygulama güvenliği. Tamamlayıcı — docker-development konteyner güvenliğini kapsar, senior-security uygulama düzeyindeki tehditleri kapsar.
   - **autoresearch-agent** — Docker derleme sürelerini veya imaj boyutlarını ölçülebilir deneyler olarak optimize edebilir.

@@ -3,7 +3,7 @@ name: "jae-jae/fetcher-mcp"
 description: "MCP server for fetching web page content using Playwright headless browser, supporting Javascript rendering and intelligent content extraction, and outputting Markdown or HTML format."
 category: "Search & Data Extraction"
 repo: "jae-jae/fetcher-mcp"
-stars: 1057
+stars: 1058
 url: "https://github.com/jae-jae/fetcher-mcp"
 body_length: 9300
 license: "MIT"

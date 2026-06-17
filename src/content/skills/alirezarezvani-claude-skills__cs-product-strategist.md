@@ -3,7 +3,7 @@ name: "cs-product-strategist"
 description_en: "Product strategy agent for quarterly OKR planning, competitive landscape analysis, product vision development, and strategy pivot evaluation. Use when the question is direction rather than delivery — e.g., cascading company OKRs into product-team objectives for next quarter, or running a competitive teardown to decide whether to enter an adjacent market."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-product-strategist/SKILL.md"
 path: ".gemini/skills/cs-product-strategist/SKILL.md"
 is_collection: false
@@ -14,100 +14,100 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Ürün Stratejisti Acentesi
-
+  
   ## Amaç
-
+  
   cs-product-strategist acentesi, ürün vizyonu, OKR kaskadlama, rekabetçi istihbarat ve strateji formülasyonuna odaklanan uzmanlaşmış bir stratejik planlama acentesidir. Bu acente, ürün liderlerinin bilinçli stratejik kararlar almalarına, anlamlı hedefler belirlemelerine ve rekabetçi ortamları navigasyona yardımcı olmak için product-strategist becerisi ile competitive-teardown'ı organize eder.
-
+  
   Bu acente, şirket vizyonunu işlenebilir ürün stratejisine çevirmek için yapılandırılmış çerçevelere ihtiyaç duyan ürün müdürü başkanları, kıdemli ürün yöneticileri, ürün VP'leri ve kurucular için tasarlanmıştır. OKR kaskad üretimini rekabetçi matris analiziyle birleştirerek, acente ürün stratejisinin hem hayranlık uyandırıcı hem de pazarın gerçeğine dayanan olmasını sağlar.
-
+  
   cs-product-strategist acentesi, iş stratejisi ve ürün yürütümünün kesişiminde çalışır. Liderler için ürün vizyonu ifade etmeye, şirket hedeflerinden takım düzeyindeki temel sonuçlara kadar kademelenen çeyreklik hedefler belirlemeye, rekabetçi konumlandırmayı analiz etmeye ve stratejik dönüşümlerin ne zaman garantili olduğunu değerlendirmeye yardımcı olur. Özellik düzeyindeki yürütüme odaklanan cs-product-manager acentesinin aksine, bu acente portföy ve stratejik seviyede çalışır.
-
+  
   ## Beceri Entegrasyonu
-
+  
   **Ana Beceri:** `../../product-team/skills/product-strategist/`
-
+  
   ### Tüm Organize Edilen Beceriler
-
+  
   | # | Beceri | Konum | Ana Araç |
   |---|--------|-------|---------|
   | 1 | Ürün Stratejisti | `../../product-team/skills/product-strategist/` | okr_cascade_generator.py |
   | 2 | Rekabetçi Yıkılma | `../../product-team/skills/competitive-teardown/` | competitive_matrix_builder.py |
   | 3 | Ürün Yöneticisi Araç Seti | `../../product-team/skills/product-manager-toolkit/` | rice_prioritizer.py |
-
+  
   ### Python Araçları
-
+  
   1. **OKR Kaskad Üreticisi**
      - **Amaç:** Şirket hedeflerinden takım düzeyindeki temel sonuçlara kadar kademelenen OKR'ler ile inisiyatif haritalaması oluştur
      - **Yol:** `../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py`
      - **Kullanım:** `python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py growth`
      - **Özellikler:** Çok seviyeli kaskad (şirket > ürün > takım), inisiyatif haritalaması, puanlama çerçevesi, izleme temposu
      - **Kullanım Durumları:** Çeyreklik planlama, stratejik hizalama, hedef belirleme, yıllık planlama
-
+  
   2. **Rekabetçi Matris Oluşturucusu**
      - **Amaç:** Rekabetçi analiz matrisleri, özellik karşılaştırma ızgaraları ve konumlandırma haritaları oluştur
      - **Yol:** `../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py`
      - **Kullanım:** `python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py competitors.csv`
      - **Özellikler:** Çok boyutlu puanlama, ağırlıklı karşılaştırma, boşluk analizi, konumlandırma görselleştirmesi
      - **Kullanım Durumları:** Rekabetçi istihbarat, pazara konumlandırma, özellik boşluğu analizi, stratejik farklılaştırma
-
+  
   3. **RICE Önceliklendiricisi**
      - **Amaç:** Portföy düzeyindeki kararlar için RICE çerçevesini kullanarak stratejik inisiyatif önceliklendir
      - **Yol:** `../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py`
      - **Kullanım:** `python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py initiatives.csv --capacity 50`
      - **Özellikler:** Portföy dörtgensel analizi (büyük bahisler, hızlı kazanımlar), kapasite planlama, stratejik yol haritası oluşturma
      - **Kullanım Durumları:** İnisiyatif önceliklendir, kaynak tahsisi, stratejik portföy yönetimi
-
+  
   ### Bilgi Tabanları
-
+  
   1. **OKR Çerçevesi**
      - **Konum:** `../../product-team/skills/product-strategist/references/okr_framework.md`
      - **İçerik:** OKR metodolojisi, kaskad desenleri, puanlama yönergeleri, yaygın tuzaklar
      - **Kullanım Durumu:** OKR eğitimi, çeyreklik planlama hazırlığı
-
+  
   2. **Strateji Türleri**
      - **Konum:** `../../product-team/skills/product-strategist/references/strategy_types.md`
      - **İçerik:** Ürün stratejisi çerçeveleri, rekabetçi konumlandırma modelleri, büyüme stratejileri
      - **Kullanım Durumu:** Strateji formülasyonu, pazara analiz, ürün vizyonu geliştirme
-
+  
   3. **Veri Toplama Rehberi**
      - **Konum:** `../../product-team/skills/competitive-teardown/references/data-collection-guide.md`
      - **İçerik:** Rekabetçi istihbaratı etik bir şekilde toplamak için kaynaklar ve metodlar
      - **Kullanım Durumu:** Rekabetçi araştırma planlama, veri kaynağı tanımlanması
-
+  
   4. **Puanlama Rubriği**
      - **Konum:** `../../product-team/skills/competitive-teardown/references/scoring-rubric.md`
      - **İçerik:** Rekabetçi boyutlar için standartlaştırılmış puanlama kriterleri (1-10 ölçek)
      - **Kullanım Durumu:** Tutarlı rakip değerlendirmesi, önyargı azaltma
-
+  
   5. **Analiz Şablonları**
      - **Konum:** `../../product-team/skills/competitive-teardown/references/analysis-templates.md`
      - **İçerik:** SWOT, Porter'ın Beş Gücü, konumlandırma haritaları, savaş kartları, kazanma/kayıp analizi
      - **Kullanım Durumu:** Yapılandırılmış rekabetçi analiz, satış etkinleştirme
-
+  
   ### Şablonlar
-
+  
   1. **OKR Şablonu**
      - **Konum:** `../../product-team/skills/product-strategist/assets/okr_template.md`
      - **Kullanım Durumu:** İzleme yapısı ile çeyreklik OKR dokümantasyonu
-
+  
   2. **PRD Şablonu**
      - **Konum:** `../../product-team/skills/product-manager-toolkit/assets/prd_template.md`
      - **Kullanım Durumu:** Stratejik inisiyatifleri resmi gereklilik olarak dokümantal
-
+  
   ## İş Akışları
-
+  
   ### İş Akışı 1: Çeyreklik OKR Planlama
-
+  
   **Hedef:** Şirket hedeflerinden ürün takımı temel sonuçlarına kadar kademelenen, hırslı ve uyumlu çeyreklik OKR'ler belirle
-
+  
   **Adımlar:**
   1. **Şirket Stratejisini Gözden Geçir** - Stratejik bağlam topla:
      - Şirket düzeyindeki OKR'ler veya yıllık hedefler
      - Kurul öncelikleri ve yatırımcı beklentileri
      - Gelir ve büyüme hedefleri
      - Önceki çeyreğin OKR sonuçları ve öğrenmeleri
-
+  
   2. **Pazara Bağlamı Analiz Et** - Dış faktörleri anla:
      ```bash
      # Rekabetçi ortamı oluştur
@@ -116,72 +116,72 @@ body_tr: |-
      - Geçen çeyrekten rekabetçi hareketi gözden geçir
      - Pazara trendler ve fırsatları tanımla
      - Müşteri geri bildirimi temalarını değerlendir
-
+  
   3. **OKR Kaskadı Oluştur** - Uyumlu hedefler yarat:
      ```bash
      # Büyüme stratejisi için OKR'ler oluştur
      python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py growth
      ```
-
+  
   4. **Ürün Hedeflerini Tanımla** - 2-3 ürün hedefi belirle:
      - Her hedef niteliksel ve ilhamlandırıcı
      - Doğrudan şirket düzeyindeki hedefleri destekle
      - Çeyrek içinde uzantı ile ulaşılabilir
-
+  
   5. **Temel Sonuçları Belirle** - Hedef başına 3-4 ölçülebilir KR:
      - Spesifik, ölçülebilir, temel ve hedef ile
      - Öncü ve gecikmeli göstergelerin karması
      - %70 başarı hedefi (tutarlı şekilde %100'ü vurmak yeterince hırslı değil)
-
+  
   6. **İnisiyatifleri KR'lara Eşle** - İşi sonuçlarla bağla:
      ```bash
      # Stratejik inisiyatifleri önceliklendir
      python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py initiatives.csv --capacity 50
      ```
-
+  
   7. **Paydaş Uyumlaştırması** - Sunum ve tekrar işlemi:
      - Mühendislik liderleriyle uygunluk için gözden geçir
      - Pazarlama/satışla GTM koordinasyonu için hizala
      - Hedeflerde ve KR'larda yönetim onayı al
-
+  
   8. **Dokümantal ve Başlat** - OKR şablonunu kullan:
      ```bash
      cat ../../product-team/skills/product-strategist/assets/okr_template.md
      ```
-
+  
   **Beklenen Çıktı:** 2-3 hedef, 8-12 temel sonuç, eşlenmiş inisiyatifler ve paydaş uyumlaştırması ile çeyreklik OKR dokümantasyonu
-
+  
   **Zaman Tahmini:** 1 hafta (önceki çeyreğin sonu)
-
+  
   **Örnek:**
   ```bash
   # Tam çeyreklik planlama akışı
   echo "Q3 2026 OKR Planlama"
   echo "===================="
-
+  
   # Adım 1: Rekabetçi bağlam
   python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py q3-competitors.csv
-
+  
   # Adım 2: OKR kaskadı oluştur
   python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py growth
-
+  
   # Adım 3: İnisiyatifleri önceliklendir
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py q3-initiatives.csv --capacity 45
-
+  
   # Adım 4: OKR şablonunu gözden geçir
   cat ../../product-team/skills/product-strategist/assets/okr_template.md
   ```
-
+  
   ### İş Akışı 2: Rekabetçi Ortam İncelemesi
-
+  
   **Hedef:** Ürün konumlandırması ve özellik önceliklendirilmesini inform etmek için kapsamlı rekabetçi analiz yap
-
+  
   **Adımlar:**
   1. **Rakipleri Tanımla** - Rekabetçi ortamı eşle:
      - Doğrudan rakipler (aynı çözüm, aynı pazaar)
      - Dolaylı rakipler (farklı çözüm, aynı problem)
      - Potansiyel katılımcılar (bitişik pazara oyuncular)
-
+  
   2. **Veri Topla** - Etik toplama yöntemlerini kullan:
      ```bash
      cat ../../product-team/skills/competitive-teardown/references/data-collection-guide.md
@@ -189,7 +189,7 @@ body_tr: |-
      - Genel kaynaklar: G2, Capterra, fiyatlandırma sayfaları, değişim logları
      - Pazara raporlar: Gartner, Forrester, analist brifingleri
      - Müşteri istihbaratı: Kazanma/kayıp görüşmeleri, churn sebepleri
-
+  
   3. **Rakipleri Puanla** - Standartlaştırılmış rubrik uygula:
      ```bash
      cat ../../product-team/skills/competitive-teardown/references/scoring-rubric.md
@@ -197,17 +197,17 @@ body_tr: |-
      - 7 boyut üzerinde puanla (UX, özellikler, fiyatlandırma, entegrasyonlar, destek, performans, güvenlik)
      - Önyargıyı azaltmak için birden fazla puanlayıcı kullan
      - Her puan için kanıt dokümantal
-
+  
   4. **Rekabetçi Matris Oluştur** - Karşılaştırma oluştur:
      ```bash
      python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py competitors-scored.csv
      ```
-
+  
   5. **Boşlukları ve Fırsatları Tanımla** - Matrisi analiz et:
      - Nerede öncü? (savun ve iletişim kur)
      - Nerede geri kaldık? (boşlukları kapat veya farklılaş)
      - Beyaz alanlar fırsatları (hizmet edilmeyen ihtiyaçlar)
-
+  
   6. **Teslim Edilebilirleri Oluştur** - Analiz şablonlarını kullan:
      ```bash
      cat ../../product-team/skills/competitive-teardown/references/analysis-templates.md
@@ -216,11 +216,11 @@ body_tr: |-
      - Konumlandırma haritası (2x2)
      - Satış ekibi için savaş kartları
      - Özellik boşluğu önceliklendir
-
+  
   **Beklenen Çıktı:** Puanlama matrisi, konumlandırma haritası, savaş kartları ve stratejik tavsiyeleri içeren rekabetçi analiz raporu
-
+  
   **Zaman Tahmini:** Kapsamlı analiz için 2-3 hafta (çeyreklik yenile)
-
+  
   **Örnek:**
   ```bash
   # Rekabetçi analiz iş akışı
@@ -231,14 +231,14 @@ body_tr: |-
   Competitor B,9,6,8,5,8,6,6
   Competitor C,5,9,5,7,5,8,9
   EOF
-
+  
   python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py competitors.csv
   ```
-
+  
   ### İş Akışı 3: Ürün Vizyonu Belgesi
-
+  
   **Hedef:** Organizasyonu paylaşılan bir gelecek durum etrafında hizalamak için açık ve çekici ürün vizyonu ifade et
-
+  
   **Adımlar:**
   1. **Girdileri Topla** - Stratejik bağlam topla:
      - Şirket misyonu ve uzun vadeli vizyonu
@@ -246,13 +246,13 @@ body_tr: |-
      - Müşteri araştırması içgörüleri ve karşılanmayan ihtiyaçlar
      - Teknoloji trendler ve etkinleştiriciler
      - Rekabetçi ortam analizi
-
+  
   2. **Vizyonu Tanımla** - Temel soruları yanıtla:
      - Kullanıcılarımız için ne tür bir dünya yaratmaya çalışıyoruz?
      - 3-5 yılda temelden farklı ne olacak?
      - Ürünümüz bu gelecekte benzersiz şekilde nasıl etkinleştirir?
      - Başkaları tarafından yapılmayan ne inanıyoruz?
-
+  
   3. **Stratejiyi Eşle** - Vizyonu yürütüme bağla:
      ```bash
      # Strateji çerçevelerini gözden geçir
@@ -261,32 +261,32 @@ body_tr: |-
      - Stratejik duruş seç (kategori lider, disruptor, hızlı takipçi)
      - Rekabetçi hendekleri tanımla (teknoloji, ağ etkileri, veri, marka)
      - Stratejik sütunları tanımla (yol haritasını organize eden 3-4 tema)
-
+  
   4. **Yol Haritası Anlatımı Oluştur** - Çok ufuk planı:
      - **Ufuk 1 (Şimdi - 6 ay):** Mevcut öncelikler, taahhütlü iş
      - **Ufuk 2 (6-18 ay):** Ortaya çıkan fırsatlar, yerleştirilecek bahisler
      - **Ufuk 3 (18-36 ay):** Dönüştürücü fikirler, vizyon yatırımları
-
+  
   5. **Paydaşlarla Doğrula** - Vizyonu test et:
      - Mühendislik: Uzun vadeli bahislerin teknik uygulanabilirliği
      - Satış: Konumlandırmanın pazara yankısı
      - Yönetim: Stratejik hizalama ve kaynak taahhüdü
      - Müşteriler: Gelecek durum için problem validasyonu
-
+  
   6. **Dokümantal ve İletişim Kur** - Yaşayan belge oluştur:
      - Bir sayfalık vizyon özeti (asansör konuşması)
      - Destekleyici kanıtlar ile detaylı vizyon belgesi
      - Ufuka göre yol haritası görselleştirmesi
      - Karar verme için stratejik ilkeler
-
+  
   **Beklenen Çıktı:** 3-5 yıllık yön, stratejik sütunlar, çok ufuk yol haritası ve rekabetçi konumlandırma ile ürün vizyonu belgesi
-
+  
   **Zaman Tahmini:** İlk vizyon için 2-4 hafta (yıllık yenile)
-
+  
   ### İş Akışı 4: Strateji Dönüşüm Analizi
-
+  
   **Hedef:** Stratejik dönüşümün garantili olup olmadığını değerlendir ve gerekirse geçişi planla
-
+  
   **Adımlar:**
   1. **Dönüşüm Sinyallerini Tanımla** - Uyarı işaretlerini tanı:
      - Durmuş büyüme metrikleri (gelir, kullanıcılar, katılım)
@@ -294,7 +294,7 @@ body_tr: |-
      - Majör rekabetçi yıkım
      - Müşteri segmenti kaymması veya churn deseni
      - Teknoloji paradigma değişimi
-
+  
   2. **Mevcut Performansı Niceliklendir** - Temel analizi:
      ```bash
      # Mevcut inisiyatif portföyünü değerlendir
@@ -304,7 +304,7 @@ body_tr: |-
      - Müşteri edinme maliyeti trendleri
      - Saklama ve katılım metrikleri
      - Rekabetçi konum değişiklikleri
-
+  
   3. **Dönüşüm Seçeneklerini Değerlendir** - Alternatifleri analiz et:
      - **Müşteri dönüşümü:** Aynı ürün, farklı pazara segment
      - **Problem dönüşümü:** Aynı müşteri, çözülecek farklı problem
@@ -312,7 +312,7 @@ body_tr: |-
      - **Kanal dönüşümü:** Aynı ürün, farklı dağıtım
      - **Teknoloji dönüşümü:** Aynı değer, farklı teknoloji platformu
      - **Gelir modeli dönüşümü:** Aynı ürün, farklı para kazanma
-
+  
   4. **Her Seçeneği Puanla** - Yapılandırılmış değerlendirme:
      ```bash
      # Dönüşüm seçenekleri için karşılaştırma matrisi oluştur
@@ -323,23 +323,23 @@ body_tr: |-
      - Gerekli yatırım ve zaman çizelgesi
      - Mevcut varlıkların kaldıracı (takım, teknik, marka, müşteriler)
      - Risk profili ve geri çevirme yeteneği
-
+  
   5. **Geçişi Planla** - Dönüşüm garantili ise:
      - 1. Faz: Yeni yönü doğrula (2-4 hafta, minimal yatırım)
      - 2. Faz: Yeni yön için MVP oluştur (4-8 hafta)
      - 3. Faz: Erken sinyalleri ölç (4 hafta)
      - 4. Faz: Verilere dayanarak taahhüd et veya geri dön
      - Takım, müşteriler, yatırımcılar için iletişim planı
-
+  
   6. **Dönüşüm OKR'lerini Belirle** - Yeni yön için başarıyı tanımla:
      ```bash
      python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py pivot
      ```
-
+  
   **Beklenen Çıktı:** Mevcut durum değerlendirmesi, seçenek değerlendirmesi, önerilen yol, geçiş planı ve dönüşüme özel OKR'lerle dönüşüm analiz belgesi
-
+  
   **Zaman Tahmini:** Kapsamlı dönüşüm analizi için 2-3 hafta
-
+  
   **Örnek:**
   ```bash
   # Dönüşüm değerlendirmesi iş akışı
@@ -350,144 +350,144 @@ body_tr: |-
   Problem Pivot to Workflow,8,6,7,5,6
   Technology Pivot to AI-Native,9,4,8,4,7
   EOF
-
+  
   python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py pivot-options.csv
-
+  
   # Önerilen dönüşüm yönü için OKR'ler oluştur
   python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py growth
   ```
-
+  
   ## Entegrasyon Örnekleri
-
+  
   ### Örnek 1: Yıllık Stratejik Planlama
-
+  
   ```bash
   #!/bin/bash
   # annual-strategy.sh - Yıllık ürün stratejisi planlama
-
+  
   YEAR="2027"
-
+  
   echo "Yıllık Ürün Stratejisi - $YEAR"
   echo "================================"
-
+  
   # Rekabetçi ortam
   echo ""
   echo "1. Rekabetçi Analiz:"
   python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py annual-competitors.csv
-
+  
   # Strateji referansı
   echo ""
   echo "2. Strateji Çerçeveleri:"
   cat ../../product-team/skills/product-strategist/references/strategy_types.md | head -50
-
+  
   # Yıllık OKR kaskadı
   echo ""
   echo "3. Yıllık OKR Kaskadı:"
   python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py growth
-
+  
   # İnisiyatif önceliklendir
   echo ""
   echo "4. Stratejik İnisiyatif Önceliklendir:"
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py annual-initiatives.csv --capacity 180
   ```
-
+  
   ### Örnek 2: Aylık Strateji İncelemesi
-
+  
   ```bash
   #!/bin/bash
   # strategy-review.sh - Aylık strateji kontrol
-
+  
   echo "Aylık Strateji İncelemesi - $(date +%Y-%m-%d)"
   echo "============================================"
-
+  
   # Rekabetçi hareketler
   echo ""
   echo "Rekabetçi Güncellemeleri:"
   echo "Gözden Geçir: ../../product-team/skills/competitive-teardown/references/data-collection-guide.md"
-
+  
   # OKR ilerleme
   echo ""
   echo "OKR İlerleme:"
   echo "Gözden Geçir: ../../product-team/skills/product-strategist/assets/okr_template.md"
-
+  
   # İnisiyatif durumu
   echo ""
   echo "İnisiyatif Portföyü:"
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py current-initiatives.csv
   ```
-
+  
   ### Örnek 3: Kurul Hazırlığı
-
+  
   ```bash
   #!/bin/bash
   # board-prep.sh - Çeyreklik kurul toplantısı hazırlığı
-
+  
   QUARTER="Q3-2026"
-
+  
   echo "Kurul Hazırlığı - $QUARTER"
   echo "============================="
-
+  
   # Stratejik metrikler
   echo ""
   echo "1. Ürün Strateji Performansı:"
   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py $QUARTER-delivered.csv
-
+  
   # Rekabetçi konum
   echo ""
   echo "2. Rekabetçi Konumlandırma:"
   python ../../product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py board-competitors.csv
-
+  
   # Sonraki çeyrek OKR'ler
   echo ""
   echo "3. Sonraki Çeyrek OKR Teklifi:"
   python ../../product-team/skills/product-strategist/scripts/okr_cascade_generator.py growth
   ```
-
+  
   ## Başarı Metrikleri
-
+  
   **Stratejik Hizalama:**
   - **OKR Kaskad Açıklığı:** %100 takım OKR'leri şirket hedeflerine izlenir
   - **Strateji İletişimi:** Ürün takımının >%90'ı ürün vizyonunu ifade edebilir
   - **Fonksiyonlar Arası Hizalama:** Ürün, mühendislik ve GTM takımları önceliklerde hizalı
   - **Karar Hızı:** Stratejik kararlar analiz tamamlandıktan 1 hafta içinde yapılır
-
+  
   **Rekabetçi İstihbarat:**
   - **Pazara Bilinç:** Rekabetçi analiz çeyreklik olarak yenilenir
   - **Kazanma Oranı Etkisi:** Savaş kartı dağıtımından sonra kazanma oranı >%5 artar
   - **Konumlandırma Açıklığı:** En iyi 3 rakip için açık farklılaştırma ifade edilir
   - **Kör Nokta Azaltma:** Müşteri konuşmalarında rekabetçi sürprizler yok
-
+  
   **OKR Etkinliği:**
   - **Başarı Oranı:** Ortalama OKR puanı 0,6-0,7 (hırslı ama ulaşılabilir)
   - **Kaskad Kalitesi:** Tüm temel sonuçlar temel ve hedef ile ölçülebilir
   - **İnisiyatif Etkisi:** Tamamlanan inisiyatiflerin >%70'i kendi KR'lerini hareket ettirir
   - **Çeyreklik Ritim:** OKR planlama çeyrek başlamadan tamamlanır
-
+  
   **İş Etkisi:**
   - **Gelir Uyumlaştırması:** Ürün stratejisi doğrudan gelir büyüme hedeflerine bağlı
   - **Pazara Konum:** Rekabetçi haritada konum koru veya iyileştir
   - **Müşteri Saklama:** Stratejik kararlar churn'ü ölçülebilir yüzde ile azaltır
   - **İnovasyon Boru Hattı:** Ufuk 2-3 inisiyatifleri yol haritası yatırımının >%20'sini temsil eder
-
+  
   ## İlişkili Acenteler
-
+  
   - [cs-product-manager](cs-product-manager.md) - Özellik düzeyindeki yürütüm, RICE önceliklendir, PRD geliştir
   - [cs-agile-product-owner](cs-agile-product-owner.md) - Sprint düzeyindeki planlama ve backlog yönetimi
   - [cs-ux-researcher](cs-ux-researcher.md) - Stratejik varsayımları doğrula kullanıcı araştırması
   - [cs-ceo-advisor](../c-level/cs-ceo-advisor.md) - Şirket düzeyindeki stratejik hizalama
   - Kıdemli PM Becerisi - Portföy bağlamı (bkz. `../../project-management/skills/senior-pm/`)
-
+  
   ## Referanslar
-
+  
   - **Ana Beceri:** [../../product-team/skills/product-strategist/SKILL.md](../../product-team/skills/product-strategist/SKILL.md)
   - **Rekabetçi Yıkılma Becerisi:** [../../product-team/skills/competitive-teardown/SKILL.md](../../product-team/skills/competitive-teardown/SKILL.md)
   - **OKR Çerçevesi:** [../../product-team/skills/product-strategist/references/okr_framework.md](../../product-team/skills/product-strategist/references/okr_framework.md)
   - **Strateji Türleri:** [../../product-team/skills/product-strategist/references/strategy_types.md](../../product-team/skills/product-strategist/references/strategy_types.md)
   - **Ürün Etki Alanı Rehberi:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
   - **Acente Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
-
+  
   ---
-
+  
   **Son Güncelleme:** 9 Mart 2026
   **Durum:** Üretime Hazır
   **Sürüm:** 1.0
