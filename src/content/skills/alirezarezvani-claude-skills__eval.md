@@ -1,6 +1,7 @@
 ---
 name: "eval"
 description_en: "Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /hub:eval or asks to score, compare, or pick a winner among completed AgentHub agents."
+description_tr: "AgentHub oturumundaki agent sonuçlarını metrik veya LLM judge ile değerlendirin ve sıralayın. Kullanıcı /hub:eval komutunu çalıştırdığında veya tamamlanan AgentHub agent'ları puanlamak, karşılaştırmak ya da kazananı seçmek istediğinde kullanılır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

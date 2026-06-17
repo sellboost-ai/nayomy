@@ -1,6 +1,7 @@
 ---
 name: "ArcadeData/arcadedb"
 description: "Built-in MCP server for ArcadeDB, a multi-model database (graph, document, key-value, time-series, vector) with SQL, Cypher, Gremlin, and MongoDB QL support."
+description_tr: "ArcadeDB için entegre MCP sunucusu; grafik, doküman, anahtar-değer, zaman serisi ve vektör modellerini destekleyen çok modelli bir veritabanı olup SQL, Cypher, Gremlin ve MongoDB QL ile uyumludur."
 category: "Databases"
 repo: "ArcadeData/arcadedb"
 stars: 942

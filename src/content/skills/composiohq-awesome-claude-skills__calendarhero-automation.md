@@ -1,6 +1,7 @@
 ---
 name: "calendarhero-automation"
 description_en: "Automate Calendarhero tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Composio'nun Rube MCP aracılığıyla Calendarhero görevlerini otomatikleştirin. Her zaman güncel şemaları kontrol etmek için tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

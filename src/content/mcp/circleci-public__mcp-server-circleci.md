@@ -1,6 +1,7 @@
 ---
 name: "CircleCI-Public/mcp-server-circleci"
 description: "Enable AI Agents to fix build failures from CircleCI."
+description_tr: "CircleCI'deki derlemeler başarısız olduğunda AI Ajanlarını devreye sokarak sorunları otomatik olarak çözmesini sağlayın."
 category: "Developer Tools"
 repo: "CircleCI-Public/mcp-server-circleci"
 stars: 86

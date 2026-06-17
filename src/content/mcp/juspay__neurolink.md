@@ -1,6 +1,7 @@
 ---
 name: "juspay/neurolink"
 description: "Making enterprise AI infrastructure universally accessible. Edge-first platform unifying 12 providers and 100+ models with multi-agent orchestration, HITL workflows, guardrails middleware, and context summarization."
+description_tr: "Kurumsal AI altyapısını herkesin erişebileceği hale getiriyor. Edge-first platformu 12 sağlayıcı ve 100+ modeli, multi-agent orchestration, HITL workflows, guardrails middleware ve context summarization ile birleştiriyor."
 category: "Aggregators"
 repo: "juspay/neurolink"
 stars: 102

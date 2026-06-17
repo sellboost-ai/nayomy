@@ -1,6 +1,7 @@
 ---
 name: "cats-automation"
 description_en: "Automate Cats tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Cats görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman ilk olarak araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

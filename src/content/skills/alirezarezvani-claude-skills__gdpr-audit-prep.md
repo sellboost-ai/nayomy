@@ -1,6 +1,7 @@
 ---
 name: "gdpr-audit-prep"
 description_en: "/cs:gdpr-audit-prep <scope> — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review, post-breach internal audit, DPA investigation readiness, or acquisition due diligence."
+description_tr: "/cs:gdpr-audit-prep <scope> — GDPR denetimi için 6 sorudan oluşan, Madde referanslı zorunlu sorgulama aracı. Yıllık iç GDPR incelemesi, ihlal sonrası audit, DPA soruşturmasına hazırlık veya satın alma due diligence öncesinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

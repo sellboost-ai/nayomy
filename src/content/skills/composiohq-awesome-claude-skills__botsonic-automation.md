@@ -1,6 +1,7 @@
 ---
 name: "botsonic-automation"
 description_en: "Automate Botsonic tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Botsonic görevlerini otomatikleştirin. İşlemi başlatmadan önce her zaman tools'da güncel schemaları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

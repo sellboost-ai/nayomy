@@ -2,6 +2,7 @@
 name: "medusa-cursorrules"
 clean_name: "Medusa"
 description: "Cursor rules for Medusa."
+description_tr: "Medusa için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

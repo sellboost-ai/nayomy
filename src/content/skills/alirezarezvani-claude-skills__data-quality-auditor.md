@@ -1,6 +1,7 @@
 ---
 name: "data-quality-auditor"
 description_en: "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan. Use when the user asks to check data quality, profile a dataset, hunt outliers or missing values, or validate data before analysis or model training."
+description_tr: "Veri setlerinin bütünlüğünü, tutarlılığını, doğruluğunu ve geçerliliğini denetleyin. Veri dağılımlarını profil haline getirin, anomalileri ve aykırı değerleri tespit edin, yapısal sorunları ortaya çıkarın ve uygulanabilir bir iyileştirme planı oluşturun. Kullanıcı veri kalitesini kontrol etmek, bir dataset profili çıkarmak, aykırı veya eksik değerleri bulmak ya da analiz veya model eğitiminden önce veriyi doğrulamak istediğinde kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

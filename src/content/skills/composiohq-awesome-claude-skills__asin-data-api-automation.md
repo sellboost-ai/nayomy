@@ -1,6 +1,7 @@
 ---
 name: "asin-data-api-automation"
 description_en: "Automate Asin Data API tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Asin Data API görevlerini otomatikleştirin. Güncel şemaları için her zaman araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

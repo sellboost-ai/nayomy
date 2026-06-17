@@ -1,6 +1,7 @@
 ---
 name: "mpeirone/zabbix-mcp-server"
 description: "Zabbix integration for hosts, items, triggers, templates, problems, data and more."
+description_tr: "Zabbix entegrasyonu sunucular, itemler, triggerlar, şablonlar, problemler, veriler ve daha fazlası için."
 category: "Monitoring"
 repo: "mpeirone/zabbix-mcp-server"
 stars: 231

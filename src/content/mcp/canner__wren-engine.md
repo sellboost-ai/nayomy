@@ -1,6 +1,7 @@
 ---
 name: "Canner/wren-engine"
 description: "The Semantic Engine for Model Context Protocol(MCP) Clients and AI Agents"
+description_tr: "Semantic Engine, Model Context Protocol (MCP) istemcileri ve AI ajanları için bir anlamsal işleme motorudur."
 category: "Databases"
 repo: "Canner/wren-engine"
 stars: 659

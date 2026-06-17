@@ -1,6 +1,7 @@
 ---
 name: "grill-with-docs"
 description_en: "Docs-anchored grilling session — challenges a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), and updates those files inline as terminology and decisions crystallise. Use when user wants to stress-test a plan against documented domain language, or mentions \"grill with docs\"."
+description_tr: "Dokümantasyon odaklı inceleme oturumu — planı projenin mevcut dil tanımlarına (CONTEXT.md) ve kaydedilen kararlarına (docs/adr/) karşı test eder, terminoloji ve kararlar netleştikçe bu dosyaları inline olarak günceller. Kullanıcı planı dokümante edilen domain diline karşı test etmek istediğinde veya \"docs ile grill et\" dediğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "ci-cd-pipeline-builder"
 description_en: "Generate pragmatic CI/CD pipelines from detected project stack signals — fast baseline generation, repeatable checks, environment-aware deployment stages. Use when setting up CI for a new project, refactoring existing pipelines, or standardizing deployment workflows across multiple repos."
+description_tr: "Proje stack sinyallerinden pragmatik CI/CD pipeline'ları otomatik olarak oluşturun — hızlı temel kurulum, tekrarlanabilir kontroller ve ortam bilincine sahip deployment aşamaları. Yeni projelerde CI kurulumu, mevcut pipeline'ları refaktoring etme veya birden fazla repo'da deployment iş akışlarını standartlaştırırken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

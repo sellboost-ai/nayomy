@@ -1,6 +1,7 @@
 ---
 name: "cabinpanda-automation"
 description_en: "Automate Cabinpanda tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Cabinpanda görevlerini otomatikleştirin. İşe başlamadan önce tools arasında güncel schemaları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

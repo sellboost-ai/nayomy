@@ -1,6 +1,7 @@
 ---
 name: "board"
 description_en: "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
+description_tr: "AgentHub mesaj panosunu okuyun, yazın ve gezinin; ajanlar arasında koordinasyon sağlamak için kullanılır. Kullanıcı /hub:board komutunu çalıştırdığında veya rekabet halindeki AgentHub ajanları arasındaki koordinasyon mesajlarını paylaşmak, okumak ya da incelemek istediğinde devreye girer."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "cloudflare-automation"
 description_en: "Automate Cloudflare tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Cloudflare görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

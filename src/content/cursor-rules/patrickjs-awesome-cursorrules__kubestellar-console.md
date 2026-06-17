@@ -2,6 +2,7 @@
 name: "kubestellar-console"
 clean_name: "Kubestellar Console"
 description: "KubeStellar Console — Multi-cluster Kubernetes dashboard development rules"
+description_tr: "KubeStellar Console — Çoklu cluster Kubernetes dashboard geliştirme kuralları"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

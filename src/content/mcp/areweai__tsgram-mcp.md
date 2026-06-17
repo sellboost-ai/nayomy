@@ -1,6 +1,7 @@
 ---
 name: "areweai/tsgram-mcp"
 description: "TSgram: Telegram + Claude with local workspace access on your phone in typescript. Read, write, and vibe code on the go!"
+description_tr: "TSgram: Telefonda TypeScript ile Telegram ve Claude'u birleştir, yerel workspace'ine eriş ve kodunu oku, yaz, geliştir!"
 category: "Communication"
 repo: "areweai/tsgram-mcp"
 stars: 93

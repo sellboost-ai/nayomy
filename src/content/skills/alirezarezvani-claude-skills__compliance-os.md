@@ -1,6 +1,7 @@
 ---
 name: "compliance-os"
 description_en: "Compliance OS — meta-orchestrator that lets compliance teams CONFIGURE which frameworks apply, COMPUTE cross-framework control overlap, SIMULATE internal audits, and CONSOLIDATE evidence across multiple frameworks. Four decisions: (1) Given a company profile, which of the 12 supported frameworks apply (ISO 27001/13485/42001/14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR, NIST CSF 2.0, NIS2, HIPAA"
+description_tr: "Compliance OS — compliance ekiplerinin hangi framework'lerin geçerli olduğunu YAPILANDIRMAK, framework'ler arası kontrol örtüşmesini HESAPLAMAK, iç denetimleri SİMÜLE ETMEK ve kanıtları birden fazla framework'de KONSOLİDE ETMEK için tasarlanmış meta-orkestrasyondur. Dört ana karar: (1) Şirket profiline göre desteklenen 12 framework'den (ISO 27001/13485/42001/14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR, NIST CSF 2.0, NIS2, HIPAA) hangisi uygulanır?"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

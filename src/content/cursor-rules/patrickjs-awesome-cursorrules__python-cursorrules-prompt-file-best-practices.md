@@ -2,6 +2,7 @@
 name: "python-cursorrules-prompt-file-best-practices"
 clean_name: "Python Cursorrules Prompt File Best Practices"
 description: "Cursor rules for Python development with best practices integration."
+description_tr: "Python geliştirme için Cursor kuralları ve en iyi uygulamalar entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

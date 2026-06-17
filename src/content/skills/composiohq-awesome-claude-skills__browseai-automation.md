@@ -1,6 +1,7 @@
 ---
 name: "browseai-automation"
 description_en: "Automate Browseai tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Browseai görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemalar için önce arama araçlarını kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

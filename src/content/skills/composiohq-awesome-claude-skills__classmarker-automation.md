@@ -1,6 +1,7 @@
 ---
 name: "classmarker-automation"
 description_en: "Automate Classmarker tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Classmarker görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

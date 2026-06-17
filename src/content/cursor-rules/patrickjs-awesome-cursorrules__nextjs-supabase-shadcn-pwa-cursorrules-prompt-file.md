@@ -2,6 +2,7 @@
 name: "nextjs-supabase-shadcn-pwa-cursorrules-prompt-file"
 clean_name: "Next.js Supabase Shadcn PWA"
 description: "Cursor rules for Nextjs Supabase Shadcn Pwa."
+description_tr: "Nextjs Supabase Shadcn Pwa için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

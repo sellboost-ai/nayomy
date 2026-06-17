@@ -1,6 +1,7 @@
 ---
 name: "cpo-review"
 description_en: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap, deciding whether to kill a feature, or claiming PMF without a retention curve."
+description_tr: "/cs:cpo-review <plan> — Ürün roadmap'inizi Jobs to be Done metodolojisiyle sorgulayan, PMF sinyallerini ve portföy odağınızı değerlendiren araç. Bir çeyreğin roadmap'ini onaylarken, bir özelliği kapatmayı düşünürken veya retention curve'ü olmadan PMF iddiasında bulunmak istediğinizde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "cs-ceo-advisor"
 description_en: "Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture. Use when a founder or CEO faces a company-level strategic decision — e.g., preparing the narrative and metrics for a quarterly board meeting, or stress-testing a pivot or market-expansion decision against vision, runway, and stakeholder expectations."
+description_tr: "CEO ve kurucular için stratejik liderlik danışmanı; vizyon, strateji, yönetim kurulu yönetimi, yatırımcı ilişkileri ve örgütsel kültür konularında rehberlik sağlar. Şirket düzeyinde stratejik karar alınması gereken durumlarda kullanın — örneğin, üç aylık board toplantısı için anlatı ve metrikleri hazırlamak, ya da bir pivot ya da pazar genişletme kararını vizyon, finansal kapasite ve paydaş beklentilerine karşı test etmek için."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

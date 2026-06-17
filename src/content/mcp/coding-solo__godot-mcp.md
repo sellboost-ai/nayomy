@@ -1,6 +1,7 @@
 ---
 name: "Coding-Solo/godot-mcp"
 description: "A MCP server for interacting with the Godot game engine, providing tools for editing, running, debugging, and managing scenes in Godot projects."
+description_tr: "Godot oyun motoru ile etkileşim kurmak için bir MCP sunucusu; Godot projelerinde sahneleri düzenlemek, çalıştırmak, debug etmek ve yönetmek için araçlar sunuyor."
 category: "Gaming"
 repo: "Coding-Solo/godot-mcp"
 stars: 4213

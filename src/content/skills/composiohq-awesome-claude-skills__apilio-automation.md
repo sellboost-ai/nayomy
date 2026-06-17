@@ -1,6 +1,7 @@
 ---
 name: "apilio-automation"
 description_en: "Automate Apilio tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Apilio görevlerini otomatikleştirin. Her zaman güncel şemaları için ilk olarak araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

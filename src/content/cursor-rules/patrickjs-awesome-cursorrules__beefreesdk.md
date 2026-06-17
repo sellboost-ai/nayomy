@@ -2,6 +2,7 @@
 name: "beefreeSDK"
 clean_name: "BeefreeSDK"
 description: "Guidelines and best practices for building applications with [Beefree SDK](https://docs.beefree.io/beefree-sdk), including installation, authentication, configuration, customization, and template management"
+description_tr: "Beefree SDK ile uygulama geliştirmeye yönelik rehberler ve en iyi uygulamalar; kurulum, kimlik doğrulama, yapılandırma, özelleştirme ve template yönetimini içerir."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -2,6 +2,7 @@
 name: "cloudflare-workers-hono-angular-saas-cursorrules-prompt-file"
 clean_name: "Cloudflare Workers Hono Angular Saas"
 description: "Cursor rules for full-stack SaaS applications on Cloudflare Workers with Hono APIs, Angular frontends, typed RPC, D1/Neon, and production observability."
+description_tr: "Cloudflare Workers üzerinde Hono API'leri, Angular frontend'leri, typed RPC, D1/Neon ve production observability ile full-stack SaaS uygulamaları geliştirmek için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

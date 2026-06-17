@@ -1,6 +1,7 @@
 ---
 name: "VeriTeknik/pluggedin-mcp-proxy"
 description: "A comprehensive proxy server that combines multiple MCP servers into a single interface with extensive visibility features. It provides discovery and management of tools, prompts, resources, and templates across servers, plus a playground for debugging when building MCP servers."
+description_tr: "Birden fazla MCP sunucusunu tek bir arayüzde birleştiren ve kapsamlı görünürlük özellikleri sunan bütünsel bir proxy sunucusu. Sunucular arasında araçlar, promptlar, kaynaklar ve şablonların keşfi ile yönetimini sağlarken, MCP sunucuları geliştirirken hata ayıklama için playground ortamı sunmaktadır."
 category: "Aggregators"
 repo: "VeriTeknik/pluggedin-mcp-proxy"
 stars: 130

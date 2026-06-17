@@ -1,6 +1,7 @@
 ---
 name: "cross-eval"
 description_en: "/cs:cross-eval <memo> — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom — e.g. a bet-the-company pivot or fundraise terms."
+description_tr: "/cs:cross-eval <memo> — Bir board memo veya strateji belgesine dair multi-model konsensus. Claude + Codex + Gemini cross-review ve graceful degradation desteği. Şirketi değiştirecek pivot ya da fundraising şartları gibi kritik kararlar önce bağımsız bir sanity check yapmanız gerektiğinde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

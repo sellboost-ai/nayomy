@@ -1,6 +1,7 @@
 ---
 name: "strowk/mcp-k8s-go"
 description: "Kubernetes cluster operations through MCP"
+description_tr: "Kubernetes cluster işlemleri için MCP aracılığıyla yönetim ve kontrol."
 category: "Cloud Platforms"
 repo: "strowk/mcp-k8s-go"
 stars: 382

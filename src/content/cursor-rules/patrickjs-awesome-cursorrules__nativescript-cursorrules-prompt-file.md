@@ -2,6 +2,7 @@
 name: "nativescript-cursorrules-prompt-file"
 clean_name: "Nativescript"
 description: "Cursor rules for NativeScript development."
+description_tr: "NativeScript geliştirme için Cursor rules."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "roychri/mcp-server-asana"
 description: "This Model Context Protocol server implementation of Asana allows you to talk to Asana API from MCP Client such as Anthropic's Claude Desktop Application, and many more."
+description_tr: "Asana'nın Model Context Protocol sunucu uygulaması, Anthropic'in Claude Desktop Application'ı ve diğer birçok MCP Client'dan Asana API'ye erişmenizi sağlar."
 category: "Other Tools and Integrations"
 repo: "roychri/mcp-server-asana"
 stars: 142

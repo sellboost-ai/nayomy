@@ -1,6 +1,7 @@
 ---
 name: "extract"
 description_en: "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Use when the user runs /si:extract or asks to package a recurring solution from memory into a skill."
+description_tr: "SKILL.md ile kanıtlanmış bir pattern veya debugging çözümünü bağımsız, yeniden kullanılabilir bir skill'e dönüştürün; reference docs ve examples ekleyin. Kullanıcı /si:extract komutunu çalıştırdığında veya hafızadaki tekrar eden bir çözümü skill olarak paketlemeyi istediğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

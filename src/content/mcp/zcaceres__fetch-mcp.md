@@ -1,6 +1,7 @@
 ---
 name: "zcaceres/fetch-mcp"
 description: "An MCP server to flexibly fetch JSON, text, and HTML data"
+description_tr: "JSON, metin ve HTML verilerini esnek bir şekilde getirmek için MCP sunucusu"
 category: "Developer Tools"
 repo: "zcaceres/fetch-mcp"
 stars: 782

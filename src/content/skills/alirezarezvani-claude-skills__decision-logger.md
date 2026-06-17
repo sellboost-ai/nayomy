@@ -1,6 +1,7 @@
 ---
 name: "decision-logger"
 description_en: "Two-layer memory architecture for board meeting decisions. Manages raw transcripts (Layer 1) and approved decisions (Layer 2). Use when logging decisions after a board meeting, reviewing past decisions with /cs:decisions, or checking overdue action items with /cs:review. Invoked automatically by the board-meeting skill after Phase 5 founder approval."
+description_tr: "Board toplantı kararlarını yönetmek için iki katmanlı bellek mimarisi. Ham transkriptleri (Katman 1) ve onaylı kararları (Katman 2) saklar. Board toplantısından sonra kararları kaydetmek, /cs:decisions ile geçmiş kararları incelemek veya /cs:review ile gecikmiş action itemleri kontrol etmek için kullanılır. Board-meeting skill tarafından Phase 5 founder onayından sonra otomatik olarak çalışır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

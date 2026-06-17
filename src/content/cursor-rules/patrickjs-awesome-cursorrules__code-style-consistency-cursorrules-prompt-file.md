@@ -2,6 +2,7 @@
 name: "code-style-consistency-cursorrules-prompt-file"
 clean_name: "Code Style Consistency"
 description: "Cursor rules for code development with style consistency integration."
+description_tr: "Kod geliştirme için cursor kuralları ve stil tutarlılığı entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

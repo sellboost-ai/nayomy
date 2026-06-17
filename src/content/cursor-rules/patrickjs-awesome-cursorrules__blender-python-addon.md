@@ -2,6 +2,7 @@
 name: "blender-python-addon"
 clean_name: "Blender Python Addon"
 description: "Blender Python add-on rules for operators, panels, properties, registration, testing, and API-safe scripting"
+description_tr: "Blender Python eklentileri için operatörler, paneller, özellikler, kayıt, test ve API-güvenli komut dosyası yazma kuralları"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "fda-consultant-specialist"
 description_en: "FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QMSR (21 CFR 820, which incorporates ISO 13485:2016 by reference since 2026-02-02; formerly QSR) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QMSR, QSR, ISO 13485 for FDA, premarket, predicate device, substantial equivalence,"
+description_tr: "FDA düzenlemelerine uyum sağlayan tıbbi cihaz şirketleri için danışman. 510(k)/PMA/De Novo yol haritası rehberliği, QMSR (21 CFR 820, 2026-02-02 tarihinden itibaren ISO 13485:2016'yi referans alır; eski adıyla QSR) uygunluğu, HIPAA değerlendirmeleri ve cihaz siber güvenliği konularında destek sağlar. Kullanıcı FDA başvurusu, 510(k), PMA, De Novo, QMSR, QSR, ISO 13485, ön-pazar, predicate cihaz veya önemli denklik hakkında söz ettiğinde devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

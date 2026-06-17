@@ -1,6 +1,7 @@
 ---
 name: "impeccable"
 description_en: "Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, acc"
+description_tr: "Frontend arayüzünü tasarlamak, yeniden tasarlamak, şekillendirmek, gözden geçirmek, denetlemek, iyileştirmek, açıklığa kavuşturmak, optimize etmek, uyarlamak, animasyon eklemek, renklendirmek, çıkarmak veya başka şekillerde geliştirmek istediğinizde kullanın. Web siteleri, landing page'ler, dashboard'lar, ürün UI'ları, app shell'ler, component'ler, formlar, ayarlar, onboarding ve boş durumları kapsar. UX review, görsel hiyerarşi, information architecture, bilişsel yük ve erişilebilirlik konularını ele alır."
 category: "Design"
 repo: "pbakaus/impeccable"
 stars: 38882

@@ -2,6 +2,7 @@
 name: "ros-ros2"
 clean_name: "Ros Ros2"
 description: "ROS and ROS2 rules for packages, nodes, launch files, messages, services, actions, simulation, and testing"
+description_tr: "ROS ve ROS2 paketleri, node'lar, launch dosyaları, mesajlar, servisler, actionlar, simülasyon ve testing için kurallar"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

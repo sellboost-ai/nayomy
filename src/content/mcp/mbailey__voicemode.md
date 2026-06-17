@@ -1,6 +1,7 @@
 ---
 name: "mbailey/voicemode"
 description: "Complete voice interaction server supporting speech-to-text, text-to-speech, and real-time voice conversations through local microphone, OpenAI-compatible APIs, and LiveKit integration"
+description_tr: "Konuşmayı metne, metni konuşmaya dönüştüren ve yerel mikrofon, OpenAI-compatible API'ler ile LiveKit entegrasyonu üzerinden gerçek zamanlı sesli sohbetleri destekleyen eksiksiz bir voice interaction sunucusu."
 category: "Text-to-Speech"
 repo: "mbailey/voicemode"
 stars: 1228

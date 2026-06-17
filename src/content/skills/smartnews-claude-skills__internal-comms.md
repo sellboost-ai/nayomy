@@ -1,6 +1,7 @@
 ---
 name: "internal-comms"
 description_en: "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.)."
+description_tr: "Şirketinizin tercih ettiği formatlarda her türlü dahili iletişim yazmanıza yardımcı olan bir araç seti. Claude, durum raporları, liderlik güncellemeleri, üçüncü taraf bildirimleri, şirket haber bültenleri, SSS, olay raporları, proje güncellemeleri gibi her türlü dahili iletişim yazmanız istendiğinde bu yeteneklerini kullanır."
 category: "Business"
 repo: "smartnews/claude-skills"
 stars: 2

@@ -1,6 +1,7 @@
 ---
 name: "cs-project-manager"
 description_en: "Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management skills. Use when running delivery operations — e.g., planning a sprint with capacity and carry-over math in Jira, or assembling a portfolio health report for stakeholders from ticket and velocity data."
+description_tr: "Sprint planlama, Jira/Confluence iş akışları, Scrum seremonileri ve paydaş raporlaması için Proje Yöneticisi ajanı. Proje yönetimi becerilerini yönetir. Teslimat operasyonlarını çalıştırırken kullanın — örneğin Jira'da kapasite ve taşıma hesaplamaları ile sprint planlaması yapma, ya da bilet ve velocity verilerinden paydaşlar için portföy sağlık raporu oluşturma."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

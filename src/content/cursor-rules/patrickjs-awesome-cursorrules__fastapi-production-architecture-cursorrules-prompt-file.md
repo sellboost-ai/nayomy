@@ -2,6 +2,7 @@
 name: "fastapi-production-architecture-cursorrules-prompt-file"
 clean_name: "FastAPI Production Architecture"
 description: "Cursor rules for FastAPI services with router/service/repository boundaries, typed provider adapters, bulkhead isolation, idempotency, and domain exceptions."
+description_tr: "FastAPI servisleri için cursor rules; router/service/repository sınırları, typed provider adapter'ları, bulkhead isolation, idempotency ve domain exception'ları destekler."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

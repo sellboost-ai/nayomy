@@ -1,6 +1,7 @@
 ---
 name: "cloudconvert-automation"
 description_en: "Automate Cloudconvert tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Cloudconvert görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman geçerli şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

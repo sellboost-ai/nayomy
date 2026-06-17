@@ -1,6 +1,7 @@
 ---
 name: "vectorize-io/vectorize-mcp-server"
 description: "Vectorize MCP server for advanced retrieval, Private Deep Research, Anything-to-Markdown file extraction and text chunking."
+description_tr: "Gelişmiş retrieval, Private Deep Research, her türlü içeriği Markdown'a dönüştürme ve text chunking için Vectorize MCP sunucusu."
 category: "Search & Data Extraction"
 repo: "vectorize-io/vectorize-mcp-server"
 stars: 108

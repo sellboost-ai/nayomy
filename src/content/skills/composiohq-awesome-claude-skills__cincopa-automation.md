@@ -1,6 +1,7 @@
 ---
 name: "cincopa-automation"
 description_en: "Automate Cincopa tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Cincopa görevlerini otomatikleştirin. Tool'ları kullanmadan önce her zaman mevcut şemaları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

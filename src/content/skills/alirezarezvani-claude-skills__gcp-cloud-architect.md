@@ -1,6 +1,7 @@
 ---
 name: "gcp-cloud-architect"
 description_en: "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization."
+description_tr: "GCP mimarileri tasarla ve startuplardan kurumsal ölçekte projeleri yönet. Google Cloud altyapısı tasarlamak, GKE veya Cloud Run'a deploy etmek, BigQuery pipeline'ları yapılandırmak, GCP maliyetlerini optimize etmek veya GCP'ye migration yapmak gerektiğinde kullan. Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery ve maliyet optimizasyonunu kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

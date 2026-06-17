@@ -2,6 +2,7 @@
 name: "ankra-cli"
 clean_name: "Ankra CLI"
 description: "Ankra CLI rules and best practices for managing Kubernetes clusters via the Ankra platform"
+description_tr: "Ankra CLI kuralları ve Ankra platformu üzerinden Kubernetes kümelerini yönetmek için en iyi uygulamalar"
 category: "Tools"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

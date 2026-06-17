@@ -1,6 +1,7 @@
 ---
 name: "Govcraft/rust-docs-mcp-server"
 description: "Provides up-to-date documentation context for a specific Rust crate to LLMs via an MCP tool, using semantic search (embeddings) and LLM summarization."
+description_tr: "Belirli bir Rust crate'inin güncel dokümantasyon bağlamını LLM'lere MCP aracı ile semantic search (embeddings) ve LLM özeti kullanarak sağlar."
 category: "Developer Tools"
 repo: "Govcraft/rust-docs-mcp-server"
 stars: 281

@@ -1,6 +1,7 @@
 ---
 name: "coassemble-automation"
 description_en: "Automate Coassemble tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Coassemble görevlerini otomatikleştirin. Her zaman mevcut şemaları kontrol etmek için tool'ları önce araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

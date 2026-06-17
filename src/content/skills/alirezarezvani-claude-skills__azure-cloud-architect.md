@@ -1,6 +1,7 @@
 ---
 name: "azure-cloud-architect"
 description_en: "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization."
+description_tr: "Azure mimarisi tasarlamak için startup ve kurumsal çözümleri sunun. Azure altyapısı tasarımı, Bicep/ARM template oluşturma, Azure maliyeti optimizasyonu, Azure DevOps pipeline kurulumu veya Azure'a geçiş gibi işlemlerde kullanın. AKS, App Service, Azure Functions, Cosmos DB ve maliyet optimizasyonunu kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

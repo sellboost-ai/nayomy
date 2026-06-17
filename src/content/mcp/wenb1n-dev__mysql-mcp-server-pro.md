@@ -1,6 +1,7 @@
 ---
 name: "wenb1n-dev/mysql_mcp_server_pro"
 description: "Supports SSE, STDIO; not only limited to MySQL's CRUD functionality; also includes database exception analysis capabilities; controls database permissions based on roles; and makes it easy for developers to extend tools with customization"
+description_tr: "SSE ve STDIO desteği ile MySQL'in CRUD işlevlerinin ötesine geçen, veritabanı istisnalarını analiz eden ve rol tabanlı izinler yönetebilen bir araç; geliştiricilerin özelleştirme ile kolayca genişletebileceği mimariye sahip."
 category: "Databases"
 repo: "wenb1n-dev/mysql_mcp_server_pro"
 stars: 246

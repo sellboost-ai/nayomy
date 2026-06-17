@@ -2,6 +2,7 @@
 name: "cypress-defect-tracking-cursorrules-prompt-file"
 clean_name: "Cypress Defect Tracking"
 description: "Cursor rules for Cypress development with defect tracking."
+description_tr: "Cypress geliştirme için cursor kuralları ve hata takibi."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

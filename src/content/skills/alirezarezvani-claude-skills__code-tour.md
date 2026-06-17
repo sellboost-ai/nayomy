@@ -1,6 +1,7 @@
 ---
 name: "code-tour"
 description_en: "Use when the user asks to create a CodeTour .tour file — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Trigger for: create a tour, onboarding tour, architecture tour, PR review tour, explain how X works, vibe check, RCA tour, contributor guide, or any structured code walkthrough request."
+description_tr: "CodeTour .tour dosyası oluşturma isteklerinde kullanılır — persona odaklı, gerçek dosyalar ve satır numaralarına bağlanan adım adım kılavuzlar için. Tetikleyiciler: tour oluştur, onboarding tour, architecture tour, PR review tour, \"X nasıl çalışır\" açıklamaları, vibe check, RCA tour, contributor guide veya yapılandırılmış kod walkthrough talepleri."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

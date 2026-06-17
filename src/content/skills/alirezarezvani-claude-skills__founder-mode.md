@@ -1,6 +1,7 @@
 ---
 name: "founder-mode"
 description_en: "/cs:founder-mode <question> — Auto-routes any founder question to the right C-role advisor or to /cs:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits — e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO."
+description_tr: "/cs:founder-mode <question> — Kurucu sorularını otomatik olarak ilgili C-level danışmana veya çok disiplinli konular için /cs:boardroom'a yönlendirir. Tek komutluk giriş noktası. Kurucu hangi danışmanın veya komutun uygun olduğunu bilmediği stratejik sorular için kullanın — örneğin 'runway baskısı' CFO'ya, 'gross retention düştü' CCO'ya yönlendirilir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

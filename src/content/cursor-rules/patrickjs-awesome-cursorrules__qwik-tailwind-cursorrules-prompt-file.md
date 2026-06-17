@@ -2,6 +2,7 @@
 name: "qwik-tailwind-cursorrules-prompt-file"
 clean_name: "Qwik Tailwind"
 description: "Cursor rules for Qwik development with Tailwind CSS integration."
+description_tr: "Qwik geliştirme için Cursor kuralları ve Tailwind CSS entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

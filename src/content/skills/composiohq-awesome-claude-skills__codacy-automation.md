@@ -1,6 +1,7 @@
 ---
 name: "codacy-automation"
 description_en: "Automate Codacy tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Codacy görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman geçerli şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

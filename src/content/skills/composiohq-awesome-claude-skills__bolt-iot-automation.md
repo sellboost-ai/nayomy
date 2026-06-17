@@ -1,6 +1,7 @@
 ---
 name: "bolt-iot-automation"
 description_en: "Automate Bolt Iot tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Bolt IoT görevlerini otomatikleştirin. Her zaman geçerli şemaları için araçları ilk olarak arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

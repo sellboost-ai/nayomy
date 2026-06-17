@@ -1,6 +1,7 @@
 ---
 name: "BrowserMCP/mcp"
 description: "Automate your local Chrome browser"
+description_tr: "Yerel Chrome tarayıcınızı otomatikleştirin"
 category: "Browser Automation"
 repo: "BrowserMCP/mcp"
 stars: 6680

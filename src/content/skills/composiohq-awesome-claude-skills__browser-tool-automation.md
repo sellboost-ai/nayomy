@@ -1,6 +1,7 @@
 ---
 name: "browser-tool-automation"
 description_en: "Automate Browser Tool tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Browser Tool görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları bulmak için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

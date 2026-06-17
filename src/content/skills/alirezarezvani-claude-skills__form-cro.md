@@ -1,6 +1,7 @@
 ---
 name: "form-cro"
 description_en: "When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For"
+description_tr: "Kullanıcı signup/registration dışındaki herhangi bir formu—lead capture formları, iletişim formları, demo talep formları, başvuru formları, anket formları veya checkout formları—optimize etmek istediğinde kullanılır. Ayrıca kullanıcı \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate\" veya \"contact form\" bahsettiğinde de geçerlidir. Signup/registration formları için signup-flow-cro'ya bakınız."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

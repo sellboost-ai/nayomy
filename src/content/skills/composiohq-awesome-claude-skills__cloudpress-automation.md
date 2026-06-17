@@ -1,6 +1,7 @@
 ---
 name: "cloudpress-automation"
 description_en: "Automate Cloudpress tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Cloudpress görevlerini otomatikleştirin. Güncel şemalar için her zaman araçlarda önce arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

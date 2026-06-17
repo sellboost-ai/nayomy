@@ -1,6 +1,7 @@
 ---
 name: "LucasHild/mcp-server-bigquery"
 description: "BigQuery database integration with schema inspection and query capabilities"
+description_tr: "BigQuery veritabanı entegrasyonu şema incelemesi ve sorgu özellikleriyle"
 category: "Databases"
 repo: "LucasHild/mcp-server-bigquery"
 stars: 127

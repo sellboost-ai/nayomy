@@ -1,6 +1,7 @@
 ---
 name: "college-football-data-automation"
 description_en: "Automate College Football Data tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "College Football Data görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -2,6 +2,7 @@
 name: "sveltekit-typescript-guide-cursorrules-prompt-file"
 clean_name: "SvelteKit TypeScript Guide"
 description: "Cursor rules for SvelteKit development with TypeScript integration."
+description_tr: "SvelteKit geliştirmesi için Cursor kuralları, TypeScript entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

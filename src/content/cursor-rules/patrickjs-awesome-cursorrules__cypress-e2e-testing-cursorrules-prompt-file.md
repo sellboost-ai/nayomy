@@ -2,6 +2,7 @@
 name: "cypress-e2e-testing-cursorrules-prompt-file"
 clean_name: "Cypress E2e Testing"
 description: "Cursor rules for Cypress development with E2E testing."
+description_tr: "Cypress geliştirme için cursor rules ile E2E testleri yazın."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

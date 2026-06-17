@@ -1,6 +1,7 @@
 ---
 name: "library"
 description_en: "How the Faebryk component library is structured, how `_F.py` is generated, and the conventions/invariants for adding new library modules. Use when adding or modifying library components, traits, or module definitions."
+description_tr: "Faebryk bileşen kütüphanesinin nasıl yapılandırıldığını, `_F.py` dosyasının nasıl oluşturulduğunu ve yeni kütüphane modülleri eklerken uyulması gereken kuralları ve değişmezleri açıklar. Library bileşenleri, traits veya module tanımlamalarını eklerken veya değiştirirken kullanılır."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3406

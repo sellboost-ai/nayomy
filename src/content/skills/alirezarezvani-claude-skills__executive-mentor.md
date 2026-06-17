@@ -1,6 +1,7 @@
 ---
 name: "executive-mentor"
 description_en: "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for brutal board meetings, dissects decisions with no good options, and forces honest post-mortems. Use when you need someone to find the holes before the board does, make a decision you've been avoiding, or understand what actually went wrong."
+description_tr: "Kurucular ve yöneticiler için karşıt görüş ortağı. Planları stres testine tabi tutar, acı board toplantılarına hazırlar, zor kararları analiz eder ve dürüst post-mortemler yapmanızı sağlar. Board'dan önce sorunları bulmanız, kaçındığınız bir kararı vermeniz veya ne gerçekten yanlış gittiğini anlamanız gerektiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "OpenZeppelin/contracts-wizard"
 description: "Interactive smart contract generator based on OpenZeppelin Contracts."
+description_tr: "OpenZeppelin Contracts tabanlı etkileşimli akıllı kontrat oluşturucu."
 category: "Developer Tools"
 repo: "OpenZeppelin/contracts-wizard"
 stars: 292

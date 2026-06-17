@@ -1,6 +1,7 @@
 ---
 name: "capacity-planner"
 description_en: "Use when an ops leader (Director of CX, Head of Support, VP Ops, Head of BizOps, Head of IT ops, Head of Finance ops) is sizing ops capacity, building a headcount plan, modeling utilization risk, planning Q3 capacity or annual support capacity, or designing CS coverage — and needs Erlang-C queueing math, P90 demand sizing, shrinkage-adjusted FTE, manager-trigger thresholds, and a quarterly hiring "
+description_tr: "Ops liderinin (CX Direktörü, Destek Müdürü, Ops VP'si vb.) kapasite planlaması, headcount modelleme, utilization riski analizi ve CS coverage tasarımı için Erlang-C queueing matematiklerini, P90 demand sizing'i, shrinkage-adjusted FTE'yi ve quarterly hiring tetikleyicilerini kullanması gerektiğinde tercih edin."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

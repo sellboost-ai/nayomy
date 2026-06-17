@@ -1,6 +1,7 @@
 ---
 name: "weibaohui/kom"
 description: "Provides MCP multi-cluster Kubernetes management and operations. It can be integrated as an SDK into your own project and includes nearly 50 built-in tools covering common DevOps and development scenarios. Supports both standard and CRD resources."
+description_tr: "MCP ile çoklu Kubernetes kümelerini yönetmek ve işletmek için kapsamlı bir çözüm sunar. SDK olarak kendi projenize entegre edebileceğiniz ve yaygın DevOps ile geliştirme senaryolarını kapsayan yaklaşık 50 built-in tool içerir. Hem standart hem de CRD kaynakları destekler."
 category: "Cloud Platforms"
 repo: "weibaohui/kom"
 stars: 148

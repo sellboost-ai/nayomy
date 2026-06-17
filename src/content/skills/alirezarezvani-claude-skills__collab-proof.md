@@ -1,6 +1,7 @@
 ---
 name: "collab-proof"
 description_en: "Use when you want to understand what Claude contributed vs what you drove in a session. Triggers on: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
+description_tr: "Claude'un oturumda ne katkıda bulunduğunu ve siz ne yaptığınızı anlamak istediğinizde kullanın. Şu komutlarla tetiklenir: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

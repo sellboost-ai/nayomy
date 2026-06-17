@@ -1,6 +1,7 @@
 ---
 name: "refreshdotdev/web-eval-agent"
 description: "An MCP Server that autonomously debugs web applications with browser-use browser agents"
+description_tr: "Tarayıcı kullanıcı ajanları ile web uygulamalarını otomatik olarak hata ayıklayan bir MCP Server"
 category: "Browser Automation"
 repo: "refreshdotdev/web-eval-agent"
 stars: 1240

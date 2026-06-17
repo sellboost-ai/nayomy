@@ -1,6 +1,7 @@
 ---
 name: "copy-editing"
 description_en: "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes."
+description_tr: "Kullanıcı mevcut pazarlama metinlerini düzenlemek, gözden geçirmek veya iyileştirmek istediğinde kullanılır. Ayrıca kullanıcı 'bu metni düzenle', 'metnimi gözden geçir', 'metin geri bildirimi', 'yazım kontrolü yap', 'bunu düzelt', 'bunu daha iyi yap' veya 'metin taraması yap' dediğinde de geçerlidir. Bu beceri, pazarlama metinlerini birden fazla odaklanmış geçişle sistematik bir şekilde düzenleme yaklaşımı sağlar."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

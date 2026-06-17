@@ -2,6 +2,7 @@
 name: "astro-typescript-cursorrules-prompt-file"
 clean_name: "Astro TypeScript"
 description: "Cursor rules for Astro development with TypeScript integration."
+description_tr: "Astro geliştirme için TypeScript entegrasyonlu cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

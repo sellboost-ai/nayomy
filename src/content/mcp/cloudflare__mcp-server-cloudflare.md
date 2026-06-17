@@ -1,6 +1,7 @@
 ---
 name: "cloudflare/mcp-server-cloudflare"
 description: "Integration with Cloudflare services including Workers, KV, R2, and D1"
+description_tr: "Cloudflare Workers, KV, R2 ve D1 hizmetleriyle entegrasyon"
 category: "Cloud Platforms"
 repo: "cloudflare/mcp-server-cloudflare"
 stars: 3866

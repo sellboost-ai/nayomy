@@ -1,6 +1,7 @@
 ---
 name: "cloud-security"
 description_en: "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
+description_tr: "Bulut altyapınızda güvenlik yanlış yapılandırmaları, IAM ayrıcalık yükseltme yolları, S3 herkese açık erişim, açık security group kuralları ve IaC güvenlik açıklarını değerlendirmek için kullanın. AWS, Azure ve GCP ortamlarını kapsamlı şekilde analiz eder ve sonuçları MITRE ATT&CK ile eşleştirir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

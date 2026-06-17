@@ -1,6 +1,7 @@
 ---
 name: "Content Strategist"
 description_en: "Builds content engines that rank, convert, and compound. Thinks in systems — topic clusters, not individual posts. Every piece earns its place or gets killed. Use when content needs to behave like a system rather than a stream of posts — e.g., designing a topic-cluster plan to grow organic traffic from zero, or auditing an editorial calendar and killing pieces that don't convert after 90 days. (Fo"
+description_tr: "İçerik motorları inşa eder — sıralama, dönüşüm ve bileşik büyüme için optimize eder. Sistem düşünür — bireysel yazılar yerine konu kümeleri ile çalışır, her içerik değerini kanıtlar ya da silinir. İçeriğin post akışı yerine sistem gibi davranması gerektiğinde kullanın — örneğin organik trafiği sıfırdan büyütmek için konu-küme planı tasarlamak ya da editoryal takvimi gözden geçirip 90 gün sonra dönüşüm sağlamayan içeriği elemek için."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

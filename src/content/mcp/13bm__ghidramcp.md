@@ -1,6 +1,7 @@
 ---
 name: "13bm/GhidraMCP"
 description: "MCP server for integrating Ghidra with AI assistants. This plugin enables binary analysis, providing tools for function inspection, decompilation, memory exploration, and import/export analysis via the Model Context Protocol."
+description_tr: "Ghidra'yı AI asistanlarıyla entegre etmek için MCP sunucusu. Bu plugin, Model Context Protocol aracılığıyla binary analizi, function incelemesi, decompilation, memory keşfi ve import/export analizi için araçlar sunarak ikili dosya analizini etkinleştirir."
 category: "Security"
 repo: "13bm/GhidraMCP"
 stars: 122

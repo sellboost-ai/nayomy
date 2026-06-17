@@ -1,6 +1,7 @@
 ---
 name: "aeroleads-automation"
 description_en: "Automate Aeroleads tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Aeroleads görevlerini otomatikleştirin. Güncel şemaları öğrenmek için önce tools arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

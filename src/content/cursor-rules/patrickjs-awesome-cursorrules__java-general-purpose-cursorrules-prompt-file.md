@@ -2,6 +2,7 @@
 name: "java-general-purpose-cursorrules-prompt-file"
 clean_name: "Java General Purpose"
 description: "Cursor rules for Java General Purpose."
+description_tr: "Java Genel Amaçlı Cursor kuralları."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

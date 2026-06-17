@@ -1,6 +1,7 @@
 ---
 name: "BurtTheCoder/mcp-shodan"
 description: "MCP server for querying the Shodan API and Shodan CVEDB. This server provides tools for IP lookups, device searches, DNS lookups, vulnerability queries, CPE lookups, and more."
+description_tr: "Shodan API ve Shodan CVEDB'yi sorgulamak için MCP sunucusu. IP aramaları, cihaz araştırmaları, DNS sorgulamaları, zafiyet sorguları, CPE aramaları ve daha fazlasını yapmanızı sağlayan araçlar sunmaktadır."
 category: "Security"
 repo: "BurtTheCoder/mcp-shodan"
 stars: 137

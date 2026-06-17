@@ -2,6 +2,7 @@
 name: "salesforce-apex-cursorrules-prompt-file"
 clean_name: "Salesforce Apex"
 description: "Cursor rules for Salesforce development with Apex integration."
+description_tr: "Salesforce geliştirme için Cursor kuralları ve Apex entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

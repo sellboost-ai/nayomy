@@ -1,6 +1,7 @@
 ---
 name: "business-growth-skills"
 description_en: "Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manager (health scoring, churn risk, expansion), sales-engineer (RFP analysis, competitive matrices, PoC planning), revenue-operations (pipeline, forecast accuracy, GTM efficiency), and contract-and-proposal-writer. Use when a growth/revenue request doesn't obviously match one skill and you need to pick the ri"
+description_tr: "Bu plugin'de paket halinde sunulan 4 işletme ve büyüme becerisi için router/index: customer-success-manager (sağlık skorlaması, churn riski, genişleme), sales-engineer (RFP analizi, rekabet matrisleri, PoC planlama), revenue-operations (pipeline, tahmin doğruluğu, GTM verimliği) ve contract-and-proposal-writer. Bir büyüme/revenue isteği belirli bir beceriyle net şekilde eşleşmediğinde ve doğru seçimi yapmanız gerektiğinde kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

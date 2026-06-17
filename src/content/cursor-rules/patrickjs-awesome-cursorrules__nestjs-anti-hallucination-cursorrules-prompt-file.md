@@ -2,6 +2,7 @@
 name: "nestjs-anti-hallucination-cursorrules-prompt-file"
 clean_name: "NestJS Anti Hallucination"
 description: "Cursor rules that block deprecated, phantom, or incorrect NestJS imports, decorators, providers, modules, and testing patterns."
+description_tr: "NestJS'te kullanımdan kaldırılmış, yanlış veya geçersiz import'ları, decorator'ları, provider'ları, modülleri ve test pattern'larini engelleyen Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

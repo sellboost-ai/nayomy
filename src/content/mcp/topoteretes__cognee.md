@@ -1,6 +1,7 @@
 ---
 name: "topoteretes/cognee"
 description: "Memory manager for AI apps and Agents using various graph and vector stores and allowing ingestion from 30+ data sources."
+description_tr: "AI uygulamaları ve Ajanlar için bellek yöneticisi, çeşitli graph ve vector store'ları destekler ve 30+ veri kaynağından veri alımına olanak tanır."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
 stars: 17856

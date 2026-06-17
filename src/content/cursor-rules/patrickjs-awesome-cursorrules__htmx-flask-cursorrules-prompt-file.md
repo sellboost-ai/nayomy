@@ -2,6 +2,7 @@
 name: "htmx-flask-cursorrules-prompt-file"
 clean_name: "Htmx Flask"
 description: "Cursor rules for HTMX development with Flask integration."
+description_tr: "HTMX geliştirmesi için Cursor kuralları ve Flask entegrasyonu."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

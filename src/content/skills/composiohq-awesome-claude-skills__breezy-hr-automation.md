@@ -1,6 +1,7 @@
 ---
 name: "breezy-hr-automation"
 description_en: "Automate Breezy HR tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Breezy HR görevlerini otomatikleştirin. Her zaman geçerli şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

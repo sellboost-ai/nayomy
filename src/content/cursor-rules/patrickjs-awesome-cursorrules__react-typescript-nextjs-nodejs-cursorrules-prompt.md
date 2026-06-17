@@ -2,6 +2,7 @@
 name: "react-typescript-nextjs-nodejs-cursorrules-prompt-"
 clean_name: "React TypeScript Next.js Node.js Cursorrules Prompt"
 description: "Cursor rules for React development with TypeScript, Next.js, and Node.js integration."
+description_tr: "React geliştirme için Cursor kuralları, TypeScript, Next.js ve Node.js entegrasyonu desteği ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

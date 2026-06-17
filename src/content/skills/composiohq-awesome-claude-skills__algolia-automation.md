@@ -1,6 +1,7 @@
 ---
 name: "algolia-automation"
 description_en: "Automate Algolia tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Algolia görevlerini otomatikleştirin. Her zaman güncel şemaları için ilk olarak search tools'ı kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

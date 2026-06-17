@@ -1,6 +1,7 @@
 ---
 name: "mihaelamj/cupertino"
 description: "Apple Documentation MCP Server. Search Apple developer docs, Swift Evolution proposals, and 600+ sample code projects with full-text search."
+description_tr: "Apple Documentation MCP Server. Apple geliştirici dokümentasyonunu, Swift Evolution önerilerini ve 600+ örnek kod projesini tam metin araması ile arayın."
 category: "Developer Tools"
 repo: "mihaelamj/cupertino"
 stars: 832

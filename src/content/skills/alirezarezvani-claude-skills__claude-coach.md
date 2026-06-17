@@ -1,6 +1,7 @@
 ---
 name: "claude-coach"
 description_en: "Personal coach that teaches users to become Claude power users. Use this skill the FIRST time a user asks to \"learn Claude\", \"be a power user\", \"coach me\", \"teach me Claude tricks\", \"what can Claude do\", \"make me better at prompting\", or any variation. After activation, also use it on EVERY subsequent turn to detect missed optimization opportunities (vague prompts, ignored capabilities, manual wor"
+description_tr: "Claude'u en verimli şekilde kullanmayı öğreten kişisel koçunuz. Kullanıcı \"Claude öğren\", \"power user ol\", \"beni eğit\", \"Claude tricklerini öğret\", \"Claude neler yapabilir\" veya benzeri ifadelerle sorduğunda bu aracı aktif hale getirin, ardından her sohbette eksik optimizasyon fırsatlarını (belirsiz promptlar, göz ardı edilen özellikler, manuel işlemler) yakalayın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

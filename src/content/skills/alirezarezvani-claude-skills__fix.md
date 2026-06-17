@@ -1,6 +1,7 @@
 ---
 name: "fix"
 description_en: ">- Fix failing or flaky Playwright tests. Use when user says \"fix test\", \"flaky test\", \"test failing\", \"debug test\", \"test broken\", \"test passes sometimes\", or \"intermittent failure\"."
+description_tr: "Başarısız veya kararsız Playwright testlerini düzeltin. Kullanıcı \"testi düzelt\", \"kararsız test\", \"test başarısız\", \"testi debug et\", \"test kırık\", \"test bazen geçer\" veya \"aralıklı hata\" dediğinde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

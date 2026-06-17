@@ -1,6 +1,7 @@
 ---
 name: "cs-backend-engineer"
 description_en: "Backend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (read/write ratio + QPS, tenancy, sync vs async, data sensitivity, pattern, RPO/RTO, SLO), picks the language + pattern profile, forks into specialists (api-design-reviewer, database-designer, migration-architect, observability-designer, slo-architect — listed alphabetically; workflow order is dependency-driven) rather tha"
+description_tr: "Backend mimarı asistanı. Matt Pocock'un 7 kritik sorusunu (okuma/yazma oranı + QPS, çok kiracılılık, senkron/asenkron, veri hassasiyeti, pattern, RPO/RTO, SLO) sorar, uygun dili ve pattern profilini seçer, sonra uzmanlaşmış ajanlar (api-design-reviewer, database-designer, migration-architect, observability-designer, slo-architect) tarafından paralel çalışılmasını koordine eder."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

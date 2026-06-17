@@ -1,6 +1,7 @@
 ---
 name: "channel-economics"
 description_en: "Use when reviewing or rebalancing direct vs. partner-led channel economics — computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel ma"
+description_tr: "Doğrudan ve partner destekli kanal ekonomisini gözden geçirirken veya yeniden dengelemek için kullanın — kanala göre tam yüklü hizmet maliyetini, nakit/LTV/marjinal perspektiflerle kanal ROI'sini ve kısıtlara tabi optimal kanal karışımını hesaplayın. Head of Commercial, RevOps ve VP Sales'in üç aylık kanal değerlendirmesi yaparken, pipeline karışık olduğunda (ör. %60 doğrudan + %40 partner destekli) ve hangi kanalın gerçekten daha iyi performans gösterdiği belirsiz kaldığında ideal."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

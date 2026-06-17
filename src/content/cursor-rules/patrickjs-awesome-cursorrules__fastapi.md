@@ -2,6 +2,7 @@
 name: "fastapi"
 clean_name: "FastAPI"
 description: "FastAPI best practices and patterns for building modern Python web APIs"
+description_tr: "FastAPI ile modern Python web API'leri geliştirmek için en iyi pratikler ve tasarım desenleri"
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "clearout-automation"
 description_en: "Automate Clearout tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Clearout görevlerini otomatize edin. Tool'ları kullanmadan önce daima güncel şemaları araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

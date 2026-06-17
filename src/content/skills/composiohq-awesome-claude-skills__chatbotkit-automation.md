@@ -1,6 +1,7 @@
 ---
 name: "chatbotkit-automation"
 description_en: "Automate Chatbotkit tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Chatbotkit görevlerini otomatikleştirin. Güncel schemaları için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

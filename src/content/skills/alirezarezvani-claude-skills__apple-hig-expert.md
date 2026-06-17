@@ -1,6 +1,7 @@
 ---
 name: "apple-hig-expert"
 description_en: "Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human Interface Guidelines, including the Liquid Glass design language (announced WWDC25, shipped with iOS 26/macOS Tahoe, Sept 2025). Use when reviewing an Apple-platform mockup or app for HIG compliance, checking contrast or tap-target sizes, or designing native-feeling Apple UI (e.g., 'audit my iOS app against the HIG', "
+description_tr: "Apple Human Interface Guidelines'a uygun olarak iOS/macOS/watchOS/visionOS arayüzlerini denetler ve tasarlar; Liquid Glass tasarım dilini (WWDC25'te duyurulmuş, iOS 26/macOS Tahoe ile gönderilmiş, Eylül 2025) de destekler. Apple platformu mockup'larını veya uygulamalarını HIG uyumluluğu açısından gözden geçirirken, kontrast veya tap-target boyutlarını kontrol ederken ya da native hissiyatlı Apple UI tasarlarken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

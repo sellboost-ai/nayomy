@@ -1,6 +1,7 @@
 ---
 name: "base/base-mcp"
 description: "Base Network integration for onchain tools, allowing interaction with Base Network and Coinbase API for wallet management, fund transfers, smart contracts, and DeFi operations"
+description_tr: "Base Network entegrasyonu ile onchain araçlarınızı güçlendirin, Coinbase API aracılığıyla cüzdan yönetimi, fon transferleri, smart contract ve DeFi işlemleri gerçekleştirin."
 category: "Finance & Fintech"
 repo: "base/base-mcp"
 stars: 348

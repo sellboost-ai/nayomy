@@ -1,6 +1,7 @@
 ---
 name: "cs-content-creator"
 description_en: "Long-form marketing content producer orchestrating the content-production skill (research → brief → draft → optimize → gate). Use when content must be written, scored, or made publish-ready — e.g., drafting a 2,000-word blog post against a target keyword and blocking publish until content_quality_gates.py passes, or auditing a draft for brand-voice drift with brand_voice_analyzer.py before it ship"
+description_tr: "İçerik üretim sürecini (araştırma → brief → taslak → optimizasyon → kontrol) yöneten uzun formatlı pazarlama içeriği üreticisi. İçeriğin yazılması, puanlanması veya yayına hazırlanması gerektiğinde kullanın — örneğin 2.000 kelimelik bir blog yazısını hedef anahtar kelimeye karşı taslaklaştırıp content_quality_gates.py geçene kadar yayını engellemek veya brand_voice_analyzer.py ile göndermeden önce taslağı marka sesi sapması açısından denetlemek gibi."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

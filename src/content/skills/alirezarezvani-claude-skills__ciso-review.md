@@ -1,6 +1,7 @@
 ---
 name: "ciso-review"
 description_en: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features that handle customer data, before a SOC 2 / ISO audit, or after any incident or near-miss."
+description_tr: "/cs:ciso-review <plan> — Veri, uyum veya production erişimine dokunan herhangi bir planın risk açısından derinlemesine incelenmesi. Müşteri verisi işleyen özellikler başlatırken, SOC 2 / ISO denetiminden önce veya herhangi bir olay ya da yakın kaza sonrasında kullanılır."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "backendless-automation"
 description_en: "Automate Backendless tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Backendless görevlerini otomatikleştirin. Her zaman güncel şemaları için ilk olarak tools'ı arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

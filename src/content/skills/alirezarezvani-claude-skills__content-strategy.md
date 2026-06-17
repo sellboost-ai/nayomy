@@ -1,6 +1,7 @@
 ---
 name: "content-strategy"
 description_en: "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \\\"content strategy,\\\" \\\"what should I write about,\\\" \\\"content ideas,\\\" \\\"blog strategy,\\\" \\\"topic clusters,\\\" or \\\"content planning.\\\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit."
+description_tr: "Kullanıcı içerik stratejisi planlamak, oluşturulacak içeriği belirlemek veya hangi konuları kapsayacağını anlamak istediğinde kullanın. \"İçerik stratejisi\", \"ne yazmalıyım\", \"içerik fikirleri\", \"blog stratejisi\", \"konu kümeleri\" veya \"içerik planlama\" gibi ifadeler geçtiğinde de bu aracı seçin. Bireysel yazılar için copywriting, SEO odaklı analizler için seo-audit bölümüne başvurun."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "free-tool-strategy"
 description_en: "When the user wants to build a free tool for marketing — lead generation, SEO value, or brand awareness. Use when they mention 'engineering as marketing,' 'free tool,' 'calculator,' 'generator,' 'checker,' 'grader,' 'marketing tool,' 'lead gen tool,' 'build something for traffic,' 'interactive tool,' or 'free resource.' Covers idea evaluation, tool design, and launch strategy. For pure SEO content"
+description_tr: "Kullanıcı pazarlama için ücretsiz bir tool geliştirmek istediğinde — lead generation, SEO değeri veya brand awareness için. \"Engineering as marketing,\" \"ücretsiz tool,\" \"calculator,\" \"generator,\" \"checker,\" \"grader,\" \"marketing tool,\" \"lead gen tool,\" \"traffic için bir şey inşa et,\" \"interactive tool\" veya \"ücretsiz kaynak\" gibi ifadeler kullanıldığında kullanılır. Fikir değerlendirmesi, tool tasarımı ve launch stratejisini kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

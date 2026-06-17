@@ -1,6 +1,7 @@
 ---
 name: "Capsule CRM Automation"
 description_en: "Automate Capsule CRM operations -- manage contacts (parties), run structured filter queries, track tasks and projects, log entries, and handle organizations -- using natural language through the Composio MCP integration."
+description_tr: "Composio MCP entegrasyonu sayesinde doğal dil kullanarak Capsule CRM işlemlerini otomatikleştirin -- kişileri yönetin, yapılandırılmış filter sorgularını çalıştırın, görev ve projeleri takip edin, girişleri kaydedin ve organizasyonları yönetin."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

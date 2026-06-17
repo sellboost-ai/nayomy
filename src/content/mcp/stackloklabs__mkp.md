@@ -1,6 +1,7 @@
 ---
 name: "StacklokLabs/mkp"
 description: "MKP is a Model Context Protocol (MCP) server for Kubernetes that allows LLM-powered applications to interact with Kubernetes clusters. It provides tools for listing and applying Kubernetes resources through the MCP protocol."
+description_tr: "MKP, LLM destekli uygulamaların Kubernetes kümelerine erişmesini sağlayan bir Model Context Protocol (MCP) sunucusudur. Kubernetes kaynaklarını listeleme ve uygulama işlemleri için MCP protokolü üzerinden araçlar sunmaktadır."
 category: "Cloud Platforms"
 repo: "StacklokLabs/mkp"
 stars: 57

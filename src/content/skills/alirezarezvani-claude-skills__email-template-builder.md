@@ -1,6 +1,7 @@
 ---
 name: "email-template-builder"
 description_en: "Build complete transactional email systems: React Email templates, provider integration (Resend, Postmark, SendGrid, AWS SES), preview server, i18n support, dark mode, spam optimization, analytics tracking. Use when adding transactional email to a new product, migrating between email providers, refactoring legacy email templates for accessibility, or adding internationalization to existing templat"
+description_tr: "Tam işlevsel transactional email sistemi kurun: React Email şablonları, provider entegrasyonu (Resend, Postmark, SendGrid, AWS SES), preview server, i18n desteği, dark mode, spam optimizasyonu ve analytics tracking. Yeni ürüne transactional email eklerken, email provider'ları arasında geçiş yaparken, legacy email şablonlarını accessibility için refactor ederken ya da mevcut şablonlara internationalization eklerken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

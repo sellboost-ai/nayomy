@@ -1,6 +1,7 @@
 ---
 name: "analytics-tracking"
 description_en: "Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when building a tracking plan from scratch, auditing existing analytics for gaps or errors, debugging missing events, or setting up GTM. Trigger keywords: GA4 setup, Google Tag Manager, GTM, event tracking, analytics implementation, conversion tracking, t"
+description_tr: "GA4, Google Tag Manager, event taxonomy ve conversion tracking gibi analytics uygulamalarını kurup, denetleyip debug edin. Sıfırdan tracking plan oluştururken, mevcut analytics'i boşluklar ve hatalar açısından denetlerken, eksik eventleri debug ederken veya GTM kurulumu yaparken kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

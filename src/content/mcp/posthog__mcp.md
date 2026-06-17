@@ -1,6 +1,7 @@
 ---
 name: "PostHog/mcp"
 description: "An MCP server for interacting with PostHog analytics, feature flags, error tracking and more."
+description_tr: "PostHog analytics, feature flag'ler, error tracking ve daha fazlası ile etkileşim kurmak için bir MCP sunucusu."
 category: "Developer Tools"
 repo: "PostHog/mcp"
 stars: 148

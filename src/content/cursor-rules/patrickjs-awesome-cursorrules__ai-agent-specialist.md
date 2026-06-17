@@ -2,6 +2,7 @@
 name: "ai-agent-specialist"
 clean_name: "AI Agent Specialist"
 description: "Cursor rules for TypeScript, React, Node.js, clean architecture, testing, and WHY-oriented engineering guidance."
+description_tr: "TypeScript, React, Node.js, clean architecture, testing ve WHY-oriented engineering için Cursor kuralları."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

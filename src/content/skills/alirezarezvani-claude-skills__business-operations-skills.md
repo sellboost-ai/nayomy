@@ -1,6 +1,7 @@
 ---
 name: "business-operations-skills"
 description_en: "Use when running, diagnosing, or designing internal business operations — process documentation, vendor SLAs, capacity planning, internal comms, SOP/runbook authoring, procurement spend. Triggers on \"BizOps review\", \"where's the bottleneck\", \"vendor health\", \"internal SOP\", \"all-hands deck\", \"spend categorization\", \"capacity for Q3\", \"process mapping\". Forks context to route to one of six BizOps s"
+description_tr: "İç işletme operasyonları çalıştırırken, tanı koyarken veya tasarlarken kullanın — süreç dokümantasyonu, vendor SLA'ları, kapasite planlaması, dahili iletişim, SOP/runbook yazımı, tedarik harcamaları. \"BizOps review\", \"병목nerede\", \"vendor health\", \"internal SOP\", \"all-hands deck\", \"spend categorization\", \"Q3 kapasitesi\", \"process mapping\" gibi tetikleyicilerde devreye girer. Konteksti altı BizOps rotasından birine yönlendirir."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

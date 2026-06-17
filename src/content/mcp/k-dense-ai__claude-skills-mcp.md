@@ -1,6 +1,7 @@
 ---
 name: "K-Dense-AI/claude-skills-mcp"
 description: "Intelligent search capabilities to let every model and client use Claude Agent Skills like native."
+description_tr: "Claude Agent Skills'i her model ve client tarafından doğal şekilde kullanabilmek için yapay zeka destekli arama yetenekleri."
 category: "Aggregators"
 repo: "K-Dense-AI/claude-skills-mcp"
 stars: 392

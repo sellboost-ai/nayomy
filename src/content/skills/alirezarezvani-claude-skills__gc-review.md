@@ -1,6 +1,7 @@
 ---
 name: "gc-review"
 description_en: "/cs:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
+description_tr: "/cs:gc-review <plan> — Sözleşmeler, fikri mülkiyet, düzenleyici hükümler, şart sayfaları ve işçi hukuku konularında Genel Hukuk Müşaviri görüşü. Bir şart sayfasını imzalamadan önce gözden geçirmek, müşteri MSA'sında düzeltmeler yapmak veya yeni bir ürünün fikri mülkiyet ve düzenleyici risklerini kontrol etmek için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

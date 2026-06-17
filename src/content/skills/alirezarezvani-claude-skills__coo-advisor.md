@@ -1,6 +1,7 @@
 ---
 name: "coo-advisor"
 description_en: "Operations leadership for scaling companies. Process design, OKR execution, operational cadence, and scaling playbooks. Use when designing operations, setting up OKRs, building processes, scaling teams, analyzing bottlenecks, planning operational cadence, or when user mentions COO, operations, process improvement, OKRs, scaling, operational efficiency, or execution."
+description_tr: "Büyüyen şirketler için operasyonel liderlik. Süreç tasarımı, OKR yönetimi, operasyonel ritim ve ölçeklendirme stratejileri sunuyor. Operasyon tasarlarken, OKR kurulumu, süreç oluştururken, takımları ölçeklendirirken, darboğazları analiz ederken ve operasyonel verimlilik ile yürütme konularında kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

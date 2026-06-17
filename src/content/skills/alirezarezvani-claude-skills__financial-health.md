@@ -1,6 +1,7 @@
 ---
 name: "financial-health"
 description_en: "Run financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecasts. Usage: /financial-health <ratios|dcf|budget|forecast> <data.json>"
+description_tr: "Finansal oran analizi, DCF değerleme, bütçe varyans analizi ve rolling forecast'lar çalıştırın. Kullanım: /financial-health <ratios|dcf|budget|forecast> <data.json>"
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

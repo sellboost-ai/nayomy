@@ -2,6 +2,7 @@
 name: "nextjs15-supabase-cursorrules-prompt-file"
 clean_name: "Nextjs15 Supabase"
 description: "27 architecture rules preventing AI hallucinations: insecure auth (getSession vs getUser), synchronous params, deprecated imports, missing RLS, and Stripe key exposure. Built for Cursor Agent and Claude Code."
+description_tr: "Yapay zeka yanılsamalarını engelleyen 27 mimari kural: güvensiz auth (getSession vs getUser), senkron parametreler, deprecated importlar, eksik RLS ve Stripe anahtar açığı. Cursor Agent ve Claude Code için tasarlandı."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -2,6 +2,7 @@
 name: "react-styled-components-cursorrules-prompt-file"
 clean_name: "React Styled Components"
 description: "Cursor rules for React development with Styled Components integration."
+description_tr: "React geliştirme için Cursor kuralları, Styled Components entegrasyonu ile birlikte sunulur."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

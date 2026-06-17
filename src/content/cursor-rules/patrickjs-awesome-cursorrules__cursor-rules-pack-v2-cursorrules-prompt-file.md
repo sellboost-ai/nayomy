@@ -2,6 +2,7 @@
 name: "cursor-rules-pack-v2-cursorrules-prompt-file"
 clean_name: "Cursor Rules Pack V2"
 description: "7 sample production-tested rules (dependency discipline, error handling, state management, webhook security, and more). See the pack README for full-pack details."
+description_tr: "7 adet üretim ortamında test edilmiş kural (bağımlılık disiplini, hata yönetimi, state yönetimi, webhook güvenliği ve daha fazlası). Tüm detaylar için pack README dosyasını kontrol edin."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "beelzebub-labs/beelzebub"
 description: "Beelzebub is a honeypot framework that lets you build honeypot tools using MCP. Its purpose is to detect prompt injection or malicious agent behavior. The underlying idea is to provide the agent with tools it would never use in its normal work."
+description_tr: "Beelzebub, MCP kullanarak honeypot araçları oluşturmanızı sağlayan bir framework'tür. Prompt injection ve kötü niyetli agent davranışlarını tespit etmek için tasarlanmıştır. Temel konsept, agente normal çalışmasında asla kullanmayacağı araçlar sunarak tehditli aktiviteleri yakalamaktır."
 category: "Security"
 repo: "beelzebub-labs/beelzebub"
 stars: 2050

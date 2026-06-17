@@ -2,6 +2,7 @@
 name: "scala-kafka-cursorrules-prompt-file"
 clean_name: "Scala Kafka"
 description: "Cursor rules for Scala Kafka."
+description_tr: "Scala Kafka için Cursor kuralları."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

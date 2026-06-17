@@ -1,6 +1,7 @@
 ---
 name: "brainstorming"
 description_en: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+description_tr: "Herhangi bir yaratıcı çalışmaya başlamadan önce bunu mutlaka kullanın - feature oluştururken, component inşa ederken, functionality eklerken veya davranış değiştirirken. Kullanıcı niyetini, gereksinimleri ve tasarımı implementation öncesinde araştırır."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

@@ -1,6 +1,7 @@
 ---
 name: "frontend-design"
 description_en: "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults."
+description_tr: "Yeni UI oluştururken veya mevcut tasarımı yeniden şekillendirilirken benzersiz ve kasıtlı görsel tasarım için rehberlik sağlar. Estetik yön, tipografi ve şablon varsayılanları gibi görünmeyen seçimler yapmanıza yardımcı olur."
 category: "Design"
 repo: "anthropics/skills"
 stars: 151641

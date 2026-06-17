@@ -1,6 +1,7 @@
 ---
 name: "c-level-skills"
 description_en: "Index and router for the C-level advisory bundle: 33 skills covering 14 C-suite roles, orchestration, cross-cutting capabilities, and culture. Use when exploring what the c-level-advisor bundle contains, deciding which advisor skill fits a question, or finding the entry points (cs-onboard interview, chief-of-staff routing, board-meeting protocol)."
+description_tr: "C-seviyesi danışmanlık paketinin index ve router'ı: 14 C-suite rolü kapsayan 33 beceri, orkestrasyon, cross-cutting yetenekler ve kültür. C-level-advisor paketinin içeriğini keşfederken, bir soruya hangi advisor skill'in uygun olduğuna karar verirken veya giriş noktalarını (cs-onboard interview, chief-of-staff routing, board-meeting protocol) bulurken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

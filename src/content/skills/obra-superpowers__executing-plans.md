@@ -1,6 +1,7 @@
 ---
 name: "executing-plans"
 description_en: "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
+description_tr: "Ayrı bir oturumda inceleme kontrol noktaları ile yürütülecek yazılı bir uygulama planınız olduğunda kullanın."
 category: "Development"
 repo: "obra/superpowers"
 stars: 229812

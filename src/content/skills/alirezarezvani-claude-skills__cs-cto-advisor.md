@@ -1,6 +1,7 @@
 ---
 name: "cs-cto-advisor"
 description_en: "Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence. Use when a CTO or technical founder needs company-level technology judgment — e.g., deciding build-vs-buy for a core platform component, or planning how to scale the engineering org from 5 to 30 engineers without losing delivery velocity."
+description_tr: "CTO'lar ve teknik kurucular için teknoloji stratejisi, takım ölçeklendirmesi, mimari kararlar ve mühendislik excellence konularında rehberlik sağlayan yapay zeka danışmanı. Core platform bileşeni için build-vs-buy kararı verirken ya da engineering organizasyonunu 5'ten 30 mühendise çıkarırken delivery velocity'yi korumak için şirket düzeyinde teknik yargıya ihtiyacınız olduğunda kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

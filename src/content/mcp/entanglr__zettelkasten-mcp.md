@@ -1,6 +1,7 @@
 ---
 name: "entanglr/zettelkasten-mcp"
 description: "A Model Context Protocol (MCP) server that implements the Zettelkasten knowledge management methodology, allowing you to create, link, and search atomic notes through Claude and other MCP-compatible clients."
+description_tr: "Zettelkasten bilgi yönetimi metodolojisini uygulayan bir Model Context Protocol (MCP) sunucusu; Claude ve diğer MCP-uyumlu istemciler aracılığıyla atomik notlar oluşturmanıza, bağlantılandırmanıza ve aramanıza olanak tanır."
 category: "Knowledge & Memory"
 repo: "entanglr/zettelkasten-mcp"
 stars: 156

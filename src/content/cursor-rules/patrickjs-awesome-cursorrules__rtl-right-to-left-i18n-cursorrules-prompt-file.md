@@ -2,6 +2,7 @@
 name: "rtl-right-to-left-i18n-cursorrules-prompt-file"
 clean_name: "Rtl Right To Left I18n"
 description: "Cursor rules for RTL development with logical CSS properties, Tailwind logical classes, bidirectional text, and automated auditing via rtlify-ai."
+description_tr: "RTL geliştirme için cursor kuralları: logical CSS properties, Tailwind logical classes, çift yönlü metin desteği ve rtlify-ai ile otomatik denetim."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "botpress-automation"
 description_en: "Automate Botpress tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Botpress görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

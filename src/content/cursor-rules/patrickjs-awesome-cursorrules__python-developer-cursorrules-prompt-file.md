@@ -2,6 +2,7 @@
 name: "python-developer-cursorrules-prompt-file"
 clean_name: "Python Developer"
 description: "Cursor rules for Python development with developer integration."
+description_tr: "Python geliştirme için cursor kuralları ve geliştirici entegrasyonu sunuyor."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

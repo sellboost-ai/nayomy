@@ -1,6 +1,7 @@
 ---
 name: "borneo-automation"
 description_en: "Automate Borneo tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Borneo görevlerini otomatikleştirin. Tool'ları her zaman güncel şemaları kontrol etmek için öncelikle araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

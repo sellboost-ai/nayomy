@@ -1,6 +1,7 @@
 ---
 name: "Aas-ee/open-webSearch"
 description: "Web search using free multi-engine search (NO API KEYS REQUIRED) — Supports Bing, Baidu, DuckDuckGo, Brave, Exa, and CSDN."
+description_tr: "Ücretsiz çoklu arama motoru kullanarak web araması yapın (API ANAHTARI GEREKMEZ) — Bing, Baidu, DuckDuckGo, Brave, Exa ve CSDN'yi destekler."
 category: "Search & Data Extraction"
 repo: "Aas-ee/open-webSearch"
 stars: 1430

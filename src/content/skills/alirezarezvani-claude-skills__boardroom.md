@@ -1,6 +1,7 @@
 ---
 name: "boardroom"
 description_en: "/cs:boardroom <brief> — 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo. Use when a decision spans multiple executive domains — e.g. a pricing change touching finance, positioning, and product, or a raise-vs-cut runway call."
+description_tr: "/cs:boardroom <brief> — C-suite'de 6 aşamalı çok aktörlü görüş alışverişi sunar; Phase 2 izolasyonu, eleştirmen ön kontrolü ve sentez içerir. Çıktı olarak board memo üretir. Finansman, pozisyonlama ve ürün gibi birden fazla yönetici alanına yayılan kararlar için kullanın — örneğin fiyatlandırma değişikliği veya runway artırma/kesme çağrıları."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

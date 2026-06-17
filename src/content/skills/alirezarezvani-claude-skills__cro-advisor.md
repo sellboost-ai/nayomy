@@ -1,6 +1,7 @@
 ---
 name: "cro-advisor"
 description_en: "Revenue leadership for B2B SaaS companies. Revenue forecasting, sales model design, pricing strategy, net revenue retention, and sales team scaling. Use when designing the revenue engine, setting quotas, modeling NRR, evaluating pricing, building board forecasts, or when user mentions CRO, chief revenue officer, revenue strategy, sales model, ARR growth, NRR, expansion revenue, churn, pricing stra"
+description_tr: "B2B SaaS şirketleri için gelir yönetimi çözümü. Gelir tahminlemesi, satış modeli tasarımı, fiyatlandırma stratejisi, net revenue retention ve satış ekibi ölçeklendirmesi konularında yardımcı olur. Revenue engine tasarımı, kota belirleme, NRR modelleme, fiyatlandırma değerlendirmesi, board forecast oluşturma veya CRO, revenue strategy, ARR büyümesi gibi konuları ele aldığında kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

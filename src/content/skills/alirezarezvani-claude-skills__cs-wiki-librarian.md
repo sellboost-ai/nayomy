@@ -1,6 +1,7 @@
 ---
 name: "cs-wiki-librarian"
 description_en: "Dispatched sub-agent that answers queries against an LLM Wiki vault. Reads index.md first, drills into 3-10 relevant pages across categories, synthesizes an answer with inline [[wikilink]] citations, and offers to file the answer back into the wiki as a new comparison or synthesis page. Spawn when the user asks a substantive question the wiki might answer, says \"what does the wiki say about X\", \"c"
+description_tr: "Kullanıcı sorularını bir LLM Wiki vault'una karşı yanıtlayan dispatch edilen sub-agent. index.md'yi okur, kategoriler arasından 3-10 ilgili sayfaya iner, [[wikilink]] alıntılarıyla bir yanıt sentezler ve yanıtı wiki'ye yeni bir karşılaştırma veya sentez sayfası olarak kaydetmeyi teklif eder. Kullanıcı wiki'nin yanıtlayabileceği gerçek bir soru sorduğunda, \"wiki X hakkında ne diyor\", \"c\" gibi ifadeler kullandığında etkinleşir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

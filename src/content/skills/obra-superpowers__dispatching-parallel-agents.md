@@ -1,6 +1,7 @@
 ---
 name: "dispatching-parallel-agents"
 description_en: "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+description_tr: "2 veya daha fazla bağımsız görevin paralel olarak yürütülebileceği ve aralarında state paylaşımı ya da sıralı bağımlılık olmadığı durumlarda kullanın."
 category: "Development"
 repo: "obra/superpowers"
 stars: 229812

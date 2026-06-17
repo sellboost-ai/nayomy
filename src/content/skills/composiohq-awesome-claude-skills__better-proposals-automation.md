@@ -1,6 +1,7 @@
 ---
 name: "better-proposals-automation"
 description_en: "Automate Better Proposals tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Better Proposals görevlerini Rube MCP (Composio) üzerinden otomatize edin. Her zaman en güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

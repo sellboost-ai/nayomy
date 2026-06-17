@@ -1,6 +1,7 @@
 ---
 name: "template-skill"
 description_en: "Replace with description of the skill and when Claude should use it."
+description_tr: "Claude'un bu özelliği ne zaman kullanması gerektiğini ve becerinin açıklamasını buraya yazın."
 category: "Development"
 repo: "anthropics/skills"
 stars: 151641

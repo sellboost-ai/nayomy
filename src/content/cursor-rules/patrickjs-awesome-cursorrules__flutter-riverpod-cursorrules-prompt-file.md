@@ -2,6 +2,7 @@
 name: "flutter-riverpod-cursorrules-prompt-file"
 clean_name: "Flutter Riverpod"
 description: "Cursor rules for Flutter Riverpod."
+description_tr: "Flutter Riverpod için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

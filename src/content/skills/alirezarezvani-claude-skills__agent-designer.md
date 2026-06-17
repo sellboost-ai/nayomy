@@ -1,6 +1,7 @@
 ---
 name: "agent-designer"
 description_en: "Use when the user asks to design a multi-agent system, pick an orchestration pattern (supervisor/swarm/pipeline), generate tool schemas for agents, or evaluate agent execution logs for cost, latency, and failure bottlenecks. Examples: 'design an agent architecture for research automation', 'generate Anthropic tool schemas from these tool descriptions', 'analyze these agent run logs for bottlenecks"
+description_tr: "Multi-agent sistem tasarlamak, orchestration pattern'ı seçmek (supervisor/swarm/pipeline), agentlar için tool schema'ları üretmek veya agent execution log'larını maliyet, latency ve failure bottleneck'leri açısından değerlendirmek için kullanın. Örnekler: 'araştırma otomasyonu için agent mimarisi tasarla', 'bu tool açıklamalarından Anthropic tool schema'ları oluştur', 'bu agent run log'larını bottleneck'ler için analiz et'."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "claude-api"
 description_en: "|- Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE opening the target file; don't skip because it \"looks like a one-liner\" — whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us."
+description_tr: "Claude API / Anthropic SDK için referans — model kimlikleri, fiyatlandırma, parametreler, streaming, tool use, MCP, agents, caching, token sayma ve model migration hakkında bilgiler içerir. ÖNEMLİ — hedef dosyayı açmadan önce okuyun; Claude/Anthropic ile ilgili herhangi bir isim geçtiğinde (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*` vb.) bu referansı atlayın."
 category: "Development"
 repo: "anthropics/skills"
 stars: 151641

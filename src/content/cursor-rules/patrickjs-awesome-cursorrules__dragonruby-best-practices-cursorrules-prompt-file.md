@@ -2,6 +2,7 @@
 name: "dragonruby-best-practices-cursorrules-prompt-file"
 clean_name: "Dragonruby Best Practices"
 description: "Cursor rules for DragonRuby development with best practices integration."
+description_tr: "DragonRuby geliştirme için cursor kuralları ve en iyi pratiklerin entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "experiment-designer"
 description_en: "Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor."
+description_tr: "Ürün deneylerini planlarken, test edilebilir hipotezler yazarken, örnek boyutunu tahmin ederken, testleri önceliklendirirken veya A/B test sonuçlarını pratik istatistiksel sağlam yöntemlerle yorumlarken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

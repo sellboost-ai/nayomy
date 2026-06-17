@@ -1,6 +1,7 @@
 ---
 name: "writing-skills"
 description_en: "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+description_tr: "Yeni beceriler oluştururken, mevcut becerileri düzenlerken veya dağıtımdan önce becerileri doğrularken kullanın."
 category: "Development"
 repo: "obra/superpowers"
 stars: 229812

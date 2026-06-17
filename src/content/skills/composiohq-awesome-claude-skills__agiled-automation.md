@@ -1,6 +1,7 @@
 ---
 name: "agiled-automation"
 description_en: "Automate Agiled tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Agiled görevlerini otomatikleştirin. Güncel şemaları kontrol etmek için her zaman araçları önce aratın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

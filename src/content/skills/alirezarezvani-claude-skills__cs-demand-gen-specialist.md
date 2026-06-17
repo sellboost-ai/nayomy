@@ -1,6 +1,7 @@
 ---
 name: "cs-demand-gen-specialist"
 description_en: "Demand generation and acquisition-funnel specialist orchestrating the marketing-demand-acquisition, paid-ads, and email-sequence skills. Use when building or fixing the acquisition engine — e.g., comparing channel CAC against B2B SaaS benchmarks before reallocating a $40k/month budget, scoring paid-ads account health with ad_health_scorer.py before scaling spend, or designing a nurture sequence th"
+description_tr: "Talep yaratma ve satın alma hunisi uzmanlaşması ile pazarlama-talep-satın alma, ücretli reklamlar ve email sekansı becerilerini yöneten bir araç. Satın alma motorunuzu kurarken veya düzeltirken kullanın — örneğin, kanal CAC'i B2B SaaS benchmark'larıyla karşılaştırırken, aylık $40k bütçeyi yeniden tahsis etmeden önce, paid-ads hesap sağlığını ad_health_scorer.py ile puanlandırırken veya beslenme sekansı tasarlarken."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

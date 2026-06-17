@@ -1,6 +1,7 @@
 ---
 name: "competitive-ads-extractor"
 description_en: "Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand what messaging, problems, and creative approaches are working. Helps inspire and improve your own ad campaigns."
+description_tr: "Reklamcılık kütüphanelerinden (Facebook, LinkedIn vb.) rakiplerin reklamlarını çıkartıp analiz ederek hangi mesajlaşma, problem çözümleri ve yaratıcı yaklaşımların işe yaradığını anlamaya yardımcı olur. Kendi reklam kampanyalarınızdan ilham almak ve bunları geliştirmek için kullanılabilir."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

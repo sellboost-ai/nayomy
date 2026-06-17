@@ -1,6 +1,7 @@
 ---
 name: "cs-workspace-admin"
 description_en: "Google Workspace administration agent using the gws CLI. Orchestrates workspace setup, Gmail/Drive/Sheets/Calendar automation, security audits, and recipe execution. Spawn when users need Google Workspace automation, gws CLI help, or workspace administration."
+description_tr: "Google Workspace yönetimi için gws CLI kullanan akıllı asistan. Workspace kurulumu, Gmail/Drive/Sheets/Calendar otomasyonu, güvenlik denetimleri ve recipe çalıştırmasını yönetir. Kullanıcılar Google Workspace otomasyonu, gws CLI yardımı veya workspace yönetimi ihtiyacında bu ajanı çalıştırın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "competitor-alternatives"
 description_en: "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'switch from competitor,' or 'comparison content.' Covers four formats: singular alternative, plural alternati"
+description_tr: "Kullanıcı SEO ve satış için rakip karşılaştırması veya alternatif sayfalar oluşturmak istediğinde kullanılır. \"Alternatif sayfa\", \"vs sayfası\", \"rakip karşılaştırması\", \"karşılaştırma sayfası\", \"[Ürün] vs [Ürün]\", \"[Ürün] alternatifi\", \"rekabetçi landing page'ler\", \"rakipten geçiş\" veya \"karşılaştırma içeriği\" gibi terimler kullanıldığında da geçerlidir. Dört farklı formatı kapsar: tekil alternatif, çoklu alternatif..."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

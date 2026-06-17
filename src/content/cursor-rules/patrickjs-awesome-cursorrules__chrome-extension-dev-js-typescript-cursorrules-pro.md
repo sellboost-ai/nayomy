@@ -2,6 +2,7 @@
 name: "chrome-extension-dev-js-typescript-cursorrules-pro"
 clean_name: "Chrome Extension Dev JS TypeScript Cursorrules Pro"
 description: "Cursor rules for VSCode extension development with Electron and TypeScript integration."
+description_tr: "VSCode uzantı geliştirme için Cursor kuralları, Electron ve TypeScript entegrasyonu ile."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

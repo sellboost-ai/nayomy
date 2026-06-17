@@ -1,6 +1,7 @@
 ---
 name: "autom-automation"
 description_en: "Automate Autom tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Autom görevlerini otomatikleştirin. Güncel şemaları için her zaman araçları ilk olarak arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

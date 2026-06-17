@@ -1,6 +1,7 @@
 ---
 name: "docx"
 description_en: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images"
+description_tr: "Bu skill'i kullanıcı Word belgesi (.docx dosyası) oluşturmak, okumak, düzenlemek veya manipüle etmek istediğinde kullanın. İçindekiler tablosu, başlık, sayfa numarası veya mektup başlığı gibi formatlı profesyonel belge talepleri, \"Word doc\", \"word document\" veya \".docx\" ifadeleri geçtiğinde tetiklenir. .docx dosyalarından içerik çıkarma veya yeniden düzenleme, görsel ekleme veya değiştirme işlemleri için de kullanılır."
 category: "Document"
 repo: "anthropics/skills"
 stars: 151641

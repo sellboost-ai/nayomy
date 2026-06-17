@@ -1,6 +1,7 @@
 ---
 name: "canvas-design"
 description_en: "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations."
+description_tr: "Tasarım felsefesini kullanarak .png ve .pdf belgelerine güzel görseller oluşturun. Kullanıcı poster, sanat eseri, tasarım veya başka statik içerik oluşturmak istediğinde bu beceriyi kullanmalısınız. Telif hakkı ihlallerinden kaçınmak için orijinal görseller tasarlayın, hiçbir zaman var olan sanatçıların çalışmalarını kopyalamayın."
 category: "Document"
 repo: "smartnews/claude-skills"
 stars: 2

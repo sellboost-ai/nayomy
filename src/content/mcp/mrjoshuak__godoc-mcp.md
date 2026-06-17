@@ -1,6 +1,7 @@
 ---
 name: "mrjoshuak/godoc-mcp"
 description: "Token-efficient Go documentation server that provides AI assistants with smart access to package docs and types without reading entire source files"
+description_tr: "Go paketlerinin dokümantasyonuna ve type tanımlarına AI asistanları için akıllı erişim sağlayan, token-tasarruflu bir dokümantasyon sunucusu."
 category: "Other Tools and Integrations"
 repo: "mrjoshuak/godoc-mcp"
 stars: 122

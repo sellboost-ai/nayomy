@@ -1,6 +1,7 @@
 ---
 name: "systematic-debugging"
 description_en: "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+description_tr: "Herhangi bir hata, test başarısızlığı veya beklenmeyen davranışla karşılaştığınızda, çözüm önerisi sunmadan önce kullanın."
 category: "Development"
 repo: "obra/superpowers"
 stars: 229812

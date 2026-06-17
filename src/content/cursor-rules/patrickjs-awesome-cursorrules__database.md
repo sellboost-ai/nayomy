@@ -2,6 +2,7 @@
 name: "database"
 clean_name: "Database"
 description: "Database best practices focusing on Prisma and Supabase integration"
+description_tr: "Prisma ve Supabase entegrasyonuna odaklanan veritabanı en iyi uygulamaları"
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "claid-ai-automation"
 description_en: "Automate Claid AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Claid AI görevlerini otomatikleştirin. Güncel şemaları için her zaman önce tools'da arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

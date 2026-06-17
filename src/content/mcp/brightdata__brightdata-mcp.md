@@ -1,6 +1,7 @@
 ---
 name: "brightdata/brightdata-mcp"
 description: "Discover, extract, and interact with the web - one interface powering automated access across the public internet."
+description_tr: "Web'i keşfedin, veri çıkarın ve etkileşim kurun - tek bir arayüz ile herkese açık internet üzerinde otomatik erişimi güçlendirin."
 category: "Search & Data Extraction"
 repo: "brightdata/brightdata-mcp"
 stars: 2450

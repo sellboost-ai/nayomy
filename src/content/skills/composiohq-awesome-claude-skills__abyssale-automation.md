@@ -1,6 +1,7 @@
 ---
 name: "abyssale-automation"
 description_en: "Automate Abyssale tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Abyssale görevlerini otomatikleştirin. İşlem yapmadan önce her zaman tools'da mevcut schemaları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

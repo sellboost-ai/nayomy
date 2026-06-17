@@ -1,6 +1,7 @@
 ---
 name: "content-production"
 description_en: "Full content production pipeline — takes a topic from blank page to published-ready piece. Use when you need to execute content: write a blog post, article, or guide end-to-end. Triggers: 'write a post about', 'draft an article', 'create content for', 'help me write', 'I need a blog post'. NOT for content strategy or calendar planning (use content-strategy). NOT for repurposing existing content (u"
+description_tr: "Tam içerik üretim pipeline'ı — bir konuyu boş sayfadan yayınlanmaya hazır hale getiriyor. Blog yazısı, makale veya rehber baştan sona oluşturmanız gerektiğinde kullanın. Tetikleyiciler: 'şu konuda bir yazı yaz', 'bir makale taslağı oluştur', 'bunun için içerik yarat', 'yazı yazana yardım et', 'bana bir blog yazısı lazım'. İçerik stratejisi veya takvim planlama için değil (content-strategy kullanın). Mevcut içeriği yeniden amaçlandırmak için değil."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

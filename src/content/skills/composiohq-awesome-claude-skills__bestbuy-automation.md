@@ -1,6 +1,7 @@
 ---
 name: "bestbuy-automation"
 description_en: "Automate Bestbuy tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Bestbuy görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları kontrol etmek için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

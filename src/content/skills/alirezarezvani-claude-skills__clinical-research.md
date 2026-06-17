@@ -1,6 +1,7 @@
 ---
 name: "clinical-research"
 description_en: "Use when designing a prospective clinical study before submission — selecting and classifying endpoints (primary / key-secondary / exploratory, with surrogate-endpoint flagging), estimating sample size and power for two-arm designs (means / proportions / survival), or scoring a study plan for feasibility and a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIM"
+description_tr: "Prospektif klinik çalışma tasarlarken kullanın — endpoint'leri seçip sınıflandırın (birincil / önemli-ikincil / keşifsel, surrogate-endpoint işaretlemesiyle), iki kollu tasarımlar için örneklem büyüklüğü ve gücü tahmin edin (ortalamalar / oranlar / sağkalım), veya çalışma planını uygulanabilirlik ve GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO faz-kapı kararı açısından puanlayın. Her output bir ESTIM"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

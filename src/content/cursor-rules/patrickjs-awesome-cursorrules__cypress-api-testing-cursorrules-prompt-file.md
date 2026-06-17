@@ -2,6 +2,7 @@
 name: "cypress-api-testing-cursorrules-prompt-file"
 clean_name: "Cypress API Testing"
 description: "Cursor rules for Cypress development with API testing."
+description_tr: "Cypress geliştirmesi için imleç kuralları ve API testing ile kullanım."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

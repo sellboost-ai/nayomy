@@ -1,6 +1,7 @@
 ---
 name: "cardly-automation"
 description_en: "Automate Cardly tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Cardly görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

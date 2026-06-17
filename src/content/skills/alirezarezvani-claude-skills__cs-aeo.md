@@ -1,6 +1,7 @@
 ---
 name: "cs-aeo"
 description_en: "/cs:aeo — Answer Engine Optimization workflow. Audit content for E-E-A-T + structure signals that drive LLM citation (ChatGPT, Perplexity, Claude, Gemini, Mistral). Optimize content in 3 modes (conservative/balanced/aggressive). Track which LLMs cite which pages via local ledger. Industry-aware thresholds (8 industries with YMYL calibration). Distinct from SEO — refuses to optimize one at expense "
+description_tr: "/cs:aeo — Answer Engine Optimization workflow. İçeriği E-E-A-T ve LLM alıntılamalarını (ChatGPT, Perplexity, Claude, Gemini, Mistral) tetikleyen yapı sinyalleri için denetler. 3 modda (conservative/balanced/aggressive) optimize eder. Hangi LLM'lerin hangi sayfaları alıntıladığını yerel defter üzerinden takip eder. Endüstri-farkında eşikler (YMYL kalibrasyonu ile 8 endüstri). SEO'dan farklı — birini diğerinin pahasına optimize etmez."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

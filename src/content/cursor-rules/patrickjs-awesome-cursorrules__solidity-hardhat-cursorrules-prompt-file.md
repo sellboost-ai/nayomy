@@ -2,6 +2,7 @@
 name: "solidity-hardhat-cursorrules-prompt-file"
 clean_name: "Solidity Hardhat"
 description: "Cursor rules for Solidity development with Hardhat integration."
+description_tr: "Hardhat entegrasyonlu Solidity geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

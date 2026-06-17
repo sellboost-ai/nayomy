@@ -1,6 +1,7 @@
 ---
 name: "Snowflake-Labs/mcp"
 description: "Open-source MCP server for Snowflake from official Snowflake-Labs supports prompting Cortex Agents, querying structured & unstructured data, object management, SQL execution, semantic view querying, and more. RBAC, fine-grained CRUD controls, and all authentication methods supported."
+description_tr: "Snowflake-Labs tarafından sunulan açık kaynak MCP sunucusu, Cortex Agents istemini, yapılandırılmış ve yapılandırılmamış veri sorgulama, nesne yönetimi, SQL yürütme, semantik view sorgulama ve daha fazlasını destekler. RBAC, ayrıntılı CRUD kontrolleri ve tüm kimlik doğrulama yöntemleri desteklenmektedir."
 category: "Databases"
 repo: "Snowflake-Labs/mcp"
 stars: 291

@@ -1,6 +1,7 @@
 ---
 name: "agent-summary"
 description_en: "Generate short live progress summaries for the atopile agent from recent tool events, preambles, checklist changes, and build state. Use for ephemeral UI activity text only, never for transcript replies or autonomous reasoning."
+description_tr: "Atopile agentu için son araç olayları, preamble'lar, kontrol listesi değişiklikleri ve build durumundan kısa canlı ilerleme özetleri oluşturun. Yalnızca geçici UI aktivite metni için kullanın, hiçbir zaman transcript yanıtları veya otonom akıl yürütme için değil."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3406

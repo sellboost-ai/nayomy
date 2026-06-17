@@ -1,6 +1,7 @@
 ---
 name: "canny-automation"
 description_en: "Automate Canny tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Canny görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemaları bulmak için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

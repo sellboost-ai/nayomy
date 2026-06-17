@@ -1,6 +1,7 @@
 ---
 name: "boxhero-automation"
 description_en: "Automate Boxhero tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Boxhero görevlerini Rube MCP (Composio) ile otomatikleştirin. İşlemler öncesinde her zaman araçları kontrol ederek güncel şemaları öğrenin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -1,6 +1,7 @@
 ---
 name: "handoff"
 description_en: "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says '"
+description_tr: "Geçerli konuşmayı başka bir agentin devam ettirebilmesi için kompakt bir handoff dökümanına dönüştürün. Kullanıcı tarafından yapılandırılan bir konuma (OS temp, home folder veya per-project .handoff/) kaydedin, yazılmadan önce sırları redakte edin, sonraki oturum için beceri önerileri sunun ve SessionStart'ta en son handoff'u otomatik yükleyin. İlk çalıştırmada proje klasörünün asla karışmaması için kaydetme konumunun sorulması sağlanır."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "hard-call"
 description_en: "/em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass is needed — e.g. choosing between a layoff and a down round, or killing a beloved product line."
+description_tr: "/em:hard-call — Hiçbir seçeneği iyi olmayan kararlar için framework. Her opsiyon ağrılı olduğunda ve yapılandırılmış bir 10/10/10 analizi ile pişmanlık minimizasyonu gerektiğinde kullanın — örneğin, işten çıkarma ile down round arasında seçim yapmak ya da sevilen bir ürün serisini sonlandırmak gibi."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

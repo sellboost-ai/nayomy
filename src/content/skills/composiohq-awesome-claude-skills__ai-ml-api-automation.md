@@ -1,6 +1,7 @@
 ---
 name: "ai-ml-api-automation"
 description_en: "Automate AI ML API tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile AI ML API görevlerini otomatikleştirin. Her zaman mevcut şemaları öğrenmek için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

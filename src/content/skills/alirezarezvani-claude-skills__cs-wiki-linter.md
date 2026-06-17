@@ -1,6 +1,7 @@
 ---
 name: "cs-wiki-linter"
 description_en: "Dispatched sub-agent that runs a periodic health check on an LLM Wiki vault. Runs mechanical checks via scripts (orphans, broken links, stale pages, missing frontmatter, duplicate titles, log gaps), does semantic checks (contradictions, stale claims, cross-reference gaps, concepts missing their own page), and produces a markdown report with suggested actions. Spawn weekly, after batch ingests, or "
+description_tr: "LLM Wiki vault'unuzun sağlığını periyodik olarak kontrol eden dispatch edilen bir sub-agent. Script'ler aracılığıyla mekanik kontroller (orphan sayfalar, broken link'ler, eski sayfalar, eksik frontmatter, duplicate başlıklar, log boşlukları) ve semantik kontroller (çelişkiler, eski claim'ler, cross-reference boşlukları, kendi sayfası olmayan konseptler) çalıştırır, ardından önerilen aksiyonları içeren bir markdown rapor üretir. Haftalık veya batch ingestion'lardan sonra tetiklenir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "TheRaLabs/legion-mcp"
 description: "Universal database MCP server supporting multiple database types including PostgreSQL, Redshift, CockroachDB, MySQL, RDS MySQL, Microsoft SQL Server, BigQuery, Oracle DB, and SQLite."
+description_tr: "Birden fazla veritabanı türünü destekleyen (PostgreSQL, Redshift, CockroachDB, MySQL, RDS MySQL, Microsoft SQL Server, BigQuery, Oracle DB ve SQLite) evrensel MCP sunucusu."
 category: "Databases"
 repo: "TheRaLabs/legion-mcp"
 stars: 94

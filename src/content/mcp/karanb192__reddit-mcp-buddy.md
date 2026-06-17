@@ -1,6 +1,7 @@
 ---
 name: "karanb192/reddit-mcp-buddy"
 description: "Browse Reddit posts, search content, and analyze user activity without API keys. Works out-of-the-box with Claude Desktop."
+description_tr: "Reddit gönderilerine göz atın, içerik arayın ve kullanıcı aktivitesini API anahtarı olmadan analiz edin. Claude Desktop ile doğrudan çalışır."
 category: "Social Media"
 repo: "karanb192/reddit-mcp-buddy"
 stars: 714

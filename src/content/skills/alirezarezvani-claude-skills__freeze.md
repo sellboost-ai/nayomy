@@ -1,6 +1,7 @@
 ---
 name: "freeze"
 description_en: "/cs:freeze <decision> <days> — Lock a strategic decision for a cooldown period to prevent impulse reversal. Mirrors gstack's safety primitives for the business layer. Use when an irreversible decision was made under pressure — e.g. a layoff plan or multi-year contract — and deserves a cooling-off lock before execution."
+description_tr: "/cs:freeze <decision> <days> — Stratejik bir kararı belirli bir süre için kilitleyerek dürtüsel geri dönüşleri önler. gstack'in iş katmanı için sunduğu güvenlik mekanizmalarını yansıtır. Baskı altında alınan geri dönülemez kararlar (örneğin işten çıkarma planı veya çok yıllı kontrat) için yürütmeden önce bekleme süresi uygulamak istediğinizde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

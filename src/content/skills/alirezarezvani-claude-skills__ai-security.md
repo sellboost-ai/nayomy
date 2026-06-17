@@ -1,6 +1,7 @@
 ---
 name: "ai-security"
 description_en: "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring."
+description_tr: "AI/ML sistemlerini prompt injection, jailbreak açıklıkları, model inversion riski, data poisoning maruziyeti ve agent tool istismarı açısından değerlendirmek için kullanılır. MITRE ATLAS teknik eşleştirmesi, injection imza tespiti ve adversarial robustness skorlamasını kapsar."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

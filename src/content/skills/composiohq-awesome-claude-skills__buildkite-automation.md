@@ -1,6 +1,7 @@
 ---
 name: "buildkite-automation"
 description_en: "Automate Buildkite tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Buildkite görevlerini otomatikleştirin. Her zaman mevcut şemalar için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

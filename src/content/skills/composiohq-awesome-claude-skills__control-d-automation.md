@@ -1,6 +1,7 @@
 ---
 name: "control-d-automation"
 description_en: "Automate Control D tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Control D görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

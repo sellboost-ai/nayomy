@@ -1,6 +1,7 @@
 ---
 name: "database-schema-designer"
 description_en: "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
+description_tr: "Kullanıcı ERD diyagramı oluşturmak, veritabanı şemalarını normalize etmek, tablo ilişkilerini tasarlamak veya schema migration planlamak istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

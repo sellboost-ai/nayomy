@@ -1,6 +1,7 @@
 ---
 name: "code-to-prd"
 description_en: "Reverse-engineer a frontend codebase into a PRD. Usage: /code-to-prd [path]"
+description_tr: "Frontend kodunu ters mühendislik yaparak PRD'ye dönüştürün. Kullanım: /code-to-prd [path]"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

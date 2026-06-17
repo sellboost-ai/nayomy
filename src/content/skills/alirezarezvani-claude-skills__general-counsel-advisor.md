@@ -1,6 +1,7 @@
 ---
 name: "general-counsel-advisor"
 description_en: "General Counsel advisory for startups: contract review (MSA, SaaS, NDA, DPA, employment), IP strategy, term sheet decoding, and regulatory landscape mapping. Use when reviewing any contract or term sheet, deciding when to engage outside counsel, defining IP strategy, evaluating regulatory exposure (HIPAA, GDPR, FDA, fintech), or when user mentions general counsel, GC, legal review, contract risk, "
+description_tr: "Startuplar için Genel Counsel danışmanlığı: sözleşme incelemesi (MSA, SaaS, NDA, DPA, istihdam), fikri mülkiyet stratejisi, term sheet analizi ve düzenleyici ortam haritalaması. Herhangi bir sözleşme veya term sheet incelenirken, dış hukuk müşaviri desteğine karar verirken, fikri mülkiyet stratejisi tanımlarken, düzenleyici riskleri (HIPAA, GDPR, FDA, fintech) değerlendirirken veya kullanıcı genel counsel, GC, yasal inceleme, sözleşme riski konularından bahsettiğinde kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "mrexodia/ida-pro-mcp"
 description: "MCP server for IDA Pro, allowing you to perform binary analysis with AI assistants. This plugin implement decompilation, disassembly and allows you to generate malware analysis reports automatically."
+description_tr: "IDA Pro için MCP sunucusu, AI asistanları ile binary analiz yapmanızı sağlar. Plugin decompilation, disassembly işlemlerini gerçekleştirir ve malware analiz raporlarını otomatik olarak oluşturmanıza imkan tanır."
 category: "Security"
 repo: "mrexodia/ida-pro-mcp"
 stars: 9426

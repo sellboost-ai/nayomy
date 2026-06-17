@@ -1,6 +1,7 @@
 ---
 name: "alchemy-automation"
 description_en: "Automate Alchemy tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Alchemy görevlerini otomatikleştirin. Güncel şemaları bulmak için daima önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

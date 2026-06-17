@@ -1,6 +1,7 @@
 ---
 name: "company-os"
 description_en: "The meta-framework for how a company runs — the connective tissue between all C-suite roles. Covers operating system selection (EOS, Scaling Up, OKR-native, hybrid), accountability charts, scorecards, meeting pulse, issue resolution, and 90-day rocks. Use when setting up company operations, selecting a management framework, designing meeting rhythms, building accountability systems, implementing O"
+description_tr: "Bir şirketin nasıl işlediğine dair meta-framework — C-suite rolleri arasındaki bağlantı dokusu. İşletim sistemi seçimi (EOS, Scaling Up, OKR-native, hybrid), sorumluluk haritaları, scorecardlar, toplantı ritmi, sorun çözümü ve 90 günlük rockları kapsar. Şirket operasyonlarını kurarken, yönetim framework'ü seçerken, toplantı ritimleri tasarlarken ve sorumluluk sistemleri oluştururken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

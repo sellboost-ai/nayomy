@@ -1,6 +1,7 @@
 ---
 name: "cs-onboard"
 description_en: "Founder onboarding interview that captures company context across 7 dimensions. Invoke with /cs:setup for initial interview or /cs:update for quarterly refresh. Generates ~/.claude/company-context.md used by all C-suite advisor skills. Use when setting up the C-suite advisors for the first time, or when company context is missing or more than 90 days old — e.g. after a fundraise or pivot."
+description_tr: "Şirket bağlamını 7 boyut üzerinden yakalayan kurucu onboarding görüşmesi. İlk görüşme için /cs:setup, üç aylık güncelleme için /cs:update komutunu kullanın. Tüm C-suite danışman becerilerine sunulan ~/.claude/company-context.md dosyasını oluşturur. C-suite danışmanlarını ilk kez kurarken, şirket bağlamı eksikken veya 90 günden eski olduğunda — örneğin bir finansman turunda veya pivot sonrasında — kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

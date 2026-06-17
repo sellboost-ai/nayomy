@@ -1,6 +1,7 @@
 ---
 name: "appsflyer-automation"
 description_en: "Automate Appsflyer tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Appsflyer görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

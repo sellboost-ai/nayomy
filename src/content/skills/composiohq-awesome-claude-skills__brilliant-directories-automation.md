@@ -1,6 +1,7 @@
 ---
 name: "brilliant-directories-automation"
 description_en: "Automate Brilliant Directories tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Brilliant Directories görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce tools'ları araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

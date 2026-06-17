@@ -1,6 +1,7 @@
 ---
 name: "ciso-advisor"
 description_en: "Security leadership for growth-stage companies. Risk quantification in dollars, compliance roadmap (SOC 2/ISO 27001/HIPAA/GDPR), security architecture strategy, incident response leadership, and board-level security reporting. Use when building security programs, justifying security budget, selecting compliance frameworks, managing incidents, assessing vendor risk, or when user mentions CISO, secu"
+description_tr: "Büyüme aşamasındaki şirketler için güvenlik liderliği. Risk nicelikleştirme, uyumluluk yol haritası (SOC 2/ISO 27001/HIPAA/GDPR), güvenlik mimarisi stratejisi, olay yanıt yönetimi ve yönetim kuruluna sunulacak güvenlik raporlaması sağlar. Güvenlik programları oluştururken, güvenlik bütçesini haklı çıkarırken, uyumluluk çerçevelerini seçerken, olayları yönetirken, vendor riskini değerlendirirken veya CISO ve güvenlik konuları söz konusu olduğunda kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

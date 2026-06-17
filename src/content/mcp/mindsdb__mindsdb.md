@@ -1,6 +1,7 @@
 ---
 name: "mindsdb/mindsdb"
 description: "Connect and unify data across various platforms and databases with MindsDB as a single MCP server."
+description_tr: "MindsDB MCP server ile farklı platformlar ve veritabanları arasındaki verileri bağlayın ve birleştirin."
 category: "Aggregators"
 repo: "mindsdb/mindsdb"
 stars: 39316

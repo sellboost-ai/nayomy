@@ -1,6 +1,7 @@
 ---
 name: "cs-frontend-engineer"
 description_en: "Frontend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (device, LCP target, rendering, bundle budget, SEO vs auth, design system, WCAG), picks the framework/rendering profile, forks into specialists (a11y-audit, apple-hig-expert, epic-design, performance-profiler, playwright-pro — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their sco"
+description_tr: "Frontend mühendisliği orkestratrı. Matt Pocock'un 7 zorlu sorusunu (device, LCP hedefi, rendering, bundle budget, SEO vs auth, design system, WCAG) sorar, uygun framework/rendering profilini seçer, uzmanlaşmış ajanlar arasında dağıtır (a11y-audit, apple-hig-expert, epic-design, performance-profiler, playwright-pro — alfabetik sırada; iş akışı bağımlılık odaklı) yerine onların kapsamını yeniden uygulamaz."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

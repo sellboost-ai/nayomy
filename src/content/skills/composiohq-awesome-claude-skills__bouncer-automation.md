@@ -1,6 +1,7 @@
 ---
 name: "bouncer-automation"
 description_en: "Automate Bouncer tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Bouncer görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

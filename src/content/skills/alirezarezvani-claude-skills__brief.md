@@ -1,6 +1,7 @@
 ---
 name: "brief"
 description_en: "/cs:brief <topic> — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation — e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
+description_tr: "/cs:brief <topic> — Ofis saatleri görüşmesinden tek sayfalık bir strateji özeti oluştur. Stratejik sprint pipeline'ının ilk adımı. Bir stratejik sorunun yönetim kurulu tartışmasından önce çerçevelenmesi gerektiğinde kullan — örneğin fiyatlandırma değişikliği veya pazar giriş kararı için seçenekleri, varsayımları ve başarı kriterlerini belirlemek için."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

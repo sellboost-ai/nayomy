@@ -1,6 +1,7 @@
 ---
 name: "aliyun/alibabacloud-tablestore-mcp-server"
 description: "MCP service for Tablestore, features include adding documents, semantic search for documents based on vectors and scalars, RAG-friendly, and serverless."
+description_tr: "Tablestore için MCP servisi olarak, doküman ekleme, vektör ve scalar tabanlı semantik arama, RAG desteği ve serverless altyapı sunmaktadır."
 category: "Databases"
 repo: "aliyun/alibabacloud-tablestore-mcp-server"
 stars: 155

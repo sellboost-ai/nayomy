@@ -1,6 +1,7 @@
 ---
 name: "codebase-onboarding"
 description_en: "Analyze a codebase and generate onboarding documentation for engineers, tech leads, and contractors. Fast fact-gathering and repeatable onboarding outputs. Use when onboarding a new engineer, writing architecture-overview docs for a new project, or producing tech-lead briefings for unfamiliar repos."
+description_tr: "Bir codebase'i analiz ederek mühendisler, tech lead'ler ve contractor'lar için onboarding dokümantasyonu oluşturun. Hızlı bilgi toplama ve tekrarlanabilir çıktılar sağlar. Yeni mühendis katılımında, yeni proje için mimari dokümantasyonu yazarken veya bilinmeyen repo'lar hakkında tech lead briefing'i hazırlarken kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

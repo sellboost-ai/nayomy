@@ -2,6 +2,7 @@
 name: "nextjs-app-router-cursorrules-prompt-file"
 clean_name: "Next.js App Router"
 description: "Cursor rules for Next.js development with App Router integration."
+description_tr: "Next.js App Router entegrasyonuyla geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

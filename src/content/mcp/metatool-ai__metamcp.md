@@ -1,6 +1,7 @@
 ---
 name: "metatool-ai/metamcp"
 description: "MetaMCP is the one unified middleware MCP server that manages your MCP connections with GUI."
+description_tr: "MetaMCP, MCP bağlantılarınızı GUI ile yöneten tek bir merkezi MCP server ara yazılımıdır."
 category: "Aggregators"
 repo: "metatool-ai/metamcp"
 stars: 2421

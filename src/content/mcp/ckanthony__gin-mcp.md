@@ -1,6 +1,7 @@
 ---
 name: "ckanthony/gin-mcp"
 description: "A zero-configuration Go library to automatically expose existing Gin web framework APIs as MCP tools."
+description_tr: "Mevcut Gin web framework API'larını otomatik olarak MCP tool'ları olarak açığa çıkaran, sıfır konfigürasyonlu Go kütüphanesi."
 category: "Developer Tools"
 repo: "ckanthony/gin-mcp"
 stars: 78

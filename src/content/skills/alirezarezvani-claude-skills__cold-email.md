@@ -1,6 +1,7 @@
 ---
 name: "cold-email"
 description_en: "When the user wants to write, improve, or build a sequence of B2B cold outreach emails to prospects who haven't asked to hear from them. Use when the user mentions 'cold email,' 'cold outreach,' 'prospecting emails,' 'SDR emails,' 'sales emails,' 'first touch email,' 'follow-up sequence,' or 'email prospecting.' Also use when they share an email draft that sounds too sales-y and needs to be humani"
+description_tr: "Kullanıcı B2B cold email kampanyaları yazıp geliştirmek veya taslak oluşturmak istediğinde kullanın. Kullanıcı 'cold email', 'cold outreach', 'prospecting emails', 'SDR emails', 'sales emails', 'first touch email', 'follow-up sequence' veya 'email prospecting' gibi terimler kullandığında ya da çok satış odaklı seslenen ve daha insani hale getirilmesi gereken bir email taslağı paylaştığında devreye girin."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

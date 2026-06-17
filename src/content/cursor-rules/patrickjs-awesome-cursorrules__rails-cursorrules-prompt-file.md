@@ -2,6 +2,7 @@
 name: "rails-cursorrules-prompt-file"
 clean_name: "Rails"
 description: "Cursor rules for Rails development with basic setup."
+description_tr: "Rails geliştirme için cursor kuralları ve temel kurulum."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

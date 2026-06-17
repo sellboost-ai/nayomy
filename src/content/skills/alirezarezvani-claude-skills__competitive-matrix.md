@@ -1,6 +1,7 @@
 ---
 name: "competitive-matrix"
 description_en: "Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]"
+description_tr: "Puanlama ve boşluk analizi ile rekabet analizi matrisleri oluşturun. Kullanım: /competitive-matrix <analyze> [options]"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

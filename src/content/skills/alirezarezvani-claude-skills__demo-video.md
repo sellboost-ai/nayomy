@@ -1,6 +1,7 @@
 ---
 name: "demo-video"
 description_en: "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content."
+description_tr: "Kullanıcı demo video, ürün tanıtımı, özellik gösterimi, animasyonlu sunum, pazarlama videosu veya ekran görüntüleri ile sahne açıklamalarından GIF oluşturmak istediğinde kullanın. Playwright, ffmpeg ve edge-tts MCP'lerini orkestreyi sağlayarak profesyonel video içeriği üretir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

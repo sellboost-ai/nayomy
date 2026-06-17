@@ -1,6 +1,7 @@
 ---
 name: "cs-growth-strategist"
 description_en: "Growth Strategist agent for revenue operations, sales engineering, customer success, and business development. Orchestrates business-growth skills. Spawn when users need pipeline analysis, churn prevention, expansion scoring, sales demos, or proposal writing."
+description_tr: "Gelir operasyonları, satış mühendisliği, müşteri başarısı ve iş geliştirme için Growth Strategist ajanı. İşletme büyüme becerilerini yönetir. Kullanıcılar pipeline analizi, churn önleme, expansion scoring, satış demosu veya teklif yazımına ihtiyaç duyduğunda devreye girer."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

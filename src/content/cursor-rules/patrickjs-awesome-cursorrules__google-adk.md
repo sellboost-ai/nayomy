@@ -2,6 +2,7 @@
 name: "google-adk"
 clean_name: "Google Adk"
 description: "Google Agent Development Kit rules for agents, tools, sessions, memory, artifacts, evaluation, and deployment"
+description_tr: "Google Agent Development Kit ile ajanlar, araçlar, oturumlar, bellek, artifact'lar, değerlendirme ve deployment işlemlerini yönetmek için kurallar ve en iyi uygulamalar."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

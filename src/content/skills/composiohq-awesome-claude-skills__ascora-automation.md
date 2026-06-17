@@ -1,6 +1,7 @@
 ---
 name: "ascora-automation"
 description_en: "Automate Ascora tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Ascora görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -1,6 +1,7 @@
 ---
 name: "bunnycdn-automation"
 description_en: "Automate Bunnycdn tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Bunnycdn görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

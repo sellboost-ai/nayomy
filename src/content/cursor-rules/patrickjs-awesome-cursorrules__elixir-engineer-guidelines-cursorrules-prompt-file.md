@@ -2,6 +2,7 @@
 name: "elixir-engineer-guidelines-cursorrules-prompt-file"
 clean_name: "Elixir Engineer Guidelines"
 description: "Cursor rules for Elixir development with engineer guidelines."
+description_tr: "Elixir geliştirme için cursor kuralları ve mühendislik kılavuzları."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

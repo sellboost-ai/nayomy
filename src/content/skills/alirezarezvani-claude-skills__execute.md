@@ -1,6 +1,7 @@
 ---
 name: "execute"
 description_en: "/cs:execute <decision> — Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a logged decision needs to become an operating plan — e.g. turning an approved market-entry call into weekly milestones with DRIs."
+description_tr: "/cs:execute <decision> — Onaylanmış bir karardan 90 günlük bir uygulama planı oluşturur; haftalık milestone'lar, DRI'lar ve kontrol sıklığını belirler. Kaydedilmiş bir karar operasyonel bir plana dönüştürülmesi gerektiğinde kullanılır — örneğin, onaylanmış bir pazara giriş kararını haftalık milestone'lar ve DRI'lar ile yapılandırmak için."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

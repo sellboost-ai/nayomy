@@ -1,6 +1,7 @@
 ---
 name: "pipeboard-co/meta-ads-mcp"
 description: "Meta Ads automation that just works. Trusted by 10,000+ businesses to analyze performance, test creatives, optimize spend, and scale results — simply and reliably."
+description_tr: "Meta Ads otomasyonu hiçbir komplikasyon olmadan çalışır. 10.000'den fazla işletme tarafından, performans analizi, yaratıcı testler, harcama optimizasyonu ve sonuçları ölçeklendirmek için güvenilerek kullanılmaktadır."
 category: "Marketing"
 repo: "pipeboard-co/meta-ads-mcp"
 stars: 991

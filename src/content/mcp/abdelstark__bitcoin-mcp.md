@@ -1,6 +1,7 @@
 ---
 name: "AbdelStark/bitcoin-mcp"
 description: "A Model Context Protocol (MCP) server that enables AI models to interact with Bitcoin, allowing them to generate keys, validate addresses, decode transactions, query the blockchain, and more."
+description_tr: "Bitcoin ile etkileşim kurmak için AI modellerine olanak sağlayan bir Model Context Protocol (MCP) sunucusu. Anahtar üretme, adres doğrulama, işlem çözümleme ve blockchain sorgulama gibi işlemleri gerçekleştirebilir."
 category: "Other Tools and Integrations"
 repo: "AbdelStark/bitcoin-mcp"
 stars: 74

@@ -1,6 +1,7 @@
 ---
 name: "docker-development"
 description_en: "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance"
+description_tr: "Docker ve container geliştirme için agent skill ve plugin olup Dockerfile optimizasyonu, docker-compose orkestrasyonu, multi-stage build'ler ve container güvenlik sağlamlaştırması sunur. Kullanıcı Dockerfile'ı optimize etmek, docker-compose konfigürasyonu oluşturmak veya iyileştirmek, multi-stage build'ler uygulamak, container güvenliğini denetlemek, image boyutunu azaltmak veya container best practice'lerini takip etmek istediğinde kullanılır. Build performansını kapsar."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "deal-desk"
 description_en: "Use when reviewing a specific inbound deal before close — when sales has asked for a discount that exceeds AE authority, when the customer has redlined the MSA, when per-deal economics (margin after discount, multi-year payment shape, indemnity exposure) need to be quantified, or when discount approval needs to be routed to a named human approver (Sales Director, VP Sales, CFO, CRO, General Counse"
+description_tr: "Gelen bir anlaşmayı kapanıştan önce incelemek için kullanın — satış ekibi AE yetkisini aşan bir indirim istediğinde, müşteri MSA'yı değiştirdiğinde, anlaşma başına ekonomik göstergeleri (indirimden sonra kar marjı, çok yıllı ödeme planı, tazminat riski) hesaplamanız gerektiğinde veya indirim onayının belirli bir onaylayıcıya (Sales Director, VP Sales, CFO, CRO, General Counsel) yönlendirilmesi gerektiğinde."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "karpathy-guidelines"
 description_en: "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria."
+description_tr: "LLM ile kod yazarken yaygın hataları azaltmaya yönelik davranış rehberi. Kod yazma, review veya refactoring sırasında kullanarak aşırı karmaşıklaştırmayı önleyin, hedefli değişiklikler yapın, varsayımları ortaya çıkarın ve doğrulanabilir başarı kriterlerini tanımlayın."
 category: "Design"
 repo: "multica-ai/andrej-karpathy-skills"
 stars: 176850

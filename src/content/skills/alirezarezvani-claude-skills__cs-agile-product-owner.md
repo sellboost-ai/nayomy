@@ -1,6 +1,7 @@
 ---
 name: "cs-agile-product-owner"
 description_en: "Agile product owner agent for epic breakdown, sprint planning, backlog refinement, and INVEST-compliant user story generation. Use when preparing work for a development team — e.g., decomposing a large epic into INVEST-compliant stories with acceptance criteria, or refining a messy backlog ahead of sprint planning."
+description_tr: "Epik parçalamak, sprint planlama, backlog iyileştirme ve INVEST-uyumlu kullanıcı hikayesi oluşturmak için Agile product owner ajanı. Geliştirme ekibine iş hazırlarken—örneğin büyük bir epiki INVEST-uyumlu hikayelerle kabul kriterleri dahil parçalamak veya sprint planlamasından önce karmaşık bir backlogu iyileştirmek için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

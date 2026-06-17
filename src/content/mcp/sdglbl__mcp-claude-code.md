@@ -1,6 +1,7 @@
 ---
 name: "SDGLBL/mcp-claude-code"
 description: "An implementation of Claude Code capabilities using MCP, enabling AI code understanding, modification, and project analysis with comprehensive tool support."
+description_tr: "Claude Code yeteneklerini MCP kullanarak uygulayan, yapay zeka destekli kod anlama, değiştirme ve kapsamlı araç desteği ile proje analizi sağlayan bir çözüm."
 category: "Developer Tools"
 repo: "SDGLBL/mcp-claude-code"
 stars: 301

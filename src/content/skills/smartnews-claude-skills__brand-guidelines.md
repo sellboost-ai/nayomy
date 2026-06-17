@@ -1,6 +1,7 @@
 ---
 name: "brand-guidelines"
 description_en: "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply."
+description_tr: "Anthropic'in resmi marka renkleri ve tipografisini herhangi bir artifact'a uygulayarak Anthropic görünüm ve hissiyatını sağlar. Marka renkleri, stil rehberleri, görsel biçimlendirme veya şirket tasarım standartlarının geçerli olduğu durumlarda kullanın."
 category: "Design"
 repo: "smartnews/claude-skills"
 stars: 2

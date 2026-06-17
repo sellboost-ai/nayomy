@@ -2,6 +2,7 @@
 name: "how-to-documentation-cursorrules-prompt-file"
 clean_name: "How To Documentation"
 description: "Cursor rules for how-to documentation development with integration."
+description_tr: "Nasıl yapılır belgesi geliştirme ve entegrasyonu için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

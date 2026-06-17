@@ -1,6 +1,7 @@
 ---
 name: "coinmarketcap-automation"
 description_en: "Automate Coinmarketcap tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Coinmarketcap görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. İşlem yapmadan önce her zaman araçları arayarak güncel şemaları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

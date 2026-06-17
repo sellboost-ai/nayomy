@@ -1,6 +1,7 @@
 ---
 name: "Apollo Automation"
 description_en: "Automate Apollo.io lead generation -- search organizations, discover contacts, enrich prospect data, manage contact stages, and build targeted outreach lists -- using natural language through the Composio MCP integration."
+description_tr: "Apollo.io ile lead üretimini otomatikleştirin -- organizasyonları arayın, kişileri keşfedin, prospect verilerini zenginleştirin, kişi aşamalarını yönetin ve hedefli outreach listeleri oluşturun -- Composio MCP integrationı üzerinden doğal dili kullanarak."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -2,6 +2,7 @@
 name: "nodejs-mongodb-jwt-express-react-cursorrules-promp"
 clean_name: "Node.js MongoDB Jwt Express React Cursorrules Promp"
 description: "Cursor rules for Node.js development with MongoDB, JWT, Express, and React integration."
+description_tr: "Node.js geliştirmesi için Cursor rules'ları MongoDB, JWT, Express ve React entegrasyonuyla birlikte sunulmaktadır."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

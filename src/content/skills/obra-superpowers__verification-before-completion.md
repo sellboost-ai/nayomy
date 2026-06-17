@@ -1,6 +1,7 @@
 ---
 name: "verification-before-completion"
 description_en: "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always"
+description_tr: "Çalışmanın tamamlandığını, sorunu çözdüğünü veya testleri geçtiğini iddia etmeden önce kullanın - commit yapmadan veya PR oluşturmadan önce verification komutlarını çalıştırıp sonuçları kontrol etmelisiniz; her zaman kanıt iddiadan önce gelir."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

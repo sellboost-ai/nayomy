@@ -1,6 +1,7 @@
 ---
 name: "finance-skills"
 description_en: "Router/index for the 2 finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts) and saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics')."
+description_tr: "Bu plugin'de yer alan 2 finans skill'i yönlendiren router/index: financial-analyst (oran analizi, DCF valuasyon, bütçe varyansı, rolling forecasts) ve saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio). Bir finans isteği belirli bir skill'e açıkça uymadığında ve doğru olanı seçmeniz gerektiğinde kullanın (örn. 'bu finansalları analiz et', 'SaaS metriklerim ne kadar sağlıklı')."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "board-prep"
 description_en: "Board meeting preparation for the adversarial scenario, not the friendly one. Forces numbers-cold mastery, anticipates hard questions, builds a narrative that acknowledges weakness without losing the room. Use when preparing for a board meeting, an investor update, fundraising presentation, or any high-stakes adversarial review where every number must live in your head not just on a slide."
+description_tr: "Muhasebe sunumlarında rakamlarınızı soğukkanlılıkla kontrol etmenizi sağlayan, zor soruları önceden tahmin eden ve eksiklikleri kabul ederken dinleyiciyi kaybetmeden ikna edici bir anlatı oluşturan board toplantısı hazırlık aracı. Yatırımcı sunumları, fundraising presentasyonları veya her rakamın slayttaki yerine kafanızda oturması gereken yüksek riskli görüşmeler için kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

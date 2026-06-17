@@ -2,6 +2,7 @@
 name: "code-guidelines-cursorrules-prompt-file"
 clean_name: "Code Guidelines"
 description: "Cursor rules for code development with guidelines integration."
+description_tr: "Kod geliştirme için imleç kuralları ve rehberlik entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

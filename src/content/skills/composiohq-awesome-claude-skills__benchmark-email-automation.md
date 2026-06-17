@@ -1,6 +1,7 @@
 ---
 name: "benchmark-email-automation"
 description_en: "Automate Benchmark Email tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Benchmark Email görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları bulmak için önce tools aramasını yapın."
 category: "Business"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

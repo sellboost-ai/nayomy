@@ -1,6 +1,7 @@
 ---
 name: "financial-analyst"
 description_en: "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projec"
+description_tr: "Finansal oran analizi, DCF değerleme, bütçe varyans analizi ve rolling forecast oluşturmayı gerçekleştirir. Finansal tabloları analiz ederken, değerleme modelleri inşa ederken, bütçe sapmalarını değerlendirirken veya finansal projeksiyonlar ve tahminler oluştururken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

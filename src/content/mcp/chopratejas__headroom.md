@@ -1,6 +1,7 @@
 ---
 name: "chopratejas/headroom"
 description: "Context compression layer for AI agents. Compresses tool outputs, logs, RAG chunks, files, and conversation history before they reach the LLM, with reversible retrieval through MCP tools."
+description_tr: "AI ajanlar için bağlam sıkıştırma katmanı. Tool çıktılarını, logları, RAG chunk'larını, dosyaları ve konuşma geçmişini LLM'ye ulaşmadan önce sıkıştırır ve MCP tool'ları aracılığıyla geri alınabilir şekilde depolar."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
 stars: 29957

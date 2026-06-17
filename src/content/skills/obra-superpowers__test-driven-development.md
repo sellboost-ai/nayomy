@@ -1,6 +1,7 @@
 ---
 name: "test-driven-development"
 description_en: "Use when implementing any feature or bugfix, before writing implementation code"
+description_tr: "Herhangi bir feature ya da bugfix uygulamaya başlamadan önce kullanın."
 category: "Development"
 repo: "obra/superpowers"
 stars: 229812

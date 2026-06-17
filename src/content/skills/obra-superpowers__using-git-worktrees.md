@@ -1,6 +1,7 @@
 ---
 name: "using-git-worktrees"
 description_en: "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback"
+description_tr: "Yeni bir feature üzerinde çalışmaya başlarken veya implementasyon planını yürütmeden önce kullanın - native araçlar veya git worktree fallback aracılığıyla izole edilmiş bir workspace sağlar."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

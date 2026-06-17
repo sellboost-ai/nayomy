@@ -1,6 +1,7 @@
 ---
 name: "jinzcdev/markmap-mcp-server"
 description: "An MCP server built on markmap that converts Markdown to interactive mind maps. Supports multi-format exports (PNG/JPG/SVG), live browser preview, one-click Markdown copy, and dynamic visualization features."
+description_tr: "Markdown'u etkileşimli zihin haritalarına dönüştüren, markmap tabanlı bir MCP sunucusu. PNG/JPG/SVG formatlarında dışa aktarım, canlı tarayıcı önizlemesi, tek tıklamayla Markdown kopyalama ve dinamik görselleştirme özelliklerini destekler."
 category: "Knowledge & Memory"
 repo: "jinzcdev/markmap-mcp-server"
 stars: 211

@@ -1,6 +1,7 @@
 ---
 name: "email-sequence"
 description_en: "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro."
+description_tr: "Kullanıcı email dizisi, drip kampanya, otomatik email akışı veya lifecycle email programı oluşturmak veya optimize etmek istediğinde kullanılır. Ayrıca kullanıcı \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation\" veya \"lifecycle emails\" ifadelerinden bahsettiğinde de geçerlidir. Uygulama içi onboarding için onboarding-cro sayfasına bakınız."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

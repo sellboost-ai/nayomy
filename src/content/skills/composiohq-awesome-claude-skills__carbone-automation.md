@@ -1,6 +1,7 @@
 ---
 name: "carbone-automation"
 description_en: "Automate Carbone tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Carbone görevlerini Ruby MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

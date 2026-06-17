@@ -1,6 +1,7 @@
 ---
 name: "cs-wiki-ingestor"
 description_en: "Dispatched sub-agent that ingests a new source into an LLM Wiki vault. Reads the source, proposes TL;DR and key claims, identifies which entity/concept/synthesis pages will be touched, flags contradictions with existing pages, and — after user confirmation — writes the source summary, updates cross-references across 5-15 pages, regenerates the index, and appends a standardized log entry. Spawn whe"
+description_tr: "Yeni bir kaynağı LLM Wiki vault'a aktaran dispatch edilen alt agent. Kaynağı okur, TL;DR ve ana iddialar önerir, hangi entity/concept/synthesis sayfalarının etkileneceğini belirler, mevcut sayfalarla çelişkileri işaretler ve — kullanıcı onayından sonra — kaynak özeti yazar, 5-15 sayfa arasında cross-reference'ları günceller, index'i yeniden oluşturur ve standartlaştırılmış log girdisi ekler."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

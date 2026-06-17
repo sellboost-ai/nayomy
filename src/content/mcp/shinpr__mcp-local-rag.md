@@ -1,6 +1,7 @@
 ---
 name: "shinpr/mcp-local-rag"
 description: "Privacy-first document search server running entirely locally. Supports semantic search over PDFs, DOCX, TXT, and Markdown files with LanceDB vector storage and local embeddings - no API keys or cloud services required."
+description_tr: "Gizliliği öncelik alan, tamamen yerel ortamda çalışan document arama sunucusu. PDF, DOCX, TXT ve Markdown dosyaları üzerinde LanceDB vector storage ve yerel embeddings kullanarak semantic search desteği sağlar - API key veya cloud servisi gerekli değildir."
 category: "Knowledge & Memory"
 repo: "shinpr/mcp-local-rag"
 stars: 314

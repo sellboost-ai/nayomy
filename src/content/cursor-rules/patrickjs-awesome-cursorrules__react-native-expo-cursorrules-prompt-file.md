@@ -2,6 +2,7 @@
 name: "react-native-expo-cursorrules-prompt-file"
 clean_name: "React Native Expo"
 description: "Cursor rules for React Native Expo development."
+description_tr: "React Native Expo geliştirme için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

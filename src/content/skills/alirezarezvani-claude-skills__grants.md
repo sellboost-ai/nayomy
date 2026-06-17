@@ -1,6 +1,7 @@
 ---
 name: "grants"
 description_en: "NIH grant research skill for clinical researchers. Grill-me intake (research idea + career stage + preliminary data + environment + submission posture + known institute targets) locks down the funding strategy before any search runs. Runs a 5-facet Consensus positioning analysis (with draft Significance/Innovation language), maps the research to the right NIH institutes and study sections via RePO"
+description_tr: "NIH hibe başvuruları için klinik araştırmacılara yönelik araştırma beceri aracı. Grill-me intake süreci (araştırma fikri + kariyer aşaması + ön veriler + kurumsal ortam + başvuru stratejisi + hedef kurumlar) arama yapılmadan önce finansman stratejisini belirler. 5 boyutlu Consensus positioning analizi gerçekleştirir (Significance/Innovation dil taslakları ile birlikte) ve araştırmayı RePO aracılığıyla uygun NIH enstitüleri ve study sectionları ile eşleştirir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

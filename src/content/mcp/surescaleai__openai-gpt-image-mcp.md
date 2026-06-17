@@ -1,6 +1,7 @@
 ---
 name: "SureScaleAI/openai-gpt-image-mcp"
 description: "OpenAI GPT image generation/editing MCP server."
+description_tr: "OpenAI GPT görsel oluşturma ve düzenleme MCP sunucusu."
 category: "Aggregators"
 repo: "SureScaleAI/openai-gpt-image-mcp"
 stars: 102

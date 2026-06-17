@@ -1,6 +1,7 @@
 ---
 name: "Rai220/think-mcp"
 description: "Enhances any agent's reasoning capabilities by integrating the think-tools, as described in Anthropic's article."
+description_tr: "Agent'lerin muhakeme yeteneklerini Anthropic'in makalesinde açıklanan think-tools entegrasyonu ile güçlendirir."
 category: "Other Tools and Integrations"
 repo: "Rai220/think-mcp"
 stars: 102

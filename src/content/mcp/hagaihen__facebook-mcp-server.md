@@ -1,6 +1,7 @@
 ---
 name: "HagaiHen/facebook-mcp-server"
 description: "Integrates with Facebook Pages to enable direct management of posts, comments, and engagement metrics through the Graph API for streamlined social media management."
+description_tr: "Facebook Pages ile entegre olarak Graph API üzerinden gönderiler, yorumlar ve katılım metriklerini doğrudan yönetebilir, sosyal medya yönetimini kolaylaştırabilirsiniz."
 category: "Social Media"
 repo: "HagaiHen/facebook-mcp-server"
 stars: 167

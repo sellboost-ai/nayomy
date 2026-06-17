@@ -1,6 +1,7 @@
 ---
 name: "sexp"
 description_en: "How the Zig S-expression engine and typed KiCad models work, how they are exposed to Python (pyzig_sexp), and the invariants around parsing, formatting, and freeing. Use when working with KiCad file parsing, S-expression generation, or layout sync."
+description_tr: "Zig S-expression motoru ve yazılı KiCad modellerinin nasıl çalıştığını, Python'a (pyzig_sexp) nasıl expose edildiğini ve parsing, formatting ile freeing işlemlerindeki değişmezleri öğrenin. KiCad dosya parsing, S-expression oluşturma veya layout senkronizasyonu yaparken kullanın."
 category: "Development"
 repo: "atopile/atopile"
 stars: 3406

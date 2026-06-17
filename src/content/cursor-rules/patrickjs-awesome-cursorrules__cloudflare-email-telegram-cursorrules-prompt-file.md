@@ -2,6 +2,7 @@
 name: "cloudflare-email-telegram-cursorrules-prompt-file"
 clean_name: "Cloudflare Email Telegram"
 description: "Cursor rules for setting up email-to-Telegram forwarding via Cloudflare Email Routing and Workers using the mail2tg CLI."
+description_tr: "Cloudflare Email Routing ve Workers kullanarak e-posta-Telegram yönlendirmesi kurmak için mail2tg CLI ile Cursor rules."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

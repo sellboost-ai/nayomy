@@ -1,6 +1,7 @@
 ---
 name: "design-system"
 description_en: "Captures the user's brand identity once via a 10-question onboarding wizard (primary/accent HEX + heading + body Google Fonts + design style editorial/technical/minimal/playful + default output directory + syntax theme + TOC behavior + optional logo/company), validates body-text and link contrast against WCAG 2.2 AA, derives 12 CSS custom properties in HSL space, and stores the result for every ma"
+description_tr: "Kullanıcının marka kimliğini 10 soruluk onboarding sihirbazıyla bir kez yakalar (primary/accent HEX + heading + body Google Fonts + tasarım stili editorial/technical/minimal/playful + varsayılan output dizini + syntax theme + TOC davranışı + opsiyonel logo/şirket), body-text ve link kontrastını WCAG 2.2 AA'ya karşı doğrular, HSL alanında 12 CSS custom property türetir ve sonucu her projede saklar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

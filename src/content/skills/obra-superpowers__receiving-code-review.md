@@ -1,6 +1,7 @@
 ---
 name: "receiving-code-review"
 description_en: "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation"
+description_tr: "Kod incelemesi geri bildirimi alırken, önerileri uygulamadan önce kullanın; özellikle geri bildirim belirsiz veya teknik olarak şüpheli görünüyorsa - performatif anlaşmadan veya körü körüne uygulamadan ziyade teknik titizlik ve doğrulama gerekir."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

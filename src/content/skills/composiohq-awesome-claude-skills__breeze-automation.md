@@ -1,6 +1,7 @@
 ---
 name: "breeze-automation"
 description_en: "Automate Breeze tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Breeze görevlerini otomatikleştirin. Her zaman güncel şemalar için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

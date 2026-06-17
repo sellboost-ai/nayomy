@@ -1,6 +1,7 @@
 ---
 name: "subagent-driven-development"
 description_en: "Use when executing implementation plans with independent tasks in the current session"
+description_tr: "Mevcut oturumda bağımsız görevlerle uygulama planlarını yürütürken kullanın"
 category: "Development"
 repo: "obra/superpowers"
 stars: 229812

@@ -1,6 +1,7 @@
 ---
 name: "cs-quality-regulatory"
 description_en: "Quality & Regulatory agent for ISO 13485 QMS, MDR compliance, FDA submissions, GDPR/DSGVO, and ISMS audits. Orchestrates ra-qm-team skills. Spawn when users need regulatory strategy, audit preparation, CAPA management, risk management, or compliance documentation."
+description_tr: "ISO 13485 QMS, MDR uyumluluğu, FDA başvuruları, GDPR/DSGVO ve ISMS denetimlerine yönelik kalite ve mevzuat ajanı. ra-qm-team yeteneklerini düzenler ve kullanıcılar mevzuat stratejisi, denetim hazırlığı, CAPA yönetimi, risk yönetimi veya uyum dokümantasyonuna ihtiyaç duyduğunda devreye girer."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

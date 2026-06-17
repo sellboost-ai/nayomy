@@ -1,6 +1,7 @@
 ---
 name: "brightdata-automation"
 description_en: "Automate Brightdata tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Brightdata görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

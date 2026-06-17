@@ -1,6 +1,7 @@
 ---
 name: "docx"
 description_en: "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks"
+description_tr: "Claude'un profesyonel belgeler (.docx dosyaları) ile çalışması için kapsamlı belge oluşturma, düzenleme ve analiz yetenekleri sunar. Değişiklikleri izleme, yorum ekleme, biçimlendirmeyi koruma ve metin çıkarma özelliklerini destekler. Yeni belgeler oluşturmak, içeriği düzenlemek, izlenen değişikliklerle çalışmak ve diğer belge görevleri için kullanılabilir."
 category: "Document"
 repo: "smartnews/claude-skills"
 stars: 2

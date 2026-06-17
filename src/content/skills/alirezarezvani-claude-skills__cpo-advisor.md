@@ -1,6 +1,7 @@
 ---
 name: "cpo-advisor"
 description_en: "Product leadership for scaling companies. Product vision, portfolio strategy, product-market fit, and product org design. Use when setting product vision, managing a product portfolio, measuring PMF, designing product teams, prioritizing at the portfolio level, reporting to the board on product, or when user mentions CPO, product strategy, product-market fit, product organization, portfolio priori"
+description_tr: "Ölçeklenme aşamasındaki şirketler için ürün liderliği. Ürün vizyonu, portföy stratejisi, product-market fit ve ürün organizasyonu tasarımı konularında yardım sağlar. Ürün vizyonu belirlerken, ürün portföyü yönetirken, PMF ölçerken, ürün takımları tasarlarken veya board'a ürün raporu sunacağınız durumlarda kullanılabilir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

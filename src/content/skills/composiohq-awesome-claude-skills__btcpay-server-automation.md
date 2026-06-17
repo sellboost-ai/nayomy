@@ -1,6 +1,7 @@
 ---
 name: "btcpay-server-automation"
 description_en: "Automate Btcpay Server tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Btcpay Server görevlerini otomatikleştirin. Her zaman geçerli şemaları için önce tools aramasını yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

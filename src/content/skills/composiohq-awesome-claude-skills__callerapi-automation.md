@@ -1,6 +1,7 @@
 ---
 name: "callerapi-automation"
 description_en: "Automate Callerapi tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Callerapi görevlerini Rube MCP üzerinden (Composio) otomatikleştirin. Güncel şemaları için her zaman tools'ı önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

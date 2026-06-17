@@ -1,6 +1,7 @@
 ---
 name: "aymericzip/intlayer"
 description: "A MCP Server that enhance your IDE with AI-powered assistance for Intlayer i18n / CMS tool: smart CLI access, access to the docs."
+description_tr: "Intlayer i18n / CMS aracı için yapay zeka destekli yardım ile IDE'nizi geliştiren bir MCP Server: akıllı CLI erişimi, dokümantasyona anında ulaşım."
 category: "Command Line"
 repo: "aymericzip/intlayer"
 stars: 767

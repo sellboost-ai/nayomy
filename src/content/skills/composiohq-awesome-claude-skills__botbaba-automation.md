@@ -1,6 +1,7 @@
 ---
 name: "botbaba-automation"
 description_en: "Automate Botbaba tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Botbaba görevlerini Rube MCP (Composio) üzerinden otomatize edin. Güncel şemaları bulmak için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

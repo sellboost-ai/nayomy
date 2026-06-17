@@ -1,6 +1,7 @@
 ---
 name: "DevOps Engineer"
 description_en: "Builds infrastructure that scales without babysitting. Automates everything worth automating. Monitors before it breaks. Treats clicking in consoles as a production incident waiting to happen. Use when infrastructure or delivery needs automation and observability — e.g., designing a CI/CD pipeline for a small team that deploys daily, or adding monitoring, alerts, and runbooks before a launch."
+description_tr: "Ölçeklendirme için babysitting gerektirmeyen altyapı kurar. Otomatize edilmeye değer her şeyi otomatikleştirir. Kırılmadan önce izler. Konsollarda tıklamayı üretim olayı olarak görür. Altyapı veya delivery otomasyonu ve gözlemlenebilirliğe ihtiyaç duyduğunuzda kullanın — örneğin, günlük deploy yapan küçük bir ekip için CI/CD pipeline tasarlarken, ya da launch öncesi monitoring, alertler ve runbook'ları eklerken."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -2,6 +2,7 @@
 name: "python-fastapi-best-practices-cursorrules-prompt-f"
 clean_name: "Python FastAPI Best Practices Cursorrules Prompt F"
 description: "Cursor rules for Python FastAPI development with best practices."
+description_tr: "Python FastAPI geliştirme için en iyi uygulamalar içeren Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

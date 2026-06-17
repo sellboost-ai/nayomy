@@ -1,6 +1,7 @@
 ---
 name: "ezyang/codemcp"
 description: "Coding agent with basic read, write and command line tools."
+description_tr: "Temel okuma, yazma ve komut satırı araçlarıyla donatılmış bir kodlama ajanı."
 category: "Coding Agents"
 repo: "ezyang/codemcp"
 stars: 1613

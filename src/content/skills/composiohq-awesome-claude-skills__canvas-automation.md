@@ -1,6 +1,7 @@
 ---
 name: "canvas-automation"
 description_en: "Automate Canvas tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Canvas görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Mevcut şemaları kontrol etmek için her zaman önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -1,6 +1,7 @@
 ---
 name: "subnetmarco/pgmcp"
 description: "Natural language PostgreSQL queries with automatic streaming, read-only safety, and universal database compatibility."
+description_tr: "PostgreSQL sorgularını doğal dille yazın, otomatik streaming ve salt-okunur güvenlik ile tüm veritabanları desteklenir."
 category: "Databases"
 repo: "subnetmarco/pgmcp"
 stars: 536

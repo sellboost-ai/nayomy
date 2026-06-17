@@ -1,6 +1,7 @@
 ---
 name: "cs-financial-analyst"
 description_en: "Financial Analyst agent for DCF valuation, financial modeling, budgeting, forecasting, and SaaS metrics (ARR, MRR, churn, CAC, LTV, NRR). Orchestrates finance skills. Spawn when users need financial analysis, valuation models, budget planning, ratio analysis, SaaS health checks, or unit economics projections."
+description_tr: "Finansal analiz, DCF değerleme, finansal modelleme, bütçeleme, tahminleme ve SaaS metrikleri (ARR, MRR, churn, CAC, LTV, NRR) için tasarlanmış agent. Finansal yetenekleri organize eder ve kullanıcıların finansal analiz, değerleme modelleri, bütçe planlama, oran analizi, SaaS sağlık kontrolleri ya da birim ekonomisi projeksiyonlarına ihtiyaç duyduğu durumlarda devreye girer."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

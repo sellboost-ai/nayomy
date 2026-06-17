@@ -1,6 +1,7 @@
 ---
 name: "34892002/bilibili-mcp-js"
 description: "A MCP server that supports searching for Bilibili content. Provides LangChain integration examples and test scripts."
+description_tr: "Bilibili içeriğinde arama yapabilmesini sağlayan bir MCP sunucusu. LangChain entegrasyonu örnekleri ve test scriptlerini içerir."
 category: "Browser Automation"
 repo: "34892002/bilibili-mcp-js"
 stars: 173

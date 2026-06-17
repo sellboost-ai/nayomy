@@ -1,6 +1,7 @@
 ---
 name: "capa-officer"
 description_en: "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
+description_tr: "Tıbbi cihaz QMS için CAPA sistem yönetimi. Kök neden analizi, düzeltici işlem planlama, etkinlik doğrulama ve CAPA metriklerini kapsar. CAPA araştırmaları, 5-Why analizi, balık kılçığı diyagramları, kök neden belirleme, düzeltici işlem takibi, etkinlik doğrulama veya CAPA program optimizasyonu yaparken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

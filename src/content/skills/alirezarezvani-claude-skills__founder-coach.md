@@ -1,6 +1,7 @@
 ---
 name: "founder-coach"
 description_en: "Personal leadership development for founders and first-time CEOs. Covers founder archetype identification, delegation frameworks, energy management, CEO calendar audits, leadership style evolution, blind spot identification, imposter syndrome, founder mental health, and succession planning. Use when a founder feels like the bottleneck, struggles to delegate, is burning out, transitioning from IC t"
+description_tr: "Kurucu ve ilk kez CEO olan liderler için kişisel gelişim programı. Kurucu arketipi tanımlama, delegasyon çerçeveleri, enerji yönetimi, CEO takvim denetimleri, liderlik stilinin gelişimi, kör noktaların belirlenmesi, sendrom sendromu, kurucu ruh sağlığı ve ardıl planlama konularını kapsar. Kurucu kendisinin darboğaz olduğunu hissettiğinde, delegasyon konusunda güçlük çektiğinde, tükenmişlik yaşadığında veya bireysel katkı sağlayıcıdan geçiş yaptığında kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

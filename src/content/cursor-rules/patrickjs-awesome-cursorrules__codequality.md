@@ -2,6 +2,7 @@
 name: "codequality"
 clean_name: "Codequality"
 description: "Code Quality Guidelines"
+description_tr: "Kod Kalitesi Yönergeleri"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

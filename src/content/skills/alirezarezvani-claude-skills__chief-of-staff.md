@@ -1,6 +1,7 @@
 ---
 name: "chief-of-staff"
 description_en: "C-suite orchestration layer. Routes founder questions to the right advisor role(s), triggers multi-role board meetings for complex decisions, synthesizes outputs, and tracks decisions. Every C-suite interaction starts here. Loads company context automatically. Use when a founder question needs routing to the right advisor — e.g. 'should we raise now or cut burn?' — or when a multi-domain decision "
+description_tr: "C-seviyesi orkestrasyonu için katman. Kurucu sorularını doğru danışman rollerine yönlendirir, karmaşık kararlar için çok rollu board toplantıları başlatır, sonuçları sentezler ve kararları takip eder. Her C-seviyesi etkileşim buradan başlar. Şirket bağlamını otomatik yükler. Kurucu sorusunun doğru danışmana yönlendirilmesi gerektiğinde — örneğin 'şimdi para toplayalı mı yoksa gideri keseli mi?' — veya çok disiplinli bir karar gerektiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

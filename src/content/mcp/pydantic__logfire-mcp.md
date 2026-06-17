@@ -1,6 +1,7 @@
 ---
 name: "pydantic/logfire-mcp"
 description: "Provides access to OpenTelemetry traces and metrics through Logfire"
+description_tr: "Logfire aracılığıyla OpenTelemetry izlemeleri ve metriklerine erişim sağlar."
 category: "Monitoring"
 repo: "pydantic/logfire-mcp"
 stars: 161

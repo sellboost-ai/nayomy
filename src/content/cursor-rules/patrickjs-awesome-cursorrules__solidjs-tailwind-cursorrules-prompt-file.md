@@ -2,6 +2,7 @@
 name: "solidjs-tailwind-cursorrules-prompt-file"
 clean_name: "Solidjs Tailwind"
 description: "Cursor rules for Solid.js development with Tailwind CSS integration."
+description_tr: "Solid.js geliştirmesi için Cursor rules ve Tailwind CSS entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

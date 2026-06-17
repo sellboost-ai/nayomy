@@ -1,6 +1,7 @@
 ---
 name: "getsentry/sentry-mcp"
 description: "Sentry.io integration for error tracking and performance monitoring"
+description_tr: "Sentry.io entegrasyonu ile hata takibi ve performans izlemesi"
 category: "Monitoring"
 repo: "getsentry/sentry-mcp"
 stars: 726

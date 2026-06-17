@@ -1,6 +1,7 @@
 ---
 name: "cal-automation"
 description_en: "Automate Cal tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Cal görevlerini Rube MCP (Composio) ile otomatikleştirin. Geçerli şemaları bulmak için önce tools arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

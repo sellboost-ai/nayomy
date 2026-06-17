@@ -1,6 +1,7 @@
 ---
 name: "dossier"
 description_en: "Decision-grade entity research skill — produces a hypothesis-tested dossier on a specific company, person, nonprofit, or government org, not a generic profile. Forcing intake makes the user state their hypothesis upfront (what they already believe and want to verify or disprove) so the dossier tests it rather than confirms it. Output is an editable Word document (.docx) with verdict on the hypothe"
+description_tr: "Karar alınabilir düzeyde entity araştırması yapan bir beceri — belirli bir şirket, kişi, kar amacı gütmeyen kuruluş veya devlet kurumu hakkında hipotez-test edilmiş bir dosya oluşturur, genel bir profil değil. Zorunlu giriş, kullanıcıyı önceden hipotezini (ne inandığını ve doğrulamak ya da çürütmek istediğini) belirtmeye zorlayarak, dosya bunu doğrulamak yerine test eder. Çıktı, hipotez hakkında sonuca varılan düzenlenebilir bir Word belgesidir (.docx)."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

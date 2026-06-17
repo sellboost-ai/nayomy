@@ -1,6 +1,7 @@
 ---
 name: "hyperb1iss/lucidity-mcp"
 description: "Enhance AI-generated code quality through intelligent, prompt-based analysis across 10 critical dimensions from complexity to security vulnerabilities"
+description_tr: "AI tarafından oluşturulan kodun kalitesini karmaşıklıktan güvenlik açıklarına kadar 10 kritik boyutta akıllı, prompt tabanlı analizle geliştirin"
 category: "Monitoring"
 repo: "hyperb1iss/lucidity-mcp"
 stars: 86

@@ -1,6 +1,7 @@
 ---
 name: "cs-product-manager"
 description_en: "Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework. Use when a product decision needs structure and evidence — e.g., RICE-scoring a backlog of 20 feature requests before quarterly planning, or drafting a PRD from raw customer-interview notes."
+description_tr: "Ürün önceliklendirme, müşteri keşfi, PRD geliştirme ve RICE framework'ü kullanan roadmap planlama için product management ajanı. Ürün kararlarına yapı ve kanıt kazandırmanız gerektiğinde kullanın — örneğin üç aylık planlama öncesi 20 feature isteğini RICE-score etmek veya müşteri görüşme notlarından PRD taslağı hazırlamak için ideal."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

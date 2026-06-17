@@ -1,6 +1,7 @@
 ---
 name: "VictoriaMetrics/mcp-victoriametrics"
 description: "Provides comprehensive integration with your VictoriaMetrics instance APIs and documentation for monitoring, observability, and debugging tasks related to your VictoriaMetrics instances"
+description_tr: "VictoriaMetrics instance'larınızın API'leri ve dokümantasyonu ile kapsamlı entegrasyon sağlayarak, monitoring, observability ve debugging görevlerini kolaylaştırır."
 category: "Monitoring"
 repo: "VictoriaMetrics/mcp-victoriametrics"
 stars: 182

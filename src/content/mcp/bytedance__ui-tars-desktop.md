@@ -1,6 +1,7 @@
 ---
 name: "bytedance/UI-TARS-desktop"
 description: "Browser automation capabilities using Puppeteer, both support local and remote browser connection."
+description_tr: "Puppeteer ile tarayıcı otomasyon yetenekleri, yerel ve uzak tarayıcı bağlantısını destekler."
 category: "Browser Automation"
 repo: "bytedance/UI-TARS-desktop"
 stars: 36511

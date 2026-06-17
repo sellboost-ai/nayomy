@@ -2,6 +2,7 @@
 name: "react-redux-typescript-cursorrules-prompt-file"
 clean_name: "React Redux TypeScript"
 description: "Cursor rules for React development with Redux and TypeScript integration."
+description_tr: "React geliştirimi için Cursor rules'ları Redux ve TypeScript entegrasyonu ile birlikte sunuluyor."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "castingwords-automation"
 description_en: "Automate Castingwords tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Castingwords görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

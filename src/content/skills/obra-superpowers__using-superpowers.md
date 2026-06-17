@@ -1,6 +1,7 @@
 ---
 name: "using-superpowers"
 description_en: "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions"
+description_tr: "Herhangi bir konuşma başlatırken kullanın - skill'lerin nasıl bulunacağını ve kullanılacağını belirler, clarification soruları da dahil olmak üzere HERHANGİ bir yanıt vermeden önce skill invocation gerektirir."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

@@ -1,6 +1,7 @@
 ---
 name: "async-interview-automation"
 description_en: "Automate Async Interview tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Async Interview görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları aratın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

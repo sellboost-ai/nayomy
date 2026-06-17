@@ -1,6 +1,7 @@
 ---
 name: "codeinterpreter-automation"
 description_en: "Automate Codeinterpreter tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Codeinterpreter görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

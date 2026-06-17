@@ -1,6 +1,7 @@
 ---
 name: "churn-prevention"
 description_en: "Reduce voluntary and involuntary churn through cancel flow design, save offers, exit surveys, and dunning sequences. Use when designing or optimizing a cancel flow, building save offers, setting up dunning emails, or reducing failed-payment churn. Trigger keywords: cancel flow, churn reduction, save offers, dunning, exit survey, payment recovery, win-back, involuntary churn, failed payments, cance"
+description_tr: "Gönüllü ve gönülsüz churn'ü iptal akışı tasarımı, kaydetme teklifleri, çıkış anketleri ve dunning sekansları aracılığıyla azaltın. İptal akışı tasarlarken veya optimize ederken, kaydetme teklifleri oluştururken, dunning e-postaları ayarlarken ya da başarısız ödeme churn'ünü azaltırken kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

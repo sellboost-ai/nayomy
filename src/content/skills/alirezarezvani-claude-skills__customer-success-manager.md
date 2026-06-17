@@ -1,6 +1,7 @@
 ---
 name: "customer-success-manager"
 description_en: "Monitors customer health, predicts churn risk, and identifies expansion opportunities using weighted scoring models for SaaS customer success. Use when analyzing customer accounts, reviewing retention metrics, scoring at-risk customers, or when the user mentions churn, customer health scores, upsell opportunities, expansion revenue, retention analysis, or customer analytics. Runs three Python CLI "
+description_tr: "Müşteri sağlığını izler, churn riskini tahmin eder ve ağırlıklı puanlama modelleri kullanarak SaaS müşteri başarısı için genişleme fırsatlarını belirler. Müşteri hesaplarını analiz ederken, retention metrikleri gözden geçirirken, risk altındaki müşterileri puanlarken veya kullanıcı churn, customer health scores, upsell fırsatları, expansion revenue, retention analysis ya da customer analytics hakkında bahsettiğinde kullanın. Üç Python CLI çalıştırır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

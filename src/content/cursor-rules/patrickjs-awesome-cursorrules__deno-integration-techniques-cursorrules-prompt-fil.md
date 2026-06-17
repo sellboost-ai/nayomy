@@ -2,6 +2,7 @@
 name: "deno-integration-techniques-cursorrules-prompt-fil"
 clean_name: "Deno Integration Techniques Cursorrules Prompt Fil"
 description: "Cursor rules for Deno development with integration techniques."
+description_tr: "Deno geliştirmesi için cursor kuralları ve entegrasyon teknikleri."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

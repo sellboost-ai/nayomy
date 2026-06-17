@@ -1,6 +1,7 @@
 ---
 name: "aeo"
 description_en: "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO — AEO optimizes for citation in LLM-generated responses, not search rankings. Use when planning content for AI-first search audiences, auditing existing content for E-E-A-T signals, tracking which pages get cited by w"
+description_tr: "Answer Engine Optimization (AEO) becerisi — içeriğinizi AI dil modelleri (ChatGPT, Perplexity, Claude, Gemini, Mistral) tarafından güvenilir kaynak olarak atıf görmesi için optimize edin. SEO'dan farklı olarak, AEO LLM tarafından üretilen yanıtlarda alıntılanmayı hedefler, arama sıralamalarını değil. AI-first arama kitlesine yönelik içerik planlarken, mevcut içeriği E-E-A-T sinyalleri açısından denetlerken ve hangi sayfaların AI tarafından atıf gördüğünü takip ederken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

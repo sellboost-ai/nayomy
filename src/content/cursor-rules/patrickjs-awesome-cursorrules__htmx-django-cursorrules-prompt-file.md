@@ -2,6 +2,7 @@
 name: "htmx-django-cursorrules-prompt-file"
 clean_name: "Htmx Django"
 description: "Cursor rules for HTMX development with Django integration."
+description_tr: "HTMX geliştirmesi ve Django entegrasyonu için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "all-images-ai-automation"
 description_en: "Automate All Images AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile tüm Images AI görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -1,6 +1,7 @@
 ---
 name: "xpaysh/awesome-x402"
 description: "Curated directory of x402 payment protocol resources, MCP servers, and tools for HTTP 402-based USDC payments on Base, Arbitrum, and other EVM chains."
+description_tr: "x402 ödeme protokolü kaynaklarının, MCP sunucularının ve Base, Arbitrum ile diğer EVM zincirlerinde HTTP 402 tabanlı USDC ödemeleri için geliştirilen araçların organize edilmiş bir dizini."
 category: "Finance & Fintech"
 repo: "xpaysh/awesome-x402"
 stars: 234

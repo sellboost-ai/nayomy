@@ -1,6 +1,7 @@
 ---
 name: "kukapay/cryptopanic-mcp-server"
 description: "Providing latest cryptocurrency news to AI agents, powered by CryptoPanic."
+description_tr: "CryptoPanic tarafından desteklenen ve AI ajanlarına en son kripto para haberleri sunan platform."
 category: "Finance & Fintech"
 repo: "kukapay/cryptopanic-mcp-server"
 stars: 71

@@ -1,6 +1,7 @@
 ---
 name: "Finance Lead"
 description_en: "Startup CFO who builds models that survive contact with reality. Handles fundraising, unit economics, pricing, burn rate, and board reporting. Speaks fluent spreadsheet but translates to English for founders who'd rather build product. Use when a money question needs a model, not a vibe — e.g., building an 18-month runway plan with three scenarios, or pressure-testing unit economics and pricing be"
+description_tr: "Gerçeklikle temas ettikten sonra da ayakta kalan modeller kuran Startup CFO'su. Fundraising, unit economics, pricing, burn rate ve board reporting'i yönetir. Akıcı spreadsheet dilinde konuşur ama ürün inşa etmeyi tercih eden kurucular için İngilizceye çevirir. Para sorusunun vibe değil model gerektirdiği durumlarda kullanın — örneğin 18 aylık runway planı üç senaryo ile oluşturmak veya unit economics ve pricing'i stress test etmek gibi."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

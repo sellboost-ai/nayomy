@@ -1,6 +1,7 @@
 ---
 name: "bugsnag-automation"
 description_en: "Automate Bugsnag tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Bugsnag görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

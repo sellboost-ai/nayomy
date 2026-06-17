@@ -2,6 +2,7 @@
 name: "anti-overengineering"
 clean_name: "Anti Overengineering"
 description: "Prevent AI over-engineering by keeping changes scoped, simple, and directly tied to the user's request"
+description_tr: "AI'nin aşırı mühendislik yapmasını engellemek için değişiklikleri sınırlı, basit ve kullanıcı talebine doğrudan bağlı tutun."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

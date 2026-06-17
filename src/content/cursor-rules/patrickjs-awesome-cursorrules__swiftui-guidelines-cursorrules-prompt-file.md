@@ -2,6 +2,7 @@
 name: "swiftui-guidelines-cursorrules-prompt-file"
 clean_name: "Swiftui Guidelines"
 description: "Cursor rules for SwiftUI development guidelines."
+description_tr: "SwiftUI geliştirme rehberleri için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

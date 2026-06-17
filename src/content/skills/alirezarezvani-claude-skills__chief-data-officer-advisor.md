@@ -1,6 +1,7 @@
 ---
 name: "chief-data-officer-advisor"
 description_en: "Chief Data Officer advisory for startups: AI training data rights and consent provenance, data product strategy (warehouse vs lakehouse vs mesh, build-vs-buy), B2B customer-data-as-asset valuation and M&A readiness, data team org evolution. Use when deciding whether to train models on customer data, choosing data architecture, valuing data for fundraising or M&A, sequencing data hires, or when use"
+description_tr: "Startuplar için Chief Data Officer danışmanlığı: AI eğitim verisi hakları ve onay kaynağı, veri ürün stratejisi (warehouse vs lakehouse vs mesh, build-vs-buy), B2B müşteri verisi varlık değerlemesi ve M&A hazırlığı, veri takım organizasyonu gelişimi. Müşteri verisi üzerinde modeller eğitmek, veri mimarisini seçmek, fon turları veya M&A için veri değerlemek, veri işe alımlarını planlamak gibi durumlarda kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

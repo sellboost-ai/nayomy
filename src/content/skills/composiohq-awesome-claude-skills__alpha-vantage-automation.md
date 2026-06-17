@@ -1,6 +1,7 @@
 ---
 name: "alpha-vantage-automation"
 description_en: "Automate Alpha Vantage tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Alpha Vantage görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemaları kontrol etmek için her zaman önce araçları araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

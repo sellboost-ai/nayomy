@@ -1,6 +1,7 @@
 ---
 name: "rishijatia/fantasy-pl-mcp"
 description: "An MCP server for real-time Fantasy Premier League data and analysis tools."
+description_tr: "Fantasy Premier League verilerini gerçek zamanlı olarak sorgulayabileceğiniz ve analiz yapabileceğiniz bir MCP sunucusu."
 category: "Gaming"
 repo: "rishijatia/fantasy-pl-mcp"
 stars: 70

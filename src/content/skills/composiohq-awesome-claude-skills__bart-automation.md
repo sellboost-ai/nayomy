@@ -1,6 +1,7 @@
 ---
 name: "bart-automation"
 description_en: "Automate Bart tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Bart görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları aratın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

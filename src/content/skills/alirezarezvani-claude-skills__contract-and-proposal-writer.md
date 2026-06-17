@@ -1,6 +1,7 @@
 ---
 name: "contract-and-proposal-writer"
 description_en: "Generate professional, jurisdiction-aware business documents: freelance contracts, project proposals, SOWs, NDAs, and MSAs. Structured Markdown output with docx conversion instructions. Covers US (Delaware), EU (GDPR), UK, and DACH (German law) jurisdictions. Not a substitute for legal counsel — use as strong starting points. Use when drafting a freelance contract, preparing a client proposal, wri"
+description_tr: "Profesyonel, yasal çerçeveye uygun işletme belgeleri oluşturun: freelance kontratları, proje teklifleri, SOW'lar, NDA'lar ve MSA'lar. Yapılandırılmış Markdown çıktısı ve docx dönüştürme talimatları sunulur. ABD (Delaware), AB (GDPR), İngiltere ve DACH (Alman hukuku) yetki alanlarını kapsar. Hukuki danışmanlık yerini tutmaz — güçlü başlangıç noktaları olarak kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

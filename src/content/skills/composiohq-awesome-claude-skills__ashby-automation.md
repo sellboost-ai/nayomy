@@ -1,6 +1,7 @@
 ---
 name: "Ashby Automation"
 description_en: "Automate recruiting and hiring workflows in Ashby -- manage candidates, jobs, applications, interviews, and notes through natural language commands."
+description_tr: "Ashby'de işe alım ve özgeçmiş yönetimi iş akışlarını otomatikleştirin -- adayları, pozisyonları, başvuruları, görüşmeleri ve notları doğal dil komutlarıyla yönetin."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

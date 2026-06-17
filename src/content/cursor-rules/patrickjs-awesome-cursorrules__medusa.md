@@ -2,6 +2,7 @@
 name: "medusa"
 clean_name: "Medusa"
 description: "Medusa rules and best practices. These rules should be used when building applications with Medusa."
+description_tr: "Medusa kuralları ve en iyi uygulamalar. Bu kurallar Medusa ile uygulama geliştirirken kullanılmalıdır."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

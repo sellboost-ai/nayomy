@@ -1,6 +1,7 @@
 ---
 name: "decide"
 description_en: "/cs:decide <memo> — Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Use when the founder has approved a boardroom memo and the decision must become durable company memory — e.g. right after /cs:boardroom concludes."
+description_tr: "/cs:decide <memo> — Bir kararı decision-logger aracılığıyla iki katmanlı belleğe kaydeder. Onaylanan memo kalıcı hale gelir; ham transkriptler referans için tutulur. Kurucu bir boardroom memosu onayladığında ve karar şirketin kalıcı belleğine geçmesi gerektiğinde kullanılır — örneğin /cs:boardroom sonlandıktan hemen sonra."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

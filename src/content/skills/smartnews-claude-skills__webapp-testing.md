@@ -1,6 +1,7 @@
 ---
 name: "webapp-testing"
 description_en: "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs."
+description_tr: "Playwright kullanarak yerel web uygulamalarıyla etkileşim kurmak ve test etmek için bir toolkit. Frontend işlevselliğini doğrulama, UI davranışında debugging, tarayıcı screenshot'ı alma ve browser log'larını görüntüleme özelliklerini destekler."
 category: "Design"
 repo: "smartnews/claude-skills"
 stars: 2

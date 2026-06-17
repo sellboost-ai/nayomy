@@ -1,6 +1,7 @@
 ---
 name: "faebryk"
 description_en: "How Faebryk's TypeGraph works (GraphView + Zig edges), how to traverse/resolve references, and how FabLL types/traits map onto edge types. Use when working with TypeGraph traversal, edge types, or building type-aware queries."
+description_tr: "Faebryk'nin TypeGraph'ının nasıl çalıştığını (GraphView + Zig edges), referansları traverse etme/resolve etme yöntemlerini ve FabLL types/traits'in edge types'a nasıl map edildiğini açıklar. TypeGraph traversal, edge types veya type-aware query'ler oluştururken kullanın."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3406

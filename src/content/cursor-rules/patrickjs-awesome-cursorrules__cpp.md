@@ -2,6 +2,7 @@
 name: "cpp"
 clean_name: "Cpp"
 description: "Guide Cursor to write modern C++ and CMake code with clear structure, RAII, const-correctness, and safe error handling."
+description_tr: "Guide Cursor, modern C++ ve CMake kodunu açık yapı, RAII, const-correctness ve güvenli error handling ile yazmanızda yardımcı olur."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

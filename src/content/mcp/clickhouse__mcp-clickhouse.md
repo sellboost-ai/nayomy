@@ -1,6 +1,7 @@
 ---
 name: "ClickHouse/mcp-clickhouse"
 description: "ClickHouse database integration with schema inspection and query capabilities"
+description_tr: "ClickHouse veritabanı entegrasyonu, şema incelemesi ve sorgu yetenekleri ile"
 category: "Databases"
 repo: "ClickHouse/mcp-clickhouse"
 stars: 802

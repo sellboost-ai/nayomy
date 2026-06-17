@@ -1,6 +1,7 @@
 ---
 name: "atlassian-templates"
 description_en: "Atlassian Template and Files Creator/Modifier expert for creating, modifying, and managing Jira and Confluence templates, blueprints, custom layouts, reusable components, and standardized content structures. Use when building org-wide templates, custom blueprints, page layouts, and automated content generation."
+description_tr: "Jira ve Confluence şablonları, blueprintleri, özel layoutları, yeniden kullanılabilir bileşenleri ve standart içerik yapılarını oluşturmak, değiştirmek ve yönetmek için uzmanlaşmış Atlassian aracı. Organizasyonun genelinde kullanılacak şablonlar, custom blueprintler, sayfa layoutları ve otomatik içerik üretimi için kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

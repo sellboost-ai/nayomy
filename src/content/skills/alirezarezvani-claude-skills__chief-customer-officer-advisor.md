@@ -1,6 +1,7 @@
 ---
 name: "chief-customer-officer-advisor"
 description_en: "Chief Customer Officer advisory for startups: retention decomposition (gross retention vs NRR honesty, churn root-cause taxonomy), customer segmentation strategy (differential investment across tiers + ICP fit scoring), CS team coverage model (pooled vs named CSM thresholds + ratio math), and CS team org evolution (CS vs Support vs AM distinctions). Use when designing retention strategy, segmentin"
+description_tr: "Startuplar için müşteri saklama stratejisi danışmanlığı: gross retention ve NRR analizi, müşteri segmentasyonu (katmanlara göre farklılaştırılmış yatırım ve ICP skoru), CS takım modelleri (pooled vs named CSM eşikleri), ve CS örgütsel yapı evrimini (CS, Support, AM ayrımları) kapsayan toolkit. Saklama stratejinizi tasarlarken ve müşteri segmentasyonunda kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

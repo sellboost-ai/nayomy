@@ -1,6 +1,7 @@
 ---
 name: "compliance-readiness"
 description_en: "/cs:compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before starting a new framework, planning the annual audit calendar, or preparing for certification stage 1."
+description_tr: "/cs:compliance-readiness <program> — Herhangi bir compliance programını 6 sorulu zorlayıcı sorgulama yöntemiyle değerlendiren multi-framework compliance aracı. Yeni bir framework başlamadan önce, yıllık audit takvimini planlarken veya sertifikasyon aşama 1'e hazırlanırken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

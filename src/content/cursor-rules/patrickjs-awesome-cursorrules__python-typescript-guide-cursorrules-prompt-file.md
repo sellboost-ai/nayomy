@@ -2,6 +2,7 @@
 name: "python--typescript-guide-cursorrules-prompt-file"
 clean_name: "Python TypeScript Guide"
 description: "Cursor rules for Python development with TypeScript guide integration."
+description_tr: "Python geliştirme için Cursor kuralları ve TypeScript kılavuz entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

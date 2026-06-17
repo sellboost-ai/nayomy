@@ -1,6 +1,7 @@
 ---
 name: "cs-product-analyst"
 description_en: "Product analytics agent for KPI definition, dashboard setup, experiment design, and test result interpretation. Use when a product question needs numbers — e.g., defining activation/retention KPIs and a dashboard spec for a new feature, or sizing an A/B test and judging whether the result is significant enough to ship."
+description_tr: "Ürün metriklerini tanımlamak, dashboard kurmak, deneyler tasarlamak ve sonuçları yorumlamak için analitik aracı. Aktivasyon/retention KPI'ları tanımlamak, yeni özellik için dashboard spec hazırlamak, A/B test boyutlandırmak veya sonucun yayına almaya yetecek kadar anlamlı olup olmadığını değerlendirmek gibi sayılara ihtiyaç duyulan ürün soruları için kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

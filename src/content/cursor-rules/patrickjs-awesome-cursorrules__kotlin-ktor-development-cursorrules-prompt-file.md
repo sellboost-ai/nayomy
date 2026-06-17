@@ -2,6 +2,7 @@
 name: "kotlin-ktor-development-cursorrules-prompt-file"
 clean_name: "Kotlin Ktor Development"
 description: "Cursor rules for Kotlin development with Ktor integration."
+description_tr: "Kotlin geliştirme için Cursor kuralları ve Ktor entegrasyonu içerir."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

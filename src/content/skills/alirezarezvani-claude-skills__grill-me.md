@@ -1,6 +1,7 @@
 ---
 name: "grill-me"
 description_en: "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\"."
+description_tr: "Kullanıcıyı bir plan veya tasarım hakkında anlaşılan noktaya ulaşana kadar derinlemesine sorgula ve karar ağacının her dalını çöz. Kullanıcı planını stress-test etmek, tasarımı hakkında sorgulanmak istediğinde veya \"beni sorgula\" dediğinde kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

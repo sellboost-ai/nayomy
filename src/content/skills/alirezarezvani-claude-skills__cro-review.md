@@ -1,6 +1,7 @@
 ---
 name: "cro-review"
 description_en: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team."
+description_tr: "/cs:cro-review <plan> — Revenue, win rate, NRR ve ramp time'ın derinlemesine analizi yapan pipeline kontrol aracı. Pipeline coverage hedefini kaçırdığınızda, win rate düştüğünde veya satış ekibini ölçeklendirmeden önce kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

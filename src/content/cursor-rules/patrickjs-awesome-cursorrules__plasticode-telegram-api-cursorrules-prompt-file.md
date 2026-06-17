@@ -2,6 +2,7 @@
 name: "plasticode-telegram-api-cursorrules-prompt-file"
 clean_name: "Plasticode Telegram API"
 description: "Cursor rules for Plasticode development with Telegram API integration."
+description_tr: "Telegram API entegrasyonlu Plasticode geliştirme için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

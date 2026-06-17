@@ -2,6 +2,7 @@
 name: "github-code-quality-cursorrules-prompt-file"
 clean_name: "Github Code Quality"
 description: "Cursor rules for GitHub development with code quality integration."
+description_tr: "GitHub geliştirmesi için Cursor kuralları ve kod kalitesi entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

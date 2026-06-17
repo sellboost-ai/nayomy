@@ -2,6 +2,7 @@
 name: "react"
 clean_name: "React"
 description: "React best practices and patterns for modern web applications"
+description_tr: "React uygulamalarında en iyi pratikler ve modern web geliştirme desenleri"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

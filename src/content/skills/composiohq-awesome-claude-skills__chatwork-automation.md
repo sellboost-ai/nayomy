@@ -1,6 +1,7 @@
 ---
 name: "chatwork-automation"
 description_en: "Automate Chatwork tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Chatwork görevlerini otomatikleştirin. Her zaman güncel şemaları için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

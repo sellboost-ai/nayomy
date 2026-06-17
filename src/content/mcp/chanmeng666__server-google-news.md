@@ -1,6 +1,7 @@
 ---
 name: "ChanMeng666/server-google-news"
 description: "Google News integration with automatic topic categorization, multi-language support, and comprehensive search capabilities including headlines, stories, and related topics through SerpAPI."
+description_tr: "Google News entegrasyonu otomatik konu kategorileştirmesi, çok dillendirme desteği ve SerpAPI üzerinden başlıklar, hikayeler ve ilgili konuları kapsayan kapsamlı arama yetenekleriyle birlikte gelir."
 category: "Search & Data Extraction"
 repo: "ChanMeng666/server-google-news"
 stars: 124

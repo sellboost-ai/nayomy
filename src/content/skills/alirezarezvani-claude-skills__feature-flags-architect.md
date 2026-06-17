@@ -1,6 +1,7 @@
 ---
 name: "feature-flags-architect"
 description_en: "Use when adding, retiring, or auditing feature flags. Triggers on \"add a flag\", \"ship behind a flag\", \"rollout plan\", \"kill switch\", \"stale flags\", \"flag debt\", \"LaunchDarkly\", \"GrowthBook\", \"Statsig\", \"Unleash\", \"Flipt\", or any progressive-delivery question. Ships flag debt scanner, rollout planner, and kill-switch auditor (all stdlib Python), 4 references on flag taxonomy + provider trade-offs +"
+description_tr: "Feature flag yönetimi, emeklilik veya denetim işlemleri için kullanılır; \"flag ekle\", \"feature flag arkasında gönder\", \"rollout planı\", \"kill switch\", \"eski flaglar\", \"flag debt\" gibi komutlar veya LaunchDarkly, GrowthBook, Statsig, Unleash, Flipt gibi araçlarla ilgili sorularda tetiklenir. Flag debt scanner, rollout planner ve kill-switch auditor (stdlib Python) ile birlikte gelir; flag taxonomy, provider karşılaştırması ve progressive delivery stratejileri hakkında 4 referans içerir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

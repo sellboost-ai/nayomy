@@ -1,6 +1,7 @@
 ---
 name: "chro-advisor"
 description_en: "People leadership for scaling companies. Hiring strategy, compensation design, org structure, culture, and retention. Use when building hiring plans, designing comp frameworks, restructuring teams, managing performance, building culture, or when user mentions CHRO, HR, people strategy, talent, headcount, compensation, org design, retention, or performance management."
+description_tr: "İnsan kaynakları ve organizasyon yönetimi çözümleri. İşe alım stratejisi, kompenzasyon tasarımı, org yapısı, şirket kültürü ve çalışan tutunumu konularında yardımcı olur. İşe alım planları oluştururken, kompenzasyon çerçeveleri tasarlarken, takımları yeniden yapılandırırken, performans yönetimi yaparken veya kültür geliştirirken kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

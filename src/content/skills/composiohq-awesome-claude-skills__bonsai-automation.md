@@ -1,6 +1,7 @@
 ---
 name: "bonsai-automation"
 description_en: "Automate Bonsai tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Bonsai görevlerini otomatikleştirin. Her zaman mevcut şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

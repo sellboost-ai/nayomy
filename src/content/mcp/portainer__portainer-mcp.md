@@ -1,6 +1,7 @@
 ---
 name: "portainer/portainer-mcp"
 description: "A powerful MCP server that enables AI assistants to seamlessly interact with Portainer instances, providing natural language access to container management, deployment operations, and infrastructure monitoring capabilities."
+description_tr: "Portainer örnekleriyle sorunsuz iletişim kuran, doğal dil aracılığıyla container yönetimi, deployment işlemleri ve altyapı izleme yeteneklerine erişim sağlayan güçlü bir MCP server."
 category: "Cloud Platforms"
 repo: "portainer/portainer-mcp"
 stars: 181

@@ -1,6 +1,7 @@
 ---
 name: "githejie/mcp-server-calculator"
 description: "This server enables LLMs to use calculator for precise numerical calculations"
+description_tr: "Bu sunucu, LLM'lerin kesin sayısal hesaplamalar için hesaplayıcı kullanmasını sağlar."
 category: "Other Tools and Integrations"
 repo: "githejie/mcp-server-calculator"
 stars: 148

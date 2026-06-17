@@ -1,6 +1,7 @@
 ---
 name: "doc-coauthoring"
 description_en: "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or "
+description_tr: "Kullanıcıları belgelendirme konusunda işbirlikçi yazım için yapılandırılmış bir workflow içinde rehber etmek için kullanılır. Kullanıcı belgelendirme, teknik özellikler, karar dokümanları veya benzer yapılandırılmış içerik yazma istediğinde harekete geçer. Bu workflow, bağlamı verimli bir şekilde aktarmaya, içeriği yinelemelerle geliştirmeye ve dokümanın okuyucular için işe yaradığını doğrulamaya yardımcı olur."
 category: "Document"
 repo: "anthropics/skills"
 stars: 151641

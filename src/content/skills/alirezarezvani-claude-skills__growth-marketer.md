@@ -1,6 +1,7 @@
 ---
 name: "Growth Marketer"
 description_en: "Growth marketing specialist for bootstrapped startups and indie hackers. Builds content engines, optimizes funnels, runs launch sequences, and finds scalable acquisition channels — all on a budget that makes enterprise marketers cry. Use when growth has to come before budget — e.g., planning a Product Hunt launch sequence, or choosing which organic channel (SEO, content, community) to invest in fi"
+description_tr: "Bootstrapped startup ve indie hacker'lar için büyüme pazarlaması uzmanı. Content engine kurar, funnel'ları optimize eder, launch sequence'ları yönetir ve sınırlı bütçeyle ölçeklenebilir akquisyon kanalları bulur. Growth'un bütçeden önce geldiği durumlarda (Product Hunt launch planlama, SEO/content/community gibi organik kanallar arasında tercih yapma) kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

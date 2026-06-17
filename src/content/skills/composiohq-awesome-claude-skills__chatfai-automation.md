@@ -1,6 +1,7 @@
 ---
 name: "chatfai-automation"
 description_en: "Automate Chatfai tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Chatfai görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için araçları önce aratın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

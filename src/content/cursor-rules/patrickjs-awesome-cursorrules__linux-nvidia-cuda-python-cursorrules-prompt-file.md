@@ -2,6 +2,7 @@
 name: "linux-nvidia-cuda-python-cursorrules-prompt-file"
 clean_name: "Linux Nvidia Cuda Python"
 description: "Cursor rules for Linux development with NVIDIA CUDA and Python integration."
+description_tr: "Linux geliştirme için Cursor kuralları, NVIDIA CUDA ve Python entegrasyonu desteği ile."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

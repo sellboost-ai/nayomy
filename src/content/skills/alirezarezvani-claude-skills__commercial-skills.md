@@ -1,6 +1,7 @@
 ---
 name: "commercial-skills"
 description_en: "Use when reviewing, approving, or designing commercial motion — pricing models, deal review, discount approval, partnership economics, channel mix, commercial policy, RFP/RFI response, bookings forecast. Triggers on \"review this deal\", \"should we discount\", \"pricing model\", \"partner economics\", \"RFP response\", \"bookings forecast\", \"channel mix\". Forks context to route to one of seven Commercial su"
+description_tr: "Ticari anlaşmaları inceleme, onaylama ve tasarlamak için kullanın — fiyatlandırma modelleri, anlaşma değerlendirmesi, indirim onayı, ortaklık ekonomisi, kanal karması, ticari politika, RFP/RFI yanıtları ve rezervasyon tahmini. \"Bu anlaşmayı incele\", \"indirim verelim mi\", \"fiyatlandırma modeli\", \"ortak ekonomisi\", \"RFP yanıtı\", \"rezervasyon tahmini\", \"kanal karması\" gibi tetikleyicilerle aktivleşir ve bağlamı yedi Ticari alt alanından birine yönlendirir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "better-stack-automation"
 description_en: "Automate Better Stack tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Better Stack görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları görmek için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

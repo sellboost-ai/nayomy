@@ -1,6 +1,7 @@
 ---
 name: "natsukium/mcp-servers-nix"
 description: "A Nix-based configuration framework for Model Context Protocol (MCP) servers with ready-to-use packages."
+description_tr: "Model Context Protocol (MCP) sunucuları için Nix tabanlı bir konfigürasyon framework'ü, kullanıma hazır paketlerle birlikte."
 category: "Developer Tools"
 repo: "natsukium/mcp-servers-nix"
 stars: 263

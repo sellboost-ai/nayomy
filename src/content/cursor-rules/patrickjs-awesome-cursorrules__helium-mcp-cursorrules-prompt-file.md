@@ -2,6 +2,7 @@
 name: "helium-mcp-cursorrules-prompt-file"
 clean_name: "Helium Mcp"
 description: "Cursor rules for Helium Mcp."
+description_tr: "Helium Mcp için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -2,6 +2,7 @@
 name: "go"
 clean_name: "Go"
 description: "Idiomatic Go rules. Explicit error handling, interface-based design, context-first concurrency."
+description_tr: "Go'nun idiomatik kuralları. Açık hata yönetimi, interface tabanlı tasarım, context-first eşzamanlılık."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "confluence-expert"
 description_en: "Atlassian Confluence expert for creating and managing spaces, knowledge bases, and documentation. Configures space permissions and hierarchies, creates page templates with macros, sets up documentation taxonomies, designs page layouts, and manages content governance. Use when users need to build or restructure a Confluence space, design page hierarchies with permission structures, author or standa"
+description_tr: "Atlassian Confluence uzmanı, alanlar, bilgi tabanları ve dokümantasyon oluşturmak ve yönetmek için. Alan izinleri ve hiyerarşileri yapılandırır, makrolarla sayfa şablonları oluşturur, dokümantasyon taksonomi kurar, sayfa düzenlerini tasarlar ve içerik yönetişimini yönetir. Kullanıcıların bir Confluence alanı oluşturması veya yeniden yapılandırması, izin yapılarıyla sayfa hiyerarşileri tasarlaması ya da içerik yazması gerektiğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "Agent Name"
 description_en: "One paragraph describing what this agent does, who it's for, and when to activate it."
+description_tr: "I need the actual English text to translate. Please provide the specific paragraph describing the agent, its purpose, target users, and activation conditions, and I'll translate it to Turkish following your guidelines."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

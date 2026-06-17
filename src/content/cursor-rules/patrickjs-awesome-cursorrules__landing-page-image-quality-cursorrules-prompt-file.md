@@ -2,6 +2,7 @@
 name: "landing-page-image-quality-cursorrules-prompt-file"
 clean_name: "Landing Page Image Quality"
 description: "Cursor rules for avoiding placeholder or broken image URLs, using stable visual assets, and checking alt text, dimensions, licensing, and responsive behavior."
+description_tr: "Yer tutucu veya bozuk görüntü URL'lerinden kaçınmak, kararlı görsel varlıklar kullanmak ve alt metni, boyutları, lisanslamayı ve responsive davranışı kontrol etmek için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

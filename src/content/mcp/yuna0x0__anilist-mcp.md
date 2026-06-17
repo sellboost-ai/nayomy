@@ -1,6 +1,7 @@
 ---
 name: "yuna0x0/anilist-mcp"
 description: "A MCP server integrating AniList API for anime and manga information"
+description_tr: "AniList API'yi entegre eden ve anime ile manga bilgisi sağlayan bir MCP sunucusu"
 category: "Art & Culture"
 repo: "yuna0x0/anilist-mcp"
 stars: 78

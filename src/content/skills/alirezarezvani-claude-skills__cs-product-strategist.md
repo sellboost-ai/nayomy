@@ -1,6 +1,7 @@
 ---
 name: "cs-product-strategist"
 description_en: "Product strategy agent for quarterly OKR planning, competitive landscape analysis, product vision development, and strategy pivot evaluation. Use when the question is direction rather than delivery — e.g., cascading company OKRs into product-team objectives for next quarter, or running a competitive teardown to decide whether to enter an adjacent market."
+description_tr: "Üç aylık OKR planlaması, rekabet analizi, ürün vizyonu geliştirme ve strateji pivot değerlendirmesi için tasarlanmış ürün stratejisi ajanı. Sorunun operasyonel detaylardan ziyade yön belirleme ile ilgili olduğu durumlarda kullanın — örneğin şirket OKR'lerini ürün takımının sonraki çeyrek hedeflerine dönüştürmek veya yeni bir pazar segmentine girmek için rekabet analizi yapmak."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

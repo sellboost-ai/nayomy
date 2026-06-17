@@ -1,6 +1,7 @@
 ---
 name: "OctagonAI/octagon-deep-research-mcp"
 description: "Lightning-Fast, High-Accuracy Deep Research Agent"
+description_tr: "Işık hızında çalışan, yüksek doğruluklu derin araştırma ajanı."
 category: "Search & Data Extraction"
 repo: "OctagonAI/octagon-deep-research-mcp"
 stars: 92

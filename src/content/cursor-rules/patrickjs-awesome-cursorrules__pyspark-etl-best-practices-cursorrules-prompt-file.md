@@ -2,6 +2,7 @@
 name: "pyspark-etl-best-practices-cursorrules-prompt-file"
 clean_name: "Pyspark Etl Best Practices"
 description: "Cursor rules for PySpark ETL development with code style, joins, window functions, map operations, and Iceberg patterns."
+description_tr: "PySpark ETL geliştirmesi için cursor kuralları; kod stili, joins, window functions, map operations ve Iceberg patterns konularını içerir."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

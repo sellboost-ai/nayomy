@@ -1,6 +1,7 @@
 ---
 name: "google-workspace-cli"
 description_en: "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits and use local recipe templates and persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
+description_tr: "gws CLI (github.com/googleworkspace/cli) ile Google Workspace yönetimini otomatikleştirin. Gmail, Drive, Sheets, Calendar, Docs, Chat ve Tasks'ı kurulum, kimlik doğrulama ve otomasyon ile yönetin; güvenlik denetimi çalıştırın ve yerel recipe şablonları ile persona bundle'ları kullanın. Google Workspace admin, gws CLI kurulumu, Gmail otomasyonu, Drive yönetimi ve Calendar planlama için ideal."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

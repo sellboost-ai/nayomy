@@ -1,6 +1,7 @@
 ---
 name: "Cloudinary Automation"
 description_en: "Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and usage monitoring through natural language commands"
+description_tr: "Cloudinary medya yönetimini klasör düzenleme, upload preset'leri, asset arama, transformasyonlar ve kullanım izlemesi dahil olmak üzere doğal dil komutlarıyla otomatikleştirin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

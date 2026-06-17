@@ -1,6 +1,7 @@
 ---
 name: "addresszen-automation"
 description_en: "Automate Addresszen tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Addresszen görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemaları bulmak için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

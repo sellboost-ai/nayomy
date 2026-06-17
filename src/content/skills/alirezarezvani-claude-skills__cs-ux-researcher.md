@@ -1,6 +1,7 @@
 ---
 name: "cs-ux-researcher"
 description_en: "UX research agent for research planning, persona generation, journey mapping, and usability test analysis. Use when product decisions need user evidence — e.g., planning interview scripts and recruiting criteria for a discovery study, or synthesizing usability-test sessions into prioritized findings and updated personas."
+description_tr: "UX araştırması aracı; araştırma planlaması, persona oluşturma, journey mapping ve kullanılabilirlik testi analizi için tasarlanmıştır. Ürün kararlarına kullanıcı kanıtı gerektiğinde kullanılır — örneğin görüşme senaryoları ve keşif çalışması için katılımcı seçim kriterleri planlarken veya kullanılabilirlik test oturumlarını önceliklendirilmiş bulgular ve güncellenmiş personalar halinde sentezlerken."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

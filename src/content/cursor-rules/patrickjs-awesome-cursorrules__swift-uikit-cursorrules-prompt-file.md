@@ -2,6 +2,7 @@
 name: "swift-uikit-cursorrules-prompt-file"
 clean_name: "Swift Uikit"
 description: "Cursor rules for Swift Uikit."
+description_tr: "Swift UIKit için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

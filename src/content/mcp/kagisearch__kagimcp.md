@@ -1,6 +1,7 @@
 ---
 name: "kagisearch/kagimcp"
 description: "Official Kagi Search MCP Server"
+description_tr: "Kagi Search'in Resmi MCP Sunucusu"
 category: "Search & Data Extraction"
 repo: "kagisearch/kagimcp"
 stars: 420

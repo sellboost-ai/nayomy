@@ -2,6 +2,7 @@
 name: "project-epic-template-cursorrules-prompt-file"
 clean_name: "Project Epic Template"
 description: "Cursor rules for project development with epic template integration."
+description_tr: "Proje geliştirme için cursor kuralları ve epic template entegrasyonu ile birlikte gelir."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

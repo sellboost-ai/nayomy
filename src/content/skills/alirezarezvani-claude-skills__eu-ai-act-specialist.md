@@ -1,6 +1,7 @@
 ---
 name: "eu-ai-act-specialist"
 description_en: "EU AI Act (Regulation (EU) 2024/1689) operational compliance for compliance teams. Three Article-level decisions: (1) What's the risk tier of this AI system — prohibited (Art. 5), high-risk (Art. 6 + Annex III), limited-risk (Art. 50), or minimal-risk? (2) For high-risk systems, what's the Article 43 conformity assessment route (Module A internal control vs Module H full QMS + notified body) and w"
+description_tr: "EU AI Act (Regulation (EU) 2024/1689) uyum sağlama için compliance ekiplerine yönelik operasyonel çözüm. Üç Madde seviyesi karar: (1) Bu AI sisteminin risk seviyesi nedir — yasak (Mad. 5), yüksek risk (Mad. 6 + Annex III), sınırlı risk (Mad. 50) veya minimal risk? (2) Yüksek riskli sistemler için Article 43 uyum değerlendirme yolu nedir (Modül A iç kontrol vs Modül H tam QMS + notified body) ve..."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

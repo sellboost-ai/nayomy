@@ -2,6 +2,7 @@
 name: "drupal-11-cursorrules-prompt-file"
 clean_name: "Drupal 11"
 description: "Cursor rules for Drupal 11 development."
+description_tr: "Drupal 11 geliştirme için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "blackbaud-automation"
 description_en: "Automate Blackbaud tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Blackbaud görevlerini otomatikleştirin. Her zaman güncel şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

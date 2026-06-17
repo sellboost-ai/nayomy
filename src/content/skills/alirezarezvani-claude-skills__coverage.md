@@ -1,6 +1,7 @@
 ---
 name: "coverage"
 description_en: ">- Analyze test coverage gaps. Use when user says \"test coverage\", \"what's not tested\", \"coverage gaps\", \"missing tests\", \"coverage report\", or \"what needs testing\"."
+description_tr: "Test kapsamı boşluklarını analiz edin. \"test coverage\", \"hangisi test edilmemiş\", \"coverage boşlukları\", \"eksik testler\", \"coverage raporu\" veya \"neyin test edilmesi gerekiyor\" gibi ifadeler kullanıldığında kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

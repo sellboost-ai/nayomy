@@ -1,6 +1,7 @@
 ---
 name: "atlassian-automation"
 description_en: "Automate Atlassian tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Atlassian görevlerini Rube MCP (Composio) ile otomatikleştirin. Güncel şemaları için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

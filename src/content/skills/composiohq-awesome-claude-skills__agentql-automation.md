@@ -1,6 +1,7 @@
 ---
 name: "agentql-automation"
 description_en: "Automate Agentql tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Agentql görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

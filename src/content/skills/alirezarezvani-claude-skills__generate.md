@@ -1,6 +1,7 @@
 ---
 name: "generate"
 description_en: ">- Generate Playwright tests. Use when user says \"write tests\", \"generate tests\", \"add tests for\", \"test this component\", \"e2e test\", \"create test for\", \"test this page\", or \"test this feature\"."
+description_tr: "Playwright testleri oluşturun. Kullanıcı \"test yaz\", \"test oluştur\", \"için test ekle\", \"bu component'i test et\", \"e2e test\", \"test oluştur\", \"bu sayfayı test et\" veya \"bu özelliği test et\" dediğinde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

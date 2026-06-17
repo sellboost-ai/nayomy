@@ -1,6 +1,7 @@
 ---
 name: "skill-creator"
 description_en: "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy."
+description_tr: "Sıfırdan yeni skill'ler oluşturun, mevcut skill'leri düzenleyin ve performanslarını ölçün. Skill'ler üzerinde evals çalıştırarak test etme, performans benchmark'lama ve varyans analizi yapma, ya da triggering doğruluğunu artırmak için skill tanımlarını optimize etme işlemleri için kullanın."
 category: "Development"
 repo: "anthropics/skills"
 stars: 151641

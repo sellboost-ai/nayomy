@@ -1,6 +1,7 @@
 ---
 name: "tumourlove/monolith"
 description: "Unreal Engine 5.7 editor plugin that gives AI assistants full read/write access to Blueprints, Materials, Animation, Niagara, Config, Editor, Project Index, and Engine Source via MCP. 119 actions across 9 domains. Pure C++, embedded Streamable HTTP server, no Python bridges."
+description_tr: "Unreal Engine 5.7 editor plugin'i olup AI asistanlarına Blueprint, Material, Animation, Niagara, Config, Editor, Project Index ve Engine Source'a MCP üzerinden tam okuma/yazma erişimi sağlar. 9 alanda 119 action, saf C++ ve gömülü Streamable HTTP server ile Python köprüsü yoktur."
 category: "Gaming"
 repo: "tumourlove/monolith"
 stars: 166

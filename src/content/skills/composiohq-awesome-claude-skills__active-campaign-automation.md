@@ -1,6 +1,7 @@
 ---
 name: "active-campaign-automation"
 description_en: "Automate ActiveCampaign tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "ActiveCampaign görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

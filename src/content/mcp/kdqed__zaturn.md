@@ -1,6 +1,7 @@
 ---
 name: "kdqed/zaturn"
 description: "Link multiple data sources (SQL, CSV, Parquet, etc.) and ask AI to analyze the data for insights and visualizations."
+description_tr: "Birden fazla veri kaynağını (SQL, CSV, Parquet, vb.) bağlayın ve AI'dan verilerinizi analiz etmesini isteyerek insights ve visualizasyonlar elde edin."
 category: "Data Science Tools"
 repo: "kdqed/zaturn"
 stars: 74

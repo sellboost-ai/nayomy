@@ -1,6 +1,7 @@
 ---
 name: "BurtTheCoder/mcp-virustotal"
 description: "MCP server for querying the VirusTotal API. This server provides tools for scanning URLs, analyzing file hashes, and retrieving IP address reports."
+description_tr: "VirusTotal API'sini sorgulamak için MCP sunucusu. Bu sunucu, URL'leri taramak, dosya hash'lerini analiz etmek ve IP adresi raporlarını almak için araçlar sağlar."
 category: "Security"
 repo: "BurtTheCoder/mcp-virustotal"
 stars: 133

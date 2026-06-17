@@ -2,6 +2,7 @@
 name: "react-chakra-ui-cursorrules-prompt-file"
 clean_name: "React Chakra UI"
 description: "Cursor rules for React development with Chakra UI integration."
+description_tr: "Chakra UI entegrasyonlu React geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "Clockify Automation"
 description_en: "Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural language commands."
+description_tr: "Clockify'da zaman takibi iş akışlarını otomatikleştirin — doğal dil komutları aracılığıyla time entry'ler, workspace'ler ve kullanıcıları oluşturun ve yönetin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -1,6 +1,7 @@
 ---
 name: "board-deck-builder"
 description_en: "Assembles comprehensive board and investor update decks by pulling perspectives from all C-suite roles. Use when preparing board meetings, investor updates, quarterly business reviews, or fundraising narratives. Covers structure, narrative framework, bad news delivery, and common mistakes."
+description_tr: "C-suite'in tüm perspektiflerini bir araya getirerek kapsamlı board ve investor presentation'ları oluşturur. Board toplantıları, investor güncellemeleri, quarterly business review'lar veya fundraising narrative'leri hazırlarken kullanın. Yapı, anlatı çerçevesi, kötü haberlerin sunumu ve yaygın hataları kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

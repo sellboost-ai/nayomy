@@ -1,6 +1,7 @@
 ---
 name: "bannerbear-automation"
 description_en: "Automate Bannerbear tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Bannerbear görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemalar için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

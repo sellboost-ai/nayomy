@@ -2,6 +2,7 @@
 name: "react-zustand-cursorrules-prompt-file"
 clean_name: "React Zustand"
 description: "React and TypeScript state management guidance for Zustand stores, selectors, middleware, persistence, and testing."
+description_tr: "Zustand mağazaları, selektörler, middleware, persistence ve testing için React ve TypeScript state management rehberi."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

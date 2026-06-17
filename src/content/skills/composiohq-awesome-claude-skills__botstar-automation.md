@@ -1,6 +1,7 @@
 ---
 name: "botstar-automation"
 description_en: "Automate Botstar tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Botstar görevlerini otomatikleştirin. Güncel şemaları için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

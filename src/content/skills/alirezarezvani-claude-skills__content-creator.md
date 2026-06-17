@@ -1,6 +1,7 @@
 ---
 name: "content-creator"
 description_en: "Deprecated redirect skill that routes legacy 'content creator' requests to the correct specialist. Use when a user invokes 'content creator', asks to write a blog post, article, guide, or brand voice analysis (routes to content-production), or asks to plan content, build a topic cluster, or create a content calendar (routes to content-strategy). Does not handle requests directly — identifies user "
+description_tr: "Kullanıcı 'content creator' çağrısını yaptığında veya blog yazısı, makale, rehber, marka sesi analizi (content-production'a yönlendir) ya da içerik planlama, konu kümesi oluşturma, içerik takvimi oluşturma (content-strategy'ye yönlendir) istediğinde eski istekleri doğru uzmanmana yönlendiren deprecated redirect skill. İstekleri doğrudan işlemez — kullanıcı niyetini tanımlar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

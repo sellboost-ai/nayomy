@@ -1,6 +1,7 @@
 ---
 name: "coinranking-automation"
 description_en: "Automate Coinranking tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Coinranking görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Mevcut şemaları kontrol etmek için her zaman önce arama araçlarını kullanın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

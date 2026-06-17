@@ -1,6 +1,7 @@
 ---
 name: "cs-karpathy-reviewer"
 description_en: "Reviews staged git changes against Karpathy's 4 coding principles. Runs complexity_checker on changed files, diff_surgeon on the diff, and produces a verdict with specific fix recommendations. Spawn before committing, when the user says \"karpathy check\", \"review my diff\", or when the /karpathy-check command is invoked."
+description_tr: "Git'e staged edilmiş değişiklikleri Karpathy'nin 4 coding prensibine karşı kontrol eder. Değiştirilen dosyalarda complexity_checker, diff üzerinde diff_surgeon çalıştırır ve spesifik düzeltme önerileriyle birlikte bir sonuç sunar. Kullanıcı \"karpathy check\", \"review my diff\" dediğinde veya /karpathy-check komutu çağrıldığında devreye girer."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

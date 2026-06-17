@@ -1,6 +1,7 @@
 ---
 name: "competitive-teardown"
 description_en: "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when cond"
+description_tr: "Fiyatlandırma sayfaları, uygulama mağazası yorumları, iş ilanları, SEO sinyalleri ve sosyal medya verilerini sentezleyerek rakip ürünleri ve şirketleri analiz eder. 12 boyutta puanlanan özellik karşılaştırma matrisleri, SWOT analizleri, konumlandırma haritaları, UX denemeleri, fiyatlandırma modeli detaylandırmaları, aksiyon planları ve paydaş sunum şablonları üretir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

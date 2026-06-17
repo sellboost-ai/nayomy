@@ -1,6 +1,7 @@
 ---
 name: "cfo-advisor"
 description_en: "Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board financial packages. Use when building financial models, analyzing unit economics, planning fundraising, managing cash runway, preparing board materials, or when user mentions CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheets, or fina"
+description_tr: "Startuplar ve hızlı büyüyen şirketler için finansal liderlik. Financial modeling, unit economics, fundraising strategy, cash management ve board financial packages sunuyor. Financial model oluştururken, unit economics analiz ederken, fundraising planlama, cash runway yönetimi, board materyalleri hazırlama ya da CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheet gibi finansal konularla karşılaştığında kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

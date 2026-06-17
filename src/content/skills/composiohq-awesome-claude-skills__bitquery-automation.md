@@ -1,6 +1,7 @@
 ---
 name: "bitquery-automation"
 description_en: "Automate Bitquery tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Bitquery görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

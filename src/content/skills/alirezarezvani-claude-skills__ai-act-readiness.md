@@ -1,6 +1,7 @@
 ---
 name: "ai-act-readiness"
 description_en: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
+description_tr: "/cs:ai-act-readiness <system> — EU AI Kanunu için 6 soruluk zorunlu değerlendirme. AI sistem entegrasyonu sırasında, AB dağıtımından önce veya Article 113 yükümlülükleri devreye girdikçe yıllık uyum kontrollerinde kullanın (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

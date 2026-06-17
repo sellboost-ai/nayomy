@@ -1,6 +1,7 @@
 ---
 name: "armorwallet/armor-crypto-mcp"
 description: "MCP to interface with multiple blockchains, staking, DeFi, swap, bridging, wallet management, DCA, Limit Orders, Coin Lookup, Tracking and more."
+description_tr: "Birden fazla blockchain ile arayüz oluşturmak, staking, DeFi, swap, bridging, wallet yönetimi, DCA, Limit Orders, Coin Lookup ve tracking gibi işlevleri sağlayan MCP."
 category: "Finance & Fintech"
 repo: "armorwallet/armor-crypto-mcp"
 stars: 181

@@ -2,6 +2,7 @@
 name: "snowflake-cortex-ai-cursorrules-prompt-file"
 clean_name: "Snowflake Cortex AI"
 description: "Cursor rules for Snowflake Cortex AI Functions (AI_COMPLETE, AI_CLASSIFY, AI_EXTRACT, etc.) and Cortex Search for RAG applications."
+description_tr: "Snowflake Cortex AI Functions (AI_COMPLETE, AI_CLASSIFY, AI_EXTRACT, vb.) ve RAG uygulamaları için Cortex Search'e yönelik Cursor kuralları."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

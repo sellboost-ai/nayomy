@@ -1,6 +1,7 @@
 ---
 name: "writing-plans"
 description_en: "Use when you have a spec or requirements for a multi-step task, before touching code"
+description_tr: "Çok adımlı bir görev için spec veya gereksinimleriniz varsa, koda başlamadan önce kullanın."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

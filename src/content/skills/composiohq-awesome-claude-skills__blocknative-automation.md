@@ -1,6 +1,7 @@
 ---
 name: "blocknative-automation"
 description_en: "Automate Blocknative tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Blocknative görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

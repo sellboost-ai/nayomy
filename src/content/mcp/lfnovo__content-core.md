@@ -1,6 +1,7 @@
 ---
 name: "lfnovo/content-core"
 description: "Extract content from URLs, documents, videos, and audio files using intelligent auto-engine selection. Supports web pages, PDFs, Word docs, YouTube transcripts, and more with structured JSON responses."
+description_tr: "URL'ler, belgeler, videolar ve ses dosyalarından içerik çıkarmak için akıllı motor seçimini otomatik olarak kullanan araç. Web sayfaları, PDF'ler, Word belgeler, YouTube transkriptleri ve daha pek çoğundan yapılandırılmış JSON yanıtları ile veri alın."
 category: "Search & Data Extraction"
 repo: "lfnovo/content-core"
 stars: 160

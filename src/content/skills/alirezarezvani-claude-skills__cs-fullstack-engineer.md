@@ -1,6 +1,7 @@
 ---
 name: "cs-fullstack-engineer"
 description_en: "Fullstack-engineering orchestrator. Walks the Matt Pocock 7-question forcing-question grill, runs the deterministic profile picker, then forks into the POWERFUL-tier specialists (api-design-reviewer, ci-cd-pipeline-builder, database-designer, performance-profiler, slo-architect — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context s"
+description_tr: "Fullstack mühendislik orkestratörü. Matt Pocock'un 7 sorudan oluşan zorlayıcı sorgulama yöntemini uygular, deterministik profil seçiciyi çalıştırır, sonra kendi kapsamını yeniden uygulamak yerine POWERFUL-tier uzmanlarına (api-design-reviewer, ci-cd-pipeline-builder, database-designer, performance-profiler, slo-architect — alfabetik sırada; iş akışı sırası bağımlılık odaklı) dağıtır. Kendi konteksti böler."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

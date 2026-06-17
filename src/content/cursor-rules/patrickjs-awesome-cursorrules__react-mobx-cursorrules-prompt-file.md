@@ -2,6 +2,7 @@
 name: "react-mobx-cursorrules-prompt-file"
 clean_name: "React Mobx"
 description: "Cursor rules for React development with MobX integration."
+description_tr: "React geliştirmesi için Cursor kuralları ve MobX entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

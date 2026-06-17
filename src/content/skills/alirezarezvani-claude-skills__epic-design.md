@@ -1,6 +1,7 @@
 ---
 name: "epic-design"
 description_en: "> Build immersive, cinematic 2.5D interactive websites using scroll storytelling, parallax depth, text animations, and premium scroll effects — no WebGL required. Use this skill for any web design task: landing pages, product sites, hero sections, scroll animations, parallax, sticky sections, section overlaps, floating products between sections, clip-path reveals, text that flies in from sides, wo"
+description_tr: "Scroll storytelling, parallax derinlik, metin animasyonları ve premium scroll efektleri ile etkileyici, sinematik 2.5D interaktif web siteler oluşturun — WebGL'e ihtiyaç yok. Bu beceriyi herhangi bir web tasarım görevinde kullanın: landing page'ler, ürün siteleri, hero bölümler, scroll animasyonları, parallax, sticky bölümler, bölüm üst üstelemeleri, bölümler arasında kayan ürünler, clip-path efektleri, kenarlardan hızla gelen metinler."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

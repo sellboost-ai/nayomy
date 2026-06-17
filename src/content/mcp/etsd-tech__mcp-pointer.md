@@ -1,6 +1,7 @@
 ---
 name: "etsd-tech/mcp-pointer"
 description: "Visual DOM element selector for agentic coding tools. Chrome extension + MCP server bridge for Claude Code, Cursor, Windsurf etc. Option+Click to capture elements."
+description_tr: "Agentic coding araçları için görsel DOM element seçici. Claude Code, Cursor, Windsurf gibi araçlar için Chrome extension + MCP server köprüsü. Elementleri yakalamak için Option+Click tuşuna basın."
 category: "Developer Tools"
 repo: "etsd-tech/mcp-pointer"
 stars: 582

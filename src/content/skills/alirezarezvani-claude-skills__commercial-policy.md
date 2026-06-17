@@ -1,6 +1,7 @@
 ---
 name: "commercial-policy"
 description_en: "Use when designing or revising a company's commercial policy — the rules of engagement governing discounts off list price, approver thresholds, exception flows, and the deal framework that Deal Desk and AEs operate under. Covers discount matrix design (ARR band x term length x payment terms x strategic value), commercial policy design, exception policy, discount governance, approval thresholds, de"
+description_tr: "Şirketinizin ticari politikasını tasarlarken veya güncellerken kullanın — liste fiyatından indirimler, onaylayan eşikleri, istisna akışları ve Deal Desk ile AE'lerin çalıştığı anlaşma çerçevesini yönetin. İndirim matrisini tasarlamayı (ARR bandı x dönem uzunluğu x ödeme koşulları x stratejik değer), ticari politika tasarımını, istisna politikasını, indirim yönetişimini ve onay eşiklerini kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

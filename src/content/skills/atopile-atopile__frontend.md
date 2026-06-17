@@ -1,6 +1,7 @@
 ---
 name: "frontend"
 description_en: "Frontend standards for atopile extension webviews: architecture, contracts, design system, and testing workflow."
+description_tr: "Atopile extension webview'leri için frontend standartları: mimarı, sözleşmeler, tasarım sistemi ve test iş akışı."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3406

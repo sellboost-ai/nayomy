@@ -2,6 +2,7 @@
 name: "sveltekit-tailwindcss-typescript-cursorrules-promp"
 clean_name: "SvelteKit Tailwindcss TypeScript Cursorrules Promp"
 description: "Cursor rules for SvelteKit development with Tailwind CSS and TypeScript integration."
+description_tr: "SvelteKit geliştirmesi için Cursor kuralları, Tailwind CSS ve TypeScript entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

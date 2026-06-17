@@ -1,6 +1,7 @@
 ---
 name: "cs-webinar"
 description_en: "/cs:webinar — Webinar & virtual-event marketing workflow. Plan a webinar from scratch (sized backward from the business goal), rescue one whose numbers disappointed (score the funnel, fix the broken stage), or turn a past webinar into an evergreen on-demand lead engine. Covers the full funnel: registration, promotion runway, show-up, live engagement, live-to-close, and segmented follow-up. Treats "
+description_tr: "/cs:webinar — Webinar ve sanal etkinlik pazarlama iş akışı. Sıfırdan bir webinar planlayın (iş hedefinden geriye doğru tasarlayarak), hayal kırıklığı yaratan bir webinarı kurtarın (funnel'i değerlendirin, sorunlu aşamayı düzeltin) veya geçmiş bir webinarı her zaman erişilebilir bir lead üreticisine dönüştürün. Kayıt, promosyon hazırlığı, katılım, canlı etkileşim, canlıdan satışa dönüşüm ve segmentli takip olmak üzere tam funnel'i kapsar."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "storybookjs/mcp"
 description: "Help agents automatically write and test stories for your UI components."
+description_tr: "Ajanların UI bileşenleriniz için otomatik olarak hikaye yazmasını ve test etmesini sağlayın."
 category: "Developer Tools"
 repo: "storybookjs/mcp"
 stars: 255

@@ -1,6 +1,7 @@
 ---
 name: "agent-mail-automation"
 description_en: "Automate Agent Mail tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Agent Mail görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. İşlemleri başlatmadan önce her zaman araçlarda mevcut şemaları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

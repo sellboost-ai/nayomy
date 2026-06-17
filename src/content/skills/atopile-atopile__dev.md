@@ -1,6 +1,7 @@
 ---
 name: "dev"
 description_en: "LLM-focused workflow for working in this repo: compile Zig, run the orchestrated test runner, consume test-report.json/html artifacts, and discover/debug ConfigFlags."
+description_tr: "LLM odaklı iş akışı: bu repo'da Zig derleyin, düzenlenmiş test runner'ı çalıştırın, test-report.json/html artifact'lerini tüketin ve ConfigFlags'i keşfedin/debug edin."
 category: "Design"
 repo: "atopile/atopile"
 stars: 3406

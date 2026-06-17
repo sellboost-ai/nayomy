@@ -1,6 +1,7 @@
 ---
 name: "builtwith-automation"
 description_en: "Automate Builtwith tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Builtwith görevlerini otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

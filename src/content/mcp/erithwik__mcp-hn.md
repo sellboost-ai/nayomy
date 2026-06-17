@@ -1,6 +1,7 @@
 ---
 name: "erithwik/mcp-hn"
 description: "An MCP server to search Hacker News, get top stories, and more."
+description_tr: "Hacker News'de arama yapmanızı, en popüler hikayeleri almanızı ve daha fazlasını sağlayan bir MCP server."
 category: "Search & Data Extraction"
 repo: "erithwik/mcp-hn"
 stars: 73

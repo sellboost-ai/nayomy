@@ -1,6 +1,7 @@
 ---
 name: "supermemory"
 description_en: "Supermemory is a state-of-the-art memory and context infrastructure for AI agents. Use this skill when building applications that need persistent memory, user personalization, long-term context retention, or semantic search across knowledge bases. It provides Memory API for learned user context, User Profiles for static/dynamic facts, and RAG for semantic search. Perfect for chatbots, assistants, "
+description_tr: "Supermemory, AI ajanları için son teknoloji bellek ve bağlam altyapısıdır. Kalıcı bellek, kullanıcı kişiselleştirmesi, uzun dönem bağlam koruması veya bilgi tabanlarında semantik arama gerektiren uygulamalar geliştirirken kullanın. Memory API ile öğrenilen kullanıcı bağlamı, statik/dinamik gerçekler için User Profiles ve semantik arama için RAG sağlar. Chatbotlar ve asistanlar için ideal."
 category: "Design"
 repo: "supermemoryai/supermemory"
 stars: 27099

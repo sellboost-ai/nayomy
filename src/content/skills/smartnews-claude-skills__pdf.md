@@ -1,6 +1,7 @@
 ---
 name: "pdf"
 description_en: "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale."
+description_tr: "PDF belgelerinden metin ve tablo çıkarma, yeni PDF oluşturma, belgeleri birleştirme/bölme ve formlar ile çalışma işlemleri için kapsamlı bir toolkit. Claude'un PDF formları doldurması, programatik olarak PDF belgelerini işlemesi, oluşturması veya ölçekte analiz etmesi gerektiğinde kullanılır."
 category: "Document"
 repo: "smartnews/claude-skills"
 stars: 2

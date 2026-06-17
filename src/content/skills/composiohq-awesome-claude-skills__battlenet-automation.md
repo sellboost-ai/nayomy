@@ -1,6 +1,7 @@
 ---
 name: "battlenet-automation"
 description_en: "Automate Battlenet tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Battlenet görevlerini otomatikleştirin. Güncel schemaları için her zaman önce tools'u araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

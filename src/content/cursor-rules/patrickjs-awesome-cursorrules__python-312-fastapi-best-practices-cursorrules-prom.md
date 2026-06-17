@@ -2,6 +2,7 @@
 name: "python-312-fastapi-best-practices-cursorrules-prom"
 clean_name: "Python 312 FastAPI Best Practices Cursorrules Prom"
 description: "Cursor rules for Python FastAPI development with best practices."
+description_tr: "Python FastAPI geliştirme için cursor rules'ları en iyi uygulamalarla birlikte."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

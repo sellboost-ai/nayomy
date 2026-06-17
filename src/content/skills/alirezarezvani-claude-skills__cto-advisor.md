@@ -1,6 +1,7 @@
 ---
 name: "cto-advisor"
 description_en: "Technical leadership guidance for engineering teams, architecture decisions, and technology strategy. Use when assessing technical debt, scaling engineering teams, evaluating technologies, making architecture decisions, establishing engineering metrics, or when user mentions CTO, tech debt, technical debt, team scaling, architecture decisions, technology evaluation, engineering metrics, DORA metri"
+description_tr: "Mühendislik takımları için teknik liderlik rehberliği, mimari kararlar ve teknoloji stratejisi. Teknik borcu değerlendirirken, mühendislik takımlarını ölçeklerken, teknolojileri değerlendirirken, mimari kararlar alırken, mühendislik metriklerini oluştururken veya kullanıcı CTO, teknik borç, takım ölçeklendirmesi, mimari kararlar, teknoloji değerlendirmesi, mühendislik metrikleri, DORA metrikleri gibi konulardan bahsettiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

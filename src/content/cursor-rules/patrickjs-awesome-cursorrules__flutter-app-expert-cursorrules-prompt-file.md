@@ -2,6 +2,7 @@
 name: "flutter-app-expert-cursorrules-prompt-file"
 clean_name: "Flutter App Expert"
 description: "Cursor rules for Flutter development with expert integration."
+description_tr: "Flutter geliştirme için cursor rules'ları uzman entegrasyonu ile sunuyor."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

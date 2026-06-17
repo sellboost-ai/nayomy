@@ -1,6 +1,7 @@
 ---
 name: "lsp"
 description_en: "How the atopile Language Server works (pygls), how it builds per-document graphs for completion/hover/defs, and the invariants for keeping it fast and crash-proof."
+description_tr: "Atopile Language Server'ın (pygls) nasıl çalıştığı, doküman başına graph'ları completion/hover/definitions için nasıl inşa ettiği ve hızlı ve çöküntüsüz kalmasını sağlayan invariantlar."
 category: "Document"
 repo: "atopile/atopile"
 stars: 3406

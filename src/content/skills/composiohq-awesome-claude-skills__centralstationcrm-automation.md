@@ -1,6 +1,7 @@
 ---
 name: "centralstationcrm-automation"
 description_en: "Automate Centralstationcrm tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Centralstationcrm görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

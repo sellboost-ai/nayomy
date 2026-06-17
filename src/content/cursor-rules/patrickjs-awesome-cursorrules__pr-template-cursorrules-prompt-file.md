@@ -2,6 +2,7 @@
 name: "pr-template-cursorrules-prompt-file"
 clean_name: "Pr Template"
 description: "Cursor rules for PR development with template integration."
+description_tr: "PR geliştirme için cursor kuralları ve template entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

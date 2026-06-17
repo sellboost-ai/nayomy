@@ -2,6 +2,7 @@
 name: "android-jetpack-compose-cursorrules-prompt-file"
 clean_name: "Android Jetpack Compose"
 description: "Cursor rules for Android development with Jetpack Compose integration."
+description_tr: "Jetpack Compose entegrasyonu ile Android geliştirme için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

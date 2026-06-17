@@ -1,6 +1,7 @@
 ---
 name: "certifier-automation"
 description_en: "Automate Certifier tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Certifier görevlerini otomatikleştirin. Tools'ta her zaman güncel şemaları aramaya başlayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -1,6 +1,7 @@
 ---
 name: "apiverve-automation"
 description_en: "Automate Apiverve tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Apiverve görevlerini otomatikleştirin. Güncel şemaları kullanmak için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

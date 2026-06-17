@@ -1,6 +1,7 @@
 ---
 name: "env-secrets-manager"
 description_en: "Manage environment-variable hygiene and secrets safety across local development and production. Practical auditing, drift awareness, rotation readiness. Use when auditing .env files for committed secrets, planning a credential rotation, debugging missing-env-var production incidents, or hardening a new project against secrets leakage."
+description_tr: "Geliştirme ve production ortamlarında environment variable yönetimi ve secrets güvenliğini sağlayın. Pratik denetim, değişim takibi ve döndürme hazırlığı sunar. .env dosyalarında committed secrets bulma, credential döndürme planlaması, production'da eksik ortam değişkeni sorunlarını çözme veya yeni projeleri secrets sızıntısına karşı güçlendirme işlemleri için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

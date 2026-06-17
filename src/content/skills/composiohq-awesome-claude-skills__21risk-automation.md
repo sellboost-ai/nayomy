@@ -1,6 +1,7 @@
 ---
 name: "-21risk-automation"
 description_en: "Automate 21risk tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "21risk görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

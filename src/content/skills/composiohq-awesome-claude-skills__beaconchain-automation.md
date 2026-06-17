@@ -1,6 +1,7 @@
 ---
 name: "beaconchain-automation"
 description_en: "Automate Beaconchain tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Beaconchain görevlerini otomatikleştirin. Güncel şemaları bulabilmek için her zaman tools'u arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

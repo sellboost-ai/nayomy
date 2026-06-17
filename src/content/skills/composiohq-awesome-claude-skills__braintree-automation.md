@@ -1,6 +1,7 @@
 ---
 name: "Braintree Automation"
 description_en: "Braintree Automation: manage payment processing via Stripe-compatible tools for customers, subscriptions, payment methods, and transactions"
+description_tr: "Braintree Automation: Stripe ile uyumlu araçlar kullanarak müşteriler, abonelikler, ödeme yöntemleri ve işlemler için ödeme işlemlerini yönetin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

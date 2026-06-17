@@ -1,6 +1,7 @@
 ---
 name: "competitive-intel"
 description_en: "Systematic competitor tracking that feeds CMO positioning, CRO battlecards, and CPO roadmap decisions. Use when analyzing competitors, building sales battlecards, tracking market moves, positioning against alternatives, or when user mentions competitive intelligence, competitive analysis, competitor research, battlecards, win/loss, or market positioning."
+description_tr: "Rakip izlemeyi sistematikleştirin ve CMO konumlandırması, CRO battlecard'ları ve CPO roadmap kararlarını yönlendirin. Rakipleri analiz ederken, satış battlecard'ları oluştururken, pazar hareketlerini takip ederken, alternatifler karşısında konumlanırken ya da rekabetçi istihbarat, rakip analizi, battlecard'lar, win/loss ve pazar konumlandırması konularında kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

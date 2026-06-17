@@ -1,6 +1,7 @@
 ---
 name: "content-humanizer"
 description_en: "Makes AI-generated content sound genuinely human — not just cleaned up, but alive. Use when content feels robotic, uses too many AI clichés, lacks personality, or reads like it was written by committee. Triggers: 'this sounds like AI', 'make it more human', 'add personality', 'it feels generic', 'sounds robotic', 'fix AI writing', 'inject our voice'. NOT for initial content creation (use content-p"
+description_tr: "AI tarafından üretilen içeriği gerçekten insan gibi hissettir — sadece düzeltmek değil, canlı ve kişisel kıl. İçerik robotu gibi geldiğinde, AI klişeleriyle dolu olduğunda, kişiliği eksik olduğunda veya komite tarafından yazılmış gibi ses çıkardığında kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

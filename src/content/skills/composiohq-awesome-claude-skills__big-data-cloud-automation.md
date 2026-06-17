@@ -1,6 +1,7 @@
 ---
 name: "big-data-cloud-automation"
 description_en: "Automate Big Data Cloud tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Big Data Cloud görevlerini otomatikleştirin. Her zaman güncel şemaları için önce tools arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

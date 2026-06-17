@@ -2,6 +2,7 @@
 name: "node-express"
 clean_name: "Node.js Express"
 description: "Node.js and Express.js best practices for backend development"
+description_tr: "Node.js ve Express.js ile backend geliştirme için en iyi uygulamalar"
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

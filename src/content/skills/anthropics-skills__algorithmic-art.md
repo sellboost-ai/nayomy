@@ -1,6 +1,7 @@
 ---
 name: "algorithmic-art"
 description_en: "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations."
+description_tr: "p5.js ile seed'lenmiş rastgelelik ve etkileşimli parametre keşfi kullanarak algoritmik sanat oluşturun. Kullanıcılar kod ile sanat oluşturma, generatif sanat, algoritm tabanlı sanat, flow field'ler veya parçacık sistemleri istediğinde kullanın. Telif hakkı ihlallerinden kaçınmak için mevcut sanatçıların çalışmalarını kopyalamak yerine orijinal algoritmik sanat yaratın."
 category: "Design"
 repo: "anthropics/skills"
 stars: 151641

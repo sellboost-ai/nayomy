@@ -1,6 +1,7 @@
 ---
 name: "dbg"
 description_en: "> Debug applications using the dbg CLI debugger. Supports Node.js (V8/CDP), Bun (WebKit/JSC), Python (debugpy/DAP), Java (JDWP/DAP), and native code via LLDB (DAP). Use when: (1) investigating runtime bugs by stepping through code, (2) inspecting variable values at specific execution points, (3) setting breakpoints and conditional breakpoints, (4) evaluating expressions in a paused context, (5) ho"
+description_tr: "dbg CLI debugger ile uygulamalarınızı hata ayıklayın. Node.js (V8/CDP), Bun (WebKit/JSC), Python (debugpy/DAP), Java (JDWP/DAP) ve LLDB (DAP) aracılığıyla native kod desteği sunur. Kodda adım adım ilerleyerek runtime hatalarını araştırma, belirli execution noktalarında değişken değerlerini inceleme, breakpoint ve conditional breakpoint ayarlama, paused context içinde expression değerlendirme gibi durumlarda kullanın."
 category: "Development"
 repo: "theodo-group/debug-that"
 stars: 158

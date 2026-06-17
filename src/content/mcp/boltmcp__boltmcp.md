@@ -1,6 +1,7 @@
 ---
 name: "boltmcp/boltmcp"
 description: "Enterprise-grade MCP orchestration platform to create, deploy, and manage custom MCP servers on-premises"
+description_tr: "Şirket içi ortamında özel MCP sunucuları oluşturmak, dağıtmak ve yönetmek için kurumsal düzeyde MCP orkestrasyonu platformu."
 category: "Aggregators"
 repo: "boltmcp/boltmcp"
 stars: 354

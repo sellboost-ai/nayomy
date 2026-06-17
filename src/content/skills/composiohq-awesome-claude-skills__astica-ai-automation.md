@@ -1,6 +1,7 @@
 ---
 name: "astica-ai-automation"
 description_en: "Automate Astica AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Astica AI görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemaları bulmak için tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

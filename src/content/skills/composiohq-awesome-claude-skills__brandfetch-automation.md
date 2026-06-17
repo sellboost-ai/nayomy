@@ -1,6 +1,7 @@
 ---
 name: "brandfetch-automation"
 description_en: "Automate Brandfetch tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) üzerinden Brandfetch görevlerini otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

@@ -2,6 +2,7 @@
 name: "nextjs-tailwind-typescript-apps-cursorrules-prompt"
 clean_name: "Next.js Tailwind TypeScript Apps Cursorrules Prompt"
 description: "Cursor rules for Next.js development with Tailwind CSS and TypeScript integration."
+description_tr: "Next.js geliştirmesi için Cursor rules'ları, Tailwind CSS ve TypeScript entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

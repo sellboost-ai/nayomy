@@ -1,6 +1,7 @@
 ---
 name: "cs-engineering-lead"
 description_en: "Engineering Team Lead agent for coordinating QA, security, data engineering, ML, and frontend/backend teams. Orchestrates engineering-team skills for team-level technical decisions. Spawn when users need team coordination, tech stack evaluation, incident response, or cross-functional engineering work."
+description_tr: "Kalite güvence, güvenlik, veri mühendisliği, ML ve frontend/backend ekiplerini koordine eden Mühendislik Takım Lideri ajanı. Takım düzeyindeki teknik kararlar için mühendislik ekibinin yeteneklerini organize eder. Kullanıcıların takım koordinasyonu, tech stack değerlendirmesi, incident response veya çapraz fonksiyonel mühendislik işleri için ihtiyaç duyduğunda devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "pdf"
 description_en: "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or"
+description_tr: "Kullanıcı PDF dosyaları ile herhangi bir işlem yapmak istediğinde bu skill'i kullanın. Buna PDF'lerden metin/tablo okuma ve çıkarma, birden fazla PDF'yi birleştirme, PDF'leri bölme, sayfaları döndürme, filigran ekleme, yeni PDF oluşturma, PDF formlarını doldurma, PDF şifreleme/şifre açma, görüntü çıkarma ve taranmış PDF'lerde OCR uygulaması dahildir. Kullanıcı bir .pdf dosyasından bahsettiğinde veya"
 category: "Document"
 repo: "anthropics/skills"
 stars: 151641

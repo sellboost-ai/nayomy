@@ -1,6 +1,7 @@
 ---
 name: "line/line-bot-mcp-server"
 description: "MCP Server for Integrating LINE Official Account"
+description_tr: "LINE Resmi Hesabı Entegrasyonu için MCP Server"
 category: "Communication"
 repo: "line/line-bot-mcp-server"
 stars: 598

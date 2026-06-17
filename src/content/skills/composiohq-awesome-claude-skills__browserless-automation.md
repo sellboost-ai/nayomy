@@ -1,6 +1,7 @@
 ---
 name: "browserless-automation"
 description_en: "Automate Browserless tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Browserless görevlerini otomatikleştirin. Güncel şemaları bulmak için önce tools aramasını yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

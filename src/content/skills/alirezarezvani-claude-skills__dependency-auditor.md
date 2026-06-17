@@ -1,6 +1,7 @@
 ---
 name: "dependency-auditor"
 description_en: "Audit and manage dependencies across multi-language projects. Identifies vulnerabilities, license conflicts, transitive dependency risks, and safe-upgrade paths. Use when auditing third-party packages before release, investigating a CVE, planning a major version bump, or running a license-compliance review. Examples: 'audit our npm dependencies', 'do we have GPL contamination', 'plan the upgrade t"
+description_tr: "Çok dilli projelerde bağımlılıkları denetleyin ve yönetin. Güvenlik açıklarını, lisans çatışmalarını, geçişli bağımlılık risklerini ve güvenli güncelleme yollarını belirler. Yayınlama öncesi üçüncü taraf paketleri denetlemek, CVE araştırmak, ana sürüm güncellemesi planlamak veya lisans uyumluluğu gözden geçirmek için kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

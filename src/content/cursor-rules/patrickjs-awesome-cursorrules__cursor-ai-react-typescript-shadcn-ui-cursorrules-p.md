@@ -2,6 +2,7 @@
 name: "cursor-ai-react-typescript-shadcn-ui-cursorrules-p"
 clean_name: "Cursor AI React TypeScript Shadcn UI Cursorrules P"
 description: "Cursor rules for Cursor AI development with React, TypeScript, and shadcn/ui integration."
+description_tr: "Cursor AI geliştirmesi için React, TypeScript ve shadcn/ui entegrasyonuyla çalışan Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

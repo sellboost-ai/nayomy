@@ -1,6 +1,7 @@
 ---
 name: "takumi0706/google-calendar-mcp"
 description: "An MCP server to interface with the Google Calendar API. Based on TypeScript."
+description_tr: "Google Calendar API ile entegre olmayı sağlayan TypeScript tabanlı MCP sunucusu."
 category: "Workplace & Productivity"
 repo: "takumi0706/google-calendar-mcp"
 stars: 57

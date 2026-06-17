@@ -1,6 +1,7 @@
 ---
 name: "database-designer"
 description_en: "Use when the user asks to design database schemas, plan data migrations, optimize queries, choose between SQL and NoSQL, or model data relationships."
+description_tr: "Kullanıcı veritabanı şemaları tasarlamak, veri göçlerini planlamak, sorguları optimize etmek, SQL ve NoSQL arasında seçim yapmak veya veri ilişkilerini modellemek istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

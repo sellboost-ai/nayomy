@@ -1,6 +1,7 @@
 ---
 name: "adversarial-reviewer"
 description_en: "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
+description_tr: "Kendi kendine review yapma alışkanlığını kıran antagonistik code review aracı. Son değişikliklerinizin gerçekten eleştirel bir incelemesini istediğinizde, PR merge etmeden önce veya Claude'un kod kalitesi konusunda çok uzlaşmacı olduğunu düşündüğünüzde kullanın. Düşmanca reviewer kişilikleri aracılığıyla perspektif değişimine zorlayarak, yazarın ve reviewer'ın paylaştığı mental modelin gözden kaçırdığı noktaları yakalar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

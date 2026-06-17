@@ -2,6 +2,7 @@
 name: "solidity-foundry-cursorrules-prompt-file"
 clean_name: "Solidity Foundry"
 description: "Cursor rules for Solidity development with Foundry integration."
+description_tr: "Foundry entegrasyonu ile Solidity geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

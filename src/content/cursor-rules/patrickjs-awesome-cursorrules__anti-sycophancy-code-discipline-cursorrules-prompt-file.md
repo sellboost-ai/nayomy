@@ -2,6 +2,7 @@
 name: "anti-sycophancy-code-discipline-cursorrules-prompt-file"
 clean_name: "Anti Sycophancy Code Discipline"
 description: "Anti-sycophancy directives for code review and generation. Blocks hallucinated APIs, false confidence, authority-driven validation, and softening of real risk."
+description_tr: "Kod incelemesi ve oluşturmada sahtecilik karşıtı direktifler. Hayali API'lar, yanlış güven, otorite odaklı doğrulama ve gerçek risklerin hafifletilmesini engeller."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

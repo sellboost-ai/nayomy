@@ -1,6 +1,7 @@
 ---
 name: "requesting-code-review"
 description_en: "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+description_tr: "Görevleri tamamlarken, büyük özellikleri hayata geçirirken veya merge etmeden önce çalışmanın gereksinimleri karşıladığını doğrulamak için kullanın."
 category: "Design"
 repo: "obra/superpowers"
 stars: 229812

@@ -2,6 +2,7 @@
 name: "automl-hyperparameter-optimization"
 clean_name: "Automl Hyperparameter Optimization"
 description: "AutoML and hyperparameter optimization rules for Python ML projects using Ray Tune, Optuna, PyCaret, and time-series AutoML libraries"
+description_tr: "Python ML projeleriniz için Ray Tune, Optuna, PyCaret ve time-series AutoML kütüphanelerini kullanarak AutoML ve hyperparameter optimization kuralları"
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

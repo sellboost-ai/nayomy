@@ -2,6 +2,7 @@
 name: "javascript-chrome-apis-cursorrules-prompt-file"
 clean_name: "JavaScript Chrome Apis"
 description: "Cursor rules for JavaScript development with Chrome APIs integration."
+description_tr: "Chrome API'leri entegrasyonlu JavaScript geliştirme için cursor kuralları."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

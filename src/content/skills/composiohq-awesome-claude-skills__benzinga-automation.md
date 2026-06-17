@@ -1,6 +1,7 @@
 ---
 name: "benzinga-automation"
 description_en: "Automate Benzinga tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Benzinga görevlerini Rube MCP (Composio) aracılığıyla otomatize edin. Güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

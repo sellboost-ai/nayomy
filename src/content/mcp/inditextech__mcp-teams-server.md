@@ -1,6 +1,7 @@
 ---
 name: "InditexTech/mcp-teams-server"
 description: "MCP server that integrates Microsoft Teams messaging (read, post, mention, list members and threads)"
+description_tr: "Microsoft Teams mesajlaşmasını entegre eden MCP sunucusu (okuma, gönderme, mention, üyeleri listeleme ve thread yönetimi)."
 category: "Communication"
 repo: "InditexTech/mcp-teams-server"
 stars: 378

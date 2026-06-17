@@ -1,6 +1,7 @@
 ---
 name: "cs-webinar-marketer"
 description_en: "Webinar & virtual-event marketing specialist agent. Use when planning, promoting, running, or rescuing a webinar, virtual event, live demo, workshop, masterclass, fireside chat, or virtual summit. Orchestrates the webinar-marketing skill — sizes the funnel backward from the business goal, builds the promotion runway, designs the show-up and live-to-close sequences, scores an existing funnel to fin"
+description_tr: "Webinar ve sanal etkinlik pazarlaması için özel ajan. Webinar, sanal etkinlik, canlı demo, workshop, masterclass, fireside chat veya sanal summit planlama, tanıtım, yürütme veya kurtarma aşamalarında kullanın. Webinar pazarlama becerilerini yönetir — işletme hedefinden geriye doğru huniye boyutlandırır, tanıtım stratejisini oluşturur, katılım ve canlı-satışa kapatma dizilerini tasarlar, mevcut huniye puanlar ve optimizasyon önerileri sağlar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "focused-fix"
 description_en: "Deep-dive feature repair — systematically fix an entire feature/module across all its files and dependencies. Usage: /focused-fix <feature-path>"
+description_tr: "Derin özellik onarımı — bir özelliği veya modülü tüm dosyaları ve dependency'leriyle birlikte sistematik olarak düzeltin. Kullanım: /focused-fix <feature-path>"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

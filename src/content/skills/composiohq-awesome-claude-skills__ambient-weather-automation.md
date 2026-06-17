@@ -1,6 +1,7 @@
 ---
 name: "ambient-weather-automation"
 description_en: "Automate Ambient Weather tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Ambient Weather görevlerini Rube MCP üzerinden (Composio) otomatikleştirin. Güncel şemaları kontrol etmek için öncelikle tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

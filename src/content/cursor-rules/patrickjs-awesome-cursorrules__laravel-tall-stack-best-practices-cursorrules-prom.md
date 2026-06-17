@@ -2,6 +2,7 @@
 name: "laravel-tall-stack-best-practices-cursorrules-prom"
 clean_name: "Laravel Tall Stack Best Practices Cursorrules Prom"
 description: "Cursor rules for Laravel development with TALL Stack best practices."
+description_tr: "Laravel geliştirme için Cursor rules'ları TALL Stack en iyi uygulamalarıyla birlikte."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

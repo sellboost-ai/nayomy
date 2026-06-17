@@ -2,6 +2,7 @@
 name: "qa-bug-report-cursorrules-prompt-file"
 clean_name: "Qa Bug Report"
 description: "Cursor rules for QA development with bug report integration."
+description_tr: "QA geliştirmesi için Cursor kuralları, bug report entegrasyonu ile birlikte."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -2,6 +2,7 @@
 name: "html-tailwind-css-javascript-cursorrules-prompt-fi"
 clean_name: "HTML Tailwind CSS JavaScript Cursorrules Prompt Fi"
 description: "Cursor rules for HTML development with Tailwind CSS and JavaScript integration."
+description_tr: "HTML geliştirme için Cursor kuralları, Tailwind CSS ve JavaScript entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

@@ -1,6 +1,7 @@
 ---
 name: "algodocs-automation"
 description_en: "Automate Algodocs tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Algodocs görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları arayın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

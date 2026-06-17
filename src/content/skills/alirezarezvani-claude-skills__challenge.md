@@ -1,6 +1,7 @@
 ---
 name: "challenge"
 description_en: "Pre-mortem plan analysis. Imagine the plan failed 12 months from now and work backwards to find the weaknesses. Surfaces assumptions, dependencies, and execution risks before committing resources. Use when before significant resource commitment, before presenting to a board or investors, when feedback has been one-sidedly positive, or when there is pressure to move fast and figure it out later."
+description_tr: "Planın 12 ay sonra başarısız olduğunu hayal edip geriye doğru çalışarak zayıflıkları bulma analizi. Kaynakları tahsis etmeden önce varsayımları, bağımlılıkları ve uygulama risklerini ortaya çıkarır. Büyük kaynak yatırımı öncesinde, yönetim kurulu veya yatırımcılara sunmadan önce, geri bildirimlerin tek taraflı pozitif olduğu durumlarda veya hızlı hareket etme baskısı olduğunda kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "kimtaeyoon83/mcp-server-youtube-transcript"
 description: "Fetch YouTube subtitles and transcripts for AI analysis"
+description_tr: "YouTube alt yazıları ve transkriptlerini AI analizi için çekin"
 category: "Browser Automation"
 repo: "kimtaeyoon83/mcp-server-youtube-transcript"
 stars: 561

@@ -1,6 +1,7 @@
 ---
 name: "slack-gif-creator"
 description_en: "Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and composable animation primitives. This skill applies when users request animated GIFs or emoji animations for Slack from descriptions like \"make me a GIF for Slack of X doing Y\"."
+description_tr: "Slack için optimize edilmiş animasyonlu GIF'ler oluşturmak üzere tasarlanmış bir toolkit; boyut kısıtlamalarını doğrulayan validator'lar ve bileştirilebilir animasyon primitif'leri içerir. Kullanıcılar \"bana Slack'te X'in Y yapmasını gösteren bir GIF yap\" gibi isteklerle animasyonlu GIF veya emoji animasyonları talep ettiğinde devreye girer."
 category: "Design"
 repo: "smartnews/claude-skills"
 stars: 2

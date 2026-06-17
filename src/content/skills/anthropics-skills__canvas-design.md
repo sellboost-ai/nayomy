@@ -1,6 +1,7 @@
 ---
 name: "canvas-design"
 description_en: "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations."
+description_tr: ".png ve .pdf dosyalarında tasarım felsefesini kullanarak güzel görseller oluşturun. Poster, sanat eseri, tasarım veya diğer statik içerikler için bu özelliği kullanabilirsiniz. Telif hakkı ihlallerinden kaçınmak için her zaman orijinal tasarımlar yaratın, mevcut sanatçıların çalışmalarını kopya etmeyin."
 category: "Document"
 repo: "anthropics/skills"
 stars: 151641

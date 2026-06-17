@@ -2,6 +2,7 @@
 name: "next-type-llm"
 clean_name: "Next Type LLM"
 description: "Cursor rules for Next.js development with Type LLM integration."
+description_tr: "Next.js geliştirme için Cursor kuralları ve Type LLM entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

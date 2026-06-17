@@ -1,6 +1,7 @@
 ---
 name: "cto-review"
 description_en: "/cs:cto-review <plan> — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor."
+description_tr: "/cs:cto-review <plan> — Mimari ve ölçeklendirme analizi. Teknik borç, ölçeklendirme engelleri, ekip büyümesi, build-vs-buy kararları için kullanın. Bir mimariyi onaylarken, 10 kat artan yük için planlama yaparken veya yeniden geliştirme ile satıcı çözümü arasında seçim yaparken bu komutu çalıştırın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

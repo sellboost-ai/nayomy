@@ -2,6 +2,7 @@
 name: "react-nextjs-ui-development-cursorrules-prompt-fil"
 clean_name: "React Next.js UI Development Cursorrules Prompt Fil"
 description: "Cursor rules for React development with Next.js UI integration."
+description_tr: "React geliştirme için Cursor kuralları ve Next.js UI entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

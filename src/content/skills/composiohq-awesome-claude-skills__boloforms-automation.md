@@ -1,6 +1,7 @@
 ---
 name: "boloforms-automation"
 description_en: "Automate Boloforms tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Boloforms görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

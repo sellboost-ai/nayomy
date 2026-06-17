@@ -1,6 +1,7 @@
 ---
 name: "git-worktree-manager"
 description_en: "Run parallel feature work safely with Git worktrees. Standardizes branch isolation, port allocation, environment sync, and cleanup so each worktree behaves like an independent local app. Optimized for multi-agent workflows where each agent or terminal session owns one worktree. Use when running multiple feature branches simultaneously, isolating experimental work, or coordinating multi-agent devel"
+description_tr: "Git worktrees ile paralel feature geliştirmesini güvenli şekilde yürütün. Branch izolasyonu, port tahsisi, environment senkronizasyonu ve temizlik işlemlerini standartlaştırarak her worktree'yi bağımsız bir lokal uygulama gibi davrandırır. Multi-agent workflow'lar için optimize edilmiştir; her agent ya da terminal oturumu bir worktree'ye sahiptir. Birden fazla feature branch'i aynı anda çalıştırırken, deneysel çalışmaları izole ederken ya da multi-agent geliştirmeyi koordine ederken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

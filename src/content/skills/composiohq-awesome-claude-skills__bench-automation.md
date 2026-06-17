@@ -1,6 +1,7 @@
 ---
 name: "bench-automation"
 description_en: "Automate Bench tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Bench görevlerini otomatikleştirin. Her zaman güncel schemaları için önce tools'da arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

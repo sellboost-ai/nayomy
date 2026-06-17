@@ -1,6 +1,7 @@
 ---
 name: "cs-senior-engineer"
 description_en: "Senior Engineer agent for architecture decisions, code review, DevOps, and API design. Orchestrates engineering and engineering-team skills for technical implementation work. Spawn when users need system design, code quality review, CI/CD pipeline setup, or infrastructure decisions."
+description_tr: "Senior mühendis ajanı; mimarı kararlar, kod review, DevOps ve API tasarımı için. Teknik implementasyon çalışmalarında mühendislik ve takım becerilerini yönetir. Kullanıcılar sistem tasarımı, kod kalitesi review, CI/CD pipeline kurulumu veya altyapı kararları gerektiğinde devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

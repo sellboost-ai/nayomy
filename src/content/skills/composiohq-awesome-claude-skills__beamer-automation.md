@@ -1,6 +1,7 @@
 ---
 name: "beamer-automation"
 description_en: "Automate Beamer tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Beamer görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut şemaları kontrol etmek için araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

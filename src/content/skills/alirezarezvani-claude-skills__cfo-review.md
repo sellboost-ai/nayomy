@@ -1,6 +1,7 @@
 ---
 name: "cfo-review"
 description_en: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when a plan commits meaningful spend — e.g. a hiring wave, a fundraise decision, or a new channel budget."
+description_tr: "/cs:cfo-review <plan> — Herhangi bir parasal karara karşı kapsamlı finansal inceleme. Unit economics, runway, dilution ve capital allocation gibi faktörleri değerlendirir. Önemli harcama içeren planlar için kullanın — örneğin işe alım dalgası, fundraise kararı veya yeni channel bütçesi."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
 stars: 18266

@@ -1,6 +1,7 @@
 ---
 name: "bubble-automation"
 description_en: "Automate Bubble tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) ile Bubble görevlerini otomatikleştirin. Güncel şemalar için daima önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

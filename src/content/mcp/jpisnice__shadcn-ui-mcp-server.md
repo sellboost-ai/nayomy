@@ -1,6 +1,7 @@
 ---
 name: "Jpisnice/shadcn-ui-mcp-server"
 description: "MCP server that gives AI assistants seamless access to shadcn/ui v4 components, blocks, demos, and metadata."
+description_tr: "shadcn/ui v4 bileşenlerine, blokları, demoları ve metadatalarına yapay zeka asistanlarının sorunsuzca erişmesini sağlayan MCP server."
 category: "Developer Tools"
 repo: "Jpisnice/shadcn-ui-mcp-server"
 stars: 2798

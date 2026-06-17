@@ -1,6 +1,7 @@
 ---
 name: "xlsx"
 description_en: "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especial"
+description_tr: "Bu skill'i spreadsheet dosyası ana input veya output olduğu her durumda kullanın. Buna şu görevler dahildir: mevcut .xlsx, .xlsm, .csv veya .tsv dosyalarını açma, okuma, düzenleme veya düzeltme (sütun ekleme, formül hesaplama, biçimlendirme, grafik oluşturma, veri temizleme gibi); sıfırdan veya diğer veri kaynaklarından yeni spreadsheet oluşturma; ya da tabular dosya formatları arasında dönüştürme işlemleri."
 category: "Document"
 repo: "anthropics/skills"
 stars: 151641

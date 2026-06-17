@@ -1,6 +1,7 @@
 ---
 name: "anonyflow-automation"
 description_en: "Automate Anonyflow tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Rube MCP (Composio) aracılığıyla Anonyflow görevlerini otomatikleştirin. Geçerli şemaları bulmak için her zaman önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852

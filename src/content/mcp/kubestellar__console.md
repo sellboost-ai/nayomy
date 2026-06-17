@@ -1,6 +1,7 @@
 ---
 name: "kubestellar/console"
 description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-agent) for AI-assisted operations, real-time observability, and integrations with 20+ CNCF projects across edge and cloud clusters."
+description_tr: "Kenar ve bulut kümelerinde 20+ CNCF projesine entegrasyon sunan, yerleşik MCP sunucusu (kc-agent) ile AI destekli operasyonlar, gerçek zamanlı gözlemlenebilirlik sağlayan multi-cluster Kubernetes dashboard'u."
 category: "Cloud Platforms"
 repo: "kubestellar/console"
 stars: 115

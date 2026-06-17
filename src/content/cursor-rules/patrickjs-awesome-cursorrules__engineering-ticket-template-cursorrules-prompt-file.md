@@ -2,6 +2,7 @@
 name: "engineering-ticket-template-cursorrules-prompt-file"
 clean_name: "Engineering Ticket Template"
 description: "Cursor rules for engineering development with ticket template integration."
+description_tr: "Mühendislik geliştirme için Cursor kuralları, ticket şablonu entegrasyonu ile birlikte gelir."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40010

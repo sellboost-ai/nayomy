@@ -1,6 +1,7 @@
 ---
 name: "lamemind/mcp-server-multiverse"
 description: "A middleware server that enables multiple isolated instances of the same MCP servers to coexist independently with unique namespaces and configurations."
+description_tr: "Aynı MCP sunucularının birden fazla izole edilmiş örneğinin benzersiz namespace ve konfigürasyonlarla bağımsız olarak bir arada bulunmasını sağlayan bir middleware sunucusu."
 category: "Developer Tools"
 repo: "lamemind/mcp-server-multiverse"
 stars: 77

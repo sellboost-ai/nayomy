@@ -1,6 +1,7 @@
 ---
 name: "cloudflare-browser-rendering-automation"
 description_en: "Automate Cloudflare Browser Rendering tasks via Rube MCP (Composio). Always search tools first for current schemas."
+description_tr: "Cloudflare Browser Rendering görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için ilk olarak tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
 stars: 64852
