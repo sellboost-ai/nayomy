@@ -1,6 +1,7 @@
 ---
 name: "ubiquitous-language"
 description_en: "Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to UBIQUITOUS_LANGUAGE.md. Use when user wants to define domain terms, build a glossary, harden terminology, create a ubiquitous language, or mentions \"domain model\" or \"DDD\"."
+description_tr: "Mevcut konuşmadan DDD tarzında evrensel bir dil sözlüğü çıkarın, belirsizlikleri işaretleyin ve kanonik terimler önerilir. UBIQUITOUS_LANGUAGE.md dosyasına kaydedilir. Kullanıcı domain terimlerini tanımlamak, sözlük oluşturmak, terminolojiyi sağlamlaştırmak, evrensel dil oluşturmak veya \"domain model\" ya da \"DDD\" bahsettiğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,94 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Evrensel Dil
+
+  Mevcut konuşmadan etki alanı terminolojisini çıkarın ve tutarlı bir sözlüğe dönüştürün, yerel bir dosyaya kaydedin.
+
+  ## Süreç
+
+  1. **Konuşmayı tarayın** etki alanıyla ilgili isimler, fiiller ve kavramlar için
+  2. **Sorunları belirleyin**:
+     - Aynı sözcük farklı kavramlar için kullanılıyor (belirsizlik)
+     - Aynı kavram için farklı sözcükler kullanılıyor (eş anlamlılar)
+     - Belirsiz veya aşırı yüklü terimler
+  3. **Kanonik bir sözlük önerir** kararlaştırılmış terim seçimleriyle
+  4. **`UBIQUITOUS_LANGUAGE.md`** dosyasına yazın çalışma dizininde, aşağıdaki biçimi kullanarak
+  5. **Özet çıktısı verin** konuşmada satır içi olarak
+
+  ## Çıktı Biçimi
+
+  Bu yapıyla bir `UBIQUITOUS_LANGUAGE.md` dosyası yazın:
+
+  ```md
+  # Evrensel Dil
+
+  ## Sipariş yaşam döngüsü
+
+  | Terim        | Tanım                                                   | Kaçınılacak eş anlamlılar |
+  | ----------- | ------------------------------------------------------- | --------------------- |
+  | **Sipariş**   | Müşterinin bir veya daha fazla öğe satın almak için yaptığı talep      | Satın alma, işlem |
+  | **Fatura** | Teslimat sonrasında müşteriye gönderilen ödeme talebi | Hesap, ödeme talebi |
+
+  ## İnsanlar
+
+  | Terim         | Tanım                                  | Kaçınılacak eş anlamlılar       |
+  | ------------ | ------------------------------------------- | ---------------------- |
+  | **Müşteri** | Sipariş veren kişi veya kuruluş    | İstemci, alıcı, hesap |
+  | **Kullanıcı**     | Sistemdeki bir kimlik doğrulama kimliği    | Giriş, hesap         |
+
+  ## İlişkiler
+
+  - Bir **Fatura** tam olarak bir **Müşteri**ye aittir
+  - Bir **Sipariş** bir veya daha fazla **Fatura** üretir
+
+  ## Örnek diyalog
+
+  > **Dev:** "Bir **Müşteri** bir **Sipariş** verdiğinde, **Fatura**yı hemen oluşturuyor muyuz?"
+  > **Etki alanı uzmanı:** "Hayır — **Fatura** yalnızca bir **Yerine Getirme** onaylandıktan sonra oluşturulur. Tek bir **Sipariş** öğeler ayrı **Gönderi**lerde gönderildiyse birden fazla **Fatura** üretebilir."
+  > **Dev:** "Yani bir **Gönderi** gönderilmeden önce iptal edilirse, onun için **Fatura** yok mu?"
+  > **Etki alanı uzmanı:** "Tam olarak. **Fatura** yaşam döngüsü **Sipariş**e değil **Yerine Getirme**ye bağlıdır."
+
+  ## İşaretli belirsizlikler
+
+  - "hesap" hem **Müşteri** hem de **Kullanıcı** anlamında kullanıldı — bunlar farklı kavramlardır: **Müşteri** siparişler verirken, **Kullanıcı** bir **Müşteri**yi temsil edebilecek veya etmeyebilecek bir kimlik doğrulama kimliğidir.
+  ```
+
+  ## Kurallar
+
+  - **Görüş belirtin.** Aynı kavram için birden fazla sözcük varsa, en iyisini seçin ve diğerlerini kaçınılacak eş anlamlılar olarak listeleyin.
+  - **Çatışmaları açıkça işaretleyin.** Bir terim konuşmada belirsiz şekilde kullanılıyorsa, "İşaretli belirsizlikler" bölümünde açık bir önerilendirmeyle bunu vurgulayın.
+  - **Yalnızca etki alanı uzmanları için ilgili terimleri ekleyin.** Modül veya sınıf adlarını atlayın; bunların etki alanı dilinde anlamı yoksa.
+  - **Tanımları sıkı tutun.** Maksimum bir cümle. NE olduğunu tanımlayın, ne yaptığını değil.
+  - **İlişkileri gösterin.** Kalın terim adlarını kullanın ve açık olduğunda kardinaliteyi ifade edin.
+  - **Yalnızca etki alanı terimlerini ekleyin.** Genel programlama kavramlarını (dizi, fonksiyon, endpoint) atlayın; bunların etki alanına özgü anlamı yoksa.
+  - **Doğal kümeler ortaya çıktığında terimleri birden fazla tabloya gruplandırın** (örn. alt etki alanı, yaşam döngüsü veya aktöre göre). Her grup kendi başlığını ve tablosunu alır. Tüm terimler tek bir uyumlu etki alanına aitse, bir tablo iyidir — yapay gruplandırmalar yapmayın.
+  - **Bir örnek diyalog yazın.** Bir geliştirici ile bir etki alanı uzmanı arasında kısa bir konuşma (3-5 değişim) terimlerin nasıl doğal şekilde etkileşim kurduğunu gösterir. Diyalog ilişkili kavramlar arasındaki sınırları netleştirmeli ve terimlerin kesin şekilde kullanılmasını göstermelidir.
+
+  <example>
+
+  ## Örnek diyalog
+
+  > **Dev:** "Docker olmadan **sync service** nasıl test edebilirim?"
+
+  > **Etki alanı uzmanı:** "**Docker layer** yerine **filesystem layer** sağlayın. Aynı **Sandbox service** arayüzünü uygular ancak **sandbox** olarak yerel bir dizin kullanır."
+
+  > **Dev:** "Yani **sync-in** yine bir **bundle** oluşturuyor ve onu açıyor mu?"
+
+  > **Etki alanı uzmanı:** "Tam olarak. **Sync service** hangi katmanla konuştuğunu bilmiyor. `exec` ve `copyIn`'i çağırıyor — **filesystem layer** bunları yalnızca yerel shell komutları olarak çalıştırıyor."
+
+  </example>
+
+  ## Yeniden çalıştırma
+
+  Aynı konuşmada tekrar çağrıldığında:
+
+  1. Mevcut `UBIQUITOUS_LANGUAGE.md` dosyasını okuyun
+  2. Sonraki tartışmalardan yeni terimleri birleştirin
+  3. Anlayış gelişmişse tanımları güncelleyin
+  4. Yeni belirsizlikleri yeniden işaretleyin
+  5. Örnek diyaloğu yeni terimleri içerecek şekilde yeniden yazın
 ---
 
 # Ubiquitous Language

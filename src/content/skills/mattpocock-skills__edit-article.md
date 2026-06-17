@@ -1,6 +1,7 @@
 ---
 name: "edit-article"
 description_en: "Edit and improve articles by restructuring sections, improving clarity, and tightening prose. Use when user wants to edit, revise, or improve an article draft."
+description_tr: "Makaleleri yeniden yapılandırarak, netliği artırarak ve metni sıklaştırarak düzenleyin ve geliştirin. Kullanıcı bir makale taslağını düzenlemek, gözden geçirmek veya iyileştirmek istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,16 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  1. Öncelikle, makaleyi başlıklarına göre bölümlere ayırın. Bu bölümlerde vermek istediğiniz ana noktaları düşünün.
+
+  Bilginin yönlendirilmiş döngüsüz bir graf olduğunu ve bilgi parçalarının diğer bilgi parçalarına bağlı olabileceğini göz önünde bulundurun. Bölümlerin sırası ve içeriklerinin bu bağımlılıklara saygı gösterdiğinden emin olun.
+
+  Bölümleri kullanıcı ile onaylayın.
+
+  2. Her bölüm için:
+
+  2a. Bölümü açıklık, tutarlılık ve akış açısından iyileştirmek için yeniden yazın. Paragraf başına maksimum 240 karakter kullanın.
 ---
 
 1. First, divide the article into sections based on its headings. Think about the main points you want to make during those sections.

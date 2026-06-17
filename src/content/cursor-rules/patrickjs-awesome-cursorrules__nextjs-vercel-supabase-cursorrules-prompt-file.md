@@ -2,6 +2,7 @@
 name: "nextjs-vercel-supabase-cursorrules-prompt-file"
 clean_name: "Next.js Vercel Supabase"
 description: "Cursor rules for Next.js development with Vercel and Supabase integration."
+description_tr: "Next.js geliştirmesi için Cursor kuralları, Vercel ve Supabase entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,143 @@ path: "rules/nextjs-vercel-supabase-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-vercel-supabase-cursorrules-prompt-file.mdc"
 body_length: 7792
 file_extension: ".mdc"
+body_tr: |-
+  # Cursorrules
+
+  ## Intro
+
+  'BA Copilot' (bacp olarak da adlandırılır) adlı bir proje geliştiriyorum. BA, Business Analysts (İş Analisti) anlamına gelir.
+
+  ## BA Copilot MVP
+
+  ### Genel Bakış
+
+  İş analistleri için bir asistlandır. MVP, bpmn-js kullanarak BPMN diyagramlarını render edecek bir yapay zeka sohbet botu türü araç olacaktır. Kullanıcı bunları aşağıdakilerle yineleyebilir:
+
+  - ek tartışma
+  - diyagramı doğrudan düzenleme (bpmn-js bunu destekler)
+
+  ### UI Açıklaması
+
+  BPMN diyagramları oluşturmak ve üzerinde yinelemek için işlevselliğe odaklanan BA Copilot MVP'nin hiyerarşik, girintili bir madde işareti açıklaması:
+
+  BA Copilot Arayüzü
+
+  Soru Girişi Bölümü
+
+  Kullanıcılar iş süreçleriyle ilgili sorular veya istekler girebilirler. Örnek: "Doküman içeriğine dayanarak neyi kaçırdım?"
+
+  Süreç Bölümü (İsteğe Bağlı)
+
+  Kullanıcıların .png, .vsdx gibi formatlarda BPMN diyagramlarını yüklemesine veya görüntülemesine olanak tanır. Kullanıcılar mevcut diyagramları görselleştirebilir ve düzenleyebilir veya yenilerini oluşturabilir. Örnek: "Masraf raporu kayıt et", "Onayla" ve "Reddet" süreçlerinin akışını gösteren bir BPMN diyagramı.
+
+  Belgeler Bölümü (İsteğe Bağlı)
+
+  Kullanıcılar süreç ayrıntılarını içerebilecek PDF'ler gibi ilgili belgeleri yükleyebilirler. Örnek: BPMN diyagramı için bağlam sağlamak amacıyla "Shelter - employee handbook.pdf" yükleme.
+
+  Yapıtlar Bölümü
+
+  İlgili çıktılar veya referanslar için bir alan sağlar. Örnek: Yüklenen içeriğe dayalı diyagram önerileri.
+
+  Yinelemeli BPMN Diyagram Oluşturma ve Değiştirme
+
+  Girdi Süreci
+
+  Kullanıcılar mevcut süreçlere yönelik değişiklikler için sorular veya istekler sunabilirler. Örnek: Doküman içeriğine dayanarak süreçteki eksik adımları sorma.
+
+  Yapay Zeka Destekli Öneriler
+
+  Sistem, yüklenen belgelerin içeriğine veya kullanıcı sorgularına dayanarak BPMN diyagramına ekleme veya değişiklik önerileri sunar. Örnek: Yüklenen el kitabından belirli bölümlere atıfta bulunarak masraf politikasını kontrol etmek için bir görev ekleme önerisi.
+
+  Diyagram Düzenleme
+
+  Kullanıcılar alınan önerilere dayanarak BPMN diyagramını etkileşimli olarak düzenleyebilirler. Örnek: "Masraf politikasını kontrol et" görevini "Masraf raporu" ve "Kontrol edilen masraf raporu" gibi girdiler ve çıktılarla ekleme.
+
+  Dokümantasyon ve Referanslar
+
+  Sistem yüklenen belgeleri referans alır ve ilgili bölümleri vurgular. Örnek: Çalışan el kitabından "Section 7. Claiming reimbursement for payments made on behalf of the company" bölümüne atıfta bulunma.
+
+  Kullanıcı İş Akışı
+
+  Bir Soruyla Başlayın
+
+  Kullanıcı bir soru sorarak veya bir istek yaparak süreci başlatır.
+
+  Süreç Diyagramlarını ve Belgeleri Yükleyin
+
+  Kullanıcı bağlam için mevcut diyagramları ve belgeleri yükler.
+
+  Yapay Zeka Tarafından Oluşturulan Önerileri Alın
+
+  Sistem süreç akışını geliştirmek veya düzeltmek için öneriler sağlar.
+
+  BPMN Diyagramını Değiştirin
+
+  Kullanıcı alınan önerilere dayanarak BPMN diyagramını düzenler.
+
+  İstenilen Sonuç Elde Edilene Kadar Yineleyin
+
+  Kullanıcı, istenen sonuç elde edilene kadar izleyen soruları sormaya ve diyagramı değiştirmeye devam eder.
+
+  Bu BA Copilot MVP, kullanıcıların yüklenen belgeler ve kullanıcı sorgularından yararlanarak, bağlamsal önerilerle BPMN diyagramlarını verimli bir şekilde oluşturmasına, değiştirmesine ve üzerinde yineleme yapmasına olanak tanır.
+
+  ## BA Copilot Vizyonu
+
+  ### Genel Bakış
+
+  Bunun vizyonu, iş analisti olmak olacak, ürünün değerini artırmak için ağ etkilerine sahip olacağı, örneğin BA ajansları ürünlerini araç seti bölümünde yayınlayıp, üyeler topluluk bölümünde BA konularını tartışacağı, ayrıca BPMN oluşturma gibi BA görevleri için sürekli gelişen bir modelle kendini koruyacağı bir evdir. Bununla birlikte, hiçbir zaman kullanıcı verileri üzerinde eğitilmeyecektir. Dropbox tarzı "bir arkadaşı davet edin ve ikiniz de 100 AI kredisi alın" mekanizmasıyla viralitenin yoluyla büyüyecektir. Gelir, şirketlerin BA'ları için bunu ödemesinden kaynaklanacaktır. Gelir ayrıca şirketlerin iş tahtasında listelenmek için ödeme yapmasından kaynaklanacaktır.
+
+  ### UI Açıklaması
+
+  İş Analisti (BA) Copilot için bu UI, iş analiziyle ilgili çeşitli görevleri kolaylaştırmak için tasarlanmıştır. İşte özellikleri:
+
+  Başlık Bölümü
+
+  Üst navigasyon çubuğu "BA Copilot" uygulama adını görüntüler ve prototip paylaşımı ve kullanıcı ayarlarına erişim gibi seçenekler sağlar.
+
+  Sol Kenar Çubuğu Navigasyonu
+
+  Home: BA Copilot'un ana panosu veya açılış sayfası. Assistant: Muhtemelen kişiselleştirilmiş yardım veya rehberli yardıma ayrılmış bir bölüm. Vault: Önemli belgeler veya kaynaklar için bir depolama alanı. Library: Kaynaklar, şablonlar veya referans materyalleri koleksiyonu. History: Geçmiş etkileşimlere, görevlere veya kaydedilen çalışmaya erişim. Toolkit: Çeşitli BA faaliyetlerini destekleyen araçlar veya yardımcı programlar. Community: Diğer kullanıcılarla etkileşim, en iyi uygulamaları tartışma veya bilgi paylaşımı için bir bölüm. Job Board: İş ile ilgili kaynaklar, muhtemelen açılışları listeleme alanı. Settings: Altta bulunan, BA Copilot deneyiminin özelleştirilmesine izin veren kullanıcıya özel ayarlar. Kullanıcı Bilgileri: Altta, kullanıcının e-postası (örneğin, alex@tesla.com) ve verilerin güvenli olduğunu belirten bir güvenlik notu görüntülenir.
+
+  Ana İçerik Alanı
+
+  Merkezi Etkileşim Kutusu
+
+  "Ask anything..." etiketli belirgin bir metin kutusu, kullanıcıları sorular, istekler veya komutlar girmesi için davet eder. Bu, BA Copilot ile etkileşimin birincil arayüzüdür.
+
+  Hızlı İşlem Düğmeleri
+
+  Etkileşim kutusunun altında, birkaç düğme yaygın BA görevlerine kısayollar sunur: Create flowchart from requirements: Gereksinimler listesine dayalı bir süreç akış şeması oluşturur. Create requirements from flowchart: Mevcut bir akış şemasından gereksinimleri çıkartır ve belgeler. Create documentation from notes: Toplantı notlarını veya diğer gayri resmi belgeleri resmi belgelere dönüştürür. Create tests from documentation: Mevcut belgelere dayanarak test senaryoları veya betikleri geliştirir. Give me career advice: Kişiselleştirilmiş kariyer rehberliği veya kaynakları sağlar. Recommend a toolkit: Kullanıcının mevcut görevleriyle veya projeleriyle ilgili araçlar veya yazılım önerir.
+
+  Genel Düzen
+
+  Arayüz temiz, minimalist ve kullanıcı dostudur ve işlevselliğe ve kullanım kolaylığına açık vurgu yapar. Kullanıcıları tipik BA görevlerini sorunsuz bir şekilde yönlendirmek ve araçlar ile kaynaklara kolay erişim sağlamak için tasarlanmıştır. Bu UI, iş analisti olmak için tasarlanmış kapsamlı yet düzenli bir araç vizyonunu, iş analistlerin günlük görevlerinde daha verimli ve organize olmalarını sağlayan bir aracı somutlaştırır.
+
+  ## Teknik
+
+  ### Genel Bakış
+
+  Stack'in aşağıdaki öğeleri, onlarla geliştireceğimden emin olduğum şeylerdir:
+
+  - Next.js - App router kullanmak, Pages router kullanmamak, her zaman Pages router için bir öneri yapıp yapmadığınızı kontrol edin, her zaman tavsiyenizin App router için uygun olup olmadığını kontrol edin
+  - Vercel AI
+  - Supabase - db, tür güvenliği dahil
+  - Supabase - auth
+  - Tanstack query
+  - Material UI
+  - Muhtemelen Orval - API çağrıları için (typing, tanstack query, ve mock service worker testing)
+  - Quokka
+
+  React ile orta düzey deneyimim var. Ancak Next.js'te yeniyim. Bu nedenle Next.js ile bir şey uygularken, bunu bilmiyormuşum gibi öğret. Sonra daha fazla açıklamayı teklif et. Stack'imdeki öğeleri değiştirmen gerekirse, her zaman bana söyle. Stack'imde eksik olan öğeler için tavsiyeler verin ve artıları ve eksileri açıklayın, ardından bir tavsiye yapın. Uygulama klasörüm src/app. Hiçbir zaman app/ oluşturma, uygulama oluşturma çalışacak şeyleri kıracak
+
+  ### Devias Şablonu
+
+  Bu çalışma alanı şunları içerir:
+
+  - üzerine inşa ettiğim repo (ba-copilot-main, or ba-copilot)
+  - inşa ettiğim repo: nextjs-template-typescript
+
+  nextjs-template-typescript, Devias Kit Pro tarafından oluşturulan, Devias tarafından yapılan bir şablondur. Depolarından öğeleri benimkine getireceğim. O yüzden bunun farkında ol ve öğeleri oradan getirmeyi tavsiye etmeyi ve kodlama stilini ve yapısını takip etmeyi düşün.
 ---
 
 # Cursorrules

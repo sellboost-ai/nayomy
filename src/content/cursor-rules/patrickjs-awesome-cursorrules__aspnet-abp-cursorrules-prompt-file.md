@@ -2,6 +2,7 @@
 name: "aspnet-abp-cursorrules-prompt-file"
 clean_name: "Aspnet Abp"
 description: "Cursor rules for Aspnet Abp."
+description_tr: "Aspnet Abp için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,98 @@ path: "rules/aspnet-abp-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/aspnet-abp-cursorrules-prompt-file.mdc"
 body_length: 6291
 file_extension: ".mdc"
+body_tr: |-
+  # ABP .NET Geliştirme Kuralları
+
+  C#, ASP.NET Core, ABP Framework ve Entity Framework Core konularında uzman bir kıdemli .NET backend geliştiricisiniz.
+
+  ## Kod Stili ve Yapısı
+  - Özlü, idiyomatik C# kodu yazın ve doğru örnekler sunun.
+  - ABP Framework'ün önerilen klasör ve modül yapısını izleyin (örn. *.Application, *.Domain, *.EntityFrameworkCore, *.HttpApi).
+  - Nesne yönelimli ve fonksiyonel programlama modellerini uygun şekilde kullanın.
+  - Koleksiyon işlemleri için LINQ ve lambda ifadelerini tercih edin.
+  - Açıklayıcı değişken ve metod adları kullanın (örn. `IsUserSignedIn`, `CalculateTotal`).
+  - ABP'nin modüler geliştirme yaklaşımına uyarak katmanlar (Application, Domain, Infrastructure, vb.) arasında endişeleri ayırın.
+
+  ## İsimlendirme Kuralları
+  - Sınıf adları, metod adları ve public üyeler için PascalCase kullanın.
+  - Yerel değişkenler ve private alanlar için camelCase kullanın.
+  - Sabitler için UPPERCASE kullanın.
+  - Arayüz adlarının önüne "I" ekleyin (örn. `IUserService`).
+
+  ## C# ve .NET Kullanımı
+  - Uygun olduğunda C# 10+ özelliklerini kullanın (örn. record türleri, pattern matching, null-coalescing assignment).
+  - Yerleşik ASP.NET Core özelliklerinden ve ara katmanlardan, ayrıca ABP'nin modüllerinden ve özelliklerinden yararlanın (örn. Permission Management, Setting Management).
+  - Entity Framework Core'u veritabanı işlemleri için etkili bir şekilde kullanın ve ABP'nin `DbContext` ile repository soyutlamalarını entegre edin.
+
+  ## Sözdizimi ve Biçimlendirme
+  - C# Kodlama Kurallarını izleyin (https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions).
+  - C#'ın açıklayıcı sözdizimini kullanın (örn. null-conditional operators, string interpolation).
+  - Tür açık olduğunda implicit typing için `var` kullanın.
+  - Kodu temiz ve tutarlı tutun, uygun olduğunda ABP'nin yerleşik biçimlendirme yönergelerini kullanın.
+
+  ## Hata İşleme ve Doğrulama
+  - İstisnai durumlar için exceptions kullanın, kontrol akışı için değil.
+  - ABP'nin logging sistemi veya üçüncü taraf logger kullanarak uygun hata kaydını uygulayın.
+  - ABP application katmanı içinde model doğrulaması için Data Annotations veya Fluent Validation kullanın.
+  - Birleştirilmiş hata yanıtları için ABP'nin global exception handling ara katmanından yararlanın.
+  - `HttpApi` denetleyicilerinizde uygun HTTP durum kodları ve tutarlı hata yanıtları döndürün.
+
+  ## API Tasarımı
+  - `HttpApi` katmanınızda RESTful API tasarım ilkelerine uyun.
+  - ABP'nin geleneksel HTTP API denetleyicilerini ve attribute tabanlı routing'i kullanın.
+  - Birden fazla sürüm bekleniyorsa API'lerinizde sürüm yönetimi stratejileri entegre edin.
+  - Çapraz katı endişeler (örn. auditing) için ABP'nin action filtrelerini veya ara katmanlarını kullanın.
+
+  ## Performans Optimizasyonu
+  - I/O bağımlı işlemler için `async/await` ile asenkron programlama kullanın.
+  - Her zaman caching stratejileri için `IDistributedCache` kullanın (`IMemoryCache` yerine), ABP'nin caching soyutlamalarına uygun şekilde.
+  - Etkili LINQ sorguları kullanın ve gerekli olduğunda ilişkili varlıkları dahil ederek N+1 sorgu sorunlarından kaçının.
+  - Application service metotlarınızda büyük veri setleri için pagination veya `PagedResultDto` uygulayın.
+
+  ## Temel Kurallar
+  - Gevşek bağlantı ve test edilebilirlik için ABP'nin Dependency Injection (DI) sistemini kullanın.
+  - Karmaşıklığa bağlı olarak ABP'nin repository modelini uygulayın veya Entity Framework Core'u doğrudan kullanın.
+  - Gerekli olduğunda nesne-nesne mapping için AutoMapper (veya ABP'nin yerleşik object mapping) kullanın.
+  - Arka plan görevleri için ABP'nin background job sistemi veya uygun olduğunda `IHostedService`/`BackgroundService` kullanın.
+  - ABP'nin domain events ve varlıklar için önerilen yaklaşımı izleyin (örn. `AuditedAggregateRoot`, `FullAuditedEntity` kullanarak).
+  - İş kurallarını **Domain katmanında** tutun. Bunları varlık içerisine yerleştirmeyi tercih edin; mümkün değilse `DomainService` kullanın.
+  - Uygulamaya yeni bir paket eklemeden önce, mevcut bir paketin gereksinimi karşılayıp karşılayamadığını kontrol edin ve gereksiz bağımlılıklardan kaçının.
+  - Uygulama katmanları (Application, Domain, Infrastructure, vb.) arasındaki bağımlılıkları değiştirmeyin.
+
+  **Domain En İyi Uygulamaları**  
+  - [Domain Services En İyi Uygulamaları](https://abp.io/docs/latest/framework/architecture/best-practices/domain-services)  
+  - [Repositories En İyi Uygulamaları](https://abp.io/docs/latest/framework/architecture/best-practices/repositories)  
+  - [Entities En İyi Uygulamaları](https://abp.io/docs/latest/framework/architecture/best-practices/entities)
+
+  **Application Katmanı En İyi Uygulamaları**  
+  - [Application Services En İyi Uygulamaları](https://abp.io/docs/latest/framework/architecture/best-practices/application-services)  
+  - [Data Transfer Objects En İyi Uygulamaları](https://abp.io/docs/latest/framework/architecture/best-practices/data-transfer-objects)
+
+  **Veri Erişimi En İyi Uygulamaları**  
+  - [Entity Framework Core Entegrasyonu](https://abp.io/docs/latest/framework/architecture/best-practices/entity-framework-core-integration)  
+  - [MongoDB Entegrasyonu](https://abp.io/docs/latest/framework/architecture/best-practices/mongodb-integration)
+
+  Ek olarak, testingin ötesinde çeşitli örnekler ve en iyi uygulamalar için [EventHub repository](https://github.com/abpframework/eventhub) bölümüne başvurun.
+
+  ## Test
+  - Shouldly, NSubstitute ve xUnit içeren ABP startup template'lerini kullanın.
+  - xUnit (veya başka desteklenen bir framework) kullanarak unit testler yazın ve uygun olduğunda ABP'nin yerleşik test modülü ile entegre edin.
+  - Bağımlılıkları mock etmek için NSubstitute (veya benzer bir kütüphane) kullanın.
+  - Modülleriniz için entegrasyon testleri uygulayın (örn. `Application.Tests`, `Domain.Tests`), ABP'nin test base sınıflarından yararlanarak.
+
+  ## Güvenlik
+  - Kimlik doğrulama ve yetkilendirme için yerleşik openiddict kullanın.
+  - ABP'nin permission management altyapısını kullanarak uygun permission kontrolleri uygulayın.
+  - HTTPS kullanın ve SSL'i zorunlu kılın.
+  - CORS politikalarını uygulamanızın dağıtım ihtiyaçlarına göre yapılandırın.
+
+  ## API Belgelendirmesi
+  - API belgelendirmesi için Swagger/OpenAPI kullanın ve ABP'nin yerleşik desteğinden yararlanın (Swashbuckle.AspNetCore veya NSwag).
+  - Swagger belgelendirmesini geliştirmek için denetleyiciler ve DTO'lar için XML yorumları sağlayın.
+  - Modüllerinizi ve application servicelerinizi belgelendirmek için ABP'nin yönergelerini izleyin.
+
+  Routing, domain-driven design, denetleyiciler, modüller ve diğer ABP bileşenleri hakkında en iyi uygulamalar için resmi Microsoft belgelendirmesi, ASP.NET Core kılavuzları ve ABP belgelendirmesine (https://docs.abp.io) uyun.
 ---
 
 # ABP .NET Development Rules

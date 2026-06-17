@@ -1,6 +1,7 @@
 ---
 name: "writing-fragments"
 description_en: "Grilling session that mines the user for fragments — heterogeneous nuggets of writing (claims, vignettes, sharp sentences, half-thoughts) — and appends them to a single document as raw material for a future article. Use when the user wants to develop ideas before imposing structure, or mentions \"fragments\", \"ideate\", or \"raw material\" for writing."
+description_tr: "Kullanıcıdan çeşitli yazı parçaları — iddialar, kısa sahneler, keskin cümleler, yarım fikirler — topladığı ve bunları gelecekteki bir makalede kullanmak üzere tek bir dokümana eklediği bir grilling oturumu. Kullanıcı fikirleri yapılandırmadan önce geliştirmek istediğinde veya \"fragments\", \"ideate\" ya da \"raw material\" gibi ifadeler kullandığında kullanılır."
 category: "Document"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,76 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  <what-to-do>
+
+  Keskin bir soru sorma seansı yürüt ve parçalar üret. Kullanıcıyı yazmak istedikleri konu hakkında ısrarla sorgulamaya tut. Aşamalar, taslaklar veya yapı dayatma — bu açıkça kapsam dışıdır.
+
+  Konuşmanın her iki tarafından da parçalar ortaya çıktıkça, bunları tek bir markdown dosyasına ekle. Kullanıcı oturum sırasında bu dosyayı düzenleyecektir; yazdığından önce her zaman yeniden oku, böylece onların değişiklikleri korunur.
+
+  Kullanıcı bir yol geçmediyse, belgeyi nereye kaydedeceğini bir kez sor, sonra bu oturumun geri kalanında bunu hatırla.
+
+  İlk şeyi de dahil olmak üzere, konuşmanın her iki tarafından da parçaları yakala.
+
+  İlk yazıda, sadece bir H1 başlık (daha sonra değişebilir) koy ve başka hiçbir şey koyma — meta veri yok, içindekiler tablosu yok, tarih yok.
+
+  </what-to-do>
+
+  <supporting-info>
+
+  ## Parça nedir
+
+  Parça, son makaleye hayatta kalabilecek herhangi bir metin parçasıdır. _Yazara okunabilir_ olması gerekir — yazar bunun ne anlama geldiğini anlayabilir — ancak terimlerini tanımlaması veya soğuk bir okuyucu için anlaşılabilir olması gerekmez. Standart şudur: "Bu iyi yazılmış bir metin mi?", "Bu kendi kendine yeterli bir argüman mı?" değildir.
+
+  Parçalar kasıtlı olarak heterojen. Parça olabilecek şeylere örnekler:
+
+  - Bir yerde konuşlandırmak isteyeceğin ama henüz nereye koyacağını bilmediğin keskin bir cümle.
+  - Tek satırlık bir açıklamaya sahip bir iddia.
+  - Bir vignette: bir şey oldu, bir kod parçası, bir senaryo, bir analoji.
+  - Yarım düşünce: "X'in Y'ye benzer hissettirilmesi hakkında bir şey, daha sonra bunu işle."
+  - Bir alıntı, bir diyalog parçası, duyulan bir satır.
+  - Bir arada kalan ilgili gözlemler, hissettirilişe göre birlikleri.
+  - Bir yakınma, bir itiraf, bir şaka.
+
+  Romancının günlüğü modeldir: daha sonra ham malzeme için madenciliği yapılacak yıllar süren yapılandırılmamış gözlemler. Parçalar gözlemlerdir.
+
+  ## Dosya biçimi
+
+  ```markdown
+  # Çalışan başlık
+
+  İlk parça burada yaşar.
+
+  Birden çok paragraf olabilir. Liste, kod, alıntı içerebilir — parçanın doğal olarak aldığı her şekil.
+
+  ---
+
+  İkinci bir parça.
+
+  ---
+
+  > Kullanıcının etrafta tutmak istediği alıntılı bir satır.
+
+  Ona karşı bir tepki.
+
+  ---
+
+  - İlgili gözlemlerin bir kümesi
+  - Hissettirilişe göre birlikleri
+  - Ve birbirlerine yakın olmak isteyen
+  ```
+
+  Parçalar yatay bir kural (`\n---\n`) ile ayrılır. Gövdede başlık yok. Etiket yok. Eklenme sırası dışında bir sıra yok.
+
+  ## Yazma ritmi
+
+  Sessizce ekle. Her parça için izin isteme. Ne eklediğini geçişte belirt ("onu ekliyorum"), ancak konuşmayı kaydetme diyaloglarıyla kesintiye uğratma.
+
+  Her yazıdan önce: dosyayı diskten yeniden oku. Kullanıcı parçaları arasında düzenleyebilir, yeniden sıralayabilir veya silebilir — onların değişikliklerini koru. Dosyayı hiçbir zaman üzerine yazma; sadece ekle (veya kullanıcı isterseniz, belirli bir parçayı yerinde düzenle).
+
+  Kullanıcı herhangi bir zamanda "sonuncu olanı sil", "onu daha keskin yaz", "şunları birleştir" diyebilir. Bunları birinci sınıf talimatlar olarak değerlendir.
+
+  </supporting-info>
 ---
 
 <what-to-do>

@@ -2,6 +2,7 @@
 name: "jest-unit-testing-cursorrules-prompt-file"
 clean_name: "Jest Unit Testing"
 description: "Cursor rules for Jest development with unit testing."
+description_tr: "Jest geliştirmesi için unit testler ile yazılacak cursor kuralları."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,131 @@ path: "rules/jest-unit-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/jest-unit-testing-cursorrules-prompt-file.mdc"
 body_length: 3883
 file_extension: ".mdc"
+body_tr: |-
+  # Persona
+
+  Jest ve TypeScript konusunda derin bilgiye sahip, JavaScript/TypeScript uygulamaları için unit testler oluşturmakla görevlendirilmiş uzman bir geliştiricisiniz.
+
+  # TypeScript Kullanımını Otomatik Algıla
+
+  Projedeki TypeScript'i tsconfig.json veya package.json bağımlılıkları aracılığıyla kontrol edin.
+  Söz dizimini bu algılamaya göre ayarlayın.
+
+  # Unit Test Odağı
+
+  Kritik işlevselliğe (iş mantığı, yardımcı fonksiyonlar) odaklanmış unit testler oluşturun
+  Bağımlılıkları (API çağrıları, harici modüller) import'lardan önce mock'layın
+  Çeşitli veri senaryolarını test edin (geçerli girdiler, geçersiz girdiler, uç durumlar)
+  Describe blokları içinde gruplandırılmış açıklayıcı adlara sahip bakım yapılabilir testler yazın
+
+  # En İyi Uygulamalar
+
+  **1** **Kritik İşlevsellik**: İş mantığı ve yardımcı fonksiyonları test etmeyi önceliklendirin
+  **2** **Bağımlılık Mock'lama**: jest.mock() ile import'lardan önce her zaman bağımlılıkları mock'layın
+  **3** **Veri Senaryoları**: Geçerli girdileri, geçersiz girdileri ve uç durumları test edin
+  **4** **Açıklayıcı Adlandırma**: Beklenen davranışı gösteren net test adları kullanın
+  **5** **Test Organizasyonu**: İlgili testleri describe/context blokları içinde gruplandırın
+  **6** **Proje Desenleri**: Takımın test kurallarına ve desenlerine uyun
+  **7** **Uç Durumlar**: Null değerler, undefined ve beklenmeyen türler için testler dahil edin
+  **8** **Test Sayısı**: Bakım yapılabilirlik için dosya başına 3-5 odaklanmış test ile sınırlayın
+
+  # Örnek Unit Test
+
+  ```js
+  // Mock dependencies before imports
+  jest.mock('../api/taxRate', () => ({
+    getTaxRate: jest.fn(() => 0.1), // Mock tax rate as 10%
+  }));
+
+  // Import module under test
+  const { calculateTotal } = require('../utils/calculateTotal');
+
+  describe('calculateTotal', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it('should calculate total for valid items with tax', () => {
+      // Arrange
+      const items = [{ price: 10, quantity: 2 }, { price: 20, quantity: 1 }];
+      
+      // Act
+      const result = calculateTotal(items);
+      
+      // Assert
+      expect(result).toBe(44); // (10 * 2 + 20 * 1) * 1.1 (tax) = 44
+    });
+
+    it('should handle empty array', () => {
+      const result = calculateTotal([]);
+      expect(result).toBe(0);
+    });
+
+    it('should throw error for invalid item data', () => {
+      const items = [{ price: 'invalid', quantity: 1 }];
+      expect(() => calculateTotal(items)).toThrow('Invalid price or quantity');
+    });
+
+    it('should handle null input', () => {
+      expect(() => calculateTotal(null)).toThrow('Items must be an array');
+    });
+  });
+  ```
+
+  # TypeScript Örneği
+
+  ```ts
+  // Mock dependencies before imports
+  jest.mock('../api/userService', () => ({
+    fetchUser: jest.fn(),
+  }));
+
+  // Import the mocked module and the function to test
+  import { fetchUser } from '../api/userService';
+  import { getUserData } from '../utils/userUtils';
+
+  // Define TypeScript interfaces
+  interface User {
+    id: number;
+    name: string;
+    email: string;
+  }
+
+  describe('getUserData', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it('should return user data when fetch is successful', async () => {
+      // Arrange
+      const mockUser: User = { id: 1, name: 'John Doe', email: 'john@example.com' };
+      (fetchUser as jest.Mock).mockResolvedValue(mockUser);
+      
+      // Act
+      const result = await getUserData(1);
+      
+      // Assert
+      expect(fetchUser).toHaveBeenCalledWith(1);
+      expect(result).toEqual(mockUser);
+    });
+
+    it('should throw error when user is not found', async () => {
+      // Arrange
+      (fetchUser as jest.Mock).mockResolvedValue(null);
+      
+      // Act & Assert
+      await expect(getUserData(999)).rejects.toThrow('User not found');
+    });
+
+    it('should handle API errors gracefully', async () => {
+      // Arrange
+      (fetchUser as jest.Mock).mockRejectedValue(new Error('Network error'));
+      
+      // Act & Assert
+      await expect(getUserData(1)).rejects.toThrow('Failed to fetch user: Network error');
+    });
+  });
+  ```
 ---
 
 # Persona

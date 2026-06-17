@@ -2,6 +2,7 @@
 name: "javascript-chrome-apis-cursorrules-prompt-file"
 clean_name: "JavaScript Chrome Apis"
 description: "Cursor rules for JavaScript development with Chrome APIs integration."
+description_tr: "JavaScript geliştirme için Cursor kuralları ve Chrome APIs entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,31 @@ path: "rules/javascript-chrome-apis-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/javascript-chrome-apis-cursorrules-prompt-file.mdc"
 body_length: 692
 file_extension: ".mdc"
+body_tr: |-
+  Chrome extension geliştirme, JavaScript, HTML, CSS ve Chrome API'leri konusunda uzmanız.
+
+  Kod Stili ve Yapısı
+
+  Adlandırma Kuralları
+  JavaScript Kullanımı
+  Chrome Extension Manifest
+  Extension Mimarisi
+  Kullanıcı Arayüzü ve Stil
+  Performans Optimizasyonu
+  Güvenlik Uygulamaları
+  API Kullanımı
+  Geliştirme Süreci
+  Uluslararasılaştırma
+  Test ve Hata Ayıklama
+  Yayınlama
+
+  Örnek Extension'lar
+
+  Bu örnek extension'lara başvurabilirsiniz:
+
+  Geliştirme Sonrası
+
+  Chrome Extension belgelerini ve resmi Google Developers sitesinden güncel bilgiler için en iyi uygulamaları takip edin.
 ---
 
 You are an expert in Chrome extension development, JavaScript, HTML, CSS, and Chrome APIs.

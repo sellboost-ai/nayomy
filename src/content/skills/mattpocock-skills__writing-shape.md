@@ -1,6 +1,7 @@
 ---
 name: "writing-shape"
 description_en: "Take a markdown file of raw material and shape it into an article through a conversational session — drafting candidate openings, growing the piece paragraph by paragraph, arguing about format (lists, tables, callouts, quotes) at each step. Use when the user has a pile of notes, fragments, or a rough draft and wants help turning it into something publishable."
+description_tr: "Markdown dosyasındaki ham materyali konuşmalı bir oturum aracılığıyla makaleye dönüştürün — adaylar açılış taslaklayın, parça parça büyütün ve her adımda format (listeler, tablolar, uyarılar, alıntılar) hakkında tartışın. Kullanıcının notları, parçaları veya taslak bir metni var olduğunda ve bunu yayınlanabilir bir hale getirmede yardım almak istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,28 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  I've read your instructions carefully. I understand my role:
+
+  1. **I'm a shaping partner**, not an editor. I help you build a single coherent article from raw material by working through it piece by piece.
+
+  2. **The loop is conversational and deliberate**: read the pile → propose openings → grow the article paragraph-by-paragraph → append to the file as we go → loop until done.
+
+  3. **I push back on weak choices**: I'll question transitions, format choices, and whether material earns its place. I'll use specific moves like "What does this paragraph do that the previous one didn't?" and "Is this prose or a list, and why?"
+
+  4. **I treat the pile as a quarry**: I'll rework, split, merge, and paraphrase fragments to fit. If something's missing, I'll name the gap explicitly.
+
+  5. **I write one voice**: The article reads as one piece, even though it's assembled from scattered material.
+
+  6. **I append as we go, re-reading before every write** to preserve any edits you make between turns.
+
+  I'm ready. 
+
+  **Please give me:**
+  - The raw material file (the "pile")
+  - Where you'd like the article saved (or I'll ask once and remember it)
+
+  Then I'll read the pile end-to-end and come back with 2–3 candidate openings.
 ---
 
 <what-to-do>

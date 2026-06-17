@@ -1,6 +1,7 @@
 ---
 name: "obsidian-vault"
 description_en: "Search, create, and manage notes in the Obsidian vault with wikilinks and index notes. Use when user wants to find, create, or organize notes in Obsidian."
+description_tr: "Obsidian vault'unuzda wikilink'ler ve index notlarla birlikte notları arayın, oluşturun ve yönetin. Kullanıcı Obsidian'da notları bulmak, oluşturmak veya organize etmek istediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,61 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Obsidian Vault
+
+  ## Vault konumu
+
+  `/mnt/d/Obsidian Vault/AI Research/`
+
+  Çoğunlukla kök seviyesinde düz yapı.
+
+  ## Adlandırma kuralları
+
+  - **Index notları**: ilgili konuları topla (örn., `Ralph Wiggum Index.md`, `Skills Index.md`, `RAG Index.md`)
+  - Tüm not adları için **Title Case** kullan
+  - Organizasyon için klasör kullanma - bunun yerine bağlantılar ve index notları kullan
+
+  ## Bağlantılar
+
+  - Obsidian `[[wikilinks]]` sözdizimini kullan: `[[Note Title]]`
+  - Notlar bağımlılık/ilgili notlara altta bağlanır
+  - Index notları sadece `[[wikilinks]]` listesidir
+
+  ## İş akışları
+
+  ### Notları ara
+
+  ```bash
+  # Dosya adına göre ara
+  find "/mnt/d/Obsidian Vault/AI Research/" -name "*.md" | grep -i "keyword"
+
+  # İçeriğe göre ara
+  grep -rl "keyword" "/mnt/d/Obsidian Vault/AI Research/" --include="*.md"
+  ```
+
+  Veya Grep/Glob araçlarını doğrudan vault yolunda kullan.
+
+  ### Yeni not oluştur
+
+  1. Dosya adı için **Title Case** kullan
+  2. İçeriği bir öğrenme birimi olarak yazın (vault kurallarına göre)
+  3. Altta ilgili notlara `[[wikilinks]]` ekle
+  4. Numaralandırılmış bir dizinin parçasıysa, hiyerarşik numaralandırma şemasını kullan
+
+  ### İlgili notları bul
+
+  Vault genelinde `[[Note Title]]` araması yaparak geriye doğru bağlantıları bul:
+
+  ```bash
+  grep -rl "\\[\\[Note Title\\]\\]" "/mnt/d/Obsidian Vault/AI Research/"
+  ```
+
+  ### Index notlarını bul
+
+  ```bash
+  find "/mnt/d/Obsidian Vault/AI Research/" -name "*Index*"
+  ```
 ---
 
 # Obsidian Vault

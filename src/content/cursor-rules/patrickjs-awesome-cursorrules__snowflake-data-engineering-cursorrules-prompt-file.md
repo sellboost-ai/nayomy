@@ -2,6 +2,7 @@
 name: "snowflake-data-engineering-cursorrules-prompt-file"
 clean_name: "Snowflake Data Engineering"
 description: "Cursor rules for Snowflake SQL, data pipelines (Dynamic Tables, Streams, Tasks, Snowpipe), semi-structured data, Snowflake Postgres, and cost optimization."
+description_tr: "Snowflake SQL, veri işlem hatları (Dynamic Tables, Streams, Tasks, Snowpipe), yarı yapılandırılmış veriler, Snowflake Postgres ve maliyet optimizasyonu için Cursor rules."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,159 @@ path: "rules/snowflake-data-engineering-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/snowflake-data-engineering-cursorrules-prompt-file.mdc"
 body_length: 7283
 file_extension: ".mdc"
+body_tr: |-
+  ```markdown
+  // Snowflake Veri Mühendisliği
+  // SQL, veri işlem hatları ve Snowflake platform en iyi uygulamaları için kapsamlı rehber
+
+  Tüm platform hakkında derin bilgiye sahip bir Snowflake veri mühendisi olarak hareket edin: SQL, veri işlem hatları (Dynamic Tables, Streams, Tasks, Snowpipe), yarı yapılandırılmış veriler, Snowflake Postgres ve maliyet optimizasyonu.
+
+  // Mimari
+  // Snowflake depolama (sütunlu mikro-bölümler), işlem (esnek sanal ambarlar) ve hizmetleri (meta veri, güvenlik, optimizasyon) ayırır.
+
+  // ═══════════════════════════════════════════
+  // SQL VE SEMI-YAPILANDIRILMIŞ VERİ
+  // ═══════════════════════════════════════════
+
+  // JSON, Avro, Parquet, ORC için VARIANT, OBJECT ve ARRAY türlerini kullanın.
+  // İç içe alanları iki nokta notasyonuyla erişin: src:customer.name::STRING
+  // Açıkça dönüştürün: src:price::NUMBER(10,2), src:created_at::TIMESTAMP_NTZ
+  // Dizileri düzleştirin:
+  //   SELECT f.value:name::STRING AS name
+  //   FROM my_table, LATERAL FLATTEN(input => src:items) f;
+  // Yarı yapılandırılmış verileri ilişkisel sütunlara düzleştirin — veri tarihler, sayılar (string olarak) veya diziler içeriyorsa.
+  // Aynı VARIANT alanında karışık türlerden kaçının — subcolumnarization'ı engeller.
+  // VARIANT null vs SQL NULL: JSON null string "null" olarak saklanır. Yükleme sırasında STRIP_NULL_VALUES => TRUE kullanın.
+
+  // SQL Kodlama Standartları
+  // - Tüm tanıtıcılar için snake_case. Alıntı yapılmış tanıtıcılardan kaçının.
+  // - İç içe alt sorgular yerine CTE'ler. İdempotent DDL için CREATE OR REPLACE:
+  //   MERGE INTO target t USING source s ON t.id = s.id
+  //   WHEN MATCHED THEN UPDATE SET t.name = s.name
+  //   WHEN NOT MATCHED THEN INSERT (id, name) VALUES (s.id, s.name);
+
+  // Saklı Yordamlar — SQL deyimleri içinde değişkenlerin önüne iki nokta : koyun:
+  //   CREATE PROCEDURE my_proc(p_id INT) RETURNS STRING LANGUAGE SQL AS
+  //   BEGIN
+  //     LET result STRING;
+  //     SELECT name INTO :result FROM users WHERE id = :p_id;
+  //     RETURN result;
+  //   END;
+
+  // ═══════════════════════════════════════════
+  // PERFORMANS OPTİMİZASYONU
+  // ═══════════════════════════════════════════
+
+  // Küme anahtarları: çok büyük tablolar (multi-TB) için, WHERE/JOIN/GROUP BY sütunlarında.
+  //   ALTER TABLE large_events CLUSTER BY (event_date, region);
+  // Search Optimization Service: yüksek kardinaliteli sütunlarda nokta aramaları, substring/regex.
+  //   ALTER TABLE logs ADD SEARCH OPTIMIZATION ON EQUALITY(sender_ip), SUBSTRING(error_message);
+  // Materyalize Edilmiş Görünümler: pahalı agregasyonları önceden hesapla (yalnızca tek tablo).
+  // RESULT_SCAN(LAST_QUERY_ID()) kullanarak sonuçları yeniden kullanın. Atıf için sorgu etiketleri:
+  //   ALTER SESSION SET QUERY_TAG = 'etl_daily_load';
+
+  // ═══════════════════════════════════════════
+  // VERİ İŞLEM HATLARI
+  // ═══════════════════════════════════════════
+
+  // Yaklaşımınızı Seçin:
+  // Dynamic Tables   — Deklaratif. Sorguyu tanımlayın, Snowflake yenilemeyi yönetir. Çoğu işlem hattı için en iyisi.
+  // Streams + Tasks  — İmperatif CDC + planlama. Prosedürel mantık, saklı yordamı çağrıları için en iyisi.
+  // Snowpipe         — S3/GCS/Azure'dan sürekli dosya yükleme.
+  // Snowpipe Streaming — SDK aracılığıyla düşük gecikme süresine sahip satır seviyesi yutma (Java, Python).
+
+  // Dynamic Tables
+  CREATE OR REPLACE DYNAMIC TABLE cleaned_events
+    TARGET_LAG = '5 minutes'
+    WAREHOUSE = transform_wh
+    AS
+    SELECT event_id, event_type, user_id, event_data:page::STRING AS page, event_timestamp
+    FROM raw_events
+    WHERE event_type IS NOT NULL;
+
+  // Çok adımlı işlem hatları için zincir:
+  CREATE OR REPLACE DYNAMIC TABLE user_sessions
+    TARGET_LAG = '10 minutes'
+    WAREHOUSE = transform_wh
+    AS
+    SELECT user_id, MIN(event_timestamp) AS session_start, MAX(event_timestamp) AS session_end, COUNT(*) AS event_count
+    FROM cleaned_events GROUP BY user_id;
+
+  // TARGET_LAG: tazelik hedefi. REFRESH_MODE: AUTO, FULL veya INCREMENTAL.
+  // Yönet: ALTER DYNAMIC TABLE ... SET TARGET_LAG / REFRESH / SUSPEND / RESUME.
+
+  // Streams (CDC)
+  CREATE OR REPLACE STREAM raw_events_stream ON TABLE raw_events;
+  // Eklenen sütunlar: METADATA$ACTION, METADATA$ISUPDATE, METADATA$ROW_ID
+  // APPEND_ONLY = TRUE ekleme-yalnızca kaynaklar için (daha düşük ek yük).
+
+  // Tasks (Planlı/Tetiklenen)
+  CREATE OR REPLACE TASK process_events
+    WAREHOUSE = transform_wh
+    SCHEDULE = 'USING CRON 0 */1 * * * America/Los_Angeles'
+    WHEN SYSTEM$STREAM_HAS_DATA('raw_events_stream')
+    AS
+    INSERT INTO cleaned_events
+    SELECT event_id, event_type, user_id, event_timestamp
+    FROM raw_events_stream WHERE event_type IS NOT NULL;
+
+  // Task DAG'ları: CREATE TASK child_task ... AFTER parent_task ...
+  // Task'lar SUSPENDED olarak başlar — etkinleştirmek için ALTER TASK ... RESUME.
+
+  // Snowpipe
+  CREATE OR REPLACE PIPE my_pipe AUTO_INGEST = TRUE AS
+    COPY INTO raw_events FROM @my_external_stage FILE_FORMAT = (TYPE = 'JSON');
+
+  // Yaygın Desen: Snowpipe → Dynamic Table zinciri (en basit uçtan uca işlem hattı).
+
+  // ═══════════════════════════════════════════
+  // ZAMAN YOLCULUĞU VE VERİ KORUMASI
+  // ═══════════════════════════════════════════
+
+  // Zaman Yolculuğu (varsayılan 1 gün, Enterprise+'da 90'a kadar):
+  //   SELECT * FROM my_table AT(TIMESTAMP => '2024-01-15 10:00:00'::TIMESTAMP);
+  //   SELECT * FROM my_table BEFORE(STATEMENT => '<query_id>');
+  // UNDROP TABLE/SCHEMA/DATABASE bırakılmış nesneleri kurtarmak için.
+  // Sıfır-kopya klonlama: CREATE TABLE clone CLONE source; CREATE SCHEMA dev CLONE prod;
+
+  // ═══════════════════════════════════════════
+  // SNOWFLAKE POSTGRES
+  // ═══════════════════════════════════════════
+
+  // Yönetilen PostgreSQL (v16/17/18) tam tel uyumluluğuyla.
+  // CREATE POSTGRES INSTANCE my_instance COMPUTE_FAMILY='STANDARD_S' STORAGE_SIZE_GB=50;
+  // pg_lake uzantısı aracılığıyla OLTP'yi analitiğe köprüle (Iceberg tabloları hem Postgres hem de Snowflake'ten okunabilir).
+  // Belirli zaman anında kurtarma için FORK. Üretim için HIGH_AVAILABILITY = TRUE.
+
+  // ═══════════════════════════════════════════
+  // AMBAR VE MALİYET YÖNETİMİ
+  // ═══════════════════════════════════════════
+
+  // Sorgu karmaşıklığına göre boyut belirleyin, veri hacmine göre değil. X-Small ile başlayın, ölçeği artırın.
+  // AUTO_SUSPEND = 60, AUTO_RESUME = TRUE. İş yükü başına ayrı ambarlar.
+  // Eşzamanlılık ölçeklendirmesi için çok kümeli. Hazırlama için geçici tablolar (Fail-safe maliyeti yok).
+  // İzle: SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY, WAREHOUSE_METERING_HISTORY.
+  // Kredi limitleri için Kaynak Monitörleri. Geniş tablolarda SELECT * işleminden kaçının.
+
+  // Erişim Kontrolü
+  // En az ayrıcalık RBAC. Nesne izinleri için veritabanı rolleri.
+  // PII için maskeleme ilkeleri. Çok kiracılı yalıtım için satır erişim ilkeleri.
+  // İşlevsel roller: loader (yazma ham), transformer (okuma ham, yazma analitik), analyst (okuma analitik).
+
+  // Veri Paylaşımı
+  // Sıfır-kopya hesaplar arası paylaşım için SHARE oluşturun. Değişim için Snowflake Marketplace.
+
+  // Iceberg Tabloları
+  // CREATE ICEBERG TABLE ... CATALOG='SNOWFLAKE' EXTERNAL_VOLUME='vol' BASE_LOCATION='path/';
+  // Spark, Flink, Trino ile birlikte çalışabilir.
+
+  // Anti-Paternler
+  - Dynamic Table'ların işleyebileceği basit dönüştürmeler için stream'ler + task'lar KULLANMAYIN.
+  - TARGET_LAG'i gerekenden kısa AYARLAMAYIN — doğrudan maliyeti etkiler.
+  - Oluşturduktan sonra task'ları RESUME ETMEYI UNUTMAYIN.
+  - Geniş tablolarda SELECT * KULLANMAYIN. Multi-TB tablolarda küme analizini ATLAMAYIN.
+  - Yeniden kullanılabilir kodda veritabanı/schema adlarını HARDCODE ETMEYIN.
+  ```
 ---
 
 // Snowflake Data Engineering

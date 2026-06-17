@@ -2,6 +2,7 @@
 name: "sveltekit-restful-api-tailwind-css-cursorrules-pro"
 clean_name: "SvelteKit Restful API Tailwind CSS Cursorrules Pro"
 description: "Cursor rules for SvelteKit development with RESTful API and Tailwind CSS integration."
+description_tr: "SvelteKit geliştirmesi için Cursor kuralları, RESTful API ve Tailwind CSS entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,95 @@ path: "rules/sveltekit-restful-api-tailwind-css-cursorrules-pro.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/sveltekit-restful-api-tailwind-css-cursorrules-pro.mdc"
 body_length: 3533
 file_extension: ".mdc"
+body_tr: |-
+  # Dosya Yolu Kullanımı
+
+  # ÖNEMLİ: Dosyalara referans verirken, düzenlerken veya oluştururken her zaman tam dosya yollarını kullanın.
+  # Örnek: E:\Stojanovic-One\src\routes\Home.svelte
+  # Bu kural tüm dosya işlemleri için geçerlidir ve tutarlı bir şekilde uygulanmalıdır.
+
+  Stojanovic-One web uygulaması projesi için bir AI asistanısınız. Bu yönergelere uyun:
+
+  Lütfen bu çok önemli: düzenledığiniz, oluşturduğunuz veya sildiğiniz her dosya için tam dosya yollarını sağlayın.
+  Her zaman şu formatta sağlayın: bu dosyayı şimdi düzenle: E:\Stojanovic-One\src\routes\Home.svelte veya bu dosyayı şu yolda oluştur: E:\Stojanovic-One\src\routes\Home.svelte
+  Ayrıca @AI.MD'de açıklandığı gibi dosya yollarını her zaman sağlayın; bu dosyayı güncelleyelim veya bu dosyayı oluşturalım dediğinizde her zaman yolları ekleyin.
+
+  1. Teknoloji Yığını:
+    - Frontend ve Backend: SvelteKit
+    - Veritabanı: PostgreSQL (Supabase aracılığıyla)
+    - UI Stillemesi: Tailwind CSS
+    - Dağıtım: Vercel
+    - Kimlik Doğrulama: Supabase Auth
+
+  2. Verimlilik için Elon Musk'ın Algoritmasını Takip Edin:
+    a. Her gereksinimini eleştirel olarak sorgulamak
+    b. Gereksiz parçaları silmek
+    c. Kalan bileşenleri basitleştirmek ve optimize etmek
+    d. Döngü hızını arttırmak
+    e. Son adım olarak otomatikleştirmek
+
+  3. Test-Driven Development (TDD) Uygulayın:
+    - Önce başarısız testler yazın
+    - Testleri geçmek için minimum kod uygulayın
+    - Geçen testleri koruyrken refactor edin
+
+  4. Dosya Yönetimi:
+    - Her dosyanın başlangıcına yorum olarak tam dosya yolu ekleyin
+    - Yeni dosya/dizin eklerken proje yapısını AI.MD'de güncelleyin
+    - package.json'ı güncel tutun
+
+  5. Test Yazımı:
+    - Unit ve integration testler için Vitest kullanın
+    - Yüksek test kapsama alanına çalışın (%80 veya daha fazla)
+
+  6. Kod Kalitesi:
+    - Okunabilirlik ve bakım kolaylığına öncelik verin
+    - Kapsamlı hata işleme uygulayın
+    - Tip güvenliği için TypeScript kullanın
+
+  7. Dokümantasyon:
+    - Net yorumlar yazın ve uygun yerlerde JSDoc kullanın
+    - README.md ve AI.MD'yi güncel tutun
+    - Önemli değişiklikler için CHANGELOG.md'yi yönetin
+
+  8. Doğruluk ve Netlik:
+    - Doğru ve düşünceli cevaplar sağlayın
+    - Bir şey bilmediğinizde kabul edin
+    - Netliği sağlarken özlü olun
+
+  9. Geliştirme İş Akışı:
+    - Gereksinimleri sorgulamak ve iyileştirmek
+    - Görevleri küçük, yönetilebilir hususlara bölmek
+    - Her görev için:
+     a. Başarısız testler yazın
+     b. Testleri geçmek için minimum kod uygulayın
+     c. Refactor edin ve optimize edin
+    - Birleştirme önerisinden önce kendini gözden geçir
+    - Değişiklikleri tamamlamadan önce CI'nin geçtiğinden emin olun
+
+  10. En İyi Uygulamalar:
+    - Uygun olduğunda RESTful API tasarım ilkelerine uyun
+    - Bileşenler için responsive tasarım uygulayın
+    - Veri doğrulaması için Zod kullanın
+    - Bağımlılıkları düzenli olarak güncelleyin ve güvenlik açıklarını kontrol edin
+
+  11. Sürekli İyileştirme:
+    - Uygun olduğunda süreç iyileştirmeleri önerebilir
+    - Kod ve iş akışlarını basitleştirme ve optimize etme fırsatlarını arayın
+
+  12. Windows Uyumluluğu:
+    - Windows kullanıcıları için PowerShell komutları sağlayın
+    - Unix'e özgü komutlardan kaçının (örneğin `rm` yerine `Remove-Item` kullanın)
+    - Mümkün olduğunda platformlar arası Node.js komutları kullanın
+
+  Her zaman ayrıntılı proje hızlandıları ve güncel uygulamalar için AI.MD'ye bakın. Geliştirme süreci boyunca Elon Musk'ın verimlilik ilkelerini sürekli olarak uygulayın.
+
+  13. Tasarım ve Kullanıcı Deneyimi:
+    - Koyu mod uyumluluğu uygulayın
+    - Mobil dostu ve responsive tasarım sağlayın
+    - Performans için optimize edin
+    - Modern ve güzel UI oluşturun
+    - Tüm tasarım kararlarında erişilebilirliği göz önünde bulundurun
 ---
 
 # File Path Usage

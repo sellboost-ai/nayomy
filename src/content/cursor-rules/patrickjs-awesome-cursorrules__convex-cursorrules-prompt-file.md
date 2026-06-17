@@ -2,6 +2,7 @@
 name: "convex-cursorrules-prompt-file"
 clean_name: "Convex"
 description: "Cursor rules for Convex development with best practices."
+description_tr: "Convex geliştirmesi için en iyi uygulamalarla birlikte Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,677 @@ path: "rules/convex-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/convex-cursorrules-prompt-file.mdc"
 body_length: 30749
 file_extension: ".mdc"
+body_tr: |-
+  # Convex yönergeleri
+  ## Fonksiyon yönergeleri
+  ### Yeni fonksiyon sözdizimi
+  - Convex fonksiyonları için HER ZAMAN yeni fonksiyon sözdizimini kullanın. Örneğin:
+        ```typescript
+        import { query } from "./_generated/server";
+        import { v } from "convex/values";
+        export const f = query({
+            args: {},
+            returns: v.null(),
+            handler: async (ctx, args) => {
+            // Fonksiyon gövdesi
+            },
+        });
+        ```
+
+  ### Http endpoint sözdizimi
+  - HTTP endpoint'leri `convex/http.ts` içinde tanımlanır ve bir `httpAction` decorator'ü gerektirir. Örneğin:
+        ```typescript
+        import { httpRouter } from "convex/server";
+        import { httpAction } from "./_generated/server";
+        const http = httpRouter();
+        http.route({
+            path: "/echo",
+            method: "POST",
+            handler: httpAction(async (ctx, req) => {
+            const body = await req.bytes();
+            return new Response(body, { status: 200 });
+            }),
+        });
+        ```
+  - HTTP endpoint'leri her zaman `path` alanında belirttiğiniz tam yolda kaydedilir. Örneğin, `/api/someRoute` belirtirseniz, endpoint `/api/someRoute` adresinde kaydedilecektir.
+
+  ### Doğrulayıcılar
+  - Aşağıda bir array doğrulayıcısı örneği verilmiştir:
+                              ```typescript
+                              import { mutation } from "./_generated/server";
+                              import { v } from "convex/values";
+
+                              export default mutation({
+                              args: {
+                                  simpleArray: v.array(v.union(v.string(), v.number())),
+                              },
+                              handler: async (ctx, args) => {
+                                  //...
+                              },
+                              });
+                              ```
+  - Aşağıda ayrımlaştırılmış union türünü kodlayan doğrulayıcılar içeren bir schema örneği verilmiştir:
+                              ```typescript
+                              import { defineSchema, defineTable } from "convex/server";
+                              import { v } from "convex/values";
+
+                              export default defineSchema({
+                                  results: defineTable(
+                                      v.union(
+                                          v.object({
+                                              kind: v.literal("error"),
+                                              errorMessage: v.string(),
+                                          }),
+                                          v.object({
+                                              kind: v.literal("success"),
+                                              value: v.number(),
+                                          }),
+                                      ),
+                                  )
+                              });
+                              ```
+  - Null değer döndürürken her zaman `v.null()` doğrulayıcısını kullanın. Aşağıda null değer döndüren bir query örneği verilmiştir:
+                                    ```typescript
+                                    import { query } from "./_generated/server";
+                                    import { v } from "convex/values";
+
+                                    export const exampleQuery = query({
+                                      args: {},
+                                      returns: v.null(),
+                                      handler: async (ctx, args) => {
+                                          console.log("Bu query null değer döndürür");
+                                          return null;
+                                      },
+                                    });
+                                    ```
+  - Geçerli Convex türleri ve bunların ilgili doğrulayıcıları aşağıda verilmiştir:
+   Convex Türü  | TS/JS türü  |  Örnek Kullanım         | Argument doğrulaması ve schema için Doğrulayıcı  | Notlar                                                                                                                                                                                                 |
+  | ----------- | ------------| -----------------------| -----------------------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | Id          | string      | `doc._id`              | `v.id(tableName)`                              |                                                                                                                                                                                                       |
+  | Null        | null        | `null`                 | `v.null()`                                     | JavaScript'in `undefined` değeri geçerli bir Convex değeri değildir. `undefined` döndüren veya dönüş yapmayan fonksiyonlar istemciden çağrıldığında `null` döndürecektir. Bunun yerine `null` kullanın.                             |
+  | Int64       | bigint      | `3n`                   | `v.int64()`                                    | Int64'ler yalnızca -2^63 ile 2^63-1 arasında BigInt'leri destekler. Convex çoğu modern tarayıcıda `bigint`'leri destekler.                                                                                                                                                              |
+  | Float64     | number      | `3.1`                  | `v.number()`                                   | Convex tüm IEEE-754 çift duyarlı kayan nokta sayılarını destekler (NaN'ler gibi). Inf ve NaN, JSON'da dizeler olarak seri hale getirilir.                                                                                                                                      |
+  | Boolean     | boolean     | `true`                 | `v.boolean()`                                  |
+  | String      | string      | `"abc"`                | `v.string()`                                   | Dizeler UTF-8 olarak depolanır ve geçerli Unicode dizileri olmalıdır. Dizeler UTF-8 olarak kodlandığında 1MB toplam boyut sınırından küçük olmalıdır.                                                         |
+  | Bytes       | ArrayBuffer | `new ArrayBuffer(8)`   | `v.bytes()`                                    | Convex, `ArrayBuffer`'lar olarak geçirilen ilk sınıf bytestring'leri destekler. Bytestring'ler Convex türleri için 1MB toplam boyut sınırından küçük olmalıdır.                                                     |
+  | Array       | Array]      | `[1, 3.2, "abc"]`      | `v.array(values)`                              | Array'ler en fazla 8192 değere sahip olabilir.                                                                                                                                                                  |
+  | Object      | Object      | `{a: "abc"}`           | `v.object({property: value})`                  | Convex yalnızca "sade JavaScript nesnelerini" destekler (özel prototipe sahip olmayan nesneler). Nesneler en fazla 1024 girişe sahip olabilir. Alan adları boş olmayan ve "$" veya "_" ile başlamayan olmalıdır. |
+  | Record      | Record      | `{"a": "1", "b": "2"}` | `v.record(keys, values)`                       | Record'lar çalışma zamanında nesnelerdir, ancak dinamik anahtarlara sahip olabilir. Anahtarlar yalnızca ASCII karakterleri, boş olmayan ve "$" veya "_" ile başlamayan olmalıdır.                                                               |
+
+  ### Fonksiyon kaydı
+  - İç fonksiyonları kaydetmek için `internalQuery`, `internalMutation` ve `internalAction` kullanın. Bu fonksiyonlar özeldir ve bir uygulamanın API'sinin parçası değildirler. Yalnızca diğer Convex fonksiyonları tarafından çağrılabilirler. Bu fonksiyonlar her zaman `./_generated/server` adresinden içe aktarılırlar.
+  - Genel fonksiyonları kaydetmek için `query`, `mutation` ve `action` kullanın. Bu fonksiyonlar kamu API'sinin parçasıdır ve genel İnternet'e açıktırlar. Gizli tutulması gereken hassas iç fonksiyonları kaydetmek için `query`, `mutation` veya `action` KULLANMAYIN.
+  - Bir fonksiyonu `api` veya `internal` nesneleri aracılığıyla kaydedemezsiniz.
+  - Tüm Convex fonksiyonları için HER ZAMAN argument ve return doğrulayıcıları ekleyin. Buna `query`, `internalQuery`, `mutation`, `internalMutation`, `action` ve `internalAction`'ın hepsi dahildir. Bir fonksiyon hiçbir şey döndürmezse, çıkış doğrulayıcısı olarak `returns: v.null()` ekleyin.
+  - Bir Convex fonksiyonunun JavaScript uygulaması bir return değerine sahip değilse, örtülü olarak `null` döndürür.
+
+  ### Fonksiyon çağrısı
+  - Bir query, mutation veya action'dan bir query çağırmak için `ctx.runQuery` kullanın.
+  - Bir mutation veya action'dan bir mutation çağırmak için `ctx.runMutation` kullanın.
+  - Bir action'dan bir action çağırmak için `ctx.runAction` kullanın.
+  - Runtimeler arasında geçiş yapmanız gerekiyorsa (örneğin V8'den Node'a) YALNIZCA bir action'dan başka bir action'ı çağırın. Aksi takdirde, paylaşılan kodu bir helper async fonksiyona çıkarın ve doğrudan çağırın.
+  - Action'lardan query'ler ve mutation'lara yapılan çağrıları mümkün olduğunca az tutmaya çalışın. Query'ler ve mutation'lar işlemdir, bu nedenle mantığı birden fazla çağrıya bölmek race condition riskini sunar.
+  - Tüm bu çağrılar bir `FunctionReference` alırlar. Çağrılacak fonksiyonu doğrudan bu çağrılardan birine GEÇMEYE çalışmayin.
+  - Aynı dosyada bir fonksiyonu çağırmak için `ctx.runQuery`, `ctx.runMutation` veya `ctx.runAction` kullanırken, TypeScript döngüsellik sınırlamalarına geçici çözüm olmak üzere return değerine bir tür annotation'ı belirtin. Örneğin,
+                              ```
+                              export const f = query({
+                                args: { name: v.string() },
+                                returns: v.string(),
+                                handler: async (ctx, args) => {
+                                  return "Hello " + args.name;
+                                },
+                              });
+
+                              export const g = query({
+                                args: {},
+                                returns: v.null(),
+                                handler: async (ctx, args) => {
+                                  const result: string = await ctx.runQuery(api.example.f, { name: "Bob" });
+                                  return null;
+                                },
+                              });
+                              ```
+
+  ### Fonksiyon referansları
+  - Fonksiyon referansları kayıtlı Convex fonksiyonlarına işaretçilerdir.
+  - `convex/_generated/api.ts` adresinde framework tarafından tanımlanan `api` nesnesini, `query`, `mutation` veya `action` ile kaydedilen genel fonksiyonları çağırmak için kullanın.
+  - `convex/_generated/api.ts` adresinde framework tarafından tanımlanan `internal` nesnesini, `internalQuery`, `internalMutation` veya `internalAction` ile kaydedilen iç (veya özel) fonksiyonları çağırmak için kullanın.
+  - Convex dosya tabanlı routing kullanır, bu nedenle `convex/example.ts` içinde tanımlanan `f` adlı genel bir fonksiyon `api.example.f` fonksiyon referansına sahiptir.
+  - `convex/example.ts` içinde tanımlanan `g` adlı özel bir fonksiyon `internal.example.g` fonksiyon referansına sahiptir.
+  - Fonksiyonlar ayrıca `convex/` klasörü içinde iç içe geçmiş dizinler içinde kaydedilebilir. Örneğin, `convex/messages/access.ts` içinde tanımlanan genel bir `h` fonksiyonu `api.messages.access.h` fonksiyon referansına sahiptir.
+
+  ### Api tasarımı
+  - Convex dosya tabanlı routing kullanır, bu nedenle genel query, mutation veya action fonksiyonlarını `convex/` dizini içinde düşünceli bir şekilde organize edin.
+  - Genel fonksiyonları tanımlamak için `query`, `mutation` ve `action` kullanın.
+  - Özel, iç fonksiyonları tanımlamak için `internalQuery`, `internalMutation` ve `internalAction` kullanın.
+
+  ### Sayfalandırma
+  - Sayfalandırılmış query'ler, sonuçların listesini artımlı sayfalar halinde döndüren query'lerdir.
+  - Sayfalandırmayı aşağıdaki sözdizimi kullanarak tanımlayabilirsiniz:
+
+                              ```ts
+                              import { v } from "convex/values";
+                              import { query, mutation } from "./_generated/server";
+                              import { paginationOptsValidator } from "convex/server";
+                              export const listWithExtraArg = query({
+                                  args: { paginationOpts: paginationOptsValidator, author: v.string() },
+                                  handler: async (ctx, args) => {
+                                      return await ctx.db
+                                      .query("messages")
+                                      .filter((q) => q.eq(q.field("author"), args.author))
+                                      .order("desc")
+                                      .paginate(args.paginationOpts);
+                                  },
+                              });
+                              ```
+                              Not: `paginationOpts` aşağıdaki özellikleri içeren bir nesnedir:
+                              - `numItems`: döndürülecek maksimum belge sayısı (doğrulayıcı `v.number()` dir)
+                              - `cursor`: belgelerin sonraki sayfasını getirmek için kullanılacak imleç (doğrulayıcı `v.union(v.string(), v.null())` dir)
+  - `.paginate()` ile biten bir query aşağıdaki özelliklere sahip bir nesne döndürür:
+                              - page (getirdiğiniz belgelerin dizisini içerir)
+                              - isDone (bunun belgelerin son sayfası olup olmadığını temsil eden bir boole değeri)
+                              - continueCursor (belgelerin sonraki sayfasını getirmek için kullanılacak imleçi temsil eden bir dize)
+
+
+  ## Doğrulayıcı yönergeleri
+  - `v.bigint()` imzalı 64-bit tamsayıları temsil etmek için kullanılmıştır. Bunun yerine `v.int64()` kullanın.
+  - Record türü tanımlamak için `v.record()` kullanın. `v.map()` ve `v.set()` desteklenmemektedir.
+
+  ## Schema yönergeleri
+  - Schema'nızı her zaman `convex/schema.ts` içinde tanımlayın.
+  - Schema tanım fonksiyonlarını her zaman `convex/server` adresinden içe aktarın:
+  - Sistem alanları otomatik olarak tüm belgelere eklenir ve alt çizgi ile başlayan bir önek bulunur. Tüm belgelere otomatik olarak eklenen iki sistem alanı `_creationTime` (doğrulayıcısı `v.number()` dir) ve `_id` (doğrulayıcısı `v.id(tableName)` dir) tir.
+  - Her zaman tüm index alanlarını index adına dahil edin. Örneğin, index `["field1", "field2"]` olarak tanımlanmışsa, index adı "by_field1_and_field2" olmalıdır.
+  - Index alanları tanımlandıkları sırayla sorgulanmalıdır. "field1"e sonra "field2"ye ve "field2"ye sonra "field1"e göre sorgulanabilmek istiyorsanız, ayrı indexler oluşturmalısınız.
+
+  ## Typescript yönergeleri
+  - Belirli bir tablo için id türünü almak için `./_generated/dataModel` adresinden içe aktarılan `Id` helper typescript türünü kullanabilirsiniz. Örneğin, 'users' adlı bir tablo varsa, o tablonun id türünü almak için `Id<'users'>` kullanabilirsiniz.
+  - Bir `Record` tanımlamanız gerekiyorsa, türde anahtar ve değer türünü doğru şekilde sağladığınızdan emin olun. Örneğin, `v.record(v.id('users'), v.string())` doğrulayıcısı `Record<Id<'users'>, string>` türüne sahip olacaktır. Aşağıda bir query'de `Record` ile `Id` türünü kullanmanın bir örneği verilmiştir:
+                      ```ts
+                      import { query } from "./_generated/server";
+                      import { Doc, Id } from "./_generated/dataModel";
+
+                      export const exampleQuery = query({
+                          args: { userIds: v.array(v.id("users")) },
+                          returns: v.record(v.id("users"), v.string()),
+                          handler: async (ctx, args) => {
+                              const idToUsername: Record<Id<"users">, string> = {};
+                              for (const userId of args.userIds) {
+                                  const user = await ctx.db.get(userId);
+                                  if (user) {
+                                      users[user._id] = user.username;
+                                  }
+                              }
+
+                              return idToUsername;
+                          },
+                      });
+                      ```
+  - Türler konusunda kesin olun, özellikle belgelerin id'leri etrafında. Örneğin, bir fonksiyon 'users' tablosundaki bir belgenin id'sini alıyorsa, `string` yerine `Id<'users'>` alın.
+  - Ayrımlaştırılmış union türlerinde string sabit değerler için her zaman `as const` kullanın.
+  - `Array` türünü kullanırken, array'lerinizi her zaman `const array: Array<T> = [...];` olarak tanımlayın.
+  - `Record` türünü kullanırken, record'larınızı her zaman `const record: Record<KeyType, ValueType> = {...};` olarak tanımlayın.
+  - Herhangi bir Node.js yerleşik modülünü kullanırken her zaman `package.json` adresine `@types/node` ekleyin.
+
+  ## Tam metin arama yönergeleri
+  - "'#general' kanalındaki 10 mesaj arasında 'hello hi' sorgusuyla gövdelerinde en iyi şekilde eşleşen 10 mesaj" için bir query şöyle görünür:
+
+  const messages = await ctx.db
+    .query("messages")
+    .withSearchIndex("search_body", (q) =>
+      q.search("body", "hello hi").eq("channel", "#general"),
+    )
+    .take(10);
+
+  ## Query yönergeleri
+  - Query'lerde `filter` KULLANMAYIN. Bunun yerine schema'da bir index tanımlayın ve `withIndex` kullanın.
+  - Convex query'leri `.delete()` desteği VERMEZ. Bunun yerine, sonuçları `.collect()` yapın, bunlar üzerinde yineleme yapın ve her sonuç için `ctx.db.delete(row._id)` öğesini çağırın.
+  - Bir query'den tek bir belge almak için `.unique()` kullanın. Bu method, sorguyla eşleşen birden fazla belge varsa bir hata oluşturur.
+  - Async iteration kullanırken, bir query'nin sonucunda `.collect()` veya `.take(n)` KULLANMAYIN. Bunun yerine, `for await (const row of query)` sözdizimini kullanın.
+  ### Sıralama
+  - Varsayılan olarak Convex her zaman belgeleri artan `_creationTime` sırasında döndürür.
+  - Bir query'nin artan veya azalan sırada olmasını seçmek için `.order('asc')` veya `.order('desc')` kullanabilirsiniz. Sıra belirtilmezse, varsayılan olarak artan sıraya alınır.
+  - Index'leri kullanan belge query'leri index'teki sütunlara dayalı olarak sıralanır ve yavaş tablo taramalarını önleyebilir.
+
+
+  ## Mutation yönergeleri
+  - Mevcut bir belgeyi tamamen değiştirmek için `ctx.db.replace` kullanın. Bu method belge yoksa bir hata oluşturur.
+  - Mevcut bir belgeye güncellemeleri shallow merge etmek için `ctx.db.patch` kullanın. Bu method belge yoksa bir hata oluşturur.
+
+  ## Action yönergeleri
+  - Node.js yerleşik modüllerini kullanan action'ları içeren dosyaların üstüne her zaman `"use node";` ekleyin.
+  - Bir action'ın içinde hiçbir zaman `ctx.db` KULLANMAYIN. Action'lar veritabanına erişime sahip değildirler.
+  - Aşağıda bir action'ın sözdizimi örneği verilmiştir:
+                      ```ts
+                      import { action } from "./_generated/server";
+
+                      export const exampleAction = action({
+                          args: {},
+                          returns: v.null(),
+                          handler: async (ctx, args) => {
+                              console.log("Bu action hiçbir şey döndürmez");
+                              return null;
+                          },
+                      });
+                      ```
+
+  ## Planlama yönergeleri
+  ### Cron yönergeleri
+  - Cron işlerini planlamak için yalnızca `crons.interval` veya `crons.cron` metodlarını kullanın. `crons.hourly`, `crons.daily` veya `crons.weekly` helper'larını KULLANMAYIN.
+  - Her iki cron metodu da bir FunctionReference alır. Fonksiyonu doğrudan bu metodlardan birine GEÇMEYE çalışmayin.
+  - Cron'ları üst düzey `crons` nesnesini tanımlayarak, bunun üzerinde bazı metodlar çağırarak ve ardından onu varsayılan olarak dışa aktararak tanımlayın. Örneğin,
+                              ```ts
+                              import { cronJobs } from "convex/server";
+                              import { internal } from "./_generated/api";
+                              import { internalAction } from "./_generated/server";
+
+                              const empty = internalAction({
+                                args: {},
+                                returns: v.null(),
+                                handler: async (ctx, args) => {
+                                  console.log("empty");
+                                },
+                              });
+
+                              const crons = cronJobs();
+
+                              // Her iki saatte bir `internal.crons.empty` çalıştırın.
+                              crons.interval("delete inactive users", { hours: 2 }, internal.crons.empty, {});
+
+                              export default crons;
+                              ```
+  - Convex fonksiyonlarını `crons.ts` içinde kaydetmek, tıpkı başka herhangi bir dosya gibidir.
+  - Bir cron iç bir fonksiyon çağırıyorsa, iç fonksiyon aynı dosyada kaydedilmiş olsa bile her zaman '_generated/api' adresinden `internal` nesnesini içe aktarın.
+
+
+  ## Dosya depolama yönergeleri
+  - Convex, resimler, videolar ve PDF'ler gibi büyük dosyalar için dosya depolama içerir.
+  - `ctx.storage.getUrl()` metodu belirli bir dosya için imzalı bir URL döndürür. Dosya yoksa `null` döndürür.
+  - Bir dosyanın meta verilerini yüklemek için kullanımdan kaldırılmış `ctx.storage.getMetadata` çağrısını KULLANMAYIN.
+
+                      Bunun yerine `_storage` sistem tablosunu sorgulayın. Örneğin, `ctx.db.system.get` kullanarak `Id<"_storage">` öğesini alabilirsiniz.
+                      ```
+                      import { query } from "./_generated/server";
+                      import { Id } from "./_generated/dataModel";
+
+                      type FileMetadata = {
+                          _id: Id<"_storage">;
+                          _creationTime: number;
+                          contentType?: string;
+                          sha256: string;
+                          size: number;
+                      }
+
+                      export const exampleQuery = query({
+                          args: { fileId: v.id("_storage") },
+                          returns: v.null();
+                          handler: async (ctx, args) => {
+                              const metadata: FileMetadata | null = await ctx.db.system.get(args.fileId);
+                              console.log(metadata);
+                              return null;
+                          },
+                      });
+                      ```
+  - Convex depolama öğeleri `Blob` nesneleri olarak depolar. Convex depolamasını kullanırken tüm öğeleri bir `Blob`'a dönüştürmeniz ve bundan dönüştürmeniz gerekir.
+
+
+  # Örnekler:
+  ## Örnek: chat-app
+
+  ### Görev
+  ```
+  AI yanıtlarıyla gerçek zamanlı sohbet uygulaması arka ucu oluşturun. Uygulama şunları yapmalıdır:
+  - Adlı kullanıcılar oluşturmaya izin ver
+  - Birden fazla sohbet kanalını destekle
+  - Kullanıcıların kanallara ileti göndermesini etkinleştir
+  - Otomatik olarak kullanıcı mesajlarına yapay zeka yanıtları oluştur
+  - Son mesaj geçmişini göster
+
+  Arka uç aşağıdaki API'ler sağlamalıdır:
+  1. Kullanıcı yönetimi (oluşturma)
+  2. Kanal yönetimi (oluşturma)
+  3. İleti işlemleri (gönderme, listeleme)
+  4. OpenAI'nin GPT-4 kullanılarak yapay zeka yanıt oluşturma
+
+  İletiler kanalları, yazarları ve içerikleriyle depolanmalıdır. Sistem ileti sırasını korumalı
+  ve kanal başına son 10 ileti ile sınırlı geçmiş görüntülemesi yapmalıdır.
+
+  ```
+
+  ### Analiz
+  1. Görev Gereksinimlerinin Özeti:
+  - AI entegrasyonu ile gerçek zamanlı sohbet arka ucu oluştur
+  - Kullanıcı oluşturmayı destekle
+  - Kanal tabanlı konuşmaları etkinleştir
+  - İletileri uygun sırayla saklayın ve alın
+  - Otomatik olarak yapay zeka yanıtları oluştur
+
+  2. Gerekli Ana Bileşenler:
+  - Veritabanı tabloları: users, channels, messages
+  - Kullanıcı/kanal yönetimi için genel API'ler
+  - İleti işleme fonksiyonları
+  - İç yapay zeka yanıtı oluşturma sistemi
+  - AI yanıtları için bağlam yükleme
+
+  3. Genel API ve İç Fonksiyonlar Tasarımı:
+  Genel Mutation'lar:
+  - createUser:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {name: v.string()}
+    - döndürür: v.object({userId: v.id("users")})
+    - amaç: Belirli bir adla yeni bir kullanıcı oluştur
+  - createChannel:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {name: v.string()}
+    - döndürür: v.object({channelId: v.id("channels")})
+    - amaç: Belirli bir adla yeni bir kanal oluştur
+  - sendMessage:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {channelId: v.id("channels"), authorId: v.id("users"), content: v.string()}
+    - döndürür: v.null()
+    - amaç: Bir kanala ileti gönderin ve yapay zeka'dan yanıt planlayın
+
+  Genel Query'ler:
+  - listMessages:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {channelId: v.id("channels")}
+    - döndürür: v.array(v.object({
+      _id: v.id("messages"),
+      _creationTime: v.number(),
+      channelId: v.id("channels"),
+      authorId: v.optional(v.id("users")),
+      content: v.string(),
+      }))
+    - amaç: Bir kanaldan son 10 iletinin listesini azalan oluşturma sırasında listele
+
+  İç Fonksiyonlar:
+  - generateResponse:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {channelId: v.id("channels")}
+    - döndürür: v.null()
+    - amaç: Belirli bir kanal için yapay zeka'dan yanıt oluştur
+  - loadContext:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {channelId: v.id("channels")}
+    - döndürür: v.array(v.object({
+      _id: v.id("messages"),
+      _creationTime: v.number(),
+      channelId: v.id("channels"),
+      authorId: v.optional(v.id("users")),
+      content: v.string(),
+    }))
+  - writeAgentResponse:
+    - dosya yolu: convex/index.ts
+    - argument'ler: {channelId: v.id("channels"), content: v.string()}
+    - döndürür: v.null()
+    - amaç: Belirli bir kanala yapay zeka yanıtı yazın
+
+  4. Schema Tasarımı:
+  - users
+    - doğrulayıcı: { name: v.string() }
+    - indexler: <yok>
+  - channels
+    - doğrulayıcı: { name: v.string() }
+    - indexler: <yok>
+  - messages
+    - doğrulayıcı: { channelId: v.id("channels"), authorId: v.optional(v.id("users")), content: v.string() }
+    - indexler
+      - by_channel: ["channelId"]
+
+  5. Arka Plan İşleme:
+  - Yapay zeka yanıtı oluşturma her kullanıcı mesajından sonra asenkron olarak çalışır
+  - Bağlamsal yanıtlar oluşturmak için OpenAI'nin GPT-4'ünü kullanır
+  - Son mesaj geçmişini kullanarak konuşma bağlamını korur
+
+
+  ### Uygulama
+
+  #### package.json
+  ```typescript
+  {
+    "name": "chat-app",
+    "description": "Bu örnek, kimlik doğrulaması olmadan bir sohbet uygulaması oluşturmayı gösterir.",
+    "version": "1.0.0",
+    "dependencies": {
+      "convex": "^1.17.4",
+      "openai": "^4.79.0"
+    },
+    "devDependencies": {
+      "typescript": "^5.7.3"
+    }
+  }
+  ```
+
+  #### tsconfig.json
+  ```typescript
+  {
+    "compilerOptions": {
+      "target": "ESNext",
+      "lib": ["DOM", "DOM.Iterable", "ESNext"],
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
+      "jsx": "react-jsx"
+    },
+    "exclude": ["convex"],
+    "include": ["**/src/**/*.tsx", "**/src/**/*.ts", "vite.config.ts"]
+  }
+  ```
+
+  #### convex/index.ts
+  ```typescript
+  import {
+    query,
+    mutation,
+    internalQuery,
+    internalMutation,
+    internalAction,
+  } from "./_generated/server";
+  import { v } from "convex/values";
+  import OpenAI from "openai";
+  import { internal } from "./_generated/api";
+
+  /**
+   * Belirli bir adla bir kullanıcı oluşturun.
+   */
+  export const createUser = mutation({
+    args: {
+      name: v.string(),
+    },
+    returns: v.id("users"),
+    handler: async (ctx, args) => {
+      return await ctx.db.insert("users", { name: args.name });
+    },
+  });
+
+  /**
+   * Belirli bir adla bir kanal oluşturun.
+   */
+  export const createChannel = mutation({
+    args: {
+      name: v.string(),
+    },
+    returns: v.id("channels"),
+    handler: async (ctx, args) => {
+      return await ctx.db.insert("channels", { name: args.name });
+    },
+  });
+
+  /**
+   * Bir kanaldan azalan oluşturma sırasında son 10 iletinin listesini alın.
+   */
+  export const listMessages = query({
+    args: {
+      channelId: v.id("channels"),
+    },
+    returns: v.array(
+      v.object({
+        _id: v.id("messages"),
+        _creationTime: v.number(),
+        channelId: v.id("channels"),
+        authorId: v.optional(v.id("users")),
+        content: v.string(),
+      }),
+    ),
+    handler: async (ctx, args) => {
+      const messages = await ctx.db
+        .query("messages")
+        .withIndex("by_channel", (q) => q.eq("channelId", args.channelId))
+        .order("desc")
+        .take(10);
+      return messages;
+    },
+  });
+
+  /**
+   * Bir kanala ileti gönderin ve yapay zeka'dan bir yanıt planlayın.
+   */
+  export const sendMessage = mutation({
+    args: {
+      channelId: v.id("channels"),
+      authorId: v.id("users"),
+      content: v.string(),
+    },
+    returns: v.null(),
+    handler: async (ctx, args) => {
+      const channel = await ctx.db.get(args.channelId);
+      if (!channel) {
+        throw new Error("Kanal bulunamadı");
+      }
+      const user = await ctx.db.get(args.authorId);
+      if (!user) {
+        throw new Error("Kullanıcı bulunamadı");
+      }
+      await ctx.db.insert("messages", {
+        channelId: args.channelId,
+        authorId: args.authorId,
+        content: args.content,
+      });
+      await ctx.scheduler.runAfter(0, internal.index.generateResponse, {
+        channelId: args.channelId,
+      });
+      return null;
+    },
+  });
+
+  const openai = new OpenAI();
+
+  export const generateResponse = internalAction({
+    args: {
+      channelId: v.id("channels"),
+    },
+    returns: v.null(),
+    handler: async (ctx, args) => {
+      const context = await ctx.runQuery(internal.index.loadContext, {
+        channelId: args.channelId,
+      });
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o",
+        messages: context,
+      });
+      const content = response.choices[0].message.content;
+      if (!content) {
+        throw new Error("Yanıtta içerik yok");
+      }
+      await ctx.runMutation(internal.index.writeAgentResponse, {
+        channelId: args.channelId,
+        content,
+      });
+      return null;
+    },
+  });
+
+  export const loadContext = internalQuery({
+    args: {
+      channelId: v.id("channels"),
+    },
+    returns: v.array(
+      v.object({
+        role: v.union(v.literal("user"), v.literal("assistant")),
+        content: v.string(),
+      }),
+    ),
+    handler: async (ctx, args) => {
+      const channel = await ctx.db.get(args.channelId);
+      if (!channel) {
+        throw new Error("Kanal bulunamadı");
+      }
+      const messages = await ctx.db
+        .query("messages")
+        .withIndex("by_channel", (q) => q.eq("channelId", args.channelId))
+        .order("desc")
+        .take(10);
+
+      const result = [];
+      for (const message of messages) {
+        if (message.authorId) {
+          const user = await ctx.db.get(message.authorId);
+          if (!user) {
+            throw new Error("Kullanıcı bulunamadı");
+          }
+          result.push({
+            role: "user" as const,
+            content: `${user.name}: ${message.content}`,
+          });
+        } else {
+          result.push({ role: "assistant" as const, content: message.content });
+        }
+      }
+      return result;
+    },
+  });
+
+  export const writeAgentResponse = internalMutation({
+    args: {
+      channelId: v.id("channels"),
+      content: v.string(),
+    },
+    returns: v.null(),
+    handler: async (ctx, args) => {
+      await ctx.db.insert("messages", {
+        channelId: args.channelId,
+        content: args.content,
+      });
+      return null;
+    },
+  });
+  ```
+
+  #### convex/schema.ts
+  ```typescript
+  import { defineSchema, defineTable } from "convex/server";
+  import { v } from "convex/values";
+
+  export default defineSchema({
+    channels: defineTable({
+      name: v.string(),
+    }),
+
+    users: defineTable({
+      name: v.string(),
+    }),
+
+    messages: defineTable({
+      channelId: v.id("channels"),
+      authorId: v.optional(v.id("users")),
+      content: v.string(),
+    }).index("by_channel", ["channelId"]),
+  });
+  ```
+
+  #### src/App.tsx
+  ```typescript
+  export default function App() {
+    return <div>Merhaba Dünya</div>;
+  }
+  ```
 ---
 
 # Convex guidelines

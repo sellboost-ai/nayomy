@@ -1,6 +1,7 @@
 ---
 name: "diagnose"
 description_en: "Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce → minimise → hypothesise → instrument → fix → regression-test. Use when user says \"diagnose this\" / \"debug this\", reports a bug, says something is broken/throwing/failing, or describes a performance regression."
+description_tr: "Zor hatalar ve performans gerillemeleri için disiplinli bir tanı döngüsü. Yeniden oluştur → küçült → hipotez kur → araçlandır → düzelt → regresyon testi. Kullanıcı \"bunu tanı\" / \"bunu debug et\" dediğinde, bir hata bildirdiğinde, bir şeyin kırık/hata verdiğini söylediğinde veya performans gerilemeleri tanımladığında kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,119 @@ has_scripts: true
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Tanı Koy
+
+  Zor hatalar için bir disiplin. Fazları yalnızca açıkça haklı olduğunda atlayın.
+
+  Kod tabanını keşfederken, ilgili modüllerin net bir zihinsel modelini oluşturmak için projenin alan sözlüğünü kullanın ve dokunduğunuz alandaki ADR'leri kontrol edin.
+
+  ## Faz 1 — Geri Bildirim Döngüsü Oluştur
+
+  **Bu beceridir.** Diğer her şey mekanik. Hata için hızlı, deterministik, aracı tarafından çalıştırılabilir bir geçti/başarısız sinyal varsa, nedeni bulacaksın — biseksiyon, hipotez testi ve enstrümantasyon hepsi bu sinyali tüketiyor. Yoksa, kodlara ne kadar baksan fayda olmaz.
+
+  Burada orantısız çaba harca. **Agresif ol. Yaratıcı ol. Vazgeçmeyi reddet.**
+
+  ### Bir tane inşa etmenin yolları — kabaca bu sırada dene
+
+  1. **Hata bulunan test** — unit, entegrasyon, e2e ne olursa hataya ulaşan seviye.
+  2. **Curl / HTTP script** çalışan bir dev sunucusuna karşı.
+  3. **CLI çağırma** fixture girdisi ile, stdout'u bilinen-iyi bir snapshot'a karşı diff'le.
+  4. **Headless tarayıcı script** (Playwright / Puppeteer) — UI'ı yönlendir, DOM/console/ağa assert'le.
+  5. **Yakalanan trace'i replay et.** Gerçek bir ağ isteği / payload / event log'u diske kaydet; bunu kod yolundan izole olarak replay et.
+  6. **Throwaway harness.** Sistemi minimal bir alt kümesi ile başlat (bir servis, mock bağımlılıklar) ki hata kod yolunu tek bir function çağrısı ile kullanabilsin.
+  7. **Property / fuzz loop.** Eğer hata "bazen yanlış çıktı" ise, 1000 rastgele girdi çalıştır ve başarısız olma modunu ara.
+  8. **Biseksiyon harness.** Eğer hata iki bilinen durum arasında ortaya çıktıysa (commit, dataset, versiyon), "durum X'te boot et, kontrol et, tekrarla"yı otomatize et ki `git bisect run` yapabilsin.
+  9. **Differential loop.** Aynı girdileri eski-versiyon vs yeni-versiyon (veya iki config) arasında çalıştır ve çıktıları diff'le.
+  10. **HITL bash script.** Son çare. Eğer bir insan tıklamalıysa, _onları_ `scripts/hitl-loop.template.sh` ile yönlendir ki loop yine yapılandırılmış kalsın. Yakalanan çıktı sana geri besler.
+
+  Doğru geri bildirim döngüsü inşa et, ve hata %90 tamir edilmiş.
+
+  ### Döngünün kendisi üzerinde yinele
+
+  Döngüyü bir ürün olarak ele al. _Bir_ döngün olduğunda, sor:
+
+  - Daha hızlı yapabilir miyim? (Setup'ı cache'le, ilgisiz init'i atla, test kapsamını darallt.)
+  - Sinyali daha keskin yapabilir miyim? (Spesifik semptomu assert'le, "çökmedimi" değil.)
+  - Daha deterministik yapabilir miyim? (Zamanı pin'le, RNG'yi seed'le, dosya sistemini izole et, ağı dondur.)
+
+  30 saniyelik hatalı bir döngü, döngüsüz olmaktan biraz daha iyidir. 2 saniyelik deterministik bir döngü hata ayıklama süper gücüdür.
+
+  ### Belirleyici olmayan hatalar
+
+  Hedef temiz bir repro değil ama daha **yüksek bir üreme oranı**. Tetikleyiciyi 100× döngüye tıkla, paralelleştir, stress ekle, zamanlamayı darallt, uyku enjekte et. %50 flake hata hata ayıklanabilir; %1 değil — oran hata ayıklanabilir olana kadar yüksel.
+
+  ### Gerçekten bir döngü inşa edemediğinde
+
+  Dur ve bunu açıkça söyle. Denediğin şeyleri listele. Kullanıcıdan iste: (a) onu reproduse eden ortama erişim, (b) yakalanan bir artifact (HAR dosyası, log dump, core dump, zaman damgası ile ekran kaydı), veya (c) geçici üretim enstrümantasyonu eklemeye izin. Bir döngü olmadan hipotez yapmaya **başlama**.
+
+  Döngüye inanana kadar Faz 2'ye geçme.
+
+  ## Faz 2 — Reproduse Et
+
+  Döngüyü çalıştır. Hatanın ortaya çıkışını izle.
+
+  Onayla:
+
+  - [ ] Döngü **kullanıcının** tanımladığı başarısız modunu üretir — yakında olup başka hata değil. Yanlış hata = yanlış tamir.
+  - [ ] Başarısızlık birden fazla çalışma arasında reproduse edilebilir (veya, belirleyici olmayan hatalar için, hata ayıklanabilecek kadar yüksek orana kadar reproduse edilebilir).
+  - [ ] Spesifik semptom yakalandı (hata mesajı, yanlış çıktı, yavaş zaman) ki ilerideki fazlar tamiirin onu gerçekten adresle yapıp yapmadığını doğrulayabilsin.
+
+  Hatayı reproduse edene kadar ileri gitme.
+
+  ## Faz 3 — Hipotez Kur
+
+  Herhangi birini test etmeden **3–5 sıralı hipotez** oluştur. Tek hipotez oluşturma ilk plausible fikre ankör yapar.
+
+  Her hipotez **falsifiable** olmalı: onun yaptığı tahmini belirt.
+
+  > Format: "Eğer <X> sebepse, o zaman <Y>'yi değiştirmek hatanın kaybolmasını sağlayacak / <Z>'yi değiştirmek onu daha kötü yapacak."
+
+  Tahmini belirtemezsen, hipotez bir his — onu discard et veya keskinleştir.
+
+  **Sıralı listeyi herhangi birini test etmeden kullanıcıya göster.** Onlar çoğu zaman #3'ü anında yeniden sıralayan domain bilgisi var ("az önce bir değişiklik deploy ettik"), veya zaten rule out ettiği hipotezleri bilirler. Ucuz checkpoint, büyük zaman tasarrufu. Buna engel olma — kullanıcı AFK ise kendi sıralamanla devam et.
+
+  ## Faz 4 — Enstrüman
+
+  Her probe Faz 3'teki spesifik bir tahmini haritalanmalı. **Bir zaman içinde bir değişkeni değiştir.**
+
+  Tool tercih sırası:
+
+  1. **Debugger / REPL inspeksiyonu** eğer ortam destekliyorsa. Bir breakpoint on log'a yenecek.
+  2. **Hedeflenen loglar** hipotezleri ayıran sınırlarda.
+  3. Asla "her şeyi log'la ve grep'le" yapma.
+
+  **Her debug log'u** benzersiz bir prefix ile tag'le, mesela `[DEBUG-a4f2]`. Temizlik sonunda tek bir grep olur. Tag'siz loglar kalır; tag'li loglar ölür.
+
+  **Perf branch.** Performans regressyonları için, loglar genellikle yanlıştır. Bunun yerine: baseline ölçüm kur (timing harness, `performance.now()`, profiler, query plan), sonra bisect'le. Önce ölç, sonra tamir et.
+
+  ## Faz 5 — Tamir + Regression Testi
+
+  Regression testini tamiirden **önce** yaz — ama yalnızca doğru bir **seam** varsa.
+
+  Doğru seam, testin çağrı sitesinde oluştuğu şekliyle **gerçek hata deseni**ni kullanır. Eğer tek seam çok sığlıysa (bug birden fazla çağrı gerektirirken tek-çağrı testi, hatayı tetikleyen zinciri replicate edememiş unit testi), oradaki regression testi yanlış güven verir.
+
+  **Doğru seam yoksa, bu bulgusu kendisidir.** Not et. Kod tabanı mimarisi hatanın kilitlenmesini engelliyordur. Bunu bir sonraki faza flag'le.
+
+  Doğru seam varsa:
+
+  1. Minimized repro'yu o seam'daki başarısız test'e çevir.
+  2. Başarısız olduğunu izle.
+  3. Tamiiri uygula.
+  4. Geçtiğini izle.
+  5. Orijinal (non-minimized) senaryoya karşı Faz 1 geri bildirim döngüsünü yeniden çalıştır.
+
+  ## Faz 6 — Temizlik + Post-Mortem
+
+  Bittiğini beyan etmeden önce gerekli:
+
+  - [ ] Orijinal repro artık reproduse edilmiyor (Faz 1 döngüsünü yeniden çalıştır)
+  - [ ] Regression testi geçiyor (veya seam yokluğu belgelenmiş)
+  - [ ] Tüm `[DEBUG-...]` enstrümantasyonu kaldırılmış (`grep` prefix'le)
+  - [ ] Throwaway prototipleri silmiş (veya açıkça işaretlenmiş debug lokasyonuna taşımış)
+  - [ ] Doğru çıkan hipotez commit / PR mesajında belirtilmiş — ki sonraki debugger öğrensin
+
+  **Sonra sor: bu hatayı ne önleyebilirdi?** Eğer cevap mimarideki değişiklikse (iyi test seam yok, karışık çağrı yapanlar, gizli coupling) specifics'lerle `/improve-codebase-architecture` skill'e devret. Tamiir öncesinde değil sonrasında tavsiye yap — başladığın zamandan daha fazla bilgiye sahipsin.
 ---
 
 # Diagnose

@@ -2,6 +2,7 @@
 name: "nextjs-supabase-shadcn-pwa-cursorrules-prompt-file"
 clean_name: "Next.js Supabase Shadcn PWA"
 description: "Cursor rules for Nextjs Supabase Shadcn Pwa."
+description_tr: "Nextjs Supabase Shadcn Pwa için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,122 @@ path: "rules/nextjs-supabase-shadcn-pwa-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-supabase-shadcn-pwa-cursorrules-prompt-file.mdc"
 body_length: 6569
 file_extension: ".mdc"
+body_tr: |-
+  ## Temel İlkeler
+
+  - **Kod Kalitesi & Stili**
+
+    - Kısa, bakımlanabilir ve güçlü şekilde yazılmış kod yazın; doğru TypeScript uygulamalarını gerçekleştirin.
+    - Fonksiyonel, deklaratif programlamayı benimseyin. OOP ve sınıflardan kaçının.
+    - Dosyaları maksimum 150 satırla sınırlayın; aşılırsa daha küçük modüllere yeniden düzenleyin.
+    - Tekrar etmeyi modülarizasyondan daha az tercih edin.
+    - Yardımcı fiillerle açıklayıcı, anlamsal değişken adları kullanın (örneğin, `isLoading`, `hasError`).
+    - Dizinler ve dosyalar için küçük harfle tire kullanın (örneğin, `components/auth-wizard`).
+    - Bileşenler için adlandırılmış exportları tercih edin.
+    - Fonksiyon parametreleri/geri dönüşleri için RORO (Receive an Object, Return an Object) benimseyin.
+    - Her zaman DRY (Don't Repeat Yourself) ilkelerine uyun.
+    - Tutarlılık ve kaliteyi sağlamak için düzenli kod incelemesi ve sık yeniden düzenleme oturumları yapın.
+    - Web Vitals'ı (LCP, CLS, FID) kontrol edin ve geliştirin; performans ve kullanıcı deneyimini koruyun.
+
+  - **'Build Notes' Oluşturun:**
+
+    - Her görev grubu için çalıştığınız görev grubunun ilerlemesini izlemek üzere bir 'Build Notes' dosyası oluşturmalısınız.
+    - **Açıklık & Kısalık:** Notları kısa, doğrudan ve görev odaklı tutun.
+    - **Mantıksal Adlandırma:** Her notlar dosyasını belirli bir görev ve tarihle bağlayan tutarlı bir adlandırma kuralı kullanın.
+    - **Artırımsal Güncellemeler:** Planlar geliştikçe veya görevler tamamlandıkça notları güncelleyin. Üzerine yazmak yerine ekleyin.
+    - **İzlenebilirlik:** Her karar veya yaklaşım değişikliğinin kaydedilmesini ve takip edilmesini sağlayın.
+
+  - **'Project Contexts' İnceleyin:**
+
+    - Proje bağlamının güncel ve doğru olduğundan emin olmak için `projectContext.md` dosyasını incelemelisiniz.
+    - **Stabilite:** Bağlam dosyalarını günlük karalamalar değil, kararlı referanslar olarak kullanın.
+    - **Seçici Güncellemeler:** Bağlam dosyalarını yalnızca gereksinimler veya proje kapsamında önemli, onaylanmış değişiklikler olduğunda güncelleyin.
+    - **Erişilebilirlik:** Bağlam dosyalarını kolayca anlaşılır ve organize hale getirin; gelecek geliştiriciler projenin temel rehberliğini hızlıca kavrayabilsin.
+
+  - **Stack ve Framework Kuralları**
+
+    - **Next.js 15+** hedefleyin ve App Router, React Server Components (RSC) ve SSR yeteneklerinden yararlanın.
+    - Gerektiğinde istemci bileşenlerinde durum yönetimi için Zustand kullanın.
+    - `npx shadcn@latest add` kullanarak yeni bileşenler için uygun Shadcn UI yönetimini sürdürün.
+    - Mobil-ilk yaklaşımını ve duyarlı tasarım desenlerini izleyin.
+    - Sunucu tarafı mantığını vurgulayın; `use client` ve diğer yalnızca istemci API'lerinin kullanımını en aza indirin.
+    - Projeyi Progressive Web App (PWA) olarak yapılandırın; çevrimdışı özellikler, uygulama benzeri deneyim ve cihazlar arasında yüklenebilirlik ekleyin.
+
+  - **Monorepo & Araçlar**
+
+    - Monorepo yapısı kullanıyorsanız, paylaşılan kodu bir `packages/` dizinine ve uygulamaya özgü kodu `app/` dizinine yerleştirin.
+    - Geliştirme, test ve dağıtım görevleri için `Taskfile.yml` komutlarını kullanın.
+    - Ortam değişkenlerini ve hassas verileri kod dışında tutun; `.env` dosyaları veya benzeri konfigürasyon aracılığıyla erişin.
+
+  AI geliştirme ajanına sağlanacak yapılandırılmış rehber aşağıda verilmiştir; `/ProjectDocs/Build_Notes/` ve `/ProjectDocs/contexts/` dizinlerini korumak için temel ilkeler ve detaylı kuralları içerir.
+
+  ---
+
+  ### Build Notes Dosyaları için Kurallar
+
+  1. **Konum & Adlandırma:**
+
+     - Tüm notlar dosyalarını `/ProjectDocs/Build_Notes/` dizinine saklayın.
+     - Mantıksal, açıklayıcı bir adlandırma kuralı kullanın; örneğin, `build-title_phase-#_task-group-name.md`.
+     - Yapı görevini açıklamak için `<build-title>` kullanın.
+     - Yapı görevine Phase # uygulamak için `<phase-#>` kullanın.
+     - Görev grubu adını açıklamak için `<task-group-name>` kullanın.
+     - Örnek: `supabase-schema-standardization_phase-1_preparation-and-code-analysis.md`
+       - `supabase-schema-standardization` yapı başlığıdır
+       - `phase-1` faz numarasıdır
+       - `preparation-and-code-analysis` görev grubu adıdır
+
+  2. **İçerik Yapısı:**
+
+     - Nelere ulaşmak istediğinizi özetleyen kısa bir **Task Objective** (Görev Hedefi) ile başlayın.
+     - **Current State Assessment** (Mevcut Durum Değerlendirmesi) sağlayın: yapı görevlerine ilişkin projenin mevcut durumunun kısa açıklaması.
+     - **Future State Goal** (Gelecek Durum Hedefi) sağlayın: yapı görevlerine ilişkin projenin gelecek durumunun kısa açıklaması.
+     - Bunu **Implementation Plan** (Uygulama Planı) ile takip edin: gelecek duruma ulaşmak için kontrol listesi **görevleri** içeren **adımların** numaralandırılmış listesi.
+     - Görevler tamamlandıkça **Implementation Plan** (Uygulama Planı) güncelleyin ve uygulanamayan görevleri çizin. PLANDAN ASLA GÖREVLERİ SİLMEYİN.
+     - Plan değişirse veya gelişirse, önceki içeriğin üzerine yazmak yerine yeni **adımlar** veya **görevler** ekleyin.
+
+  3. **Güncellenme Zamanı:**
+
+     - **Görev Başlatılırken:** Görev özel notlar dosyasını oluşturun veya açın ve kodlamadan önce ilk planı kaydedin.
+     - **Görev Yürütülürken:** Planlar değiştiğinde, zorluklar ortaya çıktığında veya yeni içgörüler elde edildiğinde güncellemeler ekleyin.
+     - **Görev Tamamlanırken:** Yapılanların bir özetini ekleyin ve orijinal hedefle uyumlu olduğunu doğrulayın.
+
+  4. **Stil & Ton:**
+
+     - Notları kısa, konuya uygun ve ilgisiz yorumlardan arındırılmış tutun.
+     - Mantıksal bir sıra koruun; gelecek okuyucular kararma alma sürecini karışıklık olmadan anlayabilsin.
+
+  5. **Build Notes Tamamlanması:**
+
+     - Build notları tamamlandıktan sonra dosyayı `/ProjectDocs/Build_Notes/completed/` dizinine taşıyın.
+     - Build notları kullanımdan kaldırılmışsa ve artık gerekli değilse, dosyayı `/ProjectDocs/Build_Notes/archived/` dizinine taşıyın.
+
+  ---
+
+  ### Context Dosyaları için Kurallar
+
+  1. **Master Project Context (`projectContext.md`):**
+
+     - `/ProjectDocs/contexts/` dizininde yer alır.
+     - Kapsamlı proje kapsamını, gereksinimlerini ve tasarım ilkelerini sağlar.
+     - Bu dosyayı yalnızca projenin temel yönü veya kapsamında önemli değişiklikler olduğunda güncelleyin.
+
+  2. **Ek Context Dosyaları:**
+
+     - Ek dosyalar (örneğin, `uiContext.md`, `featureAContext.md`) belirli işlevsellikler, tasarımlar veya uygulamanın alanları hakkında daha detaylı özellikler için oluşturulabilir.
+     - Bu dosyaları kararlı tutun. Bunları yalnızca belgelendirilmesi gereken yeni, onaylanmış değişiklikler olduğunda güncelleyin.
+     - Geliştirmenin oluşturulan yönergelerle uyumlu olduğundan emin olmak için bu dosyalara sık sık başvurun.
+
+  3. **Değişiklik Yönetimi:**
+
+     - Bu görev için karşılık gelen yapı notları dosyasında bağlam dosyalarında yapılan değişiklikleri kaydedin.
+     - Şeffaflığı ve temel proje hedefleriyle uyumluluğu korumak için bağlam değişikliklerinin açık bir gerekçesini tutun.
+
+  ---
+
+  ## Proje Yapısı
+
+  Açık, modüler bir dizin yapısı benimseyin:
 ---
 
 ## Key Principles

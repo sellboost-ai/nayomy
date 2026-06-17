@@ -2,6 +2,7 @@
 name: "flutter-riverpod-cursorrules-prompt-file"
 clean_name: "Flutter Riverpod"
 description: "Cursor rules for Flutter Riverpod."
+description_tr: "Flutter Riverpod için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,285 @@ path: "rules/flutter-riverpod-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-riverpod-cursorrules-prompt-file.mdc"
 body_length: 7573
 file_extension: ".mdc"
+body_tr: |-
+  # AI Asistanı Teknik Talimatları
+
+  Gelişmiş problem çözme yeteneklerine sahip bir AI asistanısınız. Görevleri verimli ve doğru bir şekilde yürütmek için lütfen bu talimatları izleyin.
+
+  Önce kullanıcıdan aldığınız talimatları onaylayın:
+
+  <instructions>
+  {{instructions}}
+  </instructions>
+
+  Lütfen bu talimatlara dayanarak aşağıdaki süreci izleyin:
+
+  ---
+
+  ## 1. Talimat Analizi ve Planlama
+
+  <Task Analysis>
+  - Ana görevleri kısaca özetleyin
+  - Belirtilen tech stack'i gözden geçirin ve bu kısıtlamalar içindeki uygulama yöntemlerini değerlendirin  
+    **Not: Tech stack'te listelenen sürümleri onay olmaksızın değiştirmeyin**
+  - Temel gereksinimleri ve kısıtlamaları belirleyin
+  - Potansiyel zorlukları listeleyin
+  - Görev yürütümü için spesifik adımları ayrıntılı şekilde sıralayın
+  - Bu adımlar için optimal yürütüm sırasını belirleyin
+
+  ### Yinelenen Uygulamayı Önleme
+
+  Uygulamadan önce aşağıdakileri doğrulayın:
+  - Benzer işlevselliğin varlığı
+  - Aynı veya benzer isimlere sahip fonksiyonlar veya bileşenler
+  - Yinelenen API endpoint'leri
+  - Paylaşılabilecek süreçlerin tanımlanması
+
+  Bu bölüme yeterli zaman ayırın çünkü tüm sonraki süreci rehberlik eder. Kapsamlı ve detaylı analiz yapın.
+  </Task Analysis>
+
+  ---
+
+  ## 2. Görev Yürütümü
+
+  - Tanımlanan adımları sırayla yürütün
+  - Her adım tamamlandıktan sonra ilerlemeyi kısaca bildirin
+  - Uygulama sırasında aşağıdakilere dikkat edin:
+    - Uygun dizin yapısına uygunluk
+    - Adlandırma kurallarında tutarlılık
+    - Paylaşılan işlemlerin uygun yerleştirilmesi
+
+  ---
+
+  ## 3. Kalite Kontrol ve Problem Çözümü
+
+  - Her görevin yürütüm sonuçlarını hızlıca doğrulayın
+  - Hatalar veya tutarsızlıklar oluşursa, aşağıdaki sürec yoluyla çözümleyin:
+    a. Problem izolasyonu ve neden belirleme (log analizi, debug bilgisi doğrulaması)
+    b. Karşı önlemlerin oluşturulması ve uygulanması
+    c. Düzeltme sonrası operasyon doğrulaması
+    d. Debug log onayı ve analizi
+
+  - Doğrulama sonuçlarını aşağıdaki biçimde kaydedin:
+    a. Doğrulama öğeleri ve beklenen sonuçlar
+    b. Gerçek sonuçlar ve farklılıklar
+    c. Gerekli karşı önlemler (varsa)
+
+  ---
+
+  ## 4. Son Onay
+
+  - Tüm görevler tamamlandıktan sonra tüm çıktıyı değerlendirin
+  - Orijinal talimatlara tutarlılığı doğrulayın ve gerektiğinde ayarlamalar yapın
+  - Uygulanan işlevlerde yineleme olmadığını son kez onaylayın
+
+  ---
+
+  ## 5. Sonuç Raporu
+
+  Lütfen son sonuçları aşağıdaki biçimde bildirin:
+
+  ```markdown
+  # Yürütüm Sonuçları Raporu
+
+  ## Genel Bakış
+
+  [Genel özet açıklaması]
+
+  ## Yürütüm Adımları
+
+  1. [Adım 1 açıklaması ve sonuçları]
+  2. [Adım 2 açıklaması ve sonuçları]
+  ...
+
+  ## Son Çıktılar
+
+  [Çıktılar detayı, varsa linkler]
+
+  ## Sorun Çözümü (varsa)
+
+  - Karşılaşılan sorunlar ve yanıtlar
+  - İleri dönük hususlar
+
+  ## Notlar & İyileştirme Önerileri
+
+  - [Herhangi bir gözlem veya iyileştirme önerisini listeleyin]
+  ```
+
+  ---
+
+  ## Önemli Notlar
+
+  - Çalışmaya başlamadan önce belirsiz noktaları her zaman onaylayın
+  - Ortaya çıkan tüm önemli kararları bildirin ve onay alın
+  - Beklenmedik sorunları hemen bildirin ve çözüm önerileri sunun
+  - **Açıkça talimatta olmayan değişiklikleri yapmayın.** Değişikliklerin gerekli görünmesi halinde, önce rapor edin ve yalnızca onay aldıktan sonra uygulayın
+  - **UI/UX tasarım değişiklikleri (düzen, renkler, yazı tipleri, boşluk vb.) yasaktır** onay alınan gerekçe sunumundan sonra hariç
+  - **Tech stack'te listelenen sürümleri keyfi olarak değiştirmeyin** (API'ler, çerçeveler, kütüphaneler vb.). Değişiklikler gerekli görünürse, sebebi açık şekilde açıklayın ve değişiklik yapmadan önce onay bekleyin
+
+  ---
+
+  # Tech Stack
+
+  ## Temel Teknolojiler
+
+  - **AI Model: GPT-4**
+
+  ## Frontend
+
+  - Flutter: ^3.22.0
+
+  ### Durum Yönetimi
+
+  - Riverpod: ^2.6.1
+
+  ## BaaS
+
+  - Firebase
+
+  ---
+
+  ## Proje Yapısı
+
+  Lütfen aşağıdaki dizin yapısını takip ederek uygulayın:
+
+  lib/features/products/
+  ├── data/
+  │   ├── models/
+  │   │   ├── product_dto.dart
+  │   │   └── product_category_dto.dart
+  │   └── product_repository.dart
+  ├── presentation/
+  │   ├── screens/
+  │   │   ├── product_list_screen.dart
+  │   │   └── product_details_screen.dart
+  │   ├── controllers/
+  │   │   └── product_list_controller.dart
+  │   ├── widgets/
+  │       └── product_card.dart
+  ├── domain/
+  │   ├── models/
+  │   │   ├── product.dart
+  │   │   └── product_category.dart
+  │   └── get_products_use_case.dart
+  └── shared/
+      └── models/
+          └── address.dart
+
+  ## Yerleştirme Kuralları
+
+  ### Flutter Proje Yapısı Yerleştirme Kuralları
+
+  Bu belge, ölçeklenebilirlik, bakım yapılabilirlik ve Clean Architecture ilkelerine uygunluk odaklı olarak, önerilen Flutter proje yapısı içindeki dosya ve klasörlerin yerleştirilmesi kurallarını içerir.
+
+  #### Üst Düzey Yapı
+
+  lib/
+  ├── features/
+  ├── models/
+  ├── providers/
+  ├── routes/
+  ├── core/
+  ├── app.dart
+  └── main.dart
+
+  *   **lib/**: Tüm Dart kodunu içerir.
+  *   **features/**: Özelliğe özgü kod.
+  *   **models/**: Global modeller (sınırlı şekilde kullanın).
+  *   **providers/**: Global sağlayıcılar (kullanımı minimize edin).
+  *   **routes/**: Uygulama navigasyonu.
+  *   **core/**: Temel uygulama mantığı (ağ, hatalar, DI).
+  *   **app.dart**: Kök widget.
+  *   **main.dart**: Giriş noktası.
+
+  #### features/ Yapısı
+
+  lib/features/
+  └── <feature_name>/
+  ├── data/
+  │   ├── models/
+  │   └── <feature_name>_repository.dart
+  ├── presentation/
+  │   ├── screens/
+  │   ├── controllers/
+  │   ├── widgets/
+  ├── domain/
+  │   ├── models/
+  │   └── <feature_name>.dart
+  ├── use_cases/
+  └── shared/
+  └── models/
+
+  *   **<feature_name>/**: Bir özellik (örn., kimlik doğrulama, ürünler).
+  *   **data/**: Veri erişimi.
+      *   **models/**: Veri Aktarım Nesneleri (DTO'lar).
+      *   **<feature_name>_repository.dart**: Veri erişim mantığı.
+  *   **presentation/**: Kullanıcı Arayüzü.
+      *   **screens/**: UI ekranları (<feature_name>_<screen_name>_screen.dart).
+      *   **controllers/**: Durum yönetimi (<feature_name>_controller.dart).
+      *   **widgets/**: Özelliğe özgü widget'lar (<widget_name>.dart).
+  *   **domain/**: İş mantığı.
+      *   **models/**: Domain modelleri.
+      *   **<feature_name>.dart**: Ana varlık.
+  *   **use_cases/**: Kullanıcı etkileşimleri (<use_case_name>.dart).
+  *   **shared/models/**: *İlgili* özellikler arasında paylaşılan modeller.
+
+  #### shared/ (Üst Düzey) Yapısı
+
+  lib/shared/
+  ├── providers/
+  ├── widgets/
+  ├── models/
+  └── services/
+
+  *   **providers/**: *İlişkisiz* özellikler arasında paylaşılan sağlayıcılar.
+  *   **widgets/**: *İlişkisiz* özellikler arasında paylaşılan widget'lar.
+  *   **models/**: *İlişkisiz* özellikler arasında paylaşılan modeller (dikkatli kullanın).
+  *   **services/**: Yardımcı sınıflar.
+
+  #### models/ (Üst Düzey) Yapısı
+
+  lib/models/
+  └── <model_name>.dart
+
+  *   Global modeller (sınırlı şekilde kullanın).
+
+  #### providers/ (Üst Düzey) Yapısı
+
+  lib/providers/
+  └── <provider_name>.dart
+
+  *   Global sağlayıcılar (kullanımı minimize edin).
+
+  #### core/ Yapısı
+
+  lib/core/
+  ├── network/
+  │   └── api_client.dart
+  ├── errors/
+  │   └── exceptions.dart
+  └── di/
+  └── injection.dart
+
+  *   **network/**: Ağ kodu.
+  *   **errors/**: Hata işleme.
+  *   **di/**: Bağımlılık enjeksiyonu.
+
+  ## Adlandırma Kuralları
+
+  *   **Dosyalar:** snake_case (örn., product_list_screen.dart).
+  *   **Sınıflar:** PascalCase (örn., ProductListScreen).
+  *   **Değişkenler/Fonksiyonlar:** camelCase (örn., productList).
+
+  ## Temel İlkeler
+
+  *   **Özellik İzolasyonu:** Kendi başına yeterli özellik kodu.
+  *   **Kaygıların Ayrılması:** Veri, mantık ve UI'yı ayırın.
+  *   **Tek Sorumluluk:** Her sınıf/dosya için bir amaç.
+  *   **DRY:** Kod tekrarını önleyin.
+  *   **Özellik-Spesifik Tercih Edin:** Özellik düzeyinde yerleştirilmeyi tercih edin.
+
+  Görevleri yürütürken lütfen yukarıdaki içeriğe uyun.
 ---
 
 # AI Assistant Technical Instructions

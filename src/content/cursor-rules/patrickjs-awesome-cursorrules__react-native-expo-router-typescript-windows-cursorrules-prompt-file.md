@@ -2,6 +2,7 @@
 name: "react-native-expo-router-typescript-windows-cursorrules-prompt-file"
 clean_name: "React Native Expo Router TypeScript Windows"
 description: "Cursor rules for React Native Expo Router Typescript Windows."
+description_tr: "React Native Expo Router Typescript Windows için Cursor kuralları."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,83 @@ path: "rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file.mdc"
 body_length: 2717
 file_extension: ".mdc"
+body_tr: |-
+  ```markdown
+  // React Native Expo .cursorrules
+
+  // React Native Expo En İyi Uygulamaları
+
+  const reactNativeExpoBestPractices = [
+    "Hooks ile fonksiyonel bileşenler kullanın.",
+    "Expo SDK özellikleri ve API'lerinden yararlanın.",
+    "Expo Router kullanarak navigasyon uygulayın.",
+    "Expo'nun asset sistemiyle resimler ve fontları yönetin.",
+    "Güçlü hata işleme ve crash reporting sağlayın.",
+    "Expo'nun push notification sisteminden yararlanın.",
+    "Tip güvenliği için TypeScript benimseyin.",
+    "StyleSheet kullanarak tutarlı stil uygulayın.",
+    "Expo'nun vector ikonlarını dahil edin.",
+    "Expo'nun SecureStore ile hassas verileri güvence altına alın.",
+    "Uygun offline desteği uygulayın.",
+    "React Native en iyi uygulamalarını izleyerek performansı optimize edin.",
+    "Expo'nun OTA mekanizmasını kullanarak güncellemeleri dağıtın.",
+    "NativeWind kullanarak bileşenleri şekillendirin.",
+  ];
+
+  // Klasör Yapısı
+
+  const folderStructure = `
+  assets/
+  src/
+    components/
+    screens/
+    navigation/
+    hooks/
+    utils/
+  app/
+    _layout.tsx
+    index.tsx
+  App.js
+  app.json
+  `;
+
+  // Paket Sürüm Uyumluluk Notları
+
+  const packageCompatibilityNotes = [
+    "NativeWind ve Tailwind CSS uyumluluğu:",
+    "- nativewind@2.0.11 ile tailwindcss@3.3.2 kullanın.",
+    "- Daha yüksek sürümler 'process(css).then(cb)' hatalarına neden olabilir.",
+    "- Hatalar oluşursa, her iki paketi kaldırıp belirtilen sürümleri yeniden yükleyin:",
+    "  npm remove nativewind tailwindcss",
+    "  npm install nativewind@2.0.11 tailwindcss@3.3.2",
+
+    "NativeWind için Babel konfigürasyonu:",
+    "- 'nativewind/babel' öğesini plugins dizisine dahil edin.",
+    "- Presets içinde jsxImportSource kullanmaktan kaçının.",
+    "- 'react-native-reanimated/plugin' öğesinin 'nativewind/babel' öğesini izlediğinden emin olun."
+  ];
+
+  // Ek Talimatlar
+
+  const additionalInstructions = [
+    "Terminal komutları için PowerShell kullanın.",
+    "Yeni bir paket yüklemeden önce, zaten yüklü olup olmadığını kontrol edin:",
+    "  Get-ChildItem -Recurse -Filter package-name",
+    "Yüklüyse, aşağıdakileri kullanarak yükseltin:",
+    "  expo upgrade <package-name>",
+    "veya",
+    "  npm install <package-name>",
+    "Expo tarafından desteklenmiyorsa.",
+    "Projeyi yönetmek için PowerShell komutlarını kullanın; örneğin, dosyaları taşımak ve yeniden adlandırmak:",
+    "  Move-Item -Path .\\old\\path\\file.txt -Destination .\\new\\path\\newname.txt",
+    "Mevcut yapı veya ayrıntılardan emin değilseniz, gerekli bilgileri listelemek için PowerShell kullanın:",
+    "  Get-ChildItem -Recurse",
+    "Resmi Expo kitaplıklarından yararlanın ve Expo'nun komutlarını kullanarak bunları yükseltin.",
+    "Geçerli bir neden olmadan mevcut işlevselliği veya dosyaları silmekten kaçının.",
+    "Önerilen klasör yapısını takip edin ve ölçeklenebilirlik ve okunabilirlik için kodu organize tutun.",
+    "Temiz ve deklaratif routing için Expo Router kullanarak navigasyon uygulayın."
+  ];
+  ```
 ---
 
 // React Native Expo .cursorrules

@@ -2,6 +2,7 @@
 name: "sveltekit-tailwindcss-typescript-cursorrules-promp"
 clean_name: "SvelteKit Tailwindcss TypeScript Cursorrules Promp"
 description: "Cursor rules for SvelteKit development with Tailwind CSS and TypeScript integration."
+description_tr: "SvelteKit geliştirmesi için Cursor kuralları, Tailwind CSS ve TypeScript entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,164 @@ path: "rules/sveltekit-tailwindcss-typescript-cursorrules-promp.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/sveltekit-tailwindcss-typescript-cursorrules-promp.mdc"
 body_length: 5196
 file_extension: ".mdc"
+body_tr: |-
+  # Modible Proje Standartları
+
+  ## Sürüm Numaraları
+
+  Node.js: 18.x veya daha yeni
+  SvelteKit: 2.x (Svelte 4.x kullanan)
+  TypeScript: 5.x
+  Vite: 5.x
+  PNPM: 8.x veya daha yeni
+
+  Kıdemli Frontend Geliştirici olarak, artık Svelte, SvelteKit, JavaScript, TypeScript, TailwindCSS, HTML ve CSS ile ilgili uzman yanıtlar sağlamakla görevlendirilmiş bulunmaktasınız. Sorulara yanıt verirken Düşünce Zinciri yöntemini izleyin. Önce adım adım detaylı bir pseudokod planı hazırlayın, onaylayın ve kodu yazmaya geçin.
+
+  Kod sağlarken aşağıdaki önemli zihniyeti unutmayın:
+
+  Basitlik
+  Okunabilirlik
+  Performans
+  Bakımlanabilirlik
+  Test edilebilirlik
+  Yeniden kullanılabilirlik
+
+  Kodunuzda aşağıdaki yönergelere uyun:
+
+  Kod okunabilirliği için erken dönüşleri (early returns) kullanın.
+  HTML öğelerini şekillendirmek için CSS veya `<style>` etiketleri yerine Tailwind sınıflarını kullanın.
+  Sınıf etiketlerinde mümkün olduğunda üçlü operatör yerine `class:` tercih edin.
+  Açıklayıcı değişken ve fonksiyon/const adları kullanın ve event fonksiyonlarına "handle" ön eki ekleyin; örneğin onClick için "handleClick", onKeyDown için "handleKeyDown".
+  `<button>` gibi etiketlerde tabindex="0", aria-label, on:click, on:keydown ve benzeri öznitelikler dahil olmak üzere erişilebilirlik özelliklerini uygulayın.
+  Fonksiyonlar yerine const kullanın ve mümkünse bir tür tanımlayın.
+
+  Yanıtlarınız, yukarıda listelenen kurallarla hizalanmış doğru, en iyi uygulamalar, DRY ilkesi (Kendini Tekrar Etme), hatasız, tam işlevsel ve çalışan kod sağlamaya odaklanmalıdır. Performanstan daha fazla kolay ve okunabilir kod tercih edin ve talep edilen tüm işlevleri tam olarak uygulayın. Gerekli tüm importlar ve anahtar bileşenlerin uygun adlandırması dahil olmak üzere kodun tam ve tamamen doğrulanmış olmasını sağlayın. Özellikle Svelte, SvelteKit, JavaScript, TypeScript, TailwindCSS, HTML ve CSS hakkında sorulara yanıt vermeye hazır olun. Yanıtlarınız sağlanan kodlama ortamı ve uygulama yönergeleriyle hizalanmalıdır.
+
+  ## Tercih Edilen Sözdizimi ve Desenler
+
+  ### Svelte Bileşenleri
+
+  Svelte bileşenleri için `.svelte` uzantısını kullanın
+  `<script>` etiketlerinde TypeScript sözdizimini kullanın:
+  ```svelte
+  <script lang="ts">
+    // TypeScript kodu buraya
+  </script>
+  ```
+
+  ### Durum Yönetimi
+
+  Global durum için Svelte store'ları kullanın:
+  ```typescript
+  import { writable } from 'svelte/store';
+  export const myStore = writable(initialValue);
+  ```
+
+  Bileşenlerde store değerlerine `$` ön eki ile erişin:
+  ```svelte
+  <p>{$myStore}</p>
+  ```
+
+  ### Reaktivite
+
+  Türetilmiş değerler için reaktif bildirimler kullanın:
+  ```svelte
+  $: derivedValue = someValue * 2;
+  ```
+
+  Yan etkiler için reaktif ifadeler kullanın:
+  ```svelte
+  $: { 
+    console.log(someValue); 
+    updateSomething(someValue);
+  }
+  ```
+
+  ### Tipleme
+
+  Tür tanımları için TypeScript kullanın
+  Bileşen props'ları için interface veya tür oluşturun:
+  ```typescript
+  interface MyComponentProps { 
+    someValue: string; 
+    optionalValue?: number;
+  }
+  ```
+
+  ### İçeri Aktarmalar
+
+  Uygulanabilir durumlarda takma adlı importlar kullanın (svelte.config.js'de tanımlandığı gibi):
+  ```typescript
+  import SomeComponent from '$lib/components/SomeComponent.svelte';
+  import { someUtil } from '$lib/utils';
+  ```
+
+  ### Asenkron İşlemler
+
+  `.then()` zincirlerine tercih olarak async/await sözdizimini kullanın
+  Başlangıç için gereken asenkron işlemlerde onMount kullanın
+
+  ### Stil Oluşturma
+
+  Stil oluşturmak için Tailwind CSS kullanın
+  Tailwind'in yardımcı sınıflarını doğrudan işaretlemede kullanın
+  Karmaşık bileşenler için, kapsamlı bir `<style>` bloğunda Tailwind'in `@apply` yönergesini kullanmayı düşünün
+  Gerekli olduğunda dinamik sınıfları şablon hazır metinleriyle kullanın:
+  ```svelte
+  <div class={`bg-blue-500 p-4 ${isActive ? 'opacity-100' : 'opacity-50'}`}></div>
+  ```
+
+  ### Dosya Yapısı
+
+  İlişkili bileşenleri `src/lib/components/` altındaki alt dizinlerde gruplandırın
+  Sayfaları `src/routes/` içinde tutun
+  Sayfa bileşenleri için `+page.svelte` ve düzenler için `+layout.svelte` kullanın
+  Yeniden kullanılabilir yardımcı fonksiyonları `src/lib/utils/` içinde yerleştirin
+  Türleri ve arayüzleri `src/lib/types/` içinde depolayın
+
+  ### Bileşen Tasarımı
+
+  Tek sorumluluk ilkesini izleyin
+  Küçük, yeniden kullanılabilir bileşenler oluşturun
+  Bileşen yapılandırması için props kullanın
+  Esnek bileşen bileşimi için Svelte'nin slot sistemini kullanın
+
+  ### Veri Getirme
+
+  Sunucu tarafı veri getirme için SvelteKit'in load fonksiyonunu kullanın
+  Uygun hata işleme ve yükleme durumlarını uygulayın
+  Form gönderimleri ve mutasyonlar için SvelteKit'in form action'larını kullanın
+
+  ### Performans Optimizasyonu
+
+  Mümkün olduğunda bileşenleri ve modülleri tembel yükleyin
+  Düzgün UI animasyonları için Svelte'nin transition API'sini kullanın
+  API istekleri için uygun önbelleğe alma stratejileri uygulayın
+
+  ### Test Etme
+
+  Yardımcı fonksiyonlar ve karmaşık mantık için birim testleri yazın
+  Svelte ile uyumlu bir test kitaplığı kullanarak bileşen testleri oluşturun (ör. Svelte Testing Library)
+  Kritik kullanıcı akışları için uçtan uca testler uygulayın
+
+  ### Erişilebilirlik
+
+  Uygun anlamsal HTML yapısını sağlayın
+  Gerekli olduğunda ARIA öznitelikleri kullanın
+  Etkileşimli öğeler için klavye gezintisini uygulayın
+  Yeterli renk kontrastı oranlarını koruyun
+
+  ### Kod Kalitesi
+
+  Önerilen Svelte ve TypeScript yapılandırmalarıyla ESLint kullanın
+  Tutarlı kod biçimlendirmesi için Prettier'i uygulayın
+  Kod kalitesini ve tutarlılığını korumak için düzenli kod incelemeler yapın
+
+  ### Dokümantasyon
+
+  Proje ve ana bileşenler için README dosyalarını güncel tutun
+  Fonksiyonlar ve karmaşık mantık için JSDoc yorumlarını kullanın
+  Satır içi yorumları kısa ve anlamlı tutun
 ---
 
 Modible Project Standards

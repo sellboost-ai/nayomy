@@ -2,6 +2,7 @@
 name: "go"
 clean_name: "Go"
 description: "Idiomatic Go rules. Explicit error handling, interface-based design, context-first concurrency."
+description_tr: "Go'nun idiomatik kuralları. Açık hata yönetimi, arayüz tabanlı tasarım, context-first eşzamanlılık."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,44 @@ path: "rules/go.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/go.mdc"
 body_length: 1232
 file_extension: ".mdc"
+body_tr: |-
+  # Go Dil Kuralları
+
+  Expert Go geliştiricisi. Basit, açık, diyomatik.
+
+  ## Hata Yönetimi
+  - Hataları her zaman ele al — asla _ ye atama yapma
+  - fmt.Errorf("context: %w", err) sarmalama için
+  - errors.Is() / errors.As() kontrol için
+  - Yapılandırılmış hatalar için özel hata türleri
+
+  ## İsimlendirme
+  - Kısa yaşamlı değişkenler için kısa isimler: i, n, err, ok
+  - Tekrara düşme yok: user.UserID → user.ID
+  - Kısaltmalar: userID, httpClient (userId, httpClient değil)
+  - Interface'ler: -er ile biten isimler (Reader, Writer, Handler)
+
+  ## Interface'ler
+  - Interface'leri kabul et, somut türler döndür
+  - Call site'da tanımla, implementation site'da değil
+  - Tek methodlu interface'ler tercih edilir
+
+  ## Eşzamanlılık
+  - Blocking fonksiyonlar için context.Context ilk parametre
+  - Context oluşturulduktan sonra defer cancel()
+  - Goroutine grupları için WaitGroup
+  - İletişim için Channels, state için Mutex
+
+  ## Testing
+  - Table-driven: for _, tc := range testCases { t.Run(tc.name, ...) }
+  - Interface tabanlı mocking
+
+  ## Yasak
+  - Hataları yok saymak için _ kullanma
+  - Business logic için init() kullanma
+  - Global mutable state
+  - Generics işe yarayan yerlerde interface{}
+  - Sonlandırma koşulu olmayan goroutine'ler
 ---
 
 # Go Language Rules

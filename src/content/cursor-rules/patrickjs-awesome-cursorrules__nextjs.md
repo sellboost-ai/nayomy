@@ -2,6 +2,7 @@
 name: "nextjs"
 clean_name: "Next.js"
 description: "Next.js with TypeScript and Tailwind UI best practices"
+description_tr: "Next.js, TypeScript ve Tailwind UI en iyi pratikleri"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,54 @@ path: "rules/nextjs.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs.mdc"
 body_length: 1740
 file_extension: ".mdc"
+body_tr: |-
+  # Next.js En İyi Uygulamaları
+
+  ## Proje Yapısı
+  - App Router dizin yapısını kullanın
+  - Rota'ya özgü bileşenleri `app` dizinine yerleştirin
+  - Paylaşılan bileşenleri `components` dizinine yerleştirin
+  - Yardımcı fonksiyonları ve araçları `lib` dizinine yerleştirin
+  - Dizinler için küçük harfle tire kullanan isimlendirme yapın (örn: `components/auth-wizard`)
+
+  ## Bileşenler
+  - Varsayılan olarak Server Components kullanın
+  - İstemci bileşenlerini açıkça 'use client' ile işaretleyin
+  - İstemci bileşenlerini Suspense ile sarmalayın ve fallback sağlayın
+  - Kritik olmayan bileşenler için dinamik yüklemeyi kullanın
+  - Uygun error boundaries uygulayın
+  - Statik içerik ve arabirimlerini dosya sonuna yerleştirin
+
+  ## Performans
+  - Görüntüleri optimize edin: WebP formatı kullanın, veri boyutlandırması yapın, lazy loading kullanın
+  - 'useEffect' ve 'setState' kullanımını minimize edin
+  - Mümkün olduğunda Server Components (RSC) tercih edin
+  - Kritik olmayan bileşenler için dinamik yüklemeyi kullanın
+  - Uygun önbelleğe alma stratejileri uygulayın
+
+  ## Veri Getirme
+  - Mümkün olduğunda veri getirme için Server Components kullanın
+  - Veri getirme için uygun hata işlemesi uygulayın
+  - Uygun önbelleğe alma stratejileri kullanın
+  - Yükleme ve hata durumlarını uygun şekilde işleyin
+
+  ## Yönlendirme
+  - App Router kurallarını kullanın
+  - Rotalar için uygun yükleme ve hata durumlarını uygulayın
+  - Dinamik rotaları uygun şekilde kullanın
+  - Gerektiğinde parallel rotaları işleyin
+
+  ## Formlar ve Doğrulama
+  - Form doğrulaması için Zod kullanın
+  - Sunucu tarafı doğrulamayı uygulayın
+  - Form hatalarını uygun şekilde işleyin
+  - Form gönderimi sırasında yükleme durumlarını gösterin
+
+  ## Durum Yönetimi
+  - İstemci tarafı durumunu minimize edin
+  - React Context'i ölçülü şekilde kullanın
+  - Mümkün olduğunda sunucu durumunu tercih edin
+  - Uygun yükleme durumlarını uygulayın
 ---
 
 # Next.js Best Practices

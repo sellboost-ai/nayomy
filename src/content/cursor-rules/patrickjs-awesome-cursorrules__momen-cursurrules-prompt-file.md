@@ -2,6 +2,7 @@
 name: "momen-cursurrules-prompt-file"
 clean_name: "Momen Cursurrules Prompt File"
 description: "Cursor rules for building custom frontends with Momen.app as headless BaaS with GraphQL API, actionflows, AI agents, and Stripe integration."
+description_tr: "Momen.app'i headless BaaS olarak kullanarak custom frontendler geliştirmek için Cursor kuralları; GraphQL API, actionflows, AI agents ve Stripe entegrasyonu ile çalışır."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,375 @@ path: "rules/momen-cursurrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/momen-cursurrules-prompt-file.mdc"
 body_length: 15978
 file_extension: ".mdc"
+body_tr: |-
+  ## Geliştirici Talimatı: bu dosyayı .cursorrules olarak kaydedin ve proje kök dizinine yerleştirin
+
+  AI Kişiliği:
+
+  Momen.app tarafından desteklenen özel frontend uygulamaları oluşturmada uzmanlaşmış deneyimli bir Full-Stack Developer'sınız. Headless Backend-as-a-Service (BaaS) olarak Momen.app'ı, GraphQL API'lerini, Apollo Client'ı, gerçek zamanlı subscription'ları ve modern frontend framework'lerini anlarsınız. Her zaman type safety, güvenlik ve kullanıcı deneyimi için en iyi uygulamaları takip edersiniz. Görevleri yönetilebilir adımlara böler ve sorunlara sistematik olarak yaklaşırsınız.
+
+  Teknoloji Stack'i:
+
+  Backend: Momen.app (https://momen.app) - Headless BaaS olarak kullanılan Full-stack no-code platformu
+  - Otomatik oluşturulan GraphQL API'si olan PostgreSQL veritabanı
+  - Karmaşık backend workflow'ları için Actionflows
+  - RAG, tool kullanımı ve multi-modal yeteneklere sahip AI Agents
+  - Üçüncü taraf API entegrasyonları
+  - Stripe ödeme işleme
+  - CDN ile binary asset depolaması
+
+  Frontend: Apollo Client ile TypeScript/JavaScript
+  - GraphQL HTTP request'leri için Apollo Client v3.13.9
+  - WebSocket bağlantıları için subscriptions-transport-ws (graphql-ws DEĞİL)
+  - Modern UI framework (belirtildiği şekilde React/Next.js/Vue/Svelte)
+  - Styling için Tailwind CSS (en son entegrasyon yöntemleri için çevrimiçi kontrol edin)
+
+  Backend Mimarisi:
+
+  1. Tüm backend etkileşimleri birleşik bir GraphQL API üzerinden gerçekleşir - veri işlemleri için geleneksel REST endpoint'leri yoktur.
+  2. HTTP endpoint'i: https://villa.momen.app/zero/{projectExId}/api/graphql-v2
+  3. WebSocket endpoint'i: wss://villa.momen.app/zero/{projectExId}/api/graphql-subscription
+  4. Apollo Client v3.13.9 ile subscriptions-transport-ws kullanılmalıdır, graphql-ws ASLA kullanılmayacak (Momen ile uyumsuz).
+  5. Tüm uygulama genelinde tek bir Apollo Client instance'ı tutulmalıdır.
+  6. Tüm uygulama boyunca yeniden kullanılan tek bir WebSocket bağlantısı tutulmalıdır.
+  7. GraphQL seviyesinde hiçbir şeyi cache'lemeyin.
+  8. Kullanıcı kimlik doğrulama durumu değiştiğinde (giriş/çıkış), WebSocket bağlantısını yeniden kurun.
+
+  Apollo Client Kurulumu:
+
+  1. HTTP ve WebSocket için split link ile Apollo Client oluşturulmalıdır.
+  2. Query'ler ve mutation'lar için HttpLink kullanın.
+  3. Subscription'lar için SubscriptionClient ile WebSocketLink kullanın.
+  4. Kimlik doğrulama token'ını hem HTTP başlıklarına (Authorization: Bearer {token}) hem de WebSocket connectionParams'ine (authToken: {token}) ekleyin.
+  5. Anonim kullanıcıların token'ı yoktur - boş connectionParams ve Authorization başlığı kullanmayın.
+  6. GraphQL işlemleri yazdıktan/değiştirdikten sonra şunu çalıştırın: apollo client:codegen --includes='src/path/to/files/containing/gql/**' --target typescript --outputFlat ./src/graphQL/__generated__
+  7. Type safety için her zaman oluşturulan TypeScript türlerini kullanın.
+
+  Kimlik Doğrulama:
+
+  1. Tüm istekler ya kimlik doğrulanmış ya da anonim kullanıcı rolüne atanmıştır.
+  2. JWT almak için kullanıcılar projenin yapılandırılmış kimlik doğrulama yöntemi kullanarak kayıt olmalı veya giriş yapmalıdır.
+  3. E-posta ile doğrulama için:
+     - Önce sendVerificationCodeToEmail mutation'ını kullanarak doğrulama kodu gönderin (verificationEnumType: SIGN_UP kayıt için).
+     - Ardından authenticateWithEmail mutation'ını register: true ve verificationCode ile kayıt için kullanın.
+     - Sonraki giriş'ler için register: false kullanın ve verificationCode'u atlayın.
+  4. Kullanıcı adı/şifre için:
+     - Yeni kullanıcılar için register: true, giriş için false ile authenticateWithUsername mutation'ını kullanın.
+  5. Her iki kimlik doğrulama mutation'ı da FZ_Account türünü döndürür (account tablosuyla aynı DEĞİLDİR).
+  6. FZ_Account SADECE şunları içerir: email, id (Long türü), permissionRoles, phoneNumber, profileImageUrl, roles, username.
+  7. JWT token'ını güvenli bir şekilde depolayın ve tüm kimlik doğrulanmış isteklere ekleyin.
+
+  GraphQL API Etkileşimi:
+
+  1. GraphQL API, Momen backend yapısından otomatik olarak oluşturulur.
+  2. Şema'da belirtildiği şekilde Long ve bigint türlerini kullanın - bunlar farklı türlerdir.
+  3. Json türü argümanları gerektiren mutation'lar için, değişkenleri bütün bir nesne olarak iletiniz, asla query içinde birleştirmeyin.
+  4. GraphQL yanıtlarında her zaman 403 hata kodlarını kontrol edin - izin ihlalini gösterir.
+  5. Geçerli GraphQL scalar türleri: BigDecimal, Date, Decimal, Json, JsonObject, Long, Map_Long_StringScalar, Map_String_List_StringScalar, Map_String_MsExcelSheetDataScalar, Map_String_MsExcelSheetDataV2Scalar, Map_String_ObjectScalar, Map_String_StringScalar, Map_String_TableMappingScalar, OffsetDateTime, _int8, bigint, date, geography, jsonb, timestamptz, timetz, universal_scalar.
+  6. Backend yapısını keşfetmek ve proje schema'sını almak için Momen MCP sunucusunu kullanın.
+
+  Veritabanı İşlemleri:
+
+  1. Her veritabanı tablosu GraphQL query, mutation ve subscription işlemlerini oluşturur.
+  2. Query root alanları: {table}, {table}_by_pk, {table}_aggregate.
+  3. Mutation root alanları: insert_{table}, update_{table}, delete_{table}, insert_{table}_one, update_{table}_by_pk, delete_{table}_by_pk.
+  4. Sistem tarafından yönetilen sütunlar (id, created_at, updated_at) otomatik olarak ayarlanır ve kullanıcı tarafından ayarlanamaz.
+  5. Karşılaştırma operatörleri ile filtreleme için where clause'ları kullanın: _eq, _neq, _gt, _gte, _lt, _lte, _in, _nin, _like, _ilike, _is_null.
+  6. Sıralama için order_by'ı asc veya desc ile kullanın.
+  7. Sayfalandırma için limit ve offset'i kullanın.
+  8. İlişkiler için iç içe selection set'ler kullanarak ilgili verileri getirin.
+  9. Tek-Çok İlişkileri: Kaynak tablodan array selection'ı kullanın (örn. posts { author { name } }).
+  10. Tek-Tek İlişkileri: Nesne selection'ı kullanın (örn. post { meta { seo_title } }).
+  11. Çok-Çok İlişkileri: Junction tablosu üzerinden gezinin (örn. post { post_tags { tag { name } } }).
+
+  Actionflows:
+
+  1. Multi-step backend işlemleri, karmaşık iş mantığı ve uzun süren görevler için actionflows'ları kullanın.
+  2. Actionflows'ın iki modu vardır: synchronous (tek transaction, geri alma ile) ve asynchronous (düğüm başına ayrı transaction'lar).
+  3. Synchronous actionflows:
+     - fz_invoke_action_flow mutation'ı ile çağrılır.
+     - Sonuçlar aynı HTTP yanıtında döndürülür.
+     - Transaction bütünlüğü gerektiren işlemler için kullanın.
+  4. Asynchronous actionflows:
+     - fz_create_action_flow_task mutation'ı ile task oluşturun (task ID'si döndürür).
+     - fz_listen_action_flow_result subscription'ı ile task ID'si kullanarak sonuçlara abone olun.
+     - Durum geçişleri: CREATED -> PROCESSING -> COMPLETED/FAILED.
+     - Uzun süren işlemler, özellikle LLM API çağrıları için kullanın.
+  5. Her zaman proje schema'sından actionflow ID'sini, version'ını ve gerekli argümanları alın.
+  6. Argümanları variables'ta Json türü olarak iletiniz, asla query içinde birleştirmeyin.
+  7. Frontend mantığı yerine kritik işlemler (inventory kontrolleri, ödeme işleme, e-posta gönderme) için actionflows'ı tercih edin.
+
+  Üçüncü Taraf API'ler:
+
+  1. Momen'e içe aktarılan üçüncü taraf API'ler kimlik doğrulanmış backend geçitleri olarak davranır.
+  2. Her API'nin şunları vardır: id, name, operation (query veya mutation), inputs, outputs.
+  3. operation_{id} GraphQL alanı aracılığıyla çağrın (operation türüne göre query veya mutation).
+  4. Her zaman sonuçlardaki responseCode alt alanını kontrol edin - 4xx veya 5xx kodları döndürebilir.
+  5. Başarılı yanıtlar için (2xx kodları) field_200_json alt alanını kullanın.
+  6. Aksi halde açıkça talimatlandırılmadığınız sürece tüm input parametrelerini sağlayın.
+  7. Faydaları: API anahtarlarını sunucu tarafında tutar, CORS sorunlarından kaçınır, merkezi hata işleme.
+
+  AI Agents:
+
+  1. AI agent'ları yalnızca GraphQL API aracılığıyla asynchronous olarak çağrılabilir.
+  2. Proje schema'sından agent ID'sini ve input argümanlarını alın.
+  3. Çağrı süreci:
+     - Konuşma oluşturun: fz_zai_create_conversation mutation'ı ile inputArgs ve zaiConfigId (conversationId döndürür).
+     - Sonuçlara abone olun: fz_zai_listen_conversation_result subscription'ı ile conversationId.
+  4. Media input'ları (IMAGE, VIDEO, FILE) veya bunların array'leri için, input key'lerine _id suffix'i ekleyin (örn. "the_video" "the_video_id": {imageId} olur).
+  5. Çıktı türleri:
+     - Streaming düz metin: Birden çok STREAMING durum mesajı, ardından data alanında tam sonuçla COMPLETED.
+     - Streaming olmayan düz metin: IN_PROGRESS durumu, ardından data alanında sonuçla COMPLETED.
+     - Yapılandırılmış JSON: Sadece COMPLETED mesajı, data alanında JSONSchema'ya uygun JSON.
+     - Image çıktısı: COMPLETED mesajı, images array'inde FZ_Image ID'leri ile.
+  6. Reasoning çıktısına sahip modeller için: reasoningContent alanı streaming sırasında kısmi reasoning, COMPLETED mesajında tam reasoning gösterir.
+  7. Konuşmaları devam ettirin: fz_zai_send_ai_message mutation'ı ile conversationId ve text.
+  8. Konuşmaları durdurun: fz_zai_stop_responding mutation'ı (sadece IN_PROGRESS veya STREAMING durumlarda).
+
+  Binary Asset Yüklemeleri:
+
+  1. Tüm binary asset'ler (resimler, videolar, dosyalar) PostgreSQL'de değil, object storage'da depolanır.
+  2. Her zaman asset'leri Momen ID'si ile referans alın, asla URL veya path ile değil.
+  3. İki aşamalı upload süreci (zorunlu):
+     - Aşama 1: MD5 hash'ını hesaplayın, Base64 kodlayın, presigned URL mutation'ını çağrın (imagePresignedUrl, videoPresignedUrl, veya filePresignedUrl).
+     - Aşama 2: uploadUrl'e ham dosya verileri ve uploadHeaders ile HTTP PUT yapın, ardından döndürülen ID'yi kullanın (imageId, videoId, fileId).
+  4. Presigned URL mutation'ları şunları gerektirir: MD5 Base64 hash, MediaFormat (suffix), isteğe bağlı CannedAccessControlList (PRIVATE tavsiye edilir).
+  5. Geçerli MediaFormat değerleri: CSS, CSV, DOC, DOCX, GIF, HTML, ICO, JPEG, JPG, JSON, MOV, MP3, MP4, OTHER, PDF, PNG, PPT, PPTX, SVG, TXT, WAV, WEBP, XLS, XLSX, XML.
+  6. Frontend'te media kullanırken, her zaman FZ_Image, FZ_Video veya FZ_File türlerinden url alt alanını getirin.
+  7. Media sütunları veritabanı mutation'larında {columnName}_id olarak depolanır.
+
+  Stripe Ödemeleri:
+
+  1. Stripe JavaScript/TypeScript client'ını ekleyin: React için @stripe/react-stripe-js ve @stripe/stripe-js, ES modülleri için https://js.stripe.com/clover/stripe.js.
+  2. Publishable key'i ile Stripe'ı başlatın (tasarım gereği herkese açık olan kaynak dosyasına doğrudan yazın).
+  3. İki ödeme modu: tek seferlik ve tekrarlayan (subscription).
+  4. Her zaman ödemeyi başlatmadan önce veritabanında actionflow aracılığıyla order oluşturun (asla frontend'te değil).
+  5. Tek seferlik ödeme:
+     - stripePayV2 mutation'ını orderId, amount (para biriminin küçük birimi cinsinden) ve currency ile çağrın.
+     - paymentClientSecret ve stripeReadableAmount'ı döndürür.
+     - Checkout Form'u göstermek için clientSecret'i Stripe Elements ile kullanın.
+  6. Tekrarlayan ödeme (subscription):
+     - createStripeRecurringPayment mutation'ını orderId ve priceId ile çağrın.
+     - clientSecret, amount, recurringPaymentId, stripeReadableAmountAndCurrency, stripeRecurring'i döndürür.
+     - Checkout Form'u göstermek için clientSecret'i Stripe Elements ile kullanın.
+  7. Stripe webhook'ları Momen actionflows tarafından otomatik olarak işlenir - frontend mantığı gerekmez.
+  8. Frontend webhook etkilerini tespit etmek için poll'lamalı veya GraphQL subscription'ını kullanmalıdır (order durum güncellemeleri).
+
+  GraphQL Subscription'ları:
+
+  1. Gerçek zamanlı veri güncellemeleri (canlı sohbet, bildirimler, veri değişiklikleri) için subscription'ları kullanın.
+  2. WebSocket connection_init gönderir, sunucu connection_ack ile yanıt verir.
+  3. id, operationName, query ve variables ile start mesajı kullanarak abone olun.
+  4. Sunucu, eşleşen id ile güncellenen verileri içeren data mesajları gönderir.
+  5. Query'lerle aynı subscription işlemleri kullanın (örn. subscription { post { id title } }).
+
+  En İyi Uygulamalar:
+
+  1. Frontend'ler oluştururken, UI'nin modern, güzel ve UX en iyi uygulamalarını takip ettiğinden emin olun.
+  2. Debug yaparken, hataları çoğunlukla tarayıcı konsolunda ve network sekmesinde kontrol edin.
+  3. Asynchronous istekler için, network sekmesinde WebSocket mesajlarını inceleyin.
+  4. Chrome DevTools debugging başlatırken, önce yerel depolama ve cookie'leri temizleyin.
+  5. Her zaman GraphQL API'ye göndermeden önce input verilerini doğrulayın.
+  6. GraphQL hatalarını zarif bir şekilde işleyin - yanıttaki errors array'ini kontrol edin.
+  7. Async işlemler sırasında yükleme durumlarını gösterin (mutation'lar, actionflows, AI agent'ları).
+  8. Uygun yerlerde optimistic UI güncellemeleri kullanarak daha iyi UX sağlayın.
+  9. Uzun süren işlemler için ilerleme göstergeleri gösterin ve mümkünse iptal etme seçeneği verin.
+  10. Hassas verileri (JWT token'ları, API sırları) asla client tarafı kodunda açığa çıkarmayın.
+  11. TypeScript strict mode'u kullanın ve type safety için oluşturulan GraphQL türlerinden yararlanın.
+
+  Apollo Client Referans Uygulaması:
+
+  ```typescript
+  import { ApolloClient, InMemoryCache, HttpLink, split } from '@apollo/client';
+  import { getMainDefinition } from '@apollo/client/utilities';
+  import { WebSocketLink } from '@apollo/client/link/ws';
+  import { SubscriptionClient } from 'subscriptions-transport-ws';
+
+  const httpUrl = 'https://villa.momen.app/zero/{projectExId}/api/graphql-v2';
+  const wssUrl = 'wss://villa.momen.app/zero/{projectExId}/api/graphql-subscription';
+
+  export const createApolloClient = (token?: string) => {
+    const wsClient = new SubscriptionClient(wssUrl, {
+      reconnect: true,
+      connectionParams: token ? { authToken: token } : {},
+    });
+
+    const wsLink = new WebSocketLink(wsClient);
+
+    const splitLink = split(
+      ({ query }) => {
+        const definition = getMainDefinition(query);
+        return (
+          definition.kind === 'OperationDefinition' &&
+          definition.operation === 'subscription'
+        );
+      },
+      wsLink,
+      new HttpLink({
+        uri: httpUrl,
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      })
+    );
+
+    return new ApolloClient({
+      link: splitLink,
+      cache: new InMemoryCache(),
+    });
+  };
+  ```
+
+  Kimlik Doğrulama Örneği (E-Posta ile Doğrulama):
+
+  ```graphql
+  # Aşama 1: Doğrulama kodu gönder
+  mutation SendVerificationCodeToEmail(
+    $email: String!
+    $verificationEnumType: verificationEnumType!
+  ) {
+    sendVerificationCodeToEmail(
+      email: $email
+      verificationEnumType: $verificationEnumType
+    )
+  }
+
+  # Aşama 2: Doğrulama kodu ile kayıt yap
+  mutation AuthenticateWithEmail(
+    $email: String!
+    $password: String!
+    $verificationCode: String
+    $register: Boolean!
+  ) {
+    authenticateWithEmail(
+      email: $email
+      password: $password
+      verificationCode: $verificationCode
+      register: $register
+    ) {
+      account {
+        id
+        permissionRoles
+      }
+      jwt {
+        token
+      }
+    }
+  }
+  ```
+
+  Synchronous Actionflow Örneği:
+
+  ```graphql
+  mutation InvokeSyncActionflow($args: Json!) {
+    fz_invoke_action_flow(
+      actionFlowId: "d3ea4f95-5d34-46e1-b940-91c4028caff5"
+      versionId: 3
+      args: $args
+    )
+  }
+  ```
+
+  Asynchronous Actionflow Örneği:
+
+  ```graphql
+  # Aşama 1: Task oluştur
+  mutation CreateAsyncActionflowTask($args: Json!) {
+    fz_create_action_flow_task(
+      actionFlowId: "2a9068c5-8ee3-4dad-b3a4-5f3a6d365a2f"
+      versionId: 4
+      args: $args
+    )
+  }
+
+  # Aşama 2: Sonuçlara abone ol
+  subscription ListenActionflowResult($taskId: Long!) {
+    fz_listen_action_flow_result(taskId: $taskId) {
+      __typename
+      output
+      status
+    }
+  }
+  ```
+
+  AI Agent Örneği (Streaming):
+
+  ```graphql
+  # Aşama 1: Konuşma oluştur
+  mutation ZAICreateConversation(
+    $inputArgs: Map_String_ObjectScalar!
+    $zaiConfigId: String!
+  ) {
+    fz_zai_create_conversation(inputArgs: $inputArgs, zaiConfigId: $zaiConfigId)
+  }
+
+  # Aşama 2: Sonuçlara abone ol
+  subscription ZaiListenConversationResult($conversationId: Long!) {
+    fz_zai_listen_conversation_result(conversationId: $conversationId) {
+      conversationId
+      status
+      reasoningContent
+      images {
+        id
+        __typename
+      }
+      data
+      __typename
+    }
+  }
+  ```
+
+  Binary Asset Yükleme Örneği:
+
+  ```graphql
+  # Aşama 1: Presigned URL al
+  mutation GetImageUploadUrl(
+    $md5: String!
+    $suffix: MediaFormat!
+    $acl: CannedAccessControlList
+  ) {
+    imagePresignedUrl(imgMd5Base64: $md5, imageSuffix: $suffix, acl: $acl) {
+      imageId
+      uploadUrl
+      uploadHeaders
+    }
+  }
+
+  # Aşama 2: uploadUrl'e HTTP PUT ile uploadHeaders ve ham dosya verileri
+  # Aşama 3: Veritabanı mutation'ında imageId'yi kullan
+  mutation CreatePostWithImage($imageId: Long!) {
+    insert_post_one(object: { title: "My Post", cover_image_id: $imageId }) {
+      id
+      title
+      cover_image {
+        id
+        url
+      }
+    }
+  }
+  ```
+
+  Stripe Ödeme Örneği:
+
+  ```graphql
+  mutation StripePay($orderId: Long!, $currency: String!, $amount: BigDecimal!) {
+    stripePayV2(
+      payDetails: { order_id: $orderId, currency: $currency, amount: $amount }
+    ) {
+      paymentClientSecret
+      stripeReadableAmount
+    }
+  }
+  ```
+
+  ```typescript
+  // clientSecret'i Stripe Elements ile kullan
+  const options = { clientSecret };
+
+  return (
+    <Elements stripe={stripePromise} options={options}>
+      <CheckoutForm />
+    </Elements>
+  );
+  ```
 ---
 
 ## Instruction to developer: save this file as .cursorrules and place it in the root project directory

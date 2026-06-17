@@ -2,6 +2,7 @@
 name: "blender-python-addon"
 clean_name: "Blender Python Addon"
 description: "Blender Python add-on rules for operators, panels, properties, registration, testing, and API-safe scripting"
+description_tr: "Blender Python eklentileri için operatörler, paneller, özellikler, kayıt, test ve API-safe kodlama kuralları"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,53 @@ path: "rules/blender-python-addon.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/blender-python-addon.mdc"
 body_length: 2491
 file_extension: ".mdc"
+body_tr: |-
+  # Blender Python Eklentisi Kuralları
+
+  ## Eklenti Yapısı
+
+  - Eklenti giriş noktalarını `__init__.py` içinde tutun ve açık `register()` ve `unregister()` fonksiyonları tanımlayın.
+  - Önemsiz olmayan eklentiler için operatörleri, panelleri, özellikleri, tercihleri ve yardımcı programları ayrı modüllere gruplandırın.
+  - Blender sürümü ve paketleme hedefine göre `bl_info` veya `blender_manifest.toml` kullanın.
+  - UI etiketlerini kısa tutun ve uygun yerlerde kullanıcı yüzeyine yönelik metni çevrilebilir hale getirin.
+
+  ## API Kullanımı
+
+  - İşlemler için `bpy.types.Operator`, UI için `bpy.types.Panel` ve gruplandırılmış ayarlar için `bpy.types.PropertyGroup` kullanın.
+  - `bl_idname`, `bl_label` ve `bl_options` parametrelerini açıkça tanımlayın.
+  - Operatörleri etkinleştirmeden önce `poll()` içinde context doğrulaması yapın.
+  - Etkileşimli kurulum için `invoke()`, gerçek işlem için `execute()` kullanın.
+  - `{'FINISHED'}` veya `{'CANCELLED'}` değerlerini tutarlı şekilde döndürün.
+  - Son sahne durumunu okurken bağımlılık graph güncellemelerini ve değerlendirilmiş nesneleri kullanın.
+
+  ## Veri ve Özellikler
+
+  - Özel özellikleri gevşek global state yerine `PropertyGroup` sınıfları aracılığıyla kaydedin.
+  - Eklenti tercihlerini `AddonPreferences` içinde saklayın.
+  - `PointerProperty`, `CollectionProperty` ve yazılı özellikler kullanın; ad ve açıklamalar ekleyin.
+  - `unregister()` sırasında özel özellikleri ve işleyicileri temizleyin.
+
+  ## Güvenlik ve Performans
+
+  - Açık kullanıcı eylemi olmadan yıkıcı sahne işlemleri çalıştırmayın.
+  - Modal operatörlerde UI işlemini bloke etmeyin; uzun işlemler için timer veya modal durum makineleri kullanın.
+  - Mesh değişikliklerini toplu olarak yapın ve mesh verilerini programlı olarak düzenlerken `bmesh` kullanın.
+  - Çizim yöntemlerinde büyük sahneleri tekrar tekrar taramaktan kaçının.
+  - Dosya yollarını yapılandırılabilir tutun ve Blender yol yardımcı programlarını kullanın.
+
+  ## Test Etme ve Hata Ayıklama
+
+  - Komut dosyalarını temiz bir Blender profilinde ve temsili bir üretim sahnesinde test edin.
+  - Eklentiyi içe aktaran, kaydeden, temel operatörleri çalıştıran ve temiz bir şekilde kaydını silen smoke testleri ekleyin.
+  - Kullanıcıya yönelik operatör geri bildirimi için `self.report()` ile işlem yapılabilir iletiler günlüğe kaydedin.
+  - Sürüme özgü API farklarını yardımcı fonksiyonların arkasında izole tutun.
+
+  ## Yaygın Hatalar
+
+  - Sınıfları, işleyicileri, timerları ve tuş kombinasyonlarını unregister etmeyi unutmayın.
+  - Panel `draw()` yöntemlerinden Blender verilerini değiştirmeyin.
+  - Kontrol etmeden aktif nesneyi, seçilmiş nesneyi veya modu varsaymayın.
+  - Mutlak asset yollarını kodlamayın.
 ---
 
 

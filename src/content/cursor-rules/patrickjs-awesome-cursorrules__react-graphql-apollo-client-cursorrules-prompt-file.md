@@ -2,6 +2,7 @@
 name: "react-graphql-apollo-client-cursorrules-prompt-file"
 clean_name: "React GraphQL Apollo Client"
 description: "Cursor rules for GraphQL development with Apollo Client integration."
+description_tr: "Apollo Client entegrasyonu ile GraphQL geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,50 @@ path: "rules/react-graphql-apollo-client-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-graphql-apollo-client-cursorrules-prompt-file.mdc"
 body_length: 1179
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // React + GraphQL (Apollo Client) .cursorrules
+
+  // Fonksiyonel bileşenleri tercih et
+
+  const preferFunctionalComponents = true;
+
+  // GraphQL ve Apollo Client en iyi uygulamaları
+
+  const graphqlBestPractices = [
+    "State yönetimi ve veri çekme için Apollo Client kullan",
+    "Veri çekme için query bileşenlerini uygula",
+    "Veri değişiklikleri için mutation'ları kullan",
+    "Yeniden kullanılabilir query parçaları için fragment'ları kullan",
+    "Uygun hata işleme ve yükleme durumlarını uygula",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    components/
+    graphql/
+      queries/
+      mutations/
+      fragments/
+    hooks/
+    pages/
+    utils/
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. Uygulamanızın kökünde Apollo Provider'ı kullan
+  2. Apollo işlemleri için özel hook'lar uygula
+  3. GraphQL işlemleriyle tür güvenliği için TypeScript'i kullan
+  4. Apollo Client'ın cache yeteneklerinden faydalanmasını sağla
+  5. GraphQL hataları için uygun error boundary'leri uygula
+  6. Hata ayıklama için Apollo Client DevTools'u kullan
+  7. Query'ler, mutation'lar ve fragment'lar için adlandırma kurallarına uy
+  `;
+  ```
 ---
 
 // React + GraphQL (Apollo Client) .cursorrules

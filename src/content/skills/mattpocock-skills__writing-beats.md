@@ -1,6 +1,7 @@
 ---
 name: "writing-beats"
 description_en: "Shape an article as a journey of beats, choose-your-own-adventure style. The user picks a starting beat from the raw material, you write only that beat, then offer options for where to pivot next, beat by beat, until the article reaches a natural end. Use when the user has raw material and wants to assemble it as a narrative rather than an argument."
+description_tr: "Makaleleri atım atım bir yolculuğa dönüştürün; okuyucu kendi macerası seçme tarzında. Kullanıcı ham materyalden başlangıç atımını seçer, siz sadece o atımı yazarsınız, sonra sonraki pivot noktaları için seçenekler sunarısınız—makale doğal bir sona ulaşana kadar atım atım ilerleyin. Kullanıcının ham malzemesi olduğunda ve bunu argüman yerine bir anlatı olarak birleştirmek istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,17 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  I'm ready to help you translate the markdown content to Turkish using the beat-by-beat approach you've described.
+
+  However, I notice that you've provided the instructions for the beat-by-beat article writing process, but I don't see the actual markdown content that needs to be translated yet.
+
+  Could you please provide:
+
+  1. **The markdown content** that you want me to translate to Turkish
+  2. **The file path** where you'd like me to save the translated version (if you have a preference)
+
+  Once you share the raw material, I'll follow the beat-by-beat journey process to create the Turkish translation.
 ---
 
 <what-to-do>

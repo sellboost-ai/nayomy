@@ -2,6 +2,7 @@
 name: "android-jetpack-compose-cursorrules-prompt-file"
 clean_name: "Android Jetpack Compose"
 description: "Cursor rules for Android development with Jetpack Compose integration."
+description_tr: "Android geliştirme için Cursor kuralları, Jetpack Compose entegrasyonu ile birlikte."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,98 @@ path: "rules/android-jetpack-compose-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/android-jetpack-compose-cursorrules-prompt-file.mdc"
 body_length: 2817
 file_extension: ".mdc"
+body_tr: |-
+  ```markdown
+  // Android Jetpack Compose .cursorrules
+
+  // Esneklik Notu
+
+  // Not: Bu önerilen bir proje yapısıdır, ancak esnek olun ve mevcut proje yapılarına uyum sağlayın.
+  // Bu yapısal desenleri proje farklı bir organizasyon izliyorsa dayatmayın.
+  // Jetpack Compose en iyi uygulamalarını uygularken mevcut proje mimarisi ile tutarlılığı korumaya odaklanın.
+
+  // Proje Mimarisi ve En İyi Uygulamalar
+
+  const androidJetpackComposeBestPractices = [
+      "Temiz kod prensiplerini korurken mevcut proje mimarisine uyum sağlayın",
+      "Material Design 3 yönergeleri ve bileşenlerini izleyin",
+      "Domain, data ve presentation katmanları ile clean architecture uygulayın",
+      "Asenkron işlemler için Kotlin coroutines ve Flow kullanın",
+      "Hilt kullanarak dependency injection uygulayın",
+      "ViewModel ve UI State ile unidirectional data flow izleyin",
+      "Ekran yönetimi için Compose navigation kullanın",
+      "Uygun state hoisting ve composition uygulayın",
+  ];
+
+  // Klasör Yapısı
+
+  // Not: Bu bir referans yapısıdır. Projenin mevcut organizasyonuna uyum sağlayın
+
+  const projectStructure = `
+  app/
+    src/
+      main/
+        java/com/package/
+          data/
+            repository/
+            datasource/
+            models/
+          domain/
+            usecases/
+            models/
+            repository/
+          presentation/
+            screens/
+            components/
+            theme/
+            viewmodels/
+          di/
+          utils/
+        res/
+          values/
+          drawable/
+          mipmap/
+      test/
+      androidTest/
+  `;
+
+  // Compose UI Yönergeleri
+
+  const composeGuidelines = `
+  1. remember ve derivedStateOf'u uygun şekilde kullanın
+  2. Uygun recomposition optimizasyonunu uygulayın
+  3. Doğru Compose modifiers sıralamasını kullanın
+  4. Composable fonksiyon adlandırma kurallarını izleyin
+  5. Uygun preview annotationlarını uygulayın
+  6. MutableState ile uygun state yönetimini uygulayın
+  7. Uygun error handling ve loading states'i uygulayın
+  8. MaterialTheme ile uygun theming kullanın
+  9. Erişilebilirlik yönergeleri izleyin
+  10. Uygun animation patterns'i uygulayın
+  `;
+
+  // Test Yönergeleri
+
+  const testingGuidelines = `
+  1. ViewModels ve UseCases için unit testler yazın
+  2. Compose testing framework kullanarak UI testlerini uygulayın
+  3. Testing için fake repositories kullanın
+  4. Uygun test coverage'ı uygulayın
+  5. Uygun testing coroutine dispatchers kullanın
+  `;
+
+  // Performans Yönergeleri
+
+  const performanceGuidelines = `
+  1. Uygun keys kullanarak recomposition'ı en aza indirin
+  2. LazyColumn ve LazyRow ile uygun lazy loading kullanın
+  3. Verimli image loading'i uygulayın
+  4. Gereksiz güncellemeleri önlemek için uygun state yönetimini kullanın
+  5. Uygun lifecycle awareness'i izleyin
+  6. Uygun memory management'i uygulayın
+  7. Uygun background processing kullanın
+  `;
+  ```
 ---
 
 // Android Jetpack Compose .cursorrules

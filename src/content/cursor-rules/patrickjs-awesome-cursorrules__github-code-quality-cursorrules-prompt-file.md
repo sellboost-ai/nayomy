@@ -2,6 +2,7 @@
 name: "github-code-quality-cursorrules-prompt-file"
 clean_name: "Github Code Quality"
 description: "Cursor rules for GitHub development with code quality integration."
+description_tr: "GitHub geliştirmesi için Cursor kuralları, kod kalitesi entegrasyonu ile birlikte."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,93 @@ path: "rules/github-code-quality-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/github-code-quality-cursorrules-prompt-file.mdc"
 body_length: 3492
 file_extension: ".mdc"
+body_tr: |-
+  ```json
+  {
+    "rules": [
+      {
+        "name": "Bilgileri Doğrulayın",
+        "pattern": "(?i)\\b(assume|assumption|guess|speculate)\\b",
+        "message": "Bilgileri sunmadan önce her zaman doğrulayın. Net kanıt olmadan varsayımda bulunmayın veya spekülasyon yapmayın."
+      },
+      {
+        "name": "Dosya-Dosya Değişiklikleri",
+        "pattern": "// MULTI-FILE CHANGE:",
+        "message": "Değişiklikleri dosya dosya yapın ve hataları görmem için bana şans verin"
+      },
+      {
+        "name": "Özür Yok",
+        "pattern": "(?i)\\b(sorry|apologize|apologies)\\b",
+        "message": "Hiçbir zaman özür kullanmayın"
+      },
+      {
+        "name": "Anlama Geri Bildirimi Yok",
+        "pattern": "(?i)\\b(understand|understood|got it)\\b",
+        "message": "Yorum veya dokümantasyonda anlama konusunda geri bildirim vermekten kaçının"
+      },
+      {
+        "name": "Boşluk Önerileri Yok",
+        "pattern": "(?i)\\b(whitespace|indentation|spacing)\\b",
+        "message": "Boşluk değişiklikleri önermeyin"
+      },
+      {
+        "name": "Özet Yok",
+        "pattern": "(?i)\\b(summary|summarize|overview)\\b",
+        "message": "Yapılan değişiklikleri özetlemeyin"
+      },
+      {
+        "name": "Buluş Yok",
+        "pattern": "(?i)\\b(suggest|recommendation|propose)\\b",
+        "message": "Açıkça istenen şeyler dışında değişiklikleri icat etmeyin"
+      },
+      {
+        "name": "Gereksiz Onaylar Yok",
+        "pattern": "(?i)\\b(make sure|confirm|verify|check)\\b",
+        "message": "Bağlamda zaten sağlanmış bilgilerin onaylanmasını istemeyin"
+      },
+      {
+        "name": "Mevcut Kodu Koruyun",
+        "pattern": "(?i)\\b(remove|delete|eliminate|destroy)\\b",
+        "message": "İlgisiz kodu veya işlevleri kaldırmayın. Mevcut yapıları korumaya dikkat edin."
+      },
+      {
+        "name": "Tek Yığın Düzenlemeler",
+        "pattern": "(?i)\\b(first|then|next|after that|finally)\\b",
+        "message": "Aynı dosya için birden fazla adım talimatı veya açıklaması yerine tüm düzenlemeleri tek bir yığında sağlayın"
+      },
+      {
+        "name": "İmplementasyon Kontrolü Yok",
+        "pattern": "(?i)\\b(make sure|verify|check|confirm) (it's|it is|that) (correctly|properly) implemented\\b",
+        "message": "Kullanıcıdan sağlanan bağlamda görünen implementasyonları doğrulamasını istemeyin"
+      },
+      {
+        "name": "Gereksiz Güncellemeler Yok",
+        "pattern": "(?i)\\b(update|change|modify|alter)\\b.*\\bno changes\\b",
+        "message": "Hiçbir gerçek değişikliğin gerekli olmadığı dosyalara güncelleme veya değişiklik önermeyin"
+      },
+      {
+        "name": "Gerçek Dosya Bağlantıları Sağlayın",
+        "pattern": "(?i)\\b(file|in)\\b.*\\b(x\\.md)\\b",
+        "message": "Her zaman gerçek dosyalara bağlantı sağlayın, x.md değil"
+      },
+      {
+        "name": "Önceki x.md Değerlendirmesi Yok",
+        "pattern": "(?i)\\b(previous|earlier|last)\\b.*\\bx\\.md\\b",
+        "message": "Hafızanızdaki önceki x.md dosyalarını dikkate almayın. İçerikler önceki çalışmaların aynısıysa şikayet edin."
+      },
+      {
+        "name": "Mevcut Implementasyon Yok",
+        "pattern": "(?i)\\b(current|existing)\\s+(implementation|code)\\b",
+        "message": "Özel olarak istenmedikçe mevcut implementasyonu göstermeyin veya tartışmayın"
+      },
+      {
+        "name": "x.md İçeriğini Kontrol Edin",
+        "pattern": "(?i)\\b(file|content|implementation)\\b",
+        "message": "Mevcut dosya içeriğini ve implementasyonlarını görmek için x.md dosyasını kontrol etmeyi unutmayın"
+      }
+    ]
+  }
+  ```
 ---
 
 {

@@ -2,6 +2,7 @@
 name: "svelte-5-vs-svelte-4-cursorrules-prompt-file"
 clean_name: "Svelte 5 Vs Svelte 4"
 description: "Cursor rules for comparing Svelte 5 and Svelte 4 development."
+description_tr: "Svelte 5 ve Svelte 4 geliştirme süreçlerini karşılaştırmak için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,80 @@ path: "rules/svelte-5-vs-svelte-4-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/svelte-5-vs-svelte-4-cursorrules-prompt-file.mdc"
 body_length: 2529
 file_extension: ".mdc"
+body_tr: |-
+  Svelte 5 yerine Svelte 4 kullanıyorum, burada değişikliklerin bir özeti var.
+  # .cursorrules for Svelte 5
+
+  ## Değişikliklere Genel Bakış
+
+  Svelte 5, reaktiviteyi kontrol etmek için bir dizi ileri düzey primitive olan runeleri tanıtır. Runeler belirli non-rune özelliklerinin yerine geçer ve state ve effectler üzerinde daha açık bir kontrol sağlar.
+
+  Snippets, render tagleriyle birlikte, bileşenlerinizin içinde yeniden kullanılabilir markup parçaları oluşturmaya yardımcı olur, tekrarlamayı azaltır ve bakımlanabilirliği artırır.
+
+  ## Svelte 5'te Event Handlers
+
+  Svelte 5'te, event handlers Svelte'e özgü direktifler yerine standart HTML özellikleri olarak ele alınır, bunların kullanımını basitleştirir ve bileşendeki diğer özellikleriyle daha yakından entegre eder.
+
+  ### Svelte 4 vs. Svelte 5:
+
+  **Öncesi (Svelte 4):**
+  ```html
+  <script>
+    let count = 0;
+    $: double = count * 2;
+    $: {
+      if (count > 10) alert('Too high!');
+    }
+  </script>
+  <button on:click={() => count++}> {count} / {double}</button>
+  ```
+
+  **Sonrası (Svelte 5):**
+  ```html
+  <script>
+    // Define state with runes
+    let count = $state(0);
+    
+    // Option 1: Using $derived for computed values
+    let double = $derived(count * 2);
+    
+    // Reactive effects using runes
+    $effect(() => {
+      if (count > 10) alert('Too high!');
+    });
+  </script>
+
+  <!-- Standard HTML event attributes instead of Svelte directives -->
+  <button onclick={() => count++}>
+    {count} / {double}
+  </button>
+
+  <!-- Alternatively, you can compute values inline -->
+  <!-- <button onclick={() => count++}>
+    {count} / {count * 2}
+  </button> -->
+  ```
+
+  ## Temel Farklar:
+
+  1. **Reaktivite Açıktır**: 
+     - Svelte 5, reaktif değişkenleri açıkça işaretlemek için `$state()` kullanır
+     - `$derived()`, computed değerler için `$:` yerine geçer
+     - `$effect()`, yan etkiler için `$: {}` bloklarının yerine geçer
+
+  2. **Event Handling Standardlaştırılmıştır**:
+     - Svelte 4: `on:click={handler}`
+     - Svelte 5: `onclick={handler}`
+
+  3. **Runeler Compiler Syntax'tir**:
+     - `$state`, `$derived`, `$effect`, `$props`, `$bindable` veya `$inspect` import etmeyin.
+     - Yalnızca `tick`, `untrack`, `mount` veya `unmount` gibi import gerektiren düzenli Svelte utilities import edin.
+
+  4. **Artık Event Modifiers Yok**:
+     - Svelte 4: `on:click|preventDefault={handler}`
+     - Svelte 5: `onclick={e => { e.preventDefault(); handler(e); }}`
+
+  Bu, reaktiviteyi açık hale getirerek ve standartlaştırılmış web platformu özelliklerini kullanarak Svelte 4'ün önceki syntax'ine kıyasla daha net ve bakımı kolay bileşenler oluşturur.
 ---
 
 I'm using svelte 5 instead of svelte 4 here is an overview of the changes.

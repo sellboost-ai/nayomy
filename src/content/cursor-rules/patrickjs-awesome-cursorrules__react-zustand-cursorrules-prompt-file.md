@@ -2,6 +2,7 @@
 name: "react-zustand-cursorrules-prompt-file"
 clean_name: "React Zustand"
 description: "React and TypeScript state management guidance for Zustand stores, selectors, middleware, persistence, and testing."
+description_tr: "Zustand store'ları, selector'lar, middleware, persistence ve testing için React ve TypeScript state management rehberi."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,115 @@ path: "rules/react-zustand-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-zustand-cursorrules-prompt-file.mdc"
 body_length: 5441
 file_extension: ".mdc"
+body_tr: |-
+  # React + Zustand Rehberi
+
+  ## Durum Sahipliği
+  - Geçici UI durumunu `useState` veya `useReducer` ile en yakın componente bırakın.
+  - URL durumunu paylaşılabilir filtreler, sayfalandırma, sekmeler ve arama parametreleri için kullanın.
+  - Zustand'ı yalnızca ilgisiz componentler arasında gerçekten paylaşılan client durumu için kullanın.
+  - Server durumu için TanStack Query, SWR, RTK Query veya mevcut projenin data katmanını kullanın.
+  - Getirilen server verisini bir Zustand store'a kopyalamayın; ancak belgelenmiş bir çevrimdışı veya draft düzenleme gereksinimi varsa istisna yapın.
+
+  ## Store Tasarımı
+  - Her store'u durum artı adlandırılmış actionlar olarak modelleyin; component kodunun kötüye kullanabileceği adsız setter'ları açığa çıkarmayın.
+  - Store'ları küçük ve alan odaklı tutun: auth oturumu görünüm durumu, komut paleti durumu, sepet draft durumu, editor durumu vb.
+  - Büyük store'ları yazılı slice'lara bölün, ardından middleware'i yalnızca composed store sınırında uygulayın.
+  - Türetilen değerleri selector'lar veya küçük saf yardımcılar olarak tutun; durumda cache'lenmeleri gerekmediği sürece.
+  - Varsayılan olarak serializable veri depolayın; DOM node'ları, promise'ler, socket'ler ve timer'ları store durumunun dışında tutun.
+
+  ```ts
+  import { create } from 'zustand'
+
+  interface SidebarState {
+    isOpen: boolean
+    activePanelId: string | null
+  }
+
+  interface SidebarActions {
+    openPanel: (panelId: string) => void
+    close: () => void
+    toggle: () => void
+  }
+
+  type SidebarStore = SidebarState & SidebarActions
+
+  export const useSidebarStore = create<SidebarStore>()((set) => ({
+    isOpen: false,
+    activePanelId: null,
+    openPanel: (panelId) => set({ isOpen: true, activePanelId: panelId }),
+    close: () => set({ isOpen: false, activePanelId: null }),
+    toggle: () => set((state) => ({ isOpen: !state.isOpen })),
+  }))
+  ```
+
+  ## Component Kullanımı
+  - En küçük olası slice'a abone olun: `useStore((state) => state.value)`.
+  - Component'te selector olmadan bir store hook çağırmayın; component gerçekten her alana ihtiyaç duymadığı sürece.
+  - Action'ları ayrı olarak seçin veya bunları gruplandırırken sığ selector kullanın.
+  - Birden fazla değer döndüren object veya tuple selector'lar için `useShallow` kullanın.
+  - Selector'ları saf ve ucuz tutun; pahalı türetimler gerekirse bunları memoize edilmiş yardımcılara taşıyın.
+
+  ```tsx
+  import { useShallow } from 'zustand/react/shallow'
+  import { useSidebarStore } from '@/stores/sidebar-store'
+
+  export function SidebarToggle() {
+    const { isOpen, toggle } = useSidebarStore(
+      useShallow((state) => ({
+        isOpen: state.isOpen,
+        toggle: state.toggle,
+      })),
+    )
+
+    return (
+      <button type="button" aria-expanded={isOpen} onClick={toggle}>
+        Toggle sidebar
+      </button>
+    )
+  }
+  ```
+
+  ## TypeScript
+  - Paylaşılan store'lar için açık durum ve action arayüzlerini tanımlayın.
+  - `any` kullanmayın; `unknown` artı narrowing kullanın dış veriler için.
+  - Action payload'larını ve dönüş değerlerini, async action'ları da içerek yazın.
+  - Birkaç gevşek ilişkili boolean yerine karmaşık lokal durum için discriminated union'lar tercih edin.
+  - Test'ler, utility'ler veya vanilla store factory'leri ihtiyaç duyduğunda store durum türlerini dışa aktarın.
+
+  ## Güncellemeler ve Middleware
+  - Sonraki değer mevcut duruma bağlı olduğunda fonksiyonel `set((state) => nextState)` kullanın.
+  - İç içe durumu değişmez şekilde işleyin; `immer` middleware'i yalnızca iç içe güncellemeleri önemli ölçüde basitleştirdiğinde kurun ve kullanın.
+  - `persist`'i yalnızca yeniden yüklemelerde hayatta kalması gereken durum için kullanın.
+  - Herhangi bir şeyi basit tercihlerin ötesinde tutarken `partialize`, `version` ve `migrate` kullanın.
+  - Gizli dizileri, erişim token'larını, yenileme token'larını, ham kişisel verileri veya uzun ömürlü yetkilendirme durumunu browser depolamasında saklamayın.
+  - Karmaşık akışlar için geliştirmede `devtools` kullanın ve önemli action'lara açık isimler verin.
+  - React olmayan abonelikler için `subscribeWithSelector` kullanın; bu subscriptionlar ince taneli güncellemeler gerektirdiğinde.
+
+  ## Async Action'lar
+  - Async store action'ları client'a özel workflow'ları, optimistic draft'ları veya lokal cihaz API'lerini koordine edebilir.
+  - Durum açıkça client'a ait olmadığı sürece HTTP getirmeyi projenin server-state katmanında tutun.
+  - Async client workflow'larını `idle`, `pending`, `success` ve `error` gibi açık durum'larla temsil edin.
+  - Yeniden denerken veya bir workflow'u kapatırken hata durumunu kasıtlı olarak sıfırlayın.
+
+  ## SSR ve React Server Components
+  - React Server Components'ten browser'a özel store'ları okumayın veya değiştirmeyin.
+  - SSR framework'lerinde, durum sunucuda başlatılması gerektiğinde istek başına vanilla store'lar oluşturun.
+  - Persisted store'ları, storage'a dayalı değerleri işlemeden önce hydration uyuşmazlıklarına karşı koruyun.
+  - Store modüllerini middleware yapılandırması dışında doğrudan `window`, `document` ve storage erişiminden uzak tutun.
+
+  ## Test Etme
+  - Mümkün olduğunda React'i render etmeden store action'larını doğrudan test edin.
+  - Test'ler arasında store'ları ilk durumları ile sıfırlayın.
+  - Selector'ları ve action'ları component davranışından ayrı olarak kontrol edin.
+  - Test'ler için server-state kütüphanelerini mock edin; getirilen verileri Zustand aracılığıyla yönlendirmeyin.
+
+  ## Anti-Paternler
+  - Tüm uygulama için tek bir global store oluşturmayın.
+  - Birden fazla uzak component aynı draft'ı düzenlemediği sürece form input durumunu Zustand'a koymayın.
+  - Immer middleware olmadan iç içe objeleri doğrudan değiştirmeyin.
+  - Zustand'ı event bus olarak kullanmayın; explicit callback'leri, service'leri veya kapsamlı store'u tercih edin.
+  - Proje zaten bu pattern'ı kullanmıyorsa Redux tarzı reducer'lar, action constant'ları veya dispatch wrapper'ları tanıtmayın.
 ---
 
 You are an expert in React, TypeScript, and Zustand state management.

@@ -1,6 +1,7 @@
 ---
 name: "migrate-to-shoehorn"
 description_en: "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data."
+description_tr: "Shoehorn kullanarak test dosyalarınızdaki `as` tip iddialarını geçirin. Test verilerinizi kısmi olarak tanımlamak veya testlerde `as` kullanımını değiştirmek istediğinizde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,120 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # Shoehorn'a Geçiş
+
+  ## Neden shoehorn?
+
+  `shoehorn` testlerde kısmi veri geçirmenizi sağlarken TypeScript'i mutlu tutar. `as` assertions'ını type-safe alternatiflerle değiştirir.
+
+  **Sadece test kodu için.** Shoehorn'u asla production kodunda kullanmayın.
+
+  Testlerde `as` kullanmanın sorunları:
+
+  - Kullanmamak için eğitildiniz
+  - Hedef tipi manuel olarak belirtmeniz gerekir
+  - İsteyerek yanlış veriler için double-as (`as unknown as Type`)
+
+  ## Kurulum
+
+  ```bash
+  npm i @total-typescript/shoehorn
+  ```
+
+  ## Geçiş desenleri
+
+  ### Az sayıda gerekli özelliği olan büyük nesneler
+
+  Öncesi:
+
+  ```ts
+  type Request = {
+    body: { id: string };
+    headers: Record<string, string>;
+    cookies: Record<string, string>;
+    // ...20 daha fazla özellik
+  };
+
+  it("gets user by id", () => {
+    // Sadece body.id'ye ihtiyaç duyar ama tüm Request'i fake etmeli
+    getUser({
+      body: { id: "123" },
+      headers: {},
+      cookies: {},
+      // ...tüm 20 özelliği fake et
+    });
+  });
+  ```
+
+  Sonrası:
+
+  ```ts
+  import { fromPartial } from "@total-typescript/shoehorn";
+
+  it("gets user by id", () => {
+    getUser(
+      fromPartial({
+        body: { id: "123" },
+      }),
+    );
+  });
+  ```
+
+  ### `as Type` → `fromPartial()`
+
+  Öncesi:
+
+  ```ts
+  getUser({ body: { id: "123" } } as Request);
+  ```
+
+  Sonrası:
+
+  ```ts
+  import { fromPartial } from "@total-typescript/shoehorn";
+
+  getUser(fromPartial({ body: { id: "123" } }));
+  ```
+
+  ### `as unknown as Type` → `fromAny()`
+
+  Öncesi:
+
+  ```ts
+  getUser({ body: { id: 123 } } as unknown as Request); // isteyerek yanlış tip
+  ```
+
+  Sonrası:
+
+  ```ts
+  import { fromAny } from "@total-typescript/shoehorn";
+
+  getUser(fromAny({ body: { id: 123 } }));
+  ```
+
+  ## Her biri ne zaman kullanılmalı
+
+  | Function        | Kullanım durumu                                      |
+  | --------------- | ---------------------------------------------------- |
+  | `fromPartial()` | Yine de type-check olan kısmi veri geçir            |
+  | `fromAny()`     | İsteyerek yanlış veri geçir (autocomplete'i koru)  |
+  | `fromExact()`   | Tam nesneyi zorla (daha sonra fromPartial ile değiş)|
+
+  ## İş akışı
+
+  1. **Gereksinimleri toplayın** - kullanıcıya sorun:
+     - Hangi test dosyalarında `as` assertions sorun oluşturuyor?
+     - Sadece bazı özelliklerin önemli olduğu büyük nesnelerle mi çalışıyorlar?
+     - Hata testleri için isteyerek yanlış veri geçirmeleri mi gerekiyor?
+
+  2. **Kurun ve geçişi yapın**:
+     - [ ] Kurun: `npm i @total-typescript/shoehorn`
+     - [ ] `as` assertions'ı içeren test dosyalarını bulun: `grep -r " as [A-Z]" --include="*.test.ts" --include="*.spec.ts"`
+     - [ ] `as Type` yerine `fromPartial()` yazın
+     - [ ] `as unknown as Type` yerine `fromAny()` yazın
+     - [ ] `@total-typescript/shoehorn`'dan import'ları ekleyin
+     - [ ] Type check'i çalıştırarak doğrulayın
 ---
 
 # Migrate to Shoehorn

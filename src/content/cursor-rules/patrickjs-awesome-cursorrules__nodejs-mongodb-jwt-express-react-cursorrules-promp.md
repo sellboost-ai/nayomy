@@ -2,6 +2,7 @@
 name: "nodejs-mongodb-jwt-express-react-cursorrules-promp"
 clean_name: "Node.js MongoDB Jwt Express React Cursorrules Promp"
 description: "Cursor rules for Node.js development with MongoDB, JWT, Express, and React integration."
+description_tr: "Node.js geliştirme için Cursor kuralları; MongoDB, JWT, Express ve React entegrasyonunu içerir."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,74 @@ path: "rules/nodejs-mongodb-jwt-express-react-cursorrules-promp.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nodejs-mongodb-jwt-express-react-cursorrules-promp.mdc"
 body_length: 2180
 file_extension: ".mdc"
+body_tr: |-
+  Tech Stack:
+
+  Backend: Node.js with Express.js  
+  Database: MongoDB with Mongoose ODM  
+  Frontend: React.js (yönetim paneli, gerekirse)  
+  Authentication: JSON Web Tokens (JWT)  
+  Version Control: Git  
+  Deployment: Docker (isteğe bağlı)  
+
+  Kullanıcı Gereksinimlerinde Hassasiyet:
+
+  Belirtilen kullanıcı akışına ve oyun kurallarına kesinlikle uyun.  
+
+  Strateji: 
+
+  Seçim gönderme işlemini özetleyin ve API endpoint'ini ve iş mantığını sözde kod olarak özetleyin, kodlamadan önce.  
+
+  Sözde Kod ile Stratejik Planlama:
+
+  Her özelliği ayrıntılı sözde kod ile başlatın.  
+  Örnek: Haftalık puanlama işlemi için sözde kod sağlayın, oyun sonucu girişinden giriş durumu güncellemelerine kadar olan adımları detaylandırarak.  
+
+  Kod Kalitesi:
+
+  RESTful API en iyi uygulamalarını takip eden güvenli, verimli kod sağlayın.  
+  Uygun hata işleme ve giriş doğrulaması uygulayın.  
+
+  Kullanıcı Akışı:
+
+  Kullanıcılar mevcut Pool'lara göz atarlar  
+  Her Pool için en fazla 3 Request gönderirler  
+  Request'ler için ödemeyi tamamlarlar  
+  Admin, Request'leri onaylar/reddeder  
+  Onaylanan Request'ler Entry'ye dönüşür  
+
+  Entry Yönetimi:
+
+  Her kullanıcı Pool başına en fazla 3 Entry'ye sahip olabilir  
+  Entry'ler 1, 2, 3 olarak numaralandırılır  
+  Seçimler her Entry için ayrı olarak yapılır ve izlenir  
+
+  Seçim Yönetimi:
+
+  Kullanıcılar her Entry için ayrı olarak Seçim yaparlar  
+  Seçimler son tarih (oyun başlangıcı veya bulunduğu haftanın Pazar günü 13:00) kadar güncellenebilir  
+
+  Puanlama ve Sıralama:
+
+  Seçimler oyunlar tamamlandıktan sonra puanlanır  
+  Galibiyet: Entry bir sonraki haftaya ilerler  
+  Kayıp: Entry Pool'dan elenir  
+  Her Entry, Pool sıralamasında ayrı olarak sıralanır  
+
+  Sonuçlar ve Sıralamalar:
+
+  Kullanıcılar her Entry için ayrı olarak Seçimleri/puanları görüntülerler  
+  Pool sıralaması tüm Entry'leri gösterir (Kullanıcı başına birden fazla mümkündür)  
+  Pool üyeleri puanlamadan sonra tüm Seçimleri görüntüleyebilirler  
+
+  Temel Uygulama Noktaları:
+
+  Request'leri Kullanıcı başına Pool başına 3 ile sınırlayın  
+  Request'leri ve Entry'leri ayrı olarak izleyin (1, 2, 3 olarak numaralandırılmış)  
+  Request modelinde ödeme durumu izlemesini uygulayın  
+  Entry'yi sadece admin onayından sonra ve ödeme tamamlandıktan sonra oluşturun  
+  Request'leri yönetmek ve onaylamak için Admin arayüzü  
+  Durum geçişlerini uygulayın (Request: pending -> approved -> Entry created)
 ---
 
 Tech Stack:

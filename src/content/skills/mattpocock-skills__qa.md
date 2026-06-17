@@ -1,6 +1,7 @@
 ---
 name: "qa"
 description_en: "Interactive QA session where user reports bugs or issues conversationally, and the agent files GitHub issues. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, file issues conversationally, or mentions \"QA session\"."
+description_tr: "Kullanıcının sorun ve hataları konuşarak bildirebildiği, aracının GitHub issue açtığı interaktif QA oturumu. Arka planda codebase'i inceleyerek bağlam ve domain dilini öğrenir. Kullanıcı hata bildirmek, QA yapmak, konuşarak issue açmak istediğinde veya \"QA session\" dediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,132 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: []
+body_tr: |-
+  # QA Oturumu
+
+  Etkileşimli bir QA oturumu çalıştırın. Kullanıcı karşılaştıkları sorunları açıklar. Siz açıklığa kavuşturur, kod tabanını bağlam için keşfedersiniz ve GitHub sorunları dosyalarsınız — sorunlar dayanıklı, kullanıcı odaklı ve projenin etki alanı dilini kullanan sorunlar.
+
+  ## Kullanıcının ortaya koyduğu her sorun için
+
+  ### 1. Dinleyin ve hafif açıklığa kavuşturun
+
+  Kullanıcının sorunu kendi sözcükleriyle açıklamasını sağlayın. **En fazla 2-3 kısa açıklayıcı soru** sorun — şunlara odaklanarak:
+
+  - Neyi beklediği vs. aslında ne oldu
+  - Yeniden üretme adımları (açık değilse)
+  - Tutarlı mı yoksa aralıklı mı
+
+  Fazla soru sormayın. Açıklama dosyalamaya yeterli açıklıksa, devam edin.
+
+  ### 2. Arka planda kod tabanını keşfedin
+
+  Kullanıcıyla konuşurken, ilgili alanı anlamak için arka planda bir Agent (subagent_type=Explore) başlatın. Amaç bir düzeltme bulmak DEĞİLdir — amaç şudur:
+
+  - O alandaki kullanılan etki alanı dilini öğrenin (UBIQUITOUS_LANGUAGE.md dosyasını kontrol edin)
+  - Özelliğin ne yapması gerektiğini anlayın
+  - Kullanıcıya görünen davranış sınırını belirleyin
+
+  Bu bağlam size daha iyi bir sorun yazmanıza yardımcı olur — ancak sorunun kendisi belirli dosyalara, satır numaralarına veya iç uygulama ayrıntılarına referans vermemelidir.
+
+  ### 3. Kapsamı değerlendirin: tek sorun mu yoksa parçalanma mı?
+
+  Dosyalamadan önce, bunun **tek bir sorun** mu yoksa **birden fazla soruna ayrılması** gerekip gerekmediğine karar verin.
+
+  Şu durumlarda parçalayın:
+
+  - Düzeltme birden fazla bağımsız alanı kapsar (ör. "form doğrulaması yanlış VE başarı mesajı eksik VE yönlendirme bozuk")
+  - Açıkça ayrılabilir endişeler vardır ve farklı kişiler paralel olarak üzerinde çalışabilir
+  - Kullanıcı, birden fazla farklı başarısızlık modu veya semptoma sahip bir şeyi açıklar
+
+  Tek sorun olarak tutun:
+
+  - Bir yerde yanlış olan bir davranışsa
+  - Semptomların tümü aynı kök davranıştan kaynaklanıyor
+
+  ### 4. GitHub sorununu dosyalayın
+
+  `gh issue create` komutuyla sorunlar oluşturun. Kullanıcıdan önce gözden geçirmesini istemeyin — sadece dosyalayıp URL'leri paylaşın.
+
+  Sorunlar **dayanıklı** olmalıdır — büyük refaktorlar sonrasında bile anlamlı olmalıdır. Kullanıcının perspektifinden yazın.
+
+  #### Tek bir sorun için
+
+  Bu şablonu kullanın:
+
+  ```
+  ## Ne oldu
+
+  [Kullanıcının yaşadığı gerçek davranışı açık dillle açıklayın]
+
+  ## Ne bekliyordum
+
+  [Beklenen davranışı açıklayın]
+
+  ## Yeniden üretme adımları
+
+  1. [Bir geliştiricinin takip edebileceği somut, numaralandırılmış adımlar]
+  2. [Kod tabanındaki etki alanı terimlerini kullanın, iç modül adlarını değil]
+  3. [İlgili girdileri, bayrakları veya yapılandırmayı dahil edin]
+
+  ## Ek bağlam
+
+  [Kullanıcıdan veya kod tabanı keşfinden sorunu çerçevelemeye yardımcı olan ekstra gözlemler — ör. "bu sadece Docker katmanı kullanıldığında oluşur, dosya sistemi katmanında değil" — etki alanı dilini kullanın ama dosyalara atıfta bulunmayın]
+  ```
+
+  #### Parçalanma için (birden fazla sorun)
+
+  Sorunları bağımlılık sırasına göre oluşturun (engelleme sorunları önce) böylece gerçek sorun numaralarına referans verebilirsiniz.
+
+  Her alt-sorun için şu şablonu kullanın:
+
+  ```
+  ## Üst sorun
+
+  #<üst-sorun-numarası> (bir takip sorunu oluşturduysanız) veya "QA oturumunda rapor edildi"
+
+  ## Ne yanlış
+
+  [Bu spesifik davranış sorununu açıklayın — sadece bu dilim, bütün rapor değil]
+
+  ## Ne bekliyordum
+
+  [Bu spesifik dilim için beklenen davranış]
+
+  ## Yeniden üretme adımları
+
+  1. [BU sorununa özgü adımlar]
+
+  ## Engelleme nedeni
+
+  - #<sorun-numarası> (bu sorun başka bir sorun çözülene kadar test edilemiyorsa)
+
+  Veya "Hiçbiri — hemen başlanabilir" eğer engel yoksa.
+
+  ## Ek bağlam
+
+  [Bu dilimleme ile ilgili ekstra gözlemler]
+  ```
+
+  Parçalanma oluştururken:
+
+  - **Az sayıda kalın sorun yerine çok sayıda ince sorun tercih edin** — her biri bağımsız olarak düzeltilmeli ve doğrulanabilir olmalıdır
+  - **Engelleme ilişkilerini dürüstçe işaretleyin** — eğer B sorunsu A çözülene kadar gerçekten test edilemiyorsa, söyleyin. Bağımsızlarsa, her ikisini "Hiçbiri — hemen başlanabilir" olarak işaretleyin
+  - **Sorunları bağımlılık sırasına göre oluşturun** böylece "Engelleme nedeni" kısmında gerçek sorun numaralarına referans verebilirsiniz
+  - **Paralelliği maksimize edin** — amaç, birden fazla kişinin (veya ajanın) farklı sorunları aynı anda alabilmesidir
+
+  #### Tüm sorun gövdeleri için kurallar
+
+  - **Dosya yolları veya satır numaraları yok** — bunlar modası geçer
+  - **Projenin etki alanı dilini kullanın** (varsa UBIQUITOUS_LANGUAGE.md dosyasını kontrol edin)
+  - **Davranışları açıklayın, kodu değil** — "senkronizasyon hizmeti yama uygulamakta başarısız oluyor" değil "applyPatch() satır 42'de hata fırlatıyor"
+  - **Yeniden üretme adımları zorunludur** — eğer belirleyemiyorsanız, kullanıcıya sorun
+  - **Kısa tutun** — bir geliştirici sorunları 30 saniyede okuyabilmelidir
+
+  Dosyaladıktan sonra, tüm sorun URL'lerini (engelleme ilişkileri özetlenerek) yazdırın ve sorun: "Sonraki sorun, yoksa bitirdik mi?"
+
+  ### 5. Oturuma devam edin
+
+  Kullanıcı bitirdiklerini söyleyene kadar devam edin. Her sorun bağımsızdır — hepsini toplu olarak işlemeyin.
 ---
 
 # QA Session

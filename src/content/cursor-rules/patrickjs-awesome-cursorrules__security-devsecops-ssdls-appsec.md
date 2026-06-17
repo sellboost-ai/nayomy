@@ -2,6 +2,7 @@
 name: "security-devsecops-ssdls-appsec"
 clean_name: "Security Devsecops Ssdls Appsec"
 description: "Cursor rules for secure coding, secret handling, dependency hygiene, authentication, authorization, security testing, and compliance documentation."
+description_tr: "Güvenli kodlama, gizli yönetimi, bağımlılık hijyeni, kimlik doğrulama, yetkilendirme, güvenlik testi ve uyum belgesi için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,48 @@ path: "rules/security-devsecops-ssdls-appsec.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/security-devsecops-ssdls-appsec.mdc"
 body_length: 2618
 file_extension: ".mdc"
+body_tr: |-
+  # DevSecOps + SSDLC + AppSec Cursor Rule
+
+  ## Genel Güvenlik Prensipleri
+  - Gizli anahtarları, kimlik bilgilerini veya API anahtarlarını asla hardcode etmeyin. Hassas veriler için ortam değişkenleri veya güvenli vault'lar kullanın.
+  - `.env`, gizli config dosyaları veya bilinmeyen token'ların kaynak kontrolüne dahil edilmesini yasaklayın.
+  - Hassas verileri, gizli anahtarları veya oturum token'larını asla uygulama log'larına kaydetmeyin.
+  - Tüm kullanıcı girişini doğrulayın ve sanitize edin. HTML, JS ve SQL bağlamlarında çıktıyı escape edin.
+  - `exec`, `eval` veya benzer dinamik kod yürütme gibi güvensiz fonksiyonlardan kaçının.
+
+  ## Veritabanı Güvenliği
+  - Tüm veritabanı erişimi için parametreli sorgular veya ORM kullanın. Sorgu oluşturmak için string concatenation kullanmayın.
+  - Veritabanı kullanıcılarının görevleri için gereken minimum yetkilere sahip olduğundan emin olun.
+  - Veritabanı erişim politikalarını düzenli olarak gözden geçirin ve güncelleyin.
+
+  ## Bağımlılık Yönetimi
+  - Paketleri yalnızca doğrulanmış kaynaklardan kullanın.
+  - Açık onay ve güvenlik incelemesi olmadan yeni bağımlılıklar eklemeyin.
+  - Bağımlılıkları düzenli olarak güncelleyin ve bilinen güvenlik açıklarını tarayın (SCA).
+
+  ## Kimlik Doğrulama ve Yetkilendirme
+  - Güvenli kimlik doğrulama framework'leri kullanın; asla özel kimlik doğrulama uygulamayın.
+  - Parolaları güçlü, tuzlanmış hash'lerle saklayın (ör. Argon2, bcrypt).
+  - Hassas operasyonlar için Role-Based Access Control (RBAC) uygulayın.
+  - API'ler ve UI eylemleri için en az yetki prensibini uygulayın.
+
+  ## Güvenli SDLC Uygulamaları
+  - Static Application Security Testing (SAST) ve Software Composition Analysis (SCA)'yı CI pipeline'ına entegre edin.
+  - Birleştirmeden önce tüm kodu gizli anahtarlar açısından tarayın (Secret Scanning).
+  - Tüm altyapı kodu için Infrastructure as Code (IaC) taraması kullanın.
+  - Dynamic Application Security Testing (DAST)'ı CD pipeline'ına dağıtılan uygulamalar için entegre edin.
+  - Otomatik, sürüm kontrollü güvenlik politikaları için Policy as Code (PaC) uygulayın.
+
+  ## İzleme ve Geri Bildirim
+  - Sürekli güvenlik açığı izleme ve uyarısını etkinleştirin.
+  - Runtime Application Self-Protection (RASP) ve Web Application Firewall (WAF)'yi uygun şekilde entegre edin.
+  - Düzenli güvenlik açığı değerlendirmelerini ve penetrasyon testlerini teşvik edin.
+  - Yinelenen güvenlik açıklarına dayalı olarak kuralları ve istemlerini güncellemek için bir geri bildirim döngüsü oluşturun.
+
+  ## Uyum ve Dokümantasyon
+  - Endüstri standartlarıyla uyumlu olun (ör. OWASP Top 10, NIST, ISO 27001).
+  - Denetlenebilirlik için tüm güvenlik kontrolleri ve kararları belgelendirin.
 ---
 
 # DevSecOps + SSDLC + AppSec Cursor Rule

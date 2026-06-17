@@ -2,6 +2,7 @@
 name: "go-temporal-dsl-prompt-file"
 clean_name: "Go Temporal Dsl Prompt File"
 description: "Cursor rules for Go development with Temporal DSL integration."
+description_tr: "Go geliştirme için Cursor kuralları ve Temporal DSL entegrasyonu."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019

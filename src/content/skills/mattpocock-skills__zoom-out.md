@@ -1,6 +1,7 @@
 ---
 name: "zoom-out"
 description_en: "Tell the agent to zoom out and give broader context or a higher-level perspective. Use when you're unfamiliar with a section of code or need to understand how it fits into the bigger picture."
+description_tr: "Ajanı zoom out yapması ve daha geniş bağlam ya da daha üst seviye bir perspektif sunması için kullanın. Kodun bir bölümüne aşina olmadığınızda veya bunun büyük resme nasıl uyduğunu anlamanız gerektiğinde kullanışlıdır."
 category: "Development"
 repo: "mattpocock/skills"
 stars: 132588

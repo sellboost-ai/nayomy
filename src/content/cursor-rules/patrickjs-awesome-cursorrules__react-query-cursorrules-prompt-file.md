@@ -2,6 +2,7 @@
 name: "react-query-cursorrules-prompt-file"
 clean_name: "React Query"
 description: "Cursor rules for React development with React Query integration."
+description_tr: "React Query entegrasyonlu React geliştirme için cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,49 @@ path: "rules/react-query-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-query-cursorrules-prompt-file.mdc"
 body_length: 1133
 file_extension: ".mdc"
+body_tr: |-
+  ```
+  // React + React Query .cursorrules
+
+  // İşlevsel bileşenleri hooks ile tercih edin
+
+  const preferFunctionalComponents = true;
+
+  // React Query en iyi uygulamaları
+
+  const reactQueryBestPractices = [
+    "Uygulamanızın kökünde QueryClient ve QueryClientProvider kullanın",
+    "Sorgular ve mutasyonlar için özel hooks uygulayın",
+    "Etkili önbellekleme için sorgu anahtarlarından yararlanın",
+    "Geliştirilmiş performans için önceden yüklemeyi kullanın",
+    "Uygun hata ve yükleme durumlarını uygulayın",
+  ];
+
+  // Klasör yapısı
+
+  const folderStructure = `
+  src/
+    components/
+    hooks/
+      useQueries/
+      useMutations/
+    pages/
+    utils/
+    api/
+  `;
+
+  // Ek talimatlar
+
+  const additionalInstructions = `
+  1. React Query ile tip güvenliği için TypeScript kullanın
+  2. Sorgu hataları için uygun hata sınırları uygulayın
+  3. Hata ayıklama için React Query DevTools'u kullanın
+  4. Veri tazeliği için stale-while-revalidate stratejisini kullanın
+  5. Mutasyonlar için iyimser güncellemeleri uygulayın
+  6. Veri yeniden alınması için sorgu geçersiz kılmayı kullanın
+  7. Tutarlılık için React Query adlandırma kurallarını izleyin
+  `;
+  ```
 ---
 
 // React + React Query .cursorrules

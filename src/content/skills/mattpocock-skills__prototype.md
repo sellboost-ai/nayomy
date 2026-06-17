@@ -1,6 +1,7 @@
 ---
 name: "prototype"
 description_en: "Build a throwaway prototype to flesh out a design before committing to it. Routes between two branches — a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route. Use when the user wants to prototype, sanity-check a data model or state machine, mock up a UI, explore design options, or says \"prototype this\", \"let me play with"
+description_tr: "Tasarımı hayata geçirmeden önce atılabilir bir prototip oluşturun. İki branch arasında yönlendirme yapın — state/iş-logic sorularını cevaplamak için çalıştırılabilir bir terminal uygulaması veya tek bir route'dan toggle edilebilen birçok farklı UI varyasyonu. Kullanıcı prototip oluşturmak, bir data model veya state machine'i kontrol etmek, UI mockup'ı yapmak, tasarım seçeneklerini keşfetmek istediğinde veya \"bunu prototiple\", \"biraz oynayabilir miyim\" dediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
 stars: 132588
@@ -12,6 +13,32 @@ has_scripts: false
 has_references: false
 has_examples: false
 related_files: ["LOGIC.md", "UI.md"]
+body_tr: |-
+  # Prototip
+
+  Prototip, **bir soruya cevap veren atılacak koddur**. Soru şeklini belirler.
+
+  ## Dalı seçin
+
+  Hangi sorunun yanıtlandığını belirleyin — kullanıcının promptundan, çevreleyen koddan veya kullanıcıyla iletişim kurarak:
+
+  - **"Bu logic / state modeli doğru hissettiriyor mu?"** → [LOGIC.md](LOGIC.md). Kağıt üzerinde akıl yürütülmesi zor olan durumlar arasında state machine'i iten küçük bir interaktif terminal app'i oluşturun.
+  - **"Bu nasıl görünmeli?"** → [UI.md](UI.md). Tek bir route üzerinde radikal olarak farklı birkaç UI varyasyonu oluşturun; URL arama parametresi ve kayan alt bar aracılığıyla değiştirilebilir.
+
+  İki dal çok farklı yapıtlar üretir — bunu yanlış yapmak tüm prototipinizi boşa harcar. Soru gerçekten belirsizse ve kullanıcıya ulaşılamıyorsa, çevreleyen kodla daha iyi eşleşen dalı seçin (backend modülü → logic; sayfa veya component → UI) ve prototipinizin başında varsayımı belirtin.
+
+  ## Her iki dal için geçerli kurallar
+
+  1. **Birinci günden itibaren atılabilir ve açıkça bu şekilde işaretli.** Prototip kodunu fiilen kullanılacağı yere yakın yerleştirin (prototip yaptığınız modül veya sayfanın yanında) — böylece context açık olur — ancak rahat bir şekilde okuyan birinin prototip olduğunu, üretim olmadığını görebilmesi için adlandırın. Throwaway UI route'ları için, proje zaten kullanan yönlendirme kuralına uyun; yeni bir üst düzey yapı icat etmeyin.
+  2. **Çalıştırmak için bir komut.** Projenin mevcut task runner'ının desteklediği her şey — `pnpm <name>`, `python <path>`, `bun <path>`, vs. Kullanıcı bunu düşünmeden başlatabilmelidir.
+  3. **Varsayılan olarak persistence yok.** State bellek içindedir. Persistence, prototipinin _kontrol ettiği_ şeydir, bağlı olması gereken bir şey değildir. Soru açıkça bir veritabanını içeriyorsa, bir scratch DB'ye veya "PROTOTYPE — beni sil" adıyla açık bir yerel dosyaya erişin.
+  4. **Cilalaması atla.** Test yok, prototipinizin _çalışabilir_ olmasını sağlayan dışında hata işleme yok, abstraksiyon yok. Amaç, hızlı bir şekilde bir şeyler öğrenmek ve sonra silmektir.
+  5. **State'i yüzeye çıkarın.** Her action'dan sonra (logic) veya her varyant değişiminde (UI), kullanıcının neyin değiştiğini görebilmesi için tam ilgili state'i yazdırın veya render edin.
+  6. **Bittiğinde silin veya absorbe edin.** Prototip sorusunu yanıtladığında, ya silin ya da doğrulanmış kararı gerçek koda katın — repo'da çürümeye bırakmayın.
+
+  ## Bittiğinde
+
+  Bir prototipten tutmaya değer tek şey, _cevaptır_. Bunu kalıcı bir yerde yakalayın (commit mesajı, ADR, issue veya prototipinizin yanında bir `NOTES.md`) ve yanıt verdiği soru ile birlikte. Kullanıcı ise, bu yakalama hızlı bir konuşmadır; değilse, prototip silinmeden önce kararı doldurabilmeleri (veya sonraki geçişte siz) için placeholder bırakın.
 ---
 
 # Prototype

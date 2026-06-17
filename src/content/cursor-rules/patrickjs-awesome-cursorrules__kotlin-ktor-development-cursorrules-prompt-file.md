@@ -2,6 +2,7 @@
 name: "kotlin-ktor-development-cursorrules-prompt-file"
 clean_name: "Kotlin Ktor Development"
 description: "Cursor rules for Kotlin development with Ktor integration."
+description_tr: "Kotlin geliştirmesi için Cursor kuralları, Ktor entegrasyonu dahil."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
 stars: 40019
@@ -9,6 +10,297 @@ path: "rules/kotlin-ktor-development-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/kotlin-ktor-development-cursorrules-prompt-file.mdc"
 body_length: 9189
 file_extension: ".mdc"
+body_tr: |-
+  ## Geliştirici Talimatı: bu dosyayı .cursorrules olarak kaydedin ve proje kök dizinine yerleştirin
+
+  ## Temel İlkeler
+  - **SOLID**, **DRY**, **KISS** ve **YAGNI** ilkelerine uyun
+  - **OWASP** güvenlik en iyi uygulamalarına uyun
+  - Görevleri en küçük birimlere ayırın ve sorunları adım adım çözün
+
+  ## Teknoloji Yığını
+  - **Framework**: Kotlin Ktor with Kotlin 2.1.20+
+  - **JDK**: 21 (LTS)
+  - **Build**: Gradle with Kotlin DSL
+  - **Dependencies**: Ktor Server Core/Netty, kotlinx.serialization, Exposed, HikariCP, kotlin-logging, Koin, Kotest
+
+  ## Uygulama Yapısı (Özellik Tabanlı)
+  - **Teknik katmanlar yerine iş özellikleri temelinde organize edin**
+  - Her özellik, tüm ilgili bileşenleri içeren bağımsız bir birimdir
+  - Modülerlik, yeniden kullanılabilirlik ve daha iyi takım işbirliğini teşvik eder
+  - Kod tabanını gezinmeyi ve bakımını kolaylaştırır
+  - Farklı özellikler üzerinde paralel geliştirmeyi sağlar
+  ```
+  src/main/kotlin/com/company/app/
+  ├── common/              # Shared utilities, extensions
+  ├── config/              # Application configuration, DI
+  └── features/
+      ├── auth/            # Feature directory
+      │   ├── models/
+      │   ├── repositories/
+      │   ├── services/
+      │   └── routes/
+      └── users/           # Another feature
+          ├── ...
+  ```
+
+  Test yapısı özellik tabanlı organizasyonu yansıtır:
+  ```
+  src/test/kotlin/com/company/app/
+  ├── common/
+  └── features/
+      ├── auth/
+      │   ├── models/
+      │   ├── repositories/
+      │   ├── services/
+      │   └── routes/
+      └── users/
+          ├── ...
+  ```
+
+  ## Uygulama Mantığı Tasarımı
+  1. Route handlers: Sadece request/response işleme
+  2. Services: İş mantığı içeren, repository'leri çağıran
+  3. Repositories: Veritabanı işlemlerini yönetme
+  4. Entity classes: Veritabanı modelleri için data classes
+  5. DTOs: Katmanlar arasında veri transfer
+
+  ## Entity'ler ve Data Classes
+  - Uygun doğrulama ile Kotlin data classes kullanın
+  - Exposed ORM kullanırken Table nesneleri tanımlayın
+  - ID'ler için UUID veya otomatik artan tamsayılar kullanın
+
+  ## Repository Pattern
+  ```kotlin
+  interface UserRepository {
+      suspend fun findById(id: UUID): UserDTO?
+      suspend fun create(user: CreateUserRequest): UserDTO
+      suspend fun update(id: UUID, user: UpdateUserRequest): UserDTO?
+      suspend fun delete(id: UUID): Boolean
+  }
+
+  class UserRepositoryImpl : UserRepository {
+      override suspend fun findById(id: UUID): UserDTO? = withContext(Dispatchers.IO) {
+          transaction {
+              Users.select { Users.id eq id }
+                  .mapNotNull { it.toUserDTO() }
+                  .singleOrNull()
+          }
+      }
+      // Other implementations...
+  }
+  ```
+
+  ## Service Katmanı
+  ```kotlin
+  interface UserService {
+      suspend fun getUserById(id: UUID): UserDTO
+      suspend fun createUser(request: CreateUserRequest): UserDTO
+      suspend fun updateUser(id: UUID, request: UpdateUserRequest): UserDTO
+      suspend fun deleteUser(id: UUID)
+  }
+
+  class UserServiceImpl(
+      private val userRepository: UserRepository
+  ) : UserService {
+      override suspend fun getUserById(id: UUID): UserDTO {
+          return userRepository.findById(id) ?: throw ResourceNotFoundException("User", id.toString())
+      }
+      // Other implementations...
+  }
+  ```
+
+  ## Route Handlers
+  ```kotlin
+  fun Application.configureUserRoutes(userService: UserService) {
+      routing {
+          route("/api/users") {
+              get("/{id}") {
+                  val id = call.parameters["id"]?.let { UUID.fromString(it) }
+                      ?: throw ValidationException("Invalid ID format")
+                  val user = userService.getUserById(id)
+                  call.respond(ApiResponse("SUCCESS", "User retrieved", user))
+              }
+              // Other routes...
+          }
+      }
+  }
+  ```
+
+  ## Hata Yönetimi
+  ```kotlin
+  open class ApplicationException(
+      message: String,
+      val statusCode: HttpStatusCode = HttpStatusCode.InternalServerError
+  ) : RuntimeException(message)
+
+  class ResourceNotFoundException(resource: String, id: String) :
+      ApplicationException("$resource with ID $id not found", HttpStatusCode.NotFound)
+
+  fun Application.configureExceptions() {
+      install(StatusPages) {
+          exception<ResourceNotFoundException> { call, cause ->
+              call.respond(cause.statusCode, ApiResponse("ERROR", cause.message ?: "Resource not found"))
+          }
+          exception<Throwable> { call, cause ->
+              call.respond(HttpStatusCode.InternalServerError, ApiResponse("ERROR", "An internal error occurred"))
+          }
+      }
+  }
+  ```
+
+  ## Test Stratejileri ve Kapsam Gereksinimleri
+
+  ### Test Kapsamı Gereksinimleri
+  - **Minimum kapsam**: Genel %80 kod kapsamı gerekli
+  - **Kritik bileşenler**: Repository'ler, service'ler ve doğrulama için %90+ kapsam
+  - **Tüm uç durumları test edin**: Boş koleksiyonlar, null değerler, sınır koşulları
+  - **Başarısızlık yollarını test edin**: İstisna yönetimi, doğrulama hataları, zaman aşımları
+  - **Tüm public API'ler**: Entegrasyon testlerine sahip olmalı
+  - **Performans açısından kritik yollar**: Kıyaslama testlerine sahip olmalı
+
+  ### Kotest ile Unit Test
+  ```kotlin
+  class UserServiceTest : DescribeSpec({
+      describe("UserService") {
+          val mockRepository = mockk<UserRepository>()
+          val userService = UserServiceImpl(mockRepository)
+
+          it("should return user when exists") {
+              val userId = UUID.randomUUID()
+              val user = UserDTO(userId.toString(), "Test User", "test@example.com")
+              coEvery { mockRepository.findById(userId) } returns user
+
+              val result = runBlocking { userService.getUserById(userId) }
+
+              result shouldBe user
+          }
+
+          it("should throw exception when user not found") {
+              val userId = UUID.randomUUID()
+              coEvery { mockRepository.findById(userId) } returns null
+
+              shouldThrow<ResourceNotFoundException> {
+                  runBlocking { userService.getUserById(userId) }
+              }
+          }
+      }
+  })
+  ```
+
+  ## Ktor 3.x ile Route Test
+  ```kotlin
+  class UserRoutesTest : FunSpec({
+      test("GET /api/users/{id} returns 200 when user exists") {
+          val mockService = mockk<UserService>()
+          val userId = UUID.randomUUID()
+          val user = UserDTO(userId.toString(), "Test User", "test@example.com")
+
+          coEvery { mockService.getUserById(userId) } returns user
+
+          testApplication {
+              application {
+                  configureRouting()
+                  configureDI { single { mockService } }
+              }
+
+              client.get("/api/users/$userId").apply {
+                  status shouldBe HttpStatusCode.OK
+                  bodyAsText().let {
+                      Json.decodeFromString<ApiResponse<UserDTO>>(it)
+                  }.data shouldBe user
+              }
+          }
+      }
+  })
+  ```
+
+  ## Test Edilebilir Kod için Temel İlkeler
+  1. **Tek Sorumluluk**: Her method bir şeyi iyi yapmalı
+  2. **Pure Functions**: Aynı giriş her zaman aynı çıktı üretir
+  3. **Dependency Injection**: Test edilebilir bileşenler için constructor injection
+  4. **Net Sınırlar**: İyi tanımlanmış giriş ve çıkışlar
+  5. **Küçük Methodlar**: Karmaşık mantığı test edilebilir helper function'lara çıkarın
+
+  ## Konfigürasyon Yönetimi
+  ```kotlin
+  // Type-safe configuration
+  interface AppConfig {
+      val database: DatabaseConfig
+      val security: SecurityConfig
+  }
+
+  data class DatabaseConfig(
+      val driver: String,
+      val url: String,
+      val user: String,
+      val password: String
+  )
+
+  // Access in application
+  fun Application.configureDI() {
+      val appConfig = HoconAppConfig(environment.config)
+
+      install(Koin) {
+          modules(module {
+              single<AppConfig> { appConfig }
+              single { appConfig.database }
+          })
+      }
+  }
+  ```
+
+  ## Güvenlik En İyi Uygulamaları
+  ```kotlin
+  fun Application.configureSecurity() {
+      install(Authentication) {
+          jwt("auth-jwt") {
+              // JWT configuration
+          }
+      }
+
+      install(DefaultHeaders) {
+          header(HttpHeaders.XContentTypeOptions, "nosniff")
+          header(HttpHeaders.XFrameOptions, "DENY")
+          header(HttpHeaders.ContentSecurityPolicy, "default-src 'self'")
+          header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+      }
+  }
+  ```
+
+  ## Sağlık Kontrolleri ve İzleme
+  ```kotlin
+  fun Application.configureMonitoring() {
+      val startTime = System.currentTimeMillis()
+
+      routing {
+          get("/health") {
+              call.respond(mapOf("status" to "UP", "uptime" to "${(System.currentTimeMillis() - startTime) / 1000}s"))
+          }
+
+          get("/metrics") {
+              call.respond(prometheusRegistry.scrape())
+          }
+      }
+
+      install(MicrometerMetrics) {
+          registry = PrometheusMeterRegistry(PrometheusConfig.DEFAULT)
+          meterBinders = listOf(
+              JvmMemoryMetrics(),
+              JvmGcMetrics(),
+              ProcessorMetrics(),
+              JvmThreadMetrics()
+          )
+      }
+  }
+  ```
+
+  ## Performans Ayarlaması
+  - **JVM Ayarları**: `-XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:MaxRAMPercentage=75.0`
+  - **Connection Pooling**: İş yükü temelinde uygun boyutlandırma ile HikariCP'yi yapılandırın
+  - **Caching**: Sık erişilen veriler için Caffeine kullanın
+  - **Coroutines**: Asenkron işleme için yapılandırılmış eşzamanlılık kullanın
+  - **Veritabanı Sorguları**: Uygun indeksleme, toplu işlemler, sayfalama ile optimize edin
 ---
 
 ## Instruction to developer: save this file as .cursorrules and place it on the root project directory
