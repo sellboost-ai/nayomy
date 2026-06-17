@@ -4,7 +4,7 @@ description: "A MCP server for interacting with Go's Language Server Protocol (g
 description_tr: "Go'nun Language Server Protocol'ü (gopls) ile etkileşim kurmak için bir MCP sunucusu; gelişmiş Go kod analiz özellikleri sağlar."
 category: "Developer Tools"
 repo: "hloiseau/mcp-gopls"
-stars: 87
+stars: 88
 url: "https://github.com/hloiseau/mcp-gopls"
 body_length: 19209
 license: "Apache-2.0"

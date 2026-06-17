@@ -4,7 +4,7 @@ description_en: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Off
 description_tr: "/cs:cco-review <plan> — Müşteri tutma oranı düştüğünde, CSM kadro artışı onaylanmadan veya hangi müşteri segmentlerinin devam edileceğine karar verilmeden kullanılacak, müşteri tutma, segmentasyon, CS ekip büyüklüğü veya CS ekip işe alımı ile ilgili herhangi bir plan hakkında müşteri kazanımı konusunda takıntılı Chief Customer Officer tarafından yapılan inceleme."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cco-review/SKILL.md"
 path: ".gemini/skills/cco-review/SKILL.md"
 is_collection: false

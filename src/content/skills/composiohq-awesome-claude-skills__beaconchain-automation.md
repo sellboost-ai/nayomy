@@ -4,7 +4,7 @@ description_en: "Automate Beaconchain tasks via Rube MCP (Composio). Always sear
 description_tr: "Rube MCP (Composio) ile Beaconchain görevlerini otomatikleştirin. Güncel şemaları bulabilmek için her zaman tools'u arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/beaconchain-automation/SKILL.md"
 path: "composio-skills/beaconchain-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Beaconchain Otomasyonu Rube MCP Aracılığıyla
-
+  
   Composio'nun Beaconchain toolkit'i üzerinden Rube MCP aracılığıyla Beaconchain işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümanları**: [composio.dev/toolkits/beaconchain](https://composio.dev/toolkits/beaconchain)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Beaconchain bağlantısı (toolkit `beaconchain`)
   - Her zaman geçerli tool şemalarını almak için önce `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Edinin**: `https://rube.app/mcp` adresini istemci konfigürasyonunuzda bir MCP sunucusu olarak ekleyin. API anahtarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` cevap verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS`'ı toolkit `beaconchain` ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Discovery
-
+  
   Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Beaconchain operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input şemalarını, önerilen execution plan'larını ve bilinen pitfall'ları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfet
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Beaconchain task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Et
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["beaconchain"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştır
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Pitfall'lar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS`'u çağırmadan hiçbir zaman tool slug'ları veya argümanları hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory`'yi ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar fetch etmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Beaconchain'e özgü use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (`schemaRef` ile tool'lar için) |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

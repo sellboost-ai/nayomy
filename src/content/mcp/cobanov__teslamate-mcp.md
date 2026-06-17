@@ -4,7 +4,7 @@ description: "A Model Context Protocol (MCP) server that provides access to your
 description_tr: "TeslaMate veritabanınıza erişim sağlayan Model Context Protocol (MCP) sunucusu; AI asistanlarının Tesla araç verilerini ve analitiğini sorgulamasına olanak tanır."
 category: "Travel & Transportation"
 repo: "cobanov/teslamate-mcp"
-stars: 129
+stars: 130
 url: "https://github.com/cobanov/teslamate-mcp"
 body_length: 7159
 license: "MIT"

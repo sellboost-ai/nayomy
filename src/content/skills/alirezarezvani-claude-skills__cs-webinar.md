@@ -4,7 +4,7 @@ description_en: "/cs:webinar — Webinar & virtual-event marketing workflow. Pla
 description_tr: "/cs:webinar — Webinar ve sanal etkinlik pazarlama iş akışı. Sıfırdan bir webinar planlayın (iş hedefinden geriye doğru tasarlayarak), hayal kırıklığı yaratan bir webinarı kurtarın (funnel'i değerlendirin, sorunlu aşamayı düzeltin) veya geçmiş bir webinarı her zaman erişilebilir bir lead üreticisine dönüştürün. Kayıt, promosyon hazırlığı, katılım, canlı etkileşim, canlıdan satışa dönüşüm ve segmentli takip olmak üzere tam funnel'i kapsar."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-webinar/SKILL.md"
 path: ".gemini/skills/cs-webinar/SKILL.md"
 is_collection: false
@@ -15,87 +15,87 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:webinar — Webinar & Sanal Etkinlik Pazarlaması
-
+  
   **Komut:** `/cs:webinar [mode] [args]`
-
+  
   `cs-webinar` komutu **webinar iş akışları için giriş noktasıdır**: planlama → promosyon → yayın → takip, ya da tanı → düzeltme → yeniden çalıştırma.
-
+  
   ## Ne Zaman Çalıştırılır
-
+  
   - Sıfırdan webinar, sanal etkinlik, canlı demo, workshop, masterclass, fireside chat veya sanal zirve planlama
   - Hayal kırıklığı yaratan sayılara sahip bir webinarı kurtarma — düşük kayıtlar, düşük katılım veya dönüşüm yapmayan katılımcılar
   - Tek seferlik bir webinarı her zaman açık evergreen / talep üzerine bir motora dönüştürme
   - Gerçekten kırık olan aşamayı bulmak için mevcut bir huniyı puanlama
-
+  
   ## Ne Zaman Çalıştırılmaz
-
+  
   - Tam ürün lansman (sadece webinar değil) → `/cs:launch` / launch-strategy kullanın
   - Bir olayla ilgisiz genel yaşam döngüsü beslemesi e-postası → `emails` skill'ini kullanın
   - Yüz yüze alan etkinliği lojistiği (mekan, catering, stand) → kapsam dışı
-
+  
   ## Modlar
-
+  
   ### `plan` — Tüm hareketi sıfırdan tasarla
-
+  
   ```bash
   /cs:webinar plan
   ```
-
+  
   İntake sürecini yürütür, promise ve formatı kilitler, huniyeyi iş hedefinden geriye doğru boyutlandırır,
   promosyon pistini oluşturur ve katılım + canlı-kapanış + takibi tasarlar. `marketing-skill/skills/webinar-marketing/templates/webinar-plan-template.md` 
   kullanarak tam bir plan sunur.
-
+  
   ### `rescue` — Düşük performans gösteren bir webinarı tanıla ve düzelt
-
+  
   ```bash
   /cs:webinar rescue --input funnel.json
   ```
-
+  
   Huniyeyi puanlar, en zayıf aşamayı adlandırır ve gerçek darboğazı hedef alan sıralanmış düzeltmeleri döndürür
   — refleksif landing page yeniden yazısı değil.
-
+  
   ### `evergreen` — Geçmiş bir webinarı talep üzerine dönüştür
-
+  
   ```bash
   /cs:webinar evergreen
   ```
-
+  
   Talep üzerine kayıt → izleme → takip otomasyonunu eşler, dürüst canlı-vs-simüle çerçevelemesi ile.
-
+  
   ### `score` — Huniye puanlamacısını doğrudan çalıştır
-
+  
   ```bash
   /cs:webinar score --input funnel.json
   /cs:webinar score                 # gömülü örnek veriler
   ```
-
+  
   ## Minimum İntake (3 Soru)
-
+  
   | S | Sorar | Ne Zaman |
   |---|---|---|
   | S1 | Hangi mod — plan / rescue / evergreen? | Her zaman |
   | S2 | İş hedefi + dönüşüm eylemi (leads, pipeline, adoption, retention, brand)? | Her zaman (huniye matematikini yönlendirir) |
   | S3 | Hedef kitle sıcaklığı (customers / warm / owned_cold / paid_cold)? | Her zaman (benchmarkları seçer) |
-
+  
   Eğer varsa `marketing-context.md` dosyasını önce okuyun — marka sesi, personas ve müşteri dilini kapsar,
   böylece sadece bu etkinliğe özgü olanları sorarsınız.
-
+  
   ## İş Akışı
-
+  
   ```bash
   # Mod: rescue / score — kırık aşamayı önce bulun
   python3 marketing-skill/skills/webinar-marketing/scripts/webinar_funnel_scorer.py funnel.json
   # → genel 0-100 puanı + aşama başına oran vs. benchmark + adlandırılmış darboğaz
-
+  
   # stdin üzerinden JSON'u boru ile aktar
   cat funnel.json | python3 marketing-skill/skills/webinar-marketing/scripts/webinar_funnel_scorer.py -
-
+  
   # Gömülü örnek veriler üzerinde demo (--help bayrağı yok — argüman olmadan çalıştır)
   python3 marketing-skill/skills/webinar-marketing/scripts/webinar_funnel_scorer.py
   ```
-
+  
   Input JSON (`registrations` + `attended_live` gerekli; geri kalanı isteğe bağlı):
-
+  
   ```json
   {
     "invited": 5000, "page_visits": 1800, "registrations": 620,
@@ -103,11 +103,11 @@ body_tr: |-
     "audience": "owned_cold", "runtime_min": 45, "avg_watch_min": 26
   }
   ```
-
+  
   ## Huniye Matematikası (Geriye Doğru Planla)
-
+  
   Her zaman iş hedefinden geriye doğru boyutlandırın — bu, 6 kişi satın alırken 800 kaydı kutlayan herkesi durdurur:
-
+  
   ```
   İş hedefi:            20 satış-nitelikli fırsat
   ÷ katılımcı→SQO oranı (~10%)      → 200 katılımcı gerekli
@@ -115,45 +115,45 @@ body_tr: |-
   ÷ landing-page CVR    (~40%)      → ~1.425 landing-page ziyareti gerekli
   → promosyon ~1.425 nitelikli ziyareti yürütmeli
   ```
-
+  
   Gerekli ziyaretler ulaşılabilir kitleyi aşarsa, hedefi, formatı veya promosyon bütçesini *şimdi* düzeltin.
-
+  
   ## Kitle Benchmarkları
-
+  
   Puanlamacı kitle sıcaklığına göre kalibre eder (daha sıcak kitleler her aşamada daha iyi dönüşür):
-
+  
   | Kitle | Sayfa→Kayıt | Kayıt→Katıl | Katıl→CTA | Katıl→Dönüş |
   |---|---|---|---|---|
   | `customers` | 40% | 50% | 25% | 12% |
   | `warm` | 35% | 42% | 22% | 10% |
   | `owned_cold` | 25% | 35% | 18% | 7% |
   | `paid_cold` | 18% | 28% | 15% | 5% |
-
+  
   ## Reddedilen Anti-Paternler
-
+  
   - Kayıtları kutlarken katılım veya dönüşüm sessizce başarısız olur
   - Kırık aşama katılım veya canlı-kapanış olduğunda landing page yeniden yazma
   - Buniyeyi iş hedefinden geriye doğru boyutlandırmadan promosyon yapma
   - Hedef kitleyi erozyona uğratan açık sahte-canlı çerçevelemesi
   - Bir webinarı etkinlik yerine huniye olarak görme
-
+  
   ## Tetikleyici İfadeler
-
+  
   - "webinar planla" / "webinar stratejisi"
   - "webinarım dönüşmüyor" / "düşük katılım oranı"
   - "webinar promosyonu" / "webinar takibi"
   - "sanal etkinlik" / "canlı demo" / "masterclass" / "fireside chat" / "sanal zirve"
   - "evergreen webinar" / "talep üzerine webinar"
   - "kayıt huniyesi" / "katılım oranı"
-
+  
   ## İlişkili
-
+  
   - Agent: [`cs-webinar-marketer`](../agents/marketing/cs-webinar-marketer.md)
   - Skill: [`webinar-marketing`](../marketing-skill/skills/webinar-marketing/SKILL.md)
   - Companion: `/cs:aeo` (AI arama tarafından alıntılanan destekleyici içerik alın), launch-strategy (tam lanşlar)
-
+  
   ---
-
+  
   **Versiyon:** 2.9.0
   **Lisans:** MIT
 ---

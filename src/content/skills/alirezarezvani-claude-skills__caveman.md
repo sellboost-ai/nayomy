@@ -4,7 +4,7 @@ description_en: "> Ultra-compressed communication mode. Cuts token usage ~75% by
 description_tr: "Ultra-sıkıştırılmış iletişim modu. Dolgu sözcükleri, artikelleri ve nezaketleri çıkararak token kullanımını %75 oranında azaltırken tam teknik doğruluğu korur. Kullanıcı \"caveman mode\", \"talk like caveman\", \"use caveman\", \"less tokens\", \"be brief\" dediğinde veya /caveman komutunu çağırdığında etkinleşir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/caveman/SKILL.md"
 path: ".gemini/skills/caveman/SKILL.md"
 is_collection: false

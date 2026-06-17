@@ -4,7 +4,7 @@ description_en: "Use when encountering any bug, test failure, or unexpected beha
 description_tr: "Herhangi bir hata, test başarısızlığı veya beklenmeyen davranışla karşılaştığınızda, çözüm önerisi sunmadan önce kullanın."
 category: "Development"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/systematic-debugging/SKILL.md"
 path: "skills/systematic-debugging/SKILL.md"
 is_collection: false
@@ -15,25 +15,25 @@ has_examples: false
 related_files: ["CREATION-LOG.md", "condition-based-waiting-example.ts", "condition-based-waiting.md", "defense-in-depth.md", "find-polluter.sh", "root-cause-tracing.md", "test-academic.md", "test-pressure-1.md", "test-pressure-2.md", "test-pressure-3.md"]
 body_tr: |-
   # Sistematik Hata Ayıklama
-
+  
   ## Genel Bakış
-
+  
   Rastgele düzeltmeler zaman harcatır ve yeni hatalar yaratır. Hızlı yamalar temel sorunları gizler.
-
+  
   **Temel ilke:** Düzeltme denememeden ÖNCE her zaman kök nedeni bulun. Semptom düzeltmeleri başarısızlıktır.
-
+  
   **Bu işlemin harf anlamını ihlal etmek, hata ayıklamanın ruhunu ihlal etmektir.**
-
+  
   ## Demir Kanun
-
+  
   ```
   KÖK NEDEN ARAŞTIRMASI YAPILMADAN HİÇBİR DÜZELTME YOK
   ```
-
+  
   Eğer Aşama 1'i tamamlamadıysanız, düzeltme öneremezsiniz.
-
+  
   ## Ne Zaman Kullanılır
-
+  
   Herhangi bir teknik sorun için kullanın:
   - Test başarısızlıkları
   - Üretim ortamındaki hatalar
@@ -41,49 +41,49 @@ body_tr: |-
   - Performans sorunları
   - Derleme hataları
   - Entegrasyon sorunları
-
+  
   **ÖZELLIKLE bu durumlarda kullanın:**
   - Zaman baskısı altında (acil durumlar tahmini çekici hale getirir)
   - "Sadece bir hızlı düzeltme" bariz görünüyor
   - Zaten birden fazla düzeltme denediniz
   - Önceki düzeltme işe yaramadı
   - Sorunu tam olarak anlamıyorsunuz
-
+  
   **Atlamayın çünkü:**
   - Sorun basit görünüyor (basit hataların da kök nedenleri vardır)
   - Acelelisiniz (acele rework'u garantiler)
   - Yönetici hemen düzeltilmesini istiyor (sistematik yaklaşım rastgele denemekten daha hızlıdır)
-
+  
   ## Dört Aşama
-
+  
   Her aşamayı tamamlamanız gerekir, sonra bir sonrakine geçin.
-
+  
   ### Aşama 1: Kök Neden Araştırması
-
+  
   **Herhangi bir düzeltme denememeden ÖNCE:**
-
+  
   1. **Hata Mesajlarını Dikkatlice Okuyun**
      - Hataları veya uyarıları atlamayın
      - Genellikle tam çözümü içerirler
      - Stack trace'leri tamamen okuyun
      - Satır numaralarını, dosya yollarını, hata kodlarını not edin
-
+  
   2. **Tutarlı Şekilde Yeniden Üretin**
      - Bunu güvenilir şekilde tetikleyebiliyor musunuz?
      - Tam adımlar nelerdir?
      - Her seferinde mi gerçekleşiyor?
      - Eğer yeniden üretilemiyorsa → daha fazla veri toplayın, tahminde bulunmayın
-
+  
   3. **Son Değişiklikleri Kontrol Edin**
      - Bunu açıklayabilecek ne değişti?
      - Git diff, son commit'ler
      - Yeni bağımlılıklar, config değişiklikleri
      - Çevresel farklılıklar
-
+  
   4. **Multi-Bileşen Sistemlerde Kanıt Toplayın**
-
+  
      **Sistem birden fazla bileşene sahip olduğunda (CI → derleme → imzalama, API → servis → veritabanı):**
-
+  
      **Düzeltme önermeden önce, tanısal enstrümantasyon ekleyin:**
      ```
      Her bileşen sınırı için:
@@ -91,140 +91,140 @@ body_tr: |-
        - Bileşenden çıkan verileri kaydet
        - Ortam/config yayılmasını doğrula
        - Her katmandaki durumu kontrol et
-
+  
      NEREDE kırıldığını gösteren kanıt toplamak için bir kez çalıştır
      SONRA kırılan bileşeni belirlemek için kanıtı analiz et
      SONRA o spesifik bileşeni araştır
      ```
-
+  
      **Örnek (çok katmanlı sistem):**
      ```bash
      # Katman 1: Workflow
      echo "=== Workflow'da mevcut olan Secrets: ==="
      echo "IDENTITY: ${IDENTITY:+SET}${IDENTITY:-UNSET}"
-
+  
      # Katman 2: Build script
      echo "=== Build script'teki env vars: ==="
      env | grep IDENTITY || echo "IDENTITY ortamda yok"
-
+  
      # Katman 3: İmzalama script
      echo "=== Keychain durumu: ==="
      security list-keychains
      security find-identity -v
-
+  
      # Katman 4: Gerçek imzalama
      codesign --sign "$IDENTITY" --verbose=4 "$APP"
      ```
-
+  
      **Bu ortaya çıkarır:** Hangi katman başarısız olur (secrets → workflow ✓, workflow → build ✗)
-
+  
   5. **Veri Akışını İzleyin**
-
+  
      **Hata call stack'in derininde olduğunda:**
-
+  
      Bu dizindeki `root-cause-tracing.md` dosyasına bakın, komple geri doğru izleme tekniği için.
-
+  
      **Hızlı versiyon:**
      - Kötü değer nereden kaynaklanıyor?
      - Bunu kötü değerle kim çağırdı?
      - Kaynağı bulana kadar izlemeye devam edin
      - Semptomda değil, kaynakta düzelt
-
+  
   ### Aşama 2: Model Analizi
-
+  
   **Düzeltmeden önce deseni bulun:**
-
+  
   1. **Çalışan Örnekleri Bulun**
      - Aynı kod tabanında benzer çalışan kodu bulun
      - Kırılan şeye benzer ne çalışıyor?
-
+  
   2. **Referanslara Karşı Karşılaştırın**
      - Eğer pattern uyguluyorsanız, referans implementasyonu TAMAMEN okuyun
      - Okumanız yapmayın - her satırı okuyun
      - Uygulamadan önce deseni tamamen anlayın
-
+  
   3. **Farklılıkları Belirleyin**
      - Çalışan ile kırılan arasında ne fark var?
      - Her farkı listeleyin, ne kadar küçük olursa olsun
      - "Bu önemli olamaz" diye varsaymayın
-
+  
   4. **Bağımlılıkları Anlayın**
      - Bunun neye ihtiyacı var?
      - Ne ayarları, config, ortam?
      - Ne varsayımları yapıyor?
-
+  
   ### Aşama 3: Hipotez ve Test
-
+  
   **Bilimsel yöntem:**
-
+  
   1. **Tek Hipotez Oluşturun**
      - Açıkça belirtin: "X'in kök neden olduğunu düşünüyorum çünkü Y"
      - Yazın
      - Net olun, muğlak değil
-
+  
   2. **Minimal Test Edin**
      - Hipotezi test etmek için EN KÜÇÜK değişikliği yapın
      - Bir seferde bir değişken
      - Birden fazla şeyi aynı anda düzeltmeyin
-
+  
   3. **Devam Etmeden Doğrulayın**
      - Işe yaradı mı? Evet → Aşama 4
      - Işe yaramadı mı? YENİ hipotez oluşturun
      - Üstüne daha fazla düzeltme eklemeyin
-
+  
   4. **Bilmediğinizde**
      - "X'i anlamıyorum" deyin
      - Biliyormuş gibi davranmayın
      - Yardım isteyin
      - Daha fazla araştırın
-
+  
   ### Aşama 4: Uygulama
-
+  
   **Semptomda değil, kök nedeni düzelt:**
-
+  
   1. **Başarısız Test Vakası Oluşturun**
      - En basit olası yeniden üretim
      - Mümkünse otomatik test
      - Çerçeve yoksa tek seferlik test script
      - Düzeltmeden ÖNCE olmalı
      - Uygun başarısız testler yazması için `superpowers:test-driven-development` yeteneğini kullanın
-
+  
   2. **Tek Düzeltme Uygulayın**
      - Belirlenen kök nedeni adresleme
      - BİR seferde bir değişiklik
      - "Zaten burada iken" iyileştirmeleri yok
      - Paketlenmiş refactoring yok
-
+  
   3. **Düzeltmeyi Doğrulayın**
      - Test şimdi geçiyor mu?
      - Başka test kırılmadı mı?
      - Sorun gerçekten çözüldü mü?
-
+  
   4. **Eğer Düzeltme Işe Yaramazsa**
      - DUR
      - Kaç düzeltme denediniz?
      - Eğer < 3: Aşama 1'e dönün, yeni bilgilerle yeniden analiz edin
      - **Eğer ≥ 3: DUR ve mimarisini sorgulaşturun (aşağıda adım 5)**
      - 4. Düzeltmeyi mimarı tartışmadan denemeyin
-
+  
   5. **Eğer 3+ Düzeltme Başarısız Olduysa: Mimarisini Sorgulaştır**
-
+  
      **Mimari sorun gösteren model:**
      - Her düzeltme farklı yerde paylaşılan state/bağlantı/sorun ortaya çıkarır
      - Düzeltmeler uygulama için "masif refactoring" gerektiriyor
      - Her düzeltme başka yerlerde yeni semptomlar yaratıyor
-
+  
      **DURUN ve temelleri sorgulaşturun:**
      - Bu model temelde sağlam mı?
      - "Saf ataletlerle mi devam ediyoruz"?
      - Semptom düzeltmeye devam etmek yerine mimarisini refactor etmeliyiz mi?
-
+  
      **Daha fazla düzeltme denemesinden önce insan ortağınızla tartışın**
-
+  
      Bu başarısız bir hipotez DEĞİL - bu yanlış bir mimaridir.
-
+  
   ## Kırmızı Bayraklar - DURUN ve İşlemi Takip Edin
-
+  
   Kendinizi şöyle düşünürken yakalarsanız:
   - "Şimdilik hızlı düzeltme, sonra araştır"
   - "Sadece X'i değiştirmeyi deneyelim ve görelim"
@@ -237,24 +237,24 @@ body_tr: |-
   - Veri akışını izlemeden çözümler önerme
   - **"Bir daha daha düzeltme denemesi" (zaten 2+ denediğinizde)**
   - **Her düzeltme farklı yerde yeni sorun ortaya çıkartıyor**
-
+  
   **Bunların TÜMü şu anlama gelir: DURUN. Aşama 1'e dönün.**
-
+  
   **Eğer 3+ düzeltme başarısız olduysa:** Mimarisini sorgulaştır (bkz. Aşama 4.5)
-
+  
   ## İnsan Ortağınızın Yanlış Yaptığınızın Sinyalleri
-
+  
   **Bu yeniden yönlendirmeleri izleyin:**
   - "Bu olmuyor mu?" - Doğrulamadan varsaydınız
   - "Bize ... gösterecek mi?" - Kanıt toplaması gerekiyordu
   - "Tahmin etmeyi durdur" - Anlamadan düzeltme öneriyorsunuz
   - "Ultra-think bunu" - Sadece semptomları değil, temelleri sorgulaştır
   - "Sıkışmış mıyız?" (mutsuz) - Yaklaşımınız işe yaramıyor
-
+  
   **Bunları gördüğünüzde:** DURUN. Aşama 1'e dönün.
-
+  
   ## Yaygın İtirazlar
-
+  
   | Bahane | Gerçeklik |
   |--------|-----------|
   | "Sorun basit, işleme ihtiyaç yok" | Basit sorunların da kök nedenleri vardır. İşlem basit hatalar için hızlıdır. |
@@ -265,41 +265,41 @@ body_tr: |-
   | "Referans çok uzun, deseni adapte edeceğim" | Kısmi anlayış garantili hatadır. Tamamen okuyun. |
   | "Sorunu görüyorum, düzeltelim" | Semptom görmek ≠ kök nedeni anlamak. |
   | "Bir daha daha düzeltme denemesi" (2+ başarısızlıktan sonra) | 3+ başarısızlık = mimari sorun. Yeniden deneyin, tekrar düzeltmeyin. |
-
+  
   ## Hızlı Referans
-
+  
   | Aşama | Anahtar Faaliyetler | Başarı Kriterleri |
   |-------|-------------------|-------------------|
   | **1. Kök Neden** | Hataları oku, yeniden üret, değişiklikleri kontrol et, kanıt topla | NE ve NEDEN'i anla |
   | **2. Model** | Çalışan örnekleri bul, karşılaştır | Farklılıkları belirle |
   | **3. Hipotez** | Teori oluştur, minimal test et | Onaylandı veya yeni hipotez |
   | **4. Uygulama** | Test oluştur, düzelt, doğrula | Hata çözüldü, testler geçiyor |
-
+  
   ## İşlem "Kök Neden Yok" Ortaya Çıkardığında
-
+  
   Sistematik araştırma sorunun gerçekten çevresel, zamanlama-bağımlı veya dış olduğunu ortaya çıkarırsa:
-
+  
   1. İşlemi tamamladınız
   2. Araştırdığınız şeyleri belgelendirin
   3. Uygun işleme uygulayın (yeniden dene, timeout, hata mesajı)
   4. Gelecekteki araştırma için izleme/logging ekleyin
-
+  
   **Ama:** "Kök neden yok" durumlarının %95'i eksik araştırmadır.
-
+  
   ## Destekleyici Teknikler
-
+  
   Bu teknikler sistematik hata ayıklamanın parçası ve bu dizinde mevcuttur:
-
+  
   - **`root-cause-tracing.md`** - Hataları call stack'ten geri izleyerek orijinal tetikleyiciyi bulun
   - **`defense-in-depth.md`** - Kök neden bulunduktan sonra birden fazla katmanda doğrulama ekleyin
   - **`condition-based-waiting.md`** - Keyfi timeout'ları condition polling ile değiştirin
-
+  
   **İlgili yetkinlikler:**
   - **superpowers:test-driven-development** - Başarısız test vakası oluşturmak için (Aşama 4, Adım 1)
   - **superpowers:verification-before-completion** - Başarı iddia etmeden önce düzeltmeyi doğrulayın
-
+  
   ## Gerçek Dünya Etkisi
-
+  
   Hata ayıklama oturumlarından:
   - Sistematik yaklaşım: 15-30 dakika düzeltmek
   - Rastgele düzeltmeler yaklaşımı: 2-3 saat karmaşa

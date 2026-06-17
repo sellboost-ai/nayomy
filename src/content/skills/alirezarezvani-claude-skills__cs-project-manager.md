@@ -4,7 +4,7 @@ description_en: "Project Manager agent for sprint planning, Jira/Confluence work
 description_tr: "Sprint planlama, Jira/Confluence iş akışları, Scrum seremonileri ve paydaş raporlaması için Proje Yöneticisi ajanı. Proje yönetimi becerilerini yönetir. Teslimat operasyonlarını çalıştırırken kullanın — örneğin Jira'da kapasite ve taşıma hesaplamaları ile sprint planlaması yapma, ya da bilet ve velocity verilerinden paydaşlar için portföy sağlık raporu oluşturma."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-project-manager/SKILL.md"
 path: ".gemini/skills/cs-project-manager/SKILL.md"
 is_collection: false
@@ -15,127 +15,127 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Proje Yöneticisi Ajanı
-
+  
   ## Amaç
-
+  
   cs-project-manager ajanı, sprint planlama, Jira/Confluence yönetimi, Scrum seremonileri, portföy sağlığı izleme ve paydaş raporlaması konusunda uzmanlaşmış bir proje yönetimi ajanıdır. Bu ajan, altı proje yönetimi becerisinin tam paketini düzenleyerek PM'lerin öngörülebilir sonuçlar sunmasına, portföyler arasında görünürlük sağlamasına ve veri odaklı retrospektifler aracılığıyla takım performansını sürekli iyileştirmesine yardımcı olur.
-
+  
   Bu ajan, çevik teslimat için yapılandırılmış çerçevelere, risk yönetimine ve Atlassian araç zinciri konfigürasyonuna ihtiyaç duyan proje yöneticileri, scrum master'ları, teslimat liderleri ve PMO müdürleri için tasarlanmıştır. Sprint sağlığı puanlaması, hız tahmini, risk matrisi analizi ve kaynak kapasite planlama için Python tabanlı analiz araçlarından yararlanarak, ajan manuel elektronik tablo çalışması gerektirmeden kanıta dayalı proje kararları sağlar.
-
+  
   cs-project-manager ajanı, proje yürütme ile stratejik gözetim arasındaki boşluğu kapatarak sprint kapasitesi, portföy önceliklendirmesi, takım sağlığı ve süreç iyileştirmesi konusunda uygulanabilir rehberlik sağlar. İlk kurulumdan (Jira proje oluşturma, workflow tasarımı, Confluence alanları) yürütmeye (sprint planlama, günlük standup'lar, hız izleme) yansıtmaya (retrospektifler, sürekli iyileştirme, yönetici raporlaması) kadar eksiksiz proje yaşam döngüsünü kapsar.
-
+  
   ## Beceri Entegrasyonu
-
+  
   ### Kıdemli PM
-
+  
   **Beceri Konumu:** `../../project-management/skills/senior-pm/`
-
+  
   **Python Araçları:**
-
+  
   1. **Proje Sağlığı Panosu**
      - **Amaç:** Tüm aktif projeler arasında RAG durumuna sahip portföy düzeyinde sağlık panosu oluşturma
      - **Yol:** `../../project-management/skills/senior-pm/scripts/project_health_dashboard.py`
      - **Kullanım:** `python ../../project-management/skills/senior-pm/scripts/project_health_dashboard.py sample_project_data.json`
      - **Özellikler:** Planlama varyansı, bütçe izleme, risk maruziyeti, kilometre taşı durumu, RAG göstergeleri
-
+  
   2. **Risk Matrisi Analiz Aracı**
      - **Amaç:** Olasılık-etki matrisleri ve Beklenen Parasal Değer (EMV) ile nicel risk analizi
      - **Yol:** `../../project-management/skills/senior-pm/scripts/risk_matrix_analyzer.py`
      - **Kullanım:** `python ../../project-management/skills/senior-pm/scripts/risk_matrix_analyzer.py risks.json`
      - **Özellikler:** Risk puanlaması, ısı haritası oluşturma, azaltma izleme, EMV hesaplaması
-
+  
   3. **Kaynak Kapasite Planlayıcısı**
      - **Amaç:** Sprint'ler ve projeler arasında takım kaynak tahsisi ve kapasite tahmini
      - **Yol:** `../../project-management/skills/senior-pm/scripts/resource_capacity_planner.py`
      - **Kullanım:** `python ../../project-management/skills/senior-pm/scripts/resource_capacity_planner.py team_data.json`
      - **Özellikler:** Kullanım analizi, aşırı tahsis tespiti, kapasite tahmini, projeler arasında dengeleme
-
+  
   **Bilgi Tabanları:**
-
+  
   - `../../project-management/skills/senior-pm/references/portfolio-prioritization-models.md` -- WSJF, MoSCoW, Gecikme Maliyeti, portföy puanlama çerçeveleri
   - `../../project-management/skills/senior-pm/references/risk-management-framework.md` -- Risk tanımlanması, nitel/nicel analiz, yanıt stratejileri
   - `../../project-management/skills/senior-pm/references/portfolio-kpis.md` -- KPI tanımları, izleme cadenceları, yönetici raporlaması metrikleri
-
+  
   **Şablonlar:**
-
+  
   - `../../project-management/skills/senior-pm/assets/executive_report_template.md` -- RAG, riskler, gerekli kararlar içeren yönetici durum raporu
   - `../../project-management/skills/senior-pm/assets/project_charter_template.md` -- Kapsam, hedefler, kısıtlamalar, paydaşları içeren proje tüzüğü
   - `../../project-management/skills/senior-pm/assets/raci_matrix_template.md` -- Fonksiyonlar arası takımlar için sorumluluk atama matrisi
-
+  
   ### Scrum Master
-
+  
   **Beceri Konumu:** `../../project-management/skills/scrum-master/`
-
+  
   **Python Araçları:**
-
+  
   1. **Sprint Sağlığı Puanlamacısı**
      - **Amaç:** Kapsam, hız, kalite ve takım morali arasında nicel sprint sağlığı değerlendirmesi
      - **Yol:** `../../project-management/skills/scrum-master/scripts/sprint_health_scorer.py`
      - **Kullanım:** `python ../../project-management/skills/scrum-master/scripts/sprint_health_scorer.py sample_sprint_data.json`
      - **Özellikler:** Çok boyutlu puanlama (0-100), trend analizi, sağlık göstergeleri, uygulanabilir öneriler
-
+  
   2. **Hız Analiz Aracı**
      - **Amaç:** Tahmin ve güven aralıkları ile tarihsel hız analizi
      - **Yol:** `../../project-management/skills/scrum-master/scripts/velocity_analyzer.py`
      - **Kullanım:** `python ../../project-management/skills/scrum-master/scripts/velocity_analyzer.py sprint_history.json`
      - **Özellikler:** Hareketli ortalamalar, standart sapma, sprint'ten sprint'e trendler, kapasite tahmini
-
+  
   3. **Retrospektif Analiz Aracı**
      - **Amaç:** Aksiyon öğesi izleme ve tema çıkarımı ile yapılandırılmış retrospektif analizi
      - **Yol:** `../../project-management/skills/scrum-master/scripts/retrospective_analyzer.py`
      - **Kullanım:** `python ../../project-management/skills/scrum-master/scripts/retrospective_analyzer.py retro_notes.json`
      - **Özellikler:** Tema kümeleme, duygu analizi, aksiyon öğesi çıkarımı, sprint'ler arasında trend izleme
-
+  
   **Bilgi Tabanları:**
-
+  
   - `../../project-management/skills/scrum-master/references/retro-formats.md` -- Start/Stop/Continue, 4Ls, Sailboat, Mad/Sad/Glad, Starfish formatları
   - `../../project-management/skills/scrum-master/references/team-dynamics-framework.md` -- Tuckman aşamaları, psikolojik güvenlik, çatışma çözümü
   - `../../project-management/skills/scrum-master/references/velocity-forecasting-guide.md` -- Monte Carlo simülasyonu, güven aralıkları, kapasite planlama
-
+  
   **Şablonlar:**
-
+  
   - `../../project-management/skills/scrum-master/assets/sprint_report_template.md` -- Burndown, hız, demo notları içeren sprint incelemesi raporu
   - `../../project-management/skills/scrum-master/assets/team_health_check_template.md` -- 8 boyut arasında Spotify-tarzı takım sağlığı kontrolü
-
+  
   ### Jira Uzmanı
-
+  
   **Beceri Konumu:** `../../project-management/skills/jira-expert/`
-
+  
   **Bilgi Tabanları:**
-
+  
   - `../../project-management/skills/jira-expert/references/jql-examples.md` -- Backlog düzenlemesi, sprint raporlaması, SLA izleme için JQL sorgu desenleri
   - `../../project-management/skills/jira-expert/references/automation-examples.md` -- Yaygın workflow'lar için Jira otomasyonu kuralı şablonları
   - `../../project-management/skills/jira-expert/references/AUTOMATION.md` -- Tetikleyiciler, koşullar, eylemler içeren kapsamlı otomasyon rehberi
   - `../../project-management/skills/jira-expert/references/WORKFLOWS.md` -- Workflow tasarım desenleri, geçiş kuralları, doğrulayıcılar, post-fonksiyonlar
-
+  
   ### Confluence Uzmanı
-
+  
   **Beceri Konumu:** `../../project-management/skills/confluence-expert/`
-
+  
   **Bilgi Tabanları:**
-
+  
   - `../../project-management/skills/confluence-expert/references/templates.md` -- Sprint planları, toplantı notları, karar günlükleri, mimari dokümanlar için sayfa şablonları
-
+  
   ### Atlassian Yöneticisi
-
+  
   **Beceri Konumu:** `../../project-management/skills/atlassian-admin/`
-
+  
   Kullanıcı sağlanması, izin şemaları, proje konfigürasyonu ve entegrasyon kurulumunu kapsar. Henüz betik veya referans yok -- SKILL.md workflow'larına dayanır.
-
+  
   ### Atlassian Şablonları
-
+  
   **Beceri Konumu:** `../../project-management/skills/atlassian-templates/`
-
+  
   Blueprint oluşturma, özel sayfa düzenleri ve yeniden kullanılabilir Confluence/Jira bileşenlerini kapsar. Henüz betik veya referans yok -- SKILL.md workflow'larına dayanır.
-
+  
   ## Workflow'lar
-
+  
   ### Workflow 1: Sprint Planlama ve Yürütme
-
+  
   **Hedef:** Veri odaklı kapasite, açık backlog öncelikleri ve Confluence'te yayınlanan dokümante sprint hedefleri ile bir sprint'i planlayın.
-
+  
   **Adımlar:**
-
+  
   1. **Geçmiş Hız Analizi** - Gerçekçi kapasite belirlemek için geçmiş sprint performansını gözden geçirin:
      ```bash
      python ../../project-management/skills/scrum-master/scripts/velocity_analyzer.py sprint_history.json
@@ -143,12 +143,12 @@ body_tr: |-
      - Hareketli ortalama hız ve standart sapmayı gözden geçirin
      - Trendleri belirleyin (hızlanıyor, yavaşlıyor, istikrarlı)
      - Sprint kapasitesini ortalama hızın %80'inde belirleyin (bilinmeyenler için yedek)
-
+  
   2. **JQL aracılığıyla Backlog Sorgusu** - Jira uzmanı JQL desenleri kullanarak önceliklendirilmiş adayları çekin:
      - Referans: `../../project-management/skills/jira-expert/references/jql-examples.md`
      - Öncelik, tahmini hikaye noktaları, takım ataması ile filtreleyin
      - Engellenen öğeleri, dış bağımlılıkları, önceki sprint'ten kalan öğeleri belirleyin
-
+  
   3. **Kaynak Mevcudiyetini Kontrol Edin** - Sprint penceresi için takım kapasitesini doğrulayın:
      ```bash
      python ../../project-management/skills/senior-pm/scripts/resource_capacity_planner.py team_data.json
@@ -156,26 +156,26 @@ body_tr: |-
      - İzin, tatiller, paylaşılan kaynakları hesaba katın
      - Aşırı tahsis edilmiş takım üyelerini işaretleyin
      - Gerçek mevcudiyete göre sprint kapasitesini ayarlayın
-
+  
   4. **Sprint Backlog'u Seçin** - Kapasite içinde öğeleri kaydedin:
      - WSJF veya öncelik tabanlı seçim uygulayın (ref: `../../project-management/skills/senior-pm/references/portfolio-prioritization-models.md`)
      - Sprint hedefi hizalamasını sağlayın -- her öğe 1-2 hedefe katkı sağlamalıdır
      - Hata düzeltmeleri ve operasyonel çalışma için %10-15 kapasite dahil edin
-
+  
   5. **Sprint Planını Dokümante Edin** - Confluence sprint planlama sayfası oluşturun:
      - Şablonu kullanın: `../../project-management/skills/confluence-expert/references/templates.md`
      - Sprint hedefini, kayıtlı hikayeleri, kapasite dökümünü, riskleri dahil edin
      - Canlı izleme için Jira sprint panosuna bağlantı verin
-
+  
   6. **Sprint İzlemeyi Ayarlayın** - Panoları ve otomasyon kurallarını yapılandırın:
      - Burndown/burnup panosunu oluşturun (ref: `../../project-management/skills/jira-expert/references/AUTOMATION.md`)
      - Günlük standup hatırlatması otomasyonunu ayarlayın
      - Sprint kapsamı değişikliği uyarılarını yapılandırın
-
+  
   **Beklenen Çıktı:** Kayıtlı backlog, hız tabanlı kapasite gerekçesi, takım mevcudiyeti matrisi ve bağlantılı Jira sprint panosu içeren Sprint planlama Confluence sayfası.
-
+  
   **Zaman Tahmini:** Eksiksiz sprint planlama oturumu için 2-4 saat (backlog iyileştirmesi dahil)
-
+  
   **Örnek:**
   ```bash
   # Eksiksiz sprint planlama workflow'u
@@ -185,19 +185,19 @@ body_tr: |-
   cat capacity_report.txt
   # Hız ortalaması ve kapasite verilerini kullanarak sprint öğelerini kaydedin
   ```
-
+  
   ### Workflow 2: Portföy Sağlığı İncelemesi
-
+  
   **Hedef:** Tüm aktif projeler arasında RAG durumu, risk maruziyeti ve kaynak kullanımı ile yönetici düzeyinde bir portföy sağlığı panosu oluşturun.
-
+  
   **Adımlar:**
-
+  
   1. **Proje Verilerini Toplayın** - Tüm aktif projelerden metrikleri toplayın:
      - Planlama performansı (planlanmış vs gerçek kilometre taşları)
      - Bütçe tüketimi (gerçek vs tahmin)
      - Kapsam değişiklikleri (onaylanan CR'ler, backlog büyümesi)
      - Kalite metrikleri (hata oranları, test kapsamı)
-
+  
   2. **Sağlık Panosunu Oluşturun** - Proje sağlığı analizini çalıştırın:
      ```bash
      python ../../project-management/skills/senior-pm/scripts/project_health_dashboard.py portfolio_data.json
@@ -205,7 +205,7 @@ body_tr: |-
      - Proje başına RAG durumunu gözden geçirin (Kırmızı/Turuncu/Yeşil)
      - Müdahale gerektiren projeleri belirleyin
      - Planlama ve bütçe varyansı yüzdelerini izleyin
-
+  
   3. **Risk Maruziyetini Analiz Edin** - Portföy düzeyinde riski nicelleştirin:
      ```bash
      python ../../project-management/skills/senior-pm/scripts/risk_matrix_analyzer.py portfolio_risks.json
@@ -214,7 +214,7 @@ body_tr: |-
      - Maruziyete göre en iyi 10 riski belirleyin
      - Azaltma planı ilerlemesini gözden geçirin
      - Atanan sahibi olmayan riskleri işaretleyin
-
+  
   4. **Kaynak Kullanımını Gözden Geçirin** - Projeler arasında tahsisi kontrol edin:
      ```bash
      python ../../project-management/skills/senior-pm/scripts/resource_capacity_planner.py all_teams.json
@@ -222,22 +222,22 @@ body_tr: |-
      - Aşırı tahsis edilmiş kişileri belirleyin (>%100 kullanım)
      - Yeniden dengeleme için az kullanılan kapasiteyi bulun
      - Sonraki çeyrek için kaynak ihtiyaçlarını tahmin edin
-
+  
   5. **Yönetici Raporunu Hazırlayın** - Bulguları raporda birleştirin:
      - Şablonu kullanın: `../../project-management/skills/senior-pm/assets/executive_report_template.md`
      - RAG özetini, risk ısı haritasını, kaynak kullanımı grafiğini dahil edin
      - Liderlikten gerekli kararları vurgulayın
      - Destekleyici veriler ile öneriler sağlayın
-
+  
   6. **Confluence'te Yayınlayın** - Yönetici panosu sayfası oluşturun:
      - KPI tanımlarını referans alın: `../../project-management/skills/senior-pm/references/portfolio-kpis.md`
      - Canlı veri için Jira makrolarını yerleştirin
      - Haftalık yenileme cadenceını ayarlayın
-
+  
   **Beklenen Çıktı:** Proje başına RAG durumu, EMV'li en iyi riskler, kaynak kullanımı ısı haritası ve liderlik karar talepleri ile yönetici portföy panosu.
-
+  
   **Zaman Tahmini:** Eksiksiz portföy incelemesi için 3-5 saat (aylık cadence önerilir)
-
+  
   **Örnek:**
   ```bash
   # Portföy sağlığı incelemesi otomasyonu
@@ -248,13 +248,13 @@ body_tr: |-
   cat risk_report.txt
   cat resource_report.txt
   ```
-
+  
   ### Workflow 3: Retrospektif ve Sürekli İyileştirme
-
+  
   **Hedef:** Yapılandırılmış bir retrospektif yürütün, uygulanabilir temalar çıkarın, iyileştirme metriklerini izleyin ve aksiyon öğelerinin ölçülebilir değişim sağladığından emin olun.
-
+  
   **Adımlar:**
-
+  
   1. **Sprint Metriklerini Toplayın** - Retro öncesi nicel veri toplayın:
      ```bash
      python ../../project-management/skills/scrum-master/scripts/sprint_health_scorer.py sprint_data.json
@@ -262,7 +262,7 @@ body_tr: |-
      - Sprint sağlığı puanını gözden geçirin (0-100)
      - Düşen puanlama boyutlarını belirleyin (kapsam, hız, kalite, moral)
      - Önceki sprint puanlarıyla trend analizi için karşılaştırın
-
+  
   2. **Retro Formatını Seçin** - Takım ihtiyaçlarına göre format seçin:
      - Referans: `../../project-management/skills/scrum-master/references/retro-formats.md`
      - **Start/Stop/Continue**: Genel amaçlı, yeni takımlar için iyi
@@ -270,13 +270,13 @@ body_tr: |-
      - **Sailboat**: Çapaları (engeller) ve rüzgarı (hızlandırıcılar) için görsel metafor
      - **Mad/Sad/Glad**: Duygu odaklı, takım moralini ele almak için iyi
      - **Starfish**: Nüanslı geribildirim için beş kategori
-
+  
   3. **Retrospektifi Yürütün** - Oturumu çalıştırın:
      - Sprint metriklerini bağlam olarak sunun (yargı değil)
      - Her bölümü sınırlandırın (5 dak. beyin fırtınası, 10 dak. tartışma, 5 dak. oy)
      - Tartışma konularını önceliklendirmek için dot voting kullanın
      - `../../project-management/skills/scrum-master/references/team-dynamics-framework.md` adresinden takım dinamiklerini referans alın
-
+  
   4. **Retro Çıktısını Analiz Edin** - Yapılandırılmış içgörüler çıkarın:
      ```bash
      python ../../project-management/skills/scrum-master/scripts/retrospective_analyzer.py retro_notes.json
@@ -284,27 +284,27 @@ body_tr: |-
      - Sprint'ler arasında tekrarlanan temaları belirleyin
      - İlgili öğeleri iyileştirme alanlarına kümeleme yapın
      - Önceki retrospektiflerden aksiyon öğesi tamamlanmasını izleyin
-
+  
   5. **Aksiyon Öğeleri Oluşturun** - İçgörüleri izlenebilir işlere dönüştürün:
      - Sprint başına 2-3 aksiyon öğesi ile sınırlayın (aşırı kayıt yapmaktan kaçının)
      - Açık sahiplik ve vade tarihleri atayın
      - Süreç iyileştirmeleri için Jira biletleri oluşturun
      - Aksiyon öğelerini sonraki sprint backlog'una ekleyin
-
+  
   6. **Confluence'te Dokümante Edin** - Retro özetini yayınlayın:
      - Sprint raporu şablonunu kullanın: `../../project-management/skills/scrum-master/assets/sprint_report_template.md`
      - Sprint sağlığı puanını, retro temalarını, aksiyon öğelerini, metrik trendlerini dahil edin
      - Boylamsal izleme için önceki retro sayfalarına bağlantı verin
-
+  
   7. **Zaman içinde İyileştirmeyi İzleyin** - Sürekli iyileştirmeyi ölçün:
      - Sprint sağlığı puanlarını üç aylık bazda karşılaştırın
      - Aksiyon öğesi tamamlanma oranını izleyin (hedef: >%80)
      - Proses olgunluğunun vekili olarak hız stabilitesini izleyin
-
+  
   **Beklenen Çıktı:** Önceliklendirilmiş temalar, sahip olduğu 2-3 aksiyon öğe (Jira biletleri ile), sprint sağlığı trend grafiği ve Confluence belgelendirmesi içeren retro özeti.
-
+  
   **Zaman Tahmini:** 1,5-2 saat (30 dak. hazırlık + 60 dak. retro + 30 dak. belgelendirme)
-
+  
   **Örnek:**
   ```bash
   # Retro öncesi veri toplama
@@ -315,32 +315,32 @@ body_tr: |-
   python ../../project-management/skills/scrum-master/scripts/retrospective_analyzer.py retro_notes.json > retro_analysis.txt
   cat retro_analysis.txt
   ```
-
+  
   ### Workflow 4: Yeni Takımlar için Jira/Confluence Kurulumu
-
+  
   **Hedef:** Jira projesi, workflow'lar, otomasyon, Confluence alanı ve şablonlar dahil olmak üzere yeni bir takım için eksiksiz bir Atlassian ortamı kurun.
-
+  
   **Adımlar:**
-
+  
   1. **Takım Sürecini Tanımlayın** - Takımın teslimat metodolojisini haritaya alın:
      - Scrum vs Kanban vs Scrumban
      - Gereken sorun türleri (Epic, Story, Task, Bug, Spike)
      - Gerekli özel alanlar (takım, bileşen, ortam)
      - Gerçek sürece uyan workflow durumları
-
+  
   2. **Jira Projesi Oluşturun** - Proje yapısını kurun:
      - Proje şablonunu seçin (Scrum panosu, Kanban panosu, Şirkete yönelik yönetilen)
      - Gerekli türlerle sorun türü şemasını yapılandırın
      - Bileşenleri ve sürümleri ayarlayın
      - Öncelik şemasını ve SLA hedeflerini tanımlayın
-
+  
   3. **Workflow'ları Tasarlayın** - Takım sürecine uyan workflow'lar oluşturun:
      - Referans: `../../project-management/skills/jira-expert/references/WORKFLOWS.md`
      - Durumları haritaya alın: Backlog > Ready > In Progress > Review > QA > Done
      - Koşullarla geçişler ekleyin (örn. In Progress için sorumlu gerekli)
      - Doğrulayıcıları yapılandırın (örn. Done öncesi hikaye noktaları gerekli)
      - Post-fonksiyonları ayarlayın (örn. gözden geçireni otomatik ata, kanalı bilgilendir)
-
+  
   4. **Otomasyon Kurallarını Yapılandırın** - Zaman kazandıran otomasyon kurallarını ayarlayın:
      - Referans: `../../project-management/skills/jira-expert/references/AUTOMATION.md`
      - Örnekler: `../../project-management/skills/jira-expert/references/automation-examples.md`
@@ -348,7 +348,7 @@ body_tr: |-
      - Otomatik ata: İş yüküne göre atamaları döndür
      - Bildirimler: Engellenen öğeler, SLA ihlalleri için Slack uyarıları
      - Temizlik: 30 gün sonra eski öğeleri otomatik kapat
-
+  
   5. **Confluence Alanını Kurun** - Takım bilgi tabanı oluşturun:
      - Referans: `../../project-management/skills/confluence-expert/references/templates.md`
      - Standart sayfa hiyerarşisi ile alan oluşturun:
@@ -358,155 +358,155 @@ body_tr: |-
        - Decision Log (ADR'ler, ödünleştirme kararları)
        - Runbooks (operasyonel prosedürler)
      - Confluence alanını Jira projesine bağlayın
-
+  
   6. **Panoları Oluşturun** - Takım ve paydaşlar için görünürlük kurun:
      - Atanan kişiye göre şeritlerle sprint panosu
      - Burndown/burnup grafik widget'ı
      - Tarihsel izleme için hız grafiği
      - SLA uyum izleyicisi
      - `../../project-management/skills/jira-expert/references/jql-examples.md` adresinden JQL desenleri kullanın
-
+  
   7. **Takımı Entegre Edin** - Takımı kurulum konusunda bilgilendir:
      - Workflow kurallarını ve nedenini dokümante edin
      - Yaygın Jira işlemleri için hızlı referans kılavuzu oluşturun
      - Yapılandırmayı doğrulamak için pilot sprint çalıştırın
      - Geri bildirime göre ilk 2 sprint'te yinele
-
+  
   **Beklenen Çıktı:** Özel workflow'lar ve otomasyon ile tam yapılandırılmış Jira projesi, sayfa hiyerarşisi ve şablonları ile Confluence alanı, takım panoları ve bilgilendirme belgelendirmesi.
-
+  
   **Zaman Tahmini:** Eksiksiz ortam kurulumu için 1-2 gün (pilot sprint hariç)
-
+  
   ## Entegrasyon Örnekleri
-
+  
   ### Örnek 1: Haftalık Proje Durum Raporu
-
+  
   ```bash
   #!/bin/bash
   # weekly-status.sh - Otomatik haftalık proje durumu oluşturma
-
+  
   echo "Haftalık Proje Durumu - $(date +%Y-%m-%d)"
   echo "============================================"
-
+  
   # Sprint sağlığı değerlendirmesi
   echo ""
   echo "Sprint Sağlığı:"
   python ../../project-management/skills/scrum-master/scripts/sprint_health_scorer.py current_sprint.json
-
+  
   # Hız trendi
   echo ""
   echo "Hız Trendi:"
   python ../../project-management/skills/scrum-master/scripts/velocity_analyzer.py sprint_history.json
-
+  
   # Risk maruziyeti
   echo ""
   echo "Aktif Riskler:"
   python ../../project-management/skills/senior-pm/scripts/risk_matrix_analyzer.py active_risks.json
-
+  
   # Kaynak kullanımı
   echo ""
   echo "Takım Kapasitesi:"
   python ../../project-management/skills/senior-pm/scripts/resource_capacity_planner.py team_data.json
   ```
-
+  
   ### Örnek 2: Sprint Retrospektifi Pipeline'ı
-
+  
   ```bash
   #!/bin/bash
   # retro-pipeline.sh - Sprint sonu analiz pipeline'ı
-
+  
   SPRINT_NUM=$1
   echo "Sprint $SPRINT_NUM Retrospektif Pipeline'ı"
   echo "=========================================="
-
+  
   # Adım 1: Sprint sağlığını puanla
   echo ""
   echo "1. Sprint Sağlığı Puanı:"
   python ../../project-management/skills/scrum-master/scripts/sprint_health_scorer.py sprint_${SPRINT_NUM}.json > sprint_health.txt
   cat sprint_health.txt
-
+  
   # Adım 2: Hız trendini analiz et
   echo ""
   echo "2. Hız Analizi:"
   python ../../project-management/skills/scrum-master/scripts/velocity_analyzer.py velocity_history.json > velocity.txt
   cat velocity.txt
-
+  
   # Adım 3: Retro notlarını işle
   echo ""
   echo "3. Retrospektif Temaları:"
   python ../../project-management/skills/scrum-master/scripts/retrospective_analyzer.py retro_sprint_${SPRINT_NUM}.json > retro_analysis.txt
   cat retro_analysis.txt
-
+  
   echo ""
   echo "Pipeline tamamlandı. Retro kolaylaştırması için yukarıdaki çıktıları gözden geçirin."
   ```
-
+  
   ### Örnek 3: Portföy Panosu Oluşturma
-
+  
   ```bash
   #!/bin/bash
   # portfolio-dashboard.sh - Aylık yönetici portföy incelemesi
-
+  
   MONTH=$(date +%Y-%m)
   echo "Portföy Panosu - $MONTH"
   echo "================================"
-
+  
   # Portföy arasında proje sağlığı
   echo ""
   echo "Proje Sağlığı (Tüm Aktif):"
   python ../../project-management/skills/senior-pm/scripts/project_health_dashboard.py portfolio_$MONTH.json > dashboard.txt
   cat dashboard.txt
-
+  
   # Risk ısı haritası
   echo ""
   echo "Risk Maruziyeti Özeti:"
   python ../../project-management/skills/senior-pm/scripts/risk_matrix_analyzer.py risks_$MONTH.json > risks.txt
   cat risks.txt
-
+  
   # Kaynak tahmini
   echo ""
   echo "Kaynak Kullanımı:"
   python ../../project-management/skills/senior-pm/scripts/resource_capacity_planner.py resources_$MONTH.json > capacity.txt
   cat capacity.txt
-
+  
   echo ""
   echo "Pano oluşturuldu. Son raporu birleştirmek için executive_report_template.md kullanın."
   echo "Şablon: ../../project-management/skills/senior-pm/assets/executive_report_template.md"
   ```
-
+  
   ## Başarı Metrikleri
-
+  
   **Sprint Teslimatı:**
   - **Hız Stabilitesi:** 6 sprint'lik ortalama hızın standart sapması <%15
   - **Sprint Hedef Başarısı:** >%85 sprint hedefi tamamen karşılanır
   - **Kapsam Değişim Oranı:** Kayıtlı hikayelerin <%10'u sprint ortasında değiştirilir
   - **Kalan Oran:** Kayıtlı hikayelerin <%5'i sonraki sprint'e kalır
-
+  
   **Portföy Sağlığı:**
   - **Zamanında Teslimat:** Kilometre taşlarının >%80'i hedefin 1 hafta içerisinde vurulur
   - **Bütçe Varyansı:** Onaylanan bütçeden <%10 sapma
   - **Risk Azaltması:** Tanımlanmış risklerin >%90'ı atanan sahibi ve aktif azaltma planına sahiptir
   - **Kaynak Kullanımı:** %75-85 kullanımı (tükenmişliği önlerken verim maksimize eder)
-
+  
   **Süreç İyileştirmesi:**
   - **Retro Aksiyon Tamamlanması:** Aksiyon öğelerinin >%80'i 2 sprint içinde tamamlanır
   - **Sprint Sağlığı Trendi:** Üç aylık sprint sağlığı puanında pozitif eğilim
   - **Döngü Süresi Azaltması:** 6 ayda ortalama hikaye döngü süresinde %15+ azaltma
   - **Takım Memnuniyeti:** Tüm boyutlarda sağlık kontrol puanları istikrarlı veya iyileşiyor
-
+  
   **Paydaş İletişimi:**
   - **Rapor Cadenceı:** Haftalık/aylık durum raporlarının %100'ü zamanında
   - **Karar Hızı:** Escalation'dan liderlik kararına <3 gün
   - **Paydaş Güveni:** Üç aylık PM etkinliği anketlerinde >%90 memnuniyet
   - **Şeffaflık:** Tüm proje verileri self-servis panolar aracılığıyla erişilebilir
-
+  
   ## İlişkili Ajanlar
-
+  
   - [cs-product-manager](../product/cs-product-manager.md) -- RICE ile ürün önceliklendirmesi, müşteri keşfi, PRD geliştirme
   - [cs-agile-product-owner](../product/cs-agile-product-owner.md) -- Kullanıcı hikayesi oluşturma, backlog yönetimi, kabul kriterleri (planlı)
   - cs-scrum-master -- Özel Scrum seremoni kolaylaştırması ve takım koçluğu (planlı)
-
+  
   ## Referanslar
-
+  
   - **Kıdemli PM Becerisi:** [../../project-management/skills/senior-pm/SKILL.md](../../project-management/skills/senior-pm/SKILL.md)
   - **Scrum Master Becerisi:** [../../project-management/skills/scrum-master/SKILL.md](../../project-management/skills/scrum-master/SKILL.md)
   - **Jira Uzmanı Becerisi:** [../../project-management/skills/jira-expert/SKILL.md](../../project-management/skills/jira-expert/SKILL.md)
@@ -514,9 +514,9 @@ body_tr: |-
   - **Atlassian Yöneticisi Becerisi:** [../../project-management/skills/atlassian-admin/SKILL.md](../../project-management/skills/atlassian-admin/SKILL.md)
   - **PM Domain Rehberi:** [../../project-management/CLAUDE.md](../../project-management/CLAUDE.md)
   - **Ajan Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
-
+  
   ---
-
+  
   **Son Güncelleme:** 9 Mart 2026
   **Sürüm:** 2.0
   **Durum:** Üretikte Hazır

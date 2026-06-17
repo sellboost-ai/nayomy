@@ -4,7 +4,7 @@ description_en: "Automate Callingly tasks via Rube MCP (Composio). Always search
 description_tr: "Callingly görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemalar için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/callingly-automation/SKILL.md"
 path: "composio-skills/callingly-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Callingly Otomasyonu Rube MCP aracılığıyla
-
+  
   Composio'nun Callingly toolkit'i aracılığıyla Rube MCP ile Callingly işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/callingly](https://composio.dev/toolkits/callingly)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Callingly bağlantısı ve `callingly` toolkit'i
   - Mevcut tool şemalarını almak için her zaman önce `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: MCP sunucusu olarak `https://rube.app/mcp` adresini istemci yapılandırmanıza ekleyin. API anahtarı gerekmez — endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` öğesini `callingly` toolkit'i ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Callingly operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Kullanılabilir Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Callingly task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["callingly"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'ları veya argümanları asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtları pagination token'ları açısından kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool'ları bulun | `RUBE_SEARCH_TOOLS` öğesini Callingly'ye özel use case ile kullanın |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` öğesini keşfedilen tool slug'ları ile kullanın |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` öğesini `run_composio_tool()` ile kullanın |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` öğesini `schemaRef` olan tool'lar için kullanın |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

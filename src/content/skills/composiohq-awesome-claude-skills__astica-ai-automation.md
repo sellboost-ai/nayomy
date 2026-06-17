@@ -4,7 +4,7 @@ description_en: "Automate Astica AI tasks via Rube MCP (Composio). Always search
 description_tr: "Astica AI görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemaları bulmak için tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/astica-ai-automation/SKILL.md"
 path: "composio-skills/astica-ai-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Astica AI Otomasyon via Rube MCP
-
+  
   Composio'nun Astica AI toolkit'i aracılığıyla Rube MCP üzerinden Astica AI operasyonlarını otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/astica_ai](https://composio.dev/toolkits/astica_ai)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (`RUBE_SEARCH_TOOLS` kullanılabilir olmalı)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `astica_ai` toolkit'i ile aktif Astica AI bağlantısı
   - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP Edinme**: İstemci yapılandırmanıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarına ihtiyaç yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. Toolkit `astica_ai` ile `RUBE_MANAGE_CONNECTIONS` çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Discovery (Tool Keşfi)
-
+  
   Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Astica AI operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input şemalarını, önerilen çalıştırma planlarını ve bilinen sorunları döndürür.
-
+  
   ## Core Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Astica AI task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["astica_ai"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'ları veya argümanları asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool bulma | `RUBE_SEARCH_TOOLS` Astica AI'a özgü use case ile |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştırma | `RUBE_MULTI_EXECUTE_TOOL` keşfedilmiş tool slug'ları ile |
   | Toplu işlem | `RUBE_REMOTE_WORKBENCH` ve `run_composio_tool()` ile |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` `schemaRef` olan tool'lar için |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

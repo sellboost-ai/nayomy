@@ -5,58 +5,11 @@ description: "General Rust rules for safe, idiomatic application and library dev
 description_tr: "Rust uygulamaları ve kütüphaneleri güvenli ve idiomatik şekilde geliştirmek için genel kurallar"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/rust-general.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rust-general.mdc"
 body_length: 2218
 file_extension: ".mdc"
-body_tr: |-
-  # Rust Genel Kuralları
-
-  ## Proje Yapısı
-
-  - Crate'leri odaklanmış tutun ve modülleri domain sorumluluk alanına göre adlandırın.
-  - Yeniden kullanılabilir kütüphane kodunu `src/lib.rs` içine ve binary giriş noktalarını `src/main.rs` veya `src/bin/` içine koyun.
-  - Public API'ları küçük ve belgelenmiş tutun.
-  - Feature flag'lerini bilinçli şekilde kullanın ve varsayılan olmayan özellikleri belgelemek.
-  - Uygulamalar için `Cargo.lock` commit'leyin; kütüphaneler için proje kuralına uyun.
-
-  ## Ownership ve Tipler
-
-  - Ownership gerekli olmadığında clonlamaya tercih ederek borrowing kullanın.
-  - Çağrılan taraf veri depolaması gerektiğinde API sınırlarında owned değerleri kullanın.
-  - Domain state'lerini string veya boolean yerine enum ve struct'larla modellendirin.
-  - Yokluk için `Option<T>` ve başarısız olabilir işlemler için `Result<T, E>` kullanın.
-  - Testler, örnek kodlar ve process-startup invariant'ları dışında `unwrap()` ve `expect()` kullanmaktan kaçının.
-
-  ## Hata İşleme
-
-  - Kütüphaneler için `thiserror` veya proje standardı custom error'lar kullanın.
-  - Uygulamalar için `anyhow` veya proje standardı context-rich error'lar kullanın.
-  - IO, network, database veya parsing sınırlarını geçerken context ekleyin.
-  - Error'ları `_` ile açıkça belgelenmediği sürece atıp sakmayın.
-
-  ## Concurrency ve Async
-
-  - `Send` ve `Sync` sınırlarını bilinçli şekilde kullanın.
-  - Async iş için message passing veya owned task input'larını tercih edin.
-  - `.await` üzerinde blocking lock tutmayın.
-  - Async uygulamalarda blocking CPU veya IO için `tokio::task::spawn_blocking` veya eşdeğerini kullanın.
-  - Cancellation'ı detached task'lar içinde saklama yerine future'lar aracılığıyla propagate edin.
-
-  ## Test ve Kalite
-
-  - Teslim etmeden önce `cargo fmt` ve `cargo clippy` çalıştırın.
-  - Saf logic için unit test'ler ve public davranış için integration test'ler ekleyin.
-  - Parser'lar, serializer'lar ve state machine'ler için faydalı olduğunda property test'lerini kullanın.
-  - Benchmark'ları yalnızca gerçek bir performance sorusu tanımladıktan sonra kullanın.
-
-  ## Yaygın Hatalar
-
-  - Borrow checker ile savaşmak için gereksiz `Arc<Mutex<_>>` eklemeyin.
-  - Yanlışlıkla public API'lar aracılığıyla iç modül yapısını exposed etmeyin.
-  - Ölçme yapmadan hot loop'lar içinde allocate etmeyin.
-  - Invariant belgelenmiş ve test edilmediği sürece unsafe kod kullanmayın.
 ---
 
 

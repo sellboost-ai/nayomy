@@ -4,7 +4,7 @@ description: "A Model Context Protocol (MCP) server for interacting with iOS sim
 description_tr: "iOS simülatörleriyle etkileşim kurmak için bir Model Context Protocol (MCP) sunucusu. Bu sunucu ile simülatörleri kontrol edebilir, UI etkileşimlerini yönetebilir ve UI elementlerini inceleyebilirsiniz."
 category: "Developer Tools"
 repo: "joshuayoes/ios-simulator-mcp"
-stars: 2053
+stars: 2054
 url: "https://github.com/joshuayoes/ios-simulator-mcp"
 body_length: 15860
 license: "MIT"

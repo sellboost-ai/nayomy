@@ -4,7 +4,7 @@ description_en: "Automate Autom tasks via Rube MCP (Composio). Always search too
 description_tr: "Rube MCP (Composio) üzerinden Autom görevlerini otomatikleştirin. Güncel şemaları için her zaman araçları ilk olarak arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/autom-automation/SKILL.md"
 path: "composio-skills/autom-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Autom Automation via Rube MCP
-
+  
   Rube MCP aracılığıyla Composio'nun Autom toolkit'i kullanarak Autom işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümentasyonu**: [composio.dev/toolkits/autom](https://composio.dev/toolkits/autom)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Autom bağlantısı, toolkit `autom` ile
   - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi edinin**: `https://rube.app/mcp` adresini MCP sunucusu olarak istemci yapılandırmanıza ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` öğesini toolkit `autom` ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth link'ini izleyin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   Workflow'ları yürütmeden önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Autom operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Autom task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["autom"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Yürütün
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'ları veya argümanları hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'ları kontrol edin ve tamamlanana kadar fetch işlemine devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool'ları bul | `RUBE_SEARCH_TOOLS` Autom'a özgü use case ile |
@@ -95,7 +95,7 @@ body_tr: |-
   | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` keşfedilen tool slug'ları ile |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` `schemaRef` olan tool'lar için |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

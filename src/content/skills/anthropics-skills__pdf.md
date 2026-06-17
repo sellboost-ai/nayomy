@@ -4,7 +4,7 @@ description_en: "Use this skill whenever the user wants to do anything with PDF 
 description_tr: "Kullanıcı PDF dosyaları ile herhangi bir işlem yapmak istediğinde bu skill'i kullanın. Buna PDF'lerden metin/tablo okuma ve çıkarma, birden fazla PDF'yi birleştirme, PDF'leri bölme, sayfaları döndürme, filigran ekleme, yeni PDF oluşturma, PDF formlarını doldurma, PDF şifreleme/şifre açma, görüntü çıkarma ve taranmış PDF'lerde OCR uygulaması dahildir. Kullanıcı bir .pdf dosyasından bahsettiğinde veya"
 category: "Document"
 repo: "anthropics/skills"
-stars: 151641
+stars: 151867
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/pdf/SKILL.md"
 path: "skills/pdf/SKILL.md"
 is_collection: false

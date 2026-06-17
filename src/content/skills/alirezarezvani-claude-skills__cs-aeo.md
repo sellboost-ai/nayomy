@@ -4,7 +4,7 @@ description_en: "/cs:aeo — Answer Engine Optimization workflow. Audit content 
 description_tr: "/cs:aeo — Answer Engine Optimization workflow. İçeriği E-E-A-T ve LLM alıntılamalarını (ChatGPT, Perplexity, Claude, Gemini, Mistral) tetikleyen yapı sinyalleri için denetler. 3 modda (conservative/balanced/aggressive) optimize eder. Hangi LLM'lerin hangi sayfaları alıntıladığını yerel defter üzerinden takip eder. Endüstri-farkında eşikler (YMYL kalibrasyonu ile 8 endüstri). SEO'dan farklı — birini diğerinin pahasına optimize etmez."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cmd-cs-aeo/SKILL.md"
 path: ".gemini/skills/cmd-cs-aeo/SKILL.md"
 is_collection: false
@@ -15,122 +15,122 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:aeo — Yanıt Motoru Optimizasyonu
-
+  
   **Komut:** `/cs:aeo [action] [args]`
-
+  
   `cs-aeo` komutu, **AEO iş akışları için giriş noktasıdır**: denetim → optimize → yayınla → alıntıları takip et.
-
+  
   ## `/cs:seo-audit`'ten Farklı
-
+  
   Bunlar ortak bir temele (E-E-A-T) sahiptir ancak farklı dönüşüm olaylarını optimize eder:
-
+  
   - **`/cs:seo-audit`** — Google/Bing arama sonuçlarında sıralama + tıklamayı optimize eder
   - **`/cs:aeo`** (bu komut) — LLM'ler tarafından yetkili kaynak olarak alıntılanmayı optimize eder
-
+  
   Aynı içerikte çalışabilirler. cs-aeo ajanı bunu ortaya çıkaracak ve yüksek etkili sayfalar için her ikisini de çalıştırmayı önerecektir.
-
+  
   ## Ne Zaman Çalıştırılmalı
-
+  
   - Mevcut içeriği AI-arama hazırlığı için denetleme (E-E-A-T + yapı sinyalleri)
   - Bir sayfayı yayınlamadan önce LLM alıntısı için optimize etme
   - LLM'lerin hangi sayfaları zaman içinde alıntıladığını takip etme (alıntı defteri)
   - Belirli bir içerik parçası için AEO yatırımının değerli olup olmadığını araştırma
   - Rakip alıntı oranlarına karşı kıyaslama
-
+  
   ## Ne Zaman Çalıştırılmamalı
-
+  
   - AI-alıntı niyeti olmayan saf tıklamayı optimize etme → `/cs:seo-audit` kullanın
   - Gerçeksel iddia olmayan marka sesi içeriği (alıntılar gerçekler gerektirir)
   - Zaman-duyarlı haberler (LLM eğitim gecikmesi, alıntı aylar sonra gelir)
   - LLM'lerin zaten güçlü eğitim aldığı konular (ör. ilkokul matematiği)
-
+  
   ## Eylemler
-
+  
   ### `audit` — İçeriği AEO hazırlığı için puanla
-
+  
   ```bash
   /cs:aeo audit --input post.md --industry saas
   /cs:aeo audit --url https://example.com/blog/post --industry healthcare
   /cs:aeo audit --sample
   ```
-
+  
   0-100 arası bileşik puan döndürür; boyut başına (E-E-A-T + Yapı) ve öncelik sırasına göre ilk 5 düzeltme.
-
+  
   ### `optimize` — AEO-iyileştirilmiş varyant oluştur
-
+  
   ```bash
   /cs:aeo optimize --input post.md --mode balanced --output post-aeo.md
   /cs:aeo optimize --input post.md --mode aggressive --industry finance
   ```
-
+  
   Üç mod:
   - `conservative` — <10% sözcüğü değiştir (yalnızca şema + düzeltme alt bilgisi)
   - `balanced` — <30% değiştir (alıntı işaretleri + başlık yeniden yapılandırması + şema + alt bilgi)
   - `aggressive` — tam yeniden yapılandırma + gerçek-ilk açılış + maksimum alıntı yoğunluğu
-
+  
   ### `track` — LLM yanıtında gözlemlediğiniz bir alıntıyı kaydedin
-
+  
   ```bash
   /cs:aeo track --url https://example.com/post --llm perplexity --query "what is AEO" --date 2026-05-17
   ```
-
+  
   `~/.aeo-data/citations.json` konumunda yerel defter tutar. Telemetri yok.
-
+  
   ### `report` — URL için toplam alıntı raporu
-
+  
   ```bash
   /cs:aeo report --url https://example.com/post
   ```
-
+  
   Toplam alıntılar, LLM kapsamı, hız, en çok sorgulanan konular, karar (EARLY / EMERGING / STRONG) döndürür.
-
+  
   ### `export` — Alıntı defterini CSV olarak aktar
-
+  
   ```bash
   /cs:aeo export --output citations.csv
   ```
-
+  
   İstemcilere / paydaşlara raporlama için.
-
+  
   ## Minimal Giriş (3 Soru)
-
+  
   | S | Sorar | Ne Zaman |
   |---|---|---|
   | S1 | Hangi eylem — audit / optimize / track / report? | Her zaman |
   | S2 | Sektör (saas / healthcare / finance / legal / ecommerce / b2b / media / education) | Her zaman (eşikleri ayarlar) |
   | S3 | `optimize` için: mod (conservative / balanced / aggressive)? | Yalnızca action=optimize olduğunda |
-
+  
   Çoğu çağrı S2'den sonra girişten çıkar.
-
+  
   ## İş Akışı
-
+  
   ```bash
   # Aşama 1: Denetim
   python3 marketing-skill/skills/aeo/scripts/aeo_audit.py --input <file> --industry <industry>
   # → bileşik puan 0-100 + en iyi düzeltmeler
-
+  
   # Aşama 2: Optimize et (denetim < sektör eşiği ise)
   python3 marketing-skill/skills/aeo/scripts/aeo_optimizer.py \
     --input <file> --mode <mode> --industry <industry> --output <file>-aeo.md
   # → optimize edilmiş varyant + değişiklik günlüğü
-
+  
   # Aşama 3: Yayınla (manuel adım — optimize edilmiş varyantı incele, sonra dağıt)
-
+  
   # Aşama 4: Takip et (4-12 hafta boyunca)
   python3 marketing-skill/skills/aeo/scripts/citation_tracker.py \
     --action add --url <url> --llm <llm> --query <query> --date <YYYY-MM-DD>
   # → defter güncellendi
-
+  
   # Aşama 5: Rapor et (aylık)
   python3 marketing-skill/skills/aeo/scripts/citation_tracker.py \
     --action report --url <url>
   # → URL başına alıntı raporu
   ```
-
+  
   ## Sektöre Özgü Eşikler
-
+  
   Denetçi sektöre göre kalibre edilir. YMYL ("Paranız ya da Hayatınız") konuları daha katı eşikler kullanır:
-
+  
   | Sektör | Min Bileşik | Neden |
   |---|---|---|
   | Healthcare | 85 | Doğrudan sağlık etkileri |
@@ -139,20 +139,20 @@ body_tr: |-
   | Education | 75 | Öğrenme çıktıları |
   | SaaS, B2B, Media | 70 | İş kararları, orta düzey riskler |
   | E-commerce | 65 | Ürün incelemeleri, düşük bireysel risk |
-
+  
   Eşiğin altında puan alan YMYL konuları için içerik, diğer sinyallere bakılmaksızın alıntılanması olası değildir — cs-aeo ajanı bunu işaretleyecek ve temel boyutlar iyileşene kadar agresif optimizasyondan kaçınacaktır.
-
+  
   ## Reddedilen Anti-Desenler
-
+  
   - İnsan incelemesi olmayan LLM tarafından oluşturulan AEO içeriği (RAG alma, jenerik LLM çıktısını deprioritize eder)
   - Yazar hakkında kısmında sahte kimlik bilgileri (LLM'ler LinkedIn/Wikipedia aracılığıyla çapraz başvuru yapar)
   - Şema spam'ı (yanlış yapılandırılmış veri işaretlemesi filtrelenir)
   - Otorite transferi (bağlantı kurmak otorite vermez)
   - LLM başına optimizasyon tünel görüşü (73% çapraz LLM alıntı korelasyonu — paylaşılan sinyalleri optimize et)
   - SEO pahasına AEO optimizasyonu (ve tersi) — birbirini tamamlarlar, ikame değildir
-
+  
   ## Tetikleme İfadeleri
-
+  
   - "AEO denetimi"
   - "ChatGPT / Perplexity / Claude / Gemini için optimize et"
   - "[LLM] tarafından alıntılanmak"
@@ -162,16 +162,16 @@ body_tr: |-
   - "AI arama için içerik"
   - "AI alıntılarını takip et"
   - "AI için şema"
-
+  
   ## İlişkili
-
+  
   - Ajan: [`cs-aeo`](agents/marketing/cs-aeo.md)
   - Beceri: [`aeo`](marketing-skill/skills/aeo/SKILL.md)
   - İlgili: `/cs:seo-audit` (SEO + AEO genellikle birlikte çalışır)
   - Kaynak: [`alirezarezvani/aeo-box`](https://github.com/alirezarezvani/aeo-box) adresinden taşındı
-
+  
   ---
-
+  
   **Sürüm:** 2.7.3
   **Lisans:** MIT
 ---

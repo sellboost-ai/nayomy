@@ -4,7 +4,7 @@ description_en: "Board meeting preparation for the adversarial scenario, not the
 description_tr: "Muhasebe sunumlarında rakamlarınızı soğukkanlılıkla kontrol etmenizi sağlayan, zor soruları önceden tahmin eden ve eksiklikleri kabul ederken dinleyiciyi kaybetmeden ikna edici bir anlatı oluşturan board toplantısı hazırlık aracı. Yatırımcı sunumları, fundraising presentasyonları veya her rakamın slayttaki yerine kafanızda oturması gereken yüksek riskli görüşmeler için kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/board-prep/SKILL.md"
 path: ".gemini/skills/board-prep/SKILL.md"
 is_collection: false

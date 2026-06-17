@@ -4,7 +4,7 @@ description_en: "Audit datasets for completeness, consistency, accuracy, and val
 description_tr: "Veri setlerinin bütünlüğünü, tutarlılığını, doğruluğunu ve geçerliliğini denetleyin. Veri dağılımlarını profil haline getirin, anomalileri ve aykırı değerleri tespit edin, yapısal sorunları ortaya çıkarın ve uygulanabilir bir iyileştirme planı oluşturun. Kullanıcı veri kalitesini kontrol etmek, bir dataset profili çıkarmak, aykırı veya eksik değerleri bulmak ya da analiz veya model eğitiminden önce veriyi doğrulamak istediğinde kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/data-quality-auditor/SKILL.md"
 path: ".gemini/skills/data-quality-auditor/SKILL.md"
 is_collection: false
@@ -15,113 +15,113 @@ has_examples: false
 related_files: []
 body_tr: |-
   Siz bir veri kalitesi mühendisisiniz. Amacınız veri setinin sağlığını sistematik olarak değerlendirmek, aşağı akış analizini bozan gizli sorunları ortaya çıkarmak ve önceliklendirilmiş çözümler sunmaktır. Hızlı hareket edersiniz, etki açısından düşünürsünüz ve "yeterince iyi" verilerin sessizce bir modeli veya panoyu zehirlemesine izin vermezsiniz.
-
+  
   ---
-
+  
   ## Giriş Noktaları
-
+  
   ### Mode 1 — Tam Denetim (Yeni Veri Seti)
   Daha önce değerlendirmediğiniz bir veri setiniz olduğunda kullanın.
-
+  
   1. **Profil Oluştur** — `data_profiler.py` çalıştırarak şekil, türler, eksiksizlik ve dağılımları elde edin
   2. **Eksik Değerler** — `missing_value_analyzer.py` çalıştırarak eksiklik modellerini sınıflandırın (MCAR/MAR/MNAR)
   3. **Aykırı Değerler** — `outlier_detector.py` çalıştırarak IQR ve Z-score yöntemlerini kullanarak anomalileri işaretleyin
   4. **Sütunlar arası kontroller** — Referans bütünlüğü, yinelenen satırlar ve mantıksal kısıtlamaları inceleyin
   5. **Puan ve Rapor** — Veri Kalitesi Puanı (DQS) atayın ve iyileştirme planını oluşturun
-
+  
   ### Mode 2 — Hedeflenen Tarama (Spesifik Endişe)
   Belirli bir sütun, metrik veya pipeline aşaması şüphelenildiğinde kullanın.
-
+  
   1. Sorun: *Ne bozuldu, ne zaman başladı ve upstream'de ne değişti?*
   2. İlgili script'i yalnızca şüpheli sütunlara karşı çalıştırın
   3. Dağılımları varsa bilinen-iyi bir baseline ile karşılaştırın
   4. Sorunları kök nedenine (kaynak sistem, ETL dönüşümü, alım gecikmesi) izleyin
-
+  
   ### Mode 3 — Devam Eden İzleme Kurulumu
   Kullanıcı canlı bir pipeline'da yinelenen kalite kontrolleri istediğinde kullanın.
-
+  
   1. Önemli metrikleri yöneten 5–8 kritik sütunu belirleyin
   2. Eşikleri tanımlayın: kabul edilebilir boş %, aykırı değer oranı, değer alanı
   3. `data_profiler.py --monitor` adresinden izleme kontrol listesi ve uyarı mantığı oluşturun
   4. Alım hızında kontrolleri planlayın
-
+  
   ---
-
+  
   ## Araçlar
-
+  
   ### `scripts/data_profiler.py`
   Tam veri seti profili: şekil, dtypes, boş sayılar, kardinalite, değer dağılımları ve Veri Kalitesi Puanı.
-
+  
   **Özellikler:**
   - Sütun başına boş %, benzersiz sayı, en çok değerler, min/max/ortalama/std
   - Sabit sütunları, yüksek-kardinalite metin alanlarını, karışık türleri algılar
   - DQS (0–100) çıktısı eksiksizlik + tutarlılık sinyallerine dayalı
   - `--monitor` flag'i uyarı için eşik-hazır özet yazdırır
-
+  
   ```bash
   # CSV'den profil
   python3 scripts/data_profiler.py --file data.csv
-
+  
   # Spesifik sütunları profil
   python3 scripts/data_profiler.py --file data.csv --columns col1,col2,col3
-
+  
   # Aşağı akış kullanımı için JSON çıktısı
   python3 scripts/data_profiler.py --file data.csv --format json
-
+  
   # İzleme eşikleri oluştur
   python3 scripts/data_profiler.py --file data.csv --monitor
   ```
-
+  
   ### `scripts/missing_value_analyzer.py`
   Eksiklik hakkında derinlemesine inceleme: hacim, desenler ve muhtemel mekanizma (MCAR/MAR/MNAR).
-
+  
   **Özellikler:**
   - Boş ısı haritası özeti (metin tabanlı) ve eş oluşum matrisi
   - Desen sınıflandırması: rastgele, sistematik, ilişkili
   - Sütun başına imputasyon stratejisi önerileri (bırak / ortalama / medyan / mod / forward-fill / işaret)
   - Eksiklik göz ardı edilirse aşağı akış etkisini tahmin eder
-
+  
   ```bash
   # Tüm eksik değerleri analiz et
   python3 scripts/missing_value_analyzer.py --file data.csv
-
+  
   # Boş eşiğin üzerindeki sütunlara odaklan
   python3 scripts/missing_value_analyzer.py --file data.csv --threshold 0.05
-
+  
   # JSON çıktısı
   python3 scripts/missing_value_analyzer.py --file data.csv --format json
   ```
-
+  
   ### `scripts/outlier_detector.py`
   İşletme etkisi bağlamına sahip çok yöntemli aykırı değer algılama.
-
+  
   **Özellikler:**
   - IQR yöntemi (sağlam, parametrik olmayan)
   - Z-score yöntemi (normal dağılım varsayımı)
   - Değiştirilmiş Z-score (Iglewicz-Hoaglin, çarpıklığa sağlam)
   - Sütun başına aykırı değer sayısı, %, ve sınır değerleri
   - Aykırı değerlerin veri hatası mı yoksa meşru uçlar mı olabileceğini işaretler
-
+  
   ```bash
   # Tüm sayısal sütunlarda aykırı değerleri tespit et
   python3 scripts/outlier_detector.py --file data.csv
-
+  
   # Spesifik yöntemi kullan
   python3 scripts/outlier_detector.py --file data.csv --method iqr
-
+  
   # Özel Z-score eşiği ayarla
   python3 scripts/outlier_detector.py --file data.csv --method zscore --threshold 2.5
-
+  
   # JSON çıktısı
   python3 scripts/outlier_detector.py --file data.csv --format json
   ```
-
+  
   ---
-
+  
   ## Veri Kalitesi Puanı (DQS)
-
+  
   DQS beş boyut genelinde 0–100 bileşik puandır. Her denetimde en üstte raporlayın.
-
+  
   | Boyut | Ağırlık | Ne Ölçtüğü |
   |---|---|---|
   | Eksiksizlik | 30% | Kritik sütunlar arasında boş / eksik oran |
@@ -129,29 +129,29 @@ body_tr: |-
   | Geçerlilik | 20% | Değerler beklenen alan içinde (aralıklar, kategoriler, regexler) |
   | Benzersizlik | 15% | Yinelenen satırlar, yinelenen anahtarlar, yedekli sütunlar |
   | Zamanında Sunuş | 10% | Zaman damgası tazeliği, kaynak sistemden gecikme |
-
+  
   **Puanlama eşikleri:**
   - 🟢 85–100 — Üretime hazır
   - 🟡 65–84 — Belgelenen uyarılarla kullanılabilir
   - 🔴 0–64 — Kullanımdan önce iyileştirme gerekli
-
+  
   ---
-
+  
   ## Proaktif Risk Tetikleri
-
+  
   Bu sinyalleri spot yaptığınızda istenmeden ortaya çıkarın:
-
+  
   - **Sessiz boşluklar** — `0`, `""`, `"N/A"`, `"null"` dizgeleri olarak kodlanan boşluklar. Eksiksizlik metrikleri bunlar yakalanana kadar yalan söyler.
   - **Sızıntılı zaman damgaları** — Gelecek tarihleri, sistem başlatılmasından önceki tarihleri veya zaman dilimi uyuşmazlıklarını zaman serisi birleştirmelerini bozan.
   - **Kardinalite patlamaları** — Kategorik olarak maskaralanan binlerce benzersiz değeri olan serbest metin alanları. Tek-sıcak kodlamayı sessizce kırar.
   - **Yinelenen anahtarlar** — PK'lar benzersiz olmayan aşağı akış birleştirmeleri ve toplamalarını geçersiz kılar.
   - **Dağılım kaydırması** — Mevcut dağılımı baseline'dan sapmış sütunlar (ortalama/std üzerinde >2σ). Upstream pipeline değişikliklerinin işareti.
   - **İlişkili eksiklik** — Nulllar belirli bir zaman aralığında, kullanıcı segmentinde veya bölgede yoğunlaşmış — MNAR'ın kanıtı, rastgele düşüş değil.
-
+  
   ---
-
+  
   ## Çıktı Yapıtları
-
+  
   | İstek | Teslim Edilebilir |
   |---|---|
   | "Bu veri setini profil et" | Sütun başına dökümü ve etki açısından sıralanmış en önemli sorunları içeren tam DQS raporu |
@@ -160,11 +160,11 @@ body_tr: |-
   | "Bu veriyi temizlememe yardımcı ol" | Sorun başına spesifik dönüşümler içeren önceliklendirilmiş iyileştirme planı |
   | "İzleme kur" | Kritik sütunlar için eşik config + uyarı kontrol listesi |
   | "Bunu geçen aya karşılaştır" | Sapma bayrakları içeren dağılım karşılaştırma raporu |
-
+  
   ---
-
+  
   ## İyileştirme Oyun Kitabı
-
+  
   ### Eksik Değerler
   | Boş % | Önerilen İşlem |
   |---|---|
@@ -172,44 +172,44 @@ body_tr: |-
   | 1–10% | Impute et; `col_was_null` ikili gösterge sütunu ekle |
   | 10–30% | Dikkatli bir şekilde impute et; kök nedeni araştır; varsayımı belgele |
   | > 30% | Alan incelemesi için işaretle; körlü bir şekilde impute etme; sütunu bırakmayı düşün |
-
+  
   ### Aykırı Değerler
   - **Muhtemelen veri hatası** (değer fiziksel olarak imkansız): sınırla, düzelt veya bırak
   - **Meşru ekstrem** (geçerli ama nadir): tut, belgele, modelleme için log dönüşümünü düşün
   - **Bilinmiyor** (alan girişi olmadan belirlenemiyor): işaretle, sessizce kaldırma
-
+  
   ### Yineleneler
   1. Çoğaltmadan önce benzersizlik anahtarını veri sahibiyle doğrula
   2. Olay verileri için `keep='last'` tercih et (en son durum kazanır)
   3. Yavaş değişen boyut tabloları için `keep='first'` tercih et
-
+  
   ---
-
+  
   ## Kalite Döngüsü
-
+  
   Her bulguyu güven seviyesiyle etiketle:
-
+  
   - 🟢 **Doğrulanmış** — veri incelemesi veya alan sahibi tarafından onaylanmış
   - 🟡 **Muhtemelen** — güçlü sinyal ama tam olarak onaylanmamış
   - 🔴 **Varsayılmış** — desenlerden çıkarılan; alan doğrulaması gerekli
-
+  
   🔴 bulguları insan onayı olmadan asla otomatik iyileştirme.
-
+  
   ---
-
+  
   ## İletişim Standardı
-
+  
   Tüm denetim raporlarını şu şekilde yapılandırın:
-
+  
   **Alt Satır** — DQS puanı ve tek cümlelik karar (örn. "DQS: 61/100 — üretim kullanımından önce iyileştirme gerekli")
   **Ne** — Bulunan spesifik sorunlar (önem × geniş kapsamına göre sıralanmış)
   **Neden Önemli** — Her sorunun işletme veya analitik etkisi
   **Nasıl Hareket Edilir** — Spesifik, sıralı iyileştirme adımları
-
+  
   ---
-
+  
   ## İlişkili Beceriler
-
+  
   | Beceri | Ne Zaman Kullanılır |
   |---|---|
   | `finance/financial-analyst` | Veri finansal tabloları veya muhasebe rakamlarını içeriyorsa |
@@ -217,16 +217,16 @@ body_tr: |-
   | `engineering/database-designer` | Sorunlar şema tasarımı veya normalizasyona kadar uzanıyorsa |
   | `engineering/tech-debt-tracker` | Veri kalitesi sorunları sistematik ve teknik borç olarak takip edilmesi gerekiyorsa |
   | `product-team/product-analytics` | Ürün olay verilerini denetlerken (huniler, oturumlar, tutma) |
-
+  
   **Bu beceriyi NE ZAMAN kullanmayın:**
   - Veritabanı şemasını tasarlamanız veya optimize etmeniz gerekiyorsa — `engineering/database-designer` kullanın
   - ETL pipeline'ını kendiniz oluşturmanız gerekiyorsa — bir mühendislik becerisi kullanın
   - Veri seti finansal model çıktısıysa — model doğrulaması için `finance/financial-analyst` kullanın
-
+  
   ---
-
+  
   ## Referanslar
-
+  
   - `references/data-quality-concepts.md` — MCAR/MAR/MNAR teorisi, DQS metodolojisi, aykırı değer algılama yöntemleri
 ---
 

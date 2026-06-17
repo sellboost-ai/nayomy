@@ -4,7 +4,7 @@ description_en: "Automate Castingwords tasks via Rube MCP (Composio). Always sea
 description_tr: "Castingwords görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/castingwords-automation/SKILL.md"
 path: "composio-skills/castingwords-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP ile Castingwords Otomasyonu
-
+  
   Composio'nun Castingwords araç seti aracılığıyla Rube MCP kullanarak Castingwords operasyonlarını otomatikleştirin.
-
+  
   **Araç seti dokümentasyonu**: [composio.dev/toolkits/castingwords](https://composio.dev/toolkits/castingwords)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Castingwords bağlantısı ve `castingwords` toolkit'i
   - Güncel araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci yapılandırmanıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` çağırın `castingwords` toolkit'i ile
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   Workflow'ları çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Castingwords operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir araç slugs'larını, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Kullanılabilir Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Castingwords task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["castingwords"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla araç slugs'larını veya argümanlarını hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session tekrar kullanımı**: Bir workflow içinde session ID'lerini tekrar kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination tokenlarını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | `RUBE_SEARCH_TOOLS` ile Castingwords'e özgü use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slugs'larını kullanın |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` içeren araçlar için |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

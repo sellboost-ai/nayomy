@@ -4,7 +4,7 @@ description_en: "Automate Certifier tasks via Rube MCP (Composio). Always search
 description_tr: "Rube MCP (Composio) aracılığıyla Certifier görevlerini otomatikleştirin. Tools'ta her zaman güncel şemaları aramaya başlayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/certifier-automation/SKILL.md"
 path: "composio-skills/certifier-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP ile Certifier Otomasyonu
-
+  
   Composio'nun Certifier toolkit'ini Rube MCP aracılığıyla kullanarak Certifier işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümentasyonu**: [composio.dev/toolkits/certifier](https://composio.dev/toolkits/certifier)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla `certifier` toolkit'i ile aktif Certifier bağlantısı
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağrısını ilk yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi alın**: `https://rube.app/mcp` adresini MCP sunucusu olarak istemci konfigürasyonunuza ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` komutunu `certifier` toolkit'i ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen kimlik doğrulama linkini takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Bulma
-
+  
   Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Certifier operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Certifier task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["certifier"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan asla tool slug'larını veya argümanlarını hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` komutunun ACTIVE durumu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
   - **Sayfalandırma**: Yanıtları sayfalandırma token'ları açısından kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool bulma | Certifier'a özgü use case ile `RUBE_SEARCH_TOOLS` |
@@ -95,7 +95,7 @@ body_tr: |-
   | Yürütme | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
   | Tam şema | `schemaRef` ile tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

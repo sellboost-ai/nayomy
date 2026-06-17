@@ -4,7 +4,7 @@ description: "Provide coding agents direct access to Figma data to help them one
 description_tr: "Kodlama ajanlarına Figma verilerine doğrudan erişim sağlayarak tasarım implementasyonunu tek adımda tamamlamalarını sağlar."
 category: "Developer Tools"
 repo: "GLips/Figma-Context-MCP"
-stars: 15127
+stars: 15134
 url: "https://github.com/GLips/Figma-Context-MCP"
 body_length: 4182
 license: "MIT"

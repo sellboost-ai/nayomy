@@ -4,7 +4,7 @@ description: "A Model Context Protocol Server for SearXNG"
 description_tr: "SearXNG için bir Model Context Protocol Server"
 category: "Search & Data Extraction"
 repo: "ihor-sokoliuk/mcp-searxng"
-stars: 906
+stars: 907
 url: "https://github.com/ihor-sokoliuk/mcp-searxng"
 body_length: 10925
 license: "MIT"

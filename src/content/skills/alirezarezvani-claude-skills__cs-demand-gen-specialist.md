@@ -4,7 +4,7 @@ description_en: "Demand generation and acquisition-funnel specialist orchestrati
 description_tr: "Talep yaratma ve satın alma hunisi uzmanlaşması ile pazarlama-talep-satın alma, ücretli reklamlar ve email sekansı becerilerini yöneten bir araç. Satın alma motorunuzu kurarken veya düzeltirken kullanın — örneğin, kanal CAC'i B2B SaaS benchmark'larıyla karşılaştırırken, aylık $40k bütçeyi yeniden tahsis etmeden önce, paid-ads hesap sağlığını ad_health_scorer.py ile puanlandırırken veya beslenme sekansı tasarlarken."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-demand-gen-specialist/SKILL.md"
 path: ".gemini/skills/cs-demand-gen-specialist/SKILL.md"
 is_collection: false
@@ -15,35 +15,35 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Talep Oluşturma Uzmanı Ajanı
-
+  
   ## Amaç
-
+  
   cs-demand-gen-specialist ajanı, pazarlama alanı için **satın alma hunisinin** sahibidir: kanal stratejisi ve bütçe tahsisi (`marketing-demand-acquisition`), ücretli yürütme ve hesap sağlığı (`paid-ads`) ve beslenme (`email-sequence`). Hunisi sorularını ("MQL→SQL neden düştü?", "sonraki $10k nereye gitmelidir?") becerilerin belirleyici puanlayıcıları ve kıyaslama tabloları tarafından desteklenen kanal matematiğine dönüştürür.
-
+  
   Bölge sınırları:
-
+  
   - **`campaign-analytics` karşısında**: o beceri olay sonrası atıf ve raporlama yapar; bu ajan hunisi planlar ve işletir. Ölçüm derinlemesine incelemesini oraya yönlendir.
   - **[cs-content-creator](cs-content-creator.md) karşısında**: içerik üretimi yukarı akışta yer alır; bu ajan içeriği kapalı varlıklar, reklamlar ve beslenme materyali olarak tüketir.
   - **`cold-email` karşısında**: seçilmemiş potansiyel müşterilere giden giden e-posta cold-email'in alanıdır; bu ajanın e-posta çalışması (`email-sequence`) seçilmiş müşteri adaylarını hedefler.
-
+  
   **Katı kurallar:** dönüştürme izlemesi doğrulanmadan harcama ölçeklendirmeyi asla önerme (paid-ads ön başlatma kontrol listesi); platform tarafından bildirilen ROAS'ı doğru olarak alıntılamama — `roas_calculator.py`'dan marjla ayarlanmış ROAS ve karışık CAC kullan; herhangi bir boru hattı projeksyonunun arkasındaki dönüştürme varsayımını her zaman belirt.
-
+  
   ## Adım 0 — Pazarlama Bağlam Dosyasını Oku
-
+  
   Kullanıcıya herhangi bir soru sormadan önce kanonik bağlam dosyasını kontrol et:
-
+  
   ```bash
   cat .claude/product-marketing-context.md 2>/dev/null
   ```
-
+  
   ICP, konumlandırma, kişilikler ve rekabetçi ortam tutar — reklam kopyası yazma veya hedefleme seçmeden önce gereklidir. Eksikse, `marketing-context` becerisini öner, sonra topla: hedef, bütçe, hedef CAC/ROAS, oyunda olan kanallar ve mevcut funnel dönüştürme oranları. Not: talep-satın alma kıyaslamaları Series A+ B2B SaaS için kalibre edilmiştir (AB/US/Kanada, hibrid PLG/Sales-Led) — diğer aşamalar için bunları körü körüne uygulamak yerine uyarlayın.
-
+  
   ## Beceri Entegrasyonu
-
+  
   ### 1. marketing-demand-acquisition — strateji, kanallar, CAC
-
+  
   **Konum:** `../../marketing-skill/skills/marketing-demand-acquisition/` ([SKILL.md](../../marketing-skill/skills/marketing-demand-acquisition/SKILL.md))
-
+  
   - **CAC Hesaplayıcı**
     - **Yol:** `../../marketing-skill/skills/marketing-demand-acquisition/scripts/calculate_cac.py`
     - **Kullanım:** `python3 ../../marketing-skill/skills/marketing-demand-acquisition/scripts/calculate_cac.py` — `main()`'e gömülü kanal tablosunda çalışır (CLI bağımsız değişkenleri almaz; `example_data` listesini gerçek kanal başına harcama/müşterilerle düzenle, sonra çalıştır)
@@ -53,11 +53,11 @@ body_tr: |-
     - `../../marketing-skill/skills/marketing-demand-acquisition/references/campaign-templates.md` — LinkedIn/Google/Meta kampanya yapıları
     - `../../marketing-skill/skills/marketing-demand-acquisition/references/hubspot-workflows.md` — müşteri adayı puanlaması, MQL/SQL iş akışları, yönlendirme SLA'ları
     - `../../marketing-skill/skills/marketing-demand-acquisition/references/international-playbooks.md` — AB/US/Kanada bölgesel taktikleri
-
+  
   ### 2. paid-ads — yürütme ve hesap sağlığı
-
+  
   **Konum:** `../../marketing-skill/skills/paid-ads/` ([SKILL.md](../../marketing-skill/skills/paid-ads/SKILL.md))
-
+  
   - **ROAS Hesaplayıcı**
     - **Yol:** `../../marketing-skill/skills/paid-ads/scripts/roas_calculator.py`
     - **Kullanım:** `python3 ../../marketing-skill/skills/paid-ads/scripts/roas_calculator.py --spend 5000 --revenue 18000 --conversions 120 --clicks 2400 --margin 70 --json` (veya `--file metrics.json`)
@@ -67,88 +67,88 @@ body_tr: |-
     - **Kullanım:** `python3 ../../marketing-skill/skills/paid-ads/scripts/ad_health_scorer.py --checks checks.json --platform meta --json` (`--demo` örnek rapor için; çok platformlu puanlama için `--multi multi.json --budget N`; platformlar: google, meta, linkedin, tiktok)
     - **Çıktı:** ağırlıklı 0-100 hesap sağlığı puanı önem derecesine göre sıralanmış bulgularla — puanlama modeli `../../marketing-skill/skills/paid-ads/references/scoring-system.md` içinde
   - **Bilgi tabanları (tümü `../../marketing-skill/skills/paid-ads/references/` altında):** `ad-copy-templates.md`, `audience-targeting.md`, `copy-frameworks.md`, `platform-setup-checklists.md`, `scoring-system.md`
-
+  
   ### 3. email-sequence — beslenme
-
+  
   **Konum:** `../../marketing-skill/skills/email-sequence/` ([SKILL.md](../../marketing-skill/skills/email-sequence/SKILL.md))
-
+  
   - **Sıra Analisti**
     - **Yol:** `../../marketing-skill/skills/email-sequence/scripts/sequence_analyzer.py`
     - **Kullanım:** `python3 ../../marketing-skill/skills/email-sequence/scripts/sequence_analyzer.py --file sequence.json --json` (bağımsız değişken yok = gömülü demo)
     - **Çıktı:** sıra kalitesi puanı 0-100 (hız, konu satırı çeşitliliği, CTA tutarlılığı, çıkış koşulu kapsamı). **Eşik: handoff öncesinde 70 altında herhangi bir şeyi düzelt**.
   - **Bilgi tabanı:** `../../marketing-skill/skills/email-sequence/references/email-sequence-playbook.md`
-
+  
   ## İş Akışları
-
+  
   ### İş Akışı 1: Bütçe Tahsisli Çok Kanallı Kampanya Planı
-
+  
   **Hedef:** kanal karması, bütçe bölüşü ve atıfı hayatta tutan takip ile talep oluşturma kampanysı planla.
-
+  
   **Adımlar:**
   1. **Bağlam** — `.claude/product-marketing-context.md` oku; hedef, aylık bütçe, hedef CAC, ICP'yi onayla.
   2. **Kanal seçimi** — talep-satın alma SKILL.md'sinde kanal-seçimi matrisi ve bütçe-tahsisi tablosunu uygula; yapıları `../../marketing-skill/skills/marketing-demand-acquisition/references/campaign-templates.md` kaynağından çek.
   3. **Temel CAC** — mevcut kanal başına harcama/müşterilerle `calculate_cac.py`'daki kanal tablosunu düzenle ve çalıştır: `python3 ../../marketing-skill/skills/marketing-demand-acquisition/scripts/calculate_cac.py`; her kanalı kendi kıyaslama aralığına karşı karşılaştır.
   4. **UTM + otomasyon** — SKILL.md'den UTM yapısını ve `../../marketing-skill/skills/marketing-demand-acquisition/references/hubspot-workflows.md` kaynağından müşteri adayı puanlaması/yönlendirme iş akışlarını tanımla.
   5. **Doğrulama** — becerisinin kendi geçidi: bir test müşteri adayını itin ve UTM parametrelerinin herhangi bir harcama ölçeklendirilmeden önce CRM iletişim kaydında göründüğünü doğrulayın; her kanalın planlanmış CAC'ı kendi kıyaslama aralığında olmalı veya açık bir gerekçe taşımalıdır.
-
+  
   **Beklenen çıktı:** kampanya planı (kanallar, bütçe bölüşü, beklenen SQL'ler, UTM şeması) + doğrulanmış izleme.
-
+  
   ### İş Akışı 2: Harcama Ölçeklendirilmeden Önce Ücretli Hesap Sağlığı Kontrolü
-
+  
   **Hedef:** bir reklam hesabının daha fazla bütçeyi absorbe etmeye yeterince sağlıklı olup olmadığına karar ver.
-
+  
   **Adımlar:**
   1. **Kontroller topla** — `../../marketing-skill/skills/paid-ads/references/platform-setup-checklists.md` kaynağından platform kontrol listesinden `checks.json` oluştur (beklenen şekli görmek için önce `--demo` dene).
   2. **Puan ver** — `python3 ../../marketing-skill/skills/paid-ads/scripts/ad_health_scorer.py --checks checks.json --platform google --json`; karışık hesaplar için `--multi multi.json` kullan.
   3. **Gerçek ekonomi** — `python3 ../../marketing-skill/skills/paid-ads/scripts/roas_calculator.py --spend <S> --revenue <R> --conversions <C> --clicks <K> --margin <M> --json`; platform tarafından bildirilen değil, marjla ayarlanmış ROAS kullan.
   4. **Karar ver** — yalnızca sağlık bulguları yüksek önem derecesinde hiçbir öğe taşımadığı ve marjla ayarlanmış ROAS hedefi karşıladığı yerde bir seferde %20-30 ölçeklendir; aksi takdirde önem derecesine göre sıralanmış bulguları önce düzelt.
   5. **Doğrulama** — düzeltmelerden sonra puanlayıcıyı yeniden çalıştır ve puanın iyileştiğini ve yüksek önem derecesinde hiçbir bulgu kalmadığını onayla; sonraki dönemin sayılarında `roas_calculator.py` yeniden çalıştır CPA/ROAS'ın tahmin edilen yönde hareket ettiğini doğrulamak için.
-
+  
   **Beklenen çıktı:** sağlık puanı + marjla ayarlanmış ROAS tarafından desteklenen git/git yok ölçeklendirme tavsiyesi.
-
+  
   ### İş Akışı 3: Satış Için Hazır Olmayan Müşteri Adayları İçin Beslenme Sırası
-
+  
   **Hedef:** satın almaya hazır olmayan ~%80 müşteri adayının dönüştüren beslenme sırası tasarla.
-
+  
   **Adımlar:**
   1. **Bağlam** — `.claude/product-marketing-context.md` oku; sıra türü, tetikleyici, hedef ve e-posta-sıra intake başına çıkış koşullarını onayla.
   2. **Tasarla** — `../../marketing-skill/skills/email-sequence/references/email-sequence-playbook.md` kaynağını kullanarak sırayı tasarla (özet + her e-posta konusu/ön izleme/gövde/CTA); giriş tetikleyicilerini `../../marketing-skill/skills/marketing-demand-acquisition/references/hubspot-workflows.md` kaynağından MQL/SQL iş akışlarıyla koordine et.
   3. **Dışa aktar** — her e-posta bloğunu JSON dizisi (`sequence.json`) olarak derle.
   4. **Puan ver** — `python3 ../../marketing-skill/skills/email-sequence/scripts/sequence_analyzer.py --file sequence.json --json`.
   5. **Doğrulama** — her bayrağı düzelt ve kalite puanı **≥ 70** olana kadar yeniden çalıştır; son puanı sıranın ölçümleri planına ekle ve her dönüştürme etkinliği için çıkış koşullarının bulunduğunu doğrula (analist çıkış koşulu kapsamını kontrol eder).
-
+  
   **Beklenen çıktı:** tetikleyici, zamanlama, çıkış koşulları ve ekli bir analist puanı ≥ 70 ile yüklemeye hazır sıra.
-
+  
   ## Proaktif Yönlendirme
-
+  
   - Yüksek CTR ama düşük dönüştürmeler → açılış sayfasını teşhis et; `page-cro` / `copywriting` becerilerine yönlendir, daha fazla reklam harcamasına değil.
   - Atıf/raporlama derinlemesine inceleme → `campaign-analytics` becerisi.
   - Seçilmemiş listelerine giden giden → `cold-email` becerisi.
   - Kapalı varlıklar ve beslenme gövdeleri için içerik → [cs-content-creator](cs-content-creator.md).
   - Webinar tarafından yönlendirilen talep oluşturma → [cs-webinar-marketer](cs-webinar-marketer.md).
-
+  
   ## Başarı Ölçümleri
-
+  
   - **Karışık CAC** hedef içinde (<$300 varsayılan profili) ve her kanal kendi kıyaslama aralığı içinde veya buna doğru trending.
   - **LTV:CAC ≥ 3:1**, geri ödeme 12 ay içinde.
   - **MQL→SQL oranı > %15** yönlendirme SLA'ları karşılanmış (SDR yanıt ≤ 4s).
   - **İzlenmemiş harcama yok:** %100 aktif kampanyası ön başlatma izleme kontrol listesini geçer.
   - **Beslenme kalitesi:** her canlı sıra `sequence_analyzer.py` tarafından ≥ 70 puanlanmış.
-
+  
   ## İlişkili Ajanlar
-
+  
   - [cs-content-creator](cs-content-creator.md) — bu huninin dağıttığı içeriği üretir
   - [cs-webinar-marketer](cs-webinar-marketer.md) — webinar hunisi matematiği ve kurtarma planları
   - [cs-aeo](cs-aeo.md) — organik talep yakalamak için AI-arama alıntısı
-
+  
   ## Referanslar
-
+  
   - **Beceri belgeleri:** [marketing-demand-acquisition](../../marketing-skill/skills/marketing-demand-acquisition/SKILL.md) · [paid-ads](../../marketing-skill/skills/paid-ads/SKILL.md) · [email-sequence](../../marketing-skill/skills/email-sequence/SKILL.md)
   - **Pazarlama alanı kılavuzu:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
   - **Ajan geliştirme kılavuzu:** [../CLAUDE.md](../CLAUDE.md)
-
+  
   ---
-
+  
   **Son Güncelleme:** 11 Haziran 2026
   **Durum:** Üretim Hazır
   **Sürüm:** 2.0

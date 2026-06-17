@@ -5,38 +5,11 @@ description: "Cursor rules for ES Module development with Node.js guidelines."
 description_tr: "Node.js kılavuzlarıyla ES Module geliştirme için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/es-module-nodejs-guidelines-cursorrules-prompt-fil.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/es-module-nodejs-guidelines-cursorrules-prompt-fil.mdc"
 body_length: 1023
 file_extension: ".mdc"
-body_tr: |-
-  ## Genel
-
-  - En iyi uygulamaları takip edin, çevik metodolojilere yönelin
-  - Modülarite, DRY, performans ve güvenliği önceliklendiriniz
-  - Önce görevleri farklı öncelikli adımlara bölün, sonra adımları takip edin
-  - Her yanıtta ele alacağınız görevleri/adımları önceliklendiriniz
-  - Kendinizi tekrarlamayın
-  - Yanıtları çok kısa tutun, aksi takdirde bir Vx değeri ekleyin:
-    - V0 varsayılan, kod gölfleme
-    - V1 kısa
-    - V2 basit
-    - V3 ayrıntılı, çıkarılan işlevlerle DRY
-
-  ## Kod
-
-  - ES modülü söz dizimini kullanın
-  - Uygun yerlerde refaktoringler ve kod iyileştirmeleri önerin
-  - En son ES ve nodejs özelliklerini tercih edin
-  - Hatalar için özür dilemeyin: bunları düzeltin
-    * Kodu tamamlayamazsanız, TODO: yorumları ekleyin
-
-  ## Yorumlar
-
-  - Yorumlar, işlem koddan açık olmadığında veya yaygın olmayan kütüphaneler kullanıldığında oluşturulmalıdır
-  - Kod, yol/dosya adı ile tek satırlı bir yorumla başlamalıdır
-  - Yorumlar amacı açıklamalıdır, etkiyi değil
 ---
 
 ## General

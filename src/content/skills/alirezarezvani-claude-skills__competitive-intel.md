@@ -4,7 +4,7 @@ description_en: "Systematic competitor tracking that feeds CMO positioning, CRO 
 description_tr: "Rakip izlemeyi sistematikleştirin ve CMO konumlandırması, CRO battlecard'ları ve CPO roadmap kararlarını yönlendirin. Rakipleri analiz ederken, satış battlecard'ları oluştururken, pazar hareketlerini takip ederken, alternatifler karşısında konumlanırken ya da rekabetçi istihbarat, rakip analizi, battlecard'lar, win/loss ve pazar konumlandırması konularında kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/competitive-intel/SKILL.md"
 path: ".gemini/skills/competitive-intel/SKILL.md"
 is_collection: false
@@ -15,43 +15,43 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rekabetçi İstihbarat
-
+  
   Sistematik rakip takibi. Takıntı değil — gerçek kararları yönlendiren istihbarat.
-
+  
   ## Anahtar Kelimeler
   rekabetçi istihbarat, rakip analizi, battlecard, kazanma/kayıp analizi, rekabetçi konumlandırma, rekabetçi takibi, pazar istihbaratı, rakip araştırması, SWOT, rekabetçi harita, özellik boşluğu analizi, rekabetçi strateji
-
+  
   ## Hızlı Başlangıç
-
+  
   İhtiyaç duyduğunuz çıktı için doğal dilde sorun:
-
+  
   > "Rekabetçi ortamımızı haritalandır" — doğrudan, dolaylı ve gelecekteki rakipler
   > "[Rakip] için bir battlecard oluştur" — satış için hazır battlecard
   > "Kazanma/kayıp analizi yap" — son kazanma ve kayıplar sebepleriyle
   > "[Rakip] son zamanlarda ne yaptı?" — rakip güncelleme takibi
   > "Bir rekabetçi konumlandırma haritası oluştur" — 2x2 konumlandırma haritası
-
+  
   ## Çerçeve: 5 Katmanlı İstihbarat Sistemi
-
+  
   ### Katman 1: Rakip Tanımlaması
-
+  
   **Doğrudan rakipler:** Aynı ICP, aynı sorun, karşılaştırılabilir çözüm, benzer fiyat noktası.
   **Dolaylı rakipler:** Aynı bütçe, farklı çözüm (buna "hiçbir şey yapmamak" ve "kendi içinde geliştirmek" dahil).
   **Gelecekteki rakipler:** İyi finanse edilen startup'lar bitişik alanda; belirtilen roadmap örtüşmesi olan büyük yerleşik oyuncular.
-
+  
   **2x2 Tehdit Matrisi:**
-
+  
   | | Aynı ICP | Farklı ICP |
   |---|---|---|
   | **Aynı sorun** | Doğrudan tehdit | Bitişik (izle) |
   | **Farklı sorun** | Yer değiştirme riski | Şimdilik yoksay |
-
+  
   Bunu üç ayda bir güncelleyin. Hangi şirketler kadranlarda hareket etti?
-
+  
   ### Katman 2: Takip Boyutları
-
+  
   Rakip başına bu 8 boyutu takip edin:
-
+  
   | Boyut | Kaynaklar | Sıklık |
   |-----------|---------|---------|
   | **Ürün hamleleri** | Changelog, G2/Capterra yorumları, Twitter/LinkedIn | Aylık |
@@ -62,20 +62,20 @@ body_tr: |-
   | **Müşteri kazanımları** | Vaka çalışmaları, inceleme siteleri, LinkedIn | Aylık |
   | **Müşteri kayıpları** | Kazanma/kayıp görüşmeleri, iptal edilen hesaplar | Devam eden |
   | **Mesajlaşma değişiklikleri** | Ana sayfa, reklamlar (Facebook/Google Ad Library) | Üç ayda bir |
-
+  
   ### Katman 3: Analiz Çerçeveleri
-
+  
   **Rakip Başına SWOT:**
   - Güçlü Yönler: Ne iyi yapıyorlar? Nerede kazanıyorlar?
   - Zayıf Yönler: Nerede kaybediyorlar? Müşteriler ne hakkında şikayet ediyor?
   - Fırsatlar: Seni tehdit edecek ne yapabilirler?
   - Tehditler: Onların varoluşsal riski nedir?
-
+  
   **Rekabetçi Konumlandırma Haritası (2 eksen):**
   Alıcılarınız için önemli olan eksenleri seçin:
   - Yaygın: Fiyat vs Özellik Derinliği; Kurumsal hazır vs KOBİ hazır; Uygulanması kolay vs Yapılandırılabilir
   - SENİN farklılaşmanı net olarak gösteren eksenleri seç
-
+  
   **Özellik Boşluğu Analizi:**
   | Özellik | Sen | Rakip A | Rakip B | Boşluk durumu |
   |---------|-----|-------------|-------------|------------|
@@ -83,52 +83,52 @@ body_tr: |-
   | [Özellik] | ❌ | ✅ | ✅ | Boşluk — roadmap? |
   | [Özellik] | ✅ | ❌ | ❌ | Hendek |
   | [Özellik] | ❌ | ❌ | ✅ | Sadece Rakip B |
-
+  
   ### Katman 4: Çıktı Formatları
-
+  
   **Satış Için (CRO):** Battlecard'ler — rakip başına bir sayfa, arama öncesi hazırlık için tasarlanmış.
   Bkz. `templates/battlecard-template.md`
-
+  
   **Pazarlama Için (CMO):** Konumlandırma güncellemesi — mesajlaşma değişiklikleri, yeni farklılaştırıcılar, durdurmak veya yapmaya başlamak için iddialar.
-
+  
   **Ürün Için (CPO):** Özellik boşluğu özeti — müşterilerin sahip olmadığımız şey istediği, rakiplerin gönderdiği şey, yeniden öncelik verilecek şey.
-
+  
   **CEO/Yönetim Kurulu Için:** Aylık rekabetçi özeti — 1 sayfa: kim hareket etti, ne anlama geldiği, önerilen yanıtlar.
-
+  
   ### Katman 5: İstihbarat Temposu
-
+  
   **Aylık (planlı):**
   - Tüm Katman 1 rakipleri gözden geçir (doğrudan tehditler, ilk 3)
   - Battlecard'ları yeni istihbaratla güncelle
   - Liderliğe 1 sayfalık özeti yayınla
-
+  
   **Tetikleme (olay tabanlı):**
   - Rakip finansman alırsa → 48 saat içinde etkileri değerlendir
   - Rakip önemli özellik başlatırsa → ürün + satış yanıtı 1 hafta içinde
   - Rakip önemli müşteri işe alırsa → kazanma/kayıp görüşmesi 2 hafta içinde
   - Rakip fiyatlandırmayı değiştirirse → 1 hafta içinde analiz et ve yanıt ver
-
+  
   **Üç ayda bir:**
   - Tam rekabetçi ortam incelemesi
   - Konumlandırma haritasını güncelle
   - ICP rekabetçi tehdit değerlendirmesini yenile
   - Takip listesinden şirket ekle/kaldır
-
+  
   ---
-
+  
   ## Kazanma/Kayıp Analizi
-
+  
   Bu sahip olduğun en yüksek sinyal rekabetçi verisidir. Çoğu şirket bunu çok nadir yapıyor.
-
+  
   **Ne zaman görüşme yapılmalı:**
   - Her kayıp anlaşma >50K ACV
   - Her iptal >6 ay müşteri süresi
   - Her rekabetçi kazanım (neden öğren — düşündüğün şey olmayabilir)
-
+  
   **Kimin yürütüyü yapacağı:**
   - Anlaşmada çalışan AE DEĞİL (çok yakın, potansiyel müşteri samimi olmayacak)
   - Müşteri başarısı, ürün ekibi veya harici araştırmacı
-
+  
   **Soru yapısı:**
   1. "Değerlendirme sürecinizi anlatın"
   2. "Başka kimi düşünüyordunuz?"
@@ -136,38 +136,38 @@ body_tr: |-
   4. "[Ürünümüz] nerelerde yetersiz kaldı?"
   5. "Belirleyici faktör neydi?"
   6. "Ne sizin kararınızı değiştirirdi?"
-
+  
   **Bulguları aylık olarak topla:**
   - Kazanma sebepleri (sıklığa göre sıralı)
   - Kayıp sebepleri (sıklığa göre sıralı)
   - Rakip kazanma oranları (rakip başına, segment başına)
   - Zaman içinde desenler
-
+  
   ---
-
+  
   ## Denge: Takıntı Olmadan İstihbarat
-
+  
   **Rakipleri aşırı takip ettiğinin işaretleri:**
   - Roadmap kararları öncelikli olarak "onlar az önce X gönderdiler" tarafından yönlendirilir
   - Rakipler finansman aldığında ekip morali düşer
   - Onların kontrol listesiyle eşleştirmek için inanmadığın özellikleri gönderiyorsun
   - Fiyatlandırma tartışmaları her zaman "pekala, onlar X talep ediyor" ile başlar
-
+  
   **Az takip ettiğinin işaretleri:**
   - AE'lerin aramalarda şaşırması
   - Potansiyel müşteriler rakipler hakkında ekibinden daha çok biliyor
   - Müşteriler sana söyleyene kadar önemli bir ürün lansmanı kaçırdın
   - Pazar hamleleri göz önüne alındığında konumlandıran 12+ ayda değişmedi
-
+  
   **Doğru duruş:**
   - Rakipleri onlara karşı kazanmak için yeterince iyi tanı
   - Onların seni yönetmesine izin verme
   - Senin roadmap'in müşteri sorunları tarafından yönetiliyor, rekabetçi boşluklarla bilgilendirilmiş
-
+  
   ---
-
+  
   ## İstihbaratı Dağıtma
-
+  
   | Kitle | Format | Sıklık | Sahibi |
   |----------|--------|---------|-------|
   | AE'ler + SDR'ler | CRM'de güncellenen battlecard'lar | Aylık + tetikleme | CRO |
@@ -175,13 +175,13 @@ body_tr: |-
   | Pazarlama | Konumlandırma özeti | Üç ayda bir | CMO |
   | Liderlik | 1 sayfalık rekabetçi özeti | Aylık | CEO/COO |
   | Yönetim Kurulu | Rekabetçi ortam slaydı | Üç ayda bir | CEO |
-
+  
   **Tek gerçek kaynağı:** Tüm rekabetçi istihbarat bir yerde yaşıyor (Notion, Confluence, Salesforce). Slack'e özel dağıtımından kaçın — kaybolur.
-
+  
   ---
-
+  
   ## Rekabetçi İstihbaratta Kırmızı Bayraklar
-
+  
   | Sinyal | Ne anlama geldiği |
   |--------|---------------|
   | Rakibin kazanma oranı >%50 senin temel segmentinde | Satış sorunu değil, temel konumlandırma sorunu |
@@ -189,9 +189,9 @@ body_tr: |-
   | Rakip etki alanında 10 mühendis işe aldı | Büyük ürün yatırımı yaklaşıyor |
   | Rakip >20 milyon dolar yükseltip seni hedef alıyor | Onlar seni sert rekabet etmek için 12 aylık pist |
   | Potansiyel müşteriler seni rakip kararını haklı çıkarmak için değerlendiriyor | Sen "kontrol kutusu" — algıyı düzelt veya segment |
-
+  
   ## C-Seviyesi Rolleriyle Entegrasyon
-
+  
   | İstihbarat Tipi | Gönderir | Çıktı Formatı |
   |------------------|----------|---------------|
   | Ürün hamleleri | CPO | Roadmap girdisi, özellik boşluğu analizi |
@@ -200,7 +200,7 @@ body_tr: |-
   | İşe alım sinyalleri | CHRO, CTO | Yetenek pazar istihbaratı |
   | Müşteri kazanımları/kayıpları | CRO, CMO | Battlecard güncellemeleri, konumlandırma değişiklikleri |
   | Pazarlama kampanyaları | CMO | Karşı konumlandırma, kanal istihbaratı |
-
+  
   ## Referanslar
   - `references/ci-playbook.md` — OSINT kaynakları, kazanma/kayıp çerçevesi, konumlandırma haritası oluşturma
   - `templates/battlecard-template.md` — satış battlecard şablonu

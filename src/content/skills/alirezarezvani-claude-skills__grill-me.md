@@ -4,7 +4,7 @@ description_en: "Interview the user relentlessly about a plan or design until re
 description_tr: "Kullanıcıyı bir plan veya tasarım hakkında anlaşılan noktaya ulaşana kadar derinlemesine sorgula ve karar ağacının her dalını çöz. Kullanıcı planını stress-test etmek, tasarımı hakkında sorgulanmak istediğinde veya \"beni sorgula\" dediğinde kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/grill-me/SKILL.md"
 path: ".gemini/skills/grill-me/SKILL.md"
 is_collection: false
@@ -15,49 +15,49 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Grill Me
-
+  
   > [Matt Pocock's grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) projesinden türetilmiştir (MIT). Matt'in mülakatçılık disiplini aynen korunmuştur. Eklentiler: extraction + question + session tools + references + cs-* wrapper (bkz. [references/companion_tooling.md](references/companion_tooling.md)).
-
+  
   Bu planın her yönü hakkında emiksiz sorgula, ta ki ortak bir anlayışa ulaşana kadar. Tasarım ağacının her dalını gez, kararlar arasındaki bağımlılıkları teker teker çöz. Her soru için önerilen cevabını sağla.
-
+  
   Soruları bir seferde bir tanesini sor.
-
+  
   Eğer bir soru codebase'i keşfederek cevaplanabiliyorsa, bunun yerine codebase'i keşfet.
-
+  
   ## Kurallar (korunmuş + genişletilmiş)
-
+  
   1. **Turda bir soru.** Asla birleştirme.
   2. **Her soruda önerilen cevabı sağla.** "Sence ne olmalı?" sorusuna varsayılan olarak dönmek tembelliktir.
   3. **Soru sormadan önce codebase'i keşfet.** Eğer `grep` / `Read` çözüyorsa, önce bunu yap. Bir turdan tasarruf et.
   4. **Ağacı derinliğine gez.** Yeni bir dal açmadan önce dalı bitir.
   5. **Bağımlılıkları takip et.** Eğer B kararı A kararına bağlıysa, A'yı önce sor.
-
+  
   ## İş Akışı
-
+  
   1. Kullanıcı bir plan veya tasarım (ya da yolu) sağlar.
   2. Dalları çıkarmak için `scripts/decision_tree_extractor.py` çalıştır.
   3. Tavsiyeler ile birlikte soru listesi üretmek için `scripts/question_generator.py` çalıştır.
   4. Bir oturum başlat: `scripts/grill_session_tracker.py --action start`.
   5. Ağacı gez, bir seferde bir soru, cevapları oturumda kaydet.
   6. Tüm dallar çözüldüğünde: "ortak anlayışa ulaşıldı" raporu + kilitli kararlar.
-
+  
   ## Çıktı Deseni
-
+  
   Soru turunu başına:
-
+  
   ```
   Q[i]/[total]: [soru]
   Önerilen cevap: [senin kararın + 1 cümlelik gerekçe]
-
+  
   (Veya: Codebase'i keşfettim ve [kanıt] buldum. Doğrulayacak mısın?)
   ```
-
+  
   ## Araçlar
-
+  
   Bkz. [references/companion_tooling.md](references/companion_tooling.md). Araçlar: extractor + generator + tracker. Agent: `cs-grill-master`. Komut: `/cs:grill-me`.
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
   **Türetildi:** Matt Pocock (MIT) + bu repo'nun wrapper'ı
 ---

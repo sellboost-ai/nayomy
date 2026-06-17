@@ -4,7 +4,7 @@ description_en: "Use when assessing AI/ML systems for prompt injection, jailbrea
 description_tr: "AI/ML sistemlerini prompt injection, jailbreak açıklıkları, model inversion riski, data poisoning maruziyeti ve agent tool istismarı açısından değerlendirmek için kullanılır. MITRE ATLAS teknik eşleştirmesi, injection imza tespiti ve adversarial robustness skorlamasını kapsar."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ai-security/SKILL.md"
 path: ".gemini/skills/ai-security/SKILL.md"
 is_collection: false

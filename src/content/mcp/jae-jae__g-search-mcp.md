@@ -4,7 +4,7 @@ description: "A powerful MCP server for Google search that enables parallel sear
 description_tr: "Google araması için güçlü bir MCP server'ı olup, birden fazla anahtar kelime ile paralel arama yapabilmenizi sağlar."
 category: "Search & Data Extraction"
 repo: "jae-jae/g-search-mcp"
-stars: 267
+stars: 266
 url: "https://github.com/jae-jae/g-search-mcp"
 body_length: 5513
 license: "MIT"

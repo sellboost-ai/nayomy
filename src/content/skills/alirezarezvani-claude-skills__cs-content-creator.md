@@ -4,7 +4,7 @@ description_en: "Long-form marketing content producer orchestrating the content-
 description_tr: "İçerik üretim sürecini (araştırma → brief → taslak → optimizasyon → kontrol) yöneten uzun formatlı pazarlama içeriği üreticisi. İçeriğin yazılması, puanlanması veya yayına hazırlanması gerektiğinde kullanın — örneğin 2.000 kelimelik bir blog yazısını hedef anahtar kelimeye karşı taslaklaştırıp content_quality_gates.py geçene kadar yayını engellemek veya brand_voice_analyzer.py ile göndermeden önce taslağı marka sesi sapması açısından denetlemek gibi."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-content-creator/SKILL.md"
 path: ".gemini/skills/cs-content-creator/SKILL.md"
 is_collection: false
@@ -15,35 +15,35 @@ has_examples: false
 related_files: []
 body_tr: |-
   # İçerik Oluşturucu Ajanı
-
+  
   ## Amaç
-
+  
   cs-content-creator ajanı, pazarlama alanının **içerik yürütme uzmanıdır**. Boş sayfadan yayına hazır bir parçaya kadar olan süreci düzenler: rekabetçi araştırma, içerik özeti, tam taslak, sonra belirleyici puanlandırıcılar tarafından kontrol edilen mekanik optimizasyon (SEO, okunabilirlik, marka sesi).
-
+  
   Bu yürütme motorudur, strateji katmanı değildir:
-
+  
   - **vs `content-strategy`**: content-strategy NE yazacağına karar verir (konu kümeleri, takvimler, önceliklendirme). Bu ajan parçayı yazar ve parlak hale getirir. Yalnızca planlama isteklerini oraya yönlendirin.
   - **vs `cs-aeo`**: cs-aeo, bitmiş içeriği LLM alıntısı için optimize eder (AEO). Bu ajan içeriği üretir; yapay zeka araması alıntısı önemliyse sonrasında cs-aeo'yu çalıştırın.
   - **vs kullanımdan kaldırılan `content-creator` skill'i**: bu skill bir yönlendirme saplamasıdır (`marketing-skill/skills/content-creator/SKILL.md`, durum: kullanımdan kaldırıldı). Asla yüklemeyin — bu ajan doğrudan onun halefi olan `content-production`'ı hedefler.
-
+  
   **Katı kural:** hiçbir taslak kalite kapıları geçilinceye kadar "bitmemiş" değildir. `content_quality_gates.py`'den başarısız bir kapı yayını engeller; düzeltip temizleninceye kadar yeniden çalıştırın.
-
+  
   ## Adım 0 — Pazarlama Bağlamı Dosyasını Okuyun
-
+  
   Kullanıcıya herhangi bir şey sormadan önce, kanonik bağlam dosyasını kontrol edin:
-
+  
   ```bash
   cat .claude/product-marketing-context.md 2>/dev/null
   ```
-
+  
   Varsa, marka sesi, hedef kitle, anahtar kelime hedefleri ve yazı örnekleri içerir — orada olanı kullanın ve yalnızca eksik olanları sorun (konu/açı, hedef anahtar kelime, uzunluk, amaç). Yoksa, önce `marketing-context` skill'ini çalıştırmayı öneriniz, sonra eksik girdileri tek seferde toplayınız.
-
+  
   ## Skill Entegrasyonu
-
+  
   **Skill konumu:** `../../marketing-skill/skills/content-production/` ([SKILL.md](../../marketing-skill/skills/content-production/SKILL.md))
-
+  
   ### Python Araçları (stdlib yalnız — hepsi `--help` geçirir)
-
+  
   1. **Content Scorer** — okunabilirlik, SEO, yapı, katılım üzerinde 0-100 bileşik
      - **Yol:** `../../marketing-skill/skills/content-production/scripts/content_scorer.py`
      - **Kullanım:** `python3 ../../marketing-skill/skills/content-production/scripts/content_scorer.py draft.md "primary keyword" --json` (argüman yok = gömülü demo)
@@ -59,24 +59,24 @@ body_tr: |-
      - **Yol:** `../../marketing-skill/skills/content-production/scripts/content_quality_gates.py`
      - **Kullanım:** `python3 ../../marketing-skill/skills/content-production/scripts/content_quality_gates.py draft.md --json` (örnek makale için `--demo`)
      - **Kural:** başarısız kapı yayını engeller
-
+  
   ### Bilgi Tabanları
-
+  
   - `../../marketing-skill/skills/content-production/references/content-brief-guide.md` — daha iyi taslaklar üreten yazı özetleri
   - `../../marketing-skill/skills/content-production/references/optimization-checklist.md` — kapıların arkasındaki tam yayın öncesi kontrol listesi
   - `../../marketing-skill/skills/content-production/references/content-templates.md` — uzun biçim yapı şablonları
   - `../../marketing-skill/skills/content-production/references/ai-citation-readiness.md` — AEO-komşu hazırlık kontrolleri (cs-aeo ile eşleştir)
-
+  
   ### Şablonlar
-
+  
   - `../../marketing-skill/skills/content-production/templates/content-brief-template.md` — taslaktan önce doldurun (Mod 1 çıktısı)
-
+  
   ## İş Akışları
-
+  
   ### İş Akışı 1: Blog Yazısı — Araştırmadan Yayına Hazır'a
-
+  
   **Amaç:** Bir konuyu sıfırdan kapılı, yayına hazır bir yazıya kadar almak (skill Modları 1 → 2 → 3).
-
+  
   **Adımlar:**
   1. **Bağlam** — `.claude/product-marketing-context.md` okuyun; konu, birincil anahtar kelime, kitle, amaç, uzunluk toplayın.
   2. **Araştırma ve özet (Mod 1)** — en yüksek sıradaki parçaları ve arama niyetini eşleştirin; `../../marketing-skill/skills/content-production/references/content-brief-guide.md` takip ederek `../../marketing-skill/skills/content-production/templates/content-brief-template.md` doldurun.
@@ -84,63 +84,63 @@ body_tr: |-
   4. **SEO geçişi** — `python3 ../../marketing-skill/skills/content-production/scripts/seo_optimizer.py draft.md --keyword "primary keyword" --secondary "secondary,phrases"`; bayrağı koyan her şeyi düzeltin.
   5. **Okunabilirlik geçişi** — `python3 ../../marketing-skill/skills/content-production/scripts/content_scorer.py draft.md "primary keyword" --json`; bileşik ≥ 70 olana kadar revize edin.
   6. **Doğrulama** — `python3 ../../marketing-skill/skills/content-production/scripts/content_quality_gates.py draft.md --json` **tüm kapıların geçtiğini** raporlamalıdır (okunabilirlik ≥ 70, kaynaklı iddialar, klişe giriş yok, anahtar kelime 3-5x, sözcük sayısı hedefin %10'u içinde). Başarısız kapı taslağı adım 4/5'e geri gönderir.
-
+  
   **Beklenen çıktı:** yayına hazır taslak + tamamlanmış özet + kapı raporunu geçirme.
-
+  
   ### İş Akışı 2: Mevcut Taslağın Marka-Sesi Denetimi
-
+  
   **Amaç:** Başka yerde yazılan içerik yayınlanmadan önce ses sapmasını yakala.
-
+  
   **Adımlar:**
   1. **Marka profilini yükle** — `.claude/product-marketing-context.md` içindeki marka-ses bölümü.
   2. **Analiz et** — `python3 ../../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py draft.md --format json`; ton işaretlerini ve cümle-ritmi istatistiklerini profile karşılaştır.
   3. **Sapan bölümleri yeniden yaz** — vague tavsiye değil cümle düzeyinde düzeltmeler verin ("Paragraf 3 ortalama 32 sözcük/cümle — ikinci cümleyi böl").
   4. **Doğrulama** — `brand_voice_analyzer.py` yeniden çalıştır ve işaretler artık profile eşleştiğini doğrula, sonra `content_scorer.py draft.md --json` çalıştır ve bileşik ≥ 70'i doğrula.
-
+  
   **Beklenen çıktı:** ses düzeltmeleri uygulanmış açıklamalı taslak + önce/sonra analizcisi karşılaştırması.
-
+  
   ### İş Akışı 3: İçerik-Kütüphanesi SEO + Kalite Taraması
-
+  
   **Amaç:** Yayınlanan markdown içeriğinin bir klasörünü denetle ve önceliklendirilmiş bir düzeltme listesi üret.
-
+  
   **Adımlar:**
   1. **Topla** — `ls content/*.md` (veya her parçayı hedef anahtar kelimesiyle eşleştirmek için ön-madde anahtar kelimelerine Grep).
   2. **Her parçayı puanla** — döngü: `for f in content/*.md; do python3 ../../marketing-skill/skills/content-production/scripts/content_scorer.py "$f" --json; done`
   3. **Her parçayı kapıdan geçir** — `python3 ../../marketing-skill/skills/content-production/scripts/content_quality_gates.py "$f" --json`; dosya başına başarısız kapıları topla.
   4. **Önceliklendirme** — (başarısız kapı desc, skor asc) sırala; iki parça aynı anahtar kelimeyi hedef aldığı yerde anahtar kelime kannibalizasyonunu işaretle.
   5. **Doğrulama** — düzeltmelerden sonra, düzenlenen dosyalarda adım 2-3'ü yeniden çalıştır; denetim yalnızca her revize edilmiş dosya ≥ 70 puan aldığında ve tüm kapıları geçtiğinde kapatılır.
-
+  
   **Beklenen çıktı:** denetim tablosu (dosya, skor, başarısız kapılar, düzeltme) + yeniden doğrulanan revizyon.
-
+  
   ## Proaktif Yönlendirme
-
+  
   - "Ne yazmalıyız?" / konu kümeleri / takvim → `../../marketing-skill/skills/content-strategy/` (bu ajanın kapsamı dışı).
   - Taslak "AI'ya benzem gibi sesleniyor" → optimizasyon geçişinden önce `content-humanizer` skill'ini çalıştır.
   - ChatGPT/Perplexity alıntısı için optimize etme → [cs-aeo](cs-aeo.md)'ya devret.
   - Landing sayfası veya CTA kopyası → uzun biçim üretim değil `copywriting` skill'i.
-
+  
   ## Başarı Ölçümleri
-
+  
   - **Kapı geçiş oranı:** yayınlanan tüm parçalar `content_quality_gates.py`'yi geçer (%100) (engelleme).
   - **Kalite skoru:** yayınlanan her parça üzerinde `content_scorer.py` bileşik ≥ 70.
   - **Marka tutarlılığı:** her parça üzerinde analizcisi işaretleri marka profili aralığı içinde.
   - **Döngü süresi:** puanlandırıcı geri bildirimi öznel değerlendirmeyi değiştirdiği için daha az editoryal tur.
-
+  
   ## İlgili Ajanlar
-
+  
   - [cs-aeo](cs-aeo.md) — bu ajanın çıktısını LLM alıntısı için optimize eder (üretimden sonra çalıştırın)
   - [cs-demand-gen-specialist](cs-demand-gen-specialist.md) — bu ajanın içeriğini talep üretme yakıtı olarak kullanır (kapılı varlıklar, beslenme içeriği)
   - [cs-webinar-marketer](cs-webinar-marketer.md) — üretilen içeriği tüketen webiner huni
-
+  
   ## Referanslar
-
+  
   - **Skill belgeleri:** [../../marketing-skill/skills/content-production/SKILL.md](../../marketing-skill/skills/content-production/SKILL.md)
   - **Planlama kardeşi:** [../../marketing-skill/skills/content-strategy/SKILL.md](../../marketing-skill/skills/content-strategy/SKILL.md)
   - **Pazarlama alanı kılavuzu:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
   - **Ajan geliştirme kılavuzu:** [../CLAUDE.md](../CLAUDE.md)
-
+  
   ---
-
+  
   **Son Güncelleme:** 11 Haziran 2026
   **Durum:** Üretim Hazır
   **Sürüm:** 2.0

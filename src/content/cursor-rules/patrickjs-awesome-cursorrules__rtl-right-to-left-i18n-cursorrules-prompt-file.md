@@ -5,74 +5,11 @@ description: "Cursor rules for RTL development with logical CSS properties, Tail
 description_tr: "RTL geliştirme için cursor kuralları: logical CSS properties, Tailwind logical classes, çift yönlü metin desteği ve rtlify-ai ile otomatik denetim."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/rtl-right-to-left-i18n-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rtl-right-to-left-i18n-cursorrules-prompt-file.mdc"
 body_length: 2251
 file_extension: ".mdc"
-body_tr: |-
-  # RTL (Sağdan Sola) Geliştirme Kuralları
-
-  RTL (Sağdan Sola) dillerini destekleyen uygulamalar oluşturmada uzman olarak, İbranice, Arapça, Farsça ve Urduca dahil dilleri destekliyorsunuz.
-
-  ## Temel Kurallar
-
-  ### 1. Mantıksal CSS Özellikleri
-  Her zaman fiziksel CSS özellikleri yerine mantıksal olanları kullanın:
-  - `margin-inline-start` değil `margin-left`
-  - `padding-inline-end` değil `padding-right`
-  - `inset-inline-start` değil `left`
-  - `border-inline-start` değil `border-left`
-
-  ### 2. Tailwind CSS Mantıksal Sınıfları
-  Mantıksal Tailwind yardımcı sınıflarını kullanın:
-  - `ms-4` değil `ml-4` (margin-start)
-  - `me-4` değil `mr-4` (margin-end)
-  - `ps-4` değil `pl-4` (padding-start)
-  - `pe-4` değil `pr-4` (padding-end)
-  - `start-0` değil `left-0`
-  - `end-0` değil `right-0`
-
-  ### 3. React Native Mantıksal Özellikleri
-  React Native stillerinde mantıksal özellikleri kullanın:
-  - `paddingStart` değil `paddingLeft`
-  - `paddingEnd` değil `paddingRight`
-  - `marginStart` değil `marginLeft`
-  - `marginEnd` değil `marginRight`
-
-  ### 4. Çift Yönlü Metin Güvenliği
-  Karışık yazı sistemi metinlerini `<bdi>` etiketleriyle sarmalayın:
-  ```html
-  <p>User <bdi>{userName}</bdi> posted a comment</p>
-  ```
-
-  ### 5. Yönlü İkonlar
-  Yönlü ikonları (oklar, chevronlar, geri düğmeleri) RTL modunda çevirin.
-  Yönsüz ikonlar (ana sayfa, ayarlar, arama) çevrilmemelidir.
-
-  ### 6. Uluslararasılaştırma
-  - Stringleri asla sabit kodlamayın — çeviri işlevlerini kullanın (`t()`, `intl.formatMessage()`)
-  - Sayılar ve para birimi için `Intl.NumberFormat` kullanın
-  - Tarihler için `Intl.DateTimeFormat` kullanın
-  - Kök elementlerde `dir="auto"` veya `dir="rtl"` ayarlayın
-
-  ### 7. RTL Uyumlu Bileşenler
-  - Karusellar, kaydırıcılar ve ilerleme çubukları RTL modunda yönü tersine çevirmelidir
-  - Kaydırma hareketleri RTL modunda tersine çevrileceğiniz
-  - Yönlü eksenlere sahip grafikler ve tablolar çevrilmelidir
-
-  ### 8. Test Etme
-  - Her zaman kök elementin `dir="rtl"` ayarıyla test edin
-  - Sadece ters çevrilmiş LTR değil, gerçek RTL içeriğiyle doğrulayın
-
-  ## Otomasyonlu RTL Denetimi
-
-  Otomasyonlu RTL ihlali algılama ve düzeltme için [rtlify-ai](https://github.com/idanlevi1/rtlify) kullanın:
-  ```bash
-  npx rtlify-ai init   # Install RTL rules
-  npx rtlify-ai check  # Find violations
-  npx rtlify-ai fix    # Auto-fix violations
-  ```
 ---
 
 # RTL (Right-to-Left) Development Rules

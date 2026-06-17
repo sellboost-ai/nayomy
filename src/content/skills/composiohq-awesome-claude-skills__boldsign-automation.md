@@ -4,7 +4,7 @@ description_en: "Automate Boldsign tasks via Rube MCP (Composio). Always search 
 description_tr: "Boldsign görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemalar için her zaman önce tools'u arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/boldsign-automation/SKILL.md"
 path: "composio-skills/boldsign-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP Aracılığıyla Boldsign Otomasyonu
-
+  
   Composio'nun Boldsign araç seti aracılığıyla Rube MCP üzerinden Boldsign işlemlerini otomatikleştirin.
-
+  
   **Araç seti dokümanları**: [composio.dev/toolkits/boldsign](https://composio.dev/toolkits/boldsign)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla etkin Boldsign bağlantısı (`boldsign` araç seti ile)
   - Her zaman geçerli araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısını yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci yapılandırınıza MCP sunucusu olarak `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` öğesini `boldsign` araç seti ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını izleyin
   4. Herhangi bir iş akışı çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   İş akışlarını yürütmeden önce her zaman kullanılabilir araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Boldsign operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Kullanılabilir Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Boldsign task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["boldsign"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Yürütün
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slug'larını veya argümanlarını asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` öğesinin ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uygunluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Oturum yeniden kullanımı**: İş akışı içinde oturum kimliklerini yeniden kullanın. Yeni iş akışları için yenileri oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | `RUBE_SEARCH_TOOLS` (Boldsign'a özgü use case ile) |
@@ -95,7 +95,7 @@ body_tr: |-
   | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` (keşfedilen araç slug'ları ile) |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` (`run_composio_tool()` ile) |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (`schemaRef` olan araçlar için) |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

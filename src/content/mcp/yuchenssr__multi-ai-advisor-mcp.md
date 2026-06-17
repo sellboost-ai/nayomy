@@ -4,7 +4,7 @@ description: "A Model Context Protocol (MCP) server that queries multiple Ollama
 description_tr: "Birden fazla Ollama modelini sorgulayan ve yanıtlarını birleştiren, tek bir soruya farklı AI perspektiflerini sunan bir Model Context Protocol (MCP) sunucusu."
 category: "Developer Tools"
 repo: "YuChenSSR/multi-ai-advisor-mcp"
-stars: 79
+stars: 80
 url: "https://github.com/YuChenSSR/multi-ai-advisor-mcp"
 body_length: 6031
 license: "MIT"

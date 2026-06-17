@@ -4,7 +4,7 @@ description_en: "Use when completing tasks, implementing major features, or befo
 description_tr: "Görevleri tamamlarken, büyük özellikleri hayata geçirirken veya merge etmeden önce çalışmanın gereksinimleri karşıladığını doğrulamak için kullanın."
 category: "Design"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/requesting-code-review/SKILL.md"
 path: "skills/requesting-code-review/SKILL.md"
 is_collection: false
@@ -15,102 +15,102 @@ has_examples: false
 related_files: ["code-reviewer.md"]
 body_tr: |-
   # Kod İncelemesi İsteğinde Bulunma
-
+  
   Sorunların yayılmadan yakalanması için bir kod inceleyici subagent görevlendir. İnceleyici, oturum geçmişini değil, tam olarak hazırlanmış bir bağlam alır. Bu, inceleyicinin düşünce sürecini değil, çalışma ürününe odaklanmasını sağlar ve devam etmek için kendi bağlamını korursun.
-
+  
   **Temel ilke:** Erken incele, sık incele.
-
+  
   ## Ne Zaman İnceleme İstenir
-
+  
   **Zorunlu:**
   - Subagent odaklı geliştirmede her görevden sonra
   - Ana özelliği tamamladıktan sonra
   - Main'e merge yapmadan önce
-
+  
   **İsteğe bağlı ama değerli:**
   - Takılıp kaldığında (yeni perspektif)
   - Refactor'dan önce (baseline kontrolü)
   - Karmaşık hata düzeltildikten sonra
-
+  
   ## Nasıl İstenir
-
+  
   **1. Git SHAsını al:**
   ```bash
   BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
   HEAD_SHA=$(git rev-parse HEAD)
   ```
-
+  
   **2. Kod inceleyici subagent'i görevlendir:**
-
+  
   [code-reviewer.md](code-reviewer.md) adresindeki şablonu doldurarak bir `general-purpose` subagent görevlendir
-
+  
   **Yer tutucu değişkenler:**
   - `{DESCRIPTION}` - Oluşturduğun şeyin kısa özeti
   - `{PLAN_OR_REQUIREMENTS}` - Ne yapması gerektiği
   - `{BASE_SHA}` - Başlangıç commit'i
   - `{HEAD_SHA}` - Son commit'i
-
+  
   **3. Geri bildirimlere göre hareket et:**
   - Kritik sorunları hemen düzelt
   - Önemli sorunları devam etmeden önce düzelt
   - Küçük sorunları daha sonra not et
   - İnceleyici hatalıysa geri çekil (gerekçeyle)
-
+  
   ## Örnek
-
+  
   ```
   [Görev 2 tamamlandı: Doğrulama fonksiyonu ekleme]
-
+  
   Sen: Devam etmeden önce kod incelemesi isteyeyim.
-
+  
   BASE_SHA=$(git log --oneline | grep "Task 1" | head -1 | awk '{print $1}')
   HEAD_SHA=$(git rev-parse HEAD)
-
+  
   [Kod inceleyici subagent'i görevlendir]
     DESCRIPTION: verifyIndex() ve repairIndex() eklendi, 4 sorun türü
     PLAN_OR_REQUIREMENTS: docs/superpowers/plans/deployment-plan.md'den Görev 2
     BASE_SHA: a7981ec
     HEAD_SHA: 3df7661
-
+  
   [Subagent dönüş]:
     Güçlü yönler: Temiz mimari, gerçek testler
     Sorunlar:
       Önemli: İlerleme göstergeleri eksik
       Küçük: Raporlama aralığı için sihirli sayı (100)
     Değerlendirme: Devam etmeye hazır
-
+  
   Sen: [İlerleme göstergelerini düzelt]
   [Görev 3'e devam et]
   ```
-
+  
   ## İş Akışları ile Entegrasyon
-
+  
   **Subagent Odaklı Geliştirme:**
   - HER görevden sonra incele
   - Sorunları birikmeden önce yakala
   - Sonraki göreve geçmeden önce düzelt
-
+  
   **Planları Yürütme:**
   - Her görevden veya doğal kontrol noktalarından sonra incele
   - Geri bildirim al, uygula, devam et
-
+  
   **Geçici Geliştirme:**
   - Merge'den önce incele
   - Takılıp kaldığında incele
-
+  
   ## Kırmızı Bayraklar
-
+  
   **Asla:**
   - "Basit olduğu için" incelemeyi atlama
   - Kritik sorunları göz ardı etme
   - Düzeltilmemiş Önemli sorunlarla devam etme
   - Geçerli teknik geri bildirimlere karşı çıkma
-
+  
   **İnceleyici hatalıysa:**
   - Teknik gerekçeyle geri çek
   - Çalıştığını kanıtlayan kod/testler göster
   - Açıklama iste
-
+  
   Şablonu şurada görüntüle: [code-reviewer.md](code-reviewer.md)
 ---
 

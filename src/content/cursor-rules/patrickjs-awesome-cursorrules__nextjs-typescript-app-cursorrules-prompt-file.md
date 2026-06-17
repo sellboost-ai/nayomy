@@ -5,7 +5,7 @@ description: "Cursor rules for Next.js development with TypeScript integration."
 description_tr: "Next.js geliştirmesi için TypeScript entegrasyonlu Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/nextjs-typescript-app-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-typescript-app-cursorrules-prompt-file.mdc"
 body_length: 317

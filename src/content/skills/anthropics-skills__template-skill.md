@@ -4,7 +4,7 @@ description_en: "Replace with description of the skill and when Claude should us
 description_tr: "Claude'un bu özelliği ne zaman kullanması gerektiğini ve becerinin açıklamasını buraya yazın."
 category: "Development"
 repo: "anthropics/skills"
-stars: 151641
+stars: 151867
 url: "https://github.com/anthropics/skills/blob/HEAD/template/SKILL.md"
 path: "template/SKILL.md"
 is_collection: false

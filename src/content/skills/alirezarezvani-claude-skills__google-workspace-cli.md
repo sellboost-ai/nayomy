@@ -4,7 +4,7 @@ description_en: "Google Workspace administration via the gws CLI (github.com/goo
 description_tr: "gws CLI (github.com/googleworkspace/cli) ile Google Workspace yönetimini otomatikleştirin. Gmail, Drive, Sheets, Calendar, Docs, Chat ve Tasks'ı kurulum, kimlik doğrulama ve otomasyon ile yönetin; güvenlik denetimi çalıştırın ve yerel recipe şablonları ile persona bundle'ları kullanın. Google Workspace admin, gws CLI kurulumu, Gmail otomasyonu, Drive yönetimi ve Calendar planlama için ideal."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/google-workspace-cli/SKILL.md"
 path: ".gemini/skills/google-workspace-cli/SKILL.md"
 is_collection: false
@@ -15,105 +15,105 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Google Workspace CLI
-
+  
   Google Workspace yönetimi için uzman rehberlik ve otomasyon, açık kaynaklı `gws` CLI kullanarak ([github.com/googleworkspace/cli](https://github.com/googleworkspace/cli), Apache-2.0). CLI, komut yüzeyini Google Discovery Service'den dinamik olarak oluşturur, bu nedenle desteklenen tüm Workspace API'lerini artı `+` önekli yardımcı komutları kapsar. Bu skill, yerel Python araçları ekler (doctor, auth guide, recipe catalog, security audit, output analyzer).
-
+  
   > **Betikleme öncesi doğrulayın:** `gws`, Google'ın API discovery belgelerinden çalışma zamanında komutlar oluşturur ve CLI v1.0 öncesidir. Otomasyona koymadan önce bir komutun tam yüzeyini daima `gws --help`, `gws <service> --help` veya `gws schema <service>.<resource>.<method>` ile doğrulayın. Bu skill'deki *(verify)* ile işaretli komutlar, `gws <service> <resource> <method>` deseninin açıklayıcı örnekleridir ve yüklü sürümünüze karşı kontrol edilmelidir.
-
+  
   ---
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Kurulumu Kontrol Edin
-
+  
   ```bash
   # gws'nin kurulu ve kimlik doğrulandığını doğrulayın
   python3 scripts/gws_doctor.py
   ```
-
+  
   ### Email Gönder
-
+  
   ```bash
   gws gmail +send --to "team@company.com" \
     --subject "Weekly Update" --body "Here's this week's summary..."
   ```
-
+  
   ### Drive Dosyalarını Listele
-
+  
   ```bash
   gws drive files list --params '{"pageSize": 20}' | python3 scripts/output_analyzer.py --select "name,mimeType,modifiedTime" --format table
   ```
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   ### npm (önerilen; Node.js 18+ gerekli)
-
+  
   ```bash
   npm install -g @googleworkspace/cli
   gws --version
   ```
-
+  
   ### Homebrew (macOS/Linux)
-
+  
   ```bash
   brew install googleworkspace-cli
   ```
-
+  
   ### Cargo (kaynaktan)
-
+  
   ```bash
   cargo install --git https://github.com/googleworkspace/cli --locked
   gws --version
   ```
-
+  
   ### Önceden Derlenmiş İkili Dosyalar
-
+  
   [github.com/googleworkspace/cli/releases](https://github.com/googleworkspace/cli/releases) adresinden macOS, Linux veya Windows için indirin. Nix kullanıcıları: `nix run github:googleworkspace/cli`.
-
+  
   ### Kurulumu Doğrulayın
-
+  
   ```bash
   python3 scripts/gws_doctor.py
   # Kontrol eder: PATH, version, auth status, service connectivity
   ```
-
+  
   ---
-
+  
   ## Kimlik Doğrulama
-
+  
   ### OAuth Kurulumu (İnteraktif)
-
+  
   ```bash
   # Adım 1: Google Cloud projesi ve OAuth kimlik bilgileri oluşturun
   python3 scripts/auth_setup_guide.py --guide oauth
-
+  
   # Adım 2: İnteraktif auth kurulumunu çalıştırın (mevcutsa gcloud kullanır)
   gws auth setup
-
+  
   # Adım 3: Giriş yapın, yalnızca ihtiyacınız olan scopes'ı isteyerek
   gws auth login -s drive,gmail,sheets
   ```
-
+  
   ### Headless/CI
-
+  
   ```bash
   # Kurulum talimatları oluşturun
   python3 scripts/auth_setup_guide.py --guide service-account
-
+  
   # İnteraktif bir makineden kimlik bilgilerini dışa aktarın, ardından CLI'yi bunlara yönlendirin
   gws auth export --unmasked > credentials.json
   export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json
   ```
-
+  
   ### Ortam Değişkenleri
-
+  
   ```bash
   # .env şablonu oluşturun
   python3 scripts/auth_setup_guide.py --generate-env
   ```
-
+  
   | Değişken | Amaç |
   |----------|------|
   | `GOOGLE_WORKSPACE_CLI_CLIENT_ID` | OAuth client ID |
@@ -122,177 +122,177 @@ body_tr: |-
   | `GOOGLE_WORKSPACE_CLI_TOKEN` | Önceden alınan OAuth token |
   | `GOOGLE_WORKSPACE_CLI_CONFIG_DIR` | Varsayılan config konumunu geçersiz kıl |
   | `GOOGLE_WORKSPACE_CLI_LOG` | Debug logging'i etkinleştir |
-
+  
   ### Kimlik Doğrulamayı Doğrulayın
-
+  
   ```bash
   python3 scripts/auth_setup_guide.py --validate --json
   # Her service endpoint'i test eder
   ```
-
+  
   ---
-
+  
   ## İş Akışı 1: Gmail Otomasyonu
-
+  
   **Amaç:** Email işlemlerini otomatikleştir — gönder, ara, etiketle ve filtre yönetimi.
-
+  
   ### Gönder, Yanıtla, İlet (yardımcı komutlar)
-
+  
   ```bash
   # Yeni bir email gönder
   gws gmail +send --to "client@example.com" \
     --subject "Proposal" --body "Please find attached..."
-
+  
   # Bir mesaja yanıtla (otomatik threading); tam flagları kontrol etmek için: gws gmail +reply --help
   gws gmail +reply ...
-
+  
   # Bir mesajı ilet; tam flagları kontrol etmek için: gws gmail +forward --help
   gws gmail +forward ...
-
+  
   # Okunmamış inbox özeti
   gws gmail +triage
   ```
-
+  
   ### Ara ve İncele (discovery komutları)
-
+  
   Discovery komutları `gws <service> <resource> <method>` şeklini izler ve request parametrelerini
   JSON aracılığıyla `--params` (query/path parametreleri) ve `--json` (request body) olarak alır.
   Herhangi bir method'un tam şemasını önce inceleyin:
-
+  
   ```bash
   # messages.list ne kabul eder? (verify)
   gws schema gmail.users.messages.list
-
+  
   # Email ara (yukarıdaki şemaya karşı doğrulayın)
   gws gmail users messages list --params '{"userId": "me", "q": "from:client@example.com after:2025/01/01"}' \
     | python3 scripts/output_analyzer.py --count
-
+  
   # Etiketleri listele (verify)
   gws gmail users labels list --params '{"userId": "me"}'
   ```
-
+  
   ### Toplu İşlemler
-
+  
   `--dry-run` ile önce önizlemeyi yapın, ve `--page-all` ile sayfalanmayı yapın (sayfa başına bir JSON satırı):
-
+  
   ```bash
   # 30 günden eski okunmuş emailleri arşivlemek için önizleme yap, ardından çalıştır (method şemasını önce doğrulayın)
   gws gmail users messages list --params '{"userId": "me", "q": "is:read older_than:30d"}' --page-all \
     | python3 scripts/output_analyzer.py --select "id" --format json
   # Ardından ids'leri gmail users messages modify'e aktar (bkz: gws schema gmail.users.messages.modify)
   ```
-
+  
   ---
-
+  
   ## İş Akışı 2: Drive & Sheets
-
+  
   **Amaç:** Dosyaları yönet, spreadsheet'ler oluştur, paylaşımı yapılandır ve verileri dışa aktar.
-
+  
   ### Dosya İşlemleri
-
+  
   ```bash
   # Dosyaları listele
   gws drive files list --params '{"pageSize": 50}' \
     | python3 scripts/output_analyzer.py --select "name,mimeType,size" --format table
-
+  
   # Bir dosya yükle (yardımcı)
   gws drive +upload ./report.pdf --name "Q1 Report"
-
+  
   # Bir Google Sheet oluştur
   gws sheets spreadsheets create --json '{"properties": {"title": "Budget 2026"}}'
-
+  
   # İndir/dışa aktar — method'u önce inceleyin (verify)
   gws schema drive.files.export
   ```
-
+  
   ### Paylaşım (şemaları önce doğrulayın)
-
+  
   ```bash
   # Permissions API yüzeyini inceleyin
   gws schema drive.permissions.create
-
+  
   # Kullanıcı ile paylaş (şemaya karşı doğrulayın)
   gws drive permissions create --params '{"fileId": "<FILE_ID>"}' \
     --json '{"type": "user", "role": "writer", "emailAddress": "colleague@company.com"}'
-
+  
   # Kimin erişimi olduğunu listele (verify)
   gws drive permissions list --params '{"fileId": "<FILE_ID>"}'
   ```
-
+  
   ### Sheets Verileri
-
+  
   ```bash
   # Değerleri oku (yardımcı); tam flagları kontrol etmek için: gws sheets +read --help
   gws sheets +read ...
-
+  
   # Bir satır ekle (yardımcı); tam flagları kontrol etmek için: gws sheets +append --help
   gws sheets +append ...
-
+  
   # Veya discovery method'larını kullanın (verify):
   gws schema sheets.spreadsheets.values.update
   gws sheets spreadsheets values get --params '{"spreadsheetId": "<SHEET_ID>", "range": "Sheet1!A1:D10"}'
   ```
-
+  
   ---
-
+  
   ## İş Akışı 3: Takvim & Toplantılar
-
+  
   **Amaç:** Event'leri programla, boş zamanları bul ve standup raporları oluştur.
-
+  
   ### Event Yönetimi
-
+  
   ```bash
   # Bir event oluştur (yardımcı); tam flagları kontrol etmek için: gws calendar +insert --help
   gws calendar +insert ...
-
+  
   # Yaklaşan event'ler (yardımcı, timezone-aware)
   gws calendar +agenda
-
+  
   # Veya discovery aracılığıyla (verify):
   gws schema calendar.events.insert
   gws calendar events list --params '{"calendarId": "primary", "maxResults": 10}'
   ```
-
+  
   ### Boş Zamanı Bul
-
+  
   ```bash
   # Free/busy via Calendar API (schema'yı önce doğrulayın)
   gws schema calendar.freebusy.query
   gws calendar freebusy query --json '{"timeMin": "...", "timeMax": "...", "items": [{"id": "alice@co.com"}]}'
   ```
-
+  
   ### Standup Raporu (workflow yardımcıları)
-
+  
   ```bash
   # Bugünün toplantıları + görevleri
   gws workflow +standup-report \
     | python3 scripts/output_analyzer.py --format table
-
+  
   # Sonraki toplantı hazırlığı; tam flagları kontrol etmek için: gws workflow +meeting-prep --help
   gws workflow +meeting-prep
   ```
-
+  
   ---
-
+  
   ## İş Akışı 4: Güvenlik Denetimi
-
+  
   **Amaç:** Google Workspace güvenlik yapılandırmasını denetle ve iyileştirme komutları oluştur.
-
+  
   ### Tam Denetim Çalıştır
-
+  
   ```bash
   # Tüm servisler arasında tam denetim
   python3 scripts/workspace_audit.py --json
-
+  
   # Belirli servisleri denetle
   python3 scripts/workspace_audit.py --services gmail,drive,calendar
-
+  
   # Demo modu (gws gerekli değil)
   python3 scripts/workspace_audit.py --demo
   ```
-
+  
   ### Denetim Kontrolleri
-
+  
   | Alan | Kontrol | Risk |
   |------|---------|------|
   | Drive | Harici paylaşım etkinleştirildi | Veri sızıntısı |
@@ -302,23 +302,23 @@ body_tr: |-
   | OAuth | Üçüncü taraf uygulama izinleri | Yetkisiz erişim |
   | Admin | Süper admin sayısı | Ayrıcalık yükseltme |
   | Admin | 2-Adımlı doğrulama zorunlu | Hesap ele geçirme |
-
+  
   ### İnceleyin ve İyileştirin
-
+  
   ```bash
   # Bulguları gözden geçirin
   python3 scripts/workspace_audit.py --json | python3 scripts/output_analyzer.py \
     --filter "status=FAIL" --select "area,check,remediation"
-
+  
   # İyileştirmeyi çalıştırın (örnek: önce mevcut Drive ayarlarını kontrol edin; verify)
   gws drive about get --params '{"fields": "*"}'
   # Denetim çıkışından iyileştirme komutlarını takip edin (her birini gws --help'e karşı doğrulayın)
   ```
-
+  
   ---
-
+  
   ## Python Araçları
-
+  
   | Script | Amaç | Kullanım |
   |--------|------|---------|
   | `gws_doctor.py` | Uçuş öncesi tanılamalar | `python3 scripts/gws_doctor.py [--json] [--services gmail,drive]` |
@@ -326,41 +326,41 @@ body_tr: |-
   | `gws_recipe_runner.py` | Recipe kataloğu & koşucu | `python3 scripts/gws_recipe_runner.py --list [--persona pm]` |
   | `workspace_audit.py` | Güvenlik/config denetimi | `python3 scripts/workspace_audit.py [--json] [--demo]` |
   | `output_analyzer.py` | JSON/NDJSON analizi | `gws ... --json \| python3 scripts/output_analyzer.py --count` |
-
+  
   Tüm scriptler stdlib-only'dir, `--json` çıkışını destekler ve gömülü örnek veriler ile demo modunu içerir.
-
+  
   ---
-
+  
   ## En İyi Uygulamalar
-
+  
   ### Güvenlik
-
+  
   1. Minimal scopes ile OAuth kullanın — her iş akışının ihtiyacı olan şeyleri isteyebilirsiniz
   2. Token'ları sistem keyring'inde saklayın, hiçbir zaman düz metin dosyalarında saklamamalı
   3. Service account anahtarlarını her 90 günde döndürün
   4. Üçüncü taraf OAuth uygulama izinlerini üç ayda bir denetleyin
   5. Toplu yıkıcı işlemlerden önce `--dry-run` kullanın
-
+  
   ### Otomasyon
-
+  
   1. Tüm `gws` çıkışı yapılandırılmış JSON'dır — filtreleme ve toplama için `output_analyzer.py` aracılığıyla yönlendirin
   2. Ham komutları zincirlemek yerine çok adımlı işlemler için `gws workflow +*` yardımcılarını kullanın
   3. Yerel recipe kataloğunu (`gws_recipe_runner.py`) komut şablonları olarak kullanın, ardından her birini `gws --help`'e karşı doğrulayın
   4. `--page-all` sayfa başına bir JSON satırı (NDJSON) yayınlar, geniş sonuç setlerini akışla yapmak için
   5. Herhangi bir isteği çalıştırmadan önce önizlemek için `--dry-run` kullanın
-
+  
   ### Performans
-
+  
   1. API'nin `--params` içindeki `fields` parametresi aracılığıyla yalnızca gerekli alanları isteyin (payload boyutunu azaltır)
   2. Sonuçları sınırlamak için `--params` içinde `pageSize` kullanın
   3. `--page-all` yalnızca tam veri setlerine ihtiyacınız olduğunda kullanın; `--page-limit` / `--page-delay` ile ayarlayın
   4. Ham API çağrılarını zincirlemek yerine `+` yardımcılarını tercih edin (tek optimize edilmiş çağrılar)
   5. Sık erişilen verileri önbelleğe alın (örn. etiket ID'leri, klasör ID'leri) değişkenlerde
-
+  
   ---
-
+  
   ## Sınırlamalar
-
+  
   | Kısıtlama | Etki |
   |-----------|------|
   | OAuth token'ları 1 saat sonra sona erer | Uzun çalışan scriptler için yeniden auth gerekli |
@@ -369,14 +369,14 @@ body_tr: |-
   | Pre-v1.0 CLI durumu | Sürümler arasında breaking changes mümkündür |
   | Google Cloud projesi gerekli | Ücretsizdir, ancak Cloud Console'da kurulum gerekir |
   | Admin API yönetici ayrıcalıkları gerektirir | Bazı denetim kontrolleri Workspace Admin rolü gerektirir |
-
+  
   ### Service Başına Gerekli Scopes
-
+  
   ```bash
   # Belirli servisler için scope'ları listele
   python3 scripts/auth_setup_guide.py --scopes gmail,drive,calendar,sheets
   ```
-
+  
   | Service | Anahtar Scopes |
   |---------|----------------|
   | Gmail | `gmail.modify`, `gmail.send`, `gmail.labels` |

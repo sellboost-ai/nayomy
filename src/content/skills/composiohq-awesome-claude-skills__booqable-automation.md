@@ -4,7 +4,7 @@ description_en: "Automate Booqable tasks via Rube MCP (Composio). Always search 
 description_tr: "Booqable görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/booqable-automation/SKILL.md"
 path: "composio-skills/booqable-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP Aracılığıyla Booqable Otomasyonu
-
+  
   Composio'nun Booqable araç seti aracılığıyla Rube MCP kullanarak Booqable işlemlerini otomatikleştirin.
-
+  
   **Araç seti belgeleri**: [composio.dev/toolkits/booqable](https://composio.dev/toolkits/booqable)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` ile `booqable` araç seti üzerinden aktif Booqable bağlantısı
   - Her zaman mevcut araç şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` komutunu `booqable` araç seti ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini izleyin
   4. Herhangi bir iş akışı çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   İş akışlarını yürütmeden önce her zaman mevcut araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Booqable operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut araç slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Araçları Keşfet
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Booqable task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Et
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["booqable"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Yürüt
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan hiçbir zaman araç slug'larını veya argümanlarını sabit kodlamayın
   - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Sayfalandırma**: Yanıtları sayfalandırma tokenları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | `RUBE_SEARCH_TOOLS` ile Booqable'a özel use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen araç slug'ları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` için `schemaRef` içeren araçlar |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından sunulmaktadır*
 ---

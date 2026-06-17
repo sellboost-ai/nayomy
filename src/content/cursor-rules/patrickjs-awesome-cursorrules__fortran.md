@@ -5,72 +5,11 @@ description: "Modern Fortran rules for scientific computing, modules, explicit i
 description_tr: "Modern Fortran ile bilimsel hesaplama, modüller, açık arayüzler, kind parametreleri, bellek güvenliği ve test yazma kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/fortran.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/fortran.mdc"
 body_length: 3007
 file_extension: ".mdc"
-body_tr: |-
-  # Fortran Programlama Yönergeleri
-
-  ## Temel İlkeler
-
-  - Fortran 2003, 2008 veya daha yeni modern Fortran standartlarını kullanın.
-  - Her program biriminde `implicit none` kullanın.
-  - Açık arayüzler sağlamak için prosedürleri modüllere yerleştirin.
-  - Modülleri odaklanmış tutun ve her büyük modülü kendi dosyasına yerleştirin.
-  - Akıllı dil hileleri yerine açık, yapılandırılmış kodu tercih edin.
-  - COMMON blokları, GOTO-ağır kontrol akışı ve sayısal etiketler gibi eski özellikleri kullanmaktan kaçının.
-
-  ## Türler ve Kinds
-
-  - Sayısal kind parametrelerini `kind_mod` gibi bir paylaşılan modülde tanımlayın.
-  - Kayan nokta değerleri için `real(kind=dp)` veya proje tarafından onaylanan real kind'ı kullanın.
-  - Tamsayı değerleri için `integer(kind=i4)` veya proje tarafından onaylanan integer kind'ı kullanın.
-  - pi gibi sabitleri açıkça tanımlayın.
-  - Fiziksel büyüklükler için yorumlara birimler ekleyin.
-  - Birçok ilkel argümanı geçmek yerine ilgili verileri gruplamak için türetilmiş türler kullanın.
-
-  ## Adlandırma ve Stil
-
-  - Dil anahtar sözcükleri ve çoğu tanımlayıcı için küçük harfleri kullanın.
-  - Çok sözcüklü adlar için alt çizgileri kullanın.
-  - Yalnızca büyük harfle farklı olan adlardan kaçının.
-  - Prosedürler ve durumlar için açıklayıcı adlar kullanın.
-  - `end` ifadelerinden sonra prosedür veya modül adını tekrarlayın.
-  - `do`, `if`, `select case` ve modül bloklarında tutarlı girintileme tutun.
-
-  ## Prosedürler
-
-  - Subroutine'leri ve fonksiyonları kısa ve tek amaçlı tutun.
-  - Her dummy argümanı için `intent(in)`, `intent(out)` veya `intent(inout)` kullanın.
-  - Mümkün olduğunca fonksiyonları yan etkilerden arındırın.
-  - Derin iç içeliklerin yerine erken doğrulama ve açık dönüşleri tercih edin.
-  - Modüllerden içeri aktarırken `use, only:` kullanın.
-
-  ## Bellek ve Diziler
-
-  - İşaretçi semantikleri gerekli olmadıkça işaretçilere tercih olarak allocatable dizileri kullanın.
-  - Kullanmadan önce tahsis durumunu ve dizi boyutlarını kontrol edin.
-  - Allocatable dizileri yaşam süresi doğal olarak kapsamlı olmadığında serbest bırakın.
-  - Dizi sınırlarını önemli olduğunda açıkça belirtin.
-  - Sıcak döngülerde gereksiz dinamik tahsisten kaçının.
-
-  ## Test ve Build
-
-  - CMake, fpm, Make veya proje standardı build sistemini tutarlı şekilde kullanın.
-  - Uyarılar etkinleştirilmiş şekilde derleyin ve CI'da önemli uyarıları başarısızlık olarak işleyin.
-  - Genel prosedürler için birim testler ve sayısal iş akışları için entegrasyon testleri ekleyin.
-  - Sınır koşullarını, geçersiz girdileri ve temsili bilimsel durumları test edin.
-  - Sayısal toleransları açıkça doğrulayın; kesin kayan nokta eşitliğine güvenmeyin.
-
-  ## Yaygın Hatalar
-
-  - Bir blok yapısı kullanmadıkça çalıştırılabilir kod sonrasında değişkenleri bildirmeyin.
-  - `random_number`'ın bir fonksiyon olduğunu varsaymayın; bu bir subroutine'dir.
-  - Pure prosedürlerden stdout'a yazmayın.
-  - Aynı kapsamda aynı değişkeni iki kez bildirmeyin.
-  - İçeri aktarmadan veya tanımlamadan pi, dp veya proje kind'larının zaten var olduğunu varsaymayın.
 ---
 
 

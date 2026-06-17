@@ -5,98 +5,11 @@ description: "Cursor rules for Next.js development with React and Tailwind CSS i
 description_tr: "Next.js geliştirmesi için Cursor rules, React ve Tailwind CSS entegrasyonuyla birlikte gelir."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/nextjs-react-tailwind-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-react-tailwind-cursorrules-prompt-file.mdc"
 body_length: 4122
 file_extension: ".mdc"
-body_tr: |-
-  - TypeScript, Node.js, Next.js App Router, React, Shadcn UI, Tailwind ve Framer Motion konularında uzmanız.
-
-  - Kod Stili ve Yapısı
-
-    - Kısa, teknik TypeScript kodu yazın; doğru örnekler sunun.
-    - Fonksiyonel ve deklaratif programlama desenleri kullanın; sınıflardan kaçının.
-    - Kod çoğaltmaya tercih etmek yerine iterasyon ve modülarizasyonu tercih edin.
-    - Yardımcı fiillerle açıklayıcı değişken adları kullanın (örneğin, isLoading, hasError).
-    - Dosya yapısı: dışa aktarılan bileşen, alt bileşenler, yardımcılar, statik içerik, tipler.
-
-  - Adlandırma Kuralları
-
-    - Tüm bileşenler src/components içinde olmalı ve new-component.tsx gibi adlandırılmalıdır.
-    - Dizinler için küçük harfler ve tire kullanın (örneğin, components/auth-wizard).
-    - Bileşenler için named export tercih edin.
-
-  - TypeScript Kullanımı
-
-    - Tüm kod için TypeScript kullanın; types yerine interfaces tercih edin.
-    - Enum'lardan kaçının; bunun yerine map'leri kullanın.
-    - TypeScript interface'leriyle fonksiyonel bileşenler kullanın.
-
-  - Sözdizimi ve Biçimlendirme
-
-    - Saf fonksiyonlar için "function" anahtar sözcüğünü kullanın.
-    - Koşullularda gereksiz küme parantezlerini kullanmaktan kaçının; basit ifadeler için kısa sözdizimi kullanın.
-    - Deklaratif JSX kullanın.
-
-  - UI ve Stil
-
-    - Bileşenler ve stil için Shadcn UI ve Tailwind kullanın.
-    - Tailwind CSS ile responsive tasarım gerçekleştirin; mobil-öncelikli yaklaşım kullanın.
-
-  - Performans Optimizasyonu
-
-    - 'use client', 'useEffect' ve 'setState' kullanımını minimize edin; React Server Components'i (RSC) tercih edin.
-    - İstemci bileşenlerini Suspense ile fallback içinde sarın.
-    - Kritik olmayan bileşenler için dinamik yüklemeyi kullanın.
-    - Görüntüleri optimize edin: WebP formatı kullanın, boyut verisi ekleyin, tembel yükleme gerçekleştirin.
-
-  - Temel Kurallar
-
-    - URL arama parametresi durum yönetimi için 'nuqs' kullanın.
-    - Web Vitals'ı optimize edin (LCP, CLS, FID).
-    - 'use client' kullanımını sınırlayın:
-      - Sunucu bileşenleri ve Next.js SSR'yi tercih edin.
-      - Yalnızca küçük bileşenlerde Web API erişimi için kullanın.
-      - Veri getirme veya durum yönetimi için kullanmayın.
-    - Veri Getirme, Rendering ve Routing için Next.js belgelerine uyun.
-    - Seed verilerinizin bir parçası olarak yer tutucu görüntüler oluştururken, kullanımdan kaldırılmış yer tutucu hizmetleri yerine yerel fixture'lar veya proje tarafından onaylanmış kararlı bir görüntü kaynağı kullanın.
-    - Hem /app hem de /components klasörlerini bir /src dizini altına yerleştirin. Bu organizasyon çeşitli avantajlar sağlar:
-      - Temiz ve organize bir proje yapısı tutmaya yardımcı olur.
-      - Bileşenlerin ve sayfaların daha kolay gezinilmesine ve yönetilmesine olanak tanır.
-      - Ortak endüstri standartlarına uyarak, diğer geliştirici katılımını kolaylaştırır.
-      - Uygulama mantığı (/src/app) ile UI bileşenleri (/src/components) arasında net bir ayrım sağlayarak, kod okunabilirliğini ve yeniden kullanılabilirliğini geliştirir.
-      - Yeni sayfalar ve bileşenler oluşturma işlemini basitleştirir, çünkü /src dizini içindeki ilgili dosyaları kolayca bulabilirsiniz.
-      - Proje daha modüler olur ve uygulama büyüdükçe ölçeklenmesi daha kolay hale gelir.
-      - Uygulamanın farklı yönlerinin farklı dizinler tarafından işlendiği, soruların ayrılması ilkesine uyar.
-
-  ## Bileşenler Organizasyonu
-
-  /src/components klasörü içerisinde, bileşenleri türe veya özelliğe göre organize etmeyi düşünün:
-
-  Türe Göre: Formlar, düğmeler, layout öğeleri vb. gibi bileşenleri gruplandırın.
-
-  Özelliğe Göre: Daha büyük uygulamalar için, belirli özellikleri veya alanları ilişkili bileşenleri gruplandırın.
-
-  Örneğin:
-
-    /src/components
-    ├── /ui
-    │   ├── /Button
-    │   ├── /Modal
-    │   └── /Card
-    ├── /forms
-    │   ├── /TextField
-    │   └── /Select
-    └── /layout
-        ├── /Navbar
-        └── /Footer
-
-  - Özel Bileşenler: Yalnızca belirli sayfalar içinde kullanılan bileşenler için, ilgili /app alt dizini içinde bir _components klasörü oluşturabilirsiniz.
-
-  - Paylaşılan Bileşenler: /src/components klasörü, birden fazla sayfa veya özellik arasında kullanılan yeniden kullanılabilir bileşenler içermelidir.
-
-  - Modüler Yaklaşım: Projeniz büyüdükçe, her özelliğin veya alanın kendi klasörü (o özelliğe veya alana özgü bileşenler, hook'lar ve yardımcılar içeren) olduğu daha modüler bir yapı benimsemeyi düşünün.
 ---
 
 - You are an expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, and Tailwind and Framer Motion.

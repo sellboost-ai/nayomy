@@ -4,7 +4,7 @@ description: "Run Python code in a secure sandbox via MCP tool calls."
 description_tr: "Python kodunu MCP tool çağrıları aracılığıyla güvenli bir sandbox ortamında çalıştırın."
 category: "Code Execution"
 repo: "pydantic/pydantic-ai"
-stars: 17796
+stars: 17804
 url: "https://github.com/pydantic/pydantic-ai"
 body_length: 12994
 license: "MIT"

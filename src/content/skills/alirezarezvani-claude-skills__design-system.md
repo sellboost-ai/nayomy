@@ -4,7 +4,7 @@ description_en: "Captures the user's brand identity once via a 10-question onboa
 description_tr: "Kullanıcının marka kimliğini 10 soruluk onboarding sihirbazıyla bir kez yakalar (primary/accent HEX + heading + body Google Fonts + tasarım stili editorial/technical/minimal/playful + varsayılan output dizini + syntax theme + TOC davranışı + opsiyonel logo/şirket), body-text ve link kontrastını WCAG 2.2 AA'ya karşı doğrular, HSL alanında 12 CSS custom property türetir ve sonucu her projede saklar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/design-system/SKILL.md"
 path: ".gemini/skills/design-system/SKILL.md"
 is_collection: false
@@ -15,19 +15,19 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Design System — Onboarding + Shared Brand Tokens
-
+  
   design-system skill'i, markdown-html plugin için **shared brand owner** görevidir. Onboarding'i bir kez çalıştırın. Her converter (`md-document`, `md-review`, `md-slides`) sonuç konfigürasyonunu `config_loader.py` üzerinden okur ve aynı 12 CSS custom property'sini çıktısına uygular. Bunu yapmadan, dönüştürmeler placeholder varsayılanlarla render edilir — teknik olarak işlevsel ama markalı değildir.
-
+  
   Bu skill tam olarak üç Python aracından oluşur:
-
+  
   1. **`onboard.py`** — interaktif (veya `--defaults` / `--set` / `--show` / `--reset`) sihirbazı.
   2. **`config_loader.py`** — project > global > defaults önceliği ve `MARKDOWN_HTML_NO_CONFIG=1` bypass'ı olan içe aktarılabilir özelleştirme yükleyicisi.
   3. **`brand_palette_validator.py`** — WCAG-AA contrast checker + HSL palette türetici.
-
+  
   Üçü de stdlib-only'dir ve LLM çağrısı içermez (Path-B disiplinine göre belirleyici).
-
+  
   ## Ne zaman çalıştırılacak
-
+  
   | Belirti | İşlem |
   |---|---|
   | Kullanıcı ilk kez bu workspace'te "bu markdown'ı HTML'ye çevir" diyor | `python3 markdown-html/skills/design-system/scripts/onboard.py` çalıştırın |
@@ -37,9 +37,9 @@ body_tr: |-
   | Kullanıcı sıfırlamak ve yeniden onboard yapmak istiyor | `python3 .../onboard.py --reset` sonra yeniden çalıştırın |
   | Kullanıcı sıfır-dokunuş varsayılanlarını istiyor (CI, geçici oturum) | `python3 .../onboard.py --defaults` |
   | Başsız / konteynerize çalışma kaydedilen config'i yoksaymalıdır | `MARKDOWN_HTML_NO_CONFIG=1 ...` |
-
+  
   ## Onboarding soru seti (10 soru)
-
+  
   | # | Anahtar | Seçimler / Validator | Varsayılan |
   |---|---|---|---|
   | 1 | `default_output_dir` | yol; `os.access(parent, os.W_OK)` | `./markdown-html-out/` |
@@ -52,19 +52,19 @@ body_tr: |-
   | 8 | `toc.behavior` | `sticky-sidebar / collapsible-top / inline / none` | `sticky-sidebar` |
   | 9 | `company_name` | string (boş olabilir) | `""` |
   | 10 | `logo_url` | URL veya boş (render'da base64-embedded) | `""` |
-
+  
   ## Katı kurallar
-
+  
   1. **WCAG AA body-text contrast zorunlu geçmeli.** `brand_palette_validator.validate()` her değişiklikten sonra çalışır. Body text'in arka plandan 4.5:1 contrast'ı sağlaması; link'in arka plandan 4.5:1 contrast'ı sağlaması gerekir. İkisi de başarısız olursa, `onboard.py` kaydetmeyi reddeder (exit code 4) ve kullanıcıya daha koyu bir primary seçmesini, `brand.bg`/`brand.text`'i boş bırakarak derivation'ın güvenli bir çift seçmesine izin vermesini veya `brand.text`'i doğrudan override etmesini söyler. Canon: WCAG 2.2 §1.4.3.
   2. **Çıktı dizini yazılabilir olmalıdır.** `onboard.py` yolun yukarısını yürüyerek mevcut bir atasını bulur ve `os.W_OK` kontrol eder. Boş veya yazılamaz yol → exit code 3. Orkestratörün `output_path_resolver.py` aynı kuralı dönüştürme başına onurlandırır.
   3. **Özelleştirme davranışı değiştirmeli, dekorasyon olarak oturmamalıdır.** Her tüketici (md-document, md-review, md-slides) config'i okumalı ve kullanıcı `design_style`, `brand.primary`, `code_theme` veya `toc.behavior`'u değiştirdiğinde farklı render etmelidir. Dekoratif-sadece alanlar design disiplinini başarısız kılar.
   4. **Öncelik sabittir.** Project > global > defaults. Deep-merge iç içe anahtarları korur (örn. project config'te `brand.primary`'yi override edebilirsiniz ve global'den `typography.heading_font`'u kaybetmezsiniz).
   5. **Bypass env'i bir nedeni vardır.** `MARKDOWN_HTML_NO_CONFIG=1`, headless CI, geçici test konteynerleri ve autoresearch-tarzı değerlendirici döngüleri içindir. Hiçbir zaman interaktif bir kullanıcı için sessizce ayarlamayın.
-
+  
   ## Türetilen 12-token palet
-
+  
   Kullanıcının brand'ı yakalandıktan sonra, `brand_palette_validator.derive_palette()` aynı config dosyasında `derived_palette` altında depolanan 12 CSS custom property'si üretir. Her converter bunları `<style>` bloğuna dahil eder.
-
+  
   | Token | Amaç | Türetim |
   |---|---|---|
   | `--md-bg` | Doküman arka planı | Primary koyu ise, vibrant ise nötr-yakın |
@@ -79,80 +79,80 @@ body_tr: |-
   | `--md-link-hover` | Hover state | Link ± 6-8% luminance |
   | `--md-success` | Tamam / onaylı / geçti | Yeşil sabitlenmiş, luminance-matched |
   | `--md-warn` | Uyarı / nit / TODO | Amber sabitlenmiş, luminance-matched |
-
+  
   ## Zorlama-soru kütüphanesi (Matt Pocock grill-with-docs pattern)
-
+  
   Tur başına bir soru, önerilen cevap, canon citation.
-
+  
   1. **Brand primary rengini nedir?** Önerilen: Ürün veya dokümantasyonunuzda zaten kullandığınız bir HEX — stock mavi değil. Canon: Aarron Walter, *Designing for Emotion* (renk brand affect taşır).
   2. **Accent türetilsin mi ayarlanmış mı?** Önerilen: ilk çalıştırmada türet (hue-shift + lighten uyumlu companion üretir); sadece brand kit'iniz bir tane belirtiyorsa açıkça ayarlayın. Canon: Adobe Spectrum, *Color Foundations*.
   3. **Editorial, technical, minimal mi yoksa playful mı?** Önerilen: mühendislik spec'leri/raporları için `technical`, uzun-okuma anlatıları için `editorial`, seyrek referans dokümanlar için `minimal`, marketing/landing içeriği için `playful`. Canon: Ellen Lupton, *Thinking with Type* (stil retorik amacı hizmet eder).
   4. **Sticky-sidebar TOC mu yoksa inline mi?** Önerilen: 800 kelimeden fazla dokümanlar için `sticky-sidebar`, kısa okumalar için `inline`. Canon: Nielsen-Norman, *Table of Contents Best Practices* (2023).
   5. **Global'e mi yoksa project başına mı kaydet?** Önerilen: varsayılan olarak global (çalışmanız genelinde tutarlı); `--scope project`'i sadece bu repo'nun farklı bir brand'ı varsa kullanın. Canon: research-ops onboarding pattern, `research-ops/CLAUDE.md` §8.
-
+  
   ## Özelleştirme kullanımda (işlenmiş örnek)
-
+  
   ```bash
   # Ilk-çalıştırma onboarding (interaktif, tüm 10 soruyu yürütür)
   python3 markdown-html/skills/design-system/scripts/onboard.py
-
+  
   # CI için sıfır-dokunuş varsayılanları / ilk-test
   python3 .../onboard.py --defaults
-
+  
   # Sadece primary rengi ve design style'ı değiştir
   python3 .../onboard.py --set brand.primary=#FF6B35 --set design_style=editorial
-
+  
   # Per-repo override
   python3 .../onboard.py --scope project --set design_style=minimal
-
+  
   # Sıfırla ve yeniden onboard et
   python3 .../onboard.py --reset
   python3 .../onboard.py
-
+  
   # Etkili config'i incele (project > global > defaults)
   python3 .../config_loader.py --show
   python3 .../config_loader.py --status
-
+  
   # Kaydedilen config'i bypass et (sadece DEFAULTS döner)
   MARKDOWN_HTML_NO_CONFIG=1 python3 .../config_loader.py --show
-
+  
   # Brand'e bağlanmadan önce WCAG contrast'ı spot-kontrol et
   python3 .../brand_palette_validator.py --primary "#FF6B35" --accent "#00D4AA"
   ```
-
+  
   ## Varsayımlar
-
+  
   1. Kullanıcının HTML dönüştürmeleri arasında tutarlı olmasını istediği en az bir brand HEX'i vardır.
   2. Kullanıcı 1-2 dakikalık bir kez setup'ı kabul eder.
   3. Kullanıcı Google Fonts'u typography kaynağı olarak kabul eder (CDN, local font hosting yok).
   4. WCAG 2.2 AA erişilebilirlik tabanıdır (4.5:1 body, 3:1 large/UI). AAA (7:1) kapsam dışıdır.
-
+  
   ## Hedef değil
-
+  
   - Tam design-token sistemi değil (Style Dictionary, Theo). On iki token, yüz değil.
   - Custom-font hosting çözümü değil. Sadece Google Fonts.
   - Dönüştürücülerde dark/light mode switcher değil. `code_theme: auto` syntax highlighting için prefers-color-scheme durumunu işler; layout palet onboarding başına single-mode'dir.
   - Erişilebilirlik audit suite'i değil (bunun için axe-core / pa11y kullanın). Sadece contrast'ı zorunlu kılarız.
   - Mevcut CSS'yi dönüştürmeyin — türetilen palet taze oluşturulan HTML'ye enjekte edilir.
-
+  
   ## Farklı
-
+  
   - **`marketing/landing/skills/landing/scripts/brand_palette_validator.py`** — o script'in `derive_palette()` hero-page rendering için şekillendirilmiş 8 token üretir (`--navy`, `--teal`, `--card-bg`, `--card-border`). Bu script doküman rendering için şekillendirilmiş 12 token üretir (sticky surface, hairline border, code bg, link, link-hover, success, warn). Aynı WCAG + HSL math, farklı token taxonomy.
   - **`research-ops/skills/clinical-research/scripts/onboard.py`** — aynı pattern (interactive + `--defaults`/`--set`/`--show`/`--reset`/`--scope`), farklı soru seti (clinical alpha/power/dropout vs. brand palette/typography/layout).
-
+  
   ## Çıktı artifact'ı
-
+  
   `~/.config/markdown-html/design-system.json` (global) veya `./.markdown-html/design-system.json` (project). JSON schema `assets/design_system_schema.json` konumunda yaşar.
-
+  
   ## Anti-pattern'ler (yapma)
-
+  
   - ❌ Onboarding'i atla ve placeholder varsayılanlarıyla bir converter çalıştır — çıktı markalı görünmez.
   - ❌ Vibrant bir brand primary'yi doğrudan `brand.bg` olarak seç (düşük text contrast). Bunun yerine accent olarak kullan.
   - ❌ Interaktif bir kullanıcı için `MARKDOWN_HTML_NO_CONFIG=1`'i sessizce ayarla — token'larınızın neden kaybolduğunu merak edecekler.
   - ❌ Brand semantiği 12-token taxonomy'sinin dışında `derived_palette`'te encode et. Sadece kasıtlı bir ad + amaç + derivation kuralıyla yeni bir token ekle.
-
+  
   ## Kaynaklar
-
+  
   - WCAG 2.2 — §1.4.3 (contrast), §1.4.4 (resize), §1.4.11 (non-text contrast)
   - Aarron Walter — *Designing for Emotion* (A Book Apart)
   - Ellen Lupton — *Thinking with Type*

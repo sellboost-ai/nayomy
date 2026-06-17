@@ -4,7 +4,7 @@ description_en: "Automate time tracking workflows in Clockify -- create and mana
 description_tr: "Clockify'da zaman takibi iş akışlarını otomatikleştirin — doğal dil komutları aracılığıyla time entry'ler, workspace'ler ve kullanıcıları oluşturun ve yönetin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/clockify-automation/SKILL.md"
 path: "composio-skills/clockify-automation/SKILL.md"
 is_collection: false
@@ -15,33 +15,33 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Clockify Otomasyonu
-
+  
   Clockify zaman takibi işlemlerinizi doğrudan Claude Code'dan otomatikleştirin. Zaman girişleri kaydedin, geçmiş verileri sorgulayın, çalışma alanlarını yönetin ve takım aktivitesini denetleyin -- hepsi terminalinizi terk etmeden.
-
+  
   **Toolkit dokümantasyonu:** [composio.dev/toolkits/clockify](https://composio.dev/toolkits/clockify)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   1. Rube MCP sunucusunu Claude Code konfigürasyonunuza `https://rube.app/mcp` URL'si ile ekleyin
   2. İstendiğinde, sağlanan bağlantı üzerinden Clockify hesabınıza kimlik doğrulaması yapın
   3. Doğal dil ile zaman takibi iş akışlarınızı otomatikleştirmeye başlayın
-
+  
   ---
-
+  
   ## Ana İş Akışları
-
+  
   ### 1. Zaman Girişleri Oluşturun
-
+  
   Proje, görev ve etiket ilişkilendirmeleri ile birlikte çalışılan zamanı kaydedin, faturalama durumunu belirleyin.
-
+  
   **Tool:** `CLOCKIFY_CREATE_TIME_ENTRY`
-
+  
   ```
   Log 2 hours of work on project 64a687e2 in workspace 64a687e3 starting at 9am UTC today with description "API development"
   ```
-
+  
   Önemli parametreler:
   - `workspaceId` (gerekli) -- girişin oluşturulacağı çalışma alanı
   - `start` (gerekli) -- ISO 8601 başlangıç zamanı (örn. `2026-02-11T09:00:00Z`)
@@ -52,17 +52,17 @@ body_tr: |-
   - `tagIds` -- etiket ID'lerinin dizisi
   - `billable` -- girişin faturalı olup olmadığı
   - `customFieldValues` -- `customFieldId` ve `value` içeren özel alan girişlerinin dizisi
-
+  
   ### 2. Zaman Girişlerini Sorgulayın
-
+  
   Raporlama, denetim ve faturalandırma için geçmiş zaman girişlerini alın.
-
+  
   **Tool:** `CLOCKIFY_GET_TIME_ENTRIES`
-
+  
   ```
   Get all time entries for user abc123 in workspace xyz789 from January 2026
   ```
-
+  
   Önemli parametreler:
   - `workspaceId` (gerekli) -- sorgulanacak çalışma alanı
   - `userId` (gerekli) -- girişleri alınacak kullanıcı
@@ -74,73 +74,73 @@ body_tr: |-
   - `hydrated` -- sadece ID'ler yerine tam proje/görev/etiket nesneleri almak için `true` olarak ayarlayın
   - `in-progress` -- sadece çalışan zamanlayıcıyı döndürmek için `true` olarak ayarlayın
   - `page` / `page-size` -- sayfalandırma (sayfa başına varsayılan 50)
-
+  
   ### 3. Zaman Girişlerini Silin
-
+  
   Hatalı, yinelenen veya iptal edilmiş zaman girişlerini kaldırın.
-
+  
   **Tool:** `CLOCKIFY_DELETE_TIME_ENTRY`
-
+  
   ```
   Delete time entry 5b715448 from workspace 64a687e3
   ```
-
+  
   - `workspaceId` ve `id` (zaman girişi ID'si) gerektirir
   - Hatalı içeri aktarımların veya çoğaltılmış girişlerin temizlenmesi için kullanın
-
+  
   ### 4. Çalışma Alanlarını Yönetin
-
+  
   Kimlik doğrulanmış kullanıcının ait olduğu tüm çalışma alanlarını listeleyin.
-
+  
   **Tool:** `CLOCKIFY_GET_ALL_MY_WORKSPACES`
-
+  
   ```
   Show me all my Clockify workspaces
   ```
-
+  
   - İsteğe bağlı `roles` filtresi -- `["WORKSPACE_ADMIN", "OWNER"]` gibi rol dizisi
   - Girişleri oluşturmadan veya sorgulamadan önce çalışma alanı ID'lerini keşfetmek için kullanın
-
+  
   ### 5. Kullanıcı Bilgileri
-
+  
   Geçerli kullanıcı ayrıntılarını alın ve çalışma alanı üyelerini listeleyin.
-
+  
   **Tools:** `CLOCKIFY_GET_CURRENTLY_LOGGED_IN_USER_INFO`, `CLOCKIFY_FIND_ALL_USERS_ON_WORKSPACE`
-
+  
   ```
   Who am I logged in as? Then list all users in workspace 64a687e3
   ```
-
+  
   - `CLOCKIFY_GET_CURRENTLY_LOGGED_IN_USER_INFO` kimlik doğrulanmış kullanıcının profilini döndürür (parametre gerekmez)
   - `CLOCKIFY_FIND_ALL_USERS_ON_WORKSPACE` `workspaceId` gerektirir; `name`, `email` filtreleri ve sayfalandırması (`page`, `page-size` maksimum 100) destekler
-
+  
   ### 6. Çalışan Zamanlayıcı Yönetimi
-
+  
   Oluştururken `end` parametresini atlayarak bir zamanlayıcı başlatın veya çalışan girişleri kontrol edin.
-
+  
   **Tools:** `CLOCKIFY_CREATE_TIME_ENTRY`, `CLOCKIFY_GET_TIME_ENTRIES`
-
+  
   ```
   Start a timer on project abc in workspace xyz with description "Working on bug fix"
   ```
-
+  
   - Çalışan bir zamanlayıcı başlatmak için `end` olmadan oluşturun
   - `in-progress: true` ile `CLOCKIFY_GET_TIME_ENTRIES` kullanarak bir zamanlayıcının çalışıp çalışmadığını kontrol edin
-
+  
   ---
-
+  
   ## Bilinen Tuzaklar
-
+  
   - **Çalışma alanı ve kullanıcı ID'leri gereklidir:** Çoğu Clockify aracı `workspaceId` ve `userId` gerektirir. Bu ID'leri çözmek için her zaman önce `CLOCKIFY_GET_ALL_MY_WORKSPACES` ve `CLOCKIFY_GET_CURRENTLY_LOGGED_IN_USER_INFO` komutlarını çalıştırın.
   - **ISO 8601 zaman damgaları:** Tüm zaman parametreleri saat dilimi ile ISO 8601 formatında olmalıdır (örn. `2026-02-11T09:00:00Z`). Saat dilimini atlamamak öngörülemeyen davranışlara neden olur.
   - **Çalışan zamanlayıcılar:** Aynı anda yalnızca bir zamanlayıcı çalışabilir. `end` olmayan yeni bir giriş oluşturmak, başka bir zamanlayıcı zaten etkinse başarısız olur. Önce mevcut zamanlayıcıyı durdurun.
   - **Sayfalandırma varsayılanları:** `CLOCKIFY_GET_TIME_ENTRIES` sayfa başına varsayılan olarak 50 girişle başlar. Tam dışarı aktarımlar için daha fazla sonuç döndürülene kadar sayfaları dolaşın.
   - **Etiket ID'leri çalışma alanı kapsamında:** Bir çalışma alanından gelen etiket ID'leri başka bir çalışma alanında kullanılamaz. Her zaman etiketleri hedef çalışma alanı bağlamında çözün.
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | Tool Slug | Açıklama |
   |---|---|
   | `CLOCKIFY_CREATE_TIME_ENTRY` | Zaman girişi oluşturun veya zamanlayıcı başlatın (`workspaceId`, `start` gerekli) |
@@ -149,9 +149,9 @@ body_tr: |-
   | `CLOCKIFY_GET_ALL_MY_WORKSPACES` | Kimlik doğrulanmış kullanıcı için tüm çalışma alanlarını listeleyin |
   | `CLOCKIFY_GET_CURRENTLY_LOGGED_IN_USER_INFO` | Geçerli kullanıcı profil bilgisini alın |
   | `CLOCKIFY_FIND_ALL_USERS_ON_WORKSPACE` | Çalışma alanındaki tüm kullanıcıları listeleyin (`workspaceId` gerekli) |
-
+  
   ---
-
+  
   *Powered by [Composio](https://composio.dev)*
 ---
 

@@ -4,7 +4,7 @@ description_en: "Automate Buildkite tasks via Rube MCP (Composio). Always search
 description_tr: "Rube MCP (Composio) aracılığıyla Buildkite görevlerini otomatikleştirin. Her zaman mevcut şemalar için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/buildkite-automation/SKILL.md"
 path: "composio-skills/buildkite-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Buildkite Otomasyonu via Rube MCP
-
+  
   Rube MCP aracılığıyla Composio'nun Buildkite toolkit'ini kullanarak Buildkite operasyonlarını otomatikleştirin.
-
+  
   **Toolkit dokümanları**: [composio.dev/toolkits/buildkite](https://composio.dev/toolkits/buildkite)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir olmalı)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Buildkite bağlantısı (`buildkite` toolkit ile)
   - Güncel tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci konfigürasyonunda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` çağırın (`buildkite` toolkit ile)
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen yetkilendirme bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Bulma
-
+  
   Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Buildkite operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen tuzakları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfet
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Buildkite task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Et
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["buildkite"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştır
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Tuzaklar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanları kodlamayın
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa da (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'ları arayın ve tamam olana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool bulma | `RUBE_SEARCH_TOOLS` (Buildkite'a özgü use case ile) |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştırma | `RUBE_MULTI_EXECUTE_TOOL` (keşfedilen tool slug'ları ile) |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` (`run_composio_tool()` ile) |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (`schemaRef` olan tool'lar için) |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

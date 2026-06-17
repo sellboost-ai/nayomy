@@ -4,7 +4,7 @@ description_en: "Automate Breeze tasks via Rube MCP (Composio). Always search to
 description_tr: "Rube MCP (Composio) aracılığıyla Breeze görevlerini otomatikleştirin. Her zaman güncel şemalar için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/breeze-automation/SKILL.md"
 path: "composio-skills/breeze-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Breeze Otomasyonu Rube MCP Aracılığıyla
-
+  
   Composio'nun Breeze toolkit'i aracılığıyla Rube MCP üzerinden Breeze işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/breeze](https://composio.dev/toolkits/breeze)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlanmış olmalı (RUBE_SEARCH_TOOLS mevcut)
   - `RUBE_MANAGE_CONNECTIONS` üzerinden aktif Breeze bağlantısı ve `breeze` toolkit'i
   - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini bir MCP sunucusu olarak ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin mevcut olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` komutunu `breeze` toolkit'i ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. İş akışlarını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Breeze operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input şemaları, önerilen yürütme planlarını ve bilinen tuzakları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Breeze task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["breeze"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Tuzaklar
-
+  
   - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan tool slug'larını veya argümanlarını asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` komutunun ACTIVE durumu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adları ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa da (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tam olana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-------|----------|
   | Tool'ları bul | Breeze'e özel use case ile `RUBE_SEARCH_TOOLS` |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
   | Tam şema | `schemaRef` ile tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

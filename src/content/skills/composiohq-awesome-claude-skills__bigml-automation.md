@@ -4,7 +4,7 @@ description_en: "Automate Bigml tasks via Rube MCP (Composio). Always search too
 description_tr: "Bigml görevlerini Rube MCP (Composio) ile otomatikleştirin. Güncel şemaları bulmak için her zaman tools'ı önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bigml-automation/SKILL.md"
 path: "composio-skills/bigml-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Bigml Automation via Rube MCP
-
+  
   Composio'nun Bigml araç seti aracılığıyla Rube MCP üzerinden Bigml işlemlerini otomatikleştirin.
-
+  
   **Araç seti dokümantasyonu**: [composio.dev/toolkits/bigml](https://composio.dev/toolkits/bigml)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Bigml bağlantısı (`bigml` araç seti ile)
   - Geçerli araç şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: `https://rube.app/mcp` adresini istemci konfigürasyonunuzda bir MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` komutunu `bigml` araç seti ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını izleyin
   4. Herhangi bir iş akışı çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Araç Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman mevcut araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Bigml operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut araç slugs'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Bigml task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["bigml"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arama yapın**: Araç şemaları değişir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan araç slugs'larını veya argümanlarını asla hardcoding yapmayın
   - **Bağlantıyı kontrol edin**: Araçları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` komutunun ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamen tamamlanana kadar getirmeyi devam ettirin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araç bul | `RUBE_SEARCH_TOOLS` (Bigml özel use case ile) |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` (keşfedilen tool slugs ile) |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` (`run_composio_tool()` ile) |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` (`schemaRef` olan araçlar için) |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

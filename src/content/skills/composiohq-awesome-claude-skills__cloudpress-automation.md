@@ -4,7 +4,7 @@ description_en: "Automate Cloudpress tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) aracılığıyla Cloudpress görevlerini otomatikleştirin. Güncel şemalar için her zaman araçlarda önce arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudpress-automation/SKILL.md"
 path: "composio-skills/cloudpress-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Cloudpress Otomasyonu Rube MCP ile
-
+  
   Composio'nun Cloudpress toolkit'i aracılığıyla Rube MCP üzerinden Cloudpress işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/cloudpress](https://composio.dev/toolkits/cloudpress)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` üzerinden etkin Cloudpress bağlantısı ve `cloudpress` toolkit'i
   - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Edinin**: `https://rube.app/mcp` adresini istemci yapılandırmanızda bir MCP server'ı olarak ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt vererek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `cloudpress` toolkit'ini belirtin
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için dönen auth linkini takip edin
   4. Workflow'ları çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Bulma
-
+  
   Workflow'ları yürütmeden önce her zaman kullanılabilir tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Cloudpress operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen tuzakları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Kullanılabilir Tool'ları Keşfet
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Cloudpress task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Et
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["cloudpress"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Yürüt
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Tuzaklar
-
+  
   - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanlarını asla hardcode etmeyin
   - **Bağlantıyı kontrol et**: Tool'ları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa da (`{}`)
   - **Session tekrar kullanımı**: Bir workflow içinde session ID'lerini tekrar kullanın. Yeni workflow'lar için yeni olanlar oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool'ları bul | Cloudpress'e özgü use case ile `RUBE_SEARCH_TOOLS` |
@@ -95,7 +95,7 @@ body_tr: |-
   | Yürüt | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
   | Tam şema | `schemaRef` olan tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

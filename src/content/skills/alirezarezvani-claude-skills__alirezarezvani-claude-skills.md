@@ -4,7 +4,7 @@ description_en: "Hundreds of skills: engineering, marketing, product, compliance
 description_tr: "Yüzlerce skill: engineering, marketing, product, compliance. Claude Code + Codex + Gemini CLI ile uyumlu."
 category: "Collection"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills"
 path: ""
 is_collection: true

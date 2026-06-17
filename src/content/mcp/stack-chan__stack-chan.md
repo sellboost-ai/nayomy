@@ -4,7 +4,7 @@ description: "A JavaScript-driven M5Stack-embedded super-kawaii robot with MCP s
 description_tr: "JavaScript ile çalışan, MCP server işlevselliğine sahip M5Stack tabanlı süper kawaii robot - yapay zeka tarafından kontrol edilen etkileşimler ve duygular için."
 category: "Embedded System"
 repo: "stack-chan/stack-chan"
-stars: 1535
+stars: 1536
 url: "https://github.com/stack-chan/stack-chan"
 body_length: 2773
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ description: "Official MCP server for dbt (data build tool) providing integratio
 description_tr: "dbt (data build tool) için resmi MCP sunucusu; dbt Core/Cloud CLI ile entegrasyon, proje metadata keşfi, model bilgileri ve semantic layer sorgulama yetenekleri sunmaktadır."
 category: "Data Platforms"
 repo: "dbt-labs/dbt-mcp"
-stars: 577
+stars: 578
 url: "https://github.com/dbt-labs/dbt-mcp"
 body_length: 7904
 license: "Apache-2.0"

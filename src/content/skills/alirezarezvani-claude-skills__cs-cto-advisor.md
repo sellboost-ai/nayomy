@@ -4,7 +4,7 @@ description_en: "Technical leadership advisor for CTOs covering technology strat
 description_tr: "CTO'lar ve teknik kurucular için teknoloji stratejisi, takım ölçeklendirmesi, mimari kararlar ve mühendislik excellence konularında rehberlik sağlayan yapay zeka danışmanı. Core platform bileşeni için build-vs-buy kararı verirken ya da engineering organizasyonunu 5'ten 30 mühendise çıkarırken delivery velocity'yi korumak için şirket düzeyinde teknik yargıya ihtiyacınız olduğunda kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-cto-advisor/SKILL.md"
 path: ".gemini/skills/cs-cto-advisor/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # CTO Danışman Aracı
-
+  
   ## Amaç
-
+  
   cs-cto-advisor aracı, teknoloji stratejisi, mühendislik ekibi ölçeklendirmesi, mimari yönetişim ve operasyonel üstünlüğe odaklanan uzmanlaşmış bir teknik liderlik aracıdır. Bu araç, CTO'ların karmaşık teknik kararları navigasyon etmesi, yüksek performanslı mühendislik organizasyonları oluşturması ve sürdürülebilir mühendislik uygulamaları oluşturmasına yardımcı olmak için cto-advisor beceri paketini düzenler.
-
+  
   Bu araç, CTO rollerine geçen başkan teknoloji görevlileri, VP mühendislik ve teknoloji değerlendirmesi, ekip büyümesi, mimari kararlar ve mühendislik metrikleri için kapsamlı çerçevelere ihtiyaç duyan teknik liderler için tasarlanmıştır. Teknik borç analizi, ekip ölçeklendirme hesaplayıcıları ve kanıtlanmış mühendislik çerçeveleri (DORA metrikleri, ADR'ler) yararlanarak, araç teknik mükemmelliği iş öncelikleriyle dengeleyen veri odaklı kararları sağlar.
-
+  
   cs-cto-advisor aracı, teknik vizyon ile operasyonel yürütme arasındaki boşluğu kapatarak, teknoloji yığını seçimi, ekip organizasyonu, satıcı yönetimi, mühendislik kültürü ve paydaş iletişimi hakkında uygulanabilir rehberlik sağlar. Günlük mühendislik operasyonlarından üç aylık teknoloji stratejisi incelemelerine kadar CTO sorumluluklarının tam spektrumuna odaklanır.
-
+  
   ## Beceri Entegrasyonu
-
+  
   **Beceri Konumu:** `../../c-level-advisor/skills/cto-advisor/`
-
+  
   ### Python Araçları
-
+  
   1. **Teknik Borç Analiz Aracı**
      - **Amaç:** Sistem mimarisini analiz eder, teknik borcu tanımlar ve önceliklendirilmiş azaltma planı sağlar
      - **Yol:** `../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py`
      - **Kullanım:** `python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py`
      - **Özellikler:** Borç kategorilendirmesi (kritik/yüksek/orta/düşük), kapasite tahsisi tavsiyeleri, iyileştirme yol haritası
      - **Kullanım Durumları:** Üç aylık planlama, mimari incelemeler, kaynak tahsisi, eski sistem değerlendirmesi
-
+  
   2. **Ekip Ölçeklendirme Hesaplayıcısı**
      - **Amaç:** Büyüme projeksiyonları ve mühendislik oranlarına dayalı optimal işe alım planı ve ekip yapısını hesaplar
      - **Yol:** `../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py`
      - **Kullanım:** `python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py`
      - **Özellikler:** Ekip boyutu modellemesi, oran optimizasyonu (yönetici:mühendis, kıdemli:orta:yeni başlayan), kapasite planlaması
      - **Kullanım Durumları:** Yıllık planlama, hızlı büyüme ölçeklendirmesi, ekip yeniden organizasyonu, işe alım yol haritası geliştirme
-
+  
   ### Bilgi Tabanları
-
+  
   1. **Mimari Karar Kayıtları (ADR)**
      - **Konum:** `../../c-level-advisor/skills/cto-advisor/references/architecture_decision_records.md`
      - **İçerik:** ADR şablonları, örnekler, karar alma çerçeveleri, mimari desenler
      - **Kullanım Durumu:** Teknoloji seçimi, mimari değişiklikler, teknik kararları belgelendirme, paydaş uyumlaştırması
-
+  
   2. **Mühendislik Metrikleri**
      - **Konum:** `../../c-level-advisor/skills/cto-advisor/references/engineering_metrics.md`
      - **İçerik:** DORA metrikleri uygulaması, kalite metrikleri (test kapsama, kod inceleme), ekip sağlığı göstergeleri
      - **Kullanım Durumu:** Performans ölçümü, sürekli iyileştirme, yönetim kurulu raporlaması, kıyaslamalar
-
+  
   3. **Teknoloji Değerlendirme Çerçevesi**
      - **Konum:** `../../c-level-advisor/skills/cto-advisor/references/technology_evaluation_framework.md`
      - **İçerik:** Satıcı seçim kriterleri, kendi yap vs satın al analizi, teknoloji değerlendirme şablonları
      - **Kullanım Durumu:** Teknoloji yığını kararları, satıcı değerlendirmesi, platform seçimi, satın alma
-
+  
   ## İş Akışları
-
+  
   ### İş Akışı 1: Üç Aylık Teknik Borç Değerlendirmesi ve Planlaması
-
+  
   **Hedef:** Teknik borç portföyünü değerlendir ve üç aylık azaltma planı oluştur
-
+  
   **Adımlar:**
   1. **Borç Analizi Çalıştır** - Sistemler arasında teknik borcu tanımla ve kategorize et
      ```bash
@@ -88,15 +88,15 @@ body_tr: |-
      cat ../../c-level-advisor/skills/cto-advisor/references/architecture_decision_records.md
      ```
   6. **Planı İletişim Kur** - İcra ekibine ve mühendislik organizasyonuna sun
-
+  
   **Beklenen Çıktı:** Tahsis edilmiş kaynaklar ve açık öncelikler içeren üç aylık teknik borç azaltma planı
-
+  
   **Zaman Tahmini:** Tam değerlendirme ve planlama için 1-2 hafta
-
+  
   ### İş Akışı 2: Mühendislik Ekibi Ölçeklendirmesi ve İşe Alım Planı
-
+  
   **Hedef:** İş büyümesiyle uyumlu veri odaklı işe alım planı geliştir
-
+  
   **Adımlar:**
   1. **Mevcut Durumu Değerlendir** - Mevcut ekibi belgelendir:
      - İşleve göre ekip boyutu (frontend, backend, mobil, DevOps, QA)
@@ -122,15 +122,15 @@ body_tr: |-
      - Onboarding kapasitesi planlaması
      - Bütçe tahsisi
   6. **Onboarding'i Planlama** - Onboarding kapasitesini işe alım hızıyla ölçeklendir
-
+  
   **Beklenen Çıktı:** Üç aylık hedefleri, bütçe gereksinimlerini ve ekip yapısı evrimini içeren 12 aylık işe alım yol haritası
-
+  
   **Zaman Tahmini:** Kapsamlı planlama için 2-3 hafta
-
+  
   ### İş Akışı 3: Teknoloji Yığını Değerlendirmesi ve Karar
-
+  
   **Hedef:** Yapılandırılmış çerçeve kullanarak teknoloji satıcısı/platformu değerlendir ve seç
-
+  
   **Adımlar:**
   1. **Gereksinimleri Tanımla** - İş ve teknik ihtiyaçları belgelendir:
      - İşlevsel gereksinimler
@@ -164,11 +164,11 @@ body_tr: |-
      ```
   6. **Paydaş Uyumlaştırması** - CEO, CFO, ilgili yöneticilere tavsiyeleri sun
   7. **Sözleşme Müzakereleri** - Satın alma ile şartları üzerinde çalış
-
+  
   **Beklenen Çıktı:** Belgelenmiş ADR'li teknoloji satıcısı seçildi, sözleşme müzakere edildi, uygulama planı hazır
-
+  
   **Zaman Tahmini:** Gereksinimlerden karar alınana kadar 4-6 hafta
-
+  
   **Örnek:**
   ```bash
   # Tam teknoloji değerlendirme iş akışı
@@ -176,11 +176,11 @@ body_tr: |-
   # Kriterlerini kullanarak karşılaştırma elektronik tablosu oluştur
   # Son kararı ADR formatında belgelendir
   ```
-
+  
   ### İş Akışı 4: Mühendislik Metrikleri Pano Uygulaması
-
+  
   **Hedef:** Kapsamlı mühendislik metrikleri izlemesini (DORA + özel KPI'ler) uygula
-
+  
   **Adımlar:**
   1. **Metrikleri Çerçeve Danışla** - Endüstri standartlarını incele
      ```bash
@@ -223,33 +223,33 @@ body_tr: |-
      - Haftalık: Ekip sağlığı (hız, plansız iş)
      - Aylık: Eğilim analizi, hedef ilerleme
      - Üç aylık: Stratejik inceleme, kıyaslama karşılaştırması
-
+  
   **Beklenen Çıktı:** DORA metrikleri, kalite göstergeleri ve ekip sağlığı izlemesi içeren kapsamlı metrikleri pano
-
+  
   **Zaman Tahmini:** Uygulama ve temel oluşturma için 4-6 hafta
-
+  
   ## Entegrasyon Örnekleri
-
+  
   ### Örnek 1: CTO Haftalık Pano Betiği
-
+  
   ```bash
   #!/bin/bash
   # cto-weekly-dashboard.sh - Kapsamlı CTO metrikleri özeti
-
+  
   DAY_OF_WEEK=$(date +%A)
   echo "📊 CTO Haftalık Panosu - $(date +%Y-%m-%d) ($DAY_OF_WEEK)"
   echo "=========================================================="
-
+  
   # Teknik borç değerlendirmesi
   echo ""
   echo "⚠️ Teknik Borç Durumu:"
   python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py
-
+  
   # Ekip ölçeklendirme durumu
   echo ""
   echo "👥 Ekip Ölçeklendirmesi & Kapasitesi:"
   python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py
-
+  
   # Mühendislik metrikleri
   echo ""
   echo "📈 Mühendislik Metrikleri (DORA):"
@@ -257,7 +257,7 @@ body_tr: |-
   echo "- Lider Süresi: [CI/CD metriklerinden]"
   echo "- MTTR: [olay izlemesinden]"
   echo "- Değişiklik Başarısızlık Oranı: [dağıtım günlüklerinden]"
-
+  
   # Haftalık odak
   case $DAY_OF_WEEK in
     Monday)
@@ -281,37 +281,37 @@ body_tr: |-
       ;;
   esac
   ```
-
+  
   ### Örnek 2: Üç Aylık Teknoloji Stratejisi İncelemesi
-
+  
   ```bash
   # Üç aylık teknoloji stratejisi kapsamlı incelemesi
-
+  
   echo "🎯 Üç Aylık Teknoloji Stratejisi İncelemesi - Q$(date +%q) $(date +%Y)"
   echo "================================================================"
-
+  
   # Teknik borç değerlendirmesi
   echo ""
   echo "1. Teknik Borç Değerlendirmesi:"
   python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py > q$(date +%q)-debt-report.txt
   cat q$(date +%q)-debt-report.txt
-
+  
   # Ekip ölçeklendirme analizi
   echo ""
   echo "2. Ekip Ölçeklendirmesi & Organizasyonu:"
   python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py > q$(date +%q)-team-scaling.txt
   cat q$(date +%q)-team-scaling.txt
-
+  
   # Mühendislik metrikleri incelemesi
   echo ""
   echo "3. Mühendislik Metrikleri İncelemesi:"
   cat ../../c-level-advisor/skills/cto-advisor/references/engineering_metrics.md
-
+  
   # Teknoloji değerlendirme durumu
   echo ""
   echo "4. Teknoloji Değerlendirme Çerçevesi:"
   cat ../../c-level-advisor/skills/cto-advisor/references/technology_evaluation_framework.md
-
+  
   # Yönetim kurulu paketi hatırlatması
   echo ""
   echo "📋 Yönetim Kurulu Paketi Bileşenleri:"
@@ -320,21 +320,21 @@ body_tr: |-
   echo "✓ İnovasyon Vurguları"
   echo "✓ Risk Kaydı"
   ```
-
+  
   ### Örnek 3: Gerçek Zamanlı Olay Müdahale Koordinasyonu
-
+  
   ```bash
   # incident-response.sh - CTO olay koordinasyonu
-
+  
   SEVERITY=$1  # P0, P1, P2, P3
   INCIDENT_DESC=$2
-
+  
   echo "🚨 Olay Müdahalesi Aktive Edildi - Ciddiyet: $SEVERITY"
   echo "=================================================="
   echo "Olay: $INCIDENT_DESC"
   echo "Zaman: $(date)"
   echo ""
-
+  
   case $SEVERITY in
     P0)
       echo "⚠️ KRİTİK - Tüm Elleri Müdahalesi"
@@ -358,16 +358,16 @@ body_tr: |-
       echo "3. Gerektiğinde paydaşları güncelle"
       ;;
   esac
-
+  
   echo ""
   echo "📊 Olay Sonrası Gereksinimler:"
   echo "- Temel sebep analizi (48-72 saat)"
   echo "- Eylem öğeleri belgelendirildi"
   echo "- Süreç iyileştirmeleri tanımlandı"
   ```
-
+  
   ## Başarı Metrikleri
-
+  
   **Teknik Mükemmellik:**
   - **Sistem Çalışma Süresi:** Tüm kritik sistemler arasında %99,9+ kullanılabilirlik
   - **Dağıtım Sıklığı:** >1 dağıtım/gün (DORA elit performans kıyası)
@@ -377,7 +377,7 @@ body_tr: |-
   - **Teknik Borç:** Toplam codebase kapasitesinin <%10'u borca ayrılmış
   - **Test Kapsama:** >%80 otomatik test kapsamı
   - **Güvenlik Olayları:** Sıfır büyük güvenlik ihlali
-
+  
   **Ekip Başarısı:**
   - **Ekip Memnuniyeti:** >8/10 çalışan katılım puanı, eNPS >40
   - **Ayrılış Oranı:** <%10 yıllık gönüllü ayrılış
@@ -385,33 +385,33 @@ body_tr: |-
   - **Çeşitlilik & Kapsayıcılık:** Çeyrek bazında iyileştirilen temsil
   - **Onboarding Etkinliği:** Yeni işe alımlar 30 gün içinde üretken
   - **Kariyer Geliştirme:** Açık büyüme yolları, içeriden %80+ terfi
-
+  
   **İş Etkisi:**
   - **Zamanında Teslim:** Özellikler %80+ zamanında teslim edildi
   - **Mühendislik Geliri Sağlar:** Teknoloji doğrudan iş büyümesini yönlendirir
   - **Maliyet Verimliliği:** İşlem/kullanıcı başına maliyet ölçek ile azalıyor
   - **İnovasyon ROI:** AR-GE yatırımları rekabet avantajlarına yol açar
   - **Teknik Ölçeklenebilirlik:** Altyapı maliyetleri gelirden daha yavaş büyüyor
-
+  
   **Stratejik Liderlik:**
   - **Teknoloji Vizyonu:** Açık 3-5 yıllık yol haritası, iletişim kuruldu ve anlaşıldı
   - **Yönetim Kurulu Güveni:** Güçlü çalışan ilişkisi, proaktif iletişim
   - **Fonksiyonlar Arası Ortaklık:** Ürün, satış, pazarlamalar ile etkili işbirliği
   - **Satıcı İlişkileri:** Optimize edilmiş satıcı portföyü, SLA'lar karşılandı
-
+  
   ## İlgili Aracılar
-
+  
   - [cs-ceo-advisor](cs-ceo-advisor.md) - Stratejik liderlik ve organizasyonel geliştirme (CEO muhabiri)
   - [cs-fullstack-engineer](../engineering/cs-fullstack-engineer.md) - Fullstack geliştirme koordinasyonu (planlanmış)
-
+  
   ## Referanslar
-
+  
   - **Beceri Dokümantasyonu:** [../../c-level-advisor/skills/cto-advisor/SKILL.md](../../c-level-advisor/skills/cto-advisor/SKILL.md)
   - **C-Level Alan Rehberi:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
   - **Araç Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
-
+  
   ---
-
+  
   **Son Güncelleme:** 5 Kasım 2025
   **Sprint:** sprint-11-05-2025 (3. Gün)
   **Durum:** Üretim Hazır

@@ -4,7 +4,7 @@ description_en: "Use when starting any conversation - establishes how to find an
 description_tr: "Herhangi bir konuşma başlatırken kullanın - skill'lerin nasıl bulunacağını ve kullanılacağını belirler, clarification soruları da dahil olmak üzere HERHANGİ bir yanıt vermeden önce skill invocation gerektirir."
 category: "Design"
 repo: "obra/superpowers"
-stars: 229812
+stars: 230300
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/using-superpowers/SKILL.md"
 path: "skills/using-superpowers/SKILL.md"
 is_collection: false
@@ -17,49 +17,49 @@ body_tr: |-
   <SUBAGENT-STOP>
   Eğer belirli bir görevi yürütmek için bir alt-agent olarak gönderildiyseniz, bu beceriyi atlayın.
   </SUBAGENT-STOP>
-
+  
   <EXTREMELY-IMPORTANT>
   Bir becerinin yaptığınız işe uygulanması için %1 bir şans olduğunu düşünüyorsanız, beceriyi MUTLAKA çağırmalısınız.
-
+  
   BİR BECERİ GÖREVİNİZE UYUYORSA, SEÇİMİNİZ YOKTUR. BUNU KULLANMANIZ GEREKIR.
-
+  
   Bu konuda ödün verilmez. Bu isteğe bağlı değildir. Bunun dışına çıkamazsınız.
   </EXTREMELY-IMPORTANT>
-
+  
   ## Talimat Önceliği
-
+  
   Superpowers becerileri varsayılan sistem prompt davranışını geçersiz kılar, ancak **kullanıcı talimatları her zaman üstün gelir**:
-
+  
   1. **Kullanıcının açık talimatları** (CLAUDE.md, GEMINI.md, AGENTS.md, doğrudan istekler) — en yüksek öncelik
   2. **Superpowers becerileri** — çatıştıkları yerde varsayılan sistem davranışını geçersiz kılar
   3. **Varsayılan sistem prompt** — en düşük öncelik
-
+  
   Eğer CLAUDE.md, GEMINI.md veya AGENTS.md "TDD kullanmayın" derse ve bir beceri "her zaman TDD kullanın" derse, kullanıcının talimatlarını izleyin. Kullanıcı kontrolde.
-
+  
   ## Becerilere Nasıl Erişilir
-
+  
   **Beceri dosyalarını asla dosya araçlarıyla manuel olarak okumayın** — becerinizin düzgün şekilde etkinleştirilmesini sağlamak için her zaman platformunuzun beceri yükleme mekanizmasını kullanın.
-
+  
   **Claude Code'da:** `Skill` aracını kullanın. Bir beceriyi çağırdığınızda, içeriği yüklenir ve size sunulur — doğrudan izleyin.
-
+  
   **Codex'te:** Beceriler yerel olarak yüklenir. Bir beceri etkinleştirildiğinde sunulan talimatları izleyin.
-
+  
   **Copilot CLI'de:** `skill` aracını kullanın. Beceriler yüklü eklentilerden otomatik olarak keşfedilir.
-
+  
   **Gemini CLI'de:** Beceriler `activate_skill` aracı aracılığıyla etkinleştirilir. Gemini, beceri meta verilerini oturum başında yükler ve tam içeriği talep üzerine etkinleştirir.
-
+  
   **Diğer ortamlarda:** Platform-spesifik beceri yükleme yöntemleri için platformunuzun belgelerine bakın.
-
+  
   ## Platform Uyarlaması
-
+  
   Beceriler herhangi bir çalışma zamanının araçlarını adlandırmak yerine eylemlerde konuşur ("bir alt-agent gönder", "bir yapılacak oluştur", "bir dosya oku"). Platform başına araç eşdeğerleri ve talimatlar dosyası kuralları için [claude-code-tools.md](references/claude-code-tools.md), [codex-tools.md](references/codex-tools.md), [copilot-tools.md](references/copilot-tools.md), [gemini-tools.md](references/gemini-tools.md), [pi-tools.md](references/pi-tools.md) ve [antigravity-tools.md](references/antigravity-tools.md) bölümlerine bakın. Gemini CLI kullanıcıları GEMINI.md aracılığıyla otomatik olarak araç haritasını yüklenir.
-
+  
   # Becerileri Kullanma
-
+  
   ## Kural
-
+  
   **Herhangi bir yanıt veya eylemden ÖNCE ilgili veya talep edilen becerileri çağırın.** Bir becerinin uygulanması için %1 bir şans olması bile, beceriyi kontrol etmek için çağırmalısınız anlamına gelir. Çağırılan bir beceri durumun yanlış olduğu ortaya çıkarsa, onu kullanmanız gerekmez.
-
+  
   ```dot
   digraph skill_flow {
       "Kullanıcı mesajı alındı" [shape=doublecircle];
@@ -73,12 +73,12 @@ body_tr: |-
       "Her öğe için bir yapılacak oluştur" [shape=box];
       "Beceriyi tam olarak takip et" [shape=box];
       "Yanıt ver (açıklamalar da dahil)" [shape=doublecircle];
-
+  
       "Plan moduna girmek üzere mü?" -> "Zaten beyin fırtınası yaptı mı?";
       "Zaten beyin fırtınası yaptı mı?" -> "Beyin fırtınası becerisini çağır" [label="hayır"];
       "Zaten beyin fırtınası yaptı mı?" -> "Herhangi bir beceri uygulanabilir mi?" [label="evet"];
       "Beyin fırtınası becerisini çağır" -> "Herhangi bir beceri uygulanabilir mi?";
-
+  
       "Kullanıcı mesajı alındı" -> "Herhangi bir beceri uygulanabilir mi?";
       "Herhangi bir beceri uygulanabilir mi?" -> "Beceriyi çağır" [label="evet, %1 bile"];
       "Herhangi bir beceri uygulanabilir mi?" -> "Yanıt ver (açıklamalar da dahil)" [label="kesinlikle hayır"];
@@ -89,11 +89,11 @@ body_tr: |-
       "Her öğe için bir yapılacak oluştur" -> "Beceriyi tam olarak takip et";
   }
   ```
-
+  
   ## Uyarı İşaretleri
-
+  
   Bu düşünceler DURUŞ anlamına gelir — rasyonalize ediyorsunuz:
-
+  
   | Düşünce | Gerçek |
   |---------|--------|
   | "Bu sadece basit bir soru" | Sorular görevdir. Beceriler için kontrol edin. |
@@ -108,27 +108,27 @@ body_tr: |-
   | "İlk olarak bunu yapacağım" | Herhangi bir şey yapmadan ÖNCE kontrol edin. |
   | "Bu verimli hissettiriyor" | Disiplinsiz eylem zamanı ziyi. Beceriler bunu önler. |
   | "Bu ne anlama geldiğini biliyorum" | Konsepti bilmek ≠ beceriyi kullanmak. Çağırın. |
-
+  
   ## Beceri Önceliği
-
+  
   Birden çok beceri uygulanabilirse, bu sırayı kullanın:
-
+  
   1. **İlk olarak işlem becerilerini kullanın** (beyin fırtınası, sistematik hata ayıklama) - bunlar görevin NASIL yapılacağını belirler
   2. **İkinci olarak uygulama becerilerini kullanın** (ön uç tasarımı, mcp-builder) - bunlar yürütme rehberliği sağlar
-
+  
   "X oluşturalım" → ilk beyin fırtınası, sonra uygulama becerileri.
   "Bu hataları düzelt" → ilk sistematik hata ayıklama, sonra alan-spesifik beceriler.
-
+  
   ## Beceri Türleri
-
+  
   **Katı** (TDD, sistematik hata ayıklama): Tam olarak takip edin. Disiplini uyarlanarak çıkmayın.
-
+  
   **Esnek** (desenler): İlkeleri bağlama uyarla.
-
+  
   Beceri kendisi size hangisini söyler.
-
+  
   ## Kullanıcı Talimatları
-
+  
   Talimatlar NE söyler, NASIL değil. "X ekle" veya "Y düzelt" iş akışlarını atlamak anlamına gelmez.
 ---
 

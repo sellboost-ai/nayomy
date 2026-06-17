@@ -4,7 +4,7 @@ description: "Official MCP server enabling seamless orchestration of hyperparame
 description_tr: "Optuna ile hiperparametre arama ve diğer optimizasyon görevlerinin sorunsuz bir şekilde yönetilmesini sağlayan resmi MCP server."
 category: "Data Science Tools"
 repo: "optuna/optuna-mcp"
-stars: 79
+stars: 78
 url: "https://github.com/optuna/optuna-mcp"
 body_length: 12060
 license: "MIT"

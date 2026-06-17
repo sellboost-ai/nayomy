@@ -5,7 +5,7 @@ description: "Cursor rules for Python development with containerization integrat
 description_tr: "Python geliştirme için cursor kuralları, konteynerizasyon entegrasyonu ile birlikte sunuluyor."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/python-containerization-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-containerization-cursorrules-prompt-file.mdc"
 body_length: 301

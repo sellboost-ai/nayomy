@@ -4,7 +4,7 @@ description_en: "Founder onboarding interview that captures company context acro
 description_tr: "Şirket bağlamını 7 boyut üzerinden yakalayan kurucu onboarding görüşmesi. İlk görüşme için /cs:setup, üç aylık güncelleme için /cs:update komutunu kullanın. Tüm C-suite danışman becerilerine sunulan ~/.claude/company-context.md dosyasını oluşturur. C-suite danışmanlarını ilk kez kurarken, şirket bağlamı eksikken veya 90 günden eski olduğunda — örneğin bir finansman turunda veya pivot sonrasında — kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-onboard/SKILL.md"
 path: ".gemini/skills/cs-onboard/SKILL.md"
 is_collection: false
@@ -15,80 +15,80 @@ has_examples: false
 related_files: []
 body_tr: |-
   # C-Suite Onboarding
-
+  
   Şirket bağlamı dosyasını güçlendiren yapılandırılmış kurucu görüşmesi, her C-suite danışmanını destekler. Bir 45 dakikalık konuşma. Tüm rollerde kalıcı bağlam.
-
+  
   ## Komutlar
-
+  
   - `/cs:setup` — Tam onboarding görüşmesi (~45 dk, 7 boyut)
   - `/cs:update` — Üç aylık güncelleme (~15 dk, "ne değişti?")
-
+  
   ## Anahtar Kelimeler
   cs:setup, cs:update, company context, founder interview, onboarding, company profile, c-suite setup, advisor setup
-
+  
   ---
-
+  
   ## Konuşma İlkeleri
-
+  
   Bir sorgulamadan ziyade bir konuşma olun. Bir seferde bir soru sorun. Thread'leri takip edin. Geri yansıtın: "Öyleyse gerçek sorun X gibi görünüyor — doğru mu?" Atladıkları şeyleri izleyin — gerçek hikaye orada yaşıyor. Asla soru listesi okumayın.
-
+  
   Şu şekilde başlayın: *"Şirketi kendi sözlerinizle anlatın — ne inşa ediyorsunuz ve neden önemli?"*
-
+  
   ---
-
+  
   ## 7 Görüşme Boyutu
-
+  
   ### 1. Şirket Kimliği
   Yakala: ne yaptıkları, kime yaptıkları, gerçek kuruluş "neden"i, tek cümlelik pitch, vazgeçilmez değerler.
   Temel sonda: *"İhlal ettikleri için kovacağınız bir değer var mı?"*
   Kırmızı bayrak: Pazarlama kopyası gibi görünen değerler.
-
+  
   ### 2. Aşama & Ölçek
   Yakala: çalışan sayısı (FT vs müteahhit), gelir aralığı, runway, aşama (pre-PMF / scaling / optimizing), son 90 günde ne kırıldı.
   Temel sonda: *"Eğer aşamanızı etiketlemeniz gerekirse — henüz PMF buluyorsunuz, işe yarayan şeyi ölçekliyor, yoksa optimize mi ediyorsunuz?"*
-
+  
   ### 3. Kurucu Profili
   Yakala: kendi tanımlı süpergücü, kabul edilen kör noktaları, arketip (product/sales/technical/operator), gerçekten neyi tweetebilir.
   Temel sonda: *"Ortak kurucunuz ne yapmanızı bırakmanız gerektiğini söyleseydim?"*
   Kırmızı bayrak: Kör nokta yok veya zayıflık güç olarak çerçevelenmiş.
-
+  
   ### 4. Takım & Kültür
   Yakala: takım 3 kelimede, son gerçek çatışma ve çözüm, hangi değerler gerçek vs aspirasyonel, en güçlü ve en zayıf lider.
   Temel sonda: *"Belirtilen değerlerinizden hangisi en gerçek? Hangisi duvarda bir poster?"*
   Kırmızı bayrak: "Hiç çatışmamız yok."
-
+  
   ### 5. Pazar & Rekabet
   Yakala: kim kazanıyor ve neden (dürüst versiyon), gerçek haksız avantaj, onlara zarar verebilecek bir rekabet hamlesi.
   Temel sonda: *"Gerçek haksız avantajınız nedir — yatırımcı versiyonu değil?"*
   Kırmızı bayrak: "Gerçek bir rekabetimiz yok."
-
+  
   ### 6. Mevcut Zorluklar
   Yakala: ürün/büyüme/insanlar/para/operasyonlar arasında öncelik sıralaması, kaçındıkları karar, "bir ekstra gün" cevabı.
   Temel sonda: *"Haftalar boyunca ertelediğiniz karar nedir?"*
   Not: "Ekstra gün" cevabı gerçek öncelikleri ortaya çıkarır.
-
+  
   ### 7. Hedefler & Ambisyon
   Yakala: 12 aylık hedef (spesifik), 36 aylık hedef (yönsel), çıkış vs sonsuza kadar inşa etme yönelimi, kişisel başarı tanımı.
   Temel sonda: *"Başarı sizin için kişisel olarak neye benziyor — şirketten ayrı?"*
-
+  
   ---
-
+  
   ## Çıktı: company-context.md
-
+  
   Görüşmeden sonra `~/.claude/company-context.md` dosyasını `templates/company-context-template.md` kullanarak oluşturun.
-
+  
   Her bölümü doldurun. Bilinmeyenler için `[not captured]` yazın — hiçbir zaman boş bırakmayın. Zaman damgası ekleyin, `fresh` olarak işaretleyin.
-
+  
   Kurucuya şunu söyleyin: *"Her şeyi şirket bağlamınıza kaydettim. Her danışman bunu spesifik, alakalı tavsiye vermek için kullanacak. 90 günde /cs:update komutunu çalıştırarak güncel tutun."*
-
+  
   ---
-
+  
   ## /cs:update — Üç Aylık Yenileme
-
+  
   **Tetik:** Her 90 günde bir veya büyük bir değişiklikten sonra. Süre: ~15 dakika.
-
+  
   Şu şekilde başlayın: *"Son company context'i yaptığımızdan bu yana [X zaman] geçti. Ne değişti?"*
-
+  
   Her boyutu bir "ne değişti?" sorusuyla yürüyün:
   1. Kimlik: aynı misyon mu yoksa kaymış mı?
   2. Ölçek: takım, gelir, runway şimdi ne?
@@ -97,15 +97,15 @@ body_tr: |-
   5. Pazar: herhangi bir rekabet sürprizi?
   6. Zorluklar: 90 gün öncesine göre şimdi #1 sorun nedir?
   7. Hedefler: 12 aylık hedef için hala yolda mı?
-
+  
   Bağlam dosyasını güncelleyin, zaman damgasını yenileyin, `fresh` olarak sıfırlayın.
-
+  
   ---
-
+  
   ## Bağlam Dosyası Konumu
-
+  
   `~/.claude/company-context.md` — tüm C-suite becerilerine yönelik tek doğru kaynak. Taşımayın. Kopyalar oluşturmayın.
-
+  
   ## Referanslar
   - `templates/company-context-template.md` — çıktı için boş şablon
   - `references/interview-guide.md` — derin görüşme el sanatı: sondalar, kırmızı bayraklar, isteksiz kurucuları işleme alma

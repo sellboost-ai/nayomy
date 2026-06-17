@@ -4,7 +4,7 @@ description: "A native Model Context Protocol server for Ghidra. Includes GUI co
 description_tr: "Ghidra için native Model Context Protocol sunucusu. GUI konfigürasyon ve logging içerir, 31 güçlü tool ve harici bağımlılık yok."
 category: "Security"
 repo: "symgraph/GhidrAssistMCP"
-stars: 641
+stars: 642
 url: "https://github.com/symgraph/GhidrAssistMCP"
 body_length: 26598
 license: "MIT"

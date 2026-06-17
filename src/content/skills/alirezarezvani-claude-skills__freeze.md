@@ -4,7 +4,7 @@ description_en: "/cs:freeze <decision> <days> — Lock a strategic decision for 
 description_tr: "/cs:freeze <decision> <days> — Stratejik bir kararı belirli bir süre için kilitleyerek dürtüsel geri dönüşleri önler. gstack'in iş katmanı için sunduğu güvenlik mekanizmalarını yansıtır. Baskı altında alınan geri dönülemez kararlar (örneğin işten çıkarma planı veya çok yıllı kontrat) için yürütmeden önce bekleme süresi uygulamak istediğinizde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/freeze/SKILL.md"
 path: ".gemini/skills/freeze/SKILL.md"
 is_collection: false
@@ -15,24 +15,24 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:freeze — Bir Kararın Üzerine Bekleme Kilidi
-
+  
   **Komut:** `/cs:freeze <decision-path> <days>`
-
+  
   Bir kararı tanımlı bir bekleme süresi için kilitler. Bekleme süresi boyunca, chief-of-staff yönlendiricisi bir kill kriteri açıkça tetiklenmedikçe kararı yeniden tartışmayı reddeder.
-
+  
   gstack'in `/freeze` ve `/guard` güvenlik ilkelerinden ilham alınmıştır — kod kapsamından stratejik kapsamına uyarlanmıştır.
-
+  
   ## Ne Zaman Kullanılır
-
+  
   Kurucular desen eşleyicisidir; zor bir karar sonrasında desen eşlemesi genellikle aslında karar yorgunluğu olan bir ters çevirmeyi üretir. Bekleme bir disiplin uygular:
-
+  
   - Herhangi bir **geri döndürülemez** veya **ters çevirmesi pahalı** karar sonrasında (finansman, işten çıkarma, pazar girişi)
   - Bir **bölünmüş oy yapılan yönetim kurulu** sonrasında (çağrıyı ikinci düşüncülere karşı koru)
   - Bir **kurucu beden hissi** tarafından oybirliğine yakın danışman fikri geçersiz kılındıktan sonra (çalışmasına izin ver)
   - Bir **personel geçişi** sırasında (yöneticinin yeniden tartışmak yerine yürütebilmesi için stratejiyi kilitle)
-
+  
   ## Varsayılan Bekleme Süreleri
-
+  
   | Karar türü | Varsayılan bekleme |
   |---|---|
   | Finansman turu büyüklüğü / baş seçimi | 30 gün |
@@ -43,9 +43,9 @@ body_tr: |-
   | Personel (yönetici işe alınması / işten çıkarılması) | 60 gün |
   | M&A LOI | 30 gün |
   | Özel | komutta belirt |
-
+  
   ## İş Akışı
-
+  
   1. Karar kaydını oku
   2. APPROVED durumuna sahip olduğunu doğrula
   3. Kilidi uygula: karar kaydına `freeze_until: YYYY-MM-DD` yaz
@@ -53,11 +53,11 @@ body_tr: |-
   5. cs-chief-of-staff yönlendiricisi şu ana kadar bu konuyu yönetim kuruluna yeniden yönlendirmeyi reddeder:
      - Bekleme süresi sona erer, VEYA
      - Bir kill kriteri açıkça tetiklenir
-
+  
   ## Çıktı
-
+  
   Karar kaydı yerinde güncellenir:
-
+  
   ```markdown
   # Decision: <title>
   ...
@@ -66,49 +66,49 @@ body_tr: |-
   **Reason for freeze:** <text>
   **Override condition:** Kill criterion <name> triggers OR founder issues `/cs:unfreeze` with stated reason
   ```
-
+  
   Aktif-kilitleri indeksi güncellenir:
-
+  
   ```markdown
   # Active Freezes
   **Updated:** YYYY-MM-DD
-
+  
   | Decision | Frozen until | Override condition |
   |---|---|---|
   | <decision title> | YYYY-MM-DD | <kill criterion or /cs:unfreeze> |
   ```
-
+  
   ## Geçersiz Kılma
-
+  
   Süre bitmeden önce kilidi açmak için kurucu şunu çalıştırır:
-
+  
   ```
   /cs:unfreeze <decision> <reason>
   ```
-
+  
   Kilidi açma işlemi karar geçmişinde günlüğe kaydedilir (kalıcı olarak saklanır). Zorunlu geçersiz kılmalar post-mortem'de ortaya çıkan bir izleme izi oluşturur.
-
+  
   ## Otomatik Geçersiz Kılma
-
+  
   Karardaki bir kill kriteri tetiklenirse, bekleme otomatik olarak serbest bırakılır ve chief-of-staff hemen `/cs:post-mortem` yoluna yönlendirilir. Bekleme gerçekliğe karşı koruma sağlamaz; dürtüsel davranışa karşı koruma sağlar.
-
+  
   ## Neden Bu "Sadece Yeniden Karar Verme" Seçeneğinden Daha İyidir
-
+  
   Kurucuların yetkileri vardır. Açık bir kilit + günlük olmadan, her oynaşma bir "bunu yeniden tartışalım" üretir — bu danışmanlar için yorucudur ve yönetim kurulunun değerini aşındırır. Bekleme **bir işlem**tir, kural değil; post-mortem'de kurucu disiplinini denetleyebilmesi için her geçersiz kılmayı günlüğe kaydeder.
-
+  
   ## Yönlendirme
-
+  
   - `/cs:unfreeze` — açık erken serbest bırakma
   - `/cs:post-mortem` — kill kriteri tetiklenirse otomatik tetikleme
   - `/cs:boardroom` — kilidi açma veya sona erme kadar engellenir
-
+  
   ## İlgili
-
+  
   - Beceri: [`decision-logger`](../../../skills/decision-logger/SKILL.md)
   - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md) — yönlendirmede kilitleri uygular
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

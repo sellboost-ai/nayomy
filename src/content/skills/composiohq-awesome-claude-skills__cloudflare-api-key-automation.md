@@ -4,7 +4,7 @@ description_en: "Automate Cloudflare API tasks via Rube MCP (Composio). Always s
 description_tr: "Cloudflare API görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudflare-api-key-automation/SKILL.md"
 path: "composio-skills/cloudflare-api-key-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Cloudflare API Otomasyonu Rube MCP ile
-
+  
   Composio'nun Cloudflare API toolkit'i aracılığıyla Rube MCP üzerinden Cloudflare API işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/cloudflare_api_key](https://composio.dev/toolkits/cloudflare_api_key)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` üzerinden `cloudflare_api_key` toolkit'i ile aktif Cloudflare API bağlantısı
   - Geçerli tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: İstemci yapılandırmanızda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS`'un yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` çağrısını `cloudflare_api_key` toolkit'i ile yapın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth bağlantısını izleyin
   4. İş akışlarını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman kullanılabilir toolları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Cloudflare API işlemleri", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir tool slug'larını, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Kullanılabilir Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "sizin belirli Cloudflare API göreviniz"}]
   session: {id: "mevcut_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["cloudflare_api_key"]
   session_id: "sizin_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "sizin_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce ara**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'larını veya argümanları hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Sayfalandırma**: Yanıtlardaki sayfalandırma token'larını kontrol edin ve işlem tamamlanana kadar almaya devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-------|----------|
   | Tool'ları bulun | `RUBE_SEARCH_TOOLS` ile Cloudflare API'ye özgü use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` olan tool'lar için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

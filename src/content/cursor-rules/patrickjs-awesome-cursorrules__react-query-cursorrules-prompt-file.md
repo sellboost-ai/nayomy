@@ -5,54 +5,11 @@ description: "Cursor rules for React development with React Query integration."
 description_tr: "React Query entegrasyonlu React geliştirme için Cursor kuralları."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/react-query-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-query-cursorrules-prompt-file.mdc"
 body_length: 1133
 file_extension: ".mdc"
-body_tr: |-
-  ```
-  // React + React Query .cursorrules
-
-  // İşlevsel bileşenleri hooks ile tercih edin
-
-  const preferFunctionalComponents = true;
-
-  // React Query en iyi uygulamaları
-
-  const reactQueryBestPractices = [
-    "Use QueryClient and QueryClientProvider at the root of your app",
-    "Implement custom hooks for queries and mutations",
-    "Utilize query keys for effective caching",
-    "Use prefetching for improved performance",
-    "Implement proper error and loading states",
-  ];
-
-  // Klasör yapısı
-
-  const folderStructure = `
-  src/
-    components/
-    hooks/
-      useQueries/
-      useMutations/
-    pages/
-    utils/
-    api/
-  `;
-
-  // Ek talimatlar
-
-  const additionalInstructions = `
-  1. Type güvenliği için TypeScript kullanın
-  2. Query hatalarına karşı düzgün error boundaries uygulayın
-  3. Hata ayıklama için React Query DevTools'u kullanın
-  4. Veri tazeliği için stale-while-revalidate stratejisini kullanın
-  5. Mutations için optimistic updates uygulayın
-  6. Veri yeniden getirme için query invalidation kullanın
-  7. Tutarlılık için React Query adlandırma kurallarını izleyin
-  `;
-  ```
 ---
 
 // React + React Query .cursorrules

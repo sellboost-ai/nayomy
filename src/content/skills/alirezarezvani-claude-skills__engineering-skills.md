@@ -4,7 +4,7 @@ description_en: "Index of the engineering-team skills bundle for Claude Code, Co
 description_tr: "Claude Code, Codex, Gemini CLI, Cursor, OpenClaw ve 6 araç daha için mühendislik ekibi beceri paketinin indeksi. Mimari, frontend, backend, QA, DevOps, güvenlik, AI/ML, veri mühendisliği, Playwright, Stripe, AWS, MS365 (stdlib-only Python araçları) içerir. Mühendislik ekibi rol becerilerini incelerken veya seçerken kullanın — yalnızca ihtiyacınız olan SKILL.md dosyasını yükleyin, hiçbir zaman tüm paketi toplu yüklemeyin."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/engineering-skills/SKILL.md"
 path: ".gemini/skills/engineering-skills/SKILL.md"
 is_collection: false
@@ -15,25 +15,25 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Mühendislik Takımı Yetenekleri
-
+  
   Temel mühendislik, güvenlik, AI/ML/Veri ve uzmanlaşmış araçlara organize edilmiş 32 üretime hazır mühendislik becerisi.
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Claude Code
   ```
   /read engineering-team/skills/senior-fullstack/SKILL.md
   ```
-
+  
   ### Codex CLI
   ```bash
   npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
   ```
-
+  
   ## Yeteneklere Genel Bakış
-
+  
   ### Temel Mühendislik (13 beceri)
-
+  
   | Beceri | Klasör | Odak Noktası |
   |--------|--------|-------|
   | Senior Architect | `senior-architect/` | Sistem tasarımı, mimari patterns |
@@ -49,9 +49,9 @@ body_tr: |-
   | MS365 Tenant Manager | `ms365-tenant-manager/` | Microsoft 365 yönetimi |
   | TDD Guide | `tdd-guide/` | Test-driven development akışları |
   | Tech Stack Evaluator | `tech-stack-evaluator/` | Teknoloji karşılaştırması, TCO analizi |
-
+  
   ### AI/ML/Veri (5 beceri)
-
+  
   | Beceri | Klasör | Odak Noktası |
   |--------|--------|-------|
   | Senior Data Scientist | `senior-data-scientist/` | İstatistiksel modelleme, deneymentasyon |
@@ -59,9 +59,9 @@ body_tr: |-
   | Senior ML Engineer | `senior-ml-engineer/` | Model deployment, MLOps, LLM entegrasyonu |
   | Senior Prompt Engineer | `senior-prompt-engineer/` | Prompt optimizasyonu, RAG, ajanlar |
   | Senior Computer Vision | `senior-computer-vision/` | Nesne deteksiyonu, segmentasyon |
-
+  
   ### Uzmanlaşmış Araçlar (5 beceri)
-
+  
   | Beceri | Klasör | Odak Noktası |
   |--------|--------|-------|
   | Playwright Pro | `playwright-pro/` | E2E testing (9 alt-beceri) |
@@ -69,19 +69,19 @@ body_tr: |-
   | Stripe Integration | `stripe-integration-expert/` | Ödeme entegrasyonu, webhook'lar |
   | Incident Commander | `incident-commander/` | Olay yanıt akışları |
   | Email Template Builder | `email-template-builder/` | HTML email oluşturma |
-
+  
   ## Python Araçları
-
+  
   30+ script, tümü stdlib-only. Doğrudan çalıştırın:
-
+  
   ```bash
   python3 <skill>/scripts/<tool>.py --help
   ```
-
+  
   pip install gerekmez. Script'ler demo modu için gömülü örnekler içerir.
-
+  
   ## Kurallar
-
+  
   - Yalnızca ihtiyacınız olan belirli SKILL.md dosyasını yükleyin — tüm 32'sini toplu yüklemeyin
   - Python araçlarını analiz ve scaffold için kullanın, manuel yargı için değil
   - Tool kullanım örnekleri ve akışları için CLAUDE.md dosyasını kontrol edin

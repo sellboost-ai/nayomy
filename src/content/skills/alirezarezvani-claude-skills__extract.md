@@ -4,7 +4,7 @@ description_en: "Turn a proven pattern or debugging solution into a standalone r
 description_tr: "SKILL.md ile kanıtlanmış bir pattern veya debugging çözümünü bağımsız, yeniden kullanılabilir bir skill'e dönüştürün; reference docs ve examples ekleyin. Kullanıcı /si:extract komutunu çalıştırdığında veya hafızadaki tekrar eden bir çözümü skill olarak paketlemeyi istediğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/extract/SKILL.md"
 path: ".gemini/skills/extract/SKILL.md"
 is_collection: false
@@ -15,22 +15,22 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /si:extract — Desenlerden Skill Oluştur
-
+  
   Tekrarlanan bir deseni veya debugging çözümünü, herhangi bir projede kurulabilen bağımsız, taşınabilir bir skill'e dönüştürür.
-
+  
   ## Kullanım
-
+  
   ```
   /si:extract <pattern description>                  # İnteraktif extraction
   /si:extract <pattern> --name docker-m1-fixes       # Skill adı belirt
   /si:extract <pattern> --output ./skills/            # Özel çıktı dizini
   /si:extract <pattern> --dry-run                     # Dosya oluşturmadan önizle
   ```
-
+  
   ## Extraction Zamanı
-
+  
   Bir learning, bu koşullardan HERHANGİ BİRİ doğruysa skill extraction için uygun:
-
+  
   | Kriter | İşaret |
   |---|---|
   | **Tekrarlanan** | Aynı sorun 2+ projede görülüyor |
@@ -38,52 +38,52 @@ body_tr: |-
   | **Geniş uygulanabilir** | Tek bir codebase'e bağlı değil |
   | **Karmaşık çözüm** | Multi-step fix, unutması kolay |
   | **Kullanıcı işaretli** | "Bunu skill olarak kaydet", "Bunu yeniden kullanmak istiyorum" |
-
+  
   ## İş Akışı
-
+  
   ### Adım 1: Deseni tanımla
-
+  
   Kullanıcının açıklamasını oku. Auto-memory'de ilgili girdileri ara:
-
+  
   ```bash
   MEMORY_DIR="$HOME/.claude/projects/$(pwd | sed 's|/|%2F|g; s|%2F|/|; s|^/||')/memory"
   grep -rni "<keywords>" "$MEMORY_DIR/"
   ```
-
+  
   Auto-memory'de bulunursa, bu girdileri kaynak materyali olarak kullan. Bulunmazsa, kullanıcının açıklamasını doğrudan kullan.
-
+  
   ### Adım 2: Skill kapsamını belirle
-
+  
   Sor (maksimum 2 soru):
   - "Bu hangi sorunu çözer?" (açık değilse)
   - "Bu kod örneklerini içermeli mi?" (uygulanabilirse)
-
+  
   ### Adım 3: Skill adı oluştur
-
+  
   Adlandırma kuralları:
   - Küçük harf, sözcükler arasında tire
   - Açıklayıcı ama kısa (2-4 sözcük)
   - Örnekler: `docker-m1-fixes`, `api-timeout-patterns`, `pnpm-workspace-setup`
-
+  
   **Ayrılmış parçalar — skill adında GÖRÜLMEMELI:**
   - `claude`
   - `anthropic`
-
+  
   Claude Code'un kendisiyle ilgili skilller için, bunun yerine `cc-` önekini kullan:
   - ❌ `claude-code-settings` → ✅ `cc-settings`
   - ❌ `claude-code-maintenance` → ✅ `cc-maintenance`
   - ❌ `claude-mcp-tools` → ✅ `cc-mcp-tools`
   - ❌ `claude-plugin-development` → ✅ `cc-plugin-development`
-
+  
   Skill dizinini yazmadan önce, önerilen adı bu listeyle karşılaştır.
   Ayrılmış parça varsa, dönüştür (parçayı bırak veya `claude*`/`anthropic*` önekini `cc-` ile değiştir) ve kullanıcıyla doğrula.
-
+  
   ### Adım 4: Skill dosyalarını oluştur
-
+  
   **`skill-extractor` agenini çalıştır** gerçek dosya oluşturma için.
-
+  
   Agent şunları oluşturur:
-
+  
   ```
   <skill-name>/
   ├── SKILL.md            # Frontmatter'lı ana skill dosyası
@@ -91,59 +91,59 @@ body_tr: |-
   └── reference/          # (isteğe bağlı) Destekleyici dokümantasyon
       └── examples.md     # Somut örnekler ve edge case'ler
   ```
-
+  
   ### Adım 5: SKILL.md yapısı
-
+  
   Oluşturulan SKILL.md bu formatı takip etmelidir:
-
+  
   ```markdown
   ---
   name: "skill-name"
   description: "<tek satırlık açıklama>. Şu durumlarda kullan: <tetikleyici koşullar>."
   ---
-
+  
   # <Skill Başlığı>
-
+  
   > Bu skill'in neyi çözdüğünün tek satırlık özeti.
-
+  
   ## Hızlı Referans
-
+  
   | Sorun | Çözüm |
   |---------|----------|
   | {{sorun 1}} | {{çözüm 1}} |
   | {{sorun 2}} | {{çözüm 2}} |
-
+  
   ## Sorun
-
+  
   {{Neyin yanlış gittiğini ve neden açık olmadığını açıklayan 2-3 cümle.}}
-
+  
   ## Çözümler
-
+  
   ### Seçenek 1: {{Ad}} (Önerilen)
-
+  
   {{Kod örnekleriyle adım adım.}}
-
+  
   ### Seçenek 2: {{Alternatif}}
-
+  
   {{Seçenek 1 uygulanmadığında.}}
-
+  
   ## Uzlaşmalar
-
+  
   | Yaklaşım | Avantajlar | Dezavantajlar |
   |----------|------|------|
   | Seçenek 1 | {{avantajlar}} | {{dezavantajlar}} |
   | Seçenek 2 | {{avantajlar}} | {{dezavantajlar}} |
-
+  
   ## Edge Case'ler
-
+  
   - {{edge case 1 ve bununla nasıl başa çıkılacağı}}
   - {{edge case 2 ve bununla nasıl başa çıkılacağı}}
   ```
-
+  
   ### Adım 6: Kalite kontrolleri
-
+  
   Finalize etmeden önce doğrula:
-
+  
   - [ ] SKILL.md'de `name` ve `description` ile geçerli YAML frontmatter var
   - [ ] `name`, klasör adıyla eşleşiyor (küçük harf, tireler)
   - [ ] `name`, ayrılmış parçalar `claude` veya `anthropic` içermiyor (Claude Code skillleri için `cc-` önekini kullan)
@@ -152,51 +152,51 @@ body_tr: |-
   - [ ] Kod örnekleri tam ve kopyalanabilir
   - [ ] Proje-spesifik sabit kodlanmış değer yok (paths, URLs, credentials)
   - [ ] Gereksiz dependency yok
-
+  
   ### Adım 7: Rapor
-
+  
   ```
   ✅ Skill extracted: {{skill-name}}
-
+  
   Oluşturulan dosyalar:
     {{path}}/SKILL.md          ({{lines}} satır)
     {{path}}/README.md         ({{lines}} satır)
     {{path}}/reference/examples.md  ({{lines}} satır)
-
+  
   Kur: /plugin install (skills dizinine kopyala)
   Yayınla: clawhub publish {{path}}
-
+  
   Kaynak: MEMORY.md girdileri {{n, m, ...}} satırlarında (saklandı — skill taşınabilir, memory proje-spesifiktir)
   ```
-
+  
   ## Örnekler
-
+  
   ### Debugging deseni extraction'ı
-
+  
   ```
   /si:extract "Apple Silicon'da Docker derlemeleri başarısız oluyor platform uyuşmazlığı sebebiyle fix'i"
   ```
-
+  
   `docker-m1-fixes/SKILL.md` oluşturur:
   - Platform uyuşmazlığı hata mesajı
   - Üç çözüm (build flag, Dockerfile, docker-compose)
   - Uzlaşmalar tablosu
   - Rosetta 2 emulation hakkında performans notu
-
+  
   ### Workflow deseni extraction'ı
-
+  
   ```
   /si:extract "OpenAPI spec'i değiştirdikten sonra her zaman TypeScript API client'ını yeniden oluştur"
   ```
-
+  
   `api-client-regen/SKILL.md` oluşturur:
   - Neden manuel regen gerekli
   - Exact command sequence
   - CI integration snippet
   - Sık görülen başarısızlık modları
-
+  
   ## İpuçları
-
+  
   - *Farklı* bir projede zaman kazandıracak desenler extract et
   - Skilleri odaklanmış tut — bir problem per skill
   - İnsanların arayacağı hata mesajlarını ekle

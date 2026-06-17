@@ -4,7 +4,7 @@ description_en: "Use this skill any time a .pptx file is involved in any way —
 description_tr: "Bu skill'i .pptx dosyalarıyla çalışmanız gereken her durumda kullanın — giriş, çıkış veya her ikisi için de. Sunum oluşturma, slayt destesi hazırlama, metnini okuma ve çıkarma, düzenleme veya güncelleme, dosyaları birleştirme ve bölme gibi tüm işlemleri kapsar."
 category: "Document"
 repo: "anthropics/skills"
-stars: 151641
+stars: 151867
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/pptx/SKILL.md"
 path: "skills/pptx/SKILL.md"
 is_collection: false

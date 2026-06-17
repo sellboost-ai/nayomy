@@ -4,7 +4,7 @@ description_en: "Automate Async Interview tasks via Rube MCP (Composio). Always 
 description_tr: "Rube MCP (Composio) ile Async Interview görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları aratın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/async-interview-automation/SKILL.md"
 path: "composio-skills/async-interview-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP Aracılığıyla Async Interview Otomasyonu
-
+  
   Composio'nun Async Interview toolkit'ini Rube MCP aracılığıyla otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/async_interview](https://composio.dev/toolkits/async_interview)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Async Interview bağlantısı ve `async_interview` toolkit'i
   - Her zaman mevcut tool şemalarını almak için `RUBE_SEARCH_TOOLS` çağrısı yapın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: MCP sunucu konfigürasyonunuza `https://rube.app/mcp` ekleyin. API anahtarına gerek yok — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu onaylayın
   2. `RUBE_MANAGE_CONNECTIONS` çağrısı yapın ve `async_interview` toolkit'ini belirtin
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
+  
   ## Tool Bulma
-
+  
   Workflow'ları çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Async Interview operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Async Interview task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["async_interview"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağrısı yapmadan asla tool slug'ları veya argümanları hardcoded şekilde kodlamayın
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool bul | `RUBE_SEARCH_TOOLS` ile Async Interview'a özel use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ve `schemaRef` olan tool'lar |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

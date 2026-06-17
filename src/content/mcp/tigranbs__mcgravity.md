@@ -4,7 +4,7 @@ description: "A proxy tool for composing multiple MCP servers into one unified e
 description_tr: "Birden fazla MCP sunucusunu tek bir unified endpoint'e entegre etmek için proxy aracı. Nginx'in web sunucuları için yaptığı gibi, istekleri birden fazla MCP sunucusuna dağıtarak AI araçlarınızı ölçeklendirin."
 category: "Aggregators"
 repo: "tigranbs/mcgravity"
-stars: 97
+stars: 98
 url: "https://github.com/tigranbs/mcgravity"
 body_length: 10286
 language: "Rust"

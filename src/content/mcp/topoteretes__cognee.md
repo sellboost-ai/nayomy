@@ -4,7 +4,7 @@ description: "Memory manager for AI apps and Agents using various graph and vect
 description_tr: "AI uygulamaları ve Ajanlar için bellek yöneticisi, çeşitli graph ve vector store'ları destekler ve 30+ veri kaynağından veri alımına olanak tanır."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
-stars: 17856
+stars: 17868
 url: "https://github.com/topoteretes/cognee"
 body_length: 12529
 license: "Apache-2.0"

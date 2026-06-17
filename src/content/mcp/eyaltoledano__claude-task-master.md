@@ -4,7 +4,7 @@ description: "AI-powered task management system for AI-driven development. Featu
 description_tr: "AI destekli geliştirme için yapay zeka tabanlı görev yönetim sistemi. PRD ayrıştırma, görev genişletme, çoklu provider desteği (Claude, OpenAI, Gemini, Perplexity, xAI) ve optimize edilmiş context kullanımı için seçmeli tool yükleme özelliklerine sahiptir."
 category: "Developer Tools"
 repo: "eyaltoledano/claude-task-master"
-stars: 27577
+stars: 27585
 url: "https://github.com/eyaltoledano/claude-task-master"
 body_length: 17401
 license: "NOASSERTION"

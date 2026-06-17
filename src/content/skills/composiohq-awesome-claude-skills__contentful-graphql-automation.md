@@ -4,7 +4,7 @@ description_en: "Automate Contentful Graphql tasks via Rube MCP (Composio). Alwa
 description_tr: "Contentful GraphQL görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/contentful-graphql-automation/SKILL.md"
 path: "composio-skills/contentful-graphql-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Contentful Graphql Otomasyonu Rube MCP aracılığıyla
-
+  
   Composio'nun Contentful Graphql toolkit'i aracılığıyla Contentful Graphql işlemlerini Rube MCP ile otomatikleştirin.
-
+  
   **Toolkit docs**: [composio.dev/toolkits/contentful_graphql](https://composio.dev/toolkits/contentful_graphql)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Contentful Graphql bağlantısı ve `contentful_graphql` toolkit'i
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Edinin**: MCP sunucu yapılandırmanıza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `contentful_graphql` toolkit'i kullanın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. İş akışını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman kullanılabilir tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Contentful Graphql operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir tool slug'ları, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Kullanılabilir Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Contentful Graphql task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["contentful_graphql"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arama yapın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'ları veya argümanları asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yeniler oluşturun
   - **Pagination**: Yanıtlarda pagination token'ları kontrol edin ve tamamlanana kadar almaya devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-------|----------|
   | Tool'ları bul | Contentful Graphql'e özgü use case ile `RUBE_SEARCH_TOOLS` |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | Keşfedilen tool slug'ları ile `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ve `run_composio_tool()` |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` ve `schemaRef` ile tool'lar için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

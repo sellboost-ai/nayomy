@@ -4,7 +4,7 @@ description_en: "Suite of tools for creating elaborate, multi-component claude.a
 description_tr: "Claude.ai için React, Tailwind CSS ve shadcn/ui gibi modern frontend teknolojilerini kullanarak karmaşık, çok bileşenli HTML artifact'ları oluşturmak için tasarlanmış araç seti. State management, routing veya shadcn/ui bileşenleri gerektiren karmaşık artifact'lar için kullanın - basit tek dosyalı HTML/JSX artifact'ları için değil."
 category: "Design"
 repo: "anthropics/skills"
-stars: 151641
+stars: 151867
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/web-artifacts-builder/SKILL.md"
 path: "skills/web-artifacts-builder/SKILL.md"
 is_collection: false

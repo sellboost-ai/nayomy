@@ -4,7 +4,7 @@ description: "Interact with TikTok videos"
 description_tr: "TikTok videoları ile etkileşim kurun"
 category: "Other Tools and Integrations"
 repo: "Seym0n/tiktok-mcp"
-stars: 167
+stars: 168
 url: "https://github.com/Seym0n/tiktok-mcp"
 body_length: 3626
 license: "MIT"

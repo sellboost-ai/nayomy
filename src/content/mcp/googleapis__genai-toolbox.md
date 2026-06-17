@@ -4,9 +4,9 @@ description: "Open source MCP server specializing in easy, fast, and secure tool
 description_tr: "Veritabanları için kolay, hızlı ve güvenli araçlar sağlayan açık kaynak MCP sunucusu."
 category: "Databases"
 repo: "googleapis/genai-toolbox"
-stars: 15632
+stars: 15642
 url: "https://github.com/googleapis/genai-toolbox"
-body_length: 32705
+body_length: 32770
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://mcp-toolbox.dev/documentation/introduction/"
@@ -707,7 +707,7 @@ When you run Toolbox with a `--prebuilt=<database>` flag, you instantly get acce
 
 Supported databases currently include:
 - **Google Cloud:** AlloyDB, BigQuery, Cloud SQL (PostgreSQL, MySQL, SQL Server), Spanner, Firestore, Knowledge Catalog (formerly known as Dataplex).
-- **Other Databases:** PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Redis, Elasticsearch, CockroachDB, ClickHouse, Couchbase, Neo4j, Snowflake, Trino, and more.
+- **Other Databases:** PostgreSQL, MySQL, [MariaDB](https://mcp-toolbox.dev/integrations/mariadb/source/), SQL Server, Oracle, MongoDB, Redis, Elasticsearch, CockroachDB, ClickHouse, Couchbase, Neo4j, Snowflake, Trino, and more.
 
 For a full list of available tools and their capabilities across all supported databases, see the [Prebuilt Tools Reference](https://mcp-toolbox.dev/documentation/configuration/prebuilt-configs/).
 

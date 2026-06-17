@@ -4,7 +4,7 @@ description_en: "Use when reviewing, approving, or designing commercial motion �
 description_tr: "Ticari anlaşmaları inceleme, onaylama ve tasarlamak için kullanın — fiyatlandırma modelleri, anlaşma değerlendirmesi, indirim onayı, ortaklık ekonomisi, kanal karması, ticari politika, RFP/RFI yanıtları ve rezervasyon tahmini. \"Bu anlaşmayı incele\", \"indirim verelim mi\", \"fiyatlandırma modeli\", \"ortak ekonomisi\", \"RFP yanıtı\", \"rezervasyon tahmini\", \"kanal karması\" gibi tetikleyicilerle aktivleşir ve bağlamı yedi Ticari alt alanından birine yönlendirir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/commercial-skills/SKILL.md"
 path: ".gemini/skills/commercial-skills/SKILL.md"
 is_collection: false
@@ -15,11 +15,11 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Ticari — Domain Orchestrator
-
+  
   Ticari surface, **anlaşma başına ekonomi ve paketleme** konusudur: şirketin fiyatlandırması, paketlemesi, onaylaması ve gelir tahmini nasıl yapıyor. Bu orchestrator bağlamını böler, sorgunuzu yedi alt-skill'den birine yönlendirir, ardından bir özet döndürür. Ağır giriş (RFP PDF'leri, pipeline export'ları, ortak anlaşmaları) bölünmüş bağlamda kalır.
-
+  
   ## Çağırma zamanı
-
+  
   | Belirti | Alt-skill |
   |---|---|
   | "Anlaşmaları fiyattan kaybediyoruz — fiyat düşürmeli mi yoksa yeniden paketlemeli mi?" | `pricing-strategist` |
@@ -29,13 +29,13 @@ body_tr: |-
   | "Standart indirim matrisimiz nasıl görünmeli?" | `commercial-policy` |
   | "Bu 60 sayfalık RFP'ye yanıt vermeye yardım et" | `rfp-responder` |
   | "Mevcut dönüşümde Q4 bookings tahmini nedir?" | `commercial-forecaster` |
-
+  
   ## Yönlendirme mantığı (deterministik)
-
+  
   `business-operations-skills` ile aynı iki sinyal eşiği deseni. Tek sinyal → açıklayıcı soru. Karışık sinyaller → en yüksek güven önce, zincir ikinci sırada sonraki turda.
-
+  
   ### Sinyal tablosu
-
+  
   | Sinyal sınıfı | Anahtar kelimeler | Alt-skill |
   |---|---|---|
   | **PRICING** | pricing, price, packaging, tier, WTP, willingness to pay, Van Westendorp, value pricing | `pricing-strategist` |
@@ -45,86 +45,86 @@ body_tr: |-
   | **POLICY** | commercial policy, discount matrix, T&C library, exception policy, deal framework | `commercial-policy` |
   | **RFP** | RFP, RFI, RFQ, proposal request, vendor questionnaire, security questionnaire | `rfp-responder` |
   | **FORECAST** | forecast, bookings, billings, ARR, NRR forecast, pipeline math, funnel projection | `commercial-forecaster` |
-
+  
   ## İş akışı (Matt Pocock grill disiplini)
-
+  
   Matt Pocock'un `grill-with-docs` deseninden türetilmiştir: **keşfet-sonra-sor, turda bir soru ve önerilen cevap, karar ağacını derinlik-önce yürü, bağımlılıkları izle, her zorluğu SaaS fiyatlandırması / deal desk kanonunda sabitle** (`references/`).
-
+  
   ### Adım 1 — Sormadan önce keşfet
-
+  
   Kullanıcının çalışma dizinini önce kontrol et:
   - Çalışma alanında zaten bir deal kaydı, fiyatlandırma karşılaştırma tablosu, RFP belgesi veya pipeline export'u var mı?
   - Sorgu zaten şeridi ayrıştırıyor mu? (ör. "bu 60 sayfalık RFP'yi gözden geçir" — bu `rfp-responder`, soru gerekmez)?
   - Şeridi çözen bir artifact dosya adı var mı? (`pipeline-Q4.csv` → forecast; `MSA-redline.docx` → deal)?
-
+  
   Çalışma alanı şeridi çözerse, **sessizce yönlendir**.
-
+  
   ### Adım 2 — Hâlâ belirsizse, önerilen cevapla BİR zorlama sorusu
-
+  
   Matt'in kuralı: asla birleştirme. Her zaman öner.
-
+  
   Desen:
   ```
   S1/1: [iki aday şeridi adlandıran kesin soru]
   Önerilen: [Şerit X, çünkü <sinyal-tablosu mantığı>]
-
+  
   (Onayla, yoksa geçersiz kıl?)
   ```
-
+  
   ### Adım 3 — Çok şeritli sorgular için karar ağacı yürüyüşü
-
+  
   Sorgu meşru olarak iki şeridi geçiyorsa (ör. "bu RFP normalde vermediklerimiz bir indirim istiyor" = RFP + DEAL + belki POLICY), derinlik-önce yürü:
-
+  
   1. En yüksek güven şeridi önce → bölünmüş bağlamda alt-skill çalıştır → özet
   2. Sor: "Şimdi [ikinci şerit] çalıştırsın mı? Önerilen: evet, çünkü [bağımlılık]."
   3. Zincirlemeden önce onayla.
-
+  
   Asla sessizce zincirle.
-
+  
   ### Adım 4 — Bölünmüş bağlamda alt-skill çağır
-
+  
   Orijinal istemi + yapılandırılmış girdileri ilet (pipeline CSV, RFP belge yolu, fiyatlandırma karşılaştırma tablosu, MSA redline).
-
+  
   ### Adım 5 — Alıntılanan kanon zorlama ile özet döndür
-
+  
   ≤ 200 kelime: analiz edilmiş, en iyi 3 bulgu (kanon alıntısı ile sabitlenmiş), en iyi 3 sonraki adım (geçerli onaylayıcı adlandırılmış), artifact yolu ve **bir grill zorlaması** kullanıcı için. Örnekler:
-
+  
   - "Deal scorecard'ınız indirimden sonra %38 margin gösteriyor. Skok'un For Entrepreneurs benchmark'i %70'den düşük brüt margin'li SaaS anlaşmalarının inceleme gerektirdiğini söylüyor. Doldurma maliyetini mü yoksa sadece COGS'yi mi modellediniz?"
   - "Paketlemenizde Better'de 14 özellik, Best'te 16 özellik var. Madhavan Ramanujam (Monetizing Innovation): net ayırıcı olmayan seviyeler müşterilerin %70'inin en ucuz olanı seçmesine neden olur. Yükseltmeyi zorlayan bir özellik nedir?"
-
+  
   ## Zorlama-soru kütüphanesi (grill-with-docs deseni)
-
+  
   Alt-skill çağırmadan önce kullanıcıyı şerit tanımlayan kararlar konusunda grill et. Turda bir tane, önerilen cevap, kanon alıntısı:
-
+  
   - **PRICING şeridi**: "Model seçmeden önce: müşteriniz sonuçlar, koltuklar mı yoksa kullanım için mi ödeme yapıyor? Önerilen: sonuçlar (değer tabanlı) ölçülebilirlerse. Anti-desen (Ramanujam 2016 *Monetizing Innovation*): kullanıma değişken bir üründe koltuk tabanlı fiyatlandırma TAM'ınızı WTP'nin %20'sine sınırlar."
   - **DEAL şeridi**: "Onaylamadan önce: tam indirimde brüt margin nedir, **ve** gelecek çeyreğin pipeline'ı aynı koşullarda nasıl görünüyor? Önerilen: ikisini de modelleyin. Anti-desen (Tunguz benchmarkları): bir %40 emsal üç çeyreklik pipeline'ı yeniden şekillendiriyor."
   - **FORECAST şeridi**: "Tahmin etmeden önce: son 4 çeyrekten mi yoksa son 12 aydan mı aşama-dönüşüm oranları kullanıyorsunuz? Önerilen: son 4 ağırlıklı daha ağır. Anti-desen (Skok, OpenView): 12 ayı eşit ağırlıklandırma yakın yavaşlamayı gizler."
   - **PARTNERSHIP şeridi**: "İmza atmadan önce: ortak **bağımsız talebe** sahip mi, yoksa kendi pipeline'ımızı mı yeniden satıyor? Önerilen: bağımsız talep kanıtını ısrar et. Anti-desen (Forrester kanal araştırması): kendi pipeline'ınızdan kanal tarafından yönetilen anlaşmalar doğruydan daha pahalıya mal olur."
-
+  
   Şerit tanımlayan karar kilitlenene kadar hiçbir alt-skill çalıştırma.
-
+  
   ## Varsayımlar
-
+  
   1. Kullanıcının ticari yetkisi VAR VEYA bunu yapan birinin analizi hazırlıyor.
   2. Kullanıcı **deterministik karar desteği** istiyor, son cevap değil — insan anlaşmayı onaylar, fiyatı belirler, ortağın imzasını atar.
   3. Girdiler kısmi olabilir — her alt-skill şablonlu dummy veriler taşır, kullanıcı kendi verilerini doldurmadan önce şekli görebilsin.
-
+  
   ## Hedef değil
-
+  
   - CRM, CPQ sistemi veya sözleşme deposu değildir.
   - Otomatik olarak anlaşmaları onaylamaz. Her çıktı **bir puan + tavsiye + insan-onaylayıcı yönlendirme**.
   - Oturumlar arasında anlaşma geçmişini depolamaz.
-
+  
   ## Farklı olan
-
+  
   - **`business-growth/sales-engineer`** — bu **teknik satış** (demolar, POC'ler). Ticari **anlaşmanın ekonomik şekli**dir.
   - **`business-growth/revenue-operations`** — bu **işlem** (lead yönlendirme, SDR hareketi). Ticari **anlaşma başına ekonomi + politika**dir.
   - **`business-growth/contract-and-proposal-writer`** — bu **yazı yazma** prose. Ticari **karar mantığı + yapılandırılmış yanıt**tır.
   - **`c-level-advisor/cro-advisor`** — bu stratejik CRO yargısı ("VP Sales'i ne zaman işe alalım?"). Ticari taktik ("bu indirimi onayla").
   - **`finance/financial-analysis`** — bu **kapalı + rapor**. Ticari **tahmin + anlaşma başına ekonomi**dir.
-
+  
   ## Çıktı artifact'ları
-
+  
   | Alt-skill | Artifact |
   |---|---|
   | pricing-strategist | `pricing_model.md` + `wtp_analysis.json` |
@@ -134,17 +134,17 @@ body_tr: |-
   | commercial-policy | `commercial_policy.md` (discount matrix + exception flow) |
   | rfp-responder | `rfp_response.md` + `winrate_estimate.json` |
   | commercial-forecaster | `forecast.md` + `pipeline_math.json` |
-
+  
   ## Anti-desenler (yapma)
-
+  
   - ❌ Belirli bir fiyat öner — **aralık + model** öner, kullanıcı sayıyı seçsin
   - ❌ Politikanın üzerindeki indirimler otomatik onay — her >X% indirim adlandırılmış insan onaylayıcıya yönlendirilsin
   - ❌ Kullanıcının doğrulayabileceği kanıt noktaları olmadan RFP yanıtı oluştur
   - ❌ **dönüşüm varsayımını** açıkça yüzeye çıkarmadan bookings tahmin et
   - ❌ "Tam olmak için" 7 alt-skill'in hepsini çalıştır — birini seç, özetleyin, gerekirse zincirleyin
-
+  
   ## Referanslar
-
+  
   - SaaS fiyatlandırması kanonu: Tomasz Tunguz, David Skok, Bessemer Venture Partners
   - Deal desk: SaaStr playbook'ları, Winning by Design
   - Path-B build deseni: `documentation/implementation/bizops-commercial-expansion-plan.md`

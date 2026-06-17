@@ -4,7 +4,7 @@ description_en: "Design GCP architectures for startups and enterprises. Use when
 description_tr: "GCP mimarileri tasarla ve startuplardan kurumsal ölçekte projeleri yönet. Google Cloud altyapısı tasarlamak, GKE veya Cloud Run'a deploy etmek, BigQuery pipeline'ları yapılandırmak, GCP maliyetlerini optimize etmek veya GCP'ye migration yapmak gerektiğinde kullan. Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery ve maliyet optimizasyonunu kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/gcp-cloud-architect/SKILL.md"
 path: ".gemini/skills/gcp-cloud-architect/SKILL.md"
 is_collection: false
@@ -15,17 +15,17 @@ has_examples: false
 related_files: []
 body_tr: |-
   # GCP Bulut Mimarı
-
+  
   Google Cloud'da ölçeklenebilir, uygun maliyetli mimariler tasarlayın; startuplar ve kuruluşlar için altyapı-kod şablonları sunun.
-
+  
   ---
-
+  
   ## İş Akışı
-
+  
   ### Adım 1: Gereksinimleri Toplayın
-
+  
   Uygulama özelliklerini toplayın:
-
+  
   ```
   - Uygulama türü (web app, mobile backend, data pipeline, SaaS)
   - Beklenen kullanıcı sayısı ve saniye başına istek sayısı
@@ -34,17 +34,17 @@ body_tr: |-
   - Uyum gereksinimleri (GDPR, HIPAA, SOC 2)
   - Kullanılabilirlik gereksinimleri (SLA, RPO/RTO)
   ```
-
+  
   ### Adım 2: Mimarı Tasarlayın
-
+  
   Desen önerilerine ulaşmak için mimari tasarımcıyı çalıştırın:
-
+  
   ```bash
   python scripts/architecture_designer.py --input requirements.json
   ```
-
+  
   **Örnek çıktı:**
-
+  
   ```json
   {
     "recommended_pattern": "serverless_web",
@@ -54,27 +54,27 @@ body_tr: |-
     "cons": ["Vendor lock-in", "Regional limitations", "Eventual consistency with Firestore"]
   }
   ```
-
+  
   Önerilen desenlerden seçin:
   - **Serverless Web**: Cloud Storage + Cloud CDN + Cloud Run + Firestore
   - **GKE'de Mikrohizmetler**: GKE Autopilot + Cloud SQL + Memorystore + Cloud Pub/Sub
   - **Serverless Veri Pipeline**: Pub/Sub + Dataflow + BigQuery + Looker
   - **ML Platformu**: Vertex AI + Cloud Storage + BigQuery + Cloud Functions
-
+  
   Detaylı desen özellikleri için `references/architecture_patterns.md` sayfasına bakın.
-
+  
   **Doğrulama kontrol noktası:** Önerilen desenin takımın işletim olgunluğu ve uyum gereksinimlerine uygun olduğunu doğrulayıp Adım 3'e geçin.
-
+  
   ### Adım 3: Maliyeti Tahmin Edin
-
+  
   Tahmini maliyetleri ve optimizasyon fırsatlarını analiz edin:
-
+  
   ```bash
   python scripts/cost_optimizer.py --resources current_setup.json --monthly-spend 2000
   ```
-
+  
   **Örnek çıktı:**
-
+  
   ```json
   {
     "current_monthly_usd": 2000,
@@ -86,26 +86,26 @@ body_tr: |-
     "total_potential_savings_usd": 745
   }
   ```
-
+  
   Çıktı şunları içerir:
   - Servise göre aylık maliyet dağılımı
   - Makine tipini yeniden boyutlandırma önerileri
   - Taahhüt edilen kullanım indirim fırsatları
   - Sürdürülen kullanım indirim analizi
   - Potansiyel aylık tasarruflar
-
+  
   Detaylı tahminler için [GCP Fiyatlandırma Hesaplayıcısını](https://cloud.google.com/products/calculator) kullanın.
-
+  
   ### Adım 4: IaC Oluşturun
-
+  
   Seçilen desen için altyapı-kod oluşturun:
-
+  
   ```bash
   python scripts/deployment_manager.py --app-name my-app --pattern serverless_web --region us-central1
   ```
-
+  
   **Örnek Terraform HCL çıktısı (Cloud Run + Firestore):**
-
+  
   ```hcl
   terraform {
     required_providers {
@@ -115,27 +115,27 @@ body_tr: |-
       }
     }
   }
-
+  
   provider "google" {
     project = var.project_id
     region  = var.region
   }
-
+  
   variable "project_id" {
     description = "GCP project ID"
     type        = string
   }
-
+  
   variable "region" {
     description = "GCP region"
     type        = string
     default     = "us-central1"
   }
-
+  
   resource "google_cloud_run_v2_service" "api" {
     name     = "${var.environment}-${var.app_name}-api"
     location = var.region
-
+  
     template {
       containers {
         image = "gcr.io/${var.project_id}/${var.app_name}:latest"
@@ -156,7 +156,7 @@ body_tr: |-
       }
     }
   }
-
+  
   resource "google_firestore_database" "default" {
     project     = var.project_id
     name        = "(default)"
@@ -164,9 +164,9 @@ body_tr: |-
     type        = "FIRESTORE_NATIVE"
   }
   ```
-
+  
   **Örnek gcloud CLI dağıtımı:**
-
+  
   ```bash
   # Cloud Run service'i dağıt
   gcloud run deploy my-app-api \
@@ -178,26 +178,26 @@ body_tr: |-
     --cpu 1 \
     --min-instances 0 \
     --max-instances 10
-
+  
   # Firestore veritabanı oluştur
   gcloud firestore databases create --location=us-central1
   ```
-
+  
   > Cloud CDN, Identity Platform, IAM ve Cloud Monitoring'i içeren tam şablonlar `deployment_manager.py` tarafından oluşturulur ve `references/architecture_patterns.md` içinde de mevcuttur.
-
+  
   ### Adım 5: CI/CD'yi Yapılandırın
-
+  
   Cloud Build veya GitHub Actions ile otomatik dağıtımı ayarlayın:
-
+  
   ```yaml
   # cloudbuild.yaml
   steps:
     - name: 'gcr.io/cloud-builders/docker'
       args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA', '.']
-
+  
     - name: 'gcr.io/cloud-builders/docker'
       args: ['push', 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA']
-
+  
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       entrypoint: gcloud
       args:
@@ -207,11 +207,11 @@ body_tr: |-
         - '--image=gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA'
         - '--region=us-central1'
         - '--platform=managed'
-
+  
   images:
     - 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA'
   ```
-
+  
   ```bash
   # Repository'yi bağla ve trigger oluştur
   gcloud builds triggers create github \
@@ -220,22 +220,22 @@ body_tr: |-
     --branch-pattern="^main$" \
     --build-config=cloudbuild.yaml
   ```
-
+  
   ### Adım 6: Güvenlik İncelemesi
-
+  
   Güvenlik yapılandırmasını doğrulayın:
-
+  
   ```bash
   # IAM bağlamalarını gözden geçir
   gcloud projects get-iam-policy $PROJECT_ID --format=json
-
+  
   # Hizmet hesabı izinlerini kontrol et
   gcloud iam service-accounts list --project=$PROJECT_ID
-
+  
   # VPC Service Controls'i doğrula (gerekirse)
   gcloud access-context-manager perimeters list --policy=$POLICY_ID
   ```
-
+  
   **Güvenlik kontrol listesi:**
   - IAM rolleri en düşük ayrıcalık ilkesini izler (temel roller yerine önceden tanımlı roller tercih edilir)
   - Hizmet hesapları GKE için Workload Identity kullanır
@@ -244,9 +244,9 @@ body_tr: |-
   - Tüm yönetici aktiviteleri için Cloud Audit Logs etkindir
   - Genel erişimi kısıtlamak için Organizasyon politikaları
   - Tüm kimlik bilgileri için Secret Manager kullanılır
-
+  
   **Dağıtım başarısız olursa:**
-
+  
   1. Başarısızlık nedenini kontrol edin:
      ```bash
      gcloud run services describe my-app-api --region us-central1
@@ -258,67 +258,67 @@ body_tr: |-
      ```bash
      gcloud run deploy my-app-api --image gcr.io/$PROJECT_ID/my-app:latest --region us-central1
      ```
-
+  
   **Sık başarısızlık nedenleri:**
   - IAM izin hataları -- hizmet hesabı rolleri ve `--allow-unauthenticated` bayrağını doğrulayın
   - Kota aşıldı -- IAM & Admin > Quotas aracılığıyla kota artışı isteyin
   - Container başlatma başarısızlığı -- container log'larını ve health check yapılandırmasını kontrol edin
   - Bölge etkin değil -- `gcloud services enable` ile gerekli API'leri etkinleştirin
-
+  
   ---
-
+  
   ## Araçlar
-
+  
   ### architecture_designer.py
-
+  
   İş yükü gereksinimlerine göre GCP servislerini önerir.
-
+  
   ```bash
   python scripts/architecture_designer.py --input requirements.json --output design.json
   ```
-
+  
   **Girdi:** Uygulama türü, ölçek, bütçe, uyum gereksinimleri içeren JSON
   **Çıktı:** Önerilen desen, servis yığını, maliyet tahmini, avantajlar/dezavantajlar
-
+  
   ### cost_optimizer.py
-
+  
   GCP kaynaklarını maliyet tasarrufu açısından analiz eder.
-
+  
   ```bash
   python scripts/cost_optimizer.py --resources inventory.json --monthly-spend 5000
   ```
-
+  
   **Çıktı:** Öneriler:
   - Boştaki kaynakları kaldırma
   - Makine tipi yeniden boyutlandırma
   - Taahhüt edilen kullanım indirimler
   - Depolama sınıfı geçişleri
   - Network çıkış optimizasyonu
-
+  
   ### deployment_manager.py
-
+  
   gcloud CLI dağıtım scriptleri ve Terraform yapılandırmaları oluşturur.
-
+  
   ```bash
   python scripts/deployment_manager.py --app-name my-app --pattern serverless_web --region us-central1
   ```
-
+  
   **Çıktı:** Üretim hazır dağıtım scriptleri:
   - Cloud Run veya GKE dağıtımı
   - Firestore veya Cloud SQL kurulumu
   - Identity Platform yapılandırması
   - En düşük ayrıcalık ile IAM rolleri
   - Cloud Monitoring ve Logging
-
+  
   ---
-
+  
   ## Hızlı Başlangıç
-
+  
   ### Cloud Run'da Web Uygulaması (< 100$/ay)
-
+  
   ```
   Soru: "Mobil uygulama için 1000 kullanıcılı serverless web backend tasarlayın"
-
+  
   Sonuç:
   - API için Cloud Run (otomatik ölçekleme, minimum instance'lar ile cold start yok)
   - Veri için Firestore (işlem başına ödeme)
@@ -326,12 +326,12 @@ body_tr: |-
   - Statik varlıklar için Cloud Storage + Cloud CDN
   - Tahmini: 15-40$/ay
   ```
-
+  
   ### GKE'de Mikrohizmetler (500-2000$/ay)
-
+  
   ```
   Soru: "50k kullanıcılı SaaS platformu için ölçeklenebilir mimari tasarlayın"
-
+  
   Sonuç:
   - Containerize iş yükleri için GKE Autopilot
   - Okuma replicaları ile Cloud SQL (PostgreSQL)
@@ -340,12 +340,12 @@ body_tr: |-
   - CI/CD için Cloud Build
   - Çok bölgeli dağıtım
   ```
-
+  
   ### Serverless Veri Pipeline
-
+  
   ```
   Soru: "Olay verisi için gerçek zamanlı analitik pipeline tasarlayın"
-
+  
   Sonuç:
   - Olay yutma için Pub/Sub
   - Akış işleme için Dataflow (Apache Beam)
@@ -353,12 +353,12 @@ body_tr: |-
   - Panolar için Looker
   - Hafif dönüşümler için Cloud Functions
   ```
-
+  
   ### ML Platformu
-
+  
   ```
   Soru: "Model eğitimi ve sunumu için makine öğrenmesi platformu tasarlayın"
-
+  
   Sonuç:
   - Eğitim ve tahmin için Vertex AI
   - Veri setleri ve model yapıtları için Cloud Storage
@@ -366,13 +366,13 @@ body_tr: |-
   - Ön işleme tetikleyicileri için Cloud Functions
   - Model drift tespiti için Cloud Monitoring
   ```
-
+  
   ---
-
+  
   ## Girdi Gereksinimleri
-
+  
   Mimari tasarım için şu ayrıntıları sağlayın:
-
+  
   | Gereksinim | Açıklama | Örnek |
   |-------------|-------------|---------|
   | Uygulama türü | Neyi inşa ettiğiniz | SaaS platformu, mobil backend |
@@ -381,9 +381,9 @@ body_tr: |-
   | Takım bağlamı | Boyut, GCP deneyimi | 3 geliştirici, orta seviye |
   | Uyum | Düzenleyici gereksinimler | HIPAA, GDPR, SOC 2 |
   | Kullanılabilirlik | Hizmet süresi gereksinimleri | 99.9% SLA, 1 saat RPO |
-
+  
   **JSON Formatı:**
-
+  
   ```json
   {
     "application_type": "saas_platform",
@@ -396,32 +396,32 @@ body_tr: |-
     "availability_sla": "99.9%"
   }
   ```
-
+  
   ---
-
+  
   ## Çıktı Formatları
-
+  
   ### Mimari Tasarım
-
+  
   - Gerekçeyle desen önerisi
   - Servis yığını diyagramı (ASCII)
   - Aylık maliyet tahmini ve ödünleşimler
-
+  
   ### IaC Şablonları
-
+  
   - **Terraform HCL**: Üretim hazır Google provider yapılandırmaları
   - **gcloud CLI**: Script olarak dağıtım komutları
   - **Cloud Build YAML**: CI/CD pipeline tanımlamaları
-
+  
   ### Maliyet Analizi
-
+  
   - Optimizasyon önerileriyle birlikte mevcut harcama dağılımı
   - Öncelik eylem listesi (yüksek/orta/düşük) ve uygulama kontrol listesi
-
+  
   ---
-
+  
   ## Anti-Desenler
-
+  
   | Anti-Desen | Neden Başarısız Olur | Daha İyi Yaklaşım |
   |---|---|---|
   | Üretim için varsayılan VPC kullanma | Yalıtım yok, paylaşılan firewall kuralları | Özel VPC'yi özel subnet'ler ile oluşturun |
@@ -431,11 +431,11 @@ body_tr: |-
   | SaaS için tek bölgeli dağıtım | Bir bölge kesintisi = tam kesintiyi | Cloud Load Balancing ile çok bölgeli kullanın |
   | Ağır iş yükleri için BigQuery on-demand kullanma | Ölçekte tahmin edilemeyen maliyetler | Tutarlı iş yükleri için BigQuery slot'larını (sabit fiyat) kullanın |
   | Uzun görevler için Cloud Functions çalıştırma | 9 dakikalık zaman sınırı, cold start'lar | 60 saniyeden uzun görevler için Cloud Run kullanın |
-
+  
   ---
-
+  
   ## Çapraz Referanslar
-
+  
   | Beceri | İlişki |
   |-------|-------------|
   | `engineering-team/aws-solution-architect` | AWS eşdeğeri -- aynı 6 adımlı iş akışı, farklı servisler |
@@ -443,11 +443,11 @@ body_tr: |-
   | `engineering-team/senior-devops` | Daha geniş DevOps kapsamı -- pipeline'lar, monitoring, containerization |
   | `engineering/terraform-patterns` | IaC uygulaması -- GCP'yi hedefleyen Terraform modülleri için kullanın |
   | `engineering/ci-cd-pipeline-builder` | Pipeline inşası -- Cloud Build ve dağıtımı otomatikleştirir |
-
+  
   ---
-
+  
   ## Referans Belgeleri
-
+  
   | Belge | İçerik |
   |----------|----------|
   | `references/architecture_patterns.md` | 6 desen: serverless, GKE mikrohizmetler, üç katmanlı, veri pipeline, ML platformu, çok bölgeli |

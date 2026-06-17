@@ -4,7 +4,7 @@ description: "Create crafted UI components inspired by the best 21st.dev design 
 description_tr: "21st.dev'in en iyi tasarım mühendislerinden ilham alarak özel olarak hazırlanmış UI bileşenleri oluşturun."
 category: "Developer Tools"
 repo: "21st-dev/magic-mcp"
-stars: 5149
+stars: 5151
 url: "https://github.com/21st-dev/magic-mcp"
 body_length: 7943
 language: "TypeScript"

@@ -4,7 +4,7 @@ description_en: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of re
 description_tr: "/cs:cro-review <plan> — Revenue, win rate, NRR ve ramp time'ın derinlemesine analizi yapan pipeline kontrol aracı. Pipeline coverage hedefini kaçırdığınızda, win rate düştüğünde veya satış ekibini ölçeklendirmeden önce kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cro-review/SKILL.md"
 path: ".gemini/skills/cro-review/SKILL.md"
 is_collection: false
@@ -15,109 +15,109 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:cro-review — CRO Zorlama Soruları
-
+  
   **Komut:** `/cs:cro-review <plan>`
-
+  
   Pipeline-paranoid operatör gelir varsayımlarını stres testine tabi tutar. Sonraki çeyreğin acısını bu çeyrekte ortaya çıkaran altı soru.
-
+  
   ## Ne Zaman Çalıştırılır
-
+  
   - Üç aylık gelir hedefine bağlanmadan önce
   - Satış stratejisini değiştirmeden önce (PLG ↔ sales-led, mid-market ↔ enterprise)
   - Bir grup temsilci işe almadan önce
   - Pipeline coverage 3x'in altına düştüğünde
   - NRR düşüş trendi gösterdiğinde
-
+  
   ## Altı CRO Sorusu
-
+  
   ### 1. Pipeline Coverage
   **Cari çeyrek için aşamaya göre pipeline coverage nedir?**
   - Inbound-ağır: 3x. Outbound-ağır: 4x. Her iki eşiğin altında = hemen harekete geç.
   - Sadece toplam değil, aşama ağırlıklı.
-
+  
   ### 2. Win Rate Trendi
   **Bu çeyreğin win rate'i son 4 çeyreğe kıyasla ne? Ve leak noktası nerede?**
   - Aşamaya göre dönüşüm.
   - Tek bir aşama zayıflarsa, forecast yapmadan önce nedenini belirle.
-
+  
   ### 3. NRR Ayrıştırması
   **Gross retention, contraction ve expansion ayrı ayrı ne?**
   - NRR tek başına churn'ü gizler.
   - 95% gross retention'a sahip 110% NRR, 80% olanla farklıdır.
-
+  
   ### 4. Ramp Süresi
   **Son 4 işe alınanın ilk deal'e ve quota'ya kaç gün içinde ulaştığı?**
   - Ramp > 90 gün growth stage'de ise, hiring profili veya enablement bozuktur.
   - Forecast edilen işe almalar ramp'ı hesaba katmalı.
-
+  
   ### 5. İndirim Disiplini
   **Bu çeyreğin medyan indirim ile son 4 çeyrek karşılaştırıldığında ne? Nerede kayıp oluyor?**
   - İndirim kayması, fiyatlandırma veya positioning zayıflığının öncü göstergesidir.
   - İndirimler onaylayan kademesine göre sınırlandırılmalı.
-
+  
   ### 6. Pipeline Kaynak Karması
   **Pipeline'ın yüzde kaçı marketing-sourced, sales-sourced, partner-sourced?**
   - Bir kaynak > 80% ağırlıklı olursa, konsantrasyon riski vardır.
   - cs-cmo-advisor ile çapraz kontrol et.
-
+  
   ## İş Akışı
-
+  
   ```bash
   python ../../../skills/cro-advisor/scripts/revenue_forecast_model.py
   python ../../../skills/cro-advisor/scripts/churn_analyzer.py
   ```
-
+  
   ## Çıktı Formatı
-
+  
   ```markdown
   # CRO Review: <plan>
   **Tarih:** YYYY-MM-DD
-
+  
   ## Pipeline
   - Coverage: X.Xx (hedef 3x+)
   - Win rate: X% (4Q trend: ↑ / → / ↓)
   - En çok leak olan aşama: <name>
-
+  
   ## Retention
   - Gross retention: X%
   - NRR: X%
   - Expansion: X%
   - Contraction: X%
-
+  
   ## Ramp
   - Geçen çeyrek yeni işe alınanlar: N
   - Medyan ilk deal'e kadar gün: X
   - Medyan quota'ya kadar gün: X
-
+  
   ## İndirim
   - Bu çeyreğin medyan indirim: X%
   - 4Q öncesine kıyasla trend: <delta>
-
+  
   ## Kaynak Karması
   - Marketing: X% | Sales: X% | Partner: X%
-
+  
   ## Karar
   🟢 PLANA UYGUN | 🟡 AÇIK | 🔴 PIPELINE KRİZİ
-
+  
   ## Sonraki Adımlar
   [3 somut aksiyon]
   ```
-
+  
   ## Yönlendirme
-
+  
   - `/cs:cfo-review` — bu nakit planını karşılıyor mu?
   - `/cs:cmo-review` — pipeline kaynak karması sağlıklı mı?
   - `/cs:execute` — GREEN ise üç aylık plan
   - `/cs:boardroom` — RED ise
-
+  
   ## İlgili Kaynaklar
-
+  
   - Agent: [`cs-cro-advisor`](../../agents/cs-cro-advisor.md)
   - Skill: [`cro-advisor`](../../../skills/cro-advisor/SKILL.md)
   - Execution: `../../../../business-growth/`
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

@@ -4,7 +4,7 @@ description: "Official GitHub server for integration with repository management,
 description_tr: "GitHub entegrasyonu için resmi sunucu; repository yönetimi, PR'lar, issue'lar ve daha fazlasıyla çalışabilirsiniz."
 category: "Version Control"
 repo: "github/github-mcp-server"
-stars: 30742
+stars: 30748
 url: "https://github.com/github/github-mcp-server"
 body_length: 91611
 license: "MIT"

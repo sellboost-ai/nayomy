@@ -4,7 +4,7 @@ description: "A comprehensive proxy server that combines multiple MCP servers in
 description_tr: "Birden fazla MCP sunucusunu tek bir arayüzde birleştiren ve kapsamlı görünürlük özellikleri sunan bütünsel bir proxy sunucusu. Sunucular arasında araçlar, promptlar, kaynaklar ve şablonların keşfi ile yönetimini sağlarken, MCP sunucuları geliştirirken hata ayıklama için playground ortamı sunmaktadır."
 category: "Aggregators"
 repo: "VeriTeknik/pluggedin-mcp-proxy"
-stars: 130
+stars: 131
 url: "https://github.com/VeriTeknik/pluggedin-mcp-proxy"
 body_length: 31769
 license: "Apache-2.0"

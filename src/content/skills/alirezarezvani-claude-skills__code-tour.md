@@ -4,7 +4,7 @@ description_en: "Use when the user asks to create a CodeTour .tour file — pers
 description_tr: "CodeTour .tour dosyası oluşturma isteklerinde kullanılır — persona odaklı, gerçek dosyalar ve satır numaralarına bağlanan adım adım kılavuzlar için. Tetikleyiciler: tour oluştur, onboarding tour, architecture tour, PR review tour, \"X nasıl çalışır\" açıklamaları, vibe check, RCA tour, contributor guide veya yapılandırılmış kod walkthrough talepleri."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/code-tour/SKILL.md"
 path: ".gemini/skills/code-tour/SKILL.md"
 is_collection: false
@@ -15,35 +15,35 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Kod Turu
-
+  
   **CodeTour** dosyaları oluşturun — belirli bir kişiye yönelik, bir kod tabanının adım adım anlatımları ve dosyalar ile satır numaralarına doğrudan bağlantılar. CodeTour dosyaları `.tours/` klasöründe yaşar ve [VS Code CodeTour uzantısı](https://github.com/microsoft/codetour) ile çalışır.
-
+  
   ## Özet
-
+  
   Harika bir tur bir **anlatıdır** — belirli bir kişiye ne önemliyse, neden önemliyse ve sonra ne yapacağını anlatan bir hikaye. Yalnızca `.tour` JSON dosyaları oluşturun. Asla kaynak kodu değiştirmeyin.
-
+  
   ## Bu Beceriyi Ne Zaman Kullanmalısınız
-
+  
   - Kullanıcı bir kod turu, onboarding turu veya mimari anlatım oluşturmayı isterse
   - Kullanıcı "bu PR için tur", "X nasıl çalışıyor", "vibe check", "RCA turu" derse
   - Kullanıcı bir katkıda bulunan rehberi, güvenlik incelemesi veya hata araştırması anlatımı isterse
   - Dosya/satır çapaları ile yapılandırılmış bir anlatım için herhangi bir istek
-
+  
   ## Temel İş Akışı
-
+  
   ### 1. Repoyu keşfedin
-
+  
   Hiçbir şey sormadan önce kod tabanını keşfedin:
-
+  
   Paralel olarak: kök dizini listeleyin, README'yi okuyun, config dosyalarını kontrol edin.
   Sonra: dil(ler)i, framework'leri, proje amacını tanımlayın. Klasör yapısını 1-2 seviye derinliğinde haritala. Giriş noktalarını bul — turdaki her yol gerçek olmalı.
-
+  
   Repoda 5'ten az kaynak dosya varsa, persona fark etmeksizin hızlı derinlik turu oluşturun — derin bir turu garanti etmek için yeterli değil.
-
+  
   ### 2. Niyeti tahmin edin
-
+  
   Bir mesaj yeterli olmalı. Persona, derinlik ve odağı sessizce tahmin edin.
-
+  
   | Kullanıcı söylerse | Persona | Derinlik |
   |---|---|---|
   | "bu PR için tur" | pr-reviewer | standart |
@@ -53,17 +53,17 @@ body_tr: |-
   | "mimari" | architect | derin |
   | "güvenlik" / "auth incelemesi" | security-reviewer | standart |
   | (niteleyici yok) | new-joiner | standart |
-
+  
   Niyet belirsiz olduğunda, **new-joiner** personası ile **standart** derinliğe varsayılan olarak ayarlanır — en genel olarak faydalıdır.
-
+  
   ### 3. Gerçek dosyaları okuyun
-
+  
   **Her dosya yolu ve satır numarası doğrulanmalıdır.** Yanlış satıra işaret eden bir tur, hiç tur olmamaktan daha kötüdür.
-
+  
   ### 4. Turu yazın
-
+  
   `.tours/<persona>-<focus>.tour` klasörüne kaydedin.
-
+  
   ```json
   {
     "$schema": "https://aka.ms/codetour-schema",
@@ -73,9 +73,9 @@ body_tr: |-
     "steps": []
   }
   ```
-
+  
   ### Adım türleri
-
+  
   | Tür | Ne zaman kullanılır | Örnek |
   |---|---|---|
   | **Content** | Giriş/kapanış sadece (maks 2) | `{ "title": "Hoşgeldiniz", "description": "..." }` |
@@ -84,33 +84,33 @@ body_tr: |-
   | **Selection** | Bir kod bloğunu vurgula | `{ "file": "...", "selection": {...}, "title": "..." }` |
   | **Pattern** | Regex eşleştirme (değişken dosyalar) | `{ "file": "...", "pattern": "class App", "title": "..." }` |
   | **URI** | PR, issue, doca bağla | `{ "uri": "https://...", "title": "..." }` |
-
+  
   ### Adım sayısı
-
+  
   | Derinlik | Adımlar | Kullanım alanı |
   |---|---|---|
   | Hızlı | 5-8 | Vibecoder, hızlı keşif |
   | Standart | 9-13 | Çoğu persona |
   | Derin | 14-18 | Architect, RCA |
-
+  
   ### Açıklamaları yazma — SMIG formülü
-
+  
   - **S — Durum**: Okuyucu neye bakıyor?
   - **M — Mekanizma**: Bu kod nasıl çalışıyor?
   - **I — İmplication**: Bu persona için neden önemli?
   - **G — Gotcha**: Zeki biri ne yanlış anlamış olurdu?
-
+  
   ### 5. Doğrula
-
+  
   - [ ] Her `file` yolu repo köküne göre (başta `/` veya `./` yok)
   - [ ] Her `file` var olduğu doğrulanmış
   - [ ] Her `line` dosya okunarak doğrulanmış
   - [ ] İlk adım `file` veya `directory` çapasına sahip
   - [ ] En fazla 2 sadece içerik adımı
   - [ ] `nextTour` ayarlandıysa başka bir turun `title` ile tam eşleşiyor
-
+  
   ## Personalar
-
+  
   | Persona | Amaç | Kapsanması gereken |
   |---|---|---|
   | **Vibecoder** | Hızlı vibe al | Giriş noktası, ana modüller. Maks 8 adım. |
@@ -123,16 +123,16 @@ body_tr: |-
   | **Security reviewer** | Güven sınırları | Auth akışı, doğrulama, gizli yönetimi |
   | **Refactorer** | Güvenli yeniden yapılandırma | Seams, gizli bağımlılıklar, çıkarma sırası |
   | **External contributor** | Güvenli katkı | Güvenli alanlar, kurallar, tuzaklar |
-
+  
   ## Anlatı Ark
-
+  
   1. **Yönelim** — `file` veya `directory` adımı (asla sadece content ile ilk adım — VS Code'da boş)
   2. **Yüksek seviye harita** — Ana modülleri gösteren 1-3 directory adımı
   3. **Temel yol** — file/line adımları, turun kalbi
   4. **Kapanış** — okuyucunun artık ne yapabileceği, önerilen follow-up'lar
-
+  
   ## Anti-Desenler
-
+  
   | Anti-desen | Çözüm |
   |---|---|
   | **Dosya listesi** — "bu dosya modelleri içerir" | Bir hikaye anlat. Her adım öncekine bağlı. |
@@ -142,9 +142,9 @@ body_tr: |-
   | **Hallüsinasyon dosyaları** | Yoksa adımı atla. |
   | **Recap kapanışı** — "X, Y, Z'yi ele aldık" | Okuyucuya artık ne *yapabileceğini* söyle. |
   | **Sadece content ilk adımı** | 1. adımı bir dosya veya dizine çapa. |
-
+  
   ## Çapraz Referanslar
-
+  
   - İlgili: `engineering/codebase-onboarding` — turların ötesinde daha geniş onboarding için
   - İlgili: `engineering/pr-review-expert` — otomatik PR review iş akışları için
   - CodeTour uzantısı: [microsoft/codetour](https://github.com/microsoft/codetour)

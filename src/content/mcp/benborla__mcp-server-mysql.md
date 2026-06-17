@@ -4,7 +4,7 @@ description: "MySQL database integration in NodeJS with configurable access cont
 description_tr: "NodeJS'de MySQL veritabanı entegrasyonu, yapılandırılabilir erişim kontrolleri ve schema incelemesi özellikleri ile sağlanır."
 category: "Databases"
 repo: "benborla/mcp-server-mysql"
-stars: 1823
+stars: 1828
 url: "https://github.com/benborla/mcp-server-mysql"
 body_length: 27495
 license: "MIT"

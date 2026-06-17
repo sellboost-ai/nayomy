@@ -5,57 +5,11 @@ description: "Cursor rules for Git development with conventional commit messages
 description_tr: "Git geliştirmesi için cursor kuralları, conventional commit messages entegrasyonu ile."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/git-conventional-commit-messages.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/git-conventional-commit-messages.mdc"
 body_length: 4439
 file_extension: ".mdc"
-body_tr: |-
-  Geleneksel Commit Mesajları (Conventional Commit Messages) belirtimini kullanarak commit mesajları oluşturun
-
-  Commit mesajı aşağıdaki şekilde yapılandırılmalıdır:
-
-
-  ```
-  <type>[optional scope]: <description>
-
-  [optional body]
-
-  [optional footer(s)]
-  ``` 
-  --------------------------------
-
-  Commit, kütüphanenizin kullanıcılarına niyetinizi iletmek için aşağıdaki yapısal öğeleri içerir:
-
-    - fix: fix türündeki bir commit, kodunuzdaki bir hatayı düzeltir (bu, Anlamsal Sürümleme'de PATCH ile ilişkilidir).
-    - feat: feat türündeki bir commit, kodunuza yeni bir özellik ekler (bu, Anlamsal Sürümleme'de MINOR ile ilişkilidir).
-    - BREAKING CHANGE: BREAKING CHANGE: altlık içeren veya tür/scope'tan sonra ! ekleyen bir commit, kırılma yapan bir API değişikliği tanıtır (Anlamsal Sürümleme'de MAJOR ile ilişkilidir). BREAKING CHANGE, herhangi bir türdeki commit'lerin parçası olabilir.
-    - fix: ve feat: dışındaki türlere izin verilir, örneğin @commitlint/config-conventional (Angular kuralına dayalı) build:, chore:, ci:, docs:, style:, refactor:, perf:, test: ve diğerlerini önerir.
-    - BREAKING CHANGE: <description> dışındaki altlıklar sağlanabilir ve git trailer formatına benzer bir kuralı izleyebilir.
-    - Ek türler Geleneksel Commit Mesajları belirtimi tarafından zorunlu kılınmaz ve Anlamsal Sürümleme'de örtük bir etkiye sahip değildir (BREAKING CHANGE içermediği sürece). Ek bağlamsal bilgi sağlamak için bir commit'in türüne bir scope eklenebilir ve parantez içinde yer alır, örneğin feat(parser): add ability to parse arrays.
-
-
-
-  ### Belirtim Ayrıntıları
-
-  Bu belgede yer alan "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" ve "OPTIONAL" anahtar kelimeleri RFC 2119'da açıklanan şekilde yorumlanmalıdır.
-
-  Commit'ler, bir isimden oluşan bir türle, feat, fix vb., OPTIONAL scope, OPTIONAL ! ve REQUIRED terminal iki nokta ve boşluk ile başlamalıdır.
-  feat türü, bir commit uygulamanıza veya kütüphanenize yeni bir özellik eklediğinde KULLANILMALIDIR.
-  fix türü, bir commit uygulamanız için bir hata düzeltişini temsil ettiğinde KULLANILMALIDIR.
-  Bir türden sonra bir scope eklenebilir. Bir scope, parantez içinde yer alan bir kod bölümünü açıklayan bir isimden OLUŞMALIDIR, örneğin fix(parser):
-  Bir açıklama, tür/scope önekinden sonra iki nokta ve boşluğun hemen ardından GELMELIDIR. Açıklama, kod değişikliklerinin kısa bir özeti, örneğin fix: array parsing issue when multiple spaces were contained in string.
-  Daha uzun bir commit gövdesi, kısa açıklamadan sonra sağlanabilir ve kod değişiklikleri hakkında ek bağlamsal bilgi sağlar. Gövde, açıklamadan bir satır boş bırakıldıktan sonra BAŞLAMALIDIR.
-  Bir commit gövdesi serbest formatlıdır ve herhangi bir sayıda satırla ayrılmış paragraftan oluşabilir.
-  Gövdeden bir satır boş bırakıldıktan sonra bir veya daha fazla altlık sağlanabilir. Her altlık, bir kelime belirtecinden, ardından bir :<space> veya <space># ayırıcısından ve bir dize değerinden OLUŞMALIDIR (bu git trailer kuralından esinlenmiştir).
-  Bir altlığın belirteci, boşluk karakterleri yerine - KULLANMALIDIR, örneğin Acked-by (bu, altlık bölümünü çok paragraflı bir gövdeden ayırt etmeye yardımcı olur). BREAKING CHANGE için bir istisna yapılmıştır, bu da bir belirteç olarak KULLANILABILIR.
-  Bir altlığın değeri boşluk ve satır sonları içerebilir ve ayrıştırma, sonraki geçerli altlık belirteci/ayırıcı çifti gözlendiğinde SONLANMALIDIR.
-  Kırılma yapan değişiklikler, bir commit'in tür/scope önekinde veya altlıkta bir giriş olarak BELIRTILMELIDIR.
-  Bir altlık olarak dahil edilirse, kırılma yapan değişiklik büyük harfli BREAKING CHANGE metni, ardından iki nokta, boşluk ve açıklama OLUŞMALIDIR, örneğin BREAKING CHANGE: environment variables now take precedence over config files.
-  Tür/scope önekine dahil edilirse, kırılma yapan değişiklikler : öncesinde ! ile BELIRTILMELIDIR. Eğer ! kullanılırsa, BREAKING CHANGE: altlık bölümünden çıkarılabilir ve commit açıklaması kırılma yapan değişikliği açıklamak için KULLANILACAKTIR.
-  feat ve fix dışındaki türler commit mesajlarınızda kullanılabilir, örneğin docs: update ref docs.
-  Geleneksel Commit Mesajlarını oluşturan bilgi birimleri, BREAKING CHANGE gibi büyük harf olması ZORUNLU olan durum hariç, implementatörler tarafından büyük/küçük harfe duyarlı olarak DAVRANMAMALIDIR.
-  BREAKING-CHANGE, bir altlıkta belirteç olarak kullanıldığında BREAKING CHANGE ile eş anlamlı OLMALIDIR.
 ---
 
 Use the Conventional Commit Messages specification to generate commit messages

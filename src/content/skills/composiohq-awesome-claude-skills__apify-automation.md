@@ -4,7 +4,7 @@ description_en: "Automate web scraping and data extraction with Apify -- run Act
 description_tr: "Apify ile web scraping ve veri çıkarmayı otomatikleştirin -- Composio Apify entegrasyonu aracılığıyla Actor'ları çalıştırın, dataset'leri yönetin, yeniden kullanılabilir görevler oluşturun ve crawl sonuçlarını alın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/apify-automation/SKILL.md"
 path: "composio-skills/apify-automation/SKILL.md"
 is_collection: false

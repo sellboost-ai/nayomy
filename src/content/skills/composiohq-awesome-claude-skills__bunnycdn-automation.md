@@ -4,7 +4,7 @@ description_en: "Automate Bunnycdn tasks via Rube MCP (Composio). Always search 
 description_tr: "Rube MCP (Composio) aracılığıyla Bunnycdn görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman araçları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bunnycdn-automation/SKILL.md"
 path: "composio-skills/bunnycdn-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Bunnycdn Otomasyonu via Rube MCP
-
+  
   Rube MCP aracılığıyla Composio'nun Bunnycdn araç takımı ile Bunnycdn operasyonlarını otomatikleştirin.
-
+  
   **Araç takımı dokümanları**: [composio.dev/toolkits/bunnycdn](https://composio.dev/toolkits/bunnycdn)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Bunnycdn bağlantısı ve `bunnycdn` araç takımı
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: MCP sunucu yapılandırmanızda `https://rube.app/mcp` adresini MCP sunucusu olarak ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` çağırın ve `bunnycdn` araç takımını belirtin
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. Hiçbir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman kullanılabilir araçları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Bunnycdn operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slugları, input şemaları, önerilen yürütme planları ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Araçları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Bunnycdn task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["bunnycdn"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Araçları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slugları veya argümanları asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Araçları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışı içinde session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination tokenlarını kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Araçları bul | `RUBE_SEARCH_TOOLS` - Bunnycdn'ye özgü use case ile |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` - keşfedilen tool slugları ile |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` - `run_composio_tool()` ile |
   | Tam şema | `RUBE_GET_TOOL_SCHEMAS` - `schemaRef` olan araçlar için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

@@ -4,7 +4,7 @@ description_en: "Automate Addresszen tasks via Rube MCP (Composio). Always searc
 description_tr: "Addresszen görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemaları bulmak için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/addresszen-automation/SKILL.md"
 path: "composio-skills/addresszen-automation/SKILL.md"
 is_collection: false

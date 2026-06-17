@@ -5,7 +5,7 @@ description: "Cursor rules for Go development with Temporal DSL integration."
 description_tr: "Temporal DSL entegrasyonu ile Go geliştirme için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/go-temporal-dsl-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/go-temporal-dsl-prompt-file.mdc"
 body_length: 118

@@ -4,7 +4,7 @@ description: "MCP server for fetching web page content using Playwright headless
 description_tr: "Playwright headless browser kullanan MCP sunucusu, Javascript rendering ve akıllı içerik çıkarma desteği ile web sayfası içeriğini alır ve Markdown veya HTML formatında çıktı verir."
 category: "Search & Data Extraction"
 repo: "jae-jae/fetcher-mcp"
-stars: 1057
+stars: 1058
 url: "https://github.com/jae-jae/fetcher-mcp"
 body_length: 9300
 license: "MIT"

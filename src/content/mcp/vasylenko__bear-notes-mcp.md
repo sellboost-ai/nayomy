@@ -4,7 +4,7 @@ description: "Search, read, create, and update Bear Notes directly from Claude. 
 description_tr: "Bear Notes'u Claude'dan doğrudan arayabilir, okuyabilir, oluşturabilir ve güncelleyebilirsiniz. Tamamen lokal ve tam gizlilik ile çalışır."
 category: "Workplace & Productivity"
 repo: "vasylenko/bear-notes-mcp"
-stars: 198
+stars: 199
 url: "https://github.com/vasylenko/bear-notes-mcp"
 body_length: 13545
 license: "Apache-2.0"

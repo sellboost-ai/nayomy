@@ -4,7 +4,7 @@ description_en: "CAPA system management for medical device QMS. Covers root caus
 description_tr: "Tıbbi cihaz QMS için CAPA sistem yönetimi. Kök neden analizi, düzeltici işlem planlama, etkinlik doğrulama ve CAPA metriklerini kapsar. CAPA araştırmaları, 5-Why analizi, balık kılçığı diyagramları, kök neden belirleme, düzeltici işlem takibi, etkinlik doğrulama veya CAPA program optimizasyonu yaparken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/capa-officer/SKILL.md"
 path: ".gemini/skills/capa-officer/SKILL.md"
 is_collection: false

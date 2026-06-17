@@ -4,7 +4,7 @@ description_en: "Assembles comprehensive board and investor update decks by pull
 description_tr: "C-suite'in tüm perspektiflerini bir araya getirerek kapsamlı board ve investor presentation'ları oluşturur. Board toplantıları, investor güncellemeleri, quarterly business review'lar veya fundraising narrative'leri hazırlarken kullanın. Yapı, anlatı çerçevesi, kötü haberlerin sunumu ve yaygın hataları kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/board-deck-builder/SKILL.md"
 path: ".gemini/skills/board-deck-builder/SKILL.md"
 is_collection: false

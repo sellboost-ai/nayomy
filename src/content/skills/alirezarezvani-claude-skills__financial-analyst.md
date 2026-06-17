@@ -4,7 +4,7 @@ description_en: "Performs financial ratio analysis, DCF valuation, budget varian
 description_tr: "Finansal oran analizi, DCF değerleme, bütçe varyans analizi ve rolling forecast oluşturmayı gerçekleştirir. Finansal tabloları analiz ederken, değerleme modelleri inşa ederken, bütçe sapmalarını değerlendirirken veya finansal projeksiyonlar ve tahminler oluştururken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/financial-analyst/SKILL.md"
 path: ".gemini/skills/financial-analyst/SKILL.md"
 is_collection: false
@@ -15,19 +15,19 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Finansal Analist Becerisi
-
+  
   ## Genel Bakış
-
+  
   Oran analizi, DCF değerlemesi, bütçe varyans analizi ve devam eden tahmin oluşturmayı sağlayan üretim-hazır finansal analiz araç seti. Finansal modelleme, tahmin ve bütçeleme, yönetim raporlaması, işletme performans analizi ve yatırım analizi için tasarlanmıştır.
-
+  
   ## 5 Aşamalı İş Akışı
-
+  
   ### Aşama 1: Kapsam Belirleme
   - Analiz hedeflerini ve paydaş gereksinimlerini tanımlama
   - Veri kaynaklarını ve zaman dilimlerini belirleme
   - Önemlillik eşiklerini ve doğruluk hedeflerini oluşturma
   - Uygun analitik çerçeveleri seçme
-
+  
   ### Aşama 2: Veri Analizi & Modelleme
   - Finansal verileri toplama ve doğrulama (gelir tablosu, bilanço, nakit akışı)
   - **Oran hesaplamalarını çalıştırmadan önce giriş veri bütünlüğünü doğrulama** (eksik alanlar, null değerler veya makul olmayan değerleri kontrol etme)
@@ -35,113 +35,113 @@ body_tr: |-
   - WACC ve terminal değer hesaplamaları ile DCF modelleri oluşturma; **DCF çıktılarını sanity bounds karşısında çapraz kontrol etme** (örn. ima edilen katlar vs. karşılaştırılabilirler)
   - Olumlu/olumsuz sınıflandırmaları ile bütçe varyans analizleri oluşturma
   - Senaryo modellemesi ile sürücü-tabanlı tahminler geliştirme
-
+  
   ### Aşama 3: İçgörü Oluşturma
   - Oran eğilimlerini yorumlama ve endüstri standartlarına karşı kıyaslama
   - Önemli sapmaları ve kök nedenleri belirleme
   - Duyarlılık analizi aracılığıyla değerleme aralıklarını değerlendirme
   - Karar desteği için tahmin senaryolarını (temel/boğa/ayı) değerlendirme
-
+  
   ### Aşama 4: Raporlama
   - Ana bulguları içeren yönetici özeti oluşturma
   - Departman ve kategoriye göre ayrıntılı varyans raporları üretme
   - Duyarlılık tabloları ile DCF değerleme raporları sunma
   - Trend analizi ile devam eden tahminleri sunma
-
+  
   ### Aşama 5: Takip
   - Tahmin doğruluğunu izleme (hedef: +/-5% gelir, +/-3% giderler)
   - Rapor teslim zamanlamasını izleme (hedef: %100 zamanında)
   - Fiili veriler kullanılabilir hale geldikçe modelleri güncelleme
   - Varyans analizi temelinde varsayımları iyileştirme
-
+  
   ## Araçlar
-
+  
   ### 1. Oran Hesaplayıcı (`scripts/ratio_calculator.py`)
-
+  
   Finansal tablo verilerinden finansal oranları hesaplama ve yorumlama.
-
+  
   **Oran Kategorileri:**
   - **Karlılık:** ROE, ROA, Brüt Marj, Faaliyet Marjı, Net Marj
   - **Likidite:** Cari Oran, Hızlı Oran, Nakit Oranı
   - **Kaldıraç:** Borç-Öz Sermaye Oranı, Faiz Karşılama Oranı, DSCR
   - **Verimlilik:** Varlık Devri, Envanter Devri, Alacak Devri, DSO
   - **Değerleme:** P/E, P/B, P/S, EV/EBITDA, PEG Oranı
-
+  
   ```bash
   python scripts/ratio_calculator.py assets/sample_financial_data.json
   python scripts/ratio_calculator.py assets/sample_financial_data.json --format json
   python scripts/ratio_calculator.py assets/sample_financial_data.json --category profitability
   ```
-
+  
   ### 2. DCF Değerlemesi (`scripts/dcf_valuation.py`)
-
+  
   Duyarlılık analizi ile İndirgenmemiş Nakit Akışı işletme ve öz sermaye değerlemesi.
-
+  
   **Özellikler:**
   - CAPM aracılığıyla WACC hesaplaması
   - Gelir ve serbest nakit akışı projeksiyonları (5 yıl varsayılan)
   - Kalıcı büyüme ve çıkış katı yöntemleri aracılığıyla terminal değer
   - İşletme değeri ve öz sermaye değeri türetilmesi
   - İki yönlü duyarlılık analizi (indirim oranı vs büyüme oranı)
-
+  
   ```bash
   python scripts/dcf_valuation.py assets/sample_financial_data.json
   python scripts/dcf_valuation.py assets/sample_financial_data.json --format json
   python scripts/dcf_valuation.py assets/sample_financial_data.json --projection-years 7
   ```
-
+  
   ### 3. Bütçe Varyans Analisti (`scripts/budget_variance_analyzer.py`)
-
+  
   Önemlillik filtreleme ile fiili vs bütçe vs önceki yıl performansını analiz etme.
-
+  
   **Özellikler:**
   - Dolar ve yüzde varyans hesaplaması
   - Önemlillik eşiği filtreleme (varsayılan: %10 veya $50K)
   - Gelir/gider mantığı ile olumlu/olumsuz sınıflandırma
   - Departman ve kategori ayrıntılandırması
   - Yönetici özeti oluşturma
-
+  
   ```bash
   python scripts/budget_variance_analyzer.py assets/sample_financial_data.json
   python scripts/budget_variance_analyzer.py assets/sample_financial_data.json --format json
   python scripts/budget_variance_analyzer.py assets/sample_financial_data.json --threshold-pct 5 --threshold-amt 25000
   ```
-
+  
   ### 4. Tahmin Oluşturucu (`scripts/forecast_builder.py`)
-
+  
   Senaryo modellemesi ve devam eden nakit akışı projeksiyonu ile sürücü-tabanlı gelir tahmini.
-
+  
   **Özellikler:**
   - Sürücü-tabanlı gelir tahmin modeli
   - 13 haftalık devam eden nakit akışı projeksiyonu
   - Senaryo modellemesi (temel/boğa/ayı durumları)
   - Basit doğrusal regresyon (standart kütüphane) kullanarak trend analizi
-
+  
   ```bash
   python scripts/forecast_builder.py assets/sample_financial_data.json
   python scripts/forecast_builder.py assets/sample_financial_data.json --format json
   python scripts/forecast_builder.py assets/sample_financial_data.json --scenarios base,bull,bear
   ```
-
+  
   ## Bilgi Tabanları
-
+  
   | Referans | Amaç |
   |----------|------|
   | `references/financial-ratios-guide.md` | Oran formülleri, yorumlama, endüstri kıyaslamaları |
   | `references/valuation-methodology.md` | DCF metodolojisi, WACC, terminal değer, karşılaştırılabilirler |
   | `references/forecasting-best-practices.md` | Sürücü-tabanlı tahmin, devam eden tahminler, doğruluk |
   | `references/industry-adaptations.md` | Sektöre özgü metrikler ve hususlar (SaaS, Perakende, İmalat, Finansal Hizmetler, Sağlık) |
-
+  
   ## Şablonlar
-
+  
   | Şablon | Amaç |
   |--------|------|
   | `assets/variance_report_template.md` | Bütçe varyans raporu şablonu |
   | `assets/dcf_analysis_template.md` | DCF değerleme analizi şablonu |
   | `assets/forecast_report_template.md` | Gelir tahmin raporu şablonu |
-
+  
   ## Anahtar Metrikler & Hedefler
-
+  
   | Metrik | Hedef |
   |--------|-------|
   | Tahmin doğruluğu (gelir) | +/-5% |
@@ -149,18 +149,18 @@ body_tr: |-
   | Rapor teslimi | %100 zamanında |
   | Model belgelendirmesi | Tüm varsayımlar için tam |
   | Varyans açıklaması | Önemli varyansların %100'ü |
-
+  
   ## Giriş Veri Formatı
-
+  
   Tüm komut dosyaları iki şekilde JSON giriş dosyalarını kabul eder:
-
+  
   1. **Düz** — aracın beklenen anahtarları üst düzeyde (örn. oran hesaplayıcı için `income_statement` / `balance_sheet`, DCF için `historical` / `assumptions`, varyans için `line_items`, tahmin için `historical_periods` / `drivers` / `assumptions` / `cash_flow_inputs`).
   2. **İçiçe (paketlenmiş)** — tüm dört araç için girdiler bir dosyada, araç başına anahtarlar altında iç içe geçmiş: `ratio_analysis`, `dcf_valuation`, `budget_variance`, `forecast`. Tam paketlenmiş şema için `assets/sample_financial_data.json` dosyasına bakın; yukarıdaki her hızlı başlangıç komutu doğrudan ona karşı çalışır.
-
+  
   Her komut dosyası şekli otomatik olarak algılar (düz anahtarlar varsa kazanır) ve her iki şekil de kullanılabilir veri vermezse sıfırdan farklı çıkar ve net bir hata verir.
-
+  
   ## Bağımlılıklar
-
+  
   **Yok** - Tüm komut dosyaları yalnızca Python standart kütüphanesini kullanır (`math`, `statistics`, `json`, `argparse`, `datetime`). numpy, pandas veya scipy gerekli değildir.
 ---
 

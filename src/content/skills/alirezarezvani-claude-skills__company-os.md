@@ -4,7 +4,7 @@ description_en: "The meta-framework for how a company runs — the connective ti
 description_tr: "Bir şirketin nasıl işlediğine dair meta-framework — C-suite rolleri arasındaki bağlantı dokusu. İşletim sistemi seçimi (EOS, Scaling Up, OKR-native, hybrid), sorumluluk haritaları, scorecardlar, toplantı ritmi, sorun çözümü ve 90 günlük rockları kapsar. Şirket operasyonlarını kurarken, yönetim framework'ü seçerken, toplantı ritimleri tasarlarken ve sorumluluk sistemleri oluştururken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/company-os/SKILL.md"
 path: ".gemini/skills/company-os/SKILL.md"
 is_collection: false
@@ -15,32 +15,32 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Şirket İşletme Sistemi
-
+  
   İşletme sistemi, şirketin nasıl çalıştığını belirleyen araçlar, ritimler ve anlaşmaların toplamıdır. Her şirketin biri vardır — çoğu sadece neyin olduğunu bilmez. Bunu açık hale getirmek onu iyileştirilebilir kılar.
-
+  
   ## Anahtar Kelimeler
   operating system, EOS, Entrepreneurial Operating System, Scaling Up, Rockefeller Habits, OKR, Holacracy, L10 meeting, rocks, scorecard, accountability chart, issues list, IDS, meeting pulse, quarterly planning, weekly scorecard, management framework, company rhythm, traction, Gino Wickman, Verne Harnish
-
+  
   ## Neden Bu Önemli
-
+  
   Çoğu operasyonel aksaklık bir insan problemi değil — sistem problemidir. Şu durumlarda:
   - Aynı sorunlar her hafta tekrarlanır: sorun çözme sistemi yok
   - Toplantılar anlamsız gözüküyor: yapılandırılmış toplantı ritmi yok
   - Kimse kimin neyin sorumlu olduğunu bilmiyor: hesap verebilirlik şeması yok
   - Üç aylık hedefler kaymaya devam ediyor: rocks gerçek taahhütler değil
-
+  
   Sistemi düzelt. İnsanlar onun içinde daha iyi çalışacak.
-
+  
   ## Altı Temel Bileşen
-
+  
   Her etkili işletme sisteminin seçtiğin çerçeve ne olursa olsun bu altısı vardır:
-
+  
   ### 1. Hesap Verebilirlik Şeması
-
+  
   Bir org chart değil. Hesap verebilirlik şeması şu soruyu cevaplar: "Kim bu sonucun sahibi?"
-
+  
   **Temel fark:** Her fonksiyon için bir kişi sahibi olur. İçinde birden çok kişi çalışabilir. Sahiplik, sorumluluk tek bir kişinin omuzunda durması anlamına gelir.
-
+  
   **Yapı:**
   ```
   CEO
@@ -57,30 +57,30 @@ body_tr: |-
       ├── İşe alım
       └── İnsan kaynakları operasyonları
   ```
-
+  
   **Kurallar:**
   - Paylaşılan sahiplik yok. "Alice ve Bob ikisi de sahibi" anlamına gelir hiç kimse sahibi değil.
   - Erken aşamalarda bir kişi birden çok pozisyona sahip olabilir. Bu sorun değil. Sadece açık ol.
   - Ölçekledikçe üç ayda bir gözden geçir. Sahiplik şirket büyüdükçe değişir.
-
+  
   **Workshop'ta oluştur:**
   1. Şirketin gerçekleştirdiği tüm fonksiyonları listele
   2. Her fonksiyona bir sahip ata — hiç istisna yok
   3. Boşlukları belirle (kimsenin sahip olmadığı fonksiyonlar) ve örtüşmeleri (iki kişinin sahibi olduğunu düşündüğü fonksiyonlar)
   4. Yayınla. Değiştiğinde güncelle.
-
+  
   ### 2. Scorecard
-
+  
   Şirketin doğru yolda olup olmadığını anlatan haftalık metrikler. Aylık değil. Üç aylık değil. Haftalık.
-
+  
   **Kurallar:**
   - Maksimum 5–15 metrik. 15'ten fazlası dikkat alır.
   - Her metriğin bir sahibi ve haftalık hedefi var (bir aralık değil — bir sayı).
   - Kırmızı/sarı/yeşil durum. Paragraflar değil.
   - Scorecard liderlik ekibi haftalık toplantısında tartışılır. Sadece kırmızı metrikler tartışma zamanı alır.
-
+  
   **Örnek scorecard yapısı:**
-
+  
   | Metrik | Sahip | Hedef | Bu Hafta | Durum |
   |--------|-------|-------|----------|-------|
   | Yeni MRR | CRO | €50K | €43K | 🔴 |
@@ -89,15 +89,15 @@ body_tr: |-
   | Deploymentlar | CTO | 3/hafta | 3 | 🟢 |
   | Açık kritik buglar | CTO | 0 | 2 | 🔴 |
   | Runway | CFO | > 18 ay | 16 ay | 🟡 |
-
+  
   **Anti-pattern:** Her şeyi ölçmek. 40 KPI takip ediyorsan, izliyorsun, yönetmiyorsun.
-
+  
   ### 3. Toplantı Ritmi
-
+  
   Şirketi yönlendiren toplantı süresi. İsteğe bağlı değil — ritim şirketi hayatta tutan şeydir.
-
+  
   **Tam ritim:**
-
+  
   | Toplantı | Sıklık | Süre | Katılanlar | Amaç |
   |----------|--------|------|-----------|------|
   | Günlük standup | Günlük | 15 dk | Her ekip | Sadece engeller |
@@ -105,7 +105,7 @@ body_tr: |-
   | Departman incelemesi | Aylık | 60 dk | Departman + liderlik | OKR ilerlemesi |
   | Üç aylık planlama | Üç aylık | 1–2 gün | Liderlik | Rocks belirle, strateji gözden geçir |
   | Yıllık planlama | Yıllık | 2–3 gün | Liderlik | 1 yıl + 3 yıl vizyonu |
-
+  
   **L10 Toplantısı (Haftalık Liderlik Senkronizasyonu):**
   Her toplantının amacının 10/10 olması nedeniyle adlandırılmıştır. Sabit gündem:
   1. İyi haber (5 dk) — kişisel + iş
@@ -115,45 +115,45 @@ body_tr: |-
   5. Sorunlar listesi (60 dk) — IDS (aşağıya bak)
   6. To-dos incelemesi (5 dk) — geçen haftanın taahhütleri
   7. Sonlandır (5 dk) — toplantıyı 1–10 ile değerlendir, bir sonraki toplantının 10 olması için ne gerekir
-
+  
   ### 4. Sorun Çözme (IDS)
-
+  
   Çekirdek problem-çözme döngüsü. Sorun başına maksimum 15 dakika.
-
+  
   **IDS: Identify, Discuss, Solve (Tanımla, Tartış, Çöz)**
-
+  
   - **Tanımla:** Gerçek sorun nedir? (Semptom değil — kök neden) Bunu bir cümlede belirt.
   - **Tartış:** İlgili gerçekler + bakış açıları. Zaman sınırlı. Tartışma tekrarlamaya başladığında dur.
   - **Çöz:** Bir sahip. Bir aksiyon. Bir bitiş tarihi. To-do listesine yazılmış.
-
+  
   **Anti-patternler:**
   - "Bunu sonra konuşalım" — offline alınan çoğu şey hiçbir zaman çözülmez
   - Karar vermeden tartışmak — aksiyon öğesi olmayan harika bir tartışma israf edilmiş zamandır
   - Çözülen sorunları yeniden gözden geçirmek — çözüldükten sonra listeden çıkar. Sadece yeni bilgiyle yeniden aç.
-
+  
   **Sorunlar Listesi:** Tüm çözülmemiş sorunların çalışan, önceliklendirilmiş listesi. Liderlik ekibi tarafından sahiplenilir. Haftalık olarak incelenir ve budanır. Bir sorun 3+ toplantıdan beri listede varsa ve tartışılmadıysa, o gerçek bir sorun değildir ya da ele alınmayı çok korkutur — her iki durumda da dikkat gerekir.
-
+  
   ### 5. Rocks (90 Günlük Öncelikler)
-
+  
   Rocks, sonraki 90 günde her kişinin başarması gereken 3–7 en önemli şeydir. İş tanımı değildir — bunlar şirketi ileri taşıyan şeylerdir.
-
+  
   **Neden 90 gün?** Anlamlı ilerleme için yeterince uzun. Gerçekçi kalabilmek için yeterince kısa.
-
+  
   **Rock kuralları:**
   - Her kişi: maksimum 3–7 rock. 7'den fazlası yapılmaz.
   - Şirket düzeyinde rocklar (paylaşılan öncelikler): liderlik ekibi için 3–7
   - Her rock ikilidir: yapıldı ya da yapılmadı. "Yüzde 60 tamamlandı" olmaz.
   - Üç aylık planlama oturumunda belirlenir. Haftalık incelenir (doğru yolda/sapma).
-
+  
   **Kötü rock:** "Satış sürecimizi iyileştir"
   **İyi rock:** "Salesforce CRM'i tam pipeline aşamaları ve haftalık raporlamalar ile 31 Mart'a kadar uygula"
-
+  
   **Rock vs. to-do:** Bir to-do bir aksiyon alır. Bir rock 90 günlük tutarlı çalışma alır.
-
+  
   ### 6. İletişim Temposu
-
+  
   Kim hangi bilgiyi, ne zaman ve nasıl alır.
-
+  
   | Hedef Kitle | Ne | Ne Zaman | Format |
   |------------|-----|---------|--------|
   | Tüm çalışanlar | Şirket güncellemesi | Aylık | Yazılı + Q&A |
@@ -162,15 +162,15 @@ body_tr: |-
   | Board | Şirket performansı | Aylık | Board notası |
   | Yatırımcılar | Temel metrikler + anlatı | Aylık ya da üç aylık | Yatırımcı güncellemesi |
   | Müşteriler | Ürün güncellemeleri | Sürüm başına | Sürüm notları |
-
+  
   **Varsayılan kural:** Bir şeyi şirket içinde paylaşıp paylaşmayacağını düşünüyorsan, paylaş. Bir şirket içinde az iletişim maliyeti her zaman aşırı iletişim maliyetini aşar.
-
+  
   ---
-
+  
   ## İşletme Sistemi Seçimi
-
+  
   Tam karşılaştırma için `references/os-comparison.md` dosyasına bak. Hızlı rehber:
-
+  
   | Eğer sen... | Düşün... |
   |-----------|---------|
   | 10–250 kişilik şirket, kurucu liderliği, operasyonel kaos | EOS / Traction |
@@ -178,42 +178,42 @@ body_tr: |-
   | Teknoloji şirketi, mühendislik kültürü, hipotez-odaklı | OKR-native |
   | Merkezi olmayan, düz, yüksek otonomi | Holacracy (sadece sabırlıysan) |
   | Yukarıdakilerden hiçbiri tam uymuyor | Özel hibrit |
-
+  
   ---
-
+  
   ## Uygulama Yol Haritası
-
+  
   Bunların hepsini aynı anda uygulama. Tam 90 günlük plan için `references/implementation-guide.md` dosyasına bak.
-
+  
   **Hızlı başlangıç (ilk 30 gün):**
   1. Hesap verebilirlik şeması oluştur (1 workshop, 2 saat)
   2. 5–10 haftalık scorecard metriki tanımla (liderlik ekibi hizalaması, 1 saat)
   3. Haftalık L10 toplantısını başlat (hazırlık yok — sadece başla)
-
+  
   Bu üçü bile çoğu şirketin bir yılda başardığından daha fazla koordinasyonu iyileştirecek.
-
+  
   ---
-
+  
   ## Yaygın Başarısızlık Modları
-
+  
   **Kısmi uygulama:** "Biz OKRs yapıyoruz ama haftalık check-in'i atlıyoruz." Yarım işletme sistemi hiçbir sistemden daha kötüdür — sorumluluk olmadan tiyatro yaratır.
-
+  
   **Toplantı yorgunluğu:** Mevcut toplantıların üzerine tam ritmi ekleme. Toplantı ekleyerek değil, değiştirerek başla.
-
+  
   **Metrik aşırısı:** 30 KPI ile başlama çünkü "hepsi önemlidir." 5 ile başla. Tempo kurulduktan sonra ekle.
-
+  
   **Rock enflasyonu:** Kişi başına 12 rock belirleme çünkü "her şey bir önceliktir." Her şey bir öncelik olduğunda, hiçbir şey değildir. Sert sınır: 7.
-
+  
   **Liderlik uyummazlığı:** Liderlik ekibi L10'u atlar ya da IDS'i takip etmez. İşletme sistemi liderliğin ona verdiği saygıyı yansıtır. Liderler bunu ciddiye almıyorsa, hiç kimse almaz.
-
+  
   **Yıllık planlama olmadan üç aylık inceleme:** Yıllık hedefleri belirleme ve yıl sonunda kontrol etme. Üç aylık, herhangi bir anlamlı hedef için en düşük inceleme döngüsüdür.
-
+  
   ---
-
+  
   ## C-Suite ile Entegrasyon
-
+  
   Şirket işletme sistemi bağlantı dokusudur. Her diğer rol buna bağlıdır:
-
+  
   | C-Suite Rolü | İşletme Sistemi Bağımlılığı |
   |-------------|--------------------------|
   | CEO | 1 yıllık plan ve rocklar'a beslenen vizyonu belirler |
@@ -223,17 +223,17 @@ body_tr: |-
   | CHRO | Scorecard'daki insan metriklerinin sahibi (attrition, işe alım hızı) |
   | Kültür Mimarı | Kültür ritüelleri toplantı ritminin içine takılır |
   | Stratejik Hizalama Motoru | Takım rockları'nın şirket rockları'ndan kaskad olduğunu doğrular |
-
+  
   ---
-
+  
   ## İşletme Sistemi için Temel Sorular
-
+  
   - "Beş farklı ekip liderine bu çeyrekteki şirketin ilk 3 önceliğinin ne olduğunu sorsam, aynı cevapları verirler mi?"
   - "Geçen haftanın liderlik toplantısında gündeme alınan en önemli sorun neydi? Çözüldü mü yoksa hâlâ açık mı?"
   - "Bu haftanın iyi bir hafta olup olmadığını Cuma'ya kadar bize söyleyecek bir metriki adlandır. Bunu takip ediyor muyuz?"
   - "Müşteri churn'unu kimin sahibi? O kişiyi hiç tereddüt etmeden adlandırabilir misin?"
   - "Hesap verebilirlik şeması ne zaman güncellendi?"
-
+  
   ## Detaylı Referanslar
   - `references/os-comparison.md` — EOS vs Scaling Up vs OKRs vs Holacracy vs hibrit
   - `references/implementation-guide.md` — 90 günlük uygulama planı

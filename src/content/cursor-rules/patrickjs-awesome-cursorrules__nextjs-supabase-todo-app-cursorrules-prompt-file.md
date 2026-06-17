@@ -5,7 +5,7 @@ description: "Cursor rules for Next.js development with Supabase integration for
 description_tr: "Next.js geliştirmesi için Cursor kuralları ve Supabase entegrasyonu ile Todo uygulaması."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/nextjs-supabase-todo-app-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-supabase-todo-app-cursorrules-prompt-file.mdc"
 body_length: 280

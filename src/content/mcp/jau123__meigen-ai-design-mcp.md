@@ -4,7 +4,7 @@ description: "AI image generation & editing MCP server with 1,500+ curated promp
 description_tr: "AI görsel oluşturma ve düzenleme MCP sunucusu, 1.500+ küratörlü prompt kütüphanesi, akıllı prompt geliştirme ve multi-provider routing (yerel ComfyUI, MeiGen Cloud, OpenAI-uyumlu API'ler) ile gelir."
 category: "Art & Culture"
 repo: "jau123/MeiGen-AI-Design-MCP"
-stars: 1451
+stars: 1455
 url: "https://github.com/jau123/MeiGen-AI-Design-MCP"
 body_length: 16301
 license: "MIT"

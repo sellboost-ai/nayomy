@@ -4,7 +4,7 @@ description_en: "/cs:execute <decision> — Generate a 90-day execution plan wit
 description_tr: "/cs:execute <decision> — Onaylanmış bir karardan 90 günlük bir uygulama planı oluşturur; haftalık milestone'lar, DRI'lar ve kontrol sıklığını belirler. Kaydedilmiş bir karar operasyonel bir plana dönüştürülmesi gerektiğinde kullanılır — örneğin, onaylanmış bir pazara giriş kararını haftalık milestone'lar ve DRI'lar ile yapılandırmak için."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/execute/SKILL.md"
 path: ".gemini/skills/execute/SKILL.md"
 is_collection: false
@@ -15,43 +15,43 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:execute — 90 Günlük Yürütme Planı
-
+  
   **Komut:** `/cs:execute <decision-path>`
-
+  
   Onaylanmış bir kararı haftalık kilometre taşları, belirlenen sorumlu kişiler ve kontrol sıklığı ile 90 günlük bir plana dönüştürür. Çoğu kararın öldüğü yer: "Biz karar verdik" ile "Gelecek pazartesi ne yapacağız?" arasında.
-
+  
   ## Pipeline Konumu
-
+  
   ```
   /cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
                                                                          ↑ siz burada
   ```
-
+  
   ## Giriş
-
+  
   Onaylanmış bir karar kaydı (`/cs:decide` çıktısı).
-
+  
   ## Çıktı Plan Formatı
-
+  
   `~/.claude/execution/YYYY-MM-DD-<slug>.md` dosyasına kaydedilir:
-
+  
   ```markdown
   # Yürütme Planı: <karar başlığı>
   **Karar:** <link to /cs:decide record>
   **Sahip (Sponsor):** <kurucu veya yönetici>
   **Başlangıç:** YYYY-MM-DD
   **Kontrol Noktası:** YYYY-MM-DD (90g)
-
+  
   ## Sonuç (bağlayıcı)
   [Karardan kopyalandı: başarı + durdurma kriterleri]
-
+  
   ## Çalışma Akışları
   | Çalışma Akışı | Sorumlu | Başarı Metriği | Durum |
   |---|---|---|---|
   | <ör: Fiyatlandırma değişimi> | <ad> | <metrik, eşik> | Başlanmadı |
   | <ör: İletişim> | <ad> | <metrik> | Başlanmadı |
   | <ör: Mühendislik değişiklikleri> | <ad> | <metrik> | Başlanmadı |
-
+  
   ## Haftalık Kilometre Taşları
   | Hafta | Kilometre Taşı | Sorumlu | Tamamlanma Tanımı |
   |---|---|---|---|
@@ -59,28 +59,28 @@ body_tr: |-
   | 2 | <ör: taslak başlatıldı> | <ad> | <gözlemlenebilir> |
   | 3 | ... | | |
   | 12 | <ör: kontrol noktası incelemesi> | <ad> | <gözlemlenebilir> |
-
+  
   ## Cadence
   - **Haftalık:** Sahip durumunu gözden geçirir (15 dak)
   - **İki haftada bir:** Fonksiyonlar arası senkronizasyon (30 dak)
   - **30. / 60. / 90. gün:** cs-chief-of-staff ile kontrol noktası
-
+  
   ## Bağımlılıklar
   - İç: <liste>
   - Harici: <satıcılar, düzenleyiciler, müşteriler>
-
+  
   ## Risk Kaydı
   | Risk | Olasılık | Etki | Sorumlu | Hafifletme |
   |---|---|---|---|---|
   | <ör: gecikmeli yasal inceleme> | O | Y | <ad> | <plan> |
-
+  
   ## Durdurma Kriterleri İzleme
   [Karardan kopyalandı; her kontrol noktasında gözden geçirilir]
   - <metrik, eşik, işlem>
   ```
-
+  
   ## İş Akışı
-
+  
   1. Karar kaydını okuyun
   2. Seçilen seçeneği 3-6 çalışma akışına ayırın
   3. Her çalışma akışı için bir sorumlu kişi belirleyin
@@ -88,25 +88,25 @@ body_tr: |-
   5. Cadence'i ayarlayın (haftalık + iki haftada bir + 30/60/90 kontrol noktaları)
   6. Risk kaydını oluşturun (orijinal Faz 4 avukat kontrolleri ile çapraz referansla)
   7. Kaydedin ve sorumlu kişileri bilgilendirin
-
+  
   ## Neden 90 Gün
-
+  
   - Gerçek sinyal göstermek için yeterince uzun (sadece aktivite değil)
   - Hasar bileşmeden önce kursu düzeltmek için yeterince kısa
   - Üç aylık OKR döngüsü, finansman sprint'leri ve çoğu yönetim kurulu cadence'i ile eşleşir
-
+  
   ## Yönlendirme
-
+  
   - `/cs:post-mortem <decision>` — 90. günde (veya durdurma kriterleri tetiklenirse daha erken)
   - `/cs:boardroom` — kontrol noktası yeniden karar verme ihtiyacı ortaya çıkarırsa
-
+  
   ## İlgili
-
+  
   - Beceriler: [`coo-advisor`](../../../skills/coo-advisor/SKILL.md), [`strategic-alignment`](../../../skills/strategic-alignment/SKILL.md), [`change-management`](../../../skills/change-management/SKILL.md)
   - Agent: [`cs-coo-advisor`](../../agents/cs-coo-advisor.md)
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

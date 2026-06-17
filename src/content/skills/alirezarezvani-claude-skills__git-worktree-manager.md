@@ -4,7 +4,7 @@ description_en: "Run parallel feature work safely with Git worktrees. Standardiz
 description_tr: "Git worktrees ile paralel feature geliştirmesini güvenli şekilde yürütün. Branch izolasyonu, port tahsisi, environment senkronizasyonu ve temizlik işlemlerini standartlaştırarak her worktree'yi bağımsız bir lokal uygulama gibi davrandırır. Multi-agent workflow'lar için optimize edilmiştir; her agent ya da terminal oturumu bir worktree'ye sahiptir. Birden fazla feature branch'i aynı anda çalıştırırken, deneysel çalışmaları izole ederken ya da multi-agent geliştirmeyi koordine ederken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/git-worktree-manager/SKILL.md"
 path: ".gemini/skills/git-worktree-manager/SKILL.md"
 is_collection: false
@@ -15,43 +15,43 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Git Worktree Manager
-
+  
   **Tier:** POWERFUL  
   **Category:** Engineering  
   **Domain:** Parallel Development & Branch Isolation
-
+  
   ## Genel Bakış
-
+  
   Bu skill'i Git worktree'leri kullanarak paralel özellik geliştirmesini güvenli şekilde çalıştırmak için kullanın. Branch izolasyonu, port tahsisi, ortam senkronizasyonu ve temizliği standardize eder, böylece her worktree başka bir branch'e müdahale etmeden bağımsız bir yerel uygulama gibi davranır.
-
+  
   Bu skill, her ajanın veya terminal oturumunun bir worktree'ye sahip olduğu çoklu ajan iş akışları için optimize edilmiştir.
-
+  
   ## Temel Yetenekler
-
+  
   - Belirleyici adlandırmaya sahip yeni veya mevcut branch'lerden worktree'ler oluşturma
   - Worktree başına çakışmayan port'ları otomatik tahsis etme ve atamaları kalıcı hale getirme
   - Yerel ortam dosyalarını (`.env*`) ana repo'dan yeni worktree'ye kopyalama
   - Lockfile tespitine bağlı olarak bağımlılıkları isteğe bağlı olarak kurma
   - Temizlikten önce eski worktree'leri ve kaydedilmemiş değişiklikleri tespit etme
   - Birleştirilmiş branch'leri tanımlama ve eski worktree'leri güvenli şekilde kaldırma
-
+  
   ## Ne Zaman Kullanılır
-
+  
   - 2+ eş zamanlı branch'i yerel olarak açık tutmanız gerektiğinde
   - Feature, hotfix ve PR doğrulaması için izole dev sunucuları istiyorsanız
   - Bir branch'i paylaşmaması gereken birden fazla ajanla çalışırken
   - Mevcut branch'iniz bloke olmuşsa ama hemen hızlı bir düzeltme göndermek istiyorsanız
   - Ad-hoc `rm -rf` işlemleri yerine tekrarlanabilir temizlik istiyorsanız
-
+  
   ## Temel İş Akışları
-
+  
   ### 1. Tamamen Hazırlanmış Bir Worktree Oluşturma
-
+  
   1. Branch adı ve worktree adı seçin.
   2. Manager script'ini çalıştırın (eksik branch'i oluşturur).
   3. Oluşturulan port haritasını inceleyin.
   4. Tahsis edilen port'ları kullanarak uygulamayı başlatın.
-
+  
   ```bash
   python scripts/worktree_manager.py \
     --repo . \
@@ -61,55 +61,55 @@ body_tr: |-
     --install-deps \
     --format text
   ```
-
+  
   JSON otomasyon girdisini kullanırsanız:
-
+  
   ```bash
   cat config.json | python scripts/worktree_manager.py --format json
   # veya
   python scripts/worktree_manager.py --input config.json --format json
   ```
-
+  
   ### 2. Paralel Oturumları Çalıştırma
-
+  
   Önerilen kural:
-
+  
   - Ana repo: integrasyon branch'i (`main`/`develop`) varsayılan port'ta
   - Worktree A: feature branch + offset port'lar
   - Worktree B: hotfix branch + sonraki offset
-
+  
   Her worktree, tahsis edilen port'ları içeren `.worktree-ports.json` dosyasına sahiptir.
-
+  
   ### 3. Güvenlik Kontrolleriyle Temizlik
-
+  
   1. Tüm worktree'leri ve eski yaşlarını tarayın.
   2. Kirli ağaçları ve branch birleştirme durumunu inceleyin.
   3. Yalnızca birleştirilmiş ve temiz worktree'leri kaldırın veya açıkça zorla kaldırın.
-
+  
   ```bash
   python scripts/worktree_cleanup.py --repo . --stale-days 14 --format text
   python scripts/worktree_cleanup.py --repo . --remove-merged --format text
   ```
-
+  
   ### 4. Docker Compose Deseni
-
+  
   Tahsis edilen port'lardan eşlenen worktree başına geçersiz kılma dosyalarını kullanın. Script deterministik bir port haritası çıkarır; `docker-compose.worktree.yml` dosyasına uygulayın.
-
+  
   Somut şablonlar için [docker-compose-patterns.md](references/docker-compose-patterns.md) dosyasını görmek.
-
+  
   ### 5. Port Tahsis Stratejisi
-
+  
   Varsayılan strateji çakışma kontrolleriyle `base + (index * stride)` olur:
-
+  
   - App: `3000`
   - Postgres: `5432`
   - Redis: `6379`
   - Stride: `10`
-
+  
   Tam strateji ve edge case'ler için [port-allocation-strategy.md](references/port-allocation-strategy.md) dosyasını görmek.
-
+  
   ## Script Arayüzleri
-
+  
   - `python scripts/worktree_manager.py --help`
     - Worktree'leri oluşturma/listeleme
     - Port'ları tahsis etme/kalıcı hale getirme
@@ -120,20 +120,20 @@ body_tr: |-
     - Kirli durum tespit etme
     - Birleştirilmiş branch tespit etme
     - İsteğe bağlı güvenli kaldırma
-
+  
   Her iki tool da otomasyon pipeline'ları için stdin JSON ve `--input` dosya modunu destekler.
-
+  
   ## Yaygın Tuzaklar
-
+  
   1. Worktree'leri ana repo dizini içinde oluşturma
   2. Tüm branch'ler arasında `localhost:3000` yeniden kullanma
   3. İzole feature branch'ler arasında bir veritabanı URL'sini paylaşma
   4. Kaydedilmemiş değişiklikleri olan bir worktree'yi kaldırma
   5. Branch silindikten sonra eski metadata'yı budamayı unutma
   6. Hedef branch'e karşı kontrol etmeden birleştirme durumunu varsayma
-
+  
   ## En İyi Uygulamalar
-
+  
   1. Bir branch başına bir worktree, bir ajan başına bir worktree.
   2. Worktree'leri kısa ömürlü tutun; birleştirmeden sonra kaldırın.
   3. Belirleyici bir adlandırma deseni kullanın (`wt-<topic>`).
@@ -141,63 +141,63 @@ body_tr: |-
   5. Aktif repo'larda haftada bir temizlik taraması çalıştırın.
   6. Makine iş akışları için `--format json` ve insan incelemesi için `--format text` kullanın.
   7. Değişiklikler kasıtlı olarak atılmadığı sürece kirli worktree'leri asla zorla kaldırmayın.
-
+  
   ## Doğrulama Kontrol Listesi
-
+  
   Kurulumun tamamlandığını iddia etmeden önce:
-
+  
   1. `git worktree list` beklenen yolu + branch'i gösterir.
   2. `.worktree-ports.json` mevcuttur ve benzersiz port'lar içerir.
   3. `.env` dosyaları başarıyla kopyalanmıştır (kaynak repo'da mevcutsa).
   4. Bağımlılık kurulum komutu çıkış kodu `0` ile çıkar (etkinse).
   5. Temizlik taraması istenmeyen eski kirli ağaçlar raporlamaz.
-
+  
   ## Referanslar
-
+  
   - [port-allocation-strategy.md](references/port-allocation-strategy.md)
   - [docker-compose-patterns.md](references/docker-compose-patterns.md)
   - [README.md](README.md) hızlı başlangıç ve kurulum detayları için
-
+  
   ## Karar Matrisi
-
+  
   Yeni bir worktree oluşturmadan önce bu hızlı seçiciyi kullanın:
-
+  
   - İzole bağımlılıklar ve server port'ları gerekli -> yeni worktree oluştur
   - Yalnızca hızlı yerel diff incelemesi gerekli -> mevcut ağaçta kal
   - Feature branch kirli iken hotfix gerekli -> ayrılmış hotfix worktree oluştur
   - Bug triyaj için ephemeral reproduksiyon branch gerekli -> geçici worktree oluştur ve aynı gün temizle
-
+  
   ## Operasyonel Kontrol Listesi
-
+  
   ### Oluşturmadan Önce
-
+  
   1. Ana repo'nun temiz temeli veya kasıtlı WIP commit'leri olduğunu doğrulayın.
   2. Hedef branch adlandırma kuralını doğrulayın.
   3. Gerekli temel branch'in (`main`/`develop`) mevcut olduğunu doğrulayın.
   4. Hiçbir ayrılmış yerel port'un repo dışı hizmetler tarafından işgal edilmediğini doğrulayın.
-
+  
   ### Oluşturmadan Sonra
-
+  
   1. `git status` branch'inin beklenen branch'le eşleştiğini doğrulayın.
   2. `.worktree-ports.json` dosyasının mevcut olduğunu doğrulayın.
   3. Uygulamanın tahsis edilen app port'ta çalıştığını doğrulayın.
   4. DB ve cache endpoint'lerinin izole port'ları hedeflediğini doğrulayın.
-
+  
   ### Kaldırmadan Önce
-
+  
   1. Branch'in upstream'e sahip olduğunu ve amaçlandığında birleştirildiğini doğrulayın.
   2. Kaydedilmemiş dosya kalmaması doğrulayın.
   3. Bu worktree yoluna bağımlı çalışan container'lar/process'ler olmadığını doğrulayın.
-
+  
   ## CI ve Takım Entegrasyonu
-
+  
   - Görev ID'si ile eşlenen worktree yolu adlandırması kullanın (`wt-1234-auth`).
   - Yanlış pencereye commit'leri önlemek için worktree yolunu terminal başlığına ekleyin.
   - Otomatik kurulumda, oluşturma metadata'sını CI artifact'larında/log'larında kalıcı hale getirin.
   - Zamanlanmış işlerde temizlik raporu tetikleyin ve özeti takım kanalına gönder.
-
+  
   ## Başarısızlık Kurtarması
-
+  
   - `git worktree add` mevcut yol nedeniyle başarısız olursa: yolu inceleyin, üzerine yazma.
   - Bağımlılık kurulumu başarısız olursa: worktree oluşturulmuş olarak tutun, durumu işaretleyin ve manuel kurtarma devam ettirin.
   - Ortam kopyası başarısız olursa: uyarı ile devam edin ve açık eksik dosya listesi sağlayın.

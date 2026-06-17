@@ -4,7 +4,7 @@ description_en: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer inte
 description_tr: "/cs:caio-review <plan> — AI özelliği göndermeden önce eval seti olmadan, API/fine-tune/self-hosted arasında seçim yaparken veya EU AI Act kapsamında bir use case sınıflandırırken kullanılan, model seçimi, risk classification, maliyet analizi ve AI işe alım kararlarını kapsamlı şekilde değerlendiren Chief AI Officer sorgulaması."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/caio-review/SKILL.md"
 path: ".gemini/skills/caio-review/SKILL.md"
 is_collection: false

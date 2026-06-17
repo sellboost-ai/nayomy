@@ -5,61 +5,11 @@ description: "AutoML and hyperparameter optimization rules for Python ML project
 description_tr: "Python ML projeleriniz için Ray Tune, Optuna, PyCaret ve time-series AutoML kütüphanelerini kullanarak AutoML ve hyperparameter optimization kuralları"
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/automl-hyperparameter-optimization.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/automl-hyperparameter-optimization.mdc"
 body_length: 2941
 file_extension: ".mdc"
-body_tr: |-
-  # AutoML ve Hiperparametre Optimizasyonu Kuralları
-
-  ## Kapsam
-
-  - AutoML'yi model keşfini hızlandırmak için kullanın, problem çerçevelendirmesini, validasyon tasarımını veya açıklanabilirliği atlamak için değil.
-  - Bir arama başlatmadan önce basit bir temel model ve sabit bir metrik ile başlayın.
-  - Eğitim, değerlendirme, özellik üretimi ve arama konfigürasyonunu ayrı tutun.
-  - Her çalıştırma için veri setlerini, bölünmeleri, metrik tanımlarını, rastgele tohumları, kütüphane sürümlerini ve arama alanlarını kaydedin.
-
-  ## Deney Tasarımı
-
-  - Araç seçiminden önce hedef metriği tanımlayın.
-  - Model seçim iddialarında iç içe validasyon veya son dokunulmamış bir test bölünmesi kullanın.
-  - Zaman serisi problemleri için zaman farkında bölünmeler kullanın; zaman sınırları arasında hiçbir zaman karıştırmayın.
-  - Ön işleme sadece eğitim katlarında takılı olarak sızıntıyı önleyin.
-  - Doğrusal modeller, rastgele ormanlar veya naif zaman serisi tahminleri gibi basit temel modellerini dahil edin.
-  - Pahalı aramalar için erken durdurma ve kaynak sınırları kullanın.
-  - Rasgele geniş ızgaraları tercih etmek yerine, etki alanından bilgilendirilmiş aralıklara sahip yapılandırılmış arama alanlarını tercih edin.
-
-  ## Araçlar
-
-  - Özel eğitim döngüleri, dağıtılmış denemeler, budama ve zamanlayıcı kontrolü için Ray Tune veya Optuna kullanın.
-  - Veri seti ve metrik basit olduğunda hızlı düşük kodlu karşılaştırmalar için PyCaret kullanın.
-  - Tahmin için spesifik validasyon, mevsimsellik ve ufuk işlemi önemli olduğunda AutoTS, Merlion, PyAF veya proje onaylı zaman serisi araçlarını kullanın.
-  - Çalıştırma meta verilerini MLflow, Weights & Biases, TensorBoard veya proje onaylı bir izleyicide saklayın.
-  - Tekrarlanabilir ortamlar için `uv` veya mevcut proje paket yöneticisini kullanın.
-
-  ## Arama Alanları
-
-  - Arama alanlarını açık ve gözden geçirilmiş tutun.
-  - Öğrenme oranları, düzenleme, ağaç sayıları ve diğer ölçeğe duyarlı değerler için log-ölçekli örnekleme kullanın.
-  - Gerçekçi olmayan eğitim süresi veya bellek kullanımını önlemek için model karmaşıklığını sınırlayın.
-  - Ön işleme seçeneklerini sadece sızıntısız uygulanabilecekleri zaman dahil edin.
-  - Test seti üzerinde ayarlama yapmayın.
-
-  ## Raporlama
-
-  - Seçilen modeli, metriği, güven aralığını veya varyansı, validasyon şemasını ve son test sonucunu raporlayın.
-  - En iyi parametreleri ve arama bütçesini dahil edin.
-  - Seçilen modeli temel model ve en az bir AutoML olmayan alternatif ile karşılaştırın.
-  - İşletimsel kısıtlamalar gibi çıkarım gecikmesi, bellek kullanımı, yeniden eğitim maliyeti ve açıklanabilirliği belgeyin.
-
-  ## Yaygın Hatalar
-
-  - Liderlik tablosu sırasını üretim hazırlığının kanıtı olarak kabul etmeyin.
-  - Özellik mühendisliği sırasında tren/test verilerini karıştırmayın.
-  - Etiketleri ve veri kalitesini doğrulamadan önce büyük aramalar çalıştırmayın.
-  - Sınıf dengesizliğini, kalibrasyonu veya iş maliyeti asimetrisini göz ardı etmeyin.
-  - Tekrarlanabilir eğitim kodu ve sabitlenmiş bağımlılıklar olmadan AutoML modeli yayınlamayın.
 ---
 
 

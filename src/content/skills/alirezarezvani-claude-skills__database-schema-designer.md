@@ -4,7 +4,7 @@ description_en: "Use when the user asks to create ERD diagrams, normalize databa
 description_tr: "Kullanıcı ERD diyagramı oluşturmak, veritabanı şemalarını normalize etmek, tablo ilişkilerini tasarlamak veya schema migration planlamak istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/database-schema-designer/SKILL.md"
 path: ".gemini/skills/database-schema-designer/SKILL.md"
 is_collection: false
@@ -15,19 +15,19 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Veritabanı Şeması Tasarımcısı
-
+  
   **Tier:** POWERFUL  
   **Category:** Engineering  
   **Domain:** Data Architecture / Backend  
-
+  
   ---
-
+  
   ## Genel Bakış
-
+  
   Gereksinimlerden ilişkisel veritabanı şemaları tasarlayın ve migrasyonlar, TypeScript/Python türleri, seed verileri, RLS politikaları ve indexler oluşturun. Multi-tenancy, soft delete, audit trail, versioning ve polymorphic ilişkilendirmeleri destekler.
-
+  
   ## Temel Yetenekler
-
+  
   - **Şema tasarımı** — gereksinimlerden tabloları, ilişkileri ve kısıtlamaları normalize etme
   - **Migration oluşturma** — Drizzle, Prisma, TypeORM, Alembic
   - **Tür oluşturma** — TypeScript interface'leri, Python dataclass'ları/Pydantic modelleri
@@ -35,33 +35,33 @@ body_tr: |-
   - **Index stratejisi** — composite index'ler, partial index'ler, covering index'ler
   - **Seed verileri** — gerçekçi test verileri oluşturma
   - **ERD oluşturma** — şemadan Mermaid diyagramı
-
+  
   ---
-
+  
   ## Ne Zaman Kullanılır
-
+  
   - Veritabanı tabloları gerektiren yeni bir özellik tasarlanırken
   - Bir şemanın performans veya normalizasyon sorunları için incelenmesi sırasında
   - Mevcut bir şemaya multi-tenancy eklenmesi gerektiğinde
   - Prisma şemasından TypeScript türleri oluşturulması gerektiğinde
   - Breaking change için şema migrationı planlanırken
-
+  
   ---
-
+  
   ## Şema Tasarım Süreci
-
+  
   ### Adım 1: Gereksinimler → Varlıklar
-
+  
   Verilen gereksinimler:
   > "Kullanıcılar projeler oluşturabilir. Her projenin görevleri vardır. Görevlerin etiketleri olabilir. Görevler kullanıcılara atanabilir. Tam bir audit trail'e ihtiyacımız var."
-
+  
   Varlıkları çıkarın:
   ```
   User, Project, Task, Label, TaskLabel (junction), TaskAssignment, AuditLog
   ```
-
+  
   ### Adım 2: İlişkileri Belirleyin
-
+  
   ```
   User 1──* Project         (owner)
   Project 1──* Task
@@ -69,29 +69,29 @@ body_tr: |-
   Task *──* User            (via TaskAssignment)
   User 1──* AuditLog
   ```
-
+  
   ### Adım 3: Kesişen Kaygıları Ekleyin
-
+  
   - Multi-tenancy: tüm tenant-scoped tablolara `organization_id` ekleyin
   - Soft delete: hard delete yerine `deleted_at TIMESTAMPTZ` ekleyin
   - Audit trail: `created_by`, `updated_by`, `created_at`, `updated_at` ekleyin
   - Versioning: optimistic locking için `version INTEGER` ekleyin
-
+  
   ---
-
+  
   ## Tam Şema Örneği (Task Management SaaS)
   → Detaylar için references/full-schema-examples.md bölümüne bakın
-
+  
   ## Row-Level Security (RLS) Politikaları
-
+  
   ```sql
   -- RLS'i etkinleştir
   ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
   ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
-
+  
   -- App role oluştur
   CREATE ROLE app_user;
-
+  
   -- Kullanıcılar sadece kendi organizasyonlarının projelerindeki görevleri görebilirler
   CREATE POLICY tasks_org_isolation ON tasks
     FOR ALL TO app_user
@@ -102,12 +102,12 @@ body_tr: |-
         WHERE om.user_id = current_setting('app.current_user_id')::text
       )
     );
-
+  
   -- Soft delete: silinen kayıtları asla gösterme
   CREATE POLICY tasks_no_deleted ON tasks
     FOR SELECT TO app_user
     USING (deleted_at IS NULL);
-
+  
   -- Sadece görev yaratıcısı veya admin silebilir
   CREATE POLICY tasks_delete_policy ON tasks
     FOR DELETE TO app_user
@@ -121,15 +121,15 @@ body_tr: |-
           AND om.role IN ('owner', 'admin')
       )
     );
-
+  
   -- Kullanıcı bağlamını ayarla (her request'in başında çağır)
   SELECT set_config('app.current_user_id', $1, true);
   ```
-
+  
   ---
-
+  
   ## Seed Verileri Oluşturma
-
+  
   ```typescript
   // db/seed.ts
   import { faker } from '@faker-js/faker'
@@ -137,10 +137,10 @@ body_tr: |-
   import { organizations, users, projects, tasks } from './schema'
   import { createId } from '@paralleldrive/cuid2'
   import { hashPassword } from '../src/lib/auth'
-
+  
   async function seed() {
     console.log('Seeding database...')
-
+  
     // Org oluştur
     const [org] = await db.insert(organizations).values({
       id: createId(),
@@ -148,7 +148,7 @@ body_tr: |-
       slug: 'acme',
       plan: 'growth',
     }).returning()
-
+  
     // Kullanıcılar oluştur
     const adminUser = await db.insert(users).values({
       id: createId(),
@@ -156,7 +156,7 @@ body_tr: |-
       name: "alice-admin",
       passwordHash: await hashPassword('password123'),
     }).returning().then(r => r[0])
-
+  
     // Projeler oluştur
     const projectsData = Array.from({ length: 3 }, () => ({
       id: createId(),
@@ -166,9 +166,9 @@ body_tr: |-
       description: faker.lorem.paragraph(),
       status: 'active' as const,
     }))
-
+  
     const createdProjects = await db.insert(projects).values(projectsData).returning()
-
+  
     // Her proje için görevler oluştur
     for (const project of createdProjects) {
       const tasksData = Array.from({ length: faker.number.int({ min: 5, max: 20 }) }, (_, i) => ({
@@ -182,20 +182,20 @@ body_tr: |-
         createdById: adminUser.id,
         updatedById: adminUser.id,
       }))
-
+  
       await db.insert(tasks).values(tasksData)
     }
-
+  
     console.log(`✅ Seeded: 1 org, ${projectsData.length} projects, tasks`)
   }
-
+  
   seed().catch(console.error).finally(() => process.exit(0))
   ```
-
+  
   ---
-
+  
   ## ERD Oluşturma (Mermaid)
-
+  
   ```
   erDiagram
       Organization ||--o{ OrganizationMember : has
@@ -209,14 +209,14 @@ body_tr: |-
       Task ||--o{ Attachment : has
       Label ||--o{ TaskLabel : "applied to"
       User ||--o{ TaskAssignment : assigned
-
+  
       Organization {
           string id PK
           string name
           string slug
           string plan
       }
-
+  
       Task {
           string id PK
           string project_id FK
@@ -228,28 +228,28 @@ body_tr: |-
           int version
       }
   ```
-
+  
   Prisma'dan oluştur:
   ```bash
   npx prisma-erd-generator
   # veya: npx @dbml/cli prisma2dbml -i schema.prisma | npx dbml-to-mermaid
   ```
-
+  
   ---
-
+  
   ## Sık Karşılaşılan Hatalar
-
+  
   - **Index'siz soft delete** — `WHERE deleted_at IS NULL` index olmadan = tam tarama
   - **Missing composite index'ler** — `WHERE org_id = ? AND status = ?` için composite index gerekir
   - **Değiştirilebilir surrogate key'ler** — PK olarak asla email veya slug kullanmayın; UUID/CUID kullanın
   - **Varsayılansız NOT NULL** — mevcut tabloya NOT NULL sütun ekleme varsayılan veya migration planı gerektirir
   - **Optimistic locking yok** — eş zamanlı güncellemeler birbirini üzerine yazar; `version` sütunu ekleyin
   - **RLS test edilmemiş** — her zaman RLS'i superuser olmayan role ile test edin
-
+  
   ---
-
+  
   ## En İyi Uygulamalar
-
+  
   1. **Her yerde Timestamp'ler** — her tabloda `created_at`, `updated_at`
   2. **Denetlenebilir veriler için soft delete** — DELETE yerine `deleted_at`
   3. **Uyum için audit log** — düzenlenmiş alanlarda before/after JSON'u günlüğe kaydedin

@@ -4,7 +4,7 @@ description_en: "/cs:cpo-review <plan> — JTBD-driven interrogation of product 
 description_tr: "/cs:cpo-review <plan> — Ürün roadmap'inizi Jobs to be Done metodolojisiyle sorgulayan, PMF sinyallerini ve portföy odağınızı değerlendiren araç. Bir çeyreğin roadmap'ini onaylarken, bir özelliği kapatmayı düşünürken veya retention curve'ü olmadan PMF iddiasında bulunmak istediğinizde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cpo-review/SKILL.md"
 path: ".gemini/skills/cpo-review/SKILL.md"
 is_collection: false
@@ -15,53 +15,53 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:cpo-review — CPO Forcing Questions
-
+  
   **Command:** `/cs:cpo-review <plan>`
-
+  
   JTBD-odaklı builder yol haritasını yarıya indiriyor. Neyin sevk edileceğini ve neyin öldürüleceğini ortaya çıkarmak için altı soru.
-
+  
   ## Ne Zaman Çalıştırılır
-
+  
   - Üç aylık yol haritası taahhüdünden önce
   - Yeni bir ürün hattı başlatmadan önce
   - Bir sürüme 3'ten fazla özellik eklemeden önce
   - Retention sabit veya düşüşteyken
   - Ekip "bunu inşa etmeliyiz mi?" tartışıyorken
-
+  
   ## Altı CPO Sorusu
-
+  
   ### 1. JTBD
   **Bu özellik hangi işi yerine getirmek için kiralanıyor, kullanıcının sözlerine göre?**
   - "Onboarding'i iyileştir" değil. "Yeni bir ops yöneticisinin ilk anlaşmasını 7 gün içinde kapatmasına yardım et."
   - Job ≠ özellik. Hire ≠ try.
-
+  
   ### 2. North Star Metric
   **Bu hangi kullanıcı davranışını hareket ettiriyor ve bu North Star'a nasıl bağlanıyor?**
   - Metrik leading, davranış-tabanlı ve value-correlated olmalı.
   - Özelliği North Star'a izleyemiyorsanız inşa etmeyin.
-
+  
   ### 3. PMF Signal
   **Bu işi kiralayan kullanıcılar için retention eğrisi nasıl — sabit, azalan mı yoksa gülümseyen mi?**
   - Sabit veya gülümseyen = PMF signal. Azalan = PMF yok.
   - "Kullanıcılar anketlerde beğendi" bir sinyal değil.
-
+  
   ### 4. RICE Score
   **Reach, Impact, Confidence, Effort — skor ne ve kuyrukta nerenin sırası?**
   ```bash
   python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
   ```
-
+  
   ### 5. Opportunity Cost
   **Bu sevk edilirse ne kesiliyor? Spesifik initiative veya özelliği adlandır.**
   - Headcount ve zaman sıfır-toplam. Cut list odak listidir.
-
+  
   ### 6. Kill Criteria
   **90 gün içinde bunun yanlış bir bahis olduğunu size ne söyleyen bir sinyal?**
   - Metriği ve eşiği yazılı olarak, başlatmadan önce tanımla.
   - Kill criterion tanımlayamazsan sorumlu bir şekilde sevk edemezsin.
-
+  
   ## Workflow
-
+  
   1. **Analizleri çalıştır:**
      ```bash
      python ../../../skills/cpo-advisor/scripts/pmf_scorer.py
@@ -69,55 +69,55 @@ body_tr: |-
      ```
   2. **Altı soruyu yanıtla.**
   3. **Kararı uygula.**
-
+  
   ## Output Format
-
+  
   ```markdown
   # CPO Review: <feature/plan>
   **Date:** YYYY-MM-DD
-
+  
   ## JTBD
   > <one sentence in user voice>
-
+  
   ## North Star Link
   - Metric moved: <name>
   - Expected delta: <%>
-
+  
   ## PMF Signal
   - Retention curve shape: flat / smiling / decaying
   - Cohort sample size: N
-
+  
   ## Score
   - RICE: <number>
   - Rank in queue: #N of M
-
+  
   ## Cut List
   - Cut: <initiative>
   - Reason: <why this matters more>
-
+  
   ## Kill Criteria (90 days)
   - Metric: <name>
   - Threshold: <value>
   - Action if missed: <kill | iterate>
-
+  
   ## Verdict
   🟢 SHIP | 🟡 SHARPEN | 🔴 KILL
   ```
-
+  
   ## Routing
-
+  
   - `/cs:cmo-review` — bu özelliği positioning destekliyor mu?
   - `/cs:execute` — 90 günlük planı inşa et
   - `/cs:post-mortem` — kill criteria tetiklenirse
-
+  
   ## Related
-
+  
   - Agent: [`cs-cpo-advisor`](../../agents/cs-cpo-advisor.md)
   - Skill: [`cpo-advisor`](../../../skills/cpo-advisor/SKILL.md)
   - Execution: `product-team/skills/product-manager-toolkit/`
-
+  
   ---
-
+  
   **Version:** 1.0.0
 ---
 

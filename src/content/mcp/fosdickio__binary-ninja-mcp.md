@@ -4,7 +4,7 @@ description: "A Binary Ninja plugin, MCP server, and bridge that seamlessly inte
 description_tr: "Binary Ninja'yı favori MCP istemcinizle sorunsuzca entegre eden bir Binary Ninja eklentisi, MCP sunucusu ve köprü. Binary analiz ve reverse engineering süreçlerini otomatikleştirmenizi sağlar."
 category: "Security"
 repo: "fosdickio/binary_ninja_mcp"
-stars: 387
+stars: 389
 url: "https://github.com/fosdickio/binary_ninja_mcp"
 body_length: 20726
 license: "GPL-3.0"

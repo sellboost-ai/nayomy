@@ -4,7 +4,7 @@ description: "Provides MCP multi-cluster Kubernetes management and operations, f
 description_tr: "MCP ile çoklu Kubernetes kümelerini yönetin ve işletim yapın; yönetim arayüzü, logging ve DevOps ile geliştirme senaryolarını kapsayan yaklaşık 50 yerleşik araç sunuyor. Standart ve CRD kaynakları destekler."
 category: "Cloud Platforms"
 repo: "weibaohui/k8m"
-stars: 844
+stars: 846
 url: "https://github.com/weibaohui/k8m"
 body_length: 8940
 license: "MIT"

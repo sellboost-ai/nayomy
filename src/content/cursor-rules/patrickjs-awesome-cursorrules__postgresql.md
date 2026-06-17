@@ -5,51 +5,11 @@ description: "PostgreSQL production rules. Safe migrations, parameterized querie
 description_tr: "PostgreSQL üretim ortamı en iyi uygulamaları. Güvenli migrasyonlar, parametreli sorgular, TIMESTAMPTZ kullanımı ve doğru indexing stratejisi."
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/postgresql.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/postgresql.mdc"
 body_length: 1408
 file_extension: ".mdc"
-body_tr: |-
-  # PostgreSQL Kuralları
-
-  Expert PostgreSQL geliştirici. Güvenli migrasyonlar, parametrelendirilmiş sorgular, uygun indeksleme.
-
-  ## Schema
-  - Tüm zaman damgaları için TIMESTAMPTZ kullanın (timezone olmadan TIMESTAMP değil)
-  - Genel ID'ler için UUID, dahili anahtarlar için BIGSERIAL
-  - Varsayılan olarak NOT NULL — nullable sadece kasıtlı olduğunda
-  - FK ile açık ON DELETE davranışı
-  - Alan değişmezlikleri için Check constraints
-
-  ## Sorgular
-  - Her zaman parametrelendirilmiş — asla string interpolation olmadan
-  - SELECT açık sütunlar, asla SELECT * olmadan
-  - Potansiyel olarak büyük result set'ler için LIMIT
-  - Karmaşık sorgular göndermeden önce EXPLAIN ANALYZE
-
-  ## İndeksler
-  - Her FK sütununu indeksleyin
-  - Canlı tablolar için CREATE INDEX CONCURRENTLY kullanın (engellemeyen)
-  - Sık filtrelenen alt kümeler için partial indexes
-  - Kullanılmayan indeksleri kaldırın
-
-  ## Migrasyonlar
-  - Versiyonlu dosyalar: V001__create_table.sql
-  - Büyük sütun ekleri: multi-step backfill ile
-  - Dağıtmadan önce rollback test edin
-
-  ## İşlemler
-  - Multi-statement değişiklikler için açık BEGIN/COMMIT
-  - Kaçak sorguları önlemek için statement_timeout
-  - Satır kilitleme için SELECT ... FOR UPDATE
-
-  ## Yasak
-  - SELECT * yok
-  - String-interpolated SQL yok
-  - Yoğun trafik sırasında schema değişiklikleri yok
-  - DB'de düz metin şifreler yok
-  - Uygulama kodunda TRUNCATE yok
 ---
 
 # PostgreSQL Rules

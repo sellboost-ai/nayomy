@@ -4,7 +4,7 @@ description_en: "Automate Cloudinary media management including folder organizat
 description_tr: "Cloudinary medya yönetimini klasör düzenleme, upload preset'leri, asset arama, transformasyonlar ve kullanım izlemesi dahil olmak üzere doğal dil komutlarıyla otomatikleştirin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudinary-automation/SKILL.md"
 path: "composio-skills/cloudinary-automation/SKILL.md"
 is_collection: false
@@ -15,32 +15,32 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Cloudinary Otomasyonu
-
+  
   Cloudinary medya yönetimi iş akışlarını otomatikleştirin -- klasörler oluşturun, yükleme ön ayarlarını yapılandırın, varlıkları arayın, dönüşümleri yönetin, klasörlerde arama yapın ve kullanımı izleyin -- hepsi doğal dil aracılığıyla.
-
+  
   **Toolkit dokümentasyonu:** [composio.dev/toolkits/cloudinary](https://composio.dev/toolkits/cloudinary)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   1. Rube MCP sunucusunu ortamınıza ekleyin: `https://rube.app/mcp`
   2. İstendiğinde Cloudinary hesabınızı bağlayın (Composio aracılığıyla API anahtarı doğrulaması)
   3. Cloudinary otomasyonu için doğal dil komutları vermeye başlayın
-
+  
   ---
-
+  
   ## Temel İş Akışları
-
+  
   ### 1. Varlıkları Klasörlerle Düzenleyin
-
+  
   Barındırılan görselleri, videoları ve ham dosyaları düzenlemek için klasör yapıları oluşturun.
-
+  
   **Tool:** `CLOUDINARY_CREATE_FOLDER`
-
+  
   Temel parametreler:
   - `folder` -- yeni varlık klasörünün tam yolu (gerekli), örneğin: `images/events/2023`
-
+  
   Yardımcı araçlar:
   - `CLOUDINARY_SEARCH_FOLDERS` -- Lucene benzeri ifadeler kullanarak klasörleri ad, yol veya oluşturulma tarihine göre arayın
     - `expression` -- arama filtresi (örneğin: `name:sample AND path:events`)
@@ -48,18 +48,18 @@ body_tr: |-
     - `sort_by` -- sıralama nesneleri listesi (örneğin: `[{"created_at": "desc"}]`)
     - `next_cursor` -- sayfalama imleci
   - `CLOUDINARY_GET_RESOURCES_BY_ASSET_FOLDER` -- belirli bir klasör içindeki varlıkları listeleyin
-
+  
   Örnek komut:
   > "Cloudinary'de 'marketing/campaigns/spring-2026' adlı bir klasör oluştur"
-
+  
   ---
-
+  
   ### 2. Yükleme Ön Ayarlarını Yapılandırın
-
+  
   Hedef klasör, izin verilen formatlar, dönüşümler, etiketler ve üzerine yazma kuralları dahil olmak üzere merkezi yükleme davranışını tanımlayın.
-
+  
   **Tool:** `CLOUDINARY_CREATE_UPLOAD_PRESET`
-
+  
   Temel parametreler:
   - `name` -- ön ayar adı (atlanırsa otomatik olarak oluşturulur)
   - `folder` -- yüklenmeler için hedef klasör yolu (örneğin: `samples/`)
@@ -75,18 +75,18 @@ body_tr: |-
   - `moderation` -- moderasyon türü: `manual`, `webpurify`, `aws_rek`, vb.
   - `auto_tagging` -- AI otomatik etiketlemesi için 0.0-1.0 güven eşiği
   - `notification_url` -- yükleme bildirimleri için webhook URL'si
-
+  
   Örnek komut:
   > "Yalnızca JPG ve PNG'ye izin veren, 'products/' klasöründe depolayan ve 0.7 güvenle otomatik etiketleyen 'product-images' adlı bir yükleme ön ayarı oluştur"
-
+  
   ---
-
+  
   ### 3. Varlık Ayrıntılarını Arayın
-
+  
   Public ID'sine göre belirli bir varlığın tam ayrıntılarını alın; meta veriler, türetilmiş varlıklar ve ilgili kaynaklar dahil.
-
+  
   **Tool:** `CLOUDINARY_GET_RESOURCE_BY_PUBLIC_ID`
-
+  
   Temel parametreler:
   - `public_id` -- varlığın public ID'si (gerekli)
   - `resource_type` -- `image`, `video` veya `raw` (gerekli)
@@ -99,16 +99,16 @@ body_tr: |-
   - `versions` -- yedeklenmiş sürümler dahil et
   - `related` -- ilgili varlıklar dahil et
   - `max_results` -- döndürülecek maksimum türetilmiş/ilgili varlıklar (1-500)
-
+  
   Örnek komut:
   > "Renk analizi ve kalite puanları dahil olmak üzere 'products/hero-banner' görüntüsü için tam ayrıntıları al"
-
+  
   ---
-
+  
   ### 4. Dönüşümleri ve Türetilmiş Varlıkları Yönetin
-
+  
   Mevcut dönüşümleri listeleyin, yüklenen varlıklara eager dönüşümleri uygulayın ve türetilmiş kaynakları temizleyin.
-
+  
   **Araçlar:**
   - `CLOUDINARY_GET_TRANSFORMATIONS` -- tüm adlandırılmış ve adlandırılmamış dönüşümleri listeleyin
     - `max_results` -- 1-500 (varsayılan 10)
@@ -123,42 +123,42 @@ body_tr: |-
     - `context` -- anahtar-değer meta verileri (örneğin: `{"alt": "Mountain view"}`)
     - `invalidate` -- CDN önbelleğini geçersiz kıl (1 saate kadar sürer)
   - `CLOUDINARY_DELETE_DERIVED_RESOURCES` -- belirli türetilmiş varlıkları ID'lerine göre silin (çağrı başına 100'e kadar)
-
+  
   Örnek komut:
   > "'products/hero-banner' varlığı için 300x200 fill crop ve 100x100 yüz algılama küçük resmini ön oluştur"
-
+  
   ---
-
+  
   ### 5. Kullanımı ve Yapılandırmayı İzleyin
-
+  
   Hesap düzeyinde kullanım limitlerini, ortam yapılandırmasını ve etiket envanterini kontrol edin.
-
+  
   **Araçlar:**
   - `CLOUDINARY_GET_USAGE` -- depolama, bant genişliği, istekler ve kota limitlerini izleyin
   - `CLOUDINARY_GET_CONFIG` -- ortam yapılandırması ayrıntılarını getirin
     - `settings` -- `folder_mode` gibi yapılandırma ayarlarını içermesi için `true` olarak ayarlayın
   - `CLOUDINARY_GET_TAGS` -- bir kaynak türü için tüm etiketleri listeleyin
-
+  
   Örnek komut:
   > "Cloudinary hesap kullanımımı ve kalan kotamı göster"
-
+  
   ---
-
+  
   ### 6. Webhook Tetikleyicilerini Ayarlayın
-
+  
   Belirli Cloudinary olayları için webhook bildirimleri oluşturun.
-
+  
   **Tool:** `CLOUDINARY_CREATE_TRIGGER`
-
+  
   Yüklemeler tamamlandığında, dönüşümler bittiğinde veya diğer olaylar gerçekleştiğinde geri çağrılar almak için kullanın.
-
+  
   Örnek komut:
   > "Yükleme olaylarında https://my-app.com/hook adresine bildirim gönderen bir webhook tetikleyicisi oluştur"
-
+  
   ---
-
+  
   ## Bilinen Sorunlar
-
+  
   | Sorun | Ayrıntılar |
   |-------|-----------|
   | Klasör oluşturma eşgüçlülüğü | `CLOUDINARY_CREATE_FOLDER` yol zaten varsa hata verebilir veya hiçbir işlem yapmayabilir -- eşgüçlü klasör adlandırması tasarlayın |
@@ -168,11 +168,11 @@ body_tr: |-
   | Kota engelleme | `CLOUDINARY_GET_USAGE` hesap düzeyinde limitleri yansıtır -- kapları vurmak kullanım kontrol edilip giderilene kadar yüklemeleri sessizce engeller |
   | CDN geçersiz kılma gecikmesi | `CLOUDINARY_EXPLICIT_RESOURCE` üzerinde `invalidate=true` ayarlamak 1 saaya kadar yayılması için zaman alır |
   | İmzasız vs üzerine yazma çatışması | Yükleme ön ayarlarında `unsigned=true` olduğunda `overwrite=true` ayarlanamaz |
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Tool Slug | Temel Parametreler |
   |-------|-----------|-------------------|
   | Klasör oluştur | `CLOUDINARY_CREATE_FOLDER` | `folder` |
@@ -187,9 +187,9 @@ body_tr: |-
   | Yapılandırmayı al | `CLOUDINARY_GET_CONFIG` | `settings` |
   | Etiketleri listele | `CLOUDINARY_GET_TAGS` | resource_type |
   | Webhook oluştur | `CLOUDINARY_CREATE_TRIGGER` | olay türü, URL |
-
+  
   ---
-
+  
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 

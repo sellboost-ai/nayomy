@@ -4,7 +4,7 @@ description_en: "Automate Bannerbear tasks via Rube MCP (Composio). Always searc
 description_tr: "Bannerbear görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemalar için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bannerbear-automation/SKILL.md"
 path: "composio-skills/bannerbear-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Bannerbear Otomasyonu via Rube MCP
-
+  
   Composio'nun Bannerbear toolkit'i aracılığıyla Rube MCP üzerinden Bannerbear operasyonlarını otomatikleştirin.
-
+  
   **Toolkit dokümanları**: [composio.dev/toolkits/bannerbear](https://composio.dev/toolkits/bannerbear)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Bannerbear bağlantısı (toolkit `bannerbear` ile)
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi alın**: MCP sunucu konfigürasyonunuza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verip vermediğini kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `RUBE_MANAGE_CONNECTIONS`'ı toolkit `bannerbear` ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
+  
   ## Tool Keşfi
-
+  
   Workflow'ları yürütmeden önce her zaman kullanılabilir tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Bannerbear operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, kullanılabilir tool slug'ları, input şemalarını, önerilen execution planlarını ve bilinen sorunları döndürür.
-
+  
   ## Core Workflow Deseni
-
+  
   ### Adım 1: Kullanılabilir Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Bannerbear task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["bannerbear"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Yürütün
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce araştırın**: Tool şemalarıdır değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'ları veya argumentleri sabit kodlamayın
   - **Bağlantıyı kontrol edin**: Tool'ları yürütmeden önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar almaya devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Bannerbear'a özgü use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Yürüt | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Bulk işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Full şema | `RUBE_GET_TOOL_SCHEMAS` şemaya sahip tool'lar için |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından sunulmaktadır*
 ---

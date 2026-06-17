@@ -4,7 +4,7 @@ description_en: "Monitors customer health, predicts churn risk, and identifies e
 description_tr: "Müşteri sağlığını izler, churn riskini tahmin eder ve ağırlıklı puanlama modelleri kullanarak SaaS müşteri başarısı için genişleme fırsatlarını belirler. Müşteri hesaplarını analiz ederken, retention metrikleri gözden geçirirken, risk altındaki müşterileri puanlarken veya kullanıcı churn, customer health scores, upsell fırsatları, expansion revenue, retention analysis ya da customer analytics hakkında bahsettiğinde kullanın. Üç Python CLI çalıştırır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/customer-success-manager/SKILL.md"
 path: ".gemini/skills/customer-success-manager/SKILL.md"
 is_collection: false
@@ -15,13 +15,13 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Müşteri Başarı Yöneticisi
-
+  
   Üretim-grade müşteri başarısı analitikleri, çok boyutlu sağlık puanlaması, churn risk tahmini ve genişleme fırsatı tanımlaması. Üç Python CLI aracı, yalnızca standart kütüphane kullanarak deterministik, tekrarlanabilir analiz sağlar -- harici bağımlılık, API çağrısı veya ML modeli yok.
-
+  
   ---
-
+  
   ## İçindekiler
-
+  
   - [Giriş Gereksinimleri](#giriş-gereksinimleri)
   - [Çıktı Formatları](#çıktı-formatları)
   - [Kullanım Şekli](#kullanım-şekli)
@@ -30,87 +30,87 @@ body_tr: |-
   - [Şablonlar](#şablonlar)
   - [En İyi Uygulamalar](#en-iyi-uygulamalar)
   - [Sınırlamalar](#sınırlamalar)
-
+  
   ---
-
+  
   ## Giriş Gereksinimleri
-
+  
   Tüm scriptler bir JSON dosyasını konumsal giriş argümanı olarak kabul eder. Tam şema örnekleri ve örnek veriler için `assets/sample_customer_data.json` dosyasına bakın.
-
+  
   ### Health Score Calculator
-
+  
   Her müşteri nesnesi için gerekli alanlar: `customer_id`, `name`, `segment`, `arr` ve iç içe geçmiş nesneler `usage` (login_frequency, feature_adoption, dau_mau_ratio), `engagement` (support_ticket_volume, meeting_attendance, nps_score, csat_score), `support` (open_tickets, escalation_rate, avg_resolution_hours), `relationship` (executive_sponsor_engagement, multi_threading_depth, renewal_sentiment) ve trend analizi için önceki dönem scoreları.
-
+  
   ### Churn Risk Analyzer
-
+  
   Her müşteri nesnesi için gerekli alanlar: `customer_id`, `name`, `segment`, `arr`, `contract_end_date` ve iç içe geçmiş nesneler `usage_decline`, `engagement_drop`, `support_issues`, `relationship_signals` ve `commercial_factors`.
-
+  
   ### Expansion Opportunity Scorer
-
+  
   Her müşteri nesnesi için gerekli alanlar: `customer_id`, `name`, `segment`, `arr` ve iç içe geçmiş nesneler `contract` (licensed_seats, active_seats, plan_tier, available_tiers), `product_usage` (modül başına benimseme flagları ve kullanım yüzdeleri) ve `departments` (mevcut ve potansiyel).
-
+  
   ---
-
+  
   ## Çıktı Formatları
-
+  
   Tüm scriptler `--format` bayrağı aracılığıyla iki çıktı formatını destekler:
-
+  
   - **`text`** (varsayılan): Terminal görüntüleme için insan tarafından okunabilir biçimlendirilmiş çıktı
   - **`json`**: Entegrasyonlar ve pipeline'lar için makine tarafından okunabilir JSON çıktısı
-
+  
   ---
-
+  
   ## Kullanım Şekli
-
+  
   ### Hızlı Başlangıç
-
+  
   ```bash
   # Health scoring
   python scripts/health_score_calculator.py assets/sample_customer_data.json
   python scripts/health_score_calculator.py assets/sample_customer_data.json --format json
-
+  
   # Churn risk analysis
   python scripts/churn_risk_analyzer.py assets/sample_customer_data.json
   python scripts/churn_risk_analyzer.py assets/sample_customer_data.json --format json
-
+  
   # Expansion opportunity scoring
   python scripts/expansion_opportunity_scorer.py assets/sample_customer_data.json
   python scripts/expansion_opportunity_scorer.py assets/sample_customer_data.json --format json
   ```
-
+  
   ### İş Akışı Entegrasyonu
-
+  
   ```bash
   # 1. Portföy genelinde müşteri sağlığını puanla
   python scripts/health_score_calculator.py customer_portfolio.json --format json > health_results.json
   # Doğrula: health_results.json'in devam etmeden önce beklenen sayıda müşteri kaydı içerdiğini onayla
-
+  
   # 2. Risk altındaki hesapları belirle
   python scripts/churn_risk_analyzer.py customer_portfolio.json --format json > risk_results.json
   # Doğrula: risk_results.json'in boş olmadığını ve her müşteri için risk seviyelerinin bulunduğunu onayla
-
+  
   # 3. Sağlıklı hesaplarda genişleme fırsatları bul
   python scripts/expansion_opportunity_scorer.py customer_portfolio.json --format json > expansion_results.json
   # Doğrula: expansion_results.json'in fırsatları önceliğe göre sıraladığını onayla
-
+  
   # 4. Şablonları kullanarak QBR hazırla
   # Referans: assets/qbr_template.md
   ```
-
+  
   **Hata işleme:** Bir script hata ile çıkarsa şunları kontrol edin:
   - Giriş JSON'ı o script için gerekli şemayla eşleşir (yukarıdaki Giriş Gereksinimleri bölümüne bakın)
   - Tüm gerekli alanlar mevcut ve doğru türde
   - Python 3.7+ kullanılıyor (`python --version`)
   - Önceki adımlardan çıktı dosyaları sonraki adımlara aktarılmadan önce boş değil
-
+  
   ---
-
+  
   ## Scriptler
-
+  
   ### 1. health_score_calculator.py
-
+  
   **Amaç:** Trend analizi ve segment-bilinçli benchmarking ile çok boyutlu müşteri sağlığı puanlaması.
-
+  
   **Boyutlar ve Ağırlıklar:**
   | Boyut | Ağırlık | Metrikler |
   |-----------|--------|---------|
@@ -118,22 +118,22 @@ body_tr: |-
   | Engagement | 25% | Support ticket volume, meeting attendance, NPS/CSAT |
   | Support | 20% | Open tickets, escalation rate, avg resolution time |
   | Relationship | 25% | Executive sponsor engagement, multi-threading depth, renewal sentiment |
-
+  
   **Sınıflandırma:**
   - Green (75-100): Sağlıklı -- müşteri değer elde ediyor
   - Yellow (50-74): Dikkat gerekli -- yakından izle
   - Red (0-49): Risk altında -- acil müdahale gerekli
-
+  
   **Kullanım:**
   ```bash
   python scripts/health_score_calculator.py customer_data.json
   python scripts/health_score_calculator.py customer_data.json --format json
   ```
-
+  
   ### 2. churn_risk_analyzer.py
-
+  
   **Amaç:** Davranışsal sinyal algılaması ve katman-tabanlı müdahale önerileri ile risk altındaki hesapları tanımla.
-
+  
   **Risk Sinyal Ağırlıkları:**
   | Sinyal Kategorisi | Ağırlık | Göstergeler |
   |----------------|--------|------------|
@@ -142,76 +142,76 @@ body_tr: |-
   | Support Issues | 20% | Open escalations, unresolved critical, satisfaction trend |
   | Relationship Signals | 15% | Champion left, sponsor change, competitor mentions |
   | Commercial Factors | 10% | Contract type, pricing complaints, budget cuts |
-
+  
   **Risk Seviyeleri:**
   - Critical (80-100): Acil yönetici escalation
   - High (60-79): Acil CSM müdahalesi
   - Medium (40-59): Proaktif iletişim
   - Low (0-39): Standart izleme
-
+  
   **Kullanım:**
   ```bash
   python scripts/churn_risk_analyzer.py customer_data.json
   python scripts/churn_risk_analyzer.py customer_data.json --format json
   ```
-
+  
   ### 3. expansion_opportunity_scorer.py
-
+  
   **Amaç:** Gelir tahmini ve öncelik sıralaması ile upsell, cross-sell ve genişleme fırsatlarını belirle.
-
+  
   **Genişleme Türleri:**
   - **Upsell**: Daha yüksek bir katmana yükseltme veya mevcut ürünün daha fazlasını satın alma
   - **Cross-sell**: Yeni ürün modülleri ekleme
   - **Expansion**: Ek koltuk veya bölümler
-
+  
   **Kullanım:**
   ```bash
   python scripts/expansion_opportunity_scorer.py customer_data.json
   python scripts/expansion_opportunity_scorer.py customer_data.json --format json
   ```
-
+  
   ---
-
+  
   ## Referans Kılavuzları
-
+  
   | Referans | Açıklama |
   |----------|---------|
   | `references/health-scoring-framework.md` | Tam health scoring metodolojisi, boyut tanımları, ağırlıklandırma gerekçesi, eşik kalibrasyonu |
   | `references/cs-playbooks.md` | Her risk seviyesi, onboarding, renewal, expansion ve escalation prosedürleri için müdahale playbook'ları |
   | `references/cs-metrics-benchmarks.md` | NRR, GRR, churn oranları, health scoreları, segment ve endüstri başına expansion oranları için sektör benchmarkları |
-
+  
   ---
-
+  
   ## Şablonlar
-
+  
   | Şablon | Amaç |
   |----------|---------|
   | `assets/qbr_template.md` | Quarterly Business Review sunum yapısı |
   | `assets/success_plan_template.md` | Hedefler, kilometre taşları ve metrikler içeren müşteri başarı planı |
   | `assets/onboarding_checklist_template.md` | Faz kapıları ile 90 günlük onboarding kontrol listesi |
   | `assets/executive_business_review_template.md` | Stratejik hesaplar için yönetici paydaş incelemesi |
-
+  
   ---
-
+  
   ## En İyi Uygulamalar
-
+  
   1. **Sinyalleri birleştir**: Tam müşteri resmi için üç scripti birlikte kullan
   2. **Trendlere, snapshot'lara değil, hareket et**: Azalan Green, istikrarlı Yellow'dan daha acildir
   3. **Eşikleri kalibre et**: Segment benchmarkları `references/health-scoring-framework.md` başına ürün ve endüstriye göre ayarla
   4. **Verilerle hazırla**: Her QBR ve yönetici toplantısından önce scriptleri çalıştır; müdahale rehberi için `references/cs-playbooks.md`'ye başvur
-
+  
   ---
-
+  
   ## Sınırlamalar
-
+  
   - **Gerçek zamanlı veri yok**: Scriptler JSON giriş dosyalarından belirli bir zaman noktasındaki snapshot'ları analiz eder
   - **CRM entegrasyonu yok**: Veriler CRM/CS platformunuzdan manuel olarak dışa aktarılmalıdır
   - **Yalnızca deterministik**: ML tahmini yok -- puanlama ağırlıklı sinyallere dayalı algoritmiktir
   - **Eşik ayarlaması**: Varsayılan eşikler sektör standardıdır ancak işletmeniz için kalibrasyona ihtiyaç duyabilir
   - **Gelir tahminleri**: Genişleme gelir tahminleri kullanım desenleri temelinde yaklaşık değerlerdir
-
+  
   ---
-
+  
   **Son Güncelleme:** Şubat 2026
   **Araçlar:** 3 Python CLI aracı
   **Bağımlılıklar:** Yalnızca Python 3.7+ standart kütüphane

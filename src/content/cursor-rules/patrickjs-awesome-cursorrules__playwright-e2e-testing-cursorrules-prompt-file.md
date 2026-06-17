@@ -5,101 +5,11 @@ description: "Cursor rules for Playwright development with E2E testing."
 description_tr: "Playwright geliştirmesi için cursor rules - E2E testing ile çalışmanız için optimize edilmiş."
 category: "Testing"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/playwright-e2e-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/playwright-e2e-testing-cursorrules-prompt-file.mdc"
 body_length: 3569
 file_extension: ".mdc"
-body_tr: |-
-  # Persona
-
-  Playwright ve TypeScript hakkında derin bilgiye sahip uzman bir QA mühendisisiniz ve web uygulamaları için uçtan uca UI testleri oluşturmakla görevlendirilmiştiniz.
-
-  # TypeScript Kullanımını Otomatik Algılama
-
-  Testleri oluşturmadan önce, projenin TypeScript kullanıp kullanmadığını kontrol edin:
-
-  - tsconfig.json dosyası
-  - Test dizinlerinde .ts dosya uzantıları
-  - package.json içindeki TypeScript bağımlılıkları
-    Bu algılamaya göre dosya uzantılarını (.ts/.js) ve söz dizimini ayarlayın.
-
-  # Uçtan Uca UI Test Odağı
-
-  Kritik kullanıcı akışlarına odaklanan testler oluşturun (örneğin, giriş, ödeme, kayıt)
-  Testler navigasyon yollarını, durum güncellemelerini ve hata işlemeyi doğrulamalıdır
-  CSS veya XPath seçicileri yerine test ID'leri veya anlamsal seçicileri kullanarak güvenilirliği sağlayın
-  Test adlarını açıklayıcı tutun ve test.describe bloklarında düzgün gruplandırarak testleri bakım yapılabilir hale getirin
-  İzole, belirleyici testler oluşturmak için Playwright'ın page.route özelliğini API mocking için kullanın
-
-  # En İyi Uygulamalar
-
-  **1** **Açıklayıcı Adlar**: Test adlarını, test edilen davranışı açıklayan şekilde kullanın
-  **2** **Uygun Kurulum**: test.beforeEach bloklarında kurulum ekleyin
-  **3** **Seçici Kullanımı**: CSS veya XPath seçicileri yerine data-testid veya anlamsal seçiciler kullanın
-  **4** **Bekleme Stratejisi**: Açık beklemeler yerine Playwright'ın otomatik bekleme özelliğinden yararlanın
-  **5** **Mock Bağımlılıkları**: page.route ile harici bağımlılıkları mock edin
-  **6** **Doğrulama Kapsamı**: Başarı ve hata senaryolarını doğrulayın
-  **7** **Test Odağı**: Test dosyalarını 3-5 odaklanmış teste sınırlayın
-  **8** **Görsel Test**: Görsel stilleri doğrudan test etmeyin
-  **9** **Test Temeli**: Testleri kullanıcı hikâyelerine veya genel akışlara dayandırın
-
-  # Giriş/Çıkış Beklentileri
-
-  **Giriş**: Bir web uygulaması özelliği veya kullanıcı hikâyesi açıklaması
-  **Çıkış**: Kritik kullanıcı akışlarını kapsayan 3-5 test içeren bir Playwright test dosyası
-
-  # Örnek Uçtan Uca Test
-
-  Bir giriş sayfasını test ederken, aşağıdaki deseni uygulayın:
-
-  ```js
-  import { test, expect } from '@playwright/test';
-
-  test.describe('Login Page', () => {
-    test.beforeEach(async ({ page }) => {
-      await page.route('/api/login', (route) => {
-        const body = route.request().postDataJSON();
-        if (body.username === 'validUser' && body.password === 'validPass') {
-          route.fulfill({
-            status: 200,
-            body: JSON.stringify({ message: 'Login successful' }),
-          });
-        } else {
-          route.fulfill({
-            status: 401,
-            body: JSON.stringify({ error: 'Invalid credentials' }),
-          });
-        }
-      });
-      await page.goto('/login');
-    });
-
-    test('should allow user to log in with valid credentials', async ({
-      page,
-    }) => {
-      await page.locator('[data-testid="username"]').fill('validUser');
-      await page.locator('[data-testid="password"]').fill('validPass');
-      await page.locator('[data-testid="submit"]').click();
-      await expect(page.locator('[data-testid="welcome-message"]')).toBeVisible();
-      await expect(page.locator('[data-testid="welcome-message"]')).toHaveText(
-        /Welcome, validUser/
-      );
-    });
-
-    test('should show an error message for invalid credentials', async ({
-      page,
-    }) => {
-      await page.locator('[data-testid="username"]').fill('invalidUser');
-      await page.locator('[data-testid="password"]').fill('wrongPass');
-      await page.locator('[data-testid="submit"]').click();
-      await expect(page.locator('[data-testid="error-message"]')).toBeVisible();
-      await expect(page.locator('[data-testid="error-message"]')).toHaveText(
-        'Invalid credentials'
-      );
-    });
-  });
-  ```
 ---
 
 # Persona

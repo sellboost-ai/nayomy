@@ -4,9 +4,9 @@ description: "Local-first system capturing screen/audio with timestamped indexin
 description_tr: "Ekran ve ses kaydını zaman damgasıyla indeksleyen, SQL/embedding storage kullanan, semantic search ve LLM tabanlı geçmiş analizi yapan local-first sistem. NextJS plugin ekosistemi aracılığıyla bağlam farkında AI ajanlar oluşturmayı ve event-triggered aksiyonları destekler."
 category: "Other Tools and Integrations"
 repo: "screenpipe/screenpipe"
-stars: 19326
+stars: 19336
 url: "https://github.com/screenpipe/screenpipe"
-body_length: 19698
+body_length: 19833
 license: "NOASSERTION"
 language: "Rust"
 homepage: "https://screenpipe.com"
@@ -397,6 +397,7 @@ body_tr: |-
 
 ## news
 
+- 06/10 - **we updated our license to keep screenpipe sustainable** — more funding, more shipping, better product
 - 05/29 - **we released an [alpha version of our AI PII model](https://screenpipe.github.io/screenleak/) outperforming Google, Microsoft, and OpenAI models** on computer recording data and running at 9ms on consumer device
 - 05/14 - **we joined YC S26** 
 
@@ -453,7 +454,7 @@ then ask claude `what did i see in the last 5 mins?` or `summarize today convers
 - 5-10% cpu usage
 - 0.5-3gb ram
 - ~20gb storage/month
-- filters (window, app, chrome extensions, passwords, PII)
+- filters (window, app, chrome extensions, passwords, proprietary AI PII model)
 - optional encryption at rest
 - works offline
 

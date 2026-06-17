@@ -5,53 +5,11 @@ description: "Cursor rules for secure coding, secret handling, dependency hygien
 description_tr: "Güvenli kodlama, gizli bilgi yönetimi, bağımlılık hijyeni, kimlik doğrulama, yetkilendirme, security testing ve uyum belgelemeleri için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/security-devsecops-ssdls-appsec.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/security-devsecops-ssdls-appsec.mdc"
 body_length: 2618
 file_extension: ".mdc"
-body_tr: |-
-  # DevSecOps + SSDLC + AppSec Cursor Rule
-
-  ## Genel Güvenlik Prensipleri
-  - Sırları, kimlik bilgilerini veya API anahtarlarını asla sabit kodlamayın. Hassas veriler için ortam değişkenlerini veya güvenli kasaları kullanın.
-  - `.env`, gizli yapılandırma dosyalarını veya bilinmeyen tokenları kaynak kontrolüne dahil etmeyi yasaklayın.
-  - Hassas verileri, sırları veya oturum tokenlarını asla uygulama günlüklerine kaydetmeyin.
-  - Tüm kullanıcı girişini doğrulayın ve temizleyin. HTML, JS ve SQL bağlamlarında çıktıyı kaçış karakterleriyle işleyin.
-  - `exec`, `eval` veya benzer dinamik kod yürütme işlevleri gibi güvenli olmayan fonksiyonlardan kaçının.
-
-  ## Veritabanı Güvenliği
-  - Tüm veritabanı erişimi için parametreli sorguları veya ORM kullanın. Sorgu oluşturmak için string birleştirmesini kullanmayın.
-  - Veritabanı kullanıcılarının görevleri için gereken en az ayrıcalıklara sahip olduğundan emin olun.
-  - Veritabanı erişim ilkelerini düzenli olarak gözden geçirin ve güncelleyin.
-
-  ## Bağımlılık Yönetimi
-  - Paketleri yalnızca doğrulanmış kaynaklardan kullanın.
-  - Açık onay ve güvenlik incelemesi olmadan yeni bağımlılıklar eklemeyin.
-  - Bağımlılıkları düzenli olarak güncelleyin ve bilinen güvenlik açıkları açısından tarayın (SCA).
-
-  ## Kimlik Doğrulama & Yetkilendirme
-  - Güvenli kimlik doğrulama çerçeveleri kullanın; asla özel kimlik doğrulama uygulamayın.
-  - Şifreleri güçlü, tuzlanmış karma işlevler kullanarak depolayın (örn. Argon2, bcrypt).
-  - Hassas işlemler için Rol Tabanlı Erişim Kontrolü (RBAC) uygulayın.
-  - API'ler ve UI işlemleri için en az ayrıcalık ilkesini zorunlu kılın.
-
-  ## Güvenli SDLC Uygulamaları
-  - Statik Uygulama Güvenliği Testi (SAST) ve Yazılım Bileşeni Analizi (SCA) işlemlerini CI hattına entegre edin.
-  - Birleştirmeden önce tüm kodları sırlar açısından tarayın (Gizli Tarama).
-  - Tüm altyapı kodu için Altyapı Kodu (IaC) taraması kullanın.
-  - Dağıtılan uygulamalar için Dinamik Uygulama Güvenliği Testi (DAST) işlemlerini CD hattına entegre edin.
-  - Otomatikleştirilmiş, sürüm kontrollü güvenlik ilkeleri için İlke Kodu (PaC) uygulamasını zorunlu kılın.
-
-  ## İzleme & Geribildirim
-  - Sürekli güvenlik açığı izlemesini ve uyarılarını etkinleştirin.
-  - Uygun şekillerde Çalışma Zamanı Uygulama Öz-Koruması (RASP) ve Web Uygulaması Güvenlik Duvarı (WAF) entegre edin.
-  - Düzenli güvenlik açığı değerlendirmeleri ve penetrasyon testlerini teşvik edin.
-  - Yinelenen güvenlik açıklarına dayalı olarak kuralları ve istemleri güncellemek için bir geribildirim döngüsü oluşturun.
-
-  ## Uyum & Belgelendirme
-  - Endüstri standartlarıyla uyumlu olun (örn. OWASP Top 10, NIST, ISO 27001).
-  - Denetlenebilirlik için tüm güvenlik kontrollerini ve kararlarını belgelendirin.
 ---
 
 # DevSecOps + SSDLC + AppSec Cursor Rule

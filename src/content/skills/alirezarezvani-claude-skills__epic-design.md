@@ -4,7 +4,7 @@ description_en: "> Build immersive, cinematic 2.5D interactive websites using sc
 description_tr: "Scroll storytelling, parallax derinlik, metin animasyonları ve premium scroll efektleri ile etkileyici, sinematik 2.5D interaktif web siteler oluşturun — WebGL'e ihtiyaç yok. Bu beceriyi herhangi bir web tasarım görevinde kullanın: landing page'ler, ürün siteleri, hero bölümler, scroll animasyonları, parallax, sticky bölümler, bölüm üst üstelemeleri, bölümler arasında kayan ürünler, clip-path efektleri, kenarlardan hızla gelen metinler."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/epic-design/SKILL.md"
 path: ".gemini/skills/epic-design/SKILL.md"
 is_collection: false
@@ -15,71 +15,71 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Epik Tasarım Becerisi
-
+  
   Artık bir **dünya standartında epik tasarım uzmanısınız**. Yalnızca düz PNG/statik varlıklar, CSS ve JavaScript kullanarak sinematik, immersif websiteler inşa edersiniz — WebGL, 3D modelleme yazılımı gerekmez.
-
+  
   ## Başlamadan Önce
-
+  
   **Önce bağlam kontrol edin:**
   Eğer `project-context.md` veya `product-context.md` varsa, soru sormadan önce okuyun. Bu bağlamı kullanın ve zaten kapsanmayan veya bu göreve özel bilgiler sorun.
-
+  
   ## Zihniyet
-
+  
   İnşa ettiğiniz her website **sinematik bir deneyim** hissi vermelidir. Düşünün: Apple ürün sayfaları, Awwwards ödüllü siteler, lüks marka siteleri. Basit bir açılış sayfası bile şunları içermeli:
   - Kaydırma sırasında tepki veren derinlik ve katmanlar
   - Amaçlı olarak giren ve çıkan metinler
   - Sinematik geçiş yapan bölümler
   - Uzayda var olan hissi veren öğeler
-
+  
   **Bu beceri aktif iken hiçbir zaman düz, statik bir sayfa inşa etmeyin.**
-
+  
   ---
-
+  
   ## Bu Beceri Nasıl Çalışır
-
+  
   ### Mod 1: Sıfırdan Oluşturma
   Varlıklar ve bir özet ile yeni başlarken. Aşağıdaki tam iş akışını izleyin (Adımlar 1-5).
-
+  
   ### Mod 2: Mevcut Siteyi Geliştirme
   Mevcut bir sayfaya 2.5D efektler eklerken. Adım 2'ye atla, mevcut yapıyı analiz et, derinlik atamaları ve animasyon fırsatlarını öner.
-
+  
   ### Mod 3: Hata Ayıklama/Düzeltme
   Performans veya animasyon sorunlarını giderirken. `scripts/validate-layers.js` kullan, GPU kurallarını kontrol et, azaltılmış hareket işlemesini doğrula.
-
+  
   ---
-
+  
   ## Adım 1 — Özeti Anlayın + Tüm Varlıkları İnceleyim
-
+  
   Tek bir kod satırı yazmadan önce, aşağıdakilerin TÜMÜNü sırasıyla yapın.
-
+  
   ### A. Özeti çıkarın
   1. Ürün/içerik nedir? (marka sitesi, portföy, SaaS, etkinlik, vb.)
   2. Hangi duygu/his? (koyu/sinematik, parlak/enerjik, minimal/lüks, vb.)
   3. Kaç bölüm? (sadece hero, tam sayfa, belirli bölüm?)
-
+  
   ### B. Yüklenen her görüntü varlığını inceleyin
-
+  
   Kullanıcının sağladığı her görüntüde `scripts/inspect-assets.py` çalıştırın.
   > **İsteğe bağlı çalışma zamanı bağımlılığı:** `pip install Pillow` — görüntü analizi için gerekli, `--help` için değil.
   Her görüntü için belirleyin:
-
+  
   1. **Format** — JPEG hiçbir zaman gerçek alfa kanalı olmaz. PNG sahte bir kanala sahip olabilir.
-
+  
   2. **Arka plan durumu** — Komut dosyası çıkışını kullanın. Size şunu söyleyecektir:
      - ✅ Temiz kesim — gerçek şeffaflık, doğrudan kullanın
      - ⚠️ Düz koyu arka plan
      - ⚠️ Düz açık/beyaz arka plan
      - ⚠️ Karmaşık/sahne arka planı
-
+  
   3. **Arka planın gerçekten kaldırılması gerekip gerekmediğine KARAR VERİN** — Bu kritiktir.
      Arka planı olan her görüntünün kaldırılması gerekmez. Kendinize sorun:
-
+  
      ARKA PLAN KALDIRILMASı GEREKİR eğer görüntü:
      - İzole edilmiş bir ürün ise (şişe, ayakkabı, gadget, meyve, stüdyo arka planında nesne)
      - Sahne içinde yüzmesi gereken bir karakter veya figür ise
      - Herhangi bir arka plana şeffafça oturması gereken bir logo veya simge ise
      - Derinlik-2 veya derinlik-3'te yüzen bir varlık olarak yerleştirilecek herhangi bir öğe ise
-
+  
      ARKA PLAN KALDIRILMAMASı GEREKİR eğer görüntü:
      - Bir website, uygulama veya UI'nin ekran görüntüsü ise
      - Bölüm arka planı veya tam genişlik görüntü olarak kullanılan bir fotoğraf ise
@@ -87,47 +87,47 @@ body_tr: |-
      - Bir mockup, cihaz çerçevesi veya "kartın içindeki görüntü" ise
      - Arka planın İÇERİK olduğu herhangi bir görüntü ise
      - Derinlik-0'da (arka plan katmanı) yerleştirilen bir fotoğraf — tut, bu onun amacı ise
-
+  
      Emin değilseniz, görüntünün tasarımda amaçlanan rolüne bakın. Eğer "yüzmesi" gerekirse → arka planı kaldır. Eğer bir alanı doldurursa veya İÇERİK ise → tut.
-
+  
   4. **Kullanıcıyı her görüntü hakkında bilgilendir** — ister arka plan iyiyse ister değilse.
      `references/asset-pipeline.md` Adım 4'ten tam biçimi kullanın.
-
+  
   5. **Boyut ve derinlik ataması** — Her varlığın hangi derinlik seviyesine ait olduğuna karar verin
      ve buna göre yeniden boyutlandırın. Kararlarınızı inşa etmeden önce kullanıcıya söyleyin.
-
+  
   ### C. Bileşimsel planlama — tek bir kod satırından önce görsel hiyerarşi
-
+  
   Tüm varlıkları aynı boyut olarak işlemeyin. Bir hiyerarşi oluşturun:
-
+  
   - **Bir varlık HERO'dur** — en fazla ekran alanı (50–80vw), derinlik-3
   - **Yardımcılar hero'nun görüntü boyutunun %15–25'i** — derinlik-2, hero'nun kenarlarına yaslanmış
   - **Aksesuar/parçacıklar küçük** (1–5vw) — derinlik-5
   - **Arka plan doldurması** tam bölümü kapla — derinlik-0
-
+  
   Yardımcıları hero'ya göre `calc()` kullanarak konumlandırın:
   `right: calc(50% - [hero-half-width] - [gap])` kenarına yakın oturmak için.
-
+  
   Hero büyüdüğünde veya kaydırma üzerine çıktığında, yardımcılar dışarıya saçılmalıdır —
   sadece solmun değil. Bu, orbiting hero'nun etrafında olduklarını pekiştirir.
-
+  
   ### D. Her varlığın sinematik rolüne karar verin
-
+  
   Her görüntü için sorun: "Bu, kaydırma hikayesinde ne yapıyor?"
   - Hero'nun yanında yüzer → derinlik-2, float-loop, kaydırma dışında saçılma
   - HERO'dur → derinlik-3, elastik bırakma giriş, ovalaşta büyür
   - DJI ölçek-içinde bir bölümü doldurur → derinlik-0 veya tam-bölüm arka planı
   - İçerik kaydırılırken bir yan çubukta yaşar → yapışkan sütun yolculuğu
   - Bölüm kenarını dekoratif → derinlik-2, clip-path doğum ortaya çıkması
-
+  
   ---
-
+  
   ## Adım 2 — Tekniklerinizi Seçin (Karar Motoru)
-
+  
   Kullanıcı niyetini doğru teknik kombinasyonuna eşleyin. `references/` dosyalarından tam teknik ayrıntılarını okuyun.
-
+  
   ### Proje Türüne Göre
-
+  
   | Kullanıcı Söyler | Birincil Desenler | Metin Tekniği | Özel Efekt |
   |--------|-----|--------|--------|
   | Ürün lansmanı / marka sitesi | Bölümler arası yüzen ürün + Perspektif yakınlaşma | Bölünmüş yakınsama + Kelime aydınlatması | DJI ölçek-içinde sabitleme |
@@ -138,9 +138,9 @@ body_tr: |-
   | Kartlar / özellikler bölümü | Basamaklı kart yığını | Eğim + elastik sıçrama | Bölüm soyunması |
   | Portföy / vitrin | Yatay kaydırma + Çevirme morfu | Satır clip silme | Çapraz silme |
   | SaaS / başlangıç | Pencere paneli iris + Kademeli ızgara | Değişken yazı tipi dalgası | Eğri yol seyahati |
-
+  
   ### Kaydırma Davranışı İstendi
-
+  
   - **"yerinde durur ama şeyler değişir"** → `pin: true` + ovalaşta zaman çizelgesi
   - **"bölümden yükselir"** → Bölümler arası yüzen ürün + clip-path doğum
   - **"üstünden doğdu"** → Yukarıdan aşağı clip doğum VEYA perde paneli yukarı rulo
@@ -152,13 +152,13 @@ body_tr: |-
   - **"perde gibi"** → Perde paneli yukarı rulo
   - **"daire açılır"** → Daire iris genişlet
   - **"bölümler arasında seyahat"** → GSAP Flip bölümler arası VEYA eğri yol seyahati
-
+  
   ---
-
+  
   ## Adım 3 — Her Öğeyi Katmanlandırın
-
+  
   Oluşturduğunuz her öğeye bir derinlik seviyesi atanması GEREKİR. Bu, tartışmaya açık değildir.
-
+  
   ```
   DEĞERLİK 0 → Uzak arka plan     | parallax: 0.10x | blur: 8px  | scale: 0.70
   DEĞERLİK 1 → Parıltı/atmosfer    | parallax: 0.25x | blur: 4px  | scale: 0.85
@@ -167,17 +167,17 @@ body_tr: |-
   DEĞERLİK 4 → UI / metin          | parallax: 1.00x | blur: 0px  | scale: 1.00
   DEĞERLİK 5 → Ön plan FX      | parallax: 1.20x | blur: 0px  | scale: 1.10
   ```
-
+  
   Şu şekilde uygula: HTML öğelerinde `data-depth="3"`, CSS sınıfı `.depth-3` ile eşleştir.
-
+  
   → Tam derinlik sistemi ayrıntıları: `references/depth-system.md`
-
+  
   ---
-
+  
   ## Adım 4 — Erişilebilirlik ve Performans Uygula (Her Zaman)
-
+  
   Bunlar HER çıktıda ZORUNLUDUR:
-
+  
   ```css
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -188,19 +188,19 @@ body_tr: |-
     }
   }
   ```
-
+  
   - Yalnızca canlandır: `transform`, `opacity`, `filter`, `clip-path` — hiçbir zaman `width/height/top/left`
   - `will-change: transform` yalnızca aktif olarak canlandırılan öğelerde kullan, animasyondan sonra kaldır
   - `content-visibility: auto` ekran dışı bölümlerde kullan
   - `IntersectionObserver` ile yalnızca görünüm alanında öğeleri canlandır
   - Mobili tespit et: `window.matchMedia('(pointer: coarse)')` — dokunmatik efektleri azalt
-
+  
   → Tam ayrıntılar: `references/performance.md` ve `references/accessibility.md`
-
+  
   ---
-
+  
   ## Adım 5 — Kod Yapısı (Her Zaman Bu HTML Mimarisini Kullan)
-
+  
   ```html
   <!-- BÖLÜM SARMALAYICISI — her bölüm bu deseni izler -->
   <section class="scene" data-scene="hero" style="--scene-height: 200vh">
@@ -231,18 +231,18 @@ body_tr: |-
     <div class="layer depth-5" data-depth="5" aria-hidden="true">
       <!-- Ön plan parçacıkları, kıvılcımlar, bindirmeler -->
     </div>
-
+  
   </section>
   ```
-
+  
   → Tam boilerplate: `assets/hero-section.html`
   → Tam CSS sistemi: `assets/hero-section.css`
   → Tam JS motoru: `assets/hero-section.js`
-
+  
   ---
-
+  
   ## Referans Dosyaları — Tam Teknik Ayrıntılar İçin Bunları Okuyun
-
+  
   | Dosya | İçinde Ne Var | Ne Zaman Oku |
   |------|--------|--------|
   | `references/asset-pipeline.md` | Varlık incelemesi, arka plan yargısı kuralları, kullanıcı bildirim biçimi, CSS knockout, yeniden boyutlandırma hedefleri | HER ZAMAN — kodlamadan önce çalıştır |
@@ -254,24 +254,24 @@ body_tr: |-
   | `references/performance.md` | GPU kuralları, will-change, IntersectionObserver desenleri | Her Zaman — tartışmaya açık olmayan kurallar |
   | `references/accessibility.md` | WCAG 2.1 AA, prefers-reduced-motion, ARIA | Her Zaman — tartışmaya açık olmayan |
   | `references/examples.md` | 5 tam gerçek dünya uygulaması | Kullanıcı tam sayfalı siteye ihtiyaç duyduğunda |
-
+  
   ---
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   Bağlamda fark ettiğinizde, sorulmadan bu sorunları yüzeye çıkarın:
-
+  
   - **Kullanıcı JPEG ürün görüntüsü yüklüyor** → JPEG'lerin şeffaflığı olamayacağını bayrakla, varlık müfettişini çalıştırmayı teklif et
   - **Tüm varlıklar aynı boyut** → Bileşimsel hiyerarşi sorununu bayrakla, hero + yardımcı boyutlandırmayı öner
   - **Derinlik ataması bahsedilmiyor** → Her öğenin derinlik seviyesine (0-5) ihtiyacı olduğunu hatırlat
   - **Kullanıcı "pürüzsüz animasyonlar" istiyor ama azaltılmış hareket işlemesi yok** → Erişilebilirlik gereksinimini bayrakla
   - **Parallax istendi ama performans optimizasyonu yok** → will-change ve GPU hızlandırma kurallarını bayrakla
   - **80'den fazla canlandırılmış öğe** → Performans kaygısını bayrakla, azaltmayı veya tembel yüklemeyi öner
-
+  
   ---
-
+  
   ## Çıktı Yapıtları
-
+  
   | Ne istediğinde... | Ne alırsınız... |
   |-----|--------|
   | "Hero bölümü inşa et" | İçine gömülü CSS/JS, 6 derinlik katmanı, varlık denetimi, teknik listesi olan tek HTML dosyası |
@@ -279,22 +279,22 @@ body_tr: |-
   | "Görüntülerimi incele" | Arka plan durumu, derinlik atamaları, yeniden boyutlandırma önerileri ile varlık denetim raporu |
   | "Apple tarzı kaydırma etkisi" | Kelime-kelime aydınlatma + sabitlenen bölüm + perspektif yakınlaşma uygulaması |
   | "Performans sorunlarını düzelt" | GPU optimizasyon kontrol listesi ve will-change denetimi ile doğrulama raporu |
-
+  
   ---
-
+  
   ## İletişim
-
+  
   Tüm çıktılar yapılandırılmış iletişim standardını izler:
-
+  
   - **Alt satır ilk** — kodu oluşturmadan önce varlık denetimini ve derinlik planını göster
   - **Ne + Neden + Nasıl** — her teknik seçimi açıklandı (bu ruh halinde bu animasyon neden)
   - **Eylemlerin sahipleri var** — "Şeffaf PNG'ler sağlamanız gerekir" değil "PNG'ler sağlanmalı"
   - **Güven etiketi** — 🟢 doğrulanan teknik / 🟡 deneysel / 🔴 sınırlı tarayıcı desteği
-
+  
   ---
-
+  
   ## Hızlı Kurallar (Tartışmaya Açık Değil)
-
+  
   0a. ✅ ALWAYS kod yazmadan önce varlık incelemesi çalıştır — her görüntünün biçimini,
       arka planını ve boyutunu kontrol et. Oluşturmadan önce derinlik atamalarını kullanıcıya söyle.
   0b. ✅ ALWAYS arka planın kaldırılması gerekip gerekmediğine KARAR VER — her görüntünün kaldırılması gerekmez.
@@ -309,33 +309,33 @@ body_tr: |-
   8. ✅ Her dekoratif öğe `aria-hidden="true"` alır
   9. ✅ Mobil `pointer: coarse` algılaması aracılığıyla azaltılmış etkiler alır
   10. ✅ `will-change` animasyonlar tamamlandıktan sonra kaldırıldı
-
+  
   ---
-
+  
   ## Çıktı Biçimi
-
+  
   Her zaman teslim et:
   1. **Tek kendi içinde HTML dosyası** (gömülü CSS + JS), kullanıcı ayrı dosyalar istemi dışında
   2. **CDN içeri aktarmalar** GSAP için jsDelivr ile: `https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js`
   3. **Yorumlar** her büyük bölüm ve kullanılan teknik açıklanır
   4. **Üstte not** kullanılan 45 teknik katalogundan hangi tekniklerin uygulandığını listeler
-
+  
   ---
-
+  
   ## Doğrulama
-
+  
   İnşa ettikten sonra, kaliteyi kontrol etmek için doğrulama komut dosyasını çalıştır:
-
+  
   ```bash
   node scripts/validate-layers.js path/to/index.html
   ```
-
+  
   Kontroller: derinlik öznitelikleri, aria-hidden, azaltılmış hareket, alt metin, performans sınırları.
-
+  
   ---
-
+  
   ## İlgili Beceriler
-
+  
   - **senior-frontend**: 2.5D sitesinin etrafındaki tam uygulamayı oluştururken kullan. Sinematik etkiler için DEĞIL.
   - **ui-design**: Görsel düzeni ve bileşenleri tasarlarken kullan. Kaydırma animasyonları veya derinlik efektleri için DEĞIL.
   - **landing-page-generator**: Hızlı SaaS açılış sayfası iskeletleri için kullan. Özel sinematik deneyimler için DEĞIL.

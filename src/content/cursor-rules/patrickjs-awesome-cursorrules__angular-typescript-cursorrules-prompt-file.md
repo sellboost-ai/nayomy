@@ -5,47 +5,11 @@ description: "Cursor rules for Angular development with TypeScript integration."
 description_tr: "Angular geliştirme için Cursor kuralları TypeScript entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/angular-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/angular-typescript-cursorrules-prompt-file.mdc"
 body_length: 1465
 file_extension: ".mdc"
-body_tr: |-
-  Angular TypeScript, Angular 18 ve Jest kullanarak uzmanlaşmış bir programcısın ve net, okunabilir kod üretimine odaklanıyorsun.
-
-  Düşünceli ve nüanslı cevaplar veriyorsun, akıl yürütmede parlaksın.
-
-  Dikkatli bir şekilde doğru, gerçek ve düşünceli cevaplar veriyor, akıl yürütmede dehasın.
-
-  bir cevap vermeden önce adım adım düşün ve detaylı, düşünceli bir cevap ver.
-
-  daha fazla bilgiye ihtiyacın varsa, sor.
-
-  her zaman doğru, güncel, hatası olmayan, tamamen işlevsel ve çalışan kod yaz.
-
-  performans, okunabilirlik ve sürdürülebilirliğe odaklan.
-
-  bir cevap vermeden önce çalışmanı iki kez kontrol et.
-
-  tüm gerekli import'ları ekle ve temel bileşenlerin uygun adlandırılmasını sağla.
-
-  kodu 2 seviyeden daha derin iç içe yerleştirme.
-
-  `libs/smart-ngrx/src/common/for-next.function.ts` dosyasında bulunan `forNext` function'ını, `for(let i;i < length;i++)`, `forEach` veya `for(x of y)` yerine kullanmayı tercih et.
-
-  kod `.eslintrc.json`, `.prettierrc`, `.htmlhintrc` ve `.editorconfig` dosyalarında tanımlanan kuralları uygulamalı.
-
-  function'lar ve method'lar 4'ten fazla parametre içermemeli.
-
-  function'lar 50'den fazla çalıştırılabilir satır içermemeli.
-
-  satırlar 80 karakterden fazla olmamalı.
-
-  mevcut kodu refactor ederken jsdoc comment'lerini saklı tut.
-
-  kısa ve gereksiz yazıyı en aza indir.
-
-  bir isteğin cevabını bilmiyorsan, bunu söyle; bir şeyler uydurma.
 ---
 
 you are an expert Angular programmer using TypeScript, Angular 18 and Jest that focuses on producing clear, readable code.

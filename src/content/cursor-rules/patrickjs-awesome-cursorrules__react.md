@@ -5,85 +5,11 @@ description: "React best practices and patterns for modern web applications"
 description_tr: "React uygulamalarında en iyi pratikler ve modern web geliştirme desenleri"
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/react.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react.mdc"
 body_length: 2324
 file_extension: ".mdc"
-body_tr: |-
-  # React En İyi Uygulamaları
-
-  ## Component Yapısı
-  - Functional componentları class componentlara tercih et
-  - Componentları küçük ve odaklanmış tut
-  - Yeniden kullanılabilir lojiği custom hookslara çıkar
-  - Composition'ı inheritance'a tercih et
-  - TypeScript ile uygun prop types uygula
-  - Büyük componentları daha küçük, odaklanmış olanlar içine böl
-
-  ## Hooks
-  - Hooks Kurallarına uy
-  - Yeniden kullanılabilir logic için custom hooks kullan
-  - Hookları odaklanmış ve basit tut
-  - useEffect'te uygun dependency array'leri kullan
-  - Gerekli olduğunda useEffect'te cleanup uygula
-  - Nested hooklardan kaçın
-
-  ## State Management
-  - Local component state için useState kullan
-  - Karmaşık state lojiği için useReducer uygula
-  - Shared state için Context API kullan
-  - State'i kullanıldığı yere yakın tut
-  - Uygun state management ile prop drilling'den kaçın
-  - State management kütüphanelerini sadece gerekli olduğunda kullan
-
-  ## Performance
-  - Uygun memoization uygula (useMemo, useCallback)
-  - Pahalı componentler için React.memo kullan
-  - Gereksiz re-render'lardan kaçın
-  - Uygun lazy loading uygula
-  - Listelerde uygun key props'ları kullan
-  - Render performance'ı profile et ve optimize et
-
-  ## Formlar
-  - Form inputları için controlled components kullan
-  - Uygun form validasyonu uygula
-  - Form submission state'lerini uygun şekilde yönet
-  - Uygun loading ve error state'lerini göster
-  - Karmaşık formlar için form kütüphanelerini kullan
-  - Formlar için uygun accessibility uygula
-
-  ## Error Handling
-  - Error Boundaries uygula
-  - Async hataları uygun şekilde yönet
-  - Kullanıcı dostu error mesajları göster
-  - Uygun fallback UI uygula
-  - Hataları uygun şekilde logla
-  - Edge case'leri zarif bir şekilde yönet
-
-  ## Testing
-  - Componentler için unit test yaz
-  - Karmaşık flow'lar için integration testlerini uygula
-  - React Testing Library kullan
-  - Kullanıcı interaksiyonlarını test et
-  - Error senaryolarını test et
-  - Uygun mock data uygula
-
-  ## Accessibility
-  - Semantic HTML elementleri kullan
-  - Uygun ARIA attribute'larını uygula
-  - Keyboard navigasyonunu sağla
-  - Screen reader'larla test et
-  - Focus yönetimini yönet
-  - Resimler için uygun alt text sağla
-
-  ## Code Organization
-  - İlgili componentları bir arada grupla
-  - Uygun file naming convention'larını kullan
-  - Uygun directory structure'ı uygula
-  - Style'ları componentlere yakın tut
-  - Uygun import/export'ları kullan
-  - Karmaşık component lojiğini dokumente et
 ---
 
 # React Best Practices

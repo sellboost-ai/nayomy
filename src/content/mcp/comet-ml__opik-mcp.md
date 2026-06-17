@@ -4,7 +4,7 @@ description: "Use natural language to explore LLM observability, traces, and mon
 description_tr: "Opik tarafından yakalanan LLM gözlemlenebilirliği, trace'leri ve monitoring verilerini doğal dil ile keşfedin."
 category: "Developer Tools"
 repo: "comet-ml/opik-mcp"
-stars: 209
+stars: 210
 url: "https://github.com/comet-ml/opik-mcp"
 body_length: 18271
 license: "Apache-2.0"

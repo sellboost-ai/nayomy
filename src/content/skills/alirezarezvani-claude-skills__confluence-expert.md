@@ -4,7 +4,7 @@ description_en: "Atlassian Confluence expert for creating and managing spaces, k
 description_tr: "Atlassian Confluence uzmanı, alanlar, bilgi tabanları ve dokümantasyon oluşturmak ve yönetmek için. Alan izinleri ve hiyerarşileri yapılandırır, makrolarla sayfa şablonları oluşturur, dokümantasyon taksonomi kurar, sayfa düzenlerini tasarlar ve içerik yönetişimini yönetir. Kullanıcıların bir Confluence alanı oluşturması veya yeniden yapılandırması, izin yapılarıyla sayfa hiyerarşileri tasarlaması ya da içerik yazması gerektiğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/confluence-expert/SKILL.md"
 path: ".gemini/skills/confluence-expert/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Atlassian Confluence Uzmanı
-
+  
   Confluence alan yönetimi, dokümantasyon mimarisi, içerik oluşturma, macrolar, şablonlar ve işbirlikçi bilgi yönetiminde uzmanlık.
-
+  
   ## Atlassian MCP Entegrasyonu
-
+  
   **Birincil Tool**: Atlassian Remote MCP sunucusu (paketlenmiş `.mcp.json`, sunucu anahtarı `atlassian`). Toollar camelCase biçimindedir ve `mcp__atlassian__<toolName>` olarak görünür. **Kanonik tool listesi**: `project-management/references/atlassian-mcp-tools.md`. Tool adlarını uydurma — bir yetenek bu listede yoksa MCP üzerinden kullanılamaz.
-
+  
   **Ana İşlemler** (`cloudId`'yi bir kez `mcp__atlassian__getAccessibleAtlassianResources` ile elde edin):
-
+  
   ```
   // Alanları listele (alan OLUŞTURMA MCP üzerinden mevcut değil — aşağıyı gör)
   mcp__atlassian__getConfluenceSpaces (cloudId)
-
+  
   // Bir üst sayfa altında sayfa oluştur — body depolama formatı XHTML veya ADF olmalı, asla wiki işareti değil
   mcp__atlassian__createConfluencePage (cloudId, space, title="Sprint 42 Notları", parent page id, body="<p>Depolama formatı XHTML'de toplantı notları</p>")
-
+  
   // Mevcut sayfayı güncelle (getConfluencePage ile mevcut sürümü al, ardından sürüm + 1'i ver)
   mcp__atlassian__updateConfluencePage (cloudId, pageId="789012", version=5, body="<p>Güncellenen içerik</p>")
-
+  
   // Sayfa oku (body + mevcut sürüm)
   mcp__atlassian__getConfluencePage (cloudId, pageId="789012")
-
+  
   // CQL ile ara
   mcp__atlassian__searchConfluenceUsingCql (cloudId, cql='space = "TEAM" AND label = "meeting-notes" ORDER BY lastModified DESC')
-
+  
   // Hiyerarşi incelemesi için alt sayfaları al
   mcp__atlassian__getConfluencePageDescendants (cloudId, pageId="123456")
-
+  
   // Yorumlar
   mcp__atlassian__getConfluencePageFooterComments / mcp__atlassian__createConfluenceFooterComment (cloudId, pageId)
   ```
-
+  
   **MCP üzerinden kullanılamaz — bunun yerine web UI veya REST API kullanın:**
   - Bir **alan** oluştur/sil → Confluence UI `Alanlar > Alan oluştur` veya `POST /wiki/api/v2/spaces`
   - Sayfayı **sil** → Confluence UI veya `DELETE /wiki/api/v2/pages/{id}`
   - **Etiketler** uygula → Confluence UI veya `/wiki/rest/api/content/{id}/label`
   - Alan **izinleri**, şablonlar/şemalar birinci sınıf nesneler olarak → Confluence alan ayarları UI
-
+  
   **Entegrasyon Noktaları**:
   - Senior PM projeleri için dokümantasyon oluştur
   - Scrum Master'ı seremoni şablonlarıyla destekle
   - Jira Expert için Jira sorunlarına bağlantı ver
   - Template Creator için şablonlar sağla
-
+  
   > **Ayrıca bkz**: `references/macro-cheat-sheet.md` depolama formatı macro sözdizimi için, `references/templates.md` şablon kütüphanesi için, `references/space-architecture-patterns.md` alan yapısı ve izin desenleri için.
-
+  
   ## İş Akışları
-
+  
   ### Alan Oluşturma
-
+  
   > Alan oluşturma **MCP üzerinden mevcut değil** — alanı Confluence UI'de (`Alanlar > Alan oluştur`) veya REST (`POST /wiki/api/v2/spaces`) üzerinden oluşturun. İçindeki sayfa ağacı MCP (`mcp__atlassian__createConfluencePage`) üzerinden BİLİNEBİLİR.
-
+  
   0. Takım açıklamasından önerilen hiyerarşi oluşturun:
      ```bash
      python3 scripts/space_structure_generator.py team_info.json --format json
@@ -82,14 +82,14 @@ body_tr: |-
   6. Navigasyon için alan kısayolları ekle
   7. **Doğrula**: Alan URL'sine git ve ana sayfanın yüklendiğini doğrula; yönetici olmayan test kullanıcısının doğru izin seviyesini gördüğünü kontrol et
   8. **TESLİM ET**: Takımlar içerik doldurulması için
-
+  
   ### Sayfa Mimarisi
   **En İyi Uygulamalar**:
   - Sayfa hiyerarşisini kullan (üst-alt ilişkileri)
   - Navigasyon için en fazla 3 seviye derinlik
   - Tutarlı adlandırma kuralları
   - Toplantı notlarını tarih damgası ile işaretle
-
+  
   **Önerilen Yapı**:
   ```
   Alan Ana Sayfası
@@ -108,7 +108,7 @@ body_tr: |-
   ├── Toplantı Notları (Arşiv)
   └── Kaynaklar & Referanslar
   ```
-
+  
   ### Şablon Oluşturma
   1. Tekrarlanabilir içerik deseni tanımla
   2. Yapı ve yer tutucu ile sayfa oluştur
@@ -118,7 +118,7 @@ body_tr: |-
   6. Alan ile paylaş veya genel yap
   7. **Doğrula**: Şablondan bir test sayfası oluştur ve ekibin yanında paylaşmadan önce tüm yer tutucularin doğru şekilde render edildiğini doğrula
   8. **KULLAN**: Gelişmiş şablon desenleri için referanslar
-
+  
   ### Dokümantasyon Stratejisi
   1. **Değerlendir** mevcut dokümantasyon durumu
   2. **Tanımla** dokümantasyon hedefleri ve kitlesi
@@ -128,33 +128,33 @@ body_tr: |-
   6. **Eğit** takımları en iyi uygulamalarda
   7. **İzle** kullanım ve benimseme
   8. **RAPORTLa**: Senior PM'e dokümantasyon sağlığı hakkında
-
+  
   ### Bilgi Tabanı Yönetimi
-
+  
   **Herhangi bir yeniden yapı veya yönetim incelemesinden önce bir içerik sağlığı denetimi çalıştır:**
   ```bash
   python3 scripts/content_audit_analyzer.py pages.json --format json
   ```
   Giriş: bir JSON sayfa envanteri (`title`, `last_modified`, `view_count`, `author`, `labels`, `word_count`) — `mcp__atlassian__getPagesInConfluenceSpace` / `mcp__atlassian__searchConfluenceUsingCql` üzerinden sayfa meta verilerini dışa aktararak oluştur. Çıktıyı kullanın: eski/yetim/düşük katılım bulguları arşiv listesi (etiket + UI üzerinden taşı, çünkü etiket araçları MCP'de değil) ve kalite standartları için güncelleme kaydı olur.
-
+  
   **Makale Türleri**:
   - How-to kılavuzları
   - Sorun giderme dokümanları
   - SSS
   - Referans dokümantasyonu
   - İşlem dokümantasyonu
-
+  
   **Kalite Standartları**:
   - Açık başlık ve açıklama
   - Başlıklarla yapılandırılmış
   - Görünür güncellenme tarihi
   - Sahibi tanımlanmış
   - Üç aylık inceleme
-
+  
   ## Temel Macrolar
-
+  
   > **Sözdizimi notu**: Aşağıdaki `{macro}` kısaltması **eski wiki-işareti gösterimi**, yalnızca okunabilirlik için gösterilen. MCP (`createConfluencePage` / `updateConfluencePage`) üzerinden oluşturulan Confluence Cloud sayfaları **depolama formatı (XHTML)** gerektirir — örn. `{info}` aslında `<ac:structured-macro ac:name="info"><ac:rich-text-body>...</ac:rich-text-body></ac:structured-macro>`. Burada listelenen her macro'nun depolama formatı sözdizimi için `references/macro-cheat-sheet.md` bkz; hazır depolama formatı sayfa gövdeleri için atlassian-templates iskelesi çalıştır (`python3 ../atlassian-templates/scripts/template_scaffolder.py meeting-notes`).
-
+  
   ### İçerik Macrolar
   **Info, Note, Warning, Tip**:
   ```
@@ -162,55 +162,55 @@ body_tr: |-
   Önemli bilgiler burada
   {info}
   ```
-
+  
   **Genişlet**:
   ```
   {expand:title=Genişletmek için tıkla}
   Gizli içerik burada
   {expand}
   ```
-
+  
   **İçindekiler**:
   ```
   {toc:maxLevel=3}
   ```
-
+  
   **Özet & Özet Dahil**:
   ```
   {excerpt}
   Yeniden kullanılabilir içerik
   {excerpt}
-
+  
   {excerpt-include:Sayfa Adı}
   ```
-
+  
   ### Dinamik İçerik
   **Jira Sorunları**:
   ```
   {jira:JQL=project = PROJ AND status = "In Progress"}
   ```
-
+  
   **Jira Grafiği**:
   ```
   {jirachart:type=pie|jql=project = PROJ|statType=statuses}
   ```
-
+  
   **Son Güncellenenler**:
   ```
   {recently-updated:spaces=@all|max=10}
   ```
-
+  
   **Etiketli İçerik**:
   ```
   {contentbylabel:label=meeting-notes|maxResults=20}
   ```
-
+  
   ### İşbirliği Macrolar
   **Durum**:
   ```
   {status:colour=Green|title=Approved}
   ```
-
+  
   **Görev Listesi**:
   ```
   {tasks}
@@ -218,19 +218,19 @@ body_tr: |-
   - [x] Görev 2 tamamlandı
   {tasks}
   ```
-
+  
   **Kullanıcı Ataması**:
   ```
   @username
   ```
-
+  
   **Tarih**:
   ```
   {date:format=dd MMM yyyy}
   ```
-
+  
   ## Sayfa Düzenleri & Biçimlendirme
-
+  
   **İki Sütunlu Düzen**:
   ```
   {section}
@@ -242,65 +242,65 @@ body_tr: |-
   {column}
   {section}
   ```
-
+  
   **Panel**:
   ```
   {panel:title=Panel Başlığı|borderColor=#ccc}
   Panel içeriği
   {panel}
   ```
-
+  
   **Kod Bloğu**:
   ```
   {code:javascript}
   const example = "kod burada";
   {code}
   ```
-
+  
   ## Şablonlar Kütüphanesi
-
+  
   > Tam işaretleme ile tam şablon kütüphanesi: bkz `references/templates.md`. Aşağıda özetlenen temel şablonlar.
-
+  
   | Şablon | Amaç | Ana Bölümler |
   |--------|------|--------------|
   | **Toplantı Notları** | Sprint/takım toplantıları | Gündem, Tartışma, Kararlar, İşlem Öğeleri (tasks macro) |
   | **Proje Genel Bakışı** | Proje başlangıcı & durumu | Hızlı Bilgiler paneli, Amaçlar, Paydaşlar tablosu, Dönüm Noktaları (Jira macro), Riskler |
   | **Karar Günlüğü** | Mimari/stratejik kararlar | Bağlam, Düşünülen Seçenekler, Karar, Sonuçlar, Sonraki Adımlar |
   | **Sprint Geriye Bakış** | Agile seremoni dokümanları | İyi Giden (info), İyi Gitmeyen (warning), İşlem Öğeleri (tasks), Ölçümler |
-
+  
   ## Alan İzinleri
-
+  
   > Alan türüne göre izin desenleri: bkz `references/space-architecture-patterns.md`. Not: alan izinleri Confluence UI'de (`Alan ayarları > İzinler`) yapılandırılır — MCP üzerinden değil.
-
+  
   ### İzin Şemaları
   **Ortak Alan**:
   - Tüm kullanıcılar: Görüntüle
   - Takım üyeleri: Düzenle, Oluştur
   - Alan yöneticileri: Yöneticisi
-
+  
   **Takım Alanı**:
   - Takım üyeleri: Görüntüle, Düzenle, Oluştur
   - Takım liderleri: Yöneticisi
   - Diğerleri: Erişim yok
-
+  
   **Proje Alanı**:
   - Paydaşlar: Görüntüle
   - Proje takımı: Düzenle, Oluştur
   - PM: Yöneticisi
-
+  
   ## İçerik Yönetişimi
-
+  
   **İnceleme Döngüleri**:
   - Kritik dokümanlar: Aylık
   - Standart dokümanlar: Üç aylık
   - Arşiv dokümanları: Yıllık
-
+  
   **Arşivleme Stratejisi**:
   - Eski içeriği Arşiv alanına taşı
   - "archived" ve tarihe sahip etiketle
   - 2 yıl boyunca koru, ardından sil
   - Denetim izi koru
-
+  
   **İçerik Kalite Kontrol Listesi**:
   - [ ] Açık, tanımlayıcı başlık
   - [ ] Sahibi/yazar tanımlanmış
@@ -309,100 +309,100 @@ body_tr: |-
   - [ ] Bağlantılar işlevsel
   - [ ] Biçimlendirme tutarlı
   - [ ] Hassas veri açığa çıkmamış
-
+  
   ## Karar Çerçevesi
-
+  
   **Atlassian Yöneticisine Ne Zaman Yükselt:**
   - Kuruluş çapında şablon gerekli
   - Alanlar arası izinler gerekli
   - Şema yapılandırması
   - Genel otomasyon kuralları
   - Alan dışa aktar/içe aktar
-
+  
   **Jira Expert ile İşbirliği Ne Zaman:**
   - Jira sorgularını ve grafiklerini göm
   - Sayfaları Jira sorunlarına bağla
   - Jira tabanlı raporlar oluştur
   - Dokümantasyonu biletlerle eşitle
-
+  
   **Scrum Master'ı Ne Zaman Destekle:**
   - Sprint dokümantasyon şablonları
   - Geriye bakış sayfaları
   - Takım çalışma anlaşmaları
   - İşlem dokümantasyonu
-
+  
   **Senior PM'i Ne Zaman Destekle:**
   - Yönetici raporu sayfaları
   - Portfolio dokümantasyonu
   - Paydaş iletişimi
   - Stratejik planlama dokümanları
-
+  
   ## Teslim Protokolleri
-
+  
   **Senior PM'den**:
   - Dokümantasyon gereksinimleri
   - Alan yapı ihtiyaçları
   - Şablon gereksinimleri
   - Bilgi yönetimi stratejisi
-
+  
   **Senior PM'e**:
   - Dokümantasyon kapsama raporları
   - İçerik kullanım analitikleri
   - Tanımlanmış bilgi boşlukları
   - Şablon benimseme ölçümleri
-
+  
   **Scrum Master'dan**:
   - Sprint seremoni şablonları
   - Takım dokümantasyon ihtiyaçları
   - Toplantı notları yapısı
   - Geriye bakış formatı
-
+  
   **Scrum Master'e**:
   - Yapılandırılmış şablonlar
   - Takım dokümanları için alan
   - En iyi uygulamalar hakkında eğitim
   - Dokümantasyon yönergeleri
-
+  
   **Jira Expert ile**:
   - Jira-Confluence bağlantısı
   - Gömülü Jira raporları
   - Sorun-sayfa bağlantıları
   - Araçlar arası iş akışı
-
+  
   ## En İyi Uygulamalar
-
+  
   **Organizasyon**:
   - Tutarlı adlandırma kuralları
   - Anlamlı etiketler
   - Mantıksal sayfa hiyerarşisi
   - İlgili sayfalar bağlantılı
   - Net navigasyon
-
+  
   **Bakım**:
   - Düzenli içerik denetimleri
   - Tekrarı kaldır
   - Eski bilgileri güncelle
   - Eski içeriği arşivle
   - Sayfa analitiklerini izle
-
+  
   ## Analitikler & Ölçümler
-
+  
   **Kullanım Ölçümleri**:
   - Alan başına sayfa görüntüleri
   - En çok ziyaret edilen sayfalar
   - Arama sorgular
   - Katkıda bulunan aktivitesi
   - Yetim sayfalar
-
+  
   **Sağlık Göstergeleri**:
   - Son güncellemeleri olmayan sayfalar
   - Sahibi olmayan sayfalar
   - Yinelenen içerik
   - Bozuk bağlantılar
   - Boş alanlar
-
+  
   ## İlgili Beceriler
-
+  
   - **Jira Expert** (`project-management/jira-expert/`) — Jira sorun macrolar ve bağlantısı Confluence dokümanlarını tamamlar
   - **Atlassian Şablonları** (`project-management/atlassian-templates/`) — Confluence içerik oluşturması için şablon desenleri
 ---

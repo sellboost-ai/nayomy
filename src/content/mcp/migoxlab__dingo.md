@@ -4,7 +4,7 @@ description: "MCP server for the Dingo: a comprehensive data quality evaluation 
 description_tr: "Dingo için MCP sunucusu: kapsamlı veri kalitesi değerlendirme aracı. Sunucu, Dingo'nun kural tabanlı ve LLM tabanlı değerlendirme yetenekleri ile kurallar ve promptlar listesine erişimi sağlar."
 category: "Data Science Tools"
 repo: "MigoXLab/dingo"
-stars: 713
+stars: 715
 url: "https://github.com/MigoXLab/dingo"
 body_length: 25071
 license: "Apache-2.0"

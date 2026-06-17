@@ -4,7 +4,7 @@ description_en: "Automate Botsonic tasks via Rube MCP (Composio). Always search 
 description_tr: "Rube MCP (Composio) aracılığıyla Botsonic görevlerini otomatikleştirin. İşlemi başlatmadan önce her zaman tools'da güncel schemaları kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/botsonic-automation/SKILL.md"
 path: "composio-skills/botsonic-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Botsonic Otomasyonu via Rube MCP
-
+  
   Composio'nun Botsonic toolkit'i aracılığıyla Rube MCP ile Botsonic operasyonlarını otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/botsonic](https://composio.dev/toolkits/botsonic)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS mevcut)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Botsonic bağlantısı ve `botsonic` toolkit'i
   - Daima güncel tool schema'larını almak için önce `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Alın**: MCP sunucunuz olarak `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin mevcut olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS` çağırın ve toolkit parametresi olarak `botsonic` kullanın
   3. Bağlantı ACTIVE değilse, dönen auth linkini takip ederek kurulumu tamamlayın
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Keşfi
-
+  
   Workflow'ları çalıştırmadan önce daima mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Botsonic operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input schema'larını, önerilen execution plan'larını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Botsonic task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["botsonic"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Daima önce arayın**: Tool schema'ları değişir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'ları veya argument'ları asla hardcode etmeyin
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS` durumunun ACTIVE olduğunu doğrulayın
   - **Schema uygunluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında daima `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yeni olanlar oluşturun
   - **Pagination**: Yanıtlarda pagination token'larını kontrol edin ve tamamlanana kadar devam ettirin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-----------|----------|
   | Tool bul | `RUBE_SEARCH_TOOLS` ile Botsonic'e özel use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Toplu işlem | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam schema | `RUBE_GET_TOOL_SCHEMAS` ile `schemaRef` parametresi |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

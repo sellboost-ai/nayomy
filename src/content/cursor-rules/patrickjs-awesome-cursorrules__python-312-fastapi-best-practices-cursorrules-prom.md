@@ -5,40 +5,11 @@ description: "Cursor rules for Python FastAPI development with best practices."
 description_tr: "Python FastAPI geliştirme için cursor rules'ları en iyi uygulamalarla birlikte."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/python-312-fastapi-best-practices-cursorrules-prom.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-312-fastapi-best-practices-cursorrules-prom.mdc"
 body_length: 1579
 file_extension: ".mdc"
-body_tr: |-
-  İşte uymanız gereken en iyi uygulamalar ve kurallar:
-
-  - Python 3.12 kullanıyorsunuz
-  - Frameworks:
-    - pydantic
-    - fastapi
-    - sqlalchemy
-  - Bağımlılık yönetimi için poetry kullanıyorsunuz
-  - Veritabanı migrations için alembic kullanıyorsunuz
-  - Kullanıcı yönetimi için fastapi-users kullanıyorsunuz
-  - Authentication için fastapi-jwt-auth kullanıyorsunuz
-  - E-posta gönderimi için fastapi-mail kullanıyorsunuz
-  - Caching için fastapi-cache kullanıyorsunuz
-  - Rate limiting için fastapi-limiter kullanıyorsunuz
-  - Pagination için fastapi-pagination kullanıyorsunuz
-
-  1. **Anlamlı İsimler Kullanın**: Değişken, fonksiyon ve sınıf isimleri için açıklayıcı isimler seçin.
-  2. **PEP 8'i Takip Edin**: Biçimlendirme için Python Enhancement Proposal 8 stil rehberine uyun.
-  3. **Docstring Kullanın**: Fonksiyon ve sınıfların amacını açıklamak için docstring'lerle dokümante edin.
-  4. **Basit Tutun**: Basit ve açık kod yazın; gereksiz karmaşıklıktan kaçının.
-  5. **List Comprehension Kullanın**: Geleneksel döngüler yerine uygun durumlarda listeler oluşturmak için list comprehension'ı tercih edin.
-  6. **Exception'ları Ele Alın**: Exception'ları zarif bir şekilde işlemek için try-except bloklarını kullanın.
-  7. **Virtual Environment Kullanın**: Proje bağımlılıklarını sanal ortamlar kullanarak izole edin (örn. `venv`).
-  8. **Test Yazın**: Kod güvenilirliğini sağlamak için unit testler uygulayın.
-  9. **Type Hints Kullanın**: Daha iyi kod açıklığı ve tür kontrolü için type hints'i kullanın.
-  10. **Global Değişkenlerden Kaçının**: Yan etkileri azaltmak için global değişken kullanımını sınırlayın.
-
-  Bu kurallar, temiz, verimli ve bakımlanabilir Python kodu yazmanıza yardımcı olacaktır.
 ---
 
 Here are some best practices and rules you must follow:

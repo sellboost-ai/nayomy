@@ -4,7 +4,7 @@ description_en: "Braintree Automation: manage payment processing via Stripe-comp
 description_tr: "Braintree Automation: Stripe ile uyumlu araçlar kullanarak müşteriler, abonelikler, ödeme yöntemleri ve işlemler için ödeme işlemlerini yönetin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/braintree-automation/SKILL.md"
 path: "composio-skills/braintree-automation/SKILL.md"
 is_collection: false
@@ -15,41 +15,41 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Braintree Otomasyonu
-
+  
   Stripe uyumlu araçlar aracılığıyla ödeme işleme operasyonlarını otomatikleştirin; müşteri yönetimi, abonelikler, ödeme yöntemleri, bakiye işlemleri ve müşteri aramaları dahil. Composio platformu Braintree ödeme iş akışlarını birleşik ödeme yönetimi için Stripe araç seti aracılığıyla yönlendirir.
-
+  
   **Araç seti dokümantasyonu:** [composio.dev/toolkits/braintree](https://composio.dev/toolkits/braintree)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   Bu beceri, `https://rube.app/mcp` adresinde bağlı **Rube MCP sunucusu** gerektirir.
-
+  
   Herhangi bir aracı çalıştırmadan önce, `stripe` araç seti için aktif bir bağlantının var olduğundan emin olun. Aktif bağlantı yoksa, `RUBE_MANAGE_CONNECTIONS` aracılığıyla bir tane başlatın.
-
+  
   ---
-
+  
   ## Temel İş Akışları
-
+  
   ### 1. Müşteri Oluşturma ve Yönetimi
-
+  
   Yeni müşteriler oluşturun ve mevcut müşteri ayrıntılarını alın.
-
+  
   **Araçlar:**
   - `STRIPE_CREATE_CUSTOMER` -- Yeni müşteri oluştur
   - `STRIPE_GET_CUSTOMERS_CUSTOMER` -- Müşteri ID'sine göre al
   - `STRIPE_POST_CUSTOMERS_CUSTOMER` -- Mevcut müşteriyi güncelle
   - `STRIPE_LIST_CUSTOMERS` -- Müşterileri pagination ile listele
   - `STRIPE_GET_V1_CUSTOMERS_SEARCH_CUSTOMERS` -- Müşterileri email, ad, metadata'ya göre ara
-
+  
   **`STRIPE_CREATE_CUSTOMER` için Anahtar Parametreler:**
   - `email` -- Müşterinin birincil email adresi
   - `name` -- Ad/soyadı veya işletme adı
   - `phone` -- Ülke kodu ile telefon numarası
   - `description` -- İç referans notları
   - `address` -- `line1`, `city`, `state`, `postal_code`, `country` içeren faturalandırma adresi nesnesi
-
+  
   **`STRIPE_GET_V1_CUSTOMERS_SEARCH_CUSTOMERS` için Anahtar Parametreler:**
   - `query` (gerekli) -- Stripe Search Query Language. `field:value` söz dizimini kullanmalıdır:
     - `email:'user@example.com'` -- Tam eşleşme (büyük/küçük harfe duyarsız)
@@ -58,7 +58,7 @@ body_tr: |-
     - `created>1609459200` -- Timestamp karşılaştırması
     - `AND` veya `OR` ile birleştir (max 10 madde, karıştıramazsınız)
   - `limit` -- Sayfa başına sonuç (1--100, varsayılan 10)
-
+  
   **Örnek:**
   ```
   Tool: STRIPE_CREATE_CUSTOMER
@@ -74,18 +74,18 @@ body_tr: |-
       "country": "US"
     }
   ```
-
+  
   ---
-
+  
   ### 2. Abonelikleri Yönetme
-
+  
   Abonelikler oluşturun ve müşteri abonelik ayrıntılarını görüntüleyin.
-
+  
   **Araçlar:**
   - `STRIPE_CREATE_SUBSCRIPTION` -- Mevcut müşteri için yeni abonelik oluştur
   - `STRIPE_GET_CUSTOMERS_CUSTOMER_SUBSCRIPTIONS` -- Müşteri için tüm abonelikleri listele
   - `STRIPE_GET_CUSTOMERS_CUSTOMER_SUBS_SUB_EXPOSED_ID` -- Belirli bir aboneliği al
-
+  
   **`STRIPE_CREATE_SUBSCRIPTION` için Anahtar Parametreler:**
   - `customer` (gerekli) -- Müşteri ID'si, örn. `"cus_xxxxxxxxxxxxxx"`
   - `items` (gerekli) -- Abonelik öğeleri dizisi, her biri şunları içerir:
@@ -96,12 +96,12 @@ body_tr: |-
   - `trial_period_days` -- Deneme günleri (deneme süresi boyunca ödeme yapılmaz)
   - `collection_method` -- `"charge_automatically"` (varsayılan) veya `"send_invoice"`
   - `cancel_at_period_end` -- Faturalandırma döneminin sonunda iptal et (boolean)
-
+  
   **`STRIPE_GET_CUSTOMERS_CUSTOMER_SUBSCRIPTIONS` için Anahtar Parametreler:**
   - `customer` (gerekli) -- Müşteri ID'si
   - `status` -- Filtrele: `"active"`, `"all"`, `"canceled"`, `"trialing"`, `"past_due"`, vb.
   - `limit` -- Sayfa başına sonuç (1--100, varsayılan 10)
-
+  
   **Örnek:**
   ```
   Tool: STRIPE_CREATE_SUBSCRIPTION
@@ -110,22 +110,22 @@ body_tr: |-
     items: [{"price": "price_xyz789", "quantity": 1}]
     trial_period_days: 14
   ```
-
+  
   ---
-
+  
   ### 3. Ödeme Yöntemlerini Yönetme
-
+  
   Ödeme yöntemlerini listeleyin ve müşterilere ekleyin.
-
+  
   **Araçlar:**
   - `STRIPE_GET_CUSTOMERS_CUSTOMER_PAYMENT_METHODS` -- Müşterinin ödeme yöntemlerini listele
   - `STRIPE_ATTACH_PAYMENT_METHOD` -- Ödeme yöntemini müşteriye ekle
-
+  
   **`STRIPE_GET_CUSTOMERS_CUSTOMER_PAYMENT_METHODS` için Anahtar Parametreler:**
   - `customer` (gerekli) -- Müşteri ID'si
   - `type` -- Türe göre filtrele: `"card"`, `"sepa_debit"`, `"us_bank_account"`, vb.
   - `limit` -- Sayfa başına sonuç (1--100, varsayılan 10)
-
+  
   **Örnek:**
   ```
   Tool: STRIPE_GET_CUSTOMERS_CUSTOMER_PAYMENT_METHODS
@@ -134,22 +134,22 @@ body_tr: |-
     type: "card"
     limit: 10
   ```
-
+  
   ---
-
+  
   ### 4. Bakiye İşlemlerini Görüntüleme
-
+  
   Müşteri için bakiye değişikliklerinin geçmişini alın.
-
+  
   **Araç:** `STRIPE_GET_CUSTOMERS_CUSTOMER_BALANCE_TRANSACTIONS`
-
+  
   **Anahtar Parametreler:**
   - `customer` (gerekli) -- Müşteri ID'si
   - `created` -- Oluşturma tarihine göre filtrele karşılaştırma operatörleri ile: `{"gte": 1609459200}` veya `{"gt": 1609459200, "lt": 1640995200}`
   - `invoice` -- İlgili invoice ID'ye göre filtrele
   - `limit` -- Sayfa başına sonuç (1--100)
   - `starting_after` / `ending_before` -- Pagination imleci
-
+  
   **Örnek:**
   ```
   Tool: STRIPE_GET_CUSTOMERS_CUSTOMER_BALANCE_TRANSACTIONS
@@ -158,11 +158,11 @@ body_tr: |-
     limit: 25
     created: {"gte": 1704067200}
   ```
-
+  
   ---
-
+  
   ## Bilinen Tuzaklar
-
+  
   | Tuzak | Ayrıntı |
   |-------|---------|
   | **Arama sorgusu söz dizimi** | `STRIPE_GET_V1_CUSTOMERS_SEARCH_CUSTOMERS` alan ön eki olan sorgular gerektirir (örn. `email:'x'`). Alan öneki olmayan boş dizeler geçersizdir ve hata verir. |
@@ -171,11 +171,11 @@ body_tr: |-
   | **Pagination imleci** | Sayfa numaraları değil, nesne kimlikleri ile `starting_after`/`ending_before` kullanın. Her yanıttan son/ilk nesne kimliğini ayıklayın. |
   | **Bakiye tutarları sent cinsinden** | Tüm parasal tutarlar en küçük para birimi birimindedir (örn. USD için sent). 1000 = $10,00. |
   | **Abonelik durumu varsayılanı** | `GET_CUSTOMERS_CUSTOMER_SUBSCRIPTIONS` varsayılan olarak iptal edilen abonelikleri hariç tutar. Bunları eklemek için `status: "all"` geçirin. |
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | Araç Slug | Açıklama |
   |-----------|----------|
   | `STRIPE_CREATE_CUSTOMER` | Yeni müşteri oluştur |
@@ -189,9 +189,9 @@ body_tr: |-
   | `STRIPE_GET_CUSTOMERS_CUSTOMER_PAYMENT_METHODS` | Müşteri ödeme yöntemlerini listele |
   | `STRIPE_ATTACH_PAYMENT_METHOD` | Ödeme yöntemini müşteriye ekle |
   | `STRIPE_GET_CUSTOMERS_CUSTOMER_BALANCE_TRANSACTIONS` | Müşteri bakiye işlemlerini listele |
-
+  
   ---
-
+  
   *Powered by [Composio](https://composio.dev)*
 ---
 

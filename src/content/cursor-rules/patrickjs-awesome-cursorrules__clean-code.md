@@ -5,63 +5,11 @@ description: "Guidelines for writing clean, maintainable, and human-readable cod
 description_tr: "Temiz, bakımı kolay ve anlaşılır kod yazma yönergeleri. Kod yazarken veya gözden geçirirken tutarlılık ve kaliteyi sağlamak için bu kuralları uygulayın."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/clean-code.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/clean-code.mdc"
 body_length: 1847
 file_extension: ".mdc"
-body_tr: |-
-  # Temiz Kod Rehberi
-
-  ## Sabit Değerler Yerine Magic Numbers
-  - Hardcoded değerleri adlandırılmış sabitlerle değiştirin
-  - Değerin amacını açıklayan açıklayıcı sabit isimleri kullanın
-  - Sabitleri dosyanın üstünde veya ayrılmış bir sabit dosyasında tutun
-
-  ## Anlamlı İsimler
-  - Değişkenler, fonksiyonlar ve sınıflar amacını ortaya koymak zorundadır
-  - İsimler bir şeyin neden var olduğunu ve nasıl kullanıldığını açıklamalıdır
-  - Evrensel olarak anlaşılmadıkça kısaltmalardan kaçının
-
-  ## Akıllı Açıklamalar
-  - Kodun ne yaptığını açıklamayın - kodu kendini belgeleyen yapın
-  - Bir şeyin neden belirli bir şekilde yapıldığını açıklamak için açıklamalar kullanın
-  - API'ları, karmaşık algoritmaları ve açık olmayan yan etkileri belgeleyin
-
-  ## Tek Sorumluluk
-  - Her fonksiyon tam olarak bir şey yapmalıdır
-  - Fonksiyonlar küçük ve odaklanmış olmalıdır
-  - Bir fonksiyonun ne yaptığını açıklamak için yorum gerekiyorsa, bölünmelidir
-
-  ## DRY (Kendini Tekrar Etme)
-  - Tekrarlanan kodu yeniden kullanılabilir fonksiyonlara ayıklayın
-  - Uygun soyutlama ile ortak mantığı paylaşın
-  - Tek bir doğruluk kaynağını koruyu
-
-  ## Temiz Yapı
-  - İlgili kodu bir arada tutun
-  - Kodu mantıklı bir hiyerarşide organize edin
-  - Tutarlı dosya ve klasör adlandırma kuralları kullanın
-
-  ## Kapsülleme
-  - İmplementasyon detaylarını gizleyin
-  - Net arayüzler ortaya koymak
-  - İç içe koşulları iyi adlandırılmış fonksiyonlara taşıyın
-
-  ## Kod Kalitesi Bakımı
-  - Sürekli refaktör yapın
-  - Teknik borcu erken giderin
-  - Kodu bulduğunuzdan daha temiz bırakın
-
-  ## Test
-  - Bug'ı düzeltmeden önce test yazın
-  - Testleri okunabilir ve bakımı yapılabilir tutun
-  - Edge case'leri ve hata koşullarını test edin
-
-  ## Versiyon Kontrol
-  - Net commit mesajları yazın
-  - Küçük, odaklanmış commit'ler yapın
-  - Anlamlı branch isimleri kullanın
 ---
 
 # Clean Code Guidelines

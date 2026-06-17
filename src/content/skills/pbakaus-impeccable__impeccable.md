@@ -4,7 +4,7 @@ description_en: "Use when the user wants to design, redesign, shape, critique, a
 description_tr: "Frontend arayüzünü tasarlamak, yeniden tasarlamak, şekillendirmek, gözden geçirmek, denetlemek, iyileştirmek, açıklığa kavuşturmak, optimize etmek, uyarlamak, animasyon eklemek, renklendirmek, çıkarmak veya başka şekillerde geliştirmek istediğinizde kullanın. Web siteleri, landing page'ler, dashboard'lar, ürün UI'ları, app shell'ler, component'ler, formlar, ayarlar, onboarding ve boş durumları kapsar. UX review, görsel hiyerarşi, information architecture, bilişsel yük ve erişilebilirlik konularını ele alır."
 category: "Design"
 repo: "pbakaus/impeccable"
-stars: 38882
+stars: 39017
 url: "https://github.com/pbakaus/impeccable/blob/HEAD/.agents/skills/impeccable/SKILL.md"
 path: ".agents/skills/impeccable/SKILL.md"
 is_collection: false
@@ -15,49 +15,49 @@ has_examples: false
 related_files: []
 body_tr: |-
   # İmparable
-
+  
   Üretim kalitesinde ön uç arayüzleri tasarlar ve yineler. Gerçek çalışan kod, bilinçli tasarım seçimleri, olağanüstü işçilik.
-
+  
   ## Kurulum
-
+  
   Devam etmeden önce bu adımları MUTLAKA yapmalısınız:
-
+  
   1. `node .agents/skills/impeccable/scripts/context.mjs` dosyasını oturumda bir kez çalıştırın. Bu konuşmada çıktısını zaten görmüşseniz, tekrar çalıştırmayın. Script, projenin PRODUCT.md'sini (ve varsa DESIGN.md'sini) markdown bloğu olarak yazdırır ya da eksik olduğunu söyler. Yazdırdığını takip edin. **Eğer `NO_PRODUCT_MD` rapor ederse, durun ve başka bir şey yapmadan önce `reference/init.md` dosyasını takip edin.** Çıktı `UPDATE_AVAILABLE` yönergesiyle biterse, bunu takip edin (kullanıcıya bir kez güncellemek hakkında sorun, sonra devam edin). Asla mevcut görevi engellemez.
   2. Kullanıcı bir alt komut çağırdıysa (`craft`, `shape`, `audit`, `polish`, ...), bundan sonra `reference/<command>.md` dosyasını MUTLAKA okuyun. İsteğe bağlı değil. Referans, komutun akışını tanımlar; onsuz kullanıcının beklediği adımları atlayacaksınız.
   3. Koddaki mevcut tasarım sistemi, kurallar ve bileşenlerle kendinizi tanıştırın. En az bir proje dosyası okuyun (CSS / tokens / theme / temsilci bir bileşen ya da sayfa). **Alt komut referansı yüklediğinizde bile gereklidir.** Tekerleği yeniden icat etmeyin; işe yarayan şeyi kullanın, UX kazandığında farklılaştırın.
   4. Eşleşen kayıt referansını okuyun. **Bu zorunludur; atlamak genel çıktı verir.** Proje pazarlama, açılış sayfası, kampanya, uzun form içerik ya da portföyse (tasarım ÜRÜNÜN kendisidir), `reference/brand.md` dosyasını okuyun. Uygulama UI, yönetim, pano ya da araç ise (tasarım ÜRÜNE hizmet eder), `reference/product.md` dosyasını okuyun. İlk eşleşmeyi seçin: (1) görev ipucu ("açılış sayfası" vs "pano"); (2) odaklanılan yüzey (çalışılan sayfa, dosya ya da rota); (3) PRODUCT.md'deki `register` alanı.
   5. **Proje yeni ise (3. adımda mevcut CSS tokens / theme / taahhüt edilmiş marka renkleri bulunamadıysa)**, `node .agents/skills/impeccable/scripts/palette.mjs` dosyasını çalıştırın ve bir marka tohum rengi ile bileşim rehberi alın. Bu, birincil marka renginiz için ankordur. Yönergelere göre geri kalan paleti (bg, surface, ink, accent, muted) buna göre oluşturun. Boyunca OKLCH kullanın. **Bu adımı yalnızca 3. adım mevcut tokens'de taahhüt edilmiş renkler bulduğunda atlayın; bu durumda kimlik koruması kazanır.**
-
+  
   ## Tasarım rehberi
-
+  
   Prototype ya da başlangıç noktası değil, göndermeye hazır, üretim kalitesinde kod üretin. Kullanıcı istemediği sürece kısayol almayın (kuşkuya düştüğünüzde sorun). Tam bir uygulama (güzel, duyarlı, hızlı, kesin, hatasız, markaya uygun) gelene kadar durmayın. Detaya dikkat etmeyi ciddiye alırsınız: hazırlanan her sayfa, bölüm ya da bileşen elinizdeki araçlar kullanılarak test edilir (tarayıcı ekran görüntüsü, bilgisayar kullanımı, vb.). GPT olağanüstü çalışmalar yapabilir. Geri tutmayın.
-
+  
   ### Genel kurallar
-
+  
   #### Renk
-
+  
   - **Kontrast doğrulayın.** Ana metin arka planına karşı ≥4.5:1 vurması gerekir; büyük metin (≥18px ya da kalın ≥14px) ≥3:1 gerektirir. Yer tutucu metin, dilimlenmiş gri varsayılan değil, aynı 4.5:1 gerektirir. En yaygın hata: tinted neredeyse beyaz arka planında soluk gri metin. Kontrast yakınsa, metin rengini mürekkep ucuna doğru itin; açık gri "elegans için" AI tasarımların okunması zor hissettirilmesinin tek en büyük nedenidir.
   - Renkli arka plan üzerinde gri metin soluk görünür. Arka planın kendi renginin daha koyu tonunu ya da metin renginin şeffaflığını kullanın.
-
+  
   #### Tipografi
-
+  
   - Gövde satır uzunluğunu 65–75ch ile sınırlayın.
   - Benzer ancak özdeş olmayan fontları eşleştirmeyin (iki geometrik sans-serif, iki insancıl sans-serif). Kontrast ekseni (serif + sans, geometrik + insancıl) üzerinde eşleştirin ya da bir aileyi birden fazla ağırlıkta kullanın.
   - Kahraman / görüntü başlığı tavanı: clamp() maks ≤ 6rem (~96px). Bunun üzerinde sayfa haykırıyor, tasarlamıyor.
   - Görüntü başlığı harf aralığı tabanı: ≥ -0.04em. Bundan daha sıkı ve harfler birbirine değer; sıkışık, "tasarlanmış" değil.
   - h1–h3 üzerinde `text-wrap: balance` kullanın eşit satır uzunlukları için; uzun düz metin üzerinde `text-wrap: pretty` kullanın yetim azaltmak için.
-
+  
   Mevcut olarak kaçırdığınız bir zor tipografik tavan:
   - Görüntü harf aralığı ≥ -0.04em. Görüntü H1 üzerindeki -0.05 ile -0.085em varsayılanınız harfleri birbirine temas ettirip sıkışık okur. -0.02 ile -0.03em sıkı grotesque görüntü için yeterlidir; -0.04em tabandır.
-
+  
   #### Düzen
-
+  
   - Ritim için aralığı değiştirin.
   - Kartlar tembel yanıttır. Onları ancak gerçekten en iyi ödünç olduğunda kullanın. İç içe kartlar her zaman yanlıştır.
   - 1D için Flexbox, 2D için Grid. `flex-wrap` daha basit olduğunda Grid'e varsayılan olarak gitmeyin.
   - Breakpoint'ler olmadan duyarlı ızgaralar için: `repeat(auto-fit, minmax(280px, 1fr))`.
   - Anlamsal z-index ölçeği oluşturun (dropdown → sticky → modal-backdrop → modal → toast → tooltip). Hiçbir zaman 999 ya da 9999 gibi keyfi değerler.
-
+  
   #### Hareket
   - Hareket kasıtlı olmalı ve bir sonradan düşünce olmamalı. Bunu yapının bir parçası olarak düşünün.
   - Gerçekten ihtiyaç olmadıkça CSS düzen özelliklerini animasyon yapmayın.
@@ -67,15 +67,15 @@ body_tr: |-
   - Bir listenin içindeki öğeleri kademeli olarak kaydırmak meşrudur. Söyletki, tek bir özdeş giriş (her bölüme uygulanan tek bir yanıt) reflek değil harekete; her ortaya çıkış ortaya çıkardığı şeye uymalı. Refleksi bastırmak hiçbir zaman boş hareket olmayan bir sayfa göndermek için sebep değil.
   - Ortaya çıkış animasyonları zaten görünen varsayılanı geliştirmelidir. İçerik görünürlüğünü bir sınıf tetikli geçişe kaplamayın; geçişler gizli sekmelerde ve başkanı kaldırılan oluşturucularda duraklatılır, bu nedenle ortaya çıkış asla tetiklenmez ve bölüm boş gönderilir.
   - Premium hareket malzemeleri sadece transform/opacity değildir. Bulanıklık, backdrop-filter, clip-path, mask ve shadow/glow, efekti önemli ölçüde iyileştirdiklerinde ve sorunsuz kaldıklarında paletinin parçasıdır.
-
+  
   #### Etkileşim
-
+  
   - `overflow: hidden` ya da `overflow: auto` kapsayıcı içinde `position: absolute` ile oluşturulan açılır menüler kesilecektir. Yerel `<dialog>` / popover API, `position: fixed` ya da yığın bağlamını kaçmak için portal kullanın.
-
+  
   ### Yalnızca yeni projeler (önceki çalışma yoksa)
-
+  
   #### Renk & Tema
-
+  
   - OKLCH kullanın.
   - **Krem / kum / bej gövde arka planı, 2026'nın doymuş AI varsayılanıdır.** Tüm ılık nötr bandı (OKLCH L 0.84-0.97, C < 0.06, hue 40-100) ne dediğinize bakılmaksızın krem/kum/kağıt/parşömen olarak okunur. Token adları `--paper`, `--cream`, `--sand`, `--bone`, `--flour`, `--linen`, `--parchment`, `--wheat`, `--biscuit`, `--ivory` gibi kendileri işarettir. Kısa öz "ılık, geleneksel, aile-kıyı-İtalyan" ya da "dergi-ılık" ya da "editorial-ılılık" ise, bunu neredeyse beyaz ılık tintili arka plana çevirmeyin; bu AI harekettir. Seçin: (a) gövde olarak doymuş marka rengi (teracotta, oxblood, derin oker, neredeyse siyah), (b) chroma 0'da doğru off-beyaz (ya da chroma markanın kendi rengi doğru, varsayılan ılılık doğru değil), ya da (c) açıkça markanın kendisine ait daha koyu orta ton tintili nötr. Markanın "ılılığı" gövde arka planı değil başlık + tipografi + görüntü tarafından taşınır.
   - Tintili nötrler: markanın rengi doğru 0.005–0.015 chroma ekleyin. "Marka bu şekilde hissettirdiği için" varsayılan olarak sıcak ya da soğuk doğru tintlemeyiniz; bu projeler arası monokultur harekettir.
@@ -85,11 +85,11 @@ body_tr: |-
     - **Taahhütlü**: bir doymuş renk yüzeyin 30–60%'ini taşır. Kimlik odaklı sayfalar için marka varsayılanı.
     - **Tam palet**: 3–4 adlandırılmış rol, her biri kasıtlı olarak kullanılan. Marka kampanyaları; ürün veri görselleştirmesi.
     - **Batırılmış**: yüzey RENKTİR. Marka kahramanları, kampanya sayfaları.
-
+  
   ### Mutlak yasaklar
-
+  
   Eşleştir ve reddet. Aşağıdakilerden birini yazmak üzere olsaydınız, öğeyi farklı yapı ile yeniden yazın.
-
+  
   - **Yan şerit sınırları.** `border-left` ya da `border-right` kartlar, liste öğeleri, açıklamalar ya da uyarılar üzerinde renkli aksent olarak 1px'den büyük. Hiçbir zaman kasıtlı. Tam sınırlar, arka plan tintleri, baştaki numaralar/simgeler ya da hiçbir şey ile yeniden yazın.
   - **Gradient metin.** `background-clip: text` gradient arka planla birleştirilmiş. Dekoratif, hiçbir zaman anlamsal. Tek bir katı renk kullanın. Ağırlık ya da boyut ile vurgulama.
   - **Varsayılan olarak Glassmorphism.** Bulanıklıklar ve cam kartlar dekoratif olarak kullanılan. Nadir ve kasıtlı ya da hiçbir şey.
@@ -98,26 +98,26 @@ body_tr: |-
   - **Her bölümün üstünde küçük büyük harfli izleri.** 2023 dönemi kicker'ı (geniş izleme ile küçük büyük harfli metin, her başlığın üstünde "HAKKINDA" "SÜREÇ" "FİYATLANDIRMA"), artık doymuş AI yapı iskeleti; kuşkusuz hangi öz olursa olsun %55-95'te görünür, bu monokultur tanımıdır. Bir adlandırılmış kicker kasıtlı marka sistemi olarak ses; her bölümün üzerinde kaşları farklı bir ritim seçin.
   - **Varsayılan olarak numaralandırılmış bölüm işaretleri (01 / 02 / 03).** Her bölümün üstünde `01 · Hakkında / 02 · Süreç / 03 · Fiyatlandırma` koymak, kaşı trope'u bir katman daha derin: "açılış sayfaları bunu yapar" ve reflek tarafından yapı iskelesi çünkü bunu yaparsınız. Sayılar, bölüm gerçekten bir dizi OLDUĞU zaman ve sıra okuyucunun ihtiyaç duyduğu bilgiyi taşıdığı zaman (gerçek 3 adımlı bir işlem, sıralı bir akış, yazılan bir zaman çizelgesi) yerini kazanır. Bir sayfa üzerinde bir kasıtlı numaralandırılmış dizi ses; siteler arasında her bölüm üzerinde numaralandırılmış kaşlar AI dilbilgisi.
   - **Konteynerine taşan metin.** Uzun başlık sözcükleri artı büyük clamp ölçekleri artı dar ızgaralar tablet/mobil üzerinde başlık taşmalarına neden olur. Başlık kopyasını her kesintide test edin; taşarsa, clamp maksimumunu azaltın ya da kopyayı yeniden yazın. Viewport, tasarımın parçasıdır.
-
+  
   **Codex'e özgü kusurlar** (en sık görülen giveaway'lar; yeniden yazma ile reddet):
-
+  
   - **`border: 1px solid X` + `box-shadow: 0 Npx Mpx ...`** aynı elemanla M ≥ 16px. "Ghost-kart" deseni: 1px sınır artı düğmeler ve kartlar üzerinde yumuşak geniş düşürme gölgesi. Bunları eşleştirmeyin. Birini seçin (marka renginde tek bir katı sınır YA DA en fazla 8px bulanıklığında tanımlanmış gölge), hiçbir zaman ikisi de dekorasyon olarak.
   - **`border-radius: 32px+` kartlar / bölümler / girdiler üzerinde.** Çok fazla yuvarlaksınız. Kartlar 12–16px'de karşılaştırılır; tam hap etiketler/düğmeler için gayet iyi. Bir kart üzerinde 24/28/32/40px seçmek codex söyleme; hiçbir marka "çılgınca yuvarlak" istemiyor.
   - **El ile çizilmiş / kroki SVG görselleri.** `loose-sketch`, `*-sketch`, `doodle`, `wavy` gibi sınıf adları; `feTurbulence` / `feDisplacementMap` "kağıt tahıl" filtreleri; 5 ile 30 yol ham sahneler somut bir konu tasvir etmek için (bir otter, bir tablo ve çatal, bir albüm kapağı). Bunların tümü amatörce, neşeli değil. Sahneyi gerçek varlıklarla oluşturamazsanız, görseli göndermeyip yeniden yazın. El ile çizilmiş SVG'yi fallback olarak denemeyin.
   - **`repeating-linear-gradient(...)` şerit arka planları.** `body:before` ya da bölüm arka planlarında çapraz şeritler saf codex dekorasyonu. Yapmayın.
   - **Meta-eleştiri kopyası.** Bir kavramı adlandırıp ironi ayar katmanlaştırıl, ya da bir strawman sahnelenip "düzeltilsin". Bunun yerine belirli iddiayı yapın.
-
+  
   ### AI slop testi
-
+  
   Eğer birisi bu arayüze bakabilir ve kuşkusuz "AI bunu yaptı" diyebilirse, başarısız olmuştur. Çapraz kayıt başarısızlıkları yukarıdaki mutlak yasaklardır. Kayıt'a özgü başarısızlıklar her referansta yaşar.
-
+  
   **Kategori reflek kontrolü.** İki irtifada çalıştırın; ikincisi birincinin kaçırdığını yakalar.
-
+  
   - **Birinci derece:** eğer biri temayı + paleti yalnızca kategoriden tahmin edebilirse, ilk eğitim verilerinin refleksidir. Sahne cümlesini ve renk stratejisini yanıtın kategoriden açık olmayacağı şekilde yeniden çalışın.
   - **İkinci derece:** eğer biri estetik ailesini kategori artı anti-referanslardan tahmin edebilirse ("SaaS krem değil AI iş akışı aracı → editorial-tipografik", "fintech tersine-prime-yerel koyu mod değil"), daha derin tuzaktır. İlk reflek kaçınıldı; ikincisi değil. Her iki yanıt açık olmayacağı şekilde yeniden çalışın. Marka kaydının [reflex-reject estetik şeritleri](reference/brand.md) listesi şu anda doymuş aileleri yakalar.
-
+  
   ## Komutlar
-
+  
   | Komut | Kategori | Açıklama | Referans |
   |---|---|---|---|
   | `craft [feature]` | İnşa | Bir özelliği planla, sonra uçtan uca oluştur | [reference/craft.md](reference/craft.md) |
@@ -143,13 +143,13 @@ body_tr: |-
   | `adapt [target]` | Düzelt | Farklı cihazlar ve ekran boyutları için uyarlayın | [reference/adapt.md](reference/adapt.md) |
   | `optimize [target]` | Düzelt | UI performansını tanılayın ve düzeltin | [reference/optimize.md](reference/optimize.md) |
   | `live` | Tekrarla | Görsel varyant modu: tarayıcıda öğeleri seçin, alternatifler oluşturun | [reference/live.md](reference/live.md) |
-
+  
   Artı üç yönetim komutu: `pin <command>`, `unpin <command>`, ve `hooks <on|off|status|...>`, aşağıda ayrıntılı.
-
+  
   ### Yönlendirme kuralları
-
+  
   1. **Bağımsız değişken yok**: kullanıcı "ne yapmalıyım?" diye soruyor. Menu'yu statik yerine bağlam farkında yapın. Kurulum zaten `context.mjs` çalıştırmıştır; eğer bu `NO_PRODUCT_MD` rapor ettiyse, zaten init'tesiniz (kurulum), bunu bitirin ve bunu atlayın. Aksi takdirde `node .agents/skills/impeccable/scripts/context-signals.mjs` dosyasını bir kez çalıştırın ve JSON'unu okuyun, ardından sinyallerden çekilen bir satırlık nedenle **2-3 en yüksek değere sahip sonraki komutla başlayın**, bunu tam menu'yle (kategoriye göre gruplandırılmış yukarıdaki tablo) izleyin. **Hiçbir zaman otomatik olarak bir komut çalıştırmayın; tavsiye, kullanıcının onaylayacağı bir öneritir.**
-
+  
      Sinyallerle sebep verin; hiç puan yoktur:
      - `setup.hasDesign` yanlış `setup.hasCode` doğruyken → `document` (görsel sistemi yakala).
      - `critique.latest` boş → proje hiçbir zaman eleştirilmemiş; gerçek yüzeyli kurulmuş bir proje için, `$impeccable critique <surface>` sunmak güçlü varsayılandır.
@@ -157,32 +157,32 @@ body_tr: |-
      - `git.changedFiles` bir yüzeye işaret ediyor → `audit` ya da `polish`'ı bu dosyalara özel olarak, onları adlandırarak kapsam edin.
      - `devServer.running` doğu → `live` tarayıcıda yineleme için kullanılabilir; yanlışsa, `live` ile başlamayın.
      - Aksi takdirde başlangıç noktalarını tam olarak init'in "Öneril başlayan noktalar" adımından gruplandırın (yeni inşa / olanı iyileştir / görsel olarak yinele), `setup.register`'a uyarlanmış.
-
+  
      **`scan.targets` boş olmayansa, `node .agents/skills/impeccable/scripts/detect.mjs --json <scan.targets boşlukla birleştirilmiş>` dosyasını bir kez çalıştırın** (yerel dosyalar üzerinde paketlenmiş dedektör: ağ yok, npx yok). `scan.via` ne olduklarını söyler: `git-changes` (kirli ağaçtaki işaretleme/stil dosyaları, en alakalı set), `source-dir` (ör. `src`, `app`), `html`, ya da `root`. Vurguları seçimlerinize katın: birçok kalite / kontrast vurgusu → `audit` ya da `polish`; belirli slop ailesi → eşleşen komut (gradient metin ya da kaşlar → `quieter` / `typeset`, düz ya da gri palet → `colorize`, vb.). Bu gerçek, mevcut sinyal tahminle daha iyi. Detect hata verirse ya da ağaç büyükse ve yavaşsa, atla ve kullanıcıya `audit` kendi başlarına çalıştırmasını öner; asla öneriyi engellemesi için engelle.
-
+  
      Tam komut yazacak 2-3 işaret seçimi tutun. Menu fallback kalır; tavsiye lede.
   2. **İlk kelime bir komutu eşleşir** (yukarıdaki tablo YA DA `pin` / `unpin` / `hooks`): referans dosyasını yükle ve talimatlarını takip et. Komut adından sonraki her şey hedef olur.
   3. **İlk kelime eşleşmez, ama niyet açıkça bir komuta eşlenir** (ör. "aralığı düzelt" → `layout`, "bu hata mesajını yeniden yaz" → `clarify`, "renkler düz hissettiriliyor" → `colorize`): o komutun referansını yükle ve çağrılmış gibi devam et. İki komut uyabilirse, bir kez sorun.
   4. **Net komut eşleşmesi yok**: genel tasarım çağırma. Kurulum adımlarını, Genel kuralları ve yüklenen kayıt referansını uygula, bağımsız değişkeni tam bağlam olarak kullanarak.
-
+  
   Kurulum (bağlam toplama, kayıt) daha sonra zaten yüklenir; alt komutlar `$impeccable` yeniden çağırmaz.
-
+  
   İlk kelime `craft` ise, kurulum yine de çalışır, ancak [reference/craft.md](reference/craft.md) geri kalan akışına sahiptir. Kurulum `init`'i bloklayıcı olarak çağırdıysa, init'i bitir, bağlamı yenile, sonra orijinal komutu ve hedefi devam ettir.
-
+  
   `teach`, `init` için kullanımdan kaldırılan takma addır: kullanıcı yazarsa, [reference/init.md](reference/init.md) dosyasını yükle ve `init` çağırmış gibi devam et.
-
+  
   ## Sabitle / Sabitlemeyi Kaldır
-
+  
   **Sabitle**, `$<command>` `$impeccable <command>`'i doğrudan çağırması için bağımsız kısayol oluşturur. **Sabitlemeyi Kaldır** bunu kaldırır. Script, projede mevcut olan her harness dizinine yazar.
-
+  
   ```bash
   node .agents/skills/impeccable/scripts/pin.mjs <pin|unpin> <command>
   ```
-
+  
   Geçerli `<command>` yukarıdaki tablodan herhangi bir komuttur. Script'in sonucunu kısaca raporlayın. Başarı sonrası yeni kısayolu onaylayın, hata sonrası stderr verbatim olarak iletir.
-
+  
   ## Hooks
-
+  
   `$impeccable hooks <on|off|status|ignore-rule|ignore-file|ignore-value|reset>` bu proje için tasarım dedektörü hook'unu yönetir. Hook'u doğrudan UI dosyası düzenlemesinden sonra otomatik olarak çalıştırır ve bulgular sistem hatırlatmaları olarak yüzeylendirir. Tam akış [reference/hooks.md](reference/hooks.md)'de; kullanıcı `$impeccable hooks` herhangi bir bağımsız değişken ile çağırdığında yükle.
 ---
 

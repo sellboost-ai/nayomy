@@ -4,7 +4,7 @@ description_en: "Automate Abstract tasks via Rube MCP (Composio). Always search 
 description_tr: "Abstract görevlerini Rube MCP (Composio) ile otomatikleştirin. Güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/abstract-automation/SKILL.md"
 path: "composio-skills/abstract-automation/SKILL.md"
 is_collection: false

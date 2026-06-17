@@ -4,7 +4,7 @@ description_en: "Automate 2chat tasks via Rube MCP (Composio). Always search too
 description_tr: "2chat görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemalar için her zaman önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/-2chat-automation/SKILL.md"
 path: "composio-skills/-2chat-automation/SKILL.md"
 is_collection: false

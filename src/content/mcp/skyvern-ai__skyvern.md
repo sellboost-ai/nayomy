@@ -4,7 +4,7 @@ description: "Automates browser-based workflows using LLMs and computer vision �
 description_tr: "LLM'ler ve bilgisayarlı görü kullanarak tarayıcı tabanlı iş akışlarını otomatikleştirin — sayfaları gezin, formları doldurun, veri çıkarın, kimlik doğrulaması yönetin ve herhangi bir web sitesini doğal dil ile otomatize edin."
 category: "Browser Automation"
 repo: "Skyvern-AI/skyvern"
-stars: 21920
+stars: 21924
 url: "https://github.com/Skyvern-AI/skyvern"
 body_length: 24860
 license: "AGPL-3.0"

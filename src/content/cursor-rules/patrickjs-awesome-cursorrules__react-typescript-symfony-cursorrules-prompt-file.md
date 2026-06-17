@@ -5,19 +5,11 @@ description: "Cursor rules for React development with TypeScript and Symfony int
 description_tr: "React geliştirimi için Cursor kuralları, TypeScript desteği ve Symfony entegrasyonu ile."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/react-typescript-symfony-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-typescript-symfony-cursorrules-prompt-file.mdc"
 body_length: 584
 file_extension: ".mdc"
-body_tr: |-
-  Siz, temiz ve okunabilir kod üretmeye odaklanan uzman bir yapay zeka programlama asistanısınız.
-
-  Her zaman çalıştığınız programlama dilinin en son kararlı sürümünü kullanır ve en son özellikler ile en iyi uygulamaları iyi bilirsiniz.
-
-  React, TypeScript, PHP, Symfony ve Docker konularında uzman bilgiye sahip tam yığın bir geliştiricisiniz.
-
-  Dikkatli bir şekilde doğru, gerçekçi ve düşünceli cevaplar sağlar ve mantıksal akıl yürütmede dahi dahilsiniz.
 ---
 
 You are an export AI programming assistant that primarily focuses on producing clean and readable code.

@@ -4,7 +4,7 @@ description_en: "/cs:gdpr-audit-prep <scope> — GDPR audit 6-question Article-c
 description_tr: "/cs:gdpr-audit-prep <scope> — GDPR denetimi için 6 sorudan oluşan, Madde referanslı zorunlu sorgulama aracı. Yıllık iç GDPR incelemesi, ihlal sonrası audit, DPA soruşturmasına hazırlık veya satın alma due diligence öncesinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/gdpr-audit-prep/SKILL.md"
 path: ".gemini/skills/gdpr-audit-prep/SKILL.md"
 is_collection: false
@@ -15,13 +15,13 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:gdpr-audit-prep — GDPR DPO Zorlama Soruları
-
+  
   **Komut:** `/cs:gdpr-audit-prep <scope>`
-
+  
   GDPR DPO denetçisi, herhangi bir gizlilik uyum çalışmasını baskı altında test eder. İç denetim, ihlal tepkisi, DPA soruşturması veya satın alma durum tespiti öncesinde Madde-alıntılı altı soru.
-
+  
   ## Ne Zaman Çalıştırılır
-
+  
   - Yıllık iç GDPR denetiminden önce
   - Üç aylık Madde 30 RoPA yenilemesinden önce
   - Yeni yüksek riskli işleme başlatmadan önce (Madde 35 DPIA gerekli)
@@ -29,23 +29,23 @@ body_tr: |-
   - DPA soruşturması tepkisi veya denetim otoritesi katılımından önce
   - Satın alma durum tespitinde (hedef şirket gizlilik durumu)
   - Yüksek hacimli yeni özellik gönderimleri sırasında üç aylık
-
+  
   ## Altı DPO Sorusu
-
+  
   ### 1. Madde 30 RoPA'yı göster — son güncelleme tarihi ile.
   **En çok alıntılanan bulgu alanı.**
   - Denetleyiciler için tüm Madde 30(1)(a)-(g) öğelerini içermeli
   - İşleyiciler için tüm Madde 30(2)(a)-(d) öğelerini içermeli
   - Değişikliklerden makul süre içinde güncellenmeli (90 gün beklenir)
   - Müşterek denetleyici düzenlemeleri Madde 26'ya göre belgeli
-
+  
   ### 2. Bu işleme faaliyeti için Madde 6'ya göre yasal dayanak nedir?
   **Madde 6 münhasırdır — amaç başına BİR dayanak seçin.**
   - Altı seçenek: rıza / sözleşme / yasal yükümlülük / hayati çıkarlar / kamu görevi / meşru çıkarlar
   - "Meşru çıkarlar" için: LIA belgeli
   - "Rıza" için: Madde 7'ye göre kayıtlar; geri çekme mekanizması
   - Özel kategoriler (Madde 9) bir Madde 9(2) istisnası gerektirir
-
+  
   ### 3. Yüksek riskli işleme için Madde 35'e göre DPIA nerede?
   **Yüksek risk için gerekli; 3-5 faaliyeti örnekle.**
   - Madde 35(7)(a)-(d) gerekli öğeleri:
@@ -56,21 +56,21 @@ body_tr: |-
   - DPO'ya danışılmış (Madde 35(2))
   - Madde 36 ön danışma kalıcı yüksek risk için tetiklendi
   - Yapay zeka sistemleri için: AB Yapay Zeka Yasası Madde 27 FRIA ile entegre (cs-ai-act-compliance ile çapraz kontrol)
-
+  
   ### 4. Son 30 günden bir DSAR göster — ve yanıt zamanlamasını göster.
   **Maddeler 15-22 operasyonel iş akışı.**
   - 1 ay içinde yanıt (Madde 12(3)); karmaşık istekler için 2 aya kadar uzatma
   - Kimlik doğrulama süreci belgeli
   - Erişim hakkı yanıtı tüm Madde 15 bilgilerini içerir
   - Silme hakkı (Madde 17) iş akışı yedeklemeleri + işleyicileri kapsar
-
+  
   ### 5. En büyük AB dışı transferler için Transfer Etki Değerlendirmelerini göster.
   **Schrems II disiplini.**
   - Yeterliliği karar VEYA SCCs (Madde 46) VEYA istisna (Madde 49)
   - TIA, EDPB Tavsiyelerine göre 01/2020 + 02/2020
   - TIA risk işaret ettiği yerde ek önlemler
   - ABD transferleri EU-US Data Privacy Framework yeterliliği kapsamında (Temmuz 2023) — sertifikalı kuruluş listesini doğrula
-
+  
   ### 6. Madde 33(5)'e göre ihlal günlüğünü göster — sadece haber verilebilir olanlar değil, tümü.
   **Madde 33(5) TÜM ihlallerin günlüğe kaydedilmesini gerektirir.**
   - İç ihlal algılama mekanizması belgeli
@@ -78,101 +78,101 @@ body_tr: |-
   - Madde 34 veri konusu bildirimi (yüksek risk durumlarda)
   - CAPA sistemi aracılığıyla kök neden + düzeltici eylem
   - cs-ciso-iso27001 ile A.5.24-27 olay yönetimi uyumunu çapraz kontrol et
-
+  
   ## İş Akışı
-
+  
   ```bash
   # 1. Uyum durumu
   python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json
-
+  
   # 2. Yüksek riskli faaliyetler için DPIA
   python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json
-
+  
   # 3. DSAR iş akışı doğrulaması
   python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py dsar_log.json
-
+  
   # 4. ISO 27001 + SOC 2 + ISO 42001 ile çapraz çerçeve yeniden kullanımı
   python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
   ```
-
+  
   ## Çıktı Formatı
-
+  
   ```markdown
   # GDPR Denetim Hazırlığı: <scope>
   **Tarih:** YYYY-MM-DD
   **Madde Alıntıları:** Her bulgu Madde + paragraf alıntı yapar; parafraz yok.
-
+  
   ## Alınan Karar
   [RoPA-yenileme | DPIA-gerekli | DSAR-iş akışı | transfer-riski | ihlal-takibi | DPA-hazırlığı]
-
+  
   ## Madde 30 RoPA Durumu
   - Son yenileme: YYYY-MM-DD
   - Gerekli öğeler mevcut: evet/hayır işleme faaliyeti başına
   - Müşterek denetleyici düzenlemeleri: belgeli/eksik
-
+  
   ## Madde 6 Yasal Dayanak Disiplini
   - İncelenen faaliyetler: N
   - LIA olmayan meşru çıkarlar talepleri: <list>
   - Belgeli istisna ile Madde 9 özel kategorileri: evet/hayır
-
+  
   ## Madde 35 DPIA Kalitesi
   - DPIA gerektiren yüksek riskli faaliyetler: <list>
   - DPIA'lar Madde 35(7)'ye göre tam: faaliyeti başına geçti/başarısız
   - Madde 36 ön danışma tetiklendi: <list>
-
+  
   ## Veri Konusu Hakları (Maddeler 12-22)
   - Son 90 günde DSAR: N
   - Ortalama yanıt süresi: X gün (hedef: ≤ 30)
   - Silme hakkı yedekleme-işleyici akışı: tam/eksik
-
+  
   ## Madde 28 İşleyici Yönetimi
   - İncelenen işleyiciler: N
   - Tüm Madde 28(3)(a)-(j) maddelerine sahip sözleşmeler: % tamamlanmış
   - Alt işleyici akış bildirimi mekanizması: evet/hayır
-
+  
   ## Schrems II Transfer Durumu
   - AB dışı transferler: <list>
   - Transfer başına mekanizma: yeterlilik / SCCs / istisna
   - Dosyada TIA: transfer başına evet/hayır
   - Gerekli yerde ek önlemler: <list>
-
+  
   ## Madde 33-34 İhlal Disiplini
   - Son 12 ay ihlal günlüğü: N
   - Madde 33 bildirimi zamanlaması: ≤ 72h oranı
   - Madde 34 veri konusu bildirimi (yüksek risk durumlarda): zamanında oran
-
+  
   ## Çapraz Çerçeve Etkisi
   - ISO 27001 Madde 32 uyumu: temiz / açıklar
   - EU Yapay Zeka Yasası Madde 27 FRIA entegrasyonu: uygulanabilir / değil
   - SOC 2 Privacy TSC uyumu (kapsam dahilse): temiz / açıklar
-
+  
   ## Karar
   🟢 DPA-HAZIR | 🟡 AÇIKLAR-TESPİT EDİLDİ | 🔴 HAZIR-DEĞİL
-
+  
   ## En İyi 3 Eylem
   [3 somut sonraki adım, sahibi + Madde-alıntılı zaman çizelgesi ile]
-
+  
   ## Dış Hukuk Müşaviri Gerekli
   [Madde seviyesi belirsizlikleri işaret etti: Schrems II ek önlem yeterliliği, EU Yapay Zeka Yasası ↔ GDPR etkileşimi, sektörel istisna yorumu, yeni DPA yaptırım]
   ```
-
+  
   ## Yönlendirme
-
+  
   - `/cs:compliance-readiness` — çok çerçeveli görünüm için
   - `/cs:iso27001-audit-prep` — Madde 32 örgütsel önlemleri için
   - `/cs:ai-act-readiness` — EU Yapay Zeka Yasası Madde 27 FRIA entegrasyonu için
   - `/cs:soc2-audit-prep` — SOC 2 Privacy TSC örtüşmesi için
   - `/cs:gc-review` — yeni durum yasal incelemesi için
-
+  
   ## İlgili
-
+  
   - Ajan: [`cs-dpo-gdpr`](../../agents/cs-dpo-gdpr.md)
   - Beceri: [`gdpr-dsgvo-expert`](../../../ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
   - Oyun Kitabı: [gdpr_audit_playbook.md](../../../ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
   - Bitişik: `../iso27001-audit-prep/`, `../ai-act-readiness/`, `../soc2-audit-prep/`, `../compliance-readiness/`
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

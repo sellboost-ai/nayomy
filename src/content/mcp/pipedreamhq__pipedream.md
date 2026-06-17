@@ -4,7 +4,7 @@ description: "Connect with 2,500 APIs with 8,000+ prebuilt tools, and manage ser
 description_tr: "2.500+ API ile 8.000'den fazla hazır araçla bağlantı kurun ve sunucuları kendi uygulamanız içinde yönetin."
 category: "Aggregators"
 repo: "PipedreamHQ/pipedream"
-stars: 11472
+stars: 11474
 url: "https://github.com/PipedreamHQ/pipedream"
 body_length: 12082
 license: "NOASSERTION"

@@ -4,7 +4,7 @@ description_en: "Create, manage, and cleanup git worktrees with Claude Code agen
 description_tr: "Claude Code ajanlarıyla tüm projelerinizde git worktree'leri oluşturun, yönetin ve temizleyin. Kullanıcı \"create worktree\", \"spin up worktrees\", \"new worktree for X\", \"worktree status\", \"cleanup worktrees\", \"sync worktrees\" dediğinde veya paralel geliştirme branşları istediğinde bu skill'i kullanın. Worktree branch'inden PR oluşturulurken de devreye girer (registry'yi PR numarasıyla günceller). Worktree oluşturma ve dependency yönetimini otomatikleştirir."
 category: "Development"
 repo: "Wirasm/worktree-manager-skill"
-stars: 133
+stars: 132
 url: "https://github.com/Wirasm/worktree-manager-skill/blob/HEAD/.claude/skills/SKILL.md"
 path: ".claude/skills/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Cloudcart tasks via Rube MCP (Composio). Always search
 description_tr: "Cloudcart görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudcart-automation/SKILL.md"
 path: "composio-skills/cloudcart-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Cloudcart Automation via Rube MCP
-
+  
   Rube MCP üzerinden Composio'nun Cloudcart toolkit'i aracılığıyla Cloudcart işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümanları**: [composio.dev/toolkits/cloudcart](https://composio.dev/toolkits/cloudcart)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalıdır (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` üzerinden etkin Cloudcart bağlantısı ve `cloudcart` toolkit'i
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS` çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Edinin**: İstemci konfigürasyonunuzda `https://rube.app/mcp` adresini MCP server'ı olarak ekleyin. API anahtarına gerek yoktur — sadece endpoint'i ekleyin ve çalışır.
-
+  
   1. `RUBE_SEARCH_TOOLS` yanıt verdiğini doğrulayarak Rube MCP'nin kullanılabilir olduğunu kontrol edin
   2. `RUBE_MANAGE_CONNECTIONS`'ı `cloudcart` toolkit'i ile çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için dönen auth bağlantısını takip edin
   4. Herhangi bir workflow çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu doğrulayın
-
+  
   ## Tool Discovery
-
+  
   Workflow'ları çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Cloudcart operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'larını, input şemalarını, önerilen execution plan'larını ve bilinen sorunları döndürür.
-
+  
   ## Temel Workflow Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfedin
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Cloudcart task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Edin
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["cloudcart"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştırın
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce arayın**: Tool şemaları değişebilir. `RUBE_SEARCH_TOOLS` çağırmadan tool slug'larını veya argümanları asla hardcode'lamayın
   - **Bağlantıyı kontrol edin**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarında her zaman `memory` parametresini ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir workflow içinde session ID'lerini yeniden kullanın. Yeni workflow'lar için yenilerini oluşturun
   - **Pagination**: Yanıtları pagination token'ları açısından kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yöntem |
   |-----------|----------|
   | Tool'ları bul | `RUBE_SEARCH_TOOLS` ve Cloudcart'a özgü use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | Keşfedilen tool slug'larıyla `RUBE_MULTI_EXECUTE_TOOL` |
   | Toplu işlemler | `run_composio_tool()` ile `RUBE_REMOTE_WORKBENCH` |
   | Tam şema | `schemaRef` içeren tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---

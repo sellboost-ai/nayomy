@@ -4,7 +4,7 @@ description_en: "Automate Cats tasks via Rube MCP (Composio). Always search tool
 description_tr: "Rube MCP (Composio) aracılığıyla Cats görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman ilk olarak araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cats-automation/SKILL.md"
 path: "composio-skills/cats-automation/SKILL.md"
 is_collection: false
@@ -15,58 +15,58 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rube MCP aracılığıyla Cats Otomasyonu
-
+  
   Composio'nun Cats toolkit'ini Rube MCP aracılığıyla kullanarak Cats işlemlerini otomatikleştirin.
-
+  
   **Toolkit dokümantasyonu**: [composio.dev/toolkits/cats](https://composio.dev/toolkits/cats)
-
+  
   ## Ön Koşullar
-
+  
   - Rube MCP bağlı olmalı (RUBE_SEARCH_TOOLS kullanılabilir)
   - `RUBE_MANAGE_CONNECTIONS` aracılığıyla aktif Cats bağlantısı ve `cats` toolkit'i
   - Mevcut tool şemalarını almak için her zaman `RUBE_SEARCH_TOOLS`'u çağırın
-
+  
   ## Kurulum
-
+  
   **Rube MCP'yi Edinin**: MCP sunucusu yapılandırmanıza `https://rube.app/mcp` ekleyin. API anahtarı gerekmez — sadece endpoint'i ekleyin ve çalışacaktır.
-
+  
   1. `RUBE_SEARCH_TOOLS`'un yanıt verip vermediğini kontrol ederek Rube MCP'nin kullanılabilir olduğunu doğrulayın
   2. `cats` toolkit'i ile `RUBE_MANAGE_CONNECTIONS`'ı çağırın
   3. Bağlantı ACTIVE değilse, kurulumu tamamlamak için döndürülen auth linkini takip edin
   4. İş akışlarını çalıştırmadan önce bağlantı durumunun ACTIVE olduğunu onaylayın
-
+  
   ## Tool Keşfi
-
+  
   İş akışlarını çalıştırmadan önce her zaman mevcut tool'ları keşfedin:
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "Cats operations", known_fields: ""}]
   session: {generate_id: true}
   ```
-
+  
   Bu, mevcut tool slug'ları, input şemalarını, önerilen yürütme planlarını ve bilinen sorunları döndürür.
-
+  
   ## Temel İş Akışı Deseni
-
+  
   ### Adım 1: Mevcut Tool'ları Keşfet
-
+  
   ```
   RUBE_SEARCH_TOOLS
   queries: [{use_case: "your specific Cats task"}]
   session: {id: "existing_session_id"}
   ```
-
+  
   ### Adım 2: Bağlantıyı Kontrol Et
-
+  
   ```
   RUBE_MANAGE_CONNECTIONS
   toolkits: ["cats"]
   session_id: "your_session_id"
   ```
-
+  
   ### Adım 3: Tool'ları Çalıştır
-
+  
   ```
   RUBE_MULTI_EXECUTE_TOOL
   tools: [{
@@ -76,18 +76,18 @@ body_tr: |-
   memory: {}
   session_id: "your_session_id"
   ```
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Her zaman önce ara**: Tool şemaları değişir. `RUBE_SEARCH_TOOLS` çağırmadan asla tool slug'ları veya argümanları hardcode etmeyin
   - **Bağlantıyı kontrol et**: Tool'ları çalıştırmadan önce `RUBE_MANAGE_CONNECTIONS`'ın ACTIVE durumunu gösterdiğini doğrulayın
   - **Şema uyumluluğu**: Arama sonuçlarından tam alan adlarını ve türlerini kullanın
   - **Memory parametresi**: `RUBE_MULTI_EXECUTE_TOOL` çağrılarına her zaman `memory` ekleyin, boş olsa bile (`{}`)
   - **Session yeniden kullanımı**: Bir iş akışında session ID'lerini yeniden kullanın. Yeni iş akışları için yenilerini oluşturun
   - **Pagination**: Yanıtları pagination token'ları için kontrol edin ve tamamlanana kadar getirmeye devam edin
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Yaklaşım |
   |-------|----------|
   | Tool'ları bul | `RUBE_SEARCH_TOOLS` ile Cats'e özgü use case |
@@ -95,7 +95,7 @@ body_tr: |-
   | Çalıştır | `RUBE_MULTI_EXECUTE_TOOL` ile keşfedilen tool slug'ları |
   | Toplu işlemler | `RUBE_REMOTE_WORKBENCH` ile `run_composio_tool()` |
   | Tam şema | `schemaRef` olan tool'lar için `RUBE_GET_TOOL_SCHEMAS` |
-
+  
   ---
   *Powered by [Composio](https://composio.dev)*
 ---

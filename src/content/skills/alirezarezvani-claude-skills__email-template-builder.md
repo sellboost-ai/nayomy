@@ -4,7 +4,7 @@ description_en: "Build complete transactional email systems: React Email templat
 description_tr: "Tam işlevsel transactional email sistemi kurun: React Email şablonları, provider entegrasyonu (Resend, Postmark, SendGrid, AWS SES), preview server, i18n desteği, dark mode, spam optimizasyonu ve analytics tracking. Yeni ürüne transactional email eklerken, email provider'ları arasında geçiş yaparken, legacy email şablonlarını accessibility için refactor ederken ya da mevcut şablonlara internationalization eklerken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/email-template-builder/SKILL.md"
 path: ".gemini/skills/email-template-builder/SKILL.md"
 is_collection: false
@@ -15,21 +15,21 @@ has_examples: false
 related_files: []
 body_tr: |-
   # E-Posta Şablonu Oluşturucu
-
+  
   **Tier:** POWERFUL  
   **Category:** Engineering Team  
   **Domain:** İşlemsel E-Posta / İletişim Altyapısı
-
+  
   ---
-
+  
   ## Genel Bakış
-
+  
   Tam işlemsel e-posta sistemleri oluşturun: React Email şablonları, sağlayıcı entegrasyonu, ön izleme sunucusu, i18n desteği, koyu mod, spam optimizasyonu ve analitik izleme. Resend, Postmark, SendGrid veya AWS SES için üretime hazır kod çıktısı alın.
-
+  
   ---
-
+  
   ## Temel Yetenekler
-
+  
   - React Email şablonları (hoş geldiniz, doğrulama, parola sıfırlama, fatura, bildirim, özet)
   - Maksimum e-posta istemci uyumluluğu için MJML şablonları
   - Birleşik gönderme arayüzü ile multi-sağlayıcı desteği
@@ -38,21 +38,21 @@ body_tr: |-
   - Medya sorguları kullanarak koyu mod desteği
   - Spam puanı optimizasyonu kontrol listesi
   - UTM parametreleri ile açma/tıklama izleme
-
+  
   ---
-
+  
   ## Ne Zaman Kullanılır
-
+  
   - Yeni bir ürün için işlemsel e-posta kurulumu
   - Eski e-posta sisteminden geçiş
   - Yeni e-posta türleri ekleme (fatura, özet, bildirim)
   - E-posta teslimatı sorunlarını ayıklama
   - E-posta şablonları için i18n uygulama
-
+  
   ---
-
+  
   ## Proje Yapısı
-
+  
   ```
   emails/
   ├── components/
@@ -82,22 +82,22 @@ body_tr: |-
   └── preview/                       # Dev ön izleme sunucusu
       └── server.ts
   ```
-
+  
   ---
-
+  
   ## Temel E-Posta Düzeni
-
+  
   ```tsx
   // emails/components/layout/email-layout.tsx
   import {
     Body, Container, Head, Html, Img, Preview, Section, Text, Hr, Font
   } from "@react-email/components"
-
+  
   interface EmailLayoutProps {
     preview: string
     children: React.ReactNode
   }
-
+  
   export function EmailLayout({ preview, children }: EmailLayoutProps) {
     return (
       <Html lang="en">
@@ -150,7 +150,7 @@ body_tr: |-
       </Html>
     )
   }
-
+  
   const styles = {
     body: { backgroundColor: "#f5f5f5", fontFamily: "Inter, Arial, sans-serif" },
     container: { maxWidth: "600px", margin: "0 auto", backgroundColor: "#ffffff", borderRadius: "8px", overflow: "hidden" },
@@ -162,22 +162,22 @@ body_tr: |-
     link: { color: "#6b7280", textDecoration: "underline" },
   }
   ```
-
+  
   ---
-
+  
   ## Hoş Geldiniz E-Postası
-
+  
   ```tsx
   // emails/templates/welcome.tsx
   import { Button, Heading, Text } from "@react-email/components"
   import { EmailLayout } from "../components/layout/email-layout"
-
+  
   interface WelcomeEmailProps {
     name: "string"
     confirmUrl: string
     trialDays?: number
   }
-
+  
   export function WelcomeEmail({ name, confirmUrl, trialDays = 14 }: WelcomeEmailProps) {
     return (
       <EmailLayout preview={`Welcome to MyApp, ${name}! Confirm your email to get started.`}>
@@ -207,9 +207,9 @@ body_tr: |-
       </EmailLayout>
     )
   }
-
+  
   export default WelcomeEmail
-
+  
   const styles = {
     h1: { fontSize: "28px", fontWeight: "700", color: "#111827", margin: "0 0 16px" },
     text: { fontSize: "16px", lineHeight: "1.6", color: "#374151", margin: "0 0 16px" },
@@ -219,18 +219,18 @@ body_tr: |-
     list: { fontSize: "16px", lineHeight: "1.8", color: "#374151", paddingLeft: "20px" },
   }
   ```
-
+  
   ---
-
+  
   ## Fatura E-Postası
-
+  
   ```tsx
   // emails/templates/invoice.tsx
   import { Row, Column, Section, Heading, Text, Hr, Button } from "@react-email/components"
   import { EmailLayout } from "../components/layout/email-layout"
-
+  
   interface InvoiceItem { description: string; amount: number }
-
+  
   interface InvoiceEmailProps {
     name: "string"
     invoiceNumber: string
@@ -241,16 +241,16 @@ body_tr: |-
     currency: string
     downloadUrl: string
   }
-
+  
   export function InvoiceEmail({ name, invoiceNumber, invoiceDate, dueDate, items, total, currency = "USD", downloadUrl }: InvoiceEmailProps) {
     const formatter = new Intl.NumberFormat("en-US", { style: "currency", currency })
-
+  
     return (
       <EmailLayout preview={`Invoice ${invoiceNumber} - ${formatter.format(total / 100)}`}>
         <Heading style={styles.h1}>Fatura #{invoiceNumber}</Heading>
         <Text style={styles.text}>Merhaba {name},</Text>
         <Text style={styles.text}>İşte MyApp'den faturanız. Devam eden desteğiniz için teşekkürler.</Text>
-
+  
         {/* Fatura Meta Bilgisi */}
         <Section style={styles.metaBox}>
           <Row>
@@ -259,7 +259,7 @@ body_tr: |-
             <Column><Text style={styles.metaLabel}>Ödenmesi Gereken Tutar</Text><Text style={styles.metaValueLarge}>{formatter.format(total / 100)}</Text></Column>
           </Row>
         </Section>
-
+  
         {/* Satır Öğeleri */}
         <Section style={styles.table}>
           <Row style={styles.tableHeader}>
@@ -278,14 +278,14 @@ body_tr: |-
             <Column><Text style={styles.totalValue}>{formatter.format(total / 100)}</Text></Column>
           </Row>
         </Section>
-
+  
         <Button href={downloadUrl} style={styles.button}>PDF Faturayı İndir</Button>
       </EmailLayout>
     )
   }
-
+  
   export default InvoiceEmail
-
+  
   const styles = {
     h1: { fontSize: "24px", fontWeight: "700", color: "#111827", margin: "0 0 16px" },
     text: { fontSize: "15px", lineHeight: "1.6", color: "#374151", margin: "0 0 12px" },
@@ -305,11 +305,11 @@ body_tr: |-
     button: { backgroundColor: "#4f46e5", color: "#fff", borderRadius: "6px", padding: "12px 24px", fontSize: "15px", fontWeight: "600", textDecoration: "none" },
   }
   ```
-
+  
   ---
-
+  
   ## Birleşik Gönderme Fonksiyonu
-
+  
   ```typescript
   // emails/lib/send.ts
   import { Resend } from "resend"
@@ -317,23 +317,23 @@ body_tr: |-
   import { WelcomeEmail } from "../templates/welcome"
   import { InvoiceEmail } from "../templates/invoice"
   import { addTrackingParams } from "./tracking"
-
+  
   const resend = new Resend(process.env.RESEND_API_KEY)
-
+  
   type EmailPayload =
     | { type: "welcome"; props: Parameters<typeof WelcomeEmail>[0] }
     | { type: "invoice"; props: Parameters<typeof InvoiceEmail>[0] }
-
+  
   export async function sendEmail(to: string, payload: EmailPayload) {
     const templates = {
       welcome: { component: WelcomeEmail, subject: "MyApp'e Hoş Geldiniz — e-postanızı onaylayın" },
       invoice: { component: InvoiceEmail, subject: `MyApp'den Fatura` },
     }
-
+  
     const template = templates[payload.type]
     const html = render(template.component(payload.props as any))
     const trackedHtml = addTrackingParams(html, { campaign: payload.type })
-
+  
     const result = await resend.emails.send({
       from: "MyApp <hello@yourapp.com>",
       to,
@@ -341,15 +341,15 @@ body_tr: |-
       html: trackedHtml,
       tags: [{ name: "email-type", value: payload.type }],
     })
-
+  
     return result
   }
   ```
-
+  
   ---
-
+  
   ## Ön İzleme Sunucusu Kurulumu
-
+  
   ```typescript
   // package.json scripts
   {
@@ -358,16 +358,16 @@ body_tr: |-
       "email:build": "email export --dir emails/templates --outDir emails/out"
     }
   }
-
+  
   // Çalıştır: npm run email:dev
   // Açılır: http://localhost:3001
   // Tüm şablonları canlı ön izleme ve sıcak yenileme ile gösterir
   ```
-
+  
   ---
-
+  
   ## i18n Desteği
-
+  
   ```typescript
   // emails/i18n/en.ts
   export const en = {
@@ -378,7 +378,7 @@ body_tr: |-
       cta: "Confirm Email Address",
     },
   }
-
+  
   // emails/i18n/de.ts
   export const de = {
     welcome: {
@@ -388,16 +388,16 @@ body_tr: |-
       cta: "E-Mail-Adresse bestätigen",
     },
   }
-
+  
   // Şablonda kullanım
   import { en, de } from "../i18n"
   const t = locale === "de" ? de : en
   ```
-
+  
   ---
-
+  
   ## Spam Puanı Optimizasyonu Kontrol Listesi
-
+  
   - [ ] Gönderici alanı SPF, DKIM ve DMARC kayıtları ile yapılandırılmıştır
   - [ ] Gönderilen adres kendi alanınızı kullanır (gmail.com/hotmail.com değil)
   - [ ] Konu satırı 50 karakterden kısa, TÜMÜ BÜYÜK DEĞİL, "ÜCRETSİZ!!!" yok
@@ -410,11 +410,11 @@ body_tr: |-
   - [ ] Her görüntüde görüntü alt metni
   - [ ] HTML doğrulanır — kırık etiket yok
   - [ ] Mail-Tester.com ile ilk gönderimden önce test edin (hedef: 9+/10)
-
+  
   ---
-
+  
   ## Analitik İzleme
-
+  
   ```typescript
   // emails/lib/tracking.ts
   interface TrackingParams {
@@ -422,14 +422,14 @@ body_tr: |-
     medium?: string
     source?: string
   }
-
+  
   export function addTrackingParams(html: string, params: TrackingParams): string {
     const utmString = new URLSearchParams({
       utm_source: params.source ?? "email",
       utm_medium: params.medium ?? "transactional",
       utm_campaign: params.campaign,
     }).toString()
-
+  
     // E-postadaki tüm bağlantılara UTM parametreleri ekleyin
     return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
       const separator = url.includes("?") ? "&" : "?"
@@ -437,11 +437,11 @@ body_tr: |-
     })
   }
   ```
-
+  
   ---
-
+  
   ## Yaygın Tuzaklar
-
+  
   - **Satır içi stiller gerekli** — çoğu e-posta istemcisi `<head>` stillerini şeritler; React Email bunu ele alır
   - **Maksimum genişlik 600px** — daha geniş bir şey Gmail mobil sürümünde kırılır
   - **Flexbox/grid yok** — CSS grid değil, react-email'den `<Row>` ve `<Column>` kullanın

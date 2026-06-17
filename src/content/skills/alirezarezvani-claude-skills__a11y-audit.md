@@ -4,7 +4,7 @@ description_en: "Accessibility audit skill for scanning, fixing, and verifying W
 description_tr: "React, Next.js, Vue, Angular, Svelte ve plain HTML projelerinde WCAG 2.2 Level A ve AA uyumluluğunu tarama, düzeltme ve doğrulama yapan accessibility audit skill'i. Erişilebilirlik denetimi, a11y ihlallerini giderme, renk kontrastını kontrol etme, uyumluluk raporları oluşturma veya CI/CD pipeline'larına accessibility kontrolleri entegre etme işlemlerinde kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/a11y-audit/SKILL.md"
 path: ".gemini/skills/a11y-audit/SKILL.md"
 is_collection: false

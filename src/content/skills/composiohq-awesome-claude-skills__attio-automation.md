@@ -4,7 +4,7 @@ description_en: "Automate Attio CRM operations -- search records, query contacts
 description_tr: "Composio MCP entegrasyonu aracılığıyla doğal dil kullanarak Attio CRM işlemlerini otomatikleştirin -- kayıtları arayın, gelişmiş filtrelerle kişi ve şirketleri sorgulayın, notları yönetin, özellikleri listeleyin ve ilişki verileriniz içinde gezinin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64852
+stars: 64919
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/attio-automation/SKILL.md"
 path: "composio-skills/attio-automation/SKILL.md"
 is_collection: false
@@ -15,131 +15,131 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Attio Otomasyon
-
+  
   Attio CRM çalışma alanınızı yönetin -- kişiler ve şirketlerde bulanık arama yapın, karmaşık filtrelenmiş sorgular çalıştırın, notlara göz atın, object şemalarını keşfedin ve kayıtları listeleyin -- hepsi doğal dil komutları aracılığıyla.
-
+  
   **Toolkit dokümantasyonu:** [composio.dev/toolkits/attio](https://composio.dev/toolkits/attio)
-
+  
   ---
-
+  
   ## Kurulum
-
+  
   1. Composio MCP sunucusunu istemci konfigürasyonunuza ekleyin:
      ```
      https://rube.app/mcp
      ```
   2. İstendiğinde Attio hesabınızı bağlayın (OAuth kimlik doğrulaması).
   3. CRM verilerinizi yönetmek için doğal dil komutları vermeye başlayın.
-
+  
   ---
-
+  
   ## Ana İş Akışları
-
+  
   ### 1. Kayıtlarda Bulanık Arama
   Kişiler, şirketler, anlaşmalar veya herhangi bir nesneyi ad, domain, email, telefon veya sosyal medya hesabı ile arayın.
-
+  
   **Tool:** `ATTIO_SEARCH_RECORDS`
-
+  
   **Örnek prompt:**
   > "Attio'da Alan Mathis adında birini ara"
-
+  
   **Ana parametreler (tümü gerekli):**
   - `query` -- Arama dizesi (maksimum 256 karakter). Boş dize varsayılan sonuçları döndürür.
   - `objects` -- Aranacak object slug dizisi (ör. `["people"]`, `["people", "companies"]`, `["deals"]`)
   - `request_as` -- Bağlam: tam çalışma alanı araması için `{"type": "workspace"}` kullanın veya bir çalışma alanı üyesi belirtin
-
+  
   ---
-
+  
   ### 2. Gelişmiş Filtrelenmiş Sorgular
   Sunucu tarafı filtreleme, sıralama ve karmaşık koşullarla kayıtları sorgulayın -- bulanık aramadan çok daha güçlü.
-
+  
   **Tool:** `ATTIO_QUERY_RECORDS`
-
+  
   **Örnek prompt:**
   > "Attio'da Ocak 2025'ten sonra oluşturulan tüm şirketleri ada göre sıralı şekilde bul"
-
+  
   **Ana parametreler:**
   - `object` (gerekli) -- Object slug veya UUID (ör. "people", "companies", "deals")
   - `filter` -- `$eq`, `$contains`, `$gte`, `$and`, `$or` gibi operatörleri olan Attio filter nesnesi
   - `sorts` -- `direction` ("asc"/"desc") ve `attribute` içeren sort spesifikasyonları dizisi
   - `limit` -- Döndürülecek maksimum kayıt sayısı (en fazla 500)
   - `offset` -- Pagination offset
-
+  
   **Filter örnekleri:**
   ```json
   {"name": {"first_name": {"$contains": "John"}}}
   {"email_addresses": {"$contains": "@example.com"}}
   {"created_at": {"$gte": "2025-01-01T00:00:00.000Z"}}
   ```
-
+  
   ---
-
+  
   ### 3. Kayıtları ID veya Özelliklere Göre Bulma
   Belirli bir kayıdı benzersiz kimliği ile arayın veya benzersiz özellik değerlerine göre arayın.
-
+  
   **Tool:** `ATTIO_FIND_RECORD`
-
+  
   **Örnek prompt:**
   > "Attio'da example.com domain'ine sahip şirketi bul"
-
+  
   **Ana parametreler:**
   - `object_id` (gerekli) -- Object type slug: "people", "companies", "deals", "users", "workspaces"
   - `record_id` -- UUID ile doğrudan arama (isteğe bağlı)
   - `attributes` -- Attribute filtreleri sözlüğü (ör. `{"email_addresses": "john@example.com"}`)
   - `limit` -- Maksimum kayıt sayısı (en fazla 1000)
   - `offset` -- Pagination offset
-
+  
   ---
-
+  
   ### 4. Notlara Göz Atma ve Filtreleme
   Çalışma alanı genelinde notları listeleyin veya belirli üst nesneler ve kayıtlar tarafından filtreyin.
-
+  
   **Tool:** `ATTIO_LIST_NOTES`
-
+  
   **Örnek prompt:**
   > "Attio'da Acme Corp şirket kaydında son 10 notu göster"
-
+  
   **Ana parametreler:**
   - `parent_object` -- Object slug (ör. "people", "companies", "deals") -- `parent_record_id` gerekir
   - `parent_record_id` -- Üst kaydın UUID'si -- `parent_object` gerekir
   - `limit` -- Döndürülecek maksimum not sayısı (1-50, varsayılan 10)
   - `offset` -- Atlanacak sonuç sayısı
-
+  
   ---
-
+  
   ### 5. Object Şemalarını ve Özellikleri Keşfetme
   Çalışma alanı yapınızı nesneleri ve özellik tanımlarını listeleyerek anlayın.
-
+  
   **Tools:** `ATTIO_GET_OBJECT`, `ATTIO_LIST_ATTRIBUTES`
-
+  
   **Örnek prompt:**
   > "Attio'da companies nesnesi hangi özelliklere sahip?"
-
+  
   **Get Object için ana parametreler:**
   - `object_id` -- Object slug veya UUID
-
+  
   **List Attributes için ana parametreler:**
   - `target` -- "objects" veya "lists"
   - `identifier` -- Object veya list ID/slug
-
+  
   ---
-
+  
   ### 6. Tüm Kayıtları Listeleme
   Belirli bir object türünden kayıtları basit pagination ile oluşturma sırasına göre döndürülerek alın.
-
+  
   **Tool:** `ATTIO_LIST_RECORDS`
-
+  
   **Örnek prompt:**
   > "Attio'da ilk 100 people kaydını listele"
-
+  
   **Ana parametreler:**
   - Object type tanımlayıcısı
   - Pagination parametreleri
-
+  
   ---
-
+  
   ## Bilinen Sorunlar
-
+  
   - **Zaman damgası formatı kritiktir**: TÜM zaman damgası karşılaştırmaları (`created_at`, `updated_at`, özel zaman damgaları) ISO8601 string formatını KULLANMALI (ör. `2025-01-01T00:00:00.000Z`). Unix zaman damgaları veya sayısal değerler "Invalid timestamp value" hatalarına neden olur.
   - **Name özellikleri iç içe olmalıdır**: `name` özelliğinin alt özellikleri (`first_name`, `last_name`, `full_name`) `name` altına IÇ İÇE yerleştirilmelidir. Doğru: `{"name": {"first_name": {"$contains": "John"}}}`. Yanlış: `{"first_name": {...}}` -- bu "unknown_filter_attribute_slug" hatasıyla başarısız olur.
   - **Email operatörleri sınırlıdır**: `email_addresses` `$eq`, `$contains`, `$starts_with`, `$ends_with` destekler ancak `$not_empty` DESTEKLEMEZ.
@@ -147,11 +147,11 @@ body_tr: |-
   - **"lists" bir object türü değildir**: `object_id` olarak "lists" kullanmayın. Liste işlemleri için listeye özel eylemleri kullanın.
   - **Arama sonunda tutarlıdır**: `ATTIO_SEARCH_RECORDS` sonunda tutarlı sonuçlar döndürür. Garantili güncel sonuçlar için bunun yerine `ATTIO_QUERY_RECORDS` kullanın.
   - **Attribute slug'ları çalışma alanına göre değişir**: Sistem özellikleri (ör. "email_addresses", "name") tutarlıdır, ancak özel özellikler değişir. Çalışma alanınız için geçerli slug'ları keşfetmek üzere `ATTIO_LIST_ATTRIBUTES` kullanın.
-
+  
   ---
-
+  
   ## Hızlı Referans
-
+  
   | İşlem | Tool Slug | Gerekli Parametreler |
   |---|---|---|
   | Kayıtlarda bulanık arama | `ATTIO_SEARCH_RECORDS` | `query`, `objects`, `request_as` |
@@ -161,9 +161,9 @@ body_tr: |-
   | Object şemasını al | `ATTIO_GET_OBJECT` | `object_id` |
   | Özellikleri listele | `ATTIO_LIST_ATTRIBUTES` | `target`, `identifier` |
   | Kayıtları listele | `ATTIO_LIST_RECORDS` | Object türü |
-
+  
   ---
-
+  
   *[Composio](https://composio.dev) tarafından desteklenmektedir*
 ---
 

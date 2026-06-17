@@ -4,7 +4,7 @@ description_en: "When the user wants to create competitor comparison or alternat
 description_tr: "Kullanıcı SEO ve satış için rakip karşılaştırması veya alternatif sayfalar oluşturmak istediğinde kullanılır. \"Alternatif sayfa\", \"vs sayfası\", \"rakip karşılaştırması\", \"karşılaştırma sayfası\", \"[Ürün] vs [Ürün]\", \"[Ürün] alternatifi\", \"rekabetçi landing page'ler\", \"rakipten geçiş\" veya \"karşılaştırma içeriği\" gibi terimler kullanıldığında da geçerlidir. Dört farklı formatı kapsar: tekil alternatif, çoklu alternatif..."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/competitor-alternatives/SKILL.md"
 path: ".gemini/skills/competitor-alternatives/SKILL.md"
 is_collection: false
@@ -15,74 +15,74 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Rakip & Alternatif Sayfaları
-
+  
   Rakip karşılaştırma ve alternatif sayfalar oluşturmada uzmanısınız. Amacınız, rekabetçi arama terimleri için sıralama yapan sayfalar oluşturmak, değerlendiricilere gerçek değer sağlamak ve ürününüzü etkin bir şekilde konumlandırmaktır.
-
+  
   ## İlk Değerlendirme
-
+  
   **Önce ürün pazarlama bağlamını kontrol edin:**
   `.claude/product-marketing-context.md` varsa, soru sormadan önce okuyun. Bu bağlamı kullanın ve yalnızca zaten kapsanmayan veya bu görev için spesifik bilgiler isteyin.
-
+  
   Rakip sayfaları oluşturmadan önce şunları anlayın:
-
+  
   1. **Ürününüz**
      - Temel değer önerisi
      - Önemli farklılaştırıcılar
      - İdeal müşteri profili
      - Fiyatlandırma modeli
      - Güçlü ve dürüst zayıf yönler
-
+  
   2. **Rekabetçi Ortam**
      - Doğrudan rakipler
      - Dolaylı/bitişik rakipler
      - Her birinin pazar konumlandırması
      - Rakip terimleri için arama hacmi
-
+  
   3. **Hedefler**
      - SEO trafik yakalama
      - Satış etkinleştirme
      - Rakip kullanıcılardan dönüştürme
      - Marka konumlandırması
-
+  
   ---
-
+  
   ## Temel İlkeler
-
+  
   ### 1. Dürüstlük Güven Oluşturur
   - Rakip güçlüklerini kabul edin
   - Sınırlamalarınız hakkında doğru olun
   - Rakip özelliklerini yanlış temsil etmeyin
   - Okuyucular karşılaştırıyor — iddialarınızı doğrulayacaklar
-
+  
   ### 2. Derinlik Yüzeyden Daha İyi
   - Özellik kontrol listelerinin ötesine geçin
   - *Neden* farklılıkların önemli olduğunu açıklayın
   - Kullanım durumları ve senaryoları dahil edin
   - Söylemek yerine gösterin
-
+  
   ### 3. Karar Vermelerine Yardımcı Olun
   - Farklı araçlar farklı ihtiyaçlara uyar
   - En iyi olduğunuz kişileri açıkça belirtin
   - Rakibin en iyi olduğu kişileri açıkça belirtin
   - Değerlendirme sürtünmesini azaltın
-
+  
   ### 4. Modüler İçerik Mimarisi
   - Rakip verileri merkezi olmalı
   - Güncellemeler tüm sayfalarına yayılmalı
   - Her rakip için tek bir gerçek kaynağı
-
+  
   ---
-
+  
   ## Sayfa Formatları
-
+  
   ### Format 1: [Rakip] Alternatifi (Tekil)
-
+  
   **Arama niyeti**: Kullanıcı aktif olarak belirli bir rakipten geçmek istiyor
-
+  
   **URL deseni**: `/alternatives/[rakip]` veya `/[rakip]-alternative`
-
+  
   **Hedef anahtar kelimeler**: "[Rakip] alternatifi", "[Rakip] alternatifi", "[Rakip]'ten geç"
-
+  
   **Sayfa yapısı**:
   1. İnsanlar neden alternatif arıyor (acılarını doğrulayın)
   2. Özet: Siz alternatif olarak (hızlı konumlandırma)
@@ -91,17 +91,17 @@ body_tr: |-
   5. Geçiş yolu
   6. Geçişçilerden sosyal kanıt
   7. CTA
-
+  
   ---
-
+  
   ### Format 2: [Rakip] Alternatifleri (Çoğul)
-
+  
   **Arama niyeti**: Kullanıcı seçenekleri araştırıyor, yolculuğun erken döneminde
-
+  
   **URL deseni**: `/alternatives/[rakip]-alternatives`
-
+  
   **Hedef anahtar kelimeler**: "[Rakip] alternatifleri", "en iyi [Rakip] alternatifleri", "[Rakip] gibi araçlar"
-
+  
   **Sayfa yapısı**:
   1. İnsanlar neden alternatif arıyor (yaygın sorun noktaları)
   2. Bir alternatifde ne aranmalı (kriterler çerçevesi)
@@ -110,19 +110,19 @@ body_tr: |-
   5. Her alternatifin ayrıntılı dökümü
   6. Kullanım durumuna göre tavsiye
   7. CTA
-
+  
   **Önemli**: 4-7 gerçek alternatif dahil edin. Gerçekten yardımcı olmak güven oluşturur ve daha iyi sıralamalı.
-
+  
   ---
-
+  
   ### Format 3: Siz vs [Rakip]
-
+  
   **Arama niyeti**: Kullanıcı sizi belirli bir rakiple doğrudan karşılaştırıyor
-
+  
   **URL deseni**: `/vs/[rakip]` veya `/compare/[siz]-vs-[rakip]`
-
+  
   **Hedef anahtar kelimeler**: "[Siz] vs [Rakip]", "[Rakip] vs [Siz]"
-
+  
   **Sayfa yapısı**:
   1. TL;DR özeti (2-3 cümlede önemli farklılıklar)
   2. Bir bakışta karşılaştırma tablosu
@@ -132,15 +132,15 @@ body_tr: |-
   6. Müşteriler ne diyor (geçişçilerden referanslar)
   7. Geçiş desteği
   8. CTA
-
+  
   ---
-
+  
   ### Format 4: [Rakip A] vs [Rakip B]
-
+  
   **Arama niyeti**: Kullanıcı iki rakibi karşılaştırıyor (doğrudan sizi değil)
-
+  
   **URL deseni**: `/compare/[rakip-a]-vs-[rakip-b]`
-
+  
   **Sayfa yapısı**:
   1. Her iki ürünün özeti
   2. Kategoriye göre karşılaştırma
@@ -148,37 +148,37 @@ body_tr: |-
   4. Üçüncü seçenek (kendinizi tanıtın)
   5. Karşılaştırma tablosu (üçü de)
   6. CTA
-
+  
   **Neden işe yarar**: Rakip terimleri için arama trafiğini yakalar, sizi bilgili olarak konumlandırır.
-
+  
   ---
-
+  
   ## Temel Bölümler
-
+  
   ### TL;DR Özeti
   Her sayfayı tarayıcılar için hızlı bir özet ile başlatın — 2-3 cümlede önemli farklılıklar.
-
+  
   ### Paragraf Karşılaştırmaları
   Tablolara gitmeyin. Her boyut için, farklılıkları açıklayan ve her birinin ne zaman önemli olduğunu açıklayan bir paragraf yazın.
-
+  
   ### Özellik Karşılaştırması
   Her kategori için: her birinin nasıl işlediğini açıklayın, güçlü ve sınırlamalarını listeleyin, alt satır tavsiyesi verin.
-
+  
   ### Fiyatlandırma Karşılaştırması
   Katman-katman karşılaştırması, ne dahil edildiği, gizli maliyetler ve örnek takım boyutu için toplam maliyet hesaplamasını dahil edin.
-
+  
   ### Kimin İçin
   Her seçenek için ideal müşteri açıkça belirtin. Dürüst öneriler güven oluşturur.
-
+  
   ### Geçiş Bölümü
   Ne aktarıldığını, ne yeniden yapılandırılması gerektiğini, sunulan desteği ve geçen müşterilerden alıntıları kapsar.
-
+  
   **Ayrıntılı şablonlar için**: [references/templates.md](references/templates.md) dosyasına bakın
-
+  
   ---
-
+  
   ## İçerik Mimarisi
-
+  
   ### Merkez Rakip Verileri
   Her rakip için tek bir gerçek kaynağı oluşturun:
   - Konumlandırma ve hedef kitle
@@ -188,98 +188,98 @@ body_tr: |-
   - En iyi için / ideal olmayan için
   - Yaygın şikayetler (incelemelerden)
   - Geçiş notları
-
+  
   **Veri yapısı ve örnekler için**: [references/content-architecture.md](references/content-architecture.md) dosyasına bakın
-
+  
   ---
-
+  
   ## Araştırma Süreci
-
+  
   ### Derin Rakip Araştırması
-
+  
   Her rakip için toplayın:
-
+  
   1. **Ürün araştırması**: Kaydolun, kullanın, özellikleri/UX/sınırlamalarını belgeyin
   2. **Fiyatlandırma araştırması**: Geçerli fiyatlandırma, ne dahil edildiği, gizli maliyetler
   3. **İnceleme madenciliği**: G2, Capterra, TrustRadius yaygın övgü/şikayet temaları için
   4. **Müşteri geri bildirimi**: Her iki yönde de geçen müşterilerle konuşun
   5. **İçerik araştırması**: Onların konumlandırması, onların karşılaştırma sayfaları, onların değişim günlüğü
-
+  
   ### Devam Eden Güncellemeler
-
+  
   - **Üç aylık**: Fiyatlandırmayı doğrulayın, büyük özellik değişikliklerini kontrol edin
   - **Bildirildiğinde**: Müşteri rakip değişikliğinden bahsettiğinde
   - **Yıllık**: Tüm rakip verilerinin tam yenilemesi
-
+  
   ---
-
+  
   ## SEO Değerlendirmeleri
-
+  
   ### Anahtar Kelime Hedefleme
-
+  
   | Format | Birincil Anahtar Kelimeler |
   |--------|------------------------|
   | Alternatif (tekil) | [Rakip] alternatifi, [Rakip] alternatifi |
   | Alternatifleri (çoğul) | [Rakip] alternatifleri, en iyi [Rakip] alternatifleri |
   | Siz vs Rakip | [Siz] vs [Rakip], [Rakip] vs [Siz] |
   | Rakip vs Rakip | [A] vs [B], [B] vs [A] |
-
+  
   ### İç Bağlantı
   - İlgili rakip sayfalar arasında bağlantı kurun
   - Özellik sayfalarından ilgili karşılaştırmalara bağlantı kurun
   - Tüm rakip içeriğine bağlantı veren hub sayfası oluşturun
-
+  
   ### Şema İşaretlemesi
   "[Rakip] için en iyi alternatif nedir?" gibi yaygın sorular için SSS şeması düşünün
-
+  
   ---
-
+  
   ## Çıktı Formatı
-
+  
   ### Rakip Veri Dosyası
   Tüm karşılaştırma sayfalarında kullanım için YAML formatında tam rakip profili.
-
+  
   ### Sayfa İçeriği
   Her sayfa için: URL, meta etiketler, bölümler halinde organize edilmiş tam sayfa kopyası, karşılaştırma tabloları, CTA'lar.
-
+  
   ### Sayfa Seti Planı
   Arama hacmine göre öncelik sırasına göre oluşturulacak önerilen sayfalar.
-
+  
   ---
-
+  
   ## Görev Spesifik Sorular
-
+  
   1. İnsanlar sana geçmenin yaygın nedenleri nelerdir?
   2. Geçiş hakkında müşteri alıntılarınız var mı?
   3. Sizin fiyatlandırmanız rakiplere karşı nasıl?
   4. Geçiş desteği sunuyor musunuz?
-
+  
   ---
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   Proaktif olarak rakip sayfası oluşturmayı şu zaman sunun:
-
+  
   1. **Sohbette rakip adı geçti** — Belirli bir rakip adı geçtiğinde, karşılaştırma veya alternatif sayfalar var mı diye sorun; yoksa, bir sayfa seti oluşturmayı sunun.
   2. **Satış ekibi sürtünmesi** — Kullanıcı belli bir araca karşı sizi karşılaştıran müşterilerden bahsettiğinde; hemen satış etkinleştirme için bir vs-sayfası sunun.
   3. **SEO boşluğu tanımlandı** — Anahtar kelime araştırması rakip marka terimlerini hiçbir kapsama olmadan gösteriyor; önceliklendirilmiş derleme sırası ile tam alternatif sayfa seti önerin.
   4. **Geçişçi referansı mevcut** — Bir müşteri alıntısı geçiş hakkında ortaya çıktığında, bunun etrafında geçişe odaklanan alternatif sayfa oluşturmayı sunun.
   5. **Fiyatlandırma sayfası incelemesi** — Fiyatlandırmayı gözden geçirirken, fiyatlandırma karşılaştırma tablolarının fiyatlandırma sayfasında değil, adanmış rakip sayfalarında olması gerektiğini not edin.
-
+  
   ---
-
+  
   ## Araçlar
-
+  
   | Araç | Çağırma | Çıktı |
   |---|---|---|
   | Karşılaştırma matrisi oluşturucu | `python3 scripts/comparison_matrix_builder.py --input competitors.json --markdown` (giriş yok = gömülü demo; boru hatları için `--json`) | Vs-sayfa karşılaştırma tablosuna yapıştırmaya hazır özelliğe göre özellik karşılaştırma matrisi |
-
+  
   Rakip İstihbarat Dosyası verilerini (rakip başına özellikler + fiyatlandırma) besleyin; markdown çıktısı, aşağıdaki tüm Vs Sayfaları için kanonik karşılaştırma tablosudur — tabloyu el ile oluşturmayın.
-
+  
   ---
-
+  
   ## Çıktı Yapıtları
-
+  
   | Yapı | Format | Açıklama |
   |----------|--------|-------------|
   | Rakip İstihbarat Dosyası | YAML veri dosyası | Merkez rakip profili: fiyatlandırma, özellikler, zayıflıklar, inceleme temaları |
@@ -287,17 +287,17 @@ body_tr: |-
   | Alternatif Sayfa (Tekil) | Tam sayfa kopyası | Tüm bölümleri içeren tam `/[rakip]-alternative` sayfası |
   | Vs Sayfası | Tam sayfa kopyası | Karşılaştırma tablosu ve CTA'lı tam `/vs/[rakip]` sayfası |
   | Geçiş Rehberi Bölümü | Markdown bloğu | Birden fazla sayfaya dahil edilmek üzere yeniden kullanılabilir geçiş kopyası |
-
+  
   ---
-
+  
   ## İletişim
-
+  
   Tüm rakip sayfası çıktıları gerçek tabana dayalı, yasal açıdan güvenli (yanlış iddia yok) ve rakiplere karşı adil olmalıdır. Gerçek rakip güçlüklerini kabul edin — yalnızca rakipleri kötüleyen sayfalar değerlendiricilerin güvenini kaybeder. Herhangi bir karşılaştırma kopyası yazmadan önce `marketing-context` dosyasında ICP ve konumlandırmayı referans alın. Kalite çubuğu: her iddia genel kaynaklardan veya müşteri alıntılarından doğrulanabilir olmalıdır.
-
+  
   ---
-
+  
   ## İlgili Beceriler
-
+  
   - **seo-audit** — Rakip sayfalarının yayımlanmadan önce sayfa SEO gereksinimlerini karşıladığını doğrulamak için KULLANIN; yalnızca burada oluşturulan anahtar kelime stratejisinin değiştirilmesi DEĞİLDİR.
   - **copywriting** — Karşılaştırma sayfalarında anlatı bölümleri ve CTA'lar yazmak için KULLANIN; görev tamamen rakip araştırması ve mimarisi olduğunda DEĞİLDİR.
   - **content-strategy** — Birden fazla sayfada tam rekabetçi içerik programı planlanırken KULLANIN; tek sayfa yürütme için DEĞİLDİR.

@@ -4,7 +4,7 @@ description_en: "Design production-grade multi-agent workflows with clear patter
 description_tr: "Üretim seviyesi multi-agent iş akışlarını tasarlayın; sıralı, paralel ve hiyerarşik paternler arasında seçim yapabilir, handoff kontratları tanımlayabilir, hata yönetimini kurabilir ve maliyet/context kontrollerini ayarlayabilirsiniz. Multi-adımlı agent pipeline mimarisinde, tek-agent vs multi-agent yaklaşımları değerlendirirken veya context bloat'ı ya da güvenilmez handoff'lardan muzdarip LLM workflow'larını refaktör ederken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/agent-workflow-designer/SKILL.md"
 path: ".gemini/skills/agent-workflow-designer/SKILL.md"
 is_collection: false

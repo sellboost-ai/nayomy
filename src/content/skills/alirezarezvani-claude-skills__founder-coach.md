@@ -4,7 +4,7 @@ description_en: "Personal leadership development for founders and first-time CEO
 description_tr: "Kurucu ve ilk kez CEO olan liderler için kişisel gelişim programı. Kurucu arketipi tanımlama, delegasyon çerçeveleri, enerji yönetimi, CEO takvim denetimleri, liderlik stilinin gelişimi, kör noktaların belirlenmesi, sendrom sendromu, kurucu ruh sağlığı ve ardıl planlama konularını kapsar. Kurucu kendisinin darboğaz olduğunu hissettiğinde, delegasyon konusunda güçlük çektiğinde, tükenmişlik yaşadığında veya bireysel katkı sağlayıcıdan geçiş yaptığında kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/founder-coach/SKILL.md"
 path: ".gemini/skills/founder-coach/SKILL.md"
 is_collection: false
@@ -15,139 +15,139 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Kurucu Geliştirme Koçu
-
+  
   Şirketiniz ancak siz kadar hızlı büyüyebilir. Bu beceri, kurucu geliştirmesini kişisel bir lüks değil, stratejik bir öncelik olarak ele alır.
-
+  
   ## Anahtar Kelimeler
   kurucu, CEO, kurucu modu, delegasyon, tükenmişlik, sahte sendromu, liderlik büyümesi, enerji yönetimi, takvim denetimi, yönetici ekibi, yönetim kurulu yönetimi, halef planlaması, IC'den müdüre, liderlik stili, kurucu tuzağı, kör nokta, kişisel OKR'ler, CEO yansıması
-
+  
   ## Temel Gerçek
-
+  
   Kurucu her zaman engel teşkil eder. Kasıtlı değil — yapısal olarak. Şirketi siz kurdunuz. Tüm detayları biliyorsunuz. Kararlar sizin üzerinizden akar. Bu, bir noktaya kadar işe yarar.
-
+  
   ~15 kişide ilk tavana çarparız: her toplantıda bulunamazken aynı zamanda düşünemezsiniz. ~50 kişide ikinci: sizin tarzınız kültür sorunları yaratmaya başlar. ~150 kişide üçüncü: gerçek bir yönetici ekibiniz olmalıdır, yoksa şirketin ölçeklenememesinin nedeni siz olursunuz.
-
+  
   Bunu ne kadar erken ele alırsanız, o kadar iyi olur.
-
+  
   ---
-
+  
   ## 1. Kurucu Arketip Tanımlanması
-
+  
   Çoğu kurucu birincil olarak tek bir arketiptir. Sizinkini bilmek hangi konularda zorluk çekeceğinizi tahmin eder.
-
+  
   | Arketip | Güç | Kör nokta | Neye ihtiyacı var |
   |---------|-----|-----------|------------------|
   | **İnşaatçı** | Ürün, mühendislik, teknik derinlik | Pazara giriş, hikaye anlatımı, insanlar | Bir satıcı / GTM ortağı |
   | **Satıcı** | Gelir, ilişkiler, vizyon iletişimi | Operasyonlar, takip etme, süreç | Bir operatör / COO |
   | **Operatör** | Yürütme, süreç, güvenilirlik | Vizyon, ürün sezgisi, risk | Bir vizyon sahibi / stratejik kurucu ortağı |
   | **Vizyon sahibi** | Strateji, anlatı, örüntü tanıma | Yürütme, detaylar, yer bulma | Bir integratör / COO |
-
+  
   **Öz-değerlendirme soruları:**
   - Boş bir saatin olduğunda ne yaparsınız?
   - En çok ne konuda erteleme yaparsınız?
   - Kurucu ortaklarınız veya ilk ekibiniz hangi konularda yapmamanızdan şikayet ederler?
   - Liderliğiniz hakkında aldığınız en iyi geri bildirim nedir?
-
+  
   Çoğu kurucu İnşaatçı veya Vizyon sahibidir. Çoğu ölçeklendirme sorunu, tamamlayıcı türlerini yeterince erken istihdam etmemelerinden kaynaklanır.
-
+  
   ---
-
+  
   ## 2. Delegasyon Çerçevesi
-
+  
   Kurucular dört nedenden dolayı delegasyonda başarısız olur:
   1. "Hiç kimse bunu benim kadar iyi yapamaz" (kısa vadede genellikle doğru, uzun vadede ölümcül)
   2. "Açıklamak yapmaktan daha uzun sürer" (bir kez doğru; 10. kez değil)
   3. "Kendim yapmazsam kontrol kaybederim" (ölçekte kontrol bir illüzyondur)
   4. "Başarısız olursa, kendi hatasıdır" (hiç kimsenin denemesine izin vermezseniz, kendi hatanızdır)
-
+  
   ### Yetenek × İstek Matrisi
-
+  
   | | Yüksek Yetenek | Düşük Yetenek |
   |---|-----------------|-----------------|
   | **Yüksek İstek** | Tam olarak delegasyon yapın | Koçluk ve geliştirme yapın |
   | **Düşük İstek** | Motive edin veya yeniden atayın | Yönetim dışına çıkarın veya rolü yeniden tasarlayın |
-
+  
   **Kurallar:**
   - Yüksek yetenek + yüksek istek → İşi verin ve yolunuzdan çekilin
   - Yüksek istek + düşük yetenek → Onlara yatırım yapın. Büyümek istiyorlar.
   - Yüksek yetenek + düşük istek → Nedeni bulun. Ortamı düzeltin veya uyuşmazlığı kabul edin.
   - Düşük yetenek + düşük istek → Onlara delegasyon yapmayın. Performans sorununu ele alın.
-
+  
   ### Delegasyon Merdiveni
-
+  
   Her delegasyon eşit değildir. Kademeli olarak ilerleyin:
-
+  
   1. "Tam olarak söylediğim şeyi yap" — delegasyon değil, talimattır
   2. "Bunu araştır ve bana rapor ver" — bilgi toplama
   3. "Bir çözüm öner ve ben karar vereyim" — düşünce delegasyonu
   4. "Karar ver ve ne karar verdiğini söyle" — inceleme ile birlikte karar delegasyonu
   5. "Tamamen bunu yönet — bu parametrelerin dışındaysa bana bildir" — tam delegasyon
-
+  
   2–3. seviyede başlayın. Güven oluştukça insanları yukarı taşıyın. Çoğu kurucu ekibiyle 3. seviyeyi aşamaz — bu darboğazdır.
-
+  
   ### İlk olarak ne delegasyon yapılacak
-
+  
   **İlk delegasyon yapılacak (yüksek hacim, düşük riskler):**
   - Her seferinde aynı şekilde yaptığınız tekrarlayan operasyonel görevler
   - Bilgi toplama ve sentez
   - Toplantı koordinasyonu ve planlama
   - Düzenli ürettiğiniz raporlar ve güncellemeler
-
+  
   **Sonra delegasyon yapılacak (yetenek geliştirebilir):**
   - Müşteri etkileşimleri (açık ilkeler ile)
   - İşe alım ekranları (yargıyı eğittikten sonra)
   - İş ortağı ilişki yönetimi
   - Parametreler içinde bütçe yönetimi
-
+  
   **Son delegasyon yapılacak (stratejik, geri dönülemez):**
   - Büyük stratejik pivotlar
   - Yönetici işe alımları
   - Büyük finansal taahhütler
   - M&A kararları
-
+  
   ---
-
+  
   ## 3. Enerji Yönetimi
-
+  
   Kurucular zaman değil, enerji yönetirler. Zaman sabitir. Enerji yenilenebilir — ancak yalnızca yönetirseniz.
-
+  
   ### Enerji Denetimi
-
+  
   Haftanızı görevler değil, enerji ile haritayın. Tam şablon için `references/founder-toolkit.md` dosyasını bkz.
-
+  
   **Kategoriler:**
   - 🟢 **Enerji veren:** Yaptıktan sonra sizi daha keskin bırakan faaliyetler
   - 🟡 **Nötr:** Ne enerji veren ne de tüketen
   - 🔴 **Tüketen:** Sizi tüketmiş durumda bırakan faaliyetler
-
+  
   **Yaygın kurucu enerji desenleri:**
   - **İnşaatçılar:** Yaratmaktan enerji alırlar, politika ve süreçlerden tükenirler
   - **Satıcılar:** İnsanlar ve kazanışlardan enerji alırlar, detay işi ve yönetimden tükenirler
   - **Operatörler:** Çözümlemekten enerji alırlar, belirsizlik ve kararsızlıktan tükenirler
   - **Vizyon sahipleri:** Strateji ve fikirlerden enerji alırlar, yürütme ve tekrardan tükenirler
-
+  
   **Kural:** Yeşili maksimize edin. Kırmızıyı ortadan kaldırın veya delegasyon yapın. Sarıyı liderliğin bedeli olarak kabul edin.
-
+  
   ### Enerji yönetimi uygulamaları
-
+  
   **Derin çalışma zamanını koruyun.** Haftada 3–5 gün, kesintisiz 2–4 saat düşünme süresi. Bunu planlayın. Savunun. Strateji burada oluşur.
-
+  
   **Sığ işi toplu yapın.** E-posta, Slack, yönetim görevleri — günde maksimum iki kez.
-
+  
   **Toparlanma sırasında tek görevli olun.** Tükenmiş durumdaysanız, en iyi işinizi yapmaya çalışmayın. Sizin en iyinizi gerektirmeyen görevler yapın.
-
+  
   **Pik zaman pencerenizi belirleyin.** Çoğu insanın günde 4–6 pik saati vardır. En zor çalışmanızı bu windows içinde planlayın.
-
+  
   ---
-
+  
   ## 4. CEO Takvim Denetimi
-
+  
   Takvim bir kurucunun hayatındaki en dürüst belgedir. Ne söylediğiniz değil, gerçekten neye öncelik verdiğinizi gösterir.
-
+  
   ### Denetimi yürütme
-
+  
   Son 4 haftalık takvim verilerini çekin. Her toplantı/bloğu kategorize edin:
-
+  
   | Kategori | Açıklama | Hedef % |
   |----------|---------|--------|
   | Strateji | Düşünme, planlama, yön belirleme | 20–25% |
@@ -156,148 +156,148 @@ body_tr: |-
   | Yürütme | Doğrudan çalışma, kararlar | 15% |
   | Yönetim | E-posta, planlama, ek yük | < 15% |
   | Toparlanma | Egzersiz, yemekler, düşünme | 10–15% |
-
+  
   **Denetimde kırmızı bayraklar:**
   - Yönetim > 20%: Siz bir koordinatörsünüz, CEO değilsiniz. Sistem düzeltmelerinizi yapın.
   - Yürütme > 30%: Siz hâlâ IC'siniz. Ekibi kurun.
   - İnsanlar < 10%: Ekibiniz boş durumdadır. Sizin daha çok zamanına ihtiyaç duyarlar.
   - Toparlanma bloğu yok: Adrenalin üzerinde çalışıyorsunuz. Kötü biter.
   - Strateji < 10%: Şirketi yönetiyorsunuz, liderlik yapmıyorsunuz.
-
+  
   ### Her aşamada CEO'nun birincil işi
-
+  
   | Aşama | CEO çoğu zamanı şunlara harcamalı... |
   |-------|--------------------------------------|
   | Seed | Ürün ve müşteriler. Doğrudan. |
   | Series A | Yönetici ekibini istihdam etme. İşe alım sizin işinizdir. |
   | Series B | Kültür, strateji ve dış (yatırımcılar/ortaklar/müşteriler) |
   | Series C+ | Vizyon, yönetim kurulu, dış anlatı, yönetici geliştirme |
-
+  
   İki aşama öncesine ait şeylere zaman harcıyorsanız, geçişi yapmamışsınızdır.
-
+  
   ---
-
+  
   ## 5. Liderlik Stili Evrimi
-
+  
   İş her aşamada değişir. Çoğu kurucu onunla beraber değişmez.
-
+  
   **IC → Müdür (~0 ila ~10 kişi):**
   Öğretme ve güven oluşturmanız gerekir. İnsanlar hatanızı nasıl ele aldığınızı izliyorlar. Beceri: açık bağlam verin, beklentiler belirleyin, sık sık kontrol edin.
-
+  
   **Müdür → Lider (~10 ila ~50 kişi):**
   Herkesi doğrudan yönetemezsiniz. İnsanları yöneten insanlara ihtiyacınız var. Beceri: güvendiğiniz müdürleri istihdam edin, onların yönetmesine izin verin.
-
+  
   **Lider → Yönetici (~50 ila ~200 kişi):**
   Artık çalışmayı yönetmeyip, kültür ve yön belirlemişsiniz. Beceri: obsesif şekilde iletişim kurun, doğru irtifadan karar verin, liderlik ekibinizi geliştirin.
-
+  
   **Yönetici → Kurumsal CEO (200+):**
   Siz bir yönetici kadar sembol de müdürsünüz. Beceri: sistemi kurun ve sizin olmadan çalışır hale getirin; yönetim kurulu, yatırımcılar ve dış anlatıya odaklanın.
-
+  
   **En zor geçiş:** Müdür → Lider. Şeyleri kendiniz yapmayı bırakmanız ve hâlâ tanıyıp yapılandırıyor olduğunuz insanlara güvenmeniz gerekir.
-
+  
   ---
-
+  
   ## 6. Kör Nokta Tanımlanması
-
+  
   Herkesin vardır. Kurucuların çoğunun daha fazlası vardır — çünkü erken şirkette kimsenin söylemek için yetkileri veya güvenliği yoktu.
-
+  
   ### Yaygın kurucu kör noktaları
-
+  
   - **İletişim:** "Bunu bir kez söyledim, bilmeliler" — söylediniz; duymadılar veya inanmadılar
   - **Karar hızı:** O kadar hızlı hareket etmek ki ekipler oryantasyon kuramaz veya yönetieminizi oluşturamaz
   - **Bağlam hırsızlığı:** Ne olup bittiğini bilme ama paylaşmama, sonra ekiplerin kötü kararlar almasından hayal kırıklığına uğrama
   - **İyimserlik önyargısı:** Zaman çizelgelerini, maliyeti ve zorluğu sürekli olarak hafife alma
   - **Kurucu istisnacılığı:** Herkese uygulanan kurallar sizin için geçerli değil
   - **Geri bildirim kaçınması:** Kimsenin size dürüst geri bildirim vermediği bir ortam yaratma
-
+  
   ### Kör noktalarınızı bulma
-
+  
   1. **360 geri bildirim (anonim):** Yılda bir kez. Doğrudan raporlar, meslektaşlar, yönetim kurulu üyelerinden isteyin. "Başarımızın önündeki engel olan [ad] ne yapar?" başlığını ekleyin.
   2. **Çıkış görüşmesi analizi:** Ayrılan çalışanlar tutarlı şekilde ne söylerler? Örüntüyü bulun.
   3. **Başarısızlık post-mortems:** En kötü kararlarınızda ortak olan nedir? Ne varsayıyordunuz ve yanlış mıydı?
   4. **Enerji denetimi:** İnsanları tükettiğiniz noktalarda tutarlı olarak nerede yapıyorsunuz?
-
+  
   ---
-
+  
   ## 7. Sahte Sendromu Araç Seti
-
+  
   Yok olmaz. Evrimi alır. Yatırımcılara pitch konusunda korkmuş olan kurucu artık yönetim kurulu yönetimi konusunda korkmaktadır. İşe alma konusunda korkmuş olan kurucu artık işten çıkarmadan korkmaktadır.
-
+  
   **Yeniden çerçeveleme:** Sahte sendromu, gerilime orantılıdır. Asla hissetmiyorsanız, büyümüyorsunuz.
-
+  
   **Pratik araçlar:**
   - **Kanıt dosyası:** Kazanışları, iltifatları, işe yaramış kararları belirtin. Şüphe vurduğunda okuyun.
   - **Hissi normalleştirin:** "Bu konuda hazır olmadığını hissediyorum" ≠ "Ben sahte biriyim." Hisler ve gerçekler farklıdır.
   - **Yine de şeyi yapın.** Yeterlilik, hazır hissetmekten değil, yapıp bitirmekten gelir.
   - **Adlandırın:** "Bu yatırımcı toplantısı konusunda sahte sendromu hissediyorum" demek güvenilir bir kişiye gücünün %50'sini çıkarır.
-
+  
   ---
-
+  
   ## 8. Kurucu Akıl Sağlığı
-
+  
   Tükenmişlik zayıflık değildir. Yüksek talep + düşük iyileşme + girdiler üzerinde kontrol olmaması sonucu öngörülebilir bir sonuçtur.
-
+  
   ### Tükenmişlik sinyalleri
-
+  
   Erken: Sinirlilik, uyku güçlüğü, kararlar alması gerektiğinden zor görünür, misyona ilgi kaybı.
   Orta: Fiziksel semptomlar (baş ağrıları, hastalık), şirkete karşı sinizm, sosyal çekilme, tüm görevler eşit önemli görünür (öncelik felci).
   Geç: İşlev görememe, kararlar bitti, ekip fark eder.
-
+  
   **Geç tükenmişlik dönemindeyseniz:** Sahneyi bırakın. Destek alın. Şirket şehadete uğramış bir kurucudan daha fazla işleyen bir kurucu gerektirir.
-
+  
   ### Yapısal önleme
-
+  
   - **Toparlanma zamanını koruyun.** Hafta sonu değil — hafta içinde mevcut olmadığınız korunan bir zaman.
   - **Terapi veya koçluk.** Kurucular için isteğe bağlı değildir. İş izole edici ve paydalar yüksektir.
   - **Peer grubu.** Benzer aşamalarda diğer kurucular. Onlar işi gerçekten anlayanlar sadece insanlar.
   - **Açık çıkış rampaları.** "Bugün yeterli" nin neye benzediğini bilin. İşin sonsuz olmasına izin vermeyin.
-
+  
   ---
-
+  
   ## 9. Kurucu Modu Tuzağı
-
+  
   Paul Graham'ın "Kurucu Modu" yazısı, harika kurucuların operasyonlarda derin katılım sağladığını — orta yönetim atlayıp doğrudan gittikleri durumunu açıkladı. Bu konuda rezonans yaptı çünkü bazen doğrudur.
-
+  
   **Kurucu modu ne zaman yardımcı olur:**
   - Kriz kurtarma (şirkete doğrudan liderlik gerekir)
   - Ürün-pazar uyumu arama (hız org sağlığından önemlidir)
   - Yüksek değerli, geri dönülemez kararlar (siz odada olmalısınız)
   - Ekip küçük olduğunda erken aşamalar
-
+  
   **Kurucu modu ne zaman zarar verir:**
   - İstihdam ettiğiniz müdürleri baltaladığında (sizin onları geçerseniz lider olamazlar)
   - Strateji değil, güvensizlik tarafından yönlendirildiğinde
   - Takımın yargı geliştirmesini engellediğinde
   - Kontrol kaybından rahat olmadığınız için yaptığınızda
-
+  
   **Test:** Durumun gerektirdiği için mi derin gidiyorsunuz, yoksa kontrol kaybından mi rahat olmuyorsunuz? Birincisi liderlik. İkincisi tuzaktır.
-
+  
   ---
-
+  
   ## 10. Halef Planlaması
-
+  
   Siz olmadan işlev görecek bir şirket kurmak sadakatsizlik değil — liderliğin nihai ifadesidir.
-
+  
   **Halefçilik sadece çıkış hakkında değildir.** Dayanıklılık hakkındadır. Hasta olursanız ne olur? Sabatika yapıyorsanız? Satın alınıyorsanız?
-
+  
   **Halef hazırlığı seviyeleri:**
   - Seviye 1: Temel bilginizi ve süreçlerinizi belgelemişsiniz
   - Seviye 2: En az bir kişi anahtar işlevlerinizin her birine 2 hafta boyunca bakalabilir
   - Seviye 3: Liderlik ekibiniz siz olmadan bir çeyreklik şirketi yönetebilir
   - Seviye 4: Potansiyel varisiyi belirlediniz ve geliştirdiniz
-
+  
   Çoğu kurucu Seviye 0'dadır. Seviye 2 makul bir hedeftir. Seviye 3 stratejik bir varlıktır.
-
+  
   ---
-
+  
   ## Kurucu Geliştirme İçin Anahtar Sorular
-
+  
   - "Geçen hafta hangi kararları verdiniz ki başka biri de verebilirdi?"
   - "Hâlâ ne yapıyorsunuz ki 6 ay önce delegasyon yapmalıydınız?"
   - "En son ne zaman dürüst, eleştirel geri bildirim aldınız? Kimden? Ne söyledi?"
   - "Şirketin siz olmadan bir hafta çalışması için ne doğru olmalıdır?"
   - "Kaçınılmaz olarak kabul ettiğiniz şey enerjiyi tüketiyorsa nedir?"
-
+  
   ## Detaylı Referanslar
   - `references/leadership-growth.md` — Maxwell seviyeleri, durumsal liderlik, kurucu-CEO geçişi
   - `references/founder-toolkit.md` — Haftalık yansıma, enerji denetimi, delegasyon matrisi, 1:1 şablonları

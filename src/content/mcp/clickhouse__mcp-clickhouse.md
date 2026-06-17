@@ -4,7 +4,7 @@ description: "ClickHouse database integration with schema inspection and query c
 description_tr: "ClickHouse veritabanı entegrasyonu, şema incelemesi ve sorgu yetenekleri ile"
 category: "Databases"
 repo: "ClickHouse/mcp-clickhouse"
-stars: 802
+stars: 804
 url: "https://github.com/ClickHouse/mcp-clickhouse"
 body_length: 26540
 license: "Apache-2.0"

@@ -5,58 +5,11 @@ description: "Google Agent Development Kit rules for agents, tools, sessions, me
 description_tr: "Google Agent Development Kit ile ajanlar, araçlar, oturumlar, bellek, artifact'lar, değerlendirme ve deployment işlemlerini yönetmek için kurallar ve en iyi uygulamalar."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40010
+stars: 40019
 path: "rules/google-adk.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/google-adk.mdc"
 body_length: 2293
 file_extension: ".mdc"
-body_tr: |-
-  # Google ADK Kuralları
-
-  ## Agent Tasarımı
-
-  - Her agentti net bir hedef, persona ve tool seti etrafında odaklanmış tutun.
-  - Esnek akıl yürütme için LLM agenttelerini, belirleyici orkestrasyonlar için workflow agenttelerini kullanın.
-  - Görev sınırlarını, tool kullanım kurallarını ve yükseltme davranışını tanımlayan talimatlar yazın.
-  - Multi-agent sistemlerini uygulama kolaylığı yerine sorumluluk temelinde bölün.
-  - Model seçimlerini yapılandırılabilir tutun.
-
-  ## Araçlar (Tools)
-
-  - Toollara dar, tiplendirilmiş girdiler ve çıktılar verin.
-  - Tool argümanlarını yan etkiler yapmadan önce doğrulayın.
-  - Sırları, kimlik bilgilerini ve ayrıcalıklı API'leri agent promptlarından uzak tutun.
-  - Tool hatalarını açık şekilde işleyin ve işlem yapılabilir hata mesajları döndürün.
-  - ADK tool sınırlamalarından haberdar olun; bazı yerleşik araçlar aynı agent üzerindeki diğer araçlarla birleştirilemez.
-
-  ## Oturumlar, Durum ve Bellek
-
-  - Geçerli konuşma verileri için session durumunu kullanın.
-  - Oturumlar arası hatırlama ve geri alma için belleği kullanın.
-  - Durumu küçük ve serileştirilebilir tutun.
-  - Büyük dosyaları veya ikili yükleri session durumunda depolamayın.
-  - Durum anahtarlarını istikrarlı ve belgelenmiş tutun.
-
-  ## Artefaktlar
-
-  - Oluşturulan dosyalar, yüklenen dosyalar, raporlar, görüntüler, ses ve diğer ikili veriler için artefaktları kullanın.
-  - Artefakt işlemlerine güvenmeden önce runner'da bir artefakt hizmeti yapılandırın.
-  - Artefakt dosya adlarını kasıtlı olarak sürümlendirin ve anlamsal olarak farklı çıktıların üzerine yazılmasından kaçının.
-  - Tam içerik artefaktlara ait olduğunda durumda yalnızca referanslar veya özetler depolayın.
-
-  ## Değerlendirme ve Dağıtım
-
-  - Tool davranışı, agent yönlendirmesi, prompt regresyonları ve güvenli olmayan tool çağrıları için testler ekleyin.
-  - Agent kararlarını hata ayıklamak için izleme veya olay günlüklerini kullanın.
-  - Yerel geliştirme, hazırlık ve üretim yapılandırmasını ayrı tutun.
-  - Gecikme, tool hataları, token kullanımı ve handoff hataları için gözlemlenebilirlik ekleyin.
-
-  ## Yaygın Hatalar
-
-  - Bir agentti her iş akışından sorumlu yapmayın.
-  - Toollara doğrulama olmaksızın keyfi shell, SQL veya HTTP girdisi kabul ettirmeyin.
-  - Erişim kontrolü için prompt metnine güvenmeyin.
-  - Önemli yan etkileri genel tool adlarının arkasında gizlemeyin.
 ---
 
 

@@ -4,7 +4,7 @@ description_en: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing 
 description_tr: "/cs:ai-act-readiness <system> — EU AI Kanunu için 6 soruluk zorunlu değerlendirme. AI sistem entegrasyonu sırasında, AB dağıtımından önce veya Article 113 yükümlülükleri devreye girdikçe yıllık uyum kontrollerinde kullanın (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ai-act-readiness/SKILL.md"
 path: ".gemini/skills/ai-act-readiness/SKILL.md"
 is_collection: false
@@ -15,42 +15,42 @@ has_examples: false
 related_files: []
 body_tr: |-
   # /cs:ai-act-readiness — AB AI Yasası Hazırlık Kontrol Soruları
-
+  
   **Komut:** `/cs:ai-act-readiness <system>`
-
+  
   AB AI Yasası uyum operatörü, AB'ye dağıtımından önce herhangi bir AI sistemini stres testinden geçirir. AB pazarına yerleştirmeden, uygunluk değerlendirmesinden veya yıllık uyum tazelemesinden önce Madde-alıntılı altı soru.
-
+  
   ## Çalıştırılması Gereken Zamanlar
-
+  
   - AI sistemi giriş incelemesi sırasında (yeni sistem veya önemli değişiklik başına)
   - Bir AI sistemini AB pazarına koymadan önce
   - AB uygunluk beyanını imzalamadan önce (Madde 47)
   - Yıllık uyum tazelemesi sırasında (Madde 113 aşamalı uygulanması yeni yükümlülükler getirir)
   - Kuruluşun rolü değiştiğinde (dağıtıcı Madde 25(1) önemli modifikasyon yoluyla sağlayıcı olur)
   - Eğitim işlem gücü 10^25 FLOP'a yaklaştığında (Madde 51 sistemik risk eşiği)
-
+  
   ## Altı AB AI Yasası Sorusu
-
+  
   ### 1. Madde 5: Bu yasaklanmış bir AI uygulaması mı?
   **Ceza: 35 Milyon EUR'ye kadar veya dünya çapında cironun %7'si.**
   - 8 kategori: bilinçaltı manipülasyon, güvenlik açığının istismarı, sosyal puanlama, tahmine dayalı polislik, hedefsiz yüz kazıma, işyerinde/eğitimde duygusal tanıma, hassas özellikler tarafından biyometrik kategorilendirme, kolluk güçleri tarafından gerçek zamanlı kamu biyometrik kimliği
   - `ai_system_risk_classifier.py` çalıştırın
   - Evet ise → DUR. AB pazarına konamaz. Madde 5(2) muafiyetleri dışında istisnalar yoktur.
-
+  
   ### 2. Madde 6 + Ek III: Bu yüksek risk mi?
   **Ek III yüksek risk tetikler; Madde 6(3) muafiyet koşulludur.**
   - 8 kategori: biyometri, kritik altyapı, eğitim, istihdam, temel hizmetler, kolluk, göç, adalet
   - Muafiyet yalnızca Madde 6(3)(a)-(d) VE gerçek kişilerin profillendirilmesi yoksa geçerlidir
   - Profillendirme muafiyeti geçersiz kılar (Madde 6(3) son cümle)
   - `ai_system_risk_classifier.py` çalıştırın
-
+  
   ### 3. Madde 43: Yüksek risk için Modül A mı Modül H mi?
   **Biyometri → Varsayılan olarak Modül H (bildirilen kuruluş); diğerleri → Uyumlaştırılmış standartlar uygulanırsa Modül A.**
   - `conformity_assessment_planner.py` çalıştırın
   - Modül A (Ek VI): Madde 40 uyumlaştırılmış standartları uygulanırsa uygunluk varsayımı ile iç kontrol
   - Modül H (Ek VII): Biyometri için veya standartlar eksikse tam QMS + bildirilen kuruluş
   - Ek IV teknik dokümantasyon: pazara koymadan önce 8 madde gereklidir
-
+  
   ### 4. Madde 25: Şirketin rolü nedir?
   **Sağlayıcı yükümlülükleri en ağırdır; önemli modifikasyon dağıtıcıyı sağlayıcı haline getirir.**
   - Sağlayıcı (Madde 3(3)): pazara konan; tam Başlık III + Madde 73 raporu
@@ -59,14 +59,14 @@ body_tr: |-
   - Distribütör (Madde 3(7)): Madde 24 CE işareti doğrulaması
   - Yetkili temsilci (Madde 22): AB dışı sağlayıcılar atamak zorundadır
   - `ai_act_obligation_tracker.py` çalıştırın
-
+  
   ### 5. Madde 50: Şeffaflık yükümlülükleri yerine getirildi mi?
   **2 Ağustos 2025'te yürürlüğe girer.**
   - Madde 50(1): AI etkileşimini gerçek kişilere açıklayın (chatbotlar, sanal ajanlar)
   - Madde 50(2): sentetik içeriği AI tarafından üretilmiş olarak işaretleyin
   - Madde 50(3): duygusal tanımayı / biyometrik kategorilendirmeyi açıklayın (Madde 5 yasaklamaları dışında)
   - Madde 50(4): deepfake'leri (görüntü, ses, video) AI tarafından üretilmiş olarak açıklayın
-
+  
   ### 6. Maddeler 51-55: Bu GPAI mi? Sistemik riski var mı?
   **GPAI'nin paralel yolu vardır; 10^25 FLOP üzerinde sistemik risk.**
   - Madde 3(63): genel amaçlı AI modeli tanımı
@@ -74,89 +74,89 @@ body_tr: |-
   - Madde 53: tüm GPAI sağlayıcıları — Ek XI teknik dokümanlar, Ek XII aşağı akış bilgisi, telif hakkı politikası, eğitim-veri özeti
   - Madde 55: sistemik-risk GPAI ek yükümlülükleri — model değerlendirmeleri, muhasım testleri, olay raporu, siber güvenlik
   - Madde 54: AB dışı GPAI sağlayıcıları yetkili temsilci atamak zorundadır
-
+  
   ## İş Akışı
-
+  
   ```bash
   # 1. Risk sınıflandırması
   python ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_system_risk_classifier.py systems.json
-
+  
   # 2. Yüksek risk ise: uygunluk değerlendirmesi
   python ra-qm-team/skills/eu-ai-act-specialist/scripts/conformity_assessment_planner.py system.json
-
+  
   # 3. Rol başına yükümlülük matrisi
   python ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py roles.json
-
+  
   # 4. Çapraz çerçeve yeniden kullanımı (ISO 42001 vb.)
   python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
   ```
-
+  
   ## Çıktı Biçimi
-
+  
   ```markdown
   # AB AI Yasası Hazırlığı: <system>
   **Tarih:** YYYY-MM-DD
   **Madde Alıntıları:** Aşağıdaki her karar belirli Maddeyi alıntılar.
-
+  
   ## Verilen Karar
   [sınıflandır | uygunluk-yolu | yükümlülük-kapsamı | yıllık-tazeleme]
-
+  
   ## Risk Sınıflandırması
   - Tier: prohibited | high_risk | limited_risk | minimal_risk
   - Alıntı: Madde X(Y) + uygunsa Ek Z
   - Mantık: <Madde alıntılı mantık>
   - GPAI: evet/hayır
   - Sistemik-risk GPAI: evet/hayır (Madde 51 10^25 FLOP eşiğine göre)
-
+  
   ## Uygunluk Değerlendirmesi (yüksek risk ise)
   - Modül: A | A_with_caveats | H | sektörel
   - Alıntı: Madde 43 + Ek VI/VII
   - Bildirilen kuruluş gerekli: evet | hayır | isteğe bağlı
   - Ek IV paketi durumu: tamamlanmış | devam ediyor | başlanmamış
-
+  
   ## Yükümlülük Matrisi
   - Toplam yükümlülükler: N
   - Son tarih fazına göre: 2025-02-02=A, 2025-08-02=B, 2026-08-02=C, 2027-08-02=D
   - En yüksek öncelikli karşılanmamış yükümlülük: <Madde + açıklama>
-
+  
   ## Şeffaflık (Madde 50)
   - 50(1) etkileşim açıklaması: evet | hayır
   - 50(2) sentetik içerik işareti: evet | hayır | N/A
   - 50(3) duygusal tanıma açıklaması: evet | hayır | N/A
   - 50(4) deepfake açıklaması: evet | hayır | N/A
-
+  
   ## Çapraz Çerçeve Yeniden Kullanımı
   - ISO 42001 kanıtı Madde 17 QMS için geçerli: evet/hayır
   - ISO 27001 kanıtı Madde 15 siber güvenlik için geçerli: evet/hayır
   - GDPR DPIA, Madde 27 FRIA için kullanılabilir: evet/hayır
-
+  
   ## Karar
   🟢 READY-FOR-EU | 🟡 GAPS-IDENTIFIED | 🔴 NOT-READY | 🚫 PROHIBITED
-
+  
   ## İlk 3 Eylem
   [Sahip + Madde-bağlı son tarih ile 3 somut sonraki adım]
-
+  
   ## Yasal İnceleme Gereklidir
   [Dış avukatlar için işaretlenmiş Madde-düzeyinde belirsizlikler: yeni durumlar, GPAI eşiği anlaşmazlıkları, Madde 5 sınır durumları, Madde 25 önemli-modifikasyon soruları]
   ```
-
+  
   ## Yönlendirme
-
+  
   - `/cs:compliance-readiness` — çok çerçeveli görünüm için (ISO 42001 + GDPR'yle birleştir)
   - `/cs:aims-audit` — ISO 42001 detaylı incelemesi için
   - `/cs:caio-review` — yönetici AI stratejisi kararları için
   - `/cs:gc-review` — yeni durumlu yasal inceleme için (GPAI eşiği, Madde 5 sınırı, önemli-modifikasyon)
   - `/cs:decide` — kararı kaydetmek için
   - `/cs:freeze 30` — AB pazar sunuşu taahhütlerinde (düzenleyici risk)
-
+  
   ## İlgili
-
+  
   - Ajan: [`cs-ai-act-compliance`](../../agents/cs-ai-act-compliance.md)
   - Beceri: [`eu-ai-act-specialist`](../../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md)
   - Komşu: `../../skills/compliance-os/`, `../aims-audit/`, `../compliance-readiness/`, `../../../ra-qm-team/skills/gdpr-dsgvo-expert/`
-
+  
   ---
-
+  
   **Sürüm:** 1.0.0
 ---
 

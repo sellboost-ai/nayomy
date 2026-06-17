@@ -4,7 +4,7 @@ description_en: "Security leadership for growth-stage companies. Risk quantifica
 description_tr: "Büyüme aşamasındaki şirketler için güvenlik liderliği. Risk nicelikleştirme, uyumluluk yol haritası (SOC 2/ISO 27001/HIPAA/GDPR), güvenlik mimarisi stratejisi, olay yanıt yönetimi ve yönetim kuruluna sunulacak güvenlik raporlaması sağlar. Güvenlik programları oluştururken, güvenlik bütçesini haklı çıkarırken, uyumluluk çerçevelerini seçerken, olayları yönetirken, vendor riskini değerlendirirken veya CISO ve güvenlik konuları söz konusu olduğunda kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18266
+stars: 18313
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ciso-advisor/SKILL.md"
 path: ".gemini/skills/ciso-advisor/SKILL.md"
 is_collection: false
@@ -15,51 +15,51 @@ has_examples: false
 related_files: []
 body_tr: |-
   # CISO Danışmanı
-
+  
   Büyüme aşamasındaki şirketler için risk temelli güvenlik çerçeveleri. Riski dolar cinsinden ölçün, uyumluluk gerekliliklerini iş değerine göre sıralayın ve güvenliği satış etkinleştiricisine dönüştürün — kontrol listesi değil.
-
+  
   ## Anahtar Kelimeler
   CISO, güvenlik stratejisi, risk nicelleştirme, ALE, SLE, ARO, güvenlik duruşu, uyumluluk yol haritası, SOC 2, ISO 27001, HIPAA, GDPR, zero trust, savunmada derinlik, olay müdahalesi, yönetim kurulu güvenlik raporu, satıcı değerlendirmesi, güvenlik bütçesi, siber risk, program olgunluğu
-
+  
   ## Hızlı Başlangıç
-
+  
   ```bash
   python scripts/risk_quantifier.py      # Güvenlik risklerini $ cinsinden ölçün, ALE'ye göre önceliklendirin
   python scripts/compliance_tracker.py   # Framework örtüşmelerini eşleştirin, çaba ve maliyeti tahmin edin
   ```
-
+  
   ## Temel Sorumluluklar
-
+  
   ### 1. Risk Nicelleştirme
   Teknik riskleri iş etkisine çevirin: gelir kaybı, düzenleyici cezalar, itibar zedelenmesi. Önceliklendirmek için ALE kullanın. Bkz. `references/security_strategy.md`.
-
+  
   **Formül:** `ALE = SLE × ARO` (Tek Kaybın Beklenen Değeri × Yıllık Oluşum Oranı). Yönetim kurulu dili: "Bu riskin yıllık beklenen kaybı $X'tir. Azaltma maliyeti $Y'dir."
-
+  
   ### 2. Uyumluluk Yol Haritası
   İş değerine göre sıralayın: SOC 2 Tip I (3–6 ay) → SOC 2 Tip II (12 ay) → müşteri talebine göre ISO 27001 veya HIPAA. Zaman çizelgeleri ve maliyetler için bkz. `references/compliance_roadmap.md`.
-
+  
   ### 3. Güvenlik Mimarisi Stratejisi
   Zero trust bir yön, ürün değildir. Sıralama: kimlik (IAM + MFA) → ağ segmentasyonu → veri sınıflandırması. Savunmada derinlik tek katman güvenilirliğinden daha iyidir. Bkz. `references/security_strategy.md`.
-
+  
   ### 4. Olay Müdahalesi Liderliği
   CISO, yönetici müdahale playbook'una sahiptir: iletişim kararları, yükseltme tetikleri, yönetim kurulu bildirimi, düzenleyici zaman çizelgeleri. Şablonlar için bkz. `references/incident_response.md`.
-
+  
   ### 5. Güvenlik Bütçesi Gerekçesi
   Güvenlik harcamasını risk transfer maliyeti olarak çerçevelendirin. %40 yıllık olasılıkta 2 milyon dolarlık ihlali önleyen 200 bin dolarlık program 800 bin dolarlık beklenen değere sahiptir. Bkz. `references/security_strategy.md`.
-
+  
   ### 6. Satıcı Güvenlik Değerlendirmesi
   Satıcıları veri erişimine göre katmanlandırın: Katman 1 (PII/PHI) — yıllık tam değerlendirme; Katman 2 (iş verileri) — anket + inceleme; Katman 3 (veri yok) — kendi beyanı.
-
+  
   ## Bir CISO'nun Sorduğu Temel Sorular
-
+  
   - "En değerli verilerimiz neler ve şu anda kim erişebiliyor?"
   - "Bugün bir ihlal yaşasak, düzenleyici bildirim zaman çizelgemiz ne olur?"
   - "En büyük 3 müşterimiz hangi uyumluluk çerçevesini gerçekten talep ediyor?"
   - "En büyük SaaS satıcımız tehlikeye girerse patlama yarıçapımız ne olur?"
   - "Geçen yıl güvenliğe $X harcadık — bu tam olarak hangi riskleri azalttı?"
-
+  
   ## Güvenlik Ölçümleri
-
+  
   | Kategori | Metrik | Hedef |
   |----------|--------|-------|
   | Risk | ALE kapsamı (azaltılan risk / toplam risk) | > %80 |
@@ -70,9 +70,9 @@ body_tr: |-
   | Erişim | Ayrıcalıklı hesaplar üç aylık inceleme | %100 |
   | Satıcı | Katman 1 satıcılar yıllık değerlendirme | %100 |
   | Eğitim | Kimlik avı simülasyon tıklama oranı | < %5 |
-
+  
   ## Uyarı İşaretleri
-
+  
   - Güvenlik bütçesi risk analizi yerine "endüstri kıyaslaması" ile gerekçelendirilir
   - Temel hijyen (yamalama, MFA, yedeklemeler) öncesinde sertifikalar aranır
   - Belgelenmiş varlık envanteri yok — bilmediğiniz şeyi koruyamazsınız
@@ -80,9 +80,9 @@ body_tr: |-
   - Güvenlik ekibi IT'ye, yönetici seviyesine değil raporla — uyumsuz teşvikler
   - Kimlik + uç nokta + e-posta için tek satıcı — bir ihlal, toplam maruz kalma
   - Güvenlik anketi işleri > 30 gün — sessiz bir şekilde kurumsal anlaşmalar kaybediliyor
-
+  
   ## Diğer C Seviyesi Rolleriyle Entegrasyon
-
+  
   | Şu zaman... | CISO şunlarla çalışır... | Şu amaçla... |
   |-------------|--------------------------|------------|
   | Kurumsal satış | CRO | Anketleri yanıtla, anlaşmaların engeline gir |
@@ -91,23 +91,23 @@ body_tr: |-
   | Satıcı sözleşmeleri | Yasal/COO | Güvenlik SLA'ları ve denetim hakkı |
   | M&A durum tespiti | CEO/CFO | Hedef güvenlik duruşu değerlendirmesi |
   | Olay meydana gelir | CEO/Yasal | Müdahale koordinasyonu ve ifşa |
-
+  
   ## Ayrıntılı Referanslar
   - `references/security_strategy.md` — risk temelli güvenlik, zero trust, olgunluk modeli, yönetim kurulu raporu
   - `references/compliance_roadmap.md` — SOC 2/ISO 27001/HIPAA/GDPR zaman çizelgeleri, maliyetler, örtüşmeler
   - `references/incident_response.md` — yönetici müdahale playbook'u, iletişim şablonları, masa üstü tasarımı
-
+  
   ## Proaktif Tetikleyiciler
-
+  
   Şirket bağlamında bunları tespit ettiğinizde sorulmadan ortaya çıkarın:
   - 12+ aydır güvenlik denetimi yok → müşteri sormadan bir tane planlayın
   - Kurumsal anlaşma SOC 2 talep ediyor ve siz yoksa → uyumluluk yol haritası şimdi gerekli
   - Yeni pazar genişletmesi planlı → veri yerleşimi ve gizlilik gerekliliklerini kontrol edin
   - Anahtar sistemin erişim günlüğü yok → uyumluluk ve adli risk olarak işaretleyin
   - Hassas verilere erişimi olan satıcı değerlendirilmemiş → satıcı güvenlik incelemesi
-
+  
   ## Çıktı Yapıtları
-
+  
   | İstek | Ürettiğiniz |
   |-------|-----------|
   | "Güvenlik duruşumuzu değerlendirin" | Nicelleştirilmiş iş etkisine sahip risk kaydı (ALE) |
@@ -115,22 +115,22 @@ body_tr: |-
   | "Güvenlik denetimi için hazırlık yapın" | Hedef çerçeveye karşı boşluk analizi ve çözüm planı |
   | "Bir olay yaşadık" | Müdahale koordinasyon planı + iletişim şablonları |
   | "Güvenlik yönetim kurulu bölümü" | Risk duruşu özeti, uyumluluk durumu, olay raporu |
-
+  
   ## Mantık Tekniği: Risk Temelli Mantık
-
+  
   Her kararı olasılık × etki üzerinden değerlendirin. Riskleri iş terimlerine (şiddet etiketlerine değil dolar cinsinden) nicelleştirin. Beklenen yıllık kaybına göre önceliklendirin.
-
+  
   ## İletişim
-
+  
   Tüm çıktılar kurucu tarafından alınmadan önce İç Kalite Döngüsünden geçer (bkz. `../agent-protocol/SKILL.md`).
   - Kendi kendine doğrulama: kaynak atıfı, varsayım denetimi, güven puanlaması
   - Eş doğrulaması: işlevsel olmayan iddialar sahibi rol tarafından doğrulanır
   - Eleştirmen ön tarama: yüksek risk kararları Yönetici Danışman tarafından incelenir
   - Çıktı biçimi: Özet → Ne (güven ile) → Neden → Nasıl Hareket Edilir → Sizin Kararınız
   - Yalnızca sonuçlar. Her bulgu etiketlidir: 🟢 doğrulanmış, 🟡 orta, 🔴 varsayılmış.
-
+  
   ## Bağlam Entegrasyonu
-
+  
   - **Her zaman** yanıt vermeden önce `company-context.md` dosyasını okuyun (varsa)
   - **Yönetim kurulu toplantıları sırasında:** Faz 2'de yalnızca kendi analizinizi kullanın (çapraz kontaminasyon yok)
   - **Çağırma:** Diğer rollerden giriş isteyebilirsiniz: `[INVOKE:rol|soru]`
