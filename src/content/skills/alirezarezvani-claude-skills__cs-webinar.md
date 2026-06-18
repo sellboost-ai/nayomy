@@ -4,7 +4,7 @@ description_en: "/cs:webinar — Webinar & virtual-event marketing workflow. Pla
 description_tr: "/cs:webinar — Webinar ve sanal etkinlik pazarlama iş akışı. Sıfırdan bir webinar planlayın (iş hedefinden geriye doğru tasarlayarak), hayal kırıklığı yaratan bir webinarı kurtarın (funnel'i değerlendirin, sorunlu aşamayı düzeltin) veya geçmiş bir webinarı her zaman erişilebilir bir lead üreticisine dönüştürün. Kayıt, promosyon hazırlığı, katılım, canlı etkileşim, canlıdan satışa dönüşüm ve segmentli takip olmak üzere tam funnel'i kapsar."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-webinar/SKILL.md"
 path: ".gemini/skills/cs-webinar/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Financial Analyst agent for DCF valuation, financial modeling, 
 description_tr: "Finansal analiz, DCF değerleme, finansal modelleme, bütçeleme, tahminleme ve SaaS metrikleri (ARR, MRR, churn, CAC, LTV, NRR) için tasarlanmış agent. Finansal yetenekleri organize eder ve kullanıcıların finansal analiz, değerleme modelleri, bütçe planlama, oran analizi, SaaS sağlık kontrolleri ya da birim ekonomisi projeksiyonlarına ihtiyaç duyduğu durumlarda devreye girer."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-financial-analyst/SKILL.md"
 path: ".gemini/skills/cs-financial-analyst/SKILL.md"
 is_collection: false

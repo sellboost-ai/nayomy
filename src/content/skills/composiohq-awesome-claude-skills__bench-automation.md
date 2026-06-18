@@ -4,7 +4,7 @@ description_en: "Automate Bench tasks via Rube MCP (Composio). Always search too
 description_tr: "Rube MCP (Composio) aracılığıyla Bench görevlerini otomatikleştirin. Her zaman güncel schemaları için önce tools'da arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bench-automation/SKILL.md"
 path: "composio-skills/bench-automation/SKILL.md"
 is_collection: false

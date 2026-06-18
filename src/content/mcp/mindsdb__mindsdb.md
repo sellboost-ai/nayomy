@@ -6,10 +6,10 @@ category: "Aggregators"
 repo: "mindsdb/mindsdb"
 stars: 39317
 url: "https://github.com/mindsdb/mindsdb"
-body_length: 6703
+body_length: 6575
 license: "MIT"
 language: "Makefile"
-homepage: "https://mindsdb.com"
+homepage: "https://mindshub.ai"
 body_tr: |-
   <a name="readme-top"></a>
   
@@ -154,14 +154,12 @@ body_tr: |-
   <p align="center">
 	<a href="https://docs.mindshub.ai/">Documentation</a>
     ·
-    <a href="https://mindshub.ai">Try it</a>
+    <a href="https://docs.mindshub.ai/setup.html">Try it</a>
     ·
     <a href="https://mindsdb.com/contact?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Contact us for a demo</a>
-    ·
-    <a href="https://mindsdb.com/joincommunity?utm_medium=community&utm_source=github&utm_campaign=mindsdb%20repo">Community Slack</a>
+    
   </p>
 </div>
-
 
 
 

@@ -2,54 +2,13 @@
 name: "nextjs-app-router-cursorrules-prompt-file"
 clean_name: "Next.js App Router"
 description: "Cursor rules for Next.js development with App Router integration."
-description_tr: "Next.js geliştirme için Cursor kuralları, App Router entegrasyonu dahil."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/nextjs-app-router-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nextjs-app-router-cursorrules-prompt-file.mdc"
 body_length: 1032
 file_extension: ".mdc"
-body_tr: |-
-  ```
-  // Next.js App Router .cursorrules
-
-  // Next.js App Router en iyi uygulamaları
-
-  const nextjsAppRouterBestPractices = [
-    "Varsayılan olarak server components kullan",
-    "Client components'i yalnızca gerekli olduğunda uygula",
-    "Yeni dosya tabanlı routing sistemini kullan",
-    "Paylaşılan layoutlar için layout.js kullan",
-    "Yükleme durumları için loading.js uygula",
-    "Hata işleme için error.js kullan",
-    "API rotaları için route handlers'ı kullan",
-  ];
-
-  // Klasör yapısı
-
-  const folderStructure = `
-  app/
-    layout.js
-    page.js
-    components/
-    lib/
-    styles/
-  public/
-  `;
-
-  // Ek talimatlar
-
-  const additionalInstructions = `
-  1. Tip güvenliği için TypeScript kullan
-  2. SEO için uygun metadata'yı uygula
-  3. Optimize edilmiş görseller için Next.js Image component'ini kullan
-  4. Stil için CSS Modules veya Tailwind CSS kullan
-  5. Uygun hata sınırlarını uygula
-  6. Özel dosyalar için Next.js adlandırma kurallarını takip et
-  7. Yapılandırma için ortam değişkenlerini kullan
-  `;
-  ```
 ---
 
 // Next.js App Router .cursorrules

@@ -4,7 +4,7 @@ description: "MCP tool access to MarkItDown -- a library that converts many file
 description_tr: "MarkItDown kütüphanesine MCP aracılığıyla erişim sağlayan, çeşitli dosya formatlarını (yerel veya uzak) LLM'ler tarafından tüketilebilecek Markdown'a dönüştüren bir araç."
 category: "File Systems"
 repo: "microsoft/markitdown"
-stars: 154919
+stars: 155361
 url: "https://github.com/microsoft/markitdown"
 body_length: 15739
 license: "MIT"

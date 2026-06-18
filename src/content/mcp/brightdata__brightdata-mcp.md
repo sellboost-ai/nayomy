@@ -4,7 +4,7 @@ description: "Discover, extract, and interact with the web - one interface power
 description_tr: "Web'i keşfedin, veri çıkarın ve etkileşim kurun - tek bir arayüz ile herkese açık internet üzerinde otomatik erişimi güçlendirin."
 category: "Search & Data Extraction"
 repo: "brightdata/brightdata-mcp"
-stars: 2452
+stars: 2454
 url: "https://github.com/brightdata/brightdata-mcp"
 body_length: 19786
 license: "MIT"

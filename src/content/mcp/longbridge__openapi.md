@@ -4,7 +4,7 @@ description: "LongPort OpenAPI provides real-time stock market data, provides AI
 description_tr: "LongPort OpenAPI, gerçek zamanlı borsa verisi sağlar ve MCP üzerinden yapay zeka analiz erişimi ile ticaret yetenekleri sunur."
 category: "Finance & Fintech"
 repo: "longbridge/openapi"
-stars: 437
+stars: 438
 url: "https://github.com/longbridge/openapi"
 body_length: 6378
 license: "Apache-2.0"

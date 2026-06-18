@@ -2,58 +2,13 @@
 name: "react-chakra-ui-cursorrules-prompt-file"
 clean_name: "React Chakra UI"
 description: "Cursor rules for React development with Chakra UI integration."
-description_tr: "React geliştirme için Cursor kuralları, Chakra UI entegrasyonu ile birlikte."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/react-chakra-ui-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-chakra-ui-cursorrules-prompt-file.mdc"
 body_length: 1196
 file_extension: ".mdc"
-body_tr: |-
-  ```
-  // React + Chakra UI .cursorrules
-
-  // Fonksiyonel bileşenleri hook'larla tercih edin
-
-  const preferFunctionalComponents = true;
-
-  // Chakra UI en iyi uygulamaları
-
-  const chakraUIBestPractices = [
-    "Uygulamanızın kökünde ChakraProvider kullanın",
-    "Tutarlı tasarım için Chakra UI bileşenlerini kullanın",
-    "Markaya özgü stil için özel tema uygulayın",
-    "Chakra UI breakpoint sistemi ile duyarlı stiller kullanın",
-    "Geliştirilmiş işlevsellik için Chakra UI hook'larından yararlanın",
-  ];
-
-  // Klasör yapısı
-
-  const folderStructure = `
-  src/
-    components/
-    pages/
-    theme/
-      index.js
-      foundations/
-      components/
-    hooks/
-    utils/
-  `;
-
-  // Ek talimatlar
-
-  const additionalInstructions = `
-  1. Chakra UI bileşenleriyle tür güvenliği için TypeScript kullanın
-  2. Chakra UI kullanarak uygun bileşen bileşimi uygulayın
-  3. Chakra UI'ın yerleşik erişilebilirlik özelliklerinden yararlanın
-  4. Anlamsal HTML işleme için 'as' prop'unu kullanın
-  5. Chakra UI'ın renk modu ile koyu modu uygulayın
-  6. Duyarlı tasarım için Chakra UI'ın layout bileşenlerini kullanın
-  7. Performans optimizasyonu için Chakra UI en iyi uygulamalarını izleyin
-  `;
-  ```
 ---
 
 // React + Chakra UI .cursorrules

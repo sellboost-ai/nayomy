@@ -4,7 +4,7 @@ description_en: "Automate Chatbotkit tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) aracılığıyla Chatbotkit görevlerini otomatikleştirin. Güncel schemaları için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/chatbotkit-automation/SKILL.md"
 path: "composio-skills/chatbotkit-automation/SKILL.md"
 is_collection: false

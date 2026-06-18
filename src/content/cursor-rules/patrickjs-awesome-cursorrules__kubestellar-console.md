@@ -2,58 +2,13 @@
 name: "kubestellar-console"
 clean_name: "Kubestellar Console"
 description: "KubeStellar Console — Multi-cluster Kubernetes dashboard development rules"
-description_tr: "KubeStellar Console — Çok-cluster Kubernetes dashboard geliştirme kuralları"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/kubestellar-console.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/kubestellar-console.mdc"
 body_length: 2311
 file_extension: ".mdc"
-body_tr: |-
-  # KubeStellar Console Geliştirme Kuralları
-
-  ## Proje Yapısı
-  - Frontend: React + TypeScript `/web/` dizininde
-  - Backend: Go (Fiber v2) kök dizinde
-  - Build: Her commit öncesi `cd web && npm run build && npm run lint` çalıştırın
-  - Kartlar: Dashboard kart bileşenleri `web/src/components/cards/` dizininde
-  - Hooks: Veri getirme hooks'ları `web/src/hooks/` dizininde
-
-  ## Kart Geliştirme
-  - Tüm veri getirme işlemleri `useCache`/`useCached*` hooks'ları üzerinden yapılmalı
-  - Her zaman `isDemoData` ve `isRefreshing` değişkenlerini destructure ederek `useCardLoadingState()` fonksiyonuna geçin
-  - Yüklenme sırasında demo veri kullanmayın: `isDemoFallback && !isLoading`
-  - Hook sıralaması: `useCardLoadingState` `isDemoData` sağlayan hooks'lardan sonra gelsin
-
-  ## Array Güvenliği
-  - ASLA `.join()`, `.map()`, `.filter()`, `.forEach()`, `for...of` çağrılarını undefined olabilecek değerlere uygulamayın
-  - Her zaman koruma ekleyin: `(data || []).map(...)` ya da `(data || []).join(', ')`
-
-  ## Sihirli Sayılar Yok
-  - Sayısal literals adlandırılmış sabitler olmalı, sadece basit literals (`0`, `1`, `-1`) açık yerel bağlamlarda hariç
-  - `lib/constants/` (time.ts, network.ts, ui.ts) dosyalarından sabitler kullanın
-
-  ## Şekillendirme
-  - Tailwind CSS `cn()` utility'si ile classNames birleştirme
-  - Ham hex renkler kullanmayın — anlamsal Tailwind sınıflarını kullanın (`text-foreground`, `bg-primary`, `bg-card`)
-  - Durum renkleri: `text-green-400`/`bg-green-500/10` (başarılı), `text-yellow-400`/`bg-yellow-500/10` (uyarı), `text-red-400`/`bg-red-500/10` (hata), `text-cyan-400`/`bg-cyan-500/10` (bilgi) — bunlar tasarım sisteminin anlamsal durum tokenlerine eşlenir ve izin verilen tek palet sınıflarıdır
-
-  ## Uluslararasılaştırma
-  - Tüm kullanıcıya görünen string'ler `react-i18next` kütüphanesindeki `t()` fonksiyonunu kullanmalı
-  - Anahtarlar `web/src/locales/en/` JSON dosyalarında olmalı
-  - UI metni için hiçbir zaman ham string kullanmayın
-
-  ## Go Backend
-  - Fiber v2 handlers: `func(c *fiber.Ctx) error`
-  - Hatalar için `fiber.NewError(statusCode, message)` kullanın
-  - Her zaman `make([]T, 0)` yazın, `var x []T` değil (nil → JSON'da null)
-  - Yapılandırılmış logging için `log/slog` kullanın
-  - Multi-cluster sorgular goroutine'ler + sync.WaitGroup kullanmalı
-
-  ## Cluster Deduplication
-  - Cluster'ları iterate ederken her zaman `DeduplicatedClusters()` kullanın
-  - Birden fazla kubeconfig context aynı fiziksel cluster'ı işaret edebilir
 ---
 
 # KubeStellar Console Development Rules

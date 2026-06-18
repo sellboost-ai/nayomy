@@ -4,7 +4,7 @@ description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-ag
 description_tr: "Kenar ve bulut kümelerinde 20+ CNCF projesine entegrasyon sunan, yerleşik MCP sunucusu (kc-agent) ile AI destekli operasyonlar, gerçek zamanlı gözlemlenebilirlik sağlayan multi-cluster Kubernetes dashboard'u."
 category: "Cloud Platforms"
 repo: "kubestellar/console"
-stars: 115
+stars: 117
 url: "https://github.com/kubestellar/console"
 body_length: 35214
 license: "Apache-2.0"

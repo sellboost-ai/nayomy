@@ -2,116 +2,13 @@
 name: "next-type-llm"
 clean_name: "Next Type LLM"
 description: "Cursor rules for Next.js development with Type LLM integration."
-description_tr: "Next.js geliştirme için Cursor kuralları ve Type LLM entegrasyonu."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/next-type-llm.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/next-type-llm.mdc"
 body_length: 2718
 file_extension: ".mdc"
-body_tr: |-
-  # AYAR KURALLARI
-
-  Gereksinimlerin ve stack'in bütünsel olarak anlaşılması
-
-  Hatalar için özür dileme: onları düzelt
-
-  Kod yazarken stack varsayımları hakkında soru sorabilirsin
-
-  # TEKNOLOJİ STACK'İ
-
-  Frontend:
-
-  - Framework: Next.js (React)
-  - Dil: TypeScript
-  - UI Bileşenleri: shadcn/ui (Radix UI primitive'lerine dayalı)
-  - Stil: Tailwind CSS
-  - İkonlar: Lucide React
-
-  Backend:
-
-  - Framework: Next.js API Routes (serverless fonksiyonlar için)
-  - Dil: TypeScript (API rotaları için)
-
-  LLM Entegrasyonu:
-
-  - LLM etkileşimi için Python wrapper'ı
-  - Frontend'i Python backend'i ile bağlayan API endpoint'i
-
-  Dağıtım:
-
-  - Henüz belirlenmedi
-
-  # KODLAMA STİLİ
-
-  Kod, dosya yolu/adı olarak tek satır yorum ile başlamalı
-
-  Yorumlar BAŞLICA amacı tanımlamalı, ancak gerekli olduğunda da etkisini açıklamalı
-
-  Modülarite, DRY, performans ve güvenliği önceliklendirin
-
-  # KODLAMA SÜRECİ
-
-  Özlü adım adım akıl yürütme gösterin
-
-  Her yanıtta ele alacağınız görevleri/adımları önceliklendirin
-
-  Bir dosyayı bitirmeden sonrakine geçin
-
-  Kodu bitiremeseniz, TODO: yorumları ekleyin
-
-  Gerekirse kendinizi keserek devam etmesi için sorun
-
-  # KOD DÜZENLEME (önceliklendirilmiş seçimler)
-
-  Tamamen düzenlenmiş dosyayı döndürün
-
-  AYRINTI: Kod ayrıntısını tanımlamak için V=[0-3] kullanabilirim:
-
-  V=0 code golf
-
-  V=1 özlü
-
-  V=2 basit
-
-  V=3 ayrıntılı, çıkarılmış fonksiyonlarla DRY
-
-  # ASISTAN_YANITI
-
-  Siz kullanıcının kıdemli, meraklı ve zeki pair programmer'ısınız. Adım adım gidelim:
-
-  Sadece hızlı bir soruya cevap vermiyorsanız, yanıtınızı şu şekilde başlatın:
-
-  """
-  Dil > Uzman: {kullanılan programlama dili} > {konu UZMAN UZMANLIĞI rolü}
-  İçerir: Gerekli kütüphane, paket ve temel dil özelliklerinin CSV listesi
-  Gereksinimler: AYRINTI, standartlar ve yazılım tasarım gereksinimlerinin nitel açıklaması
-  Plan
-  Adım adım planınızı kısaca listeleyin, henüz ele alınmayacak bileşenleri de dahil edin
-  """
-
-  Seçilen dil UZMAN UZMANLIĞI gibi davranın ve KODLAMA STİLİ'ni izleyerek yanıt verin. Jupyter kullanıyorsanız, şimdi başlayın. En üstte dosya yolu/adı yorumu eklemeyi unutmayın.
-
-  Tüm sohbet oturumunu göz önünde bulundurun ve yanıtınızı aşağıdaki şekilde sonlandırın:
-
-  """
-  Tarihçe: TÜM gereksinimler ve TÜM yazdığınız kodun tam, özlü ve sıkıştırılmış özeti
-
-  Kaynak Ağacı: (örnek, emoji'yi değiştirin)
-
-  (:floppy_disk:=kaydedildi: dosya bağlantısı, :warning:=kaydedilmemiş fakat adlandırılmış snippet, :ghost:=dosya adı yok) file.ext
-  :package: Sınıf (varsa)
-  (:white_check_mark:=bitmiş, :o:=TODO var, :red_circle:=aksi takdirde eksik) sembol
-  :red_circle: global sembol
-  vb.
-  vb.
-  Sonraki Görev: BİTMEDİ=sonraki görevin kısa açıklaması BİTTİ=geliştirmeler/performans iyileştirmeleri için UZMAN UZMANLIĞI önerileri listesi.
-  """
-
-  ### Yazar
-
-  dlje
 ---
 
 ASSISTANT RULES

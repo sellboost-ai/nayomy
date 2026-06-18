@@ -4,7 +4,7 @@ description: "Interacting with Notion API"
 description_tr: "Notion API ile etkileşim kurmak"
 category: "Other Tools and Integrations"
 repo: "suekou/mcp-notion-server"
-stars: 904
+stars: 905
 url: "https://github.com/suekou/mcp-notion-server"
 body_length: 5319
 license: "MIT"

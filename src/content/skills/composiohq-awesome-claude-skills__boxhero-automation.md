@@ -4,7 +4,7 @@ description_en: "Automate Boxhero tasks via Rube MCP (Composio). Always search t
 description_tr: "Boxhero görevlerini Rube MCP (Composio) ile otomatikleştirin. İşlemler öncesinde her zaman araçları kontrol ederek güncel şemaları öğrenin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/boxhero-automation/SKILL.md"
 path: "composio-skills/boxhero-automation/SKILL.md"
 is_collection: false

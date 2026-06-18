@@ -4,7 +4,7 @@ description_en: "When the user wants to optimize any form that is NOT signup/reg
 description_tr: "Kullanıcı signup/registration dışındaki herhangi bir formu—lead capture formları, iletişim formları, demo talep formları, başvuru formları, anket formları veya checkout formları—optimize etmek istediğinde kullanılır. Ayrıca kullanıcı \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate\" veya \"contact form\" bahsettiğinde de geçerlidir. Signup/registration formları için signup-flow-cro'ya bakınız."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/form-cro/SKILL.md"
 path: ".gemini/skills/form-cro/SKILL.md"
 is_collection: false

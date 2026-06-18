@@ -4,7 +4,7 @@ description_en: "Design Azure architectures for startups and enterprises. Use wh
 description_tr: "Azure mimarisi tasarlamak için startup ve kurumsal çözümleri sunun. Azure altyapısı tasarımı, Bicep/ARM template oluşturma, Azure maliyeti optimizasyonu, Azure DevOps pipeline kurulumu veya Azure'a geçiş gibi işlemlerde kullanın. AKS, App Service, Azure Functions, Cosmos DB ve maliyet optimizasyonunu kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/azure-cloud-architect/SKILL.md"
 path: ".gemini/skills/azure-cloud-architect/SKILL.md"
 is_collection: false

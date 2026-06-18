@@ -4,7 +4,7 @@ description: "MCP server enabling automated access to LeetCode's programming pro
 description_tr: "LeetCode'nin programlama problemleri, çözümleri, submissions ve genel verilerine otomatik erişim sağlayan MCP sunucusu; kullanıcıya özel özellikleri (örneğin notlar) için isteğe bağlı kimlik doğrulaması desteği ve leetcode.com (global) ile leetcode.cn (Çin) sitelerine uyumluluk sunuyor."
 category: "Coding Agents"
 repo: "jinzcdev/leetcode-mcp-server"
-stars: 117
+stars: 118
 url: "https://github.com/jinzcdev/leetcode-mcp-server"
 body_length: 16729
 license: "MIT"

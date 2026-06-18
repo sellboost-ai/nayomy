@@ -4,7 +4,7 @@ description: "Provides comprehensive and accurate Bazi (Chinese Astrology) chart
 description_tr: "Kapsamlı ve doğru Bazi (Çin Astrolojisi) harita oluşturma ve analiz işlevselliği sunar"
 category: "Art & Culture"
 repo: "cantian-ai/bazi-mcp"
-stars: 391
+stars: 393
 url: "https://github.com/cantian-ai/bazi-mcp"
 body_length: 9537
 license: "ISC"

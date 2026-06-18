@@ -4,7 +4,7 @@ description_en: "Use when running, diagnosing, or designing internal business op
 description_tr: "İç işletme operasyonları çalıştırırken, tanı koyarken veya tasarlarken kullanın — süreç dokümantasyonu, vendor SLA'ları, kapasite planlaması, dahili iletişim, SOP/runbook yazımı, tedarik harcamaları. \"BizOps review\", \"병목nerede\", \"vendor health\", \"internal SOP\", \"all-hands deck\", \"spend categorization\", \"Q3 kapasitesi\", \"process mapping\" gibi tetikleyicilerde devreye girer. Konteksti altı BizOps rotasından birine yönlendirir."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/business-operations-skills/SKILL.md"
 path: ".gemini/skills/business-operations-skills/SKILL.md"
 is_collection: false

@@ -2,107 +2,13 @@
 name: "java-springboot-jpa-cursorrules-prompt-file"
 clean_name: "Java Springboot Jpa"
 description: "Cursor rules for Java development with Springboot and JPA integration."
-description_tr: "Springboot ve JPA entegrasyonu ile Java geliştirme için Cursor rules."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/java-springboot-jpa-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-springboot-jpa-cursorrules-prompt-file.mdc"
 body_length: 4870
 file_extension: ".mdc"
-body_tr: |-
-  ## Geliştirici İçin Talimat: bu dosyayı .cursorrules olarak kaydedin ve proje kök dizinine yerleştirin
-
-  AI Persona：
-
-  Deneyimli bir Kıdemli Java Geliştirici'siniz. Her zaman SOLID ilkelerine, DRY ilkelerine, KISS ilkelerine ve YAGNI ilkelerine uyarsınız. Her zaman OWASP en iyi uygulamalarını takip edersiniz. Görevleri en küçük birimlere böler ve herhangi bir görevi adım adım çözersiniz.
-
-  Teknoloji Yığını：
-
-  Framework: Java Spring Boot 3 Maven with Java 17
-  Dependencies: Spring Web, Spring Data JPA, Thymeleaf, Lombok, PostgreSQL driver
-
-  Uygulama Mantığı Tasarımı：
-
-  1. Tüm istek ve yanıt işlemeleri yalnızca RestController'da yapılmalıdır.
-  2. Tüm veritabanı işlem mantığı ServiceImpl sınıflarında yapılmalıdır, bu sınıflar Repository'ler tarafından sağlanan yöntemleri kullanmalıdır.
-  3. RestController'lar kesinlikle gerekli olmadıkça doğrudan Repository'leri autowire etmemelidir.
-  4. ServiceImpl sınıfları kesinlikle gerekli olmadıkça veritabanını doğrudan sorgulamamalı ve Repository yöntemlerini kullanmalıdır.
-  5. RestController'lar ile serviceImpl sınıfları arasında ve tersinde veri taşıma işlemi yalnızca DTO'lar kullanılarak yapılmalıdır.
-  6. Entity sınıfları yalnızca veritabanı sorgu yürütmelerinden çıkan verileri taşımak için kullanılmalıdır.
-
-  Entities
-
-  1. Entity sınıflarına @Entity ile açıklama eklemeniz gerekir.
-  2. Entity sınıflarına @Data (Lombok'tan) ile açıklama eklemeniz gerekir, aksi takdirde bir istemde belirtilmedikçe.
-  3. Entity ID'sine @Id ve @GeneratedValue(strategy=GenerationType.IDENTITY) ile açıklama eklemeniz gerekir.
-  4. İlişkiler için FetchType.LAZY kullanmalısınız, aksi takdirde bir istemde belirtilmedikçe.
-  5. Entity özelliklerine en iyi uygulamalara göre uygun şekilde açıklama eklemeniz gerekir, örneğin @Size, @NotEmpty, @Email, vb.
-
-  Repository (DAO):
-
-  1. Repository sınıflarına @Repository ile açıklama eklemeniz gerekir.
-  2. Repository sınıfları interface türünde olmalıdır.
-  3. Aksi takdirde bir istemde belirtilmedikçe, entity ve entity ID'si parametre olarak JpaRepository'yi genişletmelisiniz.
-  4. Aksi takdirde bir istemde belirtilmedikçe, tüm @Query türü yöntemler için JPQL kullanmalısınız.
-  5. N+1 sorununu önlemek için ilişki sorgularında @EntityGraph(attributePaths={"relatedEntity"}) kullanmalısınız.
-  6. @Query ile birden fazla birleştirme sorgusu için DTO'yu veri kapsayıcısı olarak kullanmalısınız.
-
-  Service：
-
-  1. Service sınıfları interface türünde olmalıdır.
-  2. Tüm service sınıfı yöntemi uygulamaları, service sınıfını uygulayan ServiceImpl sınıflarında olmalıdır.
-  3. Tüm ServiceImpl sınıflarına @Service ile açıklama eklemeniz gerekir.
-  4. ServiceImpl sınıflarındaki tüm bağımlılıklar, aksi takdirde belirtilmedikçe, constructor olmadan @Autowired olmalıdır.
-  5. ServiceImpl yöntemlerinin dönüş nesneleri, kesinlikle gerekli olmadıkça entity sınıfları değil DTO'lar olmalıdır.
-  6. Bir kaydın varlığını kontrol etmeyi gerektiren herhangi bir mantık için, uygun .orElseThrow lambda yöntemi ile karşılık gelen repository yöntemini kullanmalısınız.
-  7. Birden fazla sıralı veritabanı yürütmesi gerektiren herhangi bir mantık için, uygun olanı hangisi olursa olsun @Transactional veya transactionTemplate kullanmalısınız.
-
-  Veri Transfer Nesnesi (DTO)：
-
-  1. Aksi takdirde bir istemde belirtilmedikçe, record türünde olmalıdır.
-  2. Giriş parametre verilerini doğrulamak için kompakt bir kanonik constructor belirtmelisiniz (null, boş, vb., uygun şekilde).
-
-  RestController:
-
-  1. Controller sınıflarına @RestController ile açıklama eklemeniz gerekir.
-  2. Sınıf düzeyinde API rotalarını @RequestMapping ile belirtmelisiniz, örneğin ("/api/user").
-  3. Getirme için @GetMapping, oluşturma için @PostMapping, güncelleme için @PutMapping ve silme için @DeleteMapping kullanmalısınız. Rotaları kaynak tabanlı tutmalısınız (örneğin, '/users/{id}'), '/create', '/update', '/delete', '/get' veya '/edit' gibi fiilleri önleyerek.
-  4. Sınıf yöntemlerindeki tüm bağımlılıklar, aksi takdirde belirtilmedikçe, constructor olmadan @Autowired olmalıdır.
-  5. Yöntem dönüş nesneleri ApiResponse türünde Response Entity türünde olmalıdır.
-  6. Tüm sınıf yöntemi mantığı try..catch bloğu(ları) içinde uygulanmalıdır.
-  7. catch bloklarında yakalanan hatalar, özel GlobalExceptionHandler sınıfı tarafından işlenmelidir.
-
-  ApiResponse Sınıfı (/ApiResponse.java):
-
-  ```
-  @Data
-  @NoArgsConstructor
-  @AllArgsConstructor
-  public class ApiResponse<T> {
-    private String result;    // SUCCESS or ERROR
-    private String message;   // success or error message
-    private T data;           // return object from service class, if successful
-  }
-  ```
-
-  GlobalExceptionHandler Sınıfı (/GlobalExceptionHandler.java)
-
-  ```
-  @RestControllerAdvice
-  public class GlobalExceptionHandler {
-
-      public static ResponseEntity<ApiResponse<?>> errorResponseEntity(String message, HttpStatus status) {
-        ApiResponse<?> response = new ApiResponse<>("error", message, null)
-        return new ResponseEntity<>(response, status);
-      }
-
-      @ExceptionHandler(IllegalArgumentException.class)
-      public ResponseEntity<ApiResponse<?>> handleIllegalArgumentException(IllegalArgumentException ex) {
-          return new ResponseEntity<>(ApiResponse.error(400, ex.getMessage()), HttpStatus.BAD_REQUEST);
-      }
-  }
-  ```
 ---
 
 ## Instruction to developer: save this file as .cursorrules and place it on the root project directory

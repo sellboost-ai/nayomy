@@ -4,7 +4,7 @@ description_en: "Automate Browser Tool tasks via Rube MCP (Composio). Always sea
 description_tr: "Browser Tool görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları bulmak için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/browser-tool-automation/SKILL.md"
 path: "composio-skills/browser-tool-automation/SKILL.md"
 is_collection: false

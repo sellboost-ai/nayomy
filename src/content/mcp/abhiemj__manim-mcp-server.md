@@ -4,7 +4,7 @@ description: "A local MCP server that generates animations using Manim."
 description_tr: "Manim kullanarak animasyonlar oluşturan yerel bir MCP sunucusu."
 category: "Art & Culture"
 repo: "abhiemj/manim-mcp-server"
-stars: 599
+stars: 600
 url: "https://github.com/abhiemj/manim-mcp-server"
 body_length: 3036
 license: "MIT"

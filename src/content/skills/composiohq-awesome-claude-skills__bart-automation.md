@@ -4,7 +4,7 @@ description_en: "Automate Bart tasks via Rube MCP (Composio). Always search tool
 description_tr: "Rube MCP (Composio) aracılığıyla Bart görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları aratın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bart-automation/SKILL.md"
 path: "composio-skills/bart-automation/SKILL.md"
 is_collection: false

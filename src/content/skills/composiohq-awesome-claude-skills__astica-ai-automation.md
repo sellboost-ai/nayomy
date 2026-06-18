@@ -4,7 +4,7 @@ description_en: "Automate Astica AI tasks via Rube MCP (Composio). Always search
 description_tr: "Astica AI görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemaları bulmak için tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/astica-ai-automation/SKILL.md"
 path: "composio-skills/astica-ai-automation/SKILL.md"
 is_collection: false

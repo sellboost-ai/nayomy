@@ -4,7 +4,7 @@ description: "A high-level framework for building MCP servers in Python"
 description_tr: "Python'da MCP sunucuları oluşturmak için üst düzey bir framework."
 category: "Other Tools and Integrations"
 repo: "PrefectHQ/fastmcp"
-stars: 25674
+stars: 25687
 url: "https://github.com/PrefectHQ/fastmcp"
 body_length: 6920
 license: "Apache-2.0"

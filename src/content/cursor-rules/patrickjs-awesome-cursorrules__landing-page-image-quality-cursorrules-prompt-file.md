@@ -2,45 +2,13 @@
 name: "landing-page-image-quality-cursorrules-prompt-file"
 clean_name: "Landing Page Image Quality"
 description: "Cursor rules for avoiding placeholder or broken image URLs, using stable visual assets, and checking alt text, dimensions, licensing, and responsive behavior."
-description_tr: "Cursor kuralları, yer tutucu veya bozuk görsel URL'lerinden kaçınmak, stabil görsel varlıklar kullanmak ve alt metni, boyutları, lisanslama ve responsive davranışını kontrol etmek için."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/landing-page-image-quality-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/landing-page-image-quality-cursorrules-prompt-file.mdc"
 body_length: 1816
 file_extension: ".mdc"
-body_tr: |-
-  # Giriş Sayfası Görüntü Kalitesi
-
-  Kullanıcıya yönelik sayfaları oluştururken veya düzenlerken, yer tutucu görüntü hizmetleri yerine gerçek, ilgili görsel varlıkları kullanın.
-
-  ## Görüntü Kaynakları
-
-  - `placehold.co`, `via.placeholder.com`, `dummyimage.com`, `picsum.photos`, rastgele görüntü URL'leri veya bozuk/kullanımdan kaldırılmış görüntü hizmetlerini commit etmeyin.
-  - Proje varlıklarını commit etmeyi, ürün ekran görüntülerini, kullanıcı tarafından onaylanmış oluşturulan varlıkları veya onaylı bir görüntü sağlayıcısından gelen kararlı URL'leri tercih edin.
-  - Üçüncü taraf bir görüntü kullanmadan önce, lisans ve atıf gerekliliklerinin proje ile uyumlu olduğunu doğrulayın.
-  - Rasgele web sitelerinden görüntülere hotlink vermekten kaçının.
-
-  ## Varlık Kalitesi
-
-  - Görüntüleri temsil ettikleri gerçek içeriğe, ürüne, yere, nesneye veya kullanıcı durumuna uyarlayın.
-  - Kullanıcının bir ürünü, özelliği, iş akışını veya arayüzü incelemesi gerektiğinde belirsiz atmosferik görüntüler kullanmayın.
-  - Tekrarlanan kartlar veya galeri öğeleri için tutarlı en-boy oranları kullanın.
-  - Layout shift'i önlemek için açık `width` ve `height` öznitelikleri veya CSS aspect-ratio kısıtlamaları sağlayın.
-  - Hedef framework'e uygun optimize edilmiş formatlar ve boyutlar kullanın.
-
-  ## Erişilebilirlik
-
-  - Her bilgilendirici görüntü, görüntünün bağlamda amacını tanımlayan spesifik `alt` metni içermelidir.
-  - Dekoratif görüntüler boş alt metni kullanmalı ve yardımcı teknoloji tarafından duyurulmamalıdır.
-  - Temel metni yalnızca bir görüntünün içine koymayın.
-
-  ## Uygulama Kontrolleri
-
-  - Görüntü yollarının inşa edilen uygulamada çözümlendiğinden emin olun.
-  - Mobil ve masaüstü genişliklerde duyarlı davranışı kontrol edin.
-  - Yükleme, hata ve boş durumlarının üretim arayüzünde bozuk görüntü simgeleri bırakmadığını doğrulayın.
 ---
 
 # Landing Page Image Quality

@@ -4,7 +4,7 @@ description: "MCP server exposing SSH control for Linux and Windows servers via 
 description_tr: "MCP sunucusu, Model Context Protocol üzerinden Linux ve Windows sunucuları için SSH kontrolü sağlar. Parola veya SSH anahtarı ile uzak shell komutlarını güvenli bir şekilde çalıştırabilirsiniz."
 category: "Command Line"
 repo: "tufantunc/ssh-mcp"
-stars: 503
+stars: 504
 url: "https://github.com/tufantunc/ssh-mcp"
 body_length: 7907
 license: "MIT"

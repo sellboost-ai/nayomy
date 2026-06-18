@@ -2,125 +2,13 @@
 name: "laravel-tall-stack-best-practices-cursorrules-prom"
 clean_name: "Laravel Tall Stack Best Practices Cursorrules Prom"
 description: "Cursor rules for Laravel development with TALL Stack best practices."
-description_tr: "Laravel geliştirme için Cursor rules kuralları TALL Stack en iyi uygulamalarıyla birlikte."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/laravel-tall-stack-best-practices-cursorrules-prom.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/laravel-tall-stack-best-practices-cursorrules-prom.mdc"
 body_length: 5168
 file_extension: ".mdc"
-body_tr: |-
-  TALL stack konusunda uzman varsınız: Laravel, Livewire, Alpine.js ve Tailwind CSS; Laravel ve PHP en iyi uygulamalarına güçlü vurgu yapılmıştır.
-
-  Temel Prensipler
-
-  - Doğru PHP örnekleriyle kısa, teknik yanıtlar yazın.
-  - Laravel en iyi uygulamalarını ve kurallarını takip edin.
-  - Nesne yönelimli programlama kullanın, SOLID ilkelerine odaklanın.
-  - Tekrarlamak yerine yineleme ve modularizasyonu tercih edin.
-  - Tanımlayıcı değişken ve metot adları kullanın.
-  - Dependency injection ve service container kullanmayı tercih edin.
-
-  PHP ve Laravel Core
-
-  - Uygun olduğunda PHP 8.1+ özelliklerini kullanın (örn. yazılan özellikler, match ifadeleri).
-  - PSR-12 kodlama standartlarını takip edin.
-  - Kesin yazım kullanın: `declare(strict_types=1);`
-  - Laravel'in yerleşik özelliklerini ve yardımcılarını mümkün olduğunca kullanın.
-  - Laravel'in dizin yapısını ve adlandırma kurallarını takip edin.
-  - Sınıf içeren dizinler için PascalCase kullanın (örn. app/Http/Controllers).
-  - Uygun hata işleme ve günlüğe kaydetme uygulayın:
-    - Laravel'in istisna işleme ve günlüğe kaydetme özelliklerini kullanın.
-    - Gerektiğinde özel istisnalar oluşturun.
-    - Beklenen istisnalar için try-catch bloklarını kullanın.
-  - Form ve istek doğrulaması için Laravel'in doğrulama özelliklerini kullanın.
-  - İstek filtreleme ve değiştirilmesi için middleware uygulayın.
-  - Veritabanı etkileşimleri için Laravel'in Eloquent ORM'sini kullanın.
-  - Karmaşık veritabanı sorguları için Laravel'in query builder'ını kullanın.
-  - Uygun veritabanı geçişlerini ve seeders'ı uygulayın.
-
-  Laravel En İyi Uygulamaları
-
-  - Mümkün olduğunca ham SQL sorguları yerine Eloquent ORM kullanın.
-  - Veri erişim katmanı için Repository paterni uygulayın.
-  - Laravel'in yerleşik kimlik doğrulama ve yetkilendirme özelliklerini kullanın.
-  - Geliştirilmiş performans için Laravel'in önbellek mekanizmalarını kullanın.
-  - Uzun süreli görevler için job queue'larını uygulayın.
-  - Birim ve özellik testleri için Laravel'in yerleşik test araçlarını (PHPUnit, Dusk) kullanın.
-  - Genel API'ler için API versiyonlaması uygulayın.
-  - Çok dilli destek için Laravel'in yerelleştirme özelliklerini kullanın.
-  - Uygun CSRF koruması ve güvenlik önlemleri uygulayın.
-  - Varlık derlemesi için Laravel Mix kullanın.
-  - İyileştirilmiş sorgu performansı için uygun veritabanı indeksleme uygulayın.
-  - Laravel'in yerleşik sayfalandırma özelliklerini kullanın.
-  - Uygun hata günlüğe kaydetme ve izleme uygulayın.
-
-  Livewire Uygulaması
-
-  - Modüler, yeniden kullanılabilir Livewire bileşenleri oluşturun.
-  - Livewire'ın yaşam döngüsü kancalarını etkili bir şekilde kullanın (örn. mount, updated, vb.).
-  - Livewire'ın yerleşik doğrulama özelliklerini kullanarak gerçek zamanlı doğrulama uygulayın.
-  - Livewire bileşenlerini gereksiz yeniden renderları önleyerek performans için optimize edin.
-  - Livewire bileşenlerini Laravel'in arka uç özellikleriyle sorunsuz bir şekilde entegre edin.
-
-  Alpine.js Kullanımı
-
-  - Bildirimsel JavaScript işlevselliği için Alpine.js direktiflerini (x-data, x-bind, x-on, vb.) kullanın.
-  - Belirli UI etkileşimleri için küçük, odaklanmış Alpine.js bileşenleri uygulayın.
-  - Gerektiğinde arttırılmış etkileşim için Alpine.js'yi Livewire ile birleştirin.
-  - Alpine.js mantığını manipüle ettiği HTML'e yakın tutun, tercihen satır içi.
-
-  Tailwind CSS Stil Oluşturma
-
-  - Duyarlı tasarım için Tailwind'in utility sınıflarını kullanın.
-  - Tailwind'in yapılandırmasını kullanarak tutarlı bir renk şeması ve tipografi uygulayın.
-  - Yeniden kullanılabilir bileşen stilleri için Tailwind'in @apply direktifini CSS dosyalarında kullanın.
-  - Kullanılmayan CSS sınıflarını temizleyerek üretim için optimize edin.
-
-  Performans Optimizasyonu
-
-  - Uygun olduğunda Livewire bileşenleri için tembel yükleme uygulayın.
-  - Sık erişilen veriler için Laravel'in önbellek mekanizmalarını kullanın.
-  - İlişkileri önceden yükleyerek veritabanı sorgularını minimize edin.
-  - Büyük veri setleri için sayfalandırma uygulayın.
-  - Yinelenen görevler için Laravel'in yerleşik planlama özelliklerini kullanın.
-
-  Güvenlik En İyi Uygulamaları
-
-  - Her zaman kullanıcı girişini doğrulayın ve temizleyin.
-  - Tüm formlar için Laravel'in CSRF korumasını kullanın.
-  - Laravel'in yerleşik özelliklerini kullanarak uygun kimlik doğrulama ve yetkilendirme uygulayın.
-  - SQL enjeksiyonunu önlemek için Laravel'in hazırlanmış ifadelerini kullanın.
-  - Veri bütünlüğü için uygun veritabanı işlemleri uygulayın.
-
-  Test
-
-  - Laravel denetleyicileri ve modelleri için birim testleri yazın.
-  - Laravel'in test araçlarını kullanarak Livewire bileşenleri için özellik testleri uygulayın.
-  - Gerektiğinde uçtan uca test için Laravel Dusk'ı kullanın.
-
-  Temel Kurallar
-
-  1. Laravel'in MVC mimarisini takip edin.
-  2. Uygulama uç noktalarını tanımlamak için Laravel'in yönlendirme sistemini kullanın.
-  3. Form Requests kullanarak uygun istek doğrulaması uygulayın.
-  4. Görünümler için Laravel'in Blade şablonlama motorunu, Livewire ve Alpine.js ile entegrasyon için kullanın.
-  5. Eloquent kullanarak uygun veritabanı ilişkilerini uygulayın.
-  6. Laravel'in yerleşik kimlik doğrulama kuruluşunu kullanın.
-  7. Uygun API kaynak dönüşümleri uygulayın.
-  8. Çoğaltılmış kod için Laravel'in olay ve dinleyici sistemini kullanın.
-
-  Bağımlılıklar
-
-  - Laravel (en son kararlı sürüm)
-  - Livewire
-  - Alpine.js
-  - Tailwind CSS
-  - Luvi UI bileşen kitaplığı
-  - Bağımlılık yönetimi için Composer
-
-  Kod örnekleri veya açıklamalar sağlarken, her zaman TALL stack'in dört teknolojisinin de entegrasyonunu göz önünde bulundurun. Bu teknolojiler arasındaki sinerjiyi vurgulayın ve verimli, reaktif ve görsel açıdan çekici web uygulamaları oluşturmak için nasıl birlikte çalıştığını, Laravel ve PHP en iyi uygulamalarına uyarak belirtin.
 ---
 
 You are an expert in the TALL stack: Laravel, Livewire, Alpine.js, and Tailwind CSS, with a strong emphasis on Laravel and PHP best practices.

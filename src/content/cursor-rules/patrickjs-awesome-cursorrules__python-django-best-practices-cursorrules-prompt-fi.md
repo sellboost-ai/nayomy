@@ -2,75 +2,13 @@
 name: "python-django-best-practices-cursorrules-prompt-fi"
 clean_name: "Python Django Best Practices Cursorrules Prompt Fi"
 description: "Cursor rules for Python Django development with best practices."
-description_tr: "Python Django geliştirme için Cursor rules'ları en iyi uygulamalarla birlikte sunar."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/python-django-best-practices-cursorrules-prompt-fi.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-django-best-practices-cursorrules-prompt-fi.mdc"
 body_length: 3620
 file_extension: ".mdc"
-body_tr: |-
-  Python, Django ve Ölçeklenebilir Web Uygulaması Geliştirmede Uzman
-
-  Temel İlkeler
-
-  - Net, teknik yanıtlar verin ve kesin Django örnekleri sunun.
-  - Django'nun yerleşik özelliklerini ve araçlarını her zaman tam yeteneklerini kullanmak için tercih edin.
-  - Okunabilirlik ve bakımlanabilirliği önceliklendirin; Django'nun kodlama stil kılavuzuna (PEP 8 uyumluluğu) uyun.
-  - Açıklayıcı değişken ve fonksiyon adları kullanın; adlandırma kurallarına uyun (örn. fonksiyonlar ve değişkenler için küçük harf ve alt çizgi).
-  - Projenizi Django uygulamaları kullanarak modüler bir şekilde yapılandırın ve yeniden kullanılabilirliği ile ilgi ayrılığını sağlayın.
-
-  Django/Python
-
-  - Daha karmaşık görünümler için Django'nun class-based views (CBVs) kullanın; daha basit mantık için function-based views (FBVs) tercih edin.
-  - Veritabanı etkileşimleri için Django ORM'den yararlanın; performans için gerekli olmadıkça ham SQL sorgularından kaçının.
-  - Kullanıcı yönetimi için Django'nun yerleşik kullanıcı modelini ve kimlik doğrulama çerçevesini kullanın.
-  - Form işleme ve doğrulama için Django'nun form ve model form sınıflarından yararlanın.
-  - Sorumluluğu açıkça ayırmak için MVT (Model-View-Template) desenine kesin bir şekilde uyun.
-  - Kimlik doğrulama, logging ve caching gibi çapraz ilgi alanları işlemek için middleware'i dikkatli bir şekilde kullanın.
-
-  Hata İşleme ve Doğrulama
-
-  - Görünüm düzeyinde hata işleme uygulayın ve Django'nun yerleşik hata işleme mekanizmalarını kullanın.
-  - Form ve model verilerini doğrulamak için Django'nun doğrulama çerçevesini kullanın.
-  - İş mantığında ve görünümlerde istisnaları işlemek için try-except bloklarını tercih edin.
-  - Kullanıcı deneyimini geliştirmek ve yardımcı bilgiler sağlamak için hata sayfalarını özelleştirin (örn. 404, 500).
-  - Hata işleme ve logging'i temel iş mantığından ayırmak için Django sinyallerini kullanın.
-
-  Bağımlılıklar
-
-  - Django
-  - Django REST Framework (API geliştirmesi için)
-  - Celery (arka plan görevleri için)
-  - Redis (caching ve task queues için)
-  - PostgreSQL veya MySQL (üretim için tercih edilen veritabanları)
-
-  Django'ya Özgü Yönergeler
-
-  - HTML işlemek için Django template'lerini ve JSON yanıtları için DRF serializer'larını kullanın.
-  - İş mantığını modeller ve formlarda tutun; görünümleri hafif ve istek işlemeye odaklanmış tutun.
-  - Net ve RESTful URL desenleri tanımlamak için Django'nun URL dispatcher'ını (urls.py) kullanın.
-  - Django'nun güvenlik en iyi uygulamalarını uygulayın (örn. CSRF koruması, SQL injection koruması, XSS önlemesi).
-  - Kod kalitesi ve güvenilirliğini sağlamak için Django'nun yerleşik test araçlarını (unittest ve pytest-django) kullanın.
-  - Sık erişilen veriler için performansı optimize etmek amacıyla Django'nun caching çerçevesinden yararlanın.
-  - Kimlik doğrulama, logging ve güvenlik gibi yaygın görevler için Django'nun middleware'ini kullanın.
-
-  Performans Optimizasyonu
-
-  - Django ORM'nin `select_related` ve `prefetch_related` özelliklerini kullanarak query performansını optimize edin.
-  - Veritabanı yükünü azaltmak için Django'nun cache framework'ünü backend desteğiyle (örn. Redis veya Memcached) kullanın.
-  - Daha iyi performans için veritabanı indexing ve query optimizasyon tekniklerini uygulayın.
-  - I/O sınırlı veya uzun süreli işlemler için asynchronous views ve arka plan görevlerini (Celery aracılığıyla) kullanın.
-  - Django'nun statik dosya yönetim sistemini (örn. WhiteNoise veya CDN entegrasyonu) ile optimize edin.
-
-  Temel Kurallar
-
-  1. Boilerplate kod azaltmak için Django'nun "Convention Over Configuration" ilkesine uyun.
-  2. Geliştirmenin her aşamasında güvenlik ve performans optimizasyonunu önceliklendirin.
-  3. Okunabilirlik ve bakımlanabilirliği artırmak için net ve mantıksal bir proje yapısı koruyun.
-
-  Views, models, forms ve güvenlik konuları hakkında en iyi uygulamalar için Django belgelerine bakınız.
 ---
 
 You are an expert in Python, Django, and scalable web application development.

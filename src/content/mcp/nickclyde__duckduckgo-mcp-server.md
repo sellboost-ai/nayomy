@@ -4,7 +4,7 @@ description: "Web search using DuckDuckGo"
 description_tr: "DuckDuckGo kullanarak web araması yapın"
 category: "Search & Data Extraction"
 repo: "nickclyde/duckduckgo-mcp-server"
-stars: 1250
+stars: 1253
 url: "https://github.com/nickclyde/duckduckgo-mcp-server"
 body_length: 9216
 license: "MIT"

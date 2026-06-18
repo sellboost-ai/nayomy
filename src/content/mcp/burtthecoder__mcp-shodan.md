@@ -4,7 +4,7 @@ description: "MCP server for querying the Shodan API and Shodan CVEDB. This serv
 description_tr: "Shodan API ve Shodan CVEDB'yi sorgulamak için MCP sunucusu. IP aramaları, cihaz araştırmaları, DNS sorgulamaları, zafiyet sorguları, CPE aramaları ve daha fazlasını yapmanızı sağlayan araçlar sunmaktadır."
 category: "Security"
 repo: "BurtTheCoder/mcp-shodan"
-stars: 137
+stars: 138
 url: "https://github.com/BurtTheCoder/mcp-shodan"
 body_length: 10080
 license: "MIT"

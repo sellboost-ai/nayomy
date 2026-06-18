@@ -4,7 +4,7 @@ description: "Official Supabase MCP server to connect AI assistants directly wit
 description_tr: "Supabase'in resmi MCP sunucusu, AI asistanlarını doğrudan Supabase projenize bağlayarak tablo yönetimi, config getirme ve veri sorgulama gibi işlemleri gerçekleştirmelerine olanak tanır."
 category: "Databases"
 repo: "supabase-community/supabase-mcp"
-stars: 2741
+stars: 2742
 url: "https://github.com/supabase-community/supabase-mcp"
 body_length: 16221
 license: "Apache-2.0"

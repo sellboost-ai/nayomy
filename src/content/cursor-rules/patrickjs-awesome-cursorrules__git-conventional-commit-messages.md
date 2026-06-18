@@ -2,60 +2,13 @@
 name: "git-conventional-commit-messages"
 clean_name: "Git Conventional Commit Messages"
 description: "Cursor rules for Git development with conventional commit messages integration."
-description_tr: "Git geliştirmesi için Cursor kuralları, conventional commit mesajları entegrasyonu ile."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/git-conventional-commit-messages.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/git-conventional-commit-messages.mdc"
 body_length: 4439
 file_extension: ".mdc"
-body_tr: |-
-  Conventional Commit Messages spesifikasyonunu kullanarak commit mesajları oluşturun
-
-  Commit mesajı aşağıdaki şekilde yapılandırılmalıdır:
-
-
-  ```
-  <type>[optional scope]: <description>
-
-  [optional body]
-
-  [optional footer(s)]
-  ``` 
-  --------------------------------
-
-  Commit, kütüphanenizin tüketicilerine niyeti iletişim kurmak için aşağıdaki yapısal öğeleri içerir:
-
-    - fix: fix türündeki bir commit, kodunuzdaki bir hatayı düzeltir (bu Semantic Versioning'deki PATCH ile ilişkilidir).
-    - feat: feat türündeki bir commit, kodunuza yeni bir özellik tanıtır (bu Semantic Versioning'deki MINOR ile ilişkilidir).
-    - BREAKING CHANGE: BREAKING CHANGE: footer'ına sahip olan veya type/scope'dan sonra ! ekleyen bir commit, kırılma yapan bir API değişikliği tanıtır (Semantic Versioning'deki MAJOR ile ilişkilidir). Bir BREAKING CHANGE herhangi bir türdeki commitin parçası olabilir.
-    - fix: ve feat: dışındaki türlere izin verilir, örneğin @commitlint/config-conventional (Angular kuralına dayalı) build:, chore:, ci:, docs:, style:, refactor:, perf:, test: ve diğerlerini önerir.
-    - BREAKING CHANGE: <description> dışındaki footer'lar sağlanabilir ve git trailer formatına benzer bir kuralı izler.
-    - Ek türler Conventional Commits spesifikasyonu tarafından zorunlu tutulmaz ve Semantic Versioning'de örtülü bir etkiye sahip değildir (BREAKING CHANGE içermediği sürece). Commit'in type'ına, ek bağlamsal bilgi sağlamak için bir scope eklenebilir ve parantez içinde yer alır, örneğin feat(parser): add ability to parse arrays.
-
-
-
-  ### Spesifikasyon Detayları
-
-  Bu belgede "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" ve "OPTIONAL" anahtar kelimeleri RFC 2119'da açıklanan şekilde yorumlanmalıdır.
-
-  Commitler type ile başlatılmalıdır ve bu type, feat, fix, vb. gibi bir isimden, ardından OPTIONAL scope'dan, OPTIONAL !'dan ve REQUIRED terminal iki noktadan ve boşluktan oluşur.
-  feat türü, bir commit uygulamanıza veya kütüphanenize yeni bir özellik eklediğinde KULLANILMALI'dır.
-  fix türü, bir commit uygulamanız için bir hata düzeltmesini temsil ettiğinde KULLANILMALI'dır.
-  Bir type'dan sonra scope sağlanabilir. Scope, parantez içinde yer alan kodunuzun bir bölümünü açıklayan bir isimden oluşmalıdır, örneğin fix(parser):
-  Bir açıklama, type/scope prefix'inden sonra iki nokta ve boşluğun hemen ardından gelmelidir. Açıklama, kod değişikliklerinin kısa bir özeti, örneğin fix: array parsing issue when multiple spaces were contained in string.
-  Kod değişiklikleri hakkında ek bağlamsal bilgi sağlayarak, kısa açıklamadan sonra daha uzun bir commit body'si sağlanabilir. Body, açıklamadan bir satır boş bırakıldıktan sonra başlamalıdır.
-  Bir commit body serbest formattadır ve herhangi bir sayıda newline ile ayrılmış paragraftan oluşabilir.
-  Body'den sonra bir satır boş bırakılarak bir veya daha fazla footer sağlanabilir. Her footer, bir word token'ından, ardından ': ' veya ' #' separator'ından, ardından bir string değerinden oluşmalıdır (bu git trailer kuralından esinlenmiştir).
-  Bir footer'ın token'ı, whitespace karakterleri yerine - kullanmalıdır, örneğin Acked-by (bu footer bölümünü çok paragrafı bir gövdeden ayırt etmeye yardımcı olur). BREAKING CHANGE için istisna yapılır, bu da token olarak kullanılabilir.
-  Bir footer'ın değeri boşluk ve newline içerebilir, ve parsing sonraki geçerli footer token/separator çifti gözlemlendiğinde sonlandırılmalıdır.
-  Kırılma yapan değişiklikler, commit'in type/scope prefix'inde veya footer'da bir giriş olarak belirtilmelidir.
-  Footer olarak dahil edilirse, bir breaking change büyük harf BREAKING CHANGE, ardından iki nokta, boşluk ve açıklamadan oluşmalıdır, örneğin BREAKING CHANGE: environment variables now take precedence over config files.
-  Type/scope prefix'inde dahil edilirse, breaking change'ler ':' den hemen önce '!' ile belirtilmelidir. '!' kullanılırsa, BREAKING CHANGE: footer bölümünden atlanabilir ve commit açıklaması breaking change'i açıklamak için kullanılacaktır.
-  feat ve fix dışındaki türler commit mesajlarınızda kullanılabilir, örneğin docs: update ref docs.
-  Conventional Commits'i oluşturan bilgi birimleri, BREAKING CHANGE dışında, uygulayıcılar tarafından büyük/küçük harfe duyarlı olarak değerlendirilmemelidir; BREAKING CHANGE büyük harf olmalıdır.
-  BREAKING-CHANGE, footer'da token olarak kullanıldığında BREAKING CHANGE ile eşanlamlı olmalıdır.
 ---
 
 Use the Conventional Commit Messages specification to generate commit messages

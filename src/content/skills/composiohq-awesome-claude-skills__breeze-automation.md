@@ -4,7 +4,7 @@ description_en: "Automate Breeze tasks via Rube MCP (Composio). Always search to
 description_tr: "Rube MCP (Composio) aracılığıyla Breeze görevlerini otomatikleştirin. Her zaman güncel şemalar için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/breeze-automation/SKILL.md"
 path: "composio-skills/breeze-automation/SKILL.md"
 is_collection: false

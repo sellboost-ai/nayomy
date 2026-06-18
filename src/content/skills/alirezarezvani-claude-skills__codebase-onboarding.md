@@ -4,7 +4,7 @@ description_en: "Analyze a codebase and generate onboarding documentation for en
 description_tr: "Bir codebase'i analiz ederek mühendisler, tech lead'ler ve contractor'lar için onboarding dokümantasyonu oluşturun. Hızlı bilgi toplama ve tekrarlanabilir çıktılar sağlar. Yeni mühendis katılımında, yeni proje için mimari dokümantasyonu yazarken veya bilinmeyen repo'lar hakkında tech lead briefing'i hazırlarken kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/codebase-onboarding/SKILL.md"
 path: ".gemini/skills/codebase-onboarding/SKILL.md"
 is_collection: false

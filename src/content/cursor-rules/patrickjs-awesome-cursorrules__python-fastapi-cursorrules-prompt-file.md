@@ -2,52 +2,13 @@
 name: "python-fastapi-cursorrules-prompt-file"
 clean_name: "Python FastAPI"
 description: "Cursor rules for Python Fastapi."
-description_tr: "Python Fastapi için Cursor kuralları."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/python-fastapi-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-fastapi-cursorrules-prompt-file.mdc"
 body_length: 1092
 file_extension: ".mdc"
-body_tr: |-
-  # Python FastAPI .cursorrules
-
-  # FastAPI en iyi uygulamaları
-
-  fastapi_best_practices = [
-      "Request ve response şemaları için Pydantic modellerini kullanın",
-      "Paylaşılan kaynaklar için dependency injection uygulayın",
-      "Engellemeyen işlemler için async/await kullanın",
-      "Path operations decorator'larını kullanın (@app.get, @app.post, vb.)",
-      "HTTPException ile uygun hata işlemesi uygulayın",
-      "FastAPI'nin yerleşik OpenAPI ve JSON Schema desteğini kullanın",
-  ]
-
-  # Klasör yapısı
-
-  folder_structure = """
-  app/
-    main.py
-    models/
-    schemas/
-    routers/
-    dependencies/
-    services/
-    tests/
-  """
-
-  # Ek talimatlar
-
-  additional_instructions = """
-  1. Tüm function parametreleri ve return değerleri için type hints kullanın
-  2. Pydantic kullanarak uygun input validation uygulayın
-  3. Uzun süren işlemler için FastAPI'nin background tasks'lerini kullanın
-  4. Uygun CORS işlemesi uygulayın
-  5. Authentication için FastAPI'nin security utilities'lerini kullanın
-  6. Python kodu için PEP 8 style guide'ını izleyin
-  7. Kapsamlı unit ve integration testleri uygulayın
-  """
 ---
 
 # Python FastAPI .cursorrules

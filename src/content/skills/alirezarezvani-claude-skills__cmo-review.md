@@ -4,7 +4,7 @@ description_en: "/cs:cmo-review <plan> — Narrative-first interrogation of posi
 description_tr: "/cs:cmo-review <plan> — Konumlandırma, ICP, mesaj mimarisi ve kanal karışımını hikaye merkezli bir şekilde sorgulayan araç. Kampanya başlatırken, yeniden konumlandırırken veya CAC yükselip tek cümleli konumlandırma testi başarısız olduğunda kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cmo-review/SKILL.md"
 path: ".gemini/skills/cmo-review/SKILL.md"
 is_collection: false

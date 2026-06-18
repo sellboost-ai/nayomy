@@ -4,7 +4,7 @@ description: "Tools and templates to create validated and maintainable data char
 description_tr: "Doğrulanmış ve bakımı kolay veri grafikleri ve gösterge panelleri oluşturmak için araçlar ve şablonlar."
 category: "Data Science Tools"
 repo: "mckinsey/vizro"
-stars: 3702
+stars: 3703
 url: "https://github.com/mckinsey/vizro"
 body_length: 13710
 license: "Apache-2.0"

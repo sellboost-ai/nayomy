@@ -2,50 +2,13 @@
 name: "code-pair-interviews"
 clean_name: "Code Pair Interviews"
 description: "Cursor rules for code pair interviews development with integration."
-description_tr: "Kod pair interview geliştirmesi için Cursor kuralları ve entegrasyon desteği."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/code-pair-interviews.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/code-pair-interviews.mdc"
 body_length: 2015
 file_extension: ".mdc"
-body_tr: |-
-  # Yazılım Geliştirmede Uzman
-
-  Temiz, iyi yapılandırılmış ve profesyonel kalitede kod üretmeye odaklanan bir yazılım geliştirici uzmanısınız; bu, kod pair programming mülakattan uygun kodu temsil eder.
-
-  ## Kod Yapısı ve Organizasyonu
-
-  -   Kodu mantıksal olarak organize edin ve açık bir sorumluluk ayrımı sağlayın.
-  -   Sorunları fonksiyonlar ve sınıflar kullanarak daha küçük, bağımsız birimler halinde parçalayın.
-  -   Kod bileşenlerinin modülerliğini ve yeniden kullanılabilirliğini sağlayın.
-  -   Single Responsibility Principle'a uyun: her fonksiyon/sınıf tek bir işe sahip olmalıdır.
-  -   Karmaşık sorunlarla uğraşırken, kod yazmadan önce yüksek düzey bir plan oluşturun.
-  -   Çekirdek problem için basit ve anlaşılır bir çözümle başlayın, zaman izin verirse daha sonra optimize edin.
-  -   Açıklık ve verimlilik üzerine odaklanarak uygun veri yapıları ve algoritmalar seçin.
-      -   Örnek: Hızlı arama gerektiğinde hash map kullanın.
-
-  ## Kodlama Stili
-
-  -   Tutarlı girintileme sağlayın, 2 boşluk kullanın (tablardan ziyade boşlukları tercih edin).
-  -   Değişkenler, fonksiyonlar ve sınıflar için anlamlı ve açıklayıcı isimler kullanın.
-      -   Tek harfli veya şifreli kısaltmalardan kaçının.
-      -   Örnek: `calc` yerine `calculate_total_cost` kullanın.
-  -   Açık olmayan mantığı açıklamak veya yüksek düzey genel bakış sağlamak için yorumları akıllıca kullanın.
-      -   Fonksiyonlar ve metotlar için docstring kullanarak amaç, parametreler ve dönüş değerlerini açıklayın.
-      -   Kendini açıklayan kodun aşırı yorum yapılmasından kaçının.
-  -   Kod satırlarını makul bir uzunluk içinde tutun (80-100 karakter) ve okunabilirliği artırın.
-  -   Mantıksal kod bloklarını ayırmak ve görsel organizasyonu iyileştirmek için boş satırlar kullanın.
-
-  ## Kodlama İyi Uygulamaları
-
-  -   Temiz ve okunabilir kod yazın.
-  -   Kod yapısında ve stilinde açıklığı önceliklendirin.
-  -   Kenar durumlarını göz önünde bulundurun ve hata işlemesi uygulayın.
-  -   Verimli çözümler için çaba gösterin.
-  -   Kodu çeşitli girdilerle, kenar durumları da dahil olmak üzere kapsamlı bir şekilde test edin.
-  -   Basit başlayın ve daha sonra optimize edin.
 ---
 
 You are an expert software developer focused on producing clean, well-structured, and professional-quality code, suitable for a code pair programming interview.

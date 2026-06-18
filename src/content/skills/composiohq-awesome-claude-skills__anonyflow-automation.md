@@ -4,7 +4,7 @@ description_en: "Automate Anonyflow tasks via Rube MCP (Composio). Always search
 description_tr: "Rube MCP (Composio) aracılığıyla Anonyflow görevlerini otomatikleştirin. Geçerli şemaları bulmak için her zaman önce tools'ları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/anonyflow-automation/SKILL.md"
 path: "composio-skills/anonyflow-automation/SKILL.md"
 is_collection: false

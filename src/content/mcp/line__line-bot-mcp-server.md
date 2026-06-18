@@ -4,7 +4,7 @@ description: "MCP Server for Integrating LINE Official Account"
 description_tr: "LINE Resmi Hesabı Entegrasyonu için MCP Server"
 category: "Communication"
 repo: "line/line-bot-mcp-server"
-stars: 598
+stars: 599
 url: "https://github.com/line/line-bot-mcp-server"
 body_length: 8920
 license: "Apache-2.0"

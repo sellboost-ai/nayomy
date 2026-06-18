@@ -4,7 +4,7 @@ description_en: "/cs:cpo-review <plan> — JTBD-driven interrogation of product 
 description_tr: "/cs:cpo-review <plan> — Ürün roadmap'inizi Jobs to be Done metodolojisiyle sorgulayan, PMF sinyallerini ve portföy odağınızı değerlendiren araç. Bir çeyreğin roadmap'ini onaylarken, bir özelliği kapatmayı düşünürken veya retention curve'ü olmadan PMF iddiasında bulunmak istediğinizde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cpo-review/SKILL.md"
 path: ".gemini/skills/cpo-review/SKILL.md"
 is_collection: false

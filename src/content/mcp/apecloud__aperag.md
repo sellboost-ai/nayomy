@@ -4,7 +4,7 @@ description: "Production-ready RAG platform combining Graph RAG, vector search, 
 description_tr: "Grafik RAG, vektör arama ve tam metin aramasını birleştiren, üretime hazır RAG platformu. Kendi Knowledge Graph'ınızı oluşturmak ve Context Engineering için en iyi seçim."
 category: "Knowledge & Memory"
 repo: "apecloud/ApeRAG"
-stars: 1192
+stars: 1193
 url: "https://github.com/apecloud/ApeRAG"
 body_length: 10516
 license: "Apache-2.0"

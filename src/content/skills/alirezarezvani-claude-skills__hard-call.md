@@ -4,7 +4,7 @@ description_en: "/em:hard-call — Framework for decisions with no good options.
 description_tr: "/em:hard-call — Hiçbir seçeneği iyi olmayan kararlar için framework. Her opsiyon ağrılı olduğunda ve yapılandırılmış bir 10/10/10 analizi ile pişmanlık minimizasyonu gerektiğinde kullanın — örneğin, işten çıkarma ile down round arasında seçim yapmak ya da sevilen bir ürün serisini sonlandırmak gibi."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/hard-call/SKILL.md"
 path: ".gemini/skills/hard-call/SKILL.md"
 is_collection: false

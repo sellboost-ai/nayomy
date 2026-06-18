@@ -4,7 +4,7 @@ description: "Baserow database integration with table search, list, and row crea
 description_tr: "Baserow veritabanı entegrasyonu ile tablo arama, listeleme ve satır oluşturma, okuma, güncelleme ve silme işlemlerini gerçekleştirebilirsiniz."
 category: "Databases"
 repo: "baserow/baserow"
-stars: 5087
+stars: 5099
 url: "https://github.com/baserow/baserow"
 body_length: 5445
 license: "NOASSERTION"

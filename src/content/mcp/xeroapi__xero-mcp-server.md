@@ -4,7 +4,7 @@ description: "An MCP server that integrates with Xero's API, allowing for standa
 description_tr: "Xero'nun API'si ile entegre olan ve Xero'nun muhasebe ile iş yönetimi özelliklerine standartlaştırılmış erişim sağlayan bir MCP sunucusu."
 category: "Finance & Fintech"
 repo: "XeroAPI/xero-mcp-server"
-stars: 307
+stars: 308
 url: "https://github.com/XeroAPI/xero-mcp-server"
 body_length: 9351
 license: "MIT"

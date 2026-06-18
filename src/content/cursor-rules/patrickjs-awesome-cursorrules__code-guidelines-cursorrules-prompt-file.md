@@ -2,66 +2,13 @@
 name: "code-guidelines-cursorrules-prompt-file"
 clean_name: "Code Guidelines"
 description: "Cursor rules for code development with guidelines integration."
-description_tr: "Kod geliştirme için kılavuz entegrasyonlu Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/code-guidelines-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/code-guidelines-cursorrules-prompt-file.mdc"
 body_length: 2937
 file_extension: ".mdc"
-body_tr: |-
-  1. **Bilgileri Doğrulayın**: Bilgileri sunmadan önce her zaman doğrulayın. Net kanıt olmadan varsayımda bulunmayın veya spekülasyon yapmayın.
-
-  2. **Dosya-Dosya Değişiklikleri**: Değişiklikleri dosya dosya yapın ve hataları fark etme şansım olsun.
-
-  3. **Özür Yok**: Asla özür kullanmayın.
-
-  4. **Anlama Geri Bildirimi Yok**: Yorum veya dokümantasyonda anlama hakkında geri bildirim vermekten kaçının.
-
-  5. **Boşluk Önerileri Yok**: Boşluk değişiklikleri önermeyiniz.
-
-  6. **Özet Yok**: Yapılan değişiklikleri özetlemeyin.
-
-  7. **Uydurma Yok**: Açıkça istenenden başka değişiklikler uydurmayın.
-
-  8. **Gereksiz Onay Yok**: Bağlamda zaten sağlanan bilgilerin onayını istemeyin.
-
-  9. **Mevcut Kodu Koruyun**: İlişkisiz kodu veya işlevselliği silmeyin. Mevcut yapıları korumaya dikkat edin.
-
-  10. **Tek Parça Düzenlemeler**: Aynı dosya için birden fazla adım talimatı veya açıklaması yerine tüm düzenlemeleri tek bir parça halinde sağlayın.
-
-  11. **Uygulama Kontrolü Yok**: Kullanıcıdan sağlanan bağlamda görülür durumdaki uygulamaları doğrulamasını istemeyin.
-
-  12. **Gereksiz Güncellemeler Yok**: Gerçek bir değişiklik gerekli olmadığında dosyalara güncelleme veya değişiklik önermeyin.
-
-  13. **Gerçek Dosya Bağlantıları Sağlayın**: Her zaman bağlam tarafından oluşturulan dosya değil, gerçek dosyalara bağlantı sağlayın.
-
-  14. **Mevcut Uygulama Yok**: Mevcut uygulamayı açıkça istenmedikçe göstermeyin veya tartışmayın.
-
-  15. **Bağlam Tarafından Oluşturulan Dosya İçeriğini Kontrol Edin**: Mevcut dosya içerikleri ve uygulamaları için bağlam tarafından oluşturulan dosyayı kontrol etmeyi unutmayın.
-
-  16. **Açık Değişken Adları Kullanın**: Kod okunabilirliğini artırmak için kısa, belirsiz olanlar yerine betimleyici, açık değişken adlarını tercih edin.
-
-  17. **Tutarlı Kodlama Stilini Takip Edin**: Tutarlılık için projede mevcut olan kodlama stiline uyun.
-
-  18. **Performansı Önceliklendirin**: Değişiklik önerirken, uygun olduğu yerde kod performansını dikkate alın ve önceliklendirin.
-
-  19. **Güvenlik-Önce Yaklaşımı**: Kodu değiştirirken veya değişiklik önerirken her zaman güvenlik sonuçlarını göz önünde bulundurun.
-
-  20. **Test Kapsamı**: Yeni veya değiştirilmiş kod için uygun birim testleri önerin veya ekleyin.
-
-  21. **Hata İşleme**: Gerekli yerlerde sağlam hata işleme ve günlüğe kaydetme uygulayın.
-
-  22. **Modüler Tasarım**: Kod bakımını ve yeniden kullanılabilirliğini iyileştirmek için modüler tasarım ilkelerini teşvik edin.
-
-  23. **Sürüm Uyumluluğu**: Önerilen değişikliklerin projenin belirtilen dil veya framework sürümleri ile uyumlu olduğundan emin olun.
-
-  24. **Magic Numbers'dan Kaçının**: Kod netliği ve bakımını iyileştirmek için sabit kodlanmış değerleri adlandırılmış sabitlerle değiştirin.
-
-  25. **Kenar Durumlarını Göz Önünde Bulundurun**: Mantık uygularken, olası kenar durumlarını her zaman göz önünde bulundurun ve işleyin.
-
-  26. **Assertion Kullanın**: Varsayımları doğrulamak ve potansiyel hataları erkenden yakalamak için mümkün olduğunca assertion ekleyin.
 ---
 
 1. **Verify Information**: Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.

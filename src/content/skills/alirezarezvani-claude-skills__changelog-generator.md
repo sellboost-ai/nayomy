@@ -4,7 +4,7 @@ description_en: "Produce consistent, auditable release notes from Conventional C
 description_tr: "Conventional Commits'ten tutarlı ve denetlenebilir sürüm notları oluşturun. Commit parsing, semantic-bump logic ve changelog rendering'i ayırarak, editorial kontrol ile otomatikleştirilmiş sürümler sağlar. Sürüm kesme, git history'den CHANGELOG.md oluşturma, commit'lerden sonraki semantic version hesaplama, CI'de release note otomasyonu veya hotfix/rollback planlama için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/changelog-generator/SKILL.md"
 path: ".gemini/skills/changelog-generator/SKILL.md"
 is_collection: false

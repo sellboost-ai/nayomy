@@ -2,24 +2,13 @@
 name: "rails-cursorrules-prompt-file"
 clean_name: "Rails"
 description: "Cursor rules for Rails development with basic setup."
-description_tr: "Rails geliştirme için cursor kuralları ve temel kurulum."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/rails-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rails-cursorrules-prompt-file.mdc"
 body_length: 738
 file_extension: ".mdc"
-body_tr: |-
-  Rails 8 Geliştirme Kılavuzu
-
-  - Elle yazılmış boilerplate yerine Rails komut satırı generatorlerini tercih edin.
-  - Yerel geliştirme için `bin/dev` kullanın ve önemli değişikliklerden sonra logları kontrol edin.
-  - Uygun yerlerde Rails 8 konvansiyonlarını Solid Queue, Solid Cache, Solid Cable, Propshaft ve Kamal için takip edin.
-  - Controllerları RESTful tutun ve odaklanmış halde saklayın; karmaşık iş mantığı için service objectler kullanın.
-  - PostgreSQL, uygun indexler, connection pooling ve güvenli migrasyonlar kullanın.
-  - Modeller, controllerler ve integration flow'ları için Minitest kapsamı yazın.
-  - Standart Rails interaktivitesi için Hotwire kullanın ve npm tarafından yönetilen JavaScript gerektiğinde Vite kullanın.
 ---
 
 Rails 8 Development Guidelines

@@ -4,7 +4,7 @@ description: "Airtable database integration with schema inspection, read and wri
 description_tr: "Airtable veritabanı entegrasyonu ile schema inceleme, okuma ve yazma işlemleri"
 category: "Databases"
 repo: "domdomegg/airtable-mcp-server"
-stars: 448
+stars: 449
 url: "https://github.com/domdomegg/airtable-mcp-server"
 body_length: 10472
 license: "MIT"

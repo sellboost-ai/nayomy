@@ -4,7 +4,7 @@ description_en: "Automate Centralstationcrm tasks via Rube MCP (Composio). Alway
 description_tr: "Centralstationcrm görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/centralstationcrm-automation/SKILL.md"
 path: "composio-skills/centralstationcrm-automation/SKILL.md"
 is_collection: false

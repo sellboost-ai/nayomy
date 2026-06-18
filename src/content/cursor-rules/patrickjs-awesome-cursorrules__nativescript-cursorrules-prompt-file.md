@@ -2,48 +2,13 @@
 name: "nativescript-cursorrules-prompt-file"
 clean_name: "Nativescript"
 description: "Cursor rules for NativeScript development."
-description_tr: "NativeScript geliştirmesi için Cursor kuralları."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/nativescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/nativescript-cursorrules-prompt-file.mdc"
 body_length: 961
 file_extension: ".mdc"
-body_tr: |-
-  ```
-  // NativeScript .cursorrules
-
-  // NativeScript en iyi uygulamaları
-
-  const nativeScriptBestPractices = [
-    "Geçerli olduğunda @nativescript/core özellikleri ve API'larını kullanın",
-    "Geçerli olduğunda yaygın web API'larını kullanın",
-    "NativeScript Navigation kullanarak uygun navigasyonu uygulayın",
-    "Görseller, sesler veya videolar için NativeScript'in assets klasörünü ve özel fontlar için fonts klasörünü kullanın",
-    "Mümkün olduğunda uygun hata işlemeyi uygulayın"
-  ];
-
-  // Klasör yapısı
-
-  const folderStructure = `
-  src/
-    assets/
-    components/
-    services/
-    utils/
-  `;
-
-  // Ek talimatlar
-
-  const additionalInstructions = `
-  1. Tür güvenliği için TypeScript kullanın
-  2. Hassas veriler için @nativescript/secure-storage kullanın
-  3. Biyometri ile ilgili her şey için @nativescript/biometrics kullanın
-  4. Font ikonları için her zaman nativescript-fonticon kullanın
-  5. Performans için NativeScript en iyi uygulamalarını takip edin
-  `;
-  ```
 ---
 
 // NativeScript .cursorrules

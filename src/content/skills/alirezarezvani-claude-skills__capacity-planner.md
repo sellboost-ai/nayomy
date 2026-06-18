@@ -4,7 +4,7 @@ description_en: "Use when an ops leader (Director of CX, Head of Support, VP Ops
 description_tr: "Ops liderinin (CX Direktörü, Destek Müdürü, Ops VP'si vb.) kapasite planlaması, headcount modelleme, utilization riski analizi ve CS coverage tasarımı için Erlang-C queueing matematiklerini, P90 demand sizing'i, shrinkage-adjusted FTE'yi ve quarterly hiring tetikleyicilerini kullanması gerektiğinde tercih edin."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/capacity-planner/SKILL.md"
 path: ".gemini/skills/capacity-planner/SKILL.md"
 is_collection: false

@@ -1,84 +1,84 @@
 ---
 name: "triage"
-description_en: "Triage issues through a state machine driven by triage roles. Use when user wants to create an issue, triage issues, review incoming bugs or feature requests, prepare issues for an AFK agent, or manage issue workflow."
+description_en: "Move issues through a state machine of triage roles — categorise, reproduce, grill if needed, and write agent-ready briefs."
 description_tr: "Triage rollerine dayalı bir state machine ile sorunları yönetin. Kullanıcı yeni issue oluşturmak, issue'ları triajlamak, gelen hataları veya feature isteklerini incelemek, issue'ları AFK agent için hazırlamak veya issue workflow'unu yönetmek istediğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 132588
+stars: 134333
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/triage/SKILL.md"
 path: "skills/engineering/triage/SKILL.md"
 is_collection: false
-body_length: 4587
+body_length: 4746
 has_scripts: false
 has_references: false
 has_examples: false
 related_files: ["AGENT-BRIEF.md", "OUT-OF-SCOPE.md"]
 body_tr: |-
   # Ön Inceleme (Triage)
-
+  
   Proje sorun takip sistemindeki sorunları küçük bir durum makinesi aracılığıyla ön inceleme rolleri içinde hareket ettirin.
-
+  
   Ön inceleme sırasında sorun takip sistemine gönderilen her yorum veya sorun **mutlaka** şu uyarı ile başlamalıdır:
-
+  
   ```
   > *Bu, ön inceleme sırasında yapay zeka tarafından oluşturulmuştur.*
   ```
-
+  
   ## Referans dokümanlar
-
+  
   - [AGENT-BRIEF.md](AGENT-BRIEF.md) — dayanıklı agent özeti yazma
   - [OUT-OF-SCOPE.md](OUT-OF-SCOPE.md) — `.out-of-scope/` bilgi tabanının nasıl çalıştığı
-
+  
   ## Roller
-
+  
   İki **kategori** rolü:
-
+  
   - `bug` — bir şey bozuk
   - `enhancement` — yeni özellik veya iyileştirme
-
+  
   Beş **durum** rolü:
-
+  
   - `needs-triage` — bakıcı değerlendirmesi yapması gerekiyor
   - `needs-info` — bildirici daha fazla bilgi için bekleniyor
   - `ready-for-agent` — tam belirtilmiş, AFK agent için hazır
   - `ready-for-human` — insan uygulaması gerekiyor
   - `wontfix` — harekete geçilmeyecek
-
+  
   Her ön inceleme yapılan sorun tam olarak bir kategori rolü ve bir durum rolüne sahip olmalıdır. Durum rolleri çakışırsa, bunu işaretleyin ve başka bir şey yapmadan önce bakıcıya sorun.
-
+  
   Bunlar kanonik rol adlarıdır — sorun takip sisteminde kullanılan gerçek etiket dizeleri farklı olabilir. Eşleme size sağlanmış olmalıdır - `/setup-matt-pocock-skills` komutunu çalıştırın, değilse.
-
+  
   Durum geçişleri: etiketlenmemiş bir sorun normalde önce `needs-triage` konumuna gider; oradan `needs-info`, `ready-for-agent`, `ready-for-human` veya `wontfix` konumlarına hareket eder. `needs-info` bildirici yanıt verdikten sonra `needs-triage` konumuna döner. Bakıcı herhangi bir zamanda geçersiz kılabilir — alışılmadık görünen geçişleri işaretleyin ve devam etmeden önce sorun.
-
+  
   ## Çağırma
-
+  
   Bakıcı `/triage` komutunu çağırır ve doğal dilde ne istediğini açıklar. İsteği yorumlayın ve harekete geçin. Örnekler:
-
+  
   - "Dikkatimi gerektiren herhangi bir şeyi göster"
   - "Gelin #42'ye bakalım"
   - "#42'yi ready-for-agent konumuna taşı"
   - "Agentların alması için hazır olan nedir?"
-
+  
   ## Dikkat gerektirenleri göster
-
+  
   Sorun takip sistemini sorgulayın ve üç kategoriye en eski sırayla sunun:
-
+  
   1. **Etiketlenmemiş** — hiç ön inceleme yapılmamış.
   2. **`needs-triage`** — değerlendirme devam ediyor.
   3. **`needs-info` ve son ön inceleme notlarından sonra bildirici aktivitesi olan** — yeniden değerlendirilmesi gerekiyor.
-
+  
   Sayımları ve her sorun için bir satırlık özeti gösterin. Bakıcının seçmesini sağlayın.
-
+  
   ## Belirli bir sorunu ön inceleme
-
+  
   1. **Bağlamı toplayın.** Tam sorunun tamamını okuyun (gövde, yorumlar, etiketler, bildirici, tarihler). Çözülen soruları tekrar sormamak için önceki ön inceleme notlarını ayrıştırın. Projenin alan sözlüğünü kullanarak kod tabanını keşfedin, alanda bulunan ADR'leri göz önünde bulundurun. `.out-of-scope/*.md` dosyalarını okuyun ve bu soruna benzeyen önceki reddetmeleri ortaya çıkarın.
-
+  
   2. **Tavsiye edin.** Bakıcıya kategori ve durum tavsiyenizi, akıl yürütme ile birlikte ve soruna uygun kısa bir kod tabanı özeti sağlayın. Yön için bekleyin.
-
+  
   3. **Yeniden oluşturun (yalnızca hatalar).** Herhangi bir sorgulamadan önce, yeniden oluşturmayı deneyin: bildirici adımlarını okuyun, ilgili kodu takip edin, testleri veya komutları çalıştırın. Olanları bildirin — başarılı yeniden oluşturma kod yolu ile, başarısız yeniden oluşturma, veya yetersiz ayrıntı (güçlü `needs-info` sinyali). Doğrulanmış yeniden oluşturma çok daha güçlü bir agent özeti yapar.
-
+  
   4. **Detaylı inceleme (gerekirse).** Sorunun ayrıntılandırılması gerekiyorsa, `/grill-with-docs` oturumu çalıştırın.
-
+  
   5. **Sonucu uygulayın:**
      - `ready-for-agent` — agent özeti yorumu gönder ([AGENT-BRIEF.md](AGENT-BRIEF.md)).
      - `ready-for-human` — agent özeti ile aynı yapı, ancak neden devredilemiyor olduğunu not et (yargı çağrıları, dış erişim, tasarım kararları, manuel test).
@@ -86,31 +86,31 @@ body_tr: |-
      - `wontfix` (hata) — nezaket içinde açıklama, sonra kapat.
      - `wontfix` (iyileştirme) — `.out-of-scope/` dizinine yaz, bir yorumdan ona bağlantı ver, sonra kapat ([OUT-OF-SCOPE.md](OUT-OF-SCOPE.md)).
      - `needs-triage` — rolü uygula. Kısmi ilerleme varsa opsiyonel yorum.
-
+  
   ## Hızlı durum geçersiz kılma
-
+  
   Bakıcı "#42'yi ready-for-agent konumuna taşı" derse, ona güvenin ve rolü doğrudan uygulayın. Ne yapacağınızı onaylayın (rol değişiklikleri, yorum, kapat), sonra harekete geçin. Detaylı incelemesini atlayın. Detaylı inceleme oturumu olmadan `ready-for-agent` konumuna taşınırsa, agent özeti yazmak isteyip istemediklerini sorun.
-
+  
   ## Needs-info şablonu
-
+  
   ```markdown
   ## Ön İnceleme Notları
-
+  
   **Şu ana kadar öğrendiklerimiz:**
-
+  
   - nokta 1
   - nokta 2
-
+  
   **Sizden hala ihtiyacımız olan (@bildirici):**
-
+  
   - soru 1
   - soru 2
   ```
-
+  
   Detaylı inceleme sırasında çözülen her şeyi "şu ana kadar öğrendiklerimiz" altında toplayın, böylece çalışma kaybolmaz. Sorular spesifik ve işlem yapılabilir olmalıdır, "lütfen daha fazla bilgi sağla" gibi değildir.
-
+  
   ## Önceki oturumu devam ettirme
-
+  
   Sorunda önceki ön inceleme notları varsa, onları okuyun, bildirici'nin bekleyen sorulardan herhangi birine cevap verip vermediğini kontrol edin ve devam etmeden önce güncellenmiş bir resim sunun. Çözülen soruları tekrar sormayın.
 ---
 
@@ -177,7 +177,7 @@ Show counts and a one-line summary per issue. Let the maintainer pick.
 
 3. **Reproduce (bugs only).** Before any grilling, attempt reproduction: read the reporter's steps, trace the relevant code, run tests or commands. Report what happened — successful repro with code path, failed repro, or insufficient detail (a strong `needs-info` signal). A confirmed repro makes a much stronger agent brief.
 
-4. **Grill (if needed).** If the issue needs fleshing out, run a `/grill-with-docs` session.
+4. **Grill (if needed).** If the issue needs fleshing out, run the `/grilling` and `/domain-modeling` skills together — grill the issue into shape one question at a time, sharpening domain terms and updating `CONTEXT.md`/ADRs inline as decisions land.
 
 5. **Apply the outcome:**
    - `ready-for-agent` — post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).

@@ -2,62 +2,13 @@
 name: "gamemaker-gml"
 clean_name: "Gamemaker Gml"
 description: "GameMaker Language (GML) rules for scripts, objects, events, rooms, data structures, and performance-minded game code"
-description_tr: "GameMaker Language (GML) kuralları scriptler, nesneler, eventler, odalar, veri yapıları ve performans odaklı oyun kodu için."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/gamemaker-gml.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/gamemaker-gml.mdc"
 body_length: 2377
 file_extension: ".mdc"
-body_tr: |-
-  # GameMaker GML Kuralları
-
-  ## Kod Organizasyonu
-
-  - Nesne event kodlarını kısa tutun ve yeniden kullanılabilir davranışları scriptlere veya fonksiyonlara taşıyın.
-  - Scriptler, nesneler, sprite'lar, odalar ve globalller için açık önekler veya adlandırma kuralları kullanın.
-  - Copy-paste yapılan event bloklarının yerine fonksiyonları tercih edin.
-  - Create-step-draw sorumluluklarını ayrı tutun.
-  - Başlatmayı Create'e, simülasyonu Step'e ve yalnızca render işlemini Draw'a koyun.
-
-  ## GML Stili
-
-  - Açıklayıcı değişken adları kullanın ve küçük döngüler dışında tek harfli adlardan kaçının.
-  - Gereksiz instance değişkenleri yerine `var` veya fonksiyon kapsamlı bildirimlerle yerel değişkenleri tercih edin.
-  - Tekrarlanan tanımlayıcılar, katman adları, durumlar ve çarpışma grupları için sabitler, enumlar ve makrolar kullanın.
-  - Opsiyonel instance referanslarını `instance_exists` ile koruyun.
-  - Global durumu minimal tutun ve belgelendirin.
-
-  ## Oyun Mimarisi
-
-  - Oyuncu, düşman, UI ve oyun akışı durumları için sonlu durum makineleri kullanın.
-  - Çarpışma mantığını açık ve belirlenmiş tutun.
-  - Giriş toplamayı eylem yürütmesinden ayırın.
-  - Alarm, timeline veya açık zamanlayıcıları tutarlı şekilde kullanın; nedensiz olarak desenleri karıştırmayın.
-  - Kaydetme verilerini yapılandırılmış harita/yapılar aracılığıyla saklayın ve kaydetme formatını sürümlendirin.
-
-  ## Performans
-
-  - Geniş `instance_find` veya her Step eventinde tekrarlanan çarpışma taramaları gibi pahalı aramaları önleyin.
-  - Sık kullanılan asset ID'leri, katman ID'lerini ve nesne referanslarını güvenli olduğunda önbelleğe alın.
-  - Artık ihtiyaç duyulmayan veri yapılarını yok edin.
-  - Ayırma işlemi maliyetli hale geldiğinde sık görülen mermiler, parçacıklar veya kısa ömürlü efektler için nesne havuzu kullanın.
-  - Optimize etmeden önce profil oluşturun ve hot-path kodunu basit tutun.
-
-  ## Hata Ayıklama ve Test Etme
-
-  - Çarpışma kutuları, durum, hız ve AI kararları için faydalı olduğunda debug yer paylaşımları ekleyin.
-  - İmkansız durumlar için iddialar veya açık koruma cümleleri kullanın.
-  - Oda geçişleri, duraklat/devam et, kaydet/yükle ve kumanda/klavye girişini ayrı ayrı test edin.
-  - Karmaşık mekanikler için yeniden üretilebilir test odaları tutun.
-
-  ## Yaygın Hatalar
-
-  - Oyun mantığını Draw eventlerine koymayın.
-  - Veri yapılarını yok etmeden oluşturmayın.
-  - Kritik davranış için oda editörü instance sırasına güvenmeyin.
-  - Sihirli sayısal durum ID'lerini hardcode etmeyin.
 ---
 
 

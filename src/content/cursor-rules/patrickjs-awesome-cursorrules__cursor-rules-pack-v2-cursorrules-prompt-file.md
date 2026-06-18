@@ -2,44 +2,13 @@
 name: "cursor-rules-pack-v2-cursorrules-prompt-file"
 clean_name: "Cursor Rules Pack V2"
 description: "7 sample production-tested rules (dependency discipline, error handling, state management, webhook security, and more). See the pack README for full-pack details."
-description_tr: "Üretimde test edilmiş 7 örnek kural (bağımlılık disiplini, hata yönetimi, state management, webhook güvenliği ve daha fazlası). Tüm detaylar için pack README dosyasına bakın."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/cursor-rules-pack-v2-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cursor-rules-pack-v2-cursorrules-prompt-file.mdc"
 body_length: 2646
 file_extension: ".mdc"
-body_tr: |-
-  # Cursor Rules Pack v2 — Örnek Kurallar
-  # Tam 50 kurallı paketten 7 üretim-test edilmiş kural
-  # Tam paket: https://oliviacraftlat.gumroad.com/l/wyaeil
-
-  ## Rule 1 — Bağımlılık Disiplini
-  Yeni bir npm paketi önerirken: (1) ne yaptığını bir cümlede belirt, (2) aktif olarak bakılıp bakılmadığını kontrol et (son yayın < 6 ay), (3) 30 satırdan az kod yazarak bunu uygulayıp uygulayamayacağımızı doğrula. Daha az, iyi bakılan paketleri tercih et. 20 satırdan az görevler için asla bağımlılık ekleme.
-
-  ## Rule 2 — Açık Hata Yönetimi
-  Async işlemleri her zaman try/catch ile sarıkla. Hataları sessizce hiçbir zaman yutma. Result deseni kullanarak veya typed hatalar fırlatarak typed hata nesneleri döndür. Hataları bağlamla logla: `logger.error('[FunctionName] description', { error, context })`. UI bileşenlerinde her zaman kullanıcıya görünen hata durumları sağla.
-
-  ## Rule 3 — Yorum Politikası
-  Önce self-documenting kod yaz. Yorum sadece şu durumlara ekle: (1) açık olmayan iş mantığı — NE DEĞİL, NEDEN açıkla, (2) workaround'lar — workaround'un neden var olduğunu açıkla ve issue'ya link ver, (3) karmaşık algoritmalar — algoritma adını referans ver. Kodun açıkça ne yaptığını hiçbir zaman yorum yapma.
-
-  ## Rule 4 — State Yönetimi Hiyerarşisi
-  Bu state hiyerarşisini kesinlikle takip et:
-  - URL state → filtreler, pagination, arama (useSearchParams)
-  - React state → sadece UI, geçici (useState)
-  - Zustand → component'ler arası app state
-  - React Query → tüm server state
-  Server verilerini cache etmek için Zustand kullanma — bu React Query'nin işi. Redux'a asla başvurma.
-
-  ## Rule 5 — Paralel Veri Getirme
-  Bağımsız veri getirme işlemlerini tanımla ve paralelleştir. İşlemler bağımsız olduğunda sequential olarak await etme — `Promise.all` kullan. Sequential await yaparken, sequence'ı zorlayan bağımlılığı açıklayan bir yorum ekle.
-
-  ## Rule 6 — Webhook Güvenliği
-  Gelen webhook'lar için: handler'ın ilk 3 satırında signature'ı doğrula — geçersiz ise hemen reddet. HTTP 200 ile 5 saniye içinde yanıt ver — işlemeyi arka plan işine aktar. İşlenmeden önce ham webhook event'ini sakla. Event ID kullanarak idempotency uygula.
-
-  ## Rule 7 — Veritabanı Sorgusu Güvenliği
-  Tam veritabanı kayıtlarını asla client'a döndürme — tam olarak hangi alanların gerekli olduğunu belirtmek için select kullan. Bu, şifre hash'lerini, reset token'larını, internal flag'leri ve diğer hassas alanları yanlışlıkla açığa çıkarmayı önler. 50'den fazla satır döndürebilecek sorgular için, her zaman pagination ekle (take/skip veya cursor-based).
 ---
 
 # Cursor Rules Pack v2 — Sample Rules

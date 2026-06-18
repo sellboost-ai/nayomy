@@ -4,7 +4,7 @@ description_en: "Automate Cdr Platform tasks via Rube MCP (Composio). Always sea
 description_tr: "Rube MCP (Composio) aracılığıyla Cdr Platform görevlerini otomatikleştirin. Tools'u araştırarak mevcut schemaları kontrol etmeyi unutmayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cdr-platform-automation/SKILL.md"
 path: "composio-skills/cdr-platform-automation/SKILL.md"
 is_collection: false

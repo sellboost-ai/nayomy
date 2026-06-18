@@ -4,7 +4,7 @@ description: "Help agents automatically write and test stories for your UI compo
 description_tr: "Ajanların UI bileşenleriniz için otomatik olarak hikaye yazmasını ve test etmesini sağlayın."
 category: "Developer Tools"
 repo: "storybookjs/mcp"
-stars: 255
+stars: 256
 url: "https://github.com/storybookjs/mcp"
 body_length: 9005
 license: "MIT"

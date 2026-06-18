@@ -4,7 +4,7 @@ description_en: "Use when planning, running, or learning from chaos engineering 
 description_tr: "Chaos engineering deneylerini planlama, çalıştırma veya öğrenme aşamalarında kullanın. \"Chaos experiment\", \"fault injection\", \"gameday\", \"resilience test\", \"blast radius\", \"steady state\", \"abort criteria\", \"Chaos Toolkit\", \"Chaos Mesh\", \"Litmus\", \"Gremlin\", \"AWS FIS\" veya herhangi bir deliberate failure-injection sorusunda aktif hale gelir. Experiment designer, blast-radius calculator ve postmortem generator içerir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/chaos-engineering/SKILL.md"
 path: ".gemini/skills/chaos-engineering/SKILL.md"
 is_collection: false

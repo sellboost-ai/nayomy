@@ -4,7 +4,7 @@ description: "A CLI for interacting with GitKraken APIs. Includes an MCP server 
 description_tr: "GitKraken API'leriyle etkileşim kurmak için bir CLI aracı. gk mcp üzerinden MCP server içerir ve GitKraken API'lerinin yanı sıra Jira, GitHub, GitLab ve daha fazlasını destekler. Yerel araçlar ve uzak servislerle çalışır."
 category: "Developer Tools"
 repo: "gitkraken/gk-cli"
-stars: 419
+stars: 418
 url: "https://github.com/gitkraken/gk-cli"
 body_length: 5703
 license: "NOASSERTION"

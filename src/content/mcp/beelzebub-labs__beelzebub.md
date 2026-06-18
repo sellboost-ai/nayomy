@@ -4,7 +4,7 @@ description: "Beelzebub is a honeypot framework that lets you build honeypot too
 description_tr: "Beelzebub, MCP kullanarak honeypot araçları oluşturmanızı sağlayan bir framework'tür. Prompt injection ve kötü niyetli agent davranışlarını tespit etmek için tasarlanmıştır. Temel konsept, agente normal çalışmasında asla kullanmayacağı araçlar sunarak tehditli aktiviteleri yakalamaktır."
 category: "Security"
 repo: "beelzebub-labs/beelzebub"
-stars: 2050
+stars: 2049
 url: "https://github.com/beelzebub-labs/beelzebub"
 body_length: 17445
 license: "GPL-3.0"

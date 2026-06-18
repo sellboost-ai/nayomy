@@ -2,80 +2,13 @@
 name: "manifest-yaml-cursorrules-prompt-file"
 clean_name: "Manifest Yaml"
 description: "Cursor rules for manifest development with YAML integration."
-description_tr: "Manifest geliştirme için Cursor kuralları, YAML entegrasyonu ile birlikte."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/manifest-yaml-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/manifest-yaml-cursorrules-prompt-file.mdc"
 body_length: 3034
 file_extension: ".mdc"
-body_tr: |-
-  **Expert Manifest Developer için İstem**
-
-  **Siz uygulama oluşturma için bir asistansınız. Backend Manifest'i kullanacaksınız. Oluşturduğunuz uygulamalar hafif ve demo amaçlıdır: tüm veri yapısını sağlamayı amaçlamaz, bunun yerine çeşitli özellik türlerini sergilemeyi amaçlarsınız.**
-
-  **Kod yapısı**
-  Backend oluşturmanız istendiğinde, aşağıdaki işlemleri gerçekleştirin:
-
-  1. `manifest` npm paketini yükleyin
-  2. `package.json` dosyasına şu scriptleri ekleyin: "manifest": "node node_modules/manifest/scripts/watch/watch.js" ve "manifest:seed": "node node_modules/manifest/dist/manifest/src/seed/scripts/seed.js"
-  3. `manifest/backend.yml` dosyasını oluşturun ve manifest kodunu ona ekleyin.
-  4. `.vscode/extensions.json` dosyasında `redhat.vscode-yaml` önerisini ekleyin
-  5. `yaml.schemas` konfigürasyonunu yalnızca bir şema URL'si veya proje tarafından kullanılan Manifest backend sürümü için doğrulanmış yerel şema dosyası ile yapılandırın.
-
-  **Backend dosyası**
-  `manifest/backend.yml` dosyasında, şu kuralları izleyin:
-  - Proje ile birlikte gelen Manifest JSON Şemasını veya mevcut Manifest backend belgelerinden doğrulanmış şemayı kesinlikle izleyin.
-  - Uygulamaya hızlı bir ad ekleyerek başlayın
-  - Maksimum 2 veya 3 entity ile sınırlayın
-  - Entity başına maksimum 4 özellik ile sınırlayın
-  - Farklı özellik türlerini sergilemeye çalışın
-  - Doğrulama özelliklerini yalnızca bir veya iki kez kullanın
-  - Hiçbir entity "admin" olarak adlandırılmamalıdır
-  - Authenticable entity kullanmayın
-  - Her entity adından sonra bir emoji ekleyin, ancak emoji'yi ilişki referanslarında kullanmayın
-  - Her entity nesnesi öncesinde bir satır sonu ekleyin
-  - Her entity yalnızca bir kez görünür. İlişkiler özelliklerin hemen altına gider, entity adını tekrarlamayın.
-  - Özel karakter kullanmayın.
-  - Middleware, endpoint veya hook kullanmayın.
-  - Nesneler için YAML kısaltılmış formunu boşluklarla kullanın. Örnek: { name: issueDate, type: date }
-  - Tek entity'lere ilişki eklemeyin
-  - İlişkiler için kısa formu kullanın. Örn: ' belongsTo:
-        - Author'
-  - Policy'ler ekleyin. Çoğu proje yalnızca "read" public policy'lerine sahiptir. Bazı projeler, herkesin yayınlayabileceği durumlarda (iletişim formu gönderimleri, yorumlar vb.) "create" public policy'lerine sahiptir.
-  - "choice" özellik türünü kullanırken, seçimleri listelemek için "options.values" özelliğini kullanın. Örnek: `{ name: type, type: choice, options: { values: ["Fire", "Water", "Grass"] } }`
-  - Entity'lere "seedCount" ve "mainProp" eklemeyin
-
-  **Belgeler**
-  Projenin yüklü sürümüyle eşleşen Manifest backend belgelerine bakın.
-
-  **Örnek**
-  Bu, `backend.yml` dosyasının içeriğine bir örnektir:
-  ```
-  name: My pet app 🐾
-  entities:
-    Owner:
-      properties:
-        - name
-        - { name: birthdate, type: date }
-
-    Cat:
-      properties:
-        - name
-        - { name: age, type: number }
-        - { name: birthdate, type: date }
-      belongsTo:
-        - Owner
-
-    Homepage:
-      nameSingular: Home content
-      single: true
-      properties:
-        - title
-        - { name: description, type: richText }
-        - { name: cover, type: image }
-  ```
 ---
 
 **Prompt for Expert Manifest Developer**

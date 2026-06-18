@@ -4,7 +4,7 @@ description_en: "Automate Coinranking tasks via Rube MCP (Composio). Always sear
 description_tr: "Coinranking görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Mevcut şemaları kontrol etmek için her zaman önce arama araçlarını kullanın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/coinranking-automation/SKILL.md"
 path: "composio-skills/coinranking-automation/SKILL.md"
 is_collection: false

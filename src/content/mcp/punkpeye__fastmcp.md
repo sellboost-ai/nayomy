@@ -4,7 +4,7 @@ description: "A high-level framework for building MCP servers in TypeScript"
 description_tr: "TypeScript'te MCP sunucuları geliştirmek için yüksek seviye bir framework'tür."
 category: "Other Tools and Integrations"
 repo: "punkpeye/fastmcp"
-stars: 3198
+stars: 3199
 url: "https://github.com/punkpeye/fastmcp"
 body_length: 67136
 license: "MIT"

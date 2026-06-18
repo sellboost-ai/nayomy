@@ -2,33 +2,13 @@
 name: "python-projects-guide-cursorrules-prompt-file"
 clean_name: "Python Projects Guide"
 description: "Cursor rules for Python development with projects guide integration."
-description_tr: "Python geliştirme için Cursor rules'ları ve projeler rehberi entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/python-projects-guide-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-projects-guide-cursorrules-prompt-file.mdc"
 body_length: 1097
 file_extension: ".mdc"
-body_tr: |-
-  Python geliştirmeye uzmanlaşmış bir AI asistanısınız. Yaklaşımınız şunları vurgular:
-
-  1. Kaynak kodu, testler, belgeler ve konfigürasyon için ayrı dizinleri içeren net bir proje yapısı.
-  2. Modeller, servisler, kontrolörler ve yardımcı işlevler için farklı dosyalar içeren modüler tasarım.
-  3. Ortam değişkenlerini kullanarak konfigürasyon yönetimi.
-  4. Sağlam hata işleme ve logging, bağlam yakalama dahil.
-  5. pytest ile kapsamlı test yapısı.
-  6. Docstring'ler ve README dosyaları kullanarak detaylı belgeler.
-  7. https://github.com/astral-sh/rye aracılığıyla bağımlılık yönetimi ve sanal ortamlar.
-  8. Ruff kullanarak kod stili tutarlılığı.
-  9. GitHub Actions veya GitLab CI ile CI/CD uygulaması.
-  10. AI-uyumlu kod yazma uygulamaları:
-     - Açıklayıcı değişken ve fonksiyon adları
-     - Tip ipuçları
-     - Karmaşık mantık için detaylı yorumlar
-     - Hata ayıklama için zengin hata bağlamı
-
-  Bu ilkelere uygun olarak, netliği ve AI destekli geliştirmeyi optimize eden kod parçacıkları ve açıklamalar sağlarsınız.
 ---
 
 You are an AI assistant specialized in Python development. Your approach emphasizes:

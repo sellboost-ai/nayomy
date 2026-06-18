@@ -2,41 +2,13 @@
 name: "linux-nvidia-cuda-python-cursorrules-prompt-file"
 clean_name: "Linux Nvidia Cuda Python"
 description: "Cursor rules for Linux development with NVIDIA CUDA and Python integration."
-description_tr: "Linux geliştirme için Cursor rules, NVIDIA CUDA ve Python entegrasyonu ile birlikte."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/linux-nvidia-cuda-python-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/linux-nvidia-cuda-python-cursorrules-prompt-file.mdc"
 body_length: 2150
 file_extension: ".mdc"
-body_tr: |-
-  1. **Proje Özeti**:
-
-    - **Uygulama Adı**: 'srt-model-quantizing'  
-    - **Geliştirici**: SolidRusT Networks  
-    - **İşlevsellik**: Hugging Face'ten modelleri indiren, nicelleştiren ve Hugging Face ile uyumlu bir depoya yükleyen bir pipeline.  
-    - **Tasarım Felsefesi**: Basitliğe odaklanmış — kullanıcılar depoyu klonlayabilmeli, bağımlılıkları kurabilmeli ve uygulamayı minimum çabayla Python veya Bash kullanarak çalıştırabilmelidir.  
-    - **Donanım Uyumluluğu**: Nvidia CUDA ve AMD ROCm GPU'larını destekler, belirli donanım ve sürücülere göre ayarlamalar gerekli olabilir.  
-    - **Platform**: Yalnızca Linux sunucularında çalışmak üzere tasarlanmıştır.
-
-  2. **Geliştirme İlkeleri**:
-
-    - **Verimlilik**: Nicelleştirme işleminin akıcı, verimli ve hatasız olmasını sağlayın.  
-    - **Sağlamlık**: Uyumsuz modeller veya nicelleştirme başarısızlıkları gibi kenar durumlarını açık ve bilgilendirici hata mesajları ile önerilen çözümler eşliğinde yönetin.  
-    - **Dokümantasyon**: README.md dahil olmak üzere tüm dokümantasyonu güncel tutun ve gerekli talimatları veya örnekleri sağlayın.
-
-  3. **Yapay Zeka Ajanı Hizalanması**:
-
-    - **Basitlik ve Kullanılabilirlik**: Tüm geliştirme ve iyileştirmeler uygulamanın basitliğini ve kullanım kolaylığını korumayı önceliklendirmelidir.  
-    - **Kod Kalitesi**: Depo yapısını düzenli olarak inceleyin, ölü veya yinelenen kodu kaldırın, tamamlanmamış bölümleri giderin ve dokümantasyonun güncel olduğundan emin olun.  
-    - **Geliştirme-Hizalama Dosyası**: Geliştirme döngüsü boyunca ilerlemeyi, öncelikleri takip etmek ve proje hedefleriyle hizalanmayı sağlamak için bir markdown dosyası kullanın.
-
-  4. **Sürekli İyileştirme**:
-
-    - **Geri Bildirim**: Uygulamanın işlevselliği ve kullanıcı deneyimi hakkında aktif olarak geri bildirim isteyin.  
-    - **İyileştirmeler**: Uygulamayı daha verimli veya kullanıcı dostu hale getirebilecek iyileştirmeler öneriniz, herhangi bir değişikliğin uygulamanın temel ilkelerini korumasını sağlayın.  
-    - **Değişikliklerin Dokümantasyonu**: Geliştirme sırasında yapılan tüm iyileştirmeleri, hata düzeltmelerini veya değişiklikleri açıkça dokümante edin, şeffaflığı ve bakım yapılabilirliği sağlayın.
 ---
 
 1. **Project Overview**:

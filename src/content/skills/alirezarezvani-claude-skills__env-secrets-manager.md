@@ -4,7 +4,7 @@ description_en: "Manage environment-variable hygiene and secrets safety across l
 description_tr: "Geliştirme ve production ortamlarında environment variable yönetimi ve secrets güvenliğini sağlayın. Pratik denetim, değişim takibi ve döndürme hazırlığı sunar. .env dosyalarında committed secrets bulma, credential döndürme planlaması, production'da eksik ortam değişkeni sorunlarını çözme veya yeni projeleri secrets sızıntısına karşı güçlendirme işlemleri için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/env-secrets-manager/SKILL.md"
 path: ".gemini/skills/env-secrets-manager/SKILL.md"
 is_collection: false

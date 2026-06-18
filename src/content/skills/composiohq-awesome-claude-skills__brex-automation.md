@@ -4,7 +4,7 @@ description_en: "Automate Brex tasks via Rube MCP (Composio). Always search tool
 description_tr: "Rube MCP (Composio) aracılığıyla Brex görevlerini otomatikleştirin. Tools'u her zaman güncel şemaları kontrol etmek için önce araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/brex-automation/SKILL.md"
 path: "composio-skills/brex-automation/SKILL.md"
 is_collection: false

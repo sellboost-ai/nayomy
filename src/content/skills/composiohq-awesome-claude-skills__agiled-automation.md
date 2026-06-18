@@ -4,7 +4,7 @@ description_en: "Automate Agiled tasks via Rube MCP (Composio). Always search to
 description_tr: "Rube MCP (Composio) üzerinden Agiled görevlerini otomatikleştirin. Güncel şemaları kontrol etmek için her zaman araçları önce aratın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/agiled-automation/SKILL.md"
 path: "composio-skills/agiled-automation/SKILL.md"
 is_collection: false

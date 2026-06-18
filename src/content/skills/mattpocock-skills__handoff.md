@@ -4,7 +4,7 @@ description_en: "Compact the current conversation into a handoff document for an
 description_tr: "Mevcut konuşmayı başka bir agent'ın devralması için bir handoff belgesine sıkıştırın."
 category: "Document"
 repo: "mattpocock/skills"
-stars: 132588
+stars: 134333
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/productivity/handoff/SKILL.md"
 path: "skills/productivity/handoff/SKILL.md"
 is_collection: false
@@ -15,15 +15,15 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Devir Belgesi Oluştur
-
+  
   Geçerli konuşmayı özetleyen bir devir belgesi yazın ve yeni bir aracı çalışmaya devam edebilmesi için hazırlayın. Kullanıcının işletim sisteminin geçici dizinine kaydedin - mevcut çalışma alanına değil.
-
+  
   Belgede, aracının çağırması gereken becerileri öneren bir "Önerilen Beceriler" bölümü ekleyin.
-
+  
   Diğer yapıtlarda (PRD'ler, planlar, ADR'ler, sorunlar, commit'ler, diff'ler) zaten yakalanmış içeriği tekrar etmeyin. Bunları yol veya URL ile referans verin.
-
+  
   API anahtarları, parolalar veya kişisel tanımlayıcı bilgiler gibi hassas bilgileri redakte edin.
-
+  
   Kullanıcı argüman iletmişse, bunları sonraki oturumun odaklanacağı şeyin açıklaması olarak değerlendirin ve belgeyi buna göre uyarlayın.
 ---
 

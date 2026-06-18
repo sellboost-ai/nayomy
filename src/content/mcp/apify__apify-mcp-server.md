@@ -4,7 +4,7 @@ description: "Use 3,000+ pre-built cloud tools, known as Actors, to extract data
 description_tr: "3.000'den fazla önceden oluşturulmuş bulut aracı olan Actor'ları kullanarak web siteleri, e-ticaret platformları, sosyal medya, arama motorları, haritalar ve daha birçok kaynaktan veri çıkartın."
 category: "Other Tools and Integrations"
 repo: "apify/apify-mcp-server"
-stars: 1349
+stars: 1352
 url: "https://github.com/apify/apify-mcp-server"
 body_length: 29502
 license: "MIT"

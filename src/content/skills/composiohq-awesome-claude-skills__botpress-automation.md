@@ -4,7 +4,7 @@ description_en: "Automate Botpress tasks via Rube MCP (Composio). Always search 
 description_tr: "Botpress görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/botpress-automation/SKILL.md"
 path: "composio-skills/botpress-automation/SKILL.md"
 is_collection: false

@@ -2,96 +2,13 @@
 name: "database"
 clean_name: "Database"
 description: "Database best practices focusing on Prisma and Supabase integration"
-description_tr: "Prisma ve Supabase entegrasyonuna odaklanan veritabanı en iyi uygulamaları"
 category: "Data"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/database.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/database.mdc"
 body_length: 2069
 file_extension: ".mdc"
-body_tr: |-
-  # Veritabanı En İyi Uygulamaları
-
-  ## Prisma Kurulumu
-  - Uygun şema tasarımı kullanın
-  - Uygun migrasyonları uygulayın
-  - Uygun ilişki tanımlamalarını kullanın
-  - Uygun bağlantı yapılandırmasını gerçekleştirin
-  - Uygun veri tohumlama (seeding) uygulayın
-  - Uygun istemci kurulumunu kullanın
-
-  ## Prisma Modelleri
-  - Uygun model adlandırması kullanın
-  - Uygun ilişkileri uygulayın
-  - Uygun alan türlerini kullanın
-  - Uygun dizinleri tanımlayın
-  - Uygun kısıtlamaları uygulayın
-  - Uygun enum'ları kullanın
-
-  ## Prisma Sorguları
-  - Uygun sorgu optimizasyonu kullanın
-  - Uygun filtrelemeyi uygulayın
-  - Uygun ilişki yüklemesini kullanın
-  - İşlemleri (transaction) uygun şekilde yönetin
-  - Uygun sayfalamayı uygulayın
-  - Uygun agregasyonları kullanın
-
-  ## Supabase Kurulumu
-  - Uygun proje kurulumunu yapılandırın
-  - Uygun kimlik doğrulamayı uygulayın
-  - Uygun veritabanı kurulumunu kullanın
-  - Uygun depolamayı (storage) yapılandırın
-  - Uygun politikaları uygulayın
-  - Uygun istemci kurulumunu kullanın
-
-  ## Supabase Güvenliği
-  - Uygun RLS politikalarını uygulayın
-  - Uygun kimlik doğrulamayı kullanın
-  - Uygun izinleri yapılandırın
-  - Hassas verileri uygun şekilde yönetin
-  - Uygun yedeklemeleri uygulayın
-  - Uygun şifrelemeyi kullanın
-
-  ## Supabase Sorguları
-  - Uygun sorgu optimizasyonu kullanın
-  - Uygun filtrelemeyi uygulayın
-  - Uygun birleştirmeleri (join) kullanın
-  - Gerçek zamanlı özellikleri (real-time) uygun şekilde yönetin
-  - Uygun sayfalamayı uygulayın
-  - Uygun fonksiyonları kullanın
-
-  ## Veritabanı Tasarımı
-  - Uygun normalizasyonu kullanın
-  - Uygun dizinlemeyi uygulayın
-  - Uygun kısıtlamaları kullanın
-  - Uygun ilişkileri tanımlayın
-  - Uygun basamak silmeleri (cascade) uygulayın
-  - Uygun veri türlerini kullanın
-
-  ## Performans
-  - Uygun bağlantı havuzu (connection pooling) kullanın
-  - Uygun önbelleklemeyi (caching) uygulayın
-  - Uygun sorgu optimizasyonu kullanın
-  - N+1 sorgularını uygun şekilde yönetin
-  - Uygun toplu işlemeyi (batching) uygulayın
-  - Performans metriklerini izleyin
-
-  ## Güvenlik
-  - Uygun kimlik doğrulamayı kullanın
-  - Uygun yetkilendirmeyi uygulayın
-  - Hassas verileri uygun şekilde yönetin
-  - Uygun şifrelemeyi kullanın
-  - Uygun yedeklemeleri uygulayın
-  - Güvenlik sorunlarını izleyin
-
-  ## En İyi Uygulamalar
-  - Veritabanı kurallarını izleyin
-  - Uygun migrasyonları kullanın
-  - Uygun sürüm yönetimini uygulayın
-  - Hataları uygun şekilde yönetin
-  - Şemayı uygun şekilde belgeleyin
-  - Veritabanı sağlığını izleyin
 ---
 
 # Database Best Practices

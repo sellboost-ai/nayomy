@@ -4,7 +4,7 @@ description_en: "Use when about to claim work is complete, fixed, or passing, be
 description_tr: "Çalışmanın tamamlandığını, sorunu çözdüğünü veya testleri geçtiğini iddia etmeden önce kullanın - commit yapmadan veya PR oluşturmadan önce verification komutlarını çalıştırıp sonuçları kontrol etmelisiniz; her zaman kanıt iddiadan önce gelir."
 category: "Design"
 repo: "obra/superpowers"
-stars: 230380
+stars: 231591
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/verification-before-completion/SKILL.md"
 path: "skills/verification-before-completion/SKILL.md"
 is_collection: false

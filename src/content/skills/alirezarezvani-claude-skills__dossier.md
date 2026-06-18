@@ -4,7 +4,7 @@ description_en: "Decision-grade entity research skill — produces a hypothesis-
 description_tr: "Karar alınabilir düzeyde entity araştırması yapan bir beceri — belirli bir şirket, kişi, kar amacı gütmeyen kuruluş veya devlet kurumu hakkında hipotez-test edilmiş bir dosya oluşturur, genel bir profil değil. Zorunlu giriş, kullanıcıyı önceden hipotezini (ne inandığını ve doğrulamak ya da çürütmek istediğini) belirtmeye zorlayarak, dosya bunu doğrulamak yerine test eder. Çıktı, hipotez hakkında sonuca varılan düzenlenebilir bir Word belgesidir (.docx)."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/dossier/SKILL.md"
 path: ".gemini/skills/dossier/SKILL.md"
 is_collection: false

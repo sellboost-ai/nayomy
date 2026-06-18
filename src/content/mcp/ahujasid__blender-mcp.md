@@ -4,7 +4,7 @@ description: "MCP server for working with Blender"
 description_tr: "Blender ile çalışmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
-stars: 22863
+stars: 22895
 url: "https://github.com/ahujasid/blender-mcp"
 body_length: 13397
 license: "MIT"

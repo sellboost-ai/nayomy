@@ -4,7 +4,7 @@ description: "A lightweight yet robust server that empowers AI assistants to sec
 description_tr: "Kubernetes CLI komutlarını (kubectl, helm, istioctl, argocd) güvenli bir şekilde çalıştırmak için AI asistanlarını güçlendiren, Unix pipes kullanan, güvenli Docker ortamında çalışan ve çoklu mimari destekleyen hafif ama güçlü bir server."
 category: "Cloud Platforms"
 repo: "alexei-led/k8s-mcp-server"
-stars: 211
+stars: 210
 url: "https://github.com/alexei-led/k8s-mcp-server"
 body_length: 10379
 license: "MIT"

@@ -4,7 +4,7 @@ description: "The Redis official MCP Server offers an interface to manage and se
 description_tr: "Redis resmi MCP Server, Redis'teki verileri yönetmek ve sorgulamak için bir arayüz sunmaktadır."
 category: "Databases"
 repo: "redis/mcp-redis"
-stars: 534
+stars: 536
 url: "https://github.com/redis/mcp-redis"
 body_length: 27764
 license: "MIT"

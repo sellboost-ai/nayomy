@@ -4,7 +4,7 @@ description_en: "Automate Bigmailer tasks via Rube MCP (Composio). Always search
 description_tr: "Rube MCP (Composio) aracılığıyla Bigmailer görevlerini otomatikleştirin. Tools içinde mevcut schemas için her zaman önce arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bigmailer-automation/SKILL.md"
 path: "composio-skills/bigmailer-automation/SKILL.md"
 is_collection: false

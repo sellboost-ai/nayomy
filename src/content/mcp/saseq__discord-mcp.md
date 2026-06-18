@@ -4,7 +4,7 @@ description: "A MCP server for the Discord integration. Enable your AI assistant
 description_tr: "Discord entegrasyonu için bir MCP sunucusu. AI asistanlarınızın Discord ile sorunsuz bir şekilde etkileşim kurmasını sağlayın. Güçlü otomasyon yetenekleriyle Discord deneyiminizi geliştirin."
 category: "Communication"
 repo: "SaseQ/discord-mcp"
-stars: 356
+stars: 358
 url: "https://github.com/SaseQ/discord-mcp"
 body_length: 14986
 license: "MIT"

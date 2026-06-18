@@ -4,7 +4,7 @@ description_en: "You MUST use this before any creative work - creating features,
 description_tr: "Herhangi bir yaratıcı çalışmaya başlamadan önce bunu mutlaka kullanın - feature oluştururken, component inşa ederken, functionality eklerken veya davranış değiştirirken. Kullanıcı niyetini, gereksinimleri ve tasarımı implementation öncesinde araştırır."
 category: "Design"
 repo: "obra/superpowers"
-stars: 230380
+stars: 231591
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/brainstorming/SKILL.md"
 path: "skills/brainstorming/SKILL.md"
 is_collection: false

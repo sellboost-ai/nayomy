@@ -4,7 +4,7 @@ description: "Kubernetes bulk port forwarding with service discovery, /etc/hosts
 description_tr: "Kubernetes toplu port yönlendirmesi, service discovery, /etc/hosts yönetimi, traffic izleme ve pod log akışını bir arada sunan araç."
 category: "Cloud Platforms"
 repo: "txn2/kubefwd"
-stars: 4123
+stars: 4125
 url: "https://github.com/txn2/kubefwd"
 body_length: 6716
 license: "Apache-2.0"

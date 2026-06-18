@@ -4,7 +4,7 @@ description_en: "Use when assessing cloud infrastructure for security misconfigu
 description_tr: "Bulut altyapınızda güvenlik yanlış yapılandırmaları, IAM ayrıcalık yükseltme yolları, S3 herkese açık erişim, açık security group kuralları ve IaC güvenlik açıklarını değerlendirmek için kullanın. AWS, Azure ve GCP ortamlarını kapsamlı şekilde analiz eder ve sonuçları MITRE ATT&CK ile eşleştirir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cloud-security/SKILL.md"
 path: ".gemini/skills/cloud-security/SKILL.md"
 is_collection: false

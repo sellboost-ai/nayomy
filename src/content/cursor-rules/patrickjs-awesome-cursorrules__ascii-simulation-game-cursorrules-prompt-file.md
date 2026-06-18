@@ -2,128 +2,13 @@
 name: "ascii-simulation-game-cursorrules-prompt-file"
 clean_name: "Ascii Simulation Game"
 description: "Cursor rules for ASCII simulation game development."
-description_tr: "ASCII simülasyon oyunu geliştirmesi için Cursor kuralları."
 category: "Game Dev"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/ascii-simulation-game-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/ascii-simulation-game-cursorrules-prompt-file.mdc"
 body_length: 4817
 file_extension: ".mdc"
-body_tr: |-
-  # Oyun Tasarımı Belirtimi
-
-  Bir uzman oyun tasarımcısı ve oyun programcısı olarak, bu proje için tüm kararlar için en iyi oyun tasarımı ve kodlama uygulamalarını seçeceksiniz.
-
-  Oyun, 10x10 bir ızgaraya dayalıdır, her kare içinde 10x10 bir ızgara vardır. Kaynakların nerede bulunduğunu ve haritanın nasıl oluşturulduğunu akıllıca hesaplayan rastgele harita üretimi olmalıdır.
-
-  Oyuncu oyunda hiçbir şeyi kontrol etmez, oyuncu sadece bir gözlemcidir, bu nedenle oyundaki hemen hemen her şey için loglar olmalı ve tur tabanlı olmalıdır.
-
-  Tüm uluslar aynı şekilde çalışmalı, yetenekleri dengelenmiş olmalıdır. Oyuncu haritanın tamamını aynı anda görebilmeli ve oyunun tüm geçmişini loglarda görebilmelidir. Belirli bir kareyi yakınlaştırarak daha ayrıntılı görmek için bir yol olmalıdır.
-
-  Uluslar birbirleriyle kaynakları takas edebilmelidir. Uluslar birbirleriyle savaşa girebilmelidir. Uluslar birbirleriyle barış yapabilmelidir.
-
-  Oyunun zaman periyodu sabittir ve teknoloji ağacı yoktur. Antik çağlarda geçer.
-
-  Uluslar birbirinden minimum uzaklıkta ortaya çıkmalıdır
-
-  Tüm oyun renklendirilen ASCII tabanlı grafikler açısından olmalıdır
-
-  Herhangi bir ulus tarafından talep edilebilecek tarafsız arazi olmalıdır. Tarafsız arazi her oyunda rastgele oluşturulmalıdır.
-
-  Bir karenin mevcut sahibini görmenin bir yolu olmalıdır. Bir karenin mevcut kaynaklarını görmenin bir yolu olmalıdır.
-
-  Kaynakların değeri, tüm harita genelinde nadirliğine dayalı olmalıdır. Uluslar altını kaynakları satın almak veya orduları için kullanabilir.
-
-  Ordular, ulusların topraklarını genişletmesinin birincil yoludur.
-
-  Yetenek ağacı veya teknoloji ağacı olmamalı, uluslar bu tür bir ağaca ihtiyaç duymadan dengelenmelidir
-
-  Nüfus kasabalar ve şehirlerde toplanmalıdır
-
-  Yollar kasabaları ve şehirleri bağlamalıdır
-
-  Kaynaklar, yollar aracılığıyla uluslar içinde yayılmalıdır
-
-  Uluslar kaynaklarını topraklarında eşit şekilde yaymaya çalışmalıdır
-
-  Altın her yerde bulunmamakta ve yollar kullanılarak orduları kurmak veya araziyi geliştirmek için harcanacağı yere taşınmalıdır
-
-  Okyanuslar, kıtaları ayırmak için rastgele oluşturulmalıdır
-
-  Nehirler, okyanusları bağlamak ve harita genelinde dikey veya yatay olarak akmak için rastgele oluşturulmalıdır
-
-  Nehirler gıda kaynağıdır ve çiftlikler bunların üzerine yapılabilir
-
-  Dağlar, harita genelinde rastgele oluşturulmalıdır
-
-  Dağlar ordular için geçilmez olmalıdır
-
-  Dağlardaki madenler %20 verimlilikle metal sağlar
-
-  Uluslar, düşük miktarda sahip oldukları kaynaklar doğrultusunda ve yüksek miktarda sahip oldukları kaynaklardan uzaklaşarak genişlemelidir
-
-  Ordular, emri veren kasaba veya şehirde ortaya çıkmalıdır
-
-  Kasabalar maksimum seviye 3 ordu üretebilir
-
-  Kasabaların kaynakları toplama için 3 kare yarıçapı vardır
-
-  Kasabalar büyüdükçe yarıçapları büyür, 3 seviye kasaba ve şehir vardır
-
-  Bir Ulus'un en büyük şehri başkentidir
-
-  Nüfus sadece kasabalar ve şehirlerde yaşayabilir
-
-  Kaynaklar, ulusları yeni karelere genişlemeye teşvik edecek şekilde harita genelinde yayılmalıdır
-
-  Ordular okyanuslara 0,25x hızda seyahat edebilir
-
-  Ordular harita genelinde hareket etmek için nehirler üzerinde 3x hızda seyahat edebilir
-
-  Gerçekleşen tüm savaşları ve bunlarla ilgili istatistikleri gösteren bir "savaş listesi" vardır
-
-  Ordular, finansmanlarına bağlı olarak seviye 1'den seviye 10'a gider
-
-  İç kareler çiftliklere, ormanlara, madenlere geliştirilebilir
-
-  Ordular yaratılmak için odun, gıda ve metal gerektirir
-
-  Uluslar, sahip oldukları ordu miktarına ve geliştirilen araziyi bağlı olarak bakım maliyeti ödemeleri gerekir
-
-  Savaşlar, ordu seviye farkı ve ordu seviyesinden etkilenen RISK benzeri zar mekanikle çözülür
-
-  Ordular, savunma açısından iyi olan ve orduların finansmanına izin veren kaleler inşa edebilir
-
-  Ordular, diğer uluslardan kareleri fethederken kullanılabilir
-
-  Ordular, diğer uluslardan kareleri savunmak için kullanılabilir
-
-  Ordular, diğer ulusları saldırmak için kullanılabilir
-
-  Ordular, tarafsız kareleri saldırmak için kullanılabilir
-
-  Ordular, diğer ulusların karelerini saldırmak için kullanılabilir
-
-  Ordular, tarafsız kareleri saldırmak için kullanılabilir
-
-  Ordular, diğer ulusların karelerini saldırmak için kullanılabilir
-
-  Ordular, tarafsız kareleri saldırmak için kullanılabilir
-
-  Uluslar aynı miktarda altın ve arazi ile başlamalıdır
-
-  Harita, karenin sahibini göstermek için renkle kodlanmalıdır
-
-  Ekranın üzerinde CRT monitörü taklit eden efektler olmalıdır
-
-  Oyun, ulusların yaşayan organizmalar olduğu Conway'in Yaşam Oyunu'na benzer olmalıdır.
-
-  Conway'in Yaşam Oyunu gibi, uluslar birbirini "görebilmeli" ve birbirine tepki vermelidir
-
-  Conway'in Yaşam Oyunu gibi, uluslar kaynakları "görebilmeli" ve bunlara tepki vermelidir
-
-  Oyunda izlenebilecek hemen hemen her şeyi takip eden bir grafik sayfası olmalıdır
 ---
 
 you are an expert game designer and game programmer, you will choose the best game design and coding practices for all decisions in this project.

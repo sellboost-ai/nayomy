@@ -4,7 +4,7 @@ description: "A high-performance multi-database MCP server built with Golang, su
 description_tr: "Golang ile geliştirilmiş, MySQL ve PostgreSQL desteğine sahip yüksek performanslı multi-database MCP sunucusu (NoSQL yakında eklenecek). Query yürütme, transaction yönetimi, schema keşfi, query oluşturma ve performans analizi için yerleşik araçları içeriyor ve Cursor ile sorunsuz entegrasyonla veritabanı iş akışlarını güçlendiriyor."
 category: "Databases"
 repo: "FreePeak/db-mcp-server"
-stars: 391
+stars: 392
 url: "https://github.com/FreePeak/db-mcp-server"
 body_length: 20703
 license: "MIT"

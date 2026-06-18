@@ -4,7 +4,7 @@ description: "Remote Storage Access: SFTP, S3, FTP, SMB, NFS, WebDAV, GIT, FTPS,
 description_tr: "Uzak depolama erişimi: SFTP, S3, FTP, SMB, NFS, WebDAV, GIT, FTPS, gcloud, azure blob, sharepoint ve daha fazlası desteklenir."
 category: "File Systems"
 repo: "mickael-kerjean/filestash"
-stars: 14312
+stars: 14315
 url: "https://github.com/mickael-kerjean/filestash"
 body_length: 12340
 license: "AGPL-3.0"

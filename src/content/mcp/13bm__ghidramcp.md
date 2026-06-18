@@ -4,7 +4,7 @@ description: "MCP server for integrating Ghidra with AI assistants. This plugin 
 description_tr: "Ghidra'yı AI asistanlarıyla entegre etmek için MCP sunucusu. Bu plugin, Model Context Protocol aracılığıyla binary analizi, function incelemesi, decompilation, memory keşfi ve import/export analizi için araçlar sunarak ikili dosya analizini etkinleştirir."
 category: "Security"
 repo: "13bm/GhidraMCP"
-stars: 122
+stars: 124
 url: "https://github.com/13bm/GhidraMCP"
 body_length: 14588
 license: "Apache-2.0"

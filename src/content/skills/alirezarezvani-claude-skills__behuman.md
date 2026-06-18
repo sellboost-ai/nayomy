@@ -4,7 +4,7 @@ description_en: "Use when the user wants more human-like AI responses — less r
 description_tr: "Kullanıcı daha insan benzeri, doğal AI yanıtları istediğinde devreye girer — robot olmayan, liste tarzı olmayan, daha otantik cevaplar için. Tetikleyiciler: 'behuman', 'be real', 'like a human', 'more human', 'less AI', 'talk like a person', 'mirror mode', 'stop being so AI' komutları veya duygusal yüklü konuşmalar (kayıp, iş kaybı, ilişki danışmanlığı, korku). Teknik sorular, kod üretimi veya bilgi araması için değil."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/behuman/SKILL.md"
 path: ".gemini/skills/behuman/SKILL.md"
 is_collection: false

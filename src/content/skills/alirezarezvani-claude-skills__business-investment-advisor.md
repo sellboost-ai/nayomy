@@ -4,7 +4,7 @@ description_en: "Business investment analysis and capital allocation advisor. Us
 description_tr: "Ticari yatırım analizi ve sermaye tahsisi danışmanı. Ekipman, gayrimenkul, yeni işletme, işe alım, teknoloji veya herhangi bir sermaye harcaması yapılıp yapılmayacağını değerlendirirken kullanın. ROI hesaplamaları, IRR, NPV, geri ödeme süresi, satın al vs geliştir kararları, kiralama vs satın alma analizi, satıcı değerlendirmesi veya sınırlı bütçeyi maksimum getiri için tahsis etmeyi de kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/business-investment-advisor/SKILL.md"
 path: ".gemini/skills/business-investment-advisor/SKILL.md"
 is_collection: false

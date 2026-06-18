@@ -4,7 +4,7 @@ description: "High-performance code intelligence MCP server. Indexes codebases i
 description_tr: "Yüksek performanslı kod zekası MCP sunucusu. Codebase'leri kalıcı bir knowledge graph'e indeksler — ortalama repo milisaniyeler içinde. 66 dil desteği, sub-ms sorgular, %99 daha az token. Tek statik binary, hiç bağımlılık yok."
 category: "Developer Tools"
 repo: "DeusData/codebase-memory-mcp"
-stars: 4091
+stars: 6077
 url: "https://github.com/DeusData/codebase-memory-mcp"
 body_length: 35158
 license: "MIT"

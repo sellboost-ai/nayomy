@@ -2,61 +2,13 @@
 name: "google-adk"
 clean_name: "Google Adk"
 description: "Google Agent Development Kit rules for agents, tools, sessions, memory, artifacts, evaluation, and deployment"
-description_tr: "Google Agent Development Kit'te ajanlar, araçlar, oturumlar, bellek, yapıtlar, değerlendirme ve dağıtım için kurallar"
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/google-adk.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/google-adk.mdc"
 body_length: 2293
 file_extension: ".mdc"
-body_tr: |-
-  # Google ADK Kuralları
-
-  ## Agent Tasarımı
-
-  - Her agent'ı net bir hedef, persona ve tool seti ile sınırlandırın.
-  - Esnek akıl yürütme için LLM agent'larını, deterministik orkestrasyonda workflow agent'larını kullanın.
-  - Görev sınırlarını, tool kullanım kurallarını ve escalation davranışını tanımlayan talimatlar yazın.
-  - Multi-agent sistemleri uygulama kolaylığından ziyade sorumluluk alanına göre bölün.
-  - Model seçimlerini yapılandırılabilir tutun.
-
-  ## Araçlar (Tools)
-
-  - Tool'lara dar ve type'lanmış input ve output verin.
-  - Tool argümanlarını yan etkiler gerçekleştirmeden önce doğrulayın.
-  - Sırları, kimlik bilgilerini ve ayrıcalıklı API'leri agent prompt'larından uzak tutun.
-  - Tool hatalarını açıkça ele alın ve işlem yapılabilir başarısızlık mesajları döndürün.
-  - ADK tool sınırlamalarından haberdar olun; bazı built-in tool'lar aynı agent'ta diğer tool'larla birleştirilemez.
-
-  ## Oturumlar, Durum ve Hafıza
-
-  - Geçerli konuşma verileri için session state'ini kullanın.
-  - Oturumlar arası geri çağırma ve retrieval için memory'yi kullanın.
-  - State'i küçük ve serialize edilebilir tutun.
-  - Session state'e büyük dosyalar veya binary payload'ları depolamayın.
-  - State key'lerini stabil ve dokumente edin.
-
-  ## Artefaktlar (Artifacts)
-
-  - Oluşturulan dosyalar, yüklenen dosyalar, raporlar, görseller, ses ve diğer binary veriler için artifact'ları kullanın.
-  - Artifact işlemlere güvenmeden önce runner'da artifact servisi yapılandırın.
-  - Artifact dosya adlarını kasıtlı olarak version'layın ve semantik olarak farklı output'ları üzerine yazmaktan kaçının.
-  - Tam içerik artifact'lara ait olduğunda state'e yalnızca referanslar veya özetler depolayın.
-
-  ## Değerlendirme ve Deployment
-
-  - Tool davranışı, agent routing, prompt regressiyonları ve güvensiz tool çağrıları için testler ekleyin.
-  - Agent kararlarını debug etmek için trace veya event log'larını kullanın.
-  - Yerel development, staging ve production yapılandırmasını ayrı tutun.
-  - Latans, tool başarısızlıkları, token kullanımı ve handoff başarısızlıkları için observability ekleyin.
-
-  ## Sık Yapılan Hatalar
-
-  - Bir agent'ı her workflow için sorumlu yapmayın.
-  - Tool'lara doğrulama olmaksızın keyfi shell, SQL veya HTTP input kabul ettirmeyin.
-  - Erişim kontrolü için prompt metinine güvenmeyin.
-  - Önemli yan etkileri genel tool adlarının arkasında gizlemeyin.
 ---
 
 

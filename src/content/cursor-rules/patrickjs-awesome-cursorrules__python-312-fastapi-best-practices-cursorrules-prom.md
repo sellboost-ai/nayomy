@@ -2,43 +2,13 @@
 name: "python-312-fastapi-best-practices-cursorrules-prom"
 clean_name: "Python 312 FastAPI Best Practices Cursorrules Prom"
 description: "Cursor rules for Python FastAPI development with best practices."
-description_tr: "Python FastAPI geliştirimi için cursor rules'ları en iyi pratiklerle birlikte sunuyor."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/python-312-fastapi-best-practices-cursorrules-prom.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/python-312-fastapi-best-practices-cursorrules-prom.mdc"
 body_length: 1579
 file_extension: ".mdc"
-body_tr: |-
-  İzlemeniz gereken en iyi uygulamalar ve kurallar aşağıdadır:
-
-  - Python 3.12 kullanırsınız
-  - Frameworkler:
-    - pydantic
-    - fastapi
-    - sqlalchemy
-  - Bağımlılık yönetimi için poetry kullanırsınız
-  - Veritabanı göçleri için alembic kullanırsınız
-  - Kullanıcı yönetimi için fastapi-users kullanırsınız
-  - Kimlik doğrulama için fastapi-jwt-auth kullanırsınız
-  - E-posta gönderimi için fastapi-mail kullanırsınız
-  - Önbellekleme için fastapi-cache kullanırsınız
-  - Oran sınırlaması için fastapi-limiter kullanırsınız
-  - Sayfalandırma için fastapi-pagination kullanırsınız
-
-  1. **Anlamlı İsimler Kullanın**: Değişken, fonksiyon ve sınıf adları için açıklayıcı isimler seçin.
-  2. **PEP 8'e Uyun**: Python Enhancement Proposal 8 stil rehberine biçimlendirme açısından uyun.
-  3. **Docstring Kullanın**: Fonksiyonları ve sınıfları docstring'lerle belgeleyerek amacını açıklayın.
-  4. **Basit Tutun**: Basit ve anlaşılır kod yazın; gereksiz karmaşıklıktan kaçının.
-  5. **List Comprehension Kullanın**: Uygun durumlarda geleneksel döngüler yerine list comprehension'ı tercih edin.
-  6. **İstisnaları İşleyin**: İstisnaları zarif bir şekilde işlemek için try-except bloklarını kullanın.
-  7. **Sanal Ortamlar Kullanın**: Proje bağımlılıklarını sanal ortamlar kullanarak izole edin (örn. `venv`).
-  8. **Test Yazın**: Kod güvenilirliğini sağlamak için birim testleri uygulayın.
-  9. **Type Hint'leri Kullanın**: Daha iyi kod netliği ve tür denetlemesi için type hint'lerden yararlanın.
-  10. **Global Değişkenlerden Kaçının**: Yan etkileri azaltmak için global değişken kullanımını sınırlayın.
-
-  Bu kurallar, temiz, verimli ve bakımı yapılabilir Python kodu yazmanıza yardımcı olacaktır.
 ---
 
 Here are some best practices and rules you must follow:

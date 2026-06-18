@@ -4,7 +4,7 @@ description: "Search dashboards, investigate incidents and query datasources in 
 description_tr: "Grafana örneğinizde dashboard'ları arayın, olayları araştırın ve veri kaynaklarını sorgulayın"
 category: "Monitoring"
 repo: "grafana/mcp-grafana"
-stars: 3157
+stars: 3162
 url: "https://github.com/grafana/mcp-grafana"
 body_length: 77378
 license: "Apache-2.0"

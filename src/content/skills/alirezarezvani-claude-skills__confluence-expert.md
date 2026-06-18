@@ -4,7 +4,7 @@ description_en: "Atlassian Confluence expert for creating and managing spaces, k
 description_tr: "Atlassian Confluence uzmanı, alanlar, bilgi tabanları ve dokümantasyon oluşturmak ve yönetmek için. Alan izinleri ve hiyerarşileri yapılandırır, makrolarla sayfa şablonları oluşturur, dokümantasyon taksonomi kurar, sayfa düzenlerini tasarlar ve içerik yönetişimini yönetir. Kullanıcıların bir Confluence alanı oluşturması veya yeniden yapılandırması, izin yapılarıyla sayfa hiyerarşileri tasarlaması ya da içerik yazması gerektiğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/confluence-expert/SKILL.md"
 path: ".gemini/skills/confluence-expert/SKILL.md"
 is_collection: false

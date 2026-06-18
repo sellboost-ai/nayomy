@@ -4,7 +4,7 @@ description_en: "Reduce voluntary and involuntary churn through cancel flow desi
 description_tr: "Gönüllü ve gönülsüz churn'ü iptal akışı tasarımı, kaydetme teklifleri, çıkış anketleri ve dunning sekansları aracılığıyla azaltın. İptal akışı tasarlarken veya optimize ederken, kaydetme teklifleri oluştururken, dunning e-postaları ayarlarken ya da başarısız ödeme churn'ünü azaltırken kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/churn-prevention/SKILL.md"
 path: ".gemini/skills/churn-prevention/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Agent Mail tasks via Rube MCP (Composio). Always searc
 description_tr: "Agent Mail görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. İşlemleri başlatmadan önce her zaman araçlarda mevcut şemaları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/agent-mail-automation/SKILL.md"
 path: "composio-skills/agent-mail-automation/SKILL.md"
 is_collection: false

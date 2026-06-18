@@ -4,7 +4,7 @@ description: "Integration with Cloudflare services including Workers, KV, R2, an
 description_tr: "Cloudflare Workers, KV, R2 ve D1 hizmetleriyle entegrasyon"
 category: "Cloud Platforms"
 repo: "cloudflare/mcp-server-cloudflare"
-stars: 3872
+stars: 3873
 url: "https://github.com/cloudflare/mcp-server-cloudflare"
 body_length: 7908
 license: "Apache-2.0"

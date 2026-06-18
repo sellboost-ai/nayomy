@@ -4,7 +4,7 @@ description_en: "Automate Browserbase Tool tasks via Rube MCP (Composio). Always
 description_tr: "Browserbase Tool görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları kullanmak için öncelikle araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/browserbase-tool-automation/SKILL.md"
 path: "composio-skills/browserbase-tool-automation/SKILL.md"
 is_collection: false

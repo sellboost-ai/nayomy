@@ -4,7 +4,7 @@ description: "An MCP server to convert almost any file or web content into Markd
 description_tr: "Hemen hemen her dosya veya web içeriğini Markdown'a dönüştüren bir MCP sunucusu."
 category: "Data Science Tools"
 repo: "zcaceres/markdownify-mcp"
-stars: 2744
+stars: 2749
 url: "https://github.com/zcaceres/markdownify-mcp"
 body_length: 4397
 license: "MIT"

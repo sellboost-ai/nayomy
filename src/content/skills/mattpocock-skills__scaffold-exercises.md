@@ -4,7 +4,7 @@ description_en: "Create exercise directory structures with sections, problems, s
 description_tr: "Bölümler, problemler, çözümler ve açıklamalardan oluşan egzersiz dizin yapılarını oluşturun ve linting kontrolünden geçirin. Kullanıcı egzersiz scaffold'lamak, egzersiz şablonları oluşturmak veya yeni bir kurs bölümü kurmak istediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 132588
+stars: 134333
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/misc/scaffold-exercises/SKILL.md"
 path: "skills/misc/scaffold-exercises/SKILL.md"
 is_collection: false
@@ -15,55 +15,55 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Egzersiz İskeleleri
-
+  
   `pnpm ai-hero-cli internal lint` testini geçen egzersiz dizin yapıları oluşturun, ardından `git commit` ile kaydedin.
-
+  
   ## Dizin adlandırması
-
+  
   - **Bölümler**: `exercises/` içinde `XX-section-name/` (örn. `01-retrieval-skill-building`)
   - **Egzersizler**: bir bölüm içinde `XX.YY-exercise-name/` (örn. `01.03-retrieval-with-bm25`)
   - Bölüm numarası = `XX`, egzersiz numarası = `XX.YY`
   - Adlar dash-case formatında (küçük harf, tirenler)
-
+  
   ## Egzersiz varyantları
-
+  
   Her egzersizin en az bir tane bu alt klasörden olması gerekir:
-
+  
   - `problem/` - TODO'lar içeren öğrenci çalışma alanı
   - `solution/` - referans uygulama
   - `explainer/` - kavramsal materyal, TODO yok
-
+  
   İskele oluştururken, plan aksi belirtmedikçe varsayılan olarak `explainer/` kullanın.
-
+  
   ## Gerekli dosyalar
-
+  
   Her alt klasör (`problem/`, `solution/`, `explainer/`) bir `readme.md` gerektirir:
-
+  
   - **Boş olmamalıdır** (gerçek içerik olmalı, tek bir başlık satırı da yeterli)
   - Kırık bağlantı yoktur
-
+  
   İskele oluştururken, başlık ve açıklama içeren minimal bir readme oluşturun:
-
+  
   ```md
   # Exercise Title
-
+  
   Description here
   ```
-
+  
   Alt klasör kod içeriyorsa, `main.ts` de gereklidir (>1 satır). Ama iskeleler için sadece readme içeren egzersiz iyidir.
-
+  
   ## İş akışı
-
+  
   1. **Planı analiz edin** - bölüm adlarını, egzersiz adlarını ve varyant türlerini çıkartın
   2. **Dizinleri oluşturun** - her yol için `mkdir -p`
   3. **İskele readme'leri oluşturun** - her varyant klasörüne başlık içeren bir `readme.md`
   4. **Lint çalıştırın** - `pnpm ai-hero-cli internal lint` ile doğrulayın
   5. **Hataları düzeltin** - lint geçene kadar tekrarlayın
-
+  
   ## Lint kuralları özeti
-
+  
   Linter (`pnpm ai-hero-cli internal lint`) şunları kontrol eder:
-
+  
   - Her egzersizin alt klasörleri var (`problem/`, `solution/`, `explainer/`)
   - `problem/`, `explainer/` veya `explainer.1/` içinden en az biri var
   - `readme.md` var ve ana alt klasörde boş değil
@@ -72,42 +72,42 @@ body_tr: |-
   - Readme'lerde kırık bağlantı yok
   - Readme'lerde `pnpm run exercise` komutları yok
   - `main.ts` sadece readme-only değilse gerekli
-
+  
   ## Egzersizleri taşıma/yeniden adlandırma
-
+  
   Egzersizleri yeniden numaralandırırken veya taşırken:
-
+  
   1. Dizinleri yeniden adlandırmak için `git mv` kullanın (sadece `mv` değil) - git geçmişini korur
   2. Sırayı korumak için sayısal öneki güncelleyin
   3. Taşıdıktan sonra lint'i yeniden çalıştırın
-
+  
   Örnek:
-
+  
   ```bash
   git mv exercises/01-retrieval/01.03-embeddings exercises/01-retrieval/01.04-embeddings
   ```
-
+  
   ## Örnek: plandan iskele oluşturma
-
+  
   Şöyle bir plan verildiğinde:
-
+  
   ```
   Section 05: Memory Skill Building
   - 05.01 Introduction to Memory
   - 05.02 Short-term Memory (explainer + problem + solution)
   - 05.03 Long-term Memory
   ```
-
+  
   Oluşturun:
-
+  
   ```bash
   mkdir -p exercises/05-memory-skill-building/05.01-introduction-to-memory/explainer
   mkdir -p exercises/05-memory-skill-building/05.02-short-term-memory/{explainer,problem,solution}
   mkdir -p exercises/05-memory-skill-building/05.03-long-term-memory/explainer
   ```
-
+  
   Ardından readme iskelelerini oluşturun:
-
+  
   ```
   exercises/05-memory-skill-building/05.01-introduction-to-memory/explainer/readme.md -> "# Introduction to Memory"
   exercises/05-memory-skill-building/05.02-short-term-memory/explainer/readme.md -> "# Short-term Memory"

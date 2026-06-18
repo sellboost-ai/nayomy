@@ -4,7 +4,7 @@ description: "MCP server that connects to Microsoft Office and the whole Microso
 description_tr: "Microsoft Office ve Microsoft 365 ekosisteminin tamamına (Outlook, mail, dosyalar, Excel, takvim) Graph API üzerinden bağlanan MCP sunucusu."
 category: "Communication"
 repo: "Softeria/ms-365-mcp-server"
-stars: 785
+stars: 786
 url: "https://github.com/Softeria/ms-365-mcp-server"
 body_length: 33825
 license: "MIT"

@@ -4,7 +4,7 @@ description: "DICOM integration to query, read, and move medical images and repo
 description_tr: "DICOM entegrasyonu ile PACS ve diğer DICOM uyumlu sistemlerden tıbbi görüntüleri ve raporları sorgulamak, okumak ve taşımak."
 category: "Databases"
 repo: "ChristianHinge/dicom-mcp"
-stars: 96
+stars: 97
 url: "https://github.com/ChristianHinge/dicom-mcp"
 body_length: 6522
 license: "MIT"

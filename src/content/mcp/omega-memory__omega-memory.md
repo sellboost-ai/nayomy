@@ -4,7 +4,7 @@ description: "Persistent memory for AI coding agents with semantic search, auto-
 description_tr: "AI kodlama ajanları için semantik arama, otomatik yakalama, oturum arası öğrenme ve akıllı unutma özelliklerine sahip kalıcı bellek. LongMemEval'de #1 konumunda (%95,4)."
 category: "Knowledge & Memory"
 repo: "omega-memory/omega-memory"
-stars: 162
+stars: 163
 url: "https://github.com/omega-memory/omega-memory"
 body_length: 14125
 license: "Apache-2.0"

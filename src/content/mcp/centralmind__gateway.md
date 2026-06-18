@@ -4,7 +4,7 @@ description: "MCP and MCP SSE Server that automatically generate API based on da
 description_tr: "MCP ve MCP SSE Server, veritabanı şeması ve verilerine dayalı olarak otomatik olarak API oluşturur. PostgreSQL, Clickhouse, MySQL, Snowflake, BigQuery ve Supabase'i destekler."
 category: "Databases"
 repo: "centralmind/gateway"
-stars: 530
+stars: 529
 url: "https://github.com/centralmind/gateway"
 body_length: 12205
 license: "Apache-2.0"

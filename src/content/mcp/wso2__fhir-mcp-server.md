@@ -4,7 +4,7 @@ description: "Model Context Protocol server for Fast Healthcare Interoperability
 description_tr: "FHIR API'leri için Model Context Protocol sunucusu. FHIR sunucularıyla sorunsuz entegrasyon sağlayarak, AI asistanlarının SMART-on-FHIR kimlik doğrulaması desteğiyle klinik sağlık verilerini arama, alma, oluşturma, güncelleme ve analiz etmelerini sağlar."
 category: "Biology Medicine and Bioinformatics"
 repo: "wso2/fhir-mcp-server"
-stars: 123
+stars: 124
 url: "https://github.com/wso2/fhir-mcp-server"
 body_length: 20322
 license: "Apache-2.0"

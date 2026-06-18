@@ -4,7 +4,7 @@ description_en: "Automate Anthropic Admin tasks via Rube MCP (Composio). Always 
 description_tr: "Anthropic Admin görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları bulmak için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/anthropic-administrator-automation/SKILL.md"
 path: "composio-skills/anthropic-administrator-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "/cs:aeo — Answer Engine Optimization workflow. Audit content 
 description_tr: "/cs:aeo — Answer Engine Optimization workflow. İçeriği E-E-A-T ve LLM alıntılamalarını (ChatGPT, Perplexity, Claude, Gemini, Mistral) tetikleyen yapı sinyalleri için denetler. 3 modda (conservative/balanced/aggressive) optimize eder. Hangi LLM'lerin hangi sayfaları alıntıladığını yerel defter üzerinden takip eder. Endüstri-farkında eşikler (YMYL kalibrasyonu ile 8 endüstri). SEO'dan farklı — birini diğerinin pahasına optimize etmez."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cmd-cs-aeo/SKILL.md"
 path: ".gemini/skills/cmd-cs-aeo/SKILL.md"
 is_collection: false

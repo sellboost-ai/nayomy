@@ -4,7 +4,7 @@ description: "Integration with gmail and Google Calendar."
 description_tr: "Gmail ve Google Calendar ile entegrasyon."
 category: "Workplace & Productivity"
 repo: "MarkusPfundstein/mcp-gsuite"
-stars: 485
+stars: 486
 url: "https://github.com/MarkusPfundstein/mcp-gsuite"
 body_length: 7749
 license: "MIT"

@@ -4,7 +4,7 @@ description: "An Excel manipulation server providing workbook creation, data ope
 description_tr: "Excel dosyalarını oluşturma, veri işleme, biçimlendirme ve gelişmiş özellikler (grafikler, pivot tablolar, formüller) sunan bir sunucu."
 category: "Developer Tools"
 repo: "haris-musa/excel-mcp-server"
-stars: 3940
+stars: 3942
 url: "https://github.com/haris-musa/excel-mcp-server"
 body_length: 4195
 license: "MIT"

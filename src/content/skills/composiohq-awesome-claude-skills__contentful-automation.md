@@ -4,7 +4,7 @@ description_en: "Automate headless CMS operations in Contentful -- list spaces, 
 description_tr: "Composio Contentful entegrasyonu ile headless CMS işlemlerinizi otomatikleştirin -- spaces listeleme, space metadata alma ve space konfigürasyonlarını güncelleme özellikleri sunuyoruz."
 category: "Meta"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/contentful-automation/SKILL.md"
 path: "composio-skills/contentful-automation/SKILL.md"
 is_collection: false

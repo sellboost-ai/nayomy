@@ -2,24 +2,13 @@
 name: "cursorrules-cursor-ai-wordpress-draft-macos-prompt"
 clean_name: "Cursorrules Cursor AI Wordpress Draft Macos Prompt"
 description: "Cursor rules for WordPress development on macOS."
-description_tr: "WordPress geliştirme için macOS'ta kullanılacak Cursor kuralları."
 category: "AI/ML"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt.mdc"
 body_length: 688
 file_extension: ".mdc"
-body_tr: |-
-  Bu proje PressThat olarak adlandırılmıştır.
-
-  PressThat, WordPress web sitenize bağlanan ve taslak yazıları görüntülemenizi sağlayan bir sistem tepsisi uygulamasıdır.
-
-  Uygulamayı ilk yükledikten sonra, web sitenizin ayrıntılarıyla yapılandırmanız gerekir. Bu, kullanıcının WordPress web sitesi URL'sini, kullanıcı adını ve oluşturulan bir Application Password'ü sağlamasını gerektirir.
-
-  Kullanıcılar, WordPress kontrol panelinde "Users -> Profile" sayfasının alt kısmında Application Password oluşturabilirler. Bu şifre benzersizdir ve istediğiniz zaman kolayca iptal edilebilir.
-
-  Yeni kullanıcı deneyimi (NUX) için hızlı bir akış:
 ---
 
 This project is called PressThat.

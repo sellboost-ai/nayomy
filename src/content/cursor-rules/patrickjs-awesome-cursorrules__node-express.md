@@ -2,96 +2,13 @@
 name: "node-express"
 clean_name: "Node.js Express"
 description: "Node.js and Express.js best practices for backend development"
-description_tr: "Node.js ve Express.js ile backend geliştirme için en iyi uygulamalar"
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/node-express.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/node-express.mdc"
 body_length: 2172
 file_extension: ".mdc"
-body_tr: |-
-  # Node.js ve Express.js En İyi Uygulamalar
-
-  ## Proje Yapısı
-  - Uygun dizin yapısı kullanın
-  - Uygun modül organizasyonunu uygulayın
-  - Uygun middleware organizasyonunu kullanın
-  - Rotaları domain'e göre organize edin
-  - Uygun hata yönetimini uygulayın
-  - Uygun konfigürasyon yönetimini kullanın
-
-  ## Express Kurulumu
-  - Uygun middleware kurulumunu kullanın
-  - Uygun routing'i uygulayın
-  - Uygun hata yönetimini kullanın
-  - Uygun güvenlik middleware'ini yapılandırın
-  - Uygun validasyonu uygulayın
-  - Uygun statik dosya sunumunu kullanın
-
-  ## API Tasarımı
-  - Uygun REST prensiplerini kullanın
-  - Uygun versiyonlamayı uygulayın
-  - Uygun istek validasyonunu kullanın
-  - Hataları uygun şekilde yönetin
-  - Uygun response formatlarını uygulayın
-  - API'leri uygun şekilde dokümante edin
-
-  ## Veritabanı Entegrasyonu
-  - Uygun ORM/ODM kullanın
-  - Uygun migrasyonları uygulayın
-  - Uygun bağlantı havuzlamasını kullanın
-  - Uygun işlemleri uygulayın
-  - Uygun sorgu optimizasyonunu kullanın
-  - Veritabanı hatalarını uygun şekilde yönetin
-
-  ## Kimlik Doğrulama
-  - Uygun JWT yönetimini uygulayın
-  - Uygun password hash'lemesini kullanın
-  - Uygun oturum yönetimini uygulayın
-  - Uygun OAuth entegrasyonunu kullanın
-  - Uygun rol tabanlı erişim kontrolünü uygulayın
-  - Kimlik doğrulama hatalarını uygun şekilde yönetin
-
-  ## Güvenlik
-  - Uygun CORS kurulumunu kullanın
-  - Uygun rate limiting'i uygulayın
-  - Uygun güvenlik başlıklarını kullanın
-  - Uygun giriş validasyonunu uygulayın
-  - Uygun şifrelemeyi kullanın
-  - Güvenlik açıklarını uygun şekilde yönetin
-
-  ## Performans
-  - Uygun cache'lemeyi kullanın
-  - Uygun asenkron işlemleri uygulayın
-  - Uygun bağlantı havuzlamasını kullanın
-  - Uygun logging'i uygulayın
-  - Uygun monitoring'i kullanın
-  - Yüksek trafiği uygun şekilde yönetin
-
-  ## Test Etme
-  - Uygun unit testler yazın
-  - Uygun integration testleri uygulayın
-  - Uygun test runner'ları kullanın
-  - Uygun mock'lamayı uygulayın
-  - Hata senaryolarını test edin
-  - Uygun test coverage'ı kullanın
-
-  ## Deployment
-  - Uygun Docker kurulumunu kullanın
-  - Uygun CI/CD'yi uygulayın
-  - Uygun ortam değişkenlerini kullanın
-  - Uygun logging'i yapılandırın
-  - Uygun monitoring'i uygulayın
-  - Deployment hatalarını uygun şekilde yönetin
-
-  ## En İyi Uygulamalar
-  - Node.js en iyi uygulamalarını takip edin
-  - Uygun async/await kullanın
-  - Uygun hata yönetimini uygulayın
-  - Uygun logging kullanın
-  - Process sinyallerini uygun şekilde yönetin
-  - Kodu uygun şekilde dokümante edin
 ---
 
 # Node.js and Express.js Best Practices

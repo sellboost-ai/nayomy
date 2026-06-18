@@ -4,7 +4,7 @@ description_en: "Generate professional, jurisdiction-aware business documents: f
 description_tr: "Profesyonel, yasal çerçeveye uygun işletme belgeleri oluşturun: freelance kontratları, proje teklifleri, SOW'lar, NDA'lar ve MSA'lar. Yapılandırılmış Markdown çıktısı ve docx dönüştürme talimatları sunulur. ABD (Delaware), AB (GDPR), İngiltere ve DACH (Alman hukuku) yetki alanlarını kapsar. Hukuki danışmanlık yerini tutmaz — güçlü başlangıç noktaları olarak kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/contract-and-proposal-writer/SKILL.md"
 path: ".gemini/skills/contract-and-proposal-writer/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Aryn tasks via Rube MCP (Composio). Always search tool
 description_tr: "Aryn görevlerini Rube MCP (Composio) üzerinden otomatize edin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/aryn-automation/SKILL.md"
 path: "composio-skills/aryn-automation/SKILL.md"
 is_collection: false

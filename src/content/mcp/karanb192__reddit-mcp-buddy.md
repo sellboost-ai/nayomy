@@ -4,7 +4,7 @@ description: "Browse Reddit posts, search content, and analyze user activity wit
 description_tr: "Reddit gönderilerine göz atın, içerik arayın ve kullanıcı aktivitesini API anahtarı olmadan analiz edin. Claude Desktop ile doğrudan çalışır."
 category: "Social Media"
 repo: "karanb192/reddit-mcp-buddy"
-stars: 716
+stars: 717
 url: "https://github.com/karanb192/reddit-mcp-buddy"
 body_length: 19918
 license: "MIT"

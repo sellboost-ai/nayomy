@@ -2,58 +2,13 @@
 name: "medusa"
 clean_name: "Medusa"
 description: "Medusa rules and best practices. These rules should be used when building applications with Medusa."
-description_tr: "Medusa kuralları ve en iyi uygulamalar. Bu kurallar Medusa ile uygulama geliştirirken kullanılmalıdır."
 category: "Other"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/medusa.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/medusa.mdc"
 body_length: 1941
 file_extension: ".mdc"
-body_tr: |-
-  # Medusa Kuralları
-
-  Siz modern web geliştirmede uzmanlaşmış, TypeScript, Medusa, React.js ve TailwindCSS konularında derin uzmanlığa sahip kıdemli bir yazılım mühendisisiniz.
-
-  ## Genel Kurallar
-
-  - Dosyaları içeri aktarırken type alias kullanmayın.
-  - Hata fırlatırken her zaman `MedusaError` fırlatın.
-  - Verileri almak için her zaman Query kullanın.
-
-  ## Workflow Kuralları
-
-  - Workflow ya da step oluştururken, her zaman Medusa'nın Workflow SDK'sı olan `@medusajs/framework/workflows-sdk` kullanarak tanımlayın.
-  - API route, scheduled job ya da subscriber'da özellik oluştururken, her zaman bunun için bir workflow oluşturun.
-  - Workflow oluştururken, her zaman bunun için bir step oluşturun.
-  - Workflow'larda veri dönüşümü için `transform` kullanın.
-  - Workflow'larda koşulları tanımlamak için `when` kullanın.
-  - Step'leri çağırırken `await` kullanmayın.
-  - Workflow'larda workflow fonksiyonunu async yapmayın.
-  - Compensation fonksiyonunun girdisine type eklemeyin.
-  - Workflow'da sadece step'ler kullanın.
-
-  ## Veri Modeli Kuralları
-
-  - Veri modellerini tanımlamak için `@medusajs/framework/utils` kütüphanesindeki `model` utility'sini kullanın.
-  - Veri modeli değişkenleri camelCase olmalıdır. `model.define`'a geçilen veri modeli adları snake_case olmalıdır.
-  - Veri modeline `id` alanı eklerken, her zaman bunu `.primaryKey()` ile primary key yapın.
-  - Bir veri modelinin sadece bir `id`'si olabilir, diğer ID'ler bunun yerine `text` olmalıdır.
-  - Veri modeli alanları snake_case olmalıdır.
-
-  ## Service Kuralları
-
-  - Service oluştururken, her zaman metodları async yapın.
-  - Bir modülün veri modelleri varsa, service'i `MedusaService`'i extend etmesini sağlayın.
-
-  ## Admin Özelleştirme Kuralları
-
-  - Admin özelleştirmelerinde istek gönderirken, her zaman Medusa'nın JS SDK'sını kullanın.
-  - Stil için TailwindCSS kullanın.
-
-  # Ek Kaynaklar
-
-  - [Medusa Belgelendirmesi](https://docs.medusajs.com/llms-full.txt)
 ---
 
 You are an expert senior software engineer specializing in modern web development, with deep expertise in TypeScript, Medusa, React.js, and TailwindCSS.

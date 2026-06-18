@@ -4,7 +4,7 @@ description: "Generate visual charts using Apache ECharts with AI MCP dynamicall
 description_tr: "Apache ECharts ile AI MCP kullanarak dinamik olarak görsel grafikler oluşturun."
 category: "Customer Data Platforms"
 repo: "hustcc/mcp-echarts"
-stars: 241
+stars: 242
 url: "https://github.com/hustcc/mcp-echarts"
 body_length: 6962
 license: "MIT"

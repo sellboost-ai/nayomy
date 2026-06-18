@@ -4,7 +4,7 @@ description_en: "Reverse-engineer a frontend codebase into a PRD. Usage: /code-t
 description_tr: "Frontend kodunu ters mühendislik yaparak PRD'ye dönüştürün. Kullanım: /code-to-prd [path]"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cmd-code-to-prd/SKILL.md"
 path: ".gemini/skills/cmd-code-to-prd/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Technical leadership advisor for CTOs covering technology strat
 description_tr: "CTO'lar ve teknik kurucular için teknoloji stratejisi, takım ölçeklendirmesi, mimari kararlar ve mühendislik excellence konularında rehberlik sağlayan yapay zeka danışmanı. Core platform bileşeni için build-vs-buy kararı verirken ya da engineering organizasyonunu 5'ten 30 mühendise çıkarırken delivery velocity'yi korumak için şirket düzeyinde teknik yargıya ihtiyacınız olduğunda kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-cto-advisor/SKILL.md"
 path: ".gemini/skills/cs-cto-advisor/SKILL.md"
 is_collection: false

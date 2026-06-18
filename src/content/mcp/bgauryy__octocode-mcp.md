@@ -4,7 +4,7 @@ description: "AI-powered developer assistant that enables advanced research, ana
 description_tr: "GitHub ve NPM üzerinde gerçek zamanlı olarak ileri araştırma, analiz ve keşif yapmanızı sağlayan yapay zeka destekli geliştirici asistanı."
 category: "Developer Tools"
 repo: "bgauryy/octocode-mcp"
-stars: 863
+stars: 864
 url: "https://github.com/bgauryy/octocode-mcp"
 body_length: 14630
 license: "MIT"

@@ -4,7 +4,7 @@ description: "Unreal Engine 5.7 editor plugin that gives AI assistants full read
 description_tr: "Unreal Engine 5.7 editor plugin'i olup AI asistanlarına Blueprint, Material, Animation, Niagara, Config, Editor, Project Index ve Engine Source'a MCP üzerinden tam okuma/yazma erişimi sağlar. 9 alanda 119 action, saf C++ ve gömülü Streamable HTTP server ile Python köprüsü yoktur."
 category: "Gaming"
 repo: "tumourlove/monolith"
-stars: 169
+stars: 171
 url: "https://github.com/tumourlove/monolith"
 body_length: 11467
 license: "MIT"

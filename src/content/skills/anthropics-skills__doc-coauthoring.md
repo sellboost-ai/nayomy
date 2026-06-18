@@ -4,7 +4,7 @@ description_en: "Guide users through a structured workflow for co-authoring docu
 description_tr: "Kullanıcıları belgelendirme konusunda işbirlikçi yazım için yapılandırılmış bir workflow içinde rehber etmek için kullanılır. Kullanıcı belgelendirme, teknik özellikler, karar dokümanları veya benzer yapılandırılmış içerik yazma istediğinde harekete geçer. Bu workflow, bağlamı verimli bir şekilde aktarmaya, içeriği yinelemelerle geliştirmeye ve dokümanın okuyucular için işe yaradığını doğrulamaya yardımcı olur."
 category: "Document"
 repo: "anthropics/skills"
-stars: 151903
+stars: 152323
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/doc-coauthoring/SKILL.md"
 path: "skills/doc-coauthoring/SKILL.md"
 is_collection: false

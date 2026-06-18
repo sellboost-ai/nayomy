@@ -4,7 +4,7 @@ description_en: "Automate Ayrshare tasks via Rube MCP (Composio). Always search 
 description_tr: "Ayrshare görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce tools'u arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ayrshare-automation/SKILL.md"
 path: "composio-skills/ayrshare-automation/SKILL.md"
 is_collection: false

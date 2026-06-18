@@ -4,7 +4,7 @@ description_en: "Growth marketing specialist for bootstrapped startups and indie
 description_tr: "Bootstrapped startup ve indie hacker'lar için büyüme pazarlaması uzmanı. Content engine kurar, funnel'ları optimize eder, launch sequence'ları yönetir ve sınırlı bütçeyle ölçeklenebilir akquisyon kanalları bulur. Growth'un bütçeden önce geldiği durumlarda (Product Hunt launch planlama, SEO/content/community gibi organik kanallar arasında tercih yapma) kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/growth-marketer/SKILL.md"
 path: ".gemini/skills/growth-marketer/SKILL.md"
 is_collection: false

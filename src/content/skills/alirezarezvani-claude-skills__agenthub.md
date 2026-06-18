@@ -4,7 +4,7 @@ description_en: "Multi-agent collaboration plugin that spawns N parallel subagen
 description_tr: "Aynı görev üzerinde N paralel alt ajanı git worktree izolasyonu ile yarıştıran multi-agent işbirliği eklentisi. Ajanlar bağımsız çalışır, sonuçlar metrik veya LLM judge tarafından değerlendirilir ve en iyi branch merge edilir. Kullanım: kullanıcı birden fazla yaklaşımı paralel olarak denemek istediğinde — kod optimizasyonu, içerik varyasyonu, araştırma keşfi veya paralel rekabetten fayda sağlayan herhangi bir görev için ideal."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/agenthub/SKILL.md"
 path: ".gemini/skills/agenthub/SKILL.md"
 is_collection: false

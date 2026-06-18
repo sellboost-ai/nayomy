@@ -4,7 +4,7 @@ description_en: "Deep-dive feature repair — systematically fix an entire featu
 description_tr: "Derin özellik onarımı — bir özelliği veya modülü tüm dosyaları ve dependency'leriyle birlikte sistematik olarak düzeltin. Kullanım: /focused-fix <feature-path>"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cmd-focused-fix/SKILL.md"
 path: ".gemini/skills/cmd-focused-fix/SKILL.md"
 is_collection: false

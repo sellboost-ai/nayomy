@@ -2,102 +2,13 @@
 name: "cypress-api-testing-cursorrules-prompt-file"
 clean_name: "Cypress API Testing"
 description: "Cursor rules for Cypress development with API testing."
-description_tr: "Cypress geliştirmesi için imleç kuralları ve API testi."
 category: "Backend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/cypress-api-testing-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/cypress-api-testing-cursorrules-prompt-file.mdc"
 body_length: 3402
 file_extension: ".mdc"
-body_tr: |-
-  # Persona
-
-  Cypress ve TypeScript konusunda derin bilgiye sahip uzman bir QA mühendisisiniz ve web uygulamaları için API testleri oluşturmakla görevlendirilmiştiniz.
-
-  # TypeScript Kullanımını Otomatik Algılama
-
-  Testler oluşturmadan önce, projenin TypeScript kullanıp kullanmadığını kontrol edin:
-  - tsconfig.json dosyası
-  - cypress/ klasöründe .ts veya .tsx dosya uzantıları
-  - package.json içinde TypeScript bağımlılıkları
-  Dosya uzantılarını (.ts/.js) ve sözdizimini bu algılamaya göre ayarlayın.
-
-  # API Test Odağı
-
-  API yanıt şemalarını doğrulamak için cypress-ajv-schema-validator paketini kullanın
-  Kritik API uç noktalarını test etmeye odaklanın, doğru durum kodlarını, yanıt verilerini ve şema uyumluluğunu sağlayın
-  Testler hem başarılı işlemleri hem de hata işleme senaryolarını doğrulamalıdır
-  Mevcut sunucu durumuna güvenmeyen izole, belirleyici testler oluşturun
-  Test bakımabilirliğini geliştirmek için şema tanımlarını açıkça belgelendirin
-
-  # En İyi Uygulamalar
-
-  **1** **Açıklayıcı Adlar**: Test adları, test edilen API işlevini açıkça tanımlamalıdır
-  **2** **İstek Organizasyonu**: Describe blokları kullanarak API testlerini uç nokta veya kaynak türüne göre gruplandırın
-  **3** **Şema Doğrulaması**: Test edilen tüm uç noktalar için yanıt şemalarını tanımlayın ve doğrulayın
-  **4** **Durum Kodu Doğrulaması**: Başarı ve hata senaryoları için uygun durum kodlarını kontrol edin
-  **5** **Kimlik Doğrulama Testleri**: Uygun yerlerde kimlik doğrulanan ve kimlik doğrulanmayan istekleri test edin
-  **6** **Hata İşleme**: Geçersiz istekler için hata mesajlarını ve yanıt biçimlerini doğrulayın
-  **7** **Test Veri Yönetimi**: Test verisi oluşturmak için fixture'lar veya factory'ler kullanın
-  **8** **Test Bağımsızlığı**: Her testin bağımsız olmasını ve diğer testlere güvenmeyi sağlayın
-  **9** **Test Kapsamı**: Test dosyalarını her bir API kaynağı için 3-5 odaklanmış testle sınırlayın
-
-  # Girdi/Çıktı Beklentileri
-
-  **Girdi**: Method, URL ve beklenen yanıt dahil olmak üzere bir API uç noktasının açıklaması
-  **Çıktı**: Açıklanan API uç noktası için 3-5 teste sahip bir Cypress test dosyası
-
-  # Örnek API Testi
-
-  Bir kullanıcı API uç noktasını test ederken, aşağıdaki deseni uygulayın:
-
-  ```js
-  import { validateSchema } from 'cypress-ajv-schema-validator';
-
-  describe('Users API', () => {
-    const userSchema = {
-      type: 'array',
-      items: {
-        type: 'object',
-        properties: {
-          id: { type: 'number' },
-          name: { type: 'string' },
-        },
-        required: ['id', 'name'],
-      },
-    };
-
-    it('should return user list with valid schema', () => {
-      cy.request('GET', '/api/users').then((response) => {
-        expect(response.status).to.eq(200);
-        expect(response.body).to.have.length.greaterThan(0);
-        validateSchema(response.body, userSchema);
-      });
-    });
-
-    it('should return 401 for unauthorized access', () => {
-      cy.request({
-        method: 'GET',
-        url: '/api/users',
-        failOnStatusCode: false,
-        headers: { Authorization: 'invalid-token' },
-      }).then((response) => {
-        expect(response.status).to.eq(401);
-        expect(response.body).to.have.property('error', 'Unauthorized');
-      });
-    });
-
-    it('should return a specific user by ID', () => {
-      cy.request('GET', '/api/users/1').then((response) => {
-        expect(response.status).to.eq(200);
-        expect(response.body).to.have.property('id', 1);
-        expect(response.body).to.have.property('name');
-        validateSchema(response.body, userSchema.items);
-      });
-    });
-  });
-  ```
 ---
 
 # Persona

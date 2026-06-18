@@ -4,7 +4,7 @@ description_en: "Use when the user asks to create a CodeTour .tour file — pers
 description_tr: "CodeTour .tour dosyası oluşturma isteklerinde kullanılır — persona odaklı, gerçek dosyalar ve satır numaralarına bağlanan adım adım kılavuzlar için. Tetikleyiciler: tour oluştur, onboarding tour, architecture tour, PR review tour, \"X nasıl çalışır\" açıklamaları, vibe check, RCA tour, contributor guide veya yapılandırılmış kod walkthrough talepleri."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/code-tour/SKILL.md"
 path: ".gemini/skills/code-tour/SKILL.md"
 is_collection: false

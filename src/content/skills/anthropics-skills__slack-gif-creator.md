@@ -4,7 +4,7 @@ description_en: "Knowledge and utilities for creating animated GIFs optimized fo
 description_tr: "Slack için optimize edilmiş animasyonlu GIF oluşturmak için bilgi ve araçlar sağlar. Kısıtlamalar, doğrulama araçları ve animasyon kavramlarını içerir. Kullanıcılar \"Slack için X'in Y yapmasının bir GIF'ini yap\" gibi istekler sunduğunda kullanılır."
 category: "Design"
 repo: "anthropics/skills"
-stars: 151903
+stars: 152323
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/slack-gif-creator/SKILL.md"
 path: "skills/slack-gif-creator/SKILL.md"
 is_collection: false

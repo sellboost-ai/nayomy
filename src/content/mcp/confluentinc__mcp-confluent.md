@@ -6,7 +6,7 @@ category: "Databases"
 repo: "confluentinc/mcp-confluent"
 stars: 160
 url: "https://github.com/confluentinc/mcp-confluent"
-body_length: 35272
+body_length: 35898
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
@@ -433,10 +433,10 @@ npx -y @confluentinc/mcp-confluent --list-tools
 
 These tools need no service blocks or authentication — they're enabled even on a bare config, regardless of which deployment the rest of your config targets.
 
-| Category          | Tools                                                   | Description                                                                                 |
-| ----------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **Documentation** | `search-product-docs`, `get-product-doc-page`           | Search Confluent product docs and fetch full page content                                   |
-| **Diagnostics**   | `explain-disabled-tools`, `list-configured-connections` | Explain why tools are absent, and list configured connections and the tools enabled on each |
+| Category          | Tools                                                                                     | Description                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Documentation** | `search-product-docs`, `get-product-doc-page`                                             | Search Confluent product docs and fetch full page content                                                                                           |
+| **Diagnostics**   | `explain-disabled-tools`, `list-configured-connections`, `describe-configured-connection` | Explain why tools are absent, list configured connections and the tools enabled on each, and describe one connection's config and tool availability |
 
 ### Available Tools for Confluent Cloud
 
@@ -451,7 +451,7 @@ Categories marked with ¹ also work with [OAuth authentication](#oauth-authentic
 | **Flink Catalog**                            | `list-flink-catalogs`, `list-flink-databases`, `list-flink-tables`, `describe-flink-table`, `get-flink-table-info`                                                                                                                                                                                                                           | Explore Flink catalogs, databases, and table schemas                                       |
 | **Flink Diagnostics**                        | `check-flink-statement-health`, `detect-flink-statement-issues`, `get-flink-statement-profile`                                                                                                                                                                                                                                               | Health checks, issue detection, and query profiling                                        |
 | **Connectors**                               | `list-connectors`, `get-connector-config`, `get-connector-offsets`, `get-connector-status`, `get-connector-tasks`, `get-connector-error-summary`, `get-connector-error-recommendations`, `get-connector-logs`, `create-connector`, `delete-connector`, `pause-connector`, `resume-connector`, `restart-connector`, `update-connector-config` | Inspect and manage Kafka Connect connectors                                                |
-| **Schema Registry** ¹                        | `list-schemas`, `delete-schema`                                                                                                                                                                                                                                                                                                              | List, inspect, and delete data schemas                                                     |
+| **Schema Registry** ¹                        | `list-schemas`, `create-schema`, `delete-schema`                                                                                                                                                                                                                                                                                             | List, inspect, create, and delete data schemas                                             |
 | **Catalog & Tags**                           | `search-topics-by-tag`, `search-topics-by-name`, `create-topic-tags`, `delete-tag`, `remove-tag-from-entity`, `add-tags-to-topic`, `list-tags`                                                                                                                                                                                               | Organize and search topics using tags                                                      |
 | **Organizations, Environments & Clusters** ¹ | `list-organizations`, `list-environments`, `read-environment`, `list-clusters`                                                                                                                                                                                                                                                               | Discover Confluent Cloud resources                                                         |
 | **Tableflow**                                | `create-tableflow-topic`, `list-tableflow-topics`, `read-tableflow-topic`, `update-tableflow-topic`, `delete-tableflow-topic`, `list-tableflow-regions`                                                                                                                                                                                      | Manage Tableflow-enabled topics                                                            |
@@ -483,7 +483,7 @@ Ready-to-use variants live in [`sample_configs/`](sample_configs/).
 | Category            | Tools                                                                                                                                                               | Description                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | **Kafka**           | `list-topics`, `create-topics`, `delete-topics`, `produce-message`, `consume-messages`, `list-consumer-groups`, `describe-consumer-group`, `get-consumer-group-lag` | Manage topics, produce/consume messages, inspect consumer groups |
-| **Schema Registry** | `list-schemas`, `delete-schema`                                                                                                                                     | List, inspect, and delete data schemas                           |
+| **Schema Registry** | `list-schemas`, `create-schema`, `delete-schema`                                                                                                                    | List, inspect, create, and delete data schemas                   |
 
 ## Using with Confluent Platform
 
@@ -790,6 +790,7 @@ kafka:
   produce-message: Produce records to a Kafka topic. Supports Confluent Schema Registry serialization (AVRO, JSON, PROTOBUF) for both ke...
 
 mcp-server-diagnostics:
+  describe-configured-connection: Describe one configured connection by id: its non-secret config (type, endpoints, resource ids — never crede...
   explain-disabled-tools: Call when the user asks why a tool is missing or unavailable (e.g., "why can't I list Kafka topics?", "where are the ...
   list-configured-connections: List every configured connection and the connection-routable tools you can invoke against each. The connection id (th...
 
@@ -798,6 +799,7 @@ metrics:
   query-metrics: Query Confluent Cloud metrics from the Telemetry API. IMPORTANT: Use the list-available-metrics tool first to discove...
 
 schema-registry:
+  create-schema: Register a new schema (or a new version of an existing schema) under a subject in the Schema Registry.
   delete-schema: Delete a schema subject or a specific version from the Schema Registry. If version is omitted, all versions of the su...
   list-schemas: List all schemas in the Schema Registry.
 

@@ -4,7 +4,7 @@ description_en: "Automate Algolia tasks via Rube MCP (Composio). Always search t
 description_tr: "Rube MCP (Composio) üzerinden Algolia görevlerini otomatikleştirin. Her zaman güncel şemaları için ilk olarak search tools'ı kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/algolia-automation/SKILL.md"
 path: "composio-skills/algolia-automation/SKILL.md"
 is_collection: false

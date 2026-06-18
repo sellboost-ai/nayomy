@@ -4,7 +4,7 @@ description_en: "Two-layer memory architecture for board meeting decisions. Mana
 description_tr: "Board toplantı kararlarını yönetmek için iki katmanlı bellek mimarisi. Ham transkriptleri (Katman 1) ve onaylı kararları (Katman 2) saklar. Board toplantısından sonra kararları kaydetmek, /cs:decisions ile geçmiş kararları incelemek veya /cs:review ile gecikmiş action itemleri kontrol etmek için kullanılır. Board-meeting skill tarafından Phase 5 founder onayından sonra otomatik olarak çalışır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/decision-logger/SKILL.md"
 path: ".gemini/skills/decision-logger/SKILL.md"
 is_collection: false

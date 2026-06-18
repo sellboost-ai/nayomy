@@ -4,7 +4,7 @@ description_en: "Automate Contentful Graphql tasks via Rube MCP (Composio). Alwa
 description_tr: "Contentful GraphQL görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/contentful-graphql-automation/SKILL.md"
 path: "composio-skills/contentful-graphql-automation/SKILL.md"
 is_collection: false

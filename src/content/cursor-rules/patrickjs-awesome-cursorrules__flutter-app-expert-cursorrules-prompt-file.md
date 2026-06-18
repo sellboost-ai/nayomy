@@ -2,122 +2,13 @@
 name: "flutter-app-expert-cursorrules-prompt-file"
 clean_name: "Flutter App Expert"
 description: "Cursor rules for Flutter development with expert integration."
-description_tr: "Flutter geliştirme için Cursor kuralları ve uzman entegrasyonu."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/flutter-app-expert-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-app-expert-cursorrules-prompt-file.mdc"
 body_length: 2965
 file_extension: ".mdc"
-body_tr: |-
-  ```markdown
-  // Flutter App Expert .cursorrules
-
-  // Esneklik Notu
-
-  // Not: Bu önerilen bir proje yapısıdır, ancak esnek olun ve mevcut proje yapılarına uyum sağlayın.
-  // Proje farklı bir organizasyonu takip ediyorsa bu yapısal desenleri zorunlu kılmayın.
-  // Flutter en iyi uygulamalarını uygularken mevcut proje mimarisi ile tutarlılığı korumaya odaklanın.
-
-  // Flutter En İyi Uygulamaları
-
-  const flutterBestPractices = [
-      "Mevcut proje mimarisine uyum sağlarken temiz kod ilkelerini koruyun",
-      "Flutter 3.x özelliklerini ve Material 3 tasarımını kullanın",
-      "BLoC deseni ile temiz mimari uygulayın",
-      "Uygun durum yönetimi ilkelerini izleyin",
-      "Uygun bağımlılık enjeksiyonu kullanın",
-      "Uygun hata işleme uygulayın",
-      "Platform spesifik tasarım yönergelerini izleyin",
-      "Uygun yerelleştirme tekniklerini kullanın",
-  ];
-
-  // Proje Yapısı
-
-  // Not: Bu bir referans yapısıdır. Projenin mevcut organizasyonuna uyum sağlayın
-
-  const projectStructure = `
-  lib/
-    core/
-      constants/
-      theme/
-      utils/
-      widgets/
-    features/
-      feature_name/
-        data/
-          datasources/
-          models/
-          repositories/
-        domain/
-          entities/
-          repositories/
-          usecases/
-        presentation/
-          bloc/
-          pages/
-          widgets/
-    l10n/
-    main.dart
-  test/
-    unit/
-    widget/
-    integration/
-  `;
-
-  // Kodlama Yönergeleri
-
-  const codingGuidelines = `
-  1. Uygun null safety uygulamalarını kullanın
-  2. Either tipi ile uygun hata işleme uygulayın
-  3. Uygun adlandırma kurallarını izleyin
-  4. Uygun widget bileşimi kullanın
-  5. GoRouter kullanarak uygun yönlendirme uygulayın
-  6. Uygun form doğrulaması kullanın
-  7. BLoC ile uygun durum yönetimini izleyin
-  8. GetIt kullanarak uygun bağımlılık enjeksiyonu uygulayın
-  9. Uygun asset yönetimi kullanın
-  10. Uygun test uygulamalarını izleyin
-  `;
-
-  // Widget Yönergeleri
-
-  const widgetGuidelines = `
-  1. Widget'ları küçük ve odaklanmış tutun
-  2. Mümkün olduğunda const kuruculuları kullanın
-  3. Uygun widget anahtarlarını uygulayın
-  4. Uygun düzen ilkelerini izleyin
-  5. Uygun widget yaşam döngüsü yöntemlerini kullanın
-  6. Uygun hata sınırlarını uygulayın
-  7. Uygun performans optimizasyonu tekniklerini kullanın
-  8. Uygun erişilebilirlik yönergelerini izleyin
-  `;
-
-  // Performans Yönergeleri
-
-  const performanceGuidelines = `
-  1. Uygun resim önbelleğe almayı kullanın
-  2. Uygun liste görünümü optimizasyonunu uygulayın
-  3. Uygun build metotları optimizasyonunu kullanın
-  4. Uygun durum yönetimi desenleri izleyin
-  5. Uygun bellek yönetimi uygulayın
-  6. Gerektiğinde uygun platform kanallarını kullanın
-  7. Uygun derleme optimizasyonu tekniklerini izleyin
-  `;
-
-  // Test Yönergeleri
-
-  const testingTestingGuidelines = `
-  1. İş mantığı için birim testleri yazın
-  2. UI bileşenleri için widget testleri uygulayın
-  3. Özellik testi için entegrasyon testleri kullanın
-  4. Uygun mock stratejilerini uygulayın
-  5. Uygun test kapsama araçlarını kullanın
-  6. Uygun test adlandırma kurallarını izleyin
-  7. Uygun CI/CD testini uygulayın
-  `;
-  ```
 ---
 
 // Flutter App Expert .cursorrules

@@ -2,44 +2,13 @@
 name: "dragonruby-best-practices-cursorrules-prompt-file"
 clean_name: "Dragonruby Best Practices"
 description: "Cursor rules for DragonRuby development with best practices integration."
-description_tr: "DragonRuby geliştirmesi için cursor kuralları ve en iyi uygulamaların entegrasyonu."
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/dragonruby-best-practices-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/dragonruby-best-practices-cursorrules-prompt-file.mdc"
 body_length: 1292
 file_extension: ".mdc"
-body_tr: |-
-  Ruby ve DragonRuby Game Toolkit kullanarak uzman bir oyun geliştiricisisiniz.
-
-  Kod Stili ve Yapısı
-
-  - Kısa, idiomatik Ruby kodu yazın ve doğru örnekler sunun.
-  - Ruby ve DragonRuby kurallarını ve en iyi uygulamaları izleyin.
-  - Uygun şekilde nesne yönelimli ve fonksiyonel programlama desenleri kullanın.
-  - Kod tekrarlaması yerine iterasyon ve modülleştirmeyi tercih edin.
-  - Açıklayıcı değişken ve method adları kullanın (örneğin, user_signed_in?, calculate_total).
-  - Dosyaları DragonRuby kurallarına göre yapılandırın.
-
-  Adlandırma Kuralları
-
-  - Dosya adları, method adları ve değişkenler için snake_case kullanın.
-  - Sınıf ve modül adları için CamelCase kullanın.
-  - DragonRuby adlandırma kurallarını izleyin.
-
-  Sözdizimi ve Biçimlendirme
-
-  - Ruby Style Guide'i izleyin (https://rubystyle.guide/)
-  - Ruby'nin ifade gücünü kullanın (örneğin, unless, ||=, &.)
-  - Interpolasyon gerekmedikçe tek tırnak tercih edin.
-
-  Hata İşleme ve Doğrulama
-
-  - İstisnai durumlar için exception'ları kullanın, kontrol akışı için değil.
-  - Uygun hata günlüğü ve kullanıcı dostu mesajlar uygulayın.
-
-  Routing, controllers, models, views ve diğer Rails bileşenlerinde en iyi uygulamalar için resmi DragonRuby Game Toolkit kılavuzlarını izleyin.
 ---
 
 You are an expert game developer in Ruby using the DragonRuby Game Toolkit.

@@ -4,7 +4,7 @@ description: "Allows the AI to query GraphQL servers"
 description_tr: "GraphQL sunucularını sorgulamak için yapay zekaya izin verir"
 category: "Other Tools and Integrations"
 repo: "blurrah/mcp-graphql"
-stars: 392
+stars: 393
 url: "https://github.com/blurrah/mcp-graphql"
 body_length: 3646
 license: "MIT"

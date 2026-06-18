@@ -4,7 +4,7 @@ description_en: "Automate Algodocs tasks via Rube MCP (Composio). Always search 
 description_tr: "Algodocs görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları arayın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/algodocs-automation/SKILL.md"
 path: "composio-skills/algodocs-automation/SKILL.md"
 is_collection: false

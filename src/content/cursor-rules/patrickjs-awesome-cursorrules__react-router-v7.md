@@ -2,61 +2,13 @@
 name: "react-router-v7"
 clean_name: "React Router V7"
 description: "React Router v7 rules for framework mode, data routers, loaders, actions, route modules, and progressive enhancement"
-description_tr: "React Router v7, framework mode, data router'lar, loader'lar, action'lar, route module'ları ve progressive enhancement için kurallar belirler."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/react-router-v7.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/react-router-v7.mdc"
 body_length: 2284
 file_extension: ".mdc"
-body_tr: |-
-  # React Router v7 Kuralları
-
-  ## Route Modülleri
-
-  - Route modüllerini route UI'ı, loader verisi, actions, metadata ve error boundaries için sınır olarak kullanın.
-  - Route modüllerini küçük tutun; paylaşılan UI'ı components'e ve yeniden kullanılabilir veri erişimini services'e taşıyın.
-  - Proje buna göre yapılandırıldığında framework modunda dosya tabanlı routing'i tercih edin.
-  - Paylaşılan layoutlar ve progressive disclosure için nested routes kullanın.
-  - Kurtarılabilir route başarısızlıkları için route'a özgü `ErrorBoundary` components'lerini export edin.
-
-  ## Veri Yükleme
-
-  - Render'dan önce mevcut olması gereken route verisi için loaders kullanın.
-  - Loaders'ı deterministic tutun ve yan etkilerden arındırın.
-  - Loader sınırında params ve search params'ı valide edin.
-  - Yazılı veriler döndürün ve components'lerde fetch logikini kopyalamak yerine route hooks aracılığıyla tüketin.
-  - Deferred veya streaming patternlerini yalnızca algılanan performansı iyileştirdiğinde kullanın.
-
-  ## Mutasyonlar
-
-  - Route mutasyonları ve form gönderimleri için actions kullanın.
-  - Progressive enhancement için `Form`, `useFetcher` ve `useSubmit` tercih edin.
-  - Mutasyonlardan sonra etkilenen loader verilerini yeniden valide edin.
-  - Validation hatalarını generic exceptions yerine yazılı action verisi olarak işleyin.
-  - Sunucu-yalnızca sırları ve ayrıcalıklı işlemleri client actions'dan uzak tutun.
-
-  ## Navigation ve State
-
-  - Paylaşılabilir state'i URL params veya search params'da saklayın.
-  - Geçici UI state'ini components'e local tutun.
-  - Optimistic veya loading UI göstermek için pending navigation state'ini kullanın.
-  - Route loaders'a ait veriler için global state'ten kaçının.
-
-  ## TypeScript ve Testing
-
-  - Loader ve action dönüş değerlerini type edin.
-  - Route loaders, actions, validation başarısızlıkları ve error boundaries için testler ekleyin.
-  - Kritik form ve navigation akışları için integration testlerini kullanın.
-  - Network ve persistence'ı route-service sınırında mock edin.
-
-  ## Yaygın Hatalar
-
-  - `useEffect`'te loader fetch'lerini kopyalamayın.
-  - Loaders'da verilerine mutasyon uygulamayın.
-  - Route hatalarını tek bir generic app-level catch-all'un arkasına gizlemeyin.
-  - Auth kontrolleri yalnızca components'lere koymayın, loader verisi korunuyorsa.
 ---
 
 

@@ -4,7 +4,7 @@ description_en: "Automate SEO research with Ahrefs -- analyze backlink profiles,
 description_tr: "Composio Ahrefs entegrasyonu ile SEO araştırmanızı otomatikleştirin -- backlink profillerini analiz edin, keyword araştırması yapın, domain metriklerinin geçmişini takip edin, organik sıralamaları denetleyin ve toplu URL analizleri gerçekleştirin."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ahrefs-automation/SKILL.md"
 path: "composio-skills/ahrefs-automation/SKILL.md"
 is_collection: false

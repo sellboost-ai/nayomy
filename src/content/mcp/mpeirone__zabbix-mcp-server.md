@@ -4,7 +4,7 @@ description: "Zabbix integration for hosts, items, triggers, templates, problems
 description_tr: "Zabbix entegrasyonu sunucular, itemler, triggerlar, şablonlar, problemler, veriler ve daha fazlası için."
 category: "Monitoring"
 repo: "mpeirone/zabbix-mcp-server"
-stars: 231
+stars: 232
 url: "https://github.com/mpeirone/zabbix-mcp-server"
 body_length: 6751
 license: "GPL-3.0"

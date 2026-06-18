@@ -4,7 +4,7 @@ description: "Telegram API integration for accessing user data, managing dialogs
 description_tr: "Telegram API entegrasyonu ile kullanıcı verilerine erişim, diyalogları (sohbetler, kanallar, gruplar) yönetme, mesajları alma ve gönderme, okundu durumunu takip etme olanakları sunur."
 category: "Communication"
 repo: "chigwell/telegram-mcp"
-stars: 1208
+stars: 1216
 url: "https://github.com/chigwell/telegram-mcp"
 body_length: 15822
 license: "Apache-2.0"

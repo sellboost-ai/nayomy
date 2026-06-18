@@ -4,7 +4,7 @@ description: "One-stop backend services for WeChat Mini-Programs and full-stack 
 description_tr: "WeChat Mini-Program ve full-stack uygulamalar için hepsi-bir-arada backend servisleri. Serverless cloud function'lar, veritabanları ve WeChat ekosistemi üzerinden Çin pazarına erişimle birlikte production'a tek tıklamayla deployment yapılabilen özel MCP araçları sunar."
 category: "Cloud Platforms"
 repo: "TencentCloudBase/CloudBase-AI-ToolKit"
-stars: 1034
+stars: 1036
 url: "https://github.com/TencentCloudBase/CloudBase-AI-ToolKit"
 body_length: 21130
 license: "MIT"

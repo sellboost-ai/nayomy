@@ -4,7 +4,7 @@ description: "Discovery, exploration, reporting and root cause analysis using al
 description_tr: "Metrikler, loglar, sistemler, konteynerler, süreçler ve ağ bağlantıları dahil tüm observability verilerini kullanarak keşif, araştırma, raporlama ve root cause analizi yapın."
 category: "Monitoring"
 repo: "netdata/netdata"
-stars: 79198
+stars: 79278
 url: "https://github.com/netdata/netdata"
 body_length: 26186
 license: "GPL-3.0"

@@ -1,116 +1,116 @@
 ---
 name: "tdd"
-description_en: "Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions \"red-green-refactor\", wants integration tests, or asks for test-first development."
+description_en: "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests."
 description_tr: "Test-driven development yaklaşımıyla kırmızı-yeşil-refactor döngüsünü uygulayın. Kullanıcı TDD ile özellik geliştirmek veya hata düzeltmek istediğinde, \"red-green-refactor\" metodundan bahsettiğinde, entegrasyon testleri veya test-first geliştirme talep ettiğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 132588
+stars: 134333
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/tdd/SKILL.md"
 path: "skills/engineering/tdd/SKILL.md"
 is_collection: false
-body_length: 4131
+body_length: 4136
 has_scripts: false
 has_references: false
 has_examples: false
-related_files: ["deep-modules.md", "interface-design.md", "mocking.md", "refactoring.md", "tests.md"]
+related_files: ["mocking.md", "refactoring.md", "tests.md"]
 body_tr: |-
   # Test-Driven Development
-
+  
   ## Felsefe
-
+  
   **Temel ilke**: Testler davranışı public interface'ler üzerinden doğrulamalı, implementasyon detaylarından değil. Kod tamamen değişebilir; testler değişmemeli.
-
+  
   **İyi testler** entegrasyon tarzındadır: real kod yollarını public API'ler üzerinden çalıştırırlar. Sistemin _ne_ yaptığını, _nasıl_ yaptığını değil, anlatırlar. İyi bir test bir specification gibi okunur - "user geçerli cart ile checkout yapabilir" tam olarak hangi kabiliyetin var olduğunu söyler. Bu testler refactor'ları survive ederler çünkü iç yapıya umursamazlar.
-
+  
   **Kötü testler** implementasyona bağlıdır. Internal collaborator'ları mock ederler, private method'ları test ederler, veya external araçlar üzerinden doğrularlar (örneğin interface'i kullanmak yerine doğrudan database sorgulama). Uyarı işareti: test refactor yaptığında kırılır ama davranış değişmemiş. Eğer internal bir function'ı rename ettiğinizde testler fail olursa, bu testler implementasyonu test ediyordu, davranışı değil.
-
+  
   Örnekler için [tests.md](tests.md)'ye ve mocking yönergeleri için [mocking.md](mocking.md)'ye bak.
-
+  
   ## Anti-Pattern: Horizontal Slices
-
+  
   **YAPMAYINIZ tüm testleri önce yazıp, sonra tüm implementasyonu yazınız.** Bu "horizontal slicing" - RED'i "tüm testleri yaz" ve GREEN'i "tüm kodu yaz" olarak almak.
-
+  
   Bu **çöp testler** üretir:
-
+  
   - Toplu yazılan testler _hayal edilen_ davranışı test eder, _gerçek_ davranışı değil
   - Sonunda şeylerin _şekli_ni test edersiniz (data structure'lar, function signature'ları) user-facing davranıştan ziyade
   - Testler gerçek değişikliklere duyarsız hale gelir - davranış kırıldığında pass eder, davranış iyiyken fail eder
   - Headlight'larınızı aşarsınız, implementasyonu anlamadan test structure'a commit etmiş olursunuz
-
+  
   **Doğru yaklaşım**: Tracer bullet'lar via vertical slices. Bir test → bir implementasyon → tekrarlayın. Her test önceki döngüden öğrendiklerinize cevap verir. Kodu az önce yazdığınız için, tam olarak hangi davranışın önemli olduğunu ve nasıl doğrulanacağını bilirsiniz.
-
+  
   ```
   YANLIŞ (horizontal):
     RED:   test1, test2, test3, test4, test5
     GREEN: impl1, impl2, impl3, impl4, impl5
-
+  
   DOĞRU (vertical):
     RED→GREEN: test1→impl1
     RED→GREEN: test2→impl2
     RED→GREEN: test3→impl3
     ...
   ```
-
+  
   ## İş Akışı
-
+  
   ### 1. Planlama
-
+  
   Codebase'i keşfederken, proje'nin domain glossary'sini kullanın ki test isimleri ve interface vocabulary'si projenin diline uygun olsun, ve dokunduğunuz alandaki ADR'lere saygı gösterin.
-
+  
   Herhangi bir kod yazmadan önce:
-
+  
   - [ ] User ile ne interface değişikliklerinin gerekli olduğunu onaylayın
   - [ ] User ile hangi davranışları test edeceğinizi onaylayın (önceliklendir)
   - [ ] [Deep modules](deep-modules.md) için fırsatları belirleyin (küçük interface, derin implementasyon)
   - [ ] [Testability](interface-design.md) için interface'leri tasarlayın
   - [ ] Test edecek davranışları listeleyin (implementasyon adımlarını değil)
   - [ ] User onayını plana alın
-
+  
   Sorun: "Public interface neye benzemeli? Hangi davranışlar test etmek için en önemli?"
-
+  
   **Her şeyi test edemezsiniz.** User ile tam olarak hangi davranışların en önemli olduğunu onaylayın. Test çabasını kritik yollar ve karmaşık logic'e odaklayın, her olası edge case'e değil.
-
+  
   ### 2. Tracer Bullet
-
+  
   SİSTEM hakkında BİR şeyi doğrulayan BİR test yazın:
-
+  
   ```
   RED:   İlk davranış için test yaz → test fail eder
   GREEN: Geçirmek için minimal kod yaz → test pass eder
   ```
-
+  
   Bu sizin tracer bullet'ınız - yolun end-to-end çalıştığını kanıtlar.
-
+  
   ### 3. İnkremental Loop
-
+  
   Kalan her davranış için:
-
+  
   ```
   RED:   Sonraki test yaz → fail eder
   GREEN: Geçirmek için minimal kod → pass eder
   ```
-
+  
   Kurallar:
-
+  
   - Bir test anda
   - Sadece mevcut testi geçirmek için yeterli kod
   - Gelecek testleri öngörmeyin
   - Testleri observable davranışa odaklı tutun
-
+  
   ### 4. Refactor
-
+  
   Tüm testler pass ettikten sonra, [refactor adaylarına](refactoring.md) bakın:
-
+  
   - [ ] Duplication'ı extract edin
   - [ ] Module'ları derinleştirin (complexity'yi basit interface'lerin arkasına taşıyın)
   - [ ] SOLID ilkelerini doğal yerlere uygulayın
   - [ ] Yeni kodun existing kod hakkında neler ortaya çıkardığını düşünün
   - [ ] Her refactor adımından sonra testleri çalıştırın
-
+  
   **RED iken asla refactor yapmayınız.** Önce GREEN'e ulaşın.
-
+  
   ## Her Döngü İçin Checklist
-
+  
   ```
   [ ] Test davranışı anlatır, implementasyonu değil
   [ ] Test sadece public interface kullanır
@@ -161,14 +161,13 @@ RIGHT (vertical):
 
 ### 1. Planning
 
-When exploring the codebase, use the project's domain glossary so that test names and interface vocabulary match the project's language, and respect ADRs in the area you're touching.
+When exploring the codebase, read `CONTEXT.md` (if it exists) so that test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
 Before writing any code:
 
 - [ ] Confirm with user what interface changes are needed
 - [ ] Confirm with user which behaviors to test (prioritize)
-- [ ] Identify opportunities for [deep modules](deep-modules.md) (small interface, deep implementation)
-- [ ] Design interfaces for [testability](interface-design.md)
+- [ ] Identify opportunities for deep modules (small interface, deep implementation) — run the `/codebase-design` skill for the vocabulary and the testability checks
 - [ ] List the behaviors to test (not implementation steps)
 - [ ] Get user approval on the plan
 

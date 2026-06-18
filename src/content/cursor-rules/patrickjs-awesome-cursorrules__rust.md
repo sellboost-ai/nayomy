@@ -2,95 +2,13 @@
 name: "rust"
 clean_name: "Rust"
 description: "Rust best practices for Solana smart contract development using Anchor framework and Solana SDK"
-description_tr: "Anchor framework ve Solana SDK ile Solana akıllı kontratı geliştirme için Rust en iyi uygulamaları"
 category: "Languages"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40019
+stars: 40025
 path: "rules/rust.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/rust.mdc"
 body_length: 4230
 file_extension: ".mdc"
-body_tr: |-
-  # Rust + Solana (Anchor) En İyi Uygulamalar
-
-  ## Program Yapısı
-  - Solana programlarını `Anchor` framework standartlarını kullanarak yapılandırın
-  - Program entrypoint mantığını `lib.rs` içine yerleştirin, `main.rs` içine değil
-  - Handler'ları modüllere ayırın (örn. `initialize`, `update`, `close`)
-  - State tanımlarını, hataları, instruction'ları ve utils'i ayırın
-  - Yeniden kullanılabilir mantığı bir `utils` modülü altında gruplayın (örn. account doğrulama)
-  - Program ID'yi tanımlamak için `declare_id!()` kullanın
-
-  ## Anchor Framework
-  - Tüm instruction context'leri için `#[derive(Accounts)]` kullanın
-  - Constraint macro'larını kullanarak strict account doğrulama yapın (örn. `#[account(mut)]`, `seeds`, `bump`)
-  - Tüm state struct'larını `#[account]` ve `#[derive(AnchorSerialize, AnchorDeserialize)]` ile tanımlayın
-  - Manuel deserialization'dan kaçınmak için `Init`, `Close`, `Realloc`, `Mut` ve constraint macro'larını tercih edin
-  - Doğrulanmış context account'larına erişmek için `ctx.accounts` kullanın
-  - CPI (Cross-Program Invocation) çağrılarını Anchor'un CPI helper'ları aracılığıyla yönetin
-
-  ## Serialization
-  - Zincir üstü veri için **Borsh** veya Anchor'un custom serializer'ını kullanın (Serde değil)
-  - Packed struct'lar için her zaman `#[account(zero_copy)]` veya `#[repr(C)]` ekleyin
-  - Floating point type'larından kaçının — `u64`, `u128` veya fixed-point math kullanın
-  - Kira maliyetlerini azaltmak için kullanılmayan account'ları sıfırlandırın veya kapatın
-
-  ## Test
-  - TypeScript'te Anchor'un Mocha + Chai setup'ını kullanarak test yazın (`tests/*.ts`)
-  - Deploy edilen contract'ları yüklemek için `anchor.workspace.MyProgram` kullanın
-  - Başarısız tx'leri incelemek için `provider.simulate()` kullanın
-  - Yerel validator çalıştırın (`anchor test`) ve test'ler arasında sıfırlayın
-  - Wallet'lara `provider.connection.requestAirdrop(...)` ile SOL verin
-  - `tx.confirmation.logMessages` kullanarak program log'larını doğrulayın
-
-  ## Solana SDK (Manual)
-  - Anchor kullanmadığınızda `solana_program` crate'ini kullanın (bare-metal program'lar)
-  - Account'ları `AccountInfo`, `try_from_slice_unchecked` kullanarak dikkatle deserialize edin
-  - Hafif debugging log'ları için `solana_program::msg!` kullanın
-  - Account'ları `is_signer`, `is_writable`, `key == expected` aracılığıyla doğrulayın
-  - Asla panic etmeyin! `ProgramError::Custom(u32)` veya `ErrorCode` enum'larını kullanın
-
-  ## Security Desenleri
-  - Her zaman `msg.sender`/signer'ı `account_info.is_signer` ile doğrulayın
-  - Replay attack'larını `seeds`, `bump` ve unique PDA'lar aracılığıyla önleyin
-  - Reallocate veya deserialize etmeden önce strict size kontrolü yapın
-  - Güvensiz unchecked casting'ten kaçının; Anchor deserialization'ı tercih edin
-  - CPI'lar için `target_program`'ı beklenen program ID'ye karşı doğrulayın
-  - Randomness kullanırken timestamp'lere hiç güvenmeyin — oracle'ları veya off-chain VRF'leri kullanın
-
-  ## Performans
-  - Büyük account'lar için zero-copy deserialization'ı tercih edin
-  - Compute kullanımını minimalize edin; loop'lardan ve recursion'dan kaçının
-  - Instruction ortasında memory reallocation'dan kaçının
-  - Sıkı layout için `#[account(zero_copy)]` ve `#[repr(packed)]` kullanın
-  - `solana logs` ve `anchor run` ile compute unit'lerini profile edin
-
-  ## Dev İş Akışı
-  - Projeleri scaffold'lamak için `anchor init` kullanın
-  - Ön-uç kullanımı için Anchor IDL desteği ekleyin (JSON ABI)
-  - `anchor build`, `anchor deploy`, `anchor test`'i tutarlı şekilde kullanın
-  - devnet/mainnet/localnet için ayrı `Anchor.toml` environment'ları kullanın
-  - Tüm Rust kodunu `cargo fmt` ile formatlandırın, `cargo clippy` ile lint yapın
-  - `Cargo.lock`'u `programs/` altına kontrol edin ancak root'a değil
-
-  ## Dokümantasyon
-  - Tüm instruction'lar ve account'lar için `///` Rust doc comment'leri kullanın
-  - Her instruction için doc örnekleri ekleyin
-  - PDA derivation mantığını ve bump seed beklentilerini dokümante edin
-  - Test komutları ve deployment adımları ile güncel `README.md` saklayın
-
-  ## Wallet & Network Yönetimi
-  - Test'lerde signer doğrulaması için `anchorProvider.wallet.publicKey` kullanın
-  - Keypair'leri hardcode etmeyin — env-based loading'i kullanın (`process.env.ANCHOR_WALLET`)
-  - Açık `cluster` target'ları ile deploy edin (`localnet`, `devnet`, `mainnet`)
-  - Program ID değişikliklerini yayınlamak için `anchor keys sync` kullanın
-  - Ön-uç ile paylaşmak için `target/idl/` ve `target/types/` öğesini commit edin
-
-  ## CI/CD & Deploy
-  - `solana-cli`, `anchor-cli` ve `node` yüklü GitHub Actions'ı kullanın
-  - Her PR için CI'da `anchor test` çalıştırın
-  - Production deploy'unda `solana program deploy` öğesini explicit `--program-id` ile kullanın
-  - IDL'leri merkezi bir registre'ye yükleyin (örn. GitHub, IPFS veya `anchor.cloud`)
 ---
 
 # Rust + Solana (Anchor) Best Practices

@@ -4,7 +4,7 @@ description_en: "Monitors customer health, predicts churn risk, and identifies e
 description_tr: "Müşteri sağlığını izler, churn riskini tahmin eder ve ağırlıklı puanlama modelleri kullanarak SaaS müşteri başarısı için genişleme fırsatlarını belirler. Müşteri hesaplarını analiz ederken, retention metrikleri gözden geçirirken, risk altındaki müşterileri puanlarken veya kullanıcı churn, customer health scores, upsell fırsatları, expansion revenue, retention analysis ya da customer analytics hakkında bahsettiğinde kullanın. Üç Python CLI çalıştırır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/customer-success-manager/SKILL.md"
 path: ".gemini/skills/customer-success-manager/SKILL.md"
 is_collection: false

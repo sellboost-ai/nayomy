@@ -4,7 +4,7 @@ description_en: "Edit and improve articles by restructuring sections, improving 
 description_tr: "Makaleleri yeniden yapılandırarak, netliği artırarak ve metni sıklaştırarak düzenleyin ve geliştirin. Kullanıcı bir makale taslağını düzenlemek, gözden geçirmek veya iyileştirmek istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 132588
+stars: 134333
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/personal/edit-article/SKILL.md"
 path: "skills/personal/edit-article/SKILL.md"
 is_collection: false
@@ -15,13 +15,13 @@ has_examples: false
 related_files: []
 body_tr: |-
   1. Öncelikle, makaleyi başlıklarına göre bölümlere ayırın. Bu bölümlerde vermek istediğiniz ana noktaları düşünün.
-
+  
   Bilginin yönlendirilmiş döngüsüz bir graf olduğunu ve bilgi parçalarının diğer bilgi parçalarına bağlı olabileceğini göz önünde bulundurun. Bölümlerin sırası ve içeriklerinin bu bağımlılıklara saygı gösterdiğinden emin olun.
-
+  
   Bölümleri kullanıcı ile onaylayın.
-
+  
   2. Her bölüm için:
-
+  
   2a. Bölümü açıklık, tutarlılık ve akış açısından iyileştirmek için yeniden yazın. Paragraf başına maksimum 240 karakter kullanın.
 ---
 

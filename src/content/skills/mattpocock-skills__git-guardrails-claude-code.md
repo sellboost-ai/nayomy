@@ -4,7 +4,7 @@ description_en: "Set up Claude Code hooks to block dangerous git commands (push,
 description_tr: "Claude Code hooks'ları kullanarak tehlikeli git komutlarını (push, reset --hard, clean, branch -D, vb.) çalıştırılmadan önce engelleyin. Kullanıcılar yıkıcı git işlemlerini önlemek, git güvenlik hooks'ları eklemek veya Claude Code'da git push/reset'i engellemek istediğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 132588
+stars: 134333
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/misc/git-guardrails-claude-code/SKILL.md"
 path: "skills/misc/git-guardrails-claude-code/SKILL.md"
 is_collection: false
@@ -15,42 +15,42 @@ has_examples: false
 related_files: []
 body_tr: |-
   # Git Guardrails Kur
-
+  
   Claude tarafından çalıştırılmadan önce tehlikeli git komutlarını kesip engelleyen bir PreToolUse hook'u kurar.
-
+  
   ## Hangi Komutlar Engellenir
-
+  
   - `git push` (tüm varyantlar, `--force` dahil)
   - `git reset --hard`
   - `git clean -f` / `git clean -fd`
   - `git branch -D`
   - `git checkout .` / `git restore .`
-
+  
   Engellendiğinde, Claude bu komutlara erişim yetkisinin olmadığını belirten bir mesaj görür.
-
+  
   ## Adımlar
-
+  
   ### 1. Kapsamı sorun
-
+  
   Kullanıcıya sorun: **bu proje için** (`.claude/settings.json`) mi yoksa **tüm projeler için** (`~/.claude/settings.json`) mi kurmak istediğini?
-
+  
   ### 2. Hook script'ini kopyalayın
-
+  
   Paketlenmiş script şurada bulunur: [scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)
-
+  
   Kapsamı temel alarak hedef konuma kopyalayın:
-
+  
   - **Proje**: `.claude/hooks/block-dangerous-git.sh`
   - **Global**: `~/.claude/hooks/block-dangerous-git.sh`
-
+  
   `chmod +x` ile çalıştırılabilir hale getirin.
-
+  
   ### 3. Hook'u ayarlara ekleyin
-
+  
   İlgili ayarlar dosyasına ekleyin:
-
+  
   **Proje** (`.claude/settings.json`):
-
+  
   ```json
   {
     "hooks": {
@@ -68,9 +68,9 @@ body_tr: |-
     }
   }
   ```
-
+  
   **Global** (`~/.claude/settings.json`):
-
+  
   ```json
   {
     "hooks": {
@@ -88,21 +88,21 @@ body_tr: |-
     }
   }
   ```
-
+  
   Ayarlar dosyası zaten mevcutsa, hook'u mevcut `hooks.PreToolUse` array'ine birleştirin — diğer ayarları üzerine yazmayın.
-
+  
   ### 4. Özelleştirme hakkında sorun
-
+  
   Kullanıcıya engellenen listeden herhangi bir pattern'i eklemek veya çıkarmak isteyip istemediğini sorun. Kopyalanan script'i buna göre düzenleyin.
-
+  
   ### 5. Doğrulayın
-
+  
   Hızlı bir test çalıştırın:
-
+  
   ```bash
   echo '{"tool_input":{"command":"git push origin main"}}' | <path-to-script>
   ```
-
+  
   2 çıkış koduyla çıkmalı ve stderr'e bir BLOCKED mesajı yazdırmalıdır.
 ---
 

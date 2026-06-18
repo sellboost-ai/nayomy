@@ -4,7 +4,7 @@ description: "An MCP server that integrates with the Freqtrade cryptocurrency tr
 description_tr: "Freqtrade kripto trading bot'u ile entegre olan bir MCP sunucusu."
 category: "Finance & Fintech"
 repo: "kukapay/freqtrade-mcp"
-stars: 120
+stars: 121
 url: "https://github.com/kukapay/freqtrade-mcp"
 body_length: 7040
 license: "MIT"

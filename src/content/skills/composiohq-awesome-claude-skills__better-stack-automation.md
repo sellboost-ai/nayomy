@@ -4,7 +4,7 @@ description_en: "Automate Better Stack tasks via Rube MCP (Composio). Always sea
 description_tr: "Better Stack görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Güncel şemaları görmek için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 64934
+stars: 65045
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/better-stack-automation/SKILL.md"
 path: "composio-skills/better-stack-automation/SKILL.md"
 is_collection: false

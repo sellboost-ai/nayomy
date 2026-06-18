@@ -4,7 +4,7 @@ description_en: "Use when the user asks to design a multi-agent system, pick an 
 description_tr: "Multi-agent sistem tasarlamak, orchestration pattern'ı seçmek (supervisor/swarm/pipeline), agentlar için tool schema'ları üretmek veya agent execution log'larını maliyet, latency ve failure bottleneck'leri açısından değerlendirmek için kullanın. Örnekler: 'araştırma otomasyonu için agent mimarisi tasarla', 'bu tool açıklamalarından Anthropic tool schema'ları oluştur', 'bu agent run log'larını bottleneck'ler için analiz et'."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/agent-designer/SKILL.md"
 path: ".gemini/skills/agent-designer/SKILL.md"
 is_collection: false

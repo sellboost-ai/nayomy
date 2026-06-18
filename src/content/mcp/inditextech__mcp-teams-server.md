@@ -4,7 +4,7 @@ description: "MCP server that integrates Microsoft Teams messaging (read, post, 
 description_tr: "Microsoft Teams mesajlaşmasını entegre eden MCP sunucusu (okuma, gönderme, mention, üyeleri listeleme ve thread yönetimi)."
 category: "Communication"
 repo: "InditexTech/mcp-teams-server"
-stars: 378
+stars: 379
 url: "https://github.com/InditexTech/mcp-teams-server"
 body_length: 4832
 license: "Apache-2.0"

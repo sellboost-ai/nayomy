@@ -4,7 +4,7 @@ description_en: "Makes AI-generated content sound genuinely human — not just c
 description_tr: "AI tarafından üretilen içeriği gerçekten insan gibi hissettir — sadece düzeltmek değil, canlı ve kişisel kıl. İçerik robotu gibi geldiğinde, AI klişeleriyle dolu olduğunda, kişiliği eksik olduğunda veya komite tarafından yazılmış gibi ses çıkardığında kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18317
+stars: 18402
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/content-humanizer/SKILL.md"
 path: ".gemini/skills/content-humanizer/SKILL.md"
 is_collection: false
