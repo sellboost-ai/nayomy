@@ -224,6 +224,7 @@ async function main() {
         title: translated.title,
         summary: translated.summary,
         originalTitle: item.title,
+        originalSummary: item.content.slice(0, 800),
         source: item.source,
         category: item.category,
         sourceUrl: item.link,

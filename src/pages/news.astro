@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+const ROOT = process.cwd();
+const NEWS_PATH = join(ROOT, 'news.json');
+
+let items = [];
+if (existsSync(NEWS_PATH)) {
+  try {
+    const data = JSON.parse(readFileSync(NEWS_PATH, 'utf8'));
+    items = data.items || [];
+  } catch (e) {
+    console.warn('news.json okunamadı:', e.message);
+  }
+}
+
+items.sort((a, b) => new Date(b.publishedAt || b.pubDate).getTime() - new Date(a.publishedAt || a.pubDate).getTime());
+
+function formatDate(isoString) {
+  const date = new Date(isoString);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function isToday(isoString) {
+  const date = new Date(isoString);
+  const now = new Date();
+  return date.toDateString() === now.toDateString();
+}
+---
+
+<BaseLayout title="AI News — Nayomy" description="Daily AI news from Anthropic, OpenAI, Google, Mistral and more — summarized and source-linked.">
+  <main class="news-container">
+    <header class="news-header">
+      <div class="badge">
+        <span class="dot"></span>
+        Daily updates
+      </div>
+      <h1>AI News</h1>
+      <p class="subtitle">Daily AI news, summarized — sources linked.</p>
+    </header>
+
+    {items.length === 0 ? (
+      <div class="empty">
+        <p>No news yet. Daily updates coming soon.</p>
+      </div>
+    ) : (
+      <div class="news-list">
+        {items.map((item) => (
+          <article class="news-card">
+            <div class="news-meta">
+              {isToday(item.publishedAt || item.pubDate) && <span class="hot">🟢 HOT</span>}
+              <span class="date">{formatDate(item.publishedAt || item.pubDate)}</span>
+              <span class="source">{item.source}</span>
+            </div>
+            <h2 class="news-title">{item.originalTitle || item.title}</h2>
+            <p class="news-summary">{item.originalSummary || item.summary}</p>
+            <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">
+              Read source →
+            </a>
+          </article>
+        ))}
+      </div>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  .news-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .news-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FBFAF7;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .news-header h1 {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    color: #0F0E0C;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: #5F5E5A;
+    line-height: 1.5;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #888;
+    background: #FBFAF7;
+    border-radius: 12px;
+  }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .news-card {
+    background: #FFF;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.15s;
+  }
+
+  .news-card:hover {
+    border-color: rgba(0,0,0,0.25);
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hot {
+    background: #ecfdf5;
+    color: #166534;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .date {
+    color: #888;
+  }
+
+  .source {
+    background: #f5f5f4;
+    color: #444;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .news-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    color: #0F0E0C;
+    letter-spacing: -0.01em;
+  }
+
+  .news-summary {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  .source-link {
+    font-size: 13px;
+    color: #F47836;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .source-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .news-header h1 { font-size: 32px; }
+    .news-card { padding: 1.25rem; }
+    .news-title { font-size: 19px; }
+  }
+</style>
