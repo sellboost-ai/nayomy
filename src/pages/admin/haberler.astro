@@ -1,0 +1,325 @@
+---
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+// Bu sayfa middleware ile parola korumalı
+const ROOT = process.cwd();
+const PENDING_PATH = join(ROOT, 'news-pending.json');
+const PUBLISHED_PATH = join(ROOT, 'news.json');
+
+let pendingItems = [];
+let publishedCount = 0;
+
+if (existsSync(PENDING_PATH)) {
+  try {
+    const data = JSON.parse(readFileSync(PENDING_PATH, 'utf8'));
+    pendingItems = data.items || [];
+  } catch (e) {
+    console.warn('Pending dosyası okunamadı:', e.message);
+  }
+}
+
+if (existsSync(PUBLISHED_PATH)) {
+  try {
+    const data = JSON.parse(readFileSync(PUBLISHED_PATH, 'utf8'));
+    publishedCount = (data.items || []).length;
+  } catch (e) {}
+}
+
+function formatDate(isoString) {
+  const date = new Date(isoString);
+  return date.toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' });
+}
+---
+
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — Haber Onayı | Nayomy</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+      background: #FBFAF7;
+      color: #0F0E0C;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2rem;
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+      padding-bottom: 1rem;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .stats {
+      font-size: 13px;
+      color: #888;
+    }
+    .stats strong {
+      color: #0F0E0C;
+    }
+    .draft-card {
+      background: #FFF;
+      border: 0.5px solid rgba(0,0,0,0.12);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .draft-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .source-badge {
+      background: #f5f5f4;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #444;
+      font-weight: 500;
+    }
+    .original-title {
+      color: #aaa;
+      font-style: italic;
+    }
+    .draft-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      line-height: 1.3;
+    }
+    .draft-title-input {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 8px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-family: inherit;
+    }
+    .draft-summary {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+    .draft-summary-input {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-family: inherit;
+      min-height: 80px;
+      resize: vertical;
+    }
+    .source-link {
+      font-size: 12px;
+      color: #F47836;
+      text-decoration: none;
+      margin-right: auto;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    button {
+      font-size: 13px;
+      padding: 8px 14px;
+      border: 0.5px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      background: #FFF;
+      color: #0F0E0C;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    button:hover {
+      background: #f5f5f4;
+    }
+    .btn-publish {
+      background: #16a34a;
+      color: #FFF;
+      border-color: #16a34a;
+    }
+    .btn-publish:hover {
+      background: #15803d;
+    }
+    .btn-reject {
+      background: #FFF;
+      color: #dc2626;
+      border-color: rgba(220, 38, 38, 0.3);
+    }
+    .btn-reject:hover {
+      background: #fef2f2;
+    }
+    .btn-edit {
+      background: #FFF;
+      color: #2563eb;
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+    .empty {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: #888;
+      background: #FFF;
+      border-radius: 10px;
+    }
+    .notice {
+      background: #fffbeb;
+      border: 0.5px solid #fbbf24;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #78350f;
+      margin-bottom: 1.5rem;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background: #0F0E0C;
+      color: #FFF;
+      border-radius: 8px;
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+    .toast.show {
+      opacity: 1;
+    }
+    .editing .draft-title { display: none; }
+    .editing .draft-summary { display: none; }
+    .editing .draft-title-input { display: block; }
+    .editing .draft-summary-input { display: block; }
+    .draft-title-input, .draft-summary-input { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Haber Onayı</h1>
+      <div class="stats">
+        <strong>{pendingItems.length}</strong> taslak · <strong>{publishedCount}</strong> yayında
+      </div>
+    </div>
+
+    <div class="notice">
+      ℹ️ <strong>Sistemin çalışması:</strong> Onayladığın haberler hemen <code>news.json</code>'a eklenir, Vercel deploy alır, 1-2 dakika içinde nayomy.com/haberler'de canlıya çıkar. Reddettiklerin silinir, bir daha gösterilmez.
+    </div>
+
+    {pendingItems.length === 0 ? (
+      <div class="empty">
+        <p>📭 Onay bekleyen taslak yok.</p>
+        <p style="font-size: 13px; color: #aaa;">Cron her sabah 09:00'da yeni haberleri çekiyor.</p>
+      </div>
+    ) : (
+      <div id="drafts">
+        {pendingItems.map((item) => (
+          <article class="draft-card" data-id={item.id}>
+            <div class="draft-meta">
+              <span class="source-badge">{item.source}</span>
+              <span>{formatDate(item.pubDate)}</span>
+              <span class="original-title" title={item.originalTitle}>EN: {item.originalTitle?.slice(0, 50)}...</span>
+            </div>
+            <h3 class="draft-title">{item.title}</h3>
+            <input type="text" class="draft-title-input" value={item.title} />
+            <p class="draft-summary">{item.summary}</p>
+            <textarea class="draft-summary-input">{item.summary}</textarea>
+            <div class="actions">
+              <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">Kaynak →</a>
+              <button class="btn-edit" data-action="edit">Düzenle</button>
+              <button class="btn-publish" data-action="publish">✓ Yayınla</button>
+              <button class="btn-reject" data-action="reject">✗ Reddet</button>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const toast = document.getElementById('toast');
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    document.querySelectorAll('.draft-card').forEach(card => {
+      const id = card.dataset.id;
+      card.querySelector('[data-action="edit"]').addEventListener('click', () => {
+        card.classList.toggle('editing');
+        const btn = card.querySelector('[data-action="edit"]');
+        btn.textContent = card.classList.contains('editing') ? 'Kapat' : 'Düzenle';
+      });
+
+      card.querySelector('[data-action="publish"]').addEventListener('click', async () => {
+        const title = card.classList.contains('editing')
+          ? card.querySelector('.draft-title-input').value
+          : card.querySelector('.draft-title').textContent;
+        const summary = card.classList.contains('editing')
+          ? card.querySelector('.draft-summary-input').value
+          : card.querySelector('.draft-summary').textContent;
+
+        const res = await fetch('/api/news-action', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'publish', id, title, summary }),
+          credentials: 'include',
+        });
+        if (res.ok) {
+          card.style.transition = 'opacity 0.3s';
+          card.style.opacity = '0';
+          setTimeout(() => card.remove(), 300);
+          showToast('✓ Yayınlandı');
+        } else {
+          showToast('❌ Hata: ' + res.status);
+        }
+      });
+
+      card.querySelector('[data-action="reject"]').addEventListener('click', async () => {
+        if (!confirm('Bu haberi reddet?')) return;
+        const res = await fetch('/api/news-action', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'reject', id }),
+          credentials: 'include',
+        });
+        if (res.ok) {
+          card.style.transition = 'opacity 0.3s';
+          card.style.opacity = '0';
+          setTimeout(() => card.remove(), 300);
+          showToast('✗ Reddedildi');
+        } else {
+          showToast('❌ Hata: ' + res.status);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

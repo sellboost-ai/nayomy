@@ -1,0 +1,43 @@
+name: Update News
+
+on:
+  schedule:
+    # Her gün 06:00 UTC (Türkiye saatiyle 09:00)
+    - cron: "0 6 * * *"
+  workflow_dispatch: # Manuel tetikleme
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch news
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/fetch-news.js
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add news-pending.json news.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "✅ Yeni taslak yok"
+          else
+            git commit -m "chore: yeni haber taslakları ($(date +%Y-%m-%d))"
+            git push
+            echo "🚀 Taslaklar gönderildi"
+          fi
