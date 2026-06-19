@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-19T08:10:31.023Z",
+  "updatedAt": "2026-06-19T08:37:18.170Z",
   "items": [
     {
       "id": "openai-news-openai-chatgpt-enterprise-icin-harcama-kontrolleri-ekledi-1781823410516",
@@ -12,19 +12,6 @@
       "sourceUrl": "https://openai.com/index/chatgpt-enterprise-spend-controls",
       "pubDate": "2026-06-18T17:00:00.000Z",
       "fetchedAt": "2026-06-18T22:56:50.516Z",
-      "status": "pending"
-    },
-    {
-      "id": "openai-news-chatgpt-nin-saglik-yanitlari-gpt-5-5-ile-guclendi-1781823412685",
-      "title": "ChatGPT'nin sağlık yanıtları GPT-5.5 ile güçlendi",
-      "summary": "OpenAI, GPT-5.5 Instant modeli ile ChatGPT'nin sağlık ve wellness alanındaki yanıtlarını iyileştirdi. Yeni model, daha güçlü mantık yürütme, daha iyi bağlam anlama, netlik ve doktor tarafından onaylı değerlendirmeler sunuyor.",
-      "originalTitle": "Improving health intelligence in ChatGPT",
-      "originalSummary": "Learn how GPT-5.5 Instant improves ChatGPT’s health and wellness responses with stronger reasoning, better context, clearer communication, and physician-informed evaluations.",
-      "source": "OpenAI News",
-      "category": "OpenAI",
-      "sourceUrl": "https://openai.com/index/improving-health-intelligence-in-chatgpt",
-      "pubDate": "2026-06-18T11:00:00.000Z",
-      "fetchedAt": "2026-06-18T22:56:52.685Z",
       "status": "pending"
     },
     {
