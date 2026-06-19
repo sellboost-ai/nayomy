@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-06-19T08:37:53.055Z",
+  "updatedAt": "2026-06-19T08:38:05.777Z",
   "items": [
+    {
+      "id": "openai-news-openai-pratik-ai-becerisi-icin-uc-yeni-kurs-baslatti-1781823425319",
+      "title": "OpenAI, pratik AI becerisi için üç yeni kurs başlattı",
+      "summary": "OpenAI, insanların pratik AI yetenekleri geliştirmesine, tekrarlanabilir iş akışları oluşturmasına ve ajanları günlük işlerinde uygulamasına yardımcı olan üç Academy kursu sunuyor. Kurslar, yeni çalışma döneminde gerekli beceriler kazandırmayı hedefliyor.",
+      "originalTitle": "New OpenAI Academy courses for the next era of work",
+      "originalSummary": "OpenAI introduces three Academy courses that help people build practical AI skills, create repeatable workflows, and apply agents in everyday work.",
+      "source": "OpenAI News",
+      "category": "OpenAI",
+      "sourceUrl": "https://openai.com/index/academy-courses-applying-ai-at-work",
+      "pubDate": "2026-06-12T10:00:00.000Z",
+      "fetchedAt": "2026-06-18T22:57:05.319Z",
+      "status": "published",
+      "publishedAt": "2026-06-19T08:38:05.777Z"
+    },
     {
       "id": "openai-news-openai-150-milyon-dolarlik-i-s-ortagi-agini-kurdu-1781823423252",
       "title": "OpenAI, 150 Milyon Dolarlık İş Ortağı Ağını Kurdu",
