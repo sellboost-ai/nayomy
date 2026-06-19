@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-19T08:37:18.170Z",
+  "updatedAt": "2026-06-19T08:37:53.824Z",
   "items": [
     {
       "id": "openai-news-openai-chatgpt-enterprise-icin-harcama-kontrolleri-ekledi-1781823410516",
@@ -51,19 +51,6 @@
       "sourceUrl": "https://openai.com/index/deployment-simulation",
       "pubDate": "2026-06-16T00:00:00.000Z",
       "fetchedAt": "2026-06-18T22:57:01.169Z",
-      "status": "pending"
-    },
-    {
-      "id": "openai-news-openai-150-milyon-dolarlik-i-s-ortagi-agini-kurdu-1781823423252",
-      "title": "OpenAI, 150 Milyon Dolarlık İş Ortağı Ağını Kurdu",
-      "summary": "OpenAI, kurumsal yapay zeka benimsenmesini hızlandırmak için Partner Network programını başlattı. Program kapsamında 150 milyon dolar yatırım yapılarak küresel ortakların AI dağıtımı ve dönüşüm süreçlerine destek sağlanacak.",
-      "originalTitle": "Introducing the OpenAI Partner Network",
-      "originalSummary": "OpenAI launches the Partner Network, investing $150M to help global partners accelerate enterprise AI adoption, deployment, and transformation.",
-      "source": "OpenAI News",
-      "category": "OpenAI",
-      "sourceUrl": "https://openai.com/index/introducing-openai-partner-network",
-      "pubDate": "2026-06-14T17:00:00.000Z",
-      "fetchedAt": "2026-06-18T22:57:03.252Z",
       "status": "pending"
     },
     {
