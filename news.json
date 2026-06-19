@@ -1,4 +1,19 @@
 {
-  "updatedAt": "2026-06-19T00:00:00.000Z",
-  "items": []
+  "updatedAt": "2026-06-19T08:10:30.197Z",
+  "items": [
+    {
+      "id": "openai-news-openai-modeli-nadir-genetik-hastaliklarin-teshisine-yardimci-oldu-1781823414561",
+      "title": "OpenAI modeli nadir genetik hastalıkların teşhisine yardımcı oldu",
+      "summary": "Araştırmacılar, OpenAI'nin akıl yürütme modelini kullanarak nadir genetik hastalıkların teşhisinde başarılı oldular. Çalışmada, daha önce tanı konulamayan 18 vakada yeni teşhisler konulabildi.",
+      "originalTitle": "Using AI to help physicians diagnose rare genetic diseases affecting children",
+      "originalSummary": "Researchers used an OpenAI reasoning model to help diagnose rare diseases, identifying 18 new diagnoses in previously unsolved cases.",
+      "source": "OpenAI News",
+      "category": "OpenAI",
+      "sourceUrl": "https://openai.com/index/diagnose-rare-childhood-diseases",
+      "pubDate": "2026-06-18T08:00:00.000Z",
+      "fetchedAt": "2026-06-18T22:56:54.561Z",
+      "status": "published",
+      "publishedAt": "2026-06-19T08:10:30.196Z"
+    }
+  ]
 }
