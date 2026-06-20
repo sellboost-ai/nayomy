@@ -4,7 +4,7 @@ description_en: "Interview the user relentlessly about a plan or design until re
 description_tr: "Kullanıcıyı bir plan veya tasarım hakkında anlaşılan noktaya ulaşana kadar derinlemesine sorgula ve karar ağacının her dalını çöz. Kullanıcı planını stress-test etmek, tasarımı hakkında sorgulanmak istediğinde veya \"beni sorgula\" dediğinde kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/grill-me/SKILL.md"
 path: ".gemini/skills/grill-me/SKILL.md"
 is_collection: false

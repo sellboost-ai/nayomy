@@ -3,7 +3,7 @@ name: "ask-matt"
 description_en: "Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/ask-matt/SKILL.md"
 path: "skills/engineering/ask-matt/SKILL.md"
 is_collection: false

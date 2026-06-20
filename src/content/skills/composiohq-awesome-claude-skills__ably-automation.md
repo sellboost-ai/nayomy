@@ -4,7 +4,7 @@ description_en: "Automate Ably tasks via Rube MCP (Composio). Always search tool
 description_tr: "Ably görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için tools'ları önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ably-automation/SKILL.md"
 path: "composio-skills/ably-automation/SKILL.md"
 is_collection: false

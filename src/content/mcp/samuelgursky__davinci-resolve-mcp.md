@@ -4,9 +4,9 @@ description: "MCP server integration for DaVinci Resolve providing powerful tool
 description_tr: "DaVinci Resolve için MCP server entegrasyonu, video düzenleme, renk grading, medya yönetimi ve proje kontrolü için güçlü araçlar sunuyor."
 category: "Art & Culture"
 repo: "samuelgursky/davinci-resolve-mcp"
-stars: 1272
+stars: 1294
 url: "https://github.com/samuelgursky/davinci-resolve-mcp"
-body_length: 12784
+body_length: 13218
 license: "MIT"
 language: "Python"
 body_tr: |-
@@ -179,7 +179,7 @@ body_tr: |-
 
 # DaVinci Resolve MCP Server
 
-[![Version](https://img.shields.io/badge/version-2.52.1-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
+[![Version](https://img.shields.io/badge/version-2.57.4-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
 [![npm](https://img.shields.io/npm/v/davinci-resolve-mcp.svg?label=npm&color=CB3837)](https://www.npmjs.com/package/davinci-resolve-mcp)
 [![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](docs/reference/api-coverage.md)
 [![Tools](https://img.shields.io/badge/MCP%20Tools-34%20(341%20full)-blue.svg)](#server-modes)
@@ -200,7 +200,7 @@ A local browser control panel ships with the server for inspecting Resolve state
 npx davinci-resolve-mcp setup
 ```
 
-Before connecting, open DaVinci Resolve Studio and set **Preferences > General > External scripting using** to **Local**. The npm launcher installs a managed copy under your user application-data directory, then runs the universal Python installer. The installer creates a virtual environment, detects Resolve paths, and can configure Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, Zed, Continue, Cline, Roo Code, and JetBrains IDEs.
+Before connecting, open DaVinci Resolve Studio and set **Preferences > General > External scripting using** to **Local**. The npm launcher installs a managed copy under your user application-data directory, then runs the universal Python installer. The installer creates a virtual environment, detects Resolve paths, and can configure Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, Zed, Continue, Cline, Roo Code, OpenCode, and JetBrains IDEs.
 
 For source installs:
 
@@ -342,3 +342,11 @@ Samuel Gursky (samgursky@gmail.com)
 - Blackmagic Design for DaVinci Resolve and its scripting API
 - The Model Context Protocol team for enabling AI assistant integration
 - Anthropic for Claude Code, used extensively in development and testing
+
+### Community contributions
+
+- [@rgxdev](https://github.com/rgxdev) — configurable Media Pool inventory walk
+  (exclude bins + inventory limit), [#69](https://github.com/samuelgursky/davinci-resolve-mcp/pull/69) (v2.53.0)
+- [@swayll](https://github.com/swayll) — Source Track Selector investigation
+  ([#74](https://github.com/samuelgursky/davinci-resolve-mcp/issues/74)); confirmed
+  + documented API limitation (v2.57.1)

@@ -4,9 +4,9 @@ description: "A powerful MCP server that enables AI assistants to seamlessly int
 description_tr: "Portainer örnekleriyle sorunsuz iletişim kuran, doğal dil aracılığıyla container yönetimi, deployment işlemleri ve altyapı izleme yeteneklerine erişim sağlayan güçlü bir MCP server."
 category: "Cloud Platforms"
 repo: "portainer/portainer-mcp"
-stars: 182
+stars: 186
 url: "https://github.com/portainer/portainer-mcp"
-body_length: 8185
+body_length: 7958
 license: "MIT"
 language: "Python"
 homepage: "https://portainer.io"
@@ -142,16 +142,27 @@ Match the MCP server's minor version to your Portainer instance's minor — e.g.
 
 ## Getting started
 
-The MCP server can be executed locally via `uvx` or as a container.
+The MCP server supports different deployment scenarios:
+* execute it locally via `uvx`
+* install it as a MCP bundle
+* deploy it as a container
 
-Use the first approach to explore the MCP capabilities locally and deploy it inside your infrastructure as a container for a team based deployment setup.
+Use the `uvx` approach or the MCP bundle to explore the MCP capabilities locally and deploy it inside your infrastructure as a container for a team based deployment setup.
 
 > [!NOTE]
 > Before using the MCP, make sure to generate an API key in Portainer under **My Account → Access tokens** first as both paths need it.
 
+### MCP bundle (one-click install)
+
+The recommended way to test the MCP server locally. Your client must support [MCP bundles](https://github.com/modelcontextprotocol/mcpb):
+
+1. Fetch the self-contained `.mcpb` bundle for your platform from the [latest release](https://github.com/portainer/portainer-mcp/releases/latest)
+2. Double-click to install
+3. Enter your Portainer URL and API key.
+
 ### Single user (stdio via `uvx`)
 
-The recommended way to test the MCP server locally. Runs as a stdio process on your machine and connects directly to the Portainer instance.
+The other way to test the MCP server locally. Runs as a stdio process on your machine and connects directly to the Portainer instance.
 
 > [!NOTE]
 > `uv` must be installed and available on `PATH`.
@@ -170,7 +181,6 @@ claude mcp add portainer \
 
 For other clients, see
 [`docs/distribution/`](https://github.com/portainer/portainer-mcp/tree/main/docs/distribution).
-Contributions for other client instructions are welcome!
 
 ### Team deployment (container)
 
@@ -269,18 +279,6 @@ claude mcp add portainer --transport http http://mcp.example.com:17717/mcp \
   --header "Authorization: Bearer <gate-token>" \
   --header "X-Portainer-API-Key: <ptr_user_key>"
 ````
-
-### Hygiene skill (recommended)
-
-This repo ships a Claude Code skill ([`portainer-mcp-hygiene`](https://github.com/portainer/portainer-mcp/blob/main/skills/portainer-mcp-hygiene/SKILL.md)) that helps the model query the MCP efficiently and keep responses within context. Install user-wide, pinned to the same tag as the server:
-
-````bash
-mkdir -p ~/.claude/skills/portainer-mcp-hygiene && \
-  curl -fsSL https://raw.githubusercontent.com/portainer/portainer-mcp/2.42.5/skills/portainer-mcp-hygiene/SKILL.md \
-  -o ~/.claude/skills/portainer-mcp-hygiene/SKILL.md
-````
-
-It is recommended to re-run on each server upgrade so the skill stays in sync.
 
 ## Restricting and expanding the MCP server capabilities
 

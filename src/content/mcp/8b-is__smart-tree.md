@@ -4,7 +4,7 @@ description: "AI-native directory visualization with semantic analysis, ultra-co
 description_tr: "AI-doğal dizin görselleştirmesi ile semantik analiz, AI tüketimi için ultra-sıkıştırılmış formatlar ve 10x token azaltma sunuyor. Akıllı dosya kategorilendirmesi ile quantum-semantic modu destekler."
 category: "File Systems"
 repo: "8b-is/smart-tree"
-stars: 252
+stars: 253
 url: "https://github.com/8b-is/smart-tree"
 body_length: 30820
 license: "MIT"

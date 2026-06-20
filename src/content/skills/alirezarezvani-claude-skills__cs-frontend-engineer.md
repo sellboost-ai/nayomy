@@ -4,7 +4,7 @@ description_en: "Frontend-engineering orchestrator. Walks the 7 Matt Pocock forc
 description_tr: "Frontend mühendisliği orkestratrı. Matt Pocock'un 7 zorlu sorusunu (device, LCP hedefi, rendering, bundle budget, SEO vs auth, design system, WCAG) sorar, uygun framework/rendering profilini seçer, uzmanlaşmış ajanlar arasında dağıtır (a11y-audit, apple-hig-expert, epic-design, performance-profiler, playwright-pro — alfabetik sırada; iş akışı bağımlılık odaklı) yerine onların kapsamını yeniden uygulamaz."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-frontend-engineer/SKILL.md"
 path: ".gemini/skills/cs-frontend-engineer/SKILL.md"
 is_collection: false

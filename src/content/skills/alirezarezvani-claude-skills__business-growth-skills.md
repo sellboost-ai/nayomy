@@ -4,7 +4,7 @@ description_en: "Router/index for the 4 business & growth skills bundled in this
 description_tr: "Bu plugin'de paket halinde sunulan 4 işletme ve büyüme becerisi için router/index: customer-success-manager (sağlık skorlaması, churn riski, genişleme), sales-engineer (RFP analizi, rekabet matrisleri, PoC planlama), revenue-operations (pipeline, tahmin doğruluğu, GTM verimliği) ve contract-and-proposal-writer. Bir büyüme/revenue isteği belirli bir beceriyle net şekilde eşleşmediğinde ve doğru seçimi yapmanız gerektiğinde kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/business-growth-skills/SKILL.md"
 path: ".gemini/skills/business-growth-skills/SKILL.md"
 is_collection: false

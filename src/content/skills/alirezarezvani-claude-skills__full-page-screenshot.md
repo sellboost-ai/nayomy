@@ -4,7 +4,7 @@ description_en: "Use when the user asks to capture a full-page screenshot, long 
 description_tr: "Kullanıcı bir web sayfasının tam sayfa ekran görüntüsü, uzun ekran görüntüsü veya tam sayfa yakalaması istediğinde kullanın. Chrome DevTools Protocol aracılığıyla SPA scroll containerlarını, lazy-loaded görselleri ve çok uzun sayfaları harici bağımlılık olmadan işler."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/full-page-screenshot/SKILL.md"
 path: ".gemini/skills/full-page-screenshot/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Use when you have a spec or requirements for a multi-step task,
 description_tr: "Çok adımlı bir görev için spec veya gereksinimleriniz varsa, koda başlamadan önce kullanın."
 category: "Design"
 repo: "obra/superpowers"
-stars: 231591
+stars: 233596
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/writing-plans/SKILL.md"
 path: "skills/writing-plans/SKILL.md"
 is_collection: false

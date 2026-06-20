@@ -4,7 +4,7 @@ description_en: "Atlassian Template and Files Creator/Modifier expert for creati
 description_tr: "Jira ve Confluence şablonları, blueprintleri, özel layoutları, yeniden kullanılabilir bileşenleri ve standart içerik yapılarını oluşturmak, değiştirmek ve yönetmek için uzmanlaşmış Atlassian aracı. Organizasyonun genelinde kullanılacak şablonlar, custom blueprintler, sayfa layoutları ve otomatik içerik üretimi için kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/atlassian-templates/SKILL.md"
 path: ".gemini/skills/atlassian-templates/SKILL.md"
 is_collection: false

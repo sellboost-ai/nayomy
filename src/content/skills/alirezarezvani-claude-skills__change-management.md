@@ -4,7 +4,7 @@ description_en: "Framework for rolling out organizational changes without chaos.
 description_tr: "Organizasyonel değişiklikleri düzenli bir şekilde yönetmek için framework. ADKAR modelini startuplara uyarlamış hali, hazır iletişim şablonları, direniş desenleri ve değişim yorgunluğu yönetimini içerir. Süreç değişiklikleri, org yeniden yapılandırması, strateji pivotları ve kültür değişimlerini kapsar. Reorganizasyon, araç geçişi, strateji değişikliği, ürün kapatma, liderlik değişimi veya kullanıcı değişim konusunu açtığında kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/change-management/SKILL.md"
 path: ".gemini/skills/change-management/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Agile product ownership for backlog management and sprint execu
 description_tr: "Backlog yönetimi ve sprint çalışması için çevik ürün sahipliği. Kullanıcı hikayesi yazma, kabul kriterleri oluşturma, sprint planlama ve velocity takibini kapsar. Kullanıcı hikayeleri yazarken, kabul kriterleri tanımlarken, sprintleri planlarken, story point tahmin ederken, epic'leri parçalarken veya backlog'u önceliklendirerken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/agile-product-owner/SKILL.md"
 path: ".gemini/skills/agile-product-owner/SKILL.md"
 is_collection: false

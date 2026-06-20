@@ -4,7 +4,7 @@ description: "Base Network integration for onchain tools, allowing interaction w
 description_tr: "Base Network entegrasyonu ile onchain araçlarınızı güçlendirin, Coinbase API aracılığıyla cüzdan yönetimi, fon transferleri, smart contract ve DeFi işlemleri gerçekleştirin."
 category: "Finance & Fintech"
 repo: "base/base-mcp"
-stars: 348
+stars: 349
 url: "https://github.com/base/base-mcp"
 body_length: 518
 license: "MIT"

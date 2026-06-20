@@ -4,7 +4,7 @@ description_en: "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-
 description_tr: "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS iç denetimi için 6 sorudan oluşan zorunlu sorgulama. Sertifikalandırma 1. aşamasından önce, yıllık iç denetim döngülerinden önce veya yeni bir AI sistemini mevcut AIMS'e eklemeden önce kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/aims-audit/SKILL.md"
 path: ".gemini/skills/aims-audit/SKILL.md"
 is_collection: false

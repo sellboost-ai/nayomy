@@ -4,7 +4,7 @@ description_en: "Automate Cloudcart tasks via Rube MCP (Composio). Always search
 description_tr: "Cloudcart görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudcart-automation/SKILL.md"
 path: "composio-skills/cloudcart-automation/SKILL.md"
 is_collection: false

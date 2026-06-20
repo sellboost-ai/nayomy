@@ -4,7 +4,7 @@ description_en: "Suite of tools for creating elaborate, multi-component claude.a
 description_tr: "claude.ai için React, Tailwind CSS ve shadcn/ui gibi modern frontend teknolojilerini kullanarak karmaşık, çok bileşenli HTML artifact'ları oluşturmak için tasarlanmış araç seti. State management, routing veya shadcn/ui bileşenleri gerektiren kompleks artifact'lar için kullanın - basit tek dosyalı HTML/JSX artifact'ları için değil."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/artifacts-builder/SKILL.md"
 path: "artifacts-builder/SKILL.md"
 is_collection: false

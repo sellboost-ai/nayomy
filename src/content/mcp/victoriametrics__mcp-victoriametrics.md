@@ -4,7 +4,7 @@ description: "Provides comprehensive integration with your VictoriaMetrics insta
 description_tr: "VictoriaMetrics instance'larınızın API'leri ve dokümantasyonu ile kapsamlı entegrasyon sağlayarak, monitoring, observability ve debugging görevlerini kolaylaştırır."
 category: "Monitoring"
 repo: "VictoriaMetrics/mcp-victoriametrics"
-stars: 183
+stars: 184
 url: "https://github.com/VictoriaMetrics/mcp-victoriametrics"
 body_length: 41570
 license: "Apache-2.0"

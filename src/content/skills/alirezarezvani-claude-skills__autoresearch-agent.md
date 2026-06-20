@@ -4,7 +4,7 @@ description_en: "Autonomous experiment loop that optimizes any file by a measura
 description_tr: "Herhangi bir dosyayı ölçülebilir bir metriğe göre optimize eden otonom deney döngüsü. Karpathy'nin autoresearch'ünden ilham almıştır. Agent, hedef dosyayı düzenler, sabit bir evaluasyonu çalıştırır, iyileştirmeleri tutar (git commit), başarısızlıkları siler (git reset) ve sonsuz döngüye girer. Kullanım: kod hızını optimize etmek, bundle/image boyutunu azaltmak, test geçiş oranını iyileştirmek, prompt'ları optimize etmek veya içerik kalitesini artırmak istediğinizde."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/autoresearch-agent/SKILL.md"
 path: ".gemini/skills/autoresearch-agent/SKILL.md"
 is_collection: false

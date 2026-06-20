@@ -4,7 +4,7 @@ description_en: "Use when the user asks to automate browser tasks, scrape websit
 description_tr: "Tarayıcı görevlerini otomatikleştirmek, web sitelerinden veri çıkarmak, formları doldurmak, ekran görüntüsü almak, web sayfalarından yapılandırılmış veri extract etmek veya web automation workflow'ları oluşturmak için kullanın. Test işlemleri için değildir — bunun yerine playwright-pro kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/browser-automation/SKILL.md"
 path: ".gemini/skills/browser-automation/SKILL.md"
 is_collection: false

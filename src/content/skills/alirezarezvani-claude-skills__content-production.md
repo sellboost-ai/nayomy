@@ -4,7 +4,7 @@ description_en: "Full content production pipeline — takes a topic from blank p
 description_tr: "Tam içerik üretim pipeline'ı — bir konuyu boş sayfadan yayınlanmaya hazır hale getiriyor. Blog yazısı, makale veya rehber baştan sona oluşturmanız gerektiğinde kullanın. Tetikleyiciler: 'şu konuda bir yazı yaz', 'bir makale taslağı oluştur', 'bunun için içerik yarat', 'yazı yazana yardım et', 'bana bir blog yazısı lazım'. İçerik stratejisi veya takvim planlama için değil (content-strategy kullanın). Mevcut içeriği yeniden amaçlandırmak için değil."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/content-production/SKILL.md"
 path: ".gemini/skills/content-production/SKILL.md"
 is_collection: false

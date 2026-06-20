@@ -4,7 +4,7 @@ description: "Get the LaTeX source of arXiv papers to handle mathematical conten
 description_tr: "arXiv makalelerinin LaTeX kaynağını alın, matematiksel içerik ve denklemleri işlemek için."
 category: "Search & Data Extraction"
 repo: "takashiishida/arxiv-latex-mcp"
-stars: 135
+stars: 138
 url: "https://github.com/takashiishida/arxiv-latex-mcp"
 body_length: 3191
 license: "MIT"

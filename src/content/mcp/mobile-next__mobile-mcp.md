@@ -4,7 +4,7 @@ description: "MCP Server for Android/iOS application and device automation, deve
 description_tr: "Android/iOS uygulamaları ve cihazların otomasyon, geliştirme ile app scraping işlemleri için MCP Server. iPhone, Google Pixel, Samsung gibi simülatör, emülatör ve fiziksel cihazları destekler."
 category: "Developer Tools"
 repo: "mobile-next/mobile-mcp"
-stars: 5223
+stars: 5234
 url: "https://github.com/mobile-next/mobile-mcp"
 body_length: 16916
 license: "Apache-2.0"

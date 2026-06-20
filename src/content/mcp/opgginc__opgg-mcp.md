@@ -4,7 +4,7 @@ description: "Access real-time gaming data across popular titles like League of 
 description_tr: "Popüler oyunlar olan League of Legends, TFT ve Valorant'ın gerçek zamanlı oyun verilerine erişin; şampiyon analitiği, esports takvimi, meta komposizyonları ve karakter istatistiklerini keşfedin."
 category: "Gaming"
 repo: "opgginc/opgg-mcp"
-stars: 93
+stars: 94
 url: "https://github.com/opgginc/opgg-mcp"
 body_length: 4329
 license: "MIT"

@@ -4,7 +4,7 @@ description: "Sentry.io integration for error tracking and performance monitorin
 description_tr: "Sentry.io entegrasyonu ile hata takibi ve performans izlemesi"
 category: "Monitoring"
 repo: "getsentry/sentry-mcp"
-stars: 730
+stars: 733
 url: "https://github.com/getsentry/sentry-mcp"
 body_length: 8823
 license: "NOASSERTION"

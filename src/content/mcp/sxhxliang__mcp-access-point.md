@@ -4,7 +4,7 @@ description: "Turn a web service into an MCP server in one click without making 
 description_tr: "Web servisinizi kod değişikliği yapmadan tek tıkla MCP sunucusuna dönüştürün."
 category: "Aggregators"
 repo: "sxhxliang/mcp-access-point"
-stars: 175
+stars: 176
 url: "https://github.com/sxhxliang/mcp-access-point"
 body_length: 14946
 license: "MIT"

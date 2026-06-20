@@ -4,7 +4,7 @@ description: "Web search capabilities using Brave's Search API"
 description_tr: "Brave Search API kullanarak web arama yetenekleri"
 category: "Search & Data Extraction"
 repo: "brave/brave-search-mcp-server"
-stars: 1199
+stars: 1207
 url: "https://github.com/brave/brave-search-mcp-server"
 body_length: 18226
 license: "MIT"

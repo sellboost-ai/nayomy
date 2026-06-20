@@ -4,7 +4,7 @@ description: "Wenyan MCP Server, which lets AI automatically format Markdown art
 description_tr: "Wenyan MCP Server, yapay zekanın Markdown makalelerini otomatik olarak biçimlendirmesini ve WeChat GZH'ye yayınlamasını sağlar."
 category: "Other Tools and Integrations"
 repo: "caol64/wenyan-mcp"
-stars: 1250
+stars: 1251
 url: "https://github.com/caol64/wenyan-mcp"
 body_length: 7044
 license: "Apache-2.0"

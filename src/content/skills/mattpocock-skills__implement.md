@@ -3,7 +3,7 @@ name: "implement"
 description_en: "Implement a piece of work based on a PRD or set of issues."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/implement/SKILL.md"
 path: "skills/engineering/implement/SKILL.md"
 is_collection: false

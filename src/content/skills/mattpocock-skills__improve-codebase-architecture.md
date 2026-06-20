@@ -4,7 +4,7 @@ description_en: "Scan a codebase for deepening opportunities, present them as a 
 description_tr: "CONTEXT.md'deki domain language ve docs/adr/ içindeki kararlardan yararlanarak kodbase'de derinleştirme fırsatlarını bulun. Mimarisini geliştirmek, refaktoring fırsatlarını keşfetmek, sıkı bağlı modülleri birleştirmek veya kodbase'i daha test edilebilir ve AI-navigable hale getirmek istediğinizde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/improve-codebase-architecture/SKILL.md"
 path: "skills/engineering/improve-codebase-architecture/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "FDA regulatory consultant for medical device companies. Provide
 description_tr: "FDA düzenlemelerine uyum sağlayan tıbbi cihaz şirketleri için danışman. 510(k)/PMA/De Novo yol haritası rehberliği, QMSR (21 CFR 820, 2026-02-02 tarihinden itibaren ISO 13485:2016'yi referans alır; eski adıyla QSR) uygunluğu, HIPAA değerlendirmeleri ve cihaz siber güvenliği konularında destek sağlar. Kullanıcı FDA başvurusu, 510(k), PMA, De Novo, QMSR, QSR, ISO 13485, ön-pazar, predicate cihaz veya önemli denklik hakkında söz ettiğinde devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/fda-consultant-specialist/SKILL.md"
 path: ".gemini/skills/fda-consultant-specialist/SKILL.md"
 is_collection: false

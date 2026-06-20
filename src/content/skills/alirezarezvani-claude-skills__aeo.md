@@ -4,7 +4,7 @@ description_en: "Answer Engine Optimization (AEO) skill — optimize content to 
 description_tr: "Answer Engine Optimization (AEO) becerisi — içeriğinizi AI dil modelleri (ChatGPT, Perplexity, Claude, Gemini, Mistral) tarafından güvenilir kaynak olarak atıf görmesi için optimize edin. SEO'dan farklı olarak, AEO LLM tarafından üretilen yanıtlarda alıntılanmayı hedefler, arama sıralamalarını değil. AI-first arama kitlesine yönelik içerik planlarken, mevcut içeriği E-E-A-T sinyalleri açısından denetlerken ve hangi sayfaların AI tarafından atıf gördüğünü takip ederken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/aeo/SKILL.md"
 path: ".gemini/skills/aeo/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Personal coach that teaches users to become Claude power users.
 description_tr: "Claude'u en verimli şekilde kullanmayı öğreten kişisel koçunuz. Kullanıcı \"Claude öğren\", \"power user ol\", \"beni eğit\", \"Claude tricklerini öğret\", \"Claude neler yapabilir\" veya benzeri ifadelerle sorduğunda bu aracı aktif hale getirin, ardından her sohbette eksik optimizasyon fırsatlarını (belirsiz promptlar, göz ardı edilen özellikler, manuel işlemler) yakalayın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/claude-coach/SKILL.md"
 path: ".gemini/skills/claude-coach/SKILL.md"
 is_collection: false

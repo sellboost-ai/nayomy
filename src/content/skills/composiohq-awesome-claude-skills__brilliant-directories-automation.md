@@ -4,7 +4,7 @@ description_en: "Automate Brilliant Directories tasks via Rube MCP (Composio). A
 description_tr: "Rube MCP (Composio) aracılığıyla Brilliant Directories görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce tools'ları araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/brilliant-directories-automation/SKILL.md"
 path: "composio-skills/brilliant-directories-automation/SKILL.md"
 is_collection: false

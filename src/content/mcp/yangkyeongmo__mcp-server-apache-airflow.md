@@ -4,7 +4,7 @@ description: "MCP server that connects to Apache Airflow using official client."
 description_tr: "Apache Airflow'a resmi client ile bağlanan MCP sunucusu."
 category: "Developer Tools"
 repo: "yangkyeongmo/mcp-server-apache-airflow"
-stars: 166
+stars: 167
 url: "https://github.com/yangkyeongmo/mcp-server-apache-airflow"
 body_length: 20009
 license: "MIT"

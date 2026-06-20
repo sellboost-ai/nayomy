@@ -4,7 +4,7 @@ description: "Apple Documentation MCP Server. Search Apple developer docs, Swift
 description_tr: "Apple Documentation MCP Server. Apple geliştirici dokümentasyonunu, Swift Evolution önerilerini ve 600+ örnek kod projesini tam metin araması ile arayın."
 category: "Developer Tools"
 repo: "mihaelamj/cupertino"
-stars: 832
+stars: 834
 url: "https://github.com/mihaelamj/cupertino"
 body_length: 26573
 license: "MIT"

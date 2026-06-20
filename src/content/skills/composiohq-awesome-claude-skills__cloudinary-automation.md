@@ -4,7 +4,7 @@ description_en: "Automate Cloudinary media management including folder organizat
 description_tr: "Cloudinary medya yönetimini klasör düzenleme, upload preset'leri, asset arama, transformasyonlar ve kullanım izlemesi dahil olmak üzere doğal dil komutlarıyla otomatikleştirin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudinary-automation/SKILL.md"
 path: "composio-skills/cloudinary-automation/SKILL.md"
 is_collection: false

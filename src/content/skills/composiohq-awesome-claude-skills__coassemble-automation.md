@@ -4,7 +4,7 @@ description_en: "Automate Coassemble tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) aracılığıyla Coassemble görevlerini otomatikleştirin. Her zaman mevcut şemaları kontrol etmek için tool'ları önce araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/coassemble-automation/SKILL.md"
 path: "composio-skills/coassemble-automation/SKILL.md"
 is_collection: false

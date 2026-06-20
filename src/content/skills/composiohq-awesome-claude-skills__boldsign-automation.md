@@ -4,7 +4,7 @@ description_en: "Automate Boldsign tasks via Rube MCP (Composio). Always search 
 description_tr: "Boldsign görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemalar için her zaman önce tools'u arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/boldsign-automation/SKILL.md"
 path: "composio-skills/boldsign-automation/SKILL.md"
 is_collection: false

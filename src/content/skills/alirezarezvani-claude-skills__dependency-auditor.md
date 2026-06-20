@@ -4,7 +4,7 @@ description_en: "Audit and manage dependencies across multi-language projects. I
 description_tr: "Çok dilli projelerde bağımlılıkları denetleyin ve yönetin. Güvenlik açıklarını, lisans çatışmalarını, geçişli bağımlılık risklerini ve güvenli güncelleme yollarını belirler. Yayınlama öncesi üçüncü taraf paketleri denetlemek, CVE araştırmak, ana sürüm güncellemesi planlamak veya lisans uyumluluğu gözden geçirmek için kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/dependency-auditor/SKILL.md"
 path: ".gemini/skills/dependency-auditor/SKILL.md"
 is_collection: false

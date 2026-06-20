@@ -4,7 +4,7 @@ description_en: "Create new skills, modify and improve existing skills, and meas
 description_tr: "Sıfırdan yeni skill'ler oluşturun, mevcut skill'leri düzenleyin ve performanslarını ölçün. Skill'ler üzerinde evals çalıştırarak test etme, performans benchmark'lama ve varyans analizi yapma, ya da triggering doğruluğunu artırmak için skill tanımlarını optimize etme işlemleri için kullanın."
 category: "Development"
 repo: "anthropics/skills"
-stars: 152323
+stars: 152948
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/skill-creator/SKILL.md"
 path: "skills/skill-creator/SKILL.md"
 is_collection: false

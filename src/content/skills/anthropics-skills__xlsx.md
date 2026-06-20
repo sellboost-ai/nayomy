@@ -4,7 +4,7 @@ description_en: "Use this skill any time a spreadsheet file is the primary input
 description_tr: "Bu skill'i spreadsheet dosyası ana input veya output olduğu her durumda kullanın. Buna şu görevler dahildir: mevcut .xlsx, .xlsm, .csv veya .tsv dosyalarını açma, okuma, düzenleme veya düzeltme (sütun ekleme, formül hesaplama, biçimlendirme, grafik oluşturma, veri temizleme gibi); sıfırdan veya diğer veri kaynaklarından yeni spreadsheet oluşturma; ya da tabular dosya formatları arasında dönüştürme işlemleri."
 category: "Document"
 repo: "anthropics/skills"
-stars: 152323
+stars: 152948
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/xlsx/SKILL.md"
 path: "skills/xlsx/SKILL.md"
 is_collection: false

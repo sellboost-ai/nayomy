@@ -4,7 +4,7 @@ description: "Making enterprise AI infrastructure universally accessible. Edge-f
 description_tr: "Kurumsal AI altyapısını herkesin erişebileceği hale getiriyor. Edge-first platformu 12 sağlayıcı ve 100+ modeli, multi-agent orchestration, HITL workflows, guardrails middleware ve context summarization ile birleştiriyor."
 category: "Aggregators"
 repo: "juspay/neurolink"
-stars: 102
+stars: 103
 url: "https://github.com/juspay/neurolink"
 body_length: 61868
 license: "MIT"

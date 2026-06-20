@@ -4,11 +4,11 @@ description_en: "Use when executing implementation plans with independent tasks 
 description_tr: "Mevcut oturumda bağımsız görevlerle uygulama planlarını yürütürken kullanın"
 category: "Development"
 repo: "obra/superpowers"
-stars: 231591
+stars: 233596
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/subagent-driven-development/SKILL.md"
 path: "skills/subagent-driven-development/SKILL.md"
 is_collection: false
-body_length: 21265
+body_length: 21397
 has_scripts: true
 has_references: false
 has_examples: false
@@ -576,7 +576,7 @@ sequences — the single most expensive failure observed. Track progress in
 a ledger file, not only in todos.
 
 - At skill start, check for a ledger:
-  `cat "$(git rev-parse --git-path sdd)/progress.md"`. Tasks listed there
+  `cat "$(git rev-parse --show-toplevel)/.superpowers/sdd/progress.md"`. Tasks listed there
   as complete are DONE — do not re-dispatch them; resume at the first task
   not marked complete.
 - When a task's review comes back clean, append one line to the ledger in
@@ -585,6 +585,8 @@ a ledger file, not only in todos.
 - The ledger is your recovery map: the commits it names exist in git even
   when your context no longer remembers creating them. After compaction,
   trust the ledger and `git log` over your own recollection.
+- `git clean -fdx` will destroy the ledger (it's git-ignored scratch); if
+  that happens, recover from `git log`.
 
 ## Prompt Templates
 

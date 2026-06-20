@@ -4,7 +4,7 @@ description_en: "Automate Apaleo tasks via Rube MCP (Composio). Always search to
 description_tr: "Apaleo görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/apaleo-automation/SKILL.md"
 path: "composio-skills/apaleo-automation/SKILL.md"
 is_collection: false

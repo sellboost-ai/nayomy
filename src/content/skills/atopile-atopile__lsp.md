@@ -4,7 +4,7 @@ description_en: "How the atopile Language Server works (pygls), how it builds pe
 description_tr: "Atopile Language Server'ın (pygls) nasıl çalıştığı, doküman başına graph'ları completion/hover/definitions için nasıl inşa ettiği ve hızlı ve çöküntüsüz kalmasını sağlayan invariantlar."
 category: "Document"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/lsp/SKILL.md"
 path: ".claude/skills/lsp/SKILL.md"
 is_collection: false

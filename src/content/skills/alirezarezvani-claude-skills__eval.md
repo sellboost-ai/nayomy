@@ -4,7 +4,7 @@ description_en: "Evaluate and rank agent results by metric or LLM judge for an A
 description_tr: "AgentHub oturumundaki agent sonuçlarını metrik veya LLM judge ile değerlendirin ve sıralayın. Kullanıcı /hub:eval komutunu çalıştırdığında veya tamamlanan AgentHub agent'ları puanlamak, karşılaştırmak ya da kazananı seçmek istediğinde kullanılır."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/eval/SKILL.md"
 path: ".gemini/skills/eval/SKILL.md"
 is_collection: false

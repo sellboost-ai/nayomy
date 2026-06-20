@@ -4,7 +4,7 @@ description_en: "LLM-focused code review process for this repo: what to check, h
 description_tr: "Bu repo için LLM odaklı code review süreci: neleri kontrol etmek gerektiği, feedback'i invariants/testlere nasıl dayandıracağınız ve değişiklikleri verimli bir şekilde nasıl doğrulayacağınız (test-report.json dahil)."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/code-review/SKILL.md"
 path: ".claude/skills/code-review/SKILL.md"
 is_collection: false

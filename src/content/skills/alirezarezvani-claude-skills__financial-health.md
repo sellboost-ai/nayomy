@@ -4,7 +4,7 @@ description_en: "Run financial ratio analysis, DCF valuation, budget variance an
 description_tr: "Finansal oran analizi, DCF değerleme, bütçe varyans analizi ve rolling forecast'lar çalıştırın. Kullanım: /financial-health <ratios|dcf|budget|forecast> <data.json>"
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/financial-health/SKILL.md"
 path: ".gemini/skills/financial-health/SKILL.md"
 is_collection: false

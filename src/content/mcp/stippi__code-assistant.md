@@ -4,7 +4,7 @@ description: "Coding agent with basic list, read, replace_in_file, write, execut
 description_tr: "Temel list, read, replace_in_file, write, execute_command ve web search araçlarına sahip bir coding agenti. Birden fazla projeyi aynı anda destekler."
 category: "Coding Agents"
 repo: "stippi/code-assistant"
-stars: 171
+stars: 172
 url: "https://github.com/stippi/code-assistant"
 body_length: 15700
 license: "MIT"

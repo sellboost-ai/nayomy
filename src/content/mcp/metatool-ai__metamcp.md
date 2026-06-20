@@ -4,7 +4,7 @@ description: "MetaMCP is the one unified middleware MCP server that manages your
 description_tr: "MetaMCP, MCP bağlantılarınızı GUI ile yöneten tek bir merkezi MCP server ara yazılımıdır."
 category: "Aggregators"
 repo: "metatool-ai/metamcp"
-stars: 2428
+stars: 2437
 url: "https://github.com/metatool-ai/metamcp"
 body_length: 24175
 license: "MIT"

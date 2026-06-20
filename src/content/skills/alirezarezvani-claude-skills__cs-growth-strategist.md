@@ -4,7 +4,7 @@ description_en: "Growth Strategist agent for revenue operations, sales engineeri
 description_tr: "Gelir operasyonları, satış mühendisliği, müşteri başarısı ve iş geliştirme için Growth Strategist ajanı. İşletme büyüme becerilerini yönetir. Kullanıcılar pipeline analizi, churn önleme, expansion scoring, satış demosu veya teklif yazımına ihtiyaç duyduğunda devreye girer."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-growth-strategist/SKILL.md"
 path: ".gemini/skills/cs-growth-strategist/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of re
 description_tr: "/cs:cro-review <plan> — Revenue, win rate, NRR ve ramp time'ın derinlemesine analizi yapan pipeline kontrol aracı. Pipeline coverage hedefini kaçırdığınızda, win rate düştüğünde veya satış ekibini ölçeklendirmeden önce kullanın."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cro-review/SKILL.md"
 path: ".gemini/skills/cro-review/SKILL.md"
 is_collection: false

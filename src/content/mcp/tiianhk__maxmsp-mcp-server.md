@@ -4,7 +4,7 @@ description: "A coding agent for Max (Max/MSP/Jitter), which is a visual program
 description_tr: "Max için bir kodlama aracısı. Max/MSP/Jitter, müzik ve multimedya için görsel bir programlama dilidir."
 category: "Coding Agents"
 repo: "tiianhk/MaxMSP-MCP-Server"
-stars: 231
+stars: 233
 url: "https://github.com/tiianhk/MaxMSP-MCP-Server"
 body_length: 2925
 license: "MIT"

@@ -4,7 +4,7 @@ description: "Official Microsoft Playwright MCP server, enabling LLMs to interac
 description_tr: "Microsoft'un resmi Playwright MCP sunucusu, LLM'lerin yapılandırılmış erişilebilirlik anlık görüntüleri aracılığıyla web sayfalarıyla etkileşim kurmasını sağlıyor."
 category: "Browser Automation"
 repo: "microsoft/playwright-mcp"
-stars: 34067
+stars: 34123
 url: "https://github.com/microsoft/playwright-mcp"
 body_length: 59469
 license: "Apache-2.0"

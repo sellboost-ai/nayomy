@@ -4,7 +4,7 @@ description_en: "Run parallel feature work safely with Git worktrees. Standardiz
 description_tr: "Git worktrees ile paralel feature geliştirmesini güvenli şekilde yürütün. Branch izolasyonu, port tahsisi, environment senkronizasyonu ve temizlik işlemlerini standartlaştırarak her worktree'yi bağımsız bir lokal uygulama gibi davrandırır. Multi-agent workflow'lar için optimize edilmiştir; her agent ya da terminal oturumu bir worktree'ye sahiptir. Birden fazla feature branch'i aynı anda çalıştırırken, deneysel çalışmaları izole ederken ya da multi-agent geliştirmeyi koordine ederken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/git-worktree-manager/SKILL.md"
 path: ".gemini/skills/git-worktree-manager/SKILL.md"
 is_collection: false

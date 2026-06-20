@@ -6,7 +6,7 @@ category: "Code Execution"
 repo: "mavdol/capsule"
 stars: 290
 url: "https://github.com/mavdol/capsule"
-body_length: 16626
+body_length: 16318
 license: "Apache-2.0"
 language: "Rust"
 body_tr: |-
@@ -575,8 +575,6 @@ body_tr: |-
 # `Capsule`
 
 [![CI](https://img.shields.io/github/actions/workflow/status/capsulerun/capsule/ci.yml?branch=main&label=CI)](https://github.com/capsulerun/capsule/actions/workflows/ci.yml)
-[![NPM Downloads](https://img.shields.io/npm/dm/@capsule-run%2Fcli?label=npm&color=orange&cacheSeconds=1209600)](https://www.npmjs.com/package/@capsule-run/cli)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/capsule-run?label=pypi&color=blue&cacheSeconds=12096000)](https://pypi.org/project/capsule-run/)
 
 [Getting Started](#getting-started) • [Documentation](#documentation) • [Issues](https://github.com/capsulerun/capsule/issues/new) • [Contributing](#contributing)
 

@@ -4,7 +4,7 @@ description_en: "Automate Cloudconvert tasks via Rube MCP (Composio). Always sea
 description_tr: "Cloudconvert görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman geçerli şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudconvert-automation/SKILL.md"
 path: "composio-skills/cloudconvert-automation/SKILL.md"
 is_collection: false

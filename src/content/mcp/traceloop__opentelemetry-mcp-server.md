@@ -4,7 +4,7 @@ description: "An MCP server for connecting to any OpenTelemetry backend (Datadog
 description_tr: "OpenTelemetry arka ucuyla (Datadog, Grafana, Dynatrace, Traceloop vb.) bağlantı kurmak için bir MCP sunucusu."
 category: "Developer Tools"
 repo: "traceloop/opentelemetry-mcp-server"
-stars: 191
+stars: 192
 url: "https://github.com/traceloop/opentelemetry-mcp-server"
 body_length: 22847
 license: "Apache-2.0"

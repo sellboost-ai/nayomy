@@ -4,7 +4,7 @@ description: "MySQL database integration with configurable access controls, sche
 description_tr: "MySQL veritabanı entegrasyonu, yapılandırılabilir erişim kontrolleri, schema incelemesi ve kapsamlı güvenlik yönergeleri ile gelir."
 category: "Databases"
 repo: "designcomputer/mysql_mcp_server"
-stars: 1304
+stars: 1306
 url: "https://github.com/designcomputer/mysql_mcp_server"
 body_length: 11045
 license: "MIT"

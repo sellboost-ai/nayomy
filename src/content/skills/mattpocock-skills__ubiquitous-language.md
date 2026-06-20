@@ -4,7 +4,7 @@ description_en: "Extract a DDD-style ubiquitous language glossary from the curre
 description_tr: "Mevcut konuşmadan DDD tarzında evrensel bir dil sözlüğü çıkarın, belirsizlikleri işaretleyin ve kanonik terimler önerilir. UBIQUITOUS_LANGUAGE.md dosyasına kaydedilir. Kullanıcı domain terimlerini tanımlamak, sözlük oluşturmak, terminolojiyi sağlamlaştırmak, evrensel dil oluşturmak veya \"domain model\" ya da \"DDD\" bahsettiğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/deprecated/ubiquitous-language/SKILL.md"
 path: "skills/deprecated/ubiquitous-language/SKILL.md"
 is_collection: false

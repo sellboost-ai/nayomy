@@ -4,7 +4,7 @@ description: "Automate your local Chrome browser"
 description_tr: "Yerel Chrome tarayıcınızı otomatikleştirin"
 category: "Browser Automation"
 repo: "BrowserMCP/mcp"
-stars: 6690
+stars: 6703
 url: "https://github.com/BrowserMCP/mcp"
 body_length: 1506
 license: "Apache-2.0"

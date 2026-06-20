@@ -4,7 +4,7 @@ description: "A JetBrains IDE plugin that exposes an MCP server, enabling AI cod
 description_tr: "JetBrains IDE eklentisi olup, bir MCP server'ı sunarak AI coding assistantlarının IDE'nin indexleme ve refactoring yeteneklerinden (rename, safe delete, find references, call hierarchy, type hierarchy, diagnostics vb.) yararlanmasını sağlar."
 category: "Developer Tools"
 repo: "hechtcarmel/jetbrains-index-mcp-plugin"
-stars: 254
+stars: 256
 url: "https://github.com/hechtcarmel/jetbrains-index-mcp-plugin"
 body_length: 27419
 license: "MIT"

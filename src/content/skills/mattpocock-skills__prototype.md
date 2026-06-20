@@ -4,7 +4,7 @@ description_en: "Build a throwaway prototype to flesh out a design — a runnabl
 description_tr: "Tasarımı hayata geçirmeden önce atılabilir bir prototip oluşturun. İki branch arasında yönlendirme yapın — state/iş-logic sorularını cevaplamak için çalıştırılabilir bir terminal uygulaması veya tek bir route'dan toggle edilebilen birçok farklı UI varyasyonu. Kullanıcı prototip oluşturmak, bir data model veya state machine'i kontrol etmek, UI mockup'ı yapmak, tasarım seçeneklerini keşfetmek istediğinde veya \"bunu prototiple\", \"biraz oynayabilir miyim\" dediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/prototype/SKILL.md"
 path: "skills/engineering/prototype/SKILL.md"
 is_collection: false

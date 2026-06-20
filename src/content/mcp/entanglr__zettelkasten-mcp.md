@@ -4,7 +4,7 @@ description: "A Model Context Protocol (MCP) server that implements the Zettelka
 description_tr: "Zettelkasten bilgi yönetimi metodolojisini uygulayan bir Model Context Protocol (MCP) sunucusu; Claude ve diğer MCP-uyumlu istemciler aracılığıyla atomik notlar oluşturmanıza, bağlantılandırmanıza ve aramanıza olanak tanır."
 category: "Knowledge & Memory"
 repo: "entanglr/zettelkasten-mcp"
-stars: 156
+stars: 155
 url: "https://github.com/entanglr/zettelkasten-mcp"
 body_length: 11598
 license: "MIT"

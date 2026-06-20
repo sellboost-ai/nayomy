@@ -4,7 +4,7 @@ description_en: "Automate Clearout tasks via Rube MCP (Composio). Always search 
 description_tr: "Rube MCP (Composio) üzerinden Clearout görevlerini otomatize edin. Tool'ları kullanmadan önce daima güncel şemaları araştırın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/clearout-automation/SKILL.md"
 path: "composio-skills/clearout-automation/SKILL.md"
 is_collection: false

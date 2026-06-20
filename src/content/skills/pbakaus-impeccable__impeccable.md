@@ -4,7 +4,7 @@ description_en: "Use when the user wants to design, redesign, shape, critique, a
 description_tr: "Frontend arayüzünü tasarlamak, yeniden tasarlamak, şekillendirmek, gözden geçirmek, denetlemek, iyileştirmek, açıklığa kavuşturmak, optimize etmek, uyarlamak, animasyon eklemek, renklendirmek, çıkarmak veya başka şekillerde geliştirmek istediğinizde kullanın. Web siteleri, landing page'ler, dashboard'lar, ürün UI'ları, app shell'ler, component'ler, formlar, ayarlar, onboarding ve boş durumları kapsar. UX review, görsel hiyerarşi, information architecture, bilişsel yük ve erişilebilirlik konularını ele alır."
 category: "Design"
 repo: "pbakaus/impeccable"
-stars: 39330
+stars: 39742
 url: "https://github.com/pbakaus/impeccable/blob/HEAD/.agents/skills/impeccable/SKILL.md"
 path: ".agents/skills/impeccable/SKILL.md"
 is_collection: false

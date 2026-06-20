@@ -4,7 +4,7 @@ description: "An MCP server built on markmap that converts Markdown to interacti
 description_tr: "Markdown'u etkileşimli zihin haritalarına dönüştüren, markmap tabanlı bir MCP sunucusu. PNG/JPG/SVG formatlarında dışa aktarım, canlı tarayıcı önizlemesi, tek tıklamayla Markdown kopyalama ve dinamik görselleştirme özelliklerini destekler."
 category: "Knowledge & Memory"
 repo: "jinzcdev/markmap-mcp-server"
-stars: 211
+stars: 212
 url: "https://github.com/jinzcdev/markmap-mcp-server"
 body_length: 4749
 license: "MIT"

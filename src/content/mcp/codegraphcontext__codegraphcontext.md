@@ -4,7 +4,7 @@ description: "An MCP server that indexes local code into a graph database to pro
 description_tr: "Yerel kodu bir graf veritabanına indeksleyen ve AI asistanlarına bağlam sağlayan, insanlar için grafik kod görselleştirmeleri sunan bir MCP sunucusu."
 category: "Coding Agents"
 repo: "CodeGraphContext/CodeGraphContext"
-stars: 3762
+stars: 3776
 url: "https://github.com/CodeGraphContext/CodeGraphContext"
 body_length: 20893
 license: "MIT"

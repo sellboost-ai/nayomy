@@ -4,7 +4,7 @@ description_en: "UX research agent for research planning, persona generation, jo
 description_tr: "UX araştırması aracı; araştırma planlaması, persona oluşturma, journey mapping ve kullanılabilirlik testi analizi için tasarlanmıştır. Ürün kararlarına kullanıcı kanıtı gerektiğinde kullanılır — örneğin görüşme senaryoları ve keşif çalışması için katılımcı seçim kriterleri planlarken veya kullanılabilirlik test oturumlarını önceliklendirilmiş bulgular ve güncellenmiş personalar halinde sentezlerken."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-ux-researcher/SKILL.md"
 path: ".gemini/skills/cs-ux-researcher/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Extracts and analyzes competitors' ads from ad libraries (Faceb
 description_tr: "Reklamcılık kütüphanelerinden (Facebook, LinkedIn vb.) rakiplerin reklamlarını çıkartıp analiz ederek hangi mesajlaşma, problem çözümleri ve yaratıcı yaklaşımların işe yaradığını anlamaya yardımcı olur. Kendi reklam kampanyalarınızdan ilham almak ve bunları geliştirmek için kullanılabilir."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/competitive-ads-extractor/SKILL.md"
 path: "competitive-ads-extractor/SKILL.md"
 is_collection: false

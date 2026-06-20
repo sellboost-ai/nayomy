@@ -4,7 +4,7 @@ description: "Control Spotify playback and manage playlists."
 description_tr: "Spotify oynatmayı kontrol edin ve playlist'lerinizi yönetin."
 category: "Other Tools and Integrations"
 repo: "marcelmarais/spotify-mcp-server"
-stars: 371
+stars: 373
 url: "https://github.com/marcelmarais/spotify-mcp-server"
 body_length: 17265
 language: "TypeScript"

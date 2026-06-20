@@ -4,7 +4,7 @@ description: "An MCP server for interacting with Apple Reminders on macOS"
 description_tr: "macOS'ta Apple Reminders ile etkileşim kurmak için bir MCP sunucusu."
 category: "Browser Automation"
 repo: "FradSer/mcp-server-apple-events"
-stars: 142
+stars: 143
 url: "https://github.com/FradSer/mcp-server-apple-events"
 body_length: 35777
 license: "MIT"

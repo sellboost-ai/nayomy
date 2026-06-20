@@ -4,7 +4,7 @@ description: "A universal database MCP server supporting simultaneous connection
 description_tr: "Birden fazla veritabanına eş zamanlı bağlantı destekleyen evrensel bir veritabanı MCP sunucusu. Veritabanı işlemleri, sistem sağlığı analizi, SQL optimizasyonu ve daha fazlası için araçlar sağlar. MySQL, PostgreSQL, SQL Server, MariaDB, Dameng ve Oracle dahil olmak üzere ana veritabanlarıyla uyumlu. Streamable HTTP, SSE ve STDIO desteği; OAuth 2.0 entegrasyonu; ve kolay özelleştirme ve genişletme için tasarlanmıştır."
 category: "Databases"
 repo: "wenb1n-dev/SmartDB_MCP"
-stars: 86
+stars: 87
 url: "https://github.com/wenb1n-dev/SmartDB_MCP"
 body_length: 12241
 license: "MIT"

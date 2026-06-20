@@ -4,7 +4,7 @@ description_en: "Search, create, and manage notes in the Obsidian vault with wik
 description_tr: "Obsidian vault'unuzda wikilink'ler ve index notlarla birlikte notları arayın, oluşturun ve yönetin. Kullanıcı Obsidian'da notları bulmak, oluşturmak veya organize etmek istediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/personal/obsidian-vault/SKILL.md"
 path: "skills/personal/obsidian-vault/SKILL.md"
 is_collection: false

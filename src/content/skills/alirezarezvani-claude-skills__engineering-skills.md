@@ -4,7 +4,7 @@ description_en: "Index of the engineering-team skills bundle for Claude Code, Co
 description_tr: "Claude Code, Codex, Gemini CLI, Cursor, OpenClaw ve 6 araç daha için mühendislik ekibi beceri paketinin indeksi. Mimari, frontend, backend, QA, DevOps, güvenlik, AI/ML, veri mühendisliği, Playwright, Stripe, AWS, MS365 (stdlib-only Python araçları) içerir. Mühendislik ekibi rol becerilerini incelerken veya seçerken kullanın — yalnızca ihtiyacınız olan SKILL.md dosyasını yükleyin, hiçbir zaman tüm paketi toplu yüklemeyin."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/engineering-skills/SKILL.md"
 path: ".gemini/skills/engineering-skills/SKILL.md"
 is_collection: false

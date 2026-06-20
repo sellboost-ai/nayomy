@@ -4,7 +4,7 @@ description_en: "Automate Aero Workflow tasks via Rube MCP (Composio). Always se
 description_tr: "Rube MCP (Composio) üzerinden Aero Workflow görevlerini otomatikleştirin. Her zaman güncel şemaları için önce tools arasında arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/aero-workflow-automation/SKILL.md"
 path: "composio-skills/aero-workflow-automation/SKILL.md"
 is_collection: false

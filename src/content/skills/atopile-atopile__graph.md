@@ -4,7 +4,7 @@ description_en: "How the Zig-backed instance graph works (GraphView/NodeReferenc
 description_tr: "Zig tabanlı instance graph'ın nasıl çalıştığını (GraphView/NodeReference/EdgeReference), gerçek Python API surface'ini ve allocation, attributes ve cleanup etrafındaki invariantları açıklar. Low-level graph API'leri, memory management veya instance graph'ı traverse eden sistemler inşa ederken kullanın."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/graph/SKILL.md"
 path: ".claude/skills/graph/SKILL.md"
 is_collection: false

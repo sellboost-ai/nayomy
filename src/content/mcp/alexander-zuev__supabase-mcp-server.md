@@ -4,7 +4,7 @@ description: "Supabase MCP Server with support for SQL query execution and datab
 description_tr: "Supabase MCP Server, SQL sorgusu çalıştırma ve veritabanı keşif araçlarını destekler."
 category: "Databases"
 repo: "alexander-zuev/supabase-mcp-server"
-stars: 826
+stars: 827
 url: "https://github.com/alexander-zuev/supabase-mcp-server"
 body_length: 29052
 license: "Apache-2.0"

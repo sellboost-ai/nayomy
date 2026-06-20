@@ -4,7 +4,7 @@ description: "MCPX is a production-ready, open-source gateway to manage MCP serv
 description_tr: "MCPX, MCP sunucularını ölçekte yönetmek için production-ready bir açık kaynak gateway'dir—tool discovery'yi merkezileştirin, access control, call prioritization ve usage tracking ile agent workflow'larını basitleştirin."
 category: "Aggregators"
 repo: "TheLunarCompany/lunar"
-stars: 457
+stars: 458
 url: "https://github.com/TheLunarCompany/lunar"
 body_length: 2855
 license: "MIT"

@@ -4,7 +4,7 @@ description: "Browser automation capabilities using Puppeteer, both support loca
 description_tr: "Puppeteer ile tarayıcı otomasyon yetenekleri, yerel ve uzak tarayıcı bağlantısını destekler."
 category: "Browser Automation"
 repo: "bytedance/UI-TARS-desktop"
-stars: 36772
+stars: 36964
 url: "https://github.com/bytedance/UI-TARS-desktop"
 body_length: 16142
 license: "Apache-2.0"

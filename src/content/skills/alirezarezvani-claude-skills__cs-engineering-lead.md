@@ -4,7 +4,7 @@ description_en: "Engineering Team Lead agent for coordinating QA, security, data
 description_tr: "Kalite güvence, güvenlik, veri mühendisliği, ML ve frontend/backend ekiplerini koordine eden Mühendislik Takım Lideri ajanı. Takım düzeyindeki teknik kararlar için mühendislik ekibinin yeteneklerini organize eder. Kullanıcıların takım koordinasyonu, tech stack değerlendirmesi, incident response veya çapraz fonksiyonel mühendislik işleri için ihtiyaç duyduğunda devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-engineering-lead/SKILL.md"
 path: ".gemini/skills/cs-engineering-lead/SKILL.md"
 is_collection: false

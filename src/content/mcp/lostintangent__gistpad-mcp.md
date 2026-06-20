@@ -4,7 +4,7 @@ description: "Use GitHub Gists to manage and access your personal knowledge, dai
 description_tr: "GitHub Gists kullanarak kişisel bilgilerinizi, günlük notlarınızı ve yeniden kullanılabilir promptlarınızı yönetin ve erişin. Bu araç, https://gistpad.dev ve GistPad VS Code extension'ının tamamlayıcısı olarak çalışır."
 category: "Knowledge & Memory"
 repo: "lostintangent/gistpad-mcp"
-stars: 195
+stars: 196
 url: "https://github.com/lostintangent/gistpad-mcp"
 body_length: 7343
 license: "MIT"

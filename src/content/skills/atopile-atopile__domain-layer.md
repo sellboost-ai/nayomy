@@ -4,7 +4,7 @@ description_en: "Instructions for electronics-specific logic and build processes
 description_tr: "Elektronik tasarıma özgü mantık ve derleme süreçleri için talimatlar: netlistler, PCB'ler, derleme adımları ve exporterlar. Derleme adımlarını, exporterları, PCB üretimini veya BOM/netlist çıktısını uygularken veya değiştirirken kullanın."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/domain-layer/SKILL.md"
 path: ".claude/skills/domain-layer/SKILL.md"
 is_collection: false

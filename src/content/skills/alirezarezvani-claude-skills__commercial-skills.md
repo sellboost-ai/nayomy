@@ -4,7 +4,7 @@ description_en: "Use when reviewing, approving, or designing commercial motion �
 description_tr: "Ticari anlaşmaları inceleme, onaylama ve tasarlamak için kullanın — fiyatlandırma modelleri, anlaşma değerlendirmesi, indirim onayı, ortaklık ekonomisi, kanal karması, ticari politika, RFP/RFI yanıtları ve rezervasyon tahmini. \"Bu anlaşmayı incele\", \"indirim verelim mi\", \"fiyatlandırma modeli\", \"ortak ekonomisi\", \"RFP yanıtı\", \"rezervasyon tahmini\", \"kanal karması\" gibi tetikleyicilerle aktivleşir ve bağlamı yedi Ticari alt alanından birine yönlendirir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/commercial-skills/SKILL.md"
 path: ".gemini/skills/commercial-skills/SKILL.md"
 is_collection: false

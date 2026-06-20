@@ -4,7 +4,7 @@ description_en: "Use when starting feature work that needs isolation from curren
 description_tr: "Yeni bir feature üzerinde çalışmaya başlarken veya implementasyon planını yürütmeden önce kullanın - native araçlar veya git worktree fallback aracılığıyla izole edilmiş bir workspace sağlar."
 category: "Design"
 repo: "obra/superpowers"
-stars: 231591
+stars: 233596
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/using-git-worktrees/SKILL.md"
 path: "skills/using-git-worktrees/SKILL.md"
 is_collection: false

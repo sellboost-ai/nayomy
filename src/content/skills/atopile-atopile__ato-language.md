@@ -4,7 +4,7 @@ description_en: "Reference for the `.ato` declarative DSL: type system, connecti
 description_tr: "`.ato` bildirimsel DSL için referans: tip sistemi, bağlantı semantiği, kısıtlama modeli ve standart kütüphane. `.ato` kodu yazarken veya incelenirken kullanın."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/ato-language/SKILL.md"
 path: ".claude/skills/ato-language/SKILL.md"
 is_collection: false

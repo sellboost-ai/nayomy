@@ -4,7 +4,7 @@ description_en: "Executive leadership guidance for strategic decision-making, or
 description_tr: "Stratejik karar alma, organizasyonel gelişim ve paydaş yönetimi için üst yönetim rehberliği. Strateji planlama, yönetim kurulu sunuşları hazırlama, yatırımcı yönetimi, organizasyon kültürü geliştirme, yönetici kararları alma, fon yaratma veya kullanıcı CEO, stratejik planlama, yönetim kurulu toplantıları, yatırımcı güncellemeleri, organizasyonel liderlik ya da yönetici stratejisinden bahsettiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ceo-advisor/SKILL.md"
 path: ".gemini/skills/ceo-advisor/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "How the Faebryk parameter solver works (Sets/Literals, Paramete
 description_tr: "Faebryk parameter solver'ın nasıl çalıştığını (Sets/Literals, Parameters, Expressions), mutation sırasında uygulanan temel invariantları ve solver'ı debug etme ile genişletme için pratik workflow'ları açıklar. Constraint solving, parameter bounds veya expression simplification debug etme işlemleri sırasında kullanın."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/solver/SKILL.md"
 path: ".claude/skills/solver/SKILL.md"
 is_collection: false

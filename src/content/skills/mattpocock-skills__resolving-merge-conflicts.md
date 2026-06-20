@@ -3,7 +3,7 @@ name: "resolving-merge-conflicts"
 description_en: "Use when you need to resolve an in-progress git merge/rebase conflict."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/resolving-merge-conflicts/SKILL.md"
 path: "skills/engineering/resolving-merge-conflicts/SKILL.md"
 is_collection: false

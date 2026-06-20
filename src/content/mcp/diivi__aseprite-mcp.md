@@ -4,7 +4,7 @@ description: "MCP server using the Aseprite API to create pixel art"
 description_tr: "Aseprite API'yi kullanarak pixel art oluşturmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "diivi/aseprite-mcp"
-stars: 205
+stars: 209
 url: "https://github.com/diivi/aseprite-mcp"
 body_length: 14214
 license: "MIT"

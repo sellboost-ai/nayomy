@@ -4,7 +4,7 @@ description_en: "C-suite orchestration layer. Routes founder questions to the ri
 description_tr: "C-seviyesi orkestrasyonu için katman. Kurucu sorularını doğru danışman rollerine yönlendirir, karmaşık kararlar için çok rollu board toplantıları başlatır, sonuçları sentezler ve kararları takip eder. Her C-seviyesi etkileşim buradan başlar. Şirket bağlamını otomatik yükler. Kurucu sorusunun doğru danışmana yönlendirilmesi gerektiğinde — örneğin 'şimdi para toplayalı mı yoksa gideri keseli mi?' — veya çok disiplinli bir karar gerektiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/chief-of-staff/SKILL.md"
 path: ".gemini/skills/chief-of-staff/SKILL.md"
 is_collection: false

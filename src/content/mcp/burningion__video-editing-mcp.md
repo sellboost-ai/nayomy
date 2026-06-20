@@ -4,7 +4,7 @@ description: "Add, Analyze, Search, and Generate Video Edits from your Video Jun
 description_tr: "Video Jungle koleksiyonunuzdan Video Editlerini ekleyin, analiz edin, arayın ve oluşturun"
 category: "Art & Culture"
 repo: "burningion/video-editing-mcp"
-stars: 272
+stars: 274
 url: "https://github.com/burningion/video-editing-mcp"
 body_length: 7194
 language: "Python"

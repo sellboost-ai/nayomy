@@ -4,7 +4,7 @@ description_en: "Set up Husky pre-commit hooks with lint-staged (Prettier), type
 description_tr: "Mevcut repo'nuzda Husky pre-commit hooks'larını lint-staged (Prettier), type checking ve testlerle yapılandırın. Kullanıcı pre-commit hooks eklemek, Husky kurulum yapmak, lint-staged yapılandırmak ya da commit sırasında formatting/typechecking/testing eklemek istediğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 134333
+stars: 137186
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/misc/setup-pre-commit/SKILL.md"
 path: "skills/misc/setup-pre-commit/SKILL.md"
 is_collection: false

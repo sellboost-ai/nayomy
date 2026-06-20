@@ -4,7 +4,7 @@ description: "Server implementation for Google BigQuery integration that enables
 description_tr: "Google BigQuery entegrasyonu için sunucu uygulaması, doğrudan BigQuery veritabanına erişim ve sorgulama yetenekleri sunar."
 category: "Databases"
 repo: "ergut/mcp-bigquery-server"
-stars: 142
+stars: 143
 url: "https://github.com/ergut/mcp-bigquery-server"
 body_length: 12015
 license: "MIT"

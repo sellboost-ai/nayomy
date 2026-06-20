@@ -4,7 +4,7 @@ description: "Deterministic execution engine for AI agents with 412 modules acro
 description_tr: "AI ajanları için deterministik bir execution engine ile 78 kategoride 412 modül (browser, file, Docker, data, crypto, scheduling) sunuyor. Execution trace, evidence snapshots, herhangi bir adımdan replay yapabilme ve STDIO ile Streamable HTTP transport desteği içeriyor."
 category: "Developer Tools"
 repo: "flytohub/flyto-core"
-stars: 274
+stars: 275
 url: "https://github.com/flytohub/flyto-core"
 body_length: 14991
 license: "Apache-2.0"

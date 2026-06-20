@@ -4,7 +4,7 @@ description_en: "Use when creating new skills, editing existing skills, or verif
 description_tr: "Yeni beceriler oluştururken, mevcut becerileri düzenlerken veya dağıtımdan önce becerileri doğrularken kullanın."
 category: "Development"
 repo: "obra/superpowers"
-stars: 231591
+stars: 233596
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/writing-skills/SKILL.md"
 path: "skills/writing-skills/SKILL.md"
 is_collection: false

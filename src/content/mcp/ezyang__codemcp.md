@@ -4,7 +4,7 @@ description: "Coding agent with basic read, write and command line tools."
 description_tr: "Temel okuma, yazma ve komut satırı araçlarıyla donatılmış bir kodlama ajanı."
 category: "Coding Agents"
 repo: "ezyang/codemcp"
-stars: 1613
+stars: 1612
 url: "https://github.com/ezyang/codemcp"
 body_length: 8454
 license: "Apache-2.0"

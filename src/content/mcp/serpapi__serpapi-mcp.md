@@ -4,7 +4,7 @@ description: "SerpApi MCP Server for Google and other search engine results. Pro
 description_tr: "SerpApi MCP Server, Google ve diğer arama motorlarından sonuç getiren bir araçtır. Google, Bing, Yahoo, DuckDuckGo, YouTube, eBay ve daha fazla platformda çok motorlu arama yapmayı sağlar; gerçek zamanlı hava durumu verileri, borsа bilgileri ve esnek JSON response modlarıyla birlikte gelir."
 category: "Search & Data Extraction"
 repo: "serpapi/serpapi-mcp"
-stars: 146
+stars: 148
 url: "https://github.com/serpapi/serpapi-mcp"
 body_length: 6278
 license: "MIT"

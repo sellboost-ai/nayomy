@@ -6,7 +6,7 @@ category: "Databases"
 repo: "confluentinc/mcp-confluent"
 stars: 160
 url: "https://github.com/confluentinc/mcp-confluent"
-body_length: 35898
+body_length: 35921
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
@@ -779,7 +779,7 @@ flink:
 kafka:
   alter-topic-config: Alter topic configuration in Confluent Cloud.
   consume-messages: Consume messages from Kafka topics. Optionally restrict to a partition, start from an offset, timestamp, earliest, la...
-  create-topics: Create one or more Kafka topics with an optional partition count.
+  create-topics: Create one or more Kafka topics with an optional partition count and replication factor.
   delete-topics: Delete the topic with the given names.
   describe-consumer-group: Describe a single consumer group on a Kafka cluster. Returns the group's state, type, protocol, partition assignor, c...
   get-consumer-group-lag: Compute live offset lag for a single Kafka consumer group. Returns per-(topic, partition) {committedOffset, highWater...

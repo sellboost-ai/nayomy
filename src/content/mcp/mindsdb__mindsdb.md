@@ -4,9 +4,9 @@ description: "Connect and unify data across various platforms and databases with
 description_tr: "MindsDB MCP server ile farklı platformlar ve veritabanları arasındaki verileri bağlayın ve birleştirin."
 category: "Aggregators"
 repo: "mindsdb/mindsdb"
-stars: 39317
+stars: 39315
 url: "https://github.com/mindsdb/mindsdb"
-body_length: 6575
+body_length: 7807
 license: "MIT"
 language: "Makefile"
 homepage: "https://mindshub.ai"
@@ -216,6 +216,28 @@ make setup
 | Wipe all local installs + data (fresh start) | `make flush` |
 
 > **Reset to a clean slate:** `make flush` uninstalls the local runtime (the `cowork-server` uv tool and the `backend/*/.venv`s) **and** deletes app state in `~/.anton` (provider keys) and `~/.cowork` (database, hermes, projects). Use it to test the from-scratch install flow or recover from a broken install. ⚠️ This deletes your conversations and saved keys. It prompts for confirmation; pass `FORCE=1` to skip it. The next `make setup` or app launch reinstalls everything.
+
+### Working on feature branches (submodules)
+
+This repo is a superproject that pins each module (`frontend`, `backend/core_api`, `backend/core_agent`, `backend/data-vault`) to a commit. To work on module branches without polluting `git status` or fighting over pins:
+
+**1. Pick your branches** in a gitignored `dev.env` (copy the template):
+```bash
+cp dev.env.example dev.env      # then set REF=feat/my-thing (or per-module API_REF=…)
+```
+
+**2. `make` follows it** — one knob, both run paths:
+
+| Command | What it does |
+|---|---|
+| `make use` | check out your `dev.env` refs across all submodules |
+| `make dev` / `make dev-web` | run the local module source on those branches (hot reload) |
+| `make server` + `make app` | run the desktop app against your branch's server |
+| `make refs` | show which refs the next run will use |
+| `make baseline` | reset submodules to the pinned commits |
+| `make pin` | record the current submodule commits as the superproject's pins (one deliberate commit) |
+
+Submodules are configured with `ignore = all`, so your branch work never shows up as superproject changes — the parent `git status` stays clean. Pins move **only** via `make pin`. See [`CLAUDE.md`](CLAUDE.md) for the full workflow.
 
 ---
 

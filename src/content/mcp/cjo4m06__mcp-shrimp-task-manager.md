@@ -4,7 +4,7 @@ description: "A programming-focused task management system that boosts coding ag
 description_tr: "Kodlama ajanlarına (Cursor AI gibi) gelişmiş task hafızası, öz-yansıtma ve dependency yönetimi sağlayan programlama odaklı bir task yönetim sistemi. ShrimpTaskManager"
 category: "Developer Tools"
 repo: "cjo4m06/mcp-shrimp-task-manager"
-stars: 2115
+stars: 2117
 url: "https://github.com/cjo4m06/mcp-shrimp-task-manager"
 body_length: 7490
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "Automate Bonsai tasks via Rube MCP (Composio). Always search to
 description_tr: "Rube MCP (Composio) aracılığıyla Bonsai görevlerini otomatikleştirin. Her zaman mevcut şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bonsai-automation/SKILL.md"
 path: "composio-skills/bonsai-automation/SKILL.md"
 is_collection: false

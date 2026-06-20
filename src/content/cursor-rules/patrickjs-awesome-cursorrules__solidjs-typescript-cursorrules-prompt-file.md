@@ -4,7 +4,7 @@ clean_name: "Solidjs TypeScript"
 description: "Cursor rules for Solid.js development with TypeScript integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40025
+stars: 40042
 path: "rules/solidjs-typescript-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/solidjs-typescript-cursorrules-prompt-file.mdc"
 body_length: 1152

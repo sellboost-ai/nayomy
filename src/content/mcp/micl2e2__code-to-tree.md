@@ -4,7 +4,7 @@ description: "A single-binary MCP server that converts source code into AST, reg
 description_tr: "Kaynak kodu herhangi bir dile bakılmaksızın AST'ye dönüştüren tek bir binary MCP sunucusu."
 category: "Coding Agents"
 repo: "micl2e2/code-to-tree"
-stars: 84
+stars: 85
 url: "https://github.com/micl2e2/code-to-tree"
 body_length: 5485
 license: "MIT"

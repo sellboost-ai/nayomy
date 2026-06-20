@@ -4,7 +4,7 @@ description: "Octagon AI Agents to integrate private and public market data"
 description_tr: "Octagon AI Agents ile özel ve halka açık pazar verilerini entegre edin"
 category: "Finance & Fintech"
 repo: "OctagonAI/octagon-mcp-server"
-stars: 132
+stars: 133
 url: "https://github.com/OctagonAI/octagon-mcp-server"
 body_length: 14410
 license: "MIT"

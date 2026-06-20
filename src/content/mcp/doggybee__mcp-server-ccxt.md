@@ -4,7 +4,7 @@ description: "An MCP server for accessing real-time crypto market data and tradi
 description_tr: "CCXT kütüphanesini kullanarak 20+ borsa aracılığıyla gerçek zamanlı kripto pazar verilerine erişim sağlayan ve işlem yapabilen bir MCP sunucusu. Spot, vadeli işlemler, OHLCV, bakiyeler, emirler ve daha fazlasını destekler."
 category: "Finance & Fintech"
 repo: "doggybee/mcp-server-ccxt"
-stars: 139
+stars: 138
 url: "https://github.com/doggybee/mcp-server-ccxt"
 body_length: 10271
 license: "MIT"

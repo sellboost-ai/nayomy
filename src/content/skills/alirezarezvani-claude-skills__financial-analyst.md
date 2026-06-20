@@ -4,7 +4,7 @@ description_en: "Performs financial ratio analysis, DCF valuation, budget varian
 description_tr: "Finansal oran analizi, DCF değerleme, bütçe varyans analizi ve rolling forecast oluşturmayı gerçekleştirir. Finansal tabloları analiz ederken, değerleme modelleri inşa ederken, bütçe sapmalarını değerlendirirken veya finansal projeksiyonlar ve tahminler oluştururken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/financial-analyst/SKILL.md"
 path: ".gemini/skills/financial-analyst/SKILL.md"
 is_collection: false

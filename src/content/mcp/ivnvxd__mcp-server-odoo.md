@@ -4,7 +4,7 @@ description: "Connect AI assistants to Odoo ERP systems for business data access
 description_tr: "Odoo ERP sistemlerine AI asistanları bağlayarak işletme verilerine erişim, kayıt yönetimi ve workflow otomasyonu sağlayın."
 category: "Other Tools and Integrations"
 repo: "ivnvxd/mcp-server-odoo"
-stars: 317
+stars: 318
 url: "https://github.com/ivnvxd/mcp-server-odoo"
 body_length: 27069
 license: "MPL-2.0"

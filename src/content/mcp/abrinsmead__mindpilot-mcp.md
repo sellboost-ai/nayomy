@@ -4,7 +4,7 @@ description: "Visualizes code, architecture and other concepts as mermaid diagra
 description_tr: "Kodu, mimariyeyi ve diğer kavramları yerel olarak barındırılan bir web uygulamasında mermaid diyagramları olarak görselleştirir. Ajanınızdan \"bunu bir diyagramda göster\" demeniz yeterlidir."
 category: "Developer Tools"
 repo: "abrinsmead/mindpilot-mcp"
-stars: 88
+stars: 89
 url: "https://github.com/abrinsmead/mindpilot-mcp"
 body_length: 5858
 license: "MIT"

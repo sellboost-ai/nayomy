@@ -4,7 +4,7 @@ description: "A Model Context Protocol server for Mem0 that helps manage coding 
 description_tr: "Mem0 için bir Model Context Protocol sunucusu; IDE'ler (Cursor, Windsurf gibi) içinde kodlama tercihlerini ve desenlerini yönetmeye, kod implementasyonlarını, best practices'leri ve teknik dokümantasyonu semantik olarak depolamaya ve erişmeye yarayan araçlar sunuyor."
 category: "Knowledge & Memory"
 repo: "mem0ai/mem0-mcp"
-stars: 655
+stars: 656
 url: "https://github.com/mem0ai/mem0-mcp"
 body_length: 6908
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ description_en: "Automate Connecteam tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) aracılığıyla Connecteam görevlerini otomatikleştirin. Geçerli şemaları bulmak için her zaman önce tools'ta arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/connecteam-automation/SKILL.md"
 path: "composio-skills/connecteam-automation/SKILL.md"
 is_collection: false

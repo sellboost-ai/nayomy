@@ -4,7 +4,7 @@ description: "Query and analyze Prometheus, open-source monitoring system."
 description_tr: "Prometheus açık kaynaklı izleme sistemini sorgulamak ve analiz etmek için kullanılır."
 category: "Databases"
 repo: "pab1it0/prometheus-mcp-server"
-stars: 475
+stars: 477
 url: "https://github.com/pab1it0/prometheus-mcp-server"
 body_length: 8749
 license: "MIT"

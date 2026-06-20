@@ -4,7 +4,7 @@ description: "MCP server that exercises all the features of the MCP protocol."
 description_tr: "Tüm MCP protokol özelliklerini kullanan MCP sunucusu."
 category: "Other Tools and Integrations"
 repo: "modelcontextprotocol/servers"
-stars: 87409
+stars: 87465
 url: "https://github.com/modelcontextprotocol/servers"
 body_length: 8413
 license: "NOASSERTION"

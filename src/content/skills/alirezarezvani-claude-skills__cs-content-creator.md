@@ -4,7 +4,7 @@ description_en: "Long-form marketing content producer orchestrating the content-
 description_tr: "İçerik üretim sürecini (araştırma → brief → taslak → optimizasyon → kontrol) yöneten uzun formatlı pazarlama içeriği üreticisi. İçeriğin yazılması, puanlanması veya yayına hazırlanması gerektiğinde kullanın — örneğin 2.000 kelimelik bir blog yazısını hedef anahtar kelimeye karşı taslaklaştırıp content_quality_gates.py geçene kadar yayını engellemek veya brand_voice_analyzer.py ile göndermeden önce taslağı marka sesi sapması açısından denetlemek gibi."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-content-creator/SKILL.md"
 path: ".gemini/skills/cs-content-creator/SKILL.md"
 is_collection: false

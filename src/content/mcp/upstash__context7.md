@@ -4,7 +4,7 @@ description: "Up-to-date code documentation for LLMs and AI code editors."
 description_tr: "LLM'ler ve yapay zeka kod editörleri için güncel kod dokümantasyonu."
 category: "Knowledge & Memory"
 repo: "upstash/context7"
-stars: 57600
+stars: 57732
 url: "https://github.com/upstash/context7"
 body_length: 9702
 license: "MIT"

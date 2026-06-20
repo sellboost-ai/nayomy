@@ -4,7 +4,7 @@ description_en: "How the Faebryk component library is structured, how `_F.py` is
 description_tr: "Faebryk bileşen kütüphanesinin nasıl yapılandırıldığını, `_F.py` dosyasının nasıl oluşturulduğunu ve yeni kütüphane modülleri eklerken uyulması gereken kuralları ve değişmezleri açıklar. Library bileşenleri, traits veya module tanımlamalarını eklerken veya değiştirirken kullanılır."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3406
+stars: 3410
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/library/SKILL.md"
 path: ".claude/skills/library/SKILL.md"
 is_collection: false

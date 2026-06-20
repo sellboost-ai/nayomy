@@ -4,7 +4,7 @@ description: "ComputerVision-based sorcery of image recognition and editing tool
 description_tr: "ComputerVision tabanlı görüntü tanıma ve düzenleme araçları ile AI asistanları için gelişmiş çözümler."
 category: "Multimedia Process"
 repo: "sunriseapps/imagesorcery-mcp"
-stars: 319
+stars: 320
 url: "https://github.com/sunriseapps/imagesorcery-mcp"
 body_length: 26439
 license: "MIT"

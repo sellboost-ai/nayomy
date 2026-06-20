@@ -4,7 +4,7 @@ description_en: "Analyzes competitor products and companies by synthesizing data
 description_tr: "Fiyatlandırma sayfaları, uygulama mağazası yorumları, iş ilanları, SEO sinyalleri ve sosyal medya verilerini sentezleyerek rakip ürünleri ve şirketleri analiz eder. 12 boyutta puanlanan özellik karşılaştırma matrisleri, SWOT analizleri, konumlandırma haritaları, UX denemeleri, fiyatlandırma modeli detaylandırmaları, aksiyon planları ve paydaş sunum şablonları üretir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/competitive-teardown/SKILL.md"
 path: ".gemini/skills/competitive-teardown/SKILL.md"
 is_collection: false

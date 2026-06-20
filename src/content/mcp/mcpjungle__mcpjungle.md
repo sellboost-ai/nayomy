@@ -4,7 +4,7 @@ description: "Self-hosted MCP Server registry for enterprise AI Agents"
 description_tr: "Kurumsal AI Ajanları için self-hosted MCP Server kayıt defteri"
 category: "Aggregators"
 repo: "mcpjungle/MCPJungle"
-stars: 1101
+stars: 1103
 url: "https://github.com/mcpjungle/MCPJungle"
 body_length: 36295
 license: "MPL-2.0"

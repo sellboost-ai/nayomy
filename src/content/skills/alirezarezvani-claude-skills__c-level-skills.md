@@ -4,7 +4,7 @@ description_en: "Index and router for the C-level advisory bundle: 33 skills cov
 description_tr: "C-seviyesi danışmanlık paketinin index ve router'ı: 14 C-suite rolü kapsayan 33 beceri, orkestrasyon, cross-cutting yetenekler ve kültür. C-level-advisor paketinin içeriğini keşfederken, bir soruya hangi advisor skill'in uygun olduğuna karar verirken veya giriş noktalarını (cs-onboard interview, chief-of-staff routing, board-meeting protocol) bulurken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/c-level-skills/SKILL.md"
 path: ".gemini/skills/c-level-skills/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Campayn tasks via Rube MCP (Composio). Always search t
 description_tr: "Rube MCP (Composio) aracılığıyla Campayn görevlerini otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/campayn-automation/SKILL.md"
 path: "composio-skills/campayn-automation/SKILL.md"
 is_collection: false

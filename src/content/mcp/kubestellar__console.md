@@ -4,9 +4,9 @@ description: "Multi-cluster Kubernetes dashboard with built-in MCP server (kc-ag
 description_tr: "Kenar ve bulut kümelerinde 20+ CNCF projesine entegrasyon sunan, yerleşik MCP sunucusu (kc-agent) ile AI destekli operasyonlar, gerçek zamanlı gözlemlenebilirlik sağlayan multi-cluster Kubernetes dashboard'u."
 category: "Cloud Platforms"
 repo: "kubestellar/console"
-stars: 117
+stars: 118
 url: "https://github.com/kubestellar/console"
-body_length: 35214
+body_length: 35995
 license: "Apache-2.0"
 language: "TypeScript"
 homepage: "https://console.kubestellar.io"
@@ -323,6 +323,14 @@ The hosted demo is a self-contained showcase: it serves canned demo data and int
 | Run the console **inside** a cluster | [`deploy.sh`](deploy.sh) | yes | Helm-style script |
 
 > **Note**: `kc-agent` is **not** consumed by the hosted demo at [console.kubestellar.io](https://console.kubestellar.io). It bridges your **self-hosted** console (running at `localhost:8080`) to your kubeconfig contexts and to AI providers. If you want the convenience of the hosted UI plus your real cluster data, you currently have to run the console locally.
+
+## Extend with the Marketplace
+
+KubeStellar Console can be extended with community dashboard content from the [console-marketplace](https://github.com/kubestellar/console-marketplace). The marketplace hosts dashboards, card presets, and themes for Kubernetes operations, AI/ML, security, GitOps, networking, and CNCF project integrations without adding custom code to the core console bundle.
+
+- Browse community dashboards, card presets, and themes in [kubestellar/console-marketplace](https://github.com/kubestellar/console-marketplace)
+- Share your own dashboard cards or presets through the marketplace repository
+- Start from the [marketplace contribution guide](https://github.com/kubestellar/console-marketplace/blob/main/CONTRIBUTING.md) when adding new community content
 
 ## Local install (self-host)
 

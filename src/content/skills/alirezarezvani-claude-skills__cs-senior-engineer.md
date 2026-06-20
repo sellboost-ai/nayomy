@@ -4,7 +4,7 @@ description_en: "Senior Engineer agent for architecture decisions, code review, 
 description_tr: "Senior mühendis ajanı; mimarı kararlar, kod review, DevOps ve API tasarımı için. Teknik implementasyon çalışmalarında mühendislik ve takım becerilerini yönetir. Kullanıcılar sistem tasarımı, kod kalitesi review, CI/CD pipeline kurulumu veya altyapı kararları gerektiğinde devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-senior-engineer/SKILL.md"
 path: ".gemini/skills/cs-senior-engineer/SKILL.md"
 is_collection: false

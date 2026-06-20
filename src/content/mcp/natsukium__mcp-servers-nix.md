@@ -4,7 +4,7 @@ description: "A Nix-based configuration framework for Model Context Protocol (MC
 description_tr: "Model Context Protocol (MCP) sunucuları için Nix tabanlı bir konfigürasyon framework'ü, kullanıma hazır paketlerle birlikte."
 category: "Developer Tools"
 repo: "natsukium/mcp-servers-nix"
-stars: 263
+stars: 264
 url: "https://github.com/natsukium/mcp-servers-nix"
 body_length: 5298
 license: "Apache-2.0"

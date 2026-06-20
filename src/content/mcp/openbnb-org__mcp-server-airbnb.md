@@ -4,7 +4,7 @@ description: "Provides tools to search Airbnb and get listing details."
 description_tr: "Airbnb'de arama yapmanızı ve listing detaylarını almanızı sağlayan araçlar sunar."
 category: "Travel & Transportation"
 repo: "openbnb-org/mcp-server-airbnb"
-stars: 474
+stars: 476
 url: "https://github.com/openbnb-org/mcp-server-airbnb"
 body_length: 11531
 license: "MIT"

@@ -4,7 +4,7 @@ description: "An MCP server for Inbox Zero. Adds functionality on top of Gmail l
 description_tr: "Inbox Zero için bir MCP sunucusu. Gmail üzerinde yanıtlamanız gereken veya takip etmeniz gereken e-postaları bulma gibi işlevler ekler."
 category: "Communication"
 repo: "elie222/inbox-zero"
-stars: 11328
+stars: 11356
 url: "https://github.com/elie222/inbox-zero"
 body_length: 6213
 license: "NOASSERTION"

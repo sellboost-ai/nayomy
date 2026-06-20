@@ -4,7 +4,7 @@ description_en: "Dispatched sub-agent that answers queries against an LLM Wiki v
 description_tr: "Kullanıcı sorularını bir LLM Wiki vault'una karşı yanıtlayan dispatch edilen sub-agent. index.md'yi okur, kategoriler arasından 3-10 ilgili sayfaya iner, [[wikilink]] alıntılarıyla bir yanıt sentezler ve yanıtı wiki'ye yeni bir karşılaştırma veya sentez sayfası olarak kaydetmeyi teklif eder. Kullanıcı wiki'nin yanıtlayabileceği gerçek bir soru sorduğunda, \"wiki X hakkında ne diyor\", \"c\" gibi ifadeler kullandığında etkinleşir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-wiki-librarian/SKILL.md"
 path: ".gemini/skills/cs-wiki-librarian/SKILL.md"
 is_collection: false

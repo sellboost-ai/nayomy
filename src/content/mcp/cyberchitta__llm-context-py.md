@@ -4,7 +4,7 @@ description: "Share code context with LLMs via MCP or clipboard"
 description_tr: "LLM'lerle kod bağlamını MCP veya pano aracılığıyla paylaş"
 category: "File Systems"
 repo: "cyberchitta/llm-context.py"
-stars: 301
+stars: 302
 url: "https://github.com/cyberchitta/llm-context.py"
 body_length: 11800
 license: "Apache-2.0"

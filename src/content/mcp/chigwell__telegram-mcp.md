@@ -4,9 +4,9 @@ description: "Telegram API integration for accessing user data, managing dialogs
 description_tr: "Telegram API entegrasyonu ile kullanıcı verilerine erişim, diyalogları (sohbetler, kanallar, gruplar) yönetme, mesajları alma ve gönderme, okundu durumunu takip etme olanakları sunur."
 category: "Communication"
 repo: "chigwell/telegram-mcp"
-stars: 1216
+stars: 1222
 url: "https://github.com/chigwell/telegram-mcp"
-body_length: 15822
+body_length: 16116
 license: "Apache-2.0"
 language: "Python"
 body_tr: |-
@@ -707,7 +707,11 @@ Allowed roots can come from:
 Security behavior:
 
 - Client MCP Roots replace server CLI roots when available.
-- Empty client Roots are treated as deny-all.
+- Empty client Roots are treated as deny-all by default. Some clients implement
+  the Roots capability but advertise an empty list, which disables file tools
+  even when server CLI roots are configured. Set
+  `TELEGRAM_ALLOW_SERVER_ROOTS_FALLBACK=1` to fall back to the server CLI roots
+  in that case (opt-in; the default stays deny-all).
 - Paths are resolved through real paths and must stay inside an allowed root.
 - Traversal, wildcard-like, shell-like, and null-byte path patterns are rejected.
 - Relative paths resolve under the first allowed root.

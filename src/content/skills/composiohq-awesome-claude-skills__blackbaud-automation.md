@@ -4,7 +4,7 @@ description_en: "Automate Blackbaud tasks via Rube MCP (Composio). Always search
 description_tr: "Rube MCP (Composio) aracılığıyla Blackbaud görevlerini otomatikleştirin. Her zaman güncel şemaları kontrol etmek için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/blackbaud-automation/SKILL.md"
 path: "composio-skills/blackbaud-automation/SKILL.md"
 is_collection: false

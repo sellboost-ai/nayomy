@@ -4,7 +4,7 @@ description: "Connect to JetBrains IDE"
 description_tr: "JetBrains IDE'ye bağlanın"
 category: "Developer Tools"
 repo: "JetBrains/mcp-jetbrains"
-stars: 962
+stars: 961
 url: "https://github.com/JetBrains/mcp-jetbrains"
 body_length: 5464
 license: "Apache-2.0"

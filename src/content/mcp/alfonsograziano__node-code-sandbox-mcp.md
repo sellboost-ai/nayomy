@@ -4,7 +4,7 @@ description: "A Node.js MCP server that spins up isolated Docker-based sandboxes
 description_tr: "Node.js tabanlı bir MCP sunucusu olup, JavaScript kod parçacıklarını çalıştırmak için izole Docker sandbox ortamları oluşturur; dinamik npm bağımlılığı yüklenmesi ve temiz kapatma işlemleri destekler."
 category: "Code Execution"
 repo: "alfonsograziano/node-code-sandbox-mcp"
-stars: 152
+stars: 153
 url: "https://github.com/alfonsograziano/node-code-sandbox-mcp"
 body_length: 11322
 language: "TypeScript"

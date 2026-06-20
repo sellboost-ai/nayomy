@@ -4,11 +4,12 @@ description: "MCP server for working with Blender"
 description_tr: "Blender ile çalışmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "ahujasid/blender-mcp"
-stars: 22895
+stars: 22960
 url: "https://github.com/ahujasid/blender-mcp"
 body_length: 13397
 license: "MIT"
 language: "Python"
+homepage: "https://blendermcp.org/"
 body_tr: |-
   # BlenderMCP - Blender Model Context Protocol Entegrasyonu
   

@@ -4,11 +4,11 @@ description: "Universal AI bridge for Obsidian vaults using MCP. Provides safe r
 description_tr: "Obsidian vault'larınız için evrensel bir AI köprüsü sunan MCP tabanlı araç. Notlarınıza güvenli okuma/yazma erişimi sağlar ve arama, toplu işlemler, etiket yönetimi ile frontmatter işleme gibi 11 kapsamlı işlem sunur. Claude, ChatGPT ve tüm MCP uyumlu AI asistanlarıyla çalışır."
 category: "Knowledge & Memory"
 repo: "bitbonsai/mcpvault"
-stars: 1430
+stars: 1438
 url: "https://github.com/bitbonsai/mcpvault"
-body_length: 25269
+body_length: 25359
 license: "MIT"
-language: "Astro"
+language: "TypeScript"
 body_tr: |-
   <div align="center">
     
@@ -777,7 +777,7 @@ A universal AI bridge for Obsidian vaults using the Model Context Protocol (MCP)
 
 ## Universal Compatibility
 
-Works with any MCP-compatible AI assistant including Claude Desktop, Claude Code, ChatGPT Desktop (Enterprise+), OpenCode, Gemini CLI, OpenAI Codex, IntelliJ IDEA 2025.1+, Cursor IDE, Windsurf IDE, and future AI platforms that adopt the MCP standard.
+Works with any MCP-compatible AI assistant including Claude Desktop, Claude Code, ChatGPT Desktop (Enterprise+), OpenCode, Gemini CLI, OpenAI Codex, IntelliJ IDEA 2025.1+, Cursor IDE, Windsurf IDE, Ontheia, and future AI platforms that adopt the MCP standard.
 
 https://github.com/user-attachments/assets/657ac4c6-1cd2-4cc3-829f-fd095a32f71c
 
@@ -1084,6 +1084,7 @@ npx @bitbonsai/mcpvault@latest /path/to/your/vault
 - **IntelliJ IDEA 2025.1+** - Native MCP client support
 - **Cursor IDE** - Built-in MCP compatibility
 - **Windsurf IDE** - Full MCP integration
+- **[Ontheia](https://ontheia.ai)** - Self-hosted, open-source AI agent platform
 - **Zed, Replit, Codeium, Sourcegraph** - In development
 - **Microsoft Copilot Studio** - Native MCP support with one-click server connections
 

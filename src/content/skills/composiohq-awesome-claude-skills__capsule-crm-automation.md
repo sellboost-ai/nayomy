@@ -4,7 +4,7 @@ description_en: "Automate Capsule CRM operations -- manage contacts (parties), r
 description_tr: "Composio MCP entegrasyonu sayesinde doğal dil kullanarak Capsule CRM işlemlerini otomatikleştirin -- kişileri yönetin, yapılandırılmış filter sorgularını çalıştırın, görev ve projeleri takip edin, girişleri kaydedin ve organizasyonları yönetin."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/capsule-crm-automation/SKILL.md"
 path: "composio-skills/capsule-crm-automation/SKILL.md"
 is_collection: false

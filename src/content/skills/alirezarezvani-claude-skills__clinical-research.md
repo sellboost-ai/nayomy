@@ -4,7 +4,7 @@ description_en: "Use when designing a prospective clinical study before submissi
 description_tr: "Prospektif klinik çalışma tasarlarken kullanın — endpoint'leri seçip sınıflandırın (birincil / önemli-ikincil / keşifsel, surrogate-endpoint işaretlemesiyle), iki kollu tasarımlar için örneklem büyüklüğü ve gücü tahmin edin (ortalamalar / oranlar / sağkalım), veya çalışma planını uygulanabilirlik ve GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO faz-kapı kararı açısından puanlayın. Her output bir ESTIM"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/clinical-research/SKILL.md"
 path: ".gemini/skills/clinical-research/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Build competitive analysis matrices with scoring and gap analys
 description_tr: "Puanlama ve boşluk analizi ile rekabet analizi matrisleri oluşturun. Kullanım: /competitive-matrix <analyze> [options]"
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/competitive-matrix/SKILL.md"
 path: ".gemini/skills/competitive-matrix/SKILL.md"
 is_collection: false

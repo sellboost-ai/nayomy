@@ -4,7 +4,7 @@ description_en: "Automate Affinda tasks via Rube MCP (Composio). Always search t
 description_tr: "Affinda görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65045
+stars: 65266
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/affinda-automation/SKILL.md"
 path: "composio-skills/affinda-automation/SKILL.md"
 is_collection: false

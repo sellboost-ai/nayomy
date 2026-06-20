@@ -4,7 +4,7 @@ description_en: "Build complete transactional email systems: React Email templat
 description_tr: "Tam işlevsel transactional email sistemi kurun: React Email şablonları, provider entegrasyonu (Resend, Postmark, SendGrid, AWS SES), preview server, i18n desteği, dark mode, spam optimizasyonu ve analytics tracking. Yeni ürüne transactional email eklerken, email provider'ları arasında geçiş yaparken, legacy email şablonlarını accessibility için refactor ederken ya da mevcut şablonlara internationalization eklerken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/email-template-builder/SKILL.md"
 path: ".gemini/skills/email-template-builder/SKILL.md"
 is_collection: false

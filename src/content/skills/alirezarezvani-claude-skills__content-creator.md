@@ -4,7 +4,7 @@ description_en: "Deprecated redirect skill that routes legacy 'content creator' 
 description_tr: "Kullanıcı 'content creator' çağrısını yaptığında veya blog yazısı, makale, rehber, marka sesi analizi (content-production'a yönlendir) ya da içerik planlama, konu kümesi oluşturma, içerik takvimi oluşturma (content-strategy'ye yönlendir) istediğinde eski istekleri doğru uzmanmana yönlendiren deprecated redirect skill. İstekleri doğrudan işlemez — kullanıcı niyetini tanımlar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18402
+stars: 18572
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/content-creator/SKILL.md"
 path: ".gemini/skills/content-creator/SKILL.md"
 is_collection: false
