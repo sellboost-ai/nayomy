@@ -4,7 +4,7 @@ description_en: "General Counsel advisory for startups: contract review (MSA, Sa
 description_tr: "Startuplar için Genel Counsel danışmanlığı: sözleşme incelemesi (MSA, SaaS, NDA, DPA, istihdam), fikri mülkiyet stratejisi, term sheet analizi ve düzenleyici ortam haritalaması. Herhangi bir sözleşme veya term sheet incelenirken, dış hukuk müşaviri desteğine karar verirken, fikri mülkiyet stratejisi tanımlarken, düzenleyici riskleri (HIPAA, GDPR, FDA, fintech) değerlendirirken veya kullanıcı genel counsel, GC, yasal inceleme, sözleşme riski konularından bahsettiğinde kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/general-counsel-advisor/SKILL.md"
 path: ".gemini/skills/general-counsel-advisor/SKILL.md"
 is_collection: false

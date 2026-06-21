@@ -4,7 +4,7 @@ description_en: "Automate Canvas tasks via Rube MCP (Composio). Always search to
 description_tr: "Canvas görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Mevcut şemaları kontrol etmek için her zaman önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/canvas-automation/SKILL.md"
 path: "composio-skills/canvas-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Adversarial thinking partner for founders and executives. Stres
 description_tr: "Kurucular ve yöneticiler için karşıt görüş ortağı. Planları stres testine tabi tutar, acı board toplantılarına hazırlar, zor kararları analiz eder ve dürüst post-mortemler yapmanızı sağlar. Board'dan önce sorunları bulmanız, kaçındığınız bir kararı vermeniz veya ne gerçekten yanlış gittiğini anlamanız gerektiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/executive-mentor/SKILL.md"
 path: ".gemini/skills/executive-mentor/SKILL.md"
 is_collection: false

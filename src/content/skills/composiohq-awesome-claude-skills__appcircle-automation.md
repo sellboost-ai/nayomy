@@ -4,7 +4,7 @@ description_en: "Automate Appcircle tasks via Rube MCP (Composio). Always search
 description_tr: "Appcircle görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemalar için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/appcircle-automation/SKILL.md"
 path: "composio-skills/appcircle-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Use when building a quarterly bookings forecast, ARR projection
 description_tr: "Üç aylık rezervasyon tahminlemesi, ARR projeksiyonu, pipeline tahmini, NRR projeksiyonu veya commit/best-case/pipe-only board numarası oluştururken kullanın — özellikle CRO'nun funnel math + cohort ARR + stage başına dönüşüm varsayımlarını savunmasız tek bir sayının tiyatrosu olmadan board'da anlatması gerektiğinde. Pipeline'ı commit, best-case ve pipe-only seviyelerine ayırır; cohort düzeyinde N projeksiyonu yapabilir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/commercial-forecaster/SKILL.md"
 path: ".gemini/skills/commercial-forecaster/SKILL.md"
 is_collection: false

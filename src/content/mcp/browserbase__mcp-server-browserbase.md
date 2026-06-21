@@ -4,7 +4,7 @@ description: "Automate browser interactions in the cloud (e.g. web navigation, d
 description_tr: "Bulut ortamında tarayıcı etkileşimlerini otomatikleştirin (web navigasyonu, veri çıkarma, form doldurma ve daha fazlası)"
 category: "Browser Automation"
 repo: "browserbase/mcp-server-browserbase"
-stars: 3379
+stars: 3382
 url: "https://github.com/browserbase/mcp-server-browserbase"
 body_length: 7707
 license: "Apache-2.0"

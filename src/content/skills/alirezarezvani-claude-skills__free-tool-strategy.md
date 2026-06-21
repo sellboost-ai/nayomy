@@ -4,7 +4,7 @@ description_en: "When the user wants to build a free tool for marketing — lead
 description_tr: "Kullanıcı pazarlama için ücretsiz bir tool geliştirmek istediğinde — lead generation, SEO değeri veya brand awareness için. \"Engineering as marketing,\" \"ücretsiz tool,\" \"calculator,\" \"generator,\" \"checker,\" \"grader,\" \"marketing tool,\" \"lead gen tool,\" \"traffic için bir şey inşa et,\" \"interactive tool\" veya \"ücretsiz kaynak\" gibi ifadeler kullanıldığında kullanılır. Fikir değerlendirmesi, tool tasarımı ve launch stratejisini kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/free-tool-strategy/SKILL.md"
 path: ".gemini/skills/free-tool-strategy/SKILL.md"
 is_collection: false

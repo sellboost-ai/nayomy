@@ -4,7 +4,7 @@ description_en: "Automate Brightpearl tasks via Rube MCP (Composio). Always sear
 description_tr: "Brightpearl görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/brightpearl-automation/SKILL.md"
 path: "composio-skills/brightpearl-automation/SKILL.md"
 is_collection: false

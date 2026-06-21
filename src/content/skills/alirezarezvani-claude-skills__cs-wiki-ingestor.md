@@ -4,7 +4,7 @@ description_en: "Dispatched sub-agent that ingests a new source into an LLM Wiki
 description_tr: "Yeni bir kaynağı LLM Wiki vault'a aktaran dispatch edilen alt agent. Kaynağı okur, TL;DR ve ana iddialar önerir, hangi entity/concept/synthesis sayfalarının etkileneceğini belirler, mevcut sayfalarla çelişkileri işaretler ve — kullanıcı onayından sonra — kaynak özeti yazar, 5-15 sayfa arasında cross-reference'ları günceller, index'i yeniden oluşturur ve standartlaştırılmış log girdisi ekler."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-wiki-ingestor/SKILL.md"
 path: ".gemini/skills/cs-wiki-ingestor/SKILL.md"
 is_collection: false

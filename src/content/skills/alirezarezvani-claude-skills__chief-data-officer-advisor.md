@@ -4,7 +4,7 @@ description_en: "Chief Data Officer advisory for startups: AI training data righ
 description_tr: "Startuplar için Chief Data Officer danışmanlığı: AI eğitim verisi hakları ve onay kaynağı, veri ürün stratejisi (warehouse vs lakehouse vs mesh, build-vs-buy), B2B müşteri verisi varlık değerlemesi ve M&A hazırlığı, veri takım organizasyonu gelişimi. Müşteri verisi üzerinde modeller eğitmek, veri mimarisini seçmek, fon turları veya M&A için veri değerlemek, veri işe alımlarını planlamak gibi durumlarda kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/chief-data-officer-advisor/SKILL.md"
 path: ".gemini/skills/chief-data-officer-advisor/SKILL.md"
 is_collection: false

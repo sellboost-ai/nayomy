@@ -4,7 +4,7 @@ description_en: "Product management agent for feature prioritization, customer d
 description_tr: "Ürün önceliklendirme, müşteri keşfi, PRD geliştirme ve RICE framework'ü kullanan roadmap planlama için product management ajanı. Ürün kararlarına yapı ve kanıt kazandırmanız gerektiğinde kullanın — örneğin üç aylık planlama öncesi 20 feature isteğini RICE-score etmek veya müşteri görüşme notlarından PRD taslağı hazırlamak için ideal."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-product-manager/SKILL.md"
 path: ".gemini/skills/cs-product-manager/SKILL.md"
 is_collection: false

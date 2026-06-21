@@ -4,9 +4,9 @@ description: "A fully functional MCP server and CLI for YouTube to automate YouT
 description_tr: "YouTube işlemlerini otomatikleştirmek için tam işlevsel MCP sunucusu ve CLI."
 category: "Browser Automation"
 repo: "eat-pray-ai/yutu"
-stars: 532
+stars: 556
 url: "https://github.com/eat-pray-ai/yutu"
-body_length: 18013
+body_length: 18061
 license: "Apache-2.0"
 language: "Go"
 homepage: "https://yutu.ifor.dev"
@@ -422,8 +422,8 @@ By default, `yutu` will read `client_secret.json` and `youtube.token.json` from 
 
 | Variable           | Description                                  | Default                   |
 |--------------------|----------------------------------------------|---------------------------|
-| `YUTU_CREDENTIAL`  | Path, base64, or JSON of OAuth client secret | `client_secret.json`      |
-| `YUTU_CACHE_TOKEN` | Path, base64, or JSON of cached OAuth token  | `youtube.token.json`      |
+| `YUTU_CREDENTIAL`  | Path, Base64, or JSON of OAuth client secret | `client_secret.json`      |
+| `YUTU_CACHE_TOKEN` | Path, Base64, or JSON of cached OAuth token  | `youtube.token.json`      |
 | `YUTU_ROOT`        | Root directory for file resolution           | Current working directory |
 | `YUTU_LOG_LEVEL`   | Log level: `DEBUG`, `INFO`, `WARN`, `ERROR`  | `INFO`                    |
 
@@ -648,11 +648,11 @@ See [skills/youtube/SKILL.md](skills/youtube/SKILL.md) for the full list of supp
 
 ```shell
 ❯ yutu        
-yutu is a fully functional MCP server and CLI for YouTube, which can manipulate almost all YouTube resources.
+yutu is a CLI, MCP server, and AI agent for YouTube that can automate almost all YouTube workflows.
 
 Environment variables:
-  YUTU_CREDENTIAL    Path/base64/JSON of OAuth client secret (default: client_secret.json)
-  YUTU_CACHE_TOKEN   Path/base64/JSON of cached OAuth token (default: youtube.token.json)
+  YUTU_CREDENTIAL    Path/Base64/JSON of OAuth client secret (default: client_secret.json)
+  YUTU_CACHE_TOKEN   Path/Base64/JSON of cached OAuth token (default: youtube.token.json)
   YUTU_ROOT          Root directory for file resolution (default: current working directory)
   YUTU_LOG_LEVEL     Log level: DEBUG, INFO, WARN, ERROR (default: INFO)
 
@@ -683,6 +683,7 @@ Available Commands:
   search                 Manage YouTube search
   subscription           Manage YouTube subscriptions
   superChatEvent         Manage YouTube Super Chat events
+  thirdPartyLink         Manage YouTube third-party links
   thumbnail              Manage YouTube video thumbnails
   version                Show the version of yutu
   video                  Manage YouTube videos

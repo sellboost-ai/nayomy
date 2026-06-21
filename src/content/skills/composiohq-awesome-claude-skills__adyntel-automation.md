@@ -4,7 +4,7 @@ description_en: "Automate Adyntel tasks via Rube MCP (Composio). Always search t
 description_tr: "Rube MCP (Composio) aracılığıyla Adyntel görevlerini otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/adyntel-automation/SKILL.md"
 path: "composio-skills/adyntel-automation/SKILL.md"
 is_collection: false

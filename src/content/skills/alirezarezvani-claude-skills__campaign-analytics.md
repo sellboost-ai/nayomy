@@ -4,7 +4,7 @@ description_en: "Analyzes campaign performance with multi-touch attribution, fun
 description_tr: "Çok dokunuşlu attribution, funnel dönüşüm analizi ve ROI hesaplaması ile kampanya performansını analiz eder ve pazarlama optimizasyonu sağlar. Pazarlama kampanyaları, reklam performansı, attribution modelleri, dönüşüm oranları analiz etmek veya kanallar arası pazarlama ROI, ROAS, CPA ve kampanya metriklerini hesaplamak için kullanılır."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/campaign-analytics/SKILL.md"
 path: ".gemini/skills/campaign-analytics/SKILL.md"
 is_collection: false

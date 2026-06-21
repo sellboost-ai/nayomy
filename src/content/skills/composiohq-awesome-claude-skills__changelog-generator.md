@@ -4,7 +4,7 @@ description_en: "Automatically creates user-facing changelogs from git commits b
 description_tr: "Git commit geçmişini analiz ederek, değişiklikleri kategorize ederek ve teknik commitleri müşteri dostu release notlarına dönüştürerek otomatik olarak changelog oluşturur. Saatler süren manuel changelog yazımını dakikalar içinde tamamlanan otomasyona çevirir."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/changelog-generator/SKILL.md"
 path: "changelog-generator/SKILL.md"
 is_collection: false

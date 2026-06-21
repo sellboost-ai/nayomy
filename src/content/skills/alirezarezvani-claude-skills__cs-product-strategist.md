@@ -4,7 +4,7 @@ description_en: "Product strategy agent for quarterly OKR planning, competitive 
 description_tr: "Üç aylık OKR planlaması, rekabet analizi, ürün vizyonu geliştirme ve strateji pivot değerlendirmesi için tasarlanmış ürün stratejisi ajanı. Sorunun operasyonel detaylardan ziyade yön belirleme ile ilgili olduğu durumlarda kullanın — örneğin şirket OKR'lerini ürün takımının sonraki çeyrek hedeflerine dönüştürmek veya yeni bir pazar segmentine girmek için rekabet analizi yapmak."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-product-strategist/SKILL.md"
 path: ".gemini/skills/cs-product-strategist/SKILL.md"
 is_collection: false

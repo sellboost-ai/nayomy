@@ -4,7 +4,7 @@ description: "Analyzes your codebase identifying important files based on depend
 description_tr: "Kodbase'inizi analiz ederek bağımlılık ilişkilerine göre önemli dosyaları tanımlar. Diyagramlar ve önem puanları oluşturarak AI asistanlarının kodbase'i anlamasına yardımcı olur."
 category: "Developer Tools"
 repo: "admica/FileScopeMCP"
-stars: 293
+stars: 294
 url: "https://github.com/admica/FileScopeMCP"
 body_length: 10553
 license: "NOASSERTION"

@@ -4,9 +4,9 @@ description: "Complete voice interaction server supporting speech-to-text, text-
 description_tr: "Konuşmayı metne, metni konuşmaya dönüştüren ve yerel mikrofon, OpenAI-compatible API'ler ile LiveKit entegrasyonu üzerinden gerçek zamanlı sesli sohbetleri destekleyen eksiksiz bir voice interaction sunucusu."
 category: "Text-to-Speech"
 repo: "mbailey/voicemode"
-stars: 1232
+stars: 1234
 url: "https://github.com/mbailey/voicemode"
-body_length: 6045
+body_length: 6039
 license: "MIT"
 language: "Python"
 homepage: "https://voicemode.dev"
@@ -446,7 +446,7 @@ Full documentation: [voicemode.dev](https://voicemode.dev)
 
 ## Links
 
-- **Website**: [getvoicemode.com](https://getvoicemode.com)
+- **Website**: [voicemode.dev](https://voicemode.dev)
 - **GitHub**: [github.com/mbailey/voicemode](https://github.com/mbailey/voicemode)
 - **PyPI**: [pypi.org/project/voice-mode](https://pypi.org/project/voice-mode/)
 - **YouTube**: [@getvoicemode](https://youtube.com/@getvoicemode)

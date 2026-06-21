@@ -4,7 +4,7 @@ description_en: "Strategic leadership advisor for CEOs covering vision, strategy
 description_tr: "CEO ve kurucular için stratejik liderlik danışmanı; vizyon, strateji, yönetim kurulu yönetimi, yatırımcı ilişkileri ve örgütsel kültür konularında rehberlik sağlar. Şirket düzeyinde stratejik karar alınması gereken durumlarda kullanın — örneğin, üç aylık board toplantısı için anlatı ve metrikleri hazırlamak, ya da bir pivot ya da pazar genişletme kararını vizyon, finansal kapasite ve paydaş beklentilerine karşı test etmek için."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-ceo-advisor/SKILL.md"
 path: ".gemini/skills/cs-ceo-advisor/SKILL.md"
 is_collection: false

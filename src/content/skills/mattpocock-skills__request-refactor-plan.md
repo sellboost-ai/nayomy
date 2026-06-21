@@ -4,7 +4,7 @@ description_en: "Create a detailed refactor plan with tiny commits via user inte
 description_tr: "Kullanıcı görüşmesi yoluyla ayrıntılı bir refactor planı oluşturun, küçük commitlerle düzenleyin ve GitHub issue olarak kaydettirin. Refactor planlaması, refactoring RFC oluşturma veya refactorı güvenli adımlara bölme gerektiğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/deprecated/request-refactor-plan/SKILL.md"
 path: "skills/deprecated/request-refactor-plan/SKILL.md"
 is_collection: false

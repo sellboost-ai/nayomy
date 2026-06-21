@@ -4,7 +4,7 @@ description_en: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any
 description_tr: "/cs:cfo-review <plan> — Herhangi bir parasal karara karşı kapsamlı finansal inceleme. Unit economics, runway, dilution ve capital allocation gibi faktörleri değerlendirir. Önemli harcama içeren planlar için kullanın — örneğin işe alım dalgası, fundraise kararı veya yeni channel bütçesi."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cfo-review/SKILL.md"
 path: ".gemini/skills/cfo-review/SKILL.md"
 is_collection: false

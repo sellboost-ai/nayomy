@@ -4,7 +4,7 @@ description: "Chroma MCP server to access local and cloud Chroma instances for r
 description_tr: "Yerel ve bulut Chroma örneklerine erişim sağlayan Chroma MCP sunucusu, retrieval yetenekleriyle verileri sorgulamanızı mümkün kılar."
 category: "Databases"
 repo: "chroma-core/chroma-mcp"
-stars: 566
+stars: 568
 url: "https://github.com/chroma-core/chroma-mcp"
 body_length: 8049
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ description_en: "Financial leadership for startups and scaling companies. Financ
 description_tr: "Startuplar ve hızlı büyüyen şirketler için finansal liderlik. Financial modeling, unit economics, fundraising strategy, cash management ve board financial packages sunuyor. Financial model oluştururken, unit economics analiz ederken, fundraising planlama, cash runway yönetimi, board materyalleri hazırlama ya da CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheet gibi finansal konularla karşılaştığında kullan."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cfo-advisor/SKILL.md"
 path: ".gemini/skills/cfo-advisor/SKILL.md"
 is_collection: false

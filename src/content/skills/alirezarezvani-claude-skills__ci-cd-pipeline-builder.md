@@ -4,7 +4,7 @@ description_en: "Generate pragmatic CI/CD pipelines from detected project stack 
 description_tr: "Proje stack sinyallerinden pragmatik CI/CD pipeline'ları otomatik olarak oluşturun — hızlı temel kurulum, tekrarlanabilir kontroller ve ortam bilincine sahip deployment aşamaları. Yeni projelerde CI kurulumu, mevcut pipeline'ları refaktoring etme veya birden fazla repo'da deployment iş akışlarını standartlaştırırken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ci-cd-pipeline-builder/SKILL.md"
 path: ".gemini/skills/ci-cd-pipeline-builder/SKILL.md"
 is_collection: false

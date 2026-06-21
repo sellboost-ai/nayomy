@@ -4,7 +4,7 @@ description_en: "Applies Anthropic's official brand colors and typography to any
 description_tr: "Anthropic'in resmi marka renklerini ve tipografisini, Anthropic'in görünüş ve hissiyatından faydalanabilecek her türlü artifact'a uygular. Marka renkleri, stil kılavuzları, görsel biçimlendirme veya şirket tasarım standartlarının geçerli olduğu durumlarda kullanın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/brand-guidelines/SKILL.md"
 path: "brand-guidelines/SKILL.md"
 is_collection: false

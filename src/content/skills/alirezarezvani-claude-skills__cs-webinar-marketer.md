@@ -4,7 +4,7 @@ description_en: "Webinar & virtual-event marketing specialist agent. Use when pl
 description_tr: "Webinar ve sanal etkinlik pazarlaması için özel ajan. Webinar, sanal etkinlik, canlı demo, workshop, masterclass, fireside chat veya sanal summit planlama, tanıtım, yürütme veya kurtarma aşamalarında kullanın. Webinar pazarlama becerilerini yönetir — işletme hedefinden geriye doğru huniye boyutlandırır, tanıtım stratejisini oluşturur, katılım ve canlı-satışa kapatma dizilerini tasarlar, mevcut huniye puanlar ve optimizasyon önerileri sağlar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-webinar-marketer/SKILL.md"
 path: ".gemini/skills/cs-webinar-marketer/SKILL.md"
 is_collection: false

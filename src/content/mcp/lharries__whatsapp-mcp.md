@@ -4,7 +4,7 @@ description: "An MCP server for searching your personal WhatsApp messages, conta
 description_tr: "WhatsApp mesajlarınızda arama yapmanızı, kişilerinizi görüntülemenizi ve bireysel ya da grup sohbetlerine mesaj göndermenizi sağlayan bir MCP sunucusu."
 category: "Communication"
 repo: "lharries/whatsapp-mcp"
-stars: 5812
+stars: 5811
 url: "https://github.com/lharries/whatsapp-mcp"
 body_length: 9023
 license: "MIT"

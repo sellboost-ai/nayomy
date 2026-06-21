@@ -4,7 +4,7 @@ description: "Provides up-to-date documentation context for a specific Rust crat
 description_tr: "Belirli bir Rust crate'inin güncel dokümantasyon bağlamını LLM'lere MCP aracı ile semantic search (embeddings) ve LLM özeti kullanarak sağlar."
 category: "Developer Tools"
 repo: "Govcraft/rust-docs-mcp-server"
-stars: 281
+stars: 282
 url: "https://github.com/Govcraft/rust-docs-mcp-server"
 body_length: 14059
 license: "MIT"

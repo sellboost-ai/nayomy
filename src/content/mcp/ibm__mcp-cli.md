@@ -4,7 +4,7 @@ description: "Yet another CLI tool for testing MCP servers"
 description_tr: "MCP sunucularını test etmek için bir CLI aracı."
 category: "Other Tools and Integrations"
 repo: "IBM/mcp-cli"
-stars: 1993
+stars: 1994
 url: "https://github.com/IBM/mcp-cli"
 body_length: 60750
 license: "Apache-2.0"

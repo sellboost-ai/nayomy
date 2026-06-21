@@ -4,7 +4,7 @@ description: "A unified Model Context Protocol server implementation that aggreg
 description_tr: "Birden fazla MCP sunucusunu tek bir sunucuda toparlayan, birleşik bir Model Context Protocol sunucu uygulaması."
 category: "Aggregators"
 repo: "1mcp-app/agent"
-stars: 457
+stars: 458
 url: "https://github.com/1mcp-app/agent"
 body_length: 7778
 license: "Apache-2.0"

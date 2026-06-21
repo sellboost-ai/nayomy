@@ -4,7 +4,7 @@ description_en: "When the user wants to create competitor comparison or alternat
 description_tr: "Kullanıcı SEO ve satış için rakip karşılaştırması veya alternatif sayfalar oluşturmak istediğinde kullanılır. \"Alternatif sayfa\", \"vs sayfası\", \"rakip karşılaştırması\", \"karşılaştırma sayfası\", \"[Ürün] vs [Ürün]\", \"[Ürün] alternatifi\", \"rekabetçi landing page'ler\", \"rakipten geçiş\" veya \"karşılaştırma içeriği\" gibi terimler kullanıldığında da geçerlidir. Dört farklı formatı kapsar: tekil alternatif, çoklu alternatif..."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/competitor-alternatives/SKILL.md"
 path: ".gemini/skills/competitor-alternatives/SKILL.md"
 is_collection: false

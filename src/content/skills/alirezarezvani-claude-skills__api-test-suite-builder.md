@@ -4,7 +4,7 @@ description_en: "Use when the user asks to generate API tests, create integratio
 description_tr: "Kullanıcı API testleri oluşturmak, integration test setleri hazırlamak, REST endpoint'leri test etmek veya contract testleri geliştirmek istediğinde kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/api-test-suite-builder/SKILL.md"
 path: ".gemini/skills/api-test-suite-builder/SKILL.md"
 is_collection: false

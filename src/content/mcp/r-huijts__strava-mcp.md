@@ -4,7 +4,7 @@ description: "A Model Context Protocol (MCP) server that connects to Strava API,
 description_tr: "Strava API'ye bağlanan ve LLM'ler aracılığıyla Strava verilerine erişim sağlayan bir Model Context Protocol (MCP) sunucusu."
 category: "Sports"
 repo: "r-huijts/strava-mcp"
-stars: 442
+stars: 445
 url: "https://github.com/r-huijts/strava-mcp"
 body_length: 11921
 license: "MIT"

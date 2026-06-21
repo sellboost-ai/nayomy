@@ -4,7 +4,7 @@ description_en: "Chief Customer Officer advisory for startups: retention decompo
 description_tr: "Startuplar için müşteri saklama stratejisi danışmanlığı: gross retention ve NRR analizi, müşteri segmentasyonu (katmanlara göre farklılaştırılmış yatırım ve ICP skoru), CS takım modelleri (pooled vs named CSM eşikleri), ve CS örgütsel yapı evrimini (CS, Support, AM ayrımları) kapsayan toolkit. Saklama stratejinizi tasarlarken ve müşteri segmentasyonunda kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/chief-customer-officer-advisor/SKILL.md"
 path: ".gemini/skills/chief-customer-officer-advisor/SKILL.md"
 is_collection: false

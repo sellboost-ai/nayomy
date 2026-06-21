@@ -4,7 +4,7 @@ description: "browser-use packaged as an MCP server with SSE transport. includes
 description_tr: "browser-use'ı MCP server olarak paketlenmiş hali; SSE transport ile çalışır. Chromium'u Docker'da çalıştırmak için Dockerfile ve bir VNC sunucusu içerir."
 category: "Browser Automation"
 repo: "kontext-dev/browser-use-mcp-server"
-stars: 822
+stars: 823
 url: "https://github.com/kontext-dev/browser-use-mcp-server"
 body_length: 6281
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "Automate Auth0 tasks via Rube MCP (Composio). Always search too
 description_tr: "Auth0 görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/auth0-automation/SKILL.md"
 path: "composio-skills/auth0-automation/SKILL.md"
 is_collection: false

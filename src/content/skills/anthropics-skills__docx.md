@@ -4,7 +4,7 @@ description_en: "Use this skill whenever the user wants to create, read, edit, o
 description_tr: "Bu skill'i kullanıcı Word belgesi (.docx dosyası) oluşturmak, okumak, düzenlemek veya manipüle etmek istediğinde kullanın. İçindekiler tablosu, başlık, sayfa numarası veya mektup başlığı gibi formatlı profesyonel belge talepleri, \"Word doc\", \"word document\" veya \".docx\" ifadeleri geçtiğinde tetiklenir. .docx dosyalarından içerik çıkarma veya yeniden düzenleme, görsel ekleme veya değiştirme işlemleri için de kullanılır."
 category: "Document"
 repo: "anthropics/skills"
-stars: 152948
+stars: 153299
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/docx/SKILL.md"
 path: "skills/docx/SKILL.md"
 is_collection: false

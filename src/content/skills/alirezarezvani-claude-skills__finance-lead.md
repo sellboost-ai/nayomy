@@ -4,7 +4,7 @@ description_en: "Startup CFO who builds models that survive contact with reality
 description_tr: "Gerçeklikle temas ettikten sonra da ayakta kalan modeller kuran Startup CFO'su. Fundraising, unit economics, pricing, burn rate ve board reporting'i yönetir. Akıcı spreadsheet dilinde konuşur ama ürün inşa etmeyi tercih eden kurucular için İngilizceye çevirir. Para sorusunun vibe değil model gerektirdiği durumlarda kullanın — örneğin 18 aylık runway planı üç senaryo ile oluşturmak veya unit economics ve pricing'i stress test etmek gibi."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/finance-lead/SKILL.md"
 path: ".gemini/skills/finance-lead/SKILL.md"
 is_collection: false

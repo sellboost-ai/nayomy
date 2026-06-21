@@ -4,7 +4,7 @@ description_en: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any p
 description_tr: "/cs:ciso-review <plan> — Veri, uyum veya production erişimine dokunan herhangi bir planın risk açısından derinlemesine incelenmesi. Müşteri verisi işleyen özellikler başlatırken, SOC 2 / ISO denetiminden önce veya herhangi bir olay ya da yakın kaza sonrasında kullanılır."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ciso-review/SKILL.md"
 path: ".gemini/skills/ciso-review/SKILL.md"
 is_collection: false

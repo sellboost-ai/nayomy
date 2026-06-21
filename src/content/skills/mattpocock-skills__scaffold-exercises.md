@@ -4,7 +4,7 @@ description_en: "Create exercise directory structures with sections, problems, s
 description_tr: "Bölümler, problemler, çözümler ve açıklamalardan oluşan egzersiz dizin yapılarını oluşturun ve linting kontrolünden geçirin. Kullanıcı egzersiz scaffold'lamak, egzersiz şablonları oluşturmak veya yeni bir kurs bölümü kurmak istediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/misc/scaffold-exercises/SKILL.md"
 path: "skills/misc/scaffold-exercises/SKILL.md"
 is_collection: false

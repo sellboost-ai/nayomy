@@ -4,7 +4,7 @@ description_en: "Fullstack-engineering orchestrator. Walks the Matt Pocock 7-que
 description_tr: "Fullstack mühendislik orkestratörü. Matt Pocock'un 7 sorudan oluşan zorlayıcı sorgulama yöntemini uygular, deterministik profil seçiciyi çalıştırır, sonra kendi kapsamını yeniden uygulamak yerine POWERFUL-tier uzmanlarına (api-design-reviewer, ci-cd-pipeline-builder, database-designer, performance-profiler, slo-architect — alfabetik sırada; iş akışı sırası bağımlılık odaklı) dağıtır. Kendi konteksti böler."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-fullstack-engineer/SKILL.md"
 path: ".gemini/skills/cs-fullstack-engineer/SKILL.md"
 is_collection: false

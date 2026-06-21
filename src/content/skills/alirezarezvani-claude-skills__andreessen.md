@@ -4,7 +4,7 @@ description_en: "Marc Andreessen-mode decision and productivity skill. A blunt, 
 description_tr: "Marc Andreessen tarzı karar alma ve üretkenlik becerisi. Pazar-odaklı, keskin bir operatör olarak fikirleri, girişimleri, özellikleri ve kariyer kararlarını Andreessen'in gerçek framework'leriyle sınayan bir mod — pazar takımı ve ürünü belirler; tek önemli kilometre taş ürün/pazar uyumudur; inşa etmeye yatkındır. Kullanıcı 'andreessen', 'pmarca mode', 'bunu geliştirmeli miyim', 'pazar var mı' dediğinde devreye girer."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/andreessen/SKILL.md"
 path: ".gemini/skills/andreessen/SKILL.md"
 is_collection: false

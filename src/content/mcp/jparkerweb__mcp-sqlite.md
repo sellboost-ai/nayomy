@@ -4,7 +4,7 @@ description: "Model Context Protocol (MCP) server that provides comprehensive SQ
 description_tr: "SQLite veritabanı işlemleri için kapsamlı yetenekler sunan Model Context Protocol (MCP) sunucusu."
 category: "Databases"
 repo: "jparkerweb/mcp-sqlite"
-stars: 110
+stars: 111
 url: "https://github.com/jparkerweb/mcp-sqlite"
 body_length: 4963
 license: "MIT"

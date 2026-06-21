@@ -4,7 +4,7 @@ description: "gitmcp.io is a generic remote MCP server to connect to ANY GitHub 
 description_tr: "gitmcp.io, herhangi bir GitHub repository veya projeye bağlanıp belgelendirme yapabilen genel amaçlı bir remote MCP server'ıdır."
 category: "Developer Tools"
 repo: "idosal/git-mcp"
-stars: 8185
+stars: 8193
 url: "https://github.com/idosal/git-mcp"
 body_length: 15830
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ description: "An MCP server paired with a browser extension that enables LLM cli
 description_tr: "Firefox tarayıcısını kontrol etmek için LLM istemcilerini güçlendiren bir MCP sunucusu ve tarayıcı uzantısından oluşan araç."
 category: "Browser Automation"
 repo: "eyalzh/browser-control-mcp"
-stars: 294
+stars: 295
 url: "https://github.com/eyalzh/browser-control-mcp"
 body_length: 6493
 license: "MIT"

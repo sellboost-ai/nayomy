@@ -4,7 +4,7 @@ description_en: ">- Generate Playwright tests. Use when user says \"write tests\
 description_tr: "Playwright testleri oluşturun. Kullanıcı \"test yaz\", \"test oluştur\", \"için test ekle\", \"bu component'i test et\", \"e2e test\", \"test oluştur\", \"bu sayfayı test et\" veya \"bu özelliği test et\" dediğinde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/generate/SKILL.md"
 path: ".gemini/skills/generate/SKILL.md"
 is_collection: false

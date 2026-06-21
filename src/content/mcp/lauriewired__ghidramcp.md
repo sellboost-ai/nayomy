@@ -4,7 +4,7 @@ description: "A Model Context Protocol server for Ghidra that enables LLMs to au
 description_tr: "Ghidra için bir Model Context Protocol sunucusu olup LLM'lerin uygulamaları özerk şekilde ters mühendislik yapmasını sağlar. Binary dosyaları derlemesini açma, metod ve veri adlandırma, metod/sınıf/import/export listeleme araçlarını sunar."
 category: "Security"
 repo: "LaurieWired/GhidraMCP"
-stars: 9300
+stars: 9304
 url: "https://github.com/LaurieWired/GhidraMCP"
 body_length: 4873
 license: "Apache-2.0"

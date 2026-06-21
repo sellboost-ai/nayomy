@@ -4,7 +4,7 @@ description_en: "Build, measure, and evolve company culture as operational behav
 description_tr: "Şirket kültürünü operasyonel davranış olarak inşa edin, ölçün ve geliştirin — sadece duvar afişleri değil. Misyon/vizyon/değerler atölyelerini, değerlerden davranışlara çeviriyi, kültür kodu oluşturmayı, kültür sağlığı değerlendirmesini ve aşamaya göre kültürel ritüelleri kapsar. Şirket değerleri oluştururken, kültür sağlığını değerlendirirken, kültürel ritüeller tasarlarken, kültür kodları oluştururken ve kültür çatışmalarıyla karşılaşırken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/culture-architect/SKILL.md"
 path: ".gemini/skills/culture-architect/SKILL.md"
 is_collection: false

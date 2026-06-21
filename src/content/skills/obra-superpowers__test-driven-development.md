@@ -4,7 +4,7 @@ description_en: "Use when implementing any feature or bugfix, before writing imp
 description_tr: "Herhangi bir feature ya da bugfix uygulamaya başlamadan önce kullanın."
 category: "Development"
 repo: "obra/superpowers"
-stars: 233596
+stars: 234469
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/test-driven-development/SKILL.md"
 path: "skills/test-driven-development/SKILL.md"
 is_collection: false

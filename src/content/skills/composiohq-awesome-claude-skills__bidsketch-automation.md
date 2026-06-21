@@ -4,7 +4,7 @@ description_en: "Automate Bidsketch tasks via Rube MCP (Composio). Always search
 description_tr: "Bidsketch görevlerini Rube MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/bidsketch-automation/SKILL.md"
 path: "composio-skills/bidsketch-automation/SKILL.md"
 is_collection: false

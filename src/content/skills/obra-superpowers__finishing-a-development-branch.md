@@ -4,7 +4,7 @@ description_en: "Use when implementation is complete, all tests pass, and you ne
 description_tr: "Uygulama tamamlandığında, tüm testler geçtiğinde ve çalışmanızı nasıl entegre edeceğinize karar vermeniz gerektiğinde kullanın - merge, PR veya cleanup seçeneklerini sunarak geliştirme sürecinin tamamlanmasını rehberlik eder."
 category: "Design"
 repo: "obra/superpowers"
-stars: 233596
+stars: 234469
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/finishing-a-development-branch/SKILL.md"
 path: "skills/finishing-a-development-branch/SKILL.md"
 is_collection: false

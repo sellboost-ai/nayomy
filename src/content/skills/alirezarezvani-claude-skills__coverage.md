@@ -4,7 +4,7 @@ description_en: ">- Analyze test coverage gaps. Use when user says \"test covera
 description_tr: "Test kapsamı boşluklarını analiz edin. \"test coverage\", \"hangisi test edilmemiş\", \"coverage boşlukları\", \"eksik testler\", \"coverage raporu\" veya \"neyin test edilmesi gerekiyor\" gibi ifadeler kullanıldığında kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/coverage/SKILL.md"
 path: ".gemini/skills/coverage/SKILL.md"
 is_collection: false

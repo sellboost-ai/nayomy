@@ -4,7 +4,7 @@ description_en: "When the user wants to plan, design, or implement an A/B test o
 description_tr: "Kullanıcı A/B test, split test, experiment veya hipotez tasarlamak, planlamak ya da uygulamak istediğinde kullanılır. Ayrıca \"test this change,\" \"variant copy,\" \"multivariate test,\" \"conversion experiment,\" \"statistical significance\" gibi ifadeler geçtiğinde de geçerlidir. İmplementasyon takibi için analytics-tracking bölümüne bakınız."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ab-test-setup/SKILL.md"
 path: ".gemini/skills/ab-test-setup/SKILL.md"
 is_collection: false

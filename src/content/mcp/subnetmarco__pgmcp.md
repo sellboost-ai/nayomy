@@ -4,7 +4,7 @@ description: "Natural language PostgreSQL queries with automatic streaming, read
 description_tr: "PostgreSQL sorgularını doğal dille yazın, otomatik streaming ve salt-okunur güvenlik ile tüm veritabanları desteklenir."
 category: "Databases"
 repo: "subnetmarco/pgmcp"
-stars: 536
+stars: 535
 url: "https://github.com/subnetmarco/pgmcp"
 body_length: 9684
 license: "NOASSERTION"

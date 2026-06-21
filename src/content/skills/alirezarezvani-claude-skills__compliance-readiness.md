@@ -4,7 +4,7 @@ description_en: "/cs:compliance-readiness <program> — Multi-framework complian
 description_tr: "/cs:compliance-readiness <program> — Herhangi bir compliance programını 6 sorulu zorlayıcı sorgulama yöntemiyle değerlendiren multi-framework compliance aracı. Yeni bir framework başlamadan önce, yıllık audit takvimini planlarken veya sertifikasyon aşama 1'e hazırlanırken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/compliance-readiness/SKILL.md"
 path: ".gemini/skills/compliance-readiness/SKILL.md"
 is_collection: false

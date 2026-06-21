@@ -4,7 +4,7 @@ description_en: "Interactive QA session where user reports bugs or issues conver
 description_tr: "Kullanıcının sorun ve hataları konuşarak bildirebildiği, aracının GitHub issue açtığı interaktif QA oturumu. Arka planda codebase'i inceleyerek bağlam ve domain dilini öğrenir. Kullanıcı hata bildirmek, QA yapmak, konuşarak issue açmak istediğinde veya \"QA session\" dediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/deprecated/qa/SKILL.md"
 path: "skills/deprecated/qa/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Review the changes since a fixed point (commit, branch, tag, or
 description_tr: "Sabit bir noktadan (commit, branch, tag veya merge-base) itibaren değişiklikleri iki eksende inceleyebilirsiniz — Standards (kod bu repo'nun belgelenen kodlama standartlarını takip ediyor mu?) ve Spec (kod orijinal issue/PRD'nin istediğiyle eşleşiyor mu?). Her iki incelemeyi parallel alt-ajanlar ile çalıştırıp yan yana raporlar. Kullanıcı bir branch'i, PR'yi, yapım aşamasındaki değişiklikleri incelemek veya kontrol etmek istediğinde kullanın."
 category: "Document"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/in-progress/review/SKILL.md"
 path: "skills/in-progress/review/SKILL.md"
 is_collection: false

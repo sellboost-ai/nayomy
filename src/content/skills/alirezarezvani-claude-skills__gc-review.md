@@ -4,7 +4,7 @@ description_en: "/cs:gc-review <plan> — General Counsel interrogation of contr
 description_tr: "/cs:gc-review <plan> — Sözleşmeler, fikri mülkiyet, düzenleyici hükümler, şart sayfaları ve işçi hukuku konularında Genel Hukuk Müşaviri görüşü. Bir şart sayfasını imzalamadan önce gözden geçirmek, müşteri MSA'sında düzeltmeler yapmak veya yeni bir ürünün fikri mülkiyet ve düzenleyici risklerini kontrol etmek için kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/gc-review/SKILL.md"
 path: ".gemini/skills/gc-review/SKILL.md"
 is_collection: false

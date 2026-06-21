@@ -4,9 +4,9 @@ description: "Memory manager for AI apps and Agents using various graph and vect
 description_tr: "AI uygulamaları ve Ajanlar için bellek yöneticisi, çeşitli graph ve vector store'ları destekler ve 30+ veri kaynağından veri alımına olanak tanır."
 category: "Knowledge & Memory"
 repo: "topoteretes/cognee"
-stars: 17918
+stars: 18350
 url: "https://github.com/topoteretes/cognee"
-body_length: 12529
+body_length: 12787
 license: "Apache-2.0"
 language: "Python"
 homepage: "https://www.cognee.ai"
@@ -494,6 +494,10 @@ To open the local UI, run:
 ```bash
 cognee-cli -ui
 ```
+
+> **Note:** The MCP server launched by `cognee-cli -ui` runs inside a Docker container.
+> Docker Desktop, Colima, or any OCI-compatible runtime with a working `docker` CLI is
+> required. See [Docker & Colima Setup](docs/docker-colima-setup.md) for details.
 
 ## Use with AI Agents
 

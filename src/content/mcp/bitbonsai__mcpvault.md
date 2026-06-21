@@ -4,7 +4,7 @@ description: "Universal AI bridge for Obsidian vaults using MCP. Provides safe r
 description_tr: "Obsidian vault'larınız için evrensel bir AI köprüsü sunan MCP tabanlı araç. Notlarınıza güvenli okuma/yazma erişimi sağlar ve arama, toplu işlemler, etiket yönetimi ile frontmatter işleme gibi 11 kapsamlı işlem sunur. Claude, ChatGPT ve tüm MCP uyumlu AI asistanlarıyla çalışır."
 category: "Knowledge & Memory"
 repo: "bitbonsai/mcpvault"
-stars: 1438
+stars: 1442
 url: "https://github.com/bitbonsai/mcpvault"
 body_length: 25359
 license: "MIT"

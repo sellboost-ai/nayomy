@@ -4,7 +4,7 @@ description_en: "Atlassian Administrator for managing and organizing Atlassian p
 description_tr: "Atlassian ürünlerini (Jira, Confluence, Bitbucket, Trello) yönetmek, kullanıcıları düzenlemek, izinleri kontrol etmek, güvenliği sağlamak, integrationları kurmak ve sistem konfigürasyonunu yapmak için Atlassian Administrator aracı. Jira'ya kullanıcı ekleme, Confluence izinlerini değiştirme, erişim kontrolü yapılandırma, SSO kurma ve marketplace uygulamaları yükleme gibi işlemler için kullanılır."
 category: "Integration"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/atlassian-admin/SKILL.md"
 path: ".gemini/skills/atlassian-admin/SKILL.md"
 is_collection: false

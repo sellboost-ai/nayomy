@@ -4,7 +4,7 @@ description_en: "Move issues and external PRs through a state machine of triage 
 description_tr: "Triage rollerine dayalı bir state machine ile sorunları yönetin. Kullanıcı yeni issue oluşturmak, issue'ları triajlamak, gelen hataları veya feature isteklerini incelemek, issue'ları AFK agent için hazırlamak veya issue workflow'unu yönetmek istediğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/triage/SKILL.md"
 path: "skills/engineering/triage/SKILL.md"
 is_collection: false

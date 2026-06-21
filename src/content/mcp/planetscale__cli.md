@@ -4,7 +4,7 @@ description: "The CLI for PlanetScale Database."
 description_tr: "PlanetScale Database için CLI aracı."
 category: "Databases"
 repo: "planetscale/cli"
-stars: 652
+stars: 655
 url: "https://github.com/planetscale/cli"
 body_length: 4040
 license: "Apache-2.0"

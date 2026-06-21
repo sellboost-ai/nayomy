@@ -4,7 +4,7 @@ description_en: "Automate Amazon tasks via Rube MCP (Composio). Always search to
 description_tr: "Amazon görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/amazon-automation/SKILL.md"
 path: "composio-skills/amazon-automation/SKILL.md"
 is_collection: false

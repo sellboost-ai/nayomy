@@ -4,7 +4,7 @@ description: "AWS MCP servers for seamless integration with AWS services and res
 description_tr: "AWS MCP sunucuları, AWS hizmetleri ve kaynaklarıyla sorunsuz entegrasyon için tasarlanmıştır."
 category: "Cloud Platforms"
 repo: "awslabs/mcp"
-stars: 9302
+stars: 9305
 url: "https://github.com/awslabs/mcp"
 body_length: 199161
 license: "Apache-2.0"

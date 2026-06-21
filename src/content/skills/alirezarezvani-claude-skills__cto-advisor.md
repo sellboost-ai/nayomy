@@ -4,7 +4,7 @@ description_en: "Technical leadership guidance for engineering teams, architectu
 description_tr: "Mühendislik takımları için teknik liderlik rehberliği, mimari kararlar ve teknoloji stratejisi. Teknik borcu değerlendirirken, mühendislik takımlarını ölçeklerken, teknolojileri değerlendirirken, mimari kararlar alırken, mühendislik metriklerini oluştururken veya kullanıcı CTO, teknik borç, takım ölçeklendirmesi, mimari kararlar, teknoloji değerlendirmesi, mühendislik metrikleri, DORA metrikleri gibi konulardan bahsettiğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cto-advisor/SKILL.md"
 path: ".gemini/skills/cto-advisor/SKILL.md"
 is_collection: false

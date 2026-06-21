@@ -4,7 +4,7 @@ description_en: "Use when starting any conversation - establishes how to find an
 description_tr: "Herhangi bir konuşma başlatırken kullanın - skill'lerin nasıl bulunacağını ve kullanılacağını belirler, clarification soruları da dahil olmak üzere HERHANGİ bir yanıt vermeden önce skill invocation gerektirir."
 category: "Design"
 repo: "obra/superpowers"
-stars: 233596
+stars: 234469
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/using-superpowers/SKILL.md"
 path: "skills/using-superpowers/SKILL.md"
 is_collection: false

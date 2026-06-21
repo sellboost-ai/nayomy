@@ -4,7 +4,7 @@ description: "MCP Server for Unity Editor and for a game made with Unity"
 description_tr: "Unity Editor ve Unity ile yapılan oyunlar için MCP Server"
 category: "Gaming"
 repo: "IvanMurzak/Unity-MCP"
-stars: 3231
+stars: 3235
 url: "https://github.com/IvanMurzak/Unity-MCP"
 body_length: 48735
 license: "Apache-2.0"

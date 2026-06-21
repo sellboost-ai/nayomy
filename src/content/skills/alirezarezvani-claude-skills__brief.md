@@ -4,7 +4,7 @@ description_en: "/cs:brief <topic> — Generate a one-page strategy brief from a
 description_tr: "/cs:brief <topic> — Ofis saatleri görüşmesinden tek sayfalık bir strateji özeti oluştur. Stratejik sprint pipeline'ının ilk adımı. Bir stratejik sorunun yönetim kurulu tartışmasından önce çerçevelenmesi gerektiğinde kullan — örneğin fiyatlandırma değişikliği veya pazar giriş kararı için seçenekleri, varsayımları ve başarı kriterlerini belirlemek için."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/brief/SKILL.md"
 path: ".gemini/skills/brief/SKILL.md"
 is_collection: false

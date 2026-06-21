@@ -4,7 +4,7 @@ description_en: "Design AWS architectures for startups using serverless patterns
 description_tr: "Sunucusuz mimarileri ve IaC şablonlarını kullanarak startuplar için AWS mimarileri tasarlayın. Serverless mimari tasarımı, CloudFormation şablonları oluşturma, AWS maliyetlerini optimize etme, CI/CD pipeline kurma veya AWS'ye geçiş yapma işlemlerinde kullanılır. Lambda, API Gateway, DynamoDB, ECS, Aurora ve maliyet optimizasyonunu kapsar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/aws-solution-architect/SKILL.md"
 path: ".gemini/skills/aws-solution-architect/SKILL.md"
 is_collection: false

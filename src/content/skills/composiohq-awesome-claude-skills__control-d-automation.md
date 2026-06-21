@@ -4,7 +4,7 @@ description_en: "Automate Control D tasks via Rube MCP (Composio). Always search
 description_tr: "Control D görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemaları için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/control-d-automation/SKILL.md"
 path: "composio-skills/control-d-automation/SKILL.md"
 is_collection: false

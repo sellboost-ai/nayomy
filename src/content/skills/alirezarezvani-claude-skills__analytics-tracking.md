@@ -4,7 +4,7 @@ description_en: "Set up, audit, and debug analytics tracking implementation — 
 description_tr: "GA4, Google Tag Manager, event taxonomy ve conversion tracking gibi analytics uygulamalarını kurup, denetleyip debug edin. Sıfırdan tracking plan oluştururken, mevcut analytics'i boşluklar ve hatalar açısından denetlerken, eksik eventleri debug ederken veya GTM kurulumu yaparken kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/analytics-tracking/SKILL.md"
 path: ".gemini/skills/analytics-tracking/SKILL.md"
 is_collection: false

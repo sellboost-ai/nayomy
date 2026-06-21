@@ -4,7 +4,7 @@ description: "Allow AI agents to scan code for security vulnerabilites using Sem
 description_tr: "AI ajanlarının Semgrep kullanarak kodda güvenlik açıklarını taramasına izin verir."
 category: "Security"
 repo: "semgrep/mcp"
-stars: 670
+stars: 672
 url: "https://github.com/semgrep/mcp"
 body_length: 19025
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "Shape an article as a journey of beats, choose-your-own-adventu
 description_tr: "Makaleleri atım atım bir yolculuğa dönüştürün; okuyucu kendi macerası seçme tarzında. Kullanıcı ham materyalden başlangıç atımını seçer, siz sadece o atımı yazarsınız, sonra sonraki pivot noktaları için seçenekler sunarısınız—makale doğal bir sona ulaşana kadar atım atım ilerleyin. Kullanıcının ham malzemesi olduğunda ve bunu argüman yerine bir anlatı olarak birleştirmek istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/in-progress/writing-beats/SKILL.md"
 path: "skills/in-progress/writing-beats/SKILL.md"
 is_collection: false

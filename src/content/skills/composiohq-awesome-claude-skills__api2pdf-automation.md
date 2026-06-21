@@ -4,7 +4,7 @@ description_en: "Automate Api2pdf tasks via Rube MCP (Composio). Always search t
 description_tr: "Api2pdf görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Document"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/api2pdf-automation/SKILL.md"
 path: "composio-skills/api2pdf-automation/SKILL.md"
 is_collection: false

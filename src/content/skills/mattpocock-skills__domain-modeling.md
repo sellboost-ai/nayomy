@@ -3,7 +3,7 @@ name: "domain-modeling"
 description_en: "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 137186
+stars: 138620
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/domain-modeling/SKILL.md"
 path: "skills/engineering/domain-modeling/SKILL.md"
 is_collection: false

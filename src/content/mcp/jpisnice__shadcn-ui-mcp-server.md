@@ -4,7 +4,7 @@ description: "MCP server that gives AI assistants seamless access to shadcn/ui v
 description_tr: "shadcn/ui v4 bileşenlerine, blokları, demoları ve metadatalarına yapay zeka asistanlarının sorunsuzca erişmesini sağlayan MCP server."
 category: "Developer Tools"
 repo: "Jpisnice/shadcn-ui-mcp-server"
-stars: 2798
+stars: 2799
 url: "https://github.com/Jpisnice/shadcn-ui-mcp-server"
 body_length: 10559
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "Captures the user's brand identity once via a 10-question onboa
 description_tr: "Kullanıcının marka kimliğini 10 soruluk onboarding sihirbazıyla bir kez yakalar (primary/accent HEX + heading + body Google Fonts + tasarım stili editorial/technical/minimal/playful + varsayılan output dizini + syntax theme + TOC davranışı + opsiyonel logo/şirket), body-text ve link kontrastını WCAG 2.2 AA'ya karşı doğrular, HSL alanında 12 CSS custom property türetir ve sonucu her projede saklar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/design-system/SKILL.md"
 path: ".gemini/skills/design-system/SKILL.md"
 is_collection: false

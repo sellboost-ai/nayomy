@@ -4,7 +4,7 @@ description: "An MCP server for Massive.com Financial Market Data"
 description_tr: "Massive.com Finansal Pazar Verileri için bir MCP sunucusu"
 category: "Finance & Fintech"
 repo: "massive-com/mcp_massive"
-stars: 358
+stars: 359
 url: "https://github.com/massive-com/mcp_massive"
 body_length: 10056
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "Automate Canny tasks via Rube MCP (Composio). Always search too
 description_tr: "Canny görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Geçerli şemaları bulmak için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/canny-automation/SKILL.md"
 path: "composio-skills/canny-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "When the user wants to write, improve, or build a sequence of B
 description_tr: "Kullanıcı B2B cold email kampanyaları yazıp geliştirmek veya taslak oluşturmak istediğinde kullanın. Kullanıcı 'cold email', 'cold outreach', 'prospecting emails', 'SDR emails', 'sales emails', 'first touch email', 'follow-up sequence' veya 'email prospecting' gibi terimler kullandığında ya da çok satış odaklı seslenen ve daha insani hale getirilmesi gereken bir email taslağı paylaştığında devreye girin."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cold-email/SKILL.md"
 path: ".gemini/skills/cold-email/SKILL.md"
 is_collection: false

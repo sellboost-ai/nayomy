@@ -4,7 +4,7 @@ description_en: "Revenue leadership for B2B SaaS companies. Revenue forecasting,
 description_tr: "B2B SaaS şirketleri için gelir yönetimi çözümü. Gelir tahminlemesi, satış modeli tasarımı, fiyatlandırma stratejisi, net revenue retention ve satış ekibi ölçeklendirmesi konularında yardımcı olur. Revenue engine tasarımı, kota belirleme, NRR modelleme, fiyatlandırma değerlendirmesi, board forecast oluşturma veya CRO, revenue strategy, ARR büyümesi gibi konuları ele aldığında kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cro-advisor/SKILL.md"
 path: ".gemini/skills/cro-advisor/SKILL.md"
 is_collection: false

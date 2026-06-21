@@ -4,7 +4,7 @@ description_en: "When the user needs to generate, iterate, or scale ad creative 
 description_tr: "Kullanıcı ücretli reklamcılık için reklam yaratıcı içeriği üretmek, geliştirmek veya ölçeklendirmek istediğinde kullanın. \"Reklam metni yaz\", \"başlık oluştur\", \"reklam varyasyonları yarat\", \"toplu yaratıcı içerik\", \"reklamlarda değişiklik yap\", \"reklam metni doğrulama\", \"RSA başlıkları\", \"Meta reklam metni\", \"LinkedIn reklamı\" veya \"yaratıcı test\" gibi ifadeler kullanıldığında devreye girin. Bu, kampanya stratejisinden (paid-ads) ayrı olan saf yaratıcı üretimdir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ad-creative/SKILL.md"
 path: ".gemini/skills/ad-creative/SKILL.md"
 is_collection: false

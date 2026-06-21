@@ -4,7 +4,7 @@ description: "JADX-AI-MCP is a plugin and MCP Server for the JADX decompiler tha
 description_tr: "JADX-AI-MCP, JADX decompiler için bir plugin ve MCP Server olup Model Context Protocol (MCP) ile entegre edilerek Claude gibi LLM'lerle canlı reverse engineering desteği sağlar."
 category: "Security"
 repo: "zinja-coder/jadx-ai-mcp"
-stars: 2340
+stars: 2347
 url: "https://github.com/zinja-coder/jadx-ai-mcp"
 body_length: 26781
 license: "Apache-2.0"

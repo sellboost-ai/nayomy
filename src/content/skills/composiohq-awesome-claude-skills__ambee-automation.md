@@ -4,7 +4,7 @@ description_en: "Automate Ambee tasks via Rube MCP (Composio). Always search too
 description_tr: "Ambee görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65266
+stars: 65377
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/ambee-automation/SKILL.md"
 path: "composio-skills/ambee-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Personal leadership development for founders and first-time CEO
 description_tr: "Kurucu ve ilk kez CEO olan liderler için kişisel gelişim programı. Kurucu arketipi tanımlama, delegasyon çerçeveleri, enerji yönetimi, CEO takvim denetimleri, liderlik stilinin gelişimi, kör noktaların belirlenmesi, sendrom sendromu, kurucu ruh sağlığı ve ardıl planlama konularını kapsar. Kurucu kendisinin darboğaz olduğunu hissettiğinde, delegasyon konusunda güçlük çektiğinde, tükenmişlik yaşadığında veya bireysel katkı sağlayıcıdan geçiş yaptığında kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/founder-coach/SKILL.md"
 path: ".gemini/skills/founder-coach/SKILL.md"
 is_collection: false

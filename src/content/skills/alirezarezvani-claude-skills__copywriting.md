@@ -4,7 +4,7 @@ description_en: "When the user wants to write, rewrite, or improve marketing cop
 description_tr: "Kullanıcı herhangi bir sayfanın (anasayfa, landing page, fiyatlandırma sayfası, özellik sayfası, hakkında sayfası veya ürün sayfası) marketing copyini yazmak, yeniden yazmak veya geliştirmek istediğinde kullanılır — \"copy yaz\", \"bu metni iyileştir\", \"bu sayfayı yeniden yaz\", \"marketing copy\", \"headline yardımı\" veya \"CTA copy\" gibi istekler için de geçerlidir. Email copy için email-sequence bölümüne, popup copy için popup-cro bölümüne bakınız."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18572
+stars: 18642
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/copywriting/SKILL.md"
 path: ".gemini/skills/copywriting/SKILL.md"
 is_collection: false
