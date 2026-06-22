@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CursorRulesUsage from '../../components/CursorRulesUsage.astro';
 import CursorRulesDetails from '../../components/CursorRulesDetails.astro';
@@ -11,16 +10,10 @@ import { cursorRuleTitle, seoDescription, softwareApplicationJsonLd } from '../.
 const lang = 'en' as const;
 const t = useTranslations(lang);
 
-export async function getStaticPaths() {
-  const rules = await getCollection('cursor-rules');
-  return rules.map((rule) => ({
-    params: { slug: rule.id },
-    props: { rule },
-  }));
-}
-
-type Props = { rule: CollectionEntry<'cursor-rules'> };
-const { rule } = Astro.props;
+const { slug } = Astro.params;
+const allRules = await getCollection('cursor-rules');
+const rule = allRules.find(r => r.id === slug);
+if (!rule) return new Response(null, { status: 404 });
 const { name, clean_name, description, category, repo, url, stars } = rule.data;
 const displayName = clean_name ?? name;
 

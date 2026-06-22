@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import MarkdownIt from 'markdown-it';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import McpInstallBlock from '../../../components/McpInstallBlock.astro';
@@ -12,16 +11,10 @@ import { mcpTitle, seoDescription, softwareApplicationJsonLd } from '../../../li
 const lang = 'tr' as const;
 const t = useTranslations(lang);
 
-export async function getStaticPaths() {
-  const servers = await getCollection('mcp');
-  return servers.map(server => ({
-    params: { slug: server.id },
-    props: { server },
-  }));
-}
-
-type Props = { server: CollectionEntry<'mcp'> };
-const { server } = Astro.props;
+const { slug } = Astro.params;
+const allServers = await getCollection('mcp');
+const server = allServers.find(s => s.id === slug);
+if (!server) return new Response(null, { status: 404 });
 const { name, description: descriptionEn, description_tr, category, repo, url, npm_id, pypi_id, docker_image, language, body_tr, stars } = server.data;
 const description = description_tr ?? descriptionEn;
 

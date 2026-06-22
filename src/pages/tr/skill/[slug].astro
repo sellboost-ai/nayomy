@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import MarkdownIt from 'markdown-it';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import InstallBlock from '../../../components/InstallBlock.astro';
@@ -12,16 +11,10 @@ import { skillTitle, seoDescription, softwareApplicationJsonLd } from '../../../
 const lang = 'tr' as const;
 const t = useTranslations(lang);
 
-export async function getStaticPaths() {
-  const skills = await getCollection('skills');
-  return skills.map(skill => ({
-    params: { slug: skill.id },
-    props: { skill },
-  }));
-}
-
-type Props = { skill: CollectionEntry<'skills'> };
-const { skill } = Astro.props;
+const { slug } = Astro.params;
+const allSkills = await getCollection('skills');
+const skill = allSkills.find(s => s.id === slug);
+if (!skill) return new Response(null, { status: 404 });
 const { name, description_en, description_tr, category, repo, url, path, body_tr, stars } = skill.data;
 const description = description_tr ?? description_en;
 
