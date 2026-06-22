@@ -15,7 +15,7 @@ const t = useTranslations(lang);
 const all = await getCollection('skills');
 const similar = all
   .filter(s => s.data.category === currentCategory && s.id !== currentSlug)
-  .sort((a, b) => b.data.stars - a.data.stars)
+  .sort((a, b) => (b.data.stars ?? 0) - (a.data.stars ?? 0))
   .slice(0, 6);
 
 if (similar.length === 0) return;
@@ -37,7 +37,7 @@ const desc = (s: typeof similar[0]) =>
         <p class="sim-desc">{desc(s)}</p>
         <div class="sim-foot">
           <span class="sim-repo">{s.data.repo}</span>
-          <span class="sim-stars">★ {s.data.stars.toLocaleString()}</span>
+          <span class="sim-stars">★ {(s.data.stars ?? 0).toLocaleString()}</span>
         </div>
       </a>
     ))}

@@ -36,7 +36,7 @@ const seoTitle = skillTitle(name, category, lang);
 const seoDesc = seoDescription(description, repo, lang);
 const pageUrl = `https://nayomy.com/tr/skill/${skill.id}/`;
 const jsonLd = softwareApplicationJsonLd({
-  name, description: seoDesc, category, url: pageUrl, repo, stars,
+  name, description: seoDesc, category, url: pageUrl, repo, stars: stars ?? 0,
   applicationCategory: 'DeveloperApplication',
 });
 ---
@@ -61,7 +61,7 @@ const jsonLd = softwareApplicationJsonLd({
         <div class="detail-header">
           <div class="detail-meta">
             <span class="cat-badge">{category}</span>
-            <span class="stars-count">★ {skill.data.stars.toLocaleString()}</span>
+            <span class="stars-count">★ {(skill.data.stars ?? 0).toLocaleString()}</span>
           </div>
           <h1 class="detail-title">{name}</h1>
           <p class="detail-desc">{description}</p>

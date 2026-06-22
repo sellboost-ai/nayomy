@@ -36,7 +36,7 @@ const seoTitle = mcpTitle(name, category, lang);
 const seoDesc = seoDescription(description, repo, lang);
 const pageUrl = `https://nayomy.com/tr/mcp/${server.id}/`;
 const jsonLd = softwareApplicationJsonLd({
-  name, description: seoDesc, category, url: pageUrl, repo, stars,
+  name, description: seoDesc, category, url: pageUrl, repo, stars: server.data.stars ?? 0,
   applicationCategory: 'DeveloperApplication',
 });
 ---
@@ -59,7 +59,7 @@ const jsonLd = softwareApplicationJsonLd({
           <div class="detail-meta">
             <span class="cat-badge">{category}</span>
             {language && <span class="lang-badge">{language}</span>}
-            <span class="stars-count">★ {server.data.stars.toLocaleString()}</span>
+            <span class="stars-count">★ {(server.data.stars ?? 0).toLocaleString()}</span>
           </div>
           <h1 class="detail-title">{name}</h1>
           <p class="detail-desc">{description}</p>
