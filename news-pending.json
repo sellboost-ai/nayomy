@@ -1,6 +1,45 @@
 {
-  "updatedAt": "2026-06-21T09:33:01.177Z",
+  "updatedAt": "2026-06-22T11:29:31.369Z",
   "items": [
+    {
+      "id": "openai-news-samsung-calisanlarina-chatgpt-ve-codex-dagitti-1782127765888",
+      "title": "Samsung, çalışanlarına ChatGPT ve Codex dağıttı",
+      "summary": "Samsung Electronics, dünya çapındaki çalışanlarına ChatGPT Enterprise ve Codex uygulamalarını yaygınlaştırdı. Bu adım, OpenAI'nin en büyük kurumsal AI uygulamalarından biri olarak değerlendiriliyor.",
+      "originalTitle": "Samsung Electronics brings ChatGPT and Codex to employees",
+      "originalSummary": "Samsung Electronics deploys ChatGPT Enterprise and Codex to employees worldwide, marking one of OpenAI’s largest enterprise AI rollouts.",
+      "source": "OpenAI News",
+      "category": "OpenAI",
+      "sourceUrl": "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment",
+      "pubDate": "2026-06-21T23:00:00.000Z",
+      "fetchedAt": "2026-06-22T11:29:25.888Z",
+      "status": "pending"
+    },
+    {
+      "id": "techcrunch-ai-trump-yonetiminin-anthropic-e-yonelik-hamleleri-kimin-isine-yarar-1782127768145",
+      "title": "Trump yönetiminin Anthropic'e yönelik hamleleri kimin işine yarar?",
+      "summary": "Equity podcast'inin son bölümünde Trump yönetiminin Anthropic'e karşı aldığı önlemlerin gerçek nedenleri ve bunun AI ekosistemi için olası sonuçları tartışıldı. Konuşmada yönetimin hamlelerinin sektördeki diğer aktörleri nasıl etkileyebileceği incelendi.",
+      "originalTitle": "When the Trump administration cracks down on Anthropic, who benefits?",
+      "originalSummary": "On the new episode of Equity, we discussed what actually prompted the administration's latest moves against Anthropic, and what this might mean for the AI ecosystem.",
+      "source": "TechCrunch AI",
+      "category": "Genel",
+      "sourceUrl": "https://techcrunch.com/2026/06/21/when-the-trump-administration-cracks-down-on-anthropic-who-benefits/",
+      "pubDate": "2026-06-21T15:28:17.000Z",
+      "fetchedAt": "2026-06-22T11:29:28.145Z",
+      "status": "pending"
+    },
+    {
+      "id": "techcrunch-ai-ios-27-de-siri-disinda-hayata-gececek-yapay-zeka-ozellikleri-1782127771168",
+      "title": "iOS 27'de Siri dışında hayata geçecek yapay zeka özellikleri",
+      "summary": "Apple, iOS 27'de Siri'nin yanı sıra işletim sisteminin farklı bölümlerine yapay zeka özelikleri entegre ediyor. WWDC'de Siri'nin AI güncellemesi başlık aldığı halde, en pratik AI işlevleri iOS'un başka alanlarında kullanıcılara ulaşacak.",
+      "originalTitle": "Beyond Siri: Here are the practical AI features coming to your iPhone in iOS 27",
+      "originalSummary": "Siri’s AI overhaul may have grabbed the headlines at WWDC, but some of Apple’s most useful AI features are arriving elsewhere in iOS 27.",
+      "source": "TechCrunch AI",
+      "category": "Genel",
+      "sourceUrl": "https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/",
+      "pubDate": "2026-06-21T14:40:28.000Z",
+      "fetchedAt": "2026-06-22T11:29:31.168Z",
+      "status": "pending"
+    },
     {
       "id": "marktechpost-crawlee-for-python-ile-web-tarama-sistemi-kurulumu-1782034362760",
       "title": "Crawlee for Python ile Web Tarama Sistemi Kurulumu",
