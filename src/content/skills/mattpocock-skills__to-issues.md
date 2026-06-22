@@ -4,7 +4,7 @@ description_en: "Break a plan, spec, or PRD into independently-grabbable issues 
 description_tr: "Bir planı, speci veya PRD'yi tracer-bullet vertical slices kullanarak project issue tracker'ında bağımsız olarak alınabilir issue'lara bölebilirsiniz. Kullanıcı bir planı issue'lara dönüştürmek, implementation ticket'ları oluşturmak veya işi issue'lara ayırmak istediğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/to-issues/SKILL.md"
 path: "skills/engineering/to-issues/SKILL.md"
 is_collection: false

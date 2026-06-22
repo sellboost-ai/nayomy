@@ -4,7 +4,7 @@ description: "A Model Context Protocol (MCP) server for Kubernetes that enables 
 description_tr: "Kubernetes için bir Model Context Protocol (MCP) sunucusu. Claude, Cursor ve benzeri AI asistanlarının Kubernetes clusterları ile doğal dil üzerinden etkileşim kurmasını sağlar."
 category: "Cloud Platforms"
 repo: "rohitg00/kubectl-mcp-server"
-stars: 914
+stars: 915
 url: "https://github.com/rohitg00/kubectl-mcp-server"
 body_length: 40731
 license: "MIT"

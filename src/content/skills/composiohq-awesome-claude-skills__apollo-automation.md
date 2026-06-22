@@ -4,7 +4,7 @@ description_en: "Automate Apollo.io lead generation -- search organizations, dis
 description_tr: "Apollo.io ile lead üretimini otomatikleştirin -- organizasyonları arayın, kişileri keşfedin, prospect verilerini zenginleştirin, kişi aşamalarını yönetin ve hedefli outreach listeleri oluşturun -- Composio MCP integrationı üzerinden doğal dili kullanarak."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/apollo-automation/SKILL.md"
 path: "composio-skills/apollo-automation/SKILL.md"
 is_collection: false

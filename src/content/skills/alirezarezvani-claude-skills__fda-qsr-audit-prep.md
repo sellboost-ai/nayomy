@@ -4,7 +4,7 @@ description_en: "/cs:fda-qsr-audit-prep <scope> — FDA 21 CFR 820 (QSR / QMSR) 
 description_tr: "/cs:fda-qsr-audit-prep <scope> — FDA 21 CFR 820 (QSR / QMSR) denetimi için 6 sorudan oluşan zorunlu sorgulama. Şubat 2026 sonrası ISO 13485 ile büyük ölçüde uyumludur. Yıllık iç QSR denetimi öncesinde, FDA inspeksiyonuna hazırlık için veya Form 483 yanıtı oluştururken kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/fda-qsr-audit-prep/SKILL.md"
 path: ".gemini/skills/fda-qsr-audit-prep/SKILL.md"
 is_collection: false

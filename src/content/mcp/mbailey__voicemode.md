@@ -4,7 +4,7 @@ description: "Complete voice interaction server supporting speech-to-text, text-
 description_tr: "Konuşmayı metne, metni konuşmaya dönüştüren ve yerel mikrofon, OpenAI-compatible API'ler ile LiveKit entegrasyonu üzerinden gerçek zamanlı sesli sohbetleri destekleyen eksiksiz bir voice interaction sunucusu."
 category: "Text-to-Speech"
 repo: "mbailey/voicemode"
-stars: 1234
+stars: 1235
 url: "https://github.com/mbailey/voicemode"
 body_length: 6039
 license: "MIT"

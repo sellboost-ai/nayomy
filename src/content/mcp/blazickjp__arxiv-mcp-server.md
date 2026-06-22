@@ -4,7 +4,7 @@ description: "Search ArXiv research papers"
 description_tr: "ArXiv araştırma makalelerinde arama yapın"
 category: "Search & Data Extraction"
 repo: "blazickjp/arxiv-mcp-server"
-stars: 2873
+stars: 2879
 url: "https://github.com/blazickjp/arxiv-mcp-server"
 body_length: 16366
 license: "Apache-2.0"

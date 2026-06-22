@@ -4,7 +4,7 @@ description_en: "Migrate test files from `as` type assertions to @total-typescri
 description_tr: "Shoehorn kullanarak test dosyalarınızdaki `as` tip iddialarını geçirin. Test verilerinizi kısmi olarak tanımlamak veya testlerde `as` kullanımını değiştirmek istediğinizde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/misc/migrate-to-shoehorn/SKILL.md"
 path: "skills/misc/migrate-to-shoehorn/SKILL.md"
 is_collection: false

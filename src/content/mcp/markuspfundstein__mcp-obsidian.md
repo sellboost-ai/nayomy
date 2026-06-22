@@ -4,7 +4,7 @@ description: "Interacting with Obsidian via REST API"
 description_tr: "Obsidian ile REST API aracılığıyla etkileşim kurma"
 category: "Other Tools and Integrations"
 repo: "MarkusPfundstein/mcp-obsidian"
-stars: 3947
+stars: 3953
 url: "https://github.com/MarkusPfundstein/mcp-obsidian"
 body_length: 4443
 license: "MIT"

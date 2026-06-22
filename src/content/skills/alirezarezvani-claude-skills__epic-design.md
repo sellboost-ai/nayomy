@@ -4,7 +4,7 @@ description_en: "> Build immersive, cinematic 2.5D interactive websites using sc
 description_tr: "Scroll storytelling, parallax derinlik, metin animasyonları ve premium scroll efektleri ile etkileyici, sinematik 2.5D interaktif web siteler oluşturun — WebGL'e ihtiyaç yok. Bu beceriyi herhangi bir web tasarım görevinde kullanın: landing page'ler, ürün siteleri, hero bölümler, scroll animasyonları, parallax, sticky bölümler, bölüm üst üstelemeleri, bölümler arasında kayan ürünler, clip-path efektleri, kenarlardan hızla gelen metinler."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/epic-design/SKILL.md"
 path: ".gemini/skills/epic-design/SKILL.md"
 is_collection: false

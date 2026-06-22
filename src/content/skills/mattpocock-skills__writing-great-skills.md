@@ -3,7 +3,7 @@ name: "writing-great-skills"
 description_en: "Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/productivity/writing-great-skills/SKILL.md"
 path: "skills/productivity/writing-great-skills/SKILL.md"
 is_collection: false

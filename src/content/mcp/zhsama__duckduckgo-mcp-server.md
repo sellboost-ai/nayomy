@@ -4,7 +4,7 @@ description: "This is a TypeScript-based MCP server that provides DuckDuckGo sea
 description_tr: "TypeScript tabanlı bu MCP sunucusu DuckDuckGo arama işlevselliği sağlar."
 category: "Search & Data Extraction"
 repo: "zhsama/duckduckgo-mcp-server"
-stars: 79
+stars: 80
 url: "https://github.com/zhsama/duckduckgo-mcp-server"
 body_length: 2406
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "Authoritative ato authoring and review skill: language referenc
 description_tr: "ATO yazma ve inceleme konusunda uzmanlaşmış araçlar: dil referansı, stdlib, tasarım desenleri ve uçtan uca board tasarım iş akışı."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/ato/SKILL.md"
 path: ".claude/skills/ato/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Appveyor tasks via Rube MCP (Composio). Always search 
 description_tr: "Rube MCP (Composio) aracılığıyla Appveyor görevlerini otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/appveyor-automation/SKILL.md"
 path: "composio-skills/appveyor-automation/SKILL.md"
 is_collection: false

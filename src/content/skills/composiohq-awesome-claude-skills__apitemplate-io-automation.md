@@ -4,7 +4,7 @@ description_en: "Automate Apitemplate IO tasks via Rube MCP (Composio). Always s
 description_tr: "Apitemplate IO görevlerini Rube MCP (Composio) ile otomatikleştirin. Güncel şemaları için daima araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/apitemplate-io-automation/SKILL.md"
 path: "composio-skills/apitemplate-io-automation/SKILL.md"
 is_collection: false

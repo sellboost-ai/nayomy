@@ -4,7 +4,7 @@ description_en: "Automate Carbone tasks via Rube MCP (Composio). Always search t
 description_tr: "Carbone görevlerini Ruby MCP (Composio) ile otomatikleştirin. Her zaman güncel şemaları için önce araçlarda arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/carbone-automation/SKILL.md"
 path: "composio-skills/carbone-automation/SKILL.md"
 is_collection: false

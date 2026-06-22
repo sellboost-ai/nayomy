@@ -4,7 +4,7 @@ description: "Connect and unify data across various platforms and databases with
 description_tr: "MindsDB MCP server ile farklı platformlar ve veritabanları arasındaki verileri bağlayın ve birleştirin."
 category: "Aggregators"
 repo: "mindsdb/mindsdb"
-stars: 39319
+stars: 39322
 url: "https://github.com/mindsdb/mindsdb"
 body_length: 7807
 license: "MIT"

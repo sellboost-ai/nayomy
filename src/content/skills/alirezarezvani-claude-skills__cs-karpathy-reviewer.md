@@ -4,7 +4,7 @@ description_en: "Reviews staged git changes against Karpathy's 4 coding principl
 description_tr: "Git'e staged edilmiş değişiklikleri Karpathy'nin 4 coding prensibine karşı kontrol eder. Değiştirilen dosyalarda complexity_checker, diff üzerinde diff_surgeon çalıştırır ve spesifik düzeltme önerileriyle birlikte bir sonuç sunar. Kullanıcı \"karpathy check\", \"review my diff\" dediğinde veya /karpathy-check komutu çağrıldığında devreye girer."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-karpathy-reviewer/SKILL.md"
 path: ".gemini/skills/cs-karpathy-reviewer/SKILL.md"
 is_collection: false

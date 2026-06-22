@@ -4,7 +4,7 @@ description: "An OpenStreetMap MCP server with location-based services and geosp
 description_tr: "OpenStreetMap entegrasyonlu, konum tabanlı hizmetler ve coğrafi veri sağlayan bir MCP sunucusu."
 category: "Location Services"
 repo: "jagan-shanmugam/open-streetmap-mcp"
-stars: 201
+stars: 202
 url: "https://github.com/jagan-shanmugam/open-streetmap-mcp"
 body_length: 5559
 license: "MIT"

@@ -4,7 +4,7 @@ description_en: "When the user wants to create or optimize an email sequence, dr
 description_tr: "Kullanıcı email dizisi, drip kampanya, otomatik email akışı veya lifecycle email programı oluşturmak veya optimize etmek istediğinde kullanılır. Ayrıca kullanıcı \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation\" veya \"lifecycle emails\" ifadelerinden bahsettiğinde de geçerlidir. Uygulama içi onboarding için onboarding-cro sayfasına bakınız."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/email-sequence/SKILL.md"
 path: ".gemini/skills/email-sequence/SKILL.md"
 is_collection: false

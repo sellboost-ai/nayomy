@@ -4,7 +4,7 @@ description_en: ">- Fix failing or flaky Playwright tests. Use when user says \"
 description_tr: "Başarısız veya kararsız Playwright testlerini düzeltin. Kullanıcı \"testi düzelt\", \"kararsız test\", \"test başarısız\", \"testi debug et\", \"test kırık\", \"test bazen geçer\" veya \"aralıklı hata\" dediğinde kullanın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/fix/SKILL.md"
 path: ".gemini/skills/fix/SKILL.md"
 is_collection: false

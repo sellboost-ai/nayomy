@@ -4,7 +4,7 @@ description: "Open source MCP server specializing in easy, fast, and secure tool
 description_tr: "Veritabanları için kolay, hızlı ve güvenli araçlar sağlayan açık kaynak MCP sunucusu."
 category: "Databases"
 repo: "googleapis/genai-toolbox"
-stars: 15675
+stars: 15682
 url: "https://github.com/googleapis/genai-toolbox"
 body_length: 32770
 license: "Apache-2.0"

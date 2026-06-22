@@ -4,7 +4,7 @@ description: "Built-in MCP server for ArcadeDB, a multi-model database (graph, d
 description_tr: "ArcadeDB için entegre MCP sunucusu; grafik, doküman, anahtar-değer, zaman serisi ve vektör modellerini destekleyen çok modelli bir veritabanı olup SQL, Cypher, Gremlin ve MongoDB QL ile uyumludur."
 category: "Databases"
 repo: "ArcadeData/arcadedb"
-stars: 953
+stars: 954
 url: "https://github.com/ArcadeData/arcadedb"
 body_length: 14833
 license: "Apache-2.0"

@@ -4,7 +4,7 @@ description: "Streaming KoliBri MCP server (NPM: @public-ui/mcp) delivering 200+
 description_tr: "Streaming KoliBri MCP server (NPM: @public-ui/mcp), barındırılan HTTP endpoint veya yerel kolibri-mcp CLI aracılığıyla 200+ garantili erişilebilir web component örneği, spesifikasyonu, dokümantasyonu ve senaryoyu sunuyor."
 category: "Developer Tools"
 repo: "public-ui/kolibri"
-stars: 268
+stars: 269
 url: "https://github.com/public-ui/kolibri"
 body_length: 6464
 license: "EUPL-1.2"

@@ -4,7 +4,7 @@ description_en: "Founder onboarding interview that captures company context acro
 description_tr: "Şirket bağlamını 7 boyut üzerinden yakalayan kurucu onboarding görüşmesi. İlk görüşme için /cs:setup, üç aylık güncelleme için /cs:update komutunu kullanın. Tüm C-suite danışman becerilerine sunulan ~/.claude/company-context.md dosyasını oluşturur. C-suite danışmanlarını ilk kez kurarken, şirket bağlamı eksikken veya 90 günden eski olduğunda — örneğin bir finansman turunda veya pivot sonrasında — kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-onboard/SKILL.md"
 path: ".gemini/skills/cs-onboard/SKILL.md"
 is_collection: false

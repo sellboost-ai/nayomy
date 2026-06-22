@@ -4,7 +4,7 @@ description: "Enterprise-grade MCP orchestration platform to create, deploy, and
 description_tr: "Şirket içi ortamında özel MCP sunucuları oluşturmak, dağıtmak ve yönetmek için kurumsal düzeyde MCP orkestrasyonu platformu."
 category: "Aggregators"
 repo: "boltmcp/boltmcp"
-stars: 355
+stars: 356
 url: "https://github.com/boltmcp/boltmcp"
 body_length: 994
 language: "Shell"

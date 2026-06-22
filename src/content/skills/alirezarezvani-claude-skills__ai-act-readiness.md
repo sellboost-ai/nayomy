@@ -4,7 +4,7 @@ description_en: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing 
 description_tr: "/cs:ai-act-readiness <system> — EU AI Kanunu için 6 soruluk zorunlu değerlendirme. AI sistem entegrasyonu sırasında, AB dağıtımından önce veya Article 113 yükümlülükleri devreye girdikçe yıllık uyum kontrollerinde kullanın (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/ai-act-readiness/SKILL.md"
 path: ".gemini/skills/ai-act-readiness/SKILL.md"
 is_collection: false

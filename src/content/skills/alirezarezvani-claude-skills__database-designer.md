@@ -4,7 +4,7 @@ description_en: "Use when the user asks to design database schemas, plan data mi
 description_tr: "Kullanıcı veritabanı şemaları tasarlamak, veri göçlerini planlamak, sorguları optimize etmek, SQL ve NoSQL arasında seçim yapmak veya veri ilişkilerini modellemek istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/database-designer/SKILL.md"
 path: ".gemini/skills/database-designer/SKILL.md"
 is_collection: false

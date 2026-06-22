@@ -4,7 +4,7 @@ description_en: "Automate Classmarker tasks via Rube MCP (Composio). Always sear
 description_tr: "Classmarker görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/classmarker-automation/SKILL.md"
 path: "composio-skills/classmarker-automation/SKILL.md"
 is_collection: false

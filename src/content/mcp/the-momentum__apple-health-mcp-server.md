@@ -4,7 +4,7 @@ description: "An MCP server that provides access to exported data from Apple Hea
 description_tr: "Apple Health'ten dışa aktarılan verilere erişim sağlayan bir MCP sunucusu. Veri analitikleri dahildir."
 category: "Biology Medicine and Bioinformatics"
 repo: "the-momentum/apple-health-mcp-server"
-stars: 216
+stars: 217
 url: "https://github.com/the-momentum/apple-health-mcp-server"
 body_length: 5275
 license: "MIT"

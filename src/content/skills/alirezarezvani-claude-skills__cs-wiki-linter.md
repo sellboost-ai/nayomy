@@ -4,7 +4,7 @@ description_en: "Dispatched sub-agent that runs a periodic health check on an LL
 description_tr: "LLM Wiki vault'unuzun sağlığını periyodik olarak kontrol eden dispatch edilen bir sub-agent. Script'ler aracılığıyla mekanik kontroller (orphan sayfalar, broken link'ler, eski sayfalar, eksik frontmatter, duplicate başlıklar, log boşlukları) ve semantik kontroller (çelişkiler, eski claim'ler, cross-reference boşlukları, kendi sayfası olmayan konseptler) çalıştırır, ardından önerilen aksiyonları içeren bir markdown rapor üretir. Haftalık veya batch ingestion'lardan sonra tetiklenir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-wiki-linter/SKILL.md"
 path: ".gemini/skills/cs-wiki-linter/SKILL.md"
 is_collection: false

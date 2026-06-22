@@ -4,7 +4,7 @@ description_en: "Captures and organizes chaotic brain dumps into a structured, a
 description_tr: "Kaotik düşünceleri yapılandırılmış, harekete geçirebilir bir sisteme dönüştürür ve hiçbir bilgi kaybı olmadan organize eder. Kullanıcı 'bunu kaydet', 'beyin boşalması', 'fikirlerimi dökmek istiyorum', 'bir sürü düşüncem var', 'aklımdaki her şey şu', 'fikir dökümü' gibi ifadeler kullandığında bu beceriyi kullan."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/capture/SKILL.md"
 path: ".gemini/skills/capture/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Backend-engineering orchestrator. Walks the 7 Matt Pocock forci
 description_tr: "Backend mimarı asistanı. Matt Pocock'un 7 kritik sorusunu (okuma/yazma oranı + QPS, çok kiracılılık, senkron/asenkron, veri hassasiyeti, pattern, RPO/RTO, SLO) sorar, uygun dili ve pattern profilini seçer, sonra uzmanlaşmış ajanlar (api-design-reviewer, database-designer, migration-architect, observability-designer, slo-architect) tarafından paralel çalışılmasını koordine eder."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-backend-engineer/SKILL.md"
 path: ".gemini/skills/cs-backend-engineer/SKILL.md"
 is_collection: false

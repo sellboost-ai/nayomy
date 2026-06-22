@@ -4,7 +4,7 @@ description: "Connect AI agents to 600+ integrations with a single interface - O
 description_tr: "AI ajanlarını 600+ entegrasyon ile tek bir arayüzden bağlayın - OAuth, scaling ve monitoring dahil"
 category: "Other Tools and Integrations"
 repo: "metorial/metorial"
-stars: 3309
+stars: 3310
 url: "https://github.com/metorial/metorial"
 body_length: 18135
 license: "Apache-2.0"

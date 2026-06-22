@@ -3,7 +3,7 @@ name: "grilling"
 description_en: "Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/productivity/grilling/SKILL.md"
 path: "skills/productivity/grilling/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Brandfetch tasks via Rube MCP (Composio). Always searc
 description_tr: "Rube MCP (Composio) üzerinden Brandfetch görevlerini otomatikleştirin. Her zaman güncel şemaları için önce araçları arayın."
 category: "Design"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/brandfetch-automation/SKILL.md"
 path: "composio-skills/brandfetch-automation/SKILL.md"
 is_collection: false

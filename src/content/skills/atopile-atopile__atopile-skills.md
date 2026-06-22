@@ -4,7 +4,7 @@ description_en: "How to write and maintain `.claude/skills/*/SKILL.md` files: so
 description_tr: "`.claude/skills/*/SKILL.md` dosyalarını yazma ve yönetme: kaynağı-doğruluk ilkesi, doğrulama adımları ve kurallar."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/atopile-skills/SKILL.md"
 path: ".claude/skills/atopile-skills/SKILL.md"
 is_collection: false

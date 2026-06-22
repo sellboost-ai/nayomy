@@ -4,7 +4,7 @@ description_en: "Docs-anchored grilling session — challenges a plan against th
 description_tr: "Dokümantasyon odaklı inceleme oturumu — planı projenin mevcut dil tanımlarına (CONTEXT.md) ve kaydedilen kararlarına (docs/adr/) karşı test eder, terminoloji ve kararlar netleştikçe bu dosyaları inline olarak günceller. Kullanıcı planı dokümante edilen domain diline karşı test etmek istediğinde veya \"docs ile grill et\" dediğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/grill-with-docs/SKILL.md"
 path: ".gemini/skills/grill-with-docs/SKILL.md"
 is_collection: false

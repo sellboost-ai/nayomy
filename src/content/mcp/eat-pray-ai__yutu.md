@@ -4,7 +4,7 @@ description: "A fully functional MCP server and CLI for YouTube to automate YouT
 description_tr: "YouTube işlemlerini otomatikleştirmek için tam işlevsel MCP sunucusu ve CLI."
 category: "Browser Automation"
 repo: "eat-pray-ai/yutu"
-stars: 556
+stars: 562
 url: "https://github.com/eat-pray-ai/yutu"
 body_length: 18061
 license: "Apache-2.0"

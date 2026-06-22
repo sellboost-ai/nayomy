@@ -4,7 +4,7 @@ description_en: "Behavioral guidelines to reduce common LLM coding mistakes. Use
 description_tr: "LLM'lerin yaygın kodlama hatalarını azaltmaya yönelik davranış kuralları. Kod yazarken, review ederken veya refactor ederken aşırı komplikasyonu önlemek, cerrahi değişiklikler yapmak, varsayımları ortaya çıkarmak ve doğrulanabilir başarı kriterleri tanımlamak için kullanın."
 category: "Design"
 repo: "forrestchang/andrej-karpathy-skills"
-stars: 179386
+stars: 180060
 url: "https://github.com/forrestchang/andrej-karpathy-skills/blob/HEAD/skills/karpathy-guidelines/SKILL.md"
 path: "skills/karpathy-guidelines/SKILL.md"
 is_collection: false

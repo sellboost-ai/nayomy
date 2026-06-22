@@ -4,7 +4,7 @@ description_en: "Demand generation and acquisition-funnel specialist orchestrati
 description_tr: "Talep yaratma ve satın alma hunisi uzmanlaşması ile pazarlama-talep-satın alma, ücretli reklamlar ve email sekansı becerilerini yöneten bir araç. Satın alma motorunuzu kurarken veya düzeltirken kullanın — örneğin, kanal CAC'i B2B SaaS benchmark'larıyla karşılaştırırken, aylık $40k bütçeyi yeniden tahsis etmeden önce, paid-ads hesap sağlığını ad_health_scorer.py ile puanlandırırken veya beslenme sekansı tasarlarken."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-demand-gen-specialist/SKILL.md"
 path: ".gemini/skills/cs-demand-gen-specialist/SKILL.md"
 is_collection: false

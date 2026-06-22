@@ -4,7 +4,7 @@ description_en: "Coinbase Automation: list and manage cryptocurrency wallets, ac
 description_tr: "Coinbase Automation: Coinbase CDP SDK aracılığıyla kripto para cüzdanlarını, hesaplarını ve portföy verilerini listeleyin ve yönetin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/coinbase-automation/SKILL.md"
 path: "composio-skills/coinbase-automation/SKILL.md"
 is_collection: false

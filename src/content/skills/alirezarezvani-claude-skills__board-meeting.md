@@ -4,7 +4,7 @@ description_en: "Multi-agent board meeting protocol for strategic decisions. Run
 description_tr: "Stratejik kararlar için çok ajanı yönetim kurulu toplantı protokolü. Yapılandırılmış 6 aşamalı danışmayı yürütür: bağlam yükleme, bağımsız C-suite katkıları (izole, çapraz kontaminasyon yok), eleştirmen analizi, sentez, kurucu incelemesi ve karar çıkarımı. Kullanıcı /cs:boardroom çağırdığında, bir yönetim kurulu toplantısı istediğinde veya stratejik sorular hakkında yapılandırılmış çok perspektifli yönetici danışması istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/board-meeting/SKILL.md"
 path: ".gemini/skills/board-meeting/SKILL.md"
 is_collection: false

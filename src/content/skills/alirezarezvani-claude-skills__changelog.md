@@ -4,7 +4,7 @@ description_en: "Generate changelogs from git history and validate conventional 
 description_tr: "Git geçmişinden changelog oluşturun ve conventional commits doğrulayın. Kullanım: /changelog <generate|lint> [options]"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/changelog/SKILL.md"
 path: ".gemini/skills/changelog/SKILL.md"
 is_collection: false

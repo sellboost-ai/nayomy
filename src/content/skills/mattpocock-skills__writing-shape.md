@@ -4,7 +4,7 @@ description_en: "Take a markdown file of raw material and shape it into an artic
 description_tr: "Markdown dosyasındaki ham materyali konuşmalı bir oturum aracılığıyla makaleye dönüştürün — adaylar açılış taslaklayın, parça parça büyütün ve her adımda format (listeler, tablolar, uyarılar, alıntılar) hakkında tartışın. Kullanıcının notları, parçaları veya taslak bir metni var olduğunda ve bunu yayınlanabilir bir hale getirmede yardım almak istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/in-progress/writing-shape/SKILL.md"
 path: "skills/in-progress/writing-shape/SKILL.md"
 is_collection: false

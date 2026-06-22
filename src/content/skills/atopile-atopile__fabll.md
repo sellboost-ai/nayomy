@@ -4,7 +4,7 @@ description_en: "How FabLL (faebryk.core.node) maps Python node/trait declaratio
 description_tr: "FabLL (faebryk.core.node), Python node/trait bildirimleri TypeGraph ve instance graph'a nasıl eşlediğini, field/trait invariantlarını ve instantiation desenlerini kapsamasını gösterir. Yeni component veya trait tanımlarken, Node API ile çalışırken veya type registration'ı anlarken kullanın."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/fabll/SKILL.md"
 path: ".claude/skills/fabll/SKILL.md"
 is_collection: false

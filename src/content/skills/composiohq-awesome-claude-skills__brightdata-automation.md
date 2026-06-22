@@ -4,7 +4,7 @@ description_en: "Automate Brightdata tasks via Rube MCP (Composio). Always searc
 description_tr: "Brightdata görevlerini Rube MCP (Composio) üzerinden otomatikleştirin. Her zaman güncel şemaları bulmak için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/brightdata-automation/SKILL.md"
 path: "composio-skills/brightdata-automation/SKILL.md"
 is_collection: false

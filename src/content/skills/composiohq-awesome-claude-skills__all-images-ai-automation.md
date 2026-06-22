@@ -4,7 +4,7 @@ description_en: "Automate All Images AI tasks via Rube MCP (Composio). Always se
 description_tr: "Rube MCP (Composio) ile tüm Images AI görevlerini otomatikleştirin. Güncel şemaları bulmak için her zaman tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/all-images-ai-automation/SKILL.md"
 path: "composio-skills/all-images-ai-automation/SKILL.md"
 is_collection: false

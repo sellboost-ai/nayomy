@@ -4,7 +4,7 @@ description: "MCP Language Server helps MCP enabled clients navigate codebases m
 description_tr: "MCP Language Server, MCP destekli istemcilerin get definition, references, rename ve diagnostics gibi semantik araçlara erişim sağlayarak kod tabanlarında daha kolay gezinmesine yardımcı olur."
 category: "Developer Tools"
 repo: "isaacphi/mcp-language-server"
-stars: 1553
+stars: 1554
 url: "https://github.com/isaacphi/mcp-language-server"
 body_length: 10213
 license: "BSD-3-Clause"

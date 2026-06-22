@@ -4,7 +4,7 @@ description_en: "A set of resources to help me write all kinds of internal commu
 description_tr: "Şirketinizin tercih ettiği formatları kullanarak her türlü iç iletişimi yazmanıza yardımcı olacak kaynak koleksiyonu. Claude, durumu raporları, yönetim güncellemeleri, üçüncü taraf güncellemeleri, şirket bültenleri, SSS, olay raporları, proje güncellemeleri gibi iç iletişim yazıları istendiğinde bu yeteneği kullanacaktır."
 category: "Business"
 repo: "anthropics/skills"
-stars: 153299
+stars: 153732
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/internal-comms/SKILL.md"
 path: "skills/internal-comms/SKILL.md"
 is_collection: false

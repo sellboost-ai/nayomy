@@ -4,7 +4,7 @@ description_en: "The meta-framework for how a company runs — the connective ti
 description_tr: "Bir şirketin nasıl işlediğine dair meta-framework — C-suite rolleri arasındaki bağlantı dokusu. İşletim sistemi seçimi (EOS, Scaling Up, OKR-native, hybrid), sorumluluk haritaları, scorecardlar, toplantı ritmi, sorun çözümü ve 90 günlük rockları kapsar. Şirket operasyonlarını kurarken, yönetim framework'ü seçerken, toplantı ritimleri tasarlarken ve sorumluluk sistemleri oluştururken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/company-os/SKILL.md"
 path: ".gemini/skills/company-os/SKILL.md"
 is_collection: false

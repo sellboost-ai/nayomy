@@ -4,7 +4,7 @@ description_en: "Test-driven development. Use when the user wants to build featu
 description_tr: "Test-driven development yaklaşımıyla kırmızı-yeşil-refactor döngüsünü uygulayın. Kullanıcı TDD ile özellik geliştirmek veya hata düzeltmek istediğinde, \"red-green-refactor\" metodundan bahsettiğinde, entegrasyon testleri veya test-first geliştirme talep ettiğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/tdd/SKILL.md"
 path: "skills/engineering/tdd/SKILL.md"
 is_collection: false

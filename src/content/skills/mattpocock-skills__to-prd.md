@@ -4,7 +4,7 @@ description_en: "Turn the current conversation into a PRD and publish it to the 
 description_tr: "Mevcut sohbet içeriğini bir PRD'ye dönüştürün ve proje issue tracker'ına yayınlayın. Kullanıcı geçerli bağlamdan bir PRD oluşturmak istediğinde kullanılır."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/to-prd/SKILL.md"
 path: "skills/engineering/to-prd/SKILL.md"
 is_collection: false

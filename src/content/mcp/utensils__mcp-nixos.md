@@ -4,7 +4,7 @@ description: "MCP server providing accurate information about NixOS packages, sy
 description_tr: "NixOS paketleri, sistem ayarları, Home Manager konfigürasyonları ve nix-darwin macOS ayarları hakkında doğru bilgi sağlayan, yapay zeka yanılsamalarını önleyen MCP sunucusu."
 category: "Developer Tools"
 repo: "utensils/mcp-nixos"
-stars: 710
+stars: 712
 url: "https://github.com/utensils/mcp-nixos"
 body_length: 11234
 license: "MIT"

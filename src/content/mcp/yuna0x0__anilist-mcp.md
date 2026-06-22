@@ -4,7 +4,7 @@ description: "A MCP server integrating AniList API for anime and manga informati
 description_tr: "AniList API'yi entegre eden ve anime ile manga bilgisi sağlayan bir MCP sunucusu"
 category: "Art & Culture"
 repo: "yuna0x0/anilist-mcp"
-stars: 77
+stars: 78
 url: "https://github.com/yuna0x0/anilist-mcp"
 body_length: 8790
 license: "MIT"

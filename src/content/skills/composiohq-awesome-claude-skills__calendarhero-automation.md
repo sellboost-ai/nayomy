@@ -4,7 +4,7 @@ description_en: "Automate Calendarhero tasks via Rube MCP (Composio). Always sea
 description_tr: "Composio'nun Rube MCP aracılığıyla Calendarhero görevlerini otomatikleştirin. Her zaman güncel şemaları kontrol etmek için tools'u önce arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/calendarhero-automation/SKILL.md"
 path: "composio-skills/calendarhero-automation/SKILL.md"
 is_collection: false

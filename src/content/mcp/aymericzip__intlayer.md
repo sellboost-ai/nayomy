@@ -4,7 +4,7 @@ description: "A MCP Server that enhance your IDE with AI-powered assistance for 
 description_tr: "Intlayer i18n / CMS aracı için yapay zeka destekli yardım ile IDE'nizi geliştiren bir MCP Server: akıllı CLI erişimi, dokümantasyona anında ulaşım."
 category: "Command Line"
 repo: "aymericzip/intlayer"
-stars: 770
+stars: 772
 url: "https://github.com/aymericzip/intlayer"
 body_length: 29507
 license: "Apache-2.0"

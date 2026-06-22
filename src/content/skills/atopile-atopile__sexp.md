@@ -4,7 +4,7 @@ description_en: "How the Zig S-expression engine and typed KiCad models work, ho
 description_tr: "Zig S-expression motoru ve yazılı KiCad modellerinin nasıl çalıştığını, Python'a (pyzig_sexp) nasıl expose edildiğini ve parsing, formatting ile freeing işlemlerindeki değişmezleri öğrenin. KiCad dosya parsing, S-expression oluşturma veya layout senkronizasyonu yaparken kullanın."
 category: "Development"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/sexp/SKILL.md"
 path: ".claude/skills/sexp/SKILL.md"
 is_collection: false

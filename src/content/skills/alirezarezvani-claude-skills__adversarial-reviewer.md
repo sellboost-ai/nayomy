@@ -4,7 +4,7 @@ description_en: "Adversarial code review that breaks the self-review monoculture
 description_tr: "Kendi kendine review yapma alışkanlığını kıran antagonistik code review aracı. Son değişikliklerinizin gerçekten eleştirel bir incelemesini istediğinizde, PR merge etmeden önce veya Claude'un kod kalitesi konusunda çok uzlaşmacı olduğunu düşündüğünüzde kullanın. Düşmanca reviewer kişilikleri aracılığıyla perspektif değişimine zorlayarak, yazarın ve reviewer'ın paylaştığı mental modelin gözden kaçırdığı noktaları yakalar."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/adversarial-reviewer/SKILL.md"
 path: ".gemini/skills/adversarial-reviewer/SKILL.md"
 is_collection: false

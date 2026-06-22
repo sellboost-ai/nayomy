@@ -4,7 +4,7 @@ description_en: "/cs:decide <memo> — Log a decision to two-layer memory via de
 description_tr: "/cs:decide <memo> — Bir kararı decision-logger aracılığıyla iki katmanlı belleğe kaydeder. Onaylanan memo kalıcı hale gelir; ham transkriptler referans için tutulur. Kurucu bir boardroom memosu onayladığında ve karar şirketin kalıcı belleğine geçmesi gerektiğinde kullanılır — örneğin /cs:boardroom sonlandıktan hemen sonra."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/decide/SKILL.md"
 path: ".gemini/skills/decide/SKILL.md"
 is_collection: false

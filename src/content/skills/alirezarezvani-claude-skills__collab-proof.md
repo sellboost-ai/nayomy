@@ -4,7 +4,7 @@ description_en: "Use when you want to understand what Claude contributed vs what
 description_tr: "Claude'un oturumda ne katkıda bulunduğunu ve siz ne yaptığınızı anlamak istediğinizde kullanın. Şu komutlarla tetiklenir: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
 category: "Business"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/collab-proof/SKILL.md"
 path: ".gemini/skills/collab-proof/SKILL.md"
 is_collection: false

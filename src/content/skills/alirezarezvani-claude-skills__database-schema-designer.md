@@ -4,7 +4,7 @@ description_en: "Use when the user asks to create ERD diagrams, normalize databa
 description_tr: "Kullanıcı ERD diyagramı oluşturmak, veritabanı şemalarını normalize etmek, tablo ilişkilerini tasarlamak veya schema migration planlamak istediğinde kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/database-schema-designer/SKILL.md"
 path: ".gemini/skills/database-schema-designer/SKILL.md"
 is_collection: false

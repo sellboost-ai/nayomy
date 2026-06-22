@@ -4,7 +4,7 @@ description: "A lightweight but powerful server that enables AI assistants to ex
 description_tr: "Hafif ama güçlü bir server olup, AI asistanlarının AWS CLI komutlarını çalıştırmasını, Unix pipes kullanmasını ve yaygın AWS görevleri için prompt şablonları uygulamasını güvenli Docker ortamında ve çok mimarili destek ile sağlar."
 category: "Cloud Platforms"
 repo: "alexei-led/aws-mcp-server"
-stars: 182
+stars: 183
 url: "https://github.com/alexei-led/aws-mcp-server"
 body_length: 7629
 license: "MIT"

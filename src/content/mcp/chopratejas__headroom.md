@@ -4,12 +4,12 @@ description: "Context compression layer for AI agents. Compresses tool outputs, 
 description_tr: "AI ajanlar için bağlam sıkıştırma katmanı. Tool çıktılarını, logları, RAG chunk'larını, dosyaları ve konuşma geçmişini LLM'ye ulaşmadan önce sıkıştırır ve MCP tool'ları aracılığıyla geri alınabilir şekilde depolar."
 category: "Knowledge & Memory"
 repo: "chopratejas/headroom"
-stars: 42477
+stars: 45699
 url: "https://github.com/chopratejas/headroom"
-body_length: 23039
+body_length: 23115
 license: "Apache-2.0"
 language: "Python"
-homepage: "https://headroom-docs.vercel.app/docs"
+homepage: "https://headroomlabs-ai.github.io/headroom/"
 body_tr: |-
   <div align="center"><pre>
     ██╗  ██╗███████╗ █████╗ ██████╗ ██████╗  ██████╗  ██████╗ ███╗   ███╗
@@ -531,14 +531,15 @@ shows an **Output Tokens Saved** card next to input compression, labelled
 
 ## Agent compatibility matrix
 
-| Agent       | `headroom wrap` | Notes                            |
-|-------------|:---------------:|----------------------------------|
-| Claude Code | ✅              | `--memory` · `--code-graph`      |
-| Codex       | ✅              | shares memory with Claude        |
-| Cursor      | ✅              | prints config — paste once       |
-| Aider       | ✅              | starts proxy + launches          |
-| Copilot CLI | ✅              | starts proxy + launches          |
-| OpenClaw    | ✅              | installs as ContextEngine plugin |
+| Agent        | `headroom wrap` | Notes                            |
+|--------------|:---------------:|----------------------------------|
+| Claude Code  | ✅              | `--memory` · `--code-graph`      |
+| Codex        | ✅              | shares memory with Claude        |
+| Cursor       | ✅              | prints config — paste once       |
+| Aider        | ✅              | starts proxy + launches          |
+| Copilot CLI  | ✅              | starts proxy + launches          |
+| OpenClaw     | ✅              | installs as ContextEngine plugin |
+| Cortex Code  | ✅              | 60–65% savings · library mode   |
 
 Any OpenAI-compatible client works via `headroom proxy`. MCP-native: `headroom mcp install`.
 

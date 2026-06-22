@@ -4,7 +4,7 @@ description_en: "Use when encountering any bug, test failure, or unexpected beha
 description_tr: "Herhangi bir hata, test başarısızlığı veya beklenmeyen davranışla karşılaştığınızda, çözüm önerisi sunmadan önce kullanın."
 category: "Development"
 repo: "obra/superpowers"
-stars: 234469
+stars: 235495
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/systematic-debugging/SKILL.md"
 path: "skills/systematic-debugging/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Grilling session that mines the user for fragments — heteroge
 description_tr: "Kullanıcıdan çeşitli yazı parçaları — iddialar, kısa sahneler, keskin cümleler, yarım fikirler — topladığı ve bunları gelecekteki bir makalede kullanmak üzere tek bir dokümana eklediği bir grilling oturumu. Kullanıcı fikirleri yapılandırmadan önce geliştirmek istediğinde veya \"fragments\", \"ideate\" ya da \"raw material\" gibi ifadeler kullandığında kullanılır."
 category: "Document"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/in-progress/writing-fragments/SKILL.md"
 path: "skills/in-progress/writing-fragments/SKILL.md"
 is_collection: false

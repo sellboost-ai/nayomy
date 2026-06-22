@@ -4,7 +4,7 @@ description: "A reverse proxy and management layer for MCP servers, enabling sca
 description_tr: "MCP sunucuları için bir reverse proxy ve yönetim katmanı, Kubernetes ortamlarında ölçeklenebilir, oturum farkında yönlendirme ve lifecycle yönetimi sağlar."
 category: "Aggregators"
 repo: "microsoft/mcp-gateway"
-stars: 700
+stars: 702
 url: "https://github.com/microsoft/mcp-gateway"
 body_length: 30612
 license: "MIT"

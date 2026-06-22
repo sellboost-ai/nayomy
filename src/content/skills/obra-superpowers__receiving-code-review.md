@@ -4,7 +4,7 @@ description_en: "Use when receiving code review feedback, before implementing su
 description_tr: "Kod incelemesi geri bildirimi alırken, önerileri uygulamadan önce kullanın; özellikle geri bildirim belirsiz veya teknik olarak şüpheli görünüyorsa - performatif anlaşmadan veya körü körüne uygulamadan ziyade teknik titizlik ve doğrulama gerekir."
 category: "Design"
 repo: "obra/superpowers"
-stars: 234469
+stars: 235495
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/receiving-code-review/SKILL.md"
 path: "skills/receiving-code-review/SKILL.md"
 is_collection: false

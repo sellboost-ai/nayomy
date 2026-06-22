@@ -4,7 +4,7 @@ description: "CLI tool for testing MCP servers"
 description_tr: "MCP sunucularını test etmek için CLI aracı"
 category: "Other Tools and Integrations"
 repo: "wong2/mcp-cli"
-stars: 439
+stars: 440
 url: "https://github.com/wong2/mcp-cli"
 body_length: 2146
 license: "GPL-3.0"

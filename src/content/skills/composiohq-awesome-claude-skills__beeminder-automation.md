@@ -4,7 +4,7 @@ description_en: "Automate Beeminder tasks via Rube MCP (Composio). Always search
 description_tr: "Beeminder görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman mevcut şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/beeminder-automation/SKILL.md"
 path: "composio-skills/beeminder-automation/SKILL.md"
 is_collection: false

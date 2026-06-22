@@ -4,7 +4,7 @@ description_en: "Code review automation for TypeScript, JavaScript, Python, Go, 
 description_tr: "TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP ve Dart/Flutter için otomatik code review aracı. PR'ları karmaşıklık ve risk açısından analiz eder, kod kalitesini SOLID ihlalleri ve code smell'leri kontrol ederek değerlendirir, review raporları üretir. Pull request incelemelerinde, kod kalitesi analizinde, sorun tespitinde ve review checklist'leri oluştururken kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/code-reviewer/SKILL.md"
 path: ".gemini/skills/code-reviewer/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Turn a proven pattern or debugging solution into a standalone r
 description_tr: "SKILL.md ile kanıtlanmış bir pattern veya debugging çözümünü bağımsız, yeniden kullanılabilir bir skill'e dönüştürün; reference docs ve examples ekleyin. Kullanıcı /si:extract komutunu çalıştırdığında veya hafızadaki tekrar eden bir çözümü skill olarak paketlemeyi istediğinde kullanın."
 category: "Document"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/extract/SKILL.md"
 path: ".gemini/skills/extract/SKILL.md"
 is_collection: false

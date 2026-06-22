@@ -4,7 +4,7 @@ description_en: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer in
 description_tr: "/cs:cdo-review <plan> — Eğitim verisi, veri mimarisi, veri ürünleştirme veya veri ekibi işe alımı ile ilgili herhangi bir planın Chief Data Officer tarafından karar odaklı değerlendirilmesi. Model çalışmasından önce eğitim verisi haklarını doğrulamak, warehouse vs lakehouse vs mesh arasında seçim yapmak veya veri varlıklarını ürünleştirme ya da M&A için değerlemek istediğinizde kullanılır."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cdo-review/SKILL.md"
 path: ".gemini/skills/cdo-review/SKILL.md"
 is_collection: false

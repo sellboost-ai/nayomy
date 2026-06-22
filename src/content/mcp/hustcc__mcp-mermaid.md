@@ -4,7 +4,7 @@ description: "Generate mermaid diagram and chart with AI MCP dynamically."
 description_tr: "AI MCP ile dinamik olarak mermaid diyagram ve grafikler oluşturun."
 category: "Customer Data Platforms"
 repo: "hustcc/mcp-mermaid"
-stars: 590
+stars: 591
 url: "https://github.com/hustcc/mcp-mermaid"
 body_length: 5631
 license: "MIT"

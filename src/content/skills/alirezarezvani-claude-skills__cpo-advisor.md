@@ -4,7 +4,7 @@ description_en: "Product leadership for scaling companies. Product vision, portf
 description_tr: "Ölçeklenme aşamasındaki şirketler için ürün liderliği. Ürün vizyonu, portföy stratejisi, product-market fit ve ürün organizasyonu tasarımı konularında yardım sağlar. Ürün vizyonu belirlerken, ürün portföyü yönetirken, PMF ölçerken, ürün takımları tasarlarken veya board'a ürün raporu sunacağınız durumlarda kullanılabilir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cpo-advisor/SKILL.md"
 path: ".gemini/skills/cpo-advisor/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Frontend standards for atopile extension webviews: architecture
 description_tr: "Atopile extension webview'leri için frontend standartları: mimarı, sözleşmeler, tasarım sistemi ve test iş akışı."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/frontend/SKILL.md"
 path: ".claude/skills/frontend/SKILL.md"
 is_collection: false

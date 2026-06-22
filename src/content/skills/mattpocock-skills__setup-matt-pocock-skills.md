@@ -4,7 +4,7 @@ description_en: "Configure this repo for the engineering skills — set up its i
 description_tr: "`## Agent skills` bloğunu AGENTS.md/CLAUDE.md ve `docs/agents/` içinde ayarlar, böylece engineering skills bu repo'nun issue tracker'ını (GitHub veya local markdown), triage label sözcüklerini ve domain doc düzenini tanır. `to-issues`, `to-prd`, `triage`, `diagnose`, `tdd`, `improve-codebase-architecture` veya `zoom-out` komutlarını kullanmadan önce çalıştırın — ya da bu skill'ler issue hakkında bağlam eksik görünüyorsa."
 category: "Document"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/setup-matt-pocock-skills/SKILL.md"
 path: "skills/engineering/setup-matt-pocock-skills/SKILL.md"
 is_collection: false

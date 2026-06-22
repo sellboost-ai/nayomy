@@ -4,7 +4,7 @@ description_en: "Set up Claude Code hooks to block dangerous git commands (push,
 description_tr: "Claude Code hooks'ları kullanarak tehlikeli git komutlarını (push, reset --hard, clean, branch -D, vb.) çalıştırılmadan önce engelleyin. Kullanıcılar yıkıcı git işlemlerini önlemek, git güvenlik hooks'ları eklemek veya Claude Code'da git push/reset'i engellemek istediğinde kullanın."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/misc/git-guardrails-claude-code/SKILL.md"
 path: "skills/misc/git-guardrails-claude-code/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description: "Comprehensive Google Workspace MCP server with full support for Go
 description_tr: "Google Workspace için kapsamlı MCP sunucusu, Google Calendar, Drive, Gmail, Docs, Forms, Chats, Slides ve Sheets desteğiyle stdio, Streamable HTTP ve SSE taşımaları üzerinde çalışır."
 category: "Workplace & Productivity"
 repo: "taylorwilsdon/google_workspace_mcp"
-stars: 2711
+stars: 2713
 url: "https://github.com/taylorwilsdon/google_workspace_mcp"
 body_length: 85628
 license: "MIT"

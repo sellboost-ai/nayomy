@@ -4,7 +4,7 @@ description: "connects QGIS Desktop to Claude AI through the MCP. This integrati
 description_tr: "QGIS Desktop'u Claude AI'ye MCP aracılığıyla bağlayan bir eklenti. Bu entegrasyon, komut yardımıyla proje oluşturma, layer yükleme, kod çalıştırma ve daha fazlasını sağlar."
 category: "Location Services"
 repo: "jjsantos01/qgis_mcp"
-stars: 987
+stars: 988
 url: "https://github.com/jjsantos01/qgis_mcp"
 body_length: 5874
 language: "Python"

@@ -4,7 +4,7 @@ description_en: "Index of 37 advanced engineering agent skills for Claude Code, 
 description_tr: "Claude Code, Codex, Gemini CLI, Cursor ve OpenClaw için 37 ileri seviye mühendislik agent becerisi indeksi. Agent tasarımı, RAG, MCP servers, CI/CD, veritabanı tasarımı, observability, security auditing, changelog/release automation, reliability (SLO/chaos/flags/operators) ve platform ops gibi POWERFUL-tier mühendislik becerilerini keşfederken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/engineering-advanced-skills/SKILL.md"
 path: ".gemini/skills/engineering-advanced-skills/SKILL.md"
 is_collection: false

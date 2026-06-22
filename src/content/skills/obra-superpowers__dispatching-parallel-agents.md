@@ -4,7 +4,7 @@ description_en: "Use when facing 2+ independent tasks that can be worked on with
 description_tr: "2 veya daha fazla bağımsız görevin paralel olarak yürütülebileceği ve aralarında state paylaşımı ya da sıralı bağımlılık olmadığı durumlarda kullanın."
 category: "Development"
 repo: "obra/superpowers"
-stars: 234469
+stars: 235495
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/dispatching-parallel-agents/SKILL.md"
 path: "skills/dispatching-parallel-agents/SKILL.md"
 is_collection: false

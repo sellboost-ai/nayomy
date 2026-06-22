@@ -4,7 +4,7 @@ description_en: "Use when adding, retiring, or auditing feature flags. Triggers 
 description_tr: "Feature flag yönetimi, emeklilik veya denetim işlemleri için kullanılır; \"flag ekle\", \"feature flag arkasında gönder\", \"rollout planı\", \"kill switch\", \"eski flaglar\", \"flag debt\" gibi komutlar veya LaunchDarkly, GrowthBook, Statsig, Unleash, Flipt gibi araçlarla ilgili sorularda tetiklenir. Flag debt scanner, rollout planner ve kill-switch auditor (stdlib Python) ile birlikte gelir; flag taxonomy, provider karşılaştırması ve progressive delivery stratejileri hakkında 4 referans içerir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/feature-flags-architect/SKILL.md"
 path: ".gemini/skills/feature-flags-architect/SKILL.md"
 is_collection: false

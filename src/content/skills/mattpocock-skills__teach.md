@@ -4,7 +4,7 @@ description_en: "Teach the user a new skill or concept, within this workspace."
 description_tr: "Bu çalışma alanında kullanıcıya yeni bir beceri veya konsept öğretin."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/productivity/teach/SKILL.md"
 path: "skills/productivity/teach/SKILL.md"
 is_collection: false

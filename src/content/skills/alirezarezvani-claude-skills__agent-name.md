@@ -4,7 +4,7 @@ description_en: "One paragraph describing what this agent does, who it's for, an
 description_tr: "I need the actual English text to translate. Please provide the specific paragraph describing the agent, its purpose, target users, and activation conditions, and I'll translate it to Turkish following your guidelines."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/TEMPLATE/SKILL.md"
 path: ".gemini/skills/TEMPLATE/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "/cs:cto-review <plan> — Architecture and scaling interrogatio
 description_tr: "/cs:cto-review <plan> — Mimari ve ölçeklendirme analizi. Teknik borç, ölçeklendirme engelleri, ekip büyümesi, build-vs-buy kararları için kullanın. Bir mimariyi onaylarken, 10 kat artan yük için planlama yaparken veya yeniden geliştirme ile satıcı çözümü arasında seçim yaparken bu komutu çalıştırın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cto-review/SKILL.md"
 path: ".gemini/skills/cto-review/SKILL.md"
 is_collection: false

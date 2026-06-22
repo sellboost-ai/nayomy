@@ -4,7 +4,7 @@ description_en: "Edit and improve articles by restructuring sections, improving 
 description_tr: "Makaleleri yeniden yapılandırarak, netliği artırarak ve metni sıklaştırarak düzenleyin ve geliştirin. Kullanıcı bir makale taslağını düzenlemek, gözden geçirmek veya iyileştirmek istediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/personal/edit-article/SKILL.md"
 path: "skills/personal/edit-article/SKILL.md"
 is_collection: false

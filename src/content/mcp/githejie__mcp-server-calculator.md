@@ -4,7 +4,7 @@ description: "This server enables LLMs to use calculator for precise numerical c
 description_tr: "Bu sunucu, LLM'lerin kesin sayısal hesaplamalar için hesaplayıcı kullanmasını sağlar."
 category: "Other Tools and Integrations"
 repo: "githejie/mcp-server-calculator"
-stars: 148
+stars: 149
 url: "https://github.com/githejie/mcp-server-calculator"
 body_length: 1472
 license: "MIT"

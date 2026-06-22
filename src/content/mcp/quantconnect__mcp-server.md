@@ -4,7 +4,7 @@ description: "A Dockerized Python MCP server that bridges your local AI (e.g., C
 description_tr: "Docker içinde çalışan Python MCP sunucusu, yerel AI'nizi (Claude Desktop vb.) QuantConnect API'si ile bağlayarak doğal dil komutlarıyla proje oluşturabilir, stratejileri backtest edebilir, işbirlikçileri yönetebilir ve canlı işlem akışlarını deploy edebilirsiniz."
 category: "Finance & Fintech"
 repo: "QuantConnect/mcp-server"
-stars: 76
+stars: 77
 url: "https://github.com/QuantConnect/mcp-server"
 body_length: 42339
 license: "Apache-2.0"

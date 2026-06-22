@@ -4,7 +4,7 @@ description_en: "Toolkit for styling artifacts with a theme. These artifacts can
 description_tr: "Artifaktları tema ile stilize etmek için toolkit. Slaytlar, dokümanlar, raporlar, HTML landing page'ler gibi çeşitli artifaktlara uygulanabilir. 10 hazır tema ile renkler ve fontları seçebilir ya da anında yeni tema oluşturabilirsiniz."
 category: "Document"
 repo: "anthropics/skills"
-stars: 153299
+stars: 153732
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/theme-factory/SKILL.md"
 path: "skills/theme-factory/SKILL.md"
 is_collection: false

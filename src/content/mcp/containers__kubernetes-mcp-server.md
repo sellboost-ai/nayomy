@@ -4,7 +4,7 @@ description: "powerful Kubernetes MCP server with additional support for OpenShi
 description_tr: "Kubernetes MCP sunucusu OpenShift desteğiyle, **herhangi bir** Kubernetes kaynağına yönelik CRUD işlemleri sağlamasının yanı sıra kümenizle etkileşim kurmak için özel araçlar sunar."
 category: "Cloud Platforms"
 repo: "containers/kubernetes-mcp-server"
-stars: 1710
+stars: 1711
 url: "https://github.com/containers/kubernetes-mcp-server"
 body_length: 53560
 license: "Apache-2.0"

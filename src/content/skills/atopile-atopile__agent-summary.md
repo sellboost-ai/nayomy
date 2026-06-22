@@ -4,7 +4,7 @@ description_en: "Generate short live progress summaries for the atopile agent fr
 description_tr: "Atopile agentu için son araç olayları, preamble'lar, kontrol listesi değişiklikleri ve build durumundan kısa canlı ilerleme özetleri oluşturun. Yalnızca geçici UI aktivite metni için kullanın, hiçbir zaman transcript yanıtları veya otonom akıl yürütme için değil."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/agent-summary/SKILL.md"
 path: ".claude/skills/agent-summary/SKILL.md"
 is_collection: false

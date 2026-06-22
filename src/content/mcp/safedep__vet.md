@@ -4,7 +4,7 @@ description: "vet-mcp checks open source packages—like those suggested by AI c
 description_tr: "vet-mcp, yapay zeka kodlama araçları tarafından önerilen npm ve PyPI paketleri gibi açık kaynak paketleri güvenlik açıkları ve kötü amaçlı kodlar açısından kontrol eder. Docker üzerinde veya bağımsız bir binary olarak yerel olarak çalışarak hızlı ve otomatik doğrulama sağlar."
 category: "Security"
 repo: "safedep/vet"
-stars: 1078
+stars: 1080
 url: "https://github.com/safedep/vet"
 body_length: 11481
 license: "Apache-2.0"

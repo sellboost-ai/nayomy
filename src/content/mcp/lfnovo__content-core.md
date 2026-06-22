@@ -4,7 +4,7 @@ description: "Extract content from URLs, documents, videos, and audio files usin
 description_tr: "URL'ler, belgeler, videolar ve ses dosyalarından içerik çıkarmak için akıllı motor seçimini otomatik olarak kullanan araç. Web sayfaları, PDF'ler, Word belgeler, YouTube transkriptleri ve daha pek çoğundan yapılandırılmış JSON yanıtları ile veri alın."
 category: "Search & Data Extraction"
 repo: "lfnovo/content-core"
-stars: 160
+stars: 161
 url: "https://github.com/lfnovo/content-core"
 body_length: 8743
 license: "MIT"

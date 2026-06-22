@@ -4,7 +4,7 @@ description: "Yahoo Finance integration to fetch stock market data including opt
 description_tr: "Yahoo Finance entegrasyonu ile hisse senedi piyasası verilerini ve opsiyon önerilerini kolayca çekebilirsiniz."
 category: "Finance & Fintech"
 repo: "ferdousbhai/investor-agent"
-stars: 337
+stars: 338
 url: "https://github.com/ferdousbhai/investor-agent"
 body_length: 912
 license: "MIT"

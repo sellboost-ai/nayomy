@@ -4,7 +4,7 @@ description_en: "Automate Composio Search tasks via Rube MCP (Composio). Always 
 description_tr: "Composio Search görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Güncel şemaları için her zaman arama araçlarını önce kontrol edin."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/composio-search-automation/SKILL.md"
 path: "composio-skills/composio-search-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Generate multiple radically different interface designs for a m
 description_tr: "Bir modül için birbirinden çok farklı arayüz tasarımları oluşturmak üzere paralel alt-ajanlar kullanın. Kullanıcı bir API tasarlamak, arayüz seçeneklerini keşfetmek, modül şekillerini karşılaştırmak istediğinde veya \"bunu iki kez tasarla\" dediğinde kullanın."
 category: "Design"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/deprecated/design-an-interface/SKILL.md"
 path: "skills/deprecated/design-an-interface/SKILL.md"
 is_collection: false

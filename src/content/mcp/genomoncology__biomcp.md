@@ -4,7 +4,7 @@ description: "Biomedical research MCP server providing access to PubMed, Clinica
 description_tr: "Biyomedikal araştırma için PubMed, ClinicalTrials.gov ve MyVariant.info verilerine erişim sağlayan MCP server."
 category: "Biology Medicine and Bioinformatics"
 repo: "genomoncology/biomcp"
-stars: 528
+stars: 529
 url: "https://github.com/genomoncology/biomcp"
 body_length: 17128
 license: "MIT"

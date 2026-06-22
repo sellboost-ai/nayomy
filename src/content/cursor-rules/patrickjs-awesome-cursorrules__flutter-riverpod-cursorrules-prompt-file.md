@@ -4,7 +4,7 @@ clean_name: "Flutter Riverpod"
 description: "Cursor rules for Flutter Riverpod."
 category: "Mobile"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40047
+stars: 40056
 path: "rules/flutter-riverpod-cursorrules-prompt-file.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/flutter-riverpod-cursorrules-prompt-file.mdc"
 body_length: 7573

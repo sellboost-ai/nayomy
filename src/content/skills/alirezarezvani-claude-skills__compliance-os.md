@@ -4,7 +4,7 @@ description_en: "Compliance OS — meta-orchestrator that lets compliance teams 
 description_tr: "Compliance OS — compliance ekiplerinin hangi framework'lerin geçerli olduğunu YAPILANDIRMAK, framework'ler arası kontrol örtüşmesini HESAPLAMAK, iç denetimleri SİMÜLE ETMEK ve kanıtları birden fazla framework'de KONSOLİDE ETMEK için tasarlanmış meta-orkestrasyondur. Dört ana karar: (1) Şirket profiline göre desteklenen 12 framework'den (ISO 27001/13485/42001/14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR, NIST CSF 2.0, NIS2, HIPAA) hangisi uygulanır?"
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/compliance-os-bundle/SKILL.md"
 path: ".gemini/skills/compliance-os-bundle/SKILL.md"
 is_collection: false

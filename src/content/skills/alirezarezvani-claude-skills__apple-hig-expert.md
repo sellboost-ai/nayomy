@@ -4,7 +4,7 @@ description_en: "Audits and designs iOS/macOS/watchOS/visionOS interfaces agains
 description_tr: "Apple Human Interface Guidelines'a uygun olarak iOS/macOS/watchOS/visionOS arayüzlerini denetler ve tasarlar; Liquid Glass tasarım dilini (WWDC25'te duyurulmuş, iOS 26/macOS Tahoe ile gönderilmiş, Eylül 2025) de destekler. Apple platformu mockup'larını veya uygulamalarını HIG uyumluluğu açısından gözden geçirirken, kontrast veya tap-target boyutlarını kontrol ederken ya da native hissiyatlı Apple UI tasarlarken kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/apple-hig-expert/SKILL.md"
 path: ".gemini/skills/apple-hig-expert/SKILL.md"
 is_collection: false

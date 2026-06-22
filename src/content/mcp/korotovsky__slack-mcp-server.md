@@ -4,7 +4,7 @@ description: "The most powerful MCP server for Slack Workspaces."
 description_tr: "Slack Çalışma Alanları için en güçlü MCP sunucusu."
 category: "Communication"
 repo: "korotovsky/slack-mcp-server"
-stars: 1670
+stars: 1672
 url: "https://github.com/korotovsky/slack-mcp-server"
 body_length: 31933
 license: "MIT"

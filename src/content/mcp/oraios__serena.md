@@ -4,7 +4,7 @@ description: "A fully-featured coding agent that relies on symbolic code operati
 description_tr: "Dil sunucularını kullanarak sembolik kod işlemleri gerçekleştiren, tam özellikli bir kodlama ajanı."
 category: "Coding Agents"
 repo: "oraios/serena"
-stars: 25594
+stars: 25630
 url: "https://github.com/oraios/serena"
 body_length: 14391
 license: "MIT"

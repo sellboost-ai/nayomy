@@ -3,7 +3,7 @@ name: "decision-mapping"
 description_en: "Turn a loose idea into a sequenced map of investigation tickets, then drive them to resolution one at a time."
 category: "Development"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/in-progress/decision-mapping/SKILL.md"
 path: "skills/in-progress/decision-mapping/SKILL.md"
 is_collection: false

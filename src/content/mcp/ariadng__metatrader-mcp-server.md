@@ -4,7 +4,7 @@ description: "Enable AI LLMs to execute trades using MetaTrader 5 platform"
 description_tr: "AI LLM'lerin MetaTrader 5 platformu üzerinden işlem gerçekleştirmesini sağlayın"
 category: "Finance & Fintech"
 repo: "ariadng/metatrader-mcp-server"
-stars: 546
+stars: 547
 url: "https://github.com/ariadng/metatrader-mcp-server"
 body_length: 22903
 license: "MIT"

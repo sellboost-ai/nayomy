@@ -4,7 +4,7 @@ description_en: "Automate Big Data Cloud tasks via Rube MCP (Composio). Always s
 description_tr: "Rube MCP (Composio) ile Big Data Cloud görevlerini otomatikleştirin. Her zaman güncel şemaları için önce tools arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/big-data-cloud-automation/SKILL.md"
 path: "composio-skills/big-data-cloud-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description: "Official Kagi Search MCP Server"
 description_tr: "Kagi Search'in Resmi MCP Sunucusu"
 category: "Search & Data Extraction"
 repo: "kagisearch/kagimcp"
-stars: 426
+stars: 427
 url: "https://github.com/kagisearch/kagimcp"
 body_length: 4975
 license: "MIT"

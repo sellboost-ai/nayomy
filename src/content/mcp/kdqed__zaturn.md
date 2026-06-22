@@ -9,7 +9,7 @@ url: "https://github.com/kdqed/zaturn"
 body_length: 2447
 license: "MIT"
 language: "Python"
-homepage: "https://zaturn.pro"
+homepage: "https://zaturn.kdqed.com"
 body_tr: |-
   <h1>
     

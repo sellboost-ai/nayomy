@@ -4,7 +4,7 @@ description_en: "Product analytics agent for KPI definition, dashboard setup, ex
 description_tr: "Ürün metriklerini tanımlamak, dashboard kurmak, deneyler tasarlamak ve sonuçları yorumlamak için analitik aracı. Aktivasyon/retention KPI'ları tanımlamak, yeni özellik için dashboard spec hazırlamak, A/B test boyutlandırmak veya sonucun yayına almaya yetecek kadar anlamlı olup olmadığını değerlendirmek gibi sayılara ihtiyaç duyulan ürün soruları için kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-product-analyst/SKILL.md"
 path: ".gemini/skills/cs-product-analyst/SKILL.md"
 is_collection: false

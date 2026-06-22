@@ -4,7 +4,7 @@ description_en: "Automate Callingly tasks via Rube MCP (Composio). Always search
 description_tr: "Callingly görevlerini Rube MCP (Composio) aracılığıyla otomatikleştirin. Her zaman geçerli şemalar için önce tools içinde arama yapın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/callingly-automation/SKILL.md"
 path: "composio-skills/callingly-automation/SKILL.md"
 is_collection: false

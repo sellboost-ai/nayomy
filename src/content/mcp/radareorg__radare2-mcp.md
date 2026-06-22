@@ -4,7 +4,7 @@ description: "MCP server for Radare2 disassembler. Provides AI with capability t
 description_tr: "Radare2 disassembler için MCP sunucusu. AI'ya binary dosyalarını disassemble etme ve reverse engineering için analiz etme yetenekleri sağlar."
 category: "Security"
 repo: "radareorg/radare2-mcp"
-stars: 254
+stars: 256
 url: "https://github.com/radareorg/radare2-mcp"
 body_length: 7116
 license: "MIT"

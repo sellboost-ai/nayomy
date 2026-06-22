@@ -4,7 +4,7 @@ description_en: "Use when the user asks to create a demo video, product walkthro
 description_tr: "Kullanıcı demo video, ürün tanıtımı, özellik gösterimi, animasyonlu sunum, pazarlama videosu veya ekran görüntüleri ile sahne açıklamalarından GIF oluşturmak istediğinde kullanın. Playwright, ffmpeg ve edge-tts MCP'lerini orkestreyi sağlayarak profesyonel video içeriği üretir."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/demo-video/SKILL.md"
 path: ".gemini/skills/demo-video/SKILL.md"
 is_collection: false

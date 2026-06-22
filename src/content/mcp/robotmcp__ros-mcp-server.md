@@ -4,7 +4,7 @@ description: "The ROS MCP Server supports robot control by converting user-issue
 description_tr: "ROS MCP Server, kullanıcı tarafından verilen doğal dil komutlarını ROS veya ROS2 kontrol komutlarına dönüştürerek robot kontrolünü sağlar."
 category: "Developer Tools"
 repo: "robotmcp/ros-mcp-server"
-stars: 1300
+stars: 1303
 url: "https://github.com/robotmcp/ros-mcp-server"
 body_length: 4862
 license: "Apache-2.0"

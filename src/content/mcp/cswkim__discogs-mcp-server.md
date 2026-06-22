@@ -4,7 +4,7 @@ description: "MCP server to interact with the Discogs API"
 description_tr: "Discogs API ile etkileşim kurmak için MCP sunucusu"
 category: "Art & Culture"
 repo: "cswkim/discogs-mcp-server"
-stars: 112
+stars: 113
 url: "https://github.com/cswkim/discogs-mcp-server"
 body_length: 8934
 license: "MIT"

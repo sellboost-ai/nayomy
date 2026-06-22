@@ -4,7 +4,7 @@ description_en: "Automate Beaconchain tasks via Rube MCP (Composio). Always sear
 description_tr: "Rube MCP (Composio) ile Beaconchain görevlerini otomatikleştirin. Güncel şemaları bulabilmek için her zaman tools'u arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/beaconchain-automation/SKILL.md"
 path: "composio-skills/beaconchain-automation/SKILL.md"
 is_collection: false

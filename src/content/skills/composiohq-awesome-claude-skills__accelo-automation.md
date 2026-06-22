@@ -4,7 +4,7 @@ description_en: "Automate Accelo tasks via Rube MCP (Composio). Always search to
 description_tr: "Rube MCP (Composio) aracılığıyla Accelo görevlerini otomatikleştirin. Güncel şemaları kontrol etmek için her zaman önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/accelo-automation/SKILL.md"
 path: "composio-skills/accelo-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "A relentless interview to sharpen a plan or design, which also 
 description_tr: "Mevcut domain model'inize karşı planınızı test eden, terminolojiyi keskinleştiren ve kararlar netleştikçe dokumentasyonu (CONTEXT.md, ADRs) anında güncelleyen grilling seansı. Planınızı projenizin dili ve belgelenmiş kararlarına karşı stress-test etmek istediğinizde kullanın."
 category: "Document"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/engineering/grill-with-docs/SKILL.md"
 path: "skills/engineering/grill-with-docs/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ clean_name: "Next Type LLM"
 description: "Cursor rules for Next.js development with Type LLM integration."
 category: "Frontend"
 repo: "PatrickJS/awesome-cursorrules"
-stars: 40047
+stars: 40056
 path: "rules/next-type-llm.mdc"
 url: "https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/next-type-llm.mdc"
 body_length: 2718

@@ -4,7 +4,7 @@ description_en: "Automate Cloudflare API tasks via Rube MCP (Composio). Always s
 description_tr: "Cloudflare API görevlerini Ruby MCP (Composio) aracılığıyla otomatikleştirin. Her zaman güncel şemalar için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/cloudflare-api-key-automation/SKILL.md"
 path: "composio-skills/cloudflare-api-key-automation/SKILL.md"
 is_collection: false

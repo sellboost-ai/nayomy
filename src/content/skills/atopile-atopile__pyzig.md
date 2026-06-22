@@ -4,7 +4,7 @@ description_en: "How the Zig↔Python binding layer works (pyzig), including bui
 description_tr: "Zig↔Python binding katmanının (pyzig) nasıl çalıştığını, import sırasında derleme, wrapper oluşturma desenleri, ownership kuralları ve yeni exported API'lerin nereye ekleneceğini açıklar. Zig-Python bağlantıları eklerken, native extension'ları değiştirirken veya C-API etkileşimlerini debug ederken kullanın."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/pyzig/SKILL.md"
 path: ".claude/skills/pyzig/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "|- Reference for the Claude API / Anthropic SDK — model ids, 
 description_tr: "Claude API / Anthropic SDK için referans — model kimlikleri, fiyatlandırma, parametreler, streaming, tool use, MCP, agents, caching, token sayma ve model migration hakkında bilgiler içerir. ÖNEMLİ — hedef dosyayı açmadan önce okuyun; Claude/Anthropic ile ilgili herhangi bir isim geçtiğinde (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*` vb.) bu referansı atlayın."
 category: "Development"
 repo: "anthropics/skills"
-stars: 153299
+stars: 153732
 url: "https://github.com/anthropics/skills/blob/HEAD/skills/claude-api/SKILL.md"
 path: "skills/claude-api/SKILL.md"
 is_collection: false

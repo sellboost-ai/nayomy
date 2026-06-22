@@ -6,7 +6,7 @@ category: "Developer Tools"
 repo: "storybookjs/mcp"
 stars: 257
 url: "https://github.com/storybookjs/mcp"
-body_length: 9005
+body_length: 8700
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
@@ -297,13 +297,12 @@ Welcome to the Storybook MCP Addon monorepo! This project enables AI agents to w
 
 ## 📦 Packages
 
-This monorepo contains five main packages:
+This monorepo contains four main packages:
 
 - **[@storybook/mcp](./packages/mcp)** - Standalone MCP library for serving Storybook component knowledge (can be used independently)
 - **[@storybook/addon-mcp](./packages/addon-mcp)** - Storybook addon that runs an MCP server within your Storybook dev server, and includes the functionality of **[@storybook/mcp](./packages/mcp)** from your local Storybook
-- **[@storybook/mcp-proxy](./packages/mcp-proxy)** - Stable MCP proxy package for Storybook agent integrations
-- **[@storybook/claude-code-plugin](./packages/claude-plugin)** - Claude Code plugin with Storybook setup skills and MCP configuration that starts `@storybook/mcp-proxy`
-- **[@storybook/codex-plugin](./packages/codex-plugin)** - Codex plugin with Storybook setup skills and MCP configuration that starts `@storybook/mcp-proxy`
+- **[@storybook/claude-code-plugin](./packages/claude-plugin)** - Claude Code plugin with Storybook setup skills and MCP configuration
+- **[@storybook/codex-plugin](./packages/codex-plugin)** - Codex plugin with Storybook setup skills and MCP configuration
 
 Each package has its own README with user-facing documentation. This document is for **contributors** looking to develop, test, or contribute to these packages.
 
@@ -341,9 +340,6 @@ Verify the plugin and MCP server:
 claude plugin list --json
 claude mcp list
 ```
-
-`claude mcp list` should show `plugin:storybook:storybook` using the
-`@storybook/mcp-proxy` preview URL from `pkg.pr.new`.
 
 The repository intentionally keeps marketplace catalogs in two places. The root
 catalogs support GitHub installs from `storybookjs/mcp`; the package-local

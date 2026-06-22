@@ -4,7 +4,7 @@ description: "A framework for creating multi-agent systems using MCP for coordin
 description_tr: "MCP kullanarak çoklu ajan sistemleri oluşturmak için bir framework'tür. Koordine edilmiş AI işbirliğini sağlayan görev yönetimi, paylaşılan context ve RAG yetenekleriyle gelir."
 category: "Coding Agents"
 repo: "rinadelph/Agent-MCP"
-stars: 1249
+stars: 1250
 url: "https://github.com/rinadelph/Agent-MCP"
 body_length: 29262
 license: "NOASSERTION"

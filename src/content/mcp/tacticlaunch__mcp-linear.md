@@ -4,7 +4,7 @@ description: "Integrates with Linear project management system"
 description_tr: "Linear proje yönetim sistemi ile entegre çalışır"
 category: "Other Tools and Integrations"
 repo: "tacticlaunch/mcp-linear"
-stars: 138
+stars: 139
 url: "https://github.com/tacticlaunch/mcp-linear"
 body_length: 5700
 license: "MIT"

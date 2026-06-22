@@ -4,7 +4,7 @@ description_en: "Compact the current conversation into a handoff document for an
 description_tr: "Mevcut konuşmayı başka bir agent'ın devralması için bir handoff belgesine sıkıştırın."
 category: "Document"
 repo: "mattpocock/skills"
-stars: 138620
+stars: 140637
 url: "https://github.com/mattpocock/skills/blob/HEAD/skills/productivity/handoff/SKILL.md"
 path: "skills/productivity/handoff/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Automate Chaser tasks via Rube MCP (Composio). Always search to
 description_tr: "Rube MCP (Composio) üzerinden Chaser görevlerini otomatikleştirin. Her zaman güncel schemaları için önce araçları arayın."
 category: "Development"
 repo: "ComposioHQ/awesome-claude-skills"
-stars: 65377
+stars: 65490
 url: "https://github.com/ComposioHQ/awesome-claude-skills/blob/HEAD/composio-skills/chaser-automation/SKILL.md"
 path: "composio-skills/chaser-automation/SKILL.md"
 is_collection: false

@@ -4,7 +4,7 @@ description_en: "Supermemory is a state-of-the-art memory and context infrastruc
 description_tr: "Supermemory, AI ajanları için son teknoloji bellek ve bağlam altyapısıdır. Kalıcı bellek, kullanıcı kişiselleştirmesi, uzun dönem bağlam koruması veya bilgi tabanlarında semantik arama gerektiren uygulamalar geliştirirken kullanın. Memory API ile öğrenilen kullanıcı bağlamı, statik/dinamik gerçekler için User Profiles ve semantik arama için RAG sağlar. Chatbotlar ve asistanlar için ideal."
 category: "Design"
 repo: "supermemoryai/supermemory"
-stars: 27251
+stars: 27297
 url: "https://github.com/supermemoryai/supermemory/blob/HEAD/skills/supermemory/SKILL.md"
 path: "skills/supermemory/SKILL.md"
 is_collection: false

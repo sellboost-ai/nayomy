@@ -4,7 +4,7 @@ description_en: "LLM-focused workflow for working in this repo: compile Zig, run
 description_tr: "LLM odaklı iş akışı: bu repo'da Zig derleyin, düzenlenmiş test runner'ı çalıştırın, test-report.json/html artifact'lerini tüketin ve ConfigFlags'i keşfedin/debug edin."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/dev/SKILL.md"
 path: ".claude/skills/dev/SKILL.md"
 is_collection: false

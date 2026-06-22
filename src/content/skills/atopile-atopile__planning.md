@@ -4,7 +4,7 @@ description_en: "Spec-driven planning for complex design tasks: when to plan, ho
 description_tr: "Karmaşık tasarım görevleri için spec-odaklı planlama: ne zaman plan yapacağınız, .ato dosyaları olarak spec yazma yöntemleri ve gereksinimler karşısında doğrulama işlemleri."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/planning/SKILL.md"
 path: ".claude/skills/planning/SKILL.md"
 is_collection: false

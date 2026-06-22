@@ -4,7 +4,7 @@ description: "Query more than 40 apps with one binary using SQL. It can also con
 description_tr: "40'tan fazla uygulamayı tek bir binary ile SQL kullanarak sorgulayın. PostgreSQL, MySQL veya SQLite uyumlu veritabanlarınıza da bağlanabilir. Yerel-öncelikli ve gizlilik odaklı tasarımı ile sunulur."
 category: "Aggregators"
 repo: "julien040/anyquery"
-stars: 1718
+stars: 1719
 url: "https://github.com/julien040/anyquery"
 body_length: 7421
 license: "NOASSERTION"

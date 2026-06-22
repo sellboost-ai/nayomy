@@ -4,7 +4,7 @@ description_en: "EU AI Act (Regulation (EU) 2024/1689) operational compliance fo
 description_tr: "EU AI Act (Regulation (EU) 2024/1689) uyum sağlama için compliance ekiplerine yönelik operasyonel çözüm. Üç Madde seviyesi karar: (1) Bu AI sisteminin risk seviyesi nedir — yasak (Mad. 5), yüksek risk (Mad. 6 + Annex III), sınırlı risk (Mad. 50) veya minimal risk? (2) Yüksek riskli sistemler için Article 43 uyum değerlendirme yolu nedir (Modül A iç kontrol vs Modül H tam QMS + notified body) ve..."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/eu-ai-act-specialist/SKILL.md"
 path: ".gemini/skills/eu-ai-act-specialist/SKILL.md"
 is_collection: false

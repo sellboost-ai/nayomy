@@ -4,7 +4,7 @@ description_en: "Google Workspace administration agent using the gws CLI. Orches
 description_tr: "Google Workspace yönetimi için gws CLI kullanan akıllı asistan. Workspace kurulumu, Gmail/Drive/Sheets/Calendar otomasyonu, güvenlik denetimleri ve recipe çalıştırmasını yönetir. Kullanıcılar Google Workspace otomasyonu, gws CLI yardımı veya workspace yönetimi ihtiyacında bu ajanı çalıştırın."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/cs-workspace-admin/SKILL.md"
 path: ".gemini/skills/cs-workspace-admin/SKILL.md"
 is_collection: false

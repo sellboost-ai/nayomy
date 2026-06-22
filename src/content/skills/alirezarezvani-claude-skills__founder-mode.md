@@ -4,7 +4,7 @@ description_en: "/cs:founder-mode <question> — Auto-routes any founder questio
 description_tr: "/cs:founder-mode <question> — Kurucu sorularını otomatik olarak ilgili C-level danışmana veya çok disiplinli konular için /cs:boardroom'a yönlendirir. Tek komutluk giriş noktası. Kurucu hangi danışmanın veya komutun uygun olduğunu bilmediği stratejik sorular için kullanın — örneğin 'runway baskısı' CFO'ya, 'gross retention düştü' CCO'ya yönlendirilir."
 category: "Development"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/founder-mode/SKILL.md"
 path: ".gemini/skills/founder-mode/SKILL.md"
 is_collection: false

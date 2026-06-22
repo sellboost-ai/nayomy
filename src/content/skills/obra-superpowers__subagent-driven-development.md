@@ -4,7 +4,7 @@ description_en: "Use when executing implementation plans with independent tasks 
 description_tr: "Mevcut oturumda bağımsız görevlerle uygulama planlarını yürütürken kullanın"
 category: "Development"
 repo: "obra/superpowers"
-stars: 234469
+stars: 235495
 url: "https://github.com/obra/superpowers/blob/HEAD/skills/subagent-driven-development/SKILL.md"
 path: "skills/subagent-driven-development/SKILL.md"
 is_collection: false

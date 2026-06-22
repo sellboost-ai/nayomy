@@ -4,7 +4,7 @@ description_en: "Systematic competitor tracking that feeds CMO positioning, CRO 
 description_tr: "Rakip izlemeyi sistematikleştirin ve CMO konumlandırması, CRO battlecard'ları ve CPO roadmap kararlarını yönlendirin. Rakipleri analiz ederken, satış battlecard'ları oluştururken, pazar hareketlerini takip ederken, alternatifler karşısında konumlanırken ya da rekabetçi istihbarat, rakip analizi, battlecard'lar, win/loss ve pazar konumlandırması konularında kullanın."
 category: "Design"
 repo: "alirezarezvani/claude-skills"
-stars: 18642
+stars: 18759
 url: "https://github.com/alirezarezvani/claude-skills/blob/HEAD/.gemini/skills/competitive-intel/SKILL.md"
 path: ".gemini/skills/competitive-intel/SKILL.md"
 is_collection: false

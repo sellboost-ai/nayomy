@@ -4,7 +4,7 @@ description_en: "How the atopile compiler builds and links TypeGraphs from `.ato
 description_tr: "atopile compiler'ın `.ato` dosyalarından TypeGraph'ları nasıl derlediğini ve bağladığını (ANTLR front-end → AST → TypeGraph → Linker → DeferredExecutor), temel değişmezlikleri ve test giriş noktalarını açıklar. Compiler pipeline, grammar, AST visitor'ları veya type resolution'ı değiştirirken kullanın."
 category: "Design"
 repo: "atopile/atopile"
-stars: 3410
+stars: 3412
 url: "https://github.com/atopile/atopile/blob/HEAD/.claude/skills/compiler/SKILL.md"
 path: ".claude/skills/compiler/SKILL.md"
 is_collection: false
