@@ -55,10 +55,16 @@ const cutoffDate = new Date(Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
 // ── Helpers ───────────────────────────────────────────────────────────────
 
 function slugify(str) {
+  // Turkish char replacement MUST come before toLowerCase:
+  // İ (U+0130) doesn't reliably map to 'i' via JS toLowerCase in all envs.
   return String(str ?? '')
+    .replace(/[çÇ]/g, 'c')
+    .replace(/[ğĞ]/g, 'g')
+    .replace(/[ıIİ]/g, 'i')   // ı(U+0131), I(U+0049), İ(U+0130)
+    .replace(/[öÖ]/g, 'o')
+    .replace(/[şŞ]/g, 's')
+    .replace(/[üÜ]/g, 'u')
     .toLowerCase()
-    .replace(/[çÇ]/g, 'c').replace(/[ğĞ]/g, 'g').replace(/[ıİ]/g, 'i')
-    .replace(/[öÖ]/g, 'o').replace(/[şŞ]/g, 's').replace(/[üÜ]/g, 'u')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 80);
@@ -149,6 +155,31 @@ function buildCatalog() {
   return { catalogStr: entries.join('\n'), validPaths };
 }
 
+// ── Makale içeriğini çek (RSS snippet yetersizse) ─────────────────────────
+
+async function fetchArticleText(url) {
+  try {
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(12000),
+      headers: { 'User-Agent': 'nayomy-news-crawler/1.0', Accept: 'text/html' },
+    });
+    if (!res.ok) return '';
+    const html = await res.text();
+    const text = html
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+    return text.slice(0, 6000);
+  } catch (_) {
+    return '';
+  }
+}
+
 // ── Seçim: tier-1 önce, sonra pubDate'e göre top MAX_DRAFTS ──────────────
 
 function selectTopItems(allItems) {
@@ -162,26 +193,27 @@ function selectTopItems(allItems) {
 
 // ── Sonnet ile zengin taslak üret ────────────────────────────────────────
 
-async function generateDraft(item, catalogStr, validPaths) {
-  const prompt = `Sen nayomy.com için Türkçe AI haber editörüsün. Aşağıdaki İngilizce haberi işle.
+function buildPrompt(item, catalogStr) {
+  return `Sen nayomy.com için Türkçe AI haber editörüsün. Aşağıdaki İngilizce haberi işle.
 
 GÖREV:
 1. Özgün Türkçe başlık yaz (RSS başlığının birebir çevirisi DEĞİL, yeniden yazılmış, max 70 karakter)
 2. Kısa Türkçe özet: 2-3 cümle, liste sayfası için
-3. 300-500 kelime Türkçe gövde yaz (aşağıdaki KATEGORI kuralına göre)
+3. ZORUNLU: Türkçe gövde, kesinlikle 400-500 kelime arası. 400 kelimenin altına DÜŞME — bu en kritik kuraldır.
 4. Haberi şu üç kategoriden birine sınıflandır:
    - "urun": yeni araç/model/özellik/kurs çıkışı
    - "sirket": şirket hamlesi/anlaşma/işe alım/yatırım
    - "trend": sektörel/politik/genel eğilim
 5. Varsa ilgili nayomy katalog linki
 
-GÖVDE KURALLARI:
-- Teknik terimler İngilizce kalsın (API, Claude, MCP, GPT, vb.)
-- Spekülasyon yok, sadece haberin söylediği şey
-- "Sessizce yayınladı", "ezber bozdu" gibi abartı yok
-- Kategori "urun" ise: "Bu Türk geliştirici/kullanıcı için ne anlama geliyor?" diye kısa bir paragraf ekle
-- Kategori "sirket" ise: "Bu hamle neden önemli?" yorumu ekle
-- Kategori "trend" ise: "Türkiye/Türk ekosistemi bu eğilimde nerede duruyor?" perspektifi ekle
+GÖVDE YAPISI (400-500 kelime, doldurmayı değil derinliği hedefle):
+Bölüm 1 — Haber özeti (2 paragraf): Haberin ne olduğunu, kim yaptığını, ne zaman açıklandığını aktar.
+Bölüm 2 — Teknik/iş detayı (1-2 paragraf): Özellikler, rakamlar, karşılaştırmalar, bağlam.
+Bölüm 3 — Perspektif paragrafı (ZORUNLU, en az 100 kelime, kategoriye göre):
+  * "urun" → "Türk geliştiriciler için ne anlama geliyor?" + "nasıl kullanmaya başlanır?" somut adımlar
+  * "sirket" → "Bu hamle sektörde ne değiştirir?" + rakip dinamikleri + piyasa etkisi analizi
+  * "trend" → "Türkiye bu eğilimde nerede duruyor?" + Türk ekosistemi için somut fırsatlar/riskler
+Kural: Teknik terimler İngilizce kalsın. Spekülasyon yok. "Sessizce yayınladı", "ezber bozdu" gibi abartı yok.
 
 İÇ LİNK KURALI (KRİTİK):
 Aşağıda nayomy.com katalog listesi var (isim → /yol/). Haberle DOĞRUDAN ilgili bir kayıt varsa relatedLink'e o yolu koy. Yoksa null bırak.
@@ -190,11 +222,11 @@ ASLA zorla bağlantı kurma, ASLA listede olmayan bir yol uydurma.
 KATALOG (top kayıtlar, yıldıza göre):
 ${catalogStr}
 
-ÇIKTI: SADECE JSON, başka hiçbir şey yazma:
+ÇIKTI: SADECE JSON, markdown fence olmadan, başka hiçbir şey yazma:
 {
   "title": "Türkçe başlık",
   "summary": "2-3 cümle özet",
-  "body": "300-500 kelime Türkçe gövde",
+  "body": "400-500 kelime Türkçe gövde",
   "category": "urun|sirket|trend",
   "relatedLink": "/mcp/slug/ veya null"
 }
@@ -203,27 +235,52 @@ KAYNAK: ${item.source}
 ORİJİNAL BAŞLIK: ${item.title}
 İÇERİK:
 ${item.content.slice(0, 3000)}`;
+}
 
+function extractJson(text) {
+  // Strip markdown fences (with or without language tag)
+  let s = text.trim().replace(/^```[\w]*\s*/i, '').replace(/\s*```$/i, '').trim();
+  // If there's still content before the first '{', drop it
+  const start = s.indexOf('{');
+  if (start > 0) s = s.slice(start);
+  // Drop anything after the last '}'
+  const end = s.lastIndexOf('}');
+  if (end !== -1 && end < s.length - 1) s = s.slice(0, end + 1);
+  return s;
+}
+
+async function callSonnet(prompt) {
   const response = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 1500,
+    max_tokens: 3000,
     messages: [{ role: 'user', content: prompt }],
   });
+  return response.content[0].text;
+}
 
-  const text = response.content[0].text.trim();
-  const cleaned = text.replace(/```json\s*/g, '').replace(/```/g, '').trim();
+async function generateDraft(item, catalogStr, validPaths) {
+  const prompt = buildPrompt(item, catalogStr);
 
-  let parsed;
-  try {
-    parsed = JSON.parse(cleaned);
-  } catch (e) {
-    console.warn(`⚠  JSON parse hatası: ${cleaned.slice(0, 200)}`);
-    return null;
+  let parsed = null;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const text = await callSonnet(prompt);
+    const cleaned = extractJson(text);
+    try {
+      parsed = JSON.parse(cleaned);
+      break;
+    } catch (e) {
+      if (attempt === 1) {
+        console.warn(`\n   ⚠  Deneme 1 JSON parse hatası, retry yapılıyor...`);
+      } else {
+        console.warn(`\n   ❌ Deneme 2 de başarısız. Ham çıktı: ${cleaned.slice(0, 300)}`);
+      }
+    }
   }
+  if (!parsed) return null;
 
   // Kod tarafı doğrulama: relatedLink gerçekten katalogda var mı?
   if (parsed.relatedLink && !validPaths.has(parsed.relatedLink)) {
-    console.warn(`⚠  relatedLink katalogda yok, null'a düşürüldü: ${parsed.relatedLink}`);
+    console.warn(`\n   ⚠  relatedLink katalogda yok, null'a düşürüldü: ${parsed.relatedLink}`);
     parsed.relatedLink = null;
   }
 
@@ -293,13 +350,27 @@ async function main() {
   const { catalogStr, validPaths } = buildCatalog();
   console.log(`   ${validPaths.size} katalog kaydı yüklendi`);
 
+  // 3b. Snippet kısa olan haberler için makale içeriğini çek
+  console.log('\n🔍 Kısa snippet\'ler için makale içeriği çekiliyor...');
+  for (const item of selected) {
+    if (item.content.length < 800 && item.link) {
+      const fetched = await fetchArticleText(item.link);
+      if (fetched.length > item.content.length) {
+        item.content = fetched;
+        process.stdout.write(`   ↳ ${item.source} (${fetched.length} char)\n`);
+      }
+    }
+  }
+
   // 4. Her haber için Sonnet ile zengin taslak üret
   console.log('\n🤖 Sonnet ile taslak üretimi başlıyor...\n');
   const drafts = [];
   const usedSlugs = new Set(existingSlugs);
+  let loopIdx = 0;
 
   for (const item of selected) {
-    process.stdout.write(`[${drafts.length + 1}/${selected.length}] ${item.source}: ${item.title.slice(0, 55)}... `);
+    loopIdx++;
+    process.stdout.write(`[${loopIdx}/${selected.length}] ${item.source}: ${item.title.slice(0, 55)}... `);
     try {
       const result = await generateDraft(item, catalogStr, validPaths);
       if (!result) {
