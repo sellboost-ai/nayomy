@@ -1,0 +1,234 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+export async function getStaticPaths() {
+  const newsPath = join(process.cwd(), 'news.json');
+  if (!existsSync(newsPath)) return [];
+  const data = JSON.parse(readFileSync(newsPath, 'utf8'));
+  return (data.items || [])
+    .filter((item: any) => item.slug)
+    .map((item: any) => ({ params: { slug: item.slug }, props: { item } }));
+}
+
+const { item } = Astro.props;
+
+const CATEGORY_LABELS: Record<string, string> = {
+  urun: 'Product',
+  sirket: 'Company',
+  trend: 'Trend',
+};
+
+const CATEGORY_COLORS: Record<string, string> = {
+  urun: '#dbeafe:#1d4ed8',
+  sirket: '#fce7f3:#9d174d',
+  trend: '#f3f4f6:#374151',
+};
+
+function getCategoryStyle(cat: string) {
+  const pair = CATEGORY_COLORS[cat] || '#f3f4f6:#374151';
+  const [bg, color] = pair.split(':');
+  return `background:${bg};color:${color};`;
+}
+
+function formatDate(isoString: string) {
+  return new Date(isoString).toLocaleDateString('en-US', {
+    month: 'long', day: 'numeric', year: 'numeric',
+  });
+}
+
+const displayDate = formatDate(item.publishedAt || item.pubDate);
+const bodyContent = item.body || item.summary;
+const displayTitle = item.originalTitle || item.title;
+---
+
+<BaseLayout
+  title={`${displayTitle} — Nayomy`}
+  description={item.originalSummary || item.summary}
+  lang="en"
+>
+  <main class="article-container">
+    <div class="breadcrumb">
+      <a href="/news/">← AI News</a>
+    </div>
+
+    <article>
+      <header class="article-header">
+        <div class="article-meta">
+          <span class="category-badge" style={getCategoryStyle(item.category)}>
+            {CATEGORY_LABELS[item.category] || item.category}
+          </span>
+          <span class="date">{displayDate}</span>
+          <span class="source-chip">{item.source}</span>
+        </div>
+
+        <h1>{displayTitle}</h1>
+        <p class="lead">{item.originalSummary || item.summary}</p>
+      </header>
+
+      <div class="article-body">
+        {bodyContent.split('\n').filter((p: string) => p.trim()).map((p: string) => (
+          <p>{p}</p>
+        ))}
+      </div>
+
+      {item.relatedLink && (
+        <aside class="related-card">
+          <span class="related-label">Related on Nayomy</span>
+          <a href={item.relatedLink} class="related-link">
+            {item.relatedLink.replace(/^\/|\/$/g, '')} →
+          </a>
+        </aside>
+      )}
+
+      <footer class="article-footer">
+        <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">
+          Read original: {item.source} →
+        </a>
+      </footer>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .article-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    font-size: 13px;
+    color: #888;
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: #333;
+  }
+
+  .article-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .category-badge {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .date, .source-chip {
+    color: #888;
+  }
+
+  .source-chip {
+    background: #f5f5f4;
+    color: #444;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #0F0E0C;
+    margin: 0 0 1rem;
+  }
+
+  .lead {
+    font-size: 17px;
+    color: #5F5E5A;
+    line-height: 1.65;
+    margin: 0;
+    border-left: 3px solid #F47836;
+    padding-left: 1rem;
+  }
+
+  .article-body {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #2D2C2A;
+    margin: 0;
+  }
+
+  .related-card {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: #FBFAF7;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .related-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888;
+    font-weight: 600;
+  }
+
+  .related-link {
+    font-size: 14px;
+    color: #F47836;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .related-link:hover {
+    text-decoration: underline;
+  }
+
+  .article-footer {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid rgba(0,0,0,0.1);
+  }
+
+  .source-link {
+    font-size: 13px;
+    color: #F47836;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .source-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 26px; }
+    .lead { font-size: 15px; }
+    .article-body p { font-size: 15px; }
+  }
+</style>
