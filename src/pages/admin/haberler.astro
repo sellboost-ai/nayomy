@@ -2,7 +2,6 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
-// Bu sayfa middleware ile parola korumalı
 const ROOT = process.cwd();
 const PENDING_PATH = join(ROOT, 'news-pending.json');
 const PUBLISHED_PATH = join(ROOT, 'news.json');
@@ -30,6 +29,8 @@ function formatDate(isoString) {
   const date = new Date(isoString);
   return date.toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' });
 }
+
+const CATEGORY_LABELS = { urun: 'Ürün', sirket: 'Şirket', trend: 'Trend' };
 ---
 
 <html lang="tr">
@@ -67,9 +68,8 @@ function formatDate(isoString) {
       font-size: 13px;
       color: #888;
     }
-    .stats strong {
-      color: #0F0E0C;
-    }
+    .stats strong { color: #0F0E0C; }
+
     .draft-card {
       background: #FFF;
       border: 0.5px solid rgba(0,0,0,0.12);
@@ -77,9 +77,11 @@ function formatDate(isoString) {
       padding: 1.25rem;
       margin-bottom: 1rem;
     }
+
+    /* meta row */
     .draft-meta {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
       font-size: 11px;
       color: #888;
@@ -93,10 +95,22 @@ function formatDate(isoString) {
       color: #444;
       font-weight: 500;
     }
-    .original-title {
-      color: #aaa;
-      font-style: italic;
+    .original-title { color: #aaa; font-style: italic; }
+
+    /* category badge (view mode) */
+    .category-badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
+    .cat-urun   { background:#dbeafe; color:#1d4ed8; }
+    .cat-sirket { background:#fce7f3; color:#9d174d; }
+    .cat-trend  { background:#f3f4f6; color:#374151; }
+
+    /* title */
     .draft-title {
       font-size: 18px;
       font-weight: 600;
@@ -105,7 +119,8 @@ function formatDate(isoString) {
     }
     .draft-title-input {
       width: 100%;
-      font-size: 18px;
+      box-sizing: border-box;
+      font-size: 17px;
       font-weight: 600;
       padding: 8px;
       border: 1px solid rgba(0,0,0,0.15);
@@ -113,23 +128,120 @@ function formatDate(isoString) {
       margin-bottom: 0.5rem;
       font-family: inherit;
     }
+
+    /* summary */
     .draft-summary {
       font-size: 14px;
       color: #444;
       line-height: 1.6;
-      margin: 0 0 1rem;
+      margin: 0 0 0.75rem;
     }
     .draft-summary-input {
       width: 100%;
+      box-sizing: border-box;
       font-size: 14px;
       padding: 8px;
       border: 1px solid rgba(0,0,0,0.15);
       border-radius: 6px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       font-family: inherit;
-      min-height: 80px;
+      min-height: 70px;
       resize: vertical;
     }
+
+    /* body */
+    .draft-body {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.55;
+      margin: 0 0 0.75rem;
+      white-space: pre-wrap;
+      background: #FBFAF7;
+      border-radius: 6px;
+      padding: 10px 12px;
+      max-height: 160px;
+      overflow: hidden;
+      position: relative;
+    }
+    .draft-body::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: linear-gradient(transparent, #FBFAF7);
+      pointer-events: none;
+    }
+    .draft-body-input {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 13px;
+      padding: 8px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-family: inherit;
+      min-height: 180px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .no-body {
+      font-size: 12px;
+      color: #aaa;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    /* category select */
+    .category-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .category-label-sm {
+      font-size: 11px;
+      color: #888;
+      min-width: 60px;
+    }
+    .draft-category-select {
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      font-family: inherit;
+      background: #FFF;
+    }
+
+    /* relatedLink */
+    .draft-related {
+      font-size: 12px;
+      color: #F47836;
+      margin-bottom: 0.75rem;
+    }
+    .draft-related a { color: #F47836; }
+    .draft-related-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .draft-related-input {
+      flex: 1;
+      font-size: 13px;
+      padding: 6px 8px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    .related-label-sm {
+      font-size: 11px;
+      color: #888;
+      min-width: 60px;
+    }
+
+    /* actions */
     .source-link {
       font-size: 12px;
       color: #F47836;
@@ -141,10 +253,11 @@ function formatDate(isoString) {
       gap: 8px;
       align-items: center;
       flex-wrap: wrap;
+      margin-top: 0.75rem;
     }
     button {
       font-size: 13px;
-      padding: 8px 14px;
+      padding: 7px 13px;
       border: 0.5px solid rgba(0,0,0,0.15);
       border-radius: 6px;
       background: #FFF;
@@ -154,30 +267,14 @@ function formatDate(isoString) {
       transition: all 0.15s;
       font-family: inherit;
     }
-    button:hover {
-      background: #f5f5f4;
-    }
-    .btn-publish {
-      background: #16a34a;
-      color: #FFF;
-      border-color: #16a34a;
-    }
-    .btn-publish:hover {
-      background: #15803d;
-    }
-    .btn-reject {
-      background: #FFF;
-      color: #dc2626;
-      border-color: rgba(220, 38, 38, 0.3);
-    }
-    .btn-reject:hover {
-      background: #fef2f2;
-    }
-    .btn-edit {
-      background: #FFF;
-      color: #2563eb;
-      border-color: rgba(37, 99, 235, 0.3);
-    }
+    button:hover { background: #f5f5f4; }
+    .btn-publish { background: #16a34a; color: #FFF; border-color: #16a34a; }
+    .btn-publish:hover { background: #15803d; }
+    .btn-reject  { color: #dc2626; border-color: rgba(220,38,38,0.3); }
+    .btn-reject:hover { background: #fef2f2; }
+    .btn-edit    { color: #2563eb; border-color: rgba(37,99,235,0.3); }
+    .btn-save    { color: #7c3aed; border-color: rgba(124,58,237,0.3); display:none; }
+
     .empty {
       text-align: center;
       padding: 4rem 1rem;
@@ -207,14 +304,16 @@ function formatDate(isoString) {
       transition: opacity 0.3s;
       z-index: 1000;
     }
-    .toast.show {
-      opacity: 1;
-    }
-    .editing .draft-title { display: none; }
-    .editing .draft-summary { display: none; }
-    .editing .draft-title-input { display: block; }
-    .editing .draft-summary-input { display: block; }
-    .draft-title-input, .draft-summary-input { display: none; }
+    .toast.show { opacity: 1; }
+
+    /* view/edit toggling */
+    .view-only { display: block; }
+    .edit-only  { display: none; }
+    .editing .view-only { display: none; }
+    .editing .edit-only  { display: block; }
+    .editing .edit-flex  { display: flex; }
+    .editing .btn-save   { display: inline-block; }
+    .edit-flex { display: none; }
   </style>
 </head>
 <body>
@@ -242,15 +341,61 @@ function formatDate(isoString) {
             <div class="draft-meta">
               <span class="source-badge">{item.source}</span>
               <span>{formatDate(item.pubDate)}</span>
-              <span class="original-title" title={item.originalTitle}>EN: {item.originalTitle?.slice(0, 50)}...</span>
+              {item.category && (
+                <span class={`category-badge cat-${item.category}`}>
+                  {CATEGORY_LABELS[item.category] || item.category}
+                </span>
+              )}
+              <span class="original-title" title={item.originalTitle}>
+                EN: {item.originalTitle?.slice(0, 55)}…
+              </span>
             </div>
-            <h3 class="draft-title">{item.title}</h3>
-            <input type="text" class="draft-title-input" value={item.title} />
-            <p class="draft-summary">{item.summary}</p>
-            <textarea class="draft-summary-input">{item.summary}</textarea>
+
+            {/* Title */}
+            <h3 class="draft-title view-only">{item.title}</h3>
+            <input type="text" class="draft-title-input edit-only" value={item.title} />
+
+            {/* Summary */}
+            <p class="draft-summary view-only">{item.summary}</p>
+            <textarea class="draft-summary-input edit-only">{item.summary}</textarea>
+
+            {/* Body */}
+            {item.body ? (
+              <p class="draft-body view-only">{item.body}</p>
+            ) : (
+              <p class="no-body view-only">— gövde yok (eski taslak)</p>
+            )}
+            <textarea class="draft-body-input edit-only">{item.body || ''}</textarea>
+
+            {/* Category select (edit mode) */}
+            <div class="category-row edit-flex">
+              <span class="category-label-sm">Kategori</span>
+              <select class="draft-category-select">
+                <option value="urun"   selected={item.category === 'urun'}>Ürün</option>
+                <option value="sirket" selected={item.category === 'sirket'}>Şirket</option>
+                <option value="trend"  selected={item.category === 'trend' || !item.category}>Trend</option>
+              </select>
+            </div>
+
+            {/* Related link */}
+            {item.relatedLink && (
+              <p class="draft-related view-only">
+                🔗 <a href={item.relatedLink} target="_blank" rel="noopener">{item.relatedLink}</a>
+              </p>
+            )}
+            {!item.relatedLink && (
+              <p class="draft-related view-only" style="color:#aaa; font-size:12px;">🔗 İç link yok</p>
+            )}
+            <div class="draft-related-row edit-flex">
+              <span class="related-label-sm">İç link</span>
+              <input type="text" class="draft-related-input" value={item.relatedLink || ''} placeholder="/mcp/slug/ veya boş" />
+            </div>
+
+            {/* Actions */}
             <div class="actions">
               <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">Kaynak →</a>
               <button class="btn-edit" data-action="edit">Düzenle</button>
+              <button class="btn-save" data-action="save">Kaydet</button>
               <button class="btn-publish" data-action="publish">✓ Yayınla</button>
               <button class="btn-reject" data-action="reject">✗ Reddet</button>
             </div>
@@ -270,28 +415,63 @@ function formatDate(isoString) {
       setTimeout(() => toast.classList.remove('show'), 3000);
     }
 
+    function getCardValues(card) {
+      const isEditing = card.classList.contains('editing');
+      return {
+        title:       isEditing ? card.querySelector('.draft-title-input').value
+                               : card.querySelector('.draft-title').textContent.trim(),
+        summary:     isEditing ? card.querySelector('.draft-summary-input').value
+                               : card.querySelector('.draft-summary').textContent.trim(),
+        body:        card.querySelector('.draft-body-input').value,
+        category:    card.querySelector('.draft-category-select').value,
+        relatedLink: card.querySelector('.draft-related-input').value.trim() || null,
+      };
+    }
+
+    async function apiCall(payload) {
+      const res = await fetch('/api/news-action', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        credentials: 'include',
+      });
+      return res;
+    }
+
     document.querySelectorAll('.draft-card').forEach(card => {
       const id = card.dataset.id;
+
       card.querySelector('[data-action="edit"]').addEventListener('click', () => {
         card.classList.toggle('editing');
         const btn = card.querySelector('[data-action="edit"]');
         btn.textContent = card.classList.contains('editing') ? 'Kapat' : 'Düzenle';
       });
 
-      card.querySelector('[data-action="publish"]').addEventListener('click', async () => {
-        const title = card.classList.contains('editing')
-          ? card.querySelector('.draft-title-input').value
-          : card.querySelector('.draft-title').textContent;
-        const summary = card.classList.contains('editing')
-          ? card.querySelector('.draft-summary-input').value
-          : card.querySelector('.draft-summary').textContent;
+      card.querySelector('[data-action="save"]').addEventListener('click', async () => {
+        const btn = card.querySelector('[data-action="save"]');
+        btn.disabled = true;
+        btn.textContent = 'Kaydediliyor…';
+        const values = getCardValues(card);
+        const res = await apiCall({ action: 'update', id, ...values });
+        btn.disabled = false;
+        btn.textContent = 'Kaydet';
+        if (res.ok) {
+          showToast('✓ Kaydedildi');
+          // category badge güncelle
+          const badge = card.querySelector('.category-badge');
+          const labels = { urun: 'Ürün', sirket: 'Şirket', trend: 'Trend' };
+          if (badge) {
+            badge.className = `category-badge cat-${values.category}`;
+            badge.textContent = labels[values.category] || values.category;
+          }
+        } else {
+          showToast('❌ Kaydetme hatası: ' + res.status);
+        }
+      });
 
-        const res = await fetch('/api/news-action', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'publish', id, title, summary }),
-          credentials: 'include',
-        });
+      card.querySelector('[data-action="publish"]').addEventListener('click', async () => {
+        const values = getCardValues(card);
+        const res = await apiCall({ action: 'publish', id, ...values });
         if (res.ok) {
           card.style.transition = 'opacity 0.3s';
           card.style.opacity = '0';
@@ -304,12 +484,7 @@ function formatDate(isoString) {
 
       card.querySelector('[data-action="reject"]').addEventListener('click', async () => {
         if (!confirm('Bu haberi reddet?')) return;
-        const res = await fetch('/api/news-action', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'reject', id }),
-          credentials: 'include',
-        });
+        const res = await apiCall({ action: 'reject', id });
         if (res.ok) {
           card.style.transition = 'opacity 0.3s';
           card.style.opacity = '0';
