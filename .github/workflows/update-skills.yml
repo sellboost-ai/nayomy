@@ -48,6 +48,9 @@ jobs:
       - name: Build Cursor rules content
         run: node scripts/cursor-rules-json-to-content.js
 
+      - name: Build gate — verify site builds before committing
+        run: npm run build
+
       - name: Commit & push if changed
         run: |
           git config user.name "github-actions[bot]"
