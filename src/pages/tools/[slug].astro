@@ -1,17 +1,28 @@
 ---
 import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ToolLogo from '../../components/ToolLogo.astro';
 import ToolDetails from '../../components/ToolDetails.astro';
 import { useTranslations } from '../../i18n/utils';
 
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.map(tool => ({
+    params: { slug: tool.data.slug },
+    props: { tool },
+  }));
+}
+
+type Props = { tool: CollectionEntry<'tools'> };
+
 const lang = 'en' as const;
 const t = useTranslations(lang);
 
-const { slug } = Astro.params;
+const { tool } = Astro.props;
 const all = await getCollection('tools');
-const tool = all.find(t => t.data.slug === slug);
-if (!tool) return new Response(null, { status: 404 });
 const alternatives = (tool.data.alternatives ?? [])
   .map((s) => all.find((x) => x.data.slug === s))
   .filter((x): x is CollectionEntry<'tools'> => !!x);
