@@ -98,15 +98,45 @@ try {
 mkdirSync(OUTPUT_DIR, { recursive: true });
 
 // Step 3: Write new content, merging in preserved translations
+// Sort so cmd- path variants always come after their full-skill counterpart.
+// This ensures "first wins" collision logic keeps the full version, not the thin cmd- copy.
+skills.sort((a, b) => {
+  const aCmd = /(?:^|\/)cmd-/i.test(a.path ?? '') ? 1 : 0;
+  const bCmd = /(?:^|\/)cmd-/i.test(b.path ?? '') ? 1 : 0;
+  return aCmd - bCmd;
+});
+
 let written = 0;
 let restored = 0;
+let skipped = 0;
 const seen = new Set();
 
 for (const skill of skills) {
+  if (!skill.name || !skill.repo) {
+    console.warn(`⚠  Skipped (missing name/repo): ${JSON.stringify(skill).slice(0, 150)}`);
+    skipped++;
+    continue;
+  }
+
   const slug = makeSlug(skill.repo, skill.name);
 
+  if (!slug || /^[-_]+$/.test(slug)) {
+    console.warn(`⚠  Skipped (bad slug "${slug}"): ${skill.name}`);
+    skipped++;
+    continue;
+  }
+
   if (seen.has(slug)) {
-    console.warn(`⚠  Duplicate slug skipped: ${slug}`);
+    // "cmd-" prefixed path = short slash-command summary of an existing full skill.
+    // Producing a separate page would be thin/duplicate content harmful to SEO.
+    // Policy: first entry wins; cmd- variants are intentionally suppressed, not lost.
+    const isCmdVariant = /(?:^|\/)cmd-/i.test(skill.path ?? '');
+    if (isCmdVariant) {
+      console.warn(`⚠  Skipped (cmd- variant): ${skill.path}`);
+    } else {
+      console.warn(`⚠  Duplicate slug skipped: ${slug}`);
+    }
+    skipped++;
     continue;
   }
   seen.add(slug);
@@ -159,5 +189,5 @@ for (const skill of skills) {
   written++;
 }
 
-console.log(`✓ ${written} skill files written to src/content/skills/`);
+console.log(`✓ ${written} yazıldı, ${skipped} atlandı`);
 console.log(`✓ ${restored} files had translations restored`);

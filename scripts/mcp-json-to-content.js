@@ -96,12 +96,19 @@ mkdirSync(OUTPUT_DIR, { recursive: true });
 // Step 3: Write new content with preserved translations
 let written = 0;
 let restored = 0;
+let skipped = 0;
 const seen = new Set();
 
 for (const s of servers) {
+  if (!s.name || !s.repo) {
+    console.warn(`⚠  Skipped (missing name/repo): ${JSON.stringify(s).slice(0, 150)}`);
+    skipped++;
+    continue;
+  }
+
   const slug = s.slug;
-  if (!slug) { console.warn(`⚠  No slug for ${s.name}, skipping`); continue; }
-  if (seen.has(slug)) { console.warn(`⚠  Duplicate slug skipped: ${slug}`); continue; }
+  if (!slug || /^[-_]+$/.test(slug)) { console.warn(`⚠  Skipped (bad slug "${slug}"): ${s.name}`); skipped++; continue; }
+  if (seen.has(slug)) { console.warn(`⚠  Duplicate slug skipped: ${slug}`); skipped++; continue; }
   seen.add(slug);
 
   const preserved = existingTranslations[slug] || {};
@@ -148,5 +155,5 @@ for (const s of servers) {
   written++;
 }
 
-console.log(`✓ ${written} MCP server files written to src/content/mcp/`);
+console.log(`✓ ${written} yazıldı, ${skipped} atlandı`);
 console.log(`✓ ${restored} files had translations restored`);

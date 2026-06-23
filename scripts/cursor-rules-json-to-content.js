@@ -53,12 +53,19 @@ try {
 mkdirSync(OUTPUT_DIR, { recursive: true });
 
 let written = 0;
+let skipped = 0;
 const seen = new Set();
 
 for (const r of rules) {
+  if (!r.name || !r.repo) {
+    console.warn(`⚠  Skipped (missing name/repo): ${JSON.stringify(r).slice(0, 150)}`);
+    skipped++;
+    continue;
+  }
+
   const slug = r.slug;
-  if (!slug) { console.warn(`⚠  No slug for ${r.name}, skipping`); continue; }
-  if (seen.has(slug)) { console.warn(`⚠  Duplicate slug skipped: ${slug}`); continue; }
+  if (!slug || /^[-_]+$/.test(slug)) { console.warn(`⚠  Skipped (bad slug "${slug}"): ${r.name}`); skipped++; continue; }
+  if (seen.has(slug)) { console.warn(`⚠  Duplicate slug skipped: ${slug}`); skipped++; continue; }
   seen.add(slug);
 
   const lines = [
@@ -83,4 +90,4 @@ for (const r of rules) {
   written++;
 }
 
-console.log(`✓ ${written} cursor rule files written to src/content/cursor-rules/`);
+console.log(`✓ ${written} yazıldı, ${skipped} atlandı`);
