@@ -13,7 +13,7 @@ body_tr: |-
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kopfrechner-gitlab-mr-mcp-badge.png)](https://mseep.ai/app/kopfrechner-gitlab-mr-mcp)
   
   [![GitHub stars](https://img.shields.io/github/stars/kopfrechner/gitlab-mr-mcp?style=flat)](https://github.com/kopfrechner/gitlab-mr-mcp/stargazers)
-  [![License](https://img.shields.io/github/license/kopfrechner/gitlab-mr-mcp)](LICENSE)
+  [![License](https://img.shields.io/github/license/kopfrechner/gitlab-mr-mcp)](https://github.com/kopfrechner/gitlab-mr-mcp/tree/HEAD/LICENSE)
   [![smithery badge](https://smithery.ai/badge/@kopfrechner/gitlab-mr-mcp)](https://smithery.ai/server/@kopfrechner/gitlab-mr-mcp)
   
   # 🚀 GitLab MR MCP
@@ -140,7 +140,7 @@ body_tr: |-
   
   ## 📜 Lisans
   
-  [MIT](LICENSE)
+  [MIT](https://github.com/kopfrechner/gitlab-mr-mcp/tree/HEAD/LICENSE)
   
   ## 🤝 Katkıda Bulunma
   
@@ -150,7 +150,7 @@ body_tr: |-
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kopfrechner-gitlab-mr-mcp-badge.png)](https://mseep.ai/app/kopfrechner-gitlab-mr-mcp)
 
 [![GitHub stars](https://img.shields.io/github/stars/kopfrechner/gitlab-mr-mcp?style=flat)](https://github.com/kopfrechner/gitlab-mr-mcp/stargazers)
-[![License](https://img.shields.io/github/license/kopfrechner/gitlab-mr-mcp)](LICENSE)
+[![License](https://img.shields.io/github/license/kopfrechner/gitlab-mr-mcp)](https://github.com/kopfrechner/gitlab-mr-mcp/tree/HEAD/LICENSE)
 [![smithery badge](https://smithery.ai/badge/@kopfrechner/gitlab-mr-mcp)](https://smithery.ai/server/@kopfrechner/gitlab-mr-mcp)
 
 # 🚀 GitLab MR MCP
@@ -277,7 +277,7 @@ If you encounter permissions issues (403 Forbidden), check:
 
 ## 📜 License
 
-[MIT](LICENSE)
+[MIT](https://github.com/kopfrechner/gitlab-mr-mcp/tree/HEAD/LICENSE)
 
 ## 🤝 Contributing
 

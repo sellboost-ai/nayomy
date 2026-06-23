@@ -309,7 +309,7 @@ body_tr: |-
   
   > **Not**: Gezinti araçları dil eklentileri mevcut olduğunda etkinleşir. Markdown, yerleşik Markdown eklentisi etkinleştirildiğinde başlık araması ve dosya yapısı desteği ekler. Go ve Rust, dil semantiğinden dolayı `ide_find_super_methods` göstermez; Go `ide_find_implementations` göstermez. Rename ve reformat araçları tüm dillerde çalışır. `ide_convert_java_to_kotlin` yalnızca IntelliJ IDEA ve Android Studio'da mevcuttur, hem Java hem de Kotlin eklentilerini gerektirir ve varsayılan olarak devre dışıdır.
   
-  Parametreler ve örnekler içeren ayrıntılı araç belgeleri için [USAGE.md](USAGE.md) dosyasına bakınız.
+  Parametreler ve örnekler içeren ayrıntılı araç belgeleri için [USAGE.md](https://github.com/hechtcarmel/jetbrains-index-mcp-plugin/blob/HEAD/USAGE.md) dosyasına bakınız.
   
   ## Çok Proje Desteği
   
@@ -733,7 +733,7 @@ Timing thresholds are configurable in Settings. Projects enroll automatically on
 
 > **Note**: Navigation tools activate when language plugins are present. Markdown adds heading search and file-structure support when the bundled Markdown plugin is enabled. Go and Rust do not expose `ide_find_super_methods` due to language semantics, and Go does not expose `ide_find_implementations`. The rename and reformat tools work across all languages. `ide_convert_java_to_kotlin` is available only in IntelliJ IDEA and Android Studio, requires both Java and Kotlin plugins, and is disabled by default.
 
-For detailed tool documentation with parameters and examples, see [USAGE.md](USAGE.md).
+For detailed tool documentation with parameters and examples, see [USAGE.md](https://github.com/hechtcarmel/jetbrains-index-mcp-plugin/blob/HEAD/USAGE.md).
 
 ## Multi-Project Support
 
@@ -933,7 +933,7 @@ Contributions are welcome! Please:
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/hechtcarmel/jetbrains-index-mcp-plugin/tree/HEAD/LICENSE) file for details.
 
 ---
 

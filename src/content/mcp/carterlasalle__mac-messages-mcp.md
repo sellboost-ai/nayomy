@@ -269,7 +269,7 @@ body_tr: |-
   
   ### Sürüm Oluşturma
   
-  Bu proje anlamsal sürümü kullanır. Sürüm sisteminin nasıl çalıştığı ve yeni sürümleri nasıl yayınlayacağınız hakkında ayrıntılar için [VERSIONING.md](VERSIONING.md)'ye bakın.
+  Bu proje anlamsal sürümü kullanır. Sürüm sisteminin nasıl çalıştığı ve yeni sürümleri nasıl yayınlayacağınız hakkında ayrıntılar için [VERSIONING.md](https://github.com/carterlasalle/mac_messages_mcp/blob/HEAD/VERSIONING.md)'ye bakın.
   
   Sürümü güncellemek için:
   
@@ -565,7 +565,7 @@ mac-messages-mcp
 
 ### Versioning
 
-This project uses semantic versioning. See [VERSIONING.md](VERSIONING.md) for details on how the versioning system works and how to release new versions.
+This project uses semantic versioning. See [VERSIONING.md](https://github.com/carterlasalle/mac_messages_mcp/blob/HEAD/VERSIONING.md) for details on how the versioning system works and how to release new versions.
 
 To bump the version:
 

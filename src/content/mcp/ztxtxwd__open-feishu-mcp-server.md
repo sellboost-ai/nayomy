@@ -16,7 +16,7 @@ body_tr: |-
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/ztxtxwd/open-feishu-mcp-server)](https://archestra.ai/mcp-catalog/ztxtxwd__open-feishu-mcp-server)
   # 飞书 MCP Server
   
-  [English Documentation](README.en.md)
+  [English Documentation](https://github.com/ztxtxwd/open-feishu-mcp-server/blob/HEAD/README.en.md)
   
   Bu, [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) sunucusu uzaktan bağlantı desteği ve yerleşik Feishu OAuth kimlik doğrulaması ile sağlanmaktadır.
   
@@ -303,7 +303,7 @@ body_tr: |-
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/ztxtxwd/open-feishu-mcp-server)](https://archestra.ai/mcp-catalog/ztxtxwd__open-feishu-mcp-server)
 # 飞书 MCP Server
 
-[English Documentation](README.en.md)
+[English Documentation](https://github.com/ztxtxwd/open-feishu-mcp-server/blob/HEAD/README.en.md)
 
 这是一个支持远程连接的[模型上下文协议 (MCP)](https://modelcontextprotocol.io/introduction) 服务器，内置了飞书 OAuth 认证。
 

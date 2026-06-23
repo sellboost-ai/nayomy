@@ -22,7 +22,7 @@ body_tr: |-
     
   [https://mcpvault.org](https://mcpvault.org)
   
-  [Changelog](./CHANGELOG.md)
+  [Changelog](https://github.com/bitbonsai/mcpvault/blob/HEAD/CHANGELOG.md)
   
   </div>
   
@@ -760,7 +760,7 @@ A universal AI bridge for Obsidian vaults using the Model Context Protocol (MCP)
   
 [https://mcpvault.org](https://mcpvault.org)
 
-[Changelog](./CHANGELOG.md)
+[Changelog](https://github.com/bitbonsai/mcpvault/blob/HEAD/CHANGELOG.md)
 
 </div>
 

@@ -93,7 +93,7 @@ body_tr: |-
   3. **Ritim**: commit başına güvenlik taraması; aylık lisans denetimleri; üç aylık tam denetim.
   4. **Yanlış pozitifler**: dokümantasyon ile whitelist; lisans belirsizliği için bakımcılarla iletişime geçin.
   
-  Ayrıntılı kullanım için [README.md](README.md) dosyasını ve zafiyet/lisans bilgi tabanları için `references/` dosyasını inceleyin.
+  Ayrıntılı kullanım için [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md) dosyasını ve zafiyet/lisans bilgi tabanları için `references/` dosyasını inceleyin.
 ---
 
 # Dependency Auditor
@@ -175,4 +175,4 @@ python3 scripts/license_checker.py . --policy strict --format json
 3. **Cadence**: security scans per commit; license audits monthly; full audit quarterly.
 4. **False positives**: whitelist with documentation; contact maintainers for license ambiguity.
 
-See [README.md](README.md) for detailed usage and `references/` for the vulnerability/license knowledge bases.
+See [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md) for detailed usage and `references/` for the vulnerability/license knowledge bases.

@@ -343,7 +343,7 @@ body_tr: |-
   
   ## 📄 Lisans
   
-  MIT Lisansı - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın
+  MIT Lisansı - ayrıntılar için [LICENSE](https://github.com/gannonh/firebase-mcp/tree/HEAD/LICENSE) dosyasına bakın
   
   ## 🔗 İlgili Kaynaklar
   
@@ -685,7 +685,7 @@ Your file has been uploaded to Firebase Storage:
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details
+MIT License - see [LICENSE](https://github.com/gannonh/firebase-mcp/tree/HEAD/LICENSE) file for details
 
 ## 🔗 Related Resources
 

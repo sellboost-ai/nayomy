@@ -118,11 +118,11 @@ body_tr: |-
   
   Sonra bu skill klasöründeki seed template'lerini başlangıç noktası olarak kullanarak üç docs dosyasını yaz:
   
-  - [issue-tracker-github.md](./issue-tracker-github.md) — GitHub issue tracker
-  - [issue-tracker-gitlab.md](./issue-tracker-gitlab.md) — GitLab issue tracker
-  - [issue-tracker-local.md](./issue-tracker-local.md) — local-markdown issue tracker
-  - [triage-labels.md](./triage-labels.md) — label mapping
-  - [domain.md](./domain.md) — domain doc consumer kuralları + layout
+  - [issue-tracker-github.md](https://github.com/mattpocock/skills/blob/HEAD/issue-tracker-github.md) — GitHub issue tracker
+  - [issue-tracker-gitlab.md](https://github.com/mattpocock/skills/blob/HEAD/issue-tracker-gitlab.md) — GitLab issue tracker
+  - [issue-tracker-local.md](https://github.com/mattpocock/skills/blob/HEAD/issue-tracker-local.md) — local-markdown issue tracker
+  - [triage-labels.md](https://github.com/mattpocock/skills/blob/HEAD/triage-labels.md) — label mapping
+  - [domain.md](https://github.com/mattpocock/skills/blob/HEAD/domain.md) — domain doc consumer kuralları + layout
   
   "Other" issue tracker'ları için, kullanıcının açıklamasını kullanarak `docs/agents/issue-tracker.md` dosyasını sıfırdan yaz.
   
@@ -241,11 +241,11 @@ The block:
 
 Then write the three docs files using the seed templates in this skill folder as a starting point:
 
-- [issue-tracker-github.md](./issue-tracker-github.md) — GitHub issue tracker
-- [issue-tracker-gitlab.md](./issue-tracker-gitlab.md) — GitLab issue tracker
-- [issue-tracker-local.md](./issue-tracker-local.md) — local-markdown issue tracker
-- [triage-labels.md](./triage-labels.md) — label mapping
-- [domain.md](./domain.md) — domain doc consumer rules + layout
+- [issue-tracker-github.md](https://github.com/mattpocock/skills/blob/HEAD/issue-tracker-github.md) — GitHub issue tracker
+- [issue-tracker-gitlab.md](https://github.com/mattpocock/skills/blob/HEAD/issue-tracker-gitlab.md) — GitLab issue tracker
+- [issue-tracker-local.md](https://github.com/mattpocock/skills/blob/HEAD/issue-tracker-local.md) — local-markdown issue tracker
+- [triage-labels.md](https://github.com/mattpocock/skills/blob/HEAD/triage-labels.md) — label mapping
+- [domain.md](https://github.com/mattpocock/skills/blob/HEAD/domain.md) — domain doc consumer rules + layout
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 

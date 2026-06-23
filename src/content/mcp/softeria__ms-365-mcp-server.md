@@ -105,7 +105,7 @@ body_tr: |-
   
   ## Desteklenen Hizmetler ve Araçlar
   
-  Sunucu, Microsoft Graph API yüzeyinin çoğunu kapsayan 200+ araç sağlar. Her araç, bir Graph API uç noktasına 1'e 1 eşlenir ve [`src/endpoints.json`](src/endpoints.json) içinde bildirimsel olarak tanımlanır.
+  Sunucu, Microsoft Graph API yüzeyinin çoğunu kapsayan 200+ araç sağlar. Her araç, bir Graph API uç noktasına 1'e 1 eşlenir ve [`src/endpoints.json`](https://github.com/Softeria/ms-365-mcp-server/blob/HEAD/src/endpoints.json) içinde bildirimsel olarak tanımlanır.
   
   ### Kişisel Hesap Araçları (Varsayılan Olarak Kullanılabilir)
   
@@ -310,7 +310,7 @@ body_tr: |-
   
   ![Open WebUI MCP Connection](https://github.com/user-attachments/assets/dcab71dd-cf02-4bcb-b7db-5725d6be4064)
   
-  > **Docker'da ters proxy'nin arkasında mı çalışıyor?** Kullanıcının tarayıcısından kapsayıcı ağı dışından ulaşılabilir olması için OAuth yetkilendirme URL'sinin `--public-url https://your-domain.com` ile ayarlanması. Tam kılavuz için [docs/deployment.md](docs/deployment.md) bölümüne bakın.
+  > **Docker'da ters proxy'nin arkasında mı çalışıyor?** Kullanıcının tarayıcısından kapsayıcı ağı dışından ulaşılabilir olması için OAuth yetkilendirme URL'sinin `--public-url https://your-domain.com` ile ayarlanması. Tam kılavuz için [docs/deployment.md](https://github.com/Softeria/ms-365-mcp-server/blob/HEAD/docs/deployment.md) bölümüne bakın.
   
   ### Yerel Geliştirme
   
@@ -608,7 +608,7 @@ MS365_MCP_OUTPUT_FORMAT=toon npx @softeria/ms-365-mcp-server
 
 ## Supported Services & Tools
 
-The server provides 200+ tools covering most of the Microsoft Graph API surface. Each tool maps 1-to-1 to a Graph API endpoint and is defined declaratively in [`src/endpoints.json`](src/endpoints.json).
+The server provides 200+ tools covering most of the Microsoft Graph API surface. Each tool maps 1-to-1 to a Graph API endpoint and is defined declaratively in [`src/endpoints.json`](https://github.com/Softeria/ms-365-mcp-server/blob/HEAD/src/endpoints.json).
 
 ### Personal Account Tools (Available by default)
 
@@ -828,7 +828,7 @@ Then add connection with URL `http://localhost:3000/mcp` and ID `ms-365`.
 
 ![Open WebUI MCP Connection](https://github.com/user-attachments/assets/dcab71dd-cf02-4bcb-b7db-5725d6be4064)
 
-> **Running in Docker behind a reverse proxy?** Set `--public-url https://your-domain.com` so the OAuth authorize URL handed to the user's browser is reachable from outside the container network. See [docs/deployment.md](docs/deployment.md) for the full guide.
+> **Running in Docker behind a reverse proxy?** Set `--public-url https://your-domain.com` so the OAuth authorize URL handed to the user's browser is reachable from outside the container network. See [docs/deployment.md](https://github.com/Softeria/ms-365-mcp-server/blob/HEAD/docs/deployment.md) for the full guide.
 
 ### Local Development
 
@@ -1245,7 +1245,7 @@ The Azure Key Vault packages (`@azure/identity` and `@azure/keyvault-secrets`) a
 
 ## Production Deployment
 
-See [docs/deployment.md](docs/deployment.md) for a full guide to hosting the server for organization-wide access, including Docker, Azure Container Apps, Azure App Service, Azure AD app registration, reverse proxy setup, client configuration, and exposed endpoints.
+See [docs/deployment.md](https://github.com/Softeria/ms-365-mcp-server/blob/HEAD/docs/deployment.md) for a full guide to hosting the server for organization-wide access, including Docker, Azure Container Apps, Azure App Service, Azure AD app registration, reverse proxy setup, client configuration, and exposed endpoints.
 
 ## Contributing
 

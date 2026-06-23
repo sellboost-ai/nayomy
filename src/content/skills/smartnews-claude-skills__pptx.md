@@ -158,13 +158,13 @@ body_tr: |-
   - **ASLa düşey yığınlamayın**: Grafikleri/tabloları tek bir sütundaki metnin altına yerleştirmeyin - bu kötü okunabilirlik ve düzen sorunlarına neden olur
   
   ### İş Akışı
-  1. **ZORUNLU - TÜM DOSYAYI OKU**: [`html2pptx.md`](html2pptx.md) dosyasını başından sonuna kadar tamamen okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.** Sunum oluşturmaya devam etmeden önce ayrıntılı sözdizimi, kritik biçimlendirme kuralları ve en iyi uygulamaları öğrenin.
+  1. **ZORUNLU - TÜM DOSYAYI OKU**: [`html2pptx.md`](https://github.com/smartnews/claude-skills/blob/HEAD/html2pptx.md) dosyasını başından sonuna kadar tamamen okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.** Sunum oluşturmaya devam etmeden önce ayrıntılı sözdizimi, kritik biçimlendirme kuralları ve en iyi uygulamaları öğrenin.
   2. Uygun boyutlarla her slayt için bir HTML dosyası oluşturun (örn. 16:9 için 720pt × 405pt)
      - Tüm metin içeriği için `<p>`, `<h1>`-`<h6>`, `<ul>`, `<ol>` kullanın
      - Grafiklerin/tabloların ekleneceği alanlar için `class="placeholder"` kullanın (görünürlük için gri arka plan ile render edin)
      - **KRİTİK**: Gradyanları ve simgeleri ÖNCE Sharp kullanarak PNG görüntüleri olarak rasterleyin, ardından HTML'de referans verin
      - **DÜZEN**: Grafikler/tablolar/görseller içeren slytlar için daha iyi okunabilirlik için tam slayt düzeni veya iki sütunlu düzen kullanın
-  3. [`html2pptx.js`](scripts/html2pptx.js) kütüphanesini kullanarak HTML slytlarını PowerPoint'e dönüştürmek ve sunumu kaydetmek için bir JavaScript dosyası oluşturun ve çalıştırın
+  3. [`html2pptx.js`](https://github.com/smartnews/claude-skills/blob/HEAD/scripts/html2pptx.js) kütüphanesini kullanarak HTML slytlarını PowerPoint'e dönüştürmek ve sunumu kaydetmek için bir JavaScript dosyası oluşturun ve çalıştırın
      - Her HTML dosyasını işlemek için `html2pptx()` fonksiyonunu kullanın
      - PptxGenJS API kullanarak placeholder alanlarına grafikler ve tablolar ekleyin
      - `pptx.writeFile()` kullanarak sunumu kaydedin
@@ -183,7 +183,7 @@ body_tr: |-
   Mevcut bir PowerPoint sunumundaki slytları düzenlerken, ham Office Open XML (OOXML) formatı ile çalışmanız gerekir. Bu, .pptx dosyasını açmayı, XML içeriğini düzenlemeyi ve yeniden paketlemeyi içerir.
   
   ### İş Akışı
-  1. **ZORUNLU - TÜM DOSYAYI OKU**: [`ooxml.md`](ooxml.md) dosyasını (~500 satır) başından sonuna kadar tamamen okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.** Herhangi bir sunum düzenlemesinden önce OOXML yapısı ve düzenleme iş akışları hakkında tam bilgi edinin.
+  1. **ZORUNLU - TÜM DOSYAYI OKU**: [`ooxml.md`](https://github.com/smartnews/claude-skills/blob/HEAD/ooxml.md) dosyasını (~500 satır) başından sonuna kadar tamamen okuyun. **Bu dosya okunurken hiçbir zaman aralık sınırı belirlemeyin.** Herhangi bir sunum düzenlemesinden önce OOXML yapısı ve düzenleme iş akışları hakkında tam bilgi edinin.
   2. Sunumu açın: `python ooxml/scripts/unpack.py <office_file> <output_dir>`
   3. XML dosyalarını düzenleyin (özellikle `ppt/slides/slide{N}.xml` ve ilgili dosyalar)
   4. **KRİTİK**: Her düzenlemeden sonra hemen doğrulayın ve devam etmeden önce herhangi bir doğrulama hatasını düzeltin: `python ooxml/scripts/validate.py <dir> --original <file>`
@@ -460,13 +460,13 @@ When creating a new PowerPoint presentation from scratch, use the **html2pptx** 
 - **NEVER vertically stack**: Do not place charts/tables below text in a single column - this causes poor readability and layout issues
 
 ### Workflow
-1. **MANDATORY - READ ENTIRE FILE**: Read [`html2pptx.md`](html2pptx.md) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with presentation creation.
+1. **MANDATORY - READ ENTIRE FILE**: Read [`html2pptx.md`](https://github.com/smartnews/claude-skills/blob/HEAD/html2pptx.md) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with presentation creation.
 2. Create an HTML file for each slide with proper dimensions (e.g., 720pt × 405pt for 16:9)
    - Use `<p>`, `<h1>`-`<h6>`, `<ul>`, `<ol>` for all text content
    - Use `class="placeholder"` for areas where charts/tables will be added (render with gray background for visibility)
    - **CRITICAL**: Rasterize gradients and icons as PNG images FIRST using Sharp, then reference in HTML
    - **LAYOUT**: For slides with charts/tables/images, use either full-slide layout or two-column layout for better readability
-3. Create and run a JavaScript file using the [`html2pptx.js`](scripts/html2pptx.js) library to convert HTML slides to PowerPoint and save the presentation
+3. Create and run a JavaScript file using the [`html2pptx.js`](https://github.com/smartnews/claude-skills/blob/HEAD/scripts/html2pptx.js) library to convert HTML slides to PowerPoint and save the presentation
    - Use the `html2pptx()` function to process each HTML file
    - Add charts and tables to placeholder areas using PptxGenJS API
    - Save the presentation using `pptx.writeFile()`
@@ -485,7 +485,7 @@ When creating a new PowerPoint presentation from scratch, use the **html2pptx** 
 When edit slides in an existing PowerPoint presentation, you need to work with the raw Office Open XML (OOXML) format. This involves unpacking the .pptx file, editing the XML content, and repacking it.
 
 ### Workflow
-1. **MANDATORY - READ ENTIRE FILE**: Read [`ooxml.md`](ooxml.md) (~500 lines) completely from start to finish.  **NEVER set any range limits when reading this file.**  Read the full file content for detailed guidance on OOXML structure and editing workflows before any presentation editing.
+1. **MANDATORY - READ ENTIRE FILE**: Read [`ooxml.md`](https://github.com/smartnews/claude-skills/blob/HEAD/ooxml.md) (~500 lines) completely from start to finish.  **NEVER set any range limits when reading this file.**  Read the full file content for detailed guidance on OOXML structure and editing workflows before any presentation editing.
 2. Unpack the presentation: `python ooxml/scripts/unpack.py <office_file> <output_dir>`
 3. Edit the XML files (primarily `ppt/slides/slide{N}.xml` and related files)
 4. **CRITICAL**: Validate immediately after each edit and fix any validation errors before proceeding: `python ooxml/scripts/validate.py <dir> --original <file>`

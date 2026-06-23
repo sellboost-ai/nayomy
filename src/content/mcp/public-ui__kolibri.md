@@ -116,11 +116,11 @@ body_tr: |-
   
   ## Katkı Sağlama
   
-  Bug raporları ve pull request'leri memnuniyetle karşılarız. Başlamadan önce lütfen [katkı rehberimizi](./CONTRIBUTING.md) okuyun.
+  Bug raporları ve pull request'leri memnuniyetle karşılarız. Başlamadan önce lütfen [katkı rehberimizi](https://github.com/public-ui/kolibri/blob/HEAD/CONTRIBUTING.md) okuyun.
   
   ## SLSA/Provenance
   
-  Bu depodan yayınlanan npm paketleri için **SLSA Build Level 3** hedefliyoruz. Sürümler GitHub Actions'da OIDC tabanlı kimlikle oluşturulur ve npm provenance (`--provenance`) ile yayınlanır, yayınlanan yapılar için doğrulanabilir attestasyonlar üretir. Yayın adımları ve npm provenance yapılandırması için [yayın workflow'una](./.github/workflows/publish.yml) bakın.
+  Bu depodan yayınlanan npm paketleri için **SLSA Build Level 3** hedefliyoruz. Sürümler GitHub Actions'da OIDC tabanlı kimlikle oluşturulur ve npm provenance (`--provenance`) ile yayınlanır, yayınlanan yapılar için doğrulanabilir attestasyonlar üretir. Yayın adımları ve npm provenance yapılandırması için [yayın workflow'una](https://github.com/public-ui/kolibri/blob/HEAD/.github/workflows/publish.yml) bakın.
   
   **Doğrulama örneği**
   
@@ -135,10 +135,10 @@ body_tr: |-
   ## Kaynaklar
   
   - [Başlayın](https://public-ui.github.io/en/docs/get-started/first-steps)
-  - [Katkı Sağlama](./CONTRIBUTING.md)
-  - [Davranış Kuralları](./CODE_OF_CONDUCT.md)
+  - [Katkı Sağlama](https://github.com/public-ui/kolibri/blob/HEAD/CONTRIBUTING.md)
+  - [Davranış Kuralları](https://github.com/public-ui/kolibri/blob/HEAD/CODE_OF_CONDUCT.md)
   - [Bilinen Sorunlar](http://public-ui.github.io/en/docs/known-issues)
-  - [Güvenlik](./docs/SECURITY.md)
+  - [Güvenlik](https://github.com/public-ui/kolibri/blob/HEAD/docs/SECURITY.md)
 ---
 
 # Welcome to KoliBri
@@ -247,11 +247,11 @@ Let's make KoliBri **better** and **more colorful** together!
 
 ## Contributing
 
-Bug reports and pull requests are welcome. Please read our [contribution guide](./CONTRIBUTING.md) before getting started.
+Bug reports and pull requests are welcome. Please read our [contribution guide](https://github.com/public-ui/kolibri/blob/HEAD/CONTRIBUTING.md) before getting started.
 
 ## SLSA/Provenance
 
-We aim for **SLSA Build Level 3** for the npm packages published from this repository. Releases are built in GitHub Actions with OIDC-based identity and published with npm provenance (`--provenance`), producing verifiable attestations for the published artifacts. See the [publish workflow](./.github/workflows/publish.yml) for the release steps and npm provenance configuration.
+We aim for **SLSA Build Level 3** for the npm packages published from this repository. Releases are built in GitHub Actions with OIDC-based identity and published with npm provenance (`--provenance`), producing verifiable attestations for the published artifacts. See the [publish workflow](https://github.com/public-ui/kolibri/blob/HEAD/.github/workflows/publish.yml) for the release steps and npm provenance configuration.
 
 **Verification example**
 
@@ -266,7 +266,7 @@ pnpm audit signatures --package=@public-ui/components@<version>
 ## Resources
 
 - [Get Started](https://public-ui.github.io/en/docs/get-started/first-steps)
-- [Contributing](./CONTRIBUTING.md)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
+- [Contributing](https://github.com/public-ui/kolibri/blob/HEAD/CONTRIBUTING.md)
+- [Code of Conduct](https://github.com/public-ui/kolibri/blob/HEAD/CODE_OF_CONDUCT.md)
 - [Known Issues](http://public-ui.github.io/en/docs/known-issues)
-- [Security](./docs/SECURITY.md)
+- [Security](https://github.com/public-ui/kolibri/blob/HEAD/docs/SECURITY.md)

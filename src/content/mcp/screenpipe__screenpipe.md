@@ -117,7 +117,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Rehberler, bakıcılar ve PR göndermek için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın. AI/vibe-coded PR'ları memnuniyetle karşılarız!
+  Rehberler, bakıcılar ve PR göndermek için [CONTRIBUTING.md](https://github.com/screenpipe/screenpipe/blob/HEAD/CONTRIBUTING.md) dosyasına bakın. AI/vibe-coded PR'ları memnuniyetle karşılarız!
   
   Tüm katkıda bulunanlardan teşekkür ederiz:
   
@@ -127,14 +127,14 @@ body_tr: |-
   
   ## Çeviriler
   
-  - [日本語 (Japonca)](translated_readmes/README-ja.md)
-  - [简体中文 (Basitleştirilmiş Çince)](translated_readmes/README-zh_CN.md)
-  - [Français (Fransızca)](translated_readmes/README-fr.md)
-  - [Español (İspanyolca)](translated_readmes/README-es.md)
-  - [Português BR (Brezilya Portekizcesi)](translated_readmes/README-pt_BR.md)
-  - [Deutsch (Almanca)](translated_readmes/README-de.md)
+  - [日本語 (Japonca)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-ja.md)
+  - [简体中文 (Basitleştirilmiş Çince)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-zh_CN.md)
+  - [Français (Fransızca)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-fr.md)
+  - [Español (İspanyolca)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-es.md)
+  - [Português BR (Brezilya Portekizcesi)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-pt_BR.md)
+  - [Deutsch (Almanca)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-de.md)
   
-  screenpipe'ı başka bir dile çevirmek istiyorsanız? [`translated_readmes/`](translated_readmes/README.md) dosyasına bakın.
+  screenpipe'ı başka bir dile çevirmek istiyorsanız? [`translated_readmes/`](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README.md) dosyasına bakın.
   
   <details>
   <summary>📖 LLM referansı</summary>
@@ -478,7 +478,7 @@ then ask claude `what did i see in the last 5 mins?` or `summarize today convers
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, maintainers, and how to submit PRs. AI/vibe-coded PRs welcome!
+See [CONTRIBUTING.md](https://github.com/screenpipe/screenpipe/blob/HEAD/CONTRIBUTING.md) for guidelines, maintainers, and how to submit PRs. AI/vibe-coded PRs welcome!
 
 Thanks to all contributors:
 
@@ -488,14 +488,14 @@ Thanks to all contributors:
 
 ## Translations
 
-- [日本語 (Japanese)](translated_readmes/README-ja.md)
-- [简体中文 (Simplified Chinese)](translated_readmes/README-zh_CN.md)
-- [Français (French)](translated_readmes/README-fr.md)
-- [Español (Spanish)](translated_readmes/README-es.md)
-- [Português BR (Brazilian Portuguese)](translated_readmes/README-pt_BR.md)
-- [Deutsch (German)](translated_readmes/README-de.md)
+- [日本語 (Japanese)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-ja.md)
+- [简体中文 (Simplified Chinese)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-zh_CN.md)
+- [Français (French)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-fr.md)
+- [Español (Spanish)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-es.md)
+- [Português BR (Brazilian Portuguese)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-pt_BR.md)
+- [Deutsch (German)](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README-de.md)
 
-Want to translate screenpipe into another language? See [`translated_readmes/`](translated_readmes/README.md).
+Want to translate screenpipe into another language? See [`translated_readmes/`](https://github.com/screenpipe/screenpipe/blob/HEAD/translated_readmes/README.md).
 
 <details>
 <summary>📖 LLM reference</summary>
@@ -507,7 +507,7 @@ screenpipe is a source-available application that continuously captures your scr
 - **Website**: https://screenpi.pe
 - **Documentation**: https://docs.screenpi.pe
 - **Discord**: https://discord.gg/screenpipe
-- **License**: Screenpipe Commercial License (source-available; free for personal use, commercial use requires a license, see [LICENSE.md](LICENSE.md))
+- **License**: Screenpipe Commercial License (source-available; free for personal use, commercial use requires a license, see [LICENSE.md](https://github.com/screenpipe/screenpipe/blob/HEAD/LICENSE.md))
 
 ## Who screenpipe is for
 
@@ -608,7 +608,7 @@ Full REST API running on localhost (default port 3030). Endpoints for searching 
 
 ## Pricing
 
-The source is available and free for personal use (see [LICENSE.md](LICENSE.md)). The signed desktop app uses a subscription:
+The source is available and free for personal use (see [LICENSE.md](https://github.com/screenpipe/screenpipe/blob/HEAD/LICENSE.md)). The signed desktop app uses a subscription:
 
 - **Standard**: $25/month. Local-first capture, search, and timeline, all on your device.
 - **Pro**: $50/seat/month. Everything in Standard plus cloud sync, cloud AI, and integrations. Teams buy 5+ seats self-serve.
@@ -678,7 +678,7 @@ Make sure to understand the main branch is moving fast and breaking things, if y
 ## Frequently asked questions
 
 **Is screenpipe free?**
-The source is available and free for personal, non-commercial use, so you can build and run screenpipe yourself for free (see [LICENSE.md](LICENSE.md)); commercial use of the source requires a license. The signed desktop app uses a subscription starting at $25/month; existing lifetime licenses remain valid.
+The source is available and free for personal, non-commercial use, so you can build and run screenpipe yourself for free (see [LICENSE.md](https://github.com/screenpipe/screenpipe/blob/HEAD/LICENSE.md)); commercial use of the source requires a license. The signed desktop app uses a subscription starting at $25/month; existing lifetime licenses remain valid.
 
 **Does screenpipe send my data to the cloud?**
 No. All data is stored locally by default. You can use fully local AI models via Ollama for complete privacy.

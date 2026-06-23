@@ -51,7 +51,7 @@ body_tr: |-
     - **PipelineRun**: Aynı spec ile bir PipelineRun'ı yeniden başlatın.
     - **Task**: Bir TaskRun oluşturarak Tekton Task'ını başlatın.
     - **TaskRun**: Aynı spec ile bir TaskRun'ı yeniden başlatın ve pod çözümlemesi aracılığıyla TaskRun günlüklerini alın.
-  - **🔭 Gözlemlenebilirlik**: İsteğe bağlı OpenTelemetry dağıtık izleme ve özel örnekleme oranları ile metrikler. Gerçek zamanlı istatistikler için `/stats` endpoint'ini içerir. Bkz. [OTEL.md](docs/OTEL.md).
+  - **🔭 Gözlemlenebilirlik**: İsteğe bağlı OpenTelemetry dağıtık izleme ve özel örnekleme oranları ile metrikler. Gerçek zamanlı istatistikler için `/stats` endpoint'ini içerir. Bkz. [OTEL.md](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/OTEL.md).
   
   Diğer Kubernetes MCP sunucusu uygulamalarının aksine, bu **sadece** `kubectl` veya `helm` komut satırı araçlarının etrafında bir sarmalayıcı **DEĞİLDİR**.
   Bu, doğrudan Kubernetes API sunucusu ile etkileşime giren **Go tabanlı native bir uygulamadır**.
@@ -63,9 +63,9 @@ body_tr: |-
   - **✅ Yüksek Performans / Düşük Gecikme**: Harici komutları çağırma ve bekleme yükü olmadan doğrudan Kubernetes API sunucusu ile etkileşime girer.
   - **✅ Multi-Cluster**: Aynı anda birden fazla Kubernetes cluster'ı ile etkileşime girebilir (kubeconfig dosyalarınızda tanımlanmış olarak).
   - **✅ Platformlar Arası**: Linux, macOS ve Windows için native ikili dosya, npm paketi, Python paketi ve container/Docker image olarak mevcuttur.
-  - **✅ Yapılandırılabilir**: [Komut satırı argümanlarını](#yapılandırma), [TOML yapılandırma dosyalarını](docs/configuration.md) ve ortam değişkenlerini destekler.
+  - **✅ Yapılandırılabilir**: [Komut satırı argümanlarını](#yapılandırma), [TOML yapılandırma dosyalarını](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md) ve ortam değişkenlerini destekler.
   - **✅ İyi test edilmiş**: Sunucu, farklı Kubernetes ortamları arasında güvenilirliğini ve doğruluğunu sağlamak için kapsamlı bir test paketine sahiptir.
-  - **📚 Dokümantasyon**: [Kurulum rehberleri](docs/), yapılandırma referansı ve gözlemlenebilirlik dahil kapsamlı [kullanıcı dokumentasyonu](docs/).
+  - **📚 Dokümantasyon**: [Kurulum rehberleri](https://github.com/containers/kubernetes-mcp-server/tree/HEAD/docs/), yapılandırma referansı ve gözlemlenebilirlik dahil kapsamlı [kullanıcı dokumentasyonu](https://github.com/containers/kubernetes-mcp-server/tree/HEAD/docs/).
   
   ## 🚀 Başlarken <a id="başlarken"></a>
   
@@ -76,9 +76,9 @@ body_tr: |-
   <details>
   <summary><b>Claude Code</b></summary>
   
-  [Kullanıcı dokumentasyonumuzda](docs/) [Claude Code başlangıç rehberine](docs/getting-started-claude-code.md) bakın.
+  [Kullanıcı dokumentasyonumuzda](https://github.com/containers/kubernetes-mcp-server/tree/HEAD/docs/) [Claude Code başlangıç rehberine](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/getting-started-claude-code.md) bakın.
   
-  Adanmış ServiceAccount ve salt okunur erişim ile güvenli bir üretim kurulumu için [Kubernetes kurulum rehberine](docs/getting-started-kubernetes.md) de bakın.
+  Adanmış ServiceAccount ve salt okunur erişim ile güvenli bir üretim kurulumu için [Kubernetes kurulum rehberine](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/getting-started-kubernetes.md) de bakın.
   
   </details>
   
@@ -206,8 +206,8 @@ body_tr: |-
   | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | `--port`                  | MCP sunucusunu Streamable HTTP modu (path /mcp) ve Server-Sent Event (SSE) (path /sse) modunda başlatır ve belirtilen port'ta dinler.                                                                                                                                                    |
   | `--log-level`             | Günlüğe kaydetme seviyesini ayarlar (değerler [0-9 arası](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md)). [kubectl günlüğe kaydetme seviyelerine](https://kubernetes.io/docs/reference/kubectl/quick-reference/#kubectl-output-verbosity-and-debugging) benzer. |
-  | `--config`                | (İsteğe bağlı) Ana TOML yapılandırma dosyasının yolu. Ayrıntılar için [Yapılandırma Referansı](docs/configuration.md)'na bakın.                                                                                                                                                        |
-  | `--config-dir`            | (İsteğe bağlı) Drop-in yapılandırma dizininin yolu. Dosyalar sözlüksel (alfabetik) sırada yüklenir. `--config` belirtilirse ana config dosyasına göre `conf.d` olarak varsayılan ayarlanır. Ayrıntılar için [Yapılandırma Referansı](docs/configuration.md)'na bakın.                                     |
+  | `--config`                | (İsteğe bağlı) Ana TOML yapılandırma dosyasının yolu. Ayrıntılar için [Yapılandırma Referansı](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md)'na bakın.                                                                                                                                                        |
+  | `--config-dir`            | (İsteğe bağlı) Drop-in yapılandırma dizininin yolu. Dosyalar sözlüksel (alfabetik) sırada yüklenir. `--config` belirtilirse ana config dosyasına göre `conf.d` olarak varsayılan ayarlanır. Ayrıntılar için [Yapılandırma Referansı](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md)'na bakın.                                     |
   | `--kubeconfig`            | Kubernetes yapılandırma dosyasının yolu. Sağlanmazsa, yapılandırmayı çözümlemeye çalışır (cluster içi, varsayılan konum, vb.).                                                                                                                                                    |
   | `--list-output`           | Kaynak listesi işlemleri için çıktı biçimi (biri: yaml, table) (varsayılan "table")                                                                                                                                                                                                            |
   | `--read-only`             | Ayarlanırsa, MCP sunucusu salt okunur modda çalışır, yani Kubernetes cluster'ına herhangi bir yazma işlemine (oluştur, güncelle, sil) izin vermez. Bu, cluster'ı değişiklikler yapmadan hata ayıklamak veya incelemek için yararlıdır.                                                          |
@@ -217,7 +217,7 @@ body_tr: |-
   | `--disable-multi-cluster` | Ayarlanırsa, MCP sunucusu multi-cluster desteğini devre dışı bırakır ve kubeconfig dosyasındaki yalnızca geçerli context'i kullanır. Bunu, MCP sunucusunu tek bir cluster'a kısıtlamak istiyorsanız yararlıdır.                                                                                          |
   | `--cluster-provider`      | Kullanılacak cluster sağlayıcı stratejisi (biri: kubeconfig, in-cluster, kcp, disabled). Ayarlanmazsa, sunucu ortama göre otomatik olarak algılar.                                                                                                                                           |
   
-  > **Not**: Çoğu CLI seçeneğinin eşdeğer TOML yapılandırma alanları vardır. `--disable-multi-cluster` bayrağı TOML'de `cluster_provider_strategy = "disabled"` ayarlamaya eşdeğerdir. Tüm TOML seçenekleri için [Yapılandırma Referansı](docs/configuration.md)'na bakın.
+  > **Not**: Çoğu CLI seçeneğinin eşdeğer TOML yapılandırma alanları vardır. `--disable-multi-cluster` bayrağı TOML'de `cluster_provider_strategy = "disabled"` ayarlamaya eşdeğerdir. Tüm TOML seçenekleri için [Yapılandırma Referansı](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md)'na bakın.
   
   ### TOML Yapılandırma Dosyaları
   
@@ -251,10 +251,10 @@ body_tr: |-
   - SIGHUP aracılığıyla dinamik yapılandırma yeniden yükleme
   - Hassas kaynak türlerine erişimi kısıtlamak için reddedilen kaynaklar
   - MCP Tool Search için sunucu yönergeleri
-  - [Özel MCP promptları](docs/prompts.md)
-  - HTTP modu için OAuth/OIDC kimlik doğrulaması ([Keycloak](docs/KEYCLOAK_OIDC_SETUP.md), [Microsoft Entra ID](docs/ENTRA_ID_SETUP.md))
+  - [Özel MCP promptları](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/prompts.md)
+  - HTTP modu için OAuth/OIDC kimlik doğrulaması ([Keycloak](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/KEYCLOAK_OIDC_SETUP.md), [Microsoft Entra ID](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/ENTRA_ID_SETUP.md))
   
-  **[Yapılandırma Referansı](docs/configuration.md)**'na bakın.
+  **[Yapılandırma Referansı](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md)**'na bakın.
   
   ## 📊 MCP Günlüğe Kaydetme <a id="mcp-günlüğe-kaydetme"></a>
   
@@ -262,7 +262,7 @@ body_tr: |-
   Kubernetes API hataları otomatik olarak kategorize edilir ve uygun önem düzeyleri ile istemcilere günlüğe kaydedilir.
   Hassas veriler (token'lar, anahtarlar, parolalar, bulut kimlik bilgileri) istemcilere gönderilmeden önce otomatik olarak silinir.
   
-  **[MCP Günlüğe Kaydetme Rehberi](docs/logging.md)**'ne bakın.
+  **[MCP Günlüğe Kaydetme Rehberi](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/logging.md)**'ne bakın.
   
   ## 🛠️ Araçlar ve İşlevsellik <a id="araçlar-ve-işlevsellik"></a>
   
@@ -376,7 +376,7 @@ A powerful and flexible Kubernetes [Model Context Protocol (MCP)](https://blog.m
   - **PipelineRun**: Restart a PipelineRun with the same spec.
   - **Task**: Start a Tekton Task by creating a TaskRun.
   - **TaskRun**: Restart a TaskRun with the same spec, and retrieve TaskRun logs via pod resolution.
-- **🔭 Observability**: Optional OpenTelemetry distributed tracing and metrics with custom sampling rates. Includes `/stats` endpoint for real-time statistics. See [OTEL.md](docs/OTEL.md).
+- **🔭 Observability**: Optional OpenTelemetry distributed tracing and metrics with custom sampling rates. Includes `/stats` endpoint for real-time statistics. See [OTEL.md](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/OTEL.md).
 
 Unlike other Kubernetes MCP server implementations, this **IS NOT** just a wrapper around `kubectl` or `helm` command-line tools.
 It is a **Go-based native implementation** that interacts directly with the Kubernetes API server.
@@ -388,9 +388,9 @@ If you're using the native binaries you don't need to have Node or Python instal
 - **✅ High-Performance / Low-Latency**: Directly interacts with the Kubernetes API server without the overhead of calling and waiting for external commands.
 - **✅ Multi-Cluster**: Can interact with multiple Kubernetes clusters simultaneously (as defined in your kubeconfig files).
 - **✅ Cross-Platform**: Available as a native binary for Linux, macOS, and Windows, as well as an npm package, a Python package, and container/Docker image.
-- **✅ Configurable**: Supports [command-line arguments](#configuration), [TOML configuration files](docs/configuration.md), and environment variables.
+- **✅ Configurable**: Supports [command-line arguments](#configuration), [TOML configuration files](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md), and environment variables.
 - **✅ Well tested**: The server has an extensive test suite to ensure its reliability and correctness across different Kubernetes environments.
-- **📚 Documentation**: Comprehensive [user documentation](docs/) including setup guides, configuration reference, and observability.
+- **📚 Documentation**: Comprehensive [user documentation](https://github.com/containers/kubernetes-mcp-server/tree/HEAD/docs/) including setup guides, configuration reference, and observability.
 
 ## 🚀 Getting Started <a id="getting-started"></a>
 
@@ -401,9 +401,9 @@ If you're using the native binaries you don't need to have Node or Python instal
 <details>
 <summary><b>Claude Code</b></summary>
 
-Follow the [dedicated Claude Code getting started guide](docs/getting-started-claude-code.md) in our [user documentation](docs/).
+Follow the [dedicated Claude Code getting started guide](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/getting-started-claude-code.md) in our [user documentation](https://github.com/containers/kubernetes-mcp-server/tree/HEAD/docs/).
 
-For a secure production setup with dedicated ServiceAccount and read-only access, also review the [Kubernetes setup guide](docs/getting-started-kubernetes.md).
+For a secure production setup with dedicated ServiceAccount and read-only access, also review the [Kubernetes setup guide](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/getting-started-kubernetes.md).
 
 </details>
 
@@ -531,8 +531,8 @@ uvx kubernetes-mcp-server@latest --help
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `--port`                  | Starts the MCP server in Streamable HTTP mode (path /mcp) and Server-Sent Event (SSE) (path /sse) mode and listens on the specified port .                                                                                                                                                    |
 | `--log-level`             | Sets the logging level (values [from 0-9](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md)). Similar to [kubectl logging levels](https://kubernetes.io/docs/reference/kubectl/quick-reference/#kubectl-output-verbosity-and-debugging). |
-| `--config`                | (Optional) Path to the main TOML configuration file. See [Configuration Reference](docs/configuration.md) for details.                                                                                                                                                                        |
-| `--config-dir`            | (Optional) Path to drop-in configuration directory. Files are loaded in lexical (alphabetical) order. Defaults to `conf.d` relative to the main config file if `--config` is specified. See [Configuration Reference](docs/configuration.md) for details.                                     |
+| `--config`                | (Optional) Path to the main TOML configuration file. See [Configuration Reference](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md) for details.                                                                                                                                                                        |
+| `--config-dir`            | (Optional) Path to drop-in configuration directory. Files are loaded in lexical (alphabetical) order. Defaults to `conf.d` relative to the main config file if `--config` is specified. See [Configuration Reference](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md) for details.                                     |
 | `--kubeconfig`            | Path to the Kubernetes configuration file. If not provided, it will try to resolve the configuration (in-cluster, default location, etc.).                                                                                                                                                    |
 | `--list-output`           | Output format for resource list operations (one of: yaml, table) (default "table")                                                                                                                                                                                                            |
 | `--read-only`             | If set, the MCP server will run in read-only mode, meaning it will not allow any write operations (create, update, delete) on the Kubernetes cluster. This is useful for debugging or inspecting the cluster without making changes.                                                          |
@@ -542,7 +542,7 @@ uvx kubernetes-mcp-server@latest --help
 | `--disable-multi-cluster` | If set, the MCP server will disable multi-cluster support and will only use the current context from the kubeconfig file. This is useful if you want to restrict the MCP server to a single cluster.                                                                                          |
 | `--cluster-provider`      | Cluster provider strategy to use (one of: kubeconfig, in-cluster, kcp, disabled). If not set, the server will auto-detect based on the environment.                                                                                                                                           |
 
-> **Note**: Most CLI options have equivalent TOML configuration fields. The `--disable-multi-cluster` flag is equivalent to setting `cluster_provider_strategy = "disabled"` in TOML. See the [Configuration Reference](docs/configuration.md) for all TOML options.
+> **Note**: Most CLI options have equivalent TOML configuration fields. The `--disable-multi-cluster` flag is equivalent to setting `cluster_provider_strategy = "disabled"` in TOML. See the [Configuration Reference](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md) for all TOML options.
 
 ### TOML Configuration Files
 
@@ -576,10 +576,10 @@ For comprehensive TOML configuration documentation, including:
 - Dynamic configuration reload via SIGHUP
 - Denied resources for restricting access to sensitive resource types
 - Server instructions for MCP Tool Search
-- [Custom MCP prompts](docs/prompts.md)
-- OAuth/OIDC authentication for HTTP mode ([Keycloak](docs/KEYCLOAK_OIDC_SETUP.md), [Microsoft Entra ID](docs/ENTRA_ID_SETUP.md))
+- [Custom MCP prompts](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/prompts.md)
+- OAuth/OIDC authentication for HTTP mode ([Keycloak](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/KEYCLOAK_OIDC_SETUP.md), [Microsoft Entra ID](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/ENTRA_ID_SETUP.md))
 
-See the **[Configuration Reference](docs/configuration.md)**.
+See the **[Configuration Reference](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/configuration.md)**.
 
 ## 📊 MCP Logging <a id="mcp-logging"></a>
 
@@ -587,7 +587,7 @@ The server supports the MCP logging capability, allowing clients to receive debu
 Kubernetes API errors are automatically categorized and logged to clients with appropriate severity levels.
 Sensitive data (tokens, keys, passwords, cloud credentials) is automatically redacted before being sent to clients.
 
-See the **[MCP Logging Guide](docs/logging.md)**.
+See the **[MCP Logging Guide](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/docs/logging.md)**.
 
 ## 🛠️ Tools and Functionalities <a id="tools-and-functionalities"></a>
 
@@ -1008,7 +1008,7 @@ A [Helm Chart](https://helm.sh) is available to simplify the deployment of the K
 helm install kubernetes-mcp-server oci://ghcr.io/containers/charts/kubernetes-mcp-server
 ```
 
-For configuration options including OAuth, telemetry, and resource limits, see the [chart README](./charts/kubernetes-mcp-server/README.md) and [values.yaml](./charts/kubernetes-mcp-server/values.yaml).
+For configuration options including OAuth, telemetry, and resource limits, see the [chart README](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/charts/kubernetes-mcp-server/README.md) and [values.yaml](https://github.com/containers/kubernetes-mcp-server/blob/HEAD/charts/kubernetes-mcp-server/values.yaml).
 
 ## 💬 Community <a id="community"></a>
 

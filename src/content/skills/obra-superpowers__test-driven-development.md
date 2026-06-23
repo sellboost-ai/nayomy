@@ -367,7 +367,7 @@ body_tr: |-
   
   ## Test Anti-Desenleri
   
-  Mock'lar veya test yardımcıları eklerken, yaygın tuzakları önlemek için [testing-anti-patterns.md](testing-anti-patterns.md) oku:
+  Mock'lar veya test yardımcıları eklerken, yaygın tuzakları önlemek için [testing-anti-patterns.md](https://github.com/obra/superpowers/blob/HEAD/testing-anti-patterns.md) oku:
   - Mock davranışını gerçek davranış yerine test etmek
   - Üretim sınıflarına test yalnızca yöntemleri eklemek
   - Bağımlılıkları anlamadan mock'lamak
@@ -735,7 +735,7 @@ Never fix bugs without a test.
 
 ## Testing Anti-Patterns
 
-When adding mocks or test utilities, read [testing-anti-patterns.md](testing-anti-patterns.md) to avoid common pitfalls:
+When adding mocks or test utilities, read [testing-anti-patterns.md](https://github.com/obra/superpowers/blob/HEAD/testing-anti-patterns.md) to avoid common pitfalls:
 - Testing mock behavior instead of real behavior
 - Adding test-only methods to production classes
 - Mocking without understanding dependencies

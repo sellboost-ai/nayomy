@@ -107,7 +107,7 @@ body_tr: |-
     - Dosya işlemlerinde sembolik bağlantı geçişi önleme
     - Bypass koruması ile komut engelle listesi
     - [Docker izolasyonu](#option-6-docker-kurulumu--otomatik-güncellemeler-nodejs-gerekli-değil) tam sandboxing için
-    - Ayrıntılar için [SECURITY.md](SECURITY.md) bölümüne bakın
+    - Ayrıntılar için [SECURITY.md](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/SECURITY.md) bölümüne bakın
   
   ## Nasıl yüklenir
   
@@ -605,7 +605,7 @@ Execute long-running terminal commands on your computer and manage processes thr
   - Symlink traversal prevention on file operations
   - Command blocklist with bypass protection
   - [Docker isolation](#option-6-docker-installation--auto-updates-no-nodejs-required) for full sandboxing
-  - See [SECURITY.md](SECURITY.md) for details
+  - See [SECURITY.md](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/SECURITY.md) for details
 
 ## How to install
 
@@ -1276,7 +1276,7 @@ npm run logs:export -- --format json --output analysis.json
 npm run logs:clear
 ```
 
-For detailed documentation on these scripts, see [scripts/README.md](scripts/README.md).
+For detailed documentation on these scripts, see [scripts/README.md](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/scripts/README.md).
 
 ## Fuzzy Search Logs
 
@@ -1329,7 +1329,7 @@ For commands that may take a while:
 
 ### ⚠️ Important Security Warnings
 
-> **For comprehensive security information and vulnerability reporting**: See [SECURITY.md](SECURITY.md)
+> **For comprehensive security information and vulnerability reporting**: See [SECURITY.md](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/SECURITY.md)
 
 1. **Known security limitations**: Directory restrictions and command blocking can be bypassed through various methods including symlinks, command substitution, and absolute paths or code execution
 
@@ -1611,7 +1611,7 @@ If you find this tool valuable for your workflow, please consider [supporting th
 
 ## Frequently Asked Questions
 
-Here are answers to some common questions. For a more comprehensive FAQ, see our [detailed FAQ document](FAQ.md).
+Here are answers to some common questions. For a more comprehensive FAQ, see our [detailed FAQ document](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/FAQ.md).
 
 ### What is Desktop Commander?
 It's an MCP tool that enables Claude Desktop to access your file system and terminal, turning Claude into a versatile assistant for coding, automation, codebase exploration, and more.
@@ -1633,10 +1633,10 @@ Yes, when installed through npx or Smithery, Desktop Commander automatically upd
 - Making surgical code changes with precise control
 
 ### I'm having trouble installing or using the tool. Where can I get help?
-Join our [Discord server](https://discord.gg/kQ27sNnZr7) for community support, check the [GitHub issues](https://github.com/wonderwhy-er/DesktopCommanderMCP/issues) for known problems, or review the [full FAQ](FAQ.md) for troubleshooting tips. You can also visit our [website FAQ section](https://desktopcommander.app#faq) for a more user-friendly experience. If you encounter a new issue, please consider [opening a GitHub issue](https://github.com/wonderwhy-er/DesktopCommanderMCP/issues/new) with details about your problem.
+Join our [Discord server](https://discord.gg/kQ27sNnZr7) for community support, check the [GitHub issues](https://github.com/wonderwhy-er/DesktopCommanderMCP/issues) for known problems, or review the [full FAQ](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/FAQ.md) for troubleshooting tips. You can also visit our [website FAQ section](https://desktopcommander.app#faq) for a more user-friendly experience. If you encounter a new issue, please consider [opening a GitHub issue](https://github.com/wonderwhy-er/DesktopCommanderMCP/issues/new) with details about your problem.
 
 ### How do I report security vulnerabilities?
-Please create a [GitHub Issue](https://github.com/wonderwhy-er/DesktopCommanderMCP/issues) with detailed information about any security vulnerabilities you discover. See our [Security Policy](SECURITY.md) for complete guidelines on responsible disclosure.
+Please create a [GitHub Issue](https://github.com/wonderwhy-er/DesktopCommanderMCP/issues) with detailed information about any security vulnerabilities you discover. See our [Security Policy](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/SECURITY.md) for complete guidelines on responsible disclosure.
 
 ## Data Collection & Privacy
 
@@ -1644,7 +1644,7 @@ Desktop Commander collects limited, pseudonymous telemetry to improve the tool. 
 
 **Opt-out:** Ask Claude to "disable Desktop Commander telemetry" or set `"telemetryEnabled": false` in your config.
 
-For complete details, see our [Privacy Policy](PRIVACY.md).
+For complete details, see our [Privacy Policy](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/HEAD/PRIVACY.md).
 
 ## Verifications
 [![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/25ff7a06-58bc-40b8-bd79-ebb715140f1a)

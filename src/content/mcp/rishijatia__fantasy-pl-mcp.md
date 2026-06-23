@@ -328,7 +328,7 @@ body_tr: |-
   4. Branch'e push edin (`git push origin feature/amazing-feature`)
   5. Bir Pull Request açın
   
-  Daha fazla detay için lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Daha fazla detay için lütfen [CONTRIBUTING.md](https://github.com/rishijatia/fantasy-pl-mcp/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ## Teşekkürler
   
@@ -669,7 +669,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-For more details, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+For more details, please refer to the [CONTRIBUTING.md](https://github.com/rishijatia/fantasy-pl-mcp/blob/HEAD/CONTRIBUTING.md) file.
 
 ## Acknowledgments
 

@@ -515,21 +515,21 @@ body_tr: |-
   
   ## İlgili Ajanlar
   
-  - [cs-product-manager](cs-product-manager.md) - Ürün yönetimi yaşam döngüsü, görüşme analizi, PRD geliştirme
-  - [cs-agile-product-owner](cs-agile-product-owner.md) - Araştırma bulgularını kullanıcı hikayelerine dönüştürme
-  - [cs-product-strategist](cs-product-strategist.md) - Ürün vizyonunu ve konumlandırmasını doğrulamak için stratejik araştırma
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Ürün yönetimi yaşam döngüsü, görüşme analizi, PRD geliştirme
+  - [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-agile-product-owner.md) - Araştırma bulgularını kullanıcı hikayelerine dönüştürme
+  - [cs-product-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-strategist.md) - Ürün vizyonunu ve konumlandırmasını doğrulamak için stratejik araştırma
   - UI Tasarım Sistemi - Tasarım teslimi ve bileşen önerileri (bkz. `../../product-team/skills/ui-design-system/`)
   
   ## Referanslar
   
-  - **Birincil Beceri:** [../../product-team/skills/ux-researcher-designer/SKILL.md](../../product-team/skills/ux-researcher-designer/SKILL.md)
-  - **Görüşme Analisti:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
-  - **Persona Metodolojisi:** [../../product-team/skills/ux-researcher-designer/references/persona-methodology.md](../../product-team/skills/ux-researcher-designer/references/persona-methodology.md)
-  - **Yolculuk Haritası Rehberi:** [../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md](../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md)
-  - **Kullanılabilirlik Testleme:** [../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md](../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md)
-  - **Tasarım Sistemi:** [../../product-team/skills/ui-design-system/SKILL.md](../../product-team/skills/ui-design-system/SKILL.md)
-  - **Ürün Alan Rehberi:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-  - **Ajan Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
+  - **Birincil Beceri:** [../../product-team/skills/ux-researcher-designer/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/SKILL.md)
+  - **Görüşme Analisti:** [../../product-team/skills/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-manager-toolkit/SKILL.md)
+  - **Persona Metodolojisi:** [../../product-team/skills/ux-researcher-designer/references/persona-methodology.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/references/persona-methodology.md)
+  - **Yolculuk Haritası Rehberi:** [../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md)
+  - **Kullanılabilirlik Testleme:** [../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md)
+  - **Tasarım Sistemi:** [../../product-team/skills/ui-design-system/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ui-design-system/SKILL.md)
+  - **Ürün Alan Rehberi:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+  - **Ajan Geliştirme Rehberi:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
   
   ---
   
@@ -1039,21 +1039,21 @@ echo "See: ../../product-team/skills/ui-design-system/references/developer-hando
 
 ## Related Agents
 
-- [cs-product-manager](cs-product-manager.md) - Product management lifecycle, interview analysis, PRD development
-- [cs-agile-product-owner](cs-agile-product-owner.md) - Translating research findings into user stories
-- [cs-product-strategist](cs-product-strategist.md) - Strategic research to validate product vision and positioning
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Product management lifecycle, interview analysis, PRD development
+- [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-agile-product-owner.md) - Translating research findings into user stories
+- [cs-product-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-strategist.md) - Strategic research to validate product vision and positioning
 - UI Design System - Design handoff and component recommendations (see `../../product-team/skills/ui-design-system/`)
 
 ## References
 
-- **Primary Skill:** [../../product-team/skills/ux-researcher-designer/SKILL.md](../../product-team/skills/ux-researcher-designer/SKILL.md)
-- **Interview Analyzer:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
-- **Persona Methodology:** [../../product-team/skills/ux-researcher-designer/references/persona-methodology.md](../../product-team/skills/ux-researcher-designer/references/persona-methodology.md)
-- **Journey Mapping Guide:** [../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md](../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md)
-- **Usability Testing:** [../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md](../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md)
-- **Design System:** [../../product-team/skills/ui-design-system/SKILL.md](../../product-team/skills/ui-design-system/SKILL.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Primary Skill:** [../../product-team/skills/ux-researcher-designer/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/SKILL.md)
+- **Interview Analyzer:** [../../product-team/skills/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-manager-toolkit/SKILL.md)
+- **Persona Methodology:** [../../product-team/skills/ux-researcher-designer/references/persona-methodology.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/references/persona-methodology.md)
+- **Journey Mapping Guide:** [../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md)
+- **Usability Testing:** [../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md)
+- **Design System:** [../../product-team/skills/ui-design-system/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/ui-design-system/SKILL.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

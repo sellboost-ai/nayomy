@@ -12,7 +12,7 @@ language: "TypeScript"
 body_tr: |-
   # Search1API MCP Server
   
-  [中文文档](./README_zh.md)
+  [中文文档](https://github.com/fatwang2/search1api-mcp/blob/HEAD/README_zh.md)
   
   [Search1API](https://www.search1api.com/?utm_source=mcp) için resmi MCP sunucusu — web araması, haberler, crawling ve daha fazlası tek bir API'de.
   
@@ -212,7 +212,7 @@ body_tr: |-
 
 # Search1API MCP Server
 
-[中文文档](./README_zh.md)
+[中文文档](https://github.com/fatwang2/search1api-mcp/blob/HEAD/README_zh.md)
 
 The official MCP server for [Search1API](https://www.search1api.com/?utm_source=mcp) — web search, news, crawling, and more in one API.
 

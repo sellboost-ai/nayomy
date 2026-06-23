@@ -33,7 +33,7 @@ body_tr: |-
   
   </div>
   
-  > **📢 Güncelleme:** *[Yazardan: son zamanlardaki bakım gecikmesi için özür dilerim, ancak en azından PR'ları merge etmeye devam edeceğim, daha fazla bilgi [burada](recent-updates.md)]*
+  > **📢 Güncelleme:** *[Yazardan: son zamanlardaki bakım gecikmesi için özür dilerim, ancak en azından PR'ları merge etmeye devam edeceğim, daha fazla bilgi [burada](https://github.com/metatool-ai/metamcp/blob/HEAD/recent-updates.md)]*
   
   **MetaMCP**, MCP sunucularını dinamik olarak tek bir birleşik MCP sunucusuna toplayan ve middleware uygulayan bir MCP proxy'sidir. MetaMCP kendisi bir MCP sunucusu olduğundan **HERHANGİ** bir MCP istemcisine kolayca entegre edilebilir.
   
@@ -43,7 +43,7 @@ body_tr: |-
   
   Daha fazla ayrıntı için lütfen documentation sitesini ziyaret edin: https://docs.metamcp.com
   
-  English | [中文](./README_cn.md)
+  English | [中文](https://github.com/metatool-ai/metamcp/blob/HEAD/README_cn.md)
   ## 📋 İçindekiler <!-- omit in toc -->
   
   - [🎯 Kullanım Alanları](#-kullanım-alanları)
@@ -304,7 +304,7 @@ body_tr: |-
   
   - MetaMCP her konfigüre edilen MCP sunucusu ve MetaMCP'ler için boş session'ları önceden tahsis eder. Varsayılan boş session her biri için 1'dir ve bu cold start süresini azaltmaya yardımcı olabilir.
   - MCP'niz `uvx` veya `npx` dışında bağımlılıklar gerektiriyorsa, Dockerfile'ı özelleştirerek bağımlılıkları kendiniz yüklemeniz gerekir.
-  - Boş session'ların güncelleme sırasında nasıl geçersiz kılındığı hakkında bir seq diagram için [invalidation.md](invalidation.md) dosyasına bakın.
+  - Boş session'ların güncelleme sırasında nasıl geçersiz kılındığı hakkında bir seq diagram için [invalidation.md](https://github.com/metatool-ai/metamcp/blob/HEAD/invalidation.md) dosyasına bakın.
   
   🛠️ **Çözüm**: Cold start süresini azaltmak için bağımlılıkları eklemek veya paketleri önceden yüklemek amacıyla Dockerfile'ı özelleştirin.
   
@@ -430,7 +430,7 @@ body_tr: |-
 
 </div>
 
-> **📢 Update:** *[From the author: apologize for some recent maintainence delay, but will at least keep merging PRs, more background [here](recent-updates.md)]*
+> **📢 Update:** *[From the author: apologize for some recent maintainence delay, but will at least keep merging PRs, more background [here](https://github.com/metatool-ai/metamcp/blob/HEAD/recent-updates.md)]*
 
 **MetaMCP** is a MCP proxy that lets you dynamically aggregate MCP servers into a unified MCP server, and apply middlewares. MetaMCP itself is a MCP server so it can be easily plugged into **ANY** MCP clients.
 
@@ -440,7 +440,7 @@ body_tr: |-
 
 For more details, consider visiting our documentation site: https://docs.metamcp.com
 
-English | [简体中文](./README_cn.md)
+English | [简体中文](https://github.com/metatool-ai/metamcp/blob/HEAD/README_cn.md)
 ## 📋 Table of Contents <!-- omit in toc -->
 
 - [🎯 Use Cases](#-use-cases)
@@ -701,7 +701,7 @@ For more details and alternative approaches, see [issue #76](https://github.com/
 
 - MetaMCP pre-allocate idle sessions for each configured MCP servers and MetaMCPs. The default idle session for each is 1 and that can help reduce cold start time.
 - If your MCP requires dependencies other than `uvx` or `npx`, you need to customize the Dockerfile to install dependencies on your own.
-- Check [invalidation.md](invalidation.md) for a seq diagram about how idle session invalidates during updates.
+- Check [invalidation.md](https://github.com/metatool-ai/metamcp/blob/HEAD/invalidation.md) for a seq diagram about how idle session invalidates during updates.
 
 🛠️ **Solution**: Customize the Dockerfile to add dependencies or pre-install packages to reduce cold start time.
 
@@ -804,7 +804,7 @@ MetaMCP has been tested with popular OIDC providers:
 
 Once configured, users will see a **"Sign in with OIDC"** button on the login page alongside the email/password form. The authentication flow automatically creates new users on first login.
 
-For more detailed configuration examples and troubleshooting, see **[CONTRIBUTING.md](CONTRIBUTING.md#openid-connect-oidc-provider-setup)**.
+For more detailed configuration examples and troubleshooting, see **[CONTRIBUTING.md](https://github.com/metatool-ai/metamcp/tree/HEAD/CONTRIBUTING.md#openid-connect-oidc-provider-setup)**.
 
 ## ⚙️ Registration Controls
 
@@ -838,7 +838,7 @@ Both controls work independently, giving you full flexibility over your registra
 
 If you want to deploy it to a online service or a VPS, a instance of at least 2GB-4GB of memory is required. And the larger size, the better performance.
 
-Since MCP leverages SSE for long connection, if you are using reverse proxy like nginx, please refer to an example setup [nginx.conf.example](nginx.conf.example)
+Since MCP leverages SSE for long connection, if you are using reverse proxy like nginx, please refer to an example setup [nginx.conf.example](https://github.com/metatool-ai/metamcp/blob/HEAD/nginx.conf.example)
 
 ## 🏗️ Architecture
 
@@ -886,13 +886,13 @@ sequenceDiagram
 
 ## 🌐 i18n
 
-See [README-i18n.md](README-i18n.md)
+See [README-i18n.md](https://github.com/metatool-ai/metamcp/blob/HEAD/README-i18n.md)
 
 Currently en and zh locale are supported, but welcome contributions.
 
 ## 🤝 Contributing
 
-We welcome contributions! See details at **[CONTRIBUTING.md](CONTRIBUTING.md)**
+We welcome contributions! See details at **[CONTRIBUTING.md](https://github.com/metatool-ai/metamcp/blob/HEAD/CONTRIBUTING.md)**
 
 ## 📄 License
 

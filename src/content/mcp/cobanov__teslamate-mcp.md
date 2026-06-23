@@ -22,7 +22,7 @@ body_tr: |-
   [![Release](https://img.shields.io/github/v/release/cobanov/teslamate-mcp?logo=github&sort=semver)](https://github.com/cobanov/teslamate-mcp/releases)
   [![GHCR](https://img.shields.io/badge/ghcr.io-cobanov%2Fteslamate--mcp-2496ED?logo=docker)](https://github.com/cobanov/teslamate-mcp/pkgs/container/teslamate-mcp)
   [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue?logo=python&logoColor=white)](https://www.python.org/downloads/)
-  [![License](https://img.shields.io/github/license/cobanov/teslamate-mcp)](LICENSE)
+  [![License](https://img.shields.io/github/license/cobanov/teslamate-mcp)](https://github.com/cobanov/teslamate-mcp/tree/HEAD/LICENSE)
   [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
   [![Archestra Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/cobanov/teslamate-mcp)](https://archestra.ai/mcp-catalog/cobanov__teslamate-mcp)
   
@@ -163,7 +163,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT — [LICENSE](LICENSE) dosyasına bakın.
+  MIT — [LICENSE](https://github.com/cobanov/teslamate-mcp/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## Öne çıkanlarda
   
@@ -188,7 +188,7 @@ A [Model Context Protocol](https://modelcontextprotocol.io/) server that exposes
 [![Release](https://img.shields.io/github/v/release/cobanov/teslamate-mcp?logo=github&sort=semver)](https://github.com/cobanov/teslamate-mcp/releases)
 [![GHCR](https://img.shields.io/badge/ghcr.io-cobanov%2Fteslamate--mcp-2496ED?logo=docker)](https://github.com/cobanov/teslamate-mcp/pkgs/container/teslamate-mcp)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue?logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/github/license/cobanov/teslamate-mcp)](LICENSE)
+[![License](https://img.shields.io/github/license/cobanov/teslamate-mcp)](https://github.com/cobanov/teslamate-mcp/tree/HEAD/LICENSE)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Archestra Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/cobanov/teslamate-mcp)](https://archestra.ai/mcp-catalog/cobanov__teslamate-mcp)
 
@@ -329,7 +329,7 @@ uv run pytest                    # tests (Docker-backed integration tests skip i
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/cobanov/teslamate-mcp/tree/HEAD/LICENSE).
 
 ## Featured in
 

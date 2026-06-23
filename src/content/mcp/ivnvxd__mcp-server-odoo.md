@@ -1539,11 +1539,11 @@ uv run pytest tests/test_server_foundation.py -v
 
 ## License
 
-This project is licensed under the Mozilla Public License 2.0 (MPL-2.0) - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Mozilla Public License 2.0 (MPL-2.0) - see the [LICENSE](https://github.com/ivnvxd/mcp-server-odoo/tree/HEAD/LICENSE) file for details.
 
 ## Contributing
 
-Contributions are very welcome! Please see the [CONTRIBUTING](CONTRIBUTING.md) guide for details.
+Contributions are very welcome! Please see the [CONTRIBUTING](https://github.com/ivnvxd/mcp-server-odoo/blob/HEAD/CONTRIBUTING.md) guide for details.
 
 ## Support
 

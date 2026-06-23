@@ -18,7 +18,7 @@ body_tr: |-
   [![Integration](https://github.com/redis/mcp-redis/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/redis/mcp-redis/actions/workflows/ci.yml)
   [![PyPI - Version](https://img.shields.io/pypi/v/redis-mcp-server)](https://pypi.org/project/redis-mcp-server/)
   [![Python Version](https://img.shields.io/badge/python-3.14%2B-blue&logo=redis)](https://www.python.org/downloads/)
-  [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+  [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/redis/mcp-redis/blob/HEAD/LICENSE.txt)
   [![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/70102150-efe0-4705-9f7d-87980109a279)
   [![Docker Image Version](https://img.shields.io/docker/v/mcp/redis?sort=semver&logo=docker&label=Docker)](https://hub.docker.com/r/mcp/redis)
   [![codecov](https://codecov.io/gh/redis/mcp-redis/branch/master/graph/badge.svg?token=yenl5fzxxr)](https://codecov.io/gh/redis/mcp-redis)
@@ -474,7 +474,7 @@ body_tr: |-
 [![Integration](https://github.com/redis/mcp-redis/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/redis/mcp-redis/actions/workflows/ci.yml)
 [![PyPI - Version](https://img.shields.io/pypi/v/redis-mcp-server)](https://pypi.org/project/redis-mcp-server/)
 [![Python Version](https://img.shields.io/badge/python-3.14%2B-blue&logo=redis)](https://www.python.org/downloads/)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/redis/mcp-redis/blob/HEAD/LICENSE.txt)
 [![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/70102150-efe0-4705-9f7d-87980109a279)
 [![Docker Image Version](https://img.shields.io/docker/v/mcp/redis?sort=semver&logo=docker&label=Docker)](https://hub.docker.com/r/mcp/redis)
 [![codecov](https://codecov.io/gh/redis/mcp-redis/branch/master/graph/badge.svg?token=yenl5fzxxr)](https://codecov.io/gh/redis/mcp-redis)
@@ -991,7 +991,7 @@ Configure the OpenAI token:
 export OPENAI_API_KEY="<openai_token>"
 ```
 
-And run the [application](./examples/redis_assistant.py).
+And run the [application](https://github.com/redis/mcp-redis/blob/HEAD/examples/redis_assistant.py).
 
 ```commandline
 python3.14 redis_assistant.py

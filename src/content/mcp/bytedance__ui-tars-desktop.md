@@ -19,7 +19,7 @@ body_tr: |-
   
   ## Giriş
   
-  English | [简体中文](./README.zh-CN.md)
+  English | [简体中文](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/README.zh-CN.md)
   
   [![](https://trendshift.io/api/badge/repositories/13584)](https://trendshift.io/repositories/13584)
   
@@ -88,8 +88,8 @@ body_tr: |-
   - **\[2025-06-25\]** Agent TARS Beta ve Agent TARS CLI yayınladık - [Agent TARS Beta'ya Giriş](https://agent-tars.com/blog/2025-06-25-introducing-agent-tars-beta.html), insan benzeri görev tamamlamaya daha yakın bir çalışma biçimini keşfetmeyi amaçlayan multimodal AI agent'i, zengin multimodal yetenekler (GUI Agent, Vision gibi) ve çeşitli gerçek dünya araçlarıyla kusursuz entegrasyon aracılığıyla sunulmaktadır.
   - **\[2025-06-12\]** - 🎁 UI-TARS Desktop v0.2.0 sürümünün yayınlanmasından dolayı büyük heyecan duyuyoruz! Bu güncelleme iki güçlü yeni özellik getirmektedir: **Uzak Bilgisayar Operatörü** ve **Uzak Tarayıcı Operatörü**—tamamen ücretsiz. Yapılandırma gerekmez: herhangi bir bilgisayarı veya tarayıcıyı uzaktan kontrol etmek için tıklamanız yeterlidir ve benzersiz bir rahatlık ve zeka seviyesi deneyimleyin.
   - **\[2025-04-17\]** - 🎉 Yeniden tasarlanmış Agent UI'ye sahip yeni UI-TARS Desktop uygulaması v0.1.0 sürümünün yayınlanmasından dolayı büyük heyecan duyuyoruz. Uygulama, bilgisayar deneyimini geliştirmekte, yeni tarayıcı işletim özelliklerini tanıtmakta ve geliştirilmiş performans ve hassas kontrol için [gelişmiş UI-TARS-1.5 modelini](https://seed-tars.com/1.5) desteklemektedir.
-  - **\[2025-02-20\]** - 📦 [UI TARS SDK](./docs/sdk.md) tanıtıldı, GUI automation agent'leri oluşturmak için güçlü bir platformlar arası araç seti sunmaktadır.
-  - **\[2025-01-23\]** - 🚀 Çin versiyonunda **[Bulut Dağıtımı](./docs/deployment.md#cloud-deployment)** bölümünü güncelledik: [GUI模型部署教程](https://bytedance.sg.larkoffice.com/docx/TCcudYwyIox5vyxiSDLlgIsTgWf#U94rdCxzBoJMLex38NPlHL21gNb) ModelScope platformı ile ilgili yeni bilgiler ile. Artık dağıtım için ModelScope platformunu kullanabilirsiniz.
+  - **\[2025-02-20\]** - 📦 [UI TARS SDK](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/docs/sdk.md) tanıtıldı, GUI automation agent'leri oluşturmak için güçlü bir platformlar arası araç seti sunmaktadır.
+  - **\[2025-01-23\]** - 🚀 Çin versiyonunda **[Bulut Dağıtımı](https://github.com/bytedance/UI-TARS-desktop/tree/HEAD/docs/deployment.md#cloud-deployment)** bölümünü güncelledik: [GUI模型部署教程](https://bytedance.sg.larkoffice.com/docx/TCcudYwyIox5vyxiSDLlgIsTgWf#U94rdCxzBoJMLex38NPlHL21gNb) ModelScope platformı ile ilgili yeni bilgiler ile. Artık dağıtım için ModelScope platformunu kullanabilirsiniz.
   
   <br>
   
@@ -286,11 +286,11 @@ body_tr: |-
   
   ### Hızlı Başlangıç
   
-  Bkz. [Hızlı Başlangıç](./docs/quick-start.md)
+  Bkz. [Hızlı Başlangıç](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/docs/quick-start.md)
   
   ## Katkı Sağlama
   
-  Bkz. [CONTRIBUTING.md](./CONTRIBUTING.md).
+  Bkz. [CONTRIBUTING.md](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/CONTRIBUTING.md).
   
   ## Lisans
   
@@ -318,7 +318,7 @@ body_tr: |-
 
 ## Introduction
 
-English | [简体中文](./README.zh-CN.md)
+English | [简体中文](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/README.zh-CN.md)
 
 [![](https://trendshift.io/api/badge/repositories/13584)](https://trendshift.io/repositories/13584)
 
@@ -387,8 +387,8 @@ English | [简体中文](./README.zh-CN.md)
 - **\[2025-06-25\]** We released an Agent TARS Beta and Agent TARS CLI - [Introducing Agent TARS Beta](https://agent-tars.com/blog/2025-06-25-introducing-agent-tars-beta.html), a multimodal AI agent that aims to explore a work form that is closer to human-like task completion through rich multimodal capabilities (such as GUI Agent, Vision) and seamless integration with various real-world tools.
 - **\[2025-06-12\]** - 🎁 We are thrilled to announce the release of UI-TARS Desktop v0.2.0! This update introduces two powerful new features: **Remote Computer Operator** and **Remote Browser Operator**—both completely free. No configuration required: simply click to remotely control any computer or browser, and experience a new level of convenience and intelligence.
 - **\[2025-04-17\]** - 🎉 We're thrilled to announce the release of new UI-TARS Desktop application v0.1.0, featuring a redesigned Agent UI. The application enhances the computer using experience, introduces new browser operation features, and supports [the advanced UI-TARS-1.5 model](https://seed-tars.com/1.5) for improved performance and precise control.
-- **\[2025-02-20\]** - 📦 Introduced [UI TARS SDK](./docs/sdk.md), is a powerful cross-platform toolkit for building GUI automation agents.
-- **\[2025-01-23\]** - 🚀 We updated the **[Cloud Deployment](./docs/deployment.md#cloud-deployment)** section in the 中文版: [GUI模型部署教程](https://bytedance.sg.larkoffice.com/docx/TCcudYwyIox5vyxiSDLlgIsTgWf#U94rdCxzBoJMLex38NPlHL21gNb) with new information related to the ModelScope platform. You can now use the ModelScope platform for deployment.
+- **\[2025-02-20\]** - 📦 Introduced [UI TARS SDK](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/docs/sdk.md), is a powerful cross-platform toolkit for building GUI automation agents.
+- **\[2025-01-23\]** - 🚀 We updated the **[Cloud Deployment](https://github.com/bytedance/UI-TARS-desktop/tree/HEAD/docs/deployment.md#cloud-deployment)** section in the 中文版: [GUI模型部署教程](https://bytedance.sg.larkoffice.com/docx/TCcudYwyIox5vyxiSDLlgIsTgWf#U94rdCxzBoJMLex38NPlHL21gNb) with new information related to the ModelScope platform. You can now use the ModelScope platform for deployment.
 
 <br>
 
@@ -587,11 +587,11 @@ UI-TARS Desktop is a native GUI agent for your local computer, driven by [UI-TAR
 
 ### Quick Start
 
-See [Quick Start](./docs/quick-start.md)
+See [Quick Start](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/docs/quick-start.md)
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/bytedance/UI-TARS-desktop/blob/HEAD/CONTRIBUTING.md).
 
 ## License
 

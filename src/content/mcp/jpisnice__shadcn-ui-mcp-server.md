@@ -51,7 +51,7 @@ body_tr: |-
   npx @jpisnice/shadcn-ui-mcp-server --ui-library base
   ```
   
-  **🎯 GitHub tokeninizi 2 dakikada alın**: [docs/getting-started/github-token.md](docs/getting-started/github-token.md)
+  **🎯 GitHub tokeninizi 2 dakikada alın**: [docs/getting-started/github-token.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/getting-started/github-token.md)
   
   ## 📦 Tek Tıkla Kurulum (Claude Desktop)
   
@@ -112,13 +112,13 @@ body_tr: |-
   
   | Bölüm | Açıklama |
   |-------|----------|
-  | [🚀 Başlangıç](docs/getting-started/) | Kurulum, ayarlama ve ilk adımlar |
-  | [⚙️ Yapılandırma](docs/configuration/) | Framework seçimi, tokenler ve seçenekler |
-  | [🔌 Entegrasyon](docs/integration/) | Editör ve araç entegrasyonları |
-  | [📖 Kullanım](docs/usage/) | Örnekler, öğreticiler ve kullanım senaryoları |
-  | [🎨 Frameworkler](docs/frameworks/) | Framework özel dokümantasyon |
-  | [🐛 Sorun Giderme](docs/troubleshooting/) | Yaygın sorunlar ve çözümler |
-  | [🔧 API Referansı](docs/api/) | Araç referansı ve teknik detaylar |
+  | [🚀 Başlangıç](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/getting-started/) | Kurulum, ayarlama ve ilk adımlar |
+  | [⚙️ Yapılandırma](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/configuration/) | Framework seçimi, tokenler ve seçenekler |
+  | [🔌 Entegrasyon](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/integration/) | Editör ve araç entegrasyonları |
+  | [📖 Kullanım](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/usage/) | Örnekler, öğreticiler ve kullanım senaryoları |
+  | [🎨 Frameworkler](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/frameworks/) | Framework özel dokümantasyon |
+  | [🐛 Sorun Giderme](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/troubleshooting/) | Yaygın sorunlar ve çözümler |
+  | [🔧 API Referansı](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/api/) | Araç referansı ve teknik detaylar |
   
   ## 🎨 Framework Desteği
   
@@ -179,10 +179,10 @@ body_tr: |-
   
   ### 3. Editörünüzle Entegre Edin
   - **Claude Code**: Aşağıdaki [Claude Code Entegrasyonu](#-claude-code-entegrasyonu) bölümüne bakın
-  - **VS Code**: [docs/integration/vscode.md](docs/integration/vscode.md)
-  - **Cursor**: [docs/integration/cursor.md](docs/integration/cursor.md)
-  - **Claude Desktop**: [docs/integration/claude-desktop.md](docs/integration/claude-desktop.md)
-  - **Continue.dev**: [docs/integration/continue.md](docs/integration/continue.md)
+  - **VS Code**: [docs/integration/vscode.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/vscode.md)
+  - **Cursor**: [docs/integration/cursor.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/cursor.md)
+  - **Claude Desktop**: [docs/integration/claude-desktop.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/claude-desktop.md)
+  - **Continue.dev**: [docs/integration/continue.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/continue.md)
   
   ## 💻 Claude Code Entegrasyonu
   
@@ -207,7 +207,7 @@ body_tr: |-
   
   ### Framework Özel Komutlar
   
-  Framework özel komutlar (React, Svelte, Vue, React Native) için [Claude Code Entegrasyon Rehberi](docs/integration/claude-code.md) sayfasına bakın.
+  Framework özel komutlar (React, Svelte, Vue, React Native) için [Claude Code Entegrasyon Rehberi](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/claude-code.md) sayfasına bakın.
   
   > **Referans:** [Claude Code MCP Dokümantasyonu](https://code.claude.com/docs/en/mcp)
   
@@ -267,23 +267,23 @@ body_tr: |-
   
   Proje, [MCPB specifikasyonuna](https://github.com/modelcontextprotocol/mcpb) uyan bir `manifest.json` içerir. `.mcpb` dosyası, sunucuyu, bağımlılıkları ve yapılandırmayı içeren bir ZIP arşividir.
   
-  Ayrıntılı paketleme talimatları için [CONTRIBUTING.md](CONTRIBUTING.md) sayfasına bakın.
+  Ayrıntılı paketleme talimatları için [CONTRIBUTING.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/CONTRIBUTING.md) sayfasına bakın.
   
   > **Referans:** [MCPB ile Desktop Extensions Oluşturma](https://support.claude.com/en/articles/12922929-building-desktop-extensions-with-mcpb)
   
   ## 🔗 Hızlı Bağlantılar
   
-  - 📖 [Tam Dokümantasyon](docs/)
-  - 🚀 [Başlangıç Rehberi](docs/getting-started/)
-  - 🌐 [SSE Transport ve Docker Rehberi](SSE_IMPLEMENTATION.md)
-  - 🎨 [Framework Karşılaştırması](docs/frameworks/)
-  - 🔧 [API Referansı](docs/api/)
-  - 🐛 [Sorun Giderme](docs/troubleshooting/)
+  - 📖 [Tam Dokümantasyon](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/)
+  - 🚀 [Başlangıç Rehberi](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/getting-started/)
+  - 🌐 [SSE Transport ve Docker Rehberi](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/SSE_IMPLEMENTATION.md)
+  - 🎨 [Framework Karşılaştırması](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/frameworks/)
+  - 🔧 [API Referansı](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/api/)
+  - 🐛 [Sorun Giderme](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/troubleshooting/)
   - 💬 [İssues ve Tartışmalar](https://github.com/Jpisnice/shadcn-ui-mcp-server)
   
   ## 📄 Lisans
   
-  MIT Lisansı - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT Lisansı - detaylar için [LICENSE](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## 🙏 Teşekkürler
   
@@ -341,7 +341,7 @@ npx @jpisnice/shadcn-ui-mcp-server --framework react-native
 npx @jpisnice/shadcn-ui-mcp-server --ui-library base
 ```
 
-**🎯 Get your GitHub token in 2 minutes**: [docs/getting-started/github-token.md](docs/getting-started/github-token.md)
+**🎯 Get your GitHub token in 2 minutes**: [docs/getting-started/github-token.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/getting-started/github-token.md)
 
 ## 📦 One-Click Installation (Claude Desktop)
 
@@ -402,13 +402,13 @@ curl http://localhost:7423/health
 
 | Section | Description |
 |---------|-------------|
-| [🚀 Getting Started](docs/getting-started/) | Installation, setup, and first steps |
-| [⚙️ Configuration](docs/configuration/) | Framework selection, tokens, and options |
-| [🔌 Integration](docs/integration/) | Editor and tool integrations |
-| [📖 Usage](docs/usage/) | Examples, tutorials, and use cases |
-| [🎨 Frameworks](docs/frameworks/) | Framework-specific documentation |
-| [🐛 Troubleshooting](docs/troubleshooting/) | Common issues and solutions |
-| [🔧 API Reference](docs/api/) | Tool reference and technical details |
+| [🚀 Getting Started](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/getting-started/) | Installation, setup, and first steps |
+| [⚙️ Configuration](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/configuration/) | Framework selection, tokens, and options |
+| [🔌 Integration](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/integration/) | Editor and tool integrations |
+| [📖 Usage](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/usage/) | Examples, tutorials, and use cases |
+| [🎨 Frameworks](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/frameworks/) | Framework-specific documentation |
+| [🐛 Troubleshooting](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/troubleshooting/) | Common issues and solutions |
+| [🔧 API Reference](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/api/) | Tool reference and technical details |
 
 ## 🎨 Framework Support
 
@@ -469,10 +469,10 @@ npx @jpisnice/shadcn-ui-mcp-server --framework react-native
 
 ### 3. Integrate with Your Editor
 - **Claude Code**: See [Claude Code Integration](#-claude-code-integration) below
-- **VS Code**: [docs/integration/vscode.md](docs/integration/vscode.md)
-- **Cursor**: [docs/integration/cursor.md](docs/integration/cursor.md)
-- **Claude Desktop**: [docs/integration/claude-desktop.md](docs/integration/claude-desktop.md)
-- **Continue.dev**: [docs/integration/continue.md](docs/integration/continue.md)
+- **VS Code**: [docs/integration/vscode.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/vscode.md)
+- **Cursor**: [docs/integration/cursor.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/cursor.md)
+- **Claude Desktop**: [docs/integration/claude-desktop.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/claude-desktop.md)
+- **Continue.dev**: [docs/integration/continue.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/continue.md)
 
 ## 💻 Claude Code Integration
 
@@ -497,7 +497,7 @@ claude mcp add --scope user --transport sse shadcn-mcp-server http://localhost:7
 
 ### Framework-Specific Commands
 
-See [Claude Code Integration Guide](docs/integration/claude-code.md) for framework-specific commands (React, Svelte, Vue, React Native).
+See [Claude Code Integration Guide](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/docs/integration/claude-code.md) for framework-specific commands (React, Svelte, Vue, React Native).
 
 > **Reference:** [Claude Code MCP Documentation](https://code.claude.com/docs/en/mcp)
 
@@ -557,23 +557,23 @@ node build/index.js --framework svelte
 
 The project includes a `manifest.json` following the [MCPB specification](https://github.com/modelcontextprotocol/mcpb). The `.mcpb` file is a ZIP archive containing the server, dependencies, and configuration.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed packaging instructions.
+See [CONTRIBUTING.md](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/CONTRIBUTING.md) for detailed packaging instructions.
 
 > **Reference:** [Building Desktop Extensions with MCPB](https://support.claude.com/en/articles/12922929-building-desktop-extensions-with-mcpb)
 
 ## 🔗 Quick Links
 
-- 📖 [Full Documentation](docs/)
-- 🚀 [Getting Started Guide](docs/getting-started/)
-- 🌐 [SSE Transport & Docker Guide](SSE_IMPLEMENTATION.md)
-- 🎨 [Framework Comparison](docs/frameworks/)
-- 🔧 [API Reference](docs/api/)
-- 🐛 [Troubleshooting](docs/troubleshooting/)
+- 📖 [Full Documentation](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/)
+- 🚀 [Getting Started Guide](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/getting-started/)
+- 🌐 [SSE Transport & Docker Guide](https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/HEAD/SSE_IMPLEMENTATION.md)
+- 🎨 [Framework Comparison](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/frameworks/)
+- 🔧 [API Reference](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/api/)
+- 🐛 [Troubleshooting](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/docs/troubleshooting/)
 - 💬 [Issues & Discussions](https://github.com/Jpisnice/shadcn-ui-mcp-server)
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](https://github.com/Jpisnice/shadcn-ui-mcp-server/tree/HEAD/LICENSE) for details.
 
 ## 🙏 Acknowledgments
 

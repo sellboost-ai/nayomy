@@ -36,7 +36,7 @@ body_tr: |-
   - Bildirimleri, abonelikleri, oturumları, audit'leri ve entegrasyonları MCP'den çıkmadan okuyabilirsiniz
   - Ağır planlama oturumlarını çalıştırmadan önce rate-limit'i ve sunucu durumunu inceleyebilirsiniz
   
-  Tam liste için [`TOOLS.md`](./TOOLS.md) dosyasına bakınız.
+  Tam liste için [`TOOLS.md`](https://github.com/tacticlaunch/mcp-linear/blob/HEAD/TOOLS.md) dosyasına bakınız.
   
   ### MCP-native kaynaklar ve istemler
   
@@ -151,7 +151,7 @@ body_tr: |-
   
   ## Geliştirme
   
-  Yerel geliştirme ayrıntıları için [`DEVELOPMENT.md`](./DEVELOPMENT.md) dosyasına bakın.
+  Yerel geliştirme ayrıntıları için [`DEVELOPMENT.md`](https://github.com/tacticlaunch/mcp-linear/blob/HEAD/DEVELOPMENT.md) dosyasına bakın.
   
   ## Linkler
   
@@ -159,7 +159,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır — ayrıntılar için [`LICENSE`](./LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır — ayrıntılar için [`LICENSE`](https://github.com/tacticlaunch/mcp-linear/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 <p align="center">
@@ -189,7 +189,7 @@ MCP Linear bridges AI assistants and Linear by implementing the MCP protocol. Wi
 - Read notifications, subscriptions, sessions, audits, and integrations without leaving MCP
 - Inspect rate-limit and server health before running heavy planning sessions
 
-See [`TOOLS.md`](./TOOLS.md) for the full inventory.
+See [`TOOLS.md`](https://github.com/tacticlaunch/mcp-linear/blob/HEAD/TOOLS.md) for the full inventory.
 
 ### MCP-native resources and prompts
 
@@ -309,7 +309,7 @@ npm run build
 
 ## Development
 
-See [`DEVELOPMENT.md`](./DEVELOPMENT.md) for local development details.
+See [`DEVELOPMENT.md`](https://github.com/tacticlaunch/mcp-linear/blob/HEAD/DEVELOPMENT.md) for local development details.
 
 ## Links
 
@@ -317,4 +317,4 @@ See [`DEVELOPMENT.md`](./DEVELOPMENT.md) for local development details.
 
 ## License
 
-This project is licensed under the MIT License — see the [`LICENSE`](./LICENSE) file for details.
+This project is licensed under the MIT License — see the [`LICENSE`](https://github.com/tacticlaunch/mcp-linear/tree/HEAD/LICENSE) file for details.

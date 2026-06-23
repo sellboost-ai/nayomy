@@ -62,6 +62,28 @@ function extractTranslations(filePath) {
   }
 }
 
+function rewriteLinks(md, repo) {
+  const ghBase = `https://github.com/${repo}`;
+
+  function toGhUrl(href) {
+    const clean = href.replace(/^(\.\.\/|\.\/)+/, '');
+    const isDir = /\/$/.test(clean) || !/\.[a-zA-Z0-9]{1,10}$/.test(clean);
+    return `${ghBase}/${isDir ? 'tree' : 'blob'}/HEAD/${clean}`;
+  }
+
+  return md
+    // Text links [text](href) only — exclude image links ![]() via negative lookbehind
+    .replace(
+      /(?<!!)\[([^\]]*)\]\((?!https?:\/\/|\/|#|mailto:)([^\s)"]+)([^)]*)\)/g,
+      (_, text, href, rest) => `[${text}](${toGhUrl(href)}${rest})`
+    )
+    // HTML href attributes with relative paths
+    .replace(
+      /href=(['"])(?!https?:\/\/|\/|#|mailto:)([^'"]+)\1/g,
+      (_, q, href) => `href=${q}${toGhUrl(href)}${q}`
+    );
+}
+
 // Serialize a multi-line string as a YAML literal block scalar.
 function yamlLiteralBlock(value) {
   if (!value) return '';
@@ -144,7 +166,7 @@ for (const skill of skills) {
   // Merge in existing translations if available
   const preserved = existingTranslations[slug] || {};
   const description_tr = skill.description_tr || preserved.description_tr || '';
-  const body_tr = preserved.body_tr || '';
+  const body_tr = preserved.body_tr ? rewriteLinks(preserved.body_tr, skill.repo) : '';
 
   if (preserved.description_tr || preserved.body_tr) {
     restored++;
@@ -181,7 +203,7 @@ for (const skill of skills) {
   lines.push(
     '---',
     '',
-    (skill.body ?? '').trim(),
+    rewriteLinks((skill.body ?? '').trim(), skill.repo),
     '',
   );
 

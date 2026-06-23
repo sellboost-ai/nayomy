@@ -472,20 +472,20 @@ body_tr: |-
   
   ## İlişkili Acenteler
   
-  - [cs-product-manager](cs-product-manager.md) - Özellik düzeyindeki yürütüm, RICE önceliklendir, PRD geliştir
-  - [cs-agile-product-owner](cs-agile-product-owner.md) - Sprint düzeyindeki planlama ve backlog yönetimi
-  - [cs-ux-researcher](cs-ux-researcher.md) - Stratejik varsayımları doğrula kullanıcı araştırması
-  - [cs-ceo-advisor](../c-level/cs-ceo-advisor.md) - Şirket düzeyindeki stratejik hizalama
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Özellik düzeyindeki yürütüm, RICE önceliklendir, PRD geliştir
+  - [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-agile-product-owner.md) - Sprint düzeyindeki planlama ve backlog yönetimi
+  - [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - Stratejik varsayımları doğrula kullanıcı araştırması
+  - [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-ceo-advisor.md) - Şirket düzeyindeki stratejik hizalama
   - Kıdemli PM Becerisi - Portföy bağlamı (bkz. `../../project-management/skills/senior-pm/`)
   
   ## Referanslar
   
-  - **Ana Beceri:** [../../product-team/skills/product-strategist/SKILL.md](../../product-team/skills/product-strategist/SKILL.md)
-  - **Rekabetçi Yıkılma Becerisi:** [../../product-team/skills/competitive-teardown/SKILL.md](../../product-team/skills/competitive-teardown/SKILL.md)
-  - **OKR Çerçevesi:** [../../product-team/skills/product-strategist/references/okr_framework.md](../../product-team/skills/product-strategist/references/okr_framework.md)
-  - **Strateji Türleri:** [../../product-team/skills/product-strategist/references/strategy_types.md](../../product-team/skills/product-strategist/references/strategy_types.md)
-  - **Ürün Etki Alanı Rehberi:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-  - **Acente Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
+  - **Ana Beceri:** [../../product-team/skills/product-strategist/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-strategist/SKILL.md)
+  - **Rekabetçi Yıkılma Becerisi:** [../../product-team/skills/competitive-teardown/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/competitive-teardown/SKILL.md)
+  - **OKR Çerçevesi:** [../../product-team/skills/product-strategist/references/okr_framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-strategist/references/okr_framework.md)
+  - **Strateji Türleri:** [../../product-team/skills/product-strategist/references/strategy_types.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-strategist/references/strategy_types.md)
+  - **Ürün Etki Alanı Rehberi:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+  - **Acente Geliştirme Rehberi:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
   
   ---
   
@@ -952,20 +952,20 @@ python ../../product-team/skills/product-strategist/scripts/okr_cascade_generato
 
 ## Related Agents
 
-- [cs-product-manager](cs-product-manager.md) - Feature-level execution, RICE prioritization, PRD development
-- [cs-agile-product-owner](cs-agile-product-owner.md) - Sprint-level planning and backlog management
-- [cs-ux-researcher](cs-ux-researcher.md) - User research to validate strategic assumptions
-- [cs-ceo-advisor](../c-level/cs-ceo-advisor.md) - Company-level strategic alignment
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Feature-level execution, RICE prioritization, PRD development
+- [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-agile-product-owner.md) - Sprint-level planning and backlog management
+- [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - User research to validate strategic assumptions
+- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-ceo-advisor.md) - Company-level strategic alignment
 - Senior PM Skill - Portfolio context (see `../../project-management/skills/senior-pm/`)
 
 ## References
 
-- **Primary Skill:** [../../product-team/skills/product-strategist/SKILL.md](../../product-team/skills/product-strategist/SKILL.md)
-- **Competitive Teardown Skill:** [../../product-team/skills/competitive-teardown/SKILL.md](../../product-team/skills/competitive-teardown/SKILL.md)
-- **OKR Framework:** [../../product-team/skills/product-strategist/references/okr_framework.md](../../product-team/skills/product-strategist/references/okr_framework.md)
-- **Strategy Types:** [../../product-team/skills/product-strategist/references/strategy_types.md](../../product-team/skills/product-strategist/references/strategy_types.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Primary Skill:** [../../product-team/skills/product-strategist/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-strategist/SKILL.md)
+- **Competitive Teardown Skill:** [../../product-team/skills/competitive-teardown/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/competitive-teardown/SKILL.md)
+- **OKR Framework:** [../../product-team/skills/product-strategist/references/okr_framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-strategist/references/okr_framework.md)
+- **Strategy Types:** [../../product-team/skills/product-strategist/references/strategy_types.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-strategist/references/strategy_types.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

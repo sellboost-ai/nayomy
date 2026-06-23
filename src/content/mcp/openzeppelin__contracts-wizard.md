@@ -32,21 +32,21 @@ body_tr: |-
   
   ## CLI
   
-  Komut satırından contract oluşturun. [CLI paketi](packages/cli/README.md) bölümüne bakın.
+  Komut satırından contract oluşturun. [CLI paketi](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/cli/README.md) bölümüne bakın.
   
   ## MCP Sunucuları
   
-  AI ajanlarının contract oluşturmasına izin verin. Yerel kurulum için [MCP paketi](packages/mcp/README.md) bölümüne veya barındırılan sürüm için [OpenZeppelin MCP Sunucuları](https://mcp.openzeppelin.com) bölümüne bakın.
+  AI ajanlarının contract oluşturmasına izin verin. Yerel kurulum için [MCP paketi](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/mcp/README.md) bölümüne veya barındırılan sürüm için [OpenZeppelin MCP Sunucuları](https://mcp.openzeppelin.com) bölümüne bakın.
   
   ## TypeScript API
   
   Kendi uygulamalarınızdan programlı olarak contract oluşturun.
   
   Her akıllı contract dili için API belgelerine bakın:
-  - [Solidity](packages/core/solidity/README.md)
-  - [Cairo](packages/core/cairo/README.md)
-  - [Stellar](packages/core/stellar/README.md)
-  - [Stylus](packages/core/stylus/README.md)
+  - [Solidity](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/solidity/README.md)
+  - [Cairo](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/cairo/README.md)
+  - [Stellar](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/stellar/README.md)
+  - [Stylus](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/stylus/README.md)
   
   ## Gömme
   
@@ -74,11 +74,11 @@ body_tr: |-
   
   Başlamak için iyi bir yer arıyorsanız, [burada](https://github.com/openzeppelin/contracts-wizard/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22) bir good first issue bulun veya bir bug raporu ya da özellik isteği için [bir issue açın](https://github.com/OpenZeppelin/contracts-wizard/issues/new).
   
-  Daha fazla ayrıntı için [Katkı Sağlama](CONTRIBUTING.md) kılavuzumuza bakın.
+  Daha fazla ayrıntı için [Katkı Sağlama](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/CONTRIBUTING.md) kılavuzumuza bakın.
   
   ## Lisans
   
-  Bu proje GNU Affero General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje GNU Affero General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/OpenZeppelin/contracts-wizard/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # [OpenZeppelin Contracts Wizard](https://wizard.openzeppelin.com)
@@ -102,21 +102,21 @@ Use the Contracts Wizard at https://wizard.openzeppelin.com
 
 ## CLI
 
-Generate contracts from the command line. See the [CLI package](packages/cli/README.md).
+Generate contracts from the command line. See the [CLI package](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/cli/README.md).
 
 ## MCP Servers
 
-Allow AI agents to generate contracts. See the [MCP package](packages/mcp/README.md) for local installation, or [OpenZeppelin MCP Servers](https://mcp.openzeppelin.com) for a hosted version.
+Allow AI agents to generate contracts. See the [MCP package](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/mcp/README.md) for local installation, or [OpenZeppelin MCP Servers](https://mcp.openzeppelin.com) for a hosted version.
 
 ## TypeScript API
 
 Generate contracts programmatically from your own applications.
 
 View the API documentation for each smart contract language:
-- [Solidity](packages/core/solidity/README.md)
-- [Cairo](packages/core/cairo/README.md)
-- [Stellar](packages/core/stellar/README.md)
-- [Stylus](packages/core/stylus/README.md)
+- [Solidity](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/solidity/README.md)
+- [Cairo](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/cairo/README.md)
+- [Stellar](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/stellar/README.md)
+- [Stylus](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/packages/core/stylus/README.md)
 
 ## Embedding
 
@@ -144,8 +144,8 @@ We welcome contributions from the community! Here's how you can get involved:
 
 If you are looking for a good place to start, find a good first issue [here](https://github.com/openzeppelin/contracts-wizard/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22), or [open an issue](https://github.com/OpenZeppelin/contracts-wizard/issues/new) for a bug report or feature request.
 
-You can find more details in our [Contributing](CONTRIBUTING.md) guide.
+You can find more details in our [Contributing](https://github.com/OpenZeppelin/contracts-wizard/blob/HEAD/CONTRIBUTING.md) guide.
 
 ## License
 
-This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](https://github.com/OpenZeppelin/contracts-wizard/tree/HEAD/LICENSE) file for details.

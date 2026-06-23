@@ -16,9 +16,9 @@ body_tr: |-
   [SerpApi](https://serpapi.com) ile entegre olan, kapsamlı arama motoru sonuçları ve veri çıkarımı sağlayan bir Model Context Protocol (MCP) sunucu uygulaması.
   
   [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
-  [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+  [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/serpapi/serpapi-mcp/tree/HEAD/LICENSE)
   [![VS Code'de Yükle](https://img.shields.io/badge/Install%20in-VS%20Code-blue?logo=visualstudiocode)](https://insiders.vscode.dev/redirect/mcp/install?name=serpapi-mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.serpapi.com%2FYOUR_SERPAPI_API_KEY%2Fmcp%22%7D)
-  [![Cursor'de Yükle](https://img.shields.io/badge/Install%20in-Cursor-blue?logo=cursor)](cursor://anysphere.cursor-deeplink/mcp/install?name=serpapi-mcp&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLnNlcnBhcGkuY29tL1lPVVJfU0VSUEFQSV9BUElfS0VZL21jcCJ9)
+  [![Cursor'de Yükle](https://img.shields.io/badge/Install%20in-Cursor-blue?logo=cursor)](https://github.com/serpapi/serpapi-mcp/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=serpapi-mcp&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLnNlcnBhcGkuY29tL1lPVVJfU0VSUEFQSV9BUElfS0VZL21jcCJ9)
   
   ## Özellikler
   
@@ -146,7 +146,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT Lisansı - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT Lisansı - ayrıntılar için [LICENSE](https://github.com/serpapi/serpapi-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 #  SerpApi MCP Server
@@ -154,9 +154,9 @@ body_tr: |-
 A Model Context Protocol (MCP) server implementation that integrates with [SerpApi](https://serpapi.com) for comprehensive search engine results and data extraction.
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/serpapi/serpapi-mcp/tree/HEAD/LICENSE)
 [![Install in VS Code](https://img.shields.io/badge/Install%20in-VS%20Code-blue?logo=visualstudiocode)](https://insiders.vscode.dev/redirect/mcp/install?name=serpapi-mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.serpapi.com%2FYOUR_SERPAPI_API_KEY%2Fmcp%22%7D)
-[![Install in Cursor](https://img.shields.io/badge/Install%20in-Cursor-blue?logo=cursor)](cursor://anysphere.cursor-deeplink/mcp/install?name=serpapi-mcp&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLnNlcnBhcGkuY29tL1lPVVJfU0VSUEFQSV9BUElfS0VZL21jcCJ9)
+[![Install in Cursor](https://img.shields.io/badge/Install%20in-Cursor-blue?logo=cursor)](https://github.com/serpapi/serpapi-mcp/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=serpapi-mcp&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLnNlcnBhcGkuY29tL1lPVVJfU0VSUEFQSV9BUElfS0VZL21jcCJ9)
 
 ## Features
 
@@ -300,4 +300,4 @@ npx @modelcontextprotocol/inspector
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](https://github.com/serpapi/serpapi-mcp/tree/HEAD/LICENSE) file for details.

@@ -16,7 +16,7 @@ body_tr: |-
   
   iOS simülatörleriyle etkileşim kurmak için bir Model Context Protocol (MCP) sunucusu. Bu sunucu, iOS simülatörleri hakkında bilgi alarak, UI etkileşimlerini kontrol ederek ve UI öğelerini inceleyerek simülatörlerle etkileşim kurmanızı sağlar.
   
-  > **Güvenlik Uyarısı**: 1.3.3'ten önceki sürümlerdeki komut enjeksiyonu açıkları giderilmiştir. Lütfen v1.3.3 veya daha yeni sürüme güncelleyin. Ayrıntılar için [SECURITY.md](SECURITY.md) dosyasına bakın.
+  > **Güvenlik Uyarısı**: 1.3.3'ten önceki sürümlerdeki komut enjeksiyonu açıkları giderilmiştir. Lütfen v1.3.3 veya daha yeni sürüme güncelleyin. Ayrıntılar için [SECURITY.md](https://github.com/joshuayoes/ios-simulator-mcp/blob/HEAD/SECURITY.md) dosyasına bakın.
   
   https://github.com/user-attachments/assets/453ebe7b-cc93-4ac2-b08d-0f8ac8339ad3
   
@@ -519,7 +519,7 @@ body_tr: |-
 
 A Model Context Protocol (MCP) server for interacting with iOS simulators. This server allows you to interact with iOS simulators by getting information about them, controlling UI interactions, and inspecting UI elements.
 
-> **Security Notice**: Command injection vulnerabilities present in versions < 1.3.3 have been fixed. Please update to v1.3.3 or later. See [SECURITY.md](SECURITY.md) for details.
+> **Security Notice**: Command injection vulnerabilities present in versions < 1.3.3 have been fixed. Please update to v1.3.3 or later. See [SECURITY.md](https://github.com/joshuayoes/ios-simulator-mcp/blob/HEAD/SECURITY.md) for details.
 
 https://github.com/user-attachments/assets/453ebe7b-cc93-4ac2-b08d-0f8ac8339ad3
 

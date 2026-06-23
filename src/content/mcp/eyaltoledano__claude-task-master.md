@@ -34,7 +34,7 @@ body_tr: |-
     <a href="https://github.com/eyaltoledano/claude-task-master/actions/workflows/ci.yml"></a>
     <a href="https://github.com/eyaltoledano/claude-task-master/stargazers"></a>
     <a href="https://badge.fury.io/js/task-master-ai"></a>
-    <a href="LICENSE"></a>
+    <a href="https://github.com/eyaltoledano/claude-task-master/tree/HEAD/LICENSE"></a>
   </p>
   
   <p align="center">
@@ -71,7 +71,7 @@ body_tr: |-
   - [Takım İşbirliği](https://tryhamster.com/docs/taskmaster/team/overview)
   - [En İyi Uygulamalar](https://tryhamster.com/docs/taskmaster/best-practices/index)
   - [SSS](https://tryhamster.com/docs/taskmaster/getting-started/faq)
-  - [Değişim Günlüğü](CHANGELOG.md)
+  - [Değişim Günlüğü](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/CHANGELOG.md)
   
   ### Hamster'dan Daha Fazlası
   
@@ -212,7 +212,7 @@ body_tr: |-
   Ana modeli claude-code/sonnet olarak değiştir
   ```
   
-  [Kullanılabilir modellerin tablosu](docs/models.md) | [Claude Code kurulumu](docs/examples/claude-code-usage.md)
+  [Kullanılabilir modellerin tablosu](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/models.md) | [Claude Code kurulumu](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/examples/claude-code-usage.md)
   
   #### 4. Görev Ustasını İnitleyin
   
@@ -248,7 +248,7 @@ body_tr: |-
   - **Taze bilgi araştır**: `Node.js ile JWT kimlik doğrulamasını uygulamak için en son en iyi uygulamaları araştır`
   - **İçeriğe dayalı araştır**: `Mevcut API uygulamamız için src/api.js'deki React Query v5 geçiş stratejilerini araştır`
   
-  [Görev Ustasını sohbette nasıl kullanacağınız hakkında daha fazla örnek](docs/examples.md)
+  [Görev Ustasını sohbette nasıl kullanacağınız hakkında daha fazla örnek](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/examples.md)
   
   ### Seçenek 2: Komut Satırını Kullanma
   
@@ -385,7 +385,7 @@ body_tr: |-
   - **Gereksinimler**: Claude Code CLI yüklü
   - **Faydalar**: API anahtarı gerekmez, yerel Claude örneğinizi kullanır
   
-  [Claude Code kurulumu hakkında daha fazla bilgi edinin](docs/examples/claude-code-usage.md)
+  [Claude Code kurulumu hakkında daha fazla bilgi edinin](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/examples/claude-code-usage.md)
   
   ## Sorun Giderme
   
@@ -438,7 +438,7 @@ body_tr: |-
   - Görev Ustasını barındırılan hizmet olarak sunun
   - Görev Ustasına dayalı rakip ürünler oluşturun
   
-  Tam lisans metni için [LICENSE](LICENSE) dosyasına ve daha fazla bilgi için [lisanslama detayları](docs/licensing.md) sayfasına bakın.
+  Tam lisans metni için [LICENSE](https://github.com/eyaltoledano/claude-task-master/tree/HEAD/LICENSE) dosyasına ve daha fazla bilgi için [lisanslama detayları](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/licensing.md) sayfasına bakın.
 ---
 
 <a name="readme-top"></a>
@@ -464,7 +464,7 @@ body_tr: |-
   <a href="https://github.com/eyaltoledano/claude-task-master/actions/workflows/ci.yml"></a>
   <a href="https://github.com/eyaltoledano/claude-task-master/stargazers"></a>
   <a href="https://badge.fury.io/js/task-master-ai"></a>
-  <a href="LICENSE"></a>
+  <a href="https://github.com/eyaltoledano/claude-task-master/tree/HEAD/LICENSE"></a>
 </p>
 
 <p align="center">
@@ -501,7 +501,7 @@ A task management system for AI-driven development with Claude, designed to work
 - [Team Collaboration](https://tryhamster.com/docs/taskmaster/team/overview)
 - [Best Practices](https://tryhamster.com/docs/taskmaster/best-practices/index)
 - [FAQ](https://tryhamster.com/docs/taskmaster/getting-started/faq)
-- [Changelog](CHANGELOG.md)
+- [Changelog](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/CHANGELOG.md)
 
 ### More from Hamster
 
@@ -642,7 +642,7 @@ For example, to use Claude Code (no API key required):
 Change the main model to claude-code/sonnet
 ```
 
-[Table of available models](docs/models.md) | [Claude Code setup](docs/examples/claude-code-usage.md)
+[Table of available models](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/models.md) | [Claude Code setup](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/examples/claude-code-usage.md)
 
 #### 4. Initialize Task Master
 
@@ -678,7 +678,7 @@ Use your AI assistant to:
 - **Research fresh information**: `Research the latest best practices for implementing JWT authentication with Node.js`
 - **Research with context**: `Research React Query v5 migration strategies for our current API implementation in src/api.js`
 
-[More examples on how to use Task Master in chat](docs/examples.md)
+[More examples on how to use Task Master in chat](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/examples.md)
 
 ### Option 2: Using Command Line
 
@@ -815,7 +815,7 @@ Task Master now supports Claude models through the Claude Code CLI, which requir
 - **Requirements**: Claude Code CLI installed
 - **Benefits**: No API key needed, uses your local Claude instance
 
-[Learn more about Claude Code setup](docs/examples/claude-code-usage.md)
+[Learn more about Claude Code setup](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/examples/claude-code-usage.md)
 
 ## Troubleshooting
 
@@ -868,4 +868,4 @@ Task Master is licensed under the MIT License with Commons Clause. This means yo
 - Offer Task Master as a hosted service
 - Create competing products based on Task Master
 
-See the [LICENSE](LICENSE) file for the complete license text and [licensing details](docs/licensing.md) for more information.
+See the [LICENSE](https://github.com/eyaltoledano/claude-task-master/tree/HEAD/LICENSE) file for the complete license text and [licensing details](https://github.com/eyaltoledano/claude-task-master/blob/HEAD/docs/licensing.md) for more information.

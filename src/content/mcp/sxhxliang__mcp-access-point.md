@@ -15,8 +15,8 @@ body_tr: |-
   
   `MCP Access Point` geleneksel `HTTP` hizmetleri ile `MCP` (Model Context Protocol) istemcileri arasında iletişim köprüsü kurmak için tasarlanmış hafif bir protokol dönüştürme ağ geçidi aracıdır. MCP istemcilerinin sunucu tarafında herhangi bir arayüz değişikliği gerektirmeden mevcut HTTP hizmetleriyle doğrudan etkileşim kurmasını sağlar.  
   <p align="center">
-    <a href="./README.md"></a>
-    <a href="./README_CN.md"></a>
+    <a href="https://github.com/sxhxliang/mcp-access-point/blob/HEAD/README.md"></a>
+    <a href="https://github.com/sxhxliang/mcp-access-point/blob/HEAD/README_CN.md"></a>
     <a href="https://deepwiki.com/sxhxliang/mcp-access-point"></a>
     <a href="https://zread.ai/sxhxliang/mcp-access-point"></a>
   </p>
@@ -399,7 +399,7 @@ body_tr: |-
   ./test-admin-api.sh
   ```
   
-  Ayrıntılı Admin API belgeleri için bkz. [RUNTIME_CONFIG_API.md](./RUNTIME_CONFIG_API.md).
+  Ayrıntılı Admin API belgeleri için bkz. [RUNTIME_CONFIG_API.md](https://github.com/sxhxliang/mcp-access-point/blob/HEAD/RUNTIME_CONFIG_API.md).
   
   ## Katkı Yönergeleri
   1. Bu repository'yi fork edin.
@@ -412,8 +412,8 @@ body_tr: |-
 
 `MCP Access Point` is a lightweight protocol conversion gateway tool designed to establish a communication bridge between traditional `HTTP` services and `MCP` (Model Context Protocol) clients. It enables MCP clients to interact directly with existing HTTP services without requiring any server-side interface modifications.  
 <p align="center">
-  <a href="./README.md"></a>
-  <a href="./README_CN.md"></a>
+  <a href="https://github.com/sxhxliang/mcp-access-point/blob/HEAD/README.md"></a>
+  <a href="https://github.com/sxhxliang/mcp-access-point/blob/HEAD/README_CN.md"></a>
   <a href="https://deepwiki.com/sxhxliang/mcp-access-point"></a>
   <a href="https://zread.ai/sxhxliang/mcp-access-point"></a>
 </p>
@@ -796,7 +796,7 @@ chmod +x test-admin-api.sh
 ./test-admin-api.sh
 ```
 
-For detailed Admin API documentation, see [RUNTIME_CONFIG_API.md](./RUNTIME_CONFIG_API.md).
+For detailed Admin API documentation, see [RUNTIME_CONFIG_API.md](https://github.com/sxhxliang/mcp-access-point/blob/HEAD/RUNTIME_CONFIG_API.md).
 
 ## Contribution Guidelines
 1. Fork this repository.

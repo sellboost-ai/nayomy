@@ -544,7 +544,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Bu MCP sunucusuna katkıda bulunmaya hoş geldiniz! Katkıda bulunmak istiyorsanız, başlamak hakkında ayrıntılar için [CONTRIBUTING kılavuzunu](./CONTRIBUTING.md) inceleyin.
+  Bu MCP sunucusuna katkıda bulunmaya hoş geldiniz! Katkıda bulunmak istiyorsanız, başlamak hakkında ayrıntılar için [CONTRIBUTING kılavuzunu](https://github.com/StacklokLabs/mkp/blob/HEAD/CONTRIBUTING.md) inceleyin.
   
   Bir hata bulursanız veya bir özellik isteğiniz varsa, lütfen depoda [bir sorun açın](https://github.com/StacklokLabs/mkp/issues) veya bizim [topluluk Discord sunucumuzda](https://discord.gg/stacklok) `#mcp-servers` kanalında bize katılın.
   
@@ -1131,7 +1131,7 @@ task deps
 ## Contributing
 
 We welcome contributions to this MCP server! If you'd like to contribute, please
-review the [CONTRIBUTING guide](./CONTRIBUTING.md) for details on how to get
+review the [CONTRIBUTING guide](https://github.com/StacklokLabs/mkp/blob/HEAD/CONTRIBUTING.md) for details on how to get
 started.
 
 If you run into a bug or have a feature request, please

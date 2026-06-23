@@ -25,8 +25,8 @@ body_tr: |-
   ## Yetenek Entegrasyonu
   
   **Yetenek Konumları:**
-  - `../../product-team/skills/product-analytics/` ([SKILL.md](../../product-team/skills/product-analytics/SKILL.md))
-  - `../../product-team/skills/experiment-designer/` ([SKILL.md](../../product-team/skills/experiment-designer/SKILL.md))
+  - `../../product-team/skills/product-analytics/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-analytics/SKILL.md))
+  - `../../product-team/skills/experiment-designer/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/experiment-designer/SKILL.md))
   
   ### Python Araçları
   
@@ -83,13 +83,13 @@ body_tr: |-
   
   ## İlgili Ajanlar
   
-  - [cs-product-manager](cs-product-manager.md) - Önceliklendirme ve PRD'ler; ölçüm sorularını bu ajana iletir
-  - [cs-ux-researcher](cs-ux-researcher.md) - Metrik hareketlerinin arkasındaki "neden" i açıklamak için nitel kanıt
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Önceliklendirme ve PRD'ler; ölçüm sorularını bu ajana iletir
+  - [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - Metrik hareketlerinin arkasındaki "neden" i açıklamak için nitel kanıt
   
   ## Referanslar
   
-  - [Product Analytics Skill](../../product-team/skills/product-analytics/SKILL.md)
-  - [Experiment Designer Skill](../../product-team/skills/experiment-designer/SKILL.md)
+  - [Product Analytics Skill](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-analytics/SKILL.md)
+  - [Experiment Designer Skill](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/experiment-designer/SKILL.md)
 ---
 
 # Product Analyst Agent
@@ -103,8 +103,8 @@ Use this agent instead of cs-product-manager when the work is quantitative: the 
 ## Skill Integration
 
 **Skill Locations:**
-- `../../product-team/skills/product-analytics/` ([SKILL.md](../../product-team/skills/product-analytics/SKILL.md))
-- `../../product-team/skills/experiment-designer/` ([SKILL.md](../../product-team/skills/experiment-designer/SKILL.md))
+- `../../product-team/skills/product-analytics/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-analytics/SKILL.md))
+- `../../product-team/skills/experiment-designer/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/experiment-designer/SKILL.md))
 
 ### Python Tools
 
@@ -161,10 +161,10 @@ Use this agent instead of cs-product-manager when the work is quantitative: the 
 
 ## Related Agents
 
-- [cs-product-manager](cs-product-manager.md) - Prioritization and PRDs; hands measurement questions to this agent
-- [cs-ux-researcher](cs-ux-researcher.md) - Qualitative evidence to explain the "why" behind metric movements
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Prioritization and PRDs; hands measurement questions to this agent
+- [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - Qualitative evidence to explain the "why" behind metric movements
 
 ## References
 
-- [Product Analytics Skill](../../product-team/skills/product-analytics/SKILL.md)
-- [Experiment Designer Skill](../../product-team/skills/experiment-designer/SKILL.md)
+- [Product Analytics Skill](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-analytics/SKILL.md)
+- [Experiment Designer Skill](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/experiment-designer/SKILL.md)

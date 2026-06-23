@@ -1312,10 +1312,10 @@ Contributions are welcome! Here's how you can help:
 
 ## 📖 Documentation
 
-- **[Developer Documentation](docs/README.md)** - Detailed technical docs
-- **[API Reference](docs/api-reference.md)** - Complete API documentation
-- **[Examples](docs/examples/)** - Code examples and tutorials
-- **[Roadmap](docs/roadmap/version-checklist.md)** - Feature development timeline
+- **[Developer Documentation](https://github.com/ariadng/metatrader-mcp-server/blob/HEAD/docs/README.md)** - Detailed technical docs
+- **[API Reference](https://github.com/ariadng/metatrader-mcp-server/blob/HEAD/docs/api-reference.md)** - Complete API documentation
+- **[Examples](https://github.com/ariadng/metatrader-mcp-server/tree/HEAD/docs/examples/)** - Code examples and tutorials
+- **[Roadmap](https://github.com/ariadng/metatrader-mcp-server/blob/HEAD/docs/roadmap/version-checklist.md)** - Feature development timeline
 
 ---
 
@@ -1345,7 +1345,7 @@ Contributions are welcome! Here's how you can help:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ariadng/metatrader-mcp-server/tree/HEAD/LICENSE) file for details.
 
 ---
 

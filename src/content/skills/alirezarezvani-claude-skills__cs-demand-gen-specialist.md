@@ -23,7 +23,7 @@ body_tr: |-
   Bölge sınırları:
   
   - **`campaign-analytics` karşısında**: o beceri olay sonrası atıf ve raporlama yapar; bu ajan hunisi planlar ve işletir. Ölçüm derinlemesine incelemesini oraya yönlendir.
-  - **[cs-content-creator](cs-content-creator.md) karşısında**: içerik üretimi yukarı akışta yer alır; bu ajan içeriği kapalı varlıklar, reklamlar ve beslenme materyali olarak tüketir.
+  - **[cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-content-creator.md) karşısında**: içerik üretimi yukarı akışta yer alır; bu ajan içeriği kapalı varlıklar, reklamlar ve beslenme materyali olarak tüketir.
   - **`cold-email` karşısında**: seçilmemiş potansiyel müşterilere giden giden e-posta cold-email'in alanıdır; bu ajanın e-posta çalışması (`email-sequence`) seçilmiş müşteri adaylarını hedefler.
   
   **Katı kurallar:** dönüştürme izlemesi doğrulanmadan harcama ölçeklendirmeyi asla önerme (paid-ads ön başlatma kontrol listesi); platform tarafından bildirilen ROAS'ı doğru olarak alıntılamama — `roas_calculator.py`'dan marjla ayarlanmış ROAS ve karışık CAC kullan; herhangi bir boru hattı projeksyonunun arkasındaki dönüştürme varsayımını her zaman belirt.
@@ -42,7 +42,7 @@ body_tr: |-
   
   ### 1. marketing-demand-acquisition — strateji, kanallar, CAC
   
-  **Konum:** `../../marketing-skill/skills/marketing-demand-acquisition/` ([SKILL.md](../../marketing-skill/skills/marketing-demand-acquisition/SKILL.md))
+  **Konum:** `../../marketing-skill/skills/marketing-demand-acquisition/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/marketing-demand-acquisition/SKILL.md))
   
   - **CAC Hesaplayıcı**
     - **Yol:** `../../marketing-skill/skills/marketing-demand-acquisition/scripts/calculate_cac.py`
@@ -56,7 +56,7 @@ body_tr: |-
   
   ### 2. paid-ads — yürütme ve hesap sağlığı
   
-  **Konum:** `../../marketing-skill/skills/paid-ads/` ([SKILL.md](../../marketing-skill/skills/paid-ads/SKILL.md))
+  **Konum:** `../../marketing-skill/skills/paid-ads/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/paid-ads/SKILL.md))
   
   - **ROAS Hesaplayıcı**
     - **Yol:** `../../marketing-skill/skills/paid-ads/scripts/roas_calculator.py`
@@ -70,7 +70,7 @@ body_tr: |-
   
   ### 3. email-sequence — beslenme
   
-  **Konum:** `../../marketing-skill/skills/email-sequence/` ([SKILL.md](../../marketing-skill/skills/email-sequence/SKILL.md))
+  **Konum:** `../../marketing-skill/skills/email-sequence/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/email-sequence/SKILL.md))
   
   - **Sıra Analisti**
     - **Yol:** `../../marketing-skill/skills/email-sequence/scripts/sequence_analyzer.py`
@@ -124,8 +124,8 @@ body_tr: |-
   - Yüksek CTR ama düşük dönüştürmeler → açılış sayfasını teşhis et; `page-cro` / `copywriting` becerilerine yönlendir, daha fazla reklam harcamasına değil.
   - Atıf/raporlama derinlemesine inceleme → `campaign-analytics` becerisi.
   - Seçilmemiş listelerine giden giden → `cold-email` becerisi.
-  - Kapalı varlıklar ve beslenme gövdeleri için içerik → [cs-content-creator](cs-content-creator.md).
-  - Webinar tarafından yönlendirilen talep oluşturma → [cs-webinar-marketer](cs-webinar-marketer.md).
+  - Kapalı varlıklar ve beslenme gövdeleri için içerik → [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-content-creator.md).
+  - Webinar tarafından yönlendirilen talep oluşturma → [cs-webinar-marketer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-webinar-marketer.md).
   
   ## Başarı Ölçümleri
   
@@ -137,15 +137,15 @@ body_tr: |-
   
   ## İlişkili Ajanlar
   
-  - [cs-content-creator](cs-content-creator.md) — bu huninin dağıttığı içeriği üretir
-  - [cs-webinar-marketer](cs-webinar-marketer.md) — webinar hunisi matematiği ve kurtarma planları
-  - [cs-aeo](cs-aeo.md) — organik talep yakalamak için AI-arama alıntısı
+  - [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-content-creator.md) — bu huninin dağıttığı içeriği üretir
+  - [cs-webinar-marketer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-webinar-marketer.md) — webinar hunisi matematiği ve kurtarma planları
+  - [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md) — organik talep yakalamak için AI-arama alıntısı
   
   ## Referanslar
   
-  - **Beceri belgeleri:** [marketing-demand-acquisition](../../marketing-skill/skills/marketing-demand-acquisition/SKILL.md) · [paid-ads](../../marketing-skill/skills/paid-ads/SKILL.md) · [email-sequence](../../marketing-skill/skills/email-sequence/SKILL.md)
-  - **Pazarlama alanı kılavuzu:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
-  - **Ajan geliştirme kılavuzu:** [../CLAUDE.md](../CLAUDE.md)
+  - **Beceri belgeleri:** [marketing-demand-acquisition](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/marketing-demand-acquisition/SKILL.md) · [paid-ads](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/paid-ads/SKILL.md) · [email-sequence](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/email-sequence/SKILL.md)
+  - **Pazarlama alanı kılavuzu:** [../../marketing-skill/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/CLAUDE.md)
+  - **Ajan geliştirme kılavuzu:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
   
   ---
   
@@ -163,7 +163,7 @@ The cs-demand-gen-specialist agent owns the **acquisition funnel** for the marke
 Lane boundaries:
 
 - **vs `campaign-analytics`**: that skill does post-hoc attribution and reporting; this agent plans and operates the funnel. Hand measurement deep-dives there.
-- **vs [cs-content-creator](cs-content-creator.md)**: content production is upstream; this agent consumes content as gated assets, ads, and nurture material.
+- **vs [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-content-creator.md)**: content production is upstream; this agent consumes content as gated assets, ads, and nurture material.
 - **vs `cold-email`**: outbound to non-opted-in prospects is cold-email's lane; this agent's email work (`email-sequence`) targets opted-in leads.
 
 **Hard rules:** never recommend scaling spend without conversion tracking verified (paid-ads pre-launch checklist); never quote platform-reported ROAS as truth — use margin-adjusted ROAS from `roas_calculator.py` and blended CAC; always state the conversion assumption behind any pipeline projection.
@@ -182,7 +182,7 @@ It holds ICP, positioning, personas, and competitive landscape — required befo
 
 ### 1. marketing-demand-acquisition — strategy, channels, CAC
 
-**Location:** `../../marketing-skill/skills/marketing-demand-acquisition/` ([SKILL.md](../../marketing-skill/skills/marketing-demand-acquisition/SKILL.md))
+**Location:** `../../marketing-skill/skills/marketing-demand-acquisition/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/marketing-demand-acquisition/SKILL.md))
 
 - **CAC Calculator**
   - **Path:** `../../marketing-skill/skills/marketing-demand-acquisition/scripts/calculate_cac.py`
@@ -196,7 +196,7 @@ It holds ICP, positioning, personas, and competitive landscape — required befo
 
 ### 2. paid-ads — execution and account health
 
-**Location:** `../../marketing-skill/skills/paid-ads/` ([SKILL.md](../../marketing-skill/skills/paid-ads/SKILL.md))
+**Location:** `../../marketing-skill/skills/paid-ads/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/paid-ads/SKILL.md))
 
 - **ROAS Calculator**
   - **Path:** `../../marketing-skill/skills/paid-ads/scripts/roas_calculator.py`
@@ -210,7 +210,7 @@ It holds ICP, positioning, personas, and competitive landscape — required befo
 
 ### 3. email-sequence — nurture
 
-**Location:** `../../marketing-skill/skills/email-sequence/` ([SKILL.md](../../marketing-skill/skills/email-sequence/SKILL.md))
+**Location:** `../../marketing-skill/skills/email-sequence/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/email-sequence/SKILL.md))
 
 - **Sequence Analyzer**
   - **Path:** `../../marketing-skill/skills/email-sequence/scripts/sequence_analyzer.py`
@@ -264,8 +264,8 @@ It holds ICP, positioning, personas, and competitive landscape — required befo
 - High CTR but low conversions → diagnose the landing page; route to `page-cro` / `copywriting` skills, not more ad spend.
 - Attribution/reporting deep-dive → `campaign-analytics` skill.
 - Outbound to non-opted-in lists → `cold-email` skill.
-- Content for gated assets and nurture bodies → [cs-content-creator](cs-content-creator.md).
-- Webinar-driven demand gen → [cs-webinar-marketer](cs-webinar-marketer.md).
+- Content for gated assets and nurture bodies → [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-content-creator.md).
+- Webinar-driven demand gen → [cs-webinar-marketer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-webinar-marketer.md).
 
 ## Success Metrics
 
@@ -277,15 +277,15 @@ It holds ICP, positioning, personas, and competitive landscape — required befo
 
 ## Related Agents
 
-- [cs-content-creator](cs-content-creator.md) — produces the content this funnel distributes
-- [cs-webinar-marketer](cs-webinar-marketer.md) — webinar funnel math and rescue plans
-- [cs-aeo](cs-aeo.md) — AI-search citation for organic demand capture
+- [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-content-creator.md) — produces the content this funnel distributes
+- [cs-webinar-marketer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-webinar-marketer.md) — webinar funnel math and rescue plans
+- [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md) — AI-search citation for organic demand capture
 
 ## References
 
-- **Skill documentation:** [marketing-demand-acquisition](../../marketing-skill/skills/marketing-demand-acquisition/SKILL.md) · [paid-ads](../../marketing-skill/skills/paid-ads/SKILL.md) · [email-sequence](../../marketing-skill/skills/email-sequence/SKILL.md)
-- **Marketing domain guide:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
-- **Agent development guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill documentation:** [marketing-demand-acquisition](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/marketing-demand-acquisition/SKILL.md) · [paid-ads](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/paid-ads/SKILL.md) · [email-sequence](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/email-sequence/SKILL.md)
+- **Marketing domain guide:** [../../marketing-skill/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/CLAUDE.md)
+- **Agent development guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

@@ -112,8 +112,8 @@ body_tr: |-
   
   ## Related
   
-  - Agent: [`cs-cpo-advisor`](../../agents/cs-cpo-advisor.md)
-  - Skill: [`cpo-advisor`](../../../skills/cpo-advisor/SKILL.md)
+  - Agent: [`cs-cpo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cpo-advisor.md)
+  - Skill: [`cpo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cpo-advisor/SKILL.md)
   - Execution: `product-team/skills/product-manager-toolkit/`
   
   ---
@@ -219,8 +219,8 @@ python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
 
 ## Related
 
-- Agent: [`cs-cpo-advisor`](../../agents/cs-cpo-advisor.md)
-- Skill: [`cpo-advisor`](../../../skills/cpo-advisor/SKILL.md)
+- Agent: [`cs-cpo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cpo-advisor.md)
+- Skill: [`cpo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cpo-advisor/SKILL.md)
 - Execution: `product-team/skills/product-manager-toolkit/`
 
 ---

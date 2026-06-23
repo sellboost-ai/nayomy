@@ -13,7 +13,7 @@ homepage: "https://wanaku.ai"
 body_tr: |-
   # Wanaku - Her şeyi birleştiren bir MCP Router
   
-  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/wanaku-ai/wanaku/tree/HEAD/LICENSE)
   [![Build](https://img.shields.io/github/actions/workflow/status/wanaku-ai/wanaku/build.yml?branch=main)](https://github.com/wanaku-ai/wanaku/actions)
   [![Release](https://img.shields.io/github/v/release/wanaku-ai/wanaku)](https://github.com/wanaku-ai/wanaku/releases)
   
@@ -65,7 +65,7 @@ body_tr: |-
   wanaku resources list
   ```
   
-  Tüm kurulum ve konfigürasyon talimatları için [Kullanım Kılavuzu](docs/usage.md)'na bakın.
+  Tüm kurulum ve konfigürasyon talimatları için [Kullanım Kılavuzu](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/usage.md)'na bakın.
   
   ## Belgeler
   
@@ -73,12 +73,12 @@ body_tr: |-
   
   Aşağıdaki belgeler proje üzerinde çalışan geliştiriciler için hazırlanmıştır ve yayınlanmamış özellikler veya devam eden değişiklikleri içerebilir:
   
-  - **[Kullanım Kılavuzu](docs/usage.md)** - Kurulum, dağıtım ve CLI kullanımı
-  - **[Mimari](docs/architecture.md)** - Sistem mimarisi ve bileşenleri
-  - **[Derleme](docs/building.md)** - Projeyi derle ve paketele
-  - **[Katkıda Bulunma](CONTRIBUTING.md)** - Katkı yönergeleri
-  - **[Konfigürasyon](docs/configurations.md)** - Konfigürasyon referansı
-  - **[Güvenlik](SECURITY.md)** - Güvenlik politikası ve en iyi uygulamalar
+  - **[Kullanım Kılavuzu](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/usage.md)** - Kurulum, dağıtım ve CLI kullanımı
+  - **[Mimari](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/architecture.md)** - Sistem mimarisi ve bileşenleri
+  - **[Derleme](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/building.md)** - Projeyi derle ve paketele
+  - **[Katkıda Bulunma](https://github.com/wanaku-ai/wanaku/blob/HEAD/CONTRIBUTING.md)** - Katkı yönergeleri
+  - **[Konfigürasyon](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/configurations.md)** - Konfigürasyon referansı
+  - **[Güvenlik](https://github.com/wanaku-ai/wanaku/blob/HEAD/SECURITY.md)** - Güvenlik politikası ve en iyi uygulamalar
   
   ## Topluluk
   
@@ -88,12 +88,12 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje Apache 2.0 Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje Apache 2.0 Lisansı altında lisanslanmıştır - detaylar için [LICENSE](https://github.com/wanaku-ai/wanaku/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # Wanaku - A MCP Router that connects everything
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/wanaku-ai/wanaku/tree/HEAD/LICENSE)
 [![Build](https://img.shields.io/github/actions/workflow/status/wanaku-ai/wanaku/main-build.yml?branch=main)](https://github.com/wanaku-ai/wanaku/actions)
 [![Release](https://img.shields.io/github/v/release/wanaku-ai/wanaku)](https://github.com/wanaku-ai/wanaku/releases)
 
@@ -150,12 +150,12 @@ the [Java SDK](https://github.com/wanaku-ai/wanaku-capabilities-java-sdk/), etc.
 
 Contributors working on the project may want to refer to the [development version of the documentation](/docs) including
 
-- [Pre-release Usage Guide](docs/usage.md) - Pre-release usage guide
-- [Architecture](docs/architecture.md) - System architecture and components
-- [Building](docs/building.md) - Build and package the project
-- [Contributing](CONTRIBUTING.md) - Contribution guidelines
-- [Security](SECURITY.md) - Security policy and best practices
+- [Pre-release Usage Guide](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/usage.md) - Pre-release usage guide
+- [Architecture](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/architecture.md) - System architecture and components
+- [Building](https://github.com/wanaku-ai/wanaku/blob/HEAD/docs/building.md) - Build and package the project
+- [Contributing](https://github.com/wanaku-ai/wanaku/blob/HEAD/CONTRIBUTING.md) - Contribution guidelines
+- [Security](https://github.com/wanaku-ai/wanaku/blob/HEAD/SECURITY.md) - Security policy and best practices
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache 2.0 License - see the [LICENSE](https://github.com/wanaku-ai/wanaku/tree/HEAD/LICENSE) file for details.

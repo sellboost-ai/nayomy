@@ -18,8 +18,8 @@ body_tr: |-
   
   
   [![Python 3.13](https://img.shields.io/badge/python-3.13-9D00FF.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-  [![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge&logo=apache&logoColor=white)](LICENSE)
-  [![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge&logo=githubactions&logoColor=white)](docs/plan.md)
+  [![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge&logo=apache&logoColor=white)](https://github.com/hyperb1iss/droidmind/tree/HEAD/LICENSE)
+  [![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/plan.md)
   [![Code Style](https://img.shields.io/badge/code_style-ruff-00FFFF.svg?style=for-the-badge&logo=ruff&logoColor=white)](https://github.com/astral-sh/ruff)
   [![Type Check](https://img.shields.io/badge/type_check-pyright-FFBF00.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://github.com/microsoft/pyright)
   [![MCP](https://img.shields.io/badge/protocol-MCP-E6E6FA.svg?style=for-the-badge&logo=anthropic&logoColor=white)](https://modelcontextprotocol.io/)
@@ -45,7 +45,7 @@ body_tr: |-
   - 🔒 **Güvenli İşlem Yap**: Komut doğrulaması, risk değerlendirmesi ve sanitizasyondan yararlan.
   - 💬 **Sorunsuz İntegrasyon**: Herhangi bir MCP uyumlu istemci (Claude, Cursor, Cline, vb.) ile bağlan.
   
-  Yeteneklerin detaylı listesi için **[Kullanıcı Kılavuzu](docs/user_manual/index.md)** ve **[MCP Referansı](docs/mcp-reference.md)** bölümüne bakın.
+  Yeteneklerin detaylı listesi için **[Kullanıcı Kılavuzu](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/user_manual/index.md)** ve **[MCP Referansı](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/mcp-reference.md)** bölümüne bakın.
   
   ## 🚀 Başlarken
   
@@ -72,7 +72,7 @@ body_tr: |-
   }
   ```
   
-  IDE'niz isteğe bağlı olarak DroidMind'ı başlatmak için yapılandırılır. Bu kurulumun tam talimatları **[Hızlı Başlangıç Kılavuzu](docs/quickstart.md#1-configure-your-ide-to-run-droidmind-via-uvx)** içinde yer almaktadır.
+  IDE'niz isteğe bağlı olarak DroidMind'ı başlatmak için yapılandırılır. Bu kurulumun tam talimatları **[Hızlı Başlangıç Kılavuzu](https://github.com/hyperb1iss/droidmind/tree/HEAD/docs/quickstart.md#1-configure-your-ide-to-run-droidmind-via-uvx)** içinde yer almaktadır.
   
   ### Gereksinimler
   
@@ -83,13 +83,13 @@ body_tr: |-
   
   ### Kurulum
   
-  `uvx` ile hızlı IDE entegrasyonu (Hızlı Başlangıç'ta ele alınan), kaynaktan manuel kurulum veya Docker kullanımı da dahil olmak üzere DroidMind'ı ayarlama hakkında detaylı talimatlar için lütfen **[Kurulum Kılavuzu](docs/installation.md)** bölümüne bakın.
+  `uvx` ile hızlı IDE entegrasyonu (Hızlı Başlangıç'ta ele alınan), kaynaktan manuel kurulum veya Docker kullanımı da dahil olmak üzere DroidMind'ı ayarlama hakkında detaylı talimatlar için lütfen **[Kurulum Kılavuzu](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/installation.md)** bölümüne bakın.
   
   ### DroidMind'ı Çalıştırma
   
   DroidMind'ı nasıl çalıştıracağınız, kurulumunuza bağlıdır:
   
-  - **IDE Entegrasyonu (`uvx` üzerinden)**: IDE'niz, MCP ayarlarında (örneğin `mcp.json`) yapılandırıldığı şekilde DroidMind'ı otomatik olarak yönetir. [Hızlı Başlangıç Kılavuzu](docs/quickstart.md) bölümüne bakın.
+  - **IDE Entegrasyonu (`uvx` üzerinden)**: IDE'niz, MCP ayarlarında (örneğin `mcp.json`) yapılandırıldığı şekilde DroidMind'ı otomatik olarak yönetir. [Hızlı Başlangıç Kılavuzu](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/quickstart.md) bölümüne bakın.
   - **Manuel Kurulum**: Kaynaktan yükledikten sonra, DroidMind'ı doğrudan çalıştırabilirsiniz.
     - **Stdio (doğrudan terminal etkileşimi veya bazı IDE kurulumları için):**
       ```bash
@@ -100,15 +100,15 @@ body_tr: |-
       droidmind --transport sse
       ```
       Bu genellikle `sse://localhost:4256/sse` adresinde bir sunucu başlatır.
-  - **Docker**: DroidMind'ı bir container'da çalıştırmak için komutlar [Docker Kılavuzu](docs/docker.md) bölümüne bakın.
+  - **Docker**: DroidMind'ı bir container'da çalıştırmak için komutlar [Docker Kılavuzu](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/docker.md) bölümüne bakın.
   
-  DroidMind'ı farklı ortamlarda çalıştırma hakkında daha fazla detay için **[Kurulum Kılavuzu](docs/installation.md)** bölümüne bakın.
+  DroidMind'ı farklı ortamlarda çalıştırma hakkında daha fazla detay için **[Kurulum Kılavuzu](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/installation.md)** bölümüne bakın.
   
   ## 🐳 Docker ile Çalıştırma
   
   DroidMind, tutarlı, konteynerleştirilmiş bir ortam için Docker kullanılarak da çalıştırılabilir. Bu, dağıtım ve bağımlılıkları izole etmek için özellikle yararlıdır.
   
-  Docker imajını oluşturma ve DroidMind'ı `stdio` veya `SSE` transport ile bir container'da çalıştırma hakkında kapsamlı talimatlar ve ADB cihaz erişimi hakkında notlar için, lütfen **[Docker Kılavuzu](docs/docker.md)** bölümüne bakın.
+  Docker imajını oluşturma ve DroidMind'ı `stdio` veya `SSE` transport ile bir container'da çalıştırma hakkında kapsamlı talimatlar ve ADB cihaz erişimi hakkında notlar için, lütfen **[Docker Kılavuzu](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/docker.md)** bölümüne bakın.
   
   ## 🔮 Örnek AI Asistanı Sorguları
   
@@ -120,7 +120,7 @@ body_tr: |-
   - "`your_device_serial` adlı cihazdan son crash loglarını göster."
   - "`emulator-5554` cihazının mevcut ekranındaki 'Sonraki' düğmesine dokunun."
   
-  Daha fazla fikir için, Kullanıcı Kılavuzu'nda **[Örnek Sorgular ve Workflow'lar](docs/user_manual/example_queries.md)** bölümüne bakın.
+  Daha fazla fikir için, Kullanıcı Kılavuzu'nda **[Örnek Sorgular ve Workflow'lar](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/user_manual/example_queries.md)** bölümüne bakın.
   
   ## 🔒 Güvenlik
   
@@ -131,7 +131,7 @@ body_tr: |-
   - **Korumalı Yol İşlemleri**
   - **Kapsamlı Logging**
   
-  Yüksek riskli işlemler işaretlenir ve kritik olanlar varsayılan olarak engellenir. Daha fazlasını **[Güvenlik Hususları](docs/user_manual/security.md)** bölümünde öğrenin.
+  Yüksek riskli işlemler işaretlenir ve kritik olanlar varsayılan olarak engellenir. Daha fazlasını **[Güvenlik Hususları](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/user_manual/security.md)** bölümünde öğrenin.
   
   ## 💻 Geliştirme
   
@@ -166,7 +166,7 @@ body_tr: |-
   
   ## 📝 Lisans
   
-  Bu proje Apache Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje Apache Lisansı altında lisanslanmıştır - detaylar için [LICENSE](https://github.com/hyperb1iss/droidmind/tree/HEAD/LICENSE) dosyasına bakın.
   
   ---
   
@@ -186,8 +186,8 @@ body_tr: |-
 
 
 [![Python 3.13](https://img.shields.io/badge/python-3.13-9D00FF.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge&logo=apache&logoColor=white)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge&logo=githubactions&logoColor=white)](docs/plan.md)
+[![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge&logo=apache&logoColor=white)](https://github.com/hyperb1iss/droidmind/tree/HEAD/LICENSE)
+[![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/plan.md)
 [![Code Style](https://img.shields.io/badge/code_style-ruff-00FFFF.svg?style=for-the-badge&logo=ruff&logoColor=white)](https://github.com/astral-sh/ruff)
 [![Type Check](https://img.shields.io/badge/type_check-pyright-FFBF00.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://github.com/microsoft/pyright)
 [![MCP](https://img.shields.io/badge/protocol-MCP-E6E6FA.svg?style=for-the-badge&logo=anthropic&logoColor=white)](https://modelcontextprotocol.io/)
@@ -213,7 +213,7 @@ DroidMind empowers AI assistants to:
 - 🔒 **Operate Securely**: Benefit from command validation, risk assessment, and sanitization.
 - 💬 **Integrate Seamlessly**: Connect with any MCP-compatible client (Claude, Cursor, Cline, etc.).
 
-For a detailed list of capabilities, see the **[User Manual](docs/user_manual/index.md)** and **[MCP Reference](docs/mcp-reference.md)**.
+For a detailed list of capabilities, see the **[User Manual](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/user_manual/index.md)** and **[MCP Reference](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/mcp-reference.md)**.
 
 ## 🚀 Getting Started
 
@@ -240,7 +240,7 @@ Add the following to your IDE's MCP configuration (e.g., `.cursor/mcp.json` for 
 }
 ```
 
-Your IDE will be configured to launch DroidMind on demand. Full instructions for this setup are in the **[Quick Start Guide](docs/quickstart.md#1-configure-your-ide-to-run-droidmind-via-uvx)**.
+Your IDE will be configured to launch DroidMind on demand. Full instructions for this setup are in the **[Quick Start Guide](https://github.com/hyperb1iss/droidmind/tree/HEAD/docs/quickstart.md#1-configure-your-ide-to-run-droidmind-via-uvx)**.
 
 ### Prerequisites
 
@@ -251,13 +251,13 @@ Your IDE will be configured to launch DroidMind on demand. Full instructions for
 
 ### Installation
 
-For detailed instructions on setting up DroidMind, including the quick IDE integration with `uvx` (covered in the Quick Start), manual installation from source, or using Docker, please see our comprehensive **[Installation Guide](docs/installation.md)**.
+For detailed instructions on setting up DroidMind, including the quick IDE integration with `uvx` (covered in the Quick Start), manual installation from source, or using Docker, please see our comprehensive **[Installation Guide](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/installation.md)**.
 
 ### Running DroidMind
 
 How you run DroidMind depends on your setup:
 
-- **IDE Integration (via `uvx`)**: Your IDE automatically manages running DroidMind as configured in its MCP settings (e.g., `mcp.json`). See the [Quick Start Guide](docs/quickstart.md).
+- **IDE Integration (via `uvx`)**: Your IDE automatically manages running DroidMind as configured in its MCP settings (e.g., `mcp.json`). See the [Quick Start Guide](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/quickstart.md).
 - **Manual Installation**: After installing from source, you can run DroidMind directly.
   - **Stdio (for direct terminal interaction or some IDE setups):**
     ```bash
@@ -268,15 +268,15 @@ How you run DroidMind depends on your setup:
     droidmind --transport sse
     ```
     This usually starts a server at `sse://localhost:4256/sse`.
-- **Docker**: Refer to the [Docker Guide](docs/docker.md) for commands to run DroidMind in a container.
+- **Docker**: Refer to the [Docker Guide](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/docker.md) for commands to run DroidMind in a container.
 
-Refer to the **[Installation Guide](docs/installation.md)** for more details on running DroidMind in different environments.
+Refer to the **[Installation Guide](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/installation.md)** for more details on running DroidMind in different environments.
 
 ## 🐳 Running with Docker
 
 DroidMind can also be run using Docker for a consistent, containerized environment. This is particularly useful for deployment and isolating dependencies.
 
-For comprehensive instructions on building the Docker image and running DroidMind in a container with `stdio` or `SSE` transport, including notes on ADB device access, please refer to our **[Docker Guide](docs/docker.md)**.
+For comprehensive instructions on building the Docker image and running DroidMind in a container with `stdio` or `SSE` transport, including notes on ADB device access, please refer to our **[Docker Guide](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/docker.md)**.
 
 ## 🔮 Example AI Assistant Queries
 
@@ -288,7 +288,7 @@ With an AI assistant connected to DroidMind, you can make requests like:
 - "Show me the recent crash logs from `your_device_serial`."
 - "Tap the 'Next' button on the current screen of `emulator-5554`."
 
-For more inspiration, check out our **[Example Queries and Workflows](docs/user_manual/example_queries.md)** in the User Manual.
+For more inspiration, check out our **[Example Queries and Workflows](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/user_manual/example_queries.md)** in the User Manual.
 
 ## 🔒 Security
 
@@ -299,7 +299,7 @@ DroidMind incorporates a security framework to protect your devices:
 - **Protected Path Operations**
 - **Comprehensive Logging**
 
-High-risk operations are flagged, and critical ones are blocked by default. Learn more in our **[Security Considerations](docs/user_manual/security.md)** chapter.
+High-risk operations are flagged, and critical ones are blocked by default. Learn more in our **[Security Considerations](https://github.com/hyperb1iss/droidmind/blob/HEAD/docs/user_manual/security.md)** chapter.
 
 ## 💻 Development
 
@@ -334,7 +334,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 License
 
-This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License - see the [LICENSE](https://github.com/hyperb1iss/droidmind/tree/HEAD/LICENSE) file for details.
 
 ---
 

@@ -27,14 +27,14 @@ body_tr: |-
   
   | İsim                        | Dokümantasyon                                                              | Açıklama                                       |
   |-----------------------------|-----------------------------------------------------------------------|---------------------------------------------------|
-  | [Rust](rust/README.md)      | [Doc](https://longbridge.github.io/openapi/rust/longbridge/index.html) | Rust için Longbridge OpenAPI `(>= 1.89.0)`           |
-  | [Python](python/README.md)  | [Doc](https://longbridge.github.io/openapi/python/index.html)        | Python 3 için Longbridge OpenAPI `(>= 3.8)`          |
-  | [Node.js](nodejs/README.md) | [Doc](https://longbridge.github.io/openapi/nodejs/index.html)        | Node.js için Longbridge OpenAPI `(>= 10)`            |
-  | [Java](java/README.md)      | [Doc](https://longbridge.github.io/openapi/java/index.html)          | Java için Longbridge OpenAPI `(>= 11)`               |
-  | [C](c/README.md)            | [Doc](https://longbridge.github.io/openapi/c/index.html)             | C için Longbridge OpenAPI `(>= C99)`                 |
-  | [C++](cpp/README.md)        | [Doc](https://longbridge.github.io/openapi/cpp/index.html)           | C++ için Longbridge OpenAPI `(>= C++17)`              |
+  | [Rust](https://github.com/longbridge/openapi/blob/HEAD/rust/README.md)      | [Doc](https://longbridge.github.io/openapi/rust/longbridge/index.html) | Rust için Longbridge OpenAPI `(>= 1.89.0)`           |
+  | [Python](https://github.com/longbridge/openapi/blob/HEAD/python/README.md)  | [Doc](https://longbridge.github.io/openapi/python/index.html)        | Python 3 için Longbridge OpenAPI `(>= 3.8)`          |
+  | [Node.js](https://github.com/longbridge/openapi/blob/HEAD/nodejs/README.md) | [Doc](https://longbridge.github.io/openapi/nodejs/index.html)        | Node.js için Longbridge OpenAPI `(>= 10)`            |
+  | [Java](https://github.com/longbridge/openapi/blob/HEAD/java/README.md)      | [Doc](https://longbridge.github.io/openapi/java/index.html)          | Java için Longbridge OpenAPI `(>= 11)`               |
+  | [C](https://github.com/longbridge/openapi/blob/HEAD/c/README.md)            | [Doc](https://longbridge.github.io/openapi/c/index.html)             | C için Longbridge OpenAPI `(>= C99)`                 |
+  | [C++](https://github.com/longbridge/openapi/blob/HEAD/cpp/README.md)        | [Doc](https://longbridge.github.io/openapi/cpp/index.html)           | C++ için Longbridge OpenAPI `(>= C++17)`              |
   | Go                          |                                                                       | https://github.com/longbridge/openapi-go         |
-  | [MCP](mcp/README.md)        |                                                                       | Longbridge OpenAPI için bir MCP sunucu uygulaması |
+  | [MCP](https://github.com/longbridge/openapi/blob/HEAD/mcp/README.md)        |                                                                       | Longbridge OpenAPI için bir MCP sunucu uygulaması |
   
   
   ## Context Türleri
@@ -127,8 +127,8 @@ body_tr: |-
   
   Aşağıdakilerden herhangi biri kapsamında lisanslanmıştır
   
-  * Apache License, Version 2.0, ([LICENSE-APACHE](./LICENSE-APACHE) veya http://www.apache.org/licenses/LICENSE-2.0)
-  * MIT lisansı ([LICENSE-MIT](./LICENSE-MIT) veya http://opensource.org/licenses/MIT) seçiminize göre.
+  * Apache License, Version 2.0, ([LICENSE-APACHE](https://github.com/longbridge/openapi/tree/HEAD/LICENSE-APACHE) veya http://www.apache.org/licenses/LICENSE-2.0)
+  * MIT lisansı ([LICENSE-MIT](https://github.com/longbridge/openapi/tree/HEAD/LICENSE-MIT) veya http://opensource.org/licenses/MIT) seçiminize göre.
 ---
 
 # Longbridge OpenAPI SDK
@@ -147,14 +147,14 @@ Longbridge OpenAPI provides programmatic quote trading interfaces for investors 
 
 | Name                        | Document                                                              | Description                                       |
 |-----------------------------|-----------------------------------------------------------------------|---------------------------------------------------|
-| [Rust](rust/README.md)      | [Doc](https://longbridge.github.io/openapi/rust/longbridge/index.html) | Longbridge OpenAPI for Rust `(>= 1.89.0)`           |
-| [Python](python/README.md)  | [Doc](https://longbridge.github.io/openapi/python/index.html)        | Longbridge OpenAPI for Python 3 `(>= 3.8)`          |
-| [Node.js](nodejs/README.md) | [Doc](https://longbridge.github.io/openapi/nodejs/index.html)        | Longbridge OpenAPI for Node.js `(>= 10)`            |
-| [Java](java/README.md)      | [Doc](https://longbridge.github.io/openapi/java/index.html)          | Longbridge OpenAPI for Java `(>= 11)`               |
-| [C](c/README.md)            | [Doc](https://longbridge.github.io/openapi/c/index.html)             | Longbridge OpenAPI for C `(>= C99)`                 |
-| [C++](cpp/README.md)        | [Doc](https://longbridge.github.io/openapi/cpp/index.html)           | Longbridge OpenAPI for C++`(>= C++17)`              |
+| [Rust](https://github.com/longbridge/openapi/blob/HEAD/rust/README.md)      | [Doc](https://longbridge.github.io/openapi/rust/longbridge/index.html) | Longbridge OpenAPI for Rust `(>= 1.89.0)`           |
+| [Python](https://github.com/longbridge/openapi/blob/HEAD/python/README.md)  | [Doc](https://longbridge.github.io/openapi/python/index.html)        | Longbridge OpenAPI for Python 3 `(>= 3.8)`          |
+| [Node.js](https://github.com/longbridge/openapi/blob/HEAD/nodejs/README.md) | [Doc](https://longbridge.github.io/openapi/nodejs/index.html)        | Longbridge OpenAPI for Node.js `(>= 10)`            |
+| [Java](https://github.com/longbridge/openapi/blob/HEAD/java/README.md)      | [Doc](https://longbridge.github.io/openapi/java/index.html)          | Longbridge OpenAPI for Java `(>= 11)`               |
+| [C](https://github.com/longbridge/openapi/blob/HEAD/c/README.md)            | [Doc](https://longbridge.github.io/openapi/c/index.html)             | Longbridge OpenAPI for C `(>= C99)`                 |
+| [C++](https://github.com/longbridge/openapi/blob/HEAD/cpp/README.md)        | [Doc](https://longbridge.github.io/openapi/cpp/index.html)           | Longbridge OpenAPI for C++`(>= C++17)`              |
 | Go                          |                                                                       | https://github.com/longbridge/openapi-go         |
-| [MCP](mcp/README.md)        |                                                                       | An MCP server implementation for Longbridge OpenAPI |
+| [MCP](https://github.com/longbridge/openapi/blob/HEAD/mcp/README.md)        |                                                                       | An MCP server implementation for Longbridge OpenAPI |
 
 
 ## Context Types
@@ -247,5 +247,5 @@ Expected results:
 
 Licensed under either of
 
-* Apache License, Version 2.0,([LICENSE-APACHE](./LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-* MIT license ([LICENSE-MIT](./LICENSE-MIT) or http://opensource.org/licenses/MIT) at your option.
+* Apache License, Version 2.0,([LICENSE-APACHE](https://github.com/longbridge/openapi/tree/HEAD/LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+* MIT license ([LICENSE-MIT](https://github.com/longbridge/openapi/tree/HEAD/LICENSE-MIT) or http://opensource.org/licenses/MIT) at your option.

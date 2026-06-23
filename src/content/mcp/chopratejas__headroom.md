@@ -29,7 +29,7 @@ body_tr: |-
     <a href="https://pypi.org/project/headroom-ai/"></a>
     <a href="https://www.npmjs.com/package/headroom-ai"></a>
     <a href="https://huggingface.co/chopratejas/kompress-v2-base"></a>
-    <a href="LICENSE"></a>
+    <a href="https://github.com/chopratejas/headroom/tree/HEAD/LICENSE"></a>
     <a href="https://headroom-docs.vercel.app/docs"></a>
   </p>
   
@@ -39,12 +39,12 @@ body_tr: |-
     <a href="#proof">Kanıt</a> ·
     <a href="#agent-compatibility-matrix">Ajanlar</a> ·
     <a href="https://discord.gg/yRmaUNpsPJ">Discord</a> ·
-    <a href="llms.txt">llms.txt</a> ·
-    <a href="ENTERPRISE.md">Kurumsal</a>
+    <a href="https://github.com/chopratejas/headroom/blob/HEAD/llms.txt">llms.txt</a> ·
+    <a href="https://github.com/chopratejas/headroom/blob/HEAD/ENTERPRISE.md">Kurumsal</a>
   </p>
   
   <p align="center"><sub>
-    <b>AI ajanları / LLM'ler:</b> <a href="llms.txt"><code>/llms.txt</code></a> dosyasını okuyun ya da <a href="https://headroom-docs.vercel.app/llms.txt">canlı indeksi</a> / <a href="https://headroom-docs.vercel.app/llms-full.txt">tam doküman blobunu</a> getirin.
+    <b>AI ajanları / LLM'ler:</b> <a href="https://github.com/chopratejas/headroom/blob/HEAD/llms.txt"><code>/llms.txt</code></a> dosyasını okuyun ya da <a href="https://headroom-docs.vercel.app/llms.txt">canlı indeksi</a> / <a href="https://headroom-docs.vercel.app/llms-full.txt">tam doküman blobunu</a> getirin.
   </sub></p>
   
   ---
@@ -328,7 +328,7 @@ body_tr: |-
   uv sync --extra dev && uv run pytest
   ```
   
-  Devcontainers `.devcontainer/` içinde (default + `memory-stack` ile Qdrant & Neo4j). [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Devcontainers `.devcontainer/` içinde (default + `memory-stack` ile Qdrant & Neo4j). [CONTRIBUTING.md](https://github.com/chopratejas/headroom/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ## Topluluk
   
@@ -337,7 +337,7 @@ body_tr: |-
   
   ## Lisans
   
-  Apache 2.0 — [LICENSE](LICENSE) dosyasına bakın.
+  Apache 2.0 — [LICENSE](https://github.com/chopratejas/headroom/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 <div align="center"><pre>
@@ -358,7 +358,7 @@ body_tr: |-
   <a href="https://pypi.org/project/headroom-ai/"></a>
   <a href="https://www.npmjs.com/package/headroom-ai"></a>
   <a href="https://huggingface.co/chopratejas/kompress-v2-base"></a>
-  <a href="LICENSE"></a>
+  <a href="https://github.com/chopratejas/headroom/tree/HEAD/LICENSE"></a>
   <a href="https://headroom-docs.vercel.app/docs"></a>
 </p>
 
@@ -368,12 +368,12 @@ body_tr: |-
   <a href="#proof">Proof</a> ·
   <a href="#agent-compatibility-matrix">Agents</a> ·
   <a href="https://discord.gg/yRmaUNpsPJ">Discord</a> ·
-  <a href="llms.txt">llms.txt</a> ·
-  <a href="ENTERPRISE.md">Enterprise</a>
+  <a href="https://github.com/chopratejas/headroom/blob/HEAD/llms.txt">llms.txt</a> ·
+  <a href="https://github.com/chopratejas/headroom/blob/HEAD/ENTERPRISE.md">Enterprise</a>
 </p>
 
 <p align="center"><sub>
-  <b>AI agents / LLMs:</b> read <a href="llms.txt"><code>/llms.txt</code></a> here, or fetch <a href="https://headroom-docs.vercel.app/llms.txt">the live index</a> / <a href="https://headroom-docs.vercel.app/llms-full.txt">full docs blob</a>.
+  <b>AI agents / LLMs:</b> read <a href="https://github.com/chopratejas/headroom/blob/HEAD/llms.txt"><code>/llms.txt</code></a> here, or fetch <a href="https://headroom-docs.vercel.app/llms.txt">the live index</a> / <a href="https://headroom-docs.vercel.app/llms-full.txt">full docs blob</a>.
 </sub></p>
 
 ---
@@ -521,7 +521,7 @@ unshaped as a control group: `export HEADROOM_OUTPUT_HOLDOUT=0.1`. The dashboard
 shows an **Output Tokens Saved** card next to input compression, labelled
 `measured` or `estimated` with the confidence band.
 
-→ Full write-up incl. the measurement methodology: [`docs/proposals/output-token-reduction.md`](docs/proposals/output-token-reduction.md)
+→ Full write-up incl. the measurement methodology: [`docs/proposals/output-token-reduction.md`](https://github.com/chopratejas/headroom/blob/HEAD/docs/proposals/output-token-reduction.md)
 
 <a href="https://www.star-history.com/?repos=chopratejas%2Fheadroom&type=date&legend=top-left">
  <picture>
@@ -741,7 +741,7 @@ git clone https://github.com/chopratejas/headroom.git && cd headroom
 uv sync --extra dev && uv run pytest
 ```
 
-Devcontainers in `.devcontainer/` (default + `memory-stack` with Qdrant & Neo4j). See [CONTRIBUTING.md](CONTRIBUTING.md).
+Devcontainers in `.devcontainer/` (default + `memory-stack` with Qdrant & Neo4j). See [CONTRIBUTING.md](https://github.com/chopratejas/headroom/blob/HEAD/CONTRIBUTING.md).
 
 ## Community
 
@@ -750,4 +750,4 @@ Devcontainers in `.devcontainer/` (default + `memory-stack` with Qdrant & Neo4j)
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE).
+Apache 2.0 — see [LICENSE](https://github.com/chopratejas/headroom/tree/HEAD/LICENSE).

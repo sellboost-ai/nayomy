@@ -188,18 +188,18 @@ body_tr: |-
   - **Yakında**: Zig, Scala, Clojure
   
   #### Dile Özgü Belgelendirme:
-  - [C++](docs/lang/cpp.md) - C++11/14/17/20 desteği şablonlar, isim alanları, modern özellikler ile
-  - [C#](docs/lang/csharp.md) - Tam C# 12 desteği, records, nullable reference types, pattern matching
-  - [Go](docs/lang/go.md) - Tam Go desteği, interfaces, goroutines, generics (1.18+)
-  - [Java](docs/lang/java.md) - Java 8-21 desteği, records, sealed classes, pattern matching
-  - [JavaScript](docs/lang/javascript.md) - ES6+ desteği, classes, modules, async/await
-  - [Kotlin](docs/lang/kotlin.md) - Kotlin 1.x desteği, coroutines, data classes, sealed classes
-  - [PHP](docs/lang/php.md) - PHP 7.4+ PHP 8.x özellikleri ile (attributes, union types, enums)
-  - [Python](docs/lang/python.md) - Tam Python 3.x desteği, type hints, async/await, decorators
-  - [Ruby](docs/lang/ruby.md) - Ruby 2.x/3.x desteği, blocks, modules, metaprogramming
-  - [Rust](docs/lang/rust.md) - Rust 2018/2021 editions, traits, lifetimes, async
-  - [Swift](docs/lang/swift.md) - Swift 5.x desteği, protocols, extensions, property wrappers
-  - [TypeScript](docs/lang/typescript.md) - TypeScript 4.x/5.x, generics, decorators, type system
+  - [C++](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/cpp.md) - C++11/14/17/20 desteği şablonlar, isim alanları, modern özellikler ile
+  - [C#](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/csharp.md) - Tam C# 12 desteği, records, nullable reference types, pattern matching
+  - [Go](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/go.md) - Tam Go desteği, interfaces, goroutines, generics (1.18+)
+  - [Java](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/java.md) - Java 8-21 desteği, records, sealed classes, pattern matching
+  - [JavaScript](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/javascript.md) - ES6+ desteği, classes, modules, async/await
+  - [Kotlin](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/kotlin.md) - Kotlin 1.x desteği, coroutines, data classes, sealed classes
+  - [PHP](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/php.md) - PHP 7.4+ PHP 8.x özellikleri ile (attributes, union types, enums)
+  - [Python](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/python.md) - Tam Python 3.x desteği, type hints, async/await, decorators
+  - [Ruby](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/ruby.md) - Ruby 2.x/3.x desteği, blocks, modules, metaprogramming
+  - [Rust](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/rust.md) - Rust 2018/2021 editions, traits, lifetimes, async
+  - [Swift](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/swift.md) - Swift 5.x desteği, protocols, extensions, property wrappers
+  - [TypeScript](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/typescript.md) - TypeScript 4.x/5.x, generics, decorators, type system
   
   ## 🎯 Nasıl Çalışır
   
@@ -515,18 +515,18 @@ Currently supports 12 languages via tree-sitter:
 - **Coming Soon**: Zig, Scala, Clojure
 
 #### Language-Specific Documentation:
-- [C++](docs/lang/cpp.md) - C++11/14/17/20 support with templates, namespaces, modern features
-- [C#](docs/lang/csharp.md) - Complete C# 12 support with records, nullable reference types, pattern matching
-- [Go](docs/lang/go.md) - Full Go support with interfaces, goroutines, generics (1.18+)
-- [Java](docs/lang/java.md) - Java 8-21 support with records, sealed classes, pattern matching
-- [JavaScript](docs/lang/javascript.md) - ES6+ support with classes, modules, async/await
-- [Kotlin](docs/lang/kotlin.md) - Kotlin 1.x support with coroutines, data classes, sealed classes
-- [PHP](docs/lang/php.md) - PHP 7.4+ with PHP 8.x features (attributes, union types, enums)
-- [Python](docs/lang/python.md) - Full Python 3.x support with type hints, async/await, decorators
-- [Ruby](docs/lang/ruby.md) - Ruby 2.x/3.x support with blocks, modules, metaprogramming
-- [Rust](docs/lang/rust.md) - Rust 2018/2021 editions with traits, lifetimes, async
-- [Swift](docs/lang/swift.md) - Swift 5.x support with protocols, extensions, property wrappers
-- [TypeScript](docs/lang/typescript.md) - TypeScript 4.x/5.x with generics, decorators, type system
+- [C++](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/cpp.md) - C++11/14/17/20 support with templates, namespaces, modern features
+- [C#](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/csharp.md) - Complete C# 12 support with records, nullable reference types, pattern matching
+- [Go](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/go.md) - Full Go support with interfaces, goroutines, generics (1.18+)
+- [Java](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/java.md) - Java 8-21 support with records, sealed classes, pattern matching
+- [JavaScript](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/javascript.md) - ES6+ support with classes, modules, async/await
+- [Kotlin](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/kotlin.md) - Kotlin 1.x support with coroutines, data classes, sealed classes
+- [PHP](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/php.md) - PHP 7.4+ with PHP 8.x features (attributes, union types, enums)
+- [Python](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/python.md) - Full Python 3.x support with type hints, async/await, decorators
+- [Ruby](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/ruby.md) - Ruby 2.x/3.x support with blocks, modules, metaprogramming
+- [Rust](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/rust.md) - Rust 2018/2021 editions with traits, lifetimes, async
+- [Swift](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/swift.md) - Swift 5.x support with protocols, extensions, property wrappers
+- [TypeScript](https://github.com/janreges/ai-distiller/blob/HEAD/docs/lang/typescript.md) - TypeScript 4.x/5.x with generics, decorators, type system
 
 ## 🎯 How It Works
 
@@ -783,7 +783,7 @@ aid ./micro-service --private=1 --protected=1 --implementation=1
 
 **Granular Control**: Process your entire codebase, specific modules, directories, or even individual files. Perfect for focusing AI on the exact context it needs - whether that's understanding the whole system architecture or diving deep into a specific authentication module.
 
-📈 **[Full benchmark details](benchmark/BENCHMARK_RESULTS.md)** | 🧪 **[Reproduce these results](benchmark/test_benchmark.sh)**
+📈 **[Full benchmark details](https://github.com/janreges/ai-distiller/blob/HEAD/benchmark/BENCHMARK_RESULTS.md)** | 🧪 **[Reproduce these results](https://github.com/janreges/ai-distiller/blob/HEAD/benchmark/test_benchmark.sh)**
 
 ## 🚀 Quick Start
 
@@ -1440,7 +1440,7 @@ Currently 12+ languages via tree-sitter: Python, TypeScript, JavaScript, Go, Jav
 
 ## 🤝 Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+We welcome contributions! See [CONTRIBUTING.md](https://github.com/janreges/ai-distiller/blob/HEAD/CONTRIBUTING.md) for guidelines.
 
 ### Development Setup
 
@@ -1497,7 +1497,7 @@ The script automatically detects available toolchains and builds for all possibl
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](https://github.com/janreges/ai-distiller/tree/HEAD/LICENSE) for details.
 
 ## 🙏 Acknowledgments
 

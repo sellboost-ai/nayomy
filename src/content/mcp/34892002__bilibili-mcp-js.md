@@ -12,9 +12,9 @@ language: "JavaScript"
 body_tr: |-
   # Bilibili MCP
   
-  [![English](https://img.shields.io/badge/English-Click-yellow)](README-en.md)
-  [![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](README.md)
-  [![日本語](https://img.shields.io/badge/日本語-クリック-青)](README-ja.md)
+  [![English](https://img.shields.io/badge/English-Click-yellow)](https://github.com/34892002/bilibili-mcp-js/blob/HEAD/README-en.md)
+  [![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](https://github.com/34892002/bilibili-mcp-js/blob/HEAD/README.md)
+  [![日本語](https://img.shields.io/badge/日本語-クリック-青)](https://github.com/34892002/bilibili-mcp-js/blob/HEAD/README-ja.md)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/34892002/bilibili-mcp-js)](https://archestra.ai/mcp-catalog/34892002__bilibili-mcp-js)
   
   ## Giriş
@@ -126,9 +126,9 @@ body_tr: |-
 
 # Bilibili MCP
 
-[![English](https://img.shields.io/badge/English-Click-yellow)](README-en.md)
-[![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](README.md)
-[![日本語](https://img.shields.io/badge/日本語-クリック-青)](README-ja.md)
+[![English](https://img.shields.io/badge/English-Click-yellow)](https://github.com/34892002/bilibili-mcp-js/blob/HEAD/README-en.md)
+[![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](https://github.com/34892002/bilibili-mcp-js/blob/HEAD/README.md)
+[![日本語](https://img.shields.io/badge/日本語-クリック-青)](https://github.com/34892002/bilibili-mcp-js/blob/HEAD/README-ja.md)
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/34892002/bilibili-mcp-js)](https://archestra.ai/mcp-catalog/34892002__bilibili-mcp-js)
 
 ## 简介

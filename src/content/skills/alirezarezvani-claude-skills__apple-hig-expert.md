@@ -36,7 +36,7 @@ body_tr: |-
   Yeni başlarken kullanılır. Atomic design, layout primitifleri ve Apple'ın temel felsefelerine uyumlu navigation paradigmalarına (Clarity, Deference, Depth) odaklanır.
   
   ### Mod 2: HIG Denetimi
-  Mockup'ları veya kodu gözden geçirirken. İhlalleri ve iyileştirme fırsatlarını sistematik olarak belirlemek için [templates/hig-audit-template.md](templates/hig-audit-template.md) şablonunu kullanın.
+  Mockup'ları veya kodu gözden geçirirken. İhlalleri ve iyileştirme fırsatlarını sistematik olarak belirlemek için [templates/hig-audit-template.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/templates/hig-audit-template.md) şablonunu kullanın.
   
   ## Temel Tasarım İlkeleri (2026)
   
@@ -56,11 +56,11 @@ body_tr: |-
   
   ### Aşama 1: Navigation & Layout
   Doğru navigation modelini seçin (macOS için Sidebars, iOS için Tab Bars, visionOS için Ornaments).
-  Detaylar için [references/platform-specifics.md](references/platform-specifics.md) konusuna bakın.
+  Detaylar için [references/platform-specifics.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-specifics.md) konusuna bakın.
   
   ### Aşama 2: Görsel Stil
   Tipografi (San Francisco ailesi) ve semantic renkler uygulayın. 
-  Detaylar için [references/visual-design.md](references/visual-design.md) konusuna bakın.
+  Detaylar için [references/visual-design.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/visual-design.md) konusuna bakın.
   
   ### Aşama 3: Son Denetim
   Kontrast ve layout kontrolleri için `hig_checker.py` aracını çalıştırın.

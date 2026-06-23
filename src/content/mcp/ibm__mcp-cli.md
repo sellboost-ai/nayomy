@@ -84,8 +84,8 @@ body_tr: |-
   ### Kod Kalitesi
   - **Çekirdek/Kullanıcı Arayüzü Ayrımı**: Çekirdek modüller yalnızca `logging` kullanır — UI içeri aktarma yok
   - **4.300+ test**: Şube kapsama, entegrasyon testleri ve %60 minimum eşik ile kapsamlı test paketi
-  - **15 Mimari Prensibi**: Belgelenmiş ve uygulanmış (bkz. [architecture.md](architecture.md))
-  - **Tam [Yol Haritası](roadmap.md)**: Katmanlar 1-6 tamamlandı, Katmanlar 7-12 planlı (izler, bellek kapsamları, beceriler, zamanlama, çok aracı)
+  - **15 Mimari Prensibi**: Belgelenmiş ve uygulanmış (bkz. [architecture.md](https://github.com/IBM/mcp-cli/blob/HEAD/architecture.md))
+  - **Tam [Yol Haritası](https://github.com/IBM/mcp-cli/blob/HEAD/roadmap.md)**: Katmanlar 1-6 tamamlandı, Katmanlar 7-12 planlı (izler, bellek kapsamları, beceriler, zamanlama, çok aracı)
   
   ## 🔄 Mimari Genel Bakış
   
@@ -183,30 +183,30 @@ body_tr: |-
   Kapsamlı belgeler `docs/` dizininde mevcuttur:
   
   ### Proje
-  - **[Mimari](architecture.md)** - 15 tasarım prensibi, modül düzeni ve kodlama kuralları
-  - **[Yol Haritası](roadmap.md)** - Vizyon, tamamlanmış katmanlar (1-5) ve planlı katmanlar (6-12: planlar, izler, beceriler, zamanlama, çok aracı, uzak oturumlar)
+  - **[Mimari](https://github.com/IBM/mcp-cli/blob/HEAD/architecture.md)** - 15 tasarım prensibi, modül düzeni ve kodlama kuralları
+  - **[Yol Haritası](https://github.com/IBM/mcp-cli/blob/HEAD/roadmap.md)** - Vizyon, tamamlanmış katmanlar (1-5) ve planlı katmanlar (6-12: planlar, izler, beceriler, zamanlama, çok aracı, uzak oturumlar)
   
   ### Temel Belgeler
-  - **[Komutlar Sistemi](docs/COMMANDS.md)** - Birleşik komut sistemi, desenler ve tüm modlar arasında kullanım için kapsamlı kılavuz
-  - **[Token Yönetimi](docs/TOKEN_MANAGEMENT.md)** - OAuth, bearer tokenları ve API anahtarları da dahil olmak üzere sağlayıcılar ve sunucular için kapsamlı token yönetimi
+  - **[Komutlar Sistemi](https://github.com/IBM/mcp-cli/blob/HEAD/docs/COMMANDS.md)** - Birleşik komut sistemi, desenler ve tüm modlar arasında kullanım için kapsamlı kılavuz
+  - **[Token Yönetimi](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md)** - OAuth, bearer tokenları ve API anahtarları da dahil olmak üzere sağlayıcılar ve sunucular için kapsamlı token yönetimi
   
   ### Özel Belgeler
-  - **[Yürütme Planları](docs/PLANNING.md)** - Plan oluşturma, paralel yürütme, değişken çözümlemesi, kontrol noktaları, korumalı alanlar ve yeniden planlama
-  - **[Pano](docs/DASHBOARD.md)** - Agent terminali, aktivite akışı ve dosya yükleme ile gerçek zamanlı tarayıcı kullanıcı arayüzü
-  - **[Ekler](docs/ATTACHMENTS.md)** - Çok modlu dosya ekleri: görüntüler, metin, ses ve tarayıcı yüklemesi
-  - **[MCP Uygulamaları](docs/MCP_APPS.md)** - MCP sunucuları tarafından sunulan etkileşimli tarayıcı kullanıcı arayüzleri (SEP-1865)
-  - **[OAuth Kimlik Doğrulaması](docs/OAUTH.md)** - OAuth akışları, depolama arka uçları ve MCP sunucu entegrasyonu
-  - **[Akış Entegrasyonu](docs/STREAMING.md)** - Gerçek zamanlı yanıt akışı mimarisi
-  - **[Paket Yönetimi](docs/PACKAGE_MANAGEMENT.md)** - Bağımlılık organizasyonu ve özellik grupları
+  - **[Yürütme Planları](https://github.com/IBM/mcp-cli/blob/HEAD/docs/PLANNING.md)** - Plan oluşturma, paralel yürütme, değişken çözümlemesi, kontrol noktaları, korumalı alanlar ve yeniden planlama
+  - **[Pano](https://github.com/IBM/mcp-cli/blob/HEAD/docs/DASHBOARD.md)** - Agent terminali, aktivite akışı ve dosya yükleme ile gerçek zamanlı tarayıcı kullanıcı arayüzü
+  - **[Ekler](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ATTACHMENTS.md)** - Çok modlu dosya ekleri: görüntüler, metin, ses ve tarayıcı yüklemesi
+  - **[MCP Uygulamaları](https://github.com/IBM/mcp-cli/blob/HEAD/docs/MCP_APPS.md)** - MCP sunucuları tarafından sunulan etkileşimli tarayıcı kullanıcı arayüzleri (SEP-1865)
+  - **[OAuth Kimlik Doğrulaması](https://github.com/IBM/mcp-cli/blob/HEAD/docs/OAUTH.md)** - OAuth akışları, depolama arka uçları ve MCP sunucu entegrasyonu
+  - **[Akış Entegrasyonu](https://github.com/IBM/mcp-cli/blob/HEAD/docs/STREAMING.md)** - Gerçek zamanlı yanıt akışı mimarisi
+  - **[Paket Yönetimi](https://github.com/IBM/mcp-cli/blob/HEAD/docs/PACKAGE_MANAGEMENT.md)** - Bağımlılık organizasyonu ve özellik grupları
   
   ### Kullanıcı Arayüzü Belgeleri
-  - **[Temalar](docs/ui/themes.md)** - Tema sistemi ve özelleştirme
-  - **[Çıkış Sistemi](docs/ui/output.md)** - Zengin konsol çıkışı ve biçimlendirme
-  - **[Terminal Yönetimi](docs/ui/terminal.md)** - Çapraz platform terminal işlemleri
+  - **[Temalar](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ui/themes.md)** - Tema sistemi ve özelleştirme
+  - **[Çıkış Sistemi](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ui/output.md)** - Zengin konsol çıkışı ve biçimlendirme
+  - **[Terminal Yönetimi](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ui/terminal.md)** - Çapraz platform terminal işlemleri
   
   ### Test Belgeleri
-  - **[Birim Testi](docs/testing/UNIT_TESTING.md)** - Test yapısı ve modelleri
-  - **[Test Kapsamı](docs/testing/TEST_COVERAGE.md)** - Kapsama gereksinimleri ve raporlama
+  - **[Birim Testi](https://github.com/IBM/mcp-cli/blob/HEAD/docs/testing/UNIT_TESTING.md)** - Test yapısı ve modelleri
+  - **[Test Kapsamı](https://github.com/IBM/mcp-cli/blob/HEAD/docs/testing/TEST_COVERAGE.md)** - Kapsama gereksinimleri ve raporlama
   
   ## 📋 Ön Koşullar
   
@@ -302,8 +302,8 @@ A powerful, feature-rich command-line interface for interacting with Model Conte
 ### Code Quality
 - **Core/UI Separation**: Core modules use `logging` only — no UI imports
 - **4,300+ tests**: Comprehensive test suite with branch coverage, integration tests, and 60% minimum threshold
-- **15 Architecture Principles**: Documented and enforced (see [architecture.md](architecture.md))
-- **Full [Roadmap](roadmap.md)**: Tiers 1-6 complete, Tiers 7-12 planned (traces, memory scopes, skills, scheduling, multi-agent)
+- **15 Architecture Principles**: Documented and enforced (see [architecture.md](https://github.com/IBM/mcp-cli/blob/HEAD/architecture.md))
+- **Full [Roadmap](https://github.com/IBM/mcp-cli/blob/HEAD/roadmap.md)**: Tiers 1-6 complete, Tiers 7-12 planned (traces, memory scopes, skills, scheduling, multi-agent)
 
 ## 🔄 Architecture Overview
 
@@ -401,30 +401,30 @@ MCP CLI supports all providers and models from CHUK-LLM, including cutting-edge 
 Comprehensive documentation is available in the `docs/` directory:
 
 ### Project
-- **[Architecture](architecture.md)** - 15 design principles, module layout, and coding conventions
-- **[Roadmap](roadmap.md)** - Vision, completed tiers (1-5), and planned tiers (6-12: plans, traces, skills, scheduling, multi-agent, remote sessions)
+- **[Architecture](https://github.com/IBM/mcp-cli/blob/HEAD/architecture.md)** - 15 design principles, module layout, and coding conventions
+- **[Roadmap](https://github.com/IBM/mcp-cli/blob/HEAD/roadmap.md)** - Vision, completed tiers (1-5), and planned tiers (6-12: plans, traces, skills, scheduling, multi-agent, remote sessions)
 
 ### Core Documentation
-- **[Commands System](docs/COMMANDS.md)** - Complete guide to the unified command system, patterns, and usage across all modes
-- **[Token Management](docs/TOKEN_MANAGEMENT.md)** - Comprehensive token management for providers and servers including OAuth, bearer tokens, and API keys
+- **[Commands System](https://github.com/IBM/mcp-cli/blob/HEAD/docs/COMMANDS.md)** - Complete guide to the unified command system, patterns, and usage across all modes
+- **[Token Management](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md)** - Comprehensive token management for providers and servers including OAuth, bearer tokens, and API keys
 
 ### Specialized Documentation
-- **[Execution Plans](docs/PLANNING.md)** - Plan creation, parallel execution, variable resolution, checkpointing, guards, and re-planning
-- **[Dashboard](docs/DASHBOARD.md)** - Real-time browser UI with agent terminal, activity stream, and file uploads
-- **[Attachments](docs/ATTACHMENTS.md)** - Multi-modal file attachments: images, text, audio, and browser upload
-- **[MCP Apps](docs/MCP_APPS.md)** - Interactive browser UIs served by MCP servers (SEP-1865)
-- **[OAuth Authentication](docs/OAUTH.md)** - OAuth flows, storage backends, and MCP server integration
-- **[Streaming Integration](docs/STREAMING.md)** - Real-time response streaming architecture
-- **[Package Management](docs/PACKAGE_MANAGEMENT.md)** - Dependency organization and feature groups
+- **[Execution Plans](https://github.com/IBM/mcp-cli/blob/HEAD/docs/PLANNING.md)** - Plan creation, parallel execution, variable resolution, checkpointing, guards, and re-planning
+- **[Dashboard](https://github.com/IBM/mcp-cli/blob/HEAD/docs/DASHBOARD.md)** - Real-time browser UI with agent terminal, activity stream, and file uploads
+- **[Attachments](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ATTACHMENTS.md)** - Multi-modal file attachments: images, text, audio, and browser upload
+- **[MCP Apps](https://github.com/IBM/mcp-cli/blob/HEAD/docs/MCP_APPS.md)** - Interactive browser UIs served by MCP servers (SEP-1865)
+- **[OAuth Authentication](https://github.com/IBM/mcp-cli/blob/HEAD/docs/OAUTH.md)** - OAuth flows, storage backends, and MCP server integration
+- **[Streaming Integration](https://github.com/IBM/mcp-cli/blob/HEAD/docs/STREAMING.md)** - Real-time response streaming architecture
+- **[Package Management](https://github.com/IBM/mcp-cli/blob/HEAD/docs/PACKAGE_MANAGEMENT.md)** - Dependency organization and feature groups
 
 ### UI Documentation
-- **[Themes](docs/ui/themes.md)** - Theme system and customization
-- **[Output System](docs/ui/output.md)** - Rich console output and formatting
-- **[Terminal Management](docs/ui/terminal.md)** - Cross-platform terminal operations
+- **[Themes](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ui/themes.md)** - Theme system and customization
+- **[Output System](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ui/output.md)** - Rich console output and formatting
+- **[Terminal Management](https://github.com/IBM/mcp-cli/blob/HEAD/docs/ui/terminal.md)** - Cross-platform terminal operations
 
 ### Testing Documentation
-- **[Unit Testing](docs/testing/UNIT_TESTING.md)** - Test structure and patterns
-- **[Test Coverage](docs/testing/TEST_COVERAGE.md)** - Coverage requirements and reporting
+- **[Unit Testing](https://github.com/IBM/mcp-cli/blob/HEAD/docs/testing/UNIT_TESTING.md)** - Test structure and patterns
+- **[Test Coverage](https://github.com/IBM/mcp-cli/blob/HEAD/docs/testing/TEST_COVERAGE.md)** - Coverage requirements and reporting
 
 ## 📋 Prerequisites
 
@@ -700,7 +700,7 @@ mcp-cli --server view_demo
 - **Security**: Iframe sandbox, CSP protection, XSS prevention, URL scheme validation
 - **Reliability**: Message queuing during disconnects, exponential backoff reconnection, deferred tool result delivery
 
-See [MCP Apps Documentation](docs/MCP_APPS.md) for the full guide.
+See [MCP Apps Documentation](https://github.com/IBM/mcp-cli/blob/HEAD/docs/MCP_APPS.md) for the full guide.
 
 ## 🤖 Using Chat Mode
 
@@ -861,7 +861,7 @@ mcp-cli --token-backend encrypted token list
 mcp-cli --token-backend vault token list
 ```
 
-See [Token Management Guide](docs/TOKEN_MANAGEMENT.md) for comprehensive documentation.
+See [Token Management Guide](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md) for comprehensive documentation.
 
 #### Session Control
 ```bash
@@ -874,7 +874,7 @@ See [Token Management Guide](docs/TOKEN_MANAGEMENT.md) for comprehensive documen
 /exit                            # Exit chat mode
 ```
 
-**For complete command documentation**, see [Commands System Guide](docs/COMMANDS.md).
+**For complete command documentation**, see [Commands System Guide](https://github.com/IBM/mcp-cli/blob/HEAD/docs/COMMANDS.md).
 
 ### Chat Features
 
@@ -1063,7 +1063,7 @@ mcp-cli provider remove localai
 mcp-cli --provider temp-ai --api-base https://api.temp.com/v1 --api-key test-key --server sqlite
 ```
 
-**Security Note**: API keys can be stored securely in OS-native keychains (macOS Keychain, Windows Credential Manager, Linux Secret Service) or HashiCorp Vault using the token management system. Alternatively, use environment variables following the pattern `{PROVIDER_NAME}_API_KEY` or pass via `--api-key` for session-only use. See [Token Management](docs/TOKEN_MANAGEMENT.md) for details.
+**Security Note**: API keys can be stored securely in OS-native keychains (macOS Keychain, Windows Credential Manager, Linux Secret Service) or HashiCorp Vault using the token management system. Alternatively, use environment variables following the pattern `{PROVIDER_NAME}_API_KEY` or pass via `--api-key` for session-only use. See [Token Management](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md) for details.
 
 ### Manual Configuration
 
@@ -1096,7 +1096,7 @@ groq:
 ```
 
 API keys can be provided via:
-1. **Secure token storage** (recommended) - Stored in OS keychain/Vault, see [Token Management](docs/TOKEN_MANAGEMENT.md)
+1. **Secure token storage** (recommended) - Stored in OS keychain/Vault, see [Token Management](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md)
 2. **Environment variables** - Export in your shell or add to `~/.chuk_llm/.env`:
 
 ```bash
@@ -1158,7 +1158,7 @@ MCP CLI v0.11.1+ comes with an expanded set of pre-configured servers in the bun
 | **linkedin** | HTTP | LinkedIn integration | `https://linkedin.chukai.io/mcp` |
 | **weather** | HTTP | Weather data service | `https://weather.chukai.io/mcp` |
 
-**Note**: HTTP servers and API-based servers require authentication. Use the [Token Management](docs/TOKEN_MANAGEMENT.md) system to configure access tokens.
+**Note**: HTTP servers and API-based servers require authentication. Use the [Token Management](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md) system to configure access tokens.
 
 To use these servers:
 ```bash
@@ -1274,7 +1274,7 @@ mcp-cli token set my_api --type bearer --value "your-token-here"
 - ✅ Tokens encrypted in OS-native secure storage
 - ✅ Works across all transport types (STDIO, HTTP, SSE)
 
-See [Token Management Guide](docs/TOKEN_MANAGEMENT.md) for complete documentation.
+See [Token Management Guide](https://github.com/IBM/mcp-cli/blob/HEAD/docs/TOKEN_MANAGEMENT.md) for complete documentation.
 
 ### Runtime Server Management
 
@@ -1599,7 +1599,7 @@ pip install "mcp-cli[apps]"       # MCP Apps (interactive browser UIs)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guide](https://github.com/IBM/mcp-cli/blob/HEAD/CONTRIBUTING.md) for details.
 
 ### Development Setup
 
@@ -1656,7 +1656,7 @@ pytest --cov=mcp_cli --cov-report=html
 
 ## 📜 License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/IBM/mcp-cli/tree/HEAD/LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

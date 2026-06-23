@@ -221,7 +221,7 @@ body_tr: |-
   
   # 📝 Lisans
   
-  Bu proje [MIT lisansı](./LICENSE) altında lisanslanmıştır.
+  Bu proje [MIT lisansı](https://github.com/ChanMeng666/server-google-news/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   # 🙋‍♀ Yazar
   
@@ -327,7 +327,7 @@ body_tr: |-
   - Yanıt süresi optimizasyonu
   - Kategorilendirme doğruluğu iyileştirmeleri
   
-  Teknik uygulama detayları için [src/geo-metrics.ts](./src/geo-metrics.ts) dosyasına bakın.
+  Teknik uygulama detayları için [src/geo-metrics.ts](https://github.com/ChanMeng666/server-google-news/blob/HEAD/src/geo-metrics.ts) dosyasına bakın.
   
   </details>
   
@@ -363,7 +363,7 @@ body_tr: |-
   - Çeşitli AI platformları ve çerçeveleri destekler
   - Açık hata yönetimi ve hata ayıklama bilgileri sağlar
   
-  Tam yapılandırılmış veri için [structured-data.json](./structured-data.json) dosyasına bakın.
+  Tam yapılandırılmış veri için [structured-data.json](https://github.com/ChanMeng666/server-google-news/blob/HEAD/structured-data.json) dosyasına bakın.
   
   </details>
   
@@ -583,7 +583,7 @@ npm run test
 
 # 📝 License
 
-This project is [MIT licensed](./LICENSE).
+This project is [MIT licensed](https://github.com/ChanMeng666/server-google-news/tree/HEAD/LICENSE).
 
 # 🙋‍♀ Author
 
@@ -689,7 +689,7 @@ interface GEOMonitoringConfig {
 - Response time optimization
 - Categorization accuracy improvements
 
-For technical implementation details, see [src/geo-metrics.ts](./src/geo-metrics.ts).
+For technical implementation details, see [src/geo-metrics.ts](https://github.com/ChanMeng666/server-google-news/blob/HEAD/src/geo-metrics.ts).
 
 </details>
 
@@ -725,7 +725,7 @@ The server includes structured data following Schema.org standards:
 - Supports various AI platforms and frameworks
 - Provides clear error handling and debugging information
 
-For complete structured data, see [structured-data.json](./structured-data.json).
+For complete structured data, see [structured-data.json](https://github.com/ChanMeng666/server-google-news/blob/HEAD/structured-data.json).
 
 </details>
 

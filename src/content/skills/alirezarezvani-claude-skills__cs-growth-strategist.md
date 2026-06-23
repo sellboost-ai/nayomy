@@ -69,8 +69,8 @@ body_tr: |-
   
   ## İlişkili Ajanlar
   
-  - [cs-product-manager](../product/cs-product-manager.md) -- Satış konumlandırması ve özellik önceliklendirmesi için ürün yol haritası uyumlaştırması
-  - [cs-financial-analyst](../finance/cs-financial-analyst.md) -- Gelir tahmini doğrulaması ve finansal modelleme desteği
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) -- Satış konumlandırması ve özellik önceliklendirmesi için ürün yol haritası uyumlaştırması
+  - [cs-financial-analyst](https://github.com/alirezarezvani/claude-skills/blob/HEAD/finance/cs-financial-analyst.md) -- Gelir tahmini doğrulaması ve finansal modelleme desteği
 ---
 
 # cs-growth-strategist
@@ -128,5 +128,5 @@ Growth-focused operator covering the full revenue lifecycle: pipeline management
 
 ## Related Agents
 
-- [cs-product-manager](../product/cs-product-manager.md) -- Product roadmap alignment for sales positioning and feature prioritization
-- [cs-financial-analyst](../finance/cs-financial-analyst.md) -- Revenue forecasting validation and financial modeling support
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) -- Product roadmap alignment for sales positioning and feature prioritization
+- [cs-financial-analyst](https://github.com/alirezarezvani/claude-skills/blob/HEAD/finance/cs-financial-analyst.md) -- Revenue forecasting validation and financial modeling support

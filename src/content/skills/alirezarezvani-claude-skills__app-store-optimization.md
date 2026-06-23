@@ -67,7 +67,7 @@ body_tr: |-
   | Kısa Açıklama (Android) | Yüksek |
   | Tam Açıklama | Orta |
   
-  Bkz: [references/keyword-research-guide.md](references/keyword-research-guide.md)
+  Bkz: [references/keyword-research-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/keyword-research-guide.md)
   
   ---
   
@@ -139,7 +139,7 @@ body_tr: |-
   └── Güvence (ücretsiz deneme, kaydolmaya gerek yok)
   ```
   
-  Bkz: [references/platform-requirements.md](references/platform-requirements.md)
+  Bkz: [references/platform-requirements.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-requirements.md)
   
   ---
   
@@ -250,7 +250,7 @@ body_tr: |-
   | Mevsimsel | Alakalı kategori mevsimlerine uyumlu |
   | Rekabet | Büyük rakip lansmanı tarihleri |
   
-  Bkz: [references/aso-best-practices.md](references/aso-best-practices.md)
+  Bkz: [references/aso-best-practices.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/aso-best-practices.md)
   
   ---
   
@@ -413,28 +413,28 @@ body_tr: |-
   
   | Script | Amaç | Kullanım |
   |--------|------|---------|
-  | [keyword_analyzer.py](scripts/keyword_analyzer.py) | Anahtar kelimeleri hacim ve rekabet açısından analiz edin | `python keyword_analyzer.py --keywords "todo,task,planner"` |
-  | [metadata_optimizer.py](scripts/metadata_optimizer.py) | Meta veri karakter sınırlarını ve yoğunluğunu doğrulayın | `python metadata_optimizer.py --platform ios --title "App Title"` |
-  | [competitor_analyzer.py](scripts/competitor_analyzer.py) | Rakip anahtar kelimelerini çıkarın ve karşılaştırın | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
-  | [aso_scorer.py](scripts/aso_scorer.py) | Genel ASO sağlık puanını hesaplayın | `python aso_scorer.py --app-id com.example.app` |
-  | [ab_test_planner.py](scripts/ab_test_planner.py) | Testleri planlayın ve örnek boyutlarını hesaplayın | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
-  | [review_analyzer.py](scripts/review_analyzer.py) | İnceleme duygusu ve temalarını analiz edin | `python review_analyzer.py --app-id com.example.app` |
-  | [launch_checklist.py](scripts/launch_checklist.py) | Platform özgü lansmanı kontrol listesi oluşturun | `python launch_checklist.py --platform ios` |
-  | [localization_helper.py](scripts/localization_helper.py) | Çok dilinde meta veriyi yönetin | `python localization_helper.py --locales "en,es,de,ja"` |
+  | [keyword_analyzer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/keyword_analyzer.py) | Anahtar kelimeleri hacim ve rekabet açısından analiz edin | `python keyword_analyzer.py --keywords "todo,task,planner"` |
+  | [metadata_optimizer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/metadata_optimizer.py) | Meta veri karakter sınırlarını ve yoğunluğunu doğrulayın | `python metadata_optimizer.py --platform ios --title "App Title"` |
+  | [competitor_analyzer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/competitor_analyzer.py) | Rakip anahtar kelimelerini çıkarın ve karşılaştırın | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
+  | [aso_scorer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/aso_scorer.py) | Genel ASO sağlık puanını hesaplayın | `python aso_scorer.py --app-id com.example.app` |
+  | [ab_test_planner.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/ab_test_planner.py) | Testleri planlayın ve örnek boyutlarını hesaplayın | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
+  | [review_analyzer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/review_analyzer.py) | İnceleme duygusu ve temalarını analiz edin | `python review_analyzer.py --app-id com.example.app` |
+  | [launch_checklist.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/launch_checklist.py) | Platform özgü lansmanı kontrol listesi oluşturun | `python launch_checklist.py --platform ios` |
+  | [localization_helper.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/localization_helper.py) | Çok dilinde meta veriyi yönetin | `python localization_helper.py --locales "en,es,de,ja"` |
   
   ### Referanslar
   
   | Belge | İçerik |
   |-------|--------|
-  | [platform-requirements.md](references/platform-requirements.md) | iOS ve Android meta veri özellikleri, görsel varlık gereksinimleri |
-  | [aso-best-practices.md](references/aso-best-practices.md) | Optimizasyon stratejileri, puan yönetimi, lansmanı taktikleri |
-  | [keyword-research-guide.md](references/keyword-research-guide.md) | Araştırma metodolojisi, değerlendirme çerçevesi, izleme |
+  | [platform-requirements.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-requirements.md) | iOS ve Android meta veri özellikleri, görsel varlık gereksinimleri |
+  | [aso-best-practices.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/aso-best-practices.md) | Optimizasyon stratejileri, puan yönetimi, lansmanı taktikleri |
+  | [keyword-research-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/keyword-research-guide.md) | Araştırma metodolojisi, değerlendirme çerçevesi, izleme |
   
   ### Varlıklar
   
   | Şablon | Amaç |
   |--------|------|
-  | [aso-audit-template.md](assets/aso-audit-template.md) | Uygulama mağazası listeleri için yapılandırılmış denetim kontrol listesi |
+  | [aso-audit-template.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/aso-audit-template.md) | Uygulama mağazası listeleri için yapılandırılmış denetim kontrol listesi |
   
   ---
   
@@ -457,9 +457,9 @@ body_tr: |-
   
   | Beceri | Entegrasyon Noktası |
   |--------|-------------------|
-  | [content-creator](../content-creator/) | Uygulama açıklaması yazısı |
-  | [marketing-demand-acquisition](../marketing-demand-acquisition/) | Lansmanı promosyon kampanyaları |
-  | [marketing-strategy-pmm](../marketing-strategy-pmm/) | Pazar girişi planlaması |
+  | [content-creator](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-creator/) | Uygulama açıklaması yazısı |
+  | [marketing-demand-acquisition](https://github.com/alirezarezvani/claude-skills/tree/HEAD/marketing-demand-acquisition/) | Lansmanı promosyon kampanyaları |
+  | [marketing-strategy-pmm](https://github.com/alirezarezvani/claude-skills/tree/HEAD/marketing-strategy-pmm/) | Pazar girişi planlaması |
   
   ## Proaktif Tetikleyiciler
   
@@ -537,7 +537,7 @@ Discover and evaluate keywords that drive app store visibility.
 | Short Description (Android) | High |
 | Full Description | Medium |
 
-See: [references/keyword-research-guide.md](references/keyword-research-guide.md)
+See: [references/keyword-research-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/keyword-research-guide.md)
 
 ---
 
@@ -609,7 +609,7 @@ PARAGRAPH 5: Call to Action (25-50 words)
 └── Reassurance (free trial, no signup)
 ```
 
-See: [references/platform-requirements.md](references/platform-requirements.md)
+See: [references/platform-requirements.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-requirements.md)
 
 ---
 
@@ -720,7 +720,7 @@ Execute a structured launch for maximum initial visibility.
 | Seasonal | Align with relevant category seasons |
 | Competition | Avoid major competitor launch dates |
 
-See: [references/aso-best-practices.md](references/aso-best-practices.md)
+See: [references/aso-best-practices.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/aso-best-practices.md)
 
 ---
 
@@ -883,28 +883,28 @@ Trusted by 500,000+ professionals.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| [keyword_analyzer.py](scripts/keyword_analyzer.py) | Analyze keywords for volume and competition | `python keyword_analyzer.py --keywords "todo,task,planner"` |
-| [metadata_optimizer.py](scripts/metadata_optimizer.py) | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
-| [competitor_analyzer.py](scripts/competitor_analyzer.py) | Extract and compare competitor keywords | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
-| [aso_scorer.py](scripts/aso_scorer.py) | Calculate overall ASO health score | `python aso_scorer.py --app-id com.example.app` |
-| [ab_test_planner.py](scripts/ab_test_planner.py) | Plan tests and calculate sample sizes | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
-| [review_analyzer.py](scripts/review_analyzer.py) | Analyze review sentiment and themes | `python review_analyzer.py --app-id com.example.app` |
-| [launch_checklist.py](scripts/launch_checklist.py) | Generate platform-specific launch checklists | `python launch_checklist.py --platform ios` |
-| [localization_helper.py](scripts/localization_helper.py) | Manage multi-language metadata | `python localization_helper.py --locales "en,es,de,ja"` |
+| [keyword_analyzer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/keyword_analyzer.py) | Analyze keywords for volume and competition | `python keyword_analyzer.py --keywords "todo,task,planner"` |
+| [metadata_optimizer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/metadata_optimizer.py) | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
+| [competitor_analyzer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/competitor_analyzer.py) | Extract and compare competitor keywords | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
+| [aso_scorer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/aso_scorer.py) | Calculate overall ASO health score | `python aso_scorer.py --app-id com.example.app` |
+| [ab_test_planner.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/ab_test_planner.py) | Plan tests and calculate sample sizes | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
+| [review_analyzer.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/review_analyzer.py) | Analyze review sentiment and themes | `python review_analyzer.py --app-id com.example.app` |
+| [launch_checklist.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/launch_checklist.py) | Generate platform-specific launch checklists | `python launch_checklist.py --platform ios` |
+| [localization_helper.py](https://github.com/alirezarezvani/claude-skills/blob/HEAD/scripts/localization_helper.py) | Manage multi-language metadata | `python localization_helper.py --locales "en,es,de,ja"` |
 
 ### References
 
 | Document | Content |
 |----------|---------|
-| [platform-requirements.md](references/platform-requirements.md) | iOS and Android metadata specs, visual asset requirements |
-| [aso-best-practices.md](references/aso-best-practices.md) | Optimization strategies, rating management, launch tactics |
-| [keyword-research-guide.md](references/keyword-research-guide.md) | Research methodology, evaluation framework, tracking |
+| [platform-requirements.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-requirements.md) | iOS and Android metadata specs, visual asset requirements |
+| [aso-best-practices.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/aso-best-practices.md) | Optimization strategies, rating management, launch tactics |
+| [keyword-research-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/keyword-research-guide.md) | Research methodology, evaluation framework, tracking |
 
 ### Assets
 
 | Template | Purpose |
 |----------|---------|
-| [aso-audit-template.md](assets/aso-audit-template.md) | Structured audit checklist for app store listings |
+| [aso-audit-template.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/aso-audit-template.md) | Structured audit checklist for app store listings |
 
 ---
 
@@ -927,9 +927,9 @@ Trusted by 500,000+ professionals.
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [content-creator](../content-creator/) | App description copywriting |
-| [marketing-demand-acquisition](../marketing-demand-acquisition/) | Launch promotion campaigns |
-| [marketing-strategy-pmm](../marketing-strategy-pmm/) | Go-to-market planning |
+| [content-creator](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-creator/) | App description copywriting |
+| [marketing-demand-acquisition](https://github.com/alirezarezvani/claude-skills/tree/HEAD/marketing-demand-acquisition/) | Launch promotion campaigns |
+| [marketing-strategy-pmm](https://github.com/alirezarezvani/claude-skills/tree/HEAD/marketing-strategy-pmm/) | Go-to-market planning |
 
 ## Proactive Triggers
 

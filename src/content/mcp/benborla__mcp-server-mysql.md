@@ -31,7 +31,7 @@ body_tr: |-
   
   ### Claude Code Kullanıcıları için Hızlı Başlangıç
   
-  1. **Setup Rehberini Okuyun**: Ayrıntılı talimatlar için [PROJECT_SETUP_GUIDE.md](PROJECT_SETUP_GUIDE.md) dosyasını inceleyin
+  1. **Setup Rehberini Okuyun**: Ayrıntılı talimatlar için [PROJECT_SETUP_GUIDE.md](https://github.com/benborla/mcp-server-mysql/blob/HEAD/PROJECT_SETUP_GUIDE.md) dosyasını inceleyin
   2. **SSH Tunnel'larını Yapılandırın**: Uzak veritabanları için otomatik SSH tunnel'larını ayarlayın
   3. **Claude ile Kullanın**: Entegre MCP server Claude Code ile sorunsuz çalışır
   
@@ -641,13 +641,13 @@ All write operations are disabled by default. Enable with `ALLOW_INSERT_OPERATIO
 
 ## Documentation
 
-- [Installation Guide](docs/INSTALLATION.md) — Smithery, Cursor, Codex, Claude Code, local repo, remote mode
-- [Configuration & Environment Variables](docs/CONFIGURATION.md) — all env vars, advanced config
-- [Multi-DB Mode](README-MULTI-DB.md) — querying multiple databases
-- [PII Redaction](docs/PII-REDACTION.md) — automatic data masking
-- [Testing](docs/TESTING.md) — test setup and running
-- [Troubleshooting](docs/TROUBLESHOOTING.md) — common issues and fixes
-- [Changelog](CHANGELOG.md)
+- [Installation Guide](https://github.com/benborla/mcp-server-mysql/blob/HEAD/docs/INSTALLATION.md) — Smithery, Cursor, Codex, Claude Code, local repo, remote mode
+- [Configuration & Environment Variables](https://github.com/benborla/mcp-server-mysql/blob/HEAD/docs/CONFIGURATION.md) — all env vars, advanced config
+- [Multi-DB Mode](https://github.com/benborla/mcp-server-mysql/blob/HEAD/README-MULTI-DB.md) — querying multiple databases
+- [PII Redaction](https://github.com/benborla/mcp-server-mysql/blob/HEAD/docs/PII-REDACTION.md) — automatic data masking
+- [Testing](https://github.com/benborla/mcp-server-mysql/blob/HEAD/docs/TESTING.md) — test setup and running
+- [Troubleshooting](https://github.com/benborla/mcp-server-mysql/blob/HEAD/docs/TROUBLESHOOTING.md) — common issues and fixes
+- [Changelog](https://github.com/benborla/mcp-server-mysql/blob/HEAD/CHANGELOG.md)
 
 ## Tools & Resources
 
@@ -672,4 +672,4 @@ pnpm test
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](https://github.com/benborla/mcp-server-mysql/tree/HEAD/LICENSE) for details.

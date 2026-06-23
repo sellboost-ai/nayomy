@@ -24,13 +24,13 @@ body_tr: |-
   
   <p align="center">
     <a href="https://github.com/redleaves/context-keeper"></a>
-    <a href="LICENSE"></a>
+    <a href="https://github.com/redleaves/context-keeper/tree/HEAD/LICENSE"></a>
     <a href="https://golang.org/"></a>
     <a href="https://github.com/modelcontextprotocol"></a>
   </p>
   
   <h3 align="center">
-    <a href="README-en.md">English</a> | Türkçe
+    <a href="https://github.com/redleaves/context-keeper/blob/HEAD/README-en.md">English</a> | Türkçe
   </h3>
   
   </div>
@@ -410,13 +410,13 @@ body_tr: |-
 
 <p align="center">
   <a href="https://github.com/redleaves/context-keeper"></a>
-  <a href="LICENSE"></a>
+  <a href="https://github.com/redleaves/context-keeper/tree/HEAD/LICENSE"></a>
   <a href="https://golang.org/"></a>
   <a href="https://github.com/modelcontextprotocol"></a>
 </p>
 
 <h3 align="center">
-  <a href="README-en.md">English</a> | 简体中文
+  <a href="https://github.com/redleaves/context-keeper/blob/HEAD/README-en.md">English</a> | 简体中文
 </h3>
 
 </div>
@@ -1364,7 +1364,7 @@ git clone https://github.com/redleaves/context-keeper.git
 ## 📄 **许可证与致谢**
 
 ### 📜 **开源许可**
-本项目基于 [MIT License](LICENSE) 开源许可证，欢迎自由使用、修改和分发。
+本项目基于 [MIT License](https://github.com/redleaves/context-keeper/tree/HEAD/LICENSE) 开源许可证，欢迎自由使用、修改和分发。
 
 ### 🙏 **特别致谢**
 

@@ -292,14 +292,14 @@ body_tr: |-
   
   **Kapsamlı dokümantasyonumuzda daha fazla bilgi edinin:**
   
-  - **[AI Kullanım Keşfi](./docs/ai-discovery.md)** - Çeşitli araçlar ve konfigürasyonlar arasında AI araç kullanım sinyalleri keşfedin
-  - **[AI Agent Modu](./docs/agent.md)** - vet'i bir AI agent olarak çalıştırın
-  - **[MCP Server](./docs/mcp.md)** - AI destekli kod analizi için vet'i bir MCP sunucusu olarak çalıştırın
-  - **[Raporlama](./docs/reporting.md)** - SARIF, JSON, CSV, HTML, Markdown formatları
+  - **[AI Kullanım Keşfi](https://github.com/safedep/vet/blob/HEAD/docs/ai-discovery.md)** - Çeşitli araçlar ve konfigürasyonlar arasında AI araç kullanım sinyalleri keşfedin
+  - **[AI Agent Modu](https://github.com/safedep/vet/blob/HEAD/docs/agent.md)** - vet'i bir AI agent olarak çalıştırın
+  - **[MCP Server](https://github.com/safedep/vet/blob/HEAD/docs/mcp.md)** - AI destekli kod analizi için vet'i bir MCP sunucusu olarak çalıştırın
+  - **[Raporlama](https://github.com/safedep/vet/blob/HEAD/docs/reporting.md)** - SARIF, JSON, CSV, HTML, Markdown formatları
   - **[SBOM Desteği](https://docs.safedep.io/vet/guides/cyclonedx-sbom)** - CycloneDX, SPDX içe aktarma/dışa aktarma
   - **[Query Modu](https://docs.safedep.io/cloud/quickstart#query-your-data)** - Bir kez tarayın, birçok kez analiz edin
   - **[GitHub Entegrasyonu](https://docs.safedep.io/)** - Repository ve organization taraması
-  - **[GitHub Actions Pinning](./docs/github-actions-pinning.md)** - Tedarik zinciri saldırılarını önlemek için GitHub Actions'ı commit SHA'larına sabitleyin
+  - **[GitHub Actions Pinning](https://github.com/safedep/vet/blob/HEAD/docs/github-actions-pinning.md)** - Tedarik zinciri saldırılarını önlemek için GitHub Actions'ı commit SHA'larına sabitleyin
   
   ## Gizlilik
   
@@ -328,7 +328,7 @@ body_tr: |-
   - **[Tam Dokümantasyon](https://docs.safedep.io/)** - Kapsamlı rehberler
   - **[Discord Topluluğu](https://rebrand.ly/safedep-community)** - Gerçek zamanlı destek
   - **[Issue Tracker](https://github.com/safedep/vet/issues)** - Bug raporları ve feature istekleri
-  - **[Katkı Rehberi](CONTRIBUTING.md)** - Geliştirmeye katılın
+  - **[Katkı Rehberi](https://github.com/safedep/vet/blob/HEAD/CONTRIBUTING.md)** - Geliştirmeye katılın
   
   ---
   
@@ -634,14 +634,14 @@ vet version
 
 **Learn more in our comprehensive documentation:**
 
-- **[AI Usage Discovery](./docs/ai-discovery.md)** - Discover AI tool usage signals across various tools and configurations
-- **[AI Agent Mode](./docs/agent.md)** - Run vet as an AI agent
-- **[MCP Server](./docs/mcp.md)** - Run vet as an MCP server for AI-assisted code analysis
-- **[Reporting](./docs/reporting.md)** - SARIF, JSON, CSV, HTML, Markdown formats
+- **[AI Usage Discovery](https://github.com/safedep/vet/blob/HEAD/docs/ai-discovery.md)** - Discover AI tool usage signals across various tools and configurations
+- **[AI Agent Mode](https://github.com/safedep/vet/blob/HEAD/docs/agent.md)** - Run vet as an AI agent
+- **[MCP Server](https://github.com/safedep/vet/blob/HEAD/docs/mcp.md)** - Run vet as an MCP server for AI-assisted code analysis
+- **[Reporting](https://github.com/safedep/vet/blob/HEAD/docs/reporting.md)** - SARIF, JSON, CSV, HTML, Markdown formats
 - **[SBOM Support](https://docs.safedep.io/vet/guides/cyclonedx-sbom)** - CycloneDX, SPDX import/export
 - **[Query Mode](https://docs.safedep.io/cloud/quickstart#query-your-data)** - Scan once, analyze multiple times
 - **[GitHub Integration](https://docs.safedep.io/)** - Repository and organization scanning
-- **[GitHub Actions Pinning](./docs/github-actions-pinning.md)** - Pin GitHub Actions to commit SHAs to prevent supply chain attacks
+- **[GitHub Actions Pinning](https://github.com/safedep/vet/blob/HEAD/docs/github-actions-pinning.md)** - Pin GitHub Actions to commit SHAs to prevent supply chain attacks
 
 ## Privacy
 
@@ -670,7 +670,7 @@ export VET_DISABLE_TELEMETRY=true
 - **[Complete Documentation](https://docs.safedep.io/)** - Comprehensive guides
 - **[Discord Community](https://rebrand.ly/safedep-community)** - Real-time support
 - **[Issue Tracker](https://github.com/safedep/vet/issues)** - Bug reports & feature requests
-- **[Contributing Guide](CONTRIBUTING.md)** - Join the development
+- **[Contributing Guide](https://github.com/safedep/vet/blob/HEAD/CONTRIBUTING.md)** - Join the development
 
 ---
 

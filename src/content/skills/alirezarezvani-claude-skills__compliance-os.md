@@ -196,12 +196,12 @@ body_tr: |-
   
   ## References
   
-  - [compliance_os_pattern.md](references/compliance_os_pattern.md) — Meta-framework mimarisi (configure → map → simulate → consolidate → review); ne zaman kullanılır vs kullanılmaz
-  - [cross_framework_overlap.md](references/cross_framework_overlap.md) — 9-framework × kontrol-ailesi örtüşme tablosu eşleme güven derecesiyle (Phase 3 `cross_framework_mapper.py` aracılığıyla 12 framework'e genişlenir)
-  - [audit_simulation_methodology.md](references/audit_simulation_methodology.md) — ISO 19011 + IIA IPPF + AICPA AT-C audit-simulation ilkeleri + ciddiyeti dağıtım heuristics
-  - [evidence_management.md](references/evidence_management.md) — Evidence pool tasarım + retention + tazelik + reuse-leverage scoring
-  - [multi_framework_audit_playbook.md](references/multi_framework_audit_playbook.md) — 2+ framework'ler için entegre audit programı (Phase 2)
-  - [evidence_artifact_reuse_index.md](references/evidence_artifact_reuse_index.md) — Tüm 12 framework'ler arasında ampirik olarak türetilmiş reuse-leverage sıralaması (Phase 3)
+  - [compliance_os_pattern.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/compliance_os_pattern.md) — Meta-framework mimarisi (configure → map → simulate → consolidate → review); ne zaman kullanılır vs kullanılmaz
+  - [cross_framework_overlap.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cross_framework_overlap.md) — 9-framework × kontrol-ailesi örtüşme tablosu eşleme güven derecesiyle (Phase 3 `cross_framework_mapper.py` aracılığıyla 12 framework'e genişlenir)
+  - [audit_simulation_methodology.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/audit_simulation_methodology.md) — ISO 19011 + IIA IPPF + AICPA AT-C audit-simulation ilkeleri + ciddiyeti dağıtım heuristics
+  - [evidence_management.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/evidence_management.md) — Evidence pool tasarım + retention + tazelik + reuse-leverage scoring
+  - [multi_framework_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/multi_framework_audit_playbook.md) — 2+ framework'ler için entegre audit programı (Phase 2)
+  - [evidence_artifact_reuse_index.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/evidence_artifact_reuse_index.md) — Tüm 12 framework'ler arasında ampirik olarak türetilmiş reuse-leverage sıralaması (Phase 3)
   
   ## Phase 3 Asset: Mock Audit Scenario Library
   
@@ -395,12 +395,12 @@ python scripts/evidence_pool_generator.py program.json
 
 ## References
 
-- [compliance_os_pattern.md](references/compliance_os_pattern.md) — The meta-framework architecture (configure → map → simulate → consolidate → review); when to use vs not
-- [cross_framework_overlap.md](references/cross_framework_overlap.md) — The 9-framework × control-family overlap table with mapping confidence (Phase 3 expands to 12 frameworks via `cross_framework_mapper.py`)
-- [audit_simulation_methodology.md](references/audit_simulation_methodology.md) — ISO 19011 + IIA IPPF + AICPA AT-C audit-simulation principles + severity distribution heuristics
-- [evidence_management.md](references/evidence_management.md) — Evidence pool design + retention + freshness + reuse-leverage scoring
-- [multi_framework_audit_playbook.md](references/multi_framework_audit_playbook.md) — Integrated audit programme for 2+ frameworks (Phase 2)
-- [evidence_artifact_reuse_index.md](references/evidence_artifact_reuse_index.md) — Empirically-derived reuse-leverage ranking across all 12 frameworks (Phase 3)
+- [compliance_os_pattern.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/compliance_os_pattern.md) — The meta-framework architecture (configure → map → simulate → consolidate → review); when to use vs not
+- [cross_framework_overlap.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cross_framework_overlap.md) — The 9-framework × control-family overlap table with mapping confidence (Phase 3 expands to 12 frameworks via `cross_framework_mapper.py`)
+- [audit_simulation_methodology.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/audit_simulation_methodology.md) — ISO 19011 + IIA IPPF + AICPA AT-C audit-simulation principles + severity distribution heuristics
+- [evidence_management.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/evidence_management.md) — Evidence pool design + retention + freshness + reuse-leverage scoring
+- [multi_framework_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/multi_framework_audit_playbook.md) — Integrated audit programme for 2+ frameworks (Phase 2)
+- [evidence_artifact_reuse_index.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/evidence_artifact_reuse_index.md) — Empirically-derived reuse-leverage ranking across all 12 frameworks (Phase 3)
 
 ## Phase 3 Asset: Mock Audit Scenario Library
 

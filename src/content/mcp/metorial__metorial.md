@@ -393,7 +393,7 @@ body_tr: |-
   
   ## Lisans
   
-  Metorial Kataloğu [Apache License 2.0](LICENSE) altında lisanslanmıştır.
+  Metorial Kataloğu [Apache License 2.0](https://github.com/metorial/metorial/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   <div align="center">
     <sub><a href="https://metorial.com">Metorial</a> tarafından ❤️ ile yapılmıştır</sub>
@@ -784,7 +784,7 @@ Metorial is built from the ground up for developers. Here are some of the key fe
 
 ## License
 
-The Metorial Catalog is licensed under the [Apache License 2.0](LICENSE).
+The Metorial Catalog is licensed under the [Apache License 2.0](https://github.com/metorial/metorial/tree/HEAD/LICENSE).
 
 <div align="center">
   <sub>Built with ❤️ by <a href="https://metorial.com">Metorial</a></sub>

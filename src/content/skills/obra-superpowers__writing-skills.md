@@ -20,7 +20,7 @@ body_tr: |-
   
   **Yazma becerisi, Test-Driven Development'ın süreç belgelerine uygulanmasıdır.**
   
-  **Kişisel beceriler, runtime'ınızın skills dizininde yaşar** — yolunuzu bulmak için [claude-code-tools.md](../using-superpowers/references/claude-code-tools.md), [codex-tools.md](../using-superpowers/references/codex-tools.md), [copilot-tools.md](../using-superpowers/references/copilot-tools.md) veya [gemini-tools.md](../using-superpowers/references/gemini-tools.md) dosyalarına bakın. Codex, Copilot CLI ve Gemini CLI, `~/.agents/skills/` klasörünü çapraz-runtime takma adı olarak da tanıyor.
+  **Kişisel beceriler, runtime'ınızın skills dizininde yaşar** — yolunuzu bulmak için [claude-code-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/claude-code-tools.md), [codex-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/codex-tools.md), [copilot-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/copilot-tools.md) veya [gemini-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/gemini-tools.md) dosyalarına bakın. Codex, Copilot CLI ve Gemini CLI, `~/.agents/skills/` klasörünü çapraz-runtime takma adı olarak da tanıyor.
   
   Test senaryoları yazarsınız (subagentlarla baskı senaryoları), başarısız olmalarını izlersiniz (temel davranış), beceri yazarsınız (belgeleme), testlerin geçmesini izlersiniz (agentlar uyuyor) ve refactor edersiniz (açıkları kapatırsınız).
   
@@ -593,7 +593,7 @@ body_tr: |-
   
   Mikro-testler sözcüğü doğrula; disiplin becerileri için tam baskı senaryoları yerine koymaz.
   
-  **Testing metodolojisi:** Tam testing metodolojisi için [testing-skills-with-subagents.md](testing-skills-with-subagents.md) dosyasına bakın:
+  **Testing metodolojisi:** Tam testing metodolojisi için [testing-skills-with-subagents.md](https://github.com/obra/superpowers/blob/HEAD/testing-skills-with-subagents.md) dosyasına bakın:
   - Baskı senaryoları nasıl yazılır
   - Baskı türleri (zaman, batık maliyet, otorite, yorgunluk)
   - Sistematik olarak açıkları tıkama
@@ -704,7 +704,7 @@ body_tr: |-
 
 **Writing skills IS Test-Driven Development applied to process documentation.**
 
-**Personal skills live in your runtime's skills directory** — see [claude-code-tools.md](../using-superpowers/references/claude-code-tools.md), [codex-tools.md](../using-superpowers/references/codex-tools.md), [copilot-tools.md](../using-superpowers/references/copilot-tools.md), or [gemini-tools.md](../using-superpowers/references/gemini-tools.md) for the path on your runtime. Codex, Copilot CLI, and Gemini CLI all also recognize `~/.agents/skills/` as a cross-runtime alias.
+**Personal skills live in your runtime's skills directory** — see [claude-code-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/claude-code-tools.md), [codex-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/codex-tools.md), [copilot-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/copilot-tools.md), or [gemini-tools.md](https://github.com/obra/superpowers/blob/HEAD/using-superpowers/references/gemini-tools.md) for the path on your runtime. Codex, Copilot CLI, and Gemini CLI all also recognize `~/.agents/skills/` as a cross-runtime alias.
 
 You write test cases (pressure scenarios with subagents), watch them fail (baseline behavior), write the skill (documentation), watch tests pass (agents comply), and refactor (close loopholes).
 
@@ -1279,7 +1279,7 @@ Full pressure-scenario runs are the final gate, but they are slow and expensive 
 
 Micro-tests verify wording; they do not replace pressure scenarios for discipline skills.
 
-**Testing methodology:** See [testing-skills-with-subagents.md](testing-skills-with-subagents.md) for the complete testing methodology:
+**Testing methodology:** See [testing-skills-with-subagents.md](https://github.com/obra/superpowers/blob/HEAD/testing-skills-with-subagents.md) for the complete testing methodology:
 - How to write pressure scenarios
 - Pressure types (time, sunk cost, authority, exhaustion)
 - Plugging holes systematically

@@ -137,8 +137,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-  - Skills: [`board-meeting`](../../../skills/board-meeting/SKILL.md), [`executive-mentor`](../../../executive-mentor/)
+  - Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md)
+  - Skills: [`board-meeting`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/board-meeting/SKILL.md), [`executive-mentor`](https://github.com/alirezarezvani/claude-skills/tree/HEAD/executive-mentor/)
   
   ---
   
@@ -268,8 +268,8 @@ If advisors see each other's positions before forming their own, they anchor. Ph
 
 ## Related
 
-- Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-- Skills: [`board-meeting`](../../../skills/board-meeting/SKILL.md), [`executive-mentor`](../../../executive-mentor/)
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md)
+- Skills: [`board-meeting`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/board-meeting/SKILL.md), [`executive-mentor`](https://github.com/alirezarezvani/claude-skills/tree/HEAD/executive-mentor/)
 
 ---
 

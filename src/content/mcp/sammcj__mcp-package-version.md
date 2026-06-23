@@ -153,7 +153,7 @@ body_tr: |-
   docker pull ghcr.io/sammcj/mcp-package-version:main
   ```
   
-  Ayrıca örnek [docker-compose.yaml](docker-compose.yaml) dosyasını da görebilirsiniz.
+  Ayrıca örnek [docker-compose.yaml](https://github.com/sammcj/mcp-package-version/blob/HEAD/docker-compose.yaml) dosyasını da görebilirsiniz.
   
   ## Araçlar
   
@@ -411,7 +411,7 @@ body_tr: |-
   
   ## Lisans
   
-  [MIT](LICENSE)
+  [MIT](https://github.com/sammcj/mcp-package-version/tree/HEAD/LICENSE)
 ---
 
 # Package Version MCP Server
@@ -556,7 +556,7 @@ Docker images are available from GitHub Container Registry:
 docker pull ghcr.io/sammcj/mcp-package-version:main
 ```
 
-You can also see the example [docker-compose.yaml](docker-compose.yaml).
+You can also see the example [docker-compose.yaml](https://github.com/sammcj/mcp-package-version/blob/HEAD/docker-compose.yaml).
 
 ## Tools
 
@@ -814,4 +814,4 @@ This project uses GitHub Actions for continuous integration and deployment. The 
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/sammcj/mcp-package-version/tree/HEAD/LICENSE)

@@ -313,7 +313,7 @@ body_tr: |-
   | Proje Dosyaları (dahil) | `lc-context`   | Claude Projects, vb.       |
   | Proje Dosyaları (aranabilir) | `lc-context -m` | Bağlama zorla |
   
-  Ayrıntılar için [Dağıtım Desenleri](docs/user-guide.md#deployment-patterns) bölümüne bakın.
+  Ayrıntılar için [Dağıtım Desenleri](https://github.com/cyberchitta/llm-context.py/tree/HEAD/docs/user-guide.md#deployment-patterns) bölümüne bakın.
   
   ## Temel Özellikler
   
@@ -396,13 +396,13 @@ body_tr: |-
   
   ## Daha Fazla Bilgi
   
-  - **[Kullanıcı Kılavuzu](docs/user-guide.md)** - Örneklerle tam belgelendirme
+  - **[Kullanıcı Kılavuzu](https://github.com/cyberchitta/llm-context.py/blob/HEAD/docs/user-guide.md)** - Örneklerle tam belgelendirme
   - **[Tasarım Felsefesi](https://www.cyberchitta.cc/articles/llm-ctx-why.html)** - llm-context'in neden var olduğu
   - **[Gerçek Dünya Örnekleri](https://www.cyberchitta.cc/articles/full-context-magic.html)** - Tam bağlamı etkili şekilde kullanma
   
   ## Lisans
   
-  Apache Lisansı, Sürüm 2.0. Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Apache Lisansı, Sürüm 2.0. Ayrıntılar için [LICENSE](https://github.com/cyberchitta/llm-context.py/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # LLM Context
@@ -707,7 +707,7 @@ Choose format based on your LLM environment:
 | Project Files (included) | `lc-context`  | Claude Projects, etc.     |
 | Project Files (searchable) | `lc-context -m` | Force into context     |
 
-See [Deployment Patterns](docs/user-guide.md#deployment-patterns) for details.
+See [Deployment Patterns](https://github.com/cyberchitta/llm-context.py/tree/HEAD/docs/user-guide.md#deployment-patterns) for details.
 
 ## Key Features
 
@@ -790,10 +790,10 @@ also-include:
 
 ## Learn More
 
-- **[User Guide](docs/user-guide.md)** - Complete documentation with examples
+- **[User Guide](https://github.com/cyberchitta/llm-context.py/blob/HEAD/docs/user-guide.md)** - Complete documentation with examples
 - **[Design Philosophy](https://www.cyberchitta.cc/articles/llm-ctx-why.html)** - Why llm-context exists
 - **[Real-world Examples](https://www.cyberchitta.cc/articles/full-context-magic.html)** - Using full context effectively
 
 ## License
 
-Apache License, Version 2.0. See [LICENSE](LICENSE) for details.
+Apache License, Version 2.0. See [LICENSE](https://github.com/cyberchitta/llm-context.py/tree/HEAD/LICENSE) for details.

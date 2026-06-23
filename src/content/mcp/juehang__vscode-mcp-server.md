@@ -272,7 +272,7 @@ body_tr: |-
   
   ## Lisans
   
-  [MIT](LICENSE)
+  [MIT](https://github.com/juehang/vscode-mcp-server/tree/HEAD/LICENSE)
 ---
 
 # VS Code MCP Server
@@ -537,4 +537,4 @@ Contributions are welcome! Feel free to submit issues or pull requests.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/juehang/vscode-mcp-server/tree/HEAD/LICENSE)

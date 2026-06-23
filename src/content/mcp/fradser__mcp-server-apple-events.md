@@ -14,7 +14,7 @@ body_tr: |-
   
   [![X Follow](https://img.shields.io/twitter/follow/FradSer?style=social)](https://x.com/FradSer)
   
-  English | [简体中文](README.zh-CN.md)
+  English | [简体中文](https://github.com/FradSer/mcp-server-apple-events/blob/HEAD/README.zh-CN.md)
   
   macOS üzerinde Apple Reminders ve Calendar ile yerel entegrasyon sağlayan bir Model Context Protocol (MCP) sunucusu. Bu sunucu, Apple Reminders ve Calendar Events'lerle standartlaştırılmış bir arayüz aracılığıyla kapsamlı yönetim yetenekleri sunarak etkileşim kurmanızı sağlar.
   
@@ -444,7 +444,7 @@ body_tr: |-
 
 [![X Follow](https://img.shields.io/twitter/follow/FradSer?style=social)](https://x.com/FradSer)
 
-English | [简体中文](README.zh-CN.md)
+English | [简体中文](https://github.com/FradSer/mcp-server-apple-events/blob/HEAD/README.zh-CN.md)
 
 A Model Context Protocol (MCP) server that provides native integration with Apple Reminders and Calendar on macOS. This server allows you to interact with Apple Reminders and Calendar Events through a standardized interface with comprehensive management capabilities.
 

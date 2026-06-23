@@ -107,7 +107,7 @@ body_tr: |-
   
   # Skills ve Tools Referansı
   
-  Eklenti, üç kategoriye yayılmış 100+ yerleşik tool ile gelir. Her tool, AI skill getirir. Tüm tools kurulumdan hemen sonra kullanılabilir — ek konfigürasyon gerekmez. Ayrıntılı açıklamalarla tam referans için [docs/default-mcp-tools.md](docs/default-mcp-tools.md) başvurun.
+  Eklenti, üç kategoriye yayılmış 100+ yerleşik tool ile gelir. Her tool, AI skill getirir. Tüm tools kurulumdan hemen sonra kullanılabilir — ek konfigürasyon gerekmez. Ayrıntılı açıklamalarla tam referans için [docs/default-mcp-tools.md](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/default-mcp-tools.md) başvurun.
   
   <details>
     <summary>Proje & Varlıklar</summary>
@@ -244,10 +244,10 @@ body_tr: |-
   
   | Belge | Açıklama |
   | -------- | ----------- |
-  | [Varsayılan MCP Tools](docs/default-mcp-tools.md) | Açıklamalarla tüm yerleşik tool'ların tam referansı |
-  | [MCP Server Kurulumu](docs/mcp-server.md) | Sunucu konfigürasyonu, ortam değişkenleri, uzaktan barındırma |
-  | [Docker Dağıtımı](docs/DOCKER_DEPLOYMENT.md) | Adım adım Docker dağıtım kılavuzu |
-  | [Geliştirme Kılavuzu](docs/dev/Development.md) | Mimari, kod stili, CI/CD — katkıda bulunanlar için |
+  | [Varsayılan MCP Tools](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/default-mcp-tools.md) | Açıklamalarla tüm yerleşik tool'ların tam referansı |
+  | [MCP Server Kurulumu](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/mcp-server.md) | Sunucu konfigürasyonu, ortam değişkenleri, uzaktan barındırma |
+  | [Docker Dağıtımı](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/DOCKER_DEPLOYMENT.md) | Adım adım Docker dağıtım kılavuzu |
+  | [Geliştirme Kılavuzu](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/dev/Development.md) | Mimari, kod stili, CI/CD — katkıda bulunanlar için |
   | [Wiki](https://github.com/IvanMurzak/Unity-MCP/wiki) | Başlangıç, öğretici, API referansı, SSS |
   | [CLI Tool](https://github.com/IvanMurzak/Unity-MCP/blob/main/cli/README.md) | Eklenti yükle, konfigüre et ve komut satırı aracılığıyla bağlan |
   
@@ -446,7 +446,7 @@ That's it. Ask your AI *"Create 3 cubes in a circle with radius 2"* and watch it
 
 # Skills and Tools Reference
 
-The plugin ships with 70+ built-in tools across four categories. Each tool brings AI skill. All tools are available immediately after installation — no extra configuration required. See [docs/default-mcp-tools.md](docs/default-mcp-tools.md) for the full reference with detailed descriptions.
+The plugin ships with 70+ built-in tools across four categories. Each tool brings AI skill. All tools are available immediately after installation — no extra configuration required. See [docs/default-mcp-tools.md](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/default-mcp-tools.md) for the full reference with detailed descriptions.
 
 > 🧰 Browse the full MCP tools registry online: [ai-game.dev/docs/tools](https://ai-game.dev/docs/tools)
 
@@ -614,10 +614,10 @@ Install extensions when need more tools or [create your own tools](#add-custom-t
 
 | Document | Description |
 | -------- | ----------- |
-| [Default MCP Tools](docs/default-mcp-tools.md) | Full reference of all built-in tools with descriptions |
-| [MCP Server Setup](docs/mcp-server.md) | Server configuration, environment variables, remote hosting |
-| [Docker Deployment](docs/DOCKER_DEPLOYMENT.md) | Step-by-step Docker deployment guide |
-| [Development Guide](docs/dev/Development.md) | Architecture, code style, CI/CD — for contributors |
+| [Default MCP Tools](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/default-mcp-tools.md) | Full reference of all built-in tools with descriptions |
+| [MCP Server Setup](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/mcp-server.md) | Server configuration, environment variables, remote hosting |
+| [Docker Deployment](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/DOCKER_DEPLOYMENT.md) | Step-by-step Docker deployment guide |
+| [Development Guide](https://github.com/IvanMurzak/Unity-MCP/blob/HEAD/docs/dev/Development.md) | Architecture, code style, CI/CD — for contributors |
 | [Wiki](https://github.com/IvanMurzak/Unity-MCP/wiki) | Getting started, tutorials, API reference, FAQ |
 | [CLI Tool](https://github.com/IvanMurzak/Unity-MCP/blob/main/cli/README.md) | Install plugins, configure, and connect via command line |
 

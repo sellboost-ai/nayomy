@@ -156,7 +156,7 @@ body_tr: |-
   
   Sunucu HTTP taşıma modunda `http://localhost:9010/mcp` adresinde kullanılabilir.
   
-  Docker yapılandırması ve ortam değişkenleri hakkında daha fazla ayrıntı için [Docker kurulum kılavuzuna](docs/install/docker.md) bakın.
+  Docker yapılandırması ve ortam değişkenleri hakkında daha fazla ayrıntı için [Docker kurulum kılavuzuna](https://github.com/mahdin75/gis-mcp/blob/HEAD/docs/install/docker.md) bakın.
   
   ### 📦 pip Kurulumu
   
@@ -233,8 +233,8 @@ body_tr: |-
   
   Taşıma modları ve tam uç nokta belgeleri hakkında daha fazla ayrıntı için bakınız:
   
-  - [HTTP Taşıma Yapılandırması](docs/http-transport.md)
-  - [Sunucu Uç Noktaları](docs/endpoints.md)
+  - [HTTP Taşıma Yapılandırması](https://github.com/mahdin75/gis-mcp/blob/HEAD/docs/http-transport.md)
+  - [Sunucu Uç Noktaları](https://github.com/mahdin75/gis-mcp/blob/HEAD/docs/endpoints.md)
   
   #### pip Yapılandırması
   
@@ -699,7 +699,7 @@ docker run -p 9010:9010 gis-mcp:local
 
 The server will be available at `http://localhost:9010/mcp` in HTTP transport mode.
 
-For more details on Docker configuration and environment variables, see the [Docker installation guide](docs/install/docker.md).
+For more details on Docker configuration and environment variables, see the [Docker installation guide](https://github.com/mahdin75/gis-mcp/blob/HEAD/docs/install/docker.md).
 
 ### 📦 pip Installation
 
@@ -776,8 +776,8 @@ When running in HTTP or SSE transport mode, the following endpoints are availabl
 
 For more details on transport modes and complete endpoint documentation, see:
 
-- [HTTP Transport Configuration](docs/http-transport.md)
-- [Server Endpoints](docs/endpoints.md)
+- [HTTP Transport Configuration](https://github.com/mahdin75/gis-mcp/blob/HEAD/docs/http-transport.md)
+- [Server Endpoints](https://github.com/mahdin75/gis-mcp/blob/HEAD/docs/endpoints.md)
 
 #### pip Configuration
 

@@ -16,7 +16,7 @@ body_tr: |-
   
   [![Build Status](https://github.com/admica/FileScopeMCP/actions/workflows/build.yml/badge.svg)](https://github.com/admica/FileScopeMCP/actions)
   [![Node.js](https://img.shields.io/badge/node-%3E%3D22.x-green)](https://nodejs.org/)
-  [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](https://github.com/admica/FileScopeMCP/tree/HEAD/LICENSE)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/admica/FileScopeMCP)](https://archestra.ai/mcp-catalog/admica__filescopemcp)
   
   FileScopeMCP kodunuzu izler, her dosyayı öneme göre sıralar, tüm bağımlılıkları haritalandırır ve AI tarafından oluşturulan özetleri arka planda güncel tutar. LLM'niz "bu dosya ne yapar?" diye sorduğunda — kaynağı okumadan gerçek bir cevap alır.
@@ -53,7 +53,7 @@ body_tr: |-
   ./build.sh          # deps kurar, derler, Claude Code'a kaydeder
   ```
   
-  `./build.sh` FileScopeMCP'yi `claude mcp add --scope user` aracılığıyla global olarak kaydeder (idempotent; `npm run register-mcp` ile yeniden çalıştırın). `claude` CLI eksikse, build yine de başarılı olur — diğer MCP istemcileri için [docs/mcp-clients.md](docs/mcp-clients.md) bölümüne bakın.
+  `./build.sh` FileScopeMCP'yi `claude mcp add --scope user` aracılığıyla global olarak kaydeder (idempotent; `npm run register-mcp` ile yeniden çalıştırın). `claude` CLI eksikse, build yine de başarılı olur — diğer MCP istemcileri için [docs/mcp-clients.md](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/mcp-clients.md) bölümüne bakın.
   
   Herhangi bir projede Claude Code oturumu açın ve FileScopeMCP otomatik olarak başlatılır. MCP araçları otomatik olarak görünür — AI'nız konuşma sırasında doğrudan çağırabilir:
   
@@ -70,7 +70,7 @@ body_tr: |-
   npm run install-claude-code   # veya: npx filescope-install --claude-code
   ```
   
-  Komut katmanlıdır, invazif değildir — asla `.claude/settings.json` dosyasına otomatik yazma yapmaz. Hook şablonları [docs/claude-code-hooks.md](docs/claude-code-hooks.md) konumunda belgelenmiştir; istediğiniz zaman ayarlarınıza yapıştırın. `CLAUDE.md` primer `<!-- BEGIN filescope -->` / `<!-- END filescope -->` işaretleriyle sarılıdır, böylece çevre içeriğine dokunmadan temiz bir şekilde eklenebilir, değiştirilebilir veya kaldırılabilir. Tasarım gerekçesi için [ROADMAP.md](ROADMAP.md) Aşama 1'e bakın.
+  Komut katmanlıdır, invazif değildir — asla `.claude/settings.json` dosyasına otomatik yazma yapmaz. Hook şablonları [docs/claude-code-hooks.md](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/claude-code-hooks.md) konumunda belgelenmiştir; istediğiniz zaman ayarlarınıza yapıştırın. `CLAUDE.md` primer `<!-- BEGIN filescope -->` / `<!-- END filescope -->` işaretleriyle sarılıdır, böylece çevre içeriğine dokunmadan temiz bir şekilde eklenebilir, değiştirilebilir veya kaldırılabilir. Tasarım gerekçesi için [ROADMAP.md](https://github.com/admica/FileScopeMCP/blob/HEAD/ROADMAP.md) Aşama 1'e bakın.
   
   ### Agent Runtimes (Hermes, Codex, OpenClaw)
   
@@ -89,7 +89,7 @@ body_tr: |-
   
   ### LLM Özetleri (İsteğe Bağlı)
   
-  Platform spesifik bir rehber için `./setup-llm.sh` çalıştırın; ayrıntılar için [docs/llm-setup.md](docs/llm-setup.md) konumuna bakın. Linux'ta `sudo ./setup-llm.sh --install-service` aracılığıyla llama-server'ı systemd birimi olarak kaydedebilirsiniz (loglar journalctl'e akar, OOM korumalı, boot'ta otomatik yeniden başla). Flag, llama-server Windows host'u üzerinde çalışır olduğundan WSL2 altında bir no-op'tur. Tamamen llama-server olmadan, her şey çalışır (dosya izleme, bağımlılıklar, semboller, call grafikler — yalnızca LLM tarafından oluşturulan özet yok). Agent runtime'ınızın zaten yerel bir LLM'si varsa, broker'ı bunun yerine yeniden kullanmak için yapılandırın.
+  Platform spesifik bir rehber için `./setup-llm.sh` çalıştırın; ayrıntılar için [docs/llm-setup.md](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/llm-setup.md) konumuna bakın. Linux'ta `sudo ./setup-llm.sh --install-service` aracılığıyla llama-server'ı systemd birimi olarak kaydedebilirsiniz (loglar journalctl'e akar, OOM korumalı, boot'ta otomatik yeniden başla). Flag, llama-server Windows host'u üzerinde çalışır olduğundan WSL2 altında bir no-op'tur. Tamamen llama-server olmadan, her şey çalışır (dosya izleme, bağımlılıklar, semboller, call grafikler — yalnızca LLM tarafından oluşturulan özet yok). Agent runtime'ınızın zaten yerel bir LLM'si varsa, broker'ı bunun yerine yeniden kullanmak için yapılandırın.
   
   Projenizin `.gitignore` dosyasına ekleyin:
   ```
@@ -105,7 +105,7 @@ body_tr: |-
   sudo ./monitoring/install.sh
   ```
   
-  `http://<host>:8881/vmui/#/dashboards` konumundaki dashboard'a göz atın. Layout ve uninstall script'i için [monitoring/](monitoring/) konumuna bakın.
+  `http://<host>:8881/vmui/#/dashboards` konumundaki dashboard'a göz atın. Layout ve uninstall script'i için [monitoring/](https://github.com/admica/FileScopeMCP/tree/HEAD/monitoring/) konumuna bakın.
   
   ## MCP Araçları
   
@@ -179,18 +179,18 @@ body_tr: |-
   
   | Belge | İçerikte ne var |
   |-------|-----------------|
-  | [AGENTS.md](AGENTS.md) | Cross-agent context dosyası — MCP kaydı, broker config'i, mimari (Hermes, Codex, OpenClaw tarafından okunur) |
-  | [FileScopeMCP Skill](skills/filescope-mcp/SKILL.md) | Taşınabilir skill dosyası — araç referansı, iş akışları, FileScopeMCP kullanan agentler için ipuçları |
-  | [LLM Setup](docs/llm-setup.md) | llama.cpp / llama-server yüklemesi — Linux/macOS native (varsayılan), WSL2+Windows veya remote LAN |
-  | [Configuration](docs/configuration.md) | Depo başına config, broker config'i, görmezden gelme şablonları |
-  | [MCP Clients](docs/mcp-clients.md) | Claude Code, Cursor AI, daemon modu kurulumu |
-  | [Troubleshooting](docs/troubleshooting.md) | Yaygın sorunlar ve çözümleri |
-  | [Internals](docs/internals.md) | Bağımlılık algılaması, önem formülü, sembol çıkarması, call-site kenarları, depolama |
-  | [LLM Monitoring](monitoring/) | Yerel llama-server için isteğe bağlı VictoriaMetrics + vmui dashboard |
+  | [AGENTS.md](https://github.com/admica/FileScopeMCP/blob/HEAD/AGENTS.md) | Cross-agent context dosyası — MCP kaydı, broker config'i, mimari (Hermes, Codex, OpenClaw tarafından okunur) |
+  | [FileScopeMCP Skill](https://github.com/admica/FileScopeMCP/blob/HEAD/skills/filescope-mcp/SKILL.md) | Taşınabilir skill dosyası — araç referansı, iş akışları, FileScopeMCP kullanan agentler için ipuçları |
+  | [LLM Setup](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/llm-setup.md) | llama.cpp / llama-server yüklemesi — Linux/macOS native (varsayılan), WSL2+Windows veya remote LAN |
+  | [Configuration](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/configuration.md) | Depo başına config, broker config'i, görmezden gelme şablonları |
+  | [MCP Clients](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/mcp-clients.md) | Claude Code, Cursor AI, daemon modu kurulumu |
+  | [Troubleshooting](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/troubleshooting.md) | Yaygın sorunlar ve çözümleri |
+  | [Internals](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/internals.md) | Bağımlılık algılaması, önem formülü, sembol çıkarması, call-site kenarları, depolama |
+  | [LLM Monitoring](https://github.com/admica/FileScopeMCP/tree/HEAD/monitoring/) | Yerel llama-server için isteğe bağlı VictoriaMetrics + vmui dashboard |
   
   ## Lisans
   
-  Copyright (c) 2026 admica. Tüm hakları saklıdır. [LICENSE](LICENSE) dosyasına bakın.
+  Copyright (c) 2026 admica. Tüm hakları saklıdır. [LICENSE](https://github.com/admica/FileScopeMCP/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # FileScopeMCP
@@ -199,7 +199,7 @@ body_tr: |-
 
 [![Build Status](https://github.com/admica/FileScopeMCP/actions/workflows/build.yml/badge.svg)](https://github.com/admica/FileScopeMCP/actions)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D22.x-green)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](https://github.com/admica/FileScopeMCP/tree/HEAD/LICENSE)
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/admica/FileScopeMCP)](https://archestra.ai/mcp-catalog/admica__filescopemcp)
 
 FileScopeMCP watches your code, ranks every file by importance, maps all dependencies, and keeps AI-generated summaries fresh in the background. When your LLM asks "what does this file do?" — it gets a real answer without reading the source.
@@ -236,7 +236,7 @@ cd FileScopeMCP
 ./build.sh          # installs deps, compiles, registers with Claude Code
 ```
 
-`./build.sh` registers FileScopeMCP globally via `claude mcp add --scope user` (idempotent; re-run with `npm run register-mcp`). If the `claude` CLI is missing, the build still succeeds — see [docs/mcp-clients.md](docs/mcp-clients.md) for other MCP clients.
+`./build.sh` registers FileScopeMCP globally via `claude mcp add --scope user` (idempotent; re-run with `npm run register-mcp`). If the `claude` CLI is missing, the build still succeeds — see [docs/mcp-clients.md](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/mcp-clients.md) for other MCP clients.
 
 Open a Claude Code session in any project and FileScopeMCP auto-initializes. The MCP tools appear automatically — your AI can call them directly during conversation:
 
@@ -253,7 +253,7 @@ For a richer install that adds a project priming `CLAUDE.md` and points to optio
 npm run install-claude-code   # or: npx filescope-install --claude-code
 ```
 
-The command is layered, not invasive — it never auto-writes to your `.claude/settings.json`. Hook templates are documented at [docs/claude-code-hooks.md](docs/claude-code-hooks.md); paste them into your settings if and when you want them. The `CLAUDE.md` primer is wrapped in `<!-- BEGIN filescope -->` / `<!-- END filescope -->` markers so it can be cleanly added, replaced, or removed without touching surrounding content. See [ROADMAP.md](ROADMAP.md) Phase 1 for the design rationale.
+The command is layered, not invasive — it never auto-writes to your `.claude/settings.json`. Hook templates are documented at [docs/claude-code-hooks.md](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/claude-code-hooks.md); paste them into your settings if and when you want them. The `CLAUDE.md` primer is wrapped in `<!-- BEGIN filescope -->` / `<!-- END filescope -->` markers so it can be cleanly added, replaced, or removed without touching surrounding content. See [ROADMAP.md](https://github.com/admica/FileScopeMCP/blob/HEAD/ROADMAP.md) Phase 1 for the design rationale.
 
 ### Agent Runtimes (Hermes, Codex, OpenClaw)
 
@@ -272,7 +272,7 @@ mcp_servers:
 
 ### LLM Summaries (Optional)
 
-Run `./setup-llm.sh` for a platform-specific guide to setting up llama.cpp's `llama-server` — see [docs/llm-setup.md](docs/llm-setup.md) for details. On Linux you can also `sudo ./setup-llm.sh --install-service` to register llama-server as a systemd unit (logs flow to journalctl, OOM-protected, auto-restart on boot). The flag is a no-op under WSL2 since llama-server runs on the Windows host there. Without llama-server entirely, everything else still works (file tracking, dependencies, symbols, call graphs — just no LLM-generated summaries). If your agent runtime already has a local LLM, configure the broker to reuse it instead.
+Run `./setup-llm.sh` for a platform-specific guide to setting up llama.cpp's `llama-server` — see [docs/llm-setup.md](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/llm-setup.md) for details. On Linux you can also `sudo ./setup-llm.sh --install-service` to register llama-server as a systemd unit (logs flow to journalctl, OOM-protected, auto-restart on boot). The flag is a no-op under WSL2 since llama-server runs on the Windows host there. Without llama-server entirely, everything else still works (file tracking, dependencies, symbols, call graphs — just no LLM-generated summaries). If your agent runtime already has a local LLM, configure the broker to reuse it instead.
 
 Add to your project's `.gitignore`:
 ```
@@ -288,7 +288,7 @@ If llama-server is running locally, an optional VictoriaMetrics + vmui stack giv
 sudo ./monitoring/install.sh
 ```
 
-Browse the dashboard at `http://<host>:8881/vmui/#/dashboards`. See [monitoring/](monitoring/) for the layout and uninstall script.
+Browse the dashboard at `http://<host>:8881/vmui/#/dashboards`. See [monitoring/](https://github.com/admica/FileScopeMCP/tree/HEAD/monitoring/) for the layout and uninstall script.
 
 ## MCP Tools
 
@@ -362,15 +362,15 @@ Everything lives in `.filescope/data.db` (SQLite, WAL mode) per project. The bro
 
 | Doc | What's in it |
 |-----|-------------|
-| [AGENTS.md](AGENTS.md) | Cross-agent context file — MCP registration, broker config, architecture (read by Hermes, Codex, OpenClaw) |
-| [FileScopeMCP Skill](skills/filescope-mcp/SKILL.md) | Portable skill file — tool reference, workflows, tips for agents using FileScopeMCP |
-| [LLM Setup](docs/llm-setup.md) | llama.cpp / llama-server installation — Linux/macOS native (default), WSL2+Windows, or remote LAN |
-| [Configuration](docs/configuration.md) | Per-project config, broker config, ignore patterns |
-| [MCP Clients](docs/mcp-clients.md) | Setup for Claude Code, Cursor AI, daemon mode |
-| [Troubleshooting](docs/troubleshooting.md) | Common issues and fixes |
-| [Internals](docs/internals.md) | Dependency detection, importance formula, symbol extraction, call-site edges, storage |
-| [LLM Monitoring](monitoring/) | Optional VictoriaMetrics + vmui dashboard for the local llama-server |
+| [AGENTS.md](https://github.com/admica/FileScopeMCP/blob/HEAD/AGENTS.md) | Cross-agent context file — MCP registration, broker config, architecture (read by Hermes, Codex, OpenClaw) |
+| [FileScopeMCP Skill](https://github.com/admica/FileScopeMCP/blob/HEAD/skills/filescope-mcp/SKILL.md) | Portable skill file — tool reference, workflows, tips for agents using FileScopeMCP |
+| [LLM Setup](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/llm-setup.md) | llama.cpp / llama-server installation — Linux/macOS native (default), WSL2+Windows, or remote LAN |
+| [Configuration](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/configuration.md) | Per-project config, broker config, ignore patterns |
+| [MCP Clients](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/mcp-clients.md) | Setup for Claude Code, Cursor AI, daemon mode |
+| [Troubleshooting](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/troubleshooting.md) | Common issues and fixes |
+| [Internals](https://github.com/admica/FileScopeMCP/blob/HEAD/docs/internals.md) | Dependency detection, importance formula, symbol extraction, call-site edges, storage |
+| [LLM Monitoring](https://github.com/admica/FileScopeMCP/tree/HEAD/monitoring/) | Optional VictoriaMetrics + vmui dashboard for the local llama-server |
 
 ## License
 
-Copyright (c) 2026 admica. All rights reserved. See [LICENSE](LICENSE).
+Copyright (c) 2026 admica. All rights reserved. See [LICENSE](https://github.com/admica/FileScopeMCP/tree/HEAD/LICENSE).

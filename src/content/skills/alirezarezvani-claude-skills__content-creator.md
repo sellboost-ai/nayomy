@@ -20,11 +20,11 @@ body_tr: |-
   
   | Yapmak istediğiniz... | Bunun yerine kullanın |
   |----------------|-----------------|
-  | **Yazın** bir blog yazısı, makale veya rehber | [content-production](../content-production/) |
-  | **Planlayın** ne tür içerik oluşturacağınızı, konu kümeleri, takvim | [content-strategy](../content-strategy/) |
-  | **Analiz edin** marka sesini | [content-production](../content-production/) (içerir `brand_voice_analyzer.py`) |
-  | **Optimize edin** mevcut içeriğin SEO'sunu | [content-production](../content-production/) (içerir `seo_optimizer.py`) |
-  | **Oluşturun** sosyal medya içeriği | [social-content](../social-content/) |
+  | **Yazın** bir blog yazısı, makale veya rehber | [content-production](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-production/) |
+  | **Planlayın** ne tür içerik oluşturacağınızı, konu kümeleri, takvim | [content-strategy](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-strategy/) |
+  | **Analiz edin** marka sesini | [content-production](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-production/) (içerir `brand_voice_analyzer.py`) |
+  | **Optimize edin** mevcut içeriğin SEO'sunu | [content-production](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-production/) (içerir `seo_optimizer.py`) |
+  | **Oluşturun** sosyal medya içeriği | [social-content](https://github.com/alirezarezvani/claude-skills/tree/HEAD/social-content/) |
   
   ## Değişikliğin Nedeni
   
@@ -65,11 +65,11 @@ body_tr: |-
 
 | You want to... | Use this instead |
 |----------------|-----------------|
-| **Write** a blog post, article, or guide | [content-production](../content-production/) |
-| **Plan** what content to create, topic clusters, calendar | [content-strategy](../content-strategy/) |
-| **Analyze brand voice** | [content-production](../content-production/) (includes `brand_voice_analyzer.py`) |
-| **Optimize SEO** for existing content | [content-production](../content-production/) (includes `seo_optimizer.py`) |
-| **Create social media content** | [social-content](../social-content/) |
+| **Write** a blog post, article, or guide | [content-production](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-production/) |
+| **Plan** what content to create, topic clusters, calendar | [content-strategy](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-strategy/) |
+| **Analyze brand voice** | [content-production](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-production/) (includes `brand_voice_analyzer.py`) |
+| **Optimize SEO** for existing content | [content-production](https://github.com/alirezarezvani/claude-skills/tree/HEAD/content-production/) (includes `seo_optimizer.py`) |
+| **Create social media content** | [social-content](https://github.com/alirezarezvani/claude-skills/tree/HEAD/social-content/) |
 
 ## Why the Change
 

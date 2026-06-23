@@ -15,8 +15,8 @@ body_tr: |-
   
   [![NPM Version](https://img.shields.io/npm/v/@jinzcdev/leetcode-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/leetcode-mcp-server)
   [![NPM Downloads](https://img.shields.io/npm/dm/@jinzcdev/leetcode-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/leetcode-mcp-server)
-  [![GitHub License](https://img.shields.io/github/license/jinzcdev/leetcode-mcp-server.svg)](./LICENSE)
-  [![Chinese Doc](https://img.shields.io/badge/简体中文-查看-orange)](README_zh-CN.md)
+  [![GitHub License](https://img.shields.io/github/license/jinzcdev/leetcode-mcp-server.svg)](https://github.com/jinzcdev/leetcode-mcp-server/tree/HEAD/LICENSE)
+  [![Chinese Doc](https://img.shields.io/badge/简体中文-查看-orange)](https://github.com/jinzcdev/leetcode-mcp-server/blob/HEAD/README_zh-CN.md)
   [![Stars](https://img.shields.io/github/stars/jinzcdev/leetcode-mcp-server)](https://github.com/jinzcdev/leetcode-mcp-server)
   
   LeetCode MCP Server, [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) sunucusu olup LeetCode API'leri ile kusursuz entegrasyon sağlayarak LeetCode'un programlama problemleri, yarışmaları, çözümleri ve kullanıcı verileri ile gelişmiş otomasyon ve akıllı etkileşim imkanı sunar.
@@ -384,8 +384,8 @@ body_tr: |-
 
 [![NPM Version](https://img.shields.io/npm/v/@jinzcdev/leetcode-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/leetcode-mcp-server)
 [![NPM Downloads](https://img.shields.io/npm/dm/@jinzcdev/leetcode-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/leetcode-mcp-server)
-[![GitHub License](https://img.shields.io/github/license/jinzcdev/leetcode-mcp-server.svg)](./LICENSE)
-[![Chinese Doc](https://img.shields.io/badge/简体中文-查看-orange)](README_zh-CN.md)
+[![GitHub License](https://img.shields.io/github/license/jinzcdev/leetcode-mcp-server.svg)](https://github.com/jinzcdev/leetcode-mcp-server/tree/HEAD/LICENSE)
+[![Chinese Doc](https://img.shields.io/badge/简体中文-查看-orange)](https://github.com/jinzcdev/leetcode-mcp-server/blob/HEAD/README_zh-CN.md)
 [![Stars](https://img.shields.io/github/stars/jinzcdev/leetcode-mcp-server)](https://github.com/jinzcdev/leetcode-mcp-server)
 
 The LeetCode MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that provides seamless integration with LeetCode APIs, enabling advanced automation and intelligent interaction with LeetCode's programming problems, contests, solutions, and user data.

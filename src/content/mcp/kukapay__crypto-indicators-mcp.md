@@ -187,7 +187,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/kukapay/crypto-indicators-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # Crypto Indicators MCP Server
@@ -367,4 +367,4 @@ Give me the RSI strategy signals for ETH/USDT on a 4-hour timeframe with a perio
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/kukapay/crypto-indicators-mcp/tree/HEAD/LICENSE) file for details.

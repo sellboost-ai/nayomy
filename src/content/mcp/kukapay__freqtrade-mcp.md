@@ -199,7 +199,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](LICENSE) dosyasını göz atın.
+  Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](https://github.com/kukapay/freqtrade-mcp/tree/HEAD/LICENSE) dosyasını göz atın.
 ---
 
 # Freqtrade-MCP
@@ -391,4 +391,4 @@ The server exposes the following Freqtrade API endpoints as MCP tools:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/kukapay/freqtrade-mcp/tree/HEAD/LICENSE) file for details.

@@ -152,9 +152,9 @@ body_tr: |-
   
   ## Referanslar
   
-  - [contracts_playbook.md](references/contracts_playbook.md) — Standart sözleşmeler, madde kontrol listesi, yaygın kurucu tuzakları
-  - [ip_and_regulatory.md](references/ip_and_regulatory.md) — fikri mülkiyet koruması + düzenleyici ortam eşleştirmesi
-  - [term_sheet_decoder.md](references/term_sheet_decoder.md) — Term sheet sözlüğü + kurucu dostu varsayılanlar + geri itme stratejileri
+  - [contracts_playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/contracts_playbook.md) — Standart sözleşmeler, madde kontrol listesi, yaygın kurucu tuzakları
+  - [ip_and_regulatory.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ip_and_regulatory.md) — fikri mülkiyet koruması + düzenleyici ortam eşleştirmesi
+  - [term_sheet_decoder.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/term_sheet_decoder.md) — Term sheet sözlüğü + kurucu dostu varsayılanlar + geri itme stratejileri
   
   ---
   
@@ -301,9 +301,9 @@ See `references/ip_and_regulatory.md` for sequencing.
 
 ## References
 
-- [contracts_playbook.md](references/contracts_playbook.md) — Standard contracts, clause checklist, common founder traps
-- [ip_and_regulatory.md](references/ip_and_regulatory.md) — IP protection + regulatory landscape mapping
-- [term_sheet_decoder.md](references/term_sheet_decoder.md) — Term sheet glossary + founder-friendly defaults + pushback strategies
+- [contracts_playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/contracts_playbook.md) — Standard contracts, clause checklist, common founder traps
+- [ip_and_regulatory.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ip_and_regulatory.md) — IP protection + regulatory landscape mapping
+- [term_sheet_decoder.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/term_sheet_decoder.md) — Term sheet glossary + founder-friendly defaults + pushback strategies
 
 ---
 

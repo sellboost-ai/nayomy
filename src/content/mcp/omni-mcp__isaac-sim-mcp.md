@@ -210,7 +210,7 @@ body_tr: |-
   
   Daha yüksek kalitede video için MP4 sürümüne doğrudan erişebilirsiniz:
   
-  - [Robot Partisi Demosı (MP4)](media/add_more_robot_into_party.mp4)
+  - [Robot Partisi Demosı (MP4)](https://github.com/omni-mcp/isaac-sim-mcp/blob/HEAD/media/add_more_robot_into_party.mp4)
   
   GitHub'da görüntülerken, MP4 dosyasını görüntülemek veya indirmek için yukarıdaki bağlantıya tıklayabilirsiniz.
 ---
@@ -415,6 +415,6 @@ Below are demonstrations of the Isaac Sim MCP Extension in action:
 
 For higher quality video, you can access the MP4 version directly:
 
-- [Robot Party Demo (MP4)](media/add_more_robot_into_party.mp4)
+- [Robot Party Demo (MP4)](https://github.com/omni-mcp/isaac-sim-mcp/blob/HEAD/media/add_more_robot_into_party.mp4)
 
 When viewing on GitHub, you can click the link above to view or download the MP4 file.

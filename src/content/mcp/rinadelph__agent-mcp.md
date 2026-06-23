@@ -442,7 +442,7 @@ body_tr: |-
   - UI bileşen hiyerarşileri ve iş akışları
   - Açık bağımlılıklara sahip görev ayrıştırmaları
   
-  Ayrıntılı örnekler ve şablonlar için [MCD Kılavuzu](./docs/mcd-guide.md)'na bakın.
+  Ayrıntılı örnekler ve şablonlar için [MCD Kılavuzu](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/mcd-guide.md)'na bakın.
   
   ### 3. Ajan Takımınızı Dağıtın
   ```
@@ -1047,7 +1047,7 @@ The MCD (Main Context Document) is your project's comprehensive blueprint - thin
 - UI component hierarchies and workflows
 - Task breakdowns with clear dependencies
 
-See our [MCD Guide](./docs/mcd-guide.md) for detailed examples and templates.
+See our [MCD Guide](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/mcd-guide.md) for detailed examples and templates.
 
 ### 3. Deploy Your Agent Team
 ```
@@ -1403,11 +1403,11 @@ Run memory garbage collection through the dashboard or restart with `--refresh-m
 
 ## Documentation
 
-- [Getting Started Guide](./docs/getting-started.md) - Complete walkthrough with examples
-- [MCD Creation Guide](./docs/mcd-guide.md) - Write effective project blueprints
-- [Theoretical Foundation](./docs/chapter-1-cognitive-empathy.md) - Understanding AI cognition
-- [Architecture Overview](./docs/architecture.md) - System design and components
-- [API Reference](./docs/api-reference.md) - Complete technical documentation
+- [Getting Started Guide](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/getting-started.md) - Complete walkthrough with examples
+- [MCD Creation Guide](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/mcd-guide.md) - Write effective project blueprints
+- [Theoretical Foundation](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/chapter-1-cognitive-empathy.md) - Understanding AI cognition
+- [Architecture Overview](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/architecture.md) - System design and components
+- [API Reference](https://github.com/rinadelph/Agent-MCP/blob/HEAD/docs/api-reference.md) - Complete technical documentation
 
 ## Community and Support
 
@@ -1417,7 +1417,7 @@ Run memory garbage collection through the dashboard or restart with `--refresh-m
 - [Discussions](https://github.com/rinadelph/Agent-MCP/discussions) - Share your experiences
 
 **Contributing**
-We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for:
+We welcome contributions! See our [Contributing Guide](https://github.com/rinadelph/Agent-MCP/blob/HEAD/CONTRIBUTING.md) for:
 - Code style and standards
 - Testing requirements
 - Pull request process
@@ -1436,7 +1436,7 @@ This project is licensed under the **GNU Affero General Public License v3.0 (AGP
 - ⚠️ Any derivative works must also be licensed under AGPL-3.0
 - ⚠️ You must include copyright notices and license information
 
-See the [LICENSE](LICENSE) file for complete terms and conditions.
+See the [LICENSE](https://github.com/rinadelph/Agent-MCP/tree/HEAD/LICENSE) file for complete terms and conditions.
 
 **Why AGPL?** We chose AGPL to ensure that improvements to Agent-MCP benefit the entire community, even when used in server/SaaS deployments. This prevents proprietary forks that don't contribute back to the ecosystem.
 

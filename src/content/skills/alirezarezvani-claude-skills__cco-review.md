@@ -132,8 +132,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-cco-advisor`](../../agents/cs-cco-advisor.md)
-  - Skill: [`chief-customer-officer-advisor`](../../../skills/chief-customer-officer-advisor/SKILL.md)
+  - Agent: [`cs-cco-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cco-advisor.md)
+  - Skill: [`chief-customer-officer-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-customer-officer-advisor/SKILL.md)
   - Bitişik: `../../../../business-growth/` (taktiksel CS yürütme)
   
   ---
@@ -259,8 +259,8 @@ python ../../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calcul
 
 ## Related
 
-- Agent: [`cs-cco-advisor`](../../agents/cs-cco-advisor.md)
-- Skill: [`chief-customer-officer-advisor`](../../../skills/chief-customer-officer-advisor/SKILL.md)
+- Agent: [`cs-cco-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cco-advisor.md)
+- Skill: [`chief-customer-officer-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-customer-officer-advisor/SKILL.md)
 - Adjacent: `../../../../business-growth/` (tactical CS execution)
 
 ---

@@ -369,10 +369,10 @@ body_tr: |-
   
   | Beceri | İlişki |
   |--------|---------|
-  | [threat-detection](../threat-detection/SKILL.md) | LLM inference API günlüklerindeki anomali tespiti model inversion saldırılarını ve sistematik prompt injection araştırmasını ortaya çıkarabilir |
-  | [incident-response](../incident-response/SKILL.md) | Onaylanan prompt injection istismarı veya bir model'den veri çıkarımı bir güvenlik olayı olarak sınıflandırılmalıdır |
-  | [cloud-security](../cloud-security/SKILL.md) | LLM API anahtarları ve model uç noktaları bulut kaynağıdır — IAM yanlış yapılandırması yetkisiz model erişimini etkinleştirir (AML.T0012) |
-  | [security-pen-testing](../security-pen-testing/SKILL.md) | Uygulama katmanı güvenlik testi web arabirimini ve API katmanını kapsar; ai-security model ve agenţ katmanını kapsar |
+  | [threat-detection](https://github.com/alirezarezvani/claude-skills/blob/HEAD/threat-detection/SKILL.md) | LLM inference API günlüklerindeki anomali tespiti model inversion saldırılarını ve sistematik prompt injection araştırmasını ortaya çıkarabilir |
+  | [incident-response](https://github.com/alirezarezvani/claude-skills/blob/HEAD/incident-response/SKILL.md) | Onaylanan prompt injection istismarı veya bir model'den veri çıkarımı bir güvenlik olayı olarak sınıflandırılmalıdır |
+  | [cloud-security](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cloud-security/SKILL.md) | LLM API anahtarları ve model uç noktaları bulut kaynağıdır — IAM yanlış yapılandırması yetkisiz model erişimini etkinleştirir (AML.T0012) |
+  | [security-pen-testing](https://github.com/alirezarezvani/claude-skills/blob/HEAD/security-pen-testing/SKILL.md) | Uygulama katmanı güvenlik testi web arabirimini ve API katmanını kapsar; ai-security model ve agenţ katmanını kapsar |
 ---
 
 # AI Security
@@ -730,7 +730,7 @@ fi
 
 | Skill | Relationship |
 |-------|-------------|
-| [threat-detection](../threat-detection/SKILL.md) | Anomaly detection in LLM inference API logs can surface model inversion attacks and systematic prompt injection probing |
-| [incident-response](../incident-response/SKILL.md) | Confirmed prompt injection exploitation or data extraction from a model should be classified as a security incident |
-| [cloud-security](../cloud-security/SKILL.md) | LLM API keys and model endpoints are cloud resources — IAM misconfiguration enables unauthorized model access (AML.T0012) |
-| [security-pen-testing](../security-pen-testing/SKILL.md) | Application-layer security testing covers the web interface and API layer; ai-security covers the model and agent layer |
+| [threat-detection](https://github.com/alirezarezvani/claude-skills/blob/HEAD/threat-detection/SKILL.md) | Anomaly detection in LLM inference API logs can surface model inversion attacks and systematic prompt injection probing |
+| [incident-response](https://github.com/alirezarezvani/claude-skills/blob/HEAD/incident-response/SKILL.md) | Confirmed prompt injection exploitation or data extraction from a model should be classified as a security incident |
+| [cloud-security](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cloud-security/SKILL.md) | LLM API keys and model endpoints are cloud resources — IAM misconfiguration enables unauthorized model access (AML.T0012) |
+| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/blob/HEAD/security-pen-testing/SKILL.md) | Application-layer security testing covers the web interface and API layer; ai-security covers the model and agent layer |

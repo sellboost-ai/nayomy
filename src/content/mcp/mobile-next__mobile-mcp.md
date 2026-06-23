@@ -87,7 +87,7 @@ body_tr: |-
   <details>
   <summary>📱 <strong>Araç listesini görmek için tıklayın</strong> - Otomasyon ve geliştirme için Mobile MCP araçları listesi</summary>
   
-  > Ayrıntılı uygulama ve parametre belirtimleri için bkz. [`src/server.ts`](src/server.ts)
+  > Ayrıntılı uygulama ve parametre belirtimleri için bkz. [`src/server.ts`](https://github.com/mobile-next/mobile-mcp/blob/HEAD/src/server.ts)
   
   ### Cihaz Yönetimi
   - **`mobile_list_available_devices`** - Tüm mevcut cihazları listele (simulatörler, emülatörler ve gerçek cihazlar)
@@ -576,7 +576,7 @@ How we help to scale mobile automation:
 <details>
 <summary>📱 <strong>Click to expand tool list</strong> - List of Mobile MCP tools for automation and development</summary>
 
-> For detailed implementation and parameter specifications, see [`src/server.ts`](src/server.ts)
+> For detailed implementation and parameter specifications, see [`src/server.ts`](https://github.com/mobile-next/mobile-mcp/blob/HEAD/src/server.ts)
 
 ### Device Management
 - **`mobile_list_available_devices`** - List all available devices (simulators, emulators, and real devices)

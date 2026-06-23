@@ -104,8 +104,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Beceri: [`decision-logger`](../../../skills/decision-logger/SKILL.md)
-  - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md) — yönlendirmede kilitleri uygular
+  - Beceri: [`decision-logger`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/decision-logger/SKILL.md)
+  - Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md) — yönlendirmede kilitleri uygular
   
   ---
   
@@ -202,8 +202,8 @@ Founders have authority. Without an explicit lock + log, every wobble produces a
 
 ## Related
 
-- Skill: [`decision-logger`](../../../skills/decision-logger/SKILL.md)
-- Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md) — enforces freezes in routing
+- Skill: [`decision-logger`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/decision-logger/SKILL.md)
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md) — enforces freezes in routing
 
 ---
 

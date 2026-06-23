@@ -13,7 +13,7 @@ homepage: "https://www.npmjs.com/package/mongodb-lens"
 body_tr: |-
   # MongoDB Lens
   
-  [![License](https://img.shields.io/github/license/furey/mongodb-lens)](./LICENSE)
+  [![License](https://img.shields.io/github/license/furey/mongodb-lens)](https://github.com/furey/mongodb-lens/tree/HEAD/LICENSE)
   [![Docker Hub Version](https://img.shields.io/docker/v/furey/mongodb-lens)](https://hub.docker.com/r/furey/mongodb-lens)
   [![NPM Version](https://img.shields.io/npm/v/mongodb-lens)](https://www.npmjs.com/package/mongodb-lens)
   [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-orange.svg)](https://www.buymeacoffee.com/furey)
@@ -165,7 +165,7 @@ body_tr: |-
 
 # MongoDB Lens
 
-[![License](https://img.shields.io/github/license/furey/mongodb-lens)](./LICENSE)
+[![License](https://img.shields.io/github/license/furey/mongodb-lens)](https://github.com/furey/mongodb-lens/tree/HEAD/LICENSE)
 [![Docker Hub Version](https://img.shields.io/docker/v/furey/mongodb-lens)](https://hub.docker.com/r/furey/mongodb-lens)
 [![NPM Version](https://img.shields.io/npm/v/mongodb-lens)](https://www.npmjs.com/package/mongodb-lens)
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-orange.svg)](https://www.buymeacoffee.com/furey)
@@ -1526,7 +1526,7 @@ This two-step process prevents accidental data loss by requiring explicit confir
 
 ## Test Suite
 
-MongoDB Lens includes a [test suite](./mongodb-lens.test.js) to verify functionality across tools, resources, and prompts.
+MongoDB Lens includes a [test suite](https://github.com/furey/mongodb-lens/blob/HEAD/mongodb-lens.test.js) to verify functionality across tools, resources, and prompts.
 
 - [Running Tests](#test-suite-running-tests)
 - [Command Line Options](#test-suite-command-line-options)
@@ -1595,7 +1595,7 @@ npm run test:in-memory -- --test=aggregate-data\ Tool,find-documents\ Tool
 
 MongoDB Lens:
 
-- is licensed under the [MIT License](./LICENSE).
+- is licensed under the [MIT License](https://github.com/furey/mongodb-lens/tree/HEAD/LICENSE).
 - is not affiliated with or endorsed by MongoDB, Inc.
 - is written with the assistance of AI and may contain errors.
 - is intended for educational and experimental purposes only.

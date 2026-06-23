@@ -166,7 +166,7 @@ body_tr: |-
   
   **Yasal ve Satın Alma İçin**
   
-  Bu proje [MIT lisanslı](LICENSE) — "açık çekirdek" değil, "kaynak mevcut" değil, "CLA ile ücretsiz" değil. Çift lisanslama, ticari katman özellik kapısı ve katkı lisans sözleşmesi yoktur.
+  Bu proje [MIT lisanslı](https://github.com/taylorwilsdon/google_workspace_mcp/tree/HEAD/LICENSE) — "açık çekirdek" değil, "kaynak mevcut" değil, "CLA ile ücretsiz" değil. Çift lisanslama, ticari katman özellik kapısı ve katkı lisans sözleşmesi yoktur.
   
   - **Kısıtlama olmaksızın ticari kullanım** — ürünler yapabilir, hizmetler satabilir, dahili olarak dağıtabilir
   - **Çatal, yerleştir, dağıt et** — MIT yalnızca atfetme gerektirir
@@ -566,7 +566,7 @@ Full dependency tree in `pyproject.toml`, pinned in `uv.lock`.
 
 **For Legal & Procurement**
 
-This project is [MIT licensed](LICENSE) — not "open core," not "source available," not "free with a CLA." There is no dual licensing, no commercial tier gating features, and no contributor license agreement.
+This project is [MIT licensed](https://github.com/taylorwilsdon/google_workspace_mcp/tree/HEAD/LICENSE) — not "open core," not "source available," not "free with a CLA." There is no dual licensing, no commercial tier gating features, and no contributor license agreement.
 
 - **Use commercially without restriction** — build products, sell services, deploy internally
 - **Fork, embed, redistribute** — MIT requires only attribution
@@ -1169,7 +1169,7 @@ cp .env.oauth21 .env
 
 </div>
 
-#### 📅 Google Calendar <sub>[`calendar_tools.py`](gcalendar/calendar_tools.py)</sub>
+#### 📅 Google Calendar <sub>[`calendar_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gcalendar/calendar_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1181,7 +1181,7 @@ cp .env.oauth21 .env
 | <sub>`manage_out_of_office`</sub> | <sub>Extended</sub> | <sub>Create, list, update, or delete Out of Office events</sub> |
 | <sub>`manage_focus_time`</sub> | <sub>Extended</sub> | <sub>Create, list, update, or delete Focus Time events</sub> |
 
-#### 📁 Google Drive <sub>[`drive_tools.py`](gdrive/drive_tools.py)</sub>
+#### 📁 Google Drive <sub>[`drive_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gdrive/drive_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1202,7 +1202,7 @@ cp .env.oauth21 .env
 | <sub>`get_drive_file_permissions`</sub> | <sub>Complete</sub> | <sub>Get file metadata, parents, and permissions</sub> |
 | <sub>`check_drive_file_public_access`</sub> | <sub>Complete</sub> | <sub>Check public sharing status</sub> |
 
-#### 📧 Gmail <sub>[`gmail_tools.py`](gmail/gmail_tools.py)</sub>
+#### 📧 Gmail <sub>[`gmail_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gmail/gmail_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1263,7 +1263,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 
 </details>
 
-#### 📝 Google Docs <sub>[`docs_tools.py`](gdocs/docs_tools.py)</sub>
+#### 📝 Google Docs <sub>[`docs_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gdocs/docs_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1287,7 +1287,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 | <sub>`manage_document_comment`</sub> | <sub>Complete</sub> | <sub>Create, reply to, or resolve comments</sub> |
 | <sub>`manage_doc_tab`</sub> | <sub>Complete</sub> | <sub>Create, rename, delete, or populate tabs from markdown</sub> |
 
-#### 📊 Google Sheets <sub>[`sheets_tools.py`](gsheets/sheets_tools.py)</sub>
+#### 📊 Google Sheets <sub>[`sheets_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gsheets/sheets_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1305,7 +1305,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 | <sub>`manage_spreadsheet_comment`</sub> | <sub>Complete</sub> | <sub>Create, reply to, or resolve comments</sub> |
 | <sub>`manage_conditional_formatting`</sub> | <sub>Complete</sub> | <sub>Add, update, or delete conditional formatting rules</sub> |
 
-#### 🖼️ Google Slides <sub>[`slides_tools.py`](gslides/slides_tools.py)</sub>
+#### 🖼️ Google Slides <sub>[`slides_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gslides/slides_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1317,7 +1317,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 | <sub>`list_presentation_comments`</sub> | <sub>Complete</sub> | <sub>List all presentation comments</sub> |
 | <sub>`manage_presentation_comment`</sub> | <sub>Complete</sub> | <sub>Create, reply to, or resolve comments</sub> |
 
-#### 📋 Google Forms <sub>[`forms_tools.py`](gforms/forms_tools.py)</sub>
+#### 📋 Google Forms <sub>[`forms_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gforms/forms_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1328,7 +1328,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 | <sub>`list_form_responses`</sub> | <sub>Extended</sub> | <sub>List all responses with pagination</sub> |
 | <sub>`batch_update_form`</sub> | <sub>Complete</sub> | <sub>Apply batch updates (questions, settings)</sub> |
 
-#### ✓ Google Tasks <sub>[`tasks_tools.py`](gtasks/tasks_tools.py)</sub>
+#### ✓ Google Tasks <sub>[`tasks_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gtasks/tasks_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1339,7 +1339,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 | <sub>`get_task_list`</sub> | <sub>Complete</sub> | <sub>Get task list details</sub> |
 | <sub>`manage_task_list`</sub> | <sub>Complete</sub> | <sub>Create, update, delete task lists, or clear completed tasks</sub> |
 
-#### 👤 Google Contacts <sub>[`contacts_tools.py`](gcontacts/contacts_tools.py)</sub>
+#### 👤 Google Contacts <sub>[`contacts_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gcontacts/contacts_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1352,7 +1352,7 @@ Saved files expire after 1 hour and are cleaned up automatically.
 | <sub>`manage_contacts_batch`</sub> | <sub>Complete</sub> | <sub>Batch create, update, or delete contacts</sub> |
 | <sub>`manage_contact_group`</sub> | <sub>Complete</sub> | <sub>Create, update, delete groups, or modify membership</sub> |
 
-#### 💬 Google Chat <sub>[`chat_tools.py`](gchat/chat_tools.py)</sub>
+#### 💬 Google Chat <sub>[`chat_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gchat/chat_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
@@ -1397,14 +1397,14 @@ The required scopes (`chat.spaces.readonly`, `chat.messages.readonly`, `chat.mes
 
 </details>
 
-#### 🔍 Google Custom Search <sub>[`search_tools.py`](gsearch/search_tools.py)</sub>
+#### 🔍 Google Custom Search <sub>[`search_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gsearch/search_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|
 | <sub>`search_custom`</sub> | <sub>Core</sub> | <sub>Perform web searches (supports site restrictions via sites parameter)</sub> |
 | <sub>`get_search_engine_info`</sub> | <sub>Complete</sub> | <sub>Retrieve search engine metadata</sub> |
 
-#### ⚡ Google Apps Script <sub>[`apps_script_tools.py`](gappsscript/apps_script_tools.py)</sub>
+#### ⚡ Google Apps Script <sub>[`apps_script_tools.py`](https://github.com/taylorwilsdon/google_workspace_mcp/blob/HEAD/gappsscript/apps_script_tools.py)</sub>
 
 | <sub>Tool</sub> | <sub>Tier</sub> | <sub>Description</sub> |
 |------|------|-------------|

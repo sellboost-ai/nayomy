@@ -68,7 +68,7 @@ body_tr: |-
   **Seçenek B: Kaynaktan Derleyin**
   
   1. Bu depoyu klonlayın
-  2. [CONTRIBUTING.md](./CONTRIBUTING.md) içindeki derleme talimatlarını izleyin
+  2. [CONTRIBUTING.md](https://github.com/etsd-tech/mcp-pointer/blob/HEAD/CONTRIBUTING.md) içindeki derleme talimatlarını izleyin
   3. Chrome → Ayarlar → Uzantılar → Geliştirici modu (AÇIN)
   4. "Paketlenmemiş dosyayı yükle" ve `packages/chrome-extension/dist/` klasörünü seçin
   5. **Web sayfalarını yenileyin** extension'ı etkinleştirmek için
@@ -191,7 +191,7 @@ body_tr: |-
   
   ## 🤝 Katkı Yapma
   
-  Katkıları memnuniyetle karşılıyoruz! Lütfen geliştirme kurulumu ve yönergeleri için [CONTRIBUTING.md](./CONTRIBUTING.md) rehberimize bakın.
+  Katkıları memnuniyetle karşılıyoruz! Lütfen geliştirme kurulumu ve yönergeleri için [CONTRIBUTING.md](https://github.com/etsd-tech/mcp-pointer/blob/HEAD/CONTRIBUTING.md) rehberimize bakın.
   
   ---
   
@@ -264,7 +264,7 @@ Simply click the link above to install from the Chrome Web Store.
 **Option B: Build from Source**
 
 1. Clone this repository
-2. Follow the build instructions in [CONTRIBUTING.md](./CONTRIBUTING.md)
+2. Follow the build instructions in [CONTRIBUTING.md](https://github.com/etsd-tech/mcp-pointer/blob/HEAD/CONTRIBUTING.md)
 3. Open Chrome → Settings → Extensions → Developer mode (toggle ON)
 4. Click "Load unpacked" and select the `packages/chrome-extension/dist/` folder
 5. **Reload web pages** to activate the extension
@@ -387,7 +387,7 @@ MIT License - see LICENSE file for details
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) guide for development setup and guidelines.
+We welcome contributions! Please see our [CONTRIBUTING.md](https://github.com/etsd-tech/mcp-pointer/blob/HEAD/CONTRIBUTING.md) guide for development setup and guidelines.
 
 ---
 

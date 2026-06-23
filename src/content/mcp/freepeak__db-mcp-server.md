@@ -500,7 +500,7 @@ body_tr: |-
   | `continuous_aggregate_<db_id>` | Otomatik olarak güncelleştirilen materyalleştirilmiş görünümler oluştur |
   | `refresh_continuous_aggregate_<db_id>` | Sürekli agregasyonları manuel olarak yenile |
   
-  TimescaleDB araçları hakkında ayrıntılı dokümantasyon için bkz. [TIMESCALEDB_TOOLS.md](docs/TIMESCALEDB_TOOLS.md).
+  TimescaleDB araçları hakkında ayrıntılı dokümantasyon için bkz. [TIMESCALEDB_TOOLS.md](https://github.com/FreePeak/db-mcp-server/blob/HEAD/docs/TIMESCALEDB_TOOLS.md).
   
   ## Örnekler
   
@@ -1186,7 +1186,7 @@ For PostgreSQL databases with TimescaleDB extension, these additional specialize
 | `continuous_aggregate_<db_id>` | Create materialized views that automatically update |
 | `refresh_continuous_aggregate_<db_id>` | Manually refresh continuous aggregates |
 
-For detailed documentation on TimescaleDB tools, see [TIMESCALEDB_TOOLS.md](docs/TIMESCALEDB_TOOLS.md).
+For detailed documentation on TimescaleDB tools, see [TIMESCALEDB_TOOLS.md](https://github.com/FreePeak/db-mcp-server/blob/HEAD/docs/TIMESCALEDB_TOOLS.md).
 
 ## Examples
 
@@ -1394,7 +1394,7 @@ We welcome contributions to the DB MCP Server project! To contribute:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-Please see our [CONTRIBUTING.md](docs/CONTRIBUTING.md) file for detailed guidelines.
+Please see our [CONTRIBUTING.md](https://github.com/FreePeak/db-mcp-server/blob/HEAD/docs/CONTRIBUTING.md) file for detailed guidelines.
 
 ### Testing Your Changes
 
@@ -1407,4 +1407,4 @@ Before submitting a pull request, please ensure:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/FreePeak/db-mcp-server/tree/HEAD/LICENSE) file for details.

@@ -241,11 +241,11 @@ body_tr: |-
   
   ## Lisans
   
-  Beelzebub, [GNU GPL v3 Lisansı](LICENSE) altında lisanslanmıştır.
+  Beelzebub, [GNU GPL v3 Lisansı](https://github.com/beelzebub-labs/beelzebub/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   ## Katkı Sağlama
   
-  Beelzebub ekibi katkı ve proje katılımını memnuniyetle karşılar. Hataları raporlamak, yeni özellikler eklemek veya herhangi bir sorunuz olması durumunda, ayrıntılı bilgi için lütfen [Katkı Rehberimize](CONTRIBUTING.md) bakınız. Tüm katılımcılara ve maintainerlara [Davranış Kurallarımıza](CODE_OF_CONDUCT.md) uymanızı ve destekleyici ve saygılı bir topluluk oluşturmayı teşvik ediyoruz.
+  Beelzebub ekibi katkı ve proje katılımını memnuniyetle karşılar. Hataları raporlamak, yeni özellikler eklemek veya herhangi bir sorunuz olması durumunda, ayrıntılı bilgi için lütfen [Katkı Rehberimize](https://github.com/beelzebub-labs/beelzebub/blob/HEAD/CONTRIBUTING.md) bakınız. Tüm katılımcılara ve maintainerlara [Davranış Kurallarımıza](https://github.com/beelzebub-labs/beelzebub/blob/HEAD/CODE_OF_CONDUCT.md) uymanızı ve destekleyici ve saygılı bir topluluk oluşturmayı teşvik ediyoruz.
   
   Mutlu hacking!
   
@@ -798,11 +798,11 @@ beelzebub validate
 
 ## License
 
-Beelzebub is licensed under the [GNU GPL v3 License](LICENSE).
+Beelzebub is licensed under the [GNU GPL v3 License](https://github.com/beelzebub-labs/beelzebub/tree/HEAD/LICENSE).
 
 ## Contributing
 
-The Beelzebub team welcomes contributions and project participation. Whether you want to report bugs, contribute new features, or have any questions, please refer to our [Contributor Guide](CONTRIBUTING.md) for detailed information. We encourage all participants and maintainers to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) and foster a supportive and respectful community.
+The Beelzebub team welcomes contributions and project participation. Whether you want to report bugs, contribute new features, or have any questions, please refer to our [Contributor Guide](https://github.com/beelzebub-labs/beelzebub/blob/HEAD/CONTRIBUTING.md) for detailed information. We encourage all participants and maintainers to adhere to our [Code of Conduct](https://github.com/beelzebub-labs/beelzebub/blob/HEAD/CODE_OF_CONDUCT.md) and foster a supportive and respectful community.
 
 Happy hacking!
 

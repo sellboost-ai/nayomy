@@ -133,7 +133,7 @@ body_tr: |-
   - Geri sayım sayaçları yok, gerçekten sona ermediği sürece
   - Açık CTA: "Bu teklifi talep et" vs. "İptale devam et"
   
-  Tam karar ağaçları ve flow şablonları için [references/cancel-flow-playbook.md](references/cancel-flow-playbook.md) bölümüne bakın.
+  Tam karar ağaçları ve flow şablonları için [references/cancel-flow-playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cancel-flow-playbook.md) bölümüne bakın.
   
   ---
   
@@ -170,7 +170,7 @@ body_tr: |-
   - Suçluluk yok. Utanç yok. Kart hatalar olur — müşterilere yetişkinler gibi davranın.
   - Her e-posta doğrudan ödeme güncelleme sayfasına bağlanır — panoya değil
   
-  Tam e-posta dizileri ve yeniden deneme konfigürasyonu örnekleri için [references/dunning-guide.md](references/dunning-guide.md) bölümüne bakın.
+  Tam e-posta dizileri ve yeniden deneme konfigürasyonu örnekleri için [references/dunning-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/dunning-guide.md) bölümüne bakın.
   
   ---
   
@@ -364,7 +364,7 @@ Match the offer to the reason. Each offer type has a right and wrong time to use
 - No countdown timers unless it's genuinely expiring
 - Clear CTA: "Claim this offer" vs. "Continue cancelling"
 
-See [references/cancel-flow-playbook.md](references/cancel-flow-playbook.md) for full decision trees and flow templates.
+See [references/cancel-flow-playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cancel-flow-playbook.md) for full decision trees and flow templates.
 
 ---
 
@@ -401,7 +401,7 @@ Don't retry immediately — failed cards often recover within 3-7 days:
 - No guilt. No shame. Card failures happen — treat customers like adults.
 - Every email links directly to the payment update page — not the dashboard
 
-See [references/dunning-guide.md](references/dunning-guide.md) for full email sequences and retry configuration examples.
+See [references/dunning-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/dunning-guide.md) for full email sequences and retry configuration examples.
 
 ---
 

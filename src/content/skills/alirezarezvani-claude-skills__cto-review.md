@@ -119,8 +119,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-cto-advisor`](../../../../agents/c-level/cs-cto-advisor.md)
-  - Skill: [`cto-advisor`](../../../skills/cto-advisor/SKILL.md)
+  - Agent: [`cs-cto-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/c-level/cs-cto-advisor.md)
+  - Skill: [`cto-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cto-advisor/SKILL.md)
   - SLO: `../../../../engineering/slo-architect/`
   
   ---
@@ -233,8 +233,8 @@ python ../../../skills/cto-advisor/scripts/team_scaling_calculator.py
 
 ## Related
 
-- Agent: [`cs-cto-advisor`](../../../../agents/c-level/cs-cto-advisor.md)
-- Skill: [`cto-advisor`](../../../skills/cto-advisor/SKILL.md)
+- Agent: [`cs-cto-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/c-level/cs-cto-advisor.md)
+- Skill: [`cto-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cto-advisor/SKILL.md)
 - SLO: `../../../../engineering/slo-architect/`
 
 ---

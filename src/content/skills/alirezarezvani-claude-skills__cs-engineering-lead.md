@@ -89,8 +89,8 @@ body_tr: |-
   
   ## İlgili Ajanlar
   
-  - [cs-senior-engineer](../engineering/cs-senior-engineer.md) -- Mimari kararlar, code review ve CI/CD pipeline kurulumu
-  - [cs-product-manager](../product/cs-product-manager.md) -- Feature'ın önceliklendirilmesi ve gereksinimlerin uyumlaştırılması
+  - [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering/cs-senior-engineer.md) -- Mimari kararlar, code review ve CI/CD pipeline kurulumu
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) -- Feature'ın önceliklendirilmesi ve gereksinimlerin uyumlaştırılması
 ---
 
 # cs-engineering-lead
@@ -168,5 +168,5 @@ Engineering team lead coordinating across specializations: frontend, backend, QA
 
 ## Related Agents
 
-- [cs-senior-engineer](../engineering/cs-senior-engineer.md) -- Architecture decisions, code review, and CI/CD pipeline setup
-- [cs-product-manager](../product/cs-product-manager.md) -- Feature prioritization and requirements alignment
+- [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering/cs-senior-engineer.md) -- Architecture decisions, code review, and CI/CD pipeline setup
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) -- Feature prioritization and requirements alignment

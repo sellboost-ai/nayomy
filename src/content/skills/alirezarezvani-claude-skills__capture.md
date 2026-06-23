@@ -214,7 +214,7 @@ body_tr: |-
   ---
   
   **Sürüm:** 1.0.0
-  **Kaynak spek:** [`megaprompts/05-capture-megaprompt.md`](../../../../megaprompts/05-capture-megaprompt.md)
+  **Kaynak spek:** [`megaprompts/05-capture-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/megaprompts/05-capture-megaprompt.md)
   **Derleme deseni:** Path B (doğrudan dönüştürme). Spec ile uygulama arasında kayma çıkarsa `/cs:grill-with-docs` ile yeniden sıkıştırın.
 ---
 
@@ -418,5 +418,5 @@ After the four (or compressed) sections are delivered:
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/05-capture-megaprompt.md`](../../../../megaprompts/05-capture-megaprompt.md)
+**Source spec:** [`megaprompts/05-capture-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/megaprompts/05-capture-megaprompt.md)
 **Build pattern:** Path B (direct conversion). Re-grill with `/cs:grill-with-docs` if drift between spec and implementation surfaces.

@@ -231,9 +231,9 @@ body_tr: |-
   
   |           Klasör           |                                            Sürüm                                            |                                   Belgeler                                   |
   | :------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
-  | [vizro-core](./vizro-core) |     [![PyPI version](https://badge.fury.io/py/vizro.svg)](https://badge.fury.io/py/vizro)     |               [Vizro Belgeleri](https://vizro.readthedocs.io/en/stable/)               |
-  |   [vizro-ai](./vizro-ai)   |  [![PyPI version](https://badge.fury.io/py/vizro-ai.svg)](https://badge.fury.io/py/vizro-ai)  |         [Vizro-AI Belgeleri](https://vizro.readthedocs.io/projects/vizro-ai/)          |
-  |  [vizro-mcp](./vizro-mcp)  | [![PyPI version](https://badge.fury.io/py/vizro-mcp.svg)](https://badge.fury.io/py/vizro-mcp) | [Vizro-MCP Belgeleri](https://github.com/mckinsey/vizro/blob/main/vizro-mcp/README.md) |
+  | [vizro-core](https://github.com/mckinsey/vizro/tree/HEAD/vizro-core) |     [![PyPI version](https://badge.fury.io/py/vizro.svg)](https://badge.fury.io/py/vizro)     |               [Vizro Belgeleri](https://vizro.readthedocs.io/en/stable/)               |
+  |   [vizro-ai](https://github.com/mckinsey/vizro/tree/HEAD/vizro-ai)   |  [![PyPI version](https://badge.fury.io/py/vizro-ai.svg)](https://badge.fury.io/py/vizro-ai)  |         [Vizro-AI Belgeleri](https://vizro.readthedocs.io/projects/vizro-ai/)          |
+  |  [vizro-mcp](https://github.com/mckinsey/vizro/tree/HEAD/vizro-mcp)  | [![PyPI version](https://badge.fury.io/py/vizro-mcp.svg)](https://badge.fury.io/py/vizro-mcp) | [Vizro-MCP Belgeleri](https://github.com/mckinsey/vizro/blob/main/vizro-mcp/README.md) |
   
   ## Topluluk ve geliştirme
   
@@ -476,9 +476,9 @@ This repository is a monorepo containing the following packages:
 
 |           Folder           |                                            Version                                            |                                   Documentation                                   |
 | :------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
-| [vizro-core](./vizro-core) |     [![PyPI version](https://badge.fury.io/py/vizro.svg)](https://badge.fury.io/py/vizro)     |               [Vizro Docs](https://vizro.readthedocs.io/en/stable/)               |
-|   [vizro-ai](./vizro-ai)   |  [![PyPI version](https://badge.fury.io/py/vizro-ai.svg)](https://badge.fury.io/py/vizro-ai)  |         [Vizro-AI Docs](https://vizro.readthedocs.io/projects/vizro-ai/)          |
-|  [vizro-mcp](./vizro-mcp)  | [![PyPI version](https://badge.fury.io/py/vizro-mcp.svg)](https://badge.fury.io/py/vizro-mcp) | [Vizro-MCP Docs](https://github.com/mckinsey/vizro/blob/main/vizro-mcp/README.md) |
+| [vizro-core](https://github.com/mckinsey/vizro/tree/HEAD/vizro-core) |     [![PyPI version](https://badge.fury.io/py/vizro.svg)](https://badge.fury.io/py/vizro)     |               [Vizro Docs](https://vizro.readthedocs.io/en/stable/)               |
+|   [vizro-ai](https://github.com/mckinsey/vizro/tree/HEAD/vizro-ai)   |  [![PyPI version](https://badge.fury.io/py/vizro-ai.svg)](https://badge.fury.io/py/vizro-ai)  |         [Vizro-AI Docs](https://vizro.readthedocs.io/projects/vizro-ai/)          |
+|  [vizro-mcp](https://github.com/mckinsey/vizro/tree/HEAD/vizro-mcp)  | [![PyPI version](https://badge.fury.io/py/vizro-mcp.svg)](https://badge.fury.io/py/vizro-mcp) | [Vizro-MCP Docs](https://github.com/mckinsey/vizro/blob/main/vizro-mcp/README.md) |
 
 ## Community and development
 

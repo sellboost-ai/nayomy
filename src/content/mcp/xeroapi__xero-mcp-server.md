@@ -65,8 +65,8 @@ body_tr: |-
   
   | Özel Bağlantı Oluşturulma Tarihi | Gerekli Kapsamlar |
   |---------------------------|-----------------|
-  | 29 Nisan 2026'dan önce | [SCOPES_V1](src/clients/xero-client.ts#L82-L90) (paket izinler) |
-  | 29 Nisan 2026'dan itibaren | [SCOPES_V2](src/clients/xero-client.ts#L93-L112) (ayrıntılı izinler) |
+  | 29 Nisan 2026'dan önce | [SCOPES_V1](https://github.com/XeroAPI/xero-mcp-server/tree/HEAD/src/clients/xero-client.ts#L82-L90) (paket izinler) |
+  | 29 Nisan 2026'dan itibaren | [SCOPES_V2](https://github.com/XeroAPI/xero-mcp-server/tree/HEAD/src/clients/xero-client.ts#L93-L112) (ayrıntılı izinler) |
   
   > **Not:** MCP sunucusu otomatik olarak önce V1 kapsamlarını dener ve gerekirse V2'ye geri döner.
   > 
@@ -310,8 +310,8 @@ Custom connections require different scopes depending on when they were created.
 
 | Custom Connection Created | Required Scopes |
 |---------------------------|-----------------|
-| Before Apr 29, 2026 | [SCOPES_V1](src/clients/xero-client.ts#L82-L90) (bundled permissions) |
-| From Apr 29, 2026 | [SCOPES_V2](src/clients/xero-client.ts#L93-L112) (granular permissions) |
+| Before Apr 29, 2026 | [SCOPES_V1](https://github.com/XeroAPI/xero-mcp-server/tree/HEAD/src/clients/xero-client.ts#L82-L90) (bundled permissions) |
+| From Apr 29, 2026 | [SCOPES_V2](https://github.com/XeroAPI/xero-mcp-server/tree/HEAD/src/clients/xero-client.ts#L93-L112) (granular permissions) |
 
 > **Note:** The MCP server automatically tries V1 scopes first and falls back to V2 if needed.
 > 

@@ -464,7 +464,7 @@ body_tr: |-
 
 # Replicate Flux MCP
 
-[English](README.md) | [中文](README.zh.md)
+[English](https://github.com/awkoy/replicate-flux-mcp/blob/HEAD/README.md) | [中文](https://github.com/awkoy/replicate-flux-mcp/blob/HEAD/README.zh.md)
 
 ![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)

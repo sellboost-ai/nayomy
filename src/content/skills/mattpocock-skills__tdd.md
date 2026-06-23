@@ -24,7 +24,7 @@ body_tr: |-
   
   **Kötü testler** implementasyona bağlıdır. Internal collaborator'ları mock ederler, private method'ları test ederler, veya external araçlar üzerinden doğrularlar (örneğin interface'i kullanmak yerine doğrudan database sorgulama). Uyarı işareti: test refactor yaptığında kırılır ama davranış değişmemiş. Eğer internal bir function'ı rename ettiğinizde testler fail olursa, bu testler implementasyonu test ediyordu, davranışı değil.
   
-  Örnekler için [tests.md](tests.md)'ye ve mocking yönergeleri için [mocking.md](mocking.md)'ye bak.
+  Örnekler için [tests.md](https://github.com/mattpocock/skills/blob/HEAD/tests.md)'ye ve mocking yönergeleri için [mocking.md](https://github.com/mattpocock/skills/blob/HEAD/mocking.md)'ye bak.
   
   ## Anti-Pattern: Horizontal Slices
   
@@ -61,8 +61,8 @@ body_tr: |-
   
   - [ ] User ile ne interface değişikliklerinin gerekli olduğunu onaylayın
   - [ ] User ile hangi davranışları test edeceğinizi onaylayın (önceliklendir)
-  - [ ] [Deep modules](deep-modules.md) için fırsatları belirleyin (küçük interface, derin implementasyon)
-  - [ ] [Testability](interface-design.md) için interface'leri tasarlayın
+  - [ ] [Deep modules](https://github.com/mattpocock/skills/blob/HEAD/deep-modules.md) için fırsatları belirleyin (küçük interface, derin implementasyon)
+  - [ ] [Testability](https://github.com/mattpocock/skills/blob/HEAD/interface-design.md) için interface'leri tasarlayın
   - [ ] Test edecek davranışları listeleyin (implementasyon adımlarını değil)
   - [ ] User onayını plana alın
   
@@ -99,7 +99,7 @@ body_tr: |-
   
   ### 4. Refactor
   
-  Tüm testler pass ettikten sonra, [refactor adaylarına](refactoring.md) bakın:
+  Tüm testler pass ettikten sonra, [refactor adaylarına](https://github.com/mattpocock/skills/blob/HEAD/refactoring.md) bakın:
   
   - [ ] Duplication'ı extract edin
   - [ ] Module'ları derinleştirin (complexity'yi basit interface'lerin arkasına taşıyın)
@@ -130,7 +130,7 @@ body_tr: |-
 
 **Bad tests** are coupled to implementation. They mock internal collaborators, test private methods, or verify through external means (like querying a database directly instead of using the interface). The warning sign: your test breaks when you refactor, but behavior hasn't changed. If you rename an internal function and tests fail, those tests were testing implementation, not behavior.
 
-See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking guidelines.
+See [tests.md](https://github.com/mattpocock/skills/blob/HEAD/tests.md) for examples and [mocking.md](https://github.com/mattpocock/skills/blob/HEAD/mocking.md) for mocking guidelines.
 
 ## Anti-Pattern: Horizontal Slices
 
@@ -204,7 +204,7 @@ Rules:
 
 ### 4. Refactor
 
-After all tests pass, look for [refactor candidates](refactoring.md):
+After all tests pass, look for [refactor candidates](https://github.com/mattpocock/skills/blob/HEAD/refactoring.md):
 
 - [ ] Extract duplication
 - [ ] Deepen modules (move complexity behind simple interfaces)

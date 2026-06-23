@@ -15,7 +15,7 @@ body_tr: |-
   [![Build Stack-chan Firmware](https://github.com/stack-chan/stack-chan/actions/workflows/build.yml/badge.svg)](https://github.com/stack-chan/stack-chan/actions/workflows/build.yml)
   [![Discord server invitation](https://img.shields.io/badge/Discord-Join%20server-5865F2?logo=discord&logoColor=white)](https://discord.gg/eGhd9adnBm)
   
-  [日本語](./README_ja.md)
+  [日本語](https://github.com/stack-chan/stack-chan/blob/HEAD/README_ja.md)
   
   ![stackchan](https://raw.githubusercontent.com/stack-chan/stack-chan/HEAD/docs/images/stackchan.gif)
   
@@ -47,16 +47,16 @@ body_tr: |-
   
   ### Board'u Birleştir
   
-  * Bkz. [schematics/README.md](./schematics/README.md) ve [case/README.md](./case/README.md)
+  * Bkz. [schematics/README.md](https://github.com/stack-chan/stack-chan/blob/HEAD/schematics/README.md) ve [case/README.md](https://github.com/stack-chan/stack-chan/blob/HEAD/case/README.md)
   * VEYA Önceden monte edilmiş bir modül alabilirsiniz (YAKINDA GELECEK)
   
   ### Firmware'i M5Stack'e Yükle
   
-  * Bkz. [firmware/README.md](./firmware/README.md)
+  * Bkz. [firmware/README.md](https://github.com/stack-chan/stack-chan/blob/HEAD/firmware/README.md)
   
   ## Geliştirme
   
-  Katkıda bulunanlar için yapılandırma ve pull request beklentileri için [CONTRIBUTING.md](./CONTRIBUTING.md) dosyasına bakın.
+  Katkıda bulunanlar için yapılandırma ve pull request beklentileri için [CONTRIBUTING.md](https://github.com/stack-chan/stack-chan/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   Tipik firmware iş akışı:
   
@@ -72,7 +72,7 @@ body_tr: |-
   
   ## Planlama
   
-  * Geliştirme yol haritası: [docs/ROADMAP.md](./docs/ROADMAP.md)
+  * Geliştirme yol haritası: [docs/ROADMAP.md](https://github.com/stack-chan/stack-chan/blob/HEAD/docs/ROADMAP.md)
   
   ## Katkı
   
@@ -83,7 +83,7 @@ body_tr: |-
   ## Lisans
   
   Bu repository'nin kaynakları Apache sürüm 2.0 lisansı altında dağıtılır.
-  Bkz. [LICENSE](./LICENSE).
+  Bkz. [LICENSE](https://github.com/stack-chan/stack-chan/tree/HEAD/LICENSE).
   
   ## BibTeX
   
@@ -103,7 +103,7 @@ body_tr: |-
 [![Build Stack-chan Firmware](https://github.com/stack-chan/stack-chan/actions/workflows/build.yml/badge.svg)](https://github.com/stack-chan/stack-chan/actions/workflows/build.yml)
 [![Discord server invitation](https://img.shields.io/badge/Discord-Join%20server-5865F2?logo=discord&logoColor=white)](https://discord.gg/eGhd9adnBm)
 
-[日本語](./README_ja.md)
+[日本語](https://github.com/stack-chan/stack-chan/blob/HEAD/README_ja.md)
 
 ![stackchan](https://raw.githubusercontent.com/stack-chan/stack-chan/HEAD/docs/images/stackchan.gif)
 
@@ -135,16 +135,16 @@ This repository includes all the component of the robot.
 
 ### Assemble board
 
-* See [schematics/README.md](./schematics/README.md) and [case/README.md](./case/README.md)
+* See [schematics/README.md](https://github.com/stack-chan/stack-chan/blob/HEAD/schematics/README.md) and [case/README.md](https://github.com/stack-chan/stack-chan/blob/HEAD/case/README.md)
 * OR You can get a pre-assembled module(COMING SOON)
 
 ### Flash firmware to M5Stack
 
-* See [firmware/README.md](./firmware/README.md)
+* See [firmware/README.md](https://github.com/stack-chan/stack-chan/blob/HEAD/firmware/README.md)
 
 ## Development
 
-For contributor-oriented setup and pull request expectations, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+For contributor-oriented setup and pull request expectations, see [CONTRIBUTING.md](https://github.com/stack-chan/stack-chan/blob/HEAD/CONTRIBUTING.md).
 
 Typical firmware workflow:
 
@@ -160,7 +160,7 @@ Generated web assets under `web/flash` and `web/schematics` are published from t
 
 ## Planning
 
-* Development roadmap: [docs/ROADMAP.md](./docs/ROADMAP.md)
+* Development roadmap: [docs/ROADMAP.md](https://github.com/stack-chan/stack-chan/blob/HEAD/docs/ROADMAP.md)
 
 ## Contribution
 
@@ -171,7 +171,7 @@ __Wanna be a sponsor__? It would be my great honor. please visit my [sponsor](ht
 ## License
 
 Resources of this repository are distributed under Apache version 2.0 license.
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/stack-chan/stack-chan/tree/HEAD/LICENSE).
 
 ## BibTeX
 

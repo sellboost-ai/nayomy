@@ -40,7 +40,7 @@ body_tr: |-
   | `edit`            | Metin dosyalarına satır tabanlı düzenlemeler yapın                                                                                               |
   | `multi_edit`      | Atomik işlemler ile tek bir dosya işleminde birden fazla kesin metin değişikliği yapın                                       |
   | `directory_tree`  | Dizinlerin özyinelemeli ağaç görünümünü alın                                                                                          |
-  | `grep`            | Ripgrep entegrasyonlu dosyalarda hızlı pattern araması yapın, en iyi performans için ([belgeler](./doc/migration_SearchContentTool_to_Grep.md)) |
+  | `grep`            | Ripgrep entegrasyonlu dosyalarda hızlı pattern araması yapın, en iyi performans için ([belgeler](https://github.com/SDGLBL/mcp-claude-code/blob/HEAD/doc/migration_SearchContentTool_to_Grep.md)) |
   | `content_replace` | Dosya içeriklerinde pattern'leri değiştirin                                                                                                 |
   | `grep_ast`        | AST bağlamı ile kod arayın; function, class ve diğer yapılar içindeki eşleşmeleri gösterin                                      |
   | `run_command`     | Shell komutlarını yürütün (dizin oluşturma, dosya taşıma ve dizin listeleme için de kullanılır)                                     |
@@ -54,9 +54,9 @@ body_tr: |-
   
   ## Başlangıç
   
-  Ayrıntılı kurulum ve yapılandırma talimatları için [INSTALL.md](./doc/INSTALL.md) dosyasına başvurun.
+  Ayrıntılı kurulum ve yapılandırma talimatları için [INSTALL.md](https://github.com/SDGLBL/mcp-claude-code/blob/HEAD/doc/INSTALL.md) dosyasına başvurun.
   
-  0.3 sürümünün ayrıntılı öğreticisi için [TUTORIAL.md](./doc/TUTORIAL.md) dosyasına başvurun
+  0.3 sürümünün ayrıntılı öğreticisi için [TUTORIAL.md](https://github.com/SDGLBL/mcp-claude-code/blob/HEAD/doc/TUTORIAL.md) dosyasına başvurun
   
   ## Güvenlik
   
@@ -112,7 +112,7 @@ This project provides an MCP server that implements Claude Code-like functionali
 | `edit`            | Make line-based edits to text files                                                                                               |
 | `multi_edit`      | Make multiple precise text replacements in a single file operation with atomic transactions                                       |
 | `directory_tree`  | Get a recursive tree view of directories                                                                                          |
-| `grep`            | Fast pattern search in files with ripgrep integration for best performance ([docs](./doc/migration_SearchContentTool_to_Grep.md)) |
+| `grep`            | Fast pattern search in files with ripgrep integration for best performance ([docs](https://github.com/SDGLBL/mcp-claude-code/blob/HEAD/doc/migration_SearchContentTool_to_Grep.md)) |
 | `content_replace` | Replace patterns in file contents                                                                                                 |
 | `grep_ast`        | Search code with AST context showing matches within functions, classes, and other structures                                      |
 | `run_command`     | Execute shell commands (also used for directory creation, file moving, and directory listing)                                     |
@@ -126,9 +126,9 @@ This project provides an MCP server that implements Claude Code-like functionali
 
 ## Getting Started
 
-For detailed installation and configuration instructions, please refer to [INSTALL.md](./doc/INSTALL.md).
+For detailed installation and configuration instructions, please refer to [INSTALL.md](https://github.com/SDGLBL/mcp-claude-code/blob/HEAD/doc/INSTALL.md).
 
-For detailed tutorial of 0.3 version, please refer to [TUTORIAL.md](./doc/TUTORIAL.md)
+For detailed tutorial of 0.3 version, please refer to [TUTORIAL.md](https://github.com/SDGLBL/mcp-claude-code/blob/HEAD/doc/TUTORIAL.md)
 
 ## Security
 

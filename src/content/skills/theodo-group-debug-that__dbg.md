@@ -135,7 +135,7 @@ body_tr: |-
   
   ## Komut Referansı
   
-  Tam komut detayları ve seçenekleri için [references/commands.md](references/commands.md) bölümüne bakın.
+  Tam komut detayları ve seçenekleri için [references/commands.md](https://github.com/theodo-group/debug-that/blob/HEAD/references/commands.md) bölümüne bakın.
   
   ## İpuçları
   
@@ -310,7 +310,7 @@ Refs `@v`/`@f` reset on each pause. `BP#`/`LP#` persist until removed.
 
 ## Command Reference
 
-See [references/commands.md](references/commands.md) for full command details and options.
+See [references/commands.md](https://github.com/theodo-group/debug-that/blob/HEAD/references/commands.md) for full command details and options.
 
 ## Tips
 

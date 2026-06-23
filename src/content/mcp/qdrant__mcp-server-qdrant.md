@@ -58,8 +58,8 @@ body_tr: |-
   | `QDRANT_LOCAL_PATH`      | Yerel Qdrant veritabanına giden yol (`QDRANT_URL` alternatifi)     | Hiçbiri                                                            |
   | `EMBEDDING_PROVIDER`     | Kullanılacak embedding sağlayıcısı (şu anda yalnızca "fastembed" desteklenir) | `fastembed`                                                       |
   | `EMBEDDING_MODEL`        | Kullanılacak embedding modelinin adı                                | `sentence-transformers/all-MiniLM-L6-v2`                          |
-  | `TOOL_STORE_DESCRIPTION` | Depolama aracı için özel açıklama                                   | [`settings.py`](src/mcp_server_qdrant/settings.py) içinde varsayılan değeri gözüne |
-  | `TOOL_FIND_DESCRIPTION`  | Bulma aracı için özel açıklama                                      | [`settings.py`](src/mcp_server_qdrant/settings.py) içinde varsayılan değeri gözüne |
+  | `TOOL_STORE_DESCRIPTION` | Depolama aracı için özel açıklama                                   | [`settings.py`](https://github.com/qdrant/mcp-server-qdrant/blob/HEAD/src/mcp_server_qdrant/settings.py) içinde varsayılan değeri gözüne |
+  | `TOOL_FIND_DESCRIPTION`  | Bulma aracı için özel açıklama                                      | [`settings.py`](https://github.com/qdrant/mcp-server-qdrant/blob/HEAD/src/mcp_server_qdrant/settings.py) içinde varsayılan değeri gözüne |
   | `QDRANT_SEARCH_LIMIT`    | Arama sonuçlarından döndürülecek maksimum sonuç sayısı              | `10`                                                              |
   | `QDRANT_READ_ONLY`       | Salt okunur modu etkinleştir (`qdrant-store` aracını devre dışı bırakır) | `false`                                                           |
   
@@ -427,8 +427,8 @@ Configuration is done via environment variables. The only command-line argument 
 | `QDRANT_LOCAL_PATH`      | Path to the local Qdrant database (alternative to `QDRANT_URL`)     | None                                                              |
 | `EMBEDDING_PROVIDER`     | Embedding provider to use (currently only "fastembed" is supported) | `fastembed`                                                       |
 | `EMBEDDING_MODEL`        | Name of the embedding model to use                                  | `sentence-transformers/all-MiniLM-L6-v2`                          |
-| `TOOL_STORE_DESCRIPTION` | Custom description for the store tool                               | See default in [`settings.py`](src/mcp_server_qdrant/settings.py) |
-| `TOOL_FIND_DESCRIPTION`  | Custom description for the find tool                                | See default in [`settings.py`](src/mcp_server_qdrant/settings.py) |
+| `TOOL_STORE_DESCRIPTION` | Custom description for the store tool                               | See default in [`settings.py`](https://github.com/qdrant/mcp-server-qdrant/blob/HEAD/src/mcp_server_qdrant/settings.py) |
+| `TOOL_FIND_DESCRIPTION`  | Custom description for the find tool                                | See default in [`settings.py`](https://github.com/qdrant/mcp-server-qdrant/blob/HEAD/src/mcp_server_qdrant/settings.py) |
 | `QDRANT_SEARCH_LIMIT`    | Maximum number of results to return from search                     | `10`                                                              |
 | `QDRANT_READ_ONLY`       | Enable read-only mode (disables `qdrant-store` tool)                | `false`                                                           |
 

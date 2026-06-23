@@ -36,7 +36,7 @@ body_tr: |-
   
   ### 2. Hook script'ini kopyalayın
   
-  Paketlenmiş script şurada bulunur: [scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)
+  Paketlenmiş script şurada bulunur: [scripts/block-dangerous-git.sh](https://github.com/mattpocock/skills/blob/HEAD/scripts/block-dangerous-git.sh)
   
   Kapsamı temel alarak hedef konuma kopyalayın:
   
@@ -128,7 +128,7 @@ Ask the user: install for **this project only** (`.claude/settings.json`) or **a
 
 ### 2. Copy the hook script
 
-The bundled script is at: [scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)
+The bundled script is at: [scripts/block-dangerous-git.sh](https://github.com/mattpocock/skills/blob/HEAD/scripts/block-dangerous-git.sh)
 
 Copy it to the target location based on scope:
 

@@ -40,7 +40,7 @@ body_tr: |-
   
   # Semgrep MCP Sunucusu
   [![Add MCP Server semgrep to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=semgrep&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW1ncmVwLmFpL21jcCIsImhlYWRlcnMiOnsiQXV0aG9yaXphdGlvbiI6IkJlYXJlciA8WU9VUl9IRl9UT0tFTj4ifX0%3D)
-  [![Install in Cursor](https://img.shields.io/badge/Cursor-uv-0098FF?style=flat-square)](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJzZW1ncmVwLW1jcCJdfQ==)
+  [![Install in Cursor](https://img.shields.io/badge/Cursor-uv-0098FF?style=flat-square)](https://github.com/semgrep/mcp/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJzZW1ncmVwLW1jcCJdfQ==)
   [![Install in VS Code UV](https://img.shields.io/badge/VS_Code-uv-0098FF?style=flat-square&logo=githubcopilot&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=semgrep&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22semgrep-mcp%22%5D%7D)
   [![Install in VS Code Docker](https://img.shields.io/badge/VS_Code-docker-0098FF?style=flat-square&logo=githubcopilot&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=semgrep&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%20%22-i%22%2C%20%22--rm%22%2C%20%22ghcr.io%2Fsemgrep%2Fmcp%22%2C%20%22-t%22%2C%20%22stdio%22%5D%7D)
   [![Install in VS Code semgrep.ai](https://img.shields.io/badge/VS_Code-semgrep.ai-0098FF?style=flat-square&logo=githubcopilot&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=semgrep.ai&config=%7B%22type%22%3A%20%22sse%22%2C%20%22url%22%3A%22https%3A%2F%2Fmcp.semgrep.ai%2Fsse%22%7D)
@@ -473,7 +473,7 @@ body_tr: |-
   
   #### Örnek Python SSE istemcisi
   
-  [examples/sse_client.py](examples/sse_client.py) içinde tam bir örnek görebilirsiniz
+  [examples/sse_client.py](https://github.com/semgrep/mcp/blob/HEAD/examples/sse_client.py) içinde tam bir örnek görebilirsiniz
   
   ```python
   from mcp.client.session import ClientSession
@@ -510,7 +510,7 @@ body_tr: |-
   > [!NOTE]
   > Geri bildiriminiz, hata raporlarınız, özellik istekleriniz ve kodunuz çok hoş gelecektir. `#mcp` [community Slack](https://go.semgrep.dev/slack) kanalına katılın!
   
-  Daha fazla bilgi ve MCP sunucusunu kaynak koddan çalıştırmaya ilişkin ayrıntılar için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Daha fazla bilgi ve MCP sunucusunu kaynak koddan çalıştırmaya ilişkin ayrıntılar için [CONTRIBUTING.md](https://github.com/semgrep/mcp/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ### Benzer araçlar 🔍
   
@@ -566,7 +566,7 @@ body_tr: |-
 
 # Semgrep MCP Server
 [![Add MCP Server semgrep to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=semgrep&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW1ncmVwLmFpL21jcCIsImhlYWRlcnMiOnsiQXV0aG9yaXphdGlvbiI6IkJlYXJlciA8WU9VUl9IRl9UT0tFTj4ifX0%3D)
-[![Install in Cursor](https://img.shields.io/badge/Cursor-uv-0098FF?style=flat-square)](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJzZW1ncmVwLW1jcCJdfQ==)
+[![Install in Cursor](https://img.shields.io/badge/Cursor-uv-0098FF?style=flat-square)](https://github.com/semgrep/mcp/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJzZW1ncmVwLW1jcCJdfQ==)
 [![Install in VS Code UV](https://img.shields.io/badge/VS_Code-uv-0098FF?style=flat-square&logo=githubcopilot&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=semgrep&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22semgrep-mcp%22%5D%7D)
 [![Install in VS Code Docker](https://img.shields.io/badge/VS_Code-docker-0098FF?style=flat-square&logo=githubcopilot&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=semgrep&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%20%22-i%22%2C%20%22--rm%22%2C%20%22ghcr.io%2Fsemgrep%2Fmcp%22%2C%20%22-t%22%2C%20%22stdio%22%5D%7D)
 [![Install in VS Code semgrep.ai](https://img.shields.io/badge/VS_Code-semgrep.ai-0098FF?style=flat-square&logo=githubcopilot&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=semgrep.ai&config=%7B%22type%22%3A%20%22sse%22%2C%20%22url%22%3A%22https%3A%2F%2Fmcp.semgrep.ai%2Fsse%22%7D)
@@ -999,7 +999,7 @@ See [OpenAI Agents SDK docs](https://openai.github.io/openai-agents-python/mcp/)
 
 #### Example Python SSE client
 
-See a full example in [examples/sse_client.py](examples/sse_client.py)
+See a full example in [examples/sse_client.py](https://github.com/semgrep/mcp/blob/HEAD/examples/sse_client.py)
 
 ```python
 from mcp.client.session import ClientSession
@@ -1036,7 +1036,7 @@ See [official SDK docs](https://modelcontextprotocol.io/clients#adding-mcp-suppo
 > [!NOTE]
 > We love your feedback, bug reports, feature requests, and code. Join the `#mcp` [community Slack](https://go.semgrep.dev/slack) channel!
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more info and details on how to run from the MCP server from source code.
+See [CONTRIBUTING.md](https://github.com/semgrep/mcp/blob/HEAD/CONTRIBUTING.md) for more info and details on how to run from the MCP server from source code.
 
 ### Similar tools 🔍
 

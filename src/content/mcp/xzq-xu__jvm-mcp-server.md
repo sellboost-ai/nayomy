@@ -18,7 +18,7 @@ body_tr: |-
     
   </p>
   
-  [English](README.md) | [中文](README_zh.md)
+  [English](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/README.md) | [中文](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/README_zh.md)
   
   [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/xzq-xu-jvm-mcp-server-badge.png)](https://mseep.ai/app/xzq-xu-jvm-mcp-server)
   
@@ -187,7 +187,7 @@ body_tr: |-
   - `get_jcmd_output`: JDK jcmd komutlarını çalıştır
   - `get_jstat_output`: JDK jstat komutlarını çalıştır
   
-  Her araç hakkında detaylı dokumentasyon için bkz. [Mevcut Araçlar](./doc/available_tools.md).
+  Her araç hakkında detaylı dokumentasyon için bkz. [Mevcut Araçlar](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/doc/available_tools.md).
   
   ## Mimari
   
@@ -207,7 +207,7 @@ body_tr: |-
   
   ## Geliştirme Durumu
   
-  Proje aktif geliştirme aşamasındadır. Mevcut ilerleme için [Native_TODO.md](Native_TODO.md) bölümüne bakın.
+  Proje aktif geliştirme aşamasındadır. Mevcut ilerleme için [Native_TODO.md](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/Native_TODO.md) bölümüne bakın.
   
   ### Tamamlanan
   - Temel mimari ve komut framework
@@ -233,7 +233,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/xzq-xu/jvm-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## Teşekkürler
   
@@ -272,7 +272,7 @@ body_tr: |-
   
 </p>
 
-[English](README.md) | [中文](README_zh.md)
+[English](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/README.md) | [中文](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/README_zh.md)
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/xzq-xu-jvm-mcp-server-badge.png)](https://mseep.ai/app/xzq-xu-jvm-mcp-server)
 
@@ -441,7 +441,7 @@ JVM-MCP-Server provides a comprehensive set of tools for JVM monitoring and diag
 - `get_jcmd_output`: Execute JDK jcmd commands
 - `get_jstat_output`: Execute JDK jstat commands
 
-For detailed documentation on each tool, see [Available Tools](./doc/available_tools.md).
+For detailed documentation on each tool, see [Available Tools](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/doc/available_tools.md).
 
 ## Architecture
 
@@ -461,7 +461,7 @@ JVM-MCP-Server is built on a modular architecture:
 
 ## Development Status
 
-The project is in active development. See [Native_TODO.md](Native_TODO.md) for current progress.
+The project is in active development. See [Native_TODO.md](https://github.com/xzq-xu/jvm-mcp-server/blob/HEAD/Native_TODO.md) for current progress.
 
 ### Completed
 - Core architecture and command framework
@@ -487,7 +487,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/xzq-xu/jvm-mcp-server/tree/HEAD/LICENSE) file for details.
 
 NP|## Acknowledgements
 #MH|

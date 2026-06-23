@@ -17,10 +17,10 @@ body_tr: |-
     <h1>Figma to Flutter MCP Server</h1>
      <p>
       🌐 Kullanılabilir diller:
-      <a href="README.ko.md">한국어 (Korean)</a> |
-      <a href="README.ja.md">日本語 (Japanese)</a> |
-      <a href="README.zh-cn.md">简体中文 (Simplified Chinese)</a> |
-      <a href="README.zh-tw.md">繁體中文 (Traditional Chinese)</a>
+      <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.ko.md">한국어 (Korean)</a> |
+      <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.ja.md">日本語 (Japanese)</a> |
+      <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.zh-cn.md">简体中文 (Simplified Chinese)</a> |
+      <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.zh-tw.md">繁體中文 (Traditional Chinese)</a>
     </p>
     <h3>Figma'nın zengin verilerini kodlama ajanınızda kullanın.<br/>Tasarımları Flutter şeklinde uygulayın!</h3>
     <a href="https://npmcharts.com/compare/figma-flutter-mcp?interval=30">
@@ -69,17 +69,17 @@ body_tr: |-
   - İngilizce: https://youtu.be/lJlfOfpl2sI
   - Urduca/Hintçe: https://youtu.be/mepPWpIZ61M
   
-  ## 📝 [Başlangıç](docs/getting-started.md)
-  Detaylı [başlangıç](docs/getting-started.md) belgelerini veya [demo videosunu](https://youtu.be/lJlfOfpl2sI) hızlı başlangıç olarak inceleyebilirsiniz. İlk Sürüm olması nedeniyle iyileştirme için çok yer vardır, bu nedenle neler yapılacağını veya iyileştirileceğini görmek için [issues](https://github.com/mhmzdev/figma-flutter-mcp/issues)'lara göz atabilirsiniz.
+  ## 📝 [Başlangıç](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/getting-started.md)
+  Detaylı [başlangıç](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/getting-started.md) belgelerini veya [demo videosunu](https://youtu.be/lJlfOfpl2sI) hızlı başlangıç olarak inceleyebilirsiniz. İlk Sürüm olması nedeniyle iyileştirme için çok yer vardır, bu nedenle neler yapılacağını veya iyileştirileceğini görmek için [issues](https://github.com/mhmzdev/figma-flutter-mcp/issues)'lara göz atabilirsiniz.
   
-  ## 📚 Nasıl çalışır | [Detaylar Burada](docs/figma-flutter-mcp.md)
-  1. [Bileşenler/Widgets](src/extractors/components/)
+  ## 📚 Nasıl çalışır | [Detaylar Burada](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/figma-flutter-mcp.md)
+  1. [Bileşenler/Widgets](https://github.com/mhmzdev/figma-flutter-mcp/tree/HEAD/src/extractors/components/)
   - ✅ Figma düğümü verilerini çıkar: Layout, stil, boyutlar, renkler, metin içeriği vb.
   - ✅ Yapıyı analiz et: Alt öğeler, iç içe bileşenler, görsel önem
   - ✅ Rehberlik sağla: Flutter widget'ları ve uygulama kalıplarını öner
   - ❌ Gerçek Flutter kod dosyaları OLUŞTURMUYOR
   
-  2. [Ekranlar](src/extractors/screens/)
+  2. [Ekranlar](https://github.com/mhmzdev/figma-flutter-mcp/tree/HEAD/src/extractors/screens/)
   - ✅ Ekran meta verilerini çıkar: Cihaz türü, yönelim, boyutlar
   - ✅ Bölümleri tanımla: Başlık, alt bilgi, navigasyon, içerik alanları
   - ✅ Navigasyonu analiz et: Tab çubukları, uygulama çubukları, çekmeceler, navigasyon öğeleri
@@ -163,7 +163,7 @@ body_tr: |-
   }
   ```
   
-  Detaylı talimatlar için [CONTRIBUTING.md](CONTRIBUTING.md) bakınız.
+  Detaylı talimatlar için [CONTRIBUTING.md](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/CONTRIBUTING.md) bakınız.
   
   ## 🧱 Temel İş Akışı
   ### 🤖 AI Kodlama Ajanı Yardımı
@@ -172,7 +172,7 @@ body_tr: |-
   - Claude: `CLAUDE.md`
   - Gemini CLI: `GEMINI.md`
   
-  Bu şekilde AI ajanınız MCP'nin çıktısını kullanacak ve Flutter kodunun proje gereksinimleriniz ve yapınıza uygun olmasını sağlayacaktır. Test etmek için kullandığım [cursor kurallarının](docs/cursor_rules_example.md) bir örneğini kontrol edebilirsiniz.
+  Bu şekilde AI ajanınız MCP'nin çıktısını kullanacak ve Flutter kodunun proje gereksinimleriniz ve yapınıza uygun olmasını sağlayacaktır. Test etmek için kullandığım [cursor kurallarının](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/cursor_rules_example.md) bir örneğini kontrol edebilirsiniz.
   
   1. **Tema ve Tipografi Kurun**: En etkili yol, Figma'da Tema renkleri ve Tipografi örnekleri içeren iki frame yerleştirmektir. Örneğin:
   
@@ -244,12 +244,12 @@ body_tr: |-
   Diğerleri yakında...
   
   ## 🧱 Diğer çerçeveler
-  Bunu React, Angular, React Native, Vue veya başka bir çerçeve için geliştirmek istiyorsanız. Keşfedebileceğiniz ve başlayabileceğiniz detaylı bir doküman [Figma Framework MCP](docs/figma-framework-mcp.md) eklemiştim. Bu arada, eğer biri çerçeveye özgü Figma'nın MCP sunucuları için bunu yapıyorsa, burada bir liste tutacağım.
+  Bunu React, Angular, React Native, Vue veya başka bir çerçeve için geliştirmek istiyorsanız. Keşfedebileceğiniz ve başlayabileceğiniz detaylı bir doküman [Figma Framework MCP](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/figma-framework-mcp.md) eklemiştim. Bu arada, eğer biri çerçeveye özgü Figma'nın MCP sunucuları için bunu yapıyorsa, burada bir liste tutacağım.
   - ...
   - ...
   
   ## 🔑 Lisans
-  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE.md) dosyasını görebilirsiniz
+  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/LICENSE.md) dosyasını görebilirsiniz
   
   ## 🙋‍♂️ Yazar
   #### Muhammad Hamza
@@ -276,10 +276,10 @@ body_tr: |-
   <h1>Figma to Flutter MCP Server</h1>
    <p>
     🌐 Available in:
-    <a href="README.ko.md">한국어 (Korean)</a> |
-    <a href="README.ja.md">日本語 (Japanese)</a> |
-    <a href="README.zh-cn.md">简体中文 (Simplified Chinese)</a> |
-    <a href="README.zh-tw.md">繁體中文 (Traditional Chinese)</a>
+    <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.ko.md">한국어 (Korean)</a> |
+    <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.ja.md">日本語 (Japanese)</a> |
+    <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.zh-cn.md">简体中文 (Simplified Chinese)</a> |
+    <a href="https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/README.zh-tw.md">繁體中文 (Traditional Chinese)</a>
   </p>
   <h3>Utilize Figma's rich data in your coding agent.<br/>Implement designs in Flutter way!</h3>
   <a href="https://npmcharts.com/compare/figma-flutter-mcp?interval=30">
@@ -328,17 +328,17 @@ Showcased almost all the features of Figma Flutter MCP with real figma design.
 - English: https://youtu.be/lJlfOfpl2sI
 - Urdu/Hindi: https://youtu.be/mepPWpIZ61M
 
-## 📝 [Getting Started](docs/getting-started.md)
-You may explore the detailed [getting started](docs/getting-started.md) docs or the [demo video](https://youtu.be/lJlfOfpl2sI) as quick-start. As its a First Release hence there's a lot of room for improvements so you can checkout the [issues](https://github.com/mhmzdev/figma-flutter-mcp/issues) to see what else there's to work or to improve.
+## 📝 [Getting Started](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/getting-started.md)
+You may explore the detailed [getting started](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/getting-started.md) docs or the [demo video](https://youtu.be/lJlfOfpl2sI) as quick-start. As its a First Release hence there's a lot of room for improvements so you can checkout the [issues](https://github.com/mhmzdev/figma-flutter-mcp/issues) to see what else there's to work or to improve.
 
-## 📚 How it works | [Details Here](docs/figma-flutter-mcp.md)
-1. [Components/Widgets](src/extractors/components/)
+## 📚 How it works | [Details Here](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/figma-flutter-mcp.md)
+1. [Components/Widgets](https://github.com/mhmzdev/figma-flutter-mcp/tree/HEAD/src/extractors/components/)
 - ✅ Extract Figma node data: Layout, styling, dimensions, colors, text content, etc.
 - ✅ Analyze structure: Child elements, nested components, visual importance
 - ✅ Provide guidance: Suggest Flutter widgets and implementation patterns
 - ❌ NOT generating actual Flutter code files
 
-2. [Screens](src/extractors/screens/)
+2. [Screens](https://github.com/mhmzdev/figma-flutter-mcp/tree/HEAD/src/extractors/screens/)
 - ✅ Extract screen metadata: Device type, orientation, dimensions
 - ✅ Identify sections: Header, footer, navigation, content areas
 - ✅ Analyze navigation: Tab bars, app bars, drawers, navigation elements
@@ -422,7 +422,7 @@ Then add this to your MCP client configuration:
 }
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
+See [CONTRIBUTING.md](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/CONTRIBUTING.md) for detailed instructions.
 
 ## 🧱 Basic Workflow
 ### 🤖 AI Coding Agent Assistance
@@ -431,7 +431,7 @@ For better results you can setup some instructions in following files as per you
 - Claude: `CLAUDE.md`
 - Gemini CLI: `GEMINI.md`
 
-This way your AI agent will use the MCP's output and ensure the flutter code is as per your project requirements and structure. You can checkout an example of [cursor rules](docs/cursor_rules_example.md) that I used for testing this out.
+This way your AI agent will use the MCP's output and ensure the flutter code is as per your project requirements and structure. You can checkout an example of [cursor rules](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/cursor_rules_example.md) that I used for testing this out.
 
 1. **Setup Theme & Typography**: The most efficient way, put two frames in Figma with Theme colors and Typography samples on it. For instance:
 
@@ -503,12 +503,12 @@ I came across [Figma Context MCP](https://github.com/GLips/Figma-Context-MCP) by
 Others coming soon...
 
 ## 🧱 Other framworks
-If you want to develop this for React, Angular, React Native, Vue or any other framework. I've added a detailed doc [Figma Framework MCP](docs/figma-framework-mcp.md) that you can explore and get started. Meanwhile I'll maintain a list here if someone's already doing this for framework specific Figma's MCP servers.
+If you want to develop this for React, Angular, React Native, Vue or any other framework. I've added a detailed doc [Figma Framework MCP](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/docs/figma-framework-mcp.md) that you can explore and get started. Meanwhile I'll maintain a list here if someone's already doing this for framework specific Figma's MCP servers.
 - ...
 - ...
 
 ## 🔑 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/mhmzdev/figma-flutter-mcp/blob/HEAD/LICENSE.md) file for details
 
 ## 🙋‍♂️ Author
 #### Muhammad Hamza

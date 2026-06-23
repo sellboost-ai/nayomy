@@ -262,7 +262,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT License - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT License - detaylar için [LICENSE](https://github.com/augmnt/augments-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## Destek
   
@@ -525,7 +525,7 @@ npm run type-check
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](https://github.com/augmnt/augments-mcp-server/tree/HEAD/LICENSE) for details.
 
 ## Support
 

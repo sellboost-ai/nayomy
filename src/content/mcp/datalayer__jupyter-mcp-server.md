@@ -295,7 +295,7 @@ body_tr: |-
   - Gelişmiş çoklu mod anlayışı yeteneklerinden tam olarak yararlanmak için çoklu mod girişini destekleyen LLM'lerle (Gemini 2.5 Pro gibi) etkileşim kurun.
   - Görüntü verilerini döndürebilen ve ayrıştırabilen bir MCP istemcisi kullanın (Cursor, Gemini CLI, vb.), çünkü bazı istemciler bu özelliği desteklemeyebilir.
   - Karmaşık görevleri (tüm veri bilimi iş akışı gibi) birden fazla alt göreve (veri temizleme, özellik mühendisliği, model eğitimi, model değerlendirmesi, vb.) bölün ve bunları adım adım yürütün.
-  - Net yapılandırılmış istekler ve kurallar sağlayın (👉 Başlamak için [İstem Şablonlarımızı](prompt/README.md) ziyaret edin)
+  - Net yapılandırılmış istekler ve kurallar sağlayın (👉 Başlamak için [İstem Şablonlarımızı](https://github.com/datalayer/jupyter-mcp-server/blob/HEAD/prompt/README.md) ziyaret edin)
   - Mümkün olduğunca çok bağlam sağlayın (halihazırda yüklü paketler, mevcut veri setleri için alan açıklamaları, geçerli çalışma dizini, ayrıntılı görev gereksinimleri, vb.).
   
   ## 🤝 Katkıda Bulunma
@@ -307,7 +307,7 @@ body_tr: |-
   - 🔧 Yeni özellik geliştirme
   - 📚 Belgelendirme iyileştirmeleri ve istem şablonları
   
-  Geliştirmeye nasıl başlayacağınız ve katkılarınızı nasıl sunacağınız hakkında ayrıntılı talimatlar için lütfen [**Katkı Kılavuzumuza**](CONTRIBUTING.md) bakın.
+  Geliştirmeye nasıl başlayacağınız ve katkılarınızı nasıl sunacağınız hakkında ayrıntılı talimatlar için lütfen [**Katkı Kılavuzumuza**](https://github.com/datalayer/jupyter-mcp-server/blob/HEAD/CONTRIBUTING.md) bakın.
   
   ### Katkıcılarımız
   
@@ -620,7 +620,7 @@ For detailed instructions on configuring various MCP clients—including [Claude
 - Interact with LLMs that supports multimodal input (like Gemini 2.5 Pro) to fully utilize advanced multimodal understanding capabilities.
 - Use a MCP client that supports returning image data and can parse it (like Cursor, Gemini CLI, etc.), as some clients may not support this feature.
 - Break down complex task (like the whole data science workflow) into multiple sub-tasks (like data cleaning, feature engineering, model training, model evaluation, etc.) and execute them step-by-step.
-- Provide clearly structured prompts and rules (👉 Visit our [Prompt Templates](prompt/README.md) to get started)
+- Provide clearly structured prompts and rules (👉 Visit our [Prompt Templates](https://github.com/datalayer/jupyter-mcp-server/blob/HEAD/prompt/README.md) to get started)
 - Provide as much context as possible (like already installed packages, field explanations for existing datasets, current working directory, detailed task requirements, etc.).
 
 ## 🤝 Contributing
@@ -632,7 +632,7 @@ We welcome contributions of all kinds! Here are some examples:
 - 🔧 New feature development
 - 📚 Documentation improvements and prompt templates
 
-For detailed instructions on how to get started with development and submit your contributions, please see our [**Contributing Guide**](CONTRIBUTING.md).
+For detailed instructions on how to get started with development and submit your contributions, please see our [**Contributing Guide**](https://github.com/datalayer/jupyter-mcp-server/blob/HEAD/CONTRIBUTING.md).
 
 ### Our Contributors
 

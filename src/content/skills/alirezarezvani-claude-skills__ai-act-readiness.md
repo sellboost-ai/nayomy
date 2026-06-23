@@ -151,8 +151,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Ajan: [`cs-ai-act-compliance`](../../agents/cs-ai-act-compliance.md)
-  - Beceri: [`eu-ai-act-specialist`](../../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md)
+  - Ajan: [`cs-ai-act-compliance`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-ai-act-compliance.md)
+  - Beceri: [`eu-ai-act-specialist`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ra-qm-team/skills/eu-ai-act-specialist/SKILL.md)
   - Komşu: `../../skills/compliance-os/`, `../aims-audit/`, `../compliance-readiness/`, `../../../ra-qm-team/skills/gdpr-dsgvo-expert/`
   
   ---
@@ -297,8 +297,8 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Related
 
-- Agent: [`cs-ai-act-compliance`](../../agents/cs-ai-act-compliance.md)
-- Skill: [`eu-ai-act-specialist`](../../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md)
+- Agent: [`cs-ai-act-compliance`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-ai-act-compliance.md)
+- Skill: [`eu-ai-act-specialist`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ra-qm-team/skills/eu-ai-act-specialist/SKILL.md)
 - Adjacent: `../../skills/compliance-os/`, `../aims-audit/`, `../compliance-readiness/`, `../../../ra-qm-team/skills/gdpr-dsgvo-expert/`
 
 ---

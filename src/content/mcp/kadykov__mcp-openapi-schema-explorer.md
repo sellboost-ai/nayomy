@@ -53,7 +53,7 @@ body_tr: |-
   
   ## İstemciye Göre Hızlı Başlangıç Kılavuzları
   
-  - **[Claude Code](CLAUDE_CODE.md)** - Anthropic'in Claude ile kodlama için CLI aracı
+  - **[Claude Code](https://github.com/kadykov/mcp-openapi-schema-explorer/blob/HEAD/CLAUDE_CODE.md)** - Anthropic'in Claude ile kodlama için CLI aracı
   - **Claude Desktop, Cline, Windsurf** - Aşağıdaki kurulum talimatlarına bakın
   
   ## Kurulum
@@ -303,7 +303,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Katkılar hoş karşılanır! Geliştirme ortamını kurma, testleri çalıştırma ve değişiklikler gönderme hakkındaki talimatlar için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Katkılar hoş karşılanır! Geliştirme ortamını kurma, testleri çalıştırma ve değişiklikler gönderme hakkındaki talimatlar için [CONTRIBUTING.md](https://github.com/kadykov/mcp-openapi-schema-explorer/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ## Yayınlar
   
@@ -357,7 +357,7 @@ For more details on MCP clients and their capabilities, see the [MCP Client Docu
 
 ## Quick Start Guides by Client
 
-- **[Claude Code](CLAUDE_CODE.md)** - Anthropic's CLI tool for coding with Claude
+- **[Claude Code](https://github.com/kadykov/mcp-openapi-schema-explorer/blob/HEAD/CLAUDE_CODE.md)** - Anthropic's CLI tool for coding with Claude
 - **Claude Desktop, Cline, Windsurf** - See installation instructions below
 
 ## Installation
@@ -607,7 +607,7 @@ Some resource templates include parameters ending with an asterisk (`*`), like `
 
 ## Contributing
 
-Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on setting up the development environment, running tests, and submitting changes.
+Contributions are welcome! Please see the [CONTRIBUTING.md](https://github.com/kadykov/mcp-openapi-schema-explorer/blob/HEAD/CONTRIBUTING.md) file for guidelines on setting up the development environment, running tests, and submitting changes.
 
 ## Releases
 

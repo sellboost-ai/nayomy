@@ -118,7 +118,7 @@ body_tr: |-
   
   ## İlgili
   
-  - Beceriler: [`board-meeting`](../../../skills/board-meeting/SKILL.md), [`executive-mentor`](../../../executive-mentor/)
+  - Beceriler: [`board-meeting`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/board-meeting/SKILL.md), [`executive-mentor`](https://github.com/alirezarezvani/claude-skills/tree/HEAD/executive-mentor/)
   - İlham: gstack'ın `/codex` çapraz inceleme deseni (iş notlarına uyarlanmış)
   
   ---
@@ -230,7 +230,7 @@ This is weaker than true multi-model. Treat the result as suggestive, not conclu
 
 ## Related
 
-- Skills: [`board-meeting`](../../../skills/board-meeting/SKILL.md), [`executive-mentor`](../../../executive-mentor/)
+- Skills: [`board-meeting`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/board-meeting/SKILL.md), [`executive-mentor`](https://github.com/alirezarezvani/claude-skills/tree/HEAD/executive-mentor/)
 - Inspiration: gstack's `/codex` cross-review pattern (adapted to business memos)
 
 ---

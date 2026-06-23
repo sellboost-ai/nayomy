@@ -10,8 +10,8 @@ body_length: 12200
 license: "MIT"
 language: "Python"
 body_tr: |-
-  [![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](README-zh.md)
-  [![English](https://img.shields.io/badge/English-Click-yellow)](README.md)
+  [![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](https://github.com/wenb1n-dev/mysql_mcp_server_pro/blob/HEAD/README-zh.md)
+  [![English](https://img.shields.io/badge/English-Click-yellow)](https://github.com/wenb1n-dev/mysql_mcp_server_pro/blob/HEAD/README.md)
   [![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/wenb1n-dev-mysql-mcp-server-pro)
   [![MCPHub](https://img.shields.io/badge/mcphub-audited-blue)](https://mcphub.com/mcp-servers/wenb1n-dev/mysql_mcp_server_pro)
   
@@ -333,8 +333,8 @@ body_tr: |-
   ![image](https://github.com/user-attachments/assets/1f221ab8-59bf-402c-a15a-ec3eba1eea59)
 ---
 
-[![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](README-zh.md)
-[![English](https://img.shields.io/badge/English-Click-yellow)](README.md)
+[![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](https://github.com/wenb1n-dev/mysql_mcp_server_pro/blob/HEAD/README-zh.md)
+[![English](https://img.shields.io/badge/English-Click-yellow)](https://github.com/wenb1n-dev/mysql_mcp_server_pro/blob/HEAD/README.md)
 [![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/wenb1n-dev-mysql-mcp-server-pro)
 [![MCPHub](https://img.shields.io/badge/mcphub-audited-blue)](https://mcphub.com/mcp-servers/wenb1n-dev/mysql_mcp_server_pro)
 

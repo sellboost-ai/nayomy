@@ -1545,11 +1545,11 @@ This includes a custom linter that checks for unescaped commas in `jsonschema` s
 make lint-jsonschema
 ```
 
-See the [JSONSchema Linter documentation](internal/linter/jsonschema/README.md) for more details.
+See the [JSONSchema Linter documentation](https://github.com/grafana/mcp-grafana/blob/HEAD/internal/linter/jsonschema/README.md) for more details.
 
 ## License
 
-This project is licensed under the [Apache License, Version 2.0](LICENSE).
+This project is licensed under the [Apache License, Version 2.0](https://github.com/grafana/mcp-grafana/tree/HEAD/LICENSE).
 
 [mcp]: https://modelcontextprotocol.io/
 [service-account]: https://grafana.com/docs/grafana/latest/administration/service-accounts/#add-a-token-to-a-service-account-in-grafana

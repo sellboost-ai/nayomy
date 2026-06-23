@@ -39,13 +39,13 @@ body_tr: |-
   
   Bu sunucular, MCP özelliklerini ve resmi SDK'ları göstermeyi amaçlarlar.
   
-  - **[Everything](src/everything)** - Komutlar, kaynaklar ve araçlara sahip referans / test sunucusu.
-  - **[Fetch](src/fetch)** - Verimli LLM kullanımı için web içeriği getirme ve dönüştürme.
-  - **[Filesystem](src/filesystem)** - Yapılandırılabilir erişim kontrolleri ile güvenli dosya işlemleri.
-  - **[Git](src/git)** - Git depolarını okumak, aramak ve işlemek için araçlar.
-  - **[Memory](src/memory)** - Bilgi grafiğine dayalı kalıcı bellek sistemi.
-  - **[Sequential Thinking](src/sequentialthinking)** - Düşünce dizileri aracılığıyla dinamik ve reflektif problem çözme.
-  - **[Time](src/time)** - Zaman ve saat dilimi dönüştürme yetenekleri.
+  - **[Everything](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/everything)** - Komutlar, kaynaklar ve araçlara sahip referans / test sunucusu.
+  - **[Fetch](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/fetch)** - Verimli LLM kullanımı için web içeriği getirme ve dönüştürme.
+  - **[Filesystem](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/filesystem)** - Yapılandırılabilir erişim kontrolleri ile güvenli dosya işlemleri.
+  - **[Git](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/git)** - Git depolarını okumak, aramak ve işlemek için araçlar.
+  - **[Memory](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/memory)** - Bilgi grafiğine dayalı kalıcı bellek sistemi.
+  - **[Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/sequentialthinking)** - Düşünce dizileri aracılığıyla dinamik ve reflektif problem çözme.
+  - **[Time](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/time)** - Zaman ve saat dilimi dönüştürme yetenekleri.
   
   ### Arşivlendi
   
@@ -183,13 +183,13 @@ Typically, each MCP server is implemented with an MCP SDK:
 
 These servers aim to demonstrate MCP features and the official SDKs.
 
-- **[Everything](src/everything)** - Reference / test server with prompts, resources, and tools.
-- **[Fetch](src/fetch)** - Web content fetching and conversion for efficient LLM usage.
-- **[Filesystem](src/filesystem)** - Secure file operations with configurable access controls.
-- **[Git](src/git)** - Tools to read, search, and manipulate Git repositories.
-- **[Memory](src/memory)** - Knowledge graph-based persistent memory system.
-- **[Sequential Thinking](src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences.
-- **[Time](src/time)** - Time and timezone conversion capabilities.
+- **[Everything](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/everything)** - Reference / test server with prompts, resources, and tools.
+- **[Fetch](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/fetch)** - Web content fetching and conversion for efficient LLM usage.
+- **[Filesystem](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/filesystem)** - Secure file operations with configurable access controls.
+- **[Git](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/git)** - Tools to read, search, and manipulate Git repositories.
+- **[Memory](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/memory)** - Knowledge graph-based persistent memory system.
+- **[Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences.
+- **[Time](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/time)** - Time and timezone conversion capabilities.
 
 ### Archived
 
@@ -214,14 +214,14 @@ The following reference servers are now archived and can be found at [servers-ar
 ### Using MCP Servers in this Repository
 TypeScript-based servers in this repository can be used directly with `npx`.
 
-For example, this will start the [Memory](src/memory) server:
+For example, this will start the [Memory](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/memory) server:
 ```sh
 npx -y @modelcontextprotocol/server-memory
 ```
 
 Python-based servers in this repository can be used directly with [`uvx`](https://docs.astral.sh/uv/concepts/tools/) or [`pip`](https://pypi.org/project/pip/). `uvx` is recommended for ease of use and setup.
 
-For example, this will start the [Git](src/git) server:
+For example, this will start the [Git](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/git) server:
 ```sh
 # With uvx
 uvx mcp-server-git
@@ -296,19 +296,19 @@ Interested in creating your own MCP server? Visit the official documentation at 
 
 ## 📚 Learn More
 
-See [ADDITIONAL.md](ADDITIONAL.md) for a curated list of frameworks and resources that simplify building MCP servers and clients.
+See [ADDITIONAL.md](https://github.com/modelcontextprotocol/servers/blob/HEAD/ADDITIONAL.md) for a curated list of frameworks and resources that simplify building MCP servers and clients.
 
 ## 🤝 Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributing to this repository.
+See [CONTRIBUTING.md](https://github.com/modelcontextprotocol/servers/blob/HEAD/CONTRIBUTING.md) for information about contributing to this repository.
 
 ## 🔒 Security
 
-See [SECURITY.md](SECURITY.md) for reporting security vulnerabilities.
+See [SECURITY.md](https://github.com/modelcontextprotocol/servers/blob/HEAD/SECURITY.md) for reporting security vulnerabilities.
 
 ## 📜 License
 
-This project is licensed under the Apache License, Version 2.0 for new contributions, with existing code under MIT - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License, Version 2.0 for new contributions, with existing code under MIT - see the [LICENSE](https://github.com/modelcontextprotocol/servers/tree/HEAD/LICENSE) file for details.
 
 ## 💬 Community
 

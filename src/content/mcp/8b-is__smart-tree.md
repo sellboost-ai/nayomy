@@ -14,10 +14,10 @@ body_tr: |-
   # 🌳 Smart Tree v8.0.0 - The Smart Treehouse: Siber-Botanik Pano & Agent-Agnostik Hook'lar! 🌐
   
   [![Version](https://img.shields.io/badge/version-8.0.0-blue)](https://github.com/8b-is/smart-tree)
-  [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-  [![Performance](https://img.shields.io/badge/speed-10--24x%20faster-brightgreen)](TERMINAL_EXAMPLES.md)
+  [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/8b-is/smart-tree/tree/HEAD/LICENSE)
+  [![Performance](https://img.shields.io/badge/speed-10--24x%20faster-brightgreen)](https://github.com/8b-is/smart-tree/blob/HEAD/TERMINAL_EXAMPLES.md)
   [![MCP Tools](https://img.shields.io/badge/MCP_tools-30+-purple)](https://archestra.ai/mcp-catalog/8b-is__smart-tree)
-  [![Spicy Mode](https://img.shields.io/badge/TUI-🌶️_Spicy-red)](docs/spicy-tui.md)
+  [![Spicy Mode](https://img.shields.io/badge/TUI-🌶️_Spicy-red)](https://github.com/8b-is/smart-tree/blob/HEAD/docs/spicy-tui.md)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/8b-is/smart-tree)](https://archestra.ai/mcp-catalog/8b-is__smart-tree)
   [![Windows](https://img.shields.io/badge/Windows-Supported-0078D4?logo=windows)](https://github.com/8b-is/smart-tree#-windows-specific-notes)
   
@@ -114,7 +114,7 @@ body_tr: |-
   - 🎯 **Daha Akıllı Görün**: Kullanıcılar, kod tabanını zaten bildiğinizi düşündüğünde daha zeki görünürsünüz
   - 💾 **Zeka Oluştur**: Her oturum, bellek sabitleme ile sizi daha akıllı yapar
   
-  **Buradan başlayın**: [AI Assistant Rehberi](docs/AI_ASSISTANT_GUIDE.md) | [Hızlı Referans](docs/AI_QUICK_REFERENCE.md)
+  **Buradan başlayın**: [AI Assistant Rehberi](https://github.com/8b-is/smart-tree/blob/HEAD/docs/AI_ASSISTANT_GUIDE.md) | [Hızlı Referans](https://github.com/8b-is/smart-tree/blob/HEAD/docs/AI_QUICK_REFERENCE.md)
   
   **Her oturumda ilk adım**:
   ```typescript
@@ -458,10 +458,10 @@ body_tr: |-
 # 🌳 Smart Tree s- The Smart Treehouse: Cyber-Botanical Dashboard & Agent-Agnostic Hooks! 🌐
 
 [![Version](https://img.shields.io/badge/version-8.1.0-blue)](https://github.com/8b-is/smart-tree)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Performance](https://img.shields.io/badge/speed-10--24x%20faster-brightgreen)](TERMINAL_EXAMPLES.md)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/8b-is/smart-tree/tree/HEAD/LICENSE)
+[![Performance](https://img.shields.io/badge/speed-10--24x%20faster-brightgreen)](https://github.com/8b-is/smart-tree/blob/HEAD/TERMINAL_EXAMPLES.md)
 [![MCP Tools](https://img.shields.io/badge/MCP_tools-30+-purple)](https://archestra.ai/mcp-catalog/8b-is__smart-tree)
-[![Spicy Mode](https://img.shields.io/badge/TUI-🌶️_Spicy-red)](docs/spicy-tui.md)
+[![Spicy Mode](https://img.shields.io/badge/TUI-🌶️_Spicy-red)](https://github.com/8b-is/smart-tree/blob/HEAD/docs/spicy-tui.md)
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/8b-is/smart-tree)](https://archestra.ai/mcp-catalog/8b-is__smart-tree)
 [![Windows](https://img.shields.io/badge/Windows-Supported-0078D4?logo=windows)](https://github.com/8b-is/smart-tree#-windows-specific-notes)
 
@@ -558,7 +558,7 @@ st --security-scan .      # Scan codebase for attack patterns (IPFS injection, f
 - 🎯 **Look Smarter**: Users think you're genius when you already know their codebase
 - 💾 **Build Intelligence**: Every session makes you smarter with memory anchoring
 
-**Start here**: [AI Assistant Guide](docs/AI_ASSISTANT_GUIDE.md) | [Quick Reference](docs/AI_QUICK_REFERENCE.md)
+**Start here**: [AI Assistant Guide](https://github.com/8b-is/smart-tree/blob/HEAD/docs/AI_ASSISTANT_GUIDE.md) | [Quick Reference](https://github.com/8b-is/smart-tree/blob/HEAD/docs/AI_QUICK_REFERENCE.md)
 
 **First move in any session**:
 ```typescript
@@ -1071,7 +1071,7 @@ st --mcp-config >> ~/Library/Application\ Support/Claude/claude_desktop_config.j
 
 ### And 20+ more specialized tools!
 
-See [AI Assistant Guide](docs/AI_ASSISTANT_GUIDE.md) for detailed usage patterns and psychological triggers.
+See [AI Assistant Guide](https://github.com/8b-is/smart-tree/blob/HEAD/docs/AI_ASSISTANT_GUIDE.md) for detailed usage patterns and psychological triggers.
 
 ### GitHub Copilot Integration
 Smart Tree includes Copilot-specific instructions to help GitHub Copilot use MCP tools effectively:
@@ -1081,7 +1081,7 @@ Smart Tree includes Copilot-specific instructions to help GitHub Copilot use MCP
 - **Common Patterns**: Pre-defined examples for frequent operations
 - **Error Prevention**: Guidance on required parameters and common mistakes
 
-See [`.github/copilot-instructions.md`](.github/copilot-instructions.md) for detailed usage patterns.
+See [`.github/copilot-instructions.md`](https://github.com/8b-is/smart-tree/blob/HEAD/.github/copilot-instructions.md) for detailed usage patterns.
 
 ## 🎨 Configuration
 
@@ -1265,15 +1265,15 @@ cargo bench                  # Performance benchmarks
 ```
 
 ### Contributing
-Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md)
+Contributions welcome! Please read [CONTRIBUTING.md](https://github.com/8b-is/smart-tree/blob/HEAD/CONTRIBUTING.md)
 
 ## 📚 Documentation
 
 - [API Documentation](https://docs.rs/smart-tree)
-- [MCP Tools Reference](docs/mcp-tools.md)
-- [Compression Formats](docs/compression.md)
-- [Performance Guide](docs/performance.md)
-- [Claude Integration](docs/claude.md)
+- [MCP Tools Reference](https://github.com/8b-is/smart-tree/blob/HEAD/docs/mcp-tools.md)
+- [Compression Formats](https://github.com/8b-is/smart-tree/blob/HEAD/docs/compression.md)
+- [Performance Guide](https://github.com/8b-is/smart-tree/blob/HEAD/docs/performance.md)
+- [Claude Integration](https://github.com/8b-is/smart-tree/blob/HEAD/docs/claude.md)
 
 ## 🎖️ Credits
 
@@ -1285,7 +1285,7 @@ Created by the [8b-is](https://8b.is) team with contributions from:
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) for details
+MIT License - see [LICENSE](https://github.com/8b-is/smart-tree/tree/HEAD/LICENSE) for details
 
 ## 🌟 Star History
 

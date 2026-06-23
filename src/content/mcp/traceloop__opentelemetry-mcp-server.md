@@ -14,7 +14,7 @@ body_tr: |-
   
   [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
   [![PyPI](https://img.shields.io/pypi/v/opentelemetry-mcp)](https://pypi.org/project/opentelemetry-mcp/)
-  [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://github.com/traceloop/opentelemetry-mcp-server/tree/HEAD/LICENSE)
   
   **LLM izlerini AI yardımı ile sorgula ve analiz et.** Claude'a pahalı API çağrılarını bulmayı, hataları debug etmeyi, model performansını karşılaştırmayı ya da token kullanımını izlemeyi sor—hepsi IDE'nin içinden.
   
@@ -516,7 +516,7 @@ body_tr: |-
   
   ### Hızlı Yapılandırma
   
-  **Seçenek 1: Ortam Değişkenleri** (.env dosyası oluştur - bkz. [.env.example](.env.example))
+  **Seçenek 1: Ortam Değişkenleri** (.env dosyası oluştur - bkz. [.env.example](https://github.com/traceloop/opentelemetry-mcp-server/blob/HEAD/.env.example))
   
   ```bash
   BACKEND_TYPE=jaeger
@@ -899,7 +899,7 @@ body_tr: |-
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI](https://img.shields.io/pypi/v/opentelemetry-mcp)](https://pypi.org/project/opentelemetry-mcp/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://github.com/traceloop/opentelemetry-mcp-server/tree/HEAD/LICENSE)
 
 **Query and analyze LLM traces with AI assistance.** Ask Claude to find expensive API calls, debug errors, compare model performance, or track token usage—all from your IDE.
 
@@ -1401,7 +1401,7 @@ uv pip install -e ".[dev]"
 
 ### Quick Configuration
 
-**Option 1: Environment Variables** (Create `.env` file - see [.env.example](.env.example))
+**Option 1: Environment Variables** (Create `.env` file - see [.env.example](https://github.com/traceloop/opentelemetry-mcp-server/blob/HEAD/.env.example))
 
 ```bash
 BACKEND_TYPE=jaeger

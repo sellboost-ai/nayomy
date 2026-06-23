@@ -515,9 +515,9 @@ Fetches a CSV directory of all users in the workspace.
 
 ## Setup Guide
 
-- [Authentication Setup](docs/01-authentication-setup.md)
-- [Installation](docs/02-installation.md)
-- [Configuration and Usage](docs/03-configuration-and-usage.md)
+- [Authentication Setup](https://github.com/korotovsky/slack-mcp-server/blob/HEAD/docs/01-authentication-setup.md)
+- [Installation](https://github.com/korotovsky/slack-mcp-server/blob/HEAD/docs/02-installation.md)
+- [Configuration and Usage](https://github.com/korotovsky/slack-mcp-server/blob/HEAD/docs/03-configuration-and-usage.md)
 
 ### Environment Variables (Quick Reference)
 
@@ -575,4 +575,4 @@ tail -n 20 -f ~/Library/Logs/Claude/mcp*.log
 
 ## License
 
-Licensed under MIT - see [LICENSE](LICENSE) file. This is not an official Slack product.
+Licensed under MIT - see [LICENSE](https://github.com/korotovsky/slack-mcp-server/tree/HEAD/LICENSE) file. This is not an official Slack product.

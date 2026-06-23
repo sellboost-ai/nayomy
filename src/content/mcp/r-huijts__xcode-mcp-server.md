@@ -261,9 +261,9 @@ body_tr: |-
   
   ### Araç Belgelendirmesi
   
-  Tüm kullanılabilir araçlar ve bunların kullanımı hakkında kapsamlı bir genel bakış için [Araçlar Özeti](docs/tools-overview.md) bölümüne bakın.
+  Tüm kullanılabilir araçlar ve bunların kullanımı hakkında kapsamlı bir genel bakış için [Araçlar Özeti](https://github.com/r-huijts/xcode-mcp-server/blob/HEAD/docs/tools-overview.md) bölümüne bakın.
   
-  Ayrıntılı kullanım örnekleri ve en iyi uygulamalar için [Kullanıcı Rehberi](docs/user-guide.md) bölümüne bakın.
+  Ayrıntılı kullanım örnekleri ve en iyi uygulamalar için [Kullanıcı Rehberi](https://github.com/r-huijts/xcode-mcp-server/blob/HEAD/docs/user-guide.md) bölümüne bakın.
   
   ### Yaygın İş Akışları
   
@@ -723,9 +723,9 @@ The server implements the Model Context Protocol (MCP), making it compatible wit
 
 ### Tool Documentation
 
-For a comprehensive overview of all available tools and their usage, see [Tools Overview](docs/tools-overview.md).
+For a comprehensive overview of all available tools and their usage, see [Tools Overview](https://github.com/r-huijts/xcode-mcp-server/blob/HEAD/docs/tools-overview.md).
 
-For detailed usage examples and best practices, see [User Guide](docs/user-guide.md).
+For detailed usage examples and best practices, see [User Guide](https://github.com/r-huijts/xcode-mcp-server/blob/HEAD/docs/user-guide.md).
 
 ### Common Workflows
 

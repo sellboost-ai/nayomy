@@ -170,7 +170,7 @@ body_tr: |-
   
   Filtreleri yeniden oluşturmadan ilgili varlıklar arasında pivot yapın.
   
-  Bir yardımcı ile bir taze arama kullanma zamanı için [cross-entity pivot kılavuzuna](docs/how-to/cross-entity-pivots.md) bakın.
+  Bir yardımcı ile bir taze arama kullanma zamanı için [cross-entity pivot kılavuzuna](https://github.com/genomoncology/biomcp/blob/HEAD/docs/how-to/cross-entity-pivots.md) bakın.
   
   ```bash
   biomcp variant trials "BRAF V600E" --limit 5
@@ -270,7 +270,7 @@ body_tr: |-
   | Semantic Scholar API Anahtarı | `S2_API_KEY` | Makale TLDR, alıntı, başvuru ve tavsiye yardımcıları için güvenilirliği iyileştirir |
   
   İlk dizin inşası yalnızca bu üç isteğe bağlı ayarı ortaya koymaktadır. Gelişmiş
-  CLI-yalnızca env vars, [API Anahtarları](docs/getting-started/api-keys.md) adresinde
+  CLI-yalnızca env vars, [API Anahtarları](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/api-keys.md) adresinde
   genel BioMCP CLI yolu için belgelenir.
   
   ## Kullanım Örnekleri
@@ -356,7 +356,7 @@ body_tr: |-
   ```
   
   Desteklenen kurulum hedefleri, yüklenen dosyalar ve eski uyum notaları için
-  [Beceriler](docs/getting-started/skills.md) bölümüne bakın.
+  [Beceriler](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/skills.md) bölümüne bakın.
   
   ## Yerel çalışma analitiği
   
@@ -377,7 +377,7 @@ body_tr: |-
   biomcp study query --study msk_impact_2017 --gene TP53 --type mutations --chart bar --theme dark --palette wong -o docs/blog/images/tp53-mutation-bar.svg
   ```
   
-  Tam `study` komut ailesi ve veri seti ön koşulları için [CLI başvurusu](docs/user-guide/cli-reference.md#local-study-analytics) bölümüne bakın.
+  Tam `study` komut ailesi ve veri seti ön koşulları için [CLI başvurusu](https://github.com/genomoncology/biomcp/tree/HEAD/docs/user-guide/cli-reference.md#local-study-analytics) bölümüne bakın.
   
   ## Ops
   
@@ -393,24 +393,24 @@ body_tr: |-
   ## Destek
   
   - GitHub issues: <https://github.com/genomoncology/biomcp/issues>
-  - Sorun giderme: [docs/troubleshooting.md](docs/troubleshooting.md)
+  - Sorun giderme: [docs/troubleshooting.md](https://github.com/genomoncology/biomcp/blob/HEAD/docs/troubleshooting.md)
   - Tam dokümantasyon: <https://biomcp.org/>
   
   ## Dokümantasyon
   
-  - [Başlangıç](docs/getting-started/installation.md)
-  - [Tümünü Ara İş Akışı](docs/how-to/search-all-workflow.md)
-  - [BioASQ Kıyaslaması](docs/reference/bioasq-benchmark.md)
-  - [Cross-Entity Pivot Kılavuzu](docs/how-to/cross-entity-pivots.md)
-  - [Gizlilik Politikası](docs/policies.md)
-  - [Kaynak Lisanslama ve Şartları](docs/reference/source-licensing.md)
-  - [Veri Kaynakları](docs/reference/data-sources.md)
-  - [Hızlı Başvuru](docs/reference/quick-reference.md)
-  - [Sorun Giderme](docs/troubleshooting.md)
+  - [Başlangıç](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/installation.md)
+  - [Tümünü Ara İş Akışı](https://github.com/genomoncology/biomcp/blob/HEAD/docs/how-to/search-all-workflow.md)
+  - [BioASQ Kıyaslaması](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/bioasq-benchmark.md)
+  - [Cross-Entity Pivot Kılavuzu](https://github.com/genomoncology/biomcp/blob/HEAD/docs/how-to/cross-entity-pivots.md)
+  - [Gizlilik Politikası](https://github.com/genomoncology/biomcp/blob/HEAD/docs/policies.md)
+  - [Kaynak Lisanslama ve Şartları](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/source-licensing.md)
+  - [Veri Kaynakları](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/data-sources.md)
+  - [Hızlı Başvuru](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/quick-reference.md)
+  - [Sorun Giderme](https://github.com/genomoncology/biomcp/blob/HEAD/docs/troubleshooting.md)
   
   ## Alıntı
   
-  BioMCP'yi araştırmada kullanıyorsanız, [`CITATION.cff`](CITATION.cff) aracılığıyla
+  BioMCP'yi araştırmada kullanıyorsanız, [`CITATION.cff`](https://github.com/genomoncology/biomcp/blob/HEAD/CITATION.cff) aracılığıyla
   alıntılayın. GitHub ayrıca bu dosya mevcut olduğunda havuz kenar çubuğunda
   `Cite this repository` ortaya koymaktadır.
   
@@ -426,8 +426,8 @@ body_tr: |-
   kullanımı ayırır) ve COSMIC'tir (BioMCP, lisanslama modeli doğrudan açık integrasyon
   ile uyumsuz olduğundan dolaylı tutar).
   
-  Per-kaynak ayrışması için [Kaynak Lisanslama ve Şartları](docs/reference/source-licensing.md)
-  ve kurulum adımları ile kayıt bağlantıları için [API Anahtarları](docs/getting-started/api-keys.md) kullanın.
+  Per-kaynak ayrışması için [Kaynak Lisanslama ve Şartları](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/source-licensing.md)
+  ve kurulum adımları ile kayıt bağlantıları için [API Anahtarları](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/api-keys.md) kullanın.
   
   ## Lisans
   
@@ -602,7 +602,7 @@ agents do not synthesize unsupported `get` commands.
 
 Pivot between related entities without rebuilding filters.
 
-See the [cross-entity pivot guide](docs/how-to/cross-entity-pivots.md) for when
+See the [cross-entity pivot guide](https://github.com/genomoncology/biomcp/blob/HEAD/docs/how-to/cross-entity-pivots.md) for when
 to use a helper versus a fresh search.
 
 ```bash
@@ -705,7 +705,7 @@ reviewer-facing build:
 
 The first directory build exposes only those three optional settings. Advanced
 CLI-only env vars remain documented in
-[API Keys](docs/getting-started/api-keys.md) for the general BioMCP CLI path.
+[API Keys](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/api-keys.md) for the general BioMCP CLI path.
 
 ## Usage Examples
 
@@ -788,7 +788,7 @@ biomcp skill
 biomcp skill install ~/.claude --force
 ```
 
-See [Skills](docs/getting-started/skills.md) for supported install targets,
+See [Skills](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/skills.md) for supported install targets,
 installed files, and legacy compatibility notes.
 
 ## Local study analytics
@@ -809,7 +809,7 @@ biomcp study query --study msk_impact_2017 --gene TP53 --type mutations --chart 
 biomcp study query --study msk_impact_2017 --gene RET --type sv
 ```
 
-See the [CLI reference](docs/user-guide/cli-reference.md#local-study-analytics)
+See the [CLI reference](https://github.com/genomoncology/biomcp/tree/HEAD/docs/user-guide/cli-reference.md#local-study-analytics)
 for the full `study` command family and dataset prerequisites.
 
 ## Ops
@@ -826,24 +826,24 @@ biomcp uninstall                          # remove biomcp from ~/.local/bin
 ## Support
 
 - GitHub issues: <https://github.com/genomoncology/biomcp/issues>
-- Troubleshooting: [docs/troubleshooting.md](docs/troubleshooting.md)
+- Troubleshooting: [docs/troubleshooting.md](https://github.com/genomoncology/biomcp/blob/HEAD/docs/troubleshooting.md)
 - Full documentation: <https://biomcp.org/>
 
 ## Documentation
 
-- [Getting Started](docs/getting-started/installation.md)
-- [Search All Workflow](docs/how-to/search-all-workflow.md)
-- [BioASQ Benchmark](docs/reference/bioasq-benchmark.md)
-- [Cross-Entity Pivot Guide](docs/how-to/cross-entity-pivots.md)
-- [Privacy Policy](docs/policies.md)
-- [Source Licensing and Terms](docs/reference/source-licensing.md)
-- [Data Sources](docs/reference/data-sources.md)
-- [Quick Reference](docs/reference/quick-reference.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/installation.md)
+- [Search All Workflow](https://github.com/genomoncology/biomcp/blob/HEAD/docs/how-to/search-all-workflow.md)
+- [BioASQ Benchmark](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/bioasq-benchmark.md)
+- [Cross-Entity Pivot Guide](https://github.com/genomoncology/biomcp/blob/HEAD/docs/how-to/cross-entity-pivots.md)
+- [Privacy Policy](https://github.com/genomoncology/biomcp/blob/HEAD/docs/policies.md)
+- [Source Licensing and Terms](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/source-licensing.md)
+- [Data Sources](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/data-sources.md)
+- [Quick Reference](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/quick-reference.md)
+- [Troubleshooting](https://github.com/genomoncology/biomcp/blob/HEAD/docs/troubleshooting.md)
 
 ## Citation
 
-If you use BioMCP in research, cite it via [`CITATION.cff`](CITATION.cff).
+If you use BioMCP in research, cite it via [`CITATION.cff`](https://github.com/genomoncology/biomcp/blob/HEAD/CITATION.cff).
 GitHub also exposes `Cite this repository` in the repository sidebar when that file is present.
 
 ## Data Sources and Licensing
@@ -852,7 +852,7 @@ BioMCP is MIT-licensed. It performs on-demand queries against upstream providers
 
 Some providers are fully open, some BioMCP features require registration or API keys, and some queryable sources still impose notable reuse limits. The two biggest cautions are KEGG, which distinguishes academic and non-academic use, and COSMIC, which BioMCP keeps indirect-only because its licensing model is incompatible with a direct open integration.
 
-Use [Source Licensing and Terms](docs/reference/source-licensing.md) for the per-source breakdown and [API Keys](docs/getting-started/api-keys.md) for setup steps and registration links.
+Use [Source Licensing and Terms](https://github.com/genomoncology/biomcp/blob/HEAD/docs/reference/source-licensing.md) for the per-source breakdown and [API Keys](https://github.com/genomoncology/biomcp/blob/HEAD/docs/getting-started/api-keys.md) for setup steps and registration links.
 
 ## License
 

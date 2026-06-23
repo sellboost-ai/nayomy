@@ -77,7 +77,7 @@ body_tr: |-
   claude converse
   ```
   
-  Manual kurulum için [Getting Started Guide](docs/tutorials/getting-started.md) bölümüne bakınız.
+  Manual kurulum için [Getting Started Guide](https://github.com/mbailey/voicemode/blob/HEAD/docs/tutorials/getting-started.md) bölümüne bakınız.
   
   ## Özellikler
   
@@ -104,7 +104,7 @@ body_tr: |-
   voicemode config edit
   ```
   
-  Tüm seçenekler için [Configuration Guide](docs/guides/configuration.md) bölümüne bakınız.
+  Tüm seçenekler için [Configuration Guide](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/configuration.md) bölümüne bakınız.
   
   ## İzinler Kurulumu (İsteğe Bağlı)
   
@@ -121,14 +121,14 @@ body_tr: |-
   }
   ```
   
-  Daha fazla seçenek için [Permissions Guide](docs/guides/permissions.md) bölümüne bakınız.
+  Daha fazla seçenek için [Permissions Guide](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/permissions.md) bölümüne bakınız.
   
   ## Yerel Ses Hizmetleri
   
   Gizlilik veya çevrimdışı kullanım için yerel ses hizmetlerini yükleyin:
   
-  - **[Whisper.cpp](docs/guides/whisper-setup.md)** - Yerel konuşmayı metne dönüştürme
-  - **[Kokoro](docs/guides/kokoro-setup.md)** - Birden fazla sesli yerel metinden konuşmaya
+  - **[Whisper.cpp](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/whisper-setup.md)** - Yerel konuşmayı metne dönüştürme
+  - **[Kokoro](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/kokoro-setup.md)** - Birden fazla sesli yerel metinden konuşmaya
   
   Bunlar OpenAI ile aynı API'yi sağladığından VoiceMode aralarında sorunsuzca geçiş yapar.
   
@@ -210,11 +210,11 @@ body_tr: |-
   
   ## Dokümantasyon
   
-  - [Getting Started](docs/tutorials/getting-started.md) - Tam kurulum rehberi
-  - [Configuration](docs/guides/configuration.md) - Tüm ortam değişkenleri
-  - [Whisper Setup](docs/guides/whisper-setup.md) - Yerel konuşmayı metne dönüştürme
-  - [Kokoro Setup](docs/guides/kokoro-setup.md) - Yerel metinden konuşmaya
-  - [Development Setup](docs/tutorials/development-setup.md) - Katkıda bulunma rehberi
+  - [Getting Started](https://github.com/mbailey/voicemode/blob/HEAD/docs/tutorials/getting-started.md) - Tam kurulum rehberi
+  - [Configuration](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/configuration.md) - Tüm ortam değişkenleri
+  - [Whisper Setup](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/whisper-setup.md) - Yerel konuşmayı metne dönüştürme
+  - [Kokoro Setup](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/kokoro-setup.md) - Yerel metinden konuşmaya
+  - [Development Setup](https://github.com/mbailey/voicemode/blob/HEAD/docs/tutorials/development-setup.md) - Katkıda bulunma rehberi
   
   Tam dokümantasyon: [voice-mode.readthedocs.io](https://voice-mode.readthedocs.io)
   
@@ -301,7 +301,7 @@ export OPENAI_API_KEY=your-openai-key
 claude converse
 ```
 
-For manual setup, see the [Getting Started Guide](docs/tutorials/getting-started.md).
+For manual setup, see the [Getting Started Guide](https://github.com/mbailey/voicemode/blob/HEAD/docs/tutorials/getting-started.md).
 
 ## Features
 
@@ -328,7 +328,7 @@ export OPENAI_API_KEY="your-key"
 voicemode config edit
 ```
 
-See the [Configuration Guide](docs/guides/configuration.md) for all options.
+See the [Configuration Guide](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/configuration.md) for all options.
 
 ## Permissions Setup (Optional)
 
@@ -345,14 +345,14 @@ To use VoiceMode without permission prompts, add to `~/.claude/settings.json`:
 }
 ```
 
-See the [Permissions Guide](docs/guides/permissions.md) for more options.
+See the [Permissions Guide](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/permissions.md) for more options.
 
 ## Local Voice Services
 
 For privacy or offline use, install local speech services:
 
-- **[Whisper.cpp](docs/guides/whisper-setup.md)** - Local speech-to-text
-- **[Kokoro](docs/guides/kokoro-setup.md)** - Local text-to-speech with multiple voices
+- **[Whisper.cpp](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/whisper-setup.md)** - Local speech-to-text
+- **[Kokoro](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/kokoro-setup.md)** - Local text-to-speech with multiple voices
 
 These provide the same API as OpenAI, so VoiceMode switches seamlessly between them.
 
@@ -436,11 +436,11 @@ export VOICEMODE_SAVE_AUDIO=true
 
 ## Documentation
 
-- [Getting Started](docs/tutorials/getting-started.md) - Full setup guide
-- [Configuration](docs/guides/configuration.md) - All environment variables
-- [Whisper Setup](docs/guides/whisper-setup.md) - Local speech-to-text
-- [Kokoro Setup](docs/guides/kokoro-setup.md) - Local text-to-speech
-- [Development Setup](docs/tutorials/development-setup.md) - Contributing guide
+- [Getting Started](https://github.com/mbailey/voicemode/blob/HEAD/docs/tutorials/getting-started.md) - Full setup guide
+- [Configuration](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/configuration.md) - All environment variables
+- [Whisper Setup](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/whisper-setup.md) - Local speech-to-text
+- [Kokoro Setup](https://github.com/mbailey/voicemode/blob/HEAD/docs/guides/kokoro-setup.md) - Local text-to-speech
+- [Development Setup](https://github.com/mbailey/voicemode/blob/HEAD/docs/tutorials/development-setup.md) - Contributing guide
 
 Full documentation: [voicemode.dev](https://voicemode.dev)
 

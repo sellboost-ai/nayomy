@@ -22,11 +22,11 @@ body_tr: |-
   
   BoltMCP'yi kurmanın ve çalıştırmanın iki yolu vardır:
   
-  ### [Docker Compose ile yerel olarak test etme](./docker-compose/)
+  ### [Docker Compose ile yerel olarak test etme](https://github.com/boltmcp/boltmcp/tree/HEAD/docker-compose/)
   
   Bilgisayarınızda hızlı bir deneme yapmak için BoltMCP'yi Docker Compose ile kurun. Bu, üretim ortamı için uygun değildir.
   
-  ### [Helm ile üretim ortamına dağıtma](./helm-chart)
+  ### [Helm ile üretim ortamına dağıtma](https://github.com/boltmcp/boltmcp/tree/HEAD/helm-chart)
   
   Bir Kubernetes kümesine dağıtmak için BoltMCP'yi Helm ile kurun. Bu, kurumsal üretim ortamları için uygundur.
   

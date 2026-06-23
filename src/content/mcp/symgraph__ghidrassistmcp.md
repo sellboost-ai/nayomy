@@ -1432,7 +1432,7 @@ Enable debug logging by adding to Ghidra startup:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/symgraph/GhidrAssistMCP/tree/HEAD/LICENSE) file for details.
 
 ## Acknowledgments
 

@@ -28,7 +28,7 @@ body_tr: |-
     <a href="https://pypi.org/project/shodh-memory/"></a>
     <a href="https://hub.docker.com/r/varunshodh/shodh-memory"></a>
     <a href="#robotics--ros2"></a>
-    <a href="LICENSE"></a>
+    <a href="https://github.com/varun29ankuS/shodh-memory/tree/HEAD/LICENSE"></a>
     <a href="https://discord.gg/HrpzXqTtEp"></a>
   </p>
   
@@ -268,7 +268,7 @@ body_tr: |-
   ros2 run zenoh_bridge_ros2dds zenoh_bridge_ros2dds
   ```
   
-  Tam kurulum ve örnekler için [Robotik Hızlı Başlangıç](docs/robotics-quickstart.md) bölümüne bakın.
+  Tam kurulum ve örnekler için [Robotik Hızlı Başlangıç](https://github.com/varun29ankuS/shodh-memory/blob/HEAD/docs/robotics-quickstart.md) bölümüne bakın.
   
   **Robotlar Zenoh üzerinden neler yapabilir:**
   
@@ -445,7 +445,7 @@ body_tr: |-
   <a href="https://pypi.org/project/shodh-memory/"></a>
   <a href="https://hub.docker.com/r/varunshodh/shodh-memory"></a>
   <a href="#robotics--ros2"></a>
-  <a href="LICENSE"></a>
+  <a href="https://github.com/varun29ankuS/shodh-memory/tree/HEAD/LICENSE"></a>
   <a href="https://discord.gg/HrpzXqTtEp"></a>
 </p>
 
@@ -697,7 +697,7 @@ SHODH_ZENOH_ENABLED=true SHODH_ZENOH_LISTEN=tcp/0.0.0.0:7447 shodh server
 ros2 run zenoh_bridge_ros2dds zenoh_bridge_ros2dds
 ```
 
-See [Robotics Quickstart](docs/robotics-quickstart.md) for full setup and examples.
+See [Robotics Quickstart](https://github.com/varun29ankuS/shodh-memory/blob/HEAD/docs/robotics-quickstart.md) for full setup and examples.
 
 **What robots can do over Zenoh:**
 

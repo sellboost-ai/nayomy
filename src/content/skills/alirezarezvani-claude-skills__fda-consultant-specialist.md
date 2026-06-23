@@ -68,7 +68,7 @@ body_tr: |-
   4. FDA için Q-Sub sorularını hazırlayın
   5. Gerekirse Gönderim Öncesi toplantı planlayın
   
-  **Referans:** Yol karar matrislerini ve gönderim gereksinimlerini görmek için [fda_submission_guide.md](references/fda_submission_guide.md) dosyasına bakınız.
+  **Referans:** Yol karar matrislerini ve gönderim gereksinimlerini görmek için [fda_submission_guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/fda_submission_guide.md) dosyasına bakınız.
   
   ---
   
@@ -184,7 +184,7 @@ body_tr: |-
   6. **Etkinlik**: Tekrarlanmanın olmadığını izleyin (30-90 gün)
   7. **Kapat**: Yönetim onayı ve kapatma
   
-  **Referans:** Tarihsel QSR yapısının tam QMSR/ISO 13485:2016 madde eşlemesi ile ilgili bilgiler için [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) dosyasına bakınız.
+  **Referans:** Tarihsel QSR yapısının tam QMSR/ISO 13485:2016 madde eşlemesi ile ilgili bilgiler için [qsr_compliance_requirements.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/qsr_compliance_requirements.md) dosyasına bakınız.
   
   ---
   
@@ -235,7 +235,7 @@ body_tr: |-
   6. Kontrolleri uygulayın
   7. Kalan riski belgelendirin
   
-  **Referans:** Uygulama kontrol listeleri ve BAA şablonları için [hipaa_compliance_framework.md](references/hipaa_compliance_framework.md) dosyasına bakınız.
+  **Referans:** Uygulama kontrol listeleri ve BAA şablonları için [hipaa_compliance_framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/hipaa_compliance_framework.md) dosyasına bakınız.
   
   ---
   
@@ -284,7 +284,7 @@ body_tr: |-
   Koordineli Halka Açık Açıklama
   ```
   
-  **Referans:** SBOM format örnekleri ve tehdit modeli şablonları için [device_cybersecurity_guidance.md](references/device_cybersecurity_guidance.md) dosyasına bakınız.
+  **Referans:** SBOM format örnekleri ve tehdit modeli şablonları için [device_cybersecurity_guidance.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/device_cybersecurity_guidance.md) dosyasına bakınız.
   
   ---
   
@@ -376,7 +376,7 @@ Predicate device exists?
 4. Prepare Q-Sub questions for FDA
 5. Schedule Pre-Sub meeting if needed
 
-**Reference:** See [fda_submission_guide.md](references/fda_submission_guide.md) for pathway decision matrices and submission requirements.
+**Reference:** See [fda_submission_guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/fda_submission_guide.md) for pathway decision matrices and submission requirements.
 
 ---
 
@@ -492,7 +492,7 @@ Step 6: Design Transfer
 6. **Effectiveness**: Monitor for recurrence (30-90 days)
 7. **Close**: Management approval and closure
 
-**Reference:** See [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) for the historical QSR structure with full QMSR/ISO 13485:2016 clause mapping.
+**Reference:** See [qsr_compliance_requirements.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/qsr_compliance_requirements.md) for the historical QSR structure with full QMSR/ISO 13485:2016 clause mapping.
 
 ---
 
@@ -543,7 +543,7 @@ Technical (§164.312)
 6. Implement controls
 7. Document residual risk
 
-**Reference:** See [hipaa_compliance_framework.md](references/hipaa_compliance_framework.md) for implementation checklists and BAA templates.
+**Reference:** See [hipaa_compliance_framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/hipaa_compliance_framework.md) for implementation checklists and BAA templates.
 
 ---
 
@@ -592,7 +592,7 @@ Fix Development
 Coordinated Public Disclosure
 ```
 
-**Reference:** See [device_cybersecurity_guidance.md](references/device_cybersecurity_guidance.md) for SBOM format examples and threat modeling templates.
+**Reference:** See [device_cybersecurity_guidance.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/device_cybersecurity_guidance.md) for SBOM format examples and threat modeling templates.
 
 ---
 

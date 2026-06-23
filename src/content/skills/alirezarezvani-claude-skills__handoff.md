@@ -49,7 +49,7 @@ body_tr: |-
   
   İlk çağrıda, beceri devir belgelerinin nereye kaydedileceğini sorar, böylece proje klasörü asla karışmaz. Kurulum bir kez *"Şimdi kurulum çalıştırmak ister misin? (E/h)"* şeklinde sunulur — h cevabı bu çalıştırma için OS-temp varsayılanlarını kullanır ve asla yeniden sorulmaz. Kullanıcı `/cs:handoff-setup` aracılığıyla herhangi bir zamanda kurulumu yeniden çalıştırabilir.
   
-  Tam yapılandırma alanı referansı için [references/configuration.md](references/configuration.md) bölümüne bakın.
+  Tam yapılandırma alanı referansı için [references/configuration.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/configuration.md) bölümüne bakın.
   
   ## Çıktı Yolu
   
@@ -71,11 +71,11 @@ body_tr: |-
   - **Kullanılacak beceriler** — bir sonraki oturumun çağırması gereken 3-5 beton beceri listesi, her biri bir satırlık *neden* ile.
   - **Yapıtlar** — PRD'ler, planlar, ADR'ler, sorunlar, dallar, PR'ler için yollar/URL'ler. İçeriklerini çoğaltmayın.
   
-  Çalışılan örnek için [references/handoff_structure.md](references/handoff_structure.md) bölümüne bakın.
+  Çalışılan örnek için [references/handoff_structure.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/handoff_structure.md) bölümüne bakın.
   
   ## Ajanın İşi
   
-  Beş bölümü doldurmak ajanın işidir, komut dosyasının değil. [references/handoff_prompt.md](references/handoff_prompt.md) öğesini zorunlu bir kontrol listesi olarak izleyin:
+  Beş bölümü doldurmak ajanın işidir, komut dosyasının değil. [references/handoff_prompt.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/handoff_prompt.md) öğesini zorunlu bir kontrol listesi olarak izleyin:
   
   > Konuşmada tartışılan her konu için açıkça karar verin: *Oyunun Durumunda Dahil Et / Açık karar olarak Kaydet / Nedenle Sil.*
   
@@ -91,7 +91,7 @@ body_tr: |-
   - **20 beceri listelemeyin.** Bir sonraki oturumun gerçekten ihtiyacı olan 3-5 tanesini seçin.
   - **Konuşmada her mesajı anlatmayın.** Durum + Kararlar halinde sıkıştırın.
   
-  Tam liste için [references/deduplication_discipline.md](references/deduplication_discipline.md) bölümüne bakın.
+  Tam liste için [references/deduplication_discipline.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/deduplication_discipline.md) bölümüne bakın.
   
   ## Redaksiyon
   
@@ -105,7 +105,7 @@ body_tr: |-
   - E-posta adresleri, telefon numaraları, ilgisiz üçüncü tarafların adları
   - Token veya oturum kimliği içeren iç URL'ler
   
-  Tam desen listesi ve regex'in yakalayamadığı şeyler için manuel inceleme adımları için [references/redaction_checklist.md](references/redaction_checklist.md) bölümüne bakın.
+  Tam desen listesi ve regex'in yakalayamadığı şeyler için manuel inceleme adımları için [references/redaction_checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/redaction_checklist.md) bölümüne bakın.
   
   ## SessionStart Otomatik Yükleme
   
@@ -237,7 +237,7 @@ When you detect an implicit trigger, propose the handoff before running it: *"Wa
 
 On first invocation, the skill asks where to save handoffs so the project folder never gets cluttered. Setup is offered once via *"Run setup now? (Y/n)"* — answering N uses OS-temp defaults for this run and never re-prompts. The user can rerun setup any time via `/cs:handoff-setup`.
 
-See [references/configuration.md](references/configuration.md) for the full config field reference.
+See [references/configuration.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/configuration.md) for the full config field reference.
 
 ## Output Path
 
@@ -259,11 +259,11 @@ The handoff doc has five sections. Use these exact headers:
 - **Skills to use** — concrete list of 3-5 skills the next session should invoke, each with a one-line *why*.
 - **Artifacts** — paths/URLs to PRDs, plans, ADRs, issues, branches, PRs. Do not duplicate their contents.
 
-See [references/handoff_structure.md](references/handoff_structure.md) for a worked example.
+See [references/handoff_structure.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/handoff_structure.md) for a worked example.
 
 ## The Agent's Job
 
-Filling in the five sections is the agent's job, not the script's. Follow [references/handoff_prompt.md](references/handoff_prompt.md) as a mandatory checklist:
+Filling in the five sections is the agent's job, not the script's. Follow [references/handoff_prompt.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/handoff_prompt.md) as a mandatory checklist:
 
 > For each topic discussed in the conversation, decide explicitly: *include in State of play / log as an Open decision / drop with reason.*
 
@@ -279,7 +279,7 @@ Matt's no-duplication discipline made concrete:
 - **Do not list 20 skills.** Pick the 3-5 the next session actually needs.
 - **Do not narrate every message in the conversation.** Compress to State + Decisions.
 
-See [references/deduplication_discipline.md](references/deduplication_discipline.md) for the full list.
+See [references/deduplication_discipline.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/deduplication_discipline.md) for the full list.
 
 ## Redaction
 
@@ -293,7 +293,7 @@ Redact:
 - Email addresses, phone numbers, names of unrelated third parties
 - Internal URLs containing tokens or session IDs
 
-See [references/redaction_checklist.md](references/redaction_checklist.md) for the full pattern list and manual-review steps for what regex cannot catch.
+See [references/redaction_checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/redaction_checklist.md) for the full pattern list and manual-review steps for what regex cannot catch.
 
 ## SessionStart Auto-Load
 

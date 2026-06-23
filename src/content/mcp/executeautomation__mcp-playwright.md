@@ -180,7 +180,7 @@ body_tr: |-
   
   Ekranı olmayan sistemlerde veya IDE'ler işçi süreçlerinden headed tarayıcı çalıştırırken, MCP sunucusunu bağımsız bir HTTP sunucusu olarak çalıştırabilirsiniz:
   
-  > **Claude Desktop Kullanıcıları için Not:** Claude Desktop şu anda stdio modunu (command/args yapılandırması) gerektirir. HTTP modu VS Code, özel istemciler ve uzaktan dağıtımlar için önerilir. Ayrıntılar için [CLAUDE_DESKTOP_CONFIG.md](CLAUDE_DESKTOP_CONFIG.md) dosyasına bakın.
+  > **Claude Desktop Kullanıcıları için Not:** Claude Desktop şu anda stdio modunu (command/args yapılandırması) gerektirir. HTTP modu VS Code, özel istemciler ve uzaktan dağıtımlar için önerilir. Ayrıntılar için [CLAUDE_DESKTOP_CONFIG.md](https://github.com/executeautomation/mcp-playwright/blob/HEAD/CLAUDE_DESKTOP_CONFIG.md) dosyasına bakın.
   
   #### HTTP Sunucusunu Başlatma
   
@@ -495,7 +495,7 @@ This is the **recommended mode for Claude Desktop**.
 
 When running headed browser on systems without display or from worker processes of IDEs, you can run the MCP server as a standalone HTTP server:
 
-> **Note for Claude Desktop Users:** Claude Desktop currently requires stdio mode (command/args configuration). HTTP mode is recommended for VS Code, custom clients, and remote deployments. See [CLAUDE_DESKTOP_CONFIG.md](CLAUDE_DESKTOP_CONFIG.md) for details.
+> **Note for Claude Desktop Users:** Claude Desktop currently requires stdio mode (command/args configuration). HTTP mode is recommended for VS Code, custom clients, and remote deployments. See [CLAUDE_DESKTOP_CONFIG.md](https://github.com/executeautomation/mcp-playwright/blob/HEAD/CLAUDE_DESKTOP_CONFIG.md) for details.
 
 #### Starting the HTTP Server
 

@@ -20,7 +20,7 @@ body_tr: |-
     [![smithery badge](https://smithery.ai/badge/@VeriTeknik/pluggedin-mcp)](https://smithery.ai/server/@VeriTeknik/pluggedin-mcp)
     [![Version](https://img.shields.io/badge/version-1.9.0-blue?style=for-the-badge)](https://github.com/VeriTeknik/pluggedin-mcp/releases)
     [![GitHub Stars](https://img.shields.io/github/stars/VeriTeknik/pluggedin-mcp?style=for-the-badge)](https://github.com/VeriTeknik/pluggedin-mcp/stargazers)
-    [![License](https://img.shields.io/github/license/VeriTeknik/pluggedin-mcp?style=for-the-badge)](LICENSE)
+    [![License](https://img.shields.io/github/license/VeriTeknik/pluggedin-mcp?style=for-the-badge)](https://github.com/VeriTeknik/pluggedin-mcp-proxy/tree/HEAD/LICENSE)
     [![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
     [![MCP](https://img.shields.io/badge/MCP-Compatible-green?style=for-the-badge)](https://modelcontextprotocol.io/)
     [![MCP Badge](https://lobehub.com/badge/mcp/veriteknik-pluggedin-mcp)](https://lobehub.com/mcp/veriteknik-pluggedin-mcp)
@@ -271,7 +271,7 @@ body_tr: |-
   
   ### 🔄 v1.0.0'ye Yükseltme
   
-  Mevcut kurulumlar için, ayrıntılı yükseltme talimatları için [Migration Guide](./MIGRATION_GUIDE_v1.0.0.md) sayfasına bakın.
+  Mevcut kurulumlar için, ayrıntılı yükseltme talimatları için [Migration Guide](https://github.com/VeriTeknik/pluggedin-mcp-proxy/blob/HEAD/MIGRATION_GUIDE_v1.0.0.md) sayfasına bakın.
   
   ```bash
   # Hızlı yükseltme
@@ -494,7 +494,7 @@ body_tr: |-
   
   Tam dağıtım talimatları, konfigürasyon seçenekleri, sorun giderme ve teknik detaylar için bkz:
   
-  **📖 [Smithery Dağıtım Kılavuzu](docs/SMITHERY_DEPLOYMENT.md)**
+  **📖 [Smithery Dağıtım Kılavuzu](https://github.com/VeriTeknik/pluggedin-mcp-proxy/blob/HEAD/docs/SMITHERY_DEPLOYMENT.md)**
   
   ## Otonom Ajanlar (Ön İzleme)
   
@@ -519,7 +519,7 @@ body_tr: |-
   [![smithery badge](https://smithery.ai/badge/@VeriTeknik/pluggedin-mcp)](https://smithery.ai/server/@VeriTeknik/pluggedin-mcp)
   [![Version](https://img.shields.io/badge/version-1.9.0-blue?style=for-the-badge)](https://github.com/VeriTeknik/pluggedin-mcp/releases)
   [![GitHub Stars](https://img.shields.io/github/stars/VeriTeknik/pluggedin-mcp?style=for-the-badge)](https://github.com/VeriTeknik/pluggedin-mcp/stargazers)
-  [![License](https://img.shields.io/github/license/VeriTeknik/pluggedin-mcp?style=for-the-badge)](LICENSE)
+  [![License](https://img.shields.io/github/license/VeriTeknik/pluggedin-mcp?style=for-the-badge)](https://github.com/VeriTeknik/pluggedin-mcp-proxy/tree/HEAD/LICENSE)
   [![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
   [![MCP](https://img.shields.io/badge/MCP-Compatible-green?style=for-the-badge)](https://modelcontextprotocol.io/)
   [![MCP Badge](https://lobehub.com/badge/mcp/veriteknik-pluggedin-mcp)](https://lobehub.com/mcp/veriteknik-pluggedin-mcp)
@@ -770,7 +770,7 @@ npx -y @pluggedin/pluggedin-mcp-proxy@latest --pluggedin-api-key YOUR_API_KEY
 
 ### 🔄 Upgrading to v1.0.0
 
-For existing installations, see our [Migration Guide](./MIGRATION_GUIDE_v1.0.0.md) for detailed upgrade instructions.
+For existing installations, see our [Migration Guide](https://github.com/VeriTeknik/pluggedin-mcp-proxy/blob/HEAD/MIGRATION_GUIDE_v1.0.0.md) for detailed upgrade instructions.
 
 ```bash
 # Quick upgrade
@@ -993,7 +993,7 @@ Deploy the plugged.in MCP Proxy to [Smithery Cloud](https://smithery.ai) for hos
 
 For complete deployment instructions, configuration options, troubleshooting, and technical details, see:
 
-**📖 [Smithery Deployment Guide](docs/SMITHERY_DEPLOYMENT.md)**
+**📖 [Smithery Deployment Guide](https://github.com/VeriTeknik/pluggedin-mcp-proxy/blob/HEAD/docs/SMITHERY_DEPLOYMENT.md)**
 
 ## Autonomous Agents (Preview)
 
@@ -1128,7 +1128,7 @@ A dedicated `security-utils.ts` module provides:
 - Rate limiting implementation
 - Error message sanitization
 
-For detailed security implementation, see [SECURITY.md](SECURITY.md).
+For detailed security implementation, see [SECURITY.md](https://github.com/VeriTeknik/pluggedin-mcp-proxy/blob/HEAD/SECURITY.md).
 
 ## 🧩 Integration with plugged.in App
 
@@ -1249,7 +1249,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - Structured logging with proper stderr usage
 - Enhanced TypeScript type safety
 
-See [Release Notes](./RELEASE_NOTES_v1.0.0.md) for complete details.
+See [Release Notes](https://github.com/VeriTeknik/pluggedin-mcp-proxy/blob/HEAD/RELEASE_NOTES_v1.0.0.md) for complete details.
 
 ## 🧪 Testing and Development
 
@@ -1286,7 +1286,7 @@ docker images pluggedin-mcp
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/VeriTeknik/pluggedin-mcp-proxy/tree/HEAD/LICENSE) file for details.
 
 ## 🙏 Acknowledgements
 

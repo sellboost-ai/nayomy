@@ -139,7 +139,7 @@ body_tr: |-
   ### Katkıda Bulunanlar
   
   - [Geliştirme kılavuzu](https://docs.1mcp.app/guide/development)
-  - [CONTRIBUTING.md](CONTRIBUTING.md)
+  - [CONTRIBUTING.md](https://github.com/1mcp-app/agent/blob/HEAD/CONTRIBUTING.md)
   
   ## Nasıl Çalışır
   
@@ -177,7 +177,7 @@ body_tr: |-
   
   ## Katkı / Lisans
   
-  Katkılar hoş karşılanır. Geliştirme iş akışı için [CONTRIBUTING.md](CONTRIBUTING.md) ve Apache 2.0 lisansı için [LICENSE](LICENSE) bölümüne bakın.
+  Katkılar hoş karşılanır. Geliştirme iş akışı için [CONTRIBUTING.md](https://github.com/1mcp-app/agent/blob/HEAD/CONTRIBUTING.md) ve Apache 2.0 lisansı için [LICENSE](https://github.com/1mcp-app/agent/tree/HEAD/LICENSE) bölümüne bakın.
 ---
 
 # 1MCP
@@ -308,7 +308,7 @@ Use the deeper docs if you are configuring or deploying the runtime itself:
 ### Contributors
 
 - [Development guide](https://docs.1mcp.app/guide/development)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [CONTRIBUTING.md](https://github.com/1mcp-app/agent/blob/HEAD/CONTRIBUTING.md)
 
 ## How It Works
 
@@ -346,4 +346,4 @@ flowchart LR
 
 ## Contributing / License
 
-Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow and [LICENSE](LICENSE) for the Apache 2.0 license.
+Contributions are welcome. See [CONTRIBUTING.md](https://github.com/1mcp-app/agent/blob/HEAD/CONTRIBUTING.md) for the development workflow and [LICENSE](https://github.com/1mcp-app/agent/tree/HEAD/LICENSE) for the Apache 2.0 license.

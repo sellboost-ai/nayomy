@@ -13,7 +13,7 @@ body_tr: |-
   # mcp-server-duckdb
   
   [![PyPI - Version](https://img.shields.io/pypi/v/mcp-server-duckdb)](https://pypi.org/project/mcp-server-duckdb/)
-  [![PyPI - License](https://img.shields.io/pypi/l/mcp-server-duckdb)](LICENSE)
+  [![PyPI - License](https://img.shields.io/pypi/l/mcp-server-duckdb)](https://github.com/ktanaka101/mcp-server-duckdb/tree/HEAD/LICENSE)
   [![smithery badge](https://smithery.ai/badge/mcp-server-duckdb)](https://smithery.ai/server/mcp-server-duckdb)
   
   DuckDB için Model Context Protocol (MCP) sunucu uygulaması, MCP araçları aracılığıyla veritabanı etkileşim yetenekleri sağlar.
@@ -137,7 +137,7 @@ body_tr: |-
 # mcp-server-duckdb
 
 [![PyPI - Version](https://img.shields.io/pypi/v/mcp-server-duckdb)](https://pypi.org/project/mcp-server-duckdb/)
-[![PyPI - License](https://img.shields.io/pypi/l/mcp-server-duckdb)](LICENSE)
+[![PyPI - License](https://img.shields.io/pypi/l/mcp-server-duckdb)](https://github.com/ktanaka101/mcp-server-duckdb/tree/HEAD/LICENSE)
 [![smithery badge](https://smithery.ai/badge/mcp-server-duckdb)](https://smithery.ai/server/mcp-server-duckdb)
 
 A Model Context Protocol (MCP) server implementation for DuckDB, providing database interaction capabilities through MCP tools.

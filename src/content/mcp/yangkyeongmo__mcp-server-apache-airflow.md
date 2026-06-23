@@ -430,7 +430,7 @@ body_tr: |-
   
   ## Lisans
   
-  [MIT Lisansı](LICENSE)
+  [MIT Lisansı](https://github.com/yangkyeongmo/mcp-server-apache-airflow/tree/HEAD/LICENSE)
 ---
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yangkyeongmo-mcp-server-apache-airflow-badge.png)](https://mseep.ai/app/yangkyeongmo-mcp-server-apache-airflow)
@@ -852,4 +852,4 @@ Please include version update in the PR in order to apply the changes to core lo
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/yangkyeongmo/mcp-server-apache-airflow/tree/HEAD/LICENSE)

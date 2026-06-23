@@ -328,13 +328,13 @@ body_tr: |-
   
   ## Örnekler
   
-  Çeşitli özelikleri gösteren tam, çalıştırılabilir örnekler için [`examples`](examples) dizinine bakın:
+  Çeşitli özelikleri gösteren tam, çalıştırılabilir örnekler için [`examples`](https://github.com/ckanthony/gin-mcp/tree/HEAD/examples) dizinine bakın:
   
   ### Temel Kullanım Örnekleri
   
-  - **[`examples/simple/main.go`](examples/simple/main.go)** - Statik BaseURL konfigürasyonu ile tam ürün mağazası API'si
-  - **[`examples/simple/quicknode.go`](examples/simple/quicknode.go)** - Quicknode proxy ortamları için dinamik BaseURL konfigürasyonu  
-  - **[`examples/simple/ragflow.go`](examples/simple/ragflow.go)** - RAGFlow dağıtım senaryoları için dinamik BaseURL konfigürasyonu
+  - **[`examples/simple/main.go`](https://github.com/ckanthony/gin-mcp/blob/HEAD/examples/simple/main.go)** - Statik BaseURL konfigürasyonu ile tam ürün mağazası API'si
+  - **[`examples/simple/quicknode.go`](https://github.com/ckanthony/gin-mcp/blob/HEAD/examples/simple/quicknode.go)** - Quicknode proxy ortamları için dinamik BaseURL konfigürasyonu  
+  - **[`examples/simple/ragflow.go`](https://github.com/ckanthony/gin-mcp/blob/HEAD/examples/simple/ragflow.go)** - RAGFlow dağıtım senaryoları için dinamik BaseURL konfigürasyonu
   
   ### Proxy Senaryoları için Dinamik BaseURL
   
@@ -750,13 +750,13 @@ mcp := server.New(r, &server.Config{
 
 ## Examples
 
-See the [`examples`](examples) directory for complete, runnable examples demonstrating various features:
+See the [`examples`](https://github.com/ckanthony/gin-mcp/tree/HEAD/examples) directory for complete, runnable examples demonstrating various features:
 
 ### Basic Usage Examples
 
-- **[`examples/simple/main.go`](examples/simple/main.go)** - Complete product store API with static BaseURL configuration
-- **[`examples/simple/quicknode.go`](examples/simple/quicknode.go)** - Dynamic BaseURL configuration for Quicknode proxy environments  
-- **[`examples/simple/ragflow.go`](examples/simple/ragflow.go)** - Dynamic BaseURL configuration for RAGFlow deployment scenarios
+- **[`examples/simple/main.go`](https://github.com/ckanthony/gin-mcp/blob/HEAD/examples/simple/main.go)** - Complete product store API with static BaseURL configuration
+- **[`examples/simple/quicknode.go`](https://github.com/ckanthony/gin-mcp/blob/HEAD/examples/simple/quicknode.go)** - Dynamic BaseURL configuration for Quicknode proxy environments  
+- **[`examples/simple/ragflow.go`](https://github.com/ckanthony/gin-mcp/blob/HEAD/examples/simple/ragflow.go)** - Dynamic BaseURL configuration for RAGFlow deployment scenarios
 
 ### Dynamic BaseURL for Proxy Scenarios
 

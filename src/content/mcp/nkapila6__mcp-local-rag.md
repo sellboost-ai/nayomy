@@ -167,7 +167,7 @@ body_tr: |-
   
   [Anthropic Skills Repository](https://github.com/anthropics/skills) adresinde Agent Yetenekleri hakkında daha fazla bilgi edinin.
   
-  Ayrıntılı kullanım talimatları ve yetenek geliştirme yönergeleri için [skills/README.md](skills/README.md) dosyasına bakın.
+  Ayrıntılı kullanım talimatları ve yetenek geliştirme yönergeleri için [skills/README.md](https://github.com/nkapila6/mcp-local-rag/blob/HEAD/skills/README.md) dosyasına bakın.
   
   # Güvenlik Denetimleri
   MseeP tüm MCP sunucularında güvenlik denetimi yapar; bu MCP sunucusunun güvenlik denetimini [buraya tıklayarak](https://mseep.ai/app/nkapila6-mcp-local-rag) görebilirsiniz.
@@ -367,7 +367,7 @@ Once loaded, simply ask Claude to search for information and it will automatical
 
 Learn more about Agent Skills at the [Anthropic Skills Repository](https://github.com/anthropics/skills).
 
-See the [skills/README.md](skills/README.md) for detailed usage instructions and skill development guidelines.
+See the [skills/README.md](https://github.com/nkapila6/mcp-local-rag/blob/HEAD/skills/README.md) for detailed usage instructions and skill development guidelines.
 
 # Security audits
 MseeP does security audits on every MCP server, you can see the security audit of this MCP server by clicking [here](https://mseep.ai/app/nkapila6-mcp-local-rag).

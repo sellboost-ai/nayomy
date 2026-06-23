@@ -86,7 +86,7 @@ body_tr: |-
   
   ### CONTEXT.md'yi satır içinde güncelle
   
-  Bir terim çözüldüğünde, hemen orada `CONTEXT.md`'yi güncelle. Bunları toplamayın — çıktığında yakala. [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md) içindeki formatı kullan.
+  Bir terim çözüldüğünde, hemen orada `CONTEXT.md`'yi güncelle. Bunları toplamayın — çıktığında yakala. [CONTEXT-FORMAT.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CONTEXT-FORMAT.md) içindeki formatı kullan.
   
   `CONTEXT.md` uygulama ayrıntılarından tamamen arınmış olmalıdır. `CONTEXT.md`'yi bir spec, taslak pad veya uygulama kararları deposu olarak değerlendirme. Sadece bir glossary'dir.
   
@@ -98,7 +98,7 @@ body_tr: |-
   2. **Context olmadan şaşırtıcı** — gelecekteki bir okuyucu "neden bu şekilde yaptılar?" diye merak edecektir
   3. **Gerçek bir ödünleşimin sonucu** — gerçek alternatifler vardı ve belirli nedenlerle birini seçtiniz
   
-  Üçünden herhangi biri eksikse, ADR'yi atla. [ADR-FORMAT.md](./ADR-FORMAT.md) içindeki formatı kullan.
+  Üçünden herhangi biri eksikse, ADR'yi atla. [ADR-FORMAT.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ADR-FORMAT.md) içindeki formatı kullan.
   
   </supporting-info>
   
@@ -132,9 +132,9 @@ body_tr: |-
   
   ### Referanslar (her kuralın arkasında alıntılar)
   
-  - [`references/ubiquitous_language.md`](references/ubiquitous_language.md) — neden bir glossary kaynak kontrolde olmalı (Evans, Vernon, Khononov, Wlaschin, Brandolini, Avram & Marinescu, Fowler)
-  - [`references/adr_practice.md`](references/adr_practice.md) — ADR ne zaman işine yarar (Nygard, Tyree & Akerman, Zimmermann Y-statements, MADR, ThoughtWorks Radar, adr-tools, Backstage)
-  - [`references/context_md_as_artifact.md`](references/context_md_as_artifact.md) — CONTEXT.md yaşayan bir yapı olarak (Khononov dil kayması, Kernighan adlandırma, BoundedContext bliki, Confluent veri sözleşmeleri, Brandolini EventStorming glossary)
+  - [`references/ubiquitous_language.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ubiquitous_language.md) — neden bir glossary kaynak kontrolde olmalı (Evans, Vernon, Khononov, Wlaschin, Brandolini, Avram & Marinescu, Fowler)
+  - [`references/adr_practice.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/adr_practice.md) — ADR ne zaman işine yarar (Nygard, Tyree & Akerman, Zimmermann Y-statements, MADR, ThoughtWorks Radar, adr-tools, Backstage)
+  - [`references/context_md_as_artifact.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/context_md_as_artifact.md) — CONTEXT.md yaşayan bir yapı olarak (Khononov dil kayması, Kernighan adlandırma, BoundedContext bliki, Confluent veri sözleşmeleri, Brandolini EventStorming glossary)
   
   ### Yardımcı
   
@@ -219,7 +219,7 @@ When the user states how something works, check whether the code agrees. If you 
 
 ### Update CONTEXT.md inline
 
-When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CONTEXT-FORMAT.md).
 
 `CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
@@ -231,7 +231,7 @@ Only offer to create an ADR when all three are true:
 2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ADR-FORMAT.md).
 
 </supporting-info>
 
@@ -265,9 +265,9 @@ The additions below are **not** part of Matt's upstream skill. They operationali
 
 ### References (citations behind each rule)
 
-- [`references/ubiquitous_language.md`](references/ubiquitous_language.md) — why a glossary belongs in source control (Evans, Vernon, Khononov, Wlaschin, Brandolini, Avram & Marinescu, Fowler)
-- [`references/adr_practice.md`](references/adr_practice.md) — when an ADR earns its keep (Nygard, Tyree & Akerman, Zimmermann Y-statements, MADR, ThoughtWorks Radar, adr-tools, Backstage)
-- [`references/context_md_as_artifact.md`](references/context_md_as_artifact.md) — CONTEXT.md as living artifact (Khononov on language drift, Kernighan on naming, BoundedContext bliki, Confluent on data contracts, Brandolini on EventStorming glossary)
+- [`references/ubiquitous_language.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ubiquitous_language.md) — why a glossary belongs in source control (Evans, Vernon, Khononov, Wlaschin, Brandolini, Avram & Marinescu, Fowler)
+- [`references/adr_practice.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/adr_practice.md) — when an ADR earns its keep (Nygard, Tyree & Akerman, Zimmermann Y-statements, MADR, ThoughtWorks Radar, adr-tools, Backstage)
+- [`references/context_md_as_artifact.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/context_md_as_artifact.md) — CONTEXT.md as living artifact (Khononov on language drift, Kernighan on naming, BoundedContext bliki, Confluent on data contracts, Brandolini on EventStorming glossary)
 
 ### Companion
 

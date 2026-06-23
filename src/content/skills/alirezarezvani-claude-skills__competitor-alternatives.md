@@ -173,7 +173,7 @@ body_tr: |-
   ### Geçiş Bölümü
   Ne aktarıldığını, ne yeniden yapılandırılması gerektiğini, sunulan desteği ve geçen müşterilerden alıntıları kapsar.
   
-  **Ayrıntılı şablonlar için**: [references/templates.md](references/templates.md) dosyasına bakın
+  **Ayrıntılı şablonlar için**: [references/templates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/templates.md) dosyasına bakın
   
   ---
   
@@ -189,7 +189,7 @@ body_tr: |-
   - Yaygın şikayetler (incelemelerden)
   - Geçiş notları
   
-  **Veri yapısı ve örnekler için**: [references/content-architecture.md](references/content-architecture.md) dosyasına bakın
+  **Veri yapısı ve örnekler için**: [references/content-architecture.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/content-architecture.md) dosyasına bakın
   
   ---
   
@@ -464,7 +464,7 @@ Be explicit about ideal customer for each option. Honest recommendations build t
 ### Migration Section
 Cover what transfers, what needs reconfiguration, support offered, and quotes from customers who switched.
 
-**For detailed templates**: See [references/templates.md](references/templates.md)
+**For detailed templates**: See [references/templates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/templates.md)
 
 ---
 
@@ -480,7 +480,7 @@ Create a single source of truth for each competitor with:
 - Common complaints (from reviews)
 - Migration notes
 
-**For data structure and examples**: See [references/content-architecture.md](references/content-architecture.md)
+**For data structure and examples**: See [references/content-architecture.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/content-architecture.md)
 
 ---
 

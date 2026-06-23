@@ -963,7 +963,7 @@ Contributions are welcome! Please open an issue to discuss bugs or feature reque
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/xing5/mcp-google-sheets/tree/HEAD/LICENSE) file for details.
 
 ---
 

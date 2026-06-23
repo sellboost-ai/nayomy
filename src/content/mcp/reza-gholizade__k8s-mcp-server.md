@@ -1553,12 +1553,12 @@ Uninstall a Helm release from the Kubernetes cluster.
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+Contributions are welcome! Please see [CONTRIBUTING.md](https://github.com/reza-gholizade/k8s-mcp-server/blob/HEAD/CONTRIBUTING.md) for details on how to contribute to this project.
 
 ## License
 gholizade.net@gmail.com
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/reza-gholizade/k8s-mcp-server/tree/HEAD/LICENSE) file for details.
 
 <a href="https://glama.ai/mcp/servers/@reza-gholizade/k8s-mcp-server">
   

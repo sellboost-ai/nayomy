@@ -195,10 +195,10 @@ body_tr: |-
   
   ## Referanslar
   
-  - [eu_ai_act_titles.md](references/eu_ai_act_titles.md) — Başlıklar I–XII Madde-Madde izlenişi dağıtıcı/sağlayıcı/ithalatçı/distribütör yükümlülük dökümü ile
-  - [high_risk_systems_annex_iii.md](references/high_risk_systems_annex_iii.md) — Ek III 8 kategorisi ayrıntılı + Madde 6(2)–(3) etkileşimi + muafiyet testi
-  - [gpai_obligations.md](references/gpai_obligations.md) — Maddeler 51–55 GPAI yolu + sistematik-risk eşiği + şeffaflık kuralları + Davranış Kuralları durumu
-  - [cross_framework_mapping_ai_act.md](references/cross_framework_mapping_ai_act.md) — AI Yasası ↔ ISO 42001 ↔ NIST AI RMF ↔ GDPR kontrol-seviye eşlemesi
+  - [eu_ai_act_titles.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/eu_ai_act_titles.md) — Başlıklar I–XII Madde-Madde izlenişi dağıtıcı/sağlayıcı/ithalatçı/distribütör yükümlülük dökümü ile
+  - [high_risk_systems_annex_iii.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/high_risk_systems_annex_iii.md) — Ek III 8 kategorisi ayrıntılı + Madde 6(2)–(3) etkileşimi + muafiyet testi
+  - [gpai_obligations.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/gpai_obligations.md) — Maddeler 51–55 GPAI yolu + sistematik-risk eşiği + şeffaflık kuralları + Davranış Kuralları durumu
+  - [cross_framework_mapping_ai_act.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cross_framework_mapping_ai_act.md) — AI Yasası ↔ ISO 42001 ↔ NIST AI RMF ↔ GDPR kontrol-seviye eşlemesi
   
   ---
   
@@ -387,10 +387,10 @@ python scripts/conformity_assessment_planner.py system.json
 
 ## References
 
-- [eu_ai_act_titles.md](references/eu_ai_act_titles.md) — Titles I–XII Article-by-Article walkthrough with deployer/provider/importer/distributor obligation breakdown
-- [high_risk_systems_annex_iii.md](references/high_risk_systems_annex_iii.md) — Annex III 8 categories detailed + Article 6(2)–(3) interaction + carve-out test
-- [gpai_obligations.md](references/gpai_obligations.md) — Articles 51–55 GPAI track + systemic-risk threshold + transparency rules + Code of Practice status
-- [cross_framework_mapping_ai_act.md](references/cross_framework_mapping_ai_act.md) — AI Act ↔ ISO 42001 ↔ NIST AI RMF ↔ GDPR control-level mapping
+- [eu_ai_act_titles.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/eu_ai_act_titles.md) — Titles I–XII Article-by-Article walkthrough with deployer/provider/importer/distributor obligation breakdown
+- [high_risk_systems_annex_iii.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/high_risk_systems_annex_iii.md) — Annex III 8 categories detailed + Article 6(2)–(3) interaction + carve-out test
+- [gpai_obligations.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/gpai_obligations.md) — Articles 51–55 GPAI track + systemic-risk threshold + transparency rules + Code of Practice status
+- [cross_framework_mapping_ai_act.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cross_framework_mapping_ai_act.md) — AI Act ↔ ISO 42001 ↔ NIST AI RMF ↔ GDPR control-level mapping
 
 ---
 

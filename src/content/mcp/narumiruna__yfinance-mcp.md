@@ -293,7 +293,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+  Bu proje [MIT Lisansı](https://github.com/narumiruna/yfinance-mcp/tree/HEAD/LICENSE) altında lisanslanmıştır.
 ---
 
 # Yahoo Finance MCP Server
@@ -634,4 +634,4 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/narumiruna/yfinance-mcp/tree/HEAD/LICENSE).

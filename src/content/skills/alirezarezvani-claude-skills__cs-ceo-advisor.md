@@ -349,15 +349,15 @@ body_tr: |-
   
   ## İlgili Aracılar
   
-  - [cs-cto-advisor](cs-cto-advisor.md) - Teknoloji stratejisi ve mühendislik liderliği (CTO muadili)
-  - [cs-product-manager](../product/cs-product-manager.md) - Ürün stratejisi ve roadmap yürütme (planlı)
-  - [cs-growth-strategist](../business-growth/cs-growth-strategist.md) - Büyüme stratejisi ve pazar genişlemesi (planlı)
+  - [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-cto-advisor.md) - Teknoloji stratejisi ve mühendislik liderliği (CTO muadili)
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) - Ürün stratejisi ve roadmap yürütme (planlı)
+  - [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/business-growth/cs-growth-strategist.md) - Büyüme stratejisi ve pazar genişlemesi (planlı)
   
   ## Referanslar
   
-  - **Skill Dokumentasyonu:** [../../c-level-advisor/skills/ceo-advisor/SKILL.md](../../c-level-advisor/skills/ceo-advisor/SKILL.md)
-  - **C-Level Domain Rehberi:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
-  - **Agent Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
+  - **Skill Dokumentasyonu:** [../../c-level-advisor/skills/ceo-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/skills/ceo-advisor/SKILL.md)
+  - **C-Level Domain Rehberi:** [../../c-level-advisor/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/CLAUDE.md)
+  - **Agent Geliştirme Rehberi:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
   
   ---
   
@@ -702,15 +702,15 @@ esac
 
 ## Related Agents
 
-- [cs-cto-advisor](cs-cto-advisor.md) - Technology strategy and engineering leadership (CTO counterpart)
-- [cs-product-manager](../product/cs-product-manager.md) - Product strategy and roadmap execution (planned)
-- [cs-growth-strategist](../business-growth/cs-growth-strategist.md) - Growth strategy and market expansion (planned)
+- [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-cto-advisor.md) - Technology strategy and engineering leadership (CTO counterpart)
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) - Product strategy and roadmap execution (planned)
+- [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/business-growth/cs-growth-strategist.md) - Growth strategy and market expansion (planned)
 
 ## References
 
-- **Skill Documentation:** [../../c-level-advisor/skills/ceo-advisor/SKILL.md](../../c-level-advisor/skills/ceo-advisor/SKILL.md)
-- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill Documentation:** [../../c-level-advisor/skills/ceo-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/skills/ceo-advisor/SKILL.md)
+- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

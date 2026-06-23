@@ -326,7 +326,7 @@ Add this to your `claude_desktop_config.json`:
 }
 ```
 
-For more detailed examples and agent-specific guidance, see [MCP_USECASES.md](MCP_USECASES.md).
+For more detailed examples and agent-specific guidance, see [MCP_USECASES.md](https://github.com/designcomputer/mysql_mcp_server/blob/HEAD/MCP_USECASES.md).
 
 ### With Visual Studio Code
 Add this to your `mcp.json`:
@@ -409,7 +409,7 @@ pytest
 
   Set `MCP_SSE_HOST=127.0.0.1` so the server only listens on loopback and the proxy is the sole public entry point. Set `MCP_SSE_ALLOWED_HOSTS` to the public hostname your proxy forwards (e.g. `MCP_SSE_ALLOWED_HOSTS=myserver.example.com:443`).
 
-See [SECURITY.md](SECURITY.md) for a comprehensive guide on securing your deployment.
+See [SECURITY.md](https://github.com/designcomputer/mysql_mcp_server/blob/HEAD/SECURITY.md) for a comprehensive guide on securing your deployment.
 
 ## Security Best Practices
 This MCP implementation requires database access to function. For security:

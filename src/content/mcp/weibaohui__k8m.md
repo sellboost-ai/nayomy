@@ -43,7 +43,7 @@ body_tr: |-
   </div>
   
   
-  [English](README_en.md) | [中文](README.md)
+  [English](https://github.com/weibaohui/k8m/blob/HEAD/README_en.md) | [中文](https://github.com/weibaohui/k8m/blob/HEAD/README.md)
   
   
   
@@ -70,8 +70,8 @@ body_tr: |-
   
   ### Belgeler
   
-  - Ayrıntılı yapılandırma ve kullanım talimatları için [belgelendirme](docs/README.md) bölümüne bakın.
-  - Değişiklik günlüğü için [değişiklik günlüğüne](CHANGELOG.md) bakın.
+  - Ayrıntılı yapılandırma ve kullanım talimatları için [belgelendirme](https://github.com/weibaohui/k8m/blob/HEAD/docs/README.md) bölümüne bakın.
+  - Değişiklik günlüğü için [değişiklik günlüğüne](https://github.com/weibaohui/k8m/blob/HEAD/CHANGELOG.md) bakın.
   - [Geliştirme Tasarım Belgesi-Chinese](https://zread.ai/weibaohui/k8m)
   - [Geliştirme Tasarım Belgesi-English](https://deepwiki.com/weibaohui/k8m)
   
@@ -201,8 +201,8 @@ body_tr: |-
   v0.0.8 sürümünden itibaren yerleşik GPT yer alacak, yapılandırma gerekmez.
   Kendi GPT'nizi kullanmak isterseniz, aşağıdaki belgelere bakın.
   
-  - [Kendi Barındırılan/Özel Büyük Model Desteği](docs/use-self-hosted-ai.md) - Kendi Barındırılan Modeli Nasıl Kullanacağınız
-  - [Ollama Yapılandırması](docs/ollama.md) - Ollama Büyük Modeli Nasıl Yapılandıracağınız.
+  - [Kendi Barındırılan/Özel Büyük Model Desteği](https://github.com/weibaohui/k8m/blob/HEAD/docs/use-self-hosted-ai.md) - Kendi Barındırılan Modeli Nasıl Kullanacağınız
+  - [Ollama Yapılandırması](https://github.com/weibaohui/k8m/blob/HEAD/docs/ollama.md) - Ollama Büyük Modeli Nasıl Yapılandıracağınız.
   
   ### **ChatGPT Durumu Hata Ayıklaması**
   
@@ -301,7 +301,7 @@ body_tr: |-
 </div>
 
 
-[English](README_en.md) | [中文](README.md)
+[English](https://github.com/weibaohui/k8m/blob/HEAD/README_en.md) | [中文](https://github.com/weibaohui/k8m/blob/HEAD/README.md)
 
 
 
@@ -331,8 +331,8 @@ Qwen2.5-Coder-7B，支持deepseek-ai/DeepSeek-R1-Distill-Qwen-7B模型
 
 ### 文档
 
-- 详细的配置和使用说明请参考[文档](docs/README.md)。
-- 更新日志请参考[更新日志](CHANGELOG.md)。
+- 详细的配置和使用说明请参考[文档](https://github.com/weibaohui/k8m/blob/HEAD/docs/README.md)。
+- 更新日志请参考[更新日志](https://github.com/weibaohui/k8m/blob/HEAD/CHANGELOG.md)。
 - [开发设计文档-中文](https://zread.ai/weibaohui/k8m)
 - [开发设计文档-English](https://deepwiki.com/weibaohui/k8m)
 
@@ -466,8 +466,8 @@ kubectl apply -f https://raw.githubusercontent.com/weibaohui/k8m/refs/heads/main
 从v0.0.8版本开始，将内置GPT，无需配置。
 如果您需要使用自己的GPT，请参考以下文档。
 
-- [自托管/自定义大模型支持](docs/use-self-hosted-ai.md) - 如何使用自托管的
-- [Ollama配置](docs/ollama.md) - 如何配置使用Ollama大模型。
+- [自托管/自定义大模型支持](https://github.com/weibaohui/k8m/blob/HEAD/docs/use-self-hosted-ai.md) - 如何使用自托管的
+- [Ollama配置](https://github.com/weibaohui/k8m/blob/HEAD/docs/ollama.md) - 如何配置使用Ollama大模型。
 
 ### **ChatGPT 状态调试**
 

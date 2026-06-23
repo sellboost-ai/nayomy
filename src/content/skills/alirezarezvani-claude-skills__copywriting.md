@@ -136,9 +136,9 @@ body_tr: |-
   
   0-100 arasında 6 boyut açısından puan verir (uzunluk, spesifiklik, güç sözcükleri, açıklık, duygusal çekiş, format). 5-10 aday yazın, hepsini puanlayın, ilk 2-3'ü puanları ve boyut dökümü ile sunun — asla 60'ın altında bir başlığı birincil tavsiye olarak sunmayın.
   
-  **Kapsamlı başlık formülleri için**: Bkz. [references/copy-frameworks.md](references/copy-frameworks.md)
+  **Kapsamlı başlık formülleri için**: Bkz. [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/copy-frameworks.md)
   
-  **Doğal geçiş cümleleri için**: Bkz. [references/natural-transitions.md](references/natural-transitions.md)
+  **Doğal geçiş cümleleri için**: Bkz. [references/natural-transitions.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/natural-transitions.md)
   
   **Alt Başlık**
   - Başlığı genişletir
@@ -160,7 +160,7 @@ body_tr: |-
   | İtiraz Yönetimi | SSS, karşılaştırmalar, garantiler |
   | Son CTA | Değeri özetle, CTA'yı tekrar et, risk ters çevir |
   
-  **Ayrıntılı bölüm türleri ve sayfa şablonları için**: Bkz. [references/copy-frameworks.md](references/copy-frameworks.md)
+  **Ayrıntılı bölüm türleri ve sayfa şablonları için**: Bkz. [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/copy-frameworks.md)
   
   ---
   
@@ -432,9 +432,9 @@ python3 scripts/headline_scorer.py --file headlines.txt --json   # batch-score a
 
 It rates 0-100 across 6 dimensions (length, specificity, power words, clarity, emotional pull, format). Write 5-10 candidates, score them all, present the top 2-3 with their scores and dimension breakdowns — never present a sub-60 headline as the primary recommendation.
 
-**For comprehensive headline formulas**: See [references/copy-frameworks.md](references/copy-frameworks.md)
+**For comprehensive headline formulas**: See [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/copy-frameworks.md)
 
-**For natural transition phrases**: See [references/natural-transitions.md](references/natural-transitions.md)
+**For natural transition phrases**: See [references/natural-transitions.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/natural-transitions.md)
 
 **Subheadline**
 - Expands on headline
@@ -456,7 +456,7 @@ It rates 0-100 across 6 dimensions (length, specificity, power words, clarity, e
 | Objection Handling | FAQ, comparisons, guarantees |
 | Final CTA | Recap value, repeat CTA, risk reversal |
 
-**For detailed section types and page templates**: See [references/copy-frameworks.md](references/copy-frameworks.md)
+**For detailed section types and page templates**: See [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/copy-frameworks.md)
 
 ---
 

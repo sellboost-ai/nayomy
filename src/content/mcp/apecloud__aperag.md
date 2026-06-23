@@ -22,13 +22,13 @@ body_tr: |-
   
   ApeRAG, kendi Bilgi Grafiğinizi oluşturmak, Context Engineering yapmak ve bilgi tabanınız üzerinde bağımsız olarak arama yapabilen ve akıl yürütebilen akıllı AI ajanlarını dağıtmak için en iyi seçimdir.
   
-  [阅读中文文档](README-zh.md)
+  [阅读中文文档](https://github.com/apecloud/ApeRAG/blob/HEAD/README-zh.md)
   
   - [Hızlı Başlangıç](#hızlı-başlangıç)
   - [Temel Özellikler](#temel-özellikler)
   - [Kubernetes Dağıtımı (Üretim için Önerilir)](#kubernetes-dağıtımı-üretim-için-önerilir)
-  - [Geliştirme](./docs/en-US/development-guide.md)
-  - [Docker İmajı Oluşturma](./docs/en-US/build-docker-image.md)
+  - [Geliştirme](https://github.com/apecloud/ApeRAG/blob/HEAD/docs/en-US/development-guide.md)
+  - [Docker İmajı Oluşturma](https://github.com/apecloud/ApeRAG/blob/HEAD/docs/en-US/build-docker-image.md)
   - [Teşekkürler](#teşekkürler)
   - [Lisans](#lisans)
   
@@ -109,7 +109,7 @@ body_tr: |-
   
   #### Geliştirme & Katkı
   
-  Kaynak kodu geliştirmesi, gelişmiş konfigürasyonlar veya ApeRAG'a katkı vermekle ilgilenen geliştiriciler için, lütfen ayrıntılı kurulum talimatları için [Geliştirme Rehberimize](./docs/en-US/development-guide.md) bakınız.
+  Kaynak kodu geliştirmesi, gelişmiş konfigürasyonlar veya ApeRAG'a katkı vermekle ilgilenen geliştiriciler için, lütfen ayrıntılı kurulum talimatları için [Geliştirme Rehberimize](https://github.com/apecloud/ApeRAG/blob/HEAD/docs/en-US/development-guide.md) bakınız.
   
   ## Temel Özellikler
   
@@ -247,12 +247,12 @@ body_tr: |-
   - **Yazarlar**: Zirui Guo, Lianghao Xia, Yanhua Yu, Tu Ao, Chao Huang
   - **Lisans**: MIT Lisansı
   
-  LightRAG'ı üretim sınıfı eşzamanlı işleme, dağıtılmış görev kuyrukları (Celery/Prefect) ve durumsuz işlemleri desteklemek için kapsamlı şekilde değiştirdik. Ayrıntılar için [LightRAG değişiklikleri değişim günlüğümüze](./aperag/graph/changelog.md) bakınız.
+  LightRAG'ı üretim sınıfı eşzamanlı işleme, dağıtılmış görev kuyrukları (Celery/Prefect) ve durumsuz işlemleri desteklemek için kapsamlı şekilde değiştirdik. Ayrıntılar için [LightRAG değişiklikleri değişim günlüğümüze](https://github.com/apecloud/ApeRAG/blob/HEAD/aperag/graph/changelog.md) bakınız.
   
   ## Topluluk
   
   * [Discord](https://discord.gg/FsKpXukFuB)
-  * [Feishu](docs%2Fen-US%2Fimages%2Ffeishu-qr-code.png)
+  * [Feishu](https://github.com/apecloud/ApeRAG/blob/HEAD/docs%2Fen-US%2Fimages%2Ffeishu-qr-code.png)
   
   
   
@@ -262,7 +262,7 @@ body_tr: |-
   
   ## Lisans
   
-  ApeRAG, Apache Lisansı 2.0 kapsamında lisanslanmıştır. Ayrıntılar için [LICENSE](./LICENSE) dosyasına bakınız.
+  ApeRAG, Apache Lisansı 2.0 kapsamında lisanslanmıştır. Ayrıntılar için [LICENSE](https://github.com/apecloud/ApeRAG/tree/HEAD/LICENSE) dosyasına bakınız.
 ---
 
 # ApeRAG
@@ -277,13 +277,13 @@ ApeRAG is a production-ready RAG (Retrieval-Augmented Generation) platform that 
 
 ApeRAG is the best choice for building your own Knowledge Graph, Context Engineering, and deploying intelligent AI agents that can autonomously search and reason across your knowledge base.
 
-[阅读中文文档](README-zh.md)
+[阅读中文文档](https://github.com/apecloud/ApeRAG/blob/HEAD/README-zh.md)
 
 - [Quick Start](#quick-start)
 - [Key Features](#key-features)
 - [Kubernetes Deployment (Recommended for Production)](#kubernetes-deployment-recommended-for-production)
-- [Development](./docs/en-US/development-guide.md)
-- [Build Docker Image](./docs/en-US/build-docker-image.md)
+- [Development](https://github.com/apecloud/ApeRAG/blob/HEAD/docs/en-US/development-guide.md)
+- [Build Docker Image](https://github.com/apecloud/ApeRAG/blob/HEAD/docs/en-US/build-docker-image.md)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
 
@@ -364,7 +364,7 @@ make compose-up WITH_DOCRAY=1 WITH_GPU=1
 
 #### Development & Contributing
 
-For developers interested in source code development, advanced configurations, or contributing to ApeRAG, please refer to our [Development Guide](./docs/en-US/development-guide.md) for detailed setup instructions.
+For developers interested in source code development, advanced configurations, or contributing to ApeRAG, please refer to our [Development Guide](https://github.com/apecloud/ApeRAG/blob/HEAD/docs/en-US/development-guide.md) for detailed setup instructions.
 
 ## Key Features
 
@@ -502,12 +502,12 @@ The graph-based knowledge retrieval capabilities in ApeRAG are powered by a deep
 - **Authors**: Zirui Guo, Lianghao Xia, Yanhua Yu, Tu Ao, Chao Huang
 - **License**: MIT License
 
-We have extensively modified LightRAG to support production-grade concurrent processing, distributed task queues (Celery/Prefect), and stateless operations. See our [LightRAG modifications changelog](./aperag/graph/changelog.md) for details.
+We have extensively modified LightRAG to support production-grade concurrent processing, distributed task queues (Celery/Prefect), and stateless operations. See our [LightRAG modifications changelog](https://github.com/apecloud/ApeRAG/blob/HEAD/aperag/graph/changelog.md) for details.
 
 ## Community
 
 * [Discord](https://discord.gg/FsKpXukFuB)
-* [Feishu](docs%2Fen-US%2Fimages%2Ffeishu-qr-code.png)
+* [Feishu](https://github.com/apecloud/ApeRAG/blob/HEAD/docs%2Fen-US%2Fimages%2Ffeishu-qr-code.png)
 
 
 
@@ -517,4 +517,4 @@ We have extensively modified LightRAG to support production-grade concurrent pro
 
 ## License
 
-ApeRAG is licensed under the Apache License 2.0. See the [LICENSE](./LICENSE) file for details.
+ApeRAG is licensed under the Apache License 2.0. See the [LICENSE](https://github.com/apecloud/ApeRAG/tree/HEAD/LICENSE) file for details.

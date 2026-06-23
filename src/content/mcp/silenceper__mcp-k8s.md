@@ -312,7 +312,7 @@ body_tr: |-
   ./test_streamable_http.sh
   ```
   
-  Ayrıntılı test talimatları için bkz. [TEST_STREAMABLE_HTTP.md](./TEST_STREAMABLE_HTTP.md).
+  Ayrıntılı test talimatları için bkz. [TEST_STREAMABLE_HTTP.md](https://github.com/silenceper/mcp-k8s/blob/HEAD/TEST_STREAMABLE_HTTP.md).
   
   ### MCP İstemcileriyle Entegrasyon
   
@@ -630,7 +630,7 @@ To test if Streamable HTTP mode is working correctly, you can use the provided t
 ./test_streamable_http.sh
 ```
 
-For detailed testing instructions, see [TEST_STREAMABLE_HTTP.md](./TEST_STREAMABLE_HTTP.md).
+For detailed testing instructions, see [TEST_STREAMABLE_HTTP.md](https://github.com/silenceper/mcp-k8s/blob/HEAD/TEST_STREAMABLE_HTTP.md).
 
 ### Integration with MCP Clients
 

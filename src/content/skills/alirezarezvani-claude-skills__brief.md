@@ -116,8 +116,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-  - Yetenekler: [`context-engine`](../../../skills/context-engine/SKILL.md), [`board-meeting`](../../../skills/board-meeting/SKILL.md)
+  - Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md)
+  - Yetenekler: [`context-engine`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/context-engine/SKILL.md), [`board-meeting`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/board-meeting/SKILL.md)
   
   ---
   
@@ -231,8 +231,8 @@ This is also the **artifact handoff** — the next command consumes this file, n
 
 ## Related
 
-- Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-- Skills: [`context-engine`](../../../skills/context-engine/SKILL.md), [`board-meeting`](../../../skills/board-meeting/SKILL.md)
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md)
+- Skills: [`context-engine`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/context-engine/SKILL.md), [`board-meeting`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/board-meeting/SKILL.md)
 
 ---
 

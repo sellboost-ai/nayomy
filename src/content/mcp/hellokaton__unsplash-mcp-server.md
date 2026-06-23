@@ -14,7 +14,7 @@ body_tr: |-
   
   # Unsplash MCP Server
   
-  English | [简体中文](README_zh.md)
+  English | [简体中文](https://github.com/hellokaton/unsplash-mcp-server/blob/HEAD/README_zh.md)
   
   > Unsplash görüntü entegrasyonu ve arama özelliklerinin sorunsuz şekilde kullanılması için basit bir MCP server'ı.
   
@@ -134,7 +134,7 @@ body_tr: |-
   
   ## 📄 Lisans
   
-  [MIT License](LICENSE)
+  [MIT License](https://github.com/hellokaton/unsplash-mcp-server/tree/HEAD/LICENSE)
   
   ## 📬 İletişim
   
@@ -146,7 +146,7 @@ body_tr: |-
 
 # Unsplash MCP Server
 
-English | [简体中文](README_zh.md)
+English | [简体中文](https://github.com/hellokaton/unsplash-mcp-server/blob/HEAD/README_zh.md)
 
 > A simple MCP server for seamless Unsplash image integration and search capabilities.
 
@@ -268,7 +268,7 @@ Add the following configuration to your Cursor editor's `settings.json`:
 
 ## 📄 License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/hellokaton/unsplash-mcp-server/tree/HEAD/LICENSE)
 
 ## 📬 Contact
 

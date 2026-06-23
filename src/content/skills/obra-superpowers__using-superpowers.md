@@ -52,7 +52,7 @@ body_tr: |-
   
   ## Platform Uyarlaması
   
-  Beceriler herhangi bir çalışma zamanının araçlarını adlandırmak yerine eylemlerde konuşur ("bir alt-agent gönder", "bir yapılacak oluştur", "bir dosya oku"). Platform başına araç eşdeğerleri ve talimatlar dosyası kuralları için [claude-code-tools.md](references/claude-code-tools.md), [codex-tools.md](references/codex-tools.md), [copilot-tools.md](references/copilot-tools.md), [gemini-tools.md](references/gemini-tools.md), [pi-tools.md](references/pi-tools.md) ve [antigravity-tools.md](references/antigravity-tools.md) bölümlerine bakın. Gemini CLI kullanıcıları GEMINI.md aracılığıyla otomatik olarak araç haritasını yüklenir.
+  Beceriler herhangi bir çalışma zamanının araçlarını adlandırmak yerine eylemlerde konuşur ("bir alt-agent gönder", "bir yapılacak oluştur", "bir dosya oku"). Platform başına araç eşdeğerleri ve talimatlar dosyası kuralları için [claude-code-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/claude-code-tools.md), [codex-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/codex-tools.md), [copilot-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/copilot-tools.md), [gemini-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/gemini-tools.md), [pi-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/pi-tools.md) ve [antigravity-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/antigravity-tools.md) bölümlerine bakın. Gemini CLI kullanıcıları GEMINI.md aracılığıyla otomatik olarak araç haritasını yüklenir.
   
   # Becerileri Kullanma
   
@@ -170,7 +170,7 @@ If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "alw
 
 ## Platform Adaptation
 
-Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") rather than naming any one runtime's tools. For per-platform tool equivalents and instructions-file conventions, see [claude-code-tools.md](references/claude-code-tools.md), [codex-tools.md](references/codex-tools.md), [copilot-tools.md](references/copilot-tools.md), [gemini-tools.md](references/gemini-tools.md), [pi-tools.md](references/pi-tools.md), and [antigravity-tools.md](references/antigravity-tools.md). Gemini CLI users get the tool mapping loaded automatically via GEMINI.md.
+Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") rather than naming any one runtime's tools. For per-platform tool equivalents and instructions-file conventions, see [claude-code-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/claude-code-tools.md), [codex-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/codex-tools.md), [copilot-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/copilot-tools.md), [gemini-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/gemini-tools.md), [pi-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/pi-tools.md), and [antigravity-tools.md](https://github.com/obra/superpowers/blob/HEAD/references/antigravity-tools.md). Gemini CLI users get the tool mapping loaded automatically via GEMINI.md.
 
 # Using Skills
 

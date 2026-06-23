@@ -19,7 +19,7 @@ body_tr: |-
   
     [![Bize Ulaşın](https://img.shields.io/badge/Bize%20Ulaşın-AFF476.svg?style=for-the-badge&logo=mail&logoColor=black)](mailto:hello@themomentum.ai?subject=Apple%20Health%20MCP%20Server%20Inquiry)
     [![Momentum'u Ziyaret Edin](https://img.shields.io/badge/Momentum'u%20Ziyaret%20Edin-1f6ff9.svg?style=for-the-badge&logo=safari&logoColor=white)](https://themomentum.ai)
-    [![MIT Lisansı](https://img.shields.io/badge/License-MIT-636f5a.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+    [![MIT Lisansı](https://img.shields.io/badge/License-MIT-636f5a.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://github.com/the-momentum/apple-health-mcp-server/tree/HEAD/LICENSE)
   
     <a href="https://glama.ai/mcp/servers/@the-momentum/apple-health-mcp-server">
       
@@ -42,7 +42,7 @@ body_tr: |-
   https://github.com/user-attachments/assets/93ddbfb9-6da9-42c1-9872-815abce7e918
   
   
-  Denemeyi istiyorsunuz? **[🚀 Başlangıç](docs/getting-started.md)**
+  Denemeyi istiyorsunuz? **[🚀 Başlangıç](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/getting-started.md)**
   
   ## 🌟 Apple Health MCP Server Neden Kullanılmalı?
   
@@ -63,11 +63,11 @@ body_tr: |-
   
   ## 📚 Dokümantasyon
   
-  - **[🚀 Başlangıç](docs/getting-started.md)** - Tam kurulum rehberi
-  - **[🔍 Hakkında](docs/about.md)** - Detaylı açıklama & mimari
-  - **[🔧 Konfigürasyon](docs/configuration.md)** - Ortam değişkenleri ve ayarlar
-  - **[🛠️ MCP Araçları](docs/mcp-tools.md)** - Tüm mevcut araçlar
-  - **[🗺️ Yol Haritası](docs/roadmap.md)** - Yaklaşan özellikler ve yol haritası
+  - **[🚀 Başlangıç](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/getting-started.md)** - Tam kurulum rehberi
+  - **[🔍 Hakkında](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/about.md)** - Detaylı açıklama & mimari
+  - **[🔧 Konfigürasyon](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/configuration.md)** - Ortam değişkenleri ve ayarlar
+  - **[🛠️ MCP Araçları](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/mcp-tools.md)** - Tüm mevcut araçlar
+  - **[🗺️ Yol Haritası](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/roadmap.md)** - Yaklaşan özellikler ve yol haritası
   
   **Yardıma mı ihtiyacınız var?** Kullanım durumları veya uygulama konusunda rehberlik mi arıyorsunuz? [GitHub tartışma forumunda](https://github.com/the-momentum/apple-health-mcp-server/discussions) sorularınızı sormaktan çekinmeyin! Orada ayrıca ilginç kullanım durumları, ipuçları ve topluluk içgörülerini bulacaksınız.
   
@@ -99,7 +99,7 @@ body_tr: |-
 
   [![Contact us](https://img.shields.io/badge/Contact%20us-AFF476.svg?style=for-the-badge&logo=mail&logoColor=black)](mailto:hello@themomentum.ai?subject=Apple%20Health%20MCP%20Server%20Inquiry)
   [![Visit Momentum](https://img.shields.io/badge/Visit%20Momentum-1f6ff9.svg?style=for-the-badge&logo=safari&logoColor=white)](https://themomentum.ai)
-  [![MIT License](https://img.shields.io/badge/License-MIT-636f5a.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+  [![MIT License](https://img.shields.io/badge/License-MIT-636f5a.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://github.com/the-momentum/apple-health-mcp-server/tree/HEAD/LICENSE)
 
   <a href="https://glama.ai/mcp/servers/@the-momentum/apple-health-mcp-server">
     
@@ -122,7 +122,7 @@ This demo shows how Claude uses the `apple-health-mcp-server` to answer question
 https://github.com/user-attachments/assets/93ddbfb9-6da9-42c1-9872-815abce7e918
 
 
-Want to try it out? **[🚀 Getting Started](docs/getting-started.md)**
+Want to try it out? **[🚀 Getting Started](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/getting-started.md)**
 
 ## 🌟 Why to use Apple Health MCP Server?
 
@@ -143,11 +143,11 @@ Want to try it out? **[🚀 Getting Started](docs/getting-started.md)**
 
 ## 📚 Documentation
 
-- **[🚀 Getting Started](docs/getting-started.md)** - Complete setup guide
-- **[🔍 About](docs/about.md)** - Detailed description & architecture
-- **[🔧 Configuration](docs/configuration.md)** - Environment variables and settings
-- **[🛠️ MCP Tools](docs/mcp-tools.md)** - All available tools
-- **[🗺️ Roadmap](docs/roadmap.md)** - Upcoming features and roadmap
+- **[🚀 Getting Started](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/getting-started.md)** - Complete setup guide
+- **[🔍 About](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/about.md)** - Detailed description & architecture
+- **[🔧 Configuration](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/configuration.md)** - Environment variables and settings
+- **[🛠️ MCP Tools](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/mcp-tools.md)** - All available tools
+- **[🗺️ Roadmap](https://github.com/the-momentum/apple-health-mcp-server/blob/HEAD/docs/roadmap.md)** - Upcoming features and roadmap
 
 **Need help?** Looking for guidance on use cases or implementation? Don't hesitate to ask your question in our [GitHub discussion forum](https://github.com/the-momentum/apple-health-mcp-server/discussions)! You'll also find interesting use cases, tips, and community insights there.
 

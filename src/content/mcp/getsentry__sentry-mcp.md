@@ -95,7 +95,7 @@ body_tr: |-
   MCP_DISABLE_SKILLS=          # Belirli becerileri devre dışı bırakın (virgülle ayrılmış, örn. 'seer')
   ```
   
-  **Önemli:** LLM sağlayıcınızı açıkça belirtmek için her zaman `EMBEDDED_AGENT_PROVIDER` ayarlayın. Yalnızca API anahtarlarına dayalı otomatik algılama kullanımdan kaldırılmıştır ve gelecekteki bir sürümde kaldırılacaktır. Ayrıntılı yapılandırma seçenekleri için [docs/embedded-agents.md](docs/embedded-agents.md) bölümüne bakın.
+  **Önemli:** LLM sağlayıcınızı açıkça belirtmek için her zaman `EMBEDDED_AGENT_PROVIDER` ayarlayın. Yalnızca API anahtarlarına dayalı otomatik algılama kullanımdan kaldırılmıştır ve gelecekteki bir sürümde kaldırılacaktır. Ayrıntılı yapılandırma seçenekleri için [docs/embedded-agents.md](https://github.com/getsentry/sentry-mcp/blob/HEAD/docs/embedded-agents.md) bölümüne bakın.
   
   #### Örnek MCP Yapılandırması
   
@@ -347,7 +347,7 @@ SENTRY_HOST=                 # For self-hosted deployments
 MCP_DISABLE_SKILLS=          # Disable specific skills (comma-separated, e.g. 'seer')
 ```
 
-**Important:** Always set `EMBEDDED_AGENT_PROVIDER` to explicitly specify your LLM provider. Auto-detection based on API keys alone is deprecated and will be removed in a future release. See [docs/operations/embedded-agents.md](docs/operations/embedded-agents.md) for detailed configuration options.
+**Important:** Always set `EMBEDDED_AGENT_PROVIDER` to explicitly specify your LLM provider. Auto-detection based on API keys alone is deprecated and will be removed in a future release. See [docs/operations/embedded-agents.md](https://github.com/getsentry/sentry-mcp/blob/HEAD/docs/operations/embedded-agents.md) for detailed configuration options.
 
 #### Example MCP Configuration
 

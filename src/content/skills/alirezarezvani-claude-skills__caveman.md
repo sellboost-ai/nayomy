@@ -16,7 +16,7 @@ related_files: []
 body_tr: |-
   # Caveman Mode
   
-  > [Matt Pocock's caveman](https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman) (MIT) kaynağından. Matt'in sesi aynen korunmuş. Eklentiler: sıkıştırma araçları + referanslar + cs-* wrapper (bkz. [references/companion_tooling.md](references/companion_tooling.md)).
+  > [Matt Pocock's caveman](https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman) (MIT) kaynağından. Matt'in sesi aynen korunmuş. Eklentiler: sıkıştırma araçları + referanslar + cs-* wrapper (bkz. [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md)).
   
   Akıllı mağara adamı gibi kısa konuş. Tüm teknik içerik kal. Sadece dolgu ölsün.
   
@@ -61,7 +61,7 @@ body_tr: |-
   
   ## Araçlar
   
-  Bkz. [references/companion_tooling.md](references/companion_tooling.md). Araçlar: compressor + estimator + lint. Agent: `cs-caveman-mode`. Komut: `/cs:caveman`.
+  Bkz. [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md). Araçlar: compressor + estimator + lint. Agent: `cs-caveman-mode`. Komut: `/cs:caveman`.
   
   ---
   
@@ -71,7 +71,7 @@ body_tr: |-
 
 # Caveman Mode
 
-> Derived from [Matt Pocock's caveman](https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman) (MIT). Matt's voice preserved verbatim. Additions: compression tools + references + cs-* wrapper (see [references/companion_tooling.md](references/companion_tooling.md)).
+> Derived from [Matt Pocock's caveman](https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman) (MIT). Matt's voice preserved verbatim. Additions: compression tools + references + cs-* wrapper (see [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md)).
 
 Respond terse like smart caveman. All technical substance stay. Only fluff die.
 
@@ -116,7 +116,7 @@ Example -- destructive op:
 
 ## Tooling
 
-See [references/companion_tooling.md](references/companion_tooling.md). Tools: compressor + estimator + lint. Agent: `cs-caveman-mode`. Command: `/cs:caveman`.
+See [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md). Tools: compressor + estimator + lint. Agent: `cs-caveman-mode`. Command: `/cs:caveman`.
 
 ---
 

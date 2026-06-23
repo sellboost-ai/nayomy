@@ -764,7 +764,7 @@ To help us understand which features are most popular and fix bugs faster, we've
 
 ## ⚙️ Configuring the Server
 
-The server can be configured using a `config.toml` file in the current directory. The file is created automatically during installation with default values. You can customize the default tool parameters in this file. More in [CONFIG.md](CONFIG.md).
+The server can be configured using a `config.toml` file in the current directory. The file is created automatically during installation with default values. You can customize the default tool parameters in this file. More in [CONFIG.md](https://github.com/sunriseapps/imagesorcery-mcp/blob/HEAD/CONFIG.md).
 
 ## 🤝 Contributing
 <details>

@@ -210,7 +210,7 @@ body_tr: |-
   
   ## Lisans
   
-  Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Ayrıntılar için [LICENSE](https://github.com/mark3labs/mcp-filesystem-server/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # MCP Filesystem Server
@@ -413,4 +413,4 @@ If you need changes made inside the container to reflect on the host filesystem,
 
 ## License
 
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](https://github.com/mark3labs/mcp-filesystem-server/tree/HEAD/LICENSE) file for details.

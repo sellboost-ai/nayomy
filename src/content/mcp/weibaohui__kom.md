@@ -13,7 +13,7 @@ homepage: "https://github.com/weibaohui/kom"
 body_tr: |-
   # Kom - Kubernetes Operations Manager
   
-  [English](README_en.md) | [中文](README.md)
+  [English](https://github.com/weibaohui/kom/blob/HEAD/README_en.md) | [中文](https://github.com/weibaohui/kom/blob/HEAD/README.md)
   [![kom](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://github.com/weibaohui/kom/blob/master/LICENSE)
   [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fweibaohui%2Fkom.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fweibaohui%2Fkom?ref=badge_shield)
   
@@ -485,7 +485,7 @@ body_tr: |-
 
 # Kom - Kubernetes Operations Manager
 
-[English](README_en.md) | [中文](README.md)
+[English](https://github.com/weibaohui/kom/blob/HEAD/README_en.md) | [中文](https://github.com/weibaohui/kom/blob/HEAD/README.md)
 [![kom](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://github.com/weibaohui/kom/blob/master/LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fweibaohui%2Fkom.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fweibaohui%2Fkom?ref=badge_shield)
 

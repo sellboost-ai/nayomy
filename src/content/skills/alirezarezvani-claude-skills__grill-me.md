@@ -16,7 +16,7 @@ related_files: []
 body_tr: |-
   # Grill Me
   
-  > [Matt Pocock's grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) projesinden türetilmiştir (MIT). Matt'in mülakatçılık disiplini aynen korunmuştur. Eklentiler: extraction + question + session tools + references + cs-* wrapper (bkz. [references/companion_tooling.md](references/companion_tooling.md)).
+  > [Matt Pocock's grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) projesinden türetilmiştir (MIT). Matt'in mülakatçılık disiplini aynen korunmuştur. Eklentiler: extraction + question + session tools + references + cs-* wrapper (bkz. [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md)).
   
   Bu planın her yönü hakkında emiksiz sorgula, ta ki ortak bir anlayışa ulaşana kadar. Tasarım ağacının her dalını gez, kararlar arasındaki bağımlılıkları teker teker çöz. Her soru için önerilen cevabını sağla.
   
@@ -54,7 +54,7 @@ body_tr: |-
   
   ## Araçlar
   
-  Bkz. [references/companion_tooling.md](references/companion_tooling.md). Araçlar: extractor + generator + tracker. Agent: `cs-grill-master`. Komut: `/cs:grill-me`.
+  Bkz. [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md). Araçlar: extractor + generator + tracker. Agent: `cs-grill-master`. Komut: `/cs:grill-me`.
   
   ---
   
@@ -64,7 +64,7 @@ body_tr: |-
 
 # Grill Me
 
-> Derived from [Matt Pocock's grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) (MIT). Matt's interview discipline preserved verbatim. Additions: extraction + question + session tools + references + cs-* wrapper (see [references/companion_tooling.md](references/companion_tooling.md)).
+> Derived from [Matt Pocock's grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) (MIT). Matt's interview discipline preserved verbatim. Additions: extraction + question + session tools + references + cs-* wrapper (see [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md)).
 
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
@@ -102,7 +102,7 @@ Recommended answer: [your call + 1-sentence rationale]
 
 ## Tooling
 
-See [references/companion_tooling.md](references/companion_tooling.md). Tools: extractor + generator + tracker. Agent: `cs-grill-master`. Command: `/cs:grill-me`.
+See [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/companion_tooling.md). Tools: extractor + generator + tracker. Agent: `cs-grill-master`. Command: `/cs:grill-me`.
 
 ---
 

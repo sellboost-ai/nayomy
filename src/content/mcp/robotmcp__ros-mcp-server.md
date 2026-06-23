@@ -72,7 +72,7 @@ body_tr: |-
   
   ## 🛠 Başlarken
   
-  Başlamak için [kurulum kılavuzunu](docs/install/installation.md) izleyin.
+  Başlamak için [kurulum kılavuzunu](https://github.com/robotmcp/ros-mcp-server/blob/HEAD/docs/install/installation.md) izleyin.
   
   ROS-MCP, Claude Code, Codex CLI, Gemini CLI, Claude Desktop, ChatGPT, Cursor veya herhangi bir MCP uyumlu istemciyle çalışır.
   
@@ -84,7 +84,7 @@ body_tr: |-
   
   ## 📚 Daha Fazla Örnek ve Öğreticiler
   
-  Server'ı çalışır halde görmek için [örneklerimize](examples) göz atın.
+  Server'ı çalışır halde görmek için [örneklerimize](https://github.com/robotmcp/ros-mcp-server/tree/HEAD/examples) göz atın.
   Yeni örnekler ve entegrasyonlar ile topluluk PR'lerini bekliyoruz!
   
   ---
@@ -96,13 +96,13 @@ body_tr: |-
   - Yeni özellikler (örneğin, Action desteği, izinler)
   - Ek örnekler ve öğreticiler
   
-  [Katkı kılavuzuna](docs/contributing.md) göz atın ve başlamak için **good first issue** etiketli sorunları görün.
+  [Katkı kılavuzuna](https://github.com/robotmcp/ros-mcp-server/blob/HEAD/docs/contributing.md) göz atın ve başlamak için **good first issue** etiketli sorunları görün.
   
   ---
   
   ## 📜 Lisans
   
-  Bu proje [Apache License 2.0](LICENSE) altında lisanslanmıştır.
+  Bu proje [Apache License 2.0](https://github.com/robotmcp/ros-mcp-server/tree/HEAD/LICENSE) altında lisanslanmıştır.
 ---
 
 # ROS MCP Server 🧠⇄🤖
@@ -179,7 +179,7 @@ The MCP server connects Claude to a simulated Unitree Go2 quadruped in NVIDIA Is
 
 ## 🛠 Getting Started
 
-Follow the [installation guide](docs/install/installation.md) to get started.
+Follow the [installation guide](https://github.com/robotmcp/ros-mcp-server/blob/HEAD/docs/install/installation.md) to get started.
 
 ROS-MCP works with Claude Code, Codex CLI, Gemini CLI, Claude Desktop, ChatGPT, Cursor, or any MCP-compatible client.
 
@@ -191,7 +191,7 @@ ROS-MCP works with Claude Code, Codex CLI, Gemini CLI, Claude Desktop, ChatGPT, 
 
 ## 📚 More Examples & Tutorials  
 
-Browse our [examples](examples) to see the server in action.  
+Browse our [examples](https://github.com/robotmcp/ros-mcp-server/tree/HEAD/examples) to see the server in action.  
 We welcome community PRs with new examples and integrations!  
 
 ---
@@ -203,10 +203,10 @@ We love contributions of all kinds:
 - New features (e.g., Action support, permissions)  
 - Additional examples and tutorials  
 
-Check out the [contributing guidelines](docs/contributing.md) and see issues tagged **good first issue** to get started.  
+Check out the [contributing guidelines](https://github.com/robotmcp/ros-mcp-server/blob/HEAD/docs/contributing.md) and see issues tagged **good first issue** to get started.  
 
 ---
 
 ## 📜 License  
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/robotmcp/ros-mcp-server/tree/HEAD/LICENSE).

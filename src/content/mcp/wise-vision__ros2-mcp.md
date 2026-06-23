@@ -110,14 +110,14 @@ body_tr: |-
   
   # ⚙️ Kurulum
   
-  Adım adım talimatlar için [kurulum kılavuzunu](installation/README.md) izleyin:
-  - [🧩 Visual Studio Code Copilot'a Yükle](installation/README.md#configure-visual-studio-code-copilot)
-  - [🤖 Claude Desktop'a Yükle](installation/README.md#configure-claude-desktop)
-  - [💻 Warp'a Yükle](installation/README.md#configure-warp)
-  - [🐳 Docker Görüntüsünü Yerel Olarak Oluştur](installation/README.md#build-docker-image-locally)
+  Adım adım talimatlar için [kurulum kılavuzunu](https://github.com/wise-vision/ros2_mcp/blob/HEAD/installation/README.md) izleyin:
+  - [🧩 Visual Studio Code Copilot'a Yükle](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#configure-visual-studio-code-copilot)
+  - [🤖 Claude Desktop'a Yükle](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#configure-claude-desktop)
+  - [💻 Warp'a Yükle](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#configure-warp)
+  - [🐳 Docker Görüntüsünü Yerel Olarak Oluştur](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#build-docker-image-locally)
   
   ## 💡 Simülasyonda denemek istiyorum musunuz?
-  [Gazebo İnsansız Hava Aracı Demo bölümünü kontrol edin](docs/DEMO_DRONE.md)
+  [Gazebo İnsansız Hava Aracı Demo bölümünü kontrol edin](https://github.com/wise-vision/ros2_mcp/blob/HEAD/docs/DEMO_DRONE.md)
   
   
   
@@ -274,14 +274,14 @@ Feel free to contribute or reach out for support! Write issues, submit PRs, or j
 
 # ⚙️ Installation
 
-Follow the [installation guide](installation/README.md) for step-by-step instructions:
-- [🧩 Install in Visual Studio Code Copilot](installation/README.md#configure-visual-studio-code-copilot)
-- [🤖 Install in Claude Desktop](installation/README.md#configure-claude-desktop)
-- [💻 Install in Warp](installation/README.md#configure-warp)
-- [🐳 Build Docker Image locally](installation/README.md#build-docker-image-locally)
+Follow the [installation guide](https://github.com/wise-vision/ros2_mcp/blob/HEAD/installation/README.md) for step-by-step instructions:
+- [🧩 Install in Visual Studio Code Copilot](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#configure-visual-studio-code-copilot)
+- [🤖 Install in Claude Desktop](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#configure-claude-desktop)
+- [💻 Install in Warp](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#configure-warp)
+- [🐳 Build Docker Image locally](https://github.com/wise-vision/ros2_mcp/tree/HEAD/installation/README.md#build-docker-image-locally)
 
 ## 💡 Want to try it in simulation?
-[Check out the Gazebo Drone Demo section](docs/DEMO_DRONE.md)
+[Check out the Gazebo Drone Demo section](https://github.com/wise-vision/ros2_mcp/blob/HEAD/docs/DEMO_DRONE.md)
 
 
 

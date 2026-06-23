@@ -37,7 +37,7 @@ body_tr: |-
   [![YouTube CLI, MCP server, Skill and Agent - AI-powered toolkit that grows YouTube channel on autopilot | Product
   Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1138118&theme=light)](https://www.producthunt.com/products/yutu?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-youtube-cli-mcp-server-skill-and-agent)
   
-  `yutu`, YouTube'u otomatikleştirmek için bir CLI, MCP sunucusu ve AI ajanıdır — videoları yükleme ve optimize etmekten yorum, çalma listeleri ve kanal markası yönetimine kadar — daha az manuel çaba ile daha fazla görüntülenme, daha yüksek tıklama oranları ve daha güçlü izleyici katılımı elde etmenizi sağlar. [中文文档](./README_zh.md)
+  `yutu`, YouTube'u otomatikleştirmek için bir CLI, MCP sunucusu ve AI ajanıdır — videoları yükleme ve optimize etmekten yorum, çalma listeleri ve kanal markası yönetimine kadar — daha az manuel çaba ile daha fazla görüntülenme, daha yüksek tıklama oranları ve daha güçlü izleyici katılımı elde etmenizi sağlar. [中文文档](https://github.com/eat-pray-ai/yutu/blob/HEAD/README_zh.md)
   
   [![mcp demo](https://raw.githubusercontent.com/eat-pray-ai/yutu/HEAD/assets/mcp-demo.gif)](https://asciinema.org/a/wXIHU4ciFBAKrHfaFNkMoIs12)
   
@@ -265,7 +265,7 @@ body_tr: |-
   ❯ npx skills add https://github.com/eat-pray-ai/yutu/tree/main/skills/youtube
   ```
   
-  Desteklenen işlemlerin tam listesi için [skills/youtube/SKILL.md](skills/youtube/SKILL.md) dosyasına bakın.
+  Desteklenen işlemlerin tam listesi için [skills/youtube/SKILL.md](https://github.com/eat-pray-ai/yutu/blob/HEAD/skills/youtube/SKILL.md) dosyasına bakın.
   
   ## Kullanım
   
@@ -321,11 +321,11 @@ body_tr: |-
   
   ## Özellikler
   
-  Daha fazla bilgi için [FEATURES.md](docs/FEATURES.md) dosyasına bakın.
+  Daha fazla bilgi için [FEATURES.md](https://github.com/eat-pray-ai/yutu/blob/HEAD/docs/FEATURES.md) dosyasına bakın.
   
   ## Katkıda Bulunma
   
-  Daha fazla bilgi için [CONTRIBUTING.md](docs/CONTRIBUTING.md) dosyasına bakın.
+  Daha fazla bilgi için [CONTRIBUTING.md](https://github.com/eat-pray-ai/yutu/blob/HEAD/docs/CONTRIBUTING.md) dosyasına bakın.
   
   ## Star Geçmişi
   
@@ -358,7 +358,7 @@ body_tr: |-
 [![YouTube CLI, MCP server, Skill and Agent - AI-powered toolkit that grows YouTube channel on autopilot | Product
 Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1138118&theme=light)](https://www.producthunt.com/products/yutu?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-youtube-cli-mcp-server-skill-and-agent)
 
-`yutu` is a CLI, MCP server, and AI agent for YouTube that automates your entire YouTube workflow — from uploading and optimizing videos to managing comments, playlists, and channel branding — so you can get more views, higher click-through rates, and stronger audience engagement with less manual effort. [中文文档](./README_zh.md)
+`yutu` is a CLI, MCP server, and AI agent for YouTube that automates your entire YouTube workflow — from uploading and optimizing videos to managing comments, playlists, and channel branding — so you can get more views, higher click-through rates, and stronger audience engagement with less manual effort. [中文文档](https://github.com/eat-pray-ai/yutu/blob/HEAD/README_zh.md)
 
 [![mcp demo](https://raw.githubusercontent.com/eat-pray-ai/yutu/HEAD/assets/mcp-demo.gif)](https://asciinema.org/a/wXIHU4ciFBAKrHfaFNkMoIs12)
 
@@ -642,7 +642,7 @@ Add the following to your MCP settings. Remember to replace the values of `YUTU_
 ❯ npx skills add https://github.com/eat-pray-ai/yutu/tree/main/skills/youtube
 ```
 
-See [skills/youtube/SKILL.md](skills/youtube/SKILL.md) for the full list of supported operations.
+See [skills/youtube/SKILL.md](https://github.com/eat-pray-ai/yutu/blob/HEAD/skills/youtube/SKILL.md) for the full list of supported operations.
 
 ## Usage
 
@@ -699,11 +699,11 @@ Use "yutu [command] --help" for more information about a command.
 
 ## Features
 
-Please refer to [FEATURES.md](docs/FEATURES.md) for more information.
+Please refer to [FEATURES.md](https://github.com/eat-pray-ai/yutu/blob/HEAD/docs/FEATURES.md) for more information.
 
 ## Contributing
 
-Please refer to [CONTRIBUTING.md](docs/CONTRIBUTING.md) for more information.
+Please refer to [CONTRIBUTING.md](https://github.com/eat-pray-ai/yutu/blob/HEAD/docs/CONTRIBUTING.md) for more information.
 
 ## Star History
 

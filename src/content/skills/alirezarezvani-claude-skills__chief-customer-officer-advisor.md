@@ -200,10 +200,10 @@ body_tr: |-
   
   ## Referanslar
   
-  - [retention_decomposition.md](references/retention_decomposition.md) — GRR vs NRR dürüst matematik + 7-kategori churn taksonomisi + öncü gösterge oyun kitabı
-  - [customer_segmentation_strategy.md](references/customer_segmentation_strategy.md) — 4-tier framework + ICP fit puanlaması + tier geçiş tetikleyicileri + kill list kriterleri
-  - [cs_coverage_model.md](references/cs_coverage_model.md) — Coverage modeli kararı (tech-touch / pooled / named / named+exec) + ratio benchmark'leri + manager-tetikleyici
-  - [cs_team_org_evolution.md](references/cs_team_org_evolution.md) — Stage-to-role haritası + 6-role tanımı tablosu (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split kararı + anti-pattern'ler
+  - [retention_decomposition.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/retention_decomposition.md) — GRR vs NRR dürüst matematik + 7-kategori churn taksonomisi + öncü gösterge oyun kitabı
+  - [customer_segmentation_strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/customer_segmentation_strategy.md) — 4-tier framework + ICP fit puanlaması + tier geçiş tetikleyicileri + kill list kriterleri
+  - [cs_coverage_model.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cs_coverage_model.md) — Coverage modeli kararı (tech-touch / pooled / named / named+exec) + ratio benchmark'leri + manager-tetikleyici
+  - [cs_team_org_evolution.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cs_team_org_evolution.md) — Stage-to-role haritası + 6-role tanımı tablosu (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split kararı + anti-pattern'ler
   
   ---
   
@@ -398,10 +398,10 @@ python scripts/cs_coverage_calculator.py book.json
 
 ## References
 
-- [retention_decomposition.md](references/retention_decomposition.md) — GRR vs NRR honest math + 7-category churn taxonomy + leading indicator playbook
-- [customer_segmentation_strategy.md](references/customer_segmentation_strategy.md) — 4-tier framework + ICP fit scoring + tier transition triggers + kill list criteria
-- [cs_coverage_model.md](references/cs_coverage_model.md) — Coverage model decision (tech-touch / pooled / named / named+exec) + ratio benchmarks + manager-trigger
-- [cs_team_org_evolution.md](references/cs_team_org_evolution.md) — Stage-to-role map + 6-role definition table (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split decision + anti-patterns
+- [retention_decomposition.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/retention_decomposition.md) — GRR vs NRR honest math + 7-category churn taxonomy + leading indicator playbook
+- [customer_segmentation_strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/customer_segmentation_strategy.md) — 4-tier framework + ICP fit scoring + tier transition triggers + kill list criteria
+- [cs_coverage_model.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cs_coverage_model.md) — Coverage model decision (tech-touch / pooled / named / named+exec) + ratio benchmarks + manager-trigger
+- [cs_team_org_evolution.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/cs_team_org_evolution.md) — Stage-to-role map + 6-role definition table (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split decision + anti-patterns
 
 ---
 

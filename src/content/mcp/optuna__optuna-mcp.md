@@ -251,7 +251,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT Lisansı ([LICENSE](./LICENSE) dosyasına bakınız).
+  MIT Lisansı ([LICENSE](https://github.com/optuna/optuna-mcp/tree/HEAD/LICENSE) dosyasına bakınız).
 ---
 
 # Optuna MCP Server
@@ -497,4 +497,4 @@ Check out [examples/auto-matplotlib](https://github.com/optuna/optuna-mcp/tree/m
 
 ## License
 
-MIT License (see [LICENSE](./LICENSE)).
+MIT License (see [LICENSE](https://github.com/optuna/optuna-mcp/tree/HEAD/LICENSE)).

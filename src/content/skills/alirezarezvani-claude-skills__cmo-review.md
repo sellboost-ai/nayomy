@@ -103,8 +103,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-cmo-advisor`](../../agents/cs-cmo-advisor.md)
-  - Skill: [`cmo-advisor`](../../../skills/cmo-advisor/SKILL.md)
+  - Agent: [`cs-cmo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cmo-advisor.md)
+  - Skill: [`cmo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cmo-advisor/SKILL.md)
   - Execution domain: `../../../../marketing-skill/`
   
   ---
@@ -201,8 +201,8 @@ One-sentence statement: <here>
 
 ## Related
 
-- Agent: [`cs-cmo-advisor`](../../agents/cs-cmo-advisor.md)
-- Skill: [`cmo-advisor`](../../../skills/cmo-advisor/SKILL.md)
+- Agent: [`cs-cmo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cmo-advisor.md)
+- Skill: [`cmo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cmo-advisor/SKILL.md)
 - Execution domain: `../../../../marketing-skill/`
 
 ---

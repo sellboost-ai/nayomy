@@ -206,9 +206,9 @@ body_tr: |-
   
   Bu proje, OpenAPI belirtimini TypeScript koduna dönüştürmek için Claude modelini ve Cline uzantısını kullanır, MCP sunucusu içinde tür güvenliğini ve entegrasyonu artırır.
   
-  Bu GitHub projesi, Postman platformunu programlı şekilde kullanma konusunda ayrıntılı rehberlik sağlayan [API Referansları belgelerine](docs/api/references/README.md) sahiptir. Hem yerel geliştirme için Collection SDK'sini hem de bulut platformu entegrasyonu için Postman API'sini kapsar. Temel konular kimlik doğrulama mekanizmaları, hız sınırları ve çalışma alanları, koleksiyonlar, ortamlar, mock sunucuları, monitörler ve daha fazlasını kapsayan tüm API endpoint'lerinin ayrıntılı belgeleri içerir. Ayrıca rehber, sorunsuz API etkileşimlerini kolaylaştırmak için ön koşullar ve hızlı başlangıç talimatları sunmaktadır.
+  Bu GitHub projesi, Postman platformunu programlı şekilde kullanma konusunda ayrıntılı rehberlik sağlayan [API Referansları belgelerine](https://github.com/delano/postman-mcp-server/blob/HEAD/docs/api/references/README.md) sahiptir. Hem yerel geliştirme için Collection SDK'sini hem de bulut platformu entegrasyonu için Postman API'sini kapsar. Temel konular kimlik doğrulama mekanizmaları, hız sınırları ve çalışma alanları, koleksiyonlar, ortamlar, mock sunucuları, monitörler ve daha fazlasını kapsayan tüm API endpoint'lerinin ayrıntılı belgeleri içerir. Ayrıca rehber, sorunsuz API etkileşimlerini kolaylaştırmak için ön koşullar ve hızlı başlangıç talimatları sunmaktadır.
   
-  `docs/api/summaries` dizini Postman API'nin kapsamlı Markdown özetlerini içerir. Bu belgeler API endpoint'lerini, istek/yanıt formatlarını ve MCP sunucusunun işlevselliğini doğrulamak ve sağlamak için gerekli olan uygulama ayrıntılarını ana hatlarıyla sunmaktadır. Belge yapısı ve uygulama stratejilerine genel bir bakış için [API Özetleri README](docs/api/summaries/README.md) dosyasına bakınız.
+  `docs/api/summaries` dizini Postman API'nin kapsamlı Markdown özetlerini içerir. Bu belgeler API endpoint'lerini, istek/yanıt formatlarını ve MCP sunucusunun işlevselliğini doğrulamak ve sağlamak için gerekli olan uygulama ayrıntılarını ana hatlarıyla sunmaktadır. Belge yapısı ve uygulama stratejilerine genel bir bakış için [API Özetleri README](https://github.com/delano/postman-mcp-server/blob/HEAD/docs/api/summaries/README.md) dosyasına bakınız.
   
   #### OpenAPI Spec'i TypeScript Koduna Claude ile Dönüştürme
   
@@ -216,7 +216,7 @@ body_tr: |-
   
   #### MCP Sunucusunu Oluşturma
   
-  MCP sunucu handler'larını uygulamaya ilişkin ayrıntılı belirtimler için [Handlers Belgelerine](src/handlers/README.md) bakınız. Bu, URI formatlarını, prompt gereksinimlerini ve kaynak yönetimi kalıplarını içerir. Bu rehber, Postman API işlevselliklerini MCP sunucusu içinde entegre etme ve geliştirme üzerinde çalışan geliştiriciler için çok önemlidir.
+  MCP sunucu handler'larını uygulamaya ilişkin ayrıntılı belirtimler için [Handlers Belgelerine](https://github.com/delano/postman-mcp-server/blob/HEAD/src/handlers/README.md) bakınız. Bu, URI formatlarını, prompt gereksinimlerini ve kaynak yönetimi kalıplarını içerir. Bu rehber, Postman API işlevselliklerini MCP sunucusu içinde entegre etme ve geliştirme üzerinde çalışan geliştiriciler için çok önemlidir.
   
   
   ---
@@ -288,7 +288,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](LICENSE) dosyasına bakınız.
+  Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](https://github.com/delano/postman-mcp-server/tree/HEAD/LICENSE) dosyasına bakınız.
 ---
 
 # Postman MCP Server
@@ -486,9 +486,9 @@ The official [Postman API documentation](https://learning.postman.com/docs/devel
 
 This project leverages the Claude model and Cline extension to convert the OpenAPI specification into TypeScript code, enhancing type safety and integration within the MCP server.
 
-This GitHub project includes [API References documentation](docs/api/references/README.md) that provides detailed guidance on utilizing the Postman platform programmatically. It covers both the Collection SDK for local development and the Postman API for cloud platform integration. Key topics include authentication mechanisms, rate limits, and in-depth documentation of all API endpoints, including workspaces, collections, environments, mock servers, monitors, and more. Additionally, the guide offers prerequisites and quick-start instructions to facilitate seamless API interactions.
+This GitHub project includes [API References documentation](https://github.com/delano/postman-mcp-server/blob/HEAD/docs/api/references/README.md) that provides detailed guidance on utilizing the Postman platform programmatically. It covers both the Collection SDK for local development and the Postman API for cloud platform integration. Key topics include authentication mechanisms, rate limits, and in-depth documentation of all API endpoints, including workspaces, collections, environments, mock servers, monitors, and more. Additionally, the guide offers prerequisites and quick-start instructions to facilitate seamless API interactions.
 
-The `docs/api/summaries` directory contains comprehensive Markdown summaries of the Postman API. These documents outline API endpoints, request/response formats, and implementation details essential for validating and ensuring the functionality of the MCP server. Refer to the [API Summaries README](docs/api/summaries/README.md) for an overview of the documentation structure and implementation strategies.
+The `docs/api/summaries` directory contains comprehensive Markdown summaries of the Postman API. These documents outline API endpoints, request/response formats, and implementation details essential for validating and ensuring the functionality of the MCP server. Refer to the [API Summaries README](https://github.com/delano/postman-mcp-server/blob/HEAD/docs/api/summaries/README.md) for an overview of the documentation structure and implementation strategies.
 
 #### Converting OpenAPI Spec to TypeScript Code with Claude
 
@@ -496,7 +496,7 @@ The `docs/api/summaries` directory contains comprehensive Markdown summaries of 
 
 #### Building the MCP Server
 
-Refer to the [Handlers Documentation](src/handlers/README.md) for detailed specifications on implementing MCP server handlers. This includes URI formats, prompt requirements, and resource handling patterns. This guide is crucial for developers working on integrating and enhancing the Postman API functionalities within the MCP server.
+Refer to the [Handlers Documentation](https://github.com/delano/postman-mcp-server/blob/HEAD/src/handlers/README.md) for detailed specifications on implementing MCP server handlers. This includes URI formats, prompt requirements, and resource handling patterns. This guide is crucial for developers working on integrating and enhancing the Postman API functionalities within the MCP server.
 
 
 ---
@@ -568,4 +568,4 @@ The Inspector will provide a URL to access debugging tools in your browser: http
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/delano/postman-mcp-server/tree/HEAD/LICENSE) file for details.

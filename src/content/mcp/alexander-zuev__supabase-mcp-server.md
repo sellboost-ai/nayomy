@@ -33,7 +33,7 @@ body_tr: |-
     <a href="https://pepy.tech/project/supabase-mcp-server"></a>
     <a href="https://smithery.ai/server/@alexander-zuev/supabase-mcp-server"></a>
     <a href="https://modelcontextprotocol.io/introduction"></a>
-    <a href="LICENSE"></a>
+    <a href="https://github.com/alexander-zuev/supabase-mcp-server/tree/HEAD/LICENSE"></a>
   </p>    
   
   ## İçindekiler
@@ -447,7 +447,7 @@ body_tr: |-
   <a href="https://pepy.tech/project/supabase-mcp-server"></a>
   <a href="https://smithery.ai/server/@alexander-zuev/supabase-mcp-server"></a>
   <a href="https://modelcontextprotocol.io/introduction"></a>
-  <a href="LICENSE"></a>
+  <a href="https://github.com/alexander-zuev/supabase-mcp-server/tree/HEAD/LICENSE"></a>
 </p>    
 
 ## Table of contents

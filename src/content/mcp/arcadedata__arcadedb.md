@@ -264,14 +264,14 @@ body_tr: |-
   
   ### Lisans ve Atıf
   
-  ArcadeDB herhangi bir kullanım için özgür olup liberal [Open Source Apache 2 lisansı](LICENSE) altında lisanslanmıştır. Biz **Sonsuza Kadar Açık Kaynak** kalma konusunda kararlıyız — bunu sadece bir söz'den daha fazla yapan yapısal garantiler için [Governance](GOVERNANCE.md) sayfamıza bakın. Ticari destek veya sorunu ASAP olarak düzeltmek istiyorsanız, [pricing page](https://arcadedb.com/pricing.html) sayfamızı kontrol edin.
+  ArcadeDB herhangi bir kullanım için özgür olup liberal [Open Source Apache 2 lisansı](https://github.com/ArcadeData/arcadedb/tree/HEAD/LICENSE) altında lisanslanmıştır. Biz **Sonsuza Kadar Açık Kaynak** kalma konusunda kararlıyız — bunu sadece bir söz'den daha fazla yapan yapısal garantiler için [Governance](https://github.com/ArcadeData/arcadedb/blob/HEAD/GOVERNANCE.md) sayfamıza bakın. Ticari destek veya sorunu ASAP olarak düzeltmek istiyorsanız, [pricing page](https://arcadedb.com/pricing.html) sayfamızı kontrol edin.
   
   Üçüncü parti atıfları ve telif hakkı bildirimleri için bkz:
   
-  - [NOTICE](NOTICE) - Gerekli yasal atıflar
-  - [ATTRIBUTIONS.md](ATTRIBUTIONS.md) - Detaylı üçüncü parti kabuller
-  - [LICENSE](LICENSE) - Tam lisans metni
-  - [GOVERNANCE.md](GOVERNANCE.md) - Lisans garantisi ve proje yönetişimi
+  - [NOTICE](https://github.com/ArcadeData/arcadedb/tree/HEAD/NOTICE) - Gerekli yasal atıflar
+  - [ATTRIBUTIONS.md](https://github.com/ArcadeData/arcadedb/blob/HEAD/ATTRIBUTIONS.md) - Detaylı üçüncü parti kabuller
+  - [LICENSE](https://github.com/ArcadeData/arcadedb/tree/HEAD/LICENSE) - Tam lisans metni
+  - [GOVERNANCE.md](https://github.com/ArcadeData/arcadedb/blob/HEAD/GOVERNANCE.md) - Lisans garantisi ve proje yönetişimi
   
   ### Teşekkürler
   
@@ -280,7 +280,7 @@ body_tr: |-
   ### Katkıda Bulunma
   
   ArcadeDB projesiyle ilişkiye girmek isterdik.
-  Yardımcı olmak istiyorsanız, bu projeye nasıl katkıda bulunabileceğiniz hakkında daha fazla bilgi edinmek için [katkı rehberine](CONTRIBUTING.md) bakabilirsiniz.
+  Yardımcı olmak istiyorsanız, bu projeye nasıl katkıda bulunabileceğiniz hakkında daha fazla bilgi edinmek için [katkı rehberine](https://github.com/ArcadeData/arcadedb/blob/HEAD/CONTRIBUTING.md) bakabilirsiniz.
   
   Verilerle eğlenin!
   
@@ -567,16 +567,16 @@ For security issues kindly email us at support@arcadedb.com instead of posting a
 
 ### License and Attribution
 
-ArcadeDB is Free for any usage and licensed under the liberal [Open Source Apache 2 license](LICENSE). We are committed to remaining
-**Open Source Forever** — see our [Governance](GOVERNANCE.md) for the structural guarantees that make this more than a promise. If
+ArcadeDB is Free for any usage and licensed under the liberal [Open Source Apache 2 license](https://github.com/ArcadeData/arcadedb/tree/HEAD/LICENSE). We are committed to remaining
+**Open Source Forever** — see our [Governance](https://github.com/ArcadeData/arcadedb/blob/HEAD/GOVERNANCE.md) for the structural guarantees that make this more than a promise. If
 you need commercial support, or you need to have an issue fixed ASAP, check our [pricing page](https://arcadedb.com/pricing.html).
 
 For third-party attributions and copyright notices, see:
 
-- [NOTICE](NOTICE) - Required legal attributions
-- [ATTRIBUTIONS.md](ATTRIBUTIONS.md) - Detailed third-party acknowledgments
-- [LICENSE](LICENSE) - Full license text
-- [GOVERNANCE.md](GOVERNANCE.md) - License guarantee and project governance
+- [NOTICE](https://github.com/ArcadeData/arcadedb/tree/HEAD/NOTICE) - Required legal attributions
+- [ATTRIBUTIONS.md](https://github.com/ArcadeData/arcadedb/blob/HEAD/ATTRIBUTIONS.md) - Detailed third-party acknowledgments
+- [LICENSE](https://github.com/ArcadeData/arcadedb/tree/HEAD/LICENSE) - Full license text
+- [GOVERNANCE.md](https://github.com/ArcadeData/arcadedb/blob/HEAD/GOVERNANCE.md) - License guarantee and project governance
 
 ### Thanks To
 
@@ -586,7 +586,7 @@ committers.
 ### Contributing
 
 We would love for you to get involved with ArcadeDB project.
-If you wish to help, you can learn more about how you can contribute to this project in the [contribution guide](CONTRIBUTING.md).
+If you wish to help, you can learn more about how you can contribute to this project in the [contribution guide](https://github.com/ArcadeData/arcadedb/blob/HEAD/CONTRIBUTING.md).
 
 Have fun with data!
 

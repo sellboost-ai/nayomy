@@ -42,7 +42,7 @@ body_tr: |-
   
   **2. Kod inceleyici subagent'i görevlendir:**
   
-  [code-reviewer.md](code-reviewer.md) adresindeki şablonu doldurarak bir `general-purpose` subagent görevlendir
+  [code-reviewer.md](https://github.com/obra/superpowers/blob/HEAD/code-reviewer.md) adresindeki şablonu doldurarak bir `general-purpose` subagent görevlendir
   
   **Yer tutucu değişkenler:**
   - `{DESCRIPTION}` - Oluşturduğun şeyin kısa özeti
@@ -111,7 +111,7 @@ body_tr: |-
   - Çalıştığını kanıtlayan kod/testler göster
   - Açıklama iste
   
-  Şablonu şurada görüntüle: [code-reviewer.md](code-reviewer.md)
+  Şablonu şurada görüntüle: [code-reviewer.md](https://github.com/obra/superpowers/blob/HEAD/code-reviewer.md)
 ---
 
 # Requesting Code Review
@@ -142,7 +142,7 @@ HEAD_SHA=$(git rev-parse HEAD)
 
 **2. Dispatch code reviewer subagent:**
 
-Dispatch a `general-purpose` subagent, filling the template at [code-reviewer.md](code-reviewer.md)
+Dispatch a `general-purpose` subagent, filling the template at [code-reviewer.md](https://github.com/obra/superpowers/blob/HEAD/code-reviewer.md)
 
 **Placeholders:**
 - `{DESCRIPTION}` - Brief summary of what you built
@@ -211,4 +211,4 @@ You: [Fix progress indicators]
 - Show code/tests that prove it works
 - Request clarification
 
-See template at: [code-reviewer.md](code-reviewer.md)
+See template at: [code-reviewer.md](https://github.com/obra/superpowers/blob/HEAD/code-reviewer.md)

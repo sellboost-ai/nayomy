@@ -23,7 +23,7 @@ body_tr: |-
   
   [![Swift 6.3+](https://img.shields.io/badge/Swift-6.3+-orange.svg)](https://swift.org)
   [![macOS 15+](https://img.shields.io/badge/macOS-15+-blue.svg)](https://www.apple.com/macos)
-  [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mihaelamj/cupertino/tree/HEAD/LICENSE)
   [![PulseMCP](https://img.shields.io/badge/PulseMCP-listed-blue)](https://www.pulsemcp.com/servers/mihaelamj-cupertino)
   [![LobeHub](https://img.shields.io/badge/LobeHub-listed-purple)](https://lobehub.com/mcp/mihaelamj-cupertino)
   
@@ -540,14 +540,14 @@ Cupertino is a CLI for human developers and an MCP server for AI agents. Both su
 
 [![Swift 6.3+](https://img.shields.io/badge/Swift-6.3+-orange.svg)](https://swift.org)
 [![macOS 15+](https://img.shields.io/badge/macOS-15+-blue.svg)](https://www.apple.com/macos)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mihaelamj/cupertino/tree/HEAD/LICENSE)
 [![PulseMCP](https://img.shields.io/badge/PulseMCP-listed-blue)](https://www.pulsemcp.com/servers/mihaelamj-cupertino)
 [![LobeHub](https://img.shields.io/badge/LobeHub-listed-purple)](https://lobehub.com/mcp/mihaelamj-cupertino)
 [![X](https://img.shields.io/badge/X-@cupertinomcp-black?logo=x)](https://x.com/cupertinomcp)
 
 ![Cupertino Demo](https://raw.githubusercontent.com/mihaelamj/cupertino/HEAD/docs/images/cupertino.gif)
 
-> **Latest: v1.4.0** (2026-06-21): refreshed database bundle. A full re-crawl + clean rebuild grew the Apple documentation slice to **363,562 documents / 308,118 symbols across 417 frameworks**, now including post-WWDC26 iOS 27 content, alongside the HIG, archive, Swift Evolution, Swift.org, Swift Book, package, and sample-code DBs (8 per-source databases, read-only rollback mode). [Release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.4.0) · [CHANGELOG](CHANGELOG.md) · [Roadmap](#roadmap) · live dashboard at <https://cupertino.aleahim.com/>. Follow updates on X: [@cupertinomcp](https://x.com/cupertinomcp).
+> **Latest: v1.4.0** (2026-06-21): refreshed database bundle. A full re-crawl + clean rebuild grew the Apple documentation slice to **363,562 documents / 308,118 symbols across 417 frameworks**, now including post-WWDC26 iOS 27 content, alongside the HIG, archive, Swift Evolution, Swift.org, Swift Book, package, and sample-code DBs (8 per-source databases, read-only rollback mode). [Release notes](https://github.com/mihaelamj/cupertino/releases/tag/v1.4.0) · [CHANGELOG](https://github.com/mihaelamj/cupertino/blob/HEAD/CHANGELOG.md) · [Roadmap](#roadmap) · live dashboard at <https://cupertino.aleahim.com/>. Follow updates on X: [@cupertinomcp](https://x.com/cupertinomcp).
 
 > If Cupertino is useful to your work with Apple docs or AI agents, consider [sponsoring its development](https://github.com/sponsors/mihaelamj). Sponsorship helps keep releases, documentation, and the Apple/Linux tooling around it moving.
 
@@ -597,7 +597,7 @@ sudo make install          # install to /usr/local/bin
 cupertino setup            # download the pre-built databases
 ```
 
-> The Homebrew path on Apple Silicon installs to `/opt/homebrew/bin/cupertino`; Intel and manual installs use `/usr/local/bin/cupertino`. Run `which cupertino` to confirm your path. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for distribution and CI/CD notes.
+> The Homebrew path on Apple Silicon installs to `/opt/homebrew/bin/cupertino`; Intel and manual installs use `/usr/local/bin/cupertino`. Run `which cupertino` to confirm your path. See [docs/DEPLOYMENT.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/DEPLOYMENT.md) for distribution and CI/CD notes.
 
 ## Quick start
 
@@ -609,7 +609,7 @@ cupertino doctor                                 # check local database health
 cupertino serve                                  # start the MCP server (also the default command)
 ```
 
-Prefer to build the index yourself instead of downloading it? `cupertino save --remote` streams the corpus from GitHub and rebuilds locally, and `cupertino fetch --source <name>` crawls a single source from the original site. See [docs/commands/](docs/commands/) for every command, flag, and the slower self-hosted paths.
+Prefer to build the index yourself instead of downloading it? `cupertino save --remote` streams the corpus from GitHub and rebuilds locally, and `cupertino fetch --source <name>` crawls a single source from the original site. See [docs/commands/](https://github.com/mihaelamj/cupertino/tree/HEAD/docs/commands/) for every command, flag, and the slower self-hosted paths.
 
 ### Two surfaces, one catalog
 
@@ -651,7 +651,7 @@ The same query over MCP returns a structured tool result an AI client can read, 
 claude mcp add cupertino --scope user -- $(which cupertino)
 ```
 
-Claude Desktop, OpenAI Codex, Cursor, VS Code (Copilot), GitHub Copilot for Xcode, Zed, Windsurf, and opencode are all covered with copy-paste config in **[docs/mcp-clients.md](docs/mcp-clients.md)**. Cupertino can also run as a stateless CLI **Agent Skill** with no server: see **[docs/agent-skill.md](docs/agent-skill.md)**.
+Claude Desktop, OpenAI Codex, Cursor, VS Code (Copilot), GitHub Copilot for Xcode, Zed, Windsurf, and opencode are all covered with copy-paste config in **[docs/mcp-clients.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/mcp-clients.md)**. Cupertino can also run as a stateless CLI **Agent Skill** with no server: see **[docs/agent-skill.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/agent-skill.md)**.
 
 ### What you get
 
@@ -696,7 +696,7 @@ Claude Desktop, OpenAI Codex, Cursor, VS Code (Copilot), GitHub Copilot for Xcod
 - **AST-powered symbol tools** ([#81](https://github.com/mihaelamj/cupertino/issues/81)): `search_symbols`, `search_property_wrappers`, `search_concurrency`, `search_conformances`, `search_generics`, `get_inheritance`; pass `format=json` for typed symbol rows and title-bearing inheritance trees
 - **Desktop boundary**: desktop UI code consumes these backend/tool contracts. It must not open SQLite databases directly or duplicate Cupertino's read engine.
 
-See **[docs/tools/](docs/tools/)** for per-tool documentation.
+See **[docs/tools/](https://github.com/mihaelamj/cupertino/tree/HEAD/docs/tools/)** for per-tool documentation.
 
 ### Intelligent crawling
 
@@ -704,7 +704,7 @@ Resumable from saved state, change-detection to skip unchanged pages, a respectf
 
 ## How it works
 
-Cupertino uses an **[ExtremePackaging](https://aleahim.com/blog/extreme-packaging/)** architecture: 48 in-tree strict-producer SPM targets with explicit import contracts, plus the external `CupertinoDataEngine` package. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full breakdown and [`docs/package-import-contract.md`](docs/package-import-contract.md) for the strict per-target import rules.
+Cupertino uses an **[ExtremePackaging](https://aleahim.com/blog/extreme-packaging/)** architecture: 48 in-tree strict-producer SPM targets with explicit import contracts, plus the external `CupertinoDataEngine` package. See [`docs/ARCHITECTURE.md`](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/ARCHITECTURE.md) for the full breakdown and [`docs/package-import-contract.md`](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/package-import-contract.md) for the strict per-target import rules.
 
 ```mermaid
 flowchart TB
@@ -757,7 +757,7 @@ Cupertino factors reusable, independently-versioned Swift packages out of the mo
 | **CupertinoDataKit** | [mihaelamj/CupertinoDataKit](https://github.com/mihaelamj/CupertinoDataKit) | Cupertino's public **read contract**: documentation/source reading, document browsing, symbol/code-intelligence reading, and sample-code reading protocols plus every value type they return. Protocols + value types only, zero implementation; cupertino's engine conforms server-side, and an embedded/in-process reader (e.g. an iOS app) conforms a different implementation. Cupertino's foundation tier re-exports it (`@_exported import CupertinoDataKit`). |
 | **CupertinoDataEngine** | [mihaelamj/CupertinoDataEngine](https://github.com/mihaelamj/CupertinoDataEngine) | Cupertino's embedded **read-only backend facade** for app clients. The engine itself conforms to the public read/browse contracts and fans out across configured source, sample, and package readers. The current v0.2.6 slice keeps the opaque `Corpus` handle and aligns current-corpus opening with release bundles: sample code is opened through the sample reader, and packages stay on `packages.db`. UI code must not know the storage files exist. |
 
-See the current [CupertinoDataEngine wiring diagram](docs/architecture/cupertino-data-engine-wiring.html) for the boundary between `CupertinoDataEngine`, in-tree `CupertinoComposition`, and downstream app clients. Mobile catalog installation is documented in [docs/design/mobile-catalog-delivery.md](docs/design/mobile-catalog-delivery.md), including app storage and the `CatalogStore` contract.
+See the current [CupertinoDataEngine wiring diagram](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/architecture/cupertino-data-engine-wiring.html) for the boundary between `CupertinoDataEngine`, in-tree `CupertinoComposition`, and downstream app clients. Mobile catalog installation is documented in [docs/design/mobile-catalog-delivery.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/design/mobile-catalog-delivery.md), including app storage and the `CatalogStore` contract.
 
 ```mermaid
 flowchart LR
@@ -898,26 +898,26 @@ log stream --predicate 'subsystem == "com.cupertino.cli"'
 
 > MCP JSON-RPC wire traffic goes to **stderr**, not `os.log`, because stdout carries the protocol itself. Capture it with `cupertino serve 2>/tmp/cupertino-mcp.log` or your client's server-output panel. MCP lifecycle and diagnostic messages still log to `os.log` under the `mcp` category.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full build, test, and release workflow.
+See [CONTRIBUTING.md](https://github.com/mihaelamj/cupertino/blob/HEAD/CONTRIBUTING.md) for the full build, test, and release workflow.
 
 ## Documentation
 
-- **[CONTRIBUTING.md](CONTRIBUTING.md)**: build, test, contribute, and release workflow
-- **[docs/PRINCIPLES.md](docs/PRINCIPLES.md)**: engineering principles (lossless URIs, no content lost at the door, 10x scale headroom)
-- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**: technical deep-dives (concurrency, MCP, WKWebView testing)
-- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)**: Homebrew distribution and CI/CD setup
-- **[docs/release/release-corpus-smoke.md](docs/release/release-corpus-smoke.md)**: on-demand release-corpus smoke gate for repo-built binaries
-- **[docs/mcp-clients.md](docs/mcp-clients.md)**: per-client MCP setup (Claude, Codex, Cursor, VS Code, Zed, Windsurf, opencode, and more)
-- **[docs/agent-skill.md](docs/agent-skill.md)**: use Cupertino as a stateless CLI Agent Skill (no server)
-- **[docs/commands/](docs/commands/)**: command-specific documentation (fetch, save, serve, search, doctor, and more)
-- **[docs/tools/](docs/tools/)**: MCP-tool-specific documentation
-- **[docs/roadmap-maintenance-protocol.md](docs/roadmap-maintenance-protocol.md)**: maintainer roadmap update protocol
+- **[CONTRIBUTING.md](https://github.com/mihaelamj/cupertino/blob/HEAD/CONTRIBUTING.md)**: build, test, contribute, and release workflow
+- **[docs/PRINCIPLES.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/PRINCIPLES.md)**: engineering principles (lossless URIs, no content lost at the door, 10x scale headroom)
+- **[docs/ARCHITECTURE.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/ARCHITECTURE.md)**: technical deep-dives (concurrency, MCP, WKWebView testing)
+- **[docs/DEPLOYMENT.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/DEPLOYMENT.md)**: Homebrew distribution and CI/CD setup
+- **[docs/release/release-corpus-smoke.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/release/release-corpus-smoke.md)**: on-demand release-corpus smoke gate for repo-built binaries
+- **[docs/mcp-clients.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/mcp-clients.md)**: per-client MCP setup (Claude, Codex, Cursor, VS Code, Zed, Windsurf, opencode, and more)
+- **[docs/agent-skill.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/agent-skill.md)**: use Cupertino as a stateless CLI Agent Skill (no server)
+- **[docs/commands/](https://github.com/mihaelamj/cupertino/tree/HEAD/docs/commands/)**: command-specific documentation (fetch, save, serve, search, doctor, and more)
+- **[docs/tools/](https://github.com/mihaelamj/cupertino/tree/HEAD/docs/tools/)**: MCP-tool-specific documentation
+- **[docs/roadmap-maintenance-protocol.md](https://github.com/mihaelamj/cupertino/blob/HEAD/docs/roadmap-maintenance-protocol.md)**: maintainer roadmap update protocol
 
 ## Project status
 
 **Released: v1.4.0** (2026-06-21): a refreshed database bundle. A full re-crawl + clean rebuild grew the Apple documentation slice to 363,562 documents / 308,118 symbols (417 frameworks) and added post-WWDC26 iOS 27 content; the placeholder-stub rot is gone (every docs database now has a `docs_structured == docs_fts` population ratio of 1.000). The 8 per-source databases (introduced in v1.3.0) ship in rollback journal mode, so each opens read-only without an `-shm` sidecar and no query / read / serve connection can write or delete rows ([#1194](https://github.com/mihaelamj/cupertino/issues/1194)). `databaseVersion` is `1.4.0`; `cupertino setup` downloads `cupertino-databases-v1.4.0.zip` (876 MB) carrying 363,562 documents / 308,118 symbols in `apple-documentation.db` (2.7 GB, `user_version` 18), plus `packages.db` (1.2 GB, 185 packages), `apple-sample-code.db` (189 MB), and the HIG / archive / evolution / org / book databases.
 
-**Previously:** v1.2.1 (2026-05-23, maintenance + [Source Independence Day](https://github.com/mihaelamj/cupertino/issues/919)), v1.2.0 "ironclad" (2026-05-20, search-quality release: rank-1 accuracy on canonical-lookup queries 52% → 92%), v1.1.0 (2026-05-14), v1.0.2 (2026-05-11). Full history in [CHANGELOG.md](CHANGELOG.md).
+**Previously:** v1.2.1 (2026-05-23, maintenance + [Source Independence Day](https://github.com/mihaelamj/cupertino/issues/919)), v1.2.0 "ironclad" (2026-05-20, search-quality release: rank-1 accuracy on canonical-lookup queries 52% → 92%), v1.1.0 (2026-05-14), v1.0.2 (2026-05-11). Full history in [CHANGELOG.md](https://github.com/mihaelamj/cupertino/blob/HEAD/CHANGELOG.md).
 
 - ✅ All core functionality working, all production bugs resolved at ship time
 - ✅ 3,122 runtime tests across 351 Swift test files (501 suites)
@@ -928,7 +928,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full build, test, and release wor
 
 Issues and pull requests are welcome, and I'd love to hear how you're using Cupertino with your AI workflow. For questions and discussion, use [GitHub Discussions](https://github.com/mihaelamj/cupertino/discussions).
 
-I prefer collaboration over competition: if you're working on something similar, let's find ways to work together. Don't hesitate to submit a PR because of code style; I'd rather have your contribution than perfect formatting. By participating you agree to abide by the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/). For development setup, see [CONTRIBUTING.md](CONTRIBUTING.md).
+I prefer collaboration over competition: if you're working on something similar, let's find ways to work together. Don't hesitate to submit a PR because of code style; I'd rather have your contribution than perfect formatting. By participating you agree to abide by the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/). For development setup, see [CONTRIBUTING.md](https://github.com/mihaelamj/cupertino/blob/HEAD/CONTRIBUTING.md).
 
 ## Related repositories
 
@@ -939,7 +939,7 @@ I prefer collaboration over competition: if you're working on something similar,
 
 ## License
 
-MIT License, see [LICENSE](LICENSE) for details.
+MIT License, see [LICENSE](https://github.com/mihaelamj/cupertino/tree/HEAD/LICENSE) for details.
 
 ## Support
 

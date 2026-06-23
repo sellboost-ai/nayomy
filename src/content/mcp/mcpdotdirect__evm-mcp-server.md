@@ -1237,4 +1237,4 @@ To modify or extend the server:
 
 ## 📄 License
 
-This project is licensed under the terms of the [MIT License](./LICENSE).
+This project is licensed under the terms of the [MIT License](https://github.com/mcpdotdirect/evm-mcp-server/tree/HEAD/LICENSE).

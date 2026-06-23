@@ -166,9 +166,9 @@ body_tr: |-
   
   ## İlgili
   
-  - Ajan: [`cs-dpo-gdpr`](../../agents/cs-dpo-gdpr.md)
-  - Beceri: [`gdpr-dsgvo-expert`](../../../ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
-  - Oyun Kitabı: [gdpr_audit_playbook.md](../../../ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
+  - Ajan: [`cs-dpo-gdpr`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-dpo-gdpr.md)
+  - Beceri: [`gdpr-dsgvo-expert`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
+  - Oyun Kitabı: [gdpr_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
   - Bitişik: `../iso27001-audit-prep/`, `../ai-act-readiness/`, `../soc2-audit-prep/`, `../compliance-readiness/`
   
   ---
@@ -328,9 +328,9 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Related
 
-- Agent: [`cs-dpo-gdpr`](../../agents/cs-dpo-gdpr.md)
-- Skill: [`gdpr-dsgvo-expert`](../../../ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
-- Playbook: [gdpr_audit_playbook.md](../../../ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
+- Agent: [`cs-dpo-gdpr`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-dpo-gdpr.md)
+- Skill: [`gdpr-dsgvo-expert`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
+- Playbook: [gdpr_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
 - Adjacent: `../iso27001-audit-prep/`, `../ai-act-readiness/`, `../soc2-audit-prep/`, `../compliance-readiness/`
 
 ---

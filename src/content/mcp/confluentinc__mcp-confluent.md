@@ -13,7 +13,7 @@ body_tr: |-
   # Confluent MCP Server
   
   [![npm version](https://img.shields.io/npm/v/@confluentinc/mcp-confluent.svg)](https://www.npmjs.com/package/@confluentinc/mcp-confluent)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/confluentinc/mcp-confluent/tree/HEAD/LICENSE)
   
   Yapay zeka asistanlarının Confluent Cloud, Confluent Platform ve bağımsız Apache Kafka dağıtımlarıyla doğal dil aracılığıyla etkileşime girmesini sağlayan açık kaynaklı bir [MCP sunucusu](https://modelcontextprotocol.io/).
   Kafka, Flink SQL, Schema Registry, Connectors, Tableflow ve daha fazlası arasında 50+ araç sağlar -- Claude Desktop, Claude Code, Cursor, VS Code, Goose ve Gemini CLI dahil olmak üzere herhangi bir MCP uyumlu istemcisinden kullanılabilir.
@@ -55,7 +55,7 @@ body_tr: |-
   
   ## Mevcut Araçlar
   
-  Araçlar, çözümlenen konfigürasyonunuzda hangi hizmet bloklarının mevcut olduğuna göre otomatik olarak etkinleştirilir; tam blok-araç eşlemesi için [CONFIGURATION.md](CONFIGURATION.md#tool-enablement-which-block-lights-up-what) bölümüne bakın.
+  Araçlar, çözümlenen konfigürasyonunuzda hangi hizmet bloklarının mevcut olduğuna göre otomatik olarak etkinleştirilir; tam blok-araç eşlemesi için [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#tool-enablement-which-block-lights-up-what) bölümüne bakın.
   
   Tüm mevcut araçları CLI aracılığıyla listeleyebilirsiniz:
   
@@ -75,7 +75,7 @@ body_tr: |-
   ### Confluent Cloud için Mevcut Araçlar
   
   Bu araçlar, belirli Confluent Cloud bileşenlerine karşı endpoint ve kimlik doğrulamayı gerektirir.
-  Tam konfigürasyon değişkenleri seti için [`config.example.yaml`](config.example.yaml) dosyasına bakın.
+  Tam konfigürasyon değişkenleri seti için [`config.example.yaml`](https://github.com/confluentinc/mcp-confluent/blob/HEAD/config.example.yaml) dosyasına bakın.
   ¹ ile işaretlenen kategoriler ayrıca [OAuth kimlik doğrulaması](#confluent-cloud-için-oauth-kimlik-doğrulaması) ile de çalışır -- API anahtarlarını sağlamak yerine tarayıcınız aracılığıyla oturum açın.
   
   | Kategori                                     | Araçlar                                                                                                                                                                                                         | Açıklama                                                                                |
@@ -112,7 +112,7 @@ body_tr: |-
         endpoint: "http://localhost:8081"
   ```
   
-  Kullanıma hazır varyantlar [`sample_configs/`](sample_configs/) dizininde bulunur.
+  Kullanıma hazır varyantlar [`sample_configs/`](https://github.com/confluentinc/mcp-confluent/tree/HEAD/sample_configs/) dizininde bulunur.
   
   | Kategori            | Araçlar                                                                                                                                                               | Açıklama                                                      |
   | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -148,10 +148,10 @@ body_tr: |-
   ```
   
   2. **Dosyayı doldurun:** Confluent Cloud ortamınız için gerekli değerleri girin.
-     Tam referans için [CONFIGURATION.md](CONFIGURATION.md) bölümüne bakın; yalnızca ihtiyaç duyduğunuz hizmet bloklarını doldurun (her biri araç grubu etkinleştirir).
+     Tam referans için [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONFIGURATION.md) bölümüne bakın; yalnızca ihtiyaç duyduğunuz hizmet bloklarını doldurun (her biri araç grubu etkinleştirir).
   
   3. **Sunucuyu Başlatın:** MCP sunucusunu iki şekilde çalıştırabilirsiniz:
-     - **Kaynaktan:** Sunucuyu kaynaktan oluşturmak ve çalıştırmak için [Katkıda Bulunma Rehberi](CONTRIBUTING.md) talimatlarını izleyin.
+     - **Kaynaktan:** Sunucuyu kaynaktan oluşturmak ve çalıştırmak için [Katkıda Bulunma Rehberi](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONTRIBUTING.md) talimatlarını izleyin.
        Bu genellikle şunları içerir:
        - Bağımlılıkları yükleme (`npm install`)
        - Projeyi oluşturma (`npm run build` veya `npm run dev`)
@@ -173,12 +173,12 @@ body_tr: |-
   
   ## Konfigürasyon
   
-  Tam konfigürasyon referansı -- YAML şeması, her hizmet bloğu, env-var interpolasyonu, OAuth ve HTTP/SSE auth kurulumu, (kullanımdan kaldırılan) eski env-var tablosu ve araç-blok eşlemesi -- [CONFIGURATION.md](CONFIGURATION.md) dosyasında bulunur.
+  Tam konfigürasyon referansı -- YAML şeması, her hizmet bloğu, env-var interpolasyonu, OAuth ve HTTP/SSE auth kurulumu, (kullanımdan kaldırılan) eski env-var tablosu ve araç-blok eşlemesi -- [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONFIGURATION.md) dosyasında bulunur.
   
   > **Uyumluluk notu.** Bu sürüm, tek bir bağlantı için YAML (`-c config.yaml`) ve eski env-var yolu (`-e config.env`) arasında tam pariteyi içerir.
   > Env-var yolu, yakın gelecekte bir sürümde başlangıç uyarısı yayınlayacak ve bir-iki sürüm sonra kaldırılacaktır.
   > Multi-bağlantı desteği (sonraki sürüm) yalnızca YAML olacaktır.
-  > [CONFIGURATION.md → Two paths, one configuration](CONFIGURATION.md#two-paths-one-configuration) bölümüne bakın.
+  > [CONFIGURATION.md → Two paths, one configuration](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#two-paths-one-configuration) bölümüne bakın.
   
   ### Tableflow Komutları için Ön Koşullar ve Kurulum
   
@@ -202,7 +202,7 @@ body_tr: |-
   npx @confluentinc/mcp-confluent --config ./config.yaml
   ```
   
-  `--init-oauth-config`, başlangıç [`config.oauth.example.yaml`](config.oauth.example.yaml) dosyasını `./config.yaml` dosyasına düşürür.
+  `--init-oauth-config`, başlangıç [`config.oauth.example.yaml`](https://github.com/confluentinc/mcp-confluent/blob/HEAD/config.oauth.example.yaml) dosyasını `./config.yaml` dosyasına düşürür.
   Dosyanın tamamı temelde şundan oluşur:
   
   ```yaml
@@ -211,7 +211,7 @@ body_tr: |-
       type: oauth
   ```
   
-  Tam şema ve ergonomik özellikler için [CONFIGURATION.md → Authentication modes](CONFIGURATION.md#authentication-modes) bölümüne bakın.
+  Tam şema ve ergonomik özellikler için [CONFIGURATION.md → Authentication modes](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#authentication-modes) bölümüne bakın.
   
   [Confluent Cloud için Mevcut Araçlar](#confluent-cloud-için-mevcut-araçlar) bölümünde ¹ ile işaretlenen kategoriler bugün OAuth altında çalışır; diğer her şey hala statik API anahtarları ile `direct` bağlantı gerektirir.
   
@@ -378,7 +378,7 @@ body_tr: |-
 # Confluent MCP Server
 
 [![npm version](https://img.shields.io/npm/v/@confluentinc/mcp-confluent.svg)](https://www.npmjs.com/package/@confluentinc/mcp-confluent)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/confluentinc/mcp-confluent/tree/HEAD/LICENSE)
 
 An open-source [MCP server](https://modelcontextprotocol.io/) that enables AI assistants to interact with Confluent Cloud, Confluent Platform, and standalone Apache Kafka deployments through natural language.
 It provides 50+ tools across Kafka, Flink SQL, Schema Registry, Connectors, Tableflow, and more -- usable from any MCP-compatible client including Claude Desktop, Claude Code, Cursor, VS Code, Goose, and Gemini CLI.
@@ -421,7 +421,7 @@ See [Getting Started](#getting-started) for full setup instructions and [Configu
 
 ## Available Tools
 
-Tools are auto-enabled based on which service blocks are present in your resolved configuration; see [CONFIGURATION.md](CONFIGURATION.md#tool-enablement-which-block-lights-up-what) for the full block-to-tool mapping.
+Tools are auto-enabled based on which service blocks are present in your resolved configuration; see [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#tool-enablement-which-block-lights-up-what) for the full block-to-tool mapping.
 
 You can list all available tools via the CLI:
 
@@ -441,7 +441,7 @@ These tools need no service blocks or authentication — they're enabled even on
 ### Available Tools for Confluent Cloud
 
 These tools require endpoints and authentication against specific Confluent Cloud components.
-Refer to [`config.example.yaml`](config.example.yaml) for the full set of configuration variables.
+Refer to [`config.example.yaml`](https://github.com/confluentinc/mcp-confluent/blob/HEAD/config.example.yaml) for the full set of configuration variables.
 Categories marked with ¹ also work with [OAuth authentication](#oauth-authentication-for-confluent-cloud) — sign in via your browser instead of provisioning API keys.
 
 | Category                                     | Tools                                                                                                                                                                                                                                                                                                                                        | Description                                                                                |
@@ -478,7 +478,7 @@ connections:
       endpoint: "http://localhost:8081"
 ```
 
-Ready-to-use variants live in [`sample_configs/`](sample_configs/).
+Ready-to-use variants live in [`sample_configs/`](https://github.com/confluentinc/mcp-confluent/tree/HEAD/sample_configs/).
 
 | Category            | Tools                                                                                                                                                               | Description                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -494,7 +494,7 @@ The only differences from a `localhost:9092` setup are authentication and TLS.
 
 ### Sample YAML config
 
-[`sample_configs/confluent-platform.yaml`](sample_configs/confluent-platform.yaml) is a copy-pasteable starter.
+[`sample_configs/confluent-platform.yaml`](https://github.com/confluentinc/mcp-confluent/blob/HEAD/sample_configs/confluent-platform.yaml) is a copy-pasteable starter.
 It assumes PLAIN over SASL_SSL for Kafka and HTTP Basic Auth for Schema Registry.
 Customize the broker and Schema Registry URLs, and inject credentials via the `${KAFKA_API_KEY}` / `${KAFKA_API_SECRET}` / `${SCHEMA_REGISTRY_API_KEY}` / `${SCHEMA_REGISTRY_API_SECRET}` environment variables.
 If your cluster uses SCRAM or another SASL mechanism, override `security.protocol` and `sasl.mechanisms` through the `kafka.extra_properties` map in that file.
@@ -510,7 +510,7 @@ NODE_EXTRA_CA_CERTS=/path/to/internal-ca.pem pnpm run start -- --config path/to/
 
 ### End-to-end smoke test
 
-A docker-compose stack ([`docker-compose.cp-test.yml`](docker-compose.cp-test.yml)) brings up a local CP Kafka (KRaft, SASL_PLAINTEXT/PLAIN) plus an unauthenticated Schema Registry.
+A docker-compose stack ([`docker-compose.cp-test.yml`](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docker-compose.cp-test.yml)) brings up a local CP Kafka (KRaft, SASL_PLAINTEXT/PLAIN) plus an unauthenticated Schema Registry.
 The matching integration tests are tagged `@cp` and live next to their handlers as `*.cp.integration.test.ts`:
 
 ```bash
@@ -561,10 +561,10 @@ npx @confluentinc/mcp-confluent --init-config
 ```
 
 2. **Populate the file:** Fill in the necessary values for your Confluent Cloud environment.
-   See [CONFIGURATION.md](CONFIGURATION.md) for the full reference; only fill in the service blocks you need (each one enables a group of tools).
+   See [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONFIGURATION.md) for the full reference; only fill in the service blocks you need (each one enables a group of tools).
 
 3. **Start the Server:** You can run the MCP server in one of two ways:
-   - **From source:** Follow the instructions in the [Contributing Guide](CONTRIBUTING.md) to build and run the server from source.
+   - **From source:** Follow the instructions in the [Contributing Guide](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONTRIBUTING.md) to build and run the server from source.
      This typically involves:
      - Installing dependencies (`pnpm install`)
      - Building the project (`pnpm run build` or `pnpm run dev`)
@@ -586,12 +586,12 @@ npx @confluentinc/mcp-confluent --init-config
 
 ## Configuration
 
-The full configuration reference — YAML schema, every service block, env-var interpolation, OAuth and HTTP/SSE auth setup, the (deprecated) legacy env-var table, and tool-to-block mapping — lives in [CONFIGURATION.md](CONFIGURATION.md).
+The full configuration reference — YAML schema, every service block, env-var interpolation, OAuth and HTTP/SSE auth setup, the (deprecated) legacy env-var table, and tool-to-block mapping — lives in [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONFIGURATION.md).
 
 > **Compatibility note.** This release ships full parity between YAML (`-c config.yaml`) and the legacy env-var path (`-e config.env`) for a single connection.
 > The env-var-only path will emit a startup warning in a near-future release and be removed a release or two later.
 > Defining multiple connections (or none) is YAML-only — the env-var path can express only a single connection.
-> See [CONFIGURATION.md → Two paths, one configuration](CONFIGURATION.md#two-paths-one-configuration) and [CONFIGURATION.md → Multiple connections (and zero connections)](CONFIGURATION.md#multiple-connections-and-zero-connections).
+> See [CONFIGURATION.md → Two paths, one configuration](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#two-paths-one-configuration) and [CONFIGURATION.md → Multiple connections (and zero connections)](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#multiple-connections-and-zero-connections).
 
 ### Prerequisites & setup for Tableflow commands
 
@@ -615,7 +615,7 @@ npx @confluentinc/mcp-confluent --init-oauth-config
 npx @confluentinc/mcp-confluent --config ./config.yaml
 ```
 
-`--init-oauth-config` drops a starter [`config.oauth.example.yaml`](config.oauth.example.yaml) into `./config.yaml`.
+`--init-oauth-config` drops a starter [`config.oauth.example.yaml`](https://github.com/confluentinc/mcp-confluent/blob/HEAD/config.oauth.example.yaml) into `./config.yaml`.
 The whole file is essentially:
 
 ```yaml
@@ -624,7 +624,7 @@ connections:
     type: oauth
 ```
 
-See [CONFIGURATION.md → Authentication modes](CONFIGURATION.md#authentication-modes) for the full schema and ergonomics.
+See [CONFIGURATION.md → Authentication modes](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#authentication-modes) for the full schema and ergonomics.
 
 The ¹-marked categories in [Available Tools for Confluent Cloud](#available-tools-for-confluent-cloud) work under OAuth today; everything else still needs a `direct` connection with static API keys.
 
@@ -826,20 +826,20 @@ tableflow:
 
 Please refer to the following guides for step-by-step instructions on setting up and using this MCP server with your preferred client:
 
-- [Claude Code](docs/configuring-claude-code.md)
-- [Claude Desktop](docs/configuring-claude-desktop.md)
-- [Cursor](docs/configuring-cursor.md)
-- [Gemini CLI](docs/configuring-gemini-cli.md)
-- [Goose CLI](docs/configuring-goose-cli.md)
-- [IBM Bob](docs/configuring-ibm-bob.md)
-- [VS Code](docs/configuring-vs-code.md)
-- [Windsurf](docs/configuring-windsurf.md)
+- [Claude Code](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-claude-code.md)
+- [Claude Desktop](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-claude-desktop.md)
+- [Cursor](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-cursor.md)
+- [Gemini CLI](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-gemini-cli.md)
+- [Goose CLI](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-goose-cli.md)
+- [IBM Bob](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-ibm-bob.md)
+- [VS Code](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-vs-code.md)
+- [Windsurf](https://github.com/confluentinc/mcp-confluent/blob/HEAD/docs/configuring-windsurf.md)
 
 ## Telemetry
 
 This MCP server collects usage data to help make improvements.
 You can opt out by setting `DO_NOT_TRACK=true` in your environment.
-See [telemetry.md](telemetry.md) for full details on what is collected.
+See [telemetry.md](https://github.com/confluentinc/mcp-confluent/blob/HEAD/telemetry.md) for full details on what is collected.
 
 ## Troubleshooting
 
@@ -848,10 +848,10 @@ Check your version with `node -v` and upgrade if needed.
 
 **Tools not appearing** -- Each tool requires specific service blocks in your `config.yaml`.
 Run `--list-tools` to see which tools are active, or invoke the `explain-disabled-tools` MCP tool from your client for a per-tool reason.
-The block-to-tool mapping lives in [CONFIGURATION.md](CONFIGURATION.md#tool-enablement-which-block-lights-up-what).
+The block-to-tool mapping lives in [CONFIGURATION.md](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#tool-enablement-which-block-lights-up-what).
 
 **Authentication errors on HTTP/SSE** -- Generate an API key with `npx @confluentinc/mcp-confluent --generate-key` and add it to your `config.yaml` under `server.auth.api_key`.
-See [CONFIGURATION.md → HTTP/SSE transport security](CONFIGURATION.md#httpsse-transport-security).
+See [CONFIGURATION.md → HTTP/SSE transport security](https://github.com/confluentinc/mcp-confluent/tree/HEAD/CONFIGURATION.md#httpsse-transport-security).
 
 **Connection refused / port conflicts** -- The default HTTP port is 8080.
 Set `server.http.port` in your `config.yaml` to change it.
@@ -862,7 +862,7 @@ See [Prerequisites & setup for Tableflow commands](#prerequisites--setup-for-tab
 ## Contributing
 
 Bug reports and feedback is appreciated in the form of Github Issues.
-For guidelines on contributing please see [CONTRIBUTING.md](CONTRIBUTING.md)
+For guidelines on contributing please see [CONTRIBUTING.md](https://github.com/confluentinc/mcp-confluent/blob/HEAD/CONTRIBUTING.md)
 
 ### Pre-release testing
 

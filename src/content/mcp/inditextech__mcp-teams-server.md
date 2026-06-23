@@ -39,7 +39,7 @@ body_tr: |-
   
   - [uv](https://github.com/astral-sh/uv) package manager
   - [Python 3.10](https://www.python.org/)
-  - [Uygun şekilde kurulmuş](./doc/MS-Teams-setup.md) Microsoft Teams hesabı
+  - [Uygun şekilde kurulmuş](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/doc/MS-Teams-setup.md) Microsoft Teams hesabı
   
   ## Kurulum
   
@@ -60,13 +60,13 @@ body_tr: |-
   ## Teams Konfigürasyonu
   
   Microsoft Teams'i ve gerekli Azure kaynaklarını yapılandırmaya yardımcı olması için 
-  [bu belgeyi](./doc/MS-Teams-setup.md) okuyun. Bu adım adım bir kılavuz değildir ancak 
+  [bu belgeyi](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/doc/MS-Teams-setup.md) okuyun. Bu adım adım bir kılavuz değildir ancak 
   ihtiyacınız olacakları anlamanıza yardımcı olabilir.
   
   ## Kullanım
   
   Aşağıdaki ortam değişkenlerini shell'inizde veya .env dosyasında ayarlayın. 
-  [Örnek dosyayı](./sample.env) şablon olarak kullanabilirsiniz:
+  [Örnek dosyayı](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/sample.env) şablon olarak kullanabilirsiniz:
   
   | Anahtar                 | Açıklama                               |
   |-------------------------|----------------------------------------|
@@ -131,24 +131,24 @@ body_tr: |-
   
   ### LLM'yi MCP Teams Server kullanacak şekilde yapılandırma
   
-  [Aşağıdaki belgedeki](./llms-install.md) talimatları izleyin
+  [Aşağıdaki belgedeki](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/llms-install.md) talimatları izleyin
   
   ## Değişiklik Günlüğü
   
-  Değişiklikler ve sürüm geçmişi için [CHANGELOG.md](CHANGELOG.md) sayfasına bakın.
+  Değişiklikler ve sürüm geçmişi için [CHANGELOG.md](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/CHANGELOG.md) sayfasına bakın.
   
   ## Katkıda Bulunma
   
   Davranış kurallarımız ve pull request gönderme süreci hakkında ayrıntılar için 
-  [CONTRIBUTING.md](CONTRIBUTING.md) sayfasını okuyun.
+  [CONTRIBUTING.md](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/CONTRIBUTING.md) sayfasını okuyun.
   
   ## Güvenlik
   
-  Güvenlik endişeleri için lütfen [Güvenlik Politikamıza](SECURITY.md) bakın.
+  Güvenlik endişeleri için lütfen [Güvenlik Politikamıza](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/SECURITY.md) bakın.
   
   ## Lisans
   
-  Bu proje [Apache-2.0](LICENSE.txt) altında lisanslanmıştır. Ayrıntılar için dosyaya bakın.
+  Bu proje [Apache-2.0](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/LICENSE.txt) altında lisanslanmıştır. Ayrıntılar için dosyaya bakın.
   
   © 2025 INDUSTRIA DE DISEÑO TEXTIL S.A. (INDITEX S.A.)
 ---
@@ -182,7 +182,7 @@ https://github.com/user-attachments/assets/548a9768-1119-4a2d-bd5c-6b41069fc522
 
 - [uv](https://github.com/astral-sh/uv) package manager
 - [Python 3.10](https://www.python.org/)
-- Microsoft Teams account with [proper set-up](./doc/MS-Teams-setup.md)
+- Microsoft Teams account with [proper set-up](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/doc/MS-Teams-setup.md)
 
 ## Installation
 
@@ -202,12 +202,12 @@ uv sync --frozen --all-extras --dev
 
 ## Teams configuration
 
-Please read [this document](./doc/MS-Teams-setup.md) to help you to configure Microsoft Teams and required 
+Please read [this document](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/doc/MS-Teams-setup.md) to help you to configure Microsoft Teams and required 
 Azure resources. It is not a step-by-step guide but can help you figure out what you will need.
 
 ## Usage
 
-Set up the following environment variables in your shell or in an .env file. You can use [sample file](./sample.env) 
+Set up the following environment variables in your shell or in an .env file. You can use [sample file](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/sample.env) 
 as a template:
 
 | Key                     | Description                                |
@@ -273,23 +273,23 @@ docker run --env-file .env -it inditextech/mcp-teams-server
 
 ### Setup LLM to use MCP Teams Server
 
-Please follow instructions on the [following document](./llms-install.md)
+Please follow instructions on the [following document](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/llms-install.md)
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a list of changes and version history.
+See [CHANGELOG.md](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/CHANGELOG.md) for a list of changes and version history.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull
+Please read [CONTRIBUTING.md](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull
 requests.
 
 ## Security
 
-For security concerns, please see our [Security Policy](SECURITY.md).
+For security concerns, please see our [Security Policy](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/SECURITY.md).
 
 ## License
 
-This project is licensed under the [Apache-2.0](LICENSE.txt) file for details.
+This project is licensed under the [Apache-2.0](https://github.com/InditexTech/mcp-teams-server/blob/HEAD/LICENSE.txt) file for details.
 
 © 2025 INDUSTRIA DE DISEÑO TEXTIL S.A. (INDITEX S.A.)

@@ -325,8 +325,8 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Katkılar hoşlanır! Geliştirme kurulumu, monorepo yapısı ve sürüm talimatları için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
-  UI derleme workflow detayları, giriş noktası orkestratörü dahil olmak üzere [UI Build Orchestrator](CONTRIBUTING.md#ui-build-orchestrator) bölümüne bakın.
+  Katkılar hoşlanır! Geliştirme kurulumu, monorepo yapısı ve sürüm talimatları için [CONTRIBUTING.md](https://github.com/mikechao/brave-search-mcp/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
+  UI derleme workflow detayları, giriş noktası orkestratörü dahil olmak üzere [UI Build Orchestrator](https://github.com/mikechao/brave-search-mcp/tree/HEAD/CONTRIBUTING.md#ui-build-orchestrator) bölümüne bakın.
   
   ## Feragatname
   
@@ -334,7 +334,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje GNU General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje GNU General Public License v3.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/mikechao/brave-search-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # Brave Search MCP Server
@@ -732,8 +732,8 @@ brave-search:
 
 ## Contributing
 
-Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, monorepo structure, and release instructions.
-For UI build workflow details, including the entrypoint orchestrator, see [UI Build Orchestrator](CONTRIBUTING.md#ui-build-orchestrator).
+Contributions are welcome! See [CONTRIBUTING.md](https://github.com/mikechao/brave-search-mcp/blob/HEAD/CONTRIBUTING.md) for development setup, monorepo structure, and release instructions.
+For UI build workflow details, including the entrypoint orchestrator, see [UI Build Orchestrator](https://github.com/mikechao/brave-search-mcp/tree/HEAD/CONTRIBUTING.md#ui-build-orchestrator).
 
 ## Disclaimer
 
@@ -741,4 +741,4 @@ This library is not officially associated with Brave Software. It is a third-par
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/mikechao/brave-search-mcp/tree/HEAD/LICENSE) file for details.

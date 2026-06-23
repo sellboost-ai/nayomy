@@ -10,7 +10,7 @@ body_length: 8920
 license: "Apache-2.0"
 language: "TypeScript"
 body_tr: |-
-  [Türkçe sürüm README'si burada](README.ja.md)
+  [Türkçe sürüm README'si burada](https://github.com/line/line-bot-mcp-server/blob/HEAD/README.ja.md)
   
   # LINE Bot MCP Server
   
@@ -231,10 +231,10 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Katkı sağlamadan önce lütfen [CONTRIBUTING](./CONTRIBUTING.md) dosyasını kontrol edin.
+  Katkı sağlamadan önce lütfen [CONTRIBUTING](https://github.com/line/line-bot-mcp-server/blob/HEAD/CONTRIBUTING.md) dosyasını kontrol edin.
 ---
 
-[日本語版 READMEはこちら](README.ja.md)
+[日本語版 READMEはこちら](https://github.com/line/line-bot-mcp-server/blob/HEAD/README.ja.md)
 
 # LINE Bot MCP Server
 
@@ -455,4 +455,4 @@ See http://semver.org/
 
 ## Contributing
 
-Please check [CONTRIBUTING](./CONTRIBUTING.md) before making a contribution.
+Please check [CONTRIBUTING](https://github.com/line/line-bot-mcp-server/blob/HEAD/CONTRIBUTING.md) before making a contribution.

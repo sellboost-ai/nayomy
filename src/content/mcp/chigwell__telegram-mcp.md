@@ -397,7 +397,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje [Apache 2.0 Lisansı](LICENSE) altında lisanslanmıştır.
+  Bu proje [Apache 2.0 Lisansı](https://github.com/chigwell/telegram-mcp/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   ## Teşekkürler
   
@@ -886,7 +886,7 @@ Telegram messages, display names, chat titles, and button labels are untrusted c
 
 ## License
 
-This project is licensed under the [Apache 2.0 License](LICENSE).
+This project is licensed under the [Apache 2.0 License](https://github.com/chigwell/telegram-mcp/tree/HEAD/LICENSE).
 
 ## Acknowledgements
 

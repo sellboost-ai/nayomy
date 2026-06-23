@@ -107,7 +107,7 @@ body_tr: |-
   
   #### Araç seti yapılandırması
   
-  Uzak sunucu yapılandırması, araç setleri, başlıklar ve gelişmiş kullanım hakkında tam ayrıntılar için [Uzak Sunucu Belgelerine](docs/remote-server.md) bakın. Bu dosya, uzak GitHub MCP Server'ı VS Code ve diğer MCP ana bilgisayarlarında bağlama, özelleştirme ve kurma konusunda kapsamlı yönergeler ve örnekler sağlar.
+  Uzak sunucu yapılandırması, araç setleri, başlıklar ve gelişmiş kullanım hakkında tam ayrıntılar için [Uzak Sunucu Belgelerine](https://github.com/github/github-mcp-server/blob/HEAD/docs/remote-server.md) bakın. Bu dosya, uzak GitHub MCP Server'ı VS Code ve diğer MCP ana bilgisayarlarında bağlama, özelleştirme ve kurma konusunda kapsamlı yönergeler ve örnekler sağlar.
   
   Araç seti belirtilmediğinde, [varsayılan araç setleri](#default-toolset) kullanılır.
   
@@ -152,7 +152,7 @@ body_tr: |-
   </tr>
   </table>
   
-  Daha fazla ayrıntı ve örnek için [Uzak Sunucu Belgelerine](docs/remote-server.md#insiders-mode) ve mevcut olanların tam listesi için [Insiders Özellikleri](docs/insiders-features.md) sayfasına bakın.
+  Daha fazla ayrıntı ve örnek için [Uzak Sunucu Belgelerine](https://github.com/github/github-mcp-server/tree/HEAD/docs/remote-server.md#insiders-mode) ve mevcut olanların tam listesi için [Insiders Özellikleri](https://github.com/github/github-mcp-server/blob/HEAD/docs/insiders-features.md) sayfasına bakın.
   
   #### GitHub Enterprise
   
@@ -362,14 +362,14 @@ body_tr: |-
   
   Diğer MCP ana bilgisayar uygulamaları için lütfen kurulum kılavuzlarımıza bakın:
   
-  - **[Copilot CLI](docs/installation-guides/install-copilot-cli.md)** - GitHub Copilot CLI için kurulum kılavuzu
+  - **[Copilot CLI](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-copilot-cli.md)** - GitHub Copilot CLI için kurulum kılavuzu
   - **[Diğer IDE'lerde GitHub Copilot](/docs/installation-guides/install-other-copilot-ides.md)** - JetBrains, Visual Studio, Eclipse ve Xcode'da GitHub Copilot kurulumu
-  - **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Claude Code ve Claude Desktop için kurulum kılavuzu
-  - **[Cursor](docs/installation-guides/install-cursor.md)** - Cursor IDE için kurulum kılavuzu
-  - **[Google Gemini CLI](docs/installation-guides/install-gemini-cli.md)** - Google Gemini CLI için kurulum kılavuzu
-  - **[Windsurf](docs/installation-guides/install-windsurf.md)** - Windsurf IDE için kurulum kılavuzu
+  - **[Claude Code & Claude Desktop](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-claude.md)** - Claude Code ve Claude Desktop için kurulum kılavuzu
+  - **[Cursor](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-cursor.md)** - Cursor IDE için kurulum kılavuzu
+  - **[Google Gemini CLI](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-gemini-cli.md)** - Google Gemini CLI için kurulum kılavuzu
+  - **[Windsurf](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-windsurf.md)** - Windsurf IDE için kurulum kılavuzu
   
-  Tüm kurulum seçeneklerine genel bir bakış için, lütfen **[Kurulum Kılavuzları İndeksine](docs/installation-guides)** bakın.
+  Tüm kurulum seçeneklerine genel bir bakış için, lütfen **[Kurulum Kılavuzları İndeksine](https://github.com/github/github-mcp-server/tree/HEAD/docs/installation-guides)** bakın.
   
   > **Not:** Yerel MCP sunucularını destekleyen herhangi bir ana bilgisayar uygulaması, yerel GitHub MCP sunucusuna erişebilmelidir. Ancak, belirli yapılandırma süreci, söz dizimi ve entegrasyonun stabilitesi ana bilgisayar uygulamasına göre değişir. Çoğu yukarıdaki örneklere benzer bir format izleyebilirken, bu garantili değildir. Doğru MCP yapılandırma söz dizimi ve kurulum süreci için lütfen ana bilgisayar uygulamanızın belgelerine bakın.
   
@@ -412,7 +412,7 @@ body_tr: |-
   
   Araç seti belirtilmediğinde, [varsayılan araç setleri](#default-toolset) kullanılır.
   
-  > **Örnekler arıyor? mısınız?** Minimal kurulumlar, salt okunur mod ve araçları araç setleriyle birleştirme gibi yaygın tarifler için [Server Yapılandırma Kılavuzuna](./docs/server-configuration.md) bakın.
+  > **Örnekler arıyor? mısınız?** Minimal kurulumlar, salt okunur mod ve araçları araç setleriyle birleştirme gibi yaygın tarifler için [Server Yapılandırma Kılavuzuna](https://github.com/github/github-mcp-server/blob/HEAD/docs/server-configuration.md) bakın.
   
   #### Araç Setlerini Belirtme
   
@@ -461,7 +461,7 @@ body_tr: |-
   - Araçlar ve araç setleri birlikte kullanılabilir
   - Salt okunur mod önceliğe sahiptir: yazma araçları `--read-only` ayarlanırsa, `--tools` aracılığıyla açıkça istense bile atlanır
   - Araç adları tam olarak eşleşmelidir (ör. `get_file_contents`, `getFileContents` değil). Geçersiz araç adları sunucunun başlangıçta bir hata mesajı ile başarısız olmasına neden olur
-  - Araçlar yeniden adlandırıldığında, eski adlar geriye dönük uyumluluk için takma ad olarak korunur. Ayrıntılar için [Araç Yeniden Adlandırma](docs/tool-renaming.md) sayfasına bakın.
+  - Araçlar yeniden adlandırıldığında, eski adlar geriye dönük uyumluluk için takma ad olarak korunur. Ayrıntılar için [Araç Yeniden Adlandırma](https://github.com/github/github-mcp-server/blob/HEAD/docs/tool-renaming.md) sayfasına bakın.
   
   ### Docker ile Araç Setlerini Kullanma
   
@@ -578,7 +578,7 @@ Alternatively, to manually configure VS Code, choose the appropriate JSON block 
 
 #### Toolset configuration
 
-See [Remote Server Documentation](docs/remote-server.md) for full details on remote server configuration, toolsets, headers, and advanced usage. This file provides comprehensive instructions and examples for connecting, customizing, and installing the remote GitHub MCP Server in VS Code and other MCP hosts.
+See [Remote Server Documentation](https://github.com/github/github-mcp-server/blob/HEAD/docs/remote-server.md) for full details on remote server configuration, toolsets, headers, and advanced usage. This file provides comprehensive instructions and examples for connecting, customizing, and installing the remote GitHub MCP Server in VS Code and other MCP hosts.
 
 When no toolsets are specified, [default toolsets](#default-toolset) are used.
 
@@ -623,7 +623,7 @@ When no toolsets are specified, [default toolsets](#default-toolset) are used.
 </tr>
 </table>
 
-See [Remote Server Documentation](docs/remote-server.md#insiders-mode) for more details and examples, and [Insiders Features](docs/insiders-features.md) for a full list of what's available.
+See [Remote Server Documentation](https://github.com/github/github-mcp-server/tree/HEAD/docs/remote-server.md#insiders-mode) for more details and examples, and [Insiders Features](https://github.com/github/github-mcp-server/blob/HEAD/docs/insiders-features.md) for a full list of what's available.
 
 #### GitHub Enterprise
 
@@ -834,16 +834,16 @@ Optionally, you can add a similar example (i.e. without the mcp key) to a file c
 
 For other MCP host applications, please refer to our installation guides:
 
-- **[Copilot CLI](docs/installation-guides/install-copilot-cli.md)** - Installation guide for GitHub Copilot CLI
+- **[Copilot CLI](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-copilot-cli.md)** - Installation guide for GitHub Copilot CLI
 - **[GitHub Copilot in other IDEs](/docs/installation-guides/install-other-copilot-ides.md)** - Installation for JetBrains, Visual Studio, Eclipse, and Xcode with GitHub Copilot
-- **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Installation guide for Claude Code and Claude Desktop
-- **[Cursor](docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
-- **[Google Gemini CLI](docs/installation-guides/install-gemini-cli.md)** - Installation guide for Google Gemini CLI
-- **[OpenCode](docs/installation-guides/install-opencode.md)** - Installation guide for the OpenCode terminal agent
-- **[Windsurf](docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
-- **[Zed](docs/installation-guides/install-zed.md)** - Installation guide for Zed editor
+- **[Claude Code & Claude Desktop](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-claude.md)** - Installation guide for Claude Code and Claude Desktop
+- **[Cursor](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
+- **[Google Gemini CLI](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-gemini-cli.md)** - Installation guide for Google Gemini CLI
+- **[OpenCode](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-opencode.md)** - Installation guide for the OpenCode terminal agent
+- **[Windsurf](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
+- **[Zed](https://github.com/github/github-mcp-server/blob/HEAD/docs/installation-guides/install-zed.md)** - Installation guide for Zed editor
 
-For a complete overview of all installation options, see our **[Installation Guides Index](docs/installation-guides)**.
+For a complete overview of all installation options, see our **[Installation Guides Index](https://github.com/github/github-mcp-server/tree/HEAD/docs/installation-guides)**.
 
 > **Note:** Any host application that supports local MCP servers should be able to access the local GitHub MCP server. However, the specific configuration process, syntax and stability of the integration will vary by host application. While many may follow a similar format to the examples above, this is not guaranteed. Please refer to your host application's documentation for the correct MCP configuration syntax and setup process.
 
@@ -887,7 +887,7 @@ _Toolsets are not limited to Tools. Relevant MCP Resources and Prompts are also 
 
 When no toolsets are specified, [default toolsets](#default-toolset) are used.
 
-> **Looking for examples?** See the [Server Configuration Guide](./docs/server-configuration.md) for common recipes like minimal setups, read-only mode, and combining tools with toolsets.
+> **Looking for examples?** See the [Server Configuration Guide](https://github.com/github/github-mcp-server/blob/HEAD/docs/server-configuration.md) for common recipes like minimal setups, read-only mode, and combining tools with toolsets.
 
 #### Specifying Toolsets
 
@@ -936,7 +936,7 @@ You can also configure specific tools using the `--tools` flag. Tools can be use
 - Tools and toolsets can be used together
 - Read-only mode takes priority: write tools are skipped if `--read-only` is set, even if explicitly requested via `--tools`
 - Tool names must match exactly (e.g., `get_file_contents`, not `getFileContents`). Invalid tool names will cause the server to fail at startup with an error message
-- When tools are renamed, old names are preserved as aliases for backward compatibility. See [Tool Renaming](docs/tool-renaming.md) for details.
+- When tools are renamed, old names are preserved as aliases for backward compatibility. See [Tool Renaming](https://github.com/github/github-mcp-server/blob/HEAD/docs/tool-renaming.md) for details.
 
 ### Using Toolsets With Docker
 
@@ -2102,4 +2102,4 @@ The exported Go API of this module should currently be considered unstable, and 
 
 ## License
 
-This project is licensed under the terms of the MIT open source license. Please refer to [MIT](./LICENSE) for the full terms.
+This project is licensed under the terms of the MIT open source license. Please refer to [MIT](https://github.com/github/github-mcp-server/tree/HEAD/LICENSE) for the full terms.

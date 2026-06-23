@@ -112,7 +112,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Katkıda bulunmak ve bu sunucuyu yerel olarak çalıştırmak ilginizi çekiyorsa? Başlamak için [CONTRIBUTING.md](CONTRIBUTING.md) bölümüne bakın.
+  Katkıda bulunmak ve bu sunucuyu yerel olarak çalıştırmak ilginizi çekiyorsa? Başlamak için [CONTRIBUTING.md](https://github.com/cloudflare/mcp-server-cloudflare/blob/HEAD/CONTRIBUTING.md) bölümüne bakın.
 ---
 
 # Cloudflare MCP Server
@@ -216,4 +216,4 @@ Some features may require a paid Cloudflare Workers plan. Ensure your Cloudflare
 
 ## Contributing
 
-Interested in contributing, and running this server locally? See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+Interested in contributing, and running this server locally? See [CONTRIBUTING.md](https://github.com/cloudflare/mcp-server-cloudflare/blob/HEAD/CONTRIBUTING.md) to get started.

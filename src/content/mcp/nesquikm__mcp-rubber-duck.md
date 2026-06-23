@@ -34,12 +34,12 @@ body_tr: |-
   - **Yinelemeli İyileştirme** -- İki ordek yanıtları işbirliği ile geliştirer
   - **Yapılandırılmış Tartışmalar** -- Oxford, Sokratik ve karşıt tartışma formatları
   - **MCP Prompts** -- Çok-LLM iş akışları için 8 yeniden kullanılabilir prompt şablonu
-  - **Vision Input** -- Resimleri promptların yanında vision-özellikli modellere gönderin ([docs](./docs/tools.md#vision-input))
+  - **Vision Input** -- Resimleri promptların yanında vision-özellikli modellere gönderin ([docs](https://github.com/nesquikm/mcp-rubber-duck/tree/HEAD/docs/tools.md#vision-input))
   - **Otomatik Failover** -- Primary başarısız olursa diğer sağlayıcılara geri döner
   - **Sağlık İzleme** -- Tüm sağlayıcılar için gerçek zamanlı sağlık kontrolleri
   - **Kullanım Takibi** -- Sağlayıcı başına request'ler, tokenler ve tahmini maliyetleri takip edin
-  - **MCP Bridge** -- Ordekkeri genişletilmiş işlevsellik için diğer MCP sunucularına bağlayın ([docs](./docs/mcp-bridge.md))
-  - **Guardrails** -- Rate limiting, token limitleri, pattern blocking ve PII redaksiyon ile taşınabilir güvenlik katmanı ([docs](./docs/guardrails.md))
+  - **MCP Bridge** -- Ordekkeri genişletilmiş işlevsellik için diğer MCP sunucularına bağlayın ([docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/mcp-bridge.md))
+  - **Guardrails** -- Rate limiting, token limitleri, pattern blocking ve PII redaksiyon ile taşınabilir güvenlik katmanı ([docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/guardrails.md))
   - **Granüler Güvenlik** -- Sunucu başına onay kontrolleri ve oturum tabanlı onaylar
   - **İnteraktif UI'ler** -- Karşılaştırma, oy, tartışma ve kullanım araçları için zengin HTML panelleri ([MCP Apps](https://github.com/modelcontextprotocol/ext-apps) aracılığıyla)
   - **Tool Açıklamaları** -- Tool davranışı için MCP-uyumlu ipuçları (read-only, destructive, vb.)
@@ -65,7 +65,7 @@ body_tr: |-
   
   - **Claude Code** (`claude`) -- **Codex** (`codex`) -- **Gemini CLI** (`gemini`) -- **Grok CLI** (`grok`) -- **Aider** (`aider`) -- **Custom**
   
-  Tam kurulum ve yapılandırma için bkz. [CLI Providers](./docs/cli-providers.md).
+  Tam kurulum ve yapılandırma için bkz. [CLI Providers](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/cli-providers.md).
   
   ## Hızlı Başlangıç
   
@@ -77,8 +77,8 @@ body_tr: |-
   npx mcp-rubber-duck
   ```
   
-  **Claude Desktop kullanıyor musunuz?** [Claude Desktop Yapılandırması](./docs/claude-desktop.md)'na atlayın.
-  **Cursor, VS Code, Windsurf veya başka bir araç kullanıyor musunuz?** [Kurulum Rehberi](./docs/setup.md)'ne bakın.
+  **Claude Desktop kullanıyor musunuz?** [Claude Desktop Yapılandırması](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/claude-desktop.md)'na atlayın.
+  **Cursor, VS Code, Windsurf veya başka bir araç kullanıyor musunuz?** [Kurulum Rehberi](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/setup.md)'ne bakın.
   
   ## Kurulum
   
@@ -121,7 +121,7 @@ body_tr: |-
   | `CUSTOM_{NAME}_*` | Özel HTTP sağlayıcılar |
   | `CLI_{AGENT}_ENABLED` | CLI aracılarını etkinleştir (`CLAUDE`, `CODEX`, `GEMINI`, `GROK`, `AIDER`) |
   
-  Tam referans: **[Yapılandırma docs](./docs/configuration.md)**
+  Tam referans: **[Yapılandırma docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/configuration.md)**
   
   ## İnteraktif UI'ler (MCP Apps)
   
@@ -179,7 +179,7 @@ body_tr: |-
   | `get_pending_approvals` | MCP tool onayı bekleyen istekler |
   | `approve_mcp_request` | Ordek'in MCP tool isteğini onayla veya reddet |
   
-  Giriş şemaları ile tam referans: **[Tools docs](./docs/tools.md)**
+  Giriş şemaları ile tam referans: **[Tools docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/tools.md)**
   
   ## Mevcut Promptlar
   
@@ -194,7 +194,7 @@ body_tr: |-
   | `architecture` | Kaygılar arasında tasarım incelemesi | `design`, `workloads`, `priorities` |
   | `diverge_converge` | Farklı keşif ardından yakınsama | `challenge` |
   
-  Örnekler ile tam referans: **[Prompts docs](./docs/prompts.md)**
+  Örnekler ile tam referans: **[Prompts docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/prompts.md)**
   
   ## Geliştirme
   
@@ -205,23 +205,23 @@ body_tr: |-
   npm run typecheck  # Emit olmadan type kontrol
   ```
   
-  ## [Dokümantasyon](./docs/README.md)
+  ## [Dokümantasyon](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/README.md)
   
   | Konu | Link |
   |------|------|
-  | **Kurulum rehberi (tüm araçlar)** | **[docs/setup.md](./docs/setup.md)** |
-  | Tam yapılandırma referansı | [docs/configuration.md](./docs/configuration.md) |
-  | Claude Desktop kurulumu | [docs/claude-desktop.md](./docs/claude-desktop.md) |
-  | Şemalar ile tüm araçlar | [docs/tools.md](./docs/tools.md) |
-  | Prompt şablonları | [docs/prompts.md](./docs/prompts.md) |
-  | CLI kodlama aracıları | [docs/cli-providers.md](./docs/cli-providers.md) |
-  | MCP Bridge | [docs/mcp-bridge.md](./docs/mcp-bridge.md) |
-  | Guardrails | [docs/guardrails.md](./docs/guardrails.md) |
-  | Docker dağıtımı | [docs/docker.md](./docs/docker.md) |
-  | Sağlayıcıya özel kurulum | [docs/provider-setup.md](./docs/provider-setup.md) |
-  | Kullanım örnekleri | [docs/usage-examples.md](./docs/usage-examples.md) |
-  | Mimari | [docs/architecture.md](./docs/architecture.md) |
-  | Yol Haritası | [docs/roadmap.md](./docs/roadmap.md) |
+  | **Kurulum rehberi (tüm araçlar)** | **[docs/setup.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/setup.md)** |
+  | Tam yapılandırma referansı | [docs/configuration.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/configuration.md) |
+  | Claude Desktop kurulumu | [docs/claude-desktop.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/claude-desktop.md) |
+  | Şemalar ile tüm araçlar | [docs/tools.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/tools.md) |
+  | Prompt şablonları | [docs/prompts.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/prompts.md) |
+  | CLI kodlama aracıları | [docs/cli-providers.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/cli-providers.md) |
+  | MCP Bridge | [docs/mcp-bridge.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/mcp-bridge.md) |
+  | Guardrails | [docs/guardrails.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/guardrails.md) |
+  | Docker dağıtımı | [docs/docker.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/docker.md) |
+  | Sağlayıcıya özel kurulum | [docs/provider-setup.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/provider-setup.md) |
+  | Kullanım örnekleri | [docs/usage-examples.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/usage-examples.md) |
+  | Mimari | [docs/architecture.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/architecture.md) |
+  | Yol Haritası | [docs/roadmap.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/roadmap.md) |
   
   ## Sorun Giderme
   
@@ -239,7 +239,7 @@ body_tr: |-
   ### Rate Limiting
   - Alternatif sağlayıcılara failover yapılandırın
   - `max_retries` ve `timeout` ayarlarını ayarlayın
-  - Rate limiting yapılandırması için [Guardrails](./docs/guardrails.md)'e bakın
+  - Rate limiting yapılandırması için [Guardrails](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/guardrails.md)'e bakın
   
   ## Katkıda Bulunma
   
@@ -252,12 +252,12 @@ body_tr: |-
   
   Katkıları seviyoruz! Hataları düzenliyorsanız, özellik ekleniyorsanız veya ordekkelerimize yeni hileler öğreniyorsanız, sürüye katılmanızı severdik.
   
-  Başlamak için [Katkı Rehberi](./CONTRIBUTING.md)'ne göz atın.
+  Başlamak için [Katkı Rehberi](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/CONTRIBUTING.md)'ne göz atın.
   
   **Katkıda bulunanlar için hızlı başlangıç:**
   1. Depoyu fork edin
   2. Bir feature şubesi oluşturun
-  3. [Geleneksel commit yönergelerini](./CONTRIBUTING.md#commit-messages-duck-communication-protocol) izleyin
+  3. [Geleneksel commit yönergelerini](https://github.com/nesquikm/mcp-rubber-duck/tree/HEAD/CONTRIBUTING.md#commit-messages-duck-communication-protocol) izleyin
   4. Yeni işlevsellik için testler ekleyin
   5. Pull request gönderin
   
@@ -274,7 +274,7 @@ body_tr: |-
   
   ## Değişiklik Günlüğü
   
-  Değişiklik ve sürümlerin ayrıntılı geçmişi için [CHANGELOG.md](./CHANGELOG.md)'ye bakın.
+  Değişiklik ve sürümlerin ayrıntılı geçmişi için [CHANGELOG.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/CHANGELOG.md)'ye bakın.
   
   ## Kayıt ve Dizin
   
@@ -321,12 +321,12 @@ An MCP (Model Context Protocol) server that acts as a bridge to query multiple L
 - **Iterative Refinement** -- Two ducks collaboratively improve responses
 - **Structured Debates** -- Oxford, Socratic, and adversarial debate formats
 - **MCP Prompts** -- 8 reusable prompt templates for multi-LLM workflows
-- **Vision Input** -- Send images alongside prompts to vision-capable models ([docs](./docs/tools.md#vision-input))
+- **Vision Input** -- Send images alongside prompts to vision-capable models ([docs](https://github.com/nesquikm/mcp-rubber-duck/tree/HEAD/docs/tools.md#vision-input))
 - **Automatic Failover** -- Falls back to other providers if primary fails
 - **Health Monitoring** -- Real-time health checks for all providers
 - **Usage Tracking** -- Track requests, tokens, and estimated costs per provider
-- **MCP Bridge** -- Connect ducks to other MCP servers for extended functionality ([docs](./docs/mcp-bridge.md))
-- **Guardrails** -- Pluggable safety layer with rate limiting, token limits, pattern blocking, and PII redaction ([docs](./docs/guardrails.md))
+- **MCP Bridge** -- Connect ducks to other MCP servers for extended functionality ([docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/mcp-bridge.md))
+- **Guardrails** -- Pluggable safety layer with rate limiting, token limits, pattern blocking, and PII redaction ([docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/guardrails.md))
 - **Granular Security** -- Per-server approval controls with session-based approvals
 - **Interactive UIs** -- Rich HTML panels for compare, vote, debate, and usage tools (via [MCP Apps](https://github.com/modelcontextprotocol/ext-apps))
 - **Tool Annotations** -- MCP-compliant hints for tool behavior (read-only, destructive, etc.)
@@ -353,7 +353,7 @@ Command-line coding agents that run as local processes:
 
 - **Claude Code** (`claude`) -- **Codex** (`codex`) -- **Gemini CLI** (`gemini`) -- **Grok CLI** (`grok`) -- **Aider** (`aider`) -- **Custom**
 
-See [CLI Providers](./docs/cli-providers.md) for full setup and configuration.
+See [CLI Providers](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/cli-providers.md) for full setup and configuration.
 
 ## Quick Start
 
@@ -365,8 +365,8 @@ npm install -g mcp-rubber-duck
 npx mcp-rubber-duck
 ```
 
-**Using Claude Desktop?** Jump to [Claude Desktop Configuration](./docs/claude-desktop.md).
-**Using Cursor, VS Code, Windsurf, or another tool?** See the [Setup Guide](./docs/setup.md).
+**Using Claude Desktop?** Jump to [Claude Desktop Configuration](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/claude-desktop.md).
+**Using Cursor, VS Code, Windsurf, or another tool?** See the [Setup Guide](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/setup.md).
 
 ## Installation
 
@@ -409,7 +409,7 @@ Create a `.env` file or `config/config.json`. Key environment variables:
 | `CUSTOM_{NAME}_*` | Custom HTTP providers |
 | `CLI_{AGENT}_ENABLED` | Enable CLI agents (`CLAUDE`, `CODEX`, `GEMINI`, `GROK`, `AIDER`) |
 
-Full reference: **[Configuration docs](./docs/configuration.md)**
+Full reference: **[Configuration docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/configuration.md)**
 
 ## Interactive UIs (MCP Apps)
 
@@ -467,7 +467,7 @@ Usage analytics with summary cards, provider breakdown with expandable rows, tok
 | `get_pending_approvals` | Pending MCP tool approval requests |
 | `approve_mcp_request` | Approve or deny a duck's MCP tool request |
 
-Full reference with input schemas: **[Tools docs](./docs/tools.md)**
+Full reference with input schemas: **[Tools docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/tools.md)**
 
 ## Available Prompts
 
@@ -482,7 +482,7 @@ Full reference with input schemas: **[Tools docs](./docs/tools.md)**
 | `architecture` | Design review across concerns | `design`, `workloads`, `priorities` |
 | `diverge_converge` | Divergent exploration then convergence | `challenge` |
 
-Full reference with examples: **[Prompts docs](./docs/prompts.md)**
+Full reference with examples: **[Prompts docs](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/prompts.md)**
 
 ## Development
 
@@ -493,23 +493,23 @@ npm run lint       # ESLint
 npm run typecheck  # Type check without emit
 ```
 
-## [Documentation](./docs/README.md)
+## [Documentation](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/README.md)
 
 | Topic | Link |
 |-------|------|
-| **Setup guide (all tools)** | **[docs/setup.md](./docs/setup.md)** |
-| Full configuration reference | [docs/configuration.md](./docs/configuration.md) |
-| Claude Desktop setup | [docs/claude-desktop.md](./docs/claude-desktop.md) |
-| All tools with schemas | [docs/tools.md](./docs/tools.md) |
-| Prompt templates | [docs/prompts.md](./docs/prompts.md) |
-| CLI coding agents | [docs/cli-providers.md](./docs/cli-providers.md) |
-| MCP Bridge | [docs/mcp-bridge.md](./docs/mcp-bridge.md) |
-| Guardrails | [docs/guardrails.md](./docs/guardrails.md) |
-| Docker deployment | [docs/docker.md](./docs/docker.md) |
-| Provider-specific setup | [docs/provider-setup.md](./docs/provider-setup.md) |
-| Usage examples | [docs/usage-examples.md](./docs/usage-examples.md) |
-| Architecture | [docs/architecture.md](./docs/architecture.md) |
-| Roadmap | [docs/roadmap.md](./docs/roadmap.md) |
+| **Setup guide (all tools)** | **[docs/setup.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/setup.md)** |
+| Full configuration reference | [docs/configuration.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/configuration.md) |
+| Claude Desktop setup | [docs/claude-desktop.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/claude-desktop.md) |
+| All tools with schemas | [docs/tools.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/tools.md) |
+| Prompt templates | [docs/prompts.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/prompts.md) |
+| CLI coding agents | [docs/cli-providers.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/cli-providers.md) |
+| MCP Bridge | [docs/mcp-bridge.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/mcp-bridge.md) |
+| Guardrails | [docs/guardrails.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/guardrails.md) |
+| Docker deployment | [docs/docker.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/docker.md) |
+| Provider-specific setup | [docs/provider-setup.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/provider-setup.md) |
+| Usage examples | [docs/usage-examples.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/usage-examples.md) |
+| Architecture | [docs/architecture.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/architecture.md) |
+| Roadmap | [docs/roadmap.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/roadmap.md) |
 
 ## Troubleshooting
 
@@ -527,7 +527,7 @@ npm run typecheck  # Type check without emit
 ### Rate Limiting
 - Configure failover to alternate providers
 - Adjust `max_retries` and `timeout` settings
-- See [Guardrails](./docs/guardrails.md) for rate limiting configuration
+- See [Guardrails](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/docs/guardrails.md) for rate limiting configuration
 
 ## Contributing
 
@@ -540,12 +540,12 @@ npm run typecheck  # Type check without emit
 
 We love contributions! Whether you're fixing bugs, adding features, or teaching our ducks new tricks, we'd love to have you join the flock.
 
-Check out our [Contributing Guide](./CONTRIBUTING.md) to get started.
+Check out our [Contributing Guide](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/CONTRIBUTING.md) to get started.
 
 **Quick start for contributors:**
 1. Fork the repository
 2. Create a feature branch
-3. Follow our [conventional commit guidelines](./CONTRIBUTING.md#commit-messages-duck-communication-protocol)
+3. Follow our [conventional commit guidelines](https://github.com/nesquikm/mcp-rubber-duck/tree/HEAD/CONTRIBUTING.md#commit-messages-duck-communication-protocol)
 4. Add tests for new functionality
 5. Submit a pull request
 
@@ -562,7 +562,7 @@ MIT License - see LICENSE file for details
 
 ## Changelog
 
-See [CHANGELOG.md](./CHANGELOG.md) for a detailed history of changes and releases.
+See [CHANGELOG.md](https://github.com/nesquikm/mcp-rubber-duck/blob/HEAD/CHANGELOG.md) for a detailed history of changes and releases.
 
 ## Registry & Directory
 

@@ -158,12 +158,12 @@ body_tr: |-
   
   ## Related Agents
   
-  - [cs-engineering-lead](cs-engineering-lead.md) — Mühendislik takımı koordinasyonu
-  - [cs-senior-engineer](../engineering/cs-senior-engineer.md) — Mimari ve CI/CD
+  - [cs-engineering-lead](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-engineering-lead.md) — Mühendislik takımı koordinasyonu
+  - [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering/cs-senior-engineer.md) — Mimari ve CI/CD
   
   ## References
   
-  - [Skill Documentation](../../engineering-team/google-workspace-cli/skills/google-workspace-cli/SKILL.md)
+  - [Skill Documentation](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering-team/google-workspace-cli/skills/google-workspace-cli/SKILL.md)
   - [gws CLI Repository](https://github.com/googleworkspace/cli)
 ---
 
@@ -311,10 +311,10 @@ gws helpers morning-briefing --json | python3 ../../engineering-team/google-work
 
 ## Related Agents
 
-- [cs-engineering-lead](cs-engineering-lead.md) — Engineering team coordination
-- [cs-senior-engineer](../engineering/cs-senior-engineer.md) — Architecture and CI/CD
+- [cs-engineering-lead](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-engineering-lead.md) — Engineering team coordination
+- [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering/cs-senior-engineer.md) — Architecture and CI/CD
 
 ## References
 
-- [Skill Documentation](../../engineering-team/google-workspace-cli/skills/google-workspace-cli/SKILL.md)
+- [Skill Documentation](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering-team/google-workspace-cli/skills/google-workspace-cli/SKILL.md)
 - [gws CLI Repository](https://github.com/googleworkspace/cli)

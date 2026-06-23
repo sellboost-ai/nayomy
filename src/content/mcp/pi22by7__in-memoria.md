@@ -45,7 +45,7 @@ body_tr: |-
   
   Bunu, AI pair programmer'ınıza oturumu yeniden başlattığınız her seferde silinen bir not defteri vermek gibi düşünün.
   
-  **Mevcut sürüm: 0.6.0** - [Neler değişti](CHANGELOG.md)
+  **Mevcut sürüm: 0.6.0** - [Neler değişti](https://github.com/pi22by7/In-Memoria/blob/HEAD/CHANGELOG.md)
   
   ### Ne Yapar
   
@@ -235,7 +235,7 @@ body_tr: |-
   - ~~get_learning_status~~ → `get_project_blueprint` içine birleştirildi
   - ~~quick_setup~~ → `auto_learn_if_needed` içine birleştirildi
   
-  > **AI ajanları için**: Tam araç referansı, kullanım desenleri ve karar ağaçları için [`AGENT.md`](AGENT.md) bölümüne bakın.
+  > **AI ajanları için**: Tam araç referansı, kullanım desenleri ve karar ağaçları için [`AGENT.md`](https://github.com/pi22by7/In-Memoria/blob/HEAD/AGENT.md) bölümüne bakın.
   
   ## GitHub Copilot Entegrasyonu
   
@@ -458,7 +458,7 @@ body_tr: |-
   - 🧪 **Kod tabanınızda test edin** - Deneyin ve bize neyin kırıldığını söyleyin
   - 💬 **Topluluğa katılın** - Gerçek zamanlı tartışmalar için [Discord](https://discord.gg/6mGsM4qkYm)
   
-  Geliştirme kurulumu ve yönergeler için [CONTRIBUTING.md](CONTRIBUTING.md) bölümüne bakın.
+  Geliştirme kurulumu ve yönergeler için [CONTRIBUTING.md](https://github.com/pi22by7/In-Memoria/blob/HEAD/CONTRIBUTING.md) bölümüne bakın.
   
   ## Teknik Karşılaştırma
   
@@ -585,7 +585,7 @@ In Memoria is an MCP server that learns from your actual codebase and remembers 
 
 Think of it as giving your AI pair programmer a notepad that doesn't get wiped clean every time you restart the session.
 
-**Current version: 0.6.0** - [See what's changed](CHANGELOG.md)
+**Current version: 0.6.0** - [See what's changed](https://github.com/pi22by7/In-Memoria/blob/HEAD/CHANGELOG.md)
 
 ### What It Does
 
@@ -775,7 +775,7 @@ In Memoria provides **13 specialized tools** that AI assistants can call via MCP
 - ~~get_learning_status~~ → merged into `get_project_blueprint`
 - ~~quick_setup~~ → merged into `auto_learn_if_needed`
 
-> **For AI agents**: See [`AGENT.md`](AGENT.md) for complete tool reference with usage patterns and decision trees.
+> **For AI agents**: See [`AGENT.md`](https://github.com/pi22by7/In-Memoria/blob/HEAD/AGENT.md) for complete tool reference with usage patterns and decision trees.
 
 ## GitHub Copilot Integration
 
@@ -998,7 +998,7 @@ This is open-source infrastructure for AI-assisted development. Currently a solo
 - 🧪 **Test on your codebase** - Try it out and tell us what breaks
 - 💬 **Join the community** - [Discord](https://discord.gg/6mGsM4qkYm) for real-time discussions
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
+See [CONTRIBUTING.md](https://github.com/pi22by7/In-Memoria/blob/HEAD/CONTRIBUTING.md) for development setup and guidelines.
 
 ## Technical Comparison
 
@@ -1111,14 +1111,14 @@ See [GitHub Projects](https://github.com/pi22by7/in-memoria/projects) for detail
 - 📧 **Email**: [talk@pi22by7.me](mailto:talk@pi22by7.me) - For private inquiries or larger contribution discussions
 - 🐛 **Issues**: [GitHub Issues](https://github.com/pi22by7/in-memoria/issues) - Report bugs and request features
 - 💡 **Discussions**: [GitHub Discussions](https://github.com/pi22by7/in-memoria/discussions) - General discussions and Q&A
-- 📖 **Documentation**: See [AGENT.md](AGENT.md) for AI agent instructions
-- 🤝 **Contributing**: Check [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines
+- 📖 **Documentation**: See [AGENT.md](https://github.com/pi22by7/In-Memoria/blob/HEAD/AGENT.md) for AI agent instructions
+- 🤝 **Contributing**: Check [CONTRIBUTING.md](https://github.com/pi22by7/In-Memoria/blob/HEAD/CONTRIBUTING.md) for development guidelines
 
 **Before contributing**: Please discuss your ideas on Discord, via email, or in an issue before starting work on significant features. This helps ensure alignment with project direction and avoids duplicate efforts.
 
 ## License
 
-MIT - see [LICENSE](LICENSE)
+MIT - see [LICENSE](https://github.com/pi22by7/In-Memoria/tree/HEAD/LICENSE)
 
 Built with ❤️ by [@pi22by7](https://github.com/pi22by7) for the AI-assisted development community.
 
@@ -1126,7 +1126,7 @@ Built with ❤️ by [@pi22by7](https://github.com/pi22by7) for the AI-assisted 
 
 **Try it**: `npx in-memoria server`
 
-**Latest release**: [v0.6.0](CHANGELOG.md) - Smooth progress tracking and Phase 1-4 complete
+**Latest release**: [v0.6.0](https://github.com/pi22by7/In-Memoria/blob/HEAD/CHANGELOG.md) - Smooth progress tracking and Phase 1-4 complete
 
 _In memoria: in memory. Because your AI assistant should remember._
 

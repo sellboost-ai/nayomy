@@ -29,14 +29,14 @@ body_tr: |-
   [Dokümanlar](https://docs.skylos.dev) |
   [Repo Haritası](https://duriantaco.github.io/skylos/repo-map/) |
   [Hızlı Başlangıç](https://docs.skylos.dev/quick-start) |
-  [GitHub Action](./action.yml) |
-  [VS Code Uzantısı](./editors/vscode/README.md) |
-  [Gerçek Dünya Sonuçları](./REAL_WORLD_RESULTS.md) |
-  [Kıyaslamalar](./BENCHMARK.md) |
-  [Yol Haritası](./ROADMAP.md) |
-  [Katkı Sağlama](./CONTRIBUTING.md)
+  [GitHub Action](https://github.com/duriantaco/skylos/blob/HEAD/action.yml) |
+  [VS Code Uzantısı](https://github.com/duriantaco/skylos/blob/HEAD/editors/vscode/README.md) |
+  [Gerçek Dünya Sonuçları](https://github.com/duriantaco/skylos/blob/HEAD/REAL_WORLD_RESULTS.md) |
+  [Kıyaslamalar](https://github.com/duriantaco/skylos/blob/HEAD/BENCHMARK.md) |
+  [Yol Haritası](https://github.com/duriantaco/skylos/blob/HEAD/ROADMAP.md) |
+  [Katkı Sağlama](https://github.com/duriantaco/skylos/blob/HEAD/CONTRIBUTING.md)
   
-  **English** | [Deutsch](./docs/i18n/README.de.md) | [简体中文](./docs/i18n/README.zh-CN.md) | [Çeviriler](./docs/i18n/README.md)
+  **English** | [Deutsch](https://github.com/duriantaco/skylos/blob/HEAD/docs/i18n/README.de.md) | [简体中文](https://github.com/duriantaco/skylos/blob/HEAD/docs/i18n/README.zh-CN.md) | [Çeviriler](https://github.com/duriantaco/skylos/blob/HEAD/docs/i18n/README.md)
   
   ## Skylos Nedir?
   
@@ -100,8 +100,8 @@ body_tr: |-
   | İlk ölü-kod taraması | `skylos .` | Kullanılmayan fonksiyonlar, sınıflar, importlar, dosyalar ve framework entrypoint hatalarını bulur | [Ölü kod dokümanları](https://docs.skylos.dev/dead-code-detection) |
   | Güvenlik ve kalite denetimi | `skylos . -a` | Tehlikeli akış, sırlar, bağımlılık, config ve kalite kontrolleri ekler | [Güvenlik dokümanları](https://docs.skylos.dev/security-analysis) |
   | PR kapısı | `skylos cicd init` | Annotation'lar ve başarısızlık eşikleriyle bir GitHub Actions workflow'u oluşturur | [CI/CD rehberi](https://docs.skylos.dev/ci-cd) |
-  | Okunabilir terminal raporu | `skylos . --format pretty` | Bulguları dosya başına gruplandırır, şiddet rozetleri, snippet'ler ve kopyalanabilir `file:line` konumlarıyla | [CLI çıktı modları](./docs/cli-output.md) |
-  | Seçilebilir terminal triyajı | `skylos . --tui` | Klavye kontrollü kategori listesi, bulgu listesi ve detay panelini açar | [CLI çıktı modları](./docs/cli-output.md) |
+  | Okunabilir terminal raporu | `skylos . --format pretty` | Bulguları dosya başına gruplandırır, şiddet rozetleri, snippet'ler ve kopyalanabilir `file:line` konumlarıyla | [CLI çıktı modları](https://github.com/duriantaco/skylos/blob/HEAD/docs/cli-output.md) |
+  | Seçilebilir terminal triyajı | `skylos . --tui` | Klavye kontrollü kategori listesi, bulgu listesi ve detay panelini açar | [CLI çıktı modları](https://github.com/duriantaco/skylos/blob/HEAD/docs/cli-output.md) |
   | IDE/test-script çıktısı | `skylos --format concise src/test.py` | Yalnızca `file:line` bulgularını yazdırır ve bulgular olduğunda sıfır olmayan exit olur | [CLI Referansı](https://docs.skylos.dev/cli-reference) |
   | Değişen-satır incelemesi | `skylos . -a --diff origin/main` | Bulguları eski borçtan ziyade aktif işe odaklanır | [Kalite kapısı dokümanları](https://docs.skylos.dev/quality-gate) |
   | Runtime destekli ölü-kod kontrolü | `skylos . --trace` | Dinamik-kod yanlış pozitiflerini azaltmak için runtime izlerini kullanır | [Smart tracing](https://docs.skylos.dev/smart-tracing) |
@@ -223,7 +223,7 @@ body_tr: |-
   | OWASP Java güvenlik dev | TP=105 FP=0 FN=15 TN=120, skor 94.37 | request-wrapper, LDAP, XPath ve property weak-hash boşlukları kalır |
   | Kalite tohumlanan dev | TP=1 FP=0 FN=0 TN=1, skor 100.0 | yalnızca bir tohumlanan case |
   
-  Metodoloji, komutlar, rekabet eden satırlar ve uyarılar için [BENCHMARK.md](./BENCHMARK.md)'i görün.
+  Metodoloji, komutlar, rekabet eden satırlar ve uyarılar için [BENCHMARK.md](https://github.com/duriantaco/skylos/blob/HEAD/BENCHMARK.md)'i görün.
   
   ## Proje Kanıtı
   
@@ -234,7 +234,7 @@ body_tr: |-
   [mitmproxy](https://github.com/mitmproxy/mitmproxy/pull/8136),
   [pypdf](https://github.com/py-pdf/pypdf/pull/3685),
   [beets](https://github.com/beetbox/beets/pull/6473) ve
-  [Flagsmith](https://github.com/Flagsmith/flagsmith/pull/6953) projeleriyle merge edilmiştir. Bunlar kabul edilen temizleme PR'ları olup, proje onaylamaları değildir. [Gerçek Dünya Sonuçlarını](./REAL_WORLD_RESULTS.md) görün.
+  [Flagsmith](https://github.com/Flagsmith/flagsmith/pull/6953) projeleriyle merge edilmiştir. Bunlar kabul edilen temizleme PR'ları olup, proje onaylamaları değildir. [Gerçek Dünya Sonuçlarını](https://github.com/duriantaco/skylos/blob/HEAD/REAL_WORLD_RESULTS.md) görün.
   
   <a id="star-authenticity-audit"></a>
   
@@ -244,8 +244,8 @@ body_tr: |-
   
   | İntegrasyon | Link | Amaç |
   |:---|:---|:---|
-  | GitHub Action | [GitHub Action](./action.yml) | PR kapıları, annotation'lar ve CI zorlaması |
-  | VS Code uzantısı | [VS Code uzantısı](./editors/vscode/README.md) | editör içinde bulgular ve AI destekli düzeltmeler |
+  | GitHub Action | [GitHub Action](https://github.com/duriantaco/skylos/blob/HEAD/action.yml) | PR kapıları, annotation'lar ve CI zorlaması |
+  | VS Code uzantısı | [VS Code uzantısı](https://github.com/duriantaco/skylos/blob/HEAD/editors/vscode/README.md) | editör içinde bulgular ve AI destekli düzeltmeler |
   | MCP server'ı | [MCP setup](https://docs.skylos.dev/mcp-server) | Skylos taramalarını AI agent'leri ve coding asistan'larına maruz bırakın |
   | Docker image'ı | [Kurulum](https://docs.skylos.dev/installation) | Skylos'u yerel Python kurulumu olmadan çalıştırın |
   | Skylos Cloud | [Cloud workflow'u](https://docs.skylos.dev/cloud-workflow) | isteğe bağlı yükleme ve dashboard workflow'ları |
@@ -266,25 +266,25 @@ body_tr: |-
   | Kurulum seçenekleri, kaynak kurulum ve Docker | [Kurulum](https://docs.skylos.dev/installation) |
   | İlk tarama ve temel workflow'lar | [Hızlı Başlangıç](https://docs.skylos.dev/quick-start) |
   | CLI komutları, flag'ler ve örnekler | [CLI Referansı](https://docs.skylos.dev/cli-reference) |
-  | CLI çıktı modları, güzel raporlar ve TUI kontrolleri | [CLI Çıktı Modları](./docs/cli-output.md) |
+  | CLI çıktı modları, güzel raporlar ve TUI kontrolleri | [CLI Çıktı Modları](https://github.com/duriantaco/skylos/blob/HEAD/docs/cli-output.md) |
   | CI setup, PR kapıları, annotation'lar ve branch koruması | [CI/CD](https://docs.skylos.dev/ci-cd) |
   | Ölü-kod davranışı ve framework farkındalığı | [Ölü Kod Tespiti](https://docs.skylos.dev/dead-code-detection) |
   | Güvenlik taraması ve taint analizi | [Güvenlik Analizi](https://docs.skylos.dev/security-analysis) |
-  | Rule ID ön ekleri ve ürün terminolojisi | [Rule Sözlüğü](./dictionary.md) |
+  | Rule ID ön ekleri ve ürün terminolojisi | [Rule Sözlüğü](https://github.com/duriantaco/skylos/blob/HEAD/dictionary.md) |
   | Agent tarama, doğrulama, düzeltme ve model setup'ı | [AI Özellikleri](https://docs.skylos.dev/ai-features) |
   | AI savunması kontrolleri ve LLM güvenlik önlemleri | [AI Savunması](https://docs.skylos.dev/ai-defense) |
   | MCP server'ı setup'ı | [MCP Server'ı](https://docs.skylos.dev/mcp-server) |
-  | Gerçek dünya merge edilmiş temizleme PR'ları | [Gerçek Dünya Sonuçları](./REAL_WORLD_RESULTS.md) |
+  | Gerçek dünya merge edilmiş temizleme PR'ları | [Gerçek Dünya Sonuçları](https://github.com/duriantaco/skylos/blob/HEAD/REAL_WORLD_RESULTS.md) |
   | Baseline'lar, filtreleme, bastırma ve whitelist'ler | [Konfigürasyon](https://docs.skylos.dev/configuration) |
   | Smart tracing | [Smart Tracing](https://docs.skylos.dev/smart-tracing) |
   | Rule aileleri ve dil desteği | [Rules Referansı](https://docs.skylos.dev/rules-reference) |
   | Bulut yüklemeleri ve dashboard akışı | [CLI to Dashboard](https://docs.skylos.dev/cloud-workflow) |
   | VS Code uzantısı | [VS Code Uzantısı](https://docs.skylos.dev/vscode) |
-  | Kıyaslamalar ve metodoloji | [BENCHMARK.md](./BENCHMARK.md) |
-  | Güvenlik politikası | [SECURITY.md](./SECURITY.md) |
-  | Release süreci | [RELEASE_WORKFLOW.md](./RELEASE_WORKFLOW.md) |
-  | Katkı öncelikleri | [ROADMAP.md](./ROADMAP.md) |
-  | Katkı Sağlama | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+  | Kıyaslamalar ve metodoloji | [BENCHMARK.md](https://github.com/duriantaco/skylos/blob/HEAD/BENCHMARK.md) |
+  | Güvenlik politikası | [SECURITY.md](https://github.com/duriantaco/skylos/blob/HEAD/SECURITY.md) |
+  | Release süreci | [RELEASE_WORKFLOW.md](https://github.com/duriantaco/skylos/blob/HEAD/RELEASE_WORKFLOW.md) |
+  | Katkı öncelikleri | [ROADMAP.md](https://github.com/duriantaco/skylos/blob/HEAD/ROADMAP.md) |
+  | Katkı Sağlama | [CONTRIBUTING.md](https://github.com/duriantaco/skylos/blob/HEAD/CONTRIBUTING.md) |
   
   ## Sık Sorulan Sorular
   
@@ -306,16 +306,16 @@ body_tr: |-
   
   ## Katkı Sağlama ve Destek
   
-  - Güvenlik sorunlarını [SECURITY.md](./SECURITY.md) aracılığıyla bildirin.
+  - Güvenlik sorunlarını [SECURITY.md](https://github.com/duriantaco/skylos/blob/HEAD/SECURITY.md) aracılığıyla bildirin.
   - Minimal repro'larla bug'lar ve yanlış-pozitif raporları açın.
-  - Yararlı katkı alanları için [ROADMAP.md](./ROADMAP.md) kontrol edin.
-  - Bir pull request göndermeden önce [CONTRIBUTING.md](./CONTRIBUTING.md) okuyun.
-  - Proje kalitesi ve kapı beklentileri için [QUALITY.md](./QUALITY.md)'yi görün.
+  - Yararlı katkı alanları için [ROADMAP.md](https://github.com/duriantaco/skylos/blob/HEAD/ROADMAP.md) kontrol edin.
+  - Bir pull request göndermeden önce [CONTRIBUTING.md](https://github.com/duriantaco/skylos/blob/HEAD/CONTRIBUTING.md) okuyun.
+  - Proje kalitesi ve kapı beklentileri için [QUALITY.md](https://github.com/duriantaco/skylos/blob/HEAD/QUALITY.md)'yi görün.
   - Topluluk desteği için [Discord](https://discord.gg/Ftn9t9tErf)'a katılın.
   
   ## Lisans
   
-  Skylos, [Apache License 2.0](./LICENSE) altında lisanslanmıştır.
+  Skylos, [Apache License 2.0](https://github.com/duriantaco/skylos/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   <!-- mcp-name: io.github.duriantaco/skylos -->
 ---
@@ -338,14 +338,14 @@ body_tr: |-
 [Docs](https://docs.skylos.dev) |
 [Repo Map](https://duriantaco.github.io/skylos/repo-map/) |
 [Quick Start](https://docs.skylos.dev/quick-start) |
-[GitHub Action](./action.yml) |
-[VS Code Extension](./editors/vscode/README.md) |
-[Real-World Results](./REAL_WORLD_RESULTS.md) |
-[Benchmarks](./BENCHMARK.md) |
-[Roadmap](./ROADMAP.md) |
-[Contributing](./CONTRIBUTING.md)
+[GitHub Action](https://github.com/duriantaco/skylos/blob/HEAD/action.yml) |
+[VS Code Extension](https://github.com/duriantaco/skylos/blob/HEAD/editors/vscode/README.md) |
+[Real-World Results](https://github.com/duriantaco/skylos/blob/HEAD/REAL_WORLD_RESULTS.md) |
+[Benchmarks](https://github.com/duriantaco/skylos/blob/HEAD/BENCHMARK.md) |
+[Roadmap](https://github.com/duriantaco/skylos/blob/HEAD/ROADMAP.md) |
+[Contributing](https://github.com/duriantaco/skylos/blob/HEAD/CONTRIBUTING.md)
 
-**English** | [Deutsch](./docs/i18n/README.de.md) | [简体中文](./docs/i18n/README.zh-CN.md) | [Translations](./docs/i18n/README.md)
+**English** | [Deutsch](https://github.com/duriantaco/skylos/blob/HEAD/docs/i18n/README.de.md) | [简体中文](https://github.com/duriantaco/skylos/blob/HEAD/docs/i18n/README.zh-CN.md) | [Translations](https://github.com/duriantaco/skylos/blob/HEAD/docs/i18n/README.md)
 
 ## What Is Skylos?
 
@@ -421,8 +421,8 @@ Need more commands? Read the [CLI Reference](https://docs.skylos.dev/cli-referen
 | Deterministic cleanup preview | `skylos clean . --dry-run --types import,function --confidence 80` | Shows safe import/function removals before writing; add `--apply` to edit files | [Dead code docs](https://docs.skylos.dev/dead-code-detection) |
 | Security and quality audit | `skylos . -a` | Adds dangerous flow, secrets, dependency, config, and quality checks | [Security docs](https://docs.skylos.dev/security-analysis) |
 | PR gate | `skylos cicd init` | Generates a GitHub Actions workflow with annotations and failure thresholds | [CI/CD guide](https://docs.skylos.dev/ci-cd) |
-| Readable terminal report | `skylos . --format pretty` | Groups findings by file with severity badges, snippets, and copyable `file:line` locations | [CLI output modes](./docs/cli-output.md) |
-| Selectable terminal triage | `skylos . --tui` | Opens a keyboard-driven category list, finding list, and detail pane | [CLI output modes](./docs/cli-output.md) |
+| Readable terminal report | `skylos . --format pretty` | Groups findings by file with severity badges, snippets, and copyable `file:line` locations | [CLI output modes](https://github.com/duriantaco/skylos/blob/HEAD/docs/cli-output.md) |
+| Selectable terminal triage | `skylos . --tui` | Opens a keyboard-driven category list, finding list, and detail pane | [CLI output modes](https://github.com/duriantaco/skylos/blob/HEAD/docs/cli-output.md) |
 | IDE/test-script output | `skylos --format concise src/test.py` | Prints only `file:line` findings and exits non-zero when findings exist | [CLI Reference](https://docs.skylos.dev/cli-reference) |
 | In-loop AI-code verification | `skylos verify . --file src/app.py --range 40:75` | Returns narrow JSON for hallucinated helpers, unfinished code, stale references, disabled controls, and API/dependency hallucinations | [AI features](https://docs.skylos.dev/ai-features) |
 | Changed-lines review | `skylos . -a --diff origin/main` | Keeps findings focused on active work instead of legacy debt | [Quality gate docs](https://docs.skylos.dev/quality-gate) |
@@ -603,7 +603,7 @@ Frozen `golden-v0.2` highlights:
 | Quality seeded dev | TP=1 FP=0 FN=0 TN=1, score 100.0 | one seeded case only |
 
 For methodology, commands, competitor rows, and caveats, see
-[BENCHMARK.md](./BENCHMARK.md).
+[BENCHMARK.md](https://github.com/duriantaco/skylos/blob/HEAD/BENCHMARK.md).
 
 ## Project Evidence
 
@@ -616,7 +616,7 @@ Skylos-assisted dead-code cleanup PRs have been merged in
 [beets](https://github.com/beetbox/beets/pull/6473), and
 [Flagsmith](https://github.com/Flagsmith/flagsmith/pull/6953). These are
 accepted cleanup PRs, not project endorsements. See
-[Real-World Results](./REAL_WORLD_RESULTS.md).
+[Real-World Results](https://github.com/duriantaco/skylos/blob/HEAD/REAL_WORLD_RESULTS.md).
 
 <a id="star-authenticity-audit"></a>
 
@@ -627,8 +627,8 @@ A local Astronomer scan on April 26, 2026 computed 420 stargazers and returned
 
 | Integration | Link | Purpose |
 |:---|:---|:---|
-| GitHub Action | [GitHub Action](./action.yml) | PR gates, annotations, and CI enforcement |
-| VS Code extension | [VS Code extension](./editors/vscode/README.md) | in-editor findings and AI-assisted fixes |
+| GitHub Action | [GitHub Action](https://github.com/duriantaco/skylos/blob/HEAD/action.yml) | PR gates, annotations, and CI enforcement |
+| VS Code extension | [VS Code extension](https://github.com/duriantaco/skylos/blob/HEAD/editors/vscode/README.md) | in-editor findings and AI-assisted fixes |
 | MCP server | [MCP setup](https://docs.skylos.dev/mcp-server) | expose Skylos scans to AI agents and coding assistants |
 | Docker image | [Installation](https://docs.skylos.dev/installation) | run Skylos without a local Python install |
 | Skylos Cloud | [Cloud workflow](https://docs.skylos.dev/cloud-workflow) | optional upload and dashboard workflows |
@@ -650,25 +650,25 @@ metadata, and supports monorepo subprojects through `--scan-path`.
 | Install options, source install, and Docker | [Installation](https://docs.skylos.dev/installation) |
 | First scan and core workflows | [Quick Start](https://docs.skylos.dev/quick-start) |
 | CLI commands, flags, and examples | [CLI Reference](https://docs.skylos.dev/cli-reference) |
-| CLI output modes, pretty reports, and TUI controls | [CLI Output Modes](./docs/cli-output.md) |
+| CLI output modes, pretty reports, and TUI controls | [CLI Output Modes](https://github.com/duriantaco/skylos/blob/HEAD/docs/cli-output.md) |
 | CI setup, PR gates, annotations, and branch protection | [CI/CD](https://docs.skylos.dev/ci-cd) |
 | Dead-code behavior and framework awareness | [Dead Code Detection](https://docs.skylos.dev/dead-code-detection) |
 | Security scanning and taint analysis | [Security Analysis](https://docs.skylos.dev/security-analysis) |
-| Rule ID prefixes and product terminology | [Rule Dictionary](./dictionary.md) |
+| Rule ID prefixes and product terminology | [Rule Dictionary](https://github.com/duriantaco/skylos/blob/HEAD/dictionary.md) |
 | Agent scan, verification, remediation, and model setup | [AI Features](https://docs.skylos.dev/ai-features) |
 | AI defense checks and LLM guardrails | [AI Defense](https://docs.skylos.dev/ai-defense) |
 | MCP server setup | [MCP Server](https://docs.skylos.dev/mcp-server) |
-| Real-world merged cleanup PRs | [Real-World Results](./REAL_WORLD_RESULTS.md) |
+| Real-world merged cleanup PRs | [Real-World Results](https://github.com/duriantaco/skylos/blob/HEAD/REAL_WORLD_RESULTS.md) |
 | Baselines, filtering, suppressions, and whitelists | [Configuration](https://docs.skylos.dev/configuration) |
 | Smart tracing | [Smart Tracing](https://docs.skylos.dev/smart-tracing) |
 | Rule families and language support | [Rules Reference](https://docs.skylos.dev/rules-reference) |
 | Cloud uploads and dashboard flow | [CLI to Dashboard](https://docs.skylos.dev/cloud-workflow) |
 | VS Code extension | [VS Code Extension](https://docs.skylos.dev/vscode) |
-| Benchmarks and methodology | [BENCHMARK.md](./BENCHMARK.md) |
-| Security policy | [SECURITY.md](./SECURITY.md) |
-| Release process | [RELEASE_WORKFLOW.md](./RELEASE_WORKFLOW.md) |
-| Contribution priorities | [ROADMAP.md](./ROADMAP.md) |
-| Contributing | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+| Benchmarks and methodology | [BENCHMARK.md](https://github.com/duriantaco/skylos/blob/HEAD/BENCHMARK.md) |
+| Security policy | [SECURITY.md](https://github.com/duriantaco/skylos/blob/HEAD/SECURITY.md) |
+| Release process | [RELEASE_WORKFLOW.md](https://github.com/duriantaco/skylos/blob/HEAD/RELEASE_WORKFLOW.md) |
+| Contribution priorities | [ROADMAP.md](https://github.com/duriantaco/skylos/blob/HEAD/ROADMAP.md) |
+| Contributing | [CONTRIBUTING.md](https://github.com/duriantaco/skylos/blob/HEAD/CONTRIBUTING.md) |
 
 ## Common Questions
 
@@ -696,15 +696,15 @@ Use baselines, whitelists, inline suppressions, or runtime tracing. See the
 
 ## Contributing And Support
 
-- Report security issues through [SECURITY.md](./SECURITY.md).
+- Report security issues through [SECURITY.md](https://github.com/duriantaco/skylos/blob/HEAD/SECURITY.md).
 - Open bugs and false-positive reports with minimal repros.
-- Check [ROADMAP.md](./ROADMAP.md) for useful contribution areas.
-- Read [CONTRIBUTING.md](./CONTRIBUTING.md) before sending a pull request.
-- See [QUALITY.md](./QUALITY.md) for project quality and gate expectations.
+- Check [ROADMAP.md](https://github.com/duriantaco/skylos/blob/HEAD/ROADMAP.md) for useful contribution areas.
+- Read [CONTRIBUTING.md](https://github.com/duriantaco/skylos/blob/HEAD/CONTRIBUTING.md) before sending a pull request.
+- See [QUALITY.md](https://github.com/duriantaco/skylos/blob/HEAD/QUALITY.md) for project quality and gate expectations.
 - Join the [Discord](https://discord.gg/Ftn9t9tErf) for community support.
 
 ## License
 
-Skylos is licensed under the [Apache License 2.0](./LICENSE).
+Skylos is licensed under the [Apache License 2.0](https://github.com/duriantaco/skylos/tree/HEAD/LICENSE).
 
 <!-- mcp-name: io.github.duriantaco/skylos -->

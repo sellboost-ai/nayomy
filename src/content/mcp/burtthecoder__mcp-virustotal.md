@@ -346,7 +346,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/BurtTheCoder/mcp-virustotal/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # VirusTotal MCP Server
@@ -684,4 +684,4 @@ The server includes comprehensive error handling for:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/BurtTheCoder/mcp-virustotal/tree/HEAD/LICENSE) file for details.

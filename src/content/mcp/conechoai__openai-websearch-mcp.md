@@ -246,7 +246,7 @@ body_tr: |-
   
   ## 📄 Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/ConechoAI/openai-websearch-mcp/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## 🙏 Teşekkürler
   
@@ -495,7 +495,7 @@ npx @modelcontextprotocol/inspector python -m openai_websearch_mcp
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ConechoAI/openai-websearch-mcp/tree/HEAD/LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

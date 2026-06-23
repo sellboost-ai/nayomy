@@ -112,15 +112,15 @@ body_tr: |-
   
   ## Güvenlik
   
-  API token'larını asla paylaşmayın. `.env` dosyalarını güvende tutun. Bkz. [SECURITY.md](SECURITY.md).
+  API token'larını asla paylaşmayın. `.env` dosyalarını güvende tutun. Bkz. [SECURITY.md](https://github.com/sooperset/mcp-atlassian/blob/HEAD/SECURITY.md).
   
   ## Katkı Sağlama
   
-  Geliştirme kurulumu için [CONTRIBUTING.md](CONTRIBUTING.md) sayfasına bakın.
+  Geliştirme kurulumu için [CONTRIBUTING.md](https://github.com/sooperset/mcp-atlassian/blob/HEAD/CONTRIBUTING.md) sayfasına bakın.
   
   ## Lisans
   
-  MIT - Bkz. [LICENSE](LICENSE). Resmi Atlassian ürünü değildir.
+  MIT - Bkz. [LICENSE](https://github.com/sooperset/mcp-atlassian/tree/HEAD/LICENSE). Resmi Atlassian ürünü değildir.
 ---
 
 # MCP Atlassian
@@ -224,12 +224,12 @@ Documentation is also available in [llms.txt format](https://llmstxt.org/), whic
 
 ## Security
 
-Never share API tokens. Keep `.env` files secure. See [SECURITY.md](SECURITY.md).
+Never share API tokens. Keep `.env` files secure. See [SECURITY.md](https://github.com/sooperset/mcp-atlassian/blob/HEAD/SECURITY.md).
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
+See [CONTRIBUTING.md](https://github.com/sooperset/mcp-atlassian/blob/HEAD/CONTRIBUTING.md) for development setup.
 
 ## License
 
-MIT - See [LICENSE](LICENSE). Not an official Atlassian product.
+MIT - See [LICENSE](https://github.com/sooperset/mcp-atlassian/tree/HEAD/LICENSE). Not an official Atlassian product.

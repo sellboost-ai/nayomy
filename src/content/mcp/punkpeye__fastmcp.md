@@ -229,7 +229,7 @@ body_tr: |-
   
   **Üretim için**, Let's Encrypt gibi güvenilir bir CA'dan sertifikalar alın.
   
-  Tam bir örnek için [https-server örneğine](src/examples/https-server.ts) bakın.
+  Tam bir örnek için [https-server örneğine](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/https-server.ts) bakın.
   
   #### Özel HTTP Rotaları
   
@@ -327,7 +327,7 @@ body_tr: |-
   - Dış hizmetlerden webhook uç noktaları
   - Kullanıcı kimlik doğrulaması gerektirmeyen genel API'lar
   
-  Tam bir örnek için [custom-routes örneğine](src/examples/custom-routes.ts) bakın.
+  Tam bir örnek için [custom-routes örneğine](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/custom-routes.ts) bakın.
   
   #### Edge Runtime Desteği
   
@@ -433,7 +433,7 @@ body_tr: |-
   wrangler deploy
   ```
   
-  Tam bir örnek için [edge-cloudflare-worker örneğine](src/examples/edge-cloudflare-worker.ts) bakın.
+  Tam bir örnek için [edge-cloudflare-worker örneğine](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/edge-cloudflare-worker.ts) bakın.
   
   #### Stateless Modu
   
@@ -918,7 +918,7 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -node
 
 **For production**, obtain certificates from a trusted CA like Let's Encrypt.
 
-See the [https-server example](src/examples/https-server.ts) for a complete demonstration.
+See the [https-server example](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/https-server.ts) for a complete demonstration.
 
 ##### CORS Configuration
 
@@ -1056,7 +1056,7 @@ Public routes are perfect for:
 - Webhook endpoints from external services
 - Public APIs that don't require user authentication
 
-See the [custom-routes example](src/examples/custom-routes.ts) for a complete demonstration.
+See the [custom-routes example](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/custom-routes.ts) for a complete demonstration.
 
 #### Edge Runtime Support
 
@@ -1162,7 +1162,7 @@ Deploy with:
 wrangler deploy
 ```
 
-See the [edge-cloudflare-worker example](src/examples/edge-cloudflare-worker.ts) for a complete demonstration.
+See the [edge-cloudflare-worker example](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/edge-cloudflare-worker.ts) for a complete demonstration.
 
 #### Stateless Mode
 
@@ -2521,9 +2521,9 @@ const server = new FastMCP({
 
 **Documentation:**
 
-- [OAuth Proxy Features](docs/oauth-proxy-features.md) - Complete feature list and capabilities
-- [OAuth Proxy Implementation Guide](docs/oauth-proxy-guide.md) - Setup and configuration
-- [Python vs TypeScript Comparison](docs/oauth-python-typescript.md) - Feature comparison
+- [OAuth Proxy Features](https://github.com/punkpeye/fastmcp/blob/HEAD/docs/oauth-proxy-features.md) - Complete feature list and capabilities
+- [OAuth Proxy Implementation Guide](https://github.com/punkpeye/fastmcp/blob/HEAD/docs/oauth-proxy-guide.md) - Setup and configuration
+- [Python vs TypeScript Comparison](https://github.com/punkpeye/fastmcp/blob/HEAD/docs/oauth-python-typescript.md) - Feature comparison
 
 #### OAuth Discovery Endpoints
 
@@ -2831,7 +2831,7 @@ server.start({
 
 **Example:**
 
-See [`src/examples/session-id-counter.ts`](src/examples/session-id-counter.ts) for a complete example demonstrating session-based counter management.
+See [`src/examples/session-id-counter.ts`](https://github.com/punkpeye/fastmcp/blob/HEAD/src/examples/session-id-counter.ts) for a complete example demonstrating session-based counter management.
 
 **Notes:**
 

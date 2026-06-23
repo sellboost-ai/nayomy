@@ -401,14 +401,14 @@ body_tr: |-
   
   ## İlgili Aracılar
   
-  - [cs-ceo-advisor](cs-ceo-advisor.md) - Stratejik liderlik ve organizasyonel geliştirme (CEO muhabiri)
-  - [cs-fullstack-engineer](../engineering/cs-fullstack-engineer.md) - Fullstack geliştirme koordinasyonu (planlanmış)
+  - [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ceo-advisor.md) - Stratejik liderlik ve organizasyonel geliştirme (CEO muhabiri)
+  - [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering/cs-fullstack-engineer.md) - Fullstack geliştirme koordinasyonu (planlanmış)
   
   ## Referanslar
   
-  - **Beceri Dokümantasyonu:** [../../c-level-advisor/skills/cto-advisor/SKILL.md](../../c-level-advisor/skills/cto-advisor/SKILL.md)
-  - **C-Level Alan Rehberi:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
-  - **Araç Geliştirme Rehberi:** [../CLAUDE.md](../CLAUDE.md)
+  - **Beceri Dokümantasyonu:** [../../c-level-advisor/skills/cto-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/skills/cto-advisor/SKILL.md)
+  - **C-Level Alan Rehberi:** [../../c-level-advisor/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/CLAUDE.md)
+  - **Araç Geliştirme Rehberi:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
   
   ---
   
@@ -805,14 +805,14 @@ echo "- Process improvements identified"
 
 ## Related Agents
 
-- [cs-ceo-advisor](cs-ceo-advisor.md) - Strategic leadership and organizational development (CEO counterpart)
-- [cs-fullstack-engineer](../engineering/cs-fullstack-engineer.md) - Fullstack development coordination (planned)
+- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ceo-advisor.md) - Strategic leadership and organizational development (CEO counterpart)
+- [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering/cs-fullstack-engineer.md) - Fullstack development coordination (planned)
 
 ## References
 
-- **Skill Documentation:** [../../c-level-advisor/skills/cto-advisor/SKILL.md](../../c-level-advisor/skills/cto-advisor/SKILL.md)
-- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill Documentation:** [../../c-level-advisor/skills/cto-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/skills/cto-advisor/SKILL.md)
+- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

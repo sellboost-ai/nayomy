@@ -60,7 +60,7 @@ body_tr: |-
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=es">Español</a> |
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=fr">Français</a> |
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=ja">日本語</a> |
-    <a href="README_ko.md">한국어</a> |
+    <a href="https://github.com/topoteretes/cognee/blob/HEAD/README_ko.md">한국어</a> |
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=pt">Português</a> |
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=ru">Русский</a> |
     <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=zh">中文</a>
@@ -231,7 +231,7 @@ body_tr: |-
   
   ## Örnekler
   
-  [`examples/`](examples/) klasöründe daha fazla örneğe göz atın — demolar, rehberler, özel pipeline'lar ve veritabanı yapılandırmaları.
+  [`examples/`](https://github.com/topoteretes/cognee/tree/HEAD/examples/) klasöründe daha fazla örneğe göz atın — demolar, rehberler, özel pipeline'lar ve veritabanı yapılandırmaları.
   
   **Kullanım Durumu 1 — Müşteri Destek Ajanı**
   
@@ -290,7 +290,7 @@ body_tr: |-
   | **Render** | Yönetilen Postgres ile basit PaaS | Render'a dağıt düğmesi |
   | **Daytona** | Bulut sanal ortamları (SDK veya CLI) | `distributed/deploy/daytona_sandbox.py` sayfasını görmek için |
   
-  Dağıtım scriptleri, çalışan yapılandırmaları ve ek ayrıntılar için [`distributed/`](distributed/) klasörüne bakın.
+  Dağıtım scriptleri, çalışan yapılandırmaları ve ek ayrıntılar için [`distributed/`](https://github.com/topoteretes/cognee/tree/HEAD/distributed/) klasörüne bakın.
   
   ## Son Haberler
   
@@ -300,7 +300,7 @@ body_tr: |-
   ## Topluluk & Destek
   
   ### Katkıda Bulunun
-  Topluluğun katkılarına hoş geldiniz! Sizin girdileri Cognee'yi herkes için daha iyi kılmaya yardımcı olur. Başlamak için [`CONTRIBUTING.md`](CONTRIBUTING.md)'ye bakın.
+  Topluluğun katkılarına hoş geldiniz! Sizin girdileri Cognee'yi herkes için daha iyi kılmaya yardımcı olur. Başlamak için [`CONTRIBUTING.md`](https://github.com/topoteretes/cognee/blob/HEAD/CONTRIBUTING.md)'ye bakın.
   
   ### Davranış Kuralları
   
@@ -372,7 +372,7 @@ Cognee is the open-source AI memory platform that gives AI agents persistent lon
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=es">Español</a> |
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=fr">Français</a> |
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=ja">日本語</a> |
-  <a href="README_ko.md">한국어</a> |
+  <a href="https://github.com/topoteretes/cognee/blob/HEAD/README_ko.md">한국어</a> |
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=pt">Português</a> |
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=ru">Русский</a> |
   <a href="https://www.readme-i18n.com/topoteretes/cognee?lang=zh">中文</a>
@@ -497,7 +497,7 @@ cognee-cli -ui
 
 > **Note:** The MCP server launched by `cognee-cli -ui` runs inside a Docker container.
 > Docker Desktop, Colima, or any OCI-compatible runtime with a working `docker` CLI is
-> required. See [Docker & Colima Setup](docs/docker-colima-setup.md) for details.
+> required. See [Docker & Colima Setup](https://github.com/topoteretes/cognee/blob/HEAD/docs/docker-colima-setup.md) for details.
 
 ## Run with Docker
 
@@ -539,7 +539,7 @@ docker pull cognee/cognee-mcp:main
 docker run -e TRANSPORT_MODE=http --env-file ./.env -p 8000:8000 --rm -it cognee/cognee-mcp:main
 ```
 
-See the [MCP server README](cognee-mcp/README.md) for SSE/stdio transports, optional
+See the [MCP server README](https://github.com/topoteretes/cognee/blob/HEAD/cognee-mcp/README.md) for SSE/stdio transports, optional
 extras, and MCP client configuration.
 
 ## Use with AI Agents
@@ -590,7 +590,7 @@ await cognee.disconnect()
 
 ## Examples
 
-Browse more examples in the [`examples/`](examples/) folder — demos, guides, custom pipelines, and database configurations.
+Browse more examples in the [`examples/`](https://github.com/topoteretes/cognee/tree/HEAD/examples/) folder — demos, guides, custom pipelines, and database configurations.
 
 **Use Case 1 — Customer Support Agent**
 
@@ -649,7 +649,7 @@ Use [Cognee Cloud](https://www.cognee.ai) for a fully managed experience, or sel
 | **Render** | Simple PaaS with managed Postgres | Deploy to Render button |
 | **Daytona** | Cloud sandboxes (SDK or CLI) | See `distributed/deploy/daytona_sandbox.py` |
 
-See the [`distributed/`](distributed/) folder for deploy scripts, worker configurations, and additional details.
+See the [`distributed/`](https://github.com/topoteretes/cognee/tree/HEAD/distributed/) folder for deploy scripts, worker configurations, and additional details.
 
 ## Latest News
 
@@ -659,7 +659,7 @@ See the [`distributed/`](distributed/) folder for deploy scripts, worker configu
 ## Community & Support
 
 ### Contributing
-We welcome contributions from the community! Your input helps make Cognee better for everyone. See [`CONTRIBUTING.md`](CONTRIBUTING.md) to get started.
+We welcome contributions from the community! Your input helps make Cognee better for everyone. See [`CONTRIBUTING.md`](https://github.com/topoteretes/cognee/blob/HEAD/CONTRIBUTING.md) to get started.
 
 ### Code of Conduct
 

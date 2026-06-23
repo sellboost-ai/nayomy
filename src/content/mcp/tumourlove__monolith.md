@@ -16,7 +16,7 @@ body_tr: |-
   **Bir plugin. Her Unreal alanı. Sıfır bağımlılık.**
   
   [![UE 5.7+](https://img.shields.io/badge/Unreal-5.7%2B-blue)](https://unrealengine.com)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/tumourlove/monolith/tree/HEAD/LICENSE)
   [![MCP](https://img.shields.io/badge/Protocol-MCP-purple)](https://modelcontextprotocol.io)
   
   ---
@@ -85,7 +85,7 @@ body_tr: |-
 **One plugin. Every Unreal domain. Zero dependencies.**
 
 [![UE 5.7 / 5.8](https://img.shields.io/badge/Unreal-5.7%20%2F%205.8-blue)](https://unrealengine.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/tumourlove/monolith/tree/HEAD/LICENSE)
 [![MCP](https://img.shields.io/badge/Protocol-MCP-purple)](https://modelcontextprotocol.io)
 
 ---
@@ -177,26 +177,26 @@ Monolith starts a local HTTP server on port 9316 to receive MCP traffic. UE's `F
 
 If you work on an untrusted network: either add a Windows Firewall rule blocking inbound TCP on port 9316 from non-loopback addresses, or untick **MCP Server Enabled** in Editor Preferences > Plugins > Monolith and restart the editor.
 
-See [SECURITY.md](SECURITY.md) for the full threat model and disclosure policy.
+See [SECURITY.md](https://github.com/tumourlove/monolith/blob/HEAD/SECURITY.md) for the full threat model and disclosure policy.
 
 ---
 
 ## Documentation
 
 - **[Wiki](https://github.com/tumourlove/monolith/wiki)** — installation variants, tool reference, connecting your AI, configuration, auto-updater, FAQ, skills, optional modules, engine source index details, mesh module deep dive, horror level design, procedural geometry, genre presets, test status
-- **[API_REFERENCE.md](Docs/API_REFERENCE.md)** — full per-action parameter reference, regenerated from the live registry each release
-- **[SPEC_CORE.md](Docs/SPEC_CORE.md)** — technical specification and architecture; per-module specs at [`Docs/specs/`](Docs/specs/)
-- **[CHANGELOG.md](CHANGELOG.md)** — version history, contributor credits, breaking-change notes
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** — dev setup, coding conventions, how to add new actions, PR process
+- **[API_REFERENCE.md](https://github.com/tumourlove/monolith/blob/HEAD/Docs/API_REFERENCE.md)** — full per-action parameter reference, regenerated from the live registry each release
+- **[SPEC_CORE.md](https://github.com/tumourlove/monolith/blob/HEAD/Docs/SPEC_CORE.md)** — technical specification and architecture; per-module specs at [`Docs/specs/`](https://github.com/tumourlove/monolith/tree/HEAD/Docs/specs/)
+- **[CHANGELOG.md](https://github.com/tumourlove/monolith/blob/HEAD/CHANGELOG.md)** — version history, contributor credits, breaking-change notes
+- **[CONTRIBUTING.md](https://github.com/tumourlove/monolith/blob/HEAD/CONTRIBUTING.md)** — dev setup, coding conventions, how to add new actions, PR process
 
 ---
 
 ## Contributing
 
-Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Every release [CHANGELOG](CHANGELOG.md) names the PR authors and issue reporters whose work shipped — credit goes where it's due.
+Contributions welcome. See [CONTRIBUTING.md](https://github.com/tumourlove/monolith/blob/HEAD/CONTRIBUTING.md). Every release [CHANGELOG](https://github.com/tumourlove/monolith/blob/HEAD/CHANGELOG.md) names the PR authors and issue reporters whose work shipped — credit goes where it's due.
 
 ---
 
 ## License
 
-[MIT](LICENSE) — see [ATTRIBUTION.md](ATTRIBUTION.md) for credits.
+[MIT](https://github.com/tumourlove/monolith/tree/HEAD/LICENSE) — see [ATTRIBUTION.md](https://github.com/tumourlove/monolith/blob/HEAD/ATTRIBUTION.md) for credits.

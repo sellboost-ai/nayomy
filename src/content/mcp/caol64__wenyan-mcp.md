@@ -18,7 +18,7 @@ body_tr: |-
   # 文颜 MCP Server
   
   [![npm](https://img.shields.io/npm/v/@wenyan-md/mcp)](https://www.npmjs.com/package/@wenyan-md/mcp)
-  [![License](https://img.shields.io/github/license/caol64/wenyan-mcp)](LICENSE)
+  [![License](https://img.shields.io/github/license/caol64/wenyan-mcp)](https://github.com/caol64/wenyan-mcp/tree/HEAD/LICENSE)
   ![NPM Downloads](https://img.shields.io/npm/dm/%40wenyan-md%2Fmcp)
   [![Docker Pulls](https://img.shields.io/docker/pulls/caol64/wenyan-mcp)](https://hub.docker.com/r/caol64/wenyan-mcp)
   [![Stars](https://img.shields.io/github/stars/caol64/wenyan-mcp?style=social)](https://github.com/caol64/wenyan-mcp)
@@ -215,7 +215,7 @@ body_tr: |-
   * Kapak yerel yolu ve ağ URL'sini destekler
   * `type` ve `image_list` resim mesajı yayınlaması için kullanılır
   
-  **[Örnek Makale](tests/publish.md)**
+  **[Örnek Makale](https://github.com/caol64/wenyan-mcp/blob/HEAD/tests/publish.md)**
   
   ### Metin İçi Görüntüler ve Makale Kapağı
   
@@ -400,7 +400,7 @@ body_tr: |-
 # 文颜 MCP Server
 
 [![npm](https://img.shields.io/npm/v/@wenyan-md/mcp)](https://www.npmjs.com/package/@wenyan-md/mcp)
-[![License](https://img.shields.io/github/license/caol64/wenyan-mcp)](LICENSE)
+[![License](https://img.shields.io/github/license/caol64/wenyan-mcp)](https://github.com/caol64/wenyan-mcp/tree/HEAD/LICENSE)
 ![NPM Downloads](https://img.shields.io/npm/dm/%40wenyan-md%2Fmcp)
 [![Docker Pulls](https://img.shields.io/docker/pulls/caol64/wenyan-mcp)](https://hub.docker.com/r/caol64/wenyan-mcp)
 [![Stars](https://img.shields.io/github/stars/caol64/wenyan-mcp?style=social)](https://github.com/caol64/wenyan-mcp)
@@ -597,7 +597,7 @@ source_url: http://
 * cover 支持本地路径和网络 URL
 * `type` 和 `image_list` 用于图片消息发布
 
-**[示例文章](tests/publish.md)**
+**[示例文章](https://github.com/caol64/wenyan-mcp/blob/HEAD/tests/publish.md)**
 
 ### 文内图片和文章封面
 

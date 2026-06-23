@@ -187,11 +187,11 @@ body_tr: |-
   
   MCP sunucusu iki tool'u açığa çıkarır: `extract_content` ve `summarize_content`. Her ikisi de düz metin döndürür.
   
-  Ayrıntılı kurulum için [MCP belgelerine](docs/mcp.md) bakın.
+  Ayrıntılı kurulum için [MCP belgelerine](https://github.com/lfnovo/content-core/blob/HEAD/docs/mcp.md) bakın.
   
   ## Claude Code Skill
   
-  Content Core, yapay zeka aracılarına dış kaynaklardan içeriği çıkarmak için nasıl kullanacaklarını öğreten bir [`SKILL.md`](SKILL.md) dosyası içerir. Bunu Claude Code projenizde kullanılabilir hale getirmek için, beceri dizininize kopyalayın:
+  Content Core, yapay zeka aracılarına dış kaynaklardan içeriği çıkarmak için nasıl kullanacaklarını öğreten bir [`SKILL.md`](https://github.com/lfnovo/content-core/blob/HEAD/SKILL.md) dosyası içerir. Bunu Claude Code projenizde kullanılabilir hale getirmek için, beceri dizininize kopyalayın:
   
   ```bash
   # Skill'i indir
@@ -274,9 +274,9 @@ body_tr: |-
   
   ## Belgeler
   
-  - [Kullanım Kılavuzu](docs/usage.md) -- Python API ayrıntıları, yapılandırma ve örnekler
-  - [İşlemciler](docs/processors.md) -- Her biçim için içeriği çıkarma nasıl çalışır
-  - [MCP Sunucusu](docs/mcp.md) -- Claude Desktop ve MCP entegrasyonu
+  - [Kullanım Kılavuzu](https://github.com/lfnovo/content-core/blob/HEAD/docs/usage.md) -- Python API ayrıntıları, yapılandırma ve örnekler
+  - [İşlemciler](https://github.com/lfnovo/content-core/blob/HEAD/docs/processors.md) -- Her biçim için içeriği çıkarma nasıl çalışır
+  - [MCP Sunucusu](https://github.com/lfnovo/content-core/blob/HEAD/docs/mcp.md) -- Claude Desktop ve MCP entegrasyonu
   
   ## Geliştirme
   
@@ -295,11 +295,11 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+  Bu proje [MIT Lisansı](https://github.com/lfnovo/content-core/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   ## Katkı
   
-  Katkılar hoş karşılanır! Ayrıntılar için lütfen [Katkı Kılavuzumuza](CONTRIBUTING.md) bakın.
+  Katkılar hoş karşılanır! Ayrıntılar için lütfen [Katkı Kılavuzumuza](https://github.com/lfnovo/content-core/blob/HEAD/CONTRIBUTING.md) bakın.
 ---
 
 # Content Core
@@ -479,11 +479,11 @@ Add to your `claude_desktop_config.json`:
 
 The MCP server exposes two tools: `extract_content` and `summarize_content`. Both return plain text.
 
-For detailed setup, see the [MCP documentation](docs/mcp.md).
+For detailed setup, see the [MCP documentation](https://github.com/lfnovo/content-core/blob/HEAD/docs/mcp.md).
 
 ## Claude Code Skill
 
-Content Core includes a [`SKILL.md`](SKILL.md) that teaches AI agents how to use it for extracting content from external sources. To make it available in your Claude Code project, copy it to your skills directory:
+Content Core includes a [`SKILL.md`](https://github.com/lfnovo/content-core/blob/HEAD/SKILL.md) that teaches AI agents how to use it for extracting content from external sources. To make it available in your Claude Code project, copy it to your skills directory:
 
 ```bash
 # Download the skill
@@ -566,9 +566,9 @@ tools = [extract_content_tool, summarize_content_tool]
 
 ## Documentation
 
-- [Usage Guide](docs/usage.md) -- Python API details, configuration, and examples
-- [Processors](docs/processors.md) -- How content extraction works for each format
-- [MCP Server](docs/mcp.md) -- Claude Desktop and MCP integration
+- [Usage Guide](https://github.com/lfnovo/content-core/blob/HEAD/docs/usage.md) -- Python API details, configuration, and examples
+- [Processors](https://github.com/lfnovo/content-core/blob/HEAD/docs/processors.md) -- How content extraction works for each format
+- [MCP Server](https://github.com/lfnovo/content-core/blob/HEAD/docs/mcp.md) -- Claude Desktop and MCP integration
 
 ## Development
 
@@ -587,8 +587,8 @@ make ruff
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/lfnovo/content-core/tree/HEAD/LICENSE).
 
 ## Contributing
 
-Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+Contributions are welcome! Please see our [Contributing Guide](https://github.com/lfnovo/content-core/blob/HEAD/CONTRIBUTING.md) for details.

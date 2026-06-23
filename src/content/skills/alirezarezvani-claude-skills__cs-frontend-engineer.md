@@ -128,10 +128,10 @@ body_tr: |-
   
   ## İlişkili Ajanlar
   
-  - [cs-fullstack-engineer](cs-fullstack-engineer.md) — stack-spanning kararlar için ebeveyn orkestratörü
-  - [cs-backend-engineer](cs-backend-engineer.md) — API kontrat tasarımı için böl
-  - [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — her commit'ten önce invok et
-  - [cs-content-creator](../marketing/cs-content-creator.md) — marketing copy + brand voice için yükselt
+  - [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-fullstack-engineer.md) — stack-spanning kararlar için ebeveyn orkestratörü
+  - [cs-backend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-backend-engineer.md) — API kontrat tasarımı için böl
+  - [cs-karpathy-reviewer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-karpathy-reviewer.md) — her commit'ten önce invok et
+  - [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing/cs-content-creator.md) — marketing copy + brand voice için yükselt
   
   ## Invocation Kontratı
   
@@ -263,10 +263,10 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 ## Related Agents
 
-- [cs-fullstack-engineer](cs-fullstack-engineer.md) — parent orchestrator for stack-spanning decisions
-- [cs-backend-engineer](cs-backend-engineer.md) — fork into for API contract design
-- [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — invoke before every commit
-- [cs-content-creator](../marketing/cs-content-creator.md) — escalate for marketing copy + brand voice
+- [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-fullstack-engineer.md) — parent orchestrator for stack-spanning decisions
+- [cs-backend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-backend-engineer.md) — fork into for API contract design
+- [cs-karpathy-reviewer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-karpathy-reviewer.md) — invoke before every commit
+- [cs-content-creator](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing/cs-content-creator.md) — escalate for marketing copy + brand voice
 
 ## Invocation Contract
 

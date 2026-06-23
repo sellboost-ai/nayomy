@@ -441,11 +441,11 @@ body_tr: |-
   
   Docker imajı `ghcr.io/cr7258/elasticsearch-mcp-server` adresine yayımlanmıştır ve Helm chart'ı `oci://ghcr.io/cr7258/charts/elasticsearch-mcp-server` repository'sinde bir OCI artifact olarak kullanılabilir.
   
-  Tam kurulum talimatları, konfigürasyon referansı ve kullanım örnekleri için **[Helm chart README](helm/elasticsearch-mcp-server/README.md)** başvurunuz.
+  Tam kurulum talimatları, konfigürasyon referansı ve kullanım örnekleri için **[Helm chart README](https://github.com/cr7258/elasticsearch-mcp-server/blob/HEAD/helm/elasticsearch-mcp-server/README.md)** başvurunuz.
   
   ## Lisans
   
-  Bu proje Apache License Version 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakınız.
+  Bu proje Apache License Version 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/cr7258/elasticsearch-mcp-server/tree/HEAD/LICENSE) dosyasına bakınız.
 ---
 
 # Elasticsearch/OpenSearch MCP Server
@@ -879,8 +879,8 @@ uv run src/server.py elasticsearch-mcp-server
 
 The Docker image is published to `ghcr.io/cr7258/elasticsearch-mcp-server` and the Helm chart is available as an OCI artifact at `oci://ghcr.io/cr7258/charts/elasticsearch-mcp-server` repository.
 
-For full installation instructions, configuration reference, and usage examples see the **[Helm chart README](helm/elasticsearch-mcp-server/README.md)**.
+For full installation instructions, configuration reference, and usage examples see the **[Helm chart README](https://github.com/cr7258/elasticsearch-mcp-server/blob/HEAD/helm/elasticsearch-mcp-server/README.md)**.
 
 ## License
 
-This project is licensed under the Apache License Version 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License Version 2.0 - see the [LICENSE](https://github.com/cr7258/elasticsearch-mcp-server/tree/HEAD/LICENSE) file for details.

@@ -126,12 +126,12 @@ body_tr: |-
   
   ## İlişkili Ajanlar
   
-  - [cs-fullstack-engineer](cs-fullstack-engineer.md) — üst orkestrasyoncu
-  - [cs-frontend-engineer](cs-frontend-engineer.md) — API tüketicileri için çatal
-  - [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — her commit'ten önce çağır
-  - [cs-cto-advisor](../c-level/cs-cto-advisor.md) — stratejik build-vs-buy'ı yukarı taşı
-  - [cs-vpe-advisor](../../c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — throughput / org / DORA'yı yukarı taşı
-  - [cs-ciso-advisor](../../c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — regulated-data exposure'ı yukarı taşı
+  - [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-fullstack-engineer.md) — üst orkestrasyoncu
+  - [cs-frontend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-frontend-engineer.md) — API tüketicileri için çatal
+  - [cs-karpathy-reviewer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-karpathy-reviewer.md) — her commit'ten önce çağır
+  - [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-cto-advisor.md) — stratejik build-vs-buy'ı yukarı taşı
+  - [cs-vpe-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — throughput / org / DORA'yı yukarı taşı
+  - [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — regulated-data exposure'ı yukarı taşı
   
   ## Çağrı Kontratı
   
@@ -262,12 +262,12 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 ## Related Agents
 
-- [cs-fullstack-engineer](cs-fullstack-engineer.md) — parent orchestrator
-- [cs-frontend-engineer](cs-frontend-engineer.md) — fork into for API consumers
-- [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — invoke before every commit
-- [cs-cto-advisor](../c-level/cs-cto-advisor.md) — escalate strategic build-vs-buy
-- [cs-vpe-advisor](../../c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — escalate throughput / org / DORA
-- [cs-ciso-advisor](../../c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — escalate regulated-data exposure
+- [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-fullstack-engineer.md) — parent orchestrator
+- [cs-frontend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-frontend-engineer.md) — fork into for API consumers
+- [cs-karpathy-reviewer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-karpathy-reviewer.md) — invoke before every commit
+- [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-cto-advisor.md) — escalate strategic build-vs-buy
+- [cs-vpe-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — escalate throughput / org / DORA
+- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — escalate regulated-data exposure
 
 ## Invocation Contract
 

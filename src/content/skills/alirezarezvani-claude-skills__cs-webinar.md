@@ -148,8 +148,8 @@ body_tr: |-
   
   ## İlişkili
   
-  - Agent: [`cs-webinar-marketer`](../agents/marketing/cs-webinar-marketer.md)
-  - Skill: [`webinar-marketing`](../marketing-skill/skills/webinar-marketing/SKILL.md)
+  - Agent: [`cs-webinar-marketer`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/marketing/cs-webinar-marketer.md)
+  - Skill: [`webinar-marketing`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/webinar-marketing/SKILL.md)
   - Companion: `/cs:aeo` (AI arama tarafından alıntılanan destekleyici içerik alın), launch-strategy (tam lanşlar)
   
   ---
@@ -292,8 +292,8 @@ The scorer calibrates per audience temperature (warmer audiences convert better 
 
 ## Related
 
-- Agent: [`cs-webinar-marketer`](../agents/marketing/cs-webinar-marketer.md)
-- Skill: [`webinar-marketing`](../marketing-skill/skills/webinar-marketing/SKILL.md)
+- Agent: [`cs-webinar-marketer`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/marketing/cs-webinar-marketer.md)
+- Skill: [`webinar-marketing`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/webinar-marketing/SKILL.md)
 - Companion: `/cs:aeo` (get supporting content cited by AI search), launch-strategy (full launches)
 
 ---

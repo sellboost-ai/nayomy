@@ -22,7 +22,7 @@ body_tr: |-
   ![License](https://img.shields.io/github/license/Aas-ee/open-websearch)
   ![Issues](https://img.shields.io/github/issues/Aas-ee/open-websearch)
   
-  **[🇨🇳 中文](./README-zh.md) | 🇺🇸 English**
+  **[🇨🇳 中文](https://github.com/Aas-ee/open-webSearch/blob/HEAD/README-zh.md) | 🇺🇸 English**
   
   </div>
   
@@ -135,7 +135,7 @@ body_tr: |-
   - Bare `open-websearch` MCP sunucusu uyumluluk giriş noktasıdır, agent otomasyonu için önerilen daemon başlatma komutu değildir.
   - İçerik çıkarımı için önce arama yapmayı ve daha sonra daha spesifik bir sonuç sayfasını getirmeyi tercih edin. Bazı ana sayfalar ve JS yoğun açılış sayfaları, `fetch-web` aracılığıyla okunabilir makale metni gösteremeyebilir.
   
-  Yerel daemon HTTP API'si (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`) için [docs/http-api.md](docs/http-api.md) bakınız.
+  Yerel daemon HTTP API'si (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`) için [docs/http-api.md](https://github.com/Aas-ee/open-webSearch/blob/HEAD/docs/http-api.md) bakınız.
   
   ## TODO
   - ~~Bing~~ (zaten desteklenmiyor), ~~DuckDuckGo~~ (zaten desteklenmiyor), ~~Exa~~ (zaten desteklenmiyor), ~~Brave~~ (zaten desteklenmiyor), ~~Sogou~~ (zaten desteklenmiyor), Google ve diğer arama motorları desteği
@@ -465,7 +465,7 @@ body_tr: |-
   
   Sunucu altı aracı sağlar: `search`, `fetchLinuxDoArticle`, `fetchCsdnArticle`, `fetchGithubReadme`, `fetchJuejinArticle` ve `fetchWebContent`.
   
-  Yerel daemon HTTP API'si (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`) için [docs/http-api.md](docs/http-api.md) bakınız.
+  Yerel daemon HTTP API'si (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`) için [docs/http-api.md](https://github.com/Aas-ee/open-webSearch/blob/HEAD/docs/http-api.md) bakınız.
   
   ### search Aracı Kullanımı
   
@@ -529,7 +529,7 @@ body_tr: |-
 ![License](https://img.shields.io/github/license/Aas-ee/open-websearch)
 ![Issues](https://img.shields.io/github/issues/Aas-ee/open-websearch)
 
-**[🇨🇳 中文](./README-zh.md) | 🇺🇸 English**
+**[🇨🇳 中文](https://github.com/Aas-ee/open-webSearch/blob/HEAD/README-zh.md) | 🇺🇸 English**
 
 </div>
 
@@ -642,7 +642,7 @@ Notes:
 - Bare `open-websearch` is the MCP server compatibility entrypoint, not the recommended daemon start command for agent automation.
 - For content extraction, prefer searching first and then fetching a more specific result page. Some homepages and JS-heavy landing pages may not expose readable article text through `fetch-web`.
 
-For the local daemon HTTP API (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`), see [docs/http-api.md](docs/http-api.md).
+For the local daemon HTTP API (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`), see [docs/http-api.md](https://github.com/Aas-ee/open-webSearch/blob/HEAD/docs/http-api.md).
 
 ## TODO
 - Support for ~~Bing~~ (already supported), ~~DuckDuckGo~~ (already supported), ~~Exa~~ (already supported), ~~Brave~~ (already supported), ~~Sogou~~ (already supported), Google and other search engines
@@ -972,7 +972,7 @@ Then configure in your MCP client:
 
 The server provides six tools: `search`, `fetchLinuxDoArticle`, `fetchCsdnArticle`, `fetchGithubReadme`, `fetchJuejinArticle`, and `fetchWebContent`.
 
-For the local daemon HTTP API (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`), see [docs/http-api.md](docs/http-api.md).
+For the local daemon HTTP API (`serve`, `status`, `GET /health`, `POST /search`, `POST /fetch-*`), see [docs/http-api.md](https://github.com/Aas-ee/open-webSearch/blob/HEAD/docs/http-api.md).
 
 ### search Tool Usage
 

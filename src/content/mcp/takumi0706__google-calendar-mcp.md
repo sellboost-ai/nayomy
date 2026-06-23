@@ -21,8 +21,8 @@ body_tr: |-
   ![Version](https://img.shields.io/badge/version-1.0.7-blue.svg)
   ![License](https://img.shields.io/badge/license-MIT-green.svg)
   
-  [![日本語](https://img.shields.io/badge/日本語-クリック-青)](README.ja.md)
-  [![English](https://img.shields.io/badge/English-Click-blue)](README.md)
+  [![日本語](https://img.shields.io/badge/日本語-クリック-青)](https://github.com/takumi0706/google-calendar-mcp/blob/HEAD/README.ja.md)
+  [![English](https://img.shields.io/badge/English-Click-blue)](https://github.com/takumi0706/google-calendar-mcp/blob/HEAD/README.md)
   
   
   ## Proje Özeti
@@ -223,7 +223,7 @@ body_tr: |-
   - **API endpoint koruması** için hız sınırlaması
   - **Zod şeması** ile input doğrulaması
   
-  Daha fazla ayrıntı için bkz. [SECURITY.md](SECURITY.md).
+  Daha fazla ayrıntı için bkz. [SECURITY.md](https://github.com/takumi0706/google-calendar-mcp/blob/HEAD/SECURITY.md).
   
   ## Bakım
   
@@ -375,8 +375,8 @@ body_tr: |-
 ![Version](https://img.shields.io/badge/version-1.0.7-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-[![日本語](https://img.shields.io/badge/日本語-クリック-青)](README.ja.md)
-[![English](https://img.shields.io/badge/English-Click-blue)](README.md)
+[![日本語](https://img.shields.io/badge/日本語-クリック-青)](https://github.com/takumi0706/google-calendar-mcp/blob/HEAD/README.ja.md)
+[![English](https://img.shields.io/badge/English-Click-blue)](https://github.com/takumi0706/google-calendar-mcp/blob/HEAD/README.md)
 
 
 ## Project Overview
@@ -577,7 +577,7 @@ Add the server to your `claude_desktop_config.json`. If you're running in an env
 - **Rate limiting** for API endpoint protection
 - **Input validation** with Zod schema
 
-For more details, see [SECURITY.md](SECURITY.md).
+For more details, see [SECURITY.md](https://github.com/takumi0706/google-calendar-mcp/blob/HEAD/SECURITY.md).
 
 ## Maintenance
 

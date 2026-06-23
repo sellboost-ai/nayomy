@@ -238,7 +238,7 @@ body_tr: |-
   
   ##### (3) Yerel sürüm
   Alternatif olarak, [XiYanSQL-qwencoder-32B](https://github.com/XGenerationLab/XiYanSQL-QwenCoder) modelini kendi sunucunuza dağıtabilirsiniz.
-  Daha fazla bilgi için [Yerel Model](src/xiyan_mcp_server/local_model/README.md) dosyasına bakın.
+  Daha fazla bilgi için [Yerel Model](https://github.com/XGenerationLab/xiyan_mcp_server/blob/HEAD/src/xiyan_mcp_server/local_model/README.md) dosyasına bakın.
   
   
   ### Veritabanı Yapılandırması
@@ -622,7 +622,7 @@ Note: this model service is just for trial, if you need to use it in production,
 
 ##### (3) Local version
 Alternatively, you can also deploy the model [XiYanSQL-qwencoder-32B](https://github.com/XGenerationLab/XiYanSQL-QwenCoder) on your own server.
-See [Local Model](src/xiyan_mcp_server/local_model/README.md) for more details.
+See [Local Model](https://github.com/XGenerationLab/xiyan_mcp_server/blob/HEAD/src/xiyan_mcp_server/local_model/README.md) for more details.
 
 
 ### Database Configuration

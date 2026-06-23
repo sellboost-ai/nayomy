@@ -140,7 +140,7 @@ body_tr: |-
                 MyApp Inc. · 123 Main St · San Francisco, CA 94105
               </Text>
               <Text style={styles.footerText}>
-                <a href="{{unsubscribe_url}}" style={styles.link}>Abonelikten Çık</a>
+                <a href="https://github.com/alirezarezvani/claude-skills/tree/HEAD/{{unsubscribe_url}}" style={styles.link}>Abonelikten Çık</a>
                 {" · "}
                 <a href="https://yourapp.com/privacy" style={styles.link}>Gizlilik Politikası</a>
               </Text>
@@ -431,9 +431,9 @@ body_tr: |-
     }).toString()
   
     // E-postadaki tüm bağlantılara UTM parametreleri ekleyin
-    return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
+    return html.replace(/href="https://github.com/alirezarezvani/claude-skills/tree/HEAD/(https?:\/\/[^"]+)"/g, (match, url) => {
       const separator = url.includes("?") ? "&" : "?"
-      return `href="${url}${separator}${utmString}"`
+      return `href="https://github.com/alirezarezvani/claude-skills/tree/HEAD/${url}${separator}${utmString}"`
     })
   }
   ```
@@ -576,7 +576,7 @@ export function EmailLayout({ preview, children }: EmailLayoutProps) {
               MyApp Inc. · 123 Main St · San Francisco, CA 94105
             </Text>
             <Text style={styles.footerText}>
-              <a href="{{unsubscribe_url}}" style={styles.link}>Unsubscribe</a>
+              <a href="https://github.com/alirezarezvani/claude-skills/tree/HEAD/{{unsubscribe_url}}" style={styles.link}>Unsubscribe</a>
               {" · "}
               <a href="https://yourapp.com/privacy" style={styles.link}>Privacy Policy</a>
             </Text>
@@ -867,9 +867,9 @@ export function addTrackingParams(html: string, params: TrackingParams): string 
   }).toString()
 
   // Add UTM params to all links in the email
-  return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
+  return html.replace(/href="https://github.com/alirezarezvani/claude-skills/tree/HEAD/(https?:\/\/[^"]+)"/g, (match, url) => {
     const separator = url.includes("?") ? "&" : "?"
-    return `href="${url}${separator}${utmString}"`
+    return `href="https://github.com/alirezarezvani/claude-skills/tree/HEAD/${url}${separator}${utmString}"`
   })
 }
 ```

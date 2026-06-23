@@ -17,8 +17,8 @@ body_tr: |-
   
   [![NPM Version](https://img.shields.io/npm/v/@jinzcdev/markmap-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server)
   [![NPM Downloads](https://img.shields.io/npm/dm/@jinzcdev/markmap-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server)
-  [![GitHub License](https://img.shields.io/github/license/jinzcdev/markmap-mcp-server.svg)](LICENSE)
-  [![中文文档](https://img.shields.io/badge/简体中文-查看-blue)](README_zh-CN.md)
+  [![GitHub License](https://img.shields.io/github/license/jinzcdev/markmap-mcp-server.svg)](https://github.com/jinzcdev/markmap-mcp-server/tree/HEAD/LICENSE)
+  [![中文文档](https://img.shields.io/badge/简体中文-查看-blue)](https://github.com/jinzcdev/markmap-mcp-server/blob/HEAD/README_zh-CN.md)
   [![Stars](https://img.shields.io/github/stars/jinzcdev/markmap-mcp-server)](https://github.com/jinzcdev/markmap-mcp-server)
   
   Markmap MCP Server, [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) protokolüne dayalı olarak Markdown metinlerini etkileşimli zihin haritalarına tek tıkla dönüştürmeyi sağlayan, açık kaynak proje [markmap](https://github.com/markmap/markmap) üzerine inşa edilmiştir. Oluşturulan zihin haritaları zengin etkileşimli işlemleri destekler ve çeşitli görüntü formatlarında dışa aktarılabilir.
@@ -138,7 +138,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje [MIT](./LICENSE) Lisansı altında lisanslanmıştır.
+  Bu proje [MIT](https://github.com/jinzcdev/markmap-mcp-server/tree/HEAD/LICENSE) Lisansı altında lisanslanmıştır.
 ---
 
 # Markmap MCP Server
@@ -147,8 +147,8 @@ body_tr: |-
 
 [![NPM Version](https://img.shields.io/npm/v/@jinzcdev/markmap-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server)
 [![NPM Downloads](https://img.shields.io/npm/dm/@jinzcdev/markmap-mcp-server.svg)](https://www.npmjs.com/package/@jinzcdev/markmap-mcp-server)
-[![GitHub License](https://img.shields.io/github/license/jinzcdev/markmap-mcp-server.svg)](LICENSE)
-[![中文文档](https://img.shields.io/badge/简体中文-查看-blue)](README_zh-CN.md)
+[![GitHub License](https://img.shields.io/github/license/jinzcdev/markmap-mcp-server.svg)](https://github.com/jinzcdev/markmap-mcp-server/tree/HEAD/LICENSE)
+[![中文文档](https://img.shields.io/badge/简体中文-查看-blue)](https://github.com/jinzcdev/markmap-mcp-server/blob/HEAD/README_zh-CN.md)
 [![Stars](https://img.shields.io/github/stars/jinzcdev/markmap-mcp-server)](https://github.com/jinzcdev/markmap-mcp-server)
 
 Markmap MCP Server is based on the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) that allows one-click conversion of Markdown text to interactive mind maps, built on the open source project [markmap](https://github.com/markmap/markmap). The generated mind maps support rich interactive operations and can be exported in various image formats.
@@ -268,4 +268,4 @@ Convert Markdown text into an interactive mind map.
 
 ## License
 
-This project is licensed under the [MIT](./LICENSE) License.
+This project is licensed under the [MIT](https://github.com/jinzcdev/markmap-mcp-server/tree/HEAD/LICENSE) License.

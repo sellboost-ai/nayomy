@@ -89,7 +89,7 @@ body_tr: |-
   
   > **Not**: Claude Desktop, K8s komutlarını otomatik olarak MCP sunucusu aracılığıyla yönlendirir ve Claude arayüzünü terk etmeden kümeleriniz hakkında doğal bir konuşma sağlar.
   
-  > **Bulut Sağlayıcıları**: AWS EKS, GKE veya Azure AKS için ek yapılandırma gerekecektir. [Bulut Sağlayıcısı Desteği](./docs/cloud-providers.md) kılavuzuna bakın.
+  > **Bulut Sağlayıcıları**: AWS EKS, GKE veya Azure AKS için ek yapılandırma gerekecektir. [Bulut Sağlayıcısı Desteği](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/cloud-providers.md) kılavuzuna bakın.
   
   ## Özellikler
   
@@ -122,14 +122,14 @@ body_tr: |-
   
   ## Belgeler
   
-  - [Başlangıç Kılavuzu](./docs/getting-started.md) - Ayrıntılı kurulum talimatları
-  - [Bulut Sağlayıcısı Desteği](./docs/cloud-providers.md) - EKS, GKE ve AKS yapılandırması
-  - [Desteklenen Araçlar](./docs/supported-tools.md) - Tüm dahil CLI araçlarının tam listesi
-  - [Ortam Değişkenleri](./docs/environment-variables.md) - Yapılandırma seçenekleri
-  - [Güvenlik Özellikleri](./docs/security.md) - Güvenlik modları ve özel kurallar
-  - [Claude Entegrasyonu](./docs/claude-integration.md) - Ayrıntılı Claude Desktop kurulumu
-  - [Mimari](./docs/architecture.md) - Sistem mimarisi ve bileşenleri
-  - [Ayrıntılı Spesifikasyon](./docs/spec.md) - Tam teknik spesifikasyon
+  - [Başlangıç Kılavuzu](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/getting-started.md) - Ayrıntılı kurulum talimatları
+  - [Bulut Sağlayıcısı Desteği](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/cloud-providers.md) - EKS, GKE ve AKS yapılandırması
+  - [Desteklenen Araçlar](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/supported-tools.md) - Tüm dahil CLI araçlarının tam listesi
+  - [Ortam Değişkenleri](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/environment-variables.md) - Yapılandırma seçenekleri
+  - [Güvenlik Özellikleri](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/security.md) - Güvenlik modları ve özel kurallar
+  - [Claude Entegrasyonu](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/claude-integration.md) - Ayrıntılı Claude Desktop kurulumu
+  - [Mimari](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/architecture.md) - Sistem mimarisi ve bileşenleri
+  - [Ayrıntılı Spesifikasyon](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/spec.md) - Tam teknik spesifikasyon
   
   ## Kullanım Örnekleri
   
@@ -265,11 +265,11 @@ body_tr: |-
   }
   ```
   
-  > Ayrıntılı güvenlik yapılandırma seçenekleri için [Güvenlik Belgelerine](./docs/security.md) bakın.
+  > Ayrıntılı güvenlik yapılandırma seçenekleri için [Güvenlik Belgelerine](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/security.md) bakın.
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/alexei-led/k8s-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # K8s MCP Server
@@ -351,7 +351,7 @@ Get Claude helping with your Kubernetes clusters in under 2 minutes:
 
 > **Note**: Claude Desktop will automatically route K8s commands through the MCP server, allowing natural conversation about your clusters without leaving the Claude interface.
 
-> **Cloud Providers**: For AWS EKS, GKE, or Azure AKS, you'll need additional configuration. See the [Cloud Provider Support](./docs/cloud-providers.md) guide.
+> **Cloud Providers**: For AWS EKS, GKE, or Azure AKS, you'll need additional configuration. See the [Cloud Provider Support](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/cloud-providers.md) guide.
 
 ## Features
 
@@ -384,14 +384,14 @@ docker run --rm -p 8000:8000 \
 
 ## Documentation
 
-- [Getting Started Guide](./docs/getting-started.md) - Detailed setup instructions
-- [Cloud Provider Support](./docs/cloud-providers.md) - EKS, GKE, and AKS configuration
-- [Supported Tools](./docs/supported-tools.md) - Complete list of all included CLI tools
-- [Environment Variables](./docs/environment-variables.md) - Configuration options
-- [Security Features](./docs/security.md) - Security modes and custom rules
-- [Claude Integration](./docs/claude-integration.md) - Detailed Claude Desktop setup
-- [Architecture](./docs/architecture.md) - System architecture and components
-- [Detailed Specification](./docs/spec.md) - Complete technical specification
+- [Getting Started Guide](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/getting-started.md) - Detailed setup instructions
+- [Cloud Provider Support](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/cloud-providers.md) - EKS, GKE, and AKS configuration
+- [Supported Tools](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/supported-tools.md) - Complete list of all included CLI tools
+- [Environment Variables](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/environment-variables.md) - Configuration options
+- [Security Features](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/security.md) - Security modes and custom rules
+- [Claude Integration](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/claude-integration.md) - Detailed Claude Desktop setup
+- [Architecture](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/architecture.md) - System architecture and components
+- [Detailed Specification](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/spec.md) - Complete technical specification
 
 ## Usage Examples
 
@@ -527,8 +527,8 @@ Configure Claude Desktop to optimize your Kubernetes workflow:
 }
 ```
 
-> For detailed security configuration options, see [Security Documentation](./docs/security.md).
+> For detailed security configuration options, see [Security Documentation](https://github.com/alexei-led/k8s-mcp-server/blob/HEAD/docs/security.md).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/alexei-led/k8s-mcp-server/tree/HEAD/LICENSE) file for details.

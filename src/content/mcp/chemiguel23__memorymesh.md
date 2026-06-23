@@ -11,7 +11,7 @@ license: "MIT"
 language: "TypeScript"
 body_tr: |-
   # MemoryMesh
-  [![Release](https://img.shields.io/badge/Release-v0.3.0-blue.svg)](./CHANGELOG.md)
+  [![Release](https://img.shields.io/badge/Release-v0.3.0-blue.svg)](https://github.com/CheMiguel23/MemoryMesh/blob/HEAD/CHANGELOG.md)
   ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ![GitHub Stars](https://img.shields.io/github/stars/CheMiguel23/MemoryMesh.svg?style=social)
@@ -375,7 +375,7 @@ body_tr: |-
 ---
 
 # MemoryMesh
-[![Release](https://img.shields.io/badge/Release-v0.3.0-blue.svg)](./CHANGELOG.md)
+[![Release](https://img.shields.io/badge/Release-v0.3.0-blue.svg)](https://github.com/CheMiguel23/MemoryMesh/blob/HEAD/CHANGELOG.md)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub Stars](https://img.shields.io/github/stars/CheMiguel23/MemoryMesh.svg?style=social)

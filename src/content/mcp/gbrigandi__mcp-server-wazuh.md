@@ -889,4 +889,4 @@ Example interaction flow:
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/gbrigandi/mcp-server-wazuh/tree/HEAD/LICENSE).

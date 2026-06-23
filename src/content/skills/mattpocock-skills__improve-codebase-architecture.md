@@ -20,7 +20,7 @@ body_tr: |-
   
   ## Sözlük
   
-  Bu terimleri her öneride tam olarak kullan. Tutarlı dil önemlidir — "component," "service," "API" veya "boundary" gibi başka terimlere kaymayın. Tam tanımlar [LANGUAGE.md](LANGUAGE.md) içindedir.
+  Bu terimleri her öneride tam olarak kullan. Tutarlı dil önemlidir — "component," "service," "API" veya "boundary" gibi başka terimlere kaymayın. Tam tanımlar [LANGUAGE.md](https://github.com/mattpocock/skills/blob/HEAD/LANGUAGE.md) içindedir.
   
   - **Modül** — bir arayüzü ve uygulaması olan herhangi bir şey (function, class, package, slice).
   - **Arayüz** — modülü kullanmak için bir çağıranın bilmesi gereken her şey: types, invariants, error modes, ordering, config. Sadece type signature değil.
@@ -31,7 +31,7 @@ body_tr: |-
   - **Leverage** — çağıranların derinlikten elde ettikleri şey.
   - **Lokality** — bakıcıların derinlikten elde ettikleri şey: değişiklik, hatalar, bilgi bir yerde toplanmış.
   
-  Temel prensipler ([LANGUAGE.md](LANGUAGE.md) içinde tam listeyi gör):
+  Temel prensipler ([LANGUAGE.md](https://github.com/mattpocock/skills/blob/HEAD/LANGUAGE.md) içinde tam listeyi gör):
   
   - **Silme testi**: modülü silmeyi hayal et. Eğer karmaşıklık ortadan kalkarsa, pass-through'tu. Eğer karmaşıklık N çağıranı arasında yeniden ortaya çıkarsa, değerini kanıtlıyordu.
   - **Arayüz test yüzeyidir.**
@@ -72,11 +72,11 @@ body_tr: |-
   
   Raporu **En İyi Tavsiye** bölümüyle sonlandır: hangi adayı ilk olarak ele alacağın ve neden.
   
-  **CONTEXT.md sözlüğünü domain için ve [LANGUAGE.md](LANGUAGE.md) sözlüğünü mimari için kullan.** Eğer `CONTEXT.md` "Order" tanımlarsa, "Order intake modülü" hakkında konuş — "FooBarHandler" değil, ve "Order service" değil.
+  **CONTEXT.md sözlüğünü domain için ve [LANGUAGE.md](https://github.com/mattpocock/skills/blob/HEAD/LANGUAGE.md) sözlüğünü mimari için kullan.** Eğer `CONTEXT.md` "Order" tanımlarsa, "Order intake modülü" hakkında konuş — "FooBarHandler" değil, ve "Order service" değil.
   
   **ADR çatışmaları**: eğer bir aday mevcut bir ADR'ye ters düşerse, sadece frikiyon ADR'yi yeniden açmayı garanti edecek kadar gerçek olduğunda yüzeye çıkar. Kart içinde net bir şekilde işaretle (örn. bir uyarı callout: _"ADR-0007 ile ters düşer — ama çünkü yeniden açmaya değer…"_). Bir ADR'nin yasakladığı her teorik refaktörü listeleme.
   
-  Tam HTML iskeleti, diyagram desenleri ve styling rehberi için [HTML-REPORT.md](HTML-REPORT.md) ye bak.
+  Tam HTML iskeleti, diyagram desenleri ve styling rehberi için [HTML-REPORT.md](https://github.com/mattpocock/skills/blob/HEAD/HTML-REPORT.md) ye bak.
   
   Henüz arayüzler önerme. Dosya yazıldıktan sonra kullanıcıya sor: "Bunlardan hangisini keşfetmek istersiniz?"
   
@@ -86,10 +86,10 @@ body_tr: |-
   
   Kararlar kristalleştikçe yan etkiler satır içi olarak gerçekleşir:
   
-  - **`CONTEXT.md` içinde olmayan bir kavramdan sonra derinleştirilen modülü adlandırıyorsun?** Terimi `CONTEXT.md` ye ekle — `/grill-with-docs` ile aynı disiplin ([CONTEXT-FORMAT.md](../grill-with-docs/CONTEXT-FORMAT.md) ye bak). Dosya yoksa lazy yaratın.
+  - **`CONTEXT.md` içinde olmayan bir kavramdan sonra derinleştirilen modülü adlandırıyorsun?** Terimi `CONTEXT.md` ye ekle — `/grill-with-docs` ile aynı disiplin ([CONTEXT-FORMAT.md](https://github.com/mattpocock/skills/blob/HEAD/grill-with-docs/CONTEXT-FORMAT.md) ye bak). Dosya yoksa lazy yaratın.
   - **Konuşma sırasında bulanık bir terimi mi keskinleştiriyorsun?** `CONTEXT.md` yi hemen orada güncelleyin.
-  - **Kullanıcı adayı load-bearing bir sebeple mi reddediyor?** Bir ADR teklif et, şu şekilde çerçeveli: _"Bunu bir ADR olarak kaydetmemi ister misiniz ki gelecek mimari incelemeler tekrar önermesin?"_ Sadece sebep gelecek bir explorer tarafından aynı şeyi yeniden önermeyi önlemek için gerçekten gerekli olduğunda teklif et — efemeral sebepleri ("şu an değer") ve kendi kendini belleği olanları ("kendi kendini belleği") atla. [ADR-FORMAT.md](../grill-with-docs/ADR-FORMAT.md) ye bak.
-  - **Derinleştirilen modül için alternatif arayüzleri keşfetmek ister misiniz?** [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md) ye bak.
+  - **Kullanıcı adayı load-bearing bir sebeple mi reddediyor?** Bir ADR teklif et, şu şekilde çerçeveli: _"Bunu bir ADR olarak kaydetmemi ister misiniz ki gelecek mimari incelemeler tekrar önermesin?"_ Sadece sebep gelecek bir explorer tarafından aynı şeyi yeniden önermeyi önlemek için gerçekten gerekli olduğunda teklif et — efemeral sebepleri ("şu an değer") ve kendi kendini belleği olanları ("kendi kendini belleği") atla. [ADR-FORMAT.md](https://github.com/mattpocock/skills/blob/HEAD/grill-with-docs/ADR-FORMAT.md) ye bak.
+  - **Derinleştirilen modül için alternatif arayüzleri keşfetmek ister misiniz?** [INTERFACE-DESIGN.md](https://github.com/mattpocock/skills/blob/HEAD/INTERFACE-DESIGN.md) ye bak.
 ---
 
 # Improve Codebase Architecture
@@ -138,7 +138,7 @@ End the report with a **Top recommendation** section: which candidate you'd tack
 
 **ADR conflicts**: if a candidate contradicts an existing ADR, only surface it when the friction is real enough to warrant revisiting the ADR. Mark it clearly in the card (e.g. a warning callout: _"contradicts ADR-0007 — but worth reopening because…"_). Don't list every theoretical refactor an ADR forbids.
 
-See [HTML-REPORT.md](HTML-REPORT.md) for the full HTML scaffold, diagram patterns, and styling guidance.
+See [HTML-REPORT.md](https://github.com/mattpocock/skills/blob/HEAD/HTML-REPORT.md) for the full HTML scaffold, diagram patterns, and styling guidance.
 
 Do NOT propose interfaces yet. After the file is written, ask the user: "Which of these would you like to explore?"
 

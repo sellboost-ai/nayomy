@@ -10,7 +10,7 @@ body_length: 8934
 license: "MIT"
 language: "TypeScript"
 body_tr: |-
-  [![License](https://img.shields.io/github/license/cswkim/discogs-mcp-server)](LICENSE)
+  [![License](https://img.shields.io/github/license/cswkim/discogs-mcp-server)](https://github.com/cswkim/discogs-mcp-server/tree/HEAD/LICENSE)
   [![GitHub Release](https://img.shields.io/github/v/release/cswkim/discogs-mcp-server)](https://github.com/cswkim/discogs-mcp-server/releases)
   [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/cswkim/discogs-mcp-server/.github%2Fworkflows%2Fcheck-pr.yml)](https://github.com/cswkim/discogs-mcp-server/actions/workflows/check-pr.yml)
   [![NPM Downloads](https://img.shields.io/npm/d18m/discogs-mcp-server)](https://www.npmjs.com/package/discogs-mcp-server)
@@ -51,7 +51,7 @@ body_tr: |-
   
   ## Kullanılabilir Araçlar
   
-  Kullanılabilir araçların listesini kontrol edin: [TOOLS.md](TOOLS.md)
+  Kullanılabilir araçların listesini kontrol edin: [TOOLS.md](https://github.com/cswkim/discogs-mcp-server/blob/HEAD/TOOLS.md)
   
   ## Uyarılar
   
@@ -248,7 +248,7 @@ body_tr: |-
   Bu MCP sunucusu MIT Lisansı altında lisanslanmıştır. Bu, MIT Lisansının hüküm ve koşullarına tabi olarak yazılımı özgürce kullanma, değiştirme ve dağıtma konusunda özgürsünüz. Daha fazla ayrıntı için lütfen proje repository'sinde LICENSE dosyasına bakın.
 ---
 
-[![License](https://img.shields.io/github/license/cswkim/discogs-mcp-server)](LICENSE)
+[![License](https://img.shields.io/github/license/cswkim/discogs-mcp-server)](https://github.com/cswkim/discogs-mcp-server/tree/HEAD/LICENSE)
 [![GitHub Release](https://img.shields.io/github/v/release/cswkim/discogs-mcp-server)](https://github.com/cswkim/discogs-mcp-server/releases)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/cswkim/discogs-mcp-server/.github%2Fworkflows%2Fcheck-pr.yml)](https://github.com/cswkim/discogs-mcp-server/actions/workflows/check-pr.yml)
 [![NPM Downloads](https://img.shields.io/npm/d18m/discogs-mcp-server)](https://www.npmjs.com/package/discogs-mcp-server)
@@ -289,7 +289,7 @@ This MCP server is built using [FastMCP](https://github.com/punkpeye/fastmcp), a
 
 ## Available Tools
 
-Check out the list of available tools: [TOOLS.md](TOOLS.md)
+Check out the list of available tools: [TOOLS.md](https://github.com/cswkim/discogs-mcp-server/blob/HEAD/TOOLS.md)
 
 ## Caveats
 

@@ -13,7 +13,7 @@ homepage: "https://github.com/hloiseau/mcp-gopls/blob/main/docs/usage.md"
 body_tr: |-
   # mcp-gopls – Go için MCP sunucusu (gopls)
   <!-- markdownlint-disable MD022 MD012 MD029 MD060 -->
-  [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+  [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/hloiseau/mcp-gopls/tree/HEAD/LICENSE)
   ![Go version](https://img.shields.io/badge/Go-1.25+-informational)
   [![CI](https://github.com/hloiseau/mcp-gopls/actions/workflows/ci.yml/badge.svg)](https://github.com/hloiseau/mcp-gopls/actions)
   [![Docker Image](https://img.shields.io/badge/ghcr.io-hloiseau/mcp--gopls-blue)](https://ghcr.io/hloiseau/mcp-gopls)
@@ -421,7 +421,7 @@ body_tr: |-
 
 # mcp-gopls – MCP server for Go (gopls)
 <!-- markdownlint-disable MD022 MD012 MD029 MD060 -->
-[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/hloiseau/mcp-gopls/tree/HEAD/LICENSE)
 ![Go version](https://img.shields.io/badge/Go-1.25+-informational)
 [![CI](https://github.com/hloiseau/mcp-gopls/actions/workflows/ci.yml/badge.svg)](https://github.com/hloiseau/mcp-gopls/actions)
 [![Docker Image](https://img.shields.io/badge/ghcr.io-hloiseau/mcp--gopls-blue)](https://ghcr.io/hloiseau/mcp-gopls)

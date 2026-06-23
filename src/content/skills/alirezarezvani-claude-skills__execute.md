@@ -102,8 +102,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Beceriler: [`coo-advisor`](../../../skills/coo-advisor/SKILL.md), [`strategic-alignment`](../../../skills/strategic-alignment/SKILL.md), [`change-management`](../../../skills/change-management/SKILL.md)
-  - Agent: [`cs-coo-advisor`](../../agents/cs-coo-advisor.md)
+  - Beceriler: [`coo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/coo-advisor/SKILL.md), [`strategic-alignment`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/strategic-alignment/SKILL.md), [`change-management`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/change-management/SKILL.md)
+  - Agent: [`cs-coo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-coo-advisor.md)
   
   ---
   
@@ -198,8 +198,8 @@ Saved to `~/.claude/execution/YYYY-MM-DD-<slug>.md`:
 
 ## Related
 
-- Skills: [`coo-advisor`](../../../skills/coo-advisor/SKILL.md), [`strategic-alignment`](../../../skills/strategic-alignment/SKILL.md), [`change-management`](../../../skills/change-management/SKILL.md)
-- Agent: [`cs-coo-advisor`](../../agents/cs-coo-advisor.md)
+- Skills: [`coo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/coo-advisor/SKILL.md), [`strategic-alignment`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/strategic-alignment/SKILL.md), [`change-management`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/change-management/SKILL.md)
+- Agent: [`cs-coo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-coo-advisor.md)
 
 ---
 

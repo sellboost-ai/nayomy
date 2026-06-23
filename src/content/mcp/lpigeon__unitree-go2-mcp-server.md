@@ -31,7 +31,7 @@ body_tr: |-
   
   ## MCP Fonksiyonları
   
-  Fonksiyonların listesini [MCPFUNCTIONS.md](MCPFUNCTIONS.md) dosyasında bulabilirsiniz.
+  Fonksiyonların listesini [MCPFUNCTIONS.md](https://github.com/lpigeon/unitree-go2-mcp-server/blob/HEAD/MCPFUNCTIONS.md) dosyasında bulabilirsiniz.
   
   ## Kurulum
   
@@ -148,7 +148,7 @@ body_tr: |-
   ## Katkıda Bulunma
   Katkıları bekliyoruz!  
   Bir typo düzeltmesi, yeni bir fonksiyon ekleme veya iyileştiriler önerme olsun, yardımınız takdir edilir.  
-  Bu projeye nasıl katkıda bulunacağınız hakkında daha fazla ayrıntı için lütfen [katkı rehberini](CONTRIBUTING.md) izleyin.
+  Bu projeye nasıl katkıda bulunacağınız hakkında daha fazla ayrıntı için lütfen [katkı rehberini](https://github.com/lpigeon/unitree-go2-mcp-server/blob/HEAD/CONTRIBUTING.md) izleyin.
 ---
 
 # Unitree Go2 MCP Server
@@ -167,7 +167,7 @@ The **Unitree Go2 MCP Server** is a server built on the Model Context Protocol (
 
 ## MCP Functions
 
-You can find the list of functions in the [MCPFUNCTIONS.md](MCPFUNCTIONS.md).
+You can find the list of functions in the [MCPFUNCTIONS.md](https://github.com/lpigeon/unitree-go2-mcp-server/blob/HEAD/MCPFUNCTIONS.md).
 
 ## Installation
 
@@ -284,4 +284,4 @@ This task is a comprehensive demo task showcasing the Unitree Go2 robot's obstac
 ## Contributing
 Contributions are welcome!  
 Whether you're fixing a typo, adding a new function, or suggesting improvements, your help is appreciated.  
-Please follow the [contributing guidelines](CONTRIBUTING.md) for more details on how to contribute to this project.
+Please follow the [contributing guidelines](https://github.com/lpigeon/unitree-go2-mcp-server/blob/HEAD/CONTRIBUTING.md) for more details on how to contribute to this project.

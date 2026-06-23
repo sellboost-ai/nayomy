@@ -32,7 +32,7 @@ body_tr: |-
   - **Hata işleme.** Başarısızlık durumunda → 3sn bekle → bir kez yeniden dene → günlük. 3 araç arasında ardışık 3 başarısızlık: durdur, araştırmacıyı uyar, eksik olanları açıkla. Asla sessizce atla.
   - **Şeffaflık.** DOCX'te Denetim Günlüğü bölümü. Belgede olduğu gibi sohbet özetinde de aynı standartlar.
   
-  [`references/reporter_post_patterns.md`](references/reporter_post_patterns.md) adresinde RePORTER POST kanonik + plan katmanı tespiti için bkz.
+  [`references/reporter_post_patterns.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/reporter_post_patterns.md) adresinde RePORTER POST kanonik + plan katmanı tespiti için bkz.
   
   ## Faz 1: Grill-Me Giriş (6 zorlayıcı soru, teker teker)
   
@@ -199,11 +199,11 @@ body_tr: |-
   # Mekanizma kısa listesini mantıkla döndürür
   ```
   
-  Tam matris için [`references/nih_mechanism_matching.md`](references/nih_mechanism_matching.md) adresine bkz.
+  Tam matris için [`references/nih_mechanism_matching.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/nih_mechanism_matching.md) adresine bkz.
   
   ## Faz 3: DOCX Üretimi
   
-  Node.js + `docx` kütüphanesi aracılığıyla 9 bölüm. Tam spec için [`references/docx_9_sections.md`](references/docx_9_sections.md) adresine bkz.
+  Node.js + `docx` kütüphanesi aracılığıyla 9 bölüm. Tam spec için [`references/docx_9_sections.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docx_9_sections.md) adresine bkz.
   
   1. **Yönetici Özeti** — başlık + kariyer aşaması + ortam + 3-4 anahtar bulgu madde
   2. **Araştırma Konumlandırması** — 3-5 boşluk alıntısı (italik, satır içi Consensus alıntıları) + 2-3 paragraf konumlandırma anlatımı + destek kanıt tablosu
@@ -255,9 +255,9 @@ body_tr: |-
   
   ## Referanslar
   
-  - [`references/nih_mechanism_matching.md`](references/nih_mechanism_matching.md) — kariyer aşaması × kapsam × ön veri → mekanizma kanonik (7+ kaynak)
-  - [`references/reporter_post_patterns.md`](references/reporter_post_patterns.md) — RePORTER curl POST şablonları + plan katmanı tespiti (7+ kaynak)
-  - [`references/docx_9_sections.md`](references/docx_9_sections.md) — 9 bölüm .docx spec + teknik gereksinimler (7+ kaynak)
+  - [`references/nih_mechanism_matching.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/nih_mechanism_matching.md) — kariyer aşaması × kapsam × ön veri → mekanizma kanonik (7+ kaynak)
+  - [`references/reporter_post_patterns.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/reporter_post_patterns.md) — RePORTER curl POST şablonları + plan katmanı tespiti (7+ kaynak)
+  - [`references/docx_9_sections.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docx_9_sections.md) — 9 bölüm .docx spec + teknik gereksinimler (7+ kaynak)
   
   ## Hata İşleme
   
@@ -287,7 +287,7 @@ body_tr: |-
   ---
   
   **Sürüm:** 1.0.0
-  **Kaynak spec:** [`megaprompts/08-grants-megaprompt.md`](../../../../megaprompts/08-grants-megaprompt.md)
+  **Kaynak spec:** [`megaprompts/08-grants-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/megaprompts/08-grants-megaprompt.md)
   **Yapı deseni:** Yol B (doğrudan dönüştürme). Pulse + litreview'in Research-pack kardeşi.
 ---
 
@@ -309,7 +309,7 @@ Inherited; locked verbatim per PR #657 audit.
 - **Error handling.** On failure → wait 3s → retry once → log. After 3 consecutive failures across tools: stop, alert researcher, explain what's missing. Never silently skip.
 - **Transparency.** Audit Log section in the DOCX. Same standards in chat summary as in document.
 
-See [`references/reporter_post_patterns.md`](references/reporter_post_patterns.md) for the RePORTER POST canon + plan-tier detection.
+See [`references/reporter_post_patterns.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/reporter_post_patterns.md) for the RePORTER POST canon + plan-tier detection.
 
 ## Phase 1: Grill-Me Intake (6 forcing questions, one at a time)
 
@@ -476,11 +476,11 @@ python scripts/mechanism_matcher.py \
 # Returns mechanism shortlist with rationale
 ```
 
-See [`references/nih_mechanism_matching.md`](references/nih_mechanism_matching.md) for the full matrix.
+See [`references/nih_mechanism_matching.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/nih_mechanism_matching.md) for the full matrix.
 
 ## Phase 3: DOCX Generation
 
-9 sections via Node.js + `docx` library. See [`references/docx_9_sections.md`](references/docx_9_sections.md) for full spec.
+9 sections via Node.js + `docx` library. See [`references/docx_9_sections.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docx_9_sections.md) for full spec.
 
 1. **Executive Summary** — title + career stage + environment + 3-4 key findings bullets
 2. **Research Positioning** — 3-5 gap quotes (italicized, inline Consensus citations) + 2-3 paragraph positioning narrative + supporting evidence table
@@ -532,9 +532,9 @@ This is the single most valuable advice for any applicant. Never skip.
 
 ## References
 
-- [`references/nih_mechanism_matching.md`](references/nih_mechanism_matching.md) — career stage × scope × prelim → mechanism canon (7+ sources)
-- [`references/reporter_post_patterns.md`](references/reporter_post_patterns.md) — RePORTER curl POST templates + plan-tier detection (7+ sources)
-- [`references/docx_9_sections.md`](references/docx_9_sections.md) — 9-section .docx spec + technical requirements (7+ sources)
+- [`references/nih_mechanism_matching.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/nih_mechanism_matching.md) — career stage × scope × prelim → mechanism canon (7+ sources)
+- [`references/reporter_post_patterns.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/reporter_post_patterns.md) — RePORTER curl POST templates + plan-tier detection (7+ sources)
+- [`references/docx_9_sections.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docx_9_sections.md) — 9-section .docx spec + technical requirements (7+ sources)
 
 ## Error Handling
 
@@ -564,5 +564,5 @@ This is the single most valuable advice for any applicant. Never skip.
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/08-grants-megaprompt.md`](../../../../megaprompts/08-grants-megaprompt.md)
+**Source spec:** [`megaprompts/08-grants-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/megaprompts/08-grants-megaprompt.md)
 **Build pattern:** Path B (direct conversion). Research-pack sibling of pulse + litreview.

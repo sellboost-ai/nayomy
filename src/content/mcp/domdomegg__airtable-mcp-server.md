@@ -273,7 +273,7 @@ body_tr: |-
   3. `npm install` ile bağımlılıkları yükleyin
   4. Testleri çalıştırmak için `npm run test` çalıştırın
   5. `npm run build` ile derleyin
-    - [`src/index.ts`](./src/index.ts) dosyasını düzenledikten sonra otomatik olarak derlemek için `npm run build:watch` kullanabilirsiniz. Bu, kaydedin, Claude Desktop'ı yeniden yükleyin (Ctrl/Cmd+R ile) ve değişiklikler uygulanacak anlamına gelir.
+    - [`src/index.ts`](https://github.com/domdomegg/airtable-mcp-server/blob/HEAD/src/index.ts) dosyasını düzenledikten sonra otomatik olarak derlemek için `npm run build:watch` kullanabilirsiniz. Bu, kaydedin, Claude Desktop'ı yeniden yükleyin (Ctrl/Cmd+R ile) ve değişiklikler uygulanacak anlamına gelir.
   
   ## Sürümler
   
@@ -548,7 +548,7 @@ Pull requests are welcomed on GitHub! To get started:
 3. Install dependencies with `npm install`
 4. Run `npm run test` to run tests
 5. Build with `npm run build`
-  - You can use `npm run build:watch` to automatically build after editing [`src/index.ts`](./src/index.ts). This means you can hit save, reload Claude Desktop (with Ctrl/Cmd+R), and the changes apply.
+  - You can use `npm run build:watch` to automatically build after editing [`src/index.ts`](https://github.com/domdomegg/airtable-mcp-server/blob/HEAD/src/index.ts). This means you can hit save, reload Claude Desktop (with Ctrl/Cmd+R), and the changes apply.
 
 ## Releases
 

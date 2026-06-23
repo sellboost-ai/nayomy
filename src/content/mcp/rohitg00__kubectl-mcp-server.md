@@ -1243,7 +1243,7 @@ npx kubectl-mcp-app
 - 🖱️ Interactive actions (scale, restart, delete)
 - 🔗 Seamless integration with kubectl-mcp-server
 
-**More Info**: See [kubectl-mcp-app/README.md](./kubectl-mcp-app/README.md) for full documentation.
+**More Info**: See [kubectl-mcp-app/README.md](https://github.com/rohitg00/kubectl-mcp-server/blob/HEAD/kubectl-mcp-app/README.md) for full documentation.
 
 ## Enterprise: OAuth 2.1 Authentication
 
@@ -1354,7 +1354,7 @@ kubectl apply -f deploy/kubernetes/service.yaml
 kubectl port-forward -n kubectl-mcp svc/kubectl-mcp-server 8000:8000
 ```
 
-See [deploy/](deploy/) directory for all manifests and configuration options.
+See [deploy/](https://github.com/rohitg00/kubectl-mcp-server/tree/HEAD/deploy/) directory for all manifests and configuration options.
 
 ### Option 3: kagent (AI Agent Framework)
 
@@ -1463,7 +1463,7 @@ skillkit translate kubernetes-skills/claude --to codex --output ./
 
 **Supported agents:** Claude, Cursor, Codex, Gemini CLI, GitHub Copilot, Goose, Windsurf, Roo, Amp, and more.
 
-See [kubernetes-skills/README.md](kubernetes-skills/README.md) for full documentation.
+See [kubernetes-skills/README.md](https://github.com/rohitg00/kubectl-mcp-server/blob/HEAD/kubernetes-skills/README.md) for full documentation.
 
 ## Multi-Cluster Support
 
@@ -1613,7 +1613,7 @@ We ❤️ contributions! Whether it's bug reports, feature requests, documentati
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](https://github.com/rohitg00/kubectl-mcp-server/tree/HEAD/LICENSE) for details.
 
 ## Links & Resources
 

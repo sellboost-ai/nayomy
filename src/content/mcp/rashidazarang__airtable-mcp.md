@@ -397,8 +397,8 @@ body_tr: |-
   
   ## Belgeler
   
-  - [Changelog](docs/CHANGELOG.md)
-  - [Release Notes](docs/releases/)
+  - [Changelog](https://github.com/rashidazarang/airtable-mcp/blob/HEAD/docs/CHANGELOG.md)
+  - [Release Notes](https://github.com/rashidazarang/airtable-mcp/tree/HEAD/docs/releases/)
   
   ---
   
@@ -410,7 +410,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT Lisansı — ayrıntılar için [LICENSE](LICENSE) dosyasını görüntüleyin.
+  MIT Lisansı — ayrıntılar için [LICENSE](https://github.com/rashidazarang/airtable-mcp/tree/HEAD/LICENSE) dosyasını görüntüleyin.
   
   ---
   
@@ -806,8 +806,8 @@ airtable-mcp/
 
 ## Documentation
 
-- [Changelog](docs/CHANGELOG.md)
-- [Release Notes](docs/releases/)
+- [Changelog](https://github.com/rashidazarang/airtable-mcp/blob/HEAD/docs/CHANGELOG.md)
+- [Release Notes](https://github.com/rashidazarang/airtable-mcp/tree/HEAD/docs/releases/)
 
 ---
 
@@ -819,7 +819,7 @@ Contributions are welcome. Please open an issue first to discuss major changes.
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](https://github.com/rashidazarang/airtable-mcp/tree/HEAD/LICENSE) for details.
 
 ---
 

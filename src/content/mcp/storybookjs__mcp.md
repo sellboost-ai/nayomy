@@ -18,11 +18,11 @@ body_tr: |-
   
   Bu monorepo beş ana paket içerir:
   
-  - **[@storybook/mcp](./packages/mcp)** - Storybook bileşen bilgisini sunmak için bağımsız MCP kütüphanesi (bağımsız olarak kullanılabilir)
-  - **[@storybook/addon-mcp](./packages/addon-mcp)** - Storybook eklentisi, Storybook dev sunucunuzun içinde bir MCP sunucusu çalıştırır ve yerel Storybook'unuzdan **[@storybook/mcp](./packages/mcp)** işlevselliğini içerir
-  - **[@storybook/mcp-proxy](./packages/mcp-proxy)** - Storybook aracı entegrasyonları için kararlı MCP proxy paketi
-  - **[@storybook/claude-code-plugin](./packages/claude-plugin)** - Storybook kurulum becerileri ve `@storybook/mcp-proxy` başlatan MCP yapılandırması içeren Claude Code eklentisi
-  - **[@storybook/codex-plugin](./packages/codex-plugin)** - Storybook kurulum becerileri ve `@storybook/mcp-proxy` başlatan MCP yapılandırması içeren Codex eklentisi
+  - **[@storybook/mcp](https://github.com/storybookjs/mcp/tree/HEAD/packages/mcp)** - Storybook bileşen bilgisini sunmak için bağımsız MCP kütüphanesi (bağımsız olarak kullanılabilir)
+  - **[@storybook/addon-mcp](https://github.com/storybookjs/mcp/tree/HEAD/packages/addon-mcp)** - Storybook eklentisi, Storybook dev sunucunuzun içinde bir MCP sunucusu çalıştırır ve yerel Storybook'unuzdan **[@storybook/mcp](https://github.com/storybookjs/mcp/tree/HEAD/packages/mcp)** işlevselliğini içerir
+  - **[@storybook/mcp-proxy](https://github.com/storybookjs/mcp/tree/HEAD/packages/mcp-proxy)** - Storybook aracı entegrasyonları için kararlı MCP proxy paketi
+  - **[@storybook/claude-code-plugin](https://github.com/storybookjs/mcp/tree/HEAD/packages/claude-plugin)** - Storybook kurulum becerileri ve `@storybook/mcp-proxy` başlatan MCP yapılandırması içeren Claude Code eklentisi
+  - **[@storybook/codex-plugin](https://github.com/storybookjs/mcp/tree/HEAD/packages/codex-plugin)** - Storybook kurulum becerileri ve `@storybook/mcp-proxy` başlatan MCP yapılandırması içeren Codex eklentisi
   
   Her paketin, kullanıcıya yönelik belgeleri içeren kendi README dosyası vardır. Bu belge, bu paketleri geliştirmek, test etmek veya geliştirmek isteyen **katkıda bulunanlar** içindir.
   
@@ -170,9 +170,9 @@ body_tr: |-
   preview-stories aracının parçası olarak oluşturulan MCP uygulamasıyla çalışmak ve hata ayıklamak için:
   
   1. VSCode'un Insiders sürümünü kullanın
-  2. [chat.mcp.apps.enabled](vscode-insiders://settings/chat.mcp.apps.enabled) ayarının etkin olduğundan emin olun
+  2. [chat.mcp.apps.enabled](https://github.com/storybookjs/mcp/blob/HEAD/vscode-insiders://settings/chat.mcp.apps.enabled) ayarının etkin olduğundan emin olun
   3. Kök dizinde `pnpm storybook` çalıştırarak repo'nun Storybook'unu izleme modunda başlatın
-  4. VSCode'u yeniden başlatın ve [`.vscode/mcp.json`](./.vscode/mcp.json) dosyasını açın ve Storybook MCP'nin Çalışıyor olarak işaretlendiğinden emin olun, aksi takdirde Başlat'ı tıklayın.
+  4. VSCode'u yeniden başlatın ve [`.vscode/mcp.json`](https://github.com/storybookjs/mcp/blob/HEAD/.vscode/mcp.json) dosyasını açın ve Storybook MCP'nin Çalışıyor olarak işaretlendiğinden emin olun, aksi takdirde Başlat'ı tıklayın.
   5. VSCode'da bir sohbet açın ve şöyle bir istem yazın:
   
   > Show me how all the button stories look, using the Storybook MCP
@@ -284,7 +284,7 @@ body_tr: |-
   
   ## 📄 Lisans
   
-  MIT - Ayrıntılar için [LICENSE](./LICENSE) dosyasını inceleyin
+  MIT - Ayrıntılar için [LICENSE](https://github.com/storybookjs/mcp/tree/HEAD/LICENSE) dosyasını inceleyin
   
   ---
   
@@ -299,10 +299,10 @@ Welcome to the Storybook MCP Addon monorepo! This project enables AI agents to w
 
 This monorepo contains four main packages:
 
-- **[@storybook/mcp](./packages/mcp)** - Standalone MCP library for serving Storybook component knowledge (can be used independently)
-- **[@storybook/addon-mcp](./packages/addon-mcp)** - Storybook addon that runs an MCP server within your Storybook dev server, and includes the functionality of **[@storybook/mcp](./packages/mcp)** from your local Storybook
-- **[@storybook/claude-code-plugin](./packages/claude-plugin)** - Claude Code plugin with Storybook setup skills and MCP configuration
-- **[@storybook/codex-plugin](./packages/codex-plugin)** - Codex plugin with Storybook setup skills and MCP configuration
+- **[@storybook/mcp](https://github.com/storybookjs/mcp/tree/HEAD/packages/mcp)** - Standalone MCP library for serving Storybook component knowledge (can be used independently)
+- **[@storybook/addon-mcp](https://github.com/storybookjs/mcp/tree/HEAD/packages/addon-mcp)** - Storybook addon that runs an MCP server within your Storybook dev server, and includes the functionality of **[@storybook/mcp](https://github.com/storybookjs/mcp/tree/HEAD/packages/mcp)** from your local Storybook
+- **[@storybook/claude-code-plugin](https://github.com/storybookjs/mcp/tree/HEAD/packages/claude-plugin)** - Claude Code plugin with Storybook setup skills and MCP configuration
+- **[@storybook/codex-plugin](https://github.com/storybookjs/mcp/tree/HEAD/packages/codex-plugin)** - Codex plugin with Storybook setup skills and MCP configuration
 
 Each package has its own README with user-facing documentation. This document is for **contributors** looking to develop, test, or contribute to these packages.
 
@@ -489,9 +489,9 @@ This will build everything and start up Storybook with addon-mcp, and you can th
 To work with and debug the MCP app that is rendered as part of the preview-stories tool, you can:
 
 1. Use the Insiders build of VSCode
-2. Ensure the [chat.mcp.apps.enabled](vscode-insiders://settings/chat.mcp.apps.enabled) setting is enabled
+2. Ensure the [chat.mcp.apps.enabled](https://github.com/storybookjs/mcp/blob/HEAD/vscode-insiders://settings/chat.mcp.apps.enabled) setting is enabled
 3. Start up the repo's Storybook in watch mode by running `pnpm storybook` in the root
-4. Restart VSCode and, open the [`.vscode/mcp.json`](./.vscode/mcp.json) file and ensure the Storybook MCP is marked as Running, otherwise click Start.
+4. Restart VSCode and, open the [`.vscode/mcp.json`](https://github.com/storybookjs/mcp/blob/HEAD/.vscode/mcp.json) file and ensure the Storybook MCP is marked as Running, otherwise click Start.
 5. Open up a chat in VSCode and write a prompt like this:
 
 > Show me how all the button stories look, using the Storybook MCP
@@ -603,7 +603,7 @@ We welcome contributions! Here's how to get started:
 
 ## 📄 License
 
-MIT - See [LICENSE](./LICENSE) for details
+MIT - See [LICENSE](https://github.com/storybookjs/mcp/tree/HEAD/LICENSE) for details
 
 ---
 

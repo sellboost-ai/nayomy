@@ -132,10 +132,10 @@ body_tr: |-
   
   ## References
   
-  - [references/ci-integration.md](references/ci-integration.md)
-  - [references/changelog-formatting-guide.md](references/changelog-formatting-guide.md)
-  - [references/monorepo-strategy.md](references/monorepo-strategy.md)
-  - [README.md](README.md)
+  - [references/ci-integration.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ci-integration.md)
+  - [references/changelog-formatting-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/changelog-formatting-guide.md)
+  - [references/monorepo-strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/monorepo-strategy.md)
+  - [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md)
   
   ## Release Governance
   
@@ -305,7 +305,7 @@ SemVer mapping:
 
 ## Hotfix Severity & SLAs
 
-When a release goes wrong, classify before acting (full procedures in [references/hotfix-procedures.md](references/hotfix-procedures.md)):
+When a release goes wrong, classify before acting (full procedures in [references/hotfix-procedures.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/hotfix-procedures.md)):
 
 | Severity | Definition | SLA | Approval |
 |---|---|---|---|
@@ -327,15 +327,15 @@ Pre-commit to these thresholds before tagging; roll back when any fires:
 | Security incident | Vulnerability being exploited |
 | Data corruption | Database integrity compromised |
 
-Prefer feature-flag disable over code rollback; database rollbacks only for non-destructive migrations (forward-only migrations preferred). See [references/hotfix-procedures.md](references/hotfix-procedures.md).
+Prefer feature-flag disable over code rollback; database rollbacks only for non-destructive migrations (forward-only migrations preferred). See [references/hotfix-procedures.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/hotfix-procedures.md).
 
 ## References
 
-- [references/ci-integration.md](references/ci-integration.md)
-- [references/changelog-formatting-guide.md](references/changelog-formatting-guide.md)
-- [references/monorepo-strategy.md](references/monorepo-strategy.md)
-- [references/hotfix-procedures.md](references/hotfix-procedures.md)
-- [README.md](README.md)
+- [references/ci-integration.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ci-integration.md)
+- [references/changelog-formatting-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/changelog-formatting-guide.md)
+- [references/monorepo-strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/monorepo-strategy.md)
+- [references/hotfix-procedures.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/hotfix-procedures.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md)
 
 ## Release Governance
 

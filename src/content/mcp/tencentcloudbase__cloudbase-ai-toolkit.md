@@ -24,7 +24,7 @@ body_tr: |-
   AI IDE'yi Tencent Cloud CloudBase ile bağlayan dağıtım köprüsü, AI uygulamanızı anında yayına alın<br/>
   <sup>💡 Vercel + Supabase gibi, ama tamamen AI odaklı——istemden üretim ortamına doğru</sup>
   
-  [English](./README-EN.md) · **简体中文** · [Belgeler][docs] · [Değişiklik Günlüğü][changelog] · [Geri Bildirim][github-issues-link]
+  [English](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/blob/HEAD/README-EN.md) · **简体中文** · [Belgeler][docs] · [Değişiklik Günlüğü][changelog] · [Geri Bildirim][github-issues-link]
   
   <!-- SHIELD GROUP -->
   
@@ -442,7 +442,7 @@ body_tr: |-
   | **Mini Program** | 7 araç | Yükle, önizle, oluştur, yapılandır, hata ayıkla |
   | **Araç Desteği** | 4 araç | Şablonlar, bilgi tabanı araması, ağ araması, etkileşimli sohbet |
   
-  [Tam Araç Belgelerine Bak](doc/mcp-tools.md) | [Araç Spesifikasyonu JSON](scripts/tools.json)
+  [Tam Araç Belgelerine Bak](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/blob/HEAD/doc/mcp-tools.md) | [Araç Spesifikasyonu JSON](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/blob/HEAD/scripts/tools.json)
   
   ## 📚 Daha Fazla Kaynak
   
@@ -482,7 +482,7 @@ body_tr: |-
 连接 AI IDE 与腾讯云 CloudBase 的部署桥梁，让你的 AI 应用即刻上线<br/>
 <sup>💡 像 Vercel + Supabase，但全程 AI 驱动——从提示词直达生产环境</sup>
 
-[English](./README-EN.md) · **简体中文** · [文档][docs] · [更新日志][changelog] · [反馈问题][github-issues-link]
+[English](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/blob/HEAD/README-EN.md) · **简体中文** · [文档][docs] · [更新日志][changelog] · [反馈问题][github-issues-link]
 
 <!-- SHIELD GROUP -->
 
@@ -900,7 +900,7 @@ CodeBuddy 已内置 CloudBase MCP，无需配置即可使用。
 | **小程序** | 7 个 | 上传、预览、构建、配置、调试 |
 | **工具支持** | 3 个 | 模板、知识库搜索、交互对话 |
 
-[查看完整工具文档](doc/mcp-tools.md) | [工具规格 JSON](scripts/tools.json)
+[查看完整工具文档](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/blob/HEAD/doc/mcp-tools.md) | [工具规格 JSON](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/blob/HEAD/scripts/tools.json)
 
 ## 📚 更多资源
 
@@ -1013,7 +1013,7 @@ CloudBase MCP 工具本身完全开源免费（MIT）。云开发环境有免费
 
 [![][github-stars-shield]][github-stars-link]
 
-[MIT](LICENSE) © TencentCloudBase
+[MIT](https://github.com/TencentCloudBase/CloudBase-AI-ToolKit/tree/HEAD/LICENSE) © TencentCloudBase
 
 </div>
 

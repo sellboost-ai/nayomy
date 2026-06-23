@@ -1813,4 +1813,4 @@ The easiest way to iterate on the MCP Server is using the MCP inspector. You can
   pnpm test:watch
   ```
 
-For more detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md)
+For more detailed contribution guidelines, see [CONTRIBUTING.md](https://github.com/CircleCI-Public/mcp-server-circleci/blob/HEAD/CONTRIBUTING.md)

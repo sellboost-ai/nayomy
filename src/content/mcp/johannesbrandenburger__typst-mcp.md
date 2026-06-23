@@ -76,7 +76,7 @@ body_tr: |-
   
   ### Docker
   
-  Docker kurulumu ve kullanımı için, ayrıntılı derleme bilgileri ve talimatlar için [DOCKER.md](DOCKER.md) dosyasına bakın.
+  Docker kurulumu ve kullanımı için, ayrıntılı derleme bilgileri ve talimatlar için [DOCKER.md](https://github.com/johannesbrandenburger/typst-mcp/blob/HEAD/DOCKER.md) dosyasına bakın.
   
   ## Platform Konfigürasyonu
   
@@ -340,7 +340,7 @@ Or use the new agent mode in VS Code:
 
 ### Docker
 
-For Docker installation and usage, see [DOCKER.md](DOCKER.md) for detailed build information and instructions.
+For Docker installation and usage, see [DOCKER.md](https://github.com/johannesbrandenburger/typst-mcp/blob/HEAD/DOCKER.md) for detailed build information and instructions.
 
 ## Platform Configuration
 

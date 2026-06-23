@@ -45,9 +45,9 @@ body_tr: |-
   
   **Neden NeuroLink?** Tek bir parametre değişikliğiyle sağlayıcıları değiştirin, 64+ yerleşik aracı ve MCP sunucusuyla yararlanın, Redis belleği ve çoklu sağlayıcı yük devretmesi gibi kurumsal özellikler kullanarak güvenle dağıtın ve akıllı yönlendirmeyle maliyetleri otomatik olarak optimize edin. Profesyonel CLI'mız veya TypeScript SDK'mız aracılığıyla kullanın — hangisi iş akışınıza uyuyorsa.
   
-  **Nereye gidiyoruz:** AI'nın geleceği için inşa ediyoruz — edge-first yürütme ve AI'yı pratik olarak ücretsiz ve evrensel olarak kullanılabilir yapan sürekli akış mimarileri. **[Vizyonumuzu okuyun →](docs/about/vision.md)**
+  **Nereye gidiyoruz:** AI'nın geleceği için inşa ediyoruz — edge-first yürütme ve AI'yı pratik olarak ücretsiz ve evrensel olarak kullanılabilir yapan sürekli akış mimarileri. **[Vizyonumuzu okuyun →](https://github.com/juspay/neurolink/blob/HEAD/docs/about/vision.md)**
   
-  **[5 Dakikada Başlayın →](docs/getting-started/quick-start.md)**
+  **[5 Dakikada Başlayın →](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/quick-start.md)**
   
   ---
   
@@ -55,20 +55,20 @@ body_tr: |-
   
   | Özellik                                      | Sürüm   | Açıklama                                                                                                                                                                                                                                                                                                                                                                   | Rehber                                                                                                                                   |
   | -------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-  | **Avatar / Music Modalities + 12 Providers** | next    | Yeni `output: { mode: "avatar" \| "music" }` dispatch; D-ID, HeyGen, Replicate-MuseTalk (avatar) ve Beatoven, ElevenLabs Music, Lyria, Replicate-MusicGen (music) için handler'lar. Ek olarak Fish Audio TTS, Kling/Runway/Replicate video, xAI/Groq/Cohere/Together/Fireworks/Perplexity/Cloudflare LLM'ler, Voyage/Jina embedding'ler, Stability/Ideogram/Recraft/Replicate görsel-gen. | [Sağlayıcı Entegrasyonu](docs/provider-integration/)                                                                                      |
-  | **Multi-Provider Ses (TTS/STT)**           | v9.62.0 | 6 TTS sağlayıcısı (OpenAI TTS, ElevenLabs, Google TTS, Azure TTS, Fish Audio, Cartesia) + 4 STT sağlayıcısı (Whisper, Deepgram, Azure STT, Google STT) + 2 realtime API'si (OpenAI Realtime, Gemini Live).                                                                                                                                                          | [TTS Rehberi](docs/features/tts.md) \| [STT Rehberi](docs/features/audio-input.md) \| [Realtime Rehberi](docs/features/real-time-services.md) |
-  | **4 Yeni Sağlayıcı**                          | v9.60.0 | DeepSeek (V3/R1), NVIDIA NIM (400+ katalog), LM Studio (yerel), llama.cpp (GGUF yerel).                                                                                                                                                                                                                                                                                       | [Sağlayıcı Kurulumu](docs/getting-started/provider-setup.md)                                                                                |
-  | **ModelAccessDeniedError**                   | v9.59.0 | Yazılı `ModelAccessDeniedError` + ilk çağrıdan önce proaktif kimlik doğrulama doğrulaması için `sdk.checkCredentials()` API'si.                                                                                                                                                                                                                                          | [Hata Referansı](docs/reference/troubleshooting.md)                                                                                    |
-  | **Provider Fallback Policy**                 | v9.58.0 | `providerFallback` callback + merkezi çoklu sağlayıcı yük devretme mantığı için `modelChain` config.                                                                                                                                                                                                                                                              | [İleri Rehberi](docs/advanced/index.md)                                                                                                |
-  | **İstek Başına Kimlik Doğrulaması**                  | v9.52.0 | Tüm sağlayıcılar için istek başına veya örnek başına kimlik bilgisi geçirin. İstek başına geçersiz kılma örneği geçersiz kılar; örnek env vars'ı geçersiz kılar.                                                                                                                                                                        | [Kimlik Doğrulama Rehberi](docs/features/per-request-credentials.md)                                                                           |
-  | **AutoResearch**                             | v9.53.0 | Otonom AI deney motoru: kod değişiklikleri önerir, deneyler çalıştırır, metrikler değerlendirir — saatler boyunca denetimsiz.                                                                                                                                                                                                                                           | [AutoResearch Rehberi](docs/features/autoresearch.md)                                                                                     |
-  | **Gemini 3 Multi-turn Tool Fix**             | v9.49.0 | Vertex AI Gemini 3'te çoklu adım agentic araç çağırma düzeltildi. Doğru `thoughtSignature` yeniden oynatma, `stepIndex` gruplama, `executionId` oturum izolasyonu, 5 dakika timeout.                                                                                                                                                                                         | [Vertex AI Rehberi](docs/getting-started/providers/google-vertex.md)                                                                      |
-  | **MCP Geliştirmeleri**                         | v9.16.0 | Araç yönlendirmesi (6 strateji), sonuç önbellekleme (LRU/FIFO/LFU), istek batching, ek açıklamalar, talep protokolü, çoklu sunucu yönetimi.                                                                                                                                                                                                                                     | [MCP Geliştirmeleri Rehberi](docs/features/mcp-enhancements.md)                                                                             |
-  | **Bellek**                                   | v9.12.0 | Konuşmalar arasında kullanıcı başına sıkıştırılmış bellek. S3, Redis veya SQLite ile LLM destekli sıkıştırma.                                                                                                                                                                                                                                                           | [Bellek Rehberi](docs/features/memory.md)                                                                                                 |
-  | **Context Window Yönetimi**                | v9.2.0  | %80 kullanım oranında bütçe kapısı olan 4 aşamalı sıkıştırma hattı, sağlayıcı başına token tahmini.                                                                                                                                                                                                                                                                     | [Context Sıkıştırma Rehberi](docs/features/context-compaction.md)                                                                         |
-  | **Araç Yürütme Kontrolü**                   | v9.3.0  | Çoklu adım agentic döngülerinde adım başına araç yaptırımı için `prepareStep` ve `toolChoice`.                                                                                                                                                                                                                                                                     | [API Referansı](docs/api/type-aliases/GenerateOptions.md#preparestep)                                                                   |
-  | **Dosya İşlemci Sistemi**                    | v9.1.0  | ProcessorRegistry ile 17+ dosya tipi işlemcisi, güvenlik temizleme, SVG metin enjeksiyonu.                                                                                                                                                                                                                                                                                   | [Dosya İşlemcileri Rehberi](docs/features/file-processors.md)                                                                               |
-  | **RAG ile generate()/stream()**             | v9.2.0  | Otomatik belge parçalanması, embedding ve AI destekli arama için `rag: { files }` geçin. 10 parçalama stratejisi, hibrit arama, yeniden sıralama.                                                                                                                                                                                                                    | [RAG Rehberi](docs/features/rag.md)                                                                                                       |
+  | **Avatar / Music Modalities + 12 Providers** | next    | Yeni `output: { mode: "avatar" \| "music" }` dispatch; D-ID, HeyGen, Replicate-MuseTalk (avatar) ve Beatoven, ElevenLabs Music, Lyria, Replicate-MusicGen (music) için handler'lar. Ek olarak Fish Audio TTS, Kling/Runway/Replicate video, xAI/Groq/Cohere/Together/Fireworks/Perplexity/Cloudflare LLM'ler, Voyage/Jina embedding'ler, Stability/Ideogram/Recraft/Replicate görsel-gen. | [Sağlayıcı Entegrasyonu](https://github.com/juspay/neurolink/tree/HEAD/docs/provider-integration/)                                                                                      |
+  | **Multi-Provider Ses (TTS/STT)**           | v9.62.0 | 6 TTS sağlayıcısı (OpenAI TTS, ElevenLabs, Google TTS, Azure TTS, Fish Audio, Cartesia) + 4 STT sağlayıcısı (Whisper, Deepgram, Azure STT, Google STT) + 2 realtime API'si (OpenAI Realtime, Gemini Live).                                                                                                                                                          | [TTS Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/tts.md) \| [STT Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/audio-input.md) \| [Realtime Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/real-time-services.md) |
+  | **4 Yeni Sağlayıcı**                          | v9.60.0 | DeepSeek (V3/R1), NVIDIA NIM (400+ katalog), LM Studio (yerel), llama.cpp (GGUF yerel).                                                                                                                                                                                                                                                                                       | [Sağlayıcı Kurulumu](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/provider-setup.md)                                                                                |
+  | **ModelAccessDeniedError**                   | v9.59.0 | Yazılı `ModelAccessDeniedError` + ilk çağrıdan önce proaktif kimlik doğrulama doğrulaması için `sdk.checkCredentials()` API'si.                                                                                                                                                                                                                                          | [Hata Referansı](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/troubleshooting.md)                                                                                    |
+  | **Provider Fallback Policy**                 | v9.58.0 | `providerFallback` callback + merkezi çoklu sağlayıcı yük devretme mantığı için `modelChain` config.                                                                                                                                                                                                                                                              | [İleri Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)                                                                                                |
+  | **İstek Başına Kimlik Doğrulaması**                  | v9.52.0 | Tüm sağlayıcılar için istek başına veya örnek başına kimlik bilgisi geçirin. İstek başına geçersiz kılma örneği geçersiz kılar; örnek env vars'ı geçersiz kılar.                                                                                                                                                                        | [Kimlik Doğrulama Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/per-request-credentials.md)                                                                           |
+  | **AutoResearch**                             | v9.53.0 | Otonom AI deney motoru: kod değişiklikleri önerir, deneyler çalıştırır, metrikler değerlendirir — saatler boyunca denetimsiz.                                                                                                                                                                                                                                           | [AutoResearch Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/autoresearch.md)                                                                                     |
+  | **Gemini 3 Multi-turn Tool Fix**             | v9.49.0 | Vertex AI Gemini 3'te çoklu adım agentic araç çağırma düzeltildi. Doğru `thoughtSignature` yeniden oynatma, `stepIndex` gruplama, `executionId` oturum izolasyonu, 5 dakika timeout.                                                                                                                                                                                         | [Vertex AI Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/providers/google-vertex.md)                                                                      |
+  | **MCP Geliştirmeleri**                         | v9.16.0 | Araç yönlendirmesi (6 strateji), sonuç önbellekleme (LRU/FIFO/LFU), istek batching, ek açıklamalar, talep protokolü, çoklu sunucu yönetimi.                                                                                                                                                                                                                                     | [MCP Geliştirmeleri Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/mcp-enhancements.md)                                                                             |
+  | **Bellek**                                   | v9.12.0 | Konuşmalar arasında kullanıcı başına sıkıştırılmış bellek. S3, Redis veya SQLite ile LLM destekli sıkıştırma.                                                                                                                                                                                                                                                           | [Bellek Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/memory.md)                                                                                                 |
+  | **Context Window Yönetimi**                | v9.2.0  | %80 kullanım oranında bütçe kapısı olan 4 aşamalı sıkıştırma hattı, sağlayıcı başına token tahmini.                                                                                                                                                                                                                                                                     | [Context Sıkıştırma Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/context-compaction.md)                                                                         |
+  | **Araç Yürütme Kontrolü**                   | v9.3.0  | Çoklu adım agentic döngülerinde adım başına araç yaptırımı için `prepareStep` ve `toolChoice`.                                                                                                                                                                                                                                                                     | [API Referansı](https://github.com/juspay/neurolink/tree/HEAD/docs/api/type-aliases/GenerateOptions.md#preparestep)                                                                   |
+  | **Dosya İşlemci Sistemi**                    | v9.1.0  | ProcessorRegistry ile 17+ dosya tipi işlemcisi, güvenlik temizleme, SVG metin enjeksiyonu.                                                                                                                                                                                                                                                                                   | [Dosya İşlemcileri Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/file-processors.md)                                                                               |
+  | **RAG ile generate()/stream()**             | v9.2.0  | Otomatik belge parçalanması, embedding ve AI destekli arama için `rag: { files }` geçin. 10 parçalama stratejisi, hibrit arama, yeniden sıralama.                                                                                                                                                                                                                    | [RAG Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/rag.md)                                                                                                       |
   
   ```typescript
   // Multi-Provider Voice (v9.62.0) — TTS + STT
@@ -160,18 +160,18 @@ body_tr: |-
   - **Değerlendirme Puanlaması (14 puanlayıcı)** (v9.37.0) – 14 puanlayıcı, hattlar ve çevrimdışı kalite değerlendirmesi için CLI ile modüler değerlendirme sistemi.
   - **Tarayıcı uyumlu bundle** (v9.34.0) – Tarayıcı kullanımı için istemci tarafı SDK bundle'ı; çekirdek API için Node.js bağımlılığı yok.
   - **Çağrı başına bellek kontrolü** (v9.33.0) – `generate()` ve `stream()` çağrısı başına bellek okuma/yazma kontrolü.
-  - **Sunucu Adaptörleri** (v8.43.0) – Hono, Express, Fastify, Koa ile HTTP sunucusu. Ön plan/arka plan modları, rota yönetimi, OpenAPI oluşturma. → [Rehberi](docs/guides/server-adapters/index.md)
-  - **Harici TracerProvider** (v8.43.0) – NeuroLink'i mevcut OpenTelemetry kurulumlarıyla entegre edin. → [Rehberi](docs/features/observability.md)
-  - **Başlık Oluşturma Olayları** (v8.38.0) – `conversation:titleGenerated` etkinliği + `NEUROLINK_TITLE_PROMPT` özel başlıkları. → [Rehberi](docs/conversation-memory.md)
-  - **Veo ile Video Oluşturma** (v8.32.0) – Vertex AI'da Google Veo 3.1 aracılığıyla video oluşturma. 720p/1080p, portre/peyzaj. → [Rehberi](docs/features/video-generation.md)
-  - **Görsel Oluşturma** (v8.31.0) – Gemini ve Imagen modelleri ile yerel görsel oluşturma. → [Rehberi](docs/image-generation-streaming.md)
-  - **HTTP/Streamable HTTP Transport** (v8.29.0) – Auth başlıkları, yeniden deneme, hız sınırlama ile uzak MCP sunucuları. → [Rehberi](docs/mcp-http-transport.md)
-  - **PPT Oluşturma** – 35 slayt türü, 5 tema, isteğe bağlı AI tarafından oluşturulan görseller. Tüm ana sağlayıcılarda çalışır. → [Rehberi](docs/features/ppt-generation.md)
-  - **Zod ile Yapılandırılmış Çıktı** – `schema` + `output.format: "json"` aracılığıyla tür güvenli JSON. → [Rehberi](docs/features/structured-output.md)
-  - **CSV & PDF Dosya Desteği** – Otomatik algılama ile CSV/PDF ekleyin. PDF: Vertex, Anthropic, Bedrock, AI Studio'da yerel görsel analiz. → [CSV](docs/features/multimodal-chat.md#csv-file-support) | [PDF](docs/features/pdf-support.md)
-  - **LiteLLM, SageMaker & OpenRouter** – LiteLLM aracılığıyla 100+ model, SageMaker'da özel endpoint'ler, OpenRouter aracılığıyla 300+. → [LiteLLM](docs/litellm-integration.md) | [SageMaker](docs/sagemaker-integration.md)
-  - **HITL & Guardrails** – İnsan tarafından yapılan onay iş akışları ve içerik filtrelemesi. → [HITL](docs/features/hitl.md) | [Guardrails](docs/features/guardrails.md)
-  - **Redis Konuşma Dışa Aktarma** – Analitik ve denetim için tam oturum geçmişini JSON olarak dışa aktarın. → [Rehberi](docs/features/conversation-history.md)
+  - **Sunucu Adaptörleri** (v8.43.0) – Hono, Express, Fastify, Koa ile HTTP sunucusu. Ön plan/arka plan modları, rota yönetimi, OpenAPI oluşturma. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/server-adapters/index.md)
+  - **Harici TracerProvider** (v8.43.0) – NeuroLink'i mevcut OpenTelemetry kurulumlarıyla entegre edin. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/observability.md)
+  - **Başlık Oluşturma Olayları** (v8.38.0) – `conversation:titleGenerated` etkinliği + `NEUROLINK_TITLE_PROMPT` özel başlıkları. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/conversation-memory.md)
+  - **Veo ile Video Oluşturma** (v8.32.0) – Vertex AI'da Google Veo 3.1 aracılığıyla video oluşturma. 720p/1080p, portre/peyzaj. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/video-generation.md)
+  - **Görsel Oluşturma** (v8.31.0) – Gemini ve Imagen modelleri ile yerel görsel oluşturma. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/image-generation-streaming.md)
+  - **HTTP/Streamable HTTP Transport** (v8.29.0) – Auth başlıkları, yeniden deneme, hız sınırlama ile uzak MCP sunucuları. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/mcp-http-transport.md)
+  - **PPT Oluşturma** – 35 slayt türü, 5 tema, isteğe bağlı AI tarafından oluşturulan görseller. Tüm ana sağlayıcılarda çalışır. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/ppt-generation.md)
+  - **Zod ile Yapılandırılmış Çıktı** – `schema` + `output.format: "json"` aracılığıyla tür güvenli JSON. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/structured-output.md)
+  - **CSV & PDF Dosya Desteği** – Otomatik algılama ile CSV/PDF ekleyin. PDF: Vertex, Anthropic, Bedrock, AI Studio'da yerel görsel analiz. → [CSV](https://github.com/juspay/neurolink/tree/HEAD/docs/features/multimodal-chat.md#csv-file-support) | [PDF](https://github.com/juspay/neurolink/blob/HEAD/docs/features/pdf-support.md)
+  - **LiteLLM, SageMaker & OpenRouter** – LiteLLM aracılığıyla 100+ model, SageMaker'da özel endpoint'ler, OpenRouter aracılığıyla 300+. → [LiteLLM](https://github.com/juspay/neurolink/blob/HEAD/docs/litellm-integration.md) | [SageMaker](https://github.com/juspay/neurolink/blob/HEAD/docs/sagemaker-integration.md)
+  - **HITL & Guardrails** – İnsan tarafından yapılan onay iş akışları ve içerik filtrelemesi. → [HITL](https://github.com/juspay/neurolink/blob/HEAD/docs/features/hitl.md) | [Guardrails](https://github.com/juspay/neurolink/blob/HEAD/docs/features/guardrails.md)
+  - **Redis Konuşma Dışa Aktarma** – Analitik ve denetim için tam oturum geçmişini JSON olarak dışa aktarın. → [Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/conversation-history.md)
   
   </details>
   
@@ -207,7 +207,7 @@ body_tr: |-
   });
   ```
   
-  **[Kurumsal HITL Rehberi](docs/features/enterprise-hitl.md)** | **[Hızlı Başlangıç](docs/features/hitl.md)**
+  **[Kurumsal HITL Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/features/enterprise-hitl.md)** | **[Hızlı Başlangıç](https://github.com/juspay/neurolink/blob/HEAD/docs/features/hitl.md)**
   
   ## 📚 Hızlı Başlangıç Rehberi
   
@@ -420,11 +420,11 @@ body_tr: |-
   ### Sonraki Adımlar
   
   - **[Tam Dokümantasyon](https://docs.neurolink.ink)** - Kapsamlı rehberler ve API referansı
-  - **[Sağlayıcı Kurulum Rehberi](docs/getting-started/provider-setup.md)** - Tüm 33+ sağlayıcıyı yapılandırın
-  - **[SDK API Referansı](docs/sdk/api-reference.md)** - Tam TypeScript API dokümantasyonu
-  - **[CLI Komut Referansı](docs/cli/commands.md)** - Tam CLI dokümantasyonu
-  - **[Örnek Projeler](docs/examples/index.md)** - Gerçek dünya entegrasyon örnekleri
-  - **[İleri Özellikler](docs/advanced/index.md)** - Middleware, gözlemlenebilirlik, iş akışları
+  - **[Sağlayıcı Kurulum Rehberi](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/provider-setup.md)** - Tüm 33+ sağlayıcıyı yapılandırın
+  - **[SDK API Referansı](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/api-reference.md)** - Tam TypeScript API dokümantasyonu
+  - **[CLI Komut Referansı](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/commands.md)** - Tam CLI dokümantasyonu
+  - **[Örnek Projeler](https://github.com/juspay/neurolink/blob/HEAD/docs/examples/index.md)** - Gerçek dünya entegrasyon örnekleri
+  - **[İleri Özellikler](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)** - Middleware, gözlemlenebilirlik, iş akışları
   
   ### Sorun Giderme
   
@@ -474,9 +474,9 @@ Extracted from production systems at Juspay and battle-tested at enterprise scal
 
 **Why NeuroLink?** Switch providers with a single parameter change, leverage 64+ built-in tools and MCP servers, deploy with confidence using enterprise features like Redis memory and multi-provider failover, and optimize costs automatically with intelligent routing. Use it via our professional CLI or TypeScript SDK—whichever fits your workflow.
 
-**Where we're headed:** We're building for the future of AI—edge-first execution and continuous streaming architectures that make AI practically free and universally available. **[Read our vision →](docs/about/vision.md)**
+**Where we're headed:** We're building for the future of AI—edge-first execution and continuous streaming architectures that make AI practically free and universally available. **[Read our vision →](https://github.com/juspay/neurolink/blob/HEAD/docs/about/vision.md)**
 
-**[Get Started in <5 Minutes →](docs/getting-started/quick-start.md)**
+**[Get Started in <5 Minutes →](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/quick-start.md)**
 
 ---
 
@@ -484,20 +484,20 @@ Extracted from production systems at Juspay and battle-tested at enterprise scal
 
 | Feature                                      | Version | Description                                                                                                                                                                                                                                                                                                                                                                   | Guide                                                                                                                                   |
 | -------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **Avatar / Music Modalities + 12 Providers** | next    | New `output: { mode: "avatar" \| "music" }` dispatch with handlers for D-ID, HeyGen, Replicate-MuseTalk (avatar) and Beatoven, ElevenLabs Music, Lyria, Replicate-MusicGen (music). Plus Fish Audio TTS, Kling/Runway/Replicate video, xAI/Groq/Cohere/Together/Fireworks/Perplexity/Cloudflare LLMs, Voyage/Jina embeddings, Stability/Ideogram/Recraft/Replicate image-gen. | [Provider Integration](docs/provider-integration/)                                                                                      |
-| **Multi-Provider Voice (TTS/STT)**           | v9.62.0 | 6 TTS providers (OpenAI TTS, ElevenLabs, Google TTS, Azure TTS, Fish Audio, Cartesia) + 4 STT providers (Whisper, Deepgram, Azure STT, Google STT) + 2 realtime APIs (OpenAI Realtime, Gemini Live).                                                                                                                                                                          | [TTS Guide](docs/features/tts.md) \| [STT Guide](docs/features/audio-input.md) \| [Realtime Guide](docs/features/real-time-services.md) |
-| **4 New Providers**                          | v9.60.0 | DeepSeek (V3/R1), NVIDIA NIM (400+ catalog), LM Studio (local), llama.cpp (GGUF local).                                                                                                                                                                                                                                                                                       | [Provider Setup](docs/getting-started/provider-setup.md)                                                                                |
-| **ModelAccessDeniedError**                   | v9.59.0 | Typed `ModelAccessDeniedError` + `sdk.checkCredentials()` API for proactive credential validation before first call.                                                                                                                                                                                                                                                          | [Error Reference](docs/reference/troubleshooting.md)                                                                                    |
-| **Provider Fallback Policy**                 | v9.58.0 | `providerFallback` callback + `modelChain` config for centralized multi-provider fallback logic.                                                                                                                                                                                                                                                                              | [Advanced Guide](docs/advanced/index.md)                                                                                                |
-| **Per-Request Credentials**                  | v9.52.0 | Pass credentials per-call or per-instance for all providers. Per-call overrides instance; instance overrides env vars.                                                                                                                                                                                                                                                        | [Credentials Guide](docs/features/per-request-credentials.md)                                                                           |
-| **AutoResearch**                             | v9.53.0 | Autonomous AI experiment engine: proposes code changes, runs experiments, evaluates metrics — unattended for hours.                                                                                                                                                                                                                                                           | [AutoResearch Guide](docs/features/autoresearch.md)                                                                                     |
-| **Gemini 3 Multi-turn Tool Fix**             | v9.49.0 | Fixed multi-step agentic tool calling on Vertex AI Gemini 3. Correct `thoughtSignature` replay, `stepIndex` grouping, `executionId` session isolation, 5-min timeout.                                                                                                                                                                                                         | [Vertex AI Guide](docs/getting-started/providers/google-vertex.md)                                                                      |
-| **MCP Enhancements**                         | v9.16.0 | Tool routing (6 strategies), result caching (LRU/FIFO/LFU), request batching, annotations, elicitation protocol, multi-server management.                                                                                                                                                                                                                                     | [MCP Enhancements Guide](docs/features/mcp-enhancements.md)                                                                             |
-| **Memory**                                   | v9.12.0 | Per-user condensed memory across conversations. LLM-powered condensation with S3, Redis, or SQLite.                                                                                                                                                                                                                                                                           | [Memory Guide](docs/features/memory.md)                                                                                                 |
-| **Context Window Management**                | v9.2.0  | 4-stage compaction pipeline with budget gate at 80% usage, per-provider token estimation.                                                                                                                                                                                                                                                                                     | [Context Compaction Guide](docs/features/context-compaction.md)                                                                         |
-| **Tool Execution Control**                   | v9.3.0  | `prepareStep` and `toolChoice` for per-step tool enforcement in multi-step agentic loops.                                                                                                                                                                                                                                                                                     | [API Reference](docs/api/type-aliases/GenerateOptions.md#preparestep)                                                                   |
-| **File Processor System**                    | v9.1.0  | 17+ file type processors with ProcessorRegistry, security sanitization, SVG text injection.                                                                                                                                                                                                                                                                                   | [File Processors Guide](docs/features/file-processors.md)                                                                               |
-| **RAG with generate()/stream()**             | v9.2.0  | Pass `rag: { files }` for automatic document chunking, embedding, and AI-powered search. 10 chunking strategies, hybrid search, reranking.                                                                                                                                                                                                                                    | [RAG Guide](docs/features/rag.md)                                                                                                       |
+| **Avatar / Music Modalities + 12 Providers** | next    | New `output: { mode: "avatar" \| "music" }` dispatch with handlers for D-ID, HeyGen, Replicate-MuseTalk (avatar) and Beatoven, ElevenLabs Music, Lyria, Replicate-MusicGen (music). Plus Fish Audio TTS, Kling/Runway/Replicate video, xAI/Groq/Cohere/Together/Fireworks/Perplexity/Cloudflare LLMs, Voyage/Jina embeddings, Stability/Ideogram/Recraft/Replicate image-gen. | [Provider Integration](https://github.com/juspay/neurolink/tree/HEAD/docs/provider-integration/)                                                                                      |
+| **Multi-Provider Voice (TTS/STT)**           | v9.62.0 | 6 TTS providers (OpenAI TTS, ElevenLabs, Google TTS, Azure TTS, Fish Audio, Cartesia) + 4 STT providers (Whisper, Deepgram, Azure STT, Google STT) + 2 realtime APIs (OpenAI Realtime, Gemini Live).                                                                                                                                                                          | [TTS Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/tts.md) \| [STT Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/audio-input.md) \| [Realtime Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/real-time-services.md) |
+| **4 New Providers**                          | v9.60.0 | DeepSeek (V3/R1), NVIDIA NIM (400+ catalog), LM Studio (local), llama.cpp (GGUF local).                                                                                                                                                                                                                                                                                       | [Provider Setup](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/provider-setup.md)                                                                                |
+| **ModelAccessDeniedError**                   | v9.59.0 | Typed `ModelAccessDeniedError` + `sdk.checkCredentials()` API for proactive credential validation before first call.                                                                                                                                                                                                                                                          | [Error Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/troubleshooting.md)                                                                                    |
+| **Provider Fallback Policy**                 | v9.58.0 | `providerFallback` callback + `modelChain` config for centralized multi-provider fallback logic.                                                                                                                                                                                                                                                                              | [Advanced Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)                                                                                                |
+| **Per-Request Credentials**                  | v9.52.0 | Pass credentials per-call or per-instance for all providers. Per-call overrides instance; instance overrides env vars.                                                                                                                                                                                                                                                        | [Credentials Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/per-request-credentials.md)                                                                           |
+| **AutoResearch**                             | v9.53.0 | Autonomous AI experiment engine: proposes code changes, runs experiments, evaluates metrics — unattended for hours.                                                                                                                                                                                                                                                           | [AutoResearch Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/autoresearch.md)                                                                                     |
+| **Gemini 3 Multi-turn Tool Fix**             | v9.49.0 | Fixed multi-step agentic tool calling on Vertex AI Gemini 3. Correct `thoughtSignature` replay, `stepIndex` grouping, `executionId` session isolation, 5-min timeout.                                                                                                                                                                                                         | [Vertex AI Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/providers/google-vertex.md)                                                                      |
+| **MCP Enhancements**                         | v9.16.0 | Tool routing (6 strategies), result caching (LRU/FIFO/LFU), request batching, annotations, elicitation protocol, multi-server management.                                                                                                                                                                                                                                     | [MCP Enhancements Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/mcp-enhancements.md)                                                                             |
+| **Memory**                                   | v9.12.0 | Per-user condensed memory across conversations. LLM-powered condensation with S3, Redis, or SQLite.                                                                                                                                                                                                                                                                           | [Memory Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/memory.md)                                                                                                 |
+| **Context Window Management**                | v9.2.0  | 4-stage compaction pipeline with budget gate at 80% usage, per-provider token estimation.                                                                                                                                                                                                                                                                                     | [Context Compaction Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/context-compaction.md)                                                                         |
+| **Tool Execution Control**                   | v9.3.0  | `prepareStep` and `toolChoice` for per-step tool enforcement in multi-step agentic loops.                                                                                                                                                                                                                                                                                     | [API Reference](https://github.com/juspay/neurolink/tree/HEAD/docs/api/type-aliases/GenerateOptions.md#preparestep)                                                                   |
+| **File Processor System**                    | v9.1.0  | 17+ file type processors with ProcessorRegistry, security sanitization, SVG text injection.                                                                                                                                                                                                                                                                                   | [File Processors Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/file-processors.md)                                                                               |
+| **RAG with generate()/stream()**             | v9.2.0  | Pass `rag: { files }` for automatic document chunking, embedding, and AI-powered search. 10 chunking strategies, hybrid search, reranking.                                                                                                                                                                                                                                    | [RAG Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/rag.md)                                                                                                       |
 
 ```typescript
 // Multi-Provider Voice (v9.62.0) — TTS + STT
@@ -589,18 +589,18 @@ const neurolink = new NeuroLink({
 - **Evaluation Scoring (14 scorers)** (v9.37.0) – Modular evaluation system with 14 scorers, pipelines, and CLI for offline quality assessment.
 - **Browser-compatible bundle** (v9.34.0) – Client-side SDK bundle for browser use; no Node.js dependency for the core API.
 - **Per-call memory control** (v9.33.0) – Read/write memory control per `generate()` and `stream()` call.
-- **Server Adapters** (v8.43.0) – HTTP server with Hono, Express, Fastify, Koa. Foreground/background modes, route management, OpenAPI generation. → [Guide](docs/guides/server-adapters/index.md)
-- **External TracerProvider** (v8.43.0) – Integrate NeuroLink with existing OpenTelemetry setups. → [Guide](docs/features/observability.md)
-- **Title Generation Events** (v8.38.0) – `conversation:titleGenerated` event + `NEUROLINK_TITLE_PROMPT` custom titles. → [Guide](docs/conversation-memory.md)
-- **Video Generation with Veo** (v8.32.0) – Video generation via Google Veo 3.1 on Vertex AI. 720p/1080p, portrait/landscape. → [Guide](docs/features/video-generation.md)
-- **Image Generation** (v8.31.0) – Native image generation with Gemini and Imagen models. → [Guide](docs/image-generation-streaming.md)
-- **HTTP/Streamable HTTP Transport** (v8.29.0) – Remote MCP servers via HTTP with auth headers, retry, rate limiting. → [Guide](docs/mcp-http-transport.md)
-- **PPT Generation** – 35 slide types, 5 themes, optional AI-generated images. Works across all major providers. → [Guide](docs/features/ppt-generation.md)
-- **Structured Output with Zod** – Type-safe JSON via `schema` + `output.format: "json"`. → [Guide](docs/features/structured-output.md)
-- **CSV & PDF File Support** – Attach CSV/PDF with auto-detection. PDF: native visual analysis on Vertex, Anthropic, Bedrock, AI Studio. → [CSV](docs/features/multimodal-chat.md#csv-file-support) | [PDF](docs/features/pdf-support.md)
-- **LiteLLM, SageMaker & OpenRouter** – 100+ models via LiteLLM, custom endpoints on SageMaker, 300+ via OpenRouter. → [LiteLLM](docs/litellm-integration.md) | [SageMaker](docs/sagemaker-integration.md)
-- **HITL & Guardrails** – Human-in-the-loop approval workflows and content filtering. → [HITL](docs/features/hitl.md) | [Guardrails](docs/features/guardrails.md)
-- **Redis Conversation Export** – Export full session history as JSON for analytics and audit. → [Guide](docs/features/conversation-history.md)
+- **Server Adapters** (v8.43.0) – HTTP server with Hono, Express, Fastify, Koa. Foreground/background modes, route management, OpenAPI generation. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/server-adapters/index.md)
+- **External TracerProvider** (v8.43.0) – Integrate NeuroLink with existing OpenTelemetry setups. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/observability.md)
+- **Title Generation Events** (v8.38.0) – `conversation:titleGenerated` event + `NEUROLINK_TITLE_PROMPT` custom titles. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/conversation-memory.md)
+- **Video Generation with Veo** (v8.32.0) – Video generation via Google Veo 3.1 on Vertex AI. 720p/1080p, portrait/landscape. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/video-generation.md)
+- **Image Generation** (v8.31.0) – Native image generation with Gemini and Imagen models. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/image-generation-streaming.md)
+- **HTTP/Streamable HTTP Transport** (v8.29.0) – Remote MCP servers via HTTP with auth headers, retry, rate limiting. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/mcp-http-transport.md)
+- **PPT Generation** – 35 slide types, 5 themes, optional AI-generated images. Works across all major providers. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/ppt-generation.md)
+- **Structured Output with Zod** – Type-safe JSON via `schema` + `output.format: "json"`. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/structured-output.md)
+- **CSV & PDF File Support** – Attach CSV/PDF with auto-detection. PDF: native visual analysis on Vertex, Anthropic, Bedrock, AI Studio. → [CSV](https://github.com/juspay/neurolink/tree/HEAD/docs/features/multimodal-chat.md#csv-file-support) | [PDF](https://github.com/juspay/neurolink/blob/HEAD/docs/features/pdf-support.md)
+- **LiteLLM, SageMaker & OpenRouter** – 100+ models via LiteLLM, custom endpoints on SageMaker, 300+ via OpenRouter. → [LiteLLM](https://github.com/juspay/neurolink/blob/HEAD/docs/litellm-integration.md) | [SageMaker](https://github.com/juspay/neurolink/blob/HEAD/docs/sagemaker-integration.md)
+- **HITL & Guardrails** – Human-in-the-loop approval workflows and content filtering. → [HITL](https://github.com/juspay/neurolink/blob/HEAD/docs/features/hitl.md) | [Guardrails](https://github.com/juspay/neurolink/blob/HEAD/docs/features/guardrails.md)
+- **Redis Conversation Export** – Export full session history as JSON for analytics and audit. → [Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/conversation-history.md)
 
 </details>
 
@@ -636,7 +636,7 @@ const result = await neurolink.generate({
 });
 ```
 
-**[Enterprise HITL Guide](docs/features/enterprise-hitl.md)** | **[Quick Start](docs/features/hitl.md)**
+**[Enterprise HITL Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/enterprise-hitl.md)** | **[Quick Start](https://github.com/juspay/neurolink/blob/HEAD/docs/features/hitl.md)**
 
 ## 📚 Quick Start Guide
 
@@ -849,11 +849,11 @@ const result = await neurolink.generate({
 ### Next Steps
 
 - **[Complete Documentation](https://docs.neurolink.ink)** - Comprehensive guides and API reference
-- **[Provider Setup Guide](docs/getting-started/provider-setup.md)** - Configure all 33+ providers
-- **[SDK API Reference](docs/sdk/api-reference.md)** - Full TypeScript API documentation
-- **[CLI Command Reference](docs/cli/commands.md)** - Complete CLI documentation
-- **[Example Projects](docs/examples/index.md)** - Real-world integration examples
-- **[Advanced Features](docs/advanced/index.md)** - Middleware, observability, workflows
+- **[Provider Setup Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/provider-setup.md)** - Configure all 33+ providers
+- **[SDK API Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/api-reference.md)** - Full TypeScript API documentation
+- **[CLI Command Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/commands.md)** - Complete CLI documentation
+- **[Example Projects](https://github.com/juspay/neurolink/blob/HEAD/docs/examples/index.md)** - Real-world integration examples
+- **[Advanced Features](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)** - Middleware, observability, workflows
 
 ### Troubleshooting
 
@@ -871,7 +871,7 @@ const result = await neurolink.generate({
 - Enable conversation memory with compaction: `new NeuroLink({ conversationMemory: { enabled: true } })`
 - Use `rag` option to search documents instead of sending full content
 
-Need help? Check our [Troubleshooting Guide](docs/reference/troubleshooting.md) or [open an issue](https://github.com/juspay/neurolink/issues).
+Need help? Check our [Troubleshooting Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/troubleshooting.md) or [open an issue](https://github.com/juspay/neurolink/issues).
 
 ---
 
@@ -885,30 +885,30 @@ NeuroLink is a comprehensive AI development platform. Every feature below is pro
 
 | Provider              | Models                                                                     | Free Tier       | Tool Support | Status        | Documentation                                                                                                                 |
 | --------------------- | -------------------------------------------------------------------------- | --------------- | ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **OpenAI**            | GPT-4o, GPT-4o-mini, o1                                                    | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#openai)                                                                  |
-| **Anthropic**         | Claude 4.6 Opus/Sonnet, Claude 4.5 Opus/Sonnet/Haiku, Claude 4 Opus/Sonnet | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#anthropic) \| [Subscription Guide](docs/features/claude-subscription.md) |
-| **Google AI Studio**  | Gemini 3 Flash/Pro, Gemini 2.5 Flash/Pro                                   | ✅ Free Tier    | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#google-ai)                                                               |
-| **AWS Bedrock**       | Claude, Titan, Llama, Nova                                                 | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#bedrock)                                                                 |
-| **Google Vertex**     | Gemini 3/2.5 (gemini-3-\*-preview)                                         | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#vertex)                                                                  |
-| **Azure OpenAI**      | GPT-4, GPT-4o, o1                                                          | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#azure)                                                                   |
-| **LiteLLM**           | 100+ models unified                                                        | Varies          | ✅ Full      | ✅ Production | [Setup Guide](docs/litellm-integration.md)                                                                                    |
-| **AWS SageMaker**     | Custom deployed models                                                     | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/sagemaker-integration.md)                                                                                  |
-| **Mistral AI**        | Mistral Large, Small                                                       | ✅ Free Tier    | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#mistral)                                                                 |
-| **Hugging Face**      | 100,000+ models                                                            | ✅ Free         | ⚠️ Partial   | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#huggingface)                                                             |
-| **Ollama**            | Local models (Llama, Mistral)                                              | ✅ Free (Local) | ⚠️ Partial   | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#ollama)                                                                  |
-| **OpenAI Compatible** | Any OpenAI-compatible endpoint                                             | Varies          | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#openai-compatible)                                                       |
-| **OpenRouter**        | 200+ Models via OpenRouter                                                 | Varies          | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/providers/openrouter.md)                                                                   |
-| **DeepSeek**          | deepseek-chat (V3), deepseek-reasoner (R1)                                 | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#deepseek)                                                                |
-| **NVIDIA NIM**        | Llama 3.3 70B, 400+ catalog models                                         | ❌              | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#nvidia-nim)                                                              |
-| **LM Studio**         | Any model loaded in LM Studio (local)                                      | ✅ Free (Local) | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#lm-studio)                                                               |
-| **llama.cpp**         | Any GGUF model served by llama-server (local)                              | ✅ Free (Local) | ✅ Full      | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#llamacpp)                                                                |
-| **OpenAI TTS**        | TTS-1, TTS-1-HD, GPT-4o Audio                                              | ❌              | N/A          | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#openai-tts)                                                              |
-| **ElevenLabs**        | Multilingual v2, Turbo v2.5, Flash v2.5                                    | ✅ Free Tier    | N/A          | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#elevenlabs)                                                              |
-| **Deepgram**          | Nova-3, Nova-2, Enhanced, Base (STT)                                       | ✅ Free Tier    | N/A          | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#deepgram)                                                                |
-| **Azure Speech**      | Azure Cognitive Services TTS + STT                                         | ❌              | N/A          | ✅ Production | [Setup Guide](docs/getting-started/provider-setup.md#azure-speech)                                                            |
+| **OpenAI**            | GPT-4o, GPT-4o-mini, o1                                                    | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#openai)                                                                  |
+| **Anthropic**         | Claude 4.6 Opus/Sonnet, Claude 4.5 Opus/Sonnet/Haiku, Claude 4 Opus/Sonnet | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#anthropic) \| [Subscription Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/claude-subscription.md) |
+| **Google AI Studio**  | Gemini 3 Flash/Pro, Gemini 2.5 Flash/Pro                                   | ✅ Free Tier    | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#google-ai)                                                               |
+| **AWS Bedrock**       | Claude, Titan, Llama, Nova                                                 | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#bedrock)                                                                 |
+| **Google Vertex**     | Gemini 3/2.5 (gemini-3-\*-preview)                                         | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#vertex)                                                                  |
+| **Azure OpenAI**      | GPT-4, GPT-4o, o1                                                          | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#azure)                                                                   |
+| **LiteLLM**           | 100+ models unified                                                        | Varies          | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/litellm-integration.md)                                                                                    |
+| **AWS SageMaker**     | Custom deployed models                                                     | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/sagemaker-integration.md)                                                                                  |
+| **Mistral AI**        | Mistral Large, Small                                                       | ✅ Free Tier    | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#mistral)                                                                 |
+| **Hugging Face**      | 100,000+ models                                                            | ✅ Free         | ⚠️ Partial   | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#huggingface)                                                             |
+| **Ollama**            | Local models (Llama, Mistral)                                              | ✅ Free (Local) | ⚠️ Partial   | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#ollama)                                                                  |
+| **OpenAI Compatible** | Any OpenAI-compatible endpoint                                             | Varies          | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#openai-compatible)                                                       |
+| **OpenRouter**        | 200+ Models via OpenRouter                                                 | Varies          | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/providers/openrouter.md)                                                                   |
+| **DeepSeek**          | deepseek-chat (V3), deepseek-reasoner (R1)                                 | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#deepseek)                                                                |
+| **NVIDIA NIM**        | Llama 3.3 70B, 400+ catalog models                                         | ❌              | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#nvidia-nim)                                                              |
+| **LM Studio**         | Any model loaded in LM Studio (local)                                      | ✅ Free (Local) | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#lm-studio)                                                               |
+| **llama.cpp**         | Any GGUF model served by llama-server (local)                              | ✅ Free (Local) | ✅ Full      | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#llamacpp)                                                                |
+| **OpenAI TTS**        | TTS-1, TTS-1-HD, GPT-4o Audio                                              | ❌              | N/A          | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#openai-tts)                                                              |
+| **ElevenLabs**        | Multilingual v2, Turbo v2.5, Flash v2.5                                    | ✅ Free Tier    | N/A          | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#elevenlabs)                                                              |
+| **Deepgram**          | Nova-3, Nova-2, Enhanced, Base (STT)                                       | ✅ Free Tier    | N/A          | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#deepgram)                                                                |
+| **Azure Speech**      | Azure Cognitive Services TTS + STT                                         | ❌              | N/A          | ✅ Production | [Setup Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#azure-speech)                                                            |
 
-**[📖 Provider Comparison Guide](docs/reference/provider-comparison.md)** - Detailed feature matrix and selection criteria
-**[🔬 Provider Feature Compatibility](docs/reference/provider-feature-compatibility.md)** - Test-based compatibility reference for all 19 features across 21+ providers
+**[📖 Provider Comparison Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/provider-comparison.md)** - Detailed feature matrix and selection criteria
+**[🔬 Provider Feature Compatibility](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/provider-feature-compatibility.md)** - Test-based compatibility reference for all 19 features across 21+ providers
 
 ---
 
@@ -918,12 +918,12 @@ NeuroLink is a comprehensive AI development platform. Every feature below is pro
 
 | Tool                 | Purpose                  | Auto-Available          | Documentation                              |
 | -------------------- | ------------------------ | ----------------------- | ------------------------------------------ |
-| `getCurrentTime`     | Real-time clock access   | ✅                      | [Tool Reference](docs/sdk/custom-tools.md) |
-| `readFile`           | File system reading      | ✅                      | [Tool Reference](docs/sdk/custom-tools.md) |
-| `writeFile`          | File system writing      | ✅                      | [Tool Reference](docs/sdk/custom-tools.md) |
-| `listDirectory`      | Directory listing        | ✅                      | [Tool Reference](docs/sdk/custom-tools.md) |
-| `calculateMath`      | Mathematical operations  | ✅                      | [Tool Reference](docs/sdk/custom-tools.md) |
-| `websearchGrounding` | Google Vertex web search | ⚠️ Requires credentials | [Tool Reference](docs/sdk/custom-tools.md) |
+| `getCurrentTime`     | Real-time clock access   | ✅                      | [Tool Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/custom-tools.md) |
+| `readFile`           | File system reading      | ✅                      | [Tool Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/custom-tools.md) |
+| `writeFile`          | File system writing      | ✅                      | [Tool Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/custom-tools.md) |
+| `listDirectory`      | Directory listing        | ✅                      | [Tool Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/custom-tools.md) |
+| `calculateMath`      | Mathematical operations  | ✅                      | [Tool Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/custom-tools.md) |
+| `websearchGrounding` | Google Vertex web search | ⚠️ Requires credentials | [Tool Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/custom-tools.md) |
 
 **58+ External MCP Servers** supported (GitHub, PostgreSQL, Google Drive, Slack, and more):
 
@@ -960,8 +960,8 @@ const result = await neurolink.generate({
 | `sse`       | Event streams  | Server-Sent Events, real-time updates           |
 | `websocket` | Bi-directional | Full-duplex communication                       |
 
-**[📖 MCP Integration Guide](docs/advanced/mcp-integration.md)** - Setup external servers
-**[📖 HTTP Transport Guide](docs/mcp-http-transport.md)** - Remote MCP server configuration
+**[📖 MCP Integration Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/mcp-integration.md)** - Setup external servers
+**[📖 HTTP Transport Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/mcp-http-transport.md)** - Remote MCP server configuration
 
 ---
 
@@ -1005,7 +1005,7 @@ const cache = new ToolCache({ strategy: "lru", maxSize: 500, ttl: 60_000 });
 const batcher = new RequestBatcher({ maxBatchSize: 10, maxWaitMs: 50 });
 ```
 
-**[📖 MCP Enhancements Guide](docs/features/mcp-enhancements.md)** - Full reference for all 14 modules
+**[📖 MCP Enhancements Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/mcp-enhancements.md)** - Full reference for all 14 modules
 
 ---
 
@@ -1015,16 +1015,16 @@ const batcher = new RequestBatcher({ maxBatchSize: 10, maxWaitMs: 50 });
 
 | Feature                     | Description                                                                       | Documentation                                             |
 | --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| **Auto Provider Selection** | Intelligent provider fallback                                                     | [SDK Guide](docs/sdk/index.md#auto-selection)             |
-| **Streaming Responses**     | Real-time token streaming                                                         | [Streaming Guide](docs/advanced/streaming.md)             |
-| **Conversation Memory**     | Automatic context management with embedded per-user memory                        | [Memory Guide](docs/sdk/index.md#memory)                  |
-| **Full Type Safety**        | Complete TypeScript types                                                         | [Type Reference](docs/sdk/api-reference.md)               |
-| **Error Handling**          | Graceful provider fallback                                                        | [Error Guide](docs/reference/troubleshooting.md)          |
-| **Analytics & Evaluation**  | Usage tracking, quality scores                                                    | [Analytics Guide](docs/advanced/analytics.md)             |
-| **Middleware System**       | Request/response hooks                                                            | [Middleware Guide](docs/custom-middleware-guide.md)       |
-| **Framework Integration**   | Next.js, SvelteKit, Express                                                       | [Framework Guides](docs/sdk/framework-integration.md)     |
-| **Extended Thinking**       | Native thinking/reasoning mode for Gemini 3 and Claude models                     | [Thinking Guide](docs/features/thinking-configuration.md) |
-| **RAG Document Processing** | `rag: { files }` on generate/stream with 10 chunking strategies and hybrid search | [RAG Guide](docs/features/rag.md)                         |
+| **Auto Provider Selection** | Intelligent provider fallback                                                     | [SDK Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/sdk/index.md#auto-selection)             |
+| **Streaming Responses**     | Real-time token streaming                                                         | [Streaming Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/streaming.md)             |
+| **Conversation Memory**     | Automatic context management with embedded per-user memory                        | [Memory Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/sdk/index.md#memory)                  |
+| **Full Type Safety**        | Complete TypeScript types                                                         | [Type Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/api-reference.md)               |
+| **Error Handling**          | Graceful provider fallback                                                        | [Error Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/troubleshooting.md)          |
+| **Analytics & Evaluation**  | Usage tracking, quality scores                                                    | [Analytics Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/analytics.md)             |
+| **Middleware System**       | Request/response hooks                                                            | [Middleware Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/custom-middleware-guide.md)       |
+| **Framework Integration**   | Next.js, SvelteKit, Express                                                       | [Framework Guides](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/framework-integration.md)     |
+| **Extended Thinking**       | Native thinking/reasoning mode for Gemini 3 and Claude models                     | [Thinking Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/thinking-configuration.md) |
+| **RAG Document Processing** | `rag: { files }` on generate/stream with 10 chunking strategies and hybrid search | [RAG Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/rag.md)                         |
 
 ---
 
@@ -1066,7 +1066,7 @@ const result = await neurolink.generate({
 - **Auto-detection** - FileDetector identifies file types by extension and content
 - **Provider-agnostic** - All processors work across all 21+ AI providers
 
-**[📖 File Processors Guide](docs/features/file-processors.md)** - Complete reference for all file types
+**[📖 File Processors Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/file-processors.md)** - Complete reference for all file types
 
 ---
 
@@ -1076,15 +1076,15 @@ const result = await neurolink.generate({
 
 | Feature                     | Description                                 | Use Case                  | Documentation                                               |
 | --------------------------- | ------------------------------------------- | ------------------------- | ----------------------------------------------------------- |
-| **Enterprise Proxy**        | Corporate proxy support                     | Behind firewalls          | [Proxy Setup](docs/enterprise-proxy-setup.md)               |
-| **Redis Memory**            | Distributed conversation state              | Multi-instance deployment | [Redis Guide](docs/getting-started/provider-setup.md#redis) |
-| **Memory**                  | Per-user condensed memory (S3/Redis/SQLite) | Long-term user context    | [Memory Guide](docs/features/memory.md)                     |
-| **Cost Optimization**       | Automatic cheapest model selection          | Budget control            | [Cost Guide](docs/advanced/index.md)                        |
-| **Multi-Provider Failover** | Automatic provider switching                | High availability         | [Failover Guide](docs/advanced/index.md)                    |
-| **Telemetry & Monitoring**  | OpenTelemetry integration                   | Observability             | [Telemetry Guide](docs/telemetry-guide.md)                  |
-| **Security Hardening**      | Credential management, auditing             | Compliance                | [Security Guide](docs/advanced/enterprise.md)               |
-| **Custom Model Hosting**    | SageMaker integration                       | Private models            | [SageMaker Guide](docs/sagemaker-integration.md)            |
-| **Load Balancing**          | LiteLLM proxy integration                   | Scale & routing           | [Load Balancing](docs/litellm-integration.md)               |
+| **Enterprise Proxy**        | Corporate proxy support                     | Behind firewalls          | [Proxy Setup](https://github.com/juspay/neurolink/blob/HEAD/docs/enterprise-proxy-setup.md)               |
+| **Redis Memory**            | Distributed conversation state              | Multi-instance deployment | [Redis Guide](https://github.com/juspay/neurolink/tree/HEAD/docs/getting-started/provider-setup.md#redis) |
+| **Memory**                  | Per-user condensed memory (S3/Redis/SQLite) | Long-term user context    | [Memory Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/memory.md)                     |
+| **Cost Optimization**       | Automatic cheapest model selection          | Budget control            | [Cost Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)                        |
+| **Multi-Provider Failover** | Automatic provider switching                | High availability         | [Failover Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)                    |
+| **Telemetry & Monitoring**  | OpenTelemetry integration                   | Observability             | [Telemetry Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/telemetry-guide.md)                  |
+| **Security Hardening**      | Credential management, auditing             | Compliance                | [Security Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/enterprise.md)               |
+| **Custom Model Hosting**    | SageMaker integration                       | Private models            | [SageMaker Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/sagemaker-integration.md)            |
+| **Load Balancing**          | LiteLLM proxy integration                   | Scale & routing           | [Load Balancing](https://github.com/juspay/neurolink/blob/HEAD/docs/litellm-integration.md)               |
 
 **Security & Compliance:**
 
@@ -1097,7 +1097,7 @@ const result = await neurolink.generate({
 - ✅ Encrypted configuration storage
 - ✅ Automatic context window management with 4-stage compaction pipeline and 80% budget gate
 
-**[📖 Enterprise Deployment Guide](docs/advanced/enterprise.md)** - Complete production checklist
+**[📖 Enterprise Deployment Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/enterprise.md)** - Complete production checklist
 
 ---
 
@@ -1159,7 +1159,7 @@ export REDIS_URL=redis://localhost:6379
 node your-app.js
 ```
 
-**[Redis Setup Guide](docs/getting-started/redis-quickstart.md)** | **[Production Configuration](docs/guides/redis-configuration.md)** | **[Migration Patterns](docs/guides/redis-migration.md)**
+**[Redis Setup Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/redis-quickstart.md)** | **[Production Configuration](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/redis-configuration.md)** | **[Migration Patterns](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/redis-migration.md)**
 
 ---
 
@@ -1169,26 +1169,26 @@ node your-app.js
 
 | Command          | Purpose                              | Example                    | Documentation                             |
 | ---------------- | ------------------------------------ | -------------------------- | ----------------------------------------- |
-| `setup`          | Interactive provider configuration   | `neurolink setup`          | [Setup Guide](docs/cli/index.md)          |
-| `generate`       | Text generation                      | `neurolink gen "Hello"`    | [Generate](docs/cli/commands.md#generate) |
-| `stream`         | Streaming generation                 | `neurolink stream "Story"` | [Stream](docs/cli/commands.md#stream)     |
-| `status`         | Provider health check                | `neurolink status`         | [Status](docs/cli/commands.md#status)     |
-| `loop`           | Interactive session                  | `neurolink loop`           | [Loop](docs/cli/commands.md#loop)         |
-| `mcp`            | MCP server management                | `neurolink mcp discover`   | [MCP CLI](docs/cli/commands.md#mcp)       |
-| `models`         | Model listing                        | `neurolink models`         | [Models](docs/cli/commands.md#models)     |
-| `eval`           | Model evaluation                     | `neurolink eval`           | [Eval](docs/cli/commands.md#eval)         |
-| `serve`          | Start HTTP server in foreground mode | `neurolink serve`          | [Serve](docs/cli/commands.md#serve)       |
-| `server start`   | Start HTTP server in background mode | `neurolink server start`   | [Server](docs/cli/commands.md#server)     |
-| `server stop`    | Stop running background server       | `neurolink server stop`    | [Server](docs/cli/commands.md#server)     |
-| `server status`  | Show server status information       | `neurolink server status`  | [Server](docs/cli/commands.md#server)     |
-| `server routes`  | List all registered API routes       | `neurolink server routes`  | [Server](docs/cli/commands.md#server)     |
-| `server config`  | View or modify server configuration  | `neurolink server config`  | [Server](docs/cli/commands.md#server)     |
-| `server openapi` | Generate OpenAPI specification       | `neurolink server openapi` | [Server](docs/cli/commands.md#server)     |
-| `rag chunk`      | Chunk documents for RAG              | `neurolink rag chunk f.md` | [RAG CLI](docs/cli/commands.md#rag)       |
+| `setup`          | Interactive provider configuration   | `neurolink setup`          | [Setup Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/index.md)          |
+| `generate`       | Text generation                      | `neurolink gen "Hello"`    | [Generate](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#generate) |
+| `stream`         | Streaming generation                 | `neurolink stream "Story"` | [Stream](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#stream)     |
+| `status`         | Provider health check                | `neurolink status`         | [Status](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#status)     |
+| `loop`           | Interactive session                  | `neurolink loop`           | [Loop](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#loop)         |
+| `mcp`            | MCP server management                | `neurolink mcp discover`   | [MCP CLI](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#mcp)       |
+| `models`         | Model listing                        | `neurolink models`         | [Models](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#models)     |
+| `eval`           | Model evaluation                     | `neurolink eval`           | [Eval](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#eval)         |
+| `serve`          | Start HTTP server in foreground mode | `neurolink serve`          | [Serve](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#serve)       |
+| `server start`   | Start HTTP server in background mode | `neurolink server start`   | [Server](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#server)     |
+| `server stop`    | Stop running background server       | `neurolink server stop`    | [Server](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#server)     |
+| `server status`  | Show server status information       | `neurolink server status`  | [Server](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#server)     |
+| `server routes`  | List all registered API routes       | `neurolink server routes`  | [Server](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#server)     |
+| `server config`  | View or modify server configuration  | `neurolink server config`  | [Server](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#server)     |
+| `server openapi` | Generate OpenAPI specification       | `neurolink server openapi` | [Server](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#server)     |
+| `rag chunk`      | Chunk documents for RAG              | `neurolink rag chunk f.md` | [RAG CLI](https://github.com/juspay/neurolink/tree/HEAD/docs/cli/commands.md#rag)       |
 
 **RAG flags** are available on `generate` and `stream`: `--rag-files`, `--rag-strategy`, `--rag-chunk-size`, `--rag-chunk-overlap`, `--rag-top-k`
 
-**[📖 Complete CLI Reference](docs/cli/commands.md)** - All commands and options
+**[📖 Complete CLI Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/commands.md)** - All commands and options
 
 ---
 
@@ -1212,7 +1212,7 @@ Run AI-powered workflows directly in GitHub Actions with 21+ provider support an
 | **Cost Tracking**      | Built-in analytics and quality evaluation                                                 |
 | **Extended Thinking**  | Deep reasoning with thinking tokens                                                       |
 
-**[📖 GitHub Action Guide](docs/guides/github-action.md)** - Complete setup and examples
+**[📖 GitHub Action Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/github-action.md)** - Complete setup and examples
 
 ---
 
@@ -1297,9 +1297,9 @@ Session saved. Resume with: neurolink loop --session session-2026-01-01.json
 | `/history`           | View conversation history                            |
 | `/clear`             | Clear context while keeping settings                 |
 
-**[Interactive CLI Guide](docs/features/interactive-cli.md)** | **[CLI Reference](docs/cli/commands.md)**
+**[Interactive CLI Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/interactive-cli.md)** | **[CLI Reference](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/commands.md)**
 
-Skip the wizard and configure manually? See [`docs/getting-started/provider-setup.md`](docs/getting-started/provider-setup.md).
+Skip the wizard and configure manually? See [`docs/getting-started/provider-setup.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/provider-setup.md).
 
 ## CLI & SDK Essentials
 
@@ -1393,7 +1393,7 @@ const result = await neurolink.generate({
 console.log(result.content);
 ```
 
-Full command and API breakdown lives in [`docs/cli/commands.md`](docs/cli/commands.md) and [`docs/sdk/api-reference.md`](docs/sdk/api-reference.md).
+Full command and API breakdown lives in [`docs/cli/commands.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/commands.md) and [`docs/sdk/api-reference.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/api-reference.md).
 
 ## Platform Capabilities at a Glance
 
@@ -1412,68 +1412,68 @@ Full command and API breakdown lives in [`docs/cli/commands.md`](docs/cli/comman
 
 | Area            | When to Use                                               | Link                                                             |
 | --------------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
-| Getting started | Install, configure, run first prompt                      | [`docs/getting-started/index.md`](docs/getting-started/index.md) |
-| Feature guides  | Understand new functionality front-to-back                | [`docs/features/index.md`](docs/features/index.md)               |
-| CLI reference   | Command syntax, flags, loop sessions                      | [`docs/cli/index.md`](docs/cli/index.md)                         |
-| SDK reference   | Classes, methods, options                                 | [`docs/sdk/index.md`](docs/sdk/index.md)                         |
-| RAG             | Document chunking, hybrid search, reranking, `rag:{}` API | [`docs/features/rag.md`](docs/features/rag.md)                   |
-| Integrations    | LiteLLM, SageMaker, MCP                                   | [`docs/litellm-integration.md`](docs/litellm-integration.md)     |
-| Advanced        | Middleware, architecture, streaming patterns              | [`docs/advanced/index.md`](docs/advanced/index.md)               |
-| Cookbook        | Practical recipes for common patterns                     | [`docs/cookbook/index.md`](docs/cookbook/index.md)               |
-| Guides          | Migration, Redis, troubleshooting, provider selection     | [`docs/guides/index.md`](docs/guides/index.md)                   |
-| Operations      | Configuration, troubleshooting, provider matrix           | [`docs/reference/index.md`](docs/reference/index.md)             |
+| Getting started | Install, configure, run first prompt                      | [`docs/getting-started/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/index.md) |
+| Feature guides  | Understand new functionality front-to-back                | [`docs/features/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/features/index.md)               |
+| CLI reference   | Command syntax, flags, loop sessions                      | [`docs/cli/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/cli/index.md)                         |
+| SDK reference   | Classes, methods, options                                 | [`docs/sdk/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/sdk/index.md)                         |
+| RAG             | Document chunking, hybrid search, reranking, `rag:{}` API | [`docs/features/rag.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/features/rag.md)                   |
+| Integrations    | LiteLLM, SageMaker, MCP                                   | [`docs/litellm-integration.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/litellm-integration.md)     |
+| Advanced        | Middleware, architecture, streaming patterns              | [`docs/advanced/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/index.md)               |
+| Cookbook        | Practical recipes for common patterns                     | [`docs/cookbook/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/cookbook/index.md)               |
+| Guides          | Migration, Redis, troubleshooting, provider selection     | [`docs/guides/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/index.md)                   |
+| Operations      | Configuration, troubleshooting, provider matrix           | [`docs/reference/index.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/index.md)             |
 
 ### New in 2026: Enhanced Documentation
 
 **Enterprise Features:**
 
-- [Enterprise HITL Guide](docs/features/enterprise-hitl.md) - Production-ready approval workflows
-- [Interactive CLI Guide](docs/features/interactive-cli.md) - AI development environment
-- [MCP Tools Showcase](docs/features/mcp-tools-showcase.md) - 58+ external tools & 6 built-in tools
+- [Enterprise HITL Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/enterprise-hitl.md) - Production-ready approval workflows
+- [Interactive CLI Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/features/interactive-cli.md) - AI development environment
+- [MCP Tools Showcase](https://github.com/juspay/neurolink/blob/HEAD/docs/features/mcp-tools-showcase.md) - 58+ external tools & 6 built-in tools
 
 **Provider Intelligence:**
 
-- [Provider Capabilities Audit](docs/reference/provider-capabilities-audit.md) - Technical capabilities matrix
-- [Provider Selection Guide](docs/guides/provider-selection.md) - Interactive decision wizard
-- [Provider Comparison](docs/reference/provider-comparison.md) - Feature & cost comparison
+- [Provider Capabilities Audit](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/provider-capabilities-audit.md) - Technical capabilities matrix
+- [Provider Selection Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/provider-selection.md) - Interactive decision wizard
+- [Provider Comparison](https://github.com/juspay/neurolink/blob/HEAD/docs/reference/provider-comparison.md) - Feature & cost comparison
 
 **Middleware System:**
 
-- [Middleware Architecture](docs/advanced/middleware-architecture.md) - Complete lifecycle & patterns
-- [Built-in Middleware](docs/advanced/builtin-middleware.md) - Analytics, Guardrails, Evaluation
-- [Custom Middleware Guide](docs/custom-middleware-guide.md) - Build your own
+- [Middleware Architecture](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/middleware-architecture.md) - Complete lifecycle & patterns
+- [Built-in Middleware](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/builtin-middleware.md) - Analytics, Guardrails, Evaluation
+- [Custom Middleware Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/custom-middleware-guide.md) - Build your own
 
 **Redis & Persistence:**
 
-- [Redis Quick Start](docs/getting-started/redis-quickstart.md) - 5-minute setup
-- [Redis Configuration](docs/guides/redis-configuration.md) - Production-ready setup
-- [Redis Migration](docs/guides/redis-migration.md) - Migration patterns
+- [Redis Quick Start](https://github.com/juspay/neurolink/blob/HEAD/docs/getting-started/redis-quickstart.md) - 5-minute setup
+- [Redis Configuration](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/redis-configuration.md) - Production-ready setup
+- [Redis Migration](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/redis-migration.md) - Migration patterns
 
 **Migration Guides:**
 
-- [From LangChain](docs/guides/migration/from-langchain.md) - Complete migration guide
-- [From Vercel AI SDK](docs/guides/migration/from-vercel-ai-sdk.md) - Next.js focused
+- [From LangChain](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/migration/from-langchain.md) - Complete migration guide
+- [From Vercel AI SDK](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/migration/from-vercel-ai-sdk.md) - Next.js focused
 
 **Developer Experience:**
 
-- [Cookbook](docs/cookbook/index.md) - 10 practical recipes
-- [Troubleshooting Guide](docs/guides/troubleshooting.md) - Common issues & solutions
+- [Cookbook](https://github.com/juspay/neurolink/blob/HEAD/docs/cookbook/index.md) - 10 practical recipes
+- [Troubleshooting Guide](https://github.com/juspay/neurolink/blob/HEAD/docs/guides/troubleshooting.md) - Common issues & solutions
 
 ## Integrations
 
-- **LiteLLM 100+ model hub** – Unified access to third-party models via LiteLLM routing. → [`docs/litellm-integration.md`](docs/litellm-integration.md)
-- **Amazon SageMaker** – Deploy and call custom endpoints directly from NeuroLink CLI/SDK. → [`docs/sagemaker-integration.md`](docs/sagemaker-integration.md)
-- **Enterprise proxy & security** – Configure outbound policies and compliance posture. → [`docs/enterprise-proxy-setup.md`](docs/enterprise-proxy-setup.md)
-- **Configuration automation** – Manage environments, regions, and credentials safely. → [`docs/configuration-management.md`](docs/configuration-management.md)
-- **MCP tool ecosystem** – Auto-discover Model Context Protocol tools and extend workflows. → [`docs/advanced/mcp-integration.md`](docs/advanced/mcp-integration.md)
-- **Remote MCP via HTTP** – Connect to HTTP-based MCP servers with authentication, retries, and rate limiting. → [`docs/mcp-http-transport.md`](docs/mcp-http-transport.md)
+- **LiteLLM 100+ model hub** – Unified access to third-party models via LiteLLM routing. → [`docs/litellm-integration.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/litellm-integration.md)
+- **Amazon SageMaker** – Deploy and call custom endpoints directly from NeuroLink CLI/SDK. → [`docs/sagemaker-integration.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/sagemaker-integration.md)
+- **Enterprise proxy & security** – Configure outbound policies and compliance posture. → [`docs/enterprise-proxy-setup.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/enterprise-proxy-setup.md)
+- **Configuration automation** – Manage environments, regions, and credentials safely. → [`docs/configuration-management.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/configuration-management.md)
+- **MCP tool ecosystem** – Auto-discover Model Context Protocol tools and extend workflows. → [`docs/advanced/mcp-integration.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/advanced/mcp-integration.md)
+- **Remote MCP via HTTP** – Connect to HTTP-based MCP servers with authentication, retries, and rate limiting. → [`docs/mcp-http-transport.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/mcp-http-transport.md)
 
 ## Contributing & Support
 
 - Bug reports and feature requests → [GitHub Issues](https://github.com/juspay/neurolink/issues)
 - Questions and discussions → [GitHub Discussions](https://github.com/juspay/neurolink/discussions)
-- Development workflow, testing, and pull request guidelines → [`docs/development/contributing.md`](docs/development/contributing.md)
-- Documentation improvements → open a PR referencing the [documentation matrix](docs/tracking/FEATURE-DOC-MATRIX.md).
+- Development workflow, testing, and pull request guidelines → [`docs/development/contributing.md`](https://github.com/juspay/neurolink/blob/HEAD/docs/development/contributing.md)
+- Documentation improvements → open a PR referencing the [documentation matrix](https://github.com/juspay/neurolink/blob/HEAD/docs/tracking/FEATURE-DOC-MATRIX.md).
 
 ---
 

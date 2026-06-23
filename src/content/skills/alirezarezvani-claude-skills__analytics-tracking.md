@@ -120,7 +120,7 @@ body_tr: |-
   help_article_viewed     (param: article_name)
   ```
   
-  [references/event-taxonomy-guide.md](references/event-taxonomy-guide.md) adresinde özel boyut önerileriyle birlikte tam taksonomik kataloğa bakın.
+  [references/event-taxonomy-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/event-taxonomy-guide.md) adresinde özel boyut önerileriyle birlikte tam taksonomik kataloğa bakın.
   
   ---
   
@@ -240,7 +240,7 @@ body_tr: |-
       page_location: {{Page URL}}
   ```
   
-  Tam yapılandırma şablonları için [references/gtm-patterns.md](references/gtm-patterns.md) adresine bakın.
+  Tam yapılandırma şablonları için [references/gtm-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/gtm-patterns.md) adresine bakın.
   
   ---
   
@@ -492,7 +492,7 @@ chat_opened
 help_article_viewed     (param: article_name)
 ```
 
-See [references/event-taxonomy-guide.md](references/event-taxonomy-guide.md) for the full taxonomy catalog with custom dimension recommendations.
+See [references/event-taxonomy-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/event-taxonomy-guide.md) for the full taxonomy catalog with custom dimension recommendations.
 
 ---
 
@@ -612,7 +612,7 @@ GTM Tag: GA4 Event
     page_location: {{Page URL}}
 ```
 
-See [references/gtm-patterns.md](references/gtm-patterns.md) for full configuration templates.
+See [references/gtm-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/gtm-patterns.md) for full configuration templates.
 
 ---
 

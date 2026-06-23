@@ -11,7 +11,7 @@ license: "MIT"
 language: "JavaScript"
 homepage: "https://cjo4m06.github.io/mcp-shrimp-task-manager/"
 body_tr: |-
-  [🇺🇸 English](README.md) | [🇩🇪 Deutsch](docs/de/README.md) | [🇪🇸 Español](docs/es/README.md) | [🇫🇷 Français](docs/fr/README.md) | [🇮🇹 Italiano](docs/it/README.md) | [🇮🇳 हिन्दी](docs/hi/README.md) | [🇰🇷 한국어](docs/ko/README.md) | [🇧🇷 Português](docs/pt/README.md) | [🇷🇺 Русский](docs/ru/README.md) | [🇨🇳 中文](docs/zh/README.md)
+  [🇺🇸 English](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/README.md) | [🇩🇪 Deutsch](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/de/README.md) | [🇪🇸 Español](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/es/README.md) | [🇫🇷 Français](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/fr/README.md) | [🇮🇹 Italiano](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/it/README.md) | [🇮🇳 हिन्दी](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/hi/README.md) | [🇰🇷 한국어](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/ko/README.md) | [🇧🇷 Português](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/pt/README.md) | [🇷🇺 Русский](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/ru/README.md) | [🇨🇳 中文](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/zh/README.md)
   
   # MCP Shrimp Task Manager
   
@@ -153,7 +153,7 @@ body_tr: |-
   
   ### İleri Yetenekler
   - **🔬 Araştırma Modu**: Teknolojilerin ve çözümlerin sistematik keşfi
-  - **🤖 Agent Sistemi**: Özel AI ajanlarını belirli görevlere atayın ([Daha fazla bilgi](docs/agents.md))
+  - **🤖 Agent Sistemi**: Özel AI ajanlarını belirli görevlere atayın ([Daha fazla bilgi](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/agents.md))
   - **📏 Proje Kuralları**: Proje genelinde kodlama standartlarını tanımlayın ve koruyun
   - **💾 Görev Belleği**: Görev geçmişinin otomatik yedeklemesi ve geri yüklenmesi
   
@@ -170,7 +170,7 @@ body_tr: |-
   # http://localhost:5173 adresinden erişin
   ```
   
-  [📖 Tam Task Viewer Belgeleri](tools/task-viewer/README.md)
+  [📖 Tam Task Viewer Belgeleri](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/tools/task-viewer/README.md)
   
   <kbd></kbd>
   
@@ -181,11 +181,11 @@ body_tr: |-
   
   ## 📚 Belgeler
   
-  - [📖 Tam Belgeler](docs/README.md)
-  - [🛠️ Kullanılabilir Araçlar](docs/tools.md)
-  - [🤖 Agent Yönetimi](docs/agents.md)
-  - [🎨 Prompt Özelleştirmesi](docs/en/prompt-customization.md)
-  - [🔧 API Başvurusu](docs/api.md)
+  - [📖 Tam Belgeler](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/README.md)
+  - [🛠️ Kullanılabilir Araçlar](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/tools.md)
+  - [🤖 Agent Yönetimi](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/agents.md)
+  - [🎨 Prompt Özelleştirmesi](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/en/prompt-customization.md)
+  - [🔧 API Başvurusu](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/api.md)
   
   ## 🎯 Yaygın Kullanım Durumları
   
@@ -255,11 +255,11 @@ body_tr: |-
   
   ## 🤝 Katkıda Bulunma
   
-  Katkılarınızı bekliyoruz! Ayrıntılar için lütfen [Katkı Rehberimiz](CONTRIBUTING.md) bölümüne bakın.
+  Katkılarınızı bekliyoruz! Ayrıntılar için lütfen [Katkı Rehberimiz](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/CONTRIBUTING.md) bölümüne bakın.
   
   ## 📄 Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/cjo4m06/mcp-shrimp-task-manager/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## 🌟 Teşekkürler
   
@@ -274,7 +274,7 @@ body_tr: |-
   </p>
 ---
 
-[🇺🇸 English](README.md) | [🇩🇪 Deutsch](docs/de/README.md) | [🇪🇸 Español](docs/es/README.md) | [🇫🇷 Français](docs/fr/README.md) | [🇮🇹 Italiano](docs/it/README.md) | [🇮🇳 हिन्दी](docs/hi/README.md) | [🇰🇷 한국어](docs/ko/README.md) | [🇧🇷 Português](docs/pt/README.md) | [🇷🇺 Русский](docs/ru/README.md) | [🇨🇳 中文](docs/zh/README.md)
+[🇺🇸 English](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/README.md) | [🇩🇪 Deutsch](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/de/README.md) | [🇪🇸 Español](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/es/README.md) | [🇫🇷 Français](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/fr/README.md) | [🇮🇹 Italiano](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/it/README.md) | [🇮🇳 हिन्दी](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/hi/README.md) | [🇰🇷 한국어](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/ko/README.md) | [🇧🇷 Português](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/pt/README.md) | [🇷🇺 Русский](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/ru/README.md) | [🇨🇳 中文](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/zh/README.md)
 
 # MCP Shrimp Task Manager
 
@@ -416,7 +416,7 @@ Shrimp Task Manager is an MCP (Model Context Protocol) server that transforms ho
 
 ### Advanced Capabilities
 - **🔬 Research Mode**: Systematic exploration of technologies and solutions
-- **🤖 Agent System**: Assign specialized AI agents to specific tasks ([Learn more](docs/agents.md))
+- **🤖 Agent System**: Assign specialized AI agents to specific tasks ([Learn more](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/agents.md))
 - **📏 Project Rules**: Define and maintain coding standards across your project
 - **💾 Task Memory**: Automatic backup and restoration of task history
 
@@ -433,7 +433,7 @@ npm run start:all
 # Access at http://localhost:5173
 ```
 
-[📖 Full Task Viewer Documentation](tools/task-viewer/README.md)
+[📖 Full Task Viewer Documentation](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/tools/task-viewer/README.md)
 
 <kbd></kbd>
 
@@ -444,11 +444,11 @@ Enable in `.env`: `ENABLE_GUI=true`
 
 ## 📚 Documentation
 
-- [📖 Full Documentation](docs/README.md)
-- [🛠️ Available Tools](docs/tools.md)
-- [🤖 Agent Management](docs/agents.md)
-- [🎨 Prompt Customization](docs/en/prompt-customization.md)
-- [🔧 API Reference](docs/api.md)
+- [📖 Full Documentation](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/README.md)
+- [🛠️ Available Tools](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/tools.md)
+- [🤖 Agent Management](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/agents.md)
+- [🎨 Prompt Customization](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/en/prompt-customization.md)
+- [🔧 API Reference](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/docs/api.md)
 
 ## 🎯 Common Use Cases
 
@@ -518,11 +518,11 @@ PROMPT_LANGUAGE=en      # Prompt language (en, zh, etc.)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guide](https://github.com/cjo4m06/mcp-shrimp-task-manager/blob/HEAD/CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/cjo4m06/mcp-shrimp-task-manager/tree/HEAD/LICENSE) file for details.
 
 ## 🌟 Credits
 

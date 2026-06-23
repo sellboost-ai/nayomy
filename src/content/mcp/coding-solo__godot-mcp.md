@@ -255,7 +255,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/Coding-Solo/godot-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # Godot MCP
@@ -503,4 +503,4 @@ The bundled script accepts operation type and parameters as JSON, allowing for f
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Coding-Solo/godot-mcp/tree/HEAD/LICENSE) file for details.

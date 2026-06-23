@@ -158,7 +158,7 @@ body_tr: |-
   
   🚀 **[Remote MCP](https://pipeboard.co) kullanmanızı şiddetle tavsiye ederiz** — daha hızlı, daha güvenilir ve hiçbir teknik kurulum gerektirmez.
   
-  Meta Ads MCP ayrıca yerel akış halinde HTTP taşımasını destekler ve web uygulamaları ile özel entegrasyonlar için bunu bağımsız bir HTTP API olarak çalıştırmanıza olanak tanır. Tüm talimatlar için **[Streamable HTTP Kurulum Rehberi](STREAMABLE_HTTP_SETUP.md)** bölümüne bakın.
+  Meta Ads MCP ayrıca yerel akış halinde HTTP taşımasını destekler ve web uygulamaları ile özel entegrasyonlar için bunu bağımsız bir HTTP API olarak çalıştırmanıza olanak tanır. Tüm talimatlar için **[Streamable HTTP Kurulum Rehberi](https://github.com/pipeboard-co/meta-ads-mcp/blob/HEAD/STREAMABLE_HTTP_SETUP.md)** bölümüne bakın.
   
   ## Özellikler
   
@@ -525,7 +525,7 @@ If your agent prefers shell commands over JSON-RPC, the [Pipeboard CLI](https://
 
 🚀 **We strongly recommend using [Remote MCP](https://pipeboard.co) instead** - it's faster, more reliable, and requires no technical setup.
 
-Meta Ads MCP also supports a local streamable HTTP transport, allowing you to run it as a standalone HTTP API for web applications and custom integrations. See **[Streamable HTTP Setup Guide](STREAMABLE_HTTP_SETUP.md)** for complete instructions.
+Meta Ads MCP also supports a local streamable HTTP transport, allowing you to run it as a standalone HTTP API for web applications and custom integrations. See **[Streamable HTTP Setup Guide](https://github.com/pipeboard-co/meta-ads-mcp/blob/HEAD/STREAMABLE_HTTP_SETUP.md)** for complete instructions.
 
 ## Features
 
@@ -866,7 +866,7 @@ For advanced users who need to self-host, the package can be installed from sour
 
 ## Licensing
 
-Meta Ads MCP is licensed under the [Business Source License 1.1](LICENSE), which means:
+Meta Ads MCP is licensed under the [Business Source License 1.1](https://github.com/pipeboard-co/meta-ads-mcp/tree/HEAD/LICENSE), which means:
 
 - ✅ **Free to use** for individual and business purposes
 - ✅ **Modify and customize** as needed

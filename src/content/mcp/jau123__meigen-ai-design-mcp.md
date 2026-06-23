@@ -24,7 +24,7 @@ body_tr: |-
     <a href="https://www.npmjs.com/package/meigen"></a>
     
     
-    <a href="LICENSE"></a>
+    <a href="https://github.com/jau123/MeiGen-AI-Design-MCP/tree/HEAD/LICENSE"></a>
     <a href="https://discord.gg/uX6rnersUx"></a>
   </p>
   
@@ -37,7 +37,7 @@ body_tr: |-
   </p>
   
   <p align="center">
-    <strong>English</strong> | <a href="README.zh-CN.md">中文</a>
+    <strong>English</strong> | <a href="https://github.com/jau123/MeiGen-AI-Design-MCP/blob/HEAD/README.zh-CN.md">中文</a>
   </p>
   
   ---
@@ -402,7 +402,7 @@ body_tr: |-
   
   ## Lisans
   
-  [MIT](LICENSE) — kişisel ve ticari kullanım için ücretsiz.
+  [MIT](https://github.com/jau123/MeiGen-AI-Design-MCP/tree/HEAD/LICENSE) — kişisel ve ticari kullanım için ücretsiz.
 ---
 
 <h1 align="center">
@@ -418,7 +418,7 @@ body_tr: |-
   <a href="https://www.npmjs.com/package/meigen"></a>
   
   
-  <a href="LICENSE"></a>
+  <a href="https://github.com/jau123/MeiGen-AI-Design-MCP/tree/HEAD/LICENSE"></a>
   <a href="https://discord.gg/uX6rnersUx"></a>
 </p>
 
@@ -431,7 +431,7 @@ body_tr: |-
 </p>
 
 <p align="center">
-  <strong>English</strong> | <a href="README.zh-CN.md">中文</a>
+  <strong>English</strong> | <a href="https://github.com/jau123/MeiGen-AI-Design-MCP/blob/HEAD/README.zh-CN.md">中文</a>
 </p>
 
 ---
@@ -796,4 +796,4 @@ The `presignedUrl` is used for a `PUT` upload, and `publicUrl` is the publicly a
 
 ## License
 
-[MIT](LICENSE) — free for personal and commercial use.
+[MIT](https://github.com/jau123/MeiGen-AI-Design-MCP/tree/HEAD/LICENSE) — free for personal and commercial use.

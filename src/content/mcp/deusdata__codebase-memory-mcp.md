@@ -14,7 +14,7 @@ body_tr: |-
   # codebase-memory-mcp
   
   [![GitHub Release](https://img.shields.io/github/v/release/DeusData/codebase-memory-mcp?style=flat&color=blue)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
-  [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+  [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/DeusData/codebase-memory-mcp/tree/HEAD/LICENSE)
   [![CI](https://img.shields.io/github/actions/workflow/status/DeusData/codebase-memory-mcp/dry-run.yml?label=CI)](https://github.com/DeusData/codebase-memory-mcp/actions/workflows/dry-run.yml)
   [![Tests](https://img.shields.io/badge/tests-2812_passing-brightgreen)](https://github.com/DeusData/codebase-memory-mcp)
   [![Languages](https://img.shields.io/badge/languages-155-orange)](https://github.com/DeusData/codebase-memory-mcp)
@@ -32,7 +32,7 @@ body_tr: |-
   
   > **Araştırma** — Bu projenin tasarımı ve benchmark'ları, [*Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP*](https://arxiv.org/abs/2603.27277) (arXiv:2603.27277) preprint'inde açıklanmaktadır. 31 gerçek dünya repository'si arasında değerlendirilmiştir: %83 cevap kalitesi, %90 daha az token, dosya-dosya keşfine kıyasla %2.1 daha az tool çağrısı.
   
-  > **Güvenlik & Güven** — Bu tool'u codebase'inizi okur ve agent konfigürasyon dosyalarınıza yazar. Bu ne için tasarlanmış olduğudur. Çalıştırmadan önce audit yapmayı tercih ederseniz, [tam kaynak kod burada](https://github.com/DeusData/codebase-memory-mcp) — her release binary imzalanmış, kontrol toplamı alınmış ve 70+ antivirus motoru tarafından taranmıştır. Tüm işlem %100 yerel olarak gerçekleşir; kodunuz makinenizi hiçbir zaman terk etmez. Bir güvenlik sorunu mu buldunuz? Bilmek istiyoruz — bkz. [SECURITY.md](SECURITY.md). Güvenlik bizim için Öncelik #1'dir.
+  > **Güvenlik & Güven** — Bu tool'u codebase'inizi okur ve agent konfigürasyon dosyalarınıza yazar. Bu ne için tasarlanmış olduğudur. Çalıştırmadan önce audit yapmayı tercih ederseniz, [tam kaynak kod burada](https://github.com/DeusData/codebase-memory-mcp) — her release binary imzalanmış, kontrol toplamı alınmış ve 70+ antivirus motoru tarafından taranmıştır. Tüm işlem %100 yerel olarak gerçekleşir; kodunuz makinenizi hiçbir zaman terk etmez. Bir güvenlik sorunu mu buldunuz? Bilmek istiyoruz — bkz. [SECURITY.md](https://github.com/DeusData/codebase-memory-mcp/blob/HEAD/SECURITY.md). Güvenlik bizim için Öncelik #1'dir.
   
   <p align="center">
     
@@ -393,7 +393,7 @@ body_tr: |-
 # codebase-memory-mcp
 
 [![GitHub Release](https://img.shields.io/github/v/release/DeusData/codebase-memory-mcp?style=flat&color=blue)](https://github.com/DeusData/codebase-memory-mcp/releases/latest)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/DeusData/codebase-memory-mcp/tree/HEAD/LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/DeusData/codebase-memory-mcp/dry-run.yml?label=CI)](https://github.com/DeusData/codebase-memory-mcp/actions/workflows/dry-run.yml)
 [![Tests](https://img.shields.io/badge/tests-5604_passing-brightgreen)](https://github.com/DeusData/codebase-memory-mcp)
 [![Languages](https://img.shields.io/badge/languages-158-orange)](https://github.com/DeusData/codebase-memory-mcp)
@@ -412,7 +412,7 @@ High-quality parsing through [tree-sitter](https://tree-sitter.github.io/tree-si
 
 > **Research** — The design and benchmarks behind this project are described in the preprint [*Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP*](https://arxiv.org/abs/2603.27277) (arXiv:2603.27277). Evaluated across 31 real-world repositories: 83% answer quality, 10× fewer tokens, 2.1× fewer tool calls vs. file-by-file exploration.
 
-> **Security & Trust** — This tool reads your codebase and writes to your agent configuration files. That is what it is designed to do. If you prefer to audit before running, the [full source is here](https://github.com/DeusData/codebase-memory-mcp) — every release binary is signed, checksummed, and scanned by 70+ antivirus engines. All processing happens 100% locally; your code never leaves your machine. Found a security issue? We want to know — see [SECURITY.md](SECURITY.md). Security is Priority #1 for us.
+> **Security & Trust** — This tool reads your codebase and writes to your agent configuration files. That is what it is designed to do. If you prefer to audit before running, the [full source is here](https://github.com/DeusData/codebase-memory-mcp) — every release binary is signed, checksummed, and scanned by 70+ antivirus engines. All processing happens 100% locally; your code never leaves your machine. Found a security issue? We want to know — see [SECURITY.md](https://github.com/DeusData/codebase-memory-mcp/blob/HEAD/SECURITY.md). Security is Priority #1 for us.
 
 <p align="center">
   

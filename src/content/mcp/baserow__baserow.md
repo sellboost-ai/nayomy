@@ -70,25 +70,25 @@ body_tr: |-
   ## Katılın
   
   Forumumuza https://community.baserow.io/ adresinde katılın. Katılımcı olmak hakkında
-  [CONTRIBUTING.md](./CONTRIBUTING.md) dosyasına bakın.
+  [CONTRIBUTING.md](https://github.com/baserow/baserow/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ## Kurulum
   
-  * [**Docker**](docs/installation/install-with-docker.md)
-  * [**Helm**](docs/installation/install-with-helm.md)
-  * [**Docker Compose** ](docs/installation/install-with-docker-compose.md)
-  * [**Heroku**: Baserow'u Heroku'da kolayca kurun ve ölçekleyin.](docs/installation/install-on-heroku.md)
-  * [**Render**: Baserow'u Render'da kolayca kurun ve ölçekleyin.](docs/installation/install-on-render.md)
-  * [**Digital Ocean**: Baserow'u Digital Ocean'da kolayca kurun ve ölçekleyin.](docs/installation/install-on-digital-ocean.md)
-  * [**AWS**: AWS'de ölçeklenebilir şekilde kurun](docs/installation/install-on-aws.md)
-  * [**Cloudron**: Baserow'u kendi Cloudron sunucunuzda kurun ve güncelleyin.](docs/installation/install-on-cloudron.md)
-  * [**Railway**: Railway aracılığıyla Baserow'u kurun.](docs/installation/install-on-railway.md)
+  * [**Docker**](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-with-docker.md)
+  * [**Helm**](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-with-helm.md)
+  * [**Docker Compose** ](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-with-docker-compose.md)
+  * [**Heroku**: Baserow'u Heroku'da kolayca kurun ve ölçekleyin.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-heroku.md)
+  * [**Render**: Baserow'u Render'da kolayca kurun ve ölçekleyin.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-render.md)
+  * [**Digital Ocean**: Baserow'u Digital Ocean'da kolayca kurun ve ölçekleyin.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-digital-ocean.md)
+  * [**AWS**: AWS'de ölçeklenebilir şekilde kurun](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-aws.md)
+  * [**Cloudron**: Baserow'u kendi Cloudron sunucunuzda kurun ve güncelleyin.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-cloudron.md)
+  * [**Railway**: Railway aracılığıyla Baserow'u kurun.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-railway.md)
   * [**Elestio**: Elestio tarafından tamamen yönetilir.](https://elest.io/open-source/baserow)
   
   ## Resmi dokümantasyon
   
   Resmi dokümantasyon https://baserow.io/docs/index adresindeki web sitesinde veya
-  [burada](./docs/index.md) depo içinde bulunabilir. API dokümantasyonu
+  [burada](https://github.com/baserow/baserow/blob/HEAD/docs/index.md) depo içinde bulunabilir. API dokümantasyonu
   https://api.baserow.io/api/redoc/ adresinde veya OpenAPI şemasını arıyorsanız
   https://api.baserow.io/api/schema.json adresinde bulunabilir.
   
@@ -110,7 +110,7 @@ body_tr: |-
   [http://localhost:3000](http://localhost:3000) adresini ziyaret edin.
   
   Geliştirme ortamı hakkında daha ayrıntılı talimatlar ve daha fazla bilgi
-  [https://baserow.io/docs/development/development-environment](./docs/development/development-environment.md)
+  [https://baserow.io/docs/development/development-environment](https://github.com/baserow/baserow/blob/HEAD/docs/development/development-environment.md)
   adresinde bulunabilir.
   
   ## Neden Baserow?
@@ -129,7 +129,7 @@ body_tr: |-
   
   Resmi depo https://github.com/baserow/baserow adresinde bulunabilir.
   
-  Değişiklik günlüğü [burada](./changelog.md) bulunabilir.
+  Değişiklik günlüğü [burada](https://github.com/baserow/baserow/blob/HEAD/changelog.md) bulunabilir.
   
   GitHub Sponsor olun [burada](https://github.com/sponsors/bram2w).
 ---
@@ -191,25 +191,25 @@ going forward at: https://github.com/baserow/baserow.
 ## Get Involved
 
 Join our forum at https://community.baserow.io/. See
-[CONTRIBUTING.md](./CONTRIBUTING.md) on how to become a contributor.
+[CONTRIBUTING.md](https://github.com/baserow/baserow/blob/HEAD/CONTRIBUTING.md) on how to become a contributor.
 
 ## Installation
 
-* [**Docker**](docs/installation/install-with-docker.md)
-* [**Helm**](docs/installation/install-with-helm.md)
-* [**Docker Compose** ](docs/installation/install-with-docker-compose.md)
-* [**Heroku**: Easily install and scale up Baserow on Heroku.](docs/installation/install-on-heroku.md)
-* [**Render**: Easily install and scale up Baserow on Render.](docs/installation/install-on-render.md)
-* [**Digital Ocean**: Easily install and scale up Baserow on Digital Ocean.](docs/installation/install-on-digital-ocean.md)
-* [**AWS**: Install in a scalable way on AWS](docs/installation/install-on-aws.md)
-* [**Cloudron**: Install and update Baserow on your own Cloudron server.](docs/installation/install-on-cloudron.md)
-* [**Railway**: Install Baserow via Railway.](docs/installation/install-on-railway.md)
+* [**Docker**](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-with-docker.md)
+* [**Helm**](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-with-helm.md)
+* [**Docker Compose** ](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-with-docker-compose.md)
+* [**Heroku**: Easily install and scale up Baserow on Heroku.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-heroku.md)
+* [**Render**: Easily install and scale up Baserow on Render.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-render.md)
+* [**Digital Ocean**: Easily install and scale up Baserow on Digital Ocean.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-digital-ocean.md)
+* [**AWS**: Install in a scalable way on AWS](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-aws.md)
+* [**Cloudron**: Install and update Baserow on your own Cloudron server.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-cloudron.md)
+* [**Railway**: Install Baserow via Railway.](https://github.com/baserow/baserow/blob/HEAD/docs/installation/install-on-railway.md)
 * [**Elestio**: Fully managed by Elestio.](https://elest.io/open-source/baserow)
 
 ## Official documentation
 
 The official documentation can be found on the website at https://baserow.io/docs/index
-or [here](./docs/index.md) inside the repository. The API docs can be found here at
+or [here](https://github.com/baserow/baserow/blob/HEAD/docs/index.md) inside the repository. The API docs can be found here at
 https://api.baserow.io/api/redoc/ or if you are looking for the OpenAPI schema here
 https://api.baserow.io/api/schema.json.
 
@@ -230,7 +230,7 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser to see a wo
 version in development mode with hot code reloading and other dev features enabled.
 
 More detailed instructions and more information about the development environment can be
-found at [https://baserow.io/docs/development/development-environment](./docs/development/development-environment.md).
+found at [https://baserow.io/docs/development/development-environment](https://github.com/baserow/baserow/blob/HEAD/docs/development/development-environment.md).
 
 ## Why Baserow?
 
@@ -248,6 +248,6 @@ Version: 2.2.2
 
 The official repository can be found at https://github.com/baserow/baserow.
 
-The changelog can be found [here](./changelog.md).
+The changelog can be found [here](https://github.com/baserow/baserow/blob/HEAD/changelog.md).
 
 Become a GitHub Sponsor [here](https://github.com/sponsors/bram2w).

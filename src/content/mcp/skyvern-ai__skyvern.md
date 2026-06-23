@@ -394,7 +394,7 @@ body_tr: |-
   
   # Performans ve Değerlendirme
   
-  Skyvern, %64.4 doğruluk oranı ile [WebBench kıyaslamasında](webbench.ai) SOTA performansına sahiptir. Teknik rapor + değerlendirme [burada](https://www.skyvern.com/blog/web-bench-a-new-way-to-compare-ai-browser-agents/) bulunabilir
+  Skyvern, %64.4 doğruluk oranı ile [WebBench kıyaslamasında](https://github.com/Skyvern-AI/skyvern/blob/HEAD/webbench.ai) SOTA performansına sahiptir. Teknik rapor + değerlendirme [burada](https://www.skyvern.com/blog/web-bench-a-new-way-to-compare-ai-browser-agents/) bulunabilir
   
   <p align="center">
     
@@ -867,7 +867,7 @@ skyvern stop server
 
 # Performance & Evaluation
 
-Skyvern has SOTA performance on the [WebBench benchmark](webbench.ai) with a 64.4% accuracy. The technical report + evaluation can be found [here](https://www.skyvern.com/blog/web-bench-a-new-way-to-compare-ai-browser-agents/)
+Skyvern has SOTA performance on the [WebBench benchmark](https://github.com/Skyvern-AI/skyvern/blob/HEAD/webbench.ai) with a 64.4% accuracy. The technical report + evaluation can be found [here](https://www.skyvern.com/blog/web-bench-a-new-way-to-compare-ai-browser-agents/)
 
 <p align="center">
   
@@ -1056,7 +1056,7 @@ For detailed LLM configuration including all available model keys, environment v
 # Contributing
 
 We welcome PRs and suggestions! Don't hesitate to open a PR/issue or to reach out to us [via email](mailto:founders@skyvern.com) or [discord](https://discord.gg/fG2XXEuQX3).
-Please have a look at our [contribution guide](CONTRIBUTING.md) and
+Please have a look at our [contribution guide](https://github.com/Skyvern-AI/skyvern/blob/HEAD/CONTRIBUTING.md) and
 ["Help Wanted" issues](https://github.com/skyvern-ai/skyvern/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to get started!
 
 If you want to chat with the skyvern repository to get a high level overview of how it is structured, how to build off it, and how to resolve usage questions, check out [Code Sage](https://sage.storia.ai?utm_source=github&utm_medium=referral&utm_campaign=skyvern-readme).
@@ -1066,7 +1066,7 @@ If you want to chat with the skyvern repository to get a high level overview of 
 By Default, Skyvern collects basic usage statistics to help us understand how Skyvern is being used. If you would like to opt-out of telemetry, please set the `SKYVERN_TELEMETRY` environment variable to `false`.
 
 # License
-Skyvern's open source repository is supported via a managed cloud. All of the core logic powering Skyvern is available in this open source repository licensed under the [AGPL-3.0 License](LICENSE), with the exception of anti-bot measures available in our managed cloud offering.
+Skyvern's open source repository is supported via a managed cloud. All of the core logic powering Skyvern is available in this open source repository licensed under the [AGPL-3.0 License](https://github.com/Skyvern-AI/skyvern/tree/HEAD/LICENSE), with the exception of anti-bot measures available in our managed cloud offering.
 
 If you have any questions or concerns around licensing, please [contact us](mailto:support@skyvern.com) and we would be happy to help.
 

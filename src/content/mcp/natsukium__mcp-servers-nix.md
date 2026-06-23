@@ -24,7 +24,7 @@ body_tr: |-
   - **Yeniden Üretilebilir Derlemeler**: Yeniden üretilebilir ve deklaratif sunucu kurulumları için Nix'den yararlanın
   - **Önceden Yapılandırılmış Modüller**: Popüler MCP sunucu türleri için hazır kullanılabilir konfigürasyonlar
   - **Güvenlik Odaklı**: `envFile` ve `passwordCommand` aracılığıyla daha iyi kimlik bilgisi ve hassas bilgi yönetimi, sabitlenmiş sunucu sürümleri
-  - **Framework Desteği**: [Flakes](docs/module-usage.md#using-flakes), [flake-parts](docs/module-usage.md#using-flake-parts), [devenv](docs/module-usage.md#using-devenv) ve [Home Manager](docs/module-usage.md#using-home-manager) ile entegre
+  - **Framework Desteği**: [Flakes](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-flakes), [flake-parts](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-flake-parts), [devenv](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-devenv) ve [Home Manager](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-home-manager) ile entegre
   
   ## Hızlı Başlangıç
   
@@ -82,46 +82,46 @@ body_tr: |-
   
   ## Kullanılabilir Modüller
   
-  - [clickup](./modules/servers/clickup.nix)
-  - [codex](./modules/servers/codex.nix)
-  - [context7](./modules/servers/context7.nix)
-  - [deepl](./modules/servers/deepl.nix)
-  - [esa](./modules/servers/esa.nix)
-  - [everything](./modules/servers/everything.nix)
-  - [fetch](./modules/servers/fetch.nix)
-  - [filesystem](./modules/servers/filesystem.nix)
-  - [freee](./modules/servers/freee.nix)
-  - [git](./modules/servers/git.nix)
-  - [github](./modules/servers/github.nix)
-  - [grafana](./modules/servers/grafana.nix)
-  - [home-assistant](./modules/servers/home-assistant.nix)
-  - [mastra](./modules/servers/mastra.nix)
-  - [memory](./modules/servers/memory.nix)
-  - [netdata](./modules/servers/netdata.nix)
-  - [nixos](./modules/servers/nixos.nix)
-  - [notion](./modules/servers/notion.nix)
-  - [playwright](./modules/servers/playwright.nix)
-  - [sequential-thinking](./modules/servers/sequential-thinking.nix)
-  - [serena](./modules/servers/serena.nix)
-  - [slite](./modules/servers/slite.nix)
-  - [tavily](./modules/servers/tavily.nix)
-  - [terraform](./modules/servers/terraform.nix)
-  - [textlint](./modules/servers/textlint.nix)
-  - [time](./modules/servers/time.nix)
+  - [clickup](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/clickup.nix)
+  - [codex](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/codex.nix)
+  - [context7](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/context7.nix)
+  - [deepl](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/deepl.nix)
+  - [esa](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/esa.nix)
+  - [everything](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/everything.nix)
+  - [fetch](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/fetch.nix)
+  - [filesystem](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/filesystem.nix)
+  - [freee](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/freee.nix)
+  - [git](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/git.nix)
+  - [github](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/github.nix)
+  - [grafana](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/grafana.nix)
+  - [home-assistant](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/home-assistant.nix)
+  - [mastra](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/mastra.nix)
+  - [memory](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/memory.nix)
+  - [netdata](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/netdata.nix)
+  - [nixos](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/nixos.nix)
+  - [notion](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/notion.nix)
+  - [playwright](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/playwright.nix)
+  - [sequential-thinking](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/sequential-thinking.nix)
+  - [serena](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/serena.nix)
+  - [slite](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/slite.nix)
+  - [tavily](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/tavily.nix)
+  - [terraform](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/terraform.nix)
+  - [textlint](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/textlint.nix)
+  - [time](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/time.nix)
   
   ## Örnekler
   
   Tam konfigürasyon örnekleri için `examples` dizinini kontrol edin:
   
-  - [`claude-desktop.nix`](./examples/claude-desktop.nix): Claude Desktop için temel konfigürasyon
-  - [`vscode.nix`](./examples/vscode.nix): VS Code entegrasyonu kurulumu
-  - [`librechat.nix`](./examples/librechat.nix): LibreChat entegrasyonu için konfigürasyon
-  - [`codex.nix`](./examples/codex.nix): MCP sunucuları ile Codex CLI entegrasyonu
-  - [`opencode.nix`](./examples/opencode.nix): MCP sunucuları ile OpenCode CLI entegrasyonu
-  - [`vscode-workspace`](./examples/vscode-workspace/flake.nix): VS Code çalışma alanı konfigürasyon örneği
-  - [`flake-parts-module`](./examples/flake-parts-module/flake.nix): Çok çeşit desteği ile flake-parts modül entegrasyonu
-  - [`devenv`](./examples/devenv): `claude.code.mcpServers` kullanarak devenv entegrasyonu
-  - [`home-manager`](./examples/home-manager/flake.nix): `programs.mcp.servers` ile Home Manager entegrasyonu
+  - [`claude-desktop.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/claude-desktop.nix): Claude Desktop için temel konfigürasyon
+  - [`vscode.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/vscode.nix): VS Code entegrasyonu kurulumu
+  - [`librechat.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/librechat.nix): LibreChat entegrasyonu için konfigürasyon
+  - [`codex.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/codex.nix): MCP sunucuları ile Codex CLI entegrasyonu
+  - [`opencode.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/opencode.nix): MCP sunucuları ile OpenCode CLI entegrasyonu
+  - [`vscode-workspace`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/vscode-workspace/flake.nix): VS Code çalışma alanı konfigürasyon örneği
+  - [`flake-parts-module`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/flake-parts-module/flake.nix): Çok çeşit desteği ile flake-parts modül entegrasyonu
+  - [`devenv`](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/examples/devenv): `claude.code.mcpServers` kullanarak devenv entegrasyonu
+  - [`home-manager`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/home-manager/flake.nix): `programs.mcp.servers` ile Home Manager entegrasyonu
   
   ### Gerçek Dünya Örnekleri
   
@@ -129,15 +129,15 @@ body_tr: |-
   
   ## Dokumentasyon
   
-  - [Modül Kullanım Kılavuzu](docs/module-usage.md) — Nix ile MCP sunucularını yapılandırma (klasik, npins, flakes, flake-parts)
-  - [Konfigürasyon Referansı](docs/configuration-reference.md) — Güvenlik, kimlik bilgisi yönetimi ve flake-parts seçenekleri
-  - [Modül Seçenekleri Referansı](docs/module-options.md) — Tüm modül seçeneklerinin otomatik oluşturulan listesi
-  - [Paketler Kılavuzu](docs/packages.md) — Bağımsız MCP sunucu paketlerini kullanma
-  - [Katkı Kılavuzu](CONTRIBUTING.md) — Yeni paketler ve modüller ekleme
+  - [Modül Kullanım Kılavuzu](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/module-usage.md) — Nix ile MCP sunucularını yapılandırma (klasik, npins, flakes, flake-parts)
+  - [Konfigürasyon Referansı](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/configuration-reference.md) — Güvenlik, kimlik bilgisi yönetimi ve flake-parts seçenekleri
+  - [Modül Seçenekleri Referansı](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/module-options.md) — Tüm modül seçeneklerinin otomatik oluşturulan listesi
+  - [Paketler Kılavuzu](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/packages.md) — Bağımsız MCP sunucu paketlerini kullanma
+  - [Katkı Kılavuzu](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/CONTRIBUTING.md) — Yeni paketler ve modüller ekleme
   
   ## Lisans
   
-  Bu proje Apache License 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE dosyasını](./LICENSE) görün.
+  Bu proje Apache License 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE dosyasını](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/LICENSE) görün.
 ---
 
 # mcp-servers-nix
@@ -154,7 +154,7 @@ This repository provides both MCP server packages and a Nix framework for config
 - **Reproducible Builds**: Leverage Nix for reproducible and declarative server setups
 - **Pre-configured Modules**: Ready-to-use configurations for popular MCP server types
 - **Security-focused**: Better handling credentials and sensitive information through `envFile` and `passwordCommand`, with pinned server versions
-- **Framework Support**: Integrates with [Flakes](docs/module-usage.md#using-flakes), [flake-parts](docs/module-usage.md#using-flake-parts), [devenv](docs/module-usage.md#using-devenv), and [Home Manager](docs/module-usage.md#using-home-manager)
+- **Framework Support**: Integrates with [Flakes](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-flakes), [flake-parts](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-flake-parts), [devenv](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-devenv), and [Home Manager](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/docs/module-usage.md#using-home-manager)
 
 ## Quick Start
 
@@ -212,46 +212,46 @@ The output format adapts to the `flavor` option — see [Supported Flavors](#sup
 
 ## Available Modules
 
-- [clickup](./modules/servers/clickup.nix)
-- [codex](./modules/servers/codex.nix)
-- [context7](./modules/servers/context7.nix)
-- [deepl](./modules/servers/deepl.nix)
-- [esa](./modules/servers/esa.nix)
-- [everything](./modules/servers/everything.nix)
-- [fetch](./modules/servers/fetch.nix)
-- [filesystem](./modules/servers/filesystem.nix)
-- [freee](./modules/servers/freee.nix)
-- [git](./modules/servers/git.nix)
-- [github](./modules/servers/github.nix)
-- [grafana](./modules/servers/grafana.nix)
-- [home-assistant](./modules/servers/home-assistant.nix)
-- [mastra](./modules/servers/mastra.nix)
-- [memory](./modules/servers/memory.nix)
-- [netdata](./modules/servers/netdata.nix)
-- [nixos](./modules/servers/nixos.nix)
-- [notion](./modules/servers/notion.nix)
-- [playwright](./modules/servers/playwright.nix)
-- [sequential-thinking](./modules/servers/sequential-thinking.nix)
-- [serena](./modules/servers/serena.nix)
-- [slite](./modules/servers/slite.nix)
-- [tavily](./modules/servers/tavily.nix)
-- [terraform](./modules/servers/terraform.nix)
-- [textlint](./modules/servers/textlint.nix)
-- [time](./modules/servers/time.nix)
+- [clickup](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/clickup.nix)
+- [codex](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/codex.nix)
+- [context7](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/context7.nix)
+- [deepl](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/deepl.nix)
+- [esa](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/esa.nix)
+- [everything](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/everything.nix)
+- [fetch](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/fetch.nix)
+- [filesystem](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/filesystem.nix)
+- [freee](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/freee.nix)
+- [git](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/git.nix)
+- [github](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/github.nix)
+- [grafana](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/grafana.nix)
+- [home-assistant](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/home-assistant.nix)
+- [mastra](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/mastra.nix)
+- [memory](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/memory.nix)
+- [netdata](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/netdata.nix)
+- [nixos](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/nixos.nix)
+- [notion](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/notion.nix)
+- [playwright](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/playwright.nix)
+- [sequential-thinking](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/sequential-thinking.nix)
+- [serena](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/serena.nix)
+- [slite](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/slite.nix)
+- [tavily](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/tavily.nix)
+- [terraform](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/terraform.nix)
+- [textlint](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/textlint.nix)
+- [time](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/modules/servers/time.nix)
 
 ## Examples
 
 Check the `examples` directory for complete configuration examples:
 
-- [`claude-desktop.nix`](./examples/claude-desktop.nix): Basic configuration for Claude Desktop
-- [`vscode.nix`](./examples/vscode.nix): VS Code integration setup
-- [`librechat.nix`](./examples/librechat.nix): Configuration for LibreChat integration
-- [`codex.nix`](./examples/codex.nix): Codex CLI integration with MCP servers
-- [`opencode.nix`](./examples/opencode.nix): OpenCode CLI integration with MCP servers
-- [`vscode-workspace`](./examples/vscode-workspace/flake.nix): VS Code workspace configuration example
-- [`flake-parts-module`](./examples/flake-parts-module/flake.nix): Flake-parts module integration with multi-flavor support
-- [`devenv`](./examples/devenv): devenv integration using `claude.code.mcpServers`
-- [`home-manager`](./examples/home-manager/flake.nix): Home Manager integration with `programs.mcp.servers`
+- [`claude-desktop.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/claude-desktop.nix): Basic configuration for Claude Desktop
+- [`vscode.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/vscode.nix): VS Code integration setup
+- [`librechat.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/librechat.nix): Configuration for LibreChat integration
+- [`codex.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/codex.nix): Codex CLI integration with MCP servers
+- [`opencode.nix`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/opencode.nix): OpenCode CLI integration with MCP servers
+- [`vscode-workspace`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/vscode-workspace/flake.nix): VS Code workspace configuration example
+- [`flake-parts-module`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/flake-parts-module/flake.nix): Flake-parts module integration with multi-flavor support
+- [`devenv`](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/examples/devenv): devenv integration using `claude.code.mcpServers`
+- [`home-manager`](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/examples/home-manager/flake.nix): Home Manager integration with `programs.mcp.servers`
 
 ### Real World Examples
 
@@ -259,12 +259,12 @@ Check out [GitHub search results](https://github.com/search?q=lang%3Anix+mcp-ser
 
 ## Documentation
 
-- [Module Usage Guide](docs/module-usage.md) — How to configure MCP servers with Nix (classic, npins, flakes, flake-parts)
-- [Configuration Reference](docs/configuration-reference.md) — Security, credential handling, and flake-parts options
-- [Module Options Reference](docs/module-options.md) — Auto-generated list of all module options
-- [Packages Guide](docs/packages.md) — Using standalone MCP server packages
-- [Contributing Guide](CONTRIBUTING.md) — Adding new packages and modules
+- [Module Usage Guide](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/module-usage.md) — How to configure MCP servers with Nix (classic, npins, flakes, flake-parts)
+- [Configuration Reference](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/configuration-reference.md) — Security, credential handling, and flake-parts options
+- [Module Options Reference](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/module-options.md) — Auto-generated list of all module options
+- [Packages Guide](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/docs/packages.md) — Using standalone MCP server packages
+- [Contributing Guide](https://github.com/natsukium/mcp-servers-nix/blob/HEAD/CONTRIBUTING.md) — Adding new packages and modules
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE file](./LICENSE) for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE file](https://github.com/natsukium/mcp-servers-nix/tree/HEAD/LICENSE) for details.

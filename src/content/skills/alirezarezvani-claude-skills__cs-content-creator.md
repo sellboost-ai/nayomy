@@ -40,7 +40,7 @@ body_tr: |-
   
   ## Skill Entegrasyonu
   
-  **Skill konumu:** `../../marketing-skill/skills/content-production/` ([SKILL.md](../../marketing-skill/skills/content-production/SKILL.md))
+  **Skill konumu:** `../../marketing-skill/skills/content-production/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/content-production/SKILL.md))
   
   ### Python Araçları (stdlib yalnız — hepsi `--help` geçirir)
   
@@ -116,7 +116,7 @@ body_tr: |-
   
   - "Ne yazmalıyız?" / konu kümeleri / takvim → `../../marketing-skill/skills/content-strategy/` (bu ajanın kapsamı dışı).
   - Taslak "AI'ya benzem gibi sesleniyor" → optimizasyon geçişinden önce `content-humanizer` skill'ini çalıştır.
-  - ChatGPT/Perplexity alıntısı için optimize etme → [cs-aeo](cs-aeo.md)'ya devret.
+  - ChatGPT/Perplexity alıntısı için optimize etme → [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md)'ya devret.
   - Landing sayfası veya CTA kopyası → uzun biçim üretim değil `copywriting` skill'i.
   
   ## Başarı Ölçümleri
@@ -128,16 +128,16 @@ body_tr: |-
   
   ## İlgili Ajanlar
   
-  - [cs-aeo](cs-aeo.md) — bu ajanın çıktısını LLM alıntısı için optimize eder (üretimden sonra çalıştırın)
-  - [cs-demand-gen-specialist](cs-demand-gen-specialist.md) — bu ajanın içeriğini talep üretme yakıtı olarak kullanır (kapılı varlıklar, beslenme içeriği)
-  - [cs-webinar-marketer](cs-webinar-marketer.md) — üretilen içeriği tüketen webiner huni
+  - [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md) — bu ajanın çıktısını LLM alıntısı için optimize eder (üretimden sonra çalıştırın)
+  - [cs-demand-gen-specialist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-demand-gen-specialist.md) — bu ajanın içeriğini talep üretme yakıtı olarak kullanır (kapılı varlıklar, beslenme içeriği)
+  - [cs-webinar-marketer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-webinar-marketer.md) — üretilen içeriği tüketen webiner huni
   
   ## Referanslar
   
-  - **Skill belgeleri:** [../../marketing-skill/skills/content-production/SKILL.md](../../marketing-skill/skills/content-production/SKILL.md)
-  - **Planlama kardeşi:** [../../marketing-skill/skills/content-strategy/SKILL.md](../../marketing-skill/skills/content-strategy/SKILL.md)
-  - **Pazarlama alanı kılavuzu:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
-  - **Ajan geliştirme kılavuzu:** [../CLAUDE.md](../CLAUDE.md)
+  - **Skill belgeleri:** [../../marketing-skill/skills/content-production/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/content-production/SKILL.md)
+  - **Planlama kardeşi:** [../../marketing-skill/skills/content-strategy/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/content-strategy/SKILL.md)
+  - **Pazarlama alanı kılavuzu:** [../../marketing-skill/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/CLAUDE.md)
+  - **Ajan geliştirme kılavuzu:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
   
   ---
   
@@ -172,7 +172,7 @@ If it exists, it contains brand voice, target audience, keyword targets, and wri
 
 ## Skill Integration
 
-**Skill location:** `../../marketing-skill/skills/content-production/` ([SKILL.md](../../marketing-skill/skills/content-production/SKILL.md))
+**Skill location:** `../../marketing-skill/skills/content-production/` ([SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/content-production/SKILL.md))
 
 ### Python Tools (stdlib only — all pass `--help`)
 
@@ -248,7 +248,7 @@ If it exists, it contains brand voice, target audience, keyword targets, and wri
 
 - "What should we write?" / topic clusters / calendar → `../../marketing-skill/skills/content-strategy/` (out of this agent's lane).
 - Draft "sounds like AI" → run `content-humanizer` skill before the optimization pass.
-- Optimizing for ChatGPT/Perplexity citation → hand off to [cs-aeo](cs-aeo.md).
+- Optimizing for ChatGPT/Perplexity citation → hand off to [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md).
 - Landing-page or CTA copy → `copywriting` skill, not long-form production.
 
 ## Success Metrics
@@ -260,16 +260,16 @@ If it exists, it contains brand voice, target audience, keyword targets, and wri
 
 ## Related Agents
 
-- [cs-aeo](cs-aeo.md) — optimizes this agent's output for LLM citation (run after production)
-- [cs-demand-gen-specialist](cs-demand-gen-specialist.md) — uses this agent's content as demand-gen fuel (gated assets, nurture content)
-- [cs-webinar-marketer](cs-webinar-marketer.md) — webinar funnels that consume produced content
+- [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md) — optimizes this agent's output for LLM citation (run after production)
+- [cs-demand-gen-specialist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-demand-gen-specialist.md) — uses this agent's content as demand-gen fuel (gated assets, nurture content)
+- [cs-webinar-marketer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-webinar-marketer.md) — webinar funnels that consume produced content
 
 ## References
 
-- **Skill documentation:** [../../marketing-skill/skills/content-production/SKILL.md](../../marketing-skill/skills/content-production/SKILL.md)
-- **Planning sibling:** [../../marketing-skill/skills/content-strategy/SKILL.md](../../marketing-skill/skills/content-strategy/SKILL.md)
-- **Marketing domain guide:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
-- **Agent development guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill documentation:** [../../marketing-skill/skills/content-production/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/content-production/SKILL.md)
+- **Planning sibling:** [../../marketing-skill/skills/content-strategy/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/skills/content-strategy/SKILL.md)
+- **Marketing domain guide:** [../../marketing-skill/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/marketing-skill/CLAUDE.md)
+- **Agent development guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

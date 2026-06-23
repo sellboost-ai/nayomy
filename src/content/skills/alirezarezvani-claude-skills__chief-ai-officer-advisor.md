@@ -226,10 +226,10 @@ body_tr: |-
   
   ## Referanslar
   
-  - [model_buildvsbuy_strategy.md](references/model_buildvsbuy_strategy.md) — Tam karar ağacı + 3 yıllık TCO bileşenleri + her yolun ne zaman başarısız olduğu
-  - [ai_risk_governance.md](references/ai_risk_governance.md) — EU AI Act + NIST AI RMF + ABD eyalet karmaşası + endüstri katmanları + yönetim programı
-  - [ai_cost_economics.md](references/ai_cost_economics.md) — API fiyatlandırması 2026 + GPU kiralama ekonomisi + kullanım gerçeklikleri + taşıma maliyeti
-  - [ai_team_org_evolution.md](references/ai_team_org_evolution.md) — Aşama-rol haritası + rol tanımları (AI engineer ≠ ML engineer ≠ scientist) + anti-pattern'ler
+  - [model_buildvsbuy_strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/model_buildvsbuy_strategy.md) — Tam karar ağacı + 3 yıllık TCO bileşenleri + her yolun ne zaman başarısız olduğu
+  - [ai_risk_governance.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_risk_governance.md) — EU AI Act + NIST AI RMF + ABD eyalet karmaşası + endüstri katmanları + yönetim programı
+  - [ai_cost_economics.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_cost_economics.md) — API fiyatlandırması 2026 + GPU kiralama ekonomisi + kullanım gerçeklikleri + taşıma maliyeti
+  - [ai_team_org_evolution.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_team_org_evolution.md) — Aşama-rol haritası + rol tanımları (AI engineer ≠ ML engineer ≠ scientist) + anti-pattern'ler
   
   ---
   
@@ -450,10 +450,10 @@ python scripts/ai_cost_economics.py workload.json
 
 ## References
 
-- [model_buildvsbuy_strategy.md](references/model_buildvsbuy_strategy.md) — Full decision tree + 3-year TCO components + when each path fails
-- [ai_risk_governance.md](references/ai_risk_governance.md) — EU AI Act + NIST AI RMF + US state patchwork + industry overlays + governance program
-- [ai_cost_economics.md](references/ai_cost_economics.md) — API pricing 2026 + GPU rental economics + utilization realities + migration cost
-- [ai_team_org_evolution.md](references/ai_team_org_evolution.md) — Stage-to-role map + role definitions (AI engineer ≠ ML engineer ≠ scientist) + anti-patterns
+- [model_buildvsbuy_strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/model_buildvsbuy_strategy.md) — Full decision tree + 3-year TCO components + when each path fails
+- [ai_risk_governance.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_risk_governance.md) — EU AI Act + NIST AI RMF + US state patchwork + industry overlays + governance program
+- [ai_cost_economics.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_cost_economics.md) — API pricing 2026 + GPU rental economics + utilization realities + migration cost
+- [ai_team_org_evolution.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_team_org_evolution.md) — Stage-to-role map + role definitions (AI engineer ≠ ML engineer ≠ scientist) + anti-patterns
 
 ---
 

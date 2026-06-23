@@ -438,8 +438,8 @@ body_tr: |-
   ---
   
   > **v2'den yükseltiliyor mu?** Eski TypeScript sunucusu npm üzerinde `opik-mcp@^2` (`npx -y opik-mcp`)
-  > olarak yayınlanmaya devam ediyor; kaynak [`legacy/typescript/`](./legacy/typescript/) altında saklanıyor.
-  > Destek politikası için [`legacy/typescript/DEPRECATED.md`](./legacy/typescript/DEPRECATED.md) öğesine bakın.
+  > olarak yayınlanmaya devam ediyor; kaynak [`legacy/typescript/`](https://github.com/comet-ml/opik-mcp/tree/HEAD/legacy/typescript/) altında saklanıyor.
+  > Destek politikası için [`legacy/typescript/DEPRECATED.md`](https://github.com/comet-ml/opik-mcp/blob/HEAD/legacy/typescript/DEPRECATED.md) öğesine bakın.
   
   ---
   
@@ -452,7 +452,7 @@ body_tr: |-
 
 > **Migrating from the old `npx opik-mcp`?** The TypeScript server is deprecated
 > and sunsets on **2026-11-15**. Swap `npx -y opik-mcp` for **`uvx opik-mcp@latest`**
-> in your MCP client config. Full guide: [`legacy/typescript/MIGRATION.md`](./legacy/typescript/MIGRATION.md).
+> in your MCP client config. Full guide: [`legacy/typescript/MIGRATION.md`](https://github.com/comet-ml/opik-mcp/blob/HEAD/legacy/typescript/MIGRATION.md).
 
 **Model Context Protocol server for [Opik](https://www.comet.com/opik) + Ollie.**
 Plug your AI host (Claude Code, Cursor, VS Code Copilot, MCP Inspector) directly
@@ -909,8 +909,8 @@ opik-mcp/
 
 > **Upgrading from v2?** The legacy TypeScript server still ships on npm as
 > `opik-mcp@^2` (`npx -y opik-mcp`); source is preserved under
-> [`legacy/typescript/`](./legacy/typescript/). See
-> [`legacy/typescript/DEPRECATED.md`](./legacy/typescript/DEPRECATED.md) for
+> [`legacy/typescript/`](https://github.com/comet-ml/opik-mcp/tree/HEAD/legacy/typescript/). See
+> [`legacy/typescript/DEPRECATED.md`](https://github.com/comet-ml/opik-mcp/blob/HEAD/legacy/typescript/DEPRECATED.md) for
 > the support policy.
 
 ---

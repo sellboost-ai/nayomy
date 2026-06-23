@@ -127,8 +127,8 @@ body_tr: |-
   - **Doğru aşama düzeltmeleri** — kurtarma çalışması kolay-düzen aşaması değil, puanlanmış tıkanıklığı hedef alır
   
   ## İlgili Ajanlar
-  - [cs-aeo](cs-aeo.md) — webinarın AI arama motorları tarafından alıntılanan destekleyici içeriğini alın
-  - [cs-growth-strategist](../business-growth/cs-growth-strategist.md) — pipeline etkisi ve post-webinar gelir hareketi
+  - [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md) — webinarın AI arama motorları tarafından alıntılanan destekleyici içeriğini alın
+  - [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/business-growth/cs-growth-strategist.md) — pipeline etkisi ve post-webinar gelir hareketi
 ---
 
 # cs-webinar-marketer — Webinar & Virtual Event Specialist
@@ -244,5 +244,5 @@ Returns an overall 0-100 score, per-stage rate vs. benchmark, and the named bott
 - **Right-stage fixes** — rescue work targets the scored bottleneck, not the easiest-to-edit stage
 
 ## Related Agents
-- [cs-aeo](cs-aeo.md) — get the webinar's supporting content cited by AI search engines
-- [cs-growth-strategist](../business-growth/cs-growth-strategist.md) — pipeline impact and post-webinar revenue motion
+- [cs-aeo](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-aeo.md) — get the webinar's supporting content cited by AI search engines
+- [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/business-growth/cs-growth-strategist.md) — pipeline impact and post-webinar revenue motion

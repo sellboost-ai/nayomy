@@ -105,10 +105,10 @@ body_tr: |-
   
   ## Referanslar
   
-  - [persona-voices.md](../../references/persona-voices.md)
-  - [llm-wiki-bridge.md](../../references/llm-wiki-bridge.md)
-  - [Üst c-level CLAUDE.md](../../../CLAUDE.md)
-  - [Mevcut executive-mentor kardeş](../../../executive-mentor/)
+  - [persona-voices.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/persona-voices.md)
+  - [llm-wiki-bridge.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/llm-wiki-bridge.md)
+  - [Üst c-level CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
+  - [Mevcut executive-mentor kardeş](https://github.com/alirezarezvani/claude-skills/tree/HEAD/executive-mentor/)
   
   ---
   
@@ -212,10 +212,10 @@ User question
 
 ## References
 
-- [persona-voices.md](../../references/persona-voices.md)
-- [llm-wiki-bridge.md](../../references/llm-wiki-bridge.md)
-- [Parent c-level CLAUDE.md](../../../CLAUDE.md)
-- [Existing executive-mentor sibling](../../../executive-mentor/)
+- [persona-voices.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/persona-voices.md)
+- [llm-wiki-bridge.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/llm-wiki-bridge.md)
+- [Parent c-level CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
+- [Existing executive-mentor sibling](https://github.com/alirezarezvani/claude-skills/tree/HEAD/executive-mentor/)
 
 ---
 

@@ -53,7 +53,7 @@ body_tr: |-
   - **Gerçek Zamanlı Mesajlaşma**: Backend sunucularından araç/kaynak güncellemeleri ve ilerleme bildirimleri almak için MCP bildirimler ve mesajlara tam destek.
   - **Python 3.12+ Desteği**: Python 3.12 ve 3.13 ile tamamen uyumlu.
   - **Kit Yönetimi**: İlişkili MCP sunucularını grup olarak kolayca yüklemek/boşaltmak için kit'ler halinde paketleyin.
-  - **MBro CLI**: Dahil edilen [MCP Browser](docs/mbro.md) ile MCP sunucularının etkileşimli keşfi ve yönetimi, otomasyon için script desteği.
+  - **MBro CLI**: Dahil edilen [MCP Browser](https://github.com/sitbon/magg/blob/HEAD/docs/mbro.md) ile MCP sunucularının etkileşimli keşfi ve yönetimi, otomasyon için script desteği.
   
   ## Kurulum
   
@@ -252,7 +252,7 @@ body_tr: |-
   - **Shell tarzı argumentler**: JSON yerine `key=value` söz dizimini kullan
   - **Tab tamamlama**: Bağlandıktan sonra zengin parametre ipuçları
   
-  Detaylar için [MBro Belgelendirmesi](docs/mbro.md) bölümüne bakın.
+  Detaylar için [MBro Belgelendirmesi](https://github.com/sitbon/magg/blob/HEAD/docs/mbro.md) bölümüne bakın.
   
   ### Kimlik Doğrulama
   
@@ -307,7 +307,7 @@ body_tr: |-
   - `magg auth public-key` - Genel anahtarı görüntüle (doğrulama için)
   - `magg auth private-key` - Özel anahtarı görüntüle (yedekleme için)
   
-  Daha fazla kullanım örneği için [examples/authentication.py](examples/authentication.py) dosyasına bakın.
+  Daha fazla kullanım örneği için [examples/authentication.py](https://github.com/sitbon/magg/blob/HEAD/examples/authentication.py) dosyasına bakın.
   
   ### Yapılandırma
   
@@ -326,7 +326,7 @@ body_tr: |-
   - `MAGG_AUTO_RELOAD=false` - Otomatik yeniden yüklemeyi devre dışı bırak
   - `MAGG_RELOAD_POLL_INTERVAL=5.0` - Saniye cinsinden polling aralığını ayarla (watchdog mevcut olmadığında)
   
-  Detaylı bilgi için [Konfigürasyon Yeniden Yükleme Belgelendirmesi](docs/config-reload.md) bölümüne bakın.
+  Detaylı bilgi için [Konfigürasyon Yeniden Yükleme Belgelendirmesi](https://github.com/sitbon/magg/blob/HEAD/docs/config-reload.md) bölümüne bakın.
   
   #### Ortam Değişkenleri
   
@@ -393,7 +393,7 @@ body_tr: |-
       tools = await client.list_tools()
   ```
   
-  Özel mesaj işleyicileri de dahil olmak üzere gelişmiş kullanım için [Mesajlaşma Belgelendirmesi](docs/messaging.md) bölümüne bakın.
+  Özel mesaj işleyicileri de dahil olmak üzere gelişmiş kullanım için [Mesajlaşma Belgelendirmesi](https://github.com/sitbon/magg/blob/HEAD/docs/messaging.md) bölümüne bakın.
   
   ### Kit Yönetimi
   
@@ -419,7 +419,7 @@ body_tr: |-
   - `magg_unload_kit` - Bir kit'i boşalt
   - `magg_kit_info` - Detaylı kit bilgisi al
   
-  Kit'ler, `~/.magg/kit.d/` veya `.magg/kit.d/` adresinde depolanan ve ilişkili sunucu koleksiyonunu tanımlayan JSON dosyalarıdır. Kit'leri oluşturma ve yönetme hakkında detaylı bilgi için [Kit Belgelendirmesi](docs/kits.md) bölümüne bakın.
+  Kit'ler, `~/.magg/kit.d/` veya `.magg/kit.d/` adresinde depolanan ve ilişkili sunucu koleksiyonunu tanımlayan JSON dosyalarıdır. Kit'leri oluşturma ve yönetme hakkında detaylı bilgi için [Kit Belgelendirmesi](https://github.com/sitbon/magg/blob/HEAD/docs/kits.md) bölümüne bakın.
   
   ### MBro Script'leri
   
@@ -443,7 +443,7 @@ body_tr: |-
   
   ## Belgelendirme
   
-  Daha fazla belgelendirme için [docs/](docs/index.md) bölümüne bakın.
+  Daha fazla belgelendirme için [docs/](https://github.com/sitbon/magg/blob/HEAD/docs/index.md) bölümüne bakın.
   
   ## Görünümler
   
@@ -497,7 +497,7 @@ Think of Magg as a "package manager for LLM tools" - it lets AI assistants insta
 - **Real-time Messaging**: Full support for MCP notifications and messages - receive tool/resource updates and progress notifications from backend servers.
 - **Python 3.12+ Support**: Fully compatible with Python 3.12 and 3.13.
 - **Kit Management**: Bundle related MCP servers into kits for easy loading/unloading as a group.
-- **MBro CLI**: Included [MCP Browser](docs/mbro.md) for interactive exploration and management of MCP servers, with script support for automation.
+- **MBro CLI**: Included [MCP Browser](https://github.com/sitbon/magg/blob/HEAD/docs/mbro.md) for interactive exploration and management of MCP servers, with script support for automation.
 
 ## Installation
 
@@ -696,7 +696,7 @@ MBro also supports:
 - **Shell-style arguments**: Use `key=value` syntax instead of JSON
 - **Tab completion**: Rich parameter hints after connecting
 
-See the [MBro Documentation](docs/mbro.md) for details.
+See the [MBro Documentation](https://github.com/sitbon/magg/blob/HEAD/docs/mbro.md) for details.
 
 ### Authentication
 
@@ -751,7 +751,7 @@ Magg supports optional bearer token authentication to secure access:
 - `magg auth public-key` - Display public key (for verification)
 - `magg auth private-key` - Display private key (for backup)
 
-See [examples/authentication.py](examples/authentication.py) for more usage patterns.
+See [examples/authentication.py](https://github.com/sitbon/magg/blob/HEAD/examples/authentication.py) for more usage patterns.
 
 ### Configuration
 
@@ -770,7 +770,7 @@ Configuration reload is enabled by default. You can control it with:
 - `MAGG_AUTO_RELOAD=false` - Disable automatic reloading
 - `MAGG_RELOAD_POLL_INTERVAL=5.0` - Set polling interval in seconds (when watchdog unavailable)
 
-See [Configuration Reload Documentation](docs/config-reload.md) for detailed information.
+See [Configuration Reload Documentation](https://github.com/sitbon/magg/blob/HEAD/docs/config-reload.md) for detailed information.
 
 #### Environment Variables
 
@@ -837,7 +837,7 @@ async with MaggClient("http://localhost:8000/mcp", message_handler=handler) as c
     tools = await client.list_tools()
 ```
 
-See [Messaging Documentation](docs/messaging.md) for advanced usage including custom message handlers.
+See [Messaging Documentation](https://github.com/sitbon/magg/blob/HEAD/docs/messaging.md) for advanced usage including custom message handlers.
 
 ### Kit Management
 
@@ -863,7 +863,7 @@ You can also manage kits programmatically through Magg's tools when connected vi
 - `magg_unload_kit` - Unload a kit
 - `magg_kit_info` - Get detailed kit information
 
-Kits are JSON files stored in `~/.magg/kit.d/` or `.magg/kit.d/` that define a collection of related servers. See [Kit Documentation](docs/kits.md) for details on creating and managing kits.
+Kits are JSON files stored in `~/.magg/kit.d/` or `.magg/kit.d/` that define a collection of related servers. See [Kit Documentation](https://github.com/sitbon/magg/blob/HEAD/docs/kits.md) for details on creating and managing kits.
 
 ### MBro Scripts
 
@@ -887,7 +887,7 @@ mbro -x setup.mbro
 
 ## Documentation
 
-For more documentation, see [docs/](docs/index.md).
+For more documentation, see [docs/](https://github.com/sitbon/magg/blob/HEAD/docs/index.md).
 
 ## Appearances
 

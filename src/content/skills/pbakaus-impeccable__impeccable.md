@@ -114,35 +114,35 @@ body_tr: |-
   **Kategori reflek kontrolü.** İki irtifada çalıştırın; ikincisi birincinin kaçırdığını yakalar.
   
   - **Birinci derece:** eğer biri temayı + paleti yalnızca kategoriden tahmin edebilirse, ilk eğitim verilerinin refleksidir. Sahne cümlesini ve renk stratejisini yanıtın kategoriden açık olmayacağı şekilde yeniden çalışın.
-  - **İkinci derece:** eğer biri estetik ailesini kategori artı anti-referanslardan tahmin edebilirse ("SaaS krem değil AI iş akışı aracı → editorial-tipografik", "fintech tersine-prime-yerel koyu mod değil"), daha derin tuzaktır. İlk reflek kaçınıldı; ikincisi değil. Her iki yanıt açık olmayacağı şekilde yeniden çalışın. Marka kaydının [reflex-reject estetik şeritleri](reference/brand.md) listesi şu anda doymuş aileleri yakalar.
+  - **İkinci derece:** eğer biri estetik ailesini kategori artı anti-referanslardan tahmin edebilirse ("SaaS krem değil AI iş akışı aracı → editorial-tipografik", "fintech tersine-prime-yerel koyu mod değil"), daha derin tuzaktır. İlk reflek kaçınıldı; ikincisi değil. Her iki yanıt açık olmayacağı şekilde yeniden çalışın. Marka kaydının [reflex-reject estetik şeritleri](https://github.com/pbakaus/impeccable/blob/HEAD/reference/brand.md) listesi şu anda doymuş aileleri yakalar.
   
   ## Komutlar
   
   | Komut | Kategori | Açıklama | Referans |
   |---|---|---|---|
-  | `craft [feature]` | İnşa | Bir özelliği planla, sonra uçtan uca oluştur | [reference/craft.md](reference/craft.md) |
-  | `shape [feature]` | İnşa | Kod yazmadan UX/UI planlayın | [reference/shape.md](reference/shape.md) |
-  | `init` | İnşa | Proje bağlamını ayarlayın: PRODUCT.md, DESIGN.md, canlı yapılandırma, sonraki adımlar | [reference/init.md](reference/init.md) |
-  | `document` | İnşa | Mevcut proje kodundan DESIGN.md oluşturun | [reference/document.md](reference/document.md) |
-  | `extract [target]` | İnşa | Yeniden kullanılabilir tokens ve bileşenleri tasarım sistemine çekin | [reference/extract.md](reference/extract.md) |
-  | `critique [target]` | Değerlendir | Sezgisel puanlama ile UX tasarım incelemesi | [reference/critique.md](reference/critique.md) |
-  | `audit [target]` | Değerlendir | Teknik kalite kontrolleri (a11y, perf, responsive) | [reference/audit.md](reference/audit.md) |
-  | `polish [target]` | İyileştir | Göndermeden önce son kalite geçişi | [reference/polish.md](reference/polish.md) |
-  | `bolder [target]` | İyileştir | Güvenli ya da sıkıcı tasarımları güçlendir | [reference/bolder.md](reference/bolder.md) |
-  | `quieter [target]` | İyileştir | Saldırgan ya da aşırı uyarıcı tasarımları azalt | [reference/quieter.md](reference/quieter.md) |
-  | `distill [target]` | İyileştir | Özüne soyundu, karmaşıklığı kaldır | [reference/distill.md](reference/distill.md) |
-  | `harden [target]` | İyileştir | Üretim'e hazır: hatalar, i18n, sınır durumları | [reference/harden.md](reference/harden.md) |
-  | `onboard [target]` | İyileştir | Tasarım ilk çalışma akışları, boş durumlar, aktivasyon | [reference/onboard.md](reference/onboard.md) |
-  | `animate [target]` | Geliştir | Kasıtlı animasyonlar ve hareket ekleyin | [reference/animate.md](reference/animate.md) |
-  | `colorize [target]` | Geliştir | Monokromatik UI'lara stratejik renk ekleyin | [reference/colorize.md](reference/colorize.md) |
-  | `typeset [target]` | Geliştir | Tipografi hiyerarşisini ve fontları iyileştirin | [reference/typeset.md](reference/typeset.md) |
-  | `layout [target]` | Geliştir | Aralığı, ritimleri ve görsel hiyerarşiyi düzeltin | [reference/layout.md](reference/layout.md) |
-  | `delight [target]` | Geliştir | Kişilik ve akılda kalıcı dokunuşlar ekleyin | [reference/delight.md](reference/delight.md) |
-  | `overdrive [target]` | Geliştir | Geleneksel sınırların ötesine itin | [reference/overdrive.md](reference/overdrive.md) |
-  | `clarify [target]` | Düzelt | UX kopyasını, etiketleri ve hata mesajlarını iyileştirin | [reference/clarify.md](reference/clarify.md) |
-  | `adapt [target]` | Düzelt | Farklı cihazlar ve ekran boyutları için uyarlayın | [reference/adapt.md](reference/adapt.md) |
-  | `optimize [target]` | Düzelt | UI performansını tanılayın ve düzeltin | [reference/optimize.md](reference/optimize.md) |
-  | `live` | Tekrarla | Görsel varyant modu: tarayıcıda öğeleri seçin, alternatifler oluşturun | [reference/live.md](reference/live.md) |
+  | `craft [feature]` | İnşa | Bir özelliği planla, sonra uçtan uca oluştur | [reference/craft.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/craft.md) |
+  | `shape [feature]` | İnşa | Kod yazmadan UX/UI planlayın | [reference/shape.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/shape.md) |
+  | `init` | İnşa | Proje bağlamını ayarlayın: PRODUCT.md, DESIGN.md, canlı yapılandırma, sonraki adımlar | [reference/init.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/init.md) |
+  | `document` | İnşa | Mevcut proje kodundan DESIGN.md oluşturun | [reference/document.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/document.md) |
+  | `extract [target]` | İnşa | Yeniden kullanılabilir tokens ve bileşenleri tasarım sistemine çekin | [reference/extract.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/extract.md) |
+  | `critique [target]` | Değerlendir | Sezgisel puanlama ile UX tasarım incelemesi | [reference/critique.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/critique.md) |
+  | `audit [target]` | Değerlendir | Teknik kalite kontrolleri (a11y, perf, responsive) | [reference/audit.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/audit.md) |
+  | `polish [target]` | İyileştir | Göndermeden önce son kalite geçişi | [reference/polish.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/polish.md) |
+  | `bolder [target]` | İyileştir | Güvenli ya da sıkıcı tasarımları güçlendir | [reference/bolder.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/bolder.md) |
+  | `quieter [target]` | İyileştir | Saldırgan ya da aşırı uyarıcı tasarımları azalt | [reference/quieter.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/quieter.md) |
+  | `distill [target]` | İyileştir | Özüne soyundu, karmaşıklığı kaldır | [reference/distill.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/distill.md) |
+  | `harden [target]` | İyileştir | Üretim'e hazır: hatalar, i18n, sınır durumları | [reference/harden.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/harden.md) |
+  | `onboard [target]` | İyileştir | Tasarım ilk çalışma akışları, boş durumlar, aktivasyon | [reference/onboard.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/onboard.md) |
+  | `animate [target]` | Geliştir | Kasıtlı animasyonlar ve hareket ekleyin | [reference/animate.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/animate.md) |
+  | `colorize [target]` | Geliştir | Monokromatik UI'lara stratejik renk ekleyin | [reference/colorize.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/colorize.md) |
+  | `typeset [target]` | Geliştir | Tipografi hiyerarşisini ve fontları iyileştirin | [reference/typeset.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/typeset.md) |
+  | `layout [target]` | Geliştir | Aralığı, ritimleri ve görsel hiyerarşiyi düzeltin | [reference/layout.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/layout.md) |
+  | `delight [target]` | Geliştir | Kişilik ve akılda kalıcı dokunuşlar ekleyin | [reference/delight.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/delight.md) |
+  | `overdrive [target]` | Geliştir | Geleneksel sınırların ötesine itin | [reference/overdrive.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/overdrive.md) |
+  | `clarify [target]` | Düzelt | UX kopyasını, etiketleri ve hata mesajlarını iyileştirin | [reference/clarify.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/clarify.md) |
+  | `adapt [target]` | Düzelt | Farklı cihazlar ve ekran boyutları için uyarlayın | [reference/adapt.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/adapt.md) |
+  | `optimize [target]` | Düzelt | UI performansını tanılayın ve düzeltin | [reference/optimize.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/optimize.md) |
+  | `live` | Tekrarla | Görsel varyant modu: tarayıcıda öğeleri seçin, alternatifler oluşturun | [reference/live.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/live.md) |
   
   Artı üç yönetim komutu: `pin <command>`, `unpin <command>`, ve `hooks <on|off|status|...>`, aşağıda ayrıntılı.
   
@@ -167,9 +167,9 @@ body_tr: |-
   
   Kurulum (bağlam toplama, kayıt) daha sonra zaten yüklenir; alt komutlar `$impeccable` yeniden çağırmaz.
   
-  İlk kelime `craft` ise, kurulum yine de çalışır, ancak [reference/craft.md](reference/craft.md) geri kalan akışına sahiptir. Kurulum `init`'i bloklayıcı olarak çağırdıysa, init'i bitir, bağlamı yenile, sonra orijinal komutu ve hedefi devam ettir.
+  İlk kelime `craft` ise, kurulum yine de çalışır, ancak [reference/craft.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/craft.md) geri kalan akışına sahiptir. Kurulum `init`'i bloklayıcı olarak çağırdıysa, init'i bitir, bağlamı yenile, sonra orijinal komutu ve hedefi devam ettir.
   
-  `teach`, `init` için kullanımdan kaldırılan takma addır: kullanıcı yazarsa, [reference/init.md](reference/init.md) dosyasını yükle ve `init` çağırmış gibi devam et.
+  `teach`, `init` için kullanımdan kaldırılan takma addır: kullanıcı yazarsa, [reference/init.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/init.md) dosyasını yükle ve `init` çağırmış gibi devam et.
   
   ## Sabitle / Sabitlemeyi Kaldır
   
@@ -183,7 +183,7 @@ body_tr: |-
   
   ## Hooks
   
-  `$impeccable hooks <on|off|status|ignore-rule|ignore-file|ignore-value|reset>` bu proje için tasarım dedektörü hook'unu yönetir. Hook'u doğrudan UI dosyası düzenlemesinden sonra otomatik olarak çalıştırır ve bulgular sistem hatırlatmaları olarak yüzeylendirir. Tam akış [reference/hooks.md](reference/hooks.md)'de; kullanıcı `$impeccable hooks` herhangi bir bağımsız değişken ile çağırdığında yükle.
+  `$impeccable hooks <on|off|status|ignore-rule|ignore-file|ignore-value|reset>` bu proje için tasarım dedektörü hook'unu yönetir. Hook'u doğrudan UI dosyası düzenlemesinden sonra otomatik olarak çalıştırır ve bulgular sistem hatırlatmaları olarak yüzeylendirir. Tam akış [reference/hooks.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/hooks.md)'de; kullanıcı `$impeccable hooks` herhangi bir bağımsız değişken ile çağırdığında yükle.
 ---
 
 Designs and iterates production-grade frontend interfaces. Real working code, committed design choices, exceptional craft.
@@ -284,35 +284,35 @@ If someone could look at this interface and say "AI made that" without doubt, it
 **Category-reflex check.** Run at two altitudes; the second one catches what the first one misses.
 
 - **First-order:** if someone could guess the theme + palette from the category alone, it's the first training-data reflex. Rework the scene sentence and color strategy until the answer isn't obvious from the domain.
-- **Second-order:** if someone could guess the aesthetic family from category-plus-anti-references ("AI workflow tool that's not SaaS-cream → editorial-typographic", "fintech that's not navy-and-gold → terminal-native dark mode"), it's the trap one tier deeper. The first reflex was avoided; the second wasn't. Rework until both answers are not obvious. The brand register's [reflex-reject aesthetic lanes](reference/brand.md) list catches the currently-saturated families.
+- **Second-order:** if someone could guess the aesthetic family from category-plus-anti-references ("AI workflow tool that's not SaaS-cream → editorial-typographic", "fintech that's not navy-and-gold → terminal-native dark mode"), it's the trap one tier deeper. The first reflex was avoided; the second wasn't. Rework until both answers are not obvious. The brand register's [reflex-reject aesthetic lanes](https://github.com/pbakaus/impeccable/blob/HEAD/reference/brand.md) list catches the currently-saturated families.
 
 ## Commands
 
 | Command | Category | Description | Reference |
 |---|---|---|---|
-| `craft [feature]` | Build | Shape, then build a feature end-to-end | [reference/craft.md](reference/craft.md) |
-| `shape [feature]` | Build | Plan UX/UI before writing code | [reference/shape.md](reference/shape.md) |
-| `init` | Build | Set up project context: PRODUCT.md, DESIGN.md, live config, next steps | [reference/init.md](reference/init.md) |
-| `document` | Build | Generate DESIGN.md from existing project code | [reference/document.md](reference/document.md) |
-| `extract [target]` | Build | Pull reusable tokens and components into design system | [reference/extract.md](reference/extract.md) |
-| `critique [target]` | Evaluate | UX design review with heuristic scoring | [reference/critique.md](reference/critique.md) |
-| `audit [target]` | Evaluate | Technical quality checks (a11y, perf, responsive) | [reference/audit.md](reference/audit.md) |
-| `polish [target]` | Refine | Final quality pass before shipping | [reference/polish.md](reference/polish.md) |
-| `bolder [target]` | Refine | Amplify safe or bland designs | [reference/bolder.md](reference/bolder.md) |
-| `quieter [target]` | Refine | Tone down aggressive or overstimulating designs | [reference/quieter.md](reference/quieter.md) |
-| `distill [target]` | Refine | Strip to essence, remove complexity | [reference/distill.md](reference/distill.md) |
-| `harden [target]` | Refine | Production-ready: errors, i18n, edge cases | [reference/harden.md](reference/harden.md) |
-| `onboard [target]` | Refine | Design first-run flows, empty states, activation | [reference/onboard.md](reference/onboard.md) |
-| `animate [target]` | Enhance | Add purposeful animations and motion | [reference/animate.md](reference/animate.md) |
-| `colorize [target]` | Enhance | Add strategic color to monochromatic UIs | [reference/colorize.md](reference/colorize.md) |
-| `typeset [target]` | Enhance | Improve typography hierarchy and fonts | [reference/typeset.md](reference/typeset.md) |
-| `layout [target]` | Enhance | Fix spacing, rhythm, and visual hierarchy | [reference/layout.md](reference/layout.md) |
-| `delight [target]` | Enhance | Add personality and memorable touches | [reference/delight.md](reference/delight.md) |
-| `overdrive [target]` | Enhance | Push past conventional limits | [reference/overdrive.md](reference/overdrive.md) |
-| `clarify [target]` | Fix | Improve UX copy, labels, and error messages | [reference/clarify.md](reference/clarify.md) |
-| `adapt [target]` | Fix | Adapt for different devices and screen sizes | [reference/adapt.md](reference/adapt.md) |
-| `optimize [target]` | Fix | Diagnose and fix UI performance | [reference/optimize.md](reference/optimize.md) |
-| `live` | Iterate | Visual variant mode: pick elements in the browser, generate alternatives | [reference/live.md](reference/live.md) |
+| `craft [feature]` | Build | Shape, then build a feature end-to-end | [reference/craft.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/craft.md) |
+| `shape [feature]` | Build | Plan UX/UI before writing code | [reference/shape.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/shape.md) |
+| `init` | Build | Set up project context: PRODUCT.md, DESIGN.md, live config, next steps | [reference/init.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/init.md) |
+| `document` | Build | Generate DESIGN.md from existing project code | [reference/document.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/document.md) |
+| `extract [target]` | Build | Pull reusable tokens and components into design system | [reference/extract.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/extract.md) |
+| `critique [target]` | Evaluate | UX design review with heuristic scoring | [reference/critique.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/critique.md) |
+| `audit [target]` | Evaluate | Technical quality checks (a11y, perf, responsive) | [reference/audit.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/audit.md) |
+| `polish [target]` | Refine | Final quality pass before shipping | [reference/polish.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/polish.md) |
+| `bolder [target]` | Refine | Amplify safe or bland designs | [reference/bolder.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/bolder.md) |
+| `quieter [target]` | Refine | Tone down aggressive or overstimulating designs | [reference/quieter.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/quieter.md) |
+| `distill [target]` | Refine | Strip to essence, remove complexity | [reference/distill.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/distill.md) |
+| `harden [target]` | Refine | Production-ready: errors, i18n, edge cases | [reference/harden.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/harden.md) |
+| `onboard [target]` | Refine | Design first-run flows, empty states, activation | [reference/onboard.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/onboard.md) |
+| `animate [target]` | Enhance | Add purposeful animations and motion | [reference/animate.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/animate.md) |
+| `colorize [target]` | Enhance | Add strategic color to monochromatic UIs | [reference/colorize.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/colorize.md) |
+| `typeset [target]` | Enhance | Improve typography hierarchy and fonts | [reference/typeset.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/typeset.md) |
+| `layout [target]` | Enhance | Fix spacing, rhythm, and visual hierarchy | [reference/layout.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/layout.md) |
+| `delight [target]` | Enhance | Add personality and memorable touches | [reference/delight.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/delight.md) |
+| `overdrive [target]` | Enhance | Push past conventional limits | [reference/overdrive.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/overdrive.md) |
+| `clarify [target]` | Fix | Improve UX copy, labels, and error messages | [reference/clarify.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/clarify.md) |
+| `adapt [target]` | Fix | Adapt for different devices and screen sizes | [reference/adapt.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/adapt.md) |
+| `optimize [target]` | Fix | Diagnose and fix UI performance | [reference/optimize.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/optimize.md) |
+| `live` | Iterate | Visual variant mode: pick elements in the browser, generate alternatives | [reference/live.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/live.md) |
 
 Plus three management commands: `pin <command>`, `unpin <command>`, and `hooks <on|off|status|...>`, detailed below.
 
@@ -337,9 +337,9 @@ Plus three management commands: `pin <command>`, `unpin <command>`, and `hooks <
 
 Setup (context gathering, register) is already loaded by then; sub-commands don't re-invoke `$impeccable`.
 
-If the first word is `craft`, setup still runs first, but [reference/craft.md](reference/craft.md) owns the rest of the flow. If setup invokes `init` as a blocker, finish init, refresh context, then resume the original command and target.
+If the first word is `craft`, setup still runs first, but [reference/craft.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/craft.md) owns the rest of the flow. If setup invokes `init` as a blocker, finish init, refresh context, then resume the original command and target.
 
-`teach` is a deprecated alias for `init`: if the user types it, load [reference/init.md](reference/init.md) and proceed as if they ran `init`.
+`teach` is a deprecated alias for `init`: if the user types it, load [reference/init.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/init.md) and proceed as if they ran `init`.
 
 ## Pin / Unpin
 
@@ -353,4 +353,4 @@ Valid `<command>` is any command from the table above. Report the script's resul
 
 ## Hooks
 
-`$impeccable hooks <on|off|status|ignore-rule|ignore-file|ignore-value|reset>` manages the design detector hook for this project. The hook auto-runs the detector after direct UI file edits and surfaces findings as system reminders. Full flow is in [reference/hooks.md](reference/hooks.md); load it when the user invokes `$impeccable hooks` with any argument.
+`$impeccable hooks <on|off|status|ignore-rule|ignore-file|ignore-value|reset>` manages the design detector hook for this project. The hook auto-runs the detector after direct UI file edits and surfaces findings as system reminders. Full flow is in [reference/hooks.md](https://github.com/pbakaus/impeccable/blob/HEAD/reference/hooks.md); load it when the user invokes `$impeccable hooks` with any argument.

@@ -128,7 +128,7 @@ body_tr: |-
   - Kullanılabilir formatlara bağlantılar (PDF/HTML)
   
   
-  *Web dağıtımı için [WEB_DEPLOYMENT.md](WEB_DEPLOYMENT.md) dosyasına bakınız*.
+  *Web dağıtımı için [WEB_DEPLOYMENT.md](https://github.com/andybrandt/mcp-simple-arxiv/blob/HEAD/WEB_DEPLOYMENT.md) dosyasına bakınız*.
   
   ## Geliştirme
   
@@ -269,7 +269,7 @@ This will return:
 - Links to available formats (PDF/HTML)
 
 
-*For web deployment see [WEB_DEPLOYMENT.md](WEB_DEPLOYMENT.md)*.
+*For web deployment see [WEB_DEPLOYMENT.md](https://github.com/andybrandt/mcp-simple-arxiv/blob/HEAD/WEB_DEPLOYMENT.md)*.
 
 ## Development
 

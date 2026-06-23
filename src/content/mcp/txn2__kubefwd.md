@@ -152,11 +152,11 @@ body_tr: |-
   
   ## Katkı Sağlama
   
-  Hata düzeltmeleri, testler ve dokümantasyon için katkıları memnuniyetle karşılıyoruz. Özellik geliştirmesi yalnızca bakıcılarla sınırlıdır. [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakınız.
+  Hata düzeltmeleri, testler ve dokümantasyon için katkıları memnuniyetle karşılıyoruz. Özellik geliştirmesi yalnızca bakıcılarla sınırlıdır. [CONTRIBUTING.md](https://github.com/txn2/kubefwd/blob/HEAD/CONTRIBUTING.md) dosyasına bakınız.
   
   ## Lisans
   
-  [Apache License 2.0](LICENSE)
+  [Apache License 2.0](https://github.com/txn2/kubefwd/tree/HEAD/LICENSE)
   
   ---
   
@@ -304,11 +304,11 @@ Full documentation at **[kubefwd.com](https://kubefwd.com)**:
 
 ## Contributing
 
-We welcome contributions for bug fixes, tests, and documentation. Feature development is limited to maintainers. See [CONTRIBUTING.md](CONTRIBUTING.md).
+We welcome contributions for bug fixes, tests, and documentation. Feature development is limited to maintainers. See [CONTRIBUTING.md](https://github.com/txn2/kubefwd/blob/HEAD/CONTRIBUTING.md).
 
 ## License
 
-[Apache License 2.0](LICENSE)
+[Apache License 2.0](https://github.com/txn2/kubefwd/tree/HEAD/LICENSE)
 
 ---
 

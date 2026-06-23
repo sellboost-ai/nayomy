@@ -63,7 +63,7 @@ body_tr: |-
   - 🛠️ Bozuk bir sayfayı düzelttik - ajanı verileri keşfetmeye, sorguları düzeltmeye ve ilgili içerik eklemeye yönlendirerek.
   - 🧠 En popüler filmleri iyileştirdik - verileri keşfederek ve daha alakalı sonuçları ortaya çıkarmak için ORM sorgusunu düzelterek.
   
-  Aşağıdaki videoyu izleyin veya [oyun detayını](examples/movie-app.md) okuyun.
+  Aşağıdaki videoyu izleyin veya [oyun detayını](https://github.com/crystaldba/postgres-mcp/blob/HEAD/examples/movie-app.md) okuyun.
   
   https://github.com/user-attachments/assets/24e05745-65e9-4998-b877-a368f1eadc13
   
@@ -491,7 +491,7 @@ What we did:
 - 🛠️ Fixed a broken page - by prompting the agent to explore the data, fix queries, and add related content.
 - 🧠 Improved the top movies - by exploring the data and fixing the ORM query to surface more relevant results.
 
-See the video below or read the [play-by-play](examples/movie-app.md).
+See the video below or read the [play-by-play](https://github.com/crystaldba/postgres-mcp/blob/HEAD/examples/movie-app.md).
 
 https://github.com/user-attachments/assets/24e05745-65e9-4998-b877-a368f1eadc13
 

@@ -195,10 +195,10 @@ body_tr: |-
   
   ## Referanslar
   
-  - [ai_training_data_rights.md](references/ai_training_data_rights.md) — Eğitim hakları matrisi + GDPR Md. 6 / AB AI Act karar ağacı
-  - [data_product_strategy.md](references/data_product_strategy.md) — Warehouse / lakehouse / mesh durdurma kriterleri + yapmalı-vs-satın-almalı karar ağacı
-  - [customer_data_as_asset.md](references/customer_data_as_asset.md) — Değerleme framework + M&A due diligence hazırlık + ürünleştirme yolları
-  - [data_team_org_evolution.md](references/data_team_org_evolution.md) — Stage-to-role haritası + merkezi-vs-dağıtılmış tetikleyici
+  - [ai_training_data_rights.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_training_data_rights.md) — Eğitim hakları matrisi + GDPR Md. 6 / AB AI Act karar ağacı
+  - [data_product_strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_product_strategy.md) — Warehouse / lakehouse / mesh durdurma kriterleri + yapmalı-vs-satın-almalı karar ağacı
+  - [customer_data_as_asset.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/customer_data_as_asset.md) — Değerleme framework + M&A due diligence hazırlık + ürünleştirme yolları
+  - [data_team_org_evolution.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_team_org_evolution.md) — Stage-to-role haritası + merkezi-vs-dağıtılmış tetikleyici
   
   ---
   
@@ -388,10 +388,10 @@ python scripts/data_product_strategy_picker.py profile.json
 
 ## References
 
-- [ai_training_data_rights.md](references/ai_training_data_rights.md) — The training-rights matrix + GDPR Art. 6 / EU AI Act decision tree
-- [data_product_strategy.md](references/data_product_strategy.md) — Warehouse / lakehouse / mesh kill criteria + build-vs-buy decision tree
-- [customer_data_as_asset.md](references/customer_data_as_asset.md) — Valuation framework + M&A diligence prep + productization paths
-- [data_team_org_evolution.md](references/data_team_org_evolution.md) — Stage-to-role map + centralize-vs-embed trigger
+- [ai_training_data_rights.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai_training_data_rights.md) — The training-rights matrix + GDPR Art. 6 / EU AI Act decision tree
+- [data_product_strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_product_strategy.md) — Warehouse / lakehouse / mesh kill criteria + build-vs-buy decision tree
+- [customer_data_as_asset.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/customer_data_as_asset.md) — Valuation framework + M&A diligence prep + productization paths
+- [data_team_org_evolution.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_team_org_evolution.md) — Stage-to-role map + centralize-vs-embed trigger
 
 ---
 

@@ -98,11 +98,11 @@ body_tr: |-
   
   ## Belgelendirme
   
-  - **[Başlangıç Kılavuzu](docs/getting-started.md)** - Kurulum, Cursor kurulumu, CLI kullanımı ve sorun giderme
-  - **[Mimari Kılavuz](docs/architecture.md)** - İki paket tasarımı, veri akışı ve bileşenler
-  - **[API Belgelendirmesi](docs/api.md)** - Tool parametreleri, örnekler ve en iyi uygulamalar
-  - **[Kullanım Örnekleri](docs/usage.md)** - Gelişmiş yapılandırma, gerçek dünya kullanım senaryoları ve özel skill oluşturma
-  - **[Test Kılavuzu](docs/testing.md)** - Kapsamlı test talimatları, CI/CD ve kapsam analizi
+  - **[Başlangıç Kılavuzu](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/getting-started.md)** - Kurulum, Cursor kurulumu, CLI kullanımı ve sorun giderme
+  - **[Mimari Kılavuz](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/architecture.md)** - İki paket tasarımı, veri akışı ve bileşenler
+  - **[API Belgelendirmesi](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/api.md)** - Tool parametreleri, örnekler ve en iyi uygulamalar
+  - **[Kullanım Örnekleri](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/usage.md)** - Gelişmiş yapılandırma, gerçek dünya kullanım senaryoları ve özel skill oluşturma
+  - **[Test Kılavuzu](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/testing.md)** - Kapsamlı test talimatları, CI/CD ve kapsam analizi
   
   ## MCP Tools
   
@@ -112,7 +112,7 @@ body_tr: |-
   2. **`read_skill_document`** - Skills'ten belirli dosyaları al (scriptler, veriler, referanslar)  
   3. **`list_skills`** - Tüm yüklenen skills'in tam envanterini görüntüle (keşif/hata ayıklama için)
   
-  Ayrıntılı parametreler, örnekler ve en iyi uygulamalar için [API Belgelendirmesi](docs/api.md) başvurusuna bakın.
+  Ayrıntılı parametreler, örnekler ve en iyi uygulamalar için [API Belgelendirmesi](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/api.md) başvurusuna bakın.
   
   ## Mimari (v1.0.0)
   
@@ -134,7 +134,7 @@ body_tr: |-
   - ✅ Backend arka planda indirilir (Cursor'u engellemez)
   - ✅ Uzak barındırılan backend'e bağlanabilir (yerel kurulum gerekli değil)
   
-  Detaylı tasarım ve veri akışı için [Mimari Kılavuzu](docs/architecture.md) başvurusuna bakın.
+  Detaylı tasarım ve veri akışı için [Mimari Kılavuzu](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/architecture.md) başvurusuna bakın.
   
   ## Skill Kaynakları
   
@@ -180,7 +180,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje [Apache License 2.0](LICENSE) altında lisanslanmıştır.
+  Bu proje [Apache License 2.0](https://github.com/K-Dense-AI/claude-skills-mcp/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   Telif Hakkı 2025 K-Dense AI (https://k-dense.ai)
   
@@ -277,11 +277,11 @@ uvx claude-skills-mcp --config config.json
 
 ## Documentation
 
-- **[Getting Started](docs/getting-started.md)** - Installation, Cursor setup, CLI usage, and troubleshooting
-- **[Architecture Guide](docs/architecture.md)** - Two-package design, data flow, and components
-- **[API Documentation](docs/api.md)** - Tool parameters, examples, and best practices
-- **[Usage Examples](docs/usage.md)** - Advanced configuration, real-world use cases, and custom skill creation
-- **[Testing Guide](docs/testing.md)** - Complete testing instructions, CI/CD, and coverage analysis
+- **[Getting Started](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/getting-started.md)** - Installation, Cursor setup, CLI usage, and troubleshooting
+- **[Architecture Guide](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/architecture.md)** - Two-package design, data flow, and components
+- **[API Documentation](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/api.md)** - Tool parameters, examples, and best practices
+- **[Usage Examples](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/usage.md)** - Advanced configuration, real-world use cases, and custom skill creation
+- **[Testing Guide](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/testing.md)** - Complete testing instructions, CI/CD, and coverage analysis
 
 ## MCP Tools
 
@@ -291,7 +291,7 @@ The server provides three tools for working with Claude Agent Skills:
 2. **`read_skill_document`** - Retrieve specific files (scripts, data, references) from skills  
 3. **`list_skills`** - View complete inventory of all loaded skills (for exploration/debugging)
 
-See [API Documentation](docs/api.md) for detailed parameters, examples, and best practices.
+See [API Documentation](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/api.md) for detailed parameters, examples, and best practices.
 
 ## Architecture (v1.0.0)
 
@@ -313,7 +313,7 @@ The system uses a **two-package architecture** for optimal performance:
 - ✅ Backend downloads in background (doesn't block Cursor)
 - ✅ Can connect to remote hosted backend (no local install needed)
 
-See [Architecture Guide](docs/architecture.md) for detailed design and data flow.
+See [Architecture Guide](https://github.com/K-Dense-AI/claude-skills-mcp/blob/HEAD/docs/architecture.md) for detailed design and data flow.
 
 ## Skill Sources
 
@@ -359,7 +359,7 @@ Whether you're building custom skills, integrating with different AI models, or 
 
 ## License
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/K-Dense-AI/claude-skills-mcp/tree/HEAD/LICENSE).
 
 Copyright 2025 K-Dense AI (https://k-dense.ai)
 

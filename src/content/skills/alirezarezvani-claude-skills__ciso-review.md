@@ -115,8 +115,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-ciso-advisor`](../../agents/cs-ciso-advisor.md)
-  - Skill: [`ciso-advisor`](../../../skills/ciso-advisor/SKILL.md)
+  - Agent: [`cs-ciso-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-ciso-advisor.md)
+  - Skill: [`ciso-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/ciso-advisor/SKILL.md)
   - Compliance: `../../../../ra-qm-team/`
   
   ---
@@ -225,8 +225,8 @@ python ../../../skills/ciso-advisor/scripts/compliance_tracker.py
 
 ## Related
 
-- Agent: [`cs-ciso-advisor`](../../agents/cs-ciso-advisor.md)
-- Skill: [`ciso-advisor`](../../../skills/ciso-advisor/SKILL.md)
+- Agent: [`cs-ciso-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-ciso-advisor.md)
+- Skill: [`ciso-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/ciso-advisor/SKILL.md)
 - Compliance: `../../../../ra-qm-team/`
 
 ---

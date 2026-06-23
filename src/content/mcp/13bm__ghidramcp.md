@@ -13,7 +13,7 @@ body_tr: |-
   # GhidraMCP
   
   [![Build](https://github.com/13bm/GhidraMCP/actions/workflows/build.yml/badge.svg)](https://github.com/13bm/GhidraMCP/actions/workflows/build.yml)
-  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/13bm/GhidraMCP/tree/HEAD/LICENSE)
   
   Ghidra'yı [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) aracılığıyla 70 adet ters-mühendislik aracını AI asistanlarına sunan bir Ghidra uzantısı. Bir binary dosyasını Ghidra'da açın, eklentiyi etkinleştirin ve Claude'u (veya herhangi bir MCP istemcisini) fonksiyonları decompile etme, sembolleri yeniden adlandırma, kodu açıklama ekleme, güvenlik açıklarını arama ve daha fazlasını yapmasına izin verin.
   
@@ -99,9 +99,9 @@ body_tr: |-
   
   ## Araçlar
   
-  > **Parametreler, türler ve örneklerle tam başvuru:** **[TOOLS.md](TOOLS.md)**
+  > **Parametreler, türler ve örneklerle tam başvuru:** **[TOOLS.md](https://github.com/13bm/GhidraMCP/blob/HEAD/TOOLS.md)**
   
-  Aşağıdaki tablolar hızlı bir genel bakış sunar. Detaylı parametre dokümantasyonu için [TOOLS.md](TOOLS.md) dosyasına bakın.
+  Aşağıdaki tablolar hızlı bir genel bakış sunar. Detaylı parametre dokümantasyonu için [TOOLS.md](https://github.com/13bm/GhidraMCP/blob/HEAD/TOOLS.md) dosyasına bakın.
   
   ### Query (1-21)
   
@@ -360,7 +360,7 @@ body_tr: |-
   
   ## Lisans
   
-  [Apache License 2.0](LICENSE)
+  [Apache License 2.0](https://github.com/13bm/GhidraMCP/tree/HEAD/LICENSE)
   
   ## Teşekkürler
   
@@ -376,7 +376,7 @@ body_tr: |-
 # GhidraMCP
 
 [![Build](https://github.com/13bm/GhidraMCP/actions/workflows/build.yml/badge.svg)](https://github.com/13bm/GhidraMCP/actions/workflows/build.yml)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/13bm/GhidraMCP/tree/HEAD/LICENSE)
 
 A Ghidra extension that exposes 70 reverse-engineering tools to AI assistants through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). Open a binary in Ghidra, enable the plugin, and let Claude (or any MCP client) decompile functions, rename symbols, annotate code, search for vulnerabilities, and more.
 
@@ -462,9 +462,9 @@ You can also grab the snippet from Ghidra: **MCP > Copy MCP Config** (copies it 
 
 ## Tools
 
-> **Full reference with parameters, types, and examples:** **[TOOLS.md](TOOLS.md)**
+> **Full reference with parameters, types, and examples:** **[TOOLS.md](https://github.com/13bm/GhidraMCP/blob/HEAD/TOOLS.md)**
 
-The tables below give a quick overview. See [TOOLS.md](TOOLS.md) for detailed parameter docs.
+The tables below give a quick overview. See [TOOLS.md](https://github.com/13bm/GhidraMCP/blob/HEAD/TOOLS.md) for detailed parameter docs.
 
 ### Query (1-21)
 
@@ -723,7 +723,7 @@ Contributions welcome! Please open issues or submit pull requests.
 
 ## License
 
-[Apache License 2.0](LICENSE)
+[Apache License 2.0](https://github.com/13bm/GhidraMCP/tree/HEAD/LICENSE)
 
 ## Acknowledgments
 

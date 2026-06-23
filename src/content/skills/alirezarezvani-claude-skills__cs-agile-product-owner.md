@@ -403,18 +403,18 @@ body_tr: |-
   
   ## İlgili Aracılar
   
-  - [cs-product-manager](cs-product-manager.md) - Tam ürün yönetimi yaşam döngüsü (RICE, görüşmeler, ÜBD)
-  - [cs-product-strategist](cs-product-strategist.md) - Harita hizasıyla OKR basamağı ve stratejik planlama
-  - [cs-ux-researcher](cs-ux-researcher.md) - Hikaye gereksinimlerini ve kabul kriterlerini bilgilendirmek için kullanıcı araştırması
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Tam ürün yönetimi yaşam döngüsü (RICE, görüşmeler, ÜBD)
+  - [cs-product-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-strategist.md) - Harita hizasıyla OKR basamağı ve stratejik planlama
+  - [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - Hikaye gereksinimlerini ve kabul kriterlerini bilgilendirmek için kullanıcı araştırması
   - Scrum Master - Hız bağlamı ve sprint yürütmesi (bkz. `../../project-management/skills/scrum-master/`)
   
   ## Referanslar
   
-  - **Birincil Beceri:** [../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md](../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md)
-  - **RICE Çerçevesi:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
-  - **Ürün Alanı Kılavuzu:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-  - **Aracı Geliştirme Kılavuzu:** [../CLAUDE.md](../CLAUDE.md)
-  - **Scrum Master Becerisi:** [../../project-management/skills/scrum-master/SKILL.md](../../project-management/skills/scrum-master/SKILL.md)
+  - **Birincil Beceri:** [../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/agile-product-owner/skills/agile-product-owner/SKILL.md)
+  - **RICE Çerçevesi:** [../../product-team/skills/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-manager-toolkit/SKILL.md)
+  - **Ürün Alanı Kılavuzu:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+  - **Aracı Geliştirme Kılavuzu:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
+  - **Scrum Master Becerisi:** [../../project-management/skills/scrum-master/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/project-management/skills/scrum-master/SKILL.md)
   
   ---
   
@@ -812,18 +812,18 @@ echo "Location: ../../product-team/agile-product-owner/skills/agile-product-owne
 
 ## Related Agents
 
-- [cs-product-manager](cs-product-manager.md) - Full product management lifecycle (RICE, interviews, PRDs)
-- [cs-product-strategist](cs-product-strategist.md) - OKR cascade and strategic planning for roadmap alignment
-- [cs-ux-researcher](cs-ux-researcher.md) - User research to inform story requirements and acceptance criteria
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-manager.md) - Full product management lifecycle (RICE, interviews, PRDs)
+- [cs-product-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-strategist.md) - OKR cascade and strategic planning for roadmap alignment
+- [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - User research to inform story requirements and acceptance criteria
 - Scrum Master - Velocity context and sprint execution (see `../../project-management/skills/scrum-master/`)
 
 ## References
 
-- **Primary Skill:** [../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md](../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md)
-- **RICE Framework:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
-- **Scrum Master Skill:** [../../project-management/skills/scrum-master/SKILL.md](../../project-management/skills/scrum-master/SKILL.md)
+- **Primary Skill:** [../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/agile-product-owner/skills/agile-product-owner/SKILL.md)
+- **RICE Framework:** [../../product-team/skills/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-manager-toolkit/SKILL.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
+- **Scrum Master Skill:** [../../project-management/skills/scrum-master/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/project-management/skills/scrum-master/SKILL.md)
 
 ---
 

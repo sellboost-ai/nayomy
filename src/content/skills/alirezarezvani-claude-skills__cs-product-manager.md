@@ -1303,15 +1303,15 @@ echo "Report: $QUARTER-roadmap.txt"
 
 ## Related Agents
 
-- [cs-agile-product-owner](cs-agile-product-owner.md) - Sprint planning and user story generation
-- [cs-product-strategist](cs-product-strategist.md) - OKR cascade and strategic planning
-- [cs-ux-researcher](cs-ux-researcher.md) - Persona generation and user research
+- [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-agile-product-owner.md) - Sprint planning and user story generation
+- [cs-product-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-product-strategist.md) - OKR cascade and strategic planning
+- [cs-ux-researcher](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-ux-researcher.md) - Persona generation and user research
 
 ## References
 
-- **Skill Documentation:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill Documentation:** [../../product-team/skills/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/skills/product-manager-toolkit/SKILL.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/CLAUDE.md)
 
 ---
 

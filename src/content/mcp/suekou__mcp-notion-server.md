@@ -133,10 +133,10 @@ body_tr: |-
   
   Bu referanslar esas olarak geliştirme, özelleştirme ve gelişmiş MCP iş akışları içindir:
   
-  - [Configuration](docs/configuration.md): ortam değişkenleri, komut satırı argümanları, MCP ana bilgisayar örnekleri, geliştirme komutları ve sorun giderme.
-  - [Tools](docs/tools.md): iş akışı alanına göre gruplandırılmış eksiksiz araç referansı.
-  - [Workflows](docs/workflows.md): pratik okuma, yazma, veri kaynağı, geçiş ve hata işleme rehberi.
-  - [MCP Apps](docs/mcp-apps.md): etkileşimli Veri Kaynağı Gezgini ve Sayfa Workbench ayrıntıları.
+  - [Configuration](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/configuration.md): ortam değişkenleri, komut satırı argümanları, MCP ana bilgisayar örnekleri, geliştirme komutları ve sorun giderme.
+  - [Tools](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/tools.md): iş akışı alanına göre gruplandırılmış eksiksiz araç referansı.
+  - [Workflows](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/workflows.md): pratik okuma, yazma, veri kaynağı, geçiş ve hata işleme rehberi.
+  - [MCP Apps](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/mcp-apps.md): etkileşimli Veri Kaynağı Gezgini ve Sayfa Workbench ayrıntıları.
   
   ## Geliştirme
   
@@ -281,10 +281,10 @@ For a locally built checkout:
 
 These references are mainly for development, customization, and advanced MCP workflows:
 
-- [Configuration](docs/configuration.md): environment variables, command-line arguments, MCP host examples, development commands, and troubleshooting.
-- [Tools](docs/tools.md): complete tool reference grouped by workflow area.
-- [Workflows](docs/workflows.md): practical read, write, data source, migration, and error-handling guidance.
-- [MCP Apps](docs/mcp-apps.md): interactive Data Source Explorer and Page Workbench details.
+- [Configuration](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/configuration.md): environment variables, command-line arguments, MCP host examples, development commands, and troubleshooting.
+- [Tools](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/tools.md): complete tool reference grouped by workflow area.
+- [Workflows](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/workflows.md): practical read, write, data source, migration, and error-handling guidance.
+- [MCP Apps](https://github.com/suekou/mcp-notion-server/blob/HEAD/docs/mcp-apps.md): interactive Data Source Explorer and Page Workbench details.
 
 ## Development
 

@@ -561,7 +561,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje **Apache License 2.0** altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje **Apache License 2.0** altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/mavdol/capsule/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 <div align="center">
@@ -1106,4 +1106,4 @@ Capsule builds on these open source projects:
 
 ## License
 
-This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](https://github.com/mavdol/capsule/tree/HEAD/LICENSE) file for details.

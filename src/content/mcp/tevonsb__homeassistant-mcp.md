@@ -54,7 +54,7 @@ body_tr: |-
   };
   ```
   
-  SSE sistemi hakkında tam belgeler için [SSE_API.md](docs/SSE_API.md) dosyasını inceleyin.
+  SSE sistemi hakkında tam belgeler için [SSE_API.md](https://github.com/tevonsb/homeassistant-mcp/blob/HEAD/docs/SSE_API.md) dosyasını inceleyin.
   
   ## İçindekiler
   
@@ -767,7 +767,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT Lisansı - Ayrıntılar için [LICENSE](LICENSE) dosyasını inceleyin
+  MIT Lisansı - Ayrıntılar için [LICENSE](https://github.com/tevonsb/homeassistant-mcp/tree/HEAD/LICENSE) dosyasını inceleyin
 ---
 
 # Model Context Protocol Server for Home Assistant
@@ -814,7 +814,7 @@ eventSource.onmessage = (event) => {
 };
 ```
 
-See [SSE_API.md](docs/SSE_API.md) for complete documentation of the SSE system.
+See [SSE_API.md](https://github.com/tevonsb/homeassistant-mcp/blob/HEAD/docs/SSE_API.md) for complete documentation of the SSE system.
 
 ## Table of Contents
 
@@ -1527,4 +1527,4 @@ npm run format
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) file
+MIT License - See [LICENSE](https://github.com/tevonsb/homeassistant-mcp/tree/HEAD/LICENSE) file

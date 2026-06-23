@@ -1073,7 +1073,7 @@ src/
 
 ## Contributing
 
-Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for setup and guidelines.
+Contributions welcome! See [CONTRIBUTING.md](https://github.com/shinpr/mcp-local-rag/blob/HEAD/CONTRIBUTING.md) for setup and guidelines.
 
 ## License
 

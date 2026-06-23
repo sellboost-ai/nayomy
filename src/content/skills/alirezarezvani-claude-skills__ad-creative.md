@@ -90,7 +90,7 @@ body_tr: |-
   | Twitter/X | Tanıtılan | 70 karakter | 280 karakter toplam | Yanıltıcı taktikler yok |
   | TikTok | In-Feed | Overlay başlık yok | 80–100 karakter başlık | Hook ilk 3 saniyede |
   
-  Tam spec'ler, görsel boyutları, video uzunlukları ve reddetme tetikleyicileri için [references/platform-specs.md](references/platform-specs.md) bölümüne bakın.
+  Tam spec'ler, görsel boyutları, video uzunlukları ve reddetme tetikleyicileri için [references/platform-specs.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-specs.md) bölümüne bakın.
   
   ---
   
@@ -126,7 +126,7 @@ body_tr: |-
   
   **İyi çalışır:** Sosyal kanıt başlıkları, garanti-önce, ön/sonra
   
-  Tam framework kataloğu ve platform başına örnekler için [references/creative-frameworks.md](references/creative-frameworks.md) bölümüne bakın.
+  Tam framework kataloğu ve platform başına örnekler için [references/creative-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/creative-frameworks.md) bölümüne bakın.
   
   ---
   
@@ -348,7 +348,7 @@ You have a winning creative. Now multiply it for testing or for multiple audienc
 | Twitter/X | Promoted | 70 chars | 280 chars total | No deceptive tactics |
 | TikTok | In-Feed | No overlay headline | 80–100 chars caption | Hook in first 3s |
 
-See [references/platform-specs.md](references/platform-specs.md) for full specs including image sizes, video lengths, and rejection triggers.
+See [references/platform-specs.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/platform-specs.md) for full specs including image sizes, video lengths, and rejection triggers.
 
 ---
 
@@ -384,7 +384,7 @@ They're close. Remove the last objection.
 
 **Works well:** Social proof headlines, guarantee-first, before/after
 
-See [references/creative-frameworks.md](references/creative-frameworks.md) for the full framework catalog with examples by platform.
+See [references/creative-frameworks.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/creative-frameworks.md) for the full framework catalog with examples by platform.
 
 ---
 

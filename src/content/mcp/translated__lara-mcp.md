@@ -43,7 +43,7 @@ body_tr: |-
   2. **Yükle**'ye tıklayın.
   3. Bir Lara aracını ilk kez kullandığınızda tarayıcınız kimlik doğrulaması için açılacak.
   
-  Bu arada veya manuel kurulum için [İstemci Kurulum Rehberi](docs/client-setup.md#cursor)'ne bakın.
+  Bu arada veya manuel kurulum için [İstemci Kurulum Rehberi](https://github.com/translated/lara-mcp/tree/HEAD/docs/client-setup.md#cursor)'ne bakın.
   
   ### Claude Code
   
@@ -55,11 +55,11 @@ body_tr: |-
   
   **Lara Translate** arayın ve yükleyin. Bir Lara aracını ilk kez kullandığınızda tarayıcınız kimlik doğrulaması için açılacak.
   
-  Bu arada veya manuel kurulum için [İstemci Kurulum Rehberi](docs/client-setup.md#claude-code)'ne bakın.
+  Bu arada veya manuel kurulum için [İstemci Kurulum Rehberi](https://github.com/translated/lara-mcp/tree/HEAD/docs/client-setup.md#claude-code)'ne bakın.
   
   ### Diğer İstemciler
   
-  **VS Code (GitHub Copilot)**, **Windsurf**, **Cline**, **Continue** ve daha fazlası için adım adım OAuth kurulumu için [İstemci Kurulum Rehberi](docs/client-setup.md)'ne bakın.
+  **VS Code (GitHub Copilot)**, **Windsurf**, **Cline**, **Continue** ve daha fazlası için adım adım OAuth kurulumu için [İstemci Kurulum Rehberi](https://github.com/translated/lara-mcp/blob/HEAD/docs/client-setup.md)'ne bakın.
   
   İstemciniz listede yoksa, genel yaklaşım server URL'sini (`https://mcp-v2.laratranslate.com/v1`) MCP config'inize eklemektir — istemci OAuth kimlik doğrulamasını otomatik olarak yönetecektir.
   
@@ -129,13 +129,13 @@ body_tr: |-
   
   Bu, yukarıdaki [Hızlı Başlangıç](#hızlı-başlangıç) bölümünde kullanılan yöntemdir. İstemci config'inize yalnızca server URL'sini sağlarsınız — API anahtarına gerek yok. İstemciniz OAuth akışını otomatik olarak yönetir: tarayıcınızı açar, Lara Translate kimlik bilgilerinizle giriş yaparsınız ve bağlanırsınız.
   
-  İstemci başına OAuth kurulum talimatları için [İstemci Kurulum Rehberi](docs/client-setup.md)'ne bakın.
+  İstemci başına OAuth kurulum talimatları için [İstemci Kurulum Rehberi](https://github.com/translated/lara-mcp/blob/HEAD/docs/client-setup.md)'ne bakın.
   
   ### Access Key (alternatif)
   
   Tarayıcı girişi yerine API anahtarları ile kimlik doğrulamayı tercih ederseniz, kimlik bilgilerinizi doğrudan istemci config'ine geçebilirsiniz. **Access Key ID** ve **Secret**'ınızı [Lara Translate](https://developers.laratranslate.com/docs/getting-started#step-3---configure-your-credentials)'den alın.
   
-  Config örnekleri için [İstemci Kurulum Rehberi'ndeki Access Key bölümüne](docs/client-setup.md#alternative-access-key-authentication) bakın.
+  Config örnekleri için [İstemci Kurulum Rehberi'ndeki Access Key bölümüne](https://github.com/translated/lara-mcp/tree/HEAD/docs/client-setup.md#alternative-access-key-authentication) bakın.
   
   ---
   
@@ -285,7 +285,7 @@ Once Lara Translate is listed in the official Cursor plugin marketplace, install
 2. Click **Install**.
 3. The first time you use a Lara tool, your browser will open to authenticate.
 
-In the meantime, or for manual installation, see the [Client Setup Guide](docs/client-setup.md#cursor).
+In the meantime, or for manual installation, see the [Client Setup Guide](https://github.com/translated/lara-mcp/tree/HEAD/docs/client-setup.md#cursor).
 
 ### Claude Code
 
@@ -297,11 +297,11 @@ Once Lara Translate is listed in the official Claude Code plugin marketplace, in
 
 Search for **Lara Translate** and install. The first time you use a Lara tool, your browser will open to authenticate.
 
-In the meantime, or for manual installation, see the [Client Setup Guide](docs/client-setup.md#claude-code).
+In the meantime, or for manual installation, see the [Client Setup Guide](https://github.com/translated/lara-mcp/tree/HEAD/docs/client-setup.md#claude-code).
 
 ### Other Clients
 
-For step-by-step OAuth setup on **VS Code (GitHub Copilot)**, **Windsurf**, **Cline**, **Continue**, and more, see the **[Client Setup Guide](docs/client-setup.md)**.
+For step-by-step OAuth setup on **VS Code (GitHub Copilot)**, **Windsurf**, **Cline**, **Continue**, and more, see the **[Client Setup Guide](https://github.com/translated/lara-mcp/blob/HEAD/docs/client-setup.md)**.
 
 If your client isn't listed, the general approach is to add the server URL (`https://mcp-v2.laratranslate.com/v1`) to your MCP config — the client will handle OAuth authentication automatically.
 
@@ -371,13 +371,13 @@ Your client should invoke Lara Translate and return the translation.
 
 This is the method used in the [Quick Start](#quick-start) above. You provide only the server URL in your client config — no API keys needed. Your client handles the OAuth flow automatically: it opens your browser, you log in with your Lara Translate credentials, and you're connected.
 
-For per-client OAuth setup instructions, see the **[Client Setup Guide](docs/client-setup.md)**.
+For per-client OAuth setup instructions, see the **[Client Setup Guide](https://github.com/translated/lara-mcp/blob/HEAD/docs/client-setup.md)**.
 
 ### Access Key (alternative)
 
 If you prefer to authenticate with API keys instead of browser login, you can pass your credentials directly in the client config. Get your **Access Key ID** and **Secret** from [Lara Translate](https://developers.laratranslate.com/docs/getting-started#step-3---configure-your-credentials).
 
-See the [Access Key section in the Client Setup Guide](docs/client-setup.md#alternative-access-key-authentication) for config examples.
+See the [Access Key section in the Client Setup Guide](https://github.com/translated/lara-mcp/tree/HEAD/docs/client-setup.md#alternative-access-key-authentication) for config examples.
 
 ---
 

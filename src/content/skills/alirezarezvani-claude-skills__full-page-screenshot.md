@@ -130,8 +130,8 @@ body_tr: |-
   
   ## Çapraz Referanslar
   
-  - [`engineering/browser-automation`](../browser-automation/SKILL.md) — CDP/Playwright üzerinden genel tarayıcı otomasyon desenleri
-  - [`engineering/performance-profiler`](../performance-profiler/SKILL.md) — Görsel yakalamaları tamamlayabilecek performans analizi
+  - [`engineering/browser-automation`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/browser-automation/SKILL.md) — CDP/Playwright üzerinden genel tarayıcı otomasyon desenleri
+  - [`engineering/performance-profiler`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/performance-profiler/SKILL.md) — Görsel yakalamaları tamamlayabilecek performans analizi
 ---
 
 # Full Page Screenshot
@@ -250,5 +250,5 @@ file /tmp/screenshot.png
 
 ## Cross-References
 
-- [`engineering/browser-automation`](../browser-automation/SKILL.md) — General browser automation patterns via CDP/Playwright
-- [`engineering/performance-profiler`](../performance-profiler/SKILL.md) — Performance analysis that may complement visual captures
+- [`engineering/browser-automation`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/browser-automation/SKILL.md) — General browser automation patterns via CDP/Playwright
+- [`engineering/performance-profiler`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/performance-profiler/SKILL.md) — Performance analysis that may complement visual captures

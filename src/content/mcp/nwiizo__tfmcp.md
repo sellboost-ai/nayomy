@@ -434,7 +434,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/nwiizo/tfmcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # tfmcp: Terraform Model Context Protocol Tool
@@ -860,4 +860,4 @@ Here are some planned improvements and future features for tfmcp:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/nwiizo/tfmcp/tree/HEAD/LICENSE) file for details.

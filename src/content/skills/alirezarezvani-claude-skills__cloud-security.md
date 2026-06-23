@@ -348,10 +348,10 @@ body_tr: |-
   
   | Beceri | İlişki |
   |--------|--------|
-  | [incident-response](../incident-response/SKILL.md) | Kritik bulgular (genel S3, ayrıcalık yükseltme onaylanmış etkin) olay sınıflandırmasını tetikleyebilir |
-  | [threat-detection](../threat-detection/SKILL.md) | Bulut duruşu bulguları av hedefleri oluşturur — aşırı izinlenmiş roller muhtemelen yanal hareket hedefleridir |
-  | [red-team](../red-team/SKILL.md) | Red team egzersizleri özel olarak duruş değerlendirmesinde bulunan bulut yanlış yapılandırmalarının istismarlanabilirliğini test eder |
-  | [security-pen-testing](../security-pen-testing/SKILL.md) | Bulut duruşu bulguları pen test değerlendirmesinin altyapı güvenliği bölümüne besler |
+  | [incident-response](https://github.com/alirezarezvani/claude-skills/blob/HEAD/incident-response/SKILL.md) | Kritik bulgular (genel S3, ayrıcalık yükseltme onaylanmış etkin) olay sınıflandırmasını tetikleyebilir |
+  | [threat-detection](https://github.com/alirezarezvani/claude-skills/blob/HEAD/threat-detection/SKILL.md) | Bulut duruşu bulguları av hedefleri oluşturur — aşırı izinlenmiş roller muhtemelen yanal hareket hedefleridir |
+  | [red-team](https://github.com/alirezarezvani/claude-skills/blob/HEAD/red-team/SKILL.md) | Red team egzersizleri özel olarak duruş değerlendirmesinde bulunan bulut yanlış yapılandırmalarının istismarlanabilirliğini test eder |
+  | [security-pen-testing](https://github.com/alirezarezvani/claude-skills/blob/HEAD/security-pen-testing/SKILL.md) | Bulut duruşu bulguları pen test değerlendirmesinin altyapı güvenliği bölümüne besler |
 ---
 
 # Cloud Security
@@ -688,7 +688,7 @@ aws s3api get-bucket-policy --bucket "${BUCKET}" | jq '.Policy | fromjson' | \
 
 | Skill | Relationship |
 |-------|-------------|
-| [incident-response](../incident-response/SKILL.md) | Critical findings (public S3, privilege escalation confirmed active) may trigger incident classification |
-| [threat-detection](../threat-detection/SKILL.md) | Cloud posture findings create hunting targets — over-permissioned roles are likely lateral movement destinations |
-| [red-team](../red-team/SKILL.md) | Red team exercises specifically test exploitability of cloud misconfigurations found in posture assessment |
-| [security-pen-testing](../security-pen-testing/SKILL.md) | Cloud posture findings feed into the infrastructure security section of pen test assessments |
+| [incident-response](https://github.com/alirezarezvani/claude-skills/blob/HEAD/incident-response/SKILL.md) | Critical findings (public S3, privilege escalation confirmed active) may trigger incident classification |
+| [threat-detection](https://github.com/alirezarezvani/claude-skills/blob/HEAD/threat-detection/SKILL.md) | Cloud posture findings create hunting targets — over-permissioned roles are likely lateral movement destinations |
+| [red-team](https://github.com/alirezarezvani/claude-skills/blob/HEAD/red-team/SKILL.md) | Red team exercises specifically test exploitability of cloud misconfigurations found in posture assessment |
+| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/blob/HEAD/security-pen-testing/SKILL.md) | Cloud posture findings feed into the infrastructure security section of pen test assessments |

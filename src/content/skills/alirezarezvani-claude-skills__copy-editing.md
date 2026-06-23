@@ -435,7 +435,7 @@ body_tr: |-
   
   ## Referanslar
   
-  - [Sade İngilizce Alternatifler](references/plain-english-alternatives.md): Karmaşık sözcükleri daha basit olanlarla değiştirin
+  - [Sade İngilizce Alternatifler](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/plain-english-alternatives.md): Karmaşık sözcükleri daha basit olanlarla değiştirin
   
   ---
   
@@ -928,7 +928,7 @@ This iterative process ensures each edit doesn't create new problems while respe
 
 ## References
 
-- [Plain English Alternatives](references/plain-english-alternatives.md): Replace complex words with simpler alternatives
+- [Plain English Alternatives](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/plain-english-alternatives.md): Replace complex words with simpler alternatives
 
 ---
 

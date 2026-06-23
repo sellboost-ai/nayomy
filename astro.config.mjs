@@ -9,7 +9,7 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   site: 'https://nayomy.com',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/admin') && !page.includes('/api') })],
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'tr'],

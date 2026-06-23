@@ -85,7 +85,7 @@ body_tr: |-
   | **Şablon** | Önceden oluşturulmuş doldurulabilir belgeler | Çok Düşük | Sözleşmeler, kısa bilgiler, sunumlar, yol haritaları |
   | **İnteraktif Görselleştirme** | Verileri veya kavramları görsel olarak gösterir | Yüksek | Pazar haritaları, karşılaştırma çizelgeleri, trend verileri |
   
-  [references/tool-types-guide.md](references/tool-types-guide.md) adresine bakın, ayrıntılı örnekler, inşa rehberleri ve tür başına karmaşıklık dökümü için.
+  [references/tool-types-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/tool-types-guide.md) adresine bakın, ayrıntılı örnekler, inşa rehberleri ve tür başına karmaşıklık dökümü için.
   
   ---
   
@@ -348,7 +348,7 @@ You've built it. Now distribute it and track whether it's working.
 | **Template** | Pre-built fillable documents | Very Low | Contracts, briefs, decks, roadmaps |
 | **Interactive Visualization** | Shows data or concepts visually | High | Market maps, comparison charts, trend data |
 
-See [references/tool-types-guide.md](references/tool-types-guide.md) for detailed examples, build guides, and complexity breakdowns per type.
+See [references/tool-types-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/tool-types-guide.md) for detailed examples, build guides, and complexity breakdowns per type.
 
 ---
 

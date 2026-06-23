@@ -53,13 +53,13 @@ body_tr: |-
   
   XPath'i yalnızca CSS ilişkiyi ifade edemediğinde kullanın (ör. ancestor traversal, metin tabanlı seçim).
   
-  **Pagination stratejileri:** next-button, URL tabanlı (`?page=N`), infinite scroll, load-more butonu. Tam pagination handler'ları ve scroll desenleri için [data_extraction_recipes.md](references/data_extraction_recipes.md) dosyasına bakın.
+  **Pagination stratejileri:** next-button, URL tabanlı (`?page=N`), infinite scroll, load-more butonu. Tam pagination handler'ları ve scroll desenleri için [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_extraction_recipes.md) dosyasına bakın.
   
   ### 2. Form Doldurma & Multi-Step İş Akışları
   
   Multi-step form'ları adım başına ayrık function'lara bölün. Her function alanları doldurur, "Next"/"Continue" öğesine tıklar ve bir sonraki adımın yüklenmesini bekler (URL değişikliği veya DOM elementi).
   
-  Anahtar desenler: login flow'ları, multi-page form'lar, dosya yüklemeleri (drag-and-drop zone'lar dahil), native ve custom dropdown yönetimi. `fill()`, `select_option()`, `set_input_files()` ve `expect_file_chooser()` için tam API referansı [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+  Anahtar desenler: login flow'ları, multi-page form'lar, dosya yüklemeleri (drag-and-drop zone'lar dahil), native ve custom dropdown yönetimi. `fill()`, `select_option()`, `set_input_files()` ve `expect_file_chooser()` için tam API referansı [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) dosyasına bakın.
   
   ### 3. Ekran Görüntüsü & PDF Yakalama
   
@@ -68,7 +68,7 @@ body_tr: |-
   - **PDF (yalnızca Chromium):** `await page.pdf(path="out.pdf", format="A4", print_background=True)`
   - **Visual regression:** Bilinen durumlarda ekran görüntüsü alın, baselines'ları version control'de şu isimle saklayın: `{page}_{viewport}_{state}.png`
   
-  Tam ekran görüntüsü/PDF seçenekleri için [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+  Tam ekran görüntüsü/PDF seçenekleri için [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) dosyasına bakın.
   
   ### 4. Yapılandırılmış Veri Çıkarma
   
@@ -77,14 +77,14 @@ body_tr: |-
   - **Listeler array'lere** — Field-selector map kullanarak tekrar eden card element'lerini map'leyin (attribute'ler için `::attr()` destekler)
   - **İç içe/threaded veri** — yanıtları olan comments, kategori ağaçları için recursive çıkarma
   
-  Tam çıkarma function'ları, fiyat parsing, veri temizleme utilities ve output format helper'ları (JSON, CSV, JSONL) için [data_extraction_recipes.md](references/data_extraction_recipes.md) dosyasına bakın.
+  Tam çıkarma function'ları, fiyat parsing, veri temizleme utilities ve output format helper'ları (JSON, CSV, JSONL) için [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_extraction_recipes.md) dosyasına bakın.
   
   ### 5. Cookie & Oturum Yönetimi
   
   - **Cookie'leri kaydet/geri yükle:** `context.cookies()` ve `context.add_cookies()`
   - **Tam storage state** (cookies + localStorage): `context.storage_state(path="state.json")` kaydetmek için, `browser.new_context(storage_state="state.json")` geri yüklemek için
   
-  **Best practice:** Login'den sonra state kaydedin, scraping oturumları arasında yeniden kullanın. Uzun bir job başlatmadan önce oturum geçerliliğini kontrol edin — protected bir sayfaya hafif bir istek yapın ve login'e yönlendirilmediğinizi doğrulayın. Cookie ve storage state API detayları için [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+  **Best practice:** Login'den sonra state kaydedin, scraping oturumları arasında yeniden kullanın. Uzun bir job başlatmadan önce oturum geçerliliğini kontrol edin — protected bir sayfaya hafif bir istek yapın ve login'e yönlendirilmediğinizi doğrulayın. Cookie ve storage state API detayları için [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) dosyasına bakın.
   
   ### 6. Anti-Detection Desenleri
   
@@ -96,7 +96,7 @@ body_tr: |-
   4. **Request throttling** — İşlemler arasına `random.uniform()` delay'leri ekleyin
   5. **Proxy support** — Per-browser veya per-context proxy konfigürasyonu
   
-  Navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation stratejileri ve detection self-test URL'leri için tam stealth stack [anti_detection_patterns.md](references/anti_detection_patterns.md) dosyasına bakın.
+  Navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation stratejileri ve detection self-test URL'leri için tam stealth stack [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/anti_detection_patterns.md) dosyasına bakın.
   
   ### 7. Dinamik İçerik Yönetimi
   
@@ -105,7 +105,7 @@ body_tr: |-
   - **Shadow DOM:** Playwright open Shadow DOM'u `>>` operator'ü ile pierces'ler: `page.locator("custom-element >> .inner-class")`
   - **Lazy-loaded images:** Yüklemeyi tetiklemek için element'leri view'a scroll edin `scroll_into_view_if_needed()` ile
   
-  Wait stratejileri, network interception ve Shadow DOM detayları için [playwright_browser_api.md](references/playwright_browser_api.md) dosyasına bakın.
+  Wait stratejileri, network interception ve Shadow DOM detayları için [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) dosyasına bakın.
   
   ### 8. Error Handling & Retry Logic
   
@@ -114,7 +114,7 @@ body_tr: |-
   - **Error-state screenshot'ları:** Beklenmeyen hatalar için debugging açısından `page.screenshot(path="error-state.png")` alın
   - **Rate limit detection:** HTTP 429 yanıtlarını kontrol edin ve `Retry-After` header'larına saygı gösterin
   
-  Tam exponential backoff implementation'ı ve rate limiter class'ını [anti_detection_patterns.md](references/anti_detection_patterns.md) dosyasına bakın.
+  Tam exponential backoff implementation'ı ve rate limiter class'ını [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/anti_detection_patterns.md) dosyasına bakın.
   
   ## İş Akışları
   
@@ -316,13 +316,13 @@ The Browser Automation skill provides comprehensive tools and knowledge for buil
 
 Use XPath only when CSS cannot express the relationship (e.g., ancestor traversal, text-based selection).
 
-**Pagination strategies:** next-button, URL-based (`?page=N`), infinite scroll, load-more button. See [data_extraction_recipes.md](references/data_extraction_recipes.md) for complete pagination handlers and scroll patterns.
+**Pagination strategies:** next-button, URL-based (`?page=N`), infinite scroll, load-more button. See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_extraction_recipes.md) for complete pagination handlers and scroll patterns.
 
 ### 2. Form Filling & Multi-Step Workflows
 
 Break multi-step forms into discrete functions per step. Each function fills fields, clicks "Next"/"Continue", and waits for the next step to load (URL change or DOM element).
 
-Key patterns: login flows, multi-page forms, file uploads (including drag-and-drop zones), native and custom dropdown handling. See [playwright_browser_api.md](references/playwright_browser_api.md) for complete API reference on `fill()`, `select_option()`, `set_input_files()`, and `expect_file_chooser()`.
+Key patterns: login flows, multi-page forms, file uploads (including drag-and-drop zones), native and custom dropdown handling. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) for complete API reference on `fill()`, `select_option()`, `set_input_files()`, and `expect_file_chooser()`.
 
 ### 3. Screenshot & PDF Capture
 
@@ -331,7 +331,7 @@ Key patterns: login flows, multi-page forms, file uploads (including drag-and-dr
 - **PDF (Chromium only):** `await page.pdf(path="out.pdf", format="A4", print_background=True)`
 - **Visual regression:** Take screenshots at known states, store baselines in version control with naming: `{page}_{viewport}_{state}.png`
 
-See [playwright_browser_api.md](references/playwright_browser_api.md) for full screenshot/PDF options.
+See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) for full screenshot/PDF options.
 
 ### 4. Structured Data Extraction
 
@@ -340,14 +340,14 @@ Core extraction patterns:
 - **Listings to arrays** — Map repeating card elements using a field-selector map (supports `::attr()` for attributes)
 - **Nested/threaded data** — Recursive extraction for comments with replies, category trees
 
-See [data_extraction_recipes.md](references/data_extraction_recipes.md) for complete extraction functions, price parsing, data cleaning utilities, and output format helpers (JSON, CSV, JSONL).
+See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/data_extraction_recipes.md) for complete extraction functions, price parsing, data cleaning utilities, and output format helpers (JSON, CSV, JSONL).
 
 ### 5. Cookie & Session Management
 
 - **Save/restore cookies:** `context.cookies()` and `context.add_cookies()`
 - **Full storage state** (cookies + localStorage): `context.storage_state(path="state.json")` to save, `browser.new_context(storage_state="state.json")` to restore
 
-**Best practice:** Save state after login, reuse across scraping sessions. Check session validity before starting a long job — make a lightweight request to a protected page and verify you are not redirected to login. See [playwright_browser_api.md](references/playwright_browser_api.md) for cookie and storage state API details.
+**Best practice:** Save state after login, reuse across scraping sessions. Check session validity before starting a long job — make a lightweight request to a protected page and verify you are not redirected to login. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) for cookie and storage state API details.
 
 ### 6. Anti-Detection Patterns
 
@@ -359,7 +359,7 @@ Modern websites detect automation through multiple vectors. Apply these in prior
 4. **Request throttling** — Add `random.uniform()` delays between actions
 5. **Proxy support** — Per-browser or per-context proxy configuration
 
-See [anti_detection_patterns.md](references/anti_detection_patterns.md) for the complete stealth stack: navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation strategies, and detection self-test URLs.
+See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/anti_detection_patterns.md) for the complete stealth stack: navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation strategies, and detection self-test URLs.
 
 ### 7. Dynamic Content Handling
 
@@ -368,7 +368,7 @@ See [anti_detection_patterns.md](references/anti_detection_patterns.md) for the 
 - **Shadow DOM:** Playwright pierces open Shadow DOM with `>>` operator: `page.locator("custom-element >> .inner-class")`
 - **Lazy-loaded images:** Scroll elements into view with `scroll_into_view_if_needed()` to trigger loading
 
-See [playwright_browser_api.md](references/playwright_browser_api.md) for wait strategies, network interception, and Shadow DOM details.
+See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/playwright_browser_api.md) for wait strategies, network interception, and Shadow DOM details.
 
 ### 8. Error Handling & Retry Logic
 
@@ -377,7 +377,7 @@ See [playwright_browser_api.md](references/playwright_browser_api.md) for wait s
 - **Error-state screenshots:** Capture `page.screenshot(path="error-state.png")` on unexpected failures for debugging
 - **Rate limit detection:** Check for HTTP 429 responses and respect `Retry-After` headers
 
-See [anti_detection_patterns.md](references/anti_detection_patterns.md) for the complete exponential backoff implementation and rate limiter class.
+See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/anti_detection_patterns.md) for the complete exponential backoff implementation and rate limiter class.
 
 ## Workflows
 

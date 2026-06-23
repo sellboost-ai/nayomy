@@ -93,7 +93,7 @@ body_tr: |-
   
   ## Sahne Tasarım Sistemi
   
-  Tam tasarım sistemi için [references/scene-design-system.md](references/scene-design-system.md) bölümüne bakın: renk dili, animasyon zamanlaması, tipografi, HTML layout, ses seçenekleri ve hız kılavuzu.
+  Tam tasarım sistemi için [references/scene-design-system.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/scene-design-system.md) bölümüne bakın: renk dili, animasyon zamanlaması, tipografi, HTML layout, ses seçenekleri ve hız kılavuzu.
   
   ## Kalite Kontrol Listesi
   
@@ -200,7 +200,7 @@ If MCPs are unavailable, still produce items 1-3. Include the ffmpeg commands in
 
 ## Scene Design System
 
-See [references/scene-design-system.md](references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
+See [references/scene-design-system.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
 
 ## Quality Checklist
 

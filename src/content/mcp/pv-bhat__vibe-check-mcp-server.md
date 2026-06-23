@@ -32,7 +32,7 @@ body_tr: |-
       
     </a>
     <a href="https://github.com/PV-Bhat/vibe-check-mcp-server/actions/workflows/ci.yml"></a>
-    <a href="LICENSE"></a>
+    <a href="https://github.com/PV-Bhat/vibe-check-mcp-server/tree/HEAD/LICENSE"></a>
   </p>
   
   <p align="center">
@@ -43,7 +43,7 @@ body_tr: |-
   
   [![Version](https://img.shields.io/badge/version-2.8.0-purple)](https://github.com/PV-Bhat/vibe-check-mcp-server)
   [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/PV-Bhat/vibe-check-mcp-server)](https://archestra.ai/mcp-catalog/pv-bhat__vibe-check-mcp-server)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet)](CONTRIBUTING.md)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet)](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/CONTRIBUTING.md)
   
   *Ajanları aşırı mühendisliğe karşı koruyan ve onları minimum uygulanabilir yola saklayan tak ve oyna mentor katmanı — LLM'leri hizalı, yansıtıcı ve güvenli tutan araştırma destekli MCP sunucusu.*
   
@@ -143,9 +143,9 @@ body_tr: |-
   
   ## Genel Bakış
   
-  Vibe Check MCP, metabilişsel bir sinyal katmanını CPI ile birleştirerek ajanlar risk arttığında duraklamasını sağlar. Vibe Check özellikleri, belirsizliği ve risk puanlarını ortaya koymaktadır; CPI bu tetikleyicileri tüketir ve ajan devam etmeden önce bir müdahale politikasını uygular. [CPI entegrasyon kılavuzuna](./docs/integrations/cpi.md) ve https://github.com/PV-Bhat/cpi adresindeki CPI deposuna bakın.
+  Vibe Check MCP, metabilişsel bir sinyal katmanını CPI ile birleştirerek ajanlar risk arttığında duraklamasını sağlar. Vibe Check özellikleri, belirsizliği ve risk puanlarını ortaya koymaktadır; CPI bu tetikleyicileri tüketir ve ajan devam etmeden önce bir müdahale politikasını uygular. [CPI entegrasyon kılavuzuna](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/integrations/cpi.md) ve https://github.com/PV-Bhat/cpi adresindeki CPI deposuna bakın.
   
-  Vibe Check, ana ajanınıza meta-bilişsel geri bildirim sağlamak için ikinci bir LLM çağırır. vibe_check çağrılarını ajan sistem istelerine entegre etmek ve geri dönüşsüz eylemlerden önce tool çağrılarını talimatlandırmak ajan hizalamasını ve sağduyusunu önemli ölçüde iyileştirir. Yüksek seviye bileşen haritası: [docs/architecture.md](./docs/architecture.md), CPI teslimat diyagramı ve örnek değirmeni [docs/integrations/cpi.md](./docs/integrations/cpi.md) adresinde yakalaşmıştır.
+  Vibe Check, ana ajanınıza meta-bilişsel geri bildirim sağlamak için ikinci bir LLM çağırır. vibe_check çağrılarını ajan sistem istelerine entegre etmek ve geri dönüşsüz eylemlerden önce tool çağrılarını talimatlandırmak ajan hizalamasını ve sağduyusunu önemli ölçüde iyileştirir. Yüksek seviye bileşen haritası: [docs/architecture.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/architecture.md), CPI teslimat diyagramı ve örnek değirmeni [docs/integrations/cpi.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/integrations/cpi.md) adresinde yakalaşmıştır.
   
   ## Sorun: Desen İnertiası ve Muhakeme Kilitlenmesi
   
@@ -162,7 +162,7 @@ body_tr: |-
   
   ## Yenilenen Nedir v2.8.0 (Final Maintenance Release)
   
-  > **Bakım Bildirimi:** Bu proje artık aktif olarak bakım görmemektedir. MIT lisansı altında tam olarak işlevseldir ve kullanılabilirdir. Topluluk forklama hoşlanıyor. Ayrıntılar için bkz. [Changelog](./docs/changelog.md).
+  > **Bakım Bildirimi:** Bu proje artık aktif olarak bakım görmemektedir. MIT lisansı altında tam olarak işlevseldir ve kullanılabilirdir. Topluluk forklama hoşlanıyor. Ayrıntılar için bkz. [Changelog](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/changelog.md).
   
   - **Hata düzeltmesi:** `check_constitution` artık geçerli MCP içerik türleri döndürüyor (#84'ü düzeltir)
   - **Güvenlik:** Tüm bağımlılıklar güncellendi — 14 npm denetimi güvenlik açığını çözüyor (axios, MCP SDK, diff, express ve geçişli bağımlılıklar)
@@ -220,11 +220,11 @@ body_tr: |-
   bash scripts/docker-setup.sh
   ```
   
-  Tam ayrıntılar için [Otomatik Docker Kurulumu](./docs/docker-automation.md) adresine bakın.
+  Tam ayrıntılar için [Otomatik Docker Kurulumu](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/docker-automation.md) adresine bakın.
   
   ### Sağlayıcı anahtarları
   
-  Desteklenen sağlayıcılar, çözüm sırası, depolama konumları ve güvenlik rehberliği için [API Anahtarları ve Gizli Yönetimi](./docs/api-keys.md) adresine bakın.
+  Desteklenen sağlayıcılar, çözüm sırası, depolama konumları ve güvenlik rehberliği için [API Anahtarları ve Gizli Yönetimi](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/api-keys.md) adresine bakın.
   
   ### Taşıma seçimi
   
@@ -232,7 +232,7 @@ body_tr: |-
   
   ### İstemci yükleyicileri
   
-  Her yükleyici idempotent ve girişleri `"managedBy": "vibe-check-mcp-cli"` ile etiketler. Yedeklemeler değişiklikler uygulanmadan önce çalıştırma başına bir kez yazılır ve birleşmeler atomiktir (`*.bak` dosyaları geri alma kolaylaştırır). Daha derin istemci özel referanslar için [docs/clients.md](./docs/clients.md) adresine bakın.
+  Her yükleyici idempotent ve girişleri `"managedBy": "vibe-check-mcp-cli"` ile etiketler. Yedeklemeler değişiklikler uygulanmadan önce çalıştırma başına bir kez yazılır ve birleşmeler atomiktir (`*.bak` dosyaları geri alma kolaylaştırır). Daha derin istemci özel referanslar için [docs/clients.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/clients.md) adresine bakın.
   
   #### Claude Desktop
   
@@ -305,18 +305,18 @@ body_tr: |-
   
   ## Belgelendirme
   
-  - [Ajan İstemi Stratejileri](./docs/agent-prompting.md)
-  - [CPI Entegrasyonu](./docs/integrations/cpi.md)
-  - [Gelişmiş Entegrasyon](./docs/advanced-integration.md)
-  - [Teknik Referans](./docs/technical-reference.md)
-  - [Otomatik Docker Kurulumu](./docs/docker-automation.md)
-  - [Felsefe](./docs/philosophy.md)
-  - [Vaka Çalışmaları](./docs/case-studies.md)
-  - [Changelog](./docs/changelog.md)
+  - [Ajan İstemi Stratejileri](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/agent-prompting.md)
+  - [CPI Entegrasyonu](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/integrations/cpi.md)
+  - [Gelişmiş Entegrasyon](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/advanced-integration.md)
+  - [Teknik Referans](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/technical-reference.md)
+  - [Otomatik Docker Kurulumu](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/docker-automation.md)
+  - [Felsefe](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/philosophy.md)
+  - [Vaka Çalışmaları](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/case-studies.md)
+  - [Changelog](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/changelog.md)
   
   ## Güvenlik
   
-  Bu depo, her çekme isteğinde çalışan CI tabanlı güvenlik taraması içerir. `npm audit` ile bağımlılıkları kontrol eder ve kaynağı riskli desenler için tarar. Ayrıntılar ve sorunları bildirme hakkında bilgi için [SECURITY.md](./SECURITY.md) adresine bakın.
+  Bu depo, her çekme isteğinde çalışan CI tabanlı güvenlik taraması içerir. `npm audit` ile bağımlılıkları kontrol eder ve kaynağı riskli desenler için tarar. Ayrıntılar ve sorunları bildirme hakkında bilgi için [SECURITY.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/SECURITY.md) adresine bakın.
   
   ## Yol Haritası
   
@@ -329,7 +329,7 @@ body_tr: |-
   
   ## Katkıda Bulunanlar ve Topluluk
   
-  Katkılar hoşlanıyor! Bkz. [CONTRIBUTING.md](./CONTRIBUTING.md).
+  Katkılar hoşlanıyor! Bkz. [CONTRIBUTING.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/CONTRIBUTING.md).
   
   <a href="https://github.com/PV-Bhat/vibe-check-mcp-server/graphs/contributors">
     
@@ -348,7 +348,7 @@ body_tr: |-
   
   ## Teşekkür ve Lisans
   
-  Vibe Check MCP [MIT Lisansı](LICENSE) altında yayınlanmıştır. Güvenilir, kurumsal düzey AI ajanları için oluşturulmuştur.
+  Vibe Check MCP [MIT Lisansı](https://github.com/PV-Bhat/vibe-check-mcp-server/tree/HEAD/LICENSE) altında yayınlanmıştır. Güvenilir, kurumsal düzey AI ajanları için oluşturulmuştur.
   
   ## Yazar Teşekkürleri ve Bağlantıları
   
@@ -376,7 +376,7 @@ body_tr: |-
     
   </a>
   <a href="https://github.com/PV-Bhat/vibe-check-mcp-server/actions/workflows/ci.yml"></a>
-  <a href="LICENSE"></a>
+  <a href="https://github.com/PV-Bhat/vibe-check-mcp-server/tree/HEAD/LICENSE"></a>
 </p>
 
 <p align="center">
@@ -387,7 +387,7 @@ body_tr: |-
 
 [![Version](https://img.shields.io/badge/version-2.8.1-purple)](https://github.com/PV-Bhat/vibe-check-mcp-server)
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/PV-Bhat/vibe-check-mcp-server)](https://archestra.ai/mcp-catalog/pv-bhat__vibe-check-mcp-server)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet)](CONTRIBUTING.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet)](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/CONTRIBUTING.md)
 
 *Plug-and-play mentor layer that stops agents from over-engineering and keeps them on the minimal viable path — research-backed MCP server keeping LLMs aligned, reflective and safe.*
 
@@ -485,9 +485,9 @@ Vibe Check MCP keeps agents on the minimal viable path and escalates complexity 
 
 ## Overview
 
-Vibe Check MCP pairs a metacognitive signal layer with CPI so agents can pause when risk spikes. Vibe Check surfaces traits, uncertainty, and risk scores; CPI consumes those triggers and enforces an intervention policy before the agent resumes. See the [CPI integration guide](./docs/integrations/cpi.md) and the CPI repo at https://github.com/PV-Bhat/cpi for wiring details.
+Vibe Check MCP pairs a metacognitive signal layer with CPI so agents can pause when risk spikes. Vibe Check surfaces traits, uncertainty, and risk scores; CPI consumes those triggers and enforces an intervention policy before the agent resumes. See the [CPI integration guide](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/integrations/cpi.md) and the CPI repo at https://github.com/PV-Bhat/cpi for wiring details.
 
-Vibe Check invokes a second LLM to give meta-cognitive feedback to your main agent. Integrating vibe_check calls into agent system prompts and instructing tool calls before irreversible actions significantly improves agent alignment and common-sense. The high-level component map: [docs/architecture.md](./docs/architecture.md), while the CPI handoff diagram and example shim are captured in [docs/integrations/cpi.md](./docs/integrations/cpi.md).
+Vibe Check invokes a second LLM to give meta-cognitive feedback to your main agent. Integrating vibe_check calls into agent system prompts and instructing tool calls before irreversible actions significantly improves agent alignment and common-sense. The high-level component map: [docs/architecture.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/architecture.md), while the CPI handoff diagram and example shim are captured in [docs/integrations/cpi.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/integrations/cpi.md).
 
 ## The Problem: Pattern Inertia & Reasoning Lock-In
 
@@ -504,7 +504,7 @@ Large language models can confidently follow flawed plans. Without an external n
 
 ## What's New in v2.8.1 (Maintenance Release)
 
-> **Maintenance Notice:** This project is in maintenance mode and is no longer under active feature development. It remains fully functional and available under the MIT license. Community forks are welcome. For details, see the [Changelog](./docs/changelog.md).
+> **Maintenance Notice:** This project is in maintenance mode and is no longer under active feature development. It remains fully functional and available under the MIT license. Community forks are welcome. For details, see the [Changelog](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/changelog.md).
 
 - **npm release:** v2.8.0 was never published to npm; v2.8.1 ships all of its fixes to the registry, including everything below
 - **Bug fix (v2.8.0):** `check_constitution` now returns valid MCP content types (fixes #84)
@@ -558,11 +558,11 @@ The repository includes a helper script for one-command setup.
 ```bash
 bash scripts/docker-setup.sh
 ```
-See [Automatic Docker Setup](./docs/docker-automation.md) for full details.
+See [Automatic Docker Setup](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/docker-automation.md) for full details.
 
 ### Provider keys
 
-See [API Keys & Secret Management](./docs/api-keys.md) for supported providers, resolution order, storage locations, and security guidance.
+See [API Keys & Secret Management](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/api-keys.md) for supported providers, resolution order, storage locations, and security guidance.
 
 ### Transport selection
 
@@ -570,7 +570,7 @@ The CLI supports stdio and HTTP transports. Transport resolution follows this or
 
 ### Client installers
 
-Each installer is idempotent and tags entries with `"managedBy": "vibe-check-mcp-cli"`. Backups are written once per run before changes are applied, and merges are atomic (`*.bak` files make rollback easy). See [docs/clients.md](./docs/clients.md) for deeper client-specific references.
+Each installer is idempotent and tags entries with `"managedBy": "vibe-check-mcp-cli"`. Backups are written once per run before changes are applied, and merges are atomic (`*.bak` files make rollback easy). See [docs/clients.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/clients.md) for deeper client-specific references.
 
 #### Claude Desktop
 
@@ -640,17 +640,17 @@ As an autonomous agent you will:
 | 🔎 **check_constitution**  | Inspect effective rules for a session                      |
 
 ## Documentation
-- [Agent Prompting Strategies](./docs/agent-prompting.md)
-- [CPI Integration](./docs/integrations/cpi.md)
-- [Advanced Integration](./docs/advanced-integration.md)
-- [Technical Reference](./docs/technical-reference.md)
-- [Automatic Docker Setup](./docs/docker-automation.md)
-- [Philosophy](./docs/philosophy.md)
-- [Case Studies](./docs/case-studies.md)
-- [Changelog](./docs/changelog.md)
+- [Agent Prompting Strategies](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/agent-prompting.md)
+- [CPI Integration](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/integrations/cpi.md)
+- [Advanced Integration](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/advanced-integration.md)
+- [Technical Reference](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/technical-reference.md)
+- [Automatic Docker Setup](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/docker-automation.md)
+- [Philosophy](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/philosophy.md)
+- [Case Studies](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/case-studies.md)
+- [Changelog](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/docs/changelog.md)
 
 ## Security
-This repository includes a CI-based security scan that runs on every pull request. It checks dependencies with `npm audit` and scans the source for risky patterns. See [SECURITY.md](./SECURITY.md) for details and how to report issues.
+This repository includes a CI-based security scan that runs on every pull request. It checks dependencies with `npm audit` and scans the source for risky patterns. See [SECURITY.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/SECURITY.md) for details and how to report issues.
 
 ## Roadmap
 
@@ -662,7 +662,7 @@ This repository includes a CI-based security scan that runs on every pull reques
 - **Prompt externalization:** Move hardcoded prompts to configuration files for transparency and auditability (see PR #71).
 
 ## Contributors & Community
-Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md).
+Contributions are welcome! See [CONTRIBUTING.md](https://github.com/PV-Bhat/vibe-check-mcp-server/blob/HEAD/CONTRIBUTING.md).
 
 <a href="https://github.com/PV-Bhat/vibe-check-mcp-server/graphs/contributors">
   
@@ -679,7 +679,7 @@ Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md).
 * [MCP Directory](https://mcpdirectory.ai/mcpserver/2419/)
 
 ## Credits & License
-Vibe Check MCP is released under the [MIT License](LICENSE). Built for reliable, enterprise-ready AI agents.
+Vibe Check MCP is released under the [MIT License](https://github.com/PV-Bhat/vibe-check-mcp-server/tree/HEAD/LICENSE). Built for reliable, enterprise-ready AI agents.
 
 ## Author Credits & Links
 Vibe Check MCP created by: [Pruthvi Bhat](https://pruthvibhat.com/), Initiative - https://murst.org/

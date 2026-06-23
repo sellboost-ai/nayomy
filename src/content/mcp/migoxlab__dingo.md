@@ -48,7 +48,7 @@ body_tr: |-
   
   <div align="center">
   
-  [English](README.md) · [简体中文](README_zh-CN.md) · [日本語](README_ja.md)
+  [English](https://github.com/MigoXLab/dingo/blob/HEAD/README.md) · [简体中文](https://github.com/MigoXLab/dingo/blob/HEAD/README_zh-CN.md) · [日本語](https://github.com/MigoXLab/dingo/blob/HEAD/README_ja.md)
   
   </div>
   
@@ -56,7 +56,7 @@ body_tr: |-
   <!-- join us -->
   
   <p align="center">
-      👋 <a href="https://discord.gg/Jhgb2eKWh8" target="_blank">Discord</a> ve <a href="./docs/assets/wechat.jpg" target="_blank">WeChat</a> üzerinde bize katılın
+      👋 <a href="https://discord.gg/Jhgb2eKWh8" target="_blank">Discord</a> ve <a href="https://github.com/MigoXLab/dingo/blob/HEAD/docs/assets/wechat.jpg" target="_blank">WeChat</a> üzerinde bize katılın
   </p>
   
   
@@ -192,7 +192,7 @@ body_tr: |-
       }
   
       input_args = InputArgs(**input_data)
-      executor = Executor.exec_map["local"](input_args)
+      executor = Executor.exec_map["local"](https://github.com/MigoXLab/dingo/tree/HEAD/input_args)
       result = executor.execute()
       print(result)
   ```
@@ -230,7 +230,7 @@ body_tr: |-
   
   Ayrıntılı kurulum ve Cursor/Claude Desktop entegrasyonu için bkz:
   
-  [English](README_mcp.md) · [简体中文](README_mcp_zh-CN.md) · [日本語](README_mcp_ja.md)
+  [English](https://github.com/MigoXLab/dingo/blob/HEAD/README_mcp.md) · [简体中文](https://github.com/MigoXLab/dingo/blob/HEAD/README_mcp_zh-CN.md) · [日本語](https://github.com/MigoXLab/dingo/blob/HEAD/README_mcp_ja.md)
   
   ## Video Gösterimi
   
@@ -258,11 +258,11 @@ body_tr: |-
   | **Çok Modalite** | Görüntü-metin alaka, VLM kalitesi, OCR görsel değerlendirmesi | Görme-dil verisi |
   | **Güvenlik** | PII tespiti, Perspective API toksisite | Gizlilik ve güvenlik |
   
-  📊 **[Tam Metrikleri Belgesi Görüntüle →](docs/metrics.md)**  
-  📖 **[RAG Değerlendirme Rehberi →](docs/rag_evaluation_metrics.md)** | **[中文版](docs/rag_evaluation_metrics_zh.md)**  
-  🔍 **[Halüsinasyon Tespit Rehberi →](docs/hallucination_detection_guide.md)** | **[中文版](docs/hallucination_guide.md)**  
-  ✅ **[Gerçeksellik Değerlendirme Rehberi →](docs/factuality_assessment_guide.md)** | **[中文版](docs/factcheck_guide.md)**  
-  👁️ **[VLM Render Judge Rehberi →](docs/en/vlm_render_judge_guide.md)** | **[中文版](docs/vlm_render_judge_guide.md)**
+  📊 **[Tam Metrikleri Belgesi Görüntüle →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/metrics.md)**  
+  📖 **[RAG Değerlendirme Rehberi →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/rag_evaluation_metrics.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/rag_evaluation_metrics_zh.md)**  
+  🔍 **[Halüsinasyon Tespit Rehberi →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/hallucination_detection_guide.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/hallucination_guide.md)**  
+  ✅ **[Gerçeksellik Değerlendirme Rehberi →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/factuality_assessment_guide.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/factcheck_guide.md)**  
+  👁️ **[VLM Render Judge Rehberi →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/en/vlm_render_judge_guide.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/vlm_render_judge_guide.md)**
   
   Çoğu metrik bilimsel titizliği sağlamak için akademik araştırma tarafından desteklenmektedir.
   
@@ -399,7 +399,7 @@ body_tr: |-
   ✅ Alan gruplandırılmış sonuçlar  
   ✅ Batch ve tek değerlendirme modları
   
-  📖 **[RAG Değerlendirme Rehberini Görüntüle →](docs/rag_evaluation_metrics_zh.md)**
+  📖 **[RAG Değerlendirme Rehberini Görüntüle →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/rag_evaluation_metrics_zh.md)**
   
   ---
   
@@ -527,8 +527,8 @@ body_tr: |-
   ```
   
   **Örnekler:**
-  - [Özel Kurallar](examples/register/sdk_register_rule.py)
-  - [Özel Modeller](examples/register/sdk_register_llm.py)
+  - [Özel Kurallar](https://github.com/MigoXLab/dingo/blob/HEAD/examples/register/sdk_register_rule.py)
+  - [Özel Modeller](https://github.com/MigoXLab/dingo/blob/HEAD/examples/register/sdk_register_llm.py)
   
   ### Araçlarla Ajan Tabanlı Değerlendirme
   
@@ -613,7 +613,7 @@ body_tr: |-
 
 <div align="center">
 
-[English](README.md) · [简体中文](README_zh-CN.md) · [日本語](README_ja.md)
+[English](https://github.com/MigoXLab/dingo/blob/HEAD/README.md) · [简体中文](https://github.com/MigoXLab/dingo/blob/HEAD/README_zh-CN.md) · [日本語](https://github.com/MigoXLab/dingo/blob/HEAD/README_ja.md)
 
 </div>
 
@@ -621,7 +621,7 @@ body_tr: |-
 <!-- join us -->
 
 <p align="center">
-    👋 join us on <a href="https://discord.gg/Jhgb2eKWh8" target="_blank">Discord</a> and <a href="./docs/assets/wechat.jpg" target="_blank">WeChat</a>
+    👋 join us on <a href="https://discord.gg/Jhgb2eKWh8" target="_blank">Discord</a> and <a href="https://github.com/MigoXLab/dingo/blob/HEAD/docs/assets/wechat.jpg" target="_blank">WeChat</a>
 </p>
 
 
@@ -778,7 +778,7 @@ if __name__ == '__main__':
     }
 
     input_args = InputArgs(**input_data)
-    executor = Executor.exec_map["local"](input_args)
+    executor = Executor.exec_map["local"](https://github.com/MigoXLab/dingo/tree/HEAD/input_args)
     result = executor.execute()
     print(result)
 ```
@@ -816,7 +816,7 @@ dingo serve --transport stdio
 
 For detailed setup and Cursor/Claude Desktop integration, see the dedicated documentation:
 
-[English](README_mcp.md) · [简体中文](README_mcp_zh-CN.md) · [日本語](README_mcp_ja.md)
+[English](https://github.com/MigoXLab/dingo/blob/HEAD/README_mcp.md) · [简体中文](https://github.com/MigoXLab/dingo/blob/HEAD/README_mcp_zh-CN.md) · [日本語](https://github.com/MigoXLab/dingo/blob/HEAD/README_mcp_ja.md)
 
 ## Video Demonstration
 
@@ -844,11 +844,11 @@ Dingo provides **100+ evaluation metrics** across multiple dimensions, combining
 | **Multimodal** | Image-text relevance, VLM quality, OCR visual evaluation | Vision-language data |
 | **Security** | PII detection, Perspective API toxicity | Privacy and safety |
 
-📊 **[View Complete Metrics Documentation →](docs/metrics.md)**  
-📖 **[RAG Evaluation Guide →](docs/rag_evaluation_metrics.md)** | **[中文版](docs/rag_evaluation_metrics_zh.md)**  
-🔍 **[Hallucination Detection Guide →](docs/hallucination_detection_guide.md)** | **[中文版](docs/hallucination_guide.md)**  
-✅ **[Factuality Assessment Guide →](docs/factuality_assessment_guide.md)** | **[中文版](docs/factcheck_guide.md)**  
-👁️ **[VLM Render Judge Guide →](docs/en/vlm_render_judge_guide.md)** | **[中文版](docs/vlm_render_judge_guide.md)**
+📊 **[View Complete Metrics Documentation →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/metrics.md)**  
+📖 **[RAG Evaluation Guide →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/rag_evaluation_metrics.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/rag_evaluation_metrics_zh.md)**  
+🔍 **[Hallucination Detection Guide →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/hallucination_detection_guide.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/hallucination_guide.md)**  
+✅ **[Factuality Assessment Guide →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/factuality_assessment_guide.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/factcheck_guide.md)**  
+👁️ **[VLM Render Judge Guide →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/en/vlm_render_judge_guide.md)** | **[中文版](https://github.com/MigoXLab/dingo/blob/HEAD/docs/vlm_render_judge_guide.md)**
 
 Most metrics are backed by academic research to ensure scientific rigor.
 
@@ -985,7 +985,7 @@ class MyCustomRule(BaseRule):
 ✅ Field-grouped results  
 ✅ Batch and single evaluation modes
 
-📖 **[View RAG Evaluation Guide →](docs/rag_evaluation_metrics_zh.md)**
+📖 **[View RAG Evaluation Guide →](https://github.com/MigoXLab/dingo/blob/HEAD/docs/rag_evaluation_metrics_zh.md)**
 
 ---
 
@@ -1113,8 +1113,8 @@ class CustomEvaluator(BaseOpenAI):
 ```
 
 **Examples:**
-- [Custom Rules](examples/register/sdk_register_rule.py)
-- [Custom Models](examples/register/sdk_register_llm.py)
+- [Custom Rules](https://github.com/MigoXLab/dingo/blob/HEAD/examples/register/sdk_register_rule.py)
+- [Custom Models](https://github.com/MigoXLab/dingo/blob/HEAD/examples/register/sdk_register_llm.py)
 
 ### Agent-Based Evaluation with Tools
 
@@ -1165,7 +1165,7 @@ class MyAgent(BaseAgent):
         return EvalDetail(...)
 ```
 
-For detailed guidance on choosing and implementing agent patterns, see [Agent Development Guide](docs/agent_development_guide.md).
+For detailed guidance on choosing and implementing agent patterns, see [Agent Development Guide](https://github.com/MigoXLab/dingo/blob/HEAD/docs/agent_development_guide.md).
 
 **Configuration Example:**
 ```json
@@ -1191,10 +1191,10 @@ For detailed guidance on choosing and implementing agent patterns, see [Agent De
 ```
 
 **Learn More:**
-- [Agent Development Guide](docs/agent_development_guide.md) - Comprehensive guide for creating custom agents and tools
-- [AgentHallucination Example](examples/agent/agent_hallucination_example.py) - Production agent example
-- [AgentFactCheck Example](examples/agent/agent_executor_example.py) - LangChain agent example
-- [ArticleFactChecker Example](examples/agent/agent_article_fact_checking_example.py) - Article-scale two-phase fact verification
+- [Agent Development Guide](https://github.com/MigoXLab/dingo/blob/HEAD/docs/agent_development_guide.md) - Comprehensive guide for creating custom agents and tools
+- [AgentHallucination Example](https://github.com/MigoXLab/dingo/blob/HEAD/examples/agent/agent_hallucination_example.py) - Production agent example
+- [AgentFactCheck Example](https://github.com/MigoXLab/dingo/blob/HEAD/examples/agent/agent_executor_example.py) - LangChain agent example
+- [ArticleFactChecker Example](https://github.com/MigoXLab/dingo/blob/HEAD/examples/agent/agent_article_fact_checking_example.py) - Article-scale two-phase fact verification
 
 ## ⚙️ Execution Modes
 
@@ -1205,7 +1205,7 @@ from dingo.config import InputArgs
 from dingo.exec import Executor
 
 input_args = InputArgs(**input_data)
-executor = Executor.exec_map["local"](input_args)
+executor = Executor.exec_map["local"](https://github.com/MigoXLab/dingo/tree/HEAD/input_args)
 result = executor.execute()
 
 # Access results
@@ -1291,11 +1291,11 @@ The current built-in detection rules and model methods primarily focus on common
 
 # Contribution
 
-We appreciate all the contributors for their efforts to improve and enhance `Dingo`. Please refer to the [Contribution Guide](docs/en/CONTRIBUTING.md) for guidance on contributing to the project.
+We appreciate all the contributors for their efforts to improve and enhance `Dingo`. Please refer to the [Contribution Guide](https://github.com/MigoXLab/dingo/blob/HEAD/docs/en/CONTRIBUTING.md) for guidance on contributing to the project.
 
 # License
 
-This project uses the [Apache 2.0 Open Source License](LICENSE).
+This project uses the [Apache 2.0 Open Source License](https://github.com/MigoXLab/dingo/tree/HEAD/LICENSE).
 
 This project uses fasttext for some functionality including language detection. fasttext is licensed under the MIT License, which is compatible with our Apache 2.0 license and provides flexibility for various usage scenarios.
 

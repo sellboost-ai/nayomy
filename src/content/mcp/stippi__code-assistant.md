@@ -100,7 +100,7 @@ body_tr: |-
   - Tool parametreleri, biçimlendirilmiş içeriği yansıtmak üzere güncellenir ve LLM'nin mental modelini senkronize tutar
   - Bu, auto-formatting nedeniyle oluşan edit çakışmalarını önler
   
-  Ayrıntılı dokumentasyon için [docs/format-on-save-feature.md](docs/format-on-save-feature.md) dosyasına bakın.
+  Ayrıntılı dokumentasyon için [docs/format-on-save-feature.md](https://github.com/stippi/code-assistant/blob/HEAD/docs/format-on-save-feature.md) dosyasına bakın.
   
   **Önemli Notlar:**
   - Bu konfigürasyonda olmayan bir klasörden başlatırken, geçici bir proje otomatik olarak oluşturulur
@@ -226,7 +226,7 @@ body_tr: |-
   
   **Environment Variable Substitution**: API key'lerine başvurmak için sağlayıcı konfigürasyonlarında `${VAR_NAME}` kullanın.
   
-  **Tam Örnekler**: Tüm desteklenen sağlayıcılarla (Anthropic, OpenAI, Ollama, SAP AI Core, Vertex AI, Groq, Cerebras, MistralAI, OpenRouter) tam konfigürasyon örnekleri için [`providers.example.json`](providers.example.json) ve [`models.example.json`](models.example.json) dosyalarına bakın.
+  **Tam Örnekler**: Tüm desteklenen sağlayıcılarla (Anthropic, OpenAI, Ollama, SAP AI Core, Vertex AI, Groq, Cerebras, MistralAI, OpenRouter) tam konfigürasyon örnekleri için [`providers.example.json`](https://github.com/stippi/code-assistant/blob/HEAD/providers.example.json) ve [`models.example.json`](https://github.com/stippi/code-assistant/blob/HEAD/models.example.json) dosyalarına bakın.
   
   ### Tool Konfigürasyonu
   
@@ -475,7 +475,7 @@ The _optional_ `format_on_save` field allows automatic formatting of files after
 - The tool parameters are updated to reflect the formatted content, keeping the LLM's mental model in sync
 - This prevents edit conflicts caused by auto-formatting
 
-See [docs/format-on-save-feature.md](docs/format-on-save-feature.md) for detailed documentation.
+See [docs/format-on-save-feature.md](https://github.com/stippi/code-assistant/blob/HEAD/docs/format-on-save-feature.md) for detailed documentation.
 
 **Important Notes:**
 - When launching from a folder not in this configuration, a temporary project is created automatically
@@ -624,7 +624,7 @@ and [effort](https://docs.anthropic.com/en/docs/build-with-claude/effort) docs f
 
 **Environment Variable Substitution**: Use `${VAR_NAME}` in provider configs to reference environment variables for API keys.
 
-**Full Examples**: See [`providers.example.json`](providers.example.json) and [`models.example.json`](models.example.json) for complete configuration examples with all supported providers (Anthropic, OpenAI, Ollama, SAP AI Core, Vertex AI, Groq, Cerebras, MistralAI, OpenRouter).
+**Full Examples**: See [`providers.example.json`](https://github.com/stippi/code-assistant/blob/HEAD/providers.example.json) and [`models.example.json`](https://github.com/stippi/code-assistant/blob/HEAD/models.example.json) for complete configuration examples with all supported providers (Anthropic, OpenAI, Ollama, SAP AI Core, Vertex AI, Groq, Cerebras, MistralAI, OpenRouter).
 
 ### Tool Configuration
 

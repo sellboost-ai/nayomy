@@ -85,7 +85,7 @@ body_tr: |-
   
   ### Adım 3 — İçerik Briefinizi Üretin
   
-  [İçerik Brief Şablonu](templates/content-brief-template.md) doldurabilirsiniz. Brief şunları tanımlar:
+  [İçerik Brief Şablonu](https://github.com/alirezarezvani/claude-skills/blob/HEAD/templates/content-brief-template.md) doldurabilirsiniz. Brief şunları tanımlar:
   - Hedef anahtar kelime + ikincil anahtar kelimeler
   - Okuyucu profili ve onların yapması gereken iş
   - Açı ve benzersiz bakış açısı
@@ -94,7 +94,7 @@ body_tr: |-
   - Dahil edilecek dahili linkler
   - Karşılaştırılması gereken rekabet parçaları
   
-  Iyi bir brief yazmanın nasıl daha iyi taslak ürettiğini anlamak için [references/content-brief-guide.md](references/content-brief-guide.md) bölümüne bakın.
+  Iyi bir brief yazmanın nasıl daha iyi taslak ürettiğini anlamak için [references/content-brief-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/content-brief-guide.md) bölümüne bakın.
   
   ---
   
@@ -216,7 +216,7 @@ body_tr: |-
   python3 scripts/content_quality_gates.py draft.md --json
   ```
   
-  Başarısız bir kapı yayını engeller; temiz olana kadar düzeltin ve yeniden çalıştırın. Tam ön yayın kontrol listesi için [references/optimization-checklist.md](references/optimization-checklist.md) bölümüne bakın.
+  Başarısız bir kapı yayını engeller; temiz olana kadar düzeltin ve yeniden çalıştırın. Tam ön yayın kontrol listesi için [references/optimization-checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/optimization-checklist.md) bölümüne bakın.
   
   Temel kapılar:
   - [ ] Birincil anahtar kelime doğal olarak 3-5x görünür (doldurulmamış)
@@ -345,7 +345,7 @@ Collect 3-5 credible, citable sources before drafting. Prioritize:
 
 ### Step 3 — Produce the Content Brief
 
-Fill in the [Content Brief Template](templates/content-brief-template.md). The brief defines:
+Fill in the [Content Brief Template](https://github.com/alirezarezvani/claude-skills/blob/HEAD/templates/content-brief-template.md). The brief defines:
 - Target keyword + secondary keywords
 - Reader profile and their job-to-be-done
 - Angle and unique point of view
@@ -354,7 +354,7 @@ Fill in the [Content Brief Template](templates/content-brief-template.md). The b
 - Internal links to include
 - Competitive pieces to beat
 
-See [references/content-brief-guide.md](references/content-brief-guide.md) for how to write a brief that actually produces better drafts.
+See [references/content-brief-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/content-brief-guide.md) for how to write a brief that actually produces better drafts.
 
 ---
 
@@ -476,7 +476,7 @@ Run the gate checker — it enforces the non-negotiables mechanically:
 python3 scripts/content_quality_gates.py draft.md --json
 ```
 
-A failing gate blocks publish; fix and re-run until clean. See [references/optimization-checklist.md](references/optimization-checklist.md) for the full pre-publish checklist.
+A failing gate blocks publish; fix and re-run until clean. See [references/optimization-checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/optimization-checklist.md) for the full pre-publish checklist.
 
 Core gates:
 - [ ] Primary keyword appears naturally 3-5x (not stuffed)

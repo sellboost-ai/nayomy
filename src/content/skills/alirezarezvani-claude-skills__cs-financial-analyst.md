@@ -113,8 +113,8 @@ body_tr: |-
   
   ## İlgili Ajanlar
   
-  - [cs-ceo-advisor](../c-level/cs-ceo-advisor.md) -- Stratejik finansal kararlar, yönetim kurulu raporlaması ve fon toplama planlama
-  - [cs-growth-strategist](../business-growth/cs-growth-strategist.md) -- Gelir operasyonları verileri ve pipeline tahminleme girdileri
+  - [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-ceo-advisor.md) -- Stratejik finansal kararlar, yönetim kurulu raporlaması ve fon toplama planlama
+  - [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/business-growth/cs-growth-strategist.md) -- Gelir operasyonları verileri ve pipeline tahminleme girdileri
 ---
 
 # cs-financial-analyst
@@ -216,5 +216,5 @@ python ../../finance/skills/financial-analyst/scripts/dcf_valuation.py valuation
 
 ## Related Agents
 
-- [cs-ceo-advisor](../c-level/cs-ceo-advisor.md) -- Strategic financial decisions, board reporting, and fundraising planning
-- [cs-growth-strategist](../business-growth/cs-growth-strategist.md) -- Revenue operations data and pipeline forecasting inputs
+- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-ceo-advisor.md) -- Strategic financial decisions, board reporting, and fundraising planning
+- [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/blob/HEAD/business-growth/cs-growth-strategist.md) -- Revenue operations data and pipeline forecasting inputs

@@ -187,17 +187,17 @@ body_tr: |-
   - **Asla root credentials kullanmayın**
   - **Docker'ı** ek host izolasyonu için düşünün
   
-  Ayrıntılı güvenlik mimarisi için [Güvenlik Belgeleri](docs/SECURITY.md)'ne bakın.
+  Ayrıntılı güvenlik mimarisi için [Güvenlik Belgeleri](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/SECURITY.md)'ne bakın.
   
   ## Belgeler
   
-  - [Kullanım Rehberi](docs/USAGE.md) — Araçlar, kaynaklar ve prompt şablonları
-  - [Güvenlik Mimarisi](docs/SECURITY.md) — IAM + Sandbox + Docker modeli
-  - [Geliştirme Rehberi](docs/DEVELOPMENT.md) — Katkıda bulunma ve test etme
+  - [Kullanım Rehberi](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/USAGE.md) — Araçlar, kaynaklar ve prompt şablonları
+  - [Güvenlik Mimarisi](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/SECURITY.md) — IAM + Sandbox + Docker modeli
+  - [Geliştirme Rehberi](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/DEVELOPMENT.md) — Katkıda bulunma ve test etme
   
   ## Lisans
   
-  MIT Lisansı — ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT Lisansı — ayrıntılar için [LICENSE](https://github.com/alexei-led/aws-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # AWS MCP Server
@@ -377,14 +377,14 @@ Best practices:
 - **Never use root credentials**
 - Consider **Docker** for additional host isolation
 
-For detailed security architecture, see [Security Documentation](docs/SECURITY.md).
+For detailed security architecture, see [Security Documentation](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/SECURITY.md).
 
 ## Documentation
 
-- [Usage Guide](docs/USAGE.md) — Tools, resources, and prompt templates
-- [Security Architecture](docs/SECURITY.md) — IAM + Sandbox + Docker model
-- [Development Guide](docs/DEVELOPMENT.md) — Contributing and testing
+- [Usage Guide](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/USAGE.md) — Tools, resources, and prompt templates
+- [Security Architecture](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/SECURITY.md) — IAM + Sandbox + Docker model
+- [Development Guide](https://github.com/alexei-led/aws-mcp-server/blob/HEAD/docs/DEVELOPMENT.md) — Contributing and testing
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](https://github.com/alexei-led/aws-mcp-server/tree/HEAD/LICENSE) for details.

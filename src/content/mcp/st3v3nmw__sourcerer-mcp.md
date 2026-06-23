@@ -110,7 +110,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Tüm katkılar memnuniyetle karşılanır! Bkz. [CONTRIBUTING.md](CONTRIBUTING.md).
+  Tüm katkılar memnuniyetle karşılanır! Bkz. [CONTRIBUTING.md](https://github.com/st3v3nmw/sourcerer-mcp/blob/HEAD/CONTRIBUTING.md).
   
   ```
   $ ls @stephenmwangi.com
@@ -222,7 +222,7 @@ identify functions, classes, interfaces, and other code structures for each lang
 
 ## Contributing
 
-All contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
+All contributions welcome! See [CONTRIBUTING.md](https://github.com/st3v3nmw/sourcerer-mcp/blob/HEAD/CONTRIBUTING.md).
 
 ```
 $ ls @stephenmwangi.com

@@ -215,7 +215,7 @@ body_tr: |-
   
   `SEARXNG_URL` ortam değişkenini SearXNG örneğiniz URL'sine ayarlayın. Diğer tüm değişkenler isteğe bağlıdır.
   
-  Tam ortam değişkeni referansı: [CONFIGURATION.md](CONFIGURATION.md)
+  Tam ortam değişkeni referansı: [CONFIGURATION.md](https://github.com/ihor-sokoliuk/mcp-searxng/blob/HEAD/CONFIGURATION.md)
   
   ## Sorun Giderme
   
@@ -242,11 +242,11 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Bkz. [CONTRIBUTING.md](CONTRIBUTING.md)
+  Bkz. [CONTRIBUTING.md](https://github.com/ihor-sokoliuk/mcp-searxng/blob/HEAD/CONTRIBUTING.md)
   
   ## Lisans
   
-  MIT — ayrıntılar için [LICENSE](LICENSE) dosyasını inceleyin.
+  MIT — ayrıntılar için [LICENSE](https://github.com/ihor-sokoliuk/mcp-searxng/tree/HEAD/LICENSE) dosyasını inceleyin.
 ---
 
 <div align="center">
@@ -259,7 +259,7 @@ body_tr: |-
 [![npm version](https://img.shields.io/npm/v/mcp-searxng?style=flat-square&logo=npm)](https://www.npmjs.com/package/mcp-searxng)
 [![npm downloads](https://img.shields.io/npm/dm/mcp-searxng?style=flat-square&logo=npm&label=downloads%2Fmo)](https://www.npmjs.com/package/mcp-searxng)
 [![Docker Pulls](https://img.shields.io/docker/pulls/isokoliuk/mcp-searxng?style=flat-square&logo=docker)](https://hub.docker.com/r/isokoliuk/mcp-searxng)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/ihor-sokoliuk/mcp-searxng/tree/HEAD/LICENSE)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ihor-sokoliuk/mcp-searxng/badge)](https://scorecard.dev/viewer/?uri=github.com/ihor-sokoliuk/mcp-searxng)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13143/badge)](https://www.bestpractices.dev/projects/13143)
 [![mcp-searxng MCP server](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng/badges/score.svg)](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng)
@@ -406,7 +406,7 @@ npm install -g mcp-searxng
 docker pull isokoliuk/mcp-searxng:latest
 ```
 
-Image signatures can be verified with Cosign — see [SECURITY.md](SECURITY.md) for instructions.
+Image signatures can be verified with Cosign — see [SECURITY.md](https://github.com/ihor-sokoliuk/mcp-searxng/blob/HEAD/SECURITY.md) for instructions.
 
 ```json
 {
@@ -502,7 +502,7 @@ curl http://localhost:3000/health
 
 Set `SEARXNG_URL` to your SearXNG instance URL. All other variables are optional.
 
-Full environment variable reference: [CONFIGURATION.md](CONFIGURATION.md)
+Full environment variable reference: [CONFIGURATION.md](https://github.com/ihor-sokoliuk/mcp-searxng/blob/HEAD/CONFIGURATION.md)
 
 ## Troubleshooting
 
@@ -544,7 +544,7 @@ Enabling JSON on an instance you control (above) remains the recommended setup �
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/ihor-sokoliuk/mcp-searxng/blob/HEAD/CONTRIBUTING.md)
 
 ## Star History
 
@@ -558,4 +558,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](https://github.com/ihor-sokoliuk/mcp-searxng/tree/HEAD/LICENSE) for details.

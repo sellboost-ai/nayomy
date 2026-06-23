@@ -56,7 +56,7 @@ body_tr: |-
   ### Desteklenen İstemciler
   
   - **[Cursor](https://cursor.com)**: Projenizin MCP Server ayarlarında "Cursor'a Yükle" düğmesini kullanın veya buraya tıklayın
-    [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=keboola&config=eyJ1cmwiOiJodHRwczovL21jcC51cy1lYXN0NC5nY3Aua2Vib29sYS5jb20vbWNwIn0%3D)
+    [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://github.com/keboola/mcp-server/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=keboola&config=eyJ1cmwiOiJodHRwczovL21jcC51cy1lYXN0NC5nY3Aua2Vib29sYS5jb20vbWNwIn0%3D)
   - **[Claude Desktop](https://claude.ai)**: Ayarlar → İntegrasyonlar aracılığıyla entegrasyonu ekleyin
   - **[Claude Code](https://www.anthropic.com/)**: `claude mcp add --transport http keboola <URL>` kullanarak yükleyin (ayrıntılar için aşağıya bakın)
   - **[Windsurf](https://windsurf.ai)**: Uzak sunucu URL'si ile yapılandırın
@@ -121,7 +121,7 @@ body_tr: |-
   
   #### Salt Okunur Araçlar
   
-  Salt okunur araçlar, `readOnlyHint=True` ile açıklanmış olanlardır. Bu araçlar yalnızca Keboola projenizde herhangi bir değişiklik yapmadan bilgi alır. Güncel salt okunur araçlar listesi için, gerçek araç setinin otomatik olarak oluşturulan anlık görüntüsü olan [TOOLS.md](TOOLS.md) dosyasına bakın.
+  Salt okunur araçlar, `readOnlyHint=True` ile açıklanmış olanlardır. Bu araçlar yalnızca Keboola projenizde herhangi bir değişiklik yapmadan bilgi alır. Güncel salt okunur araçlar listesi için, gerçek araç setinin otomatik olarak oluşturulan anlık görüntüsü olan [TOOLS.md](https://github.com/keboola/mcp-server/blob/HEAD/TOOLS.md) dosyasına bakın.
   
   #### Örnek: Salt Okunur Erişim
   
@@ -474,7 +474,7 @@ Our remote server is hosted on every multi-tenant Keboola stack and supports OAu
 
 - **[Cursor](https://cursor.com)**: Use the "Install In Cursor" button in your project's MCP Server settings or click
   this button
-  [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=keboola&config=eyJ1cmwiOiJodHRwczovL21jcC51cy1lYXN0NC5nY3Aua2Vib29sYS5jb20vbWNwIn0%3D)
+  [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://github.com/keboola/mcp-server/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=keboola&config=eyJ1cmwiOiJodHRwczovL21jcC51cy1lYXN0NC5nY3Aua2Vib29sYS5jb20vbWNwIn0%3D)
 - **[Claude Desktop](https://claude.ai)**: Add the integration via Settings → Integrations
 - **[Claude Code](https://www.anthropic.com/)**: Install using `claude mcp add --transport http keboola <URL>` (see below for details)
 - **[Windsurf](https://windsurf.ai)**: Configure with the remote server URL
@@ -539,7 +539,7 @@ Filters apply in order: allowed → read-only intersection → disallowed exclus
 
 #### Read-Only Tools
 
-Read-only tools are those annotated with `readOnlyHint=True`. These tools only retrieve information without making any changes to your Keboola project. For the current list of read-only tools, see the [TOOLS.md](TOOLS.md) file which is an auto-generated snapshot of the actual tool set.
+Read-only tools are those annotated with `readOnlyHint=True`. These tools only retrieve information without making any changes to your Keboola project. For the current list of read-only tools, see the [TOOLS.md](https://github.com/keboola/mcp-server/blob/HEAD/TOOLS.md) file which is an auto-generated snapshot of the actual tool set.
 
 #### Example: Read-Only Access
 
@@ -854,7 +854,7 @@ What buckets and tables are in my Keboola project?
 
 **Note:** Your AI agents will automatically adjust to new tools.
 
-For a complete list of available tools with detailed descriptions, parameters, and usage examples, see [TOOLS.md](TOOLS.md).
+For a complete list of available tools with detailed descriptions, parameters, and usage examples, see [TOOLS.md](https://github.com/keboola/mcp-server/blob/HEAD/TOOLS.md).
 
 ## Troubleshooting
 

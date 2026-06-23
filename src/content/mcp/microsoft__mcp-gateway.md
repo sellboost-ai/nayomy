@@ -178,11 +178,11 @@ body_tr: |-
   - **Okuma** erişimi, kaynağın oluşturucusuna, yapılandırılmış `requiredRoles` değerleri atanmış müdürlere (örneğin `mcp.engineer`) ve zorunlu yönetici rolü `mcp.admin` sahibi herkese verilir. `requiredRoles` boş veya belirtilmediğinde, yalnızca oluşturucu ve `mcp.admin` müdürleri kaynağı okuyabilir.
   - **Yazma** erişimi kaynağın oluşturucusuyla veya `mcp.admin` rolüne sahip müdürlerle sınırlıdır.
   
-  Azure Entra ID'i yapılandırmak (`mcp.admin` ve diğer rol değerleri oluşturmak, bunları kullanıcılara veya hizmet müdürlerine atamak ve bu değerleri adaptör/araç payload'larında sağlamak) için adım adım yardım için bkz. [docs/entra-app-roles.md](docs/entra-app-roles.md).
+  Azure Entra ID'i yapılandırmak (`mcp.admin` ve diğer rol değerleri oluşturmak, bunları kullanıcılara veya hizmet müdürlerine atamak ve bu değerleri adaptör/araç payload'larında sağlamak) için adım adım yardım için bkz. [docs/entra-app-roles.md](https://github.com/microsoft/mcp-gateway/blob/HEAD/docs/entra-app-roles.md).
   
   ### Ek Yetenekler
   
-  - **Yerel ve Uzak MCP Sunucularının Proxy'lenmesi** için destek. Bkz. [örnekler ve kullanım](sample-servers/mcp-proxy/README.md).
+  - **Yerel ve Uzak MCP Sunucularının Proxy'lenmesi** için destek. Bkz. [örnekler ve kullanım](https://github.com/microsoft/mcp-gateway/blob/HEAD/sample-servers/mcp-proxy/README.md).
   - Dağıtılmış bir oturum deposu olan durumsuz ters proxy (üretim modu).
   - StatefulSets ve headless hizmetleri kullanarak Kubernetes-native dağıtım.
   
@@ -649,15 +649,15 @@ The gateway provides entra id authentication and basic application role authoriz
 - **Read** access is granted to the resource creator, principals assigned the configured `requiredRoles` values (for example `mcp.engineer`), and anyone holding the mandatory administrator role `mcp.admin`. When `requiredRoles` is empty or omitted, only the creator and `mcp.admin` principals can read the resource.
 - **Write** access is restricted to the resource creator or principals holding the `mcp.admin` role.
 
-For step-by-step guidance on configuring Azure Entra ID (creating `mcp.admin` and other role values, assigning them to users or service principals, and supplying those values in adapter/tool payloads), see [docs/entra-app-roles.md](docs/entra-app-roles.md).
+For step-by-step guidance on configuring Azure Entra ID (creating `mcp.admin` and other role values, assigning them to users or service principals, and supplying those values in adapter/tool payloads), see [docs/entra-app-roles.md](https://github.com/microsoft/mcp-gateway/blob/HEAD/docs/entra-app-roles.md).
 
 ### Additional Capabilities
 
-- Support for **Proxying Local & Remote MCP Servers**. See [examples and usage](sample-servers/mcp-proxy/README.md).
+- Support for **Proxying Local & Remote MCP Servers**. See [examples and usage](https://github.com/microsoft/mcp-gateway/blob/HEAD/sample-servers/mcp-proxy/README.md).
 - Stateless reverse proxy with a distributed session store (production mode).
 - Kubernetes-native deployment using StatefulSets and headless services.
 - **Management portal** (React SPA) served by the gateway itself at
-  [`/portal/`](portal/README.md) — list / create / edit / delete adapters and
+  [`/portal/`](https://github.com/microsoft/mcp-gateway/blob/HEAD/portal/README.md) — list / create / edit / delete adapters and
   tools, inspect status and pod logs, and exercise each MCP server with an
   in-browser JSON-RPC test console. Authentication mirrors the API: anonymous
   in dev mode (with an optional dev-identity switcher) and MSAL / Entra ID in
@@ -974,7 +974,7 @@ To allow Azure CLI & VS Code to work as the client for token acquisition.
    - Click **Add**
 
 #### Configure Application Role for Authorization
-[docs/entra-app-roles.md](docs/entra-app-roles.md)
+[docs/entra-app-roles.md](https://github.com/microsoft/mcp-gateway/blob/HEAD/docs/entra-app-roles.md)
 
 ### 3. Deploy Service Resources
 

@@ -42,7 +42,7 @@ body_tr: |-
   
   ## 📋 Hızlı Referans
   
-  **mcp-pandoc'ta yeni misiniz?** **[📖 CHEATSHEET.md](CHEATSHEET.md)** dosyasını kontrol edin
+  **mcp-pandoc'ta yeni misiniz?** **[📖 CHEATSHEET.md](https://github.com/vivekVells/mcp-pandoc/blob/HEAD/CHEATSHEET.md)** dosyasını kontrol edin
   
   - ⚡ Tüm formatlar için kopyala-yapıştır örnekleri
   - 🔄 Çift yönlü dönüştürme matrisi
@@ -118,7 +118,7 @@ body_tr: |-
   
   Örnek kullanım: `"Convert docs.md to HTML with filters ['/path/to/mermaid-filter.py'] and save as docs.html"`
   
-  > 💡 **Kapsamlı örnekler ve iş akışları için**, bkz. **[CHEATSHEET.md](CHEATSHEET.md)**
+  > 💡 **Kapsamlı örnekler ve iş akışları için**, bkz. **[CHEATSHEET.md](https://github.com/vivekVells/mcp-pandoc/blob/HEAD/CHEATSHEET.md)**
   
   ## 📊 Desteklenen Formatlar ve Dönüştürmeler
   
@@ -179,7 +179,7 @@ body_tr: |-
   }
   ```
   
-  **💡 Hızlı Başlama**: Kopyala-yapıştır örnekleri ve yaygın iş akışları için **[CHEATSHEET.md](CHEATSHEET.md)** dosyasını görün.
+  **💡 Hızlı Başlama**: Kopyala-yapıştır örnekleri ve yaygın iş akışları için **[CHEATSHEET.md](https://github.com/vivekVells/mcp-pandoc/blob/HEAD/CHEATSHEET.md)** dosyasını görün.
   
   ### ⚠️ Önemli Notlar
   
@@ -458,7 +458,7 @@ Credit: This project uses the [Pandoc Python package](https://pypi.org/project/p
 
 ## 📋 Quick Reference
 
-**New to mcp-pandoc?** Check out **[📖 CHEATSHEET.md](CHEATSHEET.md)** for
+**New to mcp-pandoc?** Check out **[📖 CHEATSHEET.md](https://github.com/vivekVells/mcp-pandoc/blob/HEAD/CHEATSHEET.md)** for
 
 - ⚡ Copy-paste examples for all formats
 - 🔄 Bidirectional conversion matrix
@@ -536,7 +536,7 @@ Apply custom filters for enhanced processing:
 
 Example usage: `"Convert docs.md to HTML with filters ['/path/to/mermaid-filter.py'] and save as docs.html"`
 
-> 💡 **For comprehensive examples and workflows**, see **[CHEATSHEET.md](CHEATSHEET.md)**
+> 💡 **For comprehensive examples and workflows**, see **[CHEATSHEET.md](https://github.com/vivekVells/mcp-pandoc/blob/HEAD/CHEATSHEET.md)**
 
 ## 📊 Supported Formats & Conversions
 
@@ -597,7 +597,7 @@ To use the published one
 }
 ```
 
-**💡 Quick Start**: See **[CHEATSHEET.md](CHEATSHEET.md)** for copy-paste examples and common workflows.
+**💡 Quick Start**: See **[CHEATSHEET.md](https://github.com/vivekVells/mcp-pandoc/blob/HEAD/CHEATSHEET.md)** for copy-paste examples and common workflows.
 
 ### ⚠️ Important Notes
 

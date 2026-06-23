@@ -297,7 +297,7 @@ body_tr: |-
   
   ## Katkı Yapma
   
-  [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTE.md)
+  [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/zinja-coder/apktool-mcp-server/blob/HEAD/CONTRIBUTE.md)
   
   - Faydalı buldum mu? Ona ⭐️ ver
   - Fikirler var mı? Bir [issue](https://github.com/zinja-coder/apktool-mcp-server/issues) açın veya PR gönderin
@@ -605,7 +605,7 @@ Use responsibly. Respect intellectual property. Follow ethical hacking practices
 
 ## Contributing
 
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTE.md)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/zinja-coder/apktool-mcp-server/blob/HEAD/CONTRIBUTE.md)
 
 - Found it useful? Give it a ⭐️
 - Got ideas? Open an [issue](https://github.com/zinja-coder/apktool-mcp-server/issues) or submit a PR

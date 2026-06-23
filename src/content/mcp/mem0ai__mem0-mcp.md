@@ -30,7 +30,7 @@ body_tr: |-
   
   # Mem0 MCP Server
   
-  [![PyPI version](https://img.shields.io/pypi/v/mem0-mcp-server.svg)](https://pypi.org/project/mem0-mcp-server/) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![smithery badge](https://smithery.ai/badge/@mem0ai/mem0-memory-mcp)](https://smithery.ai/server/@mem0ai/mem0-memory-mcp)
+  [![PyPI version](https://img.shields.io/pypi/v/mem0-mcp-server.svg)](https://pypi.org/project/mem0-mcp-server/) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/mem0ai/mem0-mcp/tree/HEAD/LICENSE) [![smithery badge](https://smithery.ai/badge/@mem0ai/mem0-memory-mcp)](https://smithery.ai/server/@mem0ai/mem0-memory-mcp)
   
   `mem0-mcp-server`, resmi [Mem0](https://mem0.ai) Memory API'sini bir Model Context Protocol (MCP) sunucusu olarak sarar, böylece herhangi bir MCP uyumlu istemci (Claude Desktop, Cursor, custom ajanlar) uzun vadeli anıları ekleyebilir, arayabilir, güncelleyebilir ve silebilir.
   
@@ -265,7 +265,7 @@ body_tr: |-
 
 # Mem0 MCP Server
 
-[![PyPI version](https://img.shields.io/pypi/v/mem0-mcp-server.svg)](https://pypi.org/project/mem0-mcp-server/) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![smithery badge](https://smithery.ai/badge/@mem0ai/mem0-memory-mcp)](https://smithery.ai/server/@mem0ai/mem0-memory-mcp)
+[![PyPI version](https://img.shields.io/pypi/v/mem0-mcp-server.svg)](https://pypi.org/project/mem0-mcp-server/) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/mem0ai/mem0-mcp/tree/HEAD/LICENSE) [![smithery badge](https://smithery.ai/badge/@mem0ai/mem0-memory-mcp)](https://smithery.ai/server/@mem0ai/mem0-memory-mcp)
 
 `mem0-mcp-server` wraps the official [Mem0](https://mem0.ai) Memory API as a Model Context Protocol (MCP) server so any MCP-compatible client (Claude Desktop, Cursor, custom agents) can add, search, update, and delete long-term memories.
 

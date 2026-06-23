@@ -39,7 +39,7 @@ body_tr: |-
   
   ### `mcp-neo4j-cypher` - doğal dilden Cypher sorgularına
   
-  [Benioku'da Ayrıntılar](./servers/mcp-neo4j-cypher/)
+  [Benioku'da Ayrıntılar](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-cypher/)
   
   Yapılandırılmış bir database'in schema'sını alın ve bu database'de oluşturulan read ve write Cypher sorgularını çalıştırın.
   
@@ -47,14 +47,14 @@ body_tr: |-
   
   ### `mcp-neo4j-memory` - Neo4j'de depolanan bilgi grafı memory'si
   
-  [Benioku'da Ayrıntılar](./servers/mcp-neo4j-memory/)
+  [Benioku'da Ayrıntılar](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-memory/)
   
   Kişisel bilgi grafınızdan entity'leri ve relationship'leri yerel veya uzak bir Neo4j instance'ında depolayın ve alın.
   Farklı session'lar, conversation'lar ve client'lar arasında bu bilgilere erişin.
   
   ### `mcp-neo4j-cloud-aura-api` - Neo4j Aura bulut servisi yönetimi API'ı
   
-  [Benioku'da Ayrıntılar](./servers/mcp-neo4j-cloud-aura-api//)
+  [Benioku'da Ayrıntılar](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-cloud-aura-api//)
   
   [Neo4j Aura](https://console.neo4j.io) instance'larınızı AI asistan sohbet'inin rahatlığından doğrudan yönetin.
   
@@ -62,7 +62,7 @@ body_tr: |-
   
   ### `mcp-neo4j-data-modeling` - etkileşimli graph veri modelleme ve görselleştirme
   
-  [Benioku'da Ayrıntılar](./servers/mcp-neo4j-data-modeling/)
+  [Benioku'da Ayrıntılar](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-data-modeling/)
   
   Neo4j graph veri modellerini oluşturun, doğrulayın ve görselleştirin. Arrows.app'ten model import/export'u sağlar.
   
@@ -100,7 +100,7 @@ body_tr: |-
   
   Bu repository'deki tüm sunucular containerize edilmiş ve AWS ECS Fargate ve Azure Container Apps gibi bulut platformlarında dağıtım için hazırdır. Her sunucu HTTP transport modunu destekler; bu mod özellikle auto-scaling ve load balancing özelliklerine sahip ölçeklenebilir, production'a hazır dağıtımlar için tasarlanmıştır.
   
-  📋 **[Tam Bulut Dağıtımı Kılavuzu →](README-Cloud.md)**
+  📋 **[Tam Bulut Dağıtımı Kılavuzu →](https://github.com/neo4j-contrib/mcp-neo4j/blob/HEAD/README-Cloud.md)**
   
   Dağıtımı kılavuzu şunları kapsar:
   - **AWS ECS Fargate**: Auto-scaling ve Application Load Balancer ile adım adım dağıtım
@@ -152,7 +152,7 @@ This lets you use Claude Desktop, or any other MCP Client (VS Code, Cursor, Wind
 
 ### `mcp-neo4j-cypher` - natural language to Cypher queries
 
-[Details in Readme](./servers/mcp-neo4j-cypher/)
+[Details in Readme](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-cypher/)
 
 Get database schema for a configured database and execute generated read and write Cypher queries on that database.
 
@@ -160,14 +160,14 @@ Get database schema for a configured database and execute generated read and wri
 
 ### `mcp-neo4j-memory` - knowledge graph memory stored in Neo4j
 
-[Details in Readme](./servers/mcp-neo4j-memory/)
+[Details in Readme](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-memory/)
 
 Store and retrieve entities and relationships from your personal knowledge graph in a local or remote Neo4j instance.
 Access that information over different sessions, conversations, clients.
 
 ### `mcp-neo4j-cloud-aura-api` - Neo4j Aura cloud service management API
 
-[Details in Readme](./servers/mcp-neo4j-cloud-aura-api//)
+[Details in Readme](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-cloud-aura-api//)
 
 Manage your [Neo4j Aura](https://console.neo4j.io) instances directly from the comfort of your AI assistant chat.
 
@@ -175,7 +175,7 @@ Create and destroy instances, find instances by name, scale them up and down and
 
 ### `mcp-neo4j-data-modeling` - interactive graph data modeling and visualization
 
-[Details in Readme](./servers/mcp-neo4j-data-modeling/)
+[Details in Readme](https://github.com/neo4j-contrib/mcp-neo4j/tree/HEAD/servers/mcp-neo4j-data-modeling/)
 
 Create, validate, and visualize Neo4j graph data models. Allows for model import/export from Arrows.app.
 
@@ -213,7 +213,7 @@ mcp-neo4j-cypher
 
 All servers in this repository are containerized and ready for cloud deployment on platforms like AWS ECS Fargate and Azure Container Apps. Each server supports HTTP transport mode specifically designed for scalable, production-ready deployments with auto-scaling and load balancing capabilities.
 
-📋 **[Complete Cloud Deployment Guide →](README-Cloud.md)**
+📋 **[Complete Cloud Deployment Guide →](https://github.com/neo4j-contrib/mcp-neo4j/blob/HEAD/README-Cloud.md)**
 
 The deployment guide covers:
 - **AWS ECS Fargate**: Step-by-step deployment with auto-scaling and Application Load Balancer

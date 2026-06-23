@@ -240,11 +240,11 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Geliştirme yönergeleri için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Geliştirme yönergeleri için [CONTRIBUTING.md](https://github.com/mpeirone/zabbix-mcp-server/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ## Lisans
   
-  GPLv3 Lisansı - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  GPLv3 Lisansı - ayrıntılar için [LICENSE](https://github.com/mpeirone/zabbix-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## Teşekkürler
   
@@ -484,11 +484,11 @@ uv run python scripts/start_server.py
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+See [CONTRIBUTING.md](https://github.com/mpeirone/zabbix-mcp-server/blob/HEAD/CONTRIBUTING.md) for development guidelines.
 
 ## License
 
-GPLv3 License - see [LICENSE](LICENSE) for details.
+GPLv3 License - see [LICENSE](https://github.com/mpeirone/zabbix-mcp-server/tree/HEAD/LICENSE) for details.
 
 ## Acknowledgments
 

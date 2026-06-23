@@ -82,7 +82,7 @@ body_tr: |-
   
   ### CONTEXT.md'i yerinde güncelle
   
-  Bir terim çözüldüğünde, `CONTEXT.md`'i hemen orada güncelle. Bunları toplamayın — çözüldükçe yakala. [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md) dosyasındaki formatı kullan.
+  Bir terim çözüldüğünde, `CONTEXT.md`'i hemen orada güncelle. Bunları toplamayın — çözüldükçe yakala. [CONTEXT-FORMAT.md](https://github.com/mattpocock/skills/blob/HEAD/CONTEXT-FORMAT.md) dosyasındaki formatı kullan.
   
   `CONTEXT.md` uygulama detaylarından tamamen arınmış olmalıdır. `CONTEXT.md`'i bir spec, bir taslak defteri ya da uygulama kararları deposu olarak görme. Bu sadece bir sözlüktür ve başka bir şey değildir.
   
@@ -94,7 +94,7 @@ body_tr: |-
   2. **Bağlam olmadan şaşırtıcı** — gelecekteki bir okuyucu "neden bunu bu şekilde yaptılar?" diye merak edecektir
   3. **Gerçek bir dengelenme sonucu** — gerçek alternatifler vardı ve belirli nedenlerle birini seçtin
   
-  Üçünden biri eksikse, ADR'yi atla. [ADR-FORMAT.md](./ADR-FORMAT.md) dosyasındaki formatı kullan.
+  Üçünden biri eksikse, ADR'yi atla. [ADR-FORMAT.md](https://github.com/mattpocock/skills/blob/HEAD/ADR-FORMAT.md) dosyasındaki formatı kullan.
   
   </supporting-info>
 ---

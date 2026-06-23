@@ -64,7 +64,7 @@ body_tr: |-
   
   0-100 insanilik puanını çıkarır. Yorum: **80+** sadece hafif cilalama; **60-79** hedeflenen desen kaldırma (Mod 2); **60 altı** yapay zeka parmak izi yoğunluğu bir yamayla çalışmak için çok yüksektir — tam yeniden yazma önerilir, sadece editörlük değil. İnsanlaştırdıktan sonra tekrar çalıştırın; puan ilerlemeli.
   
-  Kapsamlı tespit listesi için [references/ai-tells-checklist.md](references/ai-tells-checklist.md) konusuna bakın. Not: aşağıdaki sözcük yelpazesi bir anlık görüntüdür — daha yeni modellerin farklı işaretleri vardır, bu nedenle listenin "son doğrulanmış" tarihini kontrol edin ve geçerli nesil çıktıya karşı denetim yapılırken yenileyin.
+  Kapsamlı tespit listesi için [references/ai-tells-checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai-tells-checklist.md) konusuna bakın. Not: aşağıdaki sözcük yelpazesi bir anlık görüntüdür — daha yeni modellerin farklı işaretleri vardır, bu nedenle listenin "son doğrulanmış" tarihini kontrol edin ve geçerli nesil çıktıya karşı denetim yapılırken yenileyin.
   
   ### Temel Yapay Zeka İşareti Kategorileri
   
@@ -192,7 +192,7 @@ body_tr: |-
   - İlişki duruşu (akran-akrana mı? uzman-öğrenci mi? provokateur mi?)
   - İmza cümleler veya desenleri
   
-  Her ses türü için spesifik teknikler için [references/voice-techniques.md](references/voice-techniques.md) konusuna bakın.
+  Her ses türü için spesifik teknikler için [references/voice-techniques.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/voice-techniques.md) konusuna bakın.
   
   ### Ses Enjeksiyonu Teknikleri
   
@@ -324,7 +324,7 @@ python3 scripts/humanizer_scorer.py draft.md --json
 
 It emits a 0-100 human-ness score. Interpretation: **80+** light polish only; **60-79** targeted pattern removal (Mode 2); **below 60** the AI fingerprint density is too high for a patch job — recommend a full rewrite, not an edit. Re-run after humanizing; the score must move.
 
-See [references/ai-tells-checklist.md](references/ai-tells-checklist.md) for the comprehensive detection list. Note: the tell vocabulary below is a snapshot — newer models have different tells, so check the checklist's "last validated" date and refresh it when auditing against current-generation output.
+See [references/ai-tells-checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ai-tells-checklist.md) for the comprehensive detection list. Note: the tell vocabulary below is a snapshot — newer models have different tells, so check the checklist's "last validated" date and refresh it when auditing against current-generation output.
 
 ### The Core AI Tell Categories
 
@@ -452,7 +452,7 @@ If `.claude/product-marketing-context.md` is available: read the brand voice sec
 - Relationship stance (peer-to-peer? expert-to-student? provocateur?)
 - Signature phrases or patterns
 
-See [references/voice-techniques.md](references/voice-techniques.md) for specific techniques for each voice type.
+See [references/voice-techniques.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/voice-techniques.md) for specific techniques for each voice type.
 
 ### Voice Injection Techniques
 

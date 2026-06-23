@@ -21,7 +21,7 @@ body_tr: |-
   
   AI destekli çok kümeli Kubernetes dashboard'u ve 250+ CNCF projesi için rehberli kurulum görevleri.
   
-  [Katkıda Bulunma](CONTRIBUTING.md)
+  [Katkıda Bulunma](https://github.com/kubestellar/console/blob/HEAD/CONTRIBUTING.md)
   
   ![KubeStellar Konsolu](https://raw.githubusercontent.com/kubestellar/console/HEAD/docs/images/console-screenshot.png)
   
@@ -40,7 +40,7 @@ body_tr: |-
   | UI'ı keşfet / ürünü değerlendir | [console.kubestellar.io](https://console.kubestellar.io) | hayır | hayır |
   | Konsolu **benim** kümelerime bağla | [**Konsolu kendi kendine barındır**](#yerel-kurulum-kendi-kendine-barındırma) **ve** aynı makinede [**kc-agent**](#kc-agent-kendi-kendine-barındırılan-konsolu-kümelerinize-bağlayın) yükle | evet | evet (curl + kc-agent) |
   | Konsolu kendi kendine barındır (hava geçirmez, özel OAuth, vb.) | [**Yerel kurulum**](#yerel-kurulum-kendi-kendine-barındırma) | isteğe bağlı | evet |
-  | Konsolu **bir küme içinde** çalıştır | [`deploy.sh`](deploy.sh) | evet | Helm tarzı script |
+  | Konsolu **bir küme içinde** çalıştır | [`deploy.sh`](https://github.com/kubestellar/console/blob/HEAD/deploy.sh) | evet | Helm tarzı script |
   
   > **Not**: `kc-agent` [console.kubestellar.io](https://console.kubestellar.io) adresindeki barındırılan demo tarafından tüketilmez. **Kendi kendine barındırılan** konsolu (`localhost:8080` üzerinde çalışan) kubeconfig bağlamlarınız ve AI sağlayıcılarınızla birleştirir. Barındırılan UI'ın rahatlığı artı gerçek küme verilerinizi istiyorsanız, şu anda konsolu yerel olarak çalıştırmanız gerekir.
   
@@ -52,7 +52,7 @@ body_tr: |-
   curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | bash
   ```
   
-  Bunun yerine [`deploy.sh`](deploy.sh) ile bir kümeye dağıt (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). Kümeiçi Kagenti backend ile konuşması gereken Helm grafik yüklemeleri için [Kagenti'ye Bağlanma](deploy/helm/kubestellar-console/README.md#connecting-kagenti) başlığına bakın.
+  Bunun yerine [`deploy.sh`](https://github.com/kubestellar/console/blob/HEAD/deploy.sh) ile bir kümeye dağıt (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). Kümeiçi Kagenti backend ile konuşması gereken Helm grafik yüklemeleri için [Kagenti'ye Bağlanma](https://github.com/kubestellar/console/tree/HEAD/deploy/helm/kubestellar-console/README.md#connecting-kagenti) başlığına bakın.
   
   ## kc-agent (kendi kendine barındırılan konsolu kümelerinize bağlayın)
   
@@ -213,7 +213,7 @@ body_tr: |-
   
   ### Desteklenen AI sağlayıcıları (CLI tabanlı ve yerel LLM'ler)
   
-  Konsol, küme erişimi ve tooling yetenekleri üzerinde tam kontrol sağlamak için **yerel CLI sağlayıcılarını** ve **kendi kendine barındırılan LLM'leri** kullanır. Doğrudan API-key sağlayıcıları (ham `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` veya `GOOGLE_API_KEY` gibi) **kasıtlı olarak desteklenmez** çünkü küme komutlarını yürütmek için gerekli olan yerel CLI tooling modelini atlayabilirler (bkz. `pkg/agent/registry.go:378` ve [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#L175)).
+  Konsol, küme erişimi ve tooling yetenekleri üzerinde tam kontrol sağlamak için **yerel CLI sağlayıcılarını** ve **kendi kendine barındırılan LLM'leri** kullanır. Doğrudan API-key sağlayıcıları (ham `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` veya `GOOGLE_API_KEY` gibi) **kasıtlı olarak desteklenmez** çünkü küme komutlarını yürütmek için gerekli olan yerel CLI tooling modelini atlayabilirler (bkz. `pkg/agent/registry.go:378` ve [`docs/security/SECURITY-MODEL.md`](https://github.com/kubestellar/console/tree/HEAD/docs/security/SECURITY-MODEL.md#L175)).
   
   **Önerilen kurulum yolları:**
   
@@ -251,7 +251,7 @@ body_tr: |-
   
   **Hiçbir AI sağlayıcı yapılandırılmadığında**, AI destekli özellikler belirleyici / kural tabanlı davranışa döner. Kart önerileri, görevler ve dashboard'lar tamamen kullanılabilir kalır.
   
-  **Güvenlik modeli, hava geçirmez dağıtımlar ve yerel / kendi kendine barındırılan LLM'ler** [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md) dosyasında ele alınmıştır. Bu belgede tarayıcı, Go backend'i, kc-agent ve AI sağlayıcıları arasındaki veri akışı; konsolu harici AI erişimi olmadan çalıştırma; ve şu anda kc-agent'ın CLI tabanlı agent'larını kullanarak desteklenen kendi kendine barındırılan yol açıklanmaktadır.
+  **Güvenlik modeli, hava geçirmez dağıtımlar ve yerel / kendi kendine barındırılan LLM'ler** [`docs/security/SECURITY-MODEL.md`](https://github.com/kubestellar/console/blob/HEAD/docs/security/SECURITY-MODEL.md) dosyasında ele alınmıştır. Bu belgede tarayıcı, Go backend'i, kc-agent ve AI sağlayıcıları arasındaki veri akışı; konsolu harici AI erişimi olmadan çalıştırma; ve şu anda kc-agent'ın CLI tabanlı agent'larını kullanarak desteklenen kendi kendine barındırılan yol açıklanmaktadır.
   
   ## Nasıl Çalışır
   
@@ -269,7 +269,7 @@ body_tr: |-
   
   - **[console-kb](https://github.com/kubestellar/console-kb)** — 250+ CNCF projesi için rehberli yükleyiciler ve ortak Kubernetes sorunlarına çözümler
   - **[console-marketplace](https://github.com/kubestellar/console-marketplace)** — CNCF projesi başına topluluk tarafından katkıda bulunulan izleme kartları
-  - **[kc-agent](cmd/kc-agent/)** — Tarayıcıyı kubeconfig'e bağlayan yerel agent, kodlama agent'ları (Codex, Copilot, Claude CLI) ve MCP sunucuları (`kubestellar-ops`, `kubestellar-deploy`)
+  - **[kc-agent](https://github.com/kubestellar/console/tree/HEAD/cmd/kc-agent/)** — Tarayıcıyı kubeconfig'e bağlayan yerel agent, kodlama agent'ları (Codex, Copilot, Claude CLI) ve MCP sunucuları (`kubestellar-ops`, `kubestellar-deploy`)
   - **[claude-plugins](https://github.com/kubestellar/claude-plugins)** — Kubernetes için Claude Code marketplace eklentileri
   - **[homebrew-tap](https://github.com/kubestellar/homebrew-tap)** — KubeStellar araçları için Homebrew formülleri
   - **[KubeStellar](https://kubestellar.io)** — Çok kümeli yapılandırma yönetimi
@@ -284,11 +284,11 @@ body_tr: |-
   - **Birleştirmeden sonra**: Hedeflenen Playwright testleri üretim'e karşı (`console.kubestellar.io`) çalışır; hatalar orijinal sorunu yeniden açar
   - **Sürekli**: Saatlik kapsam (12 parça), günde 4x QA, gece E2E, gece güvenlik taraması, gerçek zamanlı GA4 error tracking, UI/UX standartları gece taraması
   
-  Bir regresyon sınıfı belirlendiğinde, bir maintainer en erken olası döngüye otomatik bir kontrol ekler. [docs/AI-QUALITY-ASSURANCE.md](docs/AI-QUALITY-ASSURANCE.md) adresinde tam dökümü görün.
+  Bir regresyon sınıfı belirlendiğinde, bir maintainer en erken olası döngüye otomatik bir kontrol ekler. [docs/AI-QUALITY-ASSURANCE.md](https://github.com/kubestellar/console/blob/HEAD/docs/AI-QUALITY-ASSURANCE.md) adresinde tam dökümü görün.
   
   ## Lisans
   
-  Apache License 2.0 — [LICENSE](LICENSE) öğesine bakın.
+  Apache License 2.0 — [LICENSE](https://github.com/kubestellar/console/tree/HEAD/LICENSE) öğesine bakın.
 ---
 
 # KubeStellar Console
@@ -301,7 +301,7 @@ body_tr: |-
 
 AI-powered multi-cluster Kubernetes dashboard with guided install missions for 250+ CNCF projects.
 
-[Contributing](CONTRIBUTING.md)
+[Contributing](https://github.com/kubestellar/console/blob/HEAD/CONTRIBUTING.md)
 
 ![KubeStellar Console](https://raw.githubusercontent.com/kubestellar/console/HEAD/docs/images/console-screenshot.png)
 
@@ -320,7 +320,7 @@ The hosted demo is a self-contained showcase: it serves canned demo data and int
 | Explore the UI / evaluate the product | [console.kubestellar.io](https://console.kubestellar.io) | no | no |
 | Connect the console to **my own** clusters | [**Self-host**](#local-install-self-host) the console **and** install [**kc-agent**](#kc-agent-bridge-self-hosted-console-to-your-clusters) on the same machine | yes | yes (curl + kc-agent) |
 | Self-host the console (air-gapped, custom OAuth, etc.) | [**Local install**](#local-install-self-host) | optional | yes |
-| Run the console **inside** a cluster | [`deploy.sh`](deploy.sh) | yes | Helm-style script |
+| Run the console **inside** a cluster | [`deploy.sh`](https://github.com/kubestellar/console/blob/HEAD/deploy.sh) | yes | Helm-style script |
 
 > **Note**: `kc-agent` is **not** consumed by the hosted demo at [console.kubestellar.io](https://console.kubestellar.io). It bridges your **self-hosted** console (running at `localhost:8080`) to your kubeconfig contexts and to AI providers. If you want the convenience of the hosted UI plus your real cluster data, you currently have to run the console locally.
 
@@ -340,15 +340,15 @@ The quickest path to a working console with your own data. `start.sh` downloads 
 curl -sSL https://raw.githubusercontent.com/kubestellar/console/main/start.sh | bash
 ```
 
-Deploy into a cluster instead with [`deploy.sh`](deploy.sh) (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). See [docs/deploy.md](docs/deploy.md) for the full flag, environment-variable, exit-code, and example reference. For Helm chart installs that should talk to an in-cluster Kagenti backend, see [Connecting Kagenti](deploy/helm/kubestellar-console/README.md#connecting-kagenti) and the [Kagenti deployment guide](docs/kagenti-deployment-guide.md) for controller/agent topology, setup steps, and troubleshooting.
+Deploy into a cluster instead with [`deploy.sh`](https://github.com/kubestellar/console/blob/HEAD/deploy.sh) (`--openshift`, `--ingress <host>`, `--github-oauth`, `--uninstall`). See [docs/deploy.md](https://github.com/kubestellar/console/blob/HEAD/docs/deploy.md) for the full flag, environment-variable, exit-code, and example reference. For Helm chart installs that should talk to an in-cluster Kagenti backend, see [Connecting Kagenti](https://github.com/kubestellar/console/tree/HEAD/deploy/helm/kubestellar-console/README.md#connecting-kagenti) and the [Kagenti deployment guide](https://github.com/kubestellar/console/blob/HEAD/docs/kagenti-deployment-guide.md) for controller/agent topology, setup steps, and troubleshooting.
 
 ## Development
 
 If you want to work on the repo itself, start with these entry points:
 
-- [CLAUDE.md](CLAUDE.md) — canonical developer guide for repo structure, testing expectations, and agent rules
-- [CONTRIBUTING.md](CONTRIBUTING.md) — contribution workflow, issue/PR conventions, and inventory notes
-- [docs/README.md](docs/README.md) — index of the documentation tree, grouped by audience
+- [CLAUDE.md](https://github.com/kubestellar/console/blob/HEAD/CLAUDE.md) — canonical developer guide for repo structure, testing expectations, and agent rules
+- [CONTRIBUTING.md](https://github.com/kubestellar/console/blob/HEAD/CONTRIBUTING.md) — contribution workflow, issue/PR conventions, and inventory notes
+- [docs/README.md](https://github.com/kubestellar/console/blob/HEAD/docs/README.md) — index of the documentation tree, grouped by audience
 
 ## kc-agent (bridge self-hosted console to your clusters)
 
@@ -512,7 +512,7 @@ The console can use AI for adaptive card suggestions and mission help. AI is **o
 
 ### Supported kc-agent providers (CLI-based and operator-controlled LLMs)
 
-`kc-agent` uses **local CLI providers** and **operator-controlled OpenAI-compatible / self-hosted LLMs** for AI features that need cluster-aware tool execution. Raw vendor API keys such as `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GOOGLE_API_KEY` do **not** make Anthropic/OpenAI/Gemini available as mission-capable `kc-agent` providers in the current build. Those variables are documented later for backend/Stellar paths and source-level provider configuration, while `kc-agent` itself still relies on the tooling model described in [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#3-local--self-hosted-llms).
+`kc-agent` uses **local CLI providers** and **operator-controlled OpenAI-compatible / self-hosted LLMs** for AI features that need cluster-aware tool execution. Raw vendor API keys such as `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GOOGLE_API_KEY` do **not** make Anthropic/OpenAI/Gemini available as mission-capable `kc-agent` providers in the current build. Those variables are documented later for backend/Stellar paths and source-level provider configuration, while `kc-agent` itself still relies on the tooling model described in [`docs/security/SECURITY-MODEL.md`](https://github.com/kubestellar/console/tree/HEAD/docs/security/SECURITY-MODEL.md#3-local--self-hosted-llms).
 
 **Recommended setup paths:**
 
@@ -552,7 +552,7 @@ The console can use AI for adaptive card suggestions and mission help. AI is **o
 
 **If no supported AI provider is configured**, AI-powered features fall back to deterministic / rule-based behavior. The card suggestions, missions, and dashboards remain fully usable.
 
-**Security model, air-gapped deployments, and local / self-hosted LLMs** are covered in [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md). That document explains the data flow between browser, Go backend, kc-agent, and AI providers; how to run the console with no external AI access; and the currently supported self-hosted path using kc-agent's CLI-based agents.
+**Security model, air-gapped deployments, and local / self-hosted LLMs** are covered in [`docs/security/SECURITY-MODEL.md`](https://github.com/kubestellar/console/blob/HEAD/docs/security/SECURITY-MODEL.md). That document explains the data flow between browser, Go backend, kc-agent, and AI providers; how to run the console with no external AI access; and the currently supported self-hosted path using kc-agent's CLI-based agents.
 
 ## How It Works
 
@@ -575,7 +575,7 @@ Key capabilities:
 
 **Note:** Stellar is alpha/experimental. Architecture and APIs are subject to change.
 
-For implementation details, see [docs/stellar/architecture.md](docs/stellar/architecture.md).
+For implementation details, see [docs/stellar/architecture.md](https://github.com/kubestellar/console/blob/HEAD/docs/stellar/architecture.md).
 
 ## Architecture
 
@@ -585,7 +585,7 @@ See the full [Architecture documentation](https://kubestellar.io/docs/console/ov
 
 - **[console-kb](https://github.com/kubestellar/console-kb)** — Knowledge base of guided installers for 250+ CNCF projects and solutions to common Kubernetes problems
 - **[console-marketplace](https://github.com/kubestellar/console-marketplace)** — Community-contributed monitoring cards per CNCF project
-- **[kc-agent](cmd/kc-agent/)** — Local agent bridging the browser to kubeconfig, coding agents (Codex, Copilot, Claude CLI), and MCP servers (`kubestellar-ops`, `kubestellar-deploy`)
+- **[kc-agent](https://github.com/kubestellar/console/tree/HEAD/cmd/kc-agent/)** — Local agent bridging the browser to kubeconfig, coding agents (Codex, Copilot, Claude CLI), and MCP servers (`kubestellar-ops`, `kubestellar-deploy`)
 - **[claude-plugins](https://github.com/kubestellar/claude-plugins)** — Claude Code marketplace plugins for Kubernetes
 - **[homebrew-tap](https://github.com/kubestellar/homebrew-tap)** — Homebrew formulae for KubeStellar tools
 - **[KubeStellar](https://kubestellar.io)** — Multi-cluster configuration management
@@ -600,11 +600,11 @@ Console uses AI tools (GitHub Copilot, Claude Code) to accelerate development. Q
 - **After merge**: Targeted Playwright tests run against production (`console.kubestellar.io`); failures reopen the original issue
 - **Continuous**: Hourly coverage (12 shards), 4x daily QA, nightly E2E, nightly security scanning, real-time GA4 error tracking, UI/UX standards nightly scan
 
-When a regression class is identified, a maintainer adds an automated check to the earliest possible loop. See [docs/AI-QUALITY-ASSURANCE.md](docs/AI-QUALITY-ASSURANCE.md) for the full breakdown.
+When a regression class is identified, a maintainer adds an automated check to the earliest possible loop. See [docs/AI-QUALITY-ASSURANCE.md](https://github.com/kubestellar/console/blob/HEAD/docs/AI-QUALITY-ASSURANCE.md) for the full breakdown.
 
 ## Environment Variables Reference
 
-The console and kc-agent use many configurable environment variables. This section provides a consolidated reference for all available options. See [.env.example](.env.example) for a complete example file with all commented defaults.
+The console and kc-agent use many configurable environment variables. This section provides a consolidated reference for all available options. See [.env.example](https://github.com/kubestellar/console/blob/HEAD/.env.example) for a complete example file with all commented defaults.
 
 ### GitHub Authentication & Integration
 
@@ -647,7 +647,7 @@ These variables are **not all equivalent**:
 
 - `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GOOGLE_API_KEY` document backend/Stellar and source-level HTTP-provider configuration, but they do **not** make Anthropic/OpenAI/Gemini available as mission-capable `kc-agent` providers in the current build.
 - `GROQ_API_KEY` and `OPENROUTER_API_KEY` enable registered **chat-only** providers for analysis/chat workflows; they still do not power `kc-agent` missions or other tool-executing flows.
-- For `kc-agent` tool execution, use the CLI-based or operator-controlled local/self-hosted providers described above and in [`docs/security/SECURITY-MODEL.md`](docs/security/SECURITY-MODEL.md#3-local--self-hosted-llms).
+- For `kc-agent` tool execution, use the CLI-based or operator-controlled local/self-hosted providers described above and in [`docs/security/SECURITY-MODEL.md`](https://github.com/kubestellar/console/tree/HEAD/docs/security/SECURITY-MODEL.md#3-local--self-hosted-llms).
 
 Without any supported AI provider, the console falls back to deterministic/rule-based behavior.
 
@@ -704,7 +704,7 @@ The Stellar assistant provides intelligent operational insights. Configuration i
 
 ### Service Discovery — KAgent & KAgenti Integration
 
-For in-cluster KAgent/KAgenti service discovery. Use controller URLs to skip discovery. For full KAgenti deployment patterns, warnings, and troubleshooting, see the [Kagenti deployment guide](docs/kagenti-deployment-guide.md).
+For in-cluster KAgent/KAgenti service discovery. Use controller URLs to skip discovery. For full KAgenti deployment patterns, warnings, and troubleshooting, see the [Kagenti deployment guide](https://github.com/kubestellar/console/blob/HEAD/docs/kagenti-deployment-guide.md).
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
@@ -848,4 +848,4 @@ For more examples and detailed setup instructions, see the [Getting Started](#lo
 
 ## License
 
-Apache License 2.0 — see [LICENSE](LICENSE).
+Apache License 2.0 — see [LICENSE](https://github.com/kubestellar/console/tree/HEAD/LICENSE).

@@ -15,7 +15,7 @@ body_tr: |-
   
   [![Go Report Card](https://goreportcard.com/badge/github.com/mrjoshuak/godoc-mcp)](https://goreportcard.com/report/github.com/mrjoshuak/godoc-mcp)
   [![Go Reference](https://pkg.go.dev/badge/github.com/mrjoshuak/godoc-mcp.svg)](https://pkg.go.dev/github.com/mrjoshuak/godoc-mcp)
-  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/mrjoshuak/godoc-mcp/tree/HEAD/LICENSE)
   
   ## Genel Bakış
   
@@ -236,14 +236,14 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/mrjoshuak/godoc-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # godoc-mcp
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/mrjoshuak/godoc-mcp)](https://goreportcard.com/report/github.com/mrjoshuak/godoc-mcp)
 [![Go Reference](https://pkg.go.dev/badge/github.com/mrjoshuak/godoc-mcp.svg)](https://pkg.go.dev/github.com/mrjoshuak/godoc-mcp)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/mrjoshuak/godoc-mcp/tree/HEAD/LICENSE)
 
 ## Overview
 
@@ -464,4 +464,4 @@ List all sub-packages under a Go package path. Use this to discover the correct 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/mrjoshuak/godoc-mcp/tree/HEAD/LICENSE) file for details.

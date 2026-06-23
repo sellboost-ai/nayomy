@@ -205,7 +205,7 @@ body_tr: |-
   
   Bu sunucu, yöneticilere bir AI ajanının hangi sütunlara erişebileceğinin üzerine ince taneli kontrol verir. `config.json`'da `preventedFields` tanımlarsınız ve sunucu bu sütunları LLM yanıtlarına yüzeyleştiren sorguları engeller. Otomatik bir tarayıcı **tüm** veri setleriniz arasında hassas sütunları keşfeder, bu nedenle kapsam deponuz büyüdükçe güncel kalır.
   
-  > **Dürüst bir uyarı:** Alan kısıtlamaları, AI ajanları için işbirliğine dayalı koruma rayları — düşmanca saldırganlar tarafından karşı bir sabit SQL güvenlik duvarı değil. Tam tehdit modeli için [PROTECTION.md](PROTECTION.md#security-model-cooperative-guardrails-not-a-sql-firewall) bakın.
+  > **Dürüst bir uyarı:** Alan kısıtlamaları, AI ajanları için işbirliğine dayalı koruma rayları — düşmanca saldırganlar tarafından karşı bir sabit SQL güvenlik duvarı değil. Tam tehdit modeli için [PROTECTION.md](https://github.com/ergut/mcp-bigquery-server/tree/HEAD/PROTECTION.md#security-model-cooperative-guardrails-not-a-sql-firewall) bakın.
   
   Sunucu, `config.json`'da `protectionMode` aracılığıyla ayarlanan üç koruma modunu destekler:
   
@@ -215,7 +215,7 @@ body_tr: |-
   | `allowedTables` | Tablo beyaz listesi — yalnızca listelenen tablolar sorgulanabilir, onların içinde opsiyonel alan kısıtlamalarıyla |
   | `autoProtect` | Veri setlerinizi hassas sütunlar için tarar ve `preventedFields` zorunlu kılar |
   
-  **Tam yapılandırma, örnekler, sorgu deseni referansı, tarayıcı kurulumu ve gerekli IAM izinleri için [PROTECTION.md](PROTECTION.md) bakın.**
+  **Tam yapılandırma, örnekler, sorgu deseni referansı, tarayıcı kurulumu ve gerekli IAM izinleri için [PROTECTION.md](https://github.com/ergut/mcp-bigquery-server/blob/HEAD/PROTECTION.md) bakın.**
   
   ## Yerel Derleme (İsteğe Bağlı) 🔧
   
@@ -267,7 +267,7 @@ body_tr: |-
   
   ## Lisans 📝
   
-  MIT Lisansı - Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT Lisansı - Detaylar için [LICENSE](https://github.com/ergut/mcp-bigquery-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## Yazar ✍️
   
@@ -285,7 +285,7 @@ body_tr: |-
   
   ## Sürüm Tarihi 📋
   
-  Güncellemeler ve sürüm tarihi için [CHANGELOG.md](CHANGELOG.md) bakın.
+  Güncellemeler ve sürüm tarihi için [CHANGELOG.md](https://github.com/ergut/mcp-bigquery-server/blob/HEAD/CHANGELOG.md) bakın.
 ---
 
 # BigQuery MCP Server
@@ -483,7 +483,7 @@ Data warehouses often contain highly sensitive information — patient records, 
 
 This server gives administrators fine-grained control over which columns an AI agent can access. You define `preventedFields` in `config.json` and the server blocks queries that would surface those columns into LLM responses. An automated scanner discovers sensitive columns across **all** your datasets, so coverage stays current as your warehouse grows.
 
-> **Honest caveat:** Field restrictions are cooperative guardrails for AI agents — not a hard SQL firewall against adversarial attackers. See [PROTECTION.md](PROTECTION.md#security-model-cooperative-guardrails-not-a-sql-firewall) for the full threat model.
+> **Honest caveat:** Field restrictions are cooperative guardrails for AI agents — not a hard SQL firewall against adversarial attackers. See [PROTECTION.md](https://github.com/ergut/mcp-bigquery-server/tree/HEAD/PROTECTION.md#security-model-cooperative-guardrails-not-a-sql-firewall) for the full threat model.
 
 The server supports three protection modes, set via `protectionMode` in `config.json`:
 
@@ -493,7 +493,7 @@ The server supports three protection modes, set via `protectionMode` in `config.
 | `allowedTables` | Table allowlist — only listed tables can be queried, with optional field restrictions within them |
 | `autoProtect` | Auto-scans your datasets for sensitive columns and enforces `preventedFields` |
 
-**See [PROTECTION.md](PROTECTION.md)** for full configuration, examples, the query pattern reference, scanner setup, and required IAM permissions.
+**See [PROTECTION.md](https://github.com/ergut/mcp-bigquery-server/blob/HEAD/PROTECTION.md)** for full configuration, examples, the query pattern reference, scanner setup, and required IAM permissions.
 
 ## Local Build (Optional) 🔧
 
@@ -545,7 +545,7 @@ For Protected Mode, add `"--config-file", "/path/to/config.json"` to the `args` 
 
 ## License 📝
 
-MIT License - See [LICENSE](LICENSE) file for details.
+MIT License - See [LICENSE](https://github.com/ergut/mcp-bigquery-server/tree/HEAD/LICENSE) file for details.
 
 ## Author ✍️
 
@@ -563,4 +563,4 @@ This project is proudly sponsored by:
 
 ## Version History 📋
 
-See [CHANGELOG.md](CHANGELOG.md) for updates and version history.
+See [CHANGELOG.md](https://github.com/ergut/mcp-bigquery-server/blob/HEAD/CHANGELOG.md) for updates and version history.

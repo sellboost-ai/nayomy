@@ -95,7 +95,7 @@ body_tr: |-
   
   Tahsis edilen port'lardan eşlenen worktree başına geçersiz kılma dosyalarını kullanın. Script deterministik bir port haritası çıkarır; `docker-compose.worktree.yml` dosyasına uygulayın.
   
-  Somut şablonlar için [docker-compose-patterns.md](references/docker-compose-patterns.md) dosyasını görmek.
+  Somut şablonlar için [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docker-compose-patterns.md) dosyasını görmek.
   
   ### 5. Port Tahsis Stratejisi
   
@@ -106,7 +106,7 @@ body_tr: |-
   - Redis: `6379`
   - Stride: `10`
   
-  Tam strateji ve edge case'ler için [port-allocation-strategy.md](references/port-allocation-strategy.md) dosyasını görmek.
+  Tam strateji ve edge case'ler için [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/port-allocation-strategy.md) dosyasını görmek.
   
   ## Script Arayüzleri
   
@@ -154,9 +154,9 @@ body_tr: |-
   
   ## Referanslar
   
-  - [port-allocation-strategy.md](references/port-allocation-strategy.md)
-  - [docker-compose-patterns.md](references/docker-compose-patterns.md)
-  - [README.md](README.md) hızlı başlangıç ve kurulum detayları için
+  - [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/port-allocation-strategy.md)
+  - [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docker-compose-patterns.md)
+  - [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md) hızlı başlangıç ve kurulum detayları için
   
   ## Karar Matrisi
   
@@ -285,7 +285,7 @@ python scripts/worktree_cleanup.py --repo . --remove-merged --format text
 
 Use per-worktree override files mapped from allocated ports. The script outputs a deterministic port map; apply it to `docker-compose.worktree.yml`.
 
-See [docker-compose-patterns.md](references/docker-compose-patterns.md) for concrete templates.
+See [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docker-compose-patterns.md) for concrete templates.
 
 ### 5. Port Allocation Strategy
 
@@ -296,7 +296,7 @@ Default strategy is `base + (index * stride)` with collision checks:
 - Redis: `6379`
 - Stride: `10`
 
-See [port-allocation-strategy.md](references/port-allocation-strategy.md) for the full strategy and edge cases.
+See [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/port-allocation-strategy.md) for the full strategy and edge cases.
 
 ## Script Interfaces
 
@@ -344,9 +344,9 @@ Before claiming setup complete:
 
 ## References
 
-- [port-allocation-strategy.md](references/port-allocation-strategy.md)
-- [docker-compose-patterns.md](references/docker-compose-patterns.md)
-- [README.md](README.md) for quick start and installation details
+- [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/port-allocation-strategy.md)
+- [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/docker-compose-patterns.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md) for quick start and installation details
 
 ## Decision Matrix
 

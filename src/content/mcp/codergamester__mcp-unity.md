@@ -19,7 +19,7 @@ body_tr: |-
   [![](https://img.shields.io/github/last-commit/CoderGamester/mcp-unity 'Last Commit')](https://github.com/CoderGamester/mcp-unity/commits/main)
   [![](https://img.shields.io/badge/License-MIT-red.svg 'MIT License')](https://opensource.org/licenses/MIT)
   
-  | [🇺🇸English](README.md) | [🇨🇳简体中文](README_zh-CN.md) | [🇯🇵日本語](README-ja.md) |
+  | [🇺🇸English](https://github.com/CoderGamester/mcp-unity/blob/HEAD/README.md) | [🇨🇳简体中文](https://github.com/CoderGamester/mcp-unity/blob/HEAD/README_zh-CN.md) | [🇯🇵日本語](https://github.com/CoderGamester/mcp-unity/blob/HEAD/README-ja.md) |
   |----------------------|---------------------------------|----------------------|
   
   ```        
@@ -429,7 +429,7 @@ body_tr: |-
 [![](https://img.shields.io/github/last-commit/CoderGamester/mcp-unity 'Last Commit')](https://github.com/CoderGamester/mcp-unity/commits/main)
 [![](https://img.shields.io/badge/License-MIT-red.svg 'MIT License')](https://opensource.org/licenses/MIT)
 
-| [🇺🇸English](README.md) | [🇨🇳简体中文](README_zh-CN.md) | [🇯🇵日本語](README-ja.md) |
+| [🇺🇸English](https://github.com/CoderGamester/mcp-unity/blob/HEAD/README.md) | [🇨🇳简体中文](https://github.com/CoderGamester/mcp-unity/blob/HEAD/README_zh-CN.md) | [🇯🇵日本語](https://github.com/CoderGamester/mcp-unity/blob/HEAD/README-ja.md) |
 |----------------------|---------------------------------|----------------------|
 
 ```        
@@ -1113,7 +1113,7 @@ Contributions are welcome! Please feel free to submit a Pull Request or open an 
 
 ## License
 
-This project is under [MIT License](LICENSE.md)
+This project is under [MIT License](https://github.com/CoderGamester/mcp-unity/blob/HEAD/LICENSE.md)
 
 ## Acknowledgements
 

@@ -27,6 +27,30 @@ function rewriteImages(md, repo) {
     .replace(/<img\s[^>]*>/gi, '');
 }
 
+function rewriteLinks(md, repo) {
+  const ghBase = `https://github.com/${repo}`;
+
+  function toGhUrl(href) {
+    const clean = href.replace(/^(\.\.\/|\.\/)+/, '');
+    const isDir = /\/$/.test(clean) || !/\.[a-zA-Z0-9]{1,10}$/.test(clean);
+    return `${ghBase}/${isDir ? 'tree' : 'blob'}/HEAD/${clean}`;
+  }
+
+  // rewriteImages() must run before this function. After that pass, all image
+  // srcs are absolute, so any remaining ](relative) are link hrefs — not image srcs.
+  // This also handles [![badge](abs-img)](./relative) patterns correctly.
+  return md
+    .replace(
+      /\]\((?!https?:\/\/|\/|#|mailto:)([^\s)"]+)([^)]*)\)/g,
+      (_, href, rest) => `](${toGhUrl(href)}${rest})`
+    )
+    // HTML href attributes with relative paths
+    .replace(
+      /href=(['"])(?!https?:\/\/|\/|#|mailto:)([^'"]+)\1/g,
+      (_, q, href) => `href=${q}${toGhUrl(href)}${q}`
+    );
+}
+
 function ys(value) {
   const str = String(value ?? '');
   const escaped = str
@@ -113,7 +137,7 @@ for (const s of servers) {
 
   const preserved = existingTranslations[slug] || {};
   const description_tr = s.description_tr || preserved.description_tr || '';
-  const body_tr = preserved.body_tr || '';
+  const body_tr = preserved.body_tr ? rewriteLinks(rewriteImages(preserved.body_tr, s.repo), s.repo) : '';
 
   if (preserved.description_tr || preserved.body_tr) {
     restored++;
@@ -148,7 +172,7 @@ for (const s of servers) {
     lines.push(`body_tr: ${yamlLiteralBlock(body_tr)}`);
   }
 
-  const body = rewriteImages((s.body ?? '').trim(), s.repo);
+  const body = rewriteLinks(rewriteImages((s.body ?? '').trim(), s.repo), s.repo);
   lines.push('---', '', body, '');
 
   writeFileSync(join(OUTPUT_DIR, `${slug}.md`), lines.join('\n'), 'utf8');

@@ -100,8 +100,8 @@ body_tr: |-
   
   ## İlişkili Ajanlar
   
-  - [cs-engineering-lead](../engineering-team/cs-engineering-lead.md) -- Ekip koordinasyonu, olay yanıtı ve işlevler arası teslimat
-  - [cs-product-manager](../product/cs-product-manager.md) -- Özellik önceliklendirmesi ve gereksinimler bağlamı
+  - [cs-engineering-lead](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering-team/cs-engineering-lead.md) -- Ekip koordinasyonu, olay yanıtı ve işlevler arası teslimat
+  - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) -- Özellik önceliklendirmesi ve gereksinimler bağlamı
 ---
 
 # cs-senior-engineer
@@ -190,5 +190,5 @@ Cross-cutting senior engineer covering architecture, backend, DevOps, security, 
 
 ## Related Agents
 
-- [cs-engineering-lead](../engineering-team/cs-engineering-lead.md) -- Team coordination, incident response, and cross-functional delivery
-- [cs-product-manager](../product/cs-product-manager.md) -- Feature prioritization and requirements context
+- [cs-engineering-lead](https://github.com/alirezarezvani/claude-skills/blob/HEAD/engineering-team/cs-engineering-lead.md) -- Team coordination, incident response, and cross-functional delivery
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/blob/HEAD/product/cs-product-manager.md) -- Feature prioritization and requirements context

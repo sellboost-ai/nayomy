@@ -107,7 +107,7 @@ body_tr: |-
   }
   ```
   
-  **Daha fazla kurulum seçeneği ve yerel geliştirme kurulumu — [NPM.md](./docs/user/NPM.md)**
+  **Daha fazla kurulum seçeneği ve yerel geliştirme kurulumu — [NPM.md](https://github.com/vasylenko/bear-notes-mcp/blob/HEAD/docs/user/NPM.md)**
   
   ## 🛠️ Araçlar
   
@@ -350,7 +350,7 @@ Add to your MCP configuration file:
 }
 ```
 
-**More installation options and local development setup — [NPM.md](./docs/user/NPM.md)**
+**More installation options and local development setup — [NPM.md](https://github.com/vasylenko/bear-notes-mcp/blob/HEAD/docs/user/NPM.md)**
 
 ## 🛠️ Tools
 

@@ -21,7 +21,7 @@ body_tr: |-
   [![Install in VS Code](https://img.shields.io/badge/Install_in-VS_Code-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=arxiv-mcp-server&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D)
   [![Install in VS Code Insiders](https://img.shields.io/badge/Install_in-VS_Code_Insiders-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=arxiv-mcp-server&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D&quality=insiders)
   [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=arxiv-mcp-server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D)
-  [![Codex Plugin](https://img.shields.io/badge/Codex-Plugin-412991?style=flat-square)](./.codex-plugin/plugin.json)
+  [![Codex Plugin](https://img.shields.io/badge/Codex-Plugin-412991?style=flat-square)](https://github.com/blazickjp/arxiv-mcp-server/blob/HEAD/.codex-plugin/plugin.json)
   
   # ArXiv MCP Server
   
@@ -222,7 +222,7 @@ body_tr: |-
   
   arXiv makaleleri kullanıcı tarafından oluşturulmuş, güvenilmeyen içeriktir. Bu sunucu tarafından döndürülen makale metni prompt injection denemelerini içerebilir — bir AI asistanının davranışını manipüle etmek için tasarlanmış metin. Tüm makale içeriğini güvenilmeyen girdiye olarak değerlendirin.
   
-  Üretim ortamlarında uygun sandboxing uygulayın ve ham makale içeriğini duyarlı araçlara veya verilere erişimi olan agentic boru hatlarına incelemesi olmadan beslemekten kaçının. Tam güvenlik politikası için [SECURITY.md](SECURITY.md)'ye bakın.
+  Üretim ortamlarında uygun sandboxing uygulayın ve ham makale içeriğini duyarlı araçlara veya verilere erişimi olan agentic boru hatlarına incelemesi olmadan beslemekten kaçının. Tam güvenlik politikası için [SECURITY.md](https://github.com/blazickjp/arxiv-mcp-server/blob/HEAD/SECURITY.md)'ye bakın.
   
   ## 💡 Mevcut Araçlar
   
@@ -431,7 +431,7 @@ body_tr: |-
 [![Install in VS Code](https://img.shields.io/badge/Install_in-VS_Code-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=arxiv-mcp-server&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D)
 [![Install in VS Code Insiders](https://img.shields.io/badge/Install_in-VS_Code_Insiders-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=arxiv-mcp-server&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D&quality=insiders)
 [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=arxiv-mcp-server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D)
-[![Codex Plugin](https://img.shields.io/badge/Codex-Plugin-412991?style=flat-square)](./.codex-plugin/plugin.json)
+[![Codex Plugin](https://img.shields.io/badge/Codex-Plugin-412991?style=flat-square)](https://github.com/blazickjp/arxiv-mcp-server/blob/HEAD/.codex-plugin/plugin.json)
 
 # ArXiv MCP Server
 
@@ -662,7 +662,7 @@ an AI assistant's behavior. Treat all paper content as untrusted input.
 
 In production environments, apply appropriate sandboxing and avoid feeding raw
 paper content into agentic pipelines that have access to sensitive tools or data
-without review. See [SECURITY.md](SECURITY.md) for the full security policy.
+without review. See [SECURITY.md](https://github.com/blazickjp/arxiv-mcp-server/blob/HEAD/SECURITY.md) for the full security policy.
 
 ## 💡 Available Tools
 

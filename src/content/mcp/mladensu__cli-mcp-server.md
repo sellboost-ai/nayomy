@@ -233,7 +233,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](https://github.com/MladenSU/cli-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ---
   
@@ -467,7 +467,7 @@ Upon launching, the Inspector will display a URL that you can access in your bro
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/MladenSU/cli-mcp-server/tree/HEAD/LICENSE) file for details.
 
 ---
 

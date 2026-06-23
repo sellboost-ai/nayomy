@@ -92,7 +92,7 @@ body_tr: |-
   
   **Aşama 2: Düzeltme** -- Her ihlal için çerçeveye özgü düzeltmeleri uygula.
   
-  > Tam düzeltme modellerinin kataloğu için [references/framework-a11y-patterns.md](references/framework-a11y-patterns.md) bölümüne bakın.
+  > Tam düzeltme modellerinin kataloğu için [references/framework-a11y-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/framework-a11y-patterns.md) bölümüne bakın.
   
   **Aşama 3: Doğrulama** -- Düzeltmelerin çalıştığını ve gerileme olmadığını kontrol etmek için tarayıcıyı yeniden çalıştır.
   
@@ -137,7 +137,7 @@ body_tr: |-
   }
   ```
   
-  > Vue, Angular, Next.js ve Svelte örnekleri için [references/examples-by-framework.md](references/examples-by-framework.md) bölümüne bakın.
+  > Vue, Angular, Next.js ve Svelte örnekleri için [references/examples-by-framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/examples-by-framework.md) bölümüne bakın.
   
   ## Araçlar Referansı
   
@@ -204,15 +204,15 @@ body_tr: |-
   
   | Referans | Açıklama |
   |----------|----------|
-  | [wcag-quick-ref.md](references/wcag-quick-ref.md) | WCAG 2.2 Seviye A & AA kriterleri hızlı referansı |
-  | [wcag-22-new-criteria.md](references/wcag-22-new-criteria.md) | Yeni WCAG 2.2 başarı kriterleri (Odak Görünümü, Hedef Boyutu, vb.) |
-  | [aria-patterns.md](references/aria-patterns.md) | ARIA modelleri, klavye etkileşimi ve canlı bölgeler |
-  | [framework-a11y-patterns.md](references/framework-a11y-patterns.md) | Çerçeveye özgü düzeltme modelleri (React, Vue, Angular, Svelte, HTML) |
-  | [color-contrast-guide.md](references/color-contrast-guide.md) | Renk kontrast denetçisi detayları, Tailwind palet haritalandırması, sr-only sınıfı |
-  | [ci-cd-integration.md](references/ci-cd-integration.md) | GitHub Actions, GitLab CI, Azure DevOps, pre-commit hook yapılandırmaları |
-  | [audit-report-template.md](references/audit-report-template.md) | Paydaşlara hazır denetim raporu şablonu |
-  | [testing-checklist.md](references/testing-checklist.md) | Manuel test kontrol listesi (klavye, ekran okuyucu, görsel, formlar) |
-  | [examples-by-framework.md](references/examples-by-framework.md) | Vue, Angular, Next.js ve Svelte için tam denetim örnekleri |
+  | [wcag-quick-ref.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/wcag-quick-ref.md) | WCAG 2.2 Seviye A & AA kriterleri hızlı referansı |
+  | [wcag-22-new-criteria.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/wcag-22-new-criteria.md) | Yeni WCAG 2.2 başarı kriterleri (Odak Görünümü, Hedef Boyutu, vb.) |
+  | [aria-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/aria-patterns.md) | ARIA modelleri, klavye etkileşimi ve canlı bölgeler |
+  | [framework-a11y-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/framework-a11y-patterns.md) | Çerçeveye özgü düzeltme modelleri (React, Vue, Angular, Svelte, HTML) |
+  | [color-contrast-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/color-contrast-guide.md) | Renk kontrast denetçisi detayları, Tailwind palet haritalandırması, sr-only sınıfı |
+  | [ci-cd-integration.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ci-cd-integration.md) | GitHub Actions, GitLab CI, Azure DevOps, pre-commit hook yapılandırmaları |
+  | [audit-report-template.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/audit-report-template.md) | Paydaşlara hazır denetim raporu şablonu |
+  | [testing-checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/testing-checklist.md) | Manuel test kontrol listesi (klavye, ekran okuyucu, görsel, formlar) |
+  | [examples-by-framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/examples-by-framework.md) | Vue, Angular, Next.js ve Svelte için tam denetim örnekleri |
   
   ## Kaynaklar
   
@@ -300,7 +300,7 @@ python scripts/a11y_scanner.py /path/to/project --format table
 
 **Phase 2: Fix** -- Apply framework-specific fixes for each violation.
 
-> See [references/framework-a11y-patterns.md](references/framework-a11y-patterns.md) for the complete fix patterns catalog.
+> See [references/framework-a11y-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/framework-a11y-patterns.md) for the complete fix patterns catalog.
 
 **Phase 3: Verify** -- Re-run the scanner to confirm fixes and check for regressions.
 
@@ -345,7 +345,7 @@ function ProductCard({ product }) {
 }
 ```
 
-> See [references/examples-by-framework.md](references/examples-by-framework.md) for Vue, Angular, Next.js, and Svelte examples.
+> See [references/examples-by-framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/examples-by-framework.md) for Vue, Angular, Next.js, and Svelte examples.
 
 ## Tools Reference
 
@@ -412,15 +412,15 @@ Options:
 
 | Reference | Description |
 |-----------|-------------|
-| [wcag-quick-ref.md](references/wcag-quick-ref.md) | WCAG 2.2 Level A & AA criteria quick reference |
-| [wcag-22-new-criteria.md](references/wcag-22-new-criteria.md) | New WCAG 2.2 success criteria (Focus Appearance, Target Size, etc.) |
-| [aria-patterns.md](references/aria-patterns.md) | ARIA patterns, keyboard interaction, and live regions |
-| [framework-a11y-patterns.md](references/framework-a11y-patterns.md) | Framework-specific fix patterns (React, Vue, Angular, Svelte, HTML) |
-| [color-contrast-guide.md](references/color-contrast-guide.md) | Color contrast checker details, Tailwind palette mapping, sr-only class |
-| [ci-cd-integration.md](references/ci-cd-integration.md) | GitHub Actions, GitLab CI, Azure DevOps, pre-commit hook configs |
-| [audit-report-template.md](references/audit-report-template.md) | Stakeholder-ready audit report template |
-| [testing-checklist.md](references/testing-checklist.md) | Manual testing checklist (keyboard, screen reader, visual, forms) |
-| [examples-by-framework.md](references/examples-by-framework.md) | Full audit examples for Vue, Angular, Next.js, and Svelte |
+| [wcag-quick-ref.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/wcag-quick-ref.md) | WCAG 2.2 Level A & AA criteria quick reference |
+| [wcag-22-new-criteria.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/wcag-22-new-criteria.md) | New WCAG 2.2 success criteria (Focus Appearance, Target Size, etc.) |
+| [aria-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/aria-patterns.md) | ARIA patterns, keyboard interaction, and live regions |
+| [framework-a11y-patterns.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/framework-a11y-patterns.md) | Framework-specific fix patterns (React, Vue, Angular, Svelte, HTML) |
+| [color-contrast-guide.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/color-contrast-guide.md) | Color contrast checker details, Tailwind palette mapping, sr-only class |
+| [ci-cd-integration.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/ci-cd-integration.md) | GitHub Actions, GitLab CI, Azure DevOps, pre-commit hook configs |
+| [audit-report-template.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/audit-report-template.md) | Stakeholder-ready audit report template |
+| [testing-checklist.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/testing-checklist.md) | Manual testing checklist (keyboard, screen reader, visual, forms) |
+| [examples-by-framework.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/examples-by-framework.md) | Full audit examples for Vue, Angular, Next.js, and Svelte |
 
 ## Resources
 

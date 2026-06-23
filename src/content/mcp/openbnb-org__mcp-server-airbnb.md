@@ -271,7 +271,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT Lisansı - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT Lisansı - detaylar için [LICENSE](https://github.com/openbnb-org/mcp-server-airbnb/tree/HEAD/LICENSE) dosyasına bakın.
   
   ## Katkıda Bulunma
   
@@ -542,7 +542,7 @@ node dist/index.js --ignore-robots-txt
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](https://github.com/openbnb-org/mcp-server-airbnb/tree/HEAD/LICENSE) file for details.
 
 ## Contributing
 

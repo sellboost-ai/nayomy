@@ -400,7 +400,7 @@ body_tr: |-
   
   ## 📄 Lisans
   
-  Bu proje [Apache License 2.0](LICENSE) altında lisanslanmıştır.
+  Bu proje [Apache License 2.0](https://github.com/idosal/git-mcp/tree/HEAD/LICENSE) altında lisanslanmıştır.
   
   ## Sorumluluk Reddi
   
@@ -801,7 +801,7 @@ We welcome contributions, feedback, and ideas! Please review our [contribution](
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/idosal/git-mcp/tree/HEAD/LICENSE).
 
 ## Disclaimer
 

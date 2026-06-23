@@ -518,7 +518,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  PR'ler hoşgeldiniz! Yönergeler için [CONTRIBUTING.md](CONTRIBUTING.md) bölümüne bakın.
+  PR'ler hoşgeldiniz! Yönergeler için [CONTRIBUTING.md](https://github.com/karanb192/reddit-mcp-buddy/blob/HEAD/CONTRIBUTING.md) bölümüne bakın.
   
   Şeyleri basit
 ---
@@ -1030,7 +1030,7 @@ npm run typecheck
 
 ## Contributing
 
-PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+PRs welcome! See [CONTRIBUTING.md](https://github.com/karanb192/reddit-mcp-buddy/blob/HEAD/CONTRIBUTING.md) for guidelines.
 
 We keep things simple:
 - No fake analytics

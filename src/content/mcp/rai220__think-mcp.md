@@ -77,7 +77,7 @@ body_tr: |-
   - Temel alınan: [Anthropic Engineering Blog — The "think" tool](https://www.anthropic.com/engineering/claude-think-tool)
   
   ## Lisans
-  MIT License — bkz. [LICENSE](LICENSE)
+  MIT License — bkz. [LICENSE](https://github.com/Rai220/think-mcp/tree/HEAD/LICENSE)
 ---
 
 # Think MCP Tool
@@ -147,4 +147,4 @@ Adds aditional tools for your agent:
 - Based on: [Anthropic Engineering Blog — The "think" tool](https://www.anthropic.com/engineering/claude-think-tool)
 
 ## License
-MIT License — see [LICENSE](LICENSE)
+MIT License — see [LICENSE](https://github.com/Rai220/think-mcp/tree/HEAD/LICENSE)

@@ -165,7 +165,7 @@ body_tr: |-
     -f values.yaml
   ```
   
-  Tüm kullanılabilir yapılandırma seçenekleri için [chart values](charts/prometheus-mcp-server/values.yaml) dosyasına bakın.
+  Tüm kullanılabilir yapılandırma seçenekleri için [chart values](https://github.com/pab1it0/prometheus-mcp-server/blob/HEAD/charts/prometheus-mcp-server/values.yaml) dosyasına bakın.
   </details>
   
   ### Yapılandırma Seçenekleri
@@ -220,7 +220,7 @@ body_tr: |-
   
   ## Geliştirme
   
-  Katkılar memnuniyetle karşılanır! Başlamak, kod standartları ve pull request süreci hakkında ayrıntılı bilgi için lütfen [Katkı Rehberi](CONTRIBUTING.md)'ne bakın.
+  Katkılar memnuniyetle karşılanır! Başlamak, kod standartları ve pull request süreci hakkında ayrıntılı bilgi için lütfen [Katkı Rehberi](https://github.com/pab1it0/prometheus-mcp-server/blob/HEAD/CONTRIBUTING.md)'ne bakın.
   
   Bu proje bağımlılıkları yönetmek için [`uv`](https://github.com/astral-sh/uv) kullanır. Platformunuz için talimatları izleyerek `uv`'yi yükleyin:
   
@@ -418,7 +418,7 @@ helm install prometheus-mcp-server \
   -f values.yaml
 ```
 
-See the [chart values](charts/prometheus-mcp-server/values.yaml) for all available configuration options.
+See the [chart values](https://github.com/pab1it0/prometheus-mcp-server/blob/HEAD/charts/prometheus-mcp-server/values.yaml) for all available configuration options.
 </details>
 
 ### Configuration Options
@@ -473,7 +473,7 @@ The list of tools is configurable, so you can choose which tools you want to mak
 
 ## Development
 
-Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for detailed information on how to get started, coding standards, and the pull request process.
+Contributions are welcome! Please see our [Contributing Guide](https://github.com/pab1it0/prometheus-mcp-server/blob/HEAD/CONTRIBUTING.md) for detailed information on how to get started, coding standards, and the pull request process.
 
 This project uses [`uv`](https://github.com/astral-sh/uv) to manage dependencies. Install `uv` following the instructions for your platform:
 

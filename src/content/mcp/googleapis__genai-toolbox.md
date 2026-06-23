@@ -415,7 +415,7 @@ body_tr: |-
   > ⓘ Not  
   > Bu komut projeyi kaynaktan çalıştırır ve geliştirme
   > ve test için daha uygun olur. **Değil** bir ikili dosyayı `$GOPATH` içine derler. İkili dosya derlemek istiyorsanız, [Geliştirici
-  > Belgelendirmesi](./DEVELOPER.md#building-the-binary) bölümüne bakın.
+  > Belgelendirmesi](https://github.com/googleapis/genai-toolbox/tree/HEAD/DEVELOPER.md#building-the-binary) bölümüne bakın.
   
   </details>
   
@@ -1043,7 +1043,7 @@ go run .
 > This command runs the project from source, and is more suitable for development
 > and testing. It does **not** compile a binary into your `$GOPATH`. If you want
 > to compile a binary instead, refer the [Developer
-> Documentation](./DEVELOPER.md#building-the-binary).
+> Documentation](https://github.com/googleapis/genai-toolbox/tree/HEAD/DEVELOPER.md#building-the-binary).
 
 </details>
 
@@ -1707,11 +1707,11 @@ For more details, see our [Full Versioning Policy](https://mcp-toolbox.dev/refer
 
 ## Contributing
 
-Contributions are welcome. Please, see the [CONTRIBUTING](CONTRIBUTING.md) guide to get started. 
+Contributions are welcome. Please, see the [CONTRIBUTING](https://github.com/googleapis/genai-toolbox/blob/HEAD/CONTRIBUTING.md) guide to get started. 
 
-For technical details on setting up a environment for developing on Toolbox itself, see the [DEVELOPER](DEVELOPER.md) guide.
+For technical details on setting up a environment for developing on Toolbox itself, see the [DEVELOPER](https://github.com/googleapis/genai-toolbox/blob/HEAD/DEVELOPER.md) guide.
 
-Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms. See [Contributor Code of Conduct](CODE_OF_CONDUCT.md) for more information.
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms. See [Contributor Code of Conduct](https://github.com/googleapis/genai-toolbox/blob/HEAD/CODE_OF_CONDUCT.md) for more information.
 
 ---
 

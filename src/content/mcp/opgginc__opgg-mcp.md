@@ -12,7 +12,7 @@ language: "TypeScript"
 body_tr: |-
   # OP.GG MCP Server
   
-  🇰🇷 [한국어](./README.ko.md) | 🇯🇵 [日本語](./README.ja.md) | 🇨🇳 [简体中文](./README.zh-CN.md) | 🇹🇼 [繁體中文](./README.zh-TW.md) | 🇧🇷 [Português](./README.pt-BR.md)
+  🇰🇷 [한국어](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.ko.md) | 🇯🇵 [日本語](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.ja.md) | 🇨🇳 [简体中文](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.zh-CN.md) | 🇹🇼 [繁體中文](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.zh-TW.md) | 🇧🇷 [Português](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.pt-BR.md)
   
   OP.GG MCP Server, League of Legends, Teamfight Tactics ve Valorant oyun verilerine yapay zeka ajanlarının erişim sağlaması için [Model Context Protocol](https://modelcontextprotocol.io) uygulamasıdır.
   
@@ -127,7 +127,7 @@ body_tr: |-
 
 # OP.GG MCP Server
 
-🇰🇷 [한국어](./README.ko.md) | 🇯🇵 [日本語](./README.ja.md) | 🇨🇳 [简体中文](./README.zh-CN.md) | 🇹🇼 [繁體中文](./README.zh-TW.md) | 🇧🇷 [Português](./README.pt-BR.md)
+🇰🇷 [한국어](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.ko.md) | 🇯🇵 [日本語](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.ja.md) | 🇨🇳 [简体中文](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.zh-CN.md) | 🇹🇼 [繁體中文](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.zh-TW.md) | 🇧🇷 [Português](https://github.com/opgginc/opgg-mcp/blob/HEAD/README.pt-BR.md)
 
 The OP.GG MCP Server is a [Model Context Protocol](https://modelcontextprotocol.io) implementation that provides AI agents with access to OP.GG game data for League of Legends, Teamfight Tactics, and Valorant.
 

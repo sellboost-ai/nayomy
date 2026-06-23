@@ -16,8 +16,8 @@ body_tr: |-
   <div align="center">
   
   [![Python 3.13+](https://img.shields.io/badge/python-3.13+-9D00FF.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-  [![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge)](LICENSE)
-  [![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge)](docs/plan.md)
+  [![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge)](https://github.com/hyperb1iss/lucidity-mcp/tree/HEAD/LICENSE)
+  [![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge)](https://github.com/hyperb1iss/lucidity-mcp/blob/HEAD/docs/plan.md)
   [![Code Style](https://img.shields.io/badge/code_style-ruff-00FFFF.svg?style=for-the-badge)](https://github.com/astral-sh/ruff)
   [![Type Check](https://img.shields.io/badge/type_check-mypy-FFBF00.svg?style=for-the-badge)](https://mypy.readthedocs.io/en/stable/)
   
@@ -217,8 +217,8 @@ body_tr: |-
 <div align="center">
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-9D00FF.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge)](docs/plan.md)
+[![License](https://img.shields.io/badge/license-Apache_2.0-FF00FF.svg?style=for-the-badge)](https://github.com/hyperb1iss/lucidity-mcp/tree/HEAD/LICENSE)
+[![Status](https://img.shields.io/badge/status-active_development-39FF14.svg?style=for-the-badge)](https://github.com/hyperb1iss/lucidity-mcp/blob/HEAD/docs/plan.md)
 [![Code Style](https://img.shields.io/badge/code_style-ruff-00FFFF.svg?style=for-the-badge)](https://github.com/astral-sh/ruff)
 [![Type Check](https://img.shields.io/badge/type_check-mypy-FFBF00.svg?style=for-the-badge)](https://mypy.readthedocs.io/en/stable/)
 

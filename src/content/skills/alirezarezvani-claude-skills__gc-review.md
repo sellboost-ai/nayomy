@@ -133,8 +133,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Beceri: [`general-counsel-advisor`](../../../skills/general-counsel-advisor/SKILL.md) — Python araçları + referansları içeren tam beceri
-  - Ajan: [`cs-general-counsel-advisor`](../../agents/cs-general-counsel-advisor.md)
+  - Beceri: [`general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/general-counsel-advisor/SKILL.md) — Python araçları + referansları içeren tam beceri
+  - Ajan: [`cs-general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-general-counsel-advisor.md)
   - Uyum yürütme: `../../../../ra-qm-team/`
   - Komşu: `../../../skills/ma-playbook/`
   
@@ -262,8 +262,8 @@ The `cs-general-counsel-advisor` agent orchestrates both tools plus 3 references
 
 ## Related
 
-- Skill: [`general-counsel-advisor`](../../../skills/general-counsel-advisor/SKILL.md) — full skill with Python tools + references
-- Agent: [`cs-general-counsel-advisor`](../../agents/cs-general-counsel-advisor.md)
+- Skill: [`general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/general-counsel-advisor/SKILL.md) — full skill with Python tools + references
+- Agent: [`cs-general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-general-counsel-advisor.md)
 - Compliance execution: `../../../../ra-qm-team/`
 - Adjacent: `../../../skills/ma-playbook/`
 

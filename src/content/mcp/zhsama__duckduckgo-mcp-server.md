@@ -12,7 +12,7 @@ language: "TypeScript"
 body_tr: |-
   # duckduckgo-search MCP Server
   
-  English | [中文](README_zh.md)
+  English | [中文](https://github.com/zhsama/duckduckgo-mcp-server/blob/HEAD/README_zh.md)
   
   DuckDuckGo Search için bir Model Context Protocol sunucusu
   
@@ -121,7 +121,7 @@ body_tr: |-
 
 # duckduckgo-search MCP Server
 
-English | [中文](README_zh.md)
+English | [中文](https://github.com/zhsama/duckduckgo-mcp-server/blob/HEAD/README_zh.md)
 
 A Model Context Protocol server for DuckDuckGo Search
 

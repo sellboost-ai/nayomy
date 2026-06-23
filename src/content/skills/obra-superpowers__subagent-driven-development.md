@@ -182,9 +182,9 @@ body_tr: |-
   
   ## Komut Şablonları
   
-  - [implementer-prompt.md](implementer-prompt.md) - Uygulayıcı alt ajanı gönderin
-  - [task-reviewer-prompt.md](task-reviewer-prompt.md) - Görev inceleyici alt ajanı gönderin (spec uygunluğu + kod kalitesi)
-  - Son dal incelemesi: superpowers:requesting-code-review'nin [code-reviewer.md](../requesting-code-review/code-reviewer.md)'ını kullanın
+  - [implementer-prompt.md](https://github.com/obra/superpowers/blob/HEAD/implementer-prompt.md) - Uygulayıcı alt ajanı gönderin
+  - [task-reviewer-prompt.md](https://github.com/obra/superpowers/blob/HEAD/task-reviewer-prompt.md) - Görev inceleyici alt ajanı gönderin (spec uygunluğu + kod kalitesi)
+  - Son dal incelemesi: superpowers:requesting-code-review'nin [code-reviewer.md](https://github.com/obra/superpowers/blob/HEAD/requesting-code-review/code-reviewer.md)'ını kullanın
   
   ## Örnek İş Akışı
   
@@ -590,9 +590,9 @@ a ledger file, not only in todos.
 
 ## Prompt Templates
 
-- [implementer-prompt.md](implementer-prompt.md) - Dispatch implementer subagent
-- [task-reviewer-prompt.md](task-reviewer-prompt.md) - Dispatch task reviewer subagent (spec compliance + code quality)
-- Final whole-branch review: use superpowers:requesting-code-review's [code-reviewer.md](../requesting-code-review/code-reviewer.md)
+- [implementer-prompt.md](https://github.com/obra/superpowers/blob/HEAD/implementer-prompt.md) - Dispatch implementer subagent
+- [task-reviewer-prompt.md](https://github.com/obra/superpowers/blob/HEAD/task-reviewer-prompt.md) - Dispatch task reviewer subagent (spec compliance + code quality)
+- Final whole-branch review: use superpowers:requesting-code-review's [code-reviewer.md](https://github.com/obra/superpowers/blob/HEAD/requesting-code-review/code-reviewer.md)
 
 ## Example Workflow
 

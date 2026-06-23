@@ -60,14 +60,14 @@ body_tr: |-
   
   ## Dokümantasyon
   
-  - [Entegrasyon Rehberi](docs/integration.md) - Claude Desktop, Windsurf, Cursor, Docker
-  - [Mevcut Araçlar](docs/tools.md) - Query, agregasyon, güncelleme, insert ve daha fazlası
-  - [Geliştirme](docs/development.md) - Kurulum, scriptler ve hata ayıklama
-  - [Katkı Sağlama](CONTRIBUTING.md)
+  - [Entegrasyon Rehberi](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/docs/integration.md) - Claude Desktop, Windsurf, Cursor, Docker
+  - [Mevcut Araçlar](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/docs/tools.md) - Query, agregasyon, güncelleme, insert ve daha fazlası
+  - [Geliştirme](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/docs/development.md) - Kurulum, scriptler ve hata ayıklama
+  - [Katkı Sağlama](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/CONTRIBUTING.md)
   
   ## Lisans
   
-  MIT - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT - ayrıntılar için [LICENSE](https://github.com/kiliczsh/mcp-mongo-server/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # MCP MongoDB Server
@@ -119,11 +119,11 @@ npx -y mcp-mongo-server mongodb://muhammed:kilic@localhost:27017/database --read
 
 ## Documentation
 
-- [Integration Guide](docs/integration.md) - Claude Desktop, Windsurf, Cursor, Docker
-- [Available Tools](docs/tools.md) - Query, aggregate, update, insert, and more
-- [Development](docs/development.md) - Setup, scripts, and debugging
-- [Contributing](CONTRIBUTING.md)
+- [Integration Guide](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/docs/integration.md) - Claude Desktop, Windsurf, Cursor, Docker
+- [Available Tools](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/docs/tools.md) - Query, aggregate, update, insert, and more
+- [Development](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/docs/development.md) - Setup, scripts, and debugging
+- [Contributing](https://github.com/kiliczsh/mcp-mongo-server/blob/HEAD/CONTRIBUTING.md)
 
 ## License
 
-MIT - see [LICENSE](LICENSE) for details.
+MIT - see [LICENSE](https://github.com/kiliczsh/mcp-mongo-server/tree/HEAD/LICENSE) for details.

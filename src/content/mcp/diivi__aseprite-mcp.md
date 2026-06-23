@@ -41,7 +41,7 @@ body_tr: |-
   docker-compose --profile dev up aseprite-mcp-dev
   ```
   
-  Detaylı Docker kurulum talimatları için [DOCKER.md](DOCKER.md) dosyasını inceleyin.
+  Detaylı Docker kurulum talimatları için [DOCKER.md](https://github.com/diivi/aseprite-mcp/blob/HEAD/DOCKER.md) dosyasını inceleyin.
   
   ### İsteğe Bağlı: Steam Üzerinden Aseprite Kurulumu
   
@@ -347,7 +347,7 @@ docker-compose up aseprite-mcp
 docker-compose --profile dev up aseprite-mcp-dev
 ```
 
-See [DOCKER.md](DOCKER.md) for detailed Docker setup instructions.
+See [DOCKER.md](https://github.com/diivi/aseprite-mcp/blob/HEAD/DOCKER.md) for detailed Docker setup instructions.
 
 ### Optional: Install Aseprite via Steam
 

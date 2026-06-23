@@ -25,7 +25,7 @@ body_tr: |-
   
   <div align="center">
     <h3>
-      <a href="abdelstark.github.io/bitcoin-mcp/">
+      <a href="https://github.com/AbdelStark/bitcoin-mcp/tree/HEAD/abdelstark.github.io/bitcoin-mcp/">
         Dokumentasyon
       </a>
       <span> | </span>
@@ -218,7 +218,7 @@ body_tr: |-
   
   ## 📝 Lisans
   
-  Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+  Bu proje [MIT Lisansı](https://github.com/AbdelStark/bitcoin-mcp/tree/HEAD/LICENSE) altında lisanslanmıştır.
 ---
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/abdelstark-bitcoin-mcp-badge.png)](https://mseep.ai/app/abdelstark-bitcoin-mcp)
@@ -235,7 +235,7 @@ body_tr: |-
 
 <div align="center">
   <h3>
-    <a href="abdelstark.github.io/bitcoin-mcp/">
+    <a href="https://github.com/AbdelStark/bitcoin-mcp/tree/HEAD/abdelstark.github.io/bitcoin-mcp/">
       Documentation
     </a>
     <span> | </span>
@@ -428,4 +428,4 @@ Contributions and feature requests are welcome! Feel free to submit pull request
 
 ## 📝 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/AbdelStark/bitcoin-mcp/tree/HEAD/LICENSE).

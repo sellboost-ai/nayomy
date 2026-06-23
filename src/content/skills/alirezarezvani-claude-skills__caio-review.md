@@ -142,8 +142,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Ajan: [`cs-caio-advisor`](../../agents/cs-caio-advisor.md)
-  - Yetenek: [`chief-ai-officer-advisor`](../../../skills/chief-ai-officer-advisor/SKILL.md)
+  - Ajan: [`cs-caio-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-caio-advisor.md)
+  - Yetenek: [`chief-ai-officer-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-ai-officer-advisor/SKILL.md)
   - Bitişik: `../../../skills/chief-data-officer-advisor/` (eğitim verisi hakları, veri stratejisi)
   
   ---
@@ -279,8 +279,8 @@ python ../../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py wor
 
 ## Related
 
-- Agent: [`cs-caio-advisor`](../../agents/cs-caio-advisor.md)
-- Skill: [`chief-ai-officer-advisor`](../../../skills/chief-ai-officer-advisor/SKILL.md)
+- Agent: [`cs-caio-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-caio-advisor.md)
+- Skill: [`chief-ai-officer-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-ai-officer-advisor/SKILL.md)
 - Adjacent: `../../../skills/chief-data-officer-advisor/` (training data rights, data strategy)
 
 ---

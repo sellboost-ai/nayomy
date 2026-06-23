@@ -230,20 +230,20 @@ body_tr: |-
   
   | Modül | Ne yapar |
   | --- | --- |
-  | [`wren-core`](./wren-core) | MDL analizi, planlama ve optimizasyon için Apache DataFusion tarafından desteklenen Rust context engine'i |
-  | [`wren-core-base`](./wren-core-base) | Paylaşılan manifest ve modelleme türleri |
-  | [`wren-core-py`](./wren-core-py) | Engine'i Python'a sunan PyO3 bağlamaları |
-  | [`ibis-server`](./ibis-server/) | Query yürütme, doğrulama, metadata ve bağlayıcılar için FastAPI sunucusu |
-  | [`mcp-server`](./mcp-server/) | AI ajanları ve MCP-uyumlu istemciler için MCP sunucusu |
+  | [`wren-core`](https://github.com/Canner/wren-engine/tree/HEAD/wren-core) | MDL analizi, planlama ve optimizasyon için Apache DataFusion tarafından desteklenen Rust context engine'i |
+  | [`wren-core-base`](https://github.com/Canner/wren-engine/tree/HEAD/wren-core-base) | Paylaşılan manifest ve modelleme türleri |
+  | [`wren-core-py`](https://github.com/Canner/wren-engine/tree/HEAD/wren-core-py) | Engine'i Python'a sunan PyO3 bağlamaları |
+  | [`ibis-server`](https://github.com/Canner/wren-engine/tree/HEAD/ibis-server/) | Query yürütme, doğrulama, metadata ve bağlayıcılar için FastAPI sunucusu |
+  | [`mcp-server`](https://github.com/Canner/wren-engine/tree/HEAD/mcp-server/) | AI ajanları ve MCP-uyumlu istemciler için MCP sunucusu |
   
   Destekleyici modüller `wren-core-legacy`, `example`, `mock-web-server` ve benchmark yardımcılarını içerir.
   
   ### Geliştirici giriş noktaları
   
-  - [`wren-core/README.md`](./wren-core/README.md)
-  - [`wren-core-py/README.md`](./wren-core-py/README.md)
-  - [`ibis-server/README.md`](./ibis-server/README.md)
-  - [`mcp-server/README.md`](./mcp-server/README.md)
+  - [`wren-core/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/wren-core/README.md)
+  - [`wren-core-py/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/wren-core-py/README.md)
+  - [`ibis-server/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/ibis-server/README.md)
+  - [`mcp-server/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/mcp-server/README.md)
   
   ## Yerel Geliştirme
   
@@ -501,20 +501,20 @@ This repository contains the core engine modules:
 
 | Module | What it does |
 | --- | --- |
-| [`wren-core`](./wren-core) | Rust context engine powered by Apache DataFusion for MDL analysis, planning, and optimization |
-| [`wren-core-base`](./wren-core-base) | Shared manifest and modeling types |
-| [`wren-core-py`](./wren-core-py) | PyO3 bindings that expose the engine to Python |
-| [`ibis-server`](./ibis-server/) | FastAPI server for query execution, validation, metadata, and connectors |
-| [`mcp-server`](./mcp-server/) | MCP server for AI agents and MCP-compatible clients |
+| [`wren-core`](https://github.com/Canner/wren-engine/tree/HEAD/wren-core) | Rust context engine powered by Apache DataFusion for MDL analysis, planning, and optimization |
+| [`wren-core-base`](https://github.com/Canner/wren-engine/tree/HEAD/wren-core-base) | Shared manifest and modeling types |
+| [`wren-core-py`](https://github.com/Canner/wren-engine/tree/HEAD/wren-core-py) | PyO3 bindings that expose the engine to Python |
+| [`ibis-server`](https://github.com/Canner/wren-engine/tree/HEAD/ibis-server/) | FastAPI server for query execution, validation, metadata, and connectors |
+| [`mcp-server`](https://github.com/Canner/wren-engine/tree/HEAD/mcp-server/) | MCP server for AI agents and MCP-compatible clients |
 
 Supporting modules include `wren-core-legacy`, `example`, `mock-web-server`, and benchmarking utilities.
 
 ### Developer entry points
 
-- [`wren-core/README.md`](./wren-core/README.md)
-- [`wren-core-py/README.md`](./wren-core-py/README.md)
-- [`ibis-server/README.md`](./ibis-server/README.md)
-- [`mcp-server/README.md`](./mcp-server/README.md)
+- [`wren-core/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/wren-core/README.md)
+- [`wren-core-py/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/wren-core-py/README.md)
+- [`ibis-server/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/ibis-server/README.md)
+- [`mcp-server/README.md`](https://github.com/Canner/wren-engine/blob/HEAD/mcp-server/README.md)
 
 ## Local Development
 

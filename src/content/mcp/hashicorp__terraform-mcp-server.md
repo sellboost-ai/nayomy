@@ -267,7 +267,7 @@ body_tr: |-
   </tr>
   </table>
   
-  <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=terraform&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJoYXNoaWNvcnAvdGVycmFmb3JtLW1jcC1zZXJ2ZXIiXX0%3D">
+  <a href="https://github.com/hashicorp/terraform-mcp-server/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=terraform&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJoYXNoaWNvcnAvdGVycmFmb3JtLW1jcC1zZXJ2ZXIiXX0%3D">
     
   </a>
   
@@ -882,7 +882,7 @@ Add this to your Cursor config (`~/.cursor/mcp.json`) or via Settings → Cursor
 </tr>
 </table>
 
-<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=terraform&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJoYXNoaWNvcnAvdGVycmFmb3JtLW1jcC1zZXJ2ZXIiXX0%3D">
+<a href="https://github.com/hashicorp/terraform-mcp-server/tree/HEAD/cursor://anysphere.cursor-deeplink/mcp/install?name=terraform&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJoYXNoaWNvcnAvdGVycmFmb3JtLW1jcC1zZXJ2ZXIiXX0%3D">
   
 </a>
 
@@ -1299,7 +1299,7 @@ terraform-mcp-server stdio
 ## Development
 
 ### Prerequisites
-- Go (check [go.mod](./go.mod) file for specific version)
+- Go (check [go.mod](https://github.com/hashicorp/terraform-mcp-server/blob/HEAD/go.mod) file for specific version)
 - Docker (optional, for container builds)
 
 ### Available Make Commands
@@ -1326,7 +1326,7 @@ terraform-mcp-server stdio
 
 ## License
 
-This project is licensed under the terms of the MPL-2.0 open source license. Please refer to [LICENSE](./LICENSE) file for the full terms.
+This project is licensed under the terms of the MPL-2.0 open source license. Please refer to [LICENSE](https://github.com/hashicorp/terraform-mcp-server/tree/HEAD/LICENSE) file for the full terms.
 
 ## Security
 

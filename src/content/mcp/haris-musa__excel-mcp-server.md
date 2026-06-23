@@ -117,7 +117,7 @@ body_tr: |-
   
   ## Kullanılabilir Araçlar
   
-  Sunucu, Excel işleme için kapsamlı bir araç seti sağlar. Tüm kullanılabilir araçların tam belgeleri için [TOOLS.md](TOOLS.md) dosyasına bakın.
+  Sunucu, Excel işleme için kapsamlı bir araç seti sağlar. Tüm kullanılabilir araçların tam belgeleri için [TOOLS.md](https://github.com/haris-musa/excel-mcp-server/blob/HEAD/TOOLS.md) dosyasına bakın.
   
   ## Star Tarihi
   
@@ -125,7 +125,7 @@ body_tr: |-
   
   ## Lisans
   
-  MIT Lisansı - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  MIT Lisansı - ayrıntılar için [LICENSE](https://github.com/haris-musa/excel-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 <p align="center">
@@ -234,7 +234,7 @@ When using the **stdio protocol**, the file path is provided with each tool call
 
 ## Available Tools
 
-The server provides a comprehensive set of Excel manipulation tools. See [TOOLS.md](TOOLS.md) for complete documentation of all available tools.
+The server provides a comprehensive set of Excel manipulation tools. See [TOOLS.md](https://github.com/haris-musa/excel-mcp-server/blob/HEAD/TOOLS.md) for complete documentation of all available tools.
 
 ## Star History
 
@@ -242,4 +242,4 @@ The server provides a comprehensive set of Excel manipulation tools. See [TOOLS.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](https://github.com/haris-musa/excel-mcp-server/tree/HEAD/LICENSE) for details.

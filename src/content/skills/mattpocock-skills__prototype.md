@@ -22,8 +22,8 @@ body_tr: |-
   
   Hangi sorunun yanıtlandığını belirleyin — kullanıcının promptundan, çevreleyen koddan veya kullanıcıyla iletişim kurarak:
   
-  - **"Bu logic / state modeli doğru hissettiriyor mu?"** → [LOGIC.md](LOGIC.md). Kağıt üzerinde akıl yürütülmesi zor olan durumlar arasında state machine'i iten küçük bir interaktif terminal app'i oluşturun.
-  - **"Bu nasıl görünmeli?"** → [UI.md](UI.md). Tek bir route üzerinde radikal olarak farklı birkaç UI varyasyonu oluşturun; URL arama parametresi ve kayan alt bar aracılığıyla değiştirilebilir.
+  - **"Bu logic / state modeli doğru hissettiriyor mu?"** → [LOGIC.md](https://github.com/mattpocock/skills/blob/HEAD/LOGIC.md). Kağıt üzerinde akıl yürütülmesi zor olan durumlar arasında state machine'i iten küçük bir interaktif terminal app'i oluşturun.
+  - **"Bu nasıl görünmeli?"** → [UI.md](https://github.com/mattpocock/skills/blob/HEAD/UI.md). Tek bir route üzerinde radikal olarak farklı birkaç UI varyasyonu oluşturun; URL arama parametresi ve kayan alt bar aracılığıyla değiştirilebilir.
   
   İki dal çok farklı yapıtlar üretir — bunu yanlış yapmak tüm prototipinizi boşa harcar. Soru gerçekten belirsizse ve kullanıcıya ulaşılamıyorsa, çevreleyen kodla daha iyi eşleşen dalı seçin (backend modülü → logic; sayfa veya component → UI) ve prototipinizin başında varsayımı belirtin.
   
@@ -49,8 +49,8 @@ A prototype is **throwaway code that answers a question**. The question decides 
 
 Identify which question is being answered — from the user's prompt, the surrounding code, or by asking if the user is around:
 
-- **"Does this logic / state model feel right?"** → [LOGIC.md](LOGIC.md). Build a tiny interactive terminal app that pushes the state machine through cases that are hard to reason about on paper.
-- **"What should this look like?"** → [UI.md](UI.md). Generate several radically different UI variations on a single route, switchable via a URL search param and a floating bottom bar.
+- **"Does this logic / state model feel right?"** → [LOGIC.md](https://github.com/mattpocock/skills/blob/HEAD/LOGIC.md). Build a tiny interactive terminal app that pushes the state machine through cases that are hard to reason about on paper.
+- **"What should this look like?"** → [UI.md](https://github.com/mattpocock/skills/blob/HEAD/UI.md). Generate several radically different UI variations on a single route, switchable via a URL search param and a floating bottom bar.
 
 The two branches produce very different artifacts — getting this wrong wastes the whole prototype. If the question is genuinely ambiguous and the user isn't reachable, default to whichever branch better matches the surrounding code (a backend module → logic; a page or component → UI) and state the assumption at the top of the prototype.
 

@@ -164,7 +164,7 @@ body_tr: |-
   
   Hiçbir `llm_client` sağlanmazsa, eklenti yine de yüklenir, ancak OCR sessizce atlanır ve standart yerleşik dönüştürücü kullanılır.
   
-  Ayrıntılı belgelendirme için [`packages/markitdown-ocr/README.md`](packages/markitdown-ocr/README.md) bölümüne bakın.
+  Ayrıntılı belgelendirme için [`packages/markitdown-ocr/README.md`](https://github.com/microsoft/markitdown/blob/HEAD/packages/markitdown-ocr/README.md) bölümüne bakın.
   
   ### Azure Content Understanding
   
@@ -517,7 +517,7 @@ print(result.text_content)
 
 If no `llm_client` is provided the plugin still loads, but OCR is silently skipped and the standard built-in converter is used instead.
 
-See [`packages/markitdown-ocr/README.md`](packages/markitdown-ocr/README.md) for detailed documentation.
+See [`packages/markitdown-ocr/README.md`](https://github.com/microsoft/markitdown/blob/HEAD/packages/markitdown-ocr/README.md) for detailed documentation.
 
 ### Azure Content Understanding
 

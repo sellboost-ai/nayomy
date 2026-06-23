@@ -21,8 +21,8 @@ body_tr: |-
   | Görev | Rehber |
   |------|-------|
   | İçeriği okuma/analiz etme | `python -m markitdown presentation.pptx` |
-  | Şablondan düzenleme veya oluşturma | [editing.md](editing.md) dosyasını okuyun |
-  | Sıfırdan oluşturma | [pptxgenjs.md](pptxgenjs.md) dosyasını okuyun |
+  | Şablondan düzenleme veya oluşturma | [editing.md](https://github.com/anthropics/skills/blob/HEAD/editing.md) dosyasını okuyun |
+  | Sıfırdan oluşturma | [pptxgenjs.md](https://github.com/anthropics/skills/blob/HEAD/pptxgenjs.md) dosyasını okuyun |
   
   ---
   
@@ -43,7 +43,7 @@ body_tr: |-
   
   ## Düzenleme İş Akışı
   
-  **Tam ayrıntılar için [editing.md](editing.md) dosyasını okuyun.**
+  **Tam ayrıntılar için [editing.md](https://github.com/anthropics/skills/blob/HEAD/editing.md) dosyasını okuyun.**
   
   1. Şablonu `thumbnail.py` ile analiz edin
   2. Aç → slaytları değiştir → içeriği düzenle → temizle → pakla
@@ -52,7 +52,7 @@ body_tr: |-
   
   ## Sıfırdan Oluşturma
   
-  **Tam ayrıntılar için [pptxgenjs.md](pptxgenjs.md) dosyasını okuyun.**
+  **Tam ayrıntılar için [pptxgenjs.md](https://github.com/anthropics/skills/blob/HEAD/pptxgenjs.md) dosyasını okuyun.**
   
   Şablon veya referans sunumu olmadığında kullanın.
   
@@ -249,8 +249,8 @@ body_tr: |-
 | Task | Guide |
 |------|-------|
 | Read/analyze content | `python -m markitdown presentation.pptx` |
-| Edit or create from template | Read [editing.md](editing.md) |
-| Create from scratch | Read [pptxgenjs.md](pptxgenjs.md) |
+| Edit or create from template | Read [editing.md](https://github.com/anthropics/skills/blob/HEAD/editing.md) |
+| Create from scratch | Read [pptxgenjs.md](https://github.com/anthropics/skills/blob/HEAD/pptxgenjs.md) |
 
 ---
 
@@ -271,7 +271,7 @@ python scripts/office/unpack.py presentation.pptx unpacked/
 
 ## Editing Workflow
 
-**Read [editing.md](editing.md) for full details.**
+**Read [editing.md](https://github.com/anthropics/skills/blob/HEAD/editing.md) for full details.**
 
 1. Analyze template with `thumbnail.py`
 2. Unpack → manipulate slides → edit content → clean → pack
@@ -280,7 +280,7 @@ python scripts/office/unpack.py presentation.pptx unpacked/
 
 ## Creating from Scratch
 
-**Read [pptxgenjs.md](pptxgenjs.md) for full details.**
+**Read [pptxgenjs.md](https://github.com/anthropics/skills/blob/HEAD/pptxgenjs.md) for full details.**
 
 Use when no template or reference presentation is available.
 

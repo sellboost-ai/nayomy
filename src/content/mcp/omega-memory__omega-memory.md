@@ -18,7 +18,7 @@ body_tr: |-
   
   [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
   [![PyPI](https://img.shields.io/pypi/v/omega-memory.svg)](https://pypi.org/project/omega-memory/)
-  [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/omega-memory/omega-memory/tree/HEAD/LICENSE)
   [![Tests](https://img.shields.io/badge/tests-1123%20passing-brightgreen.svg)]()
   
   ---
@@ -342,14 +342,14 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  - [Katkıda Bulunma Kılavuzu](CONTRIBUTING.md)
-  - [Güvenlik Politikası](SECURITY.md)
-  - [Değişim Günlüğü](CHANGELOG.md)
+  - [Katkıda Bulunma Kılavuzu](https://github.com/omega-memory/omega-memory/blob/HEAD/CONTRIBUTING.md)
+  - [Güvenlik Politikası](https://github.com/omega-memory/omega-memory/blob/HEAD/SECURITY.md)
+  - [Değişim Günlüğü](https://github.com/omega-memory/omega-memory/blob/HEAD/CHANGELOG.md)
   - [Hata Bildir](https://github.com/omega-memory/omega/issues)
   
   ## Lisans
   
-  Apache-2.0. [LICENSE](LICENSE) dosyasına bakın.
+  Apache-2.0. [LICENSE](https://github.com/omega-memory/omega-memory/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # OMEGA
@@ -358,7 +358,7 @@ body_tr: |-
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI](https://img.shields.io/pypi/v/omega-memory.svg)](https://pypi.org/project/omega-memory/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/omega-memory/omega-memory/tree/HEAD/LICENSE)
 [![Tests](https://img.shields.io/badge/tests-1123%20passing-brightgreen.svg)]()
 
 ---
@@ -682,11 +682,11 @@ Manually remove OMEGA entries from `~/.claude/settings.json` and the `<!-- OMEGA
 
 ## Contributing
 
-- [Contributing Guide](CONTRIBUTING.md)
-- [Security Policy](SECURITY.md)
-- [Changelog](CHANGELOG.md)
+- [Contributing Guide](https://github.com/omega-memory/omega-memory/blob/HEAD/CONTRIBUTING.md)
+- [Security Policy](https://github.com/omega-memory/omega-memory/blob/HEAD/SECURITY.md)
+- [Changelog](https://github.com/omega-memory/omega-memory/blob/HEAD/CHANGELOG.md)
 - [Report a Bug](https://github.com/omega-memory/omega/issues)
 
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE).
+Apache-2.0. See [LICENSE](https://github.com/omega-memory/omega-memory/tree/HEAD/LICENSE).

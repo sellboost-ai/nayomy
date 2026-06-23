@@ -165,12 +165,12 @@ body_tr: |-
   
   ## İlişkili Ajanlar
   
-  - [cs-frontend-engineer](cs-frontend-engineer.md) — herhangi bir frontend-yalnızca alt sorun için çatallaştır
-  - [cs-backend-engineer](cs-backend-engineer.md) — herhangi bir backend-yalnızca alt sorun için çatallaştır
-  - [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — her commit'ten önce çağır
-  - [cs-senior-engineer](cs-senior-engineer.md) — kesişen mühendislik lideri (CI/CD, güvenlik incelemesi gibi stack-dışı sorular için kullan)
-  - [cs-cto-advisor](../c-level/cs-cto-advisor.md) — stratejik inşa-vs-satın al veya teknik borç önceliklendirmesi için yükselt
-  - [cs-vpe-advisor](../../c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — org-tasarım + işlem hızı için yükselt
+  - [cs-frontend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-frontend-engineer.md) — herhangi bir frontend-yalnızca alt sorun için çatallaştır
+  - [cs-backend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-backend-engineer.md) — herhangi bir backend-yalnızca alt sorun için çatallaştır
+  - [cs-karpathy-reviewer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-karpathy-reviewer.md) — her commit'ten önce çağır
+  - [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-senior-engineer.md) — kesişen mühendislik lideri (CI/CD, güvenlik incelemesi gibi stack-dışı sorular için kullan)
+  - [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-cto-advisor.md) — stratejik inşa-vs-satın al veya teknik borç önceliklendirmesi için yükselt
+  - [cs-vpe-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — org-tasarım + işlem hızı için yükselt
   
   ## Çağrı Sözleşmesi
   
@@ -341,12 +341,12 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 ## Related Agents
 
-- [cs-frontend-engineer](cs-frontend-engineer.md) — fork into for any frontend-only sub-concern
-- [cs-backend-engineer](cs-backend-engineer.md) — fork into for any backend-only sub-concern
-- [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — invoke before every commit
-- [cs-senior-engineer](cs-senior-engineer.md) — cross-cutting engineering lead (use for non-stack questions like CI/CD, security review)
-- [cs-cto-advisor](../c-level/cs-cto-advisor.md) — escalate for strategic build-vs-buy or technical debt prioritization
-- [cs-vpe-advisor](../../c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — escalate for org-design + throughput
+- [cs-frontend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-frontend-engineer.md) — fork into for any frontend-only sub-concern
+- [cs-backend-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-backend-engineer.md) — fork into for any backend-only sub-concern
+- [cs-karpathy-reviewer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-karpathy-reviewer.md) — invoke before every commit
+- [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/blob/HEAD/cs-senior-engineer.md) — cross-cutting engineering lead (use for non-stack questions like CI/CD, security review)
+- [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level/cs-cto-advisor.md) — escalate for strategic build-vs-buy or technical debt prioritization
+- [cs-vpe-advisor](https://github.com/alirezarezvani/claude-skills/blob/HEAD/c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — escalate for org-design + throughput
 
 ## Invocation Contract
 

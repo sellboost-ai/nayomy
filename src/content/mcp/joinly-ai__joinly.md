@@ -24,7 +24,7 @@ body_tr: |-
   </p>
   
   [![GitHub Release](https://img.shields.io/github/v/release/joinly-ai/joinly?sytle=flat&label=Release&labelColor=black&color=%237B2CBF)](https://github.com/joinly-ai/joinly/releases)
-  [![GitHub License](https://img.shields.io/github/license/joinly-ai/joinly?style=flat&label=License&labelColor=black&color=%237B2CBF)](LICENSE) 
+  [![GitHub License](https://img.shields.io/github/license/joinly-ai/joinly?style=flat&label=License&labelColor=black&color=%237B2CBF)](https://github.com/joinly-ai/joinly/tree/HEAD/LICENSE) 
   [![GitHub Repo stars](https://img.shields.io/github/stars/joinly-ai/joinly?style=flat&logo=github&logoColor=white&label=Stars&labelColor=black&color=7B2CBF)](https://github.com/joinly-ai/joinly)
   [![Discord](https://img.shields.io/discord/1377431745632145500?style=flat&logo=discord&logoColor=white&label=Discord&labelColor=black&color=7B2CBF)](https://discord.com/invite/AN5NEBkS4d) 
   [![GitHub Discussions](https://img.shields.io/github/discussions/joinly-ai/joinly?style=flat&labelColor=black&label=Discussions&color=%237B2CBF)](https://github.com/joinly-ai/joinly/discussions)
@@ -80,7 +80,7 @@ body_tr: |-
   ```
   
   > [!NOTE]
-  > Anthropic (Claude) ve Ollama kurulumları da dahil olmak üzere tam konfigürasyon seçenekleri için [.env.example](.env.example) dosyasına bakın. Placeholder değerlerini gerçek API anahtarlarınız ile değiştirin ve model adını gerektiği gibi ayarlayın. Kullanmadığınız sağlayıcıların placeholder değerlerini silin.
+  > Anthropic (Claude) ve Ollama kurulumları da dahil olmak üzere tam konfigürasyon seçenekleri için [.env.example](https://github.com/joinly-ai/joinly/blob/HEAD/.env.example) dosyasına bakın. Placeholder değerlerini gerçek API anahtarlarınız ile değiştirin ve model adını gerektiği gibi ayarlayın. Kullanmadığınız sağlayıcıların placeholder değerlerini silin.
   
   
   Docker image'ını çekin (~2.3GB, tarayıcı ve modelleri içerdiği için):
@@ -128,7 +128,7 @@ body_tr: |-
   }
   ```
   
-  Örneğin web arama için bir [Tavily config](examples/config_tavily.json) ekleyin, sonra istemciyi `config.json` adlı config dosyası kullanarak çalıştırın:
+  Örneğin web arama için bir [Tavily config](https://github.com/joinly-ai/joinly/blob/HEAD/examples/config_tavily.json) ekleyin, sonra istemciyi `config.json` adlı config dosyası kullanarak çalıştırın:
   
   ```bash
   uvx joinly-client --env-file .env --mcp-config config.json <MeetingUrl>
@@ -225,7 +225,7 @@ body_tr: |-
   
   # :test_tube: Kendi ajanınızı oluşturun
   
-  Ayrıca kendi ajanınızı yazabilir ve bunu joinly MCP server'ına bağlayabilirsiniz. joinly-client paketi için [code examples](https://github.com/joinly-ai/joinly/client/README.md#code-usage) bölümüne veya [client_example.py](examples/client_example.py) dosyasına bakın, eğer framework'ümüze bağlı olmayan bir başlangıç noktası istiyorsanız.
+  Ayrıca kendi ajanınızı yazabilir ve bunu joinly MCP server'ına bağlayabilirsiniz. joinly-client paketi için [code examples](https://github.com/joinly-ai/joinly/client/README.md#code-usage) bölümüne veya [client_example.py](https://github.com/joinly-ai/joinly/blob/HEAD/examples/client_example.py) dosyasına bakın, eğer framework'ümüze bağlı olmayan bir başlangıç noktası istiyorsanız.
   
   joinly MCP server'ı aşağıdaki araçları ve kaynakları sağlar:
   
@@ -250,7 +250,7 @@ body_tr: |-
   
   Geliştirme için gerekli tüm bağımlılıkları yükleyen development container'ını kullanmanızı öneriyoruz. Başlamak için, Visual Studio Code için DevContainer Extension'ını yükleyin, repository'yi açın ve **Reopen in Container** seçeneğini seçin.
   
-  Kurulum biraz zaman alabilir, çünkü tüm paketleri ve Whisper/Kokoro için modelleri ve Chromium tarayıcısını indirir. Sonunda, [download_assets.py](scripts/download_assets.py) betiğini otomatik olarak çağırır. `Missing kokoro-v1.0.onnx` gibi hatalar görürseniz, şu komutu kullanarak bu betiği manuel olarak çalıştırın:
+  Kurulum biraz zaman alabilir, çünkü tüm paketleri ve Whisper/Kokoro için modelleri ve Chromium tarayıcısını indirir. Sonunda, [download_assets.py](https://github.com/joinly-ai/joinly/blob/HEAD/scripts/download_assets.py) betiğini otomatik olarak çağırır. `Missing kokoro-v1.0.onnx` gibi hatalar görürseniz, şu komutu kullanarak bu betiği manuel olarak çalıştırın:
   ```bash
   uv run scripts/download_assets.py
   ```
@@ -284,7 +284,7 @@ body_tr: |-
   Lütfen [Yol Haritamızı](#pencil2-yol-haritası) kontrol edin ve bizimle iletişime geçmekten çekinmeyin!
   
   # :memo: Lisans
-  Bu proje MIT Lisansı altında lisanslanmıştır ‒ ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır ‒ ayrıntılar için [LICENSE](https://github.com/joinly-ai/joinly/tree/HEAD/LICENSE) dosyasına bakın.
   
   # :speech_balloon: Yardım Alma
   Sorularınız veya geri bildiriminiz varsa veya bakımcılar veya diğer topluluk üyeleriyle sohbet etmek istiyorsanız, lütfen aşağıdaki bağlantıları kullanın:
@@ -309,7 +309,7 @@ body_tr: |-
 </p>
 
 [![GitHub Release](https://img.shields.io/github/v/release/joinly-ai/joinly?sytle=flat&label=Release&labelColor=black&color=%237B2CBF)](https://github.com/joinly-ai/joinly/releases)
-[![GitHub License](https://img.shields.io/github/license/joinly-ai/joinly?style=flat&label=License&labelColor=black&color=%237B2CBF)](LICENSE) 
+[![GitHub License](https://img.shields.io/github/license/joinly-ai/joinly?style=flat&label=License&labelColor=black&color=%237B2CBF)](https://github.com/joinly-ai/joinly/tree/HEAD/LICENSE) 
 [![GitHub Repo stars](https://img.shields.io/github/stars/joinly-ai/joinly?style=flat&logo=github&logoColor=white&label=Stars&labelColor=black&color=7B2CBF)](https://github.com/joinly-ai/joinly)
 [![Discord](https://img.shields.io/discord/1377431745632145500?style=flat&logo=discord&logoColor=white&label=Discord&labelColor=black&color=7B2CBF)](https://discord.com/invite/AN5NEBkS4d) 
 [![GitHub Discussions](https://img.shields.io/github/discussions/joinly-ai/joinly?style=flat&labelColor=black&label=Discussions&color=%237B2CBF)](https://github.com/joinly-ai/joinly/discussions)
@@ -365,7 +365,7 @@ OPENAI_API_KEY=your-openai-api-key
 ```
 
 > [!NOTE]
-> See [.env.example](.env.example) for complete configuration options including Anthropic (Claude) and Ollama setups. Replace the placeholder values with your actual API keys and adjust the model name as needed. Delete the placeholder values of the providers you don't use.
+> See [.env.example](https://github.com/joinly-ai/joinly/blob/HEAD/.env.example) for complete configuration options including Anthropic (Claude) and Ollama setups. Replace the placeholder values with your actual API keys and adjust the model name as needed. Delete the placeholder values of the providers you don't use.
 
 
 Pull the Docker image (~2.3GB since it packages browser and models):
@@ -413,7 +413,7 @@ Add the tools of any MCP server to the agent by providing a JSON configuration. 
 }
 ```
 
-Add for example a [Tavily config](examples/config_tavily.json) for web searching, then run the client using the config file, here named `config.json`:
+Add for example a [Tavily config](https://github.com/joinly-ai/joinly/blob/HEAD/examples/config_tavily.json) for web searching, then run the client using the config file, here named `config.json`:
 
 ```bash
 uvx joinly-client --env-file .env --mcp-config config.json <MeetingUrl>
@@ -510,7 +510,7 @@ By default, the `joinly` image uses the Whisper model `base` for transcription, 
 
 # :test_tube: Create your own agent
 
-You can also write your own agent and connect it to our joinly MCP server. See the [code examples](https://github.com/joinly-ai/joinly/client/README.md#code-usage) for the joinly-client package or the [client_example.py](examples/client_example.py) if you want a starting point that doesn't depend on our framework.
+You can also write your own agent and connect it to our joinly MCP server. See the [code examples](https://github.com/joinly-ai/joinly/client/README.md#code-usage) for the joinly-client package or the [client_example.py](https://github.com/joinly-ai/joinly/blob/HEAD/examples/client_example.py) if you want a starting point that doesn't depend on our framework.
 
 The joinly MCP server provides following tools and resources:
 
@@ -537,7 +537,7 @@ For development we recommend using the development container, which installs all
 
 
 
-The installation can take some time, since it downloads all packages as well as models for Whisper/Kokoro and the Chromium browser. At the end, it automatically invokes the [download_assets.py](scripts/download_assets.py) script. If you see errors like `Missing kokoro-v1.0.onnx`, run this script manually using:
+The installation can take some time, since it downloads all packages as well as models for Whisper/Kokoro and the Chromium browser. At the end, it automatically invokes the [download_assets.py](https://github.com/joinly-ai/joinly/blob/HEAD/scripts/download_assets.py) script. If you see errors like `Missing kokoro-v1.0.onnx`, run this script manually using:
 ```bash
 uv run scripts/download_assets.py
 ```
@@ -572,7 +572,7 @@ Contributions are always welcome! Feel free to open issues for bugs or submit a 
 Please check our [Roadmap](#pencil2-roadmap) and don't hesitate to reach out to us!
 
 # :memo: License
-This project is licensed under the MIT License ‒ see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License ‒ see the [LICENSE](https://github.com/joinly-ai/joinly/tree/HEAD/LICENSE) file for details.
 
 # :speech_balloon: Getting help
 If you have questions or feedback, or if you would like to chat with the maintainers or other community members, please use the following links:

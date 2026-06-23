@@ -93,11 +93,11 @@ body_tr: |-
   
   ## Referanslar
   
-  - [references/pipeline-design-notes.md](references/pipeline-design-notes.md) — yaygın tuzaklar, en iyi uygulamalar, detection heuristics, generation stratejisi, platform karar notları, merge öncesi doğrulama checklist'i ve ölçekleme rehberi
-  - [references/github-actions-templates.md](references/github-actions-templates.md)
-  - [references/gitlab-ci-templates.md](references/gitlab-ci-templates.md)
-  - [references/deployment-gates.md](references/deployment-gates.md)
-  - [README.md](README.md)
+  - [references/pipeline-design-notes.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/pipeline-design-notes.md) — yaygın tuzaklar, en iyi uygulamalar, detection heuristics, generation stratejisi, platform karar notları, merge öncesi doğrulama checklist'i ve ölçekleme rehberi
+  - [references/github-actions-templates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/github-actions-templates.md)
+  - [references/gitlab-ci-templates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/gitlab-ci-templates.md)
+  - [references/deployment-gates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/deployment-gates.md)
+  - [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md)
 ---
 
 # CI/CD Pipeline Builder
@@ -179,8 +179,8 @@ python3 scripts/pipeline_generator.py --repo . --platform gitlab --output .gitla
 
 ## References
 
-- [references/pipeline-design-notes.md](references/pipeline-design-notes.md) — common pitfalls, best practices, detection heuristics, generation strategy, platform decision notes, pre-merge validation checklist, and scaling guidance
-- [references/github-actions-templates.md](references/github-actions-templates.md)
-- [references/gitlab-ci-templates.md](references/gitlab-ci-templates.md)
-- [references/deployment-gates.md](references/deployment-gates.md)
-- [README.md](README.md)
+- [references/pipeline-design-notes.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/pipeline-design-notes.md) — common pitfalls, best practices, detection heuristics, generation strategy, platform decision notes, pre-merge validation checklist, and scaling guidance
+- [references/github-actions-templates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/github-actions-templates.md)
+- [references/gitlab-ci-templates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/gitlab-ci-templates.md)
+- [references/deployment-gates.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/deployment-gates.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/blob/HEAD/README.md)

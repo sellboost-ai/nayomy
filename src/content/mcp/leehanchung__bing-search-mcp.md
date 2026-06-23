@@ -119,7 +119,7 @@ body_tr: |-
   
   ## Lisans
   
-  [MIT License](LICENSE)
+  [MIT License](https://github.com/leehanchung/bing-search-mcp/tree/HEAD/LICENSE)
 ---
 
 # Bing Search MCP Server
@@ -231,4 +231,4 @@ bing_image_search(query: str, count: int = 10, market: str = "en-US")
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/leehanchung/bing-search-mcp/tree/HEAD/LICENSE)

@@ -48,7 +48,7 @@ body_tr: |-
   
   Kümenize bağlanıp bağlanamadığınızı kontrol etmek için bir terminalde `kubectl get pods` komutunu çalıştırabilirsiniz.
   
-  Varsayılan olarak, server kubeconfig'i `~/.kube/config` konumundan yükler. Ek kimlik doğrulama seçenekleri için (ortam değişkenleri, özel yollar, vb.), [ADVANCED_README.md](ADVANCED_README.md) dosyasına bakın.
+  Varsayılan olarak, server kubeconfig'i `~/.kube/config` konumundan yükler. Ek kimlik doğrulama seçenekleri için (ortam değişkenleri, özel yollar, vb.), [ADVANCED_README.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/ADVANCED_README.md) dosyasına bakın.
   
   ### Claude Code
   
@@ -83,7 +83,7 @@ body_tr: |-
   
   ### VS Code
   
-  [![Install Kubernetes MCP in VS Code](https://img.shields.io/badge/Install%20Kubernetes%20MCP%20in%20VS%20Code-blue?logo=visualstudiocode)](vscode:mcp/install?%7B%22name%22%3A%20%22kubernetes%22%2C%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22mcp-server-kubernetes%22%5D%7D)
+  [![Install Kubernetes MCP in VS Code](https://img.shields.io/badge/Install%20Kubernetes%20MCP%20in%20VS%20Code-blue?logo=visualstudiocode)](https://github.com/Flux159/mcp-server-kubernetes/tree/HEAD/vscode:mcp/install?%7B%22name%22%3A%20%22kubernetes%22%2C%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22mcp-server-kubernetes%22%5D%7D)
   
   VS Code entegrasyonu için, Model Context Protocol'ü destekleyen uzantılarla bu server'ı kullanabilirsiniz:
   
@@ -189,7 +189,7 @@ body_tr: |-
     - Jaeger, Tempo, Grafana veya herhangi bir OTLP backend'ine dışa aktarma
     - Yapılandırılabilir sampling stratejileri
     - Zengin span özellikleri (tool adı, süre, K8s context, hatalar)
-    - Ayrıntılar için [docs/OBSERVABILITY.md](docs/OBSERVABILITY.md) bölümüne bakın
+    - Ayrıntılar için [docs/OBSERVABILITY.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/docs/OBSERVABILITY.md) bölümüne bakın
   
   ## Gözlenebilirlik
   
@@ -224,7 +224,7 @@ body_tr: |-
   
   ### Yapılandırma
   
-  Aşağıdaki ayarlar dahil kapsamlı belgeler için **[docs/OBSERVABILITY.md](docs/OBSERVABILITY.md)** bölümüne bakın:
+  Aşağıdaki ayarlar dahil kapsamlı belgeler için **[docs/OBSERVABILITY.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/docs/OBSERVABILITY.md)** bölümüne bakın:
   - Yapılandırma seçenekleri
   - Dağıtım örnekleri (Kubernetes, Helm, Claude Code)
   - Sampling stratejileri
@@ -319,7 +319,7 @@ body_tr: |-
   
   ## Katkıda Bulunma
   
-  Ayrıntılar için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Ayrıntılar için [CONTRIBUTING.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   
   ## Gelişmiş
   
@@ -368,7 +368,7 @@ body_tr: |-
   - `node_management`: Node yönetimi işlemleri (node'ları drain edebilir)
   - `kubectl_generic`: Genel kubectl komut erişimi (yıkıcı işlemler içerebilir)
   
-  Ek gelişmiş özellikler için, [ADVANCED_README.md](ADVANCED_README.md) dosyasına ve ayrıca `helm_install`, `helm_template_apply`, node yönetimi ve pod temizliği hakkında spesifik bilgiler için [docs](https://github.com/Flux159/mcp-server-kubernetes/tree/main/docs) klasörüne bakın.
+  Ek gelişmiş özellikler için, [ADVANCED_README.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/ADVANCED_README.md) dosyasına ve ayrıca `helm_install`, `helm_template_apply`, node yönetimi ve pod temizliği hakkında spesifik bilgiler için [docs](https://github.com/Flux159/mcp-server-kubernetes/tree/main/docs) klasörüne bakın.
   
   ## Mimari
   
@@ -496,7 +496,7 @@ Before using this MCP server with any tool, make sure you have:
 
 You can verify your connection by running `kubectl get pods` in a terminal to ensure you can connect to your cluster without credential issues.
 
-By default, the server loads kubeconfig from `~/.kube/config`. For additional authentication options (environment variables, custom paths, etc.), see [ADVANCED_README.md](ADVANCED_README.md).
+By default, the server loads kubeconfig from `~/.kube/config`. For additional authentication options (environment variables, custom paths, etc.), see [ADVANCED_README.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/ADVANCED_README.md).
 
 ### Claude Code
 
@@ -531,7 +531,7 @@ To manually install, you can also get the .mcpb by going to the latest [Release]
 
 ### VS Code
 
-[![Install Kubernetes MCP in VS Code](https://img.shields.io/badge/Install%20Kubernetes%20MCP%20in%20VS%20Code-blue?logo=visualstudiocode)](vscode:mcp/install?%7B%22name%22%3A%20%22kubernetes%22%2C%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22mcp-server-kubernetes%22%5D%7D)
+[![Install Kubernetes MCP in VS Code](https://img.shields.io/badge/Install%20Kubernetes%20MCP%20in%20VS%20Code-blue?logo=visualstudiocode)](https://github.com/Flux159/mcp-server-kubernetes/tree/HEAD/vscode:mcp/install?%7B%22name%22%3A%20%22kubernetes%22%2C%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22mcp-server-kubernetes%22%5D%7D)
 
 For VS Code integration, you can use the MCP server with extensions that support the Model Context Protocol:
 
@@ -637,7 +637,7 @@ gemini extensions install https://github.com/Flux159/mcp-server-kubernetes
   - Export to Jaeger, Tempo, Grafana, or any OTLP backend
   - Configurable sampling strategies
   - Rich span attributes (tool name, duration, K8s context, errors)
-  - See [docs/OBSERVABILITY.md](docs/OBSERVABILITY.md) for details
+  - See [docs/OBSERVABILITY.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/docs/OBSERVABILITY.md) for details
 
 ## Observability
 
@@ -672,7 +672,7 @@ Works with any OTLP-compatible backend:
 
 ### Configuration
 
-See **[docs/OBSERVABILITY.md](docs/OBSERVABILITY.md)** for comprehensive documentation including:
+See **[docs/OBSERVABILITY.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/docs/OBSERVABILITY.md)** for comprehensive documentation including:
 - Configuration options
 - Deployment examples (Kubernetes, Helm, Claude Code)
 - Sampling strategies
@@ -767,7 +767,7 @@ bun run chat
 
 ## Contributing
 
-See the [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
+See the [CONTRIBUTING.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/CONTRIBUTING.md) file for details.
 
 ## Advanced
 
@@ -816,7 +816,7 @@ The following destructive operations are disabled:
 - `node_management`: Node management operations (can drain nodes)
 - `kubectl_generic`: General kubectl command access (may include destructive operations)
 
-For additional advanced features, see the [ADVANCED_README.md](ADVANCED_README.md) and also the [docs](https://github.com/Flux159/mcp-server-kubernetes/tree/main/docs) folder for specific information on `helm_install`, `helm_template_apply`, node management & pod cleanup.
+For additional advanced features, see the [ADVANCED_README.md](https://github.com/Flux159/mcp-server-kubernetes/blob/HEAD/ADVANCED_README.md) and also the [docs](https://github.com/Flux159/mcp-server-kubernetes/tree/main/docs) folder for specific information on `helm_install`, `helm_template_apply`, node management & pod cleanup.
 
 ## Architecture
 

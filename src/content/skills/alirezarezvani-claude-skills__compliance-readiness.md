@@ -138,8 +138,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Ajan: [`cs-compliance-officer`](../../agents/cs-compliance-officer.md)
-  - Beceri: [`compliance-os`](../compliance-os/SKILL.md)
+  - Ajan: [`cs-compliance-officer`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-compliance-officer.md)
+  - Beceri: [`compliance-os`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/compliance-os/SKILL.md)
   - Bitişik: `ra-qm-team/skills/iso42001-specialist/`, `ra-qm-team/skills/eu-ai-act-specialist/`, `ra-qm-team/skills/information-security-manager-iso27001/`, `ra-qm-team/skills/soc2-compliance/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`
   
   ---
@@ -271,8 +271,8 @@ python ../../skills/compliance-os/scripts/audit_simulator.py scope.json
 
 ## Related
 
-- Agent: [`cs-compliance-officer`](../../agents/cs-compliance-officer.md)
-- Skill: [`compliance-os`](../compliance-os/SKILL.md)
+- Agent: [`cs-compliance-officer`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-compliance-officer.md)
+- Skill: [`compliance-os`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/compliance-os/SKILL.md)
 - Adjacent: `ra-qm-team/skills/iso42001-specialist/`, `ra-qm-team/skills/eu-ai-act-specialist/`, `ra-qm-team/skills/information-security-manager-iso27001/`, `ra-qm-team/skills/soc2-compliance/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`
 
 ---

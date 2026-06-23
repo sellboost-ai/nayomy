@@ -251,7 +251,7 @@ body_tr: |-
   
   Veritabanı için, ayrı bir Postgres DB kümesi dağıtmanız ve endpoint'ini mcpjungle'a sağlamanız önerilir ([Veritabanı](#veritabanı) bölümüne bakın).
   
-  [Standart Docker görüntüsünün](./Dockerfile) ve [stdio Docker görüntüsünün](./stdio.Dockerfile) tanımlarını görebilirsiniz.
+  [Standart Docker görüntüsünün](https://github.com/mcpjungle/MCPJungle/tree/HEAD/Dockerfile) ve [stdio Docker görüntüsünün](https://github.com/mcpjungle/MCPJungle/blob/HEAD/stdio.Dockerfile) tanımlarını görebilirsiniz.
   
   ### Ana makinede doğrudan çalıştırma
   Ayrıca sunucuyu doğrudan ana makinenizde ikili dosyayı kullanarak çalıştırabilirsiniz:
@@ -499,7 +499,7 @@ body_tr: |-
   
   Daha sonra, mcp `/host` erişimine sahiptir, yani ana makinenizde geçerli çalışma dizini.
   
-  Daha fazla ayrıntı için [DEVELOPMENT.md](./DEVELOPMENT.md#docker-filesystem-access) bölümüne bakın.
+  Daha fazla ayrıntı için [DEVELOPMENT.md](https://github.com/mcpjungle/MCPJungle/tree/HEAD/DEVELOPMENT.md#docker-filesystem-access) bölümüne bakın.
   
   #### Docker veya Kubernetes dağıtımından CLI komutlarını çalıştırma
   MCPJungle sunucunuz uzak bir Docker konteynerinde veya Kubernetes kümesinde çalışıyorsa, `mcpjungle` ikili dosyasını doğrudan konteyner içinde de çalıştırabilirsiniz:
@@ -765,7 +765,7 @@ It is therefore suitable and recommended for production deployments.
 
 For the database, we recommend you deploy a separate Postgres DB cluster and supply its endpoint to mcpjungle (see [Database](#database) section below).
 
-You can see the definitions of the [standard Docker image](./Dockerfile) and the [stdio Docker image](./stdio.Dockerfile).
+You can see the definitions of the [standard Docker image](https://github.com/mcpjungle/MCPJungle/tree/HEAD/Dockerfile) and the [stdio Docker image](https://github.com/mcpjungle/MCPJungle/blob/HEAD/stdio.Dockerfile).
 
 ### Running directly on host
 You can also run the server directly on your host machine using the binary:
@@ -1013,7 +1013,7 @@ So you can use the following configuration for the filesystem mcp server:
 
 Then, the mcp has access to `/host`, ie, the current working directory on your host machine.
 
-See [DEVELOPMENT.md](./DEVELOPMENT.md#docker-filesystem-access) for more details.
+See [DEVELOPMENT.md](https://github.com/mcpjungle/MCPJungle/tree/HEAD/DEVELOPMENT.md#docker-filesystem-access) for more details.
 
 #### Running CLI commands from a Docker or Kubernetes deployment
 If your MCPJungle server is running in a remote Docker container or Kubernetes cluster, you can also execute the `mcpjungle` binary directly inside the container:
@@ -1529,8 +1529,8 @@ We're collecting more feedback on how people use OAuth with MCP servers, so feel
 
 We welcome contributions from the community! 
 
-- **For contribution guidelines and standards**, see [CONTRIBUTION.md](./CONTRIBUTION.md)
-- **For development setup and technical details**, see [DEVELOPMENT.md](./DEVELOPMENT.md)
+- **For contribution guidelines and standards**, see [CONTRIBUTION.md](https://github.com/mcpjungle/MCPJungle/blob/HEAD/CONTRIBUTION.md)
+- **For development setup and technical details**, see [DEVELOPMENT.md](https://github.com/mcpjungle/MCPJungle/blob/HEAD/DEVELOPMENT.md)
 
 Join our [Discord community](https://discord.gg/CapV4Z3krk) to connect with other contributors and maintainers.
 

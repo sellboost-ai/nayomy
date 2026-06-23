@@ -14,18 +14,18 @@ body_tr: |-
   
   [![Version](https://img.shields.io/badge/version-2.24.0-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
   [![npm](https://img.shields.io/npm/v/davinci-resolve-mcp.svg?label=npm&color=CB3837)](https://www.npmjs.com/package/davinci-resolve-mcp)
-  [![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](docs/reference/api-coverage.md)
+  [![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/reference/api-coverage.md)
   [![Tools](https://img.shields.io/badge/MCP%20Tools-32%20(329%20full)-blue.svg)](#server-modes)
-  [![Tested](https://img.shields.io/badge/Live%20Tested-98.5%25-green.svg)](docs/reference/api-coverage.md#test-results)
+  [![Tested](https://img.shields.io/badge/Live%20Tested-98.5%25-green.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/reference/api-coverage.md#test-results)
   [![DaVinci Resolve](https://img.shields.io/badge/DaVinci%20Resolve-18.5+-darkred.svg)](https://www.blackmagicdesign.com/products/davinciresolve)
   [![Python](https://img.shields.io/badge/python-3.10--3.12-green.svg)](https://www.python.org/downloads/)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   
   AI asistanlarının resmi Scripting API üzerinden DaVinci Resolve Studio'yu kontrol etmesini sağlayan bir Model Context Protocol (MCP) sunucusu. Tam API kapsamı sağlayarak, düzenleme, medya havuzu organizasyonu, render kurulumu, inceleme işaretçileri, grading, Fusion, Fairlight, proje yaşam döngüsü görevleri, uzantı yazma ve kaynaksafe medya analizi için korumalı iş akışı yardımcıları sunmaktadır.
   
-  [![Local control panel](https://raw.githubusercontent.com/samuelgursky/davinci-resolve-mcp/HEAD/docs/images/control-panel/01-overview.png)](docs/guides/control-panel.md)
+  [![Local control panel](https://raw.githubusercontent.com/samuelgursky/davinci-resolve-mcp/HEAD/docs/images/control-panel/01-overview.png)](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/control-panel.md)
   
-  Sunucu ile birlikte gelen yerel tarayıcı kontrol paneli, Resolve durumunu inceleme, kaynaksafe analiz çalıştırma, analiz edilen klipLeri ve shotları detaylandırma ve analiz çıktısını satır içinde düzenleme olanağı sağlar. Tam tur için [Kontrol Paneli Kılavuzu](docs/guides/control-panel.md) bölümüne bakınız.
+  Sunucu ile birlikte gelen yerel tarayıcı kontrol paneli, Resolve durumunu inceleme, kaynaksafe analiz çalıştırma, analiz edilen klipLeri ve shotları detaylandırma ve analiz çıktısını satır içinde düzenleme olanağı sağlar. Tam tur için [Kontrol Paneli Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/control-panel.md) bölümüne bakınız.
   
   ## Hızlı Başlangıç
   
@@ -43,7 +43,7 @@ body_tr: |-
   python install.py
   ```
   
-  Platform yolları, istemci özel yapılandırması ve manuel kurulum için [Kurulum ve Yapılandırma](docs/install.md) bölümüne bakınız.
+  Platform yolları, istemci özel yapılandırması ve manuel kurulum için [Kurulum ve Yapılandırma](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/install.md) bölümüne bakınız.
   
   Yükleyici ve sunucu, MCP güncellemeleri için en son GitHub sürümünü kontrol eder. Kontroller en iyi çabaya bağlıdır ve sınırlandırılmıştır; sunucu asla MCP başlatmasını bir istem için engellenmez. Yükleyici isteme, ertelemeye, sürümü yoksaymaya, kontrolleri devre dışı bırakmaya veya temiz git checkoutları için opt-in güvenli otomatik güncelleştirme uygulayabilir.
   
@@ -101,11 +101,11 @@ body_tr: |-
   
   ## Kaynak Medya Güvenliği
   
-  Bu proje kamera orijinallerini ve kaynak medyayı değişmez olarak kabul eder. Analiz araçları kaynak dosyaları okur ve raporları yalnızca sidecar, scratch veya proje analiz dizinlerine yazar; onaylanmış metadata yayını yalnızca Resolve'nin proje veritabanına yazar. Sunucu, kullanıcı açıkça istememedikçe kaynak medyayı değiştirmemeli, kodla değiştirmemeli, proxy haline getirmemeli veya türev oluşturmamalıdır. Ayrıntılı kaynaksafe iş akışı için [Medya Analiz Kılavuzu](docs/guides/media-analysis-guide.md) bölümüne bakınız.
+  Bu proje kamera orijinallerini ve kaynak medyayı değişmez olarak kabul eder. Analiz araçları kaynak dosyaları okur ve raporları yalnızca sidecar, scratch veya proje analiz dizinlerine yazar; onaylanmış metadata yayını yalnızca Resolve'nin proje veritabanına yazar. Sunucu, kullanıcı açıkça istememedikçe kaynak medyayı değiştirmemeli, kodla değiştirmemeli, proxy haline getirmemeli veya türev oluşturmamalıdır. Ayrıntılı kaynaksafe iş akışı için [Medya Analiz Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/media-analysis-guide.md) bölümüne bakınız.
   
   ## Güvenlik Duruşu
   
-  Varsayılan sunucu, MCP istemcisi tarafından başlatılan yerel stdio işlemidir; ağ dinleyicisini veya yerleşik çok kullanıcılı auth yüzeyini ortaya koymaz. Araç metadata, salt okunur, bozucu, idempotent ve harici kaynak işlemleri için MCP istemci-güvenlik ipuçları içerir. Operasyonel sınırları, onay kılavuzunu ve güvenlik açığı raporlamasını [Güvenlik Politikası](SECURITY.md) bölümünde bulunuz.
+  Varsayılan sunucu, MCP istemcisi tarafından başlatılan yerel stdio işlemidir; ağ dinleyicisini veya yerleşik çok kullanıcılı auth yüzeyini ortaya koymaz. Araç metadata, salt okunur, bozucu, idempotent ve harici kaynak işlemleri için MCP istemci-güvenlik ipuçları içerir. Operasyonel sınırları, onay kılavuzunu ve güvenlik açığı raporlamasını [Güvenlik Politikası](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/SECURITY.md) bölümünde bulunuz.
   
   ## Temel İstatistikler
   
@@ -118,7 +118,7 @@ body_tr: |-
   | Canlı Test Başarı Oranı | **331/331** (100%) |
   | Test Edilmiş Sürümler | DaVinci Resolve 19.1.3 Studio + Resolve 20.3.2 Studio |
   
-  Yönteme göre durum için [API Kapsamı ve Test Sonuçları](docs/reference/api-coverage.md) bölümüne bakınız. Mevcut iş akışı desteği için [Kernel Action Kapsamı](docs/kernels/README.md) bölümüne bakınız.
+  Yönteme göre durum için [API Kapsamı ve Test Sonuçları](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/reference/api-coverage.md) bölümüne bakınız. Mevcut iş akışı desteği için [Kernel Action Kapsamı](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/kernels/README.md) bölümüne bakınız.
   
   `analyze_media`, varsayılan olarak doğrudan yürütülür, denetlenebilir raporlar/eserleri analiz kökü altında kalıcılaştırır, `host_chat_paths` protokolü aracılığıyla host-chat görsel analizi talep eder (analiz mutlak çerçeve yollarını + bir JSON şemasını döndürür; host chat her çerçeveyi bir resim olarak okur ve `media_analysis(action="commit_vision", ...)` çağırarak tamamlanır), yapılandırılmış yerel backend aracılığıyla transcription çalıştırır ve analiz özetleri artı kaynak-zaman Media Pool klip işaretçileri Resolve projesine geri yazar. Yalnızca bu varsayılan davranışlardan opt-out istediğinizde `include_visuals=false`, `include_transcription=false`, `publish_metadata=false`, `timed_markers=no` veya `dry_run=true` olarak geçirin. `commit_vision` atlanması, çalıştırmayı `pending_host_vision_analysis` içinde bırakır — başarısızlık modu olarak yüzeylenir, sessizce düşürülmez.
   
@@ -126,21 +126,21 @@ body_tr: |-
   
   | Belge | Kullanım |
   |----------|------------|
-  | [Kurulum ve Yapılandırma](docs/install.md) | Gereksinimler, yükleyici seçenekleri, desteklenen istemciler, sunucu modları, manuel yapılandırma |
-  | [API Kapsamı ve Test Sonuçları](docs/reference/api-coverage.md) | Temel istatistikler, API kapsam tablosu, canlı test durumu, tam yöntemi referansı |
-  | [Kernel Action Kapsamı](docs/kernels/README.md) | Mevcut korumalı iş akışı eylem haritası |
-  | [AI Skill Referansı](docs/SKILL.md) | Compound sunucuyu kullanan AI asistanları için operasyonel bağlam |
-  | [Kontrol Paneli Kılavuzu](docs/guides/control-panel.md) | Yerel tarayıcı paneli turu: Genel Bakış, İnceleme (bin/klip/shot), Analiz, Kurulum, Tercihler |
-  | [Medya Analiz Kılavuzu](docs/guides/media-analysis-guide.md) | Kaynaksafe FFprobe, FFmpeg, Whisper, sidecar ve analiz-kök iş akışları |
-  | [Multicam Kurulum Yardımcısı Kılavuzu](docs/guides/multicam-setup-guide.md) | Yığılmış zaman çizelgesi prep, yardımcı/API sınırı ve Resolve UI dönüştürme adımları |
-  | [Editorial Decision Kılavuzu](docs/guides/editorial-decision-guide.md) | Proje sahibi analiz ve zaman çizelgesi kararları için editorial craft rehberliği |
-  | [Renk Decision Kılavuzu](docs/guides/color-decision-guide.md) | Proje sahibi renk düzeltme rehberliği ve Resolve renk API sınırları |
-  | [Katkıda Bulunma ve Proje Düzeni](docs/contributing.md) | Katkı iş akışı, platform desteği, güvenlik notları, depo yapısı |
-  | [Güvenlik Politikası](SECURITY.md) | Yerel stdio güven sınırı, araç metadata, onay rehberliği, raporlama |
-  | [Yayın Süreci](docs/process/release-process.md) | Maintainer yayın kontrol listesi, sürüm yüzeyleri, doğrulama, etiketler ve yayın notları |
-  | [Changelog](CHANGELOG.md) | Tarihsel yayın notları |
+  | [Kurulum ve Yapılandırma](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/install.md) | Gereksinimler, yükleyici seçenekleri, desteklenen istemciler, sunucu modları, manuel yapılandırma |
+  | [API Kapsamı ve Test Sonuçları](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/reference/api-coverage.md) | Temel istatistikler, API kapsam tablosu, canlı test durumu, tam yöntemi referansı |
+  | [Kernel Action Kapsamı](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/kernels/README.md) | Mevcut korumalı iş akışı eylem haritası |
+  | [AI Skill Referansı](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/SKILL.md) | Compound sunucuyu kullanan AI asistanları için operasyonel bağlam |
+  | [Kontrol Paneli Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/control-panel.md) | Yerel tarayıcı paneli turu: Genel Bakış, İnceleme (bin/klip/shot), Analiz, Kurulum, Tercihler |
+  | [Medya Analiz Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/media-analysis-guide.md) | Kaynaksafe FFprobe, FFmpeg, Whisper, sidecar ve analiz-kök iş akışları |
+  | [Multicam Kurulum Yardımcısı Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/multicam-setup-guide.md) | Yığılmış zaman çizelgesi prep, yardımcı/API sınırı ve Resolve UI dönüştürme adımları |
+  | [Editorial Decision Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/editorial-decision-guide.md) | Proje sahibi analiz ve zaman çizelgesi kararları için editorial craft rehberliği |
+  | [Renk Decision Kılavuzu](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/color-decision-guide.md) | Proje sahibi renk düzeltme rehberliği ve Resolve renk API sınırları |
+  | [Katkıda Bulunma ve Proje Düzeni](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/contributing.md) | Katkı iş akışı, platform desteği, güvenlik notları, depo yapısı |
+  | [Güvenlik Politikası](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/SECURITY.md) | Yerel stdio güven sınırı, araç metadata, onay rehberliği, raporlama |
+  | [Yayın Süreci](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/process/release-process.md) | Maintainer yayın kontrol listesi, sürüm yüzeyleri, doğrulama, etiketler ve yayın notları |
+  | [Changelog](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/CHANGELOG.md) | Tarihsel yayın notları |
   
-  Uzantı yazma referansları [docs/authoring](docs/authoring/) içinde yaşar. Resolve geliştirici-paketi notları [docs/notes](docs/notes/) ve [docs/integrations](docs/integrations/) içinde yaşar. İstem tarifleri [examples](examples/) içinde yaşar.
+  Uzantı yazma referansları [docs/authoring](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/authoring/) içinde yaşar. Resolve geliştirici-paketi notları [docs/notes](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/notes/) ve [docs/integrations](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/integrations/) içinde yaşar. İstem tarifleri [examples](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/examples/) içinde yaşar.
   
   ## Gereksinimler
   
@@ -159,7 +159,7 @@ body_tr: |-
   venv/bin/python scripts/audit_api_parity.py
   ```
   
-  Yayın ve doğrulama kuralları [docs/process/release-process.md](docs/process/release-process.md) bölümünde bulunmaktadır. Bu depoda çalışan AI aracıları [AGENTS.md](AGENTS.md) ile başlamalıdır; Claude Code kullanıcıları ayrıca [CLAUDE.md](CLAUDE.md) okuyabilir, bu da aynı kurallı talimatları gösterir.
+  Yayın ve doğrulama kuralları [docs/process/release-process.md](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/process/release-process.md) bölümünde bulunmaktadır. Bu depoda çalışan AI aracıları [AGENTS.md](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/AGENTS.md) ile başlamalıdır; Claude Code kullanıcıları ayrıca [CLAUDE.md](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/CLAUDE.md) okuyabilir, bu da aynı kurallı talimatları gösterir.
   
   ## Lisans
   
@@ -181,18 +181,18 @@ body_tr: |-
 
 [![Version](https://img.shields.io/badge/version-2.57.5-blue.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/releases)
 [![npm](https://img.shields.io/npm/v/davinci-resolve-mcp.svg?label=npm&color=CB3837)](https://www.npmjs.com/package/davinci-resolve-mcp)
-[![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](docs/reference/api-coverage.md)
+[![API Coverage](https://img.shields.io/badge/API%20Coverage-100%25-brightgreen.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/reference/api-coverage.md)
 [![Tools](https://img.shields.io/badge/MCP%20Tools-34%20(341%20full)-blue.svg)](#server-modes)
-[![Tested](https://img.shields.io/badge/Live%20Tested-98.5%25-green.svg)](docs/reference/api-coverage.md#test-results)
+[![Tested](https://img.shields.io/badge/Live%20Tested-98.5%25-green.svg)](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/reference/api-coverage.md#test-results)
 [![DaVinci Resolve](https://img.shields.io/badge/DaVinci%20Resolve-18.5+-darkred.svg)](https://www.blackmagicdesign.com/products/davinciresolve)
 [![Python](https://img.shields.io/badge/python-3.10+-green.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A Model Context Protocol (MCP) server that lets AI assistants control DaVinci Resolve Studio through the official Scripting API. It provides full API coverage plus guarded workflow helpers for editing, media pool organization, render setup, review markers, grading, Fusion, Fairlight, project lifecycle tasks, extension authoring, and source-safe media analysis.
 
-[![Local control panel](https://raw.githubusercontent.com/samuelgursky/davinci-resolve-mcp/HEAD/docs/images/control-panel/01-overview.png)](docs/guides/control-panel.md)
+[![Local control panel](https://raw.githubusercontent.com/samuelgursky/davinci-resolve-mcp/HEAD/docs/images/control-panel/01-overview.png)](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/control-panel.md)
 
-A local browser control panel ships with the server for inspecting Resolve state, running source-safe analysis, drilling into analyzed clips and shots, and editing analysis output inline. See the [Control Panel Guide](docs/guides/control-panel.md) for the full tour.
+A local browser control panel ships with the server for inspecting Resolve state, running source-safe analysis, drilling into analyzed clips and shots, and editing analysis output inline. See the [Control Panel Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/control-panel.md) for the full tour.
 
 ## Quick Start
 
@@ -210,7 +210,7 @@ cd davinci-resolve-mcp
 python install.py
 ```
 
-For platform paths, client-specific config, and manual setup, see [Installation and Configuration](docs/install.md).
+For platform paths, client-specific config, and manual setup, see [Installation and Configuration](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/install.md).
 
 The installer and server check the latest GitHub release for MCP updates. Checks are best-effort and throttled; the server never blocks MCP startup for a prompt. The installer can prompt, snooze, ignore a release, disable checks, or apply an opt-in safe auto-update for clean git checkouts.
 
@@ -268,11 +268,11 @@ The compound server is recommended unless you specifically need the granular one
 
 ## Source Media Safety
 
-This project treats camera originals and source media as immutable. Analysis tools read source files and write reports only to sidecar, scratch, or project analysis directories; confirmed metadata publishing writes only to Resolve's project database. The server must not modify, transcode, proxy, or create derivatives of source media unless the user explicitly asks for that. See [Media Analysis Guide](docs/guides/media-analysis-guide.md) for the detailed source-safe workflow.
+This project treats camera originals and source media as immutable. Analysis tools read source files and write reports only to sidecar, scratch, or project analysis directories; confirmed metadata publishing writes only to Resolve's project database. The server must not modify, transcode, proxy, or create derivatives of source media unless the user explicitly asks for that. See [Media Analysis Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/media-analysis-guide.md) for the detailed source-safe workflow.
 
 ## Security Posture
 
-The default server is a local stdio process launched by your MCP client; it does not expose a network listener or built-in multi-user auth surface. Tool metadata includes MCP client-safety hints for read-only, destructive, idempotent, and external-resource operations. See [Security Policy](SECURITY.md) for operational boundaries, confirmation guidance, and vulnerability reporting.
+The default server is a local stdio process launched by your MCP client; it does not expose a network listener or built-in multi-user auth surface. Tool metadata includes MCP client-safety hints for read-only, destructive, idempotent, and external-resource operations. See [Security Policy](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/SECURITY.md) for operational boundaries, confirmation guidance, and vulnerability reporting.
 
 ## Key Stats
 
@@ -285,7 +285,7 @@ The default server is a local stdio process launched by your MCP client; it does
 | Live Test Pass Rate | **331/331** (100%) |
 | Tested Against | DaVinci Resolve 19.1.3 Studio + Resolve 20.3.2 Studio |
 
-For method-by-method status, see [API Coverage and Test Results](docs/reference/api-coverage.md). For current workflow support, see [Kernel Action Coverage](docs/kernels/README.md).
+For method-by-method status, see [API Coverage and Test Results](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/reference/api-coverage.md). For current workflow support, see [Kernel Action Coverage](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/kernels/README.md).
 
 `analyze_media` executes directly by default, persists inspectable reports/artifacts under the analysis root, requests host-chat visual analysis via the `host_chat_paths` protocol (analyze returns absolute frame paths + a JSON schema; the host chat reads each frame as an image and calls `media_analysis(action="commit_vision", ...)` to finalize), runs transcription through the configured local backend, and writes analysis summaries plus source-time Media Pool clip markers back to the Resolve project. Pass `include_visuals=false`, `include_transcription=false`, `publish_metadata=false`, `timed_markers=no`, or `dry_run=true` only when you want to opt out of those default behaviors. Skipping `commit_vision` leaves the run in `pending_host_vision_analysis` — surfaced as a failure mode, not silently downgraded.
 
@@ -293,21 +293,21 @@ For method-by-method status, see [API Coverage and Test Results](docs/reference/
 
 | Document | Use it for |
 |----------|------------|
-| [Installation and Configuration](docs/install.md) | Requirements, installer options, supported clients, server modes, manual config |
-| [API Coverage and Test Results](docs/reference/api-coverage.md) | Key stats, API coverage table, live-test status, full method reference |
-| [Kernel Action Coverage](docs/kernels/README.md) | Current guarded workflow action map |
-| [AI Skill Reference](docs/SKILL.md) | Operational context for AI assistants using the compound server |
-| [Control Panel Guide](docs/guides/control-panel.md) | Local browser panel tour: Overview, Review (bin/clip/shot), Analyze, Setup, Preferences |
-| [Media Analysis Guide](docs/guides/media-analysis-guide.md) | Source-safe FFprobe, FFmpeg, Whisper, sidecar, and analysis-root workflows |
-| [Multicam Setup Helper Guide](docs/guides/multicam-setup-guide.md) | Stacked timeline prep, helper/API boundary, and Resolve UI conversion steps |
-| [Editorial Decision Guide](docs/guides/editorial-decision-guide.md) | Project-owned editorial craft guidance for analysis and timeline decisions |
-| [Color Decision Guide](docs/guides/color-decision-guide.md) | Project-owned color correction guidance and Resolve color API boundaries |
-| [Contributing and Project Layout](docs/contributing.md) | Contribution workflow, platform support, security notes, repository structure |
-| [Security Policy](SECURITY.md) | Local stdio trust boundary, tool metadata, confirmation guidance, reporting |
-| [Release Process](docs/process/release-process.md) | Maintainer release checklist, version surfaces, validation, tags, and release notes |
-| [Changelog](CHANGELOG.md) | Historical release notes |
+| [Installation and Configuration](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/install.md) | Requirements, installer options, supported clients, server modes, manual config |
+| [API Coverage and Test Results](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/reference/api-coverage.md) | Key stats, API coverage table, live-test status, full method reference |
+| [Kernel Action Coverage](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/kernels/README.md) | Current guarded workflow action map |
+| [AI Skill Reference](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/SKILL.md) | Operational context for AI assistants using the compound server |
+| [Control Panel Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/control-panel.md) | Local browser panel tour: Overview, Review (bin/clip/shot), Analyze, Setup, Preferences |
+| [Media Analysis Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/media-analysis-guide.md) | Source-safe FFprobe, FFmpeg, Whisper, sidecar, and analysis-root workflows |
+| [Multicam Setup Helper Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/multicam-setup-guide.md) | Stacked timeline prep, helper/API boundary, and Resolve UI conversion steps |
+| [Editorial Decision Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/editorial-decision-guide.md) | Project-owned editorial craft guidance for analysis and timeline decisions |
+| [Color Decision Guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/guides/color-decision-guide.md) | Project-owned color correction guidance and Resolve color API boundaries |
+| [Contributing and Project Layout](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/contributing.md) | Contribution workflow, platform support, security notes, repository structure |
+| [Security Policy](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/SECURITY.md) | Local stdio trust boundary, tool metadata, confirmation guidance, reporting |
+| [Release Process](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/process/release-process.md) | Maintainer release checklist, version surfaces, validation, tags, and release notes |
+| [Changelog](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/CHANGELOG.md) | Historical release notes |
 
-Extension authoring references live in [docs/authoring](docs/authoring/). Resolve developer-package notes live in [docs/notes](docs/notes/) and [docs/integrations](docs/integrations/). Prompt recipes live in [examples](examples/).
+Extension authoring references live in [docs/authoring](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/authoring/). Resolve developer-package notes live in [docs/notes](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/notes/) and [docs/integrations](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/docs/integrations/). Prompt recipes live in [examples](https://github.com/samuelgursky/davinci-resolve-mcp/tree/HEAD/examples/).
 
 ## Requirements
 
@@ -326,7 +326,7 @@ venv/bin/python tests/test_import.py
 venv/bin/python scripts/audit_api_parity.py
 ```
 
-Release and validation rules are in [docs/process/release-process.md](docs/process/release-process.md). AI agents working in this repository should start with [AGENTS.md](AGENTS.md); Claude Code users can also read [CLAUDE.md](CLAUDE.md), which points to the same canonical instructions.
+Release and validation rules are in [docs/process/release-process.md](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/docs/process/release-process.md). AI agents working in this repository should start with [AGENTS.md](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/AGENTS.md); Claude Code users can also read [CLAUDE.md](https://github.com/samuelgursky/davinci-resolve-mcp/blob/HEAD/CLAUDE.md), which points to the same canonical instructions.
 
 ## License
 

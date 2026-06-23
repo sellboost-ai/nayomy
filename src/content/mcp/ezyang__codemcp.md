@@ -52,7 +52,7 @@ body_tr: |-
   
   5. Ne yazık ki web UI çekiç simgesini tutarsız şekilde görüntüler. Ancak Console'da "[MCP codemcp] SSE connection opened" ifadesini arayarak veya Claude'a hangi araçlara sahip olduğunu soarak MCP sunucusunun çalışıp çalışmadığını kontrol edebilirsiniz (codemcp'den araçların mevcut olduğunu söylemelidir.)
   
-  Claude Desktop'ı kullanmayı tercih ederseniz veya alışılmadık ihtiyaçlarınız varsa, çeşitli standart dışı durumlar için kurulum talimatları için [INSTALL.md](INSTALL.md) dosyasını kontrol edin.
+  Claude Desktop'ı kullanmayı tercih ederseniz veya alışılmadık ihtiyaçlarınız varsa, çeşitli standart dışı durumlar için kurulum talimatları için [INSTALL.md](https://github.com/ezyang/codemcp/blob/HEAD/INSTALL.md) dosyasını kontrol edin.
   
   ## Kullanım
   
@@ -134,7 +134,7 @@ body_tr: |-
   
   ## Katkıda Bulunmak
   
-  [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  [CONTRIBUTING.md](https://github.com/ezyang/codemcp/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
 ---
 
 NOTICE: claude code is available with Anthropic's $20/mo subscription, so I consider
@@ -226,7 +226,7 @@ I recommend this specific way of installing and using codemcp:
    Console, or by asking Claude what tools it has available (it should say
    tools from codemcp are available.)
 
-If you prefer to use Claude Desktop or have unusual needs, check out [INSTALL.md](INSTALL.md) for
+If you prefer to use Claude Desktop or have unusual needs, check out [INSTALL.md](https://github.com/ezyang/codemcp/blob/HEAD/INSTALL.md) for
 installation instructions for a variety of non-standard situations.
 
 ## Usage
@@ -328,4 +328,4 @@ projects anyway.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/ezyang/codemcp/blob/HEAD/CONTRIBUTING.md).

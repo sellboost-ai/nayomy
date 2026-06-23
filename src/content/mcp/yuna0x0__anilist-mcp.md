@@ -256,7 +256,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - Ayrıntılar için [LICENSE](https://github.com/yuna0x0/anilist-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # AniList MCP Server
@@ -504,4 +504,4 @@ This MCP server accepts your AniList API token in the .env file, environment var
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/yuna0x0/anilist-mcp/tree/HEAD/LICENSE) file for details.

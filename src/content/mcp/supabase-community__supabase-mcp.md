@@ -289,7 +289,7 @@ body_tr: |-
   
   ### `@supabase/mcp-server-postgrest`
   
-  PostgREST MCP sunucusu, kendi kullanıcılarınızı REST API aracılığıyla uygulamanıza bağlamanıza olanak tanır. [Proje README'sinde](./packages/mcp-server-postgrest) daha fazla ayrıntı görmek için.
+  PostgREST MCP sunucusu, kendi kullanıcılarınızı REST API aracılığıyla uygulamanıza bağlamanıza olanak tanır. [Proje README'sinde](https://github.com/supabase-community/supabase-mcp/tree/HEAD/packages/mcp-server-postgrest) daha fazla ayrıntı görmek için.
   
   ## Kaynaklar
   
@@ -298,11 +298,11 @@ body_tr: |-
   
   ## Geliştiriciler için
   
-  Bu projeye nasıl katkıda bulunabileceğiniz konusundaki ayrıntılar için [CONTRIBUTING](./CONTRIBUTING.md) bakın.
+  Bu projeye nasıl katkıda bulunabileceğiniz konusundaki ayrıntılar için [CONTRIBUTING](https://github.com/supabase-community/supabase-mcp/blob/HEAD/CONTRIBUTING.md) bakın.
   
   ## Lisans
   
-  Bu proje Apache 2.0 lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](./LICENSE) dosyasına bakın.
+  Bu proje Apache 2.0 lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](https://github.com/supabase-community/supabase-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # Supabase MCP Server
@@ -583,7 +583,7 @@ For more information, see [Schema Definition](https://ai-sdk.dev/docs/ai-sdk-cor
 
 ### `@supabase/mcp-server-postgrest`
 
-The PostgREST MCP server allows you to connect your own users to your app via REST API. See more details on its [project README](./packages/mcp-server-postgrest).
+The PostgREST MCP server allows you to connect your own users to your app via REST API. See more details on its [project README](https://github.com/supabase-community/supabase-mcp/tree/HEAD/packages/mcp-server-postgrest).
 
 ## Resources
 
@@ -592,8 +592,8 @@ The PostgREST MCP server allows you to connect your own users to your app via RE
 
 ## For developers
 
-See [CONTRIBUTING](./CONTRIBUTING.md) for details on how to contribute to this project.
+See [CONTRIBUTING](https://github.com/supabase-community/supabase-mcp/blob/HEAD/CONTRIBUTING.md) for details on how to contribute to this project.
 
 ## License
 
-This project is licensed under Apache 2.0. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under Apache 2.0. See the [LICENSE](https://github.com/supabase-community/supabase-mcp/tree/HEAD/LICENSE) file for details.

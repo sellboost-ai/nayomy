@@ -123,7 +123,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE](https://github.com/zcaceres/markdownify-mcp/tree/HEAD/LICENSE) dosyasına bakın.
 ---
 
 # Markdownify MCP Server
@@ -239,4 +239,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/zcaceres/markdownify-mcp/tree/HEAD/LICENSE) file for details.

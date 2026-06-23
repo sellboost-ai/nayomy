@@ -141,7 +141,7 @@ body_tr: |-
   mcp-trino
   ```
   
-  OAuth ile üretime hazır dağıtım için [Dağıtım Rehberi](docs/deployment.md) ve [OAuth Mimarisi](docs/oauth.md) başlıklarına bakın.
+  OAuth ile üretime hazır dağıtım için [Dağıtım Rehberi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/deployment.md) ve [OAuth Mimarisi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/oauth.md) başlıklarına bakın.
   
   ## CLI Modu
   
@@ -305,7 +305,7 @@ body_tr: |-
   TRINO_PASSWORD=$(op read 'op://Engineering/Trino/password') mcp-trino
   ```
   
-  [docs/secrets.md](docs/secrets.md) dosyasına bakın 1Password, Vault ve Kubernetes desenleri için, ve güvenlik nüansları (shell geçmişi, işlem listesi ve ortam değişkeni sızıntısı) için.
+  [docs/secrets.md](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/secrets.md) dosyasına bakın 1Password, Vault ve Kubernetes desenleri için, ve güvenlik nüansları (shell geçmişi, işlem listesi ve ortam değişkeni sızıntısı) için.
   
   **REPL Meta-Komutları** (etkileşimli modda):
   - `\help` - Yardımı göster
@@ -323,13 +323,13 @@ body_tr: |-
   
   **Mevcut Araçlar:** `execute_query`, `list_catalogs`, `list_schemas`, `list_tables`, `get_table_schema`, `explain_query`
   
-  İstemci entegrasyonu ve araç dokümantasyonu için [Entegrasyon Rehberi](docs/integrations.md) ve [Araçlar Referansı](docs/tools.md) başlıklarına bakın.
+  İstemci entegrasyonu ve araç dokümantasyonu için [Entegrasyon Rehberi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/integrations.md) ve [Araçlar Referansı](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/tools.md) başlıklarına bakın.
   
   ## Yapılandırma
   
   **Temel Değişkenler:** `TRINO_HOST`, `TRINO_USER`, `TRINO_SCHEME`, `MCP_TRANSPORT`, `OAUTH_PROVIDER`
   
-  **Sır Yönetimi:** Sırları işlem ortamı aracılığıyla enjekte edin — `mcp-trino` bunları doğrudan okur. [docs/secrets.md](docs/secrets.md) dosyasına bakın 1Password, Vault ve Kubernetes tarifler için.
+  **Sır Yönetimi:** Sırları işlem ortamı aracılığıyla enjekte edin — `mcp-trino` bunları doğrudan okur. [docs/secrets.md](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/secrets.md) dosyasına bakın 1Password, Vault ve Kubernetes tarifler için.
   
   ```bash
   # 1Password (biyometrik kapsama, disk yazıları sıfır)
@@ -373,7 +373,7 @@ body_tr: |-
   export TRINO_IMPERSONATION_FIELD=email  # Seçenekler: username, email, subject
   ```
   
-  Tam yapılandırma için [Dağıtım Rehberi](docs/deployment.md), [OAuth Rehberi](docs/oauth.md), [İzin Listeleri Rehberi](docs/allowlists.md) ve [Kullanıcı Kimlik Rehberi](docs/impersonation.md) başlıklarına bakın.
+  Tam yapılandırma için [Dağıtım Rehberi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/deployment.md), [OAuth Rehberi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/oauth.md), [İzin Listeleri Rehberi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/allowlists.md) ve [Kullanıcı Kimlik Rehberi](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/impersonation.md) başlıklarına bakın.
   
   ## OAuth Uygulaması
   
@@ -576,7 +576,7 @@ export TRINO_HOST=localhost TRINO_USER=trino
 mcp-trino
 ```
 
-For production deployment with OAuth, see [Deployment Guide](docs/deployment.md) and [OAuth Architecture](docs/oauth.md).
+For production deployment with OAuth, see [Deployment Guide](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/deployment.md) and [OAuth Architecture](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/oauth.md).
 
 ## CLI Mode
 
@@ -740,7 +740,7 @@ op run --env-file=.env -- mcp-trino
 TRINO_PASSWORD=$(op read 'op://Engineering/Trino/password') mcp-trino
 ```
 
-See [docs/secrets.md](docs/secrets.md) for 1Password, Vault, and Kubernetes patterns, and for security nuances (shell-history, process-list, and env-var leakage).
+See [docs/secrets.md](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/secrets.md) for 1Password, Vault, and Kubernetes patterns, and for security nuances (shell-history, process-list, and env-var leakage).
 
 **REPL Meta-Commands** (in interactive mode):
 - `\help` - Show help
@@ -758,13 +758,13 @@ See [docs/secrets.md](docs/secrets.md) for 1Password, Vault, and Kubernetes patt
 
 **Available Tools:** `execute_query`, `list_catalogs`, `list_schemas`, `list_tables`, `get_table_schema`, `explain_query`
 
-For client integration and tool documentation, see [Integration Guide](docs/integrations.md) and [Tools Reference](docs/tools.md).
+For client integration and tool documentation, see [Integration Guide](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/integrations.md) and [Tools Reference](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/tools.md).
 
 ## Configuration
 
 **Key Variables:** `TRINO_HOST`, `TRINO_USER`, `TRINO_SCHEME`, `MCP_TRANSPORT`, `OAUTH_PROVIDER`
 
-**Secret Management:** Inject secrets through the process environment — `mcp-trino` reads them directly. See [docs/secrets.md](docs/secrets.md) for 1Password, Vault, and Kubernetes recipes.
+**Secret Management:** Inject secrets through the process environment — `mcp-trino` reads them directly. See [docs/secrets.md](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/secrets.md) for 1Password, Vault, and Kubernetes recipes.
 
 ```bash
 # 1Password (biometric-gated, zero disk writes)
@@ -808,7 +808,7 @@ export TRINO_ENABLE_IMPERSONATION=true
 export TRINO_IMPERSONATION_FIELD=email  # Options: username, email, subject
 ```
 
-For complete configuration, see [Deployment Guide](docs/deployment.md), [OAuth Guide](docs/oauth.md), [Allowlists Guide](docs/allowlists.md), and [User Identity Guide](docs/impersonation.md).
+For complete configuration, see [Deployment Guide](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/deployment.md), [OAuth Guide](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/oauth.md), [Allowlists Guide](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/allowlists.md), and [User Identity Guide](https://github.com/tuannvm/mcp-trino/blob/HEAD/docs/impersonation.md).
 
 ## OAuth Implementation
 

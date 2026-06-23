@@ -112,8 +112,8 @@ body_tr: |-
   
   ## İlgili Kaynaklar
   
-  - Agent: [`cs-cro-advisor`](../../agents/cs-cro-advisor.md)
-  - Skill: [`cro-advisor`](../../../skills/cro-advisor/SKILL.md)
+  - Agent: [`cs-cro-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cro-advisor.md)
+  - Skill: [`cro-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cro-advisor/SKILL.md)
   - Execution: `../../../../business-growth/`
   
   ---
@@ -219,8 +219,8 @@ python ../../../skills/cro-advisor/scripts/churn_analyzer.py
 
 ## Related
 
-- Agent: [`cs-cro-advisor`](../../agents/cs-cro-advisor.md)
-- Skill: [`cro-advisor`](../../../skills/cro-advisor/SKILL.md)
+- Agent: [`cs-cro-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cro-advisor.md)
+- Skill: [`cro-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cro-advisor/SKILL.md)
 - Execution: `../../../../business-growth/`
 
 ---

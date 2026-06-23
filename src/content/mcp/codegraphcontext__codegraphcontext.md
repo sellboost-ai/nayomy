@@ -16,11 +16,11 @@ body_tr: |-
   **Kod depolarını AI ajanları için sorgulanabilir bir grafa dönüştürün.**
   
   🌐 **Diller:**
-  - 🇬🇧 [English](README.md)
-  - 🇨🇳 [中文](README.zh-CN.md)
-  - 🇰🇷 [한국어](README.kor.md)
-  - 🇺🇦 [Українська](README.uk.md)
-  - 🇷🇺 [Русский](README.ru-RU.md)
+  - 🇬🇧 [English](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/README.md)
+  - 🇨🇳 [中文](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/README.zh-CN.md)
+  - 🇰🇷 [한국어](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/README.kor.md)
+  - 🇺🇦 [Українська](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/README.uk.md)
+  - 🇷🇺 [Русский](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/README.ru-RU.md)
   - 🇯🇵 日本語 (Yakında)
   - 🇪🇸 Español (Yakında)
   
@@ -36,7 +36,7 @@ body_tr: |-
     <a href="https://pypi.org/project/codegraphcontext/">
       
     </a>
-    <a href="LICENSE">
+    <a href="https://github.com/CodeGraphContext/CodeGraphContext/tree/HEAD/LICENSE">
       
     </a>
     
@@ -113,7 +113,7 @@ body_tr: |-
   ## Proje Detayları
   - **Sürüm:** 0.4.11
   - **Yazarlar:** Shashank Shekhar Singh <shashankshekharsingh1205@gmail.com>
-  - **Lisans:** MIT License (Detaylar için [LICENSE](LICENSE) adresine bakın)
+  - **Lisans:** MIT License (Detaylar için [LICENSE](https://github.com/CodeGraphContext/CodeGraphContext/tree/HEAD/LICENSE) adresine bakın)
   - **Web Sitesi:** [CodeGraphContext](http://codegraphcontext.vercel.app/)
   
   ---
@@ -139,7 +139,7 @@ body_tr: |-
   ## Özellikler
   -   **Kod Indexleme:** Kodu analiz eder ve bileşenlerinin bir bilgi grafiği oluşturur.
   -   **İlişki Analizi:** Çağıranlar, çağrılanlar, sınıf hiyerarşileri, çağrı zincirleri ve daha fazlası için sorgulama yapın.
-  -   **Önceden İndekslenmiş Paketler:** Ünlü depoları `.cgc` paketleriyle anında yükleyin - indexleme gerekmez! ([Daha fazla bilgi](docs/BUNDLES.md))
+  -   **Önceden İndekslenmiş Paketler:** Ünlü depoları `.cgc` paketleriyle anında yükleyin - indexleme gerekmez! ([Daha fazla bilgi](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/BUNDLES.md))
   -   **Canlı Dosya İzleme:** Dizinleri değişiklikler için izleyin ve grafiği gerçek zamanlı olarak otomatik güncelleyin (`codegraphcontext watch`).
   -   **Etkileşimli Kurulum:** Kolay kurulum için kullanıcı dostu komut satırı sihirbazı.
   -   **Çift Mod:** Geliştiriciler için bağımsız bir **CLI araç takımı** ve AI ajanları için bir **MCP sunucusu** olarak çalışır.
@@ -279,7 +279,7 @@ body_tr: |-
   codegraphcontext help
   ```
   
-    **Tüm komutlar ve kullanım senaryoları için tam [CLI Komutları Kılavuzuna](docs/CLI_COMPLETE_REFERENCE.md) bakın.**
+    **Tüm komutlar ve kullanım senaryoları için tam [CLI Komutları Kılavuzuna](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/CLI_COMPLETE_REFERENCE.md) bakın.**
   
   ### 🎨 Premium İnteraktif Görselleştirme
   CodeGraphContext, kodunuzun etkileyici etkileşimli bilgi grafiklerini oluşturabilir. Statik diyagramların aksine, bunlar premium web tabanlı araştırmacılarıdır:
@@ -479,7 +479,7 @@ body_tr: |-
   ## Katkıda Bulunma
   
   Katkılar hoş geldiniz! 🎉  
-  Ayrıntılı yönergeler için lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+  Ayrıntılı yönergeler için lütfen [CONTRIBUTING.md](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/CONTRIBUTING.md) dosyasına bakın.
   Yeni özellikler, entegrasyonlar veya iyileştirmeler için fikirleriniz varsa, bir [issue](https://github.com/CodeGraphContext/CodeGraphContext/issues) açın veya bir Pull Request gönderin.
   
   Tartışmalara katılın ve CodeGraphContext'in geleceğini şekillendirmeye yardımcı olun.
@@ -490,12 +490,12 @@ body_tr: |-
 **Turn code repositories into a queryable graph for AI agents.**
 
 🌐 **Languages:**
-- 🇬🇧 [English](README.md)
-- 🇨🇳 [中文](docs/translations/README.zh-CN.md)
-- 🇰🇷 [한국어](docs/translations/README.kor.md)
-- 🇺🇦 [Українська](docs/translations/README.uk.md)
-- 🇷🇺 [Русский](docs/translations/README.ru-RU.md)
-- 🇯🇵 [日本語](docs/translations/README.ja.md)
+- 🇬🇧 [English](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/README.md)
+- 🇨🇳 [中文](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/translations/README.zh-CN.md)
+- 🇰🇷 [한국어](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/translations/README.kor.md)
+- 🇺🇦 [Українська](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/translations/README.uk.md)
+- 🇷🇺 [Русский](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/translations/README.ru-RU.md)
+- 🇯🇵 [日本語](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/translations/README.ja.md)
 - 🇪🇸 Español (Soon)
 
 🌍 **Help translate CodeGraphContext to your language by raising an issue & PR on [GitHub Issues](https://github.com/Shashankss1205/CodeGraphContext/issues)!**
@@ -510,7 +510,7 @@ body_tr: |-
   <a href="https://pypi.org/project/codegraphcontext/">
     
   </a>
-  <a href="LICENSE">
+  <a href="https://github.com/CodeGraphContext/CodeGraphContext/tree/HEAD/LICENSE">
     
   </a>
   
@@ -589,7 +589,7 @@ A powerful **MCP server** and **CLI toolkit** that indexes local code into a gra
 ## Project Details
 - **Version:** 0.5.1
 - **Authors:** Shashank Shekhar Singh <shashankshekharsingh1205@gmail.com>
-- **License:** MIT License (See [LICENSE](LICENSE) for details)
+- **License:** MIT License (See [LICENSE](https://github.com/CodeGraphContext/CodeGraphContext/tree/HEAD/LICENSE) for details)
 - **Website:** [CodeGraphContext](http://codegraphcontext.vercel.app/)
 
 ---
@@ -615,7 +615,7 @@ A powerful **MCP server** and **CLI toolkit** that indexes local code into a gra
 ## Features
 -   **Code Indexing:** Analyzes code and builds a knowledge graph of its components.
 -   **Relationship Analysis:** Query for callers, callees, class hierarchies, call chains and more.
--   **Pre-indexed Bundles:** Load famous repositories instantly with `.cgc` bundles - no indexing required! ([Learn more](docs/docs/guides/bundles.md))
+-   **Pre-indexed Bundles:** Load famous repositories instantly with `.cgc` bundles - no indexing required! ([Learn more](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/docs/guides/bundles.md))
 -   **Live File Watching:** Watch directories for changes and automatically update the graph in real-time (`cgc watch`).
 -   **Interactive Setup:** A user-friendly command-line wizard for easy setup.
 -   **Dual Mode:** Works as a standalone **CLI toolkit** for developers and as an **MCP server** for AI agents.
@@ -834,7 +834,7 @@ codegraphcontext watch .
 codegraphcontext help
 ```
 
-  **See the full [CLI Commands Guide](docs/CLI_COMPLETE_REFERENCE.md) for all available commands and usage scenarios.**
+  **See the full [CLI Commands Guide](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/docs/CLI_COMPLETE_REFERENCE.md) for all available commands and usage scenarios.**
 
 ### 🎨 Premium Interactive Visualization
 CodeGraphContext can generate stunning, interactive knowledge graphs of your code. Unlike static diagrams, these are premium web-based explorers:
@@ -1041,7 +1041,7 @@ Once the server is running, you can interact with it through your AI assistant u
 ## Contributing
 
 Contributions are welcome! 🎉  
-Please see our [CONTRIBUTING.md](.github/CONTRIBUTING.md) for detailed guidelines.
+Please see our [CONTRIBUTING.md](https://github.com/CodeGraphContext/CodeGraphContext/blob/HEAD/.github/CONTRIBUTING.md) for detailed guidelines.
 If you have ideas for new features, integrations, or improvements, open an [issue](https://github.com/CodeGraphContext/CodeGraphContext/issues) or submit a Pull Request.
 
 Join discussions and help shape the future of CodeGraphContext.

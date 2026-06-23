@@ -128,8 +128,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-cdo-advisor`](../../agents/cs-cdo-advisor.md)
-  - Skill: [`chief-data-officer-advisor`](../../../skills/chief-data-officer-advisor/SKILL.md)
+  - Agent: [`cs-cdo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cdo-advisor.md)
+  - Skill: [`chief-data-officer-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-data-officer-advisor/SKILL.md)
   - Komşu: `../../../skills/general-counsel-advisor/` (sözleşmeye dayalı kısıtlamalar), `../../../skills/cto-advisor/` (mimari kapasite)
   
   ---
@@ -251,8 +251,8 @@ python ../../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py
 
 ## Related
 
-- Agent: [`cs-cdo-advisor`](../../agents/cs-cdo-advisor.md)
-- Skill: [`chief-data-officer-advisor`](../../../skills/chief-data-officer-advisor/SKILL.md)
+- Agent: [`cs-cdo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cdo-advisor.md)
+- Skill: [`chief-data-officer-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-data-officer-advisor/SKILL.md)
 - Adjacent: `../../../skills/general-counsel-advisor/` (contractual constraints), `../../../skills/cto-advisor/` (architecture capacity)
 
 ---

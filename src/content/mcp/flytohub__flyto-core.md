@@ -82,7 +82,7 @@ body_tr: |-
   flyto recipe scrape-to-csv --url https://news.ycombinator.com --selector ".titleline a"
   ```
   
-  Her recipe takip edilir. Her çalıştırma yeniden oynatılabilir. [Tüm 32 recipe'yi gör →](docs/RECIPES.md)
+  Her recipe takip edilir. Her çalıştırma yeniden oynatılabilir. [Tüm 32 recipe'yi gör →](https://github.com/flytohub/flyto-core/blob/HEAD/docs/RECIPES.md)
   
   ---
   
@@ -271,7 +271,7 @@ body_tr: |-
   | `dns.*` | 1 | DNS lookup (A, AAAA, MX, CNAME, TXT, NS) |
   | `monitor.*` | 1 | HTTP health check with SSL cert verification |
   
-  Tüm moduller, parametreler ve açıklamalar için **[Tam Module Kataloğu](docs/TOOL_CATALOG.md)** bölümüne bakın.
+  Tüm moduller, parametreler ve açıklamalar için **[Tam Module Kataloğu](https://github.com/flytohub/flyto-core/blob/HEAD/docs/TOOL_CATALOG.md)** bölümüne bakın.
   
   ---
   
@@ -415,7 +415,7 @@ body_tr: |-
   ```
   
   Her recipe bir YAML workflow şablonudur. Tam seçenekler için `flyto recipe <name> --help` çalıştırın.
-  Tam dokümantasyon için **[docs/RECIPES.md](docs/RECIPES.md)** bölümüne bakın.
+  Tam dokümantasyon için **[docs/RECIPES.md](https://github.com/flytohub/flyto-core/blob/HEAD/docs/RECIPES.md)** bölümüne bakın.
   
   ---
   
@@ -476,22 +476,22 @@ body_tr: |-
       return {'ok': True, 'data': {'result': text[::-1]}}
   ```
   
-  Tam kılavuz için **[Module Spesifikasyonu](docs/MODULE_SPECIFICATION.md)** bölümüne bakın.
+  Tam kılavuz için **[Module Spesifikasyonu](https://github.com/flytohub/flyto-core/blob/HEAD/docs/MODULE_SPECIFICATION.md)** bölümüne bakın.
   
   ---
   
   ## Katkıda Bulunma
   
-  Katkıları bekliyoruz! Rehber için **[CONTRIBUTING.md](CONTRIBUTING.md)** bölümüne bakın.
+  Katkıları bekliyoruz! Rehber için **[CONTRIBUTING.md](https://github.com/flytohub/flyto-core/blob/HEAD/CONTRIBUTING.md)** bölümüne bakın.
   
   ## Güvenlik
   
   Güvenlik açıklarını **[security@flyto.dev](mailto:security@flyto.dev)** aracılığıyla bildir.
-  Güvenlik politikamız için **[SECURITY.md](SECURITY.md)** bölümüne bakın.
+  Güvenlik politikamız için **[SECURITY.md](https://github.com/flytohub/flyto-core/blob/HEAD/SECURITY.md)** bölümüne bakın.
   
   ## Lisans
   
-  [Apache License 2.0](LICENSE) — kişisel ve ticari kullanım için ücretsiz.
+  [Apache License 2.0](https://github.com/flytohub/flyto-core/tree/HEAD/LICENSE) — kişisel ve ticari kullanım için ücretsiz.
   
   ---
   
@@ -573,7 +573,7 @@ flyto recipe full-audit --url https://your-site.com
 flyto recipe scrape-to-csv --url https://news.ycombinator.com --selector ".titleline a"
 ```
 
-Every recipe is traced. Every run is replayable. [See all 32 recipes →](docs/RECIPES.md)
+Every recipe is traced. Every run is replayable. [See all 32 recipes →](https://github.com/flytohub/flyto-core/blob/HEAD/docs/RECIPES.md)
 
 ---
 
@@ -762,7 +762,7 @@ Full trace. Replay from any step. Per-step timing. Every run is debuggable.
 | `dns.*` | 1 | DNS lookup (A, AAAA, MX, CNAME, TXT, NS) |
 | `monitor.*` | 1 | HTTP health check with SSL cert verification |
 
-See the **[Full Module Catalog](docs/TOOL_CATALOG.md)** for every module, parameter, and description.
+See the **[Full Module Catalog](https://github.com/flytohub/flyto-core/blob/HEAD/docs/TOOL_CATALOG.md)** for every module, parameter, and description.
 
 ---
 
@@ -906,7 +906,7 @@ flyto recipe github-issue      --url https://example.com --owner me --repo my-ap
 ```
 
 Each recipe is a YAML workflow template. Run `flyto recipe <name> --help` for full options.
-See **[docs/RECIPES.md](docs/RECIPES.md)** for full documentation.
+See **[docs/RECIPES.md](https://github.com/flytohub/flyto-core/blob/HEAD/docs/RECIPES.md)** for full documentation.
 
 ---
 
@@ -967,22 +967,22 @@ async def string_reverse(context):
     return {'ok': True, 'data': {'result': text[::-1]}}
 ```
 
-See **[Module Specification](docs/MODULE_SPECIFICATION.md)** for the complete guide.
+See **[Module Specification](https://github.com/flytohub/flyto-core/blob/HEAD/docs/MODULE_SPECIFICATION.md)** for the complete guide.
 
 ---
 
 ## Contributing
 
-We welcome contributions! See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines.
+We welcome contributions! See **[CONTRIBUTING.md](https://github.com/flytohub/flyto-core/blob/HEAD/CONTRIBUTING.md)** for guidelines.
 
 ## Security
 
 Report security vulnerabilities via **[security@flyto.dev](mailto:security@flyto.dev)**.
-See **[SECURITY.md](SECURITY.md)** for our security policy.
+See **[SECURITY.md](https://github.com/flytohub/flyto-core/blob/HEAD/SECURITY.md)** for our security policy.
 
 ## License
 
-[Apache License 2.0](LICENSE) — free for personal and commercial use.
+[Apache License 2.0](https://github.com/flytohub/flyto-core/tree/HEAD/LICENSE) — free for personal and commercial use.
 
 ---
 

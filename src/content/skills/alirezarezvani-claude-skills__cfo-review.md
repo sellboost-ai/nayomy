@@ -108,8 +108,8 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-cfo-advisor`](../../agents/cs-cfo-advisor.md)
-  - Skill: [`cfo-advisor`](../../../skills/cfo-advisor/SKILL.md)
+  - Agent: [`cs-cfo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cfo-advisor.md)
+  - Skill: [`cfo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cfo-advisor/SKILL.md)
   
   ---
   
@@ -210,8 +210,8 @@ The numerate skeptic stress-tests anything that touches money. Six questions bef
 
 ## Related
 
-- Agent: [`cs-cfo-advisor`](../../agents/cs-cfo-advisor.md)
-- Skill: [`cfo-advisor`](../../../skills/cfo-advisor/SKILL.md)
+- Agent: [`cs-cfo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-cfo-advisor.md)
+- Skill: [`cfo-advisor`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/cfo-advisor/SKILL.md)
 
 ---
 

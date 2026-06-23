@@ -10,8 +10,8 @@ body_length: 12241
 license: "MIT"
 language: "Python"
 body_tr: |-
-  [![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](README-zh.md)
-  [![English](https://img.shields.io/badge/English-Click-yellow)](README.md)
+  [![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](https://github.com/wenb1n-dev/SmartDB_MCP/blob/HEAD/README-zh.md)
+  [![English](https://img.shields.io/badge/English-Click-yellow)](https://github.com/wenb1n-dev/SmartDB_MCP/blob/HEAD/README.md)
   [![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/wenb1n-dev-smartdb-mcp)
   
   
@@ -369,8 +369,8 @@ body_tr: |-
   5. SQL Optimize et
 ---
 
-[![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](README-zh.md)
-[![English](https://img.shields.io/badge/English-Click-yellow)](README.md)
+[![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](https://github.com/wenb1n-dev/SmartDB_MCP/blob/HEAD/README-zh.md)
+[![English](https://img.shields.io/badge/English-Click-yellow)](https://github.com/wenb1n-dev/SmartDB_MCP/blob/HEAD/README.md)
 [![MseeP.ai Security Assessment Badge](https://mseep.net/mseep-audited.png)](https://mseep.ai/app/wenb1n-dev-smartdb-mcp)
 
 

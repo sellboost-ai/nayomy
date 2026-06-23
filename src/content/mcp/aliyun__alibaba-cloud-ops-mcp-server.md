@@ -14,13 +14,13 @@ body_tr: |-
   
   [![GitHub stars](https://img.shields.io/github/stars/aliyun/alibaba-cloud-ops-mcp-server?style=social)](https://github.com/aliyun/alibaba-cloud-ops-mcp-server)
   
-  [中文版本](./README_zh.md)
+  [中文版本](https://github.com/aliyun/alibaba-cloud-ops-mcp-server/blob/HEAD/README_zh.md)
   
   Alibaba Cloud Ops MCP Server, Alibaba Cloud API'leriyle kesintisiz entegrasyon sağlayan bir [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) sunucusudur. AI asistanlarının Alibaba Cloud üzerindeki kaynakları işletmesine olanak tanır; ECS, Cloud Monitor, OOS, OSS, VPC, RDS ve diğer yaygın olarak kullanılan bulut ürünlerini destekler. Ayrıca AI asistanlarının uygulamaları analiz etmesine, derlemesine ve Alibaba Cloud ECS örneklerine dağıtmasına imkan verir.
   
   ## MCP Marketplace Entegrasyonu
   
-  * [Qoder](https://qoder.com) <a href="qoder://aicoding.aicoding-deeplink/mcp/add?name=alibaba-cloud-ops-mcp-server&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnV2eCUyMiUyQyUyMmFyZ3MlMjIlM0ElNUIlMjJhbGliYWJhLWNsb3VkLW9wcy1tY3Atc2VydmVyJTQwbGF0ZXN0JTIyJTVEJTJDJTIyZW52JTIyJTNBJTdCJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX0lEJTIyJTNBJTIyWW91ciUyMEFjY2VzcyUyMEtleSUyMElkJTIyJTJDJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX1NFQ1JFVCUyMiUzQSUyMllvdXIlMjBBY2Nlc3MlMjBLZXklMjBTRUNSRVQlMjIlN0QlN0Q%3D"></a>
+  * [Qoder](https://qoder.com) <a href="https://github.com/aliyun/alibaba-cloud-ops-mcp-server/tree/HEAD/qoder://aicoding.aicoding-deeplink/mcp/add?name=alibaba-cloud-ops-mcp-server&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnV2eCUyMiUyQyUyMmFyZ3MlMjIlM0ElNUIlMjJhbGliYWJhLWNsb3VkLW9wcy1tY3Atc2VydmVyJTQwbGF0ZXN0JTIyJTVEJTJDJTIyZW52JTIyJTNBJTdCJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX0lEJTIyJTNBJTIyWW91ciUyMEFjY2VzcyUyMEtleSUyMElkJTIyJTJDJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX1NFQ1JFVCUyMiUzQSUyMllvdXIlMjBBY2Nlc3MlMjBLZXklMjBTRUNSRVQlMjIlN0QlN0Q%3D"></a>
   * [Cursor](https://docs.cursor.com/tools) [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=alibaba-cloud-ops-mcp-server&config=eyJ0aW1lb3V0Ijo2MDAsImNvbW1hbmQiOiJ1dnggYWxpYmFiYS1jbG91ZC1vcHMtbWNwLXNlcnZlckBsYXRlc3QiLCJlbnYiOnsiQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX0lEIjoiWW91ciBBY2Nlc3MgS2V5IElkIiwiQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX1NFQ1JFVCI6IllvdXIgQWNjZXNzIEtleSBTZWNyZXQifX0%3D)
   * [Cline](https://cline.bot/mcp-marketplace)
   * [ModelScope](https://www.modelscope.cn/mcp/servers/@aliyun/alibaba-cloud-ops-mcp-server?lang=en_US)
@@ -74,7 +74,7 @@ body_tr: |-
   }
   ```
   
-  [Ayrıntılı parametre açıklaması için MCP başlangıç parametresi belgesine bakın](./README_mcp_args.md)
+  [Ayrıntılı parametre açıklaması için MCP başlangıç parametresi belgesine bakın](https://github.com/aliyun/alibaba-cloud-ops-mcp-server/blob/HEAD/README_mcp_args.md)
   
   ## Daha Fazla Bilgi
   
@@ -148,13 +148,13 @@ body_tr: |-
 
 [![GitHub stars](https://img.shields.io/github/stars/aliyun/alibaba-cloud-ops-mcp-server?style=social)](https://github.com/aliyun/alibaba-cloud-ops-mcp-server)
 
-[中文版本](./README_zh.md)
+[中文版本](https://github.com/aliyun/alibaba-cloud-ops-mcp-server/blob/HEAD/README_zh.md)
 
 Alibaba Cloud Ops MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that provides seamless integration with Alibaba Cloud APIs, enabling AI assistants to operate resources on Alibaba Cloud, supporting ECS, Cloud Monitor, OOS, OSS, VPC, RDS and other widely used cloud products. It also enables AI assistants to analyze, build, and deploy applications to Alibaba Cloud ECS instances.
 
 ## MCP Maketplace Integration
 
-* [Qoder](https://qoder.com) <a href="qoder://aicoding.aicoding-deeplink/mcp/add?name=alibaba-cloud-ops-mcp-server&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnV2eCUyMiUyQyUyMmFyZ3MlMjIlM0ElNUIlMjJhbGliYWJhLWNsb3VkLW9wcy1tY3Atc2VydmVyJTQwbGF0ZXN0JTIyJTVEJTJDJTIyZW52JTIyJTNBJTdCJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX0lEJTIyJTNBJTIyWW91ciUyMEFjY2VzcyUyMEtleSUyMElkJTIyJTJDJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX1NFQ1JFVCUyMiUzQSUyMllvdXIlMjBBY2Nlc3MlMjBLZXklMjBTRUNSRVQlMjIlN0QlN0Q%3D"></a>
+* [Qoder](https://qoder.com) <a href="https://github.com/aliyun/alibaba-cloud-ops-mcp-server/tree/HEAD/qoder://aicoding.aicoding-deeplink/mcp/add?name=alibaba-cloud-ops-mcp-server&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMnV2eCUyMiUyQyUyMmFyZ3MlMjIlM0ElNUIlMjJhbGliYWJhLWNsb3VkLW9wcy1tY3Atc2VydmVyJTQwbGF0ZXN0JTIyJTVEJTJDJTIyZW52JTIyJTNBJTdCJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX0lEJTIyJTNBJTIyWW91ciUyMEFjY2VzcyUyMEtleSUyMElkJTIyJTJDJTIyQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX1NFQ1JFVCUyMiUzQSUyMllvdXIlMjBBY2Nlc3MlMjBLZXklMjBTRUNSRVQlMjIlN0QlN0Q%3D"></a>
 * [Cursor](https://docs.cursor.com/tools) [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=alibaba-cloud-ops-mcp-server&config=eyJ0aW1lb3V0Ijo2MDAsImNvbW1hbmQiOiJ1dnggYWxpYmFiYS1jbG91ZC1vcHMtbWNwLXNlcnZlckBsYXRlc3QiLCJlbnYiOnsiQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX0lEIjoiWW91ciBBY2Nlc3MgS2V5IElkIiwiQUxJQkFCQV9DTE9VRF9BQ0NFU1NfS0VZX1NFQ1JFVCI6IllvdXIgQWNjZXNzIEtleSBTZWNyZXQifX0%3D)
 * [Cline](https://cline.bot/mcp-marketplace)
 * [ModelScope](https://www.modelscope.cn/mcp/servers/@aliyun/alibaba-cloud-ops-mcp-server?lang=en_US)
@@ -208,7 +208,7 @@ To use `alibaba-cloud-ops-mcp-server` MCP Server with any other MCP Client, you 
 }
 ```
 
-[For detailed parameter description, see MCP startup parameter document](./README_mcp_args.md)
+[For detailed parameter description, see MCP startup parameter document](https://github.com/aliyun/alibaba-cloud-ops-mcp-server/blob/HEAD/README_mcp_args.md)
 
 ## Know More
 

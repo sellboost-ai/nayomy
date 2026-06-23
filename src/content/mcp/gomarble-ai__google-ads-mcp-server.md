@@ -551,7 +551,7 @@ body_tr: |-
   
   ## 📄 Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+  Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](https://github.com/gomarble-ai/google-ads-mcp-server/tree/HEAD/LICENSE) dosyasına bakın.
   
   ---
   
@@ -1133,7 +1133,7 @@ print('✅ Authentication successful!')
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/gomarble-ai/google-ads-mcp-server/tree/HEAD/LICENSE) file for details.
 
 ---
 

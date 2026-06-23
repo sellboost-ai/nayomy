@@ -132,7 +132,7 @@ body_tr: |-
   
   ## Kullanım
   
-  > **Not**: MCP iletişiminde herhangi bir sorunla karşılaşırsanız, çözümler için [Sorun Giderme Rehberi](docs/troubleshooting.md)'ne bakınız.
+  > **Not**: MCP iletişiminde herhangi bir sorunla karşılaşırsanız, çözümler için [Sorun Giderme Rehberi](https://github.com/doggybee/mcp-server-ccxt/blob/HEAD/docs/troubleshooting.md)'ne bakınız.
   
   ### Server'ı Çalıştırma
   
@@ -290,7 +290,7 @@ body_tr: |-
   
   ## Lisans
   
-  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE.txt](LICENSE.txt) dosyasına bakınız.
+  Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [LICENSE.txt](https://github.com/doggybee/mcp-server-ccxt/blob/HEAD/LICENSE.txt) dosyasına bakınız.
   
   ## Telif Hakkı ve Atıf
   
@@ -449,7 +449,7 @@ npm start
 
 ## Usage
 
-> **Note**: If you encounter any issues with MCP communication, please see the [Troubleshooting Guide](docs/troubleshooting.md) for solutions.
+> **Note**: If you encounter any issues with MCP communication, please see the [Troubleshooting Guide](https://github.com/doggybee/mcp-server-ccxt/blob/HEAD/docs/troubleshooting.md) for solutions.
 
 ### Running the Server
 
@@ -607,7 +607,7 @@ This software is provided for informational purposes only. Using this software t
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
+This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/doggybee/mcp-server-ccxt/blob/HEAD/LICENSE.txt) file for details.
 
 ## Copyright and Attribution
 

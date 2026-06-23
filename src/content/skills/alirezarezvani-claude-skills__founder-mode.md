@@ -110,9 +110,9 @@ body_tr: |-
   
   ## İlgili
   
-  - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md) — yönlendirmeyi yapar
-  - Skill: [`chief-of-staff`](../../../skills/chief-of-staff/SKILL.md) — yönlendirme mantığı
-  - Skill: [`context-engine`](../../../skills/context-engine/SKILL.md) — context yükler
+  - Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md) — yönlendirmeyi yapar
+  - Skill: [`chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-of-staff/SKILL.md) — yönlendirme mantığı
+  - Skill: [`context-engine`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/context-engine/SKILL.md) — context yükler
   
   ---
   
@@ -215,9 +215,9 @@ gstack requires the founder to know all 23 slash commands and pick the right one
 
 ## Related
 
-- Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md) — does the routing
-- Skill: [`chief-of-staff`](../../../skills/chief-of-staff/SKILL.md) — routing logic
-- Skill: [`context-engine`](../../../skills/context-engine/SKILL.md) — loads context
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/agents/cs-chief-of-staff.md) — does the routing
+- Skill: [`chief-of-staff`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/chief-of-staff/SKILL.md) — routing logic
+- Skill: [`context-engine`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/skills/context-engine/SKILL.md) — loads context
 
 ---
 

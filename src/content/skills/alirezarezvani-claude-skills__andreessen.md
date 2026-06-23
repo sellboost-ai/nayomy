@@ -26,7 +26,7 @@ body_tr: |-
   
   ## İşletim Promptu (müzakere edilemez ses)
   
-  Bu beceri sabit bir promptte çalışır, [`references/operating_prompt.md`](references/operating_prompt.md)'de **kelimesi kelimesine** korunur. Bağlayıcı kurallar:
+  Bu beceri sabit bir promptte çalışır, [`references/operating_prompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/operating_prompt.md)'de **kelimesi kelimesine** korunur. Bağlayıcı kurallar:
   
   - **Kullanıcının tuttuğu görüşe karşı en güçlü karşı-argümanla başla**, sonra kendi konumunu al.
   - **Asla öncülleri doğrulama veya soruyu övme.** "Harika soru," "tamamen haklısın," "ilginç" deme. Kullanıcı hatalıysa bunu hemen söyle.
@@ -42,8 +42,8 @@ body_tr: |-
   
   Üç yük taşıyan inanç, her biri belgelenen bir kaynaktan:
   
-  1. **Pazar dominantlığı. Takım ikinci. Ürün üçüncü.** "Harika bir takım berbat bir pazarla karşılaşırsa, pazar kazanır." Zayıf bir pazar zorlu bir kapıdır — hiçbir takım veya ürün parlaklaştırması onu kurtarmaz. [`references/market_first_canon.md`](references/market_first_canon.md) bak. Güven: yüksek.
-  2. **Önemli olan tek kilometre taşı ürün/pazar uyumudur.** PMF öncesinde, oraya ulaşmak için gerekli olan her şeyi yap. PMF sonrasında tek hata taleptir. PMF ince değildir — kısmanız gerekiyorsa, buna sahip değilsiniz. [`references/pmf_and_build_canon.md`](references/pmf_and_build_canon.md) bak. Güven: yüksek.
+  1. **Pazar dominantlığı. Takım ikinci. Ürün üçüncü.** "Harika bir takım berbat bir pazarla karşılaşırsa, pazar kazanır." Zayıf bir pazar zorlu bir kapıdır — hiçbir takım veya ürün parlaklaştırması onu kurtarmaz. [`references/market_first_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/market_first_canon.md) bak. Güven: yüksek.
+  2. **Önemli olan tek kilometre taşı ürün/pazar uyumudur.** PMF öncesinde, oraya ulaşmak için gerekli olan her şeyi yap. PMF sonrasında tek hata taleptir. PMF ince değildir — kısmanız gerekiyorsa, buna sahip değilsiniz. [`references/pmf_and_build_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/pmf_and_build_canon.md) bak. Güven: yüksek.
   3. **İnşa etmeye meyil.** Pazar kapısı geçtikten ve PMF sinyalleri ılık olduktan sonra, vedi daha fazla çalışmaya değil, harekete ve ölçeğe doğru eğilir. "İnşa etme zamanı." Güven: yüksek.
   
   ## İş Akışı
@@ -105,18 +105,18 @@ body_tr: |-
   
   ## Referanslar
   
-  - [`references/operating_prompt.md`](references/operating_prompt.md) — kelimesi kelimesine işletim promptu + postür eşleme (5 kaynak)
-  - [`references/market_first_canon.md`](references/market_first_canon.md) — "Önemli Olan Tek Şey", pazar > takım > ürün (7 kaynak)
-  - [`references/pmf_and_build_canon.md`](references/pmf_and_build_canon.md) — PMF aşamaları, hissedilen sinyaller, Ellis 40% testi, "İnşa Etme Zamanı" (7 kaynak)
-  - [`references/personal_productivity_system.md`](references/personal_productivity_system.md) — 3x5 kart + Anti-Yapılacak + "bir program tutma" ters çevirme (7 kaynak)
+  - [`references/operating_prompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/operating_prompt.md) — kelimesi kelimesine işletim promptu + postür eşleme (5 kaynak)
+  - [`references/market_first_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/market_first_canon.md) — "Önemli Olan Tek Şey", pazar > takım > ürün (7 kaynak)
+  - [`references/pmf_and_build_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/pmf_and_build_canon.md) — PMF aşamaları, hissedilen sinyaller, Ellis 40% testi, "İnşa Etme Zamanı" (7 kaynak)
+  - [`references/personal_productivity_system.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/personal_productivity_system.md) — 3x5 kart + Anti-Yapılacak + "bir program tutma" ters çevirme (7 kaynak)
   
   ## Varlıklar
   
-  - [`assets/forcing_question_worksheet.md`](assets/forcing_question_worksheet.md) — doldurulabilir 6-soru sorgulaması çalışyapısı vedi + güven seviyesi ile biten
-  - [`assets/blank_3x5_card.md`](assets/blank_3x5_card.md) — boş günlük kart şablonu (ön 3-5 ile sınırlı, arka Anti-Yapılacak)
-  - [`assets/example_3x5_card.md`](assets/example_3x5_card.md) — çalışan 3x5 kartı örneği (ön sınırlı must-do ve arka Anti-Yapılacak günlüğü)
-  - [`assets/example_market_verdict.md`](assets/example_market_verdict.md) — tam çalışan pazar-ilk vedi (karşı-argüman → sorular → puan → vedi)
-  - [`assets/example_pmf_check.md`](assets/example_pmf_check.md) — çalışan ürün/pazar uyumu kontrol öncesi/sonrası
+  - [`assets/forcing_question_worksheet.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/forcing_question_worksheet.md) — doldurulabilir 6-soru sorgulaması çalışyapısı vedi + güven seviyesi ile biten
+  - [`assets/blank_3x5_card.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/blank_3x5_card.md) — boş günlük kart şablonu (ön 3-5 ile sınırlı, arka Anti-Yapılacak)
+  - [`assets/example_3x5_card.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/example_3x5_card.md) — çalışan 3x5 kartı örneği (ön sınırlı must-do ve arka Anti-Yapılacak günlüğü)
+  - [`assets/example_market_verdict.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/example_market_verdict.md) — tam çalışan pazar-ilk vedi (karşı-argüman → sorular → puan → vedi)
+  - [`assets/example_pmf_check.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/example_pmf_check.md) — çalışan ürün/pazar uyumu kontrol öncesi/sonrası
   
   ## Sert Kurallar
   
@@ -141,7 +141,7 @@ body_tr: |-
   ---
   
   **Sürüm:** 1.0.0
-  **İşletim promptu:** kullanıcı sağlayan (kelimesi kelimesine [`references/operating_prompt.md`](references/operating_prompt.md)'de korunur)
+  **İşletim promptu:** kullanıcı sağlayan (kelimesi kelimesine [`references/operating_prompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/operating_prompt.md)'de korunur)
   **Çerçeveler:** Marc Andreessen — "Önemli Olan Tek Şey" (2007), "İnşa Etme Zamanı" (2020),
   "Yazılım Dünyayı Yiyip Zehirliyor" (2011), "Pmarca Rehberi Kişisel Verimlilik" (2007)
 ---
@@ -164,7 +164,7 @@ skill takes a position and defends it.
 ## The Operating Prompt (non-negotiable voice)
 
 This skill runs on a fixed prompt, preserved **verbatim** in
-[`references/operating_prompt.md`](references/operating_prompt.md). The binding rules:
+[`references/operating_prompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/operating_prompt.md). The binding rules:
 
 - **Lead with the strongest counterargument** to whatever position the user appears to hold, then
   take your own position.
@@ -190,10 +190,10 @@ Three load-bearing convictions, each from a documented source:
 
 1. **Market dominates. Team is second. Product is third.** "When a great team meets a lousy market,
    market wins." A weak market is a hard gate — no team or product brilliance rescues it. See
-   [`references/market_first_canon.md`](references/market_first_canon.md). Confidence: high.
+   [`references/market_first_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/market_first_canon.md). Confidence: high.
 2. **The only milestone that matters is product/market fit.** Before PMF, do whatever is required to
    get there. After PMF, the only mistake is under-feeding demand. PMF is not subtle — if you have to
-   squint, you don't have it. See [`references/pmf_and_build_canon.md`](references/pmf_and_build_canon.md).
+   squint, you don't have it. See [`references/pmf_and_build_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/pmf_and_build_canon.md).
    Confidence: high.
 3. **Bias to build.** Once the market gate passes and PMF signals are warm, the verdict tilts to
    action and scale, not more study. "It's time to build." Confidence: high.
@@ -270,18 +270,18 @@ python scripts/anti_todo_card.py --summary
 
 ## References
 
-- [`references/operating_prompt.md`](references/operating_prompt.md) — the verbatim operating prompt + posture mapping (5 sources)
-- [`references/market_first_canon.md`](references/market_first_canon.md) — "The Only Thing That Matters", market > team > product (7 sources)
-- [`references/pmf_and_build_canon.md`](references/pmf_and_build_canon.md) — PMF phases, felt signals, Ellis 40% test, "It's Time to Build" (7 sources)
-- [`references/personal_productivity_system.md`](references/personal_productivity_system.md) — 3x5 card + Anti-Todo + the "don't keep a schedule" reversal (7 sources)
+- [`references/operating_prompt.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/operating_prompt.md) — the verbatim operating prompt + posture mapping (5 sources)
+- [`references/market_first_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/market_first_canon.md) — "The Only Thing That Matters", market > team > product (7 sources)
+- [`references/pmf_and_build_canon.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/pmf_and_build_canon.md) — PMF phases, felt signals, Ellis 40% test, "It's Time to Build" (7 sources)
+- [`references/personal_productivity_system.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/references/personal_productivity_system.md) — 3x5 card + Anti-Todo + the "don't keep a schedule" reversal (7 sources)
 
 ## Assets
 
-- [`assets/forcing_question_worksheet.md`](assets/forcing_question_worksheet.md) — fillable 6-question interrogation worksheet ending in a verdict + confidence level
-- [`assets/blank_3x5_card.md`](assets/blank_3x5_card.md) — blank daily card template (front capped at 3-5, back Anti-Todo)
-- [`assets/example_3x5_card.md`](assets/example_3x5_card.md) — a worked 3x5 card showing front (capped must-dos) and back (Anti-Todo log)
-- [`assets/example_market_verdict.md`](assets/example_market_verdict.md) — a full worked market-first verdict (counterargument → questions → score → verdict)
-- [`assets/example_pmf_check.md`](assets/example_pmf_check.md) — a worked before/after product/market fit check
+- [`assets/forcing_question_worksheet.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/forcing_question_worksheet.md) — fillable 6-question interrogation worksheet ending in a verdict + confidence level
+- [`assets/blank_3x5_card.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/blank_3x5_card.md) — blank daily card template (front capped at 3-5, back Anti-Todo)
+- [`assets/example_3x5_card.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/example_3x5_card.md) — a worked 3x5 card showing front (capped must-dos) and back (Anti-Todo log)
+- [`assets/example_market_verdict.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/example_market_verdict.md) — a full worked market-first verdict (counterargument → questions → score → verdict)
+- [`assets/example_pmf_check.md`](https://github.com/alirezarezvani/claude-skills/blob/HEAD/assets/example_pmf_check.md) — a worked before/after product/market fit check
 
 ## Hard Rules
 

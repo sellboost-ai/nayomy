@@ -34,7 +34,7 @@ body_tr: |-
   
   ## Servis Yapılandırması
   
-  Tüm araçları yönlendirmek için basit bir konfigürasyon dosyası kullanılır. [services/configuration.yaml](services/configuration.yaml) adresinde bir örnek görebilir ve aşağıda bir şablon bulunmaktadır. Bu konfigürasyon dosyasının yolu sunucuya iletilecek ve içeriği başlangıçta MCP sunucusu araçlarını oluşturmak için kullanılacaktır.
+  Tüm araçları yönlendirmek için basit bir konfigürasyon dosyası kullanılır. [services/configuration.yaml](https://github.com/Snowflake-Labs/mcp/blob/HEAD/services/configuration.yaml) adresinde bir örnek görebilir ve aşağıda bir şablon bulunmaktadır. Bu konfigürasyon dosyasının yolu sunucuya iletilecek ve içeriği başlangıçta MCP sunucusu araçlarını oluşturmak için kullanılacaktır.
   
   **Cortex Hizmetleri**
   
@@ -43,7 +43,7 @@ body_tr: |-
   
   **Diğer Hizmetler**
   
-  Diğer hizmetler [nesne yönetimi](object-management), [sorgu yürütme](sql-execution) ve [semantic view kullanımı](semantic-view-querying) için araçlar içerir.
+  Diğer hizmetler [nesne yönetimi](https://github.com/Snowflake-Labs/mcp/tree/HEAD/object-management), [sorgu yürütme](https://github.com/Snowflake-Labs/mcp/tree/HEAD/sql-execution) ve [semantic view kullanımı](https://github.com/Snowflake-Labs/mcp/tree/HEAD/semantic-view-querying) için araçlar içerir.
   Bu araç grupları, konfigürasyon dosyasının `other_services` bölümünde True olarak ayarlanarak etkinleştirilebilir.
   
   **SQL Statement İzinleri**
@@ -523,7 +523,7 @@ The MCP server supported the below capabilities:
 
 ## Service Configuration
 
-A simple configuration file is used to drive all tooling. An example can be seen at [services/configuration.yaml](services/configuration.yaml) and a template is below. The path to this configuration file will be passed to the server and the contents used to create MCP server tools at startup.
+A simple configuration file is used to drive all tooling. An example can be seen at [services/configuration.yaml](https://github.com/Snowflake-Labs/mcp/blob/HEAD/services/configuration.yaml) and a template is below. The path to this configuration file will be passed to the server and the contents used to create MCP server tools at startup.
 
 **Cortex Services**
 
@@ -532,7 +532,7 @@ Only the explicitly listed Cortex services will be available as tools in the MCP
 
 **Other Services**
 
-Other services include tooling for [object management](object-management), [query execution](sql-execution), and [semantic view usage](semantic-view-querying).
+Other services include tooling for [object management](https://github.com/Snowflake-Labs/mcp/tree/HEAD/object-management), [query execution](https://github.com/Snowflake-Labs/mcp/tree/HEAD/sql-execution), and [semantic view usage](https://github.com/Snowflake-Labs/mcp/tree/HEAD/semantic-view-querying).
 These groups of tools can be enabled by setting them to True in the `other_services` section of the configuration file.
 
 **SQL Statement Permissions**

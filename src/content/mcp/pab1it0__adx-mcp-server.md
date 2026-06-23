@@ -215,7 +215,7 @@ body_tr: |-
   
   Bu depo, sorunsuz bir geliştirme deneyimi için bir geliştirme konteyneri olarak da kullanılabilir. Dev container kurulumu `devcontainer-feature/adx-mcp-server` klasöründe yer almaktadır.
   
-  Daha fazla ayrıntı için [devcontainer README](devcontainer-feature/adx-mcp-server/README.md) dosyasını kontrol edin.
+  Daha fazla ayrıntı için [devcontainer README](https://github.com/pab1it0/adx-mcp-server/blob/HEAD/devcontainer-feature/adx-mcp-server/README.md) dosyasını kontrol edin.
   
   
   
@@ -536,7 +536,7 @@ For HTTP mode deployment, you can use the following Docker configuration:
 
 This repository can also be used as a development container for a seamless development experience. The dev container setup is located in the `devcontainer-feature/adx-mcp-server` folder.
 
-For more details, check the [devcontainer README](devcontainer-feature/adx-mcp-server/README.md).
+For more details, check the [devcontainer README](https://github.com/pab1it0/adx-mcp-server/blob/HEAD/devcontainer-feature/adx-mcp-server/README.md).
 
 
 
