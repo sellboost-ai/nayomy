@@ -60,7 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const body = await request.json();
-    const { action, id, title, summary } = body;
+    const { action, id, title, summary, body: bodyText, category, relatedLink } = body;
 
     if (!action || !id) {
       return new Response(JSON.stringify({ error: 'action ve id gerekli' }), {
@@ -87,6 +87,9 @@ export const POST: APIRoute = async ({ request }) => {
         ...item,
         title: title || item.title,
         summary: summary || item.summary,
+        body: bodyText !== undefined ? bodyText : item.body,
+        category: category || item.category,
+        relatedLink: relatedLink !== undefined ? relatedLink : item.relatedLink,
         publishedAt: new Date().toISOString(),
         status: 'published',
       };
@@ -122,6 +125,34 @@ export const POST: APIRoute = async ({ request }) => {
         `news: reddet — ${item.title.slice(0, 60)}`);
 
       return new Response(JSON.stringify({ ok: true, rejected: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (action === 'update') {
+      // 2c. Güncelle: pending'deki taslağı düzenlenmiş alanlarla yaz
+      const idx = pending.json.items.findIndex((i: any) => i.id === id);
+      if (idx === -1) {
+        return new Response(JSON.stringify({ error: 'Taslak bulunamadı' }), {
+          status: 404,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      pending.json.items[idx] = {
+        ...pending.json.items[idx],
+        ...(title !== undefined && { title }),
+        ...(summary !== undefined && { summary }),
+        ...(bodyText !== undefined && { body: bodyText }),
+        ...(category !== undefined && { category }),
+        ...(relatedLink !== undefined && { relatedLink }),
+      };
+      pending.json.updatedAt = new Date().toISOString();
+
+      await writeJsonToGitHub('news-pending.json', pending.json, pending.sha,
+        `news: düzenle — ${(title || item.title).slice(0, 60)}`);
+
+      return new Response(JSON.stringify({ ok: true, updated: true }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       });
