@@ -1,22 +1,6 @@
 {
-  "updatedAt": "2026-06-24T00:47:55.887Z",
+  "updatedAt": "2026-06-24T00:48:00.901Z",
   "items": [
-    {
-      "id": "openai-news-omio-openai-ile-konusmali-seyahat-deneyimini-nasil-insa-ediyor-1782245732618",
-      "slug": "omio-openai-ile-konusmali-seyahat-deneyimini-nasil-insa-ediyor",
-      "title": "Omio, OpenAI ile Konuşmalı Seyahat Deneyimini Nasıl İnşa Ediyor?",
-      "summary": "Avrupa merkezli seyahat platformu Omio, OpenAI teknolojilerini kullanarak konuşma tabanlı seyahat deneyimleri geliştiriyor. Şirket, ürün geliştirme süreçlerini hızlandırmak ve AI-native bir yapıya dönüşmek için OpenAI ile ortaklık kurdu. Bu hamle, seyahat sektöründe kullanıcı deneyimini yeniden tanımlama potansiyeli taşıyor.",
-      "body": "Avrupa'nın önde gelen çok modlu seyahat platformlarından biri olan Omio, OpenAI teknolojilerini entegre ederek kullanıcılarına konuşma tabanlı seyahat planlama deneyimleri sunmaya başladı. Şirket, bu iş birliğini yalnızca bir özellik güncellemesi olarak değil, kurumsal dönüşümün merkezine oturtan stratejik bir adım olarak konumlandırıyor. Omio'nun hedefi, kendisini tam anlamıyla AI-native bir şirkete dönüştürmek.\n\nOmio, otobüs, tren ve uçuş gibi farklı ulaşım modlarını tek bir platformda birleştiriyor ve Avrupa genelinde milyonlarca kullanıcıya hizmet veriyor. OpenAI ile kurulan bu ortaklık sayesinde platform, kullanıcıların doğal dil kullanarak seyahat arayışı yapabildiği conversational arayüzler geliştiriyor. Kullanıcılar artık belirli form alanlarını doldurmak yerine sohbet eder gibi seyahat planı oluşturabiliyor; sistem bu talepleri anlayarak uygun rotaları, fiyatları ve bağlantı noktalarını otomatik olarak öneriyor.\n\nTeknik açıdan bakıldığında, Omio'nun OpenAI entegrasyonu yalnızca front-end chatbot katmanından ibaret değil. Şirket, OpenAI modellerini ürün geliştirme döngüsünün birden fazla aşamasına dahil etti. Bu yaklaşım; içerik üretimi, kullanıcı niyeti analizi ve kişiselleştirilmiş öneri motorlarının geliştirilmesini kapsıyor. Bunun yanı sıra geliştirici ekipler, kod yazımı ve test süreçlerinde de AI destekli araçlardan yararlanarak ürün geliştirme hızını artırdı. Omio'nun mühendislik ve ürün ekiplerinin bu dönüşümü kurumsal kültürün bir parçası haline getirme çabası, şirketin AI'ı yalnızca araç değil, çalışma biçimi olarak benimsediğini gösteriyor.\n\nBu gelişme, seyahat teknolojisi sektörü açısından önemli bir kırılma noktasına işaret ediyor. Geleneksel seyahat arama motorları, filtreleme ve form tabanlı arayüzlere dayanırken, conversational AI bu paradigmayı köklü biçimde değiştirme potansiyeli taşıyor. Booking.com ve Google Travel gibi rakipler de benzer alanlara yatırım yapıyor; ancak Omio'nun çok modlu ulaşım odaklı konumu, bu alanda farklılaşma fırsatı sunuyor.\n\nTürkiye açısından değerlendirildiğinde, bu tür conversational travel deneyimlerinin yerli seyahat platformları için de ilham kaynağı olabileceği görülüyor. Türkiye'de Enuygun, Obilet ve Türk Havayolları gibi platformlar, çok sayıda ulaşım modunu bir arada sunuyor. Bu platformların OpenAI API'leri veya benzer büyük dil modelleri kullanarak benzer conversational arayüzler geliştirmesi teknik olarak erişilebilir bir hedef. Özellikle Türkiye'nin güçlü turizm altyapısı ve iç hat ulaşım talebi düşünüldüğünde, Türkçe dil desteğiyle güçlendirilmiş bir conversational seyahat asistanının pazar potansiyeli son derece yüksek. Yerli girişimler için asıl rekabet avantajı, yerel ulaşım ağlarını, fiyatlandırma dinamiklerini ve kullanıcı davranış örüntülerini AI modellerine etkin biçimde aktarabilmekten geçiyor.",
-      "category": "sirket",
-      "relatedLink": null,
-      "originalTitle": "How Omio is building the future of conversational travel",
-      "originalSummary": "Discover how Omio uses OpenAI to power conversational travel experiences, accelerate product development, and transform into an AI-native company.",
-      "source": "OpenAI News",
-      "sourceUrl": "https://openai.com/index/omio",
-      "pubDate": "2026-06-23T00:00:00.000Z",
-      "fetchedAt": "2026-06-23T20:15:32.618Z",
-      "status": "pending"
-    },
     {
       "id": "openai-news-omio-openai-ile-konusmaci-seyahat-deneyimi-gelistiriyor-1782204861753",
       "title": "Omio, OpenAI ile konuşmacı seyahat deneyimi geliştiriyor",
