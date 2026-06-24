@@ -1,6 +1,23 @@
 {
-  "updatedAt": "2026-06-19T08:38:05.777Z",
+  "updatedAt": "2026-06-24T00:47:39.445Z",
   "items": [
+    {
+      "id": "openai-news-gpt-5-3-yillik-immunoloji-gizemini-cozdu-1782245580165",
+      "slug": "gpt-5-3-yillik-immunoloji-gizemini-cozdu",
+      "title": "GPT-5, 3 Yıllık İmmünoloji Gizemini Çözdü",
+      "summary": "İmmünolog Derya Unutmaz, GPT-5 Pro'nun yardımıyla üç yıldır çözemediği T hücre davranışına ilişkin bir gizemle baş başa kaldı ve kısa sürede kritik bir çıkarıma ulaştı. Bu bulgu, kanser ve otoimmün hastalık araştırmalarına yeni bir perspektif kazandırabilir.",
+      "body": "İmmünolog Derya Unutmaz, GPT-5 Pro'yu bir araştırma ortağı olarak kullanarak üç yıldır çözüme kavuşturamadığı bir T hücre davranışı gizemini kısa sürede aydınlatmayı başardı. OpenAI'nin paylaştığı bu vaka, büyük dil modellerinin yalnızca metin üretmekle kalmayıp karmaşık bilimsel problemlerde de somut katkı sunabildiğini gösteren nadir örneklerden biri olarak öne çıkıyor.\n\nUnutmaz, yıllardır belirli bir T hücresi popülasyonunun beklenmedik biçimde davrandığını gözlemliyordu; ancak bu anomalinin arkasındaki mekanizmayı açıklamakta güçlük çekiyordu. GPT-5 Pro ile yürüttüğü kapsamlı analiz sürecinde model, mevcut literatürü değerlendirerek araştırmacının gözden kaçırdığı bağlantıları gün yüzüne çıkardı. Bu süreç, bir asistanın sorulara yanıt vermesinden çok, iki uzmanın fikir alışverişi yapması gibi ilerledi.\n\nT hücreleri, bağışıklık sisteminin temel bileşenlerinden biridir ve hem kanser immünoterapisinde hem de otoimmün hastalıkların tedavisinde kritik bir rol oynar. Söz konusu hücrelerin davranış örüntülerini anlamak, hedefe yönelik tedavilerin geliştirilmesi açısından büyük önem taşır. GPT-5 Pro'nun sunduğu içgörüler, bu hücrelerin belirli koşullar altında nasıl tepki verdiğine dair yeni bir çerçeve çizmiş olabilir. Açıklanan bulgular henüz erken aşamada olsa da kanser ve otoimmün araştırmaları için umut verici bir başlangıç noktası sunuyor.\n\nGPT-5, OpenAI'nin şimdiye kadar piyasaya sürdüğü en gelişmiş model olarak tanıtılmıştı. Özellikle Pro katmanında sunulan derin akıl yürütme yetenekleri, bilimsel veri yorumlama ve hipotez oluşturma konularında önceki nesil modellerin çok ötesine geçiyor. Unutmaz vakası, bu yeteneklerin gerçek dünya bilimsel süreçlerine nasıl entegre edilebileceğinin somut bir göstergesi niteliğinde.\n\nTürkiye'deki araştırmacılar ve biyomedikal alanda çalışan profesyoneller açısından bu gelişme dikkat çekici bir fırsat sunuyor. Türk akademik ekosisteminde fon kısıtları ve uzun literatür tarama süreçleri gibi yapısal sorunlar, araştırma verimliliğini önemli ölçüde düşürebilmektedir. GPT-5 gibi modellerin araştırma süreçlerine dahil edilmesi, bu sorunları kısmen hafifletebilir. Özellikle immünoloji, onkoloji ve nöroloji gibi alanlarda çalışan Türk akademisyenler, modeli hipotez doğrulama, literatür sentezi ve veri yorumlama aşamalarında bir düşünce ortağı olarak kullanabilir. Bunun için ChatGPT'nin Pro planına abone olmak ve araştırma sorularını sistematik biçimde modelleştirmek yeterli bir başlangıç noktası oluşturuyor. Türkiye'nin güçlü tıp fakülteleri ve araştırma hastaneleri göz önüne alındığında, bu tür AI destekli metodolojilerin benimsenmesi uluslararası yayın üretkenliğini de olumlu etkileyebilir.",
+      "category": "trend",
+      "relatedLink": null,
+      "originalTitle": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
+      "originalSummary": "GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research.",
+      "source": "OpenAI News",
+      "sourceUrl": "https://openai.com/index/gpt-5-immunology-mystery",
+      "pubDate": "2026-06-23T17:00:00.000Z",
+      "fetchedAt": "2026-06-23T20:13:00.165Z",
+      "status": "published",
+      "publishedAt": "2026-06-24T00:47:39.445Z"
+    },
     {
       "id": "openai-news-openai-pratik-ai-becerisi-icin-uc-yeni-kurs-baslatti-1781823425319",
       "title": "OpenAI, pratik AI becerisi için üç yeni kurs başlattı",
