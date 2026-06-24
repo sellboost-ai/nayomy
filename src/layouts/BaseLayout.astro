@@ -20,6 +20,10 @@ interface Props {
   hreflangEn?: string;
   /** Override computed TR hreflang URL (absolute). */
   hreflangTr?: string;
+  /** Override EN lang-pill URL (site-relative). Use when EN/TR slugs differ. */
+  altEnUrl?: string;
+  /** Override TR lang-pill URL (site-relative). Use when EN/TR slugs differ. */
+  altTrUrl?: string;
 }
 
 const {
@@ -33,6 +37,8 @@ const {
   canonicalUrl: canonicalOverride,
   hreflangEn: hreflangEnOverride,
   hreflangTr: hreflangTrOverride,
+  altEnUrl,
+  altTrUrl,
 } = Astro.props;
 
 const SITE = 'https://nayomy.com';
@@ -89,7 +95,7 @@ const ogLocaleAlt = lang === 'tr' ? 'en_US' : 'tr_TR';
   </script>
 </head>
 <body>
-  <Nav lang={lang} />
+  <Nav lang={lang} altEnUrl={altEnUrl} altTrUrl={altTrUrl} />
   <slot />
   <Footer lang={lang} updatedAt={updatedAt} />
 </body>
