@@ -1,6 +1,23 @@
 {
-  "updatedAt": "2026-06-24T00:47:39.445Z",
+  "updatedAt": "2026-06-24T00:47:44.380Z",
   "items": [
+    {
+      "id": "openai-news-openai-gelismis-ai-icin-ortak-standartlar-insa-ediyor-1782245609445",
+      "slug": "openai-gelismis-ai-icin-ortak-standartlar-insa-ediyor",
+      "title": "OpenAI, Gelişmiş AI için Ortak Standartlar İnşa Ediyor",
+      "summary": "OpenAI, gelişmiş yapay zeka için ortak standartların oluşturulmasına destek veriyor. Şirket, değerlendirme çerçeveleri, güvenlik pratikleri ve küresel iş birliğini Appia Foundation üzerinden desteklemeyi hedefliyor.",
+      "body": "OpenAI, gelişmiş yapay zeka sistemlerine yönelik ortak standartların oluşturulması için uluslararası düzeyde aktif bir rol üstlendiğini duyurdu. Şirket, bu çerçevede değerlendirme metodolojileri, güvenlik pratikleri ve küresel iş birliği mekanizmalarını desteklemek amacıyla Appia Foundation ile ortaklık kurduğunu açıkladı. Açıklama, AI güvenliğine ilişkin tartışmaların hız kazandığı ve farklı hükümetlerin düzenleyici çerçeve arayışında olduğu bir döneme denk geliyor.\n\nAppia Foundation, AI alanında faaliyet gösteren kuruluşlar arasında teknik standartların, test protokollerinin ve güvenlik değerlendirme çerçevelerinin paylaşılmasını kolaylaştırmak üzere kurulmuş bağımsız bir yapı olarak öne çıkıyor. OpenAI'ın bu yapıya verdiği destek; model değerlendirme yöntemleri, risk sınıflandırma protokolleri ve sektör genelinde kabul görebilecek güvenlik kıyaslama araçlarının geliştirilmesini kapsıyor. Şirketin bu hamlesi, benzer girişimlerde bulunan Anthropic ve Google DeepMind gibi büyük AI kuruluşlarının da dahil olduğu geniş bir konsorsiyum çabası olarak değerlendirilebilir.\n\nTeknik açıdan bakıldığında, söz konusu standartlaşma çalışması birkaç kritik alanı hedef alıyor. Bunların başında frontier model'lerin nasıl değerlendirileceğine dair ortak benchmark metodolojileri geliyor. Bunun yanı sıra, modellerin tehlikeli kullanımlara karşı ne ölçüde dirençli olduğunu ölçen red-teaming protokolleri ile model kartlarının ve şeffaflık raporlarının nasıl hazırlanacağına dair standartlar da bu çalışmanın kapsamında yer alıyor. Ayrıca ajans AI sistemlerinin nasıl denetleneceği ve güvenlik testlerinin hangi koşullar altında üçüncü taraflarca doğrulanabileceği de ele alınan başlıklar arasında bulunuyor. Tüm bu unsurlar, özellikle yüksek riskli sektörlerde AI kullanımını düzenlemeye çalışan hükümetler için kritik bir referans çerçevesi sunma potansiyeli taşıyor.\n\nBu gelişme, Türkiye'deki AI ekosistemi açısından birden fazla boyutta önem taşıyor. Türkiye, henüz kapsamlı bir yapay zeka düzenlemesine sahip olmamakla birlikte, Cumhurbaşkanlığı Dijital Dönüşüm Ofisi koordinasyonunda hazırlanan Ulusal Yapay Zeka Stratejisi çerçevesinde adımlar atmaya devam ediyor. Uluslararası standartların şekillendiği bu süreçte Türk kurumlarının, üniversitelerin ve özel sektör aktörlerinin bu platformlarla daha erken temas kurması hem düzenleyici uyum maliyetlerini düşürebilir hem de Türk AI ürünlerinin uluslararası pazarlara açılmasını kolaylaştırabilir. Appia Foundation gibi yapılar aracılığıyla oluşturulan ortak değerlendirme çerçeveleri, Türkiye merkezli AI girişimleri için uluslararası güvenilirlik kazanımında somut bir araç işlevi görebilir. Aynı zamanda Türk yazılım geliştiricileri ve araştırmacılar için bu standartların takip edilmesi, ilerleyen dönemde AB'nin AI Act gibi düzenlemelere uyum sürecinde kritik bir hazırlık avantajı sağlayacaktır. Sektör standartları belirlenirken masa başında olmak, sonradan uyum sağlamaktan çok daha stratejik bir konum sunuyor.",
+      "category": "trend",
+      "relatedLink": null,
+      "originalTitle": "Helping build shared standards for advanced AI",
+      "originalSummary": "OpenAI helps build shared standards for advanced AI, supporting evaluation frameworks, safety practices, and global cooperation through the Appia Foundation.",
+      "source": "OpenAI News",
+      "sourceUrl": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai",
+      "pubDate": "2026-06-23T13:00:00.000Z",
+      "fetchedAt": "2026-06-23T20:13:29.445Z",
+      "status": "published",
+      "publishedAt": "2026-06-24T00:47:44.380Z"
+    },
     {
       "id": "openai-news-gpt-5-3-yillik-immunoloji-gizemini-cozdu-1782245580165",
       "slug": "gpt-5-3-yillik-immunoloji-gizemini-cozdu",
