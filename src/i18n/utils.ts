@@ -27,6 +27,28 @@ export function getRouteFromUrl(url: URL): string {
 
 /** Returns the URL for the same page in another language. */
 export function getAlternateUrl(url: URL, targetLang: Lang): string {
+  const p = url.pathname;
+
+  // News list: /news ↔ /haberler (these don't follow the /tr/* convention)
+  if (p === '/news' || p === '/news/') {
+    return targetLang === 'tr' ? '/haberler' : '/news';
+  }
+  if (p === '/haberler' || p === '/haberler/') {
+    return targetLang === 'en' ? '/news' : '/haberler';
+  }
+
+  // News detail: /news/[slug] ↔ /haberler/[slug]
+  const newsDetail = p.match(/^\/news\/([^/]+)\/?$/);
+  if (newsDetail) {
+    const slug = newsDetail[1];
+    return targetLang === 'tr' ? `/haberler/${slug}/` : `/news/${slug}/`;
+  }
+  const haberlerDetail = p.match(/^\/haberler\/([^/]+)\/?$/);
+  if (haberlerDetail) {
+    const slug = haberlerDetail[1];
+    return targetLang === 'en' ? `/news/${slug}/` : `/haberler/${slug}/`;
+  }
+
   const route = getRouteFromUrl(url);
   if (targetLang === defaultLang) return route;
   return `/${targetLang}${route === '/' ? '' : route}`;
