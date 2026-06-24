@@ -68,9 +68,6 @@ function isToday(isoString) {
               {item.slug && (
                 <a href={`/news/${item.slug}/`} class="detail-link">Read more →</a>
               )}
-              <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="source-link">
-                Read source →
-              </a>
             </div>
           </article>
         ))}
@@ -223,24 +220,13 @@ function isToday(isoString) {
 
   .detail-link {
     font-size: 13px;
-    color: #0F0E0C;
+    color: #F47836;
     text-decoration: none;
     font-weight: 600;
   }
 
   .detail-link:hover {
-    color: #F47836;
-  }
-
-  .source-link {
-    font-size: 13px;
-    color: #F47836;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .source-link:hover {
-    text-decoration: underline;
+    color: #d9642a;
   }
 
   @media (max-width: 600px) {
