@@ -18,6 +18,8 @@ if (existsSync(NEWS_PATH)) {
   }
 }
 
+// Only show items with full EN content (slug_en + title_en + body_en)
+items = items.filter((item) => item.slug_en && item.title_en && item.body_en);
 items.sort((a, b) => new Date(b.publishedAt || b.pubDate).getTime() - new Date(a.publishedAt || a.pubDate).getTime());
 
 function formatDate(isoString) {
@@ -56,18 +58,12 @@ function isToday(isoString) {
               <span class="date">{formatDate(item.publishedAt || item.pubDate)}</span>
               <span class="source">{item.source}</span>
             </div>
-          {item.slug ? (
-              <a href={`/news/${item.slug}/`} class="news-title-link">
-                <h2 class="news-title">{item.originalTitle || item.title}</h2>
-              </a>
-            ) : (
-              <h2 class="news-title">{item.originalTitle || item.title}</h2>
-            )}
-            <p class="news-summary">{item.originalSummary || item.summary}</p>
+            <a href={`/news/${item.slug_en}/`} class="news-title-link">
+              <h2 class="news-title">{item.title_en}</h2>
+            </a>
+            <p class="news-summary">{item.summary_en}</p>
             <div class="card-actions">
-              {item.slug && (
-                <a href={`/news/${item.slug}/`} class="detail-link">Read more →</a>
-              )}
+              <a href={`/news/${item.slug_en}/`} class="detail-link">Read more →</a>
             </div>
           </article>
         ))}
