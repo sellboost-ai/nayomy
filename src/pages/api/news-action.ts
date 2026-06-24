@@ -60,7 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const body = await request.json();
-    const { action, id, title, summary, body: bodyText, category, relatedLink } = body;
+    const { action, id, title, summary, body: bodyText, title_en, summary_en, body_en, category, relatedLink } = body;
 
     if (!action || !id) {
       return new Response(JSON.stringify({ error: 'action ve id gerekli' }), {
@@ -88,8 +88,12 @@ export const POST: APIRoute = async ({ request }) => {
         title: title || item.title,
         summary: summary || item.summary,
         body: bodyText !== undefined ? bodyText : item.body,
+        title_en: title_en !== undefined ? title_en : item.title_en,
+        summary_en: summary_en !== undefined ? summary_en : item.summary_en,
+        body_en: body_en !== undefined ? body_en : item.body_en,
         category: category || item.category,
         relatedLink: relatedLink !== undefined ? relatedLink : item.relatedLink,
+        // slug and slug_en are never overwritten — taken from item as-is via ...item spread
         publishedAt: new Date().toISOString(),
         status: 'published',
       };
@@ -144,8 +148,12 @@ export const POST: APIRoute = async ({ request }) => {
         ...(title !== undefined && { title }),
         ...(summary !== undefined && { summary }),
         ...(bodyText !== undefined && { body: bodyText }),
+        ...(title_en !== undefined && { title_en }),
+        ...(summary_en !== undefined && { summary_en }),
+        ...(body_en !== undefined && { body_en }),
         ...(category !== undefined && { category }),
         ...(relatedLink !== undefined && { relatedLink }),
+        // slug and slug_en are intentionally excluded — never updated after creation
       };
       pending.json.updatedAt = new Date().toISOString();
 

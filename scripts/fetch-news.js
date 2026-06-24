@@ -194,47 +194,64 @@ function selectTopItems(allItems) {
 // ── Sonnet ile zengin taslak üret ────────────────────────────────────────
 
 function buildPrompt(item, catalogStr) {
-  return `Sen nayomy.com için Türkçe AI haber editörüsün. Aşağıdaki İngilizce haberi işle.
+  return `You are a bilingual AI news editor for nayomy.com. Process the following news item and produce BOTH a Turkish and an English version in a single JSON response.
 
-GÖREV:
-1. Özgün Türkçe başlık yaz (RSS başlığının birebir çevirisi DEĞİL, yeniden yazılmış, max 70 karakter)
-2. Kısa Türkçe özet: 2-3 cümle, liste sayfası için
-3. ZORUNLU: Türkçe gövde, kesinlikle 400-500 kelime arası. 400 kelimenin altına DÜŞME — bu en kritik kuraldır.
-4. Haberi şu üç kategoriden birine sınıflandır:
-   - "urun": yeni araç/model/özellik/kurs çıkışı
-   - "sirket": şirket hamlesi/anlaşma/işe alım/yatırım
-   - "trend": sektörel/politik/genel eğilim
-5. Varsa ilgili nayomy katalog linki
+SOURCE: ${item.source}
+ORIGINAL TITLE: ${item.title}
+CONTENT:
+${item.content.slice(0, 3000)}
 
-GÖVDE YAPISI (400-500 kelime, doldurmayı değil derinliği hedefle):
-Bölüm 1 — Haber özeti (2 paragraf): Haberin ne olduğunu, kim yaptığını, ne zaman açıklandığını aktar.
-Bölüm 2 — Teknik/iş detayı (1-2 paragraf): Özellikler, rakamlar, karşılaştırmalar, bağlam.
-Bölüm 3 — Perspektif paragrafı (ZORUNLU, en az 100 kelime, kategoriye göre):
-  * "urun" → "Türk geliştiriciler için ne anlama geliyor?" + "nasıl kullanmaya başlanır?" somut adımlar
-  * "sirket" → "Bu hamle sektörde ne değiştirir?" + rakip dinamikleri + piyasa etkisi analizi
-  * "trend" → "Türkiye bu eğilimde nerede duruyor?" + Türk ekosistemi için somut fırsatlar/riskler
-Kural: Teknik terimler İngilizce kalsın. Spekülasyon yok. "Sessizce yayınladı", "ezber bozdu" gibi abartı yok.
+─── TURKISH OUTPUT (fields: title, summary, body) ───
+1. title: Original Turkish headline — rewritten, NOT a literal translation, max 70 chars
+2. summary: 2-3 sentence Turkish summary for the list page
+3. body: MANDATORY 400-500 Turkish words. Do NOT go below 400 — this is the most critical rule.
 
-İÇ LİNK KURALI (KRİTİK):
-Aşağıda nayomy.com katalog listesi var (isim → /yol/). Haberle DOĞRUDAN ilgili bir kayıt varsa relatedLink'e o yolu koy. Yoksa null bırak.
-ASLA zorla bağlantı kurma, ASLA listede olmayan bir yol uydurma.
+Turkish body structure (depth over padding):
+Section 1 — News summary (2 paragraphs): what happened, who, when.
+Section 2 — Technical/business detail (1-2 paragraphs): features, numbers, comparisons, context.
+Section 3 — Perspective paragraph (MANDATORY, min 100 words, by category):
+  * "urun" → "Türk geliştiriciler için ne anlama geliyor?" + concrete getting-started steps
+  * "sirket" → "Bu hamle sektörde ne değiştirir?" + competitor dynamics + market impact
+  * "trend" → "Türkiye bu eğilimde nerede duruyor?" + concrete opportunities/risks for Turkish ecosystem
+Rule: Keep technical terms in English. No speculation. No hype ("devrim yarattı", "ezber bozdu").
 
-KATALOG (top kayıtlar, yıldıza göre):
+─── ENGLISH OUTPUT (fields: title_en, summary_en, body_en) ───
+1. title_en: Rewritten English headline (not the raw RSS title, not a back-translation from Turkish), max 80 chars
+2. summary_en: 2-3 sentence English summary for the list page
+3. body_en: MANDATORY minimum 300 English words. Write directly from the original source — NOT a translation of the Turkish body.
+
+English body structure:
+Section 1 — News summary (2 paragraphs): what happened, who, when.
+Section 2 — Technical/business detail (1-2 paragraphs): features, numbers, comparisons, context.
+Section 3 — Perspective paragraph (MANDATORY, min 80 words, by category):
+  * "urun" → "What this means for developers globally" + concrete getting-started steps
+  * "sirket" → "What this move changes in the industry" + competitor dynamics + market impact
+  * "trend" → "Where the global AI ecosystem stands on this" + concrete opportunities/risks
+Rule: Keep technical terms as-is. No speculation. No hype.
+
+─── CLASSIFICATION & LINK ───
+category: classify into exactly one:
+  - "urun": new tool/model/feature/course launch
+  - "sirket": company move/deal/hiring/investment
+  - "trend": industry/policy/general trend
+
+relatedLink: nayomy.com catalog below (name → /path/). Use the path ONLY if DIRECTLY relevant. Otherwise null.
+NEVER invent a path not in the list. NEVER force a connection.
+
+CATALOG (top entries by stars):
 ${catalogStr}
 
-ÇIKTI: SADECE JSON, markdown fence olmadan, başka hiçbir şey yazma:
+OUTPUT: ONLY valid JSON, no markdown fences, nothing else:
 {
-  "title": "Türkçe başlık",
-  "summary": "2-3 cümle özet",
-  "body": "400-500 kelime Türkçe gövde",
+  "title": "Turkish headline",
+  "summary": "Turkish 2-3 sentence summary",
+  "body": "Turkish 400-500 word body",
+  "title_en": "English headline",
+  "summary_en": "English 2-3 sentence summary",
+  "body_en": "English 300+ word body",
   "category": "urun|sirket|trend",
-  "relatedLink": "/mcp/slug/ veya null"
-}
-
-KAYNAK: ${item.source}
-ORİJİNAL BAŞLIK: ${item.title}
-İÇERİK:
-${item.content.slice(0, 3000)}`;
+  "relatedLink": "/path/ or null"
+}`;
 }
 
 function extractJson(text) {
@@ -252,7 +269,7 @@ function extractJson(text) {
 async function callSonnet(prompt) {
   const response = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 3000,
+    max_tokens: 4500,
     messages: [{ role: 'user', content: prompt }],
   });
   return response.content[0].text;
@@ -380,25 +397,34 @@ async function main() {
 
       const slug = makeNewsSlug(result.title, usedSlugs);
       usedSlugs.add(slug);
+      // slug_en: use title_en if Sonnet produced one, otherwise fall back to originalTitle
+      const enSlugBase = result.title_en || item.title;
+      const slug_en = makeNewsSlug(enSlugBase, usedSlugs);
+      usedSlugs.add(slug_en);
 
       const id = `${slugify(item.source)}-${slug}-${Date.now()}`;
       drafts.push({
         id,
         slug,
+        slug_en,
         title: result.title,
         summary: result.summary,
         body: result.body,
+        title_en: result.title_en || item.title,
+        summary_en: result.summary_en || '',
+        body_en: result.body_en || '',
         category: result.category,
         relatedLink: result.relatedLink ?? null,
         originalTitle: item.title,
-        originalSummary: item.content.slice(0, 800),
         source: item.source,
         sourceUrl: item.link,
         pubDate: item.pubDate,
         fetchedAt: new Date().toISOString(),
         status: 'pending',
       });
-      console.log(`✓ [${result.category}]${result.relatedLink ? ' 🔗' : ''}`);
+      const enWords = result.body_en ? result.body_en.split(/\s+/).length : 0;
+      const trWords = result.body ? result.body.split(/\s+/).length : 0;
+      console.log(`✓ [${result.category}] TR:${trWords}w EN:${enWords}w${result.relatedLink ? ' 🔗' : ''}`);
     } catch (e) {
       console.log(`❌ ${e.message}`);
     }
