@@ -1,0 +1,54 @@
+{
+  "redirects": [
+    {
+      "source": "/news/gpt-5-3-yillik-immunoloji-gizemini-cozdu/",
+      "destination": "/news/gpt-5-cracked-an-immunologist-s-3-year-research-mystery/",
+      "permanent": true
+    },
+    {
+      "source": "/news/gpt-5-3-yillik-immunoloji-gizemini-cozdu",
+      "destination": "/news/gpt-5-cracked-an-immunologist-s-3-year-research-mystery/",
+      "permanent": true
+    },
+    {
+      "source": "/news/omio-openai-ile-konusmali-seyahat-deneyimini-nasil-insa-ediyor/",
+      "destination": "/news/omio-bets-on-openai-to-reinvent-how-europe-books-travel/",
+      "permanent": true
+    },
+    {
+      "source": "/news/omio-openai-ile-konusmali-seyahat-deneyimini-nasil-insa-ediyor",
+      "destination": "/news/omio-bets-on-openai-to-reinvent-how-europe-books-travel/",
+      "permanent": true
+    },
+    {
+      "source": "/news/coinbase-cursor-ile-fikrden-uretime-gecis-suresini-yuzde-90-kisaltti/",
+      "destination": "/news/coinbase-cuts-dev-cycle-by-90-using-cursor-s-agent-first-model/",
+      "permanent": true
+    },
+    {
+      "source": "/news/coinbase-cursor-ile-fikrden-uretime-gecis-suresini-yuzde-90-kisaltti",
+      "destination": "/news/coinbase-cuts-dev-cycle-by-90-using-cursor-s-agent-first-model/",
+      "permanent": true
+    },
+    {
+      "source": "/news/ibm-den-cuga-agent-uygulamalari-icin-hafif-acik-kaynak-harness/",
+      "destination": "/news/ibm-research-releases-cuga-24-ready-to-run-agentic-app-examples/",
+      "permanent": true
+    },
+    {
+      "source": "/news/ibm-den-cuga-agent-uygulamalari-icin-hafif-acik-kaynak-harness",
+      "destination": "/news/ibm-research-releases-cuga-24-ready-to-run-agentic-app-examples/",
+      "permanent": true
+    },
+    {
+      "source": "/news/openai-gelismis-ai-icin-ortak-standartlar-insa-ediyor/",
+      "destination": "/news/openai-backs-appia-foundation-to-set-global-ai-safety-standards/",
+      "permanent": true
+    },
+    {
+      "source": "/news/openai-gelismis-ai-icin-ortak-standartlar-insa-ediyor",
+      "destination": "/news/openai-backs-appia-foundation-to-set-global-ai-safety-standards/",
+      "permanent": true
+    }
+  ]
+}
