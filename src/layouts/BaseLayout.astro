@@ -14,6 +14,12 @@ interface Props {
   /** Site-relative or absolute URL. Defaults to /og-default.svg. */
   ogImage?: string;
   jsonLd?: Record<string, unknown>;
+  /** Override computed canonical URL (absolute). Use for pages that break /tr/* convention. */
+  canonicalUrl?: string;
+  /** Override computed EN hreflang URL (absolute). */
+  hreflangEn?: string;
+  /** Override computed TR hreflang URL (absolute). */
+  hreflangTr?: string;
 }
 
 const {
@@ -24,13 +30,16 @@ const {
   ogType = 'website',
   ogImage = '/og-default.svg',
   jsonLd,
+  canonicalUrl: canonicalOverride,
+  hreflangEn: hreflangEnOverride,
+  hreflangTr: hreflangTrOverride,
 } = Astro.props;
 
 const SITE = 'https://nayomy.com';
 const route    = getRouteFromUrl(Astro.url);
 const hrefEn   = route;
 const hrefTr   = `/tr${route === '/' ? '' : route}`;
-const canonical = lang === 'tr' ? `${SITE}${hrefTr}` : `${SITE}${hrefEn}`;
+const canonical = canonicalOverride ?? (lang === 'tr' ? `${SITE}${hrefTr}` : `${SITE}${hrefEn}`);
 const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${SITE}${ogImage}`;
 const ogLocale = lang === 'tr' ? 'tr_TR' : 'en_US';
 const ogLocaleAlt = lang === 'tr' ? 'en_US' : 'tr_TR';
@@ -58,9 +67,9 @@ const ogLocaleAlt = lang === 'tr' ? 'en_US' : 'tr_TR';
   <meta name="twitter:description"   content={description} />
   <meta name="twitter:image"         content={ogImageAbsolute} />
   <link rel="canonical"           href={canonical} />
-  <link rel="alternate" hreflang="en"        href={`${SITE}${hrefEn}`} />
-  <link rel="alternate" hreflang="tr"        href={`${SITE}${hrefTr}`} />
-  <link rel="alternate" hreflang="x-default" href={`${SITE}${hrefEn}`} />
+  <link rel="alternate" hreflang="en"        href={hreflangEnOverride ?? `${SITE}${hrefEn}`} />
+  <link rel="alternate" hreflang="tr"        href={hreflangTrOverride ?? `${SITE}${hrefTr}`} />
+  <link rel="alternate" hreflang="x-default" href={hreflangEnOverride ?? `${SITE}${hrefEn}`} />
   {jsonLd && (
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   )}

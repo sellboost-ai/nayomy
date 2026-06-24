@@ -47,6 +47,9 @@ const displayDate = formatDate(item.publishedAt || item.pubDate);
   title={`${item.title_en} — Nayomy`}
   description={item.summary_en}
   lang="en"
+  canonicalUrl={`https://nayomy.com/news/${item.slug_en}/`}
+  hreflangEn={`https://nayomy.com/news/${item.slug_en}/`}
+  hreflangTr={`https://nayomy.com/haberler/${item.slug}/`}
 >
   <main class="article-container">
     <div class="breadcrumb">

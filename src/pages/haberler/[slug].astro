@@ -49,6 +49,9 @@ const bodyContent = item.body || item.summary;
   title={`${item.title} — Nayomy`}
   description={item.summary}
   lang="tr"
+  canonicalUrl={`https://nayomy.com/haberler/${item.slug}/`}
+  hreflangEn={item.slug_en ? `https://nayomy.com/news/${item.slug_en}/` : undefined}
+  hreflangTr={`https://nayomy.com/haberler/${item.slug}/`}
 >
   <main class="article-container">
     <div class="breadcrumb">
